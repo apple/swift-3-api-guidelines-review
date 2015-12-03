@@ -276,6 +276,7 @@
 		3EFC7DA318FB08C90012B60F /* ListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC7D9B18FB08C90012B60F /* ListTableView.swift */; };
 		3EFC7DA418FB08C90012B60F /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC7D9C18FB08C90012B60F /* ListItemView.swift */; };
 		3EFC7DA618FB08C90012B60F /* ResizingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC7D9E18FB08C90012B60F /* ResizingTextField.swift */; };
+		BD2701371C101EE800A85638 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BD2701361C101EE800A85638 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -633,7 +634,6 @@
 		16AF5213191FF94B0088ED08 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckBox.swift; path = ../ListerKit/CheckBox.swift; sourceTree = "<group>"; };
 		16AF9FD11987FEA3008CAA4C /* LocalListCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalListCoordinator.swift; sourceTree = "<group>"; };
 		16AF9FD5198864DA008CAA4C /* CloudListCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudListCoordinator.swift; sourceTree = "<group>"; };
-		16BB13ED1B82AFCE006E0F7C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		16C8CB3C1986C2D100F8BCFE /* ListsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ListsController.swift; path = ../ListerKit/ListsController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		16CBDAA718F6EE3A00233D3C /* Lister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16CBDAAB18F6EE3A00233D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -783,6 +783,7 @@
 		3EFC7D9D18FB08C90012B60F /* NSColor+AppSpecific.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+AppSpecific.swift"; sourceTree = "<group>"; };
 		3EFC7D9E18FB08C90012B60F /* ResizingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResizingTextField.swift; sourceTree = "<group>"; };
 		55BB61D41A13C7C3001BE161 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BD2701361C101EE800A85638 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1112,7 +1113,7 @@
 		16CBDA9E18F6EE3A00233D3C = {
 			isa = PBXGroup;
 			children = (
-				16BB13ED1B82AFCE006E0F7C /* README.md */,
+				BD2701361C101EE800A85638 /* README.md */,
 				16CBDAA918F6EE3A00233D3C /* Lister iOS App */,
 				55EEFA841A1A5C9A00172D58 /* Lister WatchKit App */,
 				16E63F251B12802C001D63DF /* Shared Lister WatchKit Code */,
@@ -2470,6 +2471,7 @@
 				1686A96318FCBA9900112572 /* NewListDocumentController.swift in Sources */,
 				1682F5F818F8ACD9000B87A6 /* ListItemCell.swift in Sources */,
 				16DAC8AD18F9BB5400251E9D /* ListColorCell.swift in Sources */,
+				BD2701371C101EE800A85638 /* README.md in Sources */,
 				16CBDAAF18F6EE3A00233D3C /* AppDelegate.swift in Sources */,
 				1674D9E118F752960019FF77 /* ListViewController.swift in Sources */,
 			);
