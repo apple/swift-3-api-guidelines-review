@@ -68,7 +68,7 @@ class WKInterfaceController : NSObject {
   var contentFrame: CGRect { get }
   func willActivate()
   func didDeactivate()
-  func table(table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int)
+  func table(table: WKInterfaceTable, didSelectRowAt rowIndex: Int)
   func handleActionWithIdentifier(identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject])
   func handleActionWithIdentifier(identifier: String?, forLocalNotification localNotification: UILocalNotification)
   func handleUserActivity(userInfo: [NSObject : AnyObject]?)
@@ -86,16 +86,16 @@ class WKInterfaceController : NSObject {
   func dismissTextInputController()
   func contextForSegueWithIdentifier(segueIdentifier: String) -> AnyObject?
   func contextsForSegueWithIdentifier(segueIdentifier: String) -> [AnyObject]?
-  func contextForSegueWithIdentifier(segueIdentifier: String, inTable table: WKInterfaceTable, rowIndex: Int) -> AnyObject?
-  func contextsForSegueWithIdentifier(segueIdentifier: String, inTable table: WKInterfaceTable, rowIndex: Int) -> [AnyObject]?
-  func addMenuItemWithImage(image: UIImage, title: String, action: Selector)
+  func contextForSegueWithIdentifier(segueIdentifier: String, `in` table: WKInterfaceTable, rowIndex: Int) -> AnyObject?
+  func contextsForSegueWithIdentifier(segueIdentifier: String, `in` table: WKInterfaceTable, rowIndex: Int) -> [AnyObject]?
+  func addMenuItemWith(image: UIImage, title: String, action: Selector)
   func addMenuItemWithImageNamed(imageName: String, title: String, action: Selector)
-  func addMenuItemWithItemIcon(itemIcon: WKMenuItemIcon, title: String, action: Selector)
+  func addMenuItemWith(itemIcon: WKMenuItemIcon, title: String, action: Selector)
   func clearAllMenuItems()
   func updateUserActivity(type: String, userInfo: [NSObject : AnyObject]?, webpageURL: NSURL?)
   func invalidateUserActivity()
   @available(iOS 8.2, *)
-  class func openParentApplication(userInfo: [NSObject : AnyObject], reply: (([NSObject : AnyObject], NSError?) -> Void)?) -> Bool
+  class func openParentApplication(userInfo: [NSObject : AnyObject], reply: (([NSObject : AnyObject], NSError?) -> Void)? = nil) -> Bool
 }
 
 @available(iOS 8.2, *)
@@ -107,7 +107,7 @@ extension WKInterfaceController {
 class WKUserNotificationInterfaceController : WKInterfaceController {
   init()
   func didReceiveRemoteNotification(remoteNotification: [NSObject : AnyObject], withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
-  func didReceiveLocalNotification(localNotification: UILocalNotification, withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
+  func didReceive(localNotification: UILocalNotification, withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
 }
 @available(iOS 8.2, *)
 class WKInterfaceDate : WKInterfaceObject {
@@ -116,11 +116,11 @@ class WKInterfaceDate : WKInterfaceObject {
   func setCalendar(calendar: NSCalendar?)
 }
 class WKInterfaceDevice : NSObject {
-  class func currentDevice() -> WKInterfaceDevice
+  class func current() -> WKInterfaceDevice
   @available(iOS 8.2, *)
   func addCachedImage(image: UIImage, name: String) -> Bool
   @available(iOS 8.2, *)
-  func addCachedImageWithData(imageData: NSData, name: String) -> Bool
+  func addCachedImageWith(imageData: NSData, name: String) -> Bool
   @available(iOS 8.2, *)
   func removeCachedImageWithName(name: String)
   @available(iOS 8.2, *)
@@ -151,13 +151,13 @@ class WKInterfaceGroup : WKInterfaceObject, WKImageAnimatable {
   @available(iOS 8.2, *)
   func startAnimating()
   @available(iOS 8.2, *)
-  func startAnimatingWithImagesInRange(imageRange: NSRange, duration: NSTimeInterval, repeatCount: Int)
+  func startAnimatingWithImagesIn(imageRange: NSRange, duration: NSTimeInterval, repeatCount: Int)
   @available(iOS 8.2, *)
   func stopAnimating()
 }
 protocol WKImageAnimatable : NSObjectProtocol {
   func startAnimating()
-  func startAnimatingWithImagesInRange(imageRange: NSRange, duration: NSTimeInterval, repeatCount: Int)
+  func startAnimatingWithImagesIn(imageRange: NSRange, duration: NSTimeInterval, repeatCount: Int)
   func stopAnimating()
 }
 @available(iOS 8.2, *)
@@ -169,7 +169,7 @@ class WKInterfaceImage : WKInterfaceObject, WKImageAnimatable {
   @available(iOS 8.2, *)
   func startAnimating()
   @available(iOS 8.2, *)
-  func startAnimatingWithImagesInRange(imageRange: NSRange, duration: NSTimeInterval, repeatCount: Int)
+  func startAnimatingWithImagesIn(imageRange: NSRange, duration: NSTimeInterval, repeatCount: Int)
   @available(iOS 8.2, *)
   func stopAnimating()
 }
@@ -244,10 +244,10 @@ class WKInterfaceTable : WKInterfaceObject {
   func setRowTypes(rowTypes: [String])
   func setNumberOfRows(numberOfRows: Int, withRowType rowType: String)
   var numberOfRows: Int { get }
-  func rowControllerAtIndex(index: Int) -> AnyObject?
-  func insertRowsAtIndexes(rows: NSIndexSet, withRowType rowType: String)
-  func removeRowsAtIndexes(rows: NSIndexSet)
-  func scrollToRowAtIndex(index: Int)
+  func rowControllerAt(index: Int) -> AnyObject?
+  func insertRowsAt(rows: NSIndexSet, withRowType rowType: String)
+  func removeRowsAt(rows: NSIndexSet)
+  func scrollToRowAt(index: Int)
 }
 @available(iOS 8.2, *)
 class WKInterfaceTimer : WKInterfaceObject {

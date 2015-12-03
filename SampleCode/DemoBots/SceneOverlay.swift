@@ -34,7 +34,7 @@ class SceneOverlay {
         backgroundNode.addChild(contentNode)
         
         // Set the content node to a clear color to allow the background node to be seen through it.
-        contentNode.color = .clearColor()
+        contentNode.color = .clear()
         
         // Store the current size of the content to allow it to be scaled correctly.
         nativeContentSize = contentNode.size

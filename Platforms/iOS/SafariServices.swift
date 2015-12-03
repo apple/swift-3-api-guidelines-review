@@ -11,7 +11,7 @@ enum SFContentBlockerErrorCode : Int {
 }
 @available(iOS 9.0, *)
 class SFContentBlockerManager : NSObject {
-  class func reloadContentBlockerWithIdentifier(identifier: String, completionHandler: ((NSError?) -> Void)?)
+  class func reloadContentBlockerWithIdentifier(identifier: String, completionHandler: ((NSError?) -> Void)? = nil)
   init()
 }
 
@@ -31,12 +31,12 @@ class SFSafariViewController : UIViewController {
       @param entersReaderIfAvailable indicates if the Safari Reader version of content should be shown automatically
       when Safari Reader is available on a web page
    */
-  init(URL: NSURL, entersReaderIfAvailable: Bool)
+  init(url URL: NSURL, entersReaderIfAvailable: Bool)
 
   /*! @abstract Returns a view controller that loads a URL.
       @param URL, the URL to navigate to.
    */
-  convenience init(URL: NSURL)
+  convenience init(url URL: NSURL)
 }
 @available(iOS 9.0, *)
 protocol SFSafariViewControllerDelegate : NSObjectProtocol {
@@ -46,7 +46,7 @@ protocol SFSafariViewControllerDelegate : NSObjectProtocol {
       @param title, the title of the web page.
       @result Returns an array of UIActivity instances that will be appended to UIActivityViewController.
    */
-  optional func safariViewController(controller: SFSafariViewController, activityItemsForURL URL: NSURL, title: String?) -> [UIActivity]
+  optional func safariViewController(controller: SFSafariViewController, activityItemsFor URL: NSURL, title: String?) -> [UIActivity]
 
   /*! @abstract Delegate callback called when the user taps the Done button. Upon this call, the view controller is dismissed modally. */
   optional func safariViewControllerDidFinish(controller: SFSafariViewController)
@@ -92,7 +92,7 @@ class SSReadingList : NSObject {
       @discussion Only URLs with http:// or https:// schemes are supported by Reading List.
   */
   @available(iOS 7.0, *)
-  func addReadingListItemWithURL(URL: NSURL, title: String?, previewText: String?) throws
+  func addReadingListItemWith(URL: NSURL, title: String?, previewText: String?) throws
 }
 @available(iOS 7.0, *)
 let SSReadingListErrorDomain: String

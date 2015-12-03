@@ -95,9 +95,9 @@ struct LevelConfiguration {
     init(fileName: String) {
         self.fileName = fileName
         
-        let url = NSBundle.mainBundle().URLForResource(fileName, withExtension: "plist")!
+        let url = NSBundle.main().urlForResource(fileName, withExtension: "plist")!
 
-        configurationInfo = NSDictionary(contentsOfURL: url) as! [String: AnyObject]
+        configurationInfo = NSDictionary(contentsOf: url) as! [String: AnyObject]
         
         // Extract the data for every `TaskBot` in this level as an array of `TaskBotConfiguration` values.
         let botConfigurations = configurationInfo["taskBotConfigurations"] as! [[String: AnyObject]]

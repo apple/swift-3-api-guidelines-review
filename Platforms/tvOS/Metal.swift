@@ -120,7 +120,7 @@ class MTLArrayType : NSObject {
   var elementType: MTLDataType { get }
   var stride: Int { get }
   func elementStructType() -> MTLStructType?
-  func elementArrayType() -> MTLArrayType?
+  func element() -> MTLArrayType?
   init()
 }
 
@@ -133,7 +133,7 @@ class MTLArgument : NSObject {
   var type: MTLArgumentType { get }
   var access: MTLArgumentAccess { get }
   var index: Int { get }
-  var active: Bool { get }
+  var isActive: Bool { get }
   var bufferAlignment: Int { get }
   var bufferDataSize: Int { get }
   var bufferDataType: MTLDataType { get }
@@ -171,51 +171,51 @@ protocol MTLBlitCommandEncoder : MTLCommandEncoder {
    @method copyFromTexture:sourceSlice:sourceLevel:sourceOrigin:sourceSize:toTexture:destinationSlice:destinationLevel:destinationOrigin:
    @abstract Copy a rectangle of pixels between textures.
    */
-  func copyFromTexture(sourceTexture: MTLTexture, sourceSlice: Int, sourceLevel: Int, sourceOrigin: MTLOrigin, sourceSize: MTLSize, toTexture destinationTexture: MTLTexture, destinationSlice: Int, destinationLevel: Int, destinationOrigin: MTLOrigin)
+  func copyFrom(sourceTexture: MTLTexture, sourceSlice: Int, sourceLevel: Int, sourceOrigin: MTLOrigin, sourceSize: MTLSize, to destinationTexture: MTLTexture, destinationSlice: Int, destinationLevel: Int, destinationOrigin: MTLOrigin)
 
   /*!
    @method copyFromBuffer:sourceOffset:sourceBytesPerRow:sourceBytesPerImage:sourceSize:toTexture:destinationSlice:destinationLevel:destinationOrigin:
    @abstract Copy an image from a buffer into a texture.
    */
-  func copyFromBuffer(sourceBuffer: MTLBuffer, sourceOffset: Int, sourceBytesPerRow: Int, sourceBytesPerImage: Int, sourceSize: MTLSize, toTexture destinationTexture: MTLTexture, destinationSlice: Int, destinationLevel: Int, destinationOrigin: MTLOrigin)
+  func copyFrom(sourceBuffer: MTLBuffer, sourceOffset: Int, sourceBytesPerRow: Int, sourceBytesPerImage: Int, sourceSize: MTLSize, to destinationTexture: MTLTexture, destinationSlice: Int, destinationLevel: Int, destinationOrigin: MTLOrigin)
 
   /*!
    @method copyFromBuffer:sourceOffset:sourceBytesPerRow:sourceBytesPerImage:sourceSize:toTexture:destinationSlice:destinationLevel:destinationOrigin:options:
    @abstract Copy an image from a buffer into a texture.
    */
   @available(tvOS 9.0, *)
-  func copyFromBuffer(sourceBuffer: MTLBuffer, sourceOffset: Int, sourceBytesPerRow: Int, sourceBytesPerImage: Int, sourceSize: MTLSize, toTexture destinationTexture: MTLTexture, destinationSlice: Int, destinationLevel: Int, destinationOrigin: MTLOrigin, options: MTLBlitOption)
+  func copyFrom(sourceBuffer: MTLBuffer, sourceOffset: Int, sourceBytesPerRow: Int, sourceBytesPerImage: Int, sourceSize: MTLSize, to destinationTexture: MTLTexture, destinationSlice: Int, destinationLevel: Int, destinationOrigin: MTLOrigin, options: MTLBlitOption)
 
   /*!
    @method copyFromTexture:sourceSlice:sourceLevel:sourceOrigin:sourceSize:toBuffer:destinationOffset:destinationBytesPerRow:destinationBytesPerImage:
    @abstract Copy an image from a texture into a buffer.
    */
-  func copyFromTexture(sourceTexture: MTLTexture, sourceSlice: Int, sourceLevel: Int, sourceOrigin: MTLOrigin, sourceSize: MTLSize, toBuffer destinationBuffer: MTLBuffer, destinationOffset: Int, destinationBytesPerRow: Int, destinationBytesPerImage: Int)
+  func copyFrom(sourceTexture: MTLTexture, sourceSlice: Int, sourceLevel: Int, sourceOrigin: MTLOrigin, sourceSize: MTLSize, to destinationBuffer: MTLBuffer, destinationOffset: Int, destinationBytesPerRow: Int, destinationBytesPerImage: Int)
 
   /*!
    @method copyFromTexture:sourceSlice:sourceLevel:sourceOrigin:sourceSize:sourceOptions:toBuffer:destinationOffset:destinationBytesPerRow:destinationBytesPerImage:options:
    @abstract Copy an image from a texture into a buffer.
    */
   @available(tvOS 9.0, *)
-  func copyFromTexture(sourceTexture: MTLTexture, sourceSlice: Int, sourceLevel: Int, sourceOrigin: MTLOrigin, sourceSize: MTLSize, toBuffer destinationBuffer: MTLBuffer, destinationOffset: Int, destinationBytesPerRow: Int, destinationBytesPerImage: Int, options: MTLBlitOption)
+  func copyFrom(sourceTexture: MTLTexture, sourceSlice: Int, sourceLevel: Int, sourceOrigin: MTLOrigin, sourceSize: MTLSize, to destinationBuffer: MTLBuffer, destinationOffset: Int, destinationBytesPerRow: Int, destinationBytesPerImage: Int, options: MTLBlitOption)
 
   /*!
    @method generateMipmapsForTexture:
    @abstract Generate mipmaps for a texture from the base level up to the max level.
    */
-  func generateMipmapsForTexture(texture: MTLTexture)
+  func generateMipmapsFor(texture: MTLTexture)
 
   /*!
    @method fillBuffer:range:value:
    @abstract Fill a buffer with a fixed value in each byte.
    */
-  func fillBuffer(buffer: MTLBuffer, range: NSRange, value: UInt8)
+  func fill(buffer: MTLBuffer, range: NSRange, value: UInt8)
 
   /*!
    @method copyFromBuffer:sourceOffset:toBuffer:destinationOffset:size:
    @abstract Basic memory copy between buffers.
    */
-  func copyFromBuffer(sourceBuffer: MTLBuffer, sourceOffset: Int, toBuffer destinationBuffer: MTLBuffer, destinationOffset: Int, size: Int)
+  func copyFrom(sourceBuffer: MTLBuffer, sourceOffset: Int, to destinationBuffer: MTLBuffer, destinationOffset: Int, size: Int)
 }
 
 /*!
@@ -249,7 +249,7 @@ protocol MTLBuffer : MTLResource {
    @abstract Create a 2D texture that shares storage with this buffer.
   */
   @available(tvOS 8.0, *)
-  func newTextureWithDescriptor(descriptor: MTLTextureDescriptor, offset: Int, bytesPerRow: Int) -> MTLTexture
+  func newTextureWith(descriptor: MTLTextureDescriptor, offset: Int, bytesPerRow: Int) -> MTLTexture
 }
 
 /*!
@@ -373,13 +373,13 @@ protocol MTLCommandBuffer : NSObjectProtocol {
    @method presentDrawable:
    @abstract Add a drawable present that will be invoked when this command buffer has been scheduled for execution.
    */
-  func presentDrawable(drawable: MTLDrawable)
+  func present(drawable: MTLDrawable)
 
   /*!
    @method presentDrawable:atTime:
    @abstract Add a drawable present for a specific host time that will be invoked when this command buffer has been scheduled for execution.
    */
-  func presentDrawable(drawable: MTLDrawable, atTime presentationTime: CFTimeInterval)
+  func present(drawable: MTLDrawable, atTime presentationTime: CFTimeInterval)
 
   /*!
    @method waitUntilScheduled
@@ -421,7 +421,7 @@ protocol MTLCommandBuffer : NSObjectProtocol {
    @method renderCommandEncoderWithFramebuffer:
    @abstract returns a render command endcoder to encode into this command buffer.
    */
-  func renderCommandEncoderWithDescriptor(renderPassDescriptor: MTLRenderPassDescriptor) -> MTLRenderCommandEncoder
+  func renderCommandEncoderWith(renderPassDescriptor: MTLRenderPassDescriptor) -> MTLRenderCommandEncoder
 
   /*!
    @method computeCommandEncoder
@@ -433,7 +433,7 @@ protocol MTLCommandBuffer : NSObjectProtocol {
    @method parallelRenderCommandEncoderWithFramebuffer:
    @abstract returns a parallel render pass encoder to encode into this command buffer.
    */
-  func parallelRenderCommandEncoderWithDescriptor(renderPassDescriptor: MTLRenderPassDescriptor) -> MTLParallelRenderCommandEncoder
+  func parallelRenderCommandEncoderWith(renderPassDescriptor: MTLRenderPassDescriptor) -> MTLParallelRenderCommandEncoder
 }
 
 /*!
@@ -537,20 +537,20 @@ protocol MTLComputeCommandEncoder : MTLCommandEncoder {
    @brief Set the data (by copy) for a given buffer binding point.  This will remove any existing MTLBuffer from the binding point.
    */
   @available(tvOS 8.3, *)
-  func setBytes(bytes: UnsafePointer<Void>, length: Int, atIndex index: Int)
+  func setBytes(bytes: UnsafePointer<Void>, length: Int, at index: Int)
 
   /*!
    @method setBuffer:offset:atIndex:
    @brief Set a global buffer for all compute kernels at the given bind point index.
    */
-  func setBuffer(buffer: MTLBuffer?, offset: Int, atIndex index: Int)
+  func setBuffer(buffer: MTLBuffer?, offset: Int, at index: Int)
 
   /*!
    @method setBufferOffset:atIndex:
    @brief Set the offset within the current global buffer for all compute kernels at the given bind point index.
    */
   @available(tvOS 8.3, *)
-  func setBufferOffset(offset: Int, atIndex index: Int)
+  func setBufferOffset(offset: Int, at index: Int)
 
   /*!
    @method setBuffers:offsets:withRange:
@@ -562,7 +562,7 @@ protocol MTLComputeCommandEncoder : MTLCommandEncoder {
    @method setTexture:atIndex:
    @brief Set a global texture for all compute kernels at the given bind point index.
    */
-  func setTexture(texture: MTLTexture?, atIndex index: Int)
+  func setTexture(texture: MTLTexture?, at index: Int)
 
   /*!
    @method setTextures:withRange:
@@ -574,7 +574,7 @@ protocol MTLComputeCommandEncoder : MTLCommandEncoder {
    @method setSamplerState:atIndex:
    @brief Set a global sampler for all compute kernels at the given bind point index.
    */
-  func setSamplerState(sampler: MTLSamplerState?, atIndex index: Int)
+  func setSamplerState(sampler: MTLSamplerState?, at index: Int)
 
   /*!
    @method setSamplers:withRange:
@@ -586,7 +586,7 @@ protocol MTLComputeCommandEncoder : MTLCommandEncoder {
    @method setSamplerState:lodMinClamp:lodMaxClamp:atIndex:
    @brief Set a global sampler for all compute kernels at the given bind point index.
    */
-  func setSamplerState(sampler: MTLSamplerState?, lodMinClamp: Float, lodMaxClamp: Float, atIndex index: Int)
+  func setSamplerState(sampler: MTLSamplerState?, lodMinClamp: Float, lodMaxClamp: Float, at index: Int)
 
   /*!
    @method setSamplers:lodMinClamps:lodMaxClamps:withRange:
@@ -598,7 +598,7 @@ protocol MTLComputeCommandEncoder : MTLCommandEncoder {
    @method setThreadgroupMemoryLength:atIndex:
    @brief Set the threadgroup memory byte length at the binding point specified by the index. This applies to all compute kernels.
    */
-  func setThreadgroupMemoryLength(length: Int, atIndex index: Int)
+  func setThreadgroupMemoryLength(length: Int, at index: Int)
   func dispatchThreadgroups(threadgroupsPerGrid: MTLSize, threadsPerThreadgroup: MTLSize)
   @available(tvOS 9.0, *)
   func dispatchThreadgroupsWithIndirectBuffer(indirectBuffer: MTLBuffer, indirectBufferOffset: Int, threadsPerThreadgroup: MTLSize)
@@ -636,7 +636,7 @@ class MTLComputePipelineDescriptor : NSObject, NSCopying {
   func reset()
   init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -707,12 +707,12 @@ class MTLStencilDescriptor : NSObject, NSCopying {
   var writeMask: UInt32
   init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 class MTLDepthStencilDescriptor : NSObject, NSCopying {
   var depthCompareFunction: MTLCompareFunction
-  var depthWriteEnabled: Bool
+  var isDepthWriteEnabled: Bool
   @NSCopying var frontFaceStencil: MTLStencilDescriptor!
   @NSCopying var backFaceStencil: MTLStencilDescriptor!
 
@@ -723,7 +723,7 @@ class MTLDepthStencilDescriptor : NSObject, NSCopying {
   var label: String?
   init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 protocol MTLDepthStencilState : NSObjectProtocol {
@@ -816,37 +816,37 @@ protocol MTLDevice : NSObjectProtocol {
    @method newBufferWithLength:options:
    @brief Create a buffer by allocating new memory.
    */
-  func newBufferWithLength(length: Int, options: MTLResourceOptions) -> MTLBuffer
+  func newBufferWithLength(length: Int, options: MTLResourceOptions = []) -> MTLBuffer
 
   /*!
    @method newBufferWithBytes:length:options:
    @brief Create a buffer by allocating new memory and specifing the initial contents to be copied into it.
    */
-  func newBufferWithBytes(pointer: UnsafePointer<Void>, length: Int, options: MTLResourceOptions) -> MTLBuffer
+  func newBufferWithBytes(pointer: UnsafePointer<Void>, length: Int, options: MTLResourceOptions = []) -> MTLBuffer
 
   /*!
    @method newBufferWithBytesNoCopy:length:options:deallocator:
    @brief Create a buffer by wrapping an existing part of the address space.
    */
-  func newBufferWithBytesNoCopy(pointer: UnsafeMutablePointer<Void>, length: Int, options: MTLResourceOptions, deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)?) -> MTLBuffer
+  func newBufferWithBytesNoCopy(pointer: UnsafeMutablePointer<Void>, length: Int, options: MTLResourceOptions = [], deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)? = nil) -> MTLBuffer
 
   /*!
    @method newDepthStencilStateWithDescriptor:
    @brief Create a depth/stencil test state object.
    */
-  func newDepthStencilStateWithDescriptor(descriptor: MTLDepthStencilDescriptor) -> MTLDepthStencilState
+  func newDepthStencilStateWith(descriptor: MTLDepthStencilDescriptor) -> MTLDepthStencilState
 
   /*!
    @method newTextureWithDescriptor:
    @abstract Allocate a new texture with privately owned storage.
    */
-  func newTextureWithDescriptor(descriptor: MTLTextureDescriptor) -> MTLTexture
+  func newTextureWith(descriptor: MTLTextureDescriptor) -> MTLTexture
 
   /*!
    @method newSamplerStateWithDescriptor:
    @abstract Create a new sampler.
   */
-  func newSamplerStateWithDescriptor(descriptor: MTLSamplerDescriptor) -> MTLSamplerState
+  func newSamplerStateWith(descriptor: MTLSamplerDescriptor) -> MTLSamplerState
 
   /*!
    @method newDefaultLibrary
@@ -866,7 +866,7 @@ protocol MTLDevice : NSObjectProtocol {
    @param data A metallib file already loaded as data in the form of dispatch_data_t.
    @param error An error if we fail to open the metallib data.
    */
-  func newLibraryWithData(data: dispatch_data_t) throws -> MTLLibrary
+  func newLibraryWith(data: dispatch_data_t) throws -> MTLLibrary
 
   /*!
    @method newLibraryWithSource:options:error:
@@ -884,63 +884,63 @@ protocol MTLDevice : NSObjectProtocol {
    @method newRenderPipelineStateWithDescriptor:error:
    @abstract Create and compile a new MTLRenderPipelineState object synchronously.
    */
-  func newRenderPipelineStateWithDescriptor(descriptor: MTLRenderPipelineDescriptor) throws -> MTLRenderPipelineState
+  func newRenderPipelineStateWith(descriptor: MTLRenderPipelineDescriptor) throws -> MTLRenderPipelineState
 
   /*!
    @method newRenderPipelineStateWithDescriptor:options:reflection:error:
    @abstract Create and compile a new MTLRenderPipelineState object synchronously and returns additional reflection information.
    */
-  func newRenderPipelineStateWithDescriptor(descriptor: MTLRenderPipelineDescriptor, options: MTLPipelineOption, reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedRenderPipelineReflection?>) throws -> MTLRenderPipelineState
+  func newRenderPipelineStateWith(descriptor: MTLRenderPipelineDescriptor, options: MTLPipelineOption, reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedRenderPipelineReflection?>) throws -> MTLRenderPipelineState
 
   /*!
    @method newRenderPipelineState:completionHandler:
    @abstract Create and compile a new MTLRenderPipelineState object asynchronously.
    */
-  func newRenderPipelineStateWithDescriptor(descriptor: MTLRenderPipelineDescriptor, completionHandler: MTLNewRenderPipelineStateCompletionHandler)
+  func newRenderPipelineStateWith(descriptor: MTLRenderPipelineDescriptor, completionHandler: MTLNewRenderPipelineStateCompletionHandler)
 
   /*!
    @method newRenderPipelineState:options:completionHandler:
    @abstract Create and compile a new MTLRenderPipelineState object asynchronously and returns additional reflection information
    */
-  func newRenderPipelineStateWithDescriptor(descriptor: MTLRenderPipelineDescriptor, options: MTLPipelineOption, completionHandler: MTLNewRenderPipelineStateWithReflectionCompletionHandler)
+  func newRenderPipelineStateWith(descriptor: MTLRenderPipelineDescriptor, options: MTLPipelineOption, completionHandler: MTLNewRenderPipelineStateWithReflectionCompletionHandler)
 
   /*!
    @method newComputePipelineStateWithDescriptor:error:
    @abstract Create and compile a new MTLComputePipelineState object synchronously.
    */
-  func newComputePipelineStateWithFunction(computeFunction: MTLFunction) throws -> MTLComputePipelineState
+  func newComputePipelineStateWith(computeFunction: MTLFunction) throws -> MTLComputePipelineState
 
   /*!
    @method newComputePipelineStateWithDescriptor:options:reflection:error:
    @abstract Create and compile a new MTLComputePipelineState object synchronously.
    */
-  func newComputePipelineStateWithFunction(computeFunction: MTLFunction, options: MTLPipelineOption, reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedComputePipelineReflection?>) throws -> MTLComputePipelineState
+  func newComputePipelineStateWith(computeFunction: MTLFunction, options: MTLPipelineOption, reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedComputePipelineReflection?>) throws -> MTLComputePipelineState
 
   /*!
    @method newComputePipelineStateWithDescriptor:completionHandler:
    @abstract Create and compile a new MTLComputePipelineState object asynchronously.
    */
-  func newComputePipelineStateWithFunction(computeFunction: MTLFunction, completionHandler: MTLNewComputePipelineStateCompletionHandler)
+  func newComputePipelineStateWith(computeFunction: MTLFunction, completionHandler: MTLNewComputePipelineStateCompletionHandler)
 
   /*!
    @method newComputePipelineStateWithDescriptor:options:completionHandler:
    @abstract Create and compile a new MTLComputePipelineState object asynchronously.
    */
-  func newComputePipelineStateWithFunction(computeFunction: MTLFunction, options: MTLPipelineOption, completionHandler: MTLNewComputePipelineStateWithReflectionCompletionHandler)
+  func newComputePipelineStateWith(computeFunction: MTLFunction, options: MTLPipelineOption, completionHandler: MTLNewComputePipelineStateWithReflectionCompletionHandler)
 
   /*!
    @method newComputePipelineStateWithDescriptor:options:reflection:error:
    @abstract Create and compile a new MTLComputePipelineState object synchronously.
    */
   @available(tvOS 9.0, *)
-  func newComputePipelineStateWithDescriptor(descriptor: MTLComputePipelineDescriptor, options: MTLPipelineOption, reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedComputePipelineReflection?>) throws -> MTLComputePipelineState
+  func newComputePipelineStateWith(descriptor: MTLComputePipelineDescriptor, options: MTLPipelineOption, reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedComputePipelineReflection?>) throws -> MTLComputePipelineState
 
   /*!
    @method newComputePipelineStateWithDescriptor:options:completionHandler:
    @abstract Create and compile a new MTLComputePipelineState object asynchronously.
    */
   @available(tvOS 9.0, *)
-  func newComputePipelineStateWithDescriptor(descriptor: MTLComputePipelineDescriptor, options: MTLPipelineOption, completionHandler: MTLNewComputePipelineStateWithReflectionCompletionHandler)
+  func newComputePipelineStateWith(descriptor: MTLComputePipelineDescriptor, options: MTLPipelineOption, completionHandler: MTLNewComputePipelineStateWithReflectionCompletionHandler)
 
   /*!
    @method supportsFeatureSet:
@@ -972,7 +972,7 @@ class MTLVertexAttribute : NSObject {
   var attributeIndex: Int { get }
   @available(tvOS 8.3, *)
   var attributeType: MTLDataType { get }
-  var active: Bool { get }
+  var isActive: Bool { get }
   init()
 }
 
@@ -1048,7 +1048,7 @@ class MTLCompileOptions : NSObject, NSCopying {
    @property fastMathEnabled
    @abstract If YES, enables the compiler to perform optimizations for floating-point arithmetic that may violate the IEEE 754 standard. It also enables the high precision variant of math functions for single precision floating-point scalar and vector types. fastMathEnabled defaults to YES.
    */
-  var fastMathEnabled: Bool
+  var isFastMathEnabled: Bool
 
   /*!
    @property languageVersion
@@ -1058,7 +1058,7 @@ class MTLCompileOptions : NSObject, NSCopying {
   var languageVersion: MTLLanguageVersion
   init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -1435,20 +1435,20 @@ protocol MTLRenderCommandEncoder : MTLCommandEncoder {
    @brief Set the data (by copy) for a given vertex buffer binding point.  This will remove any existing MTLBuffer from the binding point.
    */
   @available(tvOS 8.3, *)
-  func setVertexBytes(bytes: UnsafePointer<Void>, length: Int, atIndex index: Int)
+  func setVertexBytes(bytes: UnsafePointer<Void>, length: Int, at index: Int)
 
   /*!
    @method setVertexBuffer:offset:atIndex:
    @brief Set a global buffer for all vertex shaders at the given bind point index.
    */
-  func setVertexBuffer(buffer: MTLBuffer?, offset: Int, atIndex index: Int)
+  func setVertexBuffer(buffer: MTLBuffer?, offset: Int, at index: Int)
 
   /*!
    @method setVertexBufferOffset:atIndex:
    @brief Set the offset within the current global buffer for all vertex shaders at the given bind point index.
    */
   @available(tvOS 8.3, *)
-  func setVertexBufferOffset(offset: Int, atIndex index: Int)
+  func setVertexBufferOffset(offset: Int, at index: Int)
 
   /*!
    @method setVertexBuffers:offsets:withRange:
@@ -1460,7 +1460,7 @@ protocol MTLRenderCommandEncoder : MTLCommandEncoder {
    @method setVertexTexture:atIndex:
    @brief Set a global texture for all vertex shaders at the given bind point index.
    */
-  func setVertexTexture(texture: MTLTexture?, atIndex index: Int)
+  func setVertexTexture(texture: MTLTexture?, at index: Int)
 
   /*!
    @method setVertexTextures:withRange:
@@ -1472,7 +1472,7 @@ protocol MTLRenderCommandEncoder : MTLCommandEncoder {
    @method setVertexSamplerState:atIndex:
    @brief Set a global sampler for all vertex shaders at the given bind point index.
    */
-  func setVertexSamplerState(sampler: MTLSamplerState?, atIndex index: Int)
+  func setVertexSamplerState(sampler: MTLSamplerState?, at index: Int)
 
   /*!
    @method setVertexSamplerStates:withRange:
@@ -1484,7 +1484,7 @@ protocol MTLRenderCommandEncoder : MTLCommandEncoder {
    @method setVertexSamplerState:lodMinClamp:lodMaxClamp:atIndex:
    @brief Set a global sampler for all vertex shaders at the given bind point index.
    */
-  func setVertexSamplerState(sampler: MTLSamplerState?, lodMinClamp: Float, lodMaxClamp: Float, atIndex index: Int)
+  func setVertexSamplerState(sampler: MTLSamplerState?, lodMinClamp: Float, lodMaxClamp: Float, at index: Int)
 
   /*!
    @method setVertexSamplerStates:lodMinClamps:lodMaxClamps:withRange:
@@ -1502,7 +1502,7 @@ protocol MTLRenderCommandEncoder : MTLCommandEncoder {
    @method setFrontFacingWinding:
    @brief The winding order of front-facing primitives.
    */
-  func setFrontFacingWinding(frontFacingWinding: MTLWinding)
+  func setFrontFacing(frontFacingWinding: MTLWinding)
 
   /*!
    @method setCullMode:
@@ -1540,20 +1540,20 @@ protocol MTLRenderCommandEncoder : MTLCommandEncoder {
    @brief Set the data (by copy) for a given fragment buffer binding point.  This will remove any existing MTLBuffer from the binding point.
    */
   @available(tvOS 8.3, *)
-  func setFragmentBytes(bytes: UnsafePointer<Void>, length: Int, atIndex index: Int)
+  func setFragmentBytes(bytes: UnsafePointer<Void>, length: Int, at index: Int)
 
   /*!
    @method setFragmentBuffer:offset:atIndex:
    @brief Set a global buffer for all fragment shaders at the given bind point index.
    */
-  func setFragmentBuffer(buffer: MTLBuffer?, offset: Int, atIndex index: Int)
+  func setFragmentBuffer(buffer: MTLBuffer?, offset: Int, at index: Int)
 
   /*!
    @method setFragmentBufferOffset:atIndex:
    @brief Set the offset within the current global buffer for all fragment shaders at the given bind point index.
    */
   @available(tvOS 8.3, *)
-  func setFragmentBufferOffset(offset: Int, atIndex index: Int)
+  func setFragmentBufferOffset(offset: Int, at index: Int)
 
   /*!
    @method setFragmentBuffers:offsets:withRange:
@@ -1565,7 +1565,7 @@ protocol MTLRenderCommandEncoder : MTLCommandEncoder {
    @method setFragmentTexture:atIndex:
    @brief Set a global texture for all fragment shaders at the given bind point index.
    */
-  func setFragmentTexture(texture: MTLTexture?, atIndex index: Int)
+  func setFragmentTexture(texture: MTLTexture?, at index: Int)
 
   /*!
    @method setFragmentTextures:withRange:
@@ -1577,7 +1577,7 @@ protocol MTLRenderCommandEncoder : MTLCommandEncoder {
    @method setFragmentSamplerState:atIndex:
    @brief Set a global sampler for all fragment shaders at the given bind point index.
    */
-  func setFragmentSamplerState(sampler: MTLSamplerState?, atIndex index: Int)
+  func setFragmentSamplerState(sampler: MTLSamplerState?, at index: Int)
 
   /*!
    @method setFragmentSamplerStates:withRange:
@@ -1589,7 +1589,7 @@ protocol MTLRenderCommandEncoder : MTLCommandEncoder {
    @method setFragmentSamplerState:lodMinClamp:lodMaxClamp:atIndex:
    @brief Set a global sampler for all fragment shaders at the given bind point index.
    */
-  func setFragmentSamplerState(sampler: MTLSamplerState?, lodMinClamp: Float, lodMaxClamp: Float, atIndex index: Int)
+  func setFragmentSamplerState(sampler: MTLSamplerState?, lodMinClamp: Float, lodMaxClamp: Float, at index: Int)
 
   /*!
    @method setFragmentSamplerStates:lodMinClamps:lodMaxClamps:withRange:
@@ -1813,7 +1813,7 @@ class MTLRenderPassAttachmentDescriptor : NSObject, NSCopying {
   var storeAction: MTLStoreAction
   init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 class MTLRenderPassColorAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {
@@ -1888,7 +1888,7 @@ class MTLRenderPassDescriptor : NSObject, NSCopying {
   var visibilityResultBuffer: MTLBuffer?
   init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 func MTLClearColorMake(red: Double, _ green: Double, _ blue: Double, _ alpha: Double) -> MTLClearColor
 @available(tvOS 8.0, *)
@@ -1939,7 +1939,7 @@ class MTLRenderPipelineColorAttachmentDescriptor : NSObject, NSCopying {
   var pixelFormat: MTLPixelFormat
 
   /*! Enable blending.  Defaults to NO. */
-  var blendingEnabled: Bool
+  var isBlendingEnabled: Bool
 
   /*! Defaults to MTLBlendFactorOne */
   var sourceRGBBlendFactor: MTLBlendFactor
@@ -1963,7 +1963,7 @@ class MTLRenderPipelineColorAttachmentDescriptor : NSObject, NSCopying {
   var writeMask: MTLColorWriteMask
   init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 class MTLRenderPipelineReflection : NSObject {
@@ -1978,9 +1978,9 @@ class MTLRenderPipelineDescriptor : NSObject, NSCopying {
   var fragmentFunction: MTLFunction?
   @NSCopying var vertexDescriptor: MTLVertexDescriptor?
   var sampleCount: Int
-  var alphaToCoverageEnabled: Bool
-  var alphaToOneEnabled: Bool
-  var rasterizationEnabled: Bool
+  var isAlphaToCoverageEnabled: Bool
+  var isAlphaToOneEnabled: Bool
+  var isRasterizationEnabled: Bool
   var colorAttachments: MTLRenderPipelineColorAttachmentDescriptorArray { get }
   var depthAttachmentPixelFormat: MTLPixelFormat
   var stencilAttachmentPixelFormat: MTLPixelFormat
@@ -1992,7 +1992,7 @@ class MTLRenderPipelineDescriptor : NSObject, NSCopying {
   func reset()
   init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -2285,7 +2285,7 @@ class MTLSamplerDescriptor : NSObject, NSCopying {
    @discussion lodAverage defaults to NO. This option is a performance hint. An implementation is free to ignore this property.
    */
   @available(tvOS 9.0, *)
-  var lodAverage: Bool
+  var isLodAverage: Bool
 
   /*!
    @property compareFunction
@@ -2301,7 +2301,7 @@ class MTLSamplerDescriptor : NSObject, NSCopying {
   var label: String?
   init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -2368,13 +2368,13 @@ class MTLTextureDescriptor : NSObject, NSCopying {
    @method texture2DDescriptorWithPixelFormat:width:height:mipmapped:
    @abstract Create a TextureDescriptor for a common 2D texture.
    */
-  class func texture2DDescriptorWithPixelFormat(pixelFormat: MTLPixelFormat, width: Int, height: Int, mipmapped: Bool) -> MTLTextureDescriptor
+  class func texture2DDescriptorWith(pixelFormat: MTLPixelFormat, width: Int, height: Int, mipmapped: Bool) -> MTLTextureDescriptor
 
   /*!
    @method textureCubeDescriptorWithPixelFormat:size:mipmapped:
    @abstract Create a TextureDescriptor for a common Cube texture.
    */
-  class func textureCubeDescriptorWithPixelFormat(pixelFormat: MTLPixelFormat, size: Int, mipmapped: Bool) -> MTLTextureDescriptor
+  class func textureCubeDescriptorWith(pixelFormat: MTLPixelFormat, size: Int, mipmapped: Bool) -> MTLTextureDescriptor
 
   /*!
    @property type
@@ -2457,7 +2457,7 @@ class MTLTextureDescriptor : NSObject, NSCopying {
   var usage: MTLTextureUsage
   init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -2588,37 +2588,37 @@ protocol MTLTexture : MTLResource {
    @method getBytes:bytesPerRow:bytesPerImage:fromRegion:mipmapLevel:slice:
    @abstract Copies a block of pixels from a texture slice into the application's memory.
    */
-  func getBytes(pixelBytes: UnsafeMutablePointer<Void>, bytesPerRow: Int, bytesPerImage: Int, fromRegion region: MTLRegion, mipmapLevel level: Int, slice: Int)
+  func getBytes(pixelBytes: UnsafeMutablePointer<Void>, bytesPerRow: Int, bytesPerImage: Int, from region: MTLRegion, mipmapLevel level: Int, slice: Int)
 
   /*!
    @method replaceRegion:mipmapLevel:slice:withBytes:bytesPerRow:bytesPerImage:
    @abstract Copy a block of pixel data from the caller's pointer into a texture slice.
    */
-  func replaceRegion(region: MTLRegion, mipmapLevel level: Int, slice: Int, withBytes pixelBytes: UnsafePointer<Void>, bytesPerRow: Int, bytesPerImage: Int)
+  func replace(region: MTLRegion, mipmapLevel level: Int, slice: Int, withBytes pixelBytes: UnsafePointer<Void>, bytesPerRow: Int, bytesPerImage: Int)
 
   /*!
    @method getBytes:bytesPerRow:fromRegion:mipmapLevel:
    @abstract Convenience for getBytes:bytesPerRow:bytesPerImage:fromRegion:mipmapLevel:slice: that doesn't require slice related arguments
    */
-  func getBytes(pixelBytes: UnsafeMutablePointer<Void>, bytesPerRow: Int, fromRegion region: MTLRegion, mipmapLevel level: Int)
+  func getBytes(pixelBytes: UnsafeMutablePointer<Void>, bytesPerRow: Int, from region: MTLRegion, mipmapLevel level: Int)
 
   /*!
    @method replaceRegion:mipmapLevel:withBytes:bytesPerRow:
    @abstract Convenience for replaceRegion:mipmapLevel:slice:withBytes:bytesPerRow:bytesPerImage: that doesn't require slice related arguments
    */
-  func replaceRegion(region: MTLRegion, mipmapLevel level: Int, withBytes pixelBytes: UnsafePointer<Void>, bytesPerRow: Int)
+  func replace(region: MTLRegion, mipmapLevel level: Int, withBytes pixelBytes: UnsafePointer<Void>, bytesPerRow: Int)
 
   /*!
    @method newTextureViewWithPixelFormat:
    @abstract Create a new texture which shares the same storage as the source texture, but with a different (but compatible) pixel format.
    */
-  func newTextureViewWithPixelFormat(pixelFormat: MTLPixelFormat) -> MTLTexture
+  func newTextureViewWith(pixelFormat: MTLPixelFormat) -> MTLTexture
 
   /*!
    @method newTextureViewWithPixelFormat:textureType:levels:slices:
    @abstract Create a new texture which shares the same storage as the source texture, but with a different (but compatible) pixel format, texture type, levels and slices.
    */
-  func newTextureViewWithPixelFormat(pixelFormat: MTLPixelFormat, textureType: MTLTextureType, levels levelRange: NSRange, slices sliceRange: NSRange) -> MTLTexture
+  func newTextureViewWith(pixelFormat: MTLPixelFormat, textureType: MTLTextureType, levels levelRange: NSRange, slices sliceRange: NSRange) -> MTLTexture
 }
 
 /*!
@@ -2722,7 +2722,7 @@ class MTLVertexBufferLayoutDescriptor : NSObject, NSCopying {
   var stepRate: Int
   init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 class MTLVertexBufferLayoutDescriptorArray : NSObject {
@@ -2736,7 +2736,7 @@ class MTLVertexAttributeDescriptor : NSObject, NSCopying {
   var bufferIndex: Int
   init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 class MTLVertexAttributeDescriptorArray : NSObject {
@@ -2750,5 +2750,5 @@ class MTLVertexDescriptor : NSObject, NSCopying {
   func reset()
   init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }

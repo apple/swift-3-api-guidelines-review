@@ -80,7 +80,7 @@ protocol IMServicePlugInChatRoomSupport {
       @param      message  The message to send.
       @param      roomName The recipient chat room.
   */
-  func sendMessage(message: IMServicePlugInMessage!, toChatRoom roomName: String!)
+  func send(message: IMServicePlugInMessage!, toChatRoom roomName: String!)
 
   /*!
       @method     declineChatRoomInvitation:
@@ -126,7 +126,7 @@ protocol IMServiceApplicationChatRoomSupport : IMServiceApplication {
       @param      roomName   The name of the chat room.
       @param      handle     The sender of the message.
   */
-  func plugInDidReceiveMessage(message: IMServicePlugInMessage!, forChatRoom roomName: String!, fromHandle handle: String!)
+  func plugInDidReceive(message: IMServicePlugInMessage!, forChatRoom roomName: String!, fromHandle handle: String!)
 
   /*!
       @method     plugInDidReceiveNotice:forChatRoom:
@@ -156,7 +156,7 @@ protocol IMServiceApplicationChatRoomSupport : IMServiceApplication {
       @param      roomName   The name of the chat room.
       @param      error      An error, if one occurred during message delivery.
   */
-  func plugInDidSendMessage(message: IMServicePlugInMessage!, toChatRoom roomName: String!, error: NSError!)
+  func plugInDidSend(message: IMServicePlugInMessage!, toChatRoom roomName: String!, error: NSError!)
 
   /*!
       @method     plugInDidJoinChatRoom:
@@ -568,7 +568,7 @@ protocol IMServicePlugInInstantMessagingSupport {
       @param      message  The message to send
       @param      handle   The receipient of the message
   */
-  func sendMessage(message: IMServicePlugInMessage!, toHandle handle: String!)
+  func send(message: IMServicePlugInMessage!, toHandle handle: String!)
 }
 
 /*!
@@ -620,7 +620,7 @@ protocol IMServiceApplicationInstantMessagingSupport {
       @param      message  The incoming message
       @param      handle   The sender of the message
   */
-  func plugInDidReceiveMessage(message: IMServicePlugInMessage!, fromHandle handle: String!)
+  func plugInDidReceive(message: IMServicePlugInMessage!, fromHandle handle: String!)
 
   /*!
       @method     plugInDidSendMessage:toHandle:error:
@@ -638,7 +638,7 @@ protocol IMServiceApplicationInstantMessagingSupport {
       @param      handle   The sender of the message
       @param      error    An error that occurred during message delivery
   */
-  func plugInDidSendMessage(message: IMServicePlugInMessage!, toHandle handle: String!, error: NSError!)
+  func plugInDidSend(message: IMServicePlugInMessage!, toHandle handle: String!, error: NSError!)
 }
 class IMServicePlugInMessage : NSObject, NSCoding, NSCopying {
   class func servicePlugInMessageWithContent(content: NSAttributedString!) -> AnyObject!
@@ -649,9 +649,9 @@ class IMServicePlugInMessage : NSObject, NSCoding, NSCopying {
   @NSCopying var content: NSAttributedString!
   @NSCopying var date: NSDate!
   init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -786,7 +786,7 @@ protocol IMServiceApplication : NSObjectProtocol {
                              IMAccountSettingServerHost associated with the account becomes reachable.
                              reconnect should only be set to YES when a network error causes a log out.
   */
-  func plugInDidLogOutWithError(error: NSError!, reconnect: Bool)
+  func plugInDidLogOutWith(error: NSError!, reconnect: Bool)
 
   /*!
        @method     plugInDidFailToAuthenticate

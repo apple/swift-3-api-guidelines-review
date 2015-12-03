@@ -156,25 +156,25 @@ class TKSmartCardPINFormat : NSObject {
 
   /// Total length of the PIN block in bytes.
   /// @note Default value: 8
-  var PINBlockByteLength: Int
+  var pinBlockByteLength: Int
 
   /// PIN justification within the PIN block.
   /// @note Default value: TKSmartCardPINJustificationLeft
-  var PINJustification: TKSmartCardPINJustification
+  var pinJustification: TKSmartCardPINJustification
 
   /// Offset in bits within the PIN block to mark a location for filling in the formatted PIN (justified with respect to PINJustification).
   /// @note Default value: 0
   /// @discussion Note that the value of PINBitOffset indirectly controls the internal system units indicator. If PINBitOffset is byte aligned (PINBitOffset mod 8 is equal to 0), the internal representation of PINBitOffset gets converted from bits to bytes.
-  var PINBitOffset: Int
+  var pinBitOffset: Int
 
   /// Offset in bits within the PIN block to mark a location for filling in the PIN length (always left justified).
   /// @note Default value: 0
   /// @discussion Note that the value of PINLengthBitOffset indirectly controls the internal system units indicator. If PINLengthBitOffset is byte aligned (PINLengthBitOffset mod 8 is equal to 0), the internal representation of PINLengthBitOffset gets converted from bits to bytes.
-  var PINLengthBitOffset: Int
+  var pinLengthBitOffset: Int
 
   /// Size in bits of the PIN length field. If set to 0, PIN length is not written.
   /// @note Default value: 0
-  var PINLengthBitSize: Int
+  var pinLengthBitSize: Int
   init()
 }
 
@@ -183,25 +183,25 @@ class TKSmartCardPINFormat : NSObject {
 protocol TKSmartCardUserInteractionDelegate {
 
   /// A valid character has been entered.
-  optional func characterEnteredInUserInteraction(interaction: TKSmartCardUserInteraction)
+  optional func characterEnteredIn(interaction: TKSmartCardUserInteraction)
 
   /// A correction key has been pressed.
-  optional func correctionKeyPressedInUserInteraction(interaction: TKSmartCardUserInteraction)
+  optional func correctionKeyPressedIn(interaction: TKSmartCardUserInteraction)
 
   /// The validation key has been pressed (end of PIN entry).
-  optional func validationKeyPressedInUserInteraction(interaction: TKSmartCardUserInteraction)
+  optional func validationKeyPressedIn(interaction: TKSmartCardUserInteraction)
 
   /// An invalid character has been entered.
-  optional func invalidCharacterEnteredInUserInteraction(interaction: TKSmartCardUserInteraction)
+  optional func invalidCharacterEnteredIn(interaction: TKSmartCardUserInteraction)
 
   /// Indicates that the old PIN needs to be entered.
-  optional func oldPINRequestedInUserInteraction(interaction: TKSmartCardUserInteraction)
+  optional func oldPINRequestedIn(interaction: TKSmartCardUserInteraction)
 
   /// Indicates that the new PIN needs to be entered.
-  optional func newPINRequestedInUserInteraction(interaction: TKSmartCardUserInteraction)
+  optional func newPINRequestedIn(interaction: TKSmartCardUserInteraction)
 
   /// Indicates that the new PIN needs to be confirmed (re-entered).
-  optional func newPINConfirmationRequestedInUserInteraction(interaction: TKSmartCardUserInteraction)
+  optional func newPINConfirmationRequestedIn(interaction: TKSmartCardUserInteraction)
 }
 
 /// Represents handle to a user interaction involving the smart card reader.
@@ -236,12 +236,12 @@ class TKSmartCardUserInteractionForPINOperation : TKSmartCardUserInteraction {
 
   /// Bitmask specifying condition(s) under which PIN entry should be considered complete.
   /// @note Default value: TKSmartCardPINCompletionKey
-  var PINCompletion: TKSmartCardPINCompletion
+  var pinCompletion: TKSmartCardPINCompletion
 
   /// List of message indices referring to a predefined message table. It is used to specify the type and number of messages displayed during the PIN operation.
   /// @discussion If nil, the reader does not display any message (reader specific). Typically, PIN verification takes 1 message, PIN modification 1-3 messages.
   /// @note Default value: nil
-  var PINMessageIndices: [NSNumber]?
+  var pinMessageIndices: [NSNumber]?
 
   /// Locale defining the language of displayed messages. If set to nil, the user's current locale is used.
   /// @note Default value: the user's current locale
@@ -269,7 +269,7 @@ class TKSmartCardUserInteractionForSecurePINChange : TKSmartCardUserInteractionF
 
   /// Bitmask specifying whether PIN confirmation should be requested.
   /// @note Default value: TKSmartCardPINConfirmationNone
-  var PINConfirmation: TKSmartCardPINConfirmation
+  var pinConfirmation: TKSmartCardPINConfirmation
   init()
 }
 
@@ -281,7 +281,7 @@ class TKSmartCardSlot : NSObject {
   var state: TKSmartCardSlotState { get }
 
   /// ATR of the inserted smartcard, or nil if no or mute smartcard is inserted.
-  var ATR: TKSmartCardATR? { get }
+  var atr: TKSmartCardATR? { get }
 
   /// Name of the smart card reader slot.
   var name: String { get }
@@ -307,7 +307,7 @@ class TKSmartCard : NSObject {
   var slot: TKSmartCardSlot { get }
 
   /// Flag indicating whether card is valid, i.e. it was not removed from the reader.  Use Key-Value-Observing to be notified about card removal.
-  var valid: Bool { get }
+  var isValid: Bool { get }
 
   /// Bitmask containing allowed protocols to be used when communicating with the card.  This property is consulted only during connection to the card, changes are not propagated to already connected session.  By default, any protocol can be used.
   var allowedProtocols: TKSmartCardProtocol
@@ -316,7 +316,7 @@ class TKSmartCard : NSObject {
   var currentProtocol: TKSmartCardProtocol { get }
 
   /// Flag indicating whether card session should be considered as sensitive.  Sensitive session always gets card after reset before communicating with it and never leaves card without reset to be used by another smart card object.  This might be important in case that card session contain some important state which should not leak to another smart card object (possibly running in another, foreign application).  Default is NO.
-  var sensitive: Bool
+  var isSensitive: Bool
 
   /// User-specified context kept as long as the card is powered.  Once the card is removed or another TKSmartCard object opens session, this property is automatically set to nil.
   var context: AnyObject?
@@ -343,7 +343,7 @@ class TKSmartCard : NSObject {
   /// @param PINByteOffset Offset in bytes within APDU data field to mark a location of a PIN block for filling in the entered PIN (currently unused, must be 0).
   /// @return A new user interaction object, or nil if this feature is not supported by the smart card reader. After the interaction has been successfully completed the operation result is available in the result properites.
   @available(OSX 10.11, *)
-  func userInteractionForSecurePINVerificationWithPINFormat(PINFormat: TKSmartCardPINFormat, APDU: NSData, PINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINVerification?
+  func userInteractionForSecurePINVerificationWith(PINFormat: TKSmartCardPINFormat, apdu APDU: NSData, pinByteOffset PINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINVerification?
 
   /// Creates a new user interaction object for secure PIN change using the smart card reader facilities (typically a HW keypad).
   /// @note This interaction is only allowed within a session.
@@ -353,7 +353,7 @@ class TKSmartCard : NSObject {
   /// @param newPINByteOffset Offset in bytes within APDU data field to mark a location of a PIN block for filling in the new PIN.
   /// @return A new user interaction object, or nil if this feature is not supported by the smart card reader. After the interaction has been successfully completed the operation result is available in the result properites.
   @available(OSX 10.11, *)
-  func userInteractionForSecurePINChangeWithPINFormat(PINFormat: TKSmartCardPINFormat, APDU: NSData, currentPINByteOffset: Int, newPINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINChange?
+  func userInteractionForSecurePINChangeWith(PINFormat: TKSmartCardPINFormat, apdu APDU: NSData, currentPINByteOffset: Int, newPINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINChange?
   init()
 }
 extension TKSmartCard {
@@ -362,7 +362,7 @@ extension TKSmartCard {
   var cla: UInt8
 
   /// Flag indicating whether extended length APDUs should be used. It is automatically enabled only when used slot supports transmitting extended length commands and card announces that extended length APDU are supported in its ATR. However, caller can explicitely override this decision at its will.
-  var useExtendedLength: Bool
+  var isUseExtendedLength: Bool
 
   /// Transmits APDU to the card and returns response.
   /// @discussion Asynchronous high level variant of command for transmitting APDU to the card.  Handles all ISO7816-4 APDU cases translation to proper sequences according to used protocol.  If useExtendedLength is enabled and it is decided that it is beneficial for current set of arguments, extended APDUs are used automatically.
@@ -394,13 +394,13 @@ struct TKSmartCardProtocol : OptionSetType {
 class TKSmartCardATRInterfaceGroup : NSObject {
 
   /// TA interface byte of ATR group, or nil if TA is not present.
-  var TA: NSNumber? { get }
+  var ta: NSNumber? { get }
 
   /// TB interface byte of ATR group, or nil if TB is not present.
-  var TB: NSNumber? { get }
+  var tb: NSNumber? { get }
 
   /// TC interface byte of ATR group, or nil if TC is not present.
-  var TC: NSNumber? { get }
+  var tc: NSNumber? { get }
 
   /// Protocol number for this group.  First group (global) has protocol unassigned, contains nil.
   var `protocol`: NSNumber? { get }
@@ -430,10 +430,10 @@ class TKSmartCardATR : NSObject {
   /// Retrieves interface group with specified index.
   /// @param index Index of the requested interface group.  Indexing conforms to ISO7816-3, i.e. starts from 1.
   /// @return Interface group with given index, or nil of no such group was present.
-  func interfaceGroupAtIndex(index: Int) -> TKSmartCardATRInterfaceGroup?
+  func interfaceGroupAt(index: Int) -> TKSmartCardATRInterfaceGroup?
 
   /// @param protocol Protocol number for which the interface group is requested.
-  func interfaceGroupForProtocol(`protocol`: TKSmartCardProtocol) -> TKSmartCardATRInterfaceGroup?
+  func interfaceGroupFor(`protocol`: TKSmartCardProtocol) -> TKSmartCardATRInterfaceGroup?
 
   /// Just historical bytes of ATR, without Tck and interface bytes.
   var historicalBytes: NSData { get }

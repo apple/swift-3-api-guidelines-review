@@ -92,14 +92,14 @@ class PKPassLibrary : NSObject {
   func passes() -> [PKPass]
   func passWithPassTypeIdentifier(identifier: String, serialNumber: String) -> PKPass?
   @available(watchOS 2.0, *)
-  func passesOfType(passType: PKPassType) -> [PKPass]
+  func passesOf(passType: PKPassType) -> [PKPass]
   @available(watchOS 2.0, *)
   func remotePaymentPasses() -> [PKPaymentPass]
   func removePass(pass: PKPass)
   func containsPass(pass: PKPass) -> Bool
-  func replacePassWithPass(pass: PKPass) -> Bool
+  func replacePassWith(pass: PKPass) -> Bool
   @available(watchOS 2.0, *)
-  func addPasses(passes: [PKPass], withCompletionHandler completion: ((PKPassLibraryAddPassesStatus) -> Void)?)
+  func addPasses(passes: [PKPass], withCompletionHandler completion: ((PKPassLibraryAddPassesStatus) -> Void)? = nil)
   @available(watchOS 2.0, *)
   func canAddPaymentPassWithPrimaryAccountIdentifier(primaryAccountIdentifier: String) -> Bool
   init()

@@ -31,7 +31,7 @@ class RulesComponent: GKComponent {
     
     init(rules: [GKRule]) {
         ruleSystem = GKRuleSystem()
-        ruleSystem.addRulesFromArray(rules)
+        ruleSystem.addRulesFrom(rules)
     }
     
     // MARK: GKComponent Life Cycle
@@ -45,7 +45,7 @@ class RulesComponent: GKComponent {
         
         if let taskBot = entity as? TaskBot,
             level = taskBot.componentForClass(RenderComponent)?.node.scene as? LevelScene,
-            entitySnapshot = level.entitySnapshotForEntity(taskBot) where !taskBot.isGood {
+            entitySnapshot = level.entitySnapshotFor(taskBot) where !taskBot.isGood {
 
             ruleSystem.reset()
             

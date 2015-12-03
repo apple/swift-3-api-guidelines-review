@@ -103,7 +103,7 @@ extension MPMoviePlayerController {
   @available(tvOS, introduced=4.3, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
   var allowsAirPlay: Bool
   @available(tvOS, introduced=5.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
-  var airPlayVideoActive: Bool { get }
+  var isAirPlayVideoActive: Bool { get }
 }
 @available(tvOS, introduced=2.0, deprecated=9.0)
 let MPMoviePlayerScalingModeDidChangeNotification: String
@@ -190,8 +190,8 @@ extension MPMusicPlayerController {
   @NSCopying var nowPlayingItem: MPMediaItem?
   @available(tvOS 5.0, *)
   var indexOfNowPlayingItem: Int { get }
-  func setQueueWithQuery(query: MPMediaQuery)
-  func setQueueWithItemCollection(itemCollection: MPMediaItemCollection)
+  func setQueueWith(query: MPMediaQuery)
+  func setQueueWith(itemCollection: MPMediaItemCollection)
   func skipToNextItem()
   func skipToBeginning()
   func skipToPreviousItem()
@@ -296,7 +296,7 @@ class MPNowPlayingInfoLanguageOptionGroup : NSObject {
   var defaultLanguageOption: MPNowPlayingInfoLanguageOption? { get }
 
   /// Indicates whether a selection in this group is required at all times.
-  var allowEmptySelection: Bool { get }
+  var isAllowEmptySelection: Bool { get }
   init()
 }
 @available(tvOS 7.1, *)
@@ -326,7 +326,7 @@ class MPRemoteCommand : NSObject {
 
   /// Whether a button (for example) should be enabled and tappable for this
   /// particular command.
-  var enabled: Bool
+  var isEnabled: Bool
   func addTarget(target: AnyObject, action: Selector)
   func removeTarget(target: AnyObject, action: Selector)
   func removeTarget(target: AnyObject?)
@@ -348,7 +348,7 @@ class MPFeedbackCommand : MPRemoteCommand {
   /// Whether the feedback command is in an "active" state. An example of when a
   /// feedback command would be active is if the user already "liked" a particular
   /// content item.
-  var active: Bool
+  var isActive: Bool
 
   /// A localized string briefly describing the context of the command.
   var localizedTitle: String
@@ -402,7 +402,7 @@ class MPRemoteCommandCenter : NSObject {
   var dislikeCommand: MPFeedbackCommand { get }
   var bookmarkCommand: MPFeedbackCommand { get }
   var changePlaybackPositionCommand: MPChangePlaybackPositionCommand { get }
-  class func sharedCommandCenter() -> MPRemoteCommandCenter
+  class func shared() -> MPRemoteCommandCenter
   init()
 }
 @available(tvOS 7.1, *)
@@ -466,7 +466,7 @@ class MPFeedbackCommandEvent : MPRemoteCommandEvent {
   /// dislike command. The app might want to remove the "like" flag from the
   /// current track, but not blacklist and skip to the next track as it would for
   /// a dislike command.
-  var negative: Bool { get }
+  var isNegative: Bool { get }
   init()
 }
 @available(tvOS 9.0, *)

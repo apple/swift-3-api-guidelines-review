@@ -54,9 +54,9 @@ class ThumbStickNode: SKSpriteNode {
         let touchPadTexture = SKTexture(imageNamed: "ControlPad")
         
         // `touchPad` is the inner touch pad that follows the user's thumb.
-        touchPad = SKSpriteNode(texture: touchPadTexture, color: UIColor.clearColor(), size: touchPadSize)
+        touchPad = SKSpriteNode(texture: touchPadTexture, color: UIColor.clear(), size: touchPadSize)
         
-        super.init(texture: touchPadTexture, color: UIColor.clearColor(), size: size)
+        super.init(texture: touchPadTexture, color: UIColor.clear(), size: size)
 
         alpha = normalAlpha
         
@@ -87,7 +87,7 @@ class ThumbStickNode: SKSpriteNode {
         
         // For each touch, calculate the movement of the touchPad.
         for touch in touches {
-            let touchLocation = touch.locationInNode(self)
+            let touchLocation = touch.locationIn(self)
             
             var dx = touchLocation.x - center.x
             var dy = touchLocation.y - center.y
@@ -134,7 +134,7 @@ class ThumbStickNode: SKSpriteNode {
         alpha = normalAlpha
         
         let restoreToCenter = SKAction.moveTo(CGPoint.zero, duration: 0.2)
-        touchPad.runAction(restoreToCenter)
+        touchPad.run(restoreToCenter)
         
         delegate?.thumbStickNode(self, isPressed: false)
         delegate?.thumbStickNode(self, didUpdateXValue: 0, yValue: 0)

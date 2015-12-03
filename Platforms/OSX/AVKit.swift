@@ -85,7 +85,7 @@ class AVPlayerView : NSView {
   	@abstract	Boolean indicating that the first video frame has been made ready for display for the current item of the associated AVPlayer.
    */
   @available(OSX 10.10, *)
-  var readyForDisplay: Bool { get }
+  var isReadyForDisplay: Bool { get }
 
   /*!
   	@property	videoBounds
@@ -167,7 +167,7 @@ extension AVPlayerView {
   				A completion handler that is executed when the user selects either the Trim or Cancel button in the trimming UI.
   	@abstract	Sets the controls panel into trimming mode and blocks until the user selects either the Trim or the Cancel button.
    */
-  func beginTrimmingWithCompletionHandler(handler: ((AVPlayerViewTrimResult) -> Void)?)
+  func beginTrimming(completionHandler handler: ((AVPlayerViewTrimResult) -> Void)? = nil)
 }
 
 /*!

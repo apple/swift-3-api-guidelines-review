@@ -15,17 +15,17 @@ class SLComposeServiceViewController : NSViewController, NSTextViewDelegate {
   init?(coder: NSCoder)
   convenience init()
   @available(OSX 10.10, *)
-  func textView(textView: NSTextView, clickedOnLink link: AnyObject, atIndex charIndex: Int) -> Bool
+  func textView(textView: NSTextView, clickedOnLink link: AnyObject, at charIndex: Int) -> Bool
   @available(OSX 10.10, *)
-  func textView(textView: NSTextView, clickedOnCell cell: NSTextAttachmentCellProtocol, inRect cellFrame: NSRect, atIndex charIndex: Int)
+  func textView(textView: NSTextView, clickedOn cell: NSTextAttachmentCellProtocol, `in` cellFrame: NSRect, at charIndex: Int)
   @available(OSX 10.10, *)
-  func textView(textView: NSTextView, doubleClickedOnCell cell: NSTextAttachmentCellProtocol, inRect cellFrame: NSRect, atIndex charIndex: Int)
+  func textView(textView: NSTextView, doubleClickedOn cell: NSTextAttachmentCellProtocol, `in` cellFrame: NSRect, at charIndex: Int)
   @available(OSX 10.10, *)
-  func textView(view: NSTextView, draggedCell cell: NSTextAttachmentCellProtocol, inRect rect: NSRect, event: NSEvent, atIndex charIndex: Int)
+  func textView(view: NSTextView, draggedCell cell: NSTextAttachmentCellProtocol, `in` rect: NSRect, event: NSEvent, at charIndex: Int)
   @available(OSX 10.10, *)
-  func textView(view: NSTextView, writablePasteboardTypesForCell cell: NSTextAttachmentCellProtocol, atIndex charIndex: Int) -> [String]
+  func textView(view: NSTextView, writablePasteboardTypesFor cell: NSTextAttachmentCellProtocol, at charIndex: Int) -> [String]
   @available(OSX 10.10, *)
-  func textView(view: NSTextView, writeCell cell: NSTextAttachmentCellProtocol, atIndex charIndex: Int, toPasteboard pboard: NSPasteboard, type: String) -> Bool
+  func textView(view: NSTextView, write cell: NSTextAttachmentCellProtocol, at charIndex: Int, to pboard: NSPasteboard, type: String) -> Bool
   @available(OSX 10.10, *)
   func textView(textView: NSTextView, willChangeSelectionFromCharacterRange oldSelectedCharRange: NSRange, toCharacterRange newSelectedCharRange: NSRange) -> NSRange
   @available(OSX 10.10, *)
@@ -39,27 +39,27 @@ class SLComposeServiceViewController : NSViewController, NSTextViewDelegate {
   @available(OSX 10.10, *)
   func textViewDidChangeTypingAttributes(notification: NSNotification)
   @available(OSX 10.10, *)
-  func textView(textView: NSTextView, willDisplayToolTip tooltip: String, forCharacterAtIndex characterIndex: Int) -> String?
+  func textView(textView: NSTextView, willDisplayToolTip tooltip: String, forCharacterAt characterIndex: Int) -> String?
   @available(OSX 10.10, *)
   func textView(textView: NSTextView, completions words: [String], forPartialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [String]
   @available(OSX 10.10, *)
-  func textView(textView: NSTextView, shouldChangeTextInRange affectedCharRange: NSRange, replacementString: String?) -> Bool
+  func textView(textView: NSTextView, shouldChangeTextIn affectedCharRange: NSRange, replacementString: String?) -> Bool
   @available(OSX 10.10, *)
-  func textView(textView: NSTextView, doCommandBySelector commandSelector: Selector) -> Bool
+  func textView(textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool
   @available(OSX 10.5, *)
   func textView(textView: NSTextView, shouldSetSpellingState value: Int, range affectedCharRange: NSRange) -> Int
   @available(OSX 10.5, *)
-  func textView(view: NSTextView, menu: NSMenu, forEvent event: NSEvent, atIndex charIndex: Int) -> NSMenu?
+  func textView(view: NSTextView, menu: NSMenu, forEvent event: NSEvent, at charIndex: Int) -> NSMenu?
   @available(OSX 10.6, *)
-  func textView(view: NSTextView, willCheckTextInRange range: NSRange, options: [String : AnyObject], types checkingTypes: UnsafeMutablePointer<NSTextCheckingTypes>) -> [String : AnyObject]
+  func textView(view: NSTextView, willCheckTextIn range: NSRange, options: [String : AnyObject], types checkingTypes: UnsafeMutablePointer<NSTextCheckingTypes>) -> [String : AnyObject]
   @available(OSX 10.6, *)
-  func textView(view: NSTextView, didCheckTextInRange range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject], results: [NSTextCheckingResult], orthography: NSOrthography, wordCount: Int) -> [NSTextCheckingResult]
+  func textView(view: NSTextView, didCheckTextIn range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject], results: [NSTextCheckingResult], orthography: NSOrthography, wordCount: Int) -> [NSTextCheckingResult]
   @available(OSX 10.7, *)
-  func textView(textView: NSTextView, URLForContentsOfTextAttachment textAttachment: NSTextAttachment, atIndex charIndex: Int) -> NSURL?
+  func textView(textView: NSTextView, urlForContentsOf textAttachment: NSTextAttachment, at charIndex: Int) -> NSURL?
   @available(OSX 10.8, *)
-  func textView(textView: NSTextView, willShowSharingServicePicker servicePicker: NSSharingServicePicker, forItems items: [AnyObject]) -> NSSharingServicePicker?
+  func textView(textView: NSTextView, willShow servicePicker: NSSharingServicePicker, forItems items: [AnyObject]) -> NSSharingServicePicker?
   @available(OSX 10.10, *)
-  func undoManagerForTextView(view: NSTextView) -> NSUndoManager?
+  func undoManagerFor(view: NSTextView) -> NSUndoManager?
   @available(OSX 10.10, *)
   func textShouldBeginEditing(textObject: NSText) -> Bool
   @available(OSX 10.10, *)
@@ -82,9 +82,9 @@ enum SLRequestMethod : Int {
 typealias SLRequestHandler = (NSData!, NSHTTPURLResponse!, NSError!) -> Void
 @available(OSX 10.8, *)
 class SLRequest : NSObject {
-  /*not inherited*/ init!(forServiceType serviceType: String!, requestMethod: SLRequestMethod, URL url: NSURL!, parameters: [NSObject : AnyObject]!)
+  /*not inherited*/ init!(forServiceType serviceType: String!, requestMethod: SLRequestMethod, url: NSURL!, parameters: [NSObject : AnyObject]!)
   var requestMethod: SLRequestMethod { get }
-  var URL: NSURL! { get }
+  var url: NSURL! { get }
   var parameters: [NSObject : AnyObject]! { get }
   func addMultipartData(data: NSData!, withName name: String!, type: String!, filename: String!)
   @available(*, deprecated)

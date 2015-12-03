@@ -23,13 +23,13 @@ extension BaseScene: ButtonNodeResponderType {
     func buttonTriggered(button: ButtonNode) {
         switch button.buttonIdentifier! {
             case .Home:
-                sceneManager.transitionToSceneWithSceneIdentifier(.Home)
+                sceneManager.transitionToSceneWith(.Home)
             
             case .ProceedToNextScene:
-                sceneManager.transitionToSceneWithSceneIdentifier(.NextLevel)
+                sceneManager.transitionToSceneWith(.NextLevel)
             
             case .Replay:
-                sceneManager.transitionToSceneWithSceneIdentifier(.CurrentLevel)
+                sceneManager.transitionToSceneWith(.CurrentLevel)
             
             case .ScreenRecorderToggle:
                 #if os(iOS)

@@ -117,7 +117,7 @@ protocol ICCameraDeviceDelegate : ICDeviceDelegate {
     @abstract This message is sent when an object is added to the device.
     @discussion The object may be an instance of ICCameraFolder or ICCameraFile class.
   */
-  optional func cameraDevice(camera: ICCameraDevice, didAddItem item: ICCameraItem)
+  optional func cameraDevice(camera: ICCameraDevice, didAdd item: ICCameraItem)
 
   /*! 
    @method cameraDevice:didAddItems:
@@ -125,21 +125,21 @@ protocol ICCameraDeviceDelegate : ICDeviceDelegate {
    receive one message per object, an NSArray of objects is sent.
    @discussion The objects may be instances of ICCameraFolder or ICCameraFile class.
    */
-  optional func cameraDevice(camera: ICCameraDevice, didAddItems items: [ICCameraItem])
+  optional func cameraDevice(camera: ICCameraDevice, didAdd items: [ICCameraItem])
 
   /*! 
     @method cameraDevice:didRemoveItem:
     @abstract This message is sent when an object is removed from the device.
     @discussion The object may be an instance of ICCameraFolder or ICCameraFile class.
   */
-  optional func cameraDevice(camera: ICCameraDevice, didRemoveItem item: ICCameraItem)
+  optional func cameraDevice(camera: ICCameraDevice, didRemove item: ICCameraItem)
 
   /*! 
     @method cameraDevice:didRemoveItems:
     @abstract This message is sent when an object or objects are removed from the device.
     @discussion The objects may be instances of ICCameraFolder or ICCameraFile class. This method supercedes 'cameraDevice:didRemoveItem:' method described above.
   */
-  optional func cameraDevice(camera: ICCameraDevice, didRemoveItems items: [ICCameraItem])
+  optional func cameraDevice(camera: ICCameraDevice, didRemove items: [ICCameraItem])
 
   /*! 
    @method cameraDevice:didRenameItems:
@@ -153,7 +153,7 @@ protocol ICCameraDeviceDelegate : ICDeviceDelegate {
     @abstract This message is sent after the camera device completes a delete operation initiated by sending a 'requestDeleteFiles:' message to that device.
     @discusson This message is sent after the camera device completes a delete operation initiated by sending a 'requestDeleteFiles:' message to that device.
   */
-  optional func cameraDevice(scanner: ICCameraDevice, didCompleteDeleteFilesWithError error: NSError?)
+  optional func cameraDevice(scanner: ICCameraDevice, didCompleteDeleteFilesWith error: NSError?)
 
   /*! 
     @method cameraDeviceDidChangeCapability:
@@ -166,13 +166,13 @@ protocol ICCameraDeviceDelegate : ICDeviceDelegate {
     @method cameraDevice:didReceiveThumbnailForItem:
     @abstract This message is sent when the thumbnail requested for an item on a device is available.
   */
-  optional func cameraDevice(camera: ICCameraDevice, didReceiveThumbnailForItem item: ICCameraItem)
+  optional func cameraDevice(camera: ICCameraDevice, didReceiveThumbnailFor item: ICCameraItem)
 
   /*! 
     @method cameraDevice:didReceiveMetadataForItem:
     @abstract This message is sent when the metadata requested for an item on a device is available.
   */
-  optional func cameraDevice(camera: ICCameraDevice, didReceiveMetadataForItem item: ICCameraItem)
+  optional func cameraDevice(camera: ICCameraDevice, didReceiveMetadataFor item: ICCameraItem)
 
   /*! 
     @method cameraDevice:didReceivePTPEvent:
@@ -193,14 +193,14 @@ protocol ICCameraDeviceDelegate : ICDeviceDelegate {
    If the request is no longer wanted, eg: the item is no longer displayed on the screen, the client can return NO and abort sending
    a request down to the camera device, speeding up the exection queue.
    */
-  optional func cameraDevice(cameraDevice: ICCameraDevice, shouldGetThumbnailOfItem item: ICCameraItem) -> Bool
+  optional func cameraDevice(cameraDevice: ICCameraDevice, shouldGetThumbnailOf item: ICCameraItem) -> Bool
 
   /*!
    @abstract This message is sent when the camera device is about to execute queued requests for the metadata of a specific item.
    If the request is no longer wanted, eg: the item is no longer displayed on the screen, the client can return NO and abort sending
    a request down to the camera device, speeding up the execution queue.
    */
-  optional func cameraDevice(cameraDevice: ICCameraDevice, shouldGetMetadataOfItem item: ICCameraItem) -> Bool
+  optional func cameraDevice(cameraDevice: ICCameraDevice, shouldGetMetadataOf item: ICCameraItem) -> Bool
 }
 
 /*! 
@@ -219,7 +219,7 @@ protocol ICCameraDeviceDownloadDelegate : NSObjectProtocol {
     @method didReceiveDownloadProgressForFile:downloadedBytes:maxBytes:
     @abstract This message is sent to the delegate to provide status of the download operation.
   */
-  optional func didReceiveDownloadProgressForFile(file: ICCameraFile, downloadedBytes: off_t, maxBytes: off_t)
+  optional func didReceiveDownloadProgressFor(file: ICCameraFile, downloadedBytes: off_t, maxBytes: off_t)
 }
 
 /*!
@@ -233,7 +233,7 @@ class ICCameraDevice : ICDevice {
       @abstract Indicates if the device has reported battery charge level￼.
   
   */
-  var batteryLevelAvailable: Bool { get }
+  var isBatteryLevelAvailable: Bool { get }
 
   /*!
       @property batteryLevel
@@ -290,7 +290,7 @@ class ICCameraDevice : ICDevice {
       @discussion Use 'requestEnableTethering' and 'requestDisableTethering' to enable or disable tethered capture on the device.
   
   */
-  var tetheredCaptureEnabled: Bool
+  var isTetheredCaptureEnabled: Bool
 
   /*! 
     @method filesOfType:
@@ -361,14 +361,14 @@ class ICCameraDevice : ICDevice {
     @abstract This method asynchronously reads data of a specified length from a specified offset.
     @discussion The readDelegate passed must not be nil. When this request is completed, the didReadDataSelector of the readDelegate object is called. The didReadDataSelector should have the same signature as: - (void)didReadData:(NSData*)data fromFile:(ICCameraFile*)file error:(NSError*)error contextInfo:(void*)contextInfo. The content of error returned should be examined to determine if the request completed successfully.
   */
-  func requestReadDataFromFile(file: ICCameraFile, atOffset offset: off_t, length: off_t, readDelegate: AnyObject, didReadDataSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func requestReadDataFrom(file: ICCameraFile, atOffset offset: off_t, length: off_t, readDelegate: AnyObject, didReadDataSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
 
   /*! 
     @method requestSendPTPCommand:outData:sendCommandDelegate:sendCommandDelegate:contextInfo:
     @abstract This method asynchronously sends a PTP command to a camera.
     @discussion This should be sent only if the 'capabilities' property contains 'ICCameraDeviceCanAcceptPTPCommands'. All PTP cameras have this capability. The response to this command will be delivered using didSendCommandSelector of sendCommandDelegate. The didSendCommandSelector should have the same signature as: - (void)didSendPTPCommand:(NSData*)command inData:(NSData*)data response:(NSData*)response error:(NSError*)error contextInfo:(void*)contextInfo. The content of error returned should be examined to determine if the request completed successfully.
   */
-  func requestSendPTPCommand(command: NSData, outData data: NSData, sendCommandDelegate: AnyObject, didSendCommandSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func requestSendPTPCommand(command: NSData, outData data: NSData, sendCommandDelegate: AnyObject, didSendCommand selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   init()
 }
 
@@ -404,7 +404,7 @@ class ICCameraItem : NSObject {
       @abstract ￼Item UTI. This is an Uniform Type Identifier string. It is one of: kUTTypeFolder, kUTTypeImage, kUTTypeMovie, kUTTypeAudio, or kUTTypeData.
   
   */
-  var UTI: String { get }
+  var uti: String { get }
 
   /*!
       @property fileSystemPath
@@ -418,21 +418,21 @@ class ICCameraItem : NSObject {
       @abstract ￼Indicates the protection state of this folder. It is locked if the storage card in the camera is locked.
   
   */
-  var locked: Bool { get }
+  var isLocked: Bool { get }
 
   /*!
       @property raw
       @abstract ￼Indicates if the file is a raw image file.
   
   */
-  var raw: Bool { get }
+  var isRaw: Bool { get }
 
   /*!
       @property inTemporaryStore
       @abstract ￼Indicates if this folder is in a temporary store. A temporary store may be used by the device when images are captures on the device when it is tethered to the computer.
   
   */
-  var inTemporaryStore: Bool { get }
+  var isInTemporaryStore: Bool { get }
 
   /*!
       @property creationDate
@@ -488,7 +488,7 @@ class ICCameraItem : NSObject {
    @abstract This property is set if the file is captured on the device after the device's content is fully enumerated. This does not apply to files added as a result of adding a new store to the device. 
    
    */
-  var addedAfterContentCatalogCompleted: Bool { get }
+  var isAddedAfterContentCatalogCompleted: Bool { get }
   init()
 }
 
@@ -885,14 +885,14 @@ protocol ICDeviceDelegate : NSObjectProtocol {
     @method didRemoveDevice:
     @abstract This message is sent to the delegate to inform that a device has been removed.
   */
-  func didRemoveDevice(device: ICDevice)
+  func didRemove(device: ICDevice)
 
   /*! 
     @method device:didOpenSessionWithError:
     @abstract This message is sent when a session is opened on a device.
     @discussion This message completes the process initiated by the message "requestOpenSession" sent to the device object.
   */
-  optional func device(device: ICDevice, didOpenSessionWithError error: NSError?)
+  optional func device(device: ICDevice, didOpenSessionWith error: NSError?)
 
   /*! 
     @method deviceDidBecomeReady:
@@ -906,7 +906,7 @@ protocol ICDeviceDelegate : NSObjectProtocol {
     @abstract This message is sent when a session is closed on a device.
     @discussion This message completes the process initiated by the message "requestCloseSession" sent to the device object. This message is also sent if the device module in control of the device ceases to control the device.
   */
-  optional func device(device: ICDevice, didCloseSessionWithError error: NSError?)
+  optional func device(device: ICDevice, didCloseSessionWith error: NSError?)
 
   /*! 
     @method deviceDidChangeName:
@@ -1016,14 +1016,14 @@ class ICDevice : NSObject {
       @abstract ￼Indicates whether the device is a remote device published by Image Capture device sharing facility.
   
   */
-  var remote: Bool { get }
+  var isRemote: Bool { get }
 
   /*!
       @property shared
       @abstract ￼Indicates whether the device is shared using the Image Capture device sharing facility. This value will change when sharing of this device is enabled or disabled.
   
   */
-  var shared: Bool { get }
+  var isShared: Bool { get }
 
   /*!
       @property hasConfigurableWiFiInterface
@@ -1094,7 +1094,7 @@ class ICDevice : NSObject {
       @abstract ￼A string representation of the Universally Unique ID of the device.
   
   */
-  var UUIDString: String? { get }
+  var uuidString: String? { get }
 
   /*!
       @property persistentIDString
@@ -1171,14 +1171,14 @@ protocol ICDeviceBrowserDelegate : NSObjectProtocol {
     @abstract This message is sent to the delegate to inform that a device has been added.
     @discussion If several devices are found during the initial search, then this message is sent once for each device with the value of 'moreComing' set to YES in each message except the last one. 
   */
-  func deviceBrowser(browser: ICDeviceBrowser, didAddDevice device: ICDevice, moreComing: Bool)
+  func deviceBrowser(browser: ICDeviceBrowser, didAdd device: ICDevice, moreComing: Bool)
 
   /*! 
     @method deviceBrowser:didRemoveDevice:moreGoing:
     @abstract This message is sent to the delegate to inform that a device has been removed.
     @discussion If several devices are removed at the same time, then this message is sent once for each device with the value of 'moreGoing' set to YES in each message except the last one. 
   */
-  func deviceBrowser(browser: ICDeviceBrowser, didRemoveDevice device: ICDevice, moreGoing: Bool)
+  func deviceBrowser(browser: ICDeviceBrowser, didRemove device: ICDevice, moreGoing: Bool)
 
   /*! 
     @method deviceBrowser:deviceDidChangeName:
@@ -1199,7 +1199,7 @@ protocol ICDeviceBrowserDelegate : NSObjectProtocol {
     @abstract This message is sent when an event that occurred on the device may be of interest to the client application.
     @discussion In Mac OS X 10.6, this message is sent when a button is pressed on a device and the current application is the target for that button press. In the case of the button-press event, if a session is open on the device, this message will not be sent to the browser delegate, instead the message 'device:didReceiveButtonPress:' is sent to the device delegate.
   */
-  optional func deviceBrowser(browser: ICDeviceBrowser, requestsSelectDevice device: ICDevice)
+  optional func deviceBrowser(browser: ICDeviceBrowser, requestsSelect device: ICDevice)
 
   /*! 
     @method deviceBrowserDidEnumerateLocalDevices:
@@ -1225,7 +1225,7 @@ class ICDeviceBrowser : NSObject {
     @property browsing
     @abstract Indicates whether the device browser is browsing for devices.
   */
-  var browsing: Bool { get }
+  var isBrowsing: Bool { get }
 
   /*! 
     @property browsedDeviceTypeMask
@@ -1308,7 +1308,7 @@ class ICScannerBandData : NSObject {
    @abstract Describes if the banded image data is reported in big endian.
    
    */
-  var bigEndian: Bool { get }
+  var isBigEndian: Bool { get }
 
   /*!
    @property pixelDataType
@@ -1414,35 +1414,35 @@ protocol ICScannerDeviceDelegate : ICDeviceDelegate {
     @abstract This message is sent when a functional unit is selected on the scanner device.
     @discusson A functional unit is selected immediately after the scanner device is instantiated and in response to "requestSelectFunctionalUnit:" message.
   */
-  optional func scannerDevice(scanner: ICScannerDevice, didSelectFunctionalUnit functionalUnit: ICScannerFunctionalUnit, error: NSError?)
+  optional func scannerDevice(scanner: ICScannerDevice, didSelect functionalUnit: ICScannerFunctionalUnit, error: NSError?)
 
   /*! 
    @method scannerDevice:didScanToURL:
    @abstract This message is sent when the scanner device receives the requested scan. If selectedFunctionalUnit is a document feeder, then this message will be sent once for each scanned page.
    @discusson This message is sent when the scanner device receives the requested scan. If selectedFunctionalUnit is a document feeder, then this message will be sent once for each scanned page.
    */
-  optional func scannerDevice(scanner: ICScannerDevice, didScanToURL url: NSURL)
+  optional func scannerDevice(scanner: ICScannerDevice, didScanTo url: NSURL)
 
   /*! 
    @method scannerDevice:didScanToBandData:
    @abstract This message is sent when the scanner device receives the requested scan progress notification and a band of data is sent for each notification received.
    @discusson In memory transfer mode, this will send a band of size that has been selected by the client via the maxMemoryBandSize property.
    */
-  optional func scannerDevice(scanner: ICScannerDevice, didScanToBandData data: ICScannerBandData)
+  optional func scannerDevice(scanner: ICScannerDevice, didScanTo data: ICScannerBandData)
 
   /*! 
     @method scannerDevice:didCompleteOverviewScanWithError:
     @abstract This message is sent after the scanner device completes an overview scan.
     @discusson This message is sent after the scanner device completes an overview scan.
   */
-  optional func scannerDevice(scanner: ICScannerDevice, didCompleteOverviewScanWithError error: NSError?)
+  optional func scannerDevice(scanner: ICScannerDevice, didCompleteOverviewScanWith error: NSError?)
 
   /*! 
     @method scannerDevice:didCompleteScanWithError:
     @abstract This message is sent after the scanner device completes a scan.
     @discusson This message is sent after the scanner device completes a scan.
   */
-  optional func scannerDevice(scanner: ICScannerDevice, didCompleteScanWithError error: NSError?)
+  optional func scannerDevice(scanner: ICScannerDevice, didCompleteScanWith error: NSError?)
 }
 
 /*! 
@@ -1506,7 +1506,7 @@ class ICScannerDevice : ICDevice {
     @abstract Requests the scanner device to select a functional unit.
     @discussion When this request is completed, the delegate will be notified using the 'scannerDevice:didSelectFunctionalUnit:error:' message.
   */
-  func requestSelectFunctionalUnit(type: ICScannerFunctionalUnitType)
+  func requestSelect(type: ICScannerFunctionalUnitType)
 
   /*! 
     @method requestOverviewScan
@@ -1947,7 +1947,7 @@ class ICScannerFeatureBoolean : ICScannerFeature {
       @abstract ￼The value of this feature.
   
   */
-  var value: Bool
+  var isValue: Bool
   init()
 }
 
@@ -2310,7 +2310,7 @@ class ICScannerFunctionalUnitDocumentFeeder : ICScannerFunctionalUnit {
       @abstract ￼Indicates whether duplex scanning is enabled.
   
   */
-  var duplexScanningEnabled: Bool
+  var isDuplexScanningEnabled: Bool
 
   /*!
       @property documentLoaded
@@ -2318,7 +2318,7 @@ class ICScannerFunctionalUnitDocumentFeeder : ICScannerFunctionalUnit {
       @discussion This value will change when the document is loaded or removed from the feeder, if the scanner module has the capability to detect this state.
   
   */
-  var documentLoaded: Bool { get }
+  var isDocumentLoaded: Bool { get }
 
   /*!
       @property oddPageOrientation
@@ -2341,6 +2341,6 @@ class ICScannerFunctionalUnitDocumentFeeder : ICScannerFunctionalUnit {
    @abstract ￼Indicates whether the document feeder reads pages from back to front.
    
    */
-  var reverseFeederPageOrder: Bool { get }
+  var isReverseFeederPageOrder: Bool { get }
   init()
 }

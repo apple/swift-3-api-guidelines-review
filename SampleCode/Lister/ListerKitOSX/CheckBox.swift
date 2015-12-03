@@ -13,10 +13,10 @@ import Cocoa
     
     @IBInspectable public var tintColor: NSColor {
         get {
-            return NSColor(CGColor: checkBoxLayer.tintColor)!
+            return NSColor(cgColor: checkBoxLayer.tintColor)!
         }
         set {
-            checkBoxLayer.tintColor = newValue.CGColor
+            checkBoxLayer.tintColor = newValue.cgColor
         }
     }
     

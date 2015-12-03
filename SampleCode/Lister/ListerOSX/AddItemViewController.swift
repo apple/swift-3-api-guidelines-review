@@ -21,13 +21,13 @@ class AddItemViewController: NSViewController {
     // MARK: IBActions
 
     @IBAction func textChanged(textField: NSTextField) {
-        let cleansedString = textField.stringValue.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        let cleansedString = textField.stringValue.byTrimmingCharactersIn(NSCharacterSet.whitespaceAndNewline())
         
         if !cleansedString.isEmpty {
             delegate?.addItemViewController(self, didCreateNewItemWithText: cleansedString)
         }
 
         // Tell the presenting view controller to dismiss the popover.
-        presentingViewController?.dismissViewController(self)
+        presenting?.dismiss(self)
     }
 }

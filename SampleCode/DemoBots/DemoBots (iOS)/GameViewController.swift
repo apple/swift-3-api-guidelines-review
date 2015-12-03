@@ -36,10 +36,10 @@ class GameViewController: UIViewController, SceneManagerDelegate {
         
         // Load the initial home scene.
         let skView = view as! SKView
-        sceneManager = SceneManager(presentingView: skView, gameInput: gameInput)
+        sceneManager = SceneManager(presenting: skView, gameInput: gameInput)
         sceneManager.delegate = self
         
-        sceneManager.transitionToSceneWithSceneIdentifier(.Home)
+        sceneManager.transitionToSceneWith(.Home)
     }
     
     // Hide status bar during game play.
@@ -49,13 +49,13 @@ class GameViewController: UIViewController, SceneManagerDelegate {
     
     // MARK: SceneManagerDelegate
     
-    func sceneManagerDidTransitionToScene(scene: SKScene) {
+    func sceneManagerDidTransitionTo(scene: SKScene) {
         
         // Fade out the app's initial loading `logoView` if it is visible.
-        UIView.animateWithDuration(0.2, delay: 0.0, options: [], animations: {
+        UIView.animateWithDuration(0.2, delay: 0.0, animations: {
             self.logoView.alpha = 0.0
         }, completion: { _ in
-            self.logoView.hidden = true
+            self.logoView.isHidden = true
         })
     }
 }

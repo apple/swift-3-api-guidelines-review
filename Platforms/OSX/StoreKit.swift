@@ -34,16 +34,16 @@ var SKErrorPaymentInvalid: Int { get }
 var SKErrorPaymentNotAllowed: Int { get }
 @available(OSX 10.7, *)
 class SKPayment : NSObject, NSCopying, NSMutableCopying {
-  class func paymentWithProduct(product: SKProduct) -> AnyObject
+  class func paymentWith(product: SKProduct) -> AnyObject
   var productIdentifier: String { get }
   @NSCopying var requestData: NSData? { get }
   var quantity: Int { get }
   var applicationUsername: String? { get }
   init()
   @available(OSX 10.7, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.7, *)
 class SKMutablePayment : SKPayment {
@@ -57,17 +57,17 @@ class SKMutablePayment : SKPayment {
 class SKPaymentQueue : NSObject {
   class func defaultQueue() -> SKPaymentQueue
   class func canMakePayments() -> Bool
-  func addPayment(payment: SKPayment)
+  func add(payment: SKPayment)
   func restoreCompletedTransactions()
   func restoreCompletedTransactionsWithApplicationUsername(username: String?)
   func finishTransaction(transaction: SKPaymentTransaction)
-  func addTransactionObserver(observer: SKPaymentTransactionObserver)
-  func removeTransactionObserver(observer: SKPaymentTransactionObserver)
+  func add(observer: SKPaymentTransactionObserver)
+  func remove(observer: SKPaymentTransactionObserver)
   var transactions: [SKPaymentTransaction]? { get }
-  func startDownloads(downloads: [SKDownload])
-  func pauseDownloads(downloads: [SKDownload])
+  func start(downloads: [SKDownload])
+  func pause(downloads: [SKDownload])
   func resumeDownloads(downloads: [SKDownload])
-  func cancelDownloads(downloads: [SKDownload])
+  func cancel(downloads: [SKDownload])
   init()
 }
 protocol SKPaymentTransactionObserver : NSObjectProtocol {
@@ -76,7 +76,7 @@ protocol SKPaymentTransactionObserver : NSObjectProtocol {
   @available(OSX 10.7, *)
   optional func paymentQueue(queue: SKPaymentQueue, removedTransactions transactions: [SKPaymentTransaction])
   @available(OSX 10.7, *)
-  optional func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: NSError)
+  optional func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWith error: NSError)
   @available(OSX 10.7, *)
   optional func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue)
   @available(OSX 10.8, *)
@@ -91,7 +91,7 @@ typealias SKPaymentTransactionState = Int
 @available(OSX 10.7, *)
 class SKPaymentTransaction : NSObject {
   var error: NSError? { get }
-  var originalTransaction: SKPaymentTransaction? { get }
+  var original: SKPaymentTransaction? { get }
   var payment: SKPayment { get }
   var transactionDate: NSDate? { get }
   var transactionIdentifier: String? { get }
@@ -106,14 +106,14 @@ class SKProduct : NSObject {
   var price: NSDecimalNumber? { get }
   var priceLocale: NSLocale? { get }
   var productIdentifier: String? { get }
-  var downloadable: Bool { get }
+  var isDownloadable: Bool { get }
   var contentVersion: String? { get }
   var contentLengths: [NSNumber]? { get }
   init()
 }
 protocol SKProductsRequestDelegate : SKRequestDelegate {
   @available(OSX 10.7, *)
-  func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse)
+  func productsRequest(request: SKProductsRequest, didReceive response: SKProductsResponse)
 }
 @available(OSX 10.7, *)
 class SKProductsRequest : SKRequest {
@@ -150,5 +150,5 @@ protocol SKRequestDelegate : NSObjectProtocol {
   @available(OSX 10.7, *)
   optional func requestDidFinish(request: SKRequest)
   @available(OSX 10.7, *)
-  optional func request(request: SKRequest, didFailWithError error: NSError?)
+  optional func request(request: SKRequest, didFailWith error: NSError?)
 }

@@ -20,12 +20,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: NSApplicationDelegate
     
     func applicationDidFinishLaunching(notification: NSNotification) {
-        AppConfiguration.sharedConfiguration.runHandlerOnFirstLaunch {
+        AppConfiguration.shared.runHandlerOnFirstLaunch {
             
             // If iCloud is enabled and it's the first launch, we'll show the Today document initially.
-            if AppConfiguration.sharedConfiguration.isCloudAvailable {
+            if AppConfiguration.shared.isCloudAvailable {
                 // Make sure that no other documents are visible except for the Today document.
-                NSDocumentController.sharedDocumentController().closeAllDocumentsWithDelegate(nil, didCloseAllSelector: nil, contextInfo: nil)
+                NSDocumentController.shared().closeAllDocumentsWithDelegate(nil, didCloseAllSelector: nil, contextInfo: nil)
 
                 self.openTodayDocument()
             }
@@ -53,9 +53,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         TodayListManager.fetchTodayDocumentURLWithCompletionHandler { url in
             if let url = url {
                 dispatch_async(dispatch_get_main_queue()) {
-                    let documentController = NSDocumentController.sharedDocumentController()
+                    let documentController = NSDocumentController.shared()
                     
-                    documentController.openDocumentWithContentsOfURL(url, display: true) { _ in
+                    documentController.openDocumentWithContentsOf(url, display: true) { _ in
                         // Configuration of the document can go here...
                     }
                 }
@@ -66,7 +66,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: Convenience
     
     func updateTodayListMenuItemForCloudAvailability() {
-        if AppConfiguration.sharedConfiguration.isCloudAvailable {
+        if AppConfiguration.shared.isCloudAvailable {
             todayListMenuItem.action = "openTodayDocument:"
             todayListMenuItem.target = self
         }

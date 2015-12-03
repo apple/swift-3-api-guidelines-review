@@ -21,7 +21,7 @@ extension LevelScene {
             pathfinding buffer radius.
         */
         for obstacle in obstacleSpriteNodes {
-            obstacle.debugDrawingEnabled = debugDrawingEnabled
+            obstacle.isDebugDrawingEnabled = isDebugDrawingEnabled
         }
         
         // Notify any `beamNode`'s inside `BeamComponent`s of the new debug drawing state.
@@ -29,14 +29,14 @@ extension LevelScene {
             guard componentSystem.componentClass is BeamComponent.Type else { continue }
             
             for component in componentSystem.components as! [BeamComponent] {
-                component.beamNode.debugDrawingEnabled = debugDrawingEnabled
+                component.beamNode.isDebugDrawingEnabled = isDebugDrawingEnabled
             }
         }
     }
     
     /// Draws (or removes) a debug representation of the pathfinding graph for this level.
     func drawGraph() {
-        guard debugDrawingEnabled else {
+        guard isDebugDrawingEnabled else {
             graphLayer.removeAllChildren()
             return
         }
@@ -67,7 +67,7 @@ extension SKSpriteNode {
         return "debugBufferShape"
     }
     
-    var debugDrawingEnabled: Bool {
+    var isDebugDrawingEnabled: Bool {
         set {
             // Only enable buffer radius debug drawing for sprite nodes with a physics body.
             if physicsBody == nil { return }
@@ -76,7 +76,7 @@ extension SKSpriteNode {
             if newValue == true {
                 let bufferRadius = CGFloat(GameplayConfiguration.TaskBot.pathfindingGraphBufferRadius)
                 let bufferFrame = frame.insetBy(dx: -bufferRadius, dy: -bufferRadius)
-                let bufferedShape = SKShapeNode(rectOfSize: bufferFrame.size)
+                let bufferedShape = SKShapeNode(rectOf: bufferFrame.size)
                 bufferedShape.fillColor = SKColor(red: 1.0, green: 0.5, blue: 0.0, alpha: 0.2)
                 bufferedShape.strokeColor = SKColor(red: 1.0, green: 0.5, blue: 0.0, alpha: 0.4)
                 bufferedShape.name = debugBufferShapeName
@@ -85,7 +85,7 @@ extension SKSpriteNode {
             else {
                 // Remove any existing debug shape layer if we are turning off debug drawing for this node.
                 guard let debugBufferShape = childNodeWithName(debugBufferShapeName) else { return }
-                removeChildrenInArray([debugBufferShape])
+                removeChildrenIn([debugBufferShape])
             }
         }
         get {

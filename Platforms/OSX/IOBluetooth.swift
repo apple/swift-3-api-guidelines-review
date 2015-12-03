@@ -4330,7 +4330,7 @@ class IOBluetoothDevice : IOBluetoothObject, NSCoding, NSSecureCoding {
   				of +127 will be returned.
   */
   @available(OSX 10.7, *)
-  func RSSI() -> BluetoothHCIRSSIValue
+  func rssi() -> BluetoothHCIRSSIValue
 
   /*!
       @property	rawRSSI
@@ -4566,7 +4566,7 @@ class IOBluetoothDevice : IOBluetoothObject, NSCoding, NSSecureCoding {
   	@result		Returns the first service record that contains the given uuid.  If no service record is found,
                   nil is returned.
   */
-  func getServiceRecordForUUID(sdpUUID: IOBluetoothSDPUUID!) -> IOBluetoothSDPServiceRecord!
+  func getServiceRecordFor(sdpUUID: IOBluetoothSDPUUID!) -> IOBluetoothSDPServiceRecord!
 
   /*!
       @property	favoriteDevices
@@ -4720,9 +4720,9 @@ class IOBluetoothDevice : IOBluetoothObject, NSCoding, NSSecureCoding {
                   L2CAP channel was found). The channel must be released when the caller is done with it.
   */
   func openL2CAPChannelAsync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [NSObject : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
-  func awakeAfterUsingCoder(coder: NSCoder!) -> AnyObject!
+  func awakeAfterUsing(coder: NSCoder!) -> AnyObject!
   init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   class func supportsSecureCoding() -> Bool
 }
@@ -4932,7 +4932,7 @@ class IOBluetoothDevicePair : NSObject {
   	@param		PINCodeSize	The PIN code length in octets (8 bits).
   	@param		PINcode		PIN code for the device.  Can be up to a maximum of 128 bits.
   */
-  func replyPINCode(PINCodeSize: Int, PINCode: UnsafeMutablePointer<BluetoothPINCode>)
+  func replyPINCode(PINCodeSize: Int, pinCode PINCode: UnsafeMutablePointer<BluetoothPINCode>)
 
   /*!
       @method		replyUserConfirmation:
@@ -5132,7 +5132,7 @@ class IOBluetoothHandsFree : NSObject {
    @param			muted YES if muted; otherwise NO.
    */
   @available(OSX 10.7, *)
-  var inputMuted: Bool
+  var isInputMuted: Bool
 
   /*!
    @method		outputVolume
@@ -5162,7 +5162,7 @@ class IOBluetoothHandsFree : NSObject {
    @param			muted YES if muted; otherwise NO.
    */
   @available(OSX 10.7, *)
-  var outputMuted: Bool
+  var isOutputMuted: Bool
 
   /*!
    @method		device
@@ -5207,7 +5207,7 @@ class IOBluetoothHandsFree : NSObject {
    @result		The SMS mode
    */
   @available(OSX 10.7, *)
-  var SMSMode: IOBluetoothSMSMode { get }
+  var smsMode: IOBluetoothSMSMode { get }
 
   /*!
    @method		isSMSEnabled
@@ -5216,7 +5216,7 @@ class IOBluetoothHandsFree : NSObject {
    @result		YES if the device has SMSEnabled; otherwise, NO.
    */
   @available(OSX 10.7, *)
-  var SMSEnabled: Bool { get }
+  var isSMSEnabled: Bool { get }
 
   /*!
    @method		delegate
@@ -6136,7 +6136,7 @@ class IOBluetoothL2CAPChannel : IOBluetoothObject, NSPortDelegate {
   	@abstract	Returns the PSM for the target L2CAP channel.
   	@result		Returns the PSM for the target L2CAP channel.
   */
-  var PSM: BluetoothL2CAPPSM { get }
+  var psm: BluetoothL2CAPPSM { get }
 
   /*!
       @method		getLocalChannelID
@@ -6174,7 +6174,7 @@ class IOBluetoothL2CAPChannel : IOBluetoothObject, NSPortDelegate {
   */
   func registerForChannelCloseNotification(observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
   init()
-  func handlePortMessage(message: NSPortMessage)
+  func handle(message: NSPortMessage)
 }
 protocol IOBluetoothL2CAPChannelDelegate {
   optional func l2capChannelData(l2capChannel: IOBluetoothL2CAPChannel!, data dataPointer: UnsafeMutablePointer<Void>, length dataLength: Int)
@@ -6248,7 +6248,7 @@ class IOBluetoothOBEXSession : OBEXSession, IOBluetoothRFCOMMChannelDelegate {
   	@result		
   	@discussion	
   */
-  init!(SDPServiceRecord inSDPServiceRecord: IOBluetoothSDPServiceRecord!)
+  init!(sdpServiceRecord inSDPServiceRecord: IOBluetoothSDPServiceRecord!)
 
   /*!	@method		initWithDevice
   	@abstract	Initializes a Bluetooth-based OBEX Session using a Bluetooth device.
@@ -6380,7 +6380,7 @@ class IOBluetoothOBEXSession : OBEXSession, IOBluetoothRFCOMMChannelDelegate {
 }
 class IOBluetoothObject : NSObject, NSCopying {
   init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 var kBluetoothTargetDoesNotRespondToCallbackExceptionName: String { get }
 
@@ -6611,7 +6611,7 @@ class IOBluetoothRFCOMMChannel : IOBluetoothObject, NSPortDelegate {
   */
   func registerForChannelCloseNotification(observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
   init()
-  func handlePortMessage(message: NSPortMessage)
+  func handle(message: NSPortMessage)
 }
 protocol IOBluetoothRFCOMMChannelDelegate {
   optional func rfcommChannelData(rfcommChannel: IOBluetoothRFCOMMChannel!, data dataPointer: UnsafeMutablePointer<Void>, length dataLength: Int)
@@ -6835,7 +6835,7 @@ class IOBluetoothSDPDataElement : NSObject, NSCoding {
       @param dataElement The data element to compare with (and search for). 
       @result Returns TRUE if the target either matches the given data element or if it contains the given data element.
   */
-  func containsDataElement(dataElement: IOBluetoothSDPDataElement!) -> Bool
+  func contains(dataElement: IOBluetoothSDPDataElement!) -> Bool
 
   /*!
       @method containsValue:
@@ -6847,7 +6847,7 @@ class IOBluetoothSDPDataElement : NSObject, NSCoding {
   */
   func containsValue(cmpValue: NSObject!) -> Bool
   init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -6892,7 +6892,7 @@ class IOBluetoothSDPServiceAttribute : NSObject, NSCoding {
       @param attributeElementValue The data element value of the new service attribute
       @result Returns self if successful.  Returns nil if there was an error parsing the element value.
   */
-  init!(ID newAttributeID: BluetoothSDPServiceAttributeID, attributeElementValue: NSObject!)
+  init!(id newAttributeID: BluetoothSDPServiceAttributeID, attributeElementValue: NSObject!)
 
   /*!
       @method initWithID:attributeElement:
@@ -6901,7 +6901,7 @@ class IOBluetoothSDPServiceAttribute : NSObject, NSCoding {
       @param attributeElement The data element of the new service attribute.
       @result Returns self if successful.  Returns nil if there was an error.
   */
-  init!(ID newAttributeID: BluetoothSDPServiceAttributeID, attributeElement: IOBluetoothSDPDataElement!)
+  init!(id newAttributeID: BluetoothSDPServiceAttributeID, attributeElement: IOBluetoothSDPDataElement!)
 
   /*!
       @method getAttributeID
@@ -6924,7 +6924,7 @@ class IOBluetoothSDPServiceAttribute : NSObject, NSCoding {
   */
   func getIDDataElement() -> IOBluetoothSDPDataElement!
   init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -6984,7 +6984,7 @@ class IOBluetoothSDPServiceRecord : NSObject, NSCoding {
    
    @param		serviceDict	A dictionary containing the attributes for the new service 
   */
-  class func publishedServiceRecordWithDictionary(serviceDict: [NSObject : AnyObject]!) -> Self!
+  class func publishedServiceRecordWith(serviceDict: [NSObject : AnyObject]!) -> Self!
 
   /*!	@function	removeServiceRecord
    @abstract	Removes the service from the local SDP server.
@@ -7133,7 +7133,7 @@ class IOBluetoothSDPServiceRecord : NSObject, NSCoding {
       @param		array An NSArray of NSArrays of IOBluetoothSDPUUID objects.	 
       @result		Returns TRUE if any of the UUID arrays match.
   */
-  func matchesSearchArray(searchArray: [AnyObject]!) -> Bool
+  func matchesSearch(searchArray: [AnyObject]!) -> Bool
 
   /*!
       @method		hasServiceFromArray:
@@ -7146,7 +7146,7 @@ class IOBluetoothSDPServiceRecord : NSObject, NSCoding {
       @param		array An NSArray of IOBluetoothSDPUUID objects to search for in the target service.	 
       @result		Returns TRUE if any of the given UUIDs are present in the service.
   */
-  func hasServiceFromArray(array: [AnyObject]!) -> Bool
+  func hasServiceFrom(array: [AnyObject]!) -> Bool
 
   /*!
    @method		sortedAttributes:
@@ -7157,7 +7157,7 @@ class IOBluetoothSDPServiceRecord : NSObject, NSCoding {
    */
   var sortedAttributes: [AnyObject]! { get }
   init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -7187,7 +7187,7 @@ class IOBluetoothSDPUUID : NSData {
       @param data The NSData containing the UUID bytes.
       @result Returns the new IOBluetoothSDPUUID object or nil on failure.
   */
-  class func uuidWithData(data: NSData!) -> Self!
+  class func uuidWith(data: NSData!) -> Self!
 
   /*!
       @method uuid16:
@@ -7211,7 +7211,7 @@ class IOBluetoothSDPUUID : NSData {
       @param uuid16 A scalar representing a 16-bit UUID
       @result Returns self.
   */
-  init!(UUID16 uuid16: BluetoothSDPUUID16)
+  init!(uuiD16 uuid16: BluetoothSDPUUID16)
 
   /*!
       @method initWithUUID32:
@@ -7219,7 +7219,7 @@ class IOBluetoothSDPUUID : NSData {
       @param uuid32 A scalar representing a 32-bit UUID
       @result Returns self.
   */
-  init!(UUID32 uuid32: BluetoothSDPUUID32)
+  init!(uuiD32 uuid32: BluetoothSDPUUID32)
 
   /*!
       @method getUUIDWithLength:
@@ -7242,7 +7242,7 @@ class IOBluetoothSDPUUID : NSData {
       @result Returns true if the UUID values of each object are equal.  This includes the case where the sizes are different
               but the data itself is the same when the Bluetooth UUID base is applied.
   */
-  func isEqualToUUID(otherUUID: IOBluetoothSDPUUID!) -> Bool
+  func isEqualTo(otherUUID: IOBluetoothSDPUUID!) -> Bool
   func classForCoder() -> AnyClass!
   func classForArchiver() -> AnyClass!
   func classForPortCoder() -> AnyClass!
@@ -7251,18 +7251,18 @@ class IOBluetoothSDPUUID : NSData {
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
   init?(contentsOfMappedFile path: String)
   @available(OSX 10.9, *)
-  init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions)
+  init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions = [])
   @available(OSX 10.9, *)
-  init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions)
+  init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions = [])
   init(bytes: UnsafePointer<Void>, length: Int)
   init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int)
   init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, freeWhenDone b: Bool)
   @available(OSX 10.9, *)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)?)
-  init(contentsOfFile path: String, options readOptionsMask: NSDataReadingOptions) throws
-  init(contentsOfURL url: NSURL, options readOptionsMask: NSDataReadingOptions) throws
+  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)? = nil)
+  init(contentsOfFile path: String, options readOptionsMask: NSDataReadingOptions = []) throws
+  init(contentsOf url: NSURL, options readOptionsMask: NSDataReadingOptions = []) throws
   init?(contentsOfFile path: String)
-  init?(contentsOfURL url: NSURL)
+  init?(contentsOf url: NSURL)
   init(data: NSData)
 }
 
@@ -7286,8 +7286,8 @@ class IOBluetoothUserNotification : NSObject {
   init()
 }
 extension NSMutableDictionary {
-  convenience init!(OBEXHeadersData inHeadersData: UnsafePointer<Void>, headersDataSize inDataSize: Int)
-  convenience init!(OBEXHeadersData inHeadersData: NSData!)
+  convenience init!(obexHeadersData inHeadersData: UnsafePointer<Void>, headersDataSize inDataSize: Int)
+  convenience init!(obexHeadersData inHeadersData: NSData!)
   func getHeaderBytes() -> NSMutableData!
   func addTargetHeader(inHeaderData: UnsafePointer<Void>, length inHeaderDataLength: UInt32) -> OBEXError
   func addHTTPHeader(inHeaderData: UnsafePointer<Void>, length inHeaderDataLength: UInt32) -> OBEXError
@@ -7343,7 +7343,7 @@ class OBEXFileTransferServices : NSObject {
   	@param			inOBEXSession A valid IOBluetoothOBEXSession
   	@result			A newly created OBEXFileTransferServices object on success, nil on failure
   */
-  init!(OBEXSession inOBEXSession: IOBluetoothOBEXSession!)
+  init!(obexSession inOBEXSession: IOBluetoothOBEXSession!)
 
   /*!
   	@method     currentPath
@@ -7501,7 +7501,7 @@ class OBEXFileTransferServices : NSObject {
   				results returned through the fileTransferServicesSendComplete: and 
   				fileTransferServicesSendProgress: delegate methods if initially successful.
   */
-  func sendData(inData: NSData!, type inType: String!, name inName: String!) -> OBEXError
+  func send(inData: NSData!, type inType: String!, name inName: String!) -> OBEXError
 
   /*!
   	@method     getDefaultVCard:
@@ -7826,7 +7826,7 @@ class OBEXSession : NSObject {
   				transport. You will receive a response to your command on your selector. If you have already established an OBEX
   				connection and you call this again you will get an 'kOBEXSessionAlreadyConnectedError' as a result.
   */
-  func OBEXConnect(inFlags: OBEXFlags, maxPacketLength inMaxPacketLength: OBEXMaxPacketLength, optionalHeaders inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
+  func obexConnect(inFlags: OBEXFlags, maxPacketLength inMaxPacketLength: OBEXMaxPacketLength, optionalHeaders inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
 
   /*!	@method		OBEXDisconnect
   	@abstract	Send an OBEX Disconnect command to the session's target. THIS DOES NOT necessarily close the underlying transport
@@ -7850,7 +7850,7 @@ class OBEXSession : NSObject {
   				It is recommended that you call getMaxPacketLength on your session before issuing this command so
   				you know how much data the session's target will accept in a single transaction.
   */
-  func OBEXDisconnect(inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
+  func obexDisconnect(inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
 
   /*!	@method		OBEXPut
   	@abstract	Send an OBEX Put command to the session's target.
@@ -7879,7 +7879,7 @@ class OBEXSession : NSObject {
   	@discussion	A NULL selector or target will result in an error. After return, the data passed in will have been sent over the
   				transport. You will receive a response to your command on your selector. 
   */
-  func OBEXPut(isFinalChunk: Bool, headersData inHeadersData: UnsafeMutablePointer<Void>, headersDataLength inHeadersDataLength: Int, bodyData inBodyData: UnsafeMutablePointer<Void>, bodyDataLength inBodyDataLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
+  func obexPut(isFinalChunk: Bool, headersData inHeadersData: UnsafeMutablePointer<Void>, headersDataLength inHeadersDataLength: Int, bodyData inBodyData: UnsafeMutablePointer<Void>, bodyDataLength inBodyDataLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
 
   /*!	@method		OBEXGet
   	@abstract	Send an OBEX Get command to the session's target.
@@ -7902,7 +7902,7 @@ class OBEXSession : NSObject {
   	@discussion	A NULL selector or target will result in an error. After return, the data passed in will have been sent over the
   				transport. You will receive a response to your command on your selector. 
   */
-  func OBEXGet(isFinalChunk: Bool, headers inHeaders: UnsafeMutablePointer<Void>, headersLength inHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
+  func obexGet(isFinalChunk: Bool, headers inHeaders: UnsafeMutablePointer<Void>, headersLength inHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
 
   /*!	@method		OBEXAbort
   	@abstract	Send an OBEX Abort command to the session's target.
@@ -7922,7 +7922,7 @@ class OBEXSession : NSObject {
   	@discussion	A NULL selector or target will result in an error. After return, the data passed in will have been sent over the
   				transport. You will receive a response to your command on your selector. 
   */
-  func OBEXAbort(inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
+  func obexAbort(inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
 
   /*!	@method		OBEXSetPath
   	@abstract	Send an OBEX SetPath command to the session's target.
@@ -7944,7 +7944,7 @@ class OBEXSession : NSObject {
   	@discussion A NULL selector or target will result in an error. After return, the data passed in will have been sent over the
   				transport. You will receive a response to your command on your selector.
   */
-  func OBEXSetPath(inFlags: OBEXFlags, constants inConstants: OBEXConstants, optionalHeaders inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
+  func obexSetPath(inFlags: OBEXFlags, constants inConstants: OBEXConstants, optionalHeaders inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
 
   /*!	@method		OBEXConnectResponse
   	@abstract	Send a connect response to a session's target.
@@ -7969,7 +7969,7 @@ class OBEXSession : NSObject {
   	@discussion A NULL selector or target will result in an error. After return, the data passed in will have been sent over the
   				underlying OBEX transport. You will receive any responses to your command response on your selector.
   */
-  func OBEXConnectResponse(inResponseOpCode: OBEXOpCode, flags inFlags: OBEXFlags, maxPacketLength inMaxPacketLength: OBEXMaxPacketLength, optionalHeaders inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
+  func obexConnectResponse(inResponseOpCode: OBEXOpCode, flags inFlags: OBEXFlags, maxPacketLength inMaxPacketLength: OBEXMaxPacketLength, optionalHeaders inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
 
   /*!	@method		OBEXDisconnectResponse
   	@abstract	Send a disconnect response to a session's target.
@@ -7992,7 +7992,7 @@ class OBEXSession : NSObject {
   	@discussion A NULL selector or target will result in an error. After return, the data passed in will have been sent over the
   				underlying OBEX transport. You will receive any responses to your command response on your selector.
   */
-  func OBEXDisconnectResponse(inResponseOpCode: OBEXOpCode, optionalHeaders inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
+  func obexDisconnectResponse(inResponseOpCode: OBEXOpCode, optionalHeaders inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
 
   /*!	@method		OBEXPutResponse
   	@abstract	Send a put response to a session's target.
@@ -8015,7 +8015,7 @@ class OBEXSession : NSObject {
   	@discussion A NULL selector or target will result in an error. After return, the data passed in will have been sent over the
   				underlying OBEX transport. You will receive any responses to your command response on your selector.
   */
-  func OBEXPutResponse(inResponseOpCode: OBEXOpCode, optionalHeaders inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
+  func obexPutResponse(inResponseOpCode: OBEXOpCode, optionalHeaders inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
 
   /*!	@method		OBEXGetResponse
   	@abstract	Send a get response to a session's target.
@@ -8038,7 +8038,7 @@ class OBEXSession : NSObject {
   	@discussion A NULL selector or target will result in an error. After return, the data passed in will have been sent over the
   				underlying OBEX transport. You will receive any responses to your command response on your selector.
   */
-  func OBEXGetResponse(inResponseOpCode: OBEXOpCode, optionalHeaders inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
+  func obexGetResponse(inResponseOpCode: OBEXOpCode, optionalHeaders inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
 
   /*!	@method		OBEXAbortResponse
   	@abstract	Send a abort response to a session's target.
@@ -8061,7 +8061,7 @@ class OBEXSession : NSObject {
   	@discussion A NULL selector or target will result in an error. After return, the data passed in will have been sent over the
   				underlying OBEX transport. You will receive any responses to your command response on your selector.
   */
-  func OBEXAbortResponse(inResponseOpCode: OBEXOpCode, optionalHeaders inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
+  func obexAbortResponse(inResponseOpCode: OBEXOpCode, optionalHeaders inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
 
   /*!	@method		OBEXSetPathResponse
   	@abstract	Send a set path response to a session's target.
@@ -8084,7 +8084,7 @@ class OBEXSession : NSObject {
   	@discussion A NULL selector or target will result in an error. After return, the data passed in will have been sent over the
   				underlying OBEX transport. You will receive any responses to your command response on your selector.
   */
-  func OBEXSetPathResponse(inResponseOpCode: OBEXOpCode, optionalHeaders inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
+  func obexSetPathResponse(inResponseOpCode: OBEXOpCode, optionalHeaders inOptionalHeaders: UnsafeMutablePointer<Void>, optionalHeadersLength inOptionalHeadersLength: Int, eventSelector inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
 
   /*!	@method		getAvailableCommandPayloadLength
   	@abstract	Determine the maximum amount of data you can send in a particular command as an OBEX client session.

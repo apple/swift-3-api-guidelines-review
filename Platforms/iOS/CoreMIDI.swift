@@ -359,7 +359,7 @@ class MIDINetworkConnection : NSObject {
 @available(iOS 4.2, *)
 class MIDINetworkSession : NSObject {
   class func defaultSession() -> MIDINetworkSession
-  var enabled: Bool
+  var isEnabled: Bool
   var networkPort: Int { get }
   var networkName: String { get }
   var localName: String { get }

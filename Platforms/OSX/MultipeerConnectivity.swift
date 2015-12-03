@@ -219,7 +219,7 @@ class MCNearbyServiceBrowser : NSObject {
   init(peer myPeerID: MCPeerID, serviceType: String)
   func startBrowsingForPeers()
   func stopBrowsingForPeers()
-  func invitePeer(peerID: MCPeerID, toSession session: MCSession, withContext context: NSData?, timeout: NSTimeInterval)
+  func invitePeer(peerID: MCPeerID, to session: MCSession, withContext context: NSData?, timeout: NSTimeInterval)
   weak var delegate: @sil_weak MCNearbyServiceBrowserDelegate?
   var myPeerID: MCPeerID { get }
   var serviceType: String { get }
@@ -259,11 +259,11 @@ class MCPeerID : NSObject, NSCopying, NSSecureCoding {
   var displayName: String { get }
   convenience init()
   @available(OSX 10.10, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
@@ -339,9 +339,9 @@ let kMCSessionMaximumNumberOfPeers: Int
 class MCSession : NSObject {
   convenience init(peer myPeerID: MCPeerID)
   init(peer myPeerID: MCPeerID, securityIdentity identity: [AnyObject]?, encryptionPreference: MCEncryptionPreference)
-  func sendData(data: NSData, toPeers peerIDs: [MCPeerID], withMode mode: MCSessionSendDataMode) throws
+  func send(data: NSData, toPeers peerIDs: [MCPeerID], withMode mode: MCSessionSendDataMode) throws
   func disconnect()
-  func sendResourceAtURL(resourceURL: NSURL, withName resourceName: String, toPeer peerID: MCPeerID, withCompletionHandler completionHandler: ((NSError?) -> Void)?) -> NSProgress?
+  func sendResourceAt(resourceURL: NSURL, withName resourceName: String, toPeer peerID: MCPeerID, withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil) -> NSProgress?
   func startStreamWithName(streamName: String, toPeer peerID: MCPeerID) throws -> NSOutputStream
   weak var delegate: @sil_weak MCSessionDelegate?
   var myPeerID: MCPeerID { get }
@@ -352,15 +352,15 @@ class MCSession : NSObject {
 }
 protocol MCSessionDelegate : NSObjectProtocol {
   @available(OSX 10.10, *)
-  func session(session: MCSession, peer peerID: MCPeerID, didChangeState state: MCSessionState)
+  func session(session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState)
   @available(OSX 10.10, *)
-  func session(session: MCSession, didReceiveData data: NSData, fromPeer peerID: MCPeerID)
+  func session(session: MCSession, didReceive data: NSData, fromPeer peerID: MCPeerID)
   @available(OSX 10.10, *)
-  func session(session: MCSession, didReceiveStream stream: NSInputStream, withName streamName: String, fromPeer peerID: MCPeerID)
+  func session(session: MCSession, didReceive stream: NSInputStream, withName streamName: String, fromPeer peerID: MCPeerID)
   @available(OSX 10.10, *)
   func session(session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, withProgress progress: NSProgress)
   @available(OSX 10.10, *)
-  func session(session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, atURL localURL: NSURL, withError error: NSError?)
+  func session(session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: NSURL, withError error: NSError?)
   @available(OSX 10.10, *)
   optional func session(session: MCSession, didReceiveCertificate certificate: [AnyObject]?, fromPeer peerID: MCPeerID, certificateHandler: (Bool) -> Void)
 }

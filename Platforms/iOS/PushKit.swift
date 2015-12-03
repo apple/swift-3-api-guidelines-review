@@ -87,7 +87,7 @@ protocol PKPushRegistryDelegate : NSObjectProtocol {
                   This is a PKPushType NSString constant which is present in [registry desiredPushTypes].
    */
   @available(iOS 8.0, *)
-  func pushRegistry(registry: PKPushRegistry!, didReceiveIncomingPushWithPayload payload: PKPushPayload!, forType type: String!)
+  func pushRegistry(registry: PKPushRegistry!, didReceiveIncomingPushWith payload: PKPushPayload!, forType type: String!)
 
   /*!
    @method        pushRegistry:didInvalidatePushTokenForType:

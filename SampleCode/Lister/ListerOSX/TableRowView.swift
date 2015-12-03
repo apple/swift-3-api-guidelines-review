@@ -9,8 +9,8 @@
 import Cocoa
 
 class TableRowView: NSTableRowView {
-    override func drawSelectionInRect(dirtyRect: NSRect) {
-        super.drawSelectionInRect(dirtyRect)
+    override func drawSelectionIn(dirtyRect: NSRect) {
+        super.drawSelectionIn(dirtyRect)
 
         struct SharedColors {
             static let backgroundColor = NSColor(red: 0.76, green: 0.82, blue: 0.92, alpha: 1)

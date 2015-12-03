@@ -1,16 +1,16 @@
 
 @available(OSX 10.8, *)
 class GKAchievement : NSObject, NSCoding, NSSecureCoding {
-  class func loadAchievementsWithCompletionHandler(completionHandler: (([GKAchievement]?, NSError?) -> Void)?)
-  class func resetAchievementsWithCompletionHandler(completionHandler: ((NSError?) -> Void)?)
+  class func loadAchievements(completionHandler completionHandler: (([GKAchievement]?, NSError?) -> Void)? = nil)
+  class func resetAchievements(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   init(identifier: String?)
   @available(OSX 10.10, *)
   init(identifier: String?, player: GKPlayer)
   @available(OSX 10.8, *)
-  class func reportAchievements(achievements: [GKAchievement], withCompletionHandler completionHandler: ((NSError?) -> Void)?)
+  class func report(achievements: [GKAchievement], withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
   var identifier: String?
   var percentComplete: Double
-  var completed: Bool { get }
+  var isCompleted: Bool { get }
   @NSCopying var lastReportedDate: NSDate { get }
   @available(OSX 10.8, *)
   var showsCompletionBanner: Bool
@@ -18,20 +18,20 @@ class GKAchievement : NSObject, NSCoding, NSSecureCoding {
   var player: GKPlayer { get }
   init()
   @available(OSX 10.8, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
 }
 extension GKAchievement {
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use +reportAchievements:withCompletionHandler:")
-  func reportAchievementWithCompletionHandler(completionHandler: ((NSError?) -> Void)?)
+  func reportAchievement(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use isHidden on the GKAchievementDescription class instead")
-  var hidden: Bool { get }
+  var isHidden: Bool { get }
 }
 @available(OSX 10.8, *)
 class GKAchievementDescription : NSObject, NSCoding, NSSecureCoding {
-  class func loadAchievementDescriptionsWithCompletionHandler(completionHandler: (([GKAchievementDescription]?, NSError?) -> Void)?)
+  class func loadAchievementDescriptions(completionHandler completionHandler: (([GKAchievementDescription]?, NSError?) -> Void)? = nil)
   var identifier: String? { get }
   @available(OSX 10.8, *)
   var groupIdentifier: String? { get }
@@ -39,12 +39,12 @@ class GKAchievementDescription : NSObject, NSCoding, NSSecureCoding {
   var achievedDescription: String? { get }
   var unachievedDescription: String? { get }
   var maximumPoints: Int { get }
-  var hidden: Bool { get }
+  var isHidden: Bool { get }
   @available(OSX 10.8, *)
-  var replayable: Bool { get }
+  var isReplayable: Bool { get }
   init()
   @available(OSX 10.8, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
@@ -52,7 +52,7 @@ class GKAchievementDescription : NSObject, NSCoding, NSSecureCoding {
 extension GKAchievementDescription {
   @available(OSX 10.8, *)
   var image: NSImage? { get }
-  func loadImageWithCompletionHandler(completionHandler: ((NSImage?, NSError?) -> Void)?)
+  func loadImage(completionHandler completionHandler: ((NSImage?, NSError?) -> Void)? = nil)
   class func incompleteAchievementImage() -> NSImage
   class func placeholderCompletedAchievementImage() -> NSImage
 }
@@ -80,7 +80,7 @@ enum GKChallengeState : Int {
 }
 @available(OSX 10.8, *)
 class GKChallenge : NSObject, NSCoding, NSSecureCoding {
-  class func loadReceivedChallengesWithCompletionHandler(completionHandler: (([GKChallenge]?, NSError?) -> Void)?)
+  class func loadReceivedChallenges(completionHandler completionHandler: (([GKChallenge]?, NSError?) -> Void)? = nil)
   func decline()
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use issuingPlayer instead")
   var issuingPlayerID: String? { get }
@@ -96,7 +96,7 @@ class GKChallenge : NSObject, NSCoding, NSSecureCoding {
   var message: String? { get }
   init()
   @available(OSX 10.8, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
@@ -115,37 +115,37 @@ class GKAchievementChallenge : GKChallenge {
 }
 extension GKScore {
   @available(OSX 10.10, *)
-  func challengeComposeControllerWithMessage(message: String?, players: [GKPlayer]?, completionHandler: GKChallengeComposeCompletionBlock?) -> NSViewController
+  func challengeComposeControllerWithMessage(message: String?, players: [GKPlayer]?, completionHandler: GKChallengeComposeCompletionBlock? = nil) -> NSViewController
   @available(OSX, introduced=10.8, deprecated=10.10, message="pass GKPlayers to challengeComposeControllerWithMessage:players:completionHandler: and present the view controller instead")
   func issueChallengeToPlayers(playerIDs: [String]?, message: String?)
   @available(OSX 10.10, *)
-  class func reportScores(scores: [GKScore], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((NSError?) -> Void)?)
+  class func report(scores: [GKScore], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
 }
 extension GKAchievement {
   @available(OSX 10.10, *)
-  func challengeComposeControllerWithMessage(message: String?, players: [GKPlayer], completionHandler: GKChallengeComposeCompletionBlock?) -> NSViewController
+  func challengeComposeControllerWithMessage(message: String?, players: [GKPlayer], completionHandler: GKChallengeComposeCompletionBlock? = nil) -> NSViewController
   @available(OSX 10.10, *)
-  func selectChallengeablePlayers(players: [GKPlayer], withCompletionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)?)
+  func selectChallengeablePlayers(players: [GKPlayer], withCompletionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  class func reportAchievements(achievements: [GKAchievement], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((NSError?) -> Void)?)
+  class func report(achievements: [GKAchievement], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
 }
 extension GKScore {
 }
 extension GKAchievement {
   @available(OSX, introduced=10.8, deprecated=10.10, message="pass GKPlayers to selectChallengeablePlayers:")
-  func selectChallengeablePlayerIDs(playerIDs: [String]?, withCompletionHandler completionHandler: (([String]?, NSError?) -> Void)?)
+  func selectChallengeablePlayerIDs(playerIDs: [String]?, withCompletionHandler completionHandler: (([String]?, NSError?) -> Void)? = nil)
   @available(OSX, introduced=10.8, deprecated=10.10, message="pass GKPlayers to challengeComposeControllerWithMessage:players:completionHandler: and present the view controller instead")
   func issueChallengeToPlayers(playerIDs: [String]?, message: String?)
 }
 @available(OSX, introduced=10.8, deprecated=10.10, message="You should instead implement the GKChallengeListener protocol and register a listener with GKLocalPlayer.")
 protocol GKChallengeEventHandlerDelegate : NSObjectProtocol {
-  optional func localPlayerDidSelectChallenge(challenge: GKChallenge!)
+  optional func localPlayerDidSelect(challenge: GKChallenge!)
   optional func shouldShowBannerForLocallyReceivedChallenge(challenge: GKChallenge!) -> Bool
-  optional func localPlayerDidReceiveChallenge(challenge: GKChallenge!)
+  optional func localPlayerDidReceive(challenge: GKChallenge!)
   optional func shouldShowBannerForLocallyCompletedChallenge(challenge: GKChallenge!) -> Bool
-  optional func localPlayerDidCompleteChallenge(challenge: GKChallenge!)
+  optional func localPlayerDidComplete(challenge: GKChallenge!)
   optional func shouldShowBannerForRemotelyCompletedChallenge(challenge: GKChallenge!) -> Bool
-  optional func remotePlayerDidCompleteChallenge(challenge: GKChallenge!)
+  optional func remotePlayerDidComplete(challenge: GKChallenge!)
 }
 @available(OSX, introduced=10.8, deprecated=10.10, message="You should instead implement the GKChallengeListener protocol and register a listener with GKLocalPlayer.")
 class GKChallengeEventHandler : NSObject {
@@ -168,13 +168,13 @@ protocol GKViewController {
 }
 class GKDialogController : NSResponder {
   @IBOutlet unowned(unsafe) var parentWindow: @sil_unmanaged NSWindow?
-  func presentViewController(viewController: NSViewController) -> Bool
+  func present(viewController: NSViewController) -> Bool
   @IBAction func dismiss(sender: AnyObject)
   init()
   init?(coder: NSCoder)
 }
 extension GKDialogController {
-  class func sharedDialogController() -> GKDialogController
+  class func shared() -> GKDialogController
 }
 let GKErrorDomain: String
 enum GKErrorCode : Int {
@@ -215,11 +215,11 @@ extension GKErrorCode : _BridgedNSError {
 }
 protocol GKChallengeListener : NSObjectProtocol {
   @available(OSX 10.10, *)
-  optional func player(player: GKPlayer, wantsToPlayChallenge challenge: GKChallenge)
+  optional func player(player: GKPlayer, wantsToPlay challenge: GKChallenge)
   @available(OSX 10.10, *)
-  optional func player(player: GKPlayer, didReceiveChallenge challenge: GKChallenge)
+  optional func player(player: GKPlayer, didReceive challenge: GKChallenge)
   @available(OSX 10.10, *)
-  optional func player(player: GKPlayer, didCompleteChallenge challenge: GKChallenge, issuedByFriend friendPlayer: GKPlayer)
+  optional func player(player: GKPlayer, didComplete challenge: GKChallenge, issuedByFriend friendPlayer: GKPlayer)
   @available(OSX 10.10, *)
   optional func player(player: GKPlayer, issuedChallengeWasCompleted challenge: GKChallenge, byFriend friendPlayer: GKPlayer)
 }
@@ -297,15 +297,15 @@ class GKLeaderboard : NSObject {
   var scores: [GKScore]? { get }
   var maxRange: Int { get }
   var localPlayerScore: GKScore? { get }
-  var loading: Bool { get }
+  var isLoading: Bool { get }
   @available(OSX 10.9, *)
   var groupIdentifier: String? { get }
   init()
   @available(OSX 10.10, *)
   init(players: [GKPlayer])
-  func loadScoresWithCompletionHandler(completionHandler: (([GKScore]?, NSError?) -> Void)?)
+  func loadScores(completionHandler completionHandler: (([GKScore]?, NSError?) -> Void)? = nil)
   @available(OSX 10.8, *)
-  class func loadLeaderboardsWithCompletionHandler(completionHandler: (([GKLeaderboard]?, NSError?) -> Void)?)
+  class func loadLeaderboards(completionHandler completionHandler: (([GKLeaderboard]?, NSError?) -> Void)? = nil)
 }
 extension GKLeaderboard {
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use identifier instead")
@@ -313,11 +313,11 @@ extension GKLeaderboard {
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use initWithPlayers: instead")
   init?(playerIDs: [String]?)
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use setDefaultLeaderboardIdentifier:completionHandler: on GKLocalPlayer instead")
-  class func setDefaultLeaderboard(leaderboardIdentifier: String?, withCompletionHandler completionHandler: ((NSError?) -> Void)?)
+  class func setDefaultLeaderboard(leaderboardIdentifier: String?, withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
 }
 extension GKLeaderboard {
   @available(OSX 10.8, *)
-  func loadImageWithCompletionHandler(completionHandler: ((NSImage?, NSError?) -> Void)?)
+  func loadImage(completionHandler completionHandler: ((NSImage?, NSError?) -> Void)? = nil)
 }
 @available(OSX 10.10, *)
 class GKLeaderboardSet : NSObject, NSCoding, NSSecureCoding {
@@ -325,18 +325,18 @@ class GKLeaderboardSet : NSObject, NSCoding, NSSecureCoding {
   var groupIdentifier: String? { get }
   var identifier: String?
   @available(OSX 10.10, *)
-  class func loadLeaderboardSetsWithCompletionHandler(completionHandler: (([GKLeaderboardSet]?, NSError?) -> Void)?)
+  class func loadLeaderboardSets(completionHandler completionHandler: (([GKLeaderboardSet]?, NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func loadLeaderboardsWithCompletionHandler(completionHandler: (([GKLeaderboard]?, NSError?) -> Void)?)
+  func loadLeaderboards(completionHandler completionHandler: (([GKLeaderboard]?, NSError?) -> Void)? = nil)
   init()
   @available(OSX 10.10, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
 }
 extension GKLeaderboardSet {
-  func loadImageWithCompletionHandler(completionHandler: ((NSImage?, NSError?) -> Void)?)
+  func loadImage(completionHandler completionHandler: ((NSImage?, NSError?) -> Void)? = nil)
 }
 @available(OSX, introduced=10.8, deprecated=10.10, message="Use GKGameCenterViewController instead")
 class GKLeaderboardViewController : GKGameCenterViewController {
@@ -356,25 +356,25 @@ protocol GKLeaderboardViewControllerDelegate : NSObjectProtocol {
 @available(OSX 10.8, *)
 class GKLocalPlayer : GKPlayer {
   class func localPlayer() -> GKLocalPlayer
-  var authenticated: Bool { get }
-  var underage: Bool { get }
+  var isAuthenticated: Bool { get }
+  var isUnderage: Bool { get }
   @available(OSX 10.9, *)
   var authenticateHandler: ((NSViewController?, NSError?) -> Void)?
   @available(OSX 10.10, *)
-  func loadFriendPlayersWithCompletionHandler(completionHandler: (([GKPlayer]?, NSError?) -> Void)?)
+  func loadFriendPlayers(completionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func setDefaultLeaderboardIdentifier(leaderboardIdentifier: String, completionHandler: ((NSError?) -> Void)?)
+  func setDefaultLeaderboardIdentifier(leaderboardIdentifier: String, completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func loadDefaultLeaderboardIdentifierWithCompletionHandler(completionHandler: ((String?, NSError?) -> Void)?)
+  func loadDefaultLeaderboardIdentifier(completionHandler completionHandler: ((String?, NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func generateIdentityVerificationSignatureWithCompletionHandler(completionHandler: ((NSURL?, NSData?, NSData?, UInt64, NSError?) -> Void)?)
+  func generateIdentityVerificationSignature(completionHandler completionHandler: ((NSURL?, NSData?, NSData?, UInt64, NSError?) -> Void)? = nil)
   init()
 }
 protocol GKLocalPlayerListener : GKChallengeListener, GKInviteEventListener, GKTurnBasedEventListener, GKSavedGameListener {
 }
 extension GKLocalPlayer {
   @available(OSX 10.10, *)
-  func registerListener(listener: GKLocalPlayerListener)
+  func register(listener: GKLocalPlayerListener)
   @available(OSX 10.10, *)
   func unregisterListener(listener: GKLocalPlayerListener)
   @available(OSX 10.10, *)
@@ -384,11 +384,11 @@ extension GKLocalPlayer {
 let GKPlayerAuthenticationDidChangeNotificationName: String
 extension GKLocalPlayer {
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use setDefaultLeaderboardIdentifier:completionHandler: instead")
-  func setDefaultLeaderboardCategoryID(categoryID: String?, completionHandler: ((NSError?) -> Void)?)
+  func setDefaultLeaderboardCategoryID(categoryID: String?, completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use loadDefaultLeaderboardIdentifierWithCompletionHandler: instead")
-  func loadDefaultLeaderboardCategoryIDWithCompletionHandler(completionHandler: ((String?, NSError?) -> Void)?)
+  func loadDefaultLeaderboardCategoryID(completionHandler completionHandler: ((String?, NSError?) -> Void)? = nil)
   @available(OSX, introduced=10.8, deprecated=10.10, message="use loadFriendPlayersWithCompletionHandler: instead")
-  func loadFriendsWithCompletionHandler(completionHandler: (([String]?, NSError?) -> Void)?)
+  func loadFriends(completionHandler completionHandler: (([String]?, NSError?) -> Void)? = nil)
   @available(OSX, introduced=10.8, deprecated=10.10, message="use loadFriendPlayersWithCompletionHandler: instead")
   var friends: [String]? { get }
 }
@@ -412,27 +412,27 @@ class GKMatch : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged GKMatchDelegate?
   var expectedPlayerCount: Int { get }
   @available(OSX 10.10, *)
-  func sendData(data: NSData, toPlayers players: [GKPlayer], dataMode mode: GKMatchSendDataMode) throws
+  func send(data: NSData, to players: [GKPlayer], dataMode mode: GKMatchSendDataMode) throws
   func sendDataToAllPlayers(data: NSData, withDataMode mode: GKMatchSendDataMode) throws
   func disconnect()
   func voiceChatWithName(name: String) -> GKVoiceChat?
   @available(OSX 10.10, *)
   func chooseBestHostingPlayerWithCompletionHandler(completionHandler: (GKPlayer?) -> Void)
   @available(OSX 10.9, *)
-  func rematchWithCompletionHandler(completionHandler: ((GKMatch?, NSError?) -> Void)?)
+  func rematch(completionHandler completionHandler: ((GKMatch?, NSError?) -> Void)? = nil)
   init()
 }
 protocol GKMatchDelegate : NSObjectProtocol {
   @available(OSX 10.10, *)
-  optional func match(match: GKMatch, didReceiveData data: NSData, fromRemotePlayer player: GKPlayer)
+  optional func match(match: GKMatch, didReceive data: NSData, fromRemotePlayer player: GKPlayer)
   @available(OSX 10.11, *)
-  optional func match(match: GKMatch, didReceiveData data: NSData, forRecipient recipient: GKPlayer, fromRemotePlayer player: GKPlayer)
+  optional func match(match: GKMatch, didReceive data: NSData, forRecipient recipient: GKPlayer, fromRemotePlayer player: GKPlayer)
   @available(OSX, introduced=10.8, deprecated=10.10, message="use match:didReceiveData:fromRemotePlayer:")
-  optional func match(match: GKMatch, didReceiveData data: NSData, fromPlayer playerID: String)
+  optional func match(match: GKMatch, didReceive data: NSData, fromPlayer playerID: String)
   @available(OSX 10.8, *)
-  optional func match(match: GKMatch, player: GKPlayer, didChangeConnectionState state: GKPlayerConnectionState)
+  optional func match(match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState)
   @available(OSX 10.8, *)
-  optional func match(match: GKMatch, didFailWithError error: NSError?)
+  optional func match(match: GKMatch, didFailWith error: NSError?)
   @available(OSX 10.10, *)
   optional func match(match: GKMatch, shouldReinviteDisconnectedPlayer player: GKPlayer) -> Bool
   @available(OSX, introduced=10.8, deprecated=10.10, message="use shouldReinviteDisconnectedPlayer:")
@@ -442,7 +442,7 @@ extension GKMatch {
   @available(OSX, introduced=10.9, deprecated=10.10, message="use chooseBestHostingPlayerWithCompletionHandler:")
   func chooseBestHostPlayerWithCompletionHandler(completionHandler: (String?) -> Void)
   @available(OSX, introduced=10.8, deprecated=10.10, message="use sendData:toPlayers:dataMode:error:")
-  func sendData(data: NSData, toPlayers playerIDs: [String], withDataMode mode: GKMatchSendDataMode) throws
+  func send(data: NSData, toPlayers playerIDs: [String], withDataMode mode: GKMatchSendDataMode) throws
   @available(OSX, introduced=10.8, deprecated=10.10, message="use players")
   var playerIDs: [String] { get }
 }
@@ -482,7 +482,7 @@ class GKMatchRequest : NSObject {
   @available(OSX, introduced=10.9, deprecated=10.10, message="use recipientResponseHandler")
   var inviteeResponseHandler: ((String, GKInviteeResponse) -> Void)?
   @available(OSX 10.9, *)
-  class func maxPlayersAllowedForMatchOfType(matchType: GKMatchType) -> Int
+  class func maxPlayersAllowedForMatchOf(matchType: GKMatchType) -> Int
   init()
 }
 enum GKMatchType : UInt {
@@ -498,7 +498,7 @@ class GKInvite : NSObject {
   var sender: GKPlayer { get }
   @available(OSX, introduced=10.8, deprecated=10.10, message="use sender")
   var inviter: String { get }
-  var hosted: Bool { get }
+  var isHosted: Bool { get }
   @available(OSX 10.9, *)
   var playerGroup: Int { get }
   @available(OSX 10.9, *)
@@ -507,28 +507,28 @@ class GKInvite : NSObject {
 }
 protocol GKInviteEventListener {
   @available(OSX 10.10, *)
-  optional func player(player: GKPlayer, didAcceptInvite invite: GKInvite)
+  optional func player(player: GKPlayer, didAccept invite: GKInvite)
   @available(OSX 10.10, *)
   optional func player(player: GKPlayer, didRequestMatchWithRecipients recipientPlayers: [GKPlayer])
 }
 @available(OSX 10.8, *)
 class GKMatchmaker : NSObject {
-  class func sharedMatchmaker() -> GKMatchmaker
+  class func shared() -> GKMatchmaker
   @available(OSX 10.9, *)
-  func matchForInvite(invite: GKInvite, completionHandler: ((GKMatch?, NSError?) -> Void)?)
-  func findMatchForRequest(request: GKMatchRequest, withCompletionHandler completionHandler: ((GKMatch?, NSError?) -> Void)?)
+  func matchFor(invite: GKInvite, completionHandler: ((GKMatch?, NSError?) -> Void)? = nil)
+  func findMatchFor(request: GKMatchRequest, withCompletionHandler completionHandler: ((GKMatch?, NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func findPlayersForHostedRequest(request: GKMatchRequest, withCompletionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)?)
-  func addPlayersToMatch(match: GKMatch, matchRequest: GKMatchRequest, completionHandler: ((NSError?) -> Void)?)
+  func findPlayersForHostedRequest(request: GKMatchRequest, withCompletionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)? = nil)
+  func addPlayersTo(match: GKMatch, matchRequest: GKMatchRequest, completionHandler: ((NSError?) -> Void)? = nil)
   func cancel()
   @available(OSX 10.10, *)
-  func cancelPendingInviteToPlayer(player: GKPlayer)
+  func cancelPendingInviteTo(player: GKPlayer)
   @available(OSX 10.9, *)
-  func finishMatchmakingForMatch(match: GKMatch)
-  func queryPlayerGroupActivity(playerGroup: Int, withCompletionHandler completionHandler: ((Int, NSError?) -> Void)?)
-  func queryActivityWithCompletionHandler(completionHandler: ((Int, NSError?) -> Void)?)
+  func finishMatchmakingFor(match: GKMatch)
+  func queryPlayerGroupActivity(playerGroup: Int, withCompletionHandler completionHandler: ((Int, NSError?) -> Void)? = nil)
+  func queryActivity(completionHandler completionHandler: ((Int, NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func startBrowsingForNearbyPlayersWithHandler(reachableHandler: ((GKPlayer, Bool) -> Void)?)
+  func startBrowsingForNearbyPlayers(handler reachableHandler: ((GKPlayer, Bool) -> Void)? = nil)
   @available(OSX 10.9, *)
   func stopBrowsingForNearbyPlayers()
   init()
@@ -537,21 +537,21 @@ extension GKMatchmaker {
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use registerListener on GKLocalPlayer to register an object that implements the GKInviteEventListenerProtocol instead")
   var inviteHandler: ((GKInvite, [AnyObject]?) -> Void)?
   @available(OSX, introduced=10.9, deprecated=10.10)
-  func startBrowsingForNearbyPlayersWithReachableHandler(reachableHandler: ((String, Bool) -> Void)?)
+  func startBrowsingForNearbyPlayers(reachableHandler reachableHandler: ((String, Bool) -> Void)? = nil)
   @available(OSX, introduced=10.9, deprecated=10.10, message="use cancelPendingInviteToPlayer:")
   func cancelInviteToPlayer(playerID: String)
   @available(OSX, introduced=10.8, deprecated=10.10, message="use findPlayersForHostedRequest:")
-  func findPlayersForHostedMatchRequest(request: GKMatchRequest, withCompletionHandler completionHandler: (([String]?, NSError?) -> Void)?)
+  func findPlayersForHostedMatchRequest(request: GKMatchRequest, withCompletionHandler completionHandler: (([String]?, NSError?) -> Void)? = nil)
 }
 @available(OSX 10.8, *)
 class GKMatchmakerViewController : NSViewController, GKViewController {
   unowned(unsafe) var matchmakerDelegate: @sil_unmanaged GKMatchmakerViewControllerDelegate?
   var matchRequest: GKMatchRequest { get }
-  var hosted: Bool
+  var isHosted: Bool
   init?(matchRequest request: GKMatchRequest)
   init?(invite: GKInvite)
   @available(OSX 10.8, *)
-  func addPlayersToMatch(match: GKMatch)
+  func addPlayersTo(match: GKMatch)
   @available(OSX, introduced=10.8, deprecated=10.10, message="use setHostedPlayer:didConnect:")
   func setHostedPlayer(playerID: String, connected: Bool)
   @available(OSX 10.10, *)
@@ -566,9 +566,9 @@ protocol GKMatchmakerViewControllerDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
   func matchmakerViewControllerWasCancelled(viewController: GKMatchmakerViewController)
   @available(OSX 10.8, *)
-  func matchmakerViewController(viewController: GKMatchmakerViewController, didFailWithError error: NSError)
+  func matchmakerViewController(viewController: GKMatchmakerViewController, didFailWith error: NSError)
   @available(OSX 10.8, *)
-  optional func matchmakerViewController(viewController: GKMatchmakerViewController, didFindMatch match: GKMatch)
+  optional func matchmakerViewController(viewController: GKMatchmakerViewController, didFind match: GKMatch)
   @available(OSX 10.10, *)
   optional func matchmakerViewController(viewController: GKMatchmakerViewController, didFindHostedPlayers players: [GKPlayer])
   @available(OSX, introduced=10.8, deprecated=10.10, message="use matchmakerViewController:didFindHostedPlayers:")
@@ -581,14 +581,14 @@ protocol GKMatchmakerViewControllerDelegate : NSObjectProtocol {
 @available(OSX 10.8, *)
 class GKNotificationBanner : NSObject {
   @available(OSX 10.8, *)
-  class func showBannerWithTitle(title: String?, message: String?, completionHandler: (() -> Void)?)
+  class func showBannerWithTitle(title: String?, message: String?, completionHandler: (() -> Void)? = nil)
   @available(OSX 10.8, *)
-  class func showBannerWithTitle(title: String?, message: String?, duration: NSTimeInterval, completionHandler: (() -> Void)?)
+  class func showBannerWithTitle(title: String?, message: String?, duration: NSTimeInterval, completionHandler: (() -> Void)? = nil)
   init()
 }
 @available(OSX 10.8, *)
 class GKPlayer : NSObject {
-  class func loadPlayersForIdentifiers(identifiers: [String], withCompletionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)?)
+  class func loadPlayersForIdentifiers(identifiers: [String], withCompletionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)? = nil)
   var playerID: String? { get }
   @available(OSX 10.8, *)
   var displayName: String? { get }
@@ -601,7 +601,7 @@ class GKPlayer : NSObject {
 }
 extension GKPlayer {
   @available(OSX 10.8, *)
-  func loadPhotoForSize(size: GKPhotoSize, withCompletionHandler completionHandler: ((NSImage?, NSError?) -> Void)?)
+  func loadPhotoForSize(size: GKPhotoSize, withCompletionHandler completionHandler: ((NSImage?, NSError?) -> Void)? = nil)
 }
 var GKPhotoSizeSmall: Int { get }
 var GKPhotoSizeNormal: Int { get }
@@ -638,18 +638,18 @@ enum GKPeerConnectionState : Int32 {
 }
 protocol GKSessionDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
-  optional func session(session: GKSession, peer peerID: String, didChangeState state: GKPeerConnectionState)
+  optional func session(session: GKSession, peer peerID: String, didChange state: GKPeerConnectionState)
   @available(OSX 10.8, *)
   optional func session(session: GKSession, didReceiveConnectionRequestFromPeer peerID: String)
   @available(OSX 10.8, *)
   optional func session(session: GKSession, connectionWithPeerFailed peerID: String, withError error: NSError)
   @available(OSX 10.8, *)
-  optional func session(session: GKSession, didFailWithError error: NSError)
+  optional func session(session: GKSession, didFailWith error: NSError)
 }
 protocol GKVoiceChatClient : NSObjectProtocol {
-  func voiceChatService(voiceChatService: GKVoiceChatService, sendData data: NSData, toParticipantID participantID: String)
+  func voiceChatService(voiceChatService: GKVoiceChatService, send data: NSData, toParticipantID participantID: String)
   func participantID() -> String
-  optional func voiceChatService(voiceChatService: GKVoiceChatService, sendRealTimeData data: NSData, toParticipantID participantID: String)
+  optional func voiceChatService(voiceChatService: GKVoiceChatService, sendRealTime data: NSData, toParticipantID participantID: String)
   optional func voiceChatService(voiceChatService: GKVoiceChatService, didStartWithParticipantID participantID: String)
   optional func voiceChatService(voiceChatService: GKVoiceChatService, didNotStartWithParticipantID participantID: String, error: NSError?)
   optional func voiceChatService(voiceChatService: GKVoiceChatService, didStopWithParticipantID participantID: String, error: NSError?)
@@ -664,20 +664,20 @@ class GKSavedGame : NSObject, NSCopying {
   @available(OSX 10.10, *)
   var modificationDate: NSDate? { get }
   @available(OSX 10.10, *)
-  func loadDataWithCompletionHandler(handler: ((NSData?, NSError?) -> Void)?)
+  func loadData(completionHandler handler: ((NSData?, NSError?) -> Void)? = nil)
   init()
   @available(OSX 10.10, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 extension GKLocalPlayer : GKSavedGameListener {
   @available(OSX 10.10, *)
-  func fetchSavedGamesWithCompletionHandler(handler: (([GKSavedGame]?, NSError?) -> Void)?)
+  func fetchSavedGames(completionHandler handler: (([GKSavedGame]?, NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func saveGameData(data: NSData, withName name: String, completionHandler handler: ((GKSavedGame?, NSError?) -> Void)?)
+  func saveGameData(data: NSData, withName name: String, completionHandler handler: ((GKSavedGame?, NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func deleteSavedGamesWithName(name: String, completionHandler handler: ((NSError?) -> Void)?)
+  func deleteSavedGamesWithName(name: String, completionHandler handler: ((NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func resolveConflictingSavedGames(conflictingSavedGames: [GKSavedGame], withData data: NSData, completionHandler handler: (([GKSavedGame]?, NSError?) -> Void)?)
+  func resolveConflictingSavedGames(conflictingSavedGames: [GKSavedGame], withData data: NSData, completionHandler handler: (([GKSavedGame]?, NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
   func player(player: GKPlayer, didModifySavedGame savedGame: GKSavedGame)
   @available(OSX 10.10, *)
@@ -708,17 +708,17 @@ class GKScore : NSObject, NSCoding, NSSecureCoding {
   @available(OSX 10.8, *)
   var shouldSetDefaultLeaderboard: Bool
   @available(OSX 10.8, *)
-  class func reportScores(scores: [GKScore], withCompletionHandler completionHandler: ((NSError?) -> Void)?)
+  class func report(scores: [GKScore], withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
   init()
   @available(OSX 10.8, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
 }
 extension GKScore {
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use +reportScores:withCompletionhandler: instead")
-  func reportScoreWithCompletionHandler(completionHandler: ((NSError?) -> Void)?)
+  func reportScore(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use initWithLeaderboardIdentifier: instead")
   init(category: String?)
   @available(OSX, introduced=10.8, deprecated=10.10, message="use player")
@@ -736,11 +736,11 @@ class GKSession : NSObject {
   @available(OSX, introduced=10.8, deprecated=10.10)
   var sessionMode: GKSessionMode { get }
   var peerID: String! { get }
-  var available: Bool
+  var isAvailable: Bool
   var disconnectTimeout: NSTimeInterval
   func displayNameForPeer(peerID: String!) -> String!
   @available(OSX, introduced=10.8, deprecated=10.10)
-  func sendData(data: NSData!, toPeers peers: [AnyObject]!, withDataMode mode: GKSendDataMode) throws
+  func send(data: NSData!, toPeers peers: [AnyObject]!, withDataMode mode: GKSendDataMode) throws
   @available(OSX, introduced=10.8, deprecated=10.10)
   func sendDataToAllPeers(data: NSData!, withDataMode mode: GKSendDataMode) throws
   func setDataReceiveHandler(handler: AnyObject!, withContext context: UnsafeMutablePointer<Void>)
@@ -751,7 +751,7 @@ class GKSession : NSObject {
   func disconnectPeerFromAllPeers(peerID: String!)
   func disconnectFromAllPeers()
   @available(OSX, introduced=10.8, deprecated=10.10)
-  func peersWithConnectionState(state: GKPeerConnectionState) -> [AnyObject]!
+  func peersWith(state: GKPeerConnectionState) -> [AnyObject]!
   init()
 }
 let GKSessionErrorDomain: String
@@ -805,7 +805,7 @@ protocol GKTurnBasedEventListener {
   @available(OSX 10.10, *)
   optional func player(player: GKPlayer, didRequestMatchWithOtherPlayers playersToInvite: [GKPlayer])
   @available(OSX 10.10, *)
-  optional func player(player: GKPlayer, receivedTurnEventForMatch match: GKTurnBasedMatch, didBecomeActive: Bool)
+  optional func player(player: GKPlayer, receivedTurnEventFor match: GKTurnBasedMatch, didBecomeActive: Bool)
   @available(OSX 10.8, *)
   optional func player(player: GKPlayer, matchEnded match: GKTurnBasedMatch)
   @available(OSX 10.10, *)
@@ -844,34 +844,34 @@ class GKTurnBasedMatch : NSObject {
   var exchangeDataMaximumSize: Int { get }
   @available(OSX 10.10, *)
   var exchangeMaxInitiatedExchangesPerPlayer: Int { get }
-  class func findMatchForRequest(request: GKMatchRequest, withCompletionHandler completionHandler: (GKTurnBasedMatch?, NSError?) -> Void)
-  class func loadMatchesWithCompletionHandler(completionHandler: (([GKTurnBasedMatch]?, NSError?) -> Void)?)
+  class func findMatchFor(request: GKMatchRequest, withCompletionHandler completionHandler: (GKTurnBasedMatch?, NSError?) -> Void)
+  class func loadMatches(completionHandler completionHandler: (([GKTurnBasedMatch]?, NSError?) -> Void)? = nil)
   @available(OSX 10.8, *)
-  class func loadMatchWithID(matchID: String, withCompletionHandler completionHandler: ((GKTurnBasedMatch?, NSError?) -> Void)?)
+  class func loadMatchWithID(matchID: String, withCompletionHandler completionHandler: ((GKTurnBasedMatch?, NSError?) -> Void)? = nil)
   @available(OSX 10.9, *)
-  func rematchWithCompletionHandler(completionHandler: ((GKTurnBasedMatch?, NSError?) -> Void)?)
+  func rematch(completionHandler completionHandler: ((GKTurnBasedMatch?, NSError?) -> Void)? = nil)
   @available(OSX 10.8, *)
-  func acceptInviteWithCompletionHandler(completionHandler: ((GKTurnBasedMatch?, NSError?) -> Void)?)
+  func acceptInvite(completionHandler completionHandler: ((GKTurnBasedMatch?, NSError?) -> Void)? = nil)
   @available(OSX 10.8, *)
-  func declineInviteWithCompletionHandler(completionHandler: ((NSError?) -> Void)?)
-  func removeWithCompletionHandler(completionHandler: ((NSError?) -> Void)?)
-  func loadMatchDataWithCompletionHandler(completionHandler: ((NSData?, NSError?) -> Void)?)
+  func declineInvite(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
+  func remove(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
+  func loadMatchData(completionHandler completionHandler: ((NSData?, NSError?) -> Void)? = nil)
   @available(OSX 10.9, *)
-  func endTurnWithNextParticipants(nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: NSTimeInterval, matchData: NSData, completionHandler: ((NSError?) -> Void)?)
+  func endTurnWithNextParticipants(nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: NSTimeInterval, match matchData: NSData, completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX 10.9, *)
-  func participantQuitInTurnWithOutcome(matchOutcome: GKTurnBasedMatchOutcome, nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: NSTimeInterval, matchData: NSData, completionHandler: ((NSError?) -> Void)?)
-  func participantQuitOutOfTurnWithOutcome(matchOutcome: GKTurnBasedMatchOutcome, withCompletionHandler completionHandler: ((NSError?) -> Void)?)
-  func endMatchInTurnWithMatchData(matchData: NSData, completionHandler: ((NSError?) -> Void)?)
+  func participantQuitInTurnWith(matchOutcome: GKTurnBasedMatchOutcome, nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: NSTimeInterval, match matchData: NSData, completionHandler: ((NSError?) -> Void)? = nil)
+  func participantQuitOutOfTurnWith(matchOutcome: GKTurnBasedMatchOutcome, withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
+  func endMatchInTurnWithMatch(matchData: NSData, completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func endMatchInTurnWithMatchData(matchData: NSData, scores: [GKScore]?, achievements: [GKAchievement]?, completionHandler: ((NSError?) -> Void)?)
+  func endMatchInTurnWithMatch(matchData: NSData, scores: [GKScore]?, achievements: [GKAchievement]?, completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX 10.8, *)
-  func saveCurrentTurnWithMatchData(matchData: NSData, completionHandler: ((NSError?) -> Void)?)
+  func saveCurrentTurnWithMatch(matchData: NSData, completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func saveMergedMatchData(matchData: NSData, withResolvedExchanges exchanges: [GKTurnBasedExchange], completionHandler: ((NSError?) -> Void)?)
+  func saveMergedMatch(matchData: NSData, withResolvedExchanges exchanges: [GKTurnBasedExchange], completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func sendExchangeToParticipants(participants: [GKTurnBasedParticipant], data: NSData, localizableMessageKey key: String, arguments: [String], timeout: NSTimeInterval, completionHandler: ((GKTurnBasedExchange, NSError) -> Void)?)
+  func sendExchangeTo(participants: [GKTurnBasedParticipant], data: NSData, localizableMessageKey key: String, arguments: [String], timeout: NSTimeInterval, completionHandler: ((GKTurnBasedExchange, NSError) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func sendReminderToParticipants(participants: [GKTurnBasedParticipant], localizableMessageKey key: String, arguments: [String], completionHandler: ((NSError?) -> Void)?)
+  func sendReminderTo(participants: [GKTurnBasedParticipant], localizableMessageKey key: String, arguments: [String], completionHandler: ((NSError?) -> Void)? = nil)
   init()
 }
 @available(OSX 10.10, *)
@@ -901,9 +901,9 @@ class GKTurnBasedExchange : NSObject {
   var completionDate: NSDate? { get }
   var replies: [GKTurnBasedExchangeReply]? { get }
   @available(OSX 10.10, *)
-  func cancelWithLocalizableMessageKey(key: String, arguments: [String], completionHandler: ((NSError?) -> Void)?)
+  func cancelWithLocalizableMessageKey(key: String, arguments: [String], completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func replyWithLocalizableMessageKey(key: String, arguments: [String], data: NSData, completionHandler: ((NSError?) -> Void)?)
+  func replyWithLocalizableMessageKey(key: String, arguments: [String], data: NSData, completionHandler: ((NSError?) -> Void)? = nil)
   init()
 }
 @available(OSX 10.10, *)
@@ -920,14 +920,14 @@ protocol GKTurnBasedEventHandlerDelegate {
   @available(OSX, introduced=10.8, deprecated=10.10)
   func handleInviteFromGameCenter(playersToInvite: [GKPlayer])
   @available(OSX, introduced=10.9, deprecated=10.10)
-  func handleTurnEventForMatch(match: GKTurnBasedMatch, didBecomeActive: Bool)
+  func handleTurnEventFor(match: GKTurnBasedMatch, didBecomeActive: Bool)
   @available(OSX, introduced=10.8, deprecated=10.10)
   optional func handleMatchEnded(match: GKTurnBasedMatch)
 }
 @available(OSX, introduced=10.8, deprecated=10.10, message="Use registerListener on GKLocalPlayer with an object that implements the GKTurnBasedEventListener protocol")
 class GKTurnBasedEventHandler : NSObject {
   @available(OSX, introduced=10.8, deprecated=10.10)
-  class func sharedTurnBasedEventHandler() -> GKTurnBasedEventHandler
+  class func shared() -> GKTurnBasedEventHandler
   @available(OSX, introduced=10.8, deprecated=10.10)
   unowned(unsafe) var delegate: @sil_unmanaged protocol<GKTurnBasedEventHandlerDelegate, NSObjectProtocol>
   init()
@@ -947,11 +947,11 @@ protocol GKTurnBasedMatchmakerViewControllerDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
   func turnBasedMatchmakerViewControllerWasCancelled(viewController: GKTurnBasedMatchmakerViewController)
   @available(OSX 10.8, *)
-  func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController, didFailWithError error: NSError)
+  func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController, didFailWith error: NSError)
   @available(OSX, introduced=10.8, deprecated=10.11, message="use GKTurnBasedEventListener player:receivedTurnEventForMatch:didBecomeActive:")
-  optional func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController, didFindMatch match: GKTurnBasedMatch)
+  optional func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController, didFind match: GKTurnBasedMatch)
   @available(OSX, introduced=10.8, deprecated=10.11, message="use GKTurnBasedEventListener player:wantsToQuitMatch:")
-  optional func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController, playerQuitForMatch match: GKTurnBasedMatch)
+  optional func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController, playerQuitFor match: GKTurnBasedMatch)
 }
 enum GKVoiceChatPlayerState : Int {
   init?(rawValue: Int)
@@ -971,7 +971,7 @@ class GKVoiceChat : NSObject {
   @available(OSX 10.10, *)
   var playerVoiceChatStateDidChangeHandler: (GKPlayer, GKVoiceChatPlayerState) -> Void
   var name: String { get }
-  var active: Bool
+  var isActive: Bool
   var volume: Float
   @available(OSX 10.10, *)
   var players: [GKPlayer] { get }

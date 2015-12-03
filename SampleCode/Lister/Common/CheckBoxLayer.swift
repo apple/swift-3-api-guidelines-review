@@ -48,8 +48,8 @@ class CheckBoxLayer: CALayer {
     }
 
     // The method that does the heavy lifting of check box drawing code.
-    override func drawInContext(context: CGContext) {
-        super.drawInContext(context)
+    override func drawIn(context: CGContext) {
+        super.drawIn(context)
         
         let size = min(bounds.width, bounds.height)
         

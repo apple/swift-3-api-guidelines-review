@@ -10,7 +10,7 @@ class CLBeaconRegion : CLRegion {
   var proximityUUID: NSUUID { get }
   var major: NSNumber? { get }
   var minor: NSNumber? { get }
-  var notifyEntryStateOnDisplay: Bool
+  var isNotifyEntryStateOnDisplay: Bool
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -24,11 +24,11 @@ class CLBeacon : NSObject, NSCopying, NSSecureCoding {
   var rssi: Int { get }
   init()
   @available(iOS 7.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 7.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(iOS 7.0, *)
@@ -36,7 +36,7 @@ class CLCircularRegion : CLRegion {
   init(center: CLLocationCoordinate2D, radius: CLLocationDistance, identifier: String)
   var center: CLLocationCoordinate2D { get }
   var radius: CLLocationDistance { get }
-  func containsCoordinate(coordinate: CLLocationCoordinate2D) -> Bool
+  func contains(coordinate: CLLocationCoordinate2D) -> Bool
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -73,11 +73,11 @@ let kCLErrorDomain: String
 typealias CLGeocodeCompletionHandler = ([CLPlacemark]?, NSError?) -> Void
 @available(iOS 5.0, *)
 class CLGeocoder : NSObject {
-  var geocoding: Bool { get }
+  var isGeocoding: Bool { get }
   func reverseGeocodeLocation(location: CLLocation, completionHandler: CLGeocodeCompletionHandler)
   func geocodeAddressDictionary(addressDictionary: [NSObject : AnyObject], completionHandler: CLGeocodeCompletionHandler)
   func geocodeAddressString(addressString: String, completionHandler: CLGeocodeCompletionHandler)
-  func geocodeAddressString(addressString: String, inRegion region: CLRegion?, completionHandler: CLGeocodeCompletionHandler)
+  func geocodeAddressString(addressString: String, `in` region: CLRegion?, completionHandler: CLGeocodeCompletionHandler)
   func cancelGeocode()
   init()
 }
@@ -95,11 +95,11 @@ class CLHeading : NSObject, NSCopying, NSSecureCoding {
   var description: String { get }
   init()
   @available(iOS 3.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 3.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 3.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 typealias CLLocationDegrees = Double
@@ -136,11 +136,11 @@ class CLFloor : NSObject, NSCopying, NSSecureCoding {
   var level: Int { get }
   init()
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(iOS 2.0, *)
@@ -162,14 +162,14 @@ class CLLocation : NSObject, NSCopying, NSSecureCoding {
   @NSCopying var floor: CLFloor? { get }
   var description: String { get }
   @available(iOS 3.2, *)
-  func distanceFromLocation(location: CLLocation) -> CLLocationDistance
+  func distanceFrom(location: CLLocation) -> CLLocationDistance
   init()
   @available(iOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 enum CLDeviceOrientation : Int32 {
@@ -213,7 +213,7 @@ class CLLocationManager : NSObject {
   @available(iOS 4.0, *)
   class func significantLocationChangeMonitoringAvailable() -> Bool
   @available(iOS 7.0, *)
-  class func isMonitoringAvailableForClass(regionClass: AnyClass) -> Bool
+  class func isMonitoringAvailableFor(regionClass: AnyClass) -> Bool
   @available(iOS 7.0, *)
   class func isRangingAvailable() -> Bool
   @available(iOS 4.2, *)
@@ -259,15 +259,15 @@ class CLLocationManager : NSObject {
   @available(iOS 4.0, *)
   func stopMonitoringSignificantLocationChanges()
   @available(iOS 4.0, *)
-  func stopMonitoringForRegion(region: CLRegion)
+  func stopMonitoringFor(region: CLRegion)
   @available(iOS 5.0, *)
-  func startMonitoringForRegion(region: CLRegion)
+  func startMonitoringFor(region: CLRegion)
   @available(iOS 7.0, *)
-  func requestStateForRegion(region: CLRegion)
+  func requestStateFor(region: CLRegion)
   @available(iOS 7.0, *)
-  func startRangingBeaconsInRegion(region: CLBeaconRegion)
+  func startRangingBeaconsIn(region: CLBeaconRegion)
   @available(iOS 7.0, *)
-  func stopRangingBeaconsInRegion(region: CLBeaconRegion)
+  func stopRangingBeaconsIn(region: CLBeaconRegion)
   @available(iOS 6.0, *)
   func allowDeferredLocationUpdatesUntilTraveled(distance: CLLocationDistance, timeout: NSTimeInterval)
   @available(iOS 6.0, *)
@@ -286,27 +286,27 @@ protocol CLLocationManagerDelegate : NSObjectProtocol {
   @available(iOS 7.0, *)
   optional func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion)
   @available(iOS 7.0, *)
-  optional func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion)
+  optional func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], `in` region: CLBeaconRegion)
   @available(iOS 7.0, *)
-  optional func locationManager(manager: CLLocationManager, rangingBeaconsDidFailForRegion region: CLBeaconRegion, withError error: NSError)
+  optional func locationManager(manager: CLLocationManager, rangingBeaconsDidFailFor region: CLBeaconRegion, withError error: NSError)
   @available(iOS 4.0, *)
-  optional func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion)
+  optional func locationManager(manager: CLLocationManager, didEnter region: CLRegion)
   @available(iOS 4.0, *)
   optional func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion)
   @available(iOS 2.0, *)
-  optional func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
+  optional func locationManager(manager: CLLocationManager, didFailWith error: NSError)
   @available(iOS 4.0, *)
-  optional func locationManager(manager: CLLocationManager, monitoringDidFailForRegion region: CLRegion?, withError error: NSError)
+  optional func locationManager(manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: NSError)
   @available(iOS 4.2, *)
-  optional func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus)
+  optional func locationManager(manager: CLLocationManager, didChange status: CLAuthorizationStatus)
   @available(iOS 5.0, *)
-  optional func locationManager(manager: CLLocationManager, didStartMonitoringForRegion region: CLRegion)
+  optional func locationManager(manager: CLLocationManager, didStartMonitoringFor region: CLRegion)
   @available(iOS 6.0, *)
   optional func locationManagerDidPauseLocationUpdates(manager: CLLocationManager)
   @available(iOS 6.0, *)
   optional func locationManagerDidResumeLocationUpdates(manager: CLLocationManager)
   @available(iOS 6.0, *)
-  optional func locationManager(manager: CLLocationManager, didFinishDeferredUpdatesWithError error: NSError?)
+  optional func locationManager(manager: CLLocationManager, didFinishDeferredUpdatesWith error: NSError?)
   @available(iOS 8.0, *)
   optional func locationManager(manager: CLLocationManager, didVisit visit: CLVisit)
 }
@@ -332,18 +332,18 @@ class CLPlacemark : NSObject, NSCopying, NSSecureCoding {
   var administrativeArea: String? { get }
   var subAdministrativeArea: String? { get }
   var postalCode: String? { get }
-  var ISOcountryCode: String? { get }
+  var isOcountryCode: String? { get }
   var country: String? { get }
   var inlandWater: String? { get }
   var ocean: String? { get }
   var areasOfInterest: [String]? { get }
   init()
   @available(iOS 5.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 5.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(iOS 7.0, *)
@@ -368,16 +368,16 @@ class CLRegion : NSObject, NSCopying, NSSecureCoding {
   @available(iOS 4.0, *)
   var identifier: String { get }
   @available(iOS 7.0, *)
-  var notifyOnEntry: Bool
+  var isNotifyOnEntry: Bool
   @available(iOS 7.0, *)
-  var notifyOnExit: Bool
+  var isNotifyOnExit: Bool
   init()
   @available(iOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 4.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 4.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
@@ -390,8 +390,8 @@ class CLVisit : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }

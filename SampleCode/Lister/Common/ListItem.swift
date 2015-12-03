@@ -40,7 +40,7 @@ final public class ListItem: NSObject, NSCoding, NSCopying {
     public var isComplete: Bool
     
     /// An underlying identifier to distinguish one `ListItem` from another.
-    private var UUID: NSUUID
+    private var uuid: NSUUID
     
     // MARK: Initializers
     
@@ -53,10 +53,10 @@ final public class ListItem: NSObject, NSCoding, NSCopying {
         - parameter complete: The item's initial completion state.
         - parameter UUID: The item's initial UUID.
     */
-    private init(text: String, complete: Bool, UUID: NSUUID) {
+    private init(text: String, complete: Bool, uuid UUID: NSUUID) {
         self.text = text
         self.isComplete = complete
-        self.UUID = UUID
+        self.uuid = UUID
     }
     
     /**
@@ -81,8 +81,8 @@ final public class ListItem: NSObject, NSCoding, NSCopying {
     
     // MARK: NSCopying
     
-    public func copyWithZone(zone: NSZone) -> AnyObject  {
-        return ListItem(text: text, complete: isComplete, UUID: UUID)
+    public func copyWith(zone: NSZone) -> AnyObject  {
+        return ListItem(text: text, complete: isComplete, uuid: uuid)
     }
     
     // MARK: NSCoding
@@ -90,13 +90,13 @@ final public class ListItem: NSObject, NSCoding, NSCopying {
     public required init(coder aDecoder: NSCoder) {
         text = aDecoder.decodeObjectForKey(SerializationKeys.text) as! String
         isComplete = aDecoder.decodeBoolForKey(SerializationKeys.complete)
-        UUID = aDecoder.decodeObjectForKey(SerializationKeys.uuid) as! NSUUID
+        uuid = aDecoder.decodeObjectForKey(SerializationKeys.uuid) as! NSUUID
     }
     
-    public func encodeWithCoder(encoder: NSCoder) {
-        encoder.encodeObject(text, forKey: SerializationKeys.text)
-        encoder.encodeBool(isComplete, forKey: SerializationKeys.complete)
-        encoder.encodeObject(UUID, forKey: SerializationKeys.uuid)
+    public func encodeWith(encoder: NSCoder) {
+        encoder.encode(text, forKey: SerializationKeys.text)
+        encoder.encode(isComplete, forKey: SerializationKeys.complete)
+        encoder.encode(uuid, forKey: SerializationKeys.uuid)
     }
     
     /**
@@ -104,7 +104,7 @@ final public class ListItem: NSObject, NSCoding, NSCopying {
         to refreshIdentity() is made afterward, the items will no longer be equal.
     */
     public func refreshIdentity() {
-        UUID = NSUUID()
+        uuid = NSUUID()
     }
     
     // MARK: Overrides
@@ -121,7 +121,7 @@ final public class ListItem: NSObject, NSCoding, NSCopying {
     */
     override public func isEqual(object: AnyObject?) -> Bool {
         if let item = object as? ListItem {
-            return UUID == item.UUID
+            return uuid == item.uuid
         }
         
         return false

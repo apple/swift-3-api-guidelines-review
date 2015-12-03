@@ -2,10 +2,10 @@
 @available(OSX 10.5, *)
 class SBApplication : SBObject, NSCoding {
   init?(bundleIdentifier ident: String)
-  init?(URL url: NSURL)
+  init?(url: NSURL)
   init?(processIdentifier pid: pid_t)
   func classForScriptingClass(className: String) -> AnyClass?
-  var running: Bool { get }
+  var isRunning: Bool { get }
   func activate()
   var delegate: SBApplicationDelegate?
   var launchFlags: LSLaunchFlags
@@ -25,8 +25,8 @@ class SBElementArray : NSMutableArray {
   func objectWithName(name: String) -> AnyObject
   func objectWithID(identifier: AnyObject) -> AnyObject
   func objectAtLocation(location: AnyObject) -> AnyObject
-  func arrayByApplyingSelector(selector: Selector) -> [AnyObject]
-  func arrayByApplyingSelector(aSelector: Selector, withObject argument: AnyObject) -> [AnyObject]
+  func arrayByApplying(selector: Selector) -> [AnyObject]
+  func arrayByApplying(aSelector: Selector, withObject argument: AnyObject) -> [AnyObject]
   func get() -> [AnyObject]?
   init()
   init(capacity numItems: Int)
@@ -36,7 +36,7 @@ class SBElementArray : NSMutableArray {
   convenience init(array: [AnyObject])
   convenience init(array: [AnyObject], copyItems flag: Bool)
   convenience init?(contentsOfFile path: String)
-  convenience init?(contentsOfURL url: NSURL)
+  convenience init?(contentsOf url: NSURL)
 }
 @available(OSX 10.5, *)
 class SBObject : NSObject, NSCoding {
@@ -47,13 +47,13 @@ class SBObject : NSObject, NSCoding {
   @available(OSX 10.6, *)
   func lastError() -> NSError?
   @available(OSX 10.5, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension SBObject {
   init(elementCode code: DescType, properties: [String : AnyObject]?, data: AnyObject?)
   func propertyWithCode(code: AEKeyword) -> SBObject
-  func propertyWithClass(cls: AnyClass, code: AEKeyword) -> SBObject
+  func propertyWith(cls: AnyClass, code: AEKeyword) -> SBObject
   func elementArrayWithCode(code: DescType) -> SBElementArray
   func setTo(value: AnyObject?)
 }

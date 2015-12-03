@@ -87,7 +87,7 @@ struct ColliderType: OptionSetType, Hashable, CustomDebugStringConvertible {
         Returns `true` if the `ContactNotifiableType` associated with this `ColliderType` should be
         notified of contact with the passed `ColliderType`.
     */
-    func notifyOnContactWithColliderType(colliderType: ColliderType) -> Bool {
+    func notifyOnContactWith(colliderType: ColliderType) -> Bool {
         if let requestedContacts = ColliderType.requestedContactNotifications[self] {
             return requestedContacts.contains(colliderType)
         }

@@ -34,9 +34,9 @@ class LoadSceneOperation: Operation, NSProgressReporting {
     
     override func start() {
         // If the operation is cancelled there's nothing to do.
-        guard !cancelled else { return }
+        guard !isCancelled else { return }
         
-        if progress.cancelled {
+        if progress.isCancelled {
             // Ensure the operation is marked as `cancelled`.
             cancel()
             return

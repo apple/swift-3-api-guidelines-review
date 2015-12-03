@@ -125,7 +125,7 @@ class GroundBot: TaskBot, ChargeComponentDelegate, ResourceLoadableType {
         guard let attackState = componentForClass(IntelligenceComponent)?.stateMachine.currentState as? GroundBotAttackState else { return }
         
         // Use the `GroundBotAttackState` to apply the appropriate damage to the contacted entity.
-        attackState.applyDamageToEntity(entity)
+        attackState.applyDamageTo(entity)
     }
     
     // MARK: RulesComponentDelegate
@@ -151,7 +151,7 @@ class GroundBot: TaskBot, ChargeComponentDelegate, ResourceLoadableType {
         guard case let .HuntAgent(targetAgent) = mandate else { return }
         
         // 3) Check if the target is within the `GroundBot`'s attack range.
-        guard distanceToAgent(targetAgent) <= GameplayConfiguration.GroundBot.maximumAttackDistance else { return }
+        guard distanceTo(targetAgent) <= GameplayConfiguration.GroundBot.maximumAttackDistance else { return }
         
         // 4) Check if any walls or obstacles are between the `GroundBot` and its hunt target position.
         var hasLineOfSight = true
@@ -213,12 +213,12 @@ class GroundBot: TaskBot, ChargeComponentDelegate, ResourceLoadableType {
                 after the `GroundBot` texture atlases have finished preloading.
             */
             goodAnimations = [:]
-            goodAnimations![.WalkForward] = AnimationComponent.animationsFromAtlas(groundBotAtlases[0], withImageIdentifier: "GroundBotGoodWalk", forAnimationState: .WalkForward)
+            goodAnimations![.WalkForward] = AnimationComponent.animationsFrom(groundBotAtlases[0], withImageIdentifier: "GroundBotGoodWalk", forAnimationState: .WalkForward)
             
             badAnimations = [:]
-            badAnimations![.WalkForward] = AnimationComponent.animationsFromAtlas(groundBotAtlases[1], withImageIdentifier: "GroundBotBadWalk", forAnimationState: .WalkForward)
-            badAnimations![.Attack] = AnimationComponent.animationsFromAtlas(groundBotAtlases[2], withImageIdentifier: "GroundBotAttack", forAnimationState: .Attack, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake", repeatTexturesForever: false)
-            badAnimations![.Zapped] = AnimationComponent.animationsFromAtlas(groundBotAtlases[3], withImageIdentifier: "GroundBotZapped", forAnimationState: .Zapped, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake")
+            badAnimations![.WalkForward] = AnimationComponent.animationsFrom(groundBotAtlases[1], withImageIdentifier: "GroundBotBadWalk", forAnimationState: .WalkForward)
+            badAnimations![.Attack] = AnimationComponent.animationsFrom(groundBotAtlases[2], withImageIdentifier: "GroundBotAttack", forAnimationState: .Attack, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake", repeatTexturesForever: false)
+            badAnimations![.Zapped] = AnimationComponent.animationsFrom(groundBotAtlases[3], withImageIdentifier: "GroundBotZapped", forAnimationState: .Zapped, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake")
             
             // Invoke the passed `completionHandler` to indicate that loading has completed.
             completionHandler()

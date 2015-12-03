@@ -31,8 +31,8 @@ class ListRowViewController: NSViewController {
         super.viewDidLoad()
         
         // `representedObject` is a `ListRowRepresentedObject` instance.
-        checkBox.bind("isChecked", toObject: self, withKeyPath: "self.representedObject.listItem.isComplete", options: nil)
-        checkBox.bind("tintColor", toObject: self, withKeyPath: "self.representedObject.color", options: nil)
+        checkBox.bind("isChecked", to: self, withKeyPath: "self.representedObject.listItem.isComplete", options: nil)
+        checkBox.bind("tintColor", to: self, withKeyPath: "self.representedObject.color", options: nil)
     }
     
     // MARK: IBActions

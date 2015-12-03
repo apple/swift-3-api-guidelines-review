@@ -19,5 +19,5 @@ protocol NCWidgetProviding : NSObjectProtocol {
   optional func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets
 }
 extension UIVibrancyEffect {
-  class func notificationCenterVibrancyEffect() -> UIVibrancyEffect
+  class func notificationCenter() -> UIVibrancyEffect
 }

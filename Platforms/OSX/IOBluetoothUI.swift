@@ -73,7 +73,7 @@ class IOBluetoothDeviceSelectorController : NSWindowController {
   	@param		contextInfo		User-definied value passed to the modalDelegate in the didEndSelector.
   	@result		Returns kIOReturnSuccess if the sheet modal session was started.
   */
-  func beginSheetModalForWindow(sheetWindow: NSWindow!, modalDelegate: AnyObject!, didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>) -> IOReturn
+  func beginSheetModalFor(sheetWindow: NSWindow!, modalDelegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>) -> IOReturn
 
   /*!
       @method		getResults
@@ -289,7 +289,7 @@ class IOBluetoothObjectPushUIController : NSWindowController {
   							is specified this object will release itself when the transaction is complete.
   	@result		An IOBluetoothObjectPushUIController object on success, nil on fail.
    */
-  init!(objectPushWithBluetoothDevice inDevice: IOBluetoothDevice!, withFiles inFiles: [AnyObject]!, delegate inDelegate: AnyObject!)
+  init!(objectPushWith inDevice: IOBluetoothDevice!, withFiles inFiles: [AnyObject]!, delegate inDelegate: AnyObject!)
 
   /*!
       @method		runModal
@@ -327,7 +327,7 @@ class IOBluetoothObjectPushUIController : NSWindowController {
   	@param		contextInfo		User-definied value passed to the modalDelegate in the didEndSelector.
   	@result		Returns kIOReturnSuccess if the sheet modal session was started.
   */
-  func beginSheetModalForWindow(sheetWindow: NSWindow!, modalDelegate: AnyObject!, didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>) -> IOReturn
+  func beginSheetModalFor(sheetWindow: NSWindow!, modalDelegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>) -> IOReturn
 
   /*!
   	@method		stop
@@ -684,7 +684,7 @@ class IOBluetoothServiceBrowserController : NSWindowController {
   	@param		contextInfo		User-definied value passed to the modalDelegate in the didEndSelector.
   	@result		Returns kIOReturnSuccess if the sheet modal session was started.
   */
-  func beginSheetModalForWindow(sheetWindow: NSWindow!, modalDelegate: AnyObject!, didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>) -> IOReturn
+  func beginSheetModalFor(sheetWindow: NSWindow!, modalDelegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>) -> IOReturn
 
   /*!
       @method		getResults

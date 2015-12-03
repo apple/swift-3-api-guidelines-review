@@ -79,7 +79,7 @@ enum NSWritingDirectionFormatType : Int {
 let NSTextEffectLetterpressStyle: String
 extension NSMutableAttributedString {
   @available(iOS 7.0, *)
-  func fixAttributesInRange(range: NSRange)
+  func fixAttributesIn(range: NSRange)
 }
 
 /************************ Document formats ************************/
@@ -123,37 +123,37 @@ let NSDefaultTabIntervalDocumentAttribute: String
 let NSTextLayoutSectionsAttribute: String
 extension NSAttributedString {
   @available(iOS 9.0, *)
-  init(URL url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS 7.0, *)
   init(data: NSData, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS 7.0, *)
-  func dataFromRange(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSData
+  func dataFrom(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSData
   @available(iOS 7.0, *)
-  func fileWrapperFromRange(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSFileWrapper
+  func fileWrapperFrom(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSFileWrapper
 }
 extension NSAttributedString {
   @available(iOS 9.0, *)
-  init(URL url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS 7.0, *)
   init(data: NSData, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS 7.0, *)
-  func dataFromRange(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSData
+  func dataFrom(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSData
   @available(iOS 7.0, *)
-  func fileWrapperFromRange(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSFileWrapper
+  func fileWrapperFrom(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSFileWrapper
 }
 extension NSMutableAttributedString {
   @available(iOS 9.0, *)
-  func readFromURL(url: NSURL, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func readFrom(url: NSURL, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS 7.0, *)
-  func readFromData(data: NSData, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func readFrom(data: NSData, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
 extension NSAttributedString {
   @available(iOS 9.0, *)
-  func containsAttachmentsInRange(range: NSRange) -> Bool
+  func containsAttachmentsIn(range: NSRange) -> Bool
 }
 extension NSAttributedString {
   @available(iOS 9.0, *)
-  func containsAttachmentsInRange(range: NSRange) -> Bool
+  func containsAttachmentsIn(range: NSRange) -> Bool
 }
 
 /************************ Deprecated ************************/
@@ -197,30 +197,30 @@ class NSDataAsset : NSObject, NSCopying {
   /// The Uniform Type Identifier for this data object.
   var typeIdentifier: String { get }
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class NSFileProviderExtension : NSObject {
-  class func writePlaceholderAtURL(placeholderURL: NSURL, withMetadata metadata: [NSObject : AnyObject]) throws
-  class func placeholderURLForURL(url: NSURL) -> NSURL
+  class func writePlaceholderAt(placeholderURL: NSURL, withMetadata metadata: [NSObject : AnyObject]) throws
+  class func placeholderURLFor(url: NSURL) -> NSURL
   func providerIdentifier() -> String
   func documentStorageURL() -> NSURL
-  func URLForItemWithPersistentIdentifier(identifier: String) -> NSURL?
-  func persistentIdentifierForItemAtURL(url: NSURL) -> String?
-  func providePlaceholderAtURL(url: NSURL, completionHandler: (NSError?) -> Void)
-  func startProvidingItemAtURL(url: NSURL, completionHandler: (NSError?) -> Void)
-  func itemChangedAtURL(url: NSURL)
-  func stopProvidingItemAtURL(url: NSURL)
+  func urlForItemWithPersistentIdentifier(identifier: String) -> NSURL?
+  func persistentIdentifierForItemAt(url: NSURL) -> String?
+  func providePlaceholderAt(url: NSURL, completionHandler: (NSError?) -> Void)
+  func startProvidingItemAt(url: NSURL, completionHandler: (NSError?) -> Void)
+  func itemChangedAt(url: NSURL)
+  func stopProvidingItemAt(url: NSURL)
   init()
 }
 @available(iOS 9.0, *)
 class NSLayoutAnchor : NSObject {
-  func constraintEqualToAnchor(anchor: NSLayoutAnchor!) -> NSLayoutConstraint!
-  func constraintGreaterThanOrEqualToAnchor(anchor: NSLayoutAnchor!) -> NSLayoutConstraint!
-  func constraintLessThanOrEqualToAnchor(anchor: NSLayoutAnchor!) -> NSLayoutConstraint!
-  func constraintEqualToAnchor(anchor: NSLayoutAnchor!, constant c: CGFloat) -> NSLayoutConstraint!
-  func constraintGreaterThanOrEqualToAnchor(anchor: NSLayoutAnchor!, constant c: CGFloat) -> NSLayoutConstraint!
-  func constraintLessThanOrEqualToAnchor(anchor: NSLayoutAnchor!, constant c: CGFloat) -> NSLayoutConstraint!
+  func constraintEqualTo(anchor: NSLayoutAnchor!) -> NSLayoutConstraint!
+  func constraintGreaterThanOrEqualTo(anchor: NSLayoutAnchor!) -> NSLayoutConstraint!
+  func constraintLessThanOrEqualTo(anchor: NSLayoutAnchor!) -> NSLayoutConstraint!
+  func constraintEqualTo(anchor: NSLayoutAnchor!, constant c: CGFloat) -> NSLayoutConstraint!
+  func constraintGreaterThanOrEqualTo(anchor: NSLayoutAnchor!, constant c: CGFloat) -> NSLayoutConstraint!
+  func constraintLessThanOrEqualTo(anchor: NSLayoutAnchor!, constant c: CGFloat) -> NSLayoutConstraint!
   init()
 }
 @available(iOS 9.0, *)
@@ -318,7 +318,7 @@ let UILayoutPriorityDefaultLow: UILayoutPriority
 let UILayoutPriorityFittingSizeLevel: UILayoutPriority
 @available(iOS 6.0, *)
 class NSLayoutConstraint : NSObject {
-  class func constraintsWithVisualFormat(format: String, options opts: NSLayoutFormatOptions, metrics: [String : AnyObject]?, views: [String : AnyObject]) -> [NSLayoutConstraint]
+  class func constraintsWithVisualFormat(format: String, options opts: NSLayoutFormatOptions = [], metrics: [String : AnyObject]?, views: [String : AnyObject]) -> [NSLayoutConstraint]
   convenience init(item view1: AnyObject, attribute attr1: NSLayoutAttribute, relatedBy relation: NSLayoutRelation, toItem view2: AnyObject?, attribute attr2: NSLayoutAttribute, multiplier: CGFloat, constant c: CGFloat)
   var priority: UILayoutPriority
   var shouldBeArchived: Bool
@@ -330,7 +330,7 @@ class NSLayoutConstraint : NSObject {
   var multiplier: CGFloat { get }
   var constant: CGFloat
   @available(iOS 8.0, *)
-  var active: Bool
+  var isActive: Bool
   @available(iOS 8.0, *)
   class func activateConstraints(constraints: [NSLayoutConstraint])
   @available(iOS 8.0, *)
@@ -394,8 +394,8 @@ class NSLayoutManager : NSObject, NSCoding {
   /**************************** Text containers ****************************/
   var textContainers: [NSTextContainer] { get }
   func addTextContainer(container: NSTextContainer)
-  func insertTextContainer(container: NSTextContainer, atIndex index: Int)
-  func removeTextContainerAtIndex(index: Int)
+  func insertTextContainer(container: NSTextContainer, at index: Int)
+  func removeTextContainerAt(index: Int)
   func textContainerChangedGeometry(container: NSTextContainer)
 
   /**************************** Delegate ****************************/
@@ -418,15 +418,15 @@ class NSLayoutManager : NSObject, NSCoding {
   func invalidateDisplayForCharacterRange(charRange: NSRange)
   func invalidateDisplayForGlyphRange(glyphRange: NSRange)
   @available(iOS 7.0, *)
-  func processEditingForTextStorage(textStorage: NSTextStorage, edited editMask: NSTextStorageEditActions, range newCharRange: NSRange, changeInLength delta: Int, invalidatedRange invalidatedCharRange: NSRange)
+  func processEditingFor(textStorage: NSTextStorage, edited editMask: NSTextStorageEditActions, range newCharRange: NSRange, changeInLength delta: Int, invalidatedRange invalidatedCharRange: NSRange)
 
   /************************ Causing glyph generation and layout ************************/
   func ensureGlyphsForCharacterRange(charRange: NSRange)
   func ensureGlyphsForGlyphRange(glyphRange: NSRange)
   func ensureLayoutForCharacterRange(charRange: NSRange)
   func ensureLayoutForGlyphRange(glyphRange: NSRange)
-  func ensureLayoutForTextContainer(container: NSTextContainer)
-  func ensureLayoutForBoundingRect(bounds: CGRect, inTextContainer container: NSTextContainer)
+  func ensureLayoutFor(container: NSTextContainer)
+  func ensureLayoutForBoundingRect(bounds: CGRect, `in` container: NSTextContainer)
 
   /************************ Set glyphs and glyph properties ************************/
   @available(iOS 7.0, *)
@@ -434,70 +434,70 @@ class NSLayoutManager : NSObject, NSCoding {
 
   /************************ Get glyphs and glyph properties ************************/
   var numberOfGlyphs: Int { get }
-  func CGGlyphAtIndex(glyphIndex: Int, isValidIndex: UnsafeMutablePointer<ObjCBool>) -> CGGlyph
-  func CGGlyphAtIndex(glyphIndex: Int) -> CGGlyph
+  func cgGlyphAt(glyphIndex: Int, isValidIndex: UnsafeMutablePointer<ObjCBool>) -> CGGlyph
+  func cgGlyphAt(glyphIndex: Int) -> CGGlyph
   func isValidGlyphIndex(glyphIndex: Int) -> Bool
   @available(iOS 7.0, *)
-  func propertyForGlyphAtIndex(glyphIndex: Int) -> NSGlyphProperty
-  func characterIndexForGlyphAtIndex(glyphIndex: Int) -> Int
-  func glyphIndexForCharacterAtIndex(charIndex: Int) -> Int
+  func propertyForGlyphAt(glyphIndex: Int) -> NSGlyphProperty
+  func characterIndexForGlyphAt(glyphIndex: Int) -> Int
+  func glyphIndexForCharacterAt(charIndex: Int) -> Int
   @available(iOS 7.0, *)
-  func getGlyphsInRange(glyphRange: NSRange, glyphs glyphBuffer: UnsafeMutablePointer<CGGlyph>, properties props: UnsafeMutablePointer<NSGlyphProperty>, characterIndexes charIndexBuffer: UnsafeMutablePointer<Int>, bidiLevels bidiLevelBuffer: UnsafeMutablePointer<UInt8>) -> Int
+  func getGlyphsIn(glyphRange: NSRange, glyphs glyphBuffer: UnsafeMutablePointer<CGGlyph>, properties props: UnsafeMutablePointer<NSGlyphProperty>, characterIndexes charIndexBuffer: UnsafeMutablePointer<Int>, bidiLevels bidiLevelBuffer: UnsafeMutablePointer<UInt8>) -> Int
   func setTextContainer(container: NSTextContainer, forGlyphRange glyphRange: NSRange)
   func setLineFragmentRect(fragmentRect: CGRect, forGlyphRange glyphRange: NSRange, usedRect: CGRect)
   func setExtraLineFragmentRect(fragmentRect: CGRect, usedRect: CGRect, textContainer container: NSTextContainer)
   func setLocation(location: CGPoint, forStartOfGlyphRange glyphRange: NSRange)
-  func setNotShownAttribute(flag: Bool, forGlyphAtIndex glyphIndex: Int)
-  func setDrawsOutsideLineFragment(flag: Bool, forGlyphAtIndex glyphIndex: Int)
+  func setNotShownAttribute(flag: Bool, forGlyphAt glyphIndex: Int)
+  func setDrawsOutsideLineFragment(flag: Bool, forGlyphAt glyphIndex: Int)
   func setAttachmentSize(attachmentSize: CGSize, forGlyphRange glyphRange: NSRange)
 
   /************************ Get layout information ************************/
   func getFirstUnlaidCharacterIndex(charIndex: UnsafeMutablePointer<Int>, glyphIndex: UnsafeMutablePointer<Int>)
   func firstUnlaidCharacterIndex() -> Int
   func firstUnlaidGlyphIndex() -> Int
-  func textContainerForGlyphAtIndex(glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer) -> NSTextContainer?
+  func textContainerForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer) -> NSTextContainer?
   @available(iOS 9.0, *)
-  func textContainerForGlyphAtIndex(glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer, withoutAdditionalLayout flag: Bool) -> NSTextContainer?
-  func usedRectForTextContainer(container: NSTextContainer) -> CGRect
-  func lineFragmentRectForGlyphAtIndex(glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer) -> CGRect
+  func textContainerForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer, withoutAdditionalLayout flag: Bool) -> NSTextContainer?
+  func usedRectFor(container: NSTextContainer) -> CGRect
+  func lineFragmentRectForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer) -> CGRect
   @available(iOS 9.0, *)
-  func lineFragmentRectForGlyphAtIndex(glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer, withoutAdditionalLayout flag: Bool) -> CGRect
-  func lineFragmentUsedRectForGlyphAtIndex(glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer) -> CGRect
+  func lineFragmentRectForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer, withoutAdditionalLayout flag: Bool) -> CGRect
+  func lineFragmentUsedRectForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer) -> CGRect
   @available(iOS 9.0, *)
-  func lineFragmentUsedRectForGlyphAtIndex(glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer, withoutAdditionalLayout flag: Bool) -> CGRect
+  func lineFragmentUsedRectForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer, withoutAdditionalLayout flag: Bool) -> CGRect
   var extraLineFragmentRect: CGRect { get }
   var extraLineFragmentUsedRect: CGRect { get }
   var extraLineFragmentTextContainer: NSTextContainer? { get }
-  func locationForGlyphAtIndex(glyphIndex: Int) -> CGPoint
-  func notShownAttributeForGlyphAtIndex(glyphIndex: Int) -> Bool
-  func drawsOutsideLineFragmentForGlyphAtIndex(glyphIndex: Int) -> Bool
-  func attachmentSizeForGlyphAtIndex(glyphIndex: Int) -> CGSize
+  func locationForGlyphAt(glyphIndex: Int) -> CGPoint
+  func notShownAttributeForGlyphAt(glyphIndex: Int) -> Bool
+  func drawsOutsideLineFragmentForGlyphAt(glyphIndex: Int) -> Bool
+  func attachmentSizeForGlyphAt(glyphIndex: Int) -> CGSize
   @available(iOS 7.0, *)
-  func truncatedGlyphRangeInLineFragmentForGlyphAtIndex(glyphIndex: Int) -> NSRange
+  func truncatedGlyphRangeInLineFragmentForGlyphAt(glyphIndex: Int) -> NSRange
 
   /************************ More sophisticated queries ************************/
   func glyphRangeForCharacterRange(charRange: NSRange, actualCharacterRange actualCharRange: NSRangePointer) -> NSRange
   func characterRangeForGlyphRange(glyphRange: NSRange, actualGlyphRange: NSRangePointer) -> NSRange
-  func glyphRangeForTextContainer(container: NSTextContainer) -> NSRange
-  func rangeOfNominallySpacedGlyphsContainingIndex(glyphIndex: Int) -> NSRange
-  func boundingRectForGlyphRange(glyphRange: NSRange, inTextContainer container: NSTextContainer) -> CGRect
-  func glyphRangeForBoundingRect(bounds: CGRect, inTextContainer container: NSTextContainer) -> NSRange
-  func glyphRangeForBoundingRectWithoutAdditionalLayout(bounds: CGRect, inTextContainer container: NSTextContainer) -> NSRange
-  func glyphIndexForPoint(point: CGPoint, inTextContainer container: NSTextContainer, fractionOfDistanceThroughGlyph partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
-  func glyphIndexForPoint(point: CGPoint, inTextContainer container: NSTextContainer) -> Int
-  func fractionOfDistanceThroughGlyphForPoint(point: CGPoint, inTextContainer container: NSTextContainer) -> CGFloat
-  func characterIndexForPoint(point: CGPoint, inTextContainer container: NSTextContainer, fractionOfDistanceBetweenInsertionPoints partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
-  func getLineFragmentInsertionPointsForCharacterAtIndex(charIndex: Int, alternatePositions aFlag: Bool, inDisplayOrder dFlag: Bool, positions: UnsafeMutablePointer<CGFloat>, characterIndexes charIndexes: UnsafeMutablePointer<Int>) -> Int
+  func glyphRangeFor(container: NSTextContainer) -> NSRange
+  func rangeOfNominallySpacedGlyphsContaining(glyphIndex: Int) -> NSRange
+  func boundingRectForGlyphRange(glyphRange: NSRange, `in` container: NSTextContainer) -> CGRect
+  func glyphRangeForBoundingRect(bounds: CGRect, `in` container: NSTextContainer) -> NSRange
+  func glyphRangeForBoundingRectWithoutAdditionalLayout(bounds: CGRect, `in` container: NSTextContainer) -> NSRange
+  func glyphIndexFor(point: CGPoint, `in` container: NSTextContainer, fractionOfDistanceThroughGlyph partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
+  func glyphIndexFor(point: CGPoint, `in` container: NSTextContainer) -> Int
+  func fractionOfDistanceThroughGlyphFor(point: CGPoint, `in` container: NSTextContainer) -> CGFloat
+  func characterIndexFor(point: CGPoint, `in` container: NSTextContainer, fractionOfDistanceBetweenInsertionPoints partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
+  func getLineFragmentInsertionPointsForCharacterAt(charIndex: Int, alternatePositions aFlag: Bool, inDisplayOrder dFlag: Bool, positions: UnsafeMutablePointer<CGFloat>, characterIndexes charIndexes: UnsafeMutablePointer<Int>) -> Int
   @available(iOS 7.0, *)
   func enumerateLineFragmentsForGlyphRange(glyphRange: NSRange, usingBlock block: (CGRect, CGRect, NSTextContainer, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(iOS 7.0, *)
-  func enumerateEnclosingRectsForGlyphRange(glyphRange: NSRange, withinSelectedGlyphRange selectedRange: NSRange, inTextContainer textContainer: NSTextContainer, usingBlock block: (CGRect, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateEnclosingRectsForGlyphRange(glyphRange: NSRange, withinSelectedGlyphRange selectedRange: NSRange, `in` textContainer: NSTextContainer, usingBlock block: (CGRect, UnsafeMutablePointer<ObjCBool>) -> Void)
 
   /************************ Drawing support ************************/
-  func drawBackgroundForGlyphRange(glyphsToShow: NSRange, atPoint origin: CGPoint)
-  func drawGlyphsForGlyphRange(glyphsToShow: NSRange, atPoint origin: CGPoint)
+  func drawBackgroundForGlyphRange(glyphsToShow: NSRange, at origin: CGPoint)
+  func drawGlyphsForGlyphRange(glyphsToShow: NSRange, at origin: CGPoint)
   @available(iOS 7.0, *)
-  func showCGGlyphs(glyphs: UnsafePointer<CGGlyph>, positions: UnsafePointer<CGPoint>, count glyphCount: Int, font: UIFont, matrix textMatrix: CGAffineTransform, attributes: [String : AnyObject], inContext graphicsContext: CGContext)
+  func showCGGlyphs(glyphs: UnsafePointer<CGGlyph>, positions: UnsafePointer<CGPoint>, count glyphCount: Int, font: UIFont, matrix textMatrix: CGAffineTransform, attributes: [String : AnyObject], `in` graphicsContext: CGContext)
   @available(iOS 7.0, *)
   func fillBackgroundRectArray(rectArray: UnsafePointer<CGRect>, count rectCount: Int, forCharacterRange charRange: NSRange, color: UIColor)
   func drawUnderlineForGlyphRange(glyphRange: NSRange, underlineType underlineVal: NSUnderlineStyle, baselineOffset: CGFloat, lineFragmentRect lineRect: CGRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: CGPoint)
@@ -505,7 +505,7 @@ class NSLayoutManager : NSObject, NSCoding {
   func drawStrikethroughForGlyphRange(glyphRange: NSRange, strikethroughType strikethroughVal: NSUnderlineStyle, baselineOffset: CGFloat, lineFragmentRect lineRect: CGRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: CGPoint)
   func strikethroughGlyphRange(glyphRange: NSRange, strikethroughType strikethroughVal: NSUnderlineStyle, lineFragmentRect lineRect: CGRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: CGPoint)
   @available(iOS 7.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 protocol NSLayoutManagerDelegate : NSObjectProtocol {
 
@@ -515,29 +515,29 @@ protocol NSLayoutManagerDelegate : NSObjectProtocol {
 
   /************************ Line layout ************************/
   @available(iOS 7.0, *)
-  optional func layoutManager(layoutManager: NSLayoutManager, lineSpacingAfterGlyphAtIndex glyphIndex: Int, withProposedLineFragmentRect rect: CGRect) -> CGFloat
+  optional func layoutManager(layoutManager: NSLayoutManager, lineSpacingAfterGlyphAt glyphIndex: Int, withProposedLineFragmentRect rect: CGRect) -> CGFloat
   @available(iOS 7.0, *)
-  optional func layoutManager(layoutManager: NSLayoutManager, paragraphSpacingBeforeGlyphAtIndex glyphIndex: Int, withProposedLineFragmentRect rect: CGRect) -> CGFloat
+  optional func layoutManager(layoutManager: NSLayoutManager, paragraphSpacingBeforeGlyphAt glyphIndex: Int, withProposedLineFragmentRect rect: CGRect) -> CGFloat
   @available(iOS 7.0, *)
-  optional func layoutManager(layoutManager: NSLayoutManager, paragraphSpacingAfterGlyphAtIndex glyphIndex: Int, withProposedLineFragmentRect rect: CGRect) -> CGFloat
+  optional func layoutManager(layoutManager: NSLayoutManager, paragraphSpacingAfterGlyphAt glyphIndex: Int, withProposedLineFragmentRect rect: CGRect) -> CGFloat
   @available(iOS 7.0, *)
-  optional func layoutManager(layoutManager: NSLayoutManager, shouldUseAction action: NSControlCharacterAction, forControlCharacterAtIndex charIndex: Int) -> NSControlCharacterAction
+  optional func layoutManager(layoutManager: NSLayoutManager, shouldUse action: NSControlCharacterAction, forControlCharacterAt charIndex: Int) -> NSControlCharacterAction
   @available(iOS 7.0, *)
-  optional func layoutManager(layoutManager: NSLayoutManager, shouldBreakLineByWordBeforeCharacterAtIndex charIndex: Int) -> Bool
+  optional func layoutManager(layoutManager: NSLayoutManager, shouldBreakLineByWordBeforeCharacterAt charIndex: Int) -> Bool
   @available(iOS 7.0, *)
-  optional func layoutManager(layoutManager: NSLayoutManager, shouldBreakLineByHyphenatingBeforeCharacterAtIndex charIndex: Int) -> Bool
+  optional func layoutManager(layoutManager: NSLayoutManager, shouldBreakLineByHyphenatingBeforeCharacterAt charIndex: Int) -> Bool
   @available(iOS 7.0, *)
-  optional func layoutManager(layoutManager: NSLayoutManager, boundingBoxForControlGlyphAtIndex glyphIndex: Int, forTextContainer textContainer: NSTextContainer, proposedLineFragment proposedRect: CGRect, glyphPosition: CGPoint, characterIndex charIndex: Int) -> CGRect
+  optional func layoutManager(layoutManager: NSLayoutManager, boundingBoxForControlGlyphAt glyphIndex: Int, forTextContainer textContainer: NSTextContainer, proposedLineFragment proposedRect: CGRect, glyphPosition: CGPoint, characterIndex charIndex: Int) -> CGRect
   @available(iOS 9.0, *)
-  optional func layoutManager(layoutManager: NSLayoutManager, shouldSetLineFragmentRect lineFragmentRect: UnsafeMutablePointer<CGRect>, lineFragmentUsedRect: UnsafeMutablePointer<CGRect>, baselineOffset: UnsafeMutablePointer<CGFloat>, inTextContainer textContainer: NSTextContainer, forGlyphRange glyphRange: NSRange) -> Bool
+  optional func layoutManager(layoutManager: NSLayoutManager, shouldSetLineFragmentRect lineFragmentRect: UnsafeMutablePointer<CGRect>, lineFragmentUsedRect: UnsafeMutablePointer<CGRect>, baselineOffset: UnsafeMutablePointer<CGFloat>, `in` textContainer: NSTextContainer, forGlyphRange glyphRange: NSRange) -> Bool
 
   /************************ Layout processing ************************/
   @available(iOS 7.0, *)
   optional func layoutManagerDidInvalidateLayout(sender: NSLayoutManager)
   @available(iOS 7.0, *)
-  optional func layoutManager(layoutManager: NSLayoutManager, didCompleteLayoutForTextContainer textContainer: NSTextContainer?, atEnd layoutFinishedFlag: Bool)
+  optional func layoutManager(layoutManager: NSLayoutManager, didCompleteLayoutFor textContainer: NSTextContainer?, atEnd layoutFinishedFlag: Bool)
   @available(iOS 7.0, *)
-  optional func layoutManager(layoutManager: NSLayoutManager, textContainer: NSTextContainer, didChangeGeometryFromSize oldSize: CGSize)
+  optional func layoutManager(layoutManager: NSLayoutManager, textContainer: NSTextContainer, didChangeGeometryFrom oldSize: CGSize)
 }
 @available(iOS, introduced=7.0, deprecated=9.0, message="Use NSControlCharacterActionZeroAdvancement instead")
 var NSControlCharacterZeroAdvancementAction: Int { get }
@@ -552,24 +552,24 @@ var NSControlCharacterParagraphBreakAction: Int { get }
 @available(iOS, introduced=7.0, deprecated=9.0, message="Use NSControlCharacterActionContainerBreak instead")
 var NSControlCharacterContainerBreakAction: Int { get }
 extension NSLayoutManager {
-  func glyphAtIndex(glyphIndex: Int, isValidIndex: UnsafeMutablePointer<ObjCBool>) -> CGGlyph
-  func glyphAtIndex(glyphIndex: Int) -> CGGlyph
+  func glyphAt(glyphIndex: Int, isValidIndex: UnsafeMutablePointer<ObjCBool>) -> CGGlyph
+  func glyphAt(glyphIndex: Int) -> CGGlyph
 }
 @available(iOS 7.0, *)
 let NSTabColumnTerminatorsAttributeName: String
 @available(iOS 7.0, *)
 class NSTextTab : NSObject, NSCopying, NSCoding {
   @available(iOS 7.0, *)
-  class func columnTerminatorsForLocale(aLocale: NSLocale?) -> NSCharacterSet
+  class func columnTerminatorsFor(aLocale: NSLocale?) -> NSCharacterSet
   init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options: [String : AnyObject])
   var alignment: NSTextAlignment { get }
   var location: CGFloat { get }
   var options: [String : AnyObject] { get }
   convenience init()
   @available(iOS 7.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 7.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(iOS 6.0, *)
@@ -608,13 +608,13 @@ class NSParagraphStyle : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var allowsDefaultTighteningForTruncation: Bool { get }
   init()
   @available(iOS 6.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 6.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 6.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 6.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(iOS 6.0, *)
@@ -655,9 +655,9 @@ class NSShadow : NSObject, NSCopying, NSCoding {
   var shadowBlurRadius: CGFloat
   var shadowColor: AnyObject?
   @available(iOS 6.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 6.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 @available(iOS 6.0, *)
 class NSStringDrawingContext : NSObject {
@@ -670,49 +670,49 @@ extension NSString {
   @available(iOS 7.0, *)
   func sizeWithAttributes(attrs: [String : AnyObject]?) -> CGSize
   @available(iOS 7.0, *)
-  func drawAtPoint(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
+  func drawAt(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
   @available(iOS 7.0, *)
-  func drawInRect(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
+  func drawIn(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
 }
 extension NSString {
   @available(iOS 7.0, *)
   func sizeWithAttributes(attrs: [String : AnyObject]?) -> CGSize
   @available(iOS 7.0, *)
-  func drawAtPoint(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
+  func drawAt(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
   @available(iOS 7.0, *)
-  func drawInRect(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
+  func drawIn(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
 }
 extension NSString {
   @available(iOS 7.0, *)
   func sizeWithAttributes(attrs: [String : AnyObject]?) -> CGSize
   @available(iOS 7.0, *)
-  func drawAtPoint(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
+  func drawAt(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
   @available(iOS 7.0, *)
-  func drawInRect(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
+  func drawIn(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
 }
 extension NSString {
   @available(iOS 7.0, *)
   func sizeWithAttributes(attrs: [String : AnyObject]?) -> CGSize
   @available(iOS 7.0, *)
-  func drawAtPoint(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
+  func drawAt(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
   @available(iOS 7.0, *)
-  func drawInRect(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
+  func drawIn(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
 }
 extension NSAttributedString {
   @available(iOS 6.0, *)
   func size() -> CGSize
   @available(iOS 6.0, *)
-  func drawAtPoint(point: CGPoint)
+  func drawAt(point: CGPoint)
   @available(iOS 6.0, *)
-  func drawInRect(rect: CGRect)
+  func drawIn(rect: CGRect)
 }
 extension NSAttributedString {
   @available(iOS 6.0, *)
   func size() -> CGSize
   @available(iOS 6.0, *)
-  func drawAtPoint(point: CGPoint)
+  func drawAt(point: CGPoint)
   @available(iOS 6.0, *)
-  func drawInRect(rect: CGRect)
+  func drawIn(rect: CGRect)
 }
 @available(iOS 6.0, *)
 struct NSStringDrawingOptions : OptionSetType {
@@ -726,39 +726,39 @@ struct NSStringDrawingOptions : OptionSetType {
 }
 extension NSString {
   @available(iOS 7.0, *)
-  func drawWithRect(rect: CGRect, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
+  func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
   @available(iOS 7.0, *)
-  func boundingRectWithSize(size: CGSize, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
+  func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
 }
 extension NSString {
   @available(iOS 7.0, *)
-  func drawWithRect(rect: CGRect, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
+  func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
   @available(iOS 7.0, *)
-  func boundingRectWithSize(size: CGSize, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
+  func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
 }
 extension NSString {
   @available(iOS 7.0, *)
-  func drawWithRect(rect: CGRect, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
+  func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
   @available(iOS 7.0, *)
-  func boundingRectWithSize(size: CGSize, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
+  func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
 }
 extension NSString {
   @available(iOS 7.0, *)
-  func drawWithRect(rect: CGRect, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
+  func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
   @available(iOS 7.0, *)
-  func boundingRectWithSize(size: CGSize, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
+  func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
 }
 extension NSAttributedString {
   @available(iOS 6.0, *)
-  func drawWithRect(rect: CGRect, options: NSStringDrawingOptions, context: NSStringDrawingContext?)
+  func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?)
   @available(iOS 6.0, *)
-  func boundingRectWithSize(size: CGSize, options: NSStringDrawingOptions, context: NSStringDrawingContext?) -> CGRect
+  func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?) -> CGRect
 }
 extension NSAttributedString {
   @available(iOS 6.0, *)
-  func drawWithRect(rect: CGRect, options: NSStringDrawingOptions, context: NSStringDrawingContext?)
+  func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?)
   @available(iOS 6.0, *)
-  func boundingRectWithSize(size: CGSize, options: NSStringDrawingOptions, context: NSStringDrawingContext?) -> CGRect
+  func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?) -> CGRect
 }
 extension NSStringDrawingContext {
 }
@@ -790,7 +790,7 @@ protocol NSTextAttachmentContainer : NSObjectProtocol {
   @available(iOS 7.0, *)
   func imageForBounds(imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
   @available(iOS 7.0, *)
-  func attachmentBoundsForTextContainer(textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
+  func attachmentBoundsFor(textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
 }
 @available(iOS 7.0, *)
 class NSTextAttachment : NSObject, NSTextAttachmentContainer, NSCoding {
@@ -817,9 +817,9 @@ class NSTextAttachment : NSObject, NSTextAttachmentContainer, NSCoding {
   @available(iOS 7.0, *)
   func imageForBounds(imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
   @available(iOS 7.0, *)
-  func attachmentBoundsForTextContainer(textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
+  func attachmentBoundsFor(textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
   @available(iOS 7.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension NSAttributedString {
@@ -858,16 +858,16 @@ class NSTextContainer : NSObject, NSCoding, NSTextLayoutOrientationProvider {
 
   /**************************** Line fragments ****************************/
   @available(iOS 7.0, *)
-  func lineFragmentRectForProposedRect(proposedRect: CGRect, atIndex characterIndex: Int, writingDirection baseWritingDirection: NSWritingDirection, remainingRect: UnsafeMutablePointer<CGRect>) -> CGRect
+  func lineFragmentRectForProposedRect(proposedRect: CGRect, at characterIndex: Int, writingDirection baseWritingDirection: NSWritingDirection, remaining remainingRect: UnsafeMutablePointer<CGRect>) -> CGRect
   @available(iOS 9.0, *)
-  var simpleRectangularTextContainer: Bool { get }
+  var isSimpleRectangularTextContainer: Bool { get }
 
   /**************************** View synchronization ****************************/
   var widthTracksTextView: Bool
   var heightTracksTextView: Bool
   convenience init()
   @available(iOS 7.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   @available(iOS 7.0, *)
   var layoutOrientation: NSTextLayoutOrientation { get }
 }
@@ -900,14 +900,14 @@ class NSTextStorage : NSMutableAttributedString {
 
   /**************************** Attribute fixing ****************************/
   var fixesAttributesLazily: Bool { get }
-  func invalidateAttributesInRange(range: NSRange)
-  func ensureAttributesAreFixedInRange(range: NSRange)
+  func invalidateAttributesIn(range: NSRange)
+  func ensureAttributesAreFixedIn(range: NSRange)
   init()
   init?(coder aDecoder: NSCoder)
   @available(iOS, introduced=7.0, deprecated=9.0, message="Use -initWithURL:options:documentAttributes:error: instead")
   init(fileURL url: NSURL, options: [NSObject : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS 9.0, *)
-  init(URL url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS 7.0, *)
   init(data: NSData, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   init(string str: String)
@@ -987,8 +987,8 @@ func UIAccessibilityConvertPathToScreenCoordinates(path: UIBezierPath, _ view: U
 extension NSObject {
   class func accessibilityElementCount() -> Int
   func accessibilityElementCount() -> Int
-  class func accessibilityElementAtIndex(index: Int) -> AnyObject?
-  func accessibilityElementAtIndex(index: Int) -> AnyObject?
+  class func accessibilityElementAt(index: Int) -> AnyObject?
+  func accessibilityElementAt(index: Int) -> AnyObject?
   class func indexOfAccessibilityElement(element: AnyObject) -> Int
   func indexOfAccessibilityElement(element: AnyObject) -> Int
   @available(iOS 8.0, *)
@@ -1050,7 +1050,7 @@ enum UIAccessibilityScrollDirection : Int {
 }
 protocol UIAccessibilityReadingContent {
   @available(iOS 5.0, *)
-  func accessibilityLineNumberForPoint(point: CGPoint) -> Int
+  func accessibilityLineNumberFor(point: CGPoint) -> Int
   @available(iOS 5.0, *)
   func accessibilityContentForLineNumber(lineNumber: Int) -> String?
   @available(iOS 5.0, *)
@@ -1125,7 +1125,7 @@ protocol UIPickerViewAccessibilityDelegate : UIPickerViewDelegate {
 }
 protocol UIScrollViewAccessibilityDelegate : UIScrollViewDelegate {
   @available(iOS 2.0, *)
-  optional func accessibilityScrollStatusForScrollView(scrollView: UIScrollView) -> String?
+  optional func accessibilityScrollStatusFor(scrollView: UIScrollView) -> String?
 }
 typealias UIAccessibilityTraits = UInt64
 var UIAccessibilityTraitNone: UIAccessibilityTraits
@@ -1256,19 +1256,19 @@ class UIActionSheet : UIView {
   var title: String
   var actionSheetStyle: UIActionSheetStyle
   func addButtonWithTitle(title: String?) -> Int
-  func buttonTitleAtIndex(buttonIndex: Int) -> String?
+  func buttonTitleAt(buttonIndex: Int) -> String?
   var numberOfButtons: Int { get }
   var cancelButtonIndex: Int
   var destructiveButtonIndex: Int
   var firstOtherButtonIndex: Int { get }
-  var visible: Bool { get }
-  func showFromToolbar(view: UIToolbar)
-  func showFromTabBar(view: UITabBar)
+  var isVisible: Bool { get }
+  func showFrom(view: UIToolbar)
+  func showFrom(view: UITabBar)
   @available(iOS 3.2, *)
-  func showFromBarButtonItem(item: UIBarButtonItem, animated: Bool)
+  func showFrom(item: UIBarButtonItem, animated: Bool)
   @available(iOS 3.2, *)
-  func showFromRect(rect: CGRect, inView view: UIView, animated: Bool)
-  func showInView(view: UIView)
+  func showFrom(rect: CGRect, `in` view: UIView, animated: Bool)
+  func showIn(view: UIView)
   func dismissWithClickedButtonIndex(buttonIndex: Int, animated: Bool)
   init(frame: CGRect)
   init?(coder aDecoder: NSCoder)
@@ -1280,13 +1280,13 @@ extension UIActionSheet {
 }
 protocol UIActionSheetDelegate : NSObjectProtocol {
   @available(iOS, introduced=2.0, deprecated=8.3)
-  optional func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int)
+  optional func actionSheet(actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int)
   @available(iOS, introduced=2.0, deprecated=8.3)
   optional func actionSheetCancel(actionSheet: UIActionSheet)
   @available(iOS, introduced=2.0, deprecated=8.3)
-  optional func willPresentActionSheet(actionSheet: UIActionSheet)
+  optional func willPresent(actionSheet: UIActionSheet)
   @available(iOS, introduced=2.0, deprecated=8.3)
-  optional func didPresentActionSheet(actionSheet: UIActionSheet)
+  optional func didPresent(actionSheet: UIActionSheet)
   @available(iOS, introduced=2.0, deprecated=8.3)
   optional func actionSheet(actionSheet: UIActionSheet, willDismissWithButtonIndex buttonIndex: Int)
   @available(iOS, introduced=2.0, deprecated=8.3)
@@ -1421,13 +1421,13 @@ enum UIAlertControllerStyle : Int {
 }
 @available(iOS 8.0, *)
 class UIAlertAction : NSObject, NSCopying {
-  convenience init(title: String?, style: UIAlertActionStyle, handler: ((UIAlertAction) -> Void)?)
+  convenience init(title: String?, style: UIAlertActionStyle, handler: ((UIAlertAction) -> Void)? = nil)
   var title: String? { get }
   var style: UIAlertActionStyle { get }
-  var enabled: Bool
+  var isEnabled: Bool
   init()
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class UIAlertController : UIViewController {
@@ -1436,7 +1436,7 @@ class UIAlertController : UIViewController {
   var actions: [UIAlertAction] { get }
   @available(iOS 9.0, *)
   var preferredAction: UIAlertAction?
-  func addTextFieldWithConfigurationHandler(configurationHandler: ((UITextField) -> Void)?)
+  func addTextField(configurationHandler configurationHandler: ((UITextField) -> Void)? = nil)
   var textFields: [UITextField]? { get }
   var title: String?
   var message: String?
@@ -1462,17 +1462,17 @@ class UIAlertView : UIView {
   var title: String
   var message: String?
   func addButtonWithTitle(title: String?) -> Int
-  func buttonTitleAtIndex(buttonIndex: Int) -> String?
+  func buttonTitleAt(buttonIndex: Int) -> String?
   var numberOfButtons: Int { get }
   var cancelButtonIndex: Int
   var firstOtherButtonIndex: Int { get }
-  var visible: Bool { get }
+  var isVisible: Bool { get }
   func show()
   func dismissWithClickedButtonIndex(buttonIndex: Int, animated: Bool)
   @available(iOS 5.0, *)
   var alertViewStyle: UIAlertViewStyle
   @available(iOS 5.0, *)
-  func textFieldAtIndex(textFieldIndex: Int) -> UITextField?
+  func textFieldAt(textFieldIndex: Int) -> UITextField?
   convenience init()
 }
 
@@ -1481,13 +1481,13 @@ extension UIAlertView {
 }
 protocol UIAlertViewDelegate : NSObjectProtocol {
   @available(iOS, introduced=2.0, deprecated=9.0)
-  optional func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int)
+  optional func alertView(alertView: UIAlertView, clickedButtonAt buttonIndex: Int)
   @available(iOS, introduced=2.0, deprecated=9.0)
   optional func alertViewCancel(alertView: UIAlertView)
   @available(iOS, introduced=2.0, deprecated=9.0)
-  optional func willPresentAlertView(alertView: UIAlertView)
+  optional func willPresent(alertView: UIAlertView)
   @available(iOS, introduced=2.0, deprecated=9.0)
-  optional func didPresentAlertView(alertView: UIAlertView)
+  optional func didPresent(alertView: UIAlertView)
   @available(iOS, introduced=2.0, deprecated=9.0)
   optional func alertView(alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int)
   @available(iOS, introduced=2.0, deprecated=9.0)
@@ -1502,9 +1502,9 @@ protocol UIAppearance : NSObjectProtocol {
   @available(iOS 9.0, *)
   static func appearanceWhenContainedInInstancesOfClasses(containerTypes: [AnyObject.Type]) -> Self
   @available(iOS 8.0, *)
-  static func appearanceForTraitCollection(trait: UITraitCollection) -> Self
+  static func appearanceFor(trait: UITraitCollection) -> Self
   @available(iOS 9.0, *)
-  static func appearanceForTraitCollection(trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
+  static func appearanceFor(trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
 }
 enum UIStatusBarStyle : Int {
   init?(rawValue: Int)
@@ -1596,22 +1596,22 @@ let UIApplicationBackgroundFetchIntervalMinimum: NSTimeInterval
 let UIApplicationBackgroundFetchIntervalNever: NSTimeInterval
 @available(iOS 2.0, *)
 class UIApplication : UIResponder {
-  class func sharedApplication() -> UIApplication
+  class func shared() -> UIApplication
   unowned(unsafe) var delegate: @sil_unmanaged UIApplicationDelegate?
   func beginIgnoringInteractionEvents()
   func endIgnoringInteractionEvents()
   func isIgnoringInteractionEvents() -> Bool
-  var idleTimerDisabled: Bool
-  func openURL(url: NSURL) -> Bool
+  var isIdleTimerDisabled: Bool
+  func open(url: NSURL) -> Bool
   @available(iOS 3.0, *)
-  func canOpenURL(url: NSURL) -> Bool
-  func sendEvent(event: UIEvent)
+  func canOpen(url: NSURL) -> Bool
+  func send(event: UIEvent)
   var keyWindow: UIWindow? { get }
   var windows: [UIWindow] { get }
   func sendAction(action: Selector, to target: AnyObject?, from sender: AnyObject?, forEvent event: UIEvent?) -> Bool
-  var networkActivityIndicatorVisible: Bool
+  var isNetworkActivityIndicatorVisible: Bool
   @available(iOS 6.0, *)
-  func supportedInterfaceOrientationsForWindow(window: UIWindow?) -> UIInterfaceOrientationMask
+  func supportedInterfaceOrientationsFor(window: UIWindow?) -> UIInterfaceOrientationMask
   var statusBarOrientationAnimationDuration: NSTimeInterval { get }
   var statusBarFrame: CGRect { get }
   var applicationIconBadgeNumber: Int
@@ -1622,9 +1622,9 @@ class UIApplication : UIResponder {
   @available(iOS 4.0, *)
   var backgroundTimeRemaining: NSTimeInterval { get }
   @available(iOS 4.0, *)
-  func beginBackgroundTaskWithExpirationHandler(handler: (() -> Void)?) -> UIBackgroundTaskIdentifier
+  func beginBackgroundTask(expirationHandler handler: (() -> Void)? = nil) -> UIBackgroundTaskIdentifier
   @available(iOS 7.0, *)
-  func beginBackgroundTaskWithName(taskName: String?, expirationHandler handler: (() -> Void)?) -> UIBackgroundTaskIdentifier
+  func beginBackgroundTaskWithName(taskName: String?, expirationHandler handler: (() -> Void)? = nil) -> UIBackgroundTaskIdentifier
   @available(iOS 4.0, *)
   func endBackgroundTask(identifier: UIBackgroundTaskIdentifier)
 
@@ -1645,7 +1645,7 @@ class UIApplication : UIResponder {
   @available(iOS 7.0, *)
   var backgroundRefreshStatus: UIBackgroundRefreshStatus { get }
   @available(iOS 4.0, *)
-  var protectedDataAvailable: Bool { get }
+  var isProtectedDataAvailable: Bool { get }
   @available(iOS 5.0, *)
   var userInterfaceLayoutDirection: UIUserInterfaceLayoutDirection { get }
   @available(iOS 7.0, *)
@@ -1670,7 +1670,7 @@ extension UIApplication {
   @available(iOS 4.0, *)
   func scheduleLocalNotification(notification: UILocalNotification)
   @available(iOS 4.0, *)
-  func cancelLocalNotification(notification: UILocalNotification)
+  func cancel(notification: UILocalNotification)
   @available(iOS 4.0, *)
   func cancelAllLocalNotifications()
   @available(iOS 4.0, *)
@@ -1678,7 +1678,7 @@ extension UIApplication {
 }
 extension UIApplication {
   @available(iOS 8.0, *)
-  func registerUserNotificationSettings(notificationSettings: UIUserNotificationSettings)
+  func register(notificationSettings: UIUserNotificationSettings)
   @available(iOS 8.0, *)
   func currentUserNotificationSettings() -> UIUserNotificationSettings?
 }
@@ -1718,11 +1718,11 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
   optional func applicationWillResignActive(application: UIApplication)
   @available(iOS, introduced=2.0, deprecated=9.0, message="Please use application:openURL:options:")
-  optional func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool
+  optional func application(application: UIApplication, handleOpen url: NSURL) -> Bool
   @available(iOS, introduced=4.2, deprecated=9.0, message="Please use application:openURL:options:")
-  optional func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool
+  optional func application(application: UIApplication, open url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool
   @available(iOS 9.0, *)
-  optional func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool
+  optional func application(app: UIApplication, open url: NSURL, options: [String : AnyObject]) -> Bool
   @available(iOS 2.0, *)
   optional func applicationDidReceiveMemoryWarning(application: UIApplication)
   @available(iOS 2.0, *)
@@ -1738,15 +1738,15 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
   optional func application(application: UIApplication, didChangeStatusBarFrame oldStatusBarFrame: CGRect)
   @available(iOS 8.0, *)
-  optional func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings)
+  optional func application(application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings)
   @available(iOS 3.0, *)
   optional func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
   @available(iOS 3.0, *)
-  optional func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError)
+  optional func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWith error: NSError)
   @available(iOS 3.0, *)
   optional func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
   @available(iOS 4.0, *)
-  optional func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification)
+  optional func application(application: UIApplication, didReceive notification: UILocalNotification)
   @available(iOS 8.0, *)
   optional func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void)
   @available(iOS 9.0, *)
@@ -1766,7 +1766,7 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(iOS 7.0, *)
   optional func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
   @available(iOS 9.0, *)
-  optional func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void)
+  optional func application(application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void)
   @available(iOS 7.0, *)
   optional func application(application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: () -> Void)
   @available(iOS 8.2, *)
@@ -1784,7 +1784,7 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(iOS 5.0, *)
   optional var window: UIWindow? { get set }
   @available(iOS 6.0, *)
-  optional func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> UIInterfaceOrientationMask
+  optional func application(application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask
   @available(iOS 8.0, *)
   optional func application(application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: String) -> Bool
   @available(iOS 6.0, *)
@@ -1794,13 +1794,13 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(iOS 6.0, *)
   optional func application(application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool
   @available(iOS 6.0, *)
-  optional func application(application: UIApplication, willEncodeRestorableStateWithCoder coder: NSCoder)
+  optional func application(application: UIApplication, willEncodeRestorableStateWith coder: NSCoder)
   @available(iOS 6.0, *)
-  optional func application(application: UIApplication, didDecodeRestorableStateWithCoder coder: NSCoder)
+  optional func application(application: UIApplication, didDecodeRestorableStateWith coder: NSCoder)
   @available(iOS 8.0, *)
   optional func application(application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool
   @available(iOS 8.0, *)
-  optional func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool
+  optional func application(application: UIApplication, `continue` userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool
   @available(iOS 8.0, *)
   optional func application(application: UIApplication, didFailToContinueUserActivityWithType userActivityType: String, error: NSError)
   @available(iOS 8.0, *)
@@ -1820,7 +1820,7 @@ extension UIApplication {
   @available(iOS, introduced=3.2, deprecated=9.0, message="Use -[UIViewController prefersStatusBarHidden]")
   func setStatusBarHidden(hidden: Bool, withAnimation animation: UIStatusBarAnimation)
   @available(iOS, introduced=4.0, deprecated=9.0, message="Please use UIRemoteNotificationTypeVoIP remote notifications for VoIP applications")
-  func setKeepAliveTimeout(timeout: NSTimeInterval, handler keepAliveHandler: (() -> Void)?) -> Bool
+  func setKeepAliveTimeout(timeout: NSTimeInterval, handler keepAliveHandler: (() -> Void)? = nil) -> Bool
   @available(iOS, introduced=4.0, deprecated=9.0, message="Please use UIRemoteNotificationTypeVoIP remote notifications for VoIP applications")
   func clearKeepAliveTimeout()
 }
@@ -1974,7 +1974,7 @@ class UIApplicationShortcutIcon : NSObject, NSCopying {
   convenience init(templateImageName: String)
   init()
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class UIApplicationShortcutItem : NSObject, NSCopying, NSMutableCopying {
@@ -1986,9 +1986,9 @@ class UIApplicationShortcutItem : NSObject, NSCopying, NSMutableCopying {
   @NSCopying var icon: UIApplicationShortcutIcon? { get }
   var userInfo: [String : NSSecureCoding]? { get }
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 9.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class UIMutableApplicationShortcutItem : UIApplicationShortcutItem {
@@ -2026,8 +2026,8 @@ func UIFloatRangeMake(minimum: CGFloat, _ maximum: CGFloat) -> UIFloatRange
 class UIAttachmentBehavior : UIDynamicBehavior {
   convenience init(item: UIDynamicItem, attachedToAnchor point: CGPoint)
   init(item: UIDynamicItem, offsetFromCenter offset: UIOffset, attachedToAnchor point: CGPoint)
-  convenience init(item item1: UIDynamicItem, attachedToItem item2: UIDynamicItem)
-  init(item item1: UIDynamicItem, offsetFromCenter offset1: UIOffset, attachedToItem item2: UIDynamicItem, offsetFromCenter offset2: UIOffset)
+  convenience init(item item1: UIDynamicItem, attachedTo item2: UIDynamicItem)
+  init(item item1: UIDynamicItem, offsetFromCenter offset1: UIOffset, attachedTo item2: UIDynamicItem, offsetFromCenter offset2: UIOffset)
 
   /*!
    A sliding attachment allows for relative translation of two items along a specified axis with respect to the anchor point. A sliding
@@ -2039,7 +2039,7 @@ class UIAttachmentBehavior : UIDynamicBehavior {
    @see attachmentRange, Represents the slidable range of the attachment with respect to the anchor point along the specified axis, this range must include 0
    */
   @available(iOS 9.0, *)
-  class func slidingAttachmentWithItem(item1: UIDynamicItem, attachedToItem item2: UIDynamicItem, attachmentAnchor point: CGPoint, axisOfTranslation axis: CGVector) -> Self
+  class func slidingAttachmentWith(item1: UIDynamicItem, attachedTo item2: UIDynamicItem, attachmentAnchor point: CGPoint, axisOfTranslation axis: CGVector) -> Self
 
   /*!
    A sliding attachment allows for translation of the item along a specified axis with respect to the anchor point. A sliding
@@ -2050,7 +2050,7 @@ class UIAttachmentBehavior : UIDynamicBehavior {
    @see attachmentRange, Represents the slidable range of the attachment with respect to the anchor point along the specified axis, this range must include 0
    */
   @available(iOS 9.0, *)
-  class func slidingAttachmentWithItem(item: UIDynamicItem, attachmentAnchor point: CGPoint, axisOfTranslation axis: CGVector) -> Self
+  class func slidingAttachmentWith(item: UIDynamicItem, attachmentAnchor point: CGPoint, axisOfTranslation axis: CGVector) -> Self
 
   /*!
    A limit attachment imposes a maximum distance between two dynamic items, as if they were connected by a rope.
@@ -2061,7 +2061,7 @@ class UIAttachmentBehavior : UIDynamicBehavior {
    @see length
    */
   @available(iOS 9.0, *)
-  class func limitAttachmentWithItem(item1: UIDynamicItem, offsetFromCenter offset1: UIOffset, attachedToItem item2: UIDynamicItem, offsetFromCenter offset2: UIOffset) -> Self
+  class func limitAttachmentWith(item1: UIDynamicItem, offsetFromCenter offset1: UIOffset, attachedTo item2: UIDynamicItem, offsetFromCenter offset2: UIOffset) -> Self
 
   /*!
    A fixed attachment fuses two dynamic items together at a reference point. 
@@ -2071,7 +2071,7 @@ class UIAttachmentBehavior : UIDynamicBehavior {
    @param point The point for which each item will be attached. The anchor point will be converted to each items local corrdinate system.
    */
   @available(iOS 9.0, *)
-  class func fixedAttachmentWithItem(item1: UIDynamicItem, attachedToItem item2: UIDynamicItem, attachmentAnchor point: CGPoint) -> Self
+  class func fixedAttachmentWith(item1: UIDynamicItem, attachedTo item2: UIDynamicItem, attachmentAnchor point: CGPoint) -> Self
 
   /*!
    A pin attachment allows two dynamic items to independently rotate around the anchor point as if pinned together. 
@@ -2082,7 +2082,7 @@ class UIAttachmentBehavior : UIDynamicBehavior {
    @see frictionTorque, resistance to rotation
    */
   @available(iOS 9.0, *)
-  class func pinAttachmentWithItem(item1: UIDynamicItem, attachedToItem item2: UIDynamicItem, attachmentAnchor point: CGPoint) -> Self
+  class func pinAttachmentWith(item1: UIDynamicItem, attachedTo item2: UIDynamicItem, attachmentAnchor point: CGPoint) -> Self
   var items: [UIDynamicItem] { get }
   var attachedBehaviorType: UIAttachmentBehaviorType { get }
   var anchorPoint: CGPoint
@@ -2153,33 +2153,33 @@ class UIBarButtonItem : UIBarItem, NSCoding {
   @available(iOS 5.0, *)
   func setBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState, barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func backgroundImageForState(state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImageFor(state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 6.0, *)
   func setBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState, style: UIBarButtonItemStyle, barMetrics: UIBarMetrics)
   @available(iOS 6.0, *)
-  func backgroundImageForState(state: UIControlState, style: UIBarButtonItemStyle, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImageFor(state: UIControlState, style: UIBarButtonItemStyle, barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 5.0, *)
   var tintColor: UIColor?
   @available(iOS 5.0, *)
   func setBackgroundVerticalPositionAdjustment(adjustment: CGFloat, forBarMetrics barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func backgroundVerticalPositionAdjustmentForBarMetrics(barMetrics: UIBarMetrics) -> CGFloat
+  func backgroundVerticalPositionAdjustmentFor(barMetrics: UIBarMetrics) -> CGFloat
   @available(iOS 5.0, *)
   func setTitlePositionAdjustment(adjustment: UIOffset, forBarMetrics barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func titlePositionAdjustmentForBarMetrics(barMetrics: UIBarMetrics) -> UIOffset
+  func titlePositionAdjustmentFor(barMetrics: UIBarMetrics) -> UIOffset
   @available(iOS 5.0, *)
   func setBackButtonBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState, barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func backButtonBackgroundImageForState(state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
+  func backButtonBackgroundImageFor(state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 5.0, *)
   func setBackButtonTitlePositionAdjustment(adjustment: UIOffset, forBarMetrics barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func backButtonTitlePositionAdjustmentForBarMetrics(barMetrics: UIBarMetrics) -> UIOffset
+  func backButtonTitlePositionAdjustmentFor(barMetrics: UIBarMetrics) -> UIOffset
   @available(iOS 5.0, *)
   func setBackButtonBackgroundVerticalPositionAdjustment(adjustment: CGFloat, forBarMetrics barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func backButtonBackgroundVerticalPositionAdjustmentForBarMetrics(barMetrics: UIBarMetrics) -> CGFloat
+  func backButtonBackgroundVerticalPositionAdjustmentFor(barMetrics: UIBarMetrics) -> CGFloat
 }
 @available(iOS 9.0, *)
 class UIBarButtonItemGroup : NSObject, NSCoding {
@@ -2198,10 +2198,10 @@ class UIBarButtonItemGroup : NSObject, NSCoding {
   var representativeItem: UIBarButtonItem?
 
   /// Returns YES if the representativeItem of this group is currently being displayed, rather than its barButtonItems.
-  var displayingRepresentativeItem: Bool { get }
+  var isDisplayingRepresentativeItem: Bool { get }
   convenience init()
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 extension UIBarButtonItem {
 
@@ -2242,7 +2242,7 @@ protocol UIBarPositioningDelegate : NSObjectProtocol {
 class UIBarItem : NSObject, NSCoding, UIAppearance {
   init()
   init?(coder aDecoder: NSCoder)
-  var enabled: Bool
+  var isEnabled: Bool
   var title: String?
   var image: UIImage?
   @available(iOS 5.0, *)
@@ -2254,17 +2254,17 @@ class UIBarItem : NSObject, NSCoding, UIAppearance {
   @available(iOS 5.0, *)
   func setTitleTextAttributes(attributes: [String : AnyObject]?, forState state: UIControlState)
   @available(iOS 5.0, *)
-  func titleTextAttributesForState(state: UIControlState) -> [String : AnyObject]?
+  func titleTextAttributesFor(state: UIControlState) -> [String : AnyObject]?
   @available(iOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   @available(iOS 2.0, *)
   class func appearance() -> Self
   @available(iOS 9.0, *)
   class func appearanceWhenContainedInInstancesOfClasses(containerTypes: [AnyObject.Type]) -> Self
   @available(iOS 8.0, *)
-  class func appearanceForTraitCollection(trait: UITraitCollection) -> Self
+  class func appearanceFor(trait: UITraitCollection) -> Self
   @available(iOS 9.0, *)
-  class func appearanceForTraitCollection(trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
+  class func appearanceFor(trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
 }
 struct UIRectCorner : OptionSetType {
   init(rawValue: UInt)
@@ -2278,30 +2278,30 @@ struct UIRectCorner : OptionSetType {
 @available(iOS 3.2, *)
 class UIBezierPath : NSObject, NSCopying, NSCoding {
   convenience init(rect: CGRect)
-  convenience init(ovalInRect rect: CGRect)
+  convenience init(ovalIn rect: CGRect)
   convenience init(roundedRect rect: CGRect, cornerRadius: CGFloat)
   convenience init(roundedRect rect: CGRect, byRoundingCorners corners: UIRectCorner, cornerRadii: CGSize)
   convenience init(arcCenter center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
-  convenience init(CGPath: CGPath)
+  convenience init(cgPath CGPath: CGPath)
   init()
   init?(coder aDecoder: NSCoder)
-  var CGPath: CGPath
-  func moveToPoint(point: CGPoint)
-  func addLineToPoint(point: CGPoint)
-  func addCurveToPoint(endPoint: CGPoint, controlPoint1: CGPoint, controlPoint2: CGPoint)
-  func addQuadCurveToPoint(endPoint: CGPoint, controlPoint: CGPoint)
+  var cgPath: CGPath
+  func moveTo(point: CGPoint)
+  func addLineTo(point: CGPoint)
+  func addCurveTo(endPoint: CGPoint, controlPoint1: CGPoint, controlPoint2: CGPoint)
+  func addQuadCurveTo(endPoint: CGPoint, controlPoint: CGPoint)
   @available(iOS 4.0, *)
   func addArcWithCenter(center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
   func closePath()
   func removeAllPoints()
-  func appendPath(bezierPath: UIBezierPath)
+  func append(bezierPath: UIBezierPath)
   @available(iOS 6.0, *)
-  func bezierPathByReversingPath() -> UIBezierPath
-  func applyTransform(transform: CGAffineTransform)
-  var empty: Bool { get }
+  func reversing() -> UIBezierPath
+  func apply(transform: CGAffineTransform)
+  var isEmpty: Bool { get }
   var bounds: CGRect { get }
   var currentPoint: CGPoint { get }
-  func containsPoint(point: CGPoint) -> Bool
+  func contains(point: CGPoint) -> Bool
   var lineWidth: CGFloat
   var lineCapStyle: CGLineCap
   var lineJoinStyle: CGLineJoin
@@ -2312,13 +2312,13 @@ class UIBezierPath : NSObject, NSCopying, NSCoding {
   func getLineDash(pattern: UnsafeMutablePointer<CGFloat>, count: UnsafeMutablePointer<Int>, phase: UnsafeMutablePointer<CGFloat>)
   func fill()
   func stroke()
-  func fillWithBlendMode(blendMode: CGBlendMode, alpha: CGFloat)
-  func strokeWithBlendMode(blendMode: CGBlendMode, alpha: CGFloat)
+  func fillWith(blendMode: CGBlendMode, alpha: CGFloat)
+  func strokeWith(blendMode: CGBlendMode, alpha: CGFloat)
   func addClip()
   @available(iOS 3.2, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 3.2, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 enum UIButtonType : Int {
   init?(rawValue: Int)
@@ -2352,13 +2352,13 @@ class UIButton : UIControl, NSCoding {
   func setBackgroundImage(image: UIImage?, forState state: UIControlState)
   @available(iOS 6.0, *)
   func setAttributedTitle(title: NSAttributedString?, forState state: UIControlState)
-  func titleForState(state: UIControlState) -> String?
-  func titleColorForState(state: UIControlState) -> UIColor?
-  func titleShadowColorForState(state: UIControlState) -> UIColor?
-  func imageForState(state: UIControlState) -> UIImage?
-  func backgroundImageForState(state: UIControlState) -> UIImage?
+  func titleFor(state: UIControlState) -> String?
+  func titleColorFor(state: UIControlState) -> UIColor?
+  func titleShadowColorFor(state: UIControlState) -> UIColor?
+  func imageFor(state: UIControlState) -> UIImage?
+  func backgroundImageFor(state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
-  func attributedTitleForState(state: UIControlState) -> NSAttributedString?
+  func attributedTitleFor(state: UIControlState) -> NSAttributedString?
   var currentTitle: String? { get }
   var currentTitleColor: UIColor { get }
   var currentTitleShadowColor: UIColor? { get }
@@ -2402,57 +2402,57 @@ protocol UICollectionViewDataSource : NSObjectProtocol {
   @available(iOS 6.0, *)
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+  func collectionView(collectionView: UICollectionView, cellForItemAt indexPath: NSIndexPath) -> UICollectionViewCell
   @available(iOS 6.0, *)
-  optional func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+  optional func numberOfSectionsIn(collectionView: UICollectionView) -> Int
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView
+  optional func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: NSIndexPath) -> UICollectionReusableView
   @available(iOS 9.0, *)
-  optional func collectionView(collectionView: UICollectionView, canMoveItemAtIndexPath indexPath: NSIndexPath) -> Bool
+  optional func collectionView(collectionView: UICollectionView, canMoveItemAt indexPath: NSIndexPath) -> Bool
   @available(iOS 9.0, *)
-  optional func collectionView(collectionView: UICollectionView, moveItemAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath)
+  optional func collectionView(collectionView: UICollectionView, moveItemAt sourceIndexPath: NSIndexPath, to destinationIndexPath: NSIndexPath)
 }
 protocol UICollectionViewDelegate : UIScrollViewDelegate {
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool
+  optional func collectionView(collectionView: UICollectionView, shouldHighlightItemAt indexPath: NSIndexPath) -> Bool
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath)
+  optional func collectionView(collectionView: UICollectionView, didHighlightItemAt indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath)
+  optional func collectionView(collectionView: UICollectionView, didUnhighlightItemAt indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool
+  optional func collectionView(collectionView: UICollectionView, shouldSelectItemAt indexPath: NSIndexPath) -> Bool
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, shouldDeselectItemAtIndexPath indexPath: NSIndexPath) -> Bool
+  optional func collectionView(collectionView: UICollectionView, shouldDeselectItemAt indexPath: NSIndexPath) -> Bool
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+  optional func collectionView(collectionView: UICollectionView, didSelectItemAt indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath)
+  optional func collectionView(collectionView: UICollectionView, didDeselectItemAt indexPath: NSIndexPath)
   @available(iOS 8.0, *)
-  optional func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath)
+  optional func collectionView(collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: NSIndexPath)
   @available(iOS 8.0, *)
-  optional func collectionView(collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, atIndexPath indexPath: NSIndexPath)
+  optional func collectionView(collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath)
+  optional func collectionView(collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, atIndexPath indexPath: NSIndexPath)
+  optional func collectionView(collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool
+  optional func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: NSIndexPath) -> Bool
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
+  optional func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?)
+  optional func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: NSIndexPath, withSender sender: AnyObject?)
   @available(iOS 7.0, *)
   optional func collectionView(collectionView: UICollectionView, transitionLayoutForOldLayout fromLayout: UICollectionViewLayout, newLayout toLayout: UICollectionViewLayout) -> UICollectionViewTransitionLayout
   @available(iOS 9.0, *)
-  optional func collectionView(collectionView: UICollectionView, canFocusItemAtIndexPath indexPath: NSIndexPath) -> Bool
+  optional func collectionView(collectionView: UICollectionView, canFocusItemAt indexPath: NSIndexPath) -> Bool
   @available(iOS 9.0, *)
-  optional func collectionView(collectionView: UICollectionView, shouldUpdateFocusInContext context: UICollectionViewFocusUpdateContext) -> Bool
+  optional func collectionView(collectionView: UICollectionView, shouldUpdateFocusIn context: UICollectionViewFocusUpdateContext) -> Bool
   @available(iOS 9.0, *)
-  optional func collectionView(collectionView: UICollectionView, didUpdateFocusInContext context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+  optional func collectionView(collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
   @available(iOS 9.0, *)
-  optional func indexPathForPreferredFocusedViewInCollectionView(collectionView: UICollectionView) -> NSIndexPath?
+  optional func indexPathForPreferredFocusedViewIn(collectionView: UICollectionView) -> NSIndexPath?
   @available(iOS 9.0, *)
-  optional func collectionView(collectionView: UICollectionView, targetIndexPathForMoveFromItemAtIndexPath originalIndexPath: NSIndexPath, toProposedIndexPath proposedIndexPath: NSIndexPath) -> NSIndexPath
+  optional func collectionView(collectionView: UICollectionView, targetIndexPathForMoveFromItemAt originalIndexPath: NSIndexPath, toProposedIndexPath proposedIndexPath: NSIndexPath) -> NSIndexPath
   @available(iOS 9.0, *)
   optional func collectionView(collectionView: UICollectionView, targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint
 }
@@ -2464,54 +2464,54 @@ class UICollectionView : UIScrollView {
   weak var delegate: @sil_weak UICollectionViewDelegate?
   weak var dataSource: @sil_weak UICollectionViewDataSource?
   var backgroundView: UIView?
-  func registerClass(cellClass: AnyClass?, forCellWithReuseIdentifier identifier: String)
-  func registerNib(nib: UINib?, forCellWithReuseIdentifier identifier: String)
-  func registerClass(viewClass: AnyClass?, forSupplementaryViewOfKind elementKind: String, withReuseIdentifier identifier: String)
-  func registerNib(nib: UINib?, forSupplementaryViewOfKind kind: String, withReuseIdentifier identifier: String)
+  func register(cellClass: AnyClass?, forCellWithReuseIdentifier identifier: String)
+  func register(nib: UINib?, forCellWithReuseIdentifier identifier: String)
+  func register(viewClass: AnyClass?, forSupplementaryViewOfKind elementKind: String, withReuseIdentifier identifier: String)
+  func register(nib: UINib?, forSupplementaryViewOfKind kind: String, withReuseIdentifier identifier: String)
   func dequeueReusableCellWithReuseIdentifier(identifier: String, forIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
   func dequeueReusableSupplementaryViewOfKind(elementKind: String, withReuseIdentifier identifier: String, forIndexPath indexPath: NSIndexPath) -> UICollectionReusableView
   var allowsSelection: Bool
   var allowsMultipleSelection: Bool
   func indexPathsForSelectedItems() -> [NSIndexPath]?
-  func selectItemAtIndexPath(indexPath: NSIndexPath?, animated: Bool, scrollPosition: UICollectionViewScrollPosition)
-  func deselectItemAtIndexPath(indexPath: NSIndexPath, animated: Bool)
+  func selectItemAt(indexPath: NSIndexPath?, animated: Bool, scrollPosition: UICollectionViewScrollPosition)
+  func deselectItemAt(indexPath: NSIndexPath, animated: Bool)
   func reloadData()
   func setCollectionViewLayout(layout: UICollectionViewLayout, animated: Bool)
   @available(iOS 7.0, *)
-  func setCollectionViewLayout(layout: UICollectionViewLayout, animated: Bool, completion: ((Bool) -> Void)?)
+  func setCollectionViewLayout(layout: UICollectionViewLayout, animated: Bool, completion: ((Bool) -> Void)? = nil)
   @available(iOS 7.0, *)
-  func startInteractiveTransitionToCollectionViewLayout(layout: UICollectionViewLayout, completion: UICollectionViewLayoutInteractiveTransitionCompletion?) -> UICollectionViewTransitionLayout
+  func startInteractiveTransitionTo(layout: UICollectionViewLayout, completion: UICollectionViewLayoutInteractiveTransitionCompletion? = nil) -> UICollectionViewTransitionLayout
   @available(iOS 7.0, *)
   func finishInteractiveTransition()
   @available(iOS 7.0, *)
   func cancelInteractiveTransition()
   func numberOfSections() -> Int
   func numberOfItemsInSection(section: Int) -> Int
-  func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForSupplementaryElementOfKind(kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func indexPathForItemAtPoint(point: CGPoint) -> NSIndexPath?
-  func indexPathForCell(cell: UICollectionViewCell) -> NSIndexPath?
-  func cellForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewCell?
+  func layoutAttributesForItemAt(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryElementOfKind(kind: String, at indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func indexPathForItemAt(point: CGPoint) -> NSIndexPath?
+  func indexPathFor(cell: UICollectionViewCell) -> NSIndexPath?
+  func cellForItemAt(indexPath: NSIndexPath) -> UICollectionViewCell?
   func visibleCells() -> [UICollectionViewCell]
   func indexPathsForVisibleItems() -> [NSIndexPath]
   @available(iOS 9.0, *)
-  func supplementaryViewForElementKind(elementKind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView
+  func supplementaryViewForElementKind(elementKind: String, at indexPath: NSIndexPath) -> UICollectionReusableView
   @available(iOS 9.0, *)
   func visibleSupplementaryViewsOfKind(elementKind: String) -> [UICollectionReusableView]
   @available(iOS 9.0, *)
   func indexPathsForVisibleSupplementaryElementsOfKind(elementKind: String) -> [NSIndexPath]
-  func scrollToItemAtIndexPath(indexPath: NSIndexPath, atScrollPosition scrollPosition: UICollectionViewScrollPosition, animated: Bool)
+  func scrollToItemAt(indexPath: NSIndexPath, at scrollPosition: UICollectionViewScrollPosition, animated: Bool)
   func insertSections(sections: NSIndexSet)
   func deleteSections(sections: NSIndexSet)
   func reloadSections(sections: NSIndexSet)
   func moveSection(section: Int, toSection newSection: Int)
-  func insertItemsAtIndexPaths(indexPaths: [NSIndexPath])
-  func deleteItemsAtIndexPaths(indexPaths: [NSIndexPath])
-  func reloadItemsAtIndexPaths(indexPaths: [NSIndexPath])
-  func moveItemAtIndexPath(indexPath: NSIndexPath, toIndexPath newIndexPath: NSIndexPath)
-  func performBatchUpdates(updates: (() -> Void)?, completion: ((Bool) -> Void)?)
+  func insertItemsAt(indexPaths: [NSIndexPath])
+  func deleteItemsAt(indexPaths: [NSIndexPath])
+  func reloadItemsAt(indexPaths: [NSIndexPath])
+  func moveItemAt(indexPath: NSIndexPath, to newIndexPath: NSIndexPath)
+  func performBatchUpdates(updates: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
   @available(iOS 9.0, *)
-  func beginInteractiveMovementForItemAtIndexPath(indexPath: NSIndexPath) -> Bool
+  func beginInteractiveMovementForItemAt(indexPath: NSIndexPath) -> Bool
   @available(iOS 9.0, *)
   func updateInteractiveMovementTargetPosition(targetPosition: CGPoint)
   @available(iOS 9.0, *)
@@ -2533,11 +2533,11 @@ extension NSIndexPath {
 class UICollectionReusableView : UIView {
   var reuseIdentifier: String? { get }
   func prepareForReuse()
-  func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes)
-  func willTransitionFromLayout(oldLayout: UICollectionViewLayout, toLayout newLayout: UICollectionViewLayout)
-  func didTransitionFromLayout(oldLayout: UICollectionViewLayout, toLayout newLayout: UICollectionViewLayout)
+  func apply(layoutAttributes: UICollectionViewLayoutAttributes)
+  func willTransitionFrom(oldLayout: UICollectionViewLayout, to newLayout: UICollectionViewLayout)
+  func didTransitionFrom(oldLayout: UICollectionViewLayout, to newLayout: UICollectionViewLayout)
   @available(iOS 8.0, *)
-  func preferredLayoutAttributesFittingAttributes(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes
+  func preferredLayoutAttributesFitting(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes
   init(frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
@@ -2545,8 +2545,8 @@ class UICollectionReusableView : UIView {
 @available(iOS 6.0, *)
 class UICollectionViewCell : UICollectionReusableView {
   var contentView: UIView { get }
-  var selected: Bool
-  var highlighted: Bool
+  var isSelected: Bool
+  var isHighlighted: Bool
   var backgroundView: UIView?
   var selectedBackgroundView: UIView?
   init(frame: CGRect)
@@ -2568,45 +2568,45 @@ class UICollectionViewController : UIViewController, UICollectionViewDelegate, U
   var installsStandardGestureForInteractiveMovement: Bool
   convenience init()
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool
+  func collectionView(collectionView: UICollectionView, shouldHighlightItemAt indexPath: NSIndexPath) -> Bool
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath)
+  func collectionView(collectionView: UICollectionView, didHighlightItemAt indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath)
+  func collectionView(collectionView: UICollectionView, didUnhighlightItemAt indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool
+  func collectionView(collectionView: UICollectionView, shouldSelectItemAt indexPath: NSIndexPath) -> Bool
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, shouldDeselectItemAtIndexPath indexPath: NSIndexPath) -> Bool
+  func collectionView(collectionView: UICollectionView, shouldDeselectItemAt indexPath: NSIndexPath) -> Bool
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+  func collectionView(collectionView: UICollectionView, didSelectItemAt indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath)
+  func collectionView(collectionView: UICollectionView, didDeselectItemAt indexPath: NSIndexPath)
   @available(iOS 8.0, *)
-  func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath)
+  func collectionView(collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: NSIndexPath)
   @available(iOS 8.0, *)
-  func collectionView(collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, atIndexPath indexPath: NSIndexPath)
+  func collectionView(collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath)
+  func collectionView(collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, atIndexPath indexPath: NSIndexPath)
+  func collectionView(collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool
+  func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: NSIndexPath) -> Bool
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
+  func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?)
+  func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: NSIndexPath, withSender sender: AnyObject?)
   @available(iOS 7.0, *)
   func collectionView(collectionView: UICollectionView, transitionLayoutForOldLayout fromLayout: UICollectionViewLayout, newLayout toLayout: UICollectionViewLayout) -> UICollectionViewTransitionLayout
   @available(iOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, canFocusItemAtIndexPath indexPath: NSIndexPath) -> Bool
+  func collectionView(collectionView: UICollectionView, canFocusItemAt indexPath: NSIndexPath) -> Bool
   @available(iOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, shouldUpdateFocusInContext context: UICollectionViewFocusUpdateContext) -> Bool
+  func collectionView(collectionView: UICollectionView, shouldUpdateFocusIn context: UICollectionViewFocusUpdateContext) -> Bool
   @available(iOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, didUpdateFocusInContext context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+  func collectionView(collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
   @available(iOS 9.0, *)
-  func indexPathForPreferredFocusedViewInCollectionView(collectionView: UICollectionView) -> NSIndexPath?
+  func indexPathForPreferredFocusedViewIn(collectionView: UICollectionView) -> NSIndexPath?
   @available(iOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, targetIndexPathForMoveFromItemAtIndexPath originalIndexPath: NSIndexPath, toProposedIndexPath proposedIndexPath: NSIndexPath) -> NSIndexPath
+  func collectionView(collectionView: UICollectionView, targetIndexPathForMoveFromItemAt originalIndexPath: NSIndexPath, toProposedIndexPath proposedIndexPath: NSIndexPath) -> NSIndexPath
   @available(iOS 9.0, *)
   func collectionView(collectionView: UICollectionView, targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint
   @available(iOS 6.0, *)
@@ -2626,7 +2626,7 @@ class UICollectionViewController : UIViewController, UICollectionViewDelegate, U
   @available(iOS 6.0, *)
   func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)
   @available(iOS 6.0, *)
-  func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?
+  func viewForZoomingIn(scrollView: UIScrollView) -> UIView?
   @available(iOS 3.2, *)
   func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView?)
   @available(iOS 6.0, *)
@@ -2638,15 +2638,15 @@ class UICollectionViewController : UIViewController, UICollectionViewDelegate, U
   @available(iOS 6.0, *)
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+  func collectionView(collectionView: UICollectionView, cellForItemAt indexPath: NSIndexPath) -> UICollectionViewCell
   @available(iOS 6.0, *)
-  func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+  func numberOfSectionsIn(collectionView: UICollectionView) -> Int
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView
+  func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: NSIndexPath) -> UICollectionReusableView
   @available(iOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, canMoveItemAtIndexPath indexPath: NSIndexPath) -> Bool
+  func collectionView(collectionView: UICollectionView, canMoveItemAt indexPath: NSIndexPath) -> Bool
   @available(iOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, moveItemAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath)
+  func collectionView(collectionView: UICollectionView, moveItemAt sourceIndexPath: NSIndexPath, to destinationIndexPath: NSIndexPath)
 }
 @available(iOS 6.0, *)
 let UICollectionElementKindSectionHeader: String
@@ -2666,13 +2666,13 @@ class UICollectionViewFlowLayoutInvalidationContext : UICollectionViewLayoutInva
 }
 protocol UICollectionViewDelegateFlowLayout : UICollectionViewDelegate {
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: NSIndexPath) -> CGSize
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
+  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat
+  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat
+  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
   @available(iOS 6.0, *)
   optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
   @available(iOS 6.0, *)
@@ -2715,16 +2715,16 @@ class UICollectionViewLayoutAttributes : NSObject, NSCopying, UIDynamicItem {
   var transform: CGAffineTransform
   var alpha: CGFloat
   var zIndex: Int
-  var hidden: Bool
+  var isHidden: Bool
   var indexPath: NSIndexPath
   var representedElementCategory: UICollectionElementCategory { get }
   var representedElementKind: String? { get }
-  convenience init(forCellWithIndexPath indexPath: NSIndexPath)
+  convenience init(forCellWith indexPath: NSIndexPath)
   convenience init(forSupplementaryViewOfKind elementKind: String, withIndexPath indexPath: NSIndexPath)
   convenience init(forDecorationViewOfKind decorationViewKind: String, withIndexPath indexPath: NSIndexPath)
   init()
   @available(iOS 6.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 
   /**
    The collision type represents how the dynamics system will evaluate collisions with 
@@ -2758,14 +2758,14 @@ class UICollectionViewUpdateItem : NSObject {
 }
 @available(iOS 7.0, *)
 class UICollectionViewLayoutInvalidationContext : NSObject {
-  var invalidateEverything: Bool { get }
+  var isInvalidateEverything: Bool { get }
   var invalidateDataSourceCounts: Bool { get }
   @available(iOS 8.0, *)
-  func invalidateItemsAtIndexPaths(indexPaths: [NSIndexPath])
+  func invalidateItemsAt(indexPaths: [NSIndexPath])
   @available(iOS 8.0, *)
-  func invalidateSupplementaryElementsOfKind(elementKind: String, atIndexPaths indexPaths: [NSIndexPath])
+  func invalidateSupplementaryElementsOfKind(elementKind: String, at indexPaths: [NSIndexPath])
   @available(iOS 8.0, *)
-  func invalidateDecorationElementsOfKind(elementKind: String, atIndexPaths indexPaths: [NSIndexPath])
+  func invalidateDecorationElementsOfKind(elementKind: String, at indexPaths: [NSIndexPath])
   @available(iOS 8.0, *)
   var invalidatedItemIndexPaths: [NSIndexPath]? { get }
   @available(iOS 8.0, *)
@@ -2791,21 +2791,21 @@ class UICollectionViewLayout : NSObject, NSCoding {
   var collectionView: UICollectionView? { get }
   func invalidateLayout()
   @available(iOS 7.0, *)
-  func invalidateLayoutWithContext(context: UICollectionViewLayoutInvalidationContext)
-  func registerClass(viewClass: AnyClass?, forDecorationViewOfKind elementKind: String)
-  func registerNib(nib: UINib?, forDecorationViewOfKind elementKind: String)
+  func invalidateLayoutWith(context: UICollectionViewLayoutInvalidationContext)
+  func register(viewClass: AnyClass?, forDecorationViewOfKind elementKind: String)
+  func register(nib: UINib?, forDecorationViewOfKind elementKind: String)
   @available(iOS 6.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 extension UICollectionViewLayout {
   class func layoutAttributesClass() -> AnyClass
   @available(iOS 7.0, *)
   class func invalidationContextClass() -> AnyClass
   func prepareLayout()
-  func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]?
-  func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForSupplementaryViewOfKind(elementKind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForDecorationViewOfKind(elementKind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForElementsIn(rect: CGRect) -> [UICollectionViewLayoutAttributes]?
+  func layoutAttributesForItemAt(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryViewOfKind(elementKind: String, at indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForDecorationViewOfKind(elementKind: String, at indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
   func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool
   @available(iOS 7.0, *)
   func invalidationContextForBoundsChange(newBounds: CGRect) -> UICollectionViewLayoutInvalidationContext
@@ -2824,17 +2824,17 @@ extension UICollectionViewLayout {
   func prepareForAnimatedBoundsChange(oldBounds: CGRect)
   func finalizeAnimatedBoundsChange()
   @available(iOS 7.0, *)
-  func prepareForTransitionToLayout(newLayout: UICollectionViewLayout)
+  func prepareForTransitionTo(newLayout: UICollectionViewLayout)
   @available(iOS 7.0, *)
-  func prepareForTransitionFromLayout(oldLayout: UICollectionViewLayout)
+  func prepareForTransitionFrom(oldLayout: UICollectionViewLayout)
   @available(iOS 7.0, *)
   func finalizeLayoutTransition()
-  func initialLayoutAttributesForAppearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func finalLayoutAttributesForDisappearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func initialLayoutAttributesForAppearingSupplementaryElementOfKind(elementKind: String, atIndexPath elementIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func finalLayoutAttributesForDisappearingSupplementaryElementOfKind(elementKind: String, atIndexPath elementIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func initialLayoutAttributesForAppearingDecorationElementOfKind(elementKind: String, atIndexPath decorationIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func finalLayoutAttributesForDisappearingDecorationElementOfKind(elementKind: String, atIndexPath decorationIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func initialLayoutAttributesForAppearingItemAt(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func finalLayoutAttributesForDisappearingItemAt(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func initialLayoutAttributesForAppearingSupplementaryElementOfKind(elementKind: String, at elementIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func finalLayoutAttributesForDisappearingSupplementaryElementOfKind(elementKind: String, at elementIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func initialLayoutAttributesForAppearingDecorationElementOfKind(elementKind: String, at decorationIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func finalLayoutAttributesForDisappearingDecorationElementOfKind(elementKind: String, at decorationIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
   @available(iOS 7.0, *)
   func indexPathsToDeleteForSupplementaryViewOfKind(elementKind: String) -> [NSIndexPath]
   @available(iOS 7.0, *)
@@ -2848,7 +2848,7 @@ extension UICollectionViewLayout {
   @available(iOS 9.0, *)
   func targetIndexPathForInteractivelyMovingItem(previousIndexPath: NSIndexPath, withPosition position: CGPoint) -> NSIndexPath
   @available(iOS 9.0, *)
-  func layoutAttributesForInteractivelyMovingItemAtIndexPath(indexPath: NSIndexPath, withTargetPosition position: CGPoint) -> UICollectionViewLayoutAttributes
+  func layoutAttributesForInteractivelyMovingItemAt(indexPath: NSIndexPath, withTargetPosition position: CGPoint) -> UICollectionViewLayoutAttributes
   @available(iOS 9.0, *)
   func invalidationContextForInteractivelyMovingItems(targetIndexPaths: [NSIndexPath], withTargetPosition targetPosition: CGPoint, previousIndexPaths: [NSIndexPath], previousPosition: CGPoint) -> UICollectionViewLayoutInvalidationContext
   @available(iOS 9.0, *)
@@ -2874,13 +2874,13 @@ struct UICollisionBehaviorMode : OptionSetType {
 }
 protocol UICollisionBehaviorDelegate : NSObjectProtocol {
   @available(iOS 7.0, *)
-  optional func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item1: UIDynamicItem, withItem item2: UIDynamicItem, atPoint p: CGPoint)
+  optional func collisionBehavior(behavior: UICollisionBehavior, beganContactFor item1: UIDynamicItem, withItem item2: UIDynamicItem, at p: CGPoint)
   @available(iOS 7.0, *)
-  optional func collisionBehavior(behavior: UICollisionBehavior, endedContactForItem item1: UIDynamicItem, withItem item2: UIDynamicItem)
+  optional func collisionBehavior(behavior: UICollisionBehavior, endedContactFor item1: UIDynamicItem, withItem item2: UIDynamicItem)
   @available(iOS 7.0, *)
-  optional func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, atPoint p: CGPoint)
+  optional func collisionBehavior(behavior: UICollisionBehavior, beganContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, at p: CGPoint)
   @available(iOS 7.0, *)
-  optional func collisionBehavior(behavior: UICollisionBehavior, endedContactForItem item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?)
+  optional func collisionBehavior(behavior: UICollisionBehavior, endedContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?)
 }
 @available(iOS 7.0, *)
 class UICollisionBehavior : UIDynamicBehavior {
@@ -2890,9 +2890,9 @@ class UICollisionBehavior : UIDynamicBehavior {
   var items: [UIDynamicItem] { get }
   var collisionMode: UICollisionBehaviorMode
   var translatesReferenceBoundsIntoBoundary: Bool
-  func setTranslatesReferenceBoundsIntoBoundaryWithInsets(insets: UIEdgeInsets)
+  func setTranslatesReferenceBoundsIntoBoundaryWith(insets: UIEdgeInsets)
   func addBoundaryWithIdentifier(identifier: NSCopying, forPath bezierPath: UIBezierPath)
-  func addBoundaryWithIdentifier(identifier: NSCopying, fromPoint p1: CGPoint, toPoint p2: CGPoint)
+  func addBoundaryWithIdentifier(identifier: NSCopying, from p1: CGPoint, to p2: CGPoint)
   func boundaryWithIdentifier(identifier: NSCopying) -> UIBezierPath?
   func removeBoundaryWithIdentifier(identifier: NSCopying)
   var boundaryIdentifiers: [NSCopying]? { get }
@@ -2905,25 +2905,25 @@ class UIColor : NSObject, NSSecureCoding, NSCopying {
   init(white: CGFloat, alpha: CGFloat)
   init(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat)
   init(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
-  init(CGColor cgColor: CGColor)
+  init(cgColor: CGColor)
   init(patternImage image: UIImage)
   @available(iOS 5.0, *)
-  init(CIColor ciColor: CIColor)
-  class func blackColor() -> UIColor
-  class func darkGrayColor() -> UIColor
-  class func lightGrayColor() -> UIColor
-  class func whiteColor() -> UIColor
-  class func grayColor() -> UIColor
-  class func redColor() -> UIColor
-  class func greenColor() -> UIColor
-  class func blueColor() -> UIColor
-  class func cyanColor() -> UIColor
-  class func yellowColor() -> UIColor
-  class func magentaColor() -> UIColor
-  class func orangeColor() -> UIColor
-  class func purpleColor() -> UIColor
-  class func brownColor() -> UIColor
-  class func clearColor() -> UIColor
+  init(ciColor: CIColor)
+  class func black() -> UIColor
+  class func darkGray() -> UIColor
+  class func lightGray() -> UIColor
+  class func white() -> UIColor
+  class func gray() -> UIColor
+  class func red() -> UIColor
+  class func green() -> UIColor
+  class func blue() -> UIColor
+  class func cyan() -> UIColor
+  class func yellow() -> UIColor
+  class func magenta() -> UIColor
+  class func orange() -> UIColor
+  class func purple() -> UIColor
+  class func brown() -> UIColor
+  class func clear() -> UIColor
   func set()
   func setFill()
   func setStroke()
@@ -2933,18 +2933,18 @@ class UIColor : NSObject, NSSecureCoding, NSCopying {
   func getHue(hue: UnsafeMutablePointer<CGFloat>, saturation: UnsafeMutablePointer<CGFloat>, brightness: UnsafeMutablePointer<CGFloat>, alpha: UnsafeMutablePointer<CGFloat>) -> Bool
   @available(iOS 5.0, *)
   func getRed(red: UnsafeMutablePointer<CGFloat>, green: UnsafeMutablePointer<CGFloat>, blue: UnsafeMutablePointer<CGFloat>, alpha: UnsafeMutablePointer<CGFloat>) -> Bool
-  func colorWithAlphaComponent(alpha: CGFloat) -> UIColor
-  var CGColor: CGColor { get }
+  func withAlphaComponent(alpha: CGFloat) -> UIColor
+  var cgColor: CGColor { get }
   @available(iOS 5.0, *)
-  var CIColor: CIColor { get }
+  var ciColor: CIColor { get }
   init()
   @available(iOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 extension UIColor : _ColorLiteralConvertible {
@@ -3009,25 +3009,25 @@ struct UIControlState : OptionSetType {
 }
 @available(iOS 2.0, *)
 class UIControl : UIView {
-  var enabled: Bool
-  var selected: Bool
-  var highlighted: Bool
+  var isEnabled: Bool
+  var isSelected: Bool
+  var isHighlighted: Bool
   var contentVerticalAlignment: UIControlContentVerticalAlignment
   var contentHorizontalAlignment: UIControlContentHorizontalAlignment
   var state: UIControlState { get }
-  var tracking: Bool { get }
-  var touchInside: Bool { get }
-  func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool
-  func continueTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool
-  func endTrackingWithTouch(touch: UITouch?, withEvent event: UIEvent?)
-  func cancelTrackingWithEvent(event: UIEvent?)
+  var isTracking: Bool { get }
+  var isTouchInside: Bool { get }
+  func beginTrackingWith(touch: UITouch, withEvent event: UIEvent?) -> Bool
+  func continueTrackingWith(touch: UITouch, withEvent event: UIEvent?) -> Bool
+  func endTrackingWith(touch: UITouch?, withEvent event: UIEvent?)
+  func cancelTrackingWith(event: UIEvent?)
   func addTarget(target: AnyObject?, action: Selector, forControlEvents controlEvents: UIControlEvents)
   func removeTarget(target: AnyObject?, action: Selector, forControlEvents controlEvents: UIControlEvents)
   func allTargets() -> Set<NSObject>
   func allControlEvents() -> UIControlEvents
   func actionsForTarget(target: AnyObject?, forControlEvent controlEvent: UIControlEvents) -> [String]?
   func sendAction(action: Selector, to target: AnyObject?, forEvent event: UIEvent?)
-  func sendActionsForControlEvents(controlEvents: UIControlEvents)
+  func sendActionsFor(controlEvents: UIControlEvents)
   init(frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
@@ -3109,7 +3109,7 @@ func UIDeviceOrientationIsPortrait(orientation: UIDeviceOrientation) -> Bool
 func UIDeviceOrientationIsLandscape(orientation: UIDeviceOrientation) -> Bool
 @available(iOS 2.0, *)
 class UIDevice : NSObject {
-  class func currentDevice() -> UIDevice
+  class func current() -> UIDevice
   var name: String { get }
   var model: String { get }
   var localizedModel: String { get }
@@ -3122,17 +3122,17 @@ class UIDevice : NSObject {
   func beginGeneratingDeviceOrientationNotifications()
   func endGeneratingDeviceOrientationNotifications()
   @available(iOS 3.0, *)
-  var batteryMonitoringEnabled: Bool
+  var isBatteryMonitoringEnabled: Bool
   @available(iOS 3.0, *)
   var batteryState: UIDeviceBatteryState { get }
   @available(iOS 3.0, *)
   var batteryLevel: Float { get }
   @available(iOS 3.0, *)
-  var proximityMonitoringEnabled: Bool
+  var isProximityMonitoringEnabled: Bool
   @available(iOS 3.0, *)
-  var proximityState: Bool { get }
+  var isProximityState: Bool { get }
   @available(iOS 4.0, *)
-  var multitaskingSupported: Bool { get }
+  var isMultitaskingSupported: Bool { get }
   @available(iOS 3.2, *)
   var userInterfaceIdiom: UIUserInterfaceIdiom { get }
   @available(iOS 4.2, *)
@@ -3184,8 +3184,8 @@ class UIDocument : NSObject, NSFilePresenter, NSProgressReporting {
   var fileType: String? { get }
   @NSCopying var fileModificationDate: NSDate?
   var documentState: UIDocumentState { get }
-  func openWithCompletionHandler(completionHandler: ((Bool) -> Void)?)
-  func closeWithCompletionHandler(completionHandler: ((Bool) -> Void)?)
+  func open(completionHandler completionHandler: ((Bool) -> Void)? = nil)
+  func close(completionHandler completionHandler: ((Bool) -> Void)? = nil)
   func loadFromContents(contents: AnyObject, ofType typeName: String?) throws
   func contentsForType(typeName: String) throws -> AnyObject
   func disableEditing()
@@ -3193,21 +3193,21 @@ class UIDocument : NSObject, NSFilePresenter, NSProgressReporting {
   var undoManager: NSUndoManager!
   func hasUnsavedChanges() -> Bool
   func updateChangeCount(change: UIDocumentChangeKind)
-  func changeCountTokenForSaveOperation(saveOperation: UIDocumentSaveOperation) -> AnyObject
+  func changeCountTokenFor(saveOperation: UIDocumentSaveOperation) -> AnyObject
   func updateChangeCountWithToken(changeCountToken: AnyObject, forSaveOperation saveOperation: UIDocumentSaveOperation)
-  func saveToURL(url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation, completionHandler: ((Bool) -> Void)?)
-  func autosaveWithCompletionHandler(completionHandler: ((Bool) -> Void)?)
+  func saveTo(url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation, completionHandler: ((Bool) -> Void)? = nil)
+  func autosave(completionHandler completionHandler: ((Bool) -> Void)? = nil)
   func savingFileType() -> String?
   func fileNameExtensionForType(typeName: String?, saveOperation: UIDocumentSaveOperation) -> String
-  func writeContents(contents: AnyObject, andAttributes additionalFileAttributes: [NSObject : AnyObject]?, safelyToURL url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation) throws
-  func writeContents(contents: AnyObject, toURL url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation, originalContentsURL: NSURL?) throws
-  func fileAttributesToWriteToURL(url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation) throws -> [NSObject : AnyObject]
-  func readFromURL(url: NSURL) throws
-  func performAsynchronousFileAccessUsingBlock(block: () -> Void)
-  func handleError(error: NSError, userInteractionPermitted: Bool)
-  func finishedHandlingError(error: NSError, recovered: Bool)
-  func userInteractionNoLongerPermittedForError(error: NSError)
-  func revertToContentsOfURL(url: NSURL, completionHandler: ((Bool) -> Void)?)
+  func writeContents(contents: AnyObject, andAttributes additionalFileAttributes: [NSObject : AnyObject]?, safelyTo url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation) throws
+  func writeContents(contents: AnyObject, to url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation, originalContentsURL: NSURL?) throws
+  func fileAttributesToWriteTo(url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation) throws -> [NSObject : AnyObject]
+  func readFrom(url: NSURL) throws
+  func performAsynchronousFileAccessUsing(block: () -> Void)
+  func handle(error: NSError, userInteractionPermitted: Bool)
+  func finishedHandling(error: NSError, recovered: Bool)
+  func userInteractionNoLongerPermittedFor(error: NSError)
+  func revertToContentsOf(url: NSURL, completionHandler: ((Bool) -> Void)? = nil)
   convenience init()
   @available(iOS 5.0, *)
   @NSCopying var presentedItemURL: NSURL? { get }
@@ -3222,29 +3222,29 @@ class UIDocument : NSObject, NSFilePresenter, NSProgressReporting {
   @available(iOS 5.0, *)
   func accommodatePresentedItemDeletionWithCompletionHandler(completionHandler: (NSError?) -> Void)
   @available(iOS 5.0, *)
-  func presentedItemDidMoveToURL(newURL: NSURL)
+  func presentedItemDidMoveTo(newURL: NSURL)
   @available(iOS 5.0, *)
   func presentedItemDidChange()
   @available(iOS 5.0, *)
   func presentedItemDidGainVersion(version: NSFileVersion)
   @available(iOS 5.0, *)
-  func presentedItemDidLoseVersion(version: NSFileVersion)
+  func presentedItemDidLose(version: NSFileVersion)
   @available(iOS 5.0, *)
   func presentedItemDidResolveConflictVersion(version: NSFileVersion)
   @available(iOS 5.0, *)
-  func accommodatePresentedSubitemDeletionAtURL(url: NSURL, completionHandler: (NSError?) -> Void)
+  func accommodatePresentedSubitemDeletionAt(url: NSURL, completionHandler: (NSError?) -> Void)
   @available(iOS 5.0, *)
-  func presentedSubitemDidAppearAtURL(url: NSURL)
+  func presentedSubitemDidAppearAt(url: NSURL)
   @available(iOS 5.0, *)
-  func presentedSubitemAtURL(oldURL: NSURL, didMoveToURL newURL: NSURL)
+  func presentedSubitemAt(oldURL: NSURL, didMoveTo newURL: NSURL)
   @available(iOS 5.0, *)
-  func presentedSubitemDidChangeAtURL(url: NSURL)
+  func presentedSubitemDidChangeAt(url: NSURL)
   @available(iOS 5.0, *)
-  func presentedSubitemAtURL(url: NSURL, didGainVersion version: NSFileVersion)
+  func presentedSubitemAt(url: NSURL, didGainVersion version: NSFileVersion)
   @available(iOS 5.0, *)
-  func presentedSubitemAtURL(url: NSURL, didLoseVersion version: NSFileVersion)
+  func presentedSubitemAt(url: NSURL, didLose version: NSFileVersion)
   @available(iOS 5.0, *)
-  func presentedSubitemAtURL(url: NSURL, didResolveConflictVersion version: NSFileVersion)
+  func presentedSubitemAt(url: NSURL, didResolveConflictVersion version: NSFileVersion)
   @available(iOS 7.0, *)
   var progress: NSProgress { get }
 }
@@ -3260,30 +3260,30 @@ extension UIDocument {
 }
 @available(iOS 3.2, *)
 class UIDocumentInteractionController : NSObject, UIActionSheetDelegate {
-  /*not inherited*/ init(URL url: NSURL)
+  /*not inherited*/ init(url: NSURL)
   weak var delegate: @sil_weak UIDocumentInteractionControllerDelegate?
-  var URL: NSURL?
-  var UTI: String?
+  var url: NSURL?
+  var uti: String?
   var name: String?
   var icons: [UIImage] { get }
   var annotation: AnyObject?
-  func presentOptionsMenuFromRect(rect: CGRect, inView view: UIView, animated: Bool) -> Bool
-  func presentOptionsMenuFromBarButtonItem(item: UIBarButtonItem, animated: Bool) -> Bool
+  func presentOptionsMenuFrom(rect: CGRect, `in` view: UIView, animated: Bool) -> Bool
+  func presentOptionsMenuFrom(item: UIBarButtonItem, animated: Bool) -> Bool
   func presentPreviewAnimated(animated: Bool) -> Bool
-  func presentOpenInMenuFromRect(rect: CGRect, inView view: UIView, animated: Bool) -> Bool
-  func presentOpenInMenuFromBarButtonItem(item: UIBarButtonItem, animated: Bool) -> Bool
+  func presentOpenInMenuFrom(rect: CGRect, `in` view: UIView, animated: Bool) -> Bool
+  func presentOpenInMenuFrom(item: UIBarButtonItem, animated: Bool) -> Bool
   func dismissPreviewAnimated(animated: Bool)
   func dismissMenuAnimated(animated: Bool)
   var gestureRecognizers: [UIGestureRecognizer] { get }
   init()
   @available(iOS, introduced=2.0, deprecated=8.3)
-  func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int)
+  func actionSheet(actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int)
   @available(iOS, introduced=2.0, deprecated=8.3)
   func actionSheetCancel(actionSheet: UIActionSheet)
   @available(iOS, introduced=2.0, deprecated=8.3)
-  func willPresentActionSheet(actionSheet: UIActionSheet)
+  func willPresent(actionSheet: UIActionSheet)
   @available(iOS, introduced=2.0, deprecated=8.3)
-  func didPresentActionSheet(actionSheet: UIActionSheet)
+  func didPresent(actionSheet: UIActionSheet)
   @available(iOS, introduced=2.0, deprecated=8.3)
   func actionSheet(actionSheet: UIActionSheet, willDismissWithButtonIndex buttonIndex: Int)
   @available(iOS, introduced=2.0, deprecated=8.3)
@@ -3328,8 +3328,8 @@ protocol UIDocumentMenuDelegate : NSObjectProtocol {
 }
 @available(iOS 8.0, *)
 class UIDocumentMenuViewController : UIViewController {
-  init(documentTypes allowedUTIs: [String], inMode mode: UIDocumentPickerMode)
-  init(URL url: NSURL, inMode mode: UIDocumentPickerMode)
+  init(documentTypes allowedUTIs: [String], `in` mode: UIDocumentPickerMode)
+  init(url: NSURL, `in` mode: UIDocumentPickerMode)
   init?(coder aDecoder: NSCoder)
   func addOptionWithTitle(title: String, image: UIImage?, order: UIDocumentMenuOrder, handler: () -> Void)
   weak var delegate: @sil_weak UIDocumentMenuDelegate?
@@ -3338,8 +3338,8 @@ class UIDocumentMenuViewController : UIViewController {
 }
 @available(iOS 8.0, *)
 class UIDocumentPickerExtensionViewController : UIViewController {
-  func dismissGrantingAccessToURL(url: NSURL?)
-  func prepareForPresentationInMode(mode: UIDocumentPickerMode)
+  func dismissGrantingAccessTo(url: NSURL?)
+  func prepareForPresentationIn(mode: UIDocumentPickerMode)
   var documentPickerMode: UIDocumentPickerMode { get }
   @NSCopying var originalURL: NSURL? { get }
   var validTypes: [String]? { get }
@@ -3351,7 +3351,7 @@ class UIDocumentPickerExtensionViewController : UIViewController {
 }
 protocol UIDocumentPickerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
-  func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAtURL url: NSURL)
+  func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAt url: NSURL)
   @available(iOS 8.0, *)
   optional func documentPickerWasCancelled(controller: UIDocumentPickerViewController)
 }
@@ -3366,9 +3366,9 @@ enum UIDocumentPickerMode : UInt {
 }
 @available(iOS 8.0, *)
 class UIDocumentPickerViewController : UIViewController {
-  init(documentTypes allowedUTIs: [String], inMode mode: UIDocumentPickerMode)
+  init(documentTypes allowedUTIs: [String], `in` mode: UIDocumentPickerMode)
   init?(coder aDecoder: NSCoder)
-  init(URL url: NSURL, inMode mode: UIDocumentPickerMode)
+  init(url: NSURL, `in` mode: UIDocumentPickerMode)
   weak var delegate: @sil_weak UIDocumentPickerDelegate?
   var documentPickerMode: UIDocumentPickerMode { get }
   convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
@@ -3388,18 +3388,18 @@ class UIDynamicAnimator : NSObject {
   func removeAllBehaviors()
   var referenceView: UIView? { get }
   var behaviors: [UIDynamicBehavior] { get }
-  func itemsInRect(rect: CGRect) -> [UIDynamicItem]
+  func itemsIn(rect: CGRect) -> [UIDynamicItem]
   func updateItemUsingCurrentState(item: UIDynamicItem)
-  var running: Bool { get }
+  var isRunning: Bool { get }
   func elapsedTime() -> NSTimeInterval
   weak var delegate: @sil_weak UIDynamicAnimatorDelegate?
   convenience init()
 }
 extension UIDynamicAnimator {
   convenience init(collectionViewLayout layout: UICollectionViewLayout)
-  func layoutAttributesForCellAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForSupplementaryViewOfKind(kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForDecorationViewOfKind(decorationViewKind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForCellAt(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryViewOfKind(kind: String, at indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForDecorationViewOfKind(decorationViewKind: String, at indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
 }
 @available(iOS 9.0, *)
 enum UIDynamicItemCollisionBoundsType : UInt {
@@ -3460,7 +3460,7 @@ class UIDynamicBehavior : NSObject {
   func removeChildBehavior(behavior: UIDynamicBehavior)
   var childBehaviors: [UIDynamicBehavior] { get }
   var action: (() -> Void)?
-  func willMoveToAnimator(dynamicAnimator: UIDynamicAnimator?)
+  func willMoveTo(dynamicAnimator: UIDynamicAnimator?)
   var dynamicAnimator: UIDynamicAnimator? { get }
   init()
 }
@@ -3490,12 +3490,12 @@ class UIDynamicItemBehavior : UIDynamicBehavior {
    The default is NO
    */
   @available(iOS 9.0, *)
-  var anchored: Bool
+  var isAnchored: Bool
   var allowsRotation: Bool
   func addLinearVelocity(velocity: CGPoint, forItem item: UIDynamicItem)
-  func linearVelocityForItem(item: UIDynamicItem) -> CGPoint
+  func linearVelocityFor(item: UIDynamicItem) -> CGPoint
   func addAngularVelocity(velocity: CGFloat, forItem item: UIDynamicItem)
-  func angularVelocityForItem(item: UIDynamicItem) -> CGFloat
+  func angularVelocityFor(item: UIDynamicItem) -> CGFloat
   convenience init()
 }
 enum UIEventType : Int {
@@ -3531,14 +3531,14 @@ class UIEvent : NSObject {
   var subtype: UIEventSubtype { get }
   var timestamp: NSTimeInterval { get }
   func allTouches() -> Set<UITouch>?
-  func touchesForWindow(window: UIWindow) -> Set<UITouch>?
-  func touchesForView(view: UIView) -> Set<UITouch>?
+  func touchesFor(window: UIWindow) -> Set<UITouch>?
+  func touchesFor(view: UIView) -> Set<UITouch>?
   @available(iOS 3.2, *)
-  func touchesForGestureRecognizer(gesture: UIGestureRecognizer) -> Set<UITouch>?
+  func touchesFor(gesture: UIGestureRecognizer) -> Set<UITouch>?
   @available(iOS 9.0, *)
-  func coalescedTouchesForTouch(touch: UITouch) -> [UITouch]?
+  func coalescedTouchesFor(touch: UITouch) -> [UITouch]?
   @available(iOS 9.0, *)
-  func predictedTouchesForTouch(touch: UITouch) -> [UITouch]?
+  func predictedTouchesFor(touch: UITouch) -> [UITouch]?
   init()
 }
 @available(iOS 9.0, *)
@@ -3618,7 +3618,7 @@ class UIFieldBehavior : UIDynamicBehavior {
    the field's strength property to get the final calculated force. All components of the direction vector are used to calculate the length.
    @see direction
    */
-  class func linearGravityFieldWithVector(direction: CGVector) -> Self
+  class func linearGravityFieldWith(direction: CGVector) -> Self
 
   /*!
    Uses the supplied velocity vector for any object entering the field’s region of effect.
@@ -3626,7 +3626,7 @@ class UIFieldBehavior : UIDynamicBehavior {
    @param direction The directed velocity that will be applied to the body.
    @see direction
    */
-  class func velocityFieldWithVector(direction: CGVector) -> Self
+  class func velocityFieldWith(direction: CGVector) -> Self
 
   /*!
    A time varying differentiable Perlin simplex noise field. By default a smooth noise is calculated,
@@ -3724,10 +3724,10 @@ protocol UIFocusEnvironment : NSObjectProtocol {
   func updateFocusIfNeeded()
 
   /// Asks whether the system should allow a focus update to occur.
-  func shouldUpdateFocusInContext(context: UIFocusUpdateContext) -> Bool
+  func shouldUpdateFocusIn(context: UIFocusUpdateContext) -> Bool
 
   /// Called when the screen’s focusedView has been updated to a new view. Use the animation coordinator to schedule focus-related animations in response to the update.
-  func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+  func didUpdateFocusIn(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
 }
 
 /// UIFocusGuides are UILayoutGuide subclasses that participate in the focus system from within their owning view. A UIFocusGuide may be used to expose non-view areas as focusable.
@@ -3735,7 +3735,7 @@ protocol UIFocusEnvironment : NSObjectProtocol {
 class UIFocusGuide : UILayoutGuide {
 
   /// If disabled, UIFocusGuides are ignored by the focus engine, but still participate in layout. Modifying this flag allows you to conditionally enable or disable certain focus behaviors. YES by default.
-  var enabled: Bool
+  var isEnabled: Bool
 
   /// Setting a preferred focused view marks this guide's layoutFrame as focusable, and if focused, redirects focus to its preferred focused view. If nil, this guide is effectively disabled.
   weak var preferredFocusedView: @sil_weak UIView?
@@ -3755,7 +3755,7 @@ class UIFocusAnimationCoordinator : NSObject {
    
    It is perfectly legitimate to only specify a completion block.
    */
-  func addCoordinatedAnimations(animations: (() -> Void)?, completion: (() -> Void)?)
+  func addCoordinatedAnimations(animations: (() -> Void)?, completion: (() -> Void)? = nil)
   init()
 }
 @available(iOS 2.0, *)
@@ -3782,14 +3782,14 @@ class UIFont : NSObject, NSCopying {
   @available(iOS 4.0, *)
   var lineHeight: CGFloat { get }
   var leading: CGFloat { get }
-  func fontWithSize(fontSize: CGFloat) -> UIFont
+  func withSize(fontSize: CGFloat) -> UIFont
   @available(iOS 7.0, *)
   /*not inherited*/ init(descriptor: UIFontDescriptor, size pointSize: CGFloat)
   @available(iOS 7.0, *)
   func fontDescriptor() -> UIFontDescriptor
   init()
   @available(iOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 7.0, *)
 struct UIFontDescriptorSymbolicTraits : OptionSetType {
@@ -3833,18 +3833,18 @@ class UIFontDescriptor : NSObject, NSCopying, NSSecureCoding {
   /*not inherited*/ init(name fontName: String, matrix: CGAffineTransform)
   class func preferredFontDescriptorWithTextStyle(style: String) -> UIFontDescriptor
   init(fontAttributes attributes: [String : AnyObject])
-  func fontDescriptorByAddingAttributes(attributes: [String : AnyObject]) -> UIFontDescriptor
-  func fontDescriptorWithSymbolicTraits(symbolicTraits: UIFontDescriptorSymbolicTraits) -> UIFontDescriptor
-  func fontDescriptorWithSize(newPointSize: CGFloat) -> UIFontDescriptor
-  func fontDescriptorWithMatrix(matrix: CGAffineTransform) -> UIFontDescriptor
-  func fontDescriptorWithFace(newFace: String) -> UIFontDescriptor
-  func fontDescriptorWithFamily(newFamily: String) -> UIFontDescriptor
+  func addingAttributes(attributes: [String : AnyObject]) -> UIFontDescriptor
+  func withSymbolicTraits(symbolicTraits: UIFontDescriptorSymbolicTraits) -> UIFontDescriptor
+  func withSize(newPointSize: CGFloat) -> UIFontDescriptor
+  func withMatrix(matrix: CGAffineTransform) -> UIFontDescriptor
+  func withFace(newFace: String) -> UIFontDescriptor
+  func withFamily(newFamily: String) -> UIFontDescriptor
   @available(iOS 7.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 7.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 @available(iOS 7.0, *)
 let UIFontDescriptorFamilyAttribute: String
@@ -3973,32 +3973,32 @@ func CGAffineTransformFromString(string: String) -> CGAffineTransform
 func UIEdgeInsetsFromString(string: String) -> UIEdgeInsets
 func UIOffsetFromString(string: String) -> UIOffset
 extension NSValue {
-  /*not inherited*/ init(CGPoint point: CGPoint)
-  /*not inherited*/ init(CGVector vector: CGVector)
-  /*not inherited*/ init(CGSize size: CGSize)
-  /*not inherited*/ init(CGRect rect: CGRect)
-  /*not inherited*/ init(CGAffineTransform transform: CGAffineTransform)
-  /*not inherited*/ init(UIEdgeInsets insets: UIEdgeInsets)
+  /*not inherited*/ init(cgPoint point: CGPoint)
+  /*not inherited*/ init(cgVector vector: CGVector)
+  /*not inherited*/ init(cgSize size: CGSize)
+  /*not inherited*/ init(cgRect rect: CGRect)
+  /*not inherited*/ init(cgAffineTransform transform: CGAffineTransform)
+  /*not inherited*/ init(uiEdgeInsets insets: UIEdgeInsets)
   @available(iOS 5.0, *)
-  /*not inherited*/ init(UIOffset insets: UIOffset)
-  func CGPointValue() -> CGPoint
-  func CGVectorValue() -> CGVector
-  func CGSizeValue() -> CGSize
-  func CGRectValue() -> CGRect
-  func CGAffineTransformValue() -> CGAffineTransform
-  func UIEdgeInsetsValue() -> UIEdgeInsets
+  /*not inherited*/ init(uiOffset insets: UIOffset)
+  func cgPointValue() -> CGPoint
+  func cgVectorValue() -> CGVector
+  func cgSizeValue() -> CGSize
+  func cgRectValue() -> CGRect
+  func cgAffineTransformValue() -> CGAffineTransform
+  func uiEdgeInsetsValue() -> UIEdgeInsets
   @available(iOS 5.0, *)
-  func UIOffsetValue() -> UIOffset
+  func uiOffsetValue() -> UIOffset
 }
 extension NSCoder {
-  func encodeCGPoint(point: CGPoint, forKey key: String)
-  func encodeCGVector(vector: CGVector, forKey key: String)
-  func encodeCGSize(size: CGSize, forKey key: String)
-  func encodeCGRect(rect: CGRect, forKey key: String)
-  func encodeCGAffineTransform(transform: CGAffineTransform, forKey key: String)
-  func encodeUIEdgeInsets(insets: UIEdgeInsets, forKey key: String)
+  func encode(point: CGPoint, forKey key: String)
+  func encode(vector: CGVector, forKey key: String)
+  func encode(size: CGSize, forKey key: String)
+  func encode(rect: CGRect, forKey key: String)
+  func encode(transform: CGAffineTransform, forKey key: String)
+  func encode(insets: UIEdgeInsets, forKey key: String)
   @available(iOS 5.0, *)
-  func encodeUIOffset(offset: UIOffset, forKey key: String)
+  func encode(offset: UIOffset, forKey key: String)
   func decodeCGPointForKey(key: String) -> CGPoint
   func decodeCGVectorForKey(key: String) -> CGVector
   func decodeCGSizeForKey(key: String) -> CGSize
@@ -4026,7 +4026,7 @@ class UIGestureRecognizer : NSObject {
   func removeTarget(target: AnyObject?, action: Selector)
   var state: UIGestureRecognizerState { get }
   weak var delegate: @sil_weak UIGestureRecognizerDelegate?
-  var enabled: Bool
+  var isEnabled: Bool
   var view: UIView? { get }
   var cancelsTouchesInView: Bool
   var delaysTouchesBegan: Bool
@@ -4036,24 +4036,24 @@ class UIGestureRecognizer : NSObject {
   @available(iOS 9.0, *)
   var allowedPressTypes: [NSNumber]
   func requireGestureRecognizerToFail(otherGestureRecognizer: UIGestureRecognizer)
-  func locationInView(view: UIView?) -> CGPoint
+  func locationIn(view: UIView?) -> CGPoint
   func numberOfTouches() -> Int
-  func locationOfTouch(touchIndex: Int, inView view: UIView?) -> CGPoint
+  func locationOfTouch(touchIndex: Int, `in` view: UIView?) -> CGPoint
   convenience init()
 }
 protocol UIGestureRecognizerDelegate : NSObjectProtocol {
   @available(iOS 3.2, *)
   optional func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool
   @available(iOS 3.2, *)
-  optional func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool
+  optional func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool
   @available(iOS 7.0, *)
-  optional func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOfGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool
+  optional func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool
   @available(iOS 7.0, *)
-  optional func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool
+  optional func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool
   @available(iOS 3.2, *)
-  optional func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool
+  optional func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool
   @available(iOS 9.0, *)
-  optional func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceivePress press: UIPress) -> Bool
+  optional func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceive press: UIPress) -> Bool
 }
 func UIGraphicsGetCurrentContext() -> CGContext?
 func UIGraphicsPushContext(context: CGContext)
@@ -4107,7 +4107,7 @@ enum UIGuidedAccessRestrictionState : Int {
 @available(iOS 7.0, *)
 protocol UIGuidedAccessRestrictionDelegate : NSObjectProtocol {
   func guidedAccessRestrictionIdentifiers() -> [String]?
-  func guidedAccessRestrictionWithIdentifier(restrictionIdentifier: String, didChangeState newRestrictionState: UIGuidedAccessRestrictionState)
+  func guidedAccessRestrictionWithIdentifier(restrictionIdentifier: String, didChange newRestrictionState: UIGuidedAccessRestrictionState)
   func textForGuidedAccessRestrictionWithIdentifier(restrictionIdentifier: String) -> String?
   optional func detailTextForGuidedAccessRestrictionWithIdentifier(restrictionIdentifier: String) -> String?
 }
@@ -4155,22 +4155,22 @@ enum UIImageRenderingMode : Int {
 class UIImage : NSObject, NSSecureCoding {
   /*not inherited*/ init?(named name: String)
   @available(iOS 8.0, *)
-  /*not inherited*/ init?(named name: String, inBundle bundle: NSBundle?, compatibleWithTraitCollection traitCollection: UITraitCollection?)
+  /*not inherited*/ init?(named name: String, `in` bundle: NSBundle?, compatibleWith traitCollection: UITraitCollection?)
   init?(contentsOfFile path: String)
   init?(data: NSData)
   @available(iOS 6.0, *)
   init?(data: NSData, scale: CGFloat)
-  init(CGImage cgImage: CGImage)
+  init(cgImage: CGImage)
   @available(iOS 4.0, *)
-  init(CGImage cgImage: CGImage, scale: CGFloat, orientation: UIImageOrientation)
+  init(cgImage: CGImage, scale: CGFloat, orientation: UIImageOrientation)
   @available(iOS 5.0, *)
-  init(CIImage ciImage: CIImage)
+  init(ciImage: CIImage)
   @available(iOS 6.0, *)
-  init(CIImage ciImage: CIImage, scale: CGFloat, orientation: UIImageOrientation)
+  init(ciImage: CIImage, scale: CGFloat, orientation: UIImageOrientation)
   var size: CGSize { get }
-  var CGImage: CGImage? { get }
+  var cgImage: CGImage? { get }
   @available(iOS 5.0, *)
-  var CIImage: CIImage? { get }
+  var ciImage: CIImage? { get }
   var imageOrientation: UIImageOrientation { get }
   @available(iOS 4.0, *)
   var scale: CGFloat { get }
@@ -4181,16 +4181,16 @@ class UIImage : NSObject, NSSecureCoding {
   @available(iOS 6.0, *)
   class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode, duration: NSTimeInterval) -> UIImage?
   @available(iOS 5.0, *)
-  class func animatedImageWithImages(images: [UIImage], duration: NSTimeInterval) -> UIImage?
+  class func animatedImageWith(images: [UIImage], duration: NSTimeInterval) -> UIImage?
   @available(iOS 5.0, *)
   var images: [UIImage]? { get }
   @available(iOS 5.0, *)
   var duration: NSTimeInterval { get }
-  func drawAtPoint(point: CGPoint)
-  func drawAtPoint(point: CGPoint, blendMode: CGBlendMode, alpha: CGFloat)
-  func drawInRect(rect: CGRect)
-  func drawInRect(rect: CGRect, blendMode: CGBlendMode, alpha: CGFloat)
-  func drawAsPatternInRect(rect: CGRect)
+  func drawAt(point: CGPoint)
+  func drawAt(point: CGPoint, blendMode: CGBlendMode, alpha: CGFloat)
+  func drawIn(rect: CGRect)
+  func drawIn(rect: CGRect, blendMode: CGBlendMode, alpha: CGFloat)
+  func drawAsPatternIn(rect: CGRect)
   @available(iOS 5.0, *)
   func resizableImageWithCapInsets(capInsets: UIEdgeInsets) -> UIImage
   @available(iOS 6.0, *)
@@ -4200,11 +4200,11 @@ class UIImage : NSObject, NSSecureCoding {
   @available(iOS 6.0, *)
   var resizingMode: UIImageResizingMode { get }
   @available(iOS 6.0, *)
-  func imageWithAlignmentRectInsets(alignmentInsets: UIEdgeInsets) -> UIImage
+  func withAlignmentRectInsets(alignmentInsets: UIEdgeInsets) -> UIImage
   @available(iOS 6.0, *)
   var alignmentRectInsets: UIEdgeInsets { get }
   @available(iOS 7.0, *)
-  func imageWithRenderingMode(renderingMode: UIImageRenderingMode) -> UIImage
+  func withRenderingMode(renderingMode: UIImageRenderingMode) -> UIImage
   @available(iOS 7.0, *)
   var renderingMode: UIImageRenderingMode { get }
   @available(iOS 8.0, *)
@@ -4219,7 +4219,7 @@ class UIImage : NSObject, NSSecureCoding {
   @available(iOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -4244,13 +4244,13 @@ func UIImageJPEGRepresentation(image: UIImage, _ compressionQuality: CGFloat) ->
 class UIImageAsset : NSObject, NSSecureCoding {
   init()
   init?(coder aDecoder: NSCoder)
-  func imageWithTraitCollection(traitCollection: UITraitCollection) -> UIImage
-  func registerImage(image: UIImage, withTraitCollection traitCollection: UITraitCollection)
-  func unregisterImageWithTraitCollection(traitCollection: UITraitCollection)
+  func imageWith(traitCollection: UITraitCollection) -> UIImage
+  func register(image: UIImage, withTraitCollection traitCollection: UITraitCollection)
+  func unregisterImageWith(traitCollection: UITraitCollection)
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 enum UIImagePickerControllerSourceType : Int {
   init?(rawValue: Int)
@@ -4305,13 +4305,13 @@ let UIImagePickerControllerLivePhoto: String
 @available(iOS 2.0, *)
 class UIImagePickerController : UINavigationController, NSCoding {
   class func isSourceTypeAvailable(sourceType: UIImagePickerControllerSourceType) -> Bool
-  class func availableMediaTypesForSourceType(sourceType: UIImagePickerControllerSourceType) -> [String]?
+  class func availableMediaTypesFor(sourceType: UIImagePickerControllerSourceType) -> [String]?
   @available(iOS 4.0, *)
   class func isCameraDeviceAvailable(cameraDevice: UIImagePickerControllerCameraDevice) -> Bool
   @available(iOS 4.0, *)
-  class func isFlashAvailableForCameraDevice(cameraDevice: UIImagePickerControllerCameraDevice) -> Bool
+  class func isFlashAvailableFor(cameraDevice: UIImagePickerControllerCameraDevice) -> Bool
   @available(iOS 4.0, *)
-  class func availableCaptureModesForCameraDevice(cameraDevice: UIImagePickerControllerCameraDevice) -> [NSNumber]?
+  class func availableCaptureModesFor(cameraDevice: UIImagePickerControllerCameraDevice) -> [NSNumber]?
   weak var delegate: @sil_weak protocol<UIImagePickerControllerDelegate, UINavigationControllerDelegate>?
   var sourceType: UIImagePickerControllerSourceType
   var mediaTypes: [String]
@@ -4365,9 +4365,9 @@ class UIImageView : UIView {
   var image: UIImage?
   @available(iOS 3.0, *)
   var highlightedImage: UIImage?
-  var userInteractionEnabled: Bool
+  var isUserInteractionEnabled: Bool
   @available(iOS 3.0, *)
-  var highlighted: Bool
+  var isHighlighted: Bool
   var animationImages: [UIImage]?
   @available(iOS 3.0, *)
   var highlightedAnimationImages: [UIImage]?
@@ -4441,9 +4441,9 @@ enum UIUserInterfaceSizeClass : Int {
   case Regular
 }
 extension UIColor {
-  class func lightTextColor() -> UIColor
-  class func darkTextColor() -> UIColor
-  class func groupTableViewBackgroundColor() -> UIColor
+  class func lightText() -> UIColor
+  class func darkText() -> UIColor
+  class func groupTableViewBackground() -> UIColor
 }
 extension UIFont {
   class func labelFontSize() -> CGFloat
@@ -4463,9 +4463,9 @@ class UILabel : UIView, NSCoding {
   @available(iOS 6.0, *)
   @NSCopying var attributedText: NSAttributedString?
   var highlightedTextColor: UIColor?
-  var highlighted: Bool
-  var userInteractionEnabled: Bool
-  var enabled: Bool
+  var isHighlighted: Bool
+  var isUserInteractionEnabled: Bool
+  var isEnabled: Bool
   var numberOfLines: Int
   var adjustsFontSizeToFitWidth: Bool
   var baselineAdjustment: UIBaselineAdjustment
@@ -4474,7 +4474,7 @@ class UILabel : UIView, NSCoding {
   @available(iOS 9.0, *)
   var allowsDefaultTighteningForTruncation: Bool
   func textRectForBounds(bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect
-  func drawTextInRect(rect: CGRect)
+  func drawTextIn(rect: CGRect)
   @available(iOS 6.0, *)
   var preferredMaxLayoutWidth: CGFloat
   init(frame: CGRect)
@@ -4498,7 +4498,7 @@ class UILayoutGuide : NSObject, NSCoding {
   var centerYAnchor: NSLayoutYAxisAnchor { get }
   init()
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
@@ -4507,14 +4507,14 @@ class UILexiconEntry : NSObject, NSCopying {
   var userInput: String { get }
   init()
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class UILexicon : NSObject, NSCopying {
   var entries: [UILexiconEntry] { get }
   init()
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 4.0, *)
 class UILocalNotification : NSObject, NSCopying, NSCoding {
@@ -4538,20 +4538,20 @@ class UILocalNotification : NSObject, NSCopying, NSCoding {
   @available(iOS 8.0, *)
   var category: String?
   @available(iOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 4.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 @available(iOS 4.0, *)
 let UILocalNotificationDefaultSoundName: String
 @available(iOS 3.0, *)
 class UILocalizedIndexedCollation : NSObject {
-  class func currentCollation() -> Self
+  class func current() -> Self
   var sectionTitles: [String] { get }
   var sectionIndexTitles: [String] { get }
-  func sectionForSectionIndexTitleAtIndex(indexTitleIndex: Int) -> Int
-  func sectionForObject(object: AnyObject, collationStringSelector selector: Selector) -> Int
-  func sortedArrayFromArray(array: [AnyObject], collationStringSelector selector: Selector) -> [AnyObject]
+  func sectionForSectionIndexTitleAt(indexTitleIndex: Int) -> Int
+  func sectionFor(object: AnyObject, collationStringSelector selector: Selector) -> Int
+  func sortedArrayFrom(array: [AnyObject], collationStringSelector selector: Selector) -> [AnyObject]
   init()
 }
 @available(iOS 3.2, *)
@@ -4568,11 +4568,11 @@ class UIManagedDocument : UIDocument {
   class func persistentStoreName() -> String
   var persistentStoreOptions: [NSObject : AnyObject]?
   var modelConfiguration: String?
-  func configurePersistentStoreCoordinatorForURL(storeURL: NSURL, ofType fileType: String, modelConfiguration configuration: String?, storeOptions: [NSObject : AnyObject]?) throws
+  func configurePersistentStoreCoordinatorFor(storeURL: NSURL, ofType fileType: String, modelConfiguration configuration: String?, storeOptions: [NSObject : AnyObject]?) throws
   func persistentStoreTypeForFileType(fileType: String) -> String
-  func readAdditionalContentFromURL(absoluteURL: NSURL) throws
-  func additionalContentForURL(absoluteURL: NSURL) throws -> AnyObject
-  func writeAdditionalContent(content: AnyObject, toURL absoluteURL: NSURL, originalContentsURL absoluteOriginalContentsURL: NSURL?) throws
+  func readAdditionalContentFrom(absoluteURL: NSURL) throws
+  func additionalContentFor(absoluteURL: NSURL) throws -> AnyObject
+  func writeAdditionalContent(content: AnyObject, to absoluteURL: NSURL, originalContentsURL absoluteOriginalContentsURL: NSURL?) throws
   init(fileURL url: NSURL)
   convenience init()
 }
@@ -4591,10 +4591,10 @@ enum UIMenuControllerArrowDirection : Int {
 }
 @available(iOS 3.0, *)
 class UIMenuController : NSObject {
-  class func sharedMenuController() -> UIMenuController
-  var menuVisible: Bool
+  class func shared() -> UIMenuController
+  var isMenuVisible: Bool
   func setMenuVisible(menuVisible: Bool, animated: Bool)
-  func setTargetRect(targetRect: CGRect, inView targetView: UIView)
+  func setTargetRect(targetRect: CGRect, `in` targetView: UIView)
   @available(iOS 3.2, *)
   var arrowDirection: UIMenuControllerArrowDirection
   @available(iOS 3.2, *)
@@ -4644,9 +4644,9 @@ class UIMotionEffect : NSObject, NSCopying, NSCoding {
                                 @"layer.shadowOffset.x": @(-1.1) }` */
   func keyPathsAndRelativeValuesForViewerOffset(viewerOffset: UIOffset) -> [String : AnyObject]?
   @available(iOS 7.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 7.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 enum UIInterpolatingMotionEffectType : Int {
   init?(rawValue: Int)
@@ -4692,8 +4692,8 @@ class UINavigationBar : UIView, NSCoding, UIBarPositioning {
   var barStyle: UIBarStyle
   weak var delegate: @sil_weak UINavigationBarDelegate?
   @available(iOS 3.0, *)
-  var translucent: Bool
-  func pushNavigationItem(item: UINavigationItem, animated: Bool)
+  var isTranslucent: Bool
+  func push(item: UINavigationItem, animated: Bool)
   func popNavigationItemAnimated(animated: Bool) -> UINavigationItem?
   var topItem: UINavigationItem? { get }
   var backItem: UINavigationItem? { get }
@@ -4705,11 +4705,11 @@ class UINavigationBar : UIView, NSCoding, UIBarPositioning {
   @available(iOS 7.0, *)
   func setBackgroundImage(backgroundImage: UIImage?, forBarPosition barPosition: UIBarPosition, barMetrics: UIBarMetrics)
   @available(iOS 7.0, *)
-  func backgroundImageForBarPosition(barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImageFor(barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 5.0, *)
   func setBackgroundImage(backgroundImage: UIImage?, forBarMetrics barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func backgroundImageForBarMetrics(barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImageFor(barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 6.0, *)
   var shadowImage: UIImage?
   @available(iOS 5.0, *)
@@ -4717,7 +4717,7 @@ class UINavigationBar : UIView, NSCoding, UIBarPositioning {
   @available(iOS 5.0, *)
   func setTitleVerticalPositionAdjustment(adjustment: CGFloat, forBarMetrics barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func titleVerticalPositionAdjustmentForBarMetrics(barMetrics: UIBarMetrics) -> CGFloat
+  func titleVerticalPositionAdjustmentFor(barMetrics: UIBarMetrics) -> CGFloat
   @available(iOS 7.0, *)
   var backIndicatorImage: UIImage?
   @available(iOS 7.0, *)
@@ -4730,13 +4730,13 @@ class UINavigationBar : UIView, NSCoding, UIBarPositioning {
 }
 protocol UINavigationBarDelegate : UIBarPositioningDelegate {
   @available(iOS 2.0, *)
-  optional func navigationBar(navigationBar: UINavigationBar, shouldPushItem item: UINavigationItem) -> Bool
+  optional func navigationBar(navigationBar: UINavigationBar, shouldPush item: UINavigationItem) -> Bool
   @available(iOS 2.0, *)
-  optional func navigationBar(navigationBar: UINavigationBar, didPushItem item: UINavigationItem)
+  optional func navigationBar(navigationBar: UINavigationBar, didPush item: UINavigationItem)
   @available(iOS 2.0, *)
-  optional func navigationBar(navigationBar: UINavigationBar, shouldPopItem item: UINavigationItem) -> Bool
+  optional func navigationBar(navigationBar: UINavigationBar, shouldPop item: UINavigationItem) -> Bool
   @available(iOS 2.0, *)
-  optional func navigationBar(navigationBar: UINavigationBar, didPopItem item: UINavigationItem)
+  optional func navigationBar(navigationBar: UINavigationBar, didPop item: UINavigationItem)
 }
 @available(iOS 2.0, *)
 class UINavigationItem : NSObject, NSCoding {
@@ -4764,7 +4764,7 @@ class UINavigationItem : NSObject, NSCoding {
   func setRightBarButtonItem(item: UIBarButtonItem?, animated: Bool)
   convenience init()
   @available(iOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 
 /*!
@@ -4805,18 +4805,18 @@ class UINavigationController : UIViewController {
   init(rootViewController: UIViewController)
   func pushViewController(viewController: UIViewController, animated: Bool)
   func popViewControllerAnimated(animated: Bool) -> UIViewController?
-  func popToViewController(viewController: UIViewController, animated: Bool) -> [UIViewController]?
+  func popTo(viewController: UIViewController, animated: Bool) -> [UIViewController]?
   func popToRootViewControllerAnimated(animated: Bool) -> [UIViewController]?
   var topViewController: UIViewController? { get }
   var visibleViewController: UIViewController? { get }
   var viewControllers: [UIViewController]
   @available(iOS 3.0, *)
   func setViewControllers(viewControllers: [UIViewController], animated: Bool)
-  var navigationBarHidden: Bool
+  var isNavigationBarHidden: Bool
   func setNavigationBarHidden(hidden: Bool, animated: Bool)
   var navigationBar: UINavigationBar { get }
   @available(iOS 3.0, *)
-  var toolbarHidden: Bool
+  var isToolbarHidden: Bool
   @available(iOS 3.0, *)
   func setToolbarHidden(hidden: Bool, animated: Bool)
   @available(iOS 3.0, *)
@@ -4856,9 +4856,9 @@ class UINavigationController : UIViewController {
 }
 protocol UINavigationControllerDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
-  optional func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool)
+  optional func navigationController(navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool)
   @available(iOS 2.0, *)
-  optional func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool)
+  optional func navigationController(navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool)
   @available(iOS 7.0, *)
   optional func navigationControllerSupportedInterfaceOrientations(navigationController: UINavigationController) -> UIInterfaceOrientationMask
   @available(iOS 7.0, *)
@@ -4866,7 +4866,7 @@ protocol UINavigationControllerDelegate : NSObjectProtocol {
   @available(iOS 7.0, *)
   optional func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
   @available(iOS 7.0, *)
-  optional func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning?
+  optional func navigationController(navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning?
 }
 extension UIViewController {
   var navigationItem: UINavigationItem { get }
@@ -4952,20 +4952,20 @@ class UIPageViewController : UIViewController {
   var transitionStyle: UIPageViewControllerTransitionStyle { get }
   var navigationOrientation: UIPageViewControllerNavigationOrientation { get }
   var spineLocation: UIPageViewControllerSpineLocation { get }
-  var doubleSided: Bool
+  var isDoubleSided: Bool
   var gestureRecognizers: [UIGestureRecognizer] { get }
   var viewControllers: [UIViewController]? { get }
-  func setViewControllers(viewControllers: [UIViewController]?, direction: UIPageViewControllerNavigationDirection, animated: Bool, completion: ((Bool) -> Void)?)
+  func setViewControllers(viewControllers: [UIViewController]?, direction: UIPageViewControllerNavigationDirection, animated: Bool, completion: ((Bool) -> Void)? = nil)
   convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
   convenience init()
 }
 protocol UIPageViewControllerDelegate : NSObjectProtocol {
   @available(iOS 6.0, *)
-  optional func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [UIViewController])
+  optional func pageViewController(pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController])
   @available(iOS 5.0, *)
   optional func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool)
   @available(iOS 5.0, *)
-  optional func pageViewController(pageViewController: UIPageViewController, spineLocationForInterfaceOrientation orientation: UIInterfaceOrientation) -> UIPageViewControllerSpineLocation
+  optional func pageViewController(pageViewController: UIPageViewController, spineLocationFor orientation: UIInterfaceOrientation) -> UIPageViewControllerSpineLocation
   @available(iOS 7.0, *)
   optional func pageViewControllerSupportedInterfaceOrientations(pageViewController: UIPageViewController) -> UIInterfaceOrientationMask
   @available(iOS 7.0, *)
@@ -4973,21 +4973,21 @@ protocol UIPageViewControllerDelegate : NSObjectProtocol {
 }
 protocol UIPageViewControllerDataSource : NSObjectProtocol {
   @available(iOS 5.0, *)
-  func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController?
+  func pageViewController(pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?
   @available(iOS 5.0, *)
-  func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController?
+  func pageViewController(pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?
   @available(iOS 6.0, *)
-  optional func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int
+  optional func presentationCountFor(pageViewController: UIPageViewController) -> Int
   @available(iOS 6.0, *)
-  optional func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int
+  optional func presentationIndexFor(pageViewController: UIPageViewController) -> Int
 }
 @available(iOS 3.2, *)
 class UIPanGestureRecognizer : UIGestureRecognizer {
   var minimumNumberOfTouches: Int
   var maximumNumberOfTouches: Int
-  func translationInView(view: UIView?) -> CGPoint
-  func setTranslation(translation: CGPoint, inView view: UIView?)
-  func velocityInView(view: UIView?) -> CGPoint
+  func translationIn(view: UIView?) -> CGPoint
+  func setTranslation(translation: CGPoint, `in` view: UIView?)
+  func velocityIn(view: UIView?) -> CGPoint
   init(target: AnyObject?, action: Selector)
   convenience init()
 }
@@ -4995,12 +4995,12 @@ let UIPasteboardNameGeneral: String
 let UIPasteboardNameFind: String
 @available(iOS 3.0, *)
 class UIPasteboard : NSObject {
-  class func generalPasteboard() -> UIPasteboard
+  class func general() -> UIPasteboard
   /*not inherited*/ init?(name pasteboardName: String, create: Bool)
-  class func pasteboardWithUniqueName() -> UIPasteboard
+  class func withUniqueName() -> UIPasteboard
   var name: String { get }
   class func removePasteboardWithName(pasteboardName: String)
-  var persistent: Bool
+  var isPersistent: Bool
   var changeCount: Int { get }
   func pasteboardTypes() -> [String]
   func containsPasteboardTypes(pasteboardTypes: [String]) -> Bool
@@ -5029,8 +5029,8 @@ var UIPasteboardTypeListColor: NSArray
 extension UIPasteboard {
   var string: String?
   var strings: [String]?
-  @NSCopying var URL: NSURL?
-  var URLs: [NSURL]?
+  @NSCopying var url: NSURL?
+  var urLs: [NSURL]?
   @NSCopying var image: UIImage?
   var images: [UIImage]?
   @NSCopying var color: UIColor?
@@ -5055,29 +5055,29 @@ class UIPickerView : UIView, NSCoding, UITableViewDataSource {
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+  func tableView(tableView: UITableView, cellForRowAt indexPath: NSIndexPath) -> UITableViewCell
   @available(iOS 2.0, *)
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int
+  func numberOfSectionsIn(tableView: UITableView) -> Int
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String?
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  func tableView(tableView: UITableView, canEditRowAt indexPath: NSIndexPath) -> Bool
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  func tableView(tableView: UITableView, canMoveRowAt indexPath: NSIndexPath) -> Bool
   @available(iOS 2.0, *)
-  func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]?
+  func sectionIndexTitlesFor(tableView: UITableView) -> [String]?
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int
+  func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+  func tableView(tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: NSIndexPath)
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath)
+  func tableView(tableView: UITableView, moveRowAt sourceIndexPath: NSIndexPath, to destinationIndexPath: NSIndexPath)
 }
 protocol UIPickerViewDataSource : NSObjectProtocol {
   @available(iOS 2.0, *)
-  func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int
+  func numberOfComponentsIn(pickerView: UIPickerView) -> Int
   @available(iOS 2.0, *)
   func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
 }
@@ -5091,7 +5091,7 @@ protocol UIPickerViewDelegate : NSObjectProtocol {
   @available(iOS 6.0, *)
   optional func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString?
   @available(iOS 2.0, *)
-  optional func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView
+  optional func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView
   @available(iOS 2.0, *)
   optional func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
 }
@@ -5131,11 +5131,11 @@ class UIPopoverController : NSObject, UIAppearanceContainer {
   func setContentViewController(viewController: UIViewController, animated: Bool)
   var popoverContentSize: CGSize
   func setPopoverContentSize(size: CGSize, animated: Bool)
-  var popoverVisible: Bool { get }
+  var isPopoverVisible: Bool { get }
   var popoverArrowDirection: UIPopoverArrowDirection { get }
   var passthroughViews: [UIView]?
-  func presentPopoverFromRect(rect: CGRect, inView view: UIView, permittedArrowDirections arrowDirections: UIPopoverArrowDirection, animated: Bool)
-  func presentPopoverFromBarButtonItem(item: UIBarButtonItem, permittedArrowDirections arrowDirections: UIPopoverArrowDirection, animated: Bool)
+  func presentPopoverFrom(rect: CGRect, `in` view: UIView, permittedArrowDirections arrowDirections: UIPopoverArrowDirection, animated: Bool)
+  func presentPopoverFrom(item: UIBarButtonItem, permittedArrowDirections arrowDirections: UIPopoverArrowDirection, animated: Bool)
   func dismissPopoverAnimated(animated: Bool)
   @available(iOS 7.0, *)
   @NSCopying var backgroundColor: UIColor?
@@ -5151,7 +5151,7 @@ protocol UIPopoverControllerDelegate : NSObjectProtocol {
   @available(iOS, introduced=3.2, deprecated=9.0)
   optional func popoverControllerDidDismissPopover(popoverController: UIPopoverController)
   @available(iOS, introduced=7.0, deprecated=9.0)
-  optional func popoverController(popoverController: UIPopoverController, willRepositionPopoverToRect rect: UnsafeMutablePointer<CGRect>, inView view: AutoreleasingUnsafeMutablePointer<UIView?>)
+  optional func popoverController(popoverController: UIPopoverController, willRepositionPopoverTo rect: UnsafeMutablePointer<CGRect>, `in` view: AutoreleasingUnsafeMutablePointer<UIView?>)
 }
 protocol UIPopoverPresentationControllerDelegate : UIAdaptivePresentationControllerDelegate {
   @available(iOS 8.0, *)
@@ -5161,7 +5161,7 @@ protocol UIPopoverPresentationControllerDelegate : UIAdaptivePresentationControl
   @available(iOS 8.0, *)
   optional func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController)
   @available(iOS 8.0, *)
-  optional func popoverPresentationController(popoverPresentationController: UIPopoverPresentationController, willRepositionPopoverToRect rect: UnsafeMutablePointer<CGRect>, inView view: AutoreleasingUnsafeMutablePointer<UIView?>)
+  optional func popoverPresentationController(popoverPresentationController: UIPopoverPresentationController, willRepositionPopoverTo rect: UnsafeMutablePointer<CGRect>, `in` view: AutoreleasingUnsafeMutablePointer<UIView?>)
 }
 @available(iOS 8.0, *)
 class UIPopoverPresentationController : UIPresentationController {
@@ -5177,7 +5177,7 @@ class UIPopoverPresentationController : UIPresentationController {
   @NSCopying var backgroundColor: UIColor?
   var popoverLayoutMargins: UIEdgeInsets
   var popoverBackgroundViewClass: AnyObject.Type?
-  init(presentedViewController: UIViewController, presentingViewController: UIViewController)
+  init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController)
   init()
 }
 struct UIPopoverArrowDirection : OptionSetType {
@@ -5192,13 +5192,13 @@ struct UIPopoverArrowDirection : OptionSetType {
 }
 extension UIViewController {
   @available(iOS 3.2, *)
-  var modalInPopover: Bool
+  var isModalInPopover: Bool
 }
 protocol UIAdaptivePresentationControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
-  optional func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle
+  optional func adaptivePresentationStyleFor(controller: UIPresentationController) -> UIModalPresentationStyle
   @available(iOS 8.3, *)
-  optional func adaptivePresentationStyleForPresentationController(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle
+  optional func adaptivePresentationStyleFor(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle
   @available(iOS 8.0, *)
   optional func presentationController(controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController?
   @available(iOS 8.3, *)
@@ -5211,10 +5211,10 @@ class UIPresentationController : NSObject, UIAppearanceContainer, UITraitEnviron
   var presentationStyle: UIModalPresentationStyle { get }
   var containerView: UIView? { get }
   weak var delegate: @sil_weak UIAdaptivePresentationControllerDelegate?
-  init(presentedViewController: UIViewController, presentingViewController: UIViewController)
+  init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController)
   func adaptivePresentationStyle() -> UIModalPresentationStyle
   @available(iOS 8.3, *)
-  func adaptivePresentationStyleForTraitCollection(traitCollection: UITraitCollection) -> UIModalPresentationStyle
+  func adaptivePresentationStyleFor(traitCollection: UITraitCollection) -> UIModalPresentationStyle
   func containerViewWillLayoutSubviews()
   func containerViewDidLayoutSubviews()
   func presentedView() -> UIView?
@@ -5242,9 +5242,9 @@ class UIPresentationController : NSObject, UIAppearanceContainer, UITraitEnviron
   @available(iOS 8.0, *)
   func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
   @available(iOS 8.0, *)
-  func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func viewWillTransitionTo(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
   @available(iOS 8.0, *)
-  func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func willTransitionTo(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
 
   /// The preferred focused view is the view that will be focused when focus is updated programmatically. This includes setting initial focus and forcing updates via -updateFocusIfNeeded. May be self in the case of UIView instances.
   @available(iOS 9.0, *)
@@ -5260,11 +5260,11 @@ class UIPresentationController : NSObject, UIAppearanceContainer, UITraitEnviron
 
   /// Asks whether the system should allow a focus update to occur.
   @available(iOS 9.0, *)
-  func shouldUpdateFocusInContext(context: UIFocusUpdateContext) -> Bool
+  func shouldUpdateFocusIn(context: UIFocusUpdateContext) -> Bool
 
   /// Called when the screen’s focusedView has been updated to a new view. Use the animation coordinator to schedule focus-related animations in response to the update.
   @available(iOS 9.0, *)
-  func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+  func didUpdateFocusIn(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
 }
 @available(iOS 9.0, *)
 enum UIPressPhase : Int {
@@ -5302,7 +5302,7 @@ class UIPress : NSObject {
 @available(iOS 9.0, *)
 class UIPressesEvent : UIEvent {
   func allPresses() -> Set<UIPress>
-  func pressesForGestureRecognizer(gesture: UIGestureRecognizer) -> Set<UIPress>
+  func pressesFor(gesture: UIGestureRecognizer) -> Set<UIPress>
   init()
 }
 let UIPrintErrorDomain: String
@@ -5320,11 +5320,11 @@ class UIPrintFormatter : NSObject, NSCopying {
   var perPageContentInsets: UIEdgeInsets
   var startPage: Int
   var pageCount: Int { get }
-  func rectForPageAtIndex(pageIndex: Int) -> CGRect
-  func drawInRect(rect: CGRect, forPageAtIndex pageIndex: Int)
+  func rectForPageAt(pageIndex: Int) -> CGRect
+  func drawIn(rect: CGRect, forPageAt pageIndex: Int)
   init()
   @available(iOS 4.2, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 4.2, *)
 class UISimpleTextPrintFormatter : UIPrintFormatter {
@@ -5352,7 +5352,7 @@ class UIViewPrintFormatter : UIPrintFormatter {
 }
 extension UIView {
   func viewPrintFormatter() -> UIViewPrintFormatter
-  func drawRect(rect: CGRect, forViewPrintFormatter formatter: UIViewPrintFormatter)
+  func draw(rect: CGRect, forViewPrintFormatter formatter: UIViewPrintFormatter)
 }
 enum UIPrintInfoOutputType : Int {
   init?(rawValue: Int)
@@ -5389,9 +5389,9 @@ class UIPrintInfo : NSObject, NSCopying, NSCoding {
   var duplex: UIPrintInfoDuplex
   convenience init()
   @available(iOS 4.2, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 4.2, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 typealias UIPrintInteractionCompletionHandler = (UIPrintInteractionController, Bool, NSError?) -> Void
 @available(iOS 9.0, *)
@@ -5408,9 +5408,9 @@ enum UIPrinterCutterBehavior : Int {
 class UIPrintInteractionController : NSObject {
   class func isPrintingAvailable() -> Bool
   class func printableUTIs() -> Set<String>
-  class func canPrintURL(url: NSURL) -> Bool
-  class func canPrintData(data: NSData) -> Bool
-  class func sharedPrintController() -> UIPrintInteractionController
+  class func canPrint(url: NSURL) -> Bool
+  class func canPrint(data: NSData) -> Bool
+  class func sharedPrint() -> UIPrintInteractionController
   var printInfo: UIPrintInfo?
   weak var delegate: @sil_weak UIPrintInteractionControllerDelegate?
   var showsPageRange: Bool
@@ -5423,16 +5423,16 @@ class UIPrintInteractionController : NSObject {
   var printFormatter: UIPrintFormatter?
   @NSCopying var printingItem: AnyObject?
   var printingItems: [AnyObject]?
-  func presentAnimated(animated: Bool, completionHandler completion: UIPrintInteractionCompletionHandler?) -> Bool
-  func presentFromRect(rect: CGRect, inView view: UIView, animated: Bool, completionHandler completion: UIPrintInteractionCompletionHandler?) -> Bool
-  func presentFromBarButtonItem(item: UIBarButtonItem, animated: Bool, completionHandler completion: UIPrintInteractionCompletionHandler?) -> Bool
+  func presentAnimated(animated: Bool, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
+  func presentFrom(rect: CGRect, `in` view: UIView, animated: Bool, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
+  func presentFrom(item: UIBarButtonItem, animated: Bool, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
 
   /*!
    * @discussion	Use to print without showing the standard print panel. Use with a
    *		UIPrinter found using the UIPrinterPickerController.
    *              The value for the duplex property on printInfo will be ignored.
    */
-  func printToPrinter(printer: UIPrinter, completionHandler completion: UIPrintInteractionCompletionHandler?) -> Bool
+  func printTo(printer: UIPrinter, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
   func dismissAnimated(animated: Bool)
   init()
 }
@@ -5454,7 +5454,7 @@ protocol UIPrintInteractionControllerDelegate : NSObjectProtocol {
   @available(iOS 4.2, *)
   optional func printInteractionControllerDidFinishJob(printInteractionController: UIPrintInteractionController)
   @available(iOS 7.0, *)
-  optional func printInteractionController(printInteractionController: UIPrintInteractionController, cutLengthForPaper paper: UIPrintPaper) -> CGFloat
+  optional func printInteractionController(printInteractionController: UIPrintInteractionController, cutLengthFor paper: UIPrintPaper) -> CGFloat
   @available(iOS 9.0, *)
   optional func printInteractionController(printInteractionController: UIPrintInteractionController, chooseCutterBehavior availableBehaviors: [AnyObject]) -> UIPrinterCutterBehavior
 }
@@ -5465,20 +5465,20 @@ class UIPrintPageRenderer : NSObject {
   var paperRect: CGRect { get }
   var printableRect: CGRect { get }
   var printFormatters: [UIPrintFormatter]?
-  func printFormattersForPageAtIndex(pageIndex: Int) -> [UIPrintFormatter]?
-  func addPrintFormatter(formatter: UIPrintFormatter, startingAtPageAtIndex pageIndex: Int)
+  func printFormattersForPageAt(pageIndex: Int) -> [UIPrintFormatter]?
+  func addPrintFormatter(formatter: UIPrintFormatter, startingAtPageAt pageIndex: Int)
   func numberOfPages() -> Int
   func prepareForDrawingPages(range: NSRange)
-  func drawPageAtIndex(pageIndex: Int, inRect printableRect: CGRect)
-  func drawPrintFormatter(printFormatter: UIPrintFormatter, forPageAtIndex pageIndex: Int)
-  func drawHeaderForPageAtIndex(pageIndex: Int, inRect headerRect: CGRect)
-  func drawContentForPageAtIndex(pageIndex: Int, inRect contentRect: CGRect)
-  func drawFooterForPageAtIndex(pageIndex: Int, inRect footerRect: CGRect)
+  func drawPageAt(pageIndex: Int, `in` printableRect: CGRect)
+  func drawPrintFormatter(printFormatter: UIPrintFormatter, forPageAt pageIndex: Int)
+  func drawHeaderForPageAt(pageIndex: Int, `in` headerRect: CGRect)
+  func drawContentForPageAt(pageIndex: Int, `in` contentRect: CGRect)
+  func drawFooterForPageAt(pageIndex: Int, `in` footerRect: CGRect)
   init()
 }
 @available(iOS 4.2, *)
 class UIPrintPaper : NSObject {
-  class func bestPaperForPageSize(contentSize: CGSize, withPapersFromArray paperList: [UIPrintPaper]) -> UIPrintPaper
+  class func bestPaperForPageSize(contentSize: CGSize, withPapersFrom paperList: [UIPrintPaper]) -> UIPrintPaper
   var paperSize: CGSize { get }
   var printableRect: CGRect { get }
   init()
@@ -5496,7 +5496,7 @@ class UIPrinter : NSObject {
    *	        A UIPrinter object is returned even if the printer is not available
    *	        on the network.
    */
-  /*not inherited*/ init(URL url: NSURL)
+  /*not inherited*/ init(url: NSURL)
 
   /*!
    *  @abstract   Return the URL of the printer.
@@ -5504,7 +5504,7 @@ class UIPrinter : NSObject {
    *	        used in future calls to printerWithURL to access the same
    *	        printer.
    */
-  @NSCopying var URL: NSURL { get }
+  @NSCopying var url: NSURL { get }
 
   /*!
    *  @abstract   Return a human-readable printer name.
@@ -5567,7 +5567,7 @@ class UIPrinter : NSObject {
    *		supportsColor, and supportsDuplex for the printer.
    *		The operation can take up to 30 seconds.
    */
-  func contactPrinter(completionHandler: ((Bool) -> Void)?)
+  func contactPrinter(completionHandler: ((Bool) -> Void)? = nil)
   init()
 }
 
@@ -5616,7 +5616,7 @@ protocol UIPrinterPickerControllerDelegate : NSObjectProtocol {
    * 	        and may be called simultaneously from several different threads.
    */
   @available(iOS 8.0, *)
-  optional func printerPickerController(printerPickerController: UIPrinterPickerController, shouldShowPrinter printer: UIPrinter) -> Bool
+  optional func printerPickerController(printerPickerController: UIPrinterPickerController, shouldShow printer: UIPrinter) -> Bool
   @available(iOS 8.0, *)
   optional func printerPickerControllerWillPresent(printerPickerController: UIPrinterPickerController)
   @available(iOS 8.0, *)
@@ -5646,9 +5646,9 @@ class UIPrinterPickerController : NSObject {
    */
   var selectedPrinter: UIPrinter? { get }
   weak var delegate: @sil_weak UIPrinterPickerControllerDelegate?
-  func presentAnimated(animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler?) -> Bool
-  func presentFromRect(rect: CGRect, inView view: UIView, animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler?) -> Bool
-  func presentFromBarButtonItem(item: UIBarButtonItem, animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler?) -> Bool
+  func presentAnimated(animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler? = nil) -> Bool
+  func presentFrom(rect: CGRect, `in` view: UIView, animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler? = nil) -> Bool
+  func presentFrom(item: UIBarButtonItem, animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler? = nil) -> Bool
   func dismissAnimated(animated: Bool)
   init()
 }
@@ -5692,10 +5692,10 @@ class UIPushBehavior : UIDynamicBehavior {
   func addItem(item: UIDynamicItem)
   func removeItem(item: UIDynamicItem)
   var items: [UIDynamicItem] { get }
-  func targetOffsetFromCenterForItem(item: UIDynamicItem) -> UIOffset
+  func targetOffsetFromCenterFor(item: UIDynamicItem) -> UIOffset
   func setTargetOffsetFromCenter(o: UIOffset, forItem item: UIDynamicItem)
   var mode: UIPushBehaviorMode { get }
-  var active: Bool
+  var isActive: Bool
   var angle: CGFloat
   var magnitude: CGFloat
   var pushDirection: CGVector
@@ -5717,7 +5717,7 @@ class UIReferenceLibraryViewController : UIViewController {
 @available(iOS 6.0, *)
 class UIRefreshControl : UIControl {
   init()
-  var refreshing: Bool { get }
+  var isRefreshing: Bool { get }
   var tintColor: UIColor!
   var attributedTitle: NSAttributedString?
   @available(iOS 6.0, *)
@@ -5732,7 +5732,7 @@ class UIRegion : NSObject, NSCopying, NSCoding {
 
   /*! A shared infinite region
    */
-  class func infiniteRegion() -> Self
+  class func infinite() -> Self
 
   /*! Create a circular region with radius
    */
@@ -5746,33 +5746,33 @@ class UIRegion : NSObject, NSCopying, NSCoding {
    The inverse of the infiniteRegion is an empty region.
    Subclasses of UIRegion need to provide an implementation of inverseRegion.
    */
-  func inverseRegion() -> Self
+  func inverse() -> Self
 
   /*! Create a new region that is the original region plus the supplied region
    */
-  func regionByUnionWithRegion(region: UIRegion) -> Self
+  func byUnionWith(region: UIRegion) -> Self
 
   /*! Create a new region that is the original region minus the supplied region
    */
-  func regionByDifferenceFromRegion(region: UIRegion) -> Self
+  func byDifferenceFrom(region: UIRegion) -> Self
 
   /*! Create a new region that is the region covered by the original region and the supplied region
    */
-  func regionByIntersectionWithRegion(region: UIRegion) -> Self
+  func byIntersectionWith(region: UIRegion) -> Self
 
   /*! Test for containment
    */
-  func containsPoint(point: CGPoint) -> Bool
+  func contains(point: CGPoint) -> Bool
   init()
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(iOS 2.0, *)
 class UIResponder : NSObject {
-  func nextResponder() -> UIResponder?
+  func next() -> UIResponder?
   func canBecomeFirstResponder() -> Bool
   func becomeFirstResponder() -> Bool
   func canResignFirstResponder() -> Bool
@@ -5799,7 +5799,7 @@ class UIResponder : NSObject {
   @available(iOS 3.0, *)
   func motionCancelled(motion: UIEventSubtype, withEvent event: UIEvent?)
   @available(iOS 4.0, *)
-  func remoteControlReceivedWithEvent(event: UIEvent?)
+  func remoteControlReceivedWith(event: UIEvent?)
   @available(iOS 3.0, *)
   func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool
   @available(iOS 7.0, *)
@@ -5831,11 +5831,11 @@ class UIKeyCommand : NSObject, NSCopying, NSSecureCoding {
   @available(iOS 9.0, *)
   /*not inherited*/ init(input: String, modifierFlags: UIKeyModifierFlags, action: Selector, discoverabilityTitle: String)
   @available(iOS 7.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 7.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 extension UIResponder {
   @available(iOS 7.0, *)
@@ -5954,7 +5954,7 @@ enum UIScreenOverscanCompensation : Int {
 class UIScreen : NSObject, UITraitEnvironment {
   @available(iOS 3.2, *)
   class func screens() -> [UIScreen]
-  class func mainScreen() -> UIScreen
+  class func main() -> UIScreen
   var bounds: CGRect { get }
   @available(iOS 4.0, *)
   var scale: CGFloat { get }
@@ -5969,7 +5969,7 @@ class UIScreen : NSObject, UITraitEnvironment {
   @available(iOS 9.0, *)
   var overscanCompensationInsets: UIEdgeInsets { get }
   @available(iOS 4.3, *)
-  var mirroredScreen: UIScreen? { get }
+  var mirrored: UIScreen? { get }
   @available(iOS 5.0, *)
   var brightness: CGFloat
   @available(iOS 5.0, *)
@@ -6042,12 +6042,12 @@ class UIScrollView : UIView, NSCoding {
   var contentSize: CGSize
   var contentInset: UIEdgeInsets
   weak var delegate: @sil_weak UIScrollViewDelegate?
-  var directionalLockEnabled: Bool
+  var isDirectionalLockEnabled: Bool
   var bounces: Bool
   var alwaysBounceVertical: Bool
   var alwaysBounceHorizontal: Bool
-  var pagingEnabled: Bool
-  var scrollEnabled: Bool
+  var isPagingEnabled: Bool
+  var isScrollEnabled: Bool
   var showsHorizontalScrollIndicator: Bool
   var showsVerticalScrollIndicator: Bool
   var scrollIndicatorInsets: UIEdgeInsets
@@ -6057,9 +6057,9 @@ class UIScrollView : UIView, NSCoding {
   func setContentOffset(contentOffset: CGPoint, animated: Bool)
   func scrollRectToVisible(rect: CGRect, animated: Bool)
   func flashScrollIndicators()
-  var tracking: Bool { get }
-  var dragging: Bool { get }
-  var decelerating: Bool { get }
+  var isTracking: Bool { get }
+  var isDragging: Bool { get }
+  var isDecelerating: Bool { get }
   var delaysContentTouches: Bool
   var canCancelContentTouches: Bool
   func touchesShouldBegin(touches: Set<UITouch>, withEvent event: UIEvent?, inContentView view: UIView) -> Bool
@@ -6071,10 +6071,10 @@ class UIScrollView : UIView, NSCoding {
   @available(iOS 3.0, *)
   func setZoomScale(scale: CGFloat, animated: Bool)
   @available(iOS 3.0, *)
-  func zoomToRect(rect: CGRect, animated: Bool)
+  func zoomTo(rect: CGRect, animated: Bool)
   var bouncesZoom: Bool
-  var zooming: Bool { get }
-  var zoomBouncing: Bool { get }
+  var isZooming: Bool { get }
+  var isZoomBouncing: Bool { get }
   var scrollsToTop: Bool
   @available(iOS 5.0, *)
   var panGestureRecognizer: UIPanGestureRecognizer { get }
@@ -6104,7 +6104,7 @@ protocol UIScrollViewDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
   optional func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  optional func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?
+  optional func viewForZoomingIn(scrollView: UIScrollView) -> UIView?
   @available(iOS 3.2, *)
   optional func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView?)
   @available(iOS 2.0, *)
@@ -6160,7 +6160,7 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(iOS 7.0, *)
   var searchBarStyle: UISearchBarStyle
   @available(iOS 3.0, *)
-  var translucent: Bool
+  var isTranslucent: Bool
   @available(iOS 3.0, *)
   var scopeButtonTitles: [String]?
   @available(iOS 3.0, *)
@@ -6175,19 +6175,19 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(iOS 7.0, *)
   func setBackgroundImage(backgroundImage: UIImage?, forBarPosition barPosition: UIBarPosition, barMetrics: UIBarMetrics)
   @available(iOS 7.0, *)
-  func backgroundImageForBarPosition(barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImageFor(barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 5.0, *)
   func setSearchFieldBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState)
   @available(iOS 5.0, *)
-  func searchFieldBackgroundImageForState(state: UIControlState) -> UIImage?
+  func searchFieldBackgroundImageFor(state: UIControlState) -> UIImage?
   @available(iOS 5.0, *)
   func setImage(iconImage: UIImage?, forSearchBarIcon icon: UISearchBarIcon, state: UIControlState)
   @available(iOS 5.0, *)
-  func imageForSearchBarIcon(icon: UISearchBarIcon, state: UIControlState) -> UIImage?
+  func imageFor(icon: UISearchBarIcon, state: UIControlState) -> UIImage?
   @available(iOS 5.0, *)
   func setScopeBarButtonBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState)
   @available(iOS 5.0, *)
-  func scopeBarButtonBackgroundImageForState(state: UIControlState) -> UIImage?
+  func scopeBarButtonBackgroundImageFor(state: UIControlState) -> UIImage?
   @available(iOS 5.0, *)
   func setScopeBarButtonDividerImage(dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState)
   @available(iOS 5.0, *)
@@ -6195,7 +6195,7 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(iOS 5.0, *)
   func setScopeBarButtonTitleTextAttributes(attributes: [String : AnyObject]?, forState state: UIControlState)
   @available(iOS 5.0, *)
-  func scopeBarButtonTitleTextAttributesForState(state: UIControlState) -> [String : AnyObject]?
+  func scopeBarButtonTitleTextAttributesFor(state: UIControlState) -> [String : AnyObject]?
   @available(iOS 5.0, *)
   var searchFieldBackgroundPositionAdjustment: UIOffset
   @available(iOS 5.0, *)
@@ -6203,7 +6203,7 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(iOS 5.0, *)
   func setPositionAdjustment(adjustment: UIOffset, forSearchBarIcon icon: UISearchBarIcon)
   @available(iOS 5.0, *)
-  func positionAdjustmentForSearchBarIcon(icon: UISearchBarIcon) -> UIOffset
+  func positionAdjustmentFor(icon: UISearchBarIcon) -> UIOffset
   @available(iOS 7.0, *)
   var barPosition: UIBarPosition { get }
   @available(iOS 2.0, *)
@@ -6235,7 +6235,7 @@ protocol UISearchBarDelegate : UIBarPositioningDelegate {
   @available(iOS 2.0, *)
   optional func searchBar(searchBar: UISearchBar, textDidChange searchText: String)
   @available(iOS 3.0, *)
-  optional func searchBar(searchBar: UISearchBar, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool
+  optional func searchBar(searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
   @available(iOS 2.0, *)
   optional func searchBarSearchButtonClicked(searchBar: UISearchBar)
   @available(iOS 2.0, *)
@@ -6257,25 +6257,25 @@ class UISearchContainerViewController : UIViewController {
 }
 protocol UISearchControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
-  optional func willPresentSearchController(searchController: UISearchController)
+  optional func willPresent(searchController: UISearchController)
   @available(iOS 8.0, *)
-  optional func didPresentSearchController(searchController: UISearchController)
+  optional func didPresent(searchController: UISearchController)
   @available(iOS 8.0, *)
-  optional func willDismissSearchController(searchController: UISearchController)
+  optional func willDismiss(searchController: UISearchController)
   @available(iOS 8.0, *)
-  optional func didDismissSearchController(searchController: UISearchController)
+  optional func didDismiss(searchController: UISearchController)
   @available(iOS 8.0, *)
-  optional func presentSearchController(searchController: UISearchController)
+  optional func present(searchController: UISearchController)
 }
 protocol UISearchResultsUpdating : NSObjectProtocol {
   @available(iOS 8.0, *)
-  func updateSearchResultsForSearchController(searchController: UISearchController)
+  func updateSearchResultsFor(searchController: UISearchController)
 }
 @available(iOS 8.0, *)
 class UISearchController : UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
   init(searchResultsController: UIViewController?)
   weak var searchResultsUpdater: @sil_weak UISearchResultsUpdating?
-  var active: Bool
+  var isActive: Bool
   weak var delegate: @sil_weak UISearchControllerDelegate?
   var dimsBackgroundDuringPresentation: Bool
   @available(iOS 9.1, *)
@@ -6287,7 +6287,7 @@ class UISearchController : UIViewController, UIViewControllerTransitioningDelega
   init?(coder aDecoder: NSCoder)
   convenience init()
   @available(iOS 8.0, *)
-  func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
+  func animationControllerForPresentedController(presented: UIViewController, presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
   @available(iOS 8.0, *)
   func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning?
   @available(iOS 8.0, *)
@@ -6295,7 +6295,7 @@ class UISearchController : UIViewController, UIViewControllerTransitioningDelega
   @available(iOS 8.0, *)
   func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
   @available(iOS 8.0, *)
-  func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController?
+  func presentationControllerForPresentedViewController(presented: UIViewController, presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController?
   @available(iOS 8.0, *)
   func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
   @available(iOS 8.0, *)
@@ -6307,7 +6307,7 @@ class UISearchController : UIViewController, UIViewControllerTransitioningDelega
 class UISearchDisplayController : NSObject {
   init(searchBar: UISearchBar, contentsController viewController: UIViewController)
   unowned(unsafe) var delegate: @sil_unmanaged UISearchDisplayDelegate?
-  var active: Bool
+  var isActive: Bool
   func setActive(visible: Bool, animated: Bool)
   var searchBar: UISearchBar { get }
   var searchContentsController: UIViewController { get }
@@ -6344,7 +6344,7 @@ protocol UISearchDisplayDelegate : NSObjectProtocol {
   @available(iOS, introduced=3.0, deprecated=8.0)
   optional func searchDisplayController(controller: UISearchDisplayController, didHideSearchResultsTableView tableView: UITableView)
   @available(iOS, introduced=3.0, deprecated=8.0)
-  optional func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String?) -> Bool
+  optional func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearch searchString: String?) -> Bool
   @available(iOS, introduced=3.0, deprecated=8.0)
   optional func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchScope searchOption: Int) -> Bool
 }
@@ -6361,30 +6361,30 @@ enum UISegmentedControlSegment : Int {
 @available(iOS 2.0, *)
 class UISegmentedControl : UIControl, NSCoding {
   init(items: [AnyObject]?)
-  var momentary: Bool
+  var isMomentary: Bool
   var numberOfSegments: Int { get }
   @available(iOS 5.0, *)
   var apportionsSegmentWidthsByContent: Bool
-  func insertSegmentWithTitle(title: String?, atIndex segment: Int, animated: Bool)
-  func insertSegmentWithImage(image: UIImage?, atIndex segment: Int, animated: Bool)
-  func removeSegmentAtIndex(segment: Int, animated: Bool)
+  func insertSegmentWithTitle(title: String?, at segment: Int, animated: Bool)
+  func insertSegmentWith(image: UIImage?, at segment: Int, animated: Bool)
+  func removeSegmentAt(segment: Int, animated: Bool)
   func removeAllSegments()
-  func setTitle(title: String?, forSegmentAtIndex segment: Int)
-  func titleForSegmentAtIndex(segment: Int) -> String?
-  func setImage(image: UIImage?, forSegmentAtIndex segment: Int)
-  func imageForSegmentAtIndex(segment: Int) -> UIImage?
-  func setWidth(width: CGFloat, forSegmentAtIndex segment: Int)
-  func widthForSegmentAtIndex(segment: Int) -> CGFloat
-  func setContentOffset(offset: CGSize, forSegmentAtIndex segment: Int)
-  func contentOffsetForSegmentAtIndex(segment: Int) -> CGSize
-  func setEnabled(enabled: Bool, forSegmentAtIndex segment: Int)
-  func isEnabledForSegmentAtIndex(segment: Int) -> Bool
+  func setTitle(title: String?, forSegmentAt segment: Int)
+  func titleForSegmentAt(segment: Int) -> String?
+  func setImage(image: UIImage?, forSegmentAt segment: Int)
+  func imageForSegmentAt(segment: Int) -> UIImage?
+  func setWidth(width: CGFloat, forSegmentAt segment: Int)
+  func widthForSegmentAt(segment: Int) -> CGFloat
+  func setContentOffset(offset: CGSize, forSegmentAt segment: Int)
+  func contentOffsetForSegmentAt(segment: Int) -> CGSize
+  func setEnabled(enabled: Bool, forSegmentAt segment: Int)
+  func isEnabledForSegmentAt(segment: Int) -> Bool
   var selectedSegmentIndex: Int
   var tintColor: UIColor!
   @available(iOS 5.0, *)
   func setBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState, barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func backgroundImageForState(state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImageFor(state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 5.0, *)
   func setDividerImage(dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
@@ -6392,7 +6392,7 @@ class UISegmentedControl : UIControl, NSCoding {
   @available(iOS 5.0, *)
   func setTitleTextAttributes(attributes: [NSObject : AnyObject]?, forState state: UIControlState)
   @available(iOS 5.0, *)
-  func titleTextAttributesForState(state: UIControlState) -> [NSObject : AnyObject]?
+  func titleTextAttributesFor(state: UIControlState) -> [NSObject : AnyObject]?
   @available(iOS 5.0, *)
   func setContentPositionAdjustment(adjustment: UIOffset, forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
@@ -6417,25 +6417,25 @@ class UISlider : UIControl, NSCoding {
   var thumbTintColor: UIColor?
   func setValue(value: Float, animated: Bool)
   func setThumbImage(image: UIImage?, forState state: UIControlState)
-  func setMinimumTrackImage(image: UIImage?, forState state: UIControlState)
-  func setMaximumTrackImage(image: UIImage?, forState state: UIControlState)
-  func thumbImageForState(state: UIControlState) -> UIImage?
-  func minimumTrackImageForState(state: UIControlState) -> UIImage?
-  func maximumTrackImageForState(state: UIControlState) -> UIImage?
+  func setMinimumTrack(image: UIImage?, forState state: UIControlState)
+  func setMaximumTrack(image: UIImage?, forState state: UIControlState)
+  func thumbImageFor(state: UIControlState) -> UIImage?
+  func minimumTrackImageFor(state: UIControlState) -> UIImage?
+  func maximumTrackImageFor(state: UIControlState) -> UIImage?
   var currentThumbImage: UIImage? { get }
   var currentMinimumTrackImage: UIImage? { get }
   var currentMaximumTrackImage: UIImage? { get }
   func minimumValueImageRectForBounds(bounds: CGRect) -> CGRect
   func maximumValueImageRectForBounds(bounds: CGRect) -> CGRect
   func trackRectForBounds(bounds: CGRect) -> CGRect
-  func thumbRectForBounds(bounds: CGRect, trackRect rect: CGRect, value: Float) -> CGRect
+  func thumbRectForBounds(bounds: CGRect, track rect: CGRect, value: Float) -> CGRect
   init(frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }
 @available(iOS 7.0, *)
 class UISnapBehavior : UIDynamicBehavior {
-  init(item: UIDynamicItem, snapToPoint point: CGPoint)
+  init(item: UIDynamicItem, snapTo point: CGPoint)
   @available(iOS 9.0, *)
   var snapPoint: CGPoint
   var damping: CGFloat
@@ -6459,7 +6459,7 @@ class UISplitViewController : UIViewController {
   @available(iOS 5.1, *)
   var presentsWithGesture: Bool
   @available(iOS 8.0, *)
-  var collapsed: Bool { get }
+  var isCollapsed: Bool { get }
   @available(iOS 8.0, *)
   var preferredDisplayMode: UISplitViewControllerDisplayMode
   @available(iOS 8.0, *)
@@ -6484,17 +6484,17 @@ class UISplitViewController : UIViewController {
 }
 protocol UISplitViewControllerDelegate {
   @available(iOS 8.0, *)
-  optional func splitViewController(svc: UISplitViewController, willChangeToDisplayMode displayMode: UISplitViewControllerDisplayMode)
+  optional func splitViewController(svc: UISplitViewController, willChangeTo displayMode: UISplitViewControllerDisplayMode)
   @available(iOS 8.0, *)
-  optional func targetDisplayModeForActionInSplitViewController(svc: UISplitViewController) -> UISplitViewControllerDisplayMode
+  optional func targetDisplayModeForActionIn(svc: UISplitViewController) -> UISplitViewControllerDisplayMode
   @available(iOS 8.0, *)
-  optional func splitViewController(splitViewController: UISplitViewController, showViewController vc: UIViewController, sender: AnyObject?) -> Bool
+  optional func splitViewController(splitViewController: UISplitViewController, show vc: UIViewController, sender: AnyObject?) -> Bool
   @available(iOS 8.0, *)
   optional func splitViewController(splitViewController: UISplitViewController, showDetailViewController vc: UIViewController, sender: AnyObject?) -> Bool
   @available(iOS 8.0, *)
-  optional func primaryViewControllerForCollapsingSplitViewController(splitViewController: UISplitViewController) -> UIViewController?
+  optional func primaryViewControllerForCollapsing(splitViewController: UISplitViewController) -> UIViewController?
   @available(iOS 8.0, *)
-  optional func primaryViewControllerForExpandingSplitViewController(splitViewController: UISplitViewController) -> UIViewController?
+  optional func primaryViewControllerForExpanding(splitViewController: UISplitViewController) -> UIViewController?
   @available(iOS 8.0, *)
   optional func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool
   @available(iOS 8.0, *)
@@ -6504,20 +6504,20 @@ protocol UISplitViewControllerDelegate {
   @available(iOS 7.0, *)
   optional func splitViewControllerPreferredInterfaceOrientationForPresentation(splitViewController: UISplitViewController) -> UIInterfaceOrientation
   @available(iOS, introduced=2.0, deprecated=8.0, message="Use splitViewController:willChangeToDisplayMode: and displayModeButtonItem instead")
-  optional func splitViewController(svc: UISplitViewController, willHideViewController aViewController: UIViewController, withBarButtonItem barButtonItem: UIBarButtonItem, forPopoverController pc: UIPopoverController)
+  optional func splitViewController(svc: UISplitViewController, willHide aViewController: UIViewController, withBarButtonItem barButtonItem: UIBarButtonItem, forPopoverController pc: UIPopoverController)
   @available(iOS, introduced=2.0, deprecated=8.0, message="Use splitViewController:willChangeToDisplayMode: and displayModeButtonItem instead")
-  optional func splitViewController(svc: UISplitViewController, willShowViewController aViewController: UIViewController, invalidatingBarButtonItem barButtonItem: UIBarButtonItem)
+  optional func splitViewController(svc: UISplitViewController, willShow aViewController: UIViewController, invalidatingBarButtonItem barButtonItem: UIBarButtonItem)
   @available(iOS, introduced=2.0, deprecated=8.0, message="Use splitViewController:willChangeToDisplayMode: instead")
-  optional func splitViewController(svc: UISplitViewController, popoverController pc: UIPopoverController, willPresentViewController aViewController: UIViewController)
+  optional func splitViewController(svc: UISplitViewController, popoverController pc: UIPopoverController, willPresent aViewController: UIViewController)
   @available(iOS, introduced=5.0, deprecated=8.0, message="Use preferredDisplayMode instead")
-  optional func splitViewController(svc: UISplitViewController, shouldHideViewController vc: UIViewController, inOrientation orientation: UIInterfaceOrientation) -> Bool
+  optional func splitViewController(svc: UISplitViewController, shouldHide vc: UIViewController, `in` orientation: UIInterfaceOrientation) -> Bool
 }
 extension UIViewController {
   var splitViewController: UISplitViewController? { get }
   @available(iOS 8.0, *)
   func collapseSecondaryViewController(secondaryViewController: UIViewController, forSplitViewController splitViewController: UISplitViewController)
   @available(iOS 8.0, *)
-  func separateSecondaryViewControllerForSplitViewController(splitViewController: UISplitViewController) -> UIViewController?
+  func separateSecondaryViewControllerFor(splitViewController: UISplitViewController) -> UIViewController?
 }
 @available(iOS 9.0, *)
 enum UIStackViewDistribution : Int {
@@ -6548,12 +6548,12 @@ class UIStackView : UIView {
   var arrangedSubviews: [UIView] { get }
   func addArrangedSubview(view: UIView)
   func removeArrangedSubview(view: UIView)
-  func insertArrangedSubview(view: UIView, atIndex stackIndex: Int)
+  func insertArrangedSubview(view: UIView, at stackIndex: Int)
   var axis: UILayoutConstraintAxis
   var distribution: UIStackViewDistribution
   var alignment: UIStackViewAlignment
   var spacing: CGFloat
-  var baselineRelativeArrangement: Bool
+  var isBaselineRelativeArrangement: Bool
   var layoutMarginsRelativeArrangement: Bool
   init(frame: CGRect)
   init?(coder aDecoder: NSCoder)
@@ -6575,15 +6575,15 @@ protocol UIViewControllerRestoration {
 }
 protocol UIDataSourceModelAssociation {
   @available(iOS 2.0, *)
-  func modelIdentifierForElementAtIndexPath(idx: NSIndexPath, inView view: UIView) -> String?
+  func modelIdentifierForElementAt(idx: NSIndexPath, `in` view: UIView) -> String?
   @available(iOS 2.0, *)
-  func indexPathForElementWithModelIdentifier(identifier: String, inView view: UIView) -> NSIndexPath?
+  func indexPathForElementWithModelIdentifier(identifier: String, `in` view: UIView) -> NSIndexPath?
 }
 protocol UIStateRestoring : NSObjectProtocol {
   optional var restorationParent: UIStateRestoring? { get }
   optional var objectRestorationClass: AnyObject.Type? { get }
-  optional func encodeRestorableStateWithCoder(coder: NSCoder)
-  optional func decodeRestorableStateWithCoder(coder: NSCoder)
+  optional func encodeRestorableStateWith(coder: NSCoder)
+  optional func decodeRestorableStateWith(coder: NSCoder)
   optional func applicationFinishedRestoringState()
 }
 protocol UIObjectRestoration {
@@ -6592,7 +6592,7 @@ protocol UIObjectRestoration {
 @available(iOS 5.0, *)
 class UIStepper : UIControl {
   var continuous: Bool
-  var autorepeat: Bool
+  var isAutorepeat: Bool
   var wraps: Bool
   var value: Double
   var minimumValue: Double
@@ -6603,7 +6603,7 @@ class UIStepper : UIControl {
   @available(iOS 6.0, *)
   func setBackgroundImage(image: UIImage?, forState state: UIControlState)
   @available(iOS 6.0, *)
-  func backgroundImageForState(state: UIControlState) -> UIImage?
+  func backgroundImageFor(state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
   func setDividerImage(image: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState)
   @available(iOS 6.0, *)
@@ -6611,11 +6611,11 @@ class UIStepper : UIControl {
   @available(iOS 6.0, *)
   func setIncrementImage(image: UIImage?, forState state: UIControlState)
   @available(iOS 6.0, *)
-  func incrementImageForState(state: UIControlState) -> UIImage?
+  func incrementImageFor(state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
   func setDecrementImage(image: UIImage?, forState state: UIControlState)
   @available(iOS 6.0, *)
-  func decrementImageForState(state: UIControlState) -> UIImage?
+  func decrementImageFor(state: UIControlState) -> UIImage?
   init(frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
@@ -6698,7 +6698,7 @@ class UISwitch : UIControl, NSCoding {
   var onImage: UIImage?
   @available(iOS 6.0, *)
   var offImage: UIImage?
-  var on: Bool
+  var isOn: Bool
   init(frame: CGRect)
   init?(coder aDecoder: NSCoder)
   func setOn(on: Bool, animated: Bool)
@@ -6742,22 +6742,22 @@ class UITabBar : UIView {
   @available(iOS 7.0, *)
   var barStyle: UIBarStyle
   @available(iOS 7.0, *)
-  var translucent: Bool
+  var isTranslucent: Bool
   init(frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }
 protocol UITabBarDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
-  optional func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem)
+  optional func tabBar(tabBar: UITabBar, didSelect item: UITabBarItem)
   @available(iOS 2.0, *)
-  optional func tabBar(tabBar: UITabBar, willBeginCustomizingItems items: [UITabBarItem])
+  optional func tabBar(tabBar: UITabBar, willBeginCustomizing items: [UITabBarItem])
   @available(iOS 2.0, *)
-  optional func tabBar(tabBar: UITabBar, didBeginCustomizingItems items: [UITabBarItem])
+  optional func tabBar(tabBar: UITabBar, didBeginCustomizing items: [UITabBarItem])
   @available(iOS 2.0, *)
-  optional func tabBar(tabBar: UITabBar, willEndCustomizingItems items: [UITabBarItem], changed: Bool)
+  optional func tabBar(tabBar: UITabBar, willEndCustomizing items: [UITabBarItem], changed: Bool)
   @available(iOS 2.0, *)
-  optional func tabBar(tabBar: UITabBar, didEndCustomizingItems items: [UITabBarItem], changed: Bool)
+  optional func tabBar(tabBar: UITabBar, didEndCustomizing items: [UITabBarItem], changed: Bool)
 }
 @available(iOS 2.0, *)
 class UITabBarController : UIViewController, UITabBarDelegate, NSCoding {
@@ -6774,27 +6774,27 @@ class UITabBarController : UIViewController, UITabBarDelegate, NSCoding {
   init?(coder aDecoder: NSCoder)
   convenience init()
   @available(iOS 2.0, *)
-  func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem)
+  func tabBar(tabBar: UITabBar, didSelect item: UITabBarItem)
   @available(iOS 2.0, *)
-  func tabBar(tabBar: UITabBar, willBeginCustomizingItems items: [UITabBarItem])
+  func tabBar(tabBar: UITabBar, willBeginCustomizing items: [UITabBarItem])
   @available(iOS 2.0, *)
-  func tabBar(tabBar: UITabBar, didBeginCustomizingItems items: [UITabBarItem])
+  func tabBar(tabBar: UITabBar, didBeginCustomizing items: [UITabBarItem])
   @available(iOS 2.0, *)
-  func tabBar(tabBar: UITabBar, willEndCustomizingItems items: [UITabBarItem], changed: Bool)
+  func tabBar(tabBar: UITabBar, willEndCustomizing items: [UITabBarItem], changed: Bool)
   @available(iOS 2.0, *)
-  func tabBar(tabBar: UITabBar, didEndCustomizingItems items: [UITabBarItem], changed: Bool)
+  func tabBar(tabBar: UITabBar, didEndCustomizing items: [UITabBarItem], changed: Bool)
 }
 protocol UITabBarControllerDelegate : NSObjectProtocol {
   @available(iOS 3.0, *)
-  optional func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool
+  optional func tabBarController(tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool
   @available(iOS 2.0, *)
-  optional func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController)
+  optional func tabBarController(tabBarController: UITabBarController, didSelect viewController: UIViewController)
   @available(iOS 3.0, *)
-  optional func tabBarController(tabBarController: UITabBarController, willBeginCustomizingViewControllers viewControllers: [UIViewController])
+  optional func tabBarController(tabBarController: UITabBarController, willBeginCustomizing viewControllers: [UIViewController])
   @available(iOS 3.0, *)
-  optional func tabBarController(tabBarController: UITabBarController, willEndCustomizingViewControllers viewControllers: [UIViewController], changed: Bool)
+  optional func tabBarController(tabBarController: UITabBarController, willEndCustomizing viewControllers: [UIViewController], changed: Bool)
   @available(iOS 2.0, *)
-  optional func tabBarController(tabBarController: UITabBarController, didEndCustomizingViewControllers viewControllers: [UIViewController], changed: Bool)
+  optional func tabBarController(tabBarController: UITabBarController, didEndCustomizing viewControllers: [UIViewController], changed: Bool)
   @available(iOS 7.0, *)
   optional func tabBarControllerSupportedInterfaceOrientations(tabBarController: UITabBarController) -> UIInterfaceOrientationMask
   @available(iOS 7.0, *)
@@ -6802,7 +6802,7 @@ protocol UITabBarControllerDelegate : NSObjectProtocol {
   @available(iOS 7.0, *)
   optional func tabBarController(tabBarController: UITabBarController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
   @available(iOS 7.0, *)
-  optional func tabBarController(tabBarController: UITabBarController, animationControllerForTransitionFromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning?
+  optional func tabBarController(tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning?
 }
 extension UIViewController {
   var tabBarItem: UITabBarItem!
@@ -6897,7 +6897,7 @@ class UITableViewRowAction : NSObject, NSCopying {
   @NSCopying var backgroundEffect: UIVisualEffect?
   init()
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class UITableViewFocusUpdateContext : UIFocusUpdateContext {
@@ -6907,25 +6907,25 @@ class UITableViewFocusUpdateContext : UIFocusUpdateContext {
 }
 protocol UITableViewDelegate : NSObjectProtocol, UIScrollViewDelegate {
   @available(iOS 2.0, *)
-  optional func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: NSIndexPath)
   @available(iOS 6.0, *)
   optional func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
   @available(iOS 6.0, *)
   optional func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int)
   @available(iOS 6.0, *)
-  optional func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: NSIndexPath)
   @available(iOS 6.0, *)
   optional func tableView(tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int)
   @available(iOS 6.0, *)
   optional func tableView(tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection section: Int)
   @available(iOS 2.0, *)
-  optional func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+  optional func tableView(tableView: UITableView, heightForRowAt indexPath: NSIndexPath) -> CGFloat
   @available(iOS 2.0, *)
   optional func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
   @available(iOS 2.0, *)
   optional func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
   @available(iOS 7.0, *)
-  optional func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+  optional func tableView(tableView: UITableView, estimatedHeightForRowAt indexPath: NSIndexPath) -> CGFloat
   @available(iOS 7.0, *)
   optional func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat
   @available(iOS 7.0, *)
@@ -6935,51 +6935,51 @@ protocol UITableViewDelegate : NSObjectProtocol, UIScrollViewDelegate {
   @available(iOS 2.0, *)
   optional func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
   @available(iOS 2.0, *)
-  optional func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, accessoryButtonTappedForRowWith indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  optional func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  optional func tableView(tableView: UITableView, shouldHighlightRowAt indexPath: NSIndexPath) -> Bool
   @available(iOS 6.0, *)
-  optional func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, didHighlightRowAt indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  optional func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, didUnhighlightRowAt indexPath: NSIndexPath)
   @available(iOS 2.0, *)
-  optional func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?
+  optional func tableView(tableView: UITableView, willSelectRowAt indexPath: NSIndexPath) -> NSIndexPath?
   @available(iOS 3.0, *)
-  optional func tableView(tableView: UITableView, willDeselectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?
+  optional func tableView(tableView: UITableView, willDeselectRowAt indexPath: NSIndexPath) -> NSIndexPath?
   @available(iOS 2.0, *)
-  optional func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, didSelectRowAt indexPath: NSIndexPath)
   @available(iOS 3.0, *)
-  optional func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, didDeselectRowAt indexPath: NSIndexPath)
   @available(iOS 2.0, *)
-  optional func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle
+  optional func tableView(tableView: UITableView, editingStyleForRowAt indexPath: NSIndexPath) -> UITableViewCellEditingStyle
   @available(iOS 3.0, *)
-  optional func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String?
+  optional func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: NSIndexPath) -> String?
   @available(iOS 8.0, *)
-  optional func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
+  optional func tableView(tableView: UITableView, editActionsForRowAt indexPath: NSIndexPath) -> [UITableViewRowAction]?
   @available(iOS 2.0, *)
-  optional func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  optional func tableView(tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: NSIndexPath) -> Bool
   @available(iOS 2.0, *)
-  optional func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, willBeginEditingRowAt indexPath: NSIndexPath)
   @available(iOS 2.0, *)
-  optional func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, didEndEditingRowAt indexPath: NSIndexPath)
   @available(iOS 2.0, *)
-  optional func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath
+  optional func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath
   @available(iOS 2.0, *)
-  optional func tableView(tableView: UITableView, indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int
+  optional func tableView(tableView: UITableView, indentationLevelForRowAt indexPath: NSIndexPath) -> Int
   @available(iOS 5.0, *)
-  optional func tableView(tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  optional func tableView(tableView: UITableView, shouldShowMenuForRowAt indexPath: NSIndexPath) -> Bool
   @available(iOS 5.0, *)
-  optional func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
+  optional func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
   @available(iOS 5.0, *)
-  optional func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?)
+  optional func tableView(tableView: UITableView, performAction action: Selector, forRowAt indexPath: NSIndexPath, withSender sender: AnyObject?)
   @available(iOS 9.0, *)
-  optional func tableView(tableView: UITableView, canFocusRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  optional func tableView(tableView: UITableView, canFocusRowAt indexPath: NSIndexPath) -> Bool
   @available(iOS 9.0, *)
-  optional func tableView(tableView: UITableView, shouldUpdateFocusInContext context: UITableViewFocusUpdateContext) -> Bool
+  optional func tableView(tableView: UITableView, shouldUpdateFocusIn context: UITableViewFocusUpdateContext) -> Bool
   @available(iOS 9.0, *)
-  optional func tableView(tableView: UITableView, didUpdateFocusInContext context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+  optional func tableView(tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
   @available(iOS 9.0, *)
-  optional func indexPathForPreferredFocusedViewInTableView(tableView: UITableView) -> NSIndexPath?
+  optional func indexPathForPreferredFocusedViewIn(tableView: UITableView) -> NSIndexPath?
 }
 let UITableViewSelectionDidChangeNotification: String
 @available(iOS 2.0, *)
@@ -7010,19 +7010,19 @@ class UITableView : UIScrollView, NSCoding {
   func rectForSection(section: Int) -> CGRect
   func rectForHeaderInSection(section: Int) -> CGRect
   func rectForFooterInSection(section: Int) -> CGRect
-  func rectForRowAtIndexPath(indexPath: NSIndexPath) -> CGRect
-  func indexPathForRowAtPoint(point: CGPoint) -> NSIndexPath?
-  func indexPathForCell(cell: UITableViewCell) -> NSIndexPath?
-  func indexPathsForRowsInRect(rect: CGRect) -> [NSIndexPath]?
-  func cellForRowAtIndexPath(indexPath: NSIndexPath) -> UITableViewCell?
+  func rectForRowAt(indexPath: NSIndexPath) -> CGRect
+  func indexPathForRowAt(point: CGPoint) -> NSIndexPath?
+  func indexPathFor(cell: UITableViewCell) -> NSIndexPath?
+  func indexPathsForRowsIn(rect: CGRect) -> [NSIndexPath]?
+  func cellForRowAt(indexPath: NSIndexPath) -> UITableViewCell?
   var visibleCells: [UITableViewCell] { get }
   var indexPathsForVisibleRows: [NSIndexPath]? { get }
   @available(iOS 6.0, *)
   func headerViewForSection(section: Int) -> UITableViewHeaderFooterView?
   @available(iOS 6.0, *)
   func footerViewForSection(section: Int) -> UITableViewHeaderFooterView?
-  func scrollToRowAtIndexPath(indexPath: NSIndexPath, atScrollPosition scrollPosition: UITableViewScrollPosition, animated: Bool)
-  func scrollToNearestSelectedRowAtScrollPosition(scrollPosition: UITableViewScrollPosition, animated: Bool)
+  func scrollToRowAt(indexPath: NSIndexPath, at scrollPosition: UITableViewScrollPosition, animated: Bool)
+  func scrollToNearestSelectedRowAt(scrollPosition: UITableViewScrollPosition, animated: Bool)
   func beginUpdates()
   func endUpdates()
   func insertSections(sections: NSIndexSet, withRowAnimation animation: UITableViewRowAnimation)
@@ -7031,13 +7031,13 @@ class UITableView : UIScrollView, NSCoding {
   func reloadSections(sections: NSIndexSet, withRowAnimation animation: UITableViewRowAnimation)
   @available(iOS 5.0, *)
   func moveSection(section: Int, toSection newSection: Int)
-  func insertRowsAtIndexPaths(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation)
-  func deleteRowsAtIndexPaths(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation)
+  func insertRowsAt(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation)
+  func deleteRowsAt(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation)
   @available(iOS 3.0, *)
-  func reloadRowsAtIndexPaths(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation)
+  func reloadRowsAt(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation)
   @available(iOS 5.0, *)
-  func moveRowAtIndexPath(indexPath: NSIndexPath, toIndexPath newIndexPath: NSIndexPath)
-  var editing: Bool
+  func moveRowAt(indexPath: NSIndexPath, to newIndexPath: NSIndexPath)
+  var isEditing: Bool
   func setEditing(editing: Bool, animated: Bool)
   @available(iOS 3.0, *)
   var allowsSelection: Bool
@@ -7049,8 +7049,8 @@ class UITableView : UIScrollView, NSCoding {
   var indexPathForSelectedRow: NSIndexPath? { get }
   @available(iOS 5.0, *)
   var indexPathsForSelectedRows: [NSIndexPath]? { get }
-  func selectRowAtIndexPath(indexPath: NSIndexPath?, animated: Bool, scrollPosition: UITableViewScrollPosition)
-  func deselectRowAtIndexPath(indexPath: NSIndexPath, animated: Bool)
+  func selectRowAt(indexPath: NSIndexPath?, animated: Bool, scrollPosition: UITableViewScrollPosition)
+  func deselectRowAt(indexPath: NSIndexPath, animated: Bool)
   var sectionIndexMinimumDisplayRowCount: Int
   @available(iOS 6.0, *)
   var sectionIndexColor: UIColor?
@@ -7072,13 +7072,13 @@ class UITableView : UIScrollView, NSCoding {
   @available(iOS 6.0, *)
   func dequeueReusableHeaderFooterViewWithIdentifier(identifier: String) -> UITableViewHeaderFooterView?
   @available(iOS 5.0, *)
-  func registerNib(nib: UINib?, forCellReuseIdentifier identifier: String)
+  func register(nib: UINib?, forCellReuseIdentifier identifier: String)
   @available(iOS 6.0, *)
-  func registerClass(cellClass: AnyClass?, forCellReuseIdentifier identifier: String)
+  func register(cellClass: AnyClass?, forCellReuseIdentifier identifier: String)
   @available(iOS 6.0, *)
-  func registerNib(nib: UINib?, forHeaderFooterViewReuseIdentifier identifier: String)
+  func register(nib: UINib?, forHeaderFooterViewReuseIdentifier identifier: String)
   @available(iOS 6.0, *)
-  func registerClass(aClass: AnyClass?, forHeaderFooterViewReuseIdentifier identifier: String)
+  func register(aClass: AnyClass?, forHeaderFooterViewReuseIdentifier identifier: String)
   @available(iOS 9.0, *)
   var remembersLastFocusedIndexPath: Bool
   convenience init(frame: CGRect)
@@ -7088,25 +7088,25 @@ protocol UITableViewDataSource : NSObjectProtocol {
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+  func tableView(tableView: UITableView, cellForRowAt indexPath: NSIndexPath) -> UITableViewCell
   @available(iOS 2.0, *)
-  optional func numberOfSectionsInTableView(tableView: UITableView) -> Int
+  optional func numberOfSectionsIn(tableView: UITableView) -> Int
   @available(iOS 2.0, *)
   optional func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
   @available(iOS 2.0, *)
   optional func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String?
   @available(iOS 2.0, *)
-  optional func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  optional func tableView(tableView: UITableView, canEditRowAt indexPath: NSIndexPath) -> Bool
   @available(iOS 2.0, *)
-  optional func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  optional func tableView(tableView: UITableView, canMoveRowAt indexPath: NSIndexPath) -> Bool
   @available(iOS 2.0, *)
-  optional func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]?
+  optional func sectionIndexTitlesFor(tableView: UITableView) -> [String]?
   @available(iOS 2.0, *)
-  optional func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int
+  optional func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int
   @available(iOS 2.0, *)
-  optional func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: NSIndexPath)
   @available(iOS 2.0, *)
-  optional func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, moveRowAt sourceIndexPath: NSIndexPath, to destinationIndexPath: NSIndexPath)
 }
 extension NSIndexPath {
   convenience init(forRow row: Int, inSection section: Int)
@@ -7187,8 +7187,8 @@ class UITableViewCell : UIView, NSCoding, UIGestureRecognizerDelegate {
   var reuseIdentifier: String? { get }
   func prepareForReuse()
   var selectionStyle: UITableViewCellSelectionStyle
-  var selected: Bool
-  var highlighted: Bool
+  var isSelected: Bool
+  var isHighlighted: Bool
   func setSelected(selected: Bool, animated: Bool)
   func setHighlighted(highlighted: Bool, animated: Bool)
   var editingStyle: UITableViewCellEditingStyle { get }
@@ -7202,9 +7202,9 @@ class UITableViewCell : UIView, NSCoding, UIGestureRecognizerDelegate {
   var indentationWidth: CGFloat
   @available(iOS 7.0, *)
   var separatorInset: UIEdgeInsets
-  var editing: Bool
+  var isEditing: Bool
   func setEditing(editing: Bool, animated: Bool)
-  var showingDeleteConfirmation: Bool { get }
+  var isShowingDeleteConfirmation: Bool { get }
   @available(iOS 9.0, *)
   var focusStyle: UITableViewCellFocusStyle
   @available(iOS 3.0, *)
@@ -7216,15 +7216,15 @@ class UITableViewCell : UIView, NSCoding, UIGestureRecognizerDelegate {
   @available(iOS 3.2, *)
   func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool
   @available(iOS 3.2, *)
-  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool
+  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool
   @available(iOS 7.0, *)
-  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOfGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool
+  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool
   @available(iOS 7.0, *)
-  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool
+  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool
   @available(iOS 3.2, *)
-  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool
+  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool
   @available(iOS 9.0, *)
-  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceivePress press: UIPress) -> Bool
+  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceive press: UIPress) -> Bool
 }
 extension UITableViewCell {
 }
@@ -7240,25 +7240,25 @@ class UITableViewController : UIViewController, UITableViewDelegate, UITableView
   var refreshControl: UIRefreshControl?
   convenience init()
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
+  func tableView(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: NSIndexPath)
   @available(iOS 6.0, *)
   func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
   @available(iOS 6.0, *)
   func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int)
   @available(iOS 6.0, *)
-  func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
+  func tableView(tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: NSIndexPath)
   @available(iOS 6.0, *)
   func tableView(tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int)
   @available(iOS 6.0, *)
   func tableView(tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection section: Int)
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+  func tableView(tableView: UITableView, heightForRowAt indexPath: NSIndexPath) -> CGFloat
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
   @available(iOS 7.0, *)
-  func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+  func tableView(tableView: UITableView, estimatedHeightForRowAt indexPath: NSIndexPath) -> CGFloat
   @available(iOS 7.0, *)
   func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat
   @available(iOS 7.0, *)
@@ -7268,51 +7268,51 @@ class UITableViewController : UIViewController, UITableViewDelegate, UITableView
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath)
+  func tableView(tableView: UITableView, accessoryButtonTappedForRowWith indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  func tableView(tableView: UITableView, shouldHighlightRowAt indexPath: NSIndexPath) -> Bool
   @available(iOS 6.0, *)
-  func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath)
+  func tableView(tableView: UITableView, didHighlightRowAt indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath)
+  func tableView(tableView: UITableView, didUnhighlightRowAt indexPath: NSIndexPath)
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?
+  func tableView(tableView: UITableView, willSelectRowAt indexPath: NSIndexPath) -> NSIndexPath?
   @available(iOS 3.0, *)
-  func tableView(tableView: UITableView, willDeselectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?
+  func tableView(tableView: UITableView, willDeselectRowAt indexPath: NSIndexPath) -> NSIndexPath?
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+  func tableView(tableView: UITableView, didSelectRowAt indexPath: NSIndexPath)
   @available(iOS 3.0, *)
-  func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath)
+  func tableView(tableView: UITableView, didDeselectRowAt indexPath: NSIndexPath)
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle
+  func tableView(tableView: UITableView, editingStyleForRowAt indexPath: NSIndexPath) -> UITableViewCellEditingStyle
   @available(iOS 3.0, *)
-  func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String?
+  func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: NSIndexPath) -> String?
   @available(iOS 8.0, *)
-  func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
+  func tableView(tableView: UITableView, editActionsForRowAt indexPath: NSIndexPath) -> [UITableViewRowAction]?
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  func tableView(tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: NSIndexPath) -> Bool
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath)
+  func tableView(tableView: UITableView, willBeginEditingRowAt indexPath: NSIndexPath)
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath)
+  func tableView(tableView: UITableView, didEndEditingRowAt indexPath: NSIndexPath)
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath
+  func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int
+  func tableView(tableView: UITableView, indentationLevelForRowAt indexPath: NSIndexPath) -> Int
   @available(iOS 5.0, *)
-  func tableView(tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  func tableView(tableView: UITableView, shouldShowMenuForRowAt indexPath: NSIndexPath) -> Bool
   @available(iOS 5.0, *)
-  func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
+  func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
   @available(iOS 5.0, *)
-  func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?)
+  func tableView(tableView: UITableView, performAction action: Selector, forRowAt indexPath: NSIndexPath, withSender sender: AnyObject?)
   @available(iOS 9.0, *)
-  func tableView(tableView: UITableView, canFocusRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  func tableView(tableView: UITableView, canFocusRowAt indexPath: NSIndexPath) -> Bool
   @available(iOS 9.0, *)
-  func tableView(tableView: UITableView, shouldUpdateFocusInContext context: UITableViewFocusUpdateContext) -> Bool
+  func tableView(tableView: UITableView, shouldUpdateFocusIn context: UITableViewFocusUpdateContext) -> Bool
   @available(iOS 9.0, *)
-  func tableView(tableView: UITableView, didUpdateFocusInContext context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+  func tableView(tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
   @available(iOS 9.0, *)
-  func indexPathForPreferredFocusedViewInTableView(tableView: UITableView) -> NSIndexPath?
+  func indexPathForPreferredFocusedViewIn(tableView: UITableView) -> NSIndexPath?
   @available(iOS 2.0, *)
   func scrollViewDidScroll(scrollView: UIScrollView)
   @available(iOS 3.2, *)
@@ -7330,7 +7330,7 @@ class UITableViewController : UIViewController, UITableViewDelegate, UITableView
   @available(iOS 2.0, *)
   func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?
+  func viewForZoomingIn(scrollView: UIScrollView) -> UIView?
   @available(iOS 3.2, *)
   func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView?)
   @available(iOS 2.0, *)
@@ -7342,25 +7342,25 @@ class UITableViewController : UIViewController, UITableViewDelegate, UITableView
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+  func tableView(tableView: UITableView, cellForRowAt indexPath: NSIndexPath) -> UITableViewCell
   @available(iOS 2.0, *)
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int
+  func numberOfSectionsIn(tableView: UITableView) -> Int
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String?
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  func tableView(tableView: UITableView, canEditRowAt indexPath: NSIndexPath) -> Bool
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  func tableView(tableView: UITableView, canMoveRowAt indexPath: NSIndexPath) -> Bool
   @available(iOS 2.0, *)
-  func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]?
+  func sectionIndexTitlesFor(tableView: UITableView) -> [String]?
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int
+  func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+  func tableView(tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: NSIndexPath)
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath)
+  func tableView(tableView: UITableView, moveRowAt sourceIndexPath: NSIndexPath, to destinationIndexPath: NSIndexPath)
 }
 @available(iOS 6.0, *)
 class UITableViewHeaderFooterView : UIView {
@@ -7385,9 +7385,9 @@ class UITapGestureRecognizer : UIGestureRecognizer {
 }
 @available(iOS 3.2, *)
 class UITextChecker : NSObject {
-  func rangeOfMisspelledWordInString(stringToCheck: String, range: NSRange, startingAt startingOffset: Int, wrap wrapFlag: Bool, language: String) -> NSRange
-  func guessesForWordRange(range: NSRange, inString string: String, language: String) -> [AnyObject]?
-  func completionsForPartialWordRange(range: NSRange, inString string: String?, language: String) -> [AnyObject]?
+  func rangeOfMisspelledWordIn(stringToCheck: String, range: NSRange, startingAt startingOffset: Int, wrap wrapFlag: Bool, language: String) -> NSRange
+  func guessesForWordRange(range: NSRange, `in` string: String, language: String) -> [AnyObject]?
+  func completionsForPartialWordRange(range: NSRange, `in` string: String?, language: String) -> [AnyObject]?
   func ignoreWord(wordToIgnore: String)
   func ignoredWords() -> [AnyObject]?
   func setIgnoredWords(words: [AnyObject]?)
@@ -7433,7 +7433,7 @@ class UITextField : UIControl, UITextInput, NSCoding {
   weak var delegate: @sil_weak UITextFieldDelegate?
   var background: UIImage?
   var disabledBackground: UIImage?
-  var editing: Bool { get }
+  var isEditing: Bool { get }
   @available(iOS 6.0, *)
   var allowsEditingTextAttributes: Bool
   @available(iOS 6.0, *)
@@ -7450,8 +7450,8 @@ class UITextField : UIControl, UITextInput, NSCoding {
   func clearButtonRectForBounds(bounds: CGRect) -> CGRect
   func leftViewRectForBounds(bounds: CGRect) -> CGRect
   func rightViewRectForBounds(bounds: CGRect) -> CGRect
-  func drawTextInRect(rect: CGRect)
-  func drawPlaceholderInRect(rect: CGRect)
+  func drawTextIn(rect: CGRect)
+  func drawPlaceholderIn(rect: CGRect)
   var inputView: UIView?
   var inputAccessoryView: UIView?
   @available(iOS 6.0, *)
@@ -7460,9 +7460,9 @@ class UITextField : UIControl, UITextInput, NSCoding {
   init?(coder aDecoder: NSCoder)
   convenience init()
   @available(iOS 3.2, *)
-  func textInRange(range: UITextRange) -> String?
+  func textIn(range: UITextRange) -> String?
   @available(iOS 3.2, *)
-  func replaceRange(range: UITextRange, withText text: String)
+  func replace(range: UITextRange, withText text: String)
   @available(iOS 3.2, *)
   @NSCopying var selectedTextRange: UITextRange?
   @available(iOS 3.2, *)
@@ -7478,47 +7478,47 @@ class UITextField : UIControl, UITextInput, NSCoding {
   @available(iOS 3.2, *)
   var endOfDocument: UITextPosition { get }
   @available(iOS 3.2, *)
-  func textRangeFromPosition(fromPosition: UITextPosition, toPosition: UITextPosition) -> UITextRange?
+  func textRangeFrom(fromPosition: UITextPosition, to toPosition: UITextPosition) -> UITextRange?
   @available(iOS 3.2, *)
-  func positionFromPosition(position: UITextPosition, offset: Int) -> UITextPosition?
+  func positionFrom(position: UITextPosition, offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func positionFromPosition(position: UITextPosition, inDirection direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
+  func positionFrom(position: UITextPosition, `in` direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func comparePosition(position: UITextPosition, toPosition other: UITextPosition) -> NSComparisonResult
+  func compare(position: UITextPosition, to other: UITextPosition) -> NSComparisonResult
   @available(iOS 3.2, *)
-  func offsetFromPosition(from: UITextPosition, toPosition: UITextPosition) -> Int
+  func offsetFrom(from: UITextPosition, to toPosition: UITextPosition) -> Int
   @available(iOS 2.0, *)
   weak var inputDelegate: @sil_weak UITextInputDelegate?
   @available(iOS 2.0, *)
   var tokenizer: UITextInputTokenizer { get }
   @available(iOS 3.2, *)
-  func positionWithinRange(range: UITextRange, farthestInDirection direction: UITextLayoutDirection) -> UITextPosition?
+  func positionWithin(range: UITextRange, farthestIn direction: UITextLayoutDirection) -> UITextPosition?
   @available(iOS 3.2, *)
-  func characterRangeByExtendingPosition(position: UITextPosition, inDirection direction: UITextLayoutDirection) -> UITextRange?
+  func characterRangeByExtending(position: UITextPosition, `in` direction: UITextLayoutDirection) -> UITextRange?
   @available(iOS 3.2, *)
-  func baseWritingDirectionForPosition(position: UITextPosition, inDirection direction: UITextStorageDirection) -> UITextWritingDirection
+  func baseWritingDirectionFor(position: UITextPosition, `in` direction: UITextStorageDirection) -> UITextWritingDirection
   @available(iOS 3.2, *)
   func setBaseWritingDirection(writingDirection: UITextWritingDirection, forRange range: UITextRange)
   @available(iOS 3.2, *)
-  func firstRectForRange(range: UITextRange) -> CGRect
+  func firstRectFor(range: UITextRange) -> CGRect
   @available(iOS 3.2, *)
-  func caretRectForPosition(position: UITextPosition) -> CGRect
+  func caretRectFor(position: UITextPosition) -> CGRect
   @available(iOS 6.0, *)
-  func selectionRectsForRange(range: UITextRange) -> [AnyObject]
+  func selectionRectsFor(range: UITextRange) -> [AnyObject]
   @available(iOS 3.2, *)
-  func closestPositionToPoint(point: CGPoint) -> UITextPosition?
+  func closestPositionTo(point: CGPoint) -> UITextPosition?
   @available(iOS 3.2, *)
-  func closestPositionToPoint(point: CGPoint, withinRange range: UITextRange) -> UITextPosition?
+  func closestPositionTo(point: CGPoint, within range: UITextRange) -> UITextPosition?
   @available(iOS 3.2, *)
-  func characterRangeAtPoint(point: CGPoint) -> UITextRange?
+  func characterRangeAt(point: CGPoint) -> UITextRange?
   @available(iOS 6.0, *)
-  func shouldChangeTextInRange(range: UITextRange, replacementText text: String) -> Bool
+  func shouldChangeTextIn(range: UITextRange, replacementText text: String) -> Bool
   @available(iOS 3.2, *)
-  func textStylingAtPosition(position: UITextPosition, inDirection direction: UITextStorageDirection) -> [String : AnyObject]?
+  func textStylingAt(position: UITextPosition, `in` direction: UITextStorageDirection) -> [String : AnyObject]?
   @available(iOS 3.2, *)
-  func positionWithinRange(range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
+  func positionWithin(range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func characterOffsetOfPosition(position: UITextPosition, withinRange range: UITextRange) -> Int
+  func characterOffsetOf(position: UITextPosition, within range: UITextRange) -> Int
   @available(iOS 2.0, *)
   var textInputView: UIView { get }
   @available(iOS 2.0, *)
@@ -7536,9 +7536,9 @@ class UITextField : UIControl, UITextInput, NSCoding {
   @available(iOS 2.0, *)
   func removeDictationResultPlaceholder(placeholder: AnyObject, willInsertResult: Bool)
   @available(iOS 9.0, *)
-  func beginFloatingCursorAtPoint(point: CGPoint)
+  func beginFloatingCursorAt(point: CGPoint)
   @available(iOS 9.0, *)
-  func updateFloatingCursorAtPoint(point: CGPoint)
+  func updateFloatingCursorAt(point: CGPoint)
   @available(iOS 9.0, *)
   func endFloatingCursor()
   @available(iOS 2.0, *)
@@ -7577,7 +7577,7 @@ protocol UITextFieldDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
   optional func textFieldDidEndEditing(textField: UITextField)
   @available(iOS 2.0, *)
-  optional func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
+  optional func textField(textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
   @available(iOS 2.0, *)
   optional func textFieldShouldClear(textField: UITextField) -> Bool
   @available(iOS 2.0, *)
@@ -7644,9 +7644,9 @@ class UITextInputAssistantItem : NSObject {
 }
 protocol UITextInput : UIKeyInput {
   @available(iOS 3.2, *)
-  func textInRange(range: UITextRange) -> String?
+  func textIn(range: UITextRange) -> String?
   @available(iOS 3.2, *)
-  func replaceRange(range: UITextRange, withText text: String)
+  func replace(range: UITextRange, withText text: String)
   @available(iOS 3.2, *)
   @NSCopying var selectedTextRange: UITextRange? { get set }
   @available(iOS 3.2, *)
@@ -7660,45 +7660,45 @@ protocol UITextInput : UIKeyInput {
   @available(iOS 3.2, *)
   var endOfDocument: UITextPosition { get }
   @available(iOS 3.2, *)
-  func textRangeFromPosition(fromPosition: UITextPosition, toPosition: UITextPosition) -> UITextRange?
+  func textRangeFrom(fromPosition: UITextPosition, to toPosition: UITextPosition) -> UITextRange?
   @available(iOS 3.2, *)
-  func positionFromPosition(position: UITextPosition, offset: Int) -> UITextPosition?
+  func positionFrom(position: UITextPosition, offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func positionFromPosition(position: UITextPosition, inDirection direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
+  func positionFrom(position: UITextPosition, `in` direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func comparePosition(position: UITextPosition, toPosition other: UITextPosition) -> NSComparisonResult
+  func compare(position: UITextPosition, to other: UITextPosition) -> NSComparisonResult
   @available(iOS 3.2, *)
-  func offsetFromPosition(from: UITextPosition, toPosition: UITextPosition) -> Int
+  func offsetFrom(from: UITextPosition, to toPosition: UITextPosition) -> Int
   weak var inputDelegate: @sil_weak UITextInputDelegate? { get set }
   var tokenizer: UITextInputTokenizer { get }
   @available(iOS 3.2, *)
-  func positionWithinRange(range: UITextRange, farthestInDirection direction: UITextLayoutDirection) -> UITextPosition?
+  func positionWithin(range: UITextRange, farthestIn direction: UITextLayoutDirection) -> UITextPosition?
   @available(iOS 3.2, *)
-  func characterRangeByExtendingPosition(position: UITextPosition, inDirection direction: UITextLayoutDirection) -> UITextRange?
+  func characterRangeByExtending(position: UITextPosition, `in` direction: UITextLayoutDirection) -> UITextRange?
   @available(iOS 3.2, *)
-  func baseWritingDirectionForPosition(position: UITextPosition, inDirection direction: UITextStorageDirection) -> UITextWritingDirection
+  func baseWritingDirectionFor(position: UITextPosition, `in` direction: UITextStorageDirection) -> UITextWritingDirection
   @available(iOS 3.2, *)
   func setBaseWritingDirection(writingDirection: UITextWritingDirection, forRange range: UITextRange)
   @available(iOS 3.2, *)
-  func firstRectForRange(range: UITextRange) -> CGRect
+  func firstRectFor(range: UITextRange) -> CGRect
   @available(iOS 3.2, *)
-  func caretRectForPosition(position: UITextPosition) -> CGRect
+  func caretRectFor(position: UITextPosition) -> CGRect
   @available(iOS 6.0, *)
-  func selectionRectsForRange(range: UITextRange) -> [AnyObject]
+  func selectionRectsFor(range: UITextRange) -> [AnyObject]
   @available(iOS 3.2, *)
-  func closestPositionToPoint(point: CGPoint) -> UITextPosition?
+  func closestPositionTo(point: CGPoint) -> UITextPosition?
   @available(iOS 3.2, *)
-  func closestPositionToPoint(point: CGPoint, withinRange range: UITextRange) -> UITextPosition?
+  func closestPositionTo(point: CGPoint, within range: UITextRange) -> UITextPosition?
   @available(iOS 3.2, *)
-  func characterRangeAtPoint(point: CGPoint) -> UITextRange?
+  func characterRangeAt(point: CGPoint) -> UITextRange?
   @available(iOS 6.0, *)
-  optional func shouldChangeTextInRange(range: UITextRange, replacementText text: String) -> Bool
+  optional func shouldChangeTextIn(range: UITextRange, replacementText text: String) -> Bool
   @available(iOS 3.2, *)
-  optional func textStylingAtPosition(position: UITextPosition, inDirection direction: UITextStorageDirection) -> [String : AnyObject]?
+  optional func textStylingAt(position: UITextPosition, `in` direction: UITextStorageDirection) -> [String : AnyObject]?
   @available(iOS 3.2, *)
-  optional func positionWithinRange(range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
+  optional func positionWithin(range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  optional func characterOffsetOfPosition(position: UITextPosition, withinRange range: UITextRange) -> Int
+  optional func characterOffsetOf(position: UITextPosition, within range: UITextRange) -> Int
   @available(iOS 2.0, *)
   optional var textInputView: UIView { get }
   optional var selectionAffinity: UITextStorageDirection { get set }
@@ -7710,9 +7710,9 @@ protocol UITextInput : UIKeyInput {
   optional func frameForDictationResultPlaceholder(placeholder: AnyObject) -> CGRect
   optional func removeDictationResultPlaceholder(placeholder: AnyObject, willInsertResult: Bool)
   @available(iOS 9.0, *)
-  optional func beginFloatingCursorAtPoint(point: CGPoint)
+  optional func beginFloatingCursorAt(point: CGPoint)
   @available(iOS 9.0, *)
-  optional func updateFloatingCursorAtPoint(point: CGPoint)
+  optional func updateFloatingCursorAt(point: CGPoint)
   @available(iOS 9.0, *)
   optional func endFloatingCursor()
 }
@@ -7728,7 +7728,7 @@ class UITextPosition : NSObject {
 }
 @available(iOS 3.2, *)
 class UITextRange : NSObject {
-  var empty: Bool { get }
+  var isEmpty: Bool { get }
   var start: UITextPosition { get }
   var end: UITextPosition { get }
   init()
@@ -7754,7 +7754,7 @@ protocol UITextInputTokenizer : NSObjectProtocol {
   @available(iOS 3.2, *)
   func isPosition(position: UITextPosition, atBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
   @available(iOS 3.2, *)
-  func positionFromPosition(position: UITextPosition, toBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextPosition?
+  func positionFrom(position: UITextPosition, toBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextPosition?
   @available(iOS 3.2, *)
   func isPosition(position: UITextPosition, withinTextUnit granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
 }
@@ -7767,7 +7767,7 @@ class UITextInputStringTokenizer : NSObject, UITextInputTokenizer {
   @available(iOS 3.2, *)
   func isPosition(position: UITextPosition, atBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
   @available(iOS 3.2, *)
-  func positionFromPosition(position: UITextPosition, toBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextPosition?
+  func positionFrom(position: UITextPosition, toBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextPosition?
   @available(iOS 3.2, *)
   func isPosition(position: UITextPosition, withinTextUnit granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
 }
@@ -7779,7 +7779,7 @@ class UITextInputMode : NSObject, NSSecureCoding {
   @available(iOS 4.2, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 4.2, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(iOS 4.2, *)
@@ -7874,15 +7874,15 @@ protocol UITextViewDelegate : NSObjectProtocol, UIScrollViewDelegate {
   @available(iOS 2.0, *)
   optional func textViewDidEndEditing(textView: UITextView)
   @available(iOS 2.0, *)
-  optional func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool
+  optional func textView(textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
   @available(iOS 2.0, *)
   optional func textViewDidChange(textView: UITextView)
   @available(iOS 2.0, *)
   optional func textViewDidChangeSelection(textView: UITextView)
   @available(iOS 7.0, *)
-  optional func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool
+  optional func textView(textView: UITextView, shouldInteractWith URL: NSURL, `in` characterRange: NSRange) -> Bool
   @available(iOS 7.0, *)
-  optional func textView(textView: UITextView, shouldInteractWithTextAttachment textAttachment: NSTextAttachment, inRange characterRange: NSRange) -> Bool
+  optional func textView(textView: UITextView, shouldInteractWith textAttachment: NSTextAttachment, `in` characterRange: NSRange) -> Bool
 }
 @available(iOS 2.0, *)
 class UITextView : UIScrollView, UITextInput {
@@ -7892,9 +7892,9 @@ class UITextView : UIScrollView, UITextInput {
   var textColor: UIColor?
   var textAlignment: NSTextAlignment
   var selectedRange: NSRange
-  var editable: Bool
+  var isEditable: Bool
   @available(iOS 7.0, *)
-  var selectable: Bool
+  var isSelectable: Bool
   @available(iOS 3.0, *)
   var dataDetectorTypes: UIDataDetectorTypes
   @available(iOS 6.0, *)
@@ -7924,9 +7924,9 @@ class UITextView : UIScrollView, UITextInput {
   convenience init(frame: CGRect)
   convenience init()
   @available(iOS 3.2, *)
-  func textInRange(range: UITextRange) -> String?
+  func textIn(range: UITextRange) -> String?
   @available(iOS 3.2, *)
-  func replaceRange(range: UITextRange, withText text: String)
+  func replace(range: UITextRange, withText text: String)
   @available(iOS 3.2, *)
   @NSCopying var selectedTextRange: UITextRange?
   @available(iOS 3.2, *)
@@ -7942,47 +7942,47 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 3.2, *)
   var endOfDocument: UITextPosition { get }
   @available(iOS 3.2, *)
-  func textRangeFromPosition(fromPosition: UITextPosition, toPosition: UITextPosition) -> UITextRange?
+  func textRangeFrom(fromPosition: UITextPosition, to toPosition: UITextPosition) -> UITextRange?
   @available(iOS 3.2, *)
-  func positionFromPosition(position: UITextPosition, offset: Int) -> UITextPosition?
+  func positionFrom(position: UITextPosition, offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func positionFromPosition(position: UITextPosition, inDirection direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
+  func positionFrom(position: UITextPosition, `in` direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func comparePosition(position: UITextPosition, toPosition other: UITextPosition) -> NSComparisonResult
+  func compare(position: UITextPosition, to other: UITextPosition) -> NSComparisonResult
   @available(iOS 3.2, *)
-  func offsetFromPosition(from: UITextPosition, toPosition: UITextPosition) -> Int
+  func offsetFrom(from: UITextPosition, to toPosition: UITextPosition) -> Int
   @available(iOS 2.0, *)
   weak var inputDelegate: @sil_weak UITextInputDelegate?
   @available(iOS 2.0, *)
   var tokenizer: UITextInputTokenizer { get }
   @available(iOS 3.2, *)
-  func positionWithinRange(range: UITextRange, farthestInDirection direction: UITextLayoutDirection) -> UITextPosition?
+  func positionWithin(range: UITextRange, farthestIn direction: UITextLayoutDirection) -> UITextPosition?
   @available(iOS 3.2, *)
-  func characterRangeByExtendingPosition(position: UITextPosition, inDirection direction: UITextLayoutDirection) -> UITextRange?
+  func characterRangeByExtending(position: UITextPosition, `in` direction: UITextLayoutDirection) -> UITextRange?
   @available(iOS 3.2, *)
-  func baseWritingDirectionForPosition(position: UITextPosition, inDirection direction: UITextStorageDirection) -> UITextWritingDirection
+  func baseWritingDirectionFor(position: UITextPosition, `in` direction: UITextStorageDirection) -> UITextWritingDirection
   @available(iOS 3.2, *)
   func setBaseWritingDirection(writingDirection: UITextWritingDirection, forRange range: UITextRange)
   @available(iOS 3.2, *)
-  func firstRectForRange(range: UITextRange) -> CGRect
+  func firstRectFor(range: UITextRange) -> CGRect
   @available(iOS 3.2, *)
-  func caretRectForPosition(position: UITextPosition) -> CGRect
+  func caretRectFor(position: UITextPosition) -> CGRect
   @available(iOS 6.0, *)
-  func selectionRectsForRange(range: UITextRange) -> [AnyObject]
+  func selectionRectsFor(range: UITextRange) -> [AnyObject]
   @available(iOS 3.2, *)
-  func closestPositionToPoint(point: CGPoint) -> UITextPosition?
+  func closestPositionTo(point: CGPoint) -> UITextPosition?
   @available(iOS 3.2, *)
-  func closestPositionToPoint(point: CGPoint, withinRange range: UITextRange) -> UITextPosition?
+  func closestPositionTo(point: CGPoint, within range: UITextRange) -> UITextPosition?
   @available(iOS 3.2, *)
-  func characterRangeAtPoint(point: CGPoint) -> UITextRange?
+  func characterRangeAt(point: CGPoint) -> UITextRange?
   @available(iOS 6.0, *)
-  func shouldChangeTextInRange(range: UITextRange, replacementText text: String) -> Bool
+  func shouldChangeTextIn(range: UITextRange, replacementText text: String) -> Bool
   @available(iOS 3.2, *)
-  func textStylingAtPosition(position: UITextPosition, inDirection direction: UITextStorageDirection) -> [String : AnyObject]?
+  func textStylingAt(position: UITextPosition, `in` direction: UITextStorageDirection) -> [String : AnyObject]?
   @available(iOS 3.2, *)
-  func positionWithinRange(range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
+  func positionWithin(range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func characterOffsetOfPosition(position: UITextPosition, withinRange range: UITextRange) -> Int
+  func characterOffsetOf(position: UITextPosition, within range: UITextRange) -> Int
   @available(iOS 2.0, *)
   var textInputView: UIView { get }
   @available(iOS 2.0, *)
@@ -8000,9 +8000,9 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 2.0, *)
   func removeDictationResultPlaceholder(placeholder: AnyObject, willInsertResult: Bool)
   @available(iOS 9.0, *)
-  func beginFloatingCursorAtPoint(point: CGPoint)
+  func beginFloatingCursorAt(point: CGPoint)
   @available(iOS 9.0, *)
-  func updateFloatingCursorAtPoint(point: CGPoint)
+  func updateFloatingCursorAt(point: CGPoint)
   @available(iOS 9.0, *)
   func endFloatingCursor()
   @available(iOS 2.0, *)
@@ -8036,7 +8036,7 @@ class UIToolbar : UIView, UIBarPositioning {
   var barStyle: UIBarStyle
   var items: [UIBarButtonItem]?
   @available(iOS 3.0, *)
-  var translucent: Bool
+  var isTranslucent: Bool
   func setItems(items: [UIBarButtonItem]?, animated: Bool)
   var tintColor: UIColor!
   @available(iOS 7.0, *)
@@ -8108,20 +8108,20 @@ class UITouch : NSObject {
   var view: UIView? { get }
   @available(iOS 3.2, *)
   var gestureRecognizers: [UIGestureRecognizer]? { get }
-  func locationInView(view: UIView?) -> CGPoint
-  func previousLocationInView(view: UIView?) -> CGPoint
+  func locationIn(view: UIView?) -> CGPoint
+  func previousLocationIn(view: UIView?) -> CGPoint
   @available(iOS 9.1, *)
-  func preciseLocationInView(view: UIView?) -> CGPoint
+  func preciseLocationIn(view: UIView?) -> CGPoint
   @available(iOS 9.1, *)
-  func precisePreviousLocationInView(view: UIView?) -> CGPoint
+  func precisePreviousLocationIn(view: UIView?) -> CGPoint
   @available(iOS 9.0, *)
   var force: CGFloat { get }
   @available(iOS 9.0, *)
   var maximumPossibleForce: CGFloat { get }
   @available(iOS 9.1, *)
-  func azimuthAngleInView(view: UIView?) -> CGFloat
+  func azimuthAngleIn(view: UIView?) -> CGFloat
   @available(iOS 9.1, *)
-  func azimuthUnitVectorInView(view: UIView?) -> CGVector
+  func azimuthUnitVectorIn(view: UIView?) -> CGVector
   @available(iOS 9.1, *)
   var altitudeAngle: CGFloat { get }
   @available(iOS 9.1, *)
@@ -8138,11 +8138,11 @@ class UITouch : NSObject {
 class UITraitCollection : NSObject, NSCopying, NSSecureCoding {
   init()
   init?(coder aDecoder: NSCoder)
-  func containsTraitsInCollection(trait: UITraitCollection?) -> Bool
+  func containsTraitsIn(trait: UITraitCollection?) -> Bool
 
   /*! Returns a trait collection by merging the traits in `traitCollections`. The last trait along any given
    axis (e.g. interface usage) will supercede any others. */
-  /*not inherited*/ init(traitsFromCollections traitCollections: [UITraitCollection])
+  /*not inherited*/ init(traitsFrom traitCollections: [UITraitCollection])
   /*not inherited*/ init(userInterfaceIdiom idiom: UIUserInterfaceIdiom)
   var userInterfaceIdiom: UIUserInterfaceIdiom { get }
   /*not inherited*/ init(displayScale scale: CGFloat)
@@ -8156,11 +8156,11 @@ class UITraitCollection : NSObject, NSCopying, NSSecureCoding {
   @available(iOS 9.0, *)
   var forceTouchCapability: UIForceTouchCapability { get }
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 
 /*! Trait environments expose a trait collection that describes their environment. */
@@ -8218,15 +8218,15 @@ class UIUserNotificationCategory : NSObject, NSCopying, NSMutableCopying, NSSecu
   init()
   init?(coder aDecoder: NSCoder)
   var identifier: String? { get }
-  func actionsForContext(context: UIUserNotificationActionContext) -> [UIUserNotificationAction]?
+  func actionsFor(context: UIUserNotificationActionContext) -> [UIUserNotificationAction]?
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class UIMutableUserNotificationCategory : UIUserNotificationCategory {
@@ -8246,16 +8246,16 @@ class UIUserNotificationAction : NSObject, NSCopying, NSMutableCopying, NSSecure
   @available(iOS 9.0, *)
   var parameters: [NSObject : AnyObject] { get }
   var activationMode: UIUserNotificationActivationMode { get }
-  var authenticationRequired: Bool { get }
-  var destructive: Bool { get }
+  var isAuthenticationRequired: Bool { get }
+  var isDestructive: Bool { get }
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class UIMutableUserNotificationAction : UIUserNotificationAction {
@@ -8266,8 +8266,8 @@ class UIMutableUserNotificationAction : UIUserNotificationAction {
   @available(iOS 9.0, *)
   var parameters: [NSObject : AnyObject]
   var activationMode: UIUserNotificationActivationMode
-  var authenticationRequired: Bool
-  var destructive: Bool
+  var isAuthenticationRequired: Bool
+  var isDestructive: Bool
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -8290,7 +8290,7 @@ protocol UIVideoEditorControllerDelegate : NSObjectProtocol {
   @available(iOS 3.1, *)
   optional func videoEditorController(editor: UIVideoEditorController, didSaveEditedVideoToPath editedVideoPath: String)
   @available(iOS 3.1, *)
-  optional func videoEditorController(editor: UIVideoEditorController, didFailWithError error: NSError)
+  optional func videoEditorController(editor: UIVideoEditorController, didFailWith error: NSError)
   @available(iOS 3.1, *)
   optional func videoEditorControllerDidCancel(editor: UIVideoEditorController)
 }
@@ -8416,13 +8416,13 @@ enum UIUserInterfaceLayoutDirection : Int {
 }
 protocol UICoordinateSpace : NSObjectProtocol {
   @available(iOS 8.0, *)
-  func convertPoint(point: CGPoint, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint
+  func convert(point: CGPoint, to coordinateSpace: UICoordinateSpace) -> CGPoint
   @available(iOS 8.0, *)
-  func convertPoint(point: CGPoint, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint
+  func convert(point: CGPoint, from coordinateSpace: UICoordinateSpace) -> CGPoint
   @available(iOS 8.0, *)
-  func convertRect(rect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect
+  func convert(rect: CGRect, to coordinateSpace: UICoordinateSpace) -> CGRect
   @available(iOS 8.0, *)
-  func convertRect(rect: CGRect, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect
+  func convert(rect: CGRect, from coordinateSpace: UICoordinateSpace) -> CGRect
   @available(iOS 8.0, *)
   var bounds: CGRect { get }
 }
@@ -8443,28 +8443,28 @@ class UIView : UIResponder, NSCoding, UIAppearance, UIAppearanceContainer, UIDyn
   class func layerClass() -> AnyClass
   init(frame: CGRect)
   init?(coder aDecoder: NSCoder)
-  var userInteractionEnabled: Bool
+  var isUserInteractionEnabled: Bool
   var tag: Int
   var layer: CALayer { get }
   @available(iOS 9.0, *)
   func canBecomeFocused() -> Bool
   @available(iOS 9.0, *)
-  var focused: Bool { get }
+  var isFocused: Bool { get }
   @available(iOS 9.0, *)
-  class func userInterfaceLayoutDirectionForSemanticContentAttribute(attribute: UISemanticContentAttribute) -> UIUserInterfaceLayoutDirection
+  class func userInterfaceLayoutDirectionFor(attribute: UISemanticContentAttribute) -> UIUserInterfaceLayoutDirection
   @available(iOS 9.0, *)
   var semanticContentAttribute: UISemanticContentAttribute
   convenience init()
   @available(iOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   @available(iOS 2.0, *)
   class func appearance() -> Self
   @available(iOS 9.0, *)
   class func appearanceWhenContainedInInstancesOfClasses(containerTypes: [AnyObject.Type]) -> Self
   @available(iOS 8.0, *)
-  class func appearanceForTraitCollection(trait: UITraitCollection) -> Self
+  class func appearanceFor(trait: UITraitCollection) -> Self
   @available(iOS 9.0, *)
-  class func appearanceForTraitCollection(trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
+  class func appearanceFor(trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
 
   /**
    The collision type represents how the dynamics system will evaluate collisions with 
@@ -8486,13 +8486,13 @@ class UIView : UIResponder, NSCoding, UIAppearance, UIAppearanceContainer, UIDyn
   @available(iOS 8.0, *)
   func traitCollectionDidChange(previousTraitCollection: UITraitCollection?)
   @available(iOS 8.0, *)
-  func convertPoint(point: CGPoint, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint
+  func convert(point: CGPoint, to coordinateSpace: UICoordinateSpace) -> CGPoint
   @available(iOS 8.0, *)
-  func convertPoint(point: CGPoint, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint
+  func convert(point: CGPoint, from coordinateSpace: UICoordinateSpace) -> CGPoint
   @available(iOS 8.0, *)
-  func convertRect(rect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect
+  func convert(rect: CGRect, to coordinateSpace: UICoordinateSpace) -> CGRect
   @available(iOS 8.0, *)
-  func convertRect(rect: CGRect, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect
+  func convert(rect: CGRect, from coordinateSpace: UICoordinateSpace) -> CGRect
 
   /// The preferred focused view is the view that will be focused when focus is updated programmatically. This includes setting initial focus and forcing updates via -updateFocusIfNeeded. May be self in the case of UIView instances.
   @available(iOS 9.0, *)
@@ -8508,11 +8508,11 @@ class UIView : UIResponder, NSCoding, UIAppearance, UIAppearanceContainer, UIDyn
 
   /// Asks whether the system should allow a focus update to occur.
   @available(iOS 9.0, *)
-  func shouldUpdateFocusInContext(context: UIFocusUpdateContext) -> Bool
+  func shouldUpdateFocusIn(context: UIFocusUpdateContext) -> Bool
 
   /// Called when the screen’s focusedView has been updated to a new view. Use the animation coordinator to schedule focus-related animations in response to the update.
   @available(iOS 9.0, *)
-  func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+  func didUpdateFocusIn(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
 }
 
 extension UIView : _Reflectable {
@@ -8526,14 +8526,14 @@ extension UIView {
   var transform: CGAffineTransform
   @available(iOS 4.0, *)
   var contentScaleFactor: CGFloat
-  var multipleTouchEnabled: Bool
-  var exclusiveTouch: Bool
+  var isMultipleTouchEnabled: Bool
+  var isExclusiveTouch: Bool
   func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView?
   func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool
-  func convertPoint(point: CGPoint, toView view: UIView?) -> CGPoint
-  func convertPoint(point: CGPoint, fromView view: UIView?) -> CGPoint
-  func convertRect(rect: CGRect, toView view: UIView?) -> CGRect
-  func convertRect(rect: CGRect, fromView view: UIView?) -> CGRect
+  func convert(point: CGPoint, to view: UIView?) -> CGPoint
+  func convert(point: CGPoint, from view: UIView?) -> CGPoint
+  func convert(rect: CGRect, to view: UIView?) -> CGRect
+  func convert(rect: CGRect, from view: UIView?) -> CGRect
   var autoresizesSubviews: Bool
   var autoresizingMask: UIViewAutoresizing
   func sizeThatFits(size: CGSize) -> CGSize
@@ -8544,8 +8544,8 @@ extension UIView {
   var subviews: [UIView] { get }
   var window: UIWindow? { get }
   func removeFromSuperview()
-  func insertSubview(view: UIView, atIndex index: Int)
-  func exchangeSubviewAtIndex(index1: Int, withSubviewAtIndex index2: Int)
+  func insertSubview(view: UIView, at index: Int)
+  func exchangeSubviewAt(index1: Int, withSubviewAt index2: Int)
   func addSubview(view: UIView)
   func insertSubview(view: UIView, belowSubview siblingSubview: UIView)
   func insertSubview(view: UIView, aboveSubview siblingSubview: UIView)
@@ -8555,10 +8555,10 @@ extension UIView {
   func willRemoveSubview(subview: UIView)
   func willMoveToSuperview(newSuperview: UIView?)
   func didMoveToSuperview()
-  func willMoveToWindow(newWindow: UIWindow?)
+  func willMoveTo(newWindow: UIWindow?)
   func didMoveToWindow()
-  func isDescendantOfView(view: UIView) -> Bool
-  func viewWithTag(tag: Int) -> UIView?
+  func isDescendantOf(view: UIView) -> Bool
+  func withTag(tag: Int) -> UIView?
   func setNeedsLayout()
   func layoutIfNeeded()
   func layoutSubviews()
@@ -8576,18 +8576,18 @@ extension UIView {
   var readableContentGuide: UILayoutGuide { get }
 }
 extension UIView {
-  func drawRect(rect: CGRect)
+  func draw(rect: CGRect)
   func setNeedsDisplay()
-  func setNeedsDisplayInRect(rect: CGRect)
+  func setNeedsDisplayIn(rect: CGRect)
   var clipsToBounds: Bool
   @NSCopying var backgroundColor: UIColor?
   var alpha: CGFloat
-  var opaque: Bool
+  var isOpaque: Bool
   var clearsContextBeforeDrawing: Bool
-  var hidden: Bool
+  var isHidden: Bool
   var contentMode: UIViewContentMode
   @available(iOS 8.0, *)
-  var maskView: UIView?
+  var mask: UIView?
   @available(iOS 7.0, *)
   var tintColor: UIColor!
   @available(iOS 7.0, *)
@@ -8599,11 +8599,11 @@ extension UIView {
   class func beginAnimations(animationID: String?, context: UnsafeMutablePointer<Void>)
   class func commitAnimations()
   class func setAnimationDelegate(delegate: AnyObject?)
-  class func setAnimationWillStartSelector(selector: Selector)
-  class func setAnimationDidStopSelector(selector: Selector)
+  class func setAnimationWillStart(selector: Selector)
+  class func setAnimationDidStop(selector: Selector)
   class func setAnimationDuration(duration: NSTimeInterval)
   class func setAnimationDelay(delay: NSTimeInterval)
-  class func setAnimationStartDate(startDate: NSDate)
+  class func setAnimationStart(startDate: NSDate)
   class func setAnimationCurve(curve: UIViewAnimationCurve)
   class func setAnimationRepeatCount(repeatCount: Float)
   class func setAnimationRepeatAutoreverses(repeatAutoreverses: Bool)
@@ -8618,23 +8618,23 @@ extension UIView {
 }
 extension UIView {
   @available(iOS 4.0, *)
-  class func animateWithDuration(duration: NSTimeInterval, delay: NSTimeInterval, options: UIViewAnimationOptions, animations: () -> Void, completion: ((Bool) -> Void)?)
+  class func animateWithDuration(duration: NSTimeInterval, delay: NSTimeInterval, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(iOS 4.0, *)
-  class func animateWithDuration(duration: NSTimeInterval, animations: () -> Void, completion: ((Bool) -> Void)?)
+  class func animateWithDuration(duration: NSTimeInterval, animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(iOS 4.0, *)
   class func animateWithDuration(duration: NSTimeInterval, animations: () -> Void)
   @available(iOS 7.0, *)
-  class func animateWithDuration(duration: NSTimeInterval, delay: NSTimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options: UIViewAnimationOptions, animations: () -> Void, completion: ((Bool) -> Void)?)
+  class func animateWithDuration(duration: NSTimeInterval, delay: NSTimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(iOS 4.0, *)
-  class func transitionWithView(view: UIView, duration: NSTimeInterval, options: UIViewAnimationOptions, animations: (() -> Void)?, completion: ((Bool) -> Void)?)
+  class func transitionWith(view: UIView, duration: NSTimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
   @available(iOS 4.0, *)
-  class func transitionFromView(fromView: UIView, toView: UIView, duration: NSTimeInterval, options: UIViewAnimationOptions, completion: ((Bool) -> Void)?)
+  class func transitionFrom(fromView: UIView, to toView: UIView, duration: NSTimeInterval, options: UIViewAnimationOptions = [], completion: ((Bool) -> Void)? = nil)
   @available(iOS 7.0, *)
-  class func performSystemAnimation(animation: UISystemAnimation, onViews views: [UIView], options: UIViewAnimationOptions, animations parallelAnimations: (() -> Void)?, completion: ((Bool) -> Void)?)
+  class func perform(animation: UISystemAnimation, on views: [UIView], options: UIViewAnimationOptions = [], animations parallelAnimations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
 }
 extension UIView {
   @available(iOS 7.0, *)
-  class func animateKeyframesWithDuration(duration: NSTimeInterval, delay: NSTimeInterval, options: UIViewKeyframeAnimationOptions, animations: () -> Void, completion: ((Bool) -> Void)?)
+  class func animateKeyframesWithDuration(duration: NSTimeInterval, delay: NSTimeInterval, options: UIViewKeyframeAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(iOS 7.0, *)
   class func addKeyframeWithRelativeStartTime(frameStartTime: Double, relativeDuration frameDuration: Double, animations: () -> Void)
 }
@@ -8707,21 +8707,21 @@ extension UIView {
   @available(iOS 6.0, *)
   func alignmentRectInsets() -> UIEdgeInsets
   @available(iOS, introduced=6.0, deprecated=9.0, message="Override -viewForFirstBaselineLayout or -viewForLastBaselineLayout as appropriate, instead")
-  func viewForBaselineLayout() -> UIView
+  func forBaselineLayout() -> UIView
   @available(iOS 9.0, *)
-  var viewForFirstBaselineLayout: UIView { get }
+  var forFirstBaselineLayout: UIView { get }
   @available(iOS 9.0, *)
-  var viewForLastBaselineLayout: UIView { get }
+  var forLastBaselineLayout: UIView { get }
   @available(iOS 6.0, *)
   func intrinsicContentSize() -> CGSize
   @available(iOS 6.0, *)
   func invalidateIntrinsicContentSize()
   @available(iOS 6.0, *)
-  func contentHuggingPriorityForAxis(axis: UILayoutConstraintAxis) -> UILayoutPriority
+  func contentHuggingPriorityFor(axis: UILayoutConstraintAxis) -> UILayoutPriority
   @available(iOS 6.0, *)
   func setContentHuggingPriority(priority: UILayoutPriority, forAxis axis: UILayoutConstraintAxis)
   @available(iOS 6.0, *)
-  func contentCompressionResistancePriorityForAxis(axis: UILayoutConstraintAxis) -> UILayoutPriority
+  func contentCompressionResistancePriorityFor(axis: UILayoutConstraintAxis) -> UILayoutPriority
   @available(iOS 6.0, *)
   func setContentCompressionResistancePriority(priority: UILayoutPriority, forAxis axis: UILayoutConstraintAxis)
 }
@@ -8733,9 +8733,9 @@ let UILayoutFittingCompressedSize: CGSize
 let UILayoutFittingExpandedSize: CGSize
 extension UIView {
   @available(iOS 6.0, *)
-  func systemLayoutSizeFittingSize(targetSize: CGSize) -> CGSize
+  func systemLayoutSizeFitting(targetSize: CGSize) -> CGSize
   @available(iOS 8.0, *)
-  func systemLayoutSizeFittingSize(targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize
+  func systemLayoutSizeFitting(targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize
 }
 extension UIView {
   @available(iOS 9.0, *)
@@ -8773,7 +8773,7 @@ extension UIView {
 }
 extension UIView {
   @available(iOS 6.0, *)
-  func constraintsAffectingLayoutForAxis(axis: UILayoutConstraintAxis) -> [NSLayoutConstraint]
+  func constraintsAffectingLayoutFor(axis: UILayoutConstraintAxis) -> [NSLayoutConstraint]
   @available(iOS 6.0, *)
   func hasAmbiguousLayout() -> Bool
   @available(iOS 6.0, *)
@@ -8783,17 +8783,17 @@ extension UIView {
   @available(iOS 6.0, *)
   var restorationIdentifier: String?
   @available(iOS 6.0, *)
-  func encodeRestorableStateWithCoder(coder: NSCoder)
+  func encodeRestorableStateWith(coder: NSCoder)
   @available(iOS 6.0, *)
-  func decodeRestorableStateWithCoder(coder: NSCoder)
+  func decodeRestorableStateWith(coder: NSCoder)
 }
 extension UIView {
   @available(iOS 7.0, *)
   func snapshotViewAfterScreenUpdates(afterUpdates: Bool) -> UIView
   @available(iOS 7.0, *)
-  func resizableSnapshotViewFromRect(rect: CGRect, afterScreenUpdates afterUpdates: Bool, withCapInsets capInsets: UIEdgeInsets) -> UIView
+  func resizableSnapshotViewFrom(rect: CGRect, afterScreenUpdates afterUpdates: Bool, withCapInsets capInsets: UIEdgeInsets) -> UIView
   @available(iOS 7.0, *)
-  func drawViewHierarchyInRect(rect: CGRect, afterScreenUpdates afterUpdates: Bool) -> Bool
+  func drawViewHierarchyIn(rect: CGRect, afterScreenUpdates afterUpdates: Bool) -> Bool
 }
 enum UIModalTransitionStyle : Int {
   init?(rawValue: Int)
@@ -8835,9 +8835,9 @@ protocol UIContentContainer : NSObjectProtocol {
   @available(iOS 8.0, *)
   func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
   @available(iOS 8.0, *)
-  func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func viewWillTransitionTo(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
   @available(iOS 8.0, *)
-  func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func willTransitionTo(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
 }
 @available(iOS 8.0, *)
 let UIViewControllerShowDetailTargetDidChangeNotification: String
@@ -8863,19 +8863,19 @@ class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEn
   @available(iOS 6.0, *)
   func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool
   @available(iOS 5.0, *)
-  func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+  func prepareFor(segue: UIStoryboardSegue, sender: AnyObject?)
   @available(iOS 6.0, *)
-  func canPerformUnwindSegueAction(action: Selector, fromViewController: UIViewController, withSender sender: AnyObject) -> Bool
+  func canPerformUnwindSegueAction(action: Selector, from fromViewController: UIViewController, withSender sender: AnyObject) -> Bool
   @available(iOS 9.0, *)
-  func allowedChildViewControllersForUnwindingFromSource(source: UIStoryboardUnwindSegueSource) -> [UIViewController]
+  func allowedChildViewControllersForUnwindingFrom(source: UIStoryboardUnwindSegueSource) -> [UIViewController]
   @available(iOS 9.0, *)
-  func childViewControllerContainingSegueSource(source: UIStoryboardUnwindSegueSource) -> UIViewController?
+  func childViewControllerContaining(source: UIStoryboardUnwindSegueSource) -> UIViewController?
   @available(iOS, introduced=6.0, deprecated=9.0)
-  func viewControllerForUnwindSegueAction(action: Selector, fromViewController: UIViewController, withSender sender: AnyObject?) -> UIViewController?
+  func forUnwindSegueAction(action: Selector, from fromViewController: UIViewController, withSender sender: AnyObject?) -> UIViewController?
   @available(iOS 9.0, *)
-  func unwindForSegue(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController)
+  func unwindFor(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController)
   @available(iOS, introduced=6.0, deprecated=9.0)
-  func segueForUnwindingToViewController(toViewController: UIViewController, fromViewController: UIViewController, identifier: String?) -> UIStoryboardSegue?
+  func segueForUnwindingTo(toViewController: UIViewController, from fromViewController: UIViewController, identifier: String?) -> UIStoryboardSegue?
   func viewWillAppear(animated: Bool)
   func viewDidAppear(animated: Bool)
   func viewWillDisappear(animated: Bool)
@@ -8886,11 +8886,11 @@ class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEn
   func viewDidLayoutSubviews()
   var title: String?
   func didReceiveMemoryWarning()
-  weak var parentViewController: @sil_weak UIViewController? { get }
+  weak var parent: @sil_weak UIViewController? { get }
   @available(iOS 5.0, *)
-  var presentedViewController: UIViewController? { get }
+  var presented: UIViewController? { get }
   @available(iOS 5.0, *)
-  var presentingViewController: UIViewController? { get }
+  var presenting: UIViewController? { get }
   @available(iOS 5.0, *)
   var definesPresentationContext: Bool
   @available(iOS 5.0, *)
@@ -8904,9 +8904,9 @@ class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEn
   @available(iOS 5.0, *)
   func isMovingFromParentViewController() -> Bool
   @available(iOS 5.0, *)
-  func presentViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?)
+  func present(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil)
   @available(iOS 5.0, *)
-  func dismissViewControllerAnimated(flag: Bool, completion: (() -> Void)?)
+  func dismissViewControllerAnimated(flag: Bool, completion: (() -> Void)? = nil)
   @available(iOS 3.0, *)
   var modalTransitionStyle: UIModalTransitionStyle
   @available(iOS 3.2, *)
@@ -8934,12 +8934,12 @@ class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEn
   @available(iOS 8.0, *)
   func targetViewControllerForAction(action: Selector, sender: AnyObject?) -> UIViewController?
   @available(iOS 8.0, *)
-  func showViewController(vc: UIViewController, sender: AnyObject?)
+  func show(vc: UIViewController, sender: AnyObject?)
   @available(iOS 8.0, *)
   func showDetailViewController(vc: UIViewController, sender: AnyObject?)
   convenience init()
   @available(iOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   @available(iOS 8.0, *)
   var traitCollection: UITraitCollection { get }
 
@@ -8953,9 +8953,9 @@ class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEn
   @available(iOS 8.0, *)
   func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
   @available(iOS 8.0, *)
-  func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func viewWillTransitionTo(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
   @available(iOS 8.0, *)
-  func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func willTransitionTo(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
 
   /// The preferred focused view is the view that will be focused when focus is updated programmatically. This includes setting initial focus and forcing updates via -updateFocusIfNeeded. May be self in the case of UIView instances.
   @available(iOS 9.0, *)
@@ -8971,11 +8971,11 @@ class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEn
 
   /// Asks whether the system should allow a focus update to occur.
   @available(iOS 9.0, *)
-  func shouldUpdateFocusInContext(context: UIFocusUpdateContext) -> Bool
+  func shouldUpdateFocusIn(context: UIFocusUpdateContext) -> Bool
 
   /// Called when the screen’s focusedView has been updated to a new view. Use the animation coordinator to schedule focus-related animations in response to the update.
   @available(iOS 9.0, *)
-  func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+  func didUpdateFocusIn(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
 }
 extension UIViewController {
   @available(iOS 5.0, *)
@@ -8993,14 +8993,14 @@ extension UIViewController {
   @available(iOS, introduced=2.0, deprecated=8.0)
   var interfaceOrientation: UIInterfaceOrientation { get }
   @available(iOS, introduced=2.0, deprecated=8.0, message="Implement viewWillTransitionToSize:withTransitionCoordinator: instead")
-  func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval)
+  func willRotateTo(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval)
   @available(iOS, introduced=2.0, deprecated=8.0)
-  func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation)
+  func didRotateFrom(fromInterfaceOrientation: UIInterfaceOrientation)
   @available(iOS, introduced=3.0, deprecated=8.0, message="Implement viewWillTransitionToSize:withTransitionCoordinator: instead")
-  func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval)
+  func willAnimateRotationTo(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval)
 }
 extension UIViewController {
-  var editing: Bool
+  var isEditing: Bool
   func setEditing(editing: Bool, animated: Bool)
   func editButtonItem() -> UIBarButtonItem
 }
@@ -9018,7 +9018,7 @@ extension UIViewController {
   @available(iOS 5.0, *)
   func removeFromParentViewController()
   @available(iOS 5.0, *)
-  func transitionFromViewController(fromViewController: UIViewController, toViewController: UIViewController, duration: NSTimeInterval, options: UIViewAnimationOptions, animations: (() -> Void)?, completion: ((Bool) -> Void)?)
+  func transitionFrom(fromViewController: UIViewController, to toViewController: UIViewController, duration: NSTimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
   @available(iOS 5.0, *)
   func beginAppearanceTransition(isAppearing: Bool, animated: Bool)
   @available(iOS 5.0, *)
@@ -9048,9 +9048,9 @@ extension UIViewController : UIStateRestoring {
   @available(iOS 6.0, *)
   var restorationClass: AnyObject.Type?
   @available(iOS 6.0, *)
-  func encodeRestorableStateWithCoder(coder: NSCoder)
+  func encodeRestorableStateWith(coder: NSCoder)
   @available(iOS 6.0, *)
-  func decodeRestorableStateWithCoder(coder: NSCoder)
+  func decodeRestorableStateWith(coder: NSCoder)
   @available(iOS 7.0, *)
   func applicationFinishedRestoringState()
   var restorationParent: UIStateRestoring? { get }
@@ -9080,7 +9080,7 @@ extension UIViewController : NSExtensionRequestHandling {
   @available(iOS 8.0, *)
   var extensionContext: NSExtensionContext? { get }
   @available(iOS 8.0, *)
-  func beginRequestWithExtensionContext(context: NSExtensionContext)
+  func beginRequestWith(context: NSExtensionContext)
 }
 extension UIViewController {
   @available(iOS 8.0, *)
@@ -9103,11 +9103,11 @@ protocol UIViewControllerPreviewingDelegate : NSObjectProtocol {
   @available(iOS 9.0, *)
   func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController?
   @available(iOS 9.0, *)
-  func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController)
+  func previewingContext(previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController)
 }
 extension UIViewController {
   @available(iOS 9.0, *)
-  func registerForPreviewingWithDelegate(delegate: UIViewControllerPreviewingDelegate, sourceView: UIView) -> UIViewControllerPreviewing
+  func registerForPreviewingWith(delegate: UIViewControllerPreviewingDelegate, sourceView: UIView) -> UIViewControllerPreviewing
   @available(iOS 9.0, *)
   func unregisterForPreviewingWithContext(previewing: UIViewControllerPreviewing)
 }
@@ -9133,7 +9133,7 @@ class UIPreviewAction : NSObject, NSCopying, UIPreviewActionItem {
   convenience init(title: String, style: UIPreviewActionStyle, handler: (UIPreviewAction, UIViewController) -> Void)
   init()
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 9.0, *)
   var title: String { get }
 }
@@ -9142,7 +9142,7 @@ class UIPreviewActionGroup : NSObject, NSCopying, UIPreviewActionItem {
   convenience init(title: String, style: UIPreviewActionStyle, actions: [UIPreviewAction])
   init()
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 9.0, *)
   var title: String { get }
 }
@@ -9166,10 +9166,10 @@ protocol UIViewControllerTransitionCoordinatorContext : NSObjectProtocol {
   func targetTransform() -> CGAffineTransform
 }
 protocol UIViewControllerTransitionCoordinator : UIViewControllerTransitionCoordinatorContext {
-  func animateAlongsideTransition(animation: ((UIViewControllerTransitionCoordinatorContext) -> Void)?, completion: ((UIViewControllerTransitionCoordinatorContext) -> Void)?) -> Bool
+  func animateAlongsideTransition(animation: ((UIViewControllerTransitionCoordinatorContext) -> Void)?, completion: ((UIViewControllerTransitionCoordinatorContext) -> Void)? = nil) -> Bool
   @available(iOS 2.0, *)
-  func animateAlongsideTransitionInView(view: UIView?, animation: ((UIViewControllerTransitionCoordinatorContext) -> Void)?, completion: ((UIViewControllerTransitionCoordinatorContext) -> Void)?) -> Bool
-  func notifyWhenInteractionEndsUsingBlock(handler: (UIViewControllerTransitionCoordinatorContext) -> Void)
+  func animateAlongsideTransitionIn(view: UIView?, animation: ((UIViewControllerTransitionCoordinatorContext) -> Void)?, completion: ((UIViewControllerTransitionCoordinatorContext) -> Void)? = nil) -> Bool
+  func notifyWhenInteractionEndsUsing(handler: (UIViewControllerTransitionCoordinatorContext) -> Void)
 }
 extension UIViewController {
   @available(iOS 7.0, *)
@@ -9201,9 +9201,9 @@ protocol UIViewControllerContextTransitioning : NSObjectProtocol {
   @available(iOS 8.0, *)
   func targetTransform() -> CGAffineTransform
   @available(iOS 2.0, *)
-  func initialFrameForViewController(vc: UIViewController) -> CGRect
+  func initialFrameFor(vc: UIViewController) -> CGRect
   @available(iOS 2.0, *)
-  func finalFrameForViewController(vc: UIViewController) -> CGRect
+  func finalFrameFor(vc: UIViewController) -> CGRect
 }
 protocol UIViewControllerAnimatedTransitioning : NSObjectProtocol {
   func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
@@ -9217,13 +9217,13 @@ protocol UIViewControllerInteractiveTransitioning : NSObjectProtocol {
 }
 protocol UIViewControllerTransitioningDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
-  optional func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
+  optional func animationControllerForPresentedController(presented: UIViewController, presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
   @available(iOS 2.0, *)
   optional func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning?
   optional func interactionControllerForPresentation(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
   optional func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
   @available(iOS 8.0, *)
-  optional func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController?
+  optional func presentationControllerForPresentedViewController(presented: UIViewController, presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController?
 }
 @available(iOS 7.0, *)
 class UIPercentDrivenInteractiveTransition : NSObject, UIViewControllerInteractiveTransitioning {
@@ -9250,11 +9250,11 @@ enum UIBlurEffectStyle : Int {
 class UIVisualEffect : NSObject, NSCopying, NSSecureCoding {
   init()
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
@@ -9312,7 +9312,7 @@ class UIWebView : UIView, NSCoding, UIScrollViewDelegate {
   var scrollView: UIScrollView { get }
   func loadRequest(request: NSURLRequest)
   func loadHTMLString(string: String, baseURL: NSURL?)
-  func loadData(data: NSData, MIMEType: String, textEncodingName: String, baseURL: NSURL)
+  func load(data: NSData, mimeType MIMEType: String, textEncodingName: String, baseURL: NSURL)
   var request: NSURLRequest? { get }
   func reload()
   func stopLoading()
@@ -9320,8 +9320,8 @@ class UIWebView : UIView, NSCoding, UIScrollViewDelegate {
   func goForward()
   var canGoBack: Bool { get }
   var canGoForward: Bool { get }
-  var loading: Bool { get }
-  func stringByEvaluatingJavaScriptFromString(script: String) -> String?
+  var isLoading: Bool { get }
+  func stringByEvaluatingJavaScriptFrom(script: String) -> String?
   var scalesPageToFit: Bool
   @available(iOS 3.0, *)
   var dataDetectorTypes: UIDataDetectorTypes
@@ -9369,7 +9369,7 @@ class UIWebView : UIView, NSCoding, UIScrollViewDelegate {
   @available(iOS 2.0, *)
   func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?
+  func viewForZoomingIn(scrollView: UIScrollView) -> UIView?
   @available(iOS 3.2, *)
   func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView?)
   @available(iOS 2.0, *)
@@ -9381,13 +9381,13 @@ class UIWebView : UIView, NSCoding, UIScrollViewDelegate {
 }
 protocol UIWebViewDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
-  optional func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool
+  optional func webView(webView: UIWebView, shouldStartLoadWith request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool
   @available(iOS 2.0, *)
   optional func webViewDidStartLoad(webView: UIWebView)
   @available(iOS 2.0, *)
   optional func webViewDidFinishLoad(webView: UIWebView)
   @available(iOS 2.0, *)
-  optional func webView(webView: UIWebView, didFailLoadWithError error: NSError?)
+  optional func webView(webView: UIWebView, didFailLoadWith error: NSError?)
 }
 typealias UIWindowLevel = CGFloat
 @available(iOS 2.0, *)
@@ -9395,18 +9395,18 @@ class UIWindow : UIView {
   @available(iOS 3.2, *)
   var screen: UIScreen
   var windowLevel: UIWindowLevel
-  var keyWindow: Bool { get }
+  var isKeyWindow: Bool { get }
   func becomeKeyWindow()
   func resignKeyWindow()
   func makeKeyWindow()
   func makeKeyAndVisible()
   @available(iOS 4.0, *)
   var rootViewController: UIViewController?
-  func sendEvent(event: UIEvent)
-  func convertPoint(point: CGPoint, toWindow window: UIWindow?) -> CGPoint
-  func convertPoint(point: CGPoint, fromWindow window: UIWindow?) -> CGPoint
-  func convertRect(rect: CGRect, toWindow window: UIWindow?) -> CGRect
-  func convertRect(rect: CGRect, fromWindow window: UIWindow?) -> CGRect
+  func send(event: UIEvent)
+  func convert(point: CGPoint, to window: UIWindow?) -> CGPoint
+  func convert(point: CGPoint, from window: UIWindow?) -> CGPoint
+  func convert(rect: CGRect, to window: UIWindow?) -> CGRect
+  func convert(rect: CGRect, from window: UIWindow?) -> CGRect
   init(frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()

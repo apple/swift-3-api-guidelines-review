@@ -178,7 +178,7 @@ final public class IncompleteListItemsPresenter: NSObject, ListPresenterType {
         
         - parameter listItem: The list item to toggle.
     */
-    public func toggleListItem(listItem: ListItem) {
+    public func toggle(listItem: ListItem) {
         precondition(presentedListItems.contains(listItem), "The list item must already be in the presented list items.")
         
         delegate?.listPresenterWillChangeListLayout(self, isInitialLayout: false)
@@ -187,7 +187,7 @@ final public class IncompleteListItemsPresenter: NSObject, ListPresenterType {
         
         let currentIndex = presentedListItems.indexOf(listItem)!
         
-        delegate?.listPresenter(self, didUpdateListItem: listItem, atIndex: currentIndex)
+        delegate?.listPresenter(self, didUpdateListItem: listItem, at: currentIndex)
         
         delegate?.listPresenterDidChangeListLayout(self, isInitialLayout: false)
     }
@@ -213,7 +213,7 @@ final public class IncompleteListItemsPresenter: NSObject, ListPresenterType {
             
             let indexOfListItem = presentedListItems.indexOf(listItem)!
             
-            delegate?.listPresenter(self, didUpdateListItem: listItem, atIndex: indexOfListItem)
+            delegate?.listPresenter(self, didUpdateListItem: listItem, at: indexOfListItem)
         }
         
         delegate?.listPresenterDidChangeListLayout(self, isInitialLayout: false)

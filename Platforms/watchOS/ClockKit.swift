@@ -2,21 +2,21 @@
 class CLKComplication : NSObject, NSCopying {
   var family: CLKComplicationFamily { get }
   init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 protocol CLKComplicationDataSource : NSObjectProtocol {
-  func getSupportedTimeTravelDirectionsForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTimeTravelDirections) -> Void)
-  optional func getTimelineStartDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void)
-  optional func getTimelineEndDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void)
-  optional func getPrivacyBehaviorForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationPrivacyBehavior) -> Void)
-  optional func getTimelineAnimationBehaviorForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTimelineAnimationBehavior) -> Void)
-  func getCurrentTimelineEntryForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTimelineEntry?) -> Void)
-  optional func getTimelineEntriesForComplication(complication: CLKComplication, beforeDate date: NSDate, limit: Int, withHandler handler: ([CLKComplicationTimelineEntry]?) -> Void)
-  optional func getTimelineEntriesForComplication(complication: CLKComplication, afterDate date: NSDate, limit: Int, withHandler handler: ([CLKComplicationTimelineEntry]?) -> Void)
+  func getSupportedTimeTravelDirectionsFor(complication: CLKComplication, withHandler handler: (CLKComplicationTimeTravelDirections) -> Void)
+  optional func getTimelineStartDateFor(complication: CLKComplication, withHandler handler: (NSDate?) -> Void)
+  optional func getTimelineEndDateFor(complication: CLKComplication, withHandler handler: (NSDate?) -> Void)
+  optional func getPrivacyBehaviorFor(complication: CLKComplication, withHandler handler: (CLKComplicationPrivacyBehavior) -> Void)
+  optional func getTimelineAnimationBehaviorFor(complication: CLKComplication, withHandler handler: (CLKComplicationTimelineAnimationBehavior) -> Void)
+  func getCurrentTimelineEntryFor(complication: CLKComplication, withHandler handler: (CLKComplicationTimelineEntry?) -> Void)
+  optional func getTimelineEntriesFor(complication: CLKComplication, before date: NSDate, limit: Int, withHandler handler: ([CLKComplicationTimelineEntry]?) -> Void)
+  optional func getTimelineEntriesFor(complication: CLKComplication, after date: NSDate, limit: Int, withHandler handler: ([CLKComplicationTimelineEntry]?) -> Void)
   optional func getNextRequestedUpdateDateWithHandler(handler: (NSDate?) -> Void)
   optional func requestedUpdateDidBegin()
   optional func requestedUpdateBudgetExhausted()
-  func getPlaceholderTemplateForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTemplate?) -> Void)
+  func getPlaceholderTemplateFor(complication: CLKComplication, withHandler handler: (CLKComplicationTemplate?) -> Void)
 }
 let CLKComplicationServerActiveComplicationsDidChangeNotification: String
 class CLKComplicationServer : NSObject {
@@ -24,14 +24,14 @@ class CLKComplicationServer : NSObject {
   var activeComplications: [CLKComplication]! { get }
   var earliestTimeTravelDate: NSDate! { get }
   var latestTimeTravelDate: NSDate! { get }
-  func reloadTimelineForComplication(complication: CLKComplication!)
-  func extendTimelineForComplication(complication: CLKComplication!)
+  func reloadTimelineFor(complication: CLKComplication!)
+  func extendTimelineFor(complication: CLKComplication!)
   init()
 }
 class CLKComplicationTemplate : NSObject, NSCopying {
   @NSCopying var tintColor: UIColor?
   init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 class CLKComplicationTemplateModularSmallSimpleText : CLKComplicationTemplate {
   @NSCopying var textProvider: CLKTextProvider
@@ -56,13 +56,13 @@ class CLKComplicationTemplateModularSmallRingImage : CLKComplicationTemplate {
 class CLKComplicationTemplateModularSmallStackText : CLKComplicationTemplate {
   @NSCopying var line1TextProvider: CLKTextProvider
   @NSCopying var line2TextProvider: CLKTextProvider
-  var highlightLine2: Bool
+  var isHighlightLine2: Bool
   init()
 }
 class CLKComplicationTemplateModularSmallStackImage : CLKComplicationTemplate {
   @NSCopying var line1ImageProvider: CLKImageProvider
   @NSCopying var line2TextProvider: CLKTextProvider
-  var highlightLine2: Bool
+  var isHighlightLine2: Bool
   init()
 }
 class CLKComplicationTemplateModularSmallColumnsText : CLKComplicationTemplate {
@@ -71,7 +71,7 @@ class CLKComplicationTemplateModularSmallColumnsText : CLKComplicationTemplate {
   @NSCopying var row2Column1TextProvider: CLKTextProvider
   @NSCopying var row2Column2TextProvider: CLKTextProvider
   var column2Alignment: CLKComplicationColumnAlignment
-  var highlightColumn2: Bool
+  var isHighlightColumn2: Bool
   init()
 }
 class CLKComplicationTemplateModularLargeStandardBody : CLKComplicationTemplate {
@@ -237,12 +237,12 @@ class CLKImageProvider : NSObject, NSCopying {
   /// Text for accessibility.
   var accessibilityLabel: String?
   init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 class CLKTextProvider : NSObject, NSCopying {
   var tintColor: UIColor
   init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 class CLKSimpleTextProvider : CLKTextProvider {
   convenience init(text: String)
@@ -269,8 +269,8 @@ class CLKTimeTextProvider : CLKTextProvider {
   init()
 }
 class CLKTimeIntervalTextProvider : CLKTextProvider {
-  convenience init(startDate: NSDate, endDate: NSDate)
-  convenience init(startDate: NSDate, endDate: NSDate, timeZone: NSTimeZone?)
+  convenience init(start startDate: NSDate, end endDate: NSDate)
+  convenience init(start startDate: NSDate, end endDate: NSDate, timeZone: NSTimeZone?)
   var startDate: NSDate
   var endDate: NSDate
   var timeZone: NSTimeZone?

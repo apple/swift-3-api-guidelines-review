@@ -1,9 +1,9 @@
 
 protocol PHContentEditingController : NSObjectProtocol {
   @available(iOS 8.0, *)
-  func canHandleAdjustmentData(adjustmentData: PHAdjustmentData!) -> Bool
+  func canHandle(adjustmentData: PHAdjustmentData!) -> Bool
   @available(iOS 8.0, *)
-  func startContentEditingWithInput(contentEditingInput: PHContentEditingInput!, placeholderImage: UIImage!)
+  func startContentEditingWith(contentEditingInput: PHContentEditingInput!, placeholderImage: UIImage!)
   @available(iOS 8.0, *)
   func finishContentEditingWithCompletionHandler(completionHandler: ((PHContentEditingOutput!) -> Void)!)
   func cancelContentEditing()
@@ -32,18 +32,18 @@ enum PHLivePhotoViewPlaybackStyle : Int {
 class PHLivePhotoView : UIView {
 
   /// System badge images representing Live Photo content
-  class func livePhotoBadgeImageWithOptions(badgeOptions: PHLivePhotoBadgeOptions) -> UIImage
+  class func livePhotoBadgeImage(options badgeOptions: PHLivePhotoBadgeOptions = []) -> UIImage
   weak var delegate: @sil_weak PHLivePhotoViewDelegate?
 
   /// Live photo displayed in the receiver.
   var livePhoto: PHLivePhoto?
 
   /// Indicates whether the audio of the Live Photo is muted.
-  var muted: Bool
+  var isMuted: Bool
 
   /// Gesture used to trigger playback. By default, added to the receiver. Can be moved to a different view.
   var playbackGestureRecognizer: UIGestureRecognizer { get }
-  func startPlaybackWithStyle(playbackStyle: PHLivePhotoViewPlaybackStyle)
+  func startPlaybackWith(playbackStyle: PHLivePhotoViewPlaybackStyle)
   func stopPlayback()
   init(frame: CGRect)
   init?(coder aDecoder: NSCoder)
@@ -51,7 +51,7 @@ class PHLivePhotoView : UIView {
 }
 protocol PHLivePhotoViewDelegate : NSObjectProtocol {
   @available(iOS 9.1, *)
-  optional func livePhotoView(livePhotoView: PHLivePhotoView, willBeginPlaybackWithStyle playbackStyle: PHLivePhotoViewPlaybackStyle)
+  optional func livePhotoView(livePhotoView: PHLivePhotoView, willBeginPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle)
   @available(iOS 9.1, *)
-  optional func livePhotoView(livePhotoView: PHLivePhotoView, didEndPlaybackWithStyle playbackStyle: PHLivePhotoViewPlaybackStyle)
+  optional func livePhotoView(livePhotoView: PHLivePhotoView, didEndPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle)
 }

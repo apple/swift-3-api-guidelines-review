@@ -5733,7 +5733,7 @@ class DRDevice : NSObject {
   	@param			otherDevice	Another DRDevice instance to compare to the receiver.
   	@result			Returns <i>YES</i> if the receiver is equal to otherDevice.
   */
-  func isEqualToDevice(otherDevice: DRDevice!) -> Bool
+  func isEqualTo(otherDevice: DRDevice!) -> Bool
   init()
 }
 extension DRDevice {
@@ -8030,7 +8030,7 @@ protocol DRFileDataProduction {
      	@param			estimate	If the file size should be estimated or exact.
       @result  		The length of the file's fork.
   */
-  func calculateSizeOfFile(file: DRFile!, fork: DRFileFork, estimating estimate: Bool) -> UInt64
+  func calculateSizeOf(file: DRFile!, fork: DRFileFork, estimating estimate: Bool) -> UInt64
 
   /*! 
      	@method 		prepareFileForBurn:
@@ -8068,7 +8068,7 @@ protocol DRFileDataProduction {
      	@param			blockSize	The size of the track blocks
   	@result			The number of bytes produced.
   */
-  func produceFile(file: DRFile!, fork: DRFileFork, intoBuffer buffer: UnsafeMutablePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32) -> UInt32
+  func produce(file: DRFile!, fork: DRFileFork, intoBuffer buffer: UnsafeMutablePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32) -> UInt32
 
   /*! 
      	@method 		prepareFileForVerification:
@@ -8237,7 +8237,7 @@ class DRMSF : NSNumber {
   	@abstract	Creates an msf object initialized to the value represented by string
   	@result		An autoreleased DRMSF object.
   */
-  class func msfWithString(string: String!) -> DRMSF!
+  class func msfWith(string: String!) -> DRMSF!
 
   /*!
   	@method		initWithFrames
@@ -8346,7 +8346,7 @@ class DRMSF : NSNumber {
   	@param		otherDRMSF	The msf to compare to the receiver
   	@result		<i>YES</i> if the two object are equal, <i>NO</i> otherwise.
   */
-  func isEqualToMSF(otherDRMSF: DRMSF!) -> Bool
+  func isEqualTo(otherDRMSF: DRMSF!) -> Bool
   init?(coder aDecoder: NSCoder)
   init(char value: Int8)
   init(unsignedChar value: UInt8)
@@ -8452,7 +8452,7 @@ class DRNotificationCenter : NSObject {
   					on another run loop, this method must be called from that runloop.
   	@result			A shared DRNotificationCenter object.
   */
-  class func currentRunLoopCenter() -> DRNotificationCenter!
+  class func currentRunLoop() -> DRNotificationCenter!
 
   /*!
   	@method			addObserver:selector:name:object:
@@ -8937,7 +8937,7 @@ protocol DRTrackDataProduction {
   	@result			The number of blocks of data that the track will occupy. The estimate should be 
   					reasonably accurate, and no smaller than the actual size that will be needed.
   */
-  func estimateLengthOfTrack(track: DRTrack!) -> UInt64
+  func estimateLengthOf(track: DRTrack!) -> UInt64
 
   /*!
   	@method			prepareTrack:forBurn:toMedia:
@@ -8954,7 +8954,7 @@ protocol DRTrackDataProduction {
   	@result			<i>YES</i> to indicate that the burn should proceed and <i>NO</i> to indicate a failure occurred.
   */
   @available(OSX 10.0, *)
-  func prepareTrack(track: DRTrack!, forBurn burn: DRBurn!, toMedia mediaInfo: [NSObject : AnyObject]!) -> Bool
+  func prepare(track: DRTrack!, forBurn burn: DRBurn!, toMedia mediaInfo: [NSObject : AnyObject]!) -> Bool
 
   /*!
   	@method			cleanupTrackAfterBurn:
@@ -8992,7 +8992,7 @@ protocol DRTrackDataProduction {
   	@param			flags	flags
   	@result			The number of bytes produced.
   */
-  func producePreGapForTrack(track: DRTrack!, intoBuffer buffer: UnsafeMutablePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> UInt32
+  func producePreGapFor(track: DRTrack!, intoBuffer buffer: UnsafeMutablePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> UInt32
 
   /*!
   	@method			produceDataForTrack:intoBuffer:length:atAddress:blockSize:ioFlags:
@@ -9014,7 +9014,7 @@ protocol DRTrackDataProduction {
   	@param			flags	flags
   	@result			The number of bytes produced.
   */
-  func produceDataForTrack(track: DRTrack!, intoBuffer buffer: UnsafeMutablePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> UInt32
+  func produceDataFor(track: DRTrack!, intoBuffer buffer: UnsafeMutablePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> UInt32
 
   /*!
   	@method			prepareTrackForVerification:
@@ -9043,7 +9043,7 @@ protocol DRTrackDataProduction {
   	@param			flags	flags
   	@result			<i>YES</i> to indicate that the data compared successfully and <i>NO</i> to indicate a failure occurred.
   */
-  func verifyPreGapForTrack(track: DRTrack!, inBuffer buffer: UnsafePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> Bool
+  func verifyPreGapFor(track: DRTrack!, inBuffer buffer: UnsafePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> Bool
 
   /*!
   	@method			verifyDataForTrack:inBuffer:length:atAddress:blockSize:ioFlags:
@@ -9061,7 +9061,7 @@ protocol DRTrackDataProduction {
   	@param			flags	flags
   	@result			<i>YES</i> to indicate that the data compared successfully and <i>NO</i> to indicate a failure occurred.
   */
-  func verifyDataForTrack(track: DRTrack!, inBuffer buffer: UnsafePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> Bool
+  func verifyDataFor(track: DRTrack!, inBuffer buffer: UnsafePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> Bool
 
   /*!
   	@method			cleanupTrackAfterVerification:

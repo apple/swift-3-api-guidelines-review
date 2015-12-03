@@ -31,6 +31,6 @@ class NSExceptionHandler : NSObject {
 extension NSObject {
   class func exceptionHandler(sender: NSExceptionHandler!, shouldLogException exception: NSException!, mask aMask: Int) -> Bool
   func exceptionHandler(sender: NSExceptionHandler!, shouldLogException exception: NSException!, mask aMask: Int) -> Bool
-  class func exceptionHandler(sender: NSExceptionHandler!, shouldHandleException exception: NSException!, mask aMask: Int) -> Bool
-  func exceptionHandler(sender: NSExceptionHandler!, shouldHandleException exception: NSException!, mask aMask: Int) -> Bool
+  class func exceptionHandler(sender: NSExceptionHandler!, shouldHandle exception: NSException!, mask aMask: Int) -> Bool
+  func exceptionHandler(sender: NSExceptionHandler!, shouldHandle exception: NSException!, mask aMask: Int) -> Bool
 }

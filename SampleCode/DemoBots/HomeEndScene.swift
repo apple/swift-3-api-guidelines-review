@@ -40,33 +40,33 @@ class HomeEndScene: BaseScene {
     
     // MARK: Scene Life Cycle
 
-    override func didMoveToView(view: SKView) {
-        super.didMoveToView(view)
+    override func didMoveTo(view: SKView) {
+        super.didMoveTo(view)
 
         #if os(iOS)
-        screenRecorderButton?.isSelected = screenRecordingToggleEnabled
+        screenRecorderButton?.isSelected = isScreenRecordingToggleEnabled
         #else
-        screenRecorderButton?.hidden = true
+        screenRecorderButton?.isHidden = true
         #endif
         
         // Enable focus based navigation. 
         focusChangesEnabled = true
         
         registerForNotifications()
-        centerCameraOnPoint(backgroundNode!.position)
+        centerCameraOn(backgroundNode!.position)
         
         // Begin loading the first level as soon as the view appears.
-        sceneManager.prepareSceneWithSceneIdentifier(.Level(1))
+        sceneManager.prepareSceneWith(.Level(1))
         
-        let levelLoader = sceneManager.sceneLoaderForSceneIdentifier(.Level(1))
+        let levelLoader = sceneManager.sceneLoaderFor(.Level(1))
         
         // If the first level is not ready, hide the buttons until we are notified.
         if !(levelLoader.stateMachine.currentState is SceneLoaderResourcesReadyState) {
             proceedButton?.alpha = 0.0
-            proceedButton?.userInteractionEnabled = false
+            proceedButton?.isUserInteractionEnabled = false
             
             screenRecorderButton?.alpha = 0.0
-            screenRecorderButton?.userInteractionEnabled = false
+            screenRecorderButton?.isUserInteractionEnabled = false
         }
     }
     
@@ -81,15 +81,15 @@ class HomeEndScene: BaseScene {
             // Show the proceed button if the `sceneLoader` pertains to a `LevelScene`.
             if sceneLoader.sceneMetadata.sceneType is LevelScene.Type {
                 // Allow the proceed and screen to be tapped or clicked.
-                self.proceedButton?.userInteractionEnabled = true
-                self.screenRecorderButton?.userInteractionEnabled = true
+                self.proceedButton?.isUserInteractionEnabled = true
+                self.screenRecorderButton?.isUserInteractionEnabled = true
                 
                 // Fade in the proceed and screen recorder buttons.
-                self.screenRecorderButton?.runAction(SKAction.fadeInWithDuration(1.0))
+                self.screenRecorderButton?.run(SKAction.fadeInWithDuration(1.0))
                 
                 // Clear the initial `proceedButton` focus.
                 self.proceedButton?.isFocused = false
-                self.proceedButton?.runAction(SKAction.fadeInWithDuration(1.0)) {
+                self.proceedButton?.run(SKAction.fadeInWithDuration(1.0)) {
                     // Indicate that the `proceedButton` is focused.
                     self.resetFocus()
                 }
@@ -97,8 +97,8 @@ class HomeEndScene: BaseScene {
         }
         
         // Register for scene loader notifications.
-        let completeNotification = NSNotificationCenter.defaultCenter().addObserverForName(SceneLoaderDidCompleteNotification, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: handleSceneLoaderNotification)
-        let failNotification = NSNotificationCenter.defaultCenter().addObserverForName(SceneLoaderDidFailNotification, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: handleSceneLoaderNotification)
+        let completeNotification = NSNotificationCenter.defaultCenter().addObserverForName(SceneLoaderDidCompleteNotification, object: nil, queue: NSOperationQueue.main(), usingBlock: handleSceneLoaderNotification)
+        let failNotification = NSNotificationCenter.defaultCenter().addObserverForName(SceneLoaderDidFailNotification, object: nil, queue: NSOperationQueue.main(), usingBlock: handleSceneLoaderNotification)
         
         // Keep track of the notifications we are registered to so we can remove them in `deinit`.
         sceneLoaderNotificationObservers += [completeNotification, failNotification]

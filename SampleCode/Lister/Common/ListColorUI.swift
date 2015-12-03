@@ -21,7 +21,7 @@ private typealias AppColor = NSColor
 
 public extension List.Color {
     private static let colorMapping = [
-        List.Color.Gray:   AppColor.darkGrayColor(),
+        List.Color.Gray:   AppColor.darkGray(),
         List.Color.Blue:   AppColor(red: 0.42, green: 0.70, blue: 0.88, alpha: 1),
         List.Color.Green:  AppColor(red: 0.71, green: 0.84, blue: 0.31, alpha: 1),
         List.Color.Yellow: AppColor(red: 0.95, green: 0.88, blue: 0.15, alpha: 1),
@@ -30,7 +30,7 @@ public extension List.Color {
     ]
     
     private static let notificationCenterColorMapping = [
-        List.Color.Gray:   AppColor.lightGrayColor(),
+        List.Color.Gray:   AppColor.lightGray(),
         List.Color.Blue:   AppColor(red: 0.42, green: 0.70, blue: 0.88, alpha: 1),
         List.Color.Green:  AppColor(red: 0.71, green: 0.84, blue: 0.31, alpha: 1),
         List.Color.Yellow: AppColor(red: 0.95, green: 0.88, blue: 0.15, alpha: 1),

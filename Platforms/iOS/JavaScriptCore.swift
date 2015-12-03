@@ -131,7 +131,7 @@ class JSContext : NSObject {
    a callback from JavaScript this method will return nil.
   @result The currently executing JSContext or nil if there isn't one.
   */
-  class func currentContext() -> JSContext!
+  class func current() -> JSContext!
 
   /*!
   @method
@@ -249,14 +249,14 @@ extension JSContext {
   @param jsGlobalContextRef
   @result The JSContext equivalent of the provided JSGlobalContextRef.
   */
-  /*not inherited*/ init!(JSGlobalContextRef jsGlobalContextRef: JSGlobalContextRef)
+  /*not inherited*/ init!(jsGlobalContextRef: JSGlobalContextRef)
 
   /*!
   @property
   @abstract Get the C API counterpart wrapped by a JSContext.
   @result The C API equivalent of this JSContext.
   */
-  var JSGlobalContextRef: JSGlobalContextRef { get }
+  var jsGlobalContextRef: JSGlobalContextRef { get }
 }
 
 /*!
@@ -1293,7 +1293,7 @@ class JSValue : NSObject {
   @param value The Objective-C object to be converted.
   @result The new JSValue.
   */
-  /*not inherited*/ init!(object value: AnyObject!, inContext context: JSContext!)
+  /*not inherited*/ init!(object value: AnyObject!, `in` context: JSContext!)
 
   /*!
   @method
@@ -1302,7 +1302,7 @@ class JSValue : NSObject {
   @param context The JSContext in which the resulting JSValue will be created.
   @result The new JSValue representing the equivalent boolean value.
   */
-  /*not inherited*/ init!(bool value: Bool, inContext context: JSContext!)
+  /*not inherited*/ init!(bool value: Bool, `in` context: JSContext!)
 
   /*!
   @method
@@ -1311,7 +1311,7 @@ class JSValue : NSObject {
   @param context The JSContext in which the resulting JSValue will be created.
   @result The new JSValue representing the equivalent boolean value.
   */
-  /*not inherited*/ init!(double value: Double, inContext context: JSContext!)
+  /*not inherited*/ init!(double value: Double, `in` context: JSContext!)
 
   /*!
   @method
@@ -1320,7 +1320,7 @@ class JSValue : NSObject {
   @param context The JSContext in which the resulting JSValue will be created.
   @result The new JSValue representing the equivalent boolean value.
   */
-  /*not inherited*/ init!(int32 value: Int32, inContext context: JSContext!)
+  /*not inherited*/ init!(int32 value: Int32, `in` context: JSContext!)
 
   /*!
   @method
@@ -1329,7 +1329,7 @@ class JSValue : NSObject {
   @param context The JSContext in which the resulting JSValue will be created.
   @result The new JSValue representing the equivalent boolean value.
   */
-  /*not inherited*/ init!(UInt32 value: UInt32, inContext context: JSContext!)
+  /*not inherited*/ init!(uInt32 value: UInt32, `in` context: JSContext!)
 
   /*!
   @method
@@ -1337,7 +1337,7 @@ class JSValue : NSObject {
   @param context The JSContext in which the resulting object will be created.
   @result The new JavaScript object.
   */
-  /*not inherited*/ init!(newObjectInContext context: JSContext!)
+  /*not inherited*/ init!(newObjectIn context: JSContext!)
 
   /*!
   @method
@@ -1345,7 +1345,7 @@ class JSValue : NSObject {
   @param context The JSContext in which the resulting array will be created.
   @result The new JavaScript array.
   */
-  /*not inherited*/ init!(newArrayInContext context: JSContext!)
+  /*not inherited*/ init!(newArrayIn context: JSContext!)
 
   /*!
   @method
@@ -1355,7 +1355,7 @@ class JSValue : NSObject {
   @param context The JSContext in which the resulting regular expression object will be created.
   @result The new JavaScript regular expression object.
   */
-  /*not inherited*/ init!(newRegularExpressionFromPattern pattern: String!, flags: String!, inContext context: JSContext!)
+  /*not inherited*/ init!(newRegularExpressionFromPattern pattern: String!, flags: String!, `in` context: JSContext!)
 
   /*!
   @method
@@ -1364,7 +1364,7 @@ class JSValue : NSObject {
   @param context The JSContext in which the resulting error object will be created.
   @result The new JavaScript error object.
   */
-  /*not inherited*/ init!(newErrorFromMessage message: String!, inContext context: JSContext!)
+  /*not inherited*/ init!(newErrorFromMessage message: String!, `in` context: JSContext!)
 
   /*!
   @method
@@ -1372,7 +1372,7 @@ class JSValue : NSObject {
   @param context The JSContext to which the resulting JSValue belongs.
   @result The JSValue representing the JavaScript value <code>null</code>.
   */
-  /*not inherited*/ init!(nullInContext context: JSContext!)
+  /*not inherited*/ init!(nullIn context: JSContext!)
 
   /*!
   @method
@@ -1380,7 +1380,7 @@ class JSValue : NSObject {
   @param context The JSContext to which the resulting JSValue belongs.
   @result The JSValue representing the JavaScript value <code>undefined</code>.
   */
-  /*not inherited*/ init!(undefinedInContext context: JSContext!)
+  /*not inherited*/ init!(undefinedIn context: JSContext!)
 
   /*!
   @methodgroup Converting to Objective-C Types
@@ -1444,7 +1444,7 @@ class JSValue : NSObject {
    If the result is not of the specified Class then <code>nil</code> will be returned.
   @result An Objective-C object of the specified Class or <code>nil</code>.
   */
-  func toObjectOfClass(expectedClass: AnyClass!) -> AnyObject!
+  func toObjectOf(expectedClass: AnyClass!) -> AnyObject!
 
   /*!
   @method
@@ -1545,7 +1545,7 @@ class JSValue : NSObject {
   @result The JSValue for the requested property or the JSValue <code>undefined</code> 
    if the property does not exist.
   */
-  func valueForProperty(property: String!) -> JSValue!
+  func forProperty(property: String!) -> JSValue!
 
   /*!
   @method
@@ -1583,7 +1583,7 @@ class JSValue : NSObject {
   @result The JSValue for the property at the specified index. 
    Returns the JavaScript value <code>undefined</code> if no property exists at that index. 
   */
-  func valueAtIndex(index: Int) -> JSValue!
+  func atIndex(index: Int) -> JSValue!
 
   /*!
   @method
@@ -1591,7 +1591,7 @@ class JSValue : NSObject {
   @discussion For JSValues that are JavaScript arrays, indices greater than 
    UINT_MAX - 1 will not affect the length of the array.
   */
-  func setValue(value: AnyObject!, atIndex index: Int)
+  func setValue(value: AnyObject!, at index: Int)
 
   /*!
   @methodgroup Checking JavaScript Types
@@ -1653,13 +1653,13 @@ class JSValue : NSObject {
   @method
   @abstract Compare two JSValues using JavaScript's <code>===</code> operator.
   */
-  func isEqualToObject(value: AnyObject!) -> Bool
+  func isEqualTo(value: AnyObject!) -> Bool
 
   /*!
   @method
   @abstract Compare two JSValues using JavaScript's <code>==</code> operator.
   */
-  func isEqualWithTypeCoercionToObject(value: AnyObject!) -> Bool
+  func isEqualWithTypeCoercionTo(value: AnyObject!) -> Bool
 
   /*!
   @method
@@ -1713,7 +1713,7 @@ extension JSValue {
   @result A newly allocated JavaScript object containing properties
    named <code>x</code> and <code>y</code>, with values from the CGPoint.
   */
-  /*not inherited*/ init!(point: CGPoint, inContext context: JSContext!)
+  /*not inherited*/ init!(point: CGPoint, `in` context: JSContext!)
 
   /*!
   @method
@@ -1721,7 +1721,7 @@ extension JSValue {
   @result A newly allocated JavaScript object containing properties
    named <code>location</code> and <code>length</code>, with values from the NSRange.
   */
-  /*not inherited*/ init!(range: NSRange, inContext context: JSContext!)
+  /*not inherited*/ init!(range: NSRange, `in` context: JSContext!)
 
   /*!
   @method
@@ -1730,7 +1730,7 @@ extension JSValue {
   @result A newly allocated JavaScript object containing properties
    named <code>x</code>, <code>y</code>, <code>width</code>, and <code>height</code>, with values from the CGRect.
   */
-  /*not inherited*/ init!(rect: CGRect, inContext context: JSContext!)
+  /*not inherited*/ init!(rect: CGRect, `in` context: JSContext!)
 
   /*!
   @method
@@ -1738,7 +1738,7 @@ extension JSValue {
   @result A newly allocated JavaScript object containing properties
    named <code>width</code> and <code>height</code>, with values from the CGSize.
   */
-  /*not inherited*/ init!(size: CGSize, inContext context: JSContext!)
+  /*not inherited*/ init!(size: CGSize, `in` context: JSContext!)
 
   /*!
   @method
@@ -1791,14 +1791,14 @@ extension JSValue {
   @param context
   @result The Objective-C API equivalent of the specified JSValueRef.
   */
-  /*not inherited*/ init!(JSValueRef value: JSValueRef, inContext context: JSContext!)
+  /*not inherited*/ init!(jsValueRef value: JSValueRef, `in` context: JSContext!)
 
   /*!
   @property
   @abstract Returns the C API counterpart wrapped by a JSContext.
   @result The C API equivalent of this JSValue.
   */
-  var JSValueRef: JSValueRef { get }
+  var jsValueRef: JSValueRef { get }
 }
 
 /*!

@@ -58,15 +58,15 @@ protocol CNContactPickerDelegate : NSObjectProtocol {
    * @abstract Singular delegate methods.
    * @discussion These delegate methods will be invoked when the user selects a single contact or property.
    */
-  optional func contactPicker(picker: CNContactPickerViewController, didSelectContact contact: CNContact)
-  optional func contactPicker(picker: CNContactPickerViewController, didSelectContactProperty contactProperty: CNContactProperty)
+  optional func contactPicker(picker: CNContactPickerViewController, didSelect contact: CNContact)
+  optional func contactPicker(picker: CNContactPickerViewController, didSelect contactProperty: CNContactProperty)
 
   /*!
    * @abstract Plural delegate methods.
    * @discussion These delegate methods will be invoked when the user is done selecting multiple contacts or properties.
    * Implementing one of these methods will configure the picker for multi-selection.
    */
-  optional func contactPicker(picker: CNContactPickerViewController, didSelectContacts contacts: [CNContact])
+  optional func contactPicker(picker: CNContactPickerViewController, didSelect contacts: [CNContact])
   optional func contactPicker(picker: CNContactPickerViewController, didSelectContactProperties contactProperties: [CNContactProperty])
 }
 
@@ -163,7 +163,7 @@ protocol CNContactViewControllerDelegate : NSObjectProtocol {
    * @discussion Return NO if you do not want anything to be done or if you are handling the actions yourself.
    * Return YES if you want the default action performed for the property otherwise return NO.
    */
-  optional func contactViewController(viewController: CNContactViewController, shouldPerformDefaultActionForContactProperty property: CNContactProperty) -> Bool
+  optional func contactViewController(viewController: CNContactViewController, shouldPerformDefaultActionFor property: CNContactProperty) -> Bool
 
   /*!
    * @abstract Called when the view has completed.
@@ -171,7 +171,7 @@ protocol CNContactViewControllerDelegate : NSObjectProtocol {
    * If adding to an existing contact, the existing contact will be passed.
    * @note It is up to the delegate to dismiss the view controller.
    */
-  optional func contactViewController(viewController: CNContactViewController, didCompleteWithContact contact: CNContact?)
+  optional func contactViewController(viewController: CNContactViewController, didCompleteWith contact: CNContact?)
 }
 extension UIApplicationShortcutIcon {
   convenience init(contact: CNContact)

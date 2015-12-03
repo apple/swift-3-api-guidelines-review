@@ -8,7 +8,7 @@ class MLMediaGroup : NSObject {
   var typeIdentifier: String { get }
   var attributes: [String : AnyObject] { get }
   var childGroups: [MLMediaGroup]? { get }
-  @NSCopying var URL: NSURL? { get }
+  @NSCopying var url: NSURL? { get }
   @NSCopying var modificationDate: NSDate? { get }
   var mediaObjects: [MLMediaObject]? { get }
   init()
@@ -45,7 +45,7 @@ class MLMediaObject : NSObject {
   var mediaType: MLMediaType { get }
   var contentType: String? { get }
   var name: String? { get }
-  @NSCopying var URL: NSURL? { get }
+  @NSCopying var url: NSURL? { get }
   @NSCopying var originalURL: NSURL? { get }
   var fileSize: Int { get }
   @NSCopying var modificationDate: NSDate? { get }

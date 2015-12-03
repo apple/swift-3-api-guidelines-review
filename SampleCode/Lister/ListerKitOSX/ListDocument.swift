@@ -31,7 +31,7 @@ public class ListDocument: NSDocument {
 
     // MARK: Initializers
 
-    public convenience init(contentsOfURL URL: NSURL, makesCustomWindowControllers: Bool) throws {
+    public convenience init(contentsOf URL: NSURL, makesCustomWindowControllers: Bool) throws {
         try self.init(contentsOfURL: URL, ofType: AppConfiguration.listerFileExtension)
 
         self.makesCustomWindowControllers = makesCustomWindowControllers
@@ -67,8 +67,8 @@ public class ListDocument: NSDocument {
     
     // MARK: Serialization / Deserialization
     
-    override public func readFromData(data: NSData, ofType typeName: String) throws {
-        unarchivedList = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? List
+    override public func readFrom(data: NSData, ofType typeName: String) throws {
+        unarchivedList = NSKeyedUnarchiver.unarchiveObjectWith(data) as? List
 
         if let unarchivedList = unarchivedList {
             listPresenter?.setList(unarchivedList)
@@ -99,7 +99,7 @@ public class ListDocument: NSDocument {
         super.updateUserActivityState(userActivity)
 
         // Store the list's color in the user activity to be able to quickly present a list when it's viewed.
-        userActivity.addUserInfoEntriesFromDictionary([
+        userActivity.addUserInfoEntriesFrom([
             AppConfiguration.UserActivity.listColorUserInfoKey: listPresenter!.color.rawValue
         ])
     }

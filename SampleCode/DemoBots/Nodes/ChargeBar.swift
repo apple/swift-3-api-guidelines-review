@@ -22,10 +22,10 @@ class ChargeBar: SKSpriteNode {
         static let levelUpdateDuration: NSTimeInterval = 0.1
         
         /// The background color.
-        static let backgroundColor = SKColor.blackColor()
+        static let backgroundColor = SKColor.black()
         
         /// The charge level node color.
-        static let chargeLevelColor = SKColor.greenColor()
+        static let chargeLevelColor = SKColor.green()
     }
     
     // MARK: Properties
@@ -36,7 +36,7 @@ class ChargeBar: SKSpriteNode {
             let action = SKAction.scaleXTo(CGFloat(level), duration: Configuration.levelUpdateDuration)
             action.timingMode = .EaseInEaseOut
 
-            chargeLevelNode.runAction(action)
+            chargeLevelNode.run(action)
         }
     }
     

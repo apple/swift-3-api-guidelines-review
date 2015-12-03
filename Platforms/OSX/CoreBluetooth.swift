@@ -145,7 +145,7 @@ class CBCentral : NSObject, NSCopying {
   var maximumUpdateValueLength: Int { get }
   init()
   @available(OSX 10.9, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -298,7 +298,7 @@ class CBCentralManager : NSObject {
    *  @seealso            CBConnectPeripheralOptionNotifyOnNotificationKey
    *
    */
-  func connectPeripheral(peripheral: CBPeripheral, options: [String : AnyObject]?)
+  func connect(peripheral: CBPeripheral, options: [String : AnyObject]?)
 
   /*!
    *  @method cancelPeripheralConnection:
@@ -396,7 +396,7 @@ protocol CBCentralManagerDelegate : NSObjectProtocol {
    *
    */
   @available(OSX 10.7, *)
-  optional func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber)
+  optional func centralManager(central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : AnyObject], rssi RSSI: NSNumber)
 
   /*!
    *  @method centralManager:didConnectPeripheral:
@@ -408,7 +408,7 @@ protocol CBCentralManagerDelegate : NSObjectProtocol {
    *
    */
   @available(OSX 10.7, *)
-  optional func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral)
+  optional func centralManager(central: CBCentralManager, didConnect peripheral: CBPeripheral)
 
   /*!
    *  @method centralManager:didFailToConnectPeripheral:error:
@@ -422,7 +422,7 @@ protocol CBCentralManagerDelegate : NSObjectProtocol {
    *
    */
   @available(OSX 10.7, *)
-  optional func centralManager(central: CBCentralManager, didFailToConnectPeripheral peripheral: CBPeripheral, error: NSError?)
+  optional func centralManager(central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: NSError?)
 
   /*!
    *  @method centralManager:didDisconnectPeripheral:error:
@@ -552,7 +552,7 @@ class CBCharacteristic : NSObject {
    *      The Bluetooth UUID of the characteristic.
    *
    */
-  var UUID: CBUUID { get }
+  var uuid: CBUUID { get }
 
   /*!
    * @property properties
@@ -652,7 +652,7 @@ class CBMutableCharacteristic : CBCharacteristic {
    */
   @available(OSX 10.9, *)
   var subscribedCentrals: [CBCentral]? { get }
-  var UUID: CBUUID?
+  var uuid: CBUUID?
   var properties: CBCharacteristicProperties
   var value: NSData?
   var descriptors: [CBDescriptor]?
@@ -698,7 +698,7 @@ class CBDescriptor : NSObject {
    *      The Bluetooth UUID of the descriptor.
    *
    */
-  var UUID: CBUUID { get }
+  var uuid: CBUUID { get }
 
   /*!
    *  @property value
@@ -867,7 +867,7 @@ class CBPeripheral : NSObject, NSCopying {
    *
    *  @discussion The most recently read RSSI, in decibels.
    */
-  var RSSI: NSNumber? { get }
+  var rssi: NSNumber? { get }
 
   /*!
    *  @property state
@@ -939,7 +939,7 @@ class CBPeripheral : NSObject, NSCopying {
    *
    *  @see					peripheral:didUpdateValueForCharacteristic:error:
    */
-  func readValueForCharacteristic(characteristic: CBCharacteristic)
+  func readValueFor(characteristic: CBCharacteristic)
 
   /*!
    *  @method writeValue:forCharacteristic:type:
@@ -982,7 +982,7 @@ class CBPeripheral : NSObject, NSCopying {
    *
    *  @see					peripheral:didDiscoverDescriptorsForCharacteristic:error:
    */
-  func discoverDescriptorsForCharacteristic(characteristic: CBCharacteristic)
+  func discoverDescriptorsFor(characteristic: CBCharacteristic)
 
   /*!
    *  @method readValueForDescriptor:
@@ -993,7 +993,7 @@ class CBPeripheral : NSObject, NSCopying {
    *
    *  @see				peripheral:didUpdateValueForDescriptor:error:
    */
-  func readValueForDescriptor(descriptor: CBDescriptor)
+  func readValueFor(descriptor: CBDescriptor)
 
   /*!
    *  @method writeValue:forDescriptor:
@@ -1009,7 +1009,7 @@ class CBPeripheral : NSObject, NSCopying {
   func writeValue(data: NSData, forDescriptor descriptor: CBDescriptor)
   init()
   @available(OSX 10.7, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -1078,7 +1078,7 @@ protocol CBPeripheralDelegate : NSObjectProtocol {
    *						they can be retrieved via <i>service</i>'s <code>includedServices</code> property.
    */
   @available(OSX 10.7, *)
-  optional func peripheral(peripheral: CBPeripheral, didDiscoverIncludedServicesForService service: CBService, error: NSError?)
+  optional func peripheral(peripheral: CBPeripheral, didDiscoverIncludedServicesFor service: CBService, error: NSError?)
 
   /*!
    *  @method peripheral:didDiscoverCharacteristicsForService:error:
@@ -1091,7 +1091,7 @@ protocol CBPeripheralDelegate : NSObjectProtocol {
    *						they can be retrieved via <i>service</i>'s <code>characteristics</code> property.
    */
   @available(OSX 10.7, *)
-  optional func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?)
+  optional func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: NSError?)
 
   /*!
    *  @method peripheral:didUpdateValueForCharacteristic:error:
@@ -1103,7 +1103,7 @@ protocol CBPeripheralDelegate : NSObjectProtocol {
    *  @discussion				This method is invoked after a @link readValueForCharacteristic: @/link call, or upon receipt of a notification/indication.
    */
   @available(OSX 10.7, *)
-  optional func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?)
+  optional func peripheral(peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: NSError?)
 
   /*!
    *  @method peripheral:didWriteValueForCharacteristic:error:
@@ -1115,7 +1115,7 @@ protocol CBPeripheralDelegate : NSObjectProtocol {
    *  @discussion				This method returns the result of a {@link writeValue:forCharacteristic:type:} call, when the <code>CBCharacteristicWriteWithResponse</code> type is used.
    */
   @available(OSX 10.7, *)
-  optional func peripheral(peripheral: CBPeripheral, didWriteValueForCharacteristic characteristic: CBCharacteristic, error: NSError?)
+  optional func peripheral(peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: NSError?)
 
   /*!
    *  @method peripheral:didUpdateNotificationStateForCharacteristic:error:
@@ -1127,7 +1127,7 @@ protocol CBPeripheralDelegate : NSObjectProtocol {
    *  @discussion				This method returns the result of a @link setNotifyValue:forCharacteristic: @/link call. 
    */
   @available(OSX 10.7, *)
-  optional func peripheral(peripheral: CBPeripheral, didUpdateNotificationStateForCharacteristic characteristic: CBCharacteristic, error: NSError?)
+  optional func peripheral(peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: NSError?)
 
   /*!
    *  @method peripheral:didDiscoverDescriptorsForCharacteristic:error:
@@ -1140,7 +1140,7 @@ protocol CBPeripheralDelegate : NSObjectProtocol {
    *							they can be retrieved via <i>characteristic</i>'s <code>descriptors</code> property.
    */
   @available(OSX 10.7, *)
-  optional func peripheral(peripheral: CBPeripheral, didDiscoverDescriptorsForCharacteristic characteristic: CBCharacteristic, error: NSError?)
+  optional func peripheral(peripheral: CBPeripheral, didDiscoverDescriptorsFor characteristic: CBCharacteristic, error: NSError?)
 
   /*!
    *  @method peripheral:didUpdateValueForDescriptor:error:
@@ -1152,7 +1152,7 @@ protocol CBPeripheralDelegate : NSObjectProtocol {
    *  @discussion				This method returns the result of a @link readValueForDescriptor: @/link call.
    */
   @available(OSX 10.7, *)
-  optional func peripheral(peripheral: CBPeripheral, didUpdateValueForDescriptor descriptor: CBDescriptor, error: NSError?)
+  optional func peripheral(peripheral: CBPeripheral, didUpdateValueFor descriptor: CBDescriptor, error: NSError?)
 
   /*!
    *  @method peripheral:didWriteValueForDescriptor:error:
@@ -1164,7 +1164,7 @@ protocol CBPeripheralDelegate : NSObjectProtocol {
    *  @discussion				This method returns the result of a @link writeValue:forDescriptor: @/link call.
    */
   @available(OSX 10.7, *)
-  optional func peripheral(peripheral: CBPeripheral, didWriteValueForDescriptor descriptor: CBDescriptor, error: NSError?)
+  optional func peripheral(peripheral: CBPeripheral, didWriteValueFor descriptor: CBDescriptor, error: NSError?)
 }
 
 /*!
@@ -1361,7 +1361,7 @@ class CBPeripheralManager : NSObject {
    *
    *  @see            peripheralManager:didAddService:error:
    */
-  func addService(service: CBMutableService)
+  func add(service: CBMutableService)
 
   /*!
    *  @method removeService:
@@ -1372,7 +1372,7 @@ class CBPeripheralManager : NSObject {
    *                  first.
    *
    */
-  func removeService(service: CBMutableService)
+  func remove(service: CBMutableService)
 
   /*!
    *  @method removeAllServices
@@ -1394,7 +1394,7 @@ class CBPeripheralManager : NSObject {
    *  @see            peripheralManager:didReceiveReadRequest:
    *  @see            peripheralManager:didReceiveWriteRequests:
    */
-  func respondToRequest(request: CBATTRequest, withResult result: CBATTError)
+  func respondTo(request: CBATTRequest, withResult result: CBATTError)
 
   /*!
    *  @method updateValue:forCharacteristic:onSubscribedCentrals:
@@ -1484,7 +1484,7 @@ protocol CBPeripheralManagerDelegate : NSObjectProtocol {
    *
    */
   @available(OSX 10.9, *)
-  optional func peripheralManager(peripheral: CBPeripheralManager, didAddService service: CBService, error: NSError?)
+  optional func peripheralManager(peripheral: CBPeripheralManager, didAdd service: CBService, error: NSError?)
 
   /*!
    *  @method peripheralManager:central:didSubscribeToCharacteristic:
@@ -1498,7 +1498,7 @@ protocol CBPeripheralManagerDelegate : NSObjectProtocol {
    *
    */
   @available(OSX 10.9, *)
-  optional func peripheralManager(peripheral: CBPeripheralManager, central: CBCentral, didSubscribeToCharacteristic characteristic: CBCharacteristic)
+  optional func peripheralManager(peripheral: CBPeripheralManager, central: CBCentral, didSubscribeTo characteristic: CBCharacteristic)
 
   /*!
    *  @method peripheralManager:central:didUnsubscribeFromCharacteristic:
@@ -1511,7 +1511,7 @@ protocol CBPeripheralManagerDelegate : NSObjectProtocol {
    *
    */
   @available(OSX 10.9, *)
-  optional func peripheralManager(peripheral: CBPeripheralManager, central: CBCentral, didUnsubscribeFromCharacteristic characteristic: CBCharacteristic)
+  optional func peripheralManager(peripheral: CBPeripheralManager, central: CBCentral, didUnsubscribeFrom characteristic: CBCharacteristic)
 
   /*!
    *  @method peripheralManager:didReceiveReadRequest:
@@ -1526,7 +1526,7 @@ protocol CBPeripheralManagerDelegate : NSObjectProtocol {
    *
    */
   @available(OSX 10.9, *)
-  optional func peripheralManager(peripheral: CBPeripheralManager, didReceiveReadRequest request: CBATTRequest)
+  optional func peripheralManager(peripheral: CBPeripheralManager, didReceiveRead request: CBATTRequest)
 
   /*!
    *  @method peripheralManager:didReceiveWriteRequests:
@@ -1543,7 +1543,7 @@ protocol CBPeripheralManagerDelegate : NSObjectProtocol {
    *
    */
   @available(OSX 10.9, *)
-  optional func peripheralManager(peripheral: CBPeripheralManager, didReceiveWriteRequests requests: [CBATTRequest])
+  optional func peripheralManager(peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest])
 
   /*!
    *  @method peripheralManagerIsReadyToUpdateSubscribers:
@@ -1596,7 +1596,7 @@ class CBService : NSObject {
    *      The Bluetooth UUID of the service.
    *
    */
-  var UUID: CBUUID { get }
+  var uuid: CBUUID { get }
 
   /*!
    * @property isPrimary
@@ -1638,7 +1638,7 @@ class CBService : NSObject {
  */
 @available(OSX 10.9, *)
 class CBMutableService : CBService {
-  var UUID: CBUUID?
+  var uuid: CBUUID?
   var isPrimary: Bool
   var includedServices: [CBService]?
   var characteristics: [CBCharacteristic]?
@@ -1780,7 +1780,7 @@ class CBUUID : NSObject, NSCopying {
    *
    */
   @available(OSX 10.10, *)
-  var UUIDString: String { get }
+  var uuidString: String { get }
 
   /*!
    * @method UUIDWithString:
@@ -1808,7 +1808,7 @@ class CBUUID : NSObject, NSCopying {
    *      Creates a CBUUID with a CFUUIDRef.
    *
    */
-  /*not inherited*/ init(CFUUID theUUID: CFUUID)
+  /*not inherited*/ init(cfuuid theUUID: CFUUID)
 
   /*!
    * @method UUIDWithNSUUID:
@@ -1818,8 +1818,8 @@ class CBUUID : NSObject, NSCopying {
    *
    */
   @available(OSX 10.9, *)
-  /*not inherited*/ init(NSUUID theUUID: NSUUID)
+  /*not inherited*/ init(nsuuid theUUID: NSUUID)
   init()
   @available(OSX 10.7, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }

@@ -28,14 +28,14 @@ class GameWindowController: NSWindowController, NSWindowDelegate {
     func windowWillStartLiveResize(notification: NSNotification) {
         // Pause the scene while the window resizes if the game is active.
         if let levelScene = view.scene as? LevelScene where levelScene.stateMachine.currentState is LevelSceneActiveState {
-            levelScene.paused = true
+            levelScene.isPaused = true
         }
     }
     
     func windowDidEndLiveResize(notification: NSNotification) {
         // Un-pause the scene when the window stops resizing if the game is active.
         if let levelScene = view.scene as? LevelScene where levelScene.stateMachine.currentState is LevelSceneActiveState {
-            levelScene.paused = false
+            levelScene.isPaused = false
         }
     }
     

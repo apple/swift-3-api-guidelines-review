@@ -58,9 +58,9 @@ class SKPayment : NSObject, NSCopying, NSMutableCopying {
   var simulatesAskToBuyInSandbox: Bool { get }
   init()
   @available(tvOS 3.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 3.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 3.0, *)
 class SKMutablePayment : SKPayment {
@@ -85,7 +85,7 @@ class SKPaymentQueue : NSObject {
   @available(tvOS 3.0, *)
   class func canMakePayments() -> Bool
   @available(tvOS 3.0, *)
-  func addPayment(payment: SKPayment)
+  func add(payment: SKPayment)
   @available(tvOS 3.0, *)
   func restoreCompletedTransactions()
   @available(tvOS 7.0, *)
@@ -93,17 +93,17 @@ class SKPaymentQueue : NSObject {
   @available(tvOS 3.0, *)
   func finishTransaction(transaction: SKPaymentTransaction)
   @available(tvOS 6.0, *)
-  func startDownloads(downloads: [SKDownload])
+  func start(downloads: [SKDownload])
   @available(tvOS 6.0, *)
-  func pauseDownloads(downloads: [SKDownload])
+  func pause(downloads: [SKDownload])
   @available(tvOS 6.0, *)
   func resumeDownloads(downloads: [SKDownload])
   @available(tvOS 6.0, *)
-  func cancelDownloads(downloads: [SKDownload])
+  func cancel(downloads: [SKDownload])
   @available(tvOS 3.0, *)
-  func addTransactionObserver(observer: SKPaymentTransactionObserver)
+  func add(observer: SKPaymentTransactionObserver)
   @available(tvOS 3.0, *)
-  func removeTransactionObserver(observer: SKPaymentTransactionObserver)
+  func remove(observer: SKPaymentTransactionObserver)
   @available(tvOS 3.0, *)
   var transactions: [SKPaymentTransaction] { get }
   init()
@@ -114,7 +114,7 @@ protocol SKPaymentTransactionObserver : NSObjectProtocol {
   @available(tvOS 3.0, *)
   optional func paymentQueue(queue: SKPaymentQueue, removedTransactions transactions: [SKPaymentTransaction])
   @available(tvOS 3.0, *)
-  optional func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: NSError)
+  optional func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWith error: NSError)
   @available(tvOS 3.0, *)
   optional func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue)
   @available(tvOS 6.0, *)
@@ -136,7 +136,7 @@ class SKPaymentTransaction : NSObject {
   @available(tvOS 3.0, *)
   var error: NSError? { get }
   @available(tvOS 3.0, *)
-  var originalTransaction: SKPaymentTransaction? { get }
+  var original: SKPaymentTransaction? { get }
   @available(tvOS 3.0, *)
   var payment: SKPayment { get }
   @available(tvOS 6.0, *)
@@ -162,7 +162,7 @@ class SKProduct : NSObject {
   @available(tvOS 3.0, *)
   var productIdentifier: String { get }
   @available(tvOS 6.0, *)
-  var downloadable: Bool { get }
+  var isDownloadable: Bool { get }
   @available(tvOS 6.0, *)
   var downloadContentLengths: [NSNumber] { get }
   @available(tvOS 6.0, *)
@@ -171,7 +171,7 @@ class SKProduct : NSObject {
 }
 protocol SKProductsRequestDelegate : SKRequestDelegate {
   @available(tvOS 3.0, *)
-  func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse)
+  func productsRequest(request: SKProductsRequest, didReceive response: SKProductsResponse)
 }
 @available(tvOS 3.0, *)
 class SKProductsRequest : SKRequest {
@@ -219,7 +219,7 @@ protocol SKRequestDelegate : NSObjectProtocol {
   @available(tvOS 3.0, *)
   optional func requestDidFinish(request: SKRequest)
   @available(tvOS 3.0, *)
-  optional func request(request: SKRequest, didFailWithError error: NSError)
+  optional func request(request: SKRequest, didFailWith error: NSError)
 }
 protocol SKStoreProductViewControllerDelegate : NSObjectProtocol {
 }

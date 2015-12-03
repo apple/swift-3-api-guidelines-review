@@ -30,7 +30,7 @@ class OSALanguage : NSObject {
   var manufacturer: OSType { get }
   var features: OSALanguageFeatures { get }
   @available(OSX 10.6, *)
-  var threadSafe: Bool { get }
+  var isThreadSafe: Bool { get }
   init()
 }
 class OSALanguageInstance : NSObject {
@@ -40,7 +40,7 @@ class OSALanguageInstance : NSObject {
   @available(OSX 10.10, *)
   var defaultTarget: NSAppleEventDescriptor?
   @available(OSX 10.10, *)
-  func richTextFromDescriptor(descriptor: NSAppleEventDescriptor) -> NSAttributedString?
+  func richTextFrom(descriptor: NSAppleEventDescriptor) -> NSAttributedString?
   init()
 }
 let OSAScriptErrorMessageKey: String
@@ -74,36 +74,36 @@ struct OSAStorageOptions : OptionSetType {
 }
 class OSAScript : NSObject, NSCopying {
   @available(OSX 10.6, *)
-  class func scriptDataDescriptorWithContentsOfURL(url: NSURL) -> NSAppleEventDescriptor?
+  class func scriptDataDescriptorWithContentsOf(url: NSURL) -> NSAppleEventDescriptor?
   init(source: String)
   init(source: String, language: OSALanguage?)
   @available(OSX 10.6, *)
-  init(source: String, fromURL url: NSURL?, languageInstance instance: OSALanguageInstance?, usingStorageOptions storageOptions: OSAStorageOptions)
-  init?(contentsOfURL url: NSURL, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
+  init(source: String, from url: NSURL?, languageInstance instance: OSALanguageInstance?, usingStorageOptions storageOptions: OSAStorageOptions = [])
+  init?(contentsOf url: NSURL, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   @available(OSX 10.6, *)
-  init(contentsOfURL url: NSURL, languageInstance instance: OSALanguageInstance?, usingStorageOptions storageOptions: OSAStorageOptions) throws
+  init(contentsOf url: NSURL, languageInstance instance: OSALanguageInstance?, usingStorageOptions storageOptions: OSAStorageOptions = []) throws
   @available(OSX 10.6, *)
-  init(compiledData data: NSData, fromURL url: NSURL?, usingStorageOptions storageOptions: OSAStorageOptions) throws
+  init(compiledData data: NSData, from url: NSURL?, usingStorageOptions storageOptions: OSAStorageOptions = []) throws
   @available(OSX 10.6, *)
-  init(scriptDataDescriptor data: NSAppleEventDescriptor, fromURL url: NSURL?, languageInstance instance: OSALanguageInstance?, usingStorageOptions storageOptions: OSAStorageOptions) throws
+  init(scriptDataDescriptor data: NSAppleEventDescriptor, from url: NSURL?, languageInstance instance: OSALanguageInstance?, usingStorageOptions storageOptions: OSAStorageOptions = []) throws
   var source: String { get }
   @NSCopying var url: NSURL? { get }
   var language: OSALanguage
   @available(OSX 10.6, *)
   var languageInstance: OSALanguageInstance
-  var compiled: Bool { get }
+  var isCompiled: Bool { get }
   func compileAndReturnError(errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
   func executeAndReturnError(errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> NSAppleEventDescriptor?
   func executeAppleEvent(event: NSAppleEventDescriptor, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> NSAppleEventDescriptor?
   func executeAndReturnDisplayValue(displayValue: AutoreleasingUnsafeMutablePointer<NSAttributedString?>, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> NSAppleEventDescriptor?
   func executeHandlerWithName(name: String, arguments: [AnyObject], error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> NSAppleEventDescriptor?
   @NSCopying var richTextSource: NSAttributedString? { get }
-  func richTextFromDescriptor(descriptor: NSAppleEventDescriptor) -> NSAttributedString?
-  func writeToURL(url: NSURL, ofType type: String, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
-  func writeToURL(url: NSURL, ofType type: String, usingStorageOptions storageOptions: OSAStorageOptions, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
-  func compiledDataForType(type: String, usingStorageOptions storageOptions: OSAStorageOptions, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> NSData?
+  func richTextFrom(descriptor: NSAppleEventDescriptor) -> NSAttributedString?
+  func writeTo(url: NSURL, ofType type: String, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
+  func writeTo(url: NSURL, ofType type: String, usingStorageOptions storageOptions: OSAStorageOptions = [], error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
+  func compiledDataForType(type: String, usingStorageOptions storageOptions: OSAStorageOptions = [], error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> NSData?
   init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 enum OSAScriptState : Int {
   init?(rawValue: Int)
@@ -118,7 +118,7 @@ class OSAScriptController : NSController {
   @NSCopying var script: OSAScript?
   var language: OSALanguage?
   var scriptState: OSAScriptState { get }
-  var compiling: Bool { get }
+  var isCompiling: Bool { get }
   @IBAction func compileScript(sender: AnyObject?)
   @IBAction func recordScript(sender: AnyObject?)
   @IBAction func runScript(sender: AnyObject?)

@@ -25,7 +25,7 @@ class ListWindowController: NSWindowController, SegueHandlerType {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        let action = Int(NSEventMask.LeftMouseDownMask.rawValue)
+        let action = Int(NSEventMask.LeftMouseDown.rawValue)
         shareButton.sendActionOn(action)
     }
     
@@ -33,7 +33,7 @@ class ListWindowController: NSWindowController, SegueHandlerType {
     
     /// Allow the user to create a new list item with a keyboard shortcut (command-N).
     @IBAction func showAddItemViewController(sender: AnyObject?) {
-        performSegueWithIdentifier(.ShowAddItem, sender: sender)
+        performSegueWith(.ShowAddItem, sender: sender)
     }
 
     // MARK: Overrides
@@ -46,8 +46,8 @@ class ListWindowController: NSWindowController, SegueHandlerType {
         }
     }
     
-    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
-        let segueIdentifier = segueIdentifierForSegue(segue)
+    override func prepareFor(segue: NSStoryboardSegue, sender: AnyObject?) {
+        let segueIdentifier = segueIdentifierFor(segue)
         
         switch segueIdentifier {
             case .ShowAddItem:
@@ -63,12 +63,12 @@ class ListWindowController: NSWindowController, SegueHandlerType {
 
     @IBAction func shareDocument(sender: NSButton) {
         if let listDocument = document as? ListDocument {
-            let listContents = ListFormatting.stringFromListItems(listDocument.listPresenter!.presentedListItems)
+            let listContents = ListFormatting.stringFrom(listDocument.listPresenter!.presentedListItems)
             
             let sharingServicePicker = NSSharingServicePicker(items: [listContents])
             
             let preferredEdge =  NSRectEdge(rawValue: UInt(CGRectEdge.MinYEdge.rawValue))!
-            sharingServicePicker.showRelativeToRect(NSZeroRect, ofView: sender, preferredEdge: preferredEdge)
+            sharingServicePicker.showRelativeTo(NSZeroRect, of: sender, preferredEdge: preferredEdge)
         }
     }
 }

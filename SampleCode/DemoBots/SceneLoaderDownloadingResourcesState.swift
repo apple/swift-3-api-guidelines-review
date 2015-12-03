@@ -14,7 +14,7 @@ class SceneLoaderDownloadingResourcesState: GKState {
     unowned let sceneLoader: SceneLoader
     
     /// Optionally progress directly to preparing state when download completes.
-    var enterPreparingStateWhenFinished = false
+    var isEnterPreparingStateWhenFinished = false
     
     // MARK: Initialization
     
@@ -69,7 +69,7 @@ class SceneLoaderDownloadingResourcesState: GKState {
                     
                     self.stateMachine!.enterState(SceneLoaderDownloadFailedState.self)
                 }
-                else if self.enterPreparingStateWhenFinished {
+                else if self.isEnterPreparingStateWhenFinished {
                     // If requested, proceed to the preparing state immediately.
                     self.stateMachine!.enterState(SceneLoaderPreparingResourcesState.self)
                 }

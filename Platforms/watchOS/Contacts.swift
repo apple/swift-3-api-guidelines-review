@@ -60,7 +60,7 @@ class CNContact : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   @NSCopying var imageData: NSData? { get }
   @NSCopying var thumbnailImageData: NSData? { get }
   @available(watchOS 2.0, *)
-  var imageDataAvailable: Bool { get }
+  var isImageDataAvailable: Bool { get }
   var phoneNumbers: [CNLabeledValue] { get }
   var emailAddresses: [CNLabeledValue] { get }
   var postalAddresses: [CNLabeledValue] { get }
@@ -97,13 +97,13 @@ class CNContact : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   func isUnifiedWithContactWithIdentifier(contactIdentifier: String) -> Bool
   init()
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 let CNContactPropertyNotFetchedExceptionName: String
@@ -263,7 +263,7 @@ class CNContactFormatter : NSFormatter {
    * @param style The formatting style to be used for the contact name.
    * @return The contact key descriptor for the formatting style.
    */
-  class func descriptorForRequiredKeysForStyle(style: CNContactFormatterStyle) -> CNKeyDescriptor
+  class func descriptorForRequiredKeysFor(style: CNContactFormatterStyle) -> CNKeyDescriptor
 
   /*!
    * @abstract Formats the contact name.
@@ -272,7 +272,7 @@ class CNContactFormatter : NSFormatter {
    * @param style The formatting style to be used for the contact name.
    * @return The formatted contact name.
    */
-  class func stringFromContact(contact: CNContact, style: CNContactFormatterStyle) -> String?
+  class func stringFrom(contact: CNContact, style: CNContactFormatterStyle) -> String?
 
   /*!
    * @abstract Formats the contact name returning an attributed string.
@@ -284,17 +284,17 @@ class CNContactFormatter : NSFormatter {
    * @param attributes The default attributes to use. See NSFormatter for details.
    * @return The formatted contact name as an attributed string.
    */
-  class func attributedStringFromContact(contact: CNContact, style: CNContactFormatterStyle, defaultAttributes attributes: [NSObject : AnyObject]?) -> NSAttributedString?
+  class func attributedStringFrom(contact: CNContact, style: CNContactFormatterStyle, defaultAttributes attributes: [NSObject : AnyObject]?) -> NSAttributedString?
 
   /*!
    * @abstract The recommended name order for a given contact.
    */
-  class func nameOrderForContact(contact: CNContact) -> CNContactDisplayNameOrder
+  class func nameOrderFor(contact: CNContact) -> CNContactDisplayNameOrder
 
   /*!
    * @abstract The recommended delimiter to use between name components for a given contact.
    */
-  class func delimiterForContact(contact: CNContact) -> String
+  class func delimiterFor(contact: CNContact) -> String
 
   /*!
    * @abstract The style for a contact formatter instance.
@@ -309,7 +309,7 @@ class CNContactFormatter : NSFormatter {
    * @param contact The contact whose name is to be formatted.
    * @return The formatted contact name.
    */
-  func stringFromContact(contact: CNContact) -> String?
+  func stringFrom(contact: CNContact) -> String?
 
   /*!
    * @abstract Formats the contact name returning an attributed string.
@@ -320,7 +320,7 @@ class CNContactFormatter : NSFormatter {
    * @param attributes The default attributes to use. See NSFormatter for details.
    * @return The formatted contact name as an attributed string.
    */
-  func attributedStringFromContact(contact: CNContact, defaultAttributes attributes: [NSObject : AnyObject]?) -> NSAttributedString?
+  func attributedStringFrom(contact: CNContact, defaultAttributes attributes: [NSObject : AnyObject]?) -> NSAttributedString?
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -356,11 +356,11 @@ class CNContactProperty : NSObject, NSCopying, NSSecureCoding {
   var label: String? { get }
   init()
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -375,11 +375,11 @@ class CNContactRelation : NSObject, NSCopying, NSSecureCoding {
   var name: String { get }
   init()
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
@@ -460,7 +460,7 @@ class CNContactStore : NSObject {
    *
    * @return Returns the authorization status for the given entityType.
    */
-  class func authorizationStatusForEntityType(entityType: CNEntityType) -> CNAuthorizationStatus
+  class func authorizationStatusFor(entityType: CNEntityType) -> CNAuthorizationStatus
 
   /*!
    * @abstract Request access to the user's contacts.
@@ -472,7 +472,7 @@ class CNContactStore : NSObject {
    * @param entityType Set to CNEntityTypeContacts.
    * @param completionHandler This block is called upon completion. If the user grants access then granted is YES and error is nil. Otherwise granted is NO with an error. 
    */
-  func requestAccessForEntityType(entityType: CNEntityType, completionHandler: (Bool, NSError?) -> Void)
+  func requestAccessFor(entityType: CNEntityType, completionHandler: (Bool, NSError?) -> Void)
 
   /*!
    * @abstract Fetch all unified contacts matching a given predicate.
@@ -486,7 +486,7 @@ class CNContactStore : NSObject {
    * @param error If an error occurs, contains error information.
    * @return An array of CNContact objects matching the predicate. If no matches are found, an empty array is returned. If an error occurs, nil is returned.
    */
-  func unifiedContactsMatchingPredicate(predicate: NSPredicate, keysToFetch keys: [CNKeyDescriptor]) throws -> [CNContact]
+  func unifiedContactsMatching(predicate: NSPredicate, keysToFetch keys: [CNKeyDescriptor]) throws -> [CNContact]
 
   /*!
    * @abstract Fetch a unified contact with a given identifier.
@@ -510,7 +510,7 @@ class CNContactStore : NSObject {
    * @param block Called for each matching contact. Set *stop to YES to stop the enumeration.
    * @return YES if successful, otherwise NO.
    */
-  func enumerateContactsWithFetchRequest(fetchRequest: CNContactFetchRequest, usingBlock block: (CNContact, UnsafeMutablePointer<ObjCBool>) -> Void) throws
+  func enumerateContactsWith(fetchRequest: CNContactFetchRequest, usingBlock block: (CNContact, UnsafeMutablePointer<ObjCBool>) -> Void) throws
 
   /*!
    * @abstract Fetch all groups matching a given predicate.
@@ -521,7 +521,7 @@ class CNContactStore : NSObject {
    * @param error If an error occurs, contains error information.
    * @return An array of CNGroup objects matching the predicate. If no matches are found, an empty array is returned. If an error occurs, nil is returned.
    */
-  func groupsMatchingPredicate(predicate: NSPredicate?) throws -> [CNGroup]
+  func groupsMatching(predicate: NSPredicate?) throws -> [CNGroup]
 
   /*!
    * @abstract Fetch all containers matching a given predicate.
@@ -532,7 +532,7 @@ class CNContactStore : NSObject {
    * @param error If an error occurs, contains error information.
    * @return An array of CNContainer objects matching the predicate. If no matches are found, an empty array is returned. If an error occurs, nil is returned.
    */
-  func containersMatchingPredicate(predicate: NSPredicate?) throws -> [CNContainer]
+  func containersMatching(predicate: NSPredicate?) throws -> [CNContainer]
 
   /*!
    *  @abstract The identifier of the default container.
@@ -567,7 +567,7 @@ class CNContactVCardSerialization : NSObject {
    */
   class func descriptorForRequiredKeys() -> CNKeyDescriptor
   class func dataWithContacts(contacts: [AnyObject]) throws -> NSData
-  class func contactsWithData(data: NSData) throws -> [AnyObject]
+  class func contactsWith(data: NSData) throws -> [AnyObject]
   init()
 }
 extension CNContact {
@@ -590,7 +590,7 @@ extension CNContact {
  */
 @available(watchOS 2.0, *)
 class CNContactsUserDefaults : NSObject {
-  class func sharedDefaults() -> Self
+  class func shared() -> Self
   var sortOrder: CNContactSortOrder { get }
   var countryCode: String { get }
   init()
@@ -619,11 +619,11 @@ class CNContainer : NSObject, NSCopying, NSSecureCoding {
   var type: CNContainerType { get }
   init()
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
@@ -695,13 +695,13 @@ class CNGroup : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var name: String { get }
   init()
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
@@ -731,11 +731,11 @@ class CNInstantMessageAddress : NSObject, NSCopying, NSSecureCoding {
   class func localizedStringForService(service: String) -> String
   init()
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
@@ -778,13 +778,13 @@ class CNLabeledValue : NSObject, NSCopying, NSSecureCoding {
   init(label: String?, value: protocol<NSCopying, NSSecureCoding>)
 
   /*! Returns a new CNLabeledValue with the existing value and identifier. */
-  func labeledValueBySettingLabel(label: String?) -> Self
+  func bySettingLabel(label: String?) -> Self
 
   /*! Returns a new CNLabeledValue with the existing label and identifier. */
-  func labeledValueBySettingValue(value: protocol<NSCopying, NSSecureCoding>) -> Self
+  func bySettingValue(value: protocol<NSCopying, NSSecureCoding>) -> Self
 
   /*! Returns a new CNLabeledValue with the existing identifier. */
-  func labeledValueBySettingLabel(label: String?, value: protocol<NSCopying, NSSecureCoding>) -> Self
+  func bySettingLabel(label: String?, value: protocol<NSCopying, NSSecureCoding>) -> Self
 
   /*!
    * @abstract Get a localized label.
@@ -797,11 +797,11 @@ class CNLabeledValue : NSObject, NSCopying, NSSecureCoding {
   class func localizedStringForLabel(label: String) -> String
   init()
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
@@ -899,7 +899,7 @@ class CNMutablePostalAddress : CNPostalAddress {
   var state: String
   var postalCode: String
   var country: String
-  var ISOCountryCode: String
+  var isoCountryCode: String
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -915,11 +915,11 @@ class CNPhoneNumber : NSObject, NSCopying, NSSecureCoding {
   var stringValue: String { get }
   init()
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
@@ -951,19 +951,19 @@ class CNPostalAddress : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var state: String { get }
   var postalCode: String { get }
   var country: String { get }
-  var ISOCountryCode: String { get }
+  var isoCountryCode: String { get }
 
   /*! Returns a user displayable property name. */
   class func localizedStringForKey(key: String) -> String
   init()
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
@@ -1006,7 +1006,7 @@ class CNPostalAddressFormatter : NSFormatter {
    * @param style The formatting style to be used for the postal address.
    * @return The formatted postal address.
    */
-  class func stringFromPostalAddress(postalAddress: CNPostalAddress, style: CNPostalAddressFormatterStyle) -> String
+  class func stringFrom(postalAddress: CNPostalAddress, style: CNPostalAddressFormatterStyle) -> String
 
   /*!
    * @abstract Formats the postal address returning an attributed string.
@@ -1018,7 +1018,7 @@ class CNPostalAddressFormatter : NSFormatter {
    * @param attributes The default attributes to use. See NSFormatter for details.
    * @return The formatted postal address as an attributed string.
    */
-  class func attributedStringFromPostalAddress(postalAddress: CNPostalAddress, style: CNPostalAddressFormatterStyle, withDefaultAttributes attributes: [NSObject : AnyObject]) -> NSAttributedString
+  class func attributedStringFrom(postalAddress: CNPostalAddress, style: CNPostalAddressFormatterStyle, withDefaultAttributes attributes: [NSObject : AnyObject]) -> NSAttributedString
 
   /*!
    * @abstract The style for a postal address formatter instance.
@@ -1033,7 +1033,7 @@ class CNPostalAddressFormatter : NSFormatter {
    * @param postalAddress The postal address to be formatted.
    * @return The formatted postal address.
    */
-  func stringFromPostalAddress(postalAddress: CNPostalAddress) -> String
+  func stringFrom(postalAddress: CNPostalAddress) -> String
 
   /*!
    * @abstract Formats the postal address returning an attributed string.
@@ -1044,7 +1044,7 @@ class CNPostalAddressFormatter : NSFormatter {
    * @param attributes The default attributes to use. See NSFormatter for details.
    * @return The formatted postal address as an attributed string.
    */
-  func attributedStringFromPostalAddress(postalAddress: CNPostalAddress, withDefaultAttributes attributes: [NSObject : AnyObject]) -> NSAttributedString
+  func attributedStringFrom(postalAddress: CNPostalAddress, withDefaultAttributes attributes: [NSObject : AnyObject]) -> NSAttributedString
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -1071,11 +1071,11 @@ class CNSocialProfile : NSObject, NSCopying, NSSecureCoding {
   class func localizedStringForService(service: String) -> String
   init()
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)

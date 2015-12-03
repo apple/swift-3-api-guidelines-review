@@ -17,7 +17,7 @@ public class TodayListManager {
         let defaultQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
         dispatch_async(defaultQueue) {
-            let url = NSFileManager.defaultManager().URLForUbiquityContainerIdentifier(nil)
+            let url = NSFileManager.defaultManager().urlForUbiquityContainerIdentifier(nil)
 
             let successURL = self.createTodayDocumentURLWithContainerURL(url)
             
@@ -30,9 +30,9 @@ public class TodayListManager {
             return nil
         }
 
-        let todayDocumentFolderURL = containerURL!.URLByAppendingPathComponent("Documents")
+        let todayDocumentFolderURL = containerURL!.appendingPathComponent("Documents")
 
-        let todayDocumentURL = todayDocumentFolderURL.URLByAppendingPathComponent(AppConfiguration.localizedTodayDocumentName).URLByAppendingPathExtension(AppConfiguration.listerFileExtension)
+        let todayDocumentURL = todayDocumentFolderURL.appendingPathComponent(AppConfiguration.localizedTodayDocumentName).appendingPathExtension(AppConfiguration.listerFileExtension)
 
         let fileManager = NSFileManager.defaultManager()
 
@@ -41,11 +41,11 @@ public class TodayListManager {
         }
 
         do {
-            try fileManager.createDirectoryAtURL(todayDocumentFolderURL, withIntermediateDirectories: true, attributes: nil)
+            try fileManager.createDirectoryAt(todayDocumentFolderURL, withIntermediateDirectories: true, attributes: nil)
             
-            let sampleTodayDocumentURL = NSBundle(forClass: self).URLForResource("Today", withExtension: AppConfiguration.listerFileExtension)
+            let sampleTodayDocumentURL = NSBundle(forClass: self).urlForResource("Today", withExtension: AppConfiguration.listerFileExtension)
             
-            try fileManager.copyItemAtURL(sampleTodayDocumentURL!, toURL: todayDocumentURL)
+            try fileManager.copyItemAt(sampleTodayDocumentURL!, to: todayDocumentURL)
             // Make the file's extension hidden.
             try fileManager.setAttributes([NSFileExtensionHidden: true], ofItemAtPath: todayDocumentURL.path!)
             

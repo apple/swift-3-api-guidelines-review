@@ -3,7 +3,7 @@ var EAConnectionIDNone: Int { get }
 @available(iOS 3.0, *)
 class EAAccessory : NSObject {
   @available(iOS 3.0, *)
-  var connected: Bool { get }
+  var isConnected: Bool { get }
   @available(iOS 3.0, *)
   var connectionID: Int { get }
   @available(iOS 3.0, *)
@@ -51,9 +51,9 @@ let EAAccessorySelectedKey: String
 @available(iOS 3.0, *)
 class EAAccessoryManager : NSObject {
   @available(iOS 3.0, *)
-  class func sharedAccessoryManager() -> EAAccessoryManager
+  class func shared() -> EAAccessoryManager
   @available(iOS 6.0, *)
-  func showBluetoothAccessoryPickerWithNameFilter(predicate: NSPredicate?, completion: EABluetoothAccessoryPickerCompletion?)
+  func showBluetoothAccessoryPickerWithNameFilter(predicate: NSPredicate?, completion: EABluetoothAccessoryPickerCompletion? = nil)
   @available(iOS 3.0, *)
   func registerForLocalNotifications()
   @available(iOS 3.0, *)
@@ -248,7 +248,7 @@ class EAWiFiUnconfiguredAccessoryBrowser : NSObject {
    *
    */
   @available(iOS 8.0, *)
-  func startSearchingForUnconfiguredAccessoriesMatchingPredicate(predicate: NSPredicate?)
+  func startSearchingForUnconfiguredAccessoriesMatching(predicate: NSPredicate?)
 
   /*!
    * @brief Stop the search for unconfigured MFi Wireless Accessory Configuration accessories

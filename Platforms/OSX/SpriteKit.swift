@@ -50,7 +50,7 @@ class SK3DNode : SKNode {
   @property playing
   @abstract Returns YES if the scene is playing, NO otherwise.
    */
-  var playing: Bool
+  var isPlaying: Bool
 
   /**
    @property loops
@@ -129,10 +129,10 @@ class SKAction : NSObject, NSCopying, NSCoding {
    @return This method always returns an action object; however, not all actions
    are reversible
    */
-  func reversedAction() -> SKAction
+  func reversed() -> SKAction
   init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  func copy(zone zone: NSZone = nil) -> AnyObject
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension SKAction {
@@ -297,7 +297,7 @@ extension SKAction {
    @param textures An array of textures to use when animating a sprite
    @param timePerFrame The amount of time that each texture is displayed
    */
-  class func animateWithTextures(textures: [SKTexture], timePerFrame sec: NSTimeInterval) -> SKAction
+  class func animateWith(textures: [SKTexture], timePerFrame sec: NSTimeInterval) -> SKAction
   @available(OSX 10.11, *)
   class func animateWithNormalTextures(textures: [SKTexture], timePerFrame sec: NSTimeInterval) -> SKAction
 
@@ -313,7 +313,7 @@ extension SKAction {
    If NO, when the action completes the sprite’s texture remains
    set to the final texture in the array.
    */
-  class func animateWithTextures(textures: [SKTexture], timePerFrame sec: NSTimeInterval, resize: Bool, restore: Bool) -> SKAction
+  class func animateWith(textures: [SKTexture], timePerFrame sec: NSTimeInterval, resize: Bool, restore: Bool) -> SKAction
   @available(OSX 10.11, *)
   class func animateWithNormalTextures(textures: [SKTexture], timePerFrame sec: NSTimeInterval, resize: Bool, restore: Bool) -> SKAction
 
@@ -333,7 +333,7 @@ extension SKAction {
    @param colorBlendFactor The new blend factor for the sprite
    @param duration The duration of the animation
    */
-  class func colorizeWithColor(color: NSColor, colorBlendFactor: CGFloat, duration sec: NSTimeInterval) -> SKAction
+  class func colorizeWith(color: NSColor, colorBlendFactor: CGFloat, duration sec: NSTimeInterval) -> SKAction
   class func colorizeWithColorBlendFactor(colorBlendFactor: CGFloat, duration sec: NSTimeInterval) -> SKAction
 
   /** Creates an action that sets the falloff of a field
@@ -359,7 +359,7 @@ extension SKAction {
    current position
    @param duration The duration of the animation
    */
-  class func followPath(path: CGPath, duration sec: NSTimeInterval) -> SKAction
+  class func follow(path: CGPath, duration sec: NSTimeInterval) -> SKAction
 
   /** Creates an action that moves the node along a path
    
@@ -373,7 +373,7 @@ extension SKAction {
    the node is unchanged.
    @param duration The duration of the animation
    */
-  class func followPath(path: CGPath, asOffset offset: Bool, orientToPath orient: Bool, duration sec: NSTimeInterval) -> SKAction
+  class func follow(path: CGPath, asOffset offset: Bool, orientToPath orient: Bool, duration sec: NSTimeInterval) -> SKAction
 
   /** Creates an action that moves the node along a relative path, orienting the
    node to the path
@@ -382,8 +382,8 @@ extension SKAction {
    current position
    @param speed The speed in pixels per second to move along the path
    */
-  class func followPath(path: CGPath, speed: CGFloat) -> SKAction
-  class func followPath(path: CGPath, asOffset offset: Bool, orientToPath orient: Bool, speed: CGFloat) -> SKAction
+  class func follow(path: CGPath, speed: CGFloat) -> SKAction
+  class func follow(path: CGPath, asOffset offset: Bool, orientToPath orient: Bool, speed: CGFloat) -> SKAction
 
   /** Creates an action that changes how fast the node executes actions by a
    relative value
@@ -426,7 +426,7 @@ extension SKAction {
    @param duration The duration of the animation
    */
   @available(OSX 10.10, *)
-  class func reachToNode(node: SKNode, rootNode root: SKNode, duration sec: NSTimeInterval) -> SKAction
+  class func reachTo(node: SKNode, rootNode root: SKNode, duration sec: NSTimeInterval) -> SKAction
 
   /** Creates an action that performs an inverse kinematic reach.
    This action must be run on a descendent of the rootNode for animation to occur.
@@ -436,7 +436,7 @@ extension SKAction {
    @param velocity The speed in points per second of the end node in the chain
    */
   @available(OSX 10.10, *)
-  class func reachToNode(node: SKNode, rootNode root: SKNode, velocity: CGFloat) -> SKAction
+  class func reachTo(node: SKNode, rootNode root: SKNode, velocity: CGFloat) -> SKAction
 
   /** Creates an action that sets the strength of a field
    @param strength The new value for strength
@@ -471,25 +471,25 @@ extension SKAction {
    @param selector The selector of the method to call
    @param onTarget The target object
    */
-  class func performSelector(selector: Selector, onTarget target: AnyObject) -> SKAction
+  class func perform(selector: Selector, onTarget target: AnyObject) -> SKAction
 
   /** Creates an action that executes a block
    @param block The block to run
    */
-  class func runBlock(block: dispatch_block_t) -> SKAction
+  class func run(block: dispatch_block_t) -> SKAction
 
   /** Creates an action that executes a block
    @param block The block to run
    @param queue The queue to perform the action on
    */
-  class func runBlock(block: dispatch_block_t, queue: dispatch_queue_t) -> SKAction
+  class func run(block: dispatch_block_t, queue: dispatch_queue_t) -> SKAction
 
   /** Creates an action that runs an action on a named child object
    @param action the action to run
    @param name the name of a child object
    @see SKNode.name
    */
-  class func runAction(action: SKAction, onChildWithName name: String) -> SKAction
+  class func run(action: SKAction, onChildWithName name: String) -> SKAction
 
   /** Creates an action that executes a block over a duration
    @param duration The duration of the animation
@@ -517,7 +517,7 @@ extension SKAction {
    @param url The url of the file containing the action
    */
   @available(OSX 10.11, *)
-  /*not inherited*/ init?(named name: String, fromURL url: NSURL)
+  /*not inherited*/ init?(named name: String, from url: NSURL)
 
   /** Creates an action of the given name from an action file with a new duration.
    @param name The name of the action
@@ -525,7 +525,7 @@ extension SKAction {
    @param duration The duration of the action
    */
   @available(OSX 10.11, *)
-  /*not inherited*/ init?(named name: String, fromURL url: NSURL, duration sec: NSTimeInterval)
+  /*not inherited*/ init?(named name: String, from url: NSURL, duration sec: NSTimeInterval)
 }
 extension SKAction {
   @available(OSX 10.11, *)
@@ -539,13 +539,13 @@ extension SKAction {
   @available(OSX 10.11, *)
   class func applyForce(force: CGVector, duration sec: NSTimeInterval) -> SKAction
   @available(OSX 10.11, *)
-  class func applyForce(force: CGVector, atPoint point: CGPoint, duration sec: NSTimeInterval) -> SKAction
+  class func applyForce(force: CGVector, at point: CGPoint, duration sec: NSTimeInterval) -> SKAction
   @available(OSX 10.11, *)
   class func applyTorque(torque: CGFloat, duration sec: NSTimeInterval) -> SKAction
   @available(OSX 10.11, *)
   class func applyImpulse(impulse: CGVector, duration sec: NSTimeInterval) -> SKAction
   @available(OSX 10.11, *)
-  class func applyImpulse(impulse: CGVector, atPoint point: CGPoint, duration sec: NSTimeInterval) -> SKAction
+  class func applyImpulse(impulse: CGVector, at point: CGPoint, duration sec: NSTimeInterval) -> SKAction
   @available(OSX 10.11, *)
   class func applyAngularImpulse(impulse: CGFloat, duration sec: NSTimeInterval) -> SKAction
 }
@@ -590,7 +590,7 @@ class SKAudioNode : SKNode, NSCoding {
   /**Convenience initializer that creates an AVAudioNode from the URL that contain a audio asset.
    * @see initWithAVAudioNode
    */
-  convenience init(URL url: NSURL)
+  convenience init(url: NSURL)
 
   /**Specifies whether the node is to automatically play sound when added to a scene.
    * If autoplaysLooped is NO, the node and its sound must be explicitly scheduled and played using
@@ -601,7 +601,7 @@ class SKAudioNode : SKNode, NSCoding {
    * Defaults to YES.
    * @see SKView.paused
    */
-  var autoplayLooped: Bool
+  var isAutoplayLooped: Bool
 
   /**Marks the audio source as positional so that the audio mix considers relative position and velocity
    * with regards to the scene's current listener node.
@@ -609,7 +609,7 @@ class SKAudioNode : SKNode, NSCoding {
    * @see AVAudio3DMixing
    * @see SKScene.listener
    */
-  var positional: Bool
+  var isPositional: Bool
   convenience init()
 }
 extension SKAction {
@@ -657,7 +657,7 @@ class SKCameraNode : SKNode {
    *
    * @return YES if the node is inside the viewport. NO if node is nil or the node is outside the viewport.
    */
-  func containsNode(node: SKNode) -> Bool
+  func contains(node: SKNode) -> Bool
 
   /**Returns the set of nodes in the same scene as the camera that are contained within its viewport.
    * @return the set of nodes contained
@@ -682,15 +682,15 @@ class SKRange : NSObject, NSCoding, NSCopying {
   convenience init(upperLimit upper: CGFloat)
   convenience init(constantValue value: CGFloat)
   convenience init(value: CGFloat, variance: CGFloat)
-  class func rangeWithNoLimits() -> Self
+  class func withNoLimits() -> Self
   var lowerLimit: CGFloat
   var upperLimit: CGFloat
   convenience init()
   @available(OSX 10.10, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.10, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /**
@@ -699,7 +699,7 @@ class SKRange : NSObject, NSCoding, NSCopying {
  */
 @available(OSX 10.10, *)
 class SKConstraint : NSObject, NSCoding, NSCopying {
-  var enabled: Bool
+  var isEnabled: Bool
   var referenceNode: SKNode?
 
   /**
@@ -712,9 +712,9 @@ class SKConstraint : NSObject, NSCoding, NSCopying {
   /**
    Constrain the node's position to be within a distance of a point or node
    */
-  class func distance(range: SKRange, toNode node: SKNode) -> Self
-  class func distance(range: SKRange, toPoint point: CGPoint) -> Self
-  class func distance(range: SKRange, toPoint point: CGPoint, inNode node: SKNode) -> Self
+  class func distance(range: SKRange, to node: SKNode) -> Self
+  class func distance(range: SKRange, to point: CGPoint) -> Self
+  class func distance(range: SKRange, to point: CGPoint, `in` node: SKNode) -> Self
 
   /**
    Constrain the node's rotation to a range
@@ -724,15 +724,15 @@ class SKConstraint : NSObject, NSCoding, NSCopying {
   /**
    Constrain the node's rotation to orient to a point or node
    */
-  class func orientToNode(node: SKNode, offset radians: SKRange) -> Self
-  class func orientToPoint(point: CGPoint, offset radians: SKRange) -> Self
-  class func orientToPoint(point: CGPoint, inNode node: SKNode, offset radians: SKRange) -> Self
+  class func orientTo(node: SKNode, offset radians: SKRange) -> Self
+  class func orientTo(point: CGPoint, offset radians: SKRange) -> Self
+  class func orientTo(point: CGPoint, `in` node: SKNode, offset radians: SKRange) -> Self
   init()
   @available(OSX 10.10, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.10, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /**
@@ -1045,14 +1045,14 @@ class SKFieldNode : SKNode {
       
       default YES
    */
-  var enabled: Bool
+  var isEnabled: Bool
 
   /** If a field is exclusive, it suppresses any other field in its region of effect.
       If two or more exclusive fields overlap, it is undefined which one of them will take effect
    
       @see region
    */
-  var exclusive: Bool
+  var isExclusive: Bool
 
   /** Logical categories the field belongs to. Default is all categories.
       These categories correspond to fieldBitMasks, and can be used to enforce that a particular field applies
@@ -1146,7 +1146,7 @@ class SKFieldNode : SKNode {
    
    @see texture
    */
-  class func velocityFieldWithTexture(velocityTexture: SKTexture) -> SKFieldNode
+  class func velocityFieldWith(velocityTexture: SKTexture) -> SKFieldNode
 
   /**
    A time varying differentiable Perlin simplex noise field. By default a smooth noise is calculated,
@@ -1238,18 +1238,18 @@ class SKKeyframeSequence : NSObject, NSCoding, NSCopying {
   func count() -> Int
   func addKeyframeValue(value: AnyObject, time: CGFloat)
   func removeLastKeyframe()
-  func removeKeyframeAtIndex(index: Int)
+  func removeKeyframeAt(index: Int)
   func setKeyframeValue(value: AnyObject, forIndex index: Int)
   func setKeyframeTime(time: CGFloat, forIndex index: Int)
   func setKeyframeValue(value: AnyObject, time: CGFloat, forIndex index: Int)
-  func getKeyframeValueForIndex(index: Int) -> AnyObject
-  func getKeyframeTimeForIndex(index: Int) -> CGFloat
+  func getKeyframeValueFor(index: Int) -> AnyObject
+  func getKeyframeTimeFor(index: Int) -> CGFloat
   func sampleAtTime(time: CGFloat) -> AnyObject?
   var interpolationMode: SKInterpolationMode
   var repeatMode: SKRepeatMode
   convenience init()
-  func encodeWithCoder(aCoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func encodeWith(aCoder: NSCoder)
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.9, *)
 enum SKLabelVerticalAlignmentMode : Int {
@@ -1328,7 +1328,7 @@ class SKLightNode : SKNode {
    @see falloff
    @see categoryBitMask
    */
-  var enabled: Bool
+  var isEnabled: Bool
 
   /**
    Diffuse and Specular color of the light source, defaults to opaque white.
@@ -1413,7 +1413,7 @@ class SKMutableTexture : SKTexture {
   /**
    Modify the created mutable texture.
    */
-  func modifyPixelDataWithBlock(block: (UnsafeMutablePointer<Void>, Int) -> Void)
+  func modifyPixelDataWith(block: (UnsafeMutablePointer<Void>, Int) -> Void)
 
   /**
    Create a texture from an image file. Behaves similar to imageNamed: in UIImage or NSImage
@@ -1428,7 +1428,7 @@ class SKMutableTexture : SKTexture {
    @param rect the source rectangle to use in creating a logical copy of the given texture.
    @param texture the existing texture to reference in the copy.
    */
-  convenience init(rect: CGRect, inTexture texture: SKTexture)
+  convenience init(rect: CGRect, `in` texture: SKTexture)
 
   /**
    Create a texture containing directional noise. The RGBA values in this
@@ -1455,7 +1455,7 @@ class SKMutableTexture : SKTexture {
    
    @param image the CGImageRef to create the texture from
    */
-  convenience init(CGImage image: CGImage)
+  convenience init(cgImage image: CGImage)
   convenience init(image: NSImage)
 
   /**
@@ -1549,17 +1549,17 @@ class SKNode : NSResponder, NSCopying, NSCoding {
   /**
    Controls whether or not the node's actions is updated or paused.
    */
-  var paused: Bool
+  var isPaused: Bool
 
   /**
    Controls whether or not the node and its children are rendered.
    */
-  var hidden: Bool
+  var isHidden: Bool
 
   /**
    Controls whether or not the node receives touch events
    */
-  var userInteractionEnabled: Bool
+  var isUserInteractionEnabled: Bool
 
   /**
    The parent of the node.
@@ -1623,44 +1623,44 @@ class SKNode : NSResponder, NSCopying, NSCoding {
    @param node the child node to add.
    */
   func addChild(node: SKNode)
-  func insertChild(node: SKNode, atIndex index: Int)
-  func removeChildrenInArray(nodes: [SKNode])
+  func insertChild(node: SKNode, at index: Int)
+  func removeChildrenIn(nodes: [SKNode])
   func removeAllChildren()
   func removeFromParent()
   func moveToParent(parent: SKNode)
   func childNodeWithName(name: String) -> SKNode?
   func enumerateChildNodesWithName(name: String, usingBlock block: (SKNode, UnsafeMutablePointer<ObjCBool>) -> Void)
   func inParentHierarchy(parent: SKNode) -> Bool
-  func runAction(action: SKAction)
-  func runAction(action: SKAction, completion block: () -> Void)
-  func runAction(action: SKAction, withKey key: String)
+  func run(action: SKAction)
+  func run(action: SKAction, completion block: () -> Void)
+  func run(action: SKAction, withKey key: String)
   func hasActions() -> Bool
   func actionForKey(key: String) -> SKAction?
   func removeActionForKey(key: String)
   func removeAllActions()
-  func containsPoint(p: CGPoint) -> Bool
+  func contains(p: CGPoint) -> Bool
 
   /**Returns the node itself or a child node at the point given.
    * If the receiver is returned there is no child node at the given point.
    * @return a child node or self at the given location.
    */
-  func nodeAtPoint(p: CGPoint) -> SKNode
-  func nodesAtPoint(p: CGPoint) -> [SKNode]
-  func convertPoint(point: CGPoint, fromNode node: SKNode) -> CGPoint
-  func convertPoint(point: CGPoint, toNode node: SKNode) -> CGPoint
+  func atPoint(p: CGPoint) -> SKNode
+  func nodesAt(p: CGPoint) -> [SKNode]
+  func convert(point: CGPoint, from node: SKNode) -> CGPoint
+  func convert(point: CGPoint, to node: SKNode) -> CGPoint
   func intersectsNode(node: SKNode) -> Bool
-  func isEqualToNode(node: SKNode) -> Bool
+  func isEqualTo(node: SKNode) -> Bool
   class func obstaclesFromSpriteTextures(sprites: [SKNode], accuracy: Float) -> [AnyObject]
   class func obstaclesFromNodeBounds(nodes: [SKNode]) -> [AnyObject]
   class func obstaclesFromNodePhysicsBodies(nodes: [SKNode]) -> [AnyObject]
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 extension SKNode {
   subscript (name: String) -> [SKNode] { get }
 }
 extension NSEvent {
-  func locationInNode(node: SKNode) -> CGPoint
+  func locationIn(node: SKNode) -> CGPoint
 }
 
 /**
@@ -1686,44 +1686,44 @@ class SKPhysicsBody : NSObject, NSCopying, NSCoding {
    Creates a rectangle of the specified size centered at the node's origin.
    @param s the size in points
    */
-  /*not inherited*/ init(rectangleOfSize s: CGSize)
+  /*not inherited*/ init(rectangleOf s: CGSize)
 
   /**
    Creates a rectangle of the specified size centered at a point in the node's coordinate space.
    @param s the size in points
    */
-  /*not inherited*/ init(rectangleOfSize s: CGSize, center: CGPoint)
+  /*not inherited*/ init(rectangleOf s: CGSize, center: CGPoint)
 
   /**
    The path must represent a convex or concave polygon with counter clockwise winding and no self intersection. Positions are relative to the node's origin.
    @param path the path to use
    */
-  /*not inherited*/ init(polygonFromPath path: CGPath)
+  /*not inherited*/ init(polygonFrom path: CGPath)
 
   /**
    Creates an edge from p1 to p2. Edges have no volume and are intended to be used to create static environments. Edges can collide with bodies of volume, but not with each other.
    @param p1 start point
    @param p2 end point
    */
-  /*not inherited*/ init(edgeFromPoint p1: CGPoint, toPoint p2: CGPoint)
+  /*not inherited*/ init(edgeFrom p1: CGPoint, to p2: CGPoint)
 
   /**
    Creates an edge chain from a path. The path must have no self intersection. Edges have no volume and are intended to be used to create static environments. Edges can collide with bodies of volume, but not with each other.
    @param path the path to use
    */
-  /*not inherited*/ init(edgeChainFromPath path: CGPath)
+  /*not inherited*/ init(edgeChainFrom path: CGPath)
 
   /**
    Creates an edge loop from a path. A loop is automatically created by joining the last point to the first. The path must have no self intersection. Edges have no volume and are intended to be used to create static environments. Edges can collide with body's of volume, but not with each other.
    @param path the path to use
    */
-  /*not inherited*/ init(edgeLoopFromPath path: CGPath)
+  /*not inherited*/ init(edgeLoopFrom path: CGPath)
 
   /**
    Creates an edge loop from a CGRect. Edges have no volume and are intended to be used to create static environments. Edges can collide with body's of volume, but not with each other.
    @param rect the CGRect to use
    */
-  /*not inherited*/ init(edgeLoopFromRect rect: CGRect)
+  /*not inherited*/ init(edgeLoopFrom rect: CGRect)
 
   /**
    Creates a body from the alpha values in the supplied texture.
@@ -1746,18 +1746,18 @@ class SKPhysicsBody : NSObject, NSCopying, NSCoding {
    Creates an compound body that is the union of the bodies used to create it.
    */
   /*not inherited*/ init(bodies: [SKPhysicsBody])
-  var dynamic: Bool
+  var isDynamic: Bool
   var usesPreciseCollisionDetection: Bool
   var allowsRotation: Bool
   @available(OSX 10.10, *)
-  var pinned: Bool
+  var isPinned: Bool
 
   /**
    If the physics simulation has determined that this body is at rest it may set the resting property to YES. Resting bodies do not participate
    in the simulation until some collision with a non-resting  object, or an impulse is applied, that unrests it. If all bodies in the world are resting
    then the simulation as a whole is "at rest".
    */
-  var resting: Bool
+  var isResting: Bool
 
   /**
    Determines the 'roughness' for the surface of the physics body (0.0 - 1.0). Defaults to 0.2
@@ -1815,7 +1815,7 @@ class SKPhysicsBody : NSObject, NSCopying, NSCoding {
    @discussion
    If this is set a force is applied to the object based on the mass. Set the field force vector in the scene to modify the strength of the force.
    */
-  var affectedByGravity: Bool
+  var isAffectedByGravity: Bool
 
   /**
    Defines what logical 'categories' of fields this body responds to. Defaults to all bits set (all categories).
@@ -1847,15 +1847,15 @@ class SKPhysicsBody : NSObject, NSCopying, NSCoding {
   var velocity: CGVector
   var angularVelocity: CGFloat
   func applyForce(force: CGVector)
-  func applyForce(force: CGVector, atPoint point: CGPoint)
+  func applyForce(force: CGVector, at point: CGPoint)
   func applyTorque(torque: CGFloat)
   func applyImpulse(impulse: CGVector)
-  func applyImpulse(impulse: CGVector, atPoint point: CGPoint)
+  func applyImpulse(impulse: CGVector, at point: CGPoint)
   func applyAngularImpulse(impulse: CGFloat)
   func allContactedBodies() -> [SKPhysicsBody]
   init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  func copy(zone zone: NSZone = nil) -> AnyObject
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 class SKPhysicsContact : NSObject {
@@ -1872,7 +1872,7 @@ class SKPhysicsJoint : NSObject, NSCoding {
   var reactionForce: CGVector { get }
   var reactionTorque: CGFloat { get }
   init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 class SKPhysicsJointPin : SKPhysicsJoint {
@@ -1912,8 +1912,8 @@ class SKPhysicsJointLimit : SKPhysicsJoint {
   init?(coder aDecoder: NSCoder)
 }
 protocol SKPhysicsContactDelegate : NSObjectProtocol {
-  optional func didBeginContact(contact: SKPhysicsContact)
-  optional func didEndContact(contact: SKPhysicsContact)
+  optional func didBegin(contact: SKPhysicsContact)
+  optional func didEnd(contact: SKPhysicsContact)
 }
 class SKPhysicsWorld : NSObject, NSCoding {
 
@@ -1923,19 +1923,19 @@ class SKPhysicsWorld : NSObject, NSCoding {
   var gravity: CGVector
   var speed: CGFloat
   unowned(unsafe) var contactDelegate: @sil_unmanaged SKPhysicsContactDelegate?
-  func addJoint(joint: SKPhysicsJoint)
-  func removeJoint(joint: SKPhysicsJoint)
+  func add(joint: SKPhysicsJoint)
+  func remove(joint: SKPhysicsJoint)
   func removeAllJoints()
   @available(OSX 10.10, *)
   func sampleFieldsAt(position: vector_float3) -> vector_float3
-  func bodyAtPoint(point: CGPoint) -> SKPhysicsBody?
-  func bodyInRect(rect: CGRect) -> SKPhysicsBody?
+  func bodyAt(point: CGPoint) -> SKPhysicsBody?
+  func bodyIn(rect: CGRect) -> SKPhysicsBody?
   func bodyAlongRayStart(start: CGPoint, end: CGPoint) -> SKPhysicsBody?
-  func enumerateBodiesAtPoint(point: CGPoint, usingBlock block: (SKPhysicsBody, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func enumerateBodiesInRect(rect: CGRect, usingBlock block: (SKPhysicsBody, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateBodiesAt(point: CGPoint, usingBlock block: (SKPhysicsBody, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateBodiesIn(rect: CGRect, usingBlock block: (SKPhysicsBody, UnsafeMutablePointer<ObjCBool>) -> Void)
   func enumerateBodiesAlongRayStart(start: CGPoint, end: CGPoint, usingBlock block: (SKPhysicsBody, CGPoint, CGVector, UnsafeMutablePointer<ObjCBool>) -> Void)
   init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
@@ -1953,14 +1953,14 @@ class SKReachConstraints : NSObject, NSCoding {
   init(lowerAngleLimit: CGFloat, upperAngleLimit: CGFloat)
   convenience init()
   @available(OSX 10.10, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.11, *)
 class SKReferenceNode : SKNode {
 
   /** Create a reference node with a url */
-  init(URL url: NSURL?)
+  init(url: NSURL?)
 
   /** Create a reference node with a url */
   init(fileNamed fileName: String?)
@@ -1974,7 +1974,7 @@ class SKReferenceNode : SKNode {
   convenience init(fileNamed fileName: String)
 
   /** Create a reference node with a url */
-  convenience init(URL referenceURL: NSURL)
+  convenience init(url referenceURL: NSURL)
 
   /** called each time the url is loaded, after it has been added as a child */
   func didLoadReferenceNode(node: SKNode?)
@@ -1992,7 +1992,7 @@ class SKRegion : NSObject, NSCopying, NSCoding {
 
   /** A shared infinite region
     */
-  class func infiniteRegion() -> Self
+  class func infinite() -> Self
 
   /** Create a circular region with radius
    */
@@ -2011,28 +2011,28 @@ class SKRegion : NSObject, NSCopying, NSCoding {
       The inverse of the infiniteRegion is an empty region.
       Subclasses of SKRegion need to provide an implementation of inverseRegion.
    */
-  func inverseRegion() -> Self
+  func inverse() -> Self
 
   /** Create a new region that is the original region plus the supplied region
    */
-  func regionByUnionWithRegion(region: SKRegion) -> Self
+  func byUnionWith(region: SKRegion) -> Self
 
   /** Create a new region that is the original region minus the supplied region
    */
-  func regionByDifferenceFromRegion(region: SKRegion) -> Self
+  func byDifferenceFrom(region: SKRegion) -> Self
 
   /** Create a new region that is the region covered by the original region and the supplied region
    */
-  func regionByIntersectionWithRegion(region: SKRegion) -> Self
+  func byIntersectionWith(region: SKRegion) -> Self
 
   /** Test for containment
    */
-  func containsPoint(point: CGPoint) -> Bool
+  func contains(point: CGPoint) -> Bool
   init()
   @available(OSX 10.10, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(OSX 10.10, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.9, *)
@@ -2047,10 +2047,10 @@ enum SKSceneScaleMode : Int {
 @available(OSX 10.10, *)
 protocol SKSceneDelegate : NSObjectProtocol {
   optional func update(currentTime: NSTimeInterval, forScene scene: SKScene)
-  optional func didEvaluateActionsForScene(scene: SKScene)
-  optional func didSimulatePhysicsForScene(scene: SKScene)
-  optional func didApplyConstraintsForScene(scene: SKScene)
-  optional func didFinishUpdateForScene(scene: SKScene)
+  optional func didEvaluateActionsFor(scene: SKScene)
+  optional func didSimulatePhysicsFor(scene: SKScene)
+  optional func didApplyConstraintsFor(scene: SKScene)
+  optional func didFinishUpdateFor(scene: SKScene)
 }
 
 /**
@@ -2144,8 +2144,8 @@ class SKScene : SKEffectNode {
    */
   @available(OSX 10.10, *)
   func didFinishUpdate()
-  func didMoveToView(view: SKView)
-  func willMoveFromView(view: SKView)
+  func didMoveTo(view: SKView)
+  func willMoveFrom(view: SKView)
   func didChangeSize(oldSize: CGSize)
   init()
 
@@ -2224,9 +2224,9 @@ class SKShader : NSObject, NSCopying, NSCoding {
   func removeUniformNamed(name: String)
   init()
   @available(OSX 10.10, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(OSX 10.10, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -2243,17 +2243,17 @@ class SKShapeNode : SKNode {
   @available(OSX 10.10, *)
   convenience init(rect: CGRect)
   @available(OSX 10.10, *)
-  convenience init(rectOfSize size: CGSize)
+  convenience init(rectOf size: CGSize)
   @available(OSX 10.10, *)
   convenience init(rect: CGRect, cornerRadius: CGFloat)
   @available(OSX 10.10, *)
-  convenience init(rectOfSize size: CGSize, cornerRadius: CGFloat)
+  convenience init(rectOf size: CGSize, cornerRadius: CGFloat)
   @available(OSX 10.10, *)
   convenience init(circleOfRadius radius: CGFloat)
   @available(OSX 10.10, *)
-  convenience init(ellipseInRect rect: CGRect)
+  convenience init(ellipseIn rect: CGRect)
   @available(OSX 10.10, *)
-  convenience init(ellipseOfSize size: CGSize)
+  convenience init(ellipseOf size: CGSize)
   @available(OSX 10.10, *)
   convenience init(points: UnsafeMutablePointer<CGPoint>, count numPoints: Int)
   @available(OSX 10.10, *)
@@ -2283,7 +2283,7 @@ class SKShapeNode : SKNode {
   /**
    If set to YES, the path stroke edges and caps is smoothed (antialiased) when drawn.
    */
-  var antialiased: Bool
+  var isAntialiased: Bool
 
   /**
    The width used to stroke the path. Widths larger than 2.0 may result in artifacts. Defaults to 1.0.
@@ -2486,7 +2486,7 @@ class SKTexture : NSObject, NSCopying, NSCoding {
    @param rect the source rectangle to use in creating a logical copy of the given texture.
    @param texture the existing texture to reference in the copy.
    */
-  convenience init(rect: CGRect, inTexture texture: SKTexture)
+  convenience init(rect: CGRect, `in` texture: SKTexture)
 
   /**
    Create a texture containing directional noise. The RGBA values in this
@@ -2513,7 +2513,7 @@ class SKTexture : NSObject, NSCopying, NSCoding {
    
    @param image the CGImageRef to create the texture from
    */
-  convenience init(CGImage image: CGImage)
+  convenience init(cgImage image: CGImage)
   convenience init(image: NSImage)
 
   /**
@@ -2541,13 +2541,13 @@ class SKTexture : NSObject, NSCopying, NSCoding {
    
    @param filter the CI filter to apply in the copy.
    */
-  func textureByApplyingCIFilter(filter: CIFilter) -> Self
+  func applying(filter: CIFilter) -> Self
 
   /**
    Create new texture by generating a normal map texture.
     */
   @available(OSX 10.10, *)
-  func textureByGeneratingNormalMap() -> Self
+  func generatingNormalMap() -> Self
 
   /**
    Create new texture by generating a normal map texture.
@@ -2556,7 +2556,7 @@ class SKTexture : NSObject, NSCopying, NSCoding {
    @param contrast  the scale applied to the generated normal map.
    */
   @available(OSX 10.10, *)
-  func textureByGeneratingNormalMapWithSmoothness(smoothness: CGFloat, contrast: CGFloat) -> Self
+  func generatingNormalMapWithSmoothness(smoothness: CGFloat, contrast: CGFloat) -> Self
 
   /**
    Used to choose the area of the texture you want to display. The origin and size should both be in the range 0.0 - 1.0, values outside of this range produces unpredictable results. Defaults to the entire texture {(0,0) (1,1)}.
@@ -2582,7 +2582,7 @@ class SKTexture : NSObject, NSCopying, NSCoding {
    Convert the current SKTexture into a CGImageRef object
    */
   @available(OSX 10.11, *)
-  var CGImage: CGImage { get }
+  var cgImage: CGImage { get }
 
   /**
    Start a texture preload operation on an array of textures
@@ -2591,15 +2591,15 @@ class SKTexture : NSObject, NSCopying, NSCoding {
    @param completionhandler will be called upon the preload completion
    
    */
-  class func preloadTextures(textures: [SKTexture], withCompletionHandler completionHandler: () -> Void)
+  class func preload(textures: [SKTexture], withCompletionHandler completionHandler: () -> Void)
 
   /**
    Request that this texture be loaded into vram on the next render update, with a callback handler.
    */
   func preloadWithCompletionHandler(completionHandler: () -> Void)
   init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  func copy(zone zone: NSZone = nil) -> AnyObject
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -2639,7 +2639,7 @@ class SKTextureAtlas : NSObject, NSCoding {
   func preloadWithCompletionHandler(completionHandler: () -> Void)
   var textureNames: [String] { get }
   init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -2663,18 +2663,18 @@ enum SKTransitionDirection : Int {
 class SKTransition : NSObject, NSCopying {
   class func crossFadeWithDuration(sec: NSTimeInterval) -> SKTransition
   class func fadeWithDuration(sec: NSTimeInterval) -> SKTransition
-  class func fadeWithColor(color: NSColor, duration sec: NSTimeInterval) -> SKTransition
+  class func fadeWith(color: NSColor, duration sec: NSTimeInterval) -> SKTransition
   class func flipHorizontalWithDuration(sec: NSTimeInterval) -> SKTransition
   class func flipVerticalWithDuration(sec: NSTimeInterval) -> SKTransition
-  class func revealWithDirection(direction: SKTransitionDirection, duration sec: NSTimeInterval) -> SKTransition
-  class func moveInWithDirection(direction: SKTransitionDirection, duration sec: NSTimeInterval) -> SKTransition
-  class func pushWithDirection(direction: SKTransitionDirection, duration sec: NSTimeInterval) -> SKTransition
+  class func revealWith(direction: SKTransitionDirection, duration sec: NSTimeInterval) -> SKTransition
+  class func moveInWith(direction: SKTransitionDirection, duration sec: NSTimeInterval) -> SKTransition
+  class func pushWith(direction: SKTransitionDirection, duration sec: NSTimeInterval) -> SKTransition
   class func doorsOpenHorizontalWithDuration(sec: NSTimeInterval) -> SKTransition
   class func doorsOpenVerticalWithDuration(sec: NSTimeInterval) -> SKTransition
   class func doorsCloseHorizontalWithDuration(sec: NSTimeInterval) -> SKTransition
   class func doorsCloseVerticalWithDuration(sec: NSTimeInterval) -> SKTransition
   class func doorwayWithDuration(sec: NSTimeInterval) -> SKTransition
-  /*not inherited*/ init(CIFilter filter: CIFilter, duration sec: NSTimeInterval)
+  /*not inherited*/ init(ciFilter filter: CIFilter, duration sec: NSTimeInterval)
 
   /**
    Pause the incoming Scene during the transition, defaults to YES.
@@ -2686,7 +2686,7 @@ class SKTransition : NSObject, NSCopying {
    */
   var pausesOutgoingScene: Bool
   init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.10, *)
 enum SKUniformType : Int {
@@ -2725,17 +2725,17 @@ class SKUniform : NSObject, NSCopying, NSCoding {
   init(name: String)
   init(name: String, texture: SKTexture?)
   init(name: String, float value: Float)
-  init(name: String, floatVector2 value: GLKVector2)
-  init(name: String, floatVector3 value: GLKVector3)
-  init(name: String, floatVector4 value: GLKVector4)
-  init(name: String, floatMatrix2 value: GLKMatrix2)
-  init(name: String, floatMatrix3 value: GLKMatrix3)
-  init(name: String, floatMatrix4 value: GLKMatrix4)
+  init(name: String, float value: GLKVector2)
+  init(name: String, float value: GLKVector3)
+  init(name: String, float value: GLKVector4)
+  init(name: String, float value: GLKMatrix2)
+  init(name: String, float value: GLKMatrix3)
+  init(name: String, float value: GLKMatrix4)
   init()
   @available(OSX 10.10, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(OSX 10.10, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 var SK_VERSION: Int32 { get }
@@ -2751,7 +2751,7 @@ class SKVideoNode : SKNode {
   @available(OSX, introduced=10.8, deprecated=10.10)
   init(videoURL url: NSURL)
   @available(OSX 10.10, *)
-  init(URL url: NSURL)
+  init(url: NSURL)
 
   /**
    Support coding and decoding via NSKeyedArchiver.
@@ -2776,7 +2776,7 @@ class SKView : NSView {
   /**
    Pause the entire view
    */
-  var paused: Bool
+  var isPaused: Bool
 
   /**
    Toggles display of performance stats in the view. All default to false.
@@ -2844,7 +2844,7 @@ class SKView : NSView {
    The texture is tightly cropped to the size of the node.
    @param node the node subtree to render to the texture.
    */
-  func textureFromNode(node: SKNode) -> SKTexture?
+  func textureFrom(node: SKNode) -> SKTexture?
 
   /**
    Create an SKTexture containing a snapshot of how it would have been rendered in this view.
@@ -2852,7 +2852,7 @@ class SKView : NSView {
    @param node the node subtree to render to the texture.
    @param rect the crop
    */
-  func textureFromNode(node: SKNode, crop: CGRect) -> SKTexture?
+  func textureFrom(node: SKNode, crop: CGRect) -> SKTexture?
 
   /**
    Converts a point from view space to scene space.
@@ -2860,7 +2860,7 @@ class SKView : NSView {
    @param point the point to convert.
    @param scene the scene to convert the point into.
    */
-  func convertPoint(point: CGPoint, toScene scene: SKScene) -> CGPoint
+  func convert(point: CGPoint, to scene: SKScene) -> CGPoint
 
   /**
    Converts a point from scene space to view space.
@@ -2868,7 +2868,7 @@ class SKView : NSView {
    @param point the point to convert.
    @param scene the scene to convert the point into.
    */
-  func convertPoint(point: CGPoint, fromScene scene: SKScene) -> CGPoint
+  func convert(point: CGPoint, from scene: SKScene) -> CGPoint
   init(frame frameRect: NSRect)
   init?(coder: NSCoder)
   convenience init()

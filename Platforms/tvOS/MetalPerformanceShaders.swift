@@ -267,7 +267,7 @@ class MPSImageHistogram : MPSKernel {
    *  @discussion Indicates that the memory region in which the histogram results are to be written in the
    *              histogram buffer are to be zero-initialized or not. Default: YES.
    */
-  var zeroHistogram: Bool
+  var isZeroHistogram: Bool
 
   /*! @property   histogramInfo
    *  @abstract   Return a structure describing the histogram content
@@ -299,7 +299,7 @@ class MPSImageHistogram : MPSKernel {
    *                                  If histogramInfo.histogramForAlpha is false and the source image is RGBA then only histogram
    *                                  results for RGB channels are stored.
    */
-  func encodeToCommandBuffer(commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, histogram: MTLBuffer, histogramOffset: Int)
+  func encodeTo(commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, histogram: MTLBuffer, histogramOffset: Int)
 
   /*!
    *  @abstract   The amount of space in the output MTLBuffer the histogram will take up.
@@ -391,7 +391,7 @@ class MPSImageHistogramEqualization : MPSUnaryImageKernel {
    *                          alignment requirements for [MTLComputeCommandEncoder setBuffer:offset:atIndex:] offset
    *                          parameter.
    */
-  func encodeTransformToCommandBuffer(commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, histogram: MTLBuffer, histogramOffset: Int)
+  func encodeTransformTo(commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, histogram: MTLBuffer, histogramOffset: Int)
 
   /*!
    *  @abstract   Standard init with default properties per filter type
@@ -480,7 +480,7 @@ class MPSImageHistogramSpecification : MPSUnaryImageKernel {
    *                                  alignment requirements for [MTLComputeCommandEncoder setBuffer:offset:atIndex:] offset
    *                                  parameter.
    */
-  func encodeTransformToCommandBuffer(commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, sourceHistogram: MTLBuffer, sourceHistogramOffset: Int, desiredHistogram: MTLBuffer, desiredHistogramOffset: Int)
+  func encodeTransformTo(commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, sourceHistogram: MTLBuffer, sourceHistogramOffset: Int, desiredHistogram: MTLBuffer, desiredHistogramOffset: Int)
 
   /*!
    *  @abstract   Standard init with default properties per filter type
@@ -670,7 +670,7 @@ class MPSUnaryImageKernel : MPSKernel {
    *              texture if a copyAllocator was provided.  On failure, NO is returned. The
    *              texture is unmodified.
    */
-  func encodeToCommandBuffer(commandBuffer: MTLCommandBuffer, inPlaceTexture texture: UnsafeMutablePointer<MTLTexture?>, fallbackCopyAllocator copyAllocator: MPSCopyAllocator?) -> Bool
+  func encodeTo(commandBuffer: MTLCommandBuffer, inPlace texture: UnsafeMutablePointer<MTLTexture?>, fallbackCopyAllocator copyAllocator: MPSCopyAllocator? = nil) -> Bool
 
   /*!
    *  @abstract   Encode a MPSKernel into a command Buffer.  The operation shall proceed out-of-place.
@@ -678,7 +678,7 @@ class MPSUnaryImageKernel : MPSKernel {
    *  @param      sourceTexture       A valid MTLTexture containing the source image.
    *  @param      destinationTexture  A valid MTLTexture to be overwritten by result image. DestinationTexture may not alias sourceTexture.
    */
-  func encodeToCommandBuffer(commandBuffer: MTLCommandBuffer, sourceTexture: MTLTexture, destinationTexture: MTLTexture)
+  func encodeTo(commandBuffer: MTLCommandBuffer, sourceTexture: MTLTexture, destinationTexture: MTLTexture)
 
   /*!
    *  sourceRegionForDestinationSize: is used to determine which region of the
@@ -824,7 +824,7 @@ class MPSBinaryImageKernel : MPSKernel {
    *              texture if a copyAllocator was provided.  On failure, NO is returned. The
    *              texture is unmodified.
    */
-  func encodeToCommandBuffer(commandBuffer: MTLCommandBuffer, primaryTexture: MTLTexture, inPlaceSecondaryTexture: UnsafeMutablePointer<MTLTexture?>, fallbackCopyAllocator copyAllocator: MPSCopyAllocator?) -> Bool
+  func encodeTo(commandBuffer: MTLCommandBuffer, primaryTexture: MTLTexture, inPlaceSecondaryTexture: UnsafeMutablePointer<MTLTexture?>, fallbackCopyAllocator copyAllocator: MPSCopyAllocator? = nil) -> Bool
 
   /*!
    *  This method attempts to apply the MPSKernel in place on a texture.
@@ -869,7 +869,7 @@ class MPSBinaryImageKernel : MPSKernel {
    *              texture if a copyAllocator was provided.  On failure, NO is returned. The
    *              texture is unmodified.
    */
-  func encodeToCommandBuffer(commandBuffer: MTLCommandBuffer, inPlacePrimaryTexture: UnsafeMutablePointer<MTLTexture?>, secondaryTexture: MTLTexture, fallbackCopyAllocator copyAllocator: MPSCopyAllocator?) -> Bool
+  func encodeTo(commandBuffer: MTLCommandBuffer, inPlacePrimaryTexture: UnsafeMutablePointer<MTLTexture?>, secondaryTexture: MTLTexture, fallbackCopyAllocator copyAllocator: MPSCopyAllocator? = nil) -> Bool
 
   /*!
    *  @abstract   Encode a MPSKernel into a command Buffer.  The operation shall proceed out-of-place.
@@ -878,7 +878,7 @@ class MPSBinaryImageKernel : MPSKernel {
    *  @param      secondaryTexture    A valid MTLTexture containing the secondary source image.
    *  @param      destinationTexture  A valid MTLTexture to be overwritten by result image. destinationTexture may not alias sourceTexture.
    */
-  func encodeToCommandBuffer(commandBuffer: MTLCommandBuffer, primaryTexture: MTLTexture, secondaryTexture: MTLTexture, destinationTexture: MTLTexture)
+  func encodeTo(commandBuffer: MTLCommandBuffer, primaryTexture: MTLTexture, secondaryTexture: MTLTexture, destinationTexture: MTLTexture)
 
   /*!
    *  primarySourceRegionForDestinationSize: is used to determine which region of the
@@ -1483,10 +1483,10 @@ class MPSKernel : NSObject, NSCopying {
    *              nil if the device is not supported. Devices must be
    *              MTLFeatureSet_iOS_GPUFamily2_v1 or later.
    */
-  func copyWithZone(zone: NSZone, device: MTLDevice?) -> Self
+  func copy(zone zone: NSZone = nil, device: MTLDevice?) -> Self
   convenience init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*! @typedef    MPSKernelOptions

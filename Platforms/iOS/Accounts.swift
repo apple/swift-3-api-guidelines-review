@@ -13,8 +13,8 @@ class ACAccount : NSObject {
 }
 @available(iOS 5.0, *)
 class ACAccountCredential : NSObject {
-  init!(OAuthToken token: String!, tokenSecret secret: String!)
-  init!(OAuth2Token token: String!, refreshToken: String!, expiryDate: NSDate!)
+  init!(oAuthToken token: String!, tokenSecret secret: String!)
+  init!(oAuth2Token token: String!, refreshToken: String!, expiryDate: NSDate!)
   var oauthToken: String!
   init()
 }
@@ -34,10 +34,10 @@ class ACAccountStore : NSObject {
   var accounts: [AnyObject]! { get }
   func accountWithIdentifier(identifier: String!) -> ACAccount!
   func accountTypeWithAccountTypeIdentifier(typeIdentifier: String!) -> ACAccountType!
-  func accountsWithAccountType(accountType: ACAccountType!) -> [AnyObject]!
+  func accountsWith(accountType: ACAccountType!) -> [AnyObject]!
   func saveAccount(account: ACAccount!, withCompletionHandler completionHandler: ACAccountStoreSaveCompletionHandler!)
-  func requestAccessToAccountsWithType(accountType: ACAccountType!, options: [NSObject : AnyObject]!, completion: ACAccountStoreRequestAccessCompletionHandler!)
-  func renewCredentialsForAccount(account: ACAccount!, completion completionHandler: ACAccountStoreCredentialRenewalHandler!)
+  func requestAccessToAccountsWith(accountType: ACAccountType!, options: [NSObject : AnyObject]!, completion: ACAccountStoreRequestAccessCompletionHandler!)
+  func renewCredentialsFor(account: ACAccount!, completion completionHandler: ACAccountStoreCredentialRenewalHandler!)
   func removeAccount(account: ACAccount!, withCompletionHandler completionHandler: ACAccountStoreRemoveCompletionHandler!)
   init()
 }

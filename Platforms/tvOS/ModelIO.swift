@@ -41,7 +41,7 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
   
                Submeshes will be converted to triangle topology.
    */
-  init(URL: NSURL)
+  init(url URL: NSURL)
 
   /*!
    @method initWithURL:vertexDescriptor:bufferAllocator:
@@ -60,7 +60,7 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
    
                Submeshes will be converted to triangle topology.
     */
-  init(URL: NSURL, vertexDescriptor: MDLVertexDescriptor?, bufferAllocator: MDLMeshBufferAllocator?)
+  init(url URL: NSURL, vertexDescriptor: MDLVertexDescriptor?, bufferAllocator: MDLMeshBufferAllocator?)
 
   /*! 
    @method initWithURL:vertexDescriptor:bufferAllocator:preserveTopology
@@ -76,15 +76,15 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
                MDLGeometryTypeVariableTopology, and a faceTopologyBuffer will be
                created.
    */
-  init(URL: NSURL, vertexDescriptor: MDLVertexDescriptor?, bufferAllocator: MDLMeshBufferAllocator?, preserveTopology: Bool, error: NSErrorPointer)
+  init(url URL: NSURL, vertexDescriptor: MDLVertexDescriptor?, bufferAllocator: MDLMeshBufferAllocator?, preserveTopology: Bool, error: NSErrorPointer)
 
   /*!
    @method exportAssetToURL:
    @abstract Export an asset to the specified URL.
    @return YES is returned if exporting proceeded successfully,
    */
-  func exportAssetToURL(URL: NSURL) -> Bool
-  func exportAssetToURL(URL: NSURL, error: ()) throws
+  func exportAssetTo(URL: NSURL) -> Bool
+  func exportAssetTo(URL: NSURL, error: ()) throws
 
   /*!
    @method canImportFileExtension:
@@ -146,7 +146,7 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
    @discussion If no animation data was specified by resource or resource incapable 
                of specifying animation data, this value defaults to 0
    */
-  var URL: NSURL? { get }
+  var url: NSURL? { get }
 
   /*!
    @property bufferAllocator
@@ -166,14 +166,14 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
    @abstract Add a top level object to an asset.
    @discussion If the object was already in the asset, this has no effect.
    */
-  func addObject(object: MDLObject)
+  func add(object: MDLObject)
 
   /*!
    @method removeObject:
    @abstract Remove a top level object from an asset.
    @discussion If the object not in the asset, this has no effect.
    */
-  func removeObject(object: MDLObject)
+  func remove(object: MDLObject)
 
   /*!
    The number of top level objects
@@ -185,12 +185,12 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
    @method objectAtIndex:
    @abstract return the indexed top level object
    */
-  func objectAtIndex(index: Int) -> MDLObject
+  func objectAt(index: Int) -> MDLObject
   init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 9.0, *)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 /**
@@ -683,7 +683,7 @@ class MDLAreaLight : MDLPhysicallyPlausibleLight {
 */
 @available(tvOS 9.0, *)
 class MDLPhotometricLight : MDLPhysicallyPlausibleLight {
-  init?(IESProfile URL: NSURL)
+  init?(iesProfile URL: NSURL)
   func generateSphericalHarmonicsFromLight(sphericalHarmonicsLevel: Int)
   func generateCubemapFromLight(textureSize: Int)
   var lightCubeMap: MDLTexture? { get }
@@ -907,7 +907,7 @@ class MDLMaterialProperty : NSObject, MDLNamed {
   convenience init(name: String, semantic: MDLMaterialSemantic, float3 value: vector_float3)
   convenience init(name: String, semantic: MDLMaterialSemantic, float4 value: vector_float4)
   convenience init(name: String, semantic: MDLMaterialSemantic, matrix4x4 value: matrix_float4x4)
-  convenience init(name: String, semantic: MDLMaterialSemantic, URL: NSURL?)
+  convenience init(name: String, semantic: MDLMaterialSemantic, url URL: NSURL?)
   convenience init(name: String, semantic: MDLMaterialSemantic, string: String?)
   convenience init(name: String, semantic: MDLMaterialSemantic, textureSampler: MDLTextureSampler?)
   convenience init(name: String, semantic: MDLMaterialSemantic, color: CGColor)
@@ -918,7 +918,7 @@ class MDLMaterialProperty : NSObject, MDLNamed {
   /** @see MDLNamed */
   var name: String
   var stringValue: String?
-  @NSCopying var URLValue: NSURL?
+  @NSCopying var urlValue: NSURL?
   var textureSamplerValue: MDLTextureSampler?
   var color: CGColor?
   var floatValue: Float
@@ -968,21 +968,21 @@ class MDLPhysicallyPlausibleScatteringFunction : MDLScatteringFunction {
 class MDLMaterial : NSObject, MDLNamed, NSFastEnumeration {
   init(name: String, scatteringFunction: MDLScatteringFunction)
   func setProperty(property: MDLMaterialProperty)
-  func removeProperty(property: MDLMaterialProperty)
+  func remove(property: MDLMaterialProperty)
   func propertyNamed(name: String) -> MDLMaterialProperty?
-  func propertyWithSemantic(semantic: MDLMaterialSemantic) -> MDLMaterialProperty?
+  func propertyWith(semantic: MDLMaterialSemantic) -> MDLMaterialProperty?
   func removeAllProperties()
   var scatteringFunction: MDLScatteringFunction { get }
 
   /** @see MDLNamed */
   var name: String
-  var baseMaterial: MDLMaterial?
+  var base: MDLMaterial?
   subscript (idx: Int) -> MDLMaterialProperty? { get }
   subscript (name: String) -> MDLMaterialProperty? { get }
   var count: Int { get }
   init()
   @available(tvOS 9.0, *)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 /*!
@@ -1347,7 +1347,7 @@ class MDLMeshBufferMap : NSObject {
    @abstract Called by implementor of MDLMeshBuffer protocol to create the map
              and arrange for unmapping on deallocation.
    */
-  init(bytes: UnsafeMutablePointer<Void>, deallocator: (() -> Void)?)
+  init(bytes: UnsafeMutablePointer<Void>, deallocator: (() -> Void)? = nil)
 
   /*!
    @property bytes
@@ -1374,7 +1374,7 @@ protocol MDLMeshBuffer : NSObjectProtocol, NSCopying {
    @discussion Fills data.length bytes of data.  Will not write beyond length of 
                this buffer.
    */
-  func fillData(data: NSData, offset: Int)
+  func fill(data: NSData, offset: Int)
 
   /*!
    @method map
@@ -1444,7 +1444,7 @@ class MDLMeshBufferData : NSObject, MDLMeshBuffer {
                this buffer.
    */
   @available(tvOS 9.0, *)
-  func fillData(data: NSData, offset: Int)
+  func fill(data: NSData, offset: Int)
 
   /*!
    @method map
@@ -1484,7 +1484,7 @@ class MDLMeshBufferData : NSObject, MDLMeshBuffer {
   @available(tvOS 9.0, *)
   func zone() -> MDLMeshBufferZone
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -1554,7 +1554,7 @@ protocol MDLMeshBufferAllocator : NSObjectProtocol {
    @param data Memory to fill the buffer with
    @param type Type of data to be stored in this buffer
    */
-  func newBufferWithData(data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBufferWith(data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
 
   /*!
    @method newBufferFromZone:length:type:
@@ -1570,7 +1570,7 @@ protocol MDLMeshBufferAllocator : NSObjectProtocol {
                buffer could not be allocated.
   
    */
-  func newBufferFromZone(zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFrom(zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
 
   /*!
    @method newBufferFromZone:data:type:
@@ -1586,7 +1586,7 @@ protocol MDLMeshBufferAllocator : NSObjectProtocol {
                zone size. Alternatively the implementation may return nil if the 
                buffer could not be allocated.
    */
-  func newBufferFromZone(zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFrom(zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 
 /*!
@@ -1635,7 +1635,7 @@ class MDLMeshBufferDataAllocator : NSObject, MDLMeshBufferAllocator {
    @param type Type of data to be stored in this buffer
    */
   @available(tvOS 9.0, *)
-  func newBufferWithData(data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBufferWith(data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
 
   /*!
    @method newBufferFromZone:length:type:
@@ -1652,7 +1652,7 @@ class MDLMeshBufferDataAllocator : NSObject, MDLMeshBufferAllocator {
   
    */
   @available(tvOS 9.0, *)
-  func newBufferFromZone(zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFrom(zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
 
   /*!
    @method newBufferFromZone:data:type:
@@ -1669,7 +1669,7 @@ class MDLMeshBufferDataAllocator : NSObject, MDLMeshBufferAllocator {
                buffer could not be allocated.
    */
   @available(tvOS 9.0, *)
-  func newBufferFromZone(zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFrom(zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 
 /*!
@@ -1702,7 +1702,7 @@ class MDLObject : NSObject, MDLNamed {
    @abstract Extensible component support that allows user of ModelIO to customize 
              MDLObjects to fit their format and workflow.
    */
-  func componentConformingToProtocol(`protocol`: Protocol) -> MDLComponent?
+  func componentConformingTo(`protocol`: Protocol) -> MDLComponent?
 
   /*!
    @property parent
@@ -1772,13 +1772,13 @@ class MDLObject : NSObject, MDLNamed {
 class MDLObjectContainer : NSObject, MDLObjectContainerComponent {
   init()
   @available(tvOS 9.0, *)
-  func addObject(object: MDLObject)
+  func add(object: MDLObject)
   @available(tvOS 9.0, *)
-  func removeObject(object: MDLObject)
+  func remove(object: MDLObject)
   @available(tvOS 9.0, *)
   var objects: [MDLObject] { get }
   @available(tvOS 9.0, *)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 @available(tvOS 9.0, *)
 class MDLSubmeshTopology : NSObject {
@@ -1901,7 +1901,7 @@ class MDLSubmesh : NSObject, MDLNamed {
     geometry type is possible, conversion will be performed. Otherwise nil will
     be returned.
    */
-  init?(MDLSubmesh submesh: MDLSubmesh, indexType: MDLIndexBitDepth, geometryType: MDLGeometryType)
+  init?(mdlSubmesh submesh: MDLSubmesh, indexType: MDLIndexBitDepth, geometryType: MDLGeometryType)
 
   /*!
    @property indexBuffer
@@ -2028,15 +2028,15 @@ class MDLTexture : NSObject, MDLNamed {
    */
   convenience init?(cubeWithImagesNamed names: [String])
   convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
-  class func irradianceTextureCubeWithTexture(texture: MDLTexture, name: String?, dimensions: vector_int2) -> Self
-  class func irradianceTextureCubeWithTexture(texture: MDLTexture, name: String?, dimensions: vector_int2, roughness: Float) -> Self
+  class func irradianceTextureCubeWith(texture: MDLTexture, name: String?, dimensions: vector_int2) -> Self
+  class func irradianceTextureCubeWith(texture: MDLTexture, name: String?, dimensions: vector_int2, roughness: Float) -> Self
   init(data pixelData: NSData?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
 
   /** writeToURL, deducing type from path extension */
-  func writeToURL(URL: NSURL) -> Bool
+  func writeTo(URL: NSURL) -> Bool
 
   /** writeToURL using a specific UT type */
-  func writeToURL(nsurl: NSURL, type: CFString) -> Bool
+  func writeTo(nsurl: NSURL, type: CFString) -> Bool
   func imageFromTexture() -> Unmanaged<CGImage>?
   func texelDataWithTopLeftOrigin() -> NSData?
   func texelDataWithBottomLeftOrigin() -> NSData?
@@ -2062,8 +2062,8 @@ class MDLTexture : NSObject, MDLNamed {
  */
 @available(tvOS 9.0, *)
 class MDLURLTexture : MDLTexture {
-  init(URL: NSURL, name: String?)
-  @NSCopying var URL: NSURL
+  init(url URL: NSURL, name: String?)
+  @NSCopying var url: NSURL
 
   /**
    Creates a texture from a source in the main bundle named in a manner matching
@@ -2237,7 +2237,7 @@ class MDLColorSwatchTexture : MDLTexture {
    Create a color gradient from one color to another. The color will interpolate 
    according to hue. The gradient will be vertical.
    */
-  init(colorGradientFrom color1: CGColor, toColor color2: CGColor, name: String?, textureDimensions: vector_int2)
+  init(colorGradientFrom color1: CGColor, to color2: CGColor, name: String?, textureDimensions: vector_int2)
 
   /**
    Creates a texture from a source in the main bundle named in a manner matching
@@ -2329,7 +2329,7 @@ class MDLNoiseTexture : MDLTexture {
 }
 @available(tvOS 9.0, *)
 class MDLNormalMapTexture : MDLTexture {
-  init(byGeneratingNormalMapWithTexture sourceTexture: MDLTexture, name: String?, smoothness: Float, contrast: Float)
+  init(byGeneratingNormalMapWith sourceTexture: MDLTexture, name: String?, smoothness: Float, contrast: Float)
 
   /**
    Creates a texture from a source in the main bundle named in a manner matching
@@ -2392,7 +2392,7 @@ protocol MDLTransformComponent : MDLComponent {
   /** Returns the transform governing this transformable at the specified frame in
       world space. If there is no parent, identity will be returned
    */
-  optional static func globalTransformWithObject(object: MDLObject, atTime time: NSTimeInterval) -> matrix_float4x4
+  optional static func globalTransformWith(object: MDLObject, atTime time: NSTimeInterval) -> matrix_float4x4
 }
 
 /**
@@ -2475,7 +2475,7 @@ class MDLTransform : NSObject, MDLTransformComponent {
       world space. If there is no parent, identity will be returned
    */
   @available(tvOS 9.0, *)
-  class func globalTransformWithObject(object: MDLObject, atTime time: NSTimeInterval) -> matrix_float4x4
+  class func globalTransformWith(object: MDLObject, atTime time: NSTimeInterval) -> matrix_float4x4
 }
 @available(tvOS 9.0, *)
 let kUTTypeAlembic: String
@@ -2520,8 +2520,8 @@ protocol MDLComponent : NSObjectProtocol {
 }
 @available(tvOS 9.0, *)
 protocol MDLObjectContainerComponent : MDLComponent, NSFastEnumeration {
-  func addObject(object: MDLObject)
-  func removeObject(object: MDLObject)
+  func add(object: MDLObject)
+  func remove(object: MDLObject)
   var objects: [MDLObject] { get }
 }
 struct MDL_EXPORT_CPPCLASS {
@@ -2671,7 +2671,7 @@ class MDLVertexBufferLayout : NSObject, NSCopying {
   var stride: Int
   init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -2728,7 +2728,7 @@ class MDLVertexAttribute : NSObject, NSCopying {
   var initializationValue: vector_float4
   init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -2807,7 +2807,7 @@ class MDLVertexDescriptor : NSObject, NSCopying {
   func setPackedOffsets()
   init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /**
@@ -2880,7 +2880,7 @@ class MDLVoxelArray : NSObject {
   /**
    Create a mesh from the voxel grid
    */
-  func meshUsingAllocator(allocator: MDLMeshBufferAllocator?) -> MDLMesh?
+  func meshUsing(allocator: MDLMeshBufferAllocator?) -> MDLMesh?
 
   /**
    Determine if a sample exists at the specified index
@@ -2908,7 +2908,7 @@ class MDLVoxelArray : NSObject {
    @param exteriorShells The number of shells to compute outside the surface shell
    @param patchRadius The radius of the largest model mending patch in world space units
    */
-  func setVoxelsForMesh(mesh: MDLMesh, divisions: Int32, interiorShells: Int32, exteriorShells: Int32, patchRadius: Float)
+  func setVoxelsFor(mesh: MDLMesh, divisions: Int32, interiorShells: Int32, exteriorShells: Int32, patchRadius: Float)
 
   /**
    Set voxels corresponding to a mesh
@@ -2921,12 +2921,12 @@ class MDLVoxelArray : NSObject {
    @param exteriorNBWidth The exterior narrow band width in world space units
    @param patchRadius The radius of the largest model mending patch in world space units
    */
-  func setVoxelsForMesh(mesh: MDLMesh, divisions: Int32, interiorNBWidth: Float, exteriorNBWidth: Float, patchRadius: Float)
+  func setVoxelsFor(mesh: MDLMesh, divisions: Int32, interiorNBWidth: Float, exteriorNBWidth: Float, patchRadius: Float)
 
   /**
    Returns an NSData containing the indices of all voxels found in the extent
    */
-  func voxelsWithinExtent(extent: MDLVoxelIndexExtent) -> NSData?
+  func voxelsWithin(extent: MDLVoxelIndexExtent) -> NSData?
 
   /**
    Returns an NSData containing the indices of all voxels in the voxel grid

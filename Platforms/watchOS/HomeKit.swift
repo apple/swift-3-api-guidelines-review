@@ -32,7 +32,7 @@ class HMAccessory : NSObject {
   /*!
    * @brief TRUE if the accessory is currently reachable, FALSE otherwise.
    */
-  var reachable: Bool { get }
+  var isReachable: Bool { get }
 
   /*!
    * @brief This property indicates whether this accessory is behind a bridge. If it is TRUE,
@@ -40,7 +40,7 @@ class HMAccessory : NSObject {
    *        this accessory can be removed and removing the bridge will remove this accessory
    *        from the home.
    */
-  var bridged: Bool { get }
+  var isBridged: Bool { get }
 
   /*!
    * @brief If this accessory is a bridge, this property is an array of NSUUID objects that,
@@ -76,7 +76,7 @@ class HMAccessory : NSObject {
   /*!
    * @brief TRUE if the accessory is blocked, FALSE otherwise.
    */
-  var blocked: Bool { get }
+  var isBlocked: Bool { get }
 
   /*!
    * @brief This method is used to have an accessory identify itself.
@@ -110,7 +110,7 @@ protocol HMAccessoryDelegate : NSObjectProtocol {
    *
    * @param service Service whose name was modified.
    */
-  optional func accessory(accessory: HMAccessory, didUpdateNameForService service: HMService)
+  optional func accessory(accessory: HMAccessory, didUpdateNameFor service: HMService)
 
   /*!
    * @brief Informs the delegate when the associated service type of a service is modified.
@@ -119,7 +119,7 @@ protocol HMAccessoryDelegate : NSObjectProtocol {
    *
    * @param service Service whose associated service type was modified.
    */
-  optional func accessory(accessory: HMAccessory, didUpdateAssociatedServiceTypeForService service: HMService)
+  optional func accessory(accessory: HMAccessory, didUpdateAssociatedServiceTypeFor service: HMService)
 
   /*!
    * @brief Informs the delegate when the services on the accessory have been dynamically updated.
@@ -145,7 +145,7 @@ protocol HMAccessoryDelegate : NSObjectProtocol {
    *
    * @param characteristic The characteristic whose value was changed.
    */
-  optional func accessory(accessory: HMAccessory, service: HMService, didUpdateValueForCharacteristic characteristic: HMCharacteristic)
+  optional func accessory(accessory: HMAccessory, service: HMService, didUpdateValueFor characteristic: HMCharacteristic)
 }
 
 /*!
@@ -290,7 +290,7 @@ class HMActionSet : NSObject {
   /*!
    * @brief Specifies whether the action set is currently executing or not.
    */
-  var executing: Bool { get }
+  var isExecuting: Bool { get }
 
   /*!
    * @brief Specifies the action set type - user-defined or one of the builtin types.
@@ -384,7 +384,7 @@ class HMCharacteristic : NSObject {
    *
    * @discussion This property is reset to NO if the reachability of the accessory is NO.
    */
-  var notificationEnabled: Bool { get }
+  var isNotificationEnabled: Bool { get }
 
   /*!
    * @brief A unique identifier for the characteristic.
@@ -1529,7 +1529,7 @@ class HMEventTrigger : HMTrigger {
    *
    * @return Predicate object representing a condition to evaluate before executing the action set.
    */
-  class func predicateForEvaluatingTriggerOccurringBeforeDateWithComponents(dateComponents: NSDateComponents) -> NSPredicate
+  class func predicateForEvaluatingTriggerOccurringBeforeDateWith(dateComponents: NSDateComponents) -> NSPredicate
 
   /*!
    * @brief Creates a predicate that will evaluate whether the event occurred at the time specified.
@@ -1538,7 +1538,7 @@ class HMEventTrigger : HMTrigger {
    *
    * @return Predicate object representing a condition to evaluate before executing the action set.
    */
-  class func predicateForEvaluatingTriggerOccurringOnDateWithComponents(dateComponents: NSDateComponents) -> NSPredicate
+  class func predicateForEvaluatingTriggerOccurringOnDateWith(dateComponents: NSDateComponents) -> NSPredicate
 
   /*!
    * @brief Creates a predicate that will evaluate whether the event occurred at or after the time specified.
@@ -1547,7 +1547,7 @@ class HMEventTrigger : HMTrigger {
    *
    * @return Predicate object representing a condition to evaluate before executing the action set.
    */
-  class func predicateForEvaluatingTriggerOccurringAfterDateWithComponents(dateComponents: NSDateComponents) -> NSPredicate
+  class func predicateForEvaluatingTriggerOccurringAfterDateWith(dateComponents: NSDateComponents) -> NSPredicate
 
   /*!
    * @brief Creates a predicate that will evaluate whether a characteristic value is related to the specified value.
@@ -1562,7 +1562,7 @@ class HMEventTrigger : HMTrigger {
    *
    * @return Predicate object representing a condition to evaluate before executing the action set.
    */
-  class func predicateForEvaluatingTriggerWithCharacteristic(characteristic: HMCharacteristic, relatedBy operatorType: NSPredicateOperatorType, toValue value: AnyObject) -> NSPredicate
+  class func predicateForEvaluatingTriggerWith(characteristic: HMCharacteristic, relatedBy operatorType: NSPredicateOperatorType, toValue value: AnyObject) -> NSPredicate
 }
 
 /*!
@@ -1589,7 +1589,7 @@ class HMHome : NSObject {
   /*!
    * @brief Specifies whether this home is the primary home.
    */
-  var primary: Bool { get }
+  var isPrimary: Bool { get }
 
   /*!
    * @brief A unique identifier for the home.
@@ -1626,7 +1626,7 @@ extension HMHome {
    * @brief Retrieve the access level of the user associated with the home.
    */
   @available(watchOS 2.0, *)
-  func homeAccessControlForUser(user: HMUser) -> HMHomeAccessControl
+  func homeAccessControlFor(user: HMUser) -> HMHomeAccessControl
 }
 extension HMHome {
 
@@ -1716,7 +1716,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param accessory Accessory that was added to the home.
    */
-  optional func home(home: HMHome, didAddAccessory accessory: HMAccessory)
+  optional func home(home: HMHome, didAdd accessory: HMAccessory)
 
   /*!
    * @brief Informs the delegate of removal of an accessory from the home.
@@ -1725,7 +1725,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param accessory Accessory that was removed from the home.
    */
-  optional func home(home: HMHome, didRemoveAccessory accessory: HMAccessory)
+  optional func home(home: HMHome, didRemove accessory: HMAccessory)
 
   /*!
    * @brief Informs the delegate that a user was added to the home.
@@ -1734,7 +1734,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param user User who was granted access to the home.
    */
-  optional func home(home: HMHome, didAddUser user: HMUser)
+  optional func home(home: HMHome, didAdd user: HMUser)
 
   /*!
    * @brief Informs the delegate that a user was removed from the home.
@@ -1743,7 +1743,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param user User whose access was revoked from the home.
    */
-  optional func home(home: HMHome, didRemoveUser user: HMUser)
+  optional func home(home: HMHome, didRemove user: HMUser)
 
   /*!
    * @brief Informs the delegate when a new room is assigned to an accessory
@@ -1763,7 +1763,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param room Room that was added to the home.
    */
-  optional func home(home: HMHome, didAddRoom room: HMRoom)
+  optional func home(home: HMHome, didAdd room: HMRoom)
 
   /*!
    * @brief Informs the delegate of removal of a room from the home.
@@ -1772,7 +1772,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param room Room that was removed from the home.
    */
-  optional func home(home: HMHome, didRemoveRoom room: HMRoom)
+  optional func home(home: HMHome, didRemove room: HMRoom)
 
   /*!
    * @brief Informs the delegate that the name of a room was modified
@@ -1781,7 +1781,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param room Room that was modified.
    */
-  optional func home(home: HMHome, didUpdateNameForRoom room: HMRoom)
+  optional func home(home: HMHome, didUpdateNameFor room: HMRoom)
 
   /*!
    * @brief Informs the delegate of addition of a zone to the home.
@@ -1790,7 +1790,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param zone Zone that was added to the home.
    */
-  optional func home(home: HMHome, didAddZone zone: HMZone)
+  optional func home(home: HMHome, didAdd zone: HMZone)
 
   /*!
    * @brief Informs the delegate of removal of a zone from the home.
@@ -1799,7 +1799,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param zone Zone that was removed from the home.
    */
-  optional func home(home: HMHome, didRemoveZone zone: HMZone)
+  optional func home(home: HMHome, didRemove zone: HMZone)
 
   /*!
    * @brief Informs the delegate that the name of a zone was modified.
@@ -1808,7 +1808,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param zone Zone that was modified.
    */
-  optional func home(home: HMHome, didUpdateNameForZone zone: HMZone)
+  optional func home(home: HMHome, didUpdateNameFor zone: HMZone)
 
   /*!
    * @brief Informs the delegate that the room was added to a zone.
@@ -1819,7 +1819,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param zone Zone that was modified.
    */
-  optional func home(home: HMHome, didAddRoom room: HMRoom, toZone zone: HMZone)
+  optional func home(home: HMHome, didAdd room: HMRoom, to zone: HMZone)
 
   /*!
    * @brief Informs the delegate that the room was removed from a zone.
@@ -1830,7 +1830,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param zone Zone that was modified.
    */
-  optional func home(home: HMHome, didRemoveRoom room: HMRoom, fromZone zone: HMZone)
+  optional func home(home: HMHome, didRemove room: HMRoom, from zone: HMZone)
 
   /*!
    * @brief Informs the delegate that a service group was added to the home.
@@ -1839,7 +1839,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param group Service group that was added to the home.
    */
-  optional func home(home: HMHome, didAddServiceGroup group: HMServiceGroup)
+  optional func home(home: HMHome, didAdd group: HMServiceGroup)
 
   /*!
    * @brief Informs the delegate that a service group was removed from the home.
@@ -1848,7 +1848,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param group Service group that was removed from the home.
    */
-  optional func home(home: HMHome, didRemoveServiceGroup group: HMServiceGroup)
+  optional func home(home: HMHome, didRemove group: HMServiceGroup)
 
   /*!
    * @brief Informs the delegate that the name of a service group was modified.
@@ -1857,7 +1857,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param group The service group that was modfied.
    */
-  optional func home(home: HMHome, didUpdateNameForServiceGroup group: HMServiceGroup)
+  optional func home(home: HMHome, didUpdateNameFor group: HMServiceGroup)
 
   /*!
    * @brief Informs the delegate that a service was added to a service group.
@@ -1868,7 +1868,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param group Service group that was modified.
    */
-  optional func home(home: HMHome, didAddService service: HMService, toServiceGroup group: HMServiceGroup)
+  optional func home(home: HMHome, didAdd service: HMService, to group: HMServiceGroup)
 
   /*!
    * @brief Informs the delegate that a service was removed from a service group.
@@ -1879,7 +1879,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param group Service group that was modified.
    */
-  optional func home(home: HMHome, didRemoveService service: HMService, fromServiceGroup group: HMServiceGroup)
+  optional func home(home: HMHome, didRemove service: HMService, from group: HMServiceGroup)
 
   /*!
    * @brief Informs the delegate that an action set was added to the home.
@@ -1888,7 +1888,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param actionSet Action set that was added to the home.
    */
-  optional func home(home: HMHome, didAddActionSet actionSet: HMActionSet)
+  optional func home(home: HMHome, didAdd actionSet: HMActionSet)
 
   /*!
    * @brief Informs the delegate that an action set was removed from the home.
@@ -1897,7 +1897,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param actionSet Action set that was removed from the home.
    */
-  optional func home(home: HMHome, didRemoveActionSet actionSet: HMActionSet)
+  optional func home(home: HMHome, didRemove actionSet: HMActionSet)
 
   /*!
    * @brief Informs the delegate that the name of an action set was modified.
@@ -1906,7 +1906,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param actionSet Action set that was modified.
    */
-  optional func home(home: HMHome, didUpdateNameForActionSet actionSet: HMActionSet)
+  optional func home(home: HMHome, didUpdateNameFor actionSet: HMActionSet)
 
   /*!
    * @brief Informs the delegate that the actions of an action set was modified.
@@ -1916,7 +1916,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param actionSet Action set that was modified.
    */
-  optional func home(home: HMHome, didUpdateActionsForActionSet actionSet: HMActionSet)
+  optional func home(home: HMHome, didUpdateActionsFor actionSet: HMActionSet)
 
   /*!
    * @brief Informs the delegate of the addition of a trigger to the home.
@@ -1925,7 +1925,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param trigger Trigger that was added to the home.
    */
-  optional func home(home: HMHome, didAddTrigger trigger: HMTrigger)
+  optional func home(home: HMHome, didAdd trigger: HMTrigger)
 
   /*!
    * @brief Informs the delegate of removal of a trigger from the home.
@@ -1934,7 +1934,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param trigger Trigger that was removed from the home.
    */
-  optional func home(home: HMHome, didRemoveTrigger trigger: HMTrigger)
+  optional func home(home: HMHome, didRemove trigger: HMTrigger)
 
   /*!
    * @brief Informs the delegate that the name of the trigger was modified.
@@ -1943,7 +1943,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param trigger Trigger that was modified.
    */
-  optional func home(home: HMHome, didUpdateNameForTrigger trigger: HMTrigger)
+  optional func home(home: HMHome, didUpdateNameFor trigger: HMTrigger)
 
   /*!
    * @brief Informs the delegate whenever a trigger is updated. For example, this method may be
@@ -1999,7 +1999,7 @@ class HMHomeAccessControl : NSObject {
   /*!
    * @brief Specifies if the user has administrative privileges for the home.
    */
-  var administrator: Bool { get }
+  var isAdministrator: Bool { get }
 }
 
 /*!
@@ -2062,7 +2062,7 @@ protocol HMHomeManagerDelegate : NSObjectProtocol {
    *
    * @param home New home that was added.
    */
-  optional func homeManager(manager: HMHomeManager, didAddHome home: HMHome)
+  optional func homeManager(manager: HMHomeManager, didAdd home: HMHome)
 
   /*!
    * @brief Informs the delegate when an existing home is removed.
@@ -2071,7 +2071,7 @@ protocol HMHomeManagerDelegate : NSObjectProtocol {
    *
    * @param home Home that was removed.
    */
-  optional func homeManager(manager: HMHomeManager, didRemoveHome home: HMHome)
+  optional func homeManager(manager: HMHomeManager, didRemove home: HMHome)
 }
 
 /*!
@@ -2167,7 +2167,7 @@ class HMService : NSObject {
    *             should not directly interact with, e.g. HMServiceTypeAccessoryInformation.
    */
   @available(watchOS 2.0, *)
-  var userInteractive: Bool { get }
+  var isUserInteractive: Bool { get }
   init()
 }
 
@@ -2426,7 +2426,7 @@ class HMTrigger : NSObject {
    *
    * @discussion TRUE if the trigger is enable, FALSE otherwise.
    */
-  var enabled: Bool { get }
+  var isEnabled: Bool { get }
 
   /*!
    * @abstract Array of HMActionSet objects that represent all the action sets associated

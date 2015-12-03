@@ -14,16 +14,16 @@ class TaskBotBehavior: GKBehavior {
     // MARK: Behavior factory methods
     
     /// Constructs a behavior to hunt a `TaskBot` or `PlayerBot` via a computed path.
-    static func behaviorAndPathPointsForAgent(agent: GKAgent2D, huntingAgent target: GKAgent2D, pathRadius: Float, inScene scene: LevelScene) -> (behavior: GKBehavior, pathPoints: [CGPoint]) {
+    static func behaviorAndPathPointsFor(agent: GKAgent2D, hunting target: GKAgent2D, pathRadius: Float, in scene: LevelScene) -> (behavior: GKBehavior, pathPoints: [CGPoint]) {
         let behavior = TaskBotBehavior()
         
         // Add basic goals to reach the `TaskBot`'s maximum speed and avoid obstacles.
         behavior.addTargetSpeedGoal(agent.maxSpeed)
-        behavior.addAvoidObstaclesGoalForScene(scene)
+        behavior.addAvoidObstaclesGoalFor(scene)
 
         // Find any nearby "bad" TaskBots to flock with.
         let agentsToFlockWith: [GKAgent2D] = scene.entities.flatMap { entity in
-            if let taskBot = entity as? TaskBot where !taskBot.isGood && taskBot.agent !== agent && taskBot.distanceToAgent(agent) <= GameplayConfiguration.Flocking.agentSearchDistanceForFlocking {
+            if let taskBot = entity as? TaskBot where !taskBot.isGood && taskBot.agent !== agent && taskBot.distanceTo(agent) <= GameplayConfiguration.Flocking.agentSearchDistanceForFlocking {
                 return taskBot.agent
             }
 
@@ -32,45 +32,45 @@ class TaskBotBehavior: GKBehavior {
         
         if !agentsToFlockWith.isEmpty {
             // Add flocking goals for any nearby "bad" `TaskBot`s.
-            let separationGoal = GKGoal(toSeparateFromAgents: agentsToFlockWith, maxDistance: GameplayConfiguration.Flocking.separationRadius, maxAngle: GameplayConfiguration.Flocking.separationAngle)
+            let separationGoal = GKGoal(toSeparateFrom: agentsToFlockWith, maxDistance: GameplayConfiguration.Flocking.separationRadius, maxAngle: GameplayConfiguration.Flocking.separationAngle)
             behavior.setWeight(GameplayConfiguration.Flocking.separationWeight, forGoal: separationGoal)
             
-            let alignmentGoal = GKGoal(toAlignWithAgents: agentsToFlockWith, maxDistance: GameplayConfiguration.Flocking.alignmentRadius, maxAngle: GameplayConfiguration.Flocking.alignmentAngle)
+            let alignmentGoal = GKGoal(toAlignWith: agentsToFlockWith, maxDistance: GameplayConfiguration.Flocking.alignmentRadius, maxAngle: GameplayConfiguration.Flocking.alignmentAngle)
             behavior.setWeight(GameplayConfiguration.Flocking.alignmentWeight, forGoal: alignmentGoal)
             
-            let cohesionGoal = GKGoal(toCohereWithAgents: agentsToFlockWith, maxDistance: GameplayConfiguration.Flocking.cohesionRadius, maxAngle: GameplayConfiguration.Flocking.cohesionAngle)
+            let cohesionGoal = GKGoal(toCohereWith: agentsToFlockWith, maxDistance: GameplayConfiguration.Flocking.cohesionRadius, maxAngle: GameplayConfiguration.Flocking.cohesionAngle)
             behavior.setWeight(GameplayConfiguration.Flocking.cohesionWeight, forGoal: cohesionGoal)
         }
 
         // Add goals to follow a calculated path from the `TaskBot` to its target.
-        let pathPoints = behavior.addGoalsToFollowPathFromStartPoint(agent.position, toEndPoint: target.position, pathRadius: pathRadius, inScene: scene)
+        let pathPoints = behavior.addGoalsToFollowPathFromStartPoint(agent.position, toEndPoint: target.position, pathRadius: pathRadius, in: scene)
         
         // Return a tuple containing the new behavior, and the found path points for debug drawing.
         return (behavior, pathPoints)
     }
     
     /// Constructs a behavior to return to the start of a `TaskBot` patrol path.
-    static func behaviorAndPathPointsForAgent(agent: GKAgent2D, returningToPoint endPoint: float2, pathRadius: Float, inScene scene: LevelScene) -> (behavior: GKBehavior, pathPoints: [CGPoint]) {
+    static func behaviorAndPathPointsFor(agent: GKAgent2D, returningToPoint endPoint: float2, pathRadius: Float, in scene: LevelScene) -> (behavior: GKBehavior, pathPoints: [CGPoint]) {
         let behavior = TaskBotBehavior()
         
         // Add basic goals to reach the `TaskBot`'s maximum speed and avoid obstacles.
         behavior.addTargetSpeedGoal(agent.maxSpeed)
-        behavior.addAvoidObstaclesGoalForScene(scene)
+        behavior.addAvoidObstaclesGoalFor(scene)
         
         // Add goals to follow a calculated path from the `TaskBot` to the start of its patrol path.
-        let pathPoints = behavior.addGoalsToFollowPathFromStartPoint(agent.position, toEndPoint: endPoint, pathRadius: pathRadius, inScene: scene)
+        let pathPoints = behavior.addGoalsToFollowPathFromStartPoint(agent.position, toEndPoint: endPoint, pathRadius: pathRadius, in: scene)
 
         // Return a tuple containing the new behavior, and the found path points for debug drawing.
         return (behavior, pathPoints)
     }
     
     /// Constructs a behavior to patrol a path of points, avoiding obstacles along the way.
-    static func behaviorForAgent(agent: GKAgent2D, patrollingPathWithPoints patrolPathPoints: [CGPoint], pathRadius: Float, inScene scene: LevelScene) -> GKBehavior {
+    static func behaviorFor(agent: GKAgent2D, patrollingPathWith patrolPathPoints: [CGPoint], pathRadius: Float, in scene: LevelScene) -> GKBehavior {
         let behavior = TaskBotBehavior()
         
         // Add basic goals to reach the `TaskBot`'s maximum speed and avoid obstacles.
         behavior.addTargetSpeedGoal(agent.maxSpeed)
-        behavior.addAvoidObstaclesGoalForScene(scene)
+        behavior.addAvoidObstaclesGoalFor(scene)
         
         // Convert the patrol path to an array of `float2`s.
         let pathVectorPoints = patrolPathPoints.map(float2.init)
@@ -79,7 +79,7 @@ class TaskBotBehavior: GKBehavior {
         let path = GKPath(points: UnsafeMutablePointer<float2>(pathVectorPoints), count: pathVectorPoints.count, radius: pathRadius, cyclical: true)
 
         // Add "follow path" and "stay on path" goals for this path.
-        behavior.addFollowAndStayOnPathGoalsForPath(path)
+        behavior.addFollowAndStayOnPathGoalsFor(path)
 
         return behavior
     }
@@ -90,7 +90,7 @@ class TaskBotBehavior: GKBehavior {
         Calculates all of the extruded obstacles that the provided point resides near.
         The extrusion is based on the buffer radius of the pathfinding graph.
     */
-    private func extrudedObstaclesContainingPoint(point: float2, inScene scene: LevelScene) -> [GKPolygonObstacle] {
+    private func extrudedObstaclesContainingPoint(point: float2, in scene: LevelScene) -> [GKPolygonObstacle] {
         /*
             Add a small fudge factor (+5) to the extrusion radius to make sure 
             we're including all obstacles.
@@ -108,7 +108,7 @@ class TaskBotBehavior: GKBehavior {
             // Retrieve all vertices for the polygon obstacle.
             let range = Range(start: 0, end: obstacle.vertexCount)
             
-            let polygonVertices = range.map { obstacle.vertexAtIndex($0) }
+            let polygonVertices = range.map { obstacle.vertexAt($0) }
             guard !polygonVertices.isEmpty else { return false }
             
             let maxX = polygonVertices.maxElement { $0.x < $1.x }!.x + extrusionRadius
@@ -127,7 +127,7 @@ class TaskBotBehavior: GKBehavior {
     
         Returns `nil` if a valid connection could not be made.
     */
-    private func connectedNodeForPoint(point: float2, onObstacleGraphInScene scene: LevelScene) -> GKGraphNode2D? {
+    private func connectedNodeForPoint(point: float2, onObstacleGraphIn scene: LevelScene) -> GKGraphNode2D? {
         // Create a graph node for this point.
         let pointNode = GKGraphNode2D(point: point)
         
@@ -146,13 +146,13 @@ class TaskBotBehavior: GKBehavior {
             scene.graph.removeNodes([pointNode])
         
             // Search the graph for all intersecting obstacles.
-            let intersectingObstacles = extrudedObstaclesContainingPoint(point, inScene: scene)
+            let intersectingObstacles = extrudedObstaclesContainingPoint(point, in: scene)
         
             /*
                 Connect this node to the graph ignoring the buffer radius of any
                 obstacles that the point is currently intersecting.
             */
-            scene.graph.connectNodeUsingObstacles(pointNode, ignoringBufferRadiusOfObstacles: intersectingObstacles)
+            scene.graph.connectNodeUsingObstacles(pointNode, ignoringBufferRadiusOf: intersectingObstacles)
         
             // If still no connection could be made, return `nil`.
             if pointNode.connectedNodes.isEmpty {
@@ -165,16 +165,16 @@ class TaskBotBehavior: GKBehavior {
     }
     
     /// Pathfinds around obstacles to create a path between two points, and adds goals to follow that path.
-    private func addGoalsToFollowPathFromStartPoint(startPoint: float2, toEndPoint endPoint: float2, pathRadius: Float, inScene scene: LevelScene) -> [CGPoint] {
+    private func addGoalsToFollowPathFromStartPoint(startPoint: float2, toEndPoint endPoint: float2, pathRadius: Float, in scene: LevelScene) -> [CGPoint] {
         // Convert the provided `CGPoint`s into nodes for the `GPGraph`.
-        guard let startNode = connectedNodeForPoint(startPoint, onObstacleGraphInScene: scene),
-             endNode = connectedNodeForPoint(endPoint, onObstacleGraphInScene: scene) else { return [] }
+        guard let startNode = connectedNodeForPoint(startPoint, onObstacleGraphIn: scene),
+             endNode = connectedNodeForPoint(endPoint, onObstacleGraphIn: scene) else { return [] }
         
         // Remove the "start" and "end" nodes when exiting this scope.
         defer { scene.graph.removeNodes([startNode, endNode]) }
         
         // Find a path between these two nodes.
-        let pathNodes = scene.graph.findPathFromNode(startNode, toNode: endNode) as! [GKGraphNode2D]
+        let pathNodes = scene.graph.findPathFrom(startNode, to: endNode) as! [GKGraphNode2D]
         
         // A valid `GKPath` can not be created if fewer than 2 path nodes were found, return.
         guard pathNodes.count > 1 else { return [] }
@@ -183,7 +183,7 @@ class TaskBotBehavior: GKBehavior {
         let path = GKPath(graphNodes: pathNodes, radius: pathRadius)
         
         // Add "follow path" and "stay on path" goals for this path.
-        addFollowAndStayOnPathGoalsForPath(path)
+        addFollowAndStayOnPathGoalsFor(path)
         
         // Convert the `GKGraphNode2D` nodes into `CGPoint`s for debug drawing.
         let pathPoints = pathNodes.map { CGPoint($0.position) }
@@ -191,8 +191,8 @@ class TaskBotBehavior: GKBehavior {
     }
     
     /// Adds a goal to avoid all polygon obstacles in the scene.
-    private func addAvoidObstaclesGoalForScene(scene: LevelScene) {
-        setWeight(1.0, forGoal: GKGoal(toAvoidObstacles: scene.polygonObstacles, maxPredictionTime: GameplayConfiguration.TaskBot.maxPredictionTimeForObstacleAvoidance))
+    private func addAvoidObstaclesGoalFor(scene: LevelScene) {
+        setWeight(1.0, forGoal: GKGoal(toAvoid: scene.polygonObstacles, maxPredictionTime: GameplayConfiguration.TaskBot.maxPredictionTimeForObstacleAvoidance))
     }
     
     /// Adds a goal to attain a target speed.
@@ -201,11 +201,11 @@ class TaskBotBehavior: GKBehavior {
     }
     
     /// Adds goals to follow and stay on a path.
-    private func addFollowAndStayOnPathGoalsForPath(path: GKPath) {
+    private func addFollowAndStayOnPathGoalsFor(path: GKPath) {
         // The "follow path" goal tries to keep the agent facing in a forward direction when it is on this path.
-        setWeight(1.0, forGoal: GKGoal(toFollowPath: path, maxPredictionTime: GameplayConfiguration.TaskBot.maxPredictionTimeWhenFollowingPath, forward: true))
+        setWeight(1.0, forGoal: GKGoal(toFollow: path, maxPredictionTime: GameplayConfiguration.TaskBot.maxPredictionTimeWhenFollowingPath, forward: true))
 
         // The "stay on path" goal tries to keep the agent on the path within the path's radius.
-        setWeight(1.0, forGoal: GKGoal(toStayOnPath: path, maxPredictionTime: GameplayConfiguration.TaskBot.maxPredictionTimeWhenFollowingPath))
+        setWeight(1.0, forGoal: GKGoal(toStayOn: path, maxPredictionTime: GameplayConfiguration.TaskBot.maxPredictionTimeWhenFollowingPath))
     }
 }

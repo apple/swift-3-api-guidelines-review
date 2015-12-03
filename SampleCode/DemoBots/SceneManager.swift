@@ -77,7 +77,7 @@ final class SceneManager {
     
     // MARK: Initialization
     
-    init(presentingView: SKView, gameInput: GameInput) {
+    init(presenting presentingView: SKView, gameInput: GameInput) {
         self.presentingView = presentingView
         self.gameInput = gameInput
         
@@ -85,8 +85,8 @@ final class SceneManager {
             Load the game's `SceneConfiguration` plist. This provides information
             about every scene in the game, and the order in which they should be displayed.
         */
-        let url = NSBundle.mainBundle().URLForResource("SceneConfiguration", withExtension: "plist")!
-        let scenes = NSArray(contentsOfURL: url) as! [[String: AnyObject]]
+        let url = NSBundle.main().urlForResource("SceneConfiguration", withExtension: "plist")!
+        let scenes = NSArray(contentsOf: url) as! [[String: AnyObject]]
         
         /*
             Extract the configuration info dictionary for each possible scene,
@@ -129,8 +129,8 @@ final class SceneManager {
         This method should be called in preparation for the user needing to transition
         to the scene in order to minimize the amount of load time.
     */
-    func prepareSceneWithSceneIdentifier(sceneIdentifier: SceneIdentifier) {
-        let sceneLoader = sceneLoaderForSceneIdentifier(sceneIdentifier)
+    func prepareSceneWith(sceneIdentifier: SceneIdentifier) {
+        let sceneLoader = sceneLoaderFor(sceneIdentifier)
         sceneLoader.asynchronouslyLoadSceneForPresentation()
     }
     
@@ -139,13 +139,13 @@ final class SceneManager {
         currently in memory. Otherwise, presents a progress scene to monitor the progress
         of the resources being downloaded, or display an error if one has occurred.
     */
-    func transitionToSceneWithSceneIdentifier(sceneIdentifier: SceneIdentifier) {
-        let sceneLoader = sceneLoaderForSceneIdentifier(sceneIdentifier)
+    func transitionToSceneWith(sceneIdentifier: SceneIdentifier) {
+        let sceneLoader = sceneLoaderFor(sceneIdentifier)
         
         
         if sceneLoader.stateMachine.currentState is SceneLoaderResourcesReadyState {
             // The scene is ready to be displayed.
-            presentSceneForSceneLoader(sceneLoader)
+            presentSceneFor(sceneLoader)
         }
         else {
             sceneLoader.asynchronouslyLoadSceneForPresentation()
@@ -154,7 +154,7 @@ final class SceneManager {
                 Mark the `sceneLoader` as `requestedForPresentation` to automatically
                 present the scene when loading completes.
             */
-            sceneLoader.requestedForPresentation = true
+            sceneLoader.isRequestedForPresentation = true
             
             // The scene requires a progress scene to be displayed while its resources are prepared.
             if sceneLoader.requiresProgressSceneForPreparing {
@@ -166,7 +166,7 @@ final class SceneManager {
     // MARK: Scene Presentation
     
     /// Configures and presents a scene.
-    func presentSceneForSceneLoader(sceneLoader: SceneLoader) {
+    func presentSceneFor(sceneLoader: SceneLoader) {
         guard let scene = sceneLoader.scene else {
             assertionFailure("Requested presentation for a `sceneLoader` without a valid `scene`.")
             return
@@ -199,7 +199,7 @@ final class SceneManager {
             self.progressScene = nil
             
             // Notify the delegate that the manager has presented a scene.
-            self.delegate?.sceneManagerDidTransitionToScene(scene)
+            self.delegate?.sceneManagerDidTransitionTo(scene)
             
             // Restart the scene loading process.
             sceneLoader.stateMachine.enterState(SceneLoaderInitialState.self)
@@ -212,7 +212,7 @@ final class SceneManager {
         guard progressScene == nil else { return }
 
         // Create a `ProgressScene` for the scene loader.
-        progressScene = ProgressScene.progressSceneWithSceneLoader(sceneLoader)
+        progressScene = ProgressScene.withSceneLoader(sceneLoader)
         progressScene!.sceneManager = self
     
         let transition = SKTransition.doorsCloseHorizontalWithDuration(GameplayConfiguration.SceneManager.progressSceneTransitionDuration)
@@ -269,7 +269,7 @@ final class SceneManager {
         // Avoid reregistering for the notification.
         guard loadingCompletedObserver == nil else { return }
         
-        loadingCompletedObserver = NSNotificationCenter.defaultCenter().addObserverForName(SceneLoaderDidCompleteNotification, object: nil, queue: NSOperationQueue.mainQueue()) { [unowned self] notification in
+        loadingCompletedObserver = NSNotificationCenter.defaultCenter().addObserverForName(SceneLoaderDidCompleteNotification, object: nil, queue: NSOperationQueue.main()) { [unowned self] notification in
             let sceneLoader = notification.object as! SceneLoader
             
             // Ensure this is a `sceneLoader` managed by this `SceneManager`.
@@ -286,19 +286,19 @@ final class SceneManager {
                 This is used to present the `HomeScene` without any possibility of
                 a progress scene.
             */
-            if sceneLoader.requestedForPresentation {
-                self.presentSceneForSceneLoader(sceneLoader)
+            if sceneLoader.isRequestedForPresentation {
+                self.presentSceneFor(sceneLoader)
             }
             
             // Reset the scene loader's presentation preference.
-            sceneLoader.requestedForPresentation = false
+            sceneLoader.isRequestedForPresentation = false
         }
     }
     
     // MARK: Convenience
     
     /// Returns the scene loader associated with the scene identifier.
-    func sceneLoaderForSceneIdentifier(sceneIdentifier: SceneIdentifier) -> SceneLoader {
+    func sceneLoaderFor(sceneIdentifier: SceneIdentifier) -> SceneLoader {
         let sceneMetadata: SceneMetadata
         switch sceneIdentifier {
             case .Home:

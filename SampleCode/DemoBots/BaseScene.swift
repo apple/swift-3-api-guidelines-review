@@ -60,7 +60,7 @@ class BaseScene: SKScene, GameInputDelegate, ControlInputSourceGameStateDelegate
                 
                 // Animate the overlay in.
                 overlay.backgroundNode.alpha = 0.0
-                overlay.backgroundNode.runAction(SKAction.fadeInWithDuration(0.25))
+                overlay.backgroundNode.run(SKAction.fadeInWithDuration(0.25))
                 overlay.updateScale()
 
                 buttons = findAllButtonsInScene()
@@ -70,7 +70,7 @@ class BaseScene: SKScene, GameInputDelegate, ControlInputSourceGameStateDelegate
             }
             
             // Animate the old overlay out.
-            oldValue?.backgroundNode.runAction(SKAction.fadeOutWithDuration(0.25)) {
+            oldValue?.backgroundNode.run(SKAction.fadeOutWithDuration(0.25)) {
                 oldValue?.backgroundNode.removeFromParent()
             }
         }
@@ -81,8 +81,8 @@ class BaseScene: SKScene, GameInputDelegate, ControlInputSourceGameStateDelegate
     
     // MARK: SKScene Life Cycle
     
-    override func didMoveToView(view: SKView) {
-        super.didMoveToView(view)
+    override func didMoveTo(view: SKView) {
+        super.didMoveTo(view)
         
         updateCameraScale()
         overlay?.updateScale()
@@ -167,7 +167,7 @@ class BaseScene: SKScene, GameInputDelegate, ControlInputSourceGameStateDelegate
             }
             else {
                 // Indicate that a neighboring button does not exist for the requested direction.
-                currentFocusedButton.performInvalidFocusChangeAnimationForDirection(direction)
+                currentFocusedButton.performInvalidFocusChangeAnimationFor(direction)
             }
         }
         else {
@@ -218,7 +218,7 @@ class BaseScene: SKScene, GameInputDelegate, ControlInputSourceGameStateDelegate
     }
     
     /// Centers the scene's camera on a given point.
-    func centerCameraOnPoint(point: CGPoint) {
+    func centerCameraOn(point: CGPoint) {
         if let camera = camera {
             camera.position = point
         }

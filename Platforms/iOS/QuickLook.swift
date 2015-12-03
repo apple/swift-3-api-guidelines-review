@@ -54,7 +54,7 @@ protocol QLPreviewControllerDataSource {
    * @result The number of items.
    */
   @available(iOS 4.0, *)
-  func numberOfPreviewItemsInPreviewController(controller: QLPreviewController) -> Int
+  func numberOfPreviewItemsIn(controller: QLPreviewController) -> Int
 
   /*!
    * @abstract Returns the item that the preview controller should preview.
@@ -63,7 +63,7 @@ protocol QLPreviewControllerDataSource {
    * @result An item conforming to the QLPreviewItem protocol.
    */
   @available(iOS 4.0, *)
-  func previewController(controller: QLPreviewController, previewItemAtIndex index: Int) -> QLPreviewItem
+  func previewController(controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem
 }
 protocol QLPreviewControllerDelegate : NSObjectProtocol {
 
@@ -85,14 +85,14 @@ protocol QLPreviewControllerDelegate : NSObjectProtocol {
    * @discussion If not implemented, defaults is YES.
    */
   @available(iOS 4.0, *)
-  optional func previewController(controller: QLPreviewController, shouldOpenURL url: NSURL, forPreviewItem item: QLPreviewItem) -> Bool
+  optional func previewController(controller: QLPreviewController, shouldOpen url: NSURL, forPreviewItem item: QLPreviewItem) -> Bool
 
   /*!
    * @abstract Invoked when the preview controller is about to be presented full screen or dismissed from full screen, to provide a zoom effect.
    * @discussion Return the origin of the zoom. It should be relative to view, or screen based if view is not set. The controller will fade in/out if the rect is CGRectZero.
    */
   @available(iOS 4.0, *)
-  optional func previewController(controller: QLPreviewController, frameForPreviewItem item: QLPreviewItem, inSourceView view: AutoreleasingUnsafeMutablePointer<UIView?>) -> CGRect
+  optional func previewController(controller: QLPreviewController, frameFor item: QLPreviewItem, inSourceView view: AutoreleasingUnsafeMutablePointer<UIView?>) -> CGRect
 
   /*!
    * @abstract Invoked when the preview controller is about to be presented full screen or dismissed from full screen, to provide a smooth transition when zooming.
@@ -100,7 +100,7 @@ protocol QLPreviewControllerDelegate : NSObjectProtocol {
    * @discussion Return an image the controller will crossfade with when zooming. You can specify the actual "document" content rect in the image in contentRect.
    */
   @available(iOS 4.0, *)
-  optional func previewController(controller: QLPreviewController, transitionImageForPreviewItem item: QLPreviewItem, contentRect: UnsafeMutablePointer<CGRect>) -> UIImage
+  optional func previewController(controller: QLPreviewController, transitionImageFor item: QLPreviewItem, contentRect: UnsafeMutablePointer<CGRect>) -> UIImage
 }
 
 /*!

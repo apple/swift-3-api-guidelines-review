@@ -39,7 +39,7 @@ class WKAudioFileAsset : NSObject {
    @discussion	Returns a newly allocated instance of a subclass of WKAudioFileAsset initialized with the specified URL.
                   Title, ablumTitle, and artist properties are initialized to the values found in the common metadata of the media resource
    */
-  convenience init(URL: NSURL)
+  convenience init(url URL: NSURL)
 
   /*!
    @method		assetWithURL:title:albumTitle:artist:
@@ -55,8 +55,8 @@ class WKAudioFileAsset : NSObject {
    @result		An instance of WKAudioFileAsset.
    @discussion	Returns a newly allocated instance of a subclass of WKAudioFileAsset initialized with the specified URL.
    */
-  convenience init(URL: NSURL, title: String?, albumTitle: String?, artist: String?)
-  var URL: NSURL { get }
+  convenience init(url URL: NSURL, title: String?, albumTitle: String?, artist: String?)
+  var url: NSURL { get }
   var duration: NSTimeInterval { get }
   var title: String? { get }
   var albumTitle: String? { get }
@@ -75,7 +75,7 @@ class WKAudioFilePlayer : NSObject {
   convenience init(playerItem item: WKAudioFilePlayerItem)
   func play()
   func pause()
-  func replaceCurrentItemWithPlayerItem(item: WKAudioFilePlayerItem?)
+  func replaceCurrentItemWith(item: WKAudioFilePlayerItem?)
   var currentItem: WKAudioFilePlayerItem? { get }
   var status: WKAudioFilePlayerStatus { get }
   var error: NSError? { get }
@@ -154,7 +154,7 @@ extension WatchKitErrorCode : _BridgedNSError {
 }
 @available(watchOS 2.0, *)
 class WKExtension : NSObject {
-  class func sharedExtension() -> WKExtension
+  class func shared() -> WKExtension
   func openSystemURL(url: NSURL)
   weak var delegate: @sil_weak WKExtensionDelegate?
   var rootInterfaceController: WKInterfaceController? { get }
@@ -171,7 +171,7 @@ protocol WKExtensionDelegate : NSObjectProtocol {
   optional func handleActionWithIdentifier(identifier: String?, forLocalNotification localNotification: UILocalNotification, withResponseInfo responseInfo: [NSObject : AnyObject])
   optional func handleUserActivity(userInfo: [NSObject : AnyObject]?)
   optional func didReceiveRemoteNotification(userInfo: [NSObject : AnyObject])
-  optional func didReceiveLocalNotification(notification: UILocalNotification)
+  optional func didReceive(notification: UILocalNotification)
 }
 @available(watchOS 2.0, *)
 class WKImage : NSObject, NSCopying, NSSecureCoding {
@@ -182,11 +182,11 @@ class WKImage : NSObject, NSCopying, NSSecureCoding {
   var imageData: NSData? { get }
   var imageName: String? { get }
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
@@ -275,7 +275,7 @@ class WKInterfaceController : NSObject {
   func pickerDidResignFocus(picker: WKInterfacePicker)
   @available(watchOS 2.0, *)
   func pickerDidSettle(picker: WKInterfacePicker)
-  func table(table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int)
+  func table(table: WKInterfaceTable, didSelectRowAt rowIndex: Int)
   func handleActionWithIdentifier(identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject])
   func handleActionWithIdentifier(identifier: String?, forLocalNotification localNotification: UILocalNotification)
   func handleUserActivity(userInfo: [NSObject : AnyObject]?)
@@ -292,7 +292,7 @@ class WKInterfaceController : NSObject {
   func presentTextInputControllerWithSuggestionsForLanguage(suggestionsHandler: ((String) -> [AnyObject]?)?, allowedInputMode inputMode: WKTextInputMode, completion: ([AnyObject]?) -> Void)
   func dismissTextInputController()
   @available(watchOS 2.0, *)
-  func presentMediaPlayerControllerWithURL(URL: NSURL, options: [NSObject : AnyObject]?, completion: (Bool, NSTimeInterval, NSError?) -> Void)
+  func presentMediaPlayerControllerWith(URL: NSURL, options: [NSObject : AnyObject]?, completion: (Bool, NSTimeInterval, NSError?) -> Void)
   @available(watchOS 2.0, *)
   func dismissMediaPlayerController()
   @available(watchOS 2.0, *)
@@ -301,8 +301,8 @@ class WKInterfaceController : NSObject {
   func dismissAudioRecorderController()
   func contextForSegueWithIdentifier(segueIdentifier: String) -> AnyObject?
   func contextsForSegueWithIdentifier(segueIdentifier: String) -> [AnyObject]?
-  func contextForSegueWithIdentifier(segueIdentifier: String, inTable table: WKInterfaceTable, rowIndex: Int) -> AnyObject?
-  func contextsForSegueWithIdentifier(segueIdentifier: String, inTable table: WKInterfaceTable, rowIndex: Int) -> [AnyObject]?
+  func contextForSegueWithIdentifier(segueIdentifier: String, `in` table: WKInterfaceTable, rowIndex: Int) -> AnyObject?
+  func contextsForSegueWithIdentifier(segueIdentifier: String, `in` table: WKInterfaceTable, rowIndex: Int) -> [AnyObject]?
   @available(watchOS 2.0, *)
   func animateWithDuration(duration: NSTimeInterval, animations: () -> Void)
   @available(watchOS 2.0, *)
@@ -311,9 +311,9 @@ class WKInterfaceController : NSObject {
   func presentAddPassesControllerWithPasses(passes: [AnyObject], completion: () -> Void)
   @available(watchOS 2.0, *)
   func dismissAddPassesController()
-  func addMenuItemWithImage(image: UIImage, title: String, action: Selector)
+  func addMenuItemWith(image: UIImage, title: String, action: Selector)
   func addMenuItemWithImageNamed(imageName: String, title: String, action: Selector)
-  func addMenuItemWithItemIcon(itemIcon: WKMenuItemIcon, title: String, action: Selector)
+  func addMenuItemWith(itemIcon: WKMenuItemIcon, title: String, action: Selector)
   func clearAllMenuItems()
   func updateUserActivity(type: String, userInfo: [NSObject : AnyObject]?, webpageURL: NSURL?)
   func invalidateUserActivity()
@@ -350,7 +350,7 @@ let WKAudioRecorderControllerOptionsMaximumDurationKey: String
 class WKUserNotificationInterfaceController : WKInterfaceController {
   init()
   func didReceiveRemoteNotification(remoteNotification: [NSObject : AnyObject], withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
-  func didReceiveLocalNotification(localNotification: UILocalNotification, withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
+  func didReceive(localNotification: UILocalNotification, withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
   @available(watchOS 2.0, *)
   func suggestionsForResponseToActionWithIdentifier(identifier: String, forRemoteNotification remoteNotification: [NSObject : AnyObject], inputLanguage: String) -> [String]
   @available(watchOS 2.0, *)
@@ -377,7 +377,7 @@ enum WKHapticType : Int {
   case Click
 }
 class WKInterfaceDevice : NSObject {
-  class func currentDevice() -> WKInterfaceDevice
+  class func current() -> WKInterfaceDevice
   var screenBounds: CGRect { get }
   var screenScale: CGFloat { get }
   var preferredContentSizeCategory: String { get }
@@ -392,7 +392,7 @@ class WKInterfaceDevice : NSObject {
   @available(watchOS 2.0, *)
   var systemName: String { get }
   @available(watchOS 2.0, *)
-  func playHaptic(type: WKHapticType)
+  func play(type: WKHapticType)
   init()
 }
 @available(watchOS 2.0, *)
@@ -407,13 +407,13 @@ class WKInterfaceGroup : WKInterfaceObject, WKImageAnimatable {
   @available(watchOS 2.0, *)
   func startAnimating()
   @available(watchOS 2.0, *)
-  func startAnimatingWithImagesInRange(imageRange: NSRange, duration: NSTimeInterval, repeatCount: Int)
+  func startAnimatingWithImagesIn(imageRange: NSRange, duration: NSTimeInterval, repeatCount: Int)
   @available(watchOS 2.0, *)
   func stopAnimating()
 }
 protocol WKImageAnimatable : NSObjectProtocol {
   func startAnimating()
-  func startAnimatingWithImagesInRange(imageRange: NSRange, duration: NSTimeInterval, repeatCount: Int)
+  func startAnimatingWithImagesIn(imageRange: NSRange, duration: NSTimeInterval, repeatCount: Int)
   func stopAnimating()
 }
 @available(watchOS 2.0, *)
@@ -425,7 +425,7 @@ class WKInterfaceImage : WKInterfaceObject, WKImageAnimatable {
   @available(watchOS 2.0, *)
   func startAnimating()
   @available(watchOS 2.0, *)
-  func startAnimatingWithImagesInRange(imageRange: NSRange, duration: NSTimeInterval, repeatCount: Int)
+  func startAnimatingWithImagesIn(imageRange: NSRange, duration: NSTimeInterval, repeatCount: Int)
   @available(watchOS 2.0, *)
   func stopAnimating()
 }
@@ -530,7 +530,7 @@ class WKPickerItem : NSObject, NSSecureCoding {
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
@@ -557,10 +557,10 @@ class WKInterfaceTable : WKInterfaceObject {
   func setRowTypes(rowTypes: [String])
   func setNumberOfRows(numberOfRows: Int, withRowType rowType: String)
   var numberOfRows: Int { get }
-  func rowControllerAtIndex(index: Int) -> AnyObject?
-  func insertRowsAtIndexes(rows: NSIndexSet, withRowType rowType: String)
-  func removeRowsAtIndexes(rows: NSIndexSet)
-  func scrollToRowAtIndex(index: Int)
+  func rowControllerAt(index: Int) -> AnyObject?
+  func insertRowsAt(rows: NSIndexSet, withRowType rowType: String)
+  func removeRowsAt(rows: NSIndexSet)
+  func scrollToRowAt(index: Int)
 }
 @available(watchOS 2.0, *)
 class WKInterfaceTimer : WKInterfaceObject {

@@ -4,7 +4,7 @@ var UNIFIED_CORE_IMAGE: Int32 { get }
 class CIColor : NSObject, NSSecureCoding, NSCopying {
   convenience init(red r: CGFloat, green g: CGFloat, blue b: CGFloat)
   convenience init(string representation: String)
-  init(CGColor c: CGColor)
+  init(cgColor c: CGColor)
   convenience init(red r: CGFloat, green g: CGFloat, blue b: CGFloat, alpha a: CGFloat)
   var numberOfComponents: Int { get }
   var components: UnsafePointer<CGFloat> { get }
@@ -18,39 +18,39 @@ class CIColor : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.4, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.4, *)
 class CIContext : NSObject {
   @available(OSX 10.6, *)
-  /*not inherited*/ init(CGLContext cglctx: CGLContextObj, pixelFormat: CGLPixelFormatObj, colorSpace: CGColorSpace?, options: [String : AnyObject]?)
+  /*not inherited*/ init(cglContext cglctx: CGLContextObj, pixelFormat: CGLPixelFormatObj, colorSpace: CGColorSpace?, options: [String : AnyObject]?)
   @available(OSX 10.4, *)
-  /*not inherited*/ init(CGContext cgctx: CGContext, options: [String : AnyObject]?)
+  /*not inherited*/ init(cgContext cgctx: CGContext, options: [String : AnyObject]?)
   @available(OSX 10.11, *)
   /*not inherited*/ init(options: [String : AnyObject]?)
   @available(OSX 10.11, *)
-  /*not inherited*/ init(MTLDevice device: MTLDevice)
+  /*not inherited*/ init(mtlDevice device: MTLDevice)
   @available(OSX 10.11, *)
-  /*not inherited*/ init(MTLDevice device: MTLDevice, options: [String : AnyObject]?)
+  /*not inherited*/ init(mtlDevice device: MTLDevice, options: [String : AnyObject]?)
   @available(OSX 10.11, *)
   var workingColorSpace: CGColorSpace { get }
-  func drawImage(image: CIImage, inRect: CGRect, fromRect: CGRect)
-  func createCGImage(image: CIImage, fromRect: CGRect) -> CGImage
-  func createCGImage(image: CIImage, fromRect: CGRect, format: CIFormat, colorSpace: CGColorSpace?) -> CGImage
+  func draw(image: CIImage, `in` inRect: CGRect, from fromRect: CGRect)
+  func createCGImage(image: CIImage, from fromRect: CGRect) -> CGImage
+  func createCGImage(image: CIImage, from fromRect: CGRect, format: CIFormat, colorSpace: CGColorSpace?) -> CGImage
   @available(OSX, introduced=10.4, deprecated=10.11)
-  func createCGLayerWithSize(size: CGSize, info: CFDictionary?) -> CGLayer
+  func createCGLayerWith(size: CGSize, info: CFDictionary?) -> CGLayer
   func render(image: CIImage, toBitmap data: UnsafeMutablePointer<Void>, rowBytes: Int, bounds: CGRect, format: CIFormat, colorSpace: CGColorSpace?)
   @available(OSX 10.6, *)
-  func render(image: CIImage, toIOSurface surface: IOSurface, bounds: CGRect, colorSpace: CGColorSpace?)
+  func render(image: CIImage, to surface: IOSurface, bounds: CGRect, colorSpace: CGColorSpace?)
   @available(OSX 10.11, *)
-  func render(image: CIImage, toCVPixelBuffer buffer: CVPixelBuffer)
+  func render(image: CIImage, to buffer: CVPixelBuffer)
   @available(OSX 10.11, *)
-  func render(image: CIImage, toCVPixelBuffer buffer: CVPixelBuffer, bounds: CGRect, colorSpace: CGColorSpace?)
+  func render(image: CIImage, to buffer: CVPixelBuffer, bounds: CGRect, colorSpace: CGColorSpace?)
   @available(OSX 10.11, *)
-  func render(image: CIImage, toMTLTexture texture: MTLTexture, commandBuffer: MTLCommandBuffer?, bounds: CGRect, colorSpace: CGColorSpace)
+  func render(image: CIImage, to texture: MTLTexture, commandBuffer: MTLCommandBuffer?, bounds: CGRect, colorSpace: CGColorSpace)
   @available(OSX 10.4, *)
   func reclaimResources()
   @available(OSX 10.4, *)
@@ -68,9 +68,9 @@ extension CIContext {
   @available(OSX 10.10, *)
   class func offlineGPUCount() -> UInt32
   @available(OSX 10.10, *)
-  /*not inherited*/ init(forOfflineGPUAtIndex index: UInt32)
+  /*not inherited*/ init(forOfflineGPUAt index: UInt32)
   @available(OSX 10.10, *)
-  /*not inherited*/ init(forOfflineGPUAtIndex index: UInt32, colorSpace: CGColorSpace?, options: [String : AnyObject]?, sharedContext: CGLContextObj)
+  /*not inherited*/ init(forOfflineGPUAt index: UInt32, colorSpace: CGColorSpace?, options: [String : AnyObject]?, sharedContext: CGLContextObj)
 }
 
 /** Detects features in images.
@@ -97,13 +97,13 @@ class CIDetector : NSObject {
   /** Returns an array of CIFeature instances in the given image.
    The array is sorted by confidence, highest confidence first. */
   @available(OSX 10.7, *)
-  func featuresInImage(image: CIImage) -> [CIFeature]
+  func featuresIn(image: CIImage) -> [CIFeature]
 
   /** Returns an array of CIFeature instances in the given image.
    The array is sorted by confidence, highest confidence first. 
    The options dictionary can contain a CIDetectorImageOrientation key value. */
   @available(OSX 10.8, *)
-  func featuresInImage(image: CIImage, options: [String : AnyObject]?) -> [CIFeature]
+  func featuresIn(image: CIImage, options: [String : AnyObject]?) -> [CIFeature]
   init()
 }
 @available(OSX 10.7, *)
@@ -187,8 +187,8 @@ class CIFaceFeature : CIFeature {
   var hasFaceAngle: Bool { get }
   var faceAngle: Float { get }
   var hasSmile: Bool { get }
-  var leftEyeClosed: Bool { get }
-  var rightEyeClosed: Bool { get }
+  var isLeftEyeClosed: Bool { get }
+  var isRightEyeClosed: Bool { get }
   init()
 }
 
@@ -423,7 +423,7 @@ class CIFilter : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.5, *)
   var name: String
   @available(OSX 10.5, *)
-  var enabled: Bool
+  var isEnabled: Bool
 
   /** Returns an array containing the names of all inputs in the filter. */
   var inputKeys: [String] { get }
@@ -452,10 +452,10 @@ class CIFilter : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.4, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 extension CIFilter {
@@ -513,7 +513,7 @@ extension CIFilter {
 }
 extension CIFilter {
   @available(OSX 10.9, *)
-  class func serializedXMPFromFilters(filters: [CIFilter], inputImageExtent extent: CGRect) -> NSData
+  class func serializedXMPFrom(filters: [CIFilter], inputImageExtent extent: CGRect) -> NSData
   @available(OSX 10.9, *)
   class func filterArrayFromSerializedXMP(xmpData: NSData, inputImageExtent extent: CGRect, error outError: NSErrorPointer) -> [CIFilter]
 }
@@ -543,7 +543,7 @@ class CIFilterGenerator : NSObject, NSSecureCoding, NSCopying, CIFilterConstruct
   
    @result   CIFilterGenerator object. If the file could not be read it returns nil.
   */
-  init?(contentsOfURL aURL: NSURL)
+  init?(contentsOf aURL: NSURL)
 
   /** Connect two objects into the filter chain.
   
@@ -553,7 +553,7 @@ class CIFilterGenerator : NSObject, NSSecureCoding, NSCopying, CIFilterConstruct
    @param   targetObject  The object that you link the source object to.
    @param   targetKey     The key that you assign the source object to.
   */
-  func connectObject(sourceObject: AnyObject, withKey sourceKey: String?, toObject targetObject: AnyObject, withKey targetKey: String)
+  func connect(sourceObject: AnyObject, withKey sourceKey: String?, to targetObject: AnyObject, withKey targetKey: String)
 
   /** Removes the connection between two objects in the filter chain.
       
@@ -563,7 +563,7 @@ class CIFilterGenerator : NSObject, NSSecureCoding, NSCopying, CIFilterConstruct
    @param      targetObject The object that you linked the source object to.
    @param      targetKey The key that you assigned the source object to.
   */
-  func disconnectObject(sourceObject: AnyObject, withKey key: String, toObject targetObject: AnyObject, withKey targetKey: String)
+  func disconnectObject(sourceObject: AnyObject, withKey key: String, to targetObject: AnyObject, withKey targetKey: String)
 
   /** This methods allows you to export an input or output key of an object in the filter chain to be available through the inputKeys or outputKeys API when converted into a CIFilter
    
@@ -572,7 +572,7 @@ class CIFilterGenerator : NSObject, NSSecureCoding, NSCopying, CIFilterConstruct
    @param      targetObject The object of which the key is to be exported (eg the filter).
    @param      exportedKeyName The name under which you want the new key to be available. This parameter can be nil in which case the original key name will be used. This name has to be unique. If a key being exported is an inputKey of the filter it will be exported as an input key and the other way around for output keys.
   */
-  func exportKey(key: String, fromObject targetObject: AnyObject, withName exportedKeyName: String?)
+  func exportKey(key: String, from targetObject: AnyObject, withName exportedKeyName: String?)
 
   /** Removes a key that was exported before using exportKey:fromObject:withName:
    
@@ -618,15 +618,15 @@ class CIFilterGenerator : NSObject, NSSecureCoding, NSCopying, CIFilterConstruct
   /** Write the CIFilterGenerator into a file
    @result     Returns true when the chain with written our succesfully 
   */
-  func writeToURL(aURL: NSURL, atomically flag: Bool) -> Bool
+  func writeTo(aURL: NSURL, atomically flag: Bool) -> Bool
   init()
   @available(OSX 10.5, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.5, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.5, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(OSX 10.5, *)
   func filterWithName(name: String) -> CIFilter?
 }
@@ -636,23 +636,23 @@ class CIFilterShape : NSObject, NSCopying {
   func transformBy(m: CGAffineTransform, interior flag: Bool) -> CIFilterShape
   func insetByX(dx: Int32, y dy: Int32) -> CIFilterShape
   func unionWith(s2: CIFilterShape) -> CIFilterShape
-  func unionWithRect(r: CGRect) -> CIFilterShape
+  func unionWith(r: CGRect) -> CIFilterShape
   func intersectWith(s2: CIFilterShape) -> CIFilterShape
-  func intersectWithRect(r: CGRect) -> CIFilterShape
+  func intersectWith(r: CGRect) -> CIFilterShape
   var extent: CGRect { get }
   init()
   @available(OSX 10.4, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.4, *)
 class CIImage : NSObject, NSSecureCoding, NSCopying {
-  class func emptyImage() -> CIImage
-  init(CGImage image: CGImage)
-  init(CGImage image: CGImage, options: [String : AnyObject]?)
+  class func empty() -> CIImage
+  init(cgImage image: CGImage)
+  init(cgImage image: CGImage, options: [String : AnyObject]?)
   @available(OSX, introduced=10.4, deprecated=10.11, message="Use initWithCGImage: instead.")
-  init(CGLayer layer: CGLayer)
+  init(cgLayer layer: CGLayer)
   @available(OSX, introduced=10.4, deprecated=10.11, message="Use initWithCGImage:options instead.")
-  init(CGLayer layer: CGLayer, options: [String : AnyObject]?)
+  init(cgLayer layer: CGLayer, options: [String : AnyObject]?)
   init?(data: NSData)
   init?(data: NSData, options: [String : AnyObject]?)
   init(bitmapData data: NSData, bytesPerRow: Int, size: CGSize, format: CIFormat, colorSpace: CGColorSpace?)
@@ -661,36 +661,36 @@ class CIImage : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.9, *)
   init(texture name: UInt32, size: CGSize, flipped: Bool, options: [String : AnyObject]?)
   @available(OSX 10.11, *)
-  init(MTLTexture texture: MTLTexture, options: [String : AnyObject]?)
-  init?(contentsOfURL url: NSURL)
-  init?(contentsOfURL url: NSURL, options: [String : AnyObject]?)
+  init(mtlTexture texture: MTLTexture, options: [String : AnyObject]?)
+  init?(contentsOf url: NSURL)
+  init?(contentsOf url: NSURL, options: [String : AnyObject]?)
   @available(OSX 10.6, *)
-  init(IOSurface surface: IOSurface)
+  init(ioSurface surface: IOSurface)
   @available(OSX 10.6, *)
-  init(IOSurface surface: IOSurface, options: [String : AnyObject]?)
+  init(ioSurface surface: IOSurface, options: [String : AnyObject]?)
   @available(OSX, introduced=10.9, deprecated=10.11)
-  init(IOSurface surface: IOSurface, plane: Int, format: CIFormat, options: [String : AnyObject]?)
+  init(ioSurface surface: IOSurface, plane: Int, format: CIFormat, options: [String : AnyObject]?)
   @available(OSX 10.4, *)
-  init(CVImageBuffer imageBuffer: CVImageBuffer)
+  init(cvImageBuffer imageBuffer: CVImageBuffer)
   @available(OSX 10.4, *)
-  init(CVImageBuffer imageBuffer: CVImageBuffer, options: [String : AnyObject]?)
+  init(cvImageBuffer imageBuffer: CVImageBuffer, options: [String : AnyObject]?)
   @available(OSX 10.11, *)
-  init(CVPixelBuffer pixelBuffer: CVPixelBuffer)
+  init(cvPixelBuffer pixelBuffer: CVPixelBuffer)
   @available(OSX 10.11, *)
-  init(CVPixelBuffer pixelBuffer: CVPixelBuffer, options: [String : AnyObject]?)
+  init(cvPixelBuffer pixelBuffer: CVPixelBuffer, options: [String : AnyObject]?)
   init(color: CIColor)
-  func imageByApplyingTransform(matrix: CGAffineTransform) -> CIImage
+  func applying(matrix: CGAffineTransform) -> CIImage
   @available(OSX 10.10, *)
-  func imageByApplyingOrientation(orientation: Int32) -> CIImage
+  func applyingOrientation(orientation: Int32) -> CIImage
   @available(OSX 10.10, *)
   func imageTransformForOrientation(orientation: Int32) -> CGAffineTransform
   @available(OSX 10.4, *)
-  func imageByCompositingOverImage(dest: CIImage) -> CIImage
-  func imageByCroppingToRect(rect: CGRect) -> CIImage
+  func byCompositingOverImage(dest: CIImage) -> CIImage
+  func byCroppingTo(rect: CGRect) -> CIImage
   @available(OSX 10.10, *)
-  func imageByClampingToExtent() -> CIImage
+  func byClampingToExtent() -> CIImage
   @available(OSX 10.10, *)
-  func imageByApplyingFilter(filterName: String, withInputParameters params: [String : AnyObject]?) -> CIImage
+  func applyingFilter(filterName: String, withInputParameters params: [String : AnyObject]?) -> CIImage
   var extent: CGRect { get }
   @available(OSX 10.8, *)
   var properties: [String : AnyObject] { get }
@@ -701,15 +701,15 @@ class CIImage : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.4, *)
   var colorSpace: CGColorSpace? { get }
   @available(OSX 10.11, *)
-  func regionOfInterestForImage(image: CIImage, inRect rect: CGRect) -> CGRect
+  func regionOfInterestFor(image: CIImage, `in` rect: CGRect) -> CGRect
   init()
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.4, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 typealias CIFormat = Int32
 @available(OSX 10.4, *)
@@ -798,7 +798,7 @@ typealias CIKernelROICallback = (Int32, CGRect) -> CGRect
 @available(OSX 10.4, *)
 class CIKernel : NSObject {
   @available(OSX 10.4, *)
-  class func kernelsWithString(string: String) -> [CIKernel]?
+  class func kernelsWith(string: String) -> [CIKernel]?
   @available(OSX 10.10, *)
   convenience init?(string: String)
   @available(OSX 10.4, *)
@@ -989,7 +989,7 @@ class CISampler : NSObject, NSCopying {
   var extent: CGRect { get }
   convenience init()
   @available(OSX 10.4, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 extension CISampler {
@@ -1019,31 +1019,31 @@ class CIVector : NSObject, NSCopying, NSSecureCoding {
   convenience init(x: CGFloat, y: CGFloat, z: CGFloat)
   convenience init(x: CGFloat, y: CGFloat, z: CGFloat, w: CGFloat)
   @available(OSX 10.9, *)
-  convenience init(CGPoint p: CGPoint)
+  convenience init(cgPoint p: CGPoint)
   @available(OSX 10.9, *)
-  convenience init(CGRect r: CGRect)
+  convenience init(cgRect r: CGRect)
   @available(OSX 10.9, *)
-  convenience init(CGAffineTransform r: CGAffineTransform)
+  convenience init(cgAffineTransform r: CGAffineTransform)
   convenience init(string representation: String)
-  func valueAtIndex(index: Int) -> CGFloat
+  func valueAt(index: Int) -> CGFloat
   var count: Int { get }
-  var X: CGFloat { get }
-  var Y: CGFloat { get }
-  var Z: CGFloat { get }
-  var W: CGFloat { get }
+  var x: CGFloat { get }
+  var y: CGFloat { get }
+  var z: CGFloat { get }
+  var w: CGFloat { get }
   @available(OSX 10.9, *)
-  var CGPointValue: CGPoint { get }
+  var cgPointValue: CGPoint { get }
   @available(OSX 10.9, *)
-  var CGRectValue: CGRect { get }
+  var cgRectValue: CGRect { get }
   @available(OSX 10.9, *)
-  var CGAffineTransformValue: CGAffineTransform { get }
+  var cgAffineTransformValue: CGAffineTransform { get }
   var stringRepresentation: String { get }
   convenience init()
   @available(OSX 10.4, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

@@ -59,7 +59,7 @@ public class AppConfiguration {
         the user-defined value of `LISTER_BUNDLE_PREFIX` into several static string constants below.
     */
     private struct Bundle {
-        static var prefix = NSBundle.mainBundle().objectForInfoDictionaryKey("AAPLListerBundlePrefix") as! String
+        static var prefix = NSBundle.main().objectForInfoDictionaryKey("AAPLListerBundlePrefix") as! String
     }
 
     struct ApplicationGroups {
@@ -84,7 +84,7 @@ public class AppConfiguration {
         case NotSet = 0, Local, Cloud
     }
     
-    public class var sharedConfiguration: AppConfiguration {
+    public class var shared: AppConfiguration {
         struct Singleton {
             static let sharedAppConfiguration = AppConfiguration()
         }

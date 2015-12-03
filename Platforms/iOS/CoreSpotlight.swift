@@ -7,7 +7,7 @@ var CoreSpotlightVersionNumber: Double
 class CSIndexExtensionRequestHandler : NSObject, NSExtensionRequestHandling, CSSearchableIndexDelegate {
   init()
   @available(iOS 9.0, *)
-  func beginRequestWithExtensionContext(context: NSExtensionContext)
+  func beginRequestWith(context: NSExtensionContext)
   @available(iOS 9.0, *)
   func searchableIndex(searchableIndex: CSSearchableIndex, reindexAllSearchableItemsWithAcknowledgementHandler acknowledgementHandler: () -> Void)
   @available(iOS 9.0, *)
@@ -28,10 +28,10 @@ class CSPerson : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 let CSIndexErrorDomain: String
@@ -54,15 +54,15 @@ class CSSearchableIndex : NSObject {
   class func defaultSearchableIndex() -> Self
   init(name: String)
   init(name: String, protectionClass: String?)
-  func indexSearchableItems(items: [CSSearchableItem], completionHandler: ((NSError?) -> Void)?)
-  func deleteSearchableItemsWithIdentifiers(identifiers: [String], completionHandler: ((NSError?) -> Void)?)
-  func deleteSearchableItemsWithDomainIdentifiers(domainIdentifiers: [String], completionHandler: ((NSError?) -> Void)?)
-  func deleteAllSearchableItemsWithCompletionHandler(completionHandler: ((NSError?) -> Void)?)
+  func indexSearchableItems(items: [CSSearchableItem], completionHandler: ((NSError?) -> Void)? = nil)
+  func deleteSearchableItemsWithIdentifiers(identifiers: [String], completionHandler: ((NSError?) -> Void)? = nil)
+  func deleteSearchableItemsWithDomainIdentifiers(domainIdentifiers: [String], completionHandler: ((NSError?) -> Void)? = nil)
+  func deleteAllSearchableItems(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   init()
 }
 extension CSSearchableIndex {
   func beginIndexBatch()
-  func endIndexBatchWithClientState(clientState: NSData, completionHandler: ((NSError?) -> Void)?)
+  func endIndexBatchWithClientState(clientState: NSData, completionHandler: ((NSError?) -> Void)? = nil)
   func fetchLastClientStateWithCompletionHandler(completionHandler: (NSData?, NSError?) -> Void)
 }
 @available(iOS 9.0, *)
@@ -87,21 +87,21 @@ class CSSearchableItem : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class CSSearchableItemAttributeSet : NSObject, NSCopying, NSSecureCoding {
   init(itemContentType: String)
   init()
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 class CSLocalizedString : NSString {
@@ -111,17 +111,17 @@ class CSLocalizedString : NSString {
   init?(coder aDecoder: NSCoder)
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
   convenience init(characters: UnsafePointer<unichar>, length: Int)
-  convenience init?(UTF8String nullTerminatedCString: UnsafePointer<Int8>)
+  convenience init?(utF8String nullTerminatedCString: UnsafePointer<Int8>)
   convenience init(string aString: String)
   convenience init(format: String, arguments argList: CVaListPointer)
   convenience init(format: String, locale: AnyObject?, arguments argList: CVaListPointer)
   convenience init?(data: NSData, encoding: UInt)
   convenience init?(bytes: UnsafePointer<Void>, length len: Int, encoding: UInt)
   convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding: UInt, freeWhenDone freeBuffer: Bool)
-  convenience init?(CString nullTerminatedCString: UnsafePointer<Int8>, encoding: UInt)
-  convenience init(contentsOfURL url: NSURL, encoding enc: UInt) throws
+  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding: UInt)
+  convenience init(contentsOf url: NSURL, encoding enc: UInt) throws
   convenience init(contentsOfFile path: String, encoding enc: UInt) throws
-  convenience init(contentsOfURL url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
+  convenience init(contentsOf url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
   convenience init(contentsOfFile path: String, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
 }
 @available(iOS 9.0, *)
@@ -129,17 +129,17 @@ class CSCustomAttributeKey : NSObject, NSCopying, NSSecureCoding {
   convenience init?(keyName: String)
   init?(keyName: String, searchable: Bool, searchableByDefault: Bool, unique: Bool, multiValued: Bool)
   var keyName: String { get }
-  var searchable: Bool { get }
-  var searchableByDefault: Bool { get }
-  var unique: Bool { get }
-  var multiValued: Bool { get }
+  var isSearchable: Bool { get }
+  var isSearchableByDefault: Bool { get }
+  var isUnique: Bool { get }
+  var isMultiValued: Bool { get }
   convenience init()
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension CSSearchableItemAttributeSet {
@@ -213,7 +213,7 @@ extension CSSearchableItemAttributeSet {
   var acquisitionModel: String?
   var cameraOwner: String?
   var lensModel: String?
-  var ISOSpeed: NSNumber?
+  var isoSpeed: NSNumber?
   var orientation: NSNumber?
   var layerNames: [String]?
   var whiteBalance: NSNumber?
@@ -223,8 +223,8 @@ extension CSSearchableItemAttributeSet {
   var resolutionHeightDPI: NSNumber?
   var exposureMode: NSNumber?
   var exposureTime: NSNumber?
-  var EXIFVersion: String?
-  var EXIFGPSVersion: String?
+  var exifVersion: String?
+  var exifgpsVersion: String?
   var hasAlphaChannel: NSNumber?
   var redEyeOn: NSNumber?
   var meteringMode: String?
@@ -274,7 +274,7 @@ extension CSSearchableItemAttributeSet {
   var originalSource: String?
   var local: NSNumber?
   var contentRating: NSNumber?
-  var URL: NSURL?
+  var url: NSURL?
 }
 extension CSSearchableItemAttributeSet {
   var audioSampleRate: NSNumber?
@@ -309,7 +309,7 @@ let CSMailboxArchive: String
 extension CSSearchableItemAttributeSet {
   var accountIdentifier: String?
   var accountHandles: [String]?
-  @NSCopying var HTMLContentData: NSData?
+  @NSCopying var htmlContentData: NSData?
   var textContent: String?
   var authors: [CSPerson]?
   var primaryRecipients: [CSPerson]?
@@ -341,17 +341,17 @@ extension CSSearchableItemAttributeSet {
   var timestamp: NSDate?
   var imageDirection: NSNumber?
   var namedLocation: String?
-  var GPSTrack: NSNumber?
-  var GPSStatus: String?
-  var GPSMeasureMode: String?
-  var GPSDOP: NSNumber?
-  var GPSMapDatum: String?
-  var GPSDestLatitude: NSNumber?
-  var GPSDestLongitude: NSNumber?
-  var GPSDestBearing: NSNumber?
-  var GPSDestDistance: NSNumber?
-  var GPSProcessingMethod: String?
-  var GPSAreaInformation: String?
-  var GPSDateStamp: NSDate?
-  var GPSDifferental: NSNumber?
+  var gpsTrack: NSNumber?
+  var gpsStatus: String?
+  var gpsMeasureMode: String?
+  var gpsdop: NSNumber?
+  var gpsMapDatum: String?
+  var gpsDestLatitude: NSNumber?
+  var gpsDestLongitude: NSNumber?
+  var gpsDestBearing: NSNumber?
+  var gpsDestDistance: NSNumber?
+  var gpsProcessingMethod: String?
+  var gpsAreaInformation: String?
+  var gpsDateStamp: NSDate?
+  var gpsDifferental: NSNumber?
 }

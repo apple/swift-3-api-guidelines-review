@@ -33,7 +33,7 @@ class LevelSceneActiveState: GKState {
         let components = NSDateComponents()
         components.second = Int(max(0.0, timeRemaining))
         
-        return timeRemainingFormatter.stringFromDateComponents(components)!
+        return timeRemainingFormatter.stringFrom(components)!
     }
     
     // MARK: Initializers

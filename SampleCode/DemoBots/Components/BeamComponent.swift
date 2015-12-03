@@ -111,7 +111,7 @@ class BeamComponent: GKComponent {
         
         // Use the player's `EntitySnapshot` to build an array of targetable `TaskBot`s who's antennas are within the beam's arc.
         guard let level = playerBotNode.scene as? LevelScene else { return nil }
-        guard let snapshot = level.entitySnapshotForEntity(playerBot) else { return nil }
+        guard let snapshot = level.entitySnapshotFor(playerBot) else { return nil }
         
         let botsInArc = snapshot.entityDistances.filter { entityDistance in
             guard let taskBot = entityDistance.target as? TaskBot else { return false }

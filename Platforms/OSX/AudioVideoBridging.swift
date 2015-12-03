@@ -22,7 +22,7 @@ protocol AVB17221ACMPClient {
    @result		YES if the message was processed, NO otherwise.
    */
   @available(OSX 10.8, *)
-  func ACMPDidReceiveCommand(message: AVB17221ACMPMessage, onInterface anInterface: AVB17221ACMPInterface) -> Bool
+  func acmpDidReceiveCommand(message: AVB17221ACMPMessage, on anInterface: AVB17221ACMPInterface) -> Bool
 
   /*!
    @method		ACMPDidReceiveResponse:onInterface:
@@ -32,7 +32,7 @@ protocol AVB17221ACMPClient {
    @result		YES if the message was processed, NO otherwise.
    */
   @available(OSX 10.8, *)
-  func ACMPDidReceiveResponse(message: AVB17221ACMPMessage, onInterface anInterface: AVB17221ACMPInterface) -> Bool
+  func acmpDidReceiveResponse(message: AVB17221ACMPMessage, on anInterface: AVB17221ACMPInterface) -> Bool
 }
 
 /*!
@@ -97,7 +97,7 @@ class AVB17221ACMPInterface : AVB1722ControlInterface {
   				is synchronized with the reception of messages from the kernel object providing the command transport. This method handles the retry
   				and message timeout per the IEEE Std 1722.1™-2013 standard timeouts.
    */
-  func sendACMPCommandMessage(message: AVB17221ACMPMessage, completionHandler: AVB17221ACMPInterfaceCompletion) -> Bool
+  func sendACMPCommand(message: AVB17221ACMPMessage, completionHandler: AVB17221ACMPInterfaceCompletion) -> Bool
 
   /*!
   	@method		initWithInterfaceName:
@@ -214,7 +214,7 @@ class AVB17221ACMPMessage : NSObject, NSCopying {
   @NSCopying var sourceMAC: AVBMACAddress?
   init()
   @available(OSX 10.8, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -233,7 +233,7 @@ protocol AVB17221AECPClient {
    @result		YES if the message was processed, NO otherwise.
    */
   @available(OSX 10.8, *)
-  func AECPDidReceiveCommand(message: AVB17221AECPMessage, onInterface anInterface: AVB17221AECPInterface) -> Bool
+  func aecpDidReceiveCommand(message: AVB17221AECPMessage, on anInterface: AVB17221AECPInterface) -> Bool
 
   /*!
    @method		AECPDidReceiveResponse:onInterface:
@@ -243,7 +243,7 @@ protocol AVB17221AECPClient {
    @result		YES if the message was processed, NO otherwise.
    */
   @available(OSX 10.8, *)
-  func AECPDidReceiveResponse(message: AVB17221AECPMessage, onInterface anInterface: AVB17221AECPInterface) -> Bool
+  func aecpDidReceiveResponse(message: AVB17221AECPMessage, on anInterface: AVB17221AECPInterface) -> Bool
 }
 
 /*!
@@ -333,7 +333,7 @@ class AVB17221AECPInterface : AVB1722ControlInterface {
   	@result		A BOOL indicating success or failure
   	@discussion	This method synchronizes access to the kernel service providing transport for the message. This method is safe to call from any thread.
    */
-  func sendCommand(message: AVB17221AECPMessage, toMACAddress destMAC: AVBMACAddress, completionHandler: AVB17221AECPInterfaceCompletion) -> Bool
+  func sendCommand(message: AVB17221AECPMessage, to destMAC: AVBMACAddress, completionHandler: AVB17221AECPInterfaceCompletion) -> Bool
 
   /*!
   	@method		sendResponse:toMACAddress:error:
@@ -343,7 +343,7 @@ class AVB17221AECPInterface : AVB1722ControlInterface {
   	@result		IOReturn indicating success or failure and reason for failure.
   	@discussion	This method synchronizes access to the kernel service providing transport for the message. This method is safe to call from any thread. 
    */
-  func sendResponse(message: AVB17221AECPMessage, toMACAddress destMAC: AVBMACAddress) throws
+  func sendResponse(message: AVB17221AECPMessage, to destMAC: AVBMACAddress) throws
 
   /*!
   	@method		initWithInterfaceName:
@@ -413,7 +413,7 @@ class AVB17221AECPMessage : NSObject, NSCopying {
   @NSCopying var sourceMAC: AVBMACAddress
   init()
   @available(OSX 10.8, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -435,14 +435,14 @@ class AVB17221AECPAEMMessage : AVB17221AECPMessage {
   	@property	unsolicited
   	@abstract	The u field of the AECP AEM message.
    */
-  var unsolicited: Bool
+  var isUnsolicited: Bool
 
   /*!
    @property	controllerRequest
    @abstract	The cr field of the AECP AEM message.
    */
   @available(OSX 10.9, *)
-  var controllerRequest: Bool
+  var isControllerRequest: Bool
 
   /*!
   	@property	commandSpecificData
@@ -455,14 +455,14 @@ class AVB17221AECPAEMMessage : AVB17221AECPMessage {
   	@abstract	This method returns an AVB17221AECPAEMMessage instance setup as an AEM command.
   	@result		An AVB17221AECPAEMMessage instance pre-setup as an AEM command.
    */
-  class func commandMessage() -> AVB17221AECPAEMMessage
+  class func command() -> AVB17221AECPAEMMessage
 
   /*!
   	@method		responseMessage
   	@abstract	This method returns an AVB17221AECPAEMMessage instance setup as an AEM response.
   	@result		An AVB17221AECPAEMMessage instance pre-setup as an AEM response.
    */
-  class func responseMessage() -> AVB17221AECPAEMMessage
+  class func response() -> AVB17221AECPAEMMessage
   init()
 }
 
@@ -486,14 +486,14 @@ class AVB17221AECPAddressAccessMessage : AVB17221AECPMessage {
   	@abstract	This method returns an AVB17221AECPAddressAccessMessage instance setup as an Address Access command.
   	@result		An AVB17221AECPAddressAccessMessage instance pre-setup as an Address Access command.
    */
-  class func commandMessage() -> AVB17221AECPAddressAccessMessage
+  class func command() -> AVB17221AECPAddressAccessMessage
 
   /*!
   	@method		responseMessage
   	@abstract	This method returns an AVB17221AECPAEMMessage instance setup as an Address Access response.
   	@result		An AVB17221AECPAddressAccessMessage instance pre-setup as an Address Access response.
    */
-  class func responseMessage() -> AVB17221AECPAddressAccessMessage
+  class func response() -> AVB17221AECPAddressAccessMessage
   init()
 }
 
@@ -581,7 +581,7 @@ class AVB17221Entity : NSObject {
   	@property	localEntity
   	@abstract	YES if the entity is published locally on the machine and NO if the entity has been discovered on the network.
    */
-  var localEntity: Bool
+  var isLocalEntity: Bool
 
   /*!
   	@property	timeToLive
@@ -1058,14 +1058,14 @@ class AVBCentralManager : NSObject {
   				subclasses do not need to maintain another reference to this. A subclass does not need to call the AVBCentralManager implementation. 
   				Note this method is not called on the main thread and is not safe for performing UI actions.
    */
-  func didAddInterface(interface: AVBInterface)
+  func didAdd(interface: AVBInterface)
 
   /*!
   	@abstract	This method is called when a NIC has been removed from the system and the central manager is cleaning it up.
   	@param		interface	An instance of an AVBInterface subclass (as appropriate for the NIC) which is being removed for the discovered NIC.
   	@discussion	Note this method is not called on the main thread and is not safe for performing UI actions.
    */
-  func didRemoveInterface(interface: AVBInterface)
+  func didRemove(interface: AVBInterface)
 
   /*!
   	@abstract	This method is used to control if the central manager will create and process AVBInterface objects for non streaming interfaces.
@@ -2420,8 +2420,8 @@ class AVBMACAddress : NSObject, NSCopying {
   	@property	multicast
   	@abstract	Returns if the multicast bit is set in the MAC address.
    */
-  var multicast: Bool
+  var isMulticast: Bool
   init()
   @available(OSX 10.8, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }

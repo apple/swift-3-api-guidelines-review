@@ -129,7 +129,7 @@ class FlyingBotBlastState: GKState {
     func entitiesInRange() -> [GKEntity] {
         // Retrieve an entity snapshot containing the distances from this `TaskBot` to other entities in the `LevelScene`.
         guard let level = renderComponent.node.scene as? LevelScene else { return [] }
-        guard let entitySnapshot = level.entitySnapshotForEntity(entity) else { return [] }
+        guard let entitySnapshot = level.entitySnapshotFor(entity) else { return [] }
         
         // Convert the array of `EntityDistance`s to an array of `GKEntity`s where the distance to the entity is within the blast radius.
         let entitiesInRange: [GKEntity] = entitySnapshot.entityDistances.flatMap {

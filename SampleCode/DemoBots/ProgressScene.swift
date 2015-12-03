@@ -65,18 +65,18 @@ class ProgressScene: BaseScene {
         progress of on demand resources and the loading progress of bringing
         assets into memory.
     */
-    static func progressSceneWithSceneLoader(sceneLoader: SceneLoader) -> ProgressScene {
+    static func withSceneLoader(sceneLoader: SceneLoader) -> ProgressScene {
         // Load the progress scene from its sks file.
         let progressScene = ProgressScene(fileNamed: "ProgressScene")!
         
         progressScene.createCamera()
-        progressScene.setupWithSceneLoader(sceneLoader)
+        progressScene.setupWith(sceneLoader)
         
         // Return the setup progress scene.
         return progressScene
     }
     
-    func setupWithSceneLoader(sceneLoader: SceneLoader) {
+    func setupWith(sceneLoader: SceneLoader) {
         // Set the sceneLoader. This may be in the downloading or preparing state.
         self.sceneLoader = sceneLoader
         
@@ -91,10 +91,10 @@ class ProgressScene: BaseScene {
         
         // Register for notifications posted when the `SceneDownloader` fails.
         let defaultCenter = NSNotificationCenter.defaultCenter()
-        downloadFailedObserver = defaultCenter.addObserverForName(SceneLoaderDidFailNotification, object: sceneLoader, queue: NSOperationQueue.mainQueue()) { [unowned self] notification in
+        downloadFailedObserver = defaultCenter.addObserverForName(SceneLoaderDidFailNotification, object: sceneLoader, queue: NSOperationQueue.main()) { [unowned self] notification in
             guard let sceneLoader = notification.object as? SceneLoader, error = sceneLoader.error else { fatalError("The scene loader has no error to show.") }
             
-            self.showErrorStateForError(error)
+            self.showErrorStateFor(error)
         }
     }
     
@@ -110,17 +110,17 @@ class ProgressScene: BaseScene {
     
     // MARK: Scene Life Cycle
     
-    override func didMoveToView(view: SKView) {
-        super.didMoveToView(view)
+    override func didMoveTo(view: SKView) {
+        super.didMoveTo(view)
         
-        centerCameraOnPoint(backgroundNode!.position)
+        centerCameraOn(backgroundNode!.position)
 
         // Remember the progress bar's initial width. It will change to indicate progress.
         progressBarInitialWidth = progressBarNode.frame.width
         
         if let error = sceneLoader.error {
             // Show the scene loader's error.
-            showErrorStateForError(error)
+            showErrorStateFor(error)
         }
         else {
             showDefaultState()
@@ -129,7 +129,7 @@ class ProgressScene: BaseScene {
     
     // MARK: Key Value Observing (KVO) for NSProgress
     
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String: AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValueForKeyPath(keyPath: String?, of object: AnyObject?, change: [String: AnyObject]?, context: UnsafeMutablePointer<Void>) {
         // Check if this is the KVO notification we need.
         if context == &progressSceneKVOContext && keyPath == "fractionCompleted" && object === progress {
             // Update the progress UI on the main queue.
@@ -144,7 +144,7 @@ class ProgressScene: BaseScene {
             }
         }
         else {
-            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+            super.observeValueForKeyPath(keyPath, of: object, change: change, context: context)
         }
     }
     
@@ -155,7 +155,7 @@ class ProgressScene: BaseScene {
             case .Retry:
                 // Set up the progress for a new preparation attempt.
                 progress = sceneLoader.asynchronouslyLoadSceneForPresentation()
-                sceneLoader.requestedForPresentation = true
+                sceneLoader.isRequestedForPresentation = true
                 showDefaultState()
             
             case .Cancel:
@@ -180,33 +180,33 @@ class ProgressScene: BaseScene {
     
     // MARK: Convenience
     
-    func buttonWithIdentifier(identifier: ButtonIdentifier) -> ButtonNode? {
+    func buttonWith(identifier: ButtonIdentifier) -> ButtonNode? {
         return backgroundNode?.childNodeWithName(identifier.rawValue) as? ButtonNode
     }
     
     func showDefaultState() {
-        progressBarNode.hidden = false
+        progressBarNode.isHidden = false
         
         // Only display the "Cancel" button.
-        buttonWithIdentifier(.Home)?.hidden = true
-        buttonWithIdentifier(.Retry)?.hidden = true
-        buttonWithIdentifier(.Cancel)?.hidden = false
+        buttonWith(.Home)?.isHidden = true
+        buttonWith(.Retry)?.isHidden = true
+        buttonWith(.Cancel)?.isHidden = false
         
         // Reset the button focus.
         resetFocus()
     }
     
-    func showErrorStateForError(error: NSError) {
+    func showErrorStateFor(error: NSError) {
         // A new progress object will have to be created for any subsequent loading attempts.
         progress = nil
         
         // Display "Quit" and "Retry" buttons.
-        buttonWithIdentifier(.Home)?.hidden = false
-        buttonWithIdentifier(.Retry)?.hidden = false
-        buttonWithIdentifier(.Cancel)?.hidden = true
+        buttonWith(.Home)?.isHidden = false
+        buttonWith(.Retry)?.isHidden = false
+        buttonWith(.Cancel)?.isHidden = true
         
         // Hide normal state.
-        progressBarNode.hidden = true
+        progressBarNode.isHidden = true
         progressBarNode.size.width = 0.0
         
         // Reset the button focus.
@@ -229,15 +229,15 @@ class ProgressScene: BaseScene {
         guard let window = view?.window else { fatalError("Attempting to present an error when the scene is not in a window.") }
         
         let alert = NSAlert(error: error)
-        alert.beginSheetModalForWindow(window, completionHandler: nil)
+        alert.beginSheetModalFor(window)
         #else
         guard let rootViewController = view?.window?.rootViewController else { fatalError("Attempting to present an error when the scene is not in a view controller.") }
         
         let alert = UIAlertController(title: error.localizedDescription, message: error.localizedRecoverySuggestion, preferredStyle: .Alert)
-        let alertAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        let alertAction = UIAlertAction(title: "OK", style: .Default)
         alert.addAction(alertAction)
         
-        rootViewController.presentViewController(alert, animated: true, completion: nil)
+        rootViewController.present(alert, animated: true)
         #endif
     }
 }

@@ -20,7 +20,7 @@ class CNContactPicker : NSObject {
   /*!
    * @abstract Shows the picker popover relative to a positioning rect for a view with a preferred edge. See NSPopover for more information.
    */
-  func showRelativeToRect(positioningRect: NSRect, ofView positioningView: NSView, preferredEdge: NSRectEdge)
+  func showRelativeTo(positioningRect: NSRect, of positioningView: NSView, preferredEdge: NSRectEdge)
 
   /*!
    * @abstract Closes the popover.

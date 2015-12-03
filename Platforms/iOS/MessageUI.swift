@@ -174,7 +174,7 @@ protocol MFMailComposeViewControllerDelegate : NSObjectProtocol {
                                result did not indicate failure.
   */
   @available(iOS 3.0, *)
-  optional func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?)
+  optional func mailComposeController(controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: NSError?)
 }
 
 /*!
@@ -371,5 +371,5 @@ protocol MFMessageComposeViewControllerDelegate : NSObjectProtocol {
    @param      result       MessageComposeResult indicating how the user chose to complete the composition process.
    */
   @available(iOS 4.0, *)
-  func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult)
+  func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult)
 }

@@ -33,7 +33,7 @@ extension BaseScene {
         guard let characters = event.charactersIgnoringModifiers?.characters else { return }
 
         for character in characters {
-            keyboardControlInputSource.handleKeyDownForCharacter(character)
+            keyboardControlInputSource.handleKeyDownFor(character)
         }
     }
     
@@ -41,7 +41,7 @@ extension BaseScene {
         guard let characters = event.charactersIgnoringModifiers?.characters else { return }
         
         for character in characters {
-            keyboardControlInputSource.handleKeyUpForCharacter(character)
+            keyboardControlInputSource.handleKeyUpFor(character)
         }
     }
 }

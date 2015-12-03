@@ -11,17 +11,17 @@ import ReplayKit
 extension BaseScene: RPPreviewViewControllerDelegate, RPScreenRecorderDelegate {
     // MARK: Computed Properties
     
-    var screenRecordingToggleEnabled: Bool {
-        return NSUserDefaults.standardUserDefaults().boolForKey(screenRecorderEnabledKey)
+    var isScreenRecordingToggleEnabled: Bool {
+        return NSUserDefaults.standard().boolForKey(screenRecorderEnabledKey)
     }
     
     // MARK: Start/Stop Screen Recording
     
     func startScreenRecording() {
         // Do nothing if screen recording hasn't been enabled.
-        guard screenRecordingToggleEnabled else { return }
+        guard isScreenRecordingToggleEnabled else { return }
         
-        let sharedRecorder = RPScreenRecorder.sharedRecorder()
+        let sharedRecorder = RPScreenRecorder.shared()
         
         // Register as the recorder's delegate to handle errors.
         sharedRecorder.delegate = self
@@ -34,9 +34,9 @@ extension BaseScene: RPPreviewViewControllerDelegate, RPScreenRecorderDelegate {
     }
     
     func stopScreenRecordingWithHandler(handler:(() -> Void)) {
-        let sharedRecorder = RPScreenRecorder.sharedRecorder()
+        let sharedRecorder = RPScreenRecorder.shared()
 
-        sharedRecorder.stopRecordingWithHandler { (previewViewController: RPPreviewViewController?, error: NSError?) in
+        sharedRecorder.stopRecording { (previewViewController: RPPreviewViewController?, error: NSError?) in
             if let error = error {
                 // If an error has occurred, display an alert to the user.
                 self.showScreenRecordingAlert(error.localizedDescription)
@@ -60,13 +60,13 @@ extension BaseScene: RPPreviewViewControllerDelegate, RPScreenRecorderDelegate {
     
     func showScreenRecordingAlert(message: String) {
         // Pause the scene and un-pause after the alert returns.
-        paused = true
+        isPaused = true
         
         // Show an alert notifying the user that there was an issue with starting or stopping the recorder.
         let alertController = UIAlertController(title: "ReplayKit Error", message: message, preferredStyle: .Alert)
         
         let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { _ in
-            self.paused = false
+            self.isPaused = false
         }
         alertController.addAction(alertAction)
         
@@ -75,20 +75,20 @@ extension BaseScene: RPPreviewViewControllerDelegate, RPScreenRecorderDelegate {
             this alert is presented on the main queue.
         */
         dispatch_async(dispatch_get_main_queue()) {
-            self.view?.window?.rootViewController?.presentViewController(alertController, animated: true, completion: nil)
+            self.view?.window?.rootViewController?.present(alertController, animated: true)
         }
     }
     
     func discardRecording() {
         // When we no longer need the `previewViewController`, tell `ReplayKit` to discard the recording and nil out our reference
-        RPScreenRecorder.sharedRecorder().discardRecordingWithHandler {
+        RPScreenRecorder.shared().discardRecordingWithHandler {
             self.previewViewController = nil
         }
     }
     
     // MARK: RPScreenRecorderDelegate
     
-    func screenRecorder(screenRecorder: RPScreenRecorder, didStopRecordingWithError error: NSError, previewViewController: RPPreviewViewController?) {
+    func screenRecorder(screenRecorder: RPScreenRecorder, didStopRecordingWith error: NSError, previewViewController: RPPreviewViewController?) {
         // Display the error the user to alert them that the recording failed.
         showScreenRecordingAlert(error.localizedDescription)
         
@@ -101,6 +101,6 @@ extension BaseScene: RPPreviewViewControllerDelegate, RPScreenRecorderDelegate {
     // MARK: RPPreviewViewControllerDelegate
     
     func previewControllerDidFinish(previewController: RPPreviewViewController) {
-        previewViewController?.dismissViewControllerAnimated(true, completion: nil)
+        previewViewController?.dismissViewControllerAnimated(true)
     }
 }

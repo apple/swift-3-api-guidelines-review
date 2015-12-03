@@ -142,13 +142,13 @@ class GKBehavior : NSObject, NSFastEnumeration {
    * Gets the current weight for a given goal.
    * @return the weight of the goal, or 0 if there is no such goal on this behavior
    */
-  func weightForGoal(goal: GKGoal) -> Float
+  func weightFor(goal: GKGoal) -> Float
 
   /**
    * Remove the indicated goal from this behavior.
    * @param goal the goal to be removed
    */
-  func removeGoal(goal: GKGoal)
+  func remove(goal: GKGoal)
 
   /**
    * Removes all the goals on the behavior.
@@ -158,7 +158,7 @@ class GKBehavior : NSObject, NSFastEnumeration {
   subscript (goal: GKGoal) -> NSNumber
   init()
   @available(OSX 10.11, *)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 /**
@@ -185,7 +185,7 @@ class GKComponent : NSObject, NSCopying {
   func updateWithDeltaTime(seconds: NSTimeInterval)
   init()
   @available(OSX 10.11, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /**
@@ -230,7 +230,7 @@ class GKComponentSystem : NSObject, NSFastEnumeration {
    *
    * @see GKEntity.components
    */
-  func addComponentWithEntity(entity: GKEntity)
+  func addComponentWith(entity: GKEntity)
 
   /**
    * Removes the supported component from the entity's component collection
@@ -240,7 +240,7 @@ class GKComponentSystem : NSObject, NSFastEnumeration {
    *    if (component.class == system.componentClass)
    *        [system removeComponent:component]
    */
-  func removeComponentWithEntity(entity: GKEntity)
+  func removeComponentWith(entity: GKEntity)
 
   /**
    * Removes a component from the system
@@ -256,7 +256,7 @@ class GKComponentSystem : NSObject, NSFastEnumeration {
   func updateWithDeltaTime(seconds: NSTimeInterval)
   init()
   @available(OSX 10.11, *)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 /**
@@ -307,9 +307,9 @@ class GKEntity : NSObject, NSCopying {
    * Removes the component of the indicates class from this entity
    * @param componentClass the class of the component you want to remove
    */
-  func removeComponentForClass(componentClass: AnyClass)
+  func removeComponentFor(componentClass: AnyClass)
   @available(OSX 10.11, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 @available(iOS 9.0, OSX 10.11, tvOS 9.0, *)
@@ -378,7 +378,7 @@ protocol GKGameModel : NSObjectProtocol, NSCopying {
    * Returns nil if the specified player is invalid, is not a part of the game model, or 
    * if there are no valid moves available.
    */
-  func gameModelUpdatesForPlayer(player: GKGameModelPlayer) -> [GKGameModelUpdate]?
+  func gameModelUpdatesFor(player: GKGameModelPlayer) -> [GKGameModelUpdate]?
 
   /**
    * Applies a GKGameModelUpdate to the game model, potentially resulting in a new activePlayer. 
@@ -386,7 +386,7 @@ protocol GKGameModel : NSObjectProtocol, NSCopying {
    * about possible future moves and their effects. It is assumed that calling this method performs 
    * a move on behalf of the player identified by the activePlayer property.
    */
-  func applyGameModelUpdate(gameModelUpdate: GKGameModelUpdate)
+  func apply(gameModelUpdate: GKGameModelUpdate)
 
   /**
    * Returns the score for the specified player. A higher value indicates a better position for
@@ -394,19 +394,19 @@ protocol GKGameModel : NSObjectProtocol, NSCopying {
    * GKGameModelUpdate is the most advantageous for a given player. If the player is invalid, or
    * not a part of the game model, returns NSIntegerMin.
    */
-  optional func scoreForPlayer(player: GKGameModelPlayer) -> Int
+  optional func scoreFor(player: GKGameModelPlayer) -> Int
 
   /**
    * Returns YES if the specified player has reached a win state, NO if otherwise. Note that NO does not
    * necessarily mean that the player has lost. Optionally used by GKMinmaxStrategist to improve move selection.
    */
-  optional func isWinForPlayer(player: GKGameModelPlayer) -> Bool
+  optional func isWinFor(player: GKGameModelPlayer) -> Bool
 
   /**
    * Returns YES if the specified player has reached a loss state, NO if otherwise. Note that NO does not
    * necessarily mean that the player has won. Optionally used by GKMinmaxStrategist to improve move selection.
    */
-  optional func isLossForPlayer(player: GKGameModelPlayer) -> Bool
+  optional func isLossFor(player: GKGameModelPlayer) -> Bool
 }
 
 /**
@@ -432,34 +432,34 @@ class GKGoal : NSObject, NSCopying {
    * Creates a goal to avoid colliding with a group of agents without taking into account those agents' momentum
    * @param maxPredictionTime how far ahead in the future, in seconds, should we look for potential collisions
    */
-  convenience init(toAvoidObstacles obstacles: [GKObstacle], maxPredictionTime: NSTimeInterval)
+  convenience init(toAvoid obstacles: [GKObstacle], maxPredictionTime: NSTimeInterval)
 
   /**
    * Creates a goal to avoid colliding with a group of agents taking into account those agent's momentum
    * @param timeBeforeCollisionToAvoid how far ahead in the future, in seconds, should we look for potential collisions
    */
-  convenience init(toAvoidAgents agents: [GKAgent], maxPredictionTime: NSTimeInterval)
+  convenience init(toAvoid agents: [GKAgent], maxPredictionTime: NSTimeInterval)
 
   /**
    * Creates a goal that tries to repel this agent away from the other agents and attempts to prevent overlap
    * @param maxDistance the distance between agents before repelling happens
    * @param maxAngle the angle, in radians, between this agent's foward and the vector toward the other agent before the repelling happens
    */
-  convenience init(toSeparateFromAgents agents: [GKAgent], maxDistance: Float, maxAngle: Float)
+  convenience init(toSeparateFrom agents: [GKAgent], maxDistance: Float, maxAngle: Float)
 
   /**
    * Creates a goal to align this agent's orientation with the average orientation of the group of agents.
    * @param maxDistance the distance between agents before alignment happens
    * @param maxAngle the angle, in radians, between this agent's foward and the vector toward the other agent before alignment happens
    */
-  convenience init(toAlignWithAgents agents: [GKAgent], maxDistance: Float, maxAngle: Float)
+  convenience init(toAlignWith agents: [GKAgent], maxDistance: Float, maxAngle: Float)
 
   /**
    * Creates a goal to seek the average position of the group of agents.
    * @param maxDistance the distance between agents before cohesion happens
    * @param maxAngle the angle between this agent's foward and the vector toward the other agent before cohesion happens
    */
-  convenience init(toCohereWithAgents agents: [GKAgent], maxDistance: Float, maxAngle: Float)
+  convenience init(toCohereWith agents: [GKAgent], maxDistance: Float, maxAngle: Float)
 
   /**
    * Creates a goal that attempts to change our momentum to reach the target speed
@@ -487,17 +487,17 @@ class GKGoal : NSObject, NSCopying {
    * @param maxPredictionTime how far ahead in the future, in seconds, should we look for potential intercepts
    * @param forward direction to follow the path. forward = NO is reverse
    */
-  convenience init(toFollowPath path: GKPath, maxPredictionTime: NSTimeInterval, forward: Bool)
+  convenience init(toFollow path: GKPath, maxPredictionTime: NSTimeInterval, forward: Bool)
 
   /**
    * Creates a goal that will attempt to stay on the given path
    * @param path the path to follow
    * @param maxPredictionTime how far ahead in the future, in seconds, should we look for potential intercepts
    */
-  convenience init(toStayOnPath path: GKPath, maxPredictionTime: NSTimeInterval)
+  convenience init(toStayOn path: GKPath, maxPredictionTime: NSTimeInterval)
   init()
   @available(OSX 10.11, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /**
@@ -541,7 +541,7 @@ class GKGraph : NSObject {
    * @param startNode node to start pathing from
    * @param toNode goal node of the pathfinding attempt
    */
-  func findPathFromNode(startNode: GKGraphNode, toNode endNode: GKGraphNode) -> [GKGraphNode]
+  func findPathFrom(startNode: GKGraphNode, to endNode: GKGraphNode) -> [GKGraphNode]
   init()
 }
 
@@ -564,12 +564,12 @@ class GKObstacleGraph : GKGraph {
   /**
    * Same behavior as connectNodeUsingObstacles: except you can optionally ignore certain obstacles from being tested for intersection.
    */
-  func connectNodeUsingObstacles(node: GKGraphNode2D, ignoringObstacles obstaclesToIgnore: [GKPolygonObstacle])
+  func connectNodeUsingObstacles(node: GKGraphNode2D, ignoring obstaclesToIgnore: [GKPolygonObstacle])
 
   /**
    * Same behavior as connectNodeUsingObstacles: except you can optionally ignore the bounding radius of certain obstacles from being tested for intersection
    */
-  func connectNodeUsingObstacles(node: GKGraphNode2D, ignoringBufferRadiusOfObstacles obstaclesBufferRadiusToIgnore: [GKPolygonObstacle])
+  func connectNodeUsingObstacles(node: GKGraphNode2D, ignoringBufferRadiusOf obstaclesBufferRadiusToIgnore: [GKPolygonObstacle])
 
   /**
    * Adds obstacles to this graph.
@@ -599,14 +599,14 @@ class GKObstacleGraph : GKGraph {
    * Returns an array of the graph nodes associated with a given obstacle
    * @param obstacle the obstacle who's nodes are to be retrieved
    */
-  func nodesForObstacle(obstacle: GKPolygonObstacle) -> [GKGraphNode2D]
+  func nodesFor(obstacle: GKPolygonObstacle) -> [GKGraphNode2D]
 
   /**
    * Marks a connection as "locked", preventing this connection from being destroyed when you add obstacles that would intersect it
    * @param startNode startNode of the connection to lock
    * @param endNode endNode of the connection to lock
    */
-  func lockConnectionFromNode(startNode: GKGraphNode2D, toNode endNode: GKGraphNode2D)
+  func lockConnectionFrom(startNode: GKGraphNode2D, to endNode: GKGraphNode2D)
 
   /**
    * "Unlocks" a connection, removing its protection from being destroyed when you add obstacles that would intersect it
@@ -614,7 +614,7 @@ class GKObstacleGraph : GKGraph {
    * @param endNode endNode of the connection to unlock
    * @see lockConnection
    */
-  func unlockConnectionFromNode(startNode: GKGraphNode2D, toNode endNode: GKGraphNode2D)
+  func unlockConnectionFrom(startNode: GKGraphNode2D, to endNode: GKGraphNode2D)
 
   /**
    * Query if a given connection is locked
@@ -624,7 +624,7 @@ class GKObstacleGraph : GKGraph {
    * @see unlockConnection
    * @return YES if the connection was locked with lockConnection, NO if it was never locked or was unlocked via unlockConnection
    */
-  func isConnectionLockedFromNode(startNode: GKGraphNode2D, toNode endNode: GKGraphNode2D) -> Bool
+  func isConnectionLockedFrom(startNode: GKGraphNode2D, to endNode: GKGraphNode2D) -> Bool
   init(nodes: [GKGraphNode])
   init()
 }
@@ -680,7 +680,7 @@ class GKGraphNode : NSObject {
    * @param array of nodes that are end points for their respective connections
    * @param bidirectional should a connection also be added connecting the destination node back to this node?
    */
-  func addConnectionsToNodes(nodes: [GKGraphNode], bidirectional: Bool)
+  func addConnectionsTo(nodes: [GKGraphNode], bidirectional: Bool)
 
   /**
    * Removes connections to a group of other nodes indicating those nodes can no longer be reached from this node.
@@ -688,18 +688,18 @@ class GKGraphNode : NSObject {
    * @param node the end point of the edge to be removed
     * @param bidirectional should the connection also be added the destination node back to this node also be removed if it exists?
    */
-  func removeConnectionsToNodes(nodes: [GKGraphNode], bidirectional: Bool)
+  func removeConnectionsTo(nodes: [GKGraphNode], bidirectional: Bool)
 
   /**
    * Returns the estimated heuristic cost to reach the indicated node from this node
    * @param the end point of the edge who's cost is to be estimated
    */
-  func estimatedCostToNode(node: GKGraphNode) -> Float
+  func estimatedCostTo(node: GKGraphNode) -> Float
 
   /**
    * Returns the actual cost to reach the indicated node from this node
    */
-  func costToNode(node: GKGraphNode) -> Float
+  func costTo(node: GKGraphNode) -> Float
 
   /**
    * Attempts to find the optimal path between this node and the indicated goal node.
@@ -707,13 +707,13 @@ class GKGraphNode : NSObject {
    * If it doesn't exist, the array returned will be empty.
    * @param goalNode the goal node of the pathfinding attempt
    */
-  func findPathToNode(goalNode: GKGraphNode) -> [GKGraphNode]
+  func findPathTo(goalNode: GKGraphNode) -> [GKGraphNode]
 
   /**
    * As with findPathToNode: except this node is the goal node and a startNode is specified
    * @param startNode the start node of the pathfinding attempt
    */
-  func findPathFromNode(startNode: GKGraphNode) -> [GKGraphNode]
+  func findPathFrom(startNode: GKGraphNode) -> [GKGraphNode]
   init()
 }
 
@@ -770,7 +770,7 @@ class GKMinmaxStrategist : NSObject {
    * which move to use if there are one or more ties for the best. Returns nil if the player is invalid, 
    * the player is not a part of the game model, or the player has no valid moves available.
    */
-  func bestMoveForPlayer(player: GKGameModelPlayer) -> GKGameModelUpdate?
+  func bestMoveFor(player: GKGameModelPlayer) -> GKGameModelUpdate?
 
   /**
    * Selects one move from the set of N best moves for the specified player, where N is equal to 
@@ -778,7 +778,7 @@ class GKMinmaxStrategist : NSObject {
    * bestMoveForPlayer and return the first best move. Returns nil if the player is invalid, the 
    * player is not a part of the game model, or the player has no valid moves available.
    */
-  func randomMoveForPlayer(player: GKGameModelPlayer, fromNumberOfBestMoves numMovesToConsider: Int) -> GKGameModelUpdate?
+  func randomMoveFor(player: GKGameModelPlayer, fromNumberOfBestMoves numMovesToConsider: Int) -> GKGameModelUpdate?
   init()
 }
 
@@ -827,7 +827,7 @@ class GKPolygonObstacle : GKObstacle {
    * Returns the vertex at the indicated index
    * @param index index of the vertex to retrieve
    */
-  func vertexAtIndex(index: Int) -> vector_float2
+  func vertexAt(index: Int) -> vector_float2
   convenience init()
 }
 
@@ -847,7 +847,7 @@ class GKPath : NSObject {
   /**
    * Does this path loop back on itself, creating a cycle?
    */
-  var cyclical: Bool
+  var isCyclical: Bool
 
   /**
    * Number of points in this path
@@ -859,7 +859,7 @@ class GKPath : NSObject {
   /**
    * Returns the point at the given index
    */
-  func pointAtIndex(index: Int) -> vector_float2
+  func pointAt(index: Int) -> vector_float2
   convenience init()
 }
 
@@ -1152,7 +1152,7 @@ class GKRandomSource : NSObject, GKRandom, NSSecureCoding, NSCopying {
    * Any random, be it custom, source or a distribution, that can provide a number with an upper bound of at least the
    * array.count is suitable for this shuffle.
    */
-  func arrayByShufflingObjectsInArray(array: [AnyObject]) -> [AnyObject]
+  func arrayByShufflingObjectsIn(array: [AnyObject]) -> [AnyObject]
 
   /**
    * Returns the next integer in the random sequence and moves ahead to the next one.
@@ -1209,9 +1209,9 @@ class GKRandomSource : NSObject, GKRandom, NSSecureCoding, NSCopying {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   @available(OSX 10.11, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /**
@@ -1400,7 +1400,7 @@ class GKRuleSystem : NSObject {
   /**
    * Adds rules to the system. Also adds them to the agenda in salience order.
    */
-  func addRulesFromArray(rules: [GKRule])
+  func addRulesFrom(rules: [GKRule])
 
   /**
    * Removes all rules from the system.  This also removes them from the agenda and executed sets.
@@ -1554,14 +1554,14 @@ class GKRule : NSObject {
    * @see GKRuleSystem.reset
    * @return YES is the predicate passes and the action needs to be performed, NO otherwise.
    */
-  func evaluatePredicateWithSystem(system: GKRuleSystem) -> Bool
+  func evaluatePredicateWith(system: GKRuleSystem) -> Bool
 
   /**
    * Performs the action consequence for the rule. This will only be called if the predicate evaluates to YES.
    * Any facts asserted or retracted by the action on the system will cause the system to evaluate the agenda
    * rule set again once the action completes.
    */
-  func performActionWithSystem(system: GKRuleSystem)
+  func performActionWith(system: GKRuleSystem)
 
   /**
    * Create a data-driven rule that uses NSPredicate and a single assert as the action.
@@ -1607,7 +1607,7 @@ class GKNSPredicateRule : GKRule {
    *
    * @return YES if the NSPredicate evaluation passes and the action needs to be performed, NO otherwise.
    */
-  func evaluatePredicateWithSystem(system: GKRuleSystem) -> Bool
+  func evaluatePredicateWith(system: GKRuleSystem) -> Bool
 
   /**
    * Create a data-driven rule that uses NSPredicate and a single assert as the action.

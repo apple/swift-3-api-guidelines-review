@@ -143,7 +143,7 @@ class ADBannerView : UIView {
    * @return
    * YES if an ad is currently loaded, NO otherwise.
    */
-  var bannerLoaded: Bool { get }
+  var isBannerLoaded: Bool { get }
 
   /*!
    * @property bannerViewActionInProgress
@@ -213,7 +213,7 @@ protocol ADBannerViewDelegate : NSObjectProtocol {
    * @see ADError for a list of possible error codes.
    */
   @available(iOS 4.0, *)
-  optional func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!)
+  optional func bannerView(banner: ADBannerView!, didFailToReceiveAdWith error: NSError!)
 
   /*!
    * @method bannerViewActionShouldBegin:willLeaveApplication:
@@ -258,7 +258,7 @@ class ADClient : NSObject {
    * ADClient is a singleton object.
    */
   @available(iOS 7.1, *)
-  class func sharedClient() -> ADClient!
+  class func shared() -> ADClient!
 
   /*!
    * @method determineAppInstallationAttributionWithCompletionHandler:
@@ -312,7 +312,7 @@ class ADClient : NSObject {
    * which resulted in the user's purchase of the app.
    */
   @available(iOS 9.0, *)
-  func requestAttributionDetailsWithBlock(completionHandler: (([NSObject : AnyObject]!, NSError!) -> Void)!)
+  func requestAttributionDetailsWith(completionHandler: (([NSObject : AnyObject]!, NSError!) -> Void)!)
 
   /*!
    * @method addClientToSegments:replaceExisting:
@@ -411,7 +411,7 @@ class ADInterstitialAd : NSObject {
    * YES if an ad is loaded, NO otherwise. This property should always be checked
    * before the interstitial ad is presented.
    */
-  var loaded: Bool { get }
+  var isLoaded: Bool { get }
 
   /*!
    * @property actionInProgress
@@ -431,7 +431,7 @@ class ADInterstitialAd : NSObject {
    * -interstitialAdActionDidFinish: will not be called.
    */
   func cancelAction()
-  func presentInView(containerView: UIView!) -> Bool
+  func presentIn(containerView: UIView!) -> Bool
   init()
 }
 
@@ -465,7 +465,7 @@ protocol ADInterstitialAdDelegate : NSObjectProtocol {
    * @see ADError for a list of possible error codes.
    */
   @available(iOS 4.3, *)
-  func interstitialAd(interstitialAd: ADInterstitialAd!, didFailWithError error: NSError!)
+  func interstitialAd(interstitialAd: ADInterstitialAd!, didFailWith error: NSError!)
 
   /*!
    * @method interstitialAdWillLoad:
@@ -695,7 +695,7 @@ extension UIViewController {
    * ad, which may be an interstitial or the iAd shown when the user taps a banner.
    */
   @available(iOS 7.0, *)
-  var presentingFullScreenAd: Bool { get }
+  var isPresentingFullScreenAd: Bool { get }
 
   /*!
    * @property displayingBannerAd
@@ -704,7 +704,7 @@ extension UIViewController {
    * Can be used to query the controller to determine if it is displaying a banner ad.
    */
   @available(iOS 7.0, *)
-  var displayingBannerAd: Bool { get }
+  var isDisplayingBannerAd: Bool { get }
 
   /*!
    * @method requestInterstitialAdPresentation

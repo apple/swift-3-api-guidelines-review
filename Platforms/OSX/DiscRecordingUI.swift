@@ -56,7 +56,7 @@ class DRBurnProgressPanel : NSPanel {
   								not nil, the panel slides down as a sheet running as a 
   								document modal window. If owner is nil, this is an error.
   */
-  func beginProgressSheetForBurn(burn: DRBurn!, layout: AnyObject!, modalForWindow docWindow: NSWindow!)
+  func beginProgressSheetFor(burn: DRBurn!, layout: AnyObject!, modalFor docWindow: NSWindow!)
 
   /*!
   	@method			beginProgressPanelForBurn:layout:
@@ -69,7 +69,7 @@ class DRBurnProgressPanel : NSPanel {
   								@link //apple_ref/occ/cl/DRBurn DRBurn @/link documentation for information on
   								valid layouts.
   */
-  func beginProgressPanelForBurn(burn: DRBurn!, layout: AnyObject!)
+  func beginProgressPanelFor(burn: DRBurn!, layout: AnyObject!)
 
   /*! 
   	@method			setDescription:
@@ -605,7 +605,7 @@ class DREraseProgressPanel : NSPanel {
   								not nil, the panel slides down as a sheet running as a 
   								document modal window. If owner is nil, this is an error.
   */
-  func beginProgressSheetForErase(erase: DRErase!, modalForWindow docWindow: NSWindow!)
+  func beginProgressSheetFor(erase: DRErase!, modalFor docWindow: NSWindow!)
 
   /*!
   	@method			beginProgressPanelForErase:
@@ -615,7 +615,7 @@ class DREraseProgressPanel : NSPanel {
   					caller can perform other operations while the erase continues.
   	@param			erase		The object performing the erase.
   */
-  func beginProgressPanelForErase(erase: DRErase!)
+  func beginProgressPanelFor(erase: DRErase!)
 
   /*! 
   	@method			setDescription:
@@ -1049,7 +1049,7 @@ class DRSetupPanel : NSPanel {
   	@param		contextInfo			Context information to be passed when the selector named by didEndSelector
   									is invoked.
   */
-  func beginSetupSheetForWindow(owner: NSWindow!, modalDelegate: AnyObject!, didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func beginSetupSheetFor(owner: NSWindow!, modalDelegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
 
   /*!
   	@method		ok:

@@ -58,9 +58,9 @@ class SKPayment : NSObject, NSCopying, NSMutableCopying {
   var simulatesAskToBuyInSandbox: Bool { get }
   init()
   @available(iOS 3.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 3.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 3.0, *)
 class SKMutablePayment : SKPayment {
@@ -85,7 +85,7 @@ class SKPaymentQueue : NSObject {
   @available(iOS 3.0, *)
   class func canMakePayments() -> Bool
   @available(iOS 3.0, *)
-  func addPayment(payment: SKPayment)
+  func add(payment: SKPayment)
   @available(iOS 3.0, *)
   func restoreCompletedTransactions()
   @available(iOS 7.0, *)
@@ -93,17 +93,17 @@ class SKPaymentQueue : NSObject {
   @available(iOS 3.0, *)
   func finishTransaction(transaction: SKPaymentTransaction)
   @available(iOS 6.0, *)
-  func startDownloads(downloads: [SKDownload])
+  func start(downloads: [SKDownload])
   @available(iOS 6.0, *)
-  func pauseDownloads(downloads: [SKDownload])
+  func pause(downloads: [SKDownload])
   @available(iOS 6.0, *)
   func resumeDownloads(downloads: [SKDownload])
   @available(iOS 6.0, *)
-  func cancelDownloads(downloads: [SKDownload])
+  func cancel(downloads: [SKDownload])
   @available(iOS 3.0, *)
-  func addTransactionObserver(observer: SKPaymentTransactionObserver)
+  func add(observer: SKPaymentTransactionObserver)
   @available(iOS 3.0, *)
-  func removeTransactionObserver(observer: SKPaymentTransactionObserver)
+  func remove(observer: SKPaymentTransactionObserver)
   @available(iOS 3.0, *)
   var transactions: [SKPaymentTransaction] { get }
   init()
@@ -114,7 +114,7 @@ protocol SKPaymentTransactionObserver : NSObjectProtocol {
   @available(iOS 3.0, *)
   optional func paymentQueue(queue: SKPaymentQueue, removedTransactions transactions: [SKPaymentTransaction])
   @available(iOS 3.0, *)
-  optional func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: NSError)
+  optional func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWith error: NSError)
   @available(iOS 3.0, *)
   optional func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue)
   @available(iOS 6.0, *)
@@ -136,7 +136,7 @@ class SKPaymentTransaction : NSObject {
   @available(iOS 3.0, *)
   var error: NSError? { get }
   @available(iOS 3.0, *)
-  var originalTransaction: SKPaymentTransaction? { get }
+  var original: SKPaymentTransaction? { get }
   @available(iOS 3.0, *)
   var payment: SKPayment { get }
   @available(iOS 6.0, *)
@@ -162,7 +162,7 @@ class SKProduct : NSObject {
   @available(iOS 3.0, *)
   var productIdentifier: String { get }
   @available(iOS 6.0, *)
-  var downloadable: Bool { get }
+  var isDownloadable: Bool { get }
   @available(iOS 6.0, *)
   var downloadContentLengths: [NSNumber] { get }
   @available(iOS 6.0, *)
@@ -171,7 +171,7 @@ class SKProduct : NSObject {
 }
 protocol SKProductsRequestDelegate : SKRequestDelegate {
   @available(iOS 3.0, *)
-  func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse)
+  func productsRequest(request: SKProductsRequest, didReceive response: SKProductsResponse)
 }
 @available(iOS 3.0, *)
 class SKProductsRequest : SKRequest {
@@ -219,14 +219,14 @@ protocol SKRequestDelegate : NSObjectProtocol {
   @available(iOS 3.0, *)
   optional func requestDidFinish(request: SKRequest)
   @available(iOS 3.0, *)
-  optional func request(request: SKRequest, didFailWithError error: NSError)
+  optional func request(request: SKRequest, didFailWith error: NSError)
 }
 @available(iOS 6.0, *)
 class SKStoreProductViewController : UIViewController {
   @available(iOS 6.0, *)
   unowned(unsafe) var delegate: @sil_unmanaged SKStoreProductViewControllerDelegate?
   @available(iOS 6.0, *)
-  func loadProductWithParameters(parameters: [String : AnyObject], completionBlock block: ((Bool, NSError?) -> Void)?)
+  func loadProductWithParameters(parameters: [String : AnyObject], completionBlock block: ((Bool, NSError?) -> Void)? = nil)
   init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
   init?(coder aDecoder: NSCoder)
   convenience init()

@@ -6,7 +6,7 @@ class CLCircularRegion : CLRegion {
   init(center: CLLocationCoordinate2D, radius: CLLocationDistance, identifier: String)
   var center: CLLocationCoordinate2D { get }
   var radius: CLLocationDistance { get }
-  func containsCoordinate(coordinate: CLLocationCoordinate2D) -> Bool
+  func contains(coordinate: CLLocationCoordinate2D) -> Bool
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -41,11 +41,11 @@ let kCLErrorDomain: String
 typealias CLGeocodeCompletionHandler = ([CLPlacemark]?, NSError?) -> Void
 @available(tvOS 5.0, *)
 class CLGeocoder : NSObject {
-  var geocoding: Bool { get }
+  var isGeocoding: Bool { get }
   func reverseGeocodeLocation(location: CLLocation, completionHandler: CLGeocodeCompletionHandler)
   func geocodeAddressDictionary(addressDictionary: [NSObject : AnyObject], completionHandler: CLGeocodeCompletionHandler)
   func geocodeAddressString(addressString: String, completionHandler: CLGeocodeCompletionHandler)
-  func geocodeAddressString(addressString: String, inRegion region: CLRegion?, completionHandler: CLGeocodeCompletionHandler)
+  func geocodeAddressString(addressString: String, `in` region: CLRegion?, completionHandler: CLGeocodeCompletionHandler)
   func cancelGeocode()
   init()
 }
@@ -85,11 +85,11 @@ class CLFloor : NSObject, NSCopying, NSSecureCoding {
   var level: Int { get }
   init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 2.0, *)
@@ -107,14 +107,14 @@ class CLLocation : NSObject, NSCopying, NSSecureCoding {
   @NSCopying var floor: CLFloor? { get }
   var description: String { get }
   @available(tvOS 3.2, *)
-  func distanceFromLocation(location: CLLocation) -> CLLocationDistance
+  func distanceFrom(location: CLLocation) -> CLLocationDistance
   init()
   @available(tvOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 enum CLDeviceOrientation : Int32 {
@@ -168,9 +168,9 @@ protocol CLLocationManagerDelegate : NSObjectProtocol {
   @available(tvOS 6.0, *)
   optional func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
   @available(tvOS 2.0, *)
-  optional func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
+  optional func locationManager(manager: CLLocationManager, didFailWith error: NSError)
   @available(tvOS 4.2, *)
-  optional func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus)
+  optional func locationManager(manager: CLLocationManager, didChange status: CLAuthorizationStatus)
 }
 extension CLLocationManager {
 }
@@ -190,18 +190,18 @@ class CLPlacemark : NSObject, NSCopying, NSSecureCoding {
   var administrativeArea: String? { get }
   var subAdministrativeArea: String? { get }
   var postalCode: String? { get }
-  var ISOcountryCode: String? { get }
+  var isOcountryCode: String? { get }
   var country: String? { get }
   var inlandWater: String? { get }
   var ocean: String? { get }
   var areasOfInterest: [String]? { get }
   init()
   @available(tvOS 5.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 5.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 4.0, *)
@@ -209,15 +209,15 @@ class CLRegion : NSObject, NSCopying, NSSecureCoding {
   @available(tvOS 4.0, *)
   var identifier: String { get }
   @available(tvOS 7.0, *)
-  var notifyOnEntry: Bool
+  var isNotifyOnEntry: Bool
   @available(tvOS 7.0, *)
-  var notifyOnExit: Bool
+  var isNotifyOnExit: Bool
   init()
   @available(tvOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 4.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 4.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

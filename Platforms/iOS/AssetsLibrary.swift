@@ -40,9 +40,9 @@ class ALAsset : NSObject {
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use creationRequestForAssetFromVideoAtFileURL: on PHAssetChangeRequest from the Photos framework to create a new asset instead")
   func writeModifiedVideoAtPathToSavedPhotosAlbum(videoPathURL: NSURL!, completionBlock: ALAssetsLibraryWriteVideoCompletionBlock!)
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use the PHImageRequestOptionsVersionOriginal or PHImageRequestOptionsVersionUnadjusted option in PHImageRequestOptions with the PHImageManager from the Photos framework instead")
-  var originalAsset: ALAsset! { get }
+  var original: ALAsset! { get }
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use canPerformEditOperation: on a PHAsset from the Photos framework instead")
-  var editable: Bool { get }
+  var isEditable: Bool { get }
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use contentEditingOutput on a PHAssetChangeRequest from the Photos framework instead")
   func setImageData(imageData: NSData!, metadata: [NSObject : AnyObject]!, completionBlock: ALAssetsLibraryWriteImageCompletionBlock!)
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use contentEditingOutput on a PHAssetChangeRequest from the Photos framework instead")
@@ -52,7 +52,7 @@ class ALAsset : NSObject {
 @available(iOS, introduced=4.0, deprecated=9.0, message="Use PHImageRequestOptions with the PHImageManager from the Photos framework instead")
 class ALAssetRepresentation : NSObject {
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use requestImageDataForAsset:options:resultHandler: on PHImageManager for a PHAsset to request image data from the Photos framework and check the dataUTI passed to your result handler instead")
-  func UTI() -> String!
+  func uti() -> String!
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use requestImageForAsset:targetSize:contentMode:options:resultHandler: on PHImageManager to request a targetSize of image for a PHAsset from the Photos framework instead")
   func dimensions() -> CGSize
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use requestImageDataForAsset:options:resultHandler: on PHImageManager to request image data for a PHAsset from the Photos framework instead")
@@ -62,7 +62,7 @@ class ALAssetRepresentation : NSObject {
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use requestImageForAsset:targetSize:contentMode:options:resultHandler: on PHImageManager to request a targetSize PHImageManagerMaximumSize for a PHAsset from the Photos framework instead")
   func fullResolutionImage() -> Unmanaged<CGImage>!
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use requestImageForAsset:targetSize:contentMode:options:resultHandler: on PHImageManager to request a targetSize of image for a PHAsset from the Photos framework instead")
-  func CGImageWithOptions(options: [NSObject : AnyObject]!) -> Unmanaged<CGImage>!
+  func cgImageWithOptions(options: [NSObject : AnyObject]!) -> Unmanaged<CGImage>!
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use requestImageForAsset:targetSize:contentMode:options:resultHandler: on PHImageManager to request a targetSize of image for a PHAsset from the Photos framework instead")
   func fullScreenImage() -> Unmanaged<CGImage>!
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use PHImageRequestOptions with the PHImageManager instead")
@@ -105,15 +105,15 @@ class ALAssetsGroup : NSObject {
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use the estimatedAssetCount on PHAssetCollection for a quick estimate of the total assets in a collection (or fetch the assets to get an exact value) from the Photos framework instead")
   func numberOfAssets() -> Int
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use the PHFetchResult returned by fetchAssetsInAssetCollection:options: on PHAsset to enumerate the assets in an asset collection from the Photos framework instead")
-  func enumerateAssetsUsingBlock(enumerationBlock: ALAssetsGroupEnumerationResultsBlock!)
+  func enumerateAssetsUsing(enumerationBlock: ALAssetsGroupEnumerationResultsBlock!)
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use the PHFetchResult returned by fetchAssetsInAssetCollection:options: on PHAsset to enumerate the assets in an asset collection from the Photos framework instead")
-  func enumerateAssetsWithOptions(options: NSEnumerationOptions, usingBlock enumerationBlock: ALAssetsGroupEnumerationResultsBlock!)
+  func enumerateAssets(options options: NSEnumerationOptions = [], usingBlock enumerationBlock: ALAssetsGroupEnumerationResultsBlock!)
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use the PHFetchResult returned by fetchAssetsInAssetCollection:options: on PHAsset to enumerate the assets in an asset collection from the Photos framework instead")
-  func enumerateAssetsAtIndexes(indexSet: NSIndexSet!, options: NSEnumerationOptions, usingBlock enumerationBlock: ALAssetsGroupEnumerationResultsBlock!)
+  func enumerateAssetsAt(indexSet: NSIndexSet!, options: NSEnumerationOptions = [], usingBlock enumerationBlock: ALAssetsGroupEnumerationResultsBlock!)
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use canPerformEditOperation: on a PHAssetCollection from the Photos framework instead")
-  var editable: Bool { get }
+  var isEditable: Bool { get }
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use addAssets: on a PHAssetCollectionChangeRequest: created from a PHAssetCollection in the Photos framework instead")
-  func addAsset(asset: ALAsset!) -> Bool
+  func add(asset: ALAsset!) -> Bool
   init()
 }
 @available(iOS, introduced=4.0, deprecated=9.0, message="Use UIImageOrientation in the Photos framework instead")
@@ -183,9 +183,9 @@ class ALAssetsLibrary : NSObject {
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use the PHFetchResult returned by one of the fetch... methods on PHAssetCollection from the Photos framework to enumerate asset collections instead")
   func enumerateGroupsWithTypes(types: ALAssetsGroupType, usingBlock enumerationBlock: ALAssetsLibraryGroupsEnumerationResultsBlock!, failureBlock: ALAssetsLibraryAccessFailureBlock!)
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use fetchAssetsWithLocalIdentifiers:options: on PHAsset to fetch assets by local identifier (or to lookup PHAssets by a previously known ALAssetPropertyAssetURL use fetchAssetsWithALAssetURLs:options:) from the Photos framework instead")
-  func assetForURL(assetURL: NSURL!, resultBlock: ALAssetsLibraryAssetForURLResultBlock!, failureBlock: ALAssetsLibraryAccessFailureBlock!)
+  func assetFor(assetURL: NSURL!, resultBlock: ALAssetsLibraryAssetForURLResultBlock!, failureBlock: ALAssetsLibraryAccessFailureBlock!)
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use fetchAssetCollectionsWithLocalIdentifiers:options: on PHAssetCollection to fetch the asset collections by local identifier (or to lookup PHAssetCollections by a previously known ALAssetsGroupPropertyURL use fetchAssetCollectionsWithALAssetGroupURLs:options:) from the Photos framework instead")
-  func groupForURL(groupURL: NSURL!, resultBlock: ALAssetsLibraryGroupResultBlock!, failureBlock: ALAssetsLibraryAccessFailureBlock!)
+  func groupFor(groupURL: NSURL!, resultBlock: ALAssetsLibraryGroupResultBlock!, failureBlock: ALAssetsLibraryAccessFailureBlock!)
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use creationRequestForAssetCollectionWithTitle: on PHAssetCollectionChangeRequest from the Photos framework to create a new asset collection instead")
   func addAssetsGroupAlbumWithName(name: String!, resultBlock: ALAssetsLibraryGroupResultBlock!, failureBlock: ALAssetsLibraryAccessFailureBlock!)
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use creationRequestForAssetFromImage: on PHAssetChangeRequest from the Photos framework to create a new asset instead")

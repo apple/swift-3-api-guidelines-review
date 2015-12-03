@@ -42,11 +42,11 @@ class TVContentIdentifier : NSObject, NSCopying, NSSecureCoding {
   init?(identifier: String, container: TVContentIdentifier?)
   init?(coder: NSCoder)
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 
 /*!
@@ -187,11 +187,11 @@ class TVContentItem : NSObject, NSCopying, NSSecureCoding {
   init?(contentIdentifier ident: TVContentIdentifier)
   init?(coder: NSCoder)
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 
 /*!

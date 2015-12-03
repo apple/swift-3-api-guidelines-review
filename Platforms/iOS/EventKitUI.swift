@@ -104,7 +104,7 @@ protocol EKEventEditViewDelegate : NSObjectProtocol {
       @param      action              the action that is causing the dismissal
   */
   @available(iOS 4.0, *)
-  func eventEditViewController(controller: EKEventEditViewController, didCompleteWithAction action: EKEventEditViewAction)
+  func eventEditViewController(controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction)
 
   /*!
       @method     eventEditViewControllerDefaultCalendarForNewEvents:
@@ -187,5 +187,5 @@ protocol EKEventViewDelegate : NSObjectProtocol {
    @param      action              the action that is triggering the dismissal
    */
   @available(iOS 4.2, *)
-  func eventViewController(controller: EKEventViewController, didCompleteWithAction action: EKEventViewAction)
+  func eventViewController(controller: EKEventViewController, didCompleteWith action: EKEventViewAction)
 }

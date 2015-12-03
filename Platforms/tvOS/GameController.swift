@@ -48,7 +48,7 @@ class GCEventViewController : UIViewController {
    @see GCController
    @see UIView.userInteractionEnabled
    */
-  var controllerUserInteractionEnabled: Bool
+  var isControllerUserInteractionEnabled: Bool
   init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
   init?(coder aDecoder: NSCoder)
   convenience init()
@@ -106,7 +106,7 @@ class GCController : NSObject {
    may suggest that interaction with the device may use other inputs easily. This is presented to developers to allow them to
    make informed descisions about UI and interactions to choose for their game in this situation.
    */
-  var attachedToDevice: Bool { get }
+  var isAttachedToDevice: Bool { get }
 
   /**
    A player index for the controller, defaults to GCControllerPlayerIndexUnset.
@@ -182,7 +182,7 @@ class GCController : NSObject {
    @see stopWirelessControllerDiscovery
    @see controllers
    */
-  class func startWirelessControllerDiscoveryWithCompletionHandler(completionHandler: (() -> Void)?)
+  class func startWirelessControllerDiscovery(completionHandler completionHandler: (() -> Void)? = nil)
 
   /**
    If no more controllers are needed, depending on game state or number of controllers supported by a game, the discovery
@@ -247,7 +247,7 @@ class GCControllerButtonInput : GCControllerElement {
    @see pressedChangedHandler
    @see value
    */
-  var pressed: Bool { get }
+  var isPressed: Bool { get }
   init()
 }
 
@@ -298,7 +298,7 @@ class GCControllerElement : NSObject {
    Check if the element can support more than just digital values, such as decimal ranges between 0 and 1.
    Defaults to YES for most elements.
    */
-  var analog: Bool { get }
+  var isAnalog: Bool { get }
   init()
 }
 

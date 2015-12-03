@@ -170,13 +170,13 @@ class FlyingBot: TaskBot, ChargeComponentDelegate, ResourceLoadableType {
                 after the `FlyingBot` texture atlases have finished preloading.
             */
             goodAnimations = [:]
-            goodAnimations![.WalkForward] = AnimationComponent.animationsFromAtlas(flyingBotAtlases[0], withImageIdentifier: "FlyingBotGoodWalk", forAnimationState: .WalkForward, bodyActionName: "FlyingBotBob", shadowActionName: "FlyingBotShadowScale")
-            goodAnimations![.Attack] = AnimationComponent.animationsFromAtlas(flyingBotAtlases[1], withImageIdentifier: "FlyingBotGoodAttack", forAnimationState: .Attack, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake")
+            goodAnimations![.WalkForward] = AnimationComponent.animationsFrom(flyingBotAtlases[0], withImageIdentifier: "FlyingBotGoodWalk", forAnimationState: .WalkForward, bodyActionName: "FlyingBotBob", shadowActionName: "FlyingBotShadowScale")
+            goodAnimations![.Attack] = AnimationComponent.animationsFrom(flyingBotAtlases[1], withImageIdentifier: "FlyingBotGoodAttack", forAnimationState: .Attack, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake")
             
             badAnimations = [:]
-            badAnimations![.WalkForward] = AnimationComponent.animationsFromAtlas(flyingBotAtlases[2], withImageIdentifier: "FlyingBotBadWalk", forAnimationState: .WalkForward, bodyActionName: "FlyingBotBob", shadowActionName: "FlyingBotShadowScale")
-            badAnimations![.Attack] = AnimationComponent.animationsFromAtlas(flyingBotAtlases[3], withImageIdentifier: "FlyingBotBadAttack", forAnimationState: .Attack, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake")
-            badAnimations![.Zapped] = AnimationComponent.animationsFromAtlas(flyingBotAtlases[4], withImageIdentifier: "FlyingBotZapped", forAnimationState: .Zapped, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake")
+            badAnimations![.WalkForward] = AnimationComponent.animationsFrom(flyingBotAtlases[2], withImageIdentifier: "FlyingBotBadWalk", forAnimationState: .WalkForward, bodyActionName: "FlyingBotBob", shadowActionName: "FlyingBotShadowScale")
+            badAnimations![.Attack] = AnimationComponent.animationsFrom(flyingBotAtlases[3], withImageIdentifier: "FlyingBotBadAttack", forAnimationState: .Attack, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake")
+            badAnimations![.Zapped] = AnimationComponent.animationsFrom(flyingBotAtlases[4], withImageIdentifier: "FlyingBotZapped", forAnimationState: .Zapped, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake")
             
             // Invoke the passed `completionHandler` to indicate that loading has completed.
             completionHandler()

@@ -448,7 +448,7 @@ class GLKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
    @param type Type of data to be stored in this buffer
    */
   @available(OSX 10.11, *)
-  func newBufferWithData(data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBufferWith(data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
 
   /*!
    @method newBufferFromZone:length:type:
@@ -465,7 +465,7 @@ class GLKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
   
    */
   @available(OSX 10.11, *)
-  func newBufferFromZone(zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFrom(zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
 
   /*!
    @method newBufferFromZone:data:type:
@@ -482,7 +482,7 @@ class GLKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
                buffer could not be allocated.
    */
   @available(OSX 10.11, *)
-  func newBufferFromZone(zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFrom(zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 
 /*!
@@ -536,7 +536,7 @@ class GLKMeshBuffer : NSObject, MDLMeshBuffer {
                this buffer.
    */
   @available(OSX 10.11, *)
-  func fillData(data: NSData, offset: Int)
+  func fill(data: NSData, offset: Int)
 
   /*!
    @method map
@@ -551,7 +551,7 @@ class GLKMeshBuffer : NSObject, MDLMeshBuffer {
   @available(OSX 10.11, *)
   func map() -> MDLMeshBufferMap
   @available(OSX 10.11, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class GLKSubmesh : NSObject {
@@ -620,7 +620,7 @@ class GLKMesh : NSObject {
    @param return GLKit meshes created from the Model I/O asset
    @dicussion A convenience method to create GLKit meshes from each mesh in a Model/IO asset.  Resulting meshes are returned while Model I/O meshes from which they were generated will appear in the sourceMeshes array.
    */
-  class func newMeshesFromAsset(asset: MDLAsset, sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [GLKMesh]
+  class func newMeshesFrom(asset: MDLAsset, sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [GLKMesh]
 
   /*!
    @property vertexCount
@@ -784,26 +784,26 @@ class GLKTextureInfo : NSObject, NSCopying {
   var containsMipmaps: Bool { get }
   init()
   @available(OSX 10.8, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 typealias GLKTextureLoaderCallback = (GLKTextureInfo?, NSError?) -> Void
 @available(OSX 10.8, *)
 class GLKTextureLoader : NSObject {
   class func textureWithContentsOfFile(path: String, options: [String : NSNumber]?) throws -> GLKTextureInfo
-  class func textureWithContentsOfURL(url: NSURL, options: [String : NSNumber]?) throws -> GLKTextureInfo
-  class func textureWithContentsOfData(data: NSData, options: [String : NSNumber]?) throws -> GLKTextureInfo
-  class func textureWithCGImage(cgImage: CGImage, options: [String : NSNumber]?) throws -> GLKTextureInfo
+  class func textureWithContentsOf(url: NSURL, options: [String : NSNumber]?) throws -> GLKTextureInfo
+  class func textureWithContentsOf(data: NSData, options: [String : NSNumber]?) throws -> GLKTextureInfo
+  class func textureWith(cgImage: CGImage, options: [String : NSNumber]?) throws -> GLKTextureInfo
   class func cubeMapWithContentsOfFiles(paths: [AnyObject], options: [String : NSNumber]?) throws -> GLKTextureInfo
   class func cubeMapWithContentsOfFile(path: String, options: [String : NSNumber]?) throws -> GLKTextureInfo
-  class func cubeMapWithContentsOfURL(url: NSURL, options: [String : NSNumber]?) throws -> GLKTextureInfo
-  init(shareContext context: NSOpenGLContext)
+  class func cubeMapWithContentsOf(url: NSURL, options: [String : NSNumber]?) throws -> GLKTextureInfo
+  init(share context: NSOpenGLContext)
   func textureWithContentsOfFile(path: String, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func textureWithContentsOfURL(url: NSURL, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func textureWithContentsOfData(data: NSData, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func textureWithCGImage(cgImage: CGImage, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func textureWithContentsOf(url: NSURL, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func textureWithContentsOf(data: NSData, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func textureWith(cgImage: CGImage, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   func cubeMapWithContentsOfFiles(paths: [AnyObject], options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   func cubeMapWithContentsOfFile(path: String, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func cubeMapWithContentsOfURL(url: NSURL, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func cubeMapWithContentsOf(url: NSURL, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   init()
 }
 func GLKVector2Make(x: Float, _ y: Float) -> GLKVector2

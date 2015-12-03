@@ -263,7 +263,7 @@ class AUAudioUnit : NSObject {
   	@param outError
   		Returned in the event of failure.
   */
-  init(componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions) throws
+  init(componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = []) throws
 
   /*!	@method		initWithComponentDescription:error:
   	@brief		Convenience initializer (omits options).
@@ -287,7 +287,7 @@ class AUAudioUnit : NSObject {
   		Note: Do not block the main thread while waiting for the completion handler to be called;
   		this can deadlock.
   */
-  class func instantiateWithComponentDescription(componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions, completionHandler: (AUAudioUnit?, NSError?) -> Void)
+  class func instantiateWith(componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = [], completionHandler: (AUAudioUnit?, NSError?) -> Void)
 
   /*!	@property	componentDescription
   	@brief		The AudioComponentDescription with which the audio unit was created.
@@ -488,7 +488,7 @@ class AUAudioUnit : NSObject {
   		This is implemented in the base class and returns YES if the component type is music
   		device or music effect.
   */
-  var musicDeviceOrEffect: Bool { get }
+  var isMusicDeviceOrEffect: Bool { get }
 
   /*!	@property	virtualMIDICableCount
   	@brief		The number of virtual MIDI cables implemented by a music device or effect.
@@ -641,7 +641,7 @@ class AUAudioUnit : NSObject {
   
   		Bridged to the v2 property kAudioUnitProperty_OfflineRender.
   */
-  var renderingOffline: Bool
+  var isRenderingOffline: Bool
 
   /*!	@property	channelCapabilities
   	@brief		Expresses valid combinations of input and output channel counts.
@@ -734,14 +734,14 @@ extension AUAudioUnit {
   	@discussion	Input is disabled by default. This must be set to YES if input audio is desired. 
   				Setting to YES will have no effect if canPerformInput is false.
   */
-  var inputEnabled: Bool
+  var isInputEnabled: Bool
 
   /*!	@property	outputEnabled
   	@brief		Flag enabling audio output from the unit.
   	@discussion	Output is enabled by default.
   				Setting to YES will have no effect if canPerformOutput is false.
   */
-  var outputEnabled: Bool
+  var isOutputEnabled: Bool
 
   /*!	@property	outputProvider
   	@brief		The block that the output unit will call to get audio to send to the output.
@@ -809,7 +809,7 @@ class AUAudioUnitBusArray : NSObject, NSFastEnumeration {
   	@discussion
   		The base implementation returns false.
   */
-  var countChangeable: Bool { get }
+  var isCountChangeable: Bool { get }
 
   /*!	@property	setBusCount:error:
   	@brief		Change the number of busses in the array.
@@ -819,7 +819,7 @@ class AUAudioUnitBusArray : NSObject, NSFastEnumeration {
   /*!	@method		addObserverToAllBusses:forKeyPath:options:context:
   	@brief		Add a KVO observer for a property on all busses in the array.
   */
-  func addObserverToAllBusses(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions, context: UnsafeMutablePointer<Void>)
+  func addObserverToAllBusses(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
 
   /*!	@method		removeObserverFromAllBusses:forKeyPath:context:
   	@brief		Remove a KVO observer for a property on all busses in the array.
@@ -832,7 +832,7 @@ class AUAudioUnitBusArray : NSObject, NSFastEnumeration {
   /// Which bus array this is (input or output).
   var busType: AUAudioUnitBusType { get }
   @available(iOS 9.0, *)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 /*!	@class	AUAudioUnitBus
@@ -851,7 +851,7 @@ class AUAudioUnitBus : NSObject {
   		Bridged to the v2 properties kAudioUnitProperty_MakeConnection and
   		kAudioUnitProperty_SetRenderCallback.
   */
-  var enabled: Bool
+  var isEnabled: Bool
 
   /*!	@property	name
   	@brief		A name for the bus. Can be set by host.
@@ -941,7 +941,7 @@ class AUAudioUnitPreset : NSObject, NSSecureCoding {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -1064,7 +1064,7 @@ extension AUAudioUnit {
   		instantiate audio units via their component descriptions (e.g. <AudioToolbox/AUGraph.h>, or
   		<AVFoundation/AVAudioUnitEffect.h>).
   */
-  class func registerSubclass(cls: AnyClass, asComponentDescription componentDescription: AudioComponentDescription, name: String, version: UInt32)
+  class func registerSubclass(cls: AnyClass, `as` componentDescription: AudioComponentDescription, name: String, version: UInt32)
 
   /// Block which subclassers must provide (via a getter) to implement rendering.
   var internalRenderBlock: AUInternalRenderBlock { get }
@@ -1105,7 +1105,7 @@ extension AUParameterTree {
 
   ///	Create an AUParameter.
   /// See AUParameter's properties for descriptions of the arguments.
-  class func createParameterWithIdentifier(identifier: String, name: String, address: AUParameterAddress, min: AUValue, max: AUValue, unit: AudioUnitParameterUnit, unitName: String?, flags: AudioUnitParameterOptions, valueStrings: [String]?, dependentParameters: [NSNumber]?) -> AUParameter
+  class func createParameterWithIdentifier(identifier: String, name: String, address: AUParameterAddress, min: AUValue, max: AUValue, unit: AudioUnitParameterUnit, unitName: String?, flags: AudioUnitParameterOptions = [], valueStrings: [String]?, dependentParameters: [NSNumber]?) -> AUParameter
 
   /*!	@brief	Create an AUParameterGroup.
   	@param identifier	An identifier for the group (non-localized, persistent).
@@ -1208,7 +1208,7 @@ class AUAudioUnitV2Bridge : AUAudioUnit {
   	@param outError
   		Returned in the event of failure.
   */
-  init(componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions) throws
+  init(componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = []) throws
 
   /*!	@method		initWithComponentDescription:error:
   	@brief		Convenience initializer (omits options).
@@ -1237,7 +1237,7 @@ protocol AUAudioUnitFactory : NSExtensionRequestHandling {
   		autoreleased.
   */
   @available(iOS 9.0, *)
-  func createAudioUnitWithComponentDescription(desc: AudioComponentDescription) throws -> AUAudioUnit
+  func createAudioUnitWith(desc: AudioComponentDescription) throws -> AUAudioUnit
 }
 
 /*!
@@ -2313,7 +2313,7 @@ class AUParameterGroup : AUParameterNode, NSSecureCoding {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -2403,12 +2403,12 @@ class AUParameter : AUParameterNode, NSSecureCoding {
   func stringFromValue(value: UnsafePointer<AUValue>) -> String
 
   /// Convert a textual representation of a value to a numeric one.
-  func valueFromString(string: String) -> AUValue
+  func valueFrom(string: String) -> AUValue
   init()
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 

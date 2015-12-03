@@ -181,16 +181,16 @@ class PlayerBot: GKEntity, ChargeComponentDelegate, ResourceLoadableType {
             */
             appearTextures = [:]
             for orientation in CompassDirection.allDirections {
-                appearTextures![orientation] = AnimationComponent.firstTextureForOrientation(orientation, inAtlas: playerBotAtlases[0], withImageIdentifier: "PlayerBotIdle")
+                appearTextures![orientation] = AnimationComponent.firstTextureForOrientation(orientation, in: playerBotAtlases[0], withImageIdentifier: "PlayerBotIdle")
             }
             
             // Set up all of the `PlayerBot`s animations.
             animations = [:]
-            animations![.Idle] = AnimationComponent.animationsFromAtlas(playerBotAtlases[0], withImageIdentifier: "PlayerBotIdle", forAnimationState: .Idle)
-            animations![.WalkForward] = AnimationComponent.animationsFromAtlas(playerBotAtlases[1], withImageIdentifier: "PlayerBotWalk", forAnimationState: .WalkForward)
-            animations![.WalkBackward] = AnimationComponent.animationsFromAtlas(playerBotAtlases[1], withImageIdentifier: "PlayerBotWalk", forAnimationState: .WalkBackward, playBackwards: true)
-            animations![.Inactive] = AnimationComponent.animationsFromAtlas(playerBotAtlases[2], withImageIdentifier: "PlayerBotInactive", forAnimationState: .Inactive)
-            animations![.Hit] = AnimationComponent.animationsFromAtlas(playerBotAtlases[3], withImageIdentifier: "PlayerBotHit", forAnimationState: .Hit, repeatTexturesForever: false)
+            animations![.Idle] = AnimationComponent.animationsFrom(playerBotAtlases[0], withImageIdentifier: "PlayerBotIdle", forAnimationState: .Idle)
+            animations![.WalkForward] = AnimationComponent.animationsFrom(playerBotAtlases[1], withImageIdentifier: "PlayerBotWalk", forAnimationState: .WalkForward)
+            animations![.WalkBackward] = AnimationComponent.animationsFrom(playerBotAtlases[1], withImageIdentifier: "PlayerBotWalk", forAnimationState: .WalkBackward, playBackwards: true)
+            animations![.Inactive] = AnimationComponent.animationsFrom(playerBotAtlases[2], withImageIdentifier: "PlayerBotInactive", forAnimationState: .Inactive)
+            animations![.Hit] = AnimationComponent.animationsFrom(playerBotAtlases[3], withImageIdentifier: "PlayerBotHit", forAnimationState: .Hit, repeatTexturesForever: false)
             
             // Invoke the passed `completionHandler` to indicate that loading has completed.
             completionHandler()

@@ -116,24 +116,24 @@ class TaskBot: GKEntity, ContactNotifiableType, GKAgentDelegate, RulesComponentD
             case .FollowGoodPatrolPath, .FollowBadPatrolPath:
                 let pathPoints = isGood ? goodPathPoints : badPathPoints
                 radius = GameplayConfiguration.TaskBot.patrolPathRadius
-                agentBehavior = TaskBotBehavior.behaviorForAgent(agent, patrollingPathWithPoints: pathPoints, pathRadius: radius, inScene: levelScene)
+                agentBehavior = TaskBotBehavior.behaviorFor(agent, patrollingPathWith: pathPoints, pathRadius: radius, in: levelScene)
                 debugPathPoints = pathPoints
                 // Patrol paths are always closed loops, so the debug drawing of the path should cycle back round to the start.
                 debugPathShouldCycle = true
-                debugColor = isGood ? SKColor.greenColor() : SKColor.purpleColor()
+                debugColor = isGood ? SKColor.green() : SKColor.purple()
             
             case let .HuntAgent(targetAgent):
                 radius = GameplayConfiguration.TaskBot.huntPathRadius
-                (agentBehavior, debugPathPoints) = TaskBotBehavior.behaviorAndPathPointsForAgent(agent, huntingAgent: targetAgent, pathRadius: radius, inScene: levelScene)
-                debugColor = SKColor.redColor()
+                (agentBehavior, debugPathPoints) = TaskBotBehavior.behaviorAndPathPointsFor(agent, hunting: targetAgent, pathRadius: radius, in: levelScene)
+                debugColor = SKColor.red()
 
             case let .ReturnToPositionOnPath(position):
                 radius = GameplayConfiguration.TaskBot.returnToPatrolPathRadius
-                (agentBehavior, debugPathPoints) = TaskBotBehavior.behaviorAndPathPointsForAgent(agent, returningToPoint: position, pathRadius: radius, inScene: levelScene)
-                debugColor = SKColor.yellowColor()
+                (agentBehavior, debugPathPoints) = TaskBotBehavior.behaviorAndPathPointsFor(agent, returningToPoint: position, pathRadius: radius, in: levelScene)
+                debugColor = SKColor.yellow()
         }
 
-        if levelScene.debugDrawingEnabled {
+        if levelScene.isDebugDrawingEnabled {
             drawDebugPath(debugPathPoints, cycle: debugPathShouldCycle, color: debugColor, radius: radius)
         }
         else {
@@ -416,7 +416,7 @@ class TaskBot: GKEntity, ContactNotifiableType, GKAgentDelegate, RulesComponentD
     // MARK: Convenience
     
     /// The direct distance between this `TaskBot`'s agent and another agent in the scene.
-    func distanceToAgent(otherAgent: GKAgent2D) -> Float {
+    func distanceTo(otherAgent: GKAgent2D) -> Float {
         let deltaX = agent.position.x - otherAgent.position.x
         let deltaY = agent.position.y - otherAgent.position.y
         
@@ -500,7 +500,7 @@ class TaskBot: GKEntity, ContactNotifiableType, GKAgentDelegate, RulesComponentD
 
             let deltaX = next.x - current.x
             let deltaY = next.y - current.y
-            let rectNode = SKShapeNode(rectOfSize: CGSize(width: hypot(deltaX, deltaY), height: CGFloat(radius) * 2))
+            let rectNode = SKShapeNode(rectOf: CGSize(width: hypot(deltaX, deltaY), height: CGFloat(radius) * 2))
             rectNode.strokeColor = strokeColor
             rectNode.fillColor = fillColor
             rectNode.zRotation = atan(deltaY / deltaX)

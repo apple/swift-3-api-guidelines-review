@@ -23,11 +23,11 @@ class AVInterstitialTimeRange : NSObject, NSCopying, NSSecureCoding {
   var timeRange: CMTimeRange { get }
   convenience init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -150,7 +150,7 @@ class AVPlayerViewController : UIViewController {
   	@property	readyForDisplay
   	@abstract	Boolean indicating that the first video frame has been made ready for display for the current item of the associated AVPlayer.
    */
-  var readyForDisplay: Bool { get }
+  var isReadyForDisplay: Bool { get }
 
   /*!
   	@property	contentOverlayView
@@ -199,7 +199,7 @@ protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   	@abstract	The delegate can implement this method to be notified when the player view controller is about to present interstitial content to the user.
    */
   @available(tvOS 9.0, *)
-  optional func playerViewController(playerViewController: AVPlayerViewController, willPresentInterstitialTimeRange interstitial: AVInterstitialTimeRange)
+  optional func playerViewController(playerViewController: AVPlayerViewController, willPresent interstitial: AVInterstitialTimeRange)
 
   /*!
   	@method		playerViewController:didPresentInterstitialTimeRange:
@@ -210,7 +210,7 @@ protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   	@abstract	The delegate can implement this method to be notified when the player view controller has finished presenting interstitial content.
    */
   @available(tvOS 9.0, *)
-  optional func playerViewController(playerViewController: AVPlayerViewController, didPresentInterstitialTimeRange interstitial: AVInterstitialTimeRange)
+  optional func playerViewController(playerViewController: AVPlayerViewController, didPresent interstitial: AVInterstitialTimeRange)
 
   /*!
   	@method		playerViewController:willResumePlaybackAfterUserNavigatedFromTime:toTime:
@@ -224,7 +224,7 @@ protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   	@discussion	Compare with AVPlayerItemTimeJumpedNotification; this delegate method is delivered for (and only for) user-initiated changes to the playback time. If the user skips/scrubs several times before resuming playback, this method is only called once.
    */
   @available(tvOS 9.0, *)
-  optional func playerViewController(playerViewController: AVPlayerViewController, willResumePlaybackAfterUserNavigatedFromTime oldTime: CMTime, toTime targetTime: CMTime)
+  optional func playerViewController(playerViewController: AVPlayerViewController, willResumePlaybackAfterUserNavigatedFrom oldTime: CMTime, to targetTime: CMTime)
 
   /*!
   	@method		playerViewController:didSelectMediaSelectionOption:inMediaSelectionGroup:
@@ -238,5 +238,5 @@ protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   	@discussion	The media selection option will be nil when subtitles are turned off.
    */
   @available(tvOS 9.0, *)
-  optional func playerViewController(playerViewController: AVPlayerViewController, didSelectMediaSelectionOption mediaSelectionOption: AVMediaSelectionOption?, inMediaSelectionGroup mediaSelectionGroup: AVMediaSelectionGroup)
+  optional func playerViewController(playerViewController: AVPlayerViewController, didSelect mediaSelectionOption: AVMediaSelectionOption?, `in` mediaSelectionGroup: AVMediaSelectionGroup)
 }

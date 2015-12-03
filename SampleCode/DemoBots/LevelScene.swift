@@ -82,7 +82,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
   
     // MARK: Pathfinding Debug
     
-    var debugDrawingEnabled = false {
+    var isDebugDrawingEnabled = false {
         didSet {
             debugDrawingEnabledDidChange()
         }
@@ -94,7 +94,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     
     var levelStateSnapshot: LevelStateSnapshot?
     
-    func entitySnapshotForEntity(entity: GKEntity) -> EntitySnapshot? {
+    func entitySnapshotFor(entity: GKEntity) -> EntitySnapshot? {
         // Create a snapshot of the level's state if one does not already exist for this update cycle.
         if levelStateSnapshot == nil {
             levelStateSnapshot = LevelStateSnapshot(scene: self)
@@ -127,8 +127,8 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
 
     // MARK: Scene Life Cycle
     
-    override func didMoveToView(view: SKView) {
-        super.didMoveToView(view)
+    override func didMoveTo(view: SKView) {
+        super.didMoveTo(view)
         
         // Load the level's configuration from the level data file.
         levelConfiguration = LevelConfiguration(fileName: sceneManager.currentSceneMetadata!.fileName)
@@ -155,12 +155,12 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         stateMachine.enterState(LevelSceneActiveState.self)
         
         // Add the debug layers to the scene.
-        addNode(graphLayer, toWorldLayer: .Debug)
-        addNode(debugObstacleLayer, toWorldLayer: .Debug)
+        add(graphLayer, to: .Debug)
+        add(debugObstacleLayer, to: .Debug)
 
         // Configure the `timerNode` and add it to the camera node.
         timerNode.zPosition = WorldLayer.AboveCharacters.rawValue
-        timerNode.fontColor = SKColor.whiteColor()
+        timerNode.fontColor = SKColor.white()
         timerNode.fontName = GameplayConfiguration.Timer.fontName
         scaleTimerNode()
         camera!.addChild(timerNode)
@@ -205,7 +205,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
             addEntity(taskBot)
 
             // Add the `TaskBot`'s debug drawing node beneath all characters.
-            addNode(taskBot.debugNode, toWorldLayer: .Debug)
+            add(taskBot.debugNode, to: .Debug)
         }
         
         #if os(iOS)
@@ -260,7 +260,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
             Pausing a subsection of the node tree allows the `camera`
             and `overlay` nodes to remain interactive.
         */
-        if worldNode.paused { return }
+        if worldNode.isPaused { return }
         
         // Update the level's state machine.
         stateMachine.updateWithDeltaTime(deltaTime)
@@ -307,28 +307,28 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     
     // MARK: SKPhysicsContactDelegate
     
-    func didBeginContact(contact: SKPhysicsContact) {
-        handleContact(contact) { (ContactNotifiableType: ContactNotifiableType, otherEntity: GKEntity) in
+    func didBegin(contact: SKPhysicsContact) {
+        handle(contact) { (ContactNotifiableType: ContactNotifiableType, otherEntity: GKEntity) in
             ContactNotifiableType.contactWithEntityDidBegin(otherEntity)
         }
     }
     
-    func didEndContact(contact: SKPhysicsContact) {
-        handleContact(contact) { (ContactNotifiableType: ContactNotifiableType, otherEntity: GKEntity) in
+    func didEnd(contact: SKPhysicsContact) {
+        handle(contact) { (ContactNotifiableType: ContactNotifiableType, otherEntity: GKEntity) in
             ContactNotifiableType.contactWithEntityDidEnd(otherEntity)
         }
     }
     
     // MARK: SKPhysicsContactDelegate convenience
     
-    private func handleContact(contact: SKPhysicsContact, contactCallback: (ContactNotifiableType, GKEntity) -> Void) {
+    private func handle(contact: SKPhysicsContact, contactCallback: (ContactNotifiableType, GKEntity) -> Void) {
         // Get the `ColliderType` for each contacted body.
         let colliderTypeA = ColliderType(rawValue: contact.bodyA.categoryBitMask)
         let colliderTypeB = ColliderType(rawValue: contact.bodyB.categoryBitMask)
         
         // Determine which `ColliderType` should be notified of the contact.
-        let aWantsCallback = colliderTypeA.notifyOnContactWithColliderType(colliderTypeB)
-        let bWantsCallback = colliderTypeB.notifyOnContactWithColliderType(colliderTypeA)
+        let aWantsCallback = colliderTypeA.notifyOnContactWith(colliderTypeB)
+        let bWantsCallback = colliderTypeB.notifyOnContactWith(colliderTypeA)
         
         // Make sure that at least one of the entities wants to handle this contact.
         assert(aWantsCallback || bWantsCallback, "Unhandled physics contact - A = \(colliderTypeA), B = \(colliderTypeB)")
@@ -378,19 +378,19 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         entities.insert(entity)
 
         for componentSystem in self.componentSystems {
-            componentSystem.addComponentWithEntity(entity)
+            componentSystem.addComponentWith(entity)
         }
 
         // If the entity has a `RenderComponent`, add its node to the scene.
         if let renderNode = entity.componentForClass(RenderComponent.self)?.node {
-            addNode(renderNode, toWorldLayer: .Characters)
+            add(renderNode, to: .Characters)
 
             /* 
                 If the entity has a `ShadowComponent`, add its shadow node to the scene.
                 Constrain the `ShadowComponent`'s node to the `RenderComponent`'s node.
             */
             if let shadowNode = entity.componentForClass(ShadowComponent.self)?.node {
-                addNode(shadowNode, toWorldLayer: .Shadows)
+                add(shadowNode, to: .Shadows)
                 
                 // Constrain the shadow node's position to the render node.
                 let xRange = SKRange(constantValue: shadowNode.position.x)
@@ -407,7 +407,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
                 to the scene. Constrain the `ChargeBar` to the `RenderComponent`'s node.
             */
             if let chargeBar = entity.componentForClass(ChargeComponent.self)?.chargeBar {
-                addNode(chargeBar, toWorldLayer: .AboveCharacters)
+                add(chargeBar, to: .AboveCharacters)
                 
                 // Constrain the `ChargeBar`'s node position to the render node.
                 let xRange = SKRange(constantValue: GameplayConfiguration.PlayerBot.chargeBarOffset.x)
@@ -426,7 +426,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         }
     }
     
-    func addNode(node: SKNode, toWorldLayer worldLayer: WorldLayer) {
+    func add(node: SKNode, to worldLayer: WorldLayer) {
         let worldLayerNode = worldLayerNodes[worldLayer]!
         
         worldLayerNode.addChild(node)
@@ -511,7 +511,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         // Constrain the camera to stay a constant distance of 0 points from the player node.
         let zeroRange = SKRange(constantValue: 0.0)
         let playerNode = playerBot.renderComponent.node
-        let playerBotLocationConstraint = SKConstraint.distance(zeroRange, toNode: playerNode)
+        let playerBotLocationConstraint = SKConstraint.distance(zeroRange, to: playerNode)
         
         /*
             Also constrain the camera to avoid it moving to the very edges of the scene.

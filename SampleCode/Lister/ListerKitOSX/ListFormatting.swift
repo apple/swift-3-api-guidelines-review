@@ -10,16 +10,16 @@ import Foundation
 
 public class ListFormatting {
     /// Construct a `ListItem` array from a string.
-    public class func listItemsFromString(string: String) -> [ListItem] {
+    public class func listItemsFrom(string: String) -> [ListItem] {
         var listItems = [ListItem]()
 
         let enumerationOptions: NSStringEnumerationOptions = [.BySentences, .ByLines]
         let range = Range(start: string.startIndex, end: string.endIndex)
 
-        let characterSet = NSCharacterSet.whitespaceAndNewlineCharacterSet()
+        let characterSet = NSCharacterSet.whitespaceAndNewline()
 
-        string.enumerateSubstringsInRange(range, options: enumerationOptions) { substring, _, _, _ in
-            let trimmedString = substring!.stringByTrimmingCharactersInSet(characterSet)
+        string.enumerateSubstringsIn(range, options: enumerationOptions) { substring, _, _, _ in
+            let trimmedString = substring!.byTrimmingCharactersIn(characterSet)
 
             if !trimmedString.isEmpty {
                 let item = ListItem(text: trimmedString)
@@ -32,7 +32,7 @@ public class ListFormatting {
     }
 
     /// Concatenate all item's `text` property together.
-    public class func stringFromListItems(items: [ListItem]) -> String {
+    public class func stringFrom(items: [ListItem]) -> String {
         return items.reduce("") { string, item in
             "\(string)\(item.text)\n"
         }

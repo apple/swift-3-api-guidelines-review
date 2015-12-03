@@ -49,17 +49,17 @@ class WCSession : NSObject {
   func activateSession()
 
   /** The counterpart app must be reachable for a send message to succeed. */
-  var reachable: Bool { get }
+  var isReachable: Bool { get }
 
   /** Reachability in the Watch app requires the paired iOS device to have been unlocked at least once after reboot. This property can be used to determine if the iOS device needs to be unlocked. If the reachable property is set to NO it may be because the iOS device has rebooted and needs to be unlocked. If this is the case, the Watch can show a prompt to the user suggesting they unlock their paired iOS device. */
   @available(watchOS 2.0, *)
   var iOSDeviceNeedsUnlockAfterRebootForReachability: Bool { get }
 
   /** Clients can use this method to send messages to the counterpart app. Clients wishing to receive a reply to a particular message should pass in a replyHandler block. If the message cannot be sent or if the reply could not be received, the errorHandler block will be invoked with an error. If both a replyHandler and an errorHandler are specified, then exactly one of them will be invoked. Messages can only be sent while the sending app is running. If the sending app exits before the message is dispatched the send will fail. If the counterpart app is not running the counterpart app will be launched upon receiving the message (iOS counterpart app only). The message dictionary can only accept the property list types. */
-  func sendMessage(message: [String : AnyObject], replyHandler: (([String : AnyObject]) -> Void)?, errorHandler: ((NSError) -> Void)?)
+  func sendMessage(message: [String : AnyObject], replyHandler: (([String : AnyObject]) -> Void)?, errorHandler: ((NSError) -> Void)? = nil)
 
   /** Clients can use this method to send message data. All the policies of send message apply to send message data. Send message data is meant for clients that have an existing transfer format and do not need the convenience of the send message dictionary. */
-  func sendMessageData(data: NSData, replyHandler: ((NSData) -> Void)?, errorHandler: ((NSError) -> Void)?)
+  func sendMessageData(data: NSData, replyHandler: ((NSData) -> Void)?, errorHandler: ((NSError) -> Void)? = nil)
 
   /** Setting the applicationContext is a way to transfer the latest state of an app. After updating the applicationContext, the system initiates the data transfer at an appropriate time, which can occur after the app exits. The counterpart app will receive a delegate callback on next launch if the applicationContext has successfully arrived. If there is no app context, it should be updated with an empty dictionary. The applicationContext dictionary can only accept the property list types. */
   var applicationContext: [String : AnyObject] { get }
@@ -128,7 +128,7 @@ protocol WCSessionDelegate : NSObjectProtocol {
 
   /** Called on the delegate of the receiver. Will be called on startup if the file finished transferring when the receiver was not running. The incoming file will be located in the Documents/Inbox/ folder when being delivered. The receiver must take ownership of the file by moving it to another location. The system will remove any content that has not been moved when this delegate method returns. */
   @available(watchOS 2.0, *)
-  optional func session(session: WCSession, didReceiveFile file: WCSessionFile)
+  optional func session(session: WCSession, didReceive file: WCSessionFile)
 }
 
 /** Contains file information, such as the file's location and optional user info
@@ -145,7 +145,7 @@ class WCSessionFile : NSObject {
 @available(watchOS 2.0, *)
 class WCSessionFileTransfer : NSObject {
   var file: WCSessionFile { get }
-  var transferring: Bool { get }
+  var isTransferring: Bool { get }
   func cancel()
   init()
 }
@@ -155,12 +155,12 @@ class WCSessionFileTransfer : NSObject {
 @available(watchOS 2.0, *)
 class WCSessionUserInfoTransfer : NSObject, NSSecureCoding {
   var userInfo: [String : AnyObject] { get }
-  var transferring: Bool { get }
+  var isTransferring: Bool { get }
   func cancel()
   init()
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

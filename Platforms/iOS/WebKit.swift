@@ -28,7 +28,7 @@ class WKBackForwardList : NSObject {
    @result The item at the specified distance from the current item, or nil
    if the index parameter exceeds the limits of the list.
    */
-  func itemAtIndex(index: Int) -> WKBackForwardListItem?
+  func itemAt(index: Int) -> WKBackForwardListItem?
 
   /*! @abstract The portion of the list preceding the current item.
    @discussion The items are in the order in which they were originally
@@ -51,7 +51,7 @@ class WKBackForwardListItem : NSObject {
 
   /*! @abstract The URL of the webpage represented by this item.
    */
-  @NSCopying var URL: NSURL { get }
+  @NSCopying var url: NSURL { get }
 
   /*! @abstract The title of the webpage represented by this item.
    */
@@ -105,7 +105,7 @@ class WKFrameInfo : NSObject, NSCopying {
   /*! @abstract A Boolean value indicating whether the frame is the main frame
    or a subframe.
    */
-  var mainFrame: Bool { get }
+  var isMainFrame: Bool { get }
 
   /*! @abstract The frame's current request.
    */
@@ -117,7 +117,7 @@ class WKFrameInfo : NSObject, NSCopying {
   var securityOrigin: WKSecurityOrigin { get }
   init()
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*! A WKNavigation object can be used for tracking the loading progress of a webpage.
@@ -218,7 +218,7 @@ protocol WKNavigationDelegate : NSObjectProtocol {
    @discussion If you do not implement this method, the web view will load the request or, if appropriate, forward it to another application.
    */
   @available(iOS 8.0, *)
-  optional func webView(webView: WKWebView, decidePolicyForNavigationAction navigationAction: WKNavigationAction, decisionHandler: (WKNavigationActionPolicy) -> Void)
+  optional func webView(webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: (WKNavigationActionPolicy) -> Void)
 
   /*! @abstract Decides whether to allow or cancel a navigation after its
    response is known.
@@ -230,7 +230,7 @@ protocol WKNavigationDelegate : NSObjectProtocol {
    @discussion If you do not implement this method, the web view will allow the response, if the web view can show it.
    */
   @available(iOS 8.0, *)
-  optional func webView(webView: WKWebView, decidePolicyForNavigationResponse navigationResponse: WKNavigationResponse, decisionHandler: (WKNavigationResponsePolicy) -> Void)
+  optional func webView(webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: (WKNavigationResponsePolicy) -> Void)
 
   /*! @abstract Invoked when a main frame navigation starts.
    @param webView The web view invoking the delegate method.
@@ -261,7 +261,7 @@ protocol WKNavigationDelegate : NSObjectProtocol {
    @param navigation The navigation.
    */
   @available(iOS 8.0, *)
-  optional func webView(webView: WKWebView, didCommitNavigation navigation: WKNavigation!)
+  optional func webView(webView: WKWebView, didCommit navigation: WKNavigation!)
 
   /*! @abstract Invoked when a main frame navigation completes.
    @param webView The web view invoking the delegate method.
@@ -277,7 +277,7 @@ protocol WKNavigationDelegate : NSObjectProtocol {
    @param error The error that occurred.
    */
   @available(iOS 8.0, *)
-  optional func webView(webView: WKWebView, didFailNavigation navigation: WKNavigation!, withError error: NSError)
+  optional func webView(webView: WKWebView, didFail navigation: WKNavigation!, withError error: NSError)
 
   /*! @abstract Invoked when the web view needs to respond to an authentication challenge.
    @param webView The web view that received the authentication challenge.
@@ -290,7 +290,7 @@ protocol WKNavigationDelegate : NSObjectProtocol {
    @discussion If you do not implement this method, the web view will respond to the authentication challenge with the NSURLSessionAuthChallengeRejectProtectionSpace disposition.
    */
   @available(iOS 8.0, *)
-  optional func webView(webView: WKWebView, didReceiveAuthenticationChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void)
+  optional func webView(webView: WKWebView, didReceive challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void)
 
   /*! @abstract Invoked when the web view's web content process is terminated.
    @param webView The web view whose underlying web content process was terminated.
@@ -306,7 +306,7 @@ class WKNavigationResponse : NSObject {
 
   /*! @abstract A Boolean value indicating whether the frame being navigated is the main frame.
    */
-  var forMainFrame: Bool { get }
+  var isForMainFrame: Bool { get }
 
   /*! @abstract The frame's response.
    */
@@ -334,7 +334,7 @@ class WKPreferences : NSObject {
   /*! @abstract A Boolean value indicating whether JavaScript is enabled.
    @discussion The default value is YES.
    */
-  var javaScriptEnabled: Bool
+  var isJavaScriptEnabled: Bool
 
   /*! @abstract A Boolean value indicating whether JavaScript can open
    windows without user interaction.
@@ -390,7 +390,7 @@ protocol WKScriptMessageHandler : NSObjectProtocol {
    @param message The script message received.
    */
   @available(iOS 8.0, *)
-  func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage)
+  func userContentController(userContentController: WKUserContentController, didReceive message: WKScriptMessage)
 }
 
 /*! A WKSecurityOrigin object contains information about a security origin.
@@ -432,7 +432,7 @@ protocol WKUIDelegate : NSObjectProtocol {
    If you do not implement this method, the web view will cancel the navigation.
    */
   @available(iOS 8.0, *)
-  optional func webView(webView: WKWebView, createWebViewWithConfiguration configuration: WKWebViewConfiguration, forNavigationAction navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView?
+  optional func webView(webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, forNavigationAction navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView?
 
   /*! @abstract Notifies your app that the DOM window object's close() method completed successfully.
     @param webView The web view invoking the delegate method.
@@ -525,7 +525,7 @@ class WKUserContentController : NSObject {
    window.webkit.messageHandlers.<name>.postMessage(<messageBody>) for all
    frames.
    */
-  func addScriptMessageHandler(scriptMessageHandler: WKScriptMessageHandler, name: String)
+  func add(scriptMessageHandler: WKScriptMessageHandler, name: String)
 
   /*! @abstract Removes a script message handler.
    @param name The name of the message handler to remove.
@@ -553,7 +553,7 @@ enum WKUserScriptInjectionTime : Int {
 class WKUserScript : NSObject, NSCopying {
   var source: String { get }
   var injectionTime: WKUserScriptInjectionTime { get }
-  var forMainFrameOnly: Bool { get }
+  var isForMainFrameOnly: Bool { get }
 
   /*! @abstract Returns an initialized user script that can be added to a @link WKUserContentController @/link.
    @param source The script source.
@@ -563,7 +563,7 @@ class WKUserScript : NSObject, NSCopying {
   init(source: String, injectionTime: WKUserScriptInjectionTime, forMainFrameOnly: Bool)
   init()
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class WKWebView : UIView {
@@ -576,7 +576,7 @@ class WKWebView : UIView {
   weak var navigationDelegate: @sil_weak WKNavigationDelegate?
 
   /*! @abstract The web view's user interface delegate. */
-  weak var UIDelegate: @sil_weak WKUIDelegate?
+  weak var uiDelegate: @sil_weak WKUIDelegate?
 
   /*! @abstract The web view's back-forward list. */
   var backForwardList: WKBackForwardList { get }
@@ -599,7 +599,7 @@ class WKWebView : UIView {
    @param request The request specifying the URL to which to navigate.
    @result A new navigation for the given request.
    */
-  func loadRequest(request: NSURLRequest) -> WKNavigation?
+  func load(request: NSURLRequest) -> WKNavigation?
 
   /*! @abstract Navigates to the requested file URL on the filesystem.
    @param URL The file URL to which to navigate.
@@ -609,7 +609,7 @@ class WKWebView : UIView {
    @result A new navigation for the given file URL.
    */
   @available(iOS 9.0, *)
-  func loadFileURL(URL: NSURL, allowingReadAccessToURL readAccessURL: NSURL) -> WKNavigation?
+  func loadFileURL(URL: NSURL, allowingReadAccessTo readAccessURL: NSURL) -> WKNavigation?
 
   /*! @abstract Sets the webpage contents and base URL.
    @param string The string to use as the contents of the webpage.
@@ -626,7 +626,7 @@ class WKWebView : UIView {
    @result A new navigation.
    */
   @available(iOS 9.0, *)
-  func loadData(data: NSData, MIMEType: String, characterEncodingName: String, baseURL: NSURL) -> WKNavigation?
+  func load(data: NSData, mimeType MIMEType: String, characterEncodingName: String, baseURL: NSURL) -> WKNavigation?
 
   /*! @abstract Navigates to an item from the back-forward list and sets it
    as the current item.
@@ -636,7 +636,7 @@ class WKWebView : UIView {
    the current item or is not part of the web view's back-forward list.
    @seealso backForwardList
    */
-  func goToBackForwardListItem(item: WKBackForwardListItem) -> WKNavigation?
+  func goTo(item: WKBackForwardListItem) -> WKNavigation?
 
   /*! @abstract The page title.
    @discussion @link WKWebView @/link is key-value observing (KVO) compliant
@@ -650,14 +650,14 @@ class WKWebView : UIView {
    @link WKWebView @/link is key-value observing (KVO) compliant for this
    property.
    */
-  @NSCopying var URL: NSURL? { get }
+  @NSCopying var url: NSURL? { get }
 
   /*! @abstract A Boolean value indicating whether the view is currently
    loading content.
    @discussion @link WKWebView @/link is key-value observing (KVO) compliant
    for this property.
    */
-  var loading: Bool { get }
+  var isLoading: Bool { get }
 
   /*! @abstract An estimate of what fraction of the current navigation has been completed.
    @discussion This value ranges from 0.0 to 1.0 based on the total number of
@@ -726,7 +726,7 @@ class WKWebView : UIView {
   /*! @abstract Stops loading all resources on the current page.
    */
   func stopLoading()
-  func evaluateJavaScript(javaScriptString: String, completionHandler: ((AnyObject?, NSError?) -> Void)?)
+  func evaluateJavaScript(javaScriptString: String, completionHandler: ((AnyObject?, NSError?) -> Void)? = nil)
 
   /*! @abstract A Boolean value indicating whether horizontal swipe gestures
    will trigger back-forward list navigations.
@@ -842,7 +842,7 @@ class WKWebViewConfiguration : NSObject, NSCopying {
   var allowsPictureInPictureMediaPlayback: Bool
   init()
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 extension WKWebViewConfiguration {
   @available(iOS, introduced=8.0, deprecated=9.0, message="Please use requiresUserActionForMediaPlayback")
@@ -907,10 +907,10 @@ class WKWebsiteDataStore : NSObject {
    @discussion If a WKWebView is associated with a non-persistent data store, no data will
    be written to the file system. This is useful for implementing "private browsing" in a web view.
   */
-  class func nonPersistentDataStore() -> WKWebsiteDataStore
+  class func nonPersistent() -> WKWebsiteDataStore
 
   /*! @abstract Whether the data store is persistent or not. */
-  var persistent: Bool { get }
+  var isPersistent: Bool { get }
 
   /*! @abstract Returns a set of all available website data types. */
   class func allWebsiteDataTypes() -> Set<String>

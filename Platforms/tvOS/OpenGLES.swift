@@ -23,16 +23,16 @@ class EAGLSharegroup : NSObject {
 
 /************************************************************************/
 class EAGLContext : NSObject {
-  convenience init!(API api: EAGLRenderingAPI)
-  init!(API api: EAGLRenderingAPI, sharegroup: EAGLSharegroup!)
+  convenience init!(api: EAGLRenderingAPI)
+  init!(api: EAGLRenderingAPI, sharegroup: EAGLSharegroup!)
   class func setCurrentContext(context: EAGLContext!) -> Bool
-  class func currentContext() -> EAGLContext!
-  var API: EAGLRenderingAPI { get }
+  class func current() -> EAGLContext!
+  var api: EAGLRenderingAPI { get }
   var sharegroup: EAGLSharegroup! { get }
   @available(tvOS 6.0, *)
   var debugLabel: String!
   @available(tvOS 7.1, *)
-  var multiThreaded: Bool
+  var isMultiThreaded: Bool
 }
 
 /************************************************************************/
@@ -51,7 +51,7 @@ protocol EAGLDrawable {
   var drawableProperties: [NSObject : AnyObject]! { get set }
 }
 extension EAGLContext {
-  func renderbufferStorage(target: Int, fromDrawable drawable: EAGLDrawable!) -> Bool
+  func renderbufferStorage(target: Int, from drawable: EAGLDrawable!) -> Bool
   func presentRenderbuffer(target: Int) -> Bool
 }
 var GL_VERSION_ES_CM_1_0: Int32 { get }

@@ -7,7 +7,7 @@ protocol MKAnnotation : NSObjectProtocol {
 @available(watchOS 2.0, *)
 class MKDistanceFormatter : NSFormatter {
   func stringFromDistance(distance: CLLocationDistance) -> String
-  func distanceFromString(distance: String) -> CLLocationDistance
+  func distanceFrom(distance: String) -> CLLocationDistance
   @NSCopying var locale: NSLocale!
   var units: MKDistanceFormatterUnits
   var unitStyle: MKDistanceFormatterUnitStyle
@@ -123,10 +123,10 @@ func MKMapRectSpans180thMeridian(rect: MKMapRect) -> Bool
 @available(watchOS 2.0, *)
 func MKMapRectRemainder(rect: MKMapRect) -> MKMapRect
 extension NSValue {
-  /*not inherited*/ init(MKCoordinate coordinate: CLLocationCoordinate2D)
-  /*not inherited*/ init(MKCoordinateSpan span: MKCoordinateSpan)
-  var MKCoordinateValue: CLLocationCoordinate2D { get }
-  var MKCoordinateSpanValue: MKCoordinateSpan { get }
+  /*not inherited*/ init(mkCoordinate coordinate: CLLocationCoordinate2D)
+  /*not inherited*/ init(mkCoordinateSpan span: MKCoordinateSpan)
+  var mkCoordinateValue: CLLocationCoordinate2D { get }
+  var mkCoordinateSpanValue: MKCoordinateSpan { get }
 }
 @available(watchOS 2.0, *)
 class MKMapItem : NSObject {
@@ -137,10 +137,10 @@ class MKMapItem : NSObject {
   var url: NSURL?
   @available(watchOS 2.0, *)
   @NSCopying var timeZone: NSTimeZone?
-  class func mapItemForCurrentLocation() -> MKMapItem
+  class func forCurrentLocation() -> MKMapItem
   init(placemark: MKPlacemark)
   func openInMapsWithLaunchOptions(launchOptions: [String : AnyObject]?) -> Bool
-  class func openMapsWithItems(mapItems: [MKMapItem], launchOptions: [String : AnyObject]?) -> Bool
+  class func openMapsWith(mapItems: [MKMapItem], launchOptions: [String : AnyObject]?) -> Bool
   init()
 }
 @available(watchOS 2.0, *)

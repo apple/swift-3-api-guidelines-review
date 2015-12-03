@@ -5,7 +5,7 @@ var CoreSpotlightAPIVersion: Int32 { get }
 var CoreSpotlightVersionNumber: Double
 extension CSSearchableIndex {
   func beginIndexBatch()
-  func endIndexBatchWithClientState(clientState: NSData, completionHandler: ((NSError?) -> Void)?)
+  func endIndexBatchWithClientState(clientState: NSData, completionHandler: ((NSError?) -> Void)? = nil)
   func fetchLastClientStateWithCompletionHandler(completionHandler: (NSData?, NSError?) -> Void)
 }
 extension CSSearchableItemAttributeSet {
@@ -77,7 +77,7 @@ extension CSSearchableItemAttributeSet {
   var acquisitionModel: String?
   var cameraOwner: String?
   var lensModel: String?
-  var ISOSpeed: NSNumber?
+  var isoSpeed: NSNumber?
   var orientation: NSNumber?
   var layerNames: [String]?
   var whiteBalance: NSNumber?
@@ -87,8 +87,8 @@ extension CSSearchableItemAttributeSet {
   var resolutionHeightDPI: NSNumber?
   var exposureMode: NSNumber?
   var exposureTime: NSNumber?
-  var EXIFVersion: String?
-  var EXIFGPSVersion: String?
+  var exifVersion: String?
+  var exifgpsVersion: String?
   var hasAlphaChannel: NSNumber?
   var redEyeOn: NSNumber?
   var meteringMode: String?
@@ -138,7 +138,7 @@ extension CSSearchableItemAttributeSet {
   var originalSource: String?
   var local: NSNumber?
   var contentRating: NSNumber?
-  var URL: NSURL?
+  var url: NSURL?
 }
 extension CSSearchableItemAttributeSet {
   var audioSampleRate: NSNumber?
@@ -173,7 +173,7 @@ let CSMailboxArchive: String
 extension CSSearchableItemAttributeSet {
   var accountIdentifier: String?
   var accountHandles: [String]?
-  @NSCopying var HTMLContentData: NSData?
+  @NSCopying var htmlContentData: NSData?
   var textContent: String?
   var authors: [CSPerson]?
   var primaryRecipients: [CSPerson]?
@@ -205,17 +205,17 @@ extension CSSearchableItemAttributeSet {
   var timestamp: NSDate?
   var imageDirection: NSNumber?
   var namedLocation: String?
-  var GPSTrack: NSNumber?
-  var GPSStatus: String?
-  var GPSMeasureMode: String?
-  var GPSDOP: NSNumber?
-  var GPSMapDatum: String?
-  var GPSDestLatitude: NSNumber?
-  var GPSDestLongitude: NSNumber?
-  var GPSDestBearing: NSNumber?
-  var GPSDestDistance: NSNumber?
-  var GPSProcessingMethod: String?
-  var GPSAreaInformation: String?
-  var GPSDateStamp: NSDate?
-  var GPSDifferental: NSNumber?
+  var gpsTrack: NSNumber?
+  var gpsStatus: String?
+  var gpsMeasureMode: String?
+  var gpsdop: NSNumber?
+  var gpsMapDatum: String?
+  var gpsDestLatitude: NSNumber?
+  var gpsDestLongitude: NSNumber?
+  var gpsDestBearing: NSNumber?
+  var gpsDestDistance: NSNumber?
+  var gpsProcessingMethod: String?
+  var gpsAreaInformation: String?
+  var gpsDateStamp: NSDate?
+  var gpsDifferental: NSNumber?
 }

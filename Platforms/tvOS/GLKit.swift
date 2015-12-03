@@ -450,7 +450,7 @@ class GLKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
    @param type Type of data to be stored in this buffer
    */
   @available(tvOS 9.0, *)
-  func newBufferWithData(data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBufferWith(data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
 
   /*!
    @method newBufferFromZone:length:type:
@@ -467,7 +467,7 @@ class GLKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
   
    */
   @available(tvOS 9.0, *)
-  func newBufferFromZone(zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFrom(zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
 
   /*!
    @method newBufferFromZone:data:type:
@@ -484,7 +484,7 @@ class GLKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
                buffer could not be allocated.
    */
   @available(tvOS 9.0, *)
-  func newBufferFromZone(zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFrom(zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 
 /*!
@@ -538,7 +538,7 @@ class GLKMeshBuffer : NSObject, MDLMeshBuffer {
                this buffer.
    */
   @available(tvOS 9.0, *)
-  func fillData(data: NSData, offset: Int)
+  func fill(data: NSData, offset: Int)
 
   /*!
    @method map
@@ -553,7 +553,7 @@ class GLKMeshBuffer : NSObject, MDLMeshBuffer {
   @available(tvOS 9.0, *)
   func map() -> MDLMeshBufferMap
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 9.0, *)
 class GLKSubmesh : NSObject {
@@ -622,7 +622,7 @@ class GLKMesh : NSObject {
    @param return GLKit meshes created from the Model I/O asset
    @dicussion A convenience method to create GLKit meshes from each mesh in a Model/IO asset.  Resulting meshes are returned while Model I/O meshes from which they were generated will appear in the sourceMeshes array.
    */
-  class func newMeshesFromAsset(asset: MDLAsset, sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [GLKMesh]
+  class func newMeshesFrom(asset: MDLAsset, sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [GLKMesh]
 
   /*!
    @property vertexCount
@@ -789,26 +789,26 @@ class GLKTextureInfo : NSObject, NSCopying {
   var containsMipmaps: Bool { get }
   init()
   @available(tvOS 5.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 typealias GLKTextureLoaderCallback = (GLKTextureInfo?, NSError?) -> Void
 @available(tvOS 5.0, *)
 class GLKTextureLoader : NSObject {
   class func textureWithContentsOfFile(path: String, options: [String : NSNumber]?) throws -> GLKTextureInfo
-  class func textureWithContentsOfURL(url: NSURL, options: [String : NSNumber]?) throws -> GLKTextureInfo
-  class func textureWithContentsOfData(data: NSData, options: [String : NSNumber]?) throws -> GLKTextureInfo
-  class func textureWithCGImage(cgImage: CGImage, options: [String : NSNumber]?) throws -> GLKTextureInfo
+  class func textureWithContentsOf(url: NSURL, options: [String : NSNumber]?) throws -> GLKTextureInfo
+  class func textureWithContentsOf(data: NSData, options: [String : NSNumber]?) throws -> GLKTextureInfo
+  class func textureWith(cgImage: CGImage, options: [String : NSNumber]?) throws -> GLKTextureInfo
   class func cubeMapWithContentsOfFiles(paths: [AnyObject], options: [String : NSNumber]?) throws -> GLKTextureInfo
   class func cubeMapWithContentsOfFile(path: String, options: [String : NSNumber]?) throws -> GLKTextureInfo
-  class func cubeMapWithContentsOfURL(url: NSURL, options: [String : NSNumber]?) throws -> GLKTextureInfo
+  class func cubeMapWithContentsOf(url: NSURL, options: [String : NSNumber]?) throws -> GLKTextureInfo
   init(sharegroup: EAGLSharegroup)
   func textureWithContentsOfFile(path: String, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func textureWithContentsOfURL(url: NSURL, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func textureWithContentsOfData(data: NSData, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func textureWithCGImage(cgImage: CGImage, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func textureWithContentsOf(url: NSURL, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func textureWithContentsOf(data: NSData, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func textureWith(cgImage: CGImage, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   func cubeMapWithContentsOfFiles(paths: [AnyObject], options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   func cubeMapWithContentsOfFile(path: String, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func cubeMapWithContentsOfURL(url: NSURL, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func cubeMapWithContentsOf(url: NSURL, options: [String : NSNumber]?, queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   init()
 }
 func GLKVector2Make(x: Float, _ y: Float) -> GLKVector2
@@ -942,14 +942,14 @@ class GLKView : UIView, NSCoding {
 }
 protocol GLKViewDelegate : NSObjectProtocol {
   @available(tvOS 5.0, *)
-  func glkView(view: GLKView, drawInRect rect: CGRect)
+  func glkView(view: GLKView, drawIn rect: CGRect)
 }
 @available(tvOS 5.0, *)
 class GLKViewController : UIViewController, NSCoding, GLKViewDelegate {
   @IBOutlet unowned(unsafe) var delegate: @sil_unmanaged GLKViewControllerDelegate?
   var preferredFramesPerSecond: Int
   var framesPerSecond: Int { get }
-  var paused: Bool
+  var isPaused: Bool
   var framesDisplayed: Int { get }
   var timeSinceFirstResume: NSTimeInterval { get }
   var timeSinceLastResume: NSTimeInterval { get }
@@ -961,7 +961,7 @@ class GLKViewController : UIViewController, NSCoding, GLKViewDelegate {
   init?(coder aDecoder: NSCoder)
   convenience init()
   @available(tvOS 5.0, *)
-  func glkView(view: GLKView, drawInRect rect: CGRect)
+  func glkView(view: GLKView, drawIn rect: CGRect)
 }
 protocol GLKViewControllerDelegate : NSObjectProtocol {
   @available(tvOS 5.0, *)

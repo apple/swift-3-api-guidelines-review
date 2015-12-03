@@ -25,8 +25,8 @@ class ListItemView: NSTableCellView, NSTextFieldDelegate {
     var isComplete = false {
         didSet {
             statusCheckBox.isChecked = isComplete
-            textField!.textColor = isComplete ? NSColor.completeItemTextColor() : NSColor.incompleteItemTextColor()
-            textField!.enabled = !isComplete
+            textField!.textColor = isComplete ? NSColor.completeItemText() : NSColor.incompleteItemText()
+            textField!.isEnabled = !isComplete
         }
     }
 
@@ -74,7 +74,7 @@ class ListItemView: NSTableCellView, NSTextFieldDelegate {
 
     // MARK: Notifications
 
-    func handleControlTextDidEndEditingNotification(notification: NSNotification) {
+    func handleControlTextDidEndEditing(notification: NSNotification) {
         delegate?.listItemViewTextDidEndEditing(self)
     }
 }

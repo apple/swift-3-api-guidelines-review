@@ -115,7 +115,7 @@ class MovementComponent: GKComponent {
         }
         
         // Update the node's `position` with new displacement information.
-        if let movement = nextTranslation, newPosition = pointForTranslatingNode(node, withTranslationalMovement: movement, duration: deltaTime) {
+        if let movement = nextTranslation, newPosition = pointForTranslating(node, withTranslationalMovement: movement, duration: deltaTime) {
             node.position = newPosition
             
             // If no explicit rotation is being provided, orient in the direction of movement.
@@ -164,7 +164,7 @@ class MovementComponent: GKComponent {
     }
     
     /// Produces the destination point for the node, based on the provided translation.
-    func pointForTranslatingNode(node: SKNode, withTranslationalMovement translation: MovementKind, duration: NSTimeInterval) -> CGPoint? {
+    func pointForTranslating(node: SKNode, withTranslationalMovement translation: MovementKind, duration: NSTimeInterval) -> CGPoint? {
         // No translation if the vector is a zeroVector.
         guard translation.displacement != float2() else { return nil }
         

@@ -1,8 +1,8 @@
 
 @available(iOS 6.0, *)
 class ASIdentifierManager : NSObject {
-  class func sharedManager() -> ASIdentifierManager!
+  class func shared() -> ASIdentifierManager!
   var advertisingIdentifier: NSUUID! { get }
-  var advertisingTrackingEnabled: Bool { get }
+  var isAdvertisingTrackingEnabled: Bool { get }
   init()
 }

@@ -46,14 +46,14 @@ class AVAsset : NSObject, NSCopying, AVAsynchronousKeyValueLoading {
     @result		An instance of AVAsset.
     @discussion	Returns a newly allocated instance of a subclass of AVAsset initialized with the specified URL.
   */
-  convenience init(URL: NSURL)
+  convenience init(url URL: NSURL)
   var duration: CMTime { get }
   var preferredRate: Float { get }
   var preferredVolume: Float { get }
   var preferredTransform: CGAffineTransform { get }
   init()
   @available(tvOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 
   /*!
     @method		statusOfValueForKey:
@@ -84,7 +84,7 @@ class AVAsset : NSObject, NSCopying, AVAsynchronousKeyValueLoading {
       The block to be invoked when loading succeeds, fails, or is cancelled.
   */
   @available(tvOS 4.0, *)
-  func loadValuesAsynchronouslyForKeys(keys: [String], completionHandler handler: (() -> Void)?)
+  func loadValuesAsynchronouslyForKeys(keys: [String], completionHandler handler: (() -> Void)? = nil)
 }
 extension AVAsset {
   var providesPreciseDurationAndTiming: Bool { get }
@@ -300,13 +300,13 @@ extension AVAsset {
 }
 extension AVAsset {
   @available(tvOS 4.3, *)
-  var playable: Bool { get }
+  var isPlayable: Bool { get }
   @available(tvOS 4.3, *)
-  var exportable: Bool { get }
+  var isExportable: Bool { get }
   @available(tvOS 4.3, *)
-  var readable: Bool { get }
+  var isReadable: Bool { get }
   @available(tvOS 4.3, *)
-  var composable: Bool { get }
+  var isComposable: Bool { get }
   @available(tvOS 5.0, *)
   var compatibleWithSavedPhotosAlbum: Bool { get }
 
@@ -316,7 +316,7 @@ extension AVAsset {
     @discussion	YES if an AVPlayerItem initialized with the receiver can be played by an external device via AirPlay Video.
    */
   @available(tvOS 9.0, *)
-  var compatibleWithAirPlayVideo: Bool { get }
+  var isCompatibleWithAirPlayVideo: Bool { get }
 }
 
 /*!
@@ -399,8 +399,8 @@ class AVURLAsset : AVAsset {
   				An instance of NSDictionary that contains keys for specifying options for the initialization of the AVURLAsset. See AVURLAssetPreferPreciseDurationAndTimingKey and AVURLAssetReferenceRestrictionsKey above.
     @result		An instance of AVURLAsset.
   */
-  init(URL: NSURL, options: [String : AnyObject]?)
-  @NSCopying var URL: NSURL { get }
+  init(url URL: NSURL, options: [String : AnyObject]?)
+  @NSCopying var url: NSURL { get }
 
   /*!
     @method		assetWithURL:
@@ -410,7 +410,7 @@ class AVURLAsset : AVAsset {
     @result		An instance of AVAsset.
     @discussion	Returns a newly allocated instance of a subclass of AVAsset initialized with the specified URL.
   */
-  convenience init(URL: NSURL)
+  convenience init(url URL: NSURL)
 }
 extension AVURLAsset {
 
@@ -437,7 +437,7 @@ extension AVURLAsset {
   	Finds a track of the target with content that can be accommodated by the specified composition track.
   	The logical complement of -[AVMutableComposition mutableTrackCompatibleWithTrack:].
   */
-  func compatibleTrackForCompositionTrack(compositionTrack: AVCompositionTrack) -> AVAssetTrack?
+  func compatibleTrackFor(compositionTrack: AVCompositionTrack) -> AVAssetTrack?
 }
 
 /*!
@@ -535,7 +535,7 @@ class AVAssetDownloadTask : NSURLSessionTask {
    @property		URLAsset
    @abstract		The asset supplied to the download task upon initialization.
   */
-  var URLAsset: AVURLAsset { get }
+  var urlAsset: AVURLAsset { get }
 
   /*!
    @property		destinationURL
@@ -580,9 +580,9 @@ protocol AVAssetDownloadDelegate : NSURLSessionTaskDelegate {
   				A CMTimeRange indicating the single time range that is expected to be loaded when the download is complete.
   */
   @available(tvOS 9.0, *)
-  optional func URLSession(session: NSURLSession, assetDownloadTask: AVAssetDownloadTask, didLoadTimeRange timeRange: CMTimeRange, totalTimeRangesLoaded loadedTimeRanges: [NSValue], timeRangeExpectedToLoad: CMTimeRange)
+  optional func urlSession(session: NSURLSession, assetDownloadTask: AVAssetDownloadTask, didLoad timeRange: CMTimeRange, totalTimeRangesLoaded loadedTimeRanges: [NSValue], timeRangeExpectedToLoad: CMTimeRange)
   @available(tvOS 9.0, *)
-  optional func URLSession(session: NSURLSession, assetDownloadTask: AVAssetDownloadTask, didResolveMediaSelection resolvedMediaSelection: AVMediaSelection)
+  optional func urlSession(session: NSURLSession, assetDownloadTask: AVAssetDownloadTask, didResolve resolvedMediaSelection: AVMediaSelection)
 }
 
 /*!
@@ -615,7 +615,7 @@ class AVAssetDownloadURLSession : NSURLSession {
    @param			options
   				See AVAssetDownloadTask*Key above. Configures non-default behavior for the download task. Using this parameter is required for downloading non-default media selections for HLS assets.
   */
-  func assetDownloadTaskWithURLAsset(URLAsset: AVURLAsset, destinationURL: NSURL, options: [String : AnyObject]?) -> AVAssetDownloadTask?
+  func assetDownloadTaskWith(URLAsset: AVURLAsset, destinationURL: NSURL, options: [String : AnyObject]?) -> AVAssetDownloadTask?
   init()
 }
 
@@ -750,7 +750,7 @@ extension AVAssetExportSession {
   								The array is a complete list of the valid identifiers that can be used as arguments to 
   								initWithAsset:presetName: with the specified asset.
   */
-  class func exportPresetsCompatibleWithAsset(asset: AVAsset) -> [String]
+  class func exportPresetsCompatibleWith(asset: AVAsset) -> [String]
 
   /*!
   	@method						determineCompatibilityOfExportPreset:withAsset:outputFileType:completionHandler:
@@ -910,7 +910,7 @@ class AVAssetImageGenerator : NSObject {
   	@result			A CGImageRef.
   	@discussion		Returns the CGImage synchronously. Ownership follows the Create Rule.
   */
-  func copyCGImageAtTime(requestedTime: CMTime, actualTime: UnsafeMutablePointer<CMTime>) throws -> CGImage
+  func copyCGImageAt(requestedTime: CMTime, actualTime: UnsafeMutablePointer<CMTime>) throws -> CGImage
 
   /*!
   	@method			generateCGImagesAsynchronouslyForTimes:completionHandler:
@@ -1606,7 +1606,7 @@ protocol AVAssetResourceLoaderDelegate : NSObjectProtocol {
    @discussion	Previously issued loading requests can be cancelled when data from the resource is no longer required or when a loading request is superseded by new requests for data from the same resource. For example, if to complete a seek operation it becomes necessary to load a range of bytes that's different from a range previously requested, the prior request may be cancelled while the delegate is still handling it.
   */
   @available(tvOS 7.0, *)
-  optional func resourceLoader(resourceLoader: AVAssetResourceLoader, didCancelLoadingRequest loadingRequest: AVAssetResourceLoadingRequest)
+  optional func resourceLoader(resourceLoader: AVAssetResourceLoader, didCancel loadingRequest: AVAssetResourceLoadingRequest)
 
   /*!
    @method 		resourceLoader:shouldWaitForResponseToAuthenticationChallenge:
@@ -1620,7 +1620,7 @@ protocol AVAssetResourceLoaderDelegate : NSObjectProtocol {
     If the result is YES, the resource loader expects you to send an appropriate response, either subsequently or immediately, to the NSURLAuthenticationChallenge's sender, i.e. [authenticationChallenge sender], via use of one of the messages defined in the NSURLAuthenticationChallengeSender protocol (see NSAuthenticationChallenge.h). If you intend to respond to the authentication challenge after your handling of -resourceLoader:shouldWaitForResponseToAuthenticationChallenge: returns, you must retain the instance of NSURLAuthenticationChallenge until after your response has been made.
   */
   @available(tvOS 8.0, *)
-  optional func resourceLoader(resourceLoader: AVAssetResourceLoader, shouldWaitForResponseToAuthenticationChallenge authenticationChallenge: NSURLAuthenticationChallenge) -> Bool
+  optional func resourceLoader(resourceLoader: AVAssetResourceLoader, shouldWaitForResponseTo authenticationChallenge: NSURLAuthenticationChallenge) -> Bool
 
   /*!
    @method 		resourceLoader:didCancelAuthenticationChallenge:
@@ -1629,7 +1629,7 @@ protocol AVAssetResourceLoaderDelegate : NSObjectProtocol {
   				The authentication challenge that has been cancelled. 
   */
   @available(tvOS 8.0, *)
-  optional func resourceLoader(resourceLoader: AVAssetResourceLoader, didCancelAuthenticationChallenge authenticationChallenge: NSURLAuthenticationChallenge)
+  optional func resourceLoader(resourceLoader: AVAssetResourceLoader, didCancel authenticationChallenge: NSURLAuthenticationChallenge)
 }
 @available(tvOS 6.0, *)
 class AVAssetResourceLoadingRequest : NSObject {
@@ -1645,7 +1645,7 @@ class AVAssetResourceLoadingRequest : NSObject {
    @abstract		Indicates whether loading of the resource has been finished.
    @discussion	The value of this property becomes YES only in response to an invocation of either -finishLoading or -finishLoadingWithError:.
   */
-  var finished: Bool { get }
+  var isFinished: Bool { get }
 
   /*! 
    @property 		cancelled
@@ -1653,7 +1653,7 @@ class AVAssetResourceLoadingRequest : NSObject {
    @discussion	The value of this property becomes YES when the resource loader cancels the loading of a request, just prior to sending the message -resourceLoader:didCancelLoadingRequest: to its delegate.
   */
   @available(tvOS 7.0, *)
-  var cancelled: Bool { get }
+  var isCancelled: Bool { get }
 
   /*! 
    @property 		contentInformationRequest
@@ -1698,7 +1698,7 @@ class AVAssetResourceLoadingRequest : NSObject {
    @param			error
    				An instance of NSError indicating the reason for failure.
   */
-  func finishLoadingWithError(error: NSError?)
+  func finishLoadingWith(error: NSError?)
 }
 
 /*!
@@ -1784,7 +1784,7 @@ class AVAssetResourceLoadingDataRequest : NSObject {
    				An instance of NSData containing some or all of the requested bytes.
    @discussion	May be invoked multiple times on the same instance of AVAssetResourceLoadingDataRequest to provide the full range of requested data incrementally. Upon each invocation, the value of currentOffset will be updated to accord with the amount of data provided.
   */
-  func respondWithData(data: NSData)
+  func respondWith(data: NSData)
 }
 extension AVAssetResourceLoader {
 
@@ -1869,7 +1869,7 @@ class AVAssetTrack : NSObject, NSCopying, AVAsynchronousKeyValueLoading {
   weak var asset: @sil_weak AVAsset? { get }
   var trackID: CMPersistentTrackID { get }
   @available(tvOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 
   /*!
     @method		statusOfValueForKey:
@@ -1900,15 +1900,15 @@ class AVAssetTrack : NSObject, NSCopying, AVAsynchronousKeyValueLoading {
       The block to be invoked when loading succeeds, fails, or is cancelled.
   */
   @available(tvOS 4.0, *)
-  func loadValuesAsynchronouslyForKeys(keys: [String], completionHandler handler: (() -> Void)?)
+  func loadValuesAsynchronouslyForKeys(keys: [String], completionHandler handler: (() -> Void)? = nil)
 }
 extension AVAssetTrack {
   var mediaType: String { get }
   var formatDescriptions: [AnyObject] { get }
   @available(tvOS 5.0, *)
-  var playable: Bool { get }
-  var enabled: Bool { get }
-  var selfContained: Bool { get }
+  var isPlayable: Bool { get }
+  var isEnabled: Bool { get }
+  var isSelfContained: Bool { get }
   var totalSampleDataLength: Int64 { get }
 
   /*!
@@ -1966,7 +1966,7 @@ extension AVAssetTrack {
   	@result			An AVAssetTrackSegment.
   	@discussion		If the trackTime does not map to a sample presentation time (e.g. it's outside the track's timeRange), the segment closest in time to the specified trackTime is returned. 
   */
-  func segmentForTrackTime(trackTime: CMTime) -> AVAssetTrackSegment?
+  func segmentForTrack(trackTime: CMTime) -> AVAssetTrackSegment?
 
   /*!
   	@method			samplePresentationTimeForTrackTime:
@@ -1975,7 +1975,7 @@ extension AVAssetTrack {
   					The trackTime for which a sample presentation time is requested.
   	@result			A CMTime; will be invalid if the trackTime is out of range
   */
-  func samplePresentationTimeForTrackTime(trackTime: CMTime) -> CMTime
+  func samplePresentationTimeForTrack(trackTime: CMTime) -> CMTime
 }
 extension AVAssetTrack {
   var commonMetadata: [AVMetadataItem] { get }
@@ -2069,12 +2069,12 @@ class AVAssetTrackGroup : NSObject, NSCopying {
   var trackIDs: [NSNumber] { get }
   init()
   @available(tvOS 7.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 4.0, *)
 class AVAssetTrackSegment : NSObject {
   var timeMapping: CMTimeMapping { get }
-  var empty: Bool { get }
+  var isEmpty: Bool { get }
 }
 
 /*!
@@ -2137,7 +2137,7 @@ class AVAssetWriter : NSObject {
   	
   	UTIs for container formats that can be written are declared in AVMediaFormat.h.
    */
-  init(URL outputURL: NSURL, fileType outputFileType: String) throws
+  init(url outputURL: NSURL, fileType outputFileType: String) throws
 
   /*!
    @property outputURL
@@ -2586,7 +2586,7 @@ class AVAssetWriterInput : NSObject {
   	
       This property is key value observable. Observers should not assume that they will be notified of changes on a specific thread.
    */
-  var readyForMoreMediaData: Bool { get }
+  var isReadyForMoreMediaData: Bool { get }
 
   /*!
    @property expectsMediaDataInRealTime
@@ -2640,7 +2640,7 @@ class AVAssetWriterInput : NSObject {
    
   	Before calling this method, you must ensure that the receiver is attached to an AVAssetWriter via a prior call to -addInput: and that -startWriting has been called on the asset writer.
    */
-  func requestMediaDataWhenReadyOnQueue(queue: dispatch_queue_t, usingBlock block: () -> Void)
+  func requestMediaDataWhenReadyOn(queue: dispatch_queue_t, usingBlock block: () -> Void)
 
   /*!
    @method appendSampleBuffer:
@@ -2673,7 +2673,7 @@ class AVAssetWriterInput : NSObject {
   
   	Before calling this method, you must ensure that the receiver is attached to an AVAssetWriter via a prior call to -addInput: and that -startWriting has been called on the asset writer.  It is an error to invoke this method before starting a session (via -[AVAssetWriter startSessionAtSourceTime:]) or after ending a session (via -[AVAssetWriter endSessionAtSourceTime:]).
    */
-  func appendSampleBuffer(sampleBuffer: CMSampleBuffer) -> Bool
+  func append(sampleBuffer: CMSampleBuffer) -> Bool
 
   /*!
    @method markAsFinished
@@ -2854,7 +2854,7 @@ extension AVAssetWriterInput {
   	If the type of association requires tracks of specific media types that don't match the media types of the inputs, or if the output file type does not support track associations, -canAddTrackAssociationWithTrackOfInput:type: will return NO.
    */
   @available(tvOS 7.0, *)
-  func canAddTrackAssociationWithTrackOfInput(input: AVAssetWriterInput, type trackAssociationType: String) -> Bool
+  func canAddTrackAssociationWithTrackOf(input: AVAssetWriterInput, type trackAssociationType: String) -> Bool
 
   /*!
    @method addTrackAssociationWithTrackOfInput:type:
@@ -2872,7 +2872,7 @@ extension AVAssetWriterInput {
   	Track associations cannot be added after writing on the receiver's AVAssetWriter has started.
    */
   @available(tvOS 7.0, *)
-  func addTrackAssociationWithTrackOfInput(input: AVAssetWriterInput, type trackAssociationType: String)
+  func addTrackAssociationWithTrackOf(input: AVAssetWriterInput, type trackAssociationType: String)
 }
 extension AVAssetWriterInput {
 
@@ -2953,7 +2953,7 @@ extension AVAssetWriterInput {
   	Before calling this method, you must ensure that the receiver is attached to an AVAssetWriter via a prior call to -addInput: and that -startWriting has been called on the asset writer.
    */
   @available(tvOS 8.0, *)
-  func respondToEachPassDescriptionOnQueue(queue: dispatch_queue_t, usingBlock block: dispatch_block_t)
+  func respondToEachPassDescriptionOn(queue: dispatch_queue_t, usingBlock block: dispatch_block_t)
 
   /*!
    @method markCurrentPassAsFinished
@@ -3088,7 +3088,7 @@ class AVAssetWriterInputPixelBufferAdaptor : NSObject {
    
   	Before calling this method, you must ensure that the input that underlies the receiver is attached to an AVAssetWriter via a prior call to -addInput: and that -startWriting has been called on the asset writer.  It is an error to invoke this method before starting a session (via -[AVAssetWriter startSessionAtSourceTime:]) or after ending a session (via -[AVAssetWriter endSessionAtSourceTime:]).
    */
-  func appendPixelBuffer(pixelBuffer: CVPixelBuffer, withPresentationTime presentationTime: CMTime) -> Bool
+  func append(pixelBuffer: CVPixelBuffer, withPresentationTime presentationTime: CMTime) -> Bool
 }
 
 /*!
@@ -3140,7 +3140,7 @@ class AVAssetWriterInputMetadataAdaptor : NSObject {
    
   	Before calling this method, you must ensure that the input that underlies the receiver is attached to an AVAssetWriter via a prior call to -addInput: and that -startWriting has been called on the asset writer.  It is an error to invoke this method before starting a session (via -[AVAssetWriter startSessionAtSourceTime:]) or after ending a session (via -[AVAssetWriter endSessionAtSourceTime:]).
    */
-  func appendTimedMetadataGroup(timedMetadataGroup: AVTimedMetadataGroup) -> Bool
+  func append(timedMetadataGroup: AVTimedMetadataGroup) -> Bool
 }
 enum AVKeyValueStatus : Int {
   init?(rawValue: Int)
@@ -3194,7 +3194,7 @@ protocol AVAsynchronousKeyValueLoading {
     @param		completionHandler
       The block to be invoked when loading succeeds, fails, or is cancelled.
   */
-  func loadValuesAsynchronouslyForKeys(keys: [String], completionHandler handler: (() -> Void)?)
+  func loadValuesAsynchronouslyForKeys(keys: [String], completionHandler handler: (() -> Void)? = nil)
 }
 
 /*!
@@ -3235,9 +3235,9 @@ class AVAudioBuffer : NSObject, NSCopying, NSMutableCopying {
   var mutableAudioBufferList: UnsafeMutablePointer<AudioBufferList> { get }
   init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 8.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -3259,7 +3259,7 @@ class AVAudioPCMBuffer : AVAudioBuffer {
   	@discussion
   		An exception is raised if the format is not PCM.
   */
-  init(PCMFormat format: AVAudioFormat, frameCapacity: AVAudioFrameCount)
+  init(pcmFormat format: AVAudioFormat, frameCapacity: AVAudioFrameCount)
 
   /*! @property frameCapacity
   	@abstract
@@ -3441,7 +3441,7 @@ class AVAudioChannelLayout : NSObject, NSSecureCoding {
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -3641,7 +3641,7 @@ class AVAudioConverter : NSObject {
   	@param toFormat 
   		The output format.
   */
-  init(fromFormat: AVAudioFormat, toFormat: AVAudioFormat)
+  init(from fromFormat: AVAudioFormat, to toFormat: AVAudioFormat)
 
   /*! @method reset
       @abstract Resets the converter so that a new stream may be converted.
@@ -3676,12 +3676,12 @@ class AVAudioConverter : NSObject {
   /*! @property downmix
       @abstract If YES and channel remapping is necessary, then channels will be mixed as appropriate instead of remapped. Default value is NO.
   */
-  var downmix: Bool
+  var isDownmix: Bool
 
   /*! @property dither
       @abstract Setting YES will turn on dither, if dither makes sense in given the current formats and settings. Default value is NO.
   */
-  var dither: Bool
+  var isDither: Bool
 
   /*! @property sampleRateConverterQuality
       @abstract An AVAudioQuality value as defined in AVAudioSettings.h.
@@ -3718,7 +3718,7 @@ class AVAudioConverter : NSObject {
   		If the conversion involves a codec or sample rate conversion, you instead must use
   		convertToBuffer:error:withInputFromBlock:.
   */
-  func convertToBuffer(outputBuffer: AVAudioPCMBuffer, fromBuffer inputBuffer: AVAudioPCMBuffer) throws
+  func convertTo(outputBuffer: AVAudioPCMBuffer, from inputBuffer: AVAudioPCMBuffer) throws
 
   /*! @method convertToBuffer:error:withInputFromBlock:
       @abstract Perform any supported conversion. 
@@ -3734,7 +3734,7 @@ class AVAudioConverter : NSObject {
   		It attempts to fill the buffer to its capacity. On return, the buffer's length indicates the number of 
   		sample frames successfully converted.
   */
-  func convertToBuffer(outputBuffer: AVAudioBuffer, error outError: NSErrorPointer, withInputFromBlock inputBlock: AVAudioConverterInputBlock) -> AVAudioConverterOutputStatus
+  func convertTo(outputBuffer: AVAudioBuffer, error outError: NSErrorPointer, withInputFrom inputBlock: AVAudioConverterInputBlock) -> AVAudioConverterOutputStatus
   init()
 }
 extension AVAudioConverter {
@@ -3825,7 +3825,7 @@ class AVAudioEngine : NSObject {
   [_player release];
   </pre>
   */
-  func attachNode(node: AVAudioNode)
+  func attach(node: AVAudioNode)
 
   /*!	@method detachNode:
   	@abstract
@@ -3833,7 +3833,7 @@ class AVAudioEngine : NSObject {
   	@discussion
   		If necessary, the engine will safely disconnect the node before detaching it.
   */
-  func detachNode(node: AVAudioNode)
+  func detach(node: AVAudioNode)
 
   /*! @method connect:to:fromBus:toBus:format:
   	@abstract
@@ -3897,7 +3897,7 @@ class AVAudioEngine : NSObject {
   			- any sample rate conversion
   */
   @available(tvOS 9.0, *)
-  func connect(sourceNode: AVAudioNode, toConnectionPoints destNodes: [AVAudioConnectionPoint], fromBus sourceBus: AVAudioNodeBus, format: AVAudioFormat?)
+  func connect(sourceNode: AVAudioNode, to destNodes: [AVAudioConnectionPoint], fromBus sourceBus: AVAudioNodeBus, format: AVAudioFormat?)
 
   /*! @method disconnectNodeInput:bus:
   	@abstract
@@ -4000,7 +4000,7 @@ class AVAudioEngine : NSObject {
   		Returns nil if there is no connection on the node's specified input bus.
   */
   @available(tvOS 9.0, *)
-  func inputConnectionPointForNode(node: AVAudioNode, inputBus bus: AVAudioNodeBus) -> AVAudioConnectionPoint?
+  func inputConnectionPointFor(node: AVAudioNode, inputBus bus: AVAudioNodeBus) -> AVAudioConnectionPoint?
 
   /*! @method outputConnectionPointsForNode:outputBus:
   	@abstract
@@ -4016,7 +4016,7 @@ class AVAudioEngine : NSObject {
   		Returns an empty array if there are no connections on the node's specified output bus.
   */
   @available(tvOS 9.0, *)
-  func outputConnectionPointsForNode(node: AVAudioNode, outputBus bus: AVAudioNodeBus) -> [AVAudioConnectionPoint]
+  func outputConnectionPointsFor(node: AVAudioNode, outputBus bus: AVAudioNodeBus) -> [AVAudioConnectionPoint]
 
   /*! @property musicSequence
   	@abstract
@@ -4054,7 +4054,7 @@ class AVAudioEngine : NSObject {
   	@abstract
   		The engine's running state.
   */
-  var running: Bool { get }
+  var isRunning: Bool { get }
 }
 
 /*!	@constant AVAudioEngineConfigurationChangeNotification
@@ -4179,7 +4179,7 @@ class AVAudioEnvironmentReverbParameters : NSObject {
       @discussion
           Default:    NO
   */
-  var enable: Bool
+  var isEnable: Bool
 
   /*! @property level
       @abstract Controls the master level of the reverb
@@ -4522,7 +4522,7 @@ class AVAudioFile : NSObject {
   		Reading sequentially from framePosition, attempts to fill the buffer to its capacity. On
   		return, the buffer's length indicates the number of sample frames successfully read.
   */
-  func readIntoBuffer(buffer: AVAudioPCMBuffer) throws
+  func readInto(buffer: AVAudioPCMBuffer) throws
 
   /*! @method readIntoBuffer:frameCount:error:
   	@abstract Read a portion of a buffer.
@@ -4538,7 +4538,7 @@ class AVAudioFile : NSObject {
   	@discussion
   		Like `readIntoBuffer:error:`, but can be used to read fewer frames than buffer.frameCapacity.
   */
-  func readIntoBuffer(buffer: AVAudioPCMBuffer, frameCount frames: AVAudioFrameCount) throws
+  func readInto(buffer: AVAudioPCMBuffer, frameCount frames: AVAudioFrameCount) throws
 
   /*! @method writeFromBuffer:error:
   	@abstract Write a buffer.
@@ -4552,7 +4552,7 @@ class AVAudioFile : NSObject {
   	@discussion
   		Writes sequentially. The buffer's frameLength signifies how much of the buffer is to be written.
   */
-  func writeFromBuffer(buffer: AVAudioPCMBuffer) throws
+  func writeFrom(buffer: AVAudioPCMBuffer) throws
 
   /*!	@property url
   	@abstract The URL the file is reading or writing.
@@ -4707,7 +4707,7 @@ class AVAudioFormat : NSObject, NSSecureCoding {
    		If formatDescription is invalid, this method fails (returns nil).
    */
   @available(tvOS 9.0, *)
-  init(CMAudioFormatDescription formatDescription: CMAudioFormatDescription)
+  init(cmAudioFormatDescription formatDescription: CMAudioFormatDescription)
 
   /*!	@method isEqual:
   	@abstract Determine whether another format is functionally equivalent.
@@ -4726,7 +4726,7 @@ class AVAudioFormat : NSObject, NSSecureCoding {
   /*!	@property standard
   	@abstract Describes whether the format is deinterleaved native-endian float.
   */
-  var standard: Bool { get }
+  var isStandard: Bool { get }
 
   /*!	@property commonFormat
   	@abstract An `AVAudioCommonFormat` identifying the format
@@ -4748,7 +4748,7 @@ class AVAudioFormat : NSObject, NSSecureCoding {
   	@discussion
   		For non-PCM formats, the value is undefined.
   */
-  var interleaved: Bool { get }
+  var isInterleaved: Bool { get }
 
   /*!	@property streamDescription
   	@abstract Returns the AudioStreamBasicDescription, for use with lower-level audio API's.
@@ -4777,7 +4777,7 @@ class AVAudioFormat : NSObject, NSSecureCoding {
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -4957,9 +4957,9 @@ class AVAudioMix : NSObject, NSCopying, NSMutableCopying {
   var inputParameters: [AVAudioMixInputParameters] { get }
   init()
   @available(tvOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 4.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 4.0, *)
 class AVMutableAudioMix : AVAudioMix {
@@ -4997,12 +4997,12 @@ class AVAudioMixInputParameters : NSObject, NSCopying, NSMutableCopying {
   */
   @available(tvOS 6.0, *)
   var audioTapProcessor: MTAudioProcessingTap? { get }
-  func getVolumeRampForTime(time: CMTime, startVolume: UnsafeMutablePointer<Float>, endVolume: UnsafeMutablePointer<Float>, timeRange: UnsafeMutablePointer<CMTimeRange>) -> Bool
+  func getVolumeRampFor(time: CMTime, startVolume: UnsafeMutablePointer<Float>, endVolume: UnsafeMutablePointer<Float>, timeRange: UnsafeMutablePointer<CMTimeRange>) -> Bool
   init()
   @available(tvOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 4.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 4.0, *)
 class AVMutableAudioMixInputParameters : AVAudioMixInputParameters {
@@ -5031,7 +5031,7 @@ class AVMutableAudioMixInputParameters : AVAudioMixInputParameters {
   @available(tvOS 6.0, *)
   var audioTapProcessor: MTAudioProcessingTap?
   func setVolumeRampFromStartVolume(startVolume: Float, toEndVolume endVolume: Float, timeRange: CMTimeRange)
-  func setVolume(volume: Float, atTime time: CMTime)
+  func setVolume(volume: Float, at time: CMTime)
   init()
 }
 
@@ -5652,10 +5652,10 @@ class AVAudioNode : NSObject {
 }
 @available(tvOS 2.2, *)
 class AVAudioPlayer : NSObject {
-  init(contentsOfURL url: NSURL) throws
+  init(contentsOf url: NSURL) throws
   init(data: NSData) throws
   @available(tvOS 7.0, *)
-  init(contentsOfURL url: NSURL, fileTypeHint utiString: String?) throws
+  init(contentsOf url: NSURL, fileTypeHint utiString: String?) throws
   @available(tvOS 7.0, *)
   init(data: NSData, fileTypeHint utiString: String?) throws
   func prepareToPlay() -> Bool
@@ -5664,7 +5664,7 @@ class AVAudioPlayer : NSObject {
   func playAtTime(time: NSTimeInterval) -> Bool
   func pause()
   func stop()
-  var playing: Bool { get }
+  var isPlaying: Bool { get }
   var numberOfChannels: Int { get }
   var duration: NSTimeInterval { get }
   unowned(unsafe) var delegate: @sil_unmanaged AVAudioPlayerDelegate?
@@ -5674,7 +5674,7 @@ class AVAudioPlayer : NSObject {
   var pan: Float
   var volume: Float
   @available(tvOS 5.0, *)
-  var enableRate: Bool
+  var isEnableRate: Bool
   @available(tvOS 5.0, *)
   var rate: Float
   var currentTime: NSTimeInterval
@@ -5683,7 +5683,7 @@ class AVAudioPlayer : NSObject {
   var numberOfLoops: Int
   @available(tvOS 4.0, *)
   var settings: [String : AnyObject] { get }
-  var meteringEnabled: Bool
+  var isMeteringEnabled: Bool
   func updateMeters()
   func peakPowerForChannel(channelNumber: Int) -> Float
   func averagePowerForChannel(channelNumber: Int) -> Float
@@ -5791,7 +5791,7 @@ class AVAudioPlayerNode : AVAudioNode, AVAudioMixing {
   	@discussion
   		Schedules the buffer to be played following any previously scheduled commands.
   */
-  func scheduleBuffer(buffer: AVAudioPCMBuffer, completionHandler: AVAudioNodeCompletionHandler?)
+  func scheduleBuffer(buffer: AVAudioPCMBuffer, completionHandler: AVAudioNodeCompletionHandler? = nil)
 
   /*! @method scheduleBuffer:atTime:options:completionHandler:
   	@abstract Schedule playing samples from an AVAudioBuffer.
@@ -5805,7 +5805,7 @@ class AVAudioPlayerNode : AVAudioNode, AVAudioMixing {
   		called after the buffer has completely played or the player is stopped. may be nil.
   	@discussion
   */
-  func scheduleBuffer(buffer: AVAudioPCMBuffer, atTime when: AVAudioTime?, options: AVAudioPlayerNodeBufferOptions, completionHandler: AVAudioNodeCompletionHandler?)
+  func scheduleBuffer(buffer: AVAudioPCMBuffer, at when: AVAudioTime?, options: AVAudioPlayerNodeBufferOptions = [], completionHandler: AVAudioNodeCompletionHandler? = nil)
 
   /*! @method scheduleFile:atTime:completionHandler:
   	@abstract Schedule playing of an entire audio file.
@@ -5816,7 +5816,7 @@ class AVAudioPlayerNode : AVAudioNode, AVAudioMixing {
   	@param completionHandler
   		called after the file has completely played or the player is stopped. may be nil.
   */
-  func scheduleFile(file: AVAudioFile, atTime when: AVAudioTime?, completionHandler: AVAudioNodeCompletionHandler?)
+  func scheduleFile(file: AVAudioFile, at when: AVAudioTime?, completionHandler: AVAudioNodeCompletionHandler? = nil)
 
   /*! @method scheduleSegment:startingFrame:frameCount:atTime:completionHandler:
   	@abstract Schedule playing a segment of an audio file.
@@ -5831,7 +5831,7 @@ class AVAudioPlayerNode : AVAudioNode, AVAudioMixing {
   	@param completionHandler
   		called after the segment has completely played or the player is stopped. may be nil.
   */
-  func scheduleSegment(file: AVAudioFile, startingFrame startFrame: AVAudioFramePosition, frameCount numberFrames: AVAudioFrameCount, atTime when: AVAudioTime?, completionHandler: AVAudioNodeCompletionHandler?)
+  func scheduleSegment(file: AVAudioFile, startingFrame startFrame: AVAudioFramePosition, frameCount numberFrames: AVAudioFrameCount, at when: AVAudioTime?, completionHandler: AVAudioNodeCompletionHandler? = nil)
 
   /*!	@method stop
   	@abstract Clear all of the node's previously scheduled events and stop playback.
@@ -5881,7 +5881,7 @@ class AVAudioPlayerNode : AVAudioNode, AVAudioMixing {
   }
   </pre>
   */
-  func playAtTime(when: AVAudioTime?)
+  func playAt(when: AVAudioTime?)
 
   /*! @method pause
   	@abstract Pause playback.
@@ -5923,7 +5923,7 @@ class AVAudioPlayerNode : AVAudioNode, AVAudioMixing {
   /*!	@property playing
   	@abstract Indicates whether or not the player is playing.
   */
-  var playing: Bool { get }
+  var isPlaying: Bool { get }
   init()
 
   /*! @method destinationForMixer:bus:
@@ -6138,7 +6138,7 @@ class AVAudioSequencer : NSObject {
    		determines how the file's contents are mapped to tracks inside the sequence
   	@param outError
   */
-  func loadFromURL(fileURL: NSURL, options: AVMusicSequenceLoadOptions) throws
+  func loadFrom(fileURL: NSURL, options: AVMusicSequenceLoadOptions = []) throws
 
   /*! @method loadFromData:options:error:
   	@abstract Parse the data and add the its events to the sequence
@@ -6147,7 +6147,7 @@ class AVAudioSequencer : NSObject {
    		determines how the contents are mapped to tracks inside the sequence
   	@param outError
   */
-  func loadFromData(data: NSData, options: AVMusicSequenceLoadOptions) throws
+  func loadFrom(data: NSData, options: AVMusicSequenceLoadOptions = []) throws
 
   /*! @method writeToURL:SMPTEResolution:replaceExisting:error:
   	@abstract Create and write a MIDI file from the events in the sequence
@@ -6166,7 +6166,7 @@ class AVAudioSequencer : NSObject {
    		The relationship between "tick" and quarter note for saving to Standard MIDI File
   		- pass in zero to use default - this will be the value that is currently set on the tempo track
    */
-  func writeToURL(fileURL: NSURL, SMPTEResolution resolution: Int, replaceExisting replace: Bool) throws
+  func writeTo(fileURL: NSURL, smpteResolution resolution: Int, replaceExisting replace: Bool) throws
 
   /*!	@method dataWithSMPTEResolution:error:
    	@abstract Return a data object containing the events from the sequence
@@ -6236,7 +6236,7 @@ extension AVAudioSequencer {
   		"played" past the end of the events in the sequence, but it is still considered to be
   		playing (and its time value increasing) until it is explicitly stopped.
    */
-  var playing: Bool { get }
+  var isPlaying: Bool { get }
 
   /*! @property rate
   	@abstract The playback rate of the sequencer's player
@@ -6318,7 +6318,7 @@ class AVMusicTrack : NSObject {
   	@discussion
   		If loopRange has not been set, the full track will be looped.
   */
-  var loopingEnabled: Bool
+  var isLoopingEnabled: Bool
 
   /*!	@property numberOfLoops
    	@abstract The number of times that the track's loop will repeat
@@ -6338,12 +6338,12 @@ class AVMusicTrack : NSObject {
   /*! @property muted
       @abstract Whether the track is muted
   */
-  var muted: Bool
+  var isMuted: Bool
 
   /*! @property soloed
       @abstract Whether the track is soloed
   */
-  var soloed: Bool
+  var isSoloed: Bool
 
   /*! @property lengthInBeats
       @abstract The total duration of the track in beats
@@ -6506,12 +6506,12 @@ class AVAudioSession : NSObject {
   class func sharedInstance() -> AVAudioSession
   func setActive(active: Bool) throws
   @available(tvOS 6.0, *)
-  func setActive(active: Bool, withOptions options: AVAudioSessionSetActiveOptions) throws
+  func setActive(active: Bool, withOptions options: AVAudioSessionSetActiveOptions = []) throws
   @available(tvOS 9.0, *)
   var availableCategories: [String] { get }
   func setCategory(category: String) throws
   @available(tvOS 6.0, *)
-  func setCategory(category: String, withOptions options: AVAudioSessionCategoryOptions) throws
+  func setCategory(category: String, withOptions options: AVAudioSessionCategoryOptions = []) throws
   var category: String { get }
   @available(tvOS 6.0, *)
   var categoryOptions: AVAudioSessionCategoryOptions { get }
@@ -6524,7 +6524,7 @@ class AVAudioSession : NSObject {
   @available(tvOS 6.0, *)
   func overrideOutputAudioPort(portOverride: AVAudioSessionPortOverride) throws
   @available(tvOS 6.0, *)
-  var otherAudioPlaying: Bool { get }
+  var isOtherAudioPlaying: Bool { get }
   @available(tvOS 8.0, *)
   var secondaryAudioShouldBeSilencedHint: Bool { get }
   @available(tvOS 6.0, *)
@@ -6562,9 +6562,9 @@ extension AVAudioSession {
   @available(tvOS 6.0, *)
   var inputGain: Float { get }
   @available(tvOS 6.0, *)
-  var inputGainSettable: Bool { get }
+  var isInputGainSettable: Bool { get }
   @available(tvOS 6.0, *)
-  var inputAvailable: Bool { get }
+  var isInputAvailable: Bool { get }
   @available(tvOS 6.0, *)
   var inputDataSources: [AVAudioSessionDataSourceDescription]? { get }
   @available(tvOS 6.0, *)
@@ -6590,7 +6590,7 @@ extension AVAudioSession {
   @available(tvOS 6.0, *)
   var outputLatency: NSTimeInterval { get }
   @available(tvOS 6.0, *)
-  var IOBufferDuration: NSTimeInterval { get }
+  var ioBufferDuration: NSTimeInterval { get }
 }
 extension AVAudioSession {
 }
@@ -6704,7 +6704,7 @@ class AVAudioSessionChannelDescription : NSObject {
 class AVAudioSessionPortDescription : NSObject {
   var portType: String { get }
   var portName: String { get }
-  var UID: String { get }
+  var uid: String { get }
   var channels: [AVAudioSessionChannelDescription]? { get }
   @available(tvOS 7.0, *)
   var dataSources: [AVAudioSessionDataSourceDescription]? { get }
@@ -6861,7 +6861,7 @@ class AVAudioTime : NSObject {
   /*! @property hostTimeValid
   	@abstract Whether the hostTime property is valid.
   */
-  var hostTimeValid: Bool { get }
+  var isHostTimeValid: Bool { get }
 
   /*! @property hostTime
   	@abstract The host time.
@@ -6871,7 +6871,7 @@ class AVAudioTime : NSObject {
   /*! @property sampleTimeValid
   	@abstract Whether the sampleTime and sampleRate properties are valid.
   */
-  var sampleTimeValid: Bool { get }
+  var isSampleTimeValid: Bool { get }
 
   /*!	@property sampleTime
   	@abstract The time as a number of audio samples, as tracked by the current audio device.
@@ -7059,7 +7059,7 @@ class AVAudioUnit : AVAudioNode {
   		according to the component's type.
   */
   @available(tvOS 9.0, *)
-  class func instantiateWithComponentDescription(audioComponentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions, completionHandler: (AVAudioUnit?, NSError?) -> Void)
+  class func instantiateWith(audioComponentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = [], completionHandler: (AVAudioUnit?, NSError?) -> Void)
 
   /*! @method loadAudioUnitPresetAtURL:error:
       @abstract Load an audio unit preset.
@@ -7069,7 +7069,7 @@ class AVAudioUnit : AVAudioNode {
       @discussion
           If the .aupreset file cannot be successfully loaded, an error is returned.
   */
-  func loadAudioUnitPresetAtURL(url: NSURL) throws
+  func loadAudioUnitPresetAt(url: NSURL) throws
 
   /*! @property audioComponentDescription
       @abstract AudioComponentDescription of the underlying audio unit.
@@ -7100,7 +7100,7 @@ class AVAudioUnit : AVAudioNode {
           state, stream formats, channel layouts or connections to other audio units.
   */
   @available(tvOS 9.0, *)
-  var AUAudioUnit: AUAudioUnit { get }
+  var auAudioUnit: AUAudioUnit { get }
 
   /*! @property name
       @abstract Name of the audio unit.
@@ -7185,7 +7185,7 @@ class AVAudioUnitComponent : NSObject {
   	@abstract On OSX, YES if the AudioComponent can be loaded into a sandboxed process otherwise NO.
   			  On iOS, this is always YES.
    */
-  var sandboxSafe: Bool { get }
+  var isSandboxSafe: Bool { get }
 
   /*! @property hasMIDIInput
   	@abstract YES if AudioComponent has midi input, otherwise NO
@@ -7247,7 +7247,7 @@ class AVAudioUnitComponentManager : NSObject {
   		returns the localized standard system tags defined by the audio unit(s).
    */
   var standardLocalizedTagNames: [String] { get }
-  class func sharedAudioUnitComponentManager() -> Self
+  class func shared() -> Self
 
   /*!
    @method componentsMatchingPredicate:
@@ -7256,7 +7256,7 @@ class AVAudioUnitComponentManager : NSObject {
    		AudioComponent's information or tags can be used to build a search criteria. 
    		For example, "typeName CONTAINS 'Effect'" or tags IN {'Sampler', 'MIDI'}"
    */
-  func componentsMatchingPredicate(predicate: NSPredicate) -> [AVAudioUnitComponent]
+  func componentsMatching(predicate: NSPredicate) -> [AVAudioUnitComponent]
 
   /*!
    @method componentsPassingTest:
@@ -7276,7 +7276,7 @@ class AVAudioUnitComponentManager : NSObject {
   		structure. The type, subtype and manufacturer fields are used to search for audio units. A 
    		value of 0 for any of these fields is a wildcard and returns the first match found.
    */
-  func componentsMatchingDescription(desc: AudioComponentDescription) -> [AVAudioUnitComponent]
+  func componentsMatching(desc: AudioComponentDescription) -> [AVAudioUnitComponent]
   init()
 }
 
@@ -8137,7 +8137,7 @@ class AVAudioUnitSampler : AVAudioUnitMIDIInstrument {
   	@discussion
    		This method reads from file and allocates memory, so it should not be called on a real time thread.
    */
-  func loadSoundBankInstrumentAtURL(bankURL: NSURL, program: UInt8, bankMSB: UInt8, bankLSB: UInt8) throws
+  func loadSoundBankInstrumentAt(bankURL: NSURL, program: UInt8, bankMSB: UInt8, bankLSB: UInt8) throws
 
   /*! @method loadInstrumentAtURL:error:
   	@abstract configures the sampler by loading the specified preset file.
@@ -8155,7 +8155,7 @@ class AVAudioUnitSampler : AVAudioUnitMIDIInstrument {
   		This method reads from file and allocates memory, so it should not be called on a real time thread.
    
    */
-  func loadInstrumentAtURL(instrumentURL: NSURL) throws
+  func loadInstrumentAt(instrumentURL: NSURL) throws
 
   /*! @method loadAudioFilesAtURLs:error:
   	@abstract configures the sampler by loading a set of audio files.
@@ -8363,7 +8363,7 @@ extension AVCaptureDevice {
       overheats and needs to cool off. This property is key-value observable.
   */
   @available(tvOS 5.0, *)
-  var flashAvailable: Bool { get }
+  var isFlashAvailable: Bool { get }
 
   /*!
    @property flashActive
@@ -8379,7 +8379,7 @@ extension AVCaptureDevice {
       This property is key-value observable.
   */
   @available(tvOS 5.0, *)
-  var flashActive: Bool { get }
+  var isFlashActive: Bool { get }
 
   /*!
    @method isFlashModeSupported:
@@ -8442,7 +8442,7 @@ extension AVCaptureDevice {
       overheats and needs to cool off. This property is key-value observable.
   */
   @available(tvOS 5.0, *)
-  var torchAvailable: Bool { get }
+  var isTorchAvailable: Bool { get }
 
   /*!
    @property torchActive
@@ -8456,7 +8456,7 @@ extension AVCaptureDevice {
       -startRecordingToOutputFileURL:recordingDelegate:). This property is key-value observable.
   */
   @available(tvOS 6.0, *)
-  var torchActive: Bool { get }
+  var isTorchActive: Bool { get }
 
   /*!
    @property torchLevel
@@ -8741,7 +8741,7 @@ extension AVCaptureDevice {
    @discussion
       The receiver's exposurePointOfInterest property can only be set if this property returns YES.
   */
-  var exposurePointOfInterestSupported: Bool { get }
+  var isExposurePointOfInterestSupported: Bool { get }
 
   /*!
    @property exposurePointOfInterest
@@ -8770,7 +8770,7 @@ extension AVCaptureDevice {
       Clients can observe the value of this property to determine whether the camera exposure is stable or is being
       automatically adjusted.
   */
-  var adjustingExposure: Bool { get }
+  var isAdjustingExposure: Bool { get }
 
   /*!
    @property lensAperture
@@ -8809,7 +8809,7 @@ extension AVCaptureDevice {
       via setExposureModeCustomWithDuration:ISO:completionHandler:.
   */
   @available(tvOS 8.0, *)
-  var ISO: Float { get }
+  var iso: Float { get }
 
   /*!
    @method setExposureModeCustomWithDuration:ISO:completionHandler:
@@ -8842,7 +8842,7 @@ extension AVCaptureDevice {
       automaticallyEnablesStillImageStabilizationWhenAvailable property to NO.
   */
   @available(tvOS 8.0, *)
-  func setExposureModeCustomWithDuration(duration: CMTime, ISO: Float, completionHandler handler: ((CMTime) -> Void)!)
+  func setExposureModeCustomWithDuration(duration: CMTime, iso ISO: Float, completionHandler handler: ((CMTime) -> Void)!)
 
   /*!
    @property exposureTargetOffset
@@ -8986,7 +8986,7 @@ extension AVCaptureDevice {
       AVCaptureWhiteBalanceModeContinuousAutoWhiteBalance. Clients can observe the value of this property to determine
       whether the camera white balance is stable or is being automatically adjusted.
   */
-  var adjustingWhiteBalance: Bool { get }
+  var isAdjustingWhiteBalance: Bool { get }
 
   /*!
    @property deviceWhiteBalanceGains
@@ -9104,7 +9104,7 @@ extension AVCaptureDevice {
       red, green, and blue gain values are within the range of [1.0 - maxWhiteBalanceGain].
   */
   @available(tvOS 8.0, *)
-  func deviceWhiteBalanceGainsForChromaticityValues(chromaticityValues: AVCaptureWhiteBalanceChromaticityValues) -> AVCaptureWhiteBalanceGains
+  func deviceWhiteBalanceGainsFor(chromaticityValues: AVCaptureWhiteBalanceChromaticityValues) -> AVCaptureWhiteBalanceGains
 
   /*!
    @method temperatureAndTintValuesForDeviceWhiteBalanceGains:
@@ -9148,7 +9148,7 @@ extension AVCaptureDevice {
       red, green, and blue gain values are within the range of [1.0 - maxWhiteBalanceGain].
   */
   @available(tvOS 8.0, *)
-  func deviceWhiteBalanceGainsForTemperatureAndTintValues(tempAndTintValues: AVCaptureWhiteBalanceTemperatureAndTintValues) -> AVCaptureWhiteBalanceGains
+  func deviceWhiteBalanceGainsFor(tempAndTintValues: AVCaptureWhiteBalanceTemperatureAndTintValues) -> AVCaptureWhiteBalanceGains
 }
 
 /*!
@@ -9177,7 +9177,7 @@ extension AVCaptureDevice {
   	the value of this property.
   */
   @available(tvOS 5.0, *)
-  var subjectAreaChangeMonitoringEnabled: Bool
+  var isSubjectAreaChangeMonitoringEnabled: Bool
 }
 extension AVCaptureDevice {
 
@@ -9190,7 +9190,7 @@ extension AVCaptureDevice {
       The receiver's automaticallyEnablesLowLightBoostWhenAvailable property can only be set if this property returns YES.
   */
   @available(tvOS 6.0, *)
-  var lowLightBoostSupported: Bool { get }
+  var isLowLightBoostSupported: Bool { get }
 
   /*!
    @property lowLightBoostEnabled
@@ -9204,7 +9204,7 @@ extension AVCaptureDevice {
       This property is key-value observable.
   */
   @available(tvOS 6.0, *)
-  var lowLightBoostEnabled: Bool { get }
+  var isLowLightBoostEnabled: Bool { get }
 
   /*!
    @property automaticallyEnablesLowLightBoostWhenAvailable
@@ -9285,7 +9285,7 @@ extension AVCaptureDevice {
    Clients can observe this value to determine when a ramp begins or completes.
    */
   @available(tvOS 7.0, *)
-  var rampingVideoZoom: Bool { get }
+  var isRampingVideoZoom: Bool { get }
 
   /*!
    @method cancelVideoZoomRamp
@@ -9391,7 +9391,7 @@ extension AVCaptureDevice {
       with [session beginConfiguration] and [session commitConfiguration] to minimize reconfiguration time.
   */
   @available(tvOS 8.0, *)
-  var videoHDREnabled: Bool
+  var isVideoHDREnabled: Bool
 }
 extension AVCaptureStillImageOutput {
 
@@ -9472,7 +9472,7 @@ extension AVCaptureStillImageOutput {
   
   */
   @available(tvOS 8.0, *)
-  func prepareToCaptureStillImageBracketFromConnection(connection: AVCaptureConnection!, withSettingsArray settings: [AnyObject]!, completionHandler handler: ((Bool, NSError!) -> Void)!)
+  func prepareToCaptureStillImageBracketFrom(connection: AVCaptureConnection!, withSettingsArray settings: [AnyObject]!, completionHandler handler: ((Bool, NSError!) -> Void)!)
 
   /*!
    @method captureStillImageBracketAsynchronouslyFromConnection:withSettingsArray:completionHandler:
@@ -9500,7 +9500,7 @@ extension AVCaptureStillImageOutput {
       prepare resources.
   */
   @available(tvOS 8.0, *)
-  func captureStillImageBracketAsynchronouslyFromConnection(connection: AVCaptureConnection!, withSettingsArray settings: [AnyObject]!, completionHandler handler: ((CMSampleBuffer!, AVCaptureBracketedStillImageSettings!, NSError!) -> Void)!)
+  func captureStillImageBracketAsynchronouslyFrom(connection: AVCaptureConnection!, withSettingsArray settings: [AnyObject]!, completionHandler handler: ((CMSampleBuffer!, AVCaptureBracketedStillImageSettings!, NSError!) -> Void)!)
 }
 @available(tvOS 4.0, *)
 class AVComposition : AVAsset, NSMutableCopying {
@@ -9515,7 +9515,7 @@ class AVComposition : AVAsset, NSMutableCopying {
   		The value of URLAssetInitializationOptions can be specified at the time an AVMutableComposition is created via +compositionWithURLAssetInitializationOptions:.
    */
   @available(tvOS 9.0, *)
-  var URLAssetInitializationOptions: [String : AnyObject] { get }
+  var urlAssetInitializationOptions: [String : AnyObject] { get }
 
   /*!
     @method		assetWithURL:
@@ -9525,10 +9525,10 @@ class AVComposition : AVAsset, NSMutableCopying {
     @result		An instance of AVAsset.
     @discussion	Returns a newly allocated instance of a subclass of AVAsset initialized with the specified URL.
   */
-  convenience init(URL: NSURL)
+  convenience init(url URL: NSURL)
   init()
   @available(tvOS 4.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
 }
 extension AVComposition {
 
@@ -9575,7 +9575,7 @@ class AVMutableComposition : AVComposition {
   	@discussion		AVMutableCompositions create AVURLAssets internally for URLs specified by AVCompositionTrackSegments of AVMutableCompositionTracks, as needed, whenever AVCompositionTrackSegments are added to tracks via -[AVMutableCompositionTrack setSegments:] rather than by inserting timeranges of already existing AVAssets or AVAssetTracks.
    */
   @available(tvOS 9.0, *)
-  convenience init(URLAssetInitializationOptions: [String : AnyObject]?)
+  convenience init(urlAssetInitializationOptions URLAssetInitializationOptions: [String : AnyObject]?)
 
   /*!
     @method		assetWithURL:
@@ -9585,7 +9585,7 @@ class AVMutableComposition : AVComposition {
     @result		An instance of AVAsset.
     @discussion	Returns a newly allocated instance of a subclass of AVAsset initialized with the specified URL.
   */
-  convenience init(URL: NSURL)
+  convenience init(url URL: NSURL)
   init()
 }
 extension AVMutableComposition {
@@ -9611,7 +9611,7 @@ extension AVMutableComposition {
   		
   		Existing content at the specified startTime will be pushed out by the duration of timeRange. 
   */
-  func insertTimeRange(timeRange: CMTimeRange, ofAsset asset: AVAsset, atTime startTime: CMTime) throws
+  func insert(timeRange: CMTimeRange, of asset: AVAsset, at startTime: CMTime) throws
 
   /*!
   	@method			insertEmptyTimeRange:
@@ -9624,7 +9624,7 @@ extension AVMutableComposition {
   		afterward. You can use this method to reserve an interval in which you want a subsequently
   		created track to present its media.
   */
-  func insertEmptyTimeRange(timeRange: CMTimeRange)
+  func insertEmpty(timeRange: CMTimeRange)
 
   /*!
   	@method			removeTimeRange:
@@ -9638,7 +9638,7 @@ extension AVMutableComposition {
   
   		After removing, existing content after timeRange will be pulled in.
   */
-  func removeTimeRange(timeRange: CMTimeRange)
+  func remove(timeRange: CMTimeRange)
 
   /*!
   	@method			scaleTimeRange:toDuration:
@@ -9699,7 +9699,7 @@ extension AVMutableComposition {
   		serially, even from multiple assets, a single track of that media type should be used. This method,
   		-mutableTrackCompatibleWithTrack:, can help the client to identify an existing target track for an insertion.
   */
-  func mutableTrackCompatibleWithTrack(track: AVAssetTrack) -> AVMutableCompositionTrack?
+  func mutableTrackCompatibleWith(track: AVAssetTrack) -> AVMutableCompositionTrack?
 }
 extension AVMutableComposition {
 
@@ -9763,7 +9763,7 @@ class AVMutableCompositionTrack : AVCompositionTrack {
   		
   		Note that the inserted track timeRange will be presented at its natural duration and rate. It can be scaled to a different duration (and presented at a different rate) via -scaleTimeRange:toDuration:.
   */
-  func insertTimeRange(timeRange: CMTimeRange, ofTrack track: AVAssetTrack, atTime startTime: CMTime) throws
+  func insertTimeRange(timeRange: CMTimeRange, of track: AVAssetTrack, at startTime: CMTime) throws
 
   /*!
   	@method			insertTimeRanges:ofTracks:atTime:error:
@@ -9782,7 +9782,7 @@ class AVMutableCompositionTrack : AVCompositionTrack {
   		This method is equivalent to (but more efficient than) calling -insertTimeRange:ofTrack:atTime:error: for each timeRange/track pair. If this method returns an error, none of the time ranges will be inserted into the composition track. To specify an empty time range, pass NSNull for the track and a time range of starting at kCMTimeInvalid with a duration of the desired empty edit.
   */
   @available(tvOS 5.0, *)
-  func insertTimeRanges(timeRanges: [NSValue], ofTracks tracks: [AVAssetTrack], atTime startTime: CMTime) throws
+  func insertTimeRanges(timeRanges: [NSValue], of tracks: [AVAssetTrack], at startTime: CMTime) throws
 
   /*!
   	@method			insertEmptyTimeRange:
@@ -9836,7 +9836,7 @@ class AVMutableCompositionTrack : AVCompositionTrack {
   		be made via an instance of NSMutableArray, and the resulting array can be tested via
   		-validateTrackSegments:error:.
   */
-  func validateTrackSegments(trackSegments: [AVCompositionTrackSegment]) throws
+  func validate(trackSegments: [AVCompositionTrackSegment]) throws
 }
 @available(tvOS 4.0, *)
 class AVCompositionTrackSegment : AVAssetTrackSegment {
@@ -9856,7 +9856,7 @@ class AVCompositionTrackSegment : AVAssetTrackSegment {
   	@discussion		To specify that the segment be played at the asset's normal rate, set source.duration == target.duration in the timeMapping.
   					Otherwise, the segment will be played at a rate equal to the ratio source.duration / target.duration.
   */
-  init(URL: NSURL, trackID: CMPersistentTrackID, sourceTimeRange: CMTimeRange, targetTimeRange: CMTimeRange)
+  init(url URL: NSURL, trackID: CMPersistentTrackID, sourceTimeRange: CMTimeRange, targetTimeRange: CMTimeRange)
 
   /*!
   	@method			initWithTimeRange:
@@ -9866,7 +9866,7 @@ class AVCompositionTrackSegment : AVAssetTrackSegment {
   	@result			An instance of AVCompositionTrackSegment.
   */
   init(timeRange: CMTimeRange)
-  var empty: Bool { get }
+  var isEmpty: Bool { get }
   var sourceURL: NSURL? { get }
   var sourceTrackID: CMPersistentTrackID { get }
 }
@@ -9985,7 +9985,7 @@ class AVMIDIPlayer : NSObject {
    		by the MIDI synthesizer.  For OSX it can be set to nil for the default,
    		but for iOS it must always refer to a valid bank file.
   */
-  init(contentsOfURL inURL: NSURL, soundBankURL bankURL: NSURL?) throws
+  init(contentsOf inURL: NSURL, soundBankURL bankURL: NSURL?) throws
 
   /*!	@method initWithData:soundBankURL:error:
   	@abstract Create a player with the contents of the data object
@@ -10006,7 +10006,7 @@ class AVMIDIPlayer : NSObject {
   /*! @method play:
   	@abstract Play the sequence.
    */
-  func play(completionHandler: AVMIDIPlayerCompletionHandler?)
+  func play(completionHandler: AVMIDIPlayerCompletionHandler? = nil)
 
   /*! @method stop
   	@abstract Stop playing the sequence.
@@ -10021,7 +10021,7 @@ class AVMIDIPlayer : NSObject {
   /*! @property playing
   	@abstract Indicates whether or not the player is playing
    */
-  var playing: Bool { get }
+  var isPlaying: Bool { get }
 
   /*! @property rate
   	@abstract The playback rate of the player
@@ -10456,7 +10456,7 @@ class AVMediaSelection : NSObject, NSCopying, NSMutableCopying {
    @discussion
   				If the value of the property allowsEmptySelection of the AVMediaSelectionGroup is YES, the currently selected option in the group may be nil.
   */
-  func selectedMediaOptionInMediaSelectionGroup(mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
+  func selectedMediaOptionIn(mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
 
   /*!
    @method		mediaSelectionCriteriaCanBeAppliedAutomaticallyToMediaSelectionGroup:
@@ -10466,12 +10466,12 @@ class AVMediaSelection : NSObject, NSCopying, NSMutableCopying {
    @result		YES if the group is subject to automatic media selection.
    @discussion	Automatic application of media selection criteria is suspended in any group in which a specific selection has been made via an invocation of -selectMediaOption:inMediaSelectionGroup:.
   */
-  func mediaSelectionCriteriaCanBeAppliedAutomaticallyToMediaSelectionGroup(mediaSelectionGroup: AVMediaSelectionGroup) -> Bool
+  func mediaSelectionCriteriaCanBeAppliedAutomaticallyTo(mediaSelectionGroup: AVMediaSelectionGroup) -> Bool
   init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 9.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 9.0, *)
 class AVMutableMediaSelection : AVMediaSelection {
@@ -10487,7 +10487,7 @@ class AVMutableMediaSelection : AVMediaSelection {
   				If the specified media selection option isn't a member of the specified media selection group, no change in presentation state will result.
   				If the value of the property allowsEmptySelection of the AVMediaSelectionGroup is YES, you can pass nil for mediaSelectionOption to deselect all media selection options in the group.
   */
-  func selectMediaOption(mediaSelectionOption: AVMediaSelectionOption?, inMediaSelectionGroup mediaSelectionGroup: AVMediaSelectionGroup)
+  func selectMediaOption(mediaSelectionOption: AVMediaSelectionOption?, `in` mediaSelectionGroup: AVMediaSelectionGroup)
   init()
 }
 @available(tvOS 5.0, *)
@@ -10528,7 +10528,7 @@ class AVMediaSelectionGroup : NSObject, NSCopying {
   func mediaSelectionOptionWithPropertyList(plist: AnyObject) -> AVMediaSelectionOption?
   init()
   @available(tvOS 5.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 extension AVMediaSelectionGroup {
 
@@ -10539,7 +10539,7 @@ extension AVMediaSelectionGroup {
     				An array of AVMediaSelectionOption to be filtered according to whether they are playable.
     @result		An instance of NSArray containing the media selection options of the specified NSArray that are playable.
   */
-  class func playableMediaSelectionOptionsFromArray(mediaSelectionOptions: [AVMediaSelectionOption]) -> [AVMediaSelectionOption]
+  class func playableMediaSelectionOptionsFrom(mediaSelectionOptions: [AVMediaSelectionOption]) -> [AVMediaSelectionOption]
 
   /*!
    @method		mediaSelectionOptionsFromArray:filteredAndSortedAccordingToPreferredLanguages:
@@ -10551,7 +10551,7 @@ extension AVMediaSelectionGroup {
    @result		An instance of NSArray containing media selection options of the specified NSArray that match a preferred language, sorted according to the order of preference of the language each matches.
   */
   @available(tvOS 6.0, *)
-  class func mediaSelectionOptionsFromArray(mediaSelectionOptions: [AVMediaSelectionOption], filteredAndSortedAccordingToPreferredLanguages preferredLanguages: [String]) -> [AVMediaSelectionOption]
+  class func mediaSelectionOptionsFrom(mediaSelectionOptions: [AVMediaSelectionOption], filteredAndSortedAccordingToPreferredLanguages preferredLanguages: [String]) -> [AVMediaSelectionOption]
 
   /*!
     @method		mediaSelectionOptionsFromArray:withLocale:
@@ -10562,7 +10562,7 @@ extension AVMediaSelectionGroup {
     				The NSLocale that must be matched for a media selection option to be copied to the output array.
     @result		An instance of NSArray containing the media selection options of the specified NSArray that match the specified locale.
   */
-  class func mediaSelectionOptionsFromArray(mediaSelectionOptions: [AVMediaSelectionOption], withLocale locale: NSLocale) -> [AVMediaSelectionOption]
+  class func mediaSelectionOptionsFrom(mediaSelectionOptions: [AVMediaSelectionOption], withLocale locale: NSLocale) -> [AVMediaSelectionOption]
 
   /*!
     @method		mediaSelectionOptionsFromArray:withMediaCharacteristics:
@@ -10574,7 +10574,7 @@ extension AVMediaSelectionGroup {
     @result		An instance of NSArray containing the media selection options of the specified NSArray that match the specified
   				media characteristics.
   */
-  class func mediaSelectionOptionsFromArray(mediaSelectionOptions: [AVMediaSelectionOption], withMediaCharacteristics mediaCharacteristics: [String]) -> [AVMediaSelectionOption]
+  class func mediaSelectionOptionsFrom(mediaSelectionOptions: [AVMediaSelectionOption], withMediaCharacteristics mediaCharacteristics: [String]) -> [AVMediaSelectionOption]
 
   /*!
     @method		mediaSelectionOptionsFromArray:withoutMediaCharacteristics:
@@ -10586,7 +10586,7 @@ extension AVMediaSelectionGroup {
     @result		An instance of NSArray containing the media selection options of the specified NSArray that lack the specified
   				media characteristics.
   */
-  class func mediaSelectionOptionsFromArray(mediaSelectionOptions: [AVMediaSelectionOption], withoutMediaCharacteristics mediaCharacteristics: [String]) -> [AVMediaSelectionOption]
+  class func mediaSelectionOptionsFrom(mediaSelectionOptions: [AVMediaSelectionOption], withoutMediaCharacteristics mediaCharacteristics: [String]) -> [AVMediaSelectionOption]
 }
 @available(tvOS 5.0, *)
 class AVMediaSelectionOption : NSObject, NSCopying {
@@ -10622,7 +10622,7 @@ class AVMediaSelectionOption : NSObject, NSCopying {
    @abstract		Indicates whether a media selection option is playable.
    @discussion	If the media data associated with the option cannot be decoded or otherwise rendered, playable is NO.
   */
-  var playable: Bool { get }
+  var isPlayable: Bool { get }
 
   /*!
    @property		extendedLanguageTag
@@ -10694,7 +10694,7 @@ class AVMediaSelectionOption : NSObject, NSCopying {
    @discussion
      Audible media selection options often have associated legible media selection options; in particular, audible options are typically associated with forced-only subtitle options with the same locale. See AVMediaCharacteristicContainsOnlyForcedSubtitles in AVMediaFormat.h for a discussion of forced-only subtitles.
   */
-  func associatedMediaSelectionOptionInMediaSelectionGroup(mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
+  func associatedMediaSelectionOptionIn(mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
 
   /*!
     @method		propertyList
@@ -10712,7 +10712,7 @@ class AVMediaSelectionOption : NSObject, NSCopying {
      May use this option's common metadata, media characteristics and locale properties in addition to the provided locale to formulate an NSString intended for display. Will only consider common metadata with the specified locale.
   */
   @available(tvOS 7.0, *)
-  func displayNameWithLocale(locale: NSLocale) -> String
+  func displayNameWith(locale: NSLocale) -> String
 
   /*!
     @property		displayName
@@ -10726,7 +10726,7 @@ class AVMediaSelectionOption : NSObject, NSCopying {
   var displayName: String { get }
   init()
   @available(tvOS 5.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 4.0, *)
 let AVMetadataKeySpaceCommon: String
@@ -11851,9 +11851,9 @@ class AVMetadataItem : NSObject, AVAsynchronousKeyValueLoading, NSCopying, NSMut
   var extraAttributes: [String : AnyObject]? { get }
   init()
   @available(tvOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 4.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
 }
 extension AVMetadataItem {
   @available(tvOS 9.0, *)
@@ -11869,7 +11869,7 @@ extension AVMetadataItem {
   @available(tvOS 4.2, *)
   func statusOfValueForKey(key: String, error outError: NSErrorPointer) -> AVKeyValueStatus
   @available(tvOS 4.2, *)
-  func loadValuesAsynchronouslyForKeys(keys: [String], completionHandler handler: (() -> Void)?)
+  func loadValuesAsynchronouslyForKeys(keys: [String], completionHandler handler: (() -> Void)? = nil)
 }
 extension AVMetadataItem {
 
@@ -11883,7 +11883,7 @@ extension AVMetadataItem {
    @result		An instance of NSArray containing metadata items of the specified NSArray that match a preferred language, sorted according to the order of preference of the language each matches.
   */
   @available(tvOS 6.0, *)
-  class func metadataItemsFromArray(metadataItems: [AVMetadataItem], filteredAndSortedAccordingToPreferredLanguages preferredLanguages: [String]) -> [AVMetadataItem]
+  class func metadataItemsFrom(metadataItems: [AVMetadataItem], filteredAndSortedAccordingToPreferredLanguages preferredLanguages: [String]) -> [AVMetadataItem]
 
   /*!
   	@method			metadataItemsFromArray:filteredByIdentifier:
@@ -11895,7 +11895,7 @@ extension AVMetadataItem {
   	@result			An instance of NSArray containing the metadata items of the target NSArray that match the specified identifier.
   */
   @available(tvOS 8.0, *)
-  class func metadataItemsFromArray(metadataItems: [AVMetadataItem], filteredByIdentifier identifier: String) -> [AVMetadataItem]
+  class func metadataItemsFrom(metadataItems: [AVMetadataItem], filteredByIdentifier identifier: String) -> [AVMetadataItem]
 
   /*!
   	@method			metadataItemsFromArray:filteredByMetadataItemFilter:
@@ -11907,7 +11907,7 @@ extension AVMetadataItem {
   	@result			An instance of NSArray containing the metadata items of the target NSArray that have not been removed by metadataItemFilter.
   */
   @available(tvOS 7.0, *)
-  class func metadataItemsFromArray(metadataItems: [AVMetadataItem], filteredByMetadataItemFilter metadataItemFilter: AVMetadataItemFilter) -> [AVMetadataItem]
+  class func metadataItemsFrom(metadataItems: [AVMetadataItem], filteredBy metadataItemFilter: AVMetadataItemFilter) -> [AVMetadataItem]
 }
 extension AVMetadataItem {
 
@@ -11973,7 +11973,7 @@ extension AVMetadataItem {
   		When -loadValuesAsynchronouslyForKeys:completionHandler: is invoked on an AVMetadataItem created via +metadataItemWithPropertiesOfMetadataItem:valueLoadingHandler: and @"value" is among the keys for which loading is requested, the block you provide as the value loading handler will be executed on an arbitrary dispatch queue, off the main thread. The handler can perform I/O and other necessary operations to obtain the value. If loading of the value succeeds, provide the value by invoking -[AVMetadataItemValueRequest respondWithValue:]. If loading of the value fails, provide an instance of NSError that describes the failure by invoking -[AVMetadataItemValueRequest respondWithError:].
   */
   @available(tvOS 9.0, *)
-  /*not inherited*/ init(propertiesOfMetadataItem metadataItem: AVMetadataItem, valueLoadingHandler handler: (AVMetadataItemValueRequest) -> Void)
+  /*not inherited*/ init(propertiesOf metadataItem: AVMetadataItem, valueLoadingHandler handler: (AVMetadataItemValueRequest) -> Void)
 }
 @available(tvOS 9.0, *)
 class AVMetadataItemValueRequest : NSObject {
@@ -11993,12 +11993,12 @@ class AVMetadataItemValueRequest : NSObject {
   	@param			error
   					An instance of NSError that describes a failure encountered while loading the value of an AVMetadataItem.
   */
-  func respondWithError(error: NSError)
+  func respondWith(error: NSError)
   init()
 }
 @available(tvOS 7.0, *)
 class AVMetadataItemFilter : NSObject {
-  class func metadataItemFilterForSharing() -> AVMetadataItemFilter
+  class func forSharing() -> AVMetadataItemFilter
   init()
 }
 extension AVMetadataItem {
@@ -12007,13 +12007,13 @@ extension AVMetadataItem {
    @method			metadataItemsFromArray:withLocale:
    @discussion		Instead, use metadataItemsFromArray:filteredAndSortedAccordingToPreferredLanguages:.
    */
-  class func metadataItemsFromArray(metadataItems: [AVMetadataItem], withLocale locale: NSLocale) -> [AVMetadataItem]
+  class func metadataItemsFrom(metadataItems: [AVMetadataItem], withLocale locale: NSLocale) -> [AVMetadataItem]
 
   /*!
    @method			metadataItemsFromArray:withKey:keySpace:
    @discussion		Instead, use metadataItemsFromArray:filteredByIdentifier:.
    */
-  class func metadataItemsFromArray(metadataItems: [AVMetadataItem], withKey key: AnyObject?, keySpace: String?) -> [AVMetadataItem]
+  class func metadataItemsFrom(metadataItems: [AVMetadataItem], withKey key: AnyObject?, keySpace: String?) -> [AVMetadataItem]
 }
 @available(tvOS 7.0, *)
 let AVOutputSettingsPreset640x480: String
@@ -12179,7 +12179,7 @@ class AVPlayer : NSObject {
   	@result			An instance of AVPlayer
   	@discussion		Implicitly creates an AVPlayerItem. Clients can obtain the AVPlayerItem as it becomes the player's currentItem.
   */
-  init(URL: NSURL)
+  init(url URL: NSURL)
 
   /*!
   	@method			initWithPlayerItem:
@@ -12243,7 +12243,7 @@ extension AVPlayer {
   	@discussion
   	  In all releases of iOS 4, invoking replaceCurrentItemWithPlayerItem: with an AVPlayerItem that's already the receiver's currentItem results in an exception being raised. Starting with iOS 5, it's a no-op.
   */
-  func replaceCurrentItemWithPlayerItem(item: AVPlayerItem?)
+  func replaceCurrentItemWith(item: AVPlayerItem?)
   var actionAtItemEnd: AVPlayerActionAtItemEnd
 }
 
@@ -12288,7 +12288,7 @@ extension AVPlayer {
    @discussion		Use this method to seek to a specified time for the current player item.
   					The time seeked to may differ from the specified time for efficiency. For sample accurate seeking see seekToTime:toleranceBefore:toleranceAfter:.
    */
-  func seekToDate(date: NSDate)
+  func seekTo(date: NSDate)
 
   /*!
    @method			seekToDate:completionHandler:
@@ -12301,7 +12301,7 @@ extension AVPlayer {
   					completion handler will be invoked with the finished parameter set to YES. 
    */
   @available(tvOS 5.0, *)
-  func seekToDate(date: NSDate, completionHandler: (Bool) -> Void)
+  func seekTo(date: NSDate, completionHandler: (Bool) -> Void)
 
   /*!
    @method			seekToTime:
@@ -12310,7 +12310,7 @@ extension AVPlayer {
    @discussion		Use this method to seek to a specified time for the current player item.
   					The time seeked to may differ from the specified time for efficiency. For sample accurate seeking see seekToTime:toleranceBefore:toleranceAfter:.
    */
-  func seekToTime(time: CMTime)
+  func seekTo(time: CMTime)
 
   /*!
    @method			seekToTime:toleranceBefore:toleranceAfter:
@@ -12323,7 +12323,7 @@ extension AVPlayer {
   					Pass kCMTimeZero for both toleranceBefore and toleranceAfter to request sample accurate seeking which may incur additional decoding delay. 
   					Messaging this method with beforeTolerance:kCMTimePositiveInfinity and afterTolerance:kCMTimePositiveInfinity is the same as messaging seekToTime: directly.
    */
-  func seekToTime(time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime)
+  func seekTo(time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime)
 
   /*!
    @method			seekToTime:completionHandler:
@@ -12336,7 +12336,7 @@ extension AVPlayer {
   					completion handler will be invoked with the finished parameter set to YES. 
    */
   @available(tvOS 5.0, *)
-  func seekToTime(time: CMTime, completionHandler: (Bool) -> Void)
+  func seekTo(time: CMTime, completionHandler: (Bool) -> Void)
 
   /*!
    @method			seekToTime:toleranceBefore:toleranceAfter:completionHandler:
@@ -12353,7 +12353,7 @@ extension AVPlayer {
   					finished parameter set to YES.
    */
   @available(tvOS 5.0, *)
-  func seekToTime(time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: (Bool) -> Void)
+  func seekTo(time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: (Bool) -> Void)
 }
 extension AVPlayer {
 
@@ -12390,7 +12390,7 @@ extension AVPlayer {
   					The block that will be called when the preroll is either completed or is interrupted.
   */
   @available(tvOS 6.0, *)
-  func prerollAtRate(rate: Float, completionHandler: ((Bool) -> Void)?)
+  func prerollAtRate(rate: Float, completionHandler: ((Bool) -> Void)? = nil)
 
   /*!
   	@method			cancelPendingPrerolls
@@ -12463,8 +12463,8 @@ extension AVPlayer {
   @available(tvOS 7.0, *)
   var volume: Float
   @available(tvOS 7.0, *)
-  var muted: Bool
-  var closedCaptionDisplayEnabled: Bool
+  var isMuted: Bool
+  var isClosedCaptionDisplayEnabled: Bool
 }
 extension AVPlayer {
   @available(tvOS 7.0, *)
@@ -12503,7 +12503,7 @@ extension AVPlayer {
   @available(tvOS 6.0, *)
   var allowsExternalPlayback: Bool
   @available(tvOS 6.0, *)
-  var externalPlaybackActive: Bool { get }
+  var isExternalPlaybackActive: Bool { get }
   @available(tvOS 6.0, *)
   var usesExternalPlaybackWhileExternalScreenIsActive: Bool
   @available(tvOS 6.0, *)
@@ -12530,7 +12530,7 @@ extension AVPlayer {
   		If the current item does not require external protection, the value of this property will be NO.
    */
   @available(tvOS 6.0, *)
-  var outputObscuredDueToInsufficientExternalProtection: Bool { get }
+  var isOutputObscuredDueToInsufficientExternalProtection: Bool { get }
 }
 @available(tvOS 4.1, *)
 class AVQueuePlayer : AVPlayer {
@@ -12571,7 +12571,7 @@ class AVQueuePlayer : AVPlayer {
       @discussion
         Note that adding the same AVPlayerItem to an AVQueuePlayer at more than one position in the queue is not supported.
   */
-  func canInsertItem(item: AVPlayerItem, afterItem: AVPlayerItem?) -> Bool
+  func canInsertItem(item: AVPlayerItem, after afterItem: AVPlayerItem?) -> Bool
 
   /*!
       @method     insertItem:afterItem:
@@ -12581,7 +12581,7 @@ class AVQueuePlayer : AVPlayer {
       @param      afterItem
         The item that the newly inserted item should follow in the queue. Pass nil to append the item to the queue.
   */
-  func insertItem(item: AVPlayerItem, afterItem: AVPlayerItem?)
+  func insertItem(item: AVPlayerItem, after afterItem: AVPlayerItem?)
 
   /*!
       @method     removeItem:
@@ -12607,7 +12607,7 @@ class AVQueuePlayer : AVPlayer {
   	@result			An instance of AVPlayer
   	@discussion		Implicitly creates an AVPlayerItem. Clients can obtain the AVPlayerItem as it becomes the player's currentItem.
   */
-  init(URL: NSURL)
+  init(url URL: NSURL)
 
   /*!
   	@method			initWithPlayerItem:
@@ -12665,7 +12665,7 @@ class AVPlayerItem : NSObject, NSCopying {
    @result		An instance of AVPlayerItem
    @discussion	Equivalent to -initWithAsset:, passing [AVAsset assetWithURL:URL] as the value of asset.
    */
-  convenience init(URL: NSURL)
+  convenience init(url URL: NSURL)
 
   /*!
    @method		initWithAsset:
@@ -12713,7 +12713,7 @@ class AVPlayerItem : NSObject, NSCopying {
    */
   var error: NSError? { get }
   @available(tvOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 extension AVPlayerItem {
 
@@ -12859,7 +12859,7 @@ extension AVPlayerItem {
    @discussion		Use this method to seek to a specified time for the item.
   					The time seeked to may differ from the specified time for efficiency. For sample accurate seeking see seekToTime:toleranceBefore:toleranceAfter:.
    */
-  func seekToTime(time: CMTime)
+  func seekTo(time: CMTime)
 
   /*!
    @method			seekToTime:completionHandler:
@@ -12872,7 +12872,7 @@ extension AVPlayerItem {
    					completion handler will be invoked with the finished parameter set to YES. 
    */
   @available(tvOS 5.0, *)
-  func seekToTime(time: CMTime, completionHandler: (Bool) -> Void)
+  func seekTo(time: CMTime, completionHandler: (Bool) -> Void)
 
   /*!
    @method			seekToTime:toleranceBefore:toleranceAfter:
@@ -12887,7 +12887,7 @@ extension AVPlayerItem {
   					Seeking is constrained by the collection of seekable time ranges. If you seek to a time outside all of the seekable ranges the seek will result in a currentTime
   					within the seekable ranges.
    */
-  func seekToTime(time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime)
+  func seekTo(time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime)
 
   /*!
    @method			seekToTime:toleranceBefore:toleranceAfter:completionHandler:
@@ -12905,7 +12905,7 @@ extension AVPlayerItem {
   					finished parameter set to YES.
    */
   @available(tvOS 5.0, *)
-  func seekToTime(time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: (Bool) -> Void)
+  func seekTo(time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: (Bool) -> Void)
 
   /*!
    @method			cancelPendingSeeks
@@ -12933,7 +12933,7 @@ extension AVPlayerItem {
    @param			date	The new position for the playhead.
    @result		Returns true if the playhead was moved to the supplied date.
    */
-  func seekToDate(date: NSDate) -> Bool
+  func seekTo(date: NSDate) -> Bool
 
   /*!
    @method		seekToDate:completionHandler:
@@ -12950,7 +12950,7 @@ extension AVPlayerItem {
    @result		Returns true if the playhead was moved to the supplied date.
    */
   @available(tvOS 6.0, *)
-  func seekToDate(date: NSDate, completionHandler: (Bool) -> Void) -> Bool
+  func seekTo(date: NSDate, completionHandler: (Bool) -> Void) -> Bool
 
   /*!
    @method		stepByCount:
@@ -13058,7 +13058,7 @@ extension AVPlayerItem {
   	keep up. It is left to the application programmer to decide to continue media playback or not. 
   	See playbackBufferFull below.
     */
-  var playbackLikelyToKeepUp: Bool { get }
+  var isPlaybackLikelyToKeepUp: Bool { get }
 
   /*! 
    @property playbackBufferFull
@@ -13067,8 +13067,8 @@ extension AVPlayerItem {
   	Despite the playback buffer reaching capacity there might not exist sufficient statistical 
   	data to support a playbackLikelyToKeepUp prediction of YES. See playbackLikelyToKeepUp above.
    */
-  var playbackBufferFull: Bool { get }
-  var playbackBufferEmpty: Bool { get }
+  var isPlaybackBufferFull: Bool { get }
+  var isPlaybackBufferEmpty: Bool { get }
 
   /*!
    @property canUseNetworkResourcesForLiveStreamingWhilePaused
@@ -13110,7 +13110,7 @@ extension AVPlayerItem {
      Note that if multiple options within a group meet your criteria for selection according to locale or other considerations, and if these options are otherwise indistinguishable to you according to media characteristics that are meaningful for your application, content is typically authored so that the first available option that meets your criteria is appropriate for selection.
    */
   @available(tvOS 5.0, *)
-  func selectMediaOption(mediaSelectionOption: AVMediaSelectionOption?, inMediaSelectionGroup mediaSelectionGroup: AVMediaSelectionGroup)
+  func selectMediaOption(mediaSelectionOption: AVMediaSelectionOption?, `in` mediaSelectionGroup: AVMediaSelectionGroup)
 
   /*!
    @method		selectMediaOptionAutomaticallyInMediaSelectionGroup:
@@ -13121,7 +13121,7 @@ extension AVPlayerItem {
      Has no effect unless the appliesMediaSelectionCriteriaAutomatically property of the associated AVPlayer is YES and unless automatic media selection has previously been overridden via -[AVPlayerItem selectMediaOption:inMediaSelectionGroup:].
    */
   @available(tvOS 7.0, *)
-  func selectMediaOptionAutomaticallyInMediaSelectionGroup(mediaSelectionGroup: AVMediaSelectionGroup)
+  func selectMediaOptionAutomaticallyIn(mediaSelectionGroup: AVMediaSelectionGroup)
 
   /*!
    @method		selectedMediaOptionInMediaSelectionGroup:
@@ -13132,7 +13132,7 @@ extension AVPlayerItem {
      If the value of the property allowsEmptySelection of the AVMediaSelectionGroup is YES, the currently selected option in the group may be nil.
    */
   @available(tvOS 5.0, *)
-  func selectedMediaOptionInMediaSelectionGroup(mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
+  func selectedMediaOptionIn(mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
 
   /*!
     @property		currentMediaSelection
@@ -13234,7 +13234,7 @@ class AVPlayerItemAccessLog : NSObject, NSCopying {
   var events: [AVPlayerItemAccessLogEvent] { get }
   init()
   @available(tvOS 4.3, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -13273,7 +13273,7 @@ class AVPlayerItemErrorLog : NSObject, NSCopying {
   var events: [AVPlayerItemErrorLogEvent] { get }
   init()
   @available(tvOS 4.3, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -13310,7 +13310,7 @@ class AVPlayerItemAccessLogEvent : NSObject, NSCopying {
    @discussion	If nil is returned the URI is unknown. Corresponds to "uri".
    				This property is not observable.
    */
-  var URI: String? { get }
+  var uri: String? { get }
 
   /*!
    @property		serverAddress
@@ -13482,7 +13482,7 @@ class AVPlayerItemAccessLogEvent : NSObject, NSCopying {
   var switchBitrate: Double { get }
   init()
   @available(tvOS 4.3, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -13508,7 +13508,7 @@ class AVPlayerItemErrorLogEvent : NSObject, NSCopying {
    @discussion	If nil is returned the URI is unknown. Corresponds to "uri".
    				This property is not observable.
    */
-  var URI: String? { get }
+  var uri: String? { get }
 
   /*!
    @property		serverAddress
@@ -13551,7 +13551,7 @@ class AVPlayerItemErrorLogEvent : NSObject, NSCopying {
   var errorComment: String? { get }
   init()
   @available(tvOS 4.3, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 6.0, *)
 class AVPlayerItemOutput : NSObject {
@@ -13898,7 +13898,7 @@ protocol AVPlayerItemMetadataOutputPushDelegate : AVPlayerItemOutputPushDelegate
   		Note that the associated AVPlayerItemTrack parameter can be nil which implies that the metadata describes the asset as a whole, not just a single track of the asset.
    */
   @available(tvOS 8.0, *)
-  optional func metadataOutput(output: AVPlayerItemMetadataOutput, didOutputTimedMetadataGroups groups: [AVTimedMetadataGroup], fromPlayerItemTrack track: AVPlayerItemTrack)
+  optional func metadataOutput(output: AVPlayerItemMetadataOutput, didOutputTimedMetadataGroups groups: [AVTimedMetadataGroup], from track: AVPlayerItemTrack)
 }
 
 /*!
@@ -13931,7 +13931,7 @@ class AVPlayerItemTrack : NSObject {
    @property		enabled
    @abstract		Indicates whether the track is enabled for presentation during playback.
   */
-  var enabled: Bool
+  var isEnabled: Bool
 
   /*!
    @property		currentVideoFrameRate
@@ -13975,7 +13975,7 @@ class AVPlayerLayer : CALayer {
   					user-visible content until the value becomes YES. 
   					This property remains NO for an AVPlayer currentItem whose AVAsset contains no enabled video tracks.
    */
-  var readyForDisplay: Bool { get }
+  var isReadyForDisplay: Bool { get }
 
   /*!
   	@property		videoRect
@@ -14081,7 +14081,7 @@ extension AVSampleBufferDisplayLayer {
   	
   					This property is not key value observable.
   */
-  var readyForMoreMediaData: Bool { get }
+  var isReadyForMoreMediaData: Bool { get }
 
   /*!
   	@method			requestMediaDataWhenReadyOnQueue:usingBlock:
@@ -14099,7 +14099,7 @@ extension AVSampleBufferDisplayLayer {
   					AVSampleBufferDisplayLayer without a call to stopRequestingMediaData will result
   					in undefined behavior.
   */
-  func requestMediaDataWhenReadyOnQueue(queue: dispatch_queue_t, usingBlock block: () -> Void)
+  func requestMediaDataWhenReadyOn(queue: dispatch_queue_t, usingBlock block: () -> Void)
 
   /*!
   	@method			stopRequestingMediaData
@@ -14181,7 +14181,7 @@ class AVSpeechSynthesisVoice : NSObject, NSSecureCoding {
   @available(tvOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 7.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -14205,11 +14205,11 @@ class AVSpeechUtterance : NSObject, NSCopying, NSSecureCoding {
   var postUtteranceDelay: NSTimeInterval
   init()
   @available(tvOS 7.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 7.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -14224,11 +14224,11 @@ class AVSpeechUtterance : NSObject, NSCopying, NSSecureCoding {
 @available(tvOS 7.0, *)
 class AVSpeechSynthesizer : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged AVSpeechSynthesizerDelegate?
-  var speaking: Bool { get }
-  var paused: Bool { get }
-  func speakUtterance(utterance: AVSpeechUtterance)
-  func stopSpeakingAtBoundary(boundary: AVSpeechBoundary) -> Bool
-  func pauseSpeakingAtBoundary(boundary: AVSpeechBoundary) -> Bool
+  var isSpeaking: Bool { get }
+  var isPaused: Bool { get }
+  func speak(utterance: AVSpeechUtterance)
+  func stopSpeakingAt(boundary: AVSpeechBoundary) -> Bool
+  func pauseSpeakingAt(boundary: AVSpeechBoundary) -> Bool
   func continueSpeaking() -> Bool
   init()
 }
@@ -14240,15 +14240,15 @@ class AVSpeechSynthesizer : NSObject {
  */
 protocol AVSpeechSynthesizerDelegate : NSObjectProtocol {
   @available(tvOS 7.0, *)
-  optional func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didStartSpeechUtterance utterance: AVSpeechUtterance)
+  optional func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance)
   @available(tvOS 7.0, *)
   optional func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didFinishSpeechUtterance utterance: AVSpeechUtterance)
   @available(tvOS 7.0, *)
-  optional func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didPauseSpeechUtterance utterance: AVSpeechUtterance)
+  optional func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didPause utterance: AVSpeechUtterance)
   @available(tvOS 7.0, *)
-  optional func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didContinueSpeechUtterance utterance: AVSpeechUtterance)
+  optional func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didContinue utterance: AVSpeechUtterance)
   @available(tvOS 7.0, *)
-  optional func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didCancelSpeechUtterance utterance: AVSpeechUtterance)
+  optional func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didCancel utterance: AVSpeechUtterance)
   @available(tvOS 7.0, *)
   optional func speechSynthesizer(synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance)
 }
@@ -14277,7 +14277,7 @@ class AVTextStyleRule : NSObject, NSCopying {
    @result		A serializable property list.
    @discussion	For serialization utilities, see NSPropertyList.h.
   */
-  class func propertyListForTextStyleRules(textStyleRules: [AVTextStyleRule]) -> AnyObject
+  class func propertyListFor(textStyleRules: [AVTextStyleRule]) -> AnyObject
 
   /*!
    @method		textStyleRulesFromPropertyList:
@@ -14322,33 +14322,33 @@ class AVTextStyleRule : NSObject, NSCopying {
   */
   var textSelector: String? { get }
   @available(tvOS 6.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 extension NSValue {
   @available(tvOS 4.0, *)
-  /*not inherited*/ init(CMTime time: CMTime)
+  /*not inherited*/ init(cmTime time: CMTime)
   @available(tvOS 4.0, *)
-  var CMTimeValue: CMTime { get }
+  var cmTimeValue: CMTime { get }
   @available(tvOS 4.0, *)
-  /*not inherited*/ init(CMTimeRange timeRange: CMTimeRange)
+  /*not inherited*/ init(cmTimeRange timeRange: CMTimeRange)
   @available(tvOS 4.0, *)
-  var CMTimeRangeValue: CMTimeRange { get }
+  var cmTimeRangeValue: CMTimeRange { get }
   @available(tvOS 4.0, *)
-  /*not inherited*/ init(CMTimeMapping timeMapping: CMTimeMapping)
+  /*not inherited*/ init(cmTimeMapping timeMapping: CMTimeMapping)
   @available(tvOS 4.0, *)
-  var CMTimeMappingValue: CMTimeMapping { get }
+  var cmTimeMappingValue: CMTimeMapping { get }
 }
 extension NSCoder {
   @available(tvOS 4.0, *)
-  func encodeCMTime(time: CMTime, forKey key: String)
+  func encode(time: CMTime, forKey key: String)
   @available(tvOS 4.0, *)
   func decodeCMTimeForKey(key: String) -> CMTime
   @available(tvOS 4.0, *)
-  func encodeCMTimeRange(timeRange: CMTimeRange, forKey key: String)
+  func encode(timeRange: CMTimeRange, forKey key: String)
   @available(tvOS 4.0, *)
   func decodeCMTimeRangeForKey(key: String) -> CMTimeRange
   @available(tvOS 4.0, *)
-  func encodeCMTimeMapping(timeMapping: CMTimeMapping, forKey key: String)
+  func encode(timeMapping: CMTimeMapping, forKey key: String)
   @available(tvOS 4.0, *)
   func decodeCMTimeMappingForKey(key: String) -> CMTimeMapping
 }
@@ -14396,9 +14396,9 @@ class AVTimedMetadataGroup : AVMetadataGroup, NSCopying, NSMutableCopying {
   var items: [AVMetadataItem] { get }
   init()
   @available(tvOS 4.3, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 4.3, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
 }
 extension AVTimedMetadataGroup {
 
@@ -14467,15 +14467,15 @@ class AVDateRangeMetadataGroup : AVMetadataGroup, NSCopying, NSMutableCopying {
   				The end date of the collection of AVMetadataItems. If the receiver is intended to represent information about an instantaneous event, the value of endDate should be equal to the value of startDate. A value of nil for endDate indicates that the endDate is indefinite.
   	@result		An instance of AVDateRangeMetadataGroup.
   */
-  init(items: [AVMetadataItem], startDate: NSDate, endDate: NSDate?)
+  init(items: [AVMetadataItem], start startDate: NSDate, end endDate: NSDate?)
   @NSCopying var startDate: NSDate { get }
   @NSCopying var endDate: NSDate? { get }
   var items: [AVMetadataItem] { get }
   init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 9.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -14500,7 +14500,7 @@ class AVMutableDateRangeMetadataGroup : AVDateRangeMetadataGroup {
   				The end date of the collection of AVMetadataItems. If the receiver is intended to represent information about an instantaneous event, the value of endDate should be equal to the value of startDate. A value of nil for endDate indicates that the endDate is indefinite.
   	@result		An instance of AVDateRangeMetadataGroup.
   */
-  init(items: [AVMetadataItem], startDate: NSDate, endDate: NSDate?)
+  init(items: [AVMetadataItem], start startDate: NSDate, end endDate: NSDate?)
   init()
 }
 
@@ -14536,7 +14536,7 @@ class AVVideoCompositionRenderContext : NSObject {
   var renderScale: Float { get }
   var pixelAspectRatio: AVPixelAspectRatio { get }
   var edgeWidths: AVEdgeWidths { get }
-  var highQualityRendering: Bool { get }
+  var isHighQualityRendering: Bool { get }
   var videoComposition: AVVideoComposition { get }
 
   /*!
@@ -14594,7 +14594,7 @@ protocol AVVideoCompositing : NSObjectProtocol {
   		If the rendered frame is exactly the same as one of the source frames, with no letterboxing, pillboxing or cropping needed,
   		then the appropriate source pixel buffer may be returned (after CFRetain has been called on it).
   */
-  func startVideoCompositionRequest(asyncVideoCompositionRequest: AVAsynchronousVideoCompositionRequest)
+  func start(asyncVideoCompositionRequest: AVAsynchronousVideoCompositionRequest)
 
   /*!
   	@method			cancelAllPendingVideoCompositionRequests	
@@ -14621,20 +14621,20 @@ class AVAsynchronousVideoCompositionRequest : NSObject, NSCopying {
   */
   func sourceFrameByTrackID(trackID: CMPersistentTrackID) -> CVPixelBuffer?
   func finishWithComposedVideoFrame(composedVideoFrame: CVPixelBuffer)
-  func finishWithError(error: NSError)
+  func finishWith(error: NSError)
   func finishCancelledRequest()
   init()
   @available(tvOS 7.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 9.0, *)
 class AVAsynchronousCIImageFilteringRequest : NSObject, NSCopying {
   var renderSize: CGSize { get }
   var compositionTime: CMTime { get }
-  func finishWithError(error: NSError)
+  func finishWith(error: NSError)
   init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -14662,7 +14662,7 @@ protocol AVVideoCompositionInstructionProtocol : NSObjectProtocol {
 @available(tvOS 4.0, *)
 class AVVideoComposition : NSObject, NSCopying, NSMutableCopying {
   @available(tvOS 6.0, *)
-  /*not inherited*/ init(propertiesOfAsset asset: AVAsset)
+  /*not inherited*/ init(propertiesOf asset: AVAsset)
   @available(tvOS 7.0, *)
   var customVideoCompositorClass: AnyObject.Type? { get }
   var frameDuration: CMTime { get }
@@ -14672,9 +14672,9 @@ class AVVideoComposition : NSObject, NSCopying, NSMutableCopying {
   var animationTool: AVVideoCompositionCoreAnimationTool? { get }
   init()
   @available(tvOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 4.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
 }
 extension AVVideoComposition {
   @available(tvOS 9.0, *)
@@ -14683,7 +14683,7 @@ extension AVVideoComposition {
 @available(tvOS 4.0, *)
 class AVMutableVideoComposition : AVVideoComposition {
   @available(tvOS 6.0, *)
-  /*not inherited*/ init(propertiesOfAsset asset: AVAsset)
+  /*not inherited*/ init(propertiesOf asset: AVAsset)
   @available(tvOS 7.0, *)
   var customVideoCompositorClass: AnyObject.Type?
   var frameDuration: CMTime
@@ -14702,7 +14702,7 @@ class AVVideoCompositionInstruction : NSObject, NSSecureCoding, NSCopying, NSMut
   var timeRange: CMTimeRange { get }
   var backgroundColor: CGColor? { get }
   var layerInstructions: [AVVideoCompositionLayerInstruction] { get }
-  var enablePostProcessing: Bool { get }
+  var isEnablePostProcessing: Bool { get }
   @available(tvOS 7.0, *)
   var requiredSourceTrackIDs: [NSValue] { get }
   @available(tvOS 7.0, *)
@@ -14711,12 +14711,12 @@ class AVVideoCompositionInstruction : NSObject, NSSecureCoding, NSCopying, NSMut
   @available(tvOS 4.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 4.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(tvOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 4.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 7.0, *)
   var containsTweening: Bool { get }
 }
@@ -14725,40 +14725,40 @@ class AVMutableVideoCompositionInstruction : AVVideoCompositionInstruction {
   var timeRange: CMTimeRange
   var backgroundColor: CGColor?
   var layerInstructions: [AVVideoCompositionLayerInstruction]
-  var enablePostProcessing: Bool
+  var isEnablePostProcessing: Bool
   init()
   init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 4.0, *)
 class AVVideoCompositionLayerInstruction : NSObject, NSSecureCoding, NSCopying, NSMutableCopying {
   var trackID: CMPersistentTrackID { get }
-  func getTransformRampForTime(time: CMTime, startTransform: UnsafeMutablePointer<CGAffineTransform>, endTransform: UnsafeMutablePointer<CGAffineTransform>, timeRange: UnsafeMutablePointer<CMTimeRange>) -> Bool
-  func getOpacityRampForTime(time: CMTime, startOpacity: UnsafeMutablePointer<Float>, endOpacity: UnsafeMutablePointer<Float>, timeRange: UnsafeMutablePointer<CMTimeRange>) -> Bool
+  func getTransformRampFor(time: CMTime, start startTransform: UnsafeMutablePointer<CGAffineTransform>, end endTransform: UnsafeMutablePointer<CGAffineTransform>, timeRange: UnsafeMutablePointer<CMTimeRange>) -> Bool
+  func getOpacityRampFor(time: CMTime, startOpacity: UnsafeMutablePointer<Float>, endOpacity: UnsafeMutablePointer<Float>, timeRange: UnsafeMutablePointer<CMTimeRange>) -> Bool
   @available(tvOS 7.0, *)
-  func getCropRectangleRampForTime(time: CMTime, startCropRectangle: UnsafeMutablePointer<CGRect>, endCropRectangle: UnsafeMutablePointer<CGRect>, timeRange: UnsafeMutablePointer<CMTimeRange>) -> Bool
+  func getCropRectangleRampFor(time: CMTime, startCropRectangle: UnsafeMutablePointer<CGRect>, endCropRectangle: UnsafeMutablePointer<CGRect>, timeRange: UnsafeMutablePointer<CMTimeRange>) -> Bool
   init()
   @available(tvOS 4.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 4.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(tvOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 4.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 4.0, *)
 class AVMutableVideoCompositionLayerInstruction : AVVideoCompositionLayerInstruction {
   convenience init(assetTrack track: AVAssetTrack)
   var trackID: CMPersistentTrackID
-  func setTransformRampFromStartTransform(startTransform: CGAffineTransform, toEndTransform endTransform: CGAffineTransform, timeRange: CMTimeRange)
-  func setTransform(transform: CGAffineTransform, atTime time: CMTime)
+  func setTransformRampFromStart(startTransform: CGAffineTransform, toEnd endTransform: CGAffineTransform, timeRange: CMTimeRange)
+  func setTransform(transform: CGAffineTransform, at time: CMTime)
   func setOpacityRampFromStartOpacity(startOpacity: Float, toEndOpacity endOpacity: Float, timeRange: CMTimeRange)
-  func setOpacity(opacity: Float, atTime time: CMTime)
+  func setOpacity(opacity: Float, at time: CMTime)
   @available(tvOS 7.0, *)
   func setCropRectangleRampFromStartCropRectangle(startCropRectangle: CGRect, toEndCropRectangle endCropRectangle: CGRect, timeRange: CMTimeRange)
   @available(tvOS 7.0, *)
-  func setCropRectangle(cropRectangle: CGRect, atTime time: CMTime)
+  func setCropRectangle(cropRectangle: CGRect, at time: CMTime)
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -14803,7 +14803,7 @@ class AVVideoCompositionCoreAnimationTool : NSObject {
   								to YES in the layer hierarchy to get the same result when attaching a CALayer to a AVVideoCompositionCoreAnimationTool
   								as when using it to back a UIView.
   */
-  convenience init(postProcessingAsVideoLayer videoLayer: CALayer, inLayer animationLayer: CALayer)
+  convenience init(postProcessingAsVideoLayer videoLayer: CALayer, `in` animationLayer: CALayer)
 
   /*!
   	@method						videoCompositionCoreAnimationToolWithPostProcessingAsVideoLayers:inLayer:
@@ -14817,7 +14817,7 @@ class AVVideoCompositionCoreAnimationTool : NSObject {
   								as when using it to back a UIView.
   */
   @available(tvOS 7.0, *)
-  convenience init(postProcessingAsVideoLayers videoLayers: [CALayer], inLayer animationLayer: CALayer)
+  convenience init(postProcessingAsVideoLayers videoLayers: [CALayer], `in` animationLayer: CALayer)
   init()
 }
 extension AVAsset {
@@ -14840,7 +14840,7 @@ extension AVVideoComposition {
      An exception will be raised if the delegate modifies the receiver's array of instructions or the array of layerInstructions of any AVVideoCompositionInstruction contained therein during validation.
   */
   @available(tvOS 5.0, *)
-  func isValidForAsset(asset: AVAsset?, timeRange: CMTimeRange, validationDelegate: AVVideoCompositionValidationHandling?) -> Bool
+  func isValidFor(asset: AVAsset?, timeRange: CMTimeRange, validationDelegate: AVVideoCompositionValidationHandling?) -> Bool
 }
 protocol AVVideoCompositionValidationHandling : NSObjectProtocol {
 
@@ -14862,7 +14862,7 @@ protocol AVVideoCompositionValidationHandling : NSObjectProtocol {
      An indication of whether the AVVideoComposition should continue validation in order to report additional problems that may exist.
   */
   @available(tvOS 5.0, *)
-  optional func videoComposition(videoComposition: AVVideoComposition, shouldContinueValidatingAfterFindingEmptyTimeRange timeRange: CMTimeRange) -> Bool
+  optional func videoComposition(videoComposition: AVVideoComposition, shouldContinueValidatingAfterFindingEmpty timeRange: CMTimeRange) -> Bool
 
   /*!
    @method		videoComposition:shouldContinueValidatingAfterFindingInvalidTimeRangeInInstruction:
@@ -14874,7 +14874,7 @@ protocol AVVideoCompositionValidationHandling : NSObjectProtocol {
      An indication of whether the AVVideoComposition should continue validation in order to report additional problems that may exist.
   */
   @available(tvOS 5.0, *)
-  optional func videoComposition(videoComposition: AVVideoComposition, shouldContinueValidatingAfterFindingInvalidTimeRangeInInstruction videoCompositionInstruction: AVVideoCompositionInstructionProtocol) -> Bool
+  optional func videoComposition(videoComposition: AVVideoComposition, shouldContinueValidatingAfterFindingInvalidTimeRangeIn videoCompositionInstruction: AVVideoCompositionInstructionProtocol) -> Bool
 
   /*!
    @method		videoComposition:shouldContinueValidatingAfterFindingInvalidTrackIDInInstruction:layerInstruction:asset:
@@ -14884,7 +14884,7 @@ protocol AVVideoCompositionValidationHandling : NSObjectProtocol {
      An indication of whether the AVVideoComposition should continue validation in order to report additional problems that may exist.
   */
   @available(tvOS 5.0, *)
-  optional func videoComposition(videoComposition: AVVideoComposition, shouldContinueValidatingAfterFindingInvalidTrackIDInInstruction videoCompositionInstruction: AVVideoCompositionInstructionProtocol, layerInstruction: AVVideoCompositionLayerInstruction, asset: AVAsset) -> Bool
+  optional func videoComposition(videoComposition: AVVideoComposition, shouldContinueValidatingAfterFindingInvalidTrackIDIn videoCompositionInstruction: AVVideoCompositionInstructionProtocol, layerInstruction: AVVideoCompositionLayerInstruction, asset: AVAsset) -> Bool
 }
 
 /*!

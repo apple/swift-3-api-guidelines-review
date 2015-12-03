@@ -115,15 +115,15 @@ var NSBundleOnDemandResourceInvalidTagError: Int { get }
 /****************	Immutable Array		****************/
 class NSArray : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration {
   var count: Int { get }
-  func objectAtIndex(index: Int) -> AnyObject
+  func objectAt(index: Int) -> AnyObject
   init()
   init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func encodeWith(aCoder: NSCoder)
+  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSArray : ArrayLiteralConvertible {
@@ -166,15 +166,15 @@ extension NSArray : _Reflectable {
 /****************	Immutable Array		****************/
 class NSArray : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration {
   var count: Int { get }
-  func objectAtIndex(index: Int) -> AnyObject
+  func objectAt(index: Int) -> AnyObject
   init()
   init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func encodeWith(aCoder: NSCoder)
+  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSArray : ArrayLiteralConvertible {
@@ -214,112 +214,112 @@ extension NSArray : _Reflectable {
   func _getMirror() -> _MirrorType
 }
 extension NSArray {
-  func arrayByAddingObject(anObject: AnyObject) -> [AnyObject]
-  func arrayByAddingObjectsFromArray(otherArray: [AnyObject]) -> [AnyObject]
-  func componentsJoinedByString(separator: String) -> String
-  func containsObject(anObject: AnyObject) -> Bool
+  func adding(anObject: AnyObject) -> [AnyObject]
+  func addingObjectsFrom(otherArray: [AnyObject]) -> [AnyObject]
+  func componentsJoinedBy(separator: String) -> String
+  func contains(anObject: AnyObject) -> Bool
   var description: String { get }
   func descriptionWithLocale(locale: AnyObject?) -> String
   func descriptionWithLocale(locale: AnyObject?, indent level: Int) -> String
-  func firstObjectCommonWithArray(otherArray: [AnyObject]) -> AnyObject?
+  func firstObjectCommonWith(otherArray: [AnyObject]) -> AnyObject?
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, range: NSRange)
-  func indexOfObject(anObject: AnyObject) -> Int
-  func indexOfObject(anObject: AnyObject, inRange range: NSRange) -> Int
+  func indexOf(anObject: AnyObject) -> Int
+  func indexOf(anObject: AnyObject, `in` range: NSRange) -> Int
   func indexOfObjectIdenticalTo(anObject: AnyObject) -> Int
-  func indexOfObjectIdenticalTo(anObject: AnyObject, inRange range: NSRange) -> Int
-  func isEqualToArray(otherArray: [AnyObject]) -> Bool
+  func indexOfObjectIdenticalTo(anObject: AnyObject, `in` range: NSRange) -> Int
+  func isEqualTo(otherArray: [AnyObject]) -> Bool
   @available(tvOS 4.0, *)
   var firstObject: AnyObject? { get }
   var lastObject: AnyObject? { get }
   func objectEnumerator() -> NSEnumerator
   func reverseObjectEnumerator() -> NSEnumerator
   @NSCopying var sortedArrayHint: NSData { get }
-  func sortedArrayUsingFunction(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>) -> [AnyObject]
-  func sortedArrayUsingFunction(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>, hint: NSData?) -> [AnyObject]
-  func sortedArrayUsingSelector(comparator: Selector) -> [AnyObject]
-  func subarrayWithRange(range: NSRange) -> [AnyObject]
+  func sortedArrayUsing(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>) -> [AnyObject]
+  func sortedArrayUsing(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>, hint: NSData?) -> [AnyObject]
+  func sortedArrayUsing(comparator: Selector) -> [AnyObject]
+  func subarrayWith(range: NSRange) -> [AnyObject]
   func writeToFile(path: String, atomically useAuxiliaryFile: Bool) -> Bool
-  func writeToURL(url: NSURL, atomically: Bool) -> Bool
-  func objectsAtIndexes(indexes: NSIndexSet) -> [AnyObject]
+  func writeTo(url: NSURL, atomically: Bool) -> Bool
+  func objectsAt(indexes: NSIndexSet) -> [AnyObject]
   subscript (idx: Int) -> AnyObject { get }
   @available(tvOS 4.0, *)
-  func enumerateObjectsUsingBlock(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjectsUsing(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
-  func enumerateObjectsWithOptions(opts: NSEnumerationOptions, usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(options opts: NSEnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
-  func enumerateObjectsAtIndexes(s: NSIndexSet, options opts: NSEnumerationOptions, usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjectsAt(s: NSIndexSet, options opts: NSEnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
   func indexOfObjectPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(tvOS 4.0, *)
-  func indexOfObjectWithOptions(opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexOfObject(options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(tvOS 4.0, *)
-  func indexOfObjectAtIndexes(s: NSIndexSet, options opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexOfObjectAt(s: NSIndexSet, options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(tvOS 4.0, *)
   func indexesOfObjectsPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
   @available(tvOS 4.0, *)
-  func indexesOfObjectsWithOptions(opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
+  func indexesOfObjects(options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
   @available(tvOS 4.0, *)
-  func indexesOfObjectsAtIndexes(s: NSIndexSet, options opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
+  func indexesOfObjectsAt(s: NSIndexSet, options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
   @available(tvOS 4.0, *)
   func sortedArrayUsingComparator(cmptr: NSComparator) -> [AnyObject]
   @available(tvOS 4.0, *)
-  func sortedArrayWithOptions(opts: NSSortOptions, usingComparator cmptr: NSComparator) -> [AnyObject]
+  func sortedArray(options opts: NSSortOptions = [], usingComparator cmptr: NSComparator) -> [AnyObject]
   @available(tvOS 4.0, *)
-  func indexOfObject(obj: AnyObject, inSortedRange r: NSRange, options opts: NSBinarySearchingOptions, usingComparator cmp: NSComparator) -> Int
+  func indexOf(obj: AnyObject, inSortedRange r: NSRange, options opts: NSBinarySearchingOptions = [], usingComparator cmp: NSComparator) -> Int
 }
 extension NSArray {
-  func arrayByAddingObject(anObject: AnyObject) -> [AnyObject]
-  func arrayByAddingObjectsFromArray(otherArray: [AnyObject]) -> [AnyObject]
-  func componentsJoinedByString(separator: String) -> String
-  func containsObject(anObject: AnyObject) -> Bool
+  func adding(anObject: AnyObject) -> [AnyObject]
+  func addingObjectsFrom(otherArray: [AnyObject]) -> [AnyObject]
+  func componentsJoinedBy(separator: String) -> String
+  func contains(anObject: AnyObject) -> Bool
   var description: String { get }
   func descriptionWithLocale(locale: AnyObject?) -> String
   func descriptionWithLocale(locale: AnyObject?, indent level: Int) -> String
-  func firstObjectCommonWithArray(otherArray: [AnyObject]) -> AnyObject?
+  func firstObjectCommonWith(otherArray: [AnyObject]) -> AnyObject?
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, range: NSRange)
-  func indexOfObject(anObject: AnyObject) -> Int
-  func indexOfObject(anObject: AnyObject, inRange range: NSRange) -> Int
+  func indexOf(anObject: AnyObject) -> Int
+  func indexOf(anObject: AnyObject, `in` range: NSRange) -> Int
   func indexOfObjectIdenticalTo(anObject: AnyObject) -> Int
-  func indexOfObjectIdenticalTo(anObject: AnyObject, inRange range: NSRange) -> Int
-  func isEqualToArray(otherArray: [AnyObject]) -> Bool
+  func indexOfObjectIdenticalTo(anObject: AnyObject, `in` range: NSRange) -> Int
+  func isEqualTo(otherArray: [AnyObject]) -> Bool
   @available(tvOS 4.0, *)
   var firstObject: AnyObject? { get }
   var lastObject: AnyObject? { get }
   func objectEnumerator() -> NSEnumerator
   func reverseObjectEnumerator() -> NSEnumerator
   @NSCopying var sortedArrayHint: NSData { get }
-  func sortedArrayUsingFunction(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>) -> [AnyObject]
-  func sortedArrayUsingFunction(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>, hint: NSData?) -> [AnyObject]
-  func sortedArrayUsingSelector(comparator: Selector) -> [AnyObject]
-  func subarrayWithRange(range: NSRange) -> [AnyObject]
+  func sortedArrayUsing(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>) -> [AnyObject]
+  func sortedArrayUsing(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>, hint: NSData?) -> [AnyObject]
+  func sortedArrayUsing(comparator: Selector) -> [AnyObject]
+  func subarrayWith(range: NSRange) -> [AnyObject]
   func writeToFile(path: String, atomically useAuxiliaryFile: Bool) -> Bool
-  func writeToURL(url: NSURL, atomically: Bool) -> Bool
-  func objectsAtIndexes(indexes: NSIndexSet) -> [AnyObject]
+  func writeTo(url: NSURL, atomically: Bool) -> Bool
+  func objectsAt(indexes: NSIndexSet) -> [AnyObject]
   subscript (idx: Int) -> AnyObject { get }
   @available(tvOS 4.0, *)
-  func enumerateObjectsUsingBlock(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjectsUsing(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
-  func enumerateObjectsWithOptions(opts: NSEnumerationOptions, usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(options opts: NSEnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
-  func enumerateObjectsAtIndexes(s: NSIndexSet, options opts: NSEnumerationOptions, usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjectsAt(s: NSIndexSet, options opts: NSEnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
   func indexOfObjectPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(tvOS 4.0, *)
-  func indexOfObjectWithOptions(opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexOfObject(options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(tvOS 4.0, *)
-  func indexOfObjectAtIndexes(s: NSIndexSet, options opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexOfObjectAt(s: NSIndexSet, options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(tvOS 4.0, *)
   func indexesOfObjectsPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
   @available(tvOS 4.0, *)
-  func indexesOfObjectsWithOptions(opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
+  func indexesOfObjects(options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
   @available(tvOS 4.0, *)
-  func indexesOfObjectsAtIndexes(s: NSIndexSet, options opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
+  func indexesOfObjectsAt(s: NSIndexSet, options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
   @available(tvOS 4.0, *)
   func sortedArrayUsingComparator(cmptr: NSComparator) -> [AnyObject]
   @available(tvOS 4.0, *)
-  func sortedArrayWithOptions(opts: NSSortOptions, usingComparator cmptr: NSComparator) -> [AnyObject]
+  func sortedArray(options opts: NSSortOptions = [], usingComparator cmptr: NSComparator) -> [AnyObject]
   @available(tvOS 4.0, *)
-  func indexOfObject(obj: AnyObject, inSortedRange r: NSRange, options opts: NSBinarySearchingOptions, usingComparator cmp: NSComparator) -> Int
+  func indexOf(obj: AnyObject, inSortedRange r: NSRange, options opts: NSBinarySearchingOptions = [], usingComparator cmp: NSComparator) -> Int
 }
 struct NSBinarySearchingOptions : OptionSetType {
   init(rawValue: UInt)
@@ -333,14 +333,14 @@ extension NSArray {
   convenience init(array: [AnyObject])
   convenience init(array: [AnyObject], copyItems flag: Bool)
   convenience init?(contentsOfFile path: String)
-  convenience init?(contentsOfURL url: NSURL)
+  convenience init?(contentsOf url: NSURL)
 }
 extension NSArray {
   convenience init(object anObject: AnyObject)
   convenience init(array: [AnyObject])
   convenience init(array: [AnyObject], copyItems flag: Bool)
   convenience init?(contentsOfFile path: String)
-  convenience init?(contentsOfURL url: NSURL)
+  convenience init?(contentsOf url: NSURL)
 }
 extension NSArray {
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>)
@@ -351,11 +351,11 @@ extension NSArray {
 
 /****************	Mutable Array		****************/
 class NSMutableArray : NSArray {
-  func addObject(anObject: AnyObject)
-  func insertObject(anObject: AnyObject, atIndex index: Int)
+  func add(anObject: AnyObject)
+  func insert(anObject: AnyObject, at index: Int)
   func removeLastObject()
-  func removeObjectAtIndex(index: Int)
-  func replaceObjectAtIndex(index: Int, withObject anObject: AnyObject)
+  func removeObjectAt(index: Int)
+  func replaceObjectAt(index: Int, withObject anObject: AnyObject)
   init()
   init(capacity numItems: Int)
   init?(coder aDecoder: NSCoder)
@@ -365,62 +365,62 @@ class NSMutableArray : NSArray {
   convenience init(array: [AnyObject], copyItems flag: Bool)
 }
 extension NSMutableArray {
-  func addObjectsFromArray(otherArray: [AnyObject])
-  func exchangeObjectAtIndex(idx1: Int, withObjectAtIndex idx2: Int)
+  func addObjectsFrom(otherArray: [AnyObject])
+  func exchangeObjectAt(idx1: Int, withObjectAt idx2: Int)
   func removeAllObjects()
-  func removeObject(anObject: AnyObject, inRange range: NSRange)
-  func removeObject(anObject: AnyObject)
-  func removeObjectIdenticalTo(anObject: AnyObject, inRange range: NSRange)
+  func remove(anObject: AnyObject, `in` range: NSRange)
+  func remove(anObject: AnyObject)
+  func removeObjectIdenticalTo(anObject: AnyObject, `in` range: NSRange)
   func removeObjectIdenticalTo(anObject: AnyObject)
-  func removeObjectsInArray(otherArray: [AnyObject])
-  func removeObjectsInRange(range: NSRange)
-  func replaceObjectsInRange(range: NSRange, withObjectsFromArray otherArray: [AnyObject], range otherRange: NSRange)
-  func replaceObjectsInRange(range: NSRange, withObjectsFromArray otherArray: [AnyObject])
+  func removeObjectsIn(otherArray: [AnyObject])
+  func removeObjectsIn(range: NSRange)
+  func replaceObjectsIn(range: NSRange, withObjectsFrom otherArray: [AnyObject], range otherRange: NSRange)
+  func replaceObjectsIn(range: NSRange, withObjectsFrom otherArray: [AnyObject])
   func setArray(otherArray: [AnyObject])
-  func sortUsingFunction(compare: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>)
-  func sortUsingSelector(comparator: Selector)
-  func insertObjects(objects: [AnyObject], atIndexes indexes: NSIndexSet)
-  func removeObjectsAtIndexes(indexes: NSIndexSet)
-  func replaceObjectsAtIndexes(indexes: NSIndexSet, withObjects objects: [AnyObject])
+  func sortUsing(compare: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>)
+  func sortUsing(comparator: Selector)
+  func insert(objects: [AnyObject], at indexes: NSIndexSet)
+  func removeObjectsAt(indexes: NSIndexSet)
+  func replaceObjectsAt(indexes: NSIndexSet, withObjects objects: [AnyObject])
   subscript (idx: Int) -> AnyObject
   @available(tvOS 4.0, *)
   func sortUsingComparator(cmptr: NSComparator)
   @available(tvOS 4.0, *)
-  func sortWithOptions(opts: NSSortOptions, usingComparator cmptr: NSComparator)
+  func sort(options opts: NSSortOptions = [], usingComparator cmptr: NSComparator)
 }
 extension NSMutableArray {
   convenience init?(contentsOfFile path: String)
-  convenience init?(contentsOfURL url: NSURL)
+  convenience init?(contentsOf url: NSURL)
 }
 @available(tvOS 3.2, *)
 class NSAttributedString : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var string: String { get }
-  func attributesAtIndex(location: Int, effectiveRange range: NSRangePointer) -> [String : AnyObject]
+  func attributesAt(location: Int, effectiveRange range: NSRangePointer) -> [String : AnyObject]
   init()
   @available(tvOS 3.2, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 3.2, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 3.2, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 3.2, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension NSAttributedString {
   var length: Int { get }
-  func attribute(attrName: String, atIndex location: Int, effectiveRange range: NSRangePointer) -> AnyObject?
-  func attributedSubstringFromRange(range: NSRange) -> NSAttributedString
-  func attributesAtIndex(location: Int, longestEffectiveRange range: NSRangePointer, inRange rangeLimit: NSRange) -> [String : AnyObject]
-  func attribute(attrName: String, atIndex location: Int, longestEffectiveRange range: NSRangePointer, inRange rangeLimit: NSRange) -> AnyObject?
-  func isEqualToAttributedString(other: NSAttributedString) -> Bool
+  func attribute(attrName: String, at location: Int, effectiveRange range: NSRangePointer) -> AnyObject?
+  func attributedSubstringFrom(range: NSRange) -> NSAttributedString
+  func attributesAt(location: Int, longestEffectiveRange range: NSRangePointer, `in` rangeLimit: NSRange) -> [String : AnyObject]
+  func attribute(attrName: String, at location: Int, longestEffectiveRange range: NSRangePointer, `in` rangeLimit: NSRange) -> AnyObject?
+  func isEqualTo(other: NSAttributedString) -> Bool
   init(string str: String)
   init(string str: String, attributes attrs: [String : AnyObject]?)
   init(attributedString attrStr: NSAttributedString)
   @available(tvOS 4.0, *)
-  func enumerateAttributesInRange(enumerationRange: NSRange, options opts: NSAttributedStringEnumerationOptions, usingBlock block: ([String : AnyObject], NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateAttributesIn(enumerationRange: NSRange, options opts: NSAttributedStringEnumerationOptions = [], usingBlock block: ([String : AnyObject], NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
-  func enumerateAttribute(attrName: String, inRange enumerationRange: NSRange, options opts: NSAttributedStringEnumerationOptions, usingBlock block: (AnyObject?, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateAttribute(attrName: String, `in` enumerationRange: NSRange, options opts: NSAttributedStringEnumerationOptions = [], usingBlock block: (AnyObject?, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
 }
 struct NSAttributedStringEnumerationOptions : OptionSetType {
   init(rawValue: UInt)
@@ -430,7 +430,7 @@ struct NSAttributedStringEnumerationOptions : OptionSetType {
 }
 @available(tvOS 3.2, *)
 class NSMutableAttributedString : NSAttributedString {
-  func replaceCharactersInRange(range: NSRange, withString str: String)
+  func replaceCharactersIn(range: NSRange, withString str: String)
   func setAttributes(attrs: [String : AnyObject]?, range: NSRange)
   init()
   init?(coder aDecoder: NSCoder)
@@ -443,25 +443,25 @@ extension NSMutableAttributedString {
   func addAttribute(name: String, value: AnyObject, range: NSRange)
   func addAttributes(attrs: [String : AnyObject], range: NSRange)
   func removeAttribute(name: String, range: NSRange)
-  func replaceCharactersInRange(range: NSRange, withAttributedString attrString: NSAttributedString)
-  func insertAttributedString(attrString: NSAttributedString, atIndex loc: Int)
-  func appendAttributedString(attrString: NSAttributedString)
-  func deleteCharactersInRange(range: NSRange)
+  func replaceCharactersIn(range: NSRange, withAttributedString attrString: NSAttributedString)
+  func insert(attrString: NSAttributedString, at loc: Int)
+  func append(attrString: NSAttributedString)
+  func deleteCharactersIn(range: NSRange)
   func setAttributedString(attrString: NSAttributedString)
   func beginEditing()
   func endEditing()
 }
 class NSBundle : NSObject {
-  class func mainBundle() -> NSBundle
+  class func main() -> NSBundle
   init?(path: String)
   @available(tvOS 4.0, *)
-  convenience init?(URL url: NSURL)
+  convenience init?(url: NSURL)
   /*not inherited*/ init(forClass aClass: AnyClass)
   /*not inherited*/ init?(identifier: String)
   class func allBundles() -> [NSBundle]
   class func allFrameworks() -> [NSBundle]
   func load() -> Bool
-  var loaded: Bool { get }
+  var isLoaded: Bool { get }
   func unload() -> Bool
   @available(tvOS 2.0, *)
   func preflight() throws
@@ -474,7 +474,7 @@ class NSBundle : NSObject {
   @available(tvOS 4.0, *)
   @NSCopying var executableURL: NSURL? { get }
   @available(tvOS 4.0, *)
-  func URLForAuxiliaryExecutable(executableName: String) -> NSURL?
+  func urlForAuxiliaryExecutable(executableName: String) -> NSURL?
   @available(tvOS 4.0, *)
   @NSCopying var privateFrameworksURL: NSURL? { get }
   @available(tvOS 4.0, *)
@@ -494,19 +494,19 @@ class NSBundle : NSObject {
   var sharedSupportPath: String? { get }
   var builtInPlugInsPath: String? { get }
   @available(tvOS 4.0, *)
-  class func URLForResource(name: String?, withExtension ext: String?, subdirectory subpath: String?, inBundleWithURL bundleURL: NSURL) -> NSURL?
+  class func urlForResource(name: String?, withExtension ext: String?, subdirectory subpath: String?, inBundleWith bundleURL: NSURL) -> NSURL?
   @available(tvOS 4.0, *)
-  class func URLsForResourcesWithExtension(ext: String?, subdirectory subpath: String?, inBundleWithURL bundleURL: NSURL) -> [NSURL]?
+  class func urLsForResourcesWithExtension(ext: String?, subdirectory subpath: String?, inBundleWith bundleURL: NSURL) -> [NSURL]?
   @available(tvOS 4.0, *)
-  func URLForResource(name: String?, withExtension ext: String?) -> NSURL?
+  func urlForResource(name: String?, withExtension ext: String?) -> NSURL?
   @available(tvOS 4.0, *)
-  func URLForResource(name: String?, withExtension ext: String?, subdirectory subpath: String?) -> NSURL?
+  func urlForResource(name: String?, withExtension ext: String?, subdirectory subpath: String?) -> NSURL?
   @available(tvOS 4.0, *)
-  func URLForResource(name: String?, withExtension ext: String?, subdirectory subpath: String?, localization localizationName: String?) -> NSURL?
+  func urlForResource(name: String?, withExtension ext: String?, subdirectory subpath: String?, localization localizationName: String?) -> NSURL?
   @available(tvOS 4.0, *)
-  func URLsForResourcesWithExtension(ext: String?, subdirectory subpath: String?) -> [NSURL]?
+  func urLsForResourcesWithExtension(ext: String?, subdirectory subpath: String?) -> [NSURL]?
   @available(tvOS 4.0, *)
-  func URLsForResourcesWithExtension(ext: String?, subdirectory subpath: String?, localization localizationName: String?) -> [NSURL]?
+  func urLsForResourcesWithExtension(ext: String?, subdirectory subpath: String?, localization localizationName: String?) -> [NSURL]?
   class func pathForResource(name: String?, ofType ext: String?, inDirectory bundlePath: String) -> String?
   class func pathsForResourcesOfType(ext: String?, inDirectory bundlePath: String) -> [String]
   func pathForResource(name: String?, ofType ext: String?) -> String?
@@ -524,8 +524,8 @@ class NSBundle : NSObject {
   var preferredLocalizations: [String] { get }
   var localizations: [String] { get }
   var developmentLocalization: String? { get }
-  class func preferredLocalizationsFromArray(localizationsArray: [String]) -> [String]
-  class func preferredLocalizationsFromArray(localizationsArray: [String], forPreferences preferencesArray: [String]?) -> [String]
+  class func preferredLocalizationsFrom(localizationsArray: [String]) -> [String]
+  class func preferredLocalizationsFrom(localizationsArray: [String], forPreferences preferencesArray: [String]?) -> [String]
   @available(tvOS 2.0, *)
   var executableArchitectures: [NSNumber]? { get }
   convenience init()
@@ -599,7 +599,7 @@ class NSByteCountFormatter : NSFormatter {
   var includesUnit: Bool
   var includesCount: Bool
   var includesActualByteCount: Bool
-  var adaptive: Bool
+  var isAdaptive: Bool
   var zeroPadsFractionDigits: Bool
   @available(tvOS 8.0, *)
   var formattingContext: NSFormattingContext
@@ -658,10 +658,10 @@ func NSSwapHostFloatToLittle(x: Float) -> NSSwappedFloat
 class NSCache : NSObject {
   var name: String
   unowned(unsafe) var delegate: @sil_unmanaged NSCacheDelegate?
-  func objectForKey(key: AnyObject) -> AnyObject?
+  func objectFor(key: AnyObject) -> AnyObject?
   func setObject(obj: AnyObject, forKey key: AnyObject)
   func setObject(obj: AnyObject, forKey key: AnyObject, cost g: Int)
-  func removeObjectForKey(key: AnyObject)
+  func removeObjectFor(key: AnyObject)
   func removeAllObjects()
   var totalCostLimit: Int
   var countLimit: Int
@@ -785,9 +785,9 @@ struct NSCalendarOptions : OptionSetType {
 @available(tvOS, introduced=2.0, deprecated=8.0, message="Use NSCalendarWrapComponents instead")
 var NSWrapCalendarComponents: Int { get }
 class NSCalendar : NSObject, NSCopying, NSSecureCoding {
-  class func currentCalendar() -> NSCalendar
+  class func current() -> NSCalendar
   @available(tvOS 2.0, *)
-  class func autoupdatingCurrentCalendar() -> NSCalendar
+  class func autoupdatingCurrent() -> NSCalendar
   @available(tvOS 8.0, *)
   /*not inherited*/ init?(identifier calendarIdentifierConstant: String)
   init?(calendarIdentifier ident: String)
@@ -833,41 +833,41 @@ class NSCalendar : NSObject, NSCopying, NSSecureCoding {
   @available(tvOS 5.0, *)
   var shortStandaloneQuarterSymbols: [String] { get }
   @available(tvOS 5.0, *)
-  var AMSymbol: String { get }
+  var amSymbol: String { get }
   @available(tvOS 5.0, *)
-  var PMSymbol: String { get }
-  func minimumRangeOfUnit(unit: NSCalendarUnit) -> NSRange
-  func maximumRangeOfUnit(unit: NSCalendarUnit) -> NSRange
-  func rangeOfUnit(smaller: NSCalendarUnit, inUnit larger: NSCalendarUnit, forDate date: NSDate) -> NSRange
-  func ordinalityOfUnit(smaller: NSCalendarUnit, inUnit larger: NSCalendarUnit, forDate date: NSDate) -> Int
+  var pmSymbol: String { get }
+  func minimumRangeOf(unit: NSCalendarUnit) -> NSRange
+  func maximumRangeOf(unit: NSCalendarUnit) -> NSRange
+  func rangeOf(smaller: NSCalendarUnit, `in` larger: NSCalendarUnit, forDate date: NSDate) -> NSRange
+  func ordinalityOf(smaller: NSCalendarUnit, `in` larger: NSCalendarUnit, forDate date: NSDate) -> Int
   @available(tvOS 2.0, *)
-  func rangeOfUnit(unit: NSCalendarUnit, startDate datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, forDate date: NSDate) -> Bool
-  func dateFromComponents(comps: NSDateComponents) -> NSDate?
-  func components(unitFlags: NSCalendarUnit, fromDate date: NSDate) -> NSDateComponents
-  func dateByAddingComponents(comps: NSDateComponents, toDate date: NSDate, options opts: NSCalendarOptions) -> NSDate?
-  func components(unitFlags: NSCalendarUnit, fromDate startingDate: NSDate, toDate resultDate: NSDate, options opts: NSCalendarOptions) -> NSDateComponents
+  func rangeOf(unit: NSCalendarUnit, start datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, forDate date: NSDate) -> Bool
+  func dateFrom(comps: NSDateComponents) -> NSDate?
+  func components(unitFlags: NSCalendarUnit, from date: NSDate) -> NSDateComponents
+  func dateByAdding(comps: NSDateComponents, to date: NSDate, options opts: NSCalendarOptions = []) -> NSDate?
+  func components(unitFlags: NSCalendarUnit, from startingDate: NSDate, to resultDate: NSDate, options opts: NSCalendarOptions = []) -> NSDateComponents
   @available(tvOS 8.0, *)
-  func getEra(eraValuePointer: UnsafeMutablePointer<Int>, year yearValuePointer: UnsafeMutablePointer<Int>, month monthValuePointer: UnsafeMutablePointer<Int>, day dayValuePointer: UnsafeMutablePointer<Int>, fromDate date: NSDate)
+  func getEra(eraValuePointer: UnsafeMutablePointer<Int>, year yearValuePointer: UnsafeMutablePointer<Int>, month monthValuePointer: UnsafeMutablePointer<Int>, day dayValuePointer: UnsafeMutablePointer<Int>, from date: NSDate)
   @available(tvOS 8.0, *)
-  func getEra(eraValuePointer: UnsafeMutablePointer<Int>, yearForWeekOfYear yearValuePointer: UnsafeMutablePointer<Int>, weekOfYear weekValuePointer: UnsafeMutablePointer<Int>, weekday weekdayValuePointer: UnsafeMutablePointer<Int>, fromDate date: NSDate)
+  func getEra(eraValuePointer: UnsafeMutablePointer<Int>, yearForWeekOfYear yearValuePointer: UnsafeMutablePointer<Int>, weekOfYear weekValuePointer: UnsafeMutablePointer<Int>, weekday weekdayValuePointer: UnsafeMutablePointer<Int>, from date: NSDate)
   @available(tvOS 8.0, *)
-  func getHour(hourValuePointer: UnsafeMutablePointer<Int>, minute minuteValuePointer: UnsafeMutablePointer<Int>, second secondValuePointer: UnsafeMutablePointer<Int>, nanosecond nanosecondValuePointer: UnsafeMutablePointer<Int>, fromDate date: NSDate)
+  func getHour(hourValuePointer: UnsafeMutablePointer<Int>, minute minuteValuePointer: UnsafeMutablePointer<Int>, second secondValuePointer: UnsafeMutablePointer<Int>, nanosecond nanosecondValuePointer: UnsafeMutablePointer<Int>, from date: NSDate)
   @available(tvOS 8.0, *)
-  func component(unit: NSCalendarUnit, fromDate date: NSDate) -> Int
+  func component(unit: NSCalendarUnit, from date: NSDate) -> Int
   @available(tvOS 8.0, *)
   func dateWithEra(eraValue: Int, year yearValue: Int, month monthValue: Int, day dayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> NSDate?
   @available(tvOS 8.0, *)
   func dateWithEra(eraValue: Int, yearForWeekOfYear yearValue: Int, weekOfYear weekValue: Int, weekday weekdayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> NSDate?
   @available(tvOS 8.0, *)
-  func startOfDayForDate(date: NSDate) -> NSDate
+  func startOfDayFor(date: NSDate) -> NSDate
   @available(tvOS 8.0, *)
-  func componentsInTimeZone(timezone: NSTimeZone, fromDate date: NSDate) -> NSDateComponents
+  func componentsIn(timezone: NSTimeZone, from date: NSDate) -> NSDateComponents
   @available(tvOS 8.0, *)
-  func compareDate(date1: NSDate, toDate date2: NSDate, toUnitGranularity unit: NSCalendarUnit) -> NSComparisonResult
+  func compare(date1: NSDate, to date2: NSDate, toUnitGranularity unit: NSCalendarUnit) -> NSComparisonResult
   @available(tvOS 8.0, *)
-  func isDate(date1: NSDate, equalToDate date2: NSDate, toUnitGranularity unit: NSCalendarUnit) -> Bool
+  func isDate(date1: NSDate, equalTo date2: NSDate, toUnitGranularity unit: NSCalendarUnit) -> Bool
   @available(tvOS 8.0, *)
-  func isDate(date1: NSDate, inSameDayAsDate date2: NSDate) -> Bool
+  func isDate(date1: NSDate, inSameDayAs date2: NSDate) -> Bool
   @available(tvOS 8.0, *)
   func isDateInToday(date: NSDate) -> Bool
   @available(tvOS 8.0, *)
@@ -877,30 +877,30 @@ class NSCalendar : NSObject, NSCopying, NSSecureCoding {
   @available(tvOS 8.0, *)
   func isDateInWeekend(date: NSDate) -> Bool
   @available(tvOS 8.0, *)
-  func rangeOfWeekendStartDate(datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, containingDate date: NSDate) -> Bool
+  func rangeOfWeekendStart(datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, containing date: NSDate) -> Bool
   @available(tvOS 8.0, *)
-  func nextWeekendStartDate(datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, options: NSCalendarOptions, afterDate date: NSDate) -> Bool
+  func nextWeekendStart(datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, options: NSCalendarOptions = [], after date: NSDate) -> Bool
   @available(tvOS 8.0, *)
-  func components(unitFlags: NSCalendarUnit, fromDateComponents startingDateComp: NSDateComponents, toDateComponents resultDateComp: NSDateComponents, options: NSCalendarOptions) -> NSDateComponents
+  func components(unitFlags: NSCalendarUnit, from startingDateComp: NSDateComponents, to resultDateComp: NSDateComponents, options: NSCalendarOptions = []) -> NSDateComponents
   @available(tvOS 8.0, *)
-  func dateByAddingUnit(unit: NSCalendarUnit, value: Int, toDate date: NSDate, options: NSCalendarOptions) -> NSDate?
+  func dateByAdding(unit: NSCalendarUnit, value: Int, to date: NSDate, options: NSCalendarOptions = []) -> NSDate?
   @available(tvOS 8.0, *)
-  func enumerateDatesStartingAfterDate(start: NSDate, matchingComponents comps: NSDateComponents, options opts: NSCalendarOptions, usingBlock block: (NSDate?, Bool, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateDatesStartingAfter(start: NSDate, matching comps: NSDateComponents, options opts: NSCalendarOptions = [], usingBlock block: (NSDate?, Bool, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 8.0, *)
-  func nextDateAfterDate(date: NSDate, matchingComponents comps: NSDateComponents, options: NSCalendarOptions) -> NSDate?
+  func nextDateAfter(date: NSDate, matching comps: NSDateComponents, options: NSCalendarOptions = []) -> NSDate?
   @available(tvOS 8.0, *)
-  func nextDateAfterDate(date: NSDate, matchingUnit unit: NSCalendarUnit, value: Int, options: NSCalendarOptions) -> NSDate?
+  func nextDateAfter(date: NSDate, matching unit: NSCalendarUnit, value: Int, options: NSCalendarOptions = []) -> NSDate?
   @available(tvOS 8.0, *)
-  func nextDateAfterDate(date: NSDate, matchingHour hourValue: Int, minute minuteValue: Int, second secondValue: Int, options: NSCalendarOptions) -> NSDate?
+  func nextDateAfter(date: NSDate, matchingHour hourValue: Int, minute minuteValue: Int, second secondValue: Int, options: NSCalendarOptions = []) -> NSDate?
   @available(tvOS 8.0, *)
-  func dateBySettingUnit(unit: NSCalendarUnit, value v: Int, ofDate date: NSDate, options opts: NSCalendarOptions) -> NSDate?
+  func dateBySettingUnit(unit: NSCalendarUnit, value v: Int, of date: NSDate, options opts: NSCalendarOptions = []) -> NSDate?
   @available(tvOS 8.0, *)
-  func dateBySettingHour(h: Int, minute m: Int, second s: Int, ofDate date: NSDate, options opts: NSCalendarOptions) -> NSDate?
+  func dateBySettingHour(h: Int, minute m: Int, second s: Int, of date: NSDate, options opts: NSCalendarOptions = []) -> NSDate?
   @available(tvOS 8.0, *)
   func date(date: NSDate, matchesComponents components: NSDateComponents) -> Bool
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 8.0, *)
@@ -933,7 +933,7 @@ class NSDateComponents : NSObject, NSCopying, NSSecureCoding {
   @available(tvOS 5.0, *)
   var yearForWeekOfYear: Int
   @available(tvOS 6.0, *)
-  var leapMonth: Bool
+  var isLeapMonth: Bool
   @available(tvOS 4.0, *)
   @NSCopying var date: NSDate? { get }
   @available(tvOS 8.0, *)
@@ -941,75 +941,75 @@ class NSDateComponents : NSObject, NSCopying, NSSecureCoding {
   @available(tvOS 8.0, *)
   func valueForComponent(unit: NSCalendarUnit) -> Int
   @available(tvOS 8.0, *)
-  var validDate: Bool { get }
+  var isValidDate: Bool { get }
   @available(tvOS 8.0, *)
-  func isValidDateInCalendar(calendar: NSCalendar) -> Bool
+  func isValidDateIn(calendar: NSCalendar) -> Bool
   init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 var NSOpenStepUnicodeReservedBase: Int { get }
 class NSCharacterSet : NSObject, NSCopying, NSMutableCopying, NSCoding {
-  class func controlCharacterSet() -> NSCharacterSet
-  class func whitespaceCharacterSet() -> NSCharacterSet
-  class func whitespaceAndNewlineCharacterSet() -> NSCharacterSet
-  class func decimalDigitCharacterSet() -> NSCharacterSet
-  class func letterCharacterSet() -> NSCharacterSet
-  class func lowercaseLetterCharacterSet() -> NSCharacterSet
-  class func uppercaseLetterCharacterSet() -> NSCharacterSet
-  class func nonBaseCharacterSet() -> NSCharacterSet
-  class func alphanumericCharacterSet() -> NSCharacterSet
-  class func decomposableCharacterSet() -> NSCharacterSet
-  class func illegalCharacterSet() -> NSCharacterSet
-  class func punctuationCharacterSet() -> NSCharacterSet
-  class func capitalizedLetterCharacterSet() -> NSCharacterSet
-  class func symbolCharacterSet() -> NSCharacterSet
+  class func control() -> NSCharacterSet
+  class func whitespace() -> NSCharacterSet
+  class func whitespaceAndNewline() -> NSCharacterSet
+  class func decimalDigit() -> NSCharacterSet
+  class func letter() -> NSCharacterSet
+  class func lowercaseLetter() -> NSCharacterSet
+  class func uppercaseLetter() -> NSCharacterSet
+  class func nonBase() -> NSCharacterSet
+  class func alphanumeric() -> NSCharacterSet
+  class func decomposable() -> NSCharacterSet
+  class func illegal() -> NSCharacterSet
+  class func punctuation() -> NSCharacterSet
+  class func capitalizedLetter() -> NSCharacterSet
+  class func symbol() -> NSCharacterSet
   @available(tvOS 2.0, *)
-  class func newlineCharacterSet() -> NSCharacterSet
+  class func newline() -> NSCharacterSet
   /*not inherited*/ init(range aRange: NSRange)
-  /*not inherited*/ init(charactersInString aString: String)
+  /*not inherited*/ init(charactersIn aString: String)
   /*not inherited*/ init(bitmapRepresentation data: NSData)
   /*not inherited*/ init?(contentsOfFile fName: String)
   init(coder aDecoder: NSCoder)
   func characterIsMember(aCharacter: unichar) -> Bool
   @NSCopying var bitmapRepresentation: NSData { get }
-  @NSCopying var invertedSet: NSCharacterSet { get }
+  @NSCopying var inverted: NSCharacterSet { get }
   func longCharacterIsMember(theLongChar: UTF32Char) -> Bool
-  func isSupersetOfSet(theOtherSet: NSCharacterSet) -> Bool
+  func isSupersetOf(theOtherSet: NSCharacterSet) -> Bool
   func hasMemberInPlane(thePlane: UInt8) -> Bool
   convenience init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  func copy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func encodeWith(aCoder: NSCoder)
 }
 class NSMutableCharacterSet : NSCharacterSet, NSCopying, NSMutableCopying {
-  func addCharactersInRange(aRange: NSRange)
-  func removeCharactersInRange(aRange: NSRange)
-  func addCharactersInString(aString: String)
-  func removeCharactersInString(aString: String)
-  func formUnionWithCharacterSet(otherSet: NSCharacterSet)
-  func formIntersectionWithCharacterSet(otherSet: NSCharacterSet)
+  func addCharactersIn(aRange: NSRange)
+  func removeCharactersIn(aRange: NSRange)
+  func addCharactersIn(aString: String)
+  func removeCharactersIn(aString: String)
+  func formUnionWith(otherSet: NSCharacterSet)
+  func formIntersectionWith(otherSet: NSCharacterSet)
   func invert()
-  class func controlCharacterSet() -> NSMutableCharacterSet
-  class func whitespaceCharacterSet() -> NSMutableCharacterSet
-  class func whitespaceAndNewlineCharacterSet() -> NSMutableCharacterSet
-  class func decimalDigitCharacterSet() -> NSMutableCharacterSet
-  class func letterCharacterSet() -> NSMutableCharacterSet
-  class func lowercaseLetterCharacterSet() -> NSMutableCharacterSet
-  class func uppercaseLetterCharacterSet() -> NSMutableCharacterSet
-  class func nonBaseCharacterSet() -> NSMutableCharacterSet
-  class func alphanumericCharacterSet() -> NSMutableCharacterSet
-  class func decomposableCharacterSet() -> NSMutableCharacterSet
-  class func illegalCharacterSet() -> NSMutableCharacterSet
-  class func punctuationCharacterSet() -> NSMutableCharacterSet
-  class func capitalizedLetterCharacterSet() -> NSMutableCharacterSet
-  class func symbolCharacterSet() -> NSMutableCharacterSet
+  class func control() -> NSMutableCharacterSet
+  class func whitespace() -> NSMutableCharacterSet
+  class func whitespaceAndNewline() -> NSMutableCharacterSet
+  class func decimalDigit() -> NSMutableCharacterSet
+  class func letter() -> NSMutableCharacterSet
+  class func lowercaseLetter() -> NSMutableCharacterSet
+  class func uppercaseLetter() -> NSMutableCharacterSet
+  class func nonBase() -> NSMutableCharacterSet
+  class func alphanumeric() -> NSMutableCharacterSet
+  class func decomposable() -> NSMutableCharacterSet
+  class func illegal() -> NSMutableCharacterSet
+  class func punctuation() -> NSMutableCharacterSet
+  class func capitalizedLetter() -> NSMutableCharacterSet
+  class func symbol() -> NSMutableCharacterSet
   @available(tvOS 2.0, *)
-  class func newlineCharacterSet() -> NSMutableCharacterSet
+  class func newline() -> NSMutableCharacterSet
   /*not inherited*/ init(range aRange: NSRange)
-  /*not inherited*/ init(charactersInString aString: String)
+  /*not inherited*/ init(charactersIn aString: String)
   /*not inherited*/ init(bitmapRepresentation data: NSData)
   /*not inherited*/ init?(contentsOfFile fName: String)
   init(coder aDecoder: NSCoder)
@@ -1039,7 +1039,7 @@ extension NSCoder {
   func decodeTopLevelObjectOfClasses(classes: NSSet?, forKey key: String) throws -> AnyObject?
 }
 extension NSCoder {
-  func encodeObject(object: AnyObject?)
+  func encode(object: AnyObject?)
   func encodeRootObject(rootObject: AnyObject)
   func encodeBycopyObject(anObject: AnyObject?)
   func encodeByrefObject(anObject: AnyObject?)
@@ -1051,14 +1051,14 @@ extension NSCoder {
   func decodeBytesWithReturnedLength(lengthp: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<Void>
   var systemVersion: UInt32 { get }
   var allowsKeyedCoding: Bool { get }
-  func encodeObject(objv: AnyObject?, forKey key: String)
+  func encode(objv: AnyObject?, forKey key: String)
   func encodeConditionalObject(objv: AnyObject?, forKey key: String)
-  func encodeBool(boolv: Bool, forKey key: String)
-  func encodeInt(intv: Int32, forKey key: String)
-  func encodeInt32(intv: Int32, forKey key: String)
-  func encodeInt64(intv: Int64, forKey key: String)
-  func encodeFloat(realv: Float, forKey key: String)
-  func encodeDouble(realv: Double, forKey key: String)
+  func encode(boolv: Bool, forKey key: String)
+  func encode(intv: Int32, forKey key: String)
+  func encode(intv: Int32, forKey key: String)
+  func encode(intv: Int64, forKey key: String)
+  func encode(realv: Float, forKey key: String)
+  func encode(realv: Double, forKey key: String)
   func encodeBytes(bytesp: UnsafePointer<UInt8>, length lenv: Int, forKey key: String)
   func containsValueForKey(key: String) -> Bool
   func decodeObjectForKey(key: String) -> AnyObject?
@@ -1070,7 +1070,7 @@ extension NSCoder {
   func decodeDoubleForKey(key: String) -> Double
   func decodeBytesForKey(key: String, returnedLength lengthp: UnsafeMutablePointer<Int>) -> UnsafePointer<UInt8>
   @available(tvOS 2.0, *)
-  func encodeInteger(intv: Int, forKey key: String)
+  func encode(intv: Int, forKey key: String)
   @available(tvOS 2.0, *)
   func decodeIntegerForKey(key: String) -> Int
   @available(tvOS 6.0, *)
@@ -1082,7 +1082,7 @@ extension NSCoder {
   @available(tvOS 6.0, *)
   var allowedClasses: Set<NSObject>? { get }
   @available(tvOS 9.0, *)
-  func failWithError(error: NSError)
+  func failWith(error: NSError)
 }
 struct NSComparisonPredicateOptions : OptionSetType {
   init(rawValue: UInt)
@@ -1121,7 +1121,7 @@ enum NSPredicateOperatorType : UInt {
 }
 @available(tvOS 3.0, *)
 class NSComparisonPredicate : NSPredicate {
-  init(leftExpression lhs: NSExpression, rightExpression rhs: NSExpression, modifier: NSComparisonPredicateModifier, type: NSPredicateOperatorType, options: NSComparisonPredicateOptions)
+  init(leftExpression lhs: NSExpression, rightExpression rhs: NSExpression, modifier: NSComparisonPredicateModifier, type: NSPredicateOperatorType, options: NSComparisonPredicateOptions = [])
   init(leftExpression lhs: NSExpression, rightExpression rhs: NSExpression, customSelector selector: Selector)
   init?(coder: NSCoder)
   var predicateOperatorType: NSPredicateOperatorType { get }
@@ -1215,10 +1215,10 @@ class NSData : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var length: Int { get }
   var bytes: UnsafePointer<Void> { get }
   init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -1227,52 +1227,52 @@ class NSData : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var length: Int { get }
   var bytes: UnsafePointer<Void> { get }
   init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension NSData {
   var description: String { get }
   func getBytes(buffer: UnsafeMutablePointer<Void>, length: Int)
   func getBytes(buffer: UnsafeMutablePointer<Void>, range: NSRange)
-  func isEqualToData(other: NSData) -> Bool
-  func subdataWithRange(range: NSRange) -> NSData
+  func isEqualTo(other: NSData) -> Bool
+  func subdataWith(range: NSRange) -> NSData
   func writeToFile(path: String, atomically useAuxiliaryFile: Bool) -> Bool
-  func writeToURL(url: NSURL, atomically: Bool) -> Bool
-  func writeToFile(path: String, options writeOptionsMask: NSDataWritingOptions) throws
-  func writeToURL(url: NSURL, options writeOptionsMask: NSDataWritingOptions) throws
+  func writeTo(url: NSURL, atomically: Bool) -> Bool
+  func writeToFile(path: String, options writeOptionsMask: NSDataWritingOptions = []) throws
+  func writeTo(url: NSURL, options writeOptionsMask: NSDataWritingOptions = []) throws
   @available(tvOS 4.0, *)
-  func rangeOfData(dataToFind: NSData, options mask: NSDataSearchOptions, range searchRange: NSRange) -> NSRange
+  func rangeOf(dataToFind: NSData, options mask: NSDataSearchOptions = [], range searchRange: NSRange) -> NSRange
   @available(tvOS 7.0, *)
-  func enumerateByteRangesUsingBlock(block: (UnsafePointer<Void>, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateByteRangesUsing(block: (UnsafePointer<Void>, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
 }
 extension NSData {
   var description: String { get }
   func getBytes(buffer: UnsafeMutablePointer<Void>, length: Int)
   func getBytes(buffer: UnsafeMutablePointer<Void>, range: NSRange)
-  func isEqualToData(other: NSData) -> Bool
-  func subdataWithRange(range: NSRange) -> NSData
+  func isEqualTo(other: NSData) -> Bool
+  func subdataWith(range: NSRange) -> NSData
   func writeToFile(path: String, atomically useAuxiliaryFile: Bool) -> Bool
-  func writeToURL(url: NSURL, atomically: Bool) -> Bool
-  func writeToFile(path: String, options writeOptionsMask: NSDataWritingOptions) throws
-  func writeToURL(url: NSURL, options writeOptionsMask: NSDataWritingOptions) throws
+  func writeTo(url: NSURL, atomically: Bool) -> Bool
+  func writeToFile(path: String, options writeOptionsMask: NSDataWritingOptions = []) throws
+  func writeTo(url: NSURL, options writeOptionsMask: NSDataWritingOptions = []) throws
   @available(tvOS 4.0, *)
-  func rangeOfData(dataToFind: NSData, options mask: NSDataSearchOptions, range searchRange: NSRange) -> NSRange
+  func rangeOf(dataToFind: NSData, options mask: NSDataSearchOptions = [], range searchRange: NSRange) -> NSRange
   @available(tvOS 7.0, *)
-  func enumerateByteRangesUsingBlock(block: (UnsafePointer<Void>, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateByteRangesUsing(block: (UnsafePointer<Void>, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
 }
 extension NSData {
   init(bytes: UnsafePointer<Void>, length: Int)
   init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int)
   init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, freeWhenDone b: Bool)
   @available(tvOS 7.0, *)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)?)
-  init(contentsOfFile path: String, options readOptionsMask: NSDataReadingOptions) throws
-  init(contentsOfURL url: NSURL, options readOptionsMask: NSDataReadingOptions) throws
+  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)? = nil)
+  init(contentsOfFile path: String, options readOptionsMask: NSDataReadingOptions = []) throws
+  init(contentsOf url: NSURL, options readOptionsMask: NSDataReadingOptions = []) throws
   init?(contentsOfFile path: String)
-  init?(contentsOfURL url: NSURL)
+  init?(contentsOf url: NSURL)
   init(data: NSData)
 }
 extension NSData {
@@ -1280,32 +1280,32 @@ extension NSData {
   init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int)
   init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, freeWhenDone b: Bool)
   @available(tvOS 7.0, *)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)?)
-  init(contentsOfFile path: String, options readOptionsMask: NSDataReadingOptions) throws
-  init(contentsOfURL url: NSURL, options readOptionsMask: NSDataReadingOptions) throws
+  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)? = nil)
+  init(contentsOfFile path: String, options readOptionsMask: NSDataReadingOptions = []) throws
+  init(contentsOf url: NSURL, options readOptionsMask: NSDataReadingOptions = []) throws
   init?(contentsOfFile path: String)
-  init?(contentsOfURL url: NSURL)
+  init?(contentsOf url: NSURL)
   init(data: NSData)
 }
 extension NSData {
   @available(tvOS 7.0, *)
-  init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions)
+  init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions = [])
   @available(tvOS 7.0, *)
-  func base64EncodedStringWithOptions(options: NSDataBase64EncodingOptions) -> String
+  func base64EncodedString(options options: NSDataBase64EncodingOptions = []) -> String
   @available(tvOS 7.0, *)
-  init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions)
+  init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions = [])
   @available(tvOS 7.0, *)
-  func base64EncodedDataWithOptions(options: NSDataBase64EncodingOptions) -> NSData
+  func base64EncodedData(options options: NSDataBase64EncodingOptions = []) -> NSData
 }
 extension NSData {
   @available(tvOS 7.0, *)
-  init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions)
+  init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions = [])
   @available(tvOS 7.0, *)
-  func base64EncodedStringWithOptions(options: NSDataBase64EncodingOptions) -> String
+  func base64EncodedString(options options: NSDataBase64EncodingOptions = []) -> String
   @available(tvOS 7.0, *)
-  init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions)
+  init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions = [])
   @available(tvOS 7.0, *)
-  func base64EncodedDataWithOptions(options: NSDataBase64EncodingOptions) -> NSData
+  func base64EncodedData(options options: NSDataBase64EncodingOptions = []) -> NSData
 }
 extension NSData {
   @available(tvOS, introduced=2.0, deprecated=8.0, message="This method is unsafe because it could potentially cause buffer overruns. Use -getBytes:length: instead.")
@@ -1333,28 +1333,28 @@ class NSMutableData : NSData {
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
   init?(contentsOfMappedFile path: String)
   @available(tvOS 7.0, *)
-  init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions)
+  init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions = [])
   @available(tvOS 7.0, *)
-  init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions)
+  init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions = [])
   init(bytes: UnsafePointer<Void>, length: Int)
   init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int)
   init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, freeWhenDone b: Bool)
   @available(tvOS 7.0, *)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)?)
-  init(contentsOfFile path: String, options readOptionsMask: NSDataReadingOptions) throws
-  init(contentsOfURL url: NSURL, options readOptionsMask: NSDataReadingOptions) throws
+  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)? = nil)
+  init(contentsOfFile path: String, options readOptionsMask: NSDataReadingOptions = []) throws
+  init(contentsOf url: NSURL, options readOptionsMask: NSDataReadingOptions = []) throws
   init?(contentsOfFile path: String)
-  init?(contentsOfURL url: NSURL)
+  init?(contentsOf url: NSURL)
   init(data: NSData)
 }
 extension NSMutableData {
   func appendBytes(bytes: UnsafePointer<Void>, length: Int)
-  func appendData(other: NSData)
+  func append(other: NSData)
   func increaseLengthBy(extraLength: Int)
-  func replaceBytesInRange(range: NSRange, withBytes bytes: UnsafePointer<Void>)
-  func resetBytesInRange(range: NSRange)
+  func replaceBytesIn(range: NSRange, withBytes bytes: UnsafePointer<Void>)
+  func resetBytesIn(range: NSRange)
   func setData(data: NSData)
-  func replaceBytesInRange(range: NSRange, withBytes replacementBytes: UnsafePointer<Void>, length replacementLength: Int)
+  func replaceBytesIn(range: NSRange, withBytes replacementBytes: UnsafePointer<Void>, length replacementLength: Int)
 }
 extension NSMutableData {
   init?(capacity: Int)
@@ -1369,18 +1369,18 @@ class NSPurgeableData : NSMutableData, NSDiscardableContent {
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
   init?(contentsOfMappedFile path: String)
   @available(tvOS 7.0, *)
-  init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions)
+  init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions = [])
   @available(tvOS 7.0, *)
-  init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions)
+  init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions = [])
   init(bytes: UnsafePointer<Void>, length: Int)
   init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int)
   init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, freeWhenDone b: Bool)
   @available(tvOS 7.0, *)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)?)
-  init(contentsOfFile path: String, options readOptionsMask: NSDataReadingOptions) throws
-  init(contentsOfURL url: NSURL, options readOptionsMask: NSDataReadingOptions) throws
+  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)? = nil)
+  init(contentsOfFile path: String, options readOptionsMask: NSDataReadingOptions = []) throws
+  init(contentsOf url: NSURL, options readOptionsMask: NSDataReadingOptions = []) throws
   init?(contentsOfFile path: String)
-  init?(contentsOfURL url: NSURL)
+  init?(contentsOf url: NSURL)
   init(data: NSData)
   init?(capacity: Int)
   init?(length: Int)
@@ -1402,9 +1402,9 @@ class NSDate : NSObject, NSCopying, NSSecureCoding {
   init()
   init(timeIntervalSinceReferenceDate ti: NSTimeInterval)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 
 extension NSDate : _Reflectable {
@@ -1416,9 +1416,9 @@ class NSDate : NSObject, NSCopying, NSSecureCoding {
   init()
   init(timeIntervalSinceReferenceDate ti: NSTimeInterval)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 
 extension NSDate : _Reflectable {
@@ -1426,29 +1426,29 @@ extension NSDate : _Reflectable {
   func _getMirror() -> _MirrorType
 }
 extension NSDate {
-  func timeIntervalSinceDate(anotherDate: NSDate) -> NSTimeInterval
+  func timeIntervalSince(anotherDate: NSDate) -> NSTimeInterval
   var timeIntervalSinceNow: NSTimeInterval { get }
   var timeIntervalSince1970: NSTimeInterval { get }
   @available(tvOS 2.0, *)
-  func dateByAddingTimeInterval(ti: NSTimeInterval) -> Self
+  func addingTimeInterval(ti: NSTimeInterval) -> Self
   func earlierDate(anotherDate: NSDate) -> NSDate
   func laterDate(anotherDate: NSDate) -> NSDate
   func compare(other: NSDate) -> NSComparisonResult
-  func isEqualToDate(otherDate: NSDate) -> Bool
+  func isEqualTo(otherDate: NSDate) -> Bool
   var description: String { get }
   func descriptionWithLocale(locale: AnyObject?) -> String
   class func timeIntervalSinceReferenceDate() -> NSTimeInterval
 }
 extension NSDate {
-  func timeIntervalSinceDate(anotherDate: NSDate) -> NSTimeInterval
+  func timeIntervalSince(anotherDate: NSDate) -> NSTimeInterval
   var timeIntervalSinceNow: NSTimeInterval { get }
   var timeIntervalSince1970: NSTimeInterval { get }
   @available(tvOS 2.0, *)
-  func dateByAddingTimeInterval(ti: NSTimeInterval) -> Self
+  func addingTimeInterval(ti: NSTimeInterval) -> Self
   func earlierDate(anotherDate: NSDate) -> NSDate
   func laterDate(anotherDate: NSDate) -> NSDate
   func compare(other: NSDate) -> NSComparisonResult
-  func isEqualToDate(otherDate: NSDate) -> Bool
+  func isEqualTo(otherDate: NSDate) -> Bool
   var description: String { get }
   func descriptionWithLocale(locale: AnyObject?) -> String
   class func timeIntervalSinceReferenceDate() -> NSTimeInterval
@@ -1458,14 +1458,14 @@ extension NSDate {
   class func distantPast() -> NSDate
   convenience init(timeIntervalSinceNow secs: NSTimeInterval)
   convenience init(timeIntervalSince1970 secs: NSTimeInterval)
-  convenience init(timeInterval secsToBeAdded: NSTimeInterval, sinceDate date: NSDate)
+  convenience init(timeInterval secsToBeAdded: NSTimeInterval, since date: NSDate)
 }
 extension NSDate {
   class func distantFuture() -> NSDate
   class func distantPast() -> NSDate
   convenience init(timeIntervalSinceNow secs: NSTimeInterval)
   convenience init(timeIntervalSince1970 secs: NSTimeInterval)
-  convenience init(timeInterval secsToBeAdded: NSTimeInterval, sinceDate date: NSDate)
+  convenience init(timeInterval secsToBeAdded: NSTimeInterval, since date: NSDate)
 }
 @available(tvOS 8.0, *)
 enum NSDateComponentsFormatterUnitsStyle : Int {
@@ -1492,10 +1492,10 @@ struct NSDateComponentsFormatterZeroFormattingBehavior : OptionSetType {
 @available(tvOS 8.0, *)
 class NSDateComponentsFormatter : NSFormatter {
   func stringForObjectValue(obj: AnyObject) -> String?
-  func stringFromDateComponents(components: NSDateComponents) -> String?
-  func stringFromDate(startDate: NSDate, toDate endDate: NSDate) -> String?
+  func stringFrom(components: NSDateComponents) -> String?
+  func stringFrom(startDate: NSDate, to endDate: NSDate) -> String?
   func stringFromTimeInterval(ti: NSTimeInterval) -> String?
-  class func localizedStringFromDateComponents(components: NSDateComponents, unitsStyle: NSDateComponentsFormatterUnitsStyle) -> String?
+  class func localizedStringFrom(components: NSDateComponents, unitsStyle: NSDateComponentsFormatterUnitsStyle) -> String?
   var unitsStyle: NSDateComponentsFormatterUnitsStyle
   var allowedUnits: NSCalendarUnit
   var zeroFormattingBehavior: NSDateComponentsFormatterZeroFormattingBehavior
@@ -1514,10 +1514,10 @@ class NSDateFormatter : NSFormatter {
   @available(tvOS 8.0, *)
   var formattingContext: NSFormattingContext
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, range rangep: UnsafeMutablePointer<NSRange>) throws
-  func stringFromDate(date: NSDate) -> String
-  func dateFromString(string: String) -> NSDate?
+  func stringFrom(date: NSDate) -> String
+  func dateFrom(string: String) -> NSDate?
   @available(tvOS 4.0, *)
-  class func localizedStringFromDate(date: NSDate, dateStyle dstyle: NSDateFormatterStyle, timeStyle tstyle: NSDateFormatterStyle) -> String
+  class func localizedStringFrom(date: NSDate, dateStyle dstyle: NSDateFormatterStyle, time tstyle: NSDateFormatterStyle) -> String
   @available(tvOS 4.0, *)
   class func dateFormatFromTemplate(tmplate: String, options opts: Int, locale: NSLocale?) -> String?
   class func defaultFormatterBehavior() -> NSDateFormatterBehavior
@@ -1532,7 +1532,7 @@ class NSDateFormatter : NSFormatter {
   var formatterBehavior: NSDateFormatterBehavior
   @NSCopying var timeZone: NSTimeZone!
   @NSCopying var calendar: NSCalendar!
-  var lenient: Bool
+  var isLenient: Bool
   @NSCopying var twoDigitStartDate: NSDate?
   @NSCopying var defaultDate: NSDate?
   var eraSymbols: [String]!
@@ -1540,8 +1540,8 @@ class NSDateFormatter : NSFormatter {
   var shortMonthSymbols: [String]!
   var weekdaySymbols: [String]!
   var shortWeekdaySymbols: [String]!
-  var AMSymbol: String!
-  var PMSymbol: String!
+  var amSymbol: String!
+  var pmSymbol: String!
   @available(tvOS 2.0, *)
   var longEraSymbols: [String]!
   @available(tvOS 2.0, *)
@@ -1608,7 +1608,7 @@ class NSDateIntervalFormatter : NSFormatter {
   var dateTemplate: String!
   var dateStyle: NSDateIntervalFormatterStyle
   var timeStyle: NSDateIntervalFormatterStyle
-  func stringFromDate(fromDate: NSDate, toDate: NSDate) -> String
+  func stringFrom(fromDate: NSDate, to toDate: NSDate) -> String
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -1680,22 +1680,22 @@ class NSDecimalNumber : NSNumber {
   var decimalValue: NSDecimal { get }
   class func zero() -> NSDecimalNumber
   class func one() -> NSDecimalNumber
-  class func minimumDecimalNumber() -> NSDecimalNumber
-  class func maximumDecimalNumber() -> NSDecimalNumber
-  class func notANumber() -> NSDecimalNumber
-  func decimalNumberByAdding(decimalNumber: NSDecimalNumber) -> NSDecimalNumber
-  func decimalNumberByAdding(decimalNumber: NSDecimalNumber, withBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
-  func decimalNumberBySubtracting(decimalNumber: NSDecimalNumber) -> NSDecimalNumber
-  func decimalNumberBySubtracting(decimalNumber: NSDecimalNumber, withBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
-  func decimalNumberByMultiplyingBy(decimalNumber: NSDecimalNumber) -> NSDecimalNumber
-  func decimalNumberByMultiplyingBy(decimalNumber: NSDecimalNumber, withBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
-  func decimalNumberByDividingBy(decimalNumber: NSDecimalNumber) -> NSDecimalNumber
-  func decimalNumberByDividingBy(decimalNumber: NSDecimalNumber, withBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
-  func decimalNumberByRaisingToPower(power: Int) -> NSDecimalNumber
-  func decimalNumberByRaisingToPower(power: Int, withBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
-  func decimalNumberByMultiplyingByPowerOf10(power: Int16) -> NSDecimalNumber
-  func decimalNumberByMultiplyingByPowerOf10(power: Int16, withBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
-  func decimalNumberByRoundingAccordingToBehavior(behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
+  class func minimum() -> NSDecimalNumber
+  class func maximum() -> NSDecimalNumber
+  class func notA() -> NSDecimalNumber
+  func adding(decimalNumber: NSDecimalNumber) -> NSDecimalNumber
+  func adding(decimalNumber: NSDecimalNumber, withBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
+  func subtracting(decimalNumber: NSDecimalNumber) -> NSDecimalNumber
+  func subtracting(decimalNumber: NSDecimalNumber, withBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
+  func multiplyingBy(decimalNumber: NSDecimalNumber) -> NSDecimalNumber
+  func multiplyingBy(decimalNumber: NSDecimalNumber, withBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
+  func dividingBy(decimalNumber: NSDecimalNumber) -> NSDecimalNumber
+  func dividingBy(decimalNumber: NSDecimalNumber, withBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
+  func raisingToPower(power: Int) -> NSDecimalNumber
+  func raisingToPower(power: Int, withBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
+  func multiplyingByPowerOf10(power: Int16) -> NSDecimalNumber
+  func multiplyingByPowerOf10(power: Int16, withBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
+  func byRoundingAccordingToBehavior(behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
   func compare(decimalNumber: NSNumber) -> NSComparisonResult
   class func setDefaultBehavior(behavior: NSDecimalNumberBehaviors)
   class func defaultBehavior() -> NSDecimalNumberBehaviors
@@ -1731,7 +1731,7 @@ class NSDecimalNumberHandler : NSObject, NSDecimalNumberBehaviors, NSCoding {
   func roundingMode() -> NSRoundingMode
   func scale() -> Int16
   func exceptionDuringOperation(operation: Selector, error: NSCalculationError, leftOperand: NSDecimalNumber, rightOperand: NSDecimalNumber?) -> NSDecimalNumber?
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension NSNumber {
@@ -1744,16 +1744,16 @@ extension NSScanner {
 /****************	Immutable Dictionary	****************/
 class NSDictionary : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration {
   var count: Int { get }
-  func objectForKey(aKey: AnyObject) -> AnyObject?
+  func objectFor(aKey: AnyObject) -> AnyObject?
   func keyEnumerator() -> NSEnumerator
   init()
   init(objects: UnsafePointer<AnyObject?>, forKeys keys: UnsafePointer<NSCopying?>, count cnt: Int)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func encodeWith(aCoder: NSCoder)
+  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSDictionary : DictionaryLiteralConvertible {
@@ -1795,16 +1795,16 @@ extension NSDictionary : _Reflectable {
 /****************	Immutable Dictionary	****************/
 class NSDictionary : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration {
   var count: Int { get }
-  func objectForKey(aKey: AnyObject) -> AnyObject?
+  func objectFor(aKey: AnyObject) -> AnyObject?
   func keyEnumerator() -> NSEnumerator
   init()
   init(objects: UnsafePointer<AnyObject?>, forKeys keys: UnsafePointer<NSCopying?>, count cnt: Int)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func encodeWith(aCoder: NSCoder)
+  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSDictionary : DictionaryLiteralConvertible {
@@ -1844,63 +1844,63 @@ extension NSDictionary : _Reflectable {
 }
 extension NSDictionary {
   var allKeys: [AnyObject] { get }
-  func allKeysForObject(anObject: AnyObject) -> [AnyObject]
+  func allKeysFor(anObject: AnyObject) -> [AnyObject]
   var allValues: [AnyObject] { get }
   var description: String { get }
   var descriptionInStringsFileFormat: String { get }
   func descriptionWithLocale(locale: AnyObject?) -> String
   func descriptionWithLocale(locale: AnyObject?, indent level: Int) -> String
-  func isEqualToDictionary(otherDictionary: [NSObject : AnyObject]) -> Bool
+  func isEqualTo(otherDictionary: [NSObject : AnyObject]) -> Bool
   func objectEnumerator() -> NSEnumerator
-  func objectsForKeys(keys: [AnyObject], notFoundMarker marker: AnyObject) -> [AnyObject]
+  func objectsFor(keys: [AnyObject], notFoundMarker marker: AnyObject) -> [AnyObject]
   func writeToFile(path: String, atomically useAuxiliaryFile: Bool) -> Bool
-  func writeToURL(url: NSURL, atomically: Bool) -> Bool
-  func keysSortedByValueUsingSelector(comparator: Selector) -> [AnyObject]
+  func writeTo(url: NSURL, atomically: Bool) -> Bool
+  func keysSortedByValueUsing(comparator: Selector) -> [AnyObject]
   @available(tvOS 5.0, *)
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, andKeys keys: AutoreleasingUnsafeMutablePointer<AnyObject?>, count: Int)
   subscript (key: NSCopying) -> AnyObject? { get }
   @available(tvOS 4.0, *)
-  func enumerateKeysAndObjectsUsingBlock(block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateKeysAndObjectsUsing(block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
-  func enumerateKeysAndObjectsWithOptions(opts: NSEnumerationOptions, usingBlock block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateKeysAndObjects(options opts: NSEnumerationOptions = [], usingBlock block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
   func keysSortedByValueUsingComparator(cmptr: NSComparator) -> [AnyObject]
   @available(tvOS 4.0, *)
-  func keysSortedByValueWithOptions(opts: NSSortOptions, usingComparator cmptr: NSComparator) -> [AnyObject]
+  func keysSortedByValue(options opts: NSSortOptions = [], usingComparator cmptr: NSComparator) -> [AnyObject]
   @available(tvOS 4.0, *)
   func keysOfEntriesPassingTest(predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<NSObject>
   @available(tvOS 4.0, *)
-  func keysOfEntriesWithOptions(opts: NSEnumerationOptions, passingTest predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<NSObject>
+  func keysOfEntries(options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<NSObject>
 }
 extension NSDictionary {
   var allKeys: [AnyObject] { get }
-  func allKeysForObject(anObject: AnyObject) -> [AnyObject]
+  func allKeysFor(anObject: AnyObject) -> [AnyObject]
   var allValues: [AnyObject] { get }
   var description: String { get }
   var descriptionInStringsFileFormat: String { get }
   func descriptionWithLocale(locale: AnyObject?) -> String
   func descriptionWithLocale(locale: AnyObject?, indent level: Int) -> String
-  func isEqualToDictionary(otherDictionary: [NSObject : AnyObject]) -> Bool
+  func isEqualTo(otherDictionary: [NSObject : AnyObject]) -> Bool
   func objectEnumerator() -> NSEnumerator
-  func objectsForKeys(keys: [AnyObject], notFoundMarker marker: AnyObject) -> [AnyObject]
+  func objectsFor(keys: [AnyObject], notFoundMarker marker: AnyObject) -> [AnyObject]
   func writeToFile(path: String, atomically useAuxiliaryFile: Bool) -> Bool
-  func writeToURL(url: NSURL, atomically: Bool) -> Bool
-  func keysSortedByValueUsingSelector(comparator: Selector) -> [AnyObject]
+  func writeTo(url: NSURL, atomically: Bool) -> Bool
+  func keysSortedByValueUsing(comparator: Selector) -> [AnyObject]
   @available(tvOS 5.0, *)
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, andKeys keys: AutoreleasingUnsafeMutablePointer<AnyObject?>, count: Int)
   subscript (key: NSCopying) -> AnyObject? { get }
   @available(tvOS 4.0, *)
-  func enumerateKeysAndObjectsUsingBlock(block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateKeysAndObjectsUsing(block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
-  func enumerateKeysAndObjectsWithOptions(opts: NSEnumerationOptions, usingBlock block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateKeysAndObjects(options opts: NSEnumerationOptions = [], usingBlock block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
   func keysSortedByValueUsingComparator(cmptr: NSComparator) -> [AnyObject]
   @available(tvOS 4.0, *)
-  func keysSortedByValueWithOptions(opts: NSSortOptions, usingComparator cmptr: NSComparator) -> [AnyObject]
+  func keysSortedByValue(options opts: NSSortOptions = [], usingComparator cmptr: NSComparator) -> [AnyObject]
   @available(tvOS 4.0, *)
   func keysOfEntriesPassingTest(predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<NSObject>
   @available(tvOS 4.0, *)
-  func keysOfEntriesWithOptions(opts: NSEnumerationOptions, passingTest predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<NSObject>
+  func keysOfEntries(options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<NSObject>
 }
 extension NSDictionary {
 
@@ -1918,7 +1918,7 @@ extension NSDictionary {
   convenience init(dictionary otherDictionary: [NSObject : AnyObject], copyItems flag: Bool)
   convenience init(objects: [AnyObject], forKeys keys: [NSCopying])
   convenience init?(contentsOfFile path: String)
-  convenience init?(contentsOfURL url: NSURL)
+  convenience init?(contentsOf url: NSURL)
 }
 extension NSDictionary {
   convenience init(object: AnyObject, forKey key: NSCopying)
@@ -1926,12 +1926,12 @@ extension NSDictionary {
   convenience init(dictionary otherDictionary: [NSObject : AnyObject], copyItems flag: Bool)
   convenience init(objects: [AnyObject], forKeys keys: [NSCopying])
   convenience init?(contentsOfFile path: String)
-  convenience init?(contentsOfURL url: NSURL)
+  convenience init?(contentsOf url: NSURL)
 }
 
 /****************	Mutable Dictionary	****************/
 class NSMutableDictionary : NSDictionary {
-  func removeObjectForKey(aKey: AnyObject)
+  func removeObjectFor(aKey: AnyObject)
   func setObject(anObject: AnyObject, forKey aKey: NSCopying)
   init()
   init(capacity numItems: Int)
@@ -1943,15 +1943,15 @@ class NSMutableDictionary : NSDictionary {
   convenience init(objects: [AnyObject], forKeys keys: [NSCopying])
 }
 extension NSMutableDictionary {
-  func addEntriesFromDictionary(otherDictionary: [NSObject : AnyObject])
+  func addEntriesFrom(otherDictionary: [NSObject : AnyObject])
   func removeAllObjects()
-  func removeObjectsForKeys(keyArray: [AnyObject])
+  func removeObjectsFor(keyArray: [AnyObject])
   func setDictionary(otherDictionary: [NSObject : AnyObject])
   subscript (key: NSCopying) -> AnyObject?
 }
 extension NSMutableDictionary {
   convenience init?(contentsOfFile path: String)
-  convenience init?(contentsOfURL url: NSURL)
+  convenience init?(contentsOf url: NSURL)
 }
 extension NSDictionary {
   @available(tvOS 6.0, *)
@@ -1978,7 +1978,7 @@ enum NSEnergyFormatterUnit : Int {
 class NSEnergyFormatter : NSFormatter {
   @NSCopying var numberFormatter: NSNumberFormatter!
   var unitStyle: NSFormattingUnitStyle
-  var forFoodEnergyUse: Bool
+  var isForFoodEnergyUse: Bool
   func stringFromValue(value: Double, unit: NSEnergyFormatterUnit) -> String
   func stringFromJoules(numberInJoules: Double) -> String
   func unitStringFromValue(value: Double, unit: NSEnergyFormatterUnit) -> String
@@ -1996,12 +1996,12 @@ struct NSFastEnumerationState {
   init(state: UInt, itemsPtr: AutoreleasingUnsafeMutablePointer<AnyObject?>, mutationsPtr: UnsafeMutablePointer<UInt>, extra: (UInt, UInt, UInt, UInt, UInt))
 }
 protocol NSFastEnumeration {
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 class NSEnumerator : NSObject, NSFastEnumeration {
   func nextObject() -> AnyObject?
   init()
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSEnumerator : SequenceType {
@@ -2041,12 +2041,12 @@ class NSError : NSObject, NSCopying, NSSecureCoding {
   var recoveryAttempter: AnyObject? { get }
   var helpAnchor: String? { get }
   @available(tvOS 9.0, *)
-  class func setUserInfoValueProviderForDomain(errorDomain: String, provider: ((NSError, String) -> AnyObject?)?)
+  class func setUserInfoValueProviderForDomain(errorDomain: String, provider: ((NSError, String) -> AnyObject?)? = nil)
   @available(tvOS 9.0, *)
   class func userInfoValueProviderForDomain(errorDomain: String) -> ((NSError, String) -> AnyObject?)?
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -2055,10 +2055,10 @@ extension NSError : ErrorType {
   var _code: Int { get }
 }
 extension NSObject {
-  class func attemptRecoveryFromError(error: NSError, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func attemptRecoveryFromError(error: NSError, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  class func attemptRecoveryFromError(error: NSError, optionIndex recoveryOptionIndex: Int) -> Bool
-  func attemptRecoveryFromError(error: NSError, optionIndex recoveryOptionIndex: Int) -> Bool
+  class func attemptRecoveryFrom(error: NSError, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func attemptRecoveryFrom(error: NSError, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  class func attemptRecoveryFrom(error: NSError, optionIndex recoveryOptionIndex: Int) -> Bool
+  func attemptRecoveryFrom(error: NSError, optionIndex recoveryOptionIndex: Int) -> Bool
 }
 
 /***************	Generic Exception names		***************/
@@ -2087,8 +2087,8 @@ class NSException : NSObject, NSCopying, NSCoding {
   var callStackSymbols: [String] { get }
   func raise()
   convenience init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  func copy(zone zone: NSZone = nil) -> AnyObject
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension NSException {
@@ -2100,7 +2100,7 @@ func NSSetUncaughtExceptionHandler(_: (@convention(c) (NSException) -> Void)?)
 @available(tvOS 4.0, *)
 let NSAssertionHandlerKey: String
 class NSAssertionHandler : NSObject {
-  class func currentHandler() -> NSAssertionHandler
+  class func current() -> NSAssertionHandler
   init()
 }
 enum NSExpressionType : UInt {
@@ -2134,7 +2134,7 @@ class NSExpression : NSObject, NSSecureCoding, NSCopying {
   @available(tvOS 4.0, *)
   /*not inherited*/ init(format expressionFormat: String, arguments argList: CVaListPointer)
   /*not inherited*/ init(forConstantValue obj: AnyObject?)
-  class func expressionForEvaluatedObject() -> NSExpression
+  class func forEvaluatedObject() -> NSExpression
   /*not inherited*/ init(forVariable string: String)
   /*not inherited*/ init(forKeyPath keyPath: String)
   /*not inherited*/ init(forFunction name: String, arguments parameters: [AnyObject])
@@ -2151,7 +2151,7 @@ class NSExpression : NSObject, NSSecureCoding, NSCopying {
   @available(tvOS 3.0, *)
   /*not inherited*/ init(forFunction target: NSExpression, selectorName name: String, arguments parameters: [AnyObject]?)
   @available(tvOS 7.0, *)
-  class func expressionForAnyKey() -> NSExpression
+  class func forAnyKey() -> NSExpression
   @available(tvOS 4.0, *)
   /*not inherited*/ init(forBlock block: (AnyObject?, [AnyObject], NSMutableDictionary?) -> AnyObject, arguments: [NSExpression]?)
   @available(tvOS 9.0, *)
@@ -2170,25 +2170,25 @@ class NSExpression : NSObject, NSSecureCoding, NSCopying {
   @available(tvOS 3.0, *)
   @NSCopying var predicate: NSPredicate { get }
   @available(tvOS 3.0, *)
-  @NSCopying var leftExpression: NSExpression { get }
+  @NSCopying var left: NSExpression { get }
   @available(tvOS 3.0, *)
-  @NSCopying var rightExpression: NSExpression { get }
+  @NSCopying var right: NSExpression { get }
   @available(tvOS 9.0, *)
   @NSCopying var trueExpression: NSExpression { get }
   @available(tvOS 9.0, *)
   @NSCopying var falseExpression: NSExpression { get }
   @available(tvOS 4.0, *)
   var expressionBlock: (AnyObject?, [AnyObject], NSMutableDictionary?) -> AnyObject { get }
-  func expressionValueWithObject(object: AnyObject?, context: NSMutableDictionary?) -> AnyObject
+  func expressionValueWith(object: AnyObject?, context: NSMutableDictionary?) -> AnyObject
   @available(tvOS 7.0, *)
   func allowEvaluation()
   convenience init()
   @available(tvOS 3.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 3.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   @available(tvOS 3.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 extension NSExpression {
@@ -2203,9 +2203,9 @@ struct _expressionFlags {
 @available(tvOS 8.0, *)
 class NSExtensionContext : NSObject {
   var inputItems: [AnyObject] { get }
-  func completeRequestReturningItems(items: [AnyObject]?, completionHandler: ((Bool) -> Void)?)
-  func cancelRequestWithError(error: NSError)
-  func openURL(URL: NSURL, completionHandler: ((Bool) -> Void)?)
+  func completeRequestReturningItems(items: [AnyObject]?, completionHandler: ((Bool) -> Void)? = nil)
+  func cancelRequestWith(error: NSError)
+  func open(URL: NSURL, completionHandler: ((Bool) -> Void)? = nil)
   init()
 }
 @available(tvOS 8.0, *)
@@ -2226,11 +2226,11 @@ class NSExtensionItem : NSObject, NSCopying, NSSecureCoding {
   var userInfo: [NSObject : AnyObject]?
   init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 8.0, *)
@@ -2241,7 +2241,7 @@ let NSExtensionItemAttributedContentTextKey: String
 let NSExtensionItemAttachmentsKey: String
 protocol NSExtensionRequestHandling : NSObjectProtocol {
   @available(tvOS 8.0, *)
-  func beginRequestWithExtensionContext(context: NSExtensionContext)
+  func beginRequestWith(context: NSExtensionContext)
 }
 struct NSFileCoordinatorReadingOptions : OptionSetType {
   init(rawValue: UInt)
@@ -2265,9 +2265,9 @@ struct NSFileCoordinatorWritingOptions : OptionSetType {
 }
 @available(tvOS 8.0, *)
 class NSFileAccessIntent : NSObject {
-  class func readingIntentWithURL(url: NSURL, options: NSFileCoordinatorReadingOptions) -> Self
-  class func writingIntentWithURL(url: NSURL, options: NSFileCoordinatorWritingOptions) -> Self
-  @NSCopying var URL: NSURL { get }
+  class func readingIntentWith(url: NSURL, options: NSFileCoordinatorReadingOptions = []) -> Self
+  class func writingIntentWith(url: NSURL, options: NSFileCoordinatorWritingOptions = []) -> Self
+  @NSCopying var url: NSURL { get }
   init()
 }
 @available(tvOS 5.0, *)
@@ -2279,15 +2279,15 @@ class NSFileCoordinator : NSObject {
   @available(tvOS 5.0, *)
   var purposeIdentifier: String
   @available(tvOS 8.0, *)
-  func coordinateAccessWithIntents(intents: [NSFileAccessIntent], queue: NSOperationQueue, byAccessor accessor: (NSError?) -> Void)
-  func coordinateReadingItemAtURL(url: NSURL, options: NSFileCoordinatorReadingOptions, error outError: NSErrorPointer, byAccessor reader: (NSURL) -> Void)
-  func coordinateWritingItemAtURL(url: NSURL, options: NSFileCoordinatorWritingOptions, error outError: NSErrorPointer, byAccessor writer: (NSURL) -> Void)
-  func coordinateReadingItemAtURL(readingURL: NSURL, options readingOptions: NSFileCoordinatorReadingOptions, writingItemAtURL writingURL: NSURL, options writingOptions: NSFileCoordinatorWritingOptions, error outError: NSErrorPointer, byAccessor readerWriter: (NSURL, NSURL) -> Void)
-  func coordinateWritingItemAtURL(url1: NSURL, options options1: NSFileCoordinatorWritingOptions, writingItemAtURL url2: NSURL, options options2: NSFileCoordinatorWritingOptions, error outError: NSErrorPointer, byAccessor writer: (NSURL, NSURL) -> Void)
-  func prepareForReadingItemsAtURLs(readingURLs: [NSURL], options readingOptions: NSFileCoordinatorReadingOptions, writingItemsAtURLs writingURLs: [NSURL], options writingOptions: NSFileCoordinatorWritingOptions, error outError: NSErrorPointer, byAccessor batchAccessor: (() -> Void) -> Void)
+  func coordinateAccessWith(intents: [NSFileAccessIntent], queue: NSOperationQueue, byAccessor accessor: (NSError?) -> Void)
+  func coordinateReadingItemAt(url: NSURL, options: NSFileCoordinatorReadingOptions = [], error outError: NSErrorPointer, byAccessor reader: (NSURL) -> Void)
+  func coordinateWritingItemAt(url: NSURL, options: NSFileCoordinatorWritingOptions = [], error outError: NSErrorPointer, byAccessor writer: (NSURL) -> Void)
+  func coordinateReadingItemAt(readingURL: NSURL, options readingOptions: NSFileCoordinatorReadingOptions = [], writingItemAt writingURL: NSURL, options writingOptions: NSFileCoordinatorWritingOptions = [], error outError: NSErrorPointer, byAccessor readerWriter: (NSURL, NSURL) -> Void)
+  func coordinateWritingItemAt(url1: NSURL, options options1: NSFileCoordinatorWritingOptions = [], writingItemAt url2: NSURL, options options2: NSFileCoordinatorWritingOptions = [], error outError: NSErrorPointer, byAccessor writer: (NSURL, NSURL) -> Void)
+  func prepareForReadingItemsAtURLs(readingURLs: [NSURL], options readingOptions: NSFileCoordinatorReadingOptions = [], writingItemsAtURLs writingURLs: [NSURL], options writingOptions: NSFileCoordinatorWritingOptions = [], error outError: NSErrorPointer, byAccessor batchAccessor: (() -> Void) -> Void)
   @available(tvOS 6.0, *)
-  func itemAtURL(oldURL: NSURL, willMoveToURL newURL: NSURL)
-  func itemAtURL(oldURL: NSURL, didMoveToURL newURL: NSURL)
+  func itemAt(oldURL: NSURL, willMoveTo newURL: NSURL)
+  func itemAt(oldURL: NSURL, didMoveTo newURL: NSURL)
   func cancel()
   convenience init()
 }
@@ -2295,7 +2295,7 @@ class NSFileHandle : NSObject, NSSecureCoding {
   @NSCopying var availableData: NSData { get }
   func readDataToEndOfFile() -> NSData
   func readDataOfLength(length: Int) -> NSData
-  func writeData(data: NSData)
+  func write(data: NSData)
   var offsetInFile: UInt64 { get }
   func seekToEndOfFile() -> UInt64
   func seekToFileOffset(offset: UInt64)
@@ -2306,20 +2306,20 @@ class NSFileHandle : NSObject, NSSecureCoding {
   init?(coder: NSCoder)
   convenience init()
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 extension NSFileHandle {
-  class func fileHandleWithStandardInput() -> NSFileHandle
-  class func fileHandleWithStandardOutput() -> NSFileHandle
-  class func fileHandleWithStandardError() -> NSFileHandle
-  class func fileHandleWithNullDevice() -> NSFileHandle
+  class func withStandardInput() -> NSFileHandle
+  class func withStandardOutput() -> NSFileHandle
+  class func withStandardError() -> NSFileHandle
+  class func withNullDevice() -> NSFileHandle
   convenience init?(forReadingAtPath path: String)
   convenience init?(forWritingAtPath path: String)
   convenience init?(forUpdatingAtPath path: String)
   @available(tvOS 4.0, *)
-  convenience init(forReadingFromURL url: NSURL) throws
+  convenience init(forReadingFrom url: NSURL) throws
   @available(tvOS 4.0, *)
-  convenience init(forWritingToURL url: NSURL) throws
+  convenience init(forWritingTo url: NSURL) throws
   @available(tvOS 4.0, *)
   convenience init(forUpdatingURL url: NSURL) throws
 }
@@ -2389,21 +2389,21 @@ let NSUbiquityIdentityDidChangeNotification: String
 class NSFileManager : NSObject {
   class func defaultManager() -> NSFileManager
   @available(tvOS 4.0, *)
-  func mountedVolumeURLsIncludingResourceValuesForKeys(propertyKeys: [String]?, options: NSVolumeEnumerationOptions) -> [NSURL]?
+  func mountedVolumeURLsIncludingResourceValuesForKeys(propertyKeys: [String]?, options: NSVolumeEnumerationOptions = []) -> [NSURL]?
   @available(tvOS 4.0, *)
-  func contentsOfDirectoryAtURL(url: NSURL, includingPropertiesForKeys keys: [String]?, options mask: NSDirectoryEnumerationOptions) throws -> [NSURL]
+  func contentsOfDirectoryAt(url: NSURL, includingPropertiesForKeys keys: [String]?, options mask: NSDirectoryEnumerationOptions = []) throws -> [NSURL]
   @available(tvOS 4.0, *)
-  func URLsForDirectory(directory: NSSearchPathDirectory, inDomains domainMask: NSSearchPathDomainMask) -> [NSURL]
+  func urLsFor(directory: NSSearchPathDirectory, inDomains domainMask: NSSearchPathDomainMask) -> [NSURL]
   @available(tvOS 4.0, *)
-  func URLForDirectory(directory: NSSearchPathDirectory, inDomain domain: NSSearchPathDomainMask, appropriateForURL url: NSURL?, create shouldCreate: Bool) throws -> NSURL
+  func urlFor(directory: NSSearchPathDirectory, inDomain domain: NSSearchPathDomainMask, appropriateFor url: NSURL?, create shouldCreate: Bool) throws -> NSURL
   @available(tvOS 8.0, *)
-  func getRelationship(outRelationship: UnsafeMutablePointer<NSURLRelationship>, ofDirectoryAtURL directoryURL: NSURL, toItemAtURL otherURL: NSURL) throws
+  func getRelationship(outRelationship: UnsafeMutablePointer<NSURLRelationship>, ofDirectoryAt directoryURL: NSURL, toItemAt otherURL: NSURL) throws
   @available(tvOS 8.0, *)
-  func getRelationship(outRelationship: UnsafeMutablePointer<NSURLRelationship>, ofDirectory directory: NSSearchPathDirectory, inDomain domainMask: NSSearchPathDomainMask, toItemAtURL url: NSURL) throws
+  func getRelationship(outRelationship: UnsafeMutablePointer<NSURLRelationship>, of directory: NSSearchPathDirectory, inDomain domainMask: NSSearchPathDomainMask, toItemAt url: NSURL) throws
   @available(tvOS 5.0, *)
-  func createDirectoryAtURL(url: NSURL, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]?) throws
+  func createDirectoryAt(url: NSURL, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]?) throws
   @available(tvOS 5.0, *)
-  func createSymbolicLinkAtURL(url: NSURL, withDestinationURL destURL: NSURL) throws
+  func createSymbolicLinkAt(url: NSURL, withDestinationURL destURL: NSURL) throws
   @available(tvOS 2.0, *)
   unowned(unsafe) var delegate: @sil_unmanaged NSFileManagerDelegate?
   @available(tvOS 2.0, *)
@@ -2431,13 +2431,13 @@ class NSFileManager : NSObject {
   @available(tvOS 2.0, *)
   func removeItemAtPath(path: String) throws
   @available(tvOS 4.0, *)
-  func copyItemAtURL(srcURL: NSURL, toURL dstURL: NSURL) throws
+  func copyItemAt(srcURL: NSURL, to dstURL: NSURL) throws
   @available(tvOS 4.0, *)
-  func moveItemAtURL(srcURL: NSURL, toURL dstURL: NSURL) throws
+  func moveItemAt(srcURL: NSURL, to dstURL: NSURL) throws
   @available(tvOS 4.0, *)
-  func linkItemAtURL(srcURL: NSURL, toURL dstURL: NSURL) throws
+  func linkItemAt(srcURL: NSURL, to dstURL: NSURL) throws
   @available(tvOS 4.0, *)
-  func removeItemAtURL(URL: NSURL) throws
+  func removeItemAt(URL: NSURL) throws
   var currentDirectoryPath: String { get }
   func changeCurrentDirectoryPath(path: String) -> Bool
   func fileExistsAtPath(path: String) -> Bool
@@ -2451,26 +2451,26 @@ class NSFileManager : NSObject {
   func componentsToDisplayForPath(path: String) -> [String]?
   func enumeratorAtPath(path: String) -> NSDirectoryEnumerator?
   @available(tvOS 4.0, *)
-  func enumeratorAtURL(url: NSURL, includingPropertiesForKeys keys: [String]?, options mask: NSDirectoryEnumerationOptions, errorHandler handler: ((NSURL, NSError) -> Bool)?) -> NSDirectoryEnumerator?
+  func enumeratorAt(url: NSURL, includingPropertiesForKeys keys: [String]?, options mask: NSDirectoryEnumerationOptions = [], errorHandler handler: ((NSURL, NSError) -> Bool)? = nil) -> NSDirectoryEnumerator?
   func subpathsAtPath(path: String) -> [String]?
   func contentsAtPath(path: String) -> NSData?
   func createFileAtPath(path: String, contents data: NSData?, attributes attr: [String : AnyObject]?) -> Bool
   func fileSystemRepresentationWithPath(path: String) -> UnsafePointer<Int8>
   func stringWithFileSystemRepresentation(str: UnsafePointer<Int8>, length len: Int) -> String
   @available(tvOS 4.0, *)
-  func replaceItemAtURL(originalItemURL: NSURL, withItemAtURL newItemURL: NSURL, backupItemName: String?, options: NSFileManagerItemReplacementOptions, resultingItemURL resultingURL: AutoreleasingUnsafeMutablePointer<NSURL?>) throws
+  func replaceItemAt(originalItemURL: NSURL, withItemAt newItemURL: NSURL, backupItemName: String?, options: NSFileManagerItemReplacementOptions = [], resultingItemURL resultingURL: AutoreleasingUnsafeMutablePointer<NSURL?>) throws
   @available(tvOS 5.0, *)
-  func setUbiquitous(flag: Bool, itemAtURL url: NSURL, destinationURL: NSURL) throws
+  func setUbiquitous(flag: Bool, itemAt url: NSURL, destinationURL: NSURL) throws
   @available(tvOS 5.0, *)
-  func isUbiquitousItemAtURL(url: NSURL) -> Bool
+  func isUbiquitousItemAt(url: NSURL) -> Bool
   @available(tvOS 5.0, *)
-  func startDownloadingUbiquitousItemAtURL(url: NSURL) throws
+  func startDownloadingUbiquitousItemAt(url: NSURL) throws
   @available(tvOS 5.0, *)
-  func evictUbiquitousItemAtURL(url: NSURL) throws
+  func evictUbiquitousItemAt(url: NSURL) throws
   @available(tvOS 5.0, *)
-  func URLForUbiquityContainerIdentifier(containerIdentifier: String?) -> NSURL?
+  func urlForUbiquityContainerIdentifier(containerIdentifier: String?) -> NSURL?
   @available(tvOS 5.0, *)
-  func URLForPublishingUbiquitousItemAtURL(url: NSURL, expirationDate outDate: AutoreleasingUnsafeMutablePointer<NSDate?>) throws -> NSURL
+  func urlForPublishingUbiquitousItemAt(url: NSURL, expirationDate outDate: AutoreleasingUnsafeMutablePointer<NSDate?>) throws -> NSURL
   @available(tvOS 6.0, *)
   @NSCopying var ubiquityIdentityToken: protocol<NSCoding, NSCopying, NSObjectProtocol>? { get }
   @available(tvOS 7.0, *)
@@ -2484,28 +2484,28 @@ extension NSObject {
 protocol NSFileManagerDelegate : NSObjectProtocol {
   optional func fileManager(fileManager: NSFileManager, shouldCopyItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(tvOS 4.0, *)
-  optional func fileManager(fileManager: NSFileManager, shouldCopyItemAtURL srcURL: NSURL, toURL dstURL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, copyingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldCopyItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldProceedAfter error: NSError, copyingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(tvOS 4.0, *)
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, copyingItemAtURL srcURL: NSURL, toURL dstURL: NSURL) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldProceedAfter error: NSError, copyingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
   optional func fileManager(fileManager: NSFileManager, shouldMoveItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(tvOS 4.0, *)
-  optional func fileManager(fileManager: NSFileManager, shouldMoveItemAtURL srcURL: NSURL, toURL dstURL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, movingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldMoveItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldProceedAfter error: NSError, movingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(tvOS 4.0, *)
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, movingItemAtURL srcURL: NSURL, toURL dstURL: NSURL) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldProceedAfter error: NSError, movingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
   optional func fileManager(fileManager: NSFileManager, shouldLinkItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(tvOS 4.0, *)
-  optional func fileManager(fileManager: NSFileManager, shouldLinkItemAtURL srcURL: NSURL, toURL dstURL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, linkingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldLinkItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldProceedAfter error: NSError, linkingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(tvOS 4.0, *)
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, linkingItemAtURL srcURL: NSURL, toURL dstURL: NSURL) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldProceedAfter error: NSError, linkingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
   optional func fileManager(fileManager: NSFileManager, shouldRemoveItemAtPath path: String) -> Bool
   @available(tvOS 4.0, *)
-  optional func fileManager(fileManager: NSFileManager, shouldRemoveItemAtURL URL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, removingItemAtPath path: String) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldRemoveItemAt URL: NSURL) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldProceedAfter error: NSError, removingItemAtPath path: String) -> Bool
   @available(tvOS 4.0, *)
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, removingItemAtURL URL: NSURL) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldProceedAfter error: NSError, removingItemAt URL: NSURL) -> Bool
 }
 class NSDirectoryEnumerator : NSEnumerator {
   var fileAttributes: [String : AnyObject]? { get }
@@ -2601,24 +2601,24 @@ protocol NSFilePresenter : NSObjectProtocol {
   optional func relinquishPresentedItemToWriter(writer: ((() -> Void)?) -> Void)
   optional func savePresentedItemChangesWithCompletionHandler(completionHandler: (NSError?) -> Void)
   optional func accommodatePresentedItemDeletionWithCompletionHandler(completionHandler: (NSError?) -> Void)
-  optional func presentedItemDidMoveToURL(newURL: NSURL)
+  optional func presentedItemDidMoveTo(newURL: NSURL)
   optional func presentedItemDidChange()
   @available(tvOS 5.0, *)
   optional func presentedItemDidGainVersion(version: NSFileVersion)
   @available(tvOS 5.0, *)
-  optional func presentedItemDidLoseVersion(version: NSFileVersion)
+  optional func presentedItemDidLose(version: NSFileVersion)
   @available(tvOS 5.0, *)
   optional func presentedItemDidResolveConflictVersion(version: NSFileVersion)
-  optional func accommodatePresentedSubitemDeletionAtURL(url: NSURL, completionHandler: (NSError?) -> Void)
-  optional func presentedSubitemDidAppearAtURL(url: NSURL)
-  optional func presentedSubitemAtURL(oldURL: NSURL, didMoveToURL newURL: NSURL)
-  optional func presentedSubitemDidChangeAtURL(url: NSURL)
+  optional func accommodatePresentedSubitemDeletionAt(url: NSURL, completionHandler: (NSError?) -> Void)
+  optional func presentedSubitemDidAppearAt(url: NSURL)
+  optional func presentedSubitemAt(oldURL: NSURL, didMoveTo newURL: NSURL)
+  optional func presentedSubitemDidChangeAt(url: NSURL)
   @available(tvOS 5.0, *)
-  optional func presentedSubitemAtURL(url: NSURL, didGainVersion version: NSFileVersion)
+  optional func presentedSubitemAt(url: NSURL, didGainVersion version: NSFileVersion)
   @available(tvOS 5.0, *)
-  optional func presentedSubitemAtURL(url: NSURL, didLoseVersion version: NSFileVersion)
+  optional func presentedSubitemAt(url: NSURL, didLose version: NSFileVersion)
   @available(tvOS 5.0, *)
-  optional func presentedSubitemAtURL(url: NSURL, didResolveConflictVersion version: NSFileVersion)
+  optional func presentedSubitemAt(url: NSURL, didResolveConflictVersion version: NSFileVersion)
 }
 struct NSFileVersionAddingOptions : OptionSetType {
   init(rawValue: UInt)
@@ -2632,26 +2632,26 @@ struct NSFileVersionReplacingOptions : OptionSetType {
 }
 @available(tvOS 5.0, *)
 class NSFileVersion : NSObject {
-  class func currentVersionOfItemAtURL(url: NSURL) -> NSFileVersion?
-  class func otherVersionsOfItemAtURL(url: NSURL) -> [NSFileVersion]?
-  class func unresolvedConflictVersionsOfItemAtURL(url: NSURL) -> [NSFileVersion]?
+  class func currentVersionOfItemAt(url: NSURL) -> NSFileVersion?
+  class func otherVersionsOfItemAt(url: NSURL) -> [NSFileVersion]?
+  class func unresolvedConflictVersionsOfItemAt(url: NSURL) -> [NSFileVersion]?
   @available(tvOS 8.0, *)
-  class func getNonlocalVersionsOfItemAtURL(url: NSURL, completionHandler: ([NSFileVersion]?, NSError?) -> Void)
-  /*not inherited*/ init?(ofItemAtURL url: NSURL, forPersistentIdentifier persistentIdentifier: AnyObject)
-  @NSCopying var URL: NSURL { get }
+  class func getNonlocalVersionsOfItemAt(url: NSURL, completionHandler: ([NSFileVersion]?, NSError?) -> Void)
+  /*not inherited*/ init?(ofItemAt url: NSURL, forPersistentIdentifier persistentIdentifier: AnyObject)
+  @NSCopying var url: NSURL { get }
   var localizedName: String? { get }
   var localizedNameOfSavingComputer: String? { get }
   @NSCopying var modificationDate: NSDate? { get }
   var persistentIdentifier: NSCoding { get }
-  var conflict: Bool { get }
-  var resolved: Bool
+  var isConflict: Bool { get }
+  var isResolved: Bool
   @available(tvOS 8.0, *)
   var hasLocalContents: Bool { get }
   @available(tvOS 8.0, *)
   var hasThumbnail: Bool { get }
-  func replaceItemAtURL(url: NSURL, options: NSFileVersionReplacingOptions) throws -> NSURL
+  func replaceItemAt(url: NSURL, options: NSFileVersionReplacingOptions = []) throws -> NSURL
   func remove() throws
-  class func removeOtherVersionsOfItemAtURL(url: NSURL) throws
+  class func removeOtherVersionsOfItemAt(url: NSURL) throws
   init()
 }
 @available(tvOS 4.0, *)
@@ -2671,37 +2671,37 @@ struct NSFileWrapperWritingOptions : OptionSetType {
 @available(tvOS 4.0, *)
 class NSFileWrapper : NSObject, NSCoding {
   @available(tvOS 4.0, *)
-  init(URL url: NSURL, options: NSFileWrapperReadingOptions) throws
+  init(url: NSURL, options: NSFileWrapperReadingOptions = []) throws
   init(directoryWithFileWrappers childrenByPreferredName: [String : NSFileWrapper])
   init(regularFileWithContents contents: NSData)
   @available(tvOS 4.0, *)
   init(symbolicLinkWithDestinationURL url: NSURL)
   init?(serializedRepresentation serializeRepresentation: NSData)
   init?(coder inCoder: NSCoder)
-  var directory: Bool { get }
-  var regularFile: Bool { get }
-  var symbolicLink: Bool { get }
+  var isDirectory: Bool { get }
+  var isRegularFile: Bool { get }
+  var isSymbolicLink: Bool { get }
   var preferredFilename: String?
   var filename: String?
   var fileAttributes: [String : AnyObject]
   @available(tvOS 4.0, *)
-  func matchesContentsOfURL(url: NSURL) -> Bool
+  func matchesContentsOf(url: NSURL) -> Bool
   @available(tvOS 4.0, *)
-  func readFromURL(url: NSURL, options: NSFileWrapperReadingOptions) throws
+  func readFrom(url: NSURL, options: NSFileWrapperReadingOptions = []) throws
   @available(tvOS 4.0, *)
-  func writeToURL(url: NSURL, options: NSFileWrapperWritingOptions, originalContentsURL: NSURL?) throws
+  func writeTo(url: NSURL, options: NSFileWrapperWritingOptions = [], originalContentsURL: NSURL?) throws
   @NSCopying var serializedRepresentation: NSData? { get }
   func addFileWrapper(child: NSFileWrapper) -> String
   func addRegularFileWithContents(data: NSData, preferredFilename fileName: String) -> String
   func removeFileWrapper(child: NSFileWrapper)
   var fileWrappers: [String : NSFileWrapper]? { get }
-  func keyForFileWrapper(child: NSFileWrapper) -> String?
+  func keyFor(child: NSFileWrapper) -> String?
   @NSCopying var regularFileContents: NSData? { get }
   @available(tvOS 4.0, *)
   @NSCopying var symbolicLinkDestinationURL: NSURL? { get }
   convenience init()
   @available(tvOS 4.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 @available(tvOS 8.0, *)
 enum NSFormattingContext : Int {
@@ -2727,11 +2727,11 @@ class NSFormatter : NSObject, NSCopying, NSCoding {
   func attributedStringForObjectValue(obj: AnyObject, withDefaultAttributes attrs: [String : AnyObject]?) -> NSAttributedString?
   func editingStringForObjectValue(obj: AnyObject) -> String?
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
-  func isPartialStringValid(partialString: String, newEditingString newString: AutoreleasingUnsafeMutablePointer<NSString?>, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
+  func isPartialStringValid(partialString: String, newEditing newString: AutoreleasingUnsafeMutablePointer<NSString?>, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   func isPartialStringValid(partialStringPtr: AutoreleasingUnsafeMutablePointer<NSString?>, proposedSelectedRange proposedSelRangePtr: NSRangePointer, originalString origString: String, originalSelectedRange origSelRange: NSRange, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  func copy(zone zone: NSZone = nil) -> AnyObject
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -2956,7 +2956,7 @@ class NSHTTPCookie : NSObject {
       @result An NSDictionary where the keys are header field names, and the values
       are the corresponding header field values.
   */
-  class func requestHeaderFieldsWithCookies(cookies: [NSHTTPCookie]) -> [String : String]
+  class func requestHeaderFieldsWith(cookies: [NSHTTPCookie]) -> [String : String]
 
   /*!
       @method cookiesWithResponseHeaderFields:forURL:
@@ -3024,7 +3024,7 @@ class NSHTTPCookie : NSObject {
       session (regardless of expiration date), NO if receiver need not
       be discarded at the end of the session.
   */
-  var sessionOnly: Bool { get }
+  var isSessionOnly: Bool { get }
 
   /*!
       @method domain
@@ -3058,7 +3058,7 @@ class NSHTTPCookie : NSObject {
       @result YES if this cookie should be sent only over secure channels,
       NO otherwise.
   */
-  var secure: Bool { get }
+  var isSecure: Bool { get }
 
   /*!
       @method isHTTPOnly
@@ -3072,7 +3072,7 @@ class NSHTTPCookie : NSObject {
       @result YES if this cookie should only be sent via HTTP headers,
       NO otherwise.
   */
-  var HTTPOnly: Bool { get }
+  var isHTTPOnly: Bool { get }
 
   /*!
       @method comment
@@ -3142,7 +3142,7 @@ class NSHTTPCookieStorage : NSObject {
       @abstract Get the shared cookie storage in the default location.
       @result The shared cookie storage
   */
-  class func sharedHTTPCookieStorage() -> NSHTTPCookieStorage
+  class func shared() -> NSHTTPCookieStorage
 
   /*!
       @method sharedCookieStorageForGroupContainerIdentifier:
@@ -3184,7 +3184,7 @@ class NSHTTPCookieStorage : NSObject {
    @abstract Delete all cookies from the cookie storage since the provided date.
    */
   @available(tvOS 8.0, *)
-  func removeCookiesSinceDate(date: NSDate)
+  func removeCookiesSince(date: NSDate)
 
   /*!
       @method cookiesForURL:
@@ -3196,7 +3196,7 @@ class NSHTTPCookieStorage : NSObject {
       <tt>+[NSCookie requestHeaderFieldsWithCookies:]</tt> to turn this array
       into a set of header fields to add to a request.
   */
-  func cookiesForURL(URL: NSURL) -> [NSHTTPCookie]?
+  func cookiesFor(URL: NSURL) -> [NSHTTPCookie]?
 
   /*!
       @method setCookies:forURL:mainDocumentURL:
@@ -3231,14 +3231,14 @@ class NSHTTPCookieStorage : NSObject {
     @discussion proper sorting of cookies may require extensive string conversion, which can be avoided by allowing the system to perform the sorting.  This API is to be preferred over the more generic -[NSHTTPCookieStorage cookies] API, if sorting is going to be performed.
   */
   @available(tvOS 5.0, *)
-  func sortedCookiesUsingDescriptors(sortOrder: [NSSortDescriptor]) -> [NSHTTPCookie]
+  func sortedCookiesUsing(sortOrder: [NSSortDescriptor]) -> [NSHTTPCookie]
   init()
 }
 extension NSHTTPCookieStorage {
   @available(tvOS 8.0, *)
   func storeCookies(cookies: [NSHTTPCookie], forTask task: NSURLSessionTask)
   @available(tvOS 8.0, *)
-  func getCookiesForTask(task: NSURLSessionTask, completionHandler: ([NSHTTPCookie]?) -> Void)
+  func getCookiesFor(task: NSURLSessionTask, completionHandler: ([NSHTTPCookie]?) -> Void)
 }
 
 /*!
@@ -3266,42 +3266,42 @@ let NSHashTableWeakMemory: NSPointerFunctionsOptions
 typealias NSHashTableOptions = Int
 @available(tvOS 6.0, *)
 class NSHashTable : NSObject, NSCopying, NSCoding, NSFastEnumeration {
-  init(options: NSPointerFunctionsOptions, capacity initialCapacity: Int)
+  init(options: NSPointerFunctionsOptions = [], capacity initialCapacity: Int)
   init(pointerFunctions functions: NSPointerFunctions, capacity initialCapacity: Int)
-  /*not inherited*/ init(options: NSPointerFunctionsOptions)
+  /*not inherited*/ init(options: NSPointerFunctionsOptions = [])
   @available(tvOS 6.0, *)
-  class func weakObjectsHashTable() -> NSHashTable
+  class func weakObjects() -> NSHashTable
   @NSCopying var pointerFunctions: NSPointerFunctions { get }
   var count: Int { get }
   func member(object: AnyObject?) -> AnyObject?
   func objectEnumerator() -> NSEnumerator
-  func addObject(object: AnyObject?)
-  func removeObject(object: AnyObject?)
+  func add(object: AnyObject?)
+  func remove(object: AnyObject?)
   func removeAllObjects()
   var allObjects: [AnyObject] { get }
   var anyObject: AnyObject? { get }
-  func containsObject(anObject: AnyObject?) -> Bool
+  func contains(anObject: AnyObject?) -> Bool
   func intersectsHashTable(other: NSHashTable) -> Bool
-  func isEqualToHashTable(other: NSHashTable) -> Bool
-  func isSubsetOfHashTable(other: NSHashTable) -> Bool
+  func isEqualTo(other: NSHashTable) -> Bool
+  func isSubsetOf(other: NSHashTable) -> Bool
   func intersectHashTable(other: NSHashTable)
   func unionHashTable(other: NSHashTable)
   func minusHashTable(other: NSHashTable)
   var setRepresentation: Set<NSObject> { get }
   convenience init()
   @available(tvOS 6.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 6.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(tvOS 6.0, *)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 class NSIndexPath : NSObject, NSCopying, NSSecureCoding {
   init(indexes: UnsafePointer<Int>, length: Int)
   convenience init(index: Int)
-  func indexPathByAddingIndex(index: Int) -> NSIndexPath
-  func indexPathByRemovingLastIndex() -> NSIndexPath
+  func adding(index: Int) -> NSIndexPath
+  func removingLastIndex() -> NSIndexPath
   func indexAtPosition(position: Int) -> Int
   var length: Int { get }
 
@@ -3316,9 +3316,9 @@ class NSIndexPath : NSObject, NSCopying, NSSecureCoding {
   func getIndexes(indexes: UnsafeMutablePointer<Int>, range positionRange: NSRange)
   func compare(otherObject: NSIndexPath) -> NSComparisonResult
   convenience init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension NSIndexPath {
@@ -3327,53 +3327,53 @@ extension NSIndexPath {
   func getIndexes(indexes: UnsafeMutablePointer<Int>)
 }
 class NSIndexSet : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
-  init(indexesInRange range: NSRange)
+  init(indexesIn range: NSRange)
   init(indexSet: NSIndexSet)
   convenience init(index value: Int)
-  func isEqualToIndexSet(indexSet: NSIndexSet) -> Bool
+  func isEqualTo(indexSet: NSIndexSet) -> Bool
   var count: Int { get }
   var firstIndex: Int { get }
   var lastIndex: Int { get }
   func indexGreaterThanIndex(value: Int) -> Int
   func indexLessThanIndex(value: Int) -> Int
-  func indexGreaterThanOrEqualToIndex(value: Int) -> Int
-  func indexLessThanOrEqualToIndex(value: Int) -> Int
+  func indexGreaterThanOrEqualTo(value: Int) -> Int
+  func indexLessThanOrEqualTo(value: Int) -> Int
   func getIndexes(indexBuffer: UnsafeMutablePointer<Int>, maxCount bufferSize: Int, inIndexRange range: NSRangePointer) -> Int
   @available(tvOS 2.0, *)
-  func countOfIndexesInRange(range: NSRange) -> Int
-  func containsIndex(value: Int) -> Bool
-  func containsIndexesInRange(range: NSRange) -> Bool
-  func containsIndexes(indexSet: NSIndexSet) -> Bool
-  func intersectsIndexesInRange(range: NSRange) -> Bool
+  func countOfIndexesIn(range: NSRange) -> Int
+  func contains(value: Int) -> Bool
+  func containsIndexesIn(range: NSRange) -> Bool
+  func contains(indexSet: NSIndexSet) -> Bool
+  func intersectsIndexesIn(range: NSRange) -> Bool
   @available(tvOS 4.0, *)
-  func enumerateIndexesUsingBlock(block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateIndexesUsing(block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
-  func enumerateIndexesWithOptions(opts: NSEnumerationOptions, usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateIndexes(options opts: NSEnumerationOptions = [], usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
-  func enumerateIndexesInRange(range: NSRange, options opts: NSEnumerationOptions, usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateIndexesIn(range: NSRange, options opts: NSEnumerationOptions = [], usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
   func indexPassingTest(predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(tvOS 4.0, *)
-  func indexWithOptions(opts: NSEnumerationOptions, passingTest predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func index(options opts: NSEnumerationOptions = [], passingTest predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(tvOS 4.0, *)
-  func indexInRange(range: NSRange, options opts: NSEnumerationOptions, passingTest predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexIn(range: NSRange, options opts: NSEnumerationOptions = [], passingTest predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(tvOS 4.0, *)
   func indexesPassingTest(predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
   @available(tvOS 4.0, *)
-  func indexesWithOptions(opts: NSEnumerationOptions, passingTest predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
+  func indexes(options opts: NSEnumerationOptions = [], passingTest predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
   @available(tvOS 4.0, *)
-  func indexesInRange(range: NSRange, options opts: NSEnumerationOptions, passingTest predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
+  func indexesIn(range: NSRange, options opts: NSEnumerationOptions = [], passingTest predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
   @available(tvOS 5.0, *)
-  func enumerateRangesUsingBlock(block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateRangesUsing(block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 5.0, *)
-  func enumerateRangesWithOptions(opts: NSEnumerationOptions, usingBlock block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateRanges(options opts: NSEnumerationOptions = [], usingBlock block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 5.0, *)
-  func enumerateRangesInRange(range: NSRange, options opts: NSEnumerationOptions, usingBlock block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateRangesIn(range: NSRange, options opts: NSEnumerationOptions = [], usingBlock block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   convenience init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -3386,15 +3386,15 @@ extension NSIndexSet : SequenceType {
   typealias SubSequence = AnySequence<Element>
 }
 class NSMutableIndexSet : NSIndexSet {
-  func addIndexes(indexSet: NSIndexSet)
-  func removeIndexes(indexSet: NSIndexSet)
+  func add(indexSet: NSIndexSet)
+  func remove(indexSet: NSIndexSet)
   func removeAllIndexes()
-  func addIndex(value: Int)
-  func removeIndex(value: Int)
-  func addIndexesInRange(range: NSRange)
-  func removeIndexesInRange(range: NSRange)
-  func shiftIndexesStartingAtIndex(index: Int, by delta: Int)
-  init(indexesInRange range: NSRange)
+  func add(value: Int)
+  func remove(value: Int)
+  func addIndexesIn(range: NSRange)
+  func removeIndexesIn(range: NSRange)
+  func shiftIndexesStartingAt(index: Int, by delta: Int)
+  init(indexesIn range: NSRange)
   init(indexSet: NSIndexSet)
   convenience init(index value: Int)
   convenience init()
@@ -3405,14 +3405,14 @@ typealias NSItemProviderLoadHandler = (NSItemProviderCompletionHandler!, AnyClas
 @available(tvOS 8.0, *)
 class NSItemProvider : NSObject, NSCopying {
   init(item: NSSecureCoding?, typeIdentifier: String?)
-  convenience init?(contentsOfURL fileURL: NSURL!)
+  convenience init?(contentsOf fileURL: NSURL!)
   func registerItemForTypeIdentifier(typeIdentifier: String, loadHandler: NSItemProviderLoadHandler)
   var registeredTypeIdentifiers: [AnyObject] { get }
   func hasItemConformingToTypeIdentifier(typeIdentifier: String) -> Bool
-  func loadItemForTypeIdentifier(typeIdentifier: String, options: [NSObject : AnyObject]?, completionHandler: NSItemProviderCompletionHandler?)
+  func loadItemForTypeIdentifier(typeIdentifier: String, options: [NSObject : AnyObject]?, completionHandler: NSItemProviderCompletionHandler? = nil)
   convenience init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 let NSItemProviderPreferredImageSizeKey: String
@@ -3455,10 +3455,10 @@ struct NSJSONWritingOptions : OptionSetType {
 @available(tvOS 5.0, *)
 class NSJSONSerialization : NSObject {
   class func isValidJSONObject(obj: AnyObject) -> Bool
-  class func dataWithJSONObject(obj: AnyObject, options opt: NSJSONWritingOptions) throws -> NSData
-  class func JSONObjectWithData(data: NSData, options opt: NSJSONReadingOptions) throws -> AnyObject
-  class func writeJSONObject(obj: AnyObject, toStream stream: NSOutputStream, options opt: NSJSONWritingOptions, error: NSErrorPointer) -> Int
-  class func JSONObjectWithStream(stream: NSInputStream, options opt: NSJSONReadingOptions) throws -> AnyObject
+  class func dataWithJSONObject(obj: AnyObject, options opt: NSJSONWritingOptions = []) throws -> NSData
+  class func jsonObjectWith(data: NSData, options opt: NSJSONReadingOptions = []) throws -> AnyObject
+  class func writeJSONObject(obj: AnyObject, to stream: NSOutputStream, options opt: NSJSONWritingOptions = [], error: NSErrorPointer) -> Int
+  class func jsonObjectWith(stream: NSInputStream, options opt: NSJSONReadingOptions = []) throws -> AnyObject
   init()
 }
 let NSUndefinedKeyException: String
@@ -3509,8 +3509,8 @@ extension NSObject {
   func setNilValueForKey(key: String)
   class func dictionaryWithValuesForKeys(keys: [String]) -> [String : AnyObject]
   func dictionaryWithValuesForKeys(keys: [String]) -> [String : AnyObject]
-  class func setValuesForKeysWithDictionary(keyedValues: [String : AnyObject])
-  func setValuesForKeysWithDictionary(keyedValues: [String : AnyObject])
+  class func setValuesForKeysWith(keyedValues: [String : AnyObject])
+  func setValuesForKeysWith(keyedValues: [String : AnyObject])
 }
 extension NSArray {
   func valueForKey(key: String) -> AnyObject
@@ -3572,12 +3572,12 @@ let NSKeyValueChangeIndexesKey: String
 @available(tvOS 2.0, *)
 let NSKeyValueChangeNotificationIsPriorKey: String
 extension NSObject {
-  class func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
-  func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
+  class func observeValueForKeyPath(keyPath: String?, of object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
+  func observeValueForKeyPath(keyPath: String?, of object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
 }
 extension NSObject {
-  class func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions, context: UnsafeMutablePointer<Void>)
-  func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions, context: UnsafeMutablePointer<Void>)
+  class func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
+  func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
   class func removeObserver(observer: NSObject, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
   @available(tvOS 5.0, *)
   func removeObserver(observer: NSObject, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
@@ -3585,33 +3585,33 @@ extension NSObject {
   func removeObserver(observer: NSObject, forKeyPath keyPath: String)
 }
 extension NSArray {
-  func addObserver(observer: NSObject, toObjectsAtIndexes indexes: NSIndexSet, forKeyPath keyPath: String, options: NSKeyValueObservingOptions, context: UnsafeMutablePointer<Void>)
+  func addObserver(observer: NSObject, toObjectsAt indexes: NSIndexSet, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
   @available(tvOS 5.0, *)
-  func removeObserver(observer: NSObject, fromObjectsAtIndexes indexes: NSIndexSet, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
-  func removeObserver(observer: NSObject, fromObjectsAtIndexes indexes: NSIndexSet, forKeyPath keyPath: String)
-  func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions, context: UnsafeMutablePointer<Void>)
+  func removeObserver(observer: NSObject, fromObjectsAt indexes: NSIndexSet, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
+  func removeObserver(observer: NSObject, fromObjectsAt indexes: NSIndexSet, forKeyPath keyPath: String)
+  func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
   @available(tvOS 5.0, *)
   func removeObserver(observer: NSObject, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
   func removeObserver(observer: NSObject, forKeyPath keyPath: String)
 }
 extension NSArray {
-  func addObserver(observer: NSObject, toObjectsAtIndexes indexes: NSIndexSet, forKeyPath keyPath: String, options: NSKeyValueObservingOptions, context: UnsafeMutablePointer<Void>)
+  func addObserver(observer: NSObject, toObjectsAt indexes: NSIndexSet, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
   @available(tvOS 5.0, *)
-  func removeObserver(observer: NSObject, fromObjectsAtIndexes indexes: NSIndexSet, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
-  func removeObserver(observer: NSObject, fromObjectsAtIndexes indexes: NSIndexSet, forKeyPath keyPath: String)
-  func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions, context: UnsafeMutablePointer<Void>)
+  func removeObserver(observer: NSObject, fromObjectsAt indexes: NSIndexSet, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
+  func removeObserver(observer: NSObject, fromObjectsAt indexes: NSIndexSet, forKeyPath keyPath: String)
+  func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
   @available(tvOS 5.0, *)
   func removeObserver(observer: NSObject, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
   func removeObserver(observer: NSObject, forKeyPath keyPath: String)
 }
 extension NSOrderedSet {
-  func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions, context: UnsafeMutablePointer<Void>)
+  func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
   @available(tvOS 5.0, *)
   func removeObserver(observer: NSObject, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
   func removeObserver(observer: NSObject, forKeyPath keyPath: String)
 }
 extension NSSet {
-  func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions, context: UnsafeMutablePointer<Void>)
+  func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
   @available(tvOS 5.0, *)
   func removeObserver(observer: NSObject, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
   func removeObserver(observer: NSObject, forKeyPath keyPath: String)
@@ -3621,10 +3621,10 @@ extension NSObject {
   func willChangeValueForKey(key: String)
   class func didChangeValueForKey(key: String)
   func didChangeValueForKey(key: String)
-  class func willChange(changeKind: NSKeyValueChange, valuesAtIndexes indexes: NSIndexSet, forKey key: String)
-  func willChange(changeKind: NSKeyValueChange, valuesAtIndexes indexes: NSIndexSet, forKey key: String)
-  class func didChange(changeKind: NSKeyValueChange, valuesAtIndexes indexes: NSIndexSet, forKey key: String)
-  func didChange(changeKind: NSKeyValueChange, valuesAtIndexes indexes: NSIndexSet, forKey key: String)
+  class func willChange(changeKind: NSKeyValueChange, valuesAt indexes: NSIndexSet, forKey key: String)
+  func willChange(changeKind: NSKeyValueChange, valuesAt indexes: NSIndexSet, forKey key: String)
+  class func didChange(changeKind: NSKeyValueChange, valuesAt indexes: NSIndexSet, forKey key: String)
+  func didChange(changeKind: NSKeyValueChange, valuesAt indexes: NSIndexSet, forKey key: String)
   class func willChangeValueForKey(key: String, withSetMutation mutationKind: NSKeyValueSetMutationKind, usingObjects objects: Set<NSObject>)
   func willChangeValueForKey(key: String, withSetMutation mutationKind: NSKeyValueSetMutationKind, usingObjects objects: Set<NSObject>)
   class func didChangeValueForKey(key: String, withSetMutation mutationKind: NSKeyValueSetMutationKind, usingObjects objects: Set<NSObject>)
@@ -3645,31 +3645,31 @@ let NSKeyedArchiveRootObjectKey: String
 class NSKeyedArchiver : NSCoder {
   class func archivedDataWithRootObject(rootObject: AnyObject) -> NSData
   class func archiveRootObject(rootObject: AnyObject, toFile path: String) -> Bool
-  init(forWritingWithMutableData data: NSMutableData)
+  init(forWritingWith data: NSMutableData)
   unowned(unsafe) var delegate: @sil_unmanaged NSKeyedArchiverDelegate?
   var outputFormat: NSPropertyListFormat
   func finishEncoding()
   class func setClassName(codedName: String?, forClass cls: AnyClass)
   func setClassName(codedName: String?, forClass cls: AnyClass)
-  class func classNameForClass(cls: AnyClass) -> String?
-  func classNameForClass(cls: AnyClass) -> String?
-  func encodeObject(objv: AnyObject?, forKey key: String)
+  class func classNameFor(cls: AnyClass) -> String?
+  func classNameFor(cls: AnyClass) -> String?
+  func encode(objv: AnyObject?, forKey key: String)
   func encodeConditionalObject(objv: AnyObject?, forKey key: String)
-  func encodeBool(boolv: Bool, forKey key: String)
-  func encodeInt(intv: Int32, forKey key: String)
-  func encodeInt32(intv: Int32, forKey key: String)
-  func encodeInt64(intv: Int64, forKey key: String)
-  func encodeFloat(realv: Float, forKey key: String)
-  func encodeDouble(realv: Double, forKey key: String)
+  func encode(boolv: Bool, forKey key: String)
+  func encode(intv: Int32, forKey key: String)
+  func encode(intv: Int32, forKey key: String)
+  func encode(intv: Int64, forKey key: String)
+  func encode(realv: Float, forKey key: String)
+  func encode(realv: Double, forKey key: String)
   func encodeBytes(bytesp: UnsafePointer<UInt8>, length lenv: Int, forKey key: String)
   @available(tvOS 6.0, *)
   var requiresSecureCoding: Bool
   init()
 }
 class NSKeyedUnarchiver : NSCoder {
-  class func unarchiveObjectWithData(data: NSData) -> AnyObject?
+  class func unarchiveObjectWith(data: NSData) -> AnyObject?
   class func unarchiveObjectWithFile(path: String) -> AnyObject?
-  init(forReadingWithData data: NSData)
+  init(forReadingWith data: NSData)
   unowned(unsafe) var delegate: @sil_unmanaged NSKeyedUnarchiverDelegate?
   func finishDecoding()
   class func setClass(cls: AnyClass?, forClassName codedName: String)
@@ -3695,23 +3695,23 @@ extension NSKeyedUnarchiver {
   class func unarchiveTopLevelObjectWithData(data: NSData) throws -> AnyObject?
 }
 protocol NSKeyedArchiverDelegate : NSObjectProtocol {
-  optional func archiver(archiver: NSKeyedArchiver, willEncodeObject object: AnyObject) -> AnyObject?
-  optional func archiver(archiver: NSKeyedArchiver, didEncodeObject object: AnyObject?)
-  optional func archiver(archiver: NSKeyedArchiver, willReplaceObject object: AnyObject?, withObject newObject: AnyObject?)
+  optional func archiver(archiver: NSKeyedArchiver, willEncode object: AnyObject) -> AnyObject?
+  optional func archiver(archiver: NSKeyedArchiver, didEncode object: AnyObject?)
+  optional func archiver(archiver: NSKeyedArchiver, willReplace object: AnyObject?, withObject newObject: AnyObject?)
   optional func archiverWillFinish(archiver: NSKeyedArchiver)
   optional func archiverDidFinish(archiver: NSKeyedArchiver)
 }
 protocol NSKeyedUnarchiverDelegate : NSObjectProtocol {
   optional func unarchiver(unarchiver: NSKeyedUnarchiver, cannotDecodeObjectOfClassName name: String, originalClasses classNames: [String]) -> AnyClass?
-  optional func unarchiver(unarchiver: NSKeyedUnarchiver, didDecodeObject object: AnyObject?) -> AnyObject?
-  optional func unarchiver(unarchiver: NSKeyedUnarchiver, willReplaceObject object: AnyObject, withObject newObject: AnyObject)
+  optional func unarchiver(unarchiver: NSKeyedUnarchiver, didDecode object: AnyObject?) -> AnyObject?
+  optional func unarchiver(unarchiver: NSKeyedUnarchiver, willReplace object: AnyObject, withObject newObject: AnyObject)
   optional func unarchiverWillFinish(unarchiver: NSKeyedUnarchiver)
   optional func unarchiverDidFinish(unarchiver: NSKeyedUnarchiver)
 }
 extension NSObject {
   var classForKeyedArchiver: AnyClass? { get }
-  class func replacementObjectForKeyedArchiver(archiver: NSKeyedArchiver) -> AnyObject?
-  func replacementObjectForKeyedArchiver(archiver: NSKeyedArchiver) -> AnyObject?
+  class func replacementObjectFor(archiver: NSKeyedArchiver) -> AnyObject?
+  func replacementObjectFor(archiver: NSKeyedArchiver) -> AnyObject?
   class func classFallbacksForKeyedArchiver() -> [String]
   class func classForKeyedArchiver() -> AnyClass?
 }
@@ -3735,7 +3735,7 @@ enum NSLengthFormatterUnit : Int {
 class NSLengthFormatter : NSFormatter {
   @NSCopying var numberFormatter: NSNumberFormatter!
   var unitStyle: NSFormattingUnitStyle
-  var forPersonHeightUse: Bool
+  var isForPersonHeightUse: Bool
   func stringFromValue(value: Double, unit: NSLengthFormatterUnit) -> String
   func stringFromMeters(numberInMeters: Double) -> String
   func unitStringFromValue(value: Double, unit: NSLengthFormatterUnit) -> String
@@ -3842,64 +3842,64 @@ class NSLinguisticTagger : NSObject {
   @available(tvOS 5.0, *)
   func setOrthography(orthography: NSOrthography?, range: NSRange)
   @available(tvOS 5.0, *)
-  func orthographyAtIndex(charIndex: Int, effectiveRange: NSRangePointer) -> NSOrthography?
+  func orthographyAt(charIndex: Int, effectiveRange: NSRangePointer) -> NSOrthography?
   @available(tvOS 5.0, *)
-  func stringEditedInRange(newRange: NSRange, changeInLength delta: Int)
+  func stringEditedIn(newRange: NSRange, changeInLength delta: Int)
   @available(tvOS 5.0, *)
-  func enumerateTagsInRange(range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions, usingBlock block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateTagsIn(range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions = [], usingBlock block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 5.0, *)
-  func sentenceRangeForRange(range: NSRange) -> NSRange
+  func sentenceRangeFor(range: NSRange) -> NSRange
   @available(tvOS 5.0, *)
-  func tagAtIndex(charIndex: Int, scheme tagScheme: String, tokenRange: NSRangePointer, sentenceRange: NSRangePointer) -> String?
+  func tagAt(charIndex: Int, scheme tagScheme: String, tokenRange: NSRangePointer, sentenceRange: NSRangePointer) -> String?
   @available(tvOS 5.0, *)
-  func tagsInRange(range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions, tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
+  func tagsIn(range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions = [], tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
   @available(tvOS 5.0, *)
-  func possibleTagsAtIndex(charIndex: Int, scheme tagScheme: String, tokenRange: NSRangePointer, sentenceRange: NSRangePointer, scores: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]?
+  func possibleTagsAt(charIndex: Int, scheme tagScheme: String, tokenRange: NSRangePointer, sentenceRange: NSRangePointer, scores: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]?
   convenience init()
 }
 extension NSString {
   @available(tvOS 5.0, *)
-  func linguisticTagsInRange(range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions, orthography: NSOrthography?, tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
+  func linguisticTagsIn(range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions = [], orthography: NSOrthography?, tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
   @available(tvOS 5.0, *)
-  func enumerateLinguisticTagsInRange(range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions, orthography: NSOrthography?, usingBlock block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateLinguisticTagsIn(range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions = [], orthography: NSOrthography?, usingBlock block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
 }
 extension NSString {
   @available(tvOS 5.0, *)
-  func linguisticTagsInRange(range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions, orthography: NSOrthography?, tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
+  func linguisticTagsIn(range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions = [], orthography: NSOrthography?, tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
   @available(tvOS 5.0, *)
-  func enumerateLinguisticTagsInRange(range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions, orthography: NSOrthography?, usingBlock block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateLinguisticTagsIn(range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions = [], orthography: NSOrthography?, usingBlock block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
 }
 class NSLocale : NSObject, NSCopying, NSSecureCoding {
   func objectForKey(key: AnyObject) -> AnyObject?
   func displayNameForKey(key: AnyObject, value: AnyObject) -> String?
   init(localeIdentifier string: String)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 extension NSLocale {
   var localeIdentifier: String { get }
 }
 extension NSLocale {
   @available(tvOS 2.0, *)
-  class func autoupdatingCurrentLocale() -> NSLocale
-  class func currentLocale() -> NSLocale
-  class func systemLocale() -> NSLocale
+  class func autoupdatingCurrent() -> NSLocale
+  class func current() -> NSLocale
+  class func system() -> NSLocale
 }
 extension NSLocale {
   class func availableLocaleIdentifiers() -> [String]
-  class func ISOLanguageCodes() -> [String]
-  class func ISOCountryCodes() -> [String]
-  class func ISOCurrencyCodes() -> [String]
+  class func isoLanguageCodes() -> [String]
+  class func isoCountryCodes() -> [String]
+  class func isoCurrencyCodes() -> [String]
   @available(tvOS 2.0, *)
   class func commonISOCurrencyCodes() -> [String]
   @available(tvOS 2.0, *)
   class func preferredLanguages() -> [String]
   class func componentsFromLocaleIdentifier(string: String) -> [String : String]
   class func localeIdentifierFromComponents(dict: [String : String]) -> String
-  class func canonicalLocaleIdentifierFromString(string: String) -> String
-  class func canonicalLanguageIdentifierFromString(string: String) -> String
+  class func canonicalLocaleIdentifierFrom(string: String) -> String
+  class func canonicalLanguageIdentifierFrom(string: String) -> String
   @available(tvOS 4.0, *)
   class func localeIdentifierFromWindowsLocaleCode(lcid: UInt32) -> String?
   @available(tvOS 4.0, *)
@@ -3972,7 +3972,7 @@ protocol NSLocking {
 }
 class NSLock : NSObject, NSLocking {
   func tryLock() -> Bool
-  func lockBeforeDate(limit: NSDate) -> Bool
+  func lockBefore(limit: NSDate) -> Bool
   @available(tvOS 2.0, *)
   var name: String?
   init()
@@ -3986,8 +3986,8 @@ class NSConditionLock : NSObject, NSLocking {
   func tryLock() -> Bool
   func tryLockWhenCondition(condition: Int) -> Bool
   func unlockWithCondition(condition: Int)
-  func lockBeforeDate(limit: NSDate) -> Bool
-  func lockWhenCondition(condition: Int, beforeDate limit: NSDate) -> Bool
+  func lockBefore(limit: NSDate) -> Bool
+  func lockWhenCondition(condition: Int, before limit: NSDate) -> Bool
   @available(tvOS 2.0, *)
   var name: String?
   convenience init()
@@ -3996,7 +3996,7 @@ class NSConditionLock : NSObject, NSLocking {
 }
 class NSRecursiveLock : NSObject, NSLocking {
   func tryLock() -> Bool
-  func lockBeforeDate(limit: NSDate) -> Bool
+  func lockBefore(limit: NSDate) -> Bool
   @available(tvOS 2.0, *)
   var name: String?
   init()
@@ -4006,7 +4006,7 @@ class NSRecursiveLock : NSObject, NSLocking {
 @available(tvOS 2.0, *)
 class NSCondition : NSObject, NSLocking {
   func wait()
-  func waitUntilDate(limit: NSDate) -> Bool
+  func waitUntil(limit: NSDate) -> Bool
   func signal()
   func broadcast()
   @available(tvOS 2.0, *)
@@ -4031,21 +4031,21 @@ let NSMapTableWeakMemory: NSPointerFunctionsOptions
 typealias NSMapTableOptions = Int
 @available(tvOS 6.0, *)
 class NSMapTable : NSObject, NSCopying, NSCoding, NSFastEnumeration {
-  init(keyOptions: NSPointerFunctionsOptions, valueOptions: NSPointerFunctionsOptions, capacity initialCapacity: Int)
+  init(keyOptions: NSPointerFunctionsOptions = [], valueOptions: NSPointerFunctionsOptions = [], capacity initialCapacity: Int)
   init(keyPointerFunctions keyFunctions: NSPointerFunctions, valuePointerFunctions valueFunctions: NSPointerFunctions, capacity initialCapacity: Int)
-  /*not inherited*/ init(keyOptions: NSPointerFunctionsOptions, valueOptions: NSPointerFunctionsOptions)
+  /*not inherited*/ init(keyOptions: NSPointerFunctionsOptions = [], valueOptions: NSPointerFunctionsOptions = [])
   @available(tvOS 6.0, *)
-  class func strongToStrongObjectsMapTable() -> NSMapTable
+  class func strongToStrongObjects() -> NSMapTable
   @available(tvOS 6.0, *)
-  class func weakToStrongObjectsMapTable() -> NSMapTable
+  class func weakToStrongObjects() -> NSMapTable
   @available(tvOS 6.0, *)
-  class func strongToWeakObjectsMapTable() -> NSMapTable
+  class func strongToWeakObjects() -> NSMapTable
   @available(tvOS 6.0, *)
-  class func weakToWeakObjectsMapTable() -> NSMapTable
+  class func weakToWeakObjects() -> NSMapTable
   @NSCopying var keyPointerFunctions: NSPointerFunctions { get }
   @NSCopying var valuePointerFunctions: NSPointerFunctions { get }
-  func objectForKey(aKey: AnyObject?) -> AnyObject?
-  func removeObjectForKey(aKey: AnyObject?)
+  func objectFor(aKey: AnyObject?) -> AnyObject?
+  func removeObjectFor(aKey: AnyObject?)
   func setObject(anObject: AnyObject?, forKey aKey: AnyObject?)
   var count: Int { get }
   func keyEnumerator() -> NSEnumerator
@@ -4054,12 +4054,12 @@ class NSMapTable : NSObject, NSCopying, NSCoding, NSFastEnumeration {
   func dictionaryRepresentation() -> [NSObject : AnyObject]
   convenience init()
   @available(tvOS 6.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 6.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(tvOS 6.0, *)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 @available(tvOS 8.0, *)
 enum NSMassFormatterUnit : Int {
@@ -4099,22 +4099,22 @@ class NSMetadataQuery : NSObject {
   var operationQueue: NSOperationQueue?
   func startQuery() -> Bool
   func stopQuery()
-  var started: Bool { get }
-  var gathering: Bool { get }
-  var stopped: Bool { get }
+  var isStarted: Bool { get }
+  var isGathering: Bool { get }
+  var isStopped: Bool { get }
   func disableUpdates()
   func enableUpdates()
   var resultCount: Int { get }
-  func resultAtIndex(idx: Int) -> AnyObject
+  func resultAt(idx: Int) -> AnyObject
   @available(tvOS 7.0, *)
-  func enumerateResultsUsingBlock(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateResultsUsing(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 7.0, *)
-  func enumerateResultsWithOptions(opts: NSEnumerationOptions, usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateResults(options opts: NSEnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   var results: [AnyObject] { get }
   func indexOfResult(result: AnyObject) -> Int
   var valueLists: [String : [NSMetadataQueryAttributeValueTuple]] { get }
   var groupedResults: [NSMetadataQueryResultGroup] { get }
-  func valueOfAttribute(attrName: String, forResultAtIndex idx: Int) -> AnyObject?
+  func valueOfAttribute(attrName: String, forResultAt idx: Int) -> AnyObject?
   init()
 }
 protocol NSMetadataQueryDelegate : NSObjectProtocol {
@@ -4165,7 +4165,7 @@ class NSMetadataQueryResultGroup : NSObject {
   var value: AnyObject { get }
   var subgroups: [NSMetadataQueryResultGroup]? { get }
   var resultCount: Int { get }
-  func resultAtIndex(idx: Int) -> AnyObject
+  func resultAt(idx: Int) -> AnyObject
   var results: [AnyObject] { get }
   init()
 }
@@ -4245,8 +4245,8 @@ struct NSNetServiceOptions : OptionSetType {
 class NSNetService : NSObject {
   init(domain: String, type: String, name: String, port: Int32)
   convenience init(domain: String, type: String, name: String)
-  func scheduleInRunLoop(aRunLoop: NSRunLoop, forMode mode: String)
-  func removeFromRunLoop(aRunLoop: NSRunLoop, forMode mode: String)
+  func scheduleIn(aRunLoop: NSRunLoop, forMode mode: String)
+  func removeFrom(aRunLoop: NSRunLoop, forMode mode: String)
   unowned(unsafe) var delegate: @sil_unmanaged NSNetServiceDelegate?
   @available(tvOS 7.0, *)
   var includesPeerToPeer: Bool
@@ -4259,14 +4259,14 @@ class NSNetService : NSObject {
   var port: Int { get }
   func publish()
   @available(tvOS 2.0, *)
-  func publishWithOptions(options: NSNetServiceOptions)
+  func publish(options options: NSNetServiceOptions = [])
   func stop()
-  class func dictionaryFromTXTRecordData(txtData: NSData) -> [String : NSData]
-  class func dataFromTXTRecordDictionary(txtDictionary: [String : NSData]) -> NSData
+  class func dictionaryFromTXTRecord(txtData: NSData) -> [String : NSData]
+  class func dataFromTXTRecord(txtDictionary: [String : NSData]) -> NSData
   func resolveWithTimeout(timeout: NSTimeInterval)
   func getInputStream(inputStream: UnsafeMutablePointer<NSInputStream?>, outputStream: UnsafeMutablePointer<NSOutputStream?>) -> Bool
-  func setTXTRecordData(recordData: NSData?) -> Bool
-  func TXTRecordData() -> NSData?
+  func setTXTRecord(recordData: NSData?) -> Bool
+  func txtRecordData() -> NSData?
   func startMonitoring()
   func stopMonitoring()
   convenience init()
@@ -4276,8 +4276,8 @@ class NSNetServiceBrowser : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged NSNetServiceBrowserDelegate?
   @available(tvOS 7.0, *)
   var includesPeerToPeer: Bool
-  func scheduleInRunLoop(aRunLoop: NSRunLoop, forMode mode: String)
-  func removeFromRunLoop(aRunLoop: NSRunLoop, forMode mode: String)
+  func scheduleIn(aRunLoop: NSRunLoop, forMode mode: String)
+  func removeFrom(aRunLoop: NSRunLoop, forMode mode: String)
   func searchForBrowsableDomains()
   func searchForRegistrationDomains()
   func searchForServicesOfType(type: String, inDomain domainString: String)
@@ -4291,18 +4291,18 @@ protocol NSNetServiceDelegate : NSObjectProtocol {
   optional func netServiceDidResolveAddress(sender: NSNetService)
   optional func netService(sender: NSNetService, didNotResolve errorDict: [String : NSNumber])
   optional func netServiceDidStop(sender: NSNetService)
-  optional func netService(sender: NSNetService, didUpdateTXTRecordData data: NSData)
+  optional func netService(sender: NSNetService, didUpdateTXTRecord data: NSData)
   @available(tvOS 7.0, *)
-  optional func netService(sender: NSNetService, didAcceptConnectionWithInputStream inputStream: NSInputStream, outputStream: NSOutputStream)
+  optional func netService(sender: NSNetService, didAcceptConnectionWith inputStream: NSInputStream, outputStream: NSOutputStream)
 }
 protocol NSNetServiceBrowserDelegate : NSObjectProtocol {
   optional func netServiceBrowserWillSearch(browser: NSNetServiceBrowser)
   optional func netServiceBrowserDidStopSearch(browser: NSNetServiceBrowser)
   optional func netServiceBrowser(browser: NSNetServiceBrowser, didNotSearch errorDict: [String : NSNumber])
   optional func netServiceBrowser(browser: NSNetServiceBrowser, didFindDomain domainString: String, moreComing: Bool)
-  optional func netServiceBrowser(browser: NSNetServiceBrowser, didFindService service: NSNetService, moreComing: Bool)
+  optional func netServiceBrowser(browser: NSNetServiceBrowser, didFind service: NSNetService, moreComing: Bool)
   optional func netServiceBrowser(browser: NSNetServiceBrowser, didRemoveDomain domainString: String, moreComing: Bool)
-  optional func netServiceBrowser(browser: NSNetServiceBrowser, didRemoveService service: NSNetService, moreComing: Bool)
+  optional func netServiceBrowser(browser: NSNetServiceBrowser, didRemove service: NSNetService, moreComing: Bool)
 }
 
 /****************	Notifications	****************/
@@ -4313,8 +4313,8 @@ class NSNotification : NSObject, NSCopying, NSCoding {
   @available(tvOS 4.0, *)
   init(name: String, object: AnyObject?, userInfo: [NSObject : AnyObject]?)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  func copy(zone zone: NSZone = nil) -> AnyObject
+  func encodeWith(aCoder: NSCoder)
 }
 extension NSNotification {
   convenience init(name aName: String, object anObject: AnyObject?)
@@ -4325,7 +4325,7 @@ extension NSNotification {
 class NSNotificationCenter : NSObject {
   class func defaultCenter() -> NSNotificationCenter
   func addObserver(observer: AnyObject, selector aSelector: Selector, name aName: String?, object anObject: AnyObject?)
-  func postNotification(notification: NSNotification)
+  func post(notification: NSNotification)
   func postNotificationName(aName: String, object anObject: AnyObject?)
   func postNotificationName(aName: String, object anObject: AnyObject?, userInfo aUserInfo: [NSObject : AnyObject]?)
   func removeObserver(observer: AnyObject)
@@ -4358,9 +4358,9 @@ class NSNotificationQueue : NSObject {
 }
 class NSNull : NSObject, NSCopying, NSSecureCoding {
   init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 enum NSNumberFormatterBehavior : UInt {
@@ -4373,10 +4373,10 @@ class NSNumberFormatter : NSFormatter {
   @available(tvOS 8.0, *)
   var formattingContext: NSFormattingContext
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, range rangep: UnsafeMutablePointer<NSRange>) throws
-  func stringFromNumber(number: NSNumber) -> String?
-  func numberFromString(string: String) -> NSNumber?
+  func stringFrom(number: NSNumber) -> String?
+  func numberFrom(string: String) -> NSNumber?
   @available(tvOS 4.0, *)
-  class func localizedStringFromNumber(num: NSNumber, numberStyle nstyle: NSNumberFormatterStyle) -> String
+  class func localizedStringFrom(num: NSNumber, number nstyle: NSNumberFormatterStyle) -> String
   class func defaultFormatterBehavior() -> NSNumberFormatterBehavior
   class func setDefaultFormatterBehavior(behavior: NSNumberFormatterBehavior)
   var numberStyle: NSNumberFormatterStyle
@@ -4432,7 +4432,7 @@ class NSNumberFormatter : NSFormatter {
   @available(tvOS 2.0, *)
   var currencyGroupingSeparator: String!
   @available(tvOS 2.0, *)
-  var lenient: Bool
+  var isLenient: Bool
   @available(tvOS 2.0, *)
   var usesSignificantDigits: Bool
   @available(tvOS 2.0, *)
@@ -4440,7 +4440,7 @@ class NSNumberFormatter : NSFormatter {
   @available(tvOS 2.0, *)
   var maximumSignificantDigits: Int
   @available(tvOS 2.0, *)
-  var partialStringValidationEnabled: Bool
+  var isPartialStringValidationEnabled: Bool
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -4619,13 +4619,13 @@ let NSNotFound: Int
 
 /***************	Basic protocols		***************/
 protocol NSCopying {
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 protocol NSMutableCopying {
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
 }
 protocol NSCoding {
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 protocol NSSecureCoding : NSCoding {
@@ -4635,10 +4635,10 @@ extension NSObject {
   class func version() -> Int
   class func setVersion(aVersion: Int)
   var classForCoder: AnyClass { get }
-  class func replacementObjectForCoder(aCoder: NSCoder) -> AnyObject?
-  func replacementObjectForCoder(aCoder: NSCoder) -> AnyObject?
-  class func awakeAfterUsingCoder(aDecoder: NSCoder) -> AnyObject?
-  func awakeAfterUsingCoder(aDecoder: NSCoder) -> AnyObject?
+  class func replacementObjectFor(aCoder: NSCoder) -> AnyObject?
+  func replacementObjectFor(aCoder: NSCoder) -> AnyObject?
+  class func awakeAfterUsing(aDecoder: NSCoder) -> AnyObject?
+  func awakeAfterUsing(aDecoder: NSCoder) -> AnyObject?
   class func classForCoder() -> AnyClass
 }
 
@@ -4659,14 +4659,14 @@ func CFBridgingRetain(X: AnyObject?) -> AnyObject?
 class NSOperation : NSObject {
   func start()
   func main()
-  var cancelled: Bool { get }
+  var isCancelled: Bool { get }
   func cancel()
-  var executing: Bool { get }
-  var finished: Bool { get }
-  var concurrent: Bool { get }
+  var isExecuting: Bool { get }
+  var isFinished: Bool { get }
+  var isConcurrent: Bool { get }
   @available(tvOS 7.0, *)
   var asynchronous: Bool { get }
-  var ready: Bool { get }
+  var isReady: Bool { get }
   func addDependency(op: NSOperation)
   func removeDependency(op: NSOperation)
   var dependencies: [NSOperation] { get }
@@ -4710,12 +4710,12 @@ class NSOperationQueue : NSObject {
   @available(tvOS 4.0, *)
   func addOperations(ops: [NSOperation], waitUntilFinished wait: Bool)
   @available(tvOS 4.0, *)
-  func addOperationWithBlock(block: () -> Void)
+  func addOperationWith(block: () -> Void)
   var operations: [NSOperation] { get }
   @available(tvOS 4.0, *)
   var operationCount: Int { get }
   var maxConcurrentOperationCount: Int
-  var suspended: Bool
+  var isSuspended: Bool
   @available(tvOS 4.0, *)
   var name: String?
   @available(tvOS 8.0, *)
@@ -4725,9 +4725,9 @@ class NSOperationQueue : NSObject {
   func cancelAllOperations()
   func waitUntilAllOperationsAreFinished()
   @available(tvOS 4.0, *)
-  class func currentQueue() -> NSOperationQueue?
+  class func current() -> NSOperationQueue?
   @available(tvOS 4.0, *)
-  class func mainQueue() -> NSOperationQueue
+  class func main() -> NSOperationQueue
   init()
 }
 
@@ -4735,21 +4735,21 @@ class NSOperationQueue : NSObject {
 @available(tvOS 5.0, *)
 class NSOrderedSet : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration {
   var count: Int { get }
-  func objectAtIndex(idx: Int) -> AnyObject
-  func indexOfObject(object: AnyObject) -> Int
+  func objectAt(idx: Int) -> AnyObject
+  func indexOf(object: AnyObject) -> Int
   init()
   init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
   init?(coder aDecoder: NSCoder)
   @available(tvOS 5.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 5.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 5.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   @available(tvOS 5.0, *)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSOrderedSet : SequenceType {
@@ -4771,33 +4771,33 @@ extension NSOrderedSet : ArrayLiteralConvertible {
 }
 extension NSOrderedSet {
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, range: NSRange)
-  func objectsAtIndexes(indexes: NSIndexSet) -> [AnyObject]
+  func objectsAt(indexes: NSIndexSet) -> [AnyObject]
   var firstObject: AnyObject? { get }
   var lastObject: AnyObject? { get }
-  func isEqualToOrderedSet(other: NSOrderedSet) -> Bool
-  func containsObject(object: AnyObject) -> Bool
+  func isEqualTo(other: NSOrderedSet) -> Bool
+  func contains(object: AnyObject) -> Bool
   func intersectsOrderedSet(other: NSOrderedSet) -> Bool
   func intersectsSet(set: Set<NSObject>) -> Bool
-  func isSubsetOfOrderedSet(other: NSOrderedSet) -> Bool
-  func isSubsetOfSet(set: Set<NSObject>) -> Bool
+  func isSubsetOf(other: NSOrderedSet) -> Bool
+  func isSubsetOf(set: Set<NSObject>) -> Bool
   subscript (idx: Int) -> AnyObject { get }
   func objectEnumerator() -> NSEnumerator
   func reverseObjectEnumerator() -> NSEnumerator
-  @NSCopying var reversedOrderedSet: NSOrderedSet { get }
+  @NSCopying var reversed: NSOrderedSet { get }
   var array: [AnyObject] { get }
   var set: Set<NSObject> { get }
-  func enumerateObjectsUsingBlock(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func enumerateObjectsWithOptions(opts: NSEnumerationOptions, usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func enumerateObjectsAtIndexes(s: NSIndexSet, options opts: NSEnumerationOptions, usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjectsUsing(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(options opts: NSEnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjectsAt(s: NSIndexSet, options opts: NSEnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   func indexOfObjectPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
-  func indexOfObjectWithOptions(opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
-  func indexOfObjectAtIndexes(s: NSIndexSet, options opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexOfObject(options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexOfObjectAt(s: NSIndexSet, options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   func indexesOfObjectsPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
-  func indexesOfObjectsWithOptions(opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
-  func indexesOfObjectsAtIndexes(s: NSIndexSet, options opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
-  func indexOfObject(object: AnyObject, inSortedRange range: NSRange, options opts: NSBinarySearchingOptions, usingComparator cmp: NSComparator) -> Int
+  func indexesOfObjects(options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
+  func indexesOfObjectsAt(s: NSIndexSet, options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
+  func indexOf(object: AnyObject, inSortedRange range: NSRange, options opts: NSBinarySearchingOptions = [], usingComparator cmp: NSComparator) -> Int
   func sortedArrayUsingComparator(cmptr: NSComparator) -> [AnyObject]
-  func sortedArrayWithOptions(opts: NSSortOptions, usingComparator cmptr: NSComparator) -> [AnyObject]
+  func sortedArray(options opts: NSSortOptions = [], usingComparator cmptr: NSComparator) -> [AnyObject]
   var description: String { get }
   func descriptionWithLocale(locale: AnyObject?) -> String
   func descriptionWithLocale(locale: AnyObject?, indent level: Int) -> String
@@ -4817,9 +4817,9 @@ extension NSOrderedSet {
 /****************       Mutable Ordered Set     ****************/
 @available(tvOS 5.0, *)
 class NSMutableOrderedSet : NSOrderedSet {
-  func insertObject(object: AnyObject, atIndex idx: Int)
-  func removeObjectAtIndex(idx: Int)
-  func replaceObjectAtIndex(idx: Int, withObject object: AnyObject)
+  func insert(object: AnyObject, at idx: Int)
+  func removeObjectAt(idx: Int)
+  func replaceObjectAt(idx: Int, withObject object: AnyObject)
   init?(coder aDecoder: NSCoder)
   init()
   init(capacity numItems: Int)
@@ -4835,21 +4835,21 @@ class NSMutableOrderedSet : NSOrderedSet {
   convenience init(set: Set<NSObject>, copyItems flag: Bool)
 }
 extension NSMutableOrderedSet {
-  func addObject(object: AnyObject)
+  func add(object: AnyObject)
   func addObjects(objects: UnsafePointer<AnyObject?>, count: Int)
-  func addObjectsFromArray(array: [AnyObject])
-  func exchangeObjectAtIndex(idx1: Int, withObjectAtIndex idx2: Int)
-  func moveObjectsAtIndexes(indexes: NSIndexSet, toIndex idx: Int)
-  func insertObjects(objects: [AnyObject], atIndexes indexes: NSIndexSet)
-  func setObject(obj: AnyObject, atIndex idx: Int)
+  func addObjectsFrom(array: [AnyObject])
+  func exchangeObjectAt(idx1: Int, withObjectAt idx2: Int)
+  func moveObjectsAt(indexes: NSIndexSet, to idx: Int)
+  func insert(objects: [AnyObject], at indexes: NSIndexSet)
+  func setObject(obj: AnyObject, at idx: Int)
   subscript (idx: Int) -> AnyObject
-  func replaceObjectsInRange(range: NSRange, withObjects objects: UnsafePointer<AnyObject?>, count: Int)
-  func replaceObjectsAtIndexes(indexes: NSIndexSet, withObjects objects: [AnyObject])
-  func removeObjectsInRange(range: NSRange)
-  func removeObjectsAtIndexes(indexes: NSIndexSet)
+  func replaceObjectsIn(range: NSRange, withObjects objects: UnsafePointer<AnyObject?>, count: Int)
+  func replaceObjectsAt(indexes: NSIndexSet, withObjects objects: [AnyObject])
+  func removeObjectsIn(range: NSRange)
+  func removeObjectsAt(indexes: NSIndexSet)
   func removeAllObjects()
-  func removeObject(object: AnyObject)
-  func removeObjectsInArray(array: [AnyObject])
+  func remove(object: AnyObject)
+  func removeObjectsIn(array: [AnyObject])
   func intersectOrderedSet(other: NSOrderedSet)
   func minusOrderedSet(other: NSOrderedSet)
   func unionOrderedSet(other: NSOrderedSet)
@@ -4857,8 +4857,8 @@ extension NSMutableOrderedSet {
   func minusSet(other: Set<NSObject>)
   func unionSet(other: Set<NSObject>)
   func sortUsingComparator(cmptr: NSComparator)
-  func sortWithOptions(opts: NSSortOptions, usingComparator cmptr: NSComparator)
-  func sortRange(range: NSRange, options opts: NSSortOptions, usingComparator cmptr: NSComparator)
+  func sort(options opts: NSSortOptions = [], usingComparator cmptr: NSComparator)
+  func sortRange(range: NSRange, options opts: NSSortOptions = [], usingComparator cmptr: NSComparator)
 }
 extension NSMutableOrderedSet {
 }
@@ -4871,9 +4871,9 @@ class NSOrthography : NSObject, NSCopying, NSCoding {
   init?(coder aDecoder: NSCoder)
   convenience init()
   @available(tvOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 4.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 extension NSOrthography {
   @available(tvOS 4.0, *)
@@ -4892,38 +4892,38 @@ extension NSOrthography {
 extension NSString {
   class func pathWithComponents(components: [String]) -> String
   var pathComponents: [String] { get }
-  var absolutePath: Bool { get }
+  var isAbsolutePath: Bool { get }
   var lastPathComponent: String { get }
-  var stringByDeletingLastPathComponent: String { get }
-  func stringByAppendingPathComponent(str: String) -> String
+  var deletingLastPathComponent: String { get }
+  func appendingPathComponent(str: String) -> String
   var pathExtension: String { get }
-  var stringByDeletingPathExtension: String { get }
-  func stringByAppendingPathExtension(str: String) -> String?
-  var stringByAbbreviatingWithTildeInPath: String { get }
-  var stringByExpandingTildeInPath: String { get }
-  var stringByStandardizingPath: String { get }
-  var stringByResolvingSymlinksInPath: String { get }
+  var deletingPathExtension: String { get }
+  func appendingPathExtension(str: String) -> String?
+  var abbreviatingWithTildeInPath: String { get }
+  var expandingTildeInPath: String { get }
+  var standardizingPath: String { get }
+  var resolvingSymlinksInPath: String { get }
   func stringsByAppendingPaths(paths: [String]) -> [String]
-  func completePathIntoString(outputName: AutoreleasingUnsafeMutablePointer<NSString?>, caseSensitive flag: Bool, matchesIntoArray outputArray: AutoreleasingUnsafeMutablePointer<NSArray?>, filterTypes: [String]?) -> Int
+  func completePathInto(outputName: AutoreleasingUnsafeMutablePointer<NSString?>, caseSensitive flag: Bool, matchesInto outputArray: AutoreleasingUnsafeMutablePointer<NSArray?>, filterTypes: [String]?) -> Int
   var fileSystemRepresentation: UnsafePointer<Int8> { get }
   func getFileSystemRepresentation(cname: UnsafeMutablePointer<Int8>, maxLength max: Int) -> Bool
 }
 extension NSString {
   class func pathWithComponents(components: [String]) -> String
   var pathComponents: [String] { get }
-  var absolutePath: Bool { get }
+  var isAbsolutePath: Bool { get }
   var lastPathComponent: String { get }
-  var stringByDeletingLastPathComponent: String { get }
-  func stringByAppendingPathComponent(str: String) -> String
+  var deletingLastPathComponent: String { get }
+  func appendingPathComponent(str: String) -> String
   var pathExtension: String { get }
-  var stringByDeletingPathExtension: String { get }
-  func stringByAppendingPathExtension(str: String) -> String?
-  var stringByAbbreviatingWithTildeInPath: String { get }
-  var stringByExpandingTildeInPath: String { get }
-  var stringByStandardizingPath: String { get }
-  var stringByResolvingSymlinksInPath: String { get }
+  var deletingPathExtension: String { get }
+  func appendingPathExtension(str: String) -> String?
+  var abbreviatingWithTildeInPath: String { get }
+  var expandingTildeInPath: String { get }
+  var standardizingPath: String { get }
+  var resolvingSymlinksInPath: String { get }
   func stringsByAppendingPaths(paths: [String]) -> [String]
-  func completePathIntoString(outputName: AutoreleasingUnsafeMutablePointer<NSString?>, caseSensitive flag: Bool, matchesIntoArray outputArray: AutoreleasingUnsafeMutablePointer<NSArray?>, filterTypes: [String]?) -> Int
+  func completePathInto(outputName: AutoreleasingUnsafeMutablePointer<NSString?>, caseSensitive flag: Bool, matchesInto outputArray: AutoreleasingUnsafeMutablePointer<NSArray?>, filterTypes: [String]?) -> Int
   var fileSystemRepresentation: UnsafePointer<Int8> { get }
   func getFileSystemRepresentation(cname: UnsafeMutablePointer<Int8>, maxLength max: Int) -> Bool
 }
@@ -4999,11 +4999,11 @@ class NSPersonNameComponents : NSObject, NSCopying, NSSecureCoding {
   @NSCopying var phoneticRepresentation: NSPersonNameComponents?
   init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 9.0, *)
@@ -5025,10 +5025,10 @@ struct NSPersonNameComponentsFormatterOptions : OptionSetType {
 @available(tvOS 9.0, *)
 class NSPersonNameComponentsFormatter : NSFormatter {
   var style: NSPersonNameComponentsFormatterStyle
-  var phonetic: Bool
-  class func localizedStringFromPersonNameComponents(components: NSPersonNameComponents, style nameFormatStyle: NSPersonNameComponentsFormatterStyle, options nameOptions: NSPersonNameComponentsFormatterOptions) -> String
-  func stringFromPersonNameComponents(components: NSPersonNameComponents) -> String
-  func annotatedStringFromPersonNameComponents(components: NSPersonNameComponents) -> NSAttributedString
+  var isPhonetic: Bool
+  class func localizedStringFrom(components: NSPersonNameComponents, style nameFormatStyle: NSPersonNameComponentsFormatterStyle, options nameOptions: NSPersonNameComponentsFormatterOptions = []) -> String
+  func stringFrom(components: NSPersonNameComponents) -> String
+  func annotatedStringFrom(components: NSPersonNameComponents) -> NSAttributedString
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   init()
   init?(coder aDecoder: NSCoder)
@@ -5051,30 +5051,30 @@ let NSPersonNameComponentNickname: String
 let NSPersonNameComponentDelimiter: String
 @available(tvOS 6.0, *)
 class NSPointerArray : NSObject, NSFastEnumeration, NSCopying, NSCoding {
-  init(options: NSPointerFunctionsOptions)
+  init(options: NSPointerFunctionsOptions = [])
   init(pointerFunctions functions: NSPointerFunctions)
   @NSCopying var pointerFunctions: NSPointerFunctions { get }
-  func pointerAtIndex(index: Int) -> UnsafeMutablePointer<Void>
+  func pointerAt(index: Int) -> UnsafeMutablePointer<Void>
   func addPointer(pointer: UnsafeMutablePointer<Void>)
-  func removePointerAtIndex(index: Int)
-  func insertPointer(item: UnsafeMutablePointer<Void>, atIndex index: Int)
-  func replacePointerAtIndex(index: Int, withPointer item: UnsafeMutablePointer<Void>)
+  func removePointerAt(index: Int)
+  func insertPointer(item: UnsafeMutablePointer<Void>, at index: Int)
+  func replacePointerAt(index: Int, withPointer item: UnsafeMutablePointer<Void>)
   func compact()
   var count: Int
   convenience init()
   @available(tvOS 6.0, *)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
   @available(tvOS 6.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 6.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension NSPointerArray {
   @available(tvOS 6.0, *)
-  class func strongObjectsPointerArray() -> NSPointerArray
+  class func strongObjects() -> NSPointerArray
   @available(tvOS 6.0, *)
-  class func weakObjectsPointerArray() -> NSPointerArray
+  class func weakObjects() -> NSPointerArray
   var allObjects: [AnyObject] { get }
 }
 var __FOUNDATION_NSPOINTERFUNCTIONS__: Int32 { get }
@@ -5108,7 +5108,7 @@ struct NSPointerFunctionsOptions : OptionSetType {
 }
 @available(tvOS 6.0, *)
 class NSPointerFunctions : NSObject, NSCopying {
-  init(options: NSPointerFunctionsOptions)
+  init(options: NSPointerFunctionsOptions = [])
   var hashFunction: (@convention(c) (UnsafePointer<Void>, (@convention(c) (UnsafePointer<Void>) -> Int)?) -> Int)?
   var isEqualFunction: (@convention(c) (UnsafePointer<Void>, UnsafePointer<Void>, (@convention(c) (UnsafePointer<Void>) -> Int)?) -> ObjCBool)?
   var sizeFunction: (@convention(c) (UnsafePointer<Void>) -> Int)?
@@ -5119,23 +5119,23 @@ class NSPointerFunctions : NSObject, NSCopying {
   var usesWeakReadAndWriteBarriers: Bool
   convenience init()
   @available(tvOS 6.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 typealias NSSocketNativeHandle = Int32
 let NSPortDidBecomeInvalidNotification: String
 class NSPort : NSObject, NSCopying, NSCoding {
   func invalidate()
-  var valid: Bool { get }
+  var isValid: Bool { get }
   func setDelegate(anObject: NSPortDelegate?)
   func delegate() -> NSPortDelegate?
-  func scheduleInRunLoop(runLoop: NSRunLoop, forMode mode: String)
-  func removeFromRunLoop(runLoop: NSRunLoop, forMode mode: String)
+  func scheduleIn(runLoop: NSRunLoop, forMode mode: String)
+  func removeFrom(runLoop: NSRunLoop, forMode mode: String)
   var reservedSpaceLength: Int { get }
-  func sendBeforeDate(limitDate: NSDate, components: NSMutableArray?, from receivePort: NSPort?, reserved headerSpaceReserved: Int) -> Bool
-  func sendBeforeDate(limitDate: NSDate, msgid msgID: Int, components: NSMutableArray?, from receivePort: NSPort?, reserved headerSpaceReserved: Int) -> Bool
+  func sendBefore(limitDate: NSDate, components: NSMutableArray?, from receivePort: NSPort?, reserved headerSpaceReserved: Int) -> Bool
+  func sendBefore(limitDate: NSDate, msgid msgID: Int, components: NSMutableArray?, from receivePort: NSPort?, reserved headerSpaceReserved: Int) -> Bool
   init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  func copy(zone zone: NSZone = nil) -> AnyObject
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 protocol NSPortDelegate : NSObjectProtocol {
@@ -5146,12 +5146,12 @@ class NSMachPort : NSPort {
   func setDelegate(anObject: NSMachPortDelegate?)
   func delegate() -> NSMachPortDelegate?
   @available(tvOS 2.0, *)
-  class func portWithMachPort(machPort: UInt32, options f: NSMachPortOptions) -> NSPort
+  class func portWithMachPort(machPort: UInt32, options f: NSMachPortOptions = []) -> NSPort
   @available(tvOS 2.0, *)
-  init(machPort: UInt32, options f: NSMachPortOptions)
+  init(machPort: UInt32, options f: NSMachPortOptions = [])
   var machPort: UInt32 { get }
-  func scheduleInRunLoop(runLoop: NSRunLoop, forMode mode: String)
-  func removeFromRunLoop(runLoop: NSRunLoop, forMode mode: String)
+  func scheduleIn(runLoop: NSRunLoop, forMode mode: String)
+  func removeFrom(runLoop: NSRunLoop, forMode mode: String)
   convenience init()
   init?(coder aDecoder: NSCoder)
 }
@@ -5178,20 +5178,20 @@ class NSPredicate : NSObject, NSSecureCoding, NSCopying {
   @available(tvOS 4.0, *)
   /*not inherited*/ init(block: (AnyObject, [String : AnyObject]?) -> Bool)
   var predicateFormat: String { get }
-  func predicateWithSubstitutionVariables(variables: [String : AnyObject]) -> Self
-  func evaluateWithObject(object: AnyObject?) -> Bool
+  func withSubstitutionVariables(variables: [String : AnyObject]) -> Self
+  func evaluateWith(object: AnyObject?) -> Bool
   @available(tvOS 3.0, *)
-  func evaluateWithObject(object: AnyObject?, substitutionVariables bindings: [String : AnyObject]?) -> Bool
+  func evaluateWith(object: AnyObject?, substitutionVariables bindings: [String : AnyObject]?) -> Bool
   @available(tvOS 7.0, *)
   func allowEvaluation()
   init()
   @available(tvOS 3.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 3.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(tvOS 3.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 extension NSPredicate {
@@ -5204,29 +5204,29 @@ struct _predicateFlags {
   init(_evaluationBlocked: UInt32, _reservedPredicateFlags: UInt32)
 }
 extension NSArray {
-  func filteredArrayUsingPredicate(predicate: NSPredicate) -> [AnyObject]
+  func filteredArrayUsing(predicate: NSPredicate) -> [AnyObject]
 }
 extension NSArray {
-  func filteredArrayUsingPredicate(predicate: NSPredicate) -> [AnyObject]
+  func filteredArrayUsing(predicate: NSPredicate) -> [AnyObject]
 }
 extension NSMutableArray {
-  func filterUsingPredicate(predicate: NSPredicate)
+  func filterUsing(predicate: NSPredicate)
 }
 extension NSSet {
   @available(tvOS 3.0, *)
-  func filteredSetUsingPredicate(predicate: NSPredicate) -> Set<NSObject>
+  func filteredSetUsing(predicate: NSPredicate) -> Set<NSObject>
 }
 extension NSMutableSet {
   @available(tvOS 3.0, *)
-  func filterUsingPredicate(predicate: NSPredicate)
+  func filterUsing(predicate: NSPredicate)
 }
 extension NSOrderedSet {
   @available(tvOS 5.0, *)
-  func filteredOrderedSetUsingPredicate(p: NSPredicate) -> NSOrderedSet
+  func filteredOrderedSetUsing(p: NSPredicate) -> NSOrderedSet
 }
 extension NSMutableOrderedSet {
   @available(tvOS 5.0, *)
-  func filterUsingPredicate(p: NSPredicate)
+  func filterUsing(p: NSPredicate)
 }
 var NSWindowsNTOperatingSystem: Int { get }
 var NSWindows95OperatingSystem: Int { get }
@@ -5284,11 +5284,11 @@ struct NSActivityOptions : OptionSetType {
 }
 extension NSProcessInfo {
   @available(tvOS 7.0, *)
-  func beginActivityWithOptions(options: NSActivityOptions, reason: String) -> NSObjectProtocol
+  func beginActivity(options options: NSActivityOptions = [], reason: String) -> NSObjectProtocol
   @available(tvOS 7.0, *)
   func endActivity(activity: NSObjectProtocol)
   @available(tvOS 7.0, *)
-  func performActivityWithOptions(options: NSActivityOptions, reason: String, usingBlock block: () -> Void)
+  func performActivity(options options: NSActivityOptions = [], reason: String, usingBlock block: () -> Void)
   @available(tvOS 8.2, *)
   func performExpiringActivityWithReason(reason: String, usingBlock block: (Bool) -> Void)
 }
@@ -5296,13 +5296,13 @@ extension NSProcessInfo {
 }
 extension NSProcessInfo {
   @available(tvOS 9.0, *)
-  var lowPowerModeEnabled: Bool { get }
+  var isLowPowerModeEnabled: Bool { get }
 }
 @available(tvOS 9.0, *)
 let NSProcessInfoPowerStateDidChangeNotification: String
 @available(tvOS 7.0, *)
 class NSProgress : NSObject {
-  class func currentProgress() -> NSProgress?
+  class func current() -> NSProgress?
   /*not inherited*/ init(totalUnitCount unitCount: Int64)
   @available(tvOS 9.0, *)
   class func discreteProgressWithTotalUnitCount(unitCount: Int64) -> NSProgress
@@ -5317,16 +5317,16 @@ class NSProgress : NSObject {
   var completedUnitCount: Int64
   var localizedDescription: String!
   var localizedAdditionalDescription: String!
-  var cancellable: Bool
-  var pausable: Bool
-  var cancelled: Bool { get }
-  var paused: Bool { get }
+  var isCancellable: Bool
+  var isPausable: Bool
+  var isCancelled: Bool { get }
+  var isPaused: Bool { get }
   var cancellationHandler: (() -> Void)?
   var pausingHandler: (() -> Void)?
   @available(tvOS 9.0, *)
   var resumingHandler: (() -> Void)?
   func setUserInfoObject(objectOrNil: AnyObject?, forKey key: String)
-  var indeterminate: Bool { get }
+  var isIndeterminate: Bool { get }
   var fractionCompleted: Double { get }
   func cancel()
   func pause()
@@ -5381,19 +5381,19 @@ enum NSPropertyListFormat : UInt {
 typealias NSPropertyListReadOptions = NSPropertyListMutabilityOptions
 typealias NSPropertyListWriteOptions = Int
 class NSPropertyListSerialization : NSObject {
-  class func propertyList(plist: AnyObject, isValidForFormat format: NSPropertyListFormat) -> Bool
+  class func propertyList(plist: AnyObject, isValidFor format: NSPropertyListFormat) -> Bool
   @available(tvOS 4.0, *)
   class func dataWithPropertyList(plist: AnyObject, format: NSPropertyListFormat, options opt: NSPropertyListWriteOptions) throws -> NSData
   @available(tvOS 4.0, *)
-  class func writePropertyList(plist: AnyObject, toStream stream: NSOutputStream, format: NSPropertyListFormat, options opt: NSPropertyListWriteOptions, error: NSErrorPointer) -> Int
+  class func writePropertyList(plist: AnyObject, to stream: NSOutputStream, format: NSPropertyListFormat, options opt: NSPropertyListWriteOptions, error: NSErrorPointer) -> Int
   @available(tvOS 4.0, *)
-  class func propertyListWithData(data: NSData, options opt: NSPropertyListReadOptions, format: UnsafeMutablePointer<NSPropertyListFormat>) throws -> AnyObject
+  class func propertyListWith(data: NSData, options opt: NSPropertyListReadOptions = [], format: UnsafeMutablePointer<NSPropertyListFormat>) throws -> AnyObject
   @available(tvOS 4.0, *)
-  class func propertyListWithStream(stream: NSInputStream, options opt: NSPropertyListReadOptions, format: UnsafeMutablePointer<NSPropertyListFormat>) throws -> AnyObject
+  class func propertyListWith(stream: NSInputStream, options opt: NSPropertyListReadOptions = [], format: UnsafeMutablePointer<NSPropertyListFormat>) throws -> AnyObject
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use dataWithPropertyList:format:options:error: instead.")
   class func dataFromPropertyList(plist: AnyObject, format: NSPropertyListFormat, errorDescription errorString: UnsafeMutablePointer<NSString?>) -> NSData?
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use propertyListWithData:options:format:error: instead.")
-  class func propertyListFromData(data: NSData, mutabilityOption opt: NSPropertyListMutabilityOptions, format: UnsafeMutablePointer<NSPropertyListFormat>, errorDescription errorString: UnsafeMutablePointer<NSString?>) -> AnyObject?
+  class func propertyListFrom(data: NSData, mutabilityOption opt: NSPropertyListMutabilityOptions = [], format: UnsafeMutablePointer<NSPropertyListFormat>, errorDescription errorString: UnsafeMutablePointer<NSString?>) -> AnyObject?
   init()
 }
 class NSProxy : NSObjectProtocol {
@@ -5401,14 +5401,14 @@ class NSProxy : NSObjectProtocol {
   class func `class`() -> AnyClass
   class func forwardInvocation(invocation: NSInvocation)
   func forwardInvocation(invocation: NSInvocation)
-  class func methodSignatureForSelector(sel: Selector) -> NSMethodSignature?
+  class func methodSignatureFor(sel: Selector) -> NSMethodSignature?
   class func dealloc()
   func dealloc()
   class func finalize()
   func finalize()
   var description: String { get }
   var debugDescription: String { get }
-  class func respondsToSelector(aSelector: Selector) -> Bool
+  class func respondsTo(aSelector: Selector) -> Bool
   class func allowsWeakReference() -> Bool
   class func retainWeakReference() -> Bool
   class func description() -> String
@@ -5418,21 +5418,21 @@ class NSProxy : NSObjectProtocol {
   var hash: Int { get }
   var superclass: AnyClass? { get }
   func `self`() -> Self
-  func performSelector(aSelector: Selector) -> Unmanaged<AnyObject>!
-  class func performSelector(aSelector: Selector) -> Unmanaged<AnyObject>!
-  func performSelector(aSelector: Selector, withObject object: AnyObject!) -> Unmanaged<AnyObject>!
-  class func performSelector(aSelector: Selector, withObject object: AnyObject!) -> Unmanaged<AnyObject>!
-  func performSelector(aSelector: Selector, withObject object1: AnyObject!, withObject object2: AnyObject!) -> Unmanaged<AnyObject>!
-  class func performSelector(aSelector: Selector, withObject object1: AnyObject!, withObject object2: AnyObject!) -> Unmanaged<AnyObject>!
+  func perform(aSelector: Selector) -> Unmanaged<AnyObject>!
+  class func perform(aSelector: Selector) -> Unmanaged<AnyObject>!
+  func perform(aSelector: Selector, withObject object: AnyObject!) -> Unmanaged<AnyObject>!
+  class func perform(aSelector: Selector, withObject object: AnyObject!) -> Unmanaged<AnyObject>!
+  func perform(aSelector: Selector, withObject object1: AnyObject!, withObject object2: AnyObject!) -> Unmanaged<AnyObject>!
+  class func perform(aSelector: Selector, withObject object1: AnyObject!, withObject object2: AnyObject!) -> Unmanaged<AnyObject>!
   func isProxy() -> Bool
   class func isProxy() -> Bool
-  func isKindOfClass(aClass: AnyClass) -> Bool
-  class func isKindOfClass(aClass: AnyClass) -> Bool
-  func isMemberOfClass(aClass: AnyClass) -> Bool
-  class func isMemberOfClass(aClass: AnyClass) -> Bool
-  func conformsToProtocol(aProtocol: Protocol) -> Bool
-  class func conformsToProtocol(aProtocol: Protocol) -> Bool
-  func respondsToSelector(aSelector: Selector) -> Bool
+  func isKindOf(aClass: AnyClass) -> Bool
+  class func isKindOf(aClass: AnyClass) -> Bool
+  func isMemberOf(aClass: AnyClass) -> Bool
+  class func isMemberOf(aClass: AnyClass) -> Bool
+  func conformsTo(aProtocol: Protocol) -> Bool
+  class func conformsTo(aProtocol: Protocol) -> Bool
+  func respondsTo(aSelector: Selector) -> Bool
 }
 struct _NSRange {
   var location: Int
@@ -5487,16 +5487,16 @@ struct NSRegularExpressionOptions : OptionSetType {
 }
 @available(tvOS 4.0, *)
 class NSRegularExpression : NSObject, NSCopying, NSCoding {
-  init(pattern: String, options: NSRegularExpressionOptions) throws
+  init(pattern: String, options: NSRegularExpressionOptions = []) throws
   var pattern: String { get }
   var options: NSRegularExpressionOptions { get }
   var numberOfCaptureGroups: Int { get }
-  class func escapedPatternForString(string: String) -> String
+  class func escapedPatternFor(string: String) -> String
   convenience init()
   @available(tvOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 4.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 struct NSMatchingOptions : OptionSetType {
@@ -5518,23 +5518,23 @@ struct NSMatchingFlags : OptionSetType {
   static var InternalError: NSMatchingFlags { get }
 }
 extension NSRegularExpression {
-  func enumerateMatchesInString(string: String, options: NSMatchingOptions, range: NSRange, usingBlock block: (NSTextCheckingResult?, NSMatchingFlags, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func matchesInString(string: String, options: NSMatchingOptions, range: NSRange) -> [NSTextCheckingResult]
-  func numberOfMatchesInString(string: String, options: NSMatchingOptions, range: NSRange) -> Int
-  func firstMatchInString(string: String, options: NSMatchingOptions, range: NSRange) -> NSTextCheckingResult?
-  func rangeOfFirstMatchInString(string: String, options: NSMatchingOptions, range: NSRange) -> NSRange
+  func enumerateMatchesIn(string: String, options: NSMatchingOptions = [], range: NSRange, usingBlock block: (NSTextCheckingResult?, NSMatchingFlags, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func matchesIn(string: String, options: NSMatchingOptions = [], range: NSRange) -> [NSTextCheckingResult]
+  func numberOfMatchesIn(string: String, options: NSMatchingOptions = [], range: NSRange) -> Int
+  func firstMatchIn(string: String, options: NSMatchingOptions = [], range: NSRange) -> NSTextCheckingResult?
+  func rangeOfFirstMatchIn(string: String, options: NSMatchingOptions = [], range: NSRange) -> NSRange
 }
 extension NSRegularExpression {
-  func stringByReplacingMatchesInString(string: String, options: NSMatchingOptions, range: NSRange, withTemplate templ: String) -> String
-  func replaceMatchesInString(string: NSMutableString, options: NSMatchingOptions, range: NSRange, withTemplate templ: String) -> Int
-  func replacementStringForResult(result: NSTextCheckingResult, inString string: String, offset: Int, template templ: String) -> String
-  class func escapedTemplateForString(string: String) -> String
+  func stringByReplacingMatchesIn(string: String, options: NSMatchingOptions = [], range: NSRange, withTemplate templ: String) -> String
+  func replaceMatchesIn(string: NSMutableString, options: NSMatchingOptions = [], range: NSRange, withTemplate templ: String) -> Int
+  func replacementStringFor(result: NSTextCheckingResult, `in` string: String, offset: Int, template templ: String) -> String
+  class func escapedTemplateFor(string: String) -> String
 }
 @available(tvOS 4.0, *)
 class NSDataDetector : NSRegularExpression {
   init(types checkingTypes: NSTextCheckingTypes) throws
   var checkingTypes: NSTextCheckingTypes { get }
-  convenience init(pattern: String, options: NSRegularExpressionOptions) throws
+  convenience init(pattern: String, options: NSRegularExpressionOptions = []) throws
   convenience init()
   init?(coder aDecoder: NSCoder)
 }
@@ -5542,45 +5542,45 @@ let NSDefaultRunLoopMode: String
 @available(tvOS 2.0, *)
 let NSRunLoopCommonModes: String
 class NSRunLoop : NSObject {
-  class func currentRunLoop() -> NSRunLoop
+  class func current() -> NSRunLoop
   @available(tvOS 2.0, *)
-  class func mainRunLoop() -> NSRunLoop
+  class func main() -> NSRunLoop
   var currentMode: String? { get }
   func getCFRunLoop() -> CFRunLoop
-  func addTimer(timer: NSTimer, forMode mode: String)
-  func addPort(aPort: NSPort, forMode mode: String)
-  func removePort(aPort: NSPort, forMode mode: String)
+  func add(timer: NSTimer, forMode mode: String)
+  func add(aPort: NSPort, forMode mode: String)
+  func remove(aPort: NSPort, forMode mode: String)
   func limitDateForMode(mode: String) -> NSDate?
-  func acceptInputForMode(mode: String, beforeDate limitDate: NSDate)
+  func acceptInputForMode(mode: String, before limitDate: NSDate)
   init()
 }
 extension NSRunLoop {
   func run()
-  func runUntilDate(limitDate: NSDate)
-  func runMode(mode: String, beforeDate limitDate: NSDate) -> Bool
+  func runUntil(limitDate: NSDate)
+  func runMode(mode: String, before limitDate: NSDate) -> Bool
 }
 extension NSObject {
-  class func performSelector(aSelector: Selector, withObject anArgument: AnyObject?, afterDelay delay: NSTimeInterval, inModes modes: [String])
-  func performSelector(aSelector: Selector, withObject anArgument: AnyObject?, afterDelay delay: NSTimeInterval, inModes modes: [String])
-  class func performSelector(aSelector: Selector, withObject anArgument: AnyObject?, afterDelay delay: NSTimeInterval)
-  func performSelector(aSelector: Selector, withObject anArgument: AnyObject?, afterDelay delay: NSTimeInterval)
+  class func perform(aSelector: Selector, withObject anArgument: AnyObject?, afterDelay delay: NSTimeInterval, inModes modes: [String])
+  func perform(aSelector: Selector, withObject anArgument: AnyObject?, afterDelay delay: NSTimeInterval, inModes modes: [String])
+  class func perform(aSelector: Selector, withObject anArgument: AnyObject?, afterDelay delay: NSTimeInterval)
+  func perform(aSelector: Selector, withObject anArgument: AnyObject?, afterDelay delay: NSTimeInterval)
   class func cancelPreviousPerformRequestsWithTarget(aTarget: AnyObject, selector aSelector: Selector, object anArgument: AnyObject?)
   class func cancelPreviousPerformRequestsWithTarget(aTarget: AnyObject)
 }
 extension NSRunLoop {
-  func performSelector(aSelector: Selector, target: AnyObject, argument arg: AnyObject?, order: Int, modes: [String])
-  func cancelPerformSelector(aSelector: Selector, target: AnyObject, argument arg: AnyObject?)
+  func perform(aSelector: Selector, target: AnyObject, argument arg: AnyObject?, order: Int, modes: [String])
+  func cancelPerform(aSelector: Selector, target: AnyObject, argument arg: AnyObject?)
   func cancelPerformSelectorsWithTarget(target: AnyObject)
 }
 class NSScanner : NSObject, NSCopying {
   var string: String { get }
   var scanLocation: Int
   @NSCopying var charactersToBeSkipped: NSCharacterSet?
-  var caseSensitive: Bool
+  var isCaseSensitive: Bool
   var locale: AnyObject?
   init(string: String)
   convenience init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 extension NSScanner {
   func scanInt(result: UnsafeMutablePointer<Int32>) -> Bool
@@ -5598,12 +5598,12 @@ extension NSScanner {
   func scanHexFloat(result: UnsafeMutablePointer<Float>) -> Bool
   @available(tvOS 2.0, *)
   func scanHexDouble(result: UnsafeMutablePointer<Double>) -> Bool
-  func scanString(string: String, intoString result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
-  func scanCharactersFromSet(set: NSCharacterSet, intoString result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
-  func scanUpToString(string: String, intoString result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
-  func scanUpToCharactersFromSet(set: NSCharacterSet, intoString result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
-  var atEnd: Bool { get }
-  class func localizedScannerWithString(string: String) -> AnyObject
+  func scanString(string: String, into result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
+  func scanCharactersFrom(set: NSCharacterSet, into result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
+  func scanUpTo(string: String, into result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
+  func scanUpToCharactersFrom(set: NSCharacterSet, into result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
+  var isAtEnd: Bool { get }
+  class func localizedScannerWith(string: String) -> AnyObject
 }
 
 /****************	Immutable Set	****************/
@@ -5614,11 +5614,11 @@ class NSSet : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnume
   init()
   init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func encodeWith(aCoder: NSCoder)
+  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSSet : SequenceType {
@@ -5656,26 +5656,26 @@ extension NSSet : _Reflectable {
 extension NSSet {
   var allObjects: [AnyObject] { get }
   func anyObject() -> AnyObject?
-  func containsObject(anObject: AnyObject) -> Bool
+  func contains(anObject: AnyObject) -> Bool
   var description: String { get }
   func descriptionWithLocale(locale: AnyObject?) -> String
   func intersectsSet(otherSet: Set<NSObject>) -> Bool
-  func isEqualToSet(otherSet: Set<NSObject>) -> Bool
-  func isSubsetOfSet(otherSet: Set<NSObject>) -> Bool
+  func isEqualTo(otherSet: Set<NSObject>) -> Bool
+  func isSubsetOf(otherSet: Set<NSObject>) -> Bool
   @available(tvOS 2.0, *)
-  func setByAddingObject(anObject: AnyObject) -> Set<NSObject>
+  func adding(anObject: AnyObject) -> Set<NSObject>
   @available(tvOS 2.0, *)
-  func setByAddingObjectsFromSet(other: Set<NSObject>) -> Set<NSObject>
+  func addingObjectsFrom(other: Set<NSObject>) -> Set<NSObject>
   @available(tvOS 2.0, *)
-  func setByAddingObjectsFromArray(other: [AnyObject]) -> Set<NSObject>
+  func addingObjectsFrom(other: [AnyObject]) -> Set<NSObject>
   @available(tvOS 4.0, *)
-  func enumerateObjectsUsingBlock(block: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjectsUsing(block: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
-  func enumerateObjectsWithOptions(opts: NSEnumerationOptions, usingBlock block: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(options opts: NSEnumerationOptions = [], usingBlock block: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
   func objectsPassingTest(predicate: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<NSObject>
   @available(tvOS 4.0, *)
-  func objectsWithOptions(opts: NSEnumerationOptions, passingTest predicate: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<NSObject>
+  func objects(options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<NSObject>
 }
 extension NSSet {
   convenience init(object: AnyObject)
@@ -5686,8 +5686,8 @@ extension NSSet {
 
 /****************	Mutable Set	****************/
 class NSMutableSet : NSSet {
-  func addObject(object: AnyObject)
-  func removeObject(object: AnyObject)
+  func add(object: AnyObject)
+  func remove(object: AnyObject)
   init?(coder aDecoder: NSCoder)
   init()
   init(capacity numItems: Int)
@@ -5698,7 +5698,7 @@ class NSMutableSet : NSSet {
   convenience init(array: [AnyObject])
 }
 extension NSMutableSet {
-  func addObjectsFromArray(array: [AnyObject])
+  func addObjectsFrom(array: [AnyObject])
   func intersectSet(otherSet: Set<NSObject>)
   func minusSet(otherSet: Set<NSObject>)
   func removeAllObjects()
@@ -5713,10 +5713,10 @@ class NSCountedSet : NSMutableSet {
   init(capacity numItems: Int)
   convenience init(array: [AnyObject])
   convenience init(set: Set<NSObject>)
-  func countForObject(object: AnyObject) -> Int
+  func countFor(object: AnyObject) -> Int
   func objectEnumerator() -> NSEnumerator
-  func addObject(object: AnyObject)
-  func removeObject(object: AnyObject)
+  func add(object: AnyObject)
+  func remove(object: AnyObject)
   init?(coder aDecoder: NSCoder)
   convenience init()
   convenience init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
@@ -5728,7 +5728,7 @@ class NSSortDescriptor : NSObject, NSSecureCoding, NSCopying {
   init(key: String?, ascending: Bool, selector: Selector)
   init?(coder: NSCoder)
   var key: String? { get }
-  var ascending: Bool { get }
+  var isAscending: Bool { get }
   var selector: Selector { get }
   @available(tvOS 7.0, *)
   func allowEvaluation()
@@ -5736,33 +5736,33 @@ class NSSortDescriptor : NSObject, NSSecureCoding, NSCopying {
   init(key: String?, ascending: Bool, comparator cmptr: NSComparator)
   @available(tvOS 4.0, *)
   var comparator: NSComparator { get }
-  func compareObject(object1: AnyObject, toObject object2: AnyObject) -> NSComparisonResult
+  func compare(object1: AnyObject, to object2: AnyObject) -> NSComparisonResult
   var reversedSortDescriptor: AnyObject { get }
   init()
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func encodeWith(aCoder: NSCoder)
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 extension NSSet {
   @available(tvOS 4.0, *)
-  func sortedArrayUsingDescriptors(sortDescriptors: [NSSortDescriptor]) -> [AnyObject]
+  func sortedArrayUsing(sortDescriptors: [NSSortDescriptor]) -> [AnyObject]
 }
 extension NSArray {
-  func sortedArrayUsingDescriptors(sortDescriptors: [NSSortDescriptor]) -> [AnyObject]
+  func sortedArrayUsing(sortDescriptors: [NSSortDescriptor]) -> [AnyObject]
 }
 extension NSArray {
-  func sortedArrayUsingDescriptors(sortDescriptors: [NSSortDescriptor]) -> [AnyObject]
+  func sortedArrayUsing(sortDescriptors: [NSSortDescriptor]) -> [AnyObject]
 }
 extension NSMutableArray {
-  func sortUsingDescriptors(sortDescriptors: [NSSortDescriptor])
+  func sortUsing(sortDescriptors: [NSSortDescriptor])
 }
 extension NSOrderedSet {
   @available(tvOS 5.0, *)
-  func sortedArrayUsingDescriptors(sortDescriptors: [NSSortDescriptor]) -> [AnyObject]
+  func sortedArrayUsing(sortDescriptors: [NSSortDescriptor]) -> [AnyObject]
 }
 extension NSMutableOrderedSet {
   @available(tvOS 5.0, *)
-  func sortUsingDescriptors(sortDescriptors: [NSSortDescriptor])
+  func sortUsing(sortDescriptors: [NSSortDescriptor])
 }
 enum NSStreamStatus : UInt {
   init?(rawValue: UInt)
@@ -5792,8 +5792,8 @@ class NSStream : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged NSStreamDelegate?
   func propertyForKey(key: String) -> AnyObject?
   func setProperty(property: AnyObject?, forKey key: String) -> Bool
-  func scheduleInRunLoop(aRunLoop: NSRunLoop, forMode mode: String)
-  func removeFromRunLoop(aRunLoop: NSRunLoop, forMode mode: String)
+  func scheduleIn(aRunLoop: NSRunLoop, forMode mode: String)
+  func removeFrom(aRunLoop: NSRunLoop, forMode mode: String)
   var streamStatus: NSStreamStatus { get }
   @NSCopying var streamError: NSError? { get }
   init()
@@ -5804,7 +5804,7 @@ class NSInputStream : NSStream {
   var hasBytesAvailable: Bool { get }
   init(data: NSData)
   @available(tvOS 4.0, *)
-  init?(URL url: NSURL)
+  init?(url: NSURL)
   convenience init()
 }
 class NSOutputStream : NSStream {
@@ -5813,7 +5813,7 @@ class NSOutputStream : NSStream {
   init(toMemory: ())
   init(toBuffer buffer: UnsafeMutablePointer<UInt8>, capacity: Int)
   @available(tvOS 4.0, *)
-  init?(URL url: NSURL, append shouldAppend: Bool)
+  init?(url: NSURL, append shouldAppend: Bool)
   convenience init()
 }
 extension NSStream {
@@ -5829,10 +5829,10 @@ extension NSInputStream {
 }
 extension NSOutputStream {
   convenience init?(toFileAtPath path: String, append shouldAppend: Bool)
-  class func outputStreamToMemory() -> Self
+  class func toMemory() -> Self
 }
 protocol NSStreamDelegate : NSObjectProtocol {
-  optional func stream(aStream: NSStream, handleEvent eventCode: NSStreamEvent)
+  optional func stream(aStream: NSStream, handle eventCode: NSStreamEvent)
 }
 @available(tvOS 2.0, *)
 let NSStreamSocketSecurityLevelKey: String
@@ -5929,13 +5929,13 @@ struct NSStringEncodingConversionOptions : OptionSetType {
 }
 class NSString : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var length: Int { get }
-  func characterAtIndex(index: Int) -> unichar
+  func characterAt(index: Int) -> unichar
   init()
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 
 extension NSString : StringLiteralConvertible {
@@ -5974,13 +5974,13 @@ extension NSString : _Reflectable {
 }
 class NSString : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var length: Int { get }
-  func characterAtIndex(index: Int) -> unichar
+  func characterAt(index: Int) -> unichar
   init()
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 
 extension NSString : StringLiteralConvertible {
@@ -6018,43 +6018,43 @@ extension NSString : _Reflectable {
   func _getMirror() -> _MirrorType
 }
 extension NSString {
-  func substringFromIndex(from: Int) -> String
-  func substringToIndex(to: Int) -> String
-  func substringWithRange(range: NSRange) -> String
+  func substringFrom(from: Int) -> String
+  func substringTo(to: Int) -> String
+  func substringWith(range: NSRange) -> String
   func getCharacters(buffer: UnsafeMutablePointer<unichar>, range: NSRange)
   func compare(string: String) -> NSComparisonResult
-  func compare(string: String, options mask: NSStringCompareOptions) -> NSComparisonResult
-  func compare(string: String, options mask: NSStringCompareOptions, range compareRange: NSRange) -> NSComparisonResult
-  func compare(string: String, options mask: NSStringCompareOptions, range compareRange: NSRange, locale: AnyObject?) -> NSComparisonResult
+  func compare(string: String, options mask: NSStringCompareOptions = []) -> NSComparisonResult
+  func compare(string: String, options mask: NSStringCompareOptions = [], range compareRange: NSRange) -> NSComparisonResult
+  func compare(string: String, options mask: NSStringCompareOptions = [], range compareRange: NSRange, locale: AnyObject?) -> NSComparisonResult
   func caseInsensitiveCompare(string: String) -> NSComparisonResult
   func localizedCompare(string: String) -> NSComparisonResult
   func localizedCaseInsensitiveCompare(string: String) -> NSComparisonResult
   @available(tvOS 4.0, *)
   func localizedStandardCompare(string: String) -> NSComparisonResult
-  func isEqualToString(aString: String) -> Bool
+  func isEqualTo(aString: String) -> Bool
   func hasPrefix(str: String) -> Bool
   func hasSuffix(str: String) -> Bool
-  func commonPrefixWithString(str: String, options mask: NSStringCompareOptions) -> String
+  func commonPrefixWith(str: String, options mask: NSStringCompareOptions = []) -> String
   @available(tvOS 8.0, *)
-  func containsString(str: String) -> Bool
+  func contains(str: String) -> Bool
   @available(tvOS 8.0, *)
-  func localizedCaseInsensitiveContainsString(str: String) -> Bool
+  func localizedCaseInsensitiveContains(str: String) -> Bool
   @available(tvOS 9.0, *)
-  func localizedStandardContainsString(str: String) -> Bool
+  func localizedStandardContains(str: String) -> Bool
   @available(tvOS 9.0, *)
-  func localizedStandardRangeOfString(str: String) -> NSRange
-  func rangeOfString(searchString: String) -> NSRange
-  func rangeOfString(searchString: String, options mask: NSStringCompareOptions) -> NSRange
-  func rangeOfString(searchString: String, options mask: NSStringCompareOptions, range searchRange: NSRange) -> NSRange
+  func localizedStandardRangeOf(str: String) -> NSRange
+  func rangeOf(searchString: String) -> NSRange
+  func rangeOf(searchString: String, options mask: NSStringCompareOptions = []) -> NSRange
+  func rangeOf(searchString: String, options mask: NSStringCompareOptions = [], range searchRange: NSRange) -> NSRange
   @available(tvOS 2.0, *)
-  func rangeOfString(searchString: String, options mask: NSStringCompareOptions, range searchRange: NSRange, locale: NSLocale?) -> NSRange
-  func rangeOfCharacterFromSet(searchSet: NSCharacterSet) -> NSRange
-  func rangeOfCharacterFromSet(searchSet: NSCharacterSet, options mask: NSStringCompareOptions) -> NSRange
-  func rangeOfCharacterFromSet(searchSet: NSCharacterSet, options mask: NSStringCompareOptions, range searchRange: NSRange) -> NSRange
-  func rangeOfComposedCharacterSequenceAtIndex(index: Int) -> NSRange
+  func rangeOf(searchString: String, options mask: NSStringCompareOptions = [], range searchRange: NSRange, locale: NSLocale?) -> NSRange
+  func rangeOfCharacterFrom(searchSet: NSCharacterSet) -> NSRange
+  func rangeOfCharacterFrom(searchSet: NSCharacterSet, options mask: NSStringCompareOptions = []) -> NSRange
+  func rangeOfCharacterFrom(searchSet: NSCharacterSet, options mask: NSStringCompareOptions = [], range searchRange: NSRange) -> NSRange
+  func rangeOfComposedCharacterSequenceAt(index: Int) -> NSRange
   @available(tvOS 2.0, *)
-  func rangeOfComposedCharacterSequencesForRange(range: NSRange) -> NSRange
-  func stringByAppendingString(aString: String) -> String
+  func rangeOfComposedCharacterSequencesFor(range: NSRange) -> NSRange
+  func appending(aString: String) -> String
   var doubleValue: Double { get }
   var floatValue: Float { get }
   var intValue: Int32 { get }
@@ -6063,31 +6063,31 @@ extension NSString {
   @available(tvOS 2.0, *)
   var longLongValue: Int64 { get }
   @available(tvOS 2.0, *)
-  var boolValue: Bool { get }
-  var uppercaseString: String { get }
-  var lowercaseString: String { get }
-  var capitalizedString: String { get }
+  var isBoolValue: Bool { get }
+  var uppercase: String { get }
+  var lowercase: String { get }
+  var capitalized: String { get }
   @available(tvOS 9.0, *)
-  var localizedUppercaseString: String { get }
+  var localizedUppercase: String { get }
   @available(tvOS 9.0, *)
-  var localizedLowercaseString: String { get }
+  var localizedLowercase: String { get }
   @available(tvOS 9.0, *)
-  var localizedCapitalizedString: String { get }
+  var localizedCapitalized: String { get }
   @available(tvOS 6.0, *)
-  func uppercaseStringWithLocale(locale: NSLocale?) -> String
+  func uppercaseStringWith(locale: NSLocale?) -> String
   @available(tvOS 6.0, *)
-  func lowercaseStringWithLocale(locale: NSLocale?) -> String
+  func lowercaseStringWith(locale: NSLocale?) -> String
   @available(tvOS 6.0, *)
-  func capitalizedStringWithLocale(locale: NSLocale?) -> String
+  func capitalizedStringWith(locale: NSLocale?) -> String
   func getLineStart(startPtr: UnsafeMutablePointer<Int>, end lineEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, forRange range: NSRange)
-  func lineRangeForRange(range: NSRange) -> NSRange
+  func lineRangeFor(range: NSRange) -> NSRange
   func getParagraphStart(startPtr: UnsafeMutablePointer<Int>, end parEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, forRange range: NSRange)
-  func paragraphRangeForRange(range: NSRange) -> NSRange
+  func paragraphRangeFor(range: NSRange) -> NSRange
   @available(tvOS 4.0, *)
-  func enumerateSubstringsInRange(range: NSRange, options opts: NSStringEnumerationOptions, usingBlock block: (String?, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateSubstringsIn(range: NSRange, options opts: NSStringEnumerationOptions = [], usingBlock block: (String?, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
-  func enumerateLinesUsingBlock(block: (String, UnsafeMutablePointer<ObjCBool>) -> Void)
-  var UTF8String: UnsafePointer<Int8> { get }
+  func enumerateLinesUsing(block: (String, UnsafeMutablePointer<ObjCBool>) -> Void)
+  var utF8String: UnsafePointer<Int8> { get }
   var fastestEncoding: UInt { get }
   var smallestEncoding: UInt { get }
   func dataUsingEncoding(encoding: UInt, allowLossyConversion lossy: Bool) -> NSData?
@@ -6095,7 +6095,7 @@ extension NSString {
   func canBeConvertedToEncoding(encoding: UInt) -> Bool
   func cStringUsingEncoding(encoding: UInt) -> UnsafePointer<Int8>
   func getCString(buffer: UnsafeMutablePointer<Int8>, maxLength maxBufferCount: Int, encoding: UInt) -> Bool
-  func getBytes(buffer: UnsafeMutablePointer<Void>, maxLength maxBufferCount: Int, usedLength usedBufferCount: UnsafeMutablePointer<Int>, encoding: UInt, options: NSStringEncodingConversionOptions, range: NSRange, remainingRange leftover: NSRangePointer) -> Bool
+  func getBytes(buffer: UnsafeMutablePointer<Void>, maxLength maxBufferCount: Int, usedLength usedBufferCount: UnsafeMutablePointer<Int>, encoding: UInt, options: NSStringEncodingConversionOptions = [], range: NSRange, remaining leftover: NSRangePointer) -> Bool
   func maximumLengthOfBytesUsingEncoding(enc: UInt) -> Int
   func lengthOfBytesUsingEncoding(enc: UInt) -> Int
   class func availableStringEncodings() -> UnsafePointer<UInt>
@@ -6105,78 +6105,78 @@ extension NSString {
   var precomposedStringWithCanonicalMapping: String { get }
   var decomposedStringWithCompatibilityMapping: String { get }
   var precomposedStringWithCompatibilityMapping: String { get }
-  func componentsSeparatedByString(separator: String) -> [String]
+  func componentsSeparatedBy(separator: String) -> [String]
   @available(tvOS 2.0, *)
-  func componentsSeparatedByCharactersInSet(separator: NSCharacterSet) -> [String]
-  func stringByTrimmingCharactersInSet(set: NSCharacterSet) -> String
-  func stringByPaddingToLength(newLength: Int, withString padString: String, startingAtIndex padIndex: Int) -> String
+  func componentsSeparatedByCharactersIn(separator: NSCharacterSet) -> [String]
+  func byTrimmingCharactersIn(set: NSCharacterSet) -> String
+  func byPaddingToLength(newLength: Int, withString padString: String, startingAt padIndex: Int) -> String
   @available(tvOS 2.0, *)
-  func stringByFoldingWithOptions(options: NSStringCompareOptions, locale: NSLocale?) -> String
+  func folding(options options: NSStringCompareOptions = [], locale: NSLocale?) -> String
   @available(tvOS 2.0, *)
-  func stringByReplacingOccurrencesOfString(target: String, withString replacement: String, options: NSStringCompareOptions, range searchRange: NSRange) -> String
+  func replacingOccurrencesOf(target: String, withString replacement: String, options: NSStringCompareOptions = [], range searchRange: NSRange) -> String
   @available(tvOS 2.0, *)
-  func stringByReplacingOccurrencesOfString(target: String, withString replacement: String) -> String
+  func replacingOccurrencesOf(target: String, withString replacement: String) -> String
   @available(tvOS 2.0, *)
-  func stringByReplacingCharactersInRange(range: NSRange, withString replacement: String) -> String
+  func replacingCharactersIn(range: NSRange, withString replacement: String) -> String
   @available(tvOS 9.0, *)
-  func stringByApplyingTransform(transform: String, reverse: Bool) -> String?
-  func writeToURL(url: NSURL, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
+  func applyingTransform(transform: String, reverse: Bool) -> String?
+  func writeTo(url: NSURL, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
   func writeToFile(path: String, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
   var description: String { get }
   var hash: Int { get }
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
   convenience init(characters: UnsafePointer<unichar>, length: Int)
-  convenience init?(UTF8String nullTerminatedCString: UnsafePointer<Int8>)
+  convenience init?(utF8String nullTerminatedCString: UnsafePointer<Int8>)
   convenience init(string aString: String)
   convenience init(format: String, arguments argList: CVaListPointer)
   convenience init(format: String, locale: AnyObject?, arguments argList: CVaListPointer)
   convenience init?(data: NSData, encoding: UInt)
   convenience init?(bytes: UnsafePointer<Void>, length len: Int, encoding: UInt)
   convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding: UInt, freeWhenDone freeBuffer: Bool)
-  convenience init?(CString nullTerminatedCString: UnsafePointer<Int8>, encoding: UInt)
-  convenience init(contentsOfURL url: NSURL, encoding enc: UInt) throws
+  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding: UInt)
+  convenience init(contentsOf url: NSURL, encoding enc: UInt) throws
   convenience init(contentsOfFile path: String, encoding enc: UInt) throws
-  convenience init(contentsOfURL url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
+  convenience init(contentsOf url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
   convenience init(contentsOfFile path: String, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
 }
 extension NSString {
-  func substringFromIndex(from: Int) -> String
-  func substringToIndex(to: Int) -> String
-  func substringWithRange(range: NSRange) -> String
+  func substringFrom(from: Int) -> String
+  func substringTo(to: Int) -> String
+  func substringWith(range: NSRange) -> String
   func getCharacters(buffer: UnsafeMutablePointer<unichar>, range: NSRange)
   func compare(string: String) -> NSComparisonResult
-  func compare(string: String, options mask: NSStringCompareOptions) -> NSComparisonResult
-  func compare(string: String, options mask: NSStringCompareOptions, range compareRange: NSRange) -> NSComparisonResult
-  func compare(string: String, options mask: NSStringCompareOptions, range compareRange: NSRange, locale: AnyObject?) -> NSComparisonResult
+  func compare(string: String, options mask: NSStringCompareOptions = []) -> NSComparisonResult
+  func compare(string: String, options mask: NSStringCompareOptions = [], range compareRange: NSRange) -> NSComparisonResult
+  func compare(string: String, options mask: NSStringCompareOptions = [], range compareRange: NSRange, locale: AnyObject?) -> NSComparisonResult
   func caseInsensitiveCompare(string: String) -> NSComparisonResult
   func localizedCompare(string: String) -> NSComparisonResult
   func localizedCaseInsensitiveCompare(string: String) -> NSComparisonResult
   @available(tvOS 4.0, *)
   func localizedStandardCompare(string: String) -> NSComparisonResult
-  func isEqualToString(aString: String) -> Bool
+  func isEqualTo(aString: String) -> Bool
   func hasPrefix(str: String) -> Bool
   func hasSuffix(str: String) -> Bool
-  func commonPrefixWithString(str: String, options mask: NSStringCompareOptions) -> String
+  func commonPrefixWith(str: String, options mask: NSStringCompareOptions = []) -> String
   @available(tvOS 8.0, *)
-  func containsString(str: String) -> Bool
+  func contains(str: String) -> Bool
   @available(tvOS 8.0, *)
-  func localizedCaseInsensitiveContainsString(str: String) -> Bool
+  func localizedCaseInsensitiveContains(str: String) -> Bool
   @available(tvOS 9.0, *)
-  func localizedStandardContainsString(str: String) -> Bool
+  func localizedStandardContains(str: String) -> Bool
   @available(tvOS 9.0, *)
-  func localizedStandardRangeOfString(str: String) -> NSRange
-  func rangeOfString(searchString: String) -> NSRange
-  func rangeOfString(searchString: String, options mask: NSStringCompareOptions) -> NSRange
-  func rangeOfString(searchString: String, options mask: NSStringCompareOptions, range searchRange: NSRange) -> NSRange
+  func localizedStandardRangeOf(str: String) -> NSRange
+  func rangeOf(searchString: String) -> NSRange
+  func rangeOf(searchString: String, options mask: NSStringCompareOptions = []) -> NSRange
+  func rangeOf(searchString: String, options mask: NSStringCompareOptions = [], range searchRange: NSRange) -> NSRange
   @available(tvOS 2.0, *)
-  func rangeOfString(searchString: String, options mask: NSStringCompareOptions, range searchRange: NSRange, locale: NSLocale?) -> NSRange
-  func rangeOfCharacterFromSet(searchSet: NSCharacterSet) -> NSRange
-  func rangeOfCharacterFromSet(searchSet: NSCharacterSet, options mask: NSStringCompareOptions) -> NSRange
-  func rangeOfCharacterFromSet(searchSet: NSCharacterSet, options mask: NSStringCompareOptions, range searchRange: NSRange) -> NSRange
-  func rangeOfComposedCharacterSequenceAtIndex(index: Int) -> NSRange
+  func rangeOf(searchString: String, options mask: NSStringCompareOptions = [], range searchRange: NSRange, locale: NSLocale?) -> NSRange
+  func rangeOfCharacterFrom(searchSet: NSCharacterSet) -> NSRange
+  func rangeOfCharacterFrom(searchSet: NSCharacterSet, options mask: NSStringCompareOptions = []) -> NSRange
+  func rangeOfCharacterFrom(searchSet: NSCharacterSet, options mask: NSStringCompareOptions = [], range searchRange: NSRange) -> NSRange
+  func rangeOfComposedCharacterSequenceAt(index: Int) -> NSRange
   @available(tvOS 2.0, *)
-  func rangeOfComposedCharacterSequencesForRange(range: NSRange) -> NSRange
-  func stringByAppendingString(aString: String) -> String
+  func rangeOfComposedCharacterSequencesFor(range: NSRange) -> NSRange
+  func appending(aString: String) -> String
   var doubleValue: Double { get }
   var floatValue: Float { get }
   var intValue: Int32 { get }
@@ -6185,31 +6185,31 @@ extension NSString {
   @available(tvOS 2.0, *)
   var longLongValue: Int64 { get }
   @available(tvOS 2.0, *)
-  var boolValue: Bool { get }
-  var uppercaseString: String { get }
-  var lowercaseString: String { get }
-  var capitalizedString: String { get }
+  var isBoolValue: Bool { get }
+  var uppercase: String { get }
+  var lowercase: String { get }
+  var capitalized: String { get }
   @available(tvOS 9.0, *)
-  var localizedUppercaseString: String { get }
+  var localizedUppercase: String { get }
   @available(tvOS 9.0, *)
-  var localizedLowercaseString: String { get }
+  var localizedLowercase: String { get }
   @available(tvOS 9.0, *)
-  var localizedCapitalizedString: String { get }
+  var localizedCapitalized: String { get }
   @available(tvOS 6.0, *)
-  func uppercaseStringWithLocale(locale: NSLocale?) -> String
+  func uppercaseStringWith(locale: NSLocale?) -> String
   @available(tvOS 6.0, *)
-  func lowercaseStringWithLocale(locale: NSLocale?) -> String
+  func lowercaseStringWith(locale: NSLocale?) -> String
   @available(tvOS 6.0, *)
-  func capitalizedStringWithLocale(locale: NSLocale?) -> String
+  func capitalizedStringWith(locale: NSLocale?) -> String
   func getLineStart(startPtr: UnsafeMutablePointer<Int>, end lineEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, forRange range: NSRange)
-  func lineRangeForRange(range: NSRange) -> NSRange
+  func lineRangeFor(range: NSRange) -> NSRange
   func getParagraphStart(startPtr: UnsafeMutablePointer<Int>, end parEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, forRange range: NSRange)
-  func paragraphRangeForRange(range: NSRange) -> NSRange
+  func paragraphRangeFor(range: NSRange) -> NSRange
   @available(tvOS 4.0, *)
-  func enumerateSubstringsInRange(range: NSRange, options opts: NSStringEnumerationOptions, usingBlock block: (String?, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateSubstringsIn(range: NSRange, options opts: NSStringEnumerationOptions = [], usingBlock block: (String?, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
-  func enumerateLinesUsingBlock(block: (String, UnsafeMutablePointer<ObjCBool>) -> Void)
-  var UTF8String: UnsafePointer<Int8> { get }
+  func enumerateLinesUsing(block: (String, UnsafeMutablePointer<ObjCBool>) -> Void)
+  var utF8String: UnsafePointer<Int8> { get }
   var fastestEncoding: UInt { get }
   var smallestEncoding: UInt { get }
   func dataUsingEncoding(encoding: UInt, allowLossyConversion lossy: Bool) -> NSData?
@@ -6217,7 +6217,7 @@ extension NSString {
   func canBeConvertedToEncoding(encoding: UInt) -> Bool
   func cStringUsingEncoding(encoding: UInt) -> UnsafePointer<Int8>
   func getCString(buffer: UnsafeMutablePointer<Int8>, maxLength maxBufferCount: Int, encoding: UInt) -> Bool
-  func getBytes(buffer: UnsafeMutablePointer<Void>, maxLength maxBufferCount: Int, usedLength usedBufferCount: UnsafeMutablePointer<Int>, encoding: UInt, options: NSStringEncodingConversionOptions, range: NSRange, remainingRange leftover: NSRangePointer) -> Bool
+  func getBytes(buffer: UnsafeMutablePointer<Void>, maxLength maxBufferCount: Int, usedLength usedBufferCount: UnsafeMutablePointer<Int>, encoding: UInt, options: NSStringEncodingConversionOptions = [], range: NSRange, remaining leftover: NSRangePointer) -> Bool
   func maximumLengthOfBytesUsingEncoding(enc: UInt) -> Int
   func lengthOfBytesUsingEncoding(enc: UInt) -> Int
   class func availableStringEncodings() -> UnsafePointer<UInt>
@@ -6227,38 +6227,38 @@ extension NSString {
   var precomposedStringWithCanonicalMapping: String { get }
   var decomposedStringWithCompatibilityMapping: String { get }
   var precomposedStringWithCompatibilityMapping: String { get }
-  func componentsSeparatedByString(separator: String) -> [String]
+  func componentsSeparatedBy(separator: String) -> [String]
   @available(tvOS 2.0, *)
-  func componentsSeparatedByCharactersInSet(separator: NSCharacterSet) -> [String]
-  func stringByTrimmingCharactersInSet(set: NSCharacterSet) -> String
-  func stringByPaddingToLength(newLength: Int, withString padString: String, startingAtIndex padIndex: Int) -> String
+  func componentsSeparatedByCharactersIn(separator: NSCharacterSet) -> [String]
+  func byTrimmingCharactersIn(set: NSCharacterSet) -> String
+  func byPaddingToLength(newLength: Int, withString padString: String, startingAt padIndex: Int) -> String
   @available(tvOS 2.0, *)
-  func stringByFoldingWithOptions(options: NSStringCompareOptions, locale: NSLocale?) -> String
+  func folding(options options: NSStringCompareOptions = [], locale: NSLocale?) -> String
   @available(tvOS 2.0, *)
-  func stringByReplacingOccurrencesOfString(target: String, withString replacement: String, options: NSStringCompareOptions, range searchRange: NSRange) -> String
+  func replacingOccurrencesOf(target: String, withString replacement: String, options: NSStringCompareOptions = [], range searchRange: NSRange) -> String
   @available(tvOS 2.0, *)
-  func stringByReplacingOccurrencesOfString(target: String, withString replacement: String) -> String
+  func replacingOccurrencesOf(target: String, withString replacement: String) -> String
   @available(tvOS 2.0, *)
-  func stringByReplacingCharactersInRange(range: NSRange, withString replacement: String) -> String
+  func replacingCharactersIn(range: NSRange, withString replacement: String) -> String
   @available(tvOS 9.0, *)
-  func stringByApplyingTransform(transform: String, reverse: Bool) -> String?
-  func writeToURL(url: NSURL, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
+  func applyingTransform(transform: String, reverse: Bool) -> String?
+  func writeTo(url: NSURL, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
   func writeToFile(path: String, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
   var description: String { get }
   var hash: Int { get }
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
   convenience init(characters: UnsafePointer<unichar>, length: Int)
-  convenience init?(UTF8String nullTerminatedCString: UnsafePointer<Int8>)
+  convenience init?(utF8String nullTerminatedCString: UnsafePointer<Int8>)
   convenience init(string aString: String)
   convenience init(format: String, arguments argList: CVaListPointer)
   convenience init(format: String, locale: AnyObject?, arguments argList: CVaListPointer)
   convenience init?(data: NSData, encoding: UInt)
   convenience init?(bytes: UnsafePointer<Void>, length len: Int, encoding: UInt)
   convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding: UInt, freeWhenDone freeBuffer: Bool)
-  convenience init?(CString nullTerminatedCString: UnsafePointer<Int8>, encoding: UInt)
-  convenience init(contentsOfURL url: NSURL, encoding enc: UInt) throws
+  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding: UInt)
+  convenience init(contentsOf url: NSURL, encoding enc: UInt) throws
   convenience init(contentsOfFile path: String, encoding enc: UInt) throws
-  convenience init(contentsOfURL url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
+  convenience init(contentsOf url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
   convenience init(contentsOfFile path: String, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
 }
 struct NSStringEnumerationOptions : OptionSetType {
@@ -6307,11 +6307,11 @@ let NSStringTransformStripCombiningMarks: String
 let NSStringTransformStripDiacritics: String
 extension NSString {
   @available(tvOS 8.0, *)
-  class func stringEncodingForData(data: NSData, encodingOptions opts: [String : AnyObject]?, convertedString string: AutoreleasingUnsafeMutablePointer<NSString?>, usedLossyConversion: UnsafeMutablePointer<ObjCBool>) -> UInt
+  class func stringEncodingFor(data: NSData, encodingOptions opts: [String : AnyObject]?, convertedString string: AutoreleasingUnsafeMutablePointer<NSString?>, usedLossyConversion: UnsafeMutablePointer<ObjCBool>) -> UInt
 }
 extension NSString {
   @available(tvOS 8.0, *)
-  class func stringEncodingForData(data: NSData, encodingOptions opts: [String : AnyObject]?, convertedString string: AutoreleasingUnsafeMutablePointer<NSString?>, usedLossyConversion: UnsafeMutablePointer<ObjCBool>) -> UInt
+  class func stringEncodingFor(data: NSData, encodingOptions opts: [String : AnyObject]?, convertedString string: AutoreleasingUnsafeMutablePointer<NSString?>, usedLossyConversion: UnsafeMutablePointer<ObjCBool>) -> UInt
 }
 @available(tvOS 8.0, *)
 let NSStringEncodingDetectionSuggestedEncodingsKey: String
@@ -6328,22 +6328,22 @@ let NSStringEncodingDetectionLossySubstitutionKey: String
 @available(tvOS 8.0, *)
 let NSStringEncodingDetectionLikelyLanguageKey: String
 class NSMutableString : NSString {
-  func replaceCharactersInRange(range: NSRange, withString aString: String)
+  func replaceCharactersIn(range: NSRange, withString aString: String)
   init()
   init?(coder aDecoder: NSCoder)
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
   convenience init(characters: UnsafePointer<unichar>, length: Int)
-  convenience init?(UTF8String nullTerminatedCString: UnsafePointer<Int8>)
+  convenience init?(utF8String nullTerminatedCString: UnsafePointer<Int8>)
   convenience init(string aString: String)
   convenience init(format: String, arguments argList: CVaListPointer)
   convenience init(format: String, locale: AnyObject?, arguments argList: CVaListPointer)
   convenience init?(data: NSData, encoding: UInt)
   convenience init?(bytes: UnsafePointer<Void>, length len: Int, encoding: UInt)
   convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding: UInt, freeWhenDone freeBuffer: Bool)
-  convenience init?(CString nullTerminatedCString: UnsafePointer<Int8>, encoding: UInt)
-  convenience init(contentsOfURL url: NSURL, encoding enc: UInt) throws
+  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding: UInt)
+  convenience init(contentsOf url: NSURL, encoding enc: UInt) throws
   convenience init(contentsOfFile path: String, encoding enc: UInt) throws
-  convenience init(contentsOfURL url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
+  convenience init(contentsOf url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
   convenience init(contentsOfFile path: String, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
 }
 
@@ -6351,11 +6351,11 @@ extension NSMutableString {
   func appendFormat(format: NSString, _ args: CVarArgType...)
 }
 extension NSMutableString {
-  func insertString(aString: String, atIndex loc: Int)
-  func deleteCharactersInRange(range: NSRange)
-  func appendString(aString: String)
+  func insert(aString: String, at loc: Int)
+  func deleteCharactersIn(range: NSRange)
+  func append(aString: String)
   func setString(aString: String)
-  func replaceOccurrencesOfString(target: String, withString replacement: String, options: NSStringCompareOptions, range searchRange: NSRange) -> Int
+  func replaceOccurrencesOf(target: String, withString replacement: String, options: NSStringCompareOptions = [], range searchRange: NSRange) -> Int
   @available(tvOS 9.0, *)
   func applyTransform(transform: String, reverse: Bool, range: NSRange, updatedRange resultingRange: NSRangePointer) -> Bool
   init(capacity: Int)
@@ -6382,17 +6382,17 @@ class NSSimpleCString : NSString {
   init?(coder aDecoder: NSCoder)
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
   convenience init(characters: UnsafePointer<unichar>, length: Int)
-  convenience init?(UTF8String nullTerminatedCString: UnsafePointer<Int8>)
+  convenience init?(utF8String nullTerminatedCString: UnsafePointer<Int8>)
   convenience init(string aString: String)
   convenience init(format: String, arguments argList: CVaListPointer)
   convenience init(format: String, locale: AnyObject?, arguments argList: CVaListPointer)
   convenience init?(data: NSData, encoding: UInt)
   convenience init?(bytes: UnsafePointer<Void>, length len: Int, encoding: UInt)
   convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding: UInt, freeWhenDone freeBuffer: Bool)
-  convenience init?(CString nullTerminatedCString: UnsafePointer<Int8>, encoding: UInt)
-  convenience init(contentsOfURL url: NSURL, encoding enc: UInt) throws
+  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding: UInt)
+  convenience init(contentsOf url: NSURL, encoding enc: UInt) throws
   convenience init(contentsOfFile path: String, encoding enc: UInt) throws
-  convenience init(contentsOfURL url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
+  convenience init(contentsOf url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
   convenience init(contentsOfFile path: String, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
 }
 class NSConstantString : NSSimpleCString {
@@ -6400,17 +6400,17 @@ class NSConstantString : NSSimpleCString {
   init?(coder aDecoder: NSCoder)
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
   convenience init(characters: UnsafePointer<unichar>, length: Int)
-  convenience init?(UTF8String nullTerminatedCString: UnsafePointer<Int8>)
+  convenience init?(utF8String nullTerminatedCString: UnsafePointer<Int8>)
   convenience init(string aString: String)
   convenience init(format: String, arguments argList: CVaListPointer)
   convenience init(format: String, locale: AnyObject?, arguments argList: CVaListPointer)
   convenience init?(data: NSData, encoding: UInt)
   convenience init?(bytes: UnsafePointer<Void>, length len: Int, encoding: UInt)
   convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding: UInt, freeWhenDone freeBuffer: Bool)
-  convenience init?(CString nullTerminatedCString: UnsafePointer<Int8>, encoding: UInt)
-  convenience init(contentsOfURL url: NSURL, encoding enc: UInt) throws
+  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding: UInt)
+  convenience init(contentsOf url: NSURL, encoding enc: UInt) throws
   convenience init(contentsOfFile path: String, encoding enc: UInt) throws
-  convenience init(contentsOfURL url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
+  convenience init(contentsOf url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
   convenience init(contentsOfFile path: String, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
 }
 struct NSTextCheckingType : OptionSetType {
@@ -6443,9 +6443,9 @@ class NSTextCheckingResult : NSObject, NSCopying, NSCoding {
   var range: NSRange { get }
   init()
   @available(tvOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 4.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension NSTextCheckingResult {
@@ -6456,7 +6456,7 @@ extension NSTextCheckingResult {
   var duration: NSTimeInterval { get }
   @available(tvOS 4.0, *)
   var components: [String : String]? { get }
-  @NSCopying var URL: NSURL? { get }
+  @NSCopying var url: NSURL? { get }
   var replacementString: String? { get }
   @available(tvOS 7.0, *)
   var alternativeStrings: [String]? { get }
@@ -6468,9 +6468,9 @@ extension NSTextCheckingResult {
   @available(tvOS 4.0, *)
   var numberOfRanges: Int { get }
   @available(tvOS 4.0, *)
-  func rangeAtIndex(idx: Int) -> NSRange
+  func rangeAt(idx: Int) -> NSRange
   @available(tvOS 5.0, *)
-  func resultByAdjustingRangesWithOffset(offset: Int) -> NSTextCheckingResult
+  func adjustingRangesWithOffset(offset: Int) -> NSTextCheckingResult
 }
 @available(tvOS 4.0, *)
 let NSTextCheckingNameKey: String
@@ -6495,32 +6495,32 @@ let NSTextCheckingAirlineKey: String
 @available(tvOS 4.0, *)
 let NSTextCheckingFlightKey: String
 extension NSTextCheckingResult {
-  class func orthographyCheckingResultWithRange(range: NSRange, orthography: NSOrthography) -> NSTextCheckingResult
-  class func spellCheckingResultWithRange(range: NSRange) -> NSTextCheckingResult
-  class func grammarCheckingResultWithRange(range: NSRange, details: [String]) -> NSTextCheckingResult
-  class func dateCheckingResultWithRange(range: NSRange, date: NSDate) -> NSTextCheckingResult
-  class func dateCheckingResultWithRange(range: NSRange, date: NSDate, timeZone: NSTimeZone, duration: NSTimeInterval) -> NSTextCheckingResult
-  class func addressCheckingResultWithRange(range: NSRange, components: [String : String]) -> NSTextCheckingResult
-  class func linkCheckingResultWithRange(range: NSRange, URL url: NSURL) -> NSTextCheckingResult
-  class func quoteCheckingResultWithRange(range: NSRange, replacementString: String) -> NSTextCheckingResult
-  class func dashCheckingResultWithRange(range: NSRange, replacementString: String) -> NSTextCheckingResult
-  class func replacementCheckingResultWithRange(range: NSRange, replacementString: String) -> NSTextCheckingResult
-  class func correctionCheckingResultWithRange(range: NSRange, replacementString: String) -> NSTextCheckingResult
+  class func orthographyCheckingResultWith(range: NSRange, orthography: NSOrthography) -> NSTextCheckingResult
+  class func spellCheckingResultWith(range: NSRange) -> NSTextCheckingResult
+  class func grammarCheckingResultWith(range: NSRange, details: [String]) -> NSTextCheckingResult
+  class func dateCheckingResultWith(range: NSRange, date: NSDate) -> NSTextCheckingResult
+  class func dateCheckingResultWith(range: NSRange, date: NSDate, timeZone: NSTimeZone, duration: NSTimeInterval) -> NSTextCheckingResult
+  class func addressCheckingResultWith(range: NSRange, components: [String : String]) -> NSTextCheckingResult
+  class func linkCheckingResultWith(range: NSRange, url: NSURL) -> NSTextCheckingResult
+  class func quoteCheckingResultWith(range: NSRange, replacementString: String) -> NSTextCheckingResult
+  class func dashCheckingResultWith(range: NSRange, replacementString: String) -> NSTextCheckingResult
+  class func replacementCheckingResultWith(range: NSRange, replacementString: String) -> NSTextCheckingResult
+  class func correctionCheckingResultWith(range: NSRange, replacementString: String) -> NSTextCheckingResult
   @available(tvOS 7.0, *)
-  class func correctionCheckingResultWithRange(range: NSRange, replacementString: String, alternativeStrings: [String]) -> NSTextCheckingResult
+  class func correctionCheckingResultWith(range: NSRange, replacementString: String, alternativeStrings: [String]) -> NSTextCheckingResult
   @available(tvOS 4.0, *)
   class func regularExpressionCheckingResultWithRanges(ranges: NSRangePointer, count: Int, regularExpression: NSRegularExpression) -> NSTextCheckingResult
   @available(tvOS 4.0, *)
-  class func phoneNumberCheckingResultWithRange(range: NSRange, phoneNumber: String) -> NSTextCheckingResult
+  class func phoneNumberCheckingResultWith(range: NSRange, phoneNumber: String) -> NSTextCheckingResult
   @available(tvOS 4.0, *)
-  class func transitInformationCheckingResultWithRange(range: NSRange, components: [String : String]) -> NSTextCheckingResult
+  class func transitInformationCheckingResultWith(range: NSRange, components: [String : String]) -> NSTextCheckingResult
 }
 class NSThread : NSObject {
-  class func currentThread() -> NSThread
+  class func current() -> NSThread
   class func detachNewThreadSelector(selector: Selector, toTarget target: AnyObject, withObject argument: AnyObject?)
   class func isMultiThreaded() -> Bool
   var threadDictionary: NSMutableDictionary { get }
-  class func sleepUntilDate(date: NSDate)
+  class func sleepUntil(date: NSDate)
   class func sleepForTimeInterval(ti: NSTimeInterval)
   class func exit()
   class func threadPriority() -> Double
@@ -6542,17 +6542,17 @@ class NSThread : NSObject {
   @available(tvOS 2.0, *)
   class func isMainThread() -> Bool
   @available(tvOS 2.0, *)
-  class func mainThread() -> NSThread
+  class func main() -> NSThread
   @available(tvOS 2.0, *)
   init()
   @available(tvOS 2.0, *)
   convenience init(target: AnyObject, selector: Selector, object argument: AnyObject?)
   @available(tvOS 2.0, *)
-  var executing: Bool { get }
+  var isExecuting: Bool { get }
   @available(tvOS 2.0, *)
-  var finished: Bool { get }
+  var isFinished: Bool { get }
   @available(tvOS 2.0, *)
-  var cancelled: Bool { get }
+  var isCancelled: Bool { get }
   @available(tvOS 2.0, *)
   func cancel()
   @available(tvOS 2.0, *)
@@ -6568,12 +6568,12 @@ extension NSObject {
   func performSelectorOnMainThread(aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
   class func performSelectorOnMainThread(aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool)
   func performSelectorOnMainThread(aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool)
-  class func performSelector(aSelector: Selector, onThread thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
+  class func perform(aSelector: Selector, on thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
   @available(tvOS 2.0, *)
-  func performSelector(aSelector: Selector, onThread thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
-  class func performSelector(aSelector: Selector, onThread thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool)
+  func perform(aSelector: Selector, on thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
+  class func perform(aSelector: Selector, on thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool)
   @available(tvOS 2.0, *)
-  func performSelector(aSelector: Selector, onThread thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool)
+  func perform(aSelector: Selector, on thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool)
   class func performSelectorInBackground(aSelector: Selector, withObject arg: AnyObject?)
   @available(tvOS 2.0, *)
   func performSelectorInBackground(aSelector: Selector, withObject arg: AnyObject?)
@@ -6581,25 +6581,25 @@ extension NSObject {
 class NSTimeZone : NSObject, NSCopying, NSSecureCoding {
   var name: String { get }
   @NSCopying var data: NSData { get }
-  func secondsFromGMTForDate(aDate: NSDate) -> Int
-  func abbreviationForDate(aDate: NSDate) -> String?
-  func isDaylightSavingTimeForDate(aDate: NSDate) -> Bool
+  func secondsFromGMTFor(aDate: NSDate) -> Int
+  func abbreviationFor(aDate: NSDate) -> String?
+  func isDaylightSavingTimeFor(aDate: NSDate) -> Bool
   @available(tvOS 2.0, *)
-  func daylightSavingTimeOffsetForDate(aDate: NSDate) -> NSTimeInterval
+  func daylightSavingTimeOffsetFor(aDate: NSDate) -> NSTimeInterval
   @available(tvOS 2.0, *)
-  func nextDaylightSavingTimeTransitionAfterDate(aDate: NSDate) -> NSDate?
+  func nextDaylightSavingTimeTransitionAfter(aDate: NSDate) -> NSDate?
   init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension NSTimeZone {
-  class func systemTimeZone() -> NSTimeZone
+  class func system() -> NSTimeZone
   class func resetSystemTimeZone()
   class func defaultTimeZone() -> NSTimeZone
   class func setDefaultTimeZone(aTimeZone: NSTimeZone)
-  class func localTimeZone() -> NSTimeZone
+  class func local() -> NSTimeZone
   class func knownTimeZoneNames() -> [String]
   class func abbreviationDictionary() -> [String : String]
   @available(tvOS 4.0, *)
@@ -6608,13 +6608,13 @@ extension NSTimeZone {
   class func timeZoneDataVersion() -> String
   var secondsFromGMT: Int { get }
   var abbreviation: String? { get }
-  var daylightSavingTime: Bool { get }
+  var isDaylightSavingTime: Bool { get }
   @available(tvOS 2.0, *)
   var daylightSavingTimeOffset: NSTimeInterval { get }
   @available(tvOS 2.0, *)
   @NSCopying var nextDaylightSavingTimeTransition: NSDate? { get }
   var description: String { get }
-  func isEqualToTimeZone(aTimeZone: NSTimeZone) -> Bool
+  func isEqualTo(aTimeZone: NSTimeZone) -> Bool
   @available(tvOS 2.0, *)
   func localizedName(style: NSTimeZoneNameStyle, locale: NSLocale?) -> String?
 }
@@ -6641,14 +6641,14 @@ class NSTimer : NSObject {
   class func scheduledTimerWithTimeInterval(ti: NSTimeInterval, invocation: NSInvocation, repeats yesOrNo: Bool) -> NSTimer
   /*not inherited*/ init(timeInterval ti: NSTimeInterval, target aTarget: AnyObject, selector aSelector: Selector, userInfo: AnyObject?, repeats yesOrNo: Bool)
   class func scheduledTimerWithTimeInterval(ti: NSTimeInterval, target aTarget: AnyObject, selector aSelector: Selector, userInfo: AnyObject?, repeats yesOrNo: Bool) -> NSTimer
-  init(fireDate date: NSDate, interval ti: NSTimeInterval, target t: AnyObject, selector s: Selector, userInfo ui: AnyObject?, repeats rep: Bool)
+  init(fire date: NSDate, interval ti: NSTimeInterval, target t: AnyObject, selector s: Selector, userInfo ui: AnyObject?, repeats rep: Bool)
   func fire()
   @NSCopying var fireDate: NSDate
   var timeInterval: NSTimeInterval { get }
   @available(tvOS 7.0, *)
   var tolerance: NSTimeInterval
   func invalidate()
-  var valid: Bool { get }
+  var isValid: Bool { get }
   var userInfo: AnyObject? { get }
   convenience init()
 }
@@ -6656,37 +6656,37 @@ class NSURL : NSObject, NSSecureCoding, NSCopying {
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use NSURLComponents instead, which lets you create a valid URL with any valid combination of URL components and subcomponents (not just scheme, host and path), and lets you set components and subcomponents with either percent-encoded or un-percent-encoded strings.")
   convenience init?(scheme: String, host: String?, path: String)
   @available(tvOS 9.0, *)
-  init(fileURLWithPath path: String, isDirectory isDir: Bool, relativeToURL baseURL: NSURL?)
+  init(fileURLWithPath path: String, isDirectory isDir: Bool, relativeTo baseURL: NSURL?)
   @available(tvOS 9.0, *)
-  init(fileURLWithPath path: String, relativeToURL baseURL: NSURL?)
+  init(fileURLWithPath path: String, relativeTo baseURL: NSURL?)
   @available(tvOS 2.0, *)
   init(fileURLWithPath path: String, isDirectory isDir: Bool)
   init(fileURLWithPath path: String)
   @available(tvOS 9.0, *)
-  class func fileURLWithPath(path: String, isDirectory isDir: Bool, relativeToURL baseURL: NSURL?) -> NSURL
+  class func fileURLWithPath(path: String, isDirectory isDir: Bool, relativeTo baseURL: NSURL?) -> NSURL
   @available(tvOS 9.0, *)
-  class func fileURLWithPath(path: String, relativeToURL baseURL: NSURL?) -> NSURL
+  class func fileURLWithPath(path: String, relativeTo baseURL: NSURL?) -> NSURL
   @available(tvOS 2.0, *)
   class func fileURLWithPath(path: String, isDirectory isDir: Bool) -> NSURL
   class func fileURLWithPath(path: String) -> NSURL
   @available(tvOS 7.0, *)
-  init(fileURLWithFileSystemRepresentation path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeToURL baseURL: NSURL?)
+  init(fileURLWithFileSystemRepresentation path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeTo baseURL: NSURL?)
   @available(tvOS 7.0, *)
-  class func fileURLWithFileSystemRepresentation(path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeToURL baseURL: NSURL?) -> NSURL
+  class func fileURLWithFileSystemRepresentation(path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeTo baseURL: NSURL?) -> NSURL
   convenience init?(string URLString: String)
-  init?(string URLString: String, relativeToURL baseURL: NSURL?)
+  init?(string URLString: String, relativeTo baseURL: NSURL?)
   @available(tvOS 9.0, *)
-  init(dataRepresentation data: NSData, relativeToURL baseURL: NSURL?)
+  init(dataRepresentation data: NSData, relativeTo baseURL: NSURL?)
   @available(tvOS 9.0, *)
-  init(absoluteURLWithDataRepresentation data: NSData, relativeToURL baseURL: NSURL?)
+  init(absoluteURLWithDataRepresentation data: NSData, relativeTo baseURL: NSURL?)
   @available(tvOS 9.0, *)
-  class func absoluteURLWithDataRepresentation(data: NSData, relativeToURL baseURL: NSURL?) -> NSURL
+  class func absoluteURLWithDataRepresentation(data: NSData, relativeTo baseURL: NSURL?) -> NSURL
   @available(tvOS 9.0, *)
   @NSCopying var dataRepresentation: NSData { get }
   var absoluteString: String { get }
   var relativeString: String? { get }
-  @NSCopying var baseURL: NSURL? { get }
-  @NSCopying var absoluteURL: NSURL { get }
+  @NSCopying var base: NSURL? { get }
+  @NSCopying var absolute: NSURL { get }
   var scheme: String { get }
   var resourceSpecifier: String { get }
   var host: String? { get }
@@ -6704,16 +6704,16 @@ class NSURL : NSObject, NSSecureCoding, NSCopying {
   func getFileSystemRepresentation(buffer: UnsafeMutablePointer<Int8>, maxLength maxBufferLength: Int) -> Bool
   @available(tvOS 7.0, *)
   var fileSystemRepresentation: UnsafePointer<Int8> { get }
-  var fileURL: Bool { get }
-  @NSCopying var standardizedURL: NSURL? { get }
+  var isFileURL: Bool { get }
+  @NSCopying var standardized: NSURL? { get }
   @available(tvOS 4.0, *)
-  func checkResourceIsReachableAndReturnError(error: NSErrorPointer) -> Bool
+  func checkResourceIsReachableAndReturn(error: NSErrorPointer) -> Bool
   @available(tvOS 4.0, *)
   func isFileReferenceURL() -> Bool
   @available(tvOS 4.0, *)
-  func fileReferenceURL() -> NSURL?
+  func fileReference() -> NSURL?
   @available(tvOS 4.0, *)
-  @NSCopying var filePathURL: NSURL? { get }
+  @NSCopying var filePath: NSURL? { get }
   @available(tvOS 4.0, *)
   func getResourceValue(value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
   @available(tvOS 4.0, *)
@@ -6729,26 +6729,26 @@ class NSURL : NSObject, NSSecureCoding, NSCopying {
   @available(tvOS 7.0, *)
   func setTemporaryResourceValue(value: AnyObject?, forKey key: String)
   @available(tvOS 4.0, *)
-  func bookmarkDataWithOptions(options: NSURLBookmarkCreationOptions, includingResourceValuesForKeys keys: [String]?, relativeToURL relativeURL: NSURL?) throws -> NSData
+  func bookmarkData(options options: NSURLBookmarkCreationOptions = [], includingResourceValuesForKeys keys: [String]?, relativeTo relativeURL: NSURL?) throws -> NSData
   @available(tvOS 4.0, *)
-  convenience init(byResolvingBookmarkData bookmarkData: NSData, options: NSURLBookmarkResolutionOptions, relativeToURL relativeURL: NSURL?, bookmarkDataIsStale isStale: UnsafeMutablePointer<ObjCBool>) throws
+  convenience init(byResolvingBookmarkData bookmarkData: NSData, options: NSURLBookmarkResolutionOptions = [], relativeTo relativeURL: NSURL?, bookmarkDataIsStale isStale: UnsafeMutablePointer<ObjCBool>) throws
   @available(tvOS 4.0, *)
   class func resourceValuesForKeys(keys: [String], fromBookmarkData bookmarkData: NSData) -> [String : AnyObject]?
   @available(tvOS 4.0, *)
-  class func writeBookmarkData(bookmarkData: NSData, toURL bookmarkFileURL: NSURL, options: NSURLBookmarkFileCreationOptions) throws
+  class func writeBookmarkData(bookmarkData: NSData, to bookmarkFileURL: NSURL, options: NSURLBookmarkFileCreationOptions) throws
   @available(tvOS 4.0, *)
-  class func bookmarkDataWithContentsOfURL(bookmarkFileURL: NSURL) throws -> NSData
+  class func bookmarkDataWithContentsOf(bookmarkFileURL: NSURL) throws -> NSData
   @available(tvOS 8.0, *)
-  convenience init(byResolvingAliasFileAtURL url: NSURL, options: NSURLBookmarkResolutionOptions) throws
+  convenience init(byResolvingAliasFileAt url: NSURL, options: NSURLBookmarkResolutionOptions = []) throws
   @available(tvOS 8.0, *)
   func startAccessingSecurityScopedResource() -> Bool
   @available(tvOS 8.0, *)
   func stopAccessingSecurityScopedResource()
   convenience init()
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 extension NSURL : _FileReferenceLiteralConvertible {
@@ -6764,37 +6764,37 @@ class NSURL : NSObject, NSSecureCoding, NSCopying {
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use NSURLComponents instead, which lets you create a valid URL with any valid combination of URL components and subcomponents (not just scheme, host and path), and lets you set components and subcomponents with either percent-encoded or un-percent-encoded strings.")
   convenience init?(scheme: String, host: String?, path: String)
   @available(tvOS 9.0, *)
-  init(fileURLWithPath path: String, isDirectory isDir: Bool, relativeToURL baseURL: NSURL?)
+  init(fileURLWithPath path: String, isDirectory isDir: Bool, relativeTo baseURL: NSURL?)
   @available(tvOS 9.0, *)
-  init(fileURLWithPath path: String, relativeToURL baseURL: NSURL?)
+  init(fileURLWithPath path: String, relativeTo baseURL: NSURL?)
   @available(tvOS 2.0, *)
   init(fileURLWithPath path: String, isDirectory isDir: Bool)
   init(fileURLWithPath path: String)
   @available(tvOS 9.0, *)
-  class func fileURLWithPath(path: String, isDirectory isDir: Bool, relativeToURL baseURL: NSURL?) -> NSURL
+  class func fileURLWithPath(path: String, isDirectory isDir: Bool, relativeTo baseURL: NSURL?) -> NSURL
   @available(tvOS 9.0, *)
-  class func fileURLWithPath(path: String, relativeToURL baseURL: NSURL?) -> NSURL
+  class func fileURLWithPath(path: String, relativeTo baseURL: NSURL?) -> NSURL
   @available(tvOS 2.0, *)
   class func fileURLWithPath(path: String, isDirectory isDir: Bool) -> NSURL
   class func fileURLWithPath(path: String) -> NSURL
   @available(tvOS 7.0, *)
-  init(fileURLWithFileSystemRepresentation path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeToURL baseURL: NSURL?)
+  init(fileURLWithFileSystemRepresentation path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeTo baseURL: NSURL?)
   @available(tvOS 7.0, *)
-  class func fileURLWithFileSystemRepresentation(path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeToURL baseURL: NSURL?) -> NSURL
+  class func fileURLWithFileSystemRepresentation(path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeTo baseURL: NSURL?) -> NSURL
   convenience init?(string URLString: String)
-  init?(string URLString: String, relativeToURL baseURL: NSURL?)
+  init?(string URLString: String, relativeTo baseURL: NSURL?)
   @available(tvOS 9.0, *)
-  init(dataRepresentation data: NSData, relativeToURL baseURL: NSURL?)
+  init(dataRepresentation data: NSData, relativeTo baseURL: NSURL?)
   @available(tvOS 9.0, *)
-  init(absoluteURLWithDataRepresentation data: NSData, relativeToURL baseURL: NSURL?)
+  init(absoluteURLWithDataRepresentation data: NSData, relativeTo baseURL: NSURL?)
   @available(tvOS 9.0, *)
-  class func absoluteURLWithDataRepresentation(data: NSData, relativeToURL baseURL: NSURL?) -> NSURL
+  class func absoluteURLWithDataRepresentation(data: NSData, relativeTo baseURL: NSURL?) -> NSURL
   @available(tvOS 9.0, *)
   @NSCopying var dataRepresentation: NSData { get }
   var absoluteString: String { get }
   var relativeString: String? { get }
-  @NSCopying var baseURL: NSURL? { get }
-  @NSCopying var absoluteURL: NSURL { get }
+  @NSCopying var base: NSURL? { get }
+  @NSCopying var absolute: NSURL { get }
   var scheme: String { get }
   var resourceSpecifier: String { get }
   var host: String? { get }
@@ -6812,16 +6812,16 @@ class NSURL : NSObject, NSSecureCoding, NSCopying {
   func getFileSystemRepresentation(buffer: UnsafeMutablePointer<Int8>, maxLength maxBufferLength: Int) -> Bool
   @available(tvOS 7.0, *)
   var fileSystemRepresentation: UnsafePointer<Int8> { get }
-  var fileURL: Bool { get }
-  @NSCopying var standardizedURL: NSURL? { get }
+  var isFileURL: Bool { get }
+  @NSCopying var standardized: NSURL? { get }
   @available(tvOS 4.0, *)
-  func checkResourceIsReachableAndReturnError(error: NSErrorPointer) -> Bool
+  func checkResourceIsReachableAndReturn(error: NSErrorPointer) -> Bool
   @available(tvOS 4.0, *)
   func isFileReferenceURL() -> Bool
   @available(tvOS 4.0, *)
-  func fileReferenceURL() -> NSURL?
+  func fileReference() -> NSURL?
   @available(tvOS 4.0, *)
-  @NSCopying var filePathURL: NSURL? { get }
+  @NSCopying var filePath: NSURL? { get }
   @available(tvOS 4.0, *)
   func getResourceValue(value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
   @available(tvOS 4.0, *)
@@ -6837,26 +6837,26 @@ class NSURL : NSObject, NSSecureCoding, NSCopying {
   @available(tvOS 7.0, *)
   func setTemporaryResourceValue(value: AnyObject?, forKey key: String)
   @available(tvOS 4.0, *)
-  func bookmarkDataWithOptions(options: NSURLBookmarkCreationOptions, includingResourceValuesForKeys keys: [String]?, relativeToURL relativeURL: NSURL?) throws -> NSData
+  func bookmarkData(options options: NSURLBookmarkCreationOptions = [], includingResourceValuesForKeys keys: [String]?, relativeTo relativeURL: NSURL?) throws -> NSData
   @available(tvOS 4.0, *)
-  convenience init(byResolvingBookmarkData bookmarkData: NSData, options: NSURLBookmarkResolutionOptions, relativeToURL relativeURL: NSURL?, bookmarkDataIsStale isStale: UnsafeMutablePointer<ObjCBool>) throws
+  convenience init(byResolvingBookmarkData bookmarkData: NSData, options: NSURLBookmarkResolutionOptions = [], relativeTo relativeURL: NSURL?, bookmarkDataIsStale isStale: UnsafeMutablePointer<ObjCBool>) throws
   @available(tvOS 4.0, *)
   class func resourceValuesForKeys(keys: [String], fromBookmarkData bookmarkData: NSData) -> [String : AnyObject]?
   @available(tvOS 4.0, *)
-  class func writeBookmarkData(bookmarkData: NSData, toURL bookmarkFileURL: NSURL, options: NSURLBookmarkFileCreationOptions) throws
+  class func writeBookmarkData(bookmarkData: NSData, to bookmarkFileURL: NSURL, options: NSURLBookmarkFileCreationOptions) throws
   @available(tvOS 4.0, *)
-  class func bookmarkDataWithContentsOfURL(bookmarkFileURL: NSURL) throws -> NSData
+  class func bookmarkDataWithContentsOf(bookmarkFileURL: NSURL) throws -> NSData
   @available(tvOS 8.0, *)
-  convenience init(byResolvingAliasFileAtURL url: NSURL, options: NSURLBookmarkResolutionOptions) throws
+  convenience init(byResolvingAliasFileAt url: NSURL, options: NSURLBookmarkResolutionOptions = []) throws
   @available(tvOS 8.0, *)
   func startAccessingSecurityScopedResource() -> Bool
   @available(tvOS 8.0, *)
   func stopAccessingSecurityScopedResource()
   convenience init()
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 extension NSURL : _FileReferenceLiteralConvertible {
@@ -7100,7 +7100,7 @@ extension NSURL {
   @available(tvOS 8.0, *)
   func promisedItemResourceValuesForKeys(keys: [String]) throws -> [String : AnyObject]
   @available(tvOS 8.0, *)
-  func checkPromisedItemIsReachableAndReturnError(error: NSErrorPointer) -> Bool
+  func checkPromisedItemIsReachableAndReturn(error: NSErrorPointer) -> Bool
 }
 extension NSURL {
   @available(tvOS 8.0, *)
@@ -7108,7 +7108,7 @@ extension NSURL {
   @available(tvOS 8.0, *)
   func promisedItemResourceValuesForKeys(keys: [String]) throws -> [String : AnyObject]
   @available(tvOS 8.0, *)
-  func checkPromisedItemIsReachableAndReturnError(error: NSErrorPointer) -> Bool
+  func checkPromisedItemIsReachableAndReturn(error: NSErrorPointer) -> Bool
 }
 @available(tvOS 8.0, *)
 class NSURLQueryItem : NSObject, NSSecureCoding, NSCopying {
@@ -7119,18 +7119,18 @@ class NSURLQueryItem : NSObject, NSSecureCoding, NSCopying {
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 7.0, *)
 class NSURLComponents : NSObject, NSCopying {
   init()
-  init?(URL url: NSURL, resolvingAgainstBaseURL resolve: Bool)
+  init?(url: NSURL, resolvingAgainstBaseURL resolve: Bool)
   init?(string URLString: String)
-  @NSCopying var URL: NSURL? { get }
-  func URLRelativeToURL(baseURL: NSURL?) -> NSURL?
+  @NSCopying var url: NSURL? { get }
+  func urlRelativeTo(baseURL: NSURL?) -> NSURL?
   @available(tvOS 8.0, *)
   var string: String? { get }
   var scheme: String?
@@ -7166,41 +7166,41 @@ class NSURLComponents : NSObject, NSCopying {
   @available(tvOS 8.0, *)
   var queryItems: [NSURLQueryItem]?
   @available(tvOS 7.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 extension NSCharacterSet {
   @available(tvOS 7.0, *)
-  class func URLUserAllowedCharacterSet() -> NSCharacterSet
+  class func urlUserAllowed() -> NSCharacterSet
   @available(tvOS 7.0, *)
-  class func URLPasswordAllowedCharacterSet() -> NSCharacterSet
+  class func urlPasswordAllowed() -> NSCharacterSet
   @available(tvOS 7.0, *)
-  class func URLHostAllowedCharacterSet() -> NSCharacterSet
+  class func urlHostAllowed() -> NSCharacterSet
   @available(tvOS 7.0, *)
-  class func URLPathAllowedCharacterSet() -> NSCharacterSet
+  class func urlPathAllowed() -> NSCharacterSet
   @available(tvOS 7.0, *)
-  class func URLQueryAllowedCharacterSet() -> NSCharacterSet
+  class func urlQueryAllowed() -> NSCharacterSet
   @available(tvOS 7.0, *)
-  class func URLFragmentAllowedCharacterSet() -> NSCharacterSet
+  class func urlFragmentAllowed() -> NSCharacterSet
 }
 extension NSString {
   @available(tvOS 7.0, *)
-  func stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacters: NSCharacterSet) -> String?
+  func addingPercentEncodingWithAllowedCharacters(allowedCharacters: NSCharacterSet) -> String?
   @available(tvOS 7.0, *)
-  var stringByRemovingPercentEncoding: String? { get }
+  var removingPercentEncoding: String? { get }
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use -stringByAddingPercentEncodingWithAllowedCharacters: instead, which always uses the recommended UTF-8 encoding, and which encodes for a specific URL component or subcomponent since each URL component or subcomponent has different rules for what characters are valid.")
-  func stringByAddingPercentEscapesUsingEncoding(enc: UInt) -> String?
+  func addingPercentEscapesUsingEncoding(enc: UInt) -> String?
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use -stringByRemovingPercentEncoding instead, which always uses the recommended UTF-8 encoding.")
-  func stringByReplacingPercentEscapesUsingEncoding(enc: UInt) -> String?
+  func replacingPercentEscapesUsingEncoding(enc: UInt) -> String?
 }
 extension NSString {
   @available(tvOS 7.0, *)
-  func stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacters: NSCharacterSet) -> String?
+  func addingPercentEncodingWithAllowedCharacters(allowedCharacters: NSCharacterSet) -> String?
   @available(tvOS 7.0, *)
-  var stringByRemovingPercentEncoding: String? { get }
+  var removingPercentEncoding: String? { get }
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use -stringByAddingPercentEncodingWithAllowedCharacters: instead, which always uses the recommended UTF-8 encoding, and which encodes for a specific URL component or subcomponent since each URL component or subcomponent has different rules for what characters are valid.")
-  func stringByAddingPercentEscapesUsingEncoding(enc: UInt) -> String?
+  func addingPercentEscapesUsingEncoding(enc: UInt) -> String?
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use -stringByRemovingPercentEncoding instead, which always uses the recommended UTF-8 encoding.")
-  func stringByReplacingPercentEscapesUsingEncoding(enc: UInt) -> String?
+  func replacingPercentEscapesUsingEncoding(enc: UInt) -> String?
 }
 extension NSURL {
   @available(tvOS 4.0, *)
@@ -7212,19 +7212,19 @@ extension NSURL {
   @available(tvOS 4.0, *)
   var pathExtension: String? { get }
   @available(tvOS 4.0, *)
-  func URLByAppendingPathComponent(pathComponent: String) -> NSURL
+  func appendingPathComponent(pathComponent: String) -> NSURL
   @available(tvOS 5.0, *)
-  func URLByAppendingPathComponent(pathComponent: String, isDirectory: Bool) -> NSURL
+  func appendingPathComponent(pathComponent: String, isDirectory: Bool) -> NSURL
   @available(tvOS 4.0, *)
-  @NSCopying var URLByDeletingLastPathComponent: NSURL? { get }
+  @NSCopying var deletingLastPathComponent: NSURL? { get }
   @available(tvOS 4.0, *)
-  func URLByAppendingPathExtension(pathExtension: String) -> NSURL
+  func appendingPathExtension(pathExtension: String) -> NSURL
   @available(tvOS 4.0, *)
-  @NSCopying var URLByDeletingPathExtension: NSURL? { get }
+  @NSCopying var deletingPathExtension: NSURL? { get }
   @available(tvOS 4.0, *)
-  @NSCopying var URLByStandardizingPath: NSURL? { get }
+  @NSCopying var standardizingPath: NSURL? { get }
   @available(tvOS 4.0, *)
-  @NSCopying var URLByResolvingSymlinksInPath: NSURL? { get }
+  @NSCopying var resolvingSymlinksInPath: NSURL? { get }
 }
 extension NSURL {
   @available(tvOS 4.0, *)
@@ -7236,28 +7236,28 @@ extension NSURL {
   @available(tvOS 4.0, *)
   var pathExtension: String? { get }
   @available(tvOS 4.0, *)
-  func URLByAppendingPathComponent(pathComponent: String) -> NSURL
+  func appendingPathComponent(pathComponent: String) -> NSURL
   @available(tvOS 5.0, *)
-  func URLByAppendingPathComponent(pathComponent: String, isDirectory: Bool) -> NSURL
+  func appendingPathComponent(pathComponent: String, isDirectory: Bool) -> NSURL
   @available(tvOS 4.0, *)
-  @NSCopying var URLByDeletingLastPathComponent: NSURL? { get }
+  @NSCopying var deletingLastPathComponent: NSURL? { get }
   @available(tvOS 4.0, *)
-  func URLByAppendingPathExtension(pathExtension: String) -> NSURL
+  func appendingPathExtension(pathExtension: String) -> NSURL
   @available(tvOS 4.0, *)
-  @NSCopying var URLByDeletingPathExtension: NSURL? { get }
+  @NSCopying var deletingPathExtension: NSURL? { get }
   @available(tvOS 4.0, *)
-  @NSCopying var URLByStandardizingPath: NSURL? { get }
+  @NSCopying var standardizingPath: NSURL? { get }
   @available(tvOS 4.0, *)
-  @NSCopying var URLByResolvingSymlinksInPath: NSURL? { get }
+  @NSCopying var resolvingSymlinksInPath: NSURL? { get }
 }
 @available(tvOS 5.0, *)
 class NSFileSecurity : NSObject, NSCopying, NSCoding {
   init?(coder aDecoder: NSCoder)
   convenience init()
   @available(tvOS 5.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 5.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 
 /*!  
@@ -7274,27 +7274,27 @@ protocol NSURLAuthenticationChallengeSender : NSObjectProtocol {
   /*!
       @method useCredential:forAuthenticationChallenge:
   */
-  func useCredential(credential: NSURLCredential, forAuthenticationChallenge challenge: NSURLAuthenticationChallenge)
+  func use(credential: NSURLCredential, forAuthenticationChallenge challenge: NSURLAuthenticationChallenge)
 
   /*!
       @method continueWithoutCredentialForAuthenticationChallenge:
   */
-  func continueWithoutCredentialForAuthenticationChallenge(challenge: NSURLAuthenticationChallenge)
+  func continueWithoutCredentialFor(challenge: NSURLAuthenticationChallenge)
 
   /*!
       @method cancelAuthenticationChallenge:
   */
-  func cancelAuthenticationChallenge(challenge: NSURLAuthenticationChallenge)
+  func cancel(challenge: NSURLAuthenticationChallenge)
 
   /*!
    @method performDefaultHandlingForAuthenticationChallenge:
    */
-  optional func performDefaultHandlingForAuthenticationChallenge(challenge: NSURLAuthenticationChallenge)
+  optional func performDefaultHandlingFor(challenge: NSURLAuthenticationChallenge)
 
   /*!
    @method rejectProtectionSpaceAndContinueWithChallenge:
    */
-  optional func rejectProtectionSpaceAndContinueWithChallenge(challenge: NSURLAuthenticationChallenge)
+  optional func rejectProtectionSpaceAndContinueWith(challenge: NSURLAuthenticationChallenge)
 }
 
 /*!
@@ -7385,7 +7385,7 @@ class NSURLAuthenticationChallenge : NSObject, NSSecureCoding {
   var sender: NSURLAuthenticationChallengeSender? { get }
   init()
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -7481,9 +7481,9 @@ class NSCachedURLResponse : NSObject, NSSecureCoding, NSCopying {
   var storagePolicy: NSURLCacheStoragePolicy { get }
   init()
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 class NSURLCache : NSObject {
 
@@ -7505,7 +7505,7 @@ class NSURLCache : NSObject {
       different NSURLCache instance to be returned from this method.
       @result the shared NSURLCache instance.
   */
-  class func sharedURLCache() -> NSURLCache
+  class func shared() -> NSURLCache
 
   /*! 
       @method setSharedURLCache:
@@ -7546,7 +7546,7 @@ class NSURLCache : NSObject {
       request, or nil if there is no NSCachedURLResponse stored with the
       given request.
   */
-  func cachedResponseForRequest(request: NSURLRequest) -> NSCachedURLResponse?
+  func cachedResponseFor(request: NSURLRequest) -> NSCachedURLResponse?
 
   /*! 
       @method storeCachedResponse:forRequest:
@@ -7565,7 +7565,7 @@ class NSURLCache : NSObject {
       stored with the given request.
       @param request the NSURLRequest to use as a key for the lookup.
   */
-  func removeCachedResponseForRequest(request: NSURLRequest)
+  func removeCachedResponseFor(request: NSURLRequest)
 
   /*! 
       @method removeAllCachedResponses
@@ -7579,7 +7579,7 @@ class NSURLCache : NSObject {
    @abstract Clears the given cache of any cached responses since the provided date.
    */
   @available(tvOS 8.0, *)
-  func removeCachedResponsesSinceDate(date: NSDate)
+  func removeCachedResponsesSince(date: NSDate)
 
   /*! 
       @method memoryCapacity
@@ -7622,9 +7622,9 @@ extension NSURLCache {
   @available(tvOS 8.0, *)
   func storeCachedResponse(cachedResponse: NSCachedURLResponse, forDataTask dataTask: NSURLSessionDataTask)
   @available(tvOS 8.0, *)
-  func getCachedResponseForDataTask(dataTask: NSURLSessionDataTask, completionHandler: (NSCachedURLResponse?) -> Void)
+  func getCachedResponseFor(dataTask: NSURLSessionDataTask, completionHandler: (NSCachedURLResponse?) -> Void)
   @available(tvOS 8.0, *)
-  func removeCachedResponseForDataTask(dataTask: NSURLSessionDataTask)
+  func removeCachedResponseFor(dataTask: NSURLSessionDataTask)
 }
 
 /*!
@@ -7720,9 +7720,9 @@ class NSURLConnection : NSObject {
   func start()
   func cancel()
   @available(tvOS 2.0, *)
-  func scheduleInRunLoop(aRunLoop: NSRunLoop, forMode mode: String)
+  func scheduleIn(aRunLoop: NSRunLoop, forMode mode: String)
   @available(tvOS 2.0, *)
-  func unscheduleFromRunLoop(aRunLoop: NSRunLoop, forMode mode: String)
+  func unscheduleFrom(aRunLoop: NSRunLoop, forMode mode: String)
   @available(tvOS 5.0, *)
   func setDelegateQueue(queue: NSOperationQueue?)
 
@@ -7755,7 +7755,7 @@ class NSURLConnection : NSObject {
   
           NO            
   */
-  class func canHandleRequest(request: NSURLRequest) -> Bool
+  class func canHandle(request: NSURLRequest) -> Bool
   init()
 }
 
@@ -7802,15 +7802,15 @@ class NSURLConnection : NSObject {
                     with the authentication challenge.
 */
 protocol NSURLConnectionDelegate : NSObjectProtocol {
-  optional func connection(connection: NSURLConnection, didFailWithError error: NSError)
+  optional func connection(connection: NSURLConnection, didFailWith error: NSError)
   optional func connectionShouldUseCredentialStorage(connection: NSURLConnection) -> Bool
-  optional func connection(connection: NSURLConnection, willSendRequestForAuthenticationChallenge challenge: NSURLAuthenticationChallenge)
+  optional func connection(connection: NSURLConnection, willSendRequestFor challenge: NSURLAuthenticationChallenge)
   @available(tvOS, introduced=3.0, deprecated=8.0, message="Use -connection:willSendRequestForAuthenticationChallenge: instead.")
   optional func connection(connection: NSURLConnection, canAuthenticateAgainstProtectionSpace protectionSpace: NSURLProtectionSpace) -> Bool
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use -connection:willSendRequestForAuthenticationChallenge: instead.")
-  optional func connection(connection: NSURLConnection, didReceiveAuthenticationChallenge challenge: NSURLAuthenticationChallenge)
+  optional func connection(connection: NSURLConnection, didReceive challenge: NSURLAuthenticationChallenge)
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use -connection:willSendRequestForAuthenticationChallenge: instead.")
-  optional func connection(connection: NSURLConnection, didCancelAuthenticationChallenge challenge: NSURLAuthenticationChallenge)
+  optional func connection(connection: NSURLConnection, didCancel challenge: NSURLAuthenticationChallenge)
 }
 
 /*!
@@ -7891,9 +7891,9 @@ protocol NSURLConnectionDelegate : NSObjectProtocol {
                     connection.<p>
 */
 protocol NSURLConnectionDataDelegate : NSURLConnectionDelegate {
-  optional func connection(connection: NSURLConnection, willSendRequest request: NSURLRequest, redirectResponse response: NSURLResponse?) -> NSURLRequest?
-  optional func connection(connection: NSURLConnection, didReceiveResponse response: NSURLResponse)
-  optional func connection(connection: NSURLConnection, didReceiveData data: NSData)
+  optional func connection(connection: NSURLConnection, willSend request: NSURLRequest, redirectResponse response: NSURLResponse?) -> NSURLRequest?
+  optional func connection(connection: NSURLConnection, didReceive response: NSURLResponse)
+  optional func connection(connection: NSURLConnection, didReceive data: NSData)
   optional func connection(connection: NSURLConnection, needNewBodyStream request: NSURLRequest) -> NSInputStream?
   optional func connection(connection: NSURLConnection, didSendBodyData bytesWritten: Int, totalBytesWritten: Int, totalBytesExpectedToWrite: Int)
   optional func connection(connection: NSURLConnection, willCacheResponse cachedResponse: NSCachedURLResponse) -> NSCachedURLResponse?
@@ -7982,7 +7982,7 @@ extension NSURLConnection {
                    or nil if the load failed.
   */
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use [NSURLSession dataTaskWithRequest:completionHandler:] (see NSURLSession.h")
-  class func sendSynchronousRequest(request: NSURLRequest, returningResponse response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>) throws -> NSData
+  class func sendSynchronousRequest(request: NSURLRequest, returning response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>) throws -> NSData
 }
 extension NSURLConnection {
 
@@ -8056,9 +8056,9 @@ class NSURLCredential : NSObject, NSSecureCoding, NSCopying {
   var persistence: NSURLCredentialPersistence { get }
   init()
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 extension NSURLCredential {
 
@@ -8158,7 +8158,7 @@ class NSURLCredentialStorage : NSObject {
       @abstract Get the shared singleton authentication storage
       @result the shared authentication storage
   */
-  class func sharedCredentialStorage() -> NSURLCredentialStorage
+  class func shared() -> NSURLCredentialStorage
 
   /*!
       @method credentialsForProtectionSpace:
@@ -8166,7 +8166,7 @@ class NSURLCredentialStorage : NSObject {
       @param protectionSpace An NSURLProtectionSpace indicating the protection space for which to get credentials
       @result A dictionary where the keys are usernames and the values are the corresponding NSURLCredentials.
   */
-  func credentialsForProtectionSpace(space: NSURLProtectionSpace) -> [String : NSURLCredential]?
+  func credentialsFor(space: NSURLProtectionSpace) -> [String : NSURLCredential]?
 
   /*!
       @method allCredentials
@@ -8197,7 +8197,7 @@ class NSURLCredentialStorage : NSObject {
       has a persistence policy of NSURLCredentialPersistenceSynchronizable will fail.  
       See removeCredential:forProtectionSpace:options.
   */
-  func removeCredential(credential: NSURLCredential, forProtectionSpace space: NSURLProtectionSpace)
+  func remove(credential: NSURLCredential, forProtectionSpace space: NSURLProtectionSpace)
 
   /*!
    @method removeCredential:forProtectionSpace:options
@@ -8211,14 +8211,14 @@ class NSURLCredentialStorage : NSObject {
    @discussion The credential is removed from both persistent and temporary storage.
    */
   @available(tvOS 7.0, *)
-  func removeCredential(credential: NSURLCredential, forProtectionSpace space: NSURLProtectionSpace, options: [String : AnyObject]?)
+  func remove(credential: NSURLCredential, forProtectionSpace space: NSURLProtectionSpace, options: [String : AnyObject]?)
 
   /*!
       @method defaultCredentialForProtectionSpace:
       @abstract Get the default credential for the specified protection space.
       @param space The protection space for which to get the default credential.
   */
-  func defaultCredentialForProtectionSpace(space: NSURLProtectionSpace) -> NSURLCredential?
+  func defaultCredentialFor(space: NSURLProtectionSpace) -> NSURLCredential?
 
   /*!
       @method setDefaultCredential:forProtectionSpace:
@@ -8232,13 +8232,13 @@ class NSURLCredentialStorage : NSObject {
 }
 extension NSURLCredentialStorage {
   @available(tvOS 8.0, *)
-  func getCredentialsForProtectionSpace(protectionSpace: NSURLProtectionSpace, task: NSURLSessionTask, completionHandler: ([String : NSURLCredential]?) -> Void)
+  func getCredentialsFor(protectionSpace: NSURLProtectionSpace, task: NSURLSessionTask, completionHandler: ([String : NSURLCredential]?) -> Void)
   @available(tvOS 8.0, *)
   func setCredential(credential: NSURLCredential, forProtectionSpace protectionSpace: NSURLProtectionSpace, task: NSURLSessionTask)
   @available(tvOS 8.0, *)
-  func removeCredential(credential: NSURLCredential, forProtectionSpace protectionSpace: NSURLProtectionSpace, options: [String : AnyObject]?, task: NSURLSessionTask)
+  func remove(credential: NSURLCredential, forProtectionSpace protectionSpace: NSURLProtectionSpace, options: [String : AnyObject]?, task: NSURLSessionTask)
   @available(tvOS 8.0, *)
-  func getDefaultCredentialForProtectionSpace(space: NSURLProtectionSpace, task: NSURLSessionTask, completionHandler: (NSURLCredential?) -> Void)
+  func getDefaultCredentialFor(space: NSURLProtectionSpace, task: NSURLSessionTask, completionHandler: (NSURLCredential?) -> Void)
   @available(tvOS 8.0, *)
   func setDefaultCredential(credential: NSURLCredential, forProtectionSpace protectionSpace: NSURLProtectionSpace, task: NSURLSessionTask)
 }
@@ -8534,9 +8534,9 @@ class NSURLProtectionSpace : NSObject, NSSecureCoding, NSCopying {
   func isProxy() -> Bool
   init()
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 extension NSURLProtectionSpace {
 
@@ -8575,7 +8575,7 @@ protocol NSURLProtocolClient : NSObjectProtocol {
    @param request the NSURLRequest to which the protocol implementation
    has redirected.
    */
-  func URLProtocol(`protocol`: NSURLProtocol, wasRedirectedToRequest request: NSURLRequest, redirectResponse: NSURLResponse)
+  func urlProtocol(`protocol`: NSURLProtocol, wasRedirectedTo request: NSURLRequest, redirectResponse: NSURLResponse)
 
   /*!
   @method URLProtocol:cachedResponseIsValid:
@@ -8586,7 +8586,7 @@ protocol NSURLProtocolClient : NSObjectProtocol {
        @param cachedResponse the NSCachedURLResponse object that has
        examined and is valid.
        */
-  func URLProtocol(`protocol`: NSURLProtocol, cachedResponseIsValid cachedResponse: NSCachedURLResponse)
+  func urlProtocol(`protocol`: NSURLProtocol, cachedResponseIsValid cachedResponse: NSCachedURLResponse)
 
   /*!
   @method URLProtocol:didReceiveResponse:
@@ -8599,7 +8599,7 @@ protocol NSURLProtocolClient : NSObjectProtocol {
        has determined should be used for the given response if the
        response is to be stored in a cache.
        */
-  func URLProtocol(`protocol`: NSURLProtocol, didReceiveResponse response: NSURLResponse, cacheStoragePolicy policy: NSURLCacheStoragePolicy)
+  func urlProtocol(`protocol`: NSURLProtocol, didReceive response: NSURLResponse, cacheStoragePolicy policy: NSURLCacheStoragePolicy)
 
   /*!
   @method URLProtocol:didLoadData:
@@ -8611,7 +8611,7 @@ protocol NSURLProtocolClient : NSObjectProtocol {
        @param URLProtocol the NSURLProtocol object sending the message.
        @param data URL load data being made available.
        */
-  func URLProtocol(`protocol`: NSURLProtocol, didLoadData data: NSData)
+  func urlProtocol(`protocol`: NSURLProtocol, didLoad data: NSData)
 
   /*!
   @method URLProtocolDidFinishLoading:
@@ -8619,7 +8619,7 @@ protocol NSURLProtocolClient : NSObjectProtocol {
        implementation has finished loading successfully.
        @param URLProtocol the NSURLProtocol object sending the message.
        */
-  func URLProtocolDidFinishLoading(`protocol`: NSURLProtocol)
+  func urlProtocolDidFinishLoading(`protocol`: NSURLProtocol)
 
   /*!
               @method URLProtocol:didFailWithError:
@@ -8628,7 +8628,7 @@ protocol NSURLProtocolClient : NSObjectProtocol {
    @param URLProtocol the NSURLProtocol object sending the message.
    @param error The error that caused the load to fail.
    */
-  func URLProtocol(`protocol`: NSURLProtocol, didFailWithError error: NSError)
+  func urlProtocol(`protocol`: NSURLProtocol, didFailWith error: NSError)
 
   /*!
   @method URLProtocol:didReceiveAuthenticationChallenge:
@@ -8640,7 +8640,7 @@ protocol NSURLProtocolClient : NSObjectProtocol {
        default credential to the challenge it issues to the connection delegate,
        if the protocol did not provide one.
        */
-  func URLProtocol(`protocol`: NSURLProtocol, didReceiveAuthenticationChallenge challenge: NSURLAuthenticationChallenge)
+  func urlProtocol(`protocol`: NSURLProtocol, didReceive challenge: NSURLAuthenticationChallenge)
 
   /*!
   @method URLProtocol:didCancelAuthenticationChallenge:
@@ -8648,7 +8648,7 @@ protocol NSURLProtocolClient : NSObjectProtocol {
        @param protocol The protocol object cancelling authentication.
        @param challenge The authentication challenge.
        */
-  func URLProtocol(`protocol`: NSURLProtocol, didCancelAuthenticationChallenge challenge: NSURLAuthenticationChallenge)
+  func urlProtocol(`protocol`: NSURLProtocol, didCancel challenge: NSURLAuthenticationChallenge)
 }
 
 /*!
@@ -8709,7 +8709,7 @@ class NSURLProtocol : NSObject {
       @param request A request to inspect.
       @result YES if the protocol can handle the given request, NO if not.
   */
-  class func canInitWithRequest(request: NSURLRequest) -> Bool
+  class func canInitWith(request: NSURLRequest) -> Bool
 
   /*! 
       @method canonicalRequestForRequest:
@@ -8729,7 +8729,7 @@ class NSURLProtocol : NSObject {
       @param request A request to make canonical.
       @result The canonical form of the given request. 
   */
-  class func canonicalRequestForRequest(request: NSURLRequest) -> NSURLRequest
+  class func canonicalRequestFor(request: NSURLRequest) -> NSURLRequest
 
   /*!
       @method requestIsCacheEquivalent:toRequest:
@@ -8740,7 +8740,7 @@ class NSURLProtocol : NSObject {
       implementation-specific checks.
       @result YES if the two requests are cache-equivalent, NO otherwise.
   */
-  class func requestIsCacheEquivalent(a: NSURLRequest, toRequest b: NSURLRequest) -> Bool
+  class func requestIsCacheEquivalent(a: NSURLRequest, to b: NSURLRequest) -> Bool
 
   /*! 
       @method startLoading
@@ -8772,7 +8772,7 @@ class NSURLProtocol : NSObject {
       @result The property stored with the given key, or nil if no property
       had previously been stored with the given key in the given request.
   */
-  class func propertyForKey(key: String, inRequest request: NSURLRequest) -> AnyObject?
+  class func propertyForKey(key: String, `in` request: NSURLRequest) -> AnyObject?
 
   /*! 
       @method setProperty:forKey:inRequest:
@@ -8785,7 +8785,7 @@ class NSURLProtocol : NSObject {
       @param key The string to use for the property storage. 
       @param request The request in which to store the property. 
   */
-  class func setProperty(value: AnyObject, forKey key: String, inRequest request: NSMutableURLRequest)
+  class func setProperty(value: AnyObject, forKey key: String, `in` request: NSMutableURLRequest)
 
   /*!
       @method removePropertyForKey:inRequest:
@@ -8796,7 +8796,7 @@ class NSURLProtocol : NSObject {
       @param key The key whose value should be removed
       @param request The request to be modified
   */
-  class func removePropertyForKey(key: String, inRequest request: NSMutableURLRequest)
+  class func removePropertyForKey(key: String, `in` request: NSMutableURLRequest)
 
   /*! 
       @method registerClass:
@@ -8835,7 +8835,7 @@ class NSURLProtocol : NSObject {
 }
 extension NSURLProtocol {
   @available(tvOS 8.0, *)
-  class func canInitWithTask(task: NSURLSessionTask) -> Bool
+  class func canInitWith(task: NSURLSessionTask) -> Bool
   @available(tvOS 8.0, *)
   convenience init(task: NSURLSessionTask, cachedResponse: NSCachedURLResponse?, client: NSURLProtocolClient?)
   @available(tvOS 8.0, *)
@@ -8977,7 +8977,7 @@ class NSURLRequest : NSObject, NSSecureCoding, NSCopying, NSMutableCopying {
       @param URL The URL for the request. 
       @result An initialized NSURLRequest. 
   */
-  convenience init(URL: NSURL)
+  convenience init(url URL: NSURL)
 
   /*! 
       @method initWithURL:
@@ -8992,14 +8992,14 @@ class NSURLRequest : NSObject, NSSecureCoding, NSCopying, NSMutableCopying {
       timeout intervals.
       @result An initialized NSURLRequest. 
   */
-  init(URL: NSURL, cachePolicy: NSURLRequestCachePolicy, timeoutInterval: NSTimeInterval)
+  init(url URL: NSURL, cachePolicy: NSURLRequestCachePolicy, timeoutInterval: NSTimeInterval)
 
   /*! 
       @method URL
       @abstract Returns the URL of the receiver. 
       @result The URL of the receiver. 
   */
-  @NSCopying var URL: NSURL? { get }
+  @NSCopying var url: NSURL? { get }
 
   /*! 
       @method cachePolicy
@@ -9058,10 +9058,10 @@ class NSURLRequest : NSObject, NSSecureCoding, NSCopying, NSMutableCopying {
   @available(tvOS 6.0, *)
   var allowsCellularAccess: Bool { get }
   convenience init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*! 
@@ -9100,7 +9100,7 @@ class NSMutableURLRequest : NSURLRequest {
       @abstract Sets the URL of the receiver. 
       @param URL The new URL for the receiver. 
   */
-  @NSCopying var URL: NSURL?
+  @NSCopying var url: NSURL?
 
   /*! 
       @method setCachePolicy:
@@ -9171,7 +9171,7 @@ class NSMutableURLRequest : NSURLRequest {
       @param URL The URL for the request. 
       @result An initialized NSURLRequest. 
   */
-  convenience init(URL: NSURL)
+  convenience init(url URL: NSURL)
 
   /*! 
       @method initWithURL:
@@ -9186,7 +9186,7 @@ class NSMutableURLRequest : NSURLRequest {
       timeout intervals.
       @result An initialized NSURLRequest. 
   */
-  init(URL: NSURL, cachePolicy: NSURLRequestCachePolicy, timeoutInterval: NSTimeInterval)
+  init(url URL: NSURL, cachePolicy: NSURLRequestCachePolicy, timeoutInterval: NSTimeInterval)
   convenience init()
   init?(coder aDecoder: NSCoder)
 }
@@ -9197,7 +9197,7 @@ extension NSURLRequest {
       @abstract Returns the HTTP request method of the receiver. 
       @result the HTTP request method of the receiver. 
   */
-  var HTTPMethod: String? { get }
+  var httpMethod: String? { get }
 
   /*! 
       @method allHTTPHeaderFields
@@ -9227,7 +9227,7 @@ extension NSURLRequest {
       in done in an HTTP POST request.
       @result The request body data of the receiver. 
   */
-  @NSCopying var HTTPBody: NSData? { get }
+  @NSCopying var httpBody: NSData? { get }
 
   /*!
       @method HTTPBodyStream
@@ -9241,7 +9241,7 @@ extension NSURLRequest {
       NSCoding protocol
       @result The request body stream of the receiver.
   */
-  var HTTPBodyStream: NSInputStream? { get }
+  var httpBodyStream: NSInputStream? { get }
 
   /*! 
       @method HTTPShouldHandleCookies
@@ -9251,7 +9251,7 @@ extension NSURLRequest {
       @result YES if cookies will be sent with and set for this request; 
       otherwise NO.
   */
-  var HTTPShouldHandleCookies: Bool { get }
+  var httpShouldHandleCookies: Bool { get }
 
   /*!
    @method HTTPShouldUsePipelining
@@ -9262,7 +9262,7 @@ extension NSURLRequest {
    before transmitting.
    */
   @available(tvOS 4.0, *)
-  var HTTPShouldUsePipelining: Bool { get }
+  var httpShouldUsePipelining: Bool { get }
 }
 extension NSMutableURLRequest {
 
@@ -9271,7 +9271,7 @@ extension NSMutableURLRequest {
       @abstract Sets the HTTP request method of the receiver. 
       @param method the new HTTP request method for the receiver.
   */
-  var HTTPMethod: String
+  var httpMethod: String
 
   /*! 
       @method allHTTPHeaderFields:
@@ -9323,7 +9323,7 @@ extension NSMutableURLRequest {
       in done in an HTTP POST request.
       @param data the new request body data for the receiver.
   */
-  @NSCopying var HTTPBody: NSData?
+  @NSCopying var httpBody: NSData?
 
   /*!
       @method HTTPBodyStream:
@@ -9335,7 +9335,7 @@ extension NSMutableURLRequest {
       - setting one will clear the other. 
       @param inputStream the new input stream for use by the receiver
   */
-  var HTTPBodyStream: NSInputStream?
+  var httpBodyStream: NSInputStream?
 
   /*!
       @method HTTPShouldHandleCookies
@@ -9347,7 +9347,7 @@ extension NSMutableURLRequest {
       stored to the cookie manager by default.
       NOTE: In releases prior to 10.3, this value is ignored
   */
-  var HTTPShouldHandleCookies: Bool
+  var httpShouldHandleCookies: Bool
 
   /*!
    @method HTTPShouldUsePipelining
@@ -9368,7 +9368,7 @@ extension NSMutableURLRequest {
    a resource, etc.).
    */
   @available(tvOS 4.0, *)
-  var HTTPShouldUsePipelining: Bool
+  var httpShouldUsePipelining: Bool
 }
 
 /*!
@@ -9395,14 +9395,14 @@ class NSURLResponse : NSObject, NSSecureCoding, NSCopying {
       @result The initialized NSURLResponse.
       @discussion This is the designated initializer for NSURLResponse.
   */
-  init(URL: NSURL, MIMEType: String?, expectedContentLength length: Int, textEncodingName name: String?)
+  init(url URL: NSURL, mimeType MIMEType: String?, expectedContentLength length: Int, textEncodingName name: String?)
 
   /*! 
       @method URL
       @abstract Returns the URL of the receiver. 
       @result The URL of the receiver. 
   */
-  @NSCopying var URL: NSURL? { get }
+  @NSCopying var url: NSURL? { get }
 
   /*! 
       @method MIMEType
@@ -9415,7 +9415,7 @@ class NSURLResponse : NSObject, NSSecureCoding, NSCopying {
       be made if the origin source did not report any such information.
       @result The MIME type of the receiver.
   */
-  var MIMEType: String? { get }
+  var mimeType: String? { get }
 
   /*! 
       @method expectedContentLength
@@ -9460,9 +9460,9 @@ class NSURLResponse : NSObject, NSSecureCoding, NSCopying {
   var suggestedFilename: String? { get }
   convenience init()
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -9486,7 +9486,7 @@ class NSHTTPURLResponse : NSURLResponse {
     @discussion This API was introduced in Mac OS X 10.7.2 and iOS 5.0 and is not available prior to those releases.
   */
   @available(tvOS 5.0, *)
-  init?(URL url: NSURL, statusCode: Int, HTTPVersion: String?, headerFields: [String : String]?)
+  init?(url: NSURL, statusCode: Int, httpVersion HTTPVersion: String?, headerFields: [String : String]?)
 
   /*! 
       @method statusCode
@@ -9527,23 +9527,23 @@ class NSHTTPURLResponse : NSURLResponse {
       @result The initialized NSURLResponse.
       @discussion This is the designated initializer for NSURLResponse.
   */
-  init(URL: NSURL, MIMEType: String?, expectedContentLength length: Int, textEncodingName name: String?)
+  init(url URL: NSURL, mimeType MIMEType: String?, expectedContentLength length: Int, textEncodingName name: String?)
   convenience init()
   init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 6.0, *)
 class NSUUID : NSObject, NSCopying, NSSecureCoding {
   init()
-  convenience init?(UUIDString string: String)
-  convenience init(UUIDBytes bytes: UnsafePointer<UInt8>)
+  convenience init?(uuidString string: String)
+  convenience init(uuidBytes bytes: UnsafePointer<UInt8>)
   func getUUIDBytes(uuid: UnsafeMutablePointer<UInt8>)
-  var UUIDString: String { get }
+  var uuidString: String { get }
   @available(tvOS 6.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 6.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 6.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 5.0, *)
@@ -9592,7 +9592,7 @@ class NSUndoManager : NSObject {
   var groupingLevel: Int { get }
   func disableUndoRegistration()
   func enableUndoRegistration()
-  var undoRegistrationEnabled: Bool { get }
+  var isUndoRegistrationEnabled: Bool { get }
   var groupsByEvent: Bool
   var levelsOfUndo: Int
   var runLoopModes: [String]
@@ -9601,8 +9601,8 @@ class NSUndoManager : NSObject {
   func undoNestedGroup()
   var canUndo: Bool { get }
   var canRedo: Bool { get }
-  var undoing: Bool { get }
-  var redoing: Bool { get }
+  var isUndoing: Bool { get }
+  var isRedoing: Bool { get }
   func removeAllActions()
   func removeAllActionsWithTarget(target: AnyObject)
   func registerUndoWithTarget(target: AnyObject, selector: Selector, object anObject: AnyObject?)
@@ -9660,7 +9660,7 @@ class NSUserActivity : NSObject {
   var activityType: String { get }
   var title: String?
   var userInfo: [NSObject : AnyObject]?
-  func addUserInfoEntriesFromDictionary(otherDictionary: [NSObject : AnyObject])
+  func addUserInfoEntriesFrom(otherDictionary: [NSObject : AnyObject])
   @available(tvOS 9.0, *)
   var requiredUserInfoKeys: Set<String>
   var needsSave: Bool
@@ -9677,11 +9677,11 @@ class NSUserActivity : NSObject {
   func invalidate()
   func getContinuationStreamsWithCompletionHandler(completionHandler: (NSInputStream?, NSOutputStream?, NSError?) -> Void)
   @available(tvOS 9.0, *)
-  var eligibleForHandoff: Bool
+  var isEligibleForHandoff: Bool
   @available(tvOS 9.0, *)
-  var eligibleForSearch: Bool
+  var isEligibleForSearch: Bool
   @available(tvOS 9.0, *)
-  var eligibleForPublicIndexing: Bool
+  var isEligibleForPublicIndexing: Bool
 }
 @available(tvOS 8.0, *)
 let NSUserActivityTypeBrowsingWeb: String
@@ -9689,13 +9689,13 @@ let NSUserActivityTypeBrowsingWeb: String
 protocol NSUserActivityDelegate : NSObjectProtocol {
   optional func userActivityWillSave(userActivity: NSUserActivity)
   optional func userActivityWasContinued(userActivity: NSUserActivity)
-  optional func userActivity(userActivity: NSUserActivity?, didReceiveInputStream inputStream: NSInputStream, outputStream: NSOutputStream)
+  optional func userActivity(userActivity: NSUserActivity?, didReceive inputStream: NSInputStream, outputStream: NSOutputStream)
 }
 let NSGlobalDomain: String
 let NSArgumentDomain: String
 let NSRegistrationDomain: String
 class NSUserDefaults : NSObject {
-  class func standardUserDefaults() -> NSUserDefaults
+  class func standard() -> NSUserDefaults
   class func resetStandardUserDefaults()
   convenience init()
   @available(tvOS 7.0, *)
@@ -9713,7 +9713,7 @@ class NSUserDefaults : NSObject {
   func doubleForKey(defaultName: String) -> Double
   func boolForKey(defaultName: String) -> Bool
   @available(tvOS 4.0, *)
-  func URLForKey(defaultName: String) -> NSURL?
+  func urlForKey(defaultName: String) -> NSURL?
   func setInteger(value: Int, forKey defaultName: String)
   func setFloat(value: Float, forKey defaultName: String)
   func setDouble(value: Double, forKey defaultName: String)
@@ -9742,9 +9742,9 @@ class NSValue : NSObject, NSCopying, NSSecureCoding {
   init(bytes value: UnsafePointer<Void>, objCType type: UnsafePointer<Int8>)
   init?(coder aDecoder: NSCoder)
   convenience init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
 }
 extension NSValue {
   /*not inherited*/ init(_ value: UnsafePointer<Void>, withObjCType type: UnsafePointer<Int8>)
@@ -9754,7 +9754,7 @@ extension NSValue {
   var nonretainedObjectValue: AnyObject? { get }
   /*not inherited*/ init(pointer: UnsafePointer<Void>)
   var pointerValue: UnsafeMutablePointer<Void> { get }
-  func isEqualToValue(value: NSValue) -> Bool
+  func isEqualTo(value: NSValue) -> Bool
 }
 class NSNumber : NSValue {
   init?(coder aDecoder: NSCoder)
@@ -9787,14 +9787,14 @@ class NSNumber : NSValue {
   var unsignedLongLongValue: UInt64 { get }
   var floatValue: Float { get }
   var doubleValue: Double { get }
-  var boolValue: Bool { get }
+  var isBoolValue: Bool { get }
   @available(tvOS 2.0, *)
   var integerValue: Int { get }
   @available(tvOS 2.0, *)
   var unsignedIntegerValue: UInt { get }
   var stringValue: String { get }
   func compare(otherNumber: NSNumber) -> NSComparisonResult
-  func isEqualToNumber(number: NSNumber) -> Bool
+  func isEqualTo(number: NSNumber) -> Bool
   func descriptionWithLocale(locale: AnyObject?) -> String
   convenience init(bytes value: UnsafePointer<Void>, objCType type: UnsafePointer<Int8>)
   convenience init()
@@ -9844,7 +9844,7 @@ enum NSXMLParserExternalEntityResolvingPolicy : UInt {
   case ResolveExternalEntitiesAlways
 }
 class NSXMLParser : NSObject {
-  convenience init?(contentsOfURL url: NSURL)
+  convenience init?(contentsOf url: NSURL)
   init(data: NSData)
   @available(tvOS 5.0, *)
   convenience init(stream: NSInputStream)

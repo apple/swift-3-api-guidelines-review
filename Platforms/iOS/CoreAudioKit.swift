@@ -40,10 +40,10 @@ class CAInterAppAudioSwitcherView : UIView {
 }
 @available(iOS 8.0, *)
 class CAInterAppAudioTransportView : UIView {
-  var enabled: Bool
-  var playing: Bool { get }
-  var recording: Bool { get }
-  var connected: Bool { get }
+  var isEnabled: Bool
+  var isPlaying: Bool { get }
+  var isRecording: Bool { get }
+  var isConnected: Bool { get }
   var labelColor: UIColor
   var currentTimeLabelFont: UIFont
   var rewindButtonColor: UIColor

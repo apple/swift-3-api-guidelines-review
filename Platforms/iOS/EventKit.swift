@@ -59,7 +59,7 @@ class EKAlarm : EKObject, NSCopying {
   var proximity: EKAlarmProximity
   init()
   @available(iOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -125,7 +125,7 @@ class EKCalendar : EKObject {
       @abstract   YES if this calendar is a subscribed calendar.
   */
   @available(iOS 5.0, *)
-  var subscribed: Bool { get }
+  var isSubscribed: Bool { get }
 
   /*!
       @property   immutable
@@ -134,13 +134,13 @@ class EKCalendar : EKObject {
                   or reminders to the calendar.
   */
   @available(iOS 5.0, *)
-  var immutable: Bool { get }
+  var isImmutable: Bool { get }
 
   /*!
       @property   color
       @abstract   Returns the calendar color as a CGColorRef.
   */
-  var CGColor: CGColor
+  var cgColor: CGColor
 
   /*!
       @property   supportedEventAvailabilities
@@ -196,7 +196,7 @@ class EKCalendarItem : EKObject {
   var location: String?
   var notes: String?
   @available(iOS 5.0, *)
-  @NSCopying var URL: NSURL?
+  @NSCopying var url: NSURL?
   var lastModifiedDate: NSDate? { get }
   @available(iOS 5.0, *)
   var creationDate: NSDate? { get }
@@ -339,7 +339,7 @@ class EKEvent : EKCalendarItem {
       @property   allDay
       @abstract   Indicates this event is an 'all day' event.
   */
-  var allDay: Bool
+  var isAllDay: Bool
 
   /*!
        @property   startDate
@@ -370,7 +370,7 @@ class EKEvent : EKCalendarItem {
       @method     compareStartDateWithEvent
       @abstract   Comparison function you can pass to sort NSArrays of EKEvents by start date.
   */
-  func compareStartDateWithEvent(other: EKEvent) -> NSComparisonResult
+  func compareStartDateWith(other: EKEvent) -> NSComparisonResult
 
   /*!
       @property   organizer
@@ -496,7 +496,7 @@ class EKEventStore : NSObject {
       @discussion Returns the authorization status for the given entity type
    */
   @available(iOS 6.0, *)
-  class func authorizationStatusForEntityType(entityType: EKEntityType) -> EKAuthorizationStatus
+  class func authorizationStatusFor(entityType: EKEntityType) -> EKAuthorizationStatus
 
   /*!
           @method     init
@@ -516,7 +516,7 @@ class EKEventStore : NSObject {
                   taps to grant or deny access, the completion handler will be called on an arbitrary queue.
   */
   @available(iOS 6.0, *)
-  func requestAccessToEntityType(entityType: EKEntityType, completion: EKEventStoreRequestAccessCompletionHandler)
+  func requestAccessTo(entityType: EKEntityType, completion: EKEventStoreRequestAccessCompletionHandler)
 
   /*!
       @property   eventStoreIdentifier
@@ -543,7 +543,7 @@ class EKEventStore : NSObject {
       @abstract   Returns calendars that support a given entity type (reminders, events)
    */
   @available(iOS 6.0, *)
-  func calendarsForEntityType(entityType: EKEntityType) -> [EKCalendar]
+  func calendarsFor(entityType: EKEntityType) -> [EKCalendar]
 
   /*!
       @property   defaultCalendarForNewEvents
@@ -651,7 +651,7 @@ class EKEventStore : NSObject {
       @param      error       If an error occurs, this will contain a valid NSError object on exit.
   */
   @available(iOS 4.0, *)
-  func saveEvent(event: EKEvent, span: EKSpan) throws
+  func save(event: EKEvent, span: EKSpan) throws
 
   /*!
       @method     removeEvent:span:error:
@@ -671,11 +671,11 @@ class EKEventStore : NSObject {
       @param      error       If an error occurs, this will contain a valid NSError object on exit.
   */
   @available(iOS 4.0, *)
-  func removeEvent(event: EKEvent, span: EKSpan) throws
+  func remove(event: EKEvent, span: EKSpan) throws
   @available(iOS 5.0, *)
-  func saveEvent(event: EKEvent, span: EKSpan, commit: Bool) throws
+  func save(event: EKEvent, span: EKSpan, commit: Bool) throws
   @available(iOS 5.0, *)
-  func removeEvent(event: EKEvent, span: EKSpan, commit: Bool) throws
+  func remove(event: EKEvent, span: EKSpan, commit: Bool) throws
 
   /*!
       @method     eventWithIdentifier:
@@ -701,7 +701,7 @@ class EKEventStore : NSObject {
                               creation functions in this class, an exception is raised.
       @result     An array of EKEvent objects, or nil. There is no guaranteed order to the events.
   */
-  func eventsMatchingPredicate(predicate: NSPredicate) -> [EKEvent]
+  func eventsMatching(predicate: NSPredicate) -> [EKEvent]
 
   /*!
       @method     enumerateEventsMatchingPredicate:usingBlock:
@@ -718,7 +718,7 @@ class EKEventStore : NSObject {
       @param      block       The block to call for each event. Your block should return YES in the stop
                               parameter to stop iterating.
   */
-  func enumerateEventsMatchingPredicate(predicate: NSPredicate, usingBlock block: EKEventSearchCallback)
+  func enumerateEventsMatching(predicate: NSPredicate, usingBlock block: EKEventSearchCallback)
 
   /*!
       @method     predicateForEventsWithStartDate:endDate:calendars:
@@ -734,7 +734,7 @@ class EKEventStore : NSObject {
       @param      endDate     The end date.
       @param      calendars   The calendars to search for events in, or nil to search all calendars.
   */
-  func predicateForEventsWithStartDate(startDate: NSDate, endDate: NSDate, calendars: [EKCalendar]?) -> NSPredicate
+  func predicateForEventsWithStart(startDate: NSDate, end endDate: NSDate, calendars: [EKCalendar]?) -> NSPredicate
 
   /*!
       @method     saveReminder:commit:error:
@@ -754,7 +754,7 @@ class EKEventStore : NSObject {
       @param      error       If an error occurs, this will contain a valid NSError object on exit.
   */
   @available(iOS 6.0, *)
-  func saveReminder(reminder: EKReminder, commit: Bool) throws
+  func save(reminder: EKReminder, commit: Bool) throws
 
   /*!
       @method     removeReminder:commit:error:
@@ -771,7 +771,7 @@ class EKEventStore : NSObject {
       @param      error       If an error occurs, this will contain a valid NSError object on exit.
   */
   @available(iOS 6.0, *)
-  func removeReminder(reminder: EKReminder, commit: Bool) throws
+  func remove(reminder: EKReminder, commit: Bool) throws
 
   /*!
       @method     fetchRemindersMatchingPredicate:completion:
@@ -783,7 +783,7 @@ class EKEventStore : NSObject {
                   saveReminder:commit:NO are not included until commit: is called.)
   */
   @available(iOS 6.0, *)
-  func fetchRemindersMatchingPredicate(predicate: NSPredicate, completion: ([EKReminder]?) -> Void) -> AnyObject
+  func fetchRemindersMatching(predicate: NSPredicate, completion: ([EKReminder]?) -> Void) -> AnyObject
 
   /*!
       @method     cancelFetchRequest:
@@ -800,7 +800,7 @@ class EKEventStore : NSObject {
       @discussion You can pass nil for calendars to fetch from all available calendars.
   */
   @available(iOS 6.0, *)
-  func predicateForRemindersInCalendars(calendars: [EKCalendar]?) -> NSPredicate
+  func predicateForRemindersIn(calendars: [EKCalendar]?) -> NSPredicate
 
   /*!
       @method     predicateForIncompleteRemindersWithDueDateStarting:ending:calendars:
@@ -886,7 +886,7 @@ typealias EKEventStoreRequestAccessCompletionHandler = (Bool, NSError?) -> Void
 let EKEventStoreChangedNotification: String
 class EKObject : NSObject {
   var hasChanges: Bool { get }
-  var new: Bool { get }
+  var isNew: Bool { get }
   func reset()
   func rollback()
   func refresh() -> Bool
@@ -904,7 +904,7 @@ class EKParticipant : EKObject, NSCopying {
       @property   url
       @abstract   URL representing this participant.
   */
-  var URL: NSURL { get }
+  var url: NSURL { get }
 
   /*!
       @property   name
@@ -939,7 +939,7 @@ class EKParticipant : EKObject, NSCopying {
                   owner of this account.
    */
   @available(iOS 6.0, *)
-  var currentUser: Bool { get }
+  var isCurrentUser: Bool { get }
 
   /*!
       @method     contactPredicate
@@ -959,10 +959,10 @@ class EKParticipant : EKObject, NSCopying {
                   passed. If we cannot find the participant, nil is returned.
   */
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use contactPredicate instead")
-  func ABRecordWithAddressBook(addressBook: ABAddressBook) -> ABRecord?
+  func abRecordWith(addressBook: ABAddressBook) -> ABRecord?
   init()
   @available(iOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -1020,7 +1020,7 @@ class EKRecurrenceDayOfWeek : NSObject, NSCopying {
   var weekNumber: Int { get }
   init()
   @available(iOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -1048,7 +1048,7 @@ class EKRecurrenceEnd : NSObject, NSCopying {
       @method     recurrenceEndWithEndDate:
       @abstract   Creates an autoreleased recurrence end with a specific end date.
   */
-  convenience init(endDate: NSDate)
+  convenience init(end endDate: NSDate)
 
   /*!
       @method     recurrenceEndWithOccurrenceCount:
@@ -1069,7 +1069,7 @@ class EKRecurrenceEnd : NSObject, NSCopying {
   var occurrenceCount: Int { get }
   init()
   @available(iOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -1092,7 +1092,7 @@ class EKRecurrenceRule : EKObject, NSCopying {
       @discussion This is used to create a simple recurrence with a specific type, interval and end. If interval is
                   0, an exception is raised. The end parameter can be nil.
   */
-  init(recurrenceWithFrequency type: EKRecurrenceFrequency, interval: Int, end: EKRecurrenceEnd?)
+  init(recurrenceWith type: EKRecurrenceFrequency, interval: Int, end: EKRecurrenceEnd?)
 
   /*!
       @method     initRecurrenceWithFrequency:interval:daysOfTheWeek:daysOfTheMonth:monthsOfTheYear:weeksOfTheYear:daysOfTheYear:setPositions:end:
@@ -1121,7 +1121,7 @@ class EKRecurrenceRule : EKObject, NSCopying {
                                   daysOfTheYear is passed. Ignored otherwise. Corresponds to the BYSETPOS value in the iCalendar specification.
       @param      end             The recurrence end, or nil.
   */
-  init(recurrenceWithFrequency type: EKRecurrenceFrequency, interval: Int, daysOfTheWeek days: [EKRecurrenceDayOfWeek]?, daysOfTheMonth monthDays: [NSNumber]?, monthsOfTheYear months: [NSNumber]?, weeksOfTheYear: [NSNumber]?, daysOfTheYear: [NSNumber]?, setPositions: [NSNumber]?, end: EKRecurrenceEnd?)
+  init(recurrenceWith type: EKRecurrenceFrequency, interval: Int, daysOfTheWeek days: [EKRecurrenceDayOfWeek]?, daysOfTheMonth monthDays: [NSNumber]?, monthsOfTheYear months: [NSNumber]?, weeksOfTheYear: [NSNumber]?, daysOfTheYear: [NSNumber]?, setPositions: [NSNumber]?, end: EKRecurrenceEnd?)
 
   /*!
       @property       calendarIdentifier;
@@ -1219,7 +1219,7 @@ class EKRecurrenceRule : EKObject, NSCopying {
   var setPositions: [NSNumber]? { get }
   init()
   @available(iOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -1262,7 +1262,7 @@ class EKReminder : EKCalendarItem {
       @discussion Setting it to YES will set the completed date to the current date. 
                   Setting it to NO will set the completed date to nil.
   */
-  var completed: Bool
+  var isCompleted: Bool
 
   /*!
       @property   completionDate
@@ -1292,7 +1292,7 @@ class EKSource : EKObject {
                 support a given entity type (reminders, events)
    */
   @available(iOS 6.0, *)
-  func calendarsForEntityType(entityType: EKEntityType) -> Set<EKCalendar>
+  func calendarsFor(entityType: EKEntityType) -> Set<EKCalendar>
   init()
 }
 @available(iOS 6.0, *)
@@ -1303,7 +1303,7 @@ class EKStructuredLocation : EKObject, NSCopying {
   var radius: Double
   init()
   @available(iOS 6.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!

@@ -4840,7 +4840,7 @@ protocol IMKTextInput {
   				You can test for this by comparing the string's length against the range you included as the range parameter.
   */
   @available(OSX 10.0, *)
-  func attributedSubstringFromRange(range: NSRange) -> NSAttributedString!
+  func attributedSubstringFrom(range: NSRange) -> NSAttributedString!
 
   /*!
       @method     
@@ -4860,7 +4860,7 @@ protocol IMKTextInput {
                   
                  If the point is not inside the text body the returned value will be NSNotFound.  If the point is inside the text body and inside the marked range inMarkedRange will be set to YES.  If it is outside the markedRange it will be set to NO.
   */
-  func characterIndexForPoint(point: NSPoint, tracking mappingMode: IMKLocationToOffsetMappingMode, inMarkedRange: UnsafeMutablePointer<ObjCBool>) -> Int
+  func characterIndexFor(point: NSPoint, tracking mappingMode: IMKLocationToOffsetMappingMode, inMarkedRange: UnsafeMutablePointer<ObjCBool>) -> Int
 
   /*!
       @method     - (NSDictionary*)attributesForCharacterIndex:(NSUInteger)index lineHeightRectangle:(NSRect*)lineRect;
@@ -4956,7 +4956,7 @@ protocol IMKTextInput {
   				The parameter actualRange will contain the real range of the string in this case.
   */
   @available(OSX 10.7, *)
-  func stringFromRange(range: NSRange, actualRange: NSRangePointer) -> String!
+  func stringFrom(range: NSRange, actualRange: NSRangePointer) -> String!
   @available(OSX 10.7, *)
   func firstRectForCharacterRange(aRange: NSRange, actualRange: NSRangePointer) -> NSRect
 }

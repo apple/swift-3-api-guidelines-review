@@ -4,7 +4,7 @@ var UNIFIED_CORE_IMAGE: Int32 { get }
 class CIColor : NSObject, NSSecureCoding, NSCopying {
   convenience init(red r: CGFloat, green g: CGFloat, blue b: CGFloat)
   convenience init(string representation: String)
-  init(CGColor c: CGColor)
+  init(cgColor c: CGColor)
   convenience init(red r: CGFloat, green g: CGFloat, blue b: CGFloat, alpha a: CGFloat)
   var numberOfComponents: Int { get }
   var components: UnsafePointer<CGFloat> { get }
@@ -18,37 +18,37 @@ class CIColor : NSObject, NSSecureCoding, NSCopying {
   @available(tvOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 5.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(tvOS 5.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 5.0, *)
 class CIContext : NSObject {
   @available(tvOS 9.0, *)
-  /*not inherited*/ init(CGContext cgctx: CGContext, options: [String : AnyObject]?)
+  /*not inherited*/ init(cgContext cgctx: CGContext, options: [String : AnyObject]?)
   @available(tvOS 5.0, *)
   /*not inherited*/ init(options: [String : AnyObject]?)
   @available(tvOS 5.0, *)
-  /*not inherited*/ init(EAGLContext eaglContext: EAGLContext)
+  /*not inherited*/ init(eaglContext: EAGLContext)
   @available(tvOS 5.0, *)
-  /*not inherited*/ init(EAGLContext eaglContext: EAGLContext, options: [String : AnyObject]?)
+  /*not inherited*/ init(eaglContext: EAGLContext, options: [String : AnyObject]?)
   @available(tvOS 9.0, *)
-  /*not inherited*/ init(MTLDevice device: MTLDevice)
+  /*not inherited*/ init(mtlDevice device: MTLDevice)
   @available(tvOS 9.0, *)
-  /*not inherited*/ init(MTLDevice device: MTLDevice, options: [String : AnyObject]?)
+  /*not inherited*/ init(mtlDevice device: MTLDevice, options: [String : AnyObject]?)
   @available(tvOS 9.0, *)
   var workingColorSpace: CGColorSpace { get }
-  func drawImage(image: CIImage, inRect: CGRect, fromRect: CGRect)
-  func createCGImage(image: CIImage, fromRect: CGRect) -> CGImage
-  func createCGImage(image: CIImage, fromRect: CGRect, format: CIFormat, colorSpace: CGColorSpace?) -> CGImage
+  func draw(image: CIImage, `in` inRect: CGRect, from fromRect: CGRect)
+  func createCGImage(image: CIImage, from fromRect: CGRect) -> CGImage
+  func createCGImage(image: CIImage, from fromRect: CGRect, format: CIFormat, colorSpace: CGColorSpace?) -> CGImage
   func render(image: CIImage, toBitmap data: UnsafeMutablePointer<Void>, rowBytes: Int, bounds: CGRect, format: CIFormat, colorSpace: CGColorSpace?)
   @available(tvOS 5.0, *)
-  func render(image: CIImage, toCVPixelBuffer buffer: CVPixelBuffer)
+  func render(image: CIImage, to buffer: CVPixelBuffer)
   @available(tvOS 5.0, *)
-  func render(image: CIImage, toCVPixelBuffer buffer: CVPixelBuffer, bounds: CGRect, colorSpace: CGColorSpace?)
+  func render(image: CIImage, to buffer: CVPixelBuffer, bounds: CGRect, colorSpace: CGColorSpace?)
   @available(tvOS 9.0, *)
-  func render(image: CIImage, toMTLTexture texture: MTLTexture, commandBuffer: MTLCommandBuffer?, bounds: CGRect, colorSpace: CGColorSpace)
+  func render(image: CIImage, to texture: MTLTexture, commandBuffer: MTLCommandBuffer?, bounds: CGRect, colorSpace: CGColorSpace)
   @available(tvOS 5.0, *)
   func inputImageMaximumSize() -> CGSize
   @available(tvOS 5.0, *)
@@ -91,13 +91,13 @@ class CIDetector : NSObject {
   /** Returns an array of CIFeature instances in the given image.
    The array is sorted by confidence, highest confidence first. */
   @available(tvOS 5.0, *)
-  func featuresInImage(image: CIImage) -> [CIFeature]
+  func featuresIn(image: CIImage) -> [CIFeature]
 
   /** Returns an array of CIFeature instances in the given image.
    The array is sorted by confidence, highest confidence first. 
    The options dictionary can contain a CIDetectorImageOrientation key value. */
   @available(tvOS 5.0, *)
-  func featuresInImage(image: CIImage, options: [String : AnyObject]?) -> [CIFeature]
+  func featuresIn(image: CIImage, options: [String : AnyObject]?) -> [CIFeature]
   init()
 }
 @available(tvOS 5.0, *)
@@ -181,8 +181,8 @@ class CIFaceFeature : CIFeature {
   var hasFaceAngle: Bool { get }
   var faceAngle: Float { get }
   var hasSmile: Bool { get }
-  var leftEyeClosed: Bool { get }
-  var rightEyeClosed: Bool { get }
+  var isLeftEyeClosed: Bool { get }
+  var isRightEyeClosed: Bool { get }
   init()
 }
 
@@ -424,10 +424,10 @@ class CIFilter : NSObject, NSSecureCoding, NSCopying {
   @available(tvOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 5.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(tvOS 5.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 extension CIFilter {
@@ -484,7 +484,7 @@ extension CIFilter {
 }
 extension CIFilter {
   @available(tvOS 6.0, *)
-  class func serializedXMPFromFilters(filters: [CIFilter], inputImageExtent extent: CGRect) -> NSData
+  class func serializedXMPFrom(filters: [CIFilter], inputImageExtent extent: CGRect) -> NSData
   @available(tvOS 6.0, *)
   class func filterArrayFromSerializedXMP(xmpData: NSData, inputImageExtent extent: CGRect, error outError: NSErrorPointer) -> [CIFilter]
 }
@@ -498,49 +498,49 @@ class CIFilterShape : NSObject, NSCopying {
   func transformBy(m: CGAffineTransform, interior flag: Bool) -> CIFilterShape
   func insetByX(dx: Int32, y dy: Int32) -> CIFilterShape
   func unionWith(s2: CIFilterShape) -> CIFilterShape
-  func unionWithRect(r: CGRect) -> CIFilterShape
+  func unionWith(r: CGRect) -> CIFilterShape
   func intersectWith(s2: CIFilterShape) -> CIFilterShape
-  func intersectWithRect(r: CGRect) -> CIFilterShape
+  func intersectWith(r: CGRect) -> CIFilterShape
   var extent: CGRect { get }
   init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 5.0, *)
 class CIImage : NSObject, NSSecureCoding, NSCopying {
-  class func emptyImage() -> CIImage
-  init(CGImage image: CGImage)
-  init(CGImage image: CGImage, options: [String : AnyObject]?)
+  class func empty() -> CIImage
+  init(cgImage image: CGImage)
+  init(cgImage image: CGImage, options: [String : AnyObject]?)
   init?(data: NSData)
   init?(data: NSData, options: [String : AnyObject]?)
   init(bitmapData data: NSData, bytesPerRow: Int, size: CGSize, format: CIFormat, colorSpace: CGColorSpace?)
   @available(tvOS 6.0, *)
   init(texture name: UInt32, size: CGSize, flipped: Bool, colorSpace: CGColorSpace?)
   @available(tvOS 9.0, *)
-  init(MTLTexture texture: MTLTexture, options: [String : AnyObject]?)
-  init?(contentsOfURL url: NSURL)
-  init?(contentsOfURL url: NSURL, options: [String : AnyObject]?)
+  init(mtlTexture texture: MTLTexture, options: [String : AnyObject]?)
+  init?(contentsOf url: NSURL)
+  init?(contentsOf url: NSURL, options: [String : AnyObject]?)
   @available(tvOS 9.0, *)
-  init(CVImageBuffer imageBuffer: CVImageBuffer)
+  init(cvImageBuffer imageBuffer: CVImageBuffer)
   @available(tvOS 9.0, *)
-  init(CVImageBuffer imageBuffer: CVImageBuffer, options: [String : AnyObject]?)
+  init(cvImageBuffer imageBuffer: CVImageBuffer, options: [String : AnyObject]?)
   @available(tvOS 5.0, *)
-  init(CVPixelBuffer pixelBuffer: CVPixelBuffer)
+  init(cvPixelBuffer pixelBuffer: CVPixelBuffer)
   @available(tvOS 5.0, *)
-  init(CVPixelBuffer pixelBuffer: CVPixelBuffer, options: [String : AnyObject]?)
+  init(cvPixelBuffer pixelBuffer: CVPixelBuffer, options: [String : AnyObject]?)
   init(color: CIColor)
-  func imageByApplyingTransform(matrix: CGAffineTransform) -> CIImage
+  func applying(matrix: CGAffineTransform) -> CIImage
   @available(tvOS 8.0, *)
-  func imageByApplyingOrientation(orientation: Int32) -> CIImage
+  func applyingOrientation(orientation: Int32) -> CIImage
   @available(tvOS 8.0, *)
   func imageTransformForOrientation(orientation: Int32) -> CGAffineTransform
   @available(tvOS 8.0, *)
-  func imageByCompositingOverImage(dest: CIImage) -> CIImage
-  func imageByCroppingToRect(rect: CGRect) -> CIImage
+  func byCompositingOverImage(dest: CIImage) -> CIImage
+  func byCroppingTo(rect: CGRect) -> CIImage
   @available(tvOS 8.0, *)
-  func imageByClampingToExtent() -> CIImage
+  func byClampingToExtent() -> CIImage
   @available(tvOS 8.0, *)
-  func imageByApplyingFilter(filterName: String, withInputParameters params: [String : AnyObject]?) -> CIImage
+  func applyingFilter(filterName: String, withInputParameters params: [String : AnyObject]?) -> CIImage
   var extent: CGRect { get }
   @available(tvOS 5.0, *)
   var properties: [String : AnyObject] { get }
@@ -549,15 +549,15 @@ class CIImage : NSObject, NSSecureCoding, NSCopying {
   @available(tvOS 9.0, *)
   var colorSpace: CGColorSpace? { get }
   @available(tvOS 6.0, *)
-  func regionOfInterestForImage(image: CIImage, inRect rect: CGRect) -> CGRect
+  func regionOfInterestFor(image: CIImage, `in` rect: CGRect) -> CGRect
   init()
   @available(tvOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 5.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(tvOS 5.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 typealias CIFormat = Int32
 @available(tvOS 6.0, *)
@@ -640,7 +640,7 @@ typealias CIKernelROICallback = (Int32, CGRect) -> CGRect
 @available(tvOS 8.0, *)
 class CIKernel : NSObject {
   @available(tvOS 8.0, *)
-  class func kernelsWithString(string: String) -> [CIKernel]?
+  class func kernelsWith(string: String) -> [CIKernel]?
   @available(tvOS 8.0, *)
   convenience init?(string: String)
   @available(tvOS 8.0, *)
@@ -675,7 +675,7 @@ class CISampler : NSObject, NSCopying {
   var extent: CGRect { get }
   convenience init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 9.0, *)
 let kCISamplerAffineMatrix: String
@@ -701,31 +701,31 @@ class CIVector : NSObject, NSCopying, NSSecureCoding {
   convenience init(x: CGFloat, y: CGFloat, z: CGFloat)
   convenience init(x: CGFloat, y: CGFloat, z: CGFloat, w: CGFloat)
   @available(tvOS 5.0, *)
-  convenience init(CGPoint p: CGPoint)
+  convenience init(cgPoint p: CGPoint)
   @available(tvOS 5.0, *)
-  convenience init(CGRect r: CGRect)
+  convenience init(cgRect r: CGRect)
   @available(tvOS 5.0, *)
-  convenience init(CGAffineTransform r: CGAffineTransform)
+  convenience init(cgAffineTransform r: CGAffineTransform)
   convenience init(string representation: String)
-  func valueAtIndex(index: Int) -> CGFloat
+  func valueAt(index: Int) -> CGFloat
   var count: Int { get }
-  var X: CGFloat { get }
-  var Y: CGFloat { get }
-  var Z: CGFloat { get }
-  var W: CGFloat { get }
+  var x: CGFloat { get }
+  var y: CGFloat { get }
+  var z: CGFloat { get }
+  var w: CGFloat { get }
   @available(tvOS 5.0, *)
-  var CGPointValue: CGPoint { get }
+  var cgPointValue: CGPoint { get }
   @available(tvOS 5.0, *)
-  var CGRectValue: CGRect { get }
+  var cgRectValue: CGRect { get }
   @available(tvOS 5.0, *)
-  var CGAffineTransformValue: CGAffineTransform { get }
+  var cgAffineTransformValue: CGAffineTransform { get }
   var stringRepresentation: String { get }
   convenience init()
   @available(tvOS 5.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(tvOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 5.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

@@ -41,14 +41,14 @@ class NKAssetDownload : NSObject {
    @property   URLRequest
    @abstract   The NSURLRequest of the download
    */
-  @NSCopying var URLRequest: NSURLRequest { get }
+  @NSCopying var urlRequest: NSURLRequest { get }
 
   /*!
    @method     downloadWithDelegate:
    @abstract   Begins downloading the asset with the specified delegate. Delegate
    may not be nil.
    */
-  func downloadWithDelegate(delegate: NSURLConnectionDownloadDelegate) -> NSURLConnection
+  func downloadWith(delegate: NSURLConnectionDownloadDelegate) -> NSURLConnection
   init()
 }
 
@@ -125,7 +125,7 @@ class NKIssue : NSObject {
    @abstract   Add a downloading asset to this issue. Initiate the download for this
    asset with the downloadWithDelegate: method on the NKAssetDownload.
    */
-  func addAssetWithRequest(request: NSURLRequest) -> NKAssetDownload
+  func addAssetWith(request: NSURLRequest) -> NKAssetDownload
   init()
 }
 
@@ -167,7 +167,7 @@ class NKLibrary : NSObject {
    @method     sharedLibrary
    @abstract   The application's shared Newsstand Content Library
    */
-  class func sharedLibrary() -> NKLibrary?
+  class func shared() -> NKLibrary?
 
   /*!
    @method     issueWithName:

@@ -28,7 +28,7 @@ class TVApplicationControllerContext : NSObject, NSCopying {
   var launchOptions: [String : AnyObject]
   init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 protocol TVApplicationControllerDelegate : NSObjectProtocol {
 
@@ -36,7 +36,7 @@ protocol TVApplicationControllerDelegate : NSObjectProtocol {
    @brief This method lets delegate to add JavaScript classes and objects.
    */
   @available(tvOS 9.0, *)
-  optional func appController(appController: TVApplicationController, evaluateAppJavaScriptInContext jsContext: JSContext)
+  optional func appController(appController: TVApplicationController, evaluateAppJavaScriptIn jsContext: JSContext)
 
   /*!
    @brief Tells the delegate that the application did finish launching.
@@ -48,7 +48,7 @@ protocol TVApplicationControllerDelegate : NSObjectProtocol {
    @brief Tells the delegate that the application failed to load.
    */
   @available(tvOS 9.0, *)
-  optional func appController(appController: TVApplicationController, didFailWithError error: NSError)
+  optional func appController(appController: TVApplicationController, didFailWith error: NSError)
 
   /*!
    @brief Tells the delegate that the application did stop.
@@ -91,7 +91,7 @@ class TVApplicationController : NSObject {
    @param completion Invoked after the evaluation block has been executed.
               evaluated is YES if the block was evaluated; NO otherwise.
    */
-  func evaluateInJavaScriptContext(evaluation: (JSContext) -> Void, completion: ((Bool) -> Void)?)
+  func evaluateInJavaScriptContext(evaluation: (JSContext) -> Void, completion: ((Bool) -> Void)? = nil)
 
   /*!
    @brief Stops the application lifecycle. appController:didStopWithOptions: is
@@ -122,7 +122,7 @@ class TVColor : NSObject, NSCopying {
   var gradientPoints: [NSNumber]? { get }
   init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -149,7 +149,7 @@ enum TVImageType : Int {
  */
 @available(tvOS 9.0, *)
 class TVImageElement : TVViewElement {
-  var URL: NSURL? { get }
+  var url: NSURL? { get }
   var srcset: [String : NSURL]? { get }
   var imageType: TVImageType { get }
   init()
@@ -162,14 +162,14 @@ protocol TVInterfaceCreating : NSObjectProtocol {
           Application must return nil if event is not handled.
    */
   @available(tvOS 9.0, *)
-  optional func viewForElement(element: TVViewElement, existingView: UIView?) -> UIView?
+  optional func viewFor(element: TVViewElement, existing existingView: UIView?) -> UIView?
 
   /*!
    @description Return a view controller for the given view element. It is preferred to reuse the existingViewController if it can be updated.
           Application must return nil if event is not handled.
    */
   @available(tvOS 9.0, *)
-  optional func viewControllerForElement(element: TVViewElement, existingViewController: UIViewController?) -> UIViewController?
+  optional func viewControllerFor(element: TVViewElement, existing existingViewController: UIViewController?) -> UIViewController?
 
   /*!
    @description Return a URL given the resource name. The resource name is retrieved from a resource URL specified in elements like badge, img etc. 
@@ -177,7 +177,7 @@ protocol TVInterfaceCreating : NSObjectProtocol {
           nil if event is not handled.
    */
   @available(tvOS 9.0, *)
-  optional func URLForResource(resourceName: String) -> NSURL?
+  optional func urlForResource(resourceName: String) -> NSURL?
 }
 
 /*!
@@ -189,7 +189,7 @@ class TVInterfaceFactory : NSObject, TVInterfaceCreating {
   /*!
    @abstract Returns the singelton instance of the interface factory.
    */
-  class func sharedInterfaceFactory() -> Self
+  class func shared() -> Self
 
   /*!
    @description Application must provide its own implementation to handle custom registered elements. Optionally application can also override framework implementation of farmework defined elements.
@@ -203,14 +203,14 @@ class TVInterfaceFactory : NSObject, TVInterfaceCreating {
           Application must return nil if event is not handled.
    */
   @available(tvOS 9.0, *)
-  func viewForElement(element: TVViewElement, existingView: UIView?) -> UIView?
+  func viewFor(element: TVViewElement, existing existingView: UIView?) -> UIView?
 
   /*!
    @description Return a view controller for the given view element. It is preferred to reuse the existingViewController if it can be updated.
           Application must return nil if event is not handled.
    */
   @available(tvOS 9.0, *)
-  func viewControllerForElement(element: TVViewElement, existingViewController: UIViewController?) -> UIViewController?
+  func viewControllerFor(element: TVViewElement, existing existingViewController: UIViewController?) -> UIViewController?
 
   /*!
    @description Return a URL given the resource name. The resource name is retrieved from a resource URL specified in elements like badge, img etc. 
@@ -218,7 +218,7 @@ class TVInterfaceFactory : NSObject, TVInterfaceCreating {
           nil if event is not handled.
    */
   @available(tvOS 9.0, *)
-  func URLForResource(resourceName: String) -> NSURL?
+  func urlForResource(resourceName: String) -> NSURL?
 }
 @available(tvOS 9.0, *)
 let TVMLKitErrorDomain: String
@@ -271,8 +271,8 @@ enum TVTextElementStyle : Int {
 class TVTextElement : TVViewElement {
   var attributedText: NSAttributedString? { get }
   var textStyle: TVTextElementStyle { get }
-  func attributedStringWithFont(font: UIFont) -> NSAttributedString
-  func attributedStringWithFont(font: UIFont, foregroundColor: UIColor?, textAlignment alignment: NSTextAlignment) -> NSAttributedString
+  func attributedStringWith(font: UIFont) -> NSAttributedString
+  func attributedStringWith(font: UIFont, foregroundColor: UIColor?, textAlignment alignment: NSTextAlignment) -> NSAttributedString
   init()
 }
 @available(tvOS 9.0, *)
@@ -342,12 +342,12 @@ enum TVElementResettableProperty : Int {
 class TVViewElement : NSObject, NSCopying {
   var elementIdentifier: String { get }
   var elementName: String { get }
-  weak var parentViewElement: @sil_weak TVViewElement? { get }
+  weak var parent: @sil_weak TVViewElement? { get }
   var childViewElements: [TVViewElement]? { get }
   var attributes: [String : String]? { get }
   var style: TVViewElementStyle? { get }
   var autoHighlightIdentifier: String? { get }
-  var disabled: Bool
+  var isDisabled: Bool
   var updateType: TVElementUpdateType { get }
 
   /*!
@@ -356,11 +356,11 @@ class TVViewElement : NSObject, NSCopying {
    */
   @available(tvOS 9.0, *)
   func resetProperty(resettableProperty: TVElementResettableProperty)
-  func dispatchEventOfType(type: TVElementEventType, canBubble: Bool, cancellable isCancellable: Bool, extraInfo: [String : AnyObject]?, completion: ((Bool, Bool) -> Void)?)
-  func dispatchEventWithName(eventName: String, canBubble: Bool, cancellable isCancellable: Bool, extraInfo: [String : AnyObject]?, completion: ((Bool, Bool) -> Void)?)
+  func dispatchEventOf(type: TVElementEventType, canBubble: Bool, cancellable isCancellable: Bool, extraInfo: [String : AnyObject]?, completion: ((Bool, Bool) -> Void)? = nil)
+  func dispatchEventWithName(eventName: String, canBubble: Bool, cancellable isCancellable: Bool, extraInfo: [String : AnyObject]?, completion: ((Bool, Bool) -> Void)? = nil)
   init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 9.0, *)
 enum TVElementAlignment : Int {
@@ -431,5 +431,5 @@ class TVViewElementStyle : NSObject, NSCopying {
   var tintColor: TVColor? { get }
   init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }

@@ -72,7 +72,7 @@ class MTKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
    @param type Type of data to be stored in this buffer
    */
   @available(tvOS 9.0, *)
-  func newBufferWithData(data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBufferWith(data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
 
   /*!
    @method newBufferFromZone:length:type:
@@ -89,7 +89,7 @@ class MTKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
   
    */
   @available(tvOS 9.0, *)
-  func newBufferFromZone(zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFrom(zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
 
   /*!
    @method newBufferFromZone:data:type:
@@ -106,7 +106,7 @@ class MTKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
                buffer could not be allocated.
    */
   @available(tvOS 9.0, *)
-  func newBufferFromZone(zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFrom(zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 
 /*!
@@ -159,7 +159,7 @@ class MTKMeshBuffer : NSObject, MDLMeshBuffer {
                this buffer.
    */
   @available(tvOS 9.0, *)
-  func fillData(data: NSData, offset: Int)
+  func fill(data: NSData, offset: Int)
 
   /*!
    @method map
@@ -174,7 +174,7 @@ class MTKMeshBuffer : NSObject, MDLMeshBuffer {
   @available(tvOS 9.0, *)
   func map() -> MDLMeshBufferMap
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -257,7 +257,7 @@ class MTKMesh : NSObject {
    @return MetalKit Meshes created from the Model I/O asset
    @discussion A convenience method to create MetalKit meshes from each mesh in a Model/IO asset.  Resulting meshes are returned while the Model I/O meshes from which they were generated will appear in the sourceMeshes array.  All vertexBuffer objects in each MDLMesh object in the asset and the indexBuffer of each submesh within each of these meshes must have been created using a MTKMeshBufferAllocator object.
    */
-  class func newMeshesFromAsset(asset: MDLAsset, device: MTLDevice, sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [MTKMesh]
+  class func newMeshesFrom(asset: MDLAsset, device: MTLDevice, sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [MTKMesh]
 
   /*!
    @property vertexBuffers
@@ -392,7 +392,7 @@ class MTKTextureLoader : NSObject {
    @param options Dictonary of MTKTextureLoaderOptions
    @param completionHandler Block called when the texture has been loaded and fully initialized
    */
-  func newTextureWithContentsOfURL(URL: NSURL, options: [String : NSNumber]?, completionHandler: MTKTextureLoaderCallback)
+  func newTextureWithContentsOf(URL: NSURL, options: [String : NSNumber]?, completionHandler: MTKTextureLoaderCallback)
 
   /*!
    @method newTextureWithData:options:completionHandler:
@@ -401,7 +401,7 @@ class MTKTextureLoader : NSObject {
    @param options Dictonary of MTKTextureLoaderOptions
    @param completionHandler Block called when texture has been loaded and fully initialized
    */
-  func newTextureWithData(data: NSData, options: [String : NSNumber]?, completionHandler: MTKTextureLoaderCallback)
+  func newTextureWith(data: NSData, options: [String : NSNumber]?, completionHandler: MTKTextureLoaderCallback)
 
   /*!
    @method newTextureWithCGImage:options:completionHandler:
@@ -410,7 +410,7 @@ class MTKTextureLoader : NSObject {
    @param options Dictonary of MTKTextureLoaderOptions
    @param completionHandler Block called when texture has been loaded and fully initialized
    */
-  func newTextureWithCGImage(cgImage: CGImage, options: [String : NSNumber]?, completionHandler: MTKTextureLoaderCallback)
+  func newTextureWith(cgImage: CGImage, options: [String : NSNumber]?, completionHandler: MTKTextureLoaderCallback)
 
   /*!
    @method newTextureWithContentsOfURL:options:error:
@@ -420,7 +420,7 @@ class MTKTextureLoader : NSObject {
    @param options Dictonary of MTKTextureLoaderOptions
    @param error Pointer to an autoreleased NSError object which will be set if an error occurred
    */
-  func newTextureWithContentsOfURL(URL: NSURL, options: [String : NSNumber]?) throws -> MTLTexture
+  func newTextureWithContentsOf(URL: NSURL, options: [String : NSNumber]?) throws -> MTLTexture
 
   /*!
    @method newTextureWithData:options:error:
@@ -430,7 +430,7 @@ class MTKTextureLoader : NSObject {
    @param options Dictonary of MTKTextureLoaderOptions
    @param error Pointer to an autoreleased NSError object which will be set if an error occurred
    */
-  func newTextureWithData(data: NSData, options: [String : NSNumber]?) throws -> MTLTexture
+  func newTextureWith(data: NSData, options: [String : NSNumber]?) throws -> MTLTexture
 
   /*!
    @method newTextureWithCGImage:options:error:
@@ -440,7 +440,7 @@ class MTKTextureLoader : NSObject {
    @param options Dictonary of MTKTextureLoaderOptions
    @param error Pointer to an autoreleased NSError object which will be set if an error occurred
    */
-  func newTextureWithCGImage(cgImage: CGImage, options: [String : NSNumber]?) throws -> MTLTexture
+  func newTextureWith(cgImage: CGImage, options: [String : NSNumber]?) throws -> MTLTexture
 }
 
 /*!
@@ -490,7 +490,7 @@ class MTKView : UIView, NSCoding {
    @abstract If the currentDrawable can be used for sampling or texture read operations
    @discussion This defaults to YES. This property controls whether or not the returned drawables' MTLTextures may only be used for framebuffer attachments (YES) or whether they may also be used for texture sampling and pixel read/write operations (NO). A value of YES allows the CAMetalLayer to allocate the MTLTexture objects in ways that are optimized for display purposes that makes them unsuitable for sampling. The recommended value for most applications is YES.
    */
-  var framebufferOnly: Bool
+  var isFramebufferOnly: Bool
 
   /*!
    @property presentsWithTransaction
@@ -586,7 +586,7 @@ class MTKView : UIView, NSCoding {
    @abstract Controls whether to resize the drawable as the view changes size.
    @discussion If true, the size of the currentDrawable's texture, depthStencilTexture, and multisampleColorTexture will automatically resize as the view resizes.  If false, these textures will take on the size of drawableSize and drawaableSize will not change. The default value is true.
    */
-  var autoResizeDrawable: Bool
+  var isAutoResizeDrawable: Bool
 
   /*!
    @property drawableSize
@@ -600,7 +600,7 @@ class MTKView : UIView, NSCoding {
    @abstract Controls whether the draw methods should countinue at preferredFramesPerSecond
    @discussion If true, the delegate will receive drawInMTKView: messages or the subclass will receive drawRect: messages at a rate of preferredFramesPerSecond based on an internal timer. The default value is false.
    */
-  var paused: Bool
+  var isPaused: Bool
 
   /*!
    @method draw
@@ -633,5 +633,5 @@ protocol MTKViewDelegate : NSObjectProtocol {
    @abstract Called on the delegate when it is asked to render into the view
    @discussion Called on the delegate when it is asked to render into the view
    */
-  func drawInMTKView(view: MTKView)
+  func drawIn(view: MTKView)
 }

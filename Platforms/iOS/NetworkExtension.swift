@@ -64,7 +64,7 @@ class NEAppProxyFlow : NSObject {
    * @param error An error in NEAppProxyErrorDomain that should be passed to the flow's source application.
    */
   @available(iOS 9.0, *)
-  func closeReadWithError(error: NSError?)
+  func closeReadWith(error: NSError?)
 
   /*!
    * @method closeWriteWithError:
@@ -72,7 +72,7 @@ class NEAppProxyFlow : NSObject {
    * @param error An error in NEAppProxyErrorDomain that should be passed to the flow's source application.
    */
   @available(iOS 9.0, *)
-  func closeWriteWithError(error: NSError?)
+  func closeWriteWith(error: NSError?)
 
   /*!
    * @property metaData
@@ -131,7 +131,7 @@ class NEAppProxyProvider : NETunnelProvider {
    * @param completionHandler A block that must be called when the proxy is completely stopped.
    */
   @available(iOS 9.0, *)
-  func stopProxyWithReason(reason: NEProviderStopReason, completionHandler: () -> Void)
+  func stopProxyWith(reason: NEProviderStopReason, completionHandler: () -> Void)
 
   /*!
    * @method cancelProxyWithError:
@@ -139,7 +139,7 @@ class NEAppProxyProvider : NETunnelProvider {
    * @param error An NSError object containing details about the error that the prxoy provider implementation encountered.
    */
   @available(iOS 9.0, *)
-  func cancelProxyWithError(error: NSError?)
+  func cancelProxyWith(error: NSError?)
 
   /*!
    * @method handleNewFlow:
@@ -197,7 +197,7 @@ class NEAppProxyTCPFlow : NEAppProxyFlow {
    * @param completionHandler A block that will be executed when the data is written into the associated socket's receive buffer. The caller should use this callback as an indication that it is possible to write more data to the flow without using up excessive buffer memory. If an error occurs while writing the data then a non-nil NSError object is passed to the block.
    */
   @available(iOS 9.0, *)
-  func writeData(data: NSData, withCompletionHandler completionHandler: (NSError?) -> Void)
+  func write(data: NSData, withCompletionHandler completionHandler: (NSError?) -> Void)
 
   /*!
    * @property remoteEndpoint
@@ -235,7 +235,7 @@ class NEAppProxyUDPFlow : NEAppProxyFlow {
    * @param completionHandler A block that will be executed when the datagrams have been written to the corresponding socket's receive buffer.
    */
   @available(iOS 9.0, *)
-  func writeDatagrams(datagrams: [NSData], sentByEndpoints remoteEndpoints: [NWEndpoint], completionHandler: (NSError?) -> Void)
+  func writeDatagrams(datagrams: [NSData], sentBy remoteEndpoints: [NWEndpoint], completionHandler: (NSError?) -> Void)
 
   /*!
    * @property localEndpoint
@@ -282,10 +282,10 @@ class NEAppRule : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -341,10 +341,10 @@ class NEDNSSettings : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -380,7 +380,7 @@ class NEFilterControlProvider : NEFilterProvider {
    * @discussion A dictionary containing strings to be appended to URLs.
    */
   @available(iOS 9.0, *)
-  var URLAppendStringMap: [String : String]?
+  var urlAppendStringMap: [String : String]?
 
   /*!
    * @method handleRemediationForFlow:completionHandler:
@@ -389,7 +389,7 @@ class NEFilterControlProvider : NEFilterProvider {
    * @param completionHandler A block that must be called when the NEFilterControlProvider is ready for the NEFilterDataProvider to re-process the new flow. NEFilterControlVerdict stores the verdict through which the control provider determines if a flow needs to be dropped or allowed. The verdict also indicates if the control plugin wants the data plugin to update its rules and handle the verdict.
    */
   @available(iOS 9.0, *)
-  func handleRemediationForFlow(flow: NEFilterFlow, completionHandler: (NEFilterControlVerdict) -> Void)
+  func handleRemediationFor(flow: NEFilterFlow, completionHandler: (NEFilterControlVerdict) -> Void)
 
   /*!
    * @method handleNewFlow:completionHandler:
@@ -434,7 +434,7 @@ class NEFilterDataProvider : NEFilterProvider {
    * @return An NEFilterFlowDataVerdict containing the verdict for the flow.
    */
   @available(iOS 9.0, *)
-  func handleInboundDataFromFlow(flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes: NSData) -> NEFilterDataVerdict
+  func handleInboundDataFrom(flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes: NSData) -> NEFilterDataVerdict
 
   /*!
    * @method handleOutboundDataFromFlow:readBytesStartOffset:readBytes:
@@ -445,7 +445,7 @@ class NEFilterDataProvider : NEFilterProvider {
    * @return An NEFilterFlowDataVerdict containing the verdict for the flow.
    */
   @available(iOS 9.0, *)
-  func handleOutboundDataFromFlow(flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes: NSData) -> NEFilterDataVerdict
+  func handleOutboundDataFrom(flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes: NSData) -> NEFilterDataVerdict
 
   /*!
    * @method handleInboundDataCompleteForFlow:
@@ -454,7 +454,7 @@ class NEFilterDataProvider : NEFilterProvider {
    * @return The final NEFilterFlowDataVerdict verdict for the flow.
    */
   @available(iOS 9.0, *)
-  func handleInboundDataCompleteForFlow(flow: NEFilterFlow) -> NEFilterDataVerdict
+  func handleInboundDataCompleteFor(flow: NEFilterFlow) -> NEFilterDataVerdict
 
   /*!
    * @method handleOutboundDataCompleteForFlow:
@@ -463,7 +463,7 @@ class NEFilterDataProvider : NEFilterProvider {
    * @return The final NEFilterFlowDataVerdict verdict for the flow.
    */
   @available(iOS 9.0, *)
-  func handleOutboundDataCompleteForFlow(flow: NEFilterFlow) -> NEFilterDataVerdict
+  func handleOutboundDataCompleteFor(flow: NEFilterFlow) -> NEFilterDataVerdict
 
   /*!
    * @method handleRemediationForFlow:
@@ -472,7 +472,7 @@ class NEFilterDataProvider : NEFilterProvider {
    * @return The final NEFilterRemediationVerdict verdict for the flow.
    */
   @available(iOS 9.0, *)
-  func handleRemediationForFlow(flow: NEFilterFlow) -> NEFilterRemediationVerdict
+  func handleRemediationFor(flow: NEFilterFlow) -> NEFilterRemediationVerdict
 
   /*!
    * @meethod handleRulesChanged
@@ -498,7 +498,7 @@ class NEFilterDataVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
    * @return The NEFilterDataVerdict object.
    */
   @available(iOS 9.0, *)
-  class func allowVerdict() -> NEFilterDataVerdict
+  class func allow() -> NEFilterDataVerdict
 
   /*!
    * @method dropVerdict
@@ -506,7 +506,7 @@ class NEFilterDataVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
    * @return The NEFilterDataVerdict object.
    */
   @available(iOS 9.0, *)
-  class func dropVerdict() -> NEFilterDataVerdict
+  class func drop() -> NEFilterDataVerdict
 
   /*!
    * @method remediateVerdictWithRemediationURLMapKey:remediationButtonTextMapKey:
@@ -534,7 +534,7 @@ class NEFilterDataVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
    * @return The NEFilterDataVerdict object.
    */
   @available(iOS 9.0, *)
-  class func needRulesVerdict() -> NEFilterDataVerdict
+  class func needRules() -> NEFilterDataVerdict
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -554,7 +554,7 @@ class NEFilterRemediationVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
    * @return The NEFilterRemediationVerdict object.
    */
   @available(iOS 9.0, *)
-  class func allowVerdict() -> NEFilterRemediationVerdict
+  class func allow() -> NEFilterRemediationVerdict
 
   /*!
    * @method dropVerdict
@@ -562,7 +562,7 @@ class NEFilterRemediationVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
    * @return The NEFilterRemediationVerdict object.
    */
   @available(iOS 9.0, *)
-  class func dropVerdict() -> NEFilterRemediationVerdict
+  class func drop() -> NEFilterRemediationVerdict
 
   /*!
    * @method needRulesVerdict
@@ -570,7 +570,7 @@ class NEFilterRemediationVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
    * @return The NEFilterRemediationVerdict object.
    */
   @available(iOS 9.0, *)
-  class func needRulesVerdict() -> NEFilterRemediationVerdict
+  class func needRules() -> NEFilterRemediationVerdict
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -590,15 +590,15 @@ class NEFilterFlow : NSObject, NSSecureCoding, NSCopying {
    * @discussion The flow's HTTP request URL. Will be nil if the flow did not originate from WebKit.
    */
   @available(iOS 9.0, *)
-  var URL: NSURL? { get }
+  var url: NSURL? { get }
   init()
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -727,7 +727,7 @@ class NEFilterManager : NSObject {
    * @return The singleton NEFilterManager object for the calling process.
    */
   @available(iOS 8.0, *)
-  class func sharedManager() -> NEFilterManager
+  class func shared() -> NEFilterManager
 
   /*!
    * @method loadFromPreferencesWithCompletionHandler:
@@ -772,7 +772,7 @@ class NEFilterManager : NSObject {
    * @discussion Toggles the enabled status of the filter. Setting this property will disable filter configurations of other apps. This property will be set to NO when other filter configurations are enabled.
    */
   @available(iOS 8.0, *)
-  var enabled: Bool
+  var isEnabled: Bool
   init()
 }
 
@@ -814,7 +814,7 @@ class NEFilterProvider : NEProvider {
    * @param completionHandler A block that must be called when the process of stopping the filter is complete.
    */
   @available(iOS 9.0, *)
-  func stopFilterWithReason(reason: NEProviderStopReason, completionHandler: () -> Void)
+  func stopFilterWith(reason: NEProviderStopReason, completionHandler: () -> Void)
 
   /*!
    * @property filterConfiguration
@@ -837,10 +837,10 @@ class NEFilterVerdict : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -858,7 +858,7 @@ class NEFilterNewFlowVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
    * @return The NEFilterNewFlowVerdict object.
    */
   @available(iOS 9.0, *)
-  class func needRulesVerdict() -> NEFilterNewFlowVerdict
+  class func needRules() -> NEFilterNewFlowVerdict
 
   /*!
    * @method allowVerdict
@@ -866,7 +866,7 @@ class NEFilterNewFlowVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
    * @return The NEFilterNewFlowVerdict object.
    */
   @available(iOS 9.0, *)
-  class func allowVerdict() -> NEFilterNewFlowVerdict
+  class func allow() -> NEFilterNewFlowVerdict
 
   /*!
    * @method dropVerdict
@@ -874,7 +874,7 @@ class NEFilterNewFlowVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
    * @return The NEFilterNewFlowVerdict object.
    */
   @available(iOS 9.0, *)
-  class func dropVerdict() -> NEFilterNewFlowVerdict
+  class func drop() -> NEFilterNewFlowVerdict
 
   /*!
    * @method remediateVerdictWithRemediationURLMapKey:remediationButtonTextMapKey:
@@ -892,7 +892,7 @@ class NEFilterNewFlowVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
    * @return The NEFilterNewFlowVerdict object.
    */
   @available(iOS 9.0, *)
-  class func URLAppendStringVerdictWithMapKey(urlAppendMapKey: String) -> NEFilterNewFlowVerdict
+  class func urlAppendStringVerdictWithMapKey(urlAppendMapKey: String) -> NEFilterNewFlowVerdict
 
   /*!
    * @method filterDataVerdictWithFilterInbound:peekInboundBytes:filterOutbound:peekOutboundBytes:
@@ -1013,10 +1013,10 @@ class NEFilterProviderConfiguration : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -1122,14 +1122,14 @@ class NEHotspotNetwork : NSObject {
    * @discussion The SSID for the Wi-Fi network.
    */
   @available(iOS 9.0, *)
-  var SSID: String { get }
+  var ssid: String { get }
 
   /*!
    * @property BSSID
    * @discussion The BSSID for the Wi-Fi network.
    */
   @available(iOS 9.0, *)
-  var BSSID: String { get }
+  var bssid: String { get }
 
   /*!
    * @property signalStrength
@@ -1145,7 +1145,7 @@ class NEHotspotNetwork : NSObject {
    * @discussion Indicates whether the network is secure
    */
   @available(iOS 9.0, *)
-  var secure: Bool { get }
+  var isSecure: Bool { get }
 
   /*!
    * @property autoJoined
@@ -1154,7 +1154,7 @@ class NEHotspotNetwork : NSObject {
    *   (YES) or joined by the user (NO).
    */
   @available(iOS 9.0, *)
-  var autoJoined: Bool { get }
+  var isAutoJoined: Bool { get }
 
   /*!
    * @property justJoined
@@ -1164,7 +1164,7 @@ class NEHotspotNetwork : NSObject {
    *   is for the initial join, or the subsequent periodic callback.
    */
   @available(iOS 9.0, *)
-  var justJoined: Bool { get }
+  var isJustJoined: Bool { get }
 
   /*!
    * @property chosenHelper
@@ -1176,7 +1176,7 @@ class NEHotspotNetwork : NSObject {
    *   and restarted.
    */
   @available(iOS 9.0, *)
-  var chosenHelper: Bool { get }
+  var isChosenHelper: Bool { get }
 
   /*!
    * @method setConfidence
@@ -1464,7 +1464,7 @@ extension NSMutableURLRequest {
    *   the NEHotspotHelperCommand object.
    */
   @available(iOS 9.0, *)
-  func bindToHotspotHelperCommand(command: NEHotspotHelperCommand)
+  func bindTo(command: NEHotspotHelperCommand)
 }
 
 /*!
@@ -1517,10 +1517,10 @@ class NEIPv4Settings : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -1573,10 +1573,10 @@ class NEIPv4Route : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -1629,10 +1629,10 @@ class NEIPv6Settings : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -1685,10 +1685,10 @@ class NEIPv6Route : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -1758,14 +1758,14 @@ class NEOnDemandRule : NSObject, NSSecureCoding, NSCopying {
    * @discussion An array of NSString objects. If the current default search domain is equal to one of the strings in this array and all of the other conditions in the rule match, then the rule matches. If this property is nil (the default), then the current default search domain does not factor into the rule match.
    */
   @available(iOS 8.0, *)
-  var DNSSearchDomainMatch: [String]?
+  var dnsSearchDomainMatch: [String]?
 
   /*!
    * @property DNSServerAddressMatch
    * @discussion An array of DNS server IP addresses represented as NSString objects. If each of the current default DNS servers is equal to one of the strings in this array and all of the other conditions in the rule match, then the rule matches. If this property is nil (the default), then the default DNS servers do not factor into the rule match.
    */
   @available(iOS 8.0, *)
-  var DNSServerAddressMatch: [String]?
+  var dnsServerAddressMatch: [String]?
 
   /*!
    * @property interfaceTypeMatch
@@ -1779,7 +1779,7 @@ class NEOnDemandRule : NSObject, NSSecureCoding, NSCopying {
    * @discussion An array of NSString objects. If the Service Set Identifier (SSID) of the current primary connected network matches one of the strings in this array and all of the other conditions in the rule match, then the rule matches. If this property is nil (the default), then the current primary connected network SSID does not factor into the rule match.
    */
   @available(iOS 8.0, *)
-  var SSIDMatch: [String]?
+  var ssidMatch: [String]?
 
   /*!
    * @property probeURL
@@ -1791,10 +1791,10 @@ class NEOnDemandRule : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -1923,10 +1923,10 @@ class NEEvaluateConnectionRule : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -1975,14 +1975,14 @@ class NEPacketTunnelNetworkSettings : NETunnelNetworkSettings {
    * @discussion An NEIPv4Settings object that contains the desired tunnel IPv4 settings.
    */
   @available(iOS 9.0, *)
-  @NSCopying var IPv4Settings: NEIPv4Settings?
+  @NSCopying var iPv4Settings: NEIPv4Settings?
 
   /*!
    * @property IPv6Settings
    * @discussion An NEIPv6Settings object that contains the desired tunnel IPv6 settings.
    */
   @available(iOS 9.0, *)
-  @NSCopying var IPv6Settings: NEIPv6Settings?
+  @NSCopying var iPv6Settings: NEIPv6Settings?
 
   /*!
    * @property tunnelOverheadBytes
@@ -1996,7 +1996,7 @@ class NEPacketTunnelNetworkSettings : NETunnelNetworkSettings {
    * @discussion An NSNumber object containing the Maximum Transmission Unit (MTU) size in bytes to assign to the TUN interface. If this property is set, the tunnelOverheadBytes property is ignored.
    */
   @available(iOS 9.0, *)
-  @NSCopying var MTU: NSNumber?
+  @NSCopying var mtu: NSNumber?
 
   /*!
    * @method initWithTunnelRemoteAddress:
@@ -2034,7 +2034,7 @@ class NEPacketTunnelProvider : NETunnelProvider {
    * @param completionHandler A block that must be called when the tunnel is completely torn down.
    */
   @available(iOS 9.0, *)
-  func stopTunnelWithReason(reason: NEProviderStopReason, completionHandler: () -> Void)
+  func stopTunnelWith(reason: NEProviderStopReason, completionHandler: () -> Void)
 
   /*!
    * @method cancelTunnelWithError:
@@ -2042,7 +2042,7 @@ class NEPacketTunnelProvider : NETunnelProvider {
    * @param error An NSError object containing details about the error that the tunnel provider implementation encountered.
    */
   @available(iOS 9.0, *)
-  func cancelTunnelWithError(error: NSError?)
+  func cancelTunnelWith(error: NSError?)
 
   /*!
    * @property packetFlow
@@ -2062,7 +2062,7 @@ class NEPacketTunnelProvider : NETunnelProvider {
    * @return An NWTCPConnection object.
    */
   @available(iOS 9.0, *)
-  func createTCPConnectionThroughTunnelToEndpoint(remoteEndpoint: NWEndpoint, enableTLS: Bool, TLSParameters: NWTLSParameters?, delegate: AnyObject?) -> NWTCPConnection
+  func createTCPConnectionThroughTunnelTo(remoteEndpoint: NWEndpoint, enableTLS: Bool, tlsParameters TLSParameters: NWTLSParameters?, delegate: AnyObject?) -> NWTCPConnection
 
   /*!
    * @method createUDPSessionThroughTunnelToEndpoint:fromEndpoint:
@@ -2072,7 +2072,7 @@ class NEPacketTunnelProvider : NETunnelProvider {
    * @return An NWUDPSession object.
    */
   @available(iOS 9.0, *)
-  func createUDPSessionThroughTunnelToEndpoint(remoteEndpoint: NWEndpoint, fromEndpoint localEndpoint: NWHostEndpoint?) -> NWUDPSession
+  func createUDPSessionThroughTunnelTo(remoteEndpoint: NWEndpoint, from localEndpoint: NWHostEndpoint?) -> NWUDPSession
   init()
 }
 
@@ -2167,7 +2167,7 @@ class NEProvider : NSObject {
    * @return An NWTCPConnection object.
    */
   @available(iOS 9.0, *)
-  func createTCPConnectionToEndpoint(remoteEndpoint: NWEndpoint, enableTLS: Bool, TLSParameters: NWTLSParameters?, delegate: AnyObject?) -> NWTCPConnection
+  func createTCPConnectionTo(remoteEndpoint: NWEndpoint, enableTLS: Bool, tlsParameters TLSParameters: NWTLSParameters?, delegate: AnyObject?) -> NWTCPConnection
 
   /*!
    * @method createUDPSessionToEndpoint:fromEndpoint:
@@ -2177,7 +2177,7 @@ class NEProvider : NSObject {
    * @return An NWUDPSession object.
    */
   @available(iOS 9.0, *)
-  func createUDPSessionToEndpoint(remoteEndpoint: NWEndpoint, fromEndpoint localEndpoint: NWHostEndpoint?) -> NWUDPSession
+  func createUDPSessionTo(remoteEndpoint: NWEndpoint, from localEndpoint: NWHostEndpoint?) -> NWUDPSession
 
   /*!
    * @property defaultPath
@@ -2225,7 +2225,7 @@ class NEProxyServer : NSObject, NSSecureCoding, NSCopying {
    * @discussion A flag indicating if the server requires authentication credentials.
    */
   @available(iOS 9.0, *)
-  var authenticationRequired: Bool
+  var isAuthenticationRequired: Bool
 
   /*!
    * @property username
@@ -2244,10 +2244,10 @@ class NEProxyServer : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -2264,7 +2264,7 @@ class NEProxySettings : NSObject, NSSecureCoding, NSCopying {
    * @discussion A boolean indicating if proxy auto-configuration is enabled.
    */
   @available(iOS 9.0, *)
-  var autoProxyConfigurationEnabled: Bool
+  var isAutoProxyConfigurationEnabled: Bool
 
   /*!
    * @property proxyAutoConfigurationURL
@@ -2285,28 +2285,28 @@ class NEProxySettings : NSObject, NSSecureCoding, NSCopying {
    * @discussion A boolean indicating if the static HTTP proxy is enabled.
    */
   @available(iOS 9.0, *)
-  var HTTPEnabled: Bool
+  var isHTTPEnabled: Bool
 
   /*!
    * @property HTTPServer
    * @discussion A NEProxyServer object containing the HTTP proxy server settings.
    */
   @available(iOS 9.0, *)
-  @NSCopying var HTTPServer: NEProxyServer?
+  @NSCopying var httpServer: NEProxyServer?
 
   /*!
    * @property HTTPSEnabled
    * @discussion A boolean indicating if the static HTTPS proxy is enabled.
    */
   @available(iOS 9.0, *)
-  var HTTPSEnabled: Bool
+  var isHTTPSEnabled: Bool
 
   /*!
    * @property HTTPSServer
    * @discussion A NEProxyServer object containing the HTTPS proxy server settings.
    */
   @available(iOS 9.0, *)
-  @NSCopying var HTTPSServer: NEProxyServer?
+  @NSCopying var httpsServer: NEProxyServer?
 
   /*!
    * @property excludeSimpleHostnames
@@ -2332,10 +2332,10 @@ class NEProxySettings : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -2369,7 +2369,7 @@ class NETunnelNetworkSettings : NSObject, NSSecureCoding, NSCopying {
    * @discussion An NEDNSSettings object that contains the desired tunnel DNS settings.
    */
   @available(iOS 9.0, *)
-  @NSCopying var DNSSettings: NEDNSSettings?
+  @NSCopying var dnsSettings: NEDNSSettings?
 
   /*!
    * @property proxySettings
@@ -2381,10 +2381,10 @@ class NETunnelNetworkSettings : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -2442,7 +2442,7 @@ class NETunnelProvider : NEProvider {
    * @param completionHandler A block that the method can execute to send a response to the container app. If this parameter is non-nil then the method implementation should always execute the block. If this parameter is nil then the method implementation should treat this as an indication that the container app is not expecting a response.
    */
   @available(iOS 9.0, *)
-  func handleAppMessage(messageData: NSData, completionHandler: ((NSData?) -> Void)?)
+  func handleAppMessage(messageData: NSData, completionHandler: ((NSData?) -> Void)? = nil)
 
   /*!
    * @method setTunnelNetworkSettings:completionHandler:
@@ -2451,7 +2451,7 @@ class NETunnelProvider : NEProvider {
    * @param completionHandler A block that will be called by the framework when the process of setting or clearing the network settings is complete. If an error occurred during the process of setting or clearing the IP network settings then a non-nill NSError object will be passed to this block containing error details.
    */
   @available(iOS 9.0, *)
-  func setTunnelNetworkSettings(tunnelNetworkSettings: NETunnelNetworkSettings?, completionHandler: ((NSError?) -> Void)?)
+  func setTunnelNetworkSettings(tunnelNetworkSettings: NETunnelNetworkSettings?, completionHandler: ((NSError?) -> Void)? = nil)
 
   /*!
    * @property protocolConfiguration
@@ -2479,7 +2479,7 @@ class NETunnelProvider : NEProvider {
    * @discussion A flag that indicates to the framework if this NETunnelProvider is currently re-establishing the tunnel. Setting this flag will cause the session status visible to the user to change to "Reasserting". Clearing this flag will change the user-visible status of the session back to "Connected". Setting and clearing this flag only has an effect if the session is in the "Connected" state.
    */
   @available(iOS 9.0, *)
-  var reasserting: Bool
+  var isReasserting: Bool
   init()
 }
 
@@ -2581,7 +2581,7 @@ class NETunnelProviderSession : NEVPNConnection {
    * @return YES if the message was sent successfully, NO if an error occurred.
    */
   @available(iOS 9.0, *)
-  func sendProviderMessage(messageData: NSData, responseHandler: ((NSData?) -> Void)?) throws
+  func sendProviderMessage(messageData: NSData, responseHandler: ((NSData?) -> Void)? = nil) throws
   init()
 }
 
@@ -2735,7 +2735,7 @@ class NEVPNManager : NSObject {
    * @return The singleton NEVPNManager object for the calling process.
    */
   @available(iOS 8.0, *)
-  class func sharedManager() -> NEVPNManager
+  class func shared() -> NEVPNManager
 
   /*!
    * @method loadFromPreferencesWithCompletionHandler:
@@ -2751,7 +2751,7 @@ class NEVPNManager : NSObject {
    * @param completionHandler A block that will be called on the main thread when the remove operation is completed. The NSError passed to this block will be nil if the remove operation succeeded, non-nil otherwise.
    */
   @available(iOS 8.0, *)
-  func removeFromPreferencesWithCompletionHandler(completionHandler: ((NSError?) -> Void)?)
+  func removeFromPreferences(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
 
   /*!
    * @method saveToPreferencesWithCompletionHandler:
@@ -2760,7 +2760,7 @@ class NEVPNManager : NSObject {
    * @param completionHandler A block that will be called on the main thread when the save operation is completed. The NSError passed to this block will be nil if the save operation succeeded, non-nil otherwise.
    */
   @available(iOS 8.0, *)
-  func saveToPreferencesWithCompletionHandler(completionHandler: ((NSError?) -> Void)?)
+  func saveToPreferences(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
 
   /*!
    * @property onDemandRules
@@ -2774,7 +2774,7 @@ class NEVPNManager : NSObject {
    * @discussion Toggles VPN On Demand.
    */
   @available(iOS 8.0, *)
-  var onDemandEnabled: Bool
+  var isOnDemandEnabled: Bool
 
   /*!
    * @property localizedDescription
@@ -2809,7 +2809,7 @@ class NEVPNManager : NSObject {
    * @discussion Toggles the enabled status of the VPN. Setting this property will disable VPN configurations of other apps. This property will be set to NO  when other VPN configurations are enabled.
    */
   @available(iOS 8.0, *)
-  var enabled: Bool
+  var isEnabled: Bool
   init()
 }
 
@@ -2871,7 +2871,7 @@ class NEVPNProtocol : NSObject, NSCopying, NSSecureCoding {
    * @discussion If YES, the VPN connection will be disconnected when the device goes to sleep. The default is NO.
    */
   @available(iOS 8.0, *)
-  var disconnectOnSleep: Bool
+  var isDisconnectOnSleep: Bool
 
   /*!
    * @property proxySettings
@@ -2881,11 +2881,11 @@ class NEVPNProtocol : NSObject, NSCopying, NSSecureCoding {
   @NSCopying var proxySettings: NEProxySettings?
   init()
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -3074,10 +3074,10 @@ class NEVPNIKEv2SecurityAssociationParameters : NSObject, NSSecureCoding, NSCopy
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -3123,14 +3123,14 @@ class NEVPNProtocolIKEv2 : NEVPNProtocolIPSec {
    * @discussion Boolean indicating if client should use INTERNAL_IP4_SUBNET / INTERNAL_IP6_SUBNET attributes.  Default is False.
    */
   @available(iOS 9.0, *)
-  var useConfigurationAttributeInternalIPSubnet: Bool
+  var isUseConfigurationAttributeInternalIPSubnet: Bool
 
   /*!
    * @property IKESecurityAssociationParameters
    * @discussion Parameters for the IKE SA
    */
   @available(iOS 8.0, *)
-  var IKESecurityAssociationParameters: NEVPNIKEv2SecurityAssociationParameters { get }
+  var ikeSecurityAssociationParameters: NEVPNIKEv2SecurityAssociationParameters { get }
 
   /*!
    * @property childSecurityAssociationParameters
@@ -3144,35 +3144,35 @@ class NEVPNProtocolIKEv2 : NEVPNProtocolIPSec {
    * @discussion Disable MOBIKE negotiation. Default is NO.
    */
   @available(iOS 9.0, *)
-  var disableMOBIKE: Bool
+  var isDisableMOBIKE: Bool
 
   /*!
    * @property disableRedirect
    * @discussion Disable Server Redirect. Default is NO.
    */
   @available(iOS 9.0, *)
-  var disableRedirect: Bool
+  var isDisableRedirect: Bool
 
   /*!
    * @property enablePFS
    * @discussion Enable Perfect Forward Secrecy. Default is NO.
    */
   @available(iOS 9.0, *)
-  var enablePFS: Bool
+  var isEnablePFS: Bool
 
   /*!
    * @property enableRevocationCheck
    * @discussion Enable certificate revocation check. Default is NO.
    */
   @available(iOS 9.0, *)
-  var enableRevocationCheck: Bool
+  var isEnableRevocationCheck: Bool
 
   /*!
    * @property strictRevocationCheck
    * @discussion Require positive certificate revocation check response for peer certificate validation to pass. Default is NO.
    */
   @available(iOS 9.0, *)
-  var strictRevocationCheck: Bool
+  var isStrictRevocationCheck: Bool
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -3219,7 +3219,7 @@ class NEVPNProtocolIPSec : NEVPNProtocol {
    *   For IKE version 2, when this flag is set EAP authentication will be negotiated as part of the IKE session, using the username, password, and/or identity properties as the credential depending on which EAP method the server requires.
    */
   @available(iOS 8.0, *)
-  var useExtendedAuthentication: Bool
+  var isUseExtendedAuthentication: Bool
 
   /*!
    * @property sharedSecretReference
@@ -3374,7 +3374,7 @@ class NWPath : NSObject {
    * @discussion Returns YES is the path is considered expensive, as when using a cellular data plan.
    */
   @available(iOS 9.0, *)
-  var expensive: Bool { get }
+  var isExpensive: Bool { get }
 
   /*!
    * @method isEqualToPath:
@@ -3382,7 +3382,7 @@ class NWPath : NSObject {
    * @return YES if the two path objects have the same content, NO otherwise.
    */
   @available(iOS 9.0, *)
-  func isEqualToPath(path: NWPath) -> Bool
+  func isEqualTo(path: NWPath) -> Bool
   init()
 }
 
@@ -3453,7 +3453,7 @@ class NWTCPConnection : NSObject {
    * @return An initialized NWTCPConnection
    */
   @available(iOS 9.0, *)
-  init(upgradeForConnection connection: NWTCPConnection)
+  init(upgradeFor connection: NWTCPConnection)
 
   /*!
    * @property state
@@ -3467,7 +3467,7 @@ class NWTCPConnection : NSObject {
    * @discussion YES if the connection can read and write data, NO otherwise. Use KVO to watch this property.
    */
   @available(iOS 9.0, *)
-  var viable: Bool { get }
+  var isViable: Bool { get }
 
   /*!
    * @property hasBetterPath
@@ -3617,7 +3617,7 @@ protocol NWTCPConnectionAuthenticationDelegate : NSObjectProtocol {
    *		provideIdentityForConnection:completionHandler: will be called.
    */
   @available(iOS 9.0, *)
-  optional func shouldProvideIdentityForConnection(connection: NWTCPConnection) -> Bool
+  optional func shouldProvideIdentityFor(connection: NWTCPConnection) -> Bool
 
   /*!
    * @method provideIdentityForConnection:completionHandler:
@@ -3634,7 +3634,7 @@ protocol NWTCPConnectionAuthenticationDelegate : NSObjectProtocol {
    *		completion handler invocation.
    */
   @available(iOS 9.0, *)
-  optional func provideIdentityForConnection(connection: NWTCPConnection, completionHandler completion: (SecIdentity, [AnyObject]) -> Void)
+  optional func provideIdentityFor(connection: NWTCPConnection, completionHandler completion: (SecIdentity, [AnyObject]) -> Void)
 
   /*!
    * @method shouldEvaluateTrustForConnection:
@@ -3647,7 +3647,7 @@ protocol NWTCPConnectionAuthenticationDelegate : NSObjectProtocol {
    *		evaluateTrustForConnection:peerCertificateChain:completionHandler: will be called.
    */
   @available(iOS 9.0, *)
-  optional func shouldEvaluateTrustForConnection(connection: NWTCPConnection) -> Bool
+  optional func shouldEvaluateTrustFor(connection: NWTCPConnection) -> Bool
 
   /*!
    * @method evaluateTrustForConnection:peerCertificateChain:completionHandler:
@@ -3663,7 +3663,7 @@ protocol NWTCPConnectionAuthenticationDelegate : NSObjectProtocol {
    *		alive for the duration of the completion handler invocation.
    */
   @available(iOS 9.0, *)
-  optional func evaluateTrustForConnection(connection: NWTCPConnection, peerCertificateChain: [AnyObject], completionHandler completion: (SecTrust) -> Void)
+  optional func evaluateTrustFor(connection: NWTCPConnection, peerCertificateChain: [AnyObject], completionHandler completion: (SecTrust) -> Void)
 }
 class NWTLSParameters : NSObject {
 
@@ -3673,7 +3673,7 @@ class NWTLSParameters : NSObject {
    *		This property is optional when using TLS.
    */
   @available(iOS 9.0, *)
-  @NSCopying var TLSSessionID: NSData?
+  @NSCopying var tlsSessionID: NSData?
 
   /*!
    * @property SSLCipherSuites
@@ -3681,7 +3681,7 @@ class NWTLSParameters : NSObject {
    *		If set to nil, the default cipher suites will be used.
    */
   @available(iOS 9.0, *)
-  var SSLCipherSuites: Set<NSNumber>?
+  var sslCipherSuites: Set<NSNumber>?
 
   /*!
    * @property minimumSSLProtocolVersion
@@ -3760,7 +3760,7 @@ class NWUDPSession : NSObject {
    * @return An initialized NWUDPSession object.
    */
   @available(iOS 9.0, *)
-  init(upgradeForSession session: NWUDPSession)
+  init(upgradeFor session: NWUDPSession)
 
   /*!
    * @property state
@@ -3792,7 +3792,7 @@ class NWUDPSession : NSObject {
    *		Use KVO to watch this property.
    */
   @available(iOS 9.0, *)
-  var viable: Bool { get }
+  var isViable: Bool { get }
 
   /*!
    * @property hasBetterPath

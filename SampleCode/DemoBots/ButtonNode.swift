@@ -78,7 +78,7 @@ class ButtonNode: SKSpriteNode {
             let colorBlendAction = SKAction.colorizeWithColorBlendFactor(newColorBlendFactor, duration: 0.15)
             
             // Run the two actions at the same time.
-            runAction(SKAction.group([scaleAction, colorBlendAction]))
+            run(SKAction.group([scaleAction, colorBlendAction]))
         }
     }
     
@@ -112,16 +112,16 @@ class ButtonNode: SKSpriteNode {
     var isFocused = false {
         didSet {
             if isFocused {
-                runAction(SKAction.scaleTo(1.08, duration: 0.20))
+                run(SKAction.scaleTo(1.08, duration: 0.20))
                 
                 focusRing.alpha = 0.0
-                focusRing.hidden = false
-                focusRing.runAction(SKAction.fadeInWithDuration(0.2))
+                focusRing.isHidden = false
+                focusRing.run(SKAction.fadeInWithDuration(0.2))
             }
             else {
-                runAction(SKAction.scaleTo(1.0, duration: 0.20))
+                run(SKAction.scaleTo(1.0, duration: 0.20))
                 
-                focusRing.hidden = true
+                focusRing.isHidden = true
             }
         }
     }
@@ -158,14 +158,14 @@ class ButtonNode: SKSpriteNode {
         }
 
         // The focus ring should be hidden until the button is given the input focus.
-        focusRing.hidden = true
+        focusRing.isHidden = true
 
         // Enable user interaction on the button node to detect tap and click events.
-        userInteractionEnabled = true
+        isUserInteractionEnabled = true
     }
     
-    override func copyWithZone(zone: NSZone) -> AnyObject {
-        let newButton = super.copyWithZone(zone) as! ButtonNode
+    override func copyWith(zone: NSZone) -> AnyObject {
+        let newButton = super.copy(zone: zone) as! ButtonNode
         
         // Copy the `ButtonNode` specific properties.
         newButton.buttonIdentifier = buttonIdentifier
@@ -176,7 +176,7 @@ class ButtonNode: SKSpriteNode {
     }
     
     func buttonTriggered() {
-        if userInteractionEnabled {
+        if isUserInteractionEnabled {
             // Forward the button press event through to the responder.
             responder.buttonTriggered(self)
         }
@@ -187,7 +187,7 @@ class ButtonNode: SKSpriteNode {
         away but no other focusable buttons are available in the requested 
         direction.
     */
-    func performInvalidFocusChangeAnimationForDirection(direction: ControlInputDirection) {
+    func performInvalidFocusChangeAnimationFor(direction: ControlInputDirection) {
         let animationKey = "ButtonNode.InvalidFocusChangeAnimationKey"
         guard actionForKey(animationKey) == nil else { return }
         
@@ -200,7 +200,7 @@ class ButtonNode: SKSpriteNode {
         case .Right: action = SKAction(named: "InvalidFocusChange_Right")!
         }
         
-        runAction(action, withKey: animationKey)
+        run(action, withKey: animationKey)
     }
     
     // MARK: Responder
@@ -235,8 +235,8 @@ class ButtonNode: SKSpriteNode {
         guard let scene = scene else { fatalError("Button must be used within a scene.") }
         
         return touches.contains { touch in
-            let touchPoint = touch.locationInNode(scene)
-            let touchedNode = scene.nodeAtPoint(touchPoint)
+            let touchPoint = touch.locationIn(scene)
+            let touchedNode = scene.atPoint(touchPoint)
             return touchedNode === self || touchedNode.inParentHierarchy(self)
         }
     }
@@ -255,17 +255,17 @@ class ButtonNode: SKSpriteNode {
         isHighlighted = false
 
         // Touch up inside behavior.
-        if containsLocationForEvent(event) {
+        if containsLocationFor(event) {
             buttonTriggered()
         }
     }
     
     /// Determine if the event location is within the `ButtonNode`.
-    private func containsLocationForEvent(event: NSEvent) -> Bool {
+    private func containsLocationFor(event: NSEvent) -> Bool {
         guard let scene = scene else { fatalError("Button must be used within a scene.")  }
 
-        let location = event.locationInNode(scene)
-        let clickedNode = scene.nodeAtPoint(location)
+        let location = event.locationIn(scene)
+        let clickedNode = scene.atPoint(location)
         return clickedNode === self || clickedNode.inParentHierarchy(self)
     }
     #endif

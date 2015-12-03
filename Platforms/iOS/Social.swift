@@ -29,15 +29,15 @@ class SLComposeServiceViewController : UIViewController, UITextViewDelegate {
   @available(iOS 8.0, *)
   func textViewDidEndEditing(textView: UITextView)
   @available(iOS 8.0, *)
-  func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool
+  func textView(textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
   @available(iOS 8.0, *)
   func textViewDidChange(textView: UITextView)
   @available(iOS 8.0, *)
   func textViewDidChangeSelection(textView: UITextView)
   @available(iOS 7.0, *)
-  func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool
+  func textView(textView: UITextView, shouldInteractWith URL: NSURL, `in` characterRange: NSRange) -> Bool
   @available(iOS 7.0, *)
-  func textView(textView: UITextView, shouldInteractWithTextAttachment textAttachment: NSTextAttachment, inRange characterRange: NSRange) -> Bool
+  func textView(textView: UITextView, shouldInteractWith textAttachment: NSTextAttachment, `in` characterRange: NSRange) -> Bool
   @available(iOS 8.0, *)
   func scrollViewDidScroll(scrollView: UIScrollView)
   @available(iOS 3.2, *)
@@ -55,7 +55,7 @@ class SLComposeServiceViewController : UIViewController, UITextViewDelegate {
   @available(iOS 8.0, *)
   func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)
   @available(iOS 8.0, *)
-  func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?
+  func viewForZoomingIn(scrollView: UIScrollView) -> UIView?
   @available(iOS 3.2, *)
   func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView?)
   @available(iOS 8.0, *)
@@ -71,7 +71,7 @@ class SLComposeSheetConfigurationItem : NSObject {
   init!()
   var title: String!
   var value: String!
-  var valuePending: Bool
+  var isValuePending: Bool
   var tapHandler: SLComposeSheetConfigurationItemTapHandler!
 }
 enum SLComposeViewControllerResult : Int {
@@ -87,9 +87,9 @@ class SLComposeViewController : UIViewController {
   /*not inherited*/ init!(forServiceType serviceType: String!)
   var serviceType: String! { get }
   func setInitialText(text: String!) -> Bool
-  func addImage(image: UIImage!) -> Bool
+  func add(image: UIImage!) -> Bool
   func removeAllImages() -> Bool
-  func addURL(url: NSURL!) -> Bool
+  func add(url: NSURL!) -> Bool
   func removeAllURLs() -> Bool
   var completionHandler: SLComposeViewControllerCompletionHandler!
   init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
@@ -107,9 +107,9 @@ enum SLRequestMethod : Int {
 typealias SLRequestHandler = (NSData!, NSHTTPURLResponse!, NSError!) -> Void
 @available(iOS 6.0, *)
 class SLRequest : NSObject {
-  /*not inherited*/ init!(forServiceType serviceType: String!, requestMethod: SLRequestMethod, URL url: NSURL!, parameters: [NSObject : AnyObject]!)
+  /*not inherited*/ init!(forServiceType serviceType: String!, requestMethod: SLRequestMethod, url: NSURL!, parameters: [NSObject : AnyObject]!)
   var requestMethod: SLRequestMethod { get }
-  var URL: NSURL! { get }
+  var url: NSURL! { get }
   var parameters: [NSObject : AnyObject]! { get }
   func addMultipartData(data: NSData!, withName name: String!, type: String!, filename: String!)
   func preparedURLRequest() -> NSURLRequest!

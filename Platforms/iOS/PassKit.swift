@@ -63,7 +63,7 @@ protocol PKAddPaymentPassViewControllerDelegate : NSObjectProtocol {
   @available(iOS 9.0, *)
   func addPaymentPassViewController(controller: PKAddPaymentPassViewController, generateRequestWithCertificateChain certificates: [NSData], nonce: NSData, nonceSignature: NSData, completionHandler handler: (PKAddPaymentPassRequest) -> Void)
   @available(iOS 9.0, *)
-  func addPaymentPassViewController(controller: PKAddPaymentPassViewController, didFinishAddingPaymentPass pass: PKPaymentPass?, error: NSError?)
+  func addPaymentPassViewController(controller: PKAddPaymentPassViewController, didFinishAdding pass: PKPaymentPass?, error: NSError?)
 }
 @available(iOS 9.0, *)
 class PKAddPaymentPassViewController : UIViewController {
@@ -184,22 +184,22 @@ class PKPassLibrary : NSObject {
   func passes() -> [PKPass]
   func passWithPassTypeIdentifier(identifier: String, serialNumber: String) -> PKPass?
   @available(iOS 8.0, *)
-  func passesOfType(passType: PKPassType) -> [PKPass]
+  func passesOf(passType: PKPassType) -> [PKPass]
   @available(iOS 9.0, *)
   func remotePaymentPasses() -> [PKPaymentPass]
   func removePass(pass: PKPass)
   func containsPass(pass: PKPass) -> Bool
-  func replacePassWithPass(pass: PKPass) -> Bool
+  func replacePassWith(pass: PKPass) -> Bool
   @available(iOS 7.0, *)
-  func addPasses(passes: [PKPass], withCompletionHandler completion: ((PKPassLibraryAddPassesStatus) -> Void)?)
+  func addPasses(passes: [PKPass], withCompletionHandler completion: ((PKPassLibraryAddPassesStatus) -> Void)? = nil)
   @available(iOS 8.3, *)
   func openPaymentSetup()
   @available(iOS 9.0, *)
   func canAddPaymentPassWithPrimaryAccountIdentifier(primaryAccountIdentifier: String) -> Bool
   @available(iOS 8.0, *)
-  func activatePaymentPass(paymentPass: PKPaymentPass, withActivationData activationData: NSData, completion: ((Bool, NSError) -> Void)?)
+  func activatePaymentPass(paymentPass: PKPaymentPass, withActivationData activationData: NSData, completion: ((Bool, NSError) -> Void)? = nil)
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use activatePaymentPass:withActivationData:completion: instead")
-  func activatePaymentPass(paymentPass: PKPaymentPass, withActivationCode activationCode: String, completion: ((Bool, NSError) -> Void)?)
+  func activatePaymentPass(paymentPass: PKPaymentPass, withActivationCode activationCode: String, completion: ((Bool, NSError) -> Void)? = nil)
   init()
 }
 @available(iOS 6.0, *)
@@ -248,13 +248,13 @@ protocol PKPaymentAuthorizationViewControllerDelegate : NSObjectProtocol {
   @available(iOS 8.3, *)
   optional func paymentAuthorizationViewControllerWillAuthorizePayment(controller: PKPaymentAuthorizationViewController)
   @available(iOS 8.0, *)
-  optional func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didSelectShippingMethod shippingMethod: PKShippingMethod, completion: (PKPaymentAuthorizationStatus, [PKPaymentSummaryItem]) -> Void)
+  optional func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didSelect shippingMethod: PKShippingMethod, completion: (PKPaymentAuthorizationStatus, [PKPaymentSummaryItem]) -> Void)
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use the CNContact backed delegate method instead")
   optional func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didSelectShippingAddress address: ABRecord, completion: (PKPaymentAuthorizationStatus, [PKShippingMethod], [PKPaymentSummaryItem]) -> Void)
   @available(iOS 9.0, *)
   optional func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didSelectShippingContact contact: PKContact, completion: (PKPaymentAuthorizationStatus, [PKShippingMethod], [PKPaymentSummaryItem]) -> Void)
   @available(iOS 9.0, *)
-  optional func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didSelectPaymentMethod paymentMethod: PKPaymentMethod, completion: ([PKPaymentSummaryItem]) -> Void)
+  optional func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didSelect paymentMethod: PKPaymentMethod, completion: ([PKPaymentSummaryItem]) -> Void)
 }
 @available(iOS 8.0, *)
 class PKPaymentAuthorizationViewController : UIViewController {

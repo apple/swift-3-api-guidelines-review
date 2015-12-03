@@ -4950,7 +4950,7 @@ class ODConfiguration : NSObject {
   @available(OSX 10.9, *)
   var virtualSubnodes: [AnyObject]!
   @available(OSX 10.9, *)
-  var hideRegistration: Bool
+  var isHideRegistration: Bool
   @available(OSX 10.9, *)
   var preferredDestinationHostName: String!
   @available(OSX 10.9, *)
@@ -4974,7 +4974,7 @@ class ODConfiguration : NSObject {
   @available(OSX 10.9, *)
   var packetEncryption: Int
   @available(OSX 10.9, *)
-  var manInTheMiddleProtection: Bool
+  var isManInTheMiddleProtection: Bool
   @available(OSX 10.9, *)
   var queryTimeoutInSeconds: Int
   @available(OSX 10.9, *)
@@ -5276,7 +5276,7 @@ class ODNode : NSObject {
                   optional parameter, nil can be passed if error details are not needed.
   */
   @available(OSX 10.6, *)
-  func customCall(inCustomCode: Int, sendData inSendData: NSData!) throws -> NSData
+  func customCall(inCustomCode: Int, send inSendData: NSData!) throws -> NSData
 
   /*!
       @method     customFunction:payload:error:
@@ -5339,7 +5339,7 @@ class ODNode : NSObject {
       @discussion This will remove a specific policy setting from the node.
   */
   @available(OSX, introduced=10.9, deprecated=10.10, message="use removeAccountPolicy:fromCategory:error:")
-  func removePolicy(policy: ODPolicyType!) throws
+  func remove(policy: ODPolicyType!) throws
 
   /*!
       @method     addAccountPolicy:toCategory:error:
@@ -5492,7 +5492,7 @@ class ODQuery : NSObject, NSCopying {
                   in advance otherwise results may be lost due to the lack of a receiver.
   */
   @available(OSX 10.6, *)
-  func scheduleInRunLoop(inRunLoop: NSRunLoop!, forMode inMode: String!)
+  func scheduleIn(inRunLoop: NSRunLoop!, forMode inMode: String!)
 
   /*!
       @method     removeFromRunLoop:forMode:
@@ -5500,7 +5500,7 @@ class ODQuery : NSObject, NSCopying {
       @discussion Removes the query object from the specified NSRunLoop.
   */
   @available(OSX 10.6, *)
-  func removeFromRunLoop(inRunLoop: NSRunLoop!, forMode inMode: String!)
+  func removeFrom(inRunLoop: NSRunLoop!, forMode inMode: String!)
 
   /*!
       @method     synchronize
@@ -5521,7 +5521,7 @@ class ODQuery : NSObject, NSCopying {
   @available(OSX 10.6, *)
   var operationQueue: NSOperationQueue!
   init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
 }
 
 /*!
@@ -5731,7 +5731,7 @@ class ODRecord : NSObject {
       @discussion This will remove a specific policy setting from the record.
   */
   @available(OSX, introduced=10.9, deprecated=10.10, message="use removeAccountPolicy:fromCategory:error:")
-  func removePolicy(policy: ODPolicyType!) throws
+  func remove(policy: ODPolicyType!) throws
 
   /*!
       @method     addAccountPolicy:toCategory:error:

@@ -61,7 +61,7 @@ class SceneLoader {
 
             progress.cancellationHandler = { [unowned self] in
                 // Cleanup the `SceneLoader`'s state and assign an appropriate error.
-                self.requestedForPresentation = false
+                self.isRequestedForPresentation = false
                 self.error = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
                 
                 // Notify any interested objects that the download was not completed.
@@ -95,13 +95,13 @@ class SceneLoader {
         Indicates whether the scene we are loading has been requested to be presented
         to the user. Used to change how aggressively the resources are being made available.
     */
-    var requestedForPresentation = false {
+    var isRequestedForPresentation = false {
         didSet {
             /*
                 Don't adjust resource loading priorities if `requestedForPresentation`
                 was just set to `false`.
             */
-            guard requestedForPresentation else { return }
+            guard isRequestedForPresentation else { return }
             
             #if os(iOS) || os(tvOS)
             if stateMachine.currentState is SceneLoaderDownloadingResourcesState {
@@ -158,7 +158,7 @@ class SceneLoader {
     */
     func asynchronouslyLoadSceneForPresentation() -> NSProgress {
         // If a valid progress already exists it means the scene is already being prepared.
-        if let progress = progress where !progress.cancelled {
+        if let progress = progress where !progress.isCancelled {
             return progress
         }
 
@@ -185,7 +185,7 @@ class SceneLoader {
                 progress = NSProgress(totalUnitCount: 2)
                 
                 let downloadingState = stateMachine.stateForClass(SceneLoaderDownloadingResourcesState)!
-                downloadingState.enterPreparingStateWhenFinished = true
+                downloadingState.isEnterPreparingStateWhenFinished = true
                 
                 stateMachine.enterState(SceneLoaderDownloadingResourcesState.self)
                 

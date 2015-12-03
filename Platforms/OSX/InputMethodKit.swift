@@ -327,14 +327,14 @@ extension NSObject {
       @abstract   Receive all keydown and mouse events as an NSEvent (i.e. the event is simply forwarded onto the input method).
       @discussion Return YES if the event was handled. NO if not handled.
   */
-  class func handleEvent(event: NSEvent!, client sender: AnyObject!) -> Bool
+  class func handle(event: NSEvent!, client sender: AnyObject!) -> Bool
 
   /*!
       @method     
       @abstract   Receive all keydown and mouse events as an NSEvent (i.e. the event is simply forwarded onto the input method).
       @discussion Return YES if the event was handled. NO if not handled.
   */
-  func handleEvent(event: NSEvent!, client sender: AnyObject!) -> Bool
+  func handle(event: NSEvent!, client sender: AnyObject!) -> Bool
 
   /*!
       @method     
@@ -343,7 +343,7 @@ extension NSObject {
   				
   			For example.  Suppose you have implemented a version of insertNewline: that terminates the conversion session and sends the fully converted text to the client.  However, if you conversion buffer is empty you want the application to receive the return key that triggered the call to insertNewline:.  In that case when didCommandBySelector:client: is called you should test your buffer before calling your implementation of insertNewline:.  If the buffer is empty you would return NO indicating that the return key should be passed on to the application.  If the buffer is not empty you would call insertNewline: and then return YES as the result of didCommandBySelector:client:.
   */
-  class func didCommandBySelector(aSelector: Selector, client sender: AnyObject!) -> Bool
+  class func didCommandBy(aSelector: Selector, client sender: AnyObject!) -> Bool
 
   /*!
       @method     
@@ -352,7 +352,7 @@ extension NSObject {
   				
   			For example.  Suppose you have implemented a version of insertNewline: that terminates the conversion session and sends the fully converted text to the client.  However, if you conversion buffer is empty you want the application to receive the return key that triggered the call to insertNewline:.  In that case when didCommandBySelector:client: is called you should test your buffer before calling your implementation of insertNewline:.  If the buffer is empty you would return NO indicating that the return key should be passed on to the application.  If the buffer is not empty you would call insertNewline: and then return YES as the result of didCommandBySelector:client:.
   */
-  func didCommandBySelector(aSelector: Selector, client sender: AnyObject!) -> Bool
+  func didCommandBy(aSelector: Selector, client sender: AnyObject!) -> Bool
 
   /*!
       @method     
@@ -541,7 +541,7 @@ class IMKInputController : NSObject, IMKStateSetting, IMKMouseHandling {
       @abstract   Called to obtain a dictionary of text attributes.
       @discussion The default implementation returns an empty dictionary.  You should override this method if your input method wants to provide font or glyphInformation. The returned object should be an autoreleased object.
   */
-  func compositionAttributesAtRange(range: NSRange) -> NSMutableDictionary!
+  func compositionAttributesAt(range: NSRange) -> NSMutableDictionary!
 
   /*!
       @method    
@@ -568,7 +568,7 @@ class IMKInputController : NSObject, IMKStateSetting, IMKMouseHandling {
                   
                   Finally the style value is added as dictionary value.  The key for the style value is NSMarkedClauseSegment. The returned object should be an autoreleased object.
   */
-  func markForStyle(style: Int, atRange range: NSRange) -> [NSObject : AnyObject]!
+  func markForStyle(style: Int, at range: NSRange) -> [NSObject : AnyObject]!
 
   /*!
       @method     
@@ -584,7 +584,7 @@ class IMKInputController : NSObject, IMKStateSetting, IMKMouseHandling {
     	kIMKCommandMenuItemName			NSMenuItem  -- the NSMenuItem that was selected
     	kIMKCommandClientName			id<IMKTextInput, NSObject> - the current client
   */
-  func doCommandBySelector(aSelector: Selector, commandDictionary infoDictionary: [NSObject : AnyObject]!)
+  func doCommandBy(aSelector: Selector, command infoDictionary: [NSObject : AnyObject]!)
 
   /*!
       @method     

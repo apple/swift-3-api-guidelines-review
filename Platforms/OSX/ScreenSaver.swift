@@ -13,12 +13,12 @@ class ScreenSaverView : NSView {
   var animationTimeInterval: NSTimeInterval
   func startAnimation()
   func stopAnimation()
-  var animating: Bool { get }
-  func drawRect(rect: NSRect)
+  var isAnimating: Bool { get }
+  func draw(rect: NSRect)
   func animateOneFrame()
   func hasConfigureSheet() -> Bool
   func configureSheet() -> NSWindow?
-  var preview: Bool { get }
+  var isPreview: Bool { get }
   init?(coder: NSCoder)
   convenience init()
 }

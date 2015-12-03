@@ -41,7 +41,7 @@ class AVPictureInPictureController : NSObject {
   				Traits that describe the image to retrieve, pass nil to use traits that describe the main screen.
   	@abstract	System default Picture in Picture start template image for use in client's Picture in Picture button.
    */
-  class func pictureInPictureButtonStartImageCompatibleWithTraitCollection(traitCollection: UITraitCollection?) -> UIImage
+  class func pictureInPictureButtonStartImageCompatibleWith(traitCollection: UITraitCollection?) -> UIImage
 
   /*!
   	@method		pictureInPictureButtonStopImageCompatibleWithTraitCollection:
@@ -49,7 +49,7 @@ class AVPictureInPictureController : NSObject {
   				Traits that describe the image to retrieve, pass nil to use traits that describe the main screen.
   	@abstract	System default Picture in Picture stop template image for use in client's Picture in Picture button.
    */
-  class func pictureInPictureButtonStopImageCompatibleWithTraitCollection(traitCollection: UITraitCollection?) -> UIImage
+  class func pictureInPictureButtonStopImageCompatibleWith(traitCollection: UITraitCollection?) -> UIImage
 
   /*!
   	@property	delegate
@@ -75,19 +75,19 @@ class AVPictureInPictureController : NSObject {
   	@property	pictureInPicturePossible
   	@abstract	Whether or not Picture in Picture is currently possible.
    */
-  var pictureInPicturePossible: Bool { get }
+  var isPictureInPicturePossible: Bool { get }
 
   /*!
   	@property	pictureInPictureActive
   	@abstract	Whether or not Picture in Picture is currently active.
    */
-  var pictureInPictureActive: Bool { get }
+  var isPictureInPictureActive: Bool { get }
 
   /*!
   	@property	pictureInPictureSuspended
   	@abstract	Whether or not Picture in Picture is currently suspended.
    */
-  var pictureInPictureSuspended: Bool { get }
+  var isPictureInPictureSuspended: Bool { get }
   convenience init()
 }
 
@@ -124,7 +124,7 @@ protocol AVPictureInPictureControllerDelegate : NSObjectProtocol {
   	@abstract	Delegate can implement this method to be notified when Picture in Picture failed to start.
    */
   @available(iOS 9.0, *)
-  optional func pictureInPictureController(pictureInPictureController: AVPictureInPictureController, failedToStartPictureInPictureWithError error: NSError)
+  optional func pictureInPictureController(pictureInPictureController: AVPictureInPictureController, failedToStartPictureInPictureWith error: NSError)
 
   /*!
   	@method		pictureInPictureControllerWillStopPictureInPicture:
@@ -183,7 +183,7 @@ class AVPlayerViewController : UIViewController {
   	@property	readyForDisplay
   	@abstract	Boolean indicating that the first video frame has been made ready for display for the current item of the associated AVPlayer.
    */
-  var readyForDisplay: Bool { get }
+  var isReadyForDisplay: Bool { get }
 
   /*!
   	@property	videoBounds
@@ -248,7 +248,7 @@ protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   	@abstract	Delegate can implement this method to be notified when Picture in Picture failed to start.
    */
   @available(iOS 8.0, *)
-  optional func playerViewController(playerViewController: AVPlayerViewController, failedToStartPictureInPictureWithError error: NSError)
+  optional func playerViewController(playerViewController: AVPlayerViewController, failedToStartPictureInPictureWith error: NSError)
 
   /*!
   	@method		playerViewControllerWillStopPictureInPicture:

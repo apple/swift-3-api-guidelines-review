@@ -55,14 +55,14 @@ class CWChannel : NSObject, NSCopying, NSSecureCoding {
    * CWChannel objects are considered equal if all their corresponding properties are equal.
    */
   @available(OSX 10.7, *)
-  func isEqualToChannel(channel: CWChannel) -> Bool
+  func isEqualTo(channel: CWChannel) -> Bool
   init()
   @available(OSX 10.7, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.7, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -108,7 +108,7 @@ class CWConfiguration : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
    * This preference is enforced at the API layer.
    */
   @available(OSX 10.7, *)
-  var requireAdministratorForAssociation: Bool { get }
+  var isRequireAdministratorForAssociation: Bool { get }
 
   /*!
    * @property
@@ -124,7 +124,7 @@ class CWConfiguration : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
    * This preference is enforced at the API layer.
    */
   @available(OSX 10.7, *)
-  var requireAdministratorForPower: Bool { get }
+  var isRequireAdministratorForPower: Bool { get }
 
   /*!
    * @property
@@ -140,7 +140,7 @@ class CWConfiguration : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
    * This preference is enforced at the API layer.
    */
   @available(OSX 10.7, *)
-  var requireAdministratorForIBSSMode: Bool { get }
+  var isRequireAdministratorForIBSSMode: Bool { get }
 
   /*!
    * @property
@@ -194,15 +194,15 @@ class CWConfiguration : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
    * CWConfiguration objects are considered equal if all their corresponding properties are equal.
    */
   @available(OSX 10.6, *)
-  func isEqualToConfiguration(configuration: CWConfiguration) -> Bool
+  func isEqualTo(configuration: CWConfiguration) -> Bool
   @available(OSX 10.6, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(OSX 10.6, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   @available(OSX 10.6, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.6, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -234,7 +234,7 @@ class CWMutableConfiguration : CWConfiguration {
    * Set the preference to require an administrator password to change networks.
    */
   @available(OSX 10.7, *)
-  var requireAdministratorForAssociation: Bool
+  var isRequireAdministratorForAssociation: Bool
 
   /*!
    * @property
@@ -243,7 +243,7 @@ class CWMutableConfiguration : CWConfiguration {
    * Set the preference to require an administrator password to change the interface power state.
    */
   @available(OSX 10.7, *)
-  var requireAdministratorForPower: Bool
+  var isRequireAdministratorForPower: Bool
 
   /*!
    * @property
@@ -252,7 +252,7 @@ class CWMutableConfiguration : CWConfiguration {
    * Set the preference to require an administrator password to change networks.
    */
   @available(OSX 10.7, *)
-  var requireAdministratorForIBSSMode: Bool
+  var isRequireAdministratorForIBSSMode: Bool
 
   /*!
    * @property
@@ -762,7 +762,7 @@ class CWInterface : NSObject {
    * Requires the <i>com.apple.wifi.associate</i> entitlement.
    */
   @available(OSX 10.7, *)
-  func associateToNetwork(network: CWNetwork, password: String?) throws
+  func associateTo(network: CWNetwork, password: String?) throws
 
   /*!
    * @method
@@ -969,7 +969,7 @@ class CWNetwork : NSObject, NSCopying, NSSecureCoding {
    * CWNetwork objects are considered equal if their corresponding <i>ssidData</i> and <i>bssid</i> properties are equal.
    */
   @available(OSX 10.6, *)
-  func isEqualToNetwork(network: CWNetwork) -> Bool
+  func isEqualTo(network: CWNetwork) -> Bool
 
   /*!
    * @method
@@ -1002,11 +1002,11 @@ class CWNetwork : NSObject, NSCopying, NSSecureCoding {
   func supportsPHYMode(phyMode: CWPHYMode) -> Bool
   init()
   @available(OSX 10.6, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(OSX 10.6, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.6, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -1092,15 +1092,15 @@ class CWNetworkProfile : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
    * CWNetworkProfile objects are considered equal if their corresponding <i>ssidData</i> and <i>security</i> properties are equal.
    */
   @available(OSX 10.7, *)
-  func isEqualToNetworkProfile(networkProfile: CWNetworkProfile) -> Bool
+  func isEqualTo(networkProfile: CWNetworkProfile) -> Bool
   @available(OSX 10.7, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copy(zone zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.7, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
@@ -1362,7 +1362,7 @@ class CWWiFiClient : NSObject {
    * Returns the shared CWWiFiClient instance. There is a single shared instance per process.
    */
   @available(OSX 10.10, *)
-  class func sharedWiFiClient() -> CWWiFiClient
+  class func shared() -> CWWiFiClient
 
   /*!
    * @method
@@ -1450,7 +1450,7 @@ class CWWiFiClient : NSObject {
    * Requires the <i>com.apple.wifi.events</i> entitlement.
    */
   @available(OSX 10.10, *)
-  func startMonitoringEventWithType(type: CWEventType) throws
+  func startMonitoringEventWith(type: CWEventType) throws
 
   /*!
    * @method
@@ -1472,7 +1472,7 @@ class CWWiFiClient : NSObject {
    * Requires the <i>com.apple.wifi.events</i> entitlement.
    */
   @available(OSX 10.10, *)
-  func stopMonitoringEventWithType(type: CWEventType) throws
+  func stopMonitoringEventWith(type: CWEventType) throws
 
   /*!
    * @method
