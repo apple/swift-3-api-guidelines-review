@@ -334,6 +334,7 @@
 		B5D5FB631B1B7E3D007D0C86 /* ContactNotifiableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D5FB611B1B7E3D007D0C86 /* ContactNotifiableType.swift */; };
 		B5DC405C1AFCA80100FD3900 /* TaskBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DC405B1AFCA80100FD3900 /* TaskBot.swift */; };
 		B5DC405D1AFCA80B00FD3900 /* TaskBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DC405B1AFCA80100FD3900 /* TaskBot.swift */; };
+		BD8320911C10251300D5A33A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BD8320901C10251300D5A33A /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -403,7 +404,6 @@
 		3E8513041AA0BE8A00AF1B97 /* KeyboardControlInputSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardControlInputSource.swift; sourceTree = "<group>"; };
 		3E8513061AA0BEA800AF1B97 /* TouchControlInputNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchControlInputNode.swift; sourceTree = "<group>"; };
 		3E8513081AA0BEC100AF1B97 /* GameControllerInputSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameControllerInputSource.swift; sourceTree = "<group>"; };
-		3EA5AA7D1AB210E300B41D85 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		3ECAD54B1AD5EE23001D2E8E /* HomeScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = HomeScene.sks; path = Assets/Scenes/HomeScene/HomeScene.sks; sourceTree = SOURCE_ROOT; };
 		3ECAD5551AD630D5001D2E8E /* EndScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = EndScene.sks; path = EndScene/EndScene.sks; sourceTree = "<group>"; };
 		3EDA0CD11A89744100506454 /* DemoBots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoBots.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -466,6 +466,7 @@
 		B5CAD52B1AEBAE9D00D9B7A9 /* FlyingBotBlastState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyingBotBlastState.swift; sourceTree = "<group>"; };
 		B5D5FB611B1B7E3D007D0C86 /* ContactNotifiableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactNotifiableType.swift; path = Protocols/ContactNotifiableType.swift; sourceTree = "<group>"; };
 		B5DC405B1AFCA80100FD3900 /* TaskBot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskBot.swift; sourceTree = "<group>"; };
+		BD8320901C10251300D5A33A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -684,7 +685,7 @@
 		16A8FC901A7062CA006FC06F = {
 			isa = PBXGroup;
 			children = (
-				3EA5AA7D1AB210E300B41D85 /* README.md */,
+				BD8320901C10251300D5A33A /* README.md */,
 				16A8FC9B1A7062CC006FC06F /* DemoBots */,
 				16A8FC9A1A7062CC006FC06F /* Products */,
 			);
@@ -1355,6 +1356,7 @@
 				83581AEA1B17953300B2E4FF /* BaseScene+ScreenRecording.swift in Sources */,
 				0AE55AE11B0FF84D0038C5EA /* ButtonNode.swift in Sources */,
 				B57F87E01AECEE1B0026E72F /* FlyingBotPreAttackState.swift in Sources */,
+				BD8320911C10251300D5A33A /* README.md in Sources */,
 				B55F2B3E1B04B1DB004AED21 /* GroundBotPreAttackState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
