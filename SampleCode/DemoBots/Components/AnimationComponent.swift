@@ -136,10 +136,12 @@ class AnimationComponent: GKComponent {
             `animation` variable's `frameOffset` property can be modified later in this method
             if we choose to offset the animation's start point from zero.
         */
-        guard var animation = animations[animationState]?[compassDirection] else {
+        guard let animation_ = animations[animationState]?[compassDirection] else {
             print("Unknown animation for state \(animationState.rawValue), compass direction \(compassDirection.rawValue).")
             return
         }
+
+       var animation = animation_
         
         // Check if the action for the body node has changed.
         if currentAnimation?.bodyActionName != animation.bodyActionName {
