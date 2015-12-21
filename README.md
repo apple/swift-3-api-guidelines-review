@@ -11,7 +11,7 @@ matching the Swift API Design Guidelines?) and to sample projects that
 use those APIs (is the code clearer and more "Swifty"?). This
 repository contains two major branches:
 
-* `swift-2`: This branch provides the baseline Swift 2 projections of Objective-C APIs along with sample projects that compile in Swift 2. This branch will evolve only when the source inputs changes, e.g., the addition of new sample code or updated SDKs when a new version of Xcode becomes available.
+* `swift-2`: This branch provides the baseline Swift 2 projections of Objective-C APIs along with sample projects that compile in Swift 2. This branch will evolve only when the source inputs change, e.g., the addition of new sample code or updated SDKs when a new version of Xcode becomes available.
 
 * `swift-3`: This branch provides the Swift 3 versions of the APIs and code in Swift 2, branched from `swift-2`. The `swift-3` branch will evolve along with the implementation of the aforementioned improvements to Swift's Clang importer, and rebranch from `swift-2` whenever `swift-2` changes.
 
