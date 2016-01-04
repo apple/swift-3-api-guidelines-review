@@ -140,6 +140,8 @@ enum CAConstraintAttribute : Int32 {
   case MaxY
   case Height
 }
+
+/** The additions to CALayer for constraint layout. **/
 extension CALayer {
   var constraints: [CAConstraint]?
   func addConstraint(c: CAConstraint)
@@ -461,11 +463,15 @@ struct _CALayerIvars {
   var magic: UInt32
   var layer: UnsafeMutablePointer<Void>
 }
+
+/** Layout manager protocol. **/
 extension NSObject {
   class func preferredSizeOfLayer(layer: CALayer) -> CGSize
   func preferredSizeOfLayer(layer: CALayer) -> CGSize
   class func invalidateLayoutOfLayer(layer: CALayer)
   func invalidateLayoutOfLayer(layer: CALayer)
+  class func layoutSublayersOfLayer(layer: CALayer)
+  func layoutSublayersOfLayer(layer: CALayer)
 }
 
 /** Action (event handler) protocol. **/
@@ -473,17 +479,19 @@ protocol CAAction {
   @available(OSX 10.0, *)
   func runActionForKey(event: String, object anObject: AnyObject, arguments dict: [NSObject : AnyObject]?)
 }
+
+/** NSNull protocol conformance. **/
 extension NSNull : CAAction {
   @available(OSX 10.0, *)
   func runActionForKey(event: String, object anObject: AnyObject, arguments dict: [NSObject : AnyObject]?)
 }
+
+/** Delegate methods. **/
 extension NSObject {
   class func displayLayer(layer: CALayer)
   func displayLayer(layer: CALayer)
   class func drawLayer(layer: CALayer, inContext ctx: CGContext)
   func drawLayer(layer: CALayer, inContext ctx: CGContext)
-  class func layoutSublayersOfLayer(layer: CALayer)
-  func layoutSublayersOfLayer(layer: CALayer)
   class func actionForLayer(layer: CALayer, forKey event: String) -> CAAction?
   func actionForLayer(layer: CALayer, forKey event: String) -> CAAction?
 }

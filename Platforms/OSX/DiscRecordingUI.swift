@@ -117,14 +117,21 @@ class DRBurnProgressPanel : NSPanel {
   	@abstract		Invoked when the user clicks the panel's stop button.
   */
   @IBAction func stopBurn(sender: AnyObject!)
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
   init?(coder: NSCoder)
   convenience init?(windowRef: UnsafeMutablePointer<Void>)
 }
+
+/*!
+   	@category		NSObject (DRBurnProgressPanelDelegateMethods)
+	@discussion		This category defines a set of methods that
+					delegates of the burn progress panel can implement to control the 
+					behavior of the panel.
+*/
 extension NSObject {
 
   /*!
@@ -204,6 +211,13 @@ extension NSObject {
   	@result			A BOOL indicating whether the normal end-of-burn feedback should occur.
   */
   func burnProgressPanel(theBurnPanel: DRBurnProgressPanel!, burnDidFinish burn: DRBurn!) -> Bool
+}
+
+/*!
+	@typedef DRBurnSessionRef
+	This is the type of a reference to DRBurnSession instances.
+*/
+class DRBurnSession {
 }
 
 /*!
@@ -535,8 +549,8 @@ class DRBurnSetupPanel : DRSetupPanel {
   	@result		The receiver.
   */
   init!(nibName: String!)
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
@@ -636,14 +650,21 @@ class DREraseProgressPanel : NSPanel {
   	@result			An NSString containing the text of the description.
   */
   func description() -> String!
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
   init?(coder: NSCoder)
   convenience init?(windowRef: UnsafeMutablePointer<Void>)
 }
+
+/*!
+   	@category		NSObject (DREraseProgressPanelDelegateMethods)
+	@discussion		This category defines a set of methods that
+					delegates of the burn progress panel can implement to control the 
+					behavior of the panel.
+*/
 extension NSObject {
 
   /*!
@@ -723,6 +744,13 @@ extension NSObject {
   	@result			A BOOL indicating whether the normal end-of-erase feedback should occur.
   */
   func eraseProgressPanel(theErasePanel: DREraseProgressPanel!, eraseDidFinish erase: DRErase!) -> Bool
+}
+
+/*!
+	@typedef DREraseSessionRef
+	This is the type of a reference to DREraseSession instances.
+*/
+class DREraseSession {
 }
 
 /*!
@@ -996,8 +1024,8 @@ class DREraseSetupPanel : DRSetupPanel {
   	@result		The receiver.
   */
   init!(nibName: String!)
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
@@ -1114,8 +1142,8 @@ class DRSetupPanel : NSPanel {
   				done here.
   */
   func setupForDisplay()
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
@@ -1137,6 +1165,13 @@ let DRSetupPanelDeviceSelectionChangedNotification: String
 */
 @available(OSX 10.2, *)
 let DRSetupPanelSelectedDeviceKey: String
+
+/*!
+	@category		NSObject(DRSetupPanelDelegate)
+	@discussion		This category defines a set of methods that
+					delegates of the setup panels can implement to control the 
+					behavior of the panel.
+*/
 extension NSObject {
 
   /*!

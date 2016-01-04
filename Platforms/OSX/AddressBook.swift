@@ -64,10 +64,22 @@ var kABSearchOr: _ABSearchConjunction { get }
 typealias ABSearchConjunction = CFIndex
 typealias ABRecordRef = UnsafeMutablePointer<Void>
 typealias ABPersonRef = ABPerson
+class ABPerson {
+}
 typealias ABGroupRef = ABGroup
+class ABGroup {
+}
 typealias ABSearchElementRef = ABSearchElement
+class ABSearchElement {
+}
 typealias ABAddressBookRef = ABAddressBook
+class ABAddressBook {
+}
 typealias ABMultiValueRef = ABMultiValue
+class ABMultiValue {
+}
+class ABMutableMultiValue {
+}
 typealias ABMutableMultiValueRef = ABMutableMultiValue
 func ABGetSharedAddressBook() -> Unmanaged<ABAddressBook>!
 func ABCopyArrayOfMatchingRecords(addressBook: ABAddressBook!, _ search: ABSearchElement!) -> Unmanaged<CFArray>!

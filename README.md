@@ -19,4 +19,4 @@ Aside from documentation and scripts, all of the content in this
 repository is drawn from other sources, either auto-generated from
 those scripts and the Swift tools or imported from external sources.
 
-Xcode version used to generate the current data: 7.1.1
+Xcode version used to generate the current data: 7.2

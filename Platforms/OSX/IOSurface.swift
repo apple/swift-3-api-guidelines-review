@@ -1,4 +1,6 @@
 
+class IOSurface {
+}
 typealias IOSurfaceRef = IOSurface
 typealias IOSurfaceID = UInt32
 @available(OSX 10.6, *)

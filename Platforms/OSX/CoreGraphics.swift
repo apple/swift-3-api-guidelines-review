@@ -73,6 +73,8 @@ func CGBitmapContextGetAlphaInfo(context: CGContext?) -> CGImageAlphaInfo
 func CGBitmapContextGetBitmapInfo(context: CGContext?) -> CGBitmapInfo
 @available(OSX 10.4, *)
 func CGBitmapContextCreateImage(context: CGContext?) -> CGImage?
+class CGColor {
+}
 typealias CGColorRef = CGColor
 @available(OSX 10.3, *)
 func CGColorCreate(space: CGColorSpace?, _ components: UnsafePointer<CGFloat>) -> CGColor?
@@ -114,6 +116,8 @@ let kCGColorWhite: CFString
 let kCGColorBlack: CFString
 @available(OSX 10.5, *)
 let kCGColorClear: CFString
+class CGColorSpace {
+}
 typealias CGColorSpaceRef = CGColorSpace
 enum CGColorRenderingIntent : Int32 {
   init?(rawValue: Int32)
@@ -142,6 +146,8 @@ let kCGColorSpaceGenericGray: CFString
 let kCGColorSpaceGenericRGB: CFString
 @available(OSX 10.4, *)
 let kCGColorSpaceGenericCMYK: CFString
+@available(OSX 10.10, *)
+let kCGColorSpaceDisplayP3: CFString
 @available(OSX 10.5, *)
 let kCGColorSpaceGenericRGBLinear: CFString
 @available(OSX 10.5, *)
@@ -160,6 +166,8 @@ let kCGColorSpaceITUR_709: CFString
 let kCGColorSpaceITUR_2020: CFString
 @available(OSX 10.11, *)
 let kCGColorSpaceROMMRGB: CFString
+@available(OSX 10.11, *)
+let kCGColorSpaceDCIP3: CFString
 @available(OSX 10.0, *)
 func CGColorSpaceCreateDeviceGray() -> CGColorSpace?
 @available(OSX 10.0, *)
@@ -200,6 +208,8 @@ func CGColorSpaceGetColorTableCount(space: CGColorSpace?) -> Int
 func CGColorSpaceGetColorTable(space: CGColorSpace?, _ table: UnsafeMutablePointer<UInt8>)
 @available(OSX 10.5, *)
 func CGColorSpaceCopyICCProfile(space: CGColorSpace?) -> CFData?
+class CGContext {
+}
 typealias CGContextRef = CGContext
 enum CGPathDrawingMode : Int32 {
   init?(rawValue: Int32)
@@ -527,6 +537,8 @@ func CGContextConvertSizeToUserSpace(c: CGContext?, _ size: CGSize) -> CGSize
 func CGContextConvertRectToDeviceSpace(c: CGContext?, _ rect: CGRect) -> CGRect
 @available(OSX 10.4, *)
 func CGContextConvertRectToUserSpace(c: CGContext?, _ rect: CGRect) -> CGRect
+class CGDataConsumer {
+}
 typealias CGDataConsumerRef = CGDataConsumer
 typealias CGDataConsumerPutBytesCallback = @convention(c) (UnsafeMutablePointer<Void>, UnsafePointer<Void>, Int) -> Int
 typealias CGDataConsumerReleaseInfoCallback = @convention(c) (UnsafeMutablePointer<Void>) -> Void
@@ -544,6 +556,8 @@ func CGDataConsumerCreate(info: UnsafeMutablePointer<Void>, _ cbks: UnsafePointe
 func CGDataConsumerCreateWithURL(url: CFURL?) -> CGDataConsumer?
 @available(OSX 10.4, *)
 func CGDataConsumerCreateWithCFData(data: CFMutableData?) -> CGDataConsumer?
+class CGDataProvider {
+}
 typealias CGDataProviderRef = CGDataProvider
 typealias CGDataProviderGetBytesCallback = @convention(c) (UnsafeMutablePointer<Void>, UnsafeMutablePointer<Void>, Int) -> Int
 typealias CGDataProviderSkipForwardCallback = @convention(c) (UnsafeMutablePointer<Void>, off_t) -> off_t
@@ -590,6 +604,8 @@ func CGDataProviderCopyData(provider: CGDataProvider?) -> CFData?
 typealias CGDirectDisplayID = UInt32
 typealias CGOpenGLDisplayMask = UInt32
 typealias CGRefreshRate = Double
+class CGDisplayMode {
+}
 typealias CGDisplayModeRef = CGDisplayMode
 @available(OSX 10.2, *)
 func CGMainDisplayID() -> CGDirectDisplayID
@@ -824,6 +840,16 @@ func CGDisplayFade(token: CGDisplayFadeReservationToken, _ duration: CGDisplayFa
  scaling and color space conversion services, as well as allow capturing sub regions of the display.   Callbacks can be targetted
  at either a traditional CFRunLoop, or at a dispatch queue.
 */
+class CGDisplayStream {
+}
+
+/*!
+ @typedef CGDisplayStreamRef
+ @abstract An opaque reference to a CGDisplayStream object
+ @discussion A CGDisplayStream provides a streaming API for capturing display updates in a realtime manner.  It can also provide
+ scaling and color space conversion services, as well as allow capturing sub regions of the display.   Callbacks can be targetted
+ at either a traditional CFRunLoop, or at a dispatch queue.
+*/
 typealias CGDisplayStreamRef = CGDisplayStream
 
 /*!
@@ -835,6 +861,17 @@ typealias CGDisplayStreamRef = CGDisplayStream
  where apps need to coalesce the values because they decided to skip processing for one or more frames.
 */
 typealias CGDisplayStreamUpdateRef = CGDisplayStreamUpdate
+
+/*!
+ @typedef CGDisplayStreamUpdateRef
+ @abstract An opaque reference to a single frame's extra metadata that describes useful frame delta information
+ @discussion A CGDisplayStreamUpdate encapsulates information about what portions of a frame have changed relative to
+ a previously delivered frame.   This includes regions that were changed in any way, which ones were actually redrawn, and which
+ regions were merely copied from one place to another.   A routine is provided to merge two update refs together in cases
+ where apps need to coalesce the values because they decided to skip processing for one or more frames.
+*/
+class CGDisplayStreamUpdate {
+}
 
 /*!
  @enum CGDisplayStreamUpdateRectType
@@ -1213,6 +1250,8 @@ func CGEventSourceGetLocalEventsFilterDuringSuppressionState(source: CGEventSour
 func CGEventSourceSetLocalEventsSuppressionInterval(source: CGEventSource?, _ seconds: CFTimeInterval)
 @available(OSX 10.4, *)
 func CGEventSourceGetLocalEventsSuppressionInterval(source: CGEventSource?) -> CFTimeInterval
+class CGEvent {
+}
 typealias CGEventRef = CGEvent
 enum CGMouseButton : UInt32 {
   init?(rawValue: UInt32)
@@ -1400,6 +1439,8 @@ struct __CGEventTapInformation {
 }
 typealias CGEventTapInformation = __CGEventTapInformation
 typealias CGEventSourceRef = CGEventSource
+class CGEventSource {
+}
 enum CGEventSourceStateID : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
@@ -1408,6 +1449,8 @@ enum CGEventSourceStateID : Int32 {
   case HIDSystemState
 }
 typealias CGEventSourceKeyboardType = UInt32
+class CGFont {
+}
 typealias CGFontRef = CGFont
 typealias CGFontIndex = UInt16
 typealias CGGlyph = CGFontIndex
@@ -1492,6 +1535,8 @@ enum CGGlypDeprecatedEnum : Int32 {
   case GlyphMin
   @available(*, deprecated)
   case GlyphMax
+}
+class CGFunction {
 }
 typealias CGFunctionRef = CGFunction
 typealias CGFunctionEvaluateCallback = @convention(c) (UnsafeMutablePointer<Void>, UnsafePointer<CGFloat>, UnsafeMutablePointer<CGFloat>) -> Void
@@ -1708,6 +1753,8 @@ func CGVectorMake(dx: CGFloat, _ dy: CGFloat) -> CGVector
 func CGRectMake(x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect
 func __CGPointEqualToPoint(point1: CGPoint, _ point2: CGPoint) -> Bool
 func __CGSizeEqualToSize(size1: CGSize, _ size2: CGSize) -> Bool
+class CGGradient {
+}
 typealias CGGradientRef = CGGradient
 struct CGGradientDrawingOptions : OptionSetType {
   init(rawValue: UInt32)
@@ -1721,6 +1768,8 @@ func CGGradientGetTypeID() -> CFTypeID
 func CGGradientCreateWithColorComponents(space: CGColorSpace?, _ components: UnsafePointer<CGFloat>, _ locations: UnsafePointer<CGFloat>, _ count: Int) -> CGGradient?
 @available(OSX 10.5, *)
 func CGGradientCreateWithColors(space: CGColorSpace?, _ colors: CFArray?, _ locations: UnsafePointer<CGFloat>) -> CGGradient?
+class CGImage {
+}
 typealias CGImageRef = CGImage
 enum CGImageAlphaInfo : UInt32 {
   init?(rawValue: UInt32)
@@ -1795,6 +1844,8 @@ func CGImageGetRenderingIntent(image: CGImage?) -> CGColorRenderingIntent
 func CGImageGetBitmapInfo(image: CGImage?) -> CGBitmapInfo
 @available(OSX 10.11, *)
 func CGImageGetUTType(image: CGImage?) -> CFString?
+class CGLayer {
+}
 typealias CGLayerRef = CGLayer
 @available(OSX 10.4, *)
 func CGLayerCreateWithContext(context: CGContext?, _ size: CGSize, _ auxiliaryInfo: CFDictionary?) -> CGLayer?
@@ -1932,6 +1983,8 @@ func CGPDFDictionaryGetStream(dict: CGPDFDictionaryRef, _ key: UnsafePointer<Int
 typealias CGPDFDictionaryApplierFunction = @convention(c) (UnsafePointer<Int8>, CGPDFObjectRef, UnsafeMutablePointer<Void>) -> Void
 @available(OSX 10.3, *)
 func CGPDFDictionaryApplyFunction(dict: CGPDFDictionaryRef, _ function: CGPDFDictionaryApplierFunction?, _ info: UnsafeMutablePointer<Void>)
+class CGPDFDocument {
+}
 typealias CGPDFDocumentRef = CGPDFDocument
 @available(OSX 10.0, *)
 func CGPDFDocumentCreateWithProvider(provider: CGDataProvider?) -> CGPDFDocument?
@@ -1992,6 +2045,8 @@ func CGPDFOperatorTableRetain(table: CGPDFOperatorTableRef) -> CGPDFOperatorTabl
 func CGPDFOperatorTableRelease(table: CGPDFOperatorTableRef)
 @available(OSX 10.4, *)
 func CGPDFOperatorTableSetCallback(table: CGPDFOperatorTableRef, _ name: UnsafePointer<Int8>, _ callback: CGPDFOperatorCallback?)
+class CGPDFPage {
+}
 typealias CGPDFPageRef = CGPDFPage
 enum CGPDFBox : Int32 {
   init?(rawValue: Int32)
@@ -2066,6 +2121,8 @@ func CGPDFStringGetBytePtr(string: CGPDFStringRef) -> UnsafePointer<UInt8>
 func CGPDFStringCopyTextString(string: CGPDFStringRef) -> CFString?
 @available(OSX 10.4, *)
 func CGPDFStringCopyDate(string: CGPDFStringRef) -> CFDate?
+class CGPSConverter {
+}
 typealias CGPSConverterRef = CGPSConverter
 typealias CGPSConverterBeginDocumentCallback = @convention(c) (UnsafeMutablePointer<Void>) -> Void
 typealias CGPSConverterEndDocumentCallback = @convention(c) (UnsafeMutablePointer<Void>, Bool) -> Void
@@ -2096,7 +2153,11 @@ func CGPSConverterAbort(converter: CGPSConverter) -> Bool
 func CGPSConverterIsConverting(converter: CGPSConverter) -> Bool
 @available(OSX 10.3, *)
 func CGPSConverterGetTypeID() -> CFTypeID
+class CGMutablePath {
+}
 typealias CGMutablePathRef = CGMutablePath
+class CGPath {
+}
 typealias CGPathRef = CGPath
 enum CGLineJoin : Int32 {
   init?(rawValue: Int32)
@@ -2198,6 +2259,8 @@ struct CGPathElement {
 typealias CGPathApplierFunction = @convention(c) (UnsafeMutablePointer<Void>, UnsafePointer<CGPathElement>) -> Void
 @available(OSX 10.2, *)
 func CGPathApply(path: CGPath?, _ info: UnsafeMutablePointer<Void>, _ function: CGPathApplierFunction?)
+class CGPattern {
+}
 typealias CGPatternRef = CGPattern
 enum CGPatternTiling : Int32 {
   init?(rawValue: Int32)
@@ -2270,6 +2333,8 @@ var kCGSessionOnConsoleKey: String { get }
 var kCGSessionLoginDoneKey: String { get }
 var kCGNotifyGUIConsoleSessionChanged: String { get }
 var kCGNotifyGUISessionUserChanged: String { get }
+class CGShading {
+}
 typealias CGShadingRef = CGShading
 @available(OSX 10.2, *)
 func CGShadingGetTypeID() -> CFTypeID

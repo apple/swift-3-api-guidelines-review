@@ -364,6 +364,8 @@ var kFontNoScript: UInt32 { get }
 var kFontNoLanguage: UInt32 { get }
 var kFontNoName: UInt32 { get }
 typealias ColorSyncCMMRef = ColorSyncCMM
+class ColorSyncCMM {
+}
 func ColorSyncCMMGetTypeID() -> CFTypeID
 func ColorSyncCMMCreate(cmmBundle: CFBundle!) -> Unmanaged<ColorSyncCMM>!
 func ColorSyncCMMGetBundle(_: ColorSyncCMM!) -> Unmanaged<CFBundle>!
@@ -413,17 +415,23 @@ typealias ColorSyncDeviceProfileIterateCallback = @convention(c) (CFDictionary!,
 func ColorSyncIterateDeviceProfiles(callBack: ColorSyncDeviceProfileIterateCallback!, _ userInfo: UnsafeMutablePointer<Void>)
 func CGDisplayCreateUUIDFromDisplayID(displayID: UInt32) -> Unmanaged<CFUUID>!
 func CGDisplayGetDisplayIDFromUUID(uuid: CFUUID!) -> UInt32
+class ColorSyncProfile {
+}
 typealias ColorSyncProfileRef = ColorSyncProfile
 typealias ColorSyncMutableProfileRef = ColorSyncMutableProfile
+class ColorSyncMutableProfile {
+}
 var kColorSyncGenericGrayProfile: Unmanaged<CFString>!
 var kColorSyncGenericGrayGamma22Profile: Unmanaged<CFString>!
 var kColorSyncGenericRGBProfile: Unmanaged<CFString>!
 var kColorSyncGenericCMYKProfile: Unmanaged<CFString>!
+var kColorSyncDisplayP3Profile: Unmanaged<CFString>!
 var kColorSyncSRGBProfile: Unmanaged<CFString>!
 var kColorSyncAdobeRGB1998Profile: Unmanaged<CFString>!
 var kColorSyncGenericLabProfile: Unmanaged<CFString>!
 var kColorSyncGenericXYZProfile: Unmanaged<CFString>!
 var kColorSyncACESCGLinearProfile: Unmanaged<CFString>!
+var kColorSyncDCIP3Profile: Unmanaged<CFString>!
 var kColorSyncITUR709Profile: Unmanaged<CFString>!
 var kColorSyncITUR2020Profile: Unmanaged<CFString>!
 var kColorSyncROMMRGBProfile: Unmanaged<CFString>!
@@ -513,6 +521,8 @@ func ColorSyncIterateInstalledProfiles(callBack: ColorSyncProfileIterateCallback
 func ColorSyncProfileInstall(profile: ColorSyncProfile!, _ domain: CFString!, _ subpath: CFString!, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
 func ColorSyncProfileUninstall(profile: ColorSyncProfile!, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
 typealias ColorSyncTransformRef = ColorSyncTransform
+class ColorSyncTransform {
+}
 func ColorSyncTransformGetTypeID() -> CFTypeID
 func ColorSyncTransformCreate(profileSequence: CFArray!, _ options: CFDictionary!) -> Unmanaged<ColorSyncTransform>!
 func ColorSyncTransformCopyProperty(transform: ColorSyncTransform!, _ key: AnyObject!, _ options: CFDictionary!) -> Unmanaged<AnyObject>!
@@ -1166,6 +1176,17 @@ func AXIsProcessTrusted() -> Bool
 typealias AXUIElementRef = AXUIElement
 
 /*!
+ @typedef AXUIElementRef
+ @abstract A structure used to refer to an accessibility object.
+ 
+ @discussion An accessibility object provides information about the user interface object it represents. This information includes the object's
+ position in the accessibility hierarchy, its position on the display, details about what it is, and what actions it can perform. Accessibility objects
+ respond to messages sent by assistive applications and send notifications that describe state changes.
+ */
+class AXUIElement {
+}
+
+/*!
  @enum kAXCopyMultipleAttributeOptionStopOnError
  @discussion Pass this option to @link AXUIElementCopyMultipleAttributeValues AXUIElementCopyMultipleAttributeValues@/link to force the function
  to stop when it gets an error.
@@ -1486,6 +1507,15 @@ func AXUIElementSetMessagingTimeout(element: AXUIElement, _ timeoutInSeconds: Fl
 typealias AXObserverRef = AXObserver
 
 /*!
+ @typedef AXObserverRef
+ 
+ @discussion
+ An AXObserverRef is a CFType. Like all CFTypes, they are reference counted (@link //apple_ref/c/func/CFRetain CFRetain@/link, @link //apple_ref/c/func/CFRelease CFRelease@/link).
+ */
+class AXObserver {
+}
+
+/*!
  @typedef AXObserverCallback
  @abstract
  
@@ -1644,6 +1674,13 @@ let kAXValueIllegalType: UInt32
 typealias AXValueRef = AXValue
 
 /*!
+    @typedef AXValueRef
+    
+*/
+class AXValue {
+}
+
+/*!
 	@function AXValueGetTypeID
 		
 	@result
@@ -1698,7 +1735,11 @@ var kAXDescendingSortDirectionValue: String { get }
 var kAXUnknownSortDirectionValue: String { get }
 var AX_ALLOW_OLD_SECURITY_METHOD: Int32 { get }
 typealias HIShapeRef = HIShape
+class HIShape {
+}
 typealias HIMutableShapeRef = HIMutableShape
+class HIMutableShape {
+}
 var kHIShapeEnumerateInit: Int { get }
 var kHIShapeEnumerateRect: Int { get }
 var kHIShapeEnumerateTerminate: Int { get }
@@ -2044,7 +2085,7 @@ struct ICMapEntry {
   var MIMEType: Str255
   var entryName: Str255
   init()
-  init(totalLength: Int16, fixedLength: ICFixedLength, version: Int16, fileType: OSType, fileCreator: OSType, postCreator: OSType, flags: ICMapEntryFlags, `extension`: Str255, creatorAppName: Str255, postAppName: Str255, MIMEType: Str255, entryName: Str255)
+  init(totalLength: Int16, fixedLength: ICFixedLength, version: Int16, fileType: OSType, fileCreator: OSType, postCreator: OSType, flags: ICMapEntryFlags, extension: Str255, creatorAppName: Str255, postAppName: Str255, MIMEType: Str255, entryName: Str255)
 }
 typealias ICMapEntryPtr = UnsafeMutablePointer<ICMapEntry>
 typealias ICMapEntryHandle = UnsafeMutablePointer<ICMapEntryPtr>
@@ -2158,6 +2199,8 @@ var kICWebTextColor: String { get }
 var kICWebUnderlineLinks: String { get }
 var kICWebUnreadColor: String { get }
 var kICWhoisHost: String { get }
+class Pasteboard {
+}
 typealias PasteboardRef = Pasteboard
 typealias PasteboardItemID = UnsafeMutablePointer<Void>
 var badPasteboardSyncErr: Int { get }
@@ -2234,7 +2277,7 @@ struct AppParameters {
     var `where`: Point
     var modifiers: UInt16
     init()
-    init(what: UInt16, message: UInt32, when: UInt32, `where`: Point, modifiers: UInt16)
+    init(what: UInt16, message: UInt32, when: UInt32, where: Point, modifiers: UInt16)
   }
   var theMsgEvent: AppParameters.__Unnamed_struct_theMsgEvent
   var eventRefCon: UInt32
@@ -2363,6 +2406,8 @@ var cdevGenErr: Int { get }
 var cdevMemErr: Int { get }
 var cdevResErr: Int { get }
 var cdevUnset: Int { get }
+class Translation {
+}
 typealias TranslationRef = Translation
 var badTranslationRefErr: Int { get }
 typealias TranslationFlags = OptionBits

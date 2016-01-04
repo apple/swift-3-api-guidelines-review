@@ -4289,6 +4289,11 @@ var WebKitErrorCannotFindPlugIn: Int { get }
 var WebKitErrorCannotLoadPlugIn: Int { get }
 var WebKitErrorJavaUnavailable: Int { get }
 var WebKitErrorBlockedPlugInVersion: Int { get }
+
+/*!
+    WebPlugIn is an informal protocol that enables interaction between an application
+    and web related plug-ins it may contain.
+*/
 extension NSObject {
 
   /*!
@@ -4402,6 +4407,7 @@ extension NSObject {
       @discussion This method is only sent to the plug-in if the
       WebPlugInShouldLoadMainResourceKey argument passed to the plug-in was NO.
   */
+  @available(OSX 10.6, *)
   class func webPlugInMainResourceDidReceiveResponse(response: NSURLResponse!)
 
   /*!
@@ -4421,6 +4427,7 @@ extension NSObject {
       @discussion This method is only sent to the plug-in if the
       WebPlugInShouldLoadMainResourceKey argument passed to the plug-in was NO.
   */
+  @available(OSX 10.6, *)
   class func webPlugInMainResourceDidReceiveData(data: NSData!)
 
   /*!
@@ -4440,6 +4447,7 @@ extension NSObject {
       @discussion This method is only sent to the plug-in if the
       WebPlugInShouldLoadMainResourceKey argument passed to the plug-in was NO.
   */
+  @available(OSX 10.6, *)
   class func webPlugInMainResourceDidFailWithError(error: NSError!)
 
   /*!
@@ -4459,6 +4467,7 @@ extension NSObject {
       @discussion This method is only sent to the plug-in if the
       WebPlugInShouldLoadMainResourceKey argument passed to the plug-in was NO.
   */
+  @available(OSX 10.6, *)
   class func webPlugInMainResourceDidFinishLoading()
 
   /*!
@@ -4472,6 +4481,11 @@ extension NSObject {
   func webPlugInMainResourceDidFinishLoading()
   class func objectForWebScript() -> AnyObject!
 }
+
+/*!
+    This informal protocol enables a plug-in to request that its containing application
+    perform certain operations.
+*/
 extension NSObject {
 
   /*!
@@ -5218,6 +5232,7 @@ extension NSObject {
       @result The return value of the invocation. The value will be converted as appropriate
       for the script environment.
   */
+  @available(OSX 10.4, *)
   class func invokeUndefinedMethodFromWebScript(name: String!, withArguments arguments: [AnyObject]!) -> AnyObject!
 
   /*!
@@ -5240,6 +5255,7 @@ extension NSObject {
       @result The return value of the call. The value will be converted as appropriate
       for the script environment.
   */
+  @available(OSX 10.4, *)
   class func invokeDefaultMethodWithArguments(arguments: [AnyObject]!) -> AnyObject!
 
   /*!
@@ -5260,6 +5276,7 @@ extension NSObject {
       Subsequently, any references to WebScriptObjects made by the exposed object will
       be invalid and have undefined consequences.
   */
+  @available(OSX 10.4, *)
   class func finalizeForWebScript()
 
   /*!

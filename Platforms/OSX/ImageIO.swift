@@ -1,4 +1,6 @@
 
+class CGImageDestination {
+}
 typealias CGImageDestinationRef = CGImageDestination
 
 /** Properties which may be passed to "CGImageDestinationAddImage"
@@ -56,6 +58,13 @@ func CGImageDestinationCopyImageSource(idst: CGImageDestination, _ isrc: CGImage
  * @typedef CGImageMetadataRef 
  * @abstract an immutable container for CGImageMetadataTags
  */
+class CGImageMetadata {
+}
+
+/*!
+ * @typedef CGImageMetadataRef 
+ * @abstract an immutable container for CGImageMetadataTags
+ */
 typealias CGImageMetadataRef = CGImageMetadata
 
 ///*! @functiongroup Creating and identifying CGImageMetadata containers */
@@ -73,6 +82,15 @@ func CGImageMetadataGetTypeID() -> CFTypeID
  * accepts a CGImageMetadataRef.
  */
 typealias CGMutableImageMetadataRef = CGMutableImageMetadata
+
+/*!
+ * @typedef CGMutableImageMetadataRef
+ * @abstract a mutable container for CGImageMetadataTags
+ * @discussion A CGMutableImageMetadataRef can be used in any function that
+ * accepts a CGImageMetadataRef.
+ */
+class CGMutableImageMetadata {
+}
 
 /*!
  * @function CGImageMetadataCreateMutable
@@ -99,6 +117,16 @@ func CGImageMetadataCreateMutableCopy(metadata: CGImageMetadata) -> CGMutableIma
  * @link CGImageMetadataTagCreate @/link for more details.
  */
 typealias CGImageMetadataTagRef = CGImageMetadataTag
+
+/*!
+ * @typedef CGImageMetadataTagRef
+ * @abstract an individual metadata tag
+ * @discussion A CGImageMetadataTag encapsulates an EXIF, IPTC, or XMP property.
+ * All tags contain a namespace, prefix, name, type, and value. Please see
+ * @link CGImageMetadataTagCreate @/link for more details.
+ */
+class CGImageMetadataTag {
+}
 
 ///*! @functiongroup Creating and identifying CGImageMetadataTags */
 /*!
@@ -1255,6 +1283,8 @@ var IMAGEIO_PNG_FILTER_SUB: Int32 { get }
 var IMAGEIO_PNG_FILTER_UP: Int32 { get }
 var IMAGEIO_PNG_FILTER_AVG: Int32 { get }
 var IMAGEIO_PNG_FILTER_PAETH: Int32 { get }
+class CGImageSource {
+}
 typealias CGImageSourceRef = CGImageSource
 enum CGImageSourceStatus : Int32 {
   init?(rawValue: Int32)

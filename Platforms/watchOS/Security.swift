@@ -51,7 +51,24 @@ func SecAccessControlCreateWithFlags(allocator: CFAllocator?, _ protection: AnyO
     @abstract CFType representing a X.509 certificate.
     See SecCertificate.h for details.
 */
+class SecCertificate {
+}
+
+/*!
+    @typedef SecCertificateRef
+    @abstract CFType representing a X.509 certificate.
+    See SecCertificate.h for details.
+*/
 typealias SecCertificateRef = SecCertificate
+
+/*!
+    @typedef SecIdentityRef
+    @abstract CFType representing an identity, which contains
+    a SecKeyRef and an associated SecCertificateRef. See
+    SecIdentity.h for details.
+*/
+class SecIdentity {
+}
 
 /*!
     @typedef SecIdentityRef
@@ -69,11 +86,35 @@ typealias SecIdentityRef = SecIdentity
 typealias SecKeyRef = SecKey
 
 /*!
+    @typedef SecKeyRef
+    @abstract CFType representing a cryptographic key. See
+    SecKey.h for details.
+*/
+class SecKey {
+}
+
+/*!
     @typedef SecPolicyRef
     @abstract CFType representing a X.509 certificate trust policy.
     See SecPolicy.h for details.
 */
 typealias SecPolicyRef = SecPolicy
+
+/*!
+    @typedef SecPolicyRef
+    @abstract CFType representing a X.509 certificate trust policy.
+    See SecPolicy.h for details.
+*/
+class SecPolicy {
+}
+
+/*!
+    @typedef SecAccessControl
+    @abstract CFType representing access control for an item.
+    SecAccessControl.h for details.
+*/
+class SecAccessControl {
+}
 
 /*!
     @typedef SecAccessControl
@@ -1682,6 +1723,13 @@ var kSecTrustResultUnspecified: Int { get }
 var kSecTrustResultRecoverableTrustFailure: Int { get }
 var kSecTrustResultFatalTrustFailure: Int { get }
 var kSecTrustResultOtherError: Int { get }
+
+/*!
+    @typedef SecTrustRef
+    @abstract CFType used for performing X.509 certificate trust evaluations.
+ */
+class SecTrust {
+}
 
 /*!
     @typedef SecTrustRef

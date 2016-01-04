@@ -409,6 +409,13 @@ let kDADiskDescriptionBusPathKey: CFString
  * @typedef    DADiskRef
  * Type of a reference to DADisk instances.
  */
+class DADisk {
+}
+
+/*!
+ * @typedef    DADiskRef
+ * Type of a reference to DADisk instances.
+ */
 typealias DADiskRef = DADisk
 
 /*!
@@ -531,6 +538,13 @@ typealias DAReturn = mach_error_t
 typealias DADissenterRef = DADissenter
 
 /*!
+ * @typedef    DADissenterRef
+ * Type of a reference to DADissenter instances.
+ */
+class DADissenter {
+}
+
+/*!
  * @function   DADissenterCreate
  * @abstract   Creates a new dissenter object.
  * @param      allocator The allocator object to be used to allocate memory.
@@ -555,6 +569,13 @@ func DADissenterGetStatus(dissenter: DADissenter) -> DAReturn
  * @result     The return code string.
  */
 func DADissenterGetStatusString(dissenter: DADissenter) -> CFString?
+
+/*!
+ * @typedef   DASessionRef
+ * Type of a reference to DASession instances.
+ */
+class DASession {
+}
 
 /*!
  * @typedef   DASessionRef

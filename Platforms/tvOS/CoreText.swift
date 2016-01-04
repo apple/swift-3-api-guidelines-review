@@ -31,6 +31,8 @@ var kCTVersionNumber10_9: Int32 { get }
 var kCTVersionNumber10_10: Int32 { get }
 var kCTVersionNumber10_11: Int32 { get }
 typealias CTFontRef = CTFont
+class CTFont {
+}
 
 /*!
     @function   CTFontGetTypeID
@@ -1425,8 +1427,12 @@ let kCTBaselineOriginalFont: CFString
 */
 @available(tvOS 6.0, *)
 func CTFontCopyDefaultCascadeListForLanguages(font: CTFont, _ languagePrefList: CFArray?) -> CFArray?
+class CTFontCollection {
+}
 typealias CTFontCollectionRef = CTFontCollection
 typealias CTMutableFontCollectionRef = CTMutableFontCollection
+class CTMutableFontCollection {
+}
 
 /*!
     @function   CTFontCollectionGetTypeID
@@ -1525,6 +1531,8 @@ func CTFontCollectionCreateMatchingFontDescriptors(collection: CTFontCollection)
 */
 @available(tvOS 3.2, *)
 func CTFontCollectionCreateMatchingFontDescriptorsSortedWithCallback(collection: CTFontCollection, _ sortCallback: CTFontCollectionSortDescriptorsCallback?, _ refCon: UnsafeMutablePointer<Void>) -> CFArray?
+class CTFontDescriptor {
+}
 typealias CTFontDescriptorRef = CTFontDescriptor
 
 /*!
@@ -2352,6 +2360,8 @@ struct CTFontStylisticClass : OptionSetType {
   static var ScriptsClass: CTFontStylisticClass { get }
   static var SymbolicClass: CTFontStylisticClass { get }
 }
+class CTFrame {
+}
 typealias CTFrameRef = CTFrame
 
 /*!
@@ -2614,6 +2624,8 @@ func CTFrameGetLineOrigins(frame: CTFrame, _ range: CFRange, _ origins: UnsafeMu
 */
 @available(tvOS 3.2, *)
 func CTFrameDraw(frame: CTFrame, _ context: CGContext)
+class CTFramesetter {
+}
 typealias CTFramesetterRef = CTFramesetter
 
 /*!
@@ -2728,6 +2740,8 @@ func CTFramesetterGetTypesetter(framesetter: CTFramesetter) -> CTTypesetter
 @available(tvOS 3.2, *)
 func CTFramesetterSuggestFrameSizeWithConstraints(framesetter: CTFramesetter, _ stringRange: CFRange, _ frameAttributes: CFDictionary?, _ constraints: CGSize, _ fitRange: UnsafeMutablePointer<CFRange>) -> CGSize
 typealias CTGlyphInfoRef = CTGlyphInfo
+class CTGlyphInfo {
+}
 
 /*!
 	@function	CTGlyphInfoGetTypeID
@@ -2901,6 +2915,8 @@ func CTGlyphInfoGetCharacterIdentifier(glyphInfo: CTGlyphInfo) -> CGFontIndex
 */
 @available(tvOS 3.2, *)
 func CTGlyphInfoGetCharacterCollection(glyphInfo: CTGlyphInfo) -> CTCharacterCollection
+class CTLine {
+}
 typealias CTLineRef = CTLine
 
 /*!
@@ -3308,6 +3324,8 @@ func CTLineGetOffsetForStringIndex(line: CTLine, _ charIndex: CFIndex, _ seconda
 */
 @available(tvOS 9.0, *)
 func CTLineEnumerateCaretOffsets(line: CTLine, _ block: (Double, CFIndex, Bool, UnsafeMutablePointer<Bool>) -> Void)
+class CTParagraphStyle {
+}
 typealias CTParagraphStyleRef = CTParagraphStyle
 
 /*!
@@ -3738,6 +3756,8 @@ func CTParagraphStyleCreateCopy(paragraphStyle: CTParagraphStyle) -> CTParagraph
 */
 @available(tvOS 3.2, *)
 func CTParagraphStyleGetValueForSpecifier(paragraphStyle: CTParagraphStyle, _ spec: CTParagraphStyleSpecifier, _ valueBufferSize: Int, _ valueBuffer: UnsafeMutablePointer<Void>) -> Bool
+class CTRubyAnnotation {
+}
 typealias CTRubyAnnotationRef = CTRubyAnnotation
 
 /*!
@@ -3933,6 +3953,8 @@ func CTRubyAnnotationGetSizeFactor(rubyAnnotation: CTRubyAnnotation) -> CGFloat
 */
 @available(tvOS 8.0, *)
 func CTRubyAnnotationGetTextForPosition(rubyAnnotation: CTRubyAnnotation, _ position: CTRubyPosition) -> CFString?
+class CTRun {
+}
 typealias CTRunRef = CTRun
 
 /*!
@@ -4322,6 +4344,8 @@ func CTRunGetTextMatrix(run: CTRun) -> CGAffineTransform
 */
 @available(tvOS 3.2, *)
 func CTRunDraw(run: CTRun, _ context: CGContext, _ range: CFRange)
+class CTRunDelegate {
+}
 typealias CTRunDelegateRef = CTRunDelegate
 
 /*!
@@ -4802,6 +4826,8 @@ var kCTWritingDirectionOverride: Int { get }
  */
 @available(tvOS 8.0, *)
 let kCTRubyAnnotationAttributeName: CFString
+class CTTextTab {
+}
 typealias CTTextTabRef = CTTextTab
 
 /*!
@@ -4883,6 +4909,8 @@ func CTTextTabGetLocation(tab: CTTextTab) -> Double
 */
 @available(tvOS 3.2, *)
 func CTTextTabGetOptions(tab: CTTextTab) -> CFDictionary?
+class CTTypesetter {
+}
 typealias CTTypesetterRef = CTTypesetter
 
 /*!

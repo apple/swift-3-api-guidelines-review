@@ -9393,6 +9393,19 @@ extension AVCaptureDevice {
   @available(tvOS 8.0, *)
   var videoHDREnabled: Bool
 }
+
+/*!
+ @category AVCaptureStillImageOutput (BracketedCaptureMethods)
+ @abstract
+    A category of methods for bracketed still image capture.
+ 
+ @discussion
+    A "still image bracket" is a batch of images taken as quickly as possible in succession,
+    optionally with different settings from picture to picture.
+ 
+    In a bracketed capture, AVCaptureDevice flashMode property is ignored (flash is forced off), as is AVCaptureStillImageOutput's
+    automaticallyEnablesStillImageStabilizationWhenAvailable property (stabilization is forced off).
+*/
 extension AVCaptureStillImageOutput {
 
   /*!
@@ -10530,6 +10543,15 @@ class AVMediaSelectionGroup : NSObject, NSCopying {
   @available(tvOS 5.0, *)
   func copyWithZone(zone: NSZone) -> AnyObject
 }
+
+/*!
+  @category		AVMediaSelectionOptionFiltering
+  @abstract		Filtering of media selection options.
+  @discussion
+	The AVMediaSelectionOptionFiltering category is provided for convenience in filtering the media selection options in a group
+	according to playability, locale, and media characteristics.
+	Note that it's possible to implement additional filtering behaviors by using -[NSArray indexesOfObjectsPassingTest:].
+*/
 extension AVMediaSelectionGroup {
 
   /*!

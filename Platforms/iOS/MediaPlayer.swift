@@ -1,4 +1,6 @@
 
+
+/// Category for creating language options from AV types
 extension AVMediaSelectionOption {
 
   /// Will create a language option from the AVMediaSelectionOption
@@ -62,6 +64,7 @@ class MPMediaEntity : NSObject, NSSecureCoding {
   class func canFilterByProperty(property: String) -> Bool
   @available(iOS 4.0, *)
   func enumerateValuesForProperties(properties: Set<String>, usingBlock block: (String, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
+  @available(iOS 8.0, *)
   subscript (key: AnyObject) -> AnyObject? { get }
   func valueForProperty(property: String) -> AnyObject?
   @available(iOS 7.0, *)
@@ -155,6 +158,8 @@ class MPMediaItem : MPMediaEntity {
   var assetURL: NSURL? { get }
   @available(iOS 8.0, *)
   var cloudItem: Bool { get }
+  @available(iOS 9.2, *)
+  var protectedAsset: Bool { get }
   @available(iOS 7.0, *)
   var podcastTitle: String? { get }
   @available(iOS 8.0, *)
@@ -211,6 +216,8 @@ let MPMediaItemPropertyComments: String
 let MPMediaItemPropertyAssetURL: String
 @available(iOS 6.0, *)
 let MPMediaItemPropertyIsCloudItem: String
+@available(iOS 9.2, *)
+let MPMediaItemPropertyHasProtectedAsset: String
 let MPMediaItemPropertyPodcastTitle: String
 @available(iOS 4.2, *)
 let MPMediaItemPropertyPodcastPersistentID: String
@@ -263,6 +270,8 @@ class MPMediaPickerController : UIViewController {
   var allowsPickingMultipleItems: Bool
   @available(iOS 6.0, *)
   var showsCloudItems: Bool
+  @available(iOS 9.2, *)
+  var showsItemsWithProtectedAssets: Bool
   var prompt: String?
   convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
   init?(coder aDecoder: NSCoder)

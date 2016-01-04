@@ -799,22 +799,6 @@ class GCMotion : NSObject {
    @see userAcceleration
    */
   var userAcceleration: GCAcceleration { get }
-
-  /**
-   The current attitude of the controller.
-   
-   @note Remotes can not determine a stable attitude so the values will be (0,0,0,1) at all times.
-   @see GCMicroGamepad
-   */
-  var attitude: GCQuaternion { get }
-
-  /**
-   The current rotation rate of the controller.
-   
-   @note Remotes can not determine a stable rotation rate so the values will be (0,0,0) at all times.
-   @see GCMicroGamepad
-   */
-  var rotationRate: GCRotationRate { get }
   init()
 }
 

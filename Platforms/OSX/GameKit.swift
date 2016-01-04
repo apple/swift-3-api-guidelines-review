@@ -124,6 +124,8 @@ extension GKScore {
 extension GKAchievement {
   @available(OSX 10.10, *)
   func challengeComposeControllerWithMessage(message: String?, players: [GKPlayer], completionHandler: GKChallengeComposeCompletionBlock?) -> NSViewController
+  @available(OSX, introduced=10.8, deprecated=10.10, message="pass GKPlayers to challengeComposeControllerWithMessage:players:completionHandler: and present the view controller instead")
+  func issueChallengeToPlayers(playerIDs: [String]?, message: String?)
   @available(OSX 10.10, *)
   func selectChallengeablePlayers(players: [GKPlayer], withCompletionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)?)
   @available(OSX 10.10, *)
@@ -134,8 +136,6 @@ extension GKScore {
 extension GKAchievement {
   @available(OSX, introduced=10.8, deprecated=10.10, message="pass GKPlayers to selectChallengeablePlayers:")
   func selectChallengeablePlayerIDs(playerIDs: [String]?, withCompletionHandler completionHandler: (([String]?, NSError?) -> Void)?)
-  @available(OSX, introduced=10.8, deprecated=10.10, message="pass GKPlayers to challengeComposeControllerWithMessage:players:completionHandler: and present the view controller instead")
-  func issueChallengeToPlayers(playerIDs: [String]?, message: String?)
 }
 @available(OSX, introduced=10.8, deprecated=10.10, message="You should instead implement the GKChallengeListener protocol and register a listener with GKLocalPlayer.")
 protocol GKChallengeEventHandlerDelegate : NSObjectProtocol {

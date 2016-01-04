@@ -12626,6 +12626,15 @@ class AVMediaSelectionGroup : NSObject, NSCopying {
   @available(OSX 10.8, *)
   func copyWithZone(zone: NSZone) -> AnyObject
 }
+
+/*!
+  @category		AVMediaSelectionOptionFiltering
+  @abstract		Filtering of media selection options.
+  @discussion
+	The AVMediaSelectionOptionFiltering category is provided for convenience in filtering the media selection options in a group
+	according to playability, locale, and media characteristics.
+	Note that it's possible to implement additional filtering behaviors by using -[NSArray indexesOfObjectsPassingTest:].
+*/
 extension AVMediaSelectionGroup {
 
   /*!
@@ -17137,6 +17146,11 @@ enum AVContentAuthorizationStatus : Int {
   case NotAvailable
   case NotPossible
 }
+
+/*!
+ @category		AVPlayerItem (AVPlayerItemProtectedContent)
+ @abstract		Methods supporting protected content.
+ */
 extension AVPlayerItem {
 
   /*!
@@ -17876,20 +17890,6 @@ class AVTextStyleRule : NSObject, NSCopying {
   var textSelector: String? { get }
   @available(OSX 10.9, *)
   func copyWithZone(zone: NSZone) -> AnyObject
-}
-extension NSValue {
-  @available(OSX 10.7, *)
-  /*not inherited*/ init(CMTime time: CMTime)
-  @available(OSX 10.7, *)
-  var CMTimeValue: CMTime { get }
-  @available(OSX 10.7, *)
-  /*not inherited*/ init(CMTimeRange timeRange: CMTimeRange)
-  @available(OSX 10.7, *)
-  var CMTimeRangeValue: CMTimeRange { get }
-  @available(OSX 10.7, *)
-  /*not inherited*/ init(CMTimeMapping timeMapping: CMTimeMapping)
-  @available(OSX 10.7, *)
-  var CMTimeMappingValue: CMTimeMapping { get }
 }
 extension NSValue {
   @available(OSX 10.7, *)

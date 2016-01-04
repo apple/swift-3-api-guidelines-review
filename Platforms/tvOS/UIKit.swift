@@ -77,6 +77,8 @@ enum NSWritingDirectionFormatType : Int {
 }
 @available(tvOS 7.0, *)
 let NSTextEffectLetterpressStyle: String
+
+/************************ Attribute fixing ************************/
 extension NSMutableAttributedString {
   @available(tvOS 7.0, *)
   func fixAttributesInRange(range: NSRange)
@@ -131,31 +133,17 @@ extension NSAttributedString {
   @available(tvOS 7.0, *)
   func fileWrapperFromRange(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSFileWrapper
 }
-extension NSAttributedString {
-  @available(tvOS 9.0, *)
-  init(URL url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
-  @available(tvOS 7.0, *)
-  init(data: NSData, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
-  @available(tvOS 7.0, *)
-  func dataFromRange(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSData
-  @available(tvOS 7.0, *)
-  func fileWrapperFromRange(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSFileWrapper
-}
 extension NSMutableAttributedString {
   @available(tvOS 9.0, *)
   func readFromURL(url: NSURL, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(tvOS 7.0, *)
   func readFromData(data: NSData, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
+
+/************************ Misc methods ************************/
 extension NSAttributedString {
   @available(tvOS 9.0, *)
   func containsAttachmentsInRange(range: NSRange) -> Bool
-}
-extension NSAttributedString {
-  @available(tvOS 9.0, *)
-  func containsAttachmentsInRange(range: NSRange) -> Bool
-}
-extension NSAttributedString {
 }
 extension NSAttributedString {
 }
@@ -645,38 +633,6 @@ extension NSString {
   @available(tvOS 7.0, *)
   func drawInRect(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
 }
-extension NSString {
-  @available(tvOS 7.0, *)
-  func sizeWithAttributes(attrs: [String : AnyObject]?) -> CGSize
-  @available(tvOS 7.0, *)
-  func drawAtPoint(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
-  @available(tvOS 7.0, *)
-  func drawInRect(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
-}
-extension NSString {
-  @available(tvOS 7.0, *)
-  func sizeWithAttributes(attrs: [String : AnyObject]?) -> CGSize
-  @available(tvOS 7.0, *)
-  func drawAtPoint(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
-  @available(tvOS 7.0, *)
-  func drawInRect(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
-}
-extension NSString {
-  @available(tvOS 7.0, *)
-  func sizeWithAttributes(attrs: [String : AnyObject]?) -> CGSize
-  @available(tvOS 7.0, *)
-  func drawAtPoint(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
-  @available(tvOS 7.0, *)
-  func drawInRect(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
-}
-extension NSAttributedString {
-  @available(tvOS 6.0, *)
-  func size() -> CGSize
-  @available(tvOS 6.0, *)
-  func drawAtPoint(point: CGPoint)
-  @available(tvOS 6.0, *)
-  func drawInRect(rect: CGRect)
-}
 extension NSAttributedString {
   @available(tvOS 6.0, *)
   func size() -> CGSize
@@ -701,36 +657,14 @@ extension NSString {
   @available(tvOS 7.0, *)
   func boundingRectWithSize(size: CGSize, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
 }
-extension NSString {
-  @available(tvOS 7.0, *)
-  func drawWithRect(rect: CGRect, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
-  @available(tvOS 7.0, *)
-  func boundingRectWithSize(size: CGSize, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
-}
-extension NSString {
-  @available(tvOS 7.0, *)
-  func drawWithRect(rect: CGRect, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
-  @available(tvOS 7.0, *)
-  func boundingRectWithSize(size: CGSize, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
-}
-extension NSString {
-  @available(tvOS 7.0, *)
-  func drawWithRect(rect: CGRect, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
-  @available(tvOS 7.0, *)
-  func boundingRectWithSize(size: CGSize, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
-}
 extension NSAttributedString {
   @available(tvOS 6.0, *)
   func drawWithRect(rect: CGRect, options: NSStringDrawingOptions, context: NSStringDrawingContext?)
   @available(tvOS 6.0, *)
   func boundingRectWithSize(size: CGSize, options: NSStringDrawingOptions, context: NSStringDrawingContext?) -> CGRect
 }
-extension NSAttributedString {
-  @available(tvOS 6.0, *)
-  func drawWithRect(rect: CGRect, options: NSStringDrawingOptions, context: NSStringDrawingContext?)
-  @available(tvOS 6.0, *)
-  func boundingRectWithSize(size: CGSize, options: NSStringDrawingOptions, context: NSStringDrawingContext?) -> CGRect
-}
+
+/************************ Deprecated ************************/
 extension NSStringDrawingContext {
 }
 @available(tvOS 6.0, *)
@@ -792,10 +726,6 @@ class NSTextAttachment : NSObject, NSTextAttachmentContainer, NSCoding {
   @available(tvOS 7.0, *)
   func encodeWithCoder(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
-}
-extension NSAttributedString {
-  @available(tvOS 7.0, *)
-  /*not inherited*/ init(attachment: NSTextAttachment)
 }
 extension NSAttributedString {
   @available(tvOS 7.0, *)
@@ -966,15 +896,19 @@ extension NSObject {
   class func setAccessibilityElements(accessibilityElements: [AnyObject]?)
 }
 extension NSObject {
+  @available(tvOS 4.0, *)
   class func accessibilityElementDidBecomeFocused()
   @available(tvOS 4.0, *)
   func accessibilityElementDidBecomeFocused()
+  @available(tvOS 4.0, *)
   class func accessibilityElementDidLoseFocus()
   @available(tvOS 4.0, *)
   func accessibilityElementDidLoseFocus()
+  @available(tvOS 4.0, *)
   class func accessibilityElementIsFocused() -> Bool
   @available(tvOS 4.0, *)
   func accessibilityElementIsFocused() -> Bool
+  @available(tvOS 9.0, *)
   class func accessibilityAssistiveTechnologyFocusedIdentifiers() -> Set<String>?
   @available(tvOS 9.0, *)
   func accessibilityAssistiveTechnologyFocusedIdentifiers() -> Set<String>?
@@ -982,21 +916,27 @@ extension NSObject {
 @available(tvOS 9.0, *)
 func UIAccessibilityFocusedElement(assistiveTechnologyIdentifier: String?) -> AnyObject?
 extension NSObject {
+  @available(tvOS 7.0, *)
   class func accessibilityActivate() -> Bool
   @available(tvOS 7.0, *)
   func accessibilityActivate() -> Bool
+  @available(tvOS 4.0, *)
   class func accessibilityIncrement()
   @available(tvOS 4.0, *)
   func accessibilityIncrement()
+  @available(tvOS 4.0, *)
   class func accessibilityDecrement()
   @available(tvOS 4.0, *)
   func accessibilityDecrement()
+  @available(tvOS 4.2, *)
   class func accessibilityScroll(direction: UIAccessibilityScrollDirection) -> Bool
   @available(tvOS 4.2, *)
   func accessibilityScroll(direction: UIAccessibilityScrollDirection) -> Bool
+  @available(tvOS 5.0, *)
   class func accessibilityPerformEscape() -> Bool
   @available(tvOS 5.0, *)
   func accessibilityPerformEscape() -> Bool
+  @available(tvOS 6.0, *)
   class func accessibilityPerformMagicTap() -> Bool
   @available(tvOS 6.0, *)
   func accessibilityPerformMagicTap() -> Bool
@@ -2234,8 +2174,8 @@ enum UICollectionUpdateAction : Int {
 }
 @available(tvOS 6.0, *)
 class UICollectionViewUpdateItem : NSObject {
-  var indexPathBeforeUpdate: NSIndexPath { get }
-  var indexPathAfterUpdate: NSIndexPath { get }
+  var indexPathBeforeUpdate: NSIndexPath? { get }
+  var indexPathAfterUpdate: NSIndexPath? { get }
   var updateAction: UICollectionUpdateAction { get }
   init()
 }
@@ -3206,7 +3146,6 @@ class UIGestureRecognizer : NSObject {
   init(target: AnyObject?, action: Selector)
   func addTarget(target: AnyObject, action: Selector)
   func removeTarget(target: AnyObject?, action: Selector)
-  var state: UIGestureRecognizerState { get }
   weak var delegate: @sil_weak UIGestureRecognizerDelegate?
   var enabled: Bool
   var view: UIView? { get }
@@ -3799,6 +3738,7 @@ extension NSBundle {
 extension NSObject {
   class func awakeFromNib()
   func awakeFromNib()
+  @available(tvOS 8.0, *)
   class func prepareForInterfaceBuilder()
   @available(tvOS 8.0, *)
   func prepareForInterfaceBuilder()
@@ -4239,42 +4179,55 @@ extension UIResponder {
   var keyCommands: [UIKeyCommand]? { get }
 }
 extension NSObject {
+  @available(tvOS 3.0, *)
   class func cut(sender: AnyObject?)
   @available(tvOS 3.0, *)
   func cut(sender: AnyObject?)
+  @available(tvOS 3.0, *)
   class func copy(sender: AnyObject?)
   @available(tvOS 3.0, *)
   func copy(sender: AnyObject?)
+  @available(tvOS 3.0, *)
   class func paste(sender: AnyObject?)
   @available(tvOS 3.0, *)
   func paste(sender: AnyObject?)
+  @available(tvOS 3.0, *)
   class func select(sender: AnyObject?)
   @available(tvOS 3.0, *)
   func select(sender: AnyObject?)
+  @available(tvOS 3.0, *)
   class func selectAll(sender: AnyObject?)
   @available(tvOS 3.0, *)
   func selectAll(sender: AnyObject?)
+  @available(tvOS 3.2, *)
   class func delete(sender: AnyObject?)
   @available(tvOS 3.2, *)
   func delete(sender: AnyObject?)
+  @available(tvOS 5.0, *)
   class func makeTextWritingDirectionLeftToRight(sender: AnyObject?)
   @available(tvOS 5.0, *)
   func makeTextWritingDirectionLeftToRight(sender: AnyObject?)
+  @available(tvOS 5.0, *)
   class func makeTextWritingDirectionRightToLeft(sender: AnyObject?)
   @available(tvOS 5.0, *)
   func makeTextWritingDirectionRightToLeft(sender: AnyObject?)
+  @available(tvOS 6.0, *)
   class func toggleBoldface(sender: AnyObject?)
   @available(tvOS 6.0, *)
   func toggleBoldface(sender: AnyObject?)
+  @available(tvOS 6.0, *)
   class func toggleItalics(sender: AnyObject?)
   @available(tvOS 6.0, *)
   func toggleItalics(sender: AnyObject?)
+  @available(tvOS 6.0, *)
   class func toggleUnderline(sender: AnyObject?)
   @available(tvOS 6.0, *)
   func toggleUnderline(sender: AnyObject?)
+  @available(tvOS 7.0, *)
   class func increaseSize(sender: AnyObject?)
   @available(tvOS 7.0, *)
   func increaseSize(sender: AnyObject?)
+  @available(tvOS 7.0, *)
   class func decreaseSize(sender: AnyObject?)
   @available(tvOS 7.0, *)
   func decreaseSize(sender: AnyObject?)
@@ -4342,11 +4295,7 @@ class UIScreen : NSObject, UITraitEnvironment {
   @available(tvOS 4.0, *)
   var scale: CGFloat { get }
   @available(tvOS 3.2, *)
-  var availableModes: [UIScreenMode] { get }
-  @available(tvOS 4.3, *)
-  var preferredMode: UIScreenMode? { get }
-  @available(tvOS 3.2, *)
-  var currentMode: UIScreenMode?
+  var currentMode: UIScreenMode? { get }
   @available(tvOS 5.0, *)
   var overscanCompensation: UIScreenOverscanCompensation
   @available(tvOS 9.0, *)
@@ -4882,12 +4831,6 @@ enum UIBaselineAdjustment : Int {
   case AlignBaselines
   case AlignCenters
   case None
-}
-extension NSString {
-}
-extension NSString {
-}
-extension NSString {
 }
 extension NSString {
 }

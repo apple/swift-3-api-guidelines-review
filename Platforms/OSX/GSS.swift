@@ -331,7 +331,6 @@ var __gss_krb5_plugin_register_x_oid_desc: gss_OID_desc
 var __gss_ntlm_get_session_key_x_oid_desc: gss_OID_desc
 var __gss_c_nt_ntlm_oid_desc: gss_OID_desc
 var __gss_c_nt_dn_oid_desc: gss_OID_desc
-var __gss_krb5_nt_principal_name_referral_oid_desc: gss_OID_desc
 var __gss_c_ntlm_guest_oid_desc: gss_OID_desc
 var __gss_c_ntlm_v1_oid_desc: gss_OID_desc
 var __gss_c_ntlm_v2_oid_desc: gss_OID_desc
@@ -376,8 +375,6 @@ var __gss_c_nt_hostbased_service_x_oid_desc: gss_OID_desc
 var __gss_c_nt_hostbased_service_oid_desc: gss_OID_desc
 var __gss_c_nt_anonymous_oid_desc: gss_OID_desc
 var __gss_c_nt_export_name_oid_desc: gss_OID_desc
-var __gss_krb5_nt_principal_name_oid_desc: gss_OID_desc
-var __gss_krb5_nt_principal_oid_desc: gss_OID_desc
 var __gss_c_peer_has_updated_spnego_oid_desc: gss_OID_desc
 var __gss_c_ma_mech_concrete_oid_desc: gss_OID_desc
 var __gss_c_ma_mech_pseudo_oid_desc: gss_OID_desc

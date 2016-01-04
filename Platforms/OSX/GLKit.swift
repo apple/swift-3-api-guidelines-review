@@ -359,6 +359,8 @@ func GLKMatrix4MultiplyVector3ArrayWithTranslation(matrix: GLKMatrix4, _ vectors
 func GLKMatrix4MultiplyAndProjectVector3Array(matrix: GLKMatrix4, _ vectors: UnsafeMutablePointer<GLKVector3>, _ vectorCount: Int)
 func GLKMatrix4MultiplyVector4(matrixLeft: GLKMatrix4, _ vectorRight: GLKVector4) -> GLKVector4
 func GLKMatrix4MultiplyVector4Array(matrix: GLKMatrix4, _ vectors: UnsafeMutablePointer<GLKVector4>, _ vectorCount: Int)
+class GLKMatrixStack {
+}
 typealias GLKMatrixStackRef = GLKMatrixStack
 func GLKMatrixStackCreate(alloc: CFAllocator?) -> Unmanaged<GLKMatrixStack>?
 func GLKMatrixStackGetTypeID() -> CFTypeID

@@ -1,4 +1,6 @@
 
+
+/// Category for creating language options from AV types
 extension AVMediaSelectionOption {
 
   /// Will create a language option from the AVMediaSelectionOption
@@ -52,6 +54,8 @@ let MPMediaItemPropertyComments: String
 let MPMediaItemPropertyAssetURL: String
 @available(tvOS 6.0, *)
 let MPMediaItemPropertyIsCloudItem: String
+@available(tvOS 9.2, *)
+let MPMediaItemPropertyHasProtectedAsset: String
 let MPMediaItemPropertyPodcastTitle: String
 @available(tvOS 4.2, *)
 let MPMediaItemPropertyPodcastPersistentID: String

@@ -105,6 +105,12 @@ class DRBurn : NSObject {
   func device() -> DRDevice!
   init()
 }
+
+/*! 
+	@category		DRBurn (PropertyConvenienceMethods)
+   	@discussion		This category on DRBurn defines methods that make setting and retrieving
+   					the various DRBurn properties easier.
+*/
 extension DRBurn {
 
   /*! 
@@ -455,6 +461,14 @@ let DRBurnStrategyBDDAO: String
 */
 @available(OSX 10.2, *)
 let DRBurnStatusChangedNotification: String
+
+/*! 
+	@category		DRBurn (ImageContentCreation)
+	@discussion		This category on DRBurn creates a custom layout object which is set 
+					up to burn an image file to disc. It implements only one method, 
+					@link layoutForImageFile: layoutForImageFile: @/link which creates and 
+					returns a fully configured layout object to the caller.
+*/
 extension DRBurn {
 
   /*!
@@ -640,6 +654,11 @@ class DRCDTextBlock : NSObject {
   func flatten() -> Int
   init()
 }
+
+/*!
+	@category	DRCDTextBlock(PropertyConvenienceMethods)
+	@abstract	Convenience methods for a DRCDTextBlock.
+*/
 extension DRCDTextBlock {
 
   /*!
@@ -1217,13 +1236,33 @@ func DRFolderCopyChildren(folder: DRFolder!) -> Unmanaged<CFArray>!
 	@typedef DRFileRef
 	@abstract			The type of a reference to a DRFile object.
 */
+class DRFile {
+}
+
+/*!
+	@typedef DRFileRef
+	@abstract			The type of a reference to a DRFile object.
+*/
 typealias DRFileRef = DRFile
 
 /*!
 	@typedef DRFolderRef
 	@abstract			The type of a reference to a DRFolder object.
 */
+class DRFolder {
+}
+
+/*!
+	@typedef DRFolderRef
+	@abstract			The type of a reference to a DRFolder object.
+*/
 typealias DRFolderRef = DRFolder
+
+/*!
+	@typedef DRFSObjectRef
+	@abstract			A polymorphic type used for file and folder objects.
+*/
+typealias DRFSObject = DRType
 
 /*!
 	@typedef DRFSObjectRef
@@ -2104,6 +2143,13 @@ let kDRUDFExtendedFilePermissions: CFString!
 	A DRFilesystemTrack is just a special DRTrack.  The type ID of a DRFilesystemTrack
 	is the same as the type ID of a DRTrack.
 */
+typealias DRFilesystemTrack = DRTrackRef
+
+/*!
+	@typedef DRFilesystemTrackRef
+	A DRFilesystemTrack is just a special DRTrack.  The type ID of a DRFilesystemTrack
+	is the same as the type ID of a DRTrack.
+*/
 typealias DRFilesystemTrackRef = DRFilesystemTrack
 
 /*!
@@ -2149,6 +2195,13 @@ func DRFilesystemTrackEstimateOverhead(numBlocks: UInt64, _ blockSize: UInt32, _
 typealias DRAudioTrackRef = DRAudioTrack
 
 /*!
+	@typedef DRAudioTrackRef
+	A DRAudioTrack is just a special DRTrack.  The type ID of a DRAudioTrack
+	is the same as the type ID of a DRTrack.
+*/
+typealias DRAudioTrack = DRTrackRef
+
+/*!
 	@function	DRAudioTrackCreate
 	@abstract	Creates an audio track capable of burning RedBook CD audio from a file.
 	@discussion	This function creates a track object configured and primed to output RedBook audio
@@ -2173,6 +2226,13 @@ func DRAudioTrackCreate(audioFile: UnsafePointer<FSRef>) -> Unmanaged<DRAudioTra
 */
 @available(OSX 10.3, *)
 func DRAudioTrackCreateWithURL(audioFileURL: CFURL!) -> Unmanaged<DRAudioTrack>!
+
+/*!
+	@typedef DRBurnRef
+	A reference to DRBurn instances.
+*/
+class DRBurn {
+}
 
 /*!
 	@typedef DRBurnRef
@@ -2654,6 +2714,13 @@ func DRCDTextBlockCreateArrayFromPackList(packs: CFData!) -> Unmanaged<CFArray>!
 	@typedef 	DRCDTextBlockRef
 	@abstract	A reference to DRCDTextBlock instances.
 */
+class DRCDTextBlock {
+}
+
+/*!
+	@typedef 	DRCDTextBlockRef
+	@abstract	A reference to DRCDTextBlock instances.
+*/
 typealias DRCDTextBlockRef = DRCDTextBlock
 
 /*!
@@ -3033,6 +3100,13 @@ let kDRCDTextTOC2Key: CFString!
 */
 @available(OSX 10.4, *)
 let kDRCDTextSizeKey: CFString!
+
+/*!
+	@typedef DRDeviceRef
+	This is the type of a reference to DRDevices.
+*/
+class DRDevice {
+}
 
 /*!
 	@typedef DRDeviceRef
@@ -4246,6 +4320,13 @@ func DRDeviceXFactorForKPS(deviceOrMediaType: DRType!, _ kps: Float) -> Float
 	@typedef DREraseRef
 	This is the type of a reference to DRErases.
 */
+class DRErase {
+}
+
+/*!
+	@typedef DREraseRef
+	This is the type of a reference to DRErases.
+*/
 typealias DREraseRef = DRErase
 
 /*!
@@ -4497,6 +4578,13 @@ let kDRErrorStatusAdditionalSenseStringKey: CFString!
 	@typedef DRNotificationCenterRef
 	@abstract	The type of a reference to a DRNotificationCenter object.
 */
+class DRNotificationCenter {
+}
+
+/*!
+	@typedef DRNotificationCenterRef
+	@abstract	The type of a reference to a DRNotificationCenter object.
+*/
 typealias DRNotificationCenterRef = DRNotificationCenter
 
 /*!
@@ -4576,6 +4664,17 @@ func DRNotificationCenterRemoveObserver(center: DRNotificationCenter!, _ observe
 
 */
 typealias DRTypeRef = DRType
+
+/*!
+	@typedef	DRTypeRef
+	@abstract	An untyped, generic reference to any Disc Recording object.
+	@discussion @link DRTypeRef DRTypeRef @/link is one of the base types defined in Disc Recording, used as a 
+				placeholder for parameter and return type in several polymorphic functions. 
+				It is a generic object reference that can take a reference to any other 
+				Disc Recording object.
+
+*/
+typealias DRType = CFTypeRef
 
 /*!
 	@typedef	DRRefConRetainCallback
@@ -4907,6 +5006,13 @@ let kDRStatusProgressCurrentKPS: CFString!
 */
 @available(OSX 10.4, *)
 let kDRStatusProgressCurrentXFactor: CFString!
+
+/*!
+	@typedef DRTrackRef
+	A reference to a DRTrack object.
+*/
+class DRTrack {
+}
 
 /*!
 	@typedef DRTrackRef
@@ -5736,6 +5842,12 @@ class DRDevice : NSObject {
   func isEqualToDevice(otherDevice: DRDevice!) -> Bool
   init()
 }
+
+/*! 
+	@category		DRDevice (InfoConvenience)
+   	@discussion		This category on DRDevice defines methods that make retrieving
+   					the more commonly accessed DRDevice information dictionary properties easier.
+*/
 extension DRDevice {
 
   /*!
@@ -5764,6 +5876,12 @@ extension DRDevice {
   */
   func ioRegistryEntryPath() -> String!
 }
+
+/*! 
+	@category		DRDevice (StatusConvenience)
+   	@discussion		This category on DRDevice defines methods that make retrieving
+   					the more commonly accessed DRDevice status dictionary properties easier.
+*/
 extension DRDevice {
 
   /*!
@@ -6987,6 +7105,12 @@ class DRErase : NSObject {
   func device() -> DRDevice!
   init()
 }
+
+/*! 
+	@category		DRErase (PropertyConvenienceMethods)
+   	@discussion		This category on DRErase defines methods that make setting and retrieving
+   					the various DRErase properties easier.
+*/
 extension DRErase {
 
   /*!
@@ -7885,6 +8009,12 @@ class DRFile : DRFSObject {
   init!(path: String!)
   init()
 }
+
+/*! 
+   	@category		DRFile (VirtualFiles)
+   	@discussion 	This category on DRFile defines methods that allow the file to 
+   					be specified using data passed in at creation time.
+*/
 extension DRFile {
 
   /*! 
@@ -7931,6 +8061,13 @@ extension DRFile {
   */
   init!(name: String!, dataProducer producer: AnyObject!)
 }
+
+/*! 
+	@category		DRFile (VirtualLinks)
+   	@discussion		This category on DRFile defines methods that allow various
+					link/alias files to be created on the resulting disc which may not
+					exist in the source.
+*/
 extension DRFile {
 
   /*! 
@@ -8119,6 +8256,13 @@ class DRFolder : DRFSObject {
   init!(path: String!)
   init()
 }
+
+/*! 
+	@category		DRFolder (VirtualFolders)
+   	@discussion		This category on DRFolder defines methods that allow creation
+   					and manipulation of folders on the output disc that do not exist
+   					on the source media.
+*/
 extension DRFolder {
 
   /*! 
@@ -8857,6 +9001,12 @@ class DRTrack : NSObject {
   func estimateLength() -> UInt64
   init()
 }
+
+/*! 
+	@category		DRTrack (PropertyConvenience)
+   	@discussion		This category on DRTrack defines methods that make setting and retrieving
+   					the various DRTrack properties easier.
+*/
 extension DRTrack {
 
   /*! 
@@ -9627,6 +9777,14 @@ let DRSubchannelDataFormPack: String
 */
 @available(OSX 10.5, *)
 let DRSubchannelDataFormRaw: String
+
+/*!
+	@category DRTrack(AudioContentCreation)
+	@discussion This category on @link //apple_ref/occ/cl/DRTrack DRTrack @/link creates a track configured to burn audio data to disc.
+				It implements two methods @link //apple_ref/occ/clm/DRTrack/trackForAudioOfLength:producer: trackForAudioOfLength:producer: @/link
+				and @link //apple_ref/occ/clm/DRTrack/trackForAudioFile: trackForAudioFile: @/link which
+				create and return a fully configured track to the caller.
+*/
 extension DRTrack {
 
   /*!
@@ -9655,6 +9813,13 @@ extension DRTrack {
   */
   /*not inherited*/ init!(forAudioFile path: String!)
 }
+
+/*!
+	@category DRTrack (DataContentCreation)
+	@discussion	This category on @link //apple_ref/occ/cl/DRTrack DRTrack @/link creates a track instance which is set up to burn
+				a @link //apple_ref/occ/cl/DRFolder DRFolder @/link to disc. It implements only one method, @link //apple_ref/occ/clm/DRTrack/trackForRootFolder: trackForRootFolder: @/link which
+				creates and returns a fully configured track to the caller.
+*/
 extension DRTrack {
 
   /*!

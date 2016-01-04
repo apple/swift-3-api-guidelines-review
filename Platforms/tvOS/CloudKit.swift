@@ -385,19 +385,11 @@ class CKRecord : NSObject, NSSecureCoding, NSCopying {
 }
 extension NSString : CKRecordValue {
 }
-extension NSString : CKRecordValue {
-}
 extension NSNumber : CKRecordValue {
 }
 extension NSArray : CKRecordValue {
 }
-extension NSArray : CKRecordValue {
-}
 extension NSDate : CKRecordValue {
-}
-extension NSDate : CKRecordValue {
-}
-extension NSData : CKRecordValue {
 }
 extension NSData : CKRecordValue {
 }
@@ -529,7 +521,6 @@ class CKSubscription : NSObject, NSSecureCoding, NSCopying {
 @available(tvOS 8.0, *)
 class CKNotificationInfo : NSObject, NSSecureCoding, NSCopying {
   var desiredKeys: [String]?
-  var shouldSendContentAvailable: Bool
   init()
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool

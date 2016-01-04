@@ -612,6 +612,9 @@ class SKAudioNode : SKNode, NSCoding {
   var positional: Bool
   convenience init()
 }
+
+/**Actions that are to be used with audio nodes.
+ */
 extension SKAction {
   @available(iOS 9.0, *)
   class func stereoPanTo(v: Float, duration: NSTimeInterval) -> SKAction
@@ -1630,6 +1633,20 @@ class SKNode : UIResponder, NSCopying, NSCoding {
   func moveToParent(parent: SKNode)
   func childNodeWithName(name: String) -> SKNode?
   func enumerateChildNodesWithName(name: String, usingBlock block: (SKNode, UnsafeMutablePointer<ObjCBool>) -> Void)
+
+  /**
+   * Simplified shorthand for enumerateChildNodesWithName that returns an array of the matching nodes.
+   * This allows subscripting of the form:
+   *      NSArray *childrenMatchingName = node[@"name"]
+   *
+   * or even complex like:
+   *      NSArray *siblingsBeginningWithA = node[@"../a*"]
+   *
+   * @param name An Xpath style path that can include simple regular expressions for matching node names.
+   * @see enumerateChildNodesWithName:usingBlock:
+   */
+  @available(iOS 8.0, *)
+  subscript (name: String) -> [SKNode] { get }
   func inParentHierarchy(parent: SKNode) -> Bool
   func runAction(action: SKAction)
   func runAction(action: SKAction, completion block: () -> Void)
@@ -1655,10 +1672,6 @@ class SKNode : UIResponder, NSCopying, NSCoding {
   class func obstaclesFromNodePhysicsBodies(nodes: [SKNode]) -> [AnyObject]
   func copyWithZone(zone: NSZone) -> AnyObject
   func encodeWithCoder(aCoder: NSCoder)
-}
-
-extension SKNode {
-  subscript (name: String) -> [SKNode] { get }
 }
 extension UITouch {
   func locationInNode(node: SKNode) -> CGPoint
@@ -2584,7 +2597,7 @@ class SKTexture : NSObject, NSCopying, NSCoding {
    Convert the current SKTexture into a CGImageRef object
    */
   @available(iOS 9.0, *)
-  var CGImage: CGImage { get }
+  func CGImage() -> CGImage
 
   /**
    Start a texture preload operation on an array of textures

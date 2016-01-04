@@ -274,12 +274,6 @@ extension NSValue {
   var MKCoordinateValue: CLLocationCoordinate2D { get }
   var MKCoordinateSpanValue: MKCoordinateSpan { get }
 }
-extension NSValue {
-  /*not inherited*/ init(MKCoordinate coordinate: CLLocationCoordinate2D)
-  /*not inherited*/ init(MKCoordinateSpan span: MKCoordinateSpan)
-  var MKCoordinateValue: CLLocationCoordinate2D { get }
-  var MKCoordinateSpanValue: MKCoordinateSpan { get }
-}
 @available(OSX 10.9, *)
 class MKMapCamera : NSObject, NSSecureCoding, NSCopying {
   var centerCoordinate: CLLocationCoordinate2D

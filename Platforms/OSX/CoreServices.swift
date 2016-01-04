@@ -4011,6 +4011,13 @@ func UCTypeSelectWalkList(ref: UCTypeSelectRef, _ currSelect: CFString!, _ direc
 	@typedef	DCSDictionaryRef
 	@abstract	Opaque CF object that represents a dictionary file
 */
+class DCSDictionary {
+}
+
+/*!
+	@typedef	DCSDictionaryRef
+	@abstract	Opaque CF object that represents a dictionary file
+*/
 typealias DCSDictionaryRef = DCSDictionary
 
 /*!
@@ -4573,7 +4580,7 @@ struct LSItemInfoRecord {
   var creator: OSType
   var `extension`: Unmanaged<CFString>!
   init()
-  init(flags: LSItemInfoFlags, filetype: OSType, creator: OSType, `extension`: Unmanaged<CFString>!)
+  init(flags: LSItemInfoFlags, filetype: OSType, creator: OSType, extension: Unmanaged<CFString>!)
 }
 @available(OSX, introduced=10.0, deprecated=10.11, message="Use URL resource properties instead.")
 func LSCopyItemInfoForURL(inURL: CFURL!, _ inWhichInfo: LSRequestedInfo, _ outItemInfo: UnsafeMutablePointer<LSItemInfoRecord>) -> OSStatus
@@ -5085,6 +5092,13 @@ struct MDImporterBundleWrapperURLInterfaceStruct {
   var ImporterImportBundleWrapperURLData: (@convention(c) (UnsafeMutablePointer<Void>, CFMutableDictionary!, CFString!, CFURL!) -> DarwinBoolean)!
   init()
   init(_reserved: UnsafeMutablePointer<Void>, QueryInterface: (@convention(c) (UnsafeMutablePointer<Void>, REFIID, UnsafeMutablePointer<LPVOID>) -> HRESULT)!, AddRef: (@convention(c) (UnsafeMutablePointer<Void>) -> ULONG)!, Release: (@convention(c) (UnsafeMutablePointer<Void>) -> ULONG)!, ImporterImportBundleWrapperURLData: (@convention(c) (UnsafeMutablePointer<Void>, CFMutableDictionary!, CFString!, CFURL!) -> DarwinBoolean)!)
+}
+
+/*!
+        @typedef MDItemRef
+        This is the type of a reference to MDItems.
+*/
+class MDItem {
 }
 
 /*!
@@ -6159,6 +6173,13 @@ let kMDItemIsApplicationManaged: CFString!
  @typedef MDLabelRef
  @abstract This is the type of a reference to an MDLabel.
  */
+class MDLabel {
+}
+
+/*!
+ @typedef MDLabelRef
+ @abstract This is the type of a reference to an MDLabel.
+ */
 typealias MDLabelRef = MDLabel
 @available(OSX 10.7, *)
 func MDLabelGetTypeID() -> CFTypeID
@@ -6389,6 +6410,13 @@ let kMDLabelChangedNotification: CFString!
  */
 @available(OSX 10.7, *)
 let kMDLabelRemovedNotification: CFString!
+
+/*!
+        @typedef MDQueryRef
+        This is the type of a reference to MDQuerys.
+*/
+class MDQuery {
+}
 
 /*!
         @typedef MDQueryRef
@@ -6728,7 +6756,7 @@ typealias MDQueryCreateResultFunction = @convention(c) (MDQuery!, MDItem!, Unsaf
                 created results.
 */
 @available(OSX 10.4, *)
-func MDQuerySetCreateResultFunction(query: MDQuery!, _ `func`: MDQueryCreateResultFunction!, _ context: UnsafeMutablePointer<Void>, _ cb: UnsafePointer<CFArrayCallBacks>)
+func MDQuerySetCreateResultFunction(query: MDQuery!, _ func: MDQueryCreateResultFunction!, _ context: UnsafeMutablePointer<Void>, _ cb: UnsafePointer<CFArrayCallBacks>)
 
 /*!
         @typedef MDQueryCreateValueFunction
@@ -6818,7 +6846,7 @@ typealias MDQueryCreateValueFunction = @convention(c) (MDQuery!, CFString!, AnyO
                 taken on the created values.
 */
 @available(OSX 10.4, *)
-func MDQuerySetCreateValueFunction(query: MDQuery!, _ `func`: MDQueryCreateValueFunction!, _ context: UnsafeMutablePointer<Void>, _ cb: UnsafePointer<CFArrayCallBacks>)
+func MDQuerySetCreateValueFunction(query: MDQuery!, _ func: MDQueryCreateValueFunction!, _ context: UnsafeMutablePointer<Void>, _ cb: UnsafePointer<CFArrayCallBacks>)
 
 /*!
 	@function MDQuerySetDispatchQueue
@@ -7424,8 +7452,12 @@ let kMDAttributeName: CFString!
 let kMDAttributeType: CFString!
 @available(OSX 10.4, *)
 let kMDAttributeMultiValued: CFString!
+class CSIdentity {
+}
 typealias CSIdentityRef = CSIdentity
 typealias CSIdentityQueryRef = CSIdentityQuery
+class CSIdentityQuery {
+}
 @available(OSX 10.5, *)
 let kCSIdentityGeneratePosixName: CFString!
 var kCSIdentityClassUser: Int { get }
@@ -7520,6 +7552,8 @@ func CSIdentityCommitAsynchronously(identity: CSIdentity!, _ clientContext: Unsa
 func CSIdentityIsCommitting(identity: CSIdentity!) -> Bool
 @available(OSX 10.5, *)
 func CSIdentityRemoveClient(identity: CSIdentity!)
+class CSIdentityAuthority {
+}
 typealias CSIdentityAuthorityRef = CSIdentityAuthority
 @available(OSX 10.5, *)
 func CSIdentityAuthorityGetTypeID() -> CFTypeID
@@ -7602,6 +7636,7 @@ let kSKTermChars: CFString!
 let kSKStartTermChars: CFString!
 @available(OSX 10.4, *)
 let kSKEndTermChars: CFString!
+typealias SKDocument = CFTypeRef
 typealias SKDocumentRef = SKDocument
 @available(OSX 10.3, *)
 func SKDocumentGetTypeID() -> CFTypeID
@@ -7618,9 +7653,13 @@ func SKDocumentGetName(inDocument: SKDocument!) -> Unmanaged<CFString>!
 @available(OSX 10.3, *)
 func SKDocumentGetParent(inDocument: SKDocument!) -> Unmanaged<SKDocument>!
 typealias SKIndexRef = SKIndex
+class SKIndex {
+}
 @available(OSX 10.3, *)
 func SKIndexGetTypeID() -> CFTypeID
 typealias SKIndexDocumentIteratorRef = SKIndexDocumentIterator
+class SKIndexDocumentIterator {
+}
 @available(OSX 10.3, *)
 func SKIndexDocumentIteratorGetTypeID() -> CFTypeID
 struct SKIndexType : RawRepresentable, Equatable {
@@ -7712,6 +7751,8 @@ func SKIndexCopyTermStringForTermID(inIndex: SKIndex!, _ inTermID: CFIndex) -> U
 func SKIndexGetTermIDForTermString(inIndex: SKIndex!, _ inTermString: CFString!) -> CFIndex
 @available(OSX 10.3, *)
 func SKLoadDefaultExtractorPlugIns()
+class SKSearch {
+}
 typealias SKSearchRef = SKSearch
 @available(OSX 10.4, *)
 func SKSearchGetTypeID() -> CFTypeID
@@ -7733,6 +7774,10 @@ func SKIndexCopyDocumentRefsForDocumentIDs(inIndex: SKIndex!, _ inCount: CFIndex
 @available(OSX 10.4, *)
 func SKIndexCopyDocumentURLsForDocumentIDs(inIndex: SKIndex!, _ inCount: CFIndex, _ inDocumentIDsArray: UnsafeMutablePointer<SKDocumentID>, _ outDocumentURLsArray: UnsafeMutablePointer<Unmanaged<CFURL>?>)
 typealias SKSearchGroupRef = SKSearchGroup
+class SKSearchGroup {
+}
+class SKSearchResults {
+}
 typealias SKSearchResultsRef = SKSearchResults
 struct SKSearchType : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
@@ -7744,6 +7789,8 @@ var kSKSearchBooleanRanked: SKSearchType { get }
 var kSKSearchRequiredRanked: SKSearchType { get }
 var kSKSearchPrefixRanked: SKSearchType { get }
 typealias SKSearchResultsFilterCallBack = @convention(c) (SKIndex!, SKDocument!, UnsafeMutablePointer<Void>) -> DarwinBoolean
+class SKSummary {
+}
 typealias SKSummaryRef = SKSummary
 @available(OSX 10.4, *)
 func SKSummaryGetTypeID() -> CFTypeID
@@ -7765,7 +7812,11 @@ func SKSummaryCopyParagraphSummaryString(summary: SKSummary!, _ numParagraphs: C
 func SKSummaryGetSentenceSummaryInfo(summary: SKSummary!, _ numSentencesInSummary: CFIndex, _ outRankOrderOfSentences: UnsafeMutablePointer<CFIndex>, _ outSentenceIndexOfSentences: UnsafeMutablePointer<CFIndex>, _ outParagraphIndexOfSentences: UnsafeMutablePointer<CFIndex>) -> CFIndex
 @available(OSX 10.4, *)
 func SKSummaryGetParagraphSummaryInfo(summary: SKSummary!, _ numParagraphsInSummary: CFIndex, _ outRankOrderOfParagraphs: UnsafeMutablePointer<CFIndex>, _ outParagraphIndexOfParagraphs: UnsafeMutablePointer<CFIndex>) -> CFIndex
+class LSSharedFileList {
+}
 typealias LSSharedFileListRef = LSSharedFileList
+class LSSharedFileListItem {
+}
 typealias LSSharedFileListItemRef = LSSharedFileListItem
 @available(OSX, introduced=10.5, deprecated=10.11, message="This functionality is no longer supported on OS X.")
 var kLSSharedFileListFavoriteVolumes: Unmanaged<CFString>!

@@ -1,4 +1,6 @@
 
+class MTAudioProcessingTap {
+}
 typealias MTAudioProcessingTapRef = MTAudioProcessingTap
 @available(iOS 6.0, *)
 func MTAudioProcessingTapGetTypeID() -> CFTypeID

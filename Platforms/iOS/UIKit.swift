@@ -77,6 +77,8 @@ enum NSWritingDirectionFormatType : Int {
 }
 @available(iOS 7.0, *)
 let NSTextEffectLetterpressStyle: String
+
+/************************ Attribute fixing ************************/
 extension NSMutableAttributedString {
   @available(iOS 7.0, *)
   func fixAttributesInRange(range: NSRange)
@@ -131,26 +133,14 @@ extension NSAttributedString {
   @available(iOS 7.0, *)
   func fileWrapperFromRange(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSFileWrapper
 }
-extension NSAttributedString {
-  @available(iOS 9.0, *)
-  init(URL url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
-  @available(iOS 7.0, *)
-  init(data: NSData, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
-  @available(iOS 7.0, *)
-  func dataFromRange(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSData
-  @available(iOS 7.0, *)
-  func fileWrapperFromRange(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSFileWrapper
-}
 extension NSMutableAttributedString {
   @available(iOS 9.0, *)
   func readFromURL(url: NSURL, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS 7.0, *)
   func readFromData(data: NSData, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
-extension NSAttributedString {
-  @available(iOS 9.0, *)
-  func containsAttachmentsInRange(range: NSRange) -> Bool
-}
+
+/************************ Misc methods ************************/
 extension NSAttributedString {
   @available(iOS 9.0, *)
   func containsAttachmentsInRange(range: NSRange) -> Bool
@@ -163,10 +153,6 @@ enum NSTextWritingDirection : Int {
   var rawValue: Int { get }
   case Embedding
   case Override
-}
-extension NSAttributedString {
-  @available(iOS, introduced=7.0, deprecated=9.0, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init(fileURL url: NSURL, options: [NSObject : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
 extension NSAttributedString {
   @available(iOS, introduced=7.0, deprecated=9.0, message="Use -initWithURL:options:documentAttributes:error: instead")
@@ -674,38 +660,6 @@ extension NSString {
   @available(iOS 7.0, *)
   func drawInRect(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
 }
-extension NSString {
-  @available(iOS 7.0, *)
-  func sizeWithAttributes(attrs: [String : AnyObject]?) -> CGSize
-  @available(iOS 7.0, *)
-  func drawAtPoint(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
-  @available(iOS 7.0, *)
-  func drawInRect(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
-}
-extension NSString {
-  @available(iOS 7.0, *)
-  func sizeWithAttributes(attrs: [String : AnyObject]?) -> CGSize
-  @available(iOS 7.0, *)
-  func drawAtPoint(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
-  @available(iOS 7.0, *)
-  func drawInRect(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
-}
-extension NSString {
-  @available(iOS 7.0, *)
-  func sizeWithAttributes(attrs: [String : AnyObject]?) -> CGSize
-  @available(iOS 7.0, *)
-  func drawAtPoint(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
-  @available(iOS 7.0, *)
-  func drawInRect(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
-}
-extension NSAttributedString {
-  @available(iOS 6.0, *)
-  func size() -> CGSize
-  @available(iOS 6.0, *)
-  func drawAtPoint(point: CGPoint)
-  @available(iOS 6.0, *)
-  func drawInRect(rect: CGRect)
-}
 extension NSAttributedString {
   @available(iOS 6.0, *)
   func size() -> CGSize
@@ -730,36 +684,14 @@ extension NSString {
   @available(iOS 7.0, *)
   func boundingRectWithSize(size: CGSize, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
 }
-extension NSString {
-  @available(iOS 7.0, *)
-  func drawWithRect(rect: CGRect, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
-  @available(iOS 7.0, *)
-  func boundingRectWithSize(size: CGSize, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
-}
-extension NSString {
-  @available(iOS 7.0, *)
-  func drawWithRect(rect: CGRect, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
-  @available(iOS 7.0, *)
-  func boundingRectWithSize(size: CGSize, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
-}
-extension NSString {
-  @available(iOS 7.0, *)
-  func drawWithRect(rect: CGRect, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
-  @available(iOS 7.0, *)
-  func boundingRectWithSize(size: CGSize, options: NSStringDrawingOptions, attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
-}
 extension NSAttributedString {
   @available(iOS 6.0, *)
   func drawWithRect(rect: CGRect, options: NSStringDrawingOptions, context: NSStringDrawingContext?)
   @available(iOS 6.0, *)
   func boundingRectWithSize(size: CGSize, options: NSStringDrawingOptions, context: NSStringDrawingContext?) -> CGRect
 }
-extension NSAttributedString {
-  @available(iOS 6.0, *)
-  func drawWithRect(rect: CGRect, options: NSStringDrawingOptions, context: NSStringDrawingContext?)
-  @available(iOS 6.0, *)
-  func boundingRectWithSize(size: CGSize, options: NSStringDrawingOptions, context: NSStringDrawingContext?) -> CGRect
-}
+
+/************************ Deprecated ************************/
 extension NSStringDrawingContext {
 }
 @available(iOS 6.0, *)
@@ -821,10 +753,6 @@ class NSTextAttachment : NSObject, NSTextAttachmentContainer, NSCoding {
   @available(iOS 7.0, *)
   func encodeWithCoder(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
-}
-extension NSAttributedString {
-  @available(iOS 7.0, *)
-  /*not inherited*/ init(attachment: NSTextAttachment)
 }
 extension NSAttributedString {
   @available(iOS 7.0, *)
@@ -904,12 +832,12 @@ class NSTextStorage : NSMutableAttributedString {
   func ensureAttributesAreFixedInRange(range: NSRange)
   init()
   init?(coder aDecoder: NSCoder)
-  @available(iOS, introduced=7.0, deprecated=9.0, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init(fileURL url: NSURL, options: [NSObject : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS 9.0, *)
   init(URL url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS 7.0, *)
   init(data: NSData, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  @available(iOS, introduced=7.0, deprecated=9.0, message="Use -initWithURL:options:documentAttributes:error: instead")
+  init(fileURL url: NSURL, options: [NSObject : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   init(string str: String)
   init(string str: String, attributes attrs: [String : AnyObject]?)
   init(attributedString attrStr: NSAttributedString)
@@ -997,15 +925,19 @@ extension NSObject {
   class func setAccessibilityElements(accessibilityElements: [AnyObject]?)
 }
 extension NSObject {
+  @available(iOS 4.0, *)
   class func accessibilityElementDidBecomeFocused()
   @available(iOS 4.0, *)
   func accessibilityElementDidBecomeFocused()
+  @available(iOS 4.0, *)
   class func accessibilityElementDidLoseFocus()
   @available(iOS 4.0, *)
   func accessibilityElementDidLoseFocus()
+  @available(iOS 4.0, *)
   class func accessibilityElementIsFocused() -> Bool
   @available(iOS 4.0, *)
   func accessibilityElementIsFocused() -> Bool
+  @available(iOS 9.0, *)
   class func accessibilityAssistiveTechnologyFocusedIdentifiers() -> Set<String>?
   @available(iOS 9.0, *)
   func accessibilityAssistiveTechnologyFocusedIdentifiers() -> Set<String>?
@@ -1013,21 +945,27 @@ extension NSObject {
 @available(iOS 9.0, *)
 func UIAccessibilityFocusedElement(assistiveTechnologyIdentifier: String?) -> AnyObject?
 extension NSObject {
+  @available(iOS 7.0, *)
   class func accessibilityActivate() -> Bool
   @available(iOS 7.0, *)
   func accessibilityActivate() -> Bool
+  @available(iOS 4.0, *)
   class func accessibilityIncrement()
   @available(iOS 4.0, *)
   func accessibilityIncrement()
+  @available(iOS 4.0, *)
   class func accessibilityDecrement()
   @available(iOS 4.0, *)
   func accessibilityDecrement()
+  @available(iOS 4.2, *)
   class func accessibilityScroll(direction: UIAccessibilityScrollDirection) -> Bool
   @available(iOS 4.2, *)
   func accessibilityScroll(direction: UIAccessibilityScrollDirection) -> Bool
+  @available(iOS 5.0, *)
   class func accessibilityPerformEscape() -> Bool
   @available(iOS 5.0, *)
   func accessibilityPerformEscape() -> Bool
+  @available(iOS 6.0, *)
   class func accessibilityPerformMagicTap() -> Bool
   @available(iOS 6.0, *)
   func accessibilityPerformMagicTap() -> Bool
@@ -2751,8 +2689,8 @@ enum UICollectionUpdateAction : Int {
 }
 @available(iOS 6.0, *)
 class UICollectionViewUpdateItem : NSObject {
-  var indexPathBeforeUpdate: NSIndexPath { get }
-  var indexPathAfterUpdate: NSIndexPath { get }
+  var indexPathBeforeUpdate: NSIndexPath? { get }
+  var indexPathAfterUpdate: NSIndexPath? { get }
   var updateAction: UICollectionUpdateAction { get }
   init()
 }
@@ -4024,7 +3962,6 @@ class UIGestureRecognizer : NSObject {
   init(target: AnyObject?, action: Selector)
   func addTarget(target: AnyObject, action: Selector)
   func removeTarget(target: AnyObject?, action: Selector)
-  var state: UIGestureRecognizerState { get }
   weak var delegate: @sil_weak UIGestureRecognizerDelegate?
   var enabled: Bool
   var view: UIView? { get }
@@ -4894,6 +4831,7 @@ extension NSBundle {
 extension NSObject {
   class func awakeFromNib()
   func awakeFromNib()
+  @available(iOS 8.0, *)
   class func prepareForInterfaceBuilder()
   @available(iOS 8.0, *)
   func prepareForInterfaceBuilder()
@@ -5842,42 +5780,55 @@ extension UIResponder {
   var keyCommands: [UIKeyCommand]? { get }
 }
 extension NSObject {
+  @available(iOS 3.0, *)
   class func cut(sender: AnyObject?)
   @available(iOS 3.0, *)
   func cut(sender: AnyObject?)
+  @available(iOS 3.0, *)
   class func copy(sender: AnyObject?)
   @available(iOS 3.0, *)
   func copy(sender: AnyObject?)
+  @available(iOS 3.0, *)
   class func paste(sender: AnyObject?)
   @available(iOS 3.0, *)
   func paste(sender: AnyObject?)
+  @available(iOS 3.0, *)
   class func select(sender: AnyObject?)
   @available(iOS 3.0, *)
   func select(sender: AnyObject?)
+  @available(iOS 3.0, *)
   class func selectAll(sender: AnyObject?)
   @available(iOS 3.0, *)
   func selectAll(sender: AnyObject?)
+  @available(iOS 3.2, *)
   class func delete(sender: AnyObject?)
   @available(iOS 3.2, *)
   func delete(sender: AnyObject?)
+  @available(iOS 5.0, *)
   class func makeTextWritingDirectionLeftToRight(sender: AnyObject?)
   @available(iOS 5.0, *)
   func makeTextWritingDirectionLeftToRight(sender: AnyObject?)
+  @available(iOS 5.0, *)
   class func makeTextWritingDirectionRightToLeft(sender: AnyObject?)
   @available(iOS 5.0, *)
   func makeTextWritingDirectionRightToLeft(sender: AnyObject?)
+  @available(iOS 6.0, *)
   class func toggleBoldface(sender: AnyObject?)
   @available(iOS 6.0, *)
   func toggleBoldface(sender: AnyObject?)
+  @available(iOS 6.0, *)
   class func toggleItalics(sender: AnyObject?)
   @available(iOS 6.0, *)
   func toggleItalics(sender: AnyObject?)
+  @available(iOS 6.0, *)
   class func toggleUnderline(sender: AnyObject?)
   @available(iOS 6.0, *)
   func toggleUnderline(sender: AnyObject?)
+  @available(iOS 7.0, *)
   class func increaseSize(sender: AnyObject?)
   @available(iOS 7.0, *)
   func increaseSize(sender: AnyObject?)
+  @available(iOS 7.0, *)
   class func decreaseSize(sender: AnyObject?)
   @available(iOS 7.0, *)
   func decreaseSize(sender: AnyObject?)
@@ -6662,12 +6613,6 @@ enum UIBaselineAdjustment : Int {
   case AlignBaselines
   case AlignCenters
   case None
-}
-extension NSString {
-}
-extension NSString {
-}
-extension NSString {
 }
 extension NSString {
 }

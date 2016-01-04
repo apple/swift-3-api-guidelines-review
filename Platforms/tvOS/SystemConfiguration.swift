@@ -61,6 +61,14 @@ func SCErrorString(status: Int32) -> UnsafePointer<Int8>
 	@discussion This is the handle to an open a dynamic store session
 		with the system configuration daemon.
  */
+class SCDynamicStore {
+}
+
+/*!
+	@typedef SCDynamicStoreRef
+	@discussion This is the handle to an open a dynamic store session
+		with the system configuration daemon.
+ */
 typealias SCDynamicStoreRef = SCDynamicStore
 
 /*!
@@ -128,6 +136,21 @@ typealias SCNetworkConnectionFlags = UInt32
 typealias SCNetworkInterfaceRef = SCNetworkInterface
 
 /*!
+	@typedef SCNetworkInterfaceRef
+	@discussion This is the type of a reference to an object that represents
+		a network interface.
+ */
+class SCNetworkInterface {
+}
+
+/*!
+	@typedef SCBondInterfaceRef
+	@discussion This is the type of a reference to an object that represents
+		an Ethernet Bond interface.
+ */
+typealias SCBondInterface = SCNetworkInterfaceRef
+
+/*!
 	@typedef SCBondInterfaceRef
 	@discussion This is the type of a reference to an object that represents
 		an Ethernet Bond interface.
@@ -140,6 +163,14 @@ typealias SCBondInterfaceRef = SCBondInterface
 		the status of an Ethernet Bond interface.
  */
 typealias SCBondStatusRef = SCBondStatus
+
+/*!
+	@typedef SCBondStatusRef
+	@discussion This is the type of a reference to an object that represents
+		the status of an Ethernet Bond interface.
+ */
+class SCBondStatus {
+}
 var kSCBondStatusOK: Int { get }
 var kSCBondStatusLinkInvalid: Int { get }
 var kSCBondStatusNoPartner: Int { get }
@@ -154,11 +185,34 @@ var kSCBondStatusUnknown: Int { get }
 typealias SCVLANInterfaceRef = SCVLANInterface
 
 /*!
+	@typedef SCVLANInterfaceRef
+	@discussion This is the type of a reference to an object that represents
+		a Virtual LAN (VLAN) interface.
+ */
+typealias SCVLANInterface = SCNetworkInterfaceRef
+
+/*!
+	@typedef SCNetworkProtocolRef
+	@discussion This is the type of a reference to an object that represents
+		a network protocol.
+ */
+class SCNetworkProtocol {
+}
+
+/*!
 	@typedef SCNetworkProtocolRef
 	@discussion This is the type of a reference to an object that represents
 		a network protocol.
  */
 typealias SCNetworkProtocolRef = SCNetworkProtocol
+
+/*!
+	@typedef SCNetworkServiceRef
+	@discussion This is the type of a reference to an object that represents
+		a network service.
+ */
+class SCNetworkService {
+}
 
 /*!
 	@typedef SCNetworkServiceRef
@@ -173,6 +227,21 @@ typealias SCNetworkServiceRef = SCNetworkService
 		a network set.
  */
 typealias SCNetworkSetRef = SCNetworkSet
+
+/*!
+	@typedef SCNetworkSetRef
+	@discussion This is the type of a reference to an object that represents
+		a network set.
+ */
+class SCNetworkSet {
+}
+
+/*!
+	@typedef SCNetworkConnectionRef
+	@discussion This is the handle to manage a connection-oriented service.
+ */
+class SCNetworkConnection {
+}
 
 /*!
 	@typedef SCNetworkConnectionRef
@@ -316,6 +385,13 @@ var kSCNetworkConnectionErrorsIn: String { get }
 var kSCNetworkConnectionErrorsOut: String { get }
 var kSCNetworkConnectionSelectionOptionOnDemandHostName: String { get }
 var kSCNetworkConnectionSelectionOptionOnDemandRetry: String { get }
+
+/*!
+	@typedef SCNetworkReachabilityRef
+	@discussion This is the handle to a network address or name.
+ */
+class SCNetworkReachability {
+}
 
 /*!
 	@typedef SCNetworkReachabilityRef
@@ -568,6 +644,14 @@ func SCNetworkReachabilityUnscheduleFromRunLoop(target: SCNetworkReachability, _
 @available(tvOS 4.0, *)
 func SCNetworkReachabilitySetDispatchQueue(target: SCNetworkReachability, _ queue: dispatch_queue_t?) -> Bool
 typealias AuthorizationRef = COpaquePointer
+
+/*!
+	@typedef SCPreferencesRef
+	@discussion This is the handle to an open preferences session for
+		accessing system configuration preferences.
+ */
+class SCPreferences {
+}
 
 /*!
 	@typedef SCPreferencesRef

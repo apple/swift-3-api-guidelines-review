@@ -10,6 +10,13 @@ var kLSMMapOverflow: Int { get }
  *	
  * An opaque Core Foundation type representing an LSM map (mutable).
  */
+class LSMMap {
+}
+
+/*! @typedef LSMMapRef
+ *	
+ * An opaque Core Foundation type representing an LSM map (mutable).
+ */
 typealias LSMMapRef = LSMMap
 
 /*! @function LSMMapGetTypeID
@@ -17,6 +24,13 @@ typealias LSMMapRef = LSMMap
  * Returns the Core Foundation type identifier for LSM maps.
  */
 func LSMMapGetTypeID() -> CFTypeID
+
+/*! @typedef LSMTextRef
+ *	
+ * An opaque Core Foundation type representing an input text (mutable).
+ */
+class LSMText {
+}
 
 /*! @typedef LSMTextRef
  *	
@@ -35,6 +49,13 @@ func LSMTextGetTypeID() -> CFTypeID
  * An opaque Core Foundation type representing the result of a lookup (immutable).
  */
 typealias LSMResultRef = LSMResult
+
+/*! @typedef LSMResult
+ *
+ * An opaque Core Foundation type representing the result of a lookup (immutable).
+ */
+class LSMResult {
+}
 
 /*! @function LSMResultGetTypeID
  *

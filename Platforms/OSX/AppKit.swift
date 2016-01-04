@@ -63,34 +63,46 @@ extension NSATSTypesetter {
   func setAttachmentSize(attachmentSize: NSSize, forGlyphRange glyphRange: NSRange)
   func setBidiLevels(levels: UnsafePointer<UInt8>, forGlyphRange glyphRange: NSRange)
 }
+
+/*** Accessibility Informal Protocol ***/
 extension NSObject {
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilityAttributeNames() -> [AnyObject]
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilityAttributeNames() -> [AnyObject]
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilityAttributeValue(attribute: String) -> AnyObject?
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilityAttributeValue(attribute: String) -> AnyObject?
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilityIsAttributeSettable(attribute: String) -> Bool
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilityIsAttributeSettable(attribute: String) -> Bool
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilitySetValue(value: AnyObject?, forAttribute attribute: String)
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilitySetValue(value: AnyObject?, forAttribute attribute: String)
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilityParameterizedAttributeNames() -> [AnyObject]
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilityParameterizedAttributeNames() -> [AnyObject]
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilityAttributeValue(attribute: String, forParameter parameter: AnyObject?) -> AnyObject?
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilityAttributeValue(attribute: String, forParameter parameter: AnyObject?) -> AnyObject?
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilityActionNames() -> [AnyObject]
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilityActionNames() -> [AnyObject]
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilityActionDescription(action: String) -> String?
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilityActionDescription(action: String) -> String?
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilityPerformAction(action: String)
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilityPerformAction(action: String)
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use isAccessibilityElement instead")
   class func accessibilityIsIgnored() -> Bool
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use isAccessibilityElement instead")
   func accessibilityIsIgnored() -> Bool
@@ -118,7 +130,10 @@ extension NSWorkspace {
 }
 @available(OSX 10.10, *)
 let NSWorkspaceAccessibilityDisplayOptionsDidChangeNotification: String
+
+/*** Accessibility Related Methods ***/
 extension NSObject {
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilitySetOverrideValue(value: AnyObject?, forAttribute attribute: String) -> Bool
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilitySetOverrideValue(value: AnyObject?, forAttribute attribute: String) -> Bool
@@ -1988,6 +2003,8 @@ struct NSApplicationPresentationOptions : OptionSetType {
   static var FullScreen: NSApplicationPresentationOptions { get }
   @available(OSX 10.7, *)
   static var AutoHideToolbar: NSApplicationPresentationOptions { get }
+  @available(OSX 10.11.2, *)
+  static var DisableCursorLocationAssistance: NSApplicationPresentationOptions { get }
 }
 @available(OSX 10.9, *)
 struct NSApplicationOcclusionState : OptionSetType {
@@ -2965,6 +2982,8 @@ let NSTextEffectLetterpressStyle: String
 var NSSpellingStateSpellingFlag: Int { get }
 @available(OSX 10.5, *)
 var NSSpellingStateGrammarFlag: Int { get }
+
+/************************ Attribute fixing ************************/
 extension NSMutableAttributedString {
   @available(OSX 10.0, *)
   func fixAttributesInRange(range: NSRange)
@@ -3081,6 +3100,8 @@ extension NSMutableAttributedString {
   @available(OSX 10.0, *)
   func readFromData(data: NSData, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>, error: ()) throws
 }
+
+/************************ Misc methods ************************/
 extension NSAttributedString {
   func fontAttributesInRange(range: NSRange) -> [String : AnyObject]
   func rulerAttributesInRange(range: NSRange) -> [String : AnyObject]
@@ -5434,8 +5455,8 @@ class NSColorPanel : NSPanel {
   func setTarget(anObject: AnyObject?)
   func attachColorList(colorList: NSColorList)
   func detachColorList(colorList: NSColorList)
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
@@ -5454,7 +5475,7 @@ class NSColorPicker : NSObject, NSColorPickingDefault {
   init?(pickerMask mask: Int, colorPanel owningColorPanel: NSColorPanel)
   var colorPanel: NSColorPanel { get }
   var provideNewButtonImage: NSImage { get }
-  func insertNewButtonImage(newButtonImage: NSImage, `in` buttonCell: NSButtonCell)
+  func insertNewButtonImage(newButtonImage: NSImage, in buttonCell: NSButtonCell)
   func viewSizeChanged(sender: AnyObject?)
   func attachColorList(colorList: NSColorList)
   func detachColorList(colorList: NSColorList)
@@ -5467,7 +5488,7 @@ class NSColorPicker : NSObject, NSColorPickingDefault {
 protocol NSColorPickingDefault {
   init?(pickerMask mask: Int, colorPanel owningColorPanel: NSColorPanel)
   func provideNewButtonImage() -> NSImage
-  func insertNewButtonImage(newButtonImage: NSImage, `in` buttonCell: NSButtonCell)
+  func insertNewButtonImage(newButtonImage: NSImage, in buttonCell: NSButtonCell)
   func viewSizeChanged(sender: AnyObject?)
   func alphaControlAddedOrRemoved(sender: AnyObject?)
   func attachColorList(colorList: NSColorList)
@@ -6409,12 +6430,6 @@ protocol NSSpringLoadingDestination : NSObjectProtocol {
 extension NSObject {
   class func namesOfPromisedFilesDroppedAtDestination(dropDestination: NSURL) -> [String]?
   func namesOfPromisedFilesDroppedAtDestination(dropDestination: NSURL) -> [String]?
-  class func draggingSourceOperationMaskForLocal(flag: Bool) -> NSDragOperation
-  class func draggedImage(image: NSImage!, beganAt screenPoint: NSPoint)
-  class func draggedImage(image: NSImage!, endedAt screenPoint: NSPoint, operation: NSDragOperation)
-  class func draggedImage(image: NSImage!, movedTo screenPoint: NSPoint)
-  class func ignoreModifierKeysWhileDragging() -> Bool
-  class func draggedImage(image: NSImage!, endedAt screenPoint: NSPoint, deposited flag: Bool)
 }
 @available(OSX 10.7, *)
 let NSDraggingImageComponentIconKey: String
@@ -7829,6 +7844,7 @@ extension NSFontManager {
   func orderFrontStylesPanel(sender: AnyObject?)
 }
 extension NSObject {
+  @available(OSX, introduced=10.0, deprecated=10.11, message="Use NSFontCollection for providing filtered font lists")
   class func fontManager(sender: AnyObject, willIncludeFont fontName: String) -> Bool
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use NSFontCollection for providing filtered font lists")
   func fontManager(sender: AnyObject, willIncludeFont fontName: String) -> Bool
@@ -7850,8 +7866,8 @@ class NSFontPanel : NSPanel {
   var worksWhenModal: Bool
   var enabled: Bool
   func reloadDefaultFontFamilies()
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
@@ -8732,6 +8748,7 @@ extension NSObject {
   func unbind(binding: String)
   class func infoForBinding(binding: String) -> [String : AnyObject]?
   func infoForBinding(binding: String) -> [String : AnyObject]?
+  @available(OSX 10.5, *)
   class func optionDescriptionsForBinding(aBinding: String) -> [NSAttributeDescription]
   @available(OSX 10.5, *)
   func optionDescriptionsForBinding(aBinding: String) -> [NSAttributeDescription]
@@ -8754,6 +8771,7 @@ extension NSObject {
   func commitEditing() -> Bool
   class func commitEditingWithDelegate(delegate: AnyObject?, didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func commitEditingWithDelegate(delegate: AnyObject?, didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  @available(OSX 10.7, *)
   class func commitEditingAndReturnError() throws
   @available(OSX 10.7, *)
   func commitEditingAndReturnError() throws
@@ -9386,10 +9404,6 @@ struct __lmFlags {
 extension NSLayoutManager : NSGlyphStorage {
   var glyphGenerator: NSGlyphGenerator
   @available(OSX 10.0, *)
-  func insertGlyphs(glyphs: UnsafePointer<NSGlyph>, length: Int, forStartingGlyphAtIndex glyphIndex: Int, characterIndex charIndex: Int)
-  @available(OSX 10.0, *)
-  func setIntAttribute(attributeTag: Int, value val: Int, forGlyphAtIndex glyphIndex: Int)
-  @available(OSX 10.0, *)
   func attributedString() -> NSAttributedString
   @available(OSX 10.0, *)
   func layoutOptions() -> Int
@@ -9463,6 +9477,8 @@ extension NSLayoutManager {
   @available(OSX, introduced=10.0, deprecated=10.11)
   func substituteFontForFont(originalFont: NSFont) -> NSFont
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -setGlyphs:properties:characterIndexes:font:forGlyphRange instead")
+  func insertGlyphs(glyphs: UnsafePointer<NSGlyph>, length: Int, forStartingGlyphAtIndex glyphIndex: Int, characterIndex charIndex: Int)
+  @available(OSX, introduced=10.0, deprecated=10.11, message="Use -setGlyphs:properties:characterIndexes:font:forGlyphRange instead")
   func insertGlyph(glyph: NSGlyph, atGlyphIndex glyphIndex: Int, characterIndex charIndex: Int)
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -setGlyphs:properties:characterIndexes:font:forGlyphRange instead")
   func replaceGlyphAtIndex(glyphIndex: Int, withGlyph newGlyph: NSGlyph)
@@ -9470,6 +9486,8 @@ extension NSLayoutManager {
   func deleteGlyphsInRange(glyphRange: NSRange)
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -setGlyphs:properties:characterIndexes:font:forGlyphRange instead")
   func setCharacterIndex(charIndex: Int, forGlyphAtIndex glyphIndex: Int)
+  @available(OSX, introduced=10.0, deprecated=10.11, message="Use -setGlyphs:properties:characterIndexes:font:forGlyphRange instead")
+  func setIntAttribute(attributeTag: Int, value val: Int, forGlyphAtIndex glyphIndex: Int)
   @available(OSX, introduced=10.5, deprecated=10.11, message="Use -setGlyphs:properties:characterIndexes:font:forGlyphRange instead")
   func invalidateGlyphsOnLayoutInvalidationForGlyphRange(glyphRange: NSRange)
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -getGlyphsInRange:glyphs:properties:characterIndexes:bidiLevels: instead")
@@ -9948,6 +9966,7 @@ extension NSBundle {
 extension NSObject {
   class func awakeFromNib()
   func awakeFromNib()
+  @available(OSX 10.10, *)
   class func prepareForInterfaceBuilder()
   @available(OSX 10.10, *)
   func prepareForInterfaceBuilder()
@@ -10153,8 +10172,8 @@ class NSOpenPanel : NSSavePanel {
   var canDownloadUbiquitousContents: Bool
   @available(OSX 10.11, *)
   var accessoryViewDisclosed: Bool
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
@@ -10477,8 +10496,8 @@ class NSPanel : NSWindow {
   var floatingPanel: Bool
   var becomesKeyOnlyIfNeeded: Bool
   var worksWhenModal: Bool
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
@@ -10736,6 +10755,8 @@ extension NSURL : NSPasteboardWriting, NSPasteboardReading {
   class func readingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
 }
+
+/*** NSString Pasteboard Support ***/
 extension NSString : NSPasteboardWriting, NSPasteboardReading {
   func writableTypesForPasteboard(pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
@@ -10768,6 +10789,8 @@ let NSInkTextPboardType: String
 let NSFilesPromisePboardType: String
 @available(OSX 10.6, *)
 let NSPasteboardTypeFindPanelSearchOptions: String
+
+/*** File Contents ***/
 extension NSPasteboard {
   func writeFileContents(filename: String) -> Bool
   func readFileContentsType(type: String?, toFile filename: String) -> String?
@@ -12492,8 +12515,8 @@ class NSSavePanel : NSPanel {
   @available(OSX 10.6, *)
   func beginWithCompletionHandler(handler: (Int) -> Void)
   func runModal() -> Int
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
@@ -12512,10 +12535,6 @@ protocol NSOpenSavePanelDelegate : NSObjectProtocol {
   optional func panelSelectionDidChange(sender: AnyObject?)
 }
 extension NSObject {
-  class func panel(sender: AnyObject, isValidFilename filename: String) -> Bool
-  class func panel(sender: AnyObject, directoryDidChange path: String)
-  class func panel(sender: AnyObject, compareFilename name1: String, with name2: String, caseSensitive: Bool) -> NSComparisonResult
-  class func panel(sender: AnyObject, shouldShowFilename filename: String) -> Bool
 }
 extension NSSavePanel {
 }
@@ -14117,6 +14136,8 @@ extension NSAttributedString {
   @available(OSX 10.11, *)
   func boundingRectWithSize(size: NSSize, options: NSStringDrawingOptions, context: NSStringDrawingContext?) -> NSRect
 }
+
+/************************ Deprecated ************************/
 extension NSString {
   func drawWithRect(rect: NSRect, options: NSStringDrawingOptions, attributes: [String : AnyObject]?)
   func boundingRectWithSize(size: NSSize, options: NSStringDrawingOptions, attributes: [String : AnyObject]?) -> NSRect
@@ -14802,7 +14823,6 @@ protocol NSTableViewDataSource : NSObjectProtocol {
   optional func tableView(tableView: NSTableView, namesOfPromisedFilesDroppedAtDestination dropDestination: NSURL, forDraggedRowsWithIndexes indexSet: NSIndexSet) -> [String]
 }
 extension NSObject {
-  class func tableView(tableView: NSTableView, writeRows rows: [AnyObject], toPasteboard pboard: NSPasteboard) -> Bool
 }
 extension NSTableView {
   @available(OSX, introduced=10.5, deprecated=10.10, message="Use View Based TableView and -viewAtColumn:row:")
@@ -15397,11 +15417,6 @@ class NSTextStorage : NSMutableAttributedString {
   func ensureAttributesAreFixedInRange(range: NSRange)
   init()
   init?(coder aDecoder: NSCoder)
-  @available(OSX, introduced=10.0, deprecated=10.11, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init?(URL url: NSURL, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  @available(OSX, introduced=10.0, deprecated=10.11, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init?(path: String, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
   @available(OSX 10.11, *)
   init(URL url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(OSX 10.0, *)
@@ -15413,6 +15428,11 @@ class NSTextStorage : NSMutableAttributedString {
   init?(docFormat data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init?(HTML data: NSData, options: [NSObject : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init?(RTFDFileWrapper wrapper: NSFileWrapper, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
+  init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
+  @available(OSX, introduced=10.0, deprecated=10.11, message="Use -initWithURL:options:documentAttributes:error: instead")
+  init?(URL url: NSURL, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
+  @available(OSX, introduced=10.0, deprecated=10.11, message="Use -initWithURL:options:documentAttributes:error: instead")
+  init?(path: String, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init(string str: String)
   init(string str: String, attributes attrs: [String : AnyObject]?)
   init(attributedString attrStr: NSAttributedString)
@@ -15435,9 +15455,11 @@ let NSTextStorageDidProcessEditingNotification: String
 /**** Deprecations ****/
 typealias NSTextStorageEditedOptions = Int
 extension NSObject {
+  @available(OSX, introduced=10.0, deprecated=10.11, message="Use -textStorage:willProcessEditing:range:changeInLength: instead.")
   class func textStorageWillProcessEditing(notification: NSNotification)
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -textStorage:willProcessEditing:range:changeInLength: instead.")
   func textStorageWillProcessEditing(notification: NSNotification)
+  @available(OSX, introduced=10.0, deprecated=10.11, message="Use -textStorage:DidProcessEditing:range:changeInLength: instead.")
   class func textStorageDidProcessEditing(notification: NSNotification)
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -textStorage:DidProcessEditing:range:changeInLength: instead.")
   func textStorageDidProcessEditing(notification: NSNotification)
@@ -17299,6 +17321,7 @@ struct __VFlags2 {
   init(nextKeyViewRefCount: UInt32, previousKeyViewRefCount: UInt32, isVisibleRect: UInt32, hasToolTip: UInt32, cachedIsFlipped: UInt32, menuWasSet: UInt32)
 }
 extension NSObject {
+  @available(OSX 10.7, *)
   class func layer(layer: CALayer, shouldInheritContentsScale newScale: CGFloat, fromWindow window: NSWindow) -> Bool
   @available(OSX 10.7, *)
   func layer(layer: CALayer, shouldInheritContentsScale newScale: CGFloat, fromWindow window: NSWindow) -> Bool
@@ -17699,8 +17722,8 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   class func defaultDepthLimit() -> NSWindowDepth
   func frameRectForContentRect(contentRect: NSRect) -> NSRect
   func contentRectForFrameRect(frameRect: NSRect) -> NSRect
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   var title: String
   @available(OSX 10.10, *)
   var titleVisibility: NSWindowTitleVisibility
@@ -18744,6 +18767,10 @@ struct __wcFlags {
   init()
   init(shouldCloseDocument: UInt32, shouldCascade: UInt32, nibIsLoaded: UInt32, nibNameIsPath: UInt32, settingWindowsContentViewController: UInt32, didInitWithCoder: UInt32, nibIsMakingConnections: UInt32, sentWindowWillLoad: UInt32, RESERVED: UInt32)
 }
+
+/*!
+ These methods are used to support using Storyboards with your app.
+ */
 extension NSWindowController {
   @available(OSX 10.10, *)
   var storyboard: NSStoryboard? { get }

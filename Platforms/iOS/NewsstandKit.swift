@@ -188,6 +188,13 @@ class NKLibrary : NSObject {
   func removeIssue(issue: NKIssue)
   init()
 }
+
+/*!
+ @category   NKAssetDownloadAdditions(NSURLConnection)
+ @abstract   NKAssetDownload extensions to NSURLConnection.
+ @discussion This category provides a convenient way to look up an
+ NKAssetDownload that is related to a NSURLConnection.
+ */
 extension NSURLConnection {
 
   /*!

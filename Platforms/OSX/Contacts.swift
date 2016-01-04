@@ -25,6 +25,8 @@ enum CNContactSortOrder : Int {
 /*! This protocol is reserved for Contacts framework usage. */
 protocol CNKeyDescriptor : NSObjectProtocol, NSSecureCoding, NSCopying {
 }
+
+/*! Allows contact property keys to be used with keysToFetch. */
 extension NSString : CNKeyDescriptor {
 }
 
@@ -587,6 +589,12 @@ class CNContactVCardSerialization : NSObject {
   class func contactsWithData(data: NSData) throws -> [AnyObject]
   init()
 }
+
+/*!
+ * @abstract The predicates to match contacts against.
+ *
+ * @discussion Can only use these predicates with CNContactStore and CNContactFetchRequest.
+ */
 extension CNContact {
 
   /*!
@@ -649,6 +657,12 @@ let CNContainerIdentifierKey: String
 let CNContainerNameKey: String
 @available(OSX 10.11, *)
 let CNContainerTypeKey: String
+
+/*!
+ * @abstract The predicates to match containers against.
+ *
+ * @discussion Can only use these predicates with CNContactStore.
+ */
 extension CNContainer {
   class func predicateForContainersWithIdentifiers(identifiers: [String]) -> NSPredicate
 
@@ -725,6 +739,12 @@ class CNGroup : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
 let CNGroupIdentifierKey: String
 @available(OSX 10.11, *)
 let CNGroupNameKey: String
+
+/*!
+ * @abstract The predicates to match groups against.
+ *
+ * @discussion Can only use these predicates with CNContactStore.
+ */
 extension CNGroup {
   class func predicateForGroupsWithIdentifiers(identifiers: [String]) -> NSPredicate
   @available(OSX 10.11, *)

@@ -262,6 +262,11 @@ protocol SCNAnimatable : NSObjectProtocol {
   @available(tvOS 8.0, *)
   func removeAnimationForKey(key: String, fadeOutDuration duration: CGFloat)
 }
+
+/*!
+ @category CAAnimation (CAAnimation)
+ @abstract Extends the CAAnimation class for SceneKit explicit animations.
+ */
 extension CAAnimation {
 
   /*!
@@ -3086,6 +3091,8 @@ class SCNPlane : SCNGeometry {
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
   init?(coder aDecoder: NSCoder)
+  @available(tvOS 9.0, *)
+  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 
 /*!
@@ -3171,6 +3178,8 @@ class SCNBox : SCNGeometry {
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
   init?(coder aDecoder: NSCoder)
+  @available(tvOS 9.0, *)
+  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 
 /*!
@@ -3241,6 +3250,8 @@ class SCNPyramid : SCNGeometry {
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
   init?(coder aDecoder: NSCoder)
+  @available(tvOS 9.0, *)
+  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 
 /*!
@@ -3288,6 +3299,8 @@ class SCNSphere : SCNGeometry {
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
   init?(coder aDecoder: NSCoder)
+  @available(tvOS 9.0, *)
+  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 
 /*!
@@ -3343,6 +3356,8 @@ class SCNCylinder : SCNGeometry {
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
   init?(coder aDecoder: NSCoder)
+  @available(tvOS 9.0, *)
+  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 
 /*!
@@ -3406,6 +3421,8 @@ class SCNCone : SCNGeometry {
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
   init?(coder aDecoder: NSCoder)
+  @available(tvOS 9.0, *)
+  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 
 /*!
@@ -3469,6 +3486,8 @@ class SCNTube : SCNGeometry {
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
   init?(coder aDecoder: NSCoder)
+  @available(tvOS 9.0, *)
+  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 
 /*!
@@ -3531,6 +3550,8 @@ class SCNCapsule : SCNGeometry {
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
   init?(coder aDecoder: NSCoder)
+  @available(tvOS 9.0, *)
+  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 
 /*!
@@ -3586,6 +3607,8 @@ class SCNTorus : SCNGeometry {
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
   init?(coder aDecoder: NSCoder)
+  @available(tvOS 9.0, *)
+  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 
 /*!
@@ -3634,6 +3657,8 @@ class SCNFloor : SCNGeometry {
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
   init?(coder aDecoder: NSCoder)
+  @available(tvOS 9.0, *)
+  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 
 /*!
@@ -3732,6 +3757,8 @@ class SCNText : SCNGeometry {
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
   init?(coder aDecoder: NSCoder)
+  @available(tvOS 9.0, *)
+  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 
 /*!
@@ -3802,6 +3829,8 @@ class SCNShape : SCNGeometry {
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
   init?(coder aDecoder: NSCoder)
+  @available(tvOS 9.0, *)
+  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 @available(tvOS 8.0, *)
 let SCNParticlePropertyPosition: String
@@ -4624,6 +4653,8 @@ class SCNReferenceNode : SCNNode {
    */
   var loaded: Bool { get }
   convenience init()
+  @available(tvOS 9.0, *)
+  convenience init(MDLObject mdlObject: MDLObject)
 }
 
 /*! @class SCNRenderer
@@ -6415,6 +6446,7 @@ class SCNTechnique : NSObject, SCNAnimatable, NSCopying, NSSecureCoding {
    @abstract Returns the dictionary representation of the technique.
    */
   var dictionaryRepresentation: [String : AnyObject] { get }
+  @available(tvOS 9.0, *)
   subscript (key: AnyObject) -> AnyObject? { get }
   @available(tvOS 9.0, *)
   func setObject(obj: AnyObject?, forKeyedSubscript key: NSCopying)
@@ -6965,6 +6997,10 @@ func SCNVector4ToGLKVector4(vector: SCNVector4) -> GLKVector4
 func SCNMatrix4ToGLKMatrix4(mat: SCNMatrix4) -> GLKMatrix4
 @available(tvOS 8.0, *)
 func SCNMatrix4FromGLKMatrix4(mat: GLKMatrix4) -> SCNMatrix4
+
+/*! @category NSValue(SceneKitAdditions)
+ @abstract Adds methods to wrap vectors in NSValue objects.
+ */
 extension NSValue {
   /*not inherited*/ init(SCNVector3 v: SCNVector3)
   /*not inherited*/ init(SCNVector4 v: SCNVector4)

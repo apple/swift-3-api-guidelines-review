@@ -133,6 +133,14 @@ var kCVAttachmentMode_ShouldPropagate: CVAttachmentMode { get }
     @abstract   Base type for all CoreVideo buffers
 
 */
+class CVBuffer {
+}
+
+/*!
+    @typedef	CVBufferRef
+    @abstract   Base type for all CoreVideo buffers
+
+*/
 typealias CVBufferRef = CVBuffer
 
 /*!
@@ -333,6 +341,17 @@ typealias CVImageBufferRef = CVImageBuffer
 
 /*!
 
+    @typedef	CVImageBufferRef
+
+    @abstract   Base type for all CoreVideo image buffers
+
+
+
+*/
+typealias CVImageBuffer = CVBufferRef
+
+/*!
+
     @function   CVImageBufferGetEncodedSize
 
     @abstract   Returns the full encoded dimensions of a CVImageBuffer.  For example, for an NTSC DV frame this would be 720x480
@@ -408,6 +427,13 @@ func CVImageBufferIsFlipped(imageBuffer: CVImageBuffer) -> Bool
     @abstract   Metal texture based image buffer
 
 */
+typealias CVMetalTexture = CVImageBuffer
+
+/*!
+    @typedef	CVMetalTextureRef
+    @abstract   Metal texture based image buffer
+
+*/
 typealias CVMetalTextureRef = CVMetalTexture
 @available(iOS 8.0, *)
 func CVMetalTextureGetTypeID() -> CFTypeID
@@ -444,6 +470,14 @@ func CVMetalTextureIsFlipped(image: CVMetalTexture) -> Bool
 func CVMetalTextureGetCleanTexCoords(image: CVMetalTexture, _ lowerLeft: UnsafeMutablePointer<Float>, _ lowerRight: UnsafeMutablePointer<Float>, _ upperRight: UnsafeMutablePointer<Float>, _ upperLeft: UnsafeMutablePointer<Float>)
 @available(iOS 8.0, *)
 let kCVMetalTextureCacheMaximumTextureAgeKey: CFString
+
+/*!
+    @typedef	CVMetalTextureCacheRef
+    @abstract   CoreVideo Metal Texture Cache
+
+*/
+class CVMetalTextureCache {
+}
 
 /*!
     @typedef	CVMetalTextureCacheRef
@@ -521,6 +555,13 @@ func CVMetalTextureCacheFlush(textureCache: CVMetalTextureCache, _ options: CVOp
     @abstract   OpenGLES texture based image buffer
 
 */
+typealias CVOpenGLESTexture = CVImageBuffer
+
+/*!
+    @typedef	CVOpenGLESTextureRef
+    @abstract   OpenGLES texture based image buffer
+
+*/
 typealias CVOpenGLESTextureRef = CVOpenGLESTexture
 @available(iOS 5.0, *)
 func CVOpenGLESTextureGetTypeID() -> CFTypeID
@@ -564,6 +605,14 @@ func CVOpenGLESTextureIsFlipped(image: CVOpenGLESTexture) -> Bool
 */
 @available(iOS 5.0, *)
 func CVOpenGLESTextureGetCleanTexCoords(image: CVOpenGLESTexture, _ lowerLeft: UnsafeMutablePointer<GLfloat>, _ lowerRight: UnsafeMutablePointer<GLfloat>, _ upperRight: UnsafeMutablePointer<GLfloat>, _ upperLeft: UnsafeMutablePointer<GLfloat>)
+
+/*!
+    @typedef	CVOpenGLESTextureCacheRef
+    @abstract   CoreVideo OpenGLES Texture Cache
+
+*/
+class CVOpenGLESTextureCache {
+}
 
 /*!
     @typedef	CVOpenGLESTextureCacheRef
@@ -763,6 +812,13 @@ let kCVPixelBufferOpenGLESCompatibilityKey: CFString
 let kCVPixelBufferMetalCompatibilityKey: CFString
 @available(iOS 9.0, *)
 let kCVPixelBufferOpenGLESTextureCacheCompatibilityKey: CFString
+
+/*!
+    @typedef	CVPixelBufferRef
+    @abstract   Based on the image buffer type. The pixel buffer implements the memory storage for an image buffer.
+
+*/
+typealias CVPixelBuffer = CVImageBuffer
 
 /*!
     @typedef	CVPixelBufferRef
@@ -1010,6 +1066,8 @@ func CVPixelBufferGetExtendedPixels(pixelBuffer: CVPixelBuffer, _ extraColumnsOn
 */
 @available(iOS 4.0, *)
 func CVPixelBufferFillExtendedPixels(pixelBuffer: CVPixelBuffer) -> CVReturn
+class CVPixelBufferPool {
+}
 typealias CVPixelBufferPoolRef = CVPixelBufferPool
 @available(iOS 4.0, *)
 let kCVPixelBufferPoolMinimumBufferCountKey: CFString

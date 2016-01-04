@@ -93,7 +93,7 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
    @return YES is returned if MDLAsset is able to load and represent assets with 
              the given extension
    */
-  class func canImportFileExtension(`extension`: String) -> Bool
+  class func canImportFileExtension(extension: String) -> Bool
 
   /*!
    @method canImportFileExtension:
@@ -102,7 +102,7 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
    @return YES is returned if MDLAsset is able is able to export assets to 
            resources with the given extension
    */
-  class func canExportFileExtension(`extension`: String) -> Bool
+  class func canExportFileExtension(extension: String) -> Bool
 
   /*!
    @method boundingBoxAtTime:
@@ -179,6 +179,11 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
    The number of top level objects
    */
   var count: Int { get }
+
+  /*!
+   @method objectAtIndexedSubscript:
+   @abstract return the indexed top level object
+   */
   subscript (index: Int) -> MDLObject? { get }
 
   /*!
@@ -1407,7 +1412,6 @@ protocol MDLMeshBuffer : NSObjectProtocol, NSCopying {
    @abstract the intended type of the buffer
    */
   var type: MDLMeshBufferType { get }
-  func zone() -> MDLMeshBufferZone
 }
 
 /*!
@@ -1481,8 +1485,6 @@ class MDLMeshBufferData : NSObject, MDLMeshBuffer {
    */
   @available(tvOS 9.0, *)
   var type: MDLMeshBufferType { get }
-  @available(tvOS 9.0, *)
-  func zone() -> MDLMeshBufferZone
   @available(tvOS 9.0, *)
   func copyWithZone(zone: NSZone) -> AnyObject
 }
@@ -1695,14 +1697,14 @@ class MDLObject : NSObject, MDLNamed {
    @abstract Extensible component support that allows user of ModelIO to customize 
              MDLObjects to fit their format and workflow.
    */
-  func setComponent(component: MDLComponent, forProtocol `protocol`: Protocol)
+  func setComponent(component: MDLComponent, forProtocol protocol: Protocol)
 
   /*!
    @method componentConformingToProtocol:
    @abstract Extensible component support that allows user of ModelIO to customize 
              MDLObjects to fit their format and workflow.
    */
-  func componentConformingToProtocol(`protocol`: Protocol) -> MDLComponent?
+  func componentConformingToProtocol(protocol: Protocol) -> MDLComponent?
 
   /*!
    @property parent

@@ -10,6 +10,7 @@ enum WatchKitErrorCode : Int {
   case InvalidArgumentError
   case MediaPlayerError
   case DownloadError
+  case RecordingFailedError
 }
 
 extension WatchKitErrorCode : _BridgedNSError {
@@ -125,10 +126,11 @@ class WKInterfaceDevice : NSObject {
   func removeCachedImageWithName(name: String)
   @available(iOS 8.2, *)
   func removeAllCachedImages()
+  @available(iOS 8.2, *)
+  var cachedImages: [String : NSNumber] { get }
   var screenBounds: CGRect { get }
   var screenScale: CGFloat { get }
   var preferredContentSizeCategory: String { get }
-  var cachedImages: [String : NSNumber] { get }
   @available(iOS 9.0, *)
   var systemVersion: String { get }
   @available(iOS 9.0, *)

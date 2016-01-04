@@ -120,20 +120,10 @@ protocol QLPreviewItem : NSObjectProtocol {
    */
   optional var previewItemTitle: String? { get }
 }
-extension NSURL : QLPreviewItem {
 
-  /*!
-   * @abstract The URL of the item to preview.
-   * @discussion The URL must be a file URL. 
-   */
-  var previewItemURL: NSURL { get }
-
-  /*!
-   * @abstract The item's title this will be used as apparent item title.
-   * @discussion The title replaces the default item display name. This property is optional.
-   */
-  var previewItemTitle: String? { get }
-}
+/*!
+ * @abstract This category makes NSURL instances as suitable items for the Preview Controller.
+ */
 extension NSURL : QLPreviewItem {
 
   /*!

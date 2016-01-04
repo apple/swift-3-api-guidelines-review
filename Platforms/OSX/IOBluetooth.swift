@@ -2869,14 +2869,30 @@ var kBluetoothLMPVersionCoreSpecification2_1EDR: BluetoothLMPVersions { get }
 var kBluetoothLMPVersionCoreSpecification3_0HS: BluetoothLMPVersions { get }
 var kBluetoothLMPVersionCoreSpecification4_0: BluetoothLMPVersions { get }
 var kBluetoothLMPVersionCoreSpecification4_1: BluetoothLMPVersions { get }
+class IOBluetoothObject {
+}
 typealias IOBluetoothObjectRef = IOBluetoothObject
+class IOBluetoothDevice {
+}
 typealias IOBluetoothDeviceRef = IOBluetoothDevice
 typealias IOBluetoothL2CAPChannelRef = IOBluetoothL2CAPChannel
+class IOBluetoothL2CAPChannel {
+}
+class IOBluetoothRFCOMMChannel {
+}
 typealias IOBluetoothRFCOMMChannelRef = IOBluetoothRFCOMMChannel
+class IOBluetoothSDPServiceRecord {
+}
 typealias IOBluetoothSDPServiceRecordRef = IOBluetoothSDPServiceRecord
+class IOBluetoothSDPUUID {
+}
 typealias IOBluetoothSDPUUIDRef = IOBluetoothSDPUUID
+class IOBluetoothSDPDataElement {
+}
 typealias IOBluetoothSDPDataElementRef = IOBluetoothSDPDataElement
 typealias IOBluetoothUserNotificationRef = IOBluetoothUserNotification
+class IOBluetoothUserNotification {
+}
 typealias IOBluetoothObjectID = UInt
 
 /*!	@typedef	IOBluetoothDeviceSearchOptions
@@ -5867,6 +5883,14 @@ class IOBluetoothHostController : NSObject {
   func nameAsString() -> String!
   init()
 }
+
+/*!
+    @category 		IOBluetoothHostControllerDelegate
+    @discussion		This category on NSObject describes the delegate methods for the IOBluetoothHostController object. All
+					methods are optional, but it is highly recommended you implement them all. Do NOT invoke remote name
+					requests on found IOBluetoothDevice objects unless the controller object has been stopped. Doing so may
+					deadlock your process.
+*/
 extension NSObject {
 
   /*!	@method			readRSSIForDeviceComplete:device:info:error:
@@ -6187,9 +6211,6 @@ protocol IOBluetoothL2CAPChannelDelegate {
 let IOBluetoothL2CAPChannelPublishedNotification: String
 let IOBluetoothL2CAPChannelTerminatedNotification: String
 extension NSObject {
-  class func registerIncomingDataListener(listener: IOBluetoothL2CAPChannelIncomingDataListener!, refCon: UnsafeMutablePointer<Void>) -> IOReturn
-  class func write(data: UnsafeMutablePointer<Void>, length: UInt16) -> IOReturn
-  class func getL2CAPChannelRef() -> Unmanaged<IOBluetoothL2CAPChannel>!
 }
 class IOBluetoothOBEXSession : OBEXSession, IOBluetoothRFCOMMChannelDelegate {
 
