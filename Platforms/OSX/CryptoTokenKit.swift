@@ -369,12 +369,12 @@ extension TKSmartCard {
   /// @param ins INS code of the APDU
   /// @param p1 P1 code of the APDU
   /// @param p2 P2 code of the APDU
-  /// @param requestData Data field of the APDU.  Length of the data serves as Lc field of the APDU
+  /// @param requestData Data field of the APDU, or nil if no input data field should be present (i.e case1 or case2 APDUs).  Length of the data serves as Lc field of the APDU.
   /// @param le Expected number of bytes to be returned, or nil if no output data are expected (i.e. case1 or case3 APDUs). To get as much bytes as card provides, pass @0.
   /// @param replyData Block of returned data without SW1SW2 bytes, or nil if an error occured.
   /// @param sw SW1SW2 result code
   /// @param error Contains error details when nil is returned.  Specific error is also filled in if there was no communication error, but card returned other SW code than 0x9000.
-  func sendIns(ins: UInt8, p1: UInt8, p2: UInt8, data requestData: NSData, le: NSNumber?, reply: (NSData?, UInt16, NSError?) -> Void)
+  func sendIns(ins: UInt8, p1: UInt8, p2: UInt8, data requestData: NSData?, le: NSNumber?, reply: (NSData?, UInt16, NSError?) -> Void)
 }
 
 /// Bitmask of available smartcard protocols.
@@ -433,7 +433,7 @@ class TKSmartCardATR : NSObject {
   func interfaceGroupAt(index: Int) -> TKSmartCardATRInterfaceGroup?
 
   /// @param protocol Protocol number for which the interface group is requested.
-  func interfaceGroupFor(`protocol`: TKSmartCardProtocol) -> TKSmartCardATRInterfaceGroup?
+  func interfaceGroupFor(protocol: TKSmartCardProtocol) -> TKSmartCardATRInterfaceGroup?
 
   /// Just historical bytes of ATR, without Tck and interface bytes.
   var historicalBytes: NSData { get }

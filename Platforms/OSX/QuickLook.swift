@@ -6,6 +6,13 @@ var kQLReturnMask: Int32 { get }
  *      @typedef QLThumbnailRequestRef
  *      @abstract This is the type of a reference to Thumbnail requests.
  */
+class QLThumbnailRequest {
+}
+
+/*!
+ *      @typedef QLThumbnailRequestRef
+ *      @abstract This is the type of a reference to Thumbnail requests.
+ */
 typealias QLThumbnailRequestRef = QLThumbnailRequest
 
 /*!
@@ -181,6 +188,13 @@ let kQLThumbnailPropertyBaseBundlePathKey: CFString!
  *      This is the type of a reference to Preview requests.
  */
 typealias QLPreviewRequestRef = QLPreviewRequest
+
+/*!
+ *      @typedef QLPreviewRequestRef
+ *      This is the type of a reference to Preview requests.
+ */
+class QLPreviewRequest {
+}
 
 /*!
  *      @function QLPreviewRequestGetTypeID
@@ -408,6 +422,8 @@ struct QLGeneratorInterfaceStruct {
   var CancelPreviewGeneration: (@convention(c) (UnsafeMutablePointer<Void>, QLPreviewRequest!) -> Void)!
   init()
   init(_reserved: UnsafeMutablePointer<Void>, QueryInterface: (@convention(c) (UnsafeMutablePointer<Void>, REFIID, UnsafeMutablePointer<LPVOID>) -> HRESULT)!, AddRef: (@convention(c) (UnsafeMutablePointer<Void>) -> ULONG)!, Release: (@convention(c) (UnsafeMutablePointer<Void>) -> ULONG)!, GenerateThumbnailForURL: (@convention(c) (UnsafeMutablePointer<Void>, QLThumbnailRequest!, CFURL!, CFString!, CFDictionary!, CGSize) -> OSStatus)!, CancelThumbnailGeneration: (@convention(c) (UnsafeMutablePointer<Void>, QLThumbnailRequest!) -> Void)!, GeneratePreviewForURL: (@convention(c) (UnsafeMutablePointer<Void>, QLPreviewRequest!, CFURL!, CFString!, CFDictionary!) -> OSStatus)!, CancelPreviewGeneration: (@convention(c) (UnsafeMutablePointer<Void>, QLPreviewRequest!) -> Void)!)
+}
+class QLThumbnail {
 }
 typealias QLThumbnailRef = QLThumbnail
 func QLThumbnailGetTypeID() -> CFTypeID

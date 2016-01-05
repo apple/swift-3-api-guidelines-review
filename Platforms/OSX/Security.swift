@@ -323,6 +323,8 @@ var kAuthorizationEnvironmentShared: String { get }
 var kAuthorizationRightExecute: String { get }
 var kAuthorizationEnvironmentPrompt: String { get }
 var kAuthorizationEnvironmentIcon: String { get }
+class CMSDecoder {
+}
 typealias CMSDecoderRef = CMSDecoder
 func CMSDecoderGetTypeID() -> CFTypeID
 enum CMSSignerStatus : UInt32 {
@@ -372,6 +374,8 @@ func CMSDecoderCopySignerTimestampWithPolicy(cmsDecoder: CMSDecoder, _ timeStamp
 @available(OSX 10.8, *)
 func CMSDecoderCopySignerTimestampCertificates(cmsDecoder: CMSDecoder, _ signerIndex: Int, _ certificateRefs: UnsafeMutablePointer<CFArray?>) -> OSStatus
 typealias CMSEncoderRef = CMSEncoder
+class CMSEncoder {
+}
 @available(OSX 10.5, *)
 func CMSEncoderGetTypeID() -> CFTypeID
 @available(OSX 10.5, *)
@@ -530,6 +534,24 @@ let kSecCFErrorPath: CFString
 typealias SecCodeRef = SecCode
 
 /*!
+	@typedef SecCodeRef
+	This is the type of a reference to running code.
+
+	In many (but not all) calls, this can be passed to a SecStaticCodeRef
+	argument, which performs an implicit SecCodeCopyStaticCode call and
+	operates on the result.
+*/
+class SecCode {
+}
+
+/*!
+	@typedef SecStaticCodeRef
+	This is the type of a reference to static code on disk.
+*/
+class SecStaticCode {
+}
+
+/*!
 	@typedef SecStaticCodeRef
 	This is the type of a reference to static code on disk.
 */
@@ -540,6 +562,13 @@ typealias SecStaticCodeRef = SecStaticCode
 	This is the type of a reference to a code requirement.
 */
 typealias SecRequirementRef = SecRequirement
+
+/*!
+	@typedef SecRequirementRef
+	This is the type of a reference to a code requirement.
+*/
+class SecRequirement {
+}
 
 /*!
 	@typedef SecGuestRef
@@ -1140,8 +1169,15 @@ var SEC_ASN1_SAVE: Int32 { get }
 var SEC_ASN1_SKIP_REST: Int32 { get }
 var SEC_ASN1_CHOICE: Int32 { get }
 var SEC_ASN1_SIGNED_INT: Int32 { get }
-typealias SecAsn1TemplateChooser = (UnsafeMutablePointer<Void>, DarwinBoolean, UnsafePointer<Int8>, UnsafeMutablePointer<Void>) -> UnsafePointer<SecAsn1Template>
-typealias SecAsn1TemplateChooserPtr = @convention(c) (UnsafeMutablePointer<Void>, DarwinBoolean, UnsafePointer<Int8>, UnsafeMutablePointer<Void>) -> UnsafePointer<SecAsn1Template>
+typealias SecAsn1TemplateChooser = (UnsafeMutablePointer<Void>, DarwinBoolean, UnsafePointer<Int8>, Int, UnsafeMutablePointer<Void>) -> UnsafePointer<SecAsn1Template>
+typealias SecAsn1TemplateChooserPtr = @convention(c) (UnsafeMutablePointer<Void>, DarwinBoolean, UnsafePointer<Int8>, Int, UnsafeMutablePointer<Void>) -> UnsafePointer<SecAsn1Template>
+
+/*!
+    @typedef SecKeychainRef
+    @abstract Contains information about a keychain.
+*/
+class SecKeychain {
+}
 
 /*!
     @typedef SecKeychainRef
@@ -1154,6 +1190,20 @@ typealias SecKeychainRef = SecKeychain
     @abstract Contains information about a keychain item.
 */
 typealias SecKeychainItemRef = SecKeychainItem
+
+/*!
+    @typedef SecKeychainItemRef
+    @abstract Contains information about a keychain item.
+*/
+class SecKeychainItem {
+}
+
+/*!
+    @typedef SecKeychainSearchRef
+    @abstract Contains information about a keychain search.
+*/
+class SecKeychainSearch {
+}
 
 /*!
     @typedef SecKeychainSearchRef
@@ -1210,10 +1260,31 @@ typealias SecKeychainStatus = UInt32
 typealias SecTrustedApplicationRef = SecTrustedApplication
 
 /*!
+    @typedef SecTrustedApplicationRef
+    @abstract Contains information about a trusted application.
+*/
+class SecTrustedApplication {
+}
+
+/*!
     @typedef SecPolicyRef
     @abstract Contains information about a policy.
 */
 typealias SecPolicyRef = SecPolicy
+
+/*!
+    @typedef SecPolicyRef
+    @abstract Contains information about a policy.
+*/
+class SecPolicy {
+}
+
+/*!
+    @typedef SecCertificateRef
+    @abstract Contains information about a certificate.
+*/
+class SecCertificate {
+}
 
 /*!
     @typedef SecCertificateRef
@@ -1228,6 +1299,20 @@ typealias SecCertificateRef = SecCertificate
 typealias SecAccessRef = SecAccess
 
 /*!
+    @typedef SecAccessRef
+    @abstract Contains information about an access.
+*/
+class SecAccess {
+}
+
+/*!
+    @typedef SecIdentityRef
+    @abstract Contains information about an identity.
+*/
+class SecIdentity {
+}
+
+/*!
     @typedef SecIdentityRef
     @abstract Contains information about an identity.
 */
@@ -1240,6 +1325,20 @@ typealias SecIdentityRef = SecIdentity
 typealias SecKeyRef = SecKey
 
 /*!
+    @typedef SecKeyRef
+    @abstract Contains information about a key.
+*/
+class SecKey {
+}
+
+/*!
+    @typedef SecACLRef
+    @abstract Contains information about an access control list (ACL) entry.
+*/
+class SecACL {
+}
+
+/*!
     @typedef SecACLRef
     @abstract Contains information about an access control list (ACL) entry.
 */
@@ -1250,6 +1349,20 @@ typealias SecACLRef = SecACL
     @abstract CFType representing access control for an item.
 */
 typealias SecAccessControlRef = SecAccessControl
+
+/*!
+    @typedef SecAccessControlRef
+    @abstract CFType representing access control for an item.
+*/
+class SecAccessControl {
+}
+
+/*!
+    @typedef SecPasswordRef
+    @abstract Contains information about a password.
+*/
+class SecPassword {
+}
 
 /*!
     @typedef SecPasswordRef
@@ -2212,7 +2325,7 @@ func SecCodeGetTypeID() -> CFTypeID
 	@result Upon success, errSecSuccess. Upon error, an OSStatus value documented in
 	CSCommon.h or certain other Security framework headers.
  */
-func SecCodeCopySelf(flags: SecCSFlags, _ `self`: UnsafeMutablePointer<SecCode?>) -> OSStatus
+func SecCodeCopySelf(flags: SecCSFlags, _ self: UnsafeMutablePointer<SecCode?>) -> OSStatus
 var kSecCSUseAllArchitectures: UInt32 { get }
 func SecCodeCopyStaticCode(code: SecCode, _ flags: SecCSFlags, _ staticCode: UnsafeMutablePointer<SecStaticCode?>) -> OSStatus
 
@@ -2583,6 +2696,24 @@ enum SecTransformMetaAttributeType : CFIndex {
     it up by name.
 */
 typealias SecTransformAttributeRef = SecTransformAttribute
+
+/*!
+    @typedef        SecTransformAttributeRef
+
+    @abstract       A direct reference to an attribute. Using an attribute
+                    reference speeds up using an attribute's value by removing
+                    the need to look
+    it up by name.
+*/
+typealias SecTransformAttribute = CFTypeRef
+
+/*!
+    @typedef        SecTransformStringOrAttributeRef
+
+    @abstract       This type signifies that either a CFStringRef or
+                    a SecTransformAttributeRef may be used.
+*/
+typealias SecTransformStringOrAttribute = CFTypeRef
 
 /*!
     @typedef        SecTransformStringOrAttributeRef
@@ -3536,6 +3667,13 @@ let kSecIdentityDomainDefault: CFString
 */
 @available(OSX 10.5, *)
 let kSecIdentityDomainKerberosKDC: CFString
+
+/*!
+    @typedef SecIdentitySearchRef
+    @abstract Contains information about an identity search.
+*/
+class SecIdentitySearch {
+}
 
 /*!
     @typedef SecIdentitySearchRef
@@ -5508,7 +5646,7 @@ func SecKeychainRemoveCallback(callbackFunction: SecKeychainCallback) -> OSStatu
 	@result A result code.  See "Security Error Codes" (SecBase.h).
 	@discussion The SecKeychainAddInternetPassword function adds a new Internet server password to the specified keychain. Required parameters to identify the password are serverName and accountName (you cannot pass NULL for both parameters). In addition, some protocols may require an optional securityDomain when authentication is requested. SecKeychainAddInternetPassword optionally returns a reference to the newly added item. 
 */
-func SecKeychainAddInternetPassword(keychain: SecKeychain?, _ serverNameLength: UInt32, _ serverName: UnsafePointer<Int8>, _ securityDomainLength: UInt32, _ securityDomain: UnsafePointer<Int8>, _ accountNameLength: UInt32, _ accountName: UnsafePointer<Int8>, _ pathLength: UInt32, _ path: UnsafePointer<Int8>, _ port: UInt16, _ `protocol`: SecProtocolType, _ authenticationType: SecAuthenticationType, _ passwordLength: UInt32, _ passwordData: UnsafePointer<Void>, _ itemRef: UnsafeMutablePointer<SecKeychainItem?>) -> OSStatus
+func SecKeychainAddInternetPassword(keychain: SecKeychain?, _ serverNameLength: UInt32, _ serverName: UnsafePointer<Int8>, _ securityDomainLength: UInt32, _ securityDomain: UnsafePointer<Int8>, _ accountNameLength: UInt32, _ accountName: UnsafePointer<Int8>, _ pathLength: UInt32, _ path: UnsafePointer<Int8>, _ port: UInt16, _ protocol: SecProtocolType, _ authenticationType: SecAuthenticationType, _ passwordLength: UInt32, _ passwordData: UnsafePointer<Void>, _ itemRef: UnsafeMutablePointer<SecKeychainItem?>) -> OSStatus
 
 /*!
 	@function SecKeychainFindInternetPassword
@@ -5531,7 +5669,7 @@ func SecKeychainAddInternetPassword(keychain: SecKeychain?, _ serverNameLength: 
 	@result A result code.  See "Security Error Codes" (SecBase.h).
 	@discussion The SecKeychainFindInternetPassword function finds the first Internet password item which matches the attributes you provide. Most attributes are optional; you should pass only as many as you need to narrow the search sufficiently for your application's intended use. SecKeychainFindInternetPassword optionally returns a reference to the found item.
 */
-func SecKeychainFindInternetPassword(keychainOrArray: AnyObject?, _ serverNameLength: UInt32, _ serverName: UnsafePointer<Int8>, _ securityDomainLength: UInt32, _ securityDomain: UnsafePointer<Int8>, _ accountNameLength: UInt32, _ accountName: UnsafePointer<Int8>, _ pathLength: UInt32, _ path: UnsafePointer<Int8>, _ port: UInt16, _ `protocol`: SecProtocolType, _ authenticationType: SecAuthenticationType, _ passwordLength: UnsafeMutablePointer<UInt32>, _ passwordData: UnsafeMutablePointer<UnsafeMutablePointer<Void>>, _ itemRef: UnsafeMutablePointer<SecKeychainItem?>) -> OSStatus
+func SecKeychainFindInternetPassword(keychainOrArray: AnyObject?, _ serverNameLength: UInt32, _ serverName: UnsafePointer<Int8>, _ securityDomainLength: UInt32, _ securityDomain: UnsafePointer<Int8>, _ accountNameLength: UInt32, _ accountName: UnsafePointer<Int8>, _ pathLength: UInt32, _ path: UnsafePointer<Int8>, _ port: UInt16, _ protocol: SecProtocolType, _ authenticationType: SecAuthenticationType, _ passwordLength: UnsafeMutablePointer<UInt32>, _ passwordData: UnsafeMutablePointer<UnsafeMutablePointer<Void>>, _ itemRef: UnsafeMutablePointer<SecKeychainItem?>) -> OSStatus
 
 /*!
 	@function SecKeychainAddGenericPassword
@@ -6100,6 +6238,13 @@ let kSecPolicyKU_DecipherOnly: CFString
 	@typedef SecPolicySearchRef
 	@abstract A reference to an opaque policy search structure.
 */
+class SecPolicySearch {
+}
+
+/*!
+	@typedef SecPolicySearchRef
+	@abstract A reference to an opaque policy search structure.
+*/
 typealias SecPolicySearchRef = SecPolicySearch
 
 /*!
@@ -6288,6 +6433,13 @@ func SecStaticCodeCheckValidityWithErrors(staticCode: SecStaticCode, _ flags: Se
     @typedef SecTaskRef
     @abstract CFType used for representing a task
 */
+class SecTask {
+}
+
+/*!
+    @typedef SecTaskRef
+    @abstract CFType used for representing a task
+*/
 typealias SecTaskRef = SecTask
 
 /*!
@@ -6389,7 +6541,9 @@ var kSecTransformTransformIsNotRegistered: CFIndex { get }
 var kSecTransformErrorAbortInProgress: CFIndex { get }
 var kSecTransformErrorAborted: CFIndex { get }
 var kSecTransformInvalidArgument: CFIndex { get }
+typealias SecTransform = CFTypeRef
 typealias SecTransformRef = SecTransform
+typealias SecGroupTransform = CFTypeRef
 typealias SecGroupTransformRef = SecGroupTransform
 
 /*!
@@ -6829,6 +6983,13 @@ var kSecTrustResultUnspecified: Int { get }
 var kSecTrustResultRecoverableTrustFailure: Int { get }
 var kSecTrustResultFatalTrustFailure: Int { get }
 var kSecTrustResultOtherError: Int { get }
+
+/*!
+    @typedef SecTrustRef
+    @abstract CFType used for performing X.509 certificate trust evaluations.
+ */
+class SecTrust {
+}
 
 /*!
     @typedef SecTrustRef
@@ -7371,6 +7532,8 @@ func SecTrustedApplicationCopyData(appRef: SecTrustedApplication, _ data: Unsafe
 */
 func SecTrustedApplicationSetData(appRef: SecTrustedApplication, _ data: CFData) -> OSStatus
 typealias SSLContextRef = SSLContext
+class SSLContext {
+}
 typealias SSLConnectionRef = UnsafePointer<Void>
 enum SSLProtocol : Int32 {
   init?(rawValue: Int32)
@@ -7481,12 +7644,6 @@ enum SSLConnectionType : Int32 {
   case StreamType
   case DatagramType
 }
-enum SSLSessionStrengthPolicy : Int32 {
-  init?(rawValue: Int32)
-  var rawValue: Int32 { get }
-  case Default
-  case ATSv1
-}
 
 /******************
  *** Public API ***
@@ -7530,7 +7687,7 @@ func SSLSetMaxDatagramRecordSize(dtlsContext: SSLContext, _ maxSize: Int) -> OSS
 @available(OSX 10.8, *)
 func SSLGetMaxDatagramRecordSize(dtlsContext: SSLContext, _ maxSize: UnsafeMutablePointer<Int>) -> OSStatus
 @available(OSX 10.2, *)
-func SSLGetNegotiatedProtocolVersion(context: SSLContext, _ `protocol`: UnsafeMutablePointer<SSLProtocol>) -> OSStatus
+func SSLGetNegotiatedProtocolVersion(context: SSLContext, _ protocol: UnsafeMutablePointer<SSLProtocol>) -> OSStatus
 @available(OSX 10.2, *)
 func SSLGetNumberSupportedCiphers(context: SSLContext, _ numCiphers: UnsafeMutablePointer<Int>) -> OSStatus
 @available(OSX 10.2, *)
@@ -7541,6 +7698,14 @@ func SSLSetEnabledCiphers(context: SSLContext, _ ciphers: UnsafePointer<SSLCiphe
 func SSLGetNumberEnabledCiphers(context: SSLContext, _ numCiphers: UnsafeMutablePointer<Int>) -> OSStatus
 @available(OSX 10.2, *)
 func SSLGetEnabledCiphers(context: SSLContext, _ ciphers: UnsafeMutablePointer<SSLCipherSuite>, _ numCiphers: UnsafeMutablePointer<Int>) -> OSStatus
+enum SSLSessionStrengthPolicy : Int32 {
+  init?(rawValue: Int32)
+  var rawValue: Int32 { get }
+  case Default
+  case ATSv1
+  case ATSv1_noPFS
+}
+func SSLSetSessionStrengthPolicy(context: SSLContext, _ policyStrength: SSLSessionStrengthPolicy) -> OSStatus
 @available(OSX 10.6, *)
 func SSLCopyPeerTrust(context: SSLContext, _ trust: UnsafeMutablePointer<SecTrust?>) -> OSStatus
 @available(OSX 10.2, *)
@@ -7590,7 +7755,6 @@ func SSLGetBufferedReadSize(context: SSLContext, _ bufSize: UnsafeMutablePointer
 func SSLGetDatagramWriteSize(dtlsContext: SSLContext, _ bufSize: UnsafeMutablePointer<Int>) -> OSStatus
 @available(OSX 10.2, *)
 func SSLClose(context: SSLContext) -> OSStatus
-func SSLSetSessionStrengthPolicy(context: SSLContext, _ policyStrength: SSLSessionStrengthPolicy) -> OSStatus
 struct __CE_GeneralNameType : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
   init(rawValue: UInt32)
@@ -7846,7 +8010,7 @@ struct __CE_DataAndType {
   var `extension`: CE_Data
   var critical: CSSM_BOOL
   init()
-  init(type: CE_DataType, `extension`: CE_Data, critical: CSSM_BOOL)
+  init(type: CE_DataType, extension: CE_Data, critical: CSSM_BOOL)
 }
 struct cssm_spi_ac_funcs {
   var AuthCompute: (@convention(c) (CSSM_AC_HANDLE, UnsafePointer<CSSM_TUPLEGROUP>, UnsafePointer<CSSM_TUPLEGROUP>, uint32, UnsafePointer<CSSM_LIST>, UnsafePointer<CSSM_LIST>, UnsafePointer<CSSM_LIST>, CSSM_TUPLEGROUP_PTR) -> CSSM_RETURN)!

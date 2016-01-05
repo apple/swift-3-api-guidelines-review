@@ -63,34 +63,46 @@ extension NSATSTypesetter {
   func setAttachmentSize(attachmentSize: NSSize, forGlyphRange glyphRange: NSRange)
   func setBidiLevels(levels: UnsafePointer<UInt8>, forGlyphRange glyphRange: NSRange)
 }
+
+/*** Accessibility Informal Protocol ***/
 extension NSObject {
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilityAttributeNames() -> [AnyObject]
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilityAttributeNames() -> [AnyObject]
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilityAttributeValue(attribute: String) -> AnyObject?
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilityAttributeValue(attribute: String) -> AnyObject?
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilityIsAttributeSettable(attribute: String) -> Bool
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilityIsAttributeSettable(attribute: String) -> Bool
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilitySetValue(value: AnyObject?, forAttribute attribute: String)
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilitySetValue(value: AnyObject?, forAttribute attribute: String)
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilityParameterizedAttributeNames() -> [AnyObject]
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilityParameterizedAttributeNames() -> [AnyObject]
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilityAttributeValue(attribute: String, forParameter parameter: AnyObject?) -> AnyObject?
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilityAttributeValue(attribute: String, forParameter parameter: AnyObject?) -> AnyObject?
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilityActionNames() -> [AnyObject]
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilityActionNames() -> [AnyObject]
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilityActionDescription(action: String) -> String?
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilityActionDescription(action: String) -> String?
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilityPerformAction(action: String)
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilityPerformAction(action: String)
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use isAccessibilityElement instead")
   class func accessibilityIsIgnored() -> Bool
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use isAccessibilityElement instead")
   func accessibilityIsIgnored() -> Bool
@@ -118,7 +130,10 @@ extension NSWorkspace {
 }
 @available(OSX 10.10, *)
 let NSWorkspaceAccessibilityDisplayOptionsDidChangeNotification: String
+
+/*** Accessibility Related Methods ***/
 extension NSObject {
+  @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilitySetOverrideValue(value: AnyObject?, forAttribute attribute: String) -> Bool
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilitySetOverrideValue(value: AnyObject?, forAttribute attribute: String) -> Bool
@@ -1988,6 +2003,8 @@ struct NSApplicationPresentationOptions : OptionSetType {
   static var FullScreen: NSApplicationPresentationOptions { get }
   @available(OSX 10.7, *)
   static var AutoHideToolbar: NSApplicationPresentationOptions { get }
+  @available(OSX 10.11.2, *)
+  static var DisableCursorLocationAssistance: NSApplicationPresentationOptions { get }
 }
 @available(OSX 10.9, *)
 struct NSApplicationOcclusionState : OptionSetType {
@@ -2691,7 +2708,7 @@ protocol NSApplicationDelegate : NSObjectProtocol {
   @available(OSX 10.10, *)
   optional func application(application: NSApplication, willContinueUserActivityWithType userActivityType: String) -> Bool
   @available(OSX 10.10, *)
-  optional func application(application: NSApplication, `continue` userActivity: NSUserActivity, restorationHandler: ([AnyObject]) -> Void) -> Bool
+  optional func application(application: NSApplication, continue userActivity: NSUserActivity, restorationHandler: ([AnyObject]) -> Void) -> Bool
   @available(OSX 10.10, *)
   optional func application(application: NSApplication, didFailToContinueUserActivityWithType userActivityType: String, error: NSError)
   @available(OSX 10.10, *)
@@ -2965,6 +2982,8 @@ let NSTextEffectLetterpressStyle: String
 var NSSpellingStateSpellingFlag: Int { get }
 @available(OSX 10.5, *)
 var NSSpellingStateGrammarFlag: Int { get }
+
+/************************ Attribute fixing ************************/
 extension NSMutableAttributedString {
   @available(OSX 10.0, *)
   func fixAttributesIn(range: NSRange)
@@ -3081,6 +3100,8 @@ extension NSMutableAttributedString {
   @available(OSX 10.0, *)
   func readFrom(data: NSData, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>, error: ()) throws
 }
+
+/************************ Misc methods ************************/
 extension NSAttributedString {
   func fontAttributesIn(range: NSRange) -> [String : AnyObject]
   func rulerAttributesIn(range: NSRange) -> [String : AnyObject]
@@ -3231,8 +3252,8 @@ class NSBezierPath : NSObject, NSCopying, NSCoding {
   func appendBezierPathWithArcWithCenter(center: NSPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
   func appendBezierPathWithArcWithCenter(center: NSPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat)
   func appendBezierPathWithArcFrom(point1: NSPoint, to point2: NSPoint, radius: CGFloat)
-  func appendBezierPathWithGlyph(glyph: NSGlyph, `in` font: NSFont)
-  func appendBezierPathWithGlyphs(glyphs: UnsafeMutablePointer<NSGlyph>, count: Int, `in` font: NSFont)
+  func appendBezierPathWithGlyph(glyph: NSGlyph, in font: NSFont)
+  func appendBezierPathWithGlyphs(glyphs: UnsafeMutablePointer<NSGlyph>, count: Int, in font: NSFont)
   func appendBezierPathWithPackedGlyphs(packedGlyphs: UnsafePointer<Int8>)
   @available(OSX 10.5, *)
   func appendBezierPathWithRoundedRect(rect: NSRect, xRadius: CGFloat, yRadius: CGFloat)
@@ -3563,7 +3584,7 @@ class NSBrowser : NSControl {
   func doDoubleClick(sender: AnyObject?)
   func sendAction() -> Bool
   func titleFrameOfColumn(column: Int) -> NSRect
-  func drawTitleOfColumn(column: Int, `in` aRect: NSRect)
+  func drawTitleOfColumn(column: Int, in aRect: NSRect)
   var titleHeight: CGFloat { get }
   func frameOfColumn(column: Int) -> NSRect
   func frameOfInsideOfColumn(column: Int) -> NSRect
@@ -3607,7 +3628,7 @@ class NSBrowser : NSControl {
 let NSBrowserColumnConfigurationDidChangeNotification: String
 protocol NSBrowserDelegate : NSObjectProtocol {
   optional func browser(sender: NSBrowser, numberOfRowsInColumn column: Int) -> Int
-  optional func browser(sender: NSBrowser, createRowsForColumn column: Int, `in` matrix: NSMatrix)
+  optional func browser(sender: NSBrowser, createRowsForColumn column: Int, in matrix: NSMatrix)
   @available(OSX 10.6, *)
   optional func browser(browser: NSBrowser, numberOfChildrenOfItem item: AnyObject?) -> Int
   @available(OSX 10.6, *)
@@ -3830,9 +3851,9 @@ class NSButtonCell : NSActionCell {
   var keyEquivalentFont: NSFont?
   func setKeyEquivalentFont(fontName: String, size fontSize: CGFloat)
   func performClick(sender: AnyObject?)
-  func drawImage(image: NSImage, withFrame frame: NSRect, `in` controlView: NSView)
-  func drawTitle(title: NSAttributedString, withFrame frame: NSRect, `in` controlView: NSView) -> NSRect
-  func drawBezelWithFrame(frame: NSRect, `in` controlView: NSView)
+  func drawImage(image: NSImage, withFrame frame: NSRect, in controlView: NSView)
+  func drawTitle(title: NSAttributedString, withFrame frame: NSRect, in controlView: NSView) -> NSRect
+  func drawBezelWithFrame(frame: NSRect, in controlView: NSView)
   init(textCell aString: String)
   init(imageCell image: NSImage?)
   convenience init()
@@ -4064,24 +4085,24 @@ class NSCell : NSObject, NSCopying, NSCoding, NSUserInterfaceItemIdentification,
   func drawingRectForBounds(theRect: NSRect) -> NSRect
   var cellSize: NSSize { get }
   func cellSizeForBounds(aRect: NSRect) -> NSSize
-  func highlightColorWithFrame(cellFrame: NSRect, `in` controlView: NSView) -> NSColor
+  func highlightColorWithFrame(cellFrame: NSRect, in controlView: NSView) -> NSColor
   func calcDrawInfo(aRect: NSRect)
   func setUpFieldEditorAttributes(textObj: NSText) -> NSText
-  func drawInteriorWithFrame(cellFrame: NSRect, `in` controlView: NSView)
-  func drawWithFrame(cellFrame: NSRect, `in` controlView: NSView)
-  func highlight(flag: Bool, withFrame cellFrame: NSRect, `in` controlView: NSView)
+  func drawInteriorWithFrame(cellFrame: NSRect, in controlView: NSView)
+  func drawWithFrame(cellFrame: NSRect, in controlView: NSView)
+  func highlight(flag: Bool, withFrame cellFrame: NSRect, in controlView: NSView)
   var mouseDownFlags: Int { get }
   func getPeriodicDelay(delay: UnsafeMutablePointer<Float>, interval: UnsafeMutablePointer<Float>)
-  func startTrackingAt(startPoint: NSPoint, `in` controlView: NSView) -> Bool
-  func continueTracking(lastPoint: NSPoint, at currentPoint: NSPoint, `in` controlView: NSView) -> Bool
-  func stopTracking(lastPoint: NSPoint, at stopPoint: NSPoint, `in` controlView: NSView, mouseIsUp flag: Bool)
-  func trackMouse(theEvent: NSEvent, `in` cellFrame: NSRect, of controlView: NSView, untilMouseUp flag: Bool) -> Bool
-  func editWithFrame(aRect: NSRect, `in` controlView: NSView, editor textObj: NSText, delegate anObject: AnyObject?, event theEvent: NSEvent)
-  func selectWithFrame(aRect: NSRect, `in` controlView: NSView, editor textObj: NSText, delegate anObject: AnyObject?, start selStart: Int, length selLength: Int)
+  func startTrackingAt(startPoint: NSPoint, in controlView: NSView) -> Bool
+  func continueTracking(lastPoint: NSPoint, at currentPoint: NSPoint, in controlView: NSView) -> Bool
+  func stopTracking(lastPoint: NSPoint, at stopPoint: NSPoint, in controlView: NSView, mouseIsUp flag: Bool)
+  func trackMouse(theEvent: NSEvent, in cellFrame: NSRect, of controlView: NSView, untilMouseUp flag: Bool) -> Bool
+  func editWithFrame(aRect: NSRect, in controlView: NSView, editor textObj: NSText, delegate anObject: AnyObject?, event theEvent: NSEvent)
+  func selectWithFrame(aRect: NSRect, in controlView: NSView, editor textObj: NSText, delegate anObject: AnyObject?, start selStart: Int, length selLength: Int)
   func endEditing(textObj: NSText)
-  func resetCursorRect(cellFrame: NSRect, `in` controlView: NSView)
+  func resetCursorRect(cellFrame: NSRect, in controlView: NSView)
   var menu: NSMenu?
-  func menuFor(event: NSEvent, `in` cellFrame: NSRect, of view: NSView) -> NSMenu?
+  func menuFor(event: NSEvent, in cellFrame: NSRect, of view: NSView) -> NSMenu?
   class func defaultMenu() -> NSMenu?
   var sendsActionOnEndEditing: Bool
   var baseWritingDirection: NSWritingDirection
@@ -4100,7 +4121,7 @@ class NSCell : NSObject, NSCopying, NSCoding, NSUserInterfaceItemIdentification,
   @available(OSX 10.6, *)
   var usesSingleLineMode: Bool
   @available(OSX 10.7, *)
-  func draggingImageComponentsWithFrame(frame: NSRect, `in` view: NSView) -> [NSDraggingImageComponent]
+  func draggingImageComponentsWithFrame(frame: NSRect, in view: NSView) -> [NSDraggingImageComponent]
   convenience init()
   func copy(zone zone: NSZone = nil) -> AnyObject
   func encodeWith(aCoder: NSCoder)
@@ -4635,9 +4656,9 @@ extension NSCell {
   var focusRingType: NSFocusRingType
   class func defaultFocusRingType() -> NSFocusRingType
   @available(OSX 10.7, *)
-  func drawFocusRingMaskWithFrame(cellFrame: NSRect, `in` controlView: NSView)
+  func drawFocusRingMaskWithFrame(cellFrame: NSRect, in controlView: NSView)
   @available(OSX 10.7, *)
-  func focusRingMaskBoundsForFrame(cellFrame: NSRect, `in` controlView: NSView) -> NSRect
+  func focusRingMaskBoundsForFrame(cellFrame: NSRect, in controlView: NSView) -> NSRect
   var wantsNotificationForMarkedText: Bool { get }
 }
 extension NSCell {
@@ -4662,13 +4683,13 @@ struct NSCellHitResult : OptionSetType {
 }
 extension NSCell {
   @available(OSX 10.5, *)
-  func hitTestFor(event: NSEvent, `in` cellFrame: NSRect, of controlView: NSView) -> NSCellHitResult
+  func hitTestFor(event: NSEvent, in cellFrame: NSRect, of controlView: NSView) -> NSCellHitResult
 }
 extension NSCell {
   @available(OSX 10.5, *)
-  func expansionFrameWithFrame(cellFrame: NSRect, `in` view: NSView) -> NSRect
+  func expansionFrameWithFrame(cellFrame: NSRect, in view: NSView) -> NSRect
   @available(OSX 10.5, *)
-  func drawWithExpansionFrame(cellFrame: NSRect, `in` view: NSView)
+  func drawWithExpansionFrame(cellFrame: NSRect, in view: NSView)
 }
 @available(OSX 10.5, *)
 enum NSBackgroundStyle : Int {
@@ -5434,8 +5455,8 @@ class NSColorPanel : NSPanel {
   func setTarget(anObject: AnyObject?)
   func attach(colorList: NSColorList)
   func detach(colorList: NSColorList)
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
@@ -5454,7 +5475,7 @@ class NSColorPicker : NSObject, NSColorPickingDefault {
   init?(pickerMask mask: Int, colorPanel owningColorPanel: NSColorPanel)
   var colorPanel: NSColorPanel { get }
   var provideNewButtonImage: NSImage { get }
-  func insertNewButtonImage(newButtonImage: NSImage, `in` buttonCell: NSButtonCell)
+  func insertNewButtonImage(newButtonImage: NSImage, in buttonCell: NSButtonCell)
   func viewSizeChanged(sender: AnyObject?)
   func attach(colorList: NSColorList)
   func detach(colorList: NSColorList)
@@ -5467,7 +5488,7 @@ class NSColorPicker : NSObject, NSColorPickingDefault {
 protocol NSColorPickingDefault {
   init?(pickerMask mask: Int, colorPanel owningColorPanel: NSColorPanel)
   func provideNewButtonImage() -> NSImage
-  func insertNewButtonImage(newButtonImage: NSImage, `in` buttonCell: NSButtonCell)
+  func insertNewButtonImage(newButtonImage: NSImage, in buttonCell: NSButtonCell)
   func viewSizeChanged(sender: AnyObject?)
   func alphaControlAddedOrRemoved(sender: AnyObject?)
   func attach(colorList: NSColorList)
@@ -5720,7 +5741,7 @@ extension NSControl {
   @available(OSX 10.10, *)
   func expansionFrameWithFrame(contentFrame: NSRect) -> NSRect
   @available(OSX 10.10, *)
-  func drawWithExpansionFrame(contentFrame: NSRect, `in` view: NSView)
+  func drawWithExpansionFrame(contentFrame: NSRect, in view: NSView)
 }
 extension NSControl {
   func currentEditor() -> NSText?
@@ -6409,12 +6430,6 @@ protocol NSSpringLoadingDestination : NSObjectProtocol {
 extension NSObject {
   class func namesOfPromisedFilesDroppedAtDestination(dropDestination: NSURL) -> [String]?
   func namesOfPromisedFilesDroppedAtDestination(dropDestination: NSURL) -> [String]?
-  class func draggingSourceOperationMaskForLocal(flag: Bool) -> NSDragOperation
-  class func draggedImage(image: NSImage!, beganAt screenPoint: NSPoint)
-  class func draggedImage(image: NSImage!, endedAt screenPoint: NSPoint, operation: NSDragOperation)
-  class func draggedImage(image: NSImage!, movedTo screenPoint: NSPoint)
-  class func ignoreModifierKeysWhileDragging() -> Bool
-  class func draggedImage(image: NSImage!, endedAt screenPoint: NSPoint, deposited flag: Bool)
 }
 @available(OSX 10.7, *)
 let NSDraggingImageComponentIconKey: String
@@ -7304,7 +7319,7 @@ class NSEvent : NSObject, NSCopying, NSCoding {
   var pointingDeviceType: NSPointingDeviceType { get }
   var isEnteringProximity: Bool { get }
   @available(OSX 10.6, *)
-  func touchesMatching(phase: NSTouchPhase, `in` view: NSView?) -> Set<NSTouch>
+  func touchesMatching(phase: NSTouchPhase, in view: NSView?) -> Set<NSTouch>
   @available(OSX 10.7, *)
   var phase: NSEventPhase { get }
   @available(OSX 10.10.3, *)
@@ -7829,6 +7844,7 @@ extension NSFontManager {
   func orderFrontStylesPanel(sender: AnyObject?)
 }
 extension NSObject {
+  @available(OSX, introduced=10.0, deprecated=10.11, message="Use NSFontCollection for providing filtered font lists")
   class func fontManager(sender: AnyObject, willIncludeFont fontName: String) -> Bool
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use NSFontCollection for providing filtered font lists")
   func fontManager(sender: AnyObject, willIncludeFont fontName: String) -> Bool
@@ -7850,8 +7866,8 @@ class NSFontPanel : NSPanel {
   var worksWhenModal: Bool
   var isEnabled: Bool
   func reloadDefaultFontFamilies()
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
@@ -8318,7 +8334,7 @@ class NSImage : NSObject, NSCopying, NSCoding, NSSecureCoding, NSPasteboardReadi
   func drawIn(rect: NSRect, from fromRect: NSRect, operation op: NSCompositingOperation, fraction delta: CGFloat)
   @available(OSX 10.6, *)
   func drawIn(dstSpacePortionRect: NSRect, from srcSpacePortionRect: NSRect, operation op: NSCompositingOperation, fraction requestedAlpha: CGFloat, respectFlipped respectContextIsFlipped: Bool, hints: [String : AnyObject]?)
-  func drawRepresentation(imageRep: NSImageRep, `in` rect: NSRect) -> Bool
+  func drawRepresentation(imageRep: NSImageRep, in rect: NSRect) -> Bool
   @available(OSX 10.9, *)
   func drawIn(rect: NSRect)
   func recache()
@@ -8420,7 +8436,7 @@ let NSImageHintCTM: String
 @available(OSX 10.6, *)
 let NSImageHintInterpolation: String
 protocol NSImageDelegate : NSObjectProtocol {
-  optional func imageDidNotDraw(sender: NSImage, `in` aRect: NSRect) -> NSImage?
+  optional func imageDidNotDraw(sender: NSImage, in aRect: NSRect) -> NSImage?
   optional func image(image: NSImage, willLoadRepresentation rep: NSImageRep)
   optional func image(image: NSImage, didLoadRepresentationHeader rep: NSImageRep)
   optional func image(image: NSImage, didLoadPartOfRepresentation rep: NSImageRep, withValidRows rows: Int)
@@ -8732,6 +8748,7 @@ extension NSObject {
   func unbind(binding: String)
   class func infoForBinding(binding: String) -> [String : AnyObject]?
   func infoForBinding(binding: String) -> [String : AnyObject]?
+  @available(OSX 10.5, *)
   class func optionDescriptionsForBinding(aBinding: String) -> [NSAttributeDescription]
   @available(OSX 10.5, *)
   func optionDescriptionsForBinding(aBinding: String) -> [NSAttributeDescription]
@@ -8754,6 +8771,7 @@ extension NSObject {
   func commitEditing() -> Bool
   class func commitEditingWithDelegate(delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func commitEditingWithDelegate(delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  @available(OSX 10.7, *)
   class func commitEditingAndReturnError() throws
   @available(OSX 10.7, *)
   func commitEditingAndReturnError() throws
@@ -9241,7 +9259,7 @@ class NSLayoutManager : NSObject, NSCoding {
   func ensureLayoutForCharacterRange(charRange: NSRange)
   func ensureLayoutForGlyphRange(glyphRange: NSRange)
   func ensureLayoutFor(container: NSTextContainer)
-  func ensureLayoutForBoundingRect(bounds: NSRect, `in` container: NSTextContainer)
+  func ensureLayoutForBoundingRect(bounds: NSRect, in container: NSTextContainer)
 
   /************************ Set glyphs and glyph properties ************************/
   @available(OSX 10.11, *)
@@ -9295,31 +9313,31 @@ class NSLayoutManager : NSObject, NSCoding {
   func characterRangeForGlyphRange(glyphRange: NSRange, actualGlyphRange: NSRangePointer) -> NSRange
   func glyphRangeFor(container: NSTextContainer) -> NSRange
   func rangeOfNominallySpacedGlyphsContaining(glyphIndex: Int) -> NSRange
-  func boundingRectForGlyphRange(glyphRange: NSRange, `in` container: NSTextContainer) -> NSRect
-  func glyphRangeForBoundingRect(bounds: NSRect, `in` container: NSTextContainer) -> NSRange
-  func glyphRangeForBoundingRectWithoutAdditionalLayout(bounds: NSRect, `in` container: NSTextContainer) -> NSRange
-  func glyphIndexFor(point: NSPoint, `in` container: NSTextContainer, fractionOfDistanceThroughGlyph partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
-  func glyphIndexFor(point: NSPoint, `in` container: NSTextContainer) -> Int
-  func fractionOfDistanceThroughGlyphFor(point: NSPoint, `in` container: NSTextContainer) -> CGFloat
-  func characterIndexFor(point: NSPoint, `in` container: NSTextContainer, fractionOfDistanceBetweenInsertionPoints partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
+  func boundingRectForGlyphRange(glyphRange: NSRange, in container: NSTextContainer) -> NSRect
+  func glyphRangeForBoundingRect(bounds: NSRect, in container: NSTextContainer) -> NSRange
+  func glyphRangeForBoundingRectWithoutAdditionalLayout(bounds: NSRect, in container: NSTextContainer) -> NSRange
+  func glyphIndexFor(point: NSPoint, in container: NSTextContainer, fractionOfDistanceThroughGlyph partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
+  func glyphIndexFor(point: NSPoint, in container: NSTextContainer) -> Int
+  func fractionOfDistanceThroughGlyphFor(point: NSPoint, in container: NSTextContainer) -> CGFloat
+  func characterIndexFor(point: NSPoint, in container: NSTextContainer, fractionOfDistanceBetweenInsertionPoints partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
   func getLineFragmentInsertionPointsForCharacterAt(charIndex: Int, alternatePositions aFlag: Bool, inDisplayOrder dFlag: Bool, positions: UnsafeMutablePointer<CGFloat>, characterIndexes charIndexes: UnsafeMutablePointer<Int>) -> Int
   @available(OSX 10.11, *)
   func enumerateLineFragmentsForGlyphRange(glyphRange: NSRange, usingBlock block: (NSRect, NSRect, NSTextContainer, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.11, *)
-  func enumerateEnclosingRectsForGlyphRange(glyphRange: NSRange, withinSelectedGlyphRange selectedRange: NSRange, `in` textContainer: NSTextContainer, usingBlock block: (NSRect, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateEnclosingRectsForGlyphRange(glyphRange: NSRange, withinSelectedGlyphRange selectedRange: NSRange, in textContainer: NSTextContainer, usingBlock block: (NSRect, UnsafeMutablePointer<ObjCBool>) -> Void)
 
   /************************ Drawing support ************************/
   func drawBackgroundForGlyphRange(glyphsToShow: NSRange, at origin: NSPoint)
   func drawGlyphsForGlyphRange(glyphsToShow: NSRange, at origin: NSPoint)
   @available(OSX 10.7, *)
-  func showCGGlyphs(glyphs: UnsafePointer<CGGlyph>, positions: UnsafePointer<NSPoint>, count glyphCount: Int, font: NSFont, matrix textMatrix: NSAffineTransform, attributes: [String : AnyObject], `in` graphicsContext: NSGraphicsContext)
+  func showCGGlyphs(glyphs: UnsafePointer<CGGlyph>, positions: UnsafePointer<NSPoint>, count glyphCount: Int, font: NSFont, matrix textMatrix: NSAffineTransform, attributes: [String : AnyObject], in graphicsContext: NSGraphicsContext)
   @available(OSX 10.6, *)
   func fillBackgroundRectArray(rectArray: UnsafePointer<NSRect>, count rectCount: Int, forCharacterRange charRange: NSRange, color: NSColor)
   func drawUnderlineForGlyphRange(glyphRange: NSRange, underlineType underlineVal: NSUnderlineStyle, baselineOffset: CGFloat, lineFragmentRect lineRect: NSRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: NSPoint)
   func underlineGlyphRange(glyphRange: NSRange, underlineType underlineVal: NSUnderlineStyle, lineFragmentRect lineRect: NSRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: NSPoint)
   func drawStrikethroughForGlyphRange(glyphRange: NSRange, strikethroughType strikethroughVal: NSUnderlineStyle, baselineOffset: CGFloat, lineFragmentRect lineRect: NSRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: NSPoint)
   func strikethroughGlyphRange(glyphRange: NSRange, strikethroughType strikethroughVal: NSUnderlineStyle, lineFragmentRect lineRect: NSRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: NSPoint)
-  func showAttachmentCell(cell: NSCell, `in` rect: NSRect, characterIndex attachmentIndex: Int)
+  func showAttachmentCell(cell: NSCell, in rect: NSRect, characterIndex attachmentIndex: Int)
 
   /************************** Block information **************************/
   func setLayoutRect(rect: NSRect, forTextBlock block: NSTextBlock, glyphRange: NSRange)
@@ -9337,9 +9355,9 @@ class NSLayoutManager : NSObject, NSCoding {
   @available(OSX 10.5, *)
   func temporaryAttribute(attrName: String, atCharacterIndex location: Int, effectiveRange range: NSRangePointer) -> AnyObject?
   @available(OSX 10.5, *)
-  func temporaryAttribute(attrName: String, atCharacterIndex location: Int, longestEffectiveRange range: NSRangePointer, `in` rangeLimit: NSRange) -> AnyObject?
+  func temporaryAttribute(attrName: String, atCharacterIndex location: Int, longestEffectiveRange range: NSRangePointer, in rangeLimit: NSRange) -> AnyObject?
   @available(OSX 10.5, *)
-  func temporaryAttributesAtCharacterIndex(location: Int, longestEffectiveRange range: NSRangePointer, `in` rangeLimit: NSRange) -> [String : AnyObject]
+  func temporaryAttributesAtCharacterIndex(location: Int, longestEffectiveRange range: NSRangePointer, in rangeLimit: NSRange) -> [String : AnyObject]
   @available(OSX 10.5, *)
   func addTemporaryAttribute(attrName: String, value: AnyObject, forCharacterRange charRange: NSRange)
 
@@ -9386,10 +9404,6 @@ struct __lmFlags {
 extension NSLayoutManager : NSGlyphStorage {
   var glyphGenerator: NSGlyphGenerator
   @available(OSX 10.0, *)
-  func insertGlyphs(glyphs: UnsafePointer<NSGlyph>, length: Int, forStartingGlyphAt glyphIndex: Int, characterIndex charIndex: Int)
-  @available(OSX 10.0, *)
-  func setIntAttribute(attributeTag: Int, value val: Int, forGlyphAt glyphIndex: Int)
-  @available(OSX 10.0, *)
   func attributedString() -> NSAttributedString
   @available(OSX 10.0, *)
   func layoutOptions() -> Int
@@ -9427,7 +9441,7 @@ protocol NSLayoutManagerDelegate : NSObjectProtocol {
   @available(OSX 10.11, *)
   optional func layoutManager(layoutManager: NSLayoutManager, boundingBoxForControlGlyphAt glyphIndex: Int, forTextContainer textContainer: NSTextContainer, proposedLineFragment proposedRect: NSRect, glyphPosition: NSPoint, characterIndex charIndex: Int) -> NSRect
   @available(OSX 10.11, *)
-  optional func layoutManager(layoutManager: NSLayoutManager, shouldSetLineFragmentRect lineFragmentRect: UnsafeMutablePointer<NSRect>, lineFragmentUsedRect: UnsafeMutablePointer<NSRect>, baselineOffset: UnsafeMutablePointer<CGFloat>, `in` textContainer: NSTextContainer, forGlyphRange glyphRange: NSRange) -> Bool
+  optional func layoutManager(layoutManager: NSLayoutManager, shouldSetLineFragmentRect lineFragmentRect: UnsafeMutablePointer<NSRect>, lineFragmentUsedRect: UnsafeMutablePointer<NSRect>, baselineOffset: UnsafeMutablePointer<CGFloat>, in textContainer: NSTextContainer, forGlyphRange glyphRange: NSRange) -> Bool
 
   /************************ Layout processing ************************/
   @available(OSX 10.0, *)
@@ -9456,12 +9470,14 @@ enum NSGlyphInscription : UInt {
 extension NSLayoutManager {
   func glyphAt(glyphIndex: Int, isValidIndex: UnsafeMutablePointer<ObjCBool>) -> NSGlyph
   func glyphAt(glyphIndex: Int) -> NSGlyph
-  func rectArrayForCharacterRange(charRange: NSRange, withinSelectedCharacterRange selCharRange: NSRange, `in` container: NSTextContainer, rectCount: UnsafeMutablePointer<Int>) -> NSRectArray
-  func rectArrayForGlyphRange(glyphRange: NSRange, withinSelectedGlyphRange selGlyphRange: NSRange, `in` container: NSTextContainer, rectCount: UnsafeMutablePointer<Int>) -> NSRectArray
+  func rectArrayForCharacterRange(charRange: NSRange, withinSelectedCharacterRange selCharRange: NSRange, in container: NSTextContainer, rectCount: UnsafeMutablePointer<Int>) -> NSRectArray
+  func rectArrayForGlyphRange(glyphRange: NSRange, withinSelectedGlyphRange selGlyphRange: NSRange, in container: NSTextContainer, rectCount: UnsafeMutablePointer<Int>) -> NSRectArray
   @available(OSX, introduced=10.0, deprecated=10.11)
   var usesScreenFonts: Bool
   @available(OSX, introduced=10.0, deprecated=10.11)
   func substituteFontFor(originalFont: NSFont) -> NSFont
+  @available(OSX, introduced=10.0, deprecated=10.11, message="Use -setGlyphs:properties:characterIndexes:font:forGlyphRange instead")
+  func insertGlyphs(glyphs: UnsafePointer<NSGlyph>, length: Int, forStartingGlyphAt glyphIndex: Int, characterIndex charIndex: Int)
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -setGlyphs:properties:characterIndexes:font:forGlyphRange instead")
   func insertGlyph(glyph: NSGlyph, atGlyphIndex glyphIndex: Int, characterIndex charIndex: Int)
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -setGlyphs:properties:characterIndexes:font:forGlyphRange instead")
@@ -9470,6 +9486,8 @@ extension NSLayoutManager {
   func deleteGlyphsIn(glyphRange: NSRange)
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -setGlyphs:properties:characterIndexes:font:forGlyphRange instead")
   func setCharacterIndex(charIndex: Int, forGlyphAt glyphIndex: Int)
+  @available(OSX, introduced=10.0, deprecated=10.11, message="Use -setGlyphs:properties:characterIndexes:font:forGlyphRange instead")
+  func setIntAttribute(attributeTag: Int, value val: Int, forGlyphAt glyphIndex: Int)
   @available(OSX, introduced=10.5, deprecated=10.11, message="Use -setGlyphs:properties:characterIndexes:font:forGlyphRange instead")
   func invalidateGlyphsOnLayoutInvalidationForGlyphRange(glyphRange: NSRange)
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -getGlyphsInRange:glyphs:properties:characterIndexes:bidiLevels: instead")
@@ -9685,7 +9703,7 @@ class NSMenu : NSObject, NSCopying, NSCoding {
   class func popUpContextMenu(menu: NSMenu, withEvent event: NSEvent, forView view: NSView)
   class func popUpContextMenu(menu: NSMenu, withEvent event: NSEvent, forView view: NSView, withFont font: NSFont?)
   @available(OSX 10.6, *)
-  func popUpMenuPositioningItem(item: NSMenuItem?, atLocation location: NSPoint, `in` view: NSView?) -> Bool
+  func popUpMenuPositioningItem(item: NSMenuItem?, atLocation location: NSPoint, in view: NSView?) -> Bool
   class func setMenuBarVisible(visible: Bool)
   class func menuBarVisible() -> Bool
   unowned(unsafe) var supermenu: @sil_unmanaged NSMenu?
@@ -9899,12 +9917,12 @@ class NSMenuItemCell : NSButtonCell {
   func stateImageRectForBounds(cellFrame: NSRect) -> NSRect
   func titleRectForBounds(cellFrame: NSRect) -> NSRect
   func keyEquivalentRectForBounds(cellFrame: NSRect) -> NSRect
-  func drawSeparatorItemWithFrame(cellFrame: NSRect, `in` controlView: NSView)
-  func drawStateImageWithFrame(cellFrame: NSRect, `in` controlView: NSView)
-  func drawImageWithFrame(cellFrame: NSRect, `in` controlView: NSView)
-  func drawTitleWithFrame(cellFrame: NSRect, `in` controlView: NSView)
-  func drawKeyEquivalentWithFrame(cellFrame: NSRect, `in` controlView: NSView)
-  func drawBorderAndBackgroundWithFrame(cellFrame: NSRect, `in` controlView: NSView)
+  func drawSeparatorItemWithFrame(cellFrame: NSRect, in controlView: NSView)
+  func drawStateImageWithFrame(cellFrame: NSRect, in controlView: NSView)
+  func drawImageWithFrame(cellFrame: NSRect, in controlView: NSView)
+  func drawTitleWithFrame(cellFrame: NSRect, in controlView: NSView)
+  func drawKeyEquivalentWithFrame(cellFrame: NSRect, in controlView: NSView)
+  func drawBorderAndBackgroundWithFrame(cellFrame: NSRect, in controlView: NSView)
   var tag: Int
   init(textCell aString: String)
   init(imageCell image: NSImage?)
@@ -9948,6 +9966,7 @@ extension NSBundle {
 extension NSObject {
   class func awakeFromNib()
   func awakeFromNib()
+  @available(OSX 10.10, *)
   class func prepareForInterfaceBuilder()
   @available(OSX 10.10, *)
   func prepareForInterfaceBuilder()
@@ -10153,8 +10172,8 @@ class NSOpenPanel : NSSavePanel {
   var canDownloadUbiquitousContents: Bool
   @available(OSX 10.11, *)
   var isAccessoryViewDisclosed: Bool
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
@@ -10477,8 +10496,8 @@ class NSPanel : NSWindow {
   var isFloatingPanel: Bool
   var becomesKeyOnlyIfNeeded: Bool
   var worksWhenModal: Bool
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
@@ -10736,6 +10755,8 @@ extension NSURL : NSPasteboardWriting, NSPasteboardReading {
   class func readingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
 }
+
+/*** NSString Pasteboard Support ***/
 extension NSString : NSPasteboardWriting, NSPasteboardReading {
   func writableTypesFor(pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
@@ -10768,6 +10789,8 @@ let NSInkTextPboardType: String
 let NSFilesPromisePboardType: String
 @available(OSX 10.6, *)
 let NSPasteboardTypeFindPanelSearchOptions: String
+
+/*** File Contents ***/
 extension NSPasteboard {
   func writeFileContents(filename: String) -> Bool
   func readFileContentsType(type: String?, toFile filename: String) -> String?
@@ -10823,11 +10846,11 @@ class NSPathCell : NSActionCell, NSOpenSavePanelDelegate {
   unowned(unsafe) var delegate: @sil_unmanaged NSPathCellDelegate?
   class func pathComponentCellClass() -> AnyClass
   var pathComponentCells: [NSPathComponentCell]
-  func rectOf(cell: NSPathComponentCell, withFrame frame: NSRect, `in` view: NSView) -> NSRect
-  func pathComponentCellAt(point: NSPoint, withFrame frame: NSRect, `in` view: NSView) -> NSPathComponentCell?
+  func rectOf(cell: NSPathComponentCell, withFrame frame: NSRect, in view: NSView) -> NSRect
+  func pathComponentCellAt(point: NSPoint, withFrame frame: NSRect, in view: NSView) -> NSPathComponentCell?
   var clickedPathComponentCell: NSPathComponentCell? { get }
-  func mouseEntered(event: NSEvent, withFrame frame: NSRect, `in` view: NSView)
-  func mouseExited(event: NSEvent, withFrame frame: NSRect, `in` view: NSView)
+  func mouseEntered(event: NSEvent, withFrame frame: NSRect, in view: NSView)
+  func mouseExited(event: NSEvent, withFrame frame: NSRect, in view: NSView)
   var doubleAction: Selector
   @NSCopying var backgroundColor: NSColor?
   var placeholderString: String?
@@ -11011,9 +11034,9 @@ class NSPopUpButtonCell : NSMenuItemCell {
   func itemTitleAt(index: Int) -> String
   var itemTitles: [String] { get }
   var titleOfSelectedItem: String? { get }
-  func attachPopUpWithFrame(cellFrame: NSRect, `in` controlView: NSView)
+  func attachPopUpWithFrame(cellFrame: NSRect, in controlView: NSView)
   func dismissPopUp()
-  func performClickWithFrame(frame: NSRect, `in` controlView: NSView)
+  func performClickWithFrame(frame: NSRect, in controlView: NSView)
   var arrowPosition: NSPopUpArrowPosition
   convenience init(textCell aString: String)
   convenience init(imageCell image: NSImage?)
@@ -11705,7 +11728,7 @@ class NSPredicateEditorRowTemplate : NSObject, NSCoding, NSCopying {
   var operators: [NSNumber]? { get }
   var options: Int { get }
   var compoundTypes: [NSNumber]? { get }
-  class func templatesWithAttributeKeyPaths(keyPaths: [String], `in` entityDescription: NSEntityDescription) -> [NSPredicateEditorRowTemplate]
+  class func templatesWithAttributeKeyPaths(keyPaths: [String], in entityDescription: NSEntityDescription) -> [NSPredicateEditorRowTemplate]
   init()
   @available(OSX 10.5, *)
   func encodeWith(aCoder: NSCoder)
@@ -12492,8 +12515,8 @@ class NSSavePanel : NSPanel {
   @available(OSX 10.6, *)
   func beginWithCompletionHandler(handler: (Int) -> Void)
   func runModal() -> Int
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
@@ -12512,10 +12535,6 @@ protocol NSOpenSavePanelDelegate : NSObjectProtocol {
   optional func panelSelectionDidChange(sender: AnyObject?)
 }
 extension NSObject {
-  class func panel(sender: AnyObject, isValidFilename filename: String) -> Bool
-  class func panel(sender: AnyObject, directoryDidChange path: String)
-  class func panel(sender: AnyObject, compareFilename name1: String, with name2: String, caseSensitive: Bool) -> NSComparisonResult
-  class func panel(sender: AnyObject, shouldShowFilename filename: String) -> Bool
 }
 extension NSSavePanel {
 }
@@ -13413,7 +13432,7 @@ class NSSpellChecker : NSObject {
   @available(OSX 10.6, *)
   func requestCheckingOf(stringToCheck: String, range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject]?, inSpellDocumentWithTag tag: Int, completionHandler: ((Int, [NSTextCheckingResult], NSOrthography, Int) -> Void)? = nil) -> Int
   @available(OSX 10.6, *)
-  func menuFor(result: NSTextCheckingResult, string checkedString: String, options: [String : AnyObject]?, atLocation location: NSPoint, `in` view: NSView) -> NSMenu?
+  func menuFor(result: NSTextCheckingResult, string checkedString: String, options: [String : AnyObject]?, atLocation location: NSPoint, in view: NSView) -> NSMenu?
   @available(OSX 10.6, *)
   func userQuotesArrayForLanguage(language: String) -> [String]
   @available(OSX 10.6, *)
@@ -13433,12 +13452,12 @@ class NSSpellChecker : NSObject {
   func ignoredWordsInSpellDocumentWithTag(tag: Int) -> [String]?
   func setIgnoredWords(words: [String], inSpellDocumentWithTag tag: Int)
   @available(OSX 10.6, *)
-  func guessesForWordRange(range: NSRange, `in` string: String, language: String?, inSpellDocumentWithTag tag: Int) -> [String]?
+  func guessesForWordRange(range: NSRange, in string: String, language: String?, inSpellDocumentWithTag tag: Int) -> [String]?
   @available(OSX 10.7, *)
-  func correctionForWordRange(range: NSRange, `in` string: String, language: String, inSpellDocumentWithTag tag: Int) -> String?
-  func completionsForPartialWordRange(range: NSRange, `in` string: String, language: String?, inSpellDocumentWithTag tag: Int) -> [String]?
+  func correctionForWordRange(range: NSRange, in string: String, language: String, inSpellDocumentWithTag tag: Int) -> String?
+  func completionsForPartialWordRange(range: NSRange, in string: String, language: String?, inSpellDocumentWithTag tag: Int) -> [String]?
   @available(OSX 10.7, *)
-  func languageForWordRange(range: NSRange, `in` string: String, orthography: NSOrthography?) -> String?
+  func languageForWordRange(range: NSRange, in string: String, orthography: NSOrthography?) -> String?
   func closeSpellDocumentWithTag(tag: Int)
   @available(OSX 10.7, *)
   func record(response: NSCorrectionResponse, toCorrection correction: String, forWord word: String, language: String?, inSpellDocumentWithTag tag: Int)
@@ -13892,11 +13911,11 @@ class NSStackView : NSView {
   var orientation: NSUserInterfaceLayoutOrientation
   var alignment: NSLayoutAttribute
   var edgeInsets: NSEdgeInsets
-  func addView(aView: NSView, `in` gravity: NSStackViewGravity)
-  func insertView(aView: NSView, at index: Int, `in` gravity: NSStackViewGravity)
+  func addView(aView: NSView, in gravity: NSStackViewGravity)
+  func insertView(aView: NSView, at index: Int, in gravity: NSStackViewGravity)
   func removeView(aView: NSView)
   func viewsIn(gravity: NSStackViewGravity) -> [NSView]
-  func setViews(views: [NSView], `in` gravity: NSStackViewGravity)
+  func setViews(views: [NSView], in gravity: NSStackViewGravity)
   var views: [NSView] { get }
   var detachedViews: [NSView] { get }
 
@@ -14117,6 +14136,8 @@ extension NSAttributedString {
   @available(OSX 10.11, *)
   func boundingRectWith(size: NSSize, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?) -> NSRect
 }
+
+/************************ Deprecated ************************/
 extension NSString {
   func drawWith(rect: NSRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?)
   func boundingRectWith(size: NSSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?) -> NSRect
@@ -14325,7 +14346,7 @@ class NSTabViewItem : NSObject, NSCoding {
   unowned(unsafe) var initialFirstResponder: @sil_unmanaged NSView?
   @available(OSX 10.6, *)
   var toolTip: String?
-  func drawLabel(shouldTruncateLabel: Bool, `in` labelRect: NSRect)
+  func drawLabel(shouldTruncateLabel: Bool, in labelRect: NSRect)
   func sizeOfLabel(computeMin: Bool) -> NSSize
   init()
   func encodeWith(aCoder: NSCoder)
@@ -14398,7 +14419,7 @@ extension NSTableColumn {
   func dataCellForRow(row: Int) -> AnyObject
 }
 class NSTableHeaderCell : NSTextFieldCell {
-  func drawSortIndicatorWithFrame(cellFrame: NSRect, `in` controlView: NSView, ascending: Bool, priority: Int)
+  func drawSortIndicatorWithFrame(cellFrame: NSRect, in controlView: NSView, ascending: Bool, priority: Int)
   func sortIndicatorRectForBounds(theRect: NSRect) -> NSRect
   init(textCell aString: String)
   init(imageCell image: NSImage?)
@@ -14575,7 +14596,7 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   var clickedRow: Int { get }
   var doubleAction: Selector
   var sortDescriptors: [NSSortDescriptor]
-  func setIndicatorImage(anImage: NSImage?, `in` tableColumn: NSTableColumn)
+  func setIndicatorImage(anImage: NSImage?, in tableColumn: NSTableColumn)
   func indicatorImageIn(tableColumn: NSTableColumn) -> NSImage?
   unowned(unsafe) var highlightedTableColumn: @sil_unmanaged NSTableColumn?
   var verticalMotionCanBeginDrag: Bool
@@ -14666,9 +14687,9 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   convenience init()
   func validate(anItem: NSValidatedUserInterfaceItem) -> Bool
   func textView(textView: NSTextView, clickedOnLink link: AnyObject, at charIndex: Int) -> Bool
-  func textView(textView: NSTextView, clickedOn cell: NSTextAttachmentCellProtocol, `in` cellFrame: NSRect, at charIndex: Int)
-  func textView(textView: NSTextView, doubleClickedOn cell: NSTextAttachmentCellProtocol, `in` cellFrame: NSRect, at charIndex: Int)
-  func textView(view: NSTextView, draggedCell cell: NSTextAttachmentCellProtocol, `in` rect: NSRect, event: NSEvent, at charIndex: Int)
+  func textView(textView: NSTextView, clickedOn cell: NSTextAttachmentCellProtocol, in cellFrame: NSRect, at charIndex: Int)
+  func textView(textView: NSTextView, doubleClickedOn cell: NSTextAttachmentCellProtocol, in cellFrame: NSRect, at charIndex: Int)
+  func textView(view: NSTextView, draggedCell cell: NSTextAttachmentCellProtocol, in rect: NSRect, event: NSEvent, at charIndex: Int)
   func textView(view: NSTextView, writablePasteboardTypesFor cell: NSTextAttachmentCellProtocol, at charIndex: Int) -> [String]
   func textView(view: NSTextView, write cell: NSTextAttachmentCellProtocol, at charIndex: Int, to pboard: NSPasteboard, type: String) -> Bool
   func textView(textView: NSTextView, willChangeSelectionFromCharacterRange oldSelectedCharRange: NSRange, toCharacterRange newSelectedCharRange: NSRange) -> NSRange
@@ -14802,7 +14823,6 @@ protocol NSTableViewDataSource : NSObjectProtocol {
   optional func tableView(tableView: NSTableView, namesOfPromisedFilesDroppedAtDestination dropDestination: NSURL, forDraggedRowsWith indexSet: NSIndexSet) -> [String]
 }
 extension NSObject {
-  class func tableView(tableView: NSTableView, writeRows rows: [AnyObject], to pboard: NSPasteboard) -> Bool
 }
 extension NSTableView {
   @available(OSX, introduced=10.5, deprecated=10.10, message="Use View Based TableView and -viewAtColumn:row:")
@@ -15014,19 +15034,19 @@ extension NSMutableAttributedString {
   func updateAttachmentsFromPath(path: String)
 }
 protocol NSTextAttachmentCellProtocol : NSObjectProtocol {
-  func drawWithFrame(cellFrame: NSRect, `in` controlView: NSView?)
+  func drawWithFrame(cellFrame: NSRect, in controlView: NSView?)
   func wantsToTrackMouse() -> Bool
-  func highlight(flag: Bool, withFrame cellFrame: NSRect, `in` controlView: NSView?)
-  func trackMouse(theEvent: NSEvent, `in` cellFrame: NSRect, of controlView: NSView?, untilMouseUp flag: Bool) -> Bool
+  func highlight(flag: Bool, withFrame cellFrame: NSRect, in controlView: NSView?)
+  func trackMouse(theEvent: NSEvent, in cellFrame: NSRect, of controlView: NSView?, untilMouseUp flag: Bool) -> Bool
   func cellSize() -> NSSize
   func cellBaselineOffset() -> NSPoint
   @available(OSX 10.0, *)
   unowned(unsafe) var attachment: @sil_unmanaged NSTextAttachment? { get set }
-  func drawWithFrame(cellFrame: NSRect, `in` controlView: NSView?, characterIndex charIndex: Int)
+  func drawWithFrame(cellFrame: NSRect, in controlView: NSView?, characterIndex charIndex: Int)
   @available(OSX 10.0, *)
-  func drawWithFrame(cellFrame: NSRect, `in` controlView: NSView?, characterIndex charIndex: Int, layoutManager: NSLayoutManager)
-  func wantsToTrackMouseFor(theEvent: NSEvent, `in` cellFrame: NSRect, of controlView: NSView?, atCharacterIndex charIndex: Int) -> Bool
-  func trackMouse(theEvent: NSEvent, `in` cellFrame: NSRect, of controlView: NSView?, atCharacterIndex charIndex: Int, untilMouseUp flag: Bool) -> Bool
+  func drawWithFrame(cellFrame: NSRect, in controlView: NSView?, characterIndex charIndex: Int, layoutManager: NSLayoutManager)
+  func wantsToTrackMouseFor(theEvent: NSEvent, in cellFrame: NSRect, of controlView: NSView?, atCharacterIndex charIndex: Int) -> Bool
+  func trackMouse(theEvent: NSEvent, in cellFrame: NSRect, of controlView: NSView?, atCharacterIndex charIndex: Int, untilMouseUp flag: Bool) -> Bool
   @available(OSX 10.0, *)
   func cellFrameFor(textContainer: NSTextContainer, proposedLineFragment lineFrag: NSRect, glyphPosition position: NSPoint, characterIndex charIndex: Int) -> NSRect
 }
@@ -15035,19 +15055,19 @@ class NSTextAttachmentCell : NSCell, NSTextAttachmentCellProtocol {
   init(imageCell image: NSImage?)
   convenience init()
   init?(coder aDecoder: NSCoder)
-  func drawWithFrame(cellFrame: NSRect, `in` controlView: NSView?)
+  func drawWithFrame(cellFrame: NSRect, in controlView: NSView?)
   func wantsToTrackMouse() -> Bool
-  func highlight(flag: Bool, withFrame cellFrame: NSRect, `in` controlView: NSView?)
-  func trackMouse(theEvent: NSEvent, `in` cellFrame: NSRect, of controlView: NSView?, untilMouseUp flag: Bool) -> Bool
+  func highlight(flag: Bool, withFrame cellFrame: NSRect, in controlView: NSView?)
+  func trackMouse(theEvent: NSEvent, in cellFrame: NSRect, of controlView: NSView?, untilMouseUp flag: Bool) -> Bool
   func cellSize() -> NSSize
   func cellBaselineOffset() -> NSPoint
   @available(OSX 10.0, *)
   unowned(unsafe) var attachment: @sil_unmanaged NSTextAttachment?
-  func drawWithFrame(cellFrame: NSRect, `in` controlView: NSView?, characterIndex charIndex: Int)
+  func drawWithFrame(cellFrame: NSRect, in controlView: NSView?, characterIndex charIndex: Int)
   @available(OSX 10.0, *)
-  func drawWithFrame(cellFrame: NSRect, `in` controlView: NSView?, characterIndex charIndex: Int, layoutManager: NSLayoutManager)
-  func wantsToTrackMouseFor(theEvent: NSEvent, `in` cellFrame: NSRect, of controlView: NSView?, atCharacterIndex charIndex: Int) -> Bool
-  func trackMouse(theEvent: NSEvent, `in` cellFrame: NSRect, of controlView: NSView?, atCharacterIndex charIndex: Int, untilMouseUp flag: Bool) -> Bool
+  func drawWithFrame(cellFrame: NSRect, in controlView: NSView?, characterIndex charIndex: Int, layoutManager: NSLayoutManager)
+  func wantsToTrackMouseFor(theEvent: NSEvent, in cellFrame: NSRect, of controlView: NSView?, atCharacterIndex charIndex: Int) -> Bool
+  func trackMouse(theEvent: NSEvent, in cellFrame: NSRect, of controlView: NSView?, atCharacterIndex charIndex: Int, untilMouseUp flag: Bool) -> Bool
   @available(OSX 10.0, *)
   func cellFrameFor(textContainer: NSTextContainer, proposedLineFragment lineFrag: NSRect, glyphPosition position: NSPoint, characterIndex charIndex: Int) -> NSRect
 }
@@ -15397,11 +15417,6 @@ class NSTextStorage : NSMutableAttributedString {
   func ensureAttributesAreFixedIn(range: NSRange)
   init()
   init?(coder aDecoder: NSCoder)
-  @available(OSX, introduced=10.0, deprecated=10.11, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init?(url: NSURL, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  @available(OSX, introduced=10.0, deprecated=10.11, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init?(path: String, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
   @available(OSX 10.11, *)
   init(url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(OSX 10.0, *)
@@ -15413,6 +15428,11 @@ class NSTextStorage : NSMutableAttributedString {
   init?(docFormat data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init?(html data: NSData, options: [NSObject : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init?(rtfdFileWrapper wrapper: NSFileWrapper, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
+  init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
+  @available(OSX, introduced=10.0, deprecated=10.11, message="Use -initWithURL:options:documentAttributes:error: instead")
+  init?(url: NSURL, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
+  @available(OSX, introduced=10.0, deprecated=10.11, message="Use -initWithURL:options:documentAttributes:error: instead")
+  init?(path: String, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init(string str: String)
   init(string str: String, attributes attrs: [String : AnyObject]?)
   init(attributedString attrStr: NSAttributedString)
@@ -15435,9 +15455,11 @@ let NSTextStorageDidProcessEditingNotification: String
 /**** Deprecations ****/
 typealias NSTextStorageEditedOptions = Int
 extension NSObject {
+  @available(OSX, introduced=10.0, deprecated=10.11, message="Use -textStorage:willProcessEditing:range:changeInLength: instead.")
   class func textStorageWillProcessEditing(notification: NSNotification)
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -textStorage:willProcessEditing:range:changeInLength: instead.")
   func textStorageWillProcessEditing(notification: NSNotification)
+  @available(OSX, introduced=10.0, deprecated=10.11, message="Use -textStorage:DidProcessEditing:range:changeInLength: instead.")
   class func textStorageDidProcessEditing(notification: NSNotification)
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -textStorage:DidProcessEditing:range:changeInLength: instead.")
   func textStorageDidProcessEditing(notification: NSNotification)
@@ -15504,9 +15526,9 @@ class NSTextBlock : NSObject, NSCoding, NSCopying {
   func setBorderColor(color: NSColor?, forEdge edge: NSRectEdge)
   func setBorderColor(color: NSColor?)
   func borderColorFor(edge: NSRectEdge) -> NSColor?
-  func rectForLayoutAt(startingPoint: NSPoint, `in` rect: NSRect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> NSRect
-  func boundsRectForContentRect(contentRect: NSRect, `in` rect: NSRect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> NSRect
-  func drawBackgroundWithFrame(frameRect: NSRect, `in` controlView: NSView, characterRange charRange: NSRange, layoutManager: NSLayoutManager)
+  func rectForLayoutAt(startingPoint: NSPoint, in rect: NSRect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> NSRect
+  func boundsRectForContentRect(contentRect: NSRect, in rect: NSRect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> NSRect
+  func drawBackgroundWithFrame(frameRect: NSRect, in controlView: NSView, characterRange charRange: NSRange, layoutManager: NSLayoutManager)
   func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   func copy(zone zone: NSZone = nil) -> AnyObject
@@ -15526,9 +15548,9 @@ class NSTextTable : NSTextBlock {
   var layoutAlgorithm: NSTextTableLayoutAlgorithm
   var collapsesBorders: Bool
   var hidesEmptyCells: Bool
-  func rectFor(block: NSTextTableBlock, layoutAt startingPoint: NSPoint, `in` rect: NSRect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> NSRect
-  func boundsRectFor(block: NSTextTableBlock, contentRect: NSRect, `in` rect: NSRect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> NSRect
-  func drawBackgroundFor(block: NSTextTableBlock, withFrame frameRect: NSRect, `in` controlView: NSView, characterRange charRange: NSRange, layoutManager: NSLayoutManager)
+  func rectFor(block: NSTextTableBlock, layoutAt startingPoint: NSPoint, in rect: NSRect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> NSRect
+  func boundsRectFor(block: NSTextTableBlock, contentRect: NSRect, in rect: NSRect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> NSRect
+  func drawBackgroundFor(block: NSTextTableBlock, withFrame frameRect: NSRect, in controlView: NSView, characterRange charRange: NSRange, layoutManager: NSLayoutManager)
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -15855,9 +15877,9 @@ extension NSTextView {
 }
 protocol NSTextViewDelegate : NSTextDelegate {
   optional func textView(textView: NSTextView, clickedOnLink link: AnyObject, at charIndex: Int) -> Bool
-  optional func textView(textView: NSTextView, clickedOn cell: NSTextAttachmentCellProtocol, `in` cellFrame: NSRect, at charIndex: Int)
-  optional func textView(textView: NSTextView, doubleClickedOn cell: NSTextAttachmentCellProtocol, `in` cellFrame: NSRect, at charIndex: Int)
-  optional func textView(view: NSTextView, draggedCell cell: NSTextAttachmentCellProtocol, `in` rect: NSRect, event: NSEvent, at charIndex: Int)
+  optional func textView(textView: NSTextView, clickedOn cell: NSTextAttachmentCellProtocol, in cellFrame: NSRect, at charIndex: Int)
+  optional func textView(textView: NSTextView, doubleClickedOn cell: NSTextAttachmentCellProtocol, in cellFrame: NSRect, at charIndex: Int)
+  optional func textView(view: NSTextView, draggedCell cell: NSTextAttachmentCellProtocol, in rect: NSRect, event: NSEvent, at charIndex: Int)
   optional func textView(view: NSTextView, writablePasteboardTypesFor cell: NSTextAttachmentCellProtocol, at charIndex: Int) -> [String]
   optional func textView(view: NSTextView, write cell: NSTextAttachmentCellProtocol, at charIndex: Int, to pboard: NSPasteboard, type: String) -> Bool
   optional func textView(textView: NSTextView, willChangeSelectionFromCharacterRange oldSelectedCharRange: NSRange, toCharacterRange newSelectedCharRange: NSRange) -> NSRange
@@ -16623,7 +16645,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   func displayRectIgnoringOpacity(rect: NSRect)
   func displayIfNeededInRectIgnoringOpacity(rect: NSRect)
   func draw(dirtyRect: NSRect)
-  func displayRectIgnoringOpacity(aRect: NSRect, `in` context: NSGraphicsContext)
+  func displayRectIgnoringOpacity(aRect: NSRect, in context: NSGraphicsContext)
   func bitmapImageRepForCachingDisplayIn(rect: NSRect) -> NSBitmapImageRep?
   func cacheDisplayIn(rect: NSRect, to bitmapImageRep: NSBitmapImageRep)
   @available(OSX 10.5, *)
@@ -16636,7 +16658,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.5, *)
   func translateRectsNeedingDisplayIn(clipRect: NSRect, by delta: NSSize)
   func hitTest(aPoint: NSPoint) -> NSView?
-  func mouse(aPoint: NSPoint, `in` aRect: NSRect) -> Bool
+  func mouse(aPoint: NSPoint, in aRect: NSRect) -> Bool
   func withTag(aTag: Int) -> NSView?
   var tag: Int { get }
   func performKeyEquivalent(theEvent: NSEvent) -> Bool
@@ -16725,7 +16747,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.6, *)
   var inputContext: NSTextInputContext? { get }
   @available(OSX 10.8, *)
-  func rectForSmartMagnificationAt(location: NSPoint, `in` visibleRect: NSRect) -> NSRect
+  func rectForSmartMagnificationAt(location: NSPoint, in visibleRect: NSRect) -> NSRect
   @available(OSX 10.8, *)
   var userInterfaceLayoutDirection: NSUserInterfaceLayoutDirection
   @available(OSX 10.7, *)
@@ -17299,6 +17321,7 @@ struct __VFlags2 {
   init(nextKeyViewRefCount: UInt32, previousKeyViewRefCount: UInt32, isVisibleRect: UInt32, hasToolTip: UInt32, cachedIsFlipped: UInt32, menuWasSet: UInt32)
 }
 extension NSObject {
+  @available(OSX 10.7, *)
   class func layer(layer: CALayer, shouldInheritContentsScale newScale: CGFloat, from window: NSWindow) -> Bool
   @available(OSX 10.7, *)
   func layer(layer: CALayer, shouldInheritContentsScale newScale: CGFloat, from window: NSWindow) -> Bool
@@ -17699,8 +17722,8 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   class func defaultDepthLimit() -> NSWindowDepth
   func frameRectForContentRect(contentRect: NSRect) -> NSRect
   func contentRectForFrame(frameRect: NSRect) -> NSRect
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   var title: String
   @available(OSX 10.10, *)
   var titleVisibility: NSWindowTitleVisibility
@@ -18744,6 +18767,10 @@ struct __wcFlags {
   init()
   init(shouldCloseDocument: UInt32, shouldCascade: UInt32, nibIsLoaded: UInt32, nibNameIsPath: UInt32, settingWindowsContentViewController: UInt32, didInitWithCoder: UInt32, nibIsMakingConnections: UInt32, sentWindowWillLoad: UInt32, RESERVED: UInt32)
 }
+
+/*!
+ These methods are used to support using Storyboards with your app.
+ */
 extension NSWindowController {
   @available(OSX 10.10, *)
   var storyboard: NSStoryboard? { get }
@@ -18976,7 +19003,7 @@ extension NSWorkspace {
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -[NSFileManager mountedVolumeURLsIncludingResourceValuesForKeys:options:] instead.")
   func mountedRemovableMedia() -> [AnyObject]?
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -[NSWorkspace openURL:] instead.")
-  func openFile(fullPath: String, from anImage: NSImage?, at point: NSPoint, `in` aView: NSView?) -> Bool
+  func openFile(fullPath: String, from anImage: NSImage?, at point: NSPoint, in aView: NSView?) -> Bool
   @available(OSX, introduced=10.0, deprecated=10.11)
   func performFileOperation(operation: String, source: String, destination: String, files: [AnyObject], tag: UnsafeMutablePointer<Int>) -> Bool
 }

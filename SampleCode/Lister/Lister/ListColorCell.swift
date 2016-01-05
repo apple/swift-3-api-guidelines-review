@@ -57,7 +57,7 @@ class ListColorCell: UITableViewCell {
             return
         }
         
-        let tapLocation = tapGestureRecognizer.locationInView(contentView)
+        let tapLocation = tapGestureRecognizer.locationIn(contentView)
 
         // If the user tapped on a color (identified by its tag), notify the delegate.
         if let view = contentView.hitTest(tapLocation, withEvent: nil) as? ColorTappableView {

@@ -220,7 +220,7 @@ public class AppConfiguration {
         let archivedObject: AnyObject? = applicationUserDefaults.objectForKey(Defaults.storedUbiquityIdentityToken)
         
         if let ubiquityIdentityTokenArchive = archivedObject as? NSData,
-           let archivedObject = NSKeyedUnarchiver.unarchiveObjectWithData(ubiquityIdentityTokenArchive) as? protocol<NSCoding, NSCopying, NSObjectProtocol> {
+           let archivedObject = NSKeyedUnarchiver.unarchiveObjectWith(ubiquityIdentityTokenArchive) as? protocol<NSCoding, NSCopying, NSObjectProtocol> {
             storedToken = archivedObject
         }
         
@@ -232,7 +232,7 @@ public class AppConfiguration {
         For example, if the user has chosen local storage, a local `ListCoordinator` object will be returned.
     */
     public func listCoordinatorForCurrentConfigurationWithPathExtension(pathExtension: String, firstQueryHandler: (Void -> Void)? = nil) -> ListCoordinator {
-        if AppConfiguration.sharedConfiguration.storageOption != .Cloud {
+        if AppConfiguration.shared.storageOption != .Cloud {
             // This will be called if the storage option is either `.Local` or `.NotSet`.
             return LocalListCoordinator(pathExtension: pathExtension, firstQueryUpdateHandler: firstQueryHandler)
         }
@@ -246,7 +246,7 @@ public class AppConfiguration {
         For example, if the user has chosen local storage, a local `ListCoordinator` object will be returned.
     */
     public func listCoordinatorForCurrentConfigurationWithLastPathComponent(lastPathComponent: String, firstQueryHandler: (Void -> Void)? = nil) -> ListCoordinator {
-        if AppConfiguration.sharedConfiguration.storageOption != .Cloud {
+        if AppConfiguration.shared.storageOption != .Cloud {
             // This will be called if the storage option is either `.Local` or `.NotSet`.
             return LocalListCoordinator(lastPathComponent: lastPathComponent, firstQueryUpdateHandler: firstQueryHandler)
         }
@@ -263,7 +263,7 @@ public class AppConfiguration {
     public func listsControllerForCurrentConfigurationWithPathExtension(pathExtension: String, firstQueryHandler: (Void -> Void)? = nil) -> ListsController {
         let listCoordinator = listCoordinatorForCurrentConfigurationWithPathExtension(pathExtension, firstQueryHandler: firstQueryHandler)
         
-        return ListsController(listCoordinator: listCoordinator, delegateQueue: NSOperationQueue.mainQueue()) { lhs, rhs in
+        return ListsController(listCoordinator: listCoordinator, delegateQueue: NSOperationQueue.main()) { lhs, rhs in
             return lhs.name.localizedCaseInsensitiveCompare(rhs.name) == NSComparisonResult.OrderedAscending
         }
     }
@@ -276,7 +276,7 @@ public class AppConfiguration {
     public func listsControllerForCurrentConfigurationWithLastPathComponent(lastPathComponent: String, firstQueryHandler: (Void -> Void)? = nil) -> ListsController {
         let listCoordinator = listCoordinatorForCurrentConfigurationWithLastPathComponent(lastPathComponent, firstQueryHandler: firstQueryHandler)
         
-        return ListsController(listCoordinator: listCoordinator, delegateQueue: NSOperationQueue.mainQueue()) { lhs, rhs in
+        return ListsController(listCoordinator: listCoordinator, delegateQueue: NSOperationQueue.main()) { lhs, rhs in
             return lhs.name.localizedCaseInsensitiveCompare(rhs.name) == NSComparisonResult.OrderedAscending
         }
     }

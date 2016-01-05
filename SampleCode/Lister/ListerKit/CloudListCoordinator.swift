@@ -96,9 +96,9 @@ public class CloudListCoordinator: ListCoordinator {
         metadataQuery.predicate = predicate
         
         dispatch_barrier_async(documentsDirectoryQueue) {
-            let cloudContainerURL = NSFileManager.defaultManager().URLForUbiquityContainerIdentifier(nil)
+            let cloudContainerURL = NSFileManager.defaultManager().urlForUbiquityContainerIdentifier(nil)
 
-            self._documentsDirectory = cloudContainerURL?.URLByAppendingPathComponent("Documents")
+            self._documentsDirectory = cloudContainerURL?.appendingPathComponent("Documents")
         }
         
         // Observe the query.
@@ -135,12 +135,12 @@ public class CloudListCoordinator: ListCoordinator {
         }
     }
     
-    public func createURLForList(list: List, withName name: String) {
+    public func createURLFor(list: List, withName name: String) {
         let documentURL = documentURLForName(name)
         
-        ListUtilities.createList(list, atURL: documentURL) { error in
+        ListUtilities.createList(list, at: documentURL) { error in
             if let realError = error {
-                self.delegate?.listCoordinatorDidFailCreatingListAtURL(documentURL, withError: realError)
+                self.delegate?.listCoordinatorDidFailCreatingListAt(documentURL, withError: realError)
             }
             else {
                 self.delegate?.listCoordinatorDidUpdateContents(insertedURLs: [documentURL], removedURLs: [], updatedURLs: [])
@@ -158,16 +158,16 @@ public class CloudListCoordinator: ListCoordinator {
         return !NSFileManager.defaultManager().fileExistsAtPath(documentURL.path!)
     }
     
-    public func copyListFromURL(URL: NSURL, toListWithName name: String) {
+    public func copyListFrom(URL: NSURL, toListWithName name: String) {
         let documentURL = documentURLForName(name)
         
-        ListUtilities.copyFromURL(URL, toURL: documentURL)
+        ListUtilities.copyFrom(URL, to: documentURL)
     }
 
-    public func removeListAtURL(URL: NSURL) {
-        ListUtilities.removeListAtURL(URL) { error in
+    public func removeListAt(URL: NSURL) {
+        ListUtilities.removeListAt(URL) { error in
             if let realError = error {
-                self.delegate?.listCoordinatorDidFailRemovingListAtURL(URL, withError: realError)
+                self.delegate?.listCoordinatorDidFailRemovingListAt(URL, withError: realError)
             }
             else {
                 self.delegate?.listCoordinatorDidUpdateContents(insertedURLs: [], removedURLs: [URL], updatedURLs: [])
@@ -246,8 +246,8 @@ public class CloudListCoordinator: ListCoordinator {
     // MARK: Convenience
     
     private func documentURLForName(name: String) -> NSURL {
-        let documentURLWithoutExtension = documentsDirectory.URLByAppendingPathComponent(name)
+        let documentURLWithoutExtension = documentsDirectory.appendingPathComponent(name)
         
-        return documentURLWithoutExtension.URLByAppendingPathExtension(AppConfiguration.listerFileExtension)
+        return documentURLWithoutExtension.appendingPathExtension(AppConfiguration.listerFileExtension)
     }
 }

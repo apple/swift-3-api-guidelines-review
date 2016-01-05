@@ -133,6 +133,14 @@ var kCVAttachmentMode_ShouldPropagate: CVAttachmentMode { get }
     @abstract   Base type for all CoreVideo buffers
 
 */
+class CVBuffer {
+}
+
+/*!
+    @typedef	CVBufferRef
+    @abstract   Base type for all CoreVideo buffers
+
+*/
 typealias CVBufferRef = CVBuffer
 
 /*!
@@ -209,6 +217,8 @@ func CVBufferSetAttachments(buffer: CVBuffer, _ theAttachments: CFDictionary, _ 
 */
 @available(OSX 10.4, *)
 func CVBufferPropagateAttachments(sourceBuffer: CVBuffer, _ destinationBuffer: CVBuffer)
+class CVDisplayLink {
+}
 typealias CVDisplayLinkRef = CVDisplayLink
 typealias CVDisplayLinkOutputCallback = @convention(c) (CVDisplayLink, UnsafePointer<CVTimeStamp>, UnsafePointer<CVTimeStamp>, CVOptionFlags, UnsafeMutablePointer<CVOptionFlags>, UnsafeMutablePointer<Void>) -> CVReturn
 typealias CVDisplayLinkOutputHandler = (CVDisplayLink, UnsafePointer<CVTimeStamp>, UnsafePointer<CVTimeStamp>, CVOptionFlags, UnsafeMutablePointer<CVOptionFlags>) -> CVReturn
@@ -518,6 +528,17 @@ typealias CVImageBufferRef = CVImageBuffer
 
 /*!
 
+    @typedef	CVImageBufferRef
+
+    @abstract   Base type for all CoreVideo image buffers
+
+
+
+*/
+typealias CVImageBuffer = CVBufferRef
+
+/*!
+
     @function   CVImageBufferGetEncodedSize
 
     @abstract   Returns the full encoded dimensions of a CVImageBuffer.  For example, for an NTSC DV frame this would be 720x480
@@ -637,6 +658,13 @@ func CVImageBufferCreateColorSpaceFromAttachments(attachments: CFDictionary) -> 
     @abstract   Metal texture based image buffer
 
 */
+typealias CVMetalTexture = CVImageBuffer
+
+/*!
+    @typedef	CVMetalTextureRef
+    @abstract   Metal texture based image buffer
+
+*/
 typealias CVMetalTextureRef = CVMetalTexture
 @available(OSX 10.11, *)
 func CVMetalTextureGetTypeID() -> CFTypeID
@@ -673,6 +701,14 @@ func CVMetalTextureIsFlipped(image: CVMetalTexture) -> Bool
 func CVMetalTextureGetCleanTexCoords(image: CVMetalTexture, _ lowerLeft: UnsafeMutablePointer<Float>, _ lowerRight: UnsafeMutablePointer<Float>, _ upperRight: UnsafeMutablePointer<Float>, _ upperLeft: UnsafeMutablePointer<Float>)
 @available(OSX 10.11, *)
 let kCVMetalTextureCacheMaximumTextureAgeKey: CFString
+
+/*!
+    @typedef	CVMetalTextureCacheRef
+    @abstract   CoreVideo Metal Texture Cache
+
+*/
+class CVMetalTextureCache {
+}
 
 /*!
     @typedef	CVMetalTextureCacheRef
@@ -755,6 +791,7 @@ let kCVOpenGLBufferInternalFormat: CFString
 @available(OSX 10.4, *)
 let kCVOpenGLBufferMaximumMipmapLevel: CFString
 typealias CVOpenGLBufferRef = CVOpenGLBuffer
+typealias CVOpenGLBuffer = CVImageBuffer
 @available(OSX 10.4, *)
 func CVOpenGLBufferGetTypeID() -> CFTypeID
 
@@ -791,6 +828,8 @@ func CVOpenGLBufferGetAttributes(openGLBuffer: CVOpenGLBuffer) -> Unmanaged<CFDi
 */
 @available(OSX 10.4, *)
 func CVOpenGLBufferAttach(openGLBuffer: CVOpenGLBuffer, _ cglContext: CGLContextObj, _ face: GLenum, _ level: GLint, _ screen: GLint) -> CVReturn
+class CVOpenGLBufferPool {
+}
 typealias CVOpenGLBufferPoolRef = CVOpenGLBufferPool
 @available(OSX 10.4, *)
 let kCVOpenGLBufferPoolMinimumBufferCountKey: CFString
@@ -849,6 +888,13 @@ func CVOpenGLBufferPoolCreateOpenGLBuffer(allocator: CFAllocator?, _ openGLBuffe
     @abstract   OpenGL texture based image buffer
 
 */
+typealias CVOpenGLTexture = CVImageBuffer
+
+/*!
+    @typedef	CVOpenGLTextureRef
+    @abstract   OpenGL texture based image buffer
+
+*/
 typealias CVOpenGLTextureRef = CVOpenGLTexture
 @available(OSX 10.4, *)
 func CVOpenGLTextureGetTypeID() -> CFTypeID
@@ -892,6 +938,14 @@ func CVOpenGLTextureIsFlipped(image: CVOpenGLTexture) -> Bool
 */
 @available(OSX 10.4, *)
 func CVOpenGLTextureGetCleanTexCoords(image: CVOpenGLTexture, _ lowerLeft: UnsafeMutablePointer<GLfloat>, _ lowerRight: UnsafeMutablePointer<GLfloat>, _ upperRight: UnsafeMutablePointer<GLfloat>, _ upperLeft: UnsafeMutablePointer<GLfloat>)
+
+/*!
+    @typedef	CVOpenGLTextureCacheRef
+    @abstract   CoreVideo OpenGL Texture Cache
+
+*/
+class CVOpenGLTextureCache {
+}
 
 /*!
     @typedef	CVOpenGLTextureCacheRef
@@ -1064,6 +1118,13 @@ let kCVPixelBufferIOSurfacePropertiesKey: CFString
 let kCVPixelBufferMetalCompatibilityKey: CFString
 @available(OSX 10.11, *)
 let kCVPixelBufferOpenGLTextureCacheCompatibilityKey: CFString
+
+/*!
+    @typedef	CVPixelBufferRef
+    @abstract   Based on the image buffer type. The pixel buffer implements the memory storage for an image buffer.
+
+*/
+typealias CVPixelBuffer = CVImageBuffer
 
 /*!
     @typedef	CVPixelBufferRef
@@ -1343,6 +1404,8 @@ func CVPixelBufferGetIOSurface(pixelBuffer: CVPixelBuffer?) -> Unmanaged<IOSurfa
 */
 @available(OSX 10.6, *)
 func CVPixelBufferCreateWithIOSurface(allocator: CFAllocator?, _ surface: IOSurface, _ pixelBufferAttributes: CFDictionary?, _ pixelBufferOut: UnsafeMutablePointer<Unmanaged<CVPixelBuffer>?>) -> CVReturn
+class CVPixelBufferPool {
+}
 typealias CVPixelBufferPoolRef = CVPixelBufferPool
 @available(OSX 10.4, *)
 let kCVPixelBufferPoolMinimumBufferCountKey: CFString

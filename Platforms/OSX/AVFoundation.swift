@@ -12583,7 +12583,7 @@ class AVMutableMediaSelection : AVMediaSelection {
   				If the specified media selection option isn't a member of the specified media selection group, no change in presentation state will result.
   				If the value of the property allowsEmptySelection of the AVMediaSelectionGroup is YES, you can pass nil for mediaSelectionOption to deselect all media selection options in the group.
   */
-  func selectMediaOption(mediaSelectionOption: AVMediaSelectionOption?, `in` mediaSelectionGroup: AVMediaSelectionGroup)
+  func selectMediaOption(mediaSelectionOption: AVMediaSelectionOption?, in mediaSelectionGroup: AVMediaSelectionGroup)
   init()
 }
 @available(OSX 10.8, *)
@@ -12626,6 +12626,15 @@ class AVMediaSelectionGroup : NSObject, NSCopying {
   @available(OSX 10.8, *)
   func copy(zone zone: NSZone = nil) -> AnyObject
 }
+
+/*!
+  @category		AVMediaSelectionOptionFiltering
+  @abstract		Filtering of media selection options.
+  @discussion
+	The AVMediaSelectionOptionFiltering category is provided for convenience in filtering the media selection options in a group
+	according to playability, locale, and media characteristics.
+	Note that it's possible to implement additional filtering behaviors by using -[NSArray indexesOfObjectsPassingTest:].
+*/
 extension AVMediaSelectionGroup {
 
   /*!
@@ -16309,7 +16318,7 @@ extension AVPlayerItem {
      Note that if multiple options within a group meet your criteria for selection according to locale or other considerations, and if these options are otherwise indistinguishable to you according to media characteristics that are meaningful for your application, content is typically authored so that the first available option that meets your criteria is appropriate for selection.
    */
   @available(OSX 10.8, *)
-  func selectMediaOption(mediaSelectionOption: AVMediaSelectionOption?, `in` mediaSelectionGroup: AVMediaSelectionGroup)
+  func selectMediaOption(mediaSelectionOption: AVMediaSelectionOption?, in mediaSelectionGroup: AVMediaSelectionGroup)
 
   /*!
    @method		selectMediaOptionAutomaticallyInMediaSelectionGroup:
@@ -17137,6 +17146,11 @@ enum AVContentAuthorizationStatus : Int {
   case NotAvailable
   case NotPossible
 }
+
+/*!
+ @category		AVPlayerItem (AVPlayerItemProtectedContent)
+ @abstract		Methods supporting protected content.
+ */
 extension AVPlayerItem {
 
   /*!
@@ -17891,20 +17905,6 @@ extension NSValue {
   @available(OSX 10.7, *)
   var cmTimeMappingValue: CMTimeMapping { get }
 }
-extension NSValue {
-  @available(OSX 10.7, *)
-  /*not inherited*/ init(cmTime time: CMTime)
-  @available(OSX 10.7, *)
-  var cmTimeValue: CMTime { get }
-  @available(OSX 10.7, *)
-  /*not inherited*/ init(cmTimeRange timeRange: CMTimeRange)
-  @available(OSX 10.7, *)
-  var cmTimeRangeValue: CMTimeRange { get }
-  @available(OSX 10.7, *)
-  /*not inherited*/ init(cmTimeMapping timeMapping: CMTimeMapping)
-  @available(OSX 10.7, *)
-  var cmTimeMappingValue: CMTimeMapping { get }
-}
 extension NSCoder {
   @available(OSX 10.7, *)
   func encode(time: CMTime, forKey key: String)
@@ -18370,7 +18370,7 @@ class AVVideoCompositionCoreAnimationTool : NSObject {
   								to YES in the layer hierarchy to get the same result when attaching a CALayer to a AVVideoCompositionCoreAnimationTool
   								as when using it to back a UIView.
   */
-  convenience init(postProcessingAsVideoLayer videoLayer: CALayer, `in` animationLayer: CALayer)
+  convenience init(postProcessingAsVideoLayer videoLayer: CALayer, in animationLayer: CALayer)
 
   /*!
   	@method						videoCompositionCoreAnimationToolWithPostProcessingAsVideoLayers:inLayer:
@@ -18384,7 +18384,7 @@ class AVVideoCompositionCoreAnimationTool : NSObject {
   								as when using it to back a UIView.
   */
   @available(OSX 10.9, *)
-  convenience init(postProcessingAsVideoLayers videoLayers: [CALayer], `in` animationLayer: CALayer)
+  convenience init(postProcessingAsVideoLayers videoLayers: [CALayer], in animationLayer: CALayer)
   init()
 }
 extension AVAsset {

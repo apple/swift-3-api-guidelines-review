@@ -33,6 +33,6 @@ class ListCell: UITableViewCell {
         listColorView.backgroundColor = color
         
         // Ensure that tapping on a selected cell doesn't re-trigger the display of the document.
-        userInteractionEnabled = !selected
+        isUserInteractionEnabled = !selected
     }
 }

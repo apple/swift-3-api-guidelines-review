@@ -612,6 +612,9 @@ class SKAudioNode : SKNode, NSCoding {
   var isPositional: Bool
   convenience init()
 }
+
+/**Actions that are to be used with audio nodes.
+ */
 extension SKAction {
   @available(iOS 9.0, *)
   class func stereoPanTo(v: Float, duration: NSTimeInterval) -> SKAction
@@ -714,7 +717,7 @@ class SKConstraint : NSObject, NSCoding, NSCopying {
    */
   class func distance(range: SKRange, to node: SKNode) -> Self
   class func distance(range: SKRange, to point: CGPoint) -> Self
-  class func distance(range: SKRange, to point: CGPoint, `in` node: SKNode) -> Self
+  class func distance(range: SKRange, to point: CGPoint, in node: SKNode) -> Self
 
   /**
    Constrain the node's rotation to a range
@@ -726,7 +729,7 @@ class SKConstraint : NSObject, NSCoding, NSCopying {
    */
   class func orientTo(node: SKNode, offset radians: SKRange) -> Self
   class func orientTo(point: CGPoint, offset radians: SKRange) -> Self
-  class func orientTo(point: CGPoint, `in` node: SKNode, offset radians: SKRange) -> Self
+  class func orientTo(point: CGPoint, in node: SKNode, offset radians: SKRange) -> Self
   init()
   @available(iOS 8.0, *)
   func encodeWith(aCoder: NSCoder)
@@ -1428,7 +1431,7 @@ class SKMutableTexture : SKTexture {
    @param rect the source rectangle to use in creating a logical copy of the given texture.
    @param texture the existing texture to reference in the copy.
    */
-  convenience init(rect: CGRect, `in` texture: SKTexture)
+  convenience init(rect: CGRect, in texture: SKTexture)
 
   /**
    Create a texture containing directional noise. The RGBA values in this
@@ -1630,6 +1633,20 @@ class SKNode : UIResponder, NSCopying, NSCoding {
   func moveToParent(parent: SKNode)
   func childNodeWithName(name: String) -> SKNode?
   func enumerateChildNodesWithName(name: String, usingBlock block: (SKNode, UnsafeMutablePointer<ObjCBool>) -> Void)
+
+  /**
+   * Simplified shorthand for enumerateChildNodesWithName that returns an array of the matching nodes.
+   * This allows subscripting of the form:
+   *      NSArray *childrenMatchingName = node[@"name"]
+   *
+   * or even complex like:
+   *      NSArray *siblingsBeginningWithA = node[@"../a*"]
+   *
+   * @param name An Xpath style path that can include simple regular expressions for matching node names.
+   * @see enumerateChildNodesWithName:usingBlock:
+   */
+  @available(iOS 8.0, *)
+  subscript (name: String) -> [SKNode] { get }
   func inParentHierarchy(parent: SKNode) -> Bool
   func run(action: SKAction)
   func run(action: SKAction, completion block: () -> Void)
@@ -1655,10 +1672,6 @@ class SKNode : UIResponder, NSCopying, NSCoding {
   class func obstaclesFromNodePhysicsBodies(nodes: [SKNode]) -> [AnyObject]
   func copy(zone zone: NSZone = nil) -> AnyObject
   func encodeWith(aCoder: NSCoder)
-}
-
-extension SKNode {
-  subscript (name: String) -> [SKNode] { get }
 }
 extension UITouch {
   func locationIn(node: SKNode) -> CGPoint
@@ -2488,7 +2501,7 @@ class SKTexture : NSObject, NSCopying, NSCoding {
    @param rect the source rectangle to use in creating a logical copy of the given texture.
    @param texture the existing texture to reference in the copy.
    */
-  convenience init(rect: CGRect, `in` texture: SKTexture)
+  convenience init(rect: CGRect, in texture: SKTexture)
 
   /**
    Create a texture containing directional noise. The RGBA values in this
@@ -2584,7 +2597,7 @@ class SKTexture : NSObject, NSCopying, NSCoding {
    Convert the current SKTexture into a CGImageRef object
    */
   @available(iOS 9.0, *)
-  var cgImage: CGImage { get }
+  func cgImage() -> CGImage
 
   /**
    Start a texture preload operation on an array of textures

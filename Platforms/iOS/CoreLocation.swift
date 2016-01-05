@@ -77,7 +77,7 @@ class CLGeocoder : NSObject {
   func reverseGeocodeLocation(location: CLLocation, completionHandler: CLGeocodeCompletionHandler)
   func geocodeAddressDictionary(addressDictionary: [NSObject : AnyObject], completionHandler: CLGeocodeCompletionHandler)
   func geocodeAddressString(addressString: String, completionHandler: CLGeocodeCompletionHandler)
-  func geocodeAddressString(addressString: String, `in` region: CLRegion?, completionHandler: CLGeocodeCompletionHandler)
+  func geocodeAddressString(addressString: String, in region: CLRegion?, completionHandler: CLGeocodeCompletionHandler)
   func cancelGeocode()
   init()
 }
@@ -286,7 +286,7 @@ protocol CLLocationManagerDelegate : NSObjectProtocol {
   @available(iOS 7.0, *)
   optional func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion)
   @available(iOS 7.0, *)
-  optional func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], `in` region: CLBeaconRegion)
+  optional func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion)
   @available(iOS 7.0, *)
   optional func locationManager(manager: CLLocationManager, rangingBeaconsDidFailFor region: CLBeaconRegion, withError error: NSError)
   @available(iOS 4.0, *)

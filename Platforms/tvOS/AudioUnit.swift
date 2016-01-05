@@ -717,6 +717,10 @@ class AUAudioUnit : NSObject {
 				The AUAudioUnit is not provided since it is not safe to message an Objective C object in a real time context.
 */
 typealias AUInputHandler = (UnsafeMutablePointer<AudioUnitRenderActionFlags>, UnsafePointer<AudioTimeStamp>, AUAudioFrameCount, Int) -> Void
+
+/*!	@brief		Additional methods for audio units which can do input/output.
+	@discussion	These methods will fail if the audio unit is not an input/output audio unit.
+*/
 extension AUAudioUnit {
 
   /*!	@property	canPerformInput
@@ -802,6 +806,9 @@ class AUAudioUnitBusArray : NSObject, NSFastEnumeration {
   /*!	@property	count
   */
   var count: Int { get }
+
+  /*!	@method		objectAtIndexedSubscript:
+  */
   subscript (index: Int) -> AUAudioUnitBus { get }
 
   /*!	@property	countChangeable
@@ -1053,6 +1060,8 @@ struct AURenderEvent {
 		cycles.
 */
 typealias AUInternalRenderBlock = (UnsafeMutablePointer<AudioUnitRenderActionFlags>, UnsafePointer<AudioTimeStamp>, AUAudioFrameCount, Int, UnsafeMutablePointer<AudioBufferList>, UnsafePointer<AURenderEvent>, AURenderPullInputBlock?) -> AUAudioUnitStatus
+
+/// Aspects of AUAudioUnit of interest only to subclassers.
 extension AUAudioUnit {
 
   /*!	@brief	Register an audio unit component implemented as an AUAudioUnit subclass.
@@ -1064,7 +1073,7 @@ extension AUAudioUnit {
   		instantiate audio units via their component descriptions (e.g. <AudioToolbox/AUGraph.h>, or
   		<AVFoundation/AVAudioUnitEffect.h>).
   */
-  class func registerSubclass(cls: AnyClass, `as` componentDescription: AudioComponentDescription, name: String, version: UInt32)
+  class func registerSubclass(cls: AnyClass, as componentDescription: AudioComponentDescription, name: String, version: UInt32)
 
   /// Block which subclassers must provide (via a getter) to implement rendering.
   var internalRenderBlock: AUInternalRenderBlock { get }
@@ -1076,6 +1085,8 @@ extension AUAudioUnit {
   */
   func setRenderResourcesAllocated(flag: Bool)
 }
+
+/// Aspects of AUAudioUnitBus of interest only to the implementation of v3 AUs.
 extension AUAudioUnitBus {
 
   /*!	@property	supportedChannelCounts
@@ -1096,11 +1107,19 @@ extension AUAudioUnitBus {
   */
   var maximumChannelCount: AUAudioChannelCount
 }
+
+/// Aspects of AUAudioUnitBusArray of interest only to subclassers.
 extension AUAudioUnitBusArray {
 
   /// Sets the bus array to be a copy of the supplied array. The base class issues KVO notifications.
   func replaceBusses(busArray: [AUAudioUnitBus])
 }
+
+/*!	Factory methods for building parameters, parameter groups, and parameter trees.
+
+	@note In non-ARC code, "create" methods return unretained objects (unlike "create" 
+	C functions); the caller should generally retain them.
+*/
 extension AUParameterTree {
 
   ///	Create an AUParameter.
@@ -1153,6 +1172,8 @@ typealias AUImplementorValueFromStringCallback = (AUParameter, String) -> AUValu
 
 /// A block called to return a group or parameter's localized display name, abbreviated to the requested length.
 typealias AUImplementorDisplayNameWithLengthCallback = (AUParameterNode, Int) -> String
+
+/// Aspects of AUParameterNode of interest only to AUAudioUnit subclassers.
 extension AUParameterNode {
 
   /*!	@brief		Called when a parameter changes value.

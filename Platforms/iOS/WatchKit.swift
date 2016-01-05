@@ -10,6 +10,7 @@ enum WatchKitErrorCode : Int {
   case InvalidArgumentError
   case MediaPlayerError
   case DownloadError
+  case RecordingFailedError
 }
 
 extension WatchKitErrorCode : _BridgedNSError {
@@ -86,8 +87,8 @@ class WKInterfaceController : NSObject {
   func dismissTextInputController()
   func contextForSegueWithIdentifier(segueIdentifier: String) -> AnyObject?
   func contextsForSegueWithIdentifier(segueIdentifier: String) -> [AnyObject]?
-  func contextForSegueWithIdentifier(segueIdentifier: String, `in` table: WKInterfaceTable, rowIndex: Int) -> AnyObject?
-  func contextsForSegueWithIdentifier(segueIdentifier: String, `in` table: WKInterfaceTable, rowIndex: Int) -> [AnyObject]?
+  func contextForSegueWithIdentifier(segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> AnyObject?
+  func contextsForSegueWithIdentifier(segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> [AnyObject]?
   func addMenuItemWith(image: UIImage, title: String, action: Selector)
   func addMenuItemWithImageNamed(imageName: String, title: String, action: Selector)
   func addMenuItemWith(itemIcon: WKMenuItemIcon, title: String, action: Selector)
@@ -125,10 +126,11 @@ class WKInterfaceDevice : NSObject {
   func removeCachedImageWithName(name: String)
   @available(iOS 8.2, *)
   func removeAllCachedImages()
+  @available(iOS 8.2, *)
+  var cachedImages: [String : NSNumber] { get }
   var screenBounds: CGRect { get }
   var screenScale: CGFloat { get }
   var preferredContentSizeCategory: String { get }
-  var cachedImages: [String : NSNumber] { get }
   @available(iOS 9.0, *)
   var systemVersion: String { get }
   @available(iOS 9.0, *)

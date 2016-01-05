@@ -60,7 +60,7 @@ struct AppLaunchContext {
             // Test for the existence of the file at the URL. If it exists proceed.
             if !fileURLForPath.checkPromisedItemIsReachableAndReturnError(nil) && !fileURLForPath.checkResourceIsReachableAndReturnError(nil) {
                 // If the file does not exist at the URL created from the path construct one based on the filename.
-                let derivedURL = listsController.documentsDirectory.URLByAppendingPathComponent(fileURLForPath.lastPathComponent!, isDirectory: false)
+                let derivedURL = listsController.documentsDirectory.appendingPathComponent(fileURLForPath.lastPathComponent!, isDirectory: false)
                 
                 if !derivedURL.checkPromisedItemIsReachableAndReturnError(nil) && !derivedURL.checkResourceIsReachableAndReturnError(nil) {
                     possibleURL = nil
@@ -109,7 +109,7 @@ struct AppLaunchContext {
         listURL = NSURL(fileURLWithPath: filePath, isDirectory: false)
         
         // Extract the query items to initialize the `listColor` property from the `color` query item.
-        guard let urlComponents = NSURLComponents(URL: listerURL, resolvingAgainstBaseURL: false),
+        guard let urlComponents = NSURLComponents(url: listerURL, resolvingAgainstBaseURL: false),
               let queryItems = urlComponents.queryItems else {
                 assertionFailure("URL provided to \(__FUNCTION__) contains no query items.")
                 return nil

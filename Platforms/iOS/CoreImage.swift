@@ -39,7 +39,7 @@ class CIContext : NSObject {
   /*not inherited*/ init(mtlDevice device: MTLDevice, options: [String : AnyObject]?)
   @available(iOS 9.0, *)
   var workingColorSpace: CGColorSpace { get }
-  func draw(image: CIImage, `in` inRect: CGRect, from fromRect: CGRect)
+  func draw(image: CIImage, in inRect: CGRect, from fromRect: CGRect)
   func createCGImage(image: CIImage, from fromRect: CGRect) -> CGImage
   func createCGImage(image: CIImage, from fromRect: CGRect, format: CIFormat, colorSpace: CGColorSpace?) -> CGImage
   func render(image: CIImage, toBitmap data: UnsafeMutablePointer<Void>, rowBytes: Int, bounds: CGRect, format: CIFormat, colorSpace: CGColorSpace?)
@@ -434,6 +434,9 @@ extension CIFilter {
   @available(iOS 8.0, OSX 10.10, *)
   convenience init?(name: String!, elements: (String, AnyObject)...)
 }
+
+/** Methods to register a filter and get access to the list of registered filters
+ Use these methods to create filters and find filters. */
 extension CIFilter {
 
   /** Creates a new filter of type 'name'. 
@@ -482,6 +485,8 @@ extension CIFilter {
   @available(iOS 9.0, *)
   class func localizedReferenceDocumentationForFilterName(filterName: String) -> NSURL?
 }
+
+/** Methods to serialize arrays of filters to xmp. */
 extension CIFilter {
   @available(iOS 6.0, *)
   class func serializedXMPFrom(filters: [CIFilter], inputImageExtent extent: CGRect) -> NSData
@@ -549,7 +554,7 @@ class CIImage : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   var colorSpace: CGColorSpace? { get }
   @available(iOS 6.0, *)
-  func regionOfInterestFor(image: CIImage, `in` rect: CGRect) -> CGRect
+  func regionOfInterestFor(image: CIImage, in rect: CGRect) -> CGRect
   init()
   @available(iOS 5.0, *)
   class func supportsSecureCoding() -> Bool
@@ -628,6 +633,8 @@ extension CIImage {
   @available(iOS 9.0, *)
   init(imageProvider p: AnyObject, size width: Int, _ height: Int, format f: CIFormat, colorSpace cs: CGColorSpace?, options: [String : AnyObject]?)
 }
+
+/** Informal protocol used to lazily supply image data. */
 extension NSObject {
   class func provideImageData(data: UnsafeMutablePointer<Void>, bytesPerRow rowbytes: Int, origin x: Int, _ y: Int, size width: Int, _ height: Int, userInfo info: AnyObject?)
   func provideImageData(data: UnsafeMutablePointer<Void>, bytesPerRow rowbytes: Int, origin x: Int, _ y: Int, size width: Int, _ height: Int, userInfo info: AnyObject?)

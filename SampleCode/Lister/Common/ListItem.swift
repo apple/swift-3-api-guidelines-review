@@ -53,7 +53,7 @@ final public class ListItem: NSObject, NSCoding, NSCopying {
         - parameter complete: The item's initial completion state.
         - parameter UUID: The item's initial UUID.
     */
-    private init(text: String, complete: Bool, uuid UUID: NSUUID) {
+    private uuidinit(text: String, complete: Bool, uuid UUID: NSUUID) {
         self.text = text
         self.isComplete = complete
         self.uuid = UUID

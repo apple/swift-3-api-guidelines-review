@@ -35,42 +35,42 @@ class ListsInterfaceController: WKInterfaceController, ConnectivityListsControll
         super.init()
 
         let noListsIndexSet = NSIndexSet(index: 0)
-        interfaceTable.insertRowsAtIndexes(noListsIndexSet, withRowType: Storyboard.RowTypes.noLists)
+        interfaceTable.insertRowsAt(noListsIndexSet, withRowType: Storyboard.RowTypes.noLists)
     }
     
     // MARK: ConnectivityListsControllerDelegate
 
-    func listsController(listsController: ConnectivityListsController, didInsertListInfo listInfo: ListInfo, atIndex index: Int) {
+    func listsController(listsController: ConnectivityListsController, didInsert listInfo: ListInfo, at index: Int) {
         let indexSet = NSIndexSet(index: index)
         
         // The lists controller was previously empty. Remove the "no lists" row.
         if index == 0 && listsController.count == 1 {
-            interfaceTable.removeRowsAtIndexes(indexSet)
+            interfaceTable.removeRowsAt(indexSet)
         }
         
-        interfaceTable.insertRowsAtIndexes(indexSet, withRowType: Storyboard.RowTypes.list)
+        interfaceTable.insertRowsAt(indexSet, withRowType: Storyboard.RowTypes.list)
 
-        configureRowControllerAtIndex(index)
+        configureRowControllerAt(index)
     }
     
-    func listsController(listsController: ConnectivityListsController, didRemoveListInfo listInfo: ListInfo, atIndex index: Int) {
+    func listsController(listsController: ConnectivityListsController, didRemove listInfo: ListInfo, at index: Int) {
         let indexSet = NSIndexSet(index: index)
         
         // The lists controller is now empty. Add the "no lists" row.
         if index == 0 && listsController.count == 0 {
-            interfaceTable.insertRowsAtIndexes(indexSet, withRowType: Storyboard.RowTypes.noLists)
+            interfaceTable.insertRowsAt(indexSet, withRowType: Storyboard.RowTypes.noLists)
         }
         
-        interfaceTable.removeRowsAtIndexes(indexSet)
+        interfaceTable.removeRowsAt(indexSet)
     }
     
-    func listsController(listsController: ConnectivityListsController, didUpdateListInfo listInfo: ListInfo, atIndex index: Int) {
-        configureRowControllerAtIndex(index)
+    func listsController(listsController: ConnectivityListsController, didUpdateListInfo listInfo: ListInfo, at index: Int) {
+        configureRowControllerAt(index)
     }
 
     // MARK: Segues
     
-    override func contextForSegueWithIdentifier(segueIdentifier: String, inTable table: WKInterfaceTable, rowIndex: Int) -> AnyObject? {
+    override func contextForSegueWithIdentifier(segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> AnyObject? {
         if segueIdentifier == Storyboard.Segues.listSelection {
             let listInfo = listsController[rowIndex]
 
@@ -82,8 +82,8 @@ class ListsInterfaceController: WKInterfaceController, ConnectivityListsControll
     
     // MARK: Convenience
     
-    func configureRowControllerAtIndex(index: Int) {
-        let listRowController = interfaceTable.rowControllerAtIndex(index) as! ColoredTextRowController
+    func configureRowControllerAt(index: Int) {
+        let listRowController = interfaceTable.rowControllerAt(index) as! ColoredTextRowController
         
         let listInfo = listsController[index]
         
@@ -94,7 +94,7 @@ class ListsInterfaceController: WKInterfaceController, ConnectivityListsControll
     // MARK: Interface Life Cycle
 
     override func willActivate() {
-        let extensionDelegate = WKExtension.sharedExtension().delegate as? ExtensionDelegate
+        let extensionDelegate = WKExtension.shared().delegate as? ExtensionDelegate
         
         extensionDelegate?.mainInterfaceController = self
         

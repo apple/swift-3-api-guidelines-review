@@ -64,6 +64,7 @@ class GCController : NSObject {
    pause/resume button is pressed.
    */
   var controllerPausedHandler: ((GCController) -> Void)?
+  @available(OSX 10.11, *)
   var handlerQueue: dispatch_queue_t
 
   /**

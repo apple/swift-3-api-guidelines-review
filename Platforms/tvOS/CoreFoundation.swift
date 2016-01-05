@@ -59,7 +59,21 @@ typealias CFArrayApplierFunction = @convention(c) (UnsafePointer<Void>, UnsafeMu
 	@typedef CFArrayRef
 	This is the type of a reference to immutable CFArrays.
 */
+class CFArray {
+}
+
+/*!
+	@typedef CFArrayRef
+	This is the type of a reference to immutable CFArrays.
+*/
 typealias CFArrayRef = CFArray
+
+/*!
+	@typedef CFMutableArrayRef
+	This is the type of a reference to mutable CFArrays.
+*/
+class CFMutableArray {
+}
 
 /*!
 	@typedef CFMutableArrayRef
@@ -596,8 +610,12 @@ func CFArraySortValues(theArray: CFMutableArray!, _ range: CFRange, _ comparator
 		order in which they appear in the otherArray.
 */
 func CFArrayAppendArray(theArray: CFMutableArray!, _ otherArray: CFArray!, _ otherRange: CFRange)
+class CFAttributedString {
+}
 typealias CFAttributedStringRef = CFAttributedString
 typealias CFMutableAttributedStringRef = CFMutableAttributedString
+class CFMutableAttributedString {
+}
 
 /*! @function CFAttributedStringGetTypeID
 Returns the type identifier of all CFAttributedString instances.
@@ -722,7 +740,11 @@ struct CFBagCallBacks {
 let kCFTypeBagCallBacks: CFBagCallBacks
 let kCFCopyStringBagCallBacks: CFBagCallBacks
 typealias CFBagApplierFunction = @convention(c) (UnsafePointer<Void>, UnsafeMutablePointer<Void>) -> Void
+class CFBag {
+}
 typealias CFBagRef = CFBag
+class CFMutableBag {
+}
 typealias CFMutableBagRef = CFMutableBag
 func CFBagGetTypeID() -> CFTypeID
 func CFBagCreate(allocator: CFAllocator!, _ values: UnsafeMutablePointer<UnsafePointer<Void>>, _ numValues: CFIndex, _ callBacks: UnsafePointer<CFBagCallBacks>) -> CFBag!
@@ -838,14 +860,21 @@ var kCFCoreFoundationVersionNumber_iOS_7_1: Double { get }
 var kCFCoreFoundationVersionNumber_iOS_8_0: Double { get }
 var kCFCoreFoundationVersionNumber_iOS_8_1: Double { get }
 var kCFCoreFoundationVersionNumber_iOS_8_2: Double { get }
+var kCFCoreFoundationVersionNumber_iOS_8_3: Double { get }
+var kCFCoreFoundationVersionNumber_iOS_8_4: Double { get }
 typealias CFTypeID = UInt
 typealias CFOptionFlags = UInt
 typealias CFHashCode = UInt
 typealias CFIndex = Int
 typealias CFTypeRef = AnyObject
+class CFString {
+}
 typealias CFStringRef = CFString
 typealias CFMutableStringRef = CFMutableString
+class CFMutableString {
+}
 typealias CFPropertyListRef = CFPropertyList
+typealias CFPropertyList = CFTypeRef
 enum CFComparisonResult : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
@@ -863,9 +892,13 @@ struct CFRange {
 }
 func CFRangeMake(loc: CFIndex, _ len: CFIndex) -> CFRange
 func __CFRangeMake(loc: CFIndex, _ len: CFIndex) -> CFRange
+class CFNull {
+}
 typealias CFNullRef = CFNull
 func CFNullGetTypeID() -> CFTypeID
 let kCFNull: CFNull!
+class CFAllocator {
+}
 typealias CFAllocatorRef = CFAllocator
 let kCFAllocatorDefault: CFAllocator!
 let kCFAllocatorSystemDefault: CFAllocator!
@@ -969,6 +1002,13 @@ let kCFStringBinaryHeapCallBacks: CFBinaryHeapCallBacks
 		function.
 */
 typealias CFBinaryHeapApplierFunction = @convention(c) (UnsafePointer<Void>, UnsafeMutablePointer<Void>) -> Void
+
+/*!
+	@typedef CFBinaryHeapRef
+	This is the type of a reference to CFBinaryHeaps.
+*/
+class CFBinaryHeap {
+}
 
 /*!
 	@typedef CFBinaryHeapRef
@@ -1179,8 +1219,12 @@ func CFBinaryHeapRemoveMinimumValue(heap: CFBinaryHeap!)
 */
 func CFBinaryHeapRemoveAllValues(heap: CFBinaryHeap!)
 typealias CFBit = UInt32
+class CFBitVector {
+}
 typealias CFBitVectorRef = CFBitVector
 typealias CFMutableBitVectorRef = CFMutableBitVector
+class CFMutableBitVector {
+}
 func CFBitVectorGetTypeID() -> CFTypeID
 func CFBitVectorCreate(allocator: CFAllocator!, _ bytes: UnsafePointer<UInt8>, _ numBits: CFIndex) -> CFBitVector!
 func CFBitVectorCreateCopy(allocator: CFAllocator!, _ bv: CFBitVector!) -> CFBitVector!
@@ -1199,8 +1243,12 @@ func CFBitVectorFlipBits(bv: CFMutableBitVector!, _ range: CFRange)
 func CFBitVectorSetBitAtIndex(bv: CFMutableBitVector!, _ idx: CFIndex, _ value: CFBit)
 func CFBitVectorSetBits(bv: CFMutableBitVector!, _ range: CFRange, _ value: CFBit)
 func CFBitVectorSetAllBits(bv: CFMutableBitVector!, _ value: CFBit)
+class CFBundle {
+}
 typealias CFBundleRef = CFBundle
 typealias CFPlugInRef = CFPlugIn
+class CFPlugIn {
+}
 let kCFBundleInfoDictionaryVersionKey: CFString!
 let kCFBundleExecutableKey: CFString!
 let kCFBundleIdentifierKey: CFString!
@@ -1311,6 +1359,8 @@ func CFConvertFloatHostToSwapped(arg: Float) -> CFSwappedFloat32
 func CFConvertFloatSwappedToHost(arg: CFSwappedFloat32) -> Float
 func CFConvertDoubleHostToSwapped(arg: Double) -> CFSwappedFloat64
 func CFConvertDoubleSwappedToHost(arg: CFSwappedFloat64) -> Double
+class CFCalendar {
+}
 typealias CFCalendarRef = CFCalendar
 func CFCalendarGetTypeID() -> CFTypeID
 func CFCalendarCopyCurrent() -> CFCalendar!
@@ -1359,6 +1409,13 @@ var kCFCalendarComponentsWrap: CFOptionFlags { get }
 	@typedef CFCharacterSetRef
 	This is the type of a reference to immutable CFCharacterSets.
 */
+class CFCharacterSet {
+}
+
+/*!
+	@typedef CFCharacterSetRef
+	This is the type of a reference to immutable CFCharacterSets.
+*/
 typealias CFCharacterSetRef = CFCharacterSet
 
 /*!
@@ -1366,6 +1423,13 @@ typealias CFCharacterSetRef = CFCharacterSet
 	This is the type of a reference to mutable CFMutableCharacterSets.
 */
 typealias CFMutableCharacterSetRef = CFMutableCharacterSet
+
+/*!
+	@typedef CFMutableCharacterSetRef
+	This is the type of a reference to mutable CFMutableCharacterSets.
+*/
+class CFMutableCharacterSet {
+}
 
 /*!
 	@typedef CFCharacterSetPredefinedSet
@@ -1677,8 +1741,12 @@ func CFCharacterSetIntersect(theSet: CFMutableCharacterSet!, _ theOtherSet: CFCh
                 the behavior is undefined.
 */
 func CFCharacterSetInvert(theSet: CFMutableCharacterSet!)
+class CFData {
+}
 typealias CFDataRef = CFData
 typealias CFMutableDataRef = CFMutableData
+class CFMutableData {
+}
 func CFDataGetTypeID() -> CFTypeID
 func CFDataCreate(allocator: CFAllocator!, _ bytes: UnsafePointer<UInt8>, _ length: CFIndex) -> CFData!
 func CFDataCreateWithBytesNoCopy(allocator: CFAllocator!, _ bytes: UnsafePointer<UInt8>, _ length: CFIndex, _ bytesDeallocator: CFAllocator!) -> CFData!
@@ -1709,12 +1777,16 @@ func CFAbsoluteTimeGetCurrent() -> CFAbsoluteTime
 let kCFAbsoluteTimeIntervalSince1970: CFTimeInterval
 let kCFAbsoluteTimeIntervalSince1904: CFTimeInterval
 typealias CFDateRef = CFDate
+class CFDate {
+}
 func CFDateGetTypeID() -> CFTypeID
 func CFDateCreate(allocator: CFAllocator!, _ at: CFAbsoluteTime) -> CFDate!
 func CFDateGetAbsoluteTime(theDate: CFDate!) -> CFAbsoluteTime
 func CFDateGetTimeIntervalSinceDate(theDate: CFDate!, _ otherDate: CFDate!) -> CFTimeInterval
 func CFDateCompare(theDate: CFDate!, _ otherDate: CFDate!, _ context: UnsafeMutablePointer<Void>) -> CFComparisonResult
 typealias CFTimeZoneRef = CFTimeZone
+class CFTimeZone {
+}
 @available(tvOS, introduced=2.0, deprecated=8.0, message="Use CFCalendar or NSCalendar API instead")
 struct CFGregorianDate {
   var year: Int32
@@ -1771,6 +1843,8 @@ func CFAbsoluteTimeGetDayOfWeek(at: CFAbsoluteTime, _ tz: CFTimeZone!) -> Int32
 func CFAbsoluteTimeGetDayOfYear(at: CFAbsoluteTime, _ tz: CFTimeZone!) -> Int32
 @available(tvOS, introduced=2.0, deprecated=8.0, message="Use CFCalendar or NSCalendar API instead")
 func CFAbsoluteTimeGetWeekOfYear(at: CFAbsoluteTime, _ tz: CFTimeZone!) -> Int32
+class CFDateFormatter {
+}
 typealias CFDateFormatterRef = CFDateFormatter
 @available(tvOS 4.0, *)
 func CFDateFormatterCreateDateFormatFromTemplate(allocator: CFAllocator!, _ tmplate: CFString!, _ options: CFOptionFlags, _ locale: CFLocale!) -> CFString!
@@ -1956,7 +2030,21 @@ typealias CFDictionaryApplierFunction = @convention(c) (UnsafePointer<Void>, Uns
 	@typedef CFDictionaryRef
 	This is the type of a reference to immutable CFDictionarys.
 */
+class CFDictionary {
+}
+
+/*!
+	@typedef CFDictionaryRef
+	This is the type of a reference to immutable CFDictionarys.
+*/
 typealias CFDictionaryRef = CFDictionary
+
+/*!
+	@typedef CFMutableDictionaryRef
+	This is the type of a reference to mutable CFDictionarys.
+*/
+class CFMutableDictionary {
+}
 
 /*!
 	@typedef CFMutableDictionaryRef
@@ -2425,6 +2513,13 @@ func CFDictionaryRemoveAllValues(theDict: CFMutableDictionary!)
 	@typedef CFErrorRef
 	    This is the type of a reference to CFErrors.  CFErrorRef is toll-free bridged with NSError.
 */
+class CFError {
+}
+
+/*!
+	@typedef CFErrorRef
+	    This is the type of a reference to CFErrors.  CFErrorRef is toll-free bridged with NSError.
+*/
 typealias CFErrorRef = CFError
 
 /*!
@@ -2551,6 +2646,8 @@ func CFErrorCopyFailureReason(err: CFError!) -> CFString!
 @available(tvOS 2.0, *)
 func CFErrorCopyRecoverySuggestion(err: CFError!) -> CFString!
 typealias CFFileDescriptorNativeDescriptor = Int32
+class CFFileDescriptor {
+}
 typealias CFFileDescriptorRef = CFFileDescriptor
 var kCFFileDescriptorReadCallBack: CFOptionFlags { get }
 var kCFFileDescriptorWriteCallBack: CFOptionFlags { get }
@@ -2583,6 +2680,8 @@ func CFFileDescriptorIsValid(f: CFFileDescriptor!) -> Bool
 @available(tvOS 2.0, *)
 func CFFileDescriptorCreateRunLoopSource(allocator: CFAllocator!, _ f: CFFileDescriptor!, _ order: CFIndex) -> CFRunLoopSource!
 var __COREFOUNDATION_CFFILESECURITY__: Int32 { get }
+class CFFileSecurity {
+}
 typealias CFFileSecurityRef = CFFileSecurity
 @available(tvOS 5.0, *)
 func CFFileSecurityGetTypeID() -> CFTypeID
@@ -2627,6 +2726,8 @@ struct CFFileSecurityClearOptions : OptionSetType {
 }
 @available(tvOS 6.0, *)
 func CFFileSecurityClearProperties(fileSec: CFFileSecurity!, _ clearPropertyMask: CFFileSecurityClearOptions) -> Bool
+class CFLocale {
+}
 typealias CFLocaleRef = CFLocale
 func CFLocaleGetTypeID() -> CFTypeID
 func CFLocaleGetSystem() -> CFLocale!
@@ -2712,6 +2813,8 @@ let kCFISO8601Calendar: CFString!
 let kCFIslamicTabularCalendar: CFString!
 @available(tvOS 8.0, *)
 let kCFIslamicUmmAlQuraCalendar: CFString!
+class CFMachPort {
+}
 typealias CFMachPortRef = CFMachPort
 struct CFMachPortContext {
   var version: CFIndex
@@ -2734,6 +2837,8 @@ func CFMachPortIsValid(port: CFMachPort!) -> Bool
 func CFMachPortGetInvalidationCallBack(port: CFMachPort!) -> CFMachPortInvalidationCallBack!
 func CFMachPortSetInvalidationCallBack(port: CFMachPort!, _ callout: CFMachPortInvalidationCallBack!)
 func CFMachPortCreateRunLoopSource(allocator: CFAllocator!, _ port: CFMachPort!, _ order: CFIndex) -> CFRunLoopSource!
+class CFMessagePort {
+}
 typealias CFMessagePortRef = CFMessagePort
 var kCFMessagePortSuccess: Int32 { get }
 var kCFMessagePortSendTimeout: Int32 { get }
@@ -2767,6 +2872,8 @@ func CFMessagePortSendRequest(remote: CFMessagePort!, _ msgid: Int32, _ data: CF
 func CFMessagePortCreateRunLoopSource(allocator: CFAllocator!, _ local: CFMessagePort!, _ order: CFIndex) -> CFRunLoopSource!
 @available(tvOS 4.0, *)
 func CFMessagePortSetDispatchQueue(ms: CFMessagePort!, _ queue: dispatch_queue_t!)
+class CFNotificationCenter {
+}
 typealias CFNotificationCenterRef = CFNotificationCenter
 typealias CFNotificationCallback = @convention(c) (CFNotificationCenter!, UnsafeMutablePointer<Void>, CFString!, UnsafePointer<Void>, CFDictionary!) -> Void
 enum CFNotificationSuspensionBehavior : CFIndex {
@@ -2787,6 +2894,8 @@ func CFNotificationCenterPostNotification(center: CFNotificationCenter!, _ name:
 var kCFNotificationDeliverImmediately: CFOptionFlags { get }
 var kCFNotificationPostToAllSessions: CFOptionFlags { get }
 func CFNotificationCenterPostNotificationWithOptions(center: CFNotificationCenter!, _ name: CFString!, _ object: UnsafePointer<Void>, _ userInfo: CFDictionary!, _ options: CFOptionFlags)
+class CFBoolean {
+}
 typealias CFBooleanRef = CFBoolean
 let kCFBooleanTrue: CFBoolean!
 let kCFBooleanFalse: CFBoolean!
@@ -2815,6 +2924,8 @@ enum CFNumberType : CFIndex {
   case CGFloatType
   static var MaxType: CFNumberType { get }
 }
+class CFNumber {
+}
 typealias CFNumberRef = CFNumber
 let kCFNumberPositiveInfinity: CFNumber!
 let kCFNumberNegativeInfinity: CFNumber!
@@ -2826,6 +2937,8 @@ func CFNumberGetByteSize(number: CFNumber!) -> CFIndex
 func CFNumberIsFloatType(number: CFNumber!) -> Bool
 func CFNumberGetValue(number: CFNumber!, _ theType: CFNumberType, _ valuePtr: UnsafeMutablePointer<Void>) -> Bool
 func CFNumberCompare(number: CFNumber!, _ otherNumber: CFNumber!, _ context: UnsafeMutablePointer<Void>) -> CFComparisonResult
+class CFNumberFormatter {
+}
 typealias CFNumberFormatterRef = CFNumberFormatter
 func CFNumberFormatterGetTypeID() -> CFTypeID
 enum CFNumberFormatterStyle : CFIndex {
@@ -2942,7 +3055,7 @@ func CFPlugInIsLoadOnDemand(plugIn: CFPlugIn!) -> Bool
 func CFPlugInFindFactoriesForPlugInType(typeUUID: CFUUID!) -> CFArray!
 func CFPlugInFindFactoriesForPlugInTypeInPlugIn(typeUUID: CFUUID!, _ plugIn: CFPlugIn!) -> CFArray!
 func CFPlugInInstanceCreate(allocator: CFAllocator!, _ factoryUUID: CFUUID!, _ typeUUID: CFUUID!) -> UnsafeMutablePointer<Void>
-func CFPlugInRegisterFactoryFunction(factoryUUID: CFUUID!, _ `func`: CFPlugInFactoryFunction!) -> Bool
+func CFPlugInRegisterFactoryFunction(factoryUUID: CFUUID!, _ func: CFPlugInFactoryFunction!) -> Bool
 func CFPlugInRegisterFactoryFunctionByName(factoryUUID: CFUUID!, _ plugIn: CFPlugIn!, _ functionName: CFString!) -> Bool
 func CFPlugInUnregisterFactory(factoryUUID: CFUUID!) -> Bool
 func CFPlugInRegisterPlugInType(factoryUUID: CFUUID!, _ typeUUID: CFUUID!) -> Bool
@@ -2950,6 +3063,8 @@ func CFPlugInUnregisterPlugInType(factoryUUID: CFUUID!, _ typeUUID: CFUUID!) -> 
 func CFPlugInAddInstanceForFactory(factoryID: CFUUID!)
 func CFPlugInRemoveInstanceForFactory(factoryID: CFUUID!)
 typealias CFPlugInInstanceRef = CFPlugInInstance
+class CFPlugInInstance {
+}
 typealias CFPlugInInstanceGetInterfaceFunction = @convention(c) (CFPlugInInstance!, CFString!, UnsafeMutablePointer<UnsafeMutablePointer<Void>>) -> DarwinBoolean
 typealias CFPlugInInstanceDeallocateInstanceDataFunction = @convention(c) (UnsafeMutablePointer<Void>) -> Void
 func CFPlugInInstanceGetInterfaceFunctionTable(instance: CFPlugInInstance!, _ interfaceName: CFString!, _ ftbl: UnsafeMutablePointer<UnsafeMutablePointer<Void>>) -> Bool
@@ -3013,9 +3128,17 @@ func CFPropertyListCreateWithStream(allocator: CFAllocator!, _ stream: CFReadStr
 func CFPropertyListWrite(propertyList: CFPropertyList!, _ stream: CFWriteStream!, _ format: CFPropertyListFormat, _ options: CFOptionFlags, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> CFIndex
 @available(tvOS 4.0, *)
 func CFPropertyListCreateData(allocator: CFAllocator!, _ propertyList: CFPropertyList!, _ format: CFPropertyListFormat, _ options: CFOptionFlags, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Unmanaged<CFData>!
+class CFRunLoop {
+}
 typealias CFRunLoopRef = CFRunLoop
+class CFRunLoopSource {
+}
 typealias CFRunLoopSourceRef = CFRunLoopSource
+class CFRunLoopObserver {
+}
 typealias CFRunLoopObserverRef = CFRunLoopObserver
+class CFRunLoopTimer {
+}
 typealias CFRunLoopTimerRef = CFRunLoopTimer
 enum CFRunLoopRunResult : Int32 {
   init?(rawValue: Int32)
@@ -3250,7 +3373,21 @@ typealias CFSetApplierFunction = @convention(c) (UnsafePointer<Void>, UnsafeMuta
         @typedef CFSetRef
 	This is the type of a reference to immutable CFSets.
 */
+class CFSet {
+}
+
+/*!
+        @typedef CFSetRef
+	This is the type of a reference to immutable CFSets.
+*/
 typealias CFSetRef = CFSet
+
+/*!
+        @typedef CFMutableSetRef
+	This is the type of a reference to mutable CFSets.
+*/
+class CFMutableSet {
+}
 
 /*!
         @typedef CFMutableSetRef
@@ -3589,6 +3726,8 @@ func CFSetRemoveValue(theSet: CFMutableSet!, _ value: UnsafePointer<Void>)
 		the behavior is undefined.
 */
 func CFSetRemoveAllValues(theSet: CFMutableSet!)
+class CFSocket {
+}
 typealias CFSocketRef = CFSocket
 enum CFSocketError : CFIndex {
   init?(rawValue: CFIndex)
@@ -3603,7 +3742,7 @@ struct CFSocketSignature {
   var `protocol`: Int32
   var address: Unmanaged<CFData>!
   init()
-  init(protocolFamily: Int32, socketType: Int32, `protocol`: Int32, address: Unmanaged<CFData>!)
+  init(protocolFamily: Int32, socketType: Int32, protocol: Int32, address: Unmanaged<CFData>!)
 }
 struct CFSocketCallBackType : OptionSetType {
   init(rawValue: CFOptionFlags)
@@ -3634,7 +3773,7 @@ struct CFSocketContext {
 }
 typealias CFSocketNativeHandle = Int32
 func CFSocketGetTypeID() -> CFTypeID
-func CFSocketCreate(allocator: CFAllocator!, _ protocolFamily: Int32, _ socketType: Int32, _ `protocol`: Int32, _ callBackTypes: CFOptionFlags, _ callout: CFSocketCallBack!, _ context: UnsafePointer<CFSocketContext>) -> CFSocket!
+func CFSocketCreate(allocator: CFAllocator!, _ protocolFamily: Int32, _ socketType: Int32, _ protocol: Int32, _ callBackTypes: CFOptionFlags, _ callout: CFSocketCallBack!, _ context: UnsafePointer<CFSocketContext>) -> CFSocket!
 func CFSocketCreateWithNative(allocator: CFAllocator!, _ sock: CFSocketNativeHandle, _ callBackTypes: CFOptionFlags, _ callout: CFSocketCallBack!, _ context: UnsafePointer<CFSocketContext>) -> CFSocket!
 func CFSocketCreateWithSocketSignature(allocator: CFAllocator!, _ signature: UnsafePointer<CFSocketSignature>, _ callBackTypes: CFOptionFlags, _ callout: CFSocketCallBack!, _ context: UnsafePointer<CFSocketContext>) -> CFSocket!
 func CFSocketCreateConnectedToSocketSignature(allocator: CFAllocator!, _ signature: UnsafePointer<CFSocketSignature>, _ callBackTypes: CFOptionFlags, _ callout: CFSocketCallBack!, _ context: UnsafePointer<CFSocketContext>, _ timeout: CFTimeInterval) -> CFSocket!
@@ -3697,8 +3836,12 @@ struct CFStreamClientContext {
   init()
   init(version: CFIndex, info: UnsafeMutablePointer<Void>, retain: (@convention(c) (UnsafeMutablePointer<Void>) -> UnsafeMutablePointer<Void>)!, release: (@convention(c) (UnsafeMutablePointer<Void>) -> Void)!, copyDescription: (@convention(c) (UnsafeMutablePointer<Void>) -> Unmanaged<CFString>!)!)
 }
+class CFReadStream {
+}
 typealias CFReadStreamRef = CFReadStream
 typealias CFWriteStreamRef = CFWriteStream
+class CFWriteStream {
+}
 typealias CFReadStreamClientCallBack = @convention(c) (CFReadStream!, CFStreamEventType, UnsafeMutablePointer<Void>) -> Void
 typealias CFWriteStreamClientCallBack = @convention(c) (CFWriteStream!, CFStreamEventType, UnsafeMutablePointer<Void>) -> Void
 func CFReadStreamGetTypeID() -> CFTypeID
@@ -4217,6 +4360,8 @@ enum CFStringEncodings : CFIndex {
 @available(tvOS 3.0, *)
 func CFStringTokenizerCopyBestStringLanguage(string: CFString!, _ range: CFRange) -> CFString!
 typealias CFStringTokenizerRef = CFStringTokenizer
+class CFStringTokenizer {
+}
 
 /*!
   Tokenization Unit
@@ -4555,6 +4700,13 @@ typealias CFTreeApplierFunction = @convention(c) (UnsafePointer<Void>, UnsafeMut
         @typedef CFTreeRef
         This is the type of a reference to CFTrees.
 */
+class CFTree {
+}
+
+/*!
+        @typedef CFTreeRef
+        This is the type of a reference to CFTrees.
+*/
 typealias CFTreeRef = CFTree
 
 /*!
@@ -4778,6 +4930,8 @@ enum CFURLPathStyle : CFIndex {
   case CFURLPOSIXPathStyle
   case CFURLWindowsPathStyle
 }
+class CFURL {
+}
 typealias CFURLRef = CFURL
 func CFURLGetTypeID() -> CFTypeID
 func CFURLCreateWithBytes(allocator: CFAllocator!, _ URLBytes: UnsafePointer<UInt8>, _ length: CFIndex, _ encoding: CFStringEncoding, _ baseURL: CFURL!) -> CFURL!
@@ -4811,7 +4965,7 @@ func CFURLCopyLastPathComponent(url: CFURL!) -> CFString!
 func CFURLCopyPathExtension(url: CFURL!) -> CFString!
 func CFURLCreateCopyAppendingPathComponent(allocator: CFAllocator!, _ url: CFURL!, _ pathComponent: CFString!, _ isDirectory: Bool) -> CFURL!
 func CFURLCreateCopyDeletingLastPathComponent(allocator: CFAllocator!, _ url: CFURL!) -> CFURL!
-func CFURLCreateCopyAppendingPathExtension(allocator: CFAllocator!, _ url: CFURL!, _ `extension`: CFString!) -> CFURL!
+func CFURLCreateCopyAppendingPathExtension(allocator: CFAllocator!, _ url: CFURL!, _ extension: CFString!) -> CFURL!
 func CFURLCreateCopyDeletingPathExtension(allocator: CFAllocator!, _ url: CFURL!) -> CFURL!
 func CFURLGetBytes(url: CFURL!, _ buffer: UnsafeMutablePointer<UInt8>, _ bufferLength: CFIndex) -> CFIndex
 enum CFURLComponentType : CFIndex {
@@ -5094,6 +5248,8 @@ func CFURLStartAccessingSecurityScopedResource(url: CFURL!) -> Bool
 @available(tvOS 8.0, *)
 func CFURLStopAccessingSecurityScopedResource(url: CFURL!)
 var __COREFOUNDATION_CFURLENUMERATOR__: Int32 { get }
+class CFURLEnumerator {
+}
 typealias CFURLEnumeratorRef = CFURLEnumerator
 @available(tvOS 4.0, *)
 func CFURLEnumeratorGetTypeID() -> CFTypeID
@@ -5126,6 +5282,8 @@ func CFURLEnumeratorGetNextURL(enumerator: CFURLEnumerator!, _ url: UnsafeMutabl
 func CFURLEnumeratorSkipDescendents(enumerator: CFURLEnumerator!)
 @available(tvOS 4.0, *)
 func CFURLEnumeratorGetDescendentLevel(enumerator: CFURLEnumerator!) -> CFIndex
+class CFUUID {
+}
 typealias CFUUIDRef = CFUUID
 struct CFUUIDBytes {
   var byte0: UInt8

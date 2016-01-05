@@ -318,7 +318,7 @@ extension LAError : _BridgedNSError {
 }
 
 /// LocalAuthentication error domain.
-@available(iOS 8.0, *)
+@available(iOS 8.3, *)
 let LAErrorDomain: String
 var kLAPolicyDeviceOwnerAuthenticationWithBiometrics: Int32 { get }
 var kLAPolicyDeviceOwnerAuthentication: Int32 { get }

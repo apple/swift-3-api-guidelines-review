@@ -639,6 +639,22 @@ let kVTCompressionPropertyKey_MultiPassStorage: CFString
 typealias VTCompressionSessionRef = VTCompressionSession
 
 /*!
+	@typedef	VTCompressionSessionRef
+	@abstract	A reference to a Video Toolbox Compression Session.
+	@discussion
+		A compression session supports the compression of a sequence of video frames.
+		The session reference is a reference-counted CF object.
+		To create a compression session, call VTCompressionSessionCreate; 
+		then you can optionally configure the session using VTSessionSetProperty;
+		then to encode frames, call VTCompressionSessionEncodeFrame.
+		To force completion of some or all pending frames, call VTCompressionSessionCompleteFrames.
+		When you are done with the session, you should call VTCompressionSessionInvalidate
+		to tear it down and CFRelease to release your object reference.
+ */
+class VTCompressionSession {
+}
+
+/*!
 	@typedef	VTCompressionOutputCallback
     @abstract   Prototype for callback invoked when frame compression is complete.
     @discussion 
@@ -1256,6 +1272,21 @@ let kVTDecompressionPropertyKey_PixelTransferProperties: CFString
 		When you are done with the session, you should call VTDecompressionSessionInvalidate
 		to tear it down and CFRelease to release your object reference.
  */
+class VTDecompressionSession {
+}
+
+/*!
+	@typedef	VTDecompressionSessionRef
+	@abstract	A reference to a Video Toolbox Decompression Session.
+	@discussion
+		A decompression session supports the decompression of a sequence of video frames.
+		The session reference is a reference-counted CF object.
+		To create a decompression session, call VTDecompressionSessionCreate; 
+		then you can optionally configure the session using VTSessionSetProperty;
+		then to decode frames, call VTDecompressionSessionDecodeFrame.
+		When you are done with the session, you should call VTDecompressionSessionInvalidate
+		to tear it down and CFRelease to release your object reference.
+ */
 typealias VTDecompressionSessionRef = VTDecompressionSession
 
 /*!
@@ -1559,6 +1590,22 @@ struct VTEncodeInfoFlags : OptionSetType {
 		The VTFrameSilo may write sample buffers and data to the backing file between addition and retrieval; 
 		do not expect to get identical object pointers back.
 */
+class VTFrameSilo {
+}
+
+/*!
+	@typedef	VTFrameSilo
+	@abstract	A VTFrameSilo stores a large number of sample buffers, as produced by a multi-pass compression session.
+	@discussion
+		The sample buffers are ordered by decode timestamp. 
+		A VTFrameSilo starts out empty and is populated by calls to VTFrameSiloAddSampleBuffer to add sample buffers in ascending decode order.
+		After the first full pass, additional passes may be performed to replace sample buffers.
+		Each such pass must begin with a call to VTFrameSiloSetTimeRangesForNextPass, which takes a list of time ranges.
+		Samples in these time ranges are deleted, and calls to VTFrameSiloAddSampleBuffer can then be made to provide replacements.
+		Call VTFrameSiloCallFunctionForEachSampleBuffer or VTFrameSiloCallBlockForEachSampleBuffer to retrieve sample buffers.
+		The VTFrameSilo may write sample buffers and data to the backing file between addition and retrieval; 
+		do not expect to get identical object pointers back.
+*/
 typealias VTFrameSiloRef = VTFrameSilo
 @available(OSX 10.10, *)
 func VTFrameSiloGetTypeID() -> CFTypeID
@@ -1659,6 +1706,16 @@ func VTFrameSiloCallFunctionForEachSampleBuffer(silo: VTFrameSilo, _ timeRange: 
 */
 @available(OSX 10.10, *)
 func VTFrameSiloCallBlockForEachSampleBuffer(silo: VTFrameSilo, _ timeRange: CMTimeRange, _ handler: (CMSampleBuffer) -> OSStatus) -> OSStatus
+
+/*!
+	@typedef	VTMultiPassStorageRef
+	@abstract	A mechanism for storing information for each frame of a multi-pass compression session.
+	@discussion
+		VTMultiPassStorageRef is a CF type, so call CFRelease and CFRetain to manage objects of this type.
+		The data stored in the VTMultiPassStorage is private to the video encoder.
+*/
+class VTMultiPassStorage {
+}
 
 /*!
 	@typedef	VTMultiPassStorageRef
@@ -1859,6 +1916,22 @@ let kVTPixelTransferPropertyKey_DestinationYCbCrMatrix: CFString
 		When you are done with the session, you should call VTPixelTransferSessionInvalidate
 		to tear it down and CFRelease to release your object reference.
  */
+class VTPixelTransferSession {
+}
+
+/*!
+	@typedef	VTPixelTransferSessionRef
+	@abstract	A reference to a Video Toolbox Pixel Transfer Session.
+	@discussion
+		A pixel transfer session supports the copying and/or conversion of 
+		images from source CVPixelBuffers to destination CVPixelBuffers.
+		The session reference is a reference-counted CF object.
+		To create a pixel transfer session, call VTPixelTransferSessionCreate; 
+		then you can optionally configure the session using VTSessionSetProperty;
+		then to transfer pixels, call VTPixelTransferSessionTransferImage.
+		When you are done with the session, you should call VTPixelTransferSessionInvalidate
+		to tear it down and CFRelease to release your object reference.
+ */
 typealias VTPixelTransferSessionRef = VTPixelTransferSession
 
 /*!
@@ -1932,6 +2005,13 @@ func VTRegisterProfessionalVideoWorkflowVideoDecoders()
 */
 @available(OSX 10.10, *)
 func VTRegisterProfessionalVideoWorkflowVideoEncoders()
+
+/*!
+	@typedef	VTSessionRef
+	@abstract	A reference to either a Video Toolbox Decompression Session, 
+				Compression Session or Pixel Transfer Session.
+ */
+typealias VTSession = CFTypeRef
 
 /*!
 	@typedef	VTSessionRef

@@ -77,6 +77,8 @@ enum NSWritingDirectionFormatType : Int {
 }
 @available(watchOS 2.0, *)
 let NSTextEffectLetterpressStyle: String
+
+/************************ Attribute fixing ************************/
 extension NSMutableAttributedString {
   @available(watchOS 2.0, *)
   func fixAttributesIn(range: NSRange)
@@ -137,6 +139,8 @@ extension NSMutableAttributedString {
   @available(watchOS 2.0, *)
   func readFrom(data: NSData, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
+
+/************************ Misc methods ************************/
 extension NSAttributedString {
   @available(watchOS 2.0, *)
   func containsAttachmentsIn(range: NSRange) -> Bool
@@ -265,14 +269,6 @@ extension NSString {
   @available(watchOS 2.0, *)
   func drawIn(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
 }
-extension NSString {
-  @available(watchOS 2.0, *)
-  func sizeWithAttributes(attrs: [String : AnyObject]?) -> CGSize
-  @available(watchOS 2.0, *)
-  func drawAt(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
-  @available(watchOS 2.0, *)
-  func drawIn(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
-}
 extension NSAttributedString {
   @available(watchOS 2.0, *)
   func size() -> CGSize
@@ -297,18 +293,14 @@ extension NSString {
   @available(watchOS 2.0, *)
   func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
 }
-extension NSString {
-  @available(watchOS 2.0, *)
-  func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
-  @available(watchOS 2.0, *)
-  func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
-}
 extension NSAttributedString {
   @available(watchOS 2.0, *)
   func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?)
   @available(watchOS 2.0, *)
   func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?) -> CGRect
 }
+
+/************************ Deprecated ************************/
 extension NSStringDrawingContext {
   @available(watchOS, introduced=2.0, deprecated=2.0)
   var minimumTrackingAdjustment: CGFloat

@@ -73,6 +73,8 @@ func CGBitmapContextGetAlphaInfo(context: CGContext?) -> CGImageAlphaInfo
 func CGBitmapContextGetBitmapInfo(context: CGContext?) -> CGBitmapInfo
 @available(watchOS 2.0, *)
 func CGBitmapContextCreateImage(context: CGContext?) -> CGImage?
+class CGColor {
+}
 typealias CGColorRef = CGColor
 @available(watchOS 2.0, *)
 func CGColorCreate(space: CGColorSpace?, _ components: UnsafePointer<CGFloat>) -> CGColor?
@@ -98,6 +100,8 @@ func CGColorGetColorSpace(color: CGColor?) -> CGColorSpace?
 func CGColorGetPattern(color: CGColor?) -> CGPattern?
 @available(watchOS 2.0, *)
 func CGColorGetTypeID() -> CFTypeID
+class CGColorSpace {
+}
 typealias CGColorSpaceRef = CGColorSpace
 enum CGColorRenderingIntent : Int32 {
   init?(rawValue: Int32)
@@ -182,6 +186,8 @@ func CGColorSpaceGetColorTableCount(space: CGColorSpace?) -> Int
 func CGColorSpaceGetColorTable(space: CGColorSpace?, _ table: UnsafeMutablePointer<UInt8>)
 @available(watchOS 2.0, *)
 func CGColorSpaceCopyICCProfile(space: CGColorSpace?) -> CFData?
+class CGContext {
+}
 typealias CGContextRef = CGContext
 enum CGPathDrawingMode : Int32 {
   init?(rawValue: Int32)
@@ -528,6 +534,8 @@ func CGContextShowGlyphs(c: CGContext?, _ g: UnsafePointer<CGGlyph>, _ count: In
 func CGContextShowGlyphsAtPoint(c: CGContext?, _ x: CGFloat, _ y: CGFloat, _ glyphs: UnsafePointer<CGGlyph>, _ count: Int)
 @available(watchOS, introduced=2.0, deprecated=2.0)
 func CGContextShowGlyphsWithAdvances(c: CGContext?, _ glyphs: UnsafePointer<CGGlyph>, _ advances: UnsafePointer<CGSize>, _ count: Int)
+class CGDataConsumer {
+}
 typealias CGDataConsumerRef = CGDataConsumer
 typealias CGDataConsumerPutBytesCallback = @convention(c) (UnsafeMutablePointer<Void>, UnsafePointer<Void>, Int) -> Int
 typealias CGDataConsumerReleaseInfoCallback = @convention(c) (UnsafeMutablePointer<Void>) -> Void
@@ -545,6 +553,8 @@ func CGDataConsumerCreate(info: UnsafeMutablePointer<Void>, _ cbks: UnsafePointe
 func CGDataConsumerCreateWithURL(url: CFURL?) -> CGDataConsumer?
 @available(watchOS 2.0, *)
 func CGDataConsumerCreateWithCFData(data: CFMutableData?) -> CGDataConsumer?
+class CGDataProvider {
+}
 typealias CGDataProviderRef = CGDataProvider
 typealias CGDataProviderGetBytesCallback = @convention(c) (UnsafeMutablePointer<Void>, UnsafeMutablePointer<Void>, Int) -> Int
 typealias CGDataProviderSkipForwardCallback = @convention(c) (UnsafeMutablePointer<Void>, off_t) -> off_t
@@ -602,6 +612,8 @@ enum CGError : Int32 {
   case TypeCheck
   case InvalidOperation
   case NoneAvailable
+}
+class CGFont {
 }
 typealias CGFontRef = CGFont
 typealias CGFontIndex = UInt16
@@ -687,6 +699,8 @@ enum CGGlypDeprecatedEnum : Int32 {
   case GlyphMin
   @available(*, deprecated)
   case GlyphMax
+}
+class CGFunction {
 }
 typealias CGFunctionRef = CGFunction
 typealias CGFunctionEvaluateCallback = @convention(c) (UnsafeMutablePointer<Void>, UnsafePointer<CGFloat>, UnsafeMutablePointer<CGFloat>) -> Void
@@ -903,6 +917,8 @@ func CGVectorMake(dx: CGFloat, _ dy: CGFloat) -> CGVector
 func CGRectMake(x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect
 func __CGPointEqualToPoint(point1: CGPoint, _ point2: CGPoint) -> Bool
 func __CGSizeEqualToSize(size1: CGSize, _ size2: CGSize) -> Bool
+class CGGradient {
+}
 typealias CGGradientRef = CGGradient
 struct CGGradientDrawingOptions : OptionSetType {
   init(rawValue: UInt32)
@@ -916,6 +932,8 @@ func CGGradientGetTypeID() -> CFTypeID
 func CGGradientCreateWithColorComponents(space: CGColorSpace?, _ components: UnsafePointer<CGFloat>, _ locations: UnsafePointer<CGFloat>, _ count: Int) -> CGGradient?
 @available(watchOS 2.0, *)
 func CGGradientCreateWithColors(space: CGColorSpace?, _ colors: CFArray?, _ locations: UnsafePointer<CGFloat>) -> CGGradient?
+class CGImage {
+}
 typealias CGImageRef = CGImage
 enum CGImageAlphaInfo : UInt32 {
   init?(rawValue: UInt32)
@@ -990,6 +1008,8 @@ func CGImageGetRenderingIntent(image: CGImage?) -> CGColorRenderingIntent
 func CGImageGetBitmapInfo(image: CGImage?) -> CGBitmapInfo
 @available(watchOS 2.0, *)
 func CGImageGetUTType(image: CGImage?) -> CFString?
+class CGLayer {
+}
 typealias CGLayerRef = CGLayer
 @available(watchOS 2.0, *)
 func CGLayerCreateWithContext(context: CGContext?, _ size: CGSize, _ auxiliaryInfo: CFDictionary?) -> CGLayer?
@@ -1111,6 +1131,8 @@ func CGPDFDictionaryGetStream(dict: CGPDFDictionaryRef, _ key: UnsafePointer<Int
 typealias CGPDFDictionaryApplierFunction = @convention(c) (UnsafePointer<Int8>, CGPDFObjectRef, UnsafeMutablePointer<Void>) -> Void
 @available(watchOS 2.0, *)
 func CGPDFDictionaryApplyFunction(dict: CGPDFDictionaryRef, _ function: CGPDFDictionaryApplierFunction?, _ info: UnsafeMutablePointer<Void>)
+class CGPDFDocument {
+}
 typealias CGPDFDocumentRef = CGPDFDocument
 @available(watchOS 2.0, *)
 func CGPDFDocumentCreateWithProvider(provider: CGDataProvider?) -> CGPDFDocument?
@@ -1171,6 +1193,8 @@ func CGPDFOperatorTableRetain(table: CGPDFOperatorTableRef) -> CGPDFOperatorTabl
 func CGPDFOperatorTableRelease(table: CGPDFOperatorTableRef)
 @available(watchOS 2.0, *)
 func CGPDFOperatorTableSetCallback(table: CGPDFOperatorTableRef, _ name: UnsafePointer<Int8>, _ callback: CGPDFOperatorCallback?)
+class CGPDFPage {
+}
 typealias CGPDFPageRef = CGPDFPage
 enum CGPDFBox : Int32 {
   init?(rawValue: Int32)
@@ -1245,7 +1269,11 @@ func CGPDFStringGetBytePtr(string: CGPDFStringRef) -> UnsafePointer<UInt8>
 func CGPDFStringCopyTextString(string: CGPDFStringRef) -> CFString?
 @available(watchOS 2.0, *)
 func CGPDFStringCopyDate(string: CGPDFStringRef) -> CFDate?
+class CGMutablePath {
+}
 typealias CGMutablePathRef = CGMutablePath
+class CGPath {
+}
 typealias CGPathRef = CGPath
 enum CGLineJoin : Int32 {
   init?(rawValue: Int32)
@@ -1347,6 +1375,8 @@ struct CGPathElement {
 typealias CGPathApplierFunction = @convention(c) (UnsafeMutablePointer<Void>, UnsafePointer<CGPathElement>) -> Void
 @available(watchOS 2.0, *)
 func CGPathApply(path: CGPath?, _ info: UnsafeMutablePointer<Void>, _ function: CGPathApplierFunction?)
+class CGPattern {
+}
 typealias CGPatternRef = CGPattern
 enum CGPatternTiling : Int32 {
   init?(rawValue: Int32)
@@ -1368,6 +1398,8 @@ struct CGPatternCallbacks {
 func CGPatternGetTypeID() -> CFTypeID
 @available(watchOS 2.0, *)
 func CGPatternCreate(info: UnsafeMutablePointer<Void>, _ bounds: CGRect, _ matrix: CGAffineTransform, _ xStep: CGFloat, _ yStep: CGFloat, _ tiling: CGPatternTiling, _ isColored: Bool, _ callbacks: UnsafePointer<CGPatternCallbacks>) -> CGPattern?
+class CGShading {
+}
 typealias CGShadingRef = CGShading
 @available(watchOS 2.0, *)
 func CGShadingGetTypeID() -> CFTypeID

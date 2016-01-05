@@ -1,4 +1,5 @@
 
+typealias CMAttachmentBearer = CFTypeRef
 typealias CMAttachmentBearerRef = CMAttachmentBearer
 typealias CMAttachmentMode = UInt32
 var kCMAttachmentMode_ShouldNotPropagate: CMAttachmentMode { get }
@@ -158,6 +159,15 @@ var kCMBlockBufferAssureMemoryNowFlag: CMBlockBufferFlags { get }
 var kCMBlockBufferAlwaysCopyDataFlag: CMBlockBufferFlags { get }
 var kCMBlockBufferDontOptimizeDepthFlag: CMBlockBufferFlags { get }
 var kCMBlockBufferPermitEmptyReferenceFlag: CMBlockBufferFlags { get }
+
+/*!
+	@typedef CMBlockBufferRef
+	A reference to a CMBlockBuffer, a CF object that adheres to retain/release semantics. When CFRelease() is performed
+	on the last reference to the CMBlockBuffer, any referenced BlockBuffers are released and eligible memory blocks are
+	deallocated. These operations are recursive, so one release could result in many follow on releses.
+*/
+class CMBlockBuffer {
+}
 
 /*!
 	@typedef CMBlockBufferRef
@@ -554,6 +564,22 @@ var kCMBufferQueueError_InvalidBuffer: OSStatus { get }
 typealias CMBufferQueueRef = CMBufferQueue
 
 /*!
+	@typedef	CMBufferQueueRef
+	@abstract	A reference to a CMBufferQueue, a CF object that implements a queue of timed buffers.
+		
+*/
+class CMBufferQueue {
+}
+
+/*!
+	@typedef	CMBufferRef
+	@abstract	A reference to a CMBuffer.
+	@discussion	A CMBuffer can be any CFTypeRef, as long as a getDuration callback can be provided.  Commonly used
+				types are CMSampleBufferRef and CVPixelBufferRef.
+*/
+typealias CMBuffer = CFTypeRef
+
+/*!
 	@typedef	CMBufferRef
 	@abstract	A reference to a CMBuffer.
 	@discussion	A CMBuffer can be any CFTypeRef, as long as a getDuration callback can be provided.  Commonly used
@@ -897,6 +923,7 @@ typealias CMBufferQueueTriggerCallback = @convention(c) (UnsafeMutablePointer<Vo
 	@constant	kCMBufferQueueTrigger_WhenReset									Trigger fires when CMBufferQueueReset called.  (triggerTime is ignored.)
 	@constant	kCMBufferQueueTrigger_WhenBufferCountBecomesLessThan			Trigger fires when buffer count becomes < the specified threshold number.
 	@constant	kCMBufferQueueTrigger_WhenBufferCountBecomesGreaterThan			Trigger fires when buffer count becomes > the specified threshold number.
+	@constant	kCMBufferQueueTrigger_WhenDurationBecomesGreaterThanOrEqualToAndBufferCountBecomesGreaterThan	Trigger fires when queue duration becomes >= the specified duration and buffer count becomes > the specified threshold number.
 */
 typealias CMBufferQueueTriggerCondition = Int32
 var kCMBufferQueueTrigger_WhenDurationBecomesLessThan: CMBufferQueueTriggerCondition { get }
@@ -910,6 +937,7 @@ var kCMBufferQueueTrigger_WhenEndOfDataReached: CMBufferQueueTriggerCondition { 
 var kCMBufferQueueTrigger_WhenReset: CMBufferQueueTriggerCondition { get }
 var kCMBufferQueueTrigger_WhenBufferCountBecomesLessThan: CMBufferQueueTriggerCondition { get }
 var kCMBufferQueueTrigger_WhenBufferCountBecomesGreaterThan: CMBufferQueueTriggerCondition { get }
+var kCMBufferQueueTrigger_WhenDurationBecomesGreaterThanOrEqualToAndBufferCountBecomesGreaterThan: CMBufferQueueTriggerCondition { get }
 
 /*!
 	@function	CMBufferQueueInstallTrigger
@@ -985,6 +1013,13 @@ func CMBufferQueueSetValidationCallback(queue: CMBufferQueue, _ validationCallba
 var kCMFormatDescriptionError_InvalidParameter: OSStatus { get }
 var kCMFormatDescriptionError_AllocationFailed: OSStatus { get }
 var kCMFormatDescriptionError_ValueNotAvailable: OSStatus { get }
+
+/*!
+	@typedef	CMFormatDescriptionRef
+	@abstract	A reference to a CMFormatDescription, a CF object describing media of a particular type (audio, video, muxed, etc).
+*/
+class CMFormatDescription {
+}
 
 /*!
 	@typedef	CMFormatDescriptionRef
@@ -1181,6 +1216,12 @@ var kCMAudioCodecType_AAC_AudibleProtected: CMAudioCodecType { get }
 typealias CMAudioFormatDescriptionRef = CMAudioFormatDescription
 
 /*!
+	@typedef CMAudioFormatDescriptionRef
+	SYnonym type used for manipulating audio CMFormatDescriptions
+*/
+typealias CMAudioFormatDescription = CMFormatDescriptionRef
+
+/*!
 	@function	CMAudioFormatDescriptionCreate
 	@abstract	Creates a format description for an audio media stream.
 	@discussion	The ASBD is required, the channel layout is optional, and the magic cookie is required
@@ -1312,6 +1353,12 @@ func CMAudioFormatDescriptionEqual(desc1: CMAudioFormatDescription, _ desc2: CMA
 	Synonym type used for manipulating video CMFormatDescriptions
 */
 typealias CMVideoFormatDescriptionRef = CMVideoFormatDescription
+
+/*!
+	@typedef CMVideoFormatDescriptionRef
+	Synonym type used for manipulating video CMFormatDescriptions
+*/
+typealias CMVideoFormatDescription = CMFormatDescriptionRef
 
 /*!
 	@enum CMPixelFormatType
@@ -1705,6 +1752,12 @@ func CMVideoFormatDescriptionMatchesImageBuffer(desc: CMVideoFormatDescription, 
 typealias CMMuxedFormatDescriptionRef = CMMuxedFormatDescription
 
 /*!
+	@typedef CMMuxedFormatDescriptionRef
+	Synonym type used for manipulating muxed media CMFormatDescriptions
+*/
+typealias CMMuxedFormatDescription = CMFormatDescriptionRef
+
+/*!
 	@enum CMMuxedStreamType
 	@discussion Muxed media format/subtype.
 	@constant	kCMMuxedStreamType_MPEG1System	MPEG-1 System stream
@@ -1735,6 +1788,12 @@ func CMMuxedFormatDescriptionCreate(allocator: CFAllocator?, _ muxType: CMMuxedS
 	@typedef CMClosedCaptionFormatDescriptionRef
 	Synonym type used for manipulating closed-caption media CMFormatDescriptions
 */
+typealias CMClosedCaptionFormatDescription = CMFormatDescriptionRef
+
+/*!
+	@typedef CMClosedCaptionFormatDescriptionRef
+	Synonym type used for manipulating closed-caption media CMFormatDescriptions
+*/
 typealias CMClosedCaptionFormatDescriptionRef = CMClosedCaptionFormatDescription
 
 /*!
@@ -1749,6 +1808,12 @@ typealias CMClosedCaptionFormatType = FourCharCode
 var kCMClosedCaptionFormatType_CEA608: CMClosedCaptionFormatType { get }
 var kCMClosedCaptionFormatType_CEA708: CMClosedCaptionFormatType { get }
 var kCMClosedCaptionFormatType_ATSC: CMClosedCaptionFormatType { get }
+
+/*!
+	@typedef CMTextFormatDescriptionRef
+	Synonym type used for manipulating Text media CMFormatDescriptions
+*/
+typealias CMTextFormatDescription = CMFormatDescriptionRef
 
 /*!
 	@typedef CMTextFormatDescriptionRef
@@ -1915,6 +1980,12 @@ var kCMSubtitleFormatType_WebVTT: CMSubtitleFormatType { get }
 typealias CMTimeCodeFormatDescriptionRef = CMTimeCodeFormatDescription
 
 /*!
+	@typedef CMTimeCodeFormatDescriptionRef
+	SYnonym type used for manipulating TimeCode media CMFormatDescriptions
+*/
+typealias CMTimeCodeFormatDescription = CMFormatDescriptionRef
+
+/*!
 	@enum CMTimeCodeFormatType
 	@discussion The types of TimeCode.
 	@constant	kCMTimeCodeFormatType_TimeCode32 32-bit timeCode sample.
@@ -1972,6 +2043,12 @@ let kCMTimeCodeFormatDescriptionKey_LangCode: CFString
 	SYnonym type used for manipulating Metadata media CMFormatDescriptions
 */
 typealias CMMetadataFormatDescriptionRef = CMMetadataFormatDescription
+
+/*!
+	@typedef CMMetadataFormatDescriptionRef
+	SYnonym type used for manipulating Metadata media CMFormatDescriptions
+*/
+typealias CMMetadataFormatDescription = CMFormatDescriptionRef
 
 /*!
 	@enum CMMetadataFormatType
@@ -2488,6 +2565,38 @@ func CMSwapHostEndianMetadataDescriptionToBig(metadataDescriptionData: UnsafeMut
 		Such "aging out" is done during the pool's CFAllocatorAllocate and
 		CFAllocatorDeallocate methods.
 */
+class CMMemoryPool {
+}
+
+/*!
+	@header		CMMemoryPool.h
+	@abstract	Memory pool for optimizing repeated large block allocation.
+	@discussion
+		CMMemoryPool is a memory allocation service that holds onto a pool of
+		recently deallocated memory so as to speed up subsequent allocations of the same size.  
+		It's intended for cases where large memory blocks need to be repeatedly allocated --
+		for example, the compressed data output by a video encoder.
+		
+		All of its allocations are on the granularity of page sizes; it does not suballocate
+		memory within pages, so it is a poor choice for allocating tiny blocks.
+		For example, it's appropriate to use as the blockAllocator argument to
+		CMBlockBufferCreateWithMemoryBlock, but not the structureAllocator argument --
+		use kCFAllocatorDefault instead.
+
+		When you no longer need to allocate memory from the pool, call CMMemoryPoolInvalidate
+		and CFRelease.  Calling CMMemoryPoolInvalidate tells the pool to stop holding onto
+		memory for reuse.  Note that the pool's CFAllocator can outlive the pool, owing
+		to the way that CoreFoundation is designed: CFAllocators are themselves CF objects,
+		and every object allocated with a CFAllocator implicitly retains the CFAllocator 
+		until it is finalized.  After the CMMemoryPool is invalidated or finalized,
+		its CFAllocator allocates and deallocates with no pooling behavior.
+		
+		CMMemoryPool deallocates memory if it has not been recycled in 0.5 second,
+		so that short-term peak usage does not cause persistent bloat.
+		(This period may be overridden by specifying kCMMemoryPoolOption_AgeOutPeriod.)
+		Such "aging out" is done during the pool's CFAllocatorAllocate and
+		CFAllocatorDeallocate methods.
+*/
 typealias CMMemoryPoolRef = CMMemoryPool
 @available(OSX 10.8, *)
 func CMMemoryPoolGetTypeID() -> CFTypeID
@@ -2901,6 +3010,15 @@ var kCMSampleBufferError_Invalidated: OSStatus { get }
 var kCMSampleBufferError_DataFailed: OSStatus { get }
 var kCMSampleBufferError_DataCanceled: OSStatus { get }
 var kCMSampleBufferFlag_AudioBufferList_Assure16ByteAlignment: UInt32 { get }
+
+/*!
+	@typedef	CMSampleBufferRef
+	@abstract	A reference to a CMSampleBuffer, a CF object containing zero or more compressed (or uncompressed)
+				samples of a particular media type (audio, video, muxed, etc).
+		
+*/
+class CMSampleBuffer {
+}
 
 /*!
 	@typedef	CMSampleBufferRef
@@ -3955,6 +4073,14 @@ var kCMSimpleQueueError_QueueIsFull: OSStatus { get }
 	@abstract	A reference to a CMSimpleQueue, a CF object that implements a simple lockless queue of (void *) elements.
 		
 */
+class CMSimpleQueue {
+}
+
+/*!
+	@typedef	CMSimpleQueueRef
+	@abstract	A reference to a CMSimpleQueue, a CF object that implements a simple lockless queue of (void *) elements.
+		
+*/
 typealias CMSimpleQueueRef = CMSimpleQueue
 
 /*!
@@ -4047,6 +4173,23 @@ func CMSimpleQueueGetCount(queue: CMSimpleQueue) -> Int32
 		A CMClock has one primary function, CMClockGetTime, which tells what time it is now.  
 		Additionally, the CMSync infrastructure monitors relative drift between CMClocks.
 */
+class CMClock {
+}
+
+/*!
+	@typedef	CMClock
+	@abstract	A timing source object.
+	@discussion
+		A clock represents a source of time information: generally, a piece of hardware that measures the passage of time.  
+		One example of a clock is the host time clock, accessible via CMClockGetHostTimeClock().  
+		It measures time using the CPU system clock, which on Mac OS X is mach_absolute_time().
+		Every audio device can also be considered a clock since the audio samples that it outputs or inputs each have a 
+		defined duration (eg, 1/48000 of a second for 48 kHz audio).
+		
+		CMClocks are read-only: they cannot be stopped or started, and the current time cannot be set.
+		A CMClock has one primary function, CMClockGetTime, which tells what time it is now.  
+		Additionally, the CMSync infrastructure monitors relative drift between CMClocks.
+*/
 typealias CMClockRef = CMClock
 
 /*!
@@ -4067,7 +4210,28 @@ typealias CMClockRef = CMClock
 		the timebase's time changes relative to the ultimate master clock.
 */
 typealias CMTimebaseRef = CMTimebase
+
+/*!
+	@typedef	CMTimebase
+	@abstract	Models a timeline under application control.
+	@discussion
+		A timebase represents a timeline that clients can control by setting the rate and time.
+		Each timebase has either a master clock or a master timebase.  
+		The rate of the timebase is expressed relative to its master. 
+		When a timebase has rate 0.0, its time is fixed and does not change as its master's time changes.
+		When a timebase has rate 1.0, its time increases one second as its master's time increases by one second.
+		When a timebase has rate 2.0, its time increases two seconds as its master's time increases by one second.
+		When a timebase has rate -1.0, its time decreases one second as its master's time increases by one second.
+		
+		If a timebase has a master timebase, the master timebase's rate is a factor in determining the timebase's effective rate.
+		In fact, a timebase's effective rate is defined as the product of its rate, its master timebase's rate, 
+		its master timebase's master timebase's rate, and so on up to the ultimate master clock.  This is the rate at which
+		the timebase's time changes relative to the ultimate master clock.
+*/
+class CMTimebase {
+}
 typealias CMClockOrTimebaseRef = CMClockOrTimebase
+typealias CMClockOrTimebase = CFTypeRef
 var kCMClockError_MissingRequiredParameter: OSStatus { get }
 var kCMClockError_InvalidParameter: OSStatus { get }
 var kCMClockError_AllocationFailed: OSStatus { get }

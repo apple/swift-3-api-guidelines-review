@@ -47,6 +47,8 @@ func CFReadStreamCreateWithFTPURL(alloc: CFAllocator?, _ ftpURL: CFURL) -> Unman
 func CFFTPCreateParsedResourceListing(alloc: CFAllocator?, _ buffer: UnsafePointer<UInt8>, _ bufferLength: CFIndex, _ parsed: UnsafeMutablePointer<Unmanaged<CFDictionary>?>) -> CFIndex
 @available(OSX, introduced=10.3, deprecated=10.11, message="Use NSURLSessionAPI for ftp requests")
 func CFWriteStreamCreateWithFTPURL(alloc: CFAllocator?, _ ftpURL: CFURL) -> Unmanaged<CFWriteStream>
+class CFHTTPAuthentication {
+}
 typealias CFHTTPAuthenticationRef = CFHTTPAuthentication
 enum CFStreamErrorHTTPAuthentication : Int32 {
   init?(rawValue: Int32)
@@ -107,6 +109,8 @@ let kCFHTTPAuthenticationSchemeNegotiate2: CFString
 let kCFHTTPAuthenticationSchemeXMobileMeAuthToken: CFString
 @available(OSX 10.9, *)
 let kCFHTTPAuthenticationSchemeOAuth1: CFString
+class CFHTTPMessage {
+}
 typealias CFHTTPMessageRef = CFHTTPMessage
 @available(OSX 10.1, *)
 func CFHTTPMessageGetTypeID() -> CFTypeID
@@ -187,6 +191,8 @@ let kCFStreamPropertyHTTPRequestBytesWrittenCount: CFString
 func CFReadStreamCreateForHTTPRequest(alloc: CFAllocator?, _ request: CFHTTPMessage) -> Unmanaged<CFReadStream>
 @available(OSX, introduced=10.2, deprecated=10.11, message="Use NSURLSession API for http requests")
 func CFReadStreamCreateForStreamedHTTPRequest(alloc: CFAllocator?, _ requestHeaders: CFHTTPMessage, _ requestBody: CFReadStream) -> Unmanaged<CFReadStream>
+class CFHost {
+}
 typealias CFHostRef = CFHost
 @available(OSX 10.3, *)
 let kCFStreamErrorDomainNetDB: Int32
@@ -231,6 +237,8 @@ func CFHostSetClient(theHost: CFHost, _ clientCB: CFHostClientCallBack?, _ clien
 func CFHostScheduleWithRunLoop(theHost: CFHost, _ runLoop: CFRunLoop, _ runLoopMode: CFString)
 @available(OSX 10.3, *)
 func CFHostUnscheduleFromRunLoop(theHost: CFHost, _ runLoop: CFRunLoop, _ runLoopMode: CFString)
+class CFNetDiagnostic {
+}
 typealias CFNetDiagnosticRef = CFNetDiagnostic
 enum CFNetDiagnosticStatusValues : Int32 {
   init?(rawValue: Int32)
@@ -252,8 +260,14 @@ func CFNetDiagnosticSetName(details: CFNetDiagnostic, _ name: CFString)
 func CFNetDiagnosticDiagnoseProblemInteractively(details: CFNetDiagnostic) -> CFNetDiagnosticStatus
 @available(OSX 10.4, *)
 func CFNetDiagnosticCopyNetworkStatusPassively(details: CFNetDiagnostic, _ description: UnsafeMutablePointer<Unmanaged<CFString>?>) -> CFNetDiagnosticStatus
+class CFNetService {
+}
 typealias CFNetServiceRef = CFNetService
 typealias CFNetServiceMonitorRef = CFNetServiceMonitor
+class CFNetServiceMonitor {
+}
+class CFNetServiceBrowser {
+}
 typealias CFNetServiceBrowserRef = CFNetServiceBrowser
 @available(OSX 10.2, *)
 let kCFStreamErrorDomainMach: Int32

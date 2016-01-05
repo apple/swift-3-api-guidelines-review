@@ -1455,6 +1455,14 @@ class NEHotspotHelper : NSObject {
   class func supportedNetworkInterfaces() -> [AnyObject]
   init()
 }
+
+/*!
+ * @category NSMutableURLRequest(NEHotspotHelper)
+ * @discussion
+ *   Extend NSMutableURLRequest to include a method to bind the
+ *   request to the network interface associated with the specified
+ *   NEHotspotHelperCommand object.
+ */
 extension NSMutableURLRequest {
 
   /*!

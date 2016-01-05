@@ -42,7 +42,7 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
     
     private var pendingLaunchContext: AppLaunchContext?
     
-    private var watchAppInstalledAtLastStateChange = false
+    private var isWatchAppInstalledAtLastStateChange = false
     
     // MARK: Initializers
     
@@ -88,7 +88,7 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
         super.viewDidAppear(animated)
         
         if let launchContext = pendingLaunchContext {
-            configureViewControllerWithLaunchContext(launchContext)
+            configureViewControllerWith(launchContext)
         }
         
         pendingLaunchContext = nil
@@ -106,7 +106,7 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
         // Obtain an app launch context from the provided activity and configure the view controller with it.
         guard let launchContext = AppLaunchContext(userActivity: activity, listsController: listsController) else { return }
         
-        configureViewControllerWithLaunchContext(launchContext)
+        configureViewControllerWith(launchContext)
     }
     
     // MARK: IBActions
@@ -118,19 +118,19 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
         clicked).
     */
     @IBAction func pickDocument(barButtonItem: UIBarButtonItem) {
-        let documentMenu = UIDocumentMenuViewController(documentTypes: [AppConfiguration.listerUTI], inMode: .Open)
+        let documentMenu = UIDocumentMenuViewController(documentTypes: [AppConfiguration.listerUTI], in: .Open)
         documentMenu.delegate = self
 
         let newDocumentTitle = NSLocalizedString("New List", comment: "")
         documentMenu.addOptionWithTitle(newDocumentTitle, image: nil, order: .First) {
             // Show the `NewListDocumentController`.
-            self.performSegueWithIdentifier(.ShowNewListDocument, sender: self)
+            self.performSegueWith(.ShowNewListDocument, sender: self)
         }
         
         documentMenu.modalPresentationStyle = .Popover
         documentMenu.popoverPresentationController?.barButtonItem = barButtonItem
         
-        presentViewController(documentMenu, animated: true, completion: nil)
+        present(documentMenu, animated: true)
     }
     
     // MARK: UIDocumentMenuDelegate
@@ -138,7 +138,7 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
     func documentMenu(documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
         documentPicker.delegate = self
 
-        presentViewController(documentPicker, animated: true, completion: nil)
+        present(documentPicker, animated: true)
     }
     
     func documentMenuWasCancelled(documentMenu: UIDocumentMenuViewController) {
@@ -150,7 +150,7 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
     
     // MARK: UIPickerViewDelegate
     
-    func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAtURL url: NSURL) {
+    func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAt url: NSURL) {
         // The user selected the document and it should be picked up by the `ListsController`.
     }
 
@@ -167,22 +167,22 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
         tableView.beginUpdates()
     }
     
-    func listsController(listsController: ListsController, didInsertListInfo listInfo: ListInfo, atIndex index: Int) {
+    func listsController(listsController: ListsController, didInsert listInfo: ListInfo, at index: Int) {
         let indexPath = NSIndexPath(forRow: index, inSection: 0)
         
-        tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        tableView.insertRowsAt([indexPath], withRowAnimation: .Automatic)
     }
     
-    func listsController(listsController: ListsController, didRemoveListInfo listInfo: ListInfo, atIndex index: Int) {
+    func listsController(listsController: ListsController, didRemove listInfo: ListInfo, at index: Int) {
         let indexPath = NSIndexPath(forRow: index, inSection: 0)
         
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        tableView.deleteRowsAt([indexPath], withRowAnimation: .Automatic)
     }
     
-    func listsController(listsController: ListsController, didUpdateListInfo listInfo: ListInfo, atIndex index: Int) {
+    func listsController(listsController: ListsController, didUpdateListInfo listInfo: ListInfo, at index: Int) {
         let indexPath = NSIndexPath(forRow: index, inSection: 0)
         
-        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        tableView.reloadRowsAt([indexPath], withRowAnimation: .Automatic)
     }
     
     func listsControllerDidChangeContent(listsController: ListsController) {
@@ -199,23 +199,23 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
         
         let errorOutController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         
-        let action = UIAlertAction(title: okActionTitle, style: .Cancel, handler: nil)
+        let action = UIAlertAction(title: okActionTitle, style: .Cancel)
         errorOutController.addAction(action)
         
-        presentViewController(errorOutController, animated: true, completion: nil)
+        present(errorOutController, animated: true)
     }
     
-    func listsController(listsController: ListsController, didFailRemovingListInfo listInfo: ListInfo, withError error: NSError) {
+    func listsController(listsController: ListsController, didFailRemoving listInfo: ListInfo, withError error: NSError) {
         let title = NSLocalizedString("Failed to Delete List", comment: "")
         let message = error.localizedFailureReason
         let okActionTitle = NSLocalizedString("OK", comment: "")
         
         let errorOutController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         
-        let action = UIAlertAction(title: okActionTitle, style: .Cancel, handler: nil)
+        let action = UIAlertAction(title: okActionTitle, style: .Cancel)
         errorOutController.addAction(action)
         
-        presentViewController(errorOutController, animated: true, completion: nil)
+        present(errorOutController, animated: true)
     }
     
     // MARK: UITableViewDataSource
@@ -225,20 +225,20 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
         return listsController?.count ?? 0
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAt indexPath: NSIndexPath) -> UITableViewCell {
         return tableView.dequeueReusableCellWithIdentifier(MainStoryboard.TableViewCellIdentifiers.listDocumentCell, forIndexPath: indexPath) as! ListCell
     }
     
     // MARK: UITableViewDelegate
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: NSIndexPath) {
         switch cell {
             case let listCell as ListCell:
                 let listInfo = listsController[indexPath.row]
                 
                 listCell.label.text = listInfo.name
                 listCell.label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-                listCell.listColorView.backgroundColor = UIColor.clearColor()
+                listCell.listColorView.backgroundColor = UIColor.clear()
                 
                 // Once the list info has been loaded, update the associated cell's properties.
                 listInfo.fetchInfoWithCompletionHandler {
@@ -260,19 +260,19 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
         }
     }
 
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(tableView: UITableView, canEditRowAt indexPath: NSIndexPath) -> Bool {
         return false
     }
     
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(tableView: UITableView, canMoveRowAt indexPath: NSIndexPath) -> Bool {
         return false
     }
     
     // MARK: WCSessionDelegate
     
     func sessionWatchStateDidChange(session: WCSession) {
-        if !watchAppInstalledAtLastStateChange && session.watchAppInstalled {
-            watchAppInstalledAtLastStateChange = session.watchAppInstalled
+        if !isWatchAppInstalledAtLastStateChange && session.isWatchAppInstalled {
+            isWatchAppInstalledAtLastStateChange = session.isWatchAppInstalled
             updateWatchConnectivitySessionApplicationContext()
         }
     }
@@ -283,15 +283,15 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
         }
     }
     
-    func session(session: WCSession, didReceiveFile file: WCSessionFile) {
+    func session(session: WCSession, didReceive file: WCSessionFile) {
         guard let lastPathComponent = file.fileURL.lastPathComponent else { return }
-        listsController.copyListFromURL(file.fileURL, toListWithName:(lastPathComponent as NSString).stringByDeletingPathExtension)
+        listsController.copyListFrom(file.fileURL, toListWithName:(lastPathComponent as NSString).stringByDeletingPathExtension)
     }
     
     // MARK: UIStoryboardSegue Handling
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let segueIdentifier = segueIdentifierForSegue(segue)
+    override func prepareFor(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let segueIdentifier = segueIdentifierFor(segue)
         
         switch segueIdentifier {
             case .ShowNewListDocument:
@@ -309,24 +309,24 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
             
                 if segueIdentifier == .ShowListDocument {
                     let indexPath = tableView.indexPathForSelectedRow!
-                    listViewController.configureWithListInfo(listsController[indexPath.row])
+                    listViewController.configureWith(listsController[indexPath.row])
                 }
                 else {
                     let userActivityListInfo = sender as! ListInfo
-                    listViewController.configureWithListInfo(userActivityListInfo)
+                    listViewController.configureWith(userActivityListInfo)
                 }
         }
     }
 
     // MARK: Notifications
     
-    func handleContentSizeCategoryDidChangeNotification(_: NSNotification) {
+    func handleContentSizeCategoryDidChange(_: NSNotification) {
         tableView.setNeedsLayout()
     }
     
     // MARK: Convenience
     
-    func configureViewControllerWithLaunchContext(launchContext: AppLaunchContext) {
+    func configureViewControllerWith(launchContext: AppLaunchContext) {
         /**
             If there is a list currently displayed; pop to the root view controller (this controller) and
             continue configuration from there. Otherwise, configure the view controller directly.
@@ -340,11 +340,11 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
             return
         }
         
-        let listInfo = ListInfo(URL: launchContext.listURL)
+        let listInfo = ListInfo(url: launchContext.listURL)
         listInfo.color = launchContext.listColor
         
         dispatch_async(dispatch_get_main_queue()) {
-            self.performSegueWithIdentifier(.ShowListDocumentFromUserActivity, sender: listInfo)
+            self.performSegueWith(.ShowListDocumentFromUserActivity, sender: listInfo)
         }
     }
     
@@ -355,7 +355,7 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
         let session = WCSession.defaultSession()
         
         // Do not proceed if the watch app is not installed on the paired watch.
-        if !session.watchAppInstalled { return }
+        if !session.isWatchAppInstalled { return }
         
         // This array will be used to collect the data about the lists for the application context.
         var lists = [[String: AnyObject]]()
@@ -404,22 +404,22 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
             
             // Use file coordination to obtain exclusive access to read the file in order to initiate a transfer.
             let fileCoordinator = NSFileCoordinator()
-            let readingIntent = NSFileAccessIntent.readingIntentWithURL(info.URL, options: [])
-            fileCoordinator.coordinateAccessWithIntents([readingIntent], queue: NSOperationQueue()) { accessError in
+            let readingIntent = NSFileAccessIntent.readingIntentWith(info.url)
+            fileCoordinator.coordinateAccessWith([readingIntent], queue: NSOperationQueue()) { accessError in
                 if accessError != nil {
                     return
                 }
                 
                 // Iterate through outstanding transfers; and cancel any for the same URL as they are obsolete.
                 for transfer in session.outstandingFileTransfers {
-                    if transfer.file.fileURL == readingIntent.URL {
+                    if transfer.file.fileURL == readingIntent.url {
                         transfer.cancel()
                         break
                     }
                 }
                 
                 // Initiate the new transfer.
-                session.transferFile(readingIntent.URL, metadata: nil)
+                session.transferFile(readingIntent.url, metadata: nil)
             }
         }
         

@@ -35,9 +35,9 @@ class SLComposeServiceViewController : UIViewController, UITextViewDelegate {
   @available(iOS 8.0, *)
   func textViewDidChangeSelection(textView: UITextView)
   @available(iOS 7.0, *)
-  func textView(textView: UITextView, shouldInteractWith URL: NSURL, `in` characterRange: NSRange) -> Bool
+  func textView(textView: UITextView, shouldInteractWith URL: NSURL, in characterRange: NSRange) -> Bool
   @available(iOS 7.0, *)
-  func textView(textView: UITextView, shouldInteractWith textAttachment: NSTextAttachment, `in` characterRange: NSRange) -> Bool
+  func textView(textView: UITextView, shouldInteractWith textAttachment: NSTextAttachment, in characterRange: NSRange) -> Bool
   @available(iOS 8.0, *)
   func scrollViewDidScroll(scrollView: UIScrollView)
   @available(iOS 3.2, *)

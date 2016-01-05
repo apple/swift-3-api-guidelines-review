@@ -66,7 +66,7 @@ extension BaseScene {
         sortedFocusableButtons.forEach { $0.focusableNeighbors.removeAll() }
         
         // Connect the adjacent button nodes.
-        for var i = 0; i < sortedFocusableButtons.count - 1; i++ {
+        for var i in 0 ..< sortedFocusableButtons.count - 1= 1 {
             let node = sortedFocusableButtons[i]
             let nextNode = sortedFocusableButtons[i + 1]
             

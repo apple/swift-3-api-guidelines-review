@@ -14133,6 +14133,29 @@ var kvImageHDRContent: Int { get }
  
     @seealso Please see vImage_Utilities.h for interfaces that operate on the vImageConverterRef
  */
+class vImageConverter {
+}
+
+/*!
+    @class vImageConverterRef
+    @abstract   An opaque type which contains a decription of a conversion from one CoreGraphics image format to another.
+ 
+    @discussion The vImageConverter is an opaque type which contains information needed to do a rapid conversion from
+    one image type to another. Sometimes, it can take a significant amount of time to figure out how to convert
+    from one format to another. It wouldn't be good to do that redundantly for a bunch of small images. The
+    vImageConversionSetup allows us to set up the conversion once and reuse the information many times, to
+    keep net latencies low.
+ 
+    Note that creating a vImageConverter can at times take a while. While usually it is quick, it might have
+    to do things like load other frameworks in the system (e.g. Colorsync) if they are not loaded already,
+    or build a lookup table. It is a good idea to setup your conversions in advance and reuse the conversion
+    objects.  The objects are thread safe. You can use the same object in multiple threads concurrently. They
+    follow standard retain / release semantics and can be used as CFTypeRefs.
+ 
+    @superclass CFTypeRef
+ 
+    @seealso Please see vImage_Utilities.h for interfaces that operate on the vImageConverterRef
+ */
 typealias vImageConverterRef = vImageConverter
 
 /*!
@@ -14239,6 +14262,114 @@ typealias vImageConverterRef = vImageConverter
     @seealso Please see vImage_CVUtilities.h for interfaces that operate on the vImageCVImageFormatRef
  */
 typealias vImageCVImageFormatRef = vImageCVImageFormat
+
+/*!
+    @class vImageCVImageFormatRef
+    @abstract   An opaque type which contains a decription of a conversion from a CoreGraphics image format to a CVPixelBuffer, or the reverse.
+ 
+    @superclass CFTypeRef
+    @discussion The vImageCVImageFormatRef describes how the image is encoded in a CVPixelBufferRef. vImage uses this information to construct converters that
+    are capable of converting to and from this image encoding.  The format stores a description of the pixels in the image (planar/color representation/
+    bit depth/number of channels, etc.) but not the image size, location of the base pointer or rowbytes. It is intended for the vImageCVImageFormatRef
+    to be reused for other CVPixelBufferRefs of the same format, such as other frames from the same movie.
+ 
+    vImageCVImageFormatRefs are capable of holding an incomplete encoding representation. You may be required to provide addition information such
+    as colorspace and (YCbCr only) chroma siting or conversion matrix before the vImageCVImageFormatRef can be used for image conversion to other
+    formats.
+ 
+    The vImageCVImageFormatRef is a CFTypeRef. CFEqual does not test for equivalence of the userData field. You should use vImageCVImageFormat_Retain/Release
+    when working with vImageCVImageFormatRef to manage ownership of the object.
+
+        <pre>
+        @textblock
+        Thread Safety:
+
+            The vImageCVImageFormatRef may be safely read from multiple threads concurrently.  However,
+            it makes no attempt to keep its internal state coherent when multiple threads write to it,
+            or when one thread writes to it while one or more threads are reading from it at the same
+            time. This can be trivially handled by keeping the knowledge of the vImageCVImageFormatRef
+            limited to a single thread while it is being created / configured and then treat it as
+            immutable thereafter.  If necessary, you can also use a read/write lock to limit reentrant
+            access.
+        @/textblock
+        </pre>
+ 
+ 
+    Information tracked by vImageCVImageFormatRef:
+ 
+ <pre>
+ @textblock
+    imageFormatType     A CVPixelFormatType such as '2vuy'. See CVPixelBuffer.h for the complete list.
+ 
+    number_of_channels  How many  color + alpha channels are encoded in the image. An alpha channel is included in this count
+                        if it takes up space in the image, even if its value is described always 1.0, for example by /Last
+                        kCGImageAlphaNoneSkipFirst or kCVImageBufferAlphaChannelIsOpaque.  This field is automatically initialized
+                        based on the imageFormatType (see above) and is never missing.
+ 
+    channel_names       A list of vImageBufferTypeCodes corresponding to the channels in the image. Unlike what happens for
+                        vImageConverterRefs, the type codes used here always encode a single color channel.  vImageConverterRefs
+                        use the channel names to encode what is in each vImage_Buffer. Here it is used to describe each channel.
+                        So, an ARGB buffer might be described as kvImageBufferTypeCode_CGFormat but will be described as
+                        { kvImageBufferTypeCode_RGB_Red, kvImageBufferTypeCode_RGB_Green, kvImageBufferTypeCode_RGB_Blue,
+                        kvImageBufferTypeCode_Alpha, kvImageBufferTypeCode_EndOfList }. The order of the channels in the list
+                        may not match the order of the channels in the buffer.  This field is automatically initialized based on
+                        the imageFormatType (see above) and is never missing.
+ 
+   matrix               (YpCbCr only.)  A YpCbCr image has an associated 3x3 matrix that encodes how it was converted to YpCbCr from
+                        a reference RGB colorspace (see colorspace below). The matrix is encoded as a NULL pointer when missing.
+                        This field is ignored for non-YpCbCr formats.
+ 
+ 
+   chroma_siting        Some YpCbCr formats store their chroma components as a smaller image than the luminance component.
+                        This describes where the subsampled chroma samples are positioned relative to the luminance component.
+                        This field is encoded as a NULL CFStringRef when missing. The field is ignored for RGB, monochrome,
+                        indexed and 4:4:4 YpCbCr image formats.
+ 
+   colorspace           For RGB, indexed and grayscale images, this is the colorspace that describes the image encoding.
+                        For YpCbCr images, this is the colorspace of the RGB image that you get once the matrix (see above)
+                        is unapplied. Thus, the colorspace encodes for the underlying primaries and transfer function of the
+                        YpCbCr image. See also vImageCreateRGBColorSpaceWithPrimariesAndTransferFunction.  This field is required
+                        for all image formats. A colorspace of NULL indicates a missing colorspace. (This is inconsistent with
+                        the shorthand used in vImage_Utilities.h where NULL maps to sRGB.)  Since vImage has no concept of
+                        a current graphics device, deviceRGB maps to sRGB and device gray maps to gray 2.2. If you wish to
+                        ensure no color correction / conversion, you should match this colorspace with the one in the
+                        vImage_CGImageFormat to / from which you are converting.
+ 
+   channel_description  Some CVPixelBuffer formats do not use the entire representable range of the format to encode image data.
+                        For example, a 'yuvs' "video range" buffer only uses the range [16,235] for luminance and [16,240] for
+                        chroma. Values outside that range are considered to have value equal to the nearest in-range value. In
+                        addition, we add additionional fields to leave open the possibility that some formats can encode information
+                        outside of the traditional [0,1.0] range ([-1.0,1.0] for chroma) so reference values for the encoding for 0
+                        and 1.0 are also described. (See vImageChannelDescription below.) The zero/one fields are analogous in function
+                        to the decode arrays provided by CG. It is possible to use the channel description to create formats that are
+                        not correctly understood by CoreVideo. These are provided to allow for interoperation with custom video formats.
+                        The channel description is initialized automatically for known image format types (see imageFormatType above)
+                        and probably only very rarely needs to be changed. It is never missing.
+ 
+  alpha_is_one_hint     Some images are encoded with an alpha channel. However, you may have additional information that the image is
+                        really completely opaque. The "alpha is one hint" tells vImage that the alpha channel is always 1.0 (opaque)
+                        across the entire image. Setting the hint to 1 may allow vImage to avoid work and run faster in some cases.
+                        There is no vImageCVImageFormatRef representation for premultiplied alpha, currently. Since it is a hint,
+                        the hint may never be missing from a vImageCVImageFormatRef.  The hint is ignored for image formats that do
+                        not contain an alpha channel.
+ 
+  user_data             The vImageCVImageFormatRef has a userData field to allow you to easily reference your data starting from
+                        a handle to the object. vImage does  not attempt to interact with the memory pointed to by the userData
+                        pointer. It simply holds on to the pointer for you and will call a destructor callback function when the
+                        vImageCVImageFormatRef to allow you to free that memory, and do any other post processing needed when the
+                        vImageCVImageFormatRef is destroyed. Since there is only one userData pointer, by convention its use is
+                        considered private to the application/library/framework that created the vImageCVImageFormatRef, including
+                        cases where the creator does not set the userData field. If you need to attach your own data to a
+                        vImageCVImageFormatRef created by someone else, you can make  a copy of it or wrap it with your own object.
+ @/textblock
+ </pre>
+ 
+    @seealso Please see vImage_CVUtilities.h for interfaces that operate on the vImageCVImageFormatRef
+ */
+class vImageCVImageFormat {
+}
+class vImageConstCVImageFormat {
+}
 typealias vImageConstCVImageFormatRef = vImageConstCVImageFormat
 
 /*!

@@ -36,7 +36,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         return document?.listPresenter as? IncompleteListItemsPresenter
     }
     
-    var showingAll = false {
+    var isShowingAll = false {
         didSet {
             resetContentSize()
         }
@@ -54,7 +54,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
             On first launch only display up to `TableViewConstants.baseRowCount + 1` rows. An additional row
             is used to display the "Show All" row.
         */
-        let rowCount = showingAll ? itemCount : min(itemCount, TableViewConstants.baseRowCount + 1)
+        let rowCount = isShowingAll ? itemCount : min(itemCount, TableViewConstants.baseRowCount + 1)
 
         return CGFloat(Double(rowCount) * TableViewConstants.todayRowHeight)
     }
@@ -66,9 +66,9 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.backgroundColor = UIColor.clearColor()
+        tableView.backgroundColor = UIColor.clear()
 
-        listsController = AppConfiguration.sharedConfiguration.listsControllerForCurrentConfigurationWithLastPathComponent(AppConfiguration.localizedTodayDocumentNameAndExtension)
+        listsController = AppConfiguration.shared.listsControllerForCurrentConfigurationWithLastPathComponent(AppConfiguration.localizedTodayDocumentNameAndExtension)
         
         listsController.delegate = self
         listsController.startSearching()
@@ -79,7 +79,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        document?.closeWithCompletionHandler(nil)
+        document?.close()
     }
     
     // MARK: NCWidgetProviding
@@ -94,7 +94,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
     
     // MARK: ListsControllerDelegate
     
-    func listsController(_: ListsController, didInsertListInfo listInfo: ListInfo, atIndex index: Int) {
+    func listsController(_: ListsController, didInsert listInfo: ListInfo, at index: Int) {
         // Once we've found the Today list, we'll hand off ownership of listening to udpates to the list presenter.
         listsController.stopSearching()
         
@@ -119,10 +119,10 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
             return 1
         }
         
-        return showingAll ? listPresenter.count : min(listPresenter.count, TableViewConstants.baseRowCount + 1)
+        return isShowingAll ? listPresenter.count : min(listPresenter.count, TableViewConstants.baseRowCount + 1)
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAt indexPath: NSIndexPath) -> UITableViewCell {
         if let listPresenter = listPresenter {
             if listPresenter.isEmpty {
                 let cell = tableView.dequeueReusableCellWithIdentifier(TableViewConstants.CellIdentifiers.message, forIndexPath: indexPath)
@@ -139,7 +139,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
                     showing all rows (explicitly) and the item count is less than `TableViewConstants.baseRowCount` + 1
                     diplay a message cell allowing the user to disclose all rows.
                 */
-                if (!showingAll && indexPath.row == TableViewConstants.baseRowCount && itemCount != TableViewConstants.baseRowCount + 1) {
+                if (!isShowingAll && indexPath.row == TableViewConstants.baseRowCount && itemCount != TableViewConstants.baseRowCount + 1) {
                     let cell = tableView.dequeueReusableCellWithIdentifier(TableViewConstants.CellIdentifiers.message, forIndexPath: indexPath)
                     
                     cell.textLabel!.text = NSLocalizedString("Show All...", comment: "")
@@ -169,31 +169,31 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         
         checkBoxCell.checkBox.tintColor = listPresenter.color.notificationCenterColorValue
         checkBoxCell.checkBox.isChecked = listItem.isComplete
-        checkBoxCell.checkBox.hidden = false
+        checkBoxCell.checkBox.isHidden = false
 
         checkBoxCell.label.text = listItem.text
 
-        checkBoxCell.label.textColor = listItem.isComplete ? UIColor.lightGrayColor() : UIColor.whiteColor()
+        checkBoxCell.label.textColor = listItem.isComplete ? UIColor.lightGray() : UIColor.white()
     }
     
     // MARK: UITableViewDelegate
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAt indexPath: NSIndexPath) {
         guard let listPresenter = listPresenter else { return }
         
         // Show all of the cells if the user taps the "Show All..." row.
-        if isTodayAvailable && !showingAll && indexPath.row == TableViewConstants.baseRowCount {
-            showingAll = true
+        if isTodayAvailable && !isShowingAll && indexPath.row == TableViewConstants.baseRowCount {
+            isShowingAll = true
             
             tableView.beginUpdates()
             
             let indexPathForRemoval = NSIndexPath(forRow: TableViewConstants.baseRowCount, inSection: 0)
-            tableView.deleteRowsAtIndexPaths([indexPathForRemoval], withRowAnimation: .Fade)
+            tableView.deleteRowsAt([indexPathForRemoval], withRowAnimation: .Fade)
             
             let insertedIndexPathRange = TableViewConstants.baseRowCount..<listPresenter.count
             let insertedIndexPaths = insertedIndexPathRange.map { NSIndexPath(forRow: $0, inSection: 0) }
             
-            tableView.insertRowsAtIndexPaths(insertedIndexPaths, withRowAnimation: .Fade)
+            tableView.insertRowsAt(insertedIndexPaths, withRowAnimation: .Fade)
             
             tableView.endUpdates()
             
@@ -210,7 +210,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         let colorQueryItem = NSURLQueryItem(name: AppConfiguration.ListerScheme.colorQueryKey, value: colorQueryValue)
         urlComponents.queryItems = [colorQueryItem]
 
-        extensionContext?.openURL(urlComponents.URL!, completionHandler: nil)
+        extensionContext?.open(urlComponents.url!)
     }
 
     // MARK: IBActions
@@ -218,10 +218,10 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
     @IBAction func checkBoxTapped(sender: CheckBox) {
         guard let listPresenter = listPresenter else { return }
         
-        let indexPath = indexPathForView(sender)
+        let indexPath = indexPathFor(sender)
         
         let item = listPresenter.presentedListItems[indexPath.row]
-        listPresenter.toggleListItem(item)
+        listPresenter.toggle(item)
     }
     
     // MARK: ListPresenterDelegate
@@ -239,55 +239,55 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         tableView.beginUpdates()
     }
 
-    func listPresenter(_: ListPresenterType, didInsertListItem listItem: ListItem, atIndex index: Int) {
+    func listPresenter(_: ListPresenterType, didInsert listItem: ListItem, at index: Int) {
         guard let listPresenter = listPresenter else { return }
         
         let indexPaths = [NSIndexPath(forRow: index, inSection: 0)]
         
         // Hide the "No items in list" row.
         if index == 0 && listPresenter.count == 1 {
-            tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+            tableView.deleteRowsAt(indexPaths, withRowAnimation: .Automatic)
         }
 
-        tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+        tableView.insertRowsAt(indexPaths, withRowAnimation: .Automatic)
     }
     
-    func listPresenter(_: ListPresenterType, didRemoveListItem listItem: ListItem, atIndex index: Int) {
+    func listPresenter(_: ListPresenterType, didRemove listItem: ListItem, at index: Int) {
         guard let listPresenter = listPresenter else { return }
         
         let indexPaths = [NSIndexPath(forRow: index, inSection: 0)]
         
-        tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+        tableView.deleteRowsAt(indexPaths, withRowAnimation: .Automatic)
         
         // Show the "No items in list" row.
         if index == 0 && listPresenter.isEmpty {
-            tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+            tableView.insertRowsAt(indexPaths, withRowAnimation: .Automatic)
         }
     }
     
-    func listPresenter(_: ListPresenterType, didUpdateListItem listItem: ListItem, atIndex index: Int) {
+    func listPresenter(_: ListPresenterType, didUpdateListItem listItem: ListItem, at index: Int) {
         let indexPath = NSIndexPath(forRow: index, inSection: 0)
         
-        if let checkBoxCell = tableView.cellForRowAtIndexPath(indexPath) as? CheckBoxCell {
+        if let checkBoxCell = tableView.cellForRowAt(indexPath) as? CheckBoxCell {
             configureCheckBoxCell(checkBoxCell, forListItem: listPresenter!.presentedListItems[indexPath.row])
         }
     }
     
-    func listPresenter(_: ListPresenterType, didMoveListItem listItem: ListItem, fromIndex: Int, toIndex: Int) {
+    func fromtolistPresenter(_: ListPresenterType, didMove listItem: ListItem, from fromIndex: Int, to toIndex: Int) {
         let fromIndexPath = NSIndexPath(forRow: fromIndex, inSection: 0)
         
         let toIndexPath = NSIndexPath(forRow: toIndex, inSection: 0)
         
-        tableView.moveRowAtIndexPath(fromIndexPath, toIndexPath: toIndexPath)
+        tableView.moveRowAt(fromIndexPath, to: toIndexPath)
     }
     
-    func listPresenter(_: ListPresenterType, didUpdateListColorWithColor color: List.Color) {
+    func listPresenter(_: ListPresenterType, didUpdateListColorWith color: List.Color) {
         guard let listPresenter = listPresenter else { return }
         
         for (idx, _) in listPresenter.presentedListItems.enumerate() {
             let indexPath = NSIndexPath(forRow: idx, inSection: 0)
 
-            if let checkBoxCell = tableView.cellForRowAtIndexPath(indexPath) as? CheckBoxCell {
+            if let checkBoxCell = tableView.cellForRowAt(indexPath) as? CheckBoxCell {
                 checkBoxCell.checkBox.tintColor = color.notificationCenterColorValue
             }
         }
@@ -309,9 +309,9 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         // Ignore any updates if we already have the Today document.
         if document != nil { return }
         
-        document = ListDocument(fileURL: listInfo.URL, listPresenter: IncompleteListItemsPresenter())
+        document = ListDocument(fileURL: listInfo.url, listPresenter: IncompleteListItemsPresenter())
         
-        document!.openWithCompletionHandler { success in
+        document!.open { success in
             if !success {
                 print("Couldn't open document: \(self.document?.fileURL).")
                 
@@ -322,12 +322,12 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         }
     }
     
-    func indexPathForView(view: UIView) -> NSIndexPath {
+    func indexPathFor(view: UIView) -> NSIndexPath {
         let viewOrigin = view.bounds.origin
         
-        let viewLocation = tableView.convertPoint(viewOrigin, fromView: view)
+        let viewLocation = tableView.convert(viewOrigin, from: view)
         
-        return tableView.indexPathForRowAtPoint(viewLocation)!
+        return tableView.indexPathForRowAt(viewLocation)!
     }
     
     func resetContentSize() {

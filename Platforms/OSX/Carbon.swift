@@ -84,7 +84,7 @@ struct NColorPickerInfo {
   init()
   init(theColor: NPMColor, dstProfile: CMProfileRef, flags: UInt32, placeWhere: DialogPlacementSpec, dialogOrigin: Point, pickerType: OSType, colorProc: NColorChangedUPP!, colorProcData: URefCon, prompt: Str255, mInfo: PickerMenuItemInfo, newColorChosen: DarwinBoolean, reserved: UInt8)
 }
-func GetColor(`where`: Point, _ prompt: ConstStr255Param, _ inColor: UnsafePointer<RGBColor>, _ outColor: UnsafeMutablePointer<RGBColor>) -> Bool
+func GetColor(where: Point, _ prompt: ConstStr255Param, _ inColor: UnsafePointer<RGBColor>, _ outColor: UnsafeMutablePointer<RGBColor>) -> Bool
 func NPickColor(theColorInfo: UnsafeMutablePointer<NColorPickerInfo>) -> OSErr
 var kEventClassFont: Int { get }
 var kHICommandShowHideFontPanel: Int { get }
@@ -153,6 +153,8 @@ func FPShowHideFontPanel() -> OSStatus
 @available(OSX 10.2, *)
 func SetFontInfoForSelection(iStyleType: OSType, _ iNumStyles: UInt32, _ iStyles: UnsafeMutablePointer<Void>, _ iFPEventTarget: EventTargetRef) -> OSStatus
 typealias FCFontDescriptorRef = FCFontDescriptor
+class FCFontDescriptor {
+}
 @available(OSX 10.3, *)
 func FCCopyCollectionNames() -> Unmanaged<CFArray>!
 @available(OSX 10.3, *)
@@ -1942,6 +1944,8 @@ func GetCurrentButtonState() -> UInt32
 func GetCurrentKeyModifiers() -> UInt32
 func GetCurrentEventTime() -> EventTime
 typealias EventLoopTimerRef = EventLoopTimer
+class EventLoopTimer {
+}
 typealias EventLoopTimerProcPtr = @convention(c) (EventLoopTimer!, UnsafeMutablePointer<Void>) -> Void
 var kEventLoopIdleTimerStarted: Int { get }
 var kEventLoopIdleTimerIdling: Int { get }
@@ -2727,7 +2731,7 @@ struct EventRecord {
   var `where`: Point
   var modifiers: EventModifiers
   init()
-  init(what: EventKind, message: UInt, when: UInt32, `where`: Point, modifiers: EventModifiers)
+  init(what: EventKind, message: UInt, when: UInt32, where: Point, modifiers: EventModifiers)
 }
 typealias FKEYProcPtr = @convention(c) () -> Void
 typealias FKEYUPP = FKEYProcPtr
@@ -2775,6 +2779,8 @@ var kEventAccessibleIsNamedAttributeSettable: Int { get }
 var kEventAccessibleGetAllActionNames: Int { get }
 var kEventAccessiblePerformNamedAction: Int { get }
 var kEventAccessibleGetNamedActionDescription: Int { get }
+class HIArchive {
+}
 typealias HIArchiveRef = HIArchive
 var hiArchiveTypeMismatchErr: Int { get }
 var hiArchiveKeyNotAvailableErr: Int { get }
@@ -2995,7 +3001,7 @@ func DisposeControlUserPaneKeyDownUPP(userUPP: ControlUserPaneKeyDownUPP!)
 func DisposeControlUserPaneActivateUPP(userUPP: ControlUserPaneActivateUPP!)
 func DisposeControlUserPaneFocusUPP(userUPP: ControlUserPaneFocusUPP!)
 func InvokeControlUserPaneDrawUPP(control: Control!, _ part: ControlPartCode, _ userUPP: ControlUserPaneDrawUPP!)
-func InvokeControlUserPaneHitTestUPP(control: Control!, _ `where`: Point, _ userUPP: ControlUserPaneHitTestUPP!) -> ControlPartCode
+func InvokeControlUserPaneHitTestUPP(control: Control!, _ where: Point, _ userUPP: ControlUserPaneHitTestUPP!) -> ControlPartCode
 func InvokeControlUserPaneTrackingUPP(control: Control!, _ startPt: Point, _ actionProc: ControlActionUPP!, _ userUPP: ControlUserPaneTrackingUPP!) -> ControlPartCode
 func InvokeControlUserPaneIdleUPP(control: Control!, _ userUPP: ControlUserPaneIdleUPP!)
 func InvokeControlUserPaneKeyDownUPP(control: Control!, _ keyCode: Int16, _ charCode: Int16, _ modifiers: Int16, _ userUPP: ControlUserPaneKeyDownUPP!) -> ControlPartCode
@@ -3470,8 +3476,12 @@ var kControlKindHIMenuView: Int { get }
 var kControlKindHIStandardMenuView: Int { get }
 @available(OSX 10.4, *)
 let kHIViewMenuContentID: HIViewID
+class HIObjectClass {
+}
 typealias HIObjectClassRef = HIObjectClass
 typealias HIObjectRef = HIObject
+class HIObject {
+}
 var hiObjectClassExistsErr: Int { get }
 var hiObjectClassHasInstancesErr: Int { get }
 var hiObjectClassHasSubclassesErr: Int { get }
@@ -3566,9 +3576,12 @@ func HIObjectRemoveDelegate(inObject: HIObject!, _ inDelegate: HIObject!, _ inPo
 func HIObjectCopyDelegates(inObject: HIObject!, _ outDelegates: UnsafeMutablePointer<Unmanaged<CFDictionary>?>) -> OSStatus
 @available(OSX 10.5, *)
 func HIObjectGetEventHandlerObject(inRef: EventHandlerCallRef) -> Unmanaged<HIObject>!
+class Control {
+}
 typealias ControlRef = Control
-typealias ControlHandle = ControlHandle
+typealias ControlHandle = ControlRef
 typealias HIViewRef = HIView
+typealias HIView = ControlRef
 var kControlPopupButtonProc: Int { get }
 var kControlPopupFixedWidthVariant: Int { get }
 var kControlPopupVariableWidthVariant: Int { get }
@@ -4468,7 +4481,9 @@ var kThemeMetricDisclosureButtonSize: Int { get }
 var kThemeMetricBestListHeaderHeight: Int { get }
 var kThemeMetricSmallProgressBarThickness: Int { get }
 var kThemeMetricProgressBarThickness: Int { get }
+typealias HIToolbar = HIObjectRef
 typealias HIToolbarRef = HIToolbar
+typealias HIToolbarItem = HIObjectRef
 typealias HIToolbarItemRef = HIToolbarItem
 var kHIToolbarIdentifierKey: String { get }
 var kHIToolbarDataKey: String { get }
@@ -6348,7 +6363,9 @@ typealias MenuID = Int16
 typealias MenuItemIndex = UInt16
 typealias MenuCommand = OSType
 typealias MenuRef = Menu
-typealias MenuHandle = MenuHandle
+class Menu {
+}
+typealias MenuHandle = MenuRef
 typealias MenuBarHandle = Handle
 struct MenuBarHeader {
   var lastMenu: UInt16
@@ -6845,6 +6862,8 @@ typealias TextStylePtr = UnsafeMutablePointer<TextStyle>
 typealias TextStyleHandle = UnsafeMutablePointer<TextStylePtr>
 typealias TEIntHook = Int16
 var teFUseTextServices: Int { get }
+class TISInputSource {
+}
 typealias TISInputSourceRef = TISInputSource
 @available(OSX 10.5, *)
 func TISInputSourceGetTypeID() -> CFTypeID
@@ -7994,7 +8013,11 @@ struct ICD_DisposeObjectPB {
   init()
   init(header: ICDHeader, object: ICAObject)
 }
+class InkText {
+}
 typealias InkTextRef = InkText
+class InkStroke {
+}
 typealias InkStrokeRef = InkStroke
 struct InkPoint {
   var point: HIPoint
@@ -8183,6 +8206,8 @@ struct NavEventData {
   init(eventDataParms: NavEventDataInfo, itemHit: Int16)
 }
 typealias NavDialogRef = NavDialog
+class NavDialog {
+}
 typealias NavUserAction = UInt32
 var kNavUserActionNone: Int { get }
 var kNavUserActionCancel: Int { get }

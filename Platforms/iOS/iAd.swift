@@ -243,6 +243,24 @@ protocol ADBannerViewDelegate : NSObjectProtocol {
   @available(iOS 4.0, *)
   optional func bannerViewActionDidFinish(banner: ADBannerView!)
 }
+
+/*!
+ * @category ADBannerView (Deprecated)
+ *
+ * @discussion
+ * These banner view resizing APIs have been deprecated and should no longer be
+ * used when targeting iOS 6.0 or later.
+ *
+ * To resize a banner view on iOS 6.0 or later, call -sizeThatFits: on the banner
+ * view, specifying the bounds of the view that contains your banner, and use the
+ * returned size to resize the banner view. Based on the size you provide, the
+ * banner will be sized to the correct width and height for the current device
+ * type and orientation, as per the ADAdTypeBanner documentation.
+ *
+ * A full example of this - including how to handle resizing on devices running
+ * older versions of iOS - can be found in the 'iAdSuite' sample project on the
+ * ADC website <http://developer.apple.com>.
+ */
 extension ADBannerView {
 }
 @available(iOS 7.1, *)
@@ -556,6 +574,15 @@ extension AVPlayerViewController {
   @available(iOS 8.0, *)
   func cancelPreroll()
 }
+
+/*!
+ * @category MPMoviePlayerController (iAdPreroll)
+ *
+ * @dependency MediaPlayer.framework
+ * 
+ * @discussion
+ * Adds optional pre-roll advertising support to MPMoviePlayerController.
+ */
 extension MPMoviePlayerController {
 
   /*!
@@ -631,6 +658,20 @@ enum ADInterstitialPresentationPolicy : Int {
   case Automatic
   case Manual
 }
+
+/*!
+ * @category UIViewController (iAdAdditions)
+ *
+ * @discussion
+ * This category on UIViewController provides an interface for configuring the kind
+ * of ads that should be shown with the view controller's content. Two types of
+ * ads may be shown - banners and interstitials. Banner ads will be displayed below
+ * the content which will be resized appropriately based on the size of the banner.
+ * Interstitials can be displayed automatically or upon request. Automatic display
+ * of interstitials will be tied to the appearance of the view, with the frequency
+ * of presentation managed by the framework. On-request display of interstitials
+ * is subject to similar internal constraints.
+*/
 extension UIViewController {
 
   /*!

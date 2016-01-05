@@ -77,6 +77,8 @@ enum NSWritingDirectionFormatType : Int {
 }
 @available(iOS 7.0, *)
 let NSTextEffectLetterpressStyle: String
+
+/************************ Attribute fixing ************************/
 extension NSMutableAttributedString {
   @available(iOS 7.0, *)
   func fixAttributesIn(range: NSRange)
@@ -131,26 +133,14 @@ extension NSAttributedString {
   @available(iOS 7.0, *)
   func fileWrapperFrom(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSFileWrapper
 }
-extension NSAttributedString {
-  @available(iOS 9.0, *)
-  init(url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
-  @available(iOS 7.0, *)
-  init(data: NSData, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
-  @available(iOS 7.0, *)
-  func dataFrom(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSData
-  @available(iOS 7.0, *)
-  func fileWrapperFrom(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSFileWrapper
-}
 extension NSMutableAttributedString {
   @available(iOS 9.0, *)
   func readFrom(url: NSURL, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS 7.0, *)
   func readFrom(data: NSData, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
-extension NSAttributedString {
-  @available(iOS 9.0, *)
-  func containsAttachmentsIn(range: NSRange) -> Bool
-}
+
+/************************ Misc methods ************************/
 extension NSAttributedString {
   @available(iOS 9.0, *)
   func containsAttachmentsIn(range: NSRange) -> Bool
@@ -163,10 +153,6 @@ enum NSTextWritingDirection : Int {
   var rawValue: Int { get }
   case Embedding
   case Override
-}
-extension NSAttributedString {
-  @available(iOS, introduced=7.0, deprecated=9.0, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init(fileURL url: NSURL, options: [NSObject : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
 extension NSAttributedString {
   @available(iOS, introduced=7.0, deprecated=9.0, message="Use -initWithURL:options:documentAttributes:error: instead")
@@ -426,7 +412,7 @@ class NSLayoutManager : NSObject, NSCoding {
   func ensureLayoutForCharacterRange(charRange: NSRange)
   func ensureLayoutForGlyphRange(glyphRange: NSRange)
   func ensureLayoutFor(container: NSTextContainer)
-  func ensureLayoutForBoundingRect(bounds: CGRect, `in` container: NSTextContainer)
+  func ensureLayoutForBoundingRect(bounds: CGRect, in container: NSTextContainer)
 
   /************************ Set glyphs and glyph properties ************************/
   @available(iOS 7.0, *)
@@ -480,24 +466,24 @@ class NSLayoutManager : NSObject, NSCoding {
   func characterRangeForGlyphRange(glyphRange: NSRange, actualGlyphRange: NSRangePointer) -> NSRange
   func glyphRangeFor(container: NSTextContainer) -> NSRange
   func rangeOfNominallySpacedGlyphsContaining(glyphIndex: Int) -> NSRange
-  func boundingRectForGlyphRange(glyphRange: NSRange, `in` container: NSTextContainer) -> CGRect
-  func glyphRangeForBoundingRect(bounds: CGRect, `in` container: NSTextContainer) -> NSRange
-  func glyphRangeForBoundingRectWithoutAdditionalLayout(bounds: CGRect, `in` container: NSTextContainer) -> NSRange
-  func glyphIndexFor(point: CGPoint, `in` container: NSTextContainer, fractionOfDistanceThroughGlyph partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
-  func glyphIndexFor(point: CGPoint, `in` container: NSTextContainer) -> Int
-  func fractionOfDistanceThroughGlyphFor(point: CGPoint, `in` container: NSTextContainer) -> CGFloat
-  func characterIndexFor(point: CGPoint, `in` container: NSTextContainer, fractionOfDistanceBetweenInsertionPoints partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
+  func boundingRectForGlyphRange(glyphRange: NSRange, in container: NSTextContainer) -> CGRect
+  func glyphRangeForBoundingRect(bounds: CGRect, in container: NSTextContainer) -> NSRange
+  func glyphRangeForBoundingRectWithoutAdditionalLayout(bounds: CGRect, in container: NSTextContainer) -> NSRange
+  func glyphIndexFor(point: CGPoint, in container: NSTextContainer, fractionOfDistanceThroughGlyph partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
+  func glyphIndexFor(point: CGPoint, in container: NSTextContainer) -> Int
+  func fractionOfDistanceThroughGlyphFor(point: CGPoint, in container: NSTextContainer) -> CGFloat
+  func characterIndexFor(point: CGPoint, in container: NSTextContainer, fractionOfDistanceBetweenInsertionPoints partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
   func getLineFragmentInsertionPointsForCharacterAt(charIndex: Int, alternatePositions aFlag: Bool, inDisplayOrder dFlag: Bool, positions: UnsafeMutablePointer<CGFloat>, characterIndexes charIndexes: UnsafeMutablePointer<Int>) -> Int
   @available(iOS 7.0, *)
   func enumerateLineFragmentsForGlyphRange(glyphRange: NSRange, usingBlock block: (CGRect, CGRect, NSTextContainer, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(iOS 7.0, *)
-  func enumerateEnclosingRectsForGlyphRange(glyphRange: NSRange, withinSelectedGlyphRange selectedRange: NSRange, `in` textContainer: NSTextContainer, usingBlock block: (CGRect, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateEnclosingRectsForGlyphRange(glyphRange: NSRange, withinSelectedGlyphRange selectedRange: NSRange, in textContainer: NSTextContainer, usingBlock block: (CGRect, UnsafeMutablePointer<ObjCBool>) -> Void)
 
   /************************ Drawing support ************************/
   func drawBackgroundForGlyphRange(glyphsToShow: NSRange, at origin: CGPoint)
   func drawGlyphsForGlyphRange(glyphsToShow: NSRange, at origin: CGPoint)
   @available(iOS 7.0, *)
-  func showCGGlyphs(glyphs: UnsafePointer<CGGlyph>, positions: UnsafePointer<CGPoint>, count glyphCount: Int, font: UIFont, matrix textMatrix: CGAffineTransform, attributes: [String : AnyObject], `in` graphicsContext: CGContext)
+  func showCGGlyphs(glyphs: UnsafePointer<CGGlyph>, positions: UnsafePointer<CGPoint>, count glyphCount: Int, font: UIFont, matrix textMatrix: CGAffineTransform, attributes: [String : AnyObject], in graphicsContext: CGContext)
   @available(iOS 7.0, *)
   func fillBackgroundRectArray(rectArray: UnsafePointer<CGRect>, count rectCount: Int, forCharacterRange charRange: NSRange, color: UIColor)
   func drawUnderlineForGlyphRange(glyphRange: NSRange, underlineType underlineVal: NSUnderlineStyle, baselineOffset: CGFloat, lineFragmentRect lineRect: CGRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: CGPoint)
@@ -529,7 +515,7 @@ protocol NSLayoutManagerDelegate : NSObjectProtocol {
   @available(iOS 7.0, *)
   optional func layoutManager(layoutManager: NSLayoutManager, boundingBoxForControlGlyphAt glyphIndex: Int, forTextContainer textContainer: NSTextContainer, proposedLineFragment proposedRect: CGRect, glyphPosition: CGPoint, characterIndex charIndex: Int) -> CGRect
   @available(iOS 9.0, *)
-  optional func layoutManager(layoutManager: NSLayoutManager, shouldSetLineFragmentRect lineFragmentRect: UnsafeMutablePointer<CGRect>, lineFragmentUsedRect: UnsafeMutablePointer<CGRect>, baselineOffset: UnsafeMutablePointer<CGFloat>, `in` textContainer: NSTextContainer, forGlyphRange glyphRange: NSRange) -> Bool
+  optional func layoutManager(layoutManager: NSLayoutManager, shouldSetLineFragmentRect lineFragmentRect: UnsafeMutablePointer<CGRect>, lineFragmentUsedRect: UnsafeMutablePointer<CGRect>, baselineOffset: UnsafeMutablePointer<CGFloat>, in textContainer: NSTextContainer, forGlyphRange glyphRange: NSRange) -> Bool
 
   /************************ Layout processing ************************/
   @available(iOS 7.0, *)
@@ -674,38 +660,6 @@ extension NSString {
   @available(iOS 7.0, *)
   func drawIn(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
 }
-extension NSString {
-  @available(iOS 7.0, *)
-  func sizeWithAttributes(attrs: [String : AnyObject]?) -> CGSize
-  @available(iOS 7.0, *)
-  func drawAt(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
-  @available(iOS 7.0, *)
-  func drawIn(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
-}
-extension NSString {
-  @available(iOS 7.0, *)
-  func sizeWithAttributes(attrs: [String : AnyObject]?) -> CGSize
-  @available(iOS 7.0, *)
-  func drawAt(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
-  @available(iOS 7.0, *)
-  func drawIn(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
-}
-extension NSString {
-  @available(iOS 7.0, *)
-  func sizeWithAttributes(attrs: [String : AnyObject]?) -> CGSize
-  @available(iOS 7.0, *)
-  func drawAt(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
-  @available(iOS 7.0, *)
-  func drawIn(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
-}
-extension NSAttributedString {
-  @available(iOS 6.0, *)
-  func size() -> CGSize
-  @available(iOS 6.0, *)
-  func drawAt(point: CGPoint)
-  @available(iOS 6.0, *)
-  func drawIn(rect: CGRect)
-}
 extension NSAttributedString {
   @available(iOS 6.0, *)
   func size() -> CGSize
@@ -730,36 +684,14 @@ extension NSString {
   @available(iOS 7.0, *)
   func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
 }
-extension NSString {
-  @available(iOS 7.0, *)
-  func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
-  @available(iOS 7.0, *)
-  func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
-}
-extension NSString {
-  @available(iOS 7.0, *)
-  func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
-  @available(iOS 7.0, *)
-  func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
-}
-extension NSString {
-  @available(iOS 7.0, *)
-  func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
-  @available(iOS 7.0, *)
-  func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
-}
 extension NSAttributedString {
   @available(iOS 6.0, *)
   func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?)
   @available(iOS 6.0, *)
   func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?) -> CGRect
 }
-extension NSAttributedString {
-  @available(iOS 6.0, *)
-  func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?)
-  @available(iOS 6.0, *)
-  func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?) -> CGRect
-}
+
+/************************ Deprecated ************************/
 extension NSStringDrawingContext {
 }
 @available(iOS 6.0, *)
@@ -821,10 +753,6 @@ class NSTextAttachment : NSObject, NSTextAttachmentContainer, NSCoding {
   @available(iOS 7.0, *)
   func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
-}
-extension NSAttributedString {
-  @available(iOS 7.0, *)
-  /*not inherited*/ init(attachment: NSTextAttachment)
 }
 extension NSAttributedString {
   @available(iOS 7.0, *)
@@ -904,12 +832,12 @@ class NSTextStorage : NSMutableAttributedString {
   func ensureAttributesAreFixedIn(range: NSRange)
   init()
   init?(coder aDecoder: NSCoder)
-  @available(iOS, introduced=7.0, deprecated=9.0, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init(fileURL url: NSURL, options: [NSObject : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS 9.0, *)
   init(url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS 7.0, *)
   init(data: NSData, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  @available(iOS, introduced=7.0, deprecated=9.0, message="Use -initWithURL:options:documentAttributes:error: instead")
+  init(fileURL url: NSURL, options: [NSObject : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   init(string str: String)
   init(string str: String, attributes attrs: [String : AnyObject]?)
   init(attributedString attrStr: NSAttributedString)
@@ -997,15 +925,19 @@ extension NSObject {
   class func setAccessibilityElements(accessibilityElements: [AnyObject]?)
 }
 extension NSObject {
+  @available(iOS 4.0, *)
   class func accessibilityElementDidBecomeFocused()
   @available(iOS 4.0, *)
   func accessibilityElementDidBecomeFocused()
+  @available(iOS 4.0, *)
   class func accessibilityElementDidLoseFocus()
   @available(iOS 4.0, *)
   func accessibilityElementDidLoseFocus()
+  @available(iOS 4.0, *)
   class func accessibilityElementIsFocused() -> Bool
   @available(iOS 4.0, *)
   func accessibilityElementIsFocused() -> Bool
+  @available(iOS 9.0, *)
   class func accessibilityAssistiveTechnologyFocusedIdentifiers() -> Set<String>?
   @available(iOS 9.0, *)
   func accessibilityAssistiveTechnologyFocusedIdentifiers() -> Set<String>?
@@ -1013,21 +945,27 @@ extension NSObject {
 @available(iOS 9.0, *)
 func UIAccessibilityFocusedElement(assistiveTechnologyIdentifier: String?) -> AnyObject?
 extension NSObject {
+  @available(iOS 7.0, *)
   class func accessibilityActivate() -> Bool
   @available(iOS 7.0, *)
   func accessibilityActivate() -> Bool
+  @available(iOS 4.0, *)
   class func accessibilityIncrement()
   @available(iOS 4.0, *)
   func accessibilityIncrement()
+  @available(iOS 4.0, *)
   class func accessibilityDecrement()
   @available(iOS 4.0, *)
   func accessibilityDecrement()
+  @available(iOS 4.2, *)
   class func accessibilityScroll(direction: UIAccessibilityScrollDirection) -> Bool
   @available(iOS 4.2, *)
   func accessibilityScroll(direction: UIAccessibilityScrollDirection) -> Bool
+  @available(iOS 5.0, *)
   class func accessibilityPerformEscape() -> Bool
   @available(iOS 5.0, *)
   func accessibilityPerformEscape() -> Bool
+  @available(iOS 6.0, *)
   class func accessibilityPerformMagicTap() -> Bool
   @available(iOS 6.0, *)
   func accessibilityPerformMagicTap() -> Bool
@@ -1267,7 +1205,7 @@ class UIActionSheet : UIView {
   @available(iOS 3.2, *)
   func showFrom(item: UIBarButtonItem, animated: Bool)
   @available(iOS 3.2, *)
-  func showFrom(rect: CGRect, `in` view: UIView, animated: Bool)
+  func showFrom(rect: CGRect, in view: UIView, animated: Bool)
   func showIn(view: UIView)
   func dismissWithClickedButtonIndex(buttonIndex: Int, animated: Bool)
   init(frame: CGRect)
@@ -1800,7 +1738,7 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
   optional func application(application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool
   @available(iOS 8.0, *)
-  optional func application(application: UIApplication, `continue` userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool
+  optional func application(application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool
   @available(iOS 8.0, *)
   optional func application(application: UIApplication, didFailToContinueUserActivityWithType userActivityType: String, error: NSError)
   @available(iOS 8.0, *)
@@ -2751,8 +2689,8 @@ enum UICollectionUpdateAction : Int {
 }
 @available(iOS 6.0, *)
 class UICollectionViewUpdateItem : NSObject {
-  var indexPathBeforeUpdate: NSIndexPath { get }
-  var indexPathAfterUpdate: NSIndexPath { get }
+  var indexPathBeforeUpdate: NSIndexPath? { get }
+  var indexPathAfterUpdate: NSIndexPath? { get }
   var updateAction: UICollectionUpdateAction { get }
   init()
 }
@@ -3267,10 +3205,10 @@ class UIDocumentInteractionController : NSObject, UIActionSheetDelegate {
   var name: String?
   var icons: [UIImage] { get }
   var annotation: AnyObject?
-  func presentOptionsMenuFrom(rect: CGRect, `in` view: UIView, animated: Bool) -> Bool
+  func presentOptionsMenuFrom(rect: CGRect, in view: UIView, animated: Bool) -> Bool
   func presentOptionsMenuFrom(item: UIBarButtonItem, animated: Bool) -> Bool
   func presentPreviewAnimated(animated: Bool) -> Bool
-  func presentOpenInMenuFrom(rect: CGRect, `in` view: UIView, animated: Bool) -> Bool
+  func presentOpenInMenuFrom(rect: CGRect, in view: UIView, animated: Bool) -> Bool
   func presentOpenInMenuFrom(item: UIBarButtonItem, animated: Bool) -> Bool
   func dismissPreviewAnimated(animated: Bool)
   func dismissMenuAnimated(animated: Bool)
@@ -3328,8 +3266,8 @@ protocol UIDocumentMenuDelegate : NSObjectProtocol {
 }
 @available(iOS 8.0, *)
 class UIDocumentMenuViewController : UIViewController {
-  init(documentTypes allowedUTIs: [String], `in` mode: UIDocumentPickerMode)
-  init(url: NSURL, `in` mode: UIDocumentPickerMode)
+  init(documentTypes allowedUTIs: [String], in mode: UIDocumentPickerMode)
+  init(url: NSURL, in mode: UIDocumentPickerMode)
   init?(coder aDecoder: NSCoder)
   func addOptionWithTitle(title: String, image: UIImage?, order: UIDocumentMenuOrder, handler: () -> Void)
   weak var delegate: @sil_weak UIDocumentMenuDelegate?
@@ -3366,9 +3304,9 @@ enum UIDocumentPickerMode : UInt {
 }
 @available(iOS 8.0, *)
 class UIDocumentPickerViewController : UIViewController {
-  init(documentTypes allowedUTIs: [String], `in` mode: UIDocumentPickerMode)
+  init(documentTypes allowedUTIs: [String], in mode: UIDocumentPickerMode)
   init?(coder aDecoder: NSCoder)
-  init(url: NSURL, `in` mode: UIDocumentPickerMode)
+  init(url: NSURL, in mode: UIDocumentPickerMode)
   weak var delegate: @sil_weak UIDocumentPickerDelegate?
   var documentPickerMode: UIDocumentPickerMode { get }
   convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
@@ -4024,7 +3962,6 @@ class UIGestureRecognizer : NSObject {
   init(target: AnyObject?, action: Selector)
   func addTarget(target: AnyObject, action: Selector)
   func removeTarget(target: AnyObject?, action: Selector)
-  var state: UIGestureRecognizerState { get }
   weak var delegate: @sil_weak UIGestureRecognizerDelegate?
   var isEnabled: Bool
   var view: UIView? { get }
@@ -4038,7 +3975,7 @@ class UIGestureRecognizer : NSObject {
   func requireGestureRecognizerToFail(otherGestureRecognizer: UIGestureRecognizer)
   func locationIn(view: UIView?) -> CGPoint
   func numberOfTouches() -> Int
-  func locationOfTouch(touchIndex: Int, `in` view: UIView?) -> CGPoint
+  func locationOfTouch(touchIndex: Int, in view: UIView?) -> CGPoint
   convenience init()
 }
 protocol UIGestureRecognizerDelegate : NSObjectProtocol {
@@ -4155,7 +4092,7 @@ enum UIImageRenderingMode : Int {
 class UIImage : NSObject, NSSecureCoding {
   /*not inherited*/ init?(named name: String)
   @available(iOS 8.0, *)
-  /*not inherited*/ init?(named name: String, `in` bundle: NSBundle?, compatibleWith traitCollection: UITraitCollection?)
+  /*not inherited*/ init?(named name: String, in bundle: NSBundle?, compatibleWith traitCollection: UITraitCollection?)
   init?(contentsOfFile path: String)
   init?(data: NSData)
   @available(iOS 6.0, *)
@@ -4594,7 +4531,7 @@ class UIMenuController : NSObject {
   class func shared() -> UIMenuController
   var isMenuVisible: Bool
   func setMenuVisible(menuVisible: Bool, animated: Bool)
-  func setTargetRect(targetRect: CGRect, `in` targetView: UIView)
+  func setTargetRect(targetRect: CGRect, in targetView: UIView)
   @available(iOS 3.2, *)
   var arrowDirection: UIMenuControllerArrowDirection
   @available(iOS 3.2, *)
@@ -4894,6 +4831,7 @@ extension NSBundle {
 extension NSObject {
   class func awakeFromNib()
   func awakeFromNib()
+  @available(iOS 8.0, *)
   class func prepareForInterfaceBuilder()
   @available(iOS 8.0, *)
   func prepareForInterfaceBuilder()
@@ -4986,7 +4924,7 @@ class UIPanGestureRecognizer : UIGestureRecognizer {
   var minimumNumberOfTouches: Int
   var maximumNumberOfTouches: Int
   func translationIn(view: UIView?) -> CGPoint
-  func setTranslation(translation: CGPoint, `in` view: UIView?)
+  func setTranslation(translation: CGPoint, in view: UIView?)
   func velocityIn(view: UIView?) -> CGPoint
   init(target: AnyObject?, action: Selector)
   convenience init()
@@ -5134,7 +5072,7 @@ class UIPopoverController : NSObject, UIAppearanceContainer {
   var isPopoverVisible: Bool { get }
   var popoverArrowDirection: UIPopoverArrowDirection { get }
   var passthroughViews: [UIView]?
-  func presentPopoverFrom(rect: CGRect, `in` view: UIView, permittedArrowDirections arrowDirections: UIPopoverArrowDirection, animated: Bool)
+  func presentPopoverFrom(rect: CGRect, in view: UIView, permittedArrowDirections arrowDirections: UIPopoverArrowDirection, animated: Bool)
   func presentPopoverFrom(item: UIBarButtonItem, permittedArrowDirections arrowDirections: UIPopoverArrowDirection, animated: Bool)
   func dismissPopoverAnimated(animated: Bool)
   @available(iOS 7.0, *)
@@ -5151,7 +5089,7 @@ protocol UIPopoverControllerDelegate : NSObjectProtocol {
   @available(iOS, introduced=3.2, deprecated=9.0)
   optional func popoverControllerDidDismissPopover(popoverController: UIPopoverController)
   @available(iOS, introduced=7.0, deprecated=9.0)
-  optional func popoverController(popoverController: UIPopoverController, willRepositionPopoverTo rect: UnsafeMutablePointer<CGRect>, `in` view: AutoreleasingUnsafeMutablePointer<UIView?>)
+  optional func popoverController(popoverController: UIPopoverController, willRepositionPopoverTo rect: UnsafeMutablePointer<CGRect>, in view: AutoreleasingUnsafeMutablePointer<UIView?>)
 }
 protocol UIPopoverPresentationControllerDelegate : UIAdaptivePresentationControllerDelegate {
   @available(iOS 8.0, *)
@@ -5161,7 +5099,7 @@ protocol UIPopoverPresentationControllerDelegate : UIAdaptivePresentationControl
   @available(iOS 8.0, *)
   optional func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController)
   @available(iOS 8.0, *)
-  optional func popoverPresentationController(popoverPresentationController: UIPopoverPresentationController, willRepositionPopoverTo rect: UnsafeMutablePointer<CGRect>, `in` view: AutoreleasingUnsafeMutablePointer<UIView?>)
+  optional func popoverPresentationController(popoverPresentationController: UIPopoverPresentationController, willRepositionPopoverTo rect: UnsafeMutablePointer<CGRect>, in view: AutoreleasingUnsafeMutablePointer<UIView?>)
 }
 @available(iOS 8.0, *)
 class UIPopoverPresentationController : UIPresentationController {
@@ -5424,7 +5362,7 @@ class UIPrintInteractionController : NSObject {
   @NSCopying var printingItem: AnyObject?
   var printingItems: [AnyObject]?
   func presentAnimated(animated: Bool, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
-  func presentFrom(rect: CGRect, `in` view: UIView, animated: Bool, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
+  func presentFrom(rect: CGRect, in view: UIView, animated: Bool, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
   func presentFrom(item: UIBarButtonItem, animated: Bool, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
 
   /*!
@@ -5469,11 +5407,11 @@ class UIPrintPageRenderer : NSObject {
   func addPrintFormatter(formatter: UIPrintFormatter, startingAtPageAt pageIndex: Int)
   func numberOfPages() -> Int
   func prepareForDrawingPages(range: NSRange)
-  func drawPageAt(pageIndex: Int, `in` printableRect: CGRect)
+  func drawPageAt(pageIndex: Int, in printableRect: CGRect)
   func drawPrintFormatter(printFormatter: UIPrintFormatter, forPageAt pageIndex: Int)
-  func drawHeaderForPageAt(pageIndex: Int, `in` headerRect: CGRect)
-  func drawContentForPageAt(pageIndex: Int, `in` contentRect: CGRect)
-  func drawFooterForPageAt(pageIndex: Int, `in` footerRect: CGRect)
+  func drawHeaderForPageAt(pageIndex: Int, in headerRect: CGRect)
+  func drawContentForPageAt(pageIndex: Int, in contentRect: CGRect)
+  func drawFooterForPageAt(pageIndex: Int, in footerRect: CGRect)
   init()
 }
 @available(iOS 4.2, *)
@@ -5647,7 +5585,7 @@ class UIPrinterPickerController : NSObject {
   var selectedPrinter: UIPrinter? { get }
   weak var delegate: @sil_weak UIPrinterPickerControllerDelegate?
   func presentAnimated(animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler? = nil) -> Bool
-  func presentFrom(rect: CGRect, `in` view: UIView, animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler? = nil) -> Bool
+  func presentFrom(rect: CGRect, in view: UIView, animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler? = nil) -> Bool
   func presentFrom(item: UIBarButtonItem, animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler? = nil) -> Bool
   func dismissAnimated(animated: Bool)
   init()
@@ -5842,42 +5780,55 @@ extension UIResponder {
   var keyCommands: [UIKeyCommand]? { get }
 }
 extension NSObject {
+  @available(iOS 3.0, *)
   class func cut(sender: AnyObject?)
   @available(iOS 3.0, *)
   func cut(sender: AnyObject?)
+  @available(iOS 3.0, *)
   class func copy(sender: AnyObject?)
   @available(iOS 3.0, *)
   func copy(sender: AnyObject?)
+  @available(iOS 3.0, *)
   class func paste(sender: AnyObject?)
   @available(iOS 3.0, *)
   func paste(sender: AnyObject?)
+  @available(iOS 3.0, *)
   class func select(sender: AnyObject?)
   @available(iOS 3.0, *)
   func select(sender: AnyObject?)
+  @available(iOS 3.0, *)
   class func selectAll(sender: AnyObject?)
   @available(iOS 3.0, *)
   func selectAll(sender: AnyObject?)
+  @available(iOS 3.2, *)
   class func delete(sender: AnyObject?)
   @available(iOS 3.2, *)
   func delete(sender: AnyObject?)
+  @available(iOS 5.0, *)
   class func makeTextWritingDirectionLeftToRight(sender: AnyObject?)
   @available(iOS 5.0, *)
   func makeTextWritingDirectionLeftToRight(sender: AnyObject?)
+  @available(iOS 5.0, *)
   class func makeTextWritingDirectionRightToLeft(sender: AnyObject?)
   @available(iOS 5.0, *)
   func makeTextWritingDirectionRightToLeft(sender: AnyObject?)
+  @available(iOS 6.0, *)
   class func toggleBoldface(sender: AnyObject?)
   @available(iOS 6.0, *)
   func toggleBoldface(sender: AnyObject?)
+  @available(iOS 6.0, *)
   class func toggleItalics(sender: AnyObject?)
   @available(iOS 6.0, *)
   func toggleItalics(sender: AnyObject?)
+  @available(iOS 6.0, *)
   class func toggleUnderline(sender: AnyObject?)
   @available(iOS 6.0, *)
   func toggleUnderline(sender: AnyObject?)
+  @available(iOS 7.0, *)
   class func increaseSize(sender: AnyObject?)
   @available(iOS 7.0, *)
   func increaseSize(sender: AnyObject?)
+  @available(iOS 7.0, *)
   class func decreaseSize(sender: AnyObject?)
   @available(iOS 7.0, *)
   func decreaseSize(sender: AnyObject?)
@@ -6510,7 +6461,7 @@ protocol UISplitViewControllerDelegate {
   @available(iOS, introduced=2.0, deprecated=8.0, message="Use splitViewController:willChangeToDisplayMode: instead")
   optional func splitViewController(svc: UISplitViewController, popoverController pc: UIPopoverController, willPresent aViewController: UIViewController)
   @available(iOS, introduced=5.0, deprecated=8.0, message="Use preferredDisplayMode instead")
-  optional func splitViewController(svc: UISplitViewController, shouldHide vc: UIViewController, `in` orientation: UIInterfaceOrientation) -> Bool
+  optional func splitViewController(svc: UISplitViewController, shouldHide vc: UIViewController, in orientation: UIInterfaceOrientation) -> Bool
 }
 extension UIViewController {
   var splitViewController: UISplitViewController? { get }
@@ -6575,9 +6526,9 @@ protocol UIViewControllerRestoration {
 }
 protocol UIDataSourceModelAssociation {
   @available(iOS 2.0, *)
-  func modelIdentifierForElementAt(idx: NSIndexPath, `in` view: UIView) -> String?
+  func modelIdentifierForElementAt(idx: NSIndexPath, in view: UIView) -> String?
   @available(iOS 2.0, *)
-  func indexPathForElementWithModelIdentifier(identifier: String, `in` view: UIView) -> NSIndexPath?
+  func indexPathForElementWithModelIdentifier(identifier: String, in view: UIView) -> NSIndexPath?
 }
 protocol UIStateRestoring : NSObjectProtocol {
   optional var restorationParent: UIStateRestoring? { get }
@@ -6662,12 +6613,6 @@ enum UIBaselineAdjustment : Int {
   case AlignBaselines
   case AlignCenters
   case None
-}
-extension NSString {
-}
-extension NSString {
-}
-extension NSString {
 }
 extension NSString {
 }
@@ -7386,8 +7331,8 @@ class UITapGestureRecognizer : UIGestureRecognizer {
 @available(iOS 3.2, *)
 class UITextChecker : NSObject {
   func rangeOfMisspelledWordIn(stringToCheck: String, range: NSRange, startingAt startingOffset: Int, wrap wrapFlag: Bool, language: String) -> NSRange
-  func guessesForWordRange(range: NSRange, `in` string: String, language: String) -> [AnyObject]?
-  func completionsForPartialWordRange(range: NSRange, `in` string: String?, language: String) -> [AnyObject]?
+  func guessesForWordRange(range: NSRange, in string: String, language: String) -> [AnyObject]?
+  func completionsForPartialWordRange(range: NSRange, in string: String?, language: String) -> [AnyObject]?
   func ignoreWord(wordToIgnore: String)
   func ignoredWords() -> [AnyObject]?
   func setIgnoredWords(words: [AnyObject]?)
@@ -7482,7 +7427,7 @@ class UITextField : UIControl, UITextInput, NSCoding {
   @available(iOS 3.2, *)
   func positionFrom(position: UITextPosition, offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func positionFrom(position: UITextPosition, `in` direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
+  func positionFrom(position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
   func compare(position: UITextPosition, to other: UITextPosition) -> NSComparisonResult
   @available(iOS 3.2, *)
@@ -7494,9 +7439,9 @@ class UITextField : UIControl, UITextInput, NSCoding {
   @available(iOS 3.2, *)
   func positionWithin(range: UITextRange, farthestIn direction: UITextLayoutDirection) -> UITextPosition?
   @available(iOS 3.2, *)
-  func characterRangeByExtending(position: UITextPosition, `in` direction: UITextLayoutDirection) -> UITextRange?
+  func characterRangeByExtending(position: UITextPosition, in direction: UITextLayoutDirection) -> UITextRange?
   @available(iOS 3.2, *)
-  func baseWritingDirectionFor(position: UITextPosition, `in` direction: UITextStorageDirection) -> UITextWritingDirection
+  func baseWritingDirectionFor(position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
   @available(iOS 3.2, *)
   func setBaseWritingDirection(writingDirection: UITextWritingDirection, forRange range: UITextRange)
   @available(iOS 3.2, *)
@@ -7514,7 +7459,7 @@ class UITextField : UIControl, UITextInput, NSCoding {
   @available(iOS 6.0, *)
   func shouldChangeTextIn(range: UITextRange, replacementText text: String) -> Bool
   @available(iOS 3.2, *)
-  func textStylingAt(position: UITextPosition, `in` direction: UITextStorageDirection) -> [String : AnyObject]?
+  func textStylingAt(position: UITextPosition, in direction: UITextStorageDirection) -> [String : AnyObject]?
   @available(iOS 3.2, *)
   func positionWithin(range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
@@ -7664,7 +7609,7 @@ protocol UITextInput : UIKeyInput {
   @available(iOS 3.2, *)
   func positionFrom(position: UITextPosition, offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func positionFrom(position: UITextPosition, `in` direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
+  func positionFrom(position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
   func compare(position: UITextPosition, to other: UITextPosition) -> NSComparisonResult
   @available(iOS 3.2, *)
@@ -7674,9 +7619,9 @@ protocol UITextInput : UIKeyInput {
   @available(iOS 3.2, *)
   func positionWithin(range: UITextRange, farthestIn direction: UITextLayoutDirection) -> UITextPosition?
   @available(iOS 3.2, *)
-  func characterRangeByExtending(position: UITextPosition, `in` direction: UITextLayoutDirection) -> UITextRange?
+  func characterRangeByExtending(position: UITextPosition, in direction: UITextLayoutDirection) -> UITextRange?
   @available(iOS 3.2, *)
-  func baseWritingDirectionFor(position: UITextPosition, `in` direction: UITextStorageDirection) -> UITextWritingDirection
+  func baseWritingDirectionFor(position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
   @available(iOS 3.2, *)
   func setBaseWritingDirection(writingDirection: UITextWritingDirection, forRange range: UITextRange)
   @available(iOS 3.2, *)
@@ -7694,7 +7639,7 @@ protocol UITextInput : UIKeyInput {
   @available(iOS 6.0, *)
   optional func shouldChangeTextIn(range: UITextRange, replacementText text: String) -> Bool
   @available(iOS 3.2, *)
-  optional func textStylingAt(position: UITextPosition, `in` direction: UITextStorageDirection) -> [String : AnyObject]?
+  optional func textStylingAt(position: UITextPosition, in direction: UITextStorageDirection) -> [String : AnyObject]?
   @available(iOS 3.2, *)
   optional func positionWithin(range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
@@ -7880,9 +7825,9 @@ protocol UITextViewDelegate : NSObjectProtocol, UIScrollViewDelegate {
   @available(iOS 2.0, *)
   optional func textViewDidChangeSelection(textView: UITextView)
   @available(iOS 7.0, *)
-  optional func textView(textView: UITextView, shouldInteractWith URL: NSURL, `in` characterRange: NSRange) -> Bool
+  optional func textView(textView: UITextView, shouldInteractWith URL: NSURL, in characterRange: NSRange) -> Bool
   @available(iOS 7.0, *)
-  optional func textView(textView: UITextView, shouldInteractWith textAttachment: NSTextAttachment, `in` characterRange: NSRange) -> Bool
+  optional func textView(textView: UITextView, shouldInteractWith textAttachment: NSTextAttachment, in characterRange: NSRange) -> Bool
 }
 @available(iOS 2.0, *)
 class UITextView : UIScrollView, UITextInput {
@@ -7946,7 +7891,7 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 3.2, *)
   func positionFrom(position: UITextPosition, offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func positionFrom(position: UITextPosition, `in` direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
+  func positionFrom(position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
   func compare(position: UITextPosition, to other: UITextPosition) -> NSComparisonResult
   @available(iOS 3.2, *)
@@ -7958,9 +7903,9 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 3.2, *)
   func positionWithin(range: UITextRange, farthestIn direction: UITextLayoutDirection) -> UITextPosition?
   @available(iOS 3.2, *)
-  func characterRangeByExtending(position: UITextPosition, `in` direction: UITextLayoutDirection) -> UITextRange?
+  func characterRangeByExtending(position: UITextPosition, in direction: UITextLayoutDirection) -> UITextRange?
   @available(iOS 3.2, *)
-  func baseWritingDirectionFor(position: UITextPosition, `in` direction: UITextStorageDirection) -> UITextWritingDirection
+  func baseWritingDirectionFor(position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
   @available(iOS 3.2, *)
   func setBaseWritingDirection(writingDirection: UITextWritingDirection, forRange range: UITextRange)
   @available(iOS 3.2, *)
@@ -7978,7 +7923,7 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 6.0, *)
   func shouldChangeTextIn(range: UITextRange, replacementText text: String) -> Bool
   @available(iOS 3.2, *)
-  func textStylingAt(position: UITextPosition, `in` direction: UITextStorageDirection) -> [String : AnyObject]?
+  func textStylingAt(position: UITextPosition, in direction: UITextStorageDirection) -> [String : AnyObject]?
   @available(iOS 3.2, *)
   func positionWithin(range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)

@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // MARK: Initializers
         
         init?(fullType: String) {
-            guard let last = fullType.componentsSeparatedByString(".").last else { return nil }
+            guard let last = fullType.componentsSeparatedBy(".").last else { return nil }
             
             self.init(rawValue: last)
         }
@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // MARK: Properties
         
         var type: String {
-            return NSBundle.mainBundle().bundleIdentifier! + ".\(self.rawValue)"
+            return NSBundle.main().bundleIdentifier! + ".\(self.rawValue)"
         }
     }
 
@@ -79,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     // MARK: UIApplicationDelegate
     
     func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        let appConfiguration = AppConfiguration.sharedConfiguration
+        let appConfiguration = AppConfiguration.shared
         if appConfiguration.isCloudAvailable {
             /*
                 Ensure the app sandbox is extended to include the default container. Perform this action on the
@@ -87,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             */
             dispatch_async(appDelegateQueue) {
                 // The initial call extends the sandbox. No need to capture the URL.
-                NSFileManager.defaultManager().URLForUbiquityContainerIdentifier(nil)
+                NSFileManager.defaultManager().urlForUbiquityContainerIdentifier(nil)
                 
                 return
             }
@@ -101,7 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleUbiquityIdentityDidChangeNotification:", name: NSUbiquityIdentityDidChangeNotification, object: nil)
         
         // Provide default lists from the app's bundle on first launch.
-        AppConfiguration.sharedConfiguration.runHandlerOnFirstLaunch {
+        AppConfiguration.shared.runHandlerOnFirstLaunch {
             ListUtilities.copyInitialLists()
         }
 
@@ -137,12 +137,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         // Make sure that shortcut handling occurs after storage preference have been set. See `application(_:, didFinishLaunchingWithOptions:)` above.
         dispatch_async(appDelegateQueue) {
-            self.handleApplicationShortcutItem(launchedShortcutItem)
+            self.handle(launchedShortcutItem)
             self.launchedShortcutItem = nil
         }
     }
     
-    func application(_: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+    func application(_: UIApplication, continue userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
         // Lister only supports a single user activity type; if you support more than one the type is available from the `continueUserActivity` parameter.
         if let listDocumentsViewController = listDocumentsViewController {
             // Make sure that user activity continuation occurs after the app sandbox is extended. See `application(_:, willFinishLaunchingWithOptions:)` above.
@@ -156,7 +156,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         return false
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+    func application(application: UIApplication, open url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         // Lister currently only opens URLs of the Lister scheme type.
         if url.scheme == AppConfiguration.ListerScheme.name {
             // Obtain an app launch context from the provided lister:// URL and configure the view controller with it.
@@ -165,7 +165,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             if let listDocumentsViewController = listDocumentsViewController {
                 // Make sure that URL opening is handled after the app sandbox is extended. See `application(_:, willFinishLaunchingWithOptions:)` above.
                 dispatch_async(appDelegateQueue) {
-                    listDocumentsViewController.configureViewControllerWithLaunchContext(launchContext)
+                    listDocumentsViewController.configureViewControllerWith(launchContext)
                 }
                 
                 return true
@@ -175,10 +175,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         return false
     }
     
-    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+    func application(application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
         // Make sure that shortcut handling is coordinated with other activities handled asynchronously.
         dispatch_async(appDelegateQueue) {
-            completionHandler(self.handleApplicationShortcutItem(shortcutItem))
+            completionHandler(self.handle(shortcutItem))
         }
     }
     
@@ -238,7 +238,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     // MARK: Notifications
     
-    func handleUbiquityIdentityDidChangeNotification(notification: NSNotification) {
+    func handleUbiquityIdentityDidChange(notification: NSNotification) {
         primaryViewController.popToRootViewControllerAnimated(true)
         
         setupUserStoragePreferences()
@@ -247,7 +247,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     // MARK: User Storage Preferences
     
     func setupUserStoragePreferences() {
-        let storageState = AppConfiguration.sharedConfiguration.storageState
+        let storageState = AppConfiguration.shared.storageState
     
         /*
             Check to see if the account has changed since the last time the method was called. If it has, let
@@ -284,7 +284,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
                 desired storage option.
             */
             if storageState.storageOption != .NotSet {
-                AppConfiguration.sharedConfiguration.storageOption = .NotSet
+                AppConfiguration.shared.storageOption = .NotSet
             }
             
             configureListsController(accountChanged: storageState.accountDidChange)
@@ -315,7 +315,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         signedOutController.addAction(action)
         
         dispatch_async(dispatch_get_main_queue()) {
-            self.listDocumentsViewController?.presentViewController(signedOutController, animated: true, completion: nil)
+            self.listDocumentsViewController?.present(signedOutController, animated: true)
         }
     }
     
@@ -328,14 +328,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let storageController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         
         let localOption = UIAlertAction(title: localOnlyActionTitle, style: .Default) { localAction in
-            AppConfiguration.sharedConfiguration.storageOption = .Local
+            AppConfiguration.shared.storageOption = .Local
 
             self.configureListsController(accountChanged: true)
         }
         storageController.addAction(localOption)
         
         let cloudOption = UIAlertAction(title: cloudActionTitle, style: .Default) { cloudAction in
-            AppConfiguration.sharedConfiguration.storageOption = .Cloud
+            AppConfiguration.shared.storageOption = .Cloud
 
             self.configureListsController(accountChanged: true) {
                 ListUtilities.migrateLocalListsToCloud()
@@ -344,13 +344,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         storageController.addAction(cloudOption)
         
         dispatch_async(dispatch_get_main_queue()) {
-            self.listDocumentsViewController?.presentViewController(storageController, animated: true, completion: nil)
+            self.listDocumentsViewController?.present(storageController, animated: true)
         }
     }
    
     // MARK: Convenience
     
-    func handleApplicationShortcutItem(shortcutItem: UIApplicationShortcutItem) -> Bool {
+    func handle(shortcutItem: UIApplicationShortcutItem) -> Bool {
         // Verify that the provided `shortcutItem`'s `type` is one handled by the application.
         guard let shortcutIdentifier = ShortcutIdentifier(fullType: shortcutItem.type) else { return false }
         
@@ -359,10 +359,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
                 guard let listDocuments = self.listDocumentsViewController else { return false }
                 guard let listsController = self.listsController else { return false }
                 
-                let todayURL = listsController.documentsDirectory.URLByAppendingPathComponent(AppConfiguration.localizedTodayDocumentNameAndExtension, isDirectory: false)
+                let todayURL = listsController.documentsDirectory.appendingPathComponent(AppConfiguration.localizedTodayDocumentNameAndExtension, isDirectory: false)
                 let launchContext = AppLaunchContext(listURL: todayURL, listColor: List.Color.Orange)
                 
-                listDocuments.configureViewControllerWithLaunchContext(launchContext)
+                listDocuments.configureViewControllerWith(launchContext)
                 
                 return true
         }
@@ -378,7 +378,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
         if listsController == nil {
             // There is currently no lists controller. Configure an appropriate one for the current configuration.
-            listsController = AppConfiguration.sharedConfiguration.listsControllerForCurrentConfigurationWithPathExtension(AppConfiguration.listerFileExtension, firstQueryHandler: storageOptionChangeHandler)
+            listsController = AppConfiguration.shared.listsControllerForCurrentConfigurationWithPathExtension(AppConfiguration.listerFileExtension, firstQueryHandler: storageOptionChangeHandler)
             
             // Ensure that this controller is passed along to the `ListDocumentsViewController`.
             listDocumentsViewController?.listsController = listsController
@@ -387,7 +387,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         }
         else if accountChanged {
             // A lists controller is configured; however, it needs to have its coordinator updated based on the account change. 
-            listsController.listCoordinator = AppConfiguration.sharedConfiguration.listCoordinatorForCurrentConfigurationWithPathExtension(AppConfiguration.listerFileExtension, firstQueryHandler: storageOptionChangeHandler)
+            listsController.listCoordinator = AppConfiguration.shared.listCoordinatorForCurrentConfigurationWithPathExtension(AppConfiguration.listerFileExtension, firstQueryHandler: storageOptionChangeHandler)
         }
     }
 }

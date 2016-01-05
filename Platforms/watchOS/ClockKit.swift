@@ -205,8 +205,14 @@ enum CLKComplicationTimelineAnimationBehavior : UInt {
 enum CLKComplicationColumnAlignment : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Left
-  case Right
+  case Leading
+  case Trailing
+  @available(watchOS 2.0, *)
+  @available(watchOS, deprecated=2.1, message="Use CLKComplicationColumnAlignmentLeading instead")
+  static var Left: CLKComplicationColumnAlignment { get }
+  @available(watchOS 2.0, *)
+  @available(watchOS, deprecated=2.1, message="Use CLKComplicationColumnAlignmentTrailing instead")
+  static var Right: CLKComplicationColumnAlignment { get }
 }
 enum CLKComplicationRingStyle : Int {
   init?(rawValue: Int)

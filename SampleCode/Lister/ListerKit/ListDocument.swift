@@ -33,7 +33,7 @@ public class ListDocument: UIDocument {
     // MARK: Serialization / Deserialization
 
     override public func loadFromContents(contents: AnyObject, ofType typeName: String?) throws {
-        if let unarchivedList = NSKeyedUnarchiver.unarchiveObjectWithData(contents as! NSData) as? List {
+        if let unarchivedList = NSKeyedUnarchiver.unarchiveObjectWith(contents as! NSData) as? List {
             /*
                 This method is called on the queue that the `openWithCompletionHandler(_:)` method was called
                 on (typically, the main queue). List presenter operations are main queue only, so explicitly
@@ -67,13 +67,13 @@ public class ListDocument: UIDocument {
     
     // MARK: Saving
     
-    override public func saveToURL(url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation, completionHandler: ((Bool) -> Void)?) {
-        super.saveToURL(url, forSaveOperation: saveOperation) { success in
+    override public func saveTo(url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation, completionHandler: ((Bool) -> Void)?) {
+        super.saveTo(url, forSaveOperation: saveOperation) { success in
             // On a successful save, transfer the file to the paired watch if appropriate.
-            if WCSession.isSupported() && WCSession.defaultSession().watchAppInstalled && success {
+            if WCSession.isSupported() && WCSession.defaultSession().isWatchAppInstalled && success {
                 let fileCoordinator = NSFileCoordinator()
-                let readingIntent = NSFileAccessIntent.readingIntentWithURL(url, options: [])
-                fileCoordinator.coordinateAccessWithIntents([readingIntent], queue: NSOperationQueue()) { accessError in
+                let readingIntent = NSFileAccessIntent.readingIntentWith(url)
+                fileCoordinator.coordinateAccessWith([readingIntent], queue: NSOperationQueue()) { accessError in
                     if accessError != nil {
                         return
                     }
@@ -81,13 +81,13 @@ public class ListDocument: UIDocument {
                     let session = WCSession.defaultSession()
                     
                     for transfer in session.outstandingFileTransfers {
-                        if transfer.file.fileURL == readingIntent.URL {
+                        if transfer.file.fileURL == readingIntent.url {
                             transfer.cancel()
                             break
                         }
                     }
                     
-                    session.transferFile(readingIntent.URL, metadata: nil)
+                    session.transferFile(readingIntent.url, metadata: nil)
                 }
             }
             
@@ -109,7 +109,7 @@ public class ListDocument: UIDocument {
         super.updateUserActivityState(userActivity)
         
         if let rawColorValue = listPresenter?.color.rawValue {
-            userActivity.addUserInfoEntriesFromDictionary([
+            userActivity.addUserInfoEntriesFrom([
                 AppConfiguration.UserActivity.listColorUserInfoKey: rawColorValue
             ])
         }

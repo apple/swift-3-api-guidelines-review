@@ -77,7 +77,7 @@ final class SceneManager {
     
     // MARK: Initialization
     
-    init(presenting presentingView: SKView, gameInput: GameInput) {
+    presentinginit(presenting presentingView: SKView, gameInput: GameInput) {
         self.presentingView = presentingView
         self.gameInput = gameInput
         

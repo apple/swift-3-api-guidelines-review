@@ -162,57 +162,6 @@ extension NSArray : _Reflectable {
   /// Returns a mirror that reflects `self`.
   func _getMirror() -> _MirrorType
 }
-
-/****************	Immutable Array		****************/
-class NSArray : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration {
-  var count: Int { get }
-  func objectAt(index: Int) -> AnyObject
-  init()
-  init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
-  init?(coder aDecoder: NSCoder)
-  func copy(zone zone: NSZone = nil) -> AnyObject
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
-  class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: NSCoder)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
-}
-
-extension NSArray : ArrayLiteralConvertible {
-  /// Create an instance initialized with `elements`.
-  required convenience init(arrayLiteral elements: AnyObject...)
-  typealias Element = AnyObject
-}
-
-extension NSArray : SequenceType {
-  /// Return a *generator* over the elements of this *sequence*.
-  ///
-  /// - Complexity: O(1).
-  final func generate() -> NSFastGenerator
-  typealias Generator = NSFastGenerator
-  typealias SubSequence = AnySequence<AnyObject>
-}
-
-extension NSArray {
-  convenience init(objects elements: AnyObject...)
-}
-
-extension NSArray {
-  /// Initializes a newly allocated array by placing in it the objects
-  /// contained in a given array.
-  ///
-  /// - Returns: An array initialized to contain the objects in
-  ///    `anArray``. The returned object might be different than the
-  ///    original receiver.
-  ///
-  /// Discussion: After an immutable array has been initialized in
-  /// this way, it cannot be modified.
-  @objc(_swiftInitWithArray_NSArray:) convenience init(array anArray: NSArray)
-}
-
-extension NSArray : _Reflectable {
-  /// Returns a mirror that reflects `self`.
-  func _getMirror() -> _MirrorType
-}
 extension NSArray {
   func adding(anObject: AnyObject) -> [AnyObject]
   func addingObjectsFrom(otherArray: [AnyObject]) -> [AnyObject]
@@ -224,9 +173,9 @@ extension NSArray {
   func firstObjectCommonWith(otherArray: [AnyObject]) -> AnyObject?
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, range: NSRange)
   func indexOf(anObject: AnyObject) -> Int
-  func indexOf(anObject: AnyObject, `in` range: NSRange) -> Int
+  func indexOf(anObject: AnyObject, in range: NSRange) -> Int
   func indexOfObjectIdenticalTo(anObject: AnyObject) -> Int
-  func indexOfObjectIdenticalTo(anObject: AnyObject, `in` range: NSRange) -> Int
+  func indexOfObjectIdenticalTo(anObject: AnyObject, in range: NSRange) -> Int
   func isEqualTo(otherArray: [AnyObject]) -> Bool
   @available(watchOS 2.0, *)
   var firstObject: AnyObject? { get }
@@ -241,60 +190,7 @@ extension NSArray {
   func writeToFile(path: String, atomically useAuxiliaryFile: Bool) -> Bool
   func writeTo(url: NSURL, atomically: Bool) -> Bool
   func objectsAt(indexes: NSIndexSet) -> [AnyObject]
-  subscript (idx: Int) -> AnyObject { get }
   @available(watchOS 2.0, *)
-  func enumerateObjectsUsing(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
-  @available(watchOS 2.0, *)
-  func enumerateObjects(options opts: NSEnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
-  @available(watchOS 2.0, *)
-  func enumerateObjectsAt(s: NSIndexSet, options opts: NSEnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
-  @available(watchOS 2.0, *)
-  func indexOfObjectPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
-  @available(watchOS 2.0, *)
-  func indexOfObject(options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
-  @available(watchOS 2.0, *)
-  func indexOfObjectAt(s: NSIndexSet, options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
-  @available(watchOS 2.0, *)
-  func indexesOfObjectsPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
-  @available(watchOS 2.0, *)
-  func indexesOfObjects(options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
-  @available(watchOS 2.0, *)
-  func indexesOfObjectsAt(s: NSIndexSet, options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
-  @available(watchOS 2.0, *)
-  func sortedArrayUsingComparator(cmptr: NSComparator) -> [AnyObject]
-  @available(watchOS 2.0, *)
-  func sortedArray(options opts: NSSortOptions = [], usingComparator cmptr: NSComparator) -> [AnyObject]
-  @available(watchOS 2.0, *)
-  func indexOf(obj: AnyObject, inSortedRange r: NSRange, options opts: NSBinarySearchingOptions = [], usingComparator cmp: NSComparator) -> Int
-}
-extension NSArray {
-  func adding(anObject: AnyObject) -> [AnyObject]
-  func addingObjectsFrom(otherArray: [AnyObject]) -> [AnyObject]
-  func componentsJoinedBy(separator: String) -> String
-  func contains(anObject: AnyObject) -> Bool
-  var description: String { get }
-  func descriptionWithLocale(locale: AnyObject?) -> String
-  func descriptionWithLocale(locale: AnyObject?, indent level: Int) -> String
-  func firstObjectCommonWith(otherArray: [AnyObject]) -> AnyObject?
-  func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, range: NSRange)
-  func indexOf(anObject: AnyObject) -> Int
-  func indexOf(anObject: AnyObject, `in` range: NSRange) -> Int
-  func indexOfObjectIdenticalTo(anObject: AnyObject) -> Int
-  func indexOfObjectIdenticalTo(anObject: AnyObject, `in` range: NSRange) -> Int
-  func isEqualTo(otherArray: [AnyObject]) -> Bool
-  @available(watchOS 2.0, *)
-  var firstObject: AnyObject? { get }
-  var lastObject: AnyObject? { get }
-  func objectEnumerator() -> NSEnumerator
-  func reverseObjectEnumerator() -> NSEnumerator
-  @NSCopying var sortedArrayHint: NSData { get }
-  func sortedArrayUsing(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>) -> [AnyObject]
-  func sortedArrayUsing(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>, hint: NSData?) -> [AnyObject]
-  func sortedArrayUsing(comparator: Selector) -> [AnyObject]
-  func subarrayWith(range: NSRange) -> [AnyObject]
-  func writeToFile(path: String, atomically useAuxiliaryFile: Bool) -> Bool
-  func writeTo(url: NSURL, atomically: Bool) -> Bool
-  func objectsAt(indexes: NSIndexSet) -> [AnyObject]
   subscript (idx: Int) -> AnyObject { get }
   @available(watchOS 2.0, *)
   func enumerateObjectsUsing(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
@@ -336,16 +232,6 @@ extension NSArray {
   convenience init?(contentsOf url: NSURL)
 }
 extension NSArray {
-  convenience init(object anObject: AnyObject)
-  convenience init(array: [AnyObject])
-  convenience init(array: [AnyObject], copyItems flag: Bool)
-  convenience init?(contentsOfFile path: String)
-  convenience init?(contentsOf url: NSURL)
-}
-extension NSArray {
-  func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>)
-}
-extension NSArray {
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>)
 }
 
@@ -368,9 +254,9 @@ extension NSMutableArray {
   func addObjectsFrom(otherArray: [AnyObject])
   func exchangeObjectAt(idx1: Int, withObjectAt idx2: Int)
   func removeAllObjects()
-  func remove(anObject: AnyObject, `in` range: NSRange)
+  func remove(anObject: AnyObject, in range: NSRange)
   func remove(anObject: AnyObject)
-  func removeObjectIdenticalTo(anObject: AnyObject, `in` range: NSRange)
+  func removeObjectIdenticalTo(anObject: AnyObject, in range: NSRange)
   func removeObjectIdenticalTo(anObject: AnyObject)
   @available(watchOS, introduced=2.0, deprecated=2.0)
   func removeObjectsFromIndices(indices: UnsafeMutablePointer<Int>, numIndices cnt: Int)
@@ -384,6 +270,7 @@ extension NSMutableArray {
   func insert(objects: [AnyObject], at indexes: NSIndexSet)
   func removeObjectsAt(indexes: NSIndexSet)
   func replaceObjectsAt(indexes: NSIndexSet, withObjects objects: [AnyObject])
+  @available(watchOS 2.0, *)
   subscript (idx: Int) -> AnyObject
   @available(watchOS 2.0, *)
   func sortUsingComparator(cmptr: NSComparator)
@@ -413,8 +300,8 @@ extension NSAttributedString {
   var length: Int { get }
   func attribute(attrName: String, at location: Int, effectiveRange range: NSRangePointer) -> AnyObject?
   func attributedSubstringFrom(range: NSRange) -> NSAttributedString
-  func attributesAt(location: Int, longestEffectiveRange range: NSRangePointer, `in` rangeLimit: NSRange) -> [String : AnyObject]
-  func attribute(attrName: String, at location: Int, longestEffectiveRange range: NSRangePointer, `in` rangeLimit: NSRange) -> AnyObject?
+  func attributesAt(location: Int, longestEffectiveRange range: NSRangePointer, in rangeLimit: NSRange) -> [String : AnyObject]
+  func attribute(attrName: String, at location: Int, longestEffectiveRange range: NSRangePointer, in rangeLimit: NSRange) -> AnyObject?
   func isEqualTo(other: NSAttributedString) -> Bool
   init(string str: String)
   init(string str: String, attributes attrs: [String : AnyObject]?)
@@ -422,7 +309,7 @@ extension NSAttributedString {
   @available(watchOS 2.0, *)
   func enumerateAttributesIn(enumerationRange: NSRange, options opts: NSAttributedStringEnumerationOptions = [], usingBlock block: ([String : AnyObject], NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
-  func enumerateAttribute(attrName: String, `in` enumerationRange: NSRange, options opts: NSAttributedStringEnumerationOptions = [], usingBlock block: (AnyObject?, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateAttribute(attrName: String, in enumerationRange: NSRange, options opts: NSAttributedStringEnumerationOptions = [], usingBlock block: (AnyObject?, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
 }
 struct NSAttributedStringEnumerationOptions : OptionSetType {
   init(rawValue: UInt)
@@ -536,10 +423,6 @@ var NSBundleExecutableArchitectureI386: Int { get }
 var NSBundleExecutableArchitecturePPC: Int { get }
 var NSBundleExecutableArchitectureX86_64: Int { get }
 var NSBundleExecutableArchitecturePPC64: Int { get }
-extension NSString {
-  @available(watchOS 2.0, *)
-  func variantFittingPresentationWidth(width: Int) -> String
-}
 extension NSString {
   @available(watchOS 2.0, *)
   func variantFittingPresentationWidth(width: Int) -> String
@@ -840,8 +723,8 @@ class NSCalendar : NSObject, NSCopying, NSSecureCoding {
   var pmSymbol: String { get }
   func minimumRangeOf(unit: NSCalendarUnit) -> NSRange
   func maximumRangeOf(unit: NSCalendarUnit) -> NSRange
-  func rangeOf(smaller: NSCalendarUnit, `in` larger: NSCalendarUnit, forDate date: NSDate) -> NSRange
-  func ordinalityOf(smaller: NSCalendarUnit, `in` larger: NSCalendarUnit, forDate date: NSDate) -> Int
+  func rangeOf(smaller: NSCalendarUnit, in larger: NSCalendarUnit, forDate date: NSDate) -> NSRange
+  func ordinalityOf(smaller: NSCalendarUnit, in larger: NSCalendarUnit, forDate date: NSDate) -> Int
   @available(watchOS 2.0, *)
   func rangeOf(unit: NSCalendarUnit, start datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, forDate date: NSDate) -> Bool
   func dateFrom(comps: NSDateComponents) -> NSDate?
@@ -1227,33 +1110,6 @@ class NSData : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
-
-/****************	Immutable Data		****************/
-class NSData : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
-  var length: Int { get }
-  var bytes: UnsafePointer<Void> { get }
-  init()
-  func copy(zone zone: NSZone = nil) -> AnyObject
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
-  class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
-}
-extension NSData {
-  var description: String { get }
-  func getBytes(buffer: UnsafeMutablePointer<Void>, length: Int)
-  func getBytes(buffer: UnsafeMutablePointer<Void>, range: NSRange)
-  func isEqualTo(other: NSData) -> Bool
-  func subdataWith(range: NSRange) -> NSData
-  func writeToFile(path: String, atomically useAuxiliaryFile: Bool) -> Bool
-  func writeTo(url: NSURL, atomically: Bool) -> Bool
-  func writeToFile(path: String, options writeOptionsMask: NSDataWritingOptions = []) throws
-  func writeTo(url: NSURL, options writeOptionsMask: NSDataWritingOptions = []) throws
-  @available(watchOS 2.0, *)
-  func rangeOf(dataToFind: NSData, options mask: NSDataSearchOptions = [], range searchRange: NSRange) -> NSRange
-  @available(watchOS 2.0, *)
-  func enumerateByteRangesUsing(block: (UnsafePointer<Void>, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
-}
 extension NSData {
   var description: String { get }
   func getBytes(buffer: UnsafeMutablePointer<Void>, length: Int)
@@ -1282,18 +1138,6 @@ extension NSData {
   init(data: NSData)
 }
 extension NSData {
-  init(bytes: UnsafePointer<Void>, length: Int)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, freeWhenDone b: Bool)
-  @available(watchOS 2.0, *)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)? = nil)
-  init(contentsOfFile path: String, options readOptionsMask: NSDataReadingOptions = []) throws
-  init(contentsOf url: NSURL, options readOptionsMask: NSDataReadingOptions = []) throws
-  init?(contentsOfFile path: String)
-  init?(contentsOf url: NSURL)
-  init(data: NSData)
-}
-extension NSData {
   @available(watchOS 2.0, *)
   init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions = [])
   @available(watchOS 2.0, *)
@@ -1302,28 +1146,6 @@ extension NSData {
   init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions = [])
   @available(watchOS 2.0, *)
   func base64EncodedData(options options: NSDataBase64EncodingOptions = []) -> NSData
-}
-extension NSData {
-  @available(watchOS 2.0, *)
-  init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions = [])
-  @available(watchOS 2.0, *)
-  func base64EncodedString(options options: NSDataBase64EncodingOptions = []) -> String
-  @available(watchOS 2.0, *)
-  init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions = [])
-  @available(watchOS 2.0, *)
-  func base64EncodedData(options options: NSDataBase64EncodingOptions = []) -> NSData
-}
-extension NSData {
-  @available(watchOS, introduced=2.0, deprecated=2.0, message="This method is unsafe because it could potentially cause buffer overruns. Use -getBytes:length: instead.")
-  func getBytes(buffer: UnsafeMutablePointer<Void>)
-  @available(watchOS, introduced=2.0, deprecated=2.0, message="Use +dataWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
-  class func dataWithContentsOfMappedFile(path: String) -> AnyObject?
-  @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
-  init?(contentsOfMappedFile path: String)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  init?(base64Encoding base64String: String)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  func base64Encoding() -> String
 }
 extension NSData {
   @available(watchOS, introduced=2.0, deprecated=2.0, message="This method is unsafe because it could potentially cause buffer overruns. Use -getBytes:length: instead.")
@@ -1344,14 +1166,6 @@ class NSMutableData : NSData {
   var length: Int
   init()
   init?(coder aDecoder: NSCoder)
-  @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
-  init?(contentsOfMappedFile path: String)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  init?(base64Encoding base64String: String)
-  @available(watchOS 2.0, *)
-  init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions = [])
-  @available(watchOS 2.0, *)
-  init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions = [])
   init(bytes: UnsafePointer<Void>, length: Int)
   init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int)
   init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, freeWhenDone b: Bool)
@@ -1362,6 +1176,14 @@ class NSMutableData : NSData {
   init?(contentsOfFile path: String)
   init?(contentsOf url: NSURL)
   init(data: NSData)
+  @available(watchOS 2.0, *)
+  init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions = [])
+  @available(watchOS 2.0, *)
+  init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions = [])
+  @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
+  init?(contentsOfMappedFile path: String)
+  @available(watchOS, introduced=2.0, deprecated=2.0)
+  init?(base64Encoding base64String: String)
 }
 extension NSMutableData {
   func appendBytes(bytes: UnsafePointer<Void>, length: Int)
@@ -1382,14 +1204,6 @@ extension NSMutableData {
 class NSPurgeableData : NSMutableData, NSDiscardableContent {
   init()
   init?(coder aDecoder: NSCoder)
-  @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
-  init?(contentsOfMappedFile path: String)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  init?(base64Encoding base64String: String)
-  @available(watchOS 2.0, *)
-  init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions = [])
-  @available(watchOS 2.0, *)
-  init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions = [])
   init(bytes: UnsafePointer<Void>, length: Int)
   init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int)
   init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, freeWhenDone b: Bool)
@@ -1400,6 +1214,14 @@ class NSPurgeableData : NSMutableData, NSDiscardableContent {
   init?(contentsOfFile path: String)
   init?(contentsOf url: NSURL)
   init(data: NSData)
+  @available(watchOS 2.0, *)
+  init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions = [])
+  @available(watchOS 2.0, *)
+  init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions = [])
+  @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
+  init?(contentsOfMappedFile path: String)
+  @available(watchOS, introduced=2.0, deprecated=2.0)
+  init?(base64Encoding base64String: String)
   init?(capacity: Int)
   init?(length: Int)
   @available(watchOS 2.0, *)
@@ -1429,20 +1251,6 @@ extension NSDate : _Reflectable {
   /// Returns a mirror that reflects `self`.
   func _getMirror() -> _MirrorType
 }
-class NSDate : NSObject, NSCopying, NSSecureCoding {
-  var timeIntervalSinceReferenceDate: NSTimeInterval { get }
-  init()
-  init(timeIntervalSinceReferenceDate ti: NSTimeInterval)
-  init?(coder aDecoder: NSCoder)
-  func copy(zone zone: NSZone = nil) -> AnyObject
-  class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: NSCoder)
-}
-
-extension NSDate : _Reflectable {
-  /// Returns a mirror that reflects `self`.
-  func _getMirror() -> _MirrorType
-}
 extension NSDate {
   func timeIntervalSince(anotherDate: NSDate) -> NSTimeInterval
   var timeIntervalSinceNow: NSTimeInterval { get }
@@ -1458,29 +1266,6 @@ extension NSDate {
   var description: String { get }
   func descriptionWithLocale(locale: AnyObject?) -> String
   class func timeIntervalSinceReferenceDate() -> NSTimeInterval
-}
-extension NSDate {
-  func timeIntervalSince(anotherDate: NSDate) -> NSTimeInterval
-  var timeIntervalSinceNow: NSTimeInterval { get }
-  var timeIntervalSince1970: NSTimeInterval { get }
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  func addTimeInterval(seconds: NSTimeInterval) -> AnyObject
-  @available(watchOS 2.0, *)
-  func addingTimeInterval(ti: NSTimeInterval) -> Self
-  func earlierDate(anotherDate: NSDate) -> NSDate
-  func laterDate(anotherDate: NSDate) -> NSDate
-  func compare(other: NSDate) -> NSComparisonResult
-  func isEqualTo(otherDate: NSDate) -> Bool
-  var description: String { get }
-  func descriptionWithLocale(locale: AnyObject?) -> String
-  class func timeIntervalSinceReferenceDate() -> NSTimeInterval
-}
-extension NSDate {
-  class func distantFuture() -> NSDate
-  class func distantPast() -> NSDate
-  convenience init(timeIntervalSinceNow secs: NSTimeInterval)
-  convenience init(timeIntervalSince1970 secs: NSTimeInterval)
-  convenience init(timeInterval secsToBeAdded: NSTimeInterval, since date: NSDate)
 }
 extension NSDate {
   class func distantFuture() -> NSDate
@@ -1756,6 +1541,8 @@ class NSDecimalNumberHandler : NSObject, NSDecimalNumberBehaviors, NSCoding {
   func encodeWith(aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
+
+/***********	Extensions to other classes		*******/
 extension NSNumber {
   var decimalValue: NSDecimal { get }
 }
@@ -1813,57 +1600,6 @@ extension NSDictionary : _Reflectable {
   /// Returns a mirror that reflects `self`.
   func _getMirror() -> _MirrorType
 }
-
-/****************	Immutable Dictionary	****************/
-class NSDictionary : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration {
-  var count: Int { get }
-  func objectFor(aKey: AnyObject) -> AnyObject?
-  func keyEnumerator() -> NSEnumerator
-  init()
-  init(objects: UnsafePointer<AnyObject?>, forKeys keys: UnsafePointer<NSCopying?>, count cnt: Int)
-  init?(coder aDecoder: NSCoder)
-  func copy(zone zone: NSZone = nil) -> AnyObject
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
-  class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: NSCoder)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
-}
-
-extension NSDictionary : DictionaryLiteralConvertible {
-  required convenience init(dictionaryLiteral elements: (NSCopying, AnyObject)...)
-  typealias Key = NSCopying
-  typealias Value = AnyObject
-}
-
-extension NSDictionary : SequenceType {
-  final class Generator : GeneratorType {
-    var _fastGenerator: NSFastGenerator
-    var _dictionary: NSDictionary { get }
-    func next() -> (key: AnyObject, value: AnyObject)?
-    init(_ _dict: NSDictionary)
-    typealias Element = (key: AnyObject, value: AnyObject)
-  }
-  /// Return a *generator* over the elements of this *sequence*.
-  ///
-  /// - Complexity: O(1).
-  func generate() -> NSDictionary.Generator
-  typealias SubSequence = AnySequence<(key: AnyObject, value: AnyObject)>
-}
-
-extension NSDictionary {
-  /// Initializes a newly allocated dictionary and adds to it objects from
-  /// another given dictionary.
-  ///
-  /// - Returns: An initialized dictionary—which might be different
-  ///   than the original receiver—containing the keys and values
-  ///   found in `otherDictionary`.
-  @objc(_swiftInitWithDictionary_NSDictionary:) convenience init(dictionary otherDictionary: NSDictionary)
-}
-
-extension NSDictionary : _Reflectable {
-  /// Returns a mirror that reflects `self`.
-  func _getMirror() -> _MirrorType
-}
 extension NSDictionary {
   var allKeys: [AnyObject] { get }
   func allKeysFor(anObject: AnyObject) -> [AnyObject]
@@ -1880,36 +1616,7 @@ extension NSDictionary {
   func keysSortedByValueUsing(comparator: Selector) -> [AnyObject]
   @available(watchOS 2.0, *)
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, andKeys keys: AutoreleasingUnsafeMutablePointer<AnyObject?>, count: Int)
-  subscript (key: NSCopying) -> AnyObject? { get }
   @available(watchOS 2.0, *)
-  func enumerateKeysAndObjectsUsing(block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
-  @available(watchOS 2.0, *)
-  func enumerateKeysAndObjects(options opts: NSEnumerationOptions = [], usingBlock block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
-  @available(watchOS 2.0, *)
-  func keysSortedByValueUsingComparator(cmptr: NSComparator) -> [AnyObject]
-  @available(watchOS 2.0, *)
-  func keysSortedByValue(options opts: NSSortOptions = [], usingComparator cmptr: NSComparator) -> [AnyObject]
-  @available(watchOS 2.0, *)
-  func keysOfEntriesPassingTest(predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<NSObject>
-  @available(watchOS 2.0, *)
-  func keysOfEntries(options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<NSObject>
-}
-extension NSDictionary {
-  var allKeys: [AnyObject] { get }
-  func allKeysFor(anObject: AnyObject) -> [AnyObject]
-  var allValues: [AnyObject] { get }
-  var description: String { get }
-  var descriptionInStringsFileFormat: String { get }
-  func descriptionWithLocale(locale: AnyObject?) -> String
-  func descriptionWithLocale(locale: AnyObject?, indent level: Int) -> String
-  func isEqualTo(otherDictionary: [NSObject : AnyObject]) -> Bool
-  func objectEnumerator() -> NSEnumerator
-  func objectsFor(keys: [AnyObject], notFoundMarker marker: AnyObject) -> [AnyObject]
-  func writeToFile(path: String, atomically useAuxiliaryFile: Bool) -> Bool
-  func writeTo(url: NSURL, atomically: Bool) -> Bool
-  func keysSortedByValueUsing(comparator: Selector) -> [AnyObject]
-  @available(watchOS 2.0, *)
-  func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, andKeys keys: AutoreleasingUnsafeMutablePointer<AnyObject?>, count: Int)
   subscript (key: NSCopying) -> AnyObject? { get }
   @available(watchOS 2.0, *)
   func enumerateKeysAndObjectsUsing(block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
@@ -1928,19 +1635,6 @@ extension NSDictionary {
 
   /// This method is unsafe because it could potentially cause buffer overruns. You should use -getObjects:andKeys:count:
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, andKeys keys: AutoreleasingUnsafeMutablePointer<AnyObject?>)
-}
-extension NSDictionary {
-
-  /// This method is unsafe because it could potentially cause buffer overruns. You should use -getObjects:andKeys:count:
-  func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, andKeys keys: AutoreleasingUnsafeMutablePointer<AnyObject?>)
-}
-extension NSDictionary {
-  convenience init(object: AnyObject, forKey key: NSCopying)
-  convenience init(dictionary otherDictionary: [NSObject : AnyObject])
-  convenience init(dictionary otherDictionary: [NSObject : AnyObject], copyItems flag: Bool)
-  convenience init(objects: [AnyObject], forKeys keys: [NSCopying])
-  convenience init?(contentsOfFile path: String)
-  convenience init?(contentsOf url: NSURL)
 }
 extension NSDictionary {
   convenience init(object: AnyObject, forKey key: NSCopying)
@@ -1969,15 +1663,12 @@ extension NSMutableDictionary {
   func removeAllObjects()
   func removeObjectsFor(keyArray: [AnyObject])
   func setDictionary(otherDictionary: [NSObject : AnyObject])
+  @available(watchOS 2.0, *)
   subscript (key: NSCopying) -> AnyObject?
 }
 extension NSMutableDictionary {
   convenience init?(contentsOfFile path: String)
   convenience init?(contentsOf url: NSURL)
-}
-extension NSDictionary {
-  @available(watchOS 2.0, *)
-  class func sharedKeySetForKeys(keys: [NSCopying]) -> AnyObject
 }
 extension NSDictionary {
   @available(watchOS 2.0, *)
@@ -2516,9 +2207,11 @@ class NSFileManager : NSObject {
   init()
 }
 extension NSObject {
+  @available(watchOS, introduced=2.0, deprecated=2.0)
   class func fileManager(fm: NSFileManager, shouldProceedAfterError errorInfo: [NSObject : AnyObject]) -> Bool
   @available(watchOS, introduced=2.0, deprecated=2.0)
   func fileManager(fm: NSFileManager, shouldProceedAfterError errorInfo: [NSObject : AnyObject]) -> Bool
+  @available(watchOS, introduced=2.0, deprecated=2.0)
   class func fileManager(fm: NSFileManager, willProcessPath path: String)
   @available(watchOS, introduced=2.0, deprecated=2.0)
   func fileManager(fm: NSFileManager, willProcessPath path: String)
@@ -2599,24 +2292,6 @@ let NSFileSystemSize: String
 let NSFileSystemFreeSize: String
 let NSFileSystemNodes: String
 let NSFileSystemFreeNodes: String
-extension NSDictionary {
-  func fileSize() -> UInt64
-  func fileModificationDate() -> NSDate?
-  func fileType() -> String?
-  func filePosixPermissions() -> Int
-  func fileOwnerAccountName() -> String?
-  func fileGroupOwnerAccountName() -> String?
-  func fileSystemNumber() -> Int
-  func fileSystemFileNumber() -> Int
-  func fileExtensionHidden() -> Bool
-  func fileHFSCreatorCode() -> OSType
-  func fileHFSTypeCode() -> OSType
-  func fileIsImmutable() -> Bool
-  func fileIsAppendOnly() -> Bool
-  func fileCreationDate() -> NSDate?
-  func fileOwnerAccountID() -> NSNumber?
-  func fileGroupOwnerAccountID() -> NSNumber?
-}
 extension NSDictionary {
   func fileSize() -> UInt64
   func fileModificationDate() -> NSDate?
@@ -3527,6 +3202,7 @@ extension NSObject {
   func validateValue(ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey inKey: String) throws
   class func mutableArrayValueForKey(key: String) -> NSMutableArray
   func mutableArrayValueForKey(key: String) -> NSMutableArray
+  @available(watchOS 2.0, *)
   class func mutableOrderedSetValueForKey(key: String) -> NSMutableOrderedSet
   @available(watchOS 2.0, *)
   func mutableOrderedSetValueForKey(key: String) -> NSMutableOrderedSet
@@ -3540,6 +3216,7 @@ extension NSObject {
   func validateValue(ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKeyPath inKeyPath: String) throws
   class func mutableArrayValueForKeyPath(keyPath: String) -> NSMutableArray
   func mutableArrayValueForKeyPath(keyPath: String) -> NSMutableArray
+  @available(watchOS 2.0, *)
   class func mutableOrderedSetValueForKeyPath(keyPath: String) -> NSMutableOrderedSet
   @available(watchOS 2.0, *)
   func mutableOrderedSetValueForKeyPath(keyPath: String) -> NSMutableOrderedSet
@@ -3559,13 +3236,6 @@ extension NSObject {
 extension NSArray {
   func valueForKey(key: String) -> AnyObject
   func setValue(value: AnyObject?, forKey key: String)
-}
-extension NSArray {
-  func valueForKey(key: String) -> AnyObject
-  func setValue(value: AnyObject?, forKey key: String)
-}
-extension NSDictionary {
-  func valueForKey(key: String) -> AnyObject?
 }
 extension NSDictionary {
   func valueForKey(key: String) -> AnyObject?
@@ -3622,20 +3292,11 @@ extension NSObject {
 extension NSObject {
   class func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
   func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
+  @available(watchOS 2.0, *)
   class func removeObserver(observer: NSObject, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
   @available(watchOS 2.0, *)
   func removeObserver(observer: NSObject, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
   class func removeObserver(observer: NSObject, forKeyPath keyPath: String)
-  func removeObserver(observer: NSObject, forKeyPath keyPath: String)
-}
-extension NSArray {
-  func addObserver(observer: NSObject, toObjectsAt indexes: NSIndexSet, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
-  @available(watchOS 2.0, *)
-  func removeObserver(observer: NSObject, fromObjectsAt indexes: NSIndexSet, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
-  func removeObserver(observer: NSObject, fromObjectsAt indexes: NSIndexSet, forKeyPath keyPath: String)
-  func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
-  @available(watchOS 2.0, *)
-  func removeObserver(observer: NSObject, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
   func removeObserver(observer: NSObject, forKeyPath keyPath: String)
 }
 extension NSArray {
@@ -3900,12 +3561,6 @@ class NSLinguisticTagger : NSObject {
   @available(watchOS 2.0, *)
   func possibleTagsAt(charIndex: Int, scheme tagScheme: String, tokenRange: NSRangePointer, sentenceRange: NSRangePointer, scores: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]?
   convenience init()
-}
-extension NSString {
-  @available(watchOS 2.0, *)
-  func linguisticTagsIn(range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions = [], orthography: NSOrthography?, tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
-  @available(watchOS 2.0, *)
-  func enumerateLinguisticTagsIn(range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions = [], orthography: NSOrthography?, usingBlock block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
 }
 extension NSString {
   @available(watchOS 2.0, *)
@@ -4615,6 +4270,8 @@ protocol NSCoding {
 protocol NSSecureCoding : NSCoding {
   static func supportsSecureCoding() -> Bool
 }
+
+/***********	Base class		***********/
 extension NSObject {
   class func version() -> Int
   class func setVersion(aVersion: Int)
@@ -4764,6 +4421,7 @@ extension NSOrderedSet {
   func intersectsSet(set: Set<NSObject>) -> Bool
   func isSubsetOf(other: NSOrderedSet) -> Bool
   func isSubsetOf(set: Set<NSObject>) -> Bool
+  @available(watchOS 2.0, *)
   subscript (idx: Int) -> AnyObject { get }
   func objectEnumerator() -> NSEnumerator
   func reverseObjectEnumerator() -> NSEnumerator
@@ -4826,6 +4484,7 @@ extension NSMutableOrderedSet {
   func moveObjectsAt(indexes: NSIndexSet, to idx: Int)
   func insert(objects: [AnyObject], at indexes: NSIndexSet)
   func setObject(obj: AnyObject, at idx: Int)
+  @available(watchOS 2.0, *)
   subscript (idx: Int) -> AnyObject
   func replaceObjectsIn(range: NSRange, withObjects objects: UnsafePointer<AnyObject?>, count: Int)
   func replaceObjectsAt(indexes: NSIndexSet, withObjects objects: [AnyObject])
@@ -4891,28 +4550,6 @@ extension NSString {
   func completePathInto(outputName: AutoreleasingUnsafeMutablePointer<NSString?>, caseSensitive flag: Bool, matchesInto outputArray: AutoreleasingUnsafeMutablePointer<NSArray?>, filterTypes: [String]?) -> Int
   var fileSystemRepresentation: UnsafePointer<Int8> { get }
   func getFileSystemRepresentation(cname: UnsafeMutablePointer<Int8>, maxLength max: Int) -> Bool
-}
-extension NSString {
-  class func pathWithComponents(components: [String]) -> String
-  var pathComponents: [String] { get }
-  var isAbsolutePath: Bool { get }
-  var lastPathComponent: String { get }
-  var deletingLastPathComponent: String { get }
-  func appendingPathComponent(str: String) -> String
-  var pathExtension: String { get }
-  var deletingPathExtension: String { get }
-  func appendingPathExtension(str: String) -> String?
-  var abbreviatingWithTildeInPath: String { get }
-  var expandingTildeInPath: String { get }
-  var standardizingPath: String { get }
-  var resolvingSymlinksInPath: String { get }
-  func stringsByAppendingPaths(paths: [String]) -> [String]
-  func completePathInto(outputName: AutoreleasingUnsafeMutablePointer<NSString?>, caseSensitive flag: Bool, matchesInto outputArray: AutoreleasingUnsafeMutablePointer<NSArray?>, filterTypes: [String]?) -> Int
-  var fileSystemRepresentation: UnsafePointer<Int8> { get }
-  func getFileSystemRepresentation(cname: UnsafeMutablePointer<Int8>, maxLength max: Int) -> Bool
-}
-extension NSArray {
-  func pathsMatchingExtensions(filterTypes: [String]) -> [String]
 }
 extension NSArray {
   func pathsMatchingExtensions(filterTypes: [String]) -> [String]
@@ -5190,9 +4827,6 @@ struct _predicateFlags {
 extension NSArray {
   func filteredArrayUsing(predicate: NSPredicate) -> [AnyObject]
 }
-extension NSArray {
-  func filteredArrayUsing(predicate: NSPredicate) -> [AnyObject]
-}
 extension NSMutableArray {
   func filterUsing(predicate: NSPredicate)
 }
@@ -5385,7 +5019,6 @@ class NSProxy : NSObjectProtocol {
   class func `class`() -> AnyClass
   class func forwardInvocation(invocation: NSInvocation)
   func forwardInvocation(invocation: NSInvocation)
-  class func methodSignatureFor(sel: Selector) -> NSMethodSignature?
   class func dealloc()
   func dealloc()
   class func finalize()
@@ -5393,8 +5026,6 @@ class NSProxy : NSObjectProtocol {
   var description: String { get }
   var debugDescription: String { get }
   class func respondsTo(aSelector: Selector) -> Bool
-  class func allowsWeakReference() -> Bool
-  class func retainWeakReference() -> Bool
   class func description() -> String
   class func debugDescription() -> String
   func isEqual(object: AnyObject?) -> Bool
@@ -5511,7 +5142,7 @@ extension NSRegularExpression {
 extension NSRegularExpression {
   func stringByReplacingMatchesIn(string: String, options: NSMatchingOptions = [], range: NSRange, withTemplate templ: String) -> String
   func replaceMatchesIn(string: NSMutableString, options: NSMatchingOptions = [], range: NSRange, withTemplate templ: String) -> Int
-  func replacementStringFor(result: NSTextCheckingResult, `in` string: String, offset: Int, template templ: String) -> String
+  func replacementStringFor(result: NSTextCheckingResult, in string: String, offset: Int, template templ: String) -> String
   class func escapedTemplateFor(string: String) -> String
 }
 @available(watchOS 2.0, *)
@@ -5543,6 +5174,8 @@ extension NSRunLoop {
   func runUntil(limitDate: NSDate)
   func runMode(mode: String, before limitDate: NSDate) -> Bool
 }
+
+/**************** 	Delayed perform	 ******************/
 extension NSObject {
   class func perform(aSelector: Selector, withObject anArgument: AnyObject?, afterDelay delay: NSTimeInterval, inModes modes: [String])
   func perform(aSelector: Selector, withObject anArgument: AnyObject?, afterDelay delay: NSTimeInterval, inModes modes: [String])
@@ -5729,9 +5362,6 @@ class NSSortDescriptor : NSObject, NSSecureCoding, NSCopying {
 }
 extension NSSet {
   @available(watchOS 2.0, *)
-  func sortedArrayUsing(sortDescriptors: [NSSortDescriptor]) -> [AnyObject]
-}
-extension NSArray {
   func sortedArrayUsing(sortDescriptors: [NSSortDescriptor]) -> [AnyObject]
 }
 extension NSArray {
@@ -5954,173 +5584,6 @@ extension NSString : _Reflectable {
   /// Returns a mirror that reflects `self`.
   func _getMirror() -> _MirrorType
 }
-class NSString : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
-  var length: Int { get }
-  func characterAt(index: Int) -> unichar
-  init()
-  init?(coder aDecoder: NSCoder)
-  func copy(zone zone: NSZone = nil) -> AnyObject
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
-  class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: NSCoder)
-}
-
-extension NSString : StringLiteralConvertible {
-  /// Create an instance initialized to `value`.
-  required convenience init(unicodeScalarLiteral value: StaticString)
-  required convenience init(extendedGraphemeClusterLiteral value: StaticString)
-  /// Create an instance initialized to `value`.
-  required convenience init(stringLiteral value: StaticString)
-  typealias StringLiteralType = StaticString
-  typealias ExtendedGraphemeClusterLiteralType = StaticString
-  typealias UnicodeScalarLiteralType = StaticString
-}
-
-extension NSString {
-  convenience init(format: NSString, _ args: CVarArgType...)
-  convenience init(format: NSString, locale: NSLocale?, _ args: CVarArgType...)
-  @warn_unused_result
-  class func localizedStringWithFormat(format: NSString, _ args: CVarArgType...) -> Self
-  @warn_unused_result
-  func stringByAppendingFormat(format: NSString, _ args: CVarArgType...) -> NSString
-}
-
-extension NSString {
-  /// Returns an `NSString` object initialized by copying the characters
-  /// from another given string.
-  ///
-  /// - Returns: An `NSString` object initialized by copying the
-  ///   characters from `aString`. The returned object may be different
-  ///   from the original receiver.
-  @objc(_swiftInitWithString_NSString:) convenience init(string aString: NSString)
-}
-
-extension NSString : _Reflectable {
-  /// Returns a mirror that reflects `self`.
-  func _getMirror() -> _MirrorType
-}
-extension NSString {
-  func substringFrom(from: Int) -> String
-  func substringTo(to: Int) -> String
-  func substringWith(range: NSRange) -> String
-  func getCharacters(buffer: UnsafeMutablePointer<unichar>, range: NSRange)
-  func compare(string: String) -> NSComparisonResult
-  func compare(string: String, options mask: NSStringCompareOptions = []) -> NSComparisonResult
-  func compare(string: String, options mask: NSStringCompareOptions = [], range compareRange: NSRange) -> NSComparisonResult
-  func compare(string: String, options mask: NSStringCompareOptions = [], range compareRange: NSRange, locale: AnyObject?) -> NSComparisonResult
-  func caseInsensitiveCompare(string: String) -> NSComparisonResult
-  func localizedCompare(string: String) -> NSComparisonResult
-  func localizedCaseInsensitiveCompare(string: String) -> NSComparisonResult
-  @available(watchOS 2.0, *)
-  func localizedStandardCompare(string: String) -> NSComparisonResult
-  func isEqualTo(aString: String) -> Bool
-  func hasPrefix(str: String) -> Bool
-  func hasSuffix(str: String) -> Bool
-  func commonPrefixWith(str: String, options mask: NSStringCompareOptions = []) -> String
-  @available(watchOS 2.0, *)
-  func contains(str: String) -> Bool
-  @available(watchOS 2.0, *)
-  func localizedCaseInsensitiveContains(str: String) -> Bool
-  @available(watchOS 2.0, *)
-  func localizedStandardContains(str: String) -> Bool
-  @available(watchOS 2.0, *)
-  func localizedStandardRangeOf(str: String) -> NSRange
-  func rangeOf(searchString: String) -> NSRange
-  func rangeOf(searchString: String, options mask: NSStringCompareOptions = []) -> NSRange
-  func rangeOf(searchString: String, options mask: NSStringCompareOptions = [], range searchRange: NSRange) -> NSRange
-  @available(watchOS 2.0, *)
-  func rangeOf(searchString: String, options mask: NSStringCompareOptions = [], range searchRange: NSRange, locale: NSLocale?) -> NSRange
-  func rangeOfCharacterFrom(searchSet: NSCharacterSet) -> NSRange
-  func rangeOfCharacterFrom(searchSet: NSCharacterSet, options mask: NSStringCompareOptions = []) -> NSRange
-  func rangeOfCharacterFrom(searchSet: NSCharacterSet, options mask: NSStringCompareOptions = [], range searchRange: NSRange) -> NSRange
-  func rangeOfComposedCharacterSequenceAt(index: Int) -> NSRange
-  @available(watchOS 2.0, *)
-  func rangeOfComposedCharacterSequencesFor(range: NSRange) -> NSRange
-  func appending(aString: String) -> String
-  var doubleValue: Double { get }
-  var floatValue: Float { get }
-  var intValue: Int32 { get }
-  @available(watchOS 2.0, *)
-  var integerValue: Int { get }
-  @available(watchOS 2.0, *)
-  var longLongValue: Int64 { get }
-  @available(watchOS 2.0, *)
-  var isBoolValue: Bool { get }
-  var uppercase: String { get }
-  var lowercase: String { get }
-  var capitalized: String { get }
-  @available(watchOS 2.0, *)
-  var localizedUppercase: String { get }
-  @available(watchOS 2.0, *)
-  var localizedLowercase: String { get }
-  @available(watchOS 2.0, *)
-  var localizedCapitalized: String { get }
-  @available(watchOS 2.0, *)
-  func uppercaseStringWith(locale: NSLocale?) -> String
-  @available(watchOS 2.0, *)
-  func lowercaseStringWith(locale: NSLocale?) -> String
-  @available(watchOS 2.0, *)
-  func capitalizedStringWith(locale: NSLocale?) -> String
-  func getLineStart(startPtr: UnsafeMutablePointer<Int>, end lineEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, forRange range: NSRange)
-  func lineRangeFor(range: NSRange) -> NSRange
-  func getParagraphStart(startPtr: UnsafeMutablePointer<Int>, end parEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, forRange range: NSRange)
-  func paragraphRangeFor(range: NSRange) -> NSRange
-  @available(watchOS 2.0, *)
-  func enumerateSubstringsIn(range: NSRange, options opts: NSStringEnumerationOptions = [], usingBlock block: (String?, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
-  @available(watchOS 2.0, *)
-  func enumerateLinesUsing(block: (String, UnsafeMutablePointer<ObjCBool>) -> Void)
-  var utF8String: UnsafePointer<Int8> { get }
-  var fastestEncoding: UInt { get }
-  var smallestEncoding: UInt { get }
-  func dataUsingEncoding(encoding: UInt, allowLossyConversion lossy: Bool) -> NSData?
-  func dataUsingEncoding(encoding: UInt) -> NSData?
-  func canBeConvertedToEncoding(encoding: UInt) -> Bool
-  func cStringUsingEncoding(encoding: UInt) -> UnsafePointer<Int8>
-  func getCString(buffer: UnsafeMutablePointer<Int8>, maxLength maxBufferCount: Int, encoding: UInt) -> Bool
-  func getBytes(buffer: UnsafeMutablePointer<Void>, maxLength maxBufferCount: Int, usedLength usedBufferCount: UnsafeMutablePointer<Int>, encoding: UInt, options: NSStringEncodingConversionOptions = [], range: NSRange, remaining leftover: NSRangePointer) -> Bool
-  func maximumLengthOfBytesUsingEncoding(enc: UInt) -> Int
-  func lengthOfBytesUsingEncoding(enc: UInt) -> Int
-  class func availableStringEncodings() -> UnsafePointer<UInt>
-  class func localizedNameOfStringEncoding(encoding: UInt) -> String
-  class func defaultCStringEncoding() -> UInt
-  var decomposedStringWithCanonicalMapping: String { get }
-  var precomposedStringWithCanonicalMapping: String { get }
-  var decomposedStringWithCompatibilityMapping: String { get }
-  var precomposedStringWithCompatibilityMapping: String { get }
-  func componentsSeparatedBy(separator: String) -> [String]
-  @available(watchOS 2.0, *)
-  func componentsSeparatedByCharactersIn(separator: NSCharacterSet) -> [String]
-  func byTrimmingCharactersIn(set: NSCharacterSet) -> String
-  func byPaddingToLength(newLength: Int, withString padString: String, startingAt padIndex: Int) -> String
-  @available(watchOS 2.0, *)
-  func folding(options options: NSStringCompareOptions = [], locale: NSLocale?) -> String
-  @available(watchOS 2.0, *)
-  func replacingOccurrencesOf(target: String, withString replacement: String, options: NSStringCompareOptions = [], range searchRange: NSRange) -> String
-  @available(watchOS 2.0, *)
-  func replacingOccurrencesOf(target: String, withString replacement: String) -> String
-  @available(watchOS 2.0, *)
-  func replacingCharactersIn(range: NSRange, withString replacement: String) -> String
-  @available(watchOS 2.0, *)
-  func applyingTransform(transform: String, reverse: Bool) -> String?
-  func writeTo(url: NSURL, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
-  func writeToFile(path: String, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
-  var description: String { get }
-  var hash: Int { get }
-  convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
-  convenience init(characters: UnsafePointer<unichar>, length: Int)
-  convenience init?(utF8String nullTerminatedCString: UnsafePointer<Int8>)
-  convenience init(string aString: String)
-  convenience init(format: String, arguments argList: CVaListPointer)
-  convenience init(format: String, locale: AnyObject?, arguments argList: CVaListPointer)
-  convenience init?(data: NSData, encoding: UInt)
-  convenience init?(bytes: UnsafePointer<Void>, length len: Int, encoding: UInt)
-  convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding: UInt, freeWhenDone freeBuffer: Bool)
-  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding: UInt)
-  convenience init(contentsOf url: NSURL, encoding enc: UInt) throws
-  convenience init(contentsOfFile path: String, encoding enc: UInt) throws
-  convenience init(contentsOf url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
-  convenience init(contentsOfFile path: String, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
-}
 extension NSString {
   func substringFrom(from: Int) -> String
   func substringTo(to: Int) -> String
@@ -6291,10 +5754,6 @@ extension NSString {
   @available(watchOS 2.0, *)
   class func stringEncodingFor(data: NSData, encodingOptions opts: [String : AnyObject]?, convertedString string: AutoreleasingUnsafeMutablePointer<NSString?>, usedLossyConversion: UnsafeMutablePointer<ObjCBool>) -> UInt
 }
-extension NSString {
-  @available(watchOS 2.0, *)
-  class func stringEncodingFor(data: NSData, encodingOptions opts: [String : AnyObject]?, convertedString string: AutoreleasingUnsafeMutablePointer<NSString?>, usedLossyConversion: UnsafeMutablePointer<ObjCBool>) -> UInt
-}
 @available(watchOS 2.0, *)
 let NSStringEncodingDetectionSuggestedEncodingsKey: String
 @available(watchOS 2.0, *)
@@ -6313,16 +5772,6 @@ class NSMutableString : NSString {
   func replaceCharactersIn(range: NSRange, withString aString: String)
   init()
   init?(coder aDecoder: NSCoder)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(contentsOfFile path: String)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(contentsOf url: NSURL)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cStringNoCopy bytes: UnsafeMutablePointer<Int8>, length: Int, freeWhenDone freeBuffer: Bool)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cString bytes: UnsafePointer<Int8>, length: Int)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cString bytes: UnsafePointer<Int8>)
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
   convenience init(characters: UnsafePointer<unichar>, length: Int)
   convenience init?(utF8String nullTerminatedCString: UnsafePointer<Int8>)
@@ -6337,6 +5786,16 @@ class NSMutableString : NSString {
   convenience init(contentsOfFile path: String, encoding enc: UInt) throws
   convenience init(contentsOf url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
   convenience init(contentsOfFile path: String, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
+  @available(watchOS, introduced=2.0, deprecated=2.0)
+  convenience init?(contentsOfFile path: String)
+  @available(watchOS, introduced=2.0, deprecated=2.0)
+  convenience init?(contentsOf url: NSURL)
+  @available(watchOS, introduced=2.0, deprecated=2.0)
+  convenience init?(cStringNoCopy bytes: UnsafeMutablePointer<Int8>, length: Int, freeWhenDone freeBuffer: Bool)
+  @available(watchOS, introduced=2.0, deprecated=2.0)
+  convenience init?(cString bytes: UnsafePointer<Int8>, length: Int)
+  @available(watchOS, introduced=2.0, deprecated=2.0)
+  convenience init?(cString bytes: UnsafePointer<Int8>)
 }
 
 extension NSMutableString {
@@ -6357,47 +5816,6 @@ let NSParseErrorException: String
 extension NSString {
   func propertyList() -> AnyObject
   func propertyListFromStringsFileFormat() -> [NSObject : AnyObject]?
-}
-extension NSString {
-  func propertyList() -> AnyObject
-  func propertyListFromStringsFileFormat() -> [NSObject : AnyObject]?
-}
-extension NSString {
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  func cString() -> UnsafePointer<Int8>
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  func lossyCString() -> UnsafePointer<Int8>
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  func cStringLength() -> Int
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  func getCString(bytes: UnsafeMutablePointer<Int8>)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  func getCString(bytes: UnsafeMutablePointer<Int8>, maxLength: Int)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  func getCString(bytes: UnsafeMutablePointer<Int8>, maxLength: Int, range aRange: NSRange, remaining leftoverRange: NSRangePointer)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  func writeToFile(path: String, atomically useAuxiliaryFile: Bool) -> Bool
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  func writeTo(url: NSURL, atomically: Bool) -> Bool
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(contentsOfFile path: String)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(contentsOf url: NSURL)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func stringWithContentsOfFile(path: String) -> AnyObject?
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func stringWithContentsOf(url: NSURL) -> AnyObject?
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cStringNoCopy bytes: UnsafeMutablePointer<Int8>, length: Int, freeWhenDone freeBuffer: Bool)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cString bytes: UnsafePointer<Int8>, length: Int)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cString bytes: UnsafePointer<Int8>)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func stringWithCString(bytes: UnsafePointer<Int8>, length: Int) -> AnyObject?
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func stringWithCString(bytes: UnsafePointer<Int8>) -> AnyObject?
-  func getCharacters(buffer: UnsafeMutablePointer<unichar>)
 }
 extension NSString {
   @available(watchOS, introduced=2.0, deprecated=2.0)
@@ -6440,16 +5858,6 @@ var NSProprietaryStringEncoding: UInt { get }
 class NSSimpleCString : NSString {
   init()
   init?(coder aDecoder: NSCoder)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(contentsOfFile path: String)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(contentsOf url: NSURL)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cStringNoCopy bytes: UnsafeMutablePointer<Int8>, length: Int, freeWhenDone freeBuffer: Bool)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cString bytes: UnsafePointer<Int8>, length: Int)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cString bytes: UnsafePointer<Int8>)
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
   convenience init(characters: UnsafePointer<unichar>, length: Int)
   convenience init?(utF8String nullTerminatedCString: UnsafePointer<Int8>)
@@ -6464,20 +5872,20 @@ class NSSimpleCString : NSString {
   convenience init(contentsOfFile path: String, encoding enc: UInt) throws
   convenience init(contentsOf url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
   convenience init(contentsOfFile path: String, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
+  @available(watchOS, introduced=2.0, deprecated=2.0)
+  convenience init?(contentsOfFile path: String)
+  @available(watchOS, introduced=2.0, deprecated=2.0)
+  convenience init?(contentsOf url: NSURL)
+  @available(watchOS, introduced=2.0, deprecated=2.0)
+  convenience init?(cStringNoCopy bytes: UnsafeMutablePointer<Int8>, length: Int, freeWhenDone freeBuffer: Bool)
+  @available(watchOS, introduced=2.0, deprecated=2.0)
+  convenience init?(cString bytes: UnsafePointer<Int8>, length: Int)
+  @available(watchOS, introduced=2.0, deprecated=2.0)
+  convenience init?(cString bytes: UnsafePointer<Int8>)
 }
 class NSConstantString : NSSimpleCString {
   init()
   init?(coder aDecoder: NSCoder)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(contentsOfFile path: String)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(contentsOf url: NSURL)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cStringNoCopy bytes: UnsafeMutablePointer<Int8>, length: Int, freeWhenDone freeBuffer: Bool)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cString bytes: UnsafePointer<Int8>, length: Int)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cString bytes: UnsafePointer<Int8>)
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
   convenience init(characters: UnsafePointer<unichar>, length: Int)
   convenience init?(utF8String nullTerminatedCString: UnsafePointer<Int8>)
@@ -6492,6 +5900,16 @@ class NSConstantString : NSSimpleCString {
   convenience init(contentsOfFile path: String, encoding enc: UInt) throws
   convenience init(contentsOf url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
   convenience init(contentsOfFile path: String, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
+  @available(watchOS, introduced=2.0, deprecated=2.0)
+  convenience init?(contentsOfFile path: String)
+  @available(watchOS, introduced=2.0, deprecated=2.0)
+  convenience init?(contentsOf url: NSURL)
+  @available(watchOS, introduced=2.0, deprecated=2.0)
+  convenience init?(cStringNoCopy bytes: UnsafeMutablePointer<Int8>, length: Int, freeWhenDone freeBuffer: Bool)
+  @available(watchOS, introduced=2.0, deprecated=2.0)
+  convenience init?(cString bytes: UnsafePointer<Int8>, length: Int)
+  @available(watchOS, introduced=2.0, deprecated=2.0)
+  convenience init?(cString bytes: UnsafePointer<Int8>)
 }
 var _NSConstantStringClassReference: UnsafeMutablePointer<Void>
 struct NSTextCheckingType : OptionSetType {
@@ -6649,12 +6067,15 @@ extension NSObject {
   func performSelectorOnMainThread(aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
   class func performSelectorOnMainThread(aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool)
   func performSelectorOnMainThread(aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool)
+  @available(watchOS 2.0, *)
   class func perform(aSelector: Selector, on thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
   @available(watchOS 2.0, *)
   func perform(aSelector: Selector, on thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
+  @available(watchOS 2.0, *)
   class func perform(aSelector: Selector, on thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool)
   @available(watchOS 2.0, *)
   func perform(aSelector: Selector, on thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool)
+  @available(watchOS 2.0, *)
   class func performSelectorInBackground(aSelector: Selector, withObject arg: AnyObject?)
   @available(watchOS 2.0, *)
   func performSelectorInBackground(aSelector: Selector, withObject arg: AnyObject?)
@@ -6732,114 +6153,6 @@ class NSTimer : NSObject {
   var isValid: Bool { get }
   var userInfo: AnyObject? { get }
   convenience init()
-}
-class NSURL : NSObject, NSSecureCoding, NSCopying {
-  @available(watchOS, introduced=2.0, deprecated=2.0, message="Use NSURLComponents instead, which lets you create a valid URL with any valid combination of URL components and subcomponents (not just scheme, host and path), and lets you set components and subcomponents with either percent-encoded or un-percent-encoded strings.")
-  convenience init?(scheme: String, host: String?, path: String)
-  @available(watchOS 2.0, *)
-  init(fileURLWithPath path: String, isDirectory isDir: Bool, relativeTo baseURL: NSURL?)
-  @available(watchOS 2.0, *)
-  init(fileURLWithPath path: String, relativeTo baseURL: NSURL?)
-  @available(watchOS 2.0, *)
-  init(fileURLWithPath path: String, isDirectory isDir: Bool)
-  init(fileURLWithPath path: String)
-  @available(watchOS 2.0, *)
-  class func fileURLWithPath(path: String, isDirectory isDir: Bool, relativeTo baseURL: NSURL?) -> NSURL
-  @available(watchOS 2.0, *)
-  class func fileURLWithPath(path: String, relativeTo baseURL: NSURL?) -> NSURL
-  @available(watchOS 2.0, *)
-  class func fileURLWithPath(path: String, isDirectory isDir: Bool) -> NSURL
-  class func fileURLWithPath(path: String) -> NSURL
-  @available(watchOS 2.0, *)
-  init(fileURLWithFileSystemRepresentation path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeTo baseURL: NSURL?)
-  @available(watchOS 2.0, *)
-  class func fileURLWithFileSystemRepresentation(path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeTo baseURL: NSURL?) -> NSURL
-  convenience init?(string URLString: String)
-  init?(string URLString: String, relativeTo baseURL: NSURL?)
-  @available(watchOS 2.0, *)
-  init(dataRepresentation data: NSData, relativeTo baseURL: NSURL?)
-  @available(watchOS 2.0, *)
-  init(absoluteURLWithDataRepresentation data: NSData, relativeTo baseURL: NSURL?)
-  @available(watchOS 2.0, *)
-  class func absoluteURLWithDataRepresentation(data: NSData, relativeTo baseURL: NSURL?) -> NSURL
-  @available(watchOS 2.0, *)
-  @NSCopying var dataRepresentation: NSData { get }
-  var absoluteString: String { get }
-  var relativeString: String? { get }
-  @NSCopying var base: NSURL? { get }
-  @NSCopying var absolute: NSURL { get }
-  var scheme: String { get }
-  var resourceSpecifier: String { get }
-  var host: String? { get }
-  @NSCopying var port: NSNumber? { get }
-  var user: String? { get }
-  var password: String? { get }
-  var path: String? { get }
-  var fragment: String? { get }
-  var parameterString: String? { get }
-  var query: String? { get }
-  var relativePath: String? { get }
-  @available(watchOS 2.0, *)
-  var hasDirectoryPath: Bool { get }
-  @available(watchOS 2.0, *)
-  func getFileSystemRepresentation(buffer: UnsafeMutablePointer<Int8>, maxLength maxBufferLength: Int) -> Bool
-  @available(watchOS 2.0, *)
-  var fileSystemRepresentation: UnsafePointer<Int8> { get }
-  var isFileURL: Bool { get }
-  @NSCopying var standardized: NSURL? { get }
-  @available(watchOS 2.0, *)
-  func checkResourceIsReachableAndReturn(error: NSErrorPointer) -> Bool
-  @available(watchOS 2.0, *)
-  func isFileReferenceURL() -> Bool
-  @available(watchOS 2.0, *)
-  func fileReference() -> NSURL?
-  @available(watchOS 2.0, *)
-  @NSCopying var filePath: NSURL? { get }
-  @available(watchOS 2.0, *)
-  func getResourceValue(value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
-  @available(watchOS 2.0, *)
-  func resourceValuesForKeys(keys: [String]) throws -> [String : AnyObject]
-  @available(watchOS 2.0, *)
-  func setResourceValue(value: AnyObject?, forKey key: String) throws
-  @available(watchOS 2.0, *)
-  func setResourceValues(keyedValues: [String : AnyObject]) throws
-  @available(watchOS 2.0, *)
-  func removeCachedResourceValueForKey(key: String)
-  @available(watchOS 2.0, *)
-  func removeAllCachedResourceValues()
-  @available(watchOS 2.0, *)
-  func setTemporaryResourceValue(value: AnyObject?, forKey key: String)
-  @available(watchOS 2.0, *)
-  func bookmarkData(options options: NSURLBookmarkCreationOptions = [], includingResourceValuesForKeys keys: [String]?, relativeTo relativeURL: NSURL?) throws -> NSData
-  @available(watchOS 2.0, *)
-  convenience init(byResolvingBookmarkData bookmarkData: NSData, options: NSURLBookmarkResolutionOptions = [], relativeTo relativeURL: NSURL?, bookmarkDataIsStale isStale: UnsafeMutablePointer<ObjCBool>) throws
-  @available(watchOS 2.0, *)
-  class func resourceValuesForKeys(keys: [String], fromBookmarkData bookmarkData: NSData) -> [String : AnyObject]?
-  @available(watchOS 2.0, *)
-  class func writeBookmarkData(bookmarkData: NSData, to bookmarkFileURL: NSURL, options: NSURLBookmarkFileCreationOptions) throws
-  @available(watchOS 2.0, *)
-  class func bookmarkDataWithContentsOf(bookmarkFileURL: NSURL) throws -> NSData
-  @available(watchOS 2.0, *)
-  convenience init(byResolvingAliasFileAt url: NSURL, options: NSURLBookmarkResolutionOptions = []) throws
-  @available(watchOS 2.0, *)
-  func startAccessingSecurityScopedResource() -> Bool
-  @available(watchOS 2.0, *)
-  func stopAccessingSecurityScopedResource()
-  convenience init()
-  class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
-  func copy(zone zone: NSZone = nil) -> AnyObject
-}
-
-extension NSURL : _FileReferenceLiteralConvertible {
-  convenience init(failableFileReferenceLiteral path: String)
-  required convenience init(fileReferenceLiteral path: String)
-}
-
-extension NSURL : _Reflectable {
-  /// Returns a mirror that reflects `self`.
-  func _getMirror() -> _MirrorType
 }
 class NSURL : NSObject, NSSecureCoding, NSCopying {
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use NSURLComponents instead, which lets you create a valid URL with any valid combination of URL components and subcomponents (not just scheme, host and path), and lets you set components and subcomponents with either percent-encoded or un-percent-encoded strings.")
@@ -7191,14 +6504,6 @@ extension NSURL {
   @available(watchOS 2.0, *)
   func checkPromisedItemIsReachableAndReturn(error: NSErrorPointer) -> Bool
 }
-extension NSURL {
-  @available(watchOS 2.0, *)
-  func getPromisedItemResourceValue(value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
-  @available(watchOS 2.0, *)
-  func promisedItemResourceValuesForKeys(keys: [String]) throws -> [String : AnyObject]
-  @available(watchOS 2.0, *)
-  func checkPromisedItemIsReachableAndReturn(error: NSErrorPointer) -> Bool
-}
 @available(watchOS 2.0, *)
 class NSURLQueryItem : NSObject, NSSecureCoding, NSCopying {
   init(name: String, value: String?)
@@ -7280,40 +6585,6 @@ extension NSString {
   func addingPercentEscapesUsingEncoding(enc: UInt) -> String?
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -stringByRemovingPercentEncoding instead, which always uses the recommended UTF-8 encoding.")
   func replacingPercentEscapesUsingEncoding(enc: UInt) -> String?
-}
-extension NSString {
-  @available(watchOS 2.0, *)
-  func addingPercentEncodingWithAllowedCharacters(allowedCharacters: NSCharacterSet) -> String?
-  @available(watchOS 2.0, *)
-  var removingPercentEncoding: String? { get }
-  @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -stringByAddingPercentEncodingWithAllowedCharacters: instead, which always uses the recommended UTF-8 encoding, and which encodes for a specific URL component or subcomponent since each URL component or subcomponent has different rules for what characters are valid.")
-  func addingPercentEscapesUsingEncoding(enc: UInt) -> String?
-  @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -stringByRemovingPercentEncoding instead, which always uses the recommended UTF-8 encoding.")
-  func replacingPercentEscapesUsingEncoding(enc: UInt) -> String?
-}
-extension NSURL {
-  @available(watchOS 2.0, *)
-  class func fileURLWithPathComponents(components: [String]) -> NSURL?
-  @available(watchOS 2.0, *)
-  var pathComponents: [String]? { get }
-  @available(watchOS 2.0, *)
-  var lastPathComponent: String? { get }
-  @available(watchOS 2.0, *)
-  var pathExtension: String? { get }
-  @available(watchOS 2.0, *)
-  func appendingPathComponent(pathComponent: String) -> NSURL
-  @available(watchOS 2.0, *)
-  func appendingPathComponent(pathComponent: String, isDirectory: Bool) -> NSURL
-  @available(watchOS 2.0, *)
-  @NSCopying var deletingLastPathComponent: NSURL? { get }
-  @available(watchOS 2.0, *)
-  func appendingPathExtension(pathExtension: String) -> NSURL
-  @available(watchOS 2.0, *)
-  @NSCopying var deletingPathExtension: NSURL? { get }
-  @available(watchOS 2.0, *)
-  @NSCopying var standardizingPath: NSURL? { get }
-  @available(watchOS 2.0, *)
-  @NSCopying var resolvingSymlinksInPath: NSURL? { get }
 }
 extension NSURL {
   @available(watchOS 2.0, *)
@@ -8026,8 +7297,29 @@ protocol NSURLConnectionDownloadDelegate : NSURLConnectionDelegate {
   optional func connectionDidResumeDownloading(connection: NSURLConnection, totalBytesWritten: Int64, expectedTotalBytes: Int64)
   func connectionDidFinishDownloading(connection: NSURLConnection, destinationURL: NSURL)
 }
+
+/*!
+    @category    NSURLConnection(NSURLConnectionSynchronousLoading)
+
+    @abstract
+                 The NSURLConnectionSynchronousLoading category on
+                 NSURLConnection provides the interface to perform
+                 synchronous loading of URL requests.
+*/
 extension NSURLConnection {
 }
+
+/*!
+    @category NSURLConnection(NSURLConnectionQueuedLoading)
+
+    The NSURLConnectionQueuedLoading category on NSURLConnection
+    provides the interface to perform asynchronous loading of URL
+    requests where the results of the request are delivered to a
+    block via an NSOperationQueue.
+
+    Note that there is no guarantee of load ordering implied by this
+    method.
+ */
 extension NSURLConnection {
 }
 
@@ -8069,6 +7361,11 @@ class NSURLCredential : NSObject, NSSecureCoding, NSCopying {
   init?(coder aDecoder: NSCoder)
   func copy(zone zone: NSZone = nil) -> AnyObject
 }
+
+/*!
+    @class NSURLCredential(NSInternetPassword)
+    @discussion This category defines the methods available to an NSURLCredential created to represent an internet password credential.  These are most commonly used for resources that require a username and password combination.
+ */
 extension NSURLCredential {
 
   /*!
@@ -8109,6 +7406,11 @@ extension NSURLCredential {
   */
   var hasPassword: Bool { get }
 }
+
+/*!
+    @class NSURLCredential(NSClientCertificate)
+    @discussion This category defines the methods available to an NSURLCredential created to represent a client certificate credential.  Client certificates are commonly stored on the users computer in the keychain and must be presented to the server during a handshake.
+*/
 extension NSURLCredential {
 
   /*!
@@ -8479,7 +7781,7 @@ class NSURLProtectionSpace : NSObject, NSSecureCoding, NSCopying {
       valid values include nil (default method), @"digest" and @"form".
       @result The initialized object.
   */
-  init(host: String, port: Int, `protocol`: String?, realm: String?, authenticationMethod: String?)
+  init(host: String, port: Int, protocol: String?, realm: String?, authenticationMethod: String?)
 
   /*!
       @method initWithProxyHost:port:type:realm:authenticationMethod:
@@ -8555,6 +7857,11 @@ class NSURLProtectionSpace : NSObject, NSSecureCoding, NSCopying {
   init?(coder aDecoder: NSCoder)
   func copy(zone zone: NSZone = nil) -> AnyObject
 }
+
+/*!
+    @class NSURLProtectionSpace(NSClientCertificateSpace)
+    @discussion This category supplies additional information for use when a client certificate is required by the server in order to complete authentication.
+ */
 extension NSURLProtectionSpace {
 
   /*!
@@ -8565,6 +7872,11 @@ extension NSURLProtectionSpace {
   @available(watchOS 2.0, *)
   var distinguishedNames: [NSData]? { get }
 }
+
+/*!
+    @class NSURLProtectionSpace(NSServerTrustValidationSpace)
+    @discussion This category supplies additional information for use by the client to evaluate whether to trust a given server during a security handshake.
+ */
 extension NSURLProtectionSpace {
 
   /*!
@@ -8592,7 +7904,7 @@ protocol NSURLProtocolClient : NSObjectProtocol {
    @param request the NSURLRequest to which the protocol implementation
    has redirected.
    */
-  func urlProtocol(`protocol`: NSURLProtocol, wasRedirectedTo request: NSURLRequest, redirectResponse: NSURLResponse)
+  func urlProtocol(protocol: NSURLProtocol, wasRedirectedTo request: NSURLRequest, redirectResponse: NSURLResponse)
 
   /*!
   @method URLProtocol:cachedResponseIsValid:
@@ -8603,7 +7915,7 @@ protocol NSURLProtocolClient : NSObjectProtocol {
        @param cachedResponse the NSCachedURLResponse object that has
        examined and is valid.
        */
-  func urlProtocol(`protocol`: NSURLProtocol, cachedResponseIsValid cachedResponse: NSCachedURLResponse)
+  func urlProtocol(protocol: NSURLProtocol, cachedResponseIsValid cachedResponse: NSCachedURLResponse)
 
   /*!
   @method URLProtocol:didReceiveResponse:
@@ -8616,7 +7928,7 @@ protocol NSURLProtocolClient : NSObjectProtocol {
        has determined should be used for the given response if the
        response is to be stored in a cache.
        */
-  func urlProtocol(`protocol`: NSURLProtocol, didReceive response: NSURLResponse, cacheStoragePolicy policy: NSURLCacheStoragePolicy)
+  func urlProtocol(protocol: NSURLProtocol, didReceive response: NSURLResponse, cacheStoragePolicy policy: NSURLCacheStoragePolicy)
 
   /*!
   @method URLProtocol:didLoadData:
@@ -8628,7 +7940,7 @@ protocol NSURLProtocolClient : NSObjectProtocol {
        @param URLProtocol the NSURLProtocol object sending the message.
        @param data URL load data being made available.
        */
-  func urlProtocol(`protocol`: NSURLProtocol, didLoad data: NSData)
+  func urlProtocol(protocol: NSURLProtocol, didLoad data: NSData)
 
   /*!
   @method URLProtocolDidFinishLoading:
@@ -8636,7 +7948,7 @@ protocol NSURLProtocolClient : NSObjectProtocol {
        implementation has finished loading successfully.
        @param URLProtocol the NSURLProtocol object sending the message.
        */
-  func urlProtocolDidFinishLoading(`protocol`: NSURLProtocol)
+  func urlProtocolDidFinishLoading(protocol: NSURLProtocol)
 
   /*!
               @method URLProtocol:didFailWithError:
@@ -8645,7 +7957,7 @@ protocol NSURLProtocolClient : NSObjectProtocol {
    @param URLProtocol the NSURLProtocol object sending the message.
    @param error The error that caused the load to fail.
    */
-  func urlProtocol(`protocol`: NSURLProtocol, didFailWith error: NSError)
+  func urlProtocol(protocol: NSURLProtocol, didFailWith error: NSError)
 
   /*!
   @method URLProtocol:didReceiveAuthenticationChallenge:
@@ -8657,7 +7969,7 @@ protocol NSURLProtocolClient : NSObjectProtocol {
        default credential to the challenge it issues to the connection delegate,
        if the protocol did not provide one.
        */
-  func urlProtocol(`protocol`: NSURLProtocol, didReceive challenge: NSURLAuthenticationChallenge)
+  func urlProtocol(protocol: NSURLProtocol, didReceive challenge: NSURLAuthenticationChallenge)
 
   /*!
   @method URLProtocol:didCancelAuthenticationChallenge:
@@ -8665,7 +7977,7 @@ protocol NSURLProtocolClient : NSObjectProtocol {
        @param protocol The protocol object cancelling authentication.
        @param challenge The authentication challenge.
        */
-  func urlProtocol(`protocol`: NSURLProtocol, didCancel challenge: NSURLAuthenticationChallenge)
+  func urlProtocol(protocol: NSURLProtocol, didCancel challenge: NSURLAuthenticationChallenge)
 }
 
 /*!
@@ -8789,7 +8101,7 @@ class NSURLProtocol : NSObject {
       @result The property stored with the given key, or nil if no property
       had previously been stored with the given key in the given request.
   */
-  class func propertyForKey(key: String, `in` request: NSURLRequest) -> AnyObject?
+  class func propertyForKey(key: String, in request: NSURLRequest) -> AnyObject?
 
   /*! 
       @method setProperty:forKey:inRequest:
@@ -8802,7 +8114,7 @@ class NSURLProtocol : NSObject {
       @param key The string to use for the property storage. 
       @param request The request in which to store the property. 
   */
-  class func setProperty(value: AnyObject, forKey key: String, `in` request: NSMutableURLRequest)
+  class func setProperty(value: AnyObject, forKey key: String, in request: NSMutableURLRequest)
 
   /*!
       @method removePropertyForKey:inRequest:
@@ -8813,7 +8125,7 @@ class NSURLProtocol : NSObject {
       @param key The key whose value should be removed
       @param request The request to be modified
   */
-  class func removePropertyForKey(key: String, `in` request: NSMutableURLRequest)
+  class func removePropertyForKey(key: String, in request: NSMutableURLRequest)
 
   /*! 
       @method registerClass:
@@ -9207,6 +8519,12 @@ class NSMutableURLRequest : NSURLRequest {
   convenience init()
   init?(coder aDecoder: NSCoder)
 }
+
+/*!
+    @category NSURLRequest(NSHTTPURLRequest) 
+    The NSHTTPURLRequest on NSURLRequest provides methods for accessing
+    information specific to HTTP protocol requests.
+*/
 extension NSURLRequest {
 
   /*! 
@@ -9281,6 +8599,12 @@ extension NSURLRequest {
   @available(watchOS 2.0, *)
   var httpShouldUsePipelining: Bool { get }
 }
+
+/*!
+    @category NSMutableURLRequest(NSMutableHTTPURLRequest) 
+    The NSMutableHTTPURLRequest on NSMutableURLRequest provides methods
+    for configuring information specific to HTTP protocol requests.
+*/
 extension NSMutableURLRequest {
 
   /*! 

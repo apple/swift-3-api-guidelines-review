@@ -20,11 +20,11 @@ public class ListUtilities {
     // MARK: Properties
 
     public class var localDocumentsDirectory: NSURL  {
-        let documentsURL = sharedApplicationGroupContainer.URLByAppendingPathComponent("Documents", isDirectory: true)
+        let documentsURL = sharedApplicationGroupContainer.appendingPathComponent("Documents", isDirectory: true)
         
         do {
             // This will throw if the directory cannot be successfully created, or does not already exist.
-            try NSFileManager.defaultManager().createDirectoryAtURL(documentsURL, withIntermediateDirectories: true, attributes: nil)
+            try NSFileManager.defaultManager().createDirectoryAt(documentsURL, withIntermediateDirectories: true, attributes: nil)
             
             return documentsURL
         }
@@ -46,7 +46,7 @@ public class ListUtilities {
     // MARK: List Handling Methods
     
     public class func copyInitialLists() {
-        let defaultListURLs = NSBundle.mainBundle().URLsForResourcesWithExtension(AppConfiguration.listerFileExtension, subdirectory: "")!
+        let defaultListURLs = NSBundle.main().urLsForResourcesWithExtension(AppConfiguration.listerFileExtension, subdirectory: "")!
         
         for url in defaultListURLs {
             copyURLToDocumentsDirectory(url)
@@ -54,7 +54,7 @@ public class ListUtilities {
     }
     
     public class func copyTodayList() {
-        let url = NSBundle.mainBundle().URLForResource(AppConfiguration.localizedTodayDocumentName, withExtension: AppConfiguration.listerFileExtension)!
+        let url = NSBundle.main().urlForResource(AppConfiguration.localizedTodayDocumentName, withExtension: AppConfiguration.listerFileExtension)!
         copyURLToDocumentsDirectory(url)
     }
 
@@ -65,15 +65,15 @@ public class ListUtilities {
             let fileManager = NSFileManager.defaultManager()
             
             // Note the call to URLForUbiquityContainerIdentifier(_:) should be on a background queue.
-            if let cloudDirectoryURL = fileManager.URLForUbiquityContainerIdentifier(nil) {
-                let documentsDirectoryURL = cloudDirectoryURL.URLByAppendingPathComponent("Documents")
+            if let cloudDirectoryURL = fileManager.urlForUbiquityContainerIdentifier(nil) {
+                let documentsDirectoryURL = cloudDirectoryURL.appendingPathComponent("Documents")
                 
                 do {
-                    let localDocumentURLs = try fileManager.contentsOfDirectoryAtURL(ListUtilities.localDocumentsDirectory, includingPropertiesForKeys: nil, options: .SkipsPackageDescendants)
+                    let localDocumentURLs = try fileManager.contentsOfDirectoryAt(ListUtilities.localDocumentsDirectory, includingPropertiesForKeys: nil, options: .SkipsPackageDescendants)
                 
                     for URL in localDocumentURLs {
                         if URL.pathExtension == AppConfiguration.listerFileExtension {
-                            self.makeItemUbiquitousAtURL(URL, documentsDirectoryURL: documentsDirectoryURL)
+                            self.makeItemUbiquitousAt(URL, documentsDirectoryURL: documentsDirectoryURL)
                         }
                     }
                 }
@@ -88,16 +88,16 @@ public class ListUtilities {
     
     // MARK: Convenience
     
-    private class func makeItemUbiquitousAtURL(sourceURL: NSURL, documentsDirectoryURL: NSURL) {
+    private class func makeItemUbiquitousAt(sourceURL: NSURL, documentsDirectoryURL: NSURL) {
         let destinationFileName = sourceURL.lastPathComponent!
         
         let fileManager = NSFileManager()
-        let destinationURL = documentsDirectoryURL.URLByAppendingPathComponent(destinationFileName)
+        let destinationURL = documentsDirectoryURL.appendingPathComponent(destinationFileName)
         
-        if fileManager.isUbiquitousItemAtURL(destinationURL) ||
+        if fileManager.isUbiquitousItemAt(destinationURL) ||
             fileManager.fileExistsAtPath(destinationURL.path!) {
             // If the file already exists in the cloud, remove the local version and return.
-            removeListAtURL(sourceURL, completionHandler: nil)
+            removeListAt(sourceURL, completionHandler: nil)
             return
         }
         
@@ -105,7 +105,7 @@ public class ListUtilities {
         
         dispatch_async(defaultQueue) {
             do {
-                try fileManager.setUbiquitous(true, itemAtURL: sourceURL, destinationURL: destinationURL)
+                try fileManager.setUbiquitous(true, itemAt: sourceURL, destinationURL: destinationURL)
                 return
             }
             catch let error as NSError {
@@ -116,14 +116,14 @@ public class ListUtilities {
         }
     }
 
-    public class func readListAtURL(url: NSURL, completionHandler: (List?, NSError?) -> Void) {
+    public class func readListAt(url: NSURL, completionHandler: (List?, NSError?) -> Void) {
         let fileCoordinator = NSFileCoordinator()
         
         // `url` may be a security scoped resource.
         let successfulSecurityScopedResourceAccess = url.startAccessingSecurityScopedResource()
         
-        let readingIntent = NSFileAccessIntent.readingIntentWithURL(url, options: .WithoutChanges)
-        fileCoordinator.coordinateAccessWithIntents([readingIntent], queue: listUtilitiesQueue) { accessError in
+        let readingIntent = NSFileAccessIntent.readingIntentWith(url, options: .WithoutChanges)
+        fileCoordinator.coordinateAccessWith([readingIntent], queue: listUtilitiesQueue) { accessError in
             if accessError != nil {
                 if successfulSecurityScopedResourceAccess {
                     url.stopAccessingSecurityScopedResource()
@@ -139,8 +139,8 @@ public class ListUtilities {
             var readError: NSError?
             
             do {
-                let contents = try NSData(contentsOfURL: readingIntent.URL, options: .DataReadingUncached)
-                deserializedList = NSKeyedUnarchiver.unarchiveObjectWithData(contents) as? List
+                let contents = try NSData(contentsOf: readingIntent.url, options: .DataReadingUncached)
+                deserializedList = NSKeyedUnarchiver.unarchiveObjectWith(contents) as? List
                 
                 assert(deserializedList != nil, "The provided URL must correspond to a `List` object.")
             }
@@ -158,11 +158,11 @@ public class ListUtilities {
         }
     }
 
-    public class func createList(list: List, atURL url: NSURL, completionHandler: (NSError? -> Void)? = nil) {
+    public class func createList(list: List, at url: NSURL, completionHandler: (NSError? -> Void)? = nil) {
         let fileCoordinator = NSFileCoordinator()
         
-        let writingIntent = NSFileAccessIntent.writingIntentWithURL(url, options: .ForReplacing)
-        fileCoordinator.coordinateAccessWithIntents([writingIntent], queue: listUtilitiesQueue) { accessError in
+        let writingIntent = NSFileAccessIntent.writingIntentWith(url, options: .ForReplacing)
+        fileCoordinator.coordinateAccessWith([writingIntent], queue: listUtilitiesQueue) { accessError in
             if accessError != nil {
                 completionHandler?(accessError)
                 
@@ -174,11 +174,11 @@ public class ListUtilities {
             let seralizedListData = NSKeyedArchiver.archivedDataWithRootObject(list)
             
             do {
-                try seralizedListData.writeToURL(writingIntent.URL, options: .DataWritingAtomic)
+                try seralizedListData.writeTo(writingIntent.url, options: .DataWritingAtomic)
             
                 let fileAttributes = [NSFileExtensionHidden: true]
                 
-                try NSFileManager.defaultManager().setAttributes(fileAttributes, ofItemAtPath: writingIntent.URL.path!)
+                try NSFileManager.defaultManager().setAttributes(fileAttributes, ofItemAtPath: writingIntent.url.path!)
             }
             catch let error as NSError {
                 writeError = error
@@ -190,14 +190,14 @@ public class ListUtilities {
         }
     }
     
-    class func removeListAtURL(url: NSURL, completionHandler: (NSError? -> Void)? = nil) {
+    class func removeListAt(url: NSURL, completionHandler: (NSError? -> Void)? = nil) {
         let fileCoordinator = NSFileCoordinator()
         
         // `url` may be a security scoped resource.
         let successfulSecurityScopedResourceAccess = url.startAccessingSecurityScopedResource()
 
-        let writingIntent = NSFileAccessIntent.writingIntentWithURL(url, options: .ForDeleting)
-        fileCoordinator.coordinateAccessWithIntents([writingIntent], queue: listUtilitiesQueue) { accessError in
+        let writingIntent = NSFileAccessIntent.writingIntentWith(url, options: .ForDeleting)
+        fileCoordinator.coordinateAccessWith([writingIntent], queue: listUtilitiesQueue) { accessError in
             if accessError != nil {
                 completionHandler?(accessError)
                 
@@ -209,7 +209,7 @@ public class ListUtilities {
             var removeError: NSError?
             
             do {
-                try fileManager.removeItemAtURL(writingIntent.URL)
+                try fileManager.removeItemAt(writingIntent.url)
             }
             catch let error as NSError {
                 removeError = error
@@ -228,17 +228,17 @@ public class ListUtilities {
     // MARK: Convenience
     
     private class func copyURLToDocumentsDirectory(url: NSURL) {
-        let toURL = ListUtilities.localDocumentsDirectory.URLByAppendingPathComponent(url.lastPathComponent!)
+        let toURL = ListUtilities.localDocumentsDirectory.appendingPathComponent(url.lastPathComponent!)
         
         if NSFileManager().fileExistsAtPath(toURL.path!) {
             // If the file already exists, don't attempt to copy the version from the bundle.
             return
         }
         
-        copyFromURL(url, toURL: toURL)
+        copyFrom(url, to: toURL)
     }
     
-    public class func copyFromURL(fromURL: NSURL, toURL: NSURL) {
+    public class func tocopyFrom(fromURL: NSURL, to toURL: NSURL) {
         let fileCoordinator = NSFileCoordinator()
         
         // `url` may be a security scoped resource.
@@ -250,9 +250,9 @@ public class ListUtilities {
         var tempDirectory: NSURL?
         var tempURL: NSURL?
         do {
-            tempDirectory = try fileManager.URLForDirectory(.ItemReplacementDirectory, inDomain: .UserDomainMask, appropriateForURL: toURL, create: true)
-            tempURL = tempDirectory!.URLByAppendingPathComponent(toURL.lastPathComponent!)
-            try fileManager.copyItemAtURL(fromURL, toURL: tempURL!)
+            tempDirectory = try fileManager.urlFor(.ItemReplacementDirectory, inDomain: .User, appropriateFor: toURL, create: true)
+            tempURL = tempDirectory!.appendingPathComponent(toURL.lastPathComponent!)
+            try fileManager.copyItemAt(fromURL, to: tempURL!)
         }
         catch let error as NSError {
             // An error occured when moving `url` to `toURL`. In your app, handle this gracefully.
@@ -263,20 +263,20 @@ public class ListUtilities {
         }
 
         // Now perform a coordinated replace to move the file from the temporary location to its final destination.
-        let movingIntent = NSFileAccessIntent.writingIntentWithURL(tempURL!, options: .ForMoving)
-        let mergingIntent = NSFileAccessIntent.writingIntentWithURL(toURL, options: .ForMerging)
-        fileCoordinator.coordinateAccessWithIntents([movingIntent, mergingIntent], queue: listUtilitiesQueue) { accessError in
+        let movingIntent = NSFileAccessIntent.writingIntentWith(tempURL!, options: .ForMoving)
+        let mergingIntent = NSFileAccessIntent.writingIntentWith(toURL, options: .ForMerging)
+        fileCoordinator.coordinateAccessWith([movingIntent, mergingIntent], queue: listUtilitiesQueue) { accessError in
             if accessError != nil {
                 print("Couldn't move file: \(fromURL.absoluteString) to: \(toURL.absoluteString) error: \(accessError!.localizedDescription).")
                 return
             }
             
             do {
-                try NSData(contentsOfURL: movingIntent.URL, options: []).writeToURL(mergingIntent.URL, atomically: true)
+                try NSData(contentsOf: movingIntent.url).writeTo(mergingIntent.url, atomically: true)
                 
                 let fileAttributes = [NSFileExtensionHidden: true]
                 
-                try fileManager.setAttributes(fileAttributes, ofItemAtPath: mergingIntent.URL.path!)
+                try fileManager.setAttributes(fileAttributes, ofItemAtPath: mergingIntent.url.path!)
             }
             catch let error as NSError {
                 // An error occured when moving `url` to `toURL`. In your app, handle this gracefully.
@@ -293,7 +293,7 @@ public class ListUtilities {
             // Cleanup
             guard let directoryToRemove = tempDirectory else { return }
             do {
-                try fileManager.removeItemAtURL(directoryToRemove)
+                try fileManager.removeItemAt(directoryToRemove)
             }
             catch {}
         }

@@ -61,6 +61,14 @@ func SCErrorString(status: Int32) -> UnsafePointer<Int8>
 	@discussion This is the handle to an open a dynamic store session
 		with the system configuration daemon.
  */
+class SCDynamicStore {
+}
+
+/*!
+	@typedef SCDynamicStoreRef
+	@discussion This is the handle to an open a dynamic store session
+		with the system configuration daemon.
+ */
 typealias SCDynamicStoreRef = SCDynamicStore
 
 /*!
@@ -704,6 +712,14 @@ typealias SCNetworkConnectionFlags = UInt32
 typealias SCNetworkInterfaceRef = SCNetworkInterface
 
 /*!
+	@typedef SCNetworkInterfaceRef
+	@discussion This is the type of a reference to an object that represents
+		a network interface.
+ */
+class SCNetworkInterface {
+}
+
+/*!
 	@const kSCNetworkInterfaceType6to4
  */
 @available(OSX 10.4, *)
@@ -813,6 +829,13 @@ let kSCNetworkInterfaceIPv4: SCNetworkInterface
 	@discussion This is the type of a reference to an object that represents
 		an Ethernet Bond interface.
  */
+typealias SCBondInterface = SCNetworkInterfaceRef
+
+/*!
+	@typedef SCBondInterfaceRef
+	@discussion This is the type of a reference to an object that represents
+		an Ethernet Bond interface.
+ */
 typealias SCBondInterfaceRef = SCBondInterface
 
 /*!
@@ -821,6 +844,14 @@ typealias SCBondInterfaceRef = SCBondInterface
 		the status of an Ethernet Bond interface.
  */
 typealias SCBondStatusRef = SCBondStatus
+
+/*!
+	@typedef SCBondStatusRef
+	@discussion This is the type of a reference to an object that represents
+		the status of an Ethernet Bond interface.
+ */
+class SCBondStatus {
+}
 var kSCBondStatusOK: Int { get }
 var kSCBondStatusLinkInvalid: Int { get }
 var kSCBondStatusNoPartner: Int { get }
@@ -851,6 +882,21 @@ let kSCBondStatusDeviceDistributing: CFString
 		a Virtual LAN (VLAN) interface.
  */
 typealias SCVLANInterfaceRef = SCVLANInterface
+
+/*!
+	@typedef SCVLANInterfaceRef
+	@discussion This is the type of a reference to an object that represents
+		a Virtual LAN (VLAN) interface.
+ */
+typealias SCVLANInterface = SCNetworkInterfaceRef
+
+/*!
+	@typedef SCNetworkProtocolRef
+	@discussion This is the type of a reference to an object that represents
+		a network protocol.
+ */
+class SCNetworkProtocol {
+}
 
 /*!
 	@typedef SCNetworkProtocolRef
@@ -894,6 +940,14 @@ let kSCNetworkProtocolTypeSMB: CFString
 	@discussion This is the type of a reference to an object that represents
 		a network service.
  */
+class SCNetworkService {
+}
+
+/*!
+	@typedef SCNetworkServiceRef
+	@discussion This is the type of a reference to an object that represents
+		a network service.
+ */
 typealias SCNetworkServiceRef = SCNetworkService
 
 /*!
@@ -902,6 +956,14 @@ typealias SCNetworkServiceRef = SCNetworkService
 		a network set.
  */
 typealias SCNetworkSetRef = SCNetworkSet
+
+/*!
+	@typedef SCNetworkSetRef
+	@discussion This is the type of a reference to an object that represents
+		a network set.
+ */
+class SCNetworkSet {
+}
 
 /*!
 	@function SCNetworkInterfaceGetTypeID
@@ -1413,7 +1475,7 @@ func SCNetworkProtocolGetTypeID() -> CFTypeID
 		or an error was encountered.
  */
 @available(OSX 10.4, *)
-func SCNetworkProtocolGetConfiguration(`protocol`: SCNetworkProtocol) -> CFDictionary?
+func SCNetworkProtocolGetConfiguration(protocol: SCNetworkProtocol) -> CFDictionary?
 
 /*!
 	@function SCNetworkProtocolGetEnabled
@@ -1422,7 +1484,7 @@ func SCNetworkProtocolGetConfiguration(`protocol`: SCNetworkProtocol) -> CFDicti
 	@result TRUE if the protocol is enabled.
  */
 @available(OSX 10.4, *)
-func SCNetworkProtocolGetEnabled(`protocol`: SCNetworkProtocol) -> Bool
+func SCNetworkProtocolGetEnabled(protocol: SCNetworkProtocol) -> Bool
 
 /*!
 	@function SCNetworkProtocolGetProtocolType
@@ -1431,7 +1493,7 @@ func SCNetworkProtocolGetEnabled(`protocol`: SCNetworkProtocol) -> Bool
 	@result The protocol type.
  */
 @available(OSX 10.4, *)
-func SCNetworkProtocolGetProtocolType(`protocol`: SCNetworkProtocol) -> CFString?
+func SCNetworkProtocolGetProtocolType(protocol: SCNetworkProtocol) -> CFString?
 
 /*!
 	@function SCNetworkProtocolSetConfiguration
@@ -1441,7 +1503,7 @@ func SCNetworkProtocolGetProtocolType(`protocol`: SCNetworkProtocol) -> CFString
 	@result TRUE if the configuration was stored; FALSE if an error was encountered.
  */
 @available(OSX 10.4, *)
-func SCNetworkProtocolSetConfiguration(`protocol`: SCNetworkProtocol, _ config: CFDictionary) -> Bool
+func SCNetworkProtocolSetConfiguration(protocol: SCNetworkProtocol, _ config: CFDictionary) -> Bool
 
 /*!
 	@function SCNetworkProtocolSetEnabled
@@ -1451,7 +1513,7 @@ func SCNetworkProtocolSetConfiguration(`protocol`: SCNetworkProtocol, _ config: 
 	@result TRUE if the enabled status was saved; FALSE if an error was encountered.
  */
 @available(OSX 10.4, *)
-func SCNetworkProtocolSetEnabled(`protocol`: SCNetworkProtocol, _ enabled: Bool) -> Bool
+func SCNetworkProtocolSetEnabled(protocol: SCNetworkProtocol, _ enabled: Bool) -> Bool
 
 /*!
 	@function SCNetworkServiceGetTypeID
@@ -1794,6 +1856,13 @@ func SCNetworkSetSetName(set: SCNetworkSet, _ name: CFString) -> Bool
  */
 @available(OSX 10.4, *)
 func SCNetworkSetSetServiceOrder(set: SCNetworkSet, _ newOrder: CFArray) -> Bool
+
+/*!
+	@typedef SCNetworkConnectionRef
+	@discussion This is the handle to manage a connection-oriented service.
+ */
+class SCNetworkConnection {
+}
 
 /*!
 	@typedef SCNetworkConnectionRef
@@ -2226,6 +2295,13 @@ func SCNetworkConnectionSetDispatchQueue(connection: SCNetworkConnection, _ queu
 	@typedef SCNetworkReachabilityRef
 	@discussion This is the handle to a network address or name.
  */
+class SCNetworkReachability {
+}
+
+/*!
+	@typedef SCNetworkReachabilityRef
+	@discussion This is the handle to a network address or name.
+ */
 typealias SCNetworkReachabilityRef = SCNetworkReachability
 
 /*!
@@ -2471,6 +2547,14 @@ func SCNetworkReachabilityUnscheduleFromRunLoop(target: SCNetworkReachability, _
  */
 @available(OSX 10.6, *)
 func SCNetworkReachabilitySetDispatchQueue(target: SCNetworkReachability, _ queue: dispatch_queue_t?) -> Bool
+
+/*!
+	@typedef SCPreferencesRef
+	@discussion This is the handle to an open preferences session for
+		accessing system configuration preferences.
+ */
+class SCPreferences {
+}
 
 /*!
 	@typedef SCPreferencesRef

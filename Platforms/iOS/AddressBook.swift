@@ -4,6 +4,8 @@ let ABAddressBookErrorDomain: CFString!
 var kABOperationNotPermittedByStoreError: Int { get }
 var kABOperationNotPermittedByUserError: Int { get }
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CNContactStore")
+typealias ABAddressBook = CFTypeRef
+@available(iOS, introduced=2.0, deprecated=9.0, message="use CNContactStore")
 typealias ABAddressBookRef = ABAddressBook
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CNAuthorizationStatus")
 enum ABAuthorizationStatus : CFIndex {
@@ -67,6 +69,8 @@ func ABAddressBookCopyArrayOfAllGroups(addressBook: ABAddressBook!) -> Unmanaged
 @available(iOS, introduced=2.0, deprecated=9.0, message="use [CNContactStore groupsMatchingPredicate:[CNGroup predicateForGroupsInContainerWithIdentifier:] error:]")
 func ABAddressBookCopyArrayOfAllGroupsInSource(addressBook: ABAddressBook!, _ source: ABRecord!) -> Unmanaged<CFArray>!
 @available(iOS, introduced=2.0, deprecated=9.0, message="use NSArray of CNLabeledValue")
+typealias ABMultiValue = CFTypeRef
+@available(iOS, introduced=2.0, deprecated=9.0, message="use NSArray of CNLabeledValue")
 typealias ABMultiValueRef = ABMultiValue
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CNLabeledValue.identifier")
 typealias ABMultiValueIdentifier = Int32
@@ -89,6 +93,8 @@ func ABMultiValueGetIdentifierAtIndex(multiValue: ABMultiValue!, _ index: CFInde
 func ABMultiValueGetFirstIndexOfValue(multiValue: ABMultiValue!, _ value: AnyObject!) -> CFIndex
 @available(iOS, introduced=2.0, deprecated=9.0, message="use NSMutableArray of CNLabeledValue")
 typealias ABMutableMultiValueRef = ABMutableMultiValue
+@available(iOS, introduced=2.0, deprecated=9.0, message="use NSMutableArray of CNLabeledValue")
+typealias ABMutableMultiValue = CFTypeRef
 @available(iOS, introduced=2.0, deprecated=9.0, message="use [[NSMutableArray alloc] init]")
 func ABMultiValueCreateMutable(type: ABPropertyType) -> Unmanaged<ABMutableMultiValue>!
 @available(iOS, introduced=2.0, deprecated=9.0, message="use [NSArray mutableCopy]")
@@ -339,6 +345,8 @@ let kABPersonAlternateBirthdayMonthKey: CFString!
 let kABPersonAlternateBirthdayIsLeapMonthKey: CFString!
 @available(iOS, introduced=2.0, deprecated=9.0, message="use NSDateComponents.day")
 let kABPersonAlternateBirthdayDayKey: CFString!
+@available(iOS, introduced=2.0, deprecated=9.0, message="use CNContact, CNGroup, or CNContainer")
+typealias ABRecord = CFTypeRef
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CNContact, CNGroup, or CNContainer")
 typealias ABRecordRef = ABRecord
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CN object's identifier")

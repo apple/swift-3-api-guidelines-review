@@ -6,7 +6,21 @@ let ODFrameworkErrorDomain: String
     @typedef    ODContextRef
     @abstract   Opaque reference for the ODContext object
 */
+class ODContext {
+}
+
+/*!
+    @typedef    ODContextRef
+    @abstract   Opaque reference for the ODContext object
+*/
 typealias ODContextRef = ODContext
+
+/*!
+    @typedef    ODNodeRef
+    @abstract   Opaque reference for the ODNode object
+*/
+class ODNode {
+}
 
 /*!
     @typedef    ODNodeRef
@@ -18,13 +32,34 @@ typealias ODNodeRef = ODNode
     @typedef    ODQueryRef
     @abstract   Opaque reference for the ODQuery object
 */
+class ODQuery {
+}
+
+/*!
+    @typedef    ODQueryRef
+    @abstract   Opaque reference for the ODQuery object
+*/
 typealias ODQueryRef = ODQuery
 
 /*!
     @typedef    ODRecordRef
     @abstract   Opaque reference for the ODRecord object
 */
+class ODRecord {
+}
+
+/*!
+    @typedef    ODRecordRef
+    @abstract   Opaque reference for the ODRecord object
+*/
 typealias ODRecordRef = ODRecord
+
+/*!
+    @typedef	ODSessionRef
+    @abstract   Opaque reference for ODSession object
+*/
+class ODSession {
+}
 
 /*!
     @typedef	ODSessionRef
@@ -1280,7 +1315,7 @@ typealias ODMatchType = UInt32
 typealias ODRecordType = NSString
 typealias ODAttributeType = NSString
 typealias ODAuthenticationType = NSString
-typealias ODPolicyType = ODPolicyType
+typealias ODPolicyType = CFStringRef
 typealias _ODRecordType = ODRecordType
 typealias _ODAttributeType = ODAttributeType
 typealias _ODAuthenticationType = ODAuthenticationType
@@ -5920,6 +5955,11 @@ class ODRecord : NSObject {
   var secondsUntilAuthenticationsExpire: Int64 { get }
   init()
 }
+
+/*!
+    @category    ODRecord (ODRecordGroupExtensions)
+    @discussion  Record extensions for checking and modifying group membership.
+*/
 extension ODRecord {
 
   /*!

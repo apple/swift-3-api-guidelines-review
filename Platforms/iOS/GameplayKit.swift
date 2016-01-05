@@ -154,7 +154,15 @@ class GKBehavior : NSObject, NSFastEnumeration {
    * Removes all the goals on the behavior.
    */
   func removeAllGoals()
+
+  /**
+   * Supports getting goals via a [int] subscript.
+   */
   subscript (idx: Int) -> GKGoal { get }
+
+  /**
+   * Supports getting a weight via a [goal] subscript.
+   */
   subscript (goal: GKGoal) -> NSNumber
   init()
   @available(iOS 9.0, *)
@@ -205,6 +213,10 @@ class GKComponentSystem : NSObject, NSFastEnumeration {
    * The array of components currently in the system.
    */
   var components: [GKComponent] { get }
+
+  /**
+   * Supports getting components via a [] subscript.
+   */
   subscript (idx: Int) -> GKComponent { get }
 
   /**
@@ -743,33 +755,6 @@ class GKGridGraphNode : GKGraphNode {
   init(gridPosition: vector_int2)
   convenience init()
 }
-@available(iOS 9.0, *)
-class GKHybridStrategist : NSObject, GKStrategist {
-
-  /**
-   * The maximum number of samples that will be processed when searching for a move.
-   */
-  var budget: Int
-  var explorationParameter: Int
-  var maxLookAheadDepth: Int
-  init()
-
-  /**
-   * The game model that we wish to select updates for.
-   */
-  @available(iOS 9.0, *)
-  var gameModel: GKGameModel?
-
-  /**
-   * A random source to use when breaking ties between equally-strong moves when calling bestMoveForPlayer
-   * or when selecting a random move when randomMoveForPlayer is called. If set to nil, bestMoveForPlayer
-   * and randomMoveForPlayer will simply return the first best move available.
-   */
-  @available(iOS 9.0, *)
-  var randomSource: GKRandom?
-  @available(iOS 9.0, *)
-  func bestMoveForActivePlayer() -> GKGameModelUpdate?
-}
 
 /**
  * The Minmax Strategist is a generic AI that selects a game model update for a given player that maximises 
@@ -800,40 +785,6 @@ class GKMinmaxStrategist : NSObject, GKStrategist {
    * player is not a part of the game model, or the player has no valid moves available.
    */
   func randomMoveFor(player: GKGameModelPlayer, fromNumberOfBestMoves numMovesToConsider: Int) -> GKGameModelUpdate?
-  init()
-
-  /**
-   * The game model that we wish to select updates for.
-   */
-  @available(iOS 9.0, *)
-  var gameModel: GKGameModel?
-
-  /**
-   * A random source to use when breaking ties between equally-strong moves when calling bestMoveForPlayer
-   * or when selecting a random move when randomMoveForPlayer is called. If set to nil, bestMoveForPlayer
-   * and randomMoveForPlayer will simply return the first best move available.
-   */
-  @available(iOS 9.0, *)
-  var randomSource: GKRandom?
-  @available(iOS 9.0, *)
-  func bestMoveForActivePlayer() -> GKGameModelUpdate?
-}
-
-/**
- * The Monte Carlo Strategist is a generic AI that selects a game model update for a given player that results
- * in the highest likelihood for that player to eventually win the game. It does this by sampling the updates available
- * to the player in question. In doing this it will select the update it knows to produce the best result so far, expanding on this
- * selection, simulating the rest of the game from that expansion, and then propogating the results (win or loss) upwards.
- * It will do this until the budget has been reached, then returning the choice it has deemed best suited for the player in question.
- */
-@available(iOS 9.0, *)
-class GKMonteCarloStrategist : NSObject, GKStrategist {
-
-  /**
-   * The maximum number of samples that will be processed when searching for a move.
-   */
-  var budget: Int
-  var explorationParameter: Int
   init()
 
   /**
@@ -931,82 +882,6 @@ class GKPath : NSObject {
    * Returns the point at the given index
    */
   func pointAt(index: Int) -> vector_float2
-  convenience init()
-}
-
-/**
- * The individual node(s) that make up a GKQuadTree.  
- * Used as a hint for faster removal via [GKQuadTree removeData:WithNode:]
- */
-class GKQuadTreeNode : NSObject {
-  init()
-}
-
-/**
- * A tree data structure where each level has 4 children that subdivide a given space into the four quadrants.
- * Stores arbitrary NSObject data via points and quads.
- */
-class GKQuadTree : NSObject {
-  init!(minPosition min: vector_float2, maxPosition max: vector_float2, minCellSize: Float)
-
-  /**
-   * Adds an NSObject to this quad tree with a given point.
-   * This data will always reside in the leaf node its point is in.
-   *
-   * @param data the data to store
-   * @param point the point associated with the data you want to store
-   * @return the quad tree node the data was added to
-   */
-  func addDataWithPoint(data: NSObject!, point: vector_float2) -> GKQuadTreeNode!
-
-  /**
-   * Adds an NSObject to this quad tree with a given quad.
-   * This data will reside in the lowest node that its quad fits in completely.
-   *
-   * @param data the data to store
-   * @param quadOrigin the origin (lower left) of the quad associated with the data you want to store
-   * @param quadSize the size (width,height) of the quad associated with the data you want to store
-   * @return the quad tree node the data was added to
-   */
-  func addDataWithQuad(data: NSObject!, quadOrigin: vector_float2, quadSize: vector_float2) -> GKQuadTreeNode!
-
-  /**
-   * Returns all of the data in the quad tree node this point would be placed in
-   *
-   * @param point the point to query
-   * @return an NSArray of all the data found at the quad tree node this point would be placed in
-   */
-  func queryDataForPoint(point: vector_float2) -> [AnyObject]!
-
-  /**
-   * Returns all of the data that resides in quad tree nodes which intersect the given quad
-   *
-   * @param quadOrigin the origin (lower left) of the quad you want to test
-   * @param quadSize the size (width,height) of the quad you want to test
-   * @return an NSArray of all the data in all of the nodes that intersect the given quad
-   *
-   */
-  func queryDataForQuad(quadOrigin: vector_float2, quadSize: vector_float2) -> [AnyObject]!
-
-  /**
-   * Removes the given NSObject from this quad tree.
-   * Note that this is an exhaustive search and is slow.
-   * Cache the relevant GKQuadTreeNode and use removeData:WithNode: for better performance.
-   *
-   * @param data the data to be removed
-   * @return returns YES if the data was removed, NO otherwise
-   */
-  func removeData(data: NSObject!) -> Bool
-
-  /**
-   * Removes the given NSObject from the given quad tree node
-   * Note that this is not an exhaustive search and is faster than removeData:
-   *
-   * @param data the data to be removed
-   * @param node the node in which this data resides
-   * @return returns YES if the data was removed, NO otherwise
-   */
-  func removeData(data: NSObject!, withNode node: GKQuadTreeNode!) -> Bool
   convenience init()
 }
 

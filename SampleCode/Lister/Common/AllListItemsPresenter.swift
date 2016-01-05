@@ -365,7 +365,7 @@ final public class AllListItemsPresenter: NSObject, ListPresenterType {
     
         - returns:  Whether or not `listItem` can be moved to `toIndex`.
     */
-    public func canMove(listItem: ListItem, to toIndex: Int) -> Bool {
+    public func tocanMove(listItem: ListItem, to toIndex: Int) -> Bool {
         if !presentedListItems.contains(listItem) { return false }
 
         let firstCompleteListItemIndex = indexOfFirstCompleteListItem
@@ -390,7 +390,7 @@ final public class AllListItemsPresenter: NSObject, ListPresenterType {
         - parameter listItem: The list item to move.
         - parameter toIndex: The index to move `listItem` to.
     */
-    @objc public func move(listItem: ListItem, to toIndex: Int) {
+    @objc public func tomove(listItem: ListItem, to toIndex: Int) {
         precondition(canMove(listItem, to: toIndex), "An item can only be moved if it passes a \"can move\" test.")
         
         delegate?.listPresenterWillChangeListLayout(self, isInitialLayout: false)
@@ -604,7 +604,7 @@ final public class AllListItemsPresenter: NSObject, ListPresenterType {
 
         - returns:  The index that `listItem` was initially located at.
     */
-    private func unsafeMove(listItem: ListItem, to toIndex: Int) -> Int {
+    private func tounsafeMove(listItem: ListItem, to toIndex: Int) -> Int {
         precondition(presentedListItems.contains(listItem), "A list item can only be moved if it already exists in the presented list items.")
         
         let fromIndex = presentedListItems.indexOf(listItem)!

@@ -274,12 +274,6 @@ extension NSValue {
   var mkCoordinateValue: CLLocationCoordinate2D { get }
   var mkCoordinateSpanValue: MKCoordinateSpan { get }
 }
-extension NSValue {
-  /*not inherited*/ init(mkCoordinate coordinate: CLLocationCoordinate2D)
-  /*not inherited*/ init(mkCoordinateSpan span: MKCoordinateSpan)
-  var mkCoordinateValue: CLLocationCoordinate2D { get }
-  var mkCoordinateSpanValue: MKCoordinateSpan { get }
-}
 @available(OSX 10.9, *)
 class MKMapCamera : NSObject, NSSecureCoding, NSCopying {
   var centerCoordinate: CLLocationCoordinate2D
@@ -529,8 +523,8 @@ class MKOverlayPathRenderer : MKOverlayRenderer {
   func invalidatePath()
   func applyStrokePropertiesTo(context: CGContext, atZoomScale zoomScale: MKZoomScale)
   func applyFillPropertiesTo(context: CGContext, atZoomScale zoomScale: MKZoomScale)
-  func strokePath(path: CGPath, `in` context: CGContext)
-  func fillPath(path: CGPath, `in` context: CGContext)
+  func strokePath(path: CGPath, in context: CGContext)
+  func fillPath(path: CGPath, in context: CGContext)
   init(overlay: MKOverlay)
   convenience init()
 }
@@ -543,7 +537,7 @@ class MKOverlayRenderer : NSObject {
   func rectFor(mapRect: MKMapRect) -> CGRect
   func mapRectFor(rect: CGRect) -> MKMapRect
   func canDraw(mapRect: MKMapRect, zoomScale: MKZoomScale) -> Bool
-  func draw(mapRect: MKMapRect, zoomScale: MKZoomScale, `in` context: CGContext)
+  func draw(mapRect: MKMapRect, zoomScale: MKZoomScale, in context: CGContext)
   func setNeedsDisplay()
   func setNeedsDisplayIn(mapRect: MKMapRect)
   func setNeedsDisplayIn(mapRect: MKMapRect, zoomScale: MKZoomScale)

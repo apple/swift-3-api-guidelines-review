@@ -126,7 +126,6 @@ class CAAnimationGroup : CAAnimation {
   init?(coder aDecoder: NSCoder)
 }
 var __MAC_10_12: Int32 { get }
-var __IPHONE_9_2: Int32 { get }
 var CA_WARN_DEPRECATED: Int32 { get }
 @available(tvOS 2.0, *)
 func CACurrentMediaTime() -> CFTimeInterval
@@ -439,15 +438,19 @@ protocol CAAction {
   @available(tvOS 2.0, *)
   func runActionForKey(event: String, object anObject: AnyObject, arguments dict: [NSObject : AnyObject]?)
 }
+
+/** NSNull protocol conformance. **/
 extension NSNull : CAAction {
   @available(tvOS 2.0, *)
   func runActionForKey(event: String, object anObject: AnyObject, arguments dict: [NSObject : AnyObject]?)
 }
+
+/** Delegate methods. **/
 extension NSObject {
   class func display(layer: CALayer)
   func display(layer: CALayer)
-  class func draw(layer: CALayer, `in` ctx: CGContext)
-  func draw(layer: CALayer, `in` ctx: CGContext)
+  class func draw(layer: CALayer, in ctx: CGContext)
+  func draw(layer: CALayer, in ctx: CGContext)
   class func layoutSublayersOf(layer: CALayer)
   func layoutSublayersOf(layer: CALayer)
   class func actionFor(layer: CALayer, forKey event: String) -> CAAction?

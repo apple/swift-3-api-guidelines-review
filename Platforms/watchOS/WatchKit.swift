@@ -301,8 +301,8 @@ class WKInterfaceController : NSObject {
   func dismissAudioRecorderController()
   func contextForSegueWithIdentifier(segueIdentifier: String) -> AnyObject?
   func contextsForSegueWithIdentifier(segueIdentifier: String) -> [AnyObject]?
-  func contextForSegueWithIdentifier(segueIdentifier: String, `in` table: WKInterfaceTable, rowIndex: Int) -> AnyObject?
-  func contextsForSegueWithIdentifier(segueIdentifier: String, `in` table: WKInterfaceTable, rowIndex: Int) -> [AnyObject]?
+  func contextForSegueWithIdentifier(segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> AnyObject?
+  func contextsForSegueWithIdentifier(segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> [AnyObject]?
   @available(watchOS 2.0, *)
   func animateWithDuration(duration: NSTimeInterval, animations: () -> Void)
   @available(watchOS 2.0, *)
@@ -376,11 +376,32 @@ enum WKHapticType : Int {
   case Stop
   case Click
 }
+@available(watchOS 2.1, *)
+enum WKInterfaceLayoutDirection : Int {
+  init?(rawValue: Int)
+  var rawValue: Int { get }
+  case LeftToRight
+  case RightToLeft
+}
+@available(watchOS 2.1, *)
+enum WKInterfaceSemanticContentAttribute : Int {
+  init?(rawValue: Int)
+  var rawValue: Int { get }
+  case Unspecified
+  case Playback
+  case Spatial
+  case ForceLeftToRight
+  case ForceRightToLeft
+}
 class WKInterfaceDevice : NSObject {
   class func current() -> WKInterfaceDevice
   var screenBounds: CGRect { get }
   var screenScale: CGFloat { get }
   var preferredContentSizeCategory: String { get }
+  @available(watchOS 2.1, *)
+  var layoutDirection: WKInterfaceLayoutDirection { get }
+  @available(watchOS 2.1, *)
+  class func interfaceLayoutDirectionFor(semanticContentAttribute: WKInterfaceSemanticContentAttribute) -> WKInterfaceLayoutDirection
   @available(watchOS 2.0, *)
   var systemVersion: String { get }
   @available(watchOS 2.0, *)
@@ -479,6 +500,8 @@ enum WKInterfaceObjectVerticalAlignment : Int {
 class WKInterfaceObject : NSObject {
   func setHidden(hidden: Bool)
   func setAlpha(alpha: CGFloat)
+  @available(watchOS 2.1, *)
+  func setSemanticContentAttribute(semanticContentAttribute: WKInterfaceSemanticContentAttribute)
   @available(watchOS 2.0, *)
   func setHorizontalAlignment(horizontalAlignment: WKInterfaceObjectHorizontalAlignment)
   @available(watchOS 2.0, *)

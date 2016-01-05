@@ -223,6 +223,22 @@ class JSContext : NSObject {
   @available(iOS 8.0, *)
   var name: String!
 }
+
+/*!
+@category
+@discussion Instances of JSContext implement the following methods in order to enable
+ support for subscript access by key and index, for example:
+
+@textblock
+    JSContext *context;
+    JSValue *v = context[@"X"]; // Get value for "X" from the global object.
+    context[@"Y"] = v;          // Assign 'v' to "Y" on the global object.
+@/textblock
+
+ An object key passed as a subscript will be converted to a JavaScript value,
+ and then the value converted to a string used to resolve a property of the
+ global object.
+*/
 extension JSContext {
 
   /*!
@@ -241,6 +257,11 @@ extension JSContext {
   */
   func setObject(object: AnyObject!, forKeyedSubscript key: protocol<NSCopying, NSObjectProtocol>!)
 }
+
+/*!
+@category
+@discussion These functions are for bridging between the C API and the Objective-C API.
+*/
 extension JSContext {
 
   /*!
@@ -1293,7 +1314,7 @@ class JSValue : NSObject {
   @param value The Objective-C object to be converted.
   @result The new JSValue.
   */
-  /*not inherited*/ init!(object value: AnyObject!, `in` context: JSContext!)
+  /*not inherited*/ init!(object value: AnyObject!, in context: JSContext!)
 
   /*!
   @method
@@ -1302,7 +1323,7 @@ class JSValue : NSObject {
   @param context The JSContext in which the resulting JSValue will be created.
   @result The new JSValue representing the equivalent boolean value.
   */
-  /*not inherited*/ init!(bool value: Bool, `in` context: JSContext!)
+  /*not inherited*/ init!(bool value: Bool, in context: JSContext!)
 
   /*!
   @method
@@ -1311,7 +1332,7 @@ class JSValue : NSObject {
   @param context The JSContext in which the resulting JSValue will be created.
   @result The new JSValue representing the equivalent boolean value.
   */
-  /*not inherited*/ init!(double value: Double, `in` context: JSContext!)
+  /*not inherited*/ init!(double value: Double, in context: JSContext!)
 
   /*!
   @method
@@ -1320,7 +1341,7 @@ class JSValue : NSObject {
   @param context The JSContext in which the resulting JSValue will be created.
   @result The new JSValue representing the equivalent boolean value.
   */
-  /*not inherited*/ init!(int32 value: Int32, `in` context: JSContext!)
+  /*not inherited*/ init!(int32 value: Int32, in context: JSContext!)
 
   /*!
   @method
@@ -1329,7 +1350,7 @@ class JSValue : NSObject {
   @param context The JSContext in which the resulting JSValue will be created.
   @result The new JSValue representing the equivalent boolean value.
   */
-  /*not inherited*/ init!(uInt32 value: UInt32, `in` context: JSContext!)
+  /*not inherited*/ init!(uInt32 value: UInt32, in context: JSContext!)
 
   /*!
   @method
@@ -1355,7 +1376,7 @@ class JSValue : NSObject {
   @param context The JSContext in which the resulting regular expression object will be created.
   @result The new JavaScript regular expression object.
   */
-  /*not inherited*/ init!(newRegularExpressionFromPattern pattern: String!, flags: String!, `in` context: JSContext!)
+  /*not inherited*/ init!(newRegularExpressionFromPattern pattern: String!, flags: String!, in context: JSContext!)
 
   /*!
   @method
@@ -1364,7 +1385,7 @@ class JSValue : NSObject {
   @param context The JSContext in which the resulting error object will be created.
   @result The new JavaScript error object.
   */
-  /*not inherited*/ init!(newErrorFromMessage message: String!, `in` context: JSContext!)
+  /*not inherited*/ init!(newErrorFromMessage message: String!, in context: JSContext!)
 
   /*!
   @method
@@ -1705,6 +1726,18 @@ class JSValue : NSObject {
   func invokeMethod(method: String!, withArguments arguments: [AnyObject]!) -> JSValue!
   init()
 }
+
+/*!
+@category
+@discussion Objective-C methods exported to JavaScript may have argument and/or return
+ values of struct types, provided that conversion to and from the struct is
+ supported by JSValue. Support is provided for any types where JSValue
+ contains both a class method <code>valueWith<Type>:inContext:</code>, and and instance
+ method <code>to<Type></code>- where the string <code><Type></code> in these selector names match,
+ with the first argument to the former being of the same struct type as the
+ return type of the latter.
+ Support is provided for structs of type CGPoint, NSRange, CGRect and CGSize.
+*/
 extension JSValue {
 
   /*!
@@ -1713,7 +1746,7 @@ extension JSValue {
   @result A newly allocated JavaScript object containing properties
    named <code>x</code> and <code>y</code>, with values from the CGPoint.
   */
-  /*not inherited*/ init!(point: CGPoint, `in` context: JSContext!)
+  /*not inherited*/ init!(point: CGPoint, in context: JSContext!)
 
   /*!
   @method
@@ -1721,7 +1754,7 @@ extension JSValue {
   @result A newly allocated JavaScript object containing properties
    named <code>location</code> and <code>length</code>, with values from the NSRange.
   */
-  /*not inherited*/ init!(range: NSRange, `in` context: JSContext!)
+  /*not inherited*/ init!(range: NSRange, in context: JSContext!)
 
   /*!
   @method
@@ -1730,7 +1763,7 @@ extension JSValue {
   @result A newly allocated JavaScript object containing properties
    named <code>x</code>, <code>y</code>, <code>width</code>, and <code>height</code>, with values from the CGRect.
   */
-  /*not inherited*/ init!(rect: CGRect, `in` context: JSContext!)
+  /*not inherited*/ init!(rect: CGRect, in context: JSContext!)
 
   /*!
   @method
@@ -1738,7 +1771,7 @@ extension JSValue {
   @result A newly allocated JavaScript object containing properties
    named <code>width</code> and <code>height</code>, with values from the CGSize.
   */
-  /*not inherited*/ init!(size: CGSize, `in` context: JSContext!)
+  /*not inherited*/ init!(size: CGSize, in context: JSContext!)
 
   /*!
   @method
@@ -1776,12 +1809,34 @@ extension JSValue {
   */
   func toSize() -> CGSize
 }
+
+/*!
+@category
+@discussion Instances of JSValue implement the following methods in order to enable
+ support for subscript access by key and index, for example:
+
+@textblock
+    JSValue *objectA, *objectB;
+    JSValue *v1 = object[@"X"]; // Get value for property "X" from 'object'.
+    JSValue *v2 = object[42];   // Get value for index 42 from 'object'.
+    object[@"Y"] = v1;          // Assign 'v1' to property "Y" of 'object'.
+    object[101] = v2;           // Assign 'v2' to index 101 of 'object'.
+@/textblock
+
+ An object key passed as a subscript will be converted to a JavaScript value,
+ and then the value converted to a string used as a property name.
+*/
 extension JSValue {
   func objectForKeyedSubscript(key: AnyObject!) -> JSValue!
   func objectAtIndexedSubscript(index: Int) -> JSValue!
   func setObject(object: AnyObject!, forKeyedSubscript key: protocol<NSCopying, NSObjectProtocol>!)
   func setObject(object: AnyObject!, atIndexedSubscript index: Int)
 }
+
+/*!
+@category
+@discussion  These functions are for bridging between the C API and the Objective-C API.
+*/
 extension JSValue {
 
   /*!
@@ -1791,7 +1846,7 @@ extension JSValue {
   @param context
   @result The Objective-C API equivalent of the specified JSValueRef.
   */
-  /*not inherited*/ init!(jsValueRef value: JSValueRef, `in` context: JSContext!)
+  /*not inherited*/ init!(jsValueRef value: JSValueRef, in context: JSContext!)
 
   /*!
   @property

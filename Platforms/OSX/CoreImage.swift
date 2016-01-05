@@ -37,7 +37,7 @@ class CIContext : NSObject {
   /*not inherited*/ init(mtlDevice device: MTLDevice, options: [String : AnyObject]?)
   @available(OSX 10.11, *)
   var workingColorSpace: CGColorSpace { get }
-  func draw(image: CIImage, `in` inRect: CGRect, from fromRect: CGRect)
+  func draw(image: CIImage, in inRect: CGRect, from fromRect: CGRect)
   func createCGImage(image: CIImage, from fromRect: CGRect) -> CGImage
   func createCGImage(image: CIImage, from fromRect: CGRect, format: CIFormat, colorSpace: CGColorSpace?) -> CGImage
   @available(OSX, introduced=10.4, deprecated=10.11)
@@ -463,6 +463,9 @@ extension CIFilter {
   @available(iOS 8.0, OSX 10.10, *)
   convenience init?(name: String!, elements: (String, AnyObject)...)
 }
+
+/** Methods to register a filter and get access to the list of registered filters
+ Use these methods to create filters and find filters. */
 extension CIFilter {
 
   /** Creates a new filter of type 'name'. 
@@ -511,6 +514,8 @@ extension CIFilter {
   @available(OSX 10.4, *)
   class func localizedReferenceDocumentationForFilterName(filterName: String) -> NSURL?
 }
+
+/** Methods to serialize arrays of filters to xmp. */
 extension CIFilter {
   @available(OSX 10.9, *)
   class func serializedXMPFrom(filters: [CIFilter], inputImageExtent extent: CGRect) -> NSData
@@ -701,7 +706,7 @@ class CIImage : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.4, *)
   var colorSpace: CGColorSpace? { get }
   @available(OSX 10.11, *)
-  func regionOfInterestFor(image: CIImage, `in` rect: CGRect) -> CGRect
+  func regionOfInterestFor(image: CIImage, in rect: CGRect) -> CGRect
   init()
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
@@ -786,6 +791,8 @@ extension CIImage {
   @available(OSX 10.4, *)
   init(imageProvider p: AnyObject, size width: Int, _ height: Int, format f: CIFormat, colorSpace cs: CGColorSpace?, options: [String : AnyObject]?)
 }
+
+/** Informal protocol used to lazily supply image data. */
 extension NSObject {
   class func provideImageData(data: UnsafeMutablePointer<Void>, bytesPerRow rowbytes: Int, origin x: Int, _ y: Int, size width: Int, _ height: Int, userInfo info: AnyObject?)
   func provideImageData(data: UnsafeMutablePointer<Void>, bytesPerRow rowbytes: Int, origin x: Int, _ y: Int, size width: Int, _ height: Int, userInfo info: AnyObject?)
@@ -867,6 +874,8 @@ protocol CIPlugInRegistration {
   */
   func load(host: UnsafeMutablePointer<Void>) -> Bool
 }
+
+/** CIRAWFilter is a category of CIFilter which returns a CIFilter initialized with a RAW image. It allows the user to influence key aspects of the raw processing, such as white balance, exposure, sharpening or boost. */
 extension CIFilter {
 
   /** Returns a CIFilter that will in turn return a properly processed CIImage as "outputImage". */

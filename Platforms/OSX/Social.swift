@@ -17,11 +17,11 @@ class SLComposeServiceViewController : NSViewController, NSTextViewDelegate {
   @available(OSX 10.10, *)
   func textView(textView: NSTextView, clickedOnLink link: AnyObject, at charIndex: Int) -> Bool
   @available(OSX 10.10, *)
-  func textView(textView: NSTextView, clickedOn cell: NSTextAttachmentCellProtocol, `in` cellFrame: NSRect, at charIndex: Int)
+  func textView(textView: NSTextView, clickedOn cell: NSTextAttachmentCellProtocol, in cellFrame: NSRect, at charIndex: Int)
   @available(OSX 10.10, *)
-  func textView(textView: NSTextView, doubleClickedOn cell: NSTextAttachmentCellProtocol, `in` cellFrame: NSRect, at charIndex: Int)
+  func textView(textView: NSTextView, doubleClickedOn cell: NSTextAttachmentCellProtocol, in cellFrame: NSRect, at charIndex: Int)
   @available(OSX 10.10, *)
-  func textView(view: NSTextView, draggedCell cell: NSTextAttachmentCellProtocol, `in` rect: NSRect, event: NSEvent, at charIndex: Int)
+  func textView(view: NSTextView, draggedCell cell: NSTextAttachmentCellProtocol, in rect: NSRect, event: NSEvent, at charIndex: Int)
   @available(OSX 10.10, *)
   func textView(view: NSTextView, writablePasteboardTypesFor cell: NSTextAttachmentCellProtocol, at charIndex: Int) -> [String]
   @available(OSX 10.10, *)

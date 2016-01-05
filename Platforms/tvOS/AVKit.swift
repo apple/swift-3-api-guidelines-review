@@ -238,5 +238,5 @@ protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   	@discussion	The media selection option will be nil when subtitles are turned off.
    */
   @available(tvOS 9.0, *)
-  optional func playerViewController(playerViewController: AVPlayerViewController, didSelect mediaSelectionOption: AVMediaSelectionOption?, `in` mediaSelectionGroup: AVMediaSelectionGroup)
+  optional func playerViewController(playerViewController: AVPlayerViewController, didSelect mediaSelectionOption: AVMediaSelectionOption?, in mediaSelectionGroup: AVMediaSelectionGroup)
 }

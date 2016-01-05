@@ -120,7 +120,7 @@ class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListView
     func listPresenter(_: ListPresenterType, didInsert listItem: ListItem, at index: Int) {}
     func listPresenter(_: ListPresenterType, didRemove listItem: ListItem, at index: Int) {}
     func listPresenter(_: ListPresenterType, didUpdateListItem listItem: ListItem, at index: Int) {}
-    func listPresenter(_: ListPresenterType, didMove listItem: ListItem, from fromIndex: Int, to toIndex: Int) {}
+    func fromtolistPresenter(_: ListPresenterType, didMove listItem: ListItem, from fromIndex: Int, to toIndex: Int) {}
     func listPresenter(_: ListPresenterType, didUpdateListColorWith color: List.Color) {}
 
     func listPresenterDidChangeListLayout(_: ListPresenterType, isInitialLayout: Bool) {

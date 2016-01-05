@@ -56,7 +56,7 @@ class NewListDocumentController: UIViewController, UITextFieldDelegate {
         }
         
         sender.layer.borderWidth = 5.0
-        sender.layer.borderColor = UIColor.lightGrayColor().CGColor
+        sender.layer.borderColor = UIColor.lightGray().cgColor
         selectedButton = sender
         titleLabel.textColor = selectedColor.colorValue
         toolbar.tintColor = selectedColor.colorValue
@@ -66,13 +66,13 @@ class NewListDocumentController: UIViewController, UITextFieldDelegate {
         let list = List()
         list.color = selectedColor
         
-        listsController.createListInfoForList(list, withName: selectedTitle!)
+        listsController.createListInfoFor(list, withName: selectedTitle!)
         
-        dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true)
     }
     
     @IBAction func cancel(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true)
     }
     
     // MARK: Touch Handling
@@ -92,10 +92,10 @@ class NewListDocumentController: UIViewController, UITextFieldDelegate {
     
     // MARK: UITextFieldDelegate
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return false }
         
-        let updatedText = (text as NSString).stringByReplacingCharactersInRange(range, withString: string)
+        let updatedText = (text as NSString).stringByReplacingCharactersIn(range, withString: string)
         updateForProposedListName(updatedText)
         
         return true
@@ -117,11 +117,11 @@ class NewListDocumentController: UIViewController, UITextFieldDelegate {
     
     func updateForProposedListName(name: String) {
         if listsController.canCreateListInfoWithName(name) {
-            saveButton.enabled = true
+            saveButton.isEnabled = true
             selectedTitle = name
         }
         else {
-            saveButton.enabled = false
+            saveButton.isEnabled = false
         }
     }
 }

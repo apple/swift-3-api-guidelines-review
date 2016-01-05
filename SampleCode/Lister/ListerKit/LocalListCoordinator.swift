@@ -64,7 +64,7 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
         - parameter firstQueryUpdateHandler: The handler that is executed once the first results are returned.
     */
     public init(pathExtension: String, firstQueryUpdateHandler: (Void -> Void)? = nil) {
-        directoryMonitor = DirectoryMonitor(URL: ListUtilities.localDocumentsDirectory)
+        directoryMonitor = DirectoryMonitor(url: ListUtilities.localDocumentsDirectory)
         
         predicate = NSPredicate(format: "(pathExtension = %@)", argumentArray: [pathExtension])
         self.firstQueryUpdateHandler = firstQueryUpdateHandler
@@ -81,7 +81,7 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
         - parameter firstQueryUpdateHandler: The handler that is executed once the first results are returned.
     */
     public init(lastPathComponent: String, firstQueryUpdateHandler: (Void -> Void)? = nil) {
-        directoryMonitor = DirectoryMonitor(URL: ListUtilities.localDocumentsDirectory)
+        directoryMonitor = DirectoryMonitor(url: ListUtilities.localDocumentsDirectory)
         
         predicate = NSPredicate(format: "(lastPathComponent = %@)", argumentArray: [lastPathComponent])
         self.firstQueryUpdateHandler = firstQueryUpdateHandler
@@ -101,10 +101,10 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
         directoryMonitor.stopMonitoring()
     }
     
-    public func removeListAtURL(URL: NSURL) {
-        ListUtilities.removeListAtURL(URL) { error in
+    public func removeListAt(URL: NSURL) {
+        ListUtilities.removeListAt(URL) { error in
             if let realError = error {
-                self.delegate?.listCoordinatorDidFailRemovingListAtURL(URL, withError: realError)
+                self.delegate?.listCoordinatorDidFailRemovingListAt(URL, withError: realError)
             }
             else {
                 self.delegate?.listCoordinatorDidUpdateContents(insertedURLs: [], removedURLs: [URL], updatedURLs: [])
@@ -112,12 +112,12 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
         }
     }
     
-    public func createURLForList(list: List, withName name: String) {
+    public func createURLFor(list: List, withName name: String) {
         let documentURL = documentURLForName(name)
 
-        ListUtilities.createList(list, atURL: documentURL) { error in
+        ListUtilities.createList(list, at: documentURL) { error in
             if let realError = error {
-                self.delegate?.listCoordinatorDidFailCreatingListAtURL(documentURL, withError: realError)
+                self.delegate?.listCoordinatorDidFailCreatingListAt(documentURL, withError: realError)
             }
             else {
                 self.delegate?.listCoordinatorDidUpdateContents(insertedURLs: [documentURL], removedURLs: [], updatedURLs: [])
@@ -135,10 +135,10 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
         return !NSFileManager.defaultManager().fileExistsAtPath(documentURL.path!)
     }
     
-    public func copyListFromURL(URL: NSURL, toListWithName name: String) {
+    public func copyListFrom(URL: NSURL, toListWithName name: String) {
         let documentURL = documentURLForName(name)
         
-        ListUtilities.copyFromURL(URL, toURL: documentURL)
+        ListUtilities.copyFrom(URL, to: documentURL)
     }
     
     // MARK: DirectoryMonitorDelegate
@@ -157,9 +157,9 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
             
             do {
                 // Fetch the list documents from containerd documents directory.
-                let localDocumentURLs = try fileManager.contentsOfDirectoryAtURL(ListUtilities.localDocumentsDirectory, includingPropertiesForKeys: nil, options: .SkipsPackageDescendants)
+                let localDocumentURLs = try fileManager.contentsOfDirectoryAt(ListUtilities.localDocumentsDirectory, includingPropertiesForKeys: nil, options: .SkipsPackageDescendants)
                 
-                let localListURLs = localDocumentURLs.filter { self.predicate.evaluateWithObject($0) }
+                let localListURLs = localDocumentURLs.filter { self.predicate.evaluateWith($0) }
                 
                 if !localListURLs.isEmpty {
                     let insertedURLs = localListURLs.filter { !self.currentLocalContents.contains($0) }
@@ -186,8 +186,8 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
     }
     
     private func documentURLForName(name: String) -> NSURL {
-        let documentURLWithoutExtension = documentsDirectory.URLByAppendingPathComponent(name)
+        let documentURLWithoutExtension = documentsDirectory.appendingPathComponent(name)
 
-        return documentURLWithoutExtension.URLByAppendingPathExtension(AppConfiguration.listerFileExtension)
+        return documentURLWithoutExtension.appendingPathExtension(AppConfiguration.listerFileExtension)
     }
 }

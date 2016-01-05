@@ -154,7 +154,15 @@ class GKBehavior : NSObject, NSFastEnumeration {
    * Removes all the goals on the behavior.
    */
   func removeAllGoals()
+
+  /**
+   * Supports getting goals via a [int] subscript.
+   */
   subscript (idx: Int) -> GKGoal { get }
+
+  /**
+   * Supports getting a weight via a [goal] subscript.
+   */
   subscript (goal: GKGoal) -> NSNumber
   init()
   @available(OSX 10.11, *)
@@ -205,6 +213,10 @@ class GKComponentSystem : NSObject, NSFastEnumeration {
    * The array of components currently in the system.
    */
   var components: [GKComponent] { get }
+
+  /**
+   * Supports getting components via a [] subscript.
+   */
   subscript (idx: Int) -> GKComponent { get }
 
   /**
@@ -319,7 +331,12 @@ extension GKEntity {
   @warn_unused_result
   func componentForClass<ComponentType : GKComponent>(componentClass: ComponentType.Type) -> ComponentType?
 }
-var GKGameModelMaxScore: Int32 { get }
+
+/**
+ * Maximum / minimum values for GKGameModel scoreForPlayer. Values must be within these ranges.
+ */
+let GKGameModelMaxScore: Int
+let GKGameModelMinScore: Int
 
 /**
  * A protocol used to encapsulate the data needed to affect an update to a game model. 
@@ -407,6 +424,7 @@ protocol GKGameModel : NSObjectProtocol, NSCopying {
    * necessarily mean that the player has won. Optionally used by GKMinmaxStrategist to improve move selection.
    */
   optional func isLossFor(player: GKGameModelPlayer) -> Bool
+  optional func unapplyGameModelUpdate(gameModelUpdate: GKGameModelUpdate)
 }
 
 /**
@@ -746,12 +764,7 @@ class GKGridGraphNode : GKGraphNode {
  * against the potential gain of other players.
  */
 @available(OSX 10.11, *)
-class GKMinmaxStrategist : NSObject {
-
-  /**
-   * The game model that we wish to select updates for.
-   */
-  var gameModel: GKGameModel?
+class GKMinmaxStrategist : NSObject, GKStrategist {
 
   /**
    * The maximum number of future turns that will be processed when searching for a move.
@@ -759,15 +772,8 @@ class GKMinmaxStrategist : NSObject {
   var maxLookAheadDepth: Int
 
   /**
-   * A random source to use when breaking ties between equally-strong moves when calling bestMoveForPlayer 
-   * or when selecting a random move when randomMoveForPlayer is called. If set to nil, bestMoveForPlayer 
-   * and randomMoveForPlayer will simply return the first best move available.
-   */
-  var randomSource: GKRandom?
-
-  /**
-   * Selects the best move for the specified player. If randomSource is not nil, it will randomly select 
-   * which move to use if there are one or more ties for the best. Returns nil if the player is invalid, 
+   * Selects the best move for the specified player. If randomSource is not nil, it will randomly select
+   * which move to use if there are one or more ties for the best. Returns nil if the player is invalid,
    * the player is not a part of the game model, or the player has no valid moves available.
    */
   func bestMoveFor(player: GKGameModelPlayer) -> GKGameModelUpdate?
@@ -780,6 +786,22 @@ class GKMinmaxStrategist : NSObject {
    */
   func randomMoveFor(player: GKGameModelPlayer, fromNumberOfBestMoves numMovesToConsider: Int) -> GKGameModelUpdate?
   init()
+
+  /**
+   * The game model that we wish to select updates for.
+   */
+  @available(OSX 10.11, *)
+  var gameModel: GKGameModel?
+
+  /**
+   * A random source to use when breaking ties between equally-strong moves when calling bestMoveForPlayer
+   * or when selecting a random move when randomMoveForPlayer is called. If set to nil, bestMoveForPlayer
+   * and randomMoveForPlayer will simply return the first best move available.
+   */
+  @available(OSX 10.11, *)
+  var randomSource: GKRandom?
+  @available(OSX 10.11, *)
+  func bestMoveForActivePlayer() -> GKGameModelUpdate?
 }
 
 /**
@@ -1728,4 +1750,19 @@ extension GKStateMachine {
   /// machine. Returns nil if state machine does not have this state.
   @warn_unused_result
   func stateForClass<StateType : GKState>(stateClass: StateType.Type) -> StateType?
+}
+protocol GKStrategist : NSObjectProtocol {
+
+  /**
+   * The game model that we wish to select updates for.
+   */
+  var gameModel: GKGameModel? { get set }
+
+  /**
+   * A random source to use when breaking ties between equally-strong moves when calling bestMoveForPlayer
+   * or when selecting a random move when randomMoveForPlayer is called. If set to nil, bestMoveForPlayer
+   * and randomMoveForPlayer will simply return the first best move available.
+   */
+  var randomSource: GKRandom? { get set }
+  func bestMoveForActivePlayer() -> GKGameModelUpdate?
 }

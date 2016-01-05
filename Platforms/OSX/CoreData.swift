@@ -190,8 +190,8 @@ struct _requestFlags {
 }
 @available(OSX 10.4, *)
 class NSEntityDescription : NSObject, NSCoding, NSCopying, NSFastEnumeration {
-  class func entityForName(entityName: String, `in` context: NSManagedObjectContext) -> NSEntityDescription?
-  class func insertNewObjectForEntityForName(entityName: String, `in` context: NSManagedObjectContext) -> NSManagedObject
+  class func entityForName(entityName: String, in context: NSManagedObjectContext) -> NSEntityDescription?
+  class func insertNewObjectForEntityForName(entityName: String, in context: NSManagedObjectContext) -> NSManagedObject
   unowned(unsafe) var managedObjectModel: @sil_unmanaged NSManagedObjectModel { get }
   var managedObjectClassName: String!
   var name: String?

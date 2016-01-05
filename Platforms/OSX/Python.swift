@@ -160,11 +160,11 @@ func PyEval_GetFrame() -> UnsafeMutablePointer<_frame>
 func PyEval_GetRestricted() -> Int32
 func PyEval_MergeCompilerFlags(cf: UnsafeMutablePointer<PyCompilerFlags>) -> Int32
 func Py_FlushLine() -> Int32
-func Py_AddPendingCall(`func`: (@convention(c) (UnsafeMutablePointer<Void>) -> Int32)!, _ arg: UnsafeMutablePointer<Void>) -> Int32
+func Py_AddPendingCall(func: (@convention(c) (UnsafeMutablePointer<Void>) -> Int32)!, _ arg: UnsafeMutablePointer<Void>) -> Int32
 func Py_MakePendingCalls() -> Int32
 func Py_SetRecursionLimit(_: Int32)
 func Py_GetRecursionLimit() -> Int32
-func _Py_CheckRecursiveCall(`where`: UnsafeMutablePointer<Int8>) -> Int32
+func _Py_CheckRecursiveCall(where: UnsafeMutablePointer<Int8>) -> Int32
 var _Py_CheckRecursionLimit: Int32
 func PyEval_GetFuncName(_: UnsafeMutablePointer<PyObject>) -> UnsafePointer<Int8>
 func PyEval_GetFuncDesc(_: UnsafeMutablePointer<PyObject>) -> UnsafePointer<Int8>
@@ -234,7 +234,7 @@ func PyCObject_FromVoidPtrAndDesc(cobj: UnsafeMutablePointer<Void>, _ desc: Unsa
 func PyCObject_AsVoidPtr(_: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<Void>
 func PyCObject_GetDesc(_: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<Void>
 func PyCObject_Import(module_name: UnsafeMutablePointer<Int8>, _ cobject_name: UnsafeMutablePointer<Int8>) -> UnsafeMutablePointer<Void>
-func PyCObject_SetVoidPtr(`self`: UnsafeMutablePointer<PyObject>, _ cobj: UnsafeMutablePointer<Void>) -> Int32
+func PyCObject_SetVoidPtr(self: UnsafeMutablePointer<PyObject>, _ cobj: UnsafeMutablePointer<Void>) -> Int32
 struct PyCObject {
   var ob_refcnt: Py_ssize_t
   var ob_type: UnsafeMutablePointer<_typeobject>
@@ -491,7 +491,7 @@ var PyEnum_Type: PyTypeObject
 var PyReversed_Type: PyTypeObject
 func PyEval_EvalCode(_: UnsafeMutablePointer<PyCodeObject>, _: UnsafeMutablePointer<PyObject>, _: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
 func PyEval_EvalCodeEx(co: UnsafeMutablePointer<PyCodeObject>, _ globals: UnsafeMutablePointer<PyObject>, _ locals: UnsafeMutablePointer<PyObject>, _ args: UnsafeMutablePointer<UnsafeMutablePointer<PyObject>>, _ argc: Int32, _ kwds: UnsafeMutablePointer<UnsafeMutablePointer<PyObject>>, _ kwdc: Int32, _ defs: UnsafeMutablePointer<UnsafeMutablePointer<PyObject>>, _ defc: Int32, _ closure: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
-func _PyEval_CallTracing(`func`: UnsafeMutablePointer<PyObject>, _ args: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
+func _PyEval_CallTracing(func: UnsafeMutablePointer<PyObject>, _ args: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
 struct PyFileObject {
   var ob_refcnt: Py_ssize_t
   var ob_type: UnsafeMutablePointer<_typeobject>
@@ -793,7 +793,7 @@ func PyModule_AddIntConstant(_: UnsafeMutablePointer<PyObject>, _: UnsafePointer
 func PyModule_AddStringConstant(_: UnsafeMutablePointer<PyObject>, _: UnsafePointer<Int8>, _: UnsafePointer<Int8>) -> Int32
 var PYTHON_API_VERSION: Int32 { get }
 var PYTHON_API_STRING: String { get }
-func Py_InitModule4_64(name: UnsafePointer<Int8>, _ methods: UnsafeMutablePointer<PyMethodDef>, _ doc: UnsafePointer<Int8>, _ `self`: UnsafeMutablePointer<PyObject>, _ apiver: Int32) -> UnsafeMutablePointer<PyObject>
+func Py_InitModule4_64(name: UnsafePointer<Int8>, _ methods: UnsafeMutablePointer<PyMethodDef>, _ doc: UnsafePointer<Int8>, _ self: UnsafeMutablePointer<PyObject>, _ apiver: Int32) -> UnsafeMutablePointer<PyObject>
 var _Py_PackageContext: UnsafeMutablePointer<Int8>
 var PyModule_Type: PyTypeObject
 func PyModule_New(_: UnsafePointer<Int8>) -> UnsafeMutablePointer<PyObject>
@@ -854,7 +854,7 @@ struct bufferinfo {
   var smalltable: (Py_ssize_t, Py_ssize_t)
   var `internal`: UnsafeMutablePointer<Void>
   init()
-  init(buf: UnsafeMutablePointer<Void>, obj: UnsafeMutablePointer<PyObject>, len: Py_ssize_t, itemsize: Py_ssize_t, readonly: Int32, ndim: Int32, format: UnsafeMutablePointer<Int8>, shape: UnsafeMutablePointer<Py_ssize_t>, strides: UnsafeMutablePointer<Py_ssize_t>, suboffsets: UnsafeMutablePointer<Py_ssize_t>, smalltable: (Py_ssize_t, Py_ssize_t), `internal`: UnsafeMutablePointer<Void>)
+  init(buf: UnsafeMutablePointer<Void>, obj: UnsafeMutablePointer<PyObject>, len: Py_ssize_t, itemsize: Py_ssize_t, readonly: Int32, ndim: Int32, format: UnsafeMutablePointer<Int8>, shape: UnsafeMutablePointer<Py_ssize_t>, strides: UnsafeMutablePointer<Py_ssize_t>, suboffsets: UnsafeMutablePointer<Py_ssize_t>, smalltable: (Py_ssize_t, Py_ssize_t), internal: UnsafeMutablePointer<Void>)
 }
 typealias Py_buffer = bufferinfo
 typealias getbufferproc = @convention(c) (UnsafeMutablePointer<PyObject>, UnsafeMutablePointer<Py_buffer>, Int32) -> Int32
@@ -1786,7 +1786,7 @@ func Py_SymtableString(_: UnsafePointer<Int8>, _: UnsafePointer<Int8>, _: Int32)
 func PyErr_Print()
 func PyErr_PrintEx(_: Int32)
 func PyErr_Display(_: UnsafeMutablePointer<PyObject>, _: UnsafeMutablePointer<PyObject>, _: UnsafeMutablePointer<PyObject>)
-func Py_AtExit(`func`: (@convention(c) () -> Void)!) -> Int32
+func Py_AtExit(func: (@convention(c) () -> Void)!) -> Int32
 func Py_Exit(_: Int32)
 func Py_FdIsInteractive(_: UnsafeMutablePointer<FILE>, _: UnsafePointer<Int8>) -> Int32
 func Py_Main(argc: Int32, _ argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>>) -> Int32
@@ -2061,7 +2061,7 @@ func PyUnicodeUCS2_Compare(left: UnsafeMutablePointer<PyObject>, _ right: Unsafe
 func PyUnicodeUCS2_RichCompare(left: UnsafeMutablePointer<PyObject>, _ right: UnsafeMutablePointer<PyObject>, _ op: Int32) -> UnsafeMutablePointer<PyObject>
 func PyUnicodeUCS2_Format(format: UnsafeMutablePointer<PyObject>, _ args: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
 func PyUnicodeUCS2_Contains(container: UnsafeMutablePointer<PyObject>, _ element: UnsafeMutablePointer<PyObject>) -> Int32
-func _PyUnicode_XStrip(`self`: UnsafeMutablePointer<PyUnicodeObject>, _ striptype: Int32, _ sepobj: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
+func _PyUnicode_XStrip(self: UnsafeMutablePointer<PyUnicodeObject>, _ striptype: Int32, _ sepobj: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
 func _PyUnicodeUCS2_IsLowercase(ch: Py_UNICODE) -> Int32
 func _PyUnicodeUCS2_IsUppercase(ch: Py_UNICODE) -> Int32
 func _PyUnicodeUCS2_IsTitlecase(ch: Py_UNICODE) -> Int32
@@ -2099,4 +2099,4 @@ func PyWeakref_NewRef(ob: UnsafeMutablePointer<PyObject>, _ callback: UnsafeMuta
 func PyWeakref_NewProxy(ob: UnsafeMutablePointer<PyObject>, _ callback: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
 func PyWeakref_GetObject(ref: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
 func _PyWeakref_GetWeakrefCount(head: UnsafeMutablePointer<PyWeakReference>) -> Py_ssize_t
-func _PyWeakref_ClearRef(`self`: UnsafeMutablePointer<PyWeakReference>)
+func _PyWeakref_ClearRef

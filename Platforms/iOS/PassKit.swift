@@ -78,8 +78,12 @@ class PKAddPaymentPassViewController : UIViewController {
 let PKEncryptionSchemeECC_V2: String
 @available(iOS 8.0, *)
 let PKPaymentNetworkAmex: String
+@available(iOS 9.2, *)
+let PKPaymentNetworkChinaUnionPay: String
 @available(iOS 9.0, *)
 let PKPaymentNetworkDiscover: String
+@available(iOS 9.2, *)
+let PKPaymentNetworkInterac: String
 @available(iOS 8.0, *)
 let PKPaymentNetworkMasterCard: String
 @available(iOS 9.0, *)
@@ -92,6 +96,8 @@ class PKContact : NSObject {
   var postalAddress: CNPostalAddress?
   var emailAddress: String?
   var phoneNumber: CNPhoneNumber?
+  @available(iOS 9.2, *)
+  var supplementarySubLocality: String?
   init()
 }
 @available(iOS 6.0, *)
@@ -239,6 +245,12 @@ enum PKPaymentAuthorizationStatus : Int {
   case InvalidBillingPostalAddress
   case InvalidShippingPostalAddress
   case InvalidShippingContact
+  @available(iOS 9.2, *)
+  case PINRequired
+  @available(iOS 9.2, *)
+  case PINIncorrect
+  @available(iOS 9.2, *)
+  case PINLockout
 }
 protocol PKPaymentAuthorizationViewControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)

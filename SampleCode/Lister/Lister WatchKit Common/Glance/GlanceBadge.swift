@@ -120,7 +120,7 @@ class GlanceBadge {
         let doneText = NSLocalizedString("Done", comment: "")
         let doneAttributes = [
             NSFontAttributeName: UIFont.systemFontOfSize(16),
-            NSForegroundColorAttributeName: UIColor.darkGrayColor()
+            NSForegroundColorAttributeName: UIColor.darkGray()
         ]
         let doneSize = doneText.sizeWithAttributes(doneAttributes)
         
@@ -128,8 +128,8 @@ class GlanceBadge {
 
         let doneRect = CGRect(x: center.x - 0.5 * doneSize.width, y: center.y + 0.125 * doneSize.height, width: doneSize.width, height: doneSize.height)
         
-        itemsCompleteText.drawInRect(completeRect.integral, withAttributes: completeAttributes)
+        itemsCompleteText.drawIn(completeRect.integral, withAttributes: completeAttributes)
 
-        doneText.drawInRect(doneRect.integral, withAttributes: doneAttributes)
+        doneText.drawIn(doneRect.integral, withAttributes: doneAttributes)
     }
 }

@@ -134,7 +134,7 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
             // Map the listInfo objects protected by listInfoQueue.
             var allURLs: [NSURL]!
             dispatch_sync(listInfoQueue) {
-                allURLs = self.listInfos.map { $0.URL }
+                allURLs = self.listInfos.map { $0.url }
             }
             self.processContentChanges(insertedURLs: [], removedURLs: allURLs, updatedURLs: [])
             
@@ -238,7 +238,7 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
         - parameter listInfo: The `ListInfo` to remove from the list of tracked `ListInfo` instances.
     */
     public func removeListInfo(listInfo: ListInfo) {
-        listCoordinator.removeListAtURL(listInfo.URL)
+        listCoordinator.removeListAt(listInfo.url)
     }
     
     /**
@@ -256,8 +256,8 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
         - parameter list: The `List` object that should be used to save the initial list.
         - parameter name: The name of the new list.
     */
-    public func createListInfoForList(list: List, withName name: String) {
-        listCoordinator.createURLForList(list, withName: name)
+    public func createListInfoFor(list: List, withName name: String) {
+        listCoordinator.createURLFor(list, withName: name)
     }
     
     /**
@@ -281,8 +281,8 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
         - parameter URL: The `NSURL` object representing the list to be copied.
         - parameter name: The name of the `list` to be overwritten.
     */
-    public func copyListFromURL(URL: NSURL, toListWithName name: String) {
-        listCoordinator.copyListFromURL(URL, toListWithName: name)
+    public func copyListFrom(URL: NSURL, toListWithName name: String) {
+        listCoordinator.copyListFrom(URL, toListWithName: name)
     }
     
     /**
@@ -334,8 +334,8 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
         - parameter URL: The `NSURL` instances that was failed to be created.
         - parameter error: The error the describes why the create failed.
     */
-    public func listCoordinatorDidFailCreatingListAtURL(URL: NSURL, withError error: NSError) {
-        let listInfo = ListInfo(URL: URL)
+    public func listCoordinatorDidFailCreatingListAt(URL: NSURL, withError error: NSError) {
+        let listInfo = ListInfo(url: URL)
         
         delegateQueue.addOperationWithBlock {
             self.delegate?.listsController?(self, didFailCreatingListInfo: listInfo, withError: error)
@@ -352,8 +352,8 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
         - parameter URL: The `NSURL` instance that failed to be removed
         - parameter error: The error that describes why the remove failed.
     */
-    public func listCoordinatorDidFailRemovingListAtURL(URL: NSURL, withError error: NSError) {
-        let listInfo = ListInfo(URL: URL)
+    public func listCoordinatorDidFailRemovingListAt(URL: NSURL, withError error: NSError) {
+        let listInfo = ListInfo(url: URL)
         
         delegateQueue.addOperationWithBlock {
             self.delegate?.listsController?(self, didFailRemovingListInfo: listInfo, withError: error)
@@ -374,9 +374,9 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
         - parameter updatedURLs: The `NSURL` instances that have had their underlying model updated.
     */
     private func processContentChanges(insertedURLs insertedURLs: [NSURL], removedURLs: [NSURL], updatedURLs: [NSURL]) {
-        let insertedListInfos = insertedURLs.map { ListInfo(URL: $0) }
-        let removedListInfos = removedURLs.map { ListInfo(URL: $0) }
-        let updatedListInfos = updatedURLs.map { ListInfo(URL: $0) }
+        let insertedListInfos = insertedURLs.map { ListInfo(url: $0) }
+        let removedListInfos = removedURLs.map { ListInfo(url: $0) }
+        let updatedListInfos = updatedURLs.map { ListInfo(url: $0) }
         
         delegateQueue.addOperationWithBlock {
             // Filter out all lists that are already included in the tracked lists.
@@ -401,7 +401,7 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
                 dispatch_sync(self.listInfoQueue) {
                     trackedRemovedListInfoIndex = self.listInfos.indexOf(trackedRemovedListInfo)!
                     
-                    self.listInfos.removeAtIndex(trackedRemovedListInfoIndex)
+                    self.listInfos.removeAt(trackedRemovedListInfoIndex)
                 }
                 
                 self.delegate?.listsController?(self, didRemoveListInfo: trackedRemovedListInfo, atIndex: trackedRemovedListInfoIndex)

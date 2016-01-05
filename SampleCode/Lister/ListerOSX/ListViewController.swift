@@ -70,7 +70,7 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
         return listPresenter.isEmpty ? 1 : listPresenter.count
     }
     
-    func tableView(tableView: NSTableView, viewFor viewForTableColumn: NSTableColumn, row: Int) -> NSView {
+    func viewFortableView(tableView: NSTableView, viewFor viewForTableColumn: NSTableColumn, row: Int) -> NSView {
         guard let listPresenter = listPresenter else { return tableView.makeViewWithIdentifier(TableViewConstants.ViewIdentifiers.noListItemViewIdentifier, owner: nil)! }
         
         if listPresenter.isEmpty {
@@ -133,7 +133,7 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
             
             var normalizedToIndex = row
             if fromIndex < row {
-                normalizedToIndex--
+                normalizedToIndex -= 1
             }
 
             listPresenter!.move(listItem, to: normalizedToIndex)
@@ -391,7 +391,7 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
         }
     }
 
-    func listPresenter(_: ListPresenterType, didMove listItem: ListItem, from fromIndex: Int, to toIndex: Int) {
+    func fromtolistPresenter(_: ListPresenterType, didMove listItem: ListItem, from fromIndex: Int, to toIndex: Int) {
         tableView.moveRowAt(fromIndex, to: toIndex)
     }
     

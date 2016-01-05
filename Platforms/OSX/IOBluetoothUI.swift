@@ -1,7 +1,13 @@
 
+class IOBluetoothDeviceSelectorController {
+}
 typealias IOBluetoothDeviceSelectorControllerRef = IOBluetoothDeviceSelectorController
+class IOBluetoothPairingController {
+}
 typealias IOBluetoothPairingControllerRef = IOBluetoothPairingController
 typealias IOBluetoothServiceBrowserControllerRef = IOBluetoothServiceBrowserController
+class IOBluetoothServiceBrowserController {
+}
 
 /*!
   @enum IOBluetoothServiceBrowserControllerOptions
