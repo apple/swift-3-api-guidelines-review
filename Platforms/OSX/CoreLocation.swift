@@ -266,9 +266,9 @@ class CLRegion : NSObject, NSCopying, NSSecureCoding {
   @available(OSX 10.7, *)
   var identifier: String { get }
   @available(OSX 10.10, *)
-  var isNotifyOnEntry: Bool
+  var notifyOnEntry: Bool
   @available(OSX 10.10, *)
-  var isNotifyOnExit: Bool
+  var notifyOnExit: Bool
   @available(OSX, introduced=10.7, deprecated=10.10)
   func contains(coordinate: CLLocationCoordinate2D) -> Bool
   init()

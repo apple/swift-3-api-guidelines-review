@@ -6,7 +6,7 @@ class DOMAbstractView : DOMObject {
 @available(OSX 10.4, *)
 class DOMAttr : DOMNode {
   var name: String! { get }
-  var isSpecified: Bool { get }
+  var specified: Bool { get }
   var value: String!
   var ownerElement: DOMElement! { get }
   @available(OSX 10.5, *)
@@ -700,7 +700,7 @@ class DOMDocument : DOMNode {
   @available(OSX 10.5, *)
   var xmlVersion: String!
   @available(OSX 10.5, *)
-  var isXmlStandalone: Bool
+  var xmlStandalone: Bool
   @available(OSX 10.5, *)
   var documentURI: String!
   var defaultView: DOMAbstractView! { get }
@@ -919,14 +919,14 @@ class DOMEvent : DOMObject {
   var currentTarget: DOMEventTarget! { get }
   var eventPhase: UInt16 { get }
   var bubbles: Bool { get }
-  var isCancelable: Bool { get }
+  var cancelable: Bool { get }
   var timeStamp: DOMTimeStamp { get }
   @available(OSX 10.6, *)
   var srcElement: DOMEventTarget! { get }
   @available(OSX 10.6, *)
-  var isReturnValue: Bool
+  var returnValue: Bool
   @available(OSX 10.6, *)
-  var isCancelBubble: Bool
+  var cancelBubble: Bool
   func stopPropagation()
   func preventDefault()
   @available(OSX 10.5, *)
@@ -1053,7 +1053,7 @@ class DOMHTMLAreaElement : DOMHTMLElement {
   var alt: String!
   var coords: String!
   var href: String!
-  var isNoHref: Bool
+  var noHref: Bool
   var shape: String!
   var target: String!
   @available(OSX 10.5, *)
@@ -1101,7 +1101,7 @@ class DOMHTMLBodyElement : DOMHTMLElement {
 class DOMHTMLButtonElement : DOMHTMLElement {
   @available(OSX 10.6, *)
   var autofocus: Bool
-  var isDisabled: Bool
+  var disabled: Bool
   var form: DOMHTMLFormElement! { get }
   var name: String!
   var type: String!
@@ -1121,11 +1121,11 @@ class DOMHTMLCollection : DOMObject {
 }
 @available(OSX 10.4, *)
 class DOMHTMLDListElement : DOMHTMLElement {
-  var isCompact: Bool
+  var compact: Bool
 }
 @available(OSX 10.4, *)
 class DOMHTMLDirectoryElement : DOMHTMLElement {
-  var isCompact: Bool
+  var compact: Bool
 }
 @available(OSX 10.4, *)
 class DOMHTMLDivElement : DOMHTMLElement {
@@ -1230,7 +1230,7 @@ class DOMHTMLFrameElement : DOMHTMLElement {
   var marginHeight: String!
   var marginWidth: String!
   var name: String!
-  var isNoResize: Bool
+  var noResize: Bool
   var scrolling: String!
   var src: String!
   var contentDocument: DOMDocument! { get }
@@ -1251,7 +1251,7 @@ class DOMHTMLFrameSetElement : DOMHTMLElement {
 @available(OSX 10.4, *)
 class DOMHTMLHRElement : DOMHTMLElement {
   var align: String!
-  var isNoShade: Bool
+  var noShade: Bool
   var size: String!
   var width: String!
 }
@@ -1298,7 +1298,7 @@ class DOMHTMLImageElement : DOMHTMLElement {
   var vspace: Int32
   var width: Int32
   @available(OSX 10.5, *)
-  var isComplete: Bool { get }
+  var complete: Bool { get }
   @available(OSX 10.5, *)
   var lowsrc: String!
   @available(OSX 10.5, *)
@@ -1320,19 +1320,19 @@ class DOMHTMLInputElement : DOMHTMLElement {
   var alt: String!
   @available(OSX 10.6, *)
   var autofocus: Bool
-  var isDefaultChecked: Bool
-  var isChecked: Bool
-  var isDisabled: Bool
+  var defaultChecked: Bool
+  var checked: Bool
+  var disabled: Bool
   var form: DOMHTMLFormElement! { get }
   @available(OSX 10.6, *)
   var files: DOMFileList!
   @available(OSX 10.5, *)
-  var isIndeterminate: Bool
+  var indeterminate: Bool
   var maxLength: Int32
   @available(OSX 10.6, *)
-  var isMultiple: Bool
+  var multiple: Bool
   var name: String!
-  var isReadOnly: Bool
+  var readOnly: Bool
   var size: String!
   var src: String!
   var type: String!
@@ -1372,7 +1372,7 @@ class DOMHTMLLegendElement : DOMHTMLElement {
 }
 @available(OSX 10.4, *)
 class DOMHTMLLinkElement : DOMHTMLElement {
-  var isDisabled: Bool
+  var disabled: Bool
   var charset: String!
   var href: String!
   var hreflang: String!
@@ -1398,7 +1398,7 @@ class DOMHTMLMarqueeElement : DOMHTMLElement {
 }
 @available(OSX 10.4, *)
 class DOMHTMLMenuElement : DOMHTMLElement {
-  var isCompact: Bool
+  var compact: Bool
 }
 @available(OSX 10.4, *)
 class DOMHTMLMetaElement : DOMHTMLElement {
@@ -1414,7 +1414,7 @@ class DOMHTMLModElement : DOMHTMLElement {
 }
 @available(OSX 10.4, *)
 class DOMHTMLOListElement : DOMHTMLElement {
-  var isCompact: Bool
+  var compact: Bool
   var start: Int32
   var type: String!
 }
@@ -1428,7 +1428,7 @@ class DOMHTMLObjectElement : DOMHTMLElement {
   var codeBase: String!
   var codeType: String!
   var data: String!
-  var isDeclare: Bool
+  var declare: Bool
   var height: String!
   var hspace: Int32
   var name: String!
@@ -1443,16 +1443,16 @@ class DOMHTMLObjectElement : DOMHTMLElement {
 }
 @available(OSX 10.4, *)
 class DOMHTMLOptGroupElement : DOMHTMLElement {
-  var isDisabled: Bool
+  var disabled: Bool
   var label: String!
 }
 @available(OSX 10.4, *)
 class DOMHTMLOptionElement : DOMHTMLElement {
-  var isDisabled: Bool
+  var disabled: Bool
   var form: DOMHTMLFormElement! { get }
   var label: String!
-  var isDefaultSelected: Bool
-  var isSelected: Bool
+  var defaultSelected: Bool
+  var selected: Bool
   var value: String!
   var text: String! { get }
   var index: Int32 { get }
@@ -1484,7 +1484,7 @@ class DOMHTMLParamElement : DOMHTMLElement {
 class DOMHTMLPreElement : DOMHTMLElement {
   var width: Int32
   @available(OSX 10.5, *)
-  var isWrap: Bool
+  var wrap: Bool
 }
 @available(OSX 10.4, *)
 class DOMHTMLQuoteElement : DOMHTMLElement {
@@ -1496,7 +1496,7 @@ class DOMHTMLScriptElement : DOMHTMLElement {
   var htmlFor: String!
   var event: String!
   var charset: String!
-  var isDefer: Bool
+  var `defer`: Bool
   var src: String!
   var type: String!
 }
@@ -1504,9 +1504,9 @@ class DOMHTMLScriptElement : DOMHTMLElement {
 class DOMHTMLSelectElement : DOMHTMLElement {
   @available(OSX 10.6, *)
   var autofocus: Bool
-  var isDisabled: Bool
+  var disabled: Bool
   var form: DOMHTMLFormElement! { get }
-  var isMultiple: Bool
+  var multiple: Bool
   var name: String!
   var size: Int32
   var type: String! { get }
@@ -1528,7 +1528,7 @@ extension DOMHTMLSelectElement {
 }
 @available(OSX 10.4, *)
 class DOMHTMLStyleElement : DOMHTMLElement {
-  var isDisabled: Bool
+  var disabled: Bool
   var media: String!
   var type: String!
   @available(OSX 10.4, *)
@@ -1550,7 +1550,7 @@ class DOMHTMLTableCellElement : DOMHTMLElement {
   var colSpan: Int32
   var headers: String!
   var height: String!
-  var isNoWrap: Bool
+  var noWrap: Bool
   var rowSpan: Int32
   var scope: String!
   var vAlign: String!
@@ -1618,10 +1618,10 @@ class DOMHTMLTextAreaElement : DOMHTMLElement {
   @available(OSX 10.6, *)
   var autofocus: Bool
   var cols: Int32
-  var isDisabled: Bool
+  var disabled: Bool
   var form: DOMHTMLFormElement! { get }
   var name: String!
-  var isReadOnly: Bool
+  var readOnly: Bool
   var rows: Int32
   var type: String! { get }
   var defaultValue: String!
@@ -1642,7 +1642,7 @@ class DOMHTMLTitleElement : DOMHTMLElement {
 }
 @available(OSX 10.4, *)
 class DOMHTMLUListElement : DOMHTMLElement {
-  var isCompact: Bool
+  var compact: Bool
   var type: String!
 }
 @available(OSX 10.4, *)
@@ -1669,12 +1669,12 @@ class DOMKeyboardEvent : DOMUIEvent {
   var keyIdentifier: String! { get }
   @available(OSX 10.8, *)
   var location: UInt32 { get }
-  var isCtrlKey: Bool { get }
-  var isShiftKey: Bool { get }
-  var isAltKey: Bool { get }
-  var isMetaKey: Bool { get }
+  var ctrlKey: Bool { get }
+  var shiftKey: Bool { get }
+  var altKey: Bool { get }
+  var metaKey: Bool { get }
   @available(OSX 10.5, *)
-  var isAltGraphKey: Bool { get }
+  var altGraphKey: Bool { get }
   var keyCode: Int32 { get }
   var charCode: Int32 { get }
   func getModifierState(keyIdentifierArg: String!) -> Bool
@@ -1697,10 +1697,10 @@ class DOMMouseEvent : DOMUIEvent {
   var screenY: Int32 { get }
   var clientX: Int32 { get }
   var clientY: Int32 { get }
-  var isCtrlKey: Bool { get }
-  var isShiftKey: Bool { get }
-  var isAltKey: Bool { get }
-  var isMetaKey: Bool { get }
+  var ctrlKey: Bool { get }
+  var shiftKey: Bool { get }
+  var altKey: Bool { get }
+  var metaKey: Bool { get }
   var button: UInt16 { get }
   var relatedTarget: DOMEventTarget! { get }
   @available(OSX 10.5, *)
@@ -1856,7 +1856,7 @@ class DOMNodeIterator : DOMObject {
   @available(OSX 10.5, *)
   var referenceNode: DOMNode! { get }
   @available(OSX 10.5, *)
-  var isPointerBeforeReferenceNode: Bool { get }
+  var pointerBeforeReferenceNode: Bool { get }
   func nextNode() -> DOMNode!
   func previousNode() -> DOMNode!
   func detach()
@@ -1882,8 +1882,8 @@ var DOM_BOTH: Int { get }
 @available(OSX 10.5, *)
 class DOMOverflowEvent : DOMEvent {
   var orient: UInt16 { get }
-  var isHorizontalOverflow: Bool { get }
-  var isVerticalOverflow: Bool { get }
+  var horizontalOverflow: Bool { get }
+  var verticalOverflow: Bool { get }
   func initOverflowEvent(orient: UInt16, horizontalOverflow: Bool, verticalOverflow: Bool)
 }
 @available(OSX 10.4, *)
@@ -1915,7 +1915,7 @@ class DOMRange : DOMObject {
   var startOffset: Int32 { get }
   var endContainer: DOMNode! { get }
   var endOffset: Int32 { get }
-  var isCollapsed: Bool { get }
+  var collapsed: Bool { get }
   var commonAncestorContainer: DOMNode! { get }
   @available(OSX 10.5, *)
   var text: String! { get }
@@ -1973,7 +1973,7 @@ class DOMRect : DOMObject {
 @available(OSX 10.4, *)
 class DOMStyleSheet : DOMObject {
   var type: String! { get }
-  var isDisabled: Bool
+  var disabled: Bool
   var ownerNode: DOMNode! { get }
   var parent: DOMStyleSheet! { get }
   var href: String! { get }
@@ -2077,9 +2077,9 @@ class DOMXPathResult : DOMObject {
   var resultType: UInt16 { get }
   var numberValue: Double { get }
   var stringValue: String! { get }
-  var isBooleanValue: Bool { get }
+  var booleanValue: Bool { get }
   var singleNodeValue: DOMNode! { get }
-  var isInvalidIteratorState: Bool { get }
+  var invalidIteratorState: Bool { get }
   var snapshotLength: UInt32 { get }
   func iterateNext() -> DOMNode!
   func snapshotItem(index: UInt32) -> DOMNode!
@@ -2426,7 +2426,7 @@ class WKPreferences : NSObject {
   /*! @abstract A Boolean value indicating whether JavaScript is enabled.
    @discussion The default value is YES.
    */
-  var isJavaScriptEnabled: Bool
+  var javaScriptEnabled: Bool
 
   /*! @abstract A Boolean value indicating whether JavaScript can open
    windows without user interaction.
@@ -2437,7 +2437,7 @@ class WKPreferences : NSObject {
   /*! @abstract A Boolean value indicating whether Java is enabled.
    @discussion The default value is NO.
    */
-  var isJavaEnabled: Bool
+  var javaEnabled: Bool
 
   /*! @abstract A Boolean value indicating whether plug-ins are enabled.
    @discussion The default value is NO.
@@ -4873,7 +4873,7 @@ class WebPreferences : NSObject, NSCoding {
   /*!
       @property userStyleSheetEnabled
   */
-  var isUserStyleSheetEnabled: Bool
+  var userStyleSheetEnabled: Bool
 
   /*!
       @property userStyleSheetLocation
@@ -4899,7 +4899,7 @@ class WebPreferences : NSObject, NSCoding {
   /*!
       @property plugInsEnabled
   */
-  var plugInsEnabled: Bool
+  var arePlugInsEnabled: Bool
 
   /*!
       @property allowsAnimatedImages
@@ -4933,7 +4933,7 @@ class WebPreferences : NSObject, NSCoding {
       @abstract If private browsing is enabled, WebKit will not store information
       about sites the user visits.
    */
-  var isPrivateBrowsingEnabled: Bool
+  var privateBrowsingEnabled: Bool
 
   /*!
       @property tabsToLinks
@@ -6430,8 +6430,8 @@ extension WebView {
   var maintainsInactiveSelection: Bool { get }
   var isEditable: Bool
   var typingStyle: DOMCSSStyleDeclaration!
-  var isSmartInsertDeleteEnabled: Bool
-  var continuousSpellCheckingEnabled: Bool
+  var smartInsertDeleteEnabled: Bool
+  var isContinuousSpellCheckingEnabled: Bool
   var spellCheckerDocumentTag: Int { get }
   var undoManager: NSUndoManager! { get }
   var editingDelegate: AnyObject!

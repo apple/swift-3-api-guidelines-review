@@ -209,9 +209,9 @@ class CLRegion : NSObject, NSCopying, NSSecureCoding {
   @available(tvOS 4.0, *)
   var identifier: String { get }
   @available(tvOS 7.0, *)
-  var isNotifyOnEntry: Bool
+  var notifyOnEntry: Bool
   @available(tvOS 7.0, *)
-  var isNotifyOnExit: Bool
+  var notifyOnExit: Bool
   init()
   @available(tvOS 4.0, *)
   func copy(zone zone: NSZone = nil) -> AnyObject

@@ -490,7 +490,7 @@ class MTKView : NSView, NSCoding {
    @abstract If the currentDrawable can be used for sampling or texture read operations
    @discussion This defaults to YES. This property controls whether or not the returned drawables' MTLTextures may only be used for framebuffer attachments (YES) or whether they may also be used for texture sampling and pixel read/write operations (NO). A value of YES allows the CAMetalLayer to allocate the MTLTexture objects in ways that are optimized for display purposes that makes them unsuitable for sampling. The recommended value for most applications is YES.
    */
-  var isFramebufferOnly: Bool
+  var framebufferOnly: Bool
 
   /*!
    @property presentsWithTransaction
@@ -586,7 +586,7 @@ class MTKView : NSView, NSCoding {
    @abstract Controls whether to resize the drawable as the view changes size.
    @discussion If true, the size of the currentDrawable's texture, depthStencilTexture, and multisampleColorTexture will automatically resize as the view resizes.  If false, these textures will take on the size of drawableSize and drawaableSize will not change. The default value is true.
    */
-  var isAutoResizeDrawable: Bool
+  var autoResizeDrawable: Bool
 
   /*!
    @property drawableSize

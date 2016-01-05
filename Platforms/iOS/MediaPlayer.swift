@@ -159,7 +159,7 @@ class MPMediaItem : MPMediaEntity {
   @available(iOS 8.0, *)
   var isCloudItem: Bool { get }
   @available(iOS 9.2, *)
-  var isProtectedAsset: Bool { get }
+  var hasProtectedAsset: Bool { get }
   @available(iOS 7.0, *)
   var podcastTitle: String? { get }
   @available(iOS 8.0, *)
@@ -498,7 +498,7 @@ class MPMoviePlayerController : NSObject, MPMediaPlayback {
   func setFullscreen(fullscreen: Bool, animated: Bool)
   var scalingMode: MPMovieScalingMode
   @available(iOS 6.0, *)
-  var isReadyForDisplay: Bool { get }
+  var readyForDisplay: Bool { get }
   convenience init()
   @available(iOS 2.0, *)
   func prepareToPlay()
@@ -878,7 +878,7 @@ class MPNowPlayingInfoLanguageOptionGroup : NSObject {
   var defaultLanguageOption: MPNowPlayingInfoLanguageOption? { get }
 
   /// Indicates whether a selection in this group is required at all times.
-  var isAllowEmptySelection: Bool { get }
+  var allowEmptySelection: Bool { get }
   init()
 }
 
@@ -989,7 +989,7 @@ class MPPlayableContentManagerContext : NSObject {
   var contentLimitsEnabled: Bool { get }
 
   /// Represents whether the content server is available or not.
-  var isEndpointAvailable: Bool { get }
+  var endpointAvailable: Bool { get }
   init()
 }
 @available(iOS 7.1, *)
@@ -1189,9 +1189,9 @@ class MPVolumeView : UIView, NSCoding {
   @available(iOS 4.2, *)
   var showsRouteButton: Bool
   @available(iOS 7.0, *)
-  var wirelessRoutesAvailable: Bool { get }
+  var areWirelessRoutesAvailable: Bool { get }
   @available(iOS 7.0, *)
-  var wirelessRouteActive: Bool { get }
+  var isWirelessRouteActive: Bool { get }
   @available(iOS 6.0, *)
   func setMinimumVolumeSliderImage(image: UIImage?, forState state: UIControlState)
   @available(iOS 6.0, *)

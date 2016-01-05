@@ -267,7 +267,7 @@ class MPSImageHistogram : MPSKernel {
    *  @discussion Indicates that the memory region in which the histogram results are to be written in the
    *              histogram buffer are to be zero-initialized or not. Default: YES.
    */
-  var isZeroHistogram: Bool
+  var zeroHistogram: Bool
 
   /*! @property   histogramInfo
    *  @abstract   Return a structure describing the histogram content

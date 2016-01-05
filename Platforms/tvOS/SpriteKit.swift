@@ -601,7 +601,7 @@ class SKAudioNode : SKNode, NSCoding {
    * Defaults to YES.
    * @see SKView.paused
    */
-  var isAutoplayLooped: Bool
+  var autoplayLooped: Bool
 
   /**Marks the audio source as positional so that the audio mix considers relative position and velocity
    * with regards to the scene's current listener node.
@@ -702,7 +702,7 @@ class SKRange : NSObject, NSCoding, NSCopying {
  */
 @available(tvOS 8.0, *)
 class SKConstraint : NSObject, NSCoding, NSCopying {
-  var isEnabled: Bool
+  var enabled: Bool
   var referenceNode: SKNode?
 
   /**
@@ -1765,7 +1765,7 @@ class SKPhysicsBody : NSObject, NSCopying, NSCoding {
   var usesPreciseCollisionDetection: Bool
   var allowsRotation: Bool
   @available(tvOS 8.0, *)
-  var isPinned: Bool
+  var pinned: Bool
 
   /**
    If the physics simulation has determined that this body is at rest it may set the resting property to YES. Resting bodies do not participate
@@ -1830,7 +1830,7 @@ class SKPhysicsBody : NSObject, NSCopying, NSCoding {
    @discussion
    If this is set a force is applied to the object based on the mass. Set the field force vector in the scene to modify the strength of the force.
    */
-  var isAffectedByGravity: Bool
+  var affectedByGravity: Bool
 
   /**
    Defines what logical 'categories' of fields this body responds to. Defaults to all bits set (all categories).
@@ -2809,7 +2809,7 @@ class SKView : UIView {
   /**
    Toggles whether the view updates is rendered asynchronously or aligned with Core Animation updates. Defaults to YES.
    */
-  var asynchronous: Bool
+  var isAsynchronous: Bool
 
   /**
    Toggles whether the view allows transparent rendering. This allows content under the view to show through if

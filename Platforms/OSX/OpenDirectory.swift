@@ -4985,7 +4985,7 @@ class ODConfiguration : NSObject {
   @available(OSX 10.9, *)
   var virtualSubnodes: [AnyObject]!
   @available(OSX 10.9, *)
-  var isHideRegistration: Bool
+  var hideRegistration: Bool
   @available(OSX 10.9, *)
   var preferredDestinationHostName: String!
   @available(OSX 10.9, *)
@@ -5009,7 +5009,7 @@ class ODConfiguration : NSObject {
   @available(OSX 10.9, *)
   var packetEncryption: Int
   @available(OSX 10.9, *)
-  var isManInTheMiddleProtection: Bool
+  var manInTheMiddleProtection: Bool
   @available(OSX 10.9, *)
   var queryTimeoutInSeconds: Int
   @available(OSX 10.9, *)

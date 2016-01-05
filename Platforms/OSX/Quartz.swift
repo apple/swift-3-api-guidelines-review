@@ -1562,7 +1562,7 @@ class IKImageView : NSView {
    @property editable
    @abstract Specifies the editable state for the image view.
    */
-  var isEditable: Bool
+  var editable: Bool
 
   /*!
    @property doubleClickOpensImageEditPane

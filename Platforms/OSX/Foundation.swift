@@ -1921,7 +1921,7 @@ class NSDistributedNotificationCenter : NSNotificationCenter {
   func addObserver(observer: AnyObject, selector: Selector, name: String?, object: String?, suspensionBehavior: NSNotificationSuspensionBehavior)
   func postNotificationName(name: String, object: String?, userInfo: [NSObject : AnyObject]?, deliverImmediately: Bool)
   func postNotificationName(name: String, object: String?, userInfo: [NSObject : AnyObject]?, options: NSDistributedNotificationOptions = [])
-  var isSuspended: Bool
+  var suspended: Bool
   func addObserver(observer: AnyObject, selector aSelector: Selector, name aName: String?, object anObject: String?)
   func postNotificationName(aName: String, object anObject: String?)
   func postNotificationName(aName: String, object anObject: String?, userInfo aUserInfo: [NSObject : AnyObject]?)
@@ -4278,7 +4278,7 @@ enum NSMassFormatterUnit : Int {
 class NSMassFormatter : NSFormatter {
   @NSCopying var numberFormatter: NSNumberFormatter!
   var unitStyle: NSFormattingUnitStyle
-  var forPersonMassUse: Bool
+  var isForPersonMassUse: Bool
   func stringFromValue(value: Double, unit: NSMassFormatterUnit) -> String
   func stringFromKilograms(numberInKilograms: Double) -> String
   func unitStringFromValue(value: Double, unit: NSMassFormatterUnit) -> String
@@ -5182,7 +5182,7 @@ class NSOperation : NSObject {
   var isFinished: Bool { get }
   var isConcurrent: Bool { get }
   @available(OSX 10.8, *)
-  var asynchronous: Bool { get }
+  var isAsynchronous: Bool { get }
   var isReady: Bool { get }
   func addDependency(op: NSOperation)
   func removeDependency(op: NSOperation)
@@ -5803,7 +5803,7 @@ class NSProcessInfo : NSObject {
   @available(OSX 10.7, *)
   func enableAutomaticTermination(reason: String)
   @available(OSX 10.7, *)
-  var isAutomaticTerminationSupportEnabled: Bool
+  var automaticTerminationSupportEnabled: Bool
   init()
 }
 @available(OSX 10.9, *)
@@ -6142,7 +6142,7 @@ class NSScanner : NSObject, NSCopying {
   var string: String { get }
   var scanLocation: Int
   @NSCopying var charactersToBeSkipped: NSCharacterSet?
-  var isCaseSensitive: Bool
+  var caseSensitive: Bool
   var locale: AnyObject?
   init(string: String)
   convenience init()
@@ -6715,7 +6715,7 @@ class NSSortDescriptor : NSObject, NSSecureCoding, NSCopying {
   init(key: String?, ascending: Bool, selector: Selector)
   init?(coder: NSCoder)
   var key: String? { get }
-  var isAscending: Bool { get }
+  var ascending: Bool { get }
   var selector: Selector { get }
   @available(OSX 10.9, *)
   func allowEvaluation()
@@ -7038,7 +7038,7 @@ extension NSString {
   @available(OSX 10.5, *)
   var longLongValue: Int64 { get }
   @available(OSX 10.5, *)
-  var isBoolValue: Bool { get }
+  var boolValue: Bool { get }
   var uppercase: String { get }
   var lowercase: String { get }
   var capitalized: String { get }
@@ -10957,7 +10957,7 @@ class NSNumber : NSValue {
   var unsignedLongLongValue: UInt64 { get }
   var floatValue: Float { get }
   var doubleValue: Double { get }
-  var isBoolValue: Bool { get }
+  var boolValue: Bool { get }
   @available(OSX 10.5, *)
   var integerValue: Int { get }
   @available(OSX 10.5, *)

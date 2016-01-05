@@ -233,7 +233,7 @@ class ICCameraDevice : ICDevice {
       @abstract Indicates if the device has reported battery charge level￼.
   
   */
-  var isBatteryLevelAvailable: Bool { get }
+  var batteryLevelAvailable: Bool { get }
 
   /*!
       @property batteryLevel
@@ -290,7 +290,7 @@ class ICCameraDevice : ICDevice {
       @discussion Use 'requestEnableTethering' and 'requestDisableTethering' to enable or disable tethered capture on the device.
   
   */
-  var isTetheredCaptureEnabled: Bool
+  var tetheredCaptureEnabled: Bool
 
   /*! 
     @method filesOfType:
@@ -488,7 +488,7 @@ class ICCameraItem : NSObject {
    @abstract This property is set if the file is captured on the device after the device's content is fully enumerated. This does not apply to files added as a result of adding a new store to the device. 
    
    */
-  var isAddedAfterContentCatalogCompleted: Bool { get }
+  var wasAddedAfterContentCatalogCompleted: Bool { get }
   init()
 }
 
@@ -1947,7 +1947,7 @@ class ICScannerFeatureBoolean : ICScannerFeature {
       @abstract ￼The value of this feature.
   
   */
-  var isValue: Bool
+  var value: Bool
   init()
 }
 
@@ -2310,7 +2310,7 @@ class ICScannerFunctionalUnitDocumentFeeder : ICScannerFunctionalUnit {
       @abstract ￼Indicates whether duplex scanning is enabled.
   
   */
-  var isDuplexScanningEnabled: Bool
+  var duplexScanningEnabled: Bool
 
   /*!
       @property documentLoaded
@@ -2318,7 +2318,7 @@ class ICScannerFunctionalUnitDocumentFeeder : ICScannerFunctionalUnit {
       @discussion This value will change when the document is loaded or removed from the feeder, if the scanner module has the capability to detect this state.
   
   */
-  var isDocumentLoaded: Bool { get }
+  var documentLoaded: Bool { get }
 
   /*!
       @property oddPageOrientation
@@ -2341,6 +2341,6 @@ class ICScannerFunctionalUnitDocumentFeeder : ICScannerFunctionalUnit {
    @abstract ￼Indicates whether the document feeder reads pages from back to front.
    
    */
-  var isReverseFeederPageOrder: Bool { get }
+  var reverseFeederPageOrder: Bool { get }
   init()
 }

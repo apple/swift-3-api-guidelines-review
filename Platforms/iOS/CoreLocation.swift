@@ -10,7 +10,7 @@ class CLBeaconRegion : CLRegion {
   var proximityUUID: NSUUID { get }
   var major: NSNumber? { get }
   var minor: NSNumber? { get }
-  var isNotifyEntryStateOnDisplay: Bool
+  var notifyEntryStateOnDisplay: Bool
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -368,9 +368,9 @@ class CLRegion : NSObject, NSCopying, NSSecureCoding {
   @available(iOS 4.0, *)
   var identifier: String { get }
   @available(iOS 7.0, *)
-  var isNotifyOnEntry: Bool
+  var notifyOnEntry: Bool
   @available(iOS 7.0, *)
-  var isNotifyOnExit: Bool
+  var notifyOnExit: Bool
   init()
   @available(iOS 4.0, *)
   func copy(zone zone: NSZone = nil) -> AnyObject

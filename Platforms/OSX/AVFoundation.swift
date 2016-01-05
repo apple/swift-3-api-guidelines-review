@@ -473,7 +473,7 @@ protocol AVFragmentMinding {
     @discussion	AVAssets that support fragment minding post change notifications only while associated with an AVAssetFragmentMinder.
   */
   @available(OSX 10.11, *)
-  var associatedWithFragmentMinder: Bool { get }
+  var isAssociatedWithFragmentMinder: Bool { get }
 }
 @available(OSX 10.11, *)
 class AVFragmentedAsset : AVURLAsset, AVFragmentMinding {
@@ -512,7 +512,7 @@ class AVFragmentedAsset : AVURLAsset, AVFragmentMinding {
     @discussion	AVAssets that support fragment minding post change notifications only while associated with an AVAssetFragmentMinder.
   */
   @available(OSX 10.11, *)
-  var associatedWithFragmentMinder: Bool { get }
+  var isAssociatedWithFragmentMinder: Bool { get }
 }
 extension AVFragmentedAsset {
 
@@ -1718,7 +1718,7 @@ class AVAssetResourceLoadingContentInformationRequest : NSObject {
    @abstract		Indicates whether random access to arbitrary ranges of bytes of the resource is supported. Such support also allows portions of the resource to be requested more than once.
    @discussion	Before you finish loading an AVAssetResourceLoadingRequest, if its contentInformationRequest is not nil, you should set the value of this property to YES if you support random access to arbitrary ranges of bytes of the resource. If you do not set this property to YES for resources that must be loaded incrementally, loading of the resource may fail. Such resources include anything that contains media data.
   */
-  var byteRangeAccessSupported: Bool
+  var isByteRangeAccessSupported: Bool
 
   /*!
    @property		renewalDate
@@ -3672,12 +3672,12 @@ class AVAudioConverter : NSObject {
   /*! @property downmix
       @abstract If YES and channel remapping is necessary, then channels will be mixed as appropriate instead of remapped. Default value is NO.
   */
-  var isDownmix: Bool
+  var downmix: Bool
 
   /*! @property dither
       @abstract Setting YES will turn on dither, if dither makes sense in given the current formats and settings. Default value is NO.
   */
-  var isDither: Bool
+  var dither: Bool
 
   /*! @property sampleRateConverterQuality
       @abstract An AVAudioQuality value as defined in AVAudioSettings.h.
@@ -4189,7 +4189,7 @@ class AVAudioEnvironmentReverbParameters : NSObject {
       @discussion
           Default:    NO
   */
-  var isEnable: Bool
+  var enable: Bool
 
   /*! @property level
       @abstract Controls the master level of the reverb
@@ -5684,7 +5684,7 @@ class AVAudioPlayer : NSObject {
   var pan: Float
   var volume: Float
   @available(OSX 10.8, *)
-  var isEnableRate: Bool
+  var enableRate: Bool
   @available(OSX 10.8, *)
   var rate: Float
   var currentTime: NSTimeInterval
@@ -8699,7 +8699,7 @@ extension AVCaptureDevice {
    @discussion
       The receiver's focusPointOfInterest property can only be set if this property returns YES.
   */
-  var focusPointOfInterestSupported: Bool { get }
+  var isFocusPointOfInterestSupported: Bool { get }
 
   /*!
    @property focusPointOfInterest
@@ -8731,7 +8731,7 @@ extension AVCaptureDevice {
   	@seealso lensPosition
   	@seealso AVCaptureAutoFocusSystem
   */
-  var adjustingFocus: Bool { get }
+  var isAdjustingFocus: Bool { get }
 }
 
 /*!
@@ -11308,7 +11308,7 @@ class AVCaptureConnection : NSObject {
       video.  In such connections, the videoMirrored property may only be set if
       -isVideoMirroringSupported returns YES.
   */
-  var supportsVideoMirroring: Bool { get }
+  var isVideoMirroringSupported: Bool { get }
 
   /*!
    @property videoMirrored
@@ -11348,7 +11348,7 @@ class AVCaptureConnection : NSObject {
       video.  In such connections, the videoOrientation property may only be set if
       -isVideoOrientationSupported returns YES.
   */
-  var supportsVideoOrientation: Bool { get }
+  var isVideoOrientationSupported: Bool { get }
 
   /*!
    @property videoOrientation
@@ -11378,7 +11378,7 @@ class AVCaptureConnection : NSObject {
       -isVideoFieldModeSupported returns YES.
   */
   @available(OSX 10.7, *)
-  var supportsVideoFieldMode: Bool { get }
+  var isVideoFieldModeSupported: Bool { get }
 
   /*!
    @property videoFieldMode
@@ -11409,7 +11409,7 @@ class AVCaptureConnection : NSObject {
       and at AVCaptureConnection, enabling connections to output different frame rates.
   */
   @available(OSX, introduced=10.7, message="Use AVCaptureDevice's activeFormat.videoSupportedFrameRateRanges instead.")
-  var supportsVideoMinFrameDuration: Bool { get }
+  var isVideoMinFrameDurationSupported: Bool { get }
 
   /*!
    @property videoMinFrameDuration
@@ -11446,7 +11446,7 @@ class AVCaptureConnection : NSObject {
   	and at AVCaptureConnection, enabling connections to output different frame rates.
   */
   @available(OSX, introduced=10.9, message="Use AVCaptureDevice's activeFormat.videoSupportedFrameRateRanges instead.")
-  var supportsVideoMaxFrameDuration: Bool { get }
+  var isVideoMaxFrameDurationSupported: Bool { get }
 
   /*!
    @property videoMaxFrameDuration
@@ -14857,7 +14857,7 @@ class AVFragmentedMovie : AVMovie, AVFragmentMinding {
     @discussion	AVAssets that support fragment minding post change notifications only while associated with an AVAssetFragmentMinder.
   */
   @available(OSX 10.11, *)
-  var associatedWithFragmentMinder: Bool { get }
+  var isAssociatedWithFragmentMinder: Bool { get }
 }
 extension AVFragmentedMovie {
 
@@ -18103,7 +18103,7 @@ class AVVideoCompositionRenderContext : NSObject {
   var renderScale: Float { get }
   var pixelAspectRatio: AVPixelAspectRatio { get }
   var edgeWidths: AVEdgeWidths { get }
-  var isHighQualityRendering: Bool { get }
+  var highQualityRendering: Bool { get }
   var videoComposition: AVVideoComposition { get }
 
   /*!
@@ -18269,7 +18269,7 @@ class AVVideoCompositionInstruction : NSObject, NSSecureCoding, NSCopying, NSMut
   var timeRange: CMTimeRange { get }
   var backgroundColor: CGColor? { get }
   var layerInstructions: [AVVideoCompositionLayerInstruction] { get }
-  var isEnablePostProcessing: Bool { get }
+  var enablePostProcessing: Bool { get }
   @available(OSX 10.9, *)
   var requiredSourceTrackIDs: [NSValue] { get }
   @available(OSX 10.9, *)
@@ -18292,7 +18292,7 @@ class AVMutableVideoCompositionInstruction : AVVideoCompositionInstruction {
   var timeRange: CMTimeRange
   var backgroundColor: CGColor?
   var layerInstructions: [AVVideoCompositionLayerInstruction]
-  var isEnablePostProcessing: Bool
+  var enablePostProcessing: Bool
   init()
   init?(coder aDecoder: NSCoder)
 }

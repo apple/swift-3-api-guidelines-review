@@ -66,7 +66,7 @@ class PKPass : PKObject {
   var userInfo: [NSObject : AnyObject]? { get }
   @NSCopying var passURL: NSURL { get }
   @available(watchOS 2.0, *)
-  var remotePass: Bool { get }
+  var isRemotePass: Bool { get }
   @available(watchOS 2.0, *)
   var deviceName: String { get }
   func localizedValueForFieldKey(key: String) -> AnyObject?

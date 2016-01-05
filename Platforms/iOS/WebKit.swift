@@ -334,7 +334,7 @@ class WKPreferences : NSObject {
   /*! @abstract A Boolean value indicating whether JavaScript is enabled.
    @discussion The default value is YES.
    */
-  var isJavaScriptEnabled: Bool
+  var javaScriptEnabled: Bool
 
   /*! @abstract A Boolean value indicating whether JavaScript can open
    windows without user interaction.

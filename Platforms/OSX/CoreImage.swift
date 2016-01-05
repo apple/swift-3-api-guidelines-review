@@ -187,8 +187,8 @@ class CIFaceFeature : CIFeature {
   var hasFaceAngle: Bool { get }
   var faceAngle: Float { get }
   var hasSmile: Bool { get }
-  var isLeftEyeClosed: Bool { get }
-  var isRightEyeClosed: Bool { get }
+  var leftEyeClosed: Bool { get }
+  var rightEyeClosed: Bool { get }
   init()
 }
 

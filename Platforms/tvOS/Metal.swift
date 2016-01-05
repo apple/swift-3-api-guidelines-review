@@ -1048,7 +1048,7 @@ class MTLCompileOptions : NSObject, NSCopying {
    @property fastMathEnabled
    @abstract If YES, enables the compiler to perform optimizations for floating-point arithmetic that may violate the IEEE 754 standard. It also enables the high precision variant of math functions for single precision floating-point scalar and vector types. fastMathEnabled defaults to YES.
    */
-  var isFastMathEnabled: Bool
+  var fastMathEnabled: Bool
 
   /*!
    @property languageVersion
@@ -2285,7 +2285,7 @@ class MTLSamplerDescriptor : NSObject, NSCopying {
    @discussion lodAverage defaults to NO. This option is a performance hint. An implementation is free to ignore this property.
    */
   @available(tvOS 9.0, *)
-  var isLodAverage: Bool
+  var lodAverage: Bool
 
   /*!
    @property compareFunction
@@ -2582,7 +2582,7 @@ protocol MTLTexture : MTLResource {
    @abstract If YES, this texture can only be used with a MTLAttachmentDescriptor, and cannot be used as a texture argument for MTLRenderCommandEncoder, MTLBlitCommandEncoder, or MTLComputeCommandEncoder. Furthermore, when this property's value is YES, readPixels/writePixels may not be used with this texture.
    @discussion Textures obtained from CAMetalDrawables may have this property set to YES, depending on the value of frameBufferOnly passed to their parent CAMetalLayer. Textures created directly by the application will not have any restrictions.
    */
-  var framebufferOnly: Bool { get }
+  var isFramebufferOnly: Bool { get }
 
   /*!
    @method getBytes:bytesPerRow:bytesPerImage:fromRegion:mipmapLevel:slice:

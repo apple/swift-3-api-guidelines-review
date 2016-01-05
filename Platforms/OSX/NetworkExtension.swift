@@ -1292,7 +1292,7 @@ class NEProxyServer : NSObject, NSSecureCoding, NSCopying {
    * @discussion A flag indicating if the server requires authentication credentials.
    */
   @available(OSX 10.11, *)
-  var isAuthenticationRequired: Bool
+  var authenticationRequired: Bool
 
   /*!
    * @property username
@@ -1331,7 +1331,7 @@ class NEProxySettings : NSObject, NSSecureCoding, NSCopying {
    * @discussion A boolean indicating if proxy auto-configuration is enabled.
    */
   @available(OSX 10.11, *)
-  var isAutoProxyConfigurationEnabled: Bool
+  var autoProxyConfigurationEnabled: Bool
 
   /*!
    * @property proxyAutoConfigurationURL
@@ -1352,7 +1352,7 @@ class NEProxySettings : NSObject, NSSecureCoding, NSCopying {
    * @discussion A boolean indicating if the static HTTP proxy is enabled.
    */
   @available(OSX 10.11, *)
-  var isHTTPEnabled: Bool
+  var httpEnabled: Bool
 
   /*!
    * @property HTTPServer
@@ -1366,7 +1366,7 @@ class NEProxySettings : NSObject, NSSecureCoding, NSCopying {
    * @discussion A boolean indicating if the static HTTPS proxy is enabled.
    */
   @available(OSX 10.11, *)
-  var isHTTPSEnabled: Bool
+  var httpsEnabled: Bool
 
   /*!
    * @property HTTPSServer
@@ -1546,7 +1546,7 @@ class NETunnelProvider : NEProvider {
    * @discussion A flag that indicates to the framework if this NETunnelProvider is currently re-establishing the tunnel. Setting this flag will cause the session status visible to the user to change to "Reasserting". Clearing this flag will change the user-visible status of the session back to "Connected". Setting and clearing this flag only has an effect if the session is in the "Connected" state.
    */
   @available(OSX 10.11, *)
-  var isReasserting: Bool
+  var reasserting: Bool
   init()
 }
 
@@ -1946,7 +1946,7 @@ class NEVPNProtocol : NSObject, NSCopying, NSSecureCoding {
    * @discussion If YES, the VPN connection will be disconnected when the device goes to sleep. The default is NO.
    */
   @available(OSX 10.10, *)
-  var isDisconnectOnSleep: Bool
+  var disconnectOnSleep: Bool
 
   /*!
    * @property proxySettings
@@ -2198,7 +2198,7 @@ class NEVPNProtocolIKEv2 : NEVPNProtocolIPSec {
    * @discussion Boolean indicating if client should use INTERNAL_IP4_SUBNET / INTERNAL_IP6_SUBNET attributes.  Default is False.
    */
   @available(OSX 10.11, *)
-  var isUseConfigurationAttributeInternalIPSubnet: Bool
+  var useConfigurationAttributeInternalIPSubnet: Bool
 
   /*!
    * @property IKESecurityAssociationParameters
@@ -2219,35 +2219,35 @@ class NEVPNProtocolIKEv2 : NEVPNProtocolIPSec {
    * @discussion Disable MOBIKE negotiation. Default is NO.
    */
   @available(OSX 10.11, *)
-  var isDisableMOBIKE: Bool
+  var disableMOBIKE: Bool
 
   /*!
    * @property disableRedirect
    * @discussion Disable Server Redirect. Default is NO.
    */
   @available(OSX 10.11, *)
-  var isDisableRedirect: Bool
+  var disableRedirect: Bool
 
   /*!
    * @property enablePFS
    * @discussion Enable Perfect Forward Secrecy. Default is NO.
    */
   @available(OSX 10.11, *)
-  var isEnablePFS: Bool
+  var enablePFS: Bool
 
   /*!
    * @property enableRevocationCheck
    * @discussion Enable certificate revocation check. Default is NO.
    */
   @available(OSX 10.11, *)
-  var isEnableRevocationCheck: Bool
+  var enableRevocationCheck: Bool
 
   /*!
    * @property strictRevocationCheck
    * @discussion Require positive certificate revocation check response for peer certificate validation to pass. Default is NO.
    */
   @available(OSX 10.11, *)
-  var isStrictRevocationCheck: Bool
+  var strictRevocationCheck: Bool
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -2294,7 +2294,7 @@ class NEVPNProtocolIPSec : NEVPNProtocol {
    *   For IKE version 2, when this flag is set EAP authentication will be negotiated as part of the IKE session, using the username, password, and/or identity properties as the credential depending on which EAP method the server requires.
    */
   @available(OSX 10.10, *)
-  var isUseExtendedAuthentication: Bool
+  var useExtendedAuthentication: Bool
 
   /*!
    * @property sharedSecretReference

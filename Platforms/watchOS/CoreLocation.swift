@@ -219,9 +219,9 @@ class CLRegion : NSObject, NSCopying, NSSecureCoding {
   @available(watchOS 2.0, *)
   var identifier: String { get }
   @available(watchOS 2.0, *)
-  var isNotifyOnEntry: Bool
+  var notifyOnEntry: Bool
   @available(watchOS 2.0, *)
-  var isNotifyOnExit: Bool
+  var notifyOnExit: Bool
   @available(watchOS, introduced=2.0, deprecated=2.0)
   func contains(coordinate: CLLocationCoordinate2D) -> Bool
   init()

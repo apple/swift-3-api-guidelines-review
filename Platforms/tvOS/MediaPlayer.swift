@@ -300,7 +300,7 @@ class MPNowPlayingInfoLanguageOptionGroup : NSObject {
   var defaultLanguageOption: MPNowPlayingInfoLanguageOption? { get }
 
   /// Indicates whether a selection in this group is required at all times.
-  var isAllowEmptySelection: Bool { get }
+  var allowEmptySelection: Bool { get }
   init()
 }
 @available(tvOS 7.1, *)

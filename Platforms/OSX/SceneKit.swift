@@ -795,7 +795,7 @@ class SCNLookAtConstraint : SCNConstraint {
    @abstract Specifies whether the receiver enables the gimbal lock. Defaults to NO.
    @discussion Enabling the gimbal lock prevents the receiver from rotating the constrained node around to roll axis.
    */
-  var isGimbalLockEnabled: Bool
+  var gimbalLockEnabled: Bool
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -1542,7 +1542,7 @@ class SCNLayer : CAOpenGLLayer, SCNSceneRenderer, SCNTechniqueSupport {
    @abstract Returns YES if the scene is playing, NO otherwise.
    */
   @available(OSX 10.8, *)
-  var playing: Bool
+  var isPlaying: Bool
 
   /*! 
    @property loops
@@ -1574,7 +1574,7 @@ class SCNLayer : CAOpenGLLayer, SCNSceneRenderer, SCNTechniqueSupport {
    @discussion When enabled, the jittering is performed asynchronously and automatically by SCNView and SCNLayer. It is done synchronously by SCNRenderer.
    */
   @available(OSX 10.8, *)
-  var jitteringEnabled: Bool
+  var isJitteringEnabled: Bool
 
   /*!
    @method prepareObject:shouldAbortBlock:
@@ -4346,11 +4346,11 @@ class SCNParticleSystem : NSObject, NSCopying, NSSecureCoding, SCNAnimatable {
   var particleSize: CGFloat
   var particleSizeVariation: CGFloat
   var blendMode: SCNParticleBlendMode
-  var blackPassEnabled: Bool
+  var isBlackPassEnabled: Bool
   var orientationMode: SCNParticleOrientationMode
   var sortingMode: SCNParticleSortingMode
   var isLightingEnabled: Bool
-  var isAffectedByGravity: Bool
+  var affectedByGravity: Bool
   var affectedByPhysicsFields: Bool
   var particleDiesOnCollision: Bool
   var colliderNodes: [SCNNode]?
@@ -5072,7 +5072,7 @@ class SCNRenderer : NSObject, SCNSceneRenderer, SCNTechniqueSupport {
    @abstract Returns YES if the scene is playing, NO otherwise.
    */
   @available(OSX 10.8, *)
-  var playing: Bool
+  var isPlaying: Bool
 
   /*! 
    @property loops
@@ -5104,7 +5104,7 @@ class SCNRenderer : NSObject, SCNSceneRenderer, SCNTechniqueSupport {
    @discussion When enabled, the jittering is performed asynchronously and automatically by SCNView and SCNLayer. It is done synchronously by SCNRenderer.
    */
   @available(OSX 10.8, *)
-  var jitteringEnabled: Bool
+  var isJitteringEnabled: Bool
 
   /*!
    @method prepareObject:shouldAbortBlock:
@@ -5575,7 +5575,7 @@ protocol SCNSceneRenderer : NSObjectProtocol {
    @property playing
    @abstract Returns YES if the scene is playing, NO otherwise.
    */
-  var playing: Bool { get set }
+  var isPlaying: Bool { get set }
 
   /*! 
    @property loops
@@ -5604,7 +5604,7 @@ protocol SCNSceneRenderer : NSObjectProtocol {
    @abstract Specifies whether the receiver should jitter the rendered scene to reduce aliasing artifacts. 
    @discussion When enabled, the jittering is performed asynchronously and automatically by SCNView and SCNLayer. It is done synchronously by SCNRenderer.
    */
-  var jitteringEnabled: Bool { get set }
+  var isJitteringEnabled: Bool { get set }
 
   /*!
    @method prepareObject:shouldAbortBlock:
@@ -7176,7 +7176,7 @@ class SCNView : NSView, SCNSceneRenderer, SCNTechniqueSupport {
    @abstract Returns YES if the scene is playing, NO otherwise.
    */
   @available(OSX 10.8, *)
-  var playing: Bool
+  var isPlaying: Bool
 
   /*! 
    @property loops
@@ -7208,7 +7208,7 @@ class SCNView : NSView, SCNSceneRenderer, SCNTechniqueSupport {
    @discussion When enabled, the jittering is performed asynchronously and automatically by SCNView and SCNLayer. It is done synchronously by SCNRenderer.
    */
   @available(OSX 10.8, *)
-  var jitteringEnabled: Bool
+  var isJitteringEnabled: Bool
 
   /*!
    @method prepareObject:shouldAbortBlock:

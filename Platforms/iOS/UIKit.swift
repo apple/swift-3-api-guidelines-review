@@ -1754,7 +1754,7 @@ extension UIApplication {
   @available(iOS, introduced=2.0, deprecated=9.0, message="Use -[UIViewController preferredStatusBarStyle]")
   func setStatusBarStyle(statusBarStyle: UIStatusBarStyle, animated: Bool)
   @available(iOS, introduced=2.0, deprecated=9.0, message="Use -[UIViewController prefersStatusBarHidden]")
-  var statusBarHidden: Bool
+  var isStatusBarHidden: Bool
   @available(iOS, introduced=3.2, deprecated=9.0, message="Use -[UIViewController prefersStatusBarHidden]")
   func setStatusBarHidden(hidden: Bool, withAnimation animation: UIStatusBarAnimation)
   @available(iOS, introduced=4.0, deprecated=9.0, message="Please use UIRemoteNotificationTypeVoIP remote notifications for VoIP applications")
@@ -2696,7 +2696,7 @@ class UICollectionViewUpdateItem : NSObject {
 }
 @available(iOS 7.0, *)
 class UICollectionViewLayoutInvalidationContext : NSObject {
-  var isInvalidateEverything: Bool { get }
+  var invalidateEverything: Bool { get }
   var invalidateDataSourceCounts: Bool { get }
   @available(iOS 8.0, *)
   func invalidateItemsAt(indexPaths: [NSIndexPath])
@@ -3056,7 +3056,7 @@ class UIDevice : NSObject {
   var orientation: UIDeviceOrientation { get }
   @available(iOS 6.0, *)
   var identifierForVendor: NSUUID? { get }
-  var generatesDeviceOrientationNotifications: Bool { get }
+  var isGeneratingDeviceOrientationNotifications: Bool { get }
   func beginGeneratingDeviceOrientationNotifications()
   func endGeneratingDeviceOrientationNotifications()
   @available(iOS 3.0, *)
@@ -3068,7 +3068,7 @@ class UIDevice : NSObject {
   @available(iOS 3.0, *)
   var isProximityMonitoringEnabled: Bool
   @available(iOS 3.0, *)
-  var isProximityState: Bool { get }
+  var proximityState: Bool { get }
   @available(iOS 4.0, *)
   var isMultitaskingSupported: Bool { get }
   @available(iOS 3.2, *)
@@ -5633,7 +5633,7 @@ class UIPushBehavior : UIDynamicBehavior {
   func targetOffsetFromCenterFor(item: UIDynamicItem) -> UIOffset
   func setTargetOffsetFromCenter(o: UIOffset, forItem item: UIDynamicItem)
   var mode: UIPushBehaviorMode { get }
-  var isActive: Bool
+  var active: Bool
   var angle: CGFloat
   var magnitude: CGFloat
   var pushDirection: CGVector
@@ -6096,7 +6096,7 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(iOS 3.2, *)
   var showsSearchResultsButton: Bool
   @available(iOS 3.2, *)
-  var searchResultsButtonSelected: Bool
+  var isSearchResultsButtonSelected: Bool
   @available(iOS 3.0, *)
   func setShowsCancelButton(showsCancelButton: Bool, animated: Bool)
 
@@ -6172,7 +6172,7 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(iOS 2.0, *)
   var enablesReturnKeyAutomatically: Bool
   @available(iOS 2.0, *)
-  var secureTextEntry: Bool
+  var isSecureTextEntry: Bool
 }
 protocol UISearchBarDelegate : UIBarPositioningDelegate {
   @available(iOS 2.0, *)
@@ -6359,7 +6359,7 @@ class UISlider : UIControl, NSCoding {
   var maximumValue: Float
   var minimumValueImage: UIImage?
   var maximumValueImage: UIImage?
-  var continuous: Bool
+  var isContinuous: Bool
   @available(iOS 5.0, *)
   var minimumTrackTintColor: UIColor?
   @available(iOS 5.0, *)
@@ -6505,7 +6505,7 @@ class UIStackView : UIView {
   var alignment: UIStackViewAlignment
   var spacing: CGFloat
   var isBaselineRelativeArrangement: Bool
-  var layoutMarginsRelativeArrangement: Bool
+  var isLayoutMarginsRelativeArrangement: Bool
   init(frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
@@ -6542,8 +6542,8 @@ protocol UIObjectRestoration {
 }
 @available(iOS 5.0, *)
 class UIStepper : UIControl {
-  var continuous: Bool
-  var isAutorepeat: Bool
+  var isContinuous: Bool
+  var autorepeat: Bool
   var wraps: Bool
   var value: Double
   var minimumValue: Double
@@ -7149,7 +7149,7 @@ class UITableViewCell : UIView, NSCoding, UIGestureRecognizerDelegate {
   var separatorInset: UIEdgeInsets
   var isEditing: Bool
   func setEditing(editing: Bool, animated: Bool)
-  var isShowingDeleteConfirmation: Bool { get }
+  var showingDeleteConfirmation: Bool { get }
   @available(iOS 9.0, *)
   var focusStyle: UITableViewCellFocusStyle
   @available(iOS 3.0, *)
@@ -7507,7 +7507,7 @@ class UITextField : UIControl, UITextInput, NSCoding {
   @available(iOS 2.0, *)
   var enablesReturnKeyAutomatically: Bool
   @available(iOS 2.0, *)
-  var secureTextEntry: Bool
+  var isSecureTextEntry: Bool
 }
 extension UIView {
   func endEditing(force: Bool) -> Bool
@@ -7807,7 +7807,7 @@ protocol UITextInputTraits : NSObjectProtocol {
   optional var keyboardAppearance: UIKeyboardAppearance { get set }
   optional var returnKeyType: UIReturnKeyType { get set }
   optional var enablesReturnKeyAutomatically: Bool { get set }
-  optional var secureTextEntry: Bool { get set }
+  optional var isSecureTextEntry: Bool { get set }
 }
 protocol UITextViewDelegate : NSObjectProtocol, UIScrollViewDelegate {
   @available(iOS 2.0, *)
@@ -7971,7 +7971,7 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 2.0, *)
   var enablesReturnKeyAutomatically: Bool
   @available(iOS 2.0, *)
-  var secureTextEntry: Bool
+  var isSecureTextEntry: Bool
 }
 let UITextViewTextDidBeginEditingNotification: String
 let UITextViewTextDidChangeNotification: String

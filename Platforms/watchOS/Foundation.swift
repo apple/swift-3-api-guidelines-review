@@ -3774,7 +3774,7 @@ enum NSMassFormatterUnit : Int {
 class NSMassFormatter : NSFormatter {
   @NSCopying var numberFormatter: NSNumberFormatter!
   var unitStyle: NSFormattingUnitStyle
-  var forPersonMassUse: Bool
+  var isForPersonMassUse: Bool
   func stringFromValue(value: Double, unit: NSMassFormatterUnit) -> String
   func stringFromKilograms(numberInKilograms: Double) -> String
   func unitStringFromValue(value: Double, unit: NSMassFormatterUnit) -> String
@@ -4306,7 +4306,7 @@ class NSOperation : NSObject {
   var isFinished: Bool { get }
   var isConcurrent: Bool { get }
   @available(watchOS 2.0, *)
-  var asynchronous: Bool { get }
+  var isAsynchronous: Bool { get }
   var isReady: Bool { get }
   func addDependency(op: NSOperation)
   func removeDependency(op: NSOperation)
@@ -5193,7 +5193,7 @@ class NSScanner : NSObject, NSCopying {
   var string: String { get }
   var scanLocation: Int
   @NSCopying var charactersToBeSkipped: NSCharacterSet?
-  var isCaseSensitive: Bool
+  var caseSensitive: Bool
   var locale: AnyObject?
   init(string: String)
   convenience init()
@@ -5345,7 +5345,7 @@ class NSSortDescriptor : NSObject, NSSecureCoding, NSCopying {
   init(key: String?, ascending: Bool, selector: Selector)
   init?(coder: NSCoder)
   var key: String? { get }
-  var isAscending: Bool { get }
+  var ascending: Bool { get }
   var selector: Selector { get }
   @available(watchOS 2.0, *)
   func allowEvaluation()
@@ -5630,7 +5630,7 @@ extension NSString {
   @available(watchOS 2.0, *)
   var longLongValue: Int64 { get }
   @available(watchOS 2.0, *)
-  var isBoolValue: Bool { get }
+  var boolValue: Bool { get }
   var uppercase: String { get }
   var lowercase: String { get }
   var capitalized: String { get }
@@ -9132,7 +9132,7 @@ class NSNumber : NSValue {
   var unsignedLongLongValue: UInt64 { get }
   var floatValue: Float { get }
   var doubleValue: Double { get }
-  var isBoolValue: Bool { get }
+  var boolValue: Bool { get }
   @available(watchOS 2.0, *)
   var integerValue: Int { get }
   @available(watchOS 2.0, *)

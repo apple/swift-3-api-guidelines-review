@@ -841,21 +841,21 @@ protocol MTLDevice : NSObjectProtocol {
    @abstract On systems that support automatic graphics switching, this will return YES for the the low power device.
    */
   @available(OSX 10.11, *)
-  var lowPower: Bool { get }
+  var isLowPower: Bool { get }
 
   /*!
    @property headless
    @abstract On systems that include more that one GPU, this will return YES for any device that does not support any displays.  Only available on Mac OS X.
    */
   @available(OSX 10.11, *)
-  var headless: Bool { get }
+  var isHeadless: Bool { get }
 
   /*!
    @property depth24Stencil8PixelFormatSupported
    @abstract If YES, device supports MTLPixelFormatDepth24Unorm_Stencil8.
    */
   @available(OSX 10.11, *)
-  var depth24Stencil8PixelFormatSupported: Bool { get }
+  var isDepth24Stencil8PixelFormatSupported: Bool { get }
 
   /*!
    @method newCommandQueue
@@ -1116,7 +1116,7 @@ class MTLCompileOptions : NSObject, NSCopying {
    @property fastMathEnabled
    @abstract If YES, enables the compiler to perform optimizations for floating-point arithmetic that may violate the IEEE 754 standard. It also enables the high precision variant of math functions for single precision floating-point scalar and vector types. fastMathEnabled defaults to YES.
    */
-  var isFastMathEnabled: Bool
+  var fastMathEnabled: Bool
 
   /*!
    @property languageVersion
@@ -2578,7 +2578,7 @@ protocol MTLTexture : MTLResource {
    @abstract If YES, this texture can only be used with a MTLAttachmentDescriptor, and cannot be used as a texture argument for MTLRenderCommandEncoder, MTLBlitCommandEncoder, or MTLComputeCommandEncoder. Furthermore, when this property's value is YES, readPixels/writePixels may not be used with this texture.
    @discussion Textures obtained from CAMetalDrawables may have this property set to YES, depending on the value of frameBufferOnly passed to their parent CAMetalLayer. Textures created directly by the application will not have any restrictions.
    */
-  var framebufferOnly: Bool { get }
+  var isFramebufferOnly: Bool { get }
 
   /*!
    @method getBytes:bytesPerRow:bytesPerImage:fromRegion:mipmapLevel:slice:

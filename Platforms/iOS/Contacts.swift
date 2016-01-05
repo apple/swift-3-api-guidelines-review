@@ -60,7 +60,7 @@ class CNContact : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   @NSCopying var imageData: NSData? { get }
   @NSCopying var thumbnailImageData: NSData? { get }
   @available(iOS 9.0, *)
-  var isImageDataAvailable: Bool { get }
+  var imageDataAvailable: Bool { get }
   var phoneNumbers: [CNLabeledValue] { get }
   var emailAddresses: [CNLabeledValue] { get }
   var postalAddresses: [CNLabeledValue] { get }

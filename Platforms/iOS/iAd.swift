@@ -151,7 +151,7 @@ class ADBannerView : UIView {
    * @return
    * YES if the user is currently engaged with a fullscreen interactive ad.
    */
-  var bannerViewActionInProgress: Bool { get }
+  var isBannerViewActionInProgress: Bool { get }
 
   /*!
    * @method cancelBannerViewAction
@@ -438,7 +438,7 @@ class ADInterstitialAd : NSObject {
    * Actions display full screen content in a modal session. Use this property to
    * determine if such an action is currently in progress.
    */
-  var actionInProgress: Bool { get }
+  var isActionInProgress: Bool { get }
 
   /*!
    * @property cancelAction

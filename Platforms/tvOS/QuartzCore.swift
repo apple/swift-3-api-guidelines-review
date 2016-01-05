@@ -548,7 +548,7 @@ protocol CAMetalDrawable : MTLDrawable {
 class CAMetalLayer : CALayer {
   var device: MTLDevice?
   var pixelFormat: MTLPixelFormat
-  var isFramebufferOnly: Bool
+  var framebufferOnly: Bool
   var drawableSize: CGSize
   func nextDrawable() -> CAMetalDrawable?
   var presentsWithTransaction: Bool

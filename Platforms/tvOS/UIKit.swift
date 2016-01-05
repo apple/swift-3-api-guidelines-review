@@ -2181,7 +2181,7 @@ class UICollectionViewUpdateItem : NSObject {
 }
 @available(tvOS 7.0, *)
 class UICollectionViewLayoutInvalidationContext : NSObject {
-  var isInvalidateEverything: Bool { get }
+  var invalidateEverything: Bool { get }
   var invalidateDataSourceCounts: Bool { get }
   @available(tvOS 8.0, *)
   func invalidateItemsAt(indexPaths: [NSIndexPath])
@@ -2479,7 +2479,7 @@ class UIDevice : NSObject {
   @available(tvOS 3.0, *)
   var isProximityMonitoringEnabled: Bool
   @available(tvOS 3.0, *)
-  var isProximityState: Bool { get }
+  var proximityState: Bool { get }
   @available(tvOS 4.0, *)
   var isMultitaskingSupported: Bool { get }
   @available(tvOS 3.2, *)
@@ -4057,7 +4057,7 @@ class UIPushBehavior : UIDynamicBehavior {
   func targetOffsetFromCenterFor(item: UIDynamicItem) -> UIOffset
   func setTargetOffsetFromCenter(o: UIOffset, forItem item: UIDynamicItem)
   var mode: UIPushBehaviorMode { get }
-  var isActive: Bool
+  var active: Bool
   var angle: CGFloat
   var magnitude: CGFloat
   var pushDirection: CGVector
@@ -4517,7 +4517,7 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(tvOS 2.0, *)
   var enablesReturnKeyAutomatically: Bool
   @available(tvOS 2.0, *)
-  var secureTextEntry: Bool
+  var isSecureTextEntry: Bool
 }
 protocol UISearchBarDelegate : UIBarPositioningDelegate {
   @available(tvOS 2.0, *)
@@ -4754,7 +4754,7 @@ class UIStackView : UIView {
   var alignment: UIStackViewAlignment
   var spacing: CGFloat
   var isBaselineRelativeArrangement: Bool
-  var layoutMarginsRelativeArrangement: Bool
+  var isLayoutMarginsRelativeArrangement: Bool
   init(frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
@@ -5262,7 +5262,7 @@ class UITableViewCell : UIView, NSCoding, UIGestureRecognizerDelegate {
   var indentationWidth: CGFloat
   var isEditing: Bool
   func setEditing(editing: Bool, animated: Bool)
-  var isShowingDeleteConfirmation: Bool { get }
+  var showingDeleteConfirmation: Bool { get }
   @available(tvOS 9.0, *)
   var focusStyle: UITableViewCellFocusStyle
   @available(tvOS 3.0, *)
@@ -5605,7 +5605,7 @@ class UITextField : UIControl, UITextInput, NSCoding {
   @available(tvOS 2.0, *)
   var enablesReturnKeyAutomatically: Bool
   @available(tvOS 2.0, *)
-  var secureTextEntry: Bool
+  var isSecureTextEntry: Bool
 }
 extension UIView {
   func endEditing(force: Bool) -> Bool
@@ -5886,7 +5886,7 @@ protocol UITextInputTraits : NSObjectProtocol {
   optional var keyboardAppearance: UIKeyboardAppearance { get set }
   optional var returnKeyType: UIReturnKeyType { get set }
   optional var enablesReturnKeyAutomatically: Bool { get set }
-  optional var secureTextEntry: Bool { get set }
+  optional var isSecureTextEntry: Bool { get set }
 }
 protocol UITextViewDelegate : NSObjectProtocol, UIScrollViewDelegate {
   @available(tvOS 2.0, *)
@@ -6047,7 +6047,7 @@ class UITextView : UIScrollView, UITextInput {
   @available(tvOS 2.0, *)
   var enablesReturnKeyAutomatically: Bool
   @available(tvOS 2.0, *)
-  var secureTextEntry: Bool
+  var isSecureTextEntry: Bool
 }
 let UITextViewTextDidBeginEditingNotification: String
 let UITextViewTextDidChangeNotification: String

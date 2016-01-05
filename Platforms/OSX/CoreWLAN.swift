@@ -108,7 +108,7 @@ class CWConfiguration : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
    * This preference is enforced at the API layer.
    */
   @available(OSX 10.7, *)
-  var isRequireAdministratorForAssociation: Bool { get }
+  var requireAdministratorForAssociation: Bool { get }
 
   /*!
    * @property
@@ -124,7 +124,7 @@ class CWConfiguration : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
    * This preference is enforced at the API layer.
    */
   @available(OSX 10.7, *)
-  var isRequireAdministratorForPower: Bool { get }
+  var requireAdministratorForPower: Bool { get }
 
   /*!
    * @property
@@ -140,7 +140,7 @@ class CWConfiguration : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
    * This preference is enforced at the API layer.
    */
   @available(OSX 10.7, *)
-  var isRequireAdministratorForIBSSMode: Bool { get }
+  var requireAdministratorForIBSSMode: Bool { get }
 
   /*!
    * @property
@@ -234,7 +234,7 @@ class CWMutableConfiguration : CWConfiguration {
    * Set the preference to require an administrator password to change networks.
    */
   @available(OSX 10.7, *)
-  var isRequireAdministratorForAssociation: Bool
+  var requireAdministratorForAssociation: Bool
 
   /*!
    * @property
@@ -243,7 +243,7 @@ class CWMutableConfiguration : CWConfiguration {
    * Set the preference to require an administrator password to change the interface power state.
    */
   @available(OSX 10.7, *)
-  var isRequireAdministratorForPower: Bool
+  var requireAdministratorForPower: Bool
 
   /*!
    * @property
@@ -252,7 +252,7 @@ class CWMutableConfiguration : CWConfiguration {
    * Set the preference to require an administrator password to change networks.
    */
   @available(OSX 10.7, *)
-  var isRequireAdministratorForIBSSMode: Bool
+  var requireAdministratorForIBSSMode: Bool
 
   /*!
    * @property

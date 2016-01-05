@@ -308,7 +308,7 @@ extension AVAsset {
   @available(tvOS 4.3, *)
   var isComposable: Bool { get }
   @available(tvOS 5.0, *)
-  var compatibleWithSavedPhotosAlbum: Bool { get }
+  var isCompatibleWithSavedPhotosAlbum: Bool { get }
 
   /*!
     @property		compatibleWithAirPlayVideo
@@ -1735,7 +1735,7 @@ class AVAssetResourceLoadingContentInformationRequest : NSObject {
    @abstract		Indicates whether random access to arbitrary ranges of bytes of the resource is supported. Such support also allows portions of the resource to be requested more than once.
    @discussion	Before you finish loading an AVAssetResourceLoadingRequest, if its contentInformationRequest is not nil, you should set the value of this property to YES if you support random access to arbitrary ranges of bytes of the resource. If you do not set this property to YES for resources that must be loaded incrementally, loading of the resource may fail. Such resources include anything that contains media data.
   */
-  var byteRangeAccessSupported: Bool
+  var isByteRangeAccessSupported: Bool
 
   /*!
    @property		renewalDate
@@ -3676,12 +3676,12 @@ class AVAudioConverter : NSObject {
   /*! @property downmix
       @abstract If YES and channel remapping is necessary, then channels will be mixed as appropriate instead of remapped. Default value is NO.
   */
-  var isDownmix: Bool
+  var downmix: Bool
 
   /*! @property dither
       @abstract Setting YES will turn on dither, if dither makes sense in given the current formats and settings. Default value is NO.
   */
-  var isDither: Bool
+  var dither: Bool
 
   /*! @property sampleRateConverterQuality
       @abstract An AVAudioQuality value as defined in AVAudioSettings.h.
@@ -4179,7 +4179,7 @@ class AVAudioEnvironmentReverbParameters : NSObject {
       @discussion
           Default:    NO
   */
-  var isEnable: Bool
+  var enable: Bool
 
   /*! @property level
       @abstract Controls the master level of the reverb
@@ -5674,7 +5674,7 @@ class AVAudioPlayer : NSObject {
   var pan: Float
   var volume: Float
   @available(tvOS 5.0, *)
-  var isEnableRate: Bool
+  var enableRate: Bool
   @available(tvOS 5.0, *)
   var rate: Float
   var currentTime: NSTimeInterval
@@ -8556,7 +8556,7 @@ extension AVCaptureDevice {
    @discussion
       The receiver's focusPointOfInterest property can only be set if this property returns YES.
   */
-  var focusPointOfInterestSupported: Bool { get }
+  var isFocusPointOfInterestSupported: Bool { get }
 
   /*!
    @property focusPointOfInterest
@@ -8588,7 +8588,7 @@ extension AVCaptureDevice {
   	@seealso lensPosition
   	@seealso AVCaptureAutoFocusSystem
   */
-  var adjustingFocus: Bool { get }
+  var isAdjustingFocus: Bool { get }
 
   /*!
    @property autoFocusRangeRestrictionSupported
@@ -8599,7 +8599,7 @@ extension AVCaptureDevice {
   	The receiver's autoFocusRangeRestriction property can only be set if this property returns YES.
    */
   @available(tvOS 7.0, *)
-  var autoFocusRangeRestrictionSupported: Bool { get }
+  var isAutoFocusRangeRestrictionSupported: Bool { get }
 
   /*!
    @property autoFocusRangeRestriction
@@ -8627,7 +8627,7 @@ extension AVCaptureDevice {
   	The receiver's smoothAutoFocusEnabled property can only be set if this property returns YES.
    */
   @available(tvOS 7.0, *)
-  var smoothAutoFocusSupported: Bool { get }
+  var isSmoothAutoFocusSupported: Bool { get }
 
   /*!
    @property smoothAutoFocusEnabled
@@ -8646,7 +8646,7 @@ extension AVCaptureDevice {
   	focus operation.  After setting smoothAutoFocusEnabled, call -setFocusMode: to apply the new smooth autofocus mode.
    */
   @available(tvOS 7.0, *)
-  var smoothAutoFocusEnabled: Bool
+  var isSmoothAutoFocusEnabled: Bool
 
   /*!
    @property lensPosition
@@ -9435,7 +9435,7 @@ extension AVCaptureStillImageOutput {
       -activeFormat changes.  This read-only property is key-value observable.
   */
   @available(tvOS 9.0, *)
-  var lensStabilizationDuringBracketedCaptureSupported: Bool { get }
+  var isLensStabilizationDuringBracketedCaptureSupported: Bool { get }
 
   /*!
    @property lensStabilizationDuringBracketedCaptureEnabled
@@ -9455,7 +9455,7 @@ extension AVCaptureStillImageOutput {
       This property is key-value observable.
   */
   @available(tvOS 9.0, *)
-  var lensStabilizationDuringBracketedCaptureEnabled: Bool
+  var isLensStabilizationDuringBracketedCaptureEnabled: Bool
 
   /*!
    @method prepareToCaptureStillImageBracketFromConnection:withSettingsArray:completionHandler:
@@ -12552,7 +12552,7 @@ extension AVPlayer {
   		If the current item does not require external protection, the value of this property will be NO.
    */
   @available(tvOS 6.0, *)
-  var isOutputObscuredDueToInsufficientExternalProtection: Bool { get }
+  var outputObscuredDueToInsufficientExternalProtection: Bool { get }
 }
 @available(tvOS 4.1, *)
 class AVQueuePlayer : AVPlayer {
@@ -14558,7 +14558,7 @@ class AVVideoCompositionRenderContext : NSObject {
   var renderScale: Float { get }
   var pixelAspectRatio: AVPixelAspectRatio { get }
   var edgeWidths: AVEdgeWidths { get }
-  var isHighQualityRendering: Bool { get }
+  var highQualityRendering: Bool { get }
   var videoComposition: AVVideoComposition { get }
 
   /*!
@@ -14724,7 +14724,7 @@ class AVVideoCompositionInstruction : NSObject, NSSecureCoding, NSCopying, NSMut
   var timeRange: CMTimeRange { get }
   var backgroundColor: CGColor? { get }
   var layerInstructions: [AVVideoCompositionLayerInstruction] { get }
-  var isEnablePostProcessing: Bool { get }
+  var enablePostProcessing: Bool { get }
   @available(tvOS 7.0, *)
   var requiredSourceTrackIDs: [NSValue] { get }
   @available(tvOS 7.0, *)
@@ -14747,7 +14747,7 @@ class AVMutableVideoCompositionInstruction : AVVideoCompositionInstruction {
   var timeRange: CMTimeRange
   var backgroundColor: CGColor?
   var layerInstructions: [AVVideoCompositionLayerInstruction]
-  var isEnablePostProcessing: Bool
+  var enablePostProcessing: Bool
   init()
   init?(coder aDecoder: NSCoder)
 }

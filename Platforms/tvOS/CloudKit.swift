@@ -149,7 +149,7 @@ class CKFetchNotificationChangesOperation : CKOperation {
   init(previousServerChangeToken: CKServerChangeToken?)
   @NSCopying var previousServerChangeToken: CKServerChangeToken?
   var resultsLimit: Int
-  var isMoreComing: Bool { get }
+  var moreComing: Bool { get }
   var notificationChangedBlock: ((CKNotification) -> Void)?
   var fetchNotificationChangesCompletionBlock: ((CKServerChangeToken?, NSError?) -> Void)?
   init()
@@ -163,7 +163,7 @@ class CKFetchRecordChangesOperation : CKDatabaseOperation {
   var desiredKeys: [String]?
   var recordChangedBlock: ((CKRecord) -> Void)?
   var recordWithIDWasDeletedBlock: ((CKRecordID) -> Void)?
-  var isMoreComing: Bool { get }
+  var moreComing: Bool { get }
   var fetchRecordChangesCompletionBlock: ((CKServerChangeToken?, NSData?, NSError?) -> Void)?
   init()
 }
@@ -241,7 +241,7 @@ class CKModifyRecordsOperation : CKDatabaseOperation {
   var recordIDsToDelete: [CKRecordID]?
   var savePolicy: CKRecordSavePolicy
   @NSCopying var clientChangeTokenData: NSData?
-  var isAtomic: Bool
+  var atomic: Bool
   var perRecordProgressBlock: ((CKRecord, Double) -> Void)?
   var perRecordCompletionBlock: ((CKRecord?, NSError?) -> Void)?
   var modifyRecordsCompletionBlock: (([CKRecord]?, [CKRecordID]?, NSError?) -> Void)?

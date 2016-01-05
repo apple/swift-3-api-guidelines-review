@@ -587,7 +587,7 @@ protocol CAMetalDrawable : MTLDrawable {
 class CAMetalLayer : CALayer {
   var device: MTLDevice?
   var pixelFormat: MTLPixelFormat
-  var isFramebufferOnly: Bool
+  var framebufferOnly: Bool
   var drawableSize: CGSize
   func nextDrawable() -> CAMetalDrawable?
   var presentsWithTransaction: Bool
@@ -598,7 +598,7 @@ class CAMetalLayer : CALayer {
   init?(coder aDecoder: NSCoder)
 }
 class CAOpenGLLayer : CALayer {
-  var asynchronous: Bool
+  var isAsynchronous: Bool
   func canDrawInCGLContext(ctx: CGLContextObj, pixelFormat pf: CGLPixelFormatObj, forLayerTime t: CFTimeInterval, displayTime ts: UnsafePointer<CVTimeStamp>) -> Bool
   func drawInCGLContext(ctx: CGLContextObj, pixelFormat pf: CGLPixelFormatObj, forLayerTime t: CFTimeInterval, displayTime ts: UnsafePointer<CVTimeStamp>)
   func copyCGLPixelFormatForDisplayMask(mask: UInt32) -> CGLPixelFormatObj

@@ -55,7 +55,7 @@ typealias PHContentEditingInputRequestID = Int
 @available(iOS 8.0, *)
 class PHContentEditingInputRequestOptions : NSObject {
   var canHandleAdjustmentData: (PHAdjustmentData) -> Bool
-  var networkAccessAllowed: Bool
+  var isNetworkAccessAllowed: Bool
   var progressHandler: ((Double, UnsafeMutablePointer<ObjCBool>) -> Void)?
   init()
 }
@@ -125,7 +125,7 @@ let PHInvalidAssetResourceDataRequestID: PHAssetResourceDataRequestID
 typealias PHAssetResourceProgressHandler = (Double) -> Void
 @available(iOS 9.0, *)
 class PHAssetResourceRequestOptions : NSObject, NSCopying {
-  var networkAccessAllowed: Bool
+  var isNetworkAccessAllowed: Bool
   var progressHandler: PHAssetResourceProgressHandler?
   init()
   @available(iOS 9.0, *)
@@ -149,7 +149,7 @@ class PHChange : NSObject {
 class PHObjectChangeDetails : NSObject {
   var objectBeforeChanges: PHObject { get }
   var objectAfterChanges: PHObject? { get }
-  var isAssetContentChanged: Bool { get }
+  var assetContentChanged: Bool { get }
   var objectWasDeleted: Bool { get }
   init()
 }
@@ -322,8 +322,8 @@ class PHImageRequestOptions : NSObject, NSCopying {
   var deliveryMode: PHImageRequestOptionsDeliveryMode
   var resizeMode: PHImageRequestOptionsResizeMode
   var normalizedCropRect: CGRect
-  var networkAccessAllowed: Bool
-  var synchronous: Bool
+  var isNetworkAccessAllowed: Bool
+  var isSynchronous: Bool
   var progressHandler: PHAssetImageProgressHandler?
   init()
   @available(iOS 8.0, *)
@@ -332,7 +332,7 @@ class PHImageRequestOptions : NSObject, NSCopying {
 @available(iOS 9.1, *)
 class PHLivePhotoRequestOptions : NSObject, NSCopying {
   var deliveryMode: PHImageRequestOptionsDeliveryMode
-  var networkAccessAllowed: Bool
+  var isNetworkAccessAllowed: Bool
   var progressHandler: PHAssetImageProgressHandler?
   init()
   @available(iOS 9.1, *)
@@ -358,7 +358,7 @@ enum PHVideoRequestOptionsDeliveryMode : Int {
 typealias PHAssetVideoProgressHandler = (Double, NSError?, UnsafeMutablePointer<ObjCBool>, [NSObject : AnyObject]?) -> Void
 @available(iOS 8.0, *)
 class PHVideoRequestOptions : NSObject {
-  var networkAccessAllowed: Bool
+  var isNetworkAccessAllowed: Bool
   var version: PHVideoRequestOptionsVersion
   var deliveryMode: PHVideoRequestOptionsDeliveryMode
   var progressHandler: PHAssetVideoProgressHandler?

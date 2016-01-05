@@ -168,13 +168,13 @@ enum CMMotionActivityConfidence : Int {
 class CMMotionActivity : CMLogItem {
   var confidence: CMMotionActivityConfidence { get }
   var startDate: NSDate { get }
-  var isUnknown: Bool { get }
-  var isStationary: Bool { get }
-  var isWalking: Bool { get }
-  var isRunning: Bool { get }
-  var isAutomotive: Bool { get }
+  var unknown: Bool { get }
+  var stationary: Bool { get }
+  var walking: Bool { get }
+  var running: Bool { get }
+  var automotive: Bool { get }
   @available(watchOS 2.0, *)
-  var isCycling: Bool { get }
+  var cycling: Bool { get }
   init()
   init?(coder aDecoder: NSCoder)
 }

@@ -5390,7 +5390,7 @@ extension IOBluetoothDevice {
    @result		YES if the device supports hands free gateway; otherwise, NO.
    */
   @available(OSX 10.7, *)
-  var handsFreeAudioGateway: Bool { get }
+  var isHandsFreeAudioGateway: Bool { get }
 
   /*!
    @method		handsFreeDeviceServiceRecord
@@ -5408,7 +5408,7 @@ extension IOBluetoothDevice {
    @result		YES if the device supports hands free device; otherwise, NO.
    */
   @available(OSX 10.7, *)
-  var handsFreeDevice: Bool { get }
+  var isHandsFreeDevice: Bool { get }
 }
 extension IOBluetoothSDPServiceRecord {
 

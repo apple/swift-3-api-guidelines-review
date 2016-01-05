@@ -27,7 +27,7 @@ extension NSATSTypesetter {
   var lineFragmentPadding: CGFloat
   func substituteFontFor(originalFont: NSFont) -> NSFont
   func textTabForGlyphLocation(glyphLocation: CGFloat, writingDirection direction: NSWritingDirection, maxLocation: CGFloat) -> NSTextTab?
-  var isBidiProcessingEnabled: Bool
+  var bidiProcessingEnabled: Bool
   unowned(unsafe) var attributedString: @sil_unmanaged NSAttributedString?
   func setParagraphGlyphRange(paragraphRange: NSRange, separatorGlyphRange paragraphSeparatorRange: NSRange)
   var paragraphGlyphRange: NSRange { get }
@@ -2664,7 +2664,7 @@ extension NSApplication {
 }
 extension NSApplication {
   @available(OSX 10.6, *)
-  var fullKeyboardAccessEnabled: Bool { get }
+  var isFullKeyboardAccessEnabled: Bool { get }
 }
 enum NSApplicationTerminateReply : UInt {
   init?(rawValue: UInt)
@@ -4050,7 +4050,7 @@ class NSCell : NSObject, NSCopying, NSCoding, NSUserInterfaceItemIdentification,
   var isOpaque: Bool { get }
   var isEnabled: Bool
   func sendActionOn(mask: Int) -> Int
-  var continuous: Bool
+  var isContinuous: Bool
   var isEditable: Bool
   var isSelectable: Bool
   var isBordered: Bool
@@ -5154,7 +5154,7 @@ class NSCollectionViewUpdateItem : NSObject {
 }
 @available(OSX 10.11, *)
 class NSCollectionViewLayoutInvalidationContext : NSObject {
-  var isInvalidateEverything: Bool { get }
+  var invalidateEverything: Bool { get }
   var invalidateDataSourceCounts: Bool { get }
   func invalidateItemsAt(indexPaths: Set<NSIndexPath>)
   func invalidateSupplementaryElementsOfKind(elementKind: String, at indexPaths: Set<NSIndexPath>)
@@ -5446,7 +5446,7 @@ class NSColorPanel : NSPanel {
   class func setPickerMask(mask: NSColorPanelOptions)
   class func setPickerMode(mode: NSColorPanelMode)
   var accessoryView: NSView?
-  var continuous: Bool
+  var isContinuous: Bool
   var showsAlpha: Bool
   var mode: NSColorPanelMode
   @NSCopying var color: NSColor
@@ -5678,7 +5678,7 @@ class NSControl : NSView {
   var action: Selector
   var tag: Int
   var ignoresMultiClick: Bool
-  var continuous: Bool
+  var isContinuous: Bool
   var isEnabled: Bool
   var refusesFirstResponder: Bool
   @available(OSX 10.10, *)
@@ -6087,7 +6087,7 @@ class NSDocument : NSObject, NSFilePresenter, NSUserInterfaceValidations {
   func writeSafelyTo(url: NSURL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType) throws
   func writeTo(url: NSURL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType, originalContentsURL absoluteOriginalContentsURL: NSURL?) throws
   func fileAttributesToWriteTo(url: NSURL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType, originalContentsURL absoluteOriginalContentsURL: NSURL?) throws -> [String : AnyObject]
-  var isKeepBackupFile: Bool { get }
+  var keepBackupFile: Bool { get }
   @available(OSX 10.8, *)
   @NSCopying var backupFileURL: NSURL? { get }
   @IBAction func saveDocument(sender: AnyObject?)
@@ -8619,7 +8619,7 @@ class NSImageRep : NSObject, NSCopying, NSCoding {
   @available(OSX 10.6, *)
   func drawIn(dstSpacePortionRect: NSRect, from srcSpacePortionRect: NSRect, operation op: NSCompositingOperation, fraction requestedAlpha: CGFloat, respectFlipped respectContextIsFlipped: Bool, hints: [String : AnyObject]?) -> Bool
   var size: NSSize
-  var isAlpha: Bool
+  var hasAlpha: Bool
   var isOpaque: Bool
   var colorSpaceName: String
   var bitsPerSample: Int
@@ -9237,7 +9237,7 @@ class NSLayoutManager : NSObject, NSCoding {
   var allowsNonContiguousLayout: Bool
   @available(OSX 10.5, *)
   var hasNonContiguousLayout: Bool { get }
-  var isBackgroundLayoutEnabled: Bool
+  var backgroundLayoutEnabled: Bool
   var defaultAttachmentScaling: NSImageScaling
 
   /*********************** Typesetter ***********************/
@@ -9869,7 +9869,7 @@ class NSMenuItem : NSObject, NSCopying, NSCoding, NSValidatedUserInterfaceItem {
   @available(OSX 10.5, *)
   var isHidden: Bool
   @available(OSX 10.5, *)
-  var hiddenOrHasHiddenAncestor: Bool { get }
+  var isHiddenOrHasHiddenAncestor: Bool { get }
   var toolTip: String?
   init()
   func copy(zone zone: NSZone = nil) -> AnyObject
@@ -12672,7 +12672,7 @@ class NSScrollView : NSView, NSTextFinderBarContainer {
   var scrollerInsets: NSEdgeInsets
   convenience init()
   var findBarView: NSView?
-  var findBarVisible: Bool
+  var isFindBarVisible: Bool
   func findBarViewDidChangeHeight()
 }
 @available(OSX 10.8, *)
@@ -14025,7 +14025,7 @@ extension NSStatusItem {
   var image: NSImage?
   var alternateImage: NSImage?
   var isEnabled: Bool
-  var isHighlightMode: Bool
+  var highlightMode: Bool
   var toolTip: String?
   func sendActionOn(mask: Int) -> Int
   var view: NSView?
@@ -14037,7 +14037,7 @@ class NSStepper : NSControl, NSAccessibilityStepper {
   var maxValue: Double
   var increment: Double
   var valueWraps: Bool
-  var isAutorepeat: Bool
+  var autorepeat: Bool
   init(frame frameRect: NSRect)
   init?(coder: NSCoder)
   convenience init()
@@ -14051,7 +14051,7 @@ class NSStepperCell : NSActionCell {
   var maxValue: Double
   var increment: Double
   var valueWraps: Bool
-  var isAutorepeat: Bool
+  var autorepeat: Bool
   init(textCell aString: String)
   init(imageCell image: NSImage?)
   convenience init()
@@ -14444,7 +14444,7 @@ class NSTableRowView : NSView, NSAccessibilityRow {
   var isGroupRowStyle: Bool
   var isSelected: Bool
   @available(OSX 10.10, *)
-  var previousRowSelected: Bool
+  var isPreviousRowSelected: Bool
   var isNextRowSelected: Bool
   var isFloating: Bool
   var isTargetForDropOperation: Bool
@@ -15292,9 +15292,9 @@ class NSTextFinder : NSObject, NSCoding {
   init?(coder aDecoder: NSCoder)
 }
 protocol NSTextFinderClient : NSObjectProtocol {
-  optional var selectable: Bool { get }
+  optional var isSelectable: Bool { get }
   optional var allowsMultipleSelection: Bool { get }
-  optional var editable: Bool { get }
+  optional var isEditable: Bool { get }
   optional var string: String { get }
   optional func stringAt(characterIndex: Int, effectiveRange outRange: NSRangePointer, endsWithSearchBoundary outFlag: UnsafeMutablePointer<ObjCBool>) -> String
   optional func stringLength() -> Int
@@ -15311,7 +15311,7 @@ protocol NSTextFinderClient : NSObjectProtocol {
 }
 protocol NSTextFinderBarContainer : NSObjectProtocol {
   var findBarView: NSView? { get set }
-  var findBarVisible: Bool { get set }
+  var isFindBarVisible: Bool { get set }
   func findBarViewDidChangeHeight()
   optional func contentView() -> NSView?
 }
@@ -15757,7 +15757,7 @@ extension NSTextView {
   var usesRuler: Bool
   @available(OSX 10.7, *)
   var usesInspectorBar: Bool
-  var continuousSpellCheckingEnabled: Bool
+  var isContinuousSpellCheckingEnabled: Bool
   func toggleContinuousSpellChecking(sender: AnyObject?)
   var spellCheckerDocumentTag: Int { get }
   @available(OSX 10.5, *)
@@ -15809,7 +15809,7 @@ extension NSTextView {
 extension NSTextView {
 
   /*************************** Smart copy/paste/delete/substitution support ***************************/
-  var isSmartInsertDeleteEnabled: Bool
+  var smartInsertDeleteEnabled: Bool
   func smartDeleteRangeForProposedRange(proposedCharRange: NSRange) -> NSRange
   func toggleSmartInsertDelete(sender: AnyObject?)
   func smartInsertFor(pasteString: String, replacing charRangeToReplace: NSRange, before beforeString: AutoreleasingUnsafeMutablePointer<NSString?>, after afterString: AutoreleasingUnsafeMutablePointer<NSString?>)
@@ -16330,7 +16330,7 @@ class NSTypesetter : NSObject {
   var lineFragmentPadding: CGFloat
   func substituteFontFor(originalFont: NSFont) -> NSFont
   func textTabForGlyphLocation(glyphLocation: CGFloat, writingDirection direction: NSWritingDirection, maxLocation: CGFloat) -> NSTextTab?
-  var isBidiProcessingEnabled: Bool
+  var bidiProcessingEnabled: Bool
   unowned(unsafe) var attributedString: @sil_unmanaged NSAttributedString?
   func setParagraphGlyphRange(paragraphRange: NSRange, separatorGlyphRange paragraphSeparatorRange: NSRange)
   var paragraphGlyphRange: NSRange { get }
@@ -16549,7 +16549,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   func ancestorSharedWith(aView: NSView) -> NSView?
   unowned(unsafe) var opaqueAncestor: @sil_unmanaged NSView? { get }
   var isHidden: Bool
-  var hiddenOrHasHiddenAncestor: Bool { get }
+  var isHiddenOrHasHiddenAncestor: Bool { get }
   func getRectsBeingDrawn(rects: UnsafeMutablePointer<UnsafePointer<NSRect>>, count: UnsafeMutablePointer<Int>)
   func needsToDraw(aRect: NSRect) -> Bool
   var wantsDefaultClipping: Bool { get }
@@ -16740,7 +16740,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   func removeAllToolTips()
   func viewWillStartLiveResize()
   func viewDidEndLiveResize()
-  var isInLiveResize: Bool { get }
+  var inLiveResize: Bool { get }
   var preservesContentDuringLiveResize: Bool { get }
   var rectPreservedDuringLiveResize: NSRect { get }
   func getRectsExposedDuringLiveResize(exposedRects: UnsafeMutablePointer<NSRect>, count: UnsafeMutablePointer<Int>)
@@ -17745,7 +17745,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @NSCopying var representedURL: NSURL?
   var representedFilename: String
   func setTitleWithRepresentedFilename(filename: String)
-  var excludedFromWindowsMenu: Bool
+  var isExcludedFromWindowsMenu: Bool
   var contentView: NSView?
   unowned(unsafe) var delegate: @sil_unmanaged NSWindowDelegate?
   var windowNumber: Int { get }
@@ -17762,7 +17762,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   func animationResizeTime(newFrame: NSRect) -> NSTimeInterval
   func setFrame(frameRect: NSRect, display displayFlag: Bool, animate animateFlag: Bool)
   @available(OSX 10.6, *)
-  var isInLiveResize: Bool { get }
+  var inLiveResize: Bool { get }
   var showsResizeIndicator: Bool
   var resizeIncrements: NSSize
   var aspectRatio: NSSize

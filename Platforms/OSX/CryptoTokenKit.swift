@@ -307,7 +307,7 @@ class TKSmartCard : NSObject {
   var slot: TKSmartCardSlot { get }
 
   /// Flag indicating whether card is valid, i.e. it was not removed from the reader.  Use Key-Value-Observing to be notified about card removal.
-  var isValid: Bool { get }
+  var valid: Bool { get }
 
   /// Bitmask containing allowed protocols to be used when communicating with the card.  This property is consulted only during connection to the card, changes are not propagated to already connected session.  By default, any protocol can be used.
   var allowedProtocols: TKSmartCardProtocol
@@ -316,7 +316,7 @@ class TKSmartCard : NSObject {
   var currentProtocol: TKSmartCardProtocol { get }
 
   /// Flag indicating whether card session should be considered as sensitive.  Sensitive session always gets card after reset before communicating with it and never leaves card without reset to be used by another smart card object.  This might be important in case that card session contain some important state which should not leak to another smart card object (possibly running in another, foreign application).  Default is NO.
-  var isSensitive: Bool
+  var sensitive: Bool
 
   /// User-specified context kept as long as the card is powered.  Once the card is removed or another TKSmartCard object opens session, this property is automatically set to nil.
   var context: AnyObject?
@@ -362,7 +362,7 @@ extension TKSmartCard {
   var cla: UInt8
 
   /// Flag indicating whether extended length APDUs should be used. It is automatically enabled only when used slot supports transmitting extended length commands and card announces that extended length APDU are supported in its ATR. However, caller can explicitely override this decision at its will.
-  var isUseExtendedLength: Bool
+  var useExtendedLength: Bool
 
   /// Transmits APDU to the card and returns response.
   /// @discussion Asynchronous high level variant of command for transmitting APDU to the card.  Handles all ISO7816-4 APDU cases translation to proper sequences according to used protocol.  If useExtendedLength is enabled and it is decided that it is beneficial for current set of arguments, extended APDUs are used automatically.

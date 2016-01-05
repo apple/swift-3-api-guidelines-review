@@ -106,7 +106,7 @@ class SKProduct : NSObject {
   var price: NSDecimalNumber? { get }
   var priceLocale: NSLocale? { get }
   var productIdentifier: String? { get }
-  var isDownloadable: Bool { get }
+  var downloadable: Bool { get }
   var contentVersion: String? { get }
   var contentLengths: [NSNumber]? { get }
   init()

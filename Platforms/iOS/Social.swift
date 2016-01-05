@@ -71,7 +71,7 @@ class SLComposeSheetConfigurationItem : NSObject {
   init!()
   var title: String!
   var value: String!
-  var isValuePending: Bool
+  var valuePending: Bool
   var tapHandler: SLComposeSheetConfigurationItemTapHandler!
 }
 enum SLComposeViewControllerResult : Int {

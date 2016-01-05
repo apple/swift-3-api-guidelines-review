@@ -48,7 +48,7 @@ class GCEventViewController : UIViewController {
    @see GCController
    @see UIView.userInteractionEnabled
    */
-  var isControllerUserInteractionEnabled: Bool
+  var controllerUserInteractionEnabled: Bool
   init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
   init?(coder aDecoder: NSCoder)
   convenience init()

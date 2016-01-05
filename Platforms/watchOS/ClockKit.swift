@@ -56,13 +56,13 @@ class CLKComplicationTemplateModularSmallRingImage : CLKComplicationTemplate {
 class CLKComplicationTemplateModularSmallStackText : CLKComplicationTemplate {
   @NSCopying var line1TextProvider: CLKTextProvider
   @NSCopying var line2TextProvider: CLKTextProvider
-  var isHighlightLine2: Bool
+  var highlightLine2: Bool
   init()
 }
 class CLKComplicationTemplateModularSmallStackImage : CLKComplicationTemplate {
   @NSCopying var line1ImageProvider: CLKImageProvider
   @NSCopying var line2TextProvider: CLKTextProvider
-  var isHighlightLine2: Bool
+  var highlightLine2: Bool
   init()
 }
 class CLKComplicationTemplateModularSmallColumnsText : CLKComplicationTemplate {
@@ -71,7 +71,7 @@ class CLKComplicationTemplateModularSmallColumnsText : CLKComplicationTemplate {
   @NSCopying var row2Column1TextProvider: CLKTextProvider
   @NSCopying var row2Column2TextProvider: CLKTextProvider
   var column2Alignment: CLKComplicationColumnAlignment
-  var isHighlightColumn2: Bool
+  var highlightColumn2: Bool
   init()
 }
 class CLKComplicationTemplateModularLargeStandardBody : CLKComplicationTemplate {
