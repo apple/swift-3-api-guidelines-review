@@ -5675,7 +5675,7 @@ extension NSString {
   func enumerateSubstringsIn(range: NSRange, options opts: NSStringEnumerationOptions = [], usingBlock block: (String?, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
   func enumerateLinesUsing(block: (String, UnsafeMutablePointer<ObjCBool>) -> Void)
-  var utF8String: UnsafePointer<Int8> { get }
+  var utf8String: UnsafePointer<Int8> { get }
   var fastestEncoding: UInt { get }
   var smallestEncoding: UInt { get }
   func dataUsingEncoding(encoding: UInt, allowLossyConversion lossy: Bool) -> NSData?
@@ -5714,7 +5714,7 @@ extension NSString {
   var hash: Int { get }
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
   convenience init(characters: UnsafePointer<unichar>, length: Int)
-  convenience init?(utF8String nullTerminatedCString: UnsafePointer<Int8>)
+  convenience init?(utf8String nullTerminatedCString: UnsafePointer<Int8>)
   convenience init(string aString: String)
   convenience init(format: String, arguments argList: CVaListPointer)
   convenience init(format: String, locale: AnyObject?, arguments argList: CVaListPointer)
@@ -5795,7 +5795,7 @@ class NSMutableString : NSString {
   init?(coder aDecoder: NSCoder)
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
   convenience init(characters: UnsafePointer<unichar>, length: Int)
-  convenience init?(utF8String nullTerminatedCString: UnsafePointer<Int8>)
+  convenience init?(utf8String nullTerminatedCString: UnsafePointer<Int8>)
   convenience init(string aString: String)
   convenience init(format: String, arguments argList: CVaListPointer)
   convenience init(format: String, locale: AnyObject?, arguments argList: CVaListPointer)
@@ -5837,7 +5837,7 @@ class NSSimpleCString : NSString {
   init?(coder aDecoder: NSCoder)
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
   convenience init(characters: UnsafePointer<unichar>, length: Int)
-  convenience init?(utF8String nullTerminatedCString: UnsafePointer<Int8>)
+  convenience init?(utf8String nullTerminatedCString: UnsafePointer<Int8>)
   convenience init(string aString: String)
   convenience init(format: String, arguments argList: CVaListPointer)
   convenience init(format: String, locale: AnyObject?, arguments argList: CVaListPointer)
@@ -5855,7 +5855,7 @@ class NSConstantString : NSSimpleCString {
   init?(coder aDecoder: NSCoder)
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
   convenience init(characters: UnsafePointer<unichar>, length: Int)
-  convenience init?(utF8String nullTerminatedCString: UnsafePointer<Int8>)
+  convenience init?(utf8String nullTerminatedCString: UnsafePointer<Int8>)
   convenience init(string aString: String)
   convenience init(format: String, arguments argList: CVaListPointer)
   convenience init(format: String, locale: AnyObject?, arguments argList: CVaListPointer)

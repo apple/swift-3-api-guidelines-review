@@ -111,7 +111,7 @@ class CSLocalizedString : NSString {
   init?(coder aDecoder: NSCoder)
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
   convenience init(characters: UnsafePointer<unichar>, length: Int)
-  convenience init?(utF8String nullTerminatedCString: UnsafePointer<Int8>)
+  convenience init?(utf8String nullTerminatedCString: UnsafePointer<Int8>)
   convenience init(string aString: String)
   convenience init(format: String, arguments argList: CVaListPointer)
   convenience init(format: String, locale: AnyObject?, arguments argList: CVaListPointer)

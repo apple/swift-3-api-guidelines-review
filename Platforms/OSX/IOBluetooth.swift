@@ -7232,7 +7232,7 @@ class IOBluetoothSDPUUID : NSData {
       @param uuid16 A scalar representing a 16-bit UUID
       @result Returns self.
   */
-  init!(uuiD16 uuid16: BluetoothSDPUUID16)
+  init!(uuid16: BluetoothSDPUUID16)
 
   /*!
       @method initWithUUID32:
@@ -7240,7 +7240,7 @@ class IOBluetoothSDPUUID : NSData {
       @param uuid32 A scalar representing a 32-bit UUID
       @result Returns self.
   */
-  init!(uuiD32 uuid32: BluetoothSDPUUID32)
+  init!(uuid32: BluetoothSDPUUID32)
 
   /*!
       @method getUUIDWithLength:
