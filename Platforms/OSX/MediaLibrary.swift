@@ -14,7 +14,7 @@ class MLMediaGroup : NSObject {
   init()
 }
 class MLMediaLibrary : NSObject {
-  init(options: [String : AnyObject])
+  init(options: [String : AnyObject] = [:])
   var mediaSources: [String : MLMediaSource]? { get }
   convenience init()
 }

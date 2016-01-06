@@ -21,7 +21,7 @@ class LevelScenePauseState: LevelSceneOverlayState {
     override func didEnterWithPreviousState(previousState: GKState?) {
         super.didEnterWithPreviousState(previousState)
         
-        levelScene.worldNode.isPaused = true
+        levelScene.worldNode.paused = true
     }
     
     override func isValidNextState(stateClass: AnyClass) -> Bool {
@@ -31,6 +31,6 @@ class LevelScenePauseState: LevelSceneOverlayState {
     override func willExitWithNextState(nextState: GKState) {
         super.willExitWithNextState(nextState)
         
-        levelScene.worldNode.isPaused = false
+        levelScene.worldNode.paused = false
     }
 }

@@ -627,7 +627,7 @@ extension CALayer {
   /*not inherited*/ init(remoteClientId client_id: UInt32)
 }
 class CARenderer : NSObject {
-  /*not inherited*/ init(cglContext ctx: UnsafeMutablePointer<Void>, options dict: [NSObject : AnyObject]?)
+  /*not inherited*/ init(cglContext ctx: UnsafeMutablePointer<Void>, options dict: [NSObject : AnyObject]? = [:])
   var layer: CALayer?
   var bounds: CGRect
   func beginFrameAtTime(t: CFTimeInterval, timeStamp ts: UnsafeMutablePointer<CVTimeStamp>)

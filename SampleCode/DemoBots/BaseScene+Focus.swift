@@ -27,7 +27,7 @@ extension BaseScene {
     
     /// A computed property to determine which buttons are focusable.
     var currentlyFocusableButtons: [ButtonNode] {
-        return buttons.filter { !$0.isHidden && $0.isUserInteractionEnabled }
+        return buttons.filter { !$0.hidden && $0.userInteractionEnabled }
     }
     
     /**

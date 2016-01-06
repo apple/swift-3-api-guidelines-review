@@ -18,7 +18,7 @@ class ListItemCell: UITableViewCell {
     
     var isComplete = false {
         didSet {
-            textField.isEnabled = !isComplete
+            textField.enabled = !isComplete
             checkBox.isChecked = isComplete
             
             textField.textColor = isComplete ? UIColor.lightGray() : UIColor.darkText()

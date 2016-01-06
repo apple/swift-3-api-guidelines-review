@@ -213,7 +213,7 @@ protocol ICCameraDeviceDownloadDelegate : NSObjectProtocol {
     @method didDownloadFile:error:options:contextInfo:
     @abstract This message is sent to the delegate when the requested download operation is complete.
   */
-  optional func didDownloadFile(file: ICCameraFile, error: NSError?, options: [String : AnyObject]?, contextInfo: UnsafeMutablePointer<Void>)
+  optional func didDownloadFile(file: ICCameraFile, error: NSError?, options: [String : AnyObject]? = [:], contextInfo: UnsafeMutablePointer<Void>)
 
   /*! 
     @method didReceiveDownloadProgressForFile:downloadedBytes:maxBytes:
@@ -341,7 +341,7 @@ class ICCameraDevice : ICDevice {
     @abstract Download a file from the camera. Please refer to the top of this header for information about the options.
     @discussion The downloadDelegate passed must not be nil. When this request is completed, the didDownloadSelector of the downloadDelegate object is called.The didDownloadSelector should have the same signature as: - (void)didDownloadFile:(ICCameraFile*)file error:(NSError*)error options:(NSDictionary*)options contextInfo:(void*)contextInfo. The content of error returned should be examined to determine if the request completed successfully. Please see discussion above for 'ICCameraDeviceDownloadDelegate' protocol for more information.
   */
-  func requestDownloadFile(file: ICCameraFile, options: [String : AnyObject]?, downloadDelegate: ICCameraDeviceDownloadDelegate, didDownloadSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func requestDownloadFile(file: ICCameraFile, options: [String : AnyObject]? = [:], downloadDelegate: ICCameraDeviceDownloadDelegate, didDownloadSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
 
   /*! 
     @method cancelDownload
@@ -354,7 +354,7 @@ class ICCameraDevice : ICDevice {
     @abstract Upload a file at fileURL to the camera. The options dictionary is not used in this version.
     @discussion The uploadDelegate passed must not be nil. When this request is completed, the didUploadSelector of the uploadDelegate object is called. The didUploadSelector should have the same signature as: - (void)didUploadFile:(NSURL*)fileURL error:(NSError*)error contextInfo:(void*)contextInfo. The content of error returned should be examined to determine if the request completed successfully.
   */
-  func requestUploadFile(fileURL: NSURL, options: [String : AnyObject]?, uploadDelegate: AnyObject, didUploadSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func requestUploadFile(fileURL: NSURL, options: [String : AnyObject]? = [:], uploadDelegate: AnyObject, didUploadSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
 
   /*! 
     @method requestReadDataFromFile:atOffset:length:readDelegate:didReadDataSelector:contextInfo:

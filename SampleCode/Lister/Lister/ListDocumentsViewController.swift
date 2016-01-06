@@ -42,7 +42,7 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
     
     private var pendingLaunchContext: AppLaunchContext?
     
-    private var isWatchAppInstalledAtLastStateChange = false
+    private var watchAppInstalledAtLastStateChange = false
     
     // MARK: Initializers
     
@@ -271,8 +271,8 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
     // MARK: WCSessionDelegate
     
     func sessionWatchStateDidChange(session: WCSession) {
-        if !isWatchAppInstalledAtLastStateChange && session.isWatchAppInstalled {
-            isWatchAppInstalledAtLastStateChange = session.isWatchAppInstalled
+        if !watchAppInstalledAtLastStateChange && session.watchAppInstalled {
+            watchAppInstalledAtLastStateChange = session.watchAppInstalled
             updateWatchConnectivitySessionApplicationContext()
         }
     }
@@ -355,7 +355,7 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
         let session = WCSession.defaultSession()
         
         // Do not proceed if the watch app is not installed on the paired watch.
-        if !session.isWatchAppInstalled { return }
+        if !session.watchAppInstalled { return }
         
         // This array will be used to collect the data about the lists for the application context.
         var lists = [[String: AnyObject]]()

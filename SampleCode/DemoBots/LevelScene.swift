@@ -82,7 +82,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
   
     // MARK: Pathfinding Debug
     
-    var isDebugDrawingEnabled = false {
+    var debugDrawingEnabled = false {
         didSet {
             debugDrawingEnabledDidChange()
         }
@@ -260,7 +260,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
             Pausing a subsection of the node tree allows the `camera`
             and `overlay` nodes to remain interactive.
         */
-        if worldNode.isPaused { return }
+        if worldNode.paused { return }
         
         // Update the level's state machine.
         stateMachine.updateWithDeltaTime(deltaTime)

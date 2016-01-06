@@ -234,7 +234,7 @@ class CBCentralManager : NSObject {
    *
    */
   @available(tvOS 7.0, *)
-  init(delegate: CBCentralManagerDelegate?, queue: dispatch_queue_t?, options: [String : AnyObject]?)
+  init(delegate: CBCentralManagerDelegate?, queue: dispatch_queue_t?, options: [String : AnyObject]? = [:])
 
   /*!
    *  @method retrievePeripheralsWithIdentifiers:
@@ -280,7 +280,7 @@ class CBCentralManager : NSObject {
    *	@seealso			CBCentralManagerScanOptionSolicitedServiceUUIDsKey
    *
    */
-  func scanForPeripheralsWithServices(serviceUUIDs: [CBUUID]?, options: [String : AnyObject]?)
+  func scanForPeripheralsWithServices(serviceUUIDs: [CBUUID]?, options: [String : AnyObject]? = [:])
 
   /*!
    *  @method stopScan:
@@ -307,7 +307,7 @@ class CBCentralManager : NSObject {
    *  @seealso            CBConnectPeripheralOptionNotifyOnNotificationKey
    *
    */
-  func connect(peripheral: CBPeripheral, options: [String : AnyObject]?)
+  func connect(peripheral: CBPeripheral, options: [String : AnyObject]? = [:])
 
   /*!
    *  @method cancelPeripheralConnection:

@@ -44,6 +44,6 @@ class GameViewController: GCEventViewController, SceneManagerDelegate {
         
             @see GCEventViewController
         */
-        isControllerUserInteractionEnabled = (scene is HomeEndScene)
+        controllerUserInteractionEnabled = (scene is HomeEndScene)
     }
 }

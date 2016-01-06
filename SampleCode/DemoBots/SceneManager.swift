@@ -154,7 +154,7 @@ final class SceneManager {
                 Mark the `sceneLoader` as `requestedForPresentation` to automatically
                 present the scene when loading completes.
             */
-            sceneLoader.isRequestedForPresentation = true
+            sceneLoader.requestedForPresentation = true
             
             // The scene requires a progress scene to be displayed while its resources are prepared.
             if sceneLoader.requiresProgressSceneForPreparing {
@@ -286,12 +286,12 @@ final class SceneManager {
                 This is used to present the `HomeScene` without any possibility of
                 a progress scene.
             */
-            if sceneLoader.isRequestedForPresentation {
+            if sceneLoader.requestedForPresentation {
                 self.presentSceneFor(sceneLoader)
             }
             
             // Reset the scene loader's presentation preference.
-            sceneLoader.isRequestedForPresentation = false
+            sceneLoader.requestedForPresentation = false
         }
     }
     

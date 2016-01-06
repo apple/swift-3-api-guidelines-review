@@ -155,7 +155,7 @@ class ProgressScene: BaseScene {
             case .Retry:
                 // Set up the progress for a new preparation attempt.
                 progress = sceneLoader.asynchronouslyLoadSceneForPresentation()
-                sceneLoader.isRequestedForPresentation = true
+                sceneLoader.requestedForPresentation = true
                 showDefaultState()
             
             case .Cancel:
@@ -185,12 +185,12 @@ class ProgressScene: BaseScene {
     }
     
     func showDefaultState() {
-        progressBarNode.isHidden = false
+        progressBarNode.hidden = false
         
         // Only display the "Cancel" button.
-        buttonWith(.Home)?.isHidden = true
-        buttonWith(.Retry)?.isHidden = true
-        buttonWith(.Cancel)?.isHidden = false
+        buttonWith(.Home)?.hidden = true
+        buttonWith(.Retry)?.hidden = true
+        buttonWith(.Cancel)?.hidden = false
         
         // Reset the button focus.
         resetFocus()
@@ -201,12 +201,12 @@ class ProgressScene: BaseScene {
         progress = nil
         
         // Display "Quit" and "Retry" buttons.
-        buttonWith(.Home)?.isHidden = false
-        buttonWith(.Retry)?.isHidden = false
-        buttonWith(.Cancel)?.isHidden = true
+        buttonWith(.Home)?.hidden = false
+        buttonWith(.Retry)?.hidden = false
+        buttonWith(.Cancel)?.hidden = true
         
         // Hide normal state.
-        progressBarNode.isHidden = true
+        progressBarNode.hidden = true
         progressBarNode.size.width = 0.0
         
         // Reset the button focus.

@@ -115,13 +115,13 @@ class ButtonNode: SKSpriteNode {
                 run(SKAction.scaleTo(1.08, duration: 0.20))
                 
                 focusRing.alpha = 0.0
-                focusRing.isHidden = false
+                focusRing.hidden = false
                 focusRing.run(SKAction.fadeInWithDuration(0.2))
             }
             else {
                 run(SKAction.scaleTo(1.0, duration: 0.20))
                 
-                focusRing.isHidden = true
+                focusRing.hidden = true
             }
         }
     }
@@ -158,10 +158,10 @@ class ButtonNode: SKSpriteNode {
         }
 
         // The focus ring should be hidden until the button is given the input focus.
-        focusRing.isHidden = true
+        focusRing.hidden = true
 
         // Enable user interaction on the button node to detect tap and click events.
-        isUserInteractionEnabled = true
+        userInteractionEnabled = true
     }
     
     override func copyWith(zone: NSZone) -> AnyObject {
@@ -176,7 +176,7 @@ class ButtonNode: SKSpriteNode {
     }
     
     func buttonTriggered() {
-        if isUserInteractionEnabled {
+        if userInteractionEnabled {
             // Forward the button press event through to the responder.
             responder.buttonTriggered(self)
         }

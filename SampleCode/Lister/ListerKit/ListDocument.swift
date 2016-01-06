@@ -70,7 +70,7 @@ public class ListDocument: UIDocument {
     override public func saveTo(url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation, completionHandler: ((Bool) -> Void)?) {
         super.saveTo(url, forSaveOperation: saveOperation) { success in
             // On a successful save, transfer the file to the paired watch if appropriate.
-            if WCSession.isSupported() && WCSession.defaultSession().isWatchAppInstalled && success {
+            if WCSession.isSupported() && WCSession.defaultSession().watchAppInstalled && success {
                 let fileCoordinator = NSFileCoordinator()
                 let readingIntent = NSFileAccessIntent.readingIntentWith(url)
                 fileCoordinator.coordinateAccessWith([readingIntent], queue: NSOperationQueue()) { accessError in

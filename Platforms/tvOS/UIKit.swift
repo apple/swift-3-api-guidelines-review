@@ -125,19 +125,19 @@ let NSDefaultTabIntervalDocumentAttribute: String
 let NSTextLayoutSectionsAttribute: String
 extension NSAttributedString {
   @available(tvOS 9.0, *)
-  init(url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(url: NSURL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(tvOS 7.0, *)
-  init(data: NSData, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(data: NSData, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(tvOS 7.0, *)
-  func dataFrom(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSData
+  func dataFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> NSData
   @available(tvOS 7.0, *)
-  func fileWrapperFrom(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSFileWrapper
+  func fileWrapperFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> NSFileWrapper
 }
 extension NSMutableAttributedString {
   @available(tvOS 9.0, *)
-  func readFrom(url: NSURL, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func readFrom(url: NSURL, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(tvOS 7.0, *)
-  func readFrom(data: NSData, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func readFrom(data: NSData, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
 
 /************************ Misc methods ************************/
@@ -456,7 +456,7 @@ class NSLayoutManager : NSObject, NSCoding {
   func drawBackgroundForGlyphRange(glyphsToShow: NSRange, at origin: CGPoint)
   func drawGlyphsForGlyphRange(glyphsToShow: NSRange, at origin: CGPoint)
   @available(tvOS 7.0, *)
-  func showCGGlyphs(glyphs: UnsafePointer<CGGlyph>, positions: UnsafePointer<CGPoint>, count glyphCount: Int, font: UIFont, matrix textMatrix: CGAffineTransform, attributes: [String : AnyObject], in graphicsContext: CGContext)
+  func showCGGlyphs(glyphs: UnsafePointer<CGGlyph>, positions: UnsafePointer<CGPoint>, count glyphCount: Int, font: UIFont, matrix textMatrix: CGAffineTransform, attributes: [String : AnyObject] = [:], in graphicsContext: CGContext)
   @available(tvOS 7.0, *)
   func fillBackgroundRectArray(rectArray: UnsafePointer<CGRect>, count rectCount: Int, forCharacterRange charRange: NSRange, color: UIColor)
   func drawUnderlineForGlyphRange(glyphRange: NSRange, underlineType underlineVal: NSUnderlineStyle, baselineOffset: CGFloat, lineFragmentRect lineRect: CGRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: CGPoint)
@@ -520,7 +520,7 @@ let NSTabColumnTerminatorsAttributeName: String
 class NSTextTab : NSObject, NSCopying, NSCoding {
   @available(tvOS 7.0, *)
   class func columnTerminatorsFor(aLocale: NSLocale?) -> NSCharacterSet
-  init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options: [String : AnyObject])
+  init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options: [String : AnyObject] = [:])
   var alignment: NSTextAlignment { get }
   var location: CGFloat { get }
   var options: [String : AnyObject] { get }
@@ -627,11 +627,11 @@ class NSStringDrawingContext : NSObject {
 }
 extension NSString {
   @available(tvOS 7.0, *)
-  func sizeWithAttributes(attrs: [String : AnyObject]?) -> CGSize
+  func size(attributes attrs: [String : AnyObject]? = [:]) -> CGSize
   @available(tvOS 7.0, *)
-  func drawAt(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
+  func drawAt(point: CGPoint, withAttributes attrs: [String : AnyObject]? = [:])
   @available(tvOS 7.0, *)
-  func drawIn(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
+  func drawIn(rect: CGRect, withAttributes attrs: [String : AnyObject]? = [:])
 }
 extension NSAttributedString {
   @available(tvOS 6.0, *)
@@ -653,9 +653,9 @@ struct NSStringDrawingOptions : OptionSetType {
 }
 extension NSString {
   @available(tvOS 7.0, *)
-  func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
+  func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?)
   @available(tvOS 7.0, *)
-  func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
+  func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?) -> CGRect
 }
 extension NSAttributedString {
   @available(tvOS 6.0, *)
@@ -806,11 +806,11 @@ class NSTextStorage : NSMutableAttributedString {
   init()
   init?(coder aDecoder: NSCoder)
   @available(tvOS 9.0, *)
-  init(url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(url: NSURL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(tvOS 7.0, *)
-  init(data: NSData, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(data: NSData, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   init(string str: String)
-  init(string str: String, attributes attrs: [String : AnyObject]?)
+  init(string str: String, attributes attrs: [String : AnyObject]? = [:])
   init(attributedString attrStr: NSAttributedString)
 }
 
@@ -1308,15 +1308,15 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(tvOS 2.0, *)
   optional func applicationDidFinishLaunching(application: UIApplication)
   @available(tvOS 6.0, *)
-  optional func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool
+  optional func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]? = [:]) -> Bool
   @available(tvOS 3.0, *)
-  optional func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool
+  optional func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]? = [:]) -> Bool
   @available(tvOS 2.0, *)
   optional func applicationDidBecomeActive(application: UIApplication)
   @available(tvOS 2.0, *)
   optional func applicationWillResignActive(application: UIApplication)
   @available(tvOS 9.0, *)
-  optional func application(app: UIApplication, open url: NSURL, options: [String : AnyObject]) -> Bool
+  optional func application(app: UIApplication, open url: NSURL, options: [String : AnyObject] = [:]) -> Bool
   @available(tvOS 2.0, *)
   optional func applicationDidReceiveMemoryWarning(application: UIApplication)
   @available(tvOS 2.0, *)
@@ -1676,7 +1676,7 @@ class UIBarItem : NSObject, NSCoding, UIAppearance {
   var imageInsets: UIEdgeInsets
   var tag: Int
   @available(tvOS 5.0, *)
-  func setTitleTextAttributes(attributes: [String : AnyObject]?, forState state: UIControlState)
+  func setTitleTextAttributes(attributes: [String : AnyObject]? = [:], forState state: UIControlState)
   @available(tvOS 5.0, *)
   func titleTextAttributesFor(state: UIControlState) -> [String : AnyObject]?
   @available(tvOS 2.0, *)
@@ -2954,8 +2954,8 @@ class UIFontDescriptor : NSObject, NSCopying, NSSecureCoding {
   /*not inherited*/ init(name fontName: String, size: CGFloat)
   /*not inherited*/ init(name fontName: String, matrix: CGAffineTransform)
   class func preferredFontDescriptorWithTextStyle(style: String) -> UIFontDescriptor
-  init(fontAttributes attributes: [String : AnyObject])
-  func addingAttributes(attributes: [String : AnyObject]) -> UIFontDescriptor
+  init(fontAttributes attributes: [String : AnyObject] = [:])
+  func addingAttributes(attributes: [String : AnyObject] = [:]) -> UIFontDescriptor
   func withSymbolicTraits(symbolicTraits: UIFontDescriptorSymbolicTraits) -> UIFontDescriptor
   func withSize(newPointSize: CGFloat) -> UIFontDescriptor
   func withMatrix(matrix: CGAffineTransform) -> UIFontDescriptor
@@ -3354,7 +3354,7 @@ extension CIImage {
   @available(tvOS 5.0, *)
   init?(image: UIImage)
   @available(tvOS 5.0, *)
-  init?(image: UIImage, options: [NSObject : AnyObject]?)
+  init?(image: UIImage, options: [NSObject : AnyObject]? = [:])
 }
 func UIImagePNGRepresentation(image: UIImage) -> NSData?
 func UIImageJPEGRepresentation(image: UIImage, _ compressionQuality: CGFloat) -> NSData?
@@ -3727,13 +3727,13 @@ extension UIViewController {
 class UINib : NSObject {
   /*not inherited*/ init(nibName name: String, bundle bundleOrNil: NSBundle?)
   /*not inherited*/ init(data: NSData, bundle bundleOrNil: NSBundle?)
-  func instantiateWithOwner(ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]?) -> [AnyObject]
+  func instantiateWithOwner(ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = [:]) -> [AnyObject]
   init()
 }
 @available(tvOS 3.0, *)
 let UINibExternalObjects: String
 extension NSBundle {
-  func loadNibNamed(name: String!, owner: AnyObject!, options: [NSObject : AnyObject]!) -> [AnyObject]!
+  func loadNibNamed(name: String!, owner: AnyObject!, options: [NSObject : AnyObject]! = [:]) -> [AnyObject]!
 }
 extension NSObject {
   class func awakeFromNib()
@@ -3790,7 +3790,7 @@ let UIPageViewControllerOptionSpineLocationKey: String
 let UIPageViewControllerOptionInterPageSpacingKey: String
 @available(tvOS 5.0, *)
 class UIPageViewController : UIViewController {
-  init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : AnyObject]?)
+  init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : AnyObject]? = [:])
   init?(coder: NSCoder)
   weak var delegate: @sil_weak UIPageViewControllerDelegate?
   weak var dataSource: @sil_weak UIPageViewControllerDataSource?
@@ -4489,7 +4489,7 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(tvOS 5.0, *)
   func scopeBarButtonDividerImageForLeftSegmentState(leftState: UIControlState, rightSegmentState rightState: UIControlState) -> UIImage?
   @available(tvOS 5.0, *)
-  func setScopeBarButtonTitleTextAttributes(attributes: [String : AnyObject]?, forState state: UIControlState)
+  func setScopeBarButtonTitleTextAttributes(attributes: [String : AnyObject]? = [:], forState state: UIControlState)
   @available(tvOS 5.0, *)
   func scopeBarButtonTitleTextAttributesFor(state: UIControlState) -> [String : AnyObject]?
   @available(tvOS 5.0, *)
@@ -4634,7 +4634,7 @@ class UISegmentedControl : UIControl, NSCoding {
   @available(tvOS 5.0, *)
   func dividerImageForLeftSegmentState(leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
   @available(tvOS 5.0, *)
-  func setTitleTextAttributes(attributes: [NSObject : AnyObject]?, forState state: UIControlState)
+  func setTitleTextAttributes(attributes: [NSObject : AnyObject]? = [:], forState state: UIControlState)
   @available(tvOS 5.0, *)
   func titleTextAttributesFor(state: UIControlState) -> [NSObject : AnyObject]?
   @available(tvOS 5.0, *)

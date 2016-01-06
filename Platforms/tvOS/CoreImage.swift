@@ -26,17 +26,17 @@ class CIColor : NSObject, NSSecureCoding, NSCopying {
 @available(tvOS 5.0, *)
 class CIContext : NSObject {
   @available(tvOS 9.0, *)
-  /*not inherited*/ init(cgContext cgctx: CGContext, options: [String : AnyObject]?)
+  /*not inherited*/ init(cgContext cgctx: CGContext, options: [String : AnyObject]? = [:])
   @available(tvOS 5.0, *)
-  /*not inherited*/ init(options: [String : AnyObject]?)
+  /*not inherited*/ init(options: [String : AnyObject]? = [:])
   @available(tvOS 5.0, *)
   /*not inherited*/ init(eaglContext: EAGLContext)
   @available(tvOS 5.0, *)
-  /*not inherited*/ init(eaglContext: EAGLContext, options: [String : AnyObject]?)
+  /*not inherited*/ init(eaglContext: EAGLContext, options: [String : AnyObject]? = [:])
   @available(tvOS 9.0, *)
   /*not inherited*/ init(mtlDevice device: MTLDevice)
   @available(tvOS 9.0, *)
-  /*not inherited*/ init(mtlDevice device: MTLDevice, options: [String : AnyObject]?)
+  /*not inherited*/ init(mtlDevice device: MTLDevice, options: [String : AnyObject]? = [:])
   @available(tvOS 9.0, *)
   var workingColorSpace: CGColorSpace { get }
   func draw(image: CIImage, in inRect: CGRect, from fromRect: CGRect)
@@ -86,7 +86,7 @@ class CIDetector : NSObject {
    
    The options parameter lets you optinally specify a accuracy / performance tradeoff. Can be nil or an empty dictionary. */
   @available(tvOS 5.0, *)
-  /*not inherited*/ init(ofType type: String, context: CIContext?, options: [String : AnyObject]?)
+  /*not inherited*/ init(ofType type: String, context: CIContext?, options: [String : AnyObject]? = [:])
 
   /** Returns an array of CIFeature instances in the given image.
    The array is sorted by confidence, highest confidence first. */
@@ -97,7 +97,7 @@ class CIDetector : NSObject {
    The array is sorted by confidence, highest confidence first. 
    The options dictionary can contain a CIDetectorImageOrientation key value. */
   @available(tvOS 5.0, *)
-  func featuresIn(image: CIImage, options: [String : AnyObject]?) -> [CIFeature]
+  func featuresIn(image: CIImage, options: [String : AnyObject]? = [:]) -> [CIFeature]
   init()
 }
 @available(tvOS 5.0, *)
@@ -465,7 +465,7 @@ extension CIFilter {
    @param   attributes    Dictionary of the registration attributes of the filter. See below for attribute keys.
   */
   @available(tvOS 9.0, *)
-  class func registerFilterName(name: String, constructor anObject: CIFilterConstructor, classAttributes attributes: [String : AnyObject])
+  class func registerFilterName(name: String, constructor anObject: CIFilterConstructor, classAttributes attributes: [String : AnyObject] = [:])
 
   /** Returns the localized name of a filter for display in the UI. */
   @available(tvOS 9.0, *)
@@ -515,24 +515,24 @@ class CIFilterShape : NSObject, NSCopying {
 class CIImage : NSObject, NSSecureCoding, NSCopying {
   class func empty() -> CIImage
   init(cgImage image: CGImage)
-  init(cgImage image: CGImage, options: [String : AnyObject]?)
+  init(cgImage image: CGImage, options: [String : AnyObject]? = [:])
   init?(data: NSData)
-  init?(data: NSData, options: [String : AnyObject]?)
+  init?(data: NSData, options: [String : AnyObject]? = [:])
   init(bitmapData data: NSData, bytesPerRow: Int, size: CGSize, format: CIFormat, colorSpace: CGColorSpace?)
   @available(tvOS 6.0, *)
   init(texture name: UInt32, size: CGSize, flipped: Bool, colorSpace: CGColorSpace?)
   @available(tvOS 9.0, *)
-  init(mtlTexture texture: MTLTexture, options: [String : AnyObject]?)
+  init(mtlTexture texture: MTLTexture, options: [String : AnyObject]? = [:])
   init?(contentsOf url: NSURL)
-  init?(contentsOf url: NSURL, options: [String : AnyObject]?)
+  init?(contentsOf url: NSURL, options: [String : AnyObject]? = [:])
   @available(tvOS 9.0, *)
   init(cvImageBuffer imageBuffer: CVImageBuffer)
   @available(tvOS 9.0, *)
-  init(cvImageBuffer imageBuffer: CVImageBuffer, options: [String : AnyObject]?)
+  init(cvImageBuffer imageBuffer: CVImageBuffer, options: [String : AnyObject]? = [:])
   @available(tvOS 5.0, *)
   init(cvPixelBuffer pixelBuffer: CVPixelBuffer)
   @available(tvOS 5.0, *)
-  init(cvPixelBuffer pixelBuffer: CVPixelBuffer, options: [String : AnyObject]?)
+  init(cvPixelBuffer pixelBuffer: CVPixelBuffer, options: [String : AnyObject]? = [:])
   init(color: CIColor)
   func applying(matrix: CGAffineTransform) -> CIImage
   @available(tvOS 8.0, *)
@@ -604,7 +604,7 @@ let kCIImageColorSpace: String
 let kCIImageProperties: String
 extension CIImage {
   @available(tvOS 5.0, *)
-  func autoAdjustmentFiltersWithOptions(options: [String : AnyObject]?) -> [CIFilter]
+  func autoAdjustmentFilters(options options: [String : AnyObject]? = [:]) -> [CIFilter]
 }
 @available(tvOS 5.0, *)
 let kCIImageAutoAdjustEnhance: String
@@ -631,7 +631,7 @@ class CIImageAccumulator : NSObject {
 }
 extension CIImage {
   @available(tvOS 9.0, *)
-  init(imageProvider p: AnyObject, size width: Int, _ height: Int, format f: CIFormat, colorSpace cs: CGColorSpace?, options: [String : AnyObject]?)
+  init(imageProvider p: AnyObject, size width: Int, _ height: Int, format f: CIFormat, colorSpace cs: CGColorSpace?, options: [String : AnyObject]? = [:])
 }
 
 /** Informal protocol used to lazily supply image data. */
@@ -677,7 +677,7 @@ class CIWarpKernel : CIKernel {
 @available(tvOS 9.0, *)
 class CISampler : NSObject, NSCopying {
   convenience init(image im: CIImage)
-  init(image im: CIImage, options dict: [NSObject : AnyObject]?)
+  init(image im: CIImage, options dict: [NSObject : AnyObject]? = [:])
   var definition: CIFilterShape { get }
   var extent: CGRect { get }
   convenience init()

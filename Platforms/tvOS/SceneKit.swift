@@ -2818,7 +2818,7 @@ class SCNNode : NSObject, NSCopying, NSSecureCoding, SCNAnimatable, SCNActionabl
    @discussion See SCNSceneRenderer.h for a screen-space hit testing method.
    */
   @available(tvOS 8.0, *)
-  func hitTestWithSegmentFromPoint(pointA: SCNVector3, toPoint pointB: SCNVector3, options: [String : AnyObject]?) -> [SCNHitTestResult]
+  func hitTestWithSegmentFromPoint(pointA: SCNVector3, toPoint pointB: SCNVector3, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
 
   /*!
    @property categoryBitMask
@@ -4520,8 +4520,8 @@ let SCNPhysicsShapeScaleKey: String
  */
 @available(tvOS 8.0, *)
 class SCNPhysicsShape : NSObject, NSCopying, NSSecureCoding {
-  convenience init(geometry: SCNGeometry, options: [String : AnyObject]?)
-  convenience init(node: SCNNode, options: [String : AnyObject]?)
+  convenience init(geometry: SCNGeometry, options: [String : AnyObject]? = [:])
+  convenience init(node: SCNNode, options: [String : AnyObject]? = [:])
   convenience init(shapes: [SCNPhysicsShape], transforms: [NSValue]?)
   @available(tvOS 9.0, *)
   var options: [String : AnyObject]? { get }
@@ -4577,10 +4577,10 @@ class SCNPhysicsWorld : NSObject, NSSecureCoding {
   func remove(behavior: SCNPhysicsBehavior)
   func removeAllBehaviors()
   var allBehaviors: [SCNPhysicsBehavior] { get }
-  func rayTestWithSegmentFromPoint(origin: SCNVector3, toPoint dest: SCNVector3, options: [String : AnyObject]?) -> [SCNHitTestResult]
-  func contactTestBetweenBody(bodyA: SCNPhysicsBody, andBody bodyB: SCNPhysicsBody, options: [String : AnyObject]?) -> [SCNPhysicsContact]
-  func contactTestWith(body: SCNPhysicsBody, options: [String : AnyObject]?) -> [SCNPhysicsContact]
-  func convexSweepTestWith(shape: SCNPhysicsShape, fromTransform from: SCNMatrix4, toTransform to: SCNMatrix4, options: [String : AnyObject]?) -> [SCNPhysicsContact]
+  func rayTestWithSegmentFromPoint(origin: SCNVector3, toPoint dest: SCNVector3, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
+  func contactTestBetweenBody(bodyA: SCNPhysicsBody, andBody bodyB: SCNPhysicsBody, options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
+  func contactTestWith(body: SCNPhysicsBody, options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
+  func convexSweepTestWith(shape: SCNPhysicsShape, fromTransform from: SCNMatrix4, toTransform to: SCNMatrix4, options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
   func updateCollisionPairs()
   init()
   @available(tvOS 8.0, *)
@@ -4669,7 +4669,7 @@ class SCNRenderer : NSObject, SCNSceneRenderer, SCNTechniqueSupport {
    @param context The context to render into.
    @param options An optional dictionary for future extensions.
    */
-  convenience init(context: EAGLContext, options: [NSObject : AnyObject]?)
+  convenience init(context: EAGLContext, options: [NSObject : AnyObject]? = [:])
 
   /*!
    @method rendererWithDevice:options:
@@ -4678,7 +4678,7 @@ class SCNRenderer : NSObject, SCNSceneRenderer, SCNTechniqueSupport {
    @param options An optional dictionary for future extensions.
    */
   @available(tvOS 9.0, *)
-  convenience init(device: MTLDevice?, options: [NSObject : AnyObject]?)
+  convenience init(device: MTLDevice?, options: [NSObject : AnyObject]? = [:])
 
   /*! 
    @property scene
@@ -4740,7 +4740,7 @@ class SCNRenderer : NSObject, SCNSceneRenderer, SCNTechniqueSupport {
    @param options Optional parameters (see the "Hit test options" group for the available options).
    */
   @available(tvOS 8.0, *)
-  func hitTest(point: CGPoint, options: [String : AnyObject]?) -> [SCNHitTestResult]
+  func hitTest(point: CGPoint, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
 
   /*!
    @method isNodeInsideFrustum:withPointOfView:
@@ -5021,7 +5021,7 @@ class SCNScene : NSObject, NSSecureCoding {
    @discussion This method initializes with no options and does not check for errors. The resulting object is not cached.
    */
   @available(tvOS 8.0, *)
-  convenience init?(named name: String, inDirectory directory: String?, options: [String : AnyObject]?)
+  convenience init?(named name: String, inDirectory directory: String?, options: [String : AnyObject]? = [:])
 
   /*!
    @method sceneWithURL:options:error:
@@ -5032,7 +5032,7 @@ class SCNScene : NSObject, NSSecureCoding {
    @discussion This method is here for convenience. It is equivalent to initializing a SCNSceneSource with the specified
    url and options, and asking it for its scene with the same options.
    */
-  convenience init(url: NSURL, options: [String : AnyObject]?) throws
+  convenience init(url: NSURL, options: [String : AnyObject]? = [:]) throws
 
   /*!
    @property fogStartDistance
@@ -5207,7 +5207,7 @@ protocol SCNSceneRenderer : NSObjectProtocol {
    @param options Optional parameters (see the "Hit test options" group for the available options).
    */
   @available(tvOS 8.0, *)
-  func hitTest(point: CGPoint, options: [String : AnyObject]?) -> [SCNHitTestResult]
+  func hitTest(point: CGPoint, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
 
   /*!
    @method isNodeInsideFrustum:withPointOfView:
@@ -5635,7 +5635,7 @@ class SCNSceneSource : NSObject {
    @param url The URL to read scenes from.
    @param options An optional dictionary for future extensions. 
    */
-  init?(url: NSURL, options: [String : AnyObject]?)
+  init?(url: NSURL, options: [String : AnyObject]? = [:])
 
   /*!
    @method initWithData:options:
@@ -5643,7 +5643,7 @@ class SCNSceneSource : NSObject {
    @param data The data to read scenes from.
    @param options An optional dictionary for future extensions. 
    */
-  init?(data: NSData, options: [String : AnyObject]?)
+  init?(data: NSData, options: [String : AnyObject]? = [:])
 
   /*!
    @property url
@@ -5667,7 +5667,7 @@ class SCNSceneSource : NSObject {
   					  - If status == SCNSceneStatusError, then error will contain more information about the failure, and the method will return nil after having called the block. Otherwise error will be nil.
   					  - Set *stop to YES if you want the source to abort the loading operation.
    */
-  func sceneWithOptions(options: [String : AnyObject]?, statusHandler: SCNSceneSourceStatusHandler? = nil) -> SCNScene?
+  func scene(options options: [String : AnyObject]? = [:], statusHandler: SCNSceneSourceStatusHandler? = nil) -> SCNScene?
 
   /*!
    @method sceneWithOptions:error:
@@ -5677,7 +5677,7 @@ class SCNSceneSource : NSObject {
    @discussion This simpler version is equivalent to providing a block to sceneWithOptions:statusHandler: and checking the "error"
    parameter of the block if the status is SCNSceneStatusError.
    */
-  func sceneWithOptions(options: [String : AnyObject]?) throws -> SCNScene
+  func scene(options options: [String : AnyObject]? = [:]) throws -> SCNScene
 
   /*!
    @method propertyForKey:
@@ -5944,7 +5944,7 @@ class SCNProgram : NSObject, NSCopying, NSSecureCoding {
    @param options An optional dictionary. See the 'Semantic options' above.
    @discussion Associates semantics handled by the SceneKit runtime to a symbol from the program. Supported semantics are listed in SCNGeometry.h and SCNNode.h.
    */
-  func setSemantic(semantic: String?, forSymbol symbol: String, options: [String : AnyObject]?)
+  func setSemantic(semantic: String?, forSymbol symbol: String, options: [String : AnyObject]? = [:])
 
   /*!
    @method semanticForSymbol:
@@ -6613,7 +6613,7 @@ class SCNView : UIView, SCNSceneRenderer, SCNTechniqueSupport {
    @param frame The frame rectangle for the created view object.
    @param options An optional dictionary. See "View initialization options" above.
    */
-  init(frame: CGRect, options: [String : AnyObject]?)
+  init(frame: CGRect, options: [String : AnyObject]? = [:])
 
   /*! 
    @property scene
@@ -6716,7 +6716,7 @@ class SCNView : UIView, SCNSceneRenderer, SCNTechniqueSupport {
    @param options Optional parameters (see the "Hit test options" group for the available options).
    */
   @available(tvOS 8.0, *)
-  func hitTest(point: CGPoint, options: [String : AnyObject]?) -> [SCNHitTestResult]
+  func hitTest(point: CGPoint, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
 
   /*!
    @method isNodeInsideFrustum:withPointOfView:

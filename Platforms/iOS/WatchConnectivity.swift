@@ -84,10 +84,10 @@ class WCSession : NSObject {
 
   /** The system will enqueue the user info dictionary and transfer it to the counterpart app at an opportune time. The transfer of user info will continue after the sending app has exited. The counterpart app will receive a delegate callback on next launch if the file has successfully arrived. The userInfo dictionary can only accept the property list types.
    */
-  func transferUserInfo(userInfo: [String : AnyObject]) -> WCSessionUserInfoTransfer
+  func transferUserInfo(userInfo: [String : AnyObject] = [:]) -> WCSessionUserInfoTransfer
 
   /** Enqueues a user info dictionary containing the most current information for an enabled complication. If the app's complication is enabled the system will try to transfer this user info immediately. Once a current complication user info is received the system will launch the Watch App Extension in the background and allow it to update the complication content. If the current user info cannot be transferred (i.e. devices disconnected, out of background launch budget, etc.) it will wait in the outstandingUserInfoTransfers queue until next opportune time. There can only be one current complication user info in the outstandingUserInfoTransfers queue. If a current complication user info is outstanding (waiting to transfer) and -transferCurrentComplicationUserInfo: is called again with new user info, the new user info will be tagged as current and the previously current user info will be untagged. The previous user info will however stay in the queue of outstanding transfers. */
-  func transferCurrentComplicationUserInfo(userInfo: [String : AnyObject]) -> WCSessionUserInfoTransfer
+  func transferCurrentComplicationUserInfo(userInfo: [String : AnyObject] = [:]) -> WCSessionUserInfoTransfer
 
   /** Returns an array of user info transfers that are still transferring (i.e. have not been cancelled, failed, or been received by the counterpart app).*/
   var outstandingUserInfoTransfers: [WCSessionUserInfoTransfer] { get }
@@ -141,7 +141,7 @@ protocol WCSessionDelegate : NSObjectProtocol {
 
   /** Called on the delegate of the receiver. Will be called on startup if the user info finished transferring when the receiver was not running. */
   @available(iOS 9.0, *)
-  optional func session(session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject])
+  optional func session(session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject] = [:])
 
   /** Called on the sending side after the file transfer has successfully completed or failed with an error. Will be called on next launch if the sender was not running when the transfer finished. */
   @available(iOS 9.0, *)

@@ -133,7 +133,7 @@ class TaskBot: GKEntity, ContactNotifiableType, GKAgentDelegate, RulesComponentD
                 debugColor = SKColor.yellow()
         }
 
-        if levelScene.isDebugDrawingEnabled {
+        if levelScene.debugDrawingEnabled {
             drawDebugPath(debugPathPoints, cycle: debugPathShouldCycle, color: debugColor, radius: radius)
         }
         else {

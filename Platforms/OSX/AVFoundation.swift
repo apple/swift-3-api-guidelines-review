@@ -379,7 +379,7 @@ class AVURLAsset : AVAsset {
   				An instance of NSDictionary that contains keys for specifying options for the initialization of the AVURLAsset. See AVURLAssetPreferPreciseDurationAndTimingKey and AVURLAssetReferenceRestrictionsKey above.
     @result		An instance of AVURLAsset.
   */
-  init(url URL: NSURL, options: [String : AnyObject]?)
+  init(url URL: NSURL, options: [String : AnyObject]? = [:])
   @NSCopying var url: NSURL { get }
 
   /*!
@@ -494,7 +494,7 @@ class AVFragmentedAsset : AVURLAsset, AVFragmentMinding {
   				An instance of NSDictionary that contains keys for specifying options for the initialization of the AVURLAsset. See AVURLAssetPreferPreciseDurationAndTimingKey and AVURLAssetReferenceRestrictionsKey above.
     @result		An instance of AVURLAsset.
   */
-  init(url URL: NSURL, options: [String : AnyObject]?)
+  init(url URL: NSURL, options: [String : AnyObject]? = [:])
 
   /*!
     @method		assetWithURL:
@@ -1794,7 +1794,7 @@ extension AVAssetResourceLoadingRequest {
    				If obtaining the streaming content key request fails, will be set to an instance of NSError describing the failure.
    @result		The key request data that must be transmitted to the key vendor to obtain the content key.
   */
-  func streamingContentKeyRequestDataForApp(appIdentifier: NSData, contentIdentifier: NSData, options: [String : AnyObject]?) throws -> NSData
+  func streamingContentKeyRequestDataForApp(appIdentifier: NSData, contentIdentifier: NSData, options: [String : AnyObject]? = [:]) throws -> NSData
 }
 extension AVAssetResourceLoadingRequest {
 }
@@ -3024,7 +3024,7 @@ class AVAssetWriterInputPixelBufferAdaptor : NSObject {
   	
   	It is an error to initialize an instance of AVAssetWriterInputPixelBufferAdaptor with an asset writer input that is already attached to another instance of AVAssetWriterInputPixelBufferAdaptor.  It is also an error to initialize an instance of AVAssetWriterInputPixelBufferAdaptor with an asset writer input whose asset writer has progressed beyond AVAssetWriterStatusUnknown.
    */
-  init(assetWriterInput input: AVAssetWriterInput, sourcePixelBufferAttributes: [String : AnyObject]?)
+  init(assetWriterInput input: AVAssetWriterInput, sourcePixelBufferAttributes: [String : AnyObject]? = [:])
 
   /*!
    @property assetWriterInput
@@ -11710,7 +11710,7 @@ class AVMutableComposition : AVComposition {
   	@discussion		AVMutableCompositions create AVURLAssets internally for URLs specified by AVCompositionTrackSegments of AVMutableCompositionTracks, as needed, whenever AVCompositionTrackSegments are added to tracks via -[AVMutableCompositionTrack setSegments:] rather than by inserting timeranges of already existing AVAssets or AVAssetTracks.
    */
   @available(OSX 10.11, *)
-  convenience init(urlAssetInitializationOptions URLAssetInitializationOptions: [String : AnyObject]?)
+  convenience init(urlAssetInitializationOptions URLAssetInitializationOptions: [String : AnyObject]? = [:])
 
   /*!
     @method		assetWithURL:
@@ -14296,7 +14296,7 @@ class AVMovie : AVAsset, NSCopying, NSMutableCopying {
                       If you want to create an AVMutableMovie from a file and then append sample buffers to any of its tracks, you must first set one of these properties 
                       to indicate where the sample data should be written.
   */
-  init(url URL: NSURL, options: [String : AnyObject]?)
+  init(url URL: NSURL, options: [String : AnyObject]? = [:])
 
   /*!
   	@method			initWithData:options:
@@ -14311,7 +14311,7 @@ class AVMovie : AVAsset, NSCopying, NSMutableCopying {
                       By default, the defaultMediaDataStorage property will be nil and each associated AVMovieTrack's mediaDataStorage property will be nil. If you want to create an AVMutableMovie from an NSData object and then append sample buffers to any of its tracks, you must first set one of these properties to indicate where the sample data should be written.
   */
   @available(OSX 10.11, *)
-  init(data: NSData, options: [String : AnyObject]?)
+  init(data: NSData, options: [String : AnyObject]? = [:])
 
   /*!
   	@property       URL
@@ -14484,7 +14484,7 @@ class AVMutableMovie : AVMovie {
                       If you want to create an AVMutableMovie from a file and then append sample buffers to any of its tracks, you must first set one of these properties 
                       to indicate where the sample data should be written.
   */
-  init(url URL: NSURL, options: [String : AnyObject]?, error: ()) throws
+  init(url URL: NSURL, options: [String : AnyObject]? = [:], error: ()) throws
 
   /*!
   	@method			initWithData:options:error:
@@ -14500,7 +14500,7 @@ class AVMutableMovie : AVMovie {
    
                       By default, the defaultMediaDataStorage property will be nil and each associated AVMutableMovieTrack's mediaDataStorage property will be nil. If you want to create an AVMutableMovie from an NSData object and then append sample buffers to any of its tracks, you must first set one of these properties to indicate where the sample data should be written.
   */
-  init(data: NSData, options: [String : AnyObject]?, error: ()) throws
+  init(data: NSData, options: [String : AnyObject]? = [:], error: ()) throws
 
   /*!
   	@method			initWithSettingsFromMovie:options:error:
@@ -14516,7 +14516,7 @@ class AVMutableMovie : AVMovie {
                       By default, the defaultMediaDataStorage property will be nil and each associated AVMovieTrack's mediaDataStorage property will be nil.
                       If you want to create an AVMutableMovie from an NSData object and then append sample buffers to any of its tracks, you must first set one of these properties to indicate where the sample data should be written.
   */
-  init(settingsFrom movie: AVMovie?, options: [String : AnyObject]?) throws
+  init(settingsFrom movie: AVMovie?, options: [String : AnyObject]? = [:]) throws
 
   /*!
   	@property       preferredRate
@@ -14565,7 +14565,7 @@ class AVMutableMovie : AVMovie {
                       If you want to create an AVMutableMovie from a file and then append sample buffers to any of its tracks, you must first set one of these properties 
                       to indicate where the sample data should be written.
   */
-  convenience init(url URL: NSURL, options: [String : AnyObject]?)
+  convenience init(url URL: NSURL, options: [String : AnyObject]? = [:])
 
   /*!
   	@method			initWithData:options:
@@ -14580,7 +14580,7 @@ class AVMutableMovie : AVMovie {
                       By default, the defaultMediaDataStorage property will be nil and each associated AVMovieTrack's mediaDataStorage property will be nil. If you want to create an AVMutableMovie from an NSData object and then append sample buffers to any of its tracks, you must first set one of these properties to indicate where the sample data should be written.
   */
   @available(OSX 10.11, *)
-  convenience init(data: NSData, options: [String : AnyObject]?)
+  convenience init(data: NSData, options: [String : AnyObject]? = [:])
 
   /*!
     @method		assetWithURL:
@@ -14697,7 +14697,7 @@ extension AVMutableMovie {
   	@result			An AVMutableMovieTrack object
       @discussion		The trackID of the newly added track is a property of the returned instance of AVMutableMovieTrack.
   */
-  func addMutableTrackWithMediaType(mediaType: String, copySettingsFrom track: AVAssetTrack?, options: [String : AnyObject]?) -> AVMutableMovieTrack
+  func addMutableTrackWithMediaType(mediaType: String, copySettingsFrom track: AVAssetTrack?, options: [String : AnyObject]? = [:]) -> AVMutableMovieTrack
 
   /*!
   	@method			addMutableTracksCopyingSettingsFromTracks:options:
@@ -14709,7 +14709,7 @@ extension AVMutableMovie {
   	@result			An array of AVMutableMovieTrack objects; the index of a track in this array is the same as the index of its source track in the existingTracks array.
       @discussion		This method creates one or more empty tracks in the target movie and configures those tracks with settings (such as track userdata and metadata, width, height, and preferred volume) copied from the source tracks in the existingTracks array. Also, properties involving pairs of tracks (such as track references) are copied from the source tracks to the target tracks.
   */
-  func addMutableTracksCopyingSettingsFrom(existingTracks: [AVAssetTrack], options: [String : AnyObject]?) -> [AVMutableMovieTrack]
+  func addMutableTracksCopyingSettingsFrom(existingTracks: [AVAssetTrack], options: [String : AnyObject]? = [:]) -> [AVMutableMovieTrack]
 
   /*!
   	@method			removeTrack:
@@ -14772,7 +14772,7 @@ class AVMediaDataStorage : NSObject {
   					An NSDictionary object that contains keys for specifying options for the initialization of the AVMediaDataStorage object. Currently no keys are defined.
   	@result			An AVMediaDataStorage object
   */
-  init(url URL: NSURL, options: [String : AnyObject]?)
+  init(url URL: NSURL, options: [String : AnyObject]? = [:])
 
   /*!
   	@method			URL
@@ -14823,7 +14823,7 @@ class AVFragmentedMovie : AVMovie, AVFragmentMinding {
                       If you want to create an AVMutableMovie from a file and then append sample buffers to any of its tracks, you must first set one of these properties 
                       to indicate where the sample data should be written.
   */
-  init(url URL: NSURL, options: [String : AnyObject]?)
+  init(url URL: NSURL, options: [String : AnyObject]? = [:])
 
   /*!
   	@method			initWithData:options:
@@ -14838,7 +14838,7 @@ class AVFragmentedMovie : AVMovie, AVFragmentMinding {
                       By default, the defaultMediaDataStorage property will be nil and each associated AVMovieTrack's mediaDataStorage property will be nil. If you want to create an AVMutableMovie from an NSData object and then append sample buffers to any of its tracks, you must first set one of these properties to indicate where the sample data should be written.
   */
   @available(OSX 10.11, *)
-  init(data: NSData, options: [String : AnyObject]?)
+  init(data: NSData, options: [String : AnyObject]? = [:])
 
   /*!
     @method		assetWithURL:
@@ -16823,7 +16823,7 @@ class AVPlayerItemVideoOutput : AVPlayerItemOutput {
   					The client requirements for output CVPixelBuffers, expressed using the constants in <CoreVideo/CVPixelBuffer.h>.
   	@result			An instance of AVPlayerItemVideoOutput.
    */
-  init(pixelBufferAttributes: [String : AnyObject]?)
+  init(pixelBufferAttributes: [String : AnyObject]? = [:])
 
   /*!
   	@method			hasNewPixelBufferForItemTime:
@@ -17863,7 +17863,7 @@ class AVTextStyleRule : NSObject, NSCopying {
    @result		An instance of AVTextStyleRule
    @discussion	Equivalent to invoking -initWithTextMarkupAttributes:textSelector: with a value of nil for textSelector.
   */
-  convenience init?(textMarkupAttributes: [String : AnyObject])
+  convenience init?(textMarkupAttributes: [String : AnyObject] = [:])
 
   /*!
    @method		initWithTextMarkupAttributes:textSelector:
@@ -17874,7 +17874,7 @@ class AVTextStyleRule : NSObject, NSCopying {
   				An identifier for the range or ranges of text to which the attributes should be applied. Eligible identifiers are determined by the format and content of the legible media. A value of nil indicates that the textMarkupAttributes should be applied as default styles for all text unless overridden by content markup or other applicable text selectors.
    @result		An instance of AVTextStyleRule
   */
-  init?(textMarkupAttributes: [String : AnyObject], textSelector: String?)
+  init?(textMarkupAttributes: [String : AnyObject] = [:], textSelector: String?)
 
   /*!
    @property		textMarkupAttributes

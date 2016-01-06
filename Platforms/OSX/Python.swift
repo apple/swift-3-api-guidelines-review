@@ -2099,4 +2099,4 @@ func PyWeakref_NewRef(ob: UnsafeMutablePointer<PyObject>, _ callback: UnsafeMuta
 func PyWeakref_NewProxy(ob: UnsafeMutablePointer<PyObject>, _ callback: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
 func PyWeakref_GetObject(ref: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
 func _PyWeakref_GetWeakrefCount(head: UnsafeMutablePointer<PyWeakReference>) -> Py_ssize_t
-func _PyWeakref_ClearRef
+func _PyWeakref_ClearRef(self: UnsafeMutablePointer<PyWeakReference>)

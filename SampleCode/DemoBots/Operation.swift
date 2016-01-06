@@ -37,15 +37,15 @@ class Operation: NSOperation {
     
     // MARK: NSOperation
     
-    override var isExecuting: Bool {
+    override var executing: Bool {
         return state == .Executing
     }
     
-    override var isFinished: Bool {
+    override var finished: Bool {
         return state == .Finished
     }
     
-    override var isCancelled: Bool {
+    override var cancelled: Bool {
         return state == .Cancelled
     }
     

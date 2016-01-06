@@ -284,7 +284,7 @@ class CNContactFormatter : NSFormatter {
    * @param attributes The default attributes to use. See NSFormatter for details.
    * @return The formatted contact name as an attributed string.
    */
-  class func attributedStringFrom(contact: CNContact, style: CNContactFormatterStyle, defaultAttributes attributes: [NSObject : AnyObject]?) -> NSAttributedString?
+  class func attributedStringFrom(contact: CNContact, style: CNContactFormatterStyle, defaultAttributes attributes: [NSObject : AnyObject]? = [:]) -> NSAttributedString?
 
   /*!
    * @abstract The recommended name order for a given contact.
@@ -320,7 +320,7 @@ class CNContactFormatter : NSFormatter {
    * @param attributes The default attributes to use. See NSFormatter for details.
    * @return The formatted contact name as an attributed string.
    */
-  func attributedStringFrom(contact: CNContact, defaultAttributes attributes: [NSObject : AnyObject]?) -> NSAttributedString?
+  func attributedStringFrom(contact: CNContact, defaultAttributes attributes: [NSObject : AnyObject]? = [:]) -> NSAttributedString?
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -1036,7 +1036,7 @@ class CNPostalAddressFormatter : NSFormatter {
    * @param attributes The default attributes to use. See NSFormatter for details.
    * @return The formatted postal address as an attributed string.
    */
-  class func attributedStringFrom(postalAddress: CNPostalAddress, style: CNPostalAddressFormatterStyle, withDefaultAttributes attributes: [NSObject : AnyObject]) -> NSAttributedString
+  class func attributedStringFrom(postalAddress: CNPostalAddress, style: CNPostalAddressFormatterStyle, withDefaultAttributes attributes: [NSObject : AnyObject] = [:]) -> NSAttributedString
 
   /*!
    * @abstract The style for a postal address formatter instance.
@@ -1062,7 +1062,7 @@ class CNPostalAddressFormatter : NSFormatter {
    * @param attributes The default attributes to use. See NSFormatter for details.
    * @return The formatted postal address as an attributed string.
    */
-  func attributedStringFrom(postalAddress: CNPostalAddress, withDefaultAttributes attributes: [NSObject : AnyObject]) -> NSAttributedString
+  func attributedStringFrom(postalAddress: CNPostalAddress, withDefaultAttributes attributes: [NSObject : AnyObject] = [:]) -> NSAttributedString
   init()
   init?(coder aDecoder: NSCoder)
 }

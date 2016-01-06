@@ -55,7 +55,7 @@ class GameViewController: UIViewController, SceneManagerDelegate {
         UIView.animateWithDuration(0.2, delay: 0.0, animations: {
             self.logoView.alpha = 0.0
         }, completion: { _ in
-            self.logoView.isHidden = true
+            self.logoView.hidden = true
         })
     }
 }

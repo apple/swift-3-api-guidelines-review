@@ -30,9 +30,9 @@ class LoadResourcesOperation: Operation, NSProgressReporting {
     
     override func start() {
         // If the operation is cancelled there's nothing to do.
-        guard !isCancelled else { return }
+        guard !cancelled else { return }
         
-        if progress.isCancelled {
+        if progress.cancelled {
             // Ensure the operation is marked as `cancelled`.
             cancel()
             return

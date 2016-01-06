@@ -98,7 +98,7 @@ var NSInferredMappingModelError: Int { get }
 var NSExternalRecordImportError: Int { get }
 @available(tvOS 3.0, *)
 class NSAtomicStore : NSPersistentStore {
-  init(persistentStoreCoordinator coordinator: NSPersistentStoreCoordinator?, configurationName: String?, url: NSURL, options: [NSObject : AnyObject]?)
+  init(persistentStoreCoordinator coordinator: NSPersistentStoreCoordinator?, configurationName: String?, url: NSURL, options: [NSObject : AnyObject]? = [:])
   func load() throws
   func save() throws
   func newCacheNodeFor(managedObject: NSManagedObject) -> NSAtomicStoreCacheNode
@@ -469,7 +469,7 @@ class NSIncrementalStore : NSPersistentStore {
   func managedObjectContextDidUnregisterObjectsWithIDs(objectIDs: [NSManagedObjectID])
   func newObjectIDForEntity(entity: NSEntityDescription, referenceObject data: AnyObject) -> NSManagedObjectID
   func referenceObjectFor(objectID: NSManagedObjectID) -> AnyObject
-  init(persistentStoreCoordinator root: NSPersistentStoreCoordinator?, configurationName name: String?, url: NSURL, options: [NSObject : AnyObject]?)
+  init(persistentStoreCoordinator root: NSPersistentStoreCoordinator?, configurationName name: String?, url: NSURL, options: [NSObject : AnyObject]? = [:])
 }
 @available(tvOS 5.0, *)
 class NSIncrementalStoreNode : NSObject {
@@ -789,7 +789,7 @@ class NSMergePolicy : NSObject {
 @available(tvOS 3.0, *)
 class NSMigrationManager : NSObject {
   init(sourceModel: NSManagedObjectModel, destinationModel: NSManagedObjectModel)
-  func migrateStoreFrom(sourceURL: NSURL, type sStoreType: String, options sOptions: [NSObject : AnyObject]?, withMappingModel mappings: NSMappingModel?, toDestinationURL dURL: NSURL, destinationType dStoreType: String, destinationOptions dOptions: [NSObject : AnyObject]?) throws
+  func migrateStoreFrom(sourceURL: NSURL, type sStoreType: String, options sOptions: [NSObject : AnyObject]? = [:], withMappingModel mappings: NSMappingModel?, toDestinationURL dURL: NSURL, destinationType dStoreType: String, destinationOptions dOptions: [NSObject : AnyObject]? = [:]) throws
   @available(tvOS 5.0, *)
   var usesStoreSpecificMigrationManager: Bool
   func reset()
@@ -822,7 +822,7 @@ class NSPersistentStore : NSObject {
   class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreWith url: NSURL) throws
   @available(tvOS 3.0, *)
   class func migrationManagerClass() -> AnyClass
-  init(persistentStoreCoordinator root: NSPersistentStoreCoordinator?, configurationName name: String?, url: NSURL, options: [NSObject : AnyObject]?)
+  init(persistentStoreCoordinator root: NSPersistentStoreCoordinator?, configurationName name: String?, url: NSURL, options: [NSObject : AnyObject]? = [:])
   func loadMetadata() throws
   weak var persistentStoreCoordinator: @sil_weak NSPersistentStoreCoordinator? { get }
   var configurationName: String { get }
@@ -902,7 +902,7 @@ class NSPersistentStoreCoordinator : NSObject {
   func urlFor(store: NSPersistentStore) -> NSURL
   @available(tvOS 3.0, *)
   func setURL(url: NSURL, forPersistentStore store: NSPersistentStore) -> Bool
-  func addPersistentStoreWithType(storeType: String, configuration: String?, url storeURL: NSURL?, options: [NSObject : AnyObject]?) throws -> NSPersistentStore
+  func addPersistentStoreWithType(storeType: String, configuration: String?, url storeURL: NSURL?, options: [NSObject : AnyObject]? = [:]) throws -> NSPersistentStore
   func removePersistentStore(store: NSPersistentStore) throws
   func setMetadata(metadata: [String : AnyObject]?, forPersistentStore store: NSPersistentStore)
   func metadataFor(store: NSPersistentStore) -> [String : AnyObject]
@@ -914,18 +914,18 @@ class NSPersistentStoreCoordinator : NSObject {
   @available(tvOS 3.0, *)
   class func registerStoreClass(storeClass: AnyClass, forStoreType storeType: String)
   @available(tvOS 7.0, *)
-  class func metadataForPersistentStoreOfType(storeType: String, url: NSURL, options: [NSObject : AnyObject]?) throws -> [String : AnyObject]
+  class func metadataForPersistentStoreOfType(storeType: String, url: NSURL, options: [NSObject : AnyObject]? = [:]) throws -> [String : AnyObject]
   @available(tvOS 7.0, *)
-  class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String, url: NSURL, options: [NSObject : AnyObject]?) throws
+  class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String, url: NSURL, options: [NSObject : AnyObject]? = [:]) throws
   @available(tvOS, introduced=3.0, deprecated=9.0, message="Use a -metadataForPersistentStoreOfType:URL:options:error: and pass in an options dictionary matching addPersistentStoreWithType")
   class func metadataForPersistentStoreOfType(storeType: String?, url: NSURL) throws -> [String : AnyObject]
   @available(tvOS, introduced=3.0, deprecated=9.0, message="Use a -setMetadata:forPersistentStoreOfType:URL:options:error: and pass in an options dictionary matching addPersistentStoreWithType")
   class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String?, url: NSURL) throws
-  func migratePersistentStore(store: NSPersistentStore, to URL: NSURL, options: [NSObject : AnyObject]?, withType storeType: String) throws -> NSPersistentStore
+  func migratePersistentStore(store: NSPersistentStore, to URL: NSURL, options: [NSObject : AnyObject]? = [:], withType storeType: String) throws -> NSPersistentStore
   @available(tvOS 9.0, *)
-  func destroyPersistentStoreAt(url: NSURL, withType storeType: String, options: [NSObject : AnyObject]?) throws
+  func destroyPersistentStoreAt(url: NSURL, withType storeType: String, options: [NSObject : AnyObject]? = [:]) throws
   @available(tvOS 9.0, *)
-  func replacePersistentStoreAt(destinationURL: NSURL, destinationOptions: [NSObject : AnyObject]?, withPersistentStoreFrom sourceURL: NSURL, sourceOptions: [NSObject : AnyObject]?, storeType: String) throws
+  func replacePersistentStoreAt(destinationURL: NSURL, destinationOptions: [NSObject : AnyObject]? = [:], withPersistentStoreFrom sourceURL: NSURL, sourceOptions: [NSObject : AnyObject]? = [:], storeType: String) throws
   @available(tvOS 8.0, *)
   func perform(block: () -> Void)
   @available(tvOS 8.0, *)

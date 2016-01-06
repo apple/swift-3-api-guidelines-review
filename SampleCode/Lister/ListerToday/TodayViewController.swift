@@ -36,7 +36,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         return document?.listPresenter as? IncompleteListItemsPresenter
     }
     
-    var isShowingAll = false {
+    var showingAll = false {
         didSet {
             resetContentSize()
         }
@@ -54,7 +54,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
             On first launch only display up to `TableViewConstants.baseRowCount + 1` rows. An additional row
             is used to display the "Show All" row.
         */
-        let rowCount = isShowingAll ? itemCount : min(itemCount, TableViewConstants.baseRowCount + 1)
+        let rowCount = showingAll ? itemCount : min(itemCount, TableViewConstants.baseRowCount + 1)
 
         return CGFloat(Double(rowCount) * TableViewConstants.todayRowHeight)
     }
@@ -119,7 +119,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
             return 1
         }
         
-        return isShowingAll ? listPresenter.count : min(listPresenter.count, TableViewConstants.baseRowCount + 1)
+        return showingAll ? listPresenter.count : min(listPresenter.count, TableViewConstants.baseRowCount + 1)
     }
     
     override func tableView(tableView: UITableView, cellForRowAt indexPath: NSIndexPath) -> UITableViewCell {
@@ -139,7 +139,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
                     showing all rows (explicitly) and the item count is less than `TableViewConstants.baseRowCount` + 1
                     diplay a message cell allowing the user to disclose all rows.
                 */
-                if (!isShowingAll && indexPath.row == TableViewConstants.baseRowCount && itemCount != TableViewConstants.baseRowCount + 1) {
+                if (!showingAll && indexPath.row == TableViewConstants.baseRowCount && itemCount != TableViewConstants.baseRowCount + 1) {
                     let cell = tableView.dequeueReusableCellWithIdentifier(TableViewConstants.CellIdentifiers.message, forIndexPath: indexPath)
                     
                     cell.textLabel!.text = NSLocalizedString("Show All...", comment: "")
@@ -169,7 +169,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         
         checkBoxCell.checkBox.tintColor = listPresenter.color.notificationCenterColorValue
         checkBoxCell.checkBox.isChecked = listItem.isComplete
-        checkBoxCell.checkBox.isHidden = false
+        checkBoxCell.checkBox.hidden = false
 
         checkBoxCell.label.text = listItem.text
 
@@ -182,8 +182,8 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         guard let listPresenter = listPresenter else { return }
         
         // Show all of the cells if the user taps the "Show All..." row.
-        if isTodayAvailable && !isShowingAll && indexPath.row == TableViewConstants.baseRowCount {
-            isShowingAll = true
+        if isTodayAvailable && !showingAll && indexPath.row == TableViewConstants.baseRowCount {
+            showingAll = true
             
             tableView.beginUpdates()
             

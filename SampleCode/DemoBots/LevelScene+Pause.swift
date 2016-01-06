@@ -20,10 +20,10 @@ extension LevelScene {
         app enters the background. Override to check if an `overlay` node is
         being presented to determine if the game should be paused.
     */
-    override var isPaused: Bool {
+    override var paused: Bool {
         didSet {
             if overlay != nil {
-                worldNode.isPaused = true
+                worldNode.paused = true
             }
         }
     }

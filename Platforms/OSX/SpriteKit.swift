@@ -28,7 +28,7 @@ class SK3DNode : SKNode {
    @param thePoint A point in the coordinate system of the receiver.
    @param options Optional parameters (see the "Hit test options" group for the available options).
   */
-  func hitTest(point: CGPoint, options: [String : AnyObject]?) -> [AnyObject]
+  func hitTest(point: CGPoint, options: [String : AnyObject]? = [:]) -> [AnyObject]
 
   /**
    @method projectPoint

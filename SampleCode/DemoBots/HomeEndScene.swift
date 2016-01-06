@@ -44,9 +44,9 @@ class HomeEndScene: BaseScene {
         super.didMoveTo(view)
 
         #if os(iOS)
-        screenRecorderButton?.isSelected = isScreenRecordingToggleEnabled
+        screenRecorderButton?.isSelected = screenRecordingToggleEnabled
         #else
-        screenRecorderButton?.isHidden = true
+        screenRecorderButton?.hidden = true
         #endif
         
         // Enable focus based navigation. 
@@ -63,10 +63,10 @@ class HomeEndScene: BaseScene {
         // If the first level is not ready, hide the buttons until we are notified.
         if !(levelLoader.stateMachine.currentState is SceneLoaderResourcesReadyState) {
             proceedButton?.alpha = 0.0
-            proceedButton?.isUserInteractionEnabled = false
+            proceedButton?.userInteractionEnabled = false
             
             screenRecorderButton?.alpha = 0.0
-            screenRecorderButton?.isUserInteractionEnabled = false
+            screenRecorderButton?.userInteractionEnabled = false
         }
     }
     
@@ -81,8 +81,8 @@ class HomeEndScene: BaseScene {
             // Show the proceed button if the `sceneLoader` pertains to a `LevelScene`.
             if sceneLoader.sceneMetadata.sceneType is LevelScene.Type {
                 // Allow the proceed and screen to be tapped or clicked.
-                self.proceedButton?.isUserInteractionEnabled = true
-                self.screenRecorderButton?.isUserInteractionEnabled = true
+                self.proceedButton?.userInteractionEnabled = true
+                self.screenRecorderButton?.userInteractionEnabled = true
                 
                 // Fade in the proceed and screen recorder buttons.
                 self.screenRecorderButton?.run(SKAction.fadeInWithDuration(1.0))

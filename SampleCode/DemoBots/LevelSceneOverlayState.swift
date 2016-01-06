@@ -45,24 +45,24 @@ class LevelSceneOverlayState: GKState {
         
         #if os(iOS)
         // Show the appropriate state for the recording buttons.
-        buttonWith(.ScreenRecorderToggle)?.isSelected = levelScene.isScreenRecordingToggleEnabled
+        buttonWith(.ScreenRecorderToggle)?.isSelected = levelScene.screenRecordingToggleEnabled
         
         if self is LevelSceneSuccessState || self is LevelSceneFailState {
             if let viewRecordedContentButton = buttonWith(.ViewRecordedContent) {
-                viewRecordedContentButton.isHidden = true
+                viewRecordedContentButton.hidden = true
                 
                 // Stop screen recording and update view recorded content button when complete.
                 levelScene.stopScreenRecordingWithHandler {
                     // Only show the view button if the recording is enabled and there's a valid `previewViewController` to present.
-                    let recordingEnabledAndPreviewAvailable = self.levelScene.isScreenRecordingToggleEnabled && self.levelScene.previewViewController != nil
-                    viewRecordedContentButton.isHidden = !recordingEnabledAndPreviewAvailable
+                    let recordingEnabledAndPreviewAvailable = self.levelScene.screenRecordingToggleEnabled && self.levelScene.previewViewController != nil
+                    viewRecordedContentButton.hidden = !recordingEnabledAndPreviewAvailable
                 }
             }
         }
         #else
         // Hide replay buttons on OSX and tvOS.
-        buttonWith(.ScreenRecorderToggle)?.isHidden = true
-        buttonWith(.ViewRecordedContent)?.isHidden = true
+        buttonWith(.ScreenRecorderToggle)?.hidden = true
+        buttonWith(.ViewRecordedContent)?.hidden = true
         #endif
         
         // Provide the levelScene with a reference to the overlay node.

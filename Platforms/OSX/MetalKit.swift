@@ -392,7 +392,7 @@ class MTKTextureLoader : NSObject {
    @param options Dictonary of MTKTextureLoaderOptions
    @param completionHandler Block called when the texture has been loaded and fully initialized
    */
-  func newTextureWithContentsOf(URL: NSURL, options: [String : NSNumber]?, completionHandler: MTKTextureLoaderCallback)
+  func newTextureWithContentsOf(URL: NSURL, options: [String : NSNumber]? = [:], completionHandler: MTKTextureLoaderCallback)
 
   /*!
    @method newTextureWithData:options:completionHandler:
@@ -401,7 +401,7 @@ class MTKTextureLoader : NSObject {
    @param options Dictonary of MTKTextureLoaderOptions
    @param completionHandler Block called when texture has been loaded and fully initialized
    */
-  func newTextureWith(data: NSData, options: [String : NSNumber]?, completionHandler: MTKTextureLoaderCallback)
+  func newTextureWith(data: NSData, options: [String : NSNumber]? = [:], completionHandler: MTKTextureLoaderCallback)
 
   /*!
    @method newTextureWithCGImage:options:completionHandler:
@@ -410,7 +410,7 @@ class MTKTextureLoader : NSObject {
    @param options Dictonary of MTKTextureLoaderOptions
    @param completionHandler Block called when texture has been loaded and fully initialized
    */
-  func newTextureWith(cgImage: CGImage, options: [String : NSNumber]?, completionHandler: MTKTextureLoaderCallback)
+  func newTextureWith(cgImage: CGImage, options: [String : NSNumber]? = [:], completionHandler: MTKTextureLoaderCallback)
 
   /*!
    @method newTextureWithContentsOfURL:options:error:
@@ -420,7 +420,7 @@ class MTKTextureLoader : NSObject {
    @param options Dictonary of MTKTextureLoaderOptions
    @param error Pointer to an autoreleased NSError object which will be set if an error occurred
    */
-  func newTextureWithContentsOf(URL: NSURL, options: [String : NSNumber]?) throws -> MTLTexture
+  func newTextureWithContentsOf(URL: NSURL, options: [String : NSNumber]? = [:]) throws -> MTLTexture
 
   /*!
    @method newTextureWithData:options:error:
@@ -430,7 +430,7 @@ class MTKTextureLoader : NSObject {
    @param options Dictonary of MTKTextureLoaderOptions
    @param error Pointer to an autoreleased NSError object which will be set if an error occurred
    */
-  func newTextureWith(data: NSData, options: [String : NSNumber]?) throws -> MTLTexture
+  func newTextureWith(data: NSData, options: [String : NSNumber]? = [:]) throws -> MTLTexture
 
   /*!
    @method newTextureWithCGImage:options:error:
@@ -440,7 +440,7 @@ class MTKTextureLoader : NSObject {
    @param options Dictonary of MTKTextureLoaderOptions
    @param error Pointer to an autoreleased NSError object which will be set if an error occurred
    */
-  func newTextureWith(cgImage: CGImage, options: [String : NSNumber]?) throws -> MTLTexture
+  func newTextureWith(cgImage: CGImage, options: [String : NSNumber]? = [:]) throws -> MTLTexture
 }
 
 /*!

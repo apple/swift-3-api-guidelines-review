@@ -26,15 +26,15 @@ class CIColor : NSObject, NSSecureCoding, NSCopying {
 @available(OSX 10.4, *)
 class CIContext : NSObject {
   @available(OSX 10.6, *)
-  /*not inherited*/ init(cglContext cglctx: CGLContextObj, pixelFormat: CGLPixelFormatObj, colorSpace: CGColorSpace?, options: [String : AnyObject]?)
+  /*not inherited*/ init(cglContext cglctx: CGLContextObj, pixelFormat: CGLPixelFormatObj, colorSpace: CGColorSpace?, options: [String : AnyObject]? = [:])
   @available(OSX 10.4, *)
-  /*not inherited*/ init(cgContext cgctx: CGContext, options: [String : AnyObject]?)
+  /*not inherited*/ init(cgContext cgctx: CGContext, options: [String : AnyObject]? = [:])
   @available(OSX 10.11, *)
-  /*not inherited*/ init(options: [String : AnyObject]?)
+  /*not inherited*/ init(options: [String : AnyObject]? = [:])
   @available(OSX 10.11, *)
   /*not inherited*/ init(mtlDevice device: MTLDevice)
   @available(OSX 10.11, *)
-  /*not inherited*/ init(mtlDevice device: MTLDevice, options: [String : AnyObject]?)
+  /*not inherited*/ init(mtlDevice device: MTLDevice, options: [String : AnyObject]? = [:])
   @available(OSX 10.11, *)
   var workingColorSpace: CGColorSpace { get }
   func draw(image: CIImage, in inRect: CGRect, from fromRect: CGRect)
@@ -70,7 +70,7 @@ extension CIContext {
   @available(OSX 10.10, *)
   /*not inherited*/ init(forOfflineGPUAt index: UInt32)
   @available(OSX 10.10, *)
-  /*not inherited*/ init(forOfflineGPUAt index: UInt32, colorSpace: CGColorSpace?, options: [String : AnyObject]?, sharedContext: CGLContextObj)
+  /*not inherited*/ init(forOfflineGPUAt index: UInt32, colorSpace: CGColorSpace?, options: [String : AnyObject]? = [:], sharedContext: CGLContextObj)
 }
 
 /** Detects features in images.
@@ -92,7 +92,7 @@ class CIDetector : NSObject {
    
    The options parameter lets you optinally specify a accuracy / performance tradeoff. Can be nil or an empty dictionary. */
   @available(OSX 10.7, *)
-  /*not inherited*/ init(ofType type: String, context: CIContext?, options: [String : AnyObject]?)
+  /*not inherited*/ init(ofType type: String, context: CIContext?, options: [String : AnyObject]? = [:])
 
   /** Returns an array of CIFeature instances in the given image.
    The array is sorted by confidence, highest confidence first. */
@@ -103,7 +103,7 @@ class CIDetector : NSObject {
    The array is sorted by confidence, highest confidence first. 
    The options dictionary can contain a CIDetectorImageOrientation key value. */
   @available(OSX 10.8, *)
-  func featuresIn(image: CIImage, options: [String : AnyObject]?) -> [CIFeature]
+  func featuresIn(image: CIImage, options: [String : AnyObject]? = [:]) -> [CIFeature]
   init()
 }
 @available(OSX 10.7, *)
@@ -447,7 +447,7 @@ class CIFilter : NSObject, NSSecureCoding, NSCopying {
    @param  options   Array of additional options
   */
   @available(OSX 10.4, *)
-  func apply(k: CIKernel, arguments args: [AnyObject]?, options dict: [String : AnyObject]?) -> CIImage?
+  func apply(k: CIKernel, arguments args: [AnyObject]?, options dict: [String : AnyObject]? = [:]) -> CIImage?
   init()
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
@@ -494,7 +494,7 @@ extension CIFilter {
    @param   attributes    Dictionary of the registration attributes of the filter. See below for attribute keys.
   */
   @available(OSX 10.4, *)
-  class func registerFilterName(name: String, constructor anObject: CIFilterConstructor, classAttributes attributes: [String : AnyObject])
+  class func registerFilterName(name: String, constructor anObject: CIFilterConstructor, classAttributes attributes: [String : AnyObject] = [:])
 
   /** Returns the localized name of a filter for display in the UI. */
   @available(OSX 10.4, *)
@@ -597,7 +597,7 @@ class CIFilterGenerator : NSObject, NSSecureCoding, NSCopying, CIFilterConstruct
       
    By default, the exported key inherits the attributes from its original key and target object. Use this method to for instance change the default value or lower the maximum allowed value. 
    */
-  func setAttributes(attributes: [NSObject : AnyObject], forExportedKey key: String)
+  func setAttributes(attributes: [NSObject : AnyObject] = [:], forExportedKey key: String)
 
   /** Retrieve or Set the class attributes that will be used to register the filter using the registerFilterName method.
    Make sure you set the class attributes before using the registerFilterName method.
@@ -653,36 +653,36 @@ class CIFilterShape : NSObject, NSCopying {
 class CIImage : NSObject, NSSecureCoding, NSCopying {
   class func empty() -> CIImage
   init(cgImage image: CGImage)
-  init(cgImage image: CGImage, options: [String : AnyObject]?)
+  init(cgImage image: CGImage, options: [String : AnyObject]? = [:])
   @available(OSX, introduced=10.4, deprecated=10.11, message="Use initWithCGImage: instead.")
   init(cgLayer layer: CGLayer)
   @available(OSX, introduced=10.4, deprecated=10.11, message="Use initWithCGImage:options instead.")
-  init(cgLayer layer: CGLayer, options: [String : AnyObject]?)
+  init(cgLayer layer: CGLayer, options: [String : AnyObject]? = [:])
   init?(data: NSData)
-  init?(data: NSData, options: [String : AnyObject]?)
+  init?(data: NSData, options: [String : AnyObject]? = [:])
   init(bitmapData data: NSData, bytesPerRow: Int, size: CGSize, format: CIFormat, colorSpace: CGColorSpace?)
   @available(OSX 10.4, *)
   init(texture name: UInt32, size: CGSize, flipped: Bool, colorSpace: CGColorSpace?)
   @available(OSX 10.9, *)
-  init(texture name: UInt32, size: CGSize, flipped: Bool, options: [String : AnyObject]?)
+  init(texture name: UInt32, size: CGSize, flipped: Bool, options: [String : AnyObject]? = [:])
   @available(OSX 10.11, *)
-  init(mtlTexture texture: MTLTexture, options: [String : AnyObject]?)
+  init(mtlTexture texture: MTLTexture, options: [String : AnyObject]? = [:])
   init?(contentsOf url: NSURL)
-  init?(contentsOf url: NSURL, options: [String : AnyObject]?)
+  init?(contentsOf url: NSURL, options: [String : AnyObject]? = [:])
   @available(OSX 10.6, *)
   init(ioSurface surface: IOSurface)
   @available(OSX 10.6, *)
-  init(ioSurface surface: IOSurface, options: [String : AnyObject]?)
+  init(ioSurface surface: IOSurface, options: [String : AnyObject]? = [:])
   @available(OSX, introduced=10.9, deprecated=10.11)
-  init(ioSurface surface: IOSurface, plane: Int, format: CIFormat, options: [String : AnyObject]?)
+  init(ioSurface surface: IOSurface, plane: Int, format: CIFormat, options: [String : AnyObject]? = [:])
   @available(OSX 10.4, *)
   init(cvImageBuffer imageBuffer: CVImageBuffer)
   @available(OSX 10.4, *)
-  init(cvImageBuffer imageBuffer: CVImageBuffer, options: [String : AnyObject]?)
+  init(cvImageBuffer imageBuffer: CVImageBuffer, options: [String : AnyObject]? = [:])
   @available(OSX 10.11, *)
   init(cvPixelBuffer pixelBuffer: CVPixelBuffer)
   @available(OSX 10.11, *)
-  init(cvPixelBuffer pixelBuffer: CVPixelBuffer, options: [String : AnyObject]?)
+  init(cvPixelBuffer pixelBuffer: CVPixelBuffer, options: [String : AnyObject]? = [:])
   init(color: CIColor)
   func applying(matrix: CGAffineTransform) -> CIImage
   @available(OSX 10.10, *)
@@ -762,7 +762,7 @@ let kCIImageTextureTarget: String
 let kCIImageTextureFormat: String
 extension CIImage {
   @available(OSX 10.8, *)
-  func autoAdjustmentFiltersWithOptions(options: [String : AnyObject]?) -> [CIFilter]
+  func autoAdjustmentFilters(options options: [String : AnyObject]? = [:]) -> [CIFilter]
 }
 @available(OSX 10.8, *)
 let kCIImageAutoAdjustEnhance: String
@@ -789,7 +789,7 @@ class CIImageAccumulator : NSObject {
 }
 extension CIImage {
   @available(OSX 10.4, *)
-  init(imageProvider p: AnyObject, size width: Int, _ height: Int, format f: CIFormat, colorSpace cs: CGColorSpace?, options: [String : AnyObject]?)
+  init(imageProvider p: AnyObject, size width: Int, _ height: Int, format f: CIFormat, colorSpace cs: CGColorSpace?, options: [String : AnyObject]? = [:])
 }
 
 /** Informal protocol used to lazily supply image data. */
@@ -879,12 +879,12 @@ protocol CIPlugInRegistration {
 extension CIFilter {
 
   /** Returns a CIFilter that will in turn return a properly processed CIImage as "outputImage". */
-  /*not inherited*/ init!(imageURL url: NSURL!, options: [NSObject : AnyObject]!)
+  /*not inherited*/ init!(imageURL url: NSURL!, options: [NSObject : AnyObject]! = [:])
 
   /** Returns a CIFilter that will in turn return a properly processed CIImage as "outputImage".
   
    Note that when using this initializer, you should pass in a source type identifier hint (kCGImageSourceTypeIdentifierHint) key/value pair in order to help the decoder determine the file type, as otherwise confusion and incorrect results are possible. An example of use would be: [opts setObject:(id)CGImageSourceGetTypeWithExtension ((CFStringRef)[[url path] pathExtension]) forKey:kCGImageSourceTypeIdentifierHint]; */
-  /*not inherited*/ init!(imageData data: NSData!, options: [NSObject : AnyObject]!)
+  /*not inherited*/ init!(imageData data: NSData!, options: [NSObject : AnyObject]! = [:])
 }
 
 /** NSString: Version string representing the decoder version to be used. A newly initialized object defaults to the newest available decoder version for the given image type. User can request an alternative, older version in order to maintain compatibility with older releases. Must be one of kCISupportedDecoderVersions (below), otherwise a nil output image will be generated. */
@@ -993,7 +993,7 @@ let kCIActiveKeys: String
 @available(OSX 10.4, *)
 class CISampler : NSObject, NSCopying {
   convenience init(image im: CIImage)
-  init(image im: CIImage, options dict: [NSObject : AnyObject]?)
+  init(image im: CIImage, options dict: [NSObject : AnyObject]? = [:])
   var definition: CIFilterShape { get }
   var extent: CGRect { get }
   convenience init()

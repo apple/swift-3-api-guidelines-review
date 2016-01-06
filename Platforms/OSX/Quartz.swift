@@ -321,7 +321,7 @@ extension IKFilterBrowserPanel {
   	@param		didEndSelector	See discussion below
   	@param		contextInfo	See discussion below
   */
-  func beginWithOptions(inOptions: [NSObject : AnyObject]!, modelessDelegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func begin(options inOptions: [NSObject : AnyObject]! = [:], modelessDelegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
 
   /*!
       @method     beginSheetWithOptions:modalForWindow:modalDelegate:didEndSelector:contextInfo:
@@ -338,7 +338,7 @@ extension IKFilterBrowserPanel {
   	@param		didEndSelector	See discussion below
   	@param		contextInfo	See discussion below
   */
-  func beginSheetWithOptions(inOptions: [NSObject : AnyObject]!, modalFor docWindow: NSWindow!, modalDelegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func beginSheet(options inOptions: [NSObject : AnyObject]! = [:], modalFor docWindow: NSWindow!, modalDelegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
 
   /*!
       @method     runModalWithOptions
@@ -346,7 +346,7 @@ extension IKFilterBrowserPanel {
       @discussion Use this method to run the IKFilterBrowser in a modal dialog. The value passed as returnCode will be either NSCancelButton or NSOKButton.
   	@param		inOptions	A dictionary describing the desired UI configuration for the IKFilterBrowser
   */
-  func runModalWithOptions(inOptions: [NSObject : AnyObject]!) -> Int32
+  func runModal(options inOptions: [NSObject : AnyObject]! = [:]) -> Int32
 
   /*!
       @method     filterBrowserViewWithOptions
@@ -354,7 +354,7 @@ extension IKFilterBrowserPanel {
       @discussion Use this method to run the IKFilterBrowser in your own UI. To dismiss it, invoke the finish action as described below.
   	@param		inOptions	A dictionary describing the desired UI configuration for the IKFilterBrowser
   */
-  func filterBrowserViewWithOptions(inOptions: [NSObject : AnyObject]!) -> IKFilterBrowserView!
+  func filterBrowserView(options inOptions: [NSObject : AnyObject]! = [:]) -> IKFilterBrowserView!
 
   /*!
       @method     finish
@@ -2104,7 +2104,7 @@ class IKSlideshow : NSObject {
    @method runSlideshowWithDataSource:inMode:options:
    @abstract start the slideshow (slideshowOptions can be NULL).
    */
-  func runSlideshowWith(dataSource: IKSlideshowDataSource!, inMode slideshowMode: String!, options slideshowOptions: [NSObject : AnyObject]!)
+  func runSlideshowWith(dataSource: IKSlideshowDataSource!, inMode slideshowMode: String!, options slideshowOptions: [NSObject : AnyObject]! = [:])
 
   /*!
    @method stopSlideshow:
@@ -2507,11 +2507,11 @@ class PDFDocument : NSObject, NSCopying {
   func setDelegate(anObject: AnyObject!)
   func delegate() -> AnyObject!
   func dataRepresentation() -> NSData!
-  func dataRepresentationWithOptions(options: [NSObject : AnyObject]!) -> NSData!
+  func dataRepresentation(options options: [NSObject : AnyObject]! = [:]) -> NSData!
   func writeToFile(path: String!) -> Bool
-  func writeToFile(path: String!, withOptions options: [NSObject : AnyObject]!) -> Bool
+  func writeToFile(path: String!, withOptions options: [NSObject : AnyObject]! = [:]) -> Bool
   func writeTo(url: NSURL!) -> Bool
-  func writeTo(url: NSURL!, withOptions options: [NSObject : AnyObject]!) -> Bool
+  func writeTo(url: NSURL!, withOptions options: [NSObject : AnyObject]! = [:]) -> Bool
   func outlineRoot() -> PDFOutline!
   func setOutlineRoot(outline: PDFOutline!)
   func outlineItemFor(selection: PDFSelection!) -> PDFOutline!
@@ -2881,8 +2881,8 @@ class QCCompositionParameterView : NSView {
   convenience init()
 }
 extension NSObject {
-  class func compositionParameterView(parameterView: QCCompositionParameterView!, shouldDisplayParameterWithKey portKey: String!, attributes portAttributes: [NSObject : AnyObject]!) -> Bool
-  func compositionParameterView(parameterView: QCCompositionParameterView!, shouldDisplayParameterWithKey portKey: String!, attributes portAttributes: [NSObject : AnyObject]!) -> Bool
+  class func compositionParameterView(parameterView: QCCompositionParameterView!, shouldDisplayParameterWithKey portKey: String!, attributes portAttributes: [NSObject : AnyObject]! = [:]) -> Bool
+  func compositionParameterView(parameterView: QCCompositionParameterView!, shouldDisplayParameterWithKey portKey: String!, attributes portAttributes: [NSObject : AnyObject]! = [:]) -> Bool
   class func compositionParameterView(parameterView: QCCompositionParameterView!, didChangeParameterWithKey portKey: String!)
   func compositionParameterView(parameterView: QCCompositionParameterView!, didChangeParameterWithKey portKey: String!)
 }
@@ -2900,7 +2900,7 @@ class QCCompositionPickerPanel : NSPanel {
 }
 let QCCompositionPickerViewDidSelectCompositionNotification: String
 class QCCompositionPickerView : NSView {
-  func setCompositionsFromRepositoryWithProtocol(protocol: String!, andAttributes attributes: [NSObject : AnyObject]!)
+  func setCompositionsFromRepositoryWithProtocol(protocol: String!, andAttributes attributes: [NSObject : AnyObject]! = [:])
   func compositions() -> [AnyObject]!
   func setDelegate(delegate: AnyObject!)
   func delegate() -> AnyObject!
@@ -2946,7 +2946,7 @@ extension QCComposition {
 class QCCompositionRepository : NSObject {
   class func shared() -> QCCompositionRepository!
   func compositionWithIdentifier(identifier: String!) -> QCComposition!
-  func compositionsWithProtocols(protocols: [AnyObject]!, andAttributes attributes: [NSObject : AnyObject]!) -> [AnyObject]!
+  func compositionsWithProtocols(protocols: [AnyObject]!, andAttributes attributes: [NSObject : AnyObject]! = [:]) -> [AnyObject]!
   func allCompositions() -> [AnyObject]!
   init()
 }
@@ -3063,9 +3063,9 @@ extension QCPlugIn {
   func didValueForInputKeyChange(key: String!) -> Bool
   func valueForInputKey(key: String!) -> AnyObject!
   func setValue(value: AnyObject!, forOutputKey key: String!) -> Bool
-  func addInputPortWithType(type: String!, forKey key: String!, withAttributes attributes: [NSObject : AnyObject]!)
+  func addInputPortWithType(type: String!, forKey key: String!, withAttributes attributes: [NSObject : AnyObject]! = [:])
   func removeInputPortForKey(key: String!)
-  func addOutputPortWithType(type: String!, forKey key: String!, withAttributes attributes: [NSObject : AnyObject]!)
+  func addOutputPortWithType(type: String!, forKey key: String!, withAttributes attributes: [NSObject : AnyObject]! = [:])
   func removeOutputPortForKey(key: String!)
 }
 extension QCPlugIn {
@@ -3338,12 +3338,12 @@ class QLPreviewPanel : NSPanel {
    * @abstract Enters full screen mode.
    * @discussion If panel is not on-screen, the panel will go directly to full screen mode.
    */
-  func enterFullScreenMode(screen: NSScreen!, withOptions options: [NSObject : AnyObject]!) -> Bool
+  func enterFullScreenMode(screen: NSScreen!, withOptions options: [NSObject : AnyObject]! = [:]) -> Bool
 
   /*!
    * @abstract Exits full screen mode.
    */
-  func exitFullScreenModeWithOptions(options: [NSObject : AnyObject]!)
+  func exitFullScreenMode(options options: [NSObject : AnyObject]! = [:])
 
   /*!
    * @abstract YES if the panel is currently open and in full screen mode.

@@ -125,19 +125,19 @@ let NSDefaultTabIntervalDocumentAttribute: String
 let NSTextLayoutSectionsAttribute: String
 extension NSAttributedString {
   @available(watchOS 2.0, *)
-  init(url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(url: NSURL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(watchOS 2.0, *)
-  init(data: NSData, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(data: NSData, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(watchOS 2.0, *)
-  func dataFrom(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSData
+  func dataFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> NSData
   @available(watchOS 2.0, *)
-  func fileWrapperFrom(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSFileWrapper
+  func fileWrapperFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> NSFileWrapper
 }
 extension NSMutableAttributedString {
   @available(watchOS 2.0, *)
-  func readFrom(url: NSURL, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func readFrom(url: NSURL, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(watchOS 2.0, *)
-  func readFrom(data: NSData, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func readFrom(data: NSData, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
 
 /************************ Misc methods ************************/
@@ -156,11 +156,11 @@ enum NSTextWritingDirection : Int {
 }
 extension NSAttributedString {
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init(fileURL url: NSURL, options: [NSObject : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(fileURL url: NSURL, options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
 extension NSMutableAttributedString {
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -readFromURL:options:documentAttributes:error: instead")
-  func readFromFileURL(url: NSURL, options opts: [NSObject : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func readFromFileURL(url: NSURL, options opts: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
 @available(watchOS 2.0, *)
 let NSTabColumnTerminatorsAttributeName: String
@@ -168,7 +168,7 @@ let NSTabColumnTerminatorsAttributeName: String
 class NSTextTab : NSObject, NSCopying, NSCoding {
   @available(watchOS 2.0, *)
   class func columnTerminatorsFor(aLocale: NSLocale?) -> NSCharacterSet
-  init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options: [String : AnyObject])
+  init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options: [String : AnyObject] = [:])
   var alignment: NSTextAlignment { get }
   var location: CGFloat { get }
   var options: [String : AnyObject] { get }
@@ -263,11 +263,11 @@ class NSStringDrawingContext : NSObject {
 }
 extension NSString {
   @available(watchOS 2.0, *)
-  func sizeWithAttributes(attrs: [String : AnyObject]?) -> CGSize
+  func size(attributes attrs: [String : AnyObject]? = [:]) -> CGSize
   @available(watchOS 2.0, *)
-  func drawAt(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
+  func drawAt(point: CGPoint, withAttributes attrs: [String : AnyObject]? = [:])
   @available(watchOS 2.0, *)
-  func drawIn(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
+  func drawIn(rect: CGRect, withAttributes attrs: [String : AnyObject]? = [:])
 }
 extension NSAttributedString {
   @available(watchOS 2.0, *)
@@ -289,9 +289,9 @@ struct NSStringDrawingOptions : OptionSetType {
 }
 extension NSString {
   @available(watchOS 2.0, *)
-  func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
+  func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?)
   @available(watchOS 2.0, *)
-  func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
+  func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?) -> CGRect
 }
 extension NSAttributedString {
   @available(watchOS 2.0, *)
@@ -565,8 +565,8 @@ class UIFontDescriptor : NSObject, NSCopying, NSSecureCoding {
   /*not inherited*/ init(name fontName: String, size: CGFloat)
   /*not inherited*/ init(name fontName: String, matrix: CGAffineTransform)
   class func preferredFontDescriptorWithTextStyle(style: String) -> UIFontDescriptor
-  init(fontAttributes attributes: [String : AnyObject])
-  func addingAttributes(attributes: [String : AnyObject]) -> UIFontDescriptor
+  init(fontAttributes attributes: [String : AnyObject] = [:])
+  func addingAttributes(attributes: [String : AnyObject] = [:]) -> UIFontDescriptor
   func withSymbolicTraits(symbolicTraits: UIFontDescriptorSymbolicTraits) -> UIFontDescriptor
   func withSize(newPointSize: CGFloat) -> UIFontDescriptor
   func withMatrix(matrix: CGAffineTransform) -> UIFontDescriptor

@@ -117,11 +117,11 @@ class NewListDocumentController: UIViewController, UITextFieldDelegate {
     
     func updateForProposedListName(name: String) {
         if listsController.canCreateListInfoWithName(name) {
-            saveButton.isEnabled = true
+            saveButton.enabled = true
             selectedTitle = name
         }
         else {
-            saveButton.isEnabled = false
+            saveButton.enabled = false
         }
     }
 }

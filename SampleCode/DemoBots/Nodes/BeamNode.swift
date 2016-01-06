@@ -41,18 +41,18 @@ class BeamNode: SKNode, ResourceLoadableType {
 
     let debugNode: SKShapeNode
     
-    var isDebugDrawingEnabled = false
+    var debugDrawingEnabled = false
 
     // MARK: Initializers
     
     override init() {
         sourceNode = SKSpriteNode()
         sourceNode.size = BeamNode.dotTextureSize
-        sourceNode.isHidden = true
+        sourceNode.hidden = true
         
         destinationNode = SKSpriteNode()
         destinationNode.size = BeamNode.dotTextureSize
-        destinationNode.isHidden = true
+        destinationNode.hidden = true
         
         let arcPath = CGPathCreateMutable()
         CGPathAddArc(arcPath, nil, 0.0, 0.0, GameplayConfiguration.Beam.arcLength, GameplayConfiguration.Beam.arcAngle * 0.5, GameplayConfiguration.Beam.arcAngle * -0.5, true)
@@ -62,7 +62,7 @@ class BeamNode: SKNode, ResourceLoadableType {
         debugNode.fillColor = SKColor.blue()
         debugNode.lineWidth = 0.0
         debugNode.alpha = 0.5
-        debugNode.isHidden = true
+        debugNode.hidden = true
         
         super.init()
         
@@ -92,14 +92,14 @@ class BeamNode: SKNode, ResourceLoadableType {
         switch state {
             case is BeamIdleState:
                 // Hide the source and destination nodes.
-                sourceNode.isHidden = true
-                destinationNode.isHidden = true
+                sourceNode.hidden = true
+                destinationNode.hidden = true
                 
                 // Remove the `lineNode` from the scene.
                 lineNode?.removeFromParent()
                 lineNode = nil
                 
-                debugNode.isHidden = true
+                debugNode.hidden = true
             
             case is BeamFiringState:
                 /*
@@ -109,37 +109,37 @@ class BeamNode: SKNode, ResourceLoadableType {
                 */
                 if lineNode == nil {
                     lineNode = BeamNode.lineNodeTemplate.copy() as? SKSpriteNode
-                    lineNode!.isHidden = true
+                    lineNode!.hidden = true
                     addChild(lineNode!)
                 }
                 
                 if let target = target {
                     // Show the `sourceNode` with the its firing animation.
-                    sourceNode.isHidden = false
+                    sourceNode.hidden = false
                     animate(sourceNode, withAction: AnimationActions.source)
                     
                     // Show the `destinationNode` with its animation.
-                    destinationNode.isHidden = false
+                    destinationNode.hidden = false
                     animate(destinationNode, withAction: AnimationActions.destination)
 
                     // Position the `lineNode` and make sure it's visible.
                     positionLineNodeFrom(source, to: target)
-                    lineNode?.isHidden = false
+                    lineNode?.hidden = false
                 }
                 else {
                     // Show the `sourceNode` with the its untargeted animation.
-                    sourceNode.isHidden = false
+                    sourceNode.hidden = false
                     animate(sourceNode, withAction: AnimationActions.untargetedSource)
                     
                     // Hide the `destinationNode` and `lineNode`.
-                    destinationNode.isHidden = true
-                    lineNode?.isHidden = true
+                    destinationNode.hidden = true
+                    lineNode?.hidden = true
                 }
                 
                 // Update the debug node if debug drawing is enabled.
-                debugNode.isHidden = !isDebugDrawingEnabled
+                debugNode.hidden = !debugDrawingEnabled
                 
-                if isDebugDrawingEnabled {
+                if debugDrawingEnabled {
                     guard let sourceOrientation = source.componentForClass(OrientationComponent.self) else {
                         fatalError("BeamNodees must be associated with entities that have an orientation node")
                     }
@@ -168,17 +168,17 @@ class BeamNode: SKNode, ResourceLoadableType {
             
             case is BeamCoolingState:
                 // Show the `sourceNode` with the "cooling" animation.
-                sourceNode.isHidden = false
+                sourceNode.hidden = false
                 animate(sourceNode, withAction: AnimationActions.cooling)
 
                 // Hide the `destinationNode`.
-                destinationNode.isHidden = true
+                destinationNode.hidden = true
                 
                 // Remove the `lineNode` from the scene.
                 lineNode?.removeFromParent()
                 lineNode = nil
                 
-                debugNode.isHidden = true
+                debugNode.hidden = true
             
             default:
                 break

@@ -70,7 +70,7 @@ class WCSession : NSObject {
 
   /** The system will enqueue the user info dictionary and transfer it to the counterpart app at an opportune time. The transfer of user info will continue after the sending app has exited. The counterpart app will receive a delegate callback on next launch if the file has successfully arrived. The userInfo dictionary can only accept the property list types.
    */
-  func transferUserInfo(userInfo: [String : AnyObject]) -> WCSessionUserInfoTransfer
+  func transferUserInfo(userInfo: [String : AnyObject] = [:]) -> WCSessionUserInfoTransfer
 
   /** Returns an array of user info transfers that are still transferring (i.e. have not been cancelled, failed, or been received by the counterpart app).*/
   var outstandingUserInfoTransfers: [WCSessionUserInfoTransfer] { get }
@@ -120,7 +120,7 @@ protocol WCSessionDelegate : NSObjectProtocol {
 
   /** Called on the delegate of the receiver. Will be called on startup if the user info finished transferring when the receiver was not running. */
   @available(watchOS 2.0, *)
-  optional func session(session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject])
+  optional func session(session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject] = [:])
 
   /** Called on the sending side after the file transfer has successfully completed or failed with an error. Will be called on next launch if the sender was not running when the transfer finished. */
   @available(watchOS 2.0, *)

@@ -32,8 +32,8 @@ class TouchControlInputNode: SKSpriteNode, ThumbStickNodeDelegate, ControlInputS
     let centerDividerWidth: CGFloat
     var hideThumbStickNodes: Bool = false {
         didSet {
-            leftThumbStickNode.isHidden = hideThumbStickNodes
-            rightThumbStickNode.isHidden = hideThumbStickNodes
+            leftThumbStickNode.hidden = hideThumbStickNodes
+            rightThumbStickNode.hidden = hideThumbStickNodes
         }
     }
     
@@ -74,7 +74,7 @@ class TouchControlInputNode: SKSpriteNode, ThumbStickNodeDelegate, ControlInputS
             A `TouchControlInputNode` is designed to receive all user interaction
             and forwards it along to the child nodes.
         */
-        isUserInteractionEnabled = true
+        userInteractionEnabled = true
     }
     
     required init?(coder aDecoder: NSCoder) {

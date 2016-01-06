@@ -122,7 +122,7 @@ class NEAppProxyProvider : NETunnelProvider {
    * @param completionHandler A block that must be called when the process of starting the proxy complete. If the proxy cannot be started then the subclass' implementation of this method must pass a non-nill NSError object to this block. A value of nil passed to the completion handler indicates that the proxy was successfully started.
    */
   @available(iOS 9.0, *)
-  func startProxyWithOptions(options: [String : AnyObject]?, completionHandler: (NSError?) -> Void)
+  func startProxy(options options: [String : AnyObject]? = [:], completionHandler: (NSError?) -> Void)
 
   /*!
    * @method stopProxyWithReason:completionHandler:
@@ -1404,7 +1404,7 @@ class NEHotspotHelper : NSObject {
    *   value true.
    */
   @available(iOS 9.0, *)
-  class func registerWithOptions(options: [String : NSObject]?, queue: dispatch_queue_t, handler: NEHotspotHelperHandler) -> Bool
+  class func register(options options: [String : NSObject]? = [:], queue: dispatch_queue_t, handler: NEHotspotHelperHandler) -> Bool
 
   /*!
    * @method logoff:
@@ -2033,7 +2033,7 @@ class NEPacketTunnelProvider : NETunnelProvider {
    * @param completionHandler A block that must be called when the process of startingt the tunnel is complete. If the tunnel cannot be established then the subclass' implementation of this method must pass a non-nil NSError object to this block. A value of nil passed to the completion handler indicates that the tunnel was successfully established.
    */
   @available(iOS 9.0, *)
-  func startTunnelWithOptions(options: [String : NSObject]?, completionHandler: (NSError?) -> Void)
+  func startTunnel(options options: [String : NSObject]? = [:], completionHandler: (NSError?) -> Void)
 
   /*!
    * @method stopTunnelWithReason:completionHandler:
@@ -2569,7 +2569,7 @@ class NETunnelProviderSession : NEVPNConnection {
    * @return YES if the tunnel was started successfully, NO if an error occurred.
    */
   @available(iOS 9.0, *)
-  func startTunnelWithOptions(options: [String : AnyObject]?) throws
+  func startTunnel(options options: [String : AnyObject]? = [:]) throws
 
   /*!
    * @method stopTunnel
@@ -2666,7 +2666,7 @@ class NEVPNConnection : NSObject {
    * @return YES if the VPN tunnel was started successfully, NO if an error occurred.
    */
   @available(iOS 9.0, *)
-  func startVPNTunnelWithOptions(options: [String : NSObject]?) throws
+  func startVPNTunnel(options options: [String : NSObject]? = [:]) throws
 
   /*!
    * @method stopVPNTunnel:

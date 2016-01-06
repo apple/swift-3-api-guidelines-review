@@ -21,7 +21,7 @@ extension LevelScene {
             pathfinding buffer radius.
         */
         for obstacle in obstacleSpriteNodes {
-            obstacle.isDebugDrawingEnabled = isDebugDrawingEnabled
+            obstacle.debugDrawingEnabled = debugDrawingEnabled
         }
         
         // Notify any `beamNode`'s inside `BeamComponent`s of the new debug drawing state.
@@ -29,14 +29,14 @@ extension LevelScene {
             guard componentSystem.componentClass is BeamComponent.Type else { continue }
             
             for component in componentSystem.components as! [BeamComponent] {
-                component.beamNode.isDebugDrawingEnabled = isDebugDrawingEnabled
+                component.beamNode.debugDrawingEnabled = debugDrawingEnabled
             }
         }
     }
     
     /// Draws (or removes) a debug representation of the pathfinding graph for this level.
     func drawGraph() {
-        guard isDebugDrawingEnabled else {
+        guard debugDrawingEnabled else {
             graphLayer.removeAllChildren()
             return
         }
@@ -67,7 +67,7 @@ extension SKSpriteNode {
         return "debugBufferShape"
     }
     
-    var isDebugDrawingEnabled: Bool {
+    var debugDrawingEnabled: Bool {
         set {
             // Only enable buffer radius debug drawing for sprite nodes with a physics body.
             if physicsBody == nil { return }

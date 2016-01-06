@@ -67,7 +67,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         deleteList.tintColor = UIColor.red()
         
         if documentURL.lastPathComponent == AppConfiguration.localizedTodayDocumentNameAndExtension {
-            deleteList.isEnabled = false
+            deleteList.enabled = false
         }
             
         return [flexibleSpace, deleteList, flexibleSpace]
@@ -102,7 +102,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        UIApplication.shared().isNetworkActivityIndicatorVisible = true
+        UIApplication.shared().networkActivityIndicatorVisible = true
 
         document.open { success in
             if !success {
@@ -125,7 +125,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
                 self.document.updateUserActivityState(userActivity)
             }
 
-            UIApplication.shared().isNetworkActivityIndicatorVisible = false
+            UIApplication.shared().networkActivityIndicatorVisible = false
         }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleDocumentStateChangedNotification:", name: UIDocumentStateChangedNotification, object: document)
@@ -233,7 +233,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         var identifier: String
 
         // Show the "color selection" cell if in edit mode.
-        if isEditing && indexPath.row == 0 {
+        if editing && indexPath.row == 0 {
             identifier = MainStoryboard.TableViewCellIdentifiers.listColorCell
         }
         else {
@@ -488,7 +488,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
     }
 
     func hideViewControllerAfterListWasDeleted() {
-        if splitViewController != nil && splitViewController!.isCollapsed {
+        if splitViewController != nil && splitViewController!.collapsed {
             let controller = navigationController?.navigationController ?? navigationController!
             controller.popViewControllerAnimated(true)
         }
@@ -503,18 +503,18 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
     
     func configureListItemCell(listItemCell: ListItemCell, forRow row: Int) {
         listItemCell.checkBox.isChecked = false
-        listItemCell.checkBox.isHidden = false
+        listItemCell.checkBox.hidden = false
 
         listItemCell.textField.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         listItemCell.textField.delegate = self
         listItemCell.textField.textColor = UIColor.darkText()
-        listItemCell.textField.isEnabled = true
+        listItemCell.textField.enabled = true
         
         if row == 0 {
             // Configure an "Add Item" list item cell.
             listItemCell.textField.placeholder = NSLocalizedString("Add Item", comment: "")
             listItemCell.textField.text = ""
-            listItemCell.checkBox.isHidden = true
+            listItemCell.checkBox.hidden = true
         }
         else {
             let listItem = listPresenter.presentedListItems[row - 1]
@@ -541,7 +541,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
             let conflictVersions = NSFileVersion.unresolvedConflictVersionsOfItemAt(documentURL)!
             
             for fileVersion in conflictVersions {
-                fileVersion.isResolved = true
+                fileVersion.resolved = true
             }
         }
         // Any encountered errors are swallowed, handle this appropriately in your own apps.

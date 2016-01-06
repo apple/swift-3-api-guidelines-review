@@ -125,19 +125,19 @@ let NSDefaultTabIntervalDocumentAttribute: String
 let NSTextLayoutSectionsAttribute: String
 extension NSAttributedString {
   @available(iOS 9.0, *)
-  init(url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(url: NSURL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS 7.0, *)
-  init(data: NSData, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(data: NSData, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS 7.0, *)
-  func dataFrom(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSData
+  func dataFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> NSData
   @available(iOS 7.0, *)
-  func fileWrapperFrom(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSFileWrapper
+  func fileWrapperFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> NSFileWrapper
 }
 extension NSMutableAttributedString {
   @available(iOS 9.0, *)
-  func readFrom(url: NSURL, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func readFrom(url: NSURL, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS 7.0, *)
-  func readFrom(data: NSData, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func readFrom(data: NSData, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
 
 /************************ Misc methods ************************/
@@ -156,11 +156,11 @@ enum NSTextWritingDirection : Int {
 }
 extension NSAttributedString {
   @available(iOS, introduced=7.0, deprecated=9.0, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init(fileURL url: NSURL, options: [NSObject : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(fileURL url: NSURL, options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
 extension NSMutableAttributedString {
   @available(iOS, introduced=7.0, deprecated=9.0, message="Use -readFromURL:options:documentAttributes:error: instead")
-  func readFromFileURL(url: NSURL, options opts: [NSObject : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func readFromFileURL(url: NSURL, options opts: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
 
 /// NSDataAsset represents the contents of data entries in your asset catalog.
@@ -483,7 +483,7 @@ class NSLayoutManager : NSObject, NSCoding {
   func drawBackgroundForGlyphRange(glyphsToShow: NSRange, at origin: CGPoint)
   func drawGlyphsForGlyphRange(glyphsToShow: NSRange, at origin: CGPoint)
   @available(iOS 7.0, *)
-  func showCGGlyphs(glyphs: UnsafePointer<CGGlyph>, positions: UnsafePointer<CGPoint>, count glyphCount: Int, font: UIFont, matrix textMatrix: CGAffineTransform, attributes: [String : AnyObject], in graphicsContext: CGContext)
+  func showCGGlyphs(glyphs: UnsafePointer<CGGlyph>, positions: UnsafePointer<CGPoint>, count glyphCount: Int, font: UIFont, matrix textMatrix: CGAffineTransform, attributes: [String : AnyObject] = [:], in graphicsContext: CGContext)
   @available(iOS 7.0, *)
   func fillBackgroundRectArray(rectArray: UnsafePointer<CGRect>, count rectCount: Int, forCharacterRange charRange: NSRange, color: UIColor)
   func drawUnderlineForGlyphRange(glyphRange: NSRange, underlineType underlineVal: NSUnderlineStyle, baselineOffset: CGFloat, lineFragmentRect lineRect: CGRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: CGPoint)
@@ -547,7 +547,7 @@ let NSTabColumnTerminatorsAttributeName: String
 class NSTextTab : NSObject, NSCopying, NSCoding {
   @available(iOS 7.0, *)
   class func columnTerminatorsFor(aLocale: NSLocale?) -> NSCharacterSet
-  init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options: [String : AnyObject])
+  init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options: [String : AnyObject] = [:])
   var alignment: NSTextAlignment { get }
   var location: CGFloat { get }
   var options: [String : AnyObject] { get }
@@ -654,11 +654,11 @@ class NSStringDrawingContext : NSObject {
 }
 extension NSString {
   @available(iOS 7.0, *)
-  func sizeWithAttributes(attrs: [String : AnyObject]?) -> CGSize
+  func size(attributes attrs: [String : AnyObject]? = [:]) -> CGSize
   @available(iOS 7.0, *)
-  func drawAt(point: CGPoint, withAttributes attrs: [String : AnyObject]?)
+  func drawAt(point: CGPoint, withAttributes attrs: [String : AnyObject]? = [:])
   @available(iOS 7.0, *)
-  func drawIn(rect: CGRect, withAttributes attrs: [String : AnyObject]?)
+  func drawIn(rect: CGRect, withAttributes attrs: [String : AnyObject]? = [:])
 }
 extension NSAttributedString {
   @available(iOS 6.0, *)
@@ -680,9 +680,9 @@ struct NSStringDrawingOptions : OptionSetType {
 }
 extension NSString {
   @available(iOS 7.0, *)
-  func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
+  func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?)
   @available(iOS 7.0, *)
-  func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> CGRect
+  func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?) -> CGRect
 }
 extension NSAttributedString {
   @available(iOS 6.0, *)
@@ -833,13 +833,13 @@ class NSTextStorage : NSMutableAttributedString {
   init()
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  init(url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(url: NSURL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS 7.0, *)
-  init(data: NSData, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(data: NSData, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS, introduced=7.0, deprecated=9.0, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init(fileURL url: NSURL, options: [NSObject : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(fileURL url: NSURL, options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   init(string str: String)
-  init(string str: String, attributes attrs: [String : AnyObject]?)
+  init(string str: String, attributes attrs: [String : AnyObject]? = [:])
   init(attributedString attrStr: NSAttributedString)
 }
 
@@ -1648,9 +1648,9 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
   optional func applicationDidFinishLaunching(application: UIApplication)
   @available(iOS 6.0, *)
-  optional func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool
+  optional func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]? = [:]) -> Bool
   @available(iOS 3.0, *)
-  optional func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool
+  optional func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]? = [:]) -> Bool
   @available(iOS 2.0, *)
   optional func applicationDidBecomeActive(application: UIApplication)
   @available(iOS 2.0, *)
@@ -1660,7 +1660,7 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(iOS, introduced=4.2, deprecated=9.0, message="Please use application:openURL:options:")
   optional func application(application: UIApplication, open url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool
   @available(iOS 9.0, *)
-  optional func application(app: UIApplication, open url: NSURL, options: [String : AnyObject]) -> Bool
+  optional func application(app: UIApplication, open url: NSURL, options: [String : AnyObject] = [:]) -> Bool
   @available(iOS 2.0, *)
   optional func applicationDidReceiveMemoryWarning(application: UIApplication)
   @available(iOS 2.0, *)
@@ -1916,7 +1916,7 @@ class UIApplicationShortcutIcon : NSObject, NSCopying {
 }
 @available(iOS 9.0, *)
 class UIApplicationShortcutItem : NSObject, NSCopying, NSMutableCopying {
-  init(type: String, localizedTitle: String, localizedSubtitle: String?, icon: UIApplicationShortcutIcon?, userInfo: [NSObject : AnyObject]?)
+  init(type: String, localizedTitle: String, localizedSubtitle: String?, icon: UIApplicationShortcutIcon?, userInfo: [NSObject : AnyObject]? = [:])
   convenience init(type: String, localizedTitle: String)
   var type: String { get }
   var localizedTitle: String { get }
@@ -1935,7 +1935,7 @@ class UIMutableApplicationShortcutItem : UIApplicationShortcutItem {
   var localizedSubtitle: String?
   @NSCopying var icon: UIApplicationShortcutIcon?
   var userInfo: [String : NSSecureCoding]?
-  init(type: String, localizedTitle: String, localizedSubtitle: String?, icon: UIApplicationShortcutIcon?, userInfo: [NSObject : AnyObject]?)
+  init(type: String, localizedTitle: String, localizedSubtitle: String?, icon: UIApplicationShortcutIcon?, userInfo: [NSObject : AnyObject]? = [:])
   convenience init(type: String, localizedTitle: String)
 }
 @available(iOS 7.0, *)
@@ -2190,7 +2190,7 @@ class UIBarItem : NSObject, NSCoding, UIAppearance {
   var landscapeImagePhoneInsets: UIEdgeInsets
   var tag: Int
   @available(iOS 5.0, *)
-  func setTitleTextAttributes(attributes: [String : AnyObject]?, forState state: UIControlState)
+  func setTitleTextAttributes(attributes: [String : AnyObject]? = [:], forState state: UIControlState)
   @available(iOS 5.0, *)
   func titleTextAttributesFor(state: UIControlState) -> [String : AnyObject]?
   @available(iOS 2.0, *)
@@ -3137,7 +3137,7 @@ class UIDocument : NSObject, NSFilePresenter, NSProgressReporting {
   func autosave(completionHandler completionHandler: ((Bool) -> Void)? = nil)
   func savingFileType() -> String?
   func fileNameExtensionForType(typeName: String?, saveOperation: UIDocumentSaveOperation) -> String
-  func writeContents(contents: AnyObject, andAttributes additionalFileAttributes: [NSObject : AnyObject]?, safelyTo url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation) throws
+  func writeContents(contents: AnyObject, andAttributes additionalFileAttributes: [NSObject : AnyObject]? = [:], safelyTo url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation) throws
   func writeContents(contents: AnyObject, to url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation, originalContentsURL: NSURL?) throws
   func fileAttributesToWriteTo(url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation) throws -> [NSObject : AnyObject]
   func readFrom(url: NSURL) throws
@@ -3770,8 +3770,8 @@ class UIFontDescriptor : NSObject, NSCopying, NSSecureCoding {
   /*not inherited*/ init(name fontName: String, size: CGFloat)
   /*not inherited*/ init(name fontName: String, matrix: CGAffineTransform)
   class func preferredFontDescriptorWithTextStyle(style: String) -> UIFontDescriptor
-  init(fontAttributes attributes: [String : AnyObject])
-  func addingAttributes(attributes: [String : AnyObject]) -> UIFontDescriptor
+  init(fontAttributes attributes: [String : AnyObject] = [:])
+  func addingAttributes(attributes: [String : AnyObject] = [:]) -> UIFontDescriptor
   func withSymbolicTraits(symbolicTraits: UIFontDescriptorSymbolicTraits) -> UIFontDescriptor
   func withSize(newPointSize: CGFloat) -> UIFontDescriptor
   func withMatrix(matrix: CGAffineTransform) -> UIFontDescriptor
@@ -4173,7 +4173,7 @@ extension CIImage {
   @available(iOS 5.0, *)
   init?(image: UIImage)
   @available(iOS 5.0, *)
-  init?(image: UIImage, options: [NSObject : AnyObject]?)
+  init?(image: UIImage, options: [NSObject : AnyObject]? = [:])
 }
 func UIImagePNGRepresentation(image: UIImage) -> NSData?
 func UIImageJPEGRepresentation(image: UIImage, _ compressionQuality: CGFloat) -> NSData?
@@ -4505,7 +4505,7 @@ class UIManagedDocument : UIDocument {
   class func persistentStoreName() -> String
   var persistentStoreOptions: [NSObject : AnyObject]?
   var modelConfiguration: String?
-  func configurePersistentStoreCoordinatorFor(storeURL: NSURL, ofType fileType: String, modelConfiguration configuration: String?, storeOptions: [NSObject : AnyObject]?) throws
+  func configurePersistentStoreCoordinatorFor(storeURL: NSURL, ofType fileType: String, modelConfiguration configuration: String?, storeOptions: [NSObject : AnyObject]? = [:]) throws
   func persistentStoreTypeForFileType(fileType: String) -> String
   func readAdditionalContentFrom(absoluteURL: NSURL) throws
   func additionalContentFor(absoluteURL: NSURL) throws -> AnyObject
@@ -4820,13 +4820,13 @@ extension UIViewController {
 class UINib : NSObject {
   /*not inherited*/ init(nibName name: String, bundle bundleOrNil: NSBundle?)
   /*not inherited*/ init(data: NSData, bundle bundleOrNil: NSBundle?)
-  func instantiateWithOwner(ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]?) -> [AnyObject]
+  func instantiateWithOwner(ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = [:]) -> [AnyObject]
   init()
 }
 @available(iOS 3.0, *)
 let UINibExternalObjects: String
 extension NSBundle {
-  func loadNibNamed(name: String!, owner: AnyObject!, options: [NSObject : AnyObject]!) -> [AnyObject]!
+  func loadNibNamed(name: String!, owner: AnyObject!, options: [NSObject : AnyObject]! = [:]) -> [AnyObject]!
 }
 extension NSObject {
   class func awakeFromNib()
@@ -4883,7 +4883,7 @@ let UIPageViewControllerOptionSpineLocationKey: String
 let UIPageViewControllerOptionInterPageSpacingKey: String
 @available(iOS 5.0, *)
 class UIPageViewController : UIViewController {
-  init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : AnyObject]?)
+  init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : AnyObject]? = [:])
   init?(coder: NSCoder)
   weak var delegate: @sil_weak UIPageViewControllerDelegate?
   weak var dataSource: @sil_weak UIPageViewControllerDataSource?
@@ -6144,7 +6144,7 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(iOS 5.0, *)
   func scopeBarButtonDividerImageForLeftSegmentState(leftState: UIControlState, rightSegmentState rightState: UIControlState) -> UIImage?
   @available(iOS 5.0, *)
-  func setScopeBarButtonTitleTextAttributes(attributes: [String : AnyObject]?, forState state: UIControlState)
+  func setScopeBarButtonTitleTextAttributes(attributes: [String : AnyObject]? = [:], forState state: UIControlState)
   @available(iOS 5.0, *)
   func scopeBarButtonTitleTextAttributesFor(state: UIControlState) -> [String : AnyObject]?
   @available(iOS 5.0, *)
@@ -6341,7 +6341,7 @@ class UISegmentedControl : UIControl, NSCoding {
   @available(iOS 5.0, *)
   func dividerImageForLeftSegmentState(leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 5.0, *)
-  func setTitleTextAttributes(attributes: [NSObject : AnyObject]?, forState state: UIControlState)
+  func setTitleTextAttributes(attributes: [NSObject : AnyObject]? = [:], forState state: UIControlState)
   @available(iOS 5.0, *)
   func titleTextAttributesFor(state: UIControlState) -> [NSObject : AnyObject]?
   @available(iOS 5.0, *)

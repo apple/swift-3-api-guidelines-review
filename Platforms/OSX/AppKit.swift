@@ -2743,7 +2743,7 @@ extension NSApplication {
 }
 extension NSApplication {
   func orderFrontStandardAboutPanel(sender: AnyObject?)
-  func orderFrontStandardAboutPanelWithOptions(optionsDictionary: [String : AnyObject])
+  func orderFrontStandardAboutPanel(options optionsDictionary: [String : AnyObject] = [:])
 }
 extension NSApplication {
   @available(OSX 10.6, *)
@@ -3075,30 +3075,30 @@ let NSTextSizeMultiplierDocumentOption: String
 let NSFileTypeDocumentOption: String
 extension NSAttributedString {
   @available(OSX 10.11, *)
-  init(url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(url: NSURL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(OSX 10.0, *)
-  init(data: NSData, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(data: NSData, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(OSX 10.0, *)
-  func dataFrom(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSData
+  func dataFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> NSData
   @available(OSX 10.0, *)
-  func fileWrapperFrom(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSFileWrapper
+  func fileWrapperFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> NSFileWrapper
   init?(rtf data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init?(rtfd data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init?(html data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init?(html data: NSData, baseURL base: NSURL, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init?(docFormat data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init?(html data: NSData, options: [NSObject : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
+  init?(html data: NSData, options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init?(rtfdFileWrapper wrapper: NSFileWrapper, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  func rtfFrom(range: NSRange, documentAttributes dict: [String : AnyObject]) -> NSData?
-  func rtfdFrom(range: NSRange, documentAttributes dict: [String : AnyObject]) -> NSData?
-  func rtfdFileWrapperFrom(range: NSRange, documentAttributes dict: [String : AnyObject]) -> NSFileWrapper?
-  func docFormatFrom(range: NSRange, documentAttributes dict: [String : AnyObject]) -> NSData?
+  func rtfFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) -> NSData?
+  func rtfdFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) -> NSData?
+  func rtfdFileWrapperFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) -> NSFileWrapper?
+  func docFormatFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) -> NSData?
 }
 extension NSMutableAttributedString {
   @available(OSX 10.11, *)
-  func readFrom(url: NSURL, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>, error: ()) throws
+  func readFrom(url: NSURL, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>, error: ()) throws
   @available(OSX 10.0, *)
-  func readFrom(data: NSData, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>, error: ()) throws
+  func readFrom(data: NSData, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>, error: ()) throws
 }
 
 /************************ Misc methods ************************/
@@ -3160,9 +3160,9 @@ extension NSAttributedString {
 }
 extension NSMutableAttributedString {
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -readFromURL:options:documentAttributes:error: instead")
-  func readFrom(url: NSURL, options: [NSObject : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
+  func readFrom(url: NSURL, options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -readFromData:options:documentAttributes:error: instead")
-  func readFrom(data: NSData, options: [NSObject : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
+  func readFrom(data: NSData, options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
 }
 enum NSLineCapStyle : UInt {
   init?(rawValue: UInt)
@@ -6374,7 +6374,7 @@ protocol NSDraggingInfo : NSObjectProtocol {
   @available(OSX 10.7, *)
   var numberOfValidItemsForDrop: Int { get set }
   @available(OSX 10.7, *)
-  func enumerateDraggingItems(options enumOpts: NSDraggingItemEnumerationOptions = [], forView view: NSView, classes classArray: [AnyClass], searchOptions: [String : AnyObject], usingBlock block: (NSDraggingItem, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateDraggingItems(options enumOpts: NSDraggingItemEnumerationOptions = [], forView view: NSView, classes classArray: [AnyClass], searchOptions: [String : AnyObject] = [:], usingBlock block: (NSDraggingItem, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.11, *)
   var springLoadingHighlight: NSSpringLoadingHighlight { get }
   @available(OSX 10.11, *)
@@ -6461,7 +6461,7 @@ class NSDraggingSession : NSObject {
   var draggingPasteboard: NSPasteboard { get }
   var draggingSequenceNumber: Int { get }
   var draggingLocation: NSPoint { get }
-  func enumerateDraggingItems(options enumOpts: NSDraggingItemEnumerationOptions = [], forView view: NSView?, classes classArray: [AnyClass], searchOptions: [String : AnyObject], usingBlock block: (NSDraggingItem, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateDraggingItems(options enumOpts: NSDraggingItemEnumerationOptions = [], forView view: NSView?, classes classArray: [AnyClass], searchOptions: [String : AnyObject] = [:], usingBlock block: (NSDraggingItem, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   init()
 }
 enum NSDrawerState : UInt {
@@ -7587,9 +7587,9 @@ class NSFontCollection : NSObject, NSCopying, NSMutableCopying, NSCoding {
   var queryDescriptors: [NSFontDescriptor]? { get }
   var exclusionDescriptors: [NSFontDescriptor]? { get }
   var matchingDescriptors: [NSFontDescriptor]? { get }
-  func matchingDescriptorsWithOptions(options: [String : NSNumber]?) -> [NSFontDescriptor]?
+  func matchingDescriptors(options options: [String : NSNumber]? = [:]) -> [NSFontDescriptor]?
   func matchingDescriptorsForFamily(family: String) -> [NSFontDescriptor]?
-  func matchingDescriptorsForFamily(family: String, options: [String : NSNumber]?) -> [NSFontDescriptor]?
+  func matchingDescriptorsForFamily(family: String, options: [String : NSNumber]? = [:]) -> [NSFontDescriptor]?
   init()
   @available(OSX 10.7, *)
   func copy(zone zone: NSZone = nil) -> AnyObject
@@ -7679,11 +7679,11 @@ class NSFontDescriptor : NSObject, NSCopying, NSSecureCoding {
   var fontAttributes: [String : AnyObject] { get }
   /*not inherited*/ init(name fontName: String, size: CGFloat)
   /*not inherited*/ init(name fontName: String, matrix: NSAffineTransform)
-  init(fontAttributes attributes: [String : AnyObject]?)
+  init(fontAttributes attributes: [String : AnyObject]? = [:])
   func matchingFontDescriptorsWithMandatoryKeys(mandatoryKeys: Set<String>?) -> [NSFontDescriptor]
   @available(OSX 10.5, *)
   func matchingFontDescriptorWithMandatoryKeys(mandatoryKeys: Set<String>?) -> NSFontDescriptor?
-  func addingAttributes(attributes: [String : AnyObject]) -> NSFontDescriptor
+  func addingAttributes(attributes: [String : AnyObject] = [:]) -> NSFontDescriptor
   func withSymbolicTraits(symbolicTraits: NSFontSymbolicTraits) -> NSFontDescriptor
   func withSize(newPointSize: CGFloat) -> NSFontDescriptor
   func withMatrix(matrix: NSAffineTransform) -> NSFontDescriptor
@@ -7801,8 +7801,8 @@ class NSFontManager : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged AnyObject?
   func sendAction() -> Bool
   func localizedNameForFamily(family: String, face faceKey: String?) -> String
-  func setSelectedAttributes(attributes: [String : AnyObject], isMultiple flag: Bool)
-  func convertAttributes(attributes: [String : AnyObject]) -> [String : AnyObject]
+  func setSelectedAttributes(attributes: [String : AnyObject] = [:], isMultiple flag: Bool)
+  func convertAttributes(attributes: [String : AnyObject] = [:]) -> [String : AnyObject]
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -[NSFontDescriptor matchingFontDescriptorsWithMandatoryKeys:] instead")
   func availableFontNamesMatching(descriptor: NSFontDescriptor) -> [AnyObject]?
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use +[NSFontCollection allFontCollectionNames] instead")
@@ -8197,7 +8197,7 @@ enum NSImageInterpolation : UInt {
   case High
 }
 class NSGraphicsContext : NSObject {
-  /*not inherited*/ init?(attributes: [String : AnyObject])
+  /*not inherited*/ init?(attributes: [String : AnyObject] = [:])
   /*not inherited*/ init(window: NSWindow)
   /*not inherited*/ init?(bitmapImageRep bitmapRep: NSBitmapImageRep)
   @available(OSX 10.10, *)
@@ -8742,8 +8742,8 @@ extension NSObject {
   var exposedBindings: [String] { get }
   class func valueClassForBinding(binding: String) -> AnyClass?
   func valueClassForBinding(binding: String) -> AnyClass?
-  class func bind(binding: String, to observable: AnyObject, withKeyPath keyPath: String, options: [String : AnyObject]?)
-  func bind(binding: String, to observable: AnyObject, withKeyPath keyPath: String, options: [String : AnyObject]?)
+  class func bind(binding: String, to observable: AnyObject, withKeyPath keyPath: String, options: [String : AnyObject]? = [:])
+  func bind(binding: String, to observable: AnyObject, withKeyPath keyPath: String, options: [String : AnyObject]? = [:])
   class func unbind(binding: String)
   func unbind(binding: String)
   class func infoForBinding(binding: String) -> [String : AnyObject]?
@@ -9330,7 +9330,7 @@ class NSLayoutManager : NSObject, NSCoding {
   func drawBackgroundForGlyphRange(glyphsToShow: NSRange, at origin: NSPoint)
   func drawGlyphsForGlyphRange(glyphsToShow: NSRange, at origin: NSPoint)
   @available(OSX 10.7, *)
-  func showCGGlyphs(glyphs: UnsafePointer<CGGlyph>, positions: UnsafePointer<NSPoint>, count glyphCount: Int, font: NSFont, matrix textMatrix: NSAffineTransform, attributes: [String : AnyObject], in graphicsContext: NSGraphicsContext)
+  func showCGGlyphs(glyphs: UnsafePointer<CGGlyph>, positions: UnsafePointer<NSPoint>, count glyphCount: Int, font: NSFont, matrix textMatrix: NSAffineTransform, attributes: [String : AnyObject] = [:], in graphicsContext: NSGraphicsContext)
   @available(OSX 10.6, *)
   func fillBackgroundRectArray(rectArray: UnsafePointer<NSRect>, count rectCount: Int, forCharacterRange charRange: NSRange, color: NSColor)
   func drawUnderlineForGlyphRange(glyphRange: NSRange, underlineType underlineVal: NSUnderlineStyle, baselineOffset: CGFloat, lineFragmentRect lineRect: NSRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: NSPoint)
@@ -9349,8 +9349,8 @@ class NSLayoutManager : NSObject, NSCoding {
 
   /************************ Temporary attribute support ************************/
   func temporaryAttributesAtCharacterIndex(charIndex: Int, effectiveRange effectiveCharRange: NSRangePointer) -> [String : AnyObject]
-  func setTemporaryAttributes(attrs: [String : AnyObject], forCharacterRange charRange: NSRange)
-  func addTemporaryAttributes(attrs: [String : AnyObject], forCharacterRange charRange: NSRange)
+  func setTemporaryAttributes(attrs: [String : AnyObject] = [:], forCharacterRange charRange: NSRange)
+  func addTemporaryAttributes(attrs: [String : AnyObject] = [:], forCharacterRange charRange: NSRange)
   func removeTemporaryAttribute(attrName: String, forCharacterRange charRange: NSRange)
   @available(OSX 10.5, *)
   func temporaryAttribute(attrName: String, atCharacterIndex location: Int, effectiveRange range: NSRangePointer) -> AnyObject?
@@ -9451,7 +9451,7 @@ protocol NSLayoutManagerDelegate : NSObjectProtocol {
   @available(OSX 10.11, *)
   optional func layoutManager(layoutManager: NSLayoutManager, textContainer: NSTextContainer, didChangeGeometryFrom oldSize: NSSize)
   @available(OSX 10.5, *)
-  optional func layoutManager(layoutManager: NSLayoutManager, shouldUseTemporaryAttributes attrs: [String : AnyObject], forDrawingToScreen toScreen: Bool, atCharacterIndex charIndex: Int, effectiveRange effectiveCharRange: NSRangePointer) -> [String : AnyObject]?
+  optional func layoutManager(layoutManager: NSLayoutManager, shouldUseTemporaryAttributes attrs: [String : AnyObject] = [:], forDrawingToScreen toScreen: Bool, atCharacterIndex charIndex: Int, effectiveRange effectiveCharRange: NSRangePointer) -> [String : AnyObject]?
 }
 var NSGlyphAttributeSoft: Int { get }
 var NSGlyphAttributeElastic: Int { get }
@@ -10524,7 +10524,7 @@ let NSTabColumnTerminatorsAttributeName: String
 class NSTextTab : NSObject, NSCopying, NSCoding {
   @available(OSX 10.11, *)
   class func columnTerminatorsFor(aLocale: NSLocale?) -> NSCharacterSet
-  init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options: [String : AnyObject])
+  init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options: [String : AnyObject] = [:])
   var alignment: NSTextAlignment { get }
   var location: CGFloat { get }
   var options: [String : AnyObject] { get }
@@ -10677,7 +10677,7 @@ class NSPasteboard : NSObject {
   @available(OSX 10.6, *)
   func writeObjects(objects: [NSPasteboardWriting]) -> Bool
   @available(OSX 10.6, *)
-  func readObjectsForClasses(classArray: [AnyClass], options: [String : AnyObject]?) -> [AnyObject]?
+  func readObjectsForClasses(classArray: [AnyClass], options: [String : AnyObject]? = [:]) -> [AnyObject]?
   @available(OSX 10.6, *)
   var pasteboardItems: [NSPasteboardItem]? { get }
   @available(OSX 10.6, *)
@@ -10685,7 +10685,7 @@ class NSPasteboard : NSObject {
   @available(OSX 10.6, *)
   func canReadItemWithDataConformingToTypes(types: [String]) -> Bool
   @available(OSX 10.6, *)
-  func canReadObjectForClasses(classArray: [AnyClass], options: [String : AnyObject]?) -> Bool
+  func canReadObjectForClasses(classArray: [AnyClass], options: [String : AnyObject]? = [:]) -> Bool
   func declareTypes(newTypes: [String], owner newOwner: AnyObject?) -> Int
   func addTypes(newTypes: [String], owner newOwner: AnyObject?) -> Int
   var types: [String]? { get }
@@ -10935,7 +10935,7 @@ class NSPersistentDocument : NSDocument {
   var managedObjectContext: NSManagedObjectContext?
   var managedObjectModel: NSManagedObjectModel? { get }
   @available(OSX 10.5, *)
-  func configurePersistentStoreCoordinatorFor(url: NSURL, ofType fileType: String, modelConfiguration configuration: String?, storeOptions: [String : AnyObject]?) throws
+  func configurePersistentStoreCoordinatorFor(url: NSURL, ofType fileType: String, modelConfiguration configuration: String?, storeOptions: [String : AnyObject]? = [:]) throws
   func persistentStoreTypeForFileType(fileType: String) -> String
   func writeTo(absoluteURL: NSURL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType, originalContentsURL absoluteOriginalContentsURL: NSURL?) throws
   func readFrom(absoluteURL: NSURL, ofType typeName: String) throws
@@ -13428,11 +13428,11 @@ class NSSpellChecker : NSObject {
   @available(OSX 10.5, *)
   func checkGrammarOf(stringToCheck: String, startingAt startingOffset: Int, language: String?, wrap wrapFlag: Bool, inSpellDocumentWithTag tag: Int, details: AutoreleasingUnsafeMutablePointer<NSArray?>) -> NSRange
   @available(OSX 10.6, *)
-  func check(stringToCheck: String, range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject]?, inSpellDocumentWithTag tag: Int, orthography: AutoreleasingUnsafeMutablePointer<NSOrthography?>, wordCount: UnsafeMutablePointer<Int>) -> [NSTextCheckingResult]
+  func check(stringToCheck: String, range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject]? = [:], inSpellDocumentWithTag tag: Int, orthography: AutoreleasingUnsafeMutablePointer<NSOrthography?>, wordCount: UnsafeMutablePointer<Int>) -> [NSTextCheckingResult]
   @available(OSX 10.6, *)
-  func requestCheckingOf(stringToCheck: String, range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject]?, inSpellDocumentWithTag tag: Int, completionHandler: ((Int, [NSTextCheckingResult], NSOrthography, Int) -> Void)? = nil) -> Int
+  func requestCheckingOf(stringToCheck: String, range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject]? = [:], inSpellDocumentWithTag tag: Int, completionHandler: ((Int, [NSTextCheckingResult], NSOrthography, Int) -> Void)? = nil) -> Int
   @available(OSX 10.6, *)
-  func menuFor(result: NSTextCheckingResult, string checkedString: String, options: [String : AnyObject]?, atLocation location: NSPoint, in view: NSView) -> NSMenu?
+  func menuFor(result: NSTextCheckingResult, string checkedString: String, options: [String : AnyObject]? = [:], atLocation location: NSPoint, in view: NSView) -> NSMenu?
   @available(OSX 10.6, *)
   func userQuotesArrayForLanguage(language: String) -> [String]
   @available(OSX 10.6, *)
@@ -14096,11 +14096,11 @@ class NSStringDrawingContext : NSObject {
 }
 extension NSString {
   @available(OSX 10.0, *)
-  func sizeWithAttributes(attrs: [String : AnyObject]?) -> NSSize
+  func size(attributes attrs: [String : AnyObject]? = [:]) -> NSSize
   @available(OSX 10.0, *)
-  func drawAt(point: NSPoint, withAttributes attrs: [String : AnyObject]?)
+  func drawAt(point: NSPoint, withAttributes attrs: [String : AnyObject]? = [:])
   @available(OSX 10.0, *)
-  func drawIn(rect: NSRect, withAttributes attrs: [String : AnyObject]?)
+  func drawIn(rect: NSRect, withAttributes attrs: [String : AnyObject]? = [:])
 }
 extension NSAttributedString {
   @available(OSX 10.0, *)
@@ -14126,9 +14126,9 @@ struct NSStringDrawingOptions : OptionSetType {
 }
 extension NSString {
   @available(OSX 10.11, *)
-  func drawWith(rect: NSRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?)
+  func drawWith(rect: NSRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?)
   @available(OSX 10.11, *)
-  func boundingRectWith(size: NSSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?, context: NSStringDrawingContext?) -> NSRect
+  func boundingRectWith(size: NSSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?) -> NSRect
 }
 extension NSAttributedString {
   @available(OSX 10.11, *)
@@ -14139,8 +14139,8 @@ extension NSAttributedString {
 
 /************************ Deprecated ************************/
 extension NSString {
-  func drawWith(rect: NSRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?)
-  func boundingRectWith(size: NSSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]?) -> NSRect
+  func drawWith(rect: NSRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:])
+  func boundingRectWith(size: NSSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:]) -> NSRect
 }
 extension NSAttributedString {
   func drawWith(rect: NSRect, options: NSStringDrawingOptions = [])
@@ -14695,7 +14695,7 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   func textView(textView: NSTextView, willChangeSelectionFromCharacterRange oldSelectedCharRange: NSRange, toCharacterRange newSelectedCharRange: NSRange) -> NSRange
   func textView(textView: NSTextView, willChangeSelectionFromCharacterRanges oldSelectedCharRanges: [NSValue], toCharacterRanges newSelectedCharRanges: [NSValue]) -> [NSValue]
   func textView(textView: NSTextView, shouldChangeTextInRanges affectedRanges: [NSValue], replacementStrings: [String]?) -> Bool
-  func textView(textView: NSTextView, shouldChangeTypingAttributes oldTypingAttributes: [String : AnyObject], toAttributes newTypingAttributes: [String : AnyObject]) -> [String : AnyObject]
+  func textView(textView: NSTextView, shouldChangeTypingAttributes oldTypingAttributes: [String : AnyObject] = [:], toAttributes newTypingAttributes: [String : AnyObject] = [:]) -> [String : AnyObject]
   func textViewDidChangeSelection(notification: NSNotification)
   func textViewDidChangeTypingAttributes(notification: NSNotification)
   func textView(textView: NSTextView, willDisplayToolTip tooltip: String, forCharacterAt characterIndex: Int) -> String?
@@ -14707,9 +14707,9 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   @available(OSX 10.5, *)
   func textView(view: NSTextView, menu: NSMenu, forEvent event: NSEvent, at charIndex: Int) -> NSMenu?
   @available(OSX 10.6, *)
-  func textView(view: NSTextView, willCheckTextIn range: NSRange, options: [String : AnyObject], types checkingTypes: UnsafeMutablePointer<NSTextCheckingTypes>) -> [String : AnyObject]
+  func textView(view: NSTextView, willCheckTextIn range: NSRange, options: [String : AnyObject] = [:], types checkingTypes: UnsafeMutablePointer<NSTextCheckingTypes>) -> [String : AnyObject]
   @available(OSX 10.6, *)
-  func textView(view: NSTextView, didCheckTextIn range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject], results: [NSTextCheckingResult], orthography: NSOrthography, wordCount: Int) -> [NSTextCheckingResult]
+  func textView(view: NSTextView, didCheckTextIn range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject] = [:], results: [NSTextCheckingResult], orthography: NSOrthography, wordCount: Int) -> [NSTextCheckingResult]
   @available(OSX 10.7, *)
   func textView(textView: NSTextView, urlForContentsOf textAttachment: NSTextAttachment, at charIndex: Int) -> NSURL?
   @available(OSX 10.8, *)
@@ -15418,15 +15418,15 @@ class NSTextStorage : NSMutableAttributedString {
   init()
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.11, *)
-  init(url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(url: NSURL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(OSX 10.0, *)
-  init(data: NSData, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(data: NSData, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   init?(rtf data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init?(rtfd data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init?(html data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init?(html data: NSData, baseURL base: NSURL, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init?(docFormat data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init?(html data: NSData, options: [NSObject : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
+  init?(html data: NSData, options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init?(rtfdFileWrapper wrapper: NSFileWrapper, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -initWithURL:options:documentAttributes:error: instead")
@@ -15434,7 +15434,7 @@ class NSTextStorage : NSMutableAttributedString {
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -initWithURL:options:documentAttributes:error: instead")
   init?(path: String, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init(string str: String)
-  init(string str: String, attributes attrs: [String : AnyObject]?)
+  init(string str: String, attributes attrs: [String : AnyObject]? = [:])
   init(attributedString attrStr: NSAttributedString)
 }
 
@@ -15842,9 +15842,9 @@ extension NSTextView {
   @available(OSX 10.6, *)
   var enabledTextCheckingTypes: NSTextCheckingTypes
   @available(OSX 10.6, *)
-  func checkTextIn(range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject])
+  func checkTextIn(range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject] = [:])
   @available(OSX 10.6, *)
-  func handle(results: [NSTextCheckingResult], forRange range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject], orthography: NSOrthography, wordCount: Int)
+  func handle(results: [NSTextCheckingResult], forRange range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject] = [:], orthography: NSOrthography, wordCount: Int)
   @available(OSX 10.6, *)
   func orderFrontSubstitutionsPanel(sender: AnyObject?)
   @available(OSX 10.6, *)
@@ -15885,7 +15885,7 @@ protocol NSTextViewDelegate : NSTextDelegate {
   optional func textView(textView: NSTextView, willChangeSelectionFromCharacterRange oldSelectedCharRange: NSRange, toCharacterRange newSelectedCharRange: NSRange) -> NSRange
   optional func textView(textView: NSTextView, willChangeSelectionFromCharacterRanges oldSelectedCharRanges: [NSValue], toCharacterRanges newSelectedCharRanges: [NSValue]) -> [NSValue]
   optional func textView(textView: NSTextView, shouldChangeTextInRanges affectedRanges: [NSValue], replacementStrings: [String]?) -> Bool
-  optional func textView(textView: NSTextView, shouldChangeTypingAttributes oldTypingAttributes: [String : AnyObject], toAttributes newTypingAttributes: [String : AnyObject]) -> [String : AnyObject]
+  optional func textView(textView: NSTextView, shouldChangeTypingAttributes oldTypingAttributes: [String : AnyObject] = [:], toAttributes newTypingAttributes: [String : AnyObject] = [:]) -> [String : AnyObject]
   optional func textViewDidChangeSelection(notification: NSNotification)
   optional func textViewDidChangeTypingAttributes(notification: NSNotification)
   optional func textView(textView: NSTextView, willDisplayToolTip tooltip: String, forCharacterAt characterIndex: Int) -> String?
@@ -15897,9 +15897,9 @@ protocol NSTextViewDelegate : NSTextDelegate {
   @available(OSX 10.5, *)
   optional func textView(view: NSTextView, menu: NSMenu, forEvent event: NSEvent, at charIndex: Int) -> NSMenu?
   @available(OSX 10.6, *)
-  optional func textView(view: NSTextView, willCheckTextIn range: NSRange, options: [String : AnyObject], types checkingTypes: UnsafeMutablePointer<NSTextCheckingTypes>) -> [String : AnyObject]
+  optional func textView(view: NSTextView, willCheckTextIn range: NSRange, options: [String : AnyObject] = [:], types checkingTypes: UnsafeMutablePointer<NSTextCheckingTypes>) -> [String : AnyObject]
   @available(OSX 10.6, *)
-  optional func textView(view: NSTextView, didCheckTextIn range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject], results: [NSTextCheckingResult], orthography: NSOrthography, wordCount: Int) -> [NSTextCheckingResult]
+  optional func textView(view: NSTextView, didCheckTextIn range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject] = [:], results: [NSTextCheckingResult], orthography: NSOrthography, wordCount: Int) -> [NSTextCheckingResult]
   @available(OSX 10.7, *)
   optional func textView(textView: NSTextView, urlForContentsOf textAttachment: NSTextAttachment, at charIndex: Int) -> NSURL?
   @available(OSX 10.8, *)
@@ -16218,7 +16218,7 @@ struct NSTrackingAreaOptions : OptionSetType {
 }
 @available(OSX 10.5, *)
 class NSTrackingArea : NSObject, NSCopying, NSCoding {
-  init(rect: NSRect, options: NSTrackingAreaOptions = [], owner: AnyObject?, userInfo: [NSObject : AnyObject]?)
+  init(rect: NSRect, options: NSTrackingAreaOptions = [], owner: AnyObject?, userInfo: [NSObject : AnyObject]? = [:])
   var rect: NSRect { get }
   var options: NSTrackingAreaOptions { get }
   unowned(unsafe) var owner: @sil_unmanaged AnyObject? { get }
@@ -17383,9 +17383,9 @@ extension NSView {
 }
 extension NSView {
   @available(OSX 10.5, *)
-  func enterFullScreenMode(screen: NSScreen, withOptions options: [String : AnyObject]?) -> Bool
+  func enterFullScreenMode(screen: NSScreen, withOptions options: [String : AnyObject]? = [:]) -> Bool
   @available(OSX 10.5, *)
-  func exitFullScreenModeWithOptions(options: [String : AnyObject]?)
+  func exitFullScreenMode(options options: [String : AnyObject]? = [:])
   @available(OSX 10.5, *)
   var isInFullScreenMode: Bool { get }
 }
@@ -17401,7 +17401,7 @@ extension NSView {
   @available(OSX 10.6, *)
   func showDefinitionFor(attrString: NSAttributedString?, at textBaselineOrigin: NSPoint)
   @available(OSX 10.6, *)
-  func showDefinitionFor(attrString: NSAttributedString?, range targetRange: NSRange, options: [String : AnyObject]?, baselineOriginProvider originProvider: ((NSRange) -> NSPoint)? = nil)
+  func showDefinitionFor(attrString: NSAttributedString?, range targetRange: NSRange, options: [String : AnyObject]? = [:], baselineOriginProvider originProvider: ((NSRange) -> NSPoint)? = nil)
 }
 @available(OSX 10.6, *)
 let NSDefinitionPresentationTypeKey: String
@@ -18936,7 +18936,7 @@ class NSWorkspace : NSObject {
 }
 extension NSWorkspace {
   @available(OSX 10.6, *)
-  func setDesktopImageURL(url: NSURL, forScreen screen: NSScreen, options: [String : AnyObject]) throws
+  func setDesktopImageURL(url: NSURL, forScreen screen: NSScreen, options: [String : AnyObject] = [:]) throws
   @available(OSX 10.6, *)
   func desktopImageURLFor(screen: NSScreen) -> NSURL?
   @available(OSX 10.6, *)

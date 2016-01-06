@@ -93,7 +93,7 @@ class WKInterfaceController : NSObject {
   func addMenuItemWithImageNamed(imageName: String, title: String, action: Selector)
   func addMenuItemWith(itemIcon: WKMenuItemIcon, title: String, action: Selector)
   func clearAllMenuItems()
-  func updateUserActivity(type: String, userInfo: [NSObject : AnyObject]?, webpageURL: NSURL?)
+  func updateUserActivity(type: String, userInfo: [NSObject : AnyObject]? = [:], webpageURL: NSURL?)
   func invalidateUserActivity()
   @available(iOS 8.2, *)
   class func openParentApplication(userInfo: [NSObject : AnyObject], reply: (([NSObject : AnyObject], NSError?) -> Void)? = nil) -> Bool

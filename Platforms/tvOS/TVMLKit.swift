@@ -42,7 +42,7 @@ protocol TVApplicationControllerDelegate : NSObjectProtocol {
    @brief Tells the delegate that the application did finish launching.
    */
   @available(tvOS 9.0, *)
-  optional func appController(appController: TVApplicationController, didFinishLaunchingWithOptions options: [String : AnyObject]?)
+  optional func appController(appController: TVApplicationController, didFinishLaunchingWithOptions options: [String : AnyObject]? = [:])
 
   /*!
    @brief Tells the delegate that the application failed to load.
@@ -54,7 +54,7 @@ protocol TVApplicationControllerDelegate : NSObjectProtocol {
    @brief Tells the delegate that the application did stop.
    */
   @available(tvOS 9.0, *)
-  optional func appController(appController: TVApplicationController, didStopWithOptions options: [String : AnyObject]?)
+  optional func appController(appController: TVApplicationController, didStopWithOptions options: [String : AnyObject]? = [:])
 }
 
 /*!

@@ -5292,7 +5292,7 @@ class ODNode : NSObject {
                   other attributes.  inAttributes is optional, nil can be passed if no other attributes are to be set.
   */
   @available(OSX 10.6, *)
-  func createRecordWithRecordType(inRecordType: String!, name inRecordName: String!, attributes inAttributes: [NSObject : AnyObject]!) throws -> ODRecord
+  func createRecordWithRecordType(inRecordType: String!, name inRecordName: String!, attributes inAttributes: [NSObject : AnyObject]! = [:]) throws -> ODRecord
 
   /*!
       @method     recordWithRecordType:name:attributes:error:
@@ -6093,7 +6093,7 @@ class ODSession : NSObject {
                       ODSessionProxyPassword       NSString(password)
   */
   @available(OSX 10.6, *)
-  init(options inOptions: [NSObject : AnyObject]!) throws
+  init(options inOptions: [NSObject : AnyObject]! = [:]) throws
 
   /*!
       @method     nodeNamesAndReturnError:

@@ -11,7 +11,7 @@ import ReplayKit
 extension BaseScene: RPPreviewViewControllerDelegate, RPScreenRecorderDelegate {
     // MARK: Computed Properties
     
-    var isScreenRecordingToggleEnabled: Bool {
+    var screenRecordingToggleEnabled: Bool {
         return NSUserDefaults.standard().boolForKey(screenRecorderEnabledKey)
     }
     
@@ -19,7 +19,7 @@ extension BaseScene: RPPreviewViewControllerDelegate, RPScreenRecorderDelegate {
     
     func startScreenRecording() {
         // Do nothing if screen recording hasn't been enabled.
-        guard isScreenRecordingToggleEnabled else { return }
+        guard screenRecordingToggleEnabled else { return }
         
         let sharedRecorder = RPScreenRecorder.shared()
         
@@ -60,13 +60,13 @@ extension BaseScene: RPPreviewViewControllerDelegate, RPScreenRecorderDelegate {
     
     func showScreenRecordingAlert(message: String) {
         // Pause the scene and un-pause after the alert returns.
-        isPaused = true
+        paused = true
         
         // Show an alert notifying the user that there was an issue with starting or stopping the recorder.
         let alertController = UIAlertController(title: "ReplayKit Error", message: message, preferredStyle: .Alert)
         
         let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { _ in
-            self.isPaused = false
+            self.paused = false
         }
         alertController.addAction(alertAction)
         

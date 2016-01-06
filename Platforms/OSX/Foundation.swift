@@ -496,7 +496,7 @@ extension NSAttributedString {
   func attribute(attrName: String, at location: Int, longestEffectiveRange range: NSRangePointer, in rangeLimit: NSRange) -> AnyObject?
   func isEqualTo(other: NSAttributedString) -> Bool
   init(string str: String)
-  init(string str: String, attributes attrs: [String : AnyObject]?)
+  init(string str: String, attributes attrs: [String : AnyObject]? = [:])
   init(attributedString attrStr: NSAttributedString)
   @available(OSX 10.6, *)
   func enumerateAttributesIn(enumerationRange: NSRange, options opts: NSAttributedStringEnumerationOptions = [], usingBlock block: ([String : AnyObject], NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
@@ -512,17 +512,17 @@ struct NSAttributedStringEnumerationOptions : OptionSetType {
 @available(OSX 10.0, *)
 class NSMutableAttributedString : NSAttributedString {
   func replaceCharactersIn(range: NSRange, withString str: String)
-  func setAttributes(attrs: [String : AnyObject]?, range: NSRange)
+  func setAttributes(attrs: [String : AnyObject]? = [:], range: NSRange)
   init()
   init?(coder aDecoder: NSCoder)
   init(string str: String)
-  init(string str: String, attributes attrs: [String : AnyObject]?)
+  init(string str: String, attributes attrs: [String : AnyObject]? = [:])
   init(attributedString attrStr: NSAttributedString)
 }
 extension NSMutableAttributedString {
   var mutableString: NSMutableString { get }
   func addAttribute(name: String, value: AnyObject, range: NSRange)
-  func addAttributes(attrs: [String : AnyObject], range: NSRange)
+  func addAttributes(attrs: [String : AnyObject] = [:], range: NSRange)
   func removeAttribute(name: String, range: NSRange)
   func replaceCharactersIn(range: NSRange, withAttributedString attrString: NSAttributedString)
   func insert(attrString: NSAttributedString, at loc: Int)
@@ -1919,12 +1919,12 @@ class NSDistributedNotificationCenter : NSNotificationCenter {
   class func forType(notificationCenterType: String) -> NSDistributedNotificationCenter
   class func defaultCenter() -> NSDistributedNotificationCenter
   func addObserver(observer: AnyObject, selector: Selector, name: String?, object: String?, suspensionBehavior: NSNotificationSuspensionBehavior)
-  func postNotificationName(name: String, object: String?, userInfo: [NSObject : AnyObject]?, deliverImmediately: Bool)
-  func postNotificationName(name: String, object: String?, userInfo: [NSObject : AnyObject]?, options: NSDistributedNotificationOptions = [])
+  func postNotificationName(name: String, object: String?, userInfo: [NSObject : AnyObject]? = [:], deliverImmediately: Bool)
+  func postNotificationName(name: String, object: String?, userInfo: [NSObject : AnyObject]? = [:], options: NSDistributedNotificationOptions = [])
   var suspended: Bool
   func addObserver(observer: AnyObject, selector aSelector: Selector, name aName: String?, object anObject: String?)
   func postNotificationName(aName: String, object anObject: String?)
-  func postNotificationName(aName: String, object anObject: String?, userInfo aUserInfo: [NSObject : AnyObject]?)
+  func postNotificationName(aName: String, object anObject: String?, userInfo aUserInfo: [NSObject : AnyObject]? = [:])
   func removeObserver(observer: AnyObject, name aName: String?, object anObject: String?)
   init()
 }
@@ -1993,7 +1993,7 @@ let NSStringEncodingErrorKey: String
 let NSURLErrorKey: String
 let NSFilePathErrorKey: String
 class NSError : NSObject, NSCopying, NSSecureCoding {
-  init(domain: String, code: Int, userInfo dict: [NSObject : AnyObject]?)
+  init(domain: String, code: Int, userInfo dict: [NSObject : AnyObject]? = [:])
   var domain: String { get }
   var code: Int { get }
   var userInfo: [NSObject : AnyObject] { get }
@@ -2040,7 +2040,7 @@ let NSPortSendException: String
 let NSPortReceiveException: String
 let NSOldStyleException: String
 class NSException : NSObject, NSCopying, NSCoding {
-  init(name aName: String, reason aReason: String?, userInfo aUserInfo: [NSObject : AnyObject]?)
+  init(name aName: String, reason aReason: String?, userInfo aUserInfo: [NSObject : AnyObject]? = [:])
   var name: String { get }
   var reason: String? { get }
   var userInfo: [NSObject : AnyObject]? { get }
@@ -2367,15 +2367,15 @@ class NSFileManager : NSObject {
   @available(OSX 10.10, *)
   func getRelationship(outRelationship: UnsafeMutablePointer<NSURLRelationship>, of directory: NSSearchPathDirectory, inDomain domainMask: NSSearchPathDomainMask, toItemAt url: NSURL) throws
   @available(OSX 10.7, *)
-  func createDirectoryAt(url: NSURL, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]?) throws
+  func createDirectoryAt(url: NSURL, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]? = [:]) throws
   @available(OSX 10.7, *)
   func createSymbolicLinkAt(url: NSURL, withDestinationURL destURL: NSURL) throws
   @available(OSX 10.5, *)
   unowned(unsafe) var delegate: @sil_unmanaged NSFileManagerDelegate?
   @available(OSX 10.5, *)
-  func setAttributes(attributes: [String : AnyObject], ofItemAtPath path: String) throws
+  func setAttributes(attributes: [String : AnyObject] = [:], ofItemAtPath path: String) throws
   @available(OSX 10.5, *)
-  func createDirectoryAtPath(path: String, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]?) throws
+  func createDirectoryAtPath(path: String, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]? = [:]) throws
   @available(OSX 10.5, *)
   func contentsOfDirectoryAtPath(path: String) throws -> [String]
   @available(OSX 10.5, *)
@@ -2422,7 +2422,7 @@ class NSFileManager : NSObject {
   func enumeratorAt(url: NSURL, includingPropertiesForKeys keys: [String]?, options mask: NSDirectoryEnumerationOptions = [], errorHandler handler: ((NSURL, NSError) -> Bool)? = nil) -> NSDirectoryEnumerator?
   func subpathsAtPath(path: String) -> [String]?
   func contentsAtPath(path: String) -> NSData?
-  func createFileAtPath(path: String, contents data: NSData?, attributes attr: [String : AnyObject]?) -> Bool
+  func createFileAtPath(path: String, contents data: NSData?, attributes attr: [String : AnyObject]? = [:]) -> Bool
   func fileSystemRepresentationWithPath(path: String) -> UnsafePointer<Int8>
   func stringWithFileSystemRepresentation(str: UnsafePointer<Int8>, length len: Int) -> String
   @available(OSX 10.6, *)
@@ -2688,7 +2688,7 @@ enum NSFormattingUnitStyle : Int {
 }
 class NSFormatter : NSObject, NSCopying, NSCoding {
   func stringForObjectValue(obj: AnyObject) -> String?
-  func attributedStringForObjectValue(obj: AnyObject, withDefaultAttributes attrs: [String : AnyObject]?) -> NSAttributedString?
+  func attributedStringForObjectValue(obj: AnyObject, withDefaultAttributes attrs: [String : AnyObject]? = [:]) -> NSAttributedString?
   func editingStringForObjectValue(obj: AnyObject) -> String?
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   func isPartialStringValid(partialString: String, newEditing newString: AutoreleasingUnsafeMutablePointer<NSString?>, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
@@ -3566,7 +3566,7 @@ class NSItemProvider : NSObject, NSCopying {
   func registerItemForTypeIdentifier(typeIdentifier: String, loadHandler: NSItemProviderLoadHandler)
   var registeredTypeIdentifiers: [AnyObject] { get }
   func hasItemConformingToTypeIdentifier(typeIdentifier: String) -> Bool
-  func loadItemForTypeIdentifier(typeIdentifier: String, options: [NSObject : AnyObject]?, completionHandler: NSItemProviderCompletionHandler? = nil)
+  func loadItemForTypeIdentifier(typeIdentifier: String, options: [NSObject : AnyObject]? = [:], completionHandler: NSItemProviderCompletionHandler? = nil)
   convenience init()
   @available(OSX 10.10, *)
   func copy(zone zone: NSZone = nil) -> AnyObject
@@ -3577,7 +3577,7 @@ extension NSItemProvider {
   @available(OSX 10.10, *)
   var previewImageHandler: NSItemProviderLoadHandler?
   @available(OSX 10.10, *)
-  func loadPreviewImageWithOptions(options: [NSObject : AnyObject]!, completionHandler: NSItemProviderCompletionHandler!)
+  func loadPreviewImage(options options: [NSObject : AnyObject]! = [:], completionHandler: NSItemProviderCompletionHandler!)
 }
 @available(OSX 10.10, *)
 let NSExtensionJavaScriptPreprocessingResultsKey: String
@@ -4816,7 +4816,7 @@ class NSNotification : NSObject, NSCopying, NSCoding {
   var object: AnyObject? { get }
   var userInfo: [NSObject : AnyObject]? { get }
   @available(OSX 10.6, *)
-  init(name: String, object: AnyObject?, userInfo: [NSObject : AnyObject]?)
+  init(name: String, object: AnyObject?, userInfo: [NSObject : AnyObject]? = [:])
   init?(coder aDecoder: NSCoder)
   func copy(zone zone: NSZone = nil) -> AnyObject
   func encodeWith(aCoder: NSCoder)
@@ -4832,7 +4832,7 @@ class NSNotificationCenter : NSObject {
   func addObserver(observer: AnyObject, selector aSelector: Selector, name aName: String?, object anObject: AnyObject?)
   func post(notification: NSNotification)
   func postNotificationName(aName: String, object anObject: AnyObject?)
-  func postNotificationName(aName: String, object anObject: AnyObject?, userInfo aUserInfo: [NSObject : AnyObject]?)
+  func postNotificationName(aName: String, object anObject: AnyObject?, userInfo aUserInfo: [NSObject : AnyObject]? = [:])
   func removeObserver(observer: AnyObject)
   func removeObserver(observer: AnyObject, name aName: String?, object anObject: AnyObject?)
   @available(OSX 10.6, *)
@@ -5852,7 +5852,7 @@ class NSProgress : NSObject {
   class func discreteProgressWithTotalUnitCount(unitCount: Int64) -> NSProgress
   @available(OSX 10.11, *)
   /*not inherited*/ init(totalUnitCount unitCount: Int64, parent: NSProgress, pendingUnitCount portionOfParentTotalUnitCount: Int64)
-  init(parent parentProgressOrNil: NSProgress?, userInfo userInfoOrNil: [NSObject : AnyObject]?)
+  init(parent parentProgressOrNil: NSProgress?, userInfo userInfoOrNil: [NSObject : AnyObject]? = [:])
   func becomeCurrentWithPendingUnitCount(unitCount: Int64)
   func resignCurrent()
   @available(OSX 10.11, *)
@@ -6772,7 +6772,7 @@ protocol NSSpellServerDelegate : NSObjectProtocol {
   @available(OSX 10.5, *)
   optional func spellServer(sender: NSSpellServer, checkGrammarIn stringToCheck: String, language: String?, details: AutoreleasingUnsafeMutablePointer<NSArray?>) -> NSRange
   @available(OSX 10.6, *)
-  optional func spellServer(sender: NSSpellServer, check stringToCheck: String, offset: Int, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject]?, orthography: NSOrthography?, wordCount: UnsafeMutablePointer<Int>) -> [NSTextCheckingResult]?
+  optional func spellServer(sender: NSSpellServer, check stringToCheck: String, offset: Int, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject]? = [:], orthography: NSOrthography?, wordCount: UnsafeMutablePointer<Int>) -> [NSTextCheckingResult]?
   @available(OSX 10.7, *)
   optional func spellServer(sender: NSSpellServer, recordResponse response: Int, toCorrection correction: String, forWord word: String, language: String)
 }
@@ -7160,7 +7160,7 @@ let NSStringTransformStripCombiningMarks: String
 let NSStringTransformStripDiacritics: String
 extension NSString {
   @available(OSX 10.10, *)
-  class func stringEncodingFor(data: NSData, encodingOptions opts: [String : AnyObject]?, convertedString string: AutoreleasingUnsafeMutablePointer<NSString?>, usedLossyConversion: UnsafeMutablePointer<ObjCBool>) -> UInt
+  class func stringEncodingFor(data: NSData, encodingOptions opts: [String : AnyObject]? = [:], convertedString string: AutoreleasingUnsafeMutablePointer<NSString?>, usedLossyConversion: UnsafeMutablePointer<ObjCBool>) -> UInt
 }
 @available(OSX 10.10, *)
 let NSStringEncodingDetectionSuggestedEncodingsKey: String
@@ -8189,7 +8189,7 @@ class NSCachedURLResponse : NSObject, NSSecureCoding, NSCopying {
       @param storagePolicy an NSURLCacheStoragePolicy constant.
       @result an initialized NSCachedURLResponse.
   */
-  init(response: NSURLResponse, data: NSData, userInfo: [NSObject : AnyObject]?, storagePolicy: NSURLCacheStoragePolicy)
+  init(response: NSURLResponse, data: NSData, userInfo: [NSObject : AnyObject]? = [:], storagePolicy: NSURLCacheStoragePolicy)
 
   /*! 
       @method response
@@ -8981,7 +8981,7 @@ class NSURLCredentialStorage : NSObject {
    @discussion The credential is removed from both persistent and temporary storage.
    */
   @available(OSX 10.9, *)
-  func remove(credential: NSURLCredential, forProtectionSpace space: NSURLProtectionSpace, options: [String : AnyObject]?)
+  func remove(credential: NSURLCredential, forProtectionSpace space: NSURLProtectionSpace, options: [String : AnyObject]? = [:])
 
   /*!
       @method defaultCredentialForProtectionSpace:
@@ -9006,7 +9006,7 @@ extension NSURLCredentialStorage {
   @available(OSX 10.10, *)
   func setCredential(credential: NSURLCredential, forProtectionSpace protectionSpace: NSURLProtectionSpace, task: NSURLSessionTask)
   @available(OSX 10.10, *)
-  func remove(credential: NSURLCredential, forProtectionSpace protectionSpace: NSURLProtectionSpace, options: [String : AnyObject]?, task: NSURLSessionTask)
+  func remove(credential: NSURLCredential, forProtectionSpace protectionSpace: NSURLProtectionSpace, options: [String : AnyObject]? = [:], task: NSURLSessionTask)
   @available(OSX 10.10, *)
   func getDefaultCredentialFor(space: NSURLProtectionSpace, task: NSURLSessionTask, completionHandler: (NSURLCredential?) -> Void)
   @available(OSX 10.10, *)
@@ -11912,7 +11912,7 @@ protocol NSXMLParserDelegate : NSObjectProtocol {
   optional func parser(parser: NSXMLParser, foundElementDeclarationWithName elementName: String, model: String)
   optional func parser(parser: NSXMLParser, foundInternalEntityDeclarationWithName name: String, value: String?)
   optional func parser(parser: NSXMLParser, foundExternalEntityDeclarationWithName name: String, publicID: String?, systemID: String?)
-  optional func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String])
+  optional func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:])
   optional func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?)
   optional func parser(parser: NSXMLParser, didStartMappingPrefix prefix: String, toURI namespaceURI: String)
   optional func parser(parser: NSXMLParser, didEndMappingPrefix prefix: String)

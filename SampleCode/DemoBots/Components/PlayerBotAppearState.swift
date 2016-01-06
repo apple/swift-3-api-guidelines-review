@@ -78,7 +78,7 @@ class PlayerBotAppearState: GKState {
         renderComponent.node.addChild(node)
         
         // Hide the animation component node until the `PlayerBot` exits this state.
-        animationComponent.node.isHidden = true
+        animationComponent.node.hidden = true
 
         // Disable the input component while the `PlayerBot` appears.
         inputComponent.isEnabled = false
@@ -108,7 +108,7 @@ class PlayerBotAppearState: GKState {
         super.willExitWithNextState(nextState)
         
         // Un-hide the animation component node.
-        animationComponent.node.isHidden = false
+        animationComponent.node.hidden = false
         
         // Re-enable the input component
         inputComponent.isEnabled = true

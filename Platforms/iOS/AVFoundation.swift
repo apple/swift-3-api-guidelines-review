@@ -399,7 +399,7 @@ class AVURLAsset : AVAsset {
   				An instance of NSDictionary that contains keys for specifying options for the initialization of the AVURLAsset. See AVURLAssetPreferPreciseDurationAndTimingKey and AVURLAssetReferenceRestrictionsKey above.
     @result		An instance of AVURLAsset.
   */
-  init(url URL: NSURL, options: [String : AnyObject]?)
+  init(url URL: NSURL, options: [String : AnyObject]? = [:])
   @NSCopying var url: NSURL { get }
 
   /*!
@@ -615,7 +615,7 @@ class AVAssetDownloadURLSession : NSURLSession {
    @param			options
   				See AVAssetDownloadTask*Key above. Configures non-default behavior for the download task. Using this parameter is required for downloading non-default media selections for HLS assets.
   */
-  func assetDownloadTaskWith(URLAsset: AVURLAsset, destinationURL: NSURL, options: [String : AnyObject]?) -> AVAssetDownloadTask?
+  func assetDownloadTaskWith(URLAsset: AVURLAsset, destinationURL: NSURL, options: [String : AnyObject]? = [:]) -> AVAssetDownloadTask?
   init()
 }
 
@@ -1811,7 +1811,7 @@ extension AVAssetResourceLoadingRequest {
    				If obtaining the streaming content key request fails, will be set to an instance of NSError describing the failure.
    @result		The key request data that must be transmitted to the key vendor to obtain the content key.
   */
-  func streamingContentKeyRequestDataForApp(appIdentifier: NSData, contentIdentifier: NSData, options: [String : AnyObject]?) throws -> NSData
+  func streamingContentKeyRequestDataForApp(appIdentifier: NSData, contentIdentifier: NSData, options: [String : AnyObject]? = [:]) throws -> NSData
 
   /*! 
    @method 		persistentContentKeyFromKeyVendorResponse:options:error:
@@ -1826,7 +1826,7 @@ extension AVAssetResourceLoadingRequest {
    @discussion	The data returned from this method may be used to immediately satisfy an AVAssetResourceLoadingDataRequest, as well as any subsequent requests for the same key url. The value of AVAssetResourceLoadingContentInformationRequest.contentType must be set to AVStreamingKeyDeliveryPersistentContentKeyType when responding with data created with this method.
   */
   @available(iOS 9.0, *)
-  func persistentContentKeyFromKeyVendorResponse(keyVendorResponse: NSData, options: [String : AnyObject]?, error outError: NSErrorPointer) -> NSData
+  func persistentContentKeyFromKeyVendorResponse(keyVendorResponse: NSData, options: [String : AnyObject]? = [:], error outError: NSErrorPointer) -> NSData
 }
 
 /*!
@@ -3028,7 +3028,7 @@ class AVAssetWriterInputPixelBufferAdaptor : NSObject {
   	
   	It is an error to initialize an instance of AVAssetWriterInputPixelBufferAdaptor with an asset writer input that is already attached to another instance of AVAssetWriterInputPixelBufferAdaptor.  It is also an error to initialize an instance of AVAssetWriterInputPixelBufferAdaptor with an asset writer input whose asset writer has progressed beyond AVAssetWriterStatusUnknown.
    */
-  init(assetWriterInput input: AVAssetWriterInput, sourcePixelBufferAttributes: [String : AnyObject]?)
+  init(assetWriterInput input: AVAssetWriterInput, sourcePixelBufferAttributes: [String : AnyObject]? = [:])
 
   /*!
    @property assetWriterInput
@@ -13281,7 +13281,7 @@ class AVMutableComposition : AVComposition {
   	@discussion		AVMutableCompositions create AVURLAssets internally for URLs specified by AVCompositionTrackSegments of AVMutableCompositionTracks, as needed, whenever AVCompositionTrackSegments are added to tracks via -[AVMutableCompositionTrack setSegments:] rather than by inserting timeranges of already existing AVAssets or AVAssetTracks.
    */
   @available(iOS 9.0, *)
-  convenience init(urlAssetInitializationOptions URLAssetInitializationOptions: [String : AnyObject]?)
+  convenience init(urlAssetInitializationOptions URLAssetInitializationOptions: [String : AnyObject]? = [:])
 
   /*!
     @method		assetWithURL:
@@ -17622,7 +17622,7 @@ class AVPlayerItemVideoOutput : AVPlayerItemOutput {
   					The client requirements for output CVPixelBuffers, expressed using the constants in <CoreVideo/CVPixelBuffer.h>.
   	@result			An instance of AVPlayerItemVideoOutput.
    */
-  init(pixelBufferAttributes: [String : AnyObject]?)
+  init(pixelBufferAttributes: [String : AnyObject]? = [:])
 
   /*!
   	@method			hasNewPixelBufferForItemTime:
@@ -18389,7 +18389,7 @@ class AVTextStyleRule : NSObject, NSCopying {
    @result		An instance of AVTextStyleRule
    @discussion	Equivalent to invoking -initWithTextMarkupAttributes:textSelector: with a value of nil for textSelector.
   */
-  convenience init?(textMarkupAttributes: [String : AnyObject])
+  convenience init?(textMarkupAttributes: [String : AnyObject] = [:])
 
   /*!
    @method		initWithTextMarkupAttributes:textSelector:
@@ -18400,7 +18400,7 @@ class AVTextStyleRule : NSObject, NSCopying {
   				An identifier for the range or ranges of text to which the attributes should be applied. Eligible identifiers are determined by the format and content of the legible media. A value of nil indicates that the textMarkupAttributes should be applied as default styles for all text unless overridden by content markup or other applicable text selectors.
    @result		An instance of AVTextStyleRule
   */
-  init?(textMarkupAttributes: [String : AnyObject], textSelector: String?)
+  init?(textMarkupAttributes: [String : AnyObject] = [:], textSelector: String?)
 
   /*!
    @property		textMarkupAttributes

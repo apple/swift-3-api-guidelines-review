@@ -114,7 +114,7 @@ class GlanceBadge {
             NSFontAttributeName: UIFont.systemFontOfSize(36),
             NSForegroundColorAttributeName: completeTextPathColor
         ]
-        let completeSize = itemsCompleteText.sizeWithAttributes(completeAttributes)
+        let completeSize = itemsCompleteText.size(attributes: completeAttributes)
         
         // Build and gather information about the done string.
         let doneText = NSLocalizedString("Done", comment: "")
@@ -122,7 +122,7 @@ class GlanceBadge {
             NSFontAttributeName: UIFont.systemFontOfSize(16),
             NSForegroundColorAttributeName: UIColor.darkGray()
         ]
-        let doneSize = doneText.sizeWithAttributes(doneAttributes)
+        let doneSize = doneText.size(attributes: doneAttributes)
         
         let completeRect = CGRect(x: center.x - 0.5 * completeSize.width, y: center.y - 0.5 * completeSize.height - 0.5 * doneSize.height, width: completeSize.width, height: completeSize.height)
 
