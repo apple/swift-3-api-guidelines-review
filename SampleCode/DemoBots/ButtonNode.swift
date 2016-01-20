@@ -164,7 +164,7 @@ class ButtonNode: SKSpriteNode {
         userInteractionEnabled = true
     }
     
-    override func copyWith(zone: NSZone) -> AnyObject {
+    override func copy(zone zone: NSZone) -> AnyObject {
         let newButton = super.copy(zone: zone) as! ButtonNode
         
         // Copy the `ButtonNode` specific properties.
@@ -187,7 +187,7 @@ class ButtonNode: SKSpriteNode {
         away but no other focusable buttons are available in the requested 
         direction.
     */
-    func performInvalidFocusChangeAnimationFor(direction: ControlInputDirection) {
+    func performInvalidFocusChangeAnimationForDirection(direction: ControlInputDirection) {
         let animationKey = "ButtonNode.InvalidFocusChangeAnimationKey"
         guard actionForKey(animationKey) == nil else { return }
         
@@ -255,13 +255,13 @@ class ButtonNode: SKSpriteNode {
         isHighlighted = false
 
         // Touch up inside behavior.
-        if containsLocationFor(event) {
+        if containsLocationForEvent(event) {
             buttonTriggered()
         }
     }
     
     /// Determine if the event location is within the `ButtonNode`.
-    private func containsLocationFor(event: NSEvent) -> Bool {
+    private func containsLocationForEvent(event: NSEvent) -> Bool {
         guard let scene = scene else { fatalError("Button must be used within a scene.")  }
 
         let location = event.locationIn(scene)

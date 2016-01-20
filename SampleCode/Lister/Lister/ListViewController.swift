@@ -161,11 +161,11 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
     
     // MARK: Setup
 
-    func configureWith(aListInfo: ListInfo) {
+    func configureWithListInfo(aListInfo: ListInfo) {
         listInfo = aListInfo
 
         let listPresenter = AllListItemsPresenter()
-        document = ListDocument(fileURL: aListInfo.url, listPresenter: listPresenter)
+        document = ListDocument(fileURL: aListInfo.URL, listPresenter: listPresenter)
 
         navigationItem.title = aListInfo.name
                 
@@ -204,7 +204,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         // If moving out of edit mode, notify observers about the list color and trigger a save.
         if !editing {
             // If the list info doesn't already exist (but it should), then create a new one.
-            listInfo = listInfo ?? ListInfo(url: documentURL)
+            listInfo = listInfo ?? ListInfo(URL: documentURL)
 
             listInfo!.color = listPresenter.color
             
@@ -268,14 +268,14 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         
         let listItem = listPresenter.presentedListItems[indexPath.row - 1]
 
-        listPresenter.remove(listItem)
+        listPresenter.removeListItem(listItem)
     }
     
-    override func totableView(_: UITableView, moveRowAt fromIndexPath: NSIndexPath, to toIndexPath: NSIndexPath) {
+    override func tableView(_: UITableView, moveRowAt fromIndexPath: NSIndexPath, to toIndexPath: NSIndexPath) {
         let listItem = listPresenter.presentedListItems[fromIndexPath.row - 1]
 
         // `toIndexPath.row` will never be `0` since we don't allow moving to the zeroth row (it's the color selection row).
-        listPresenter.move(listItem, to: toIndexPath.row - 1)
+        listPresenter.moveListItem(listItem, toIndex: toIndexPath.row - 1)
     }
     
     // MARK: UITableViewDelegate
@@ -295,14 +295,14 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         }
     }
     
-    override func willBeginEditingRowAttableView(_: UITableView, willBeginEditingRowAt willBeginEditingRowAtIndexPath: NSIndexPath) {
+    override func tableView(_: UITableView, willBeginEditingRowAt willBeginEditingRowAtIndexPath: NSIndexPath) {
         /* 
             When the user swipes to show the delete confirmation, don't enter editing mode.
             `UITableViewController` enters editing mode by default so we override without calling super.
         */
     }
     
-    override func didEndEditingRowAttableView(_: UITableView, didEndEditingRowAt didEndEditingRowAtIndexPath: NSIndexPath) {
+    override func tableView(_: UITableView, didEndEditingRowAt didEndEditingRowAtIndexPath: NSIndexPath) {
         /*
             When the user swipes to hide the delete confirmation, no need to exit edit mode because we didn't
             enter it. `UITableViewController` enters editing mode by default so we override without calling
@@ -320,7 +320,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         if proposedIndexPath.row == 0 {
             return fromIndexPath
         }
-        else if listPresenter.canMove(listItem, to: proposedIndexPath.row - 1) {
+        else if listPresenter.canMoveListItem(listItem, toIndex: proposedIndexPath.row - 1) {
             return proposedIndexPath
         }
         
@@ -340,7 +340,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         
         guard let text = textField.text else { return }
         
-        let indexPath = indexPathFor(textField)
+        let indexPath = indexPathForView(textField)
         
         if indexPath != nil && indexPath!.row > 0 {
             let listItem = listPresenter.presentedListItems[indexPath!.row - 1]
@@ -350,12 +350,12 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         else if !text.isEmpty {
             let listItem = ListItem(text: text)
 
-            listPresenter.insert(listItem)
+            listPresenter.insertListItem(listItem)
         }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        let indexPath = indexPathFor(textField)!
+        let indexPath = indexPathForView(textField)!
         
         // The 'add item' row can always dismiss the keyboard.
         if indexPath.row == 0 {
@@ -387,13 +387,13 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
     }
     
     @IBAction func checkBoxTapped(sender: CheckBox) {
-        let indexPath = indexPathFor(sender)!
+        let indexPath = indexPathForView(sender)!
 
         // Check to see if the tapped row is within the list item rows.
         if 1...listPresenter.count ~= indexPath.row {
             let listItem = listPresenter.presentedListItems[indexPath.row - 1]
 
-            listPresenter.toggle(listItem)
+            listPresenter.toggleListItem(listItem)
         }
     }
     
@@ -419,7 +419,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         tableView.beginUpdates()
     }
 
-    func listPresenter(_: ListPresenterType, didInsert listItem: ListItem, at index: Int) {
+    func listPresenter(_: ListPresenterType, didInsertListItem listItem: ListItem, atIndex index: Int) {
         let indexPathsForInsertion = [NSIndexPath(forRow: index + 1, inSection: 0)]
         
         tableView.insertRowsAt(indexPathsForInsertion, withRowAnimation: .Fade)
@@ -432,13 +432,13 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         }
     }
     
-    func listPresenter(_: ListPresenterType, didRemove listItem: ListItem, at index: Int) {
+    func listPresenter(_: ListPresenterType, didRemoveListItem listItem: ListItem, atIndex index: Int) {
         let indexPaths = [NSIndexPath(forRow: index + 1, inSection: 0)]
         
         tableView.deleteRowsAt(indexPaths, withRowAnimation: .Automatic)
     }
 
-    func listPresenter(_: ListPresenterType, didUpdateListItem listItem: ListItem, at index: Int) {
+    func listPresenter(_: ListPresenterType, didUpdateListItem listItem: ListItem, atIndex index: Int) {
         tableView.endUpdates()
         
         tableView.beginUpdates()
@@ -450,7 +450,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         }
     }
     
-    func fromtolistPresenter(_: ListPresenterType, didMove listItem: ListItem, from fromIndex: Int, to toIndex: Int) {
+    func listPresenter(_: ListPresenterType, didMoveListItem listItem: ListItem, fromIndex: Int, toIndex: Int) {
         let fromIndexPath = NSIndexPath(forRow: fromIndex + 1, inSection: 0)
 
         let toIndexPath = NSIndexPath(forRow: toIndex + 1, inSection: 0)
@@ -458,7 +458,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         tableView.moveRowAt(fromIndexPath, to: toIndexPath)
     }
 
-    func listPresenter(_: ListPresenterType, didUpdateListColorWith color: List.Color) {
+    func listPresenter(_: ListPresenterType, didUpdateListColorWithColor color: List.Color) {
         // Updating `textAttributes` will updated the color for the items in the interface.
         textAttributes = [
             NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline),
@@ -540,7 +540,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
             
             let conflictVersions = NSFileVersion.unresolvedConflictVersionsOfItemAt(documentURL)!
             
-            for fileVersion in conflictVersions {
+            for fileVersion in iterator {
                 fileVersion.resolved = true
             }
         }
@@ -548,7 +548,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         catch {}
     }
     
-    func indexPathFor(view: UIView) -> NSIndexPath? {
+    func indexPathForView(view: UIView) -> NSIndexPath? {
         let viewOrigin = view.bounds.origin
         
         let viewLocation = tableView.convert(viewOrigin, from: view)

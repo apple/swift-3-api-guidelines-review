@@ -56,7 +56,7 @@ class NewListDocumentController: UIViewController, UITextFieldDelegate {
         }
         
         sender.layer.borderWidth = 5.0
-        sender.layer.borderColor = UIColor.lightGray().cgColor
+        sender.layer.borderColor = UIColor.lightGray().CGColor
         selectedButton = sender
         titleLabel.textColor = selectedColor.colorValue
         toolbar.tintColor = selectedColor.colorValue
@@ -66,7 +66,7 @@ class NewListDocumentController: UIViewController, UITextFieldDelegate {
         let list = List()
         list.color = selectedColor
         
-        listsController.createListInfoFor(list, withName: selectedTitle!)
+        listsController.createListInfoForList(list, withName: selectedTitle!)
         
         dismissViewControllerAnimated(true)
     }
@@ -95,7 +95,7 @@ class NewListDocumentController: UIViewController, UITextFieldDelegate {
     func textField(textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return false }
         
-        let updatedText = (text as NSString).stringByReplacingCharactersIn(range, withString: string)
+        let updatedText = (text as NSString).replacingCharactersIn(range, withString: string)
         updateForProposedListName(updatedText)
         
         return true

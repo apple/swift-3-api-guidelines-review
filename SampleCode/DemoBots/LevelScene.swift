@@ -94,7 +94,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     
     var levelStateSnapshot: LevelStateSnapshot?
     
-    func entitySnapshotFor(entity: GKEntity) -> EntitySnapshot? {
+    func entitySnapshotForEntity(entity: GKEntity) -> EntitySnapshot? {
         // Create a snapshot of the level's state if one does not already exist for this update cycle.
         if levelStateSnapshot == nil {
             levelStateSnapshot = LevelStateSnapshot(scene: self)
@@ -155,8 +155,8 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         stateMachine.enterState(LevelSceneActiveState.self)
         
         // Add the debug layers to the scene.
-        add(graphLayer, to: .Debug)
-        add(debugObstacleLayer, to: .Debug)
+        addNode(graphLayer, toWorldLayer: .Debug)
+        addNode(debugObstacleLayer, toWorldLayer: .Debug)
 
         // Configure the `timerNode` and add it to the camera node.
         timerNode.zPosition = WorldLayer.AboveCharacters.rawValue
@@ -174,7 +174,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         }
         
         // Iterate over the `TaskBot` configurations for this level, and create each `TaskBot`.
-        for taskBotConfiguration in levelConfiguration.taskBotConfigurations {
+        for taskBotConfiguration in levelConfiguration.iterator {
             let taskBot: TaskBot
 
             // Find the locations of the nodes that define the `TaskBot`'s "good" and "bad" patrol paths.
@@ -205,7 +205,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
             addEntity(taskBot)
 
             // Add the `TaskBot`'s debug drawing node beneath all characters.
-            add(taskBot.debugNode, to: .Debug)
+            addNode(taskBot.debugNode, toWorldLayer: .Debug)
         }
         
         #if os(iOS)
@@ -270,7 +270,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
             The order of systems in `componentSystems` is important
             and was determined when the `componentSystems` array was instantiated.
         */
-        for componentSystem in componentSystems {
+        for componentSystem in iterator {
             componentSystem.updateWithDeltaTime(deltaTime)
         }
     }
@@ -287,7 +287,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         }
         
         // Sort the entities in the scene by ascending y-position.
-        let ySortedEntities = entities.sort {
+        let ySortedEntities = entities.sorted {
             let nodeA = $0.0.componentForClass(RenderComponent.self)!.node
             let nodeB = $0.1.componentForClass(RenderComponent.self)!.node
             
@@ -296,7 +296,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         
         // Set the `zPosition` of each entity so that entities with a higher y-position are rendered above those with a lower y-position.
         var characterZPosition = WorldLayer.zSpacePerCharacter
-        for entity in ySortedEntities {
+        for entity in iterator {
             let node = entity.componentForClass(RenderComponent.self)!.node
             node.zPosition = characterZPosition
             
@@ -308,27 +308,27 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     // MARK: SKPhysicsContactDelegate
     
     func didBegin(contact: SKPhysicsContact) {
-        handle(contact) { (ContactNotifiableType: ContactNotifiableType, otherEntity: GKEntity) in
+        handleContact(contact) { (ContactNotifiableType: ContactNotifiableType, otherEntity: GKEntity) in
             ContactNotifiableType.contactWithEntityDidBegin(otherEntity)
         }
     }
     
     func didEnd(contact: SKPhysicsContact) {
-        handle(contact) { (ContactNotifiableType: ContactNotifiableType, otherEntity: GKEntity) in
+        handleContact(contact) { (ContactNotifiableType: ContactNotifiableType, otherEntity: GKEntity) in
             ContactNotifiableType.contactWithEntityDidEnd(otherEntity)
         }
     }
     
     // MARK: SKPhysicsContactDelegate convenience
     
-    private func handle(contact: SKPhysicsContact, contactCallback: (ContactNotifiableType, GKEntity) -> Void) {
+    private func handleContact(contact: SKPhysicsContact, contactCallback: (ContactNotifiableType, GKEntity) -> Void) {
         // Get the `ColliderType` for each contacted body.
         let colliderTypeA = ColliderType(rawValue: contact.bodyA.categoryBitMask)
         let colliderTypeB = ColliderType(rawValue: contact.bodyB.categoryBitMask)
         
         // Determine which `ColliderType` should be notified of the contact.
-        let aWantsCallback = colliderTypeA.notifyOnContactWith(colliderTypeB)
-        let bWantsCallback = colliderTypeB.notifyOnContactWith(colliderTypeA)
+        let aWantsCallback = colliderTypeA.notifyOnContactWithColliderType(colliderTypeB)
+        let bWantsCallback = colliderTypeB.notifyOnContactWithColliderType(colliderTypeA)
         
         // Make sure that at least one of the entities wants to handle this contact.
         assert(aWantsCallback || bWantsCallback, "Unhandled physics contact - A = \(colliderTypeA), B = \(colliderTypeB)")
@@ -356,12 +356,12 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     // MARK: Level Construction
     
     func loadWorldLayers() {
-        for worldLayer in WorldLayer.allLayers {
+        for worldLayer in WorldLayer.iterator {
             // Try to find a matching node for this world layer's node name.
             let foundNodes = self["world/\(worldLayer.nodeName)"]
             
             // Make sure it was possible to find a node with this name.
-            precondition(!foundNodes.isEmpty, "Could not find a world layer node for \(worldLayer.nodeName)")
+            require(!foundNodes.isEmpty, "Could not find a world layer node for \(worldLayer.nodeName)")
             
             // Retrieve the actual node.
             let layerNode = foundNodes.first!
@@ -377,20 +377,20 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     func addEntity(entity: GKEntity) {
         entities.insert(entity)
 
-        for componentSystem in self.componentSystems {
+        for componentSystem in self.iterator {
             componentSystem.addComponentWith(entity)
         }
 
         // If the entity has a `RenderComponent`, add its node to the scene.
         if let renderNode = entity.componentForClass(RenderComponent.self)?.node {
-            add(renderNode, to: .Characters)
+            addNode(renderNode, toWorldLayer: .Characters)
 
             /* 
                 If the entity has a `ShadowComponent`, add its shadow node to the scene.
                 Constrain the `ShadowComponent`'s node to the `RenderComponent`'s node.
             */
             if let shadowNode = entity.componentForClass(ShadowComponent.self)?.node {
-                add(shadowNode, to: .Shadows)
+                addNode(shadowNode, toWorldLayer: .Shadows)
                 
                 // Constrain the shadow node's position to the render node.
                 let xRange = SKRange(constantValue: shadowNode.position.x)
@@ -407,7 +407,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
                 to the scene. Constrain the `ChargeBar` to the `RenderComponent`'s node.
             */
             if let chargeBar = entity.componentForClass(ChargeComponent.self)?.chargeBar {
-                add(chargeBar, to: .AboveCharacters)
+                addNode(chargeBar, toWorldLayer: .AboveCharacters)
                 
                 // Constrain the `ChargeBar`'s node position to the render node.
                 let xRange = SKRange(constantValue: GameplayConfiguration.PlayerBot.chargeBarOffset.x)
@@ -426,7 +426,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         }
     }
     
-    func add(node: SKNode, to worldLayer: WorldLayer) {
+    func addNode(node: SKNode, toWorldLayer worldLayer: WorldLayer) {
         let worldLayerNode = worldLayerNodes[worldLayer]!
         
         worldLayerNode.addChild(node)
@@ -441,7 +441,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
             Update the player's `controlInputSources` to delegate input
             to the playerBot's `InputComponent`.
         */
-        for controlInputSource in gameInput.controlInputSources {
+        for controlInputSource in gameInput.iterator {
             controlInputSource.delegate = playerBot.componentForClass(InputComponent.self)
         }
         

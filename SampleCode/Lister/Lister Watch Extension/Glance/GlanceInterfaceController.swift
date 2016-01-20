@@ -56,7 +56,7 @@ class GlanceInterfaceController: WKInterfaceController, ConnectivityListsControl
     
     // MARK: ListsControllerDelegate
 
-    func listsController(_: ConnectivityListsController, didInsert listInfo: ListInfo, at index: Int) {
+    func listsController(_: ConnectivityListsController, didInsertListInfo listInfo: ListInfo, atIndex index: Int) {
         // We only expect a single result to be returned, so we will treat this listInfo as the Today document.
         processListInfoAsTodayDocument(listInfo)
     }
@@ -73,11 +73,11 @@ class GlanceInterfaceController: WKInterfaceController, ConnectivityListsControl
         can occur in `listPresenterDidRefreshCompleteLayout(_:)` or in `listPresenterDidChangeListLayout(_:isInitialLayout:)`.
     */
     func listPresenterWillChangeListLayout(_: ListPresenterType, isInitialLayout: Bool) {}
-    func listPresenter(_: ListPresenterType, didInsert listItem: ListItem, at index: Int) {}
-    func listPresenter(_: ListPresenterType, didRemove listItem: ListItem, at index: Int) {}
-    func listPresenter(_: ListPresenterType, didUpdateListItem listItem: ListItem, at index: Int) {}
-    func listPresenter(_: ListPresenterType, didUpdateListColorWith color: List.Color) {}
-    func fromtolistPresenter(_: ListPresenterType, didMove listItem: ListItem, from fromIndex: Int, to toIndex: Int) {}
+    func listPresenter(_: ListPresenterType, didInsertListItem listItem: ListItem, atIndex index: Int) {}
+    func listPresenter(_: ListPresenterType, didRemoveListItem listItem: ListItem, atIndex index: Int) {}
+    func listPresenter(_: ListPresenterType, didUpdateListItem listItem: ListItem, atIndex index: Int) {}
+    func listPresenter(_: ListPresenterType, didUpdateListColorWithColor color: List.Color) {}
+    func listPresenter(_: ListPresenterType, didMoveListItem listItem: ListItem, fromIndex: Int, toIndex: Int) {}
     
     func listPresenterDidChangeListLayout(_: ListPresenterType, isInitialLayout: Bool) {
         /*
@@ -123,14 +123,14 @@ class GlanceInterfaceController: WKInterfaceController, ConnectivityListsControl
     func processListInfoAsTodayDocument(listInfo: ListInfo) {
         listPresenter.delegate = self
         
-        let documentsURL = NSFileManager.defaultManager().urLsFor(.DocumentDirectory, inDomains: .User).first!
+        let documentsURL = NSFileManager.defaultManager().urLsFor(.DocumentDirectory, inDomains: .UserDomainMask).first!
         listURL = documentsURL.appendingPathComponent("\(listInfo.name).\(AppConfiguration.listerFileExtension)")
         
         readTodayDocument()
     }
     
     func readTodayDocument() {
-        ListUtilities.readListAt(presentedItemURL!) { list, error in
+        ListUtilities.readListAtURL(presentedItemURL!) { list, error in
             if error != nil {
                 NSLog("Couldn't open document: \(self.presentedItemURL!.absoluteString)")
             }

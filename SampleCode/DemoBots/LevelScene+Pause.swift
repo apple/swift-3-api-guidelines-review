@@ -20,7 +20,7 @@ extension LevelScene {
         app enters the background. Override to check if an `overlay` node is
         being presented to determine if the game should be paused.
     */
-    override var paused: Bool {
+    override var isPaused: Bool {
         didSet {
             if overlay != nil {
                 worldNode.paused = true
@@ -49,7 +49,7 @@ extension LevelScene {
         order to pause the game. 
     */
     func registerForPauseNotifications() {
-        for notificationName in pauseNotificationNames {
+        for notificationName in iterator {
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "pauseGame", name: notificationName, object: nil)
         }
     }
@@ -59,7 +59,7 @@ extension LevelScene {
     }
     
     func unregisterForPauseNotifications() {
-        for notificationName in pauseNotificationNames {
+        for notificationName in iterator {
             NSNotificationCenter.defaultCenter().removeObserver(self, name: notificationName, object: nil)
         }
     }

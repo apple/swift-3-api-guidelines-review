@@ -116,11 +116,11 @@ class BeamNode: SKNode, ResourceLoadableType {
                 if let target = target {
                     // Show the `sourceNode` with the its firing animation.
                     sourceNode.hidden = false
-                    animate(sourceNode, withAction: AnimationActions.source)
+                    animateNode(sourceNode, withAction: AnimationActions.source)
                     
                     // Show the `destinationNode` with its animation.
                     destinationNode.hidden = false
-                    animate(destinationNode, withAction: AnimationActions.destination)
+                    animateNode(destinationNode, withAction: AnimationActions.destination)
 
                     // Position the `lineNode` and make sure it's visible.
                     positionLineNodeFrom(source, to: target)
@@ -129,7 +129,7 @@ class BeamNode: SKNode, ResourceLoadableType {
                 else {
                     // Show the `sourceNode` with the its untargeted animation.
                     sourceNode.hidden = false
-                    animate(sourceNode, withAction: AnimationActions.untargetedSource)
+                    animateNode(sourceNode, withAction: AnimationActions.untargetedSource)
                     
                     // Hide the `destinationNode` and `lineNode`.
                     destinationNode.hidden = true
@@ -169,7 +169,7 @@ class BeamNode: SKNode, ResourceLoadableType {
             case is BeamCoolingState:
                 // Show the `sourceNode` with the "cooling" animation.
                 sourceNode.hidden = false
-                animate(sourceNode, withAction: AnimationActions.cooling)
+                animateNode(sourceNode, withAction: AnimationActions.cooling)
 
                 // Hide the `destinationNode`.
                 destinationNode.hidden = true
@@ -187,7 +187,7 @@ class BeamNode: SKNode, ResourceLoadableType {
     
     // MARK: Convenience
     
-    func animate(node: SKSpriteNode, withAction action: SKAction) {
+    func animateNode(node: SKSpriteNode, withAction action: SKAction) {
         if runningNodeAnimations[node] != action {
             node.run(action, withKey: BeamNode.animationActionKey)
             runningNodeAnimations[node] = action
@@ -255,11 +255,11 @@ class BeamNode: SKNode, ResourceLoadableType {
                 fatalError("One or more texture atlases could not be found: \(error)")
             }
             
-            let beamDotAction = AnimationComponent.actionForAllTexturesIn(beamAtlases[0])
+            let beamDotAction = AnimationComponent.actionForAllTexturesInAtlas(beamAtlases[0])
             AnimationActions.source = beamDotAction
             AnimationActions.untargetedSource = beamDotAction
             AnimationActions.destination = beamDotAction
-            AnimationActions.cooling = AnimationComponent.actionForAllTexturesIn(beamAtlases[1])
+            AnimationActions.cooling = AnimationComponent.actionForAllTexturesInAtlas(beamAtlases[1])
             
             // Invoke the passed `completionHandler` to indicate that loading has completed.
             completionHandler()

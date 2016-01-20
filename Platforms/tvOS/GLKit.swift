@@ -124,7 +124,7 @@ struct _GLKMatrix2 {
   init()
 }
 
-extension _GLKMatrix2 {
+extension GLKMatrix2 {
   typealias _Tuple = (Float, Float, Float, Float)
   var _tuple: _Tuple { get }
   var m00: Float { get }
@@ -140,7 +140,7 @@ struct _GLKMatrix3 {
   init()
 }
 
-extension _GLKMatrix3 {
+extension GLKMatrix3 {
   typealias _Tuple = (Float, Float, Float, Float, Float, Float, Float, Float, Float)
   var _tuple: _Tuple { get }
   var m00: Float { get }
@@ -161,7 +161,7 @@ struct _GLKMatrix4 {
   init()
 }
 
-extension _GLKMatrix4 {
+extension GLKMatrix4 {
   typealias _Tuple = (Float, Float, Float, Float, Float, Float, Float, Float, Float, Float, Float, Float, Float, Float, Float, Float)
   var _tuple: _Tuple { get }
   var m00: Float { get }
@@ -189,7 +189,7 @@ struct _GLKVector2 {
   init()
 }
 
-extension _GLKVector2 {
+extension GLKVector2 {
   typealias _Tuple = (Float, Float)
   var _tuple: _Tuple { get }
   var x: Float { get }
@@ -205,7 +205,7 @@ struct _GLKVector3 {
   init()
 }
 
-extension _GLKVector3 {
+extension GLKVector3 {
   typealias _Tuple = (Float, Float, Float)
   var _tuple: _Tuple { get }
   var x: Float { get }
@@ -226,7 +226,7 @@ struct _GLKVector4 {
   init()
 }
 
-extension _GLKVector4 {
+extension GLKVector4 {
   typealias _Tuple = (Float, Float, Float, Float)
   var _tuple: _Tuple { get }
   var x: Float { get }
@@ -250,7 +250,7 @@ struct _GLKQuaternion {
   init()
 }
 
-extension _GLKQuaternion {
+extension GLKQuaternion {
   typealias _Tuple = (Float, Float, Float, Float)
   var _tuple: _Tuple { get }
   var v: GLKVector3 { get }

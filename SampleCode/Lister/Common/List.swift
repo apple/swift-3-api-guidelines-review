@@ -98,12 +98,12 @@ final public class List: NSObject, NSCoding, NSCopying {
     
     public func encodeWith(aCoder: NSCoder) {
         aCoder.encode(items, forKey: SerializationKeys.items)
-        aCoder.encodeInteger(color.rawValue, forKey: SerializationKeys.color)
+        aCoder.encode(color.rawValue, forKey: SerializationKeys.color)
     }
     
     // MARK: NSCopying
     
-    public func copyWith(zone: NSZone) -> AnyObject  {
+    public func copy(zone zone: NSZone) -> AnyObject  {
         return List(color: color, items: items)
     }
 

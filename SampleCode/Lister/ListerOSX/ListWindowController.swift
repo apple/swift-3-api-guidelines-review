@@ -25,7 +25,7 @@ class ListWindowController: NSWindowController, SegueHandlerType {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        let action = Int(NSEventMask.LeftMouseDown.rawValue)
+        let action = Int(NSEventMask.LeftMouseDownMask.rawValue)
         shareButton.sendActionOn(action)
     }
     
@@ -33,7 +33,7 @@ class ListWindowController: NSWindowController, SegueHandlerType {
     
     /// Allow the user to create a new list item with a keyboard shortcut (command-N).
     @IBAction func showAddItemViewController(sender: AnyObject?) {
-        performSegueWith(.ShowAddItem, sender: sender)
+        performSegueWithIdentifier(.ShowAddItem, sender: sender)
     }
 
     // MARK: Overrides
@@ -47,7 +47,7 @@ class ListWindowController: NSWindowController, SegueHandlerType {
     }
     
     override func prepareFor(segue: NSStoryboardSegue, sender: AnyObject?) {
-        let segueIdentifier = segueIdentifierFor(segue)
+        let segueIdentifier = segueIdentifierForSegue(segue)
         
         switch segueIdentifier {
             case .ShowAddItem:
@@ -63,7 +63,7 @@ class ListWindowController: NSWindowController, SegueHandlerType {
 
     @IBAction func shareDocument(sender: NSButton) {
         if let listDocument = document as? ListDocument {
-            let listContents = ListFormatting.stringFrom(listDocument.listPresenter!.presentedListItems)
+            let listContents = ListFormatting.stringFromListItems(listDocument.listPresenter!.presentedListItems)
             
             let sharingServicePicker = NSSharingServicePicker(items: [listContents])
             

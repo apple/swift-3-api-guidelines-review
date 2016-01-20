@@ -134,7 +134,7 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
             // Map the listInfo objects protected by listInfoQueue.
             var allURLs: [NSURL]!
             dispatch_sync(listInfoQueue) {
-                allURLs = self.listInfos.map { $0.url }
+                allURLs = self.listInfos.map { $0.URL }
             }
             self.processContentChanges(insertedURLs: [], removedURLs: allURLs, updatedURLs: [])
             
@@ -238,7 +238,7 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
         - parameter listInfo: The `ListInfo` to remove from the list of tracked `ListInfo` instances.
     */
     public func removeListInfo(listInfo: ListInfo) {
-        listCoordinator.removeListAt(listInfo.url)
+        listCoordinator.removeListAtURL(listInfo.URL)
     }
     
     /**
@@ -256,8 +256,8 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
         - parameter list: The `List` object that should be used to save the initial list.
         - parameter name: The name of the new list.
     */
-    public func createListInfoFor(list: List, withName name: String) {
-        listCoordinator.createURLFor(list, withName: name)
+    public func createListInfoForList(list: List, withName name: String) {
+        listCoordinator.createURLForList(list, withName: name)
     }
     
     /**
@@ -281,8 +281,8 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
         - parameter URL: The `NSURL` object representing the list to be copied.
         - parameter name: The name of the `list` to be overwritten.
     */
-    public func copyListFrom(URL: NSURL, toListWithName name: String) {
-        listCoordinator.copyListFrom(URL, toListWithName: name)
+    public func copyListFromURL(URL: NSURL, toListWithName name: String) {
+        listCoordinator.copyListFromURL(URL, toListWithName: name)
     }
     
     /**
@@ -299,7 +299,7 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
             self.listInfos[indexOfListInfo] = listInfo
 
             if let delegate = self.delegate {
-                self.delegateQueue.addOperationWithBlock {
+                self.delegateQueue.addOperationWith {
                     delegate.listsControllerWillChangeContent?(self)
                     delegate.listsController?(self, didUpdateListInfo: listInfo, atIndex: indexOfListInfo)
                     delegate.listsControllerDidChangeContent?(self)
@@ -334,10 +334,10 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
         - parameter URL: The `NSURL` instances that was failed to be created.
         - parameter error: The error the describes why the create failed.
     */
-    public func listCoordinatorDidFailCreatingListAt(URL: NSURL, withError error: NSError) {
-        let listInfo = ListInfo(url: URL)
+    public func listCoordinatorDidFailCreatingListAtURL(URL: NSURL, withError error: NSError) {
+        let listInfo = ListInfo(URL: URL)
         
-        delegateQueue.addOperationWithBlock {
+        delegateQueue.addOperationWith {
             self.delegate?.listsController?(self, didFailCreatingListInfo: listInfo, withError: error)
             
             return
@@ -352,10 +352,10 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
         - parameter URL: The `NSURL` instance that failed to be removed
         - parameter error: The error that describes why the remove failed.
     */
-    public func listCoordinatorDidFailRemovingListAt(URL: NSURL, withError error: NSError) {
-        let listInfo = ListInfo(url: URL)
+    public func listCoordinatorDidFailRemovingListAtURL(URL: NSURL, withError error: NSError) {
+        let listInfo = ListInfo(URL: URL)
         
-        delegateQueue.addOperationWithBlock {
+        delegateQueue.addOperationWith {
             self.delegate?.listsController?(self, didFailRemovingListInfo: listInfo, withError: error)
             
             return
@@ -374,11 +374,11 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
         - parameter updatedURLs: The `NSURL` instances that have had their underlying model updated.
     */
     private func processContentChanges(insertedURLs insertedURLs: [NSURL], removedURLs: [NSURL], updatedURLs: [NSURL]) {
-        let insertedListInfos = insertedURLs.map { ListInfo(url: $0) }
-        let removedListInfos = removedURLs.map { ListInfo(url: $0) }
-        let updatedListInfos = updatedURLs.map { ListInfo(url: $0) }
+        let insertedListInfos = insertedURLs.map { ListInfo(URL: $0) }
+        let removedListInfos = removedURLs.map { ListInfo(URL: $0) }
+        let updatedListInfos = updatedURLs.map { ListInfo(URL: $0) }
         
-        delegateQueue.addOperationWithBlock {
+        delegateQueue.addOperationWith {
             // Filter out all lists that are already included in the tracked lists.
             var trackedRemovedListInfos: [ListInfo]!
             var untrackedInsertedListInfos: [ListInfo]!
@@ -395,7 +395,7 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
             self.delegate?.listsControllerWillChangeContent?(self)
             
             // Remove
-            for trackedRemovedListInfo in trackedRemovedListInfos {
+            for trackedRemovedListInfo in iterator {
                 var trackedRemovedListInfoIndex: Int!
                 
                 dispatch_sync(self.listInfoQueue) {
@@ -409,18 +409,18 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
 
             // Sort the untracked inserted list infos
             if let sortPredicate = self.sortPredicate {
-                untrackedInsertedListInfos.sortInPlace(sortPredicate)
+                untrackedInsertedListInfos.sort(sortPredicate)
             }
             
             // Insert
-            for untrackedInsertedListInfo in untrackedInsertedListInfos {
+            for untrackedInsertedListInfo in iterator {
                 var untrackedInsertedListInfoIndex: Int!
                 
                 dispatch_sync(self.listInfoQueue) {
                     self.listInfos += [untrackedInsertedListInfo]
                     
                     if let sortPredicate = self.sortPredicate {
-                        self.listInfos.sortInPlace(sortPredicate)
+                        self.listInfos.sort(sortPredicate)
                     }
                     
                     untrackedInsertedListInfoIndex = self.listInfos.indexOf(untrackedInsertedListInfo)!
@@ -430,7 +430,7 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
             }
             
             // Update
-            for updatedListInfo in updatedListInfos {
+            for updatedListInfo in iterator {
                 var updatedListInfoIndex: Int?
                 
                 dispatch_sync(self.listInfoQueue) {

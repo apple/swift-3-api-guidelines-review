@@ -34,7 +34,7 @@ class GlanceInterfaceController: WKInterfaceController, ListsControllerDelegate,
     override init() {
         super.init()
         
-        if AppConfiguration.shared.isFirstLaunch {
+        if AppConfiguration.sharedConfiguration.isFirstLaunch {
             print("Lister does not currently support configuring a storage option before the iOS app is launched. Please launch the iOS app first. See the Release Notes section in README.md for more information.")
         }
     }
@@ -53,7 +53,7 @@ class GlanceInterfaceController: WKInterfaceController, ListsControllerDelegate,
     }
     
     func initializeListsController() {
-        listsController = AppConfiguration.shared.listsControllerForCurrentConfigurationWithLastPathComponent(AppConfiguration.localizedTodayDocumentNameAndExtension)
+        listsController = AppConfiguration.sharedConfiguration.listsControllerForCurrentConfigurationWithLastPathComponent(AppConfiguration.localizedTodayDocumentNameAndExtension)
 
         listsController!.delegate = self
         
@@ -62,7 +62,7 @@ class GlanceInterfaceController: WKInterfaceController, ListsControllerDelegate,
     
     // MARK: ListsControllerDelegate
 
-    func listsController(_: ListsController, didInsert listInfo: ListInfo, at index: Int) {
+    func listsController(_: ListsController, didInsertListInfo listInfo: ListInfo, atIndex index: Int) {
         // We only expect a single result to be returned, so we will treat this listInfo as the Today document.
         processListInfoAsTodayDocument(listInfo)
     }
@@ -79,11 +79,11 @@ class GlanceInterfaceController: WKInterfaceController, ListsControllerDelegate,
         can occur in `listPresenterDidRefreshCompleteLayout(_:)` or in `listPresenterDidChangeListLayout(_:isInitialLayout:)`.
     */
     func listPresenterWillChangeListLayout(_: ListPresenterType, isInitialLayout: Bool) {}
-    func listPresenter(_: ListPresenterType, didInsert listItem: ListItem, at index: Int) {}
-    func listPresenter(_: ListPresenterType, didRemove listItem: ListItem, at index: Int) {}
-    func listPresenter(_: ListPresenterType, didUpdateListItem listItem: ListItem, at index: Int) {}
-    func listPresenter(_: ListPresenterType, didUpdateListColorWith color: List.Color) {}
-    func fromtolistPresenter(_: ListPresenterType, didMove listItem: ListItem, from fromIndex: Int, to toIndex: Int) {}
+    func listPresenter(_: ListPresenterType, didInsertListItem listItem: ListItem, atIndex index: Int) {}
+    func listPresenter(_: ListPresenterType, didRemoveListItem listItem: ListItem, atIndex index: Int) {}
+    func listPresenter(_: ListPresenterType, didUpdateListItem listItem: ListItem, atIndex index: Int) {}
+    func listPresenter(_: ListPresenterType, didUpdateListColorWithColor color: List.Color) {}
+    func listPresenter(_: ListPresenterType, didMoveListItem listItem: ListItem, fromIndex: Int, toIndex: Int) {}
     
     func listPresenterDidChangeListLayout(_: ListPresenterType, isInitialLayout: Bool) {
         /*
@@ -125,7 +125,7 @@ class GlanceInterfaceController: WKInterfaceController, ListsControllerDelegate,
     func processListInfoAsTodayDocument(listInfo: ListInfo) {
         let listPresenter = AllListItemsPresenter()
 
-        listDocument = ListDocument(fileURL: listInfo.url, listPresenter: listPresenter)
+        listDocument = ListDocument(fileURL: listInfo.URL, listPresenter: listPresenter)
         
         listPresenter.delegate = self
 

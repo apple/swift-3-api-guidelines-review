@@ -292,6 +292,7 @@ typealias ATSOptionFlags = OptionBits
 typealias ATSGeneration = UInt32
 typealias ATSFontContainerRef = UInt32
 typealias ATSFontFamilyRef = UInt32
+typealias ATSFontRef = UInt32
 var ATSFONTREF_DEFINED: Int32 { get }
 typealias ATSGlyphRef = UInt16
 typealias ATSFontSize = CGFloat

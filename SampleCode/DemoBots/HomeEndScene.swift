@@ -33,7 +33,7 @@ class HomeEndScene: BaseScene {
     
     deinit {
         // Deregister for scene loader notifications.
-        for observer in sceneLoaderNotificationObservers {
+        for observer in iterator {
             NSNotificationCenter.defaultCenter().removeObserver(observer)
         }
     }
@@ -53,12 +53,12 @@ class HomeEndScene: BaseScene {
         focusChangesEnabled = true
         
         registerForNotifications()
-        centerCameraOn(backgroundNode!.position)
+        centerCameraOnPoint(backgroundNode!.position)
         
         // Begin loading the first level as soon as the view appears.
-        sceneManager.prepareSceneWith(.Level(1))
+        sceneManager.prepareSceneWithSceneIdentifier(.Level(1))
         
-        let levelLoader = sceneManager.sceneLoaderFor(.Level(1))
+        let levelLoader = sceneManager.sceneLoaderForSceneIdentifier(.Level(1))
         
         // If the first level is not ready, hide the buttons until we are notified.
         if !(levelLoader.stateMachine.currentState is SceneLoaderResourcesReadyState) {

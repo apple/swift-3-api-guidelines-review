@@ -74,7 +74,7 @@ func findListItemsWithUpdatedText(initialListItems initialListItems: [ListItem],
 func replaceAnyEqualUnchangedNewListItemsWithPreviousUnchangedListItems(inout replaceableNewListItems replaceableNewListItems: [ListItem], previousUnchangedListItems: [ListItem]) {
     let replaceableNewListItemsCopy = replaceableNewListItems
     
-    for (idx, replaceableNewListItem) in replaceableNewListItemsCopy.enumerate() {
+    for (idx, replaceableNewListItem) in replaceableNewListItemsCopy.enumerated(iterator {
         if let indexOfUnchangedListItem = previousUnchangedListItems.indexOf(replaceableNewListItem) {
             replaceableNewListItems[idx] = previousUnchangedListItems[indexOfUnchangedListItem]
         }

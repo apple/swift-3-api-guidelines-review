@@ -16,7 +16,7 @@ import Cocoa
             return NSColor(cgColor: checkBoxLayer.tintColor)!
         }
         set {
-            checkBoxLayer.tintColor = newValue.cgColor
+            checkBoxLayer.tintColor = newValue.CGColor
         }
     }
     

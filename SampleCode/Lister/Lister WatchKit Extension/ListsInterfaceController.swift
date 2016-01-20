@@ -34,19 +34,19 @@ class ListsInterfaceController: WKInterfaceController, ListsControllerDelegate {
     override init() {
         super.init()
 
-        listsController = AppConfiguration.shared.listsControllerForCurrentConfigurationWithPathExtension(AppConfiguration.listerFileExtension)
+        listsController = AppConfiguration.sharedConfiguration.listsControllerForCurrentConfigurationWithPathExtension(AppConfiguration.listerFileExtension)
 
         let noListsIndexSet = NSIndexSet(index: 0)
         interfaceTable.insertRowsAt(noListsIndexSet, withRowType: Storyboard.RowTypes.noLists)
         
-        if AppConfiguration.shared.isFirstLaunch {
+        if AppConfiguration.sharedConfiguration.isFirstLaunch {
             print("Lister does not currently support configuring a storage option before the iOS app is launched. Please launch the iOS app first. See the Release Notes section in README.md for more information.")
         }
     }
     
     // MARK: ListsControllerDelegate
 
-    func listsController(listsController: ListsController, didInsert listInfo: ListInfo, at index: Int) {
+    func listsController(listsController: ListsController, didInsertListInfo listInfo: ListInfo, atIndex index: Int) {
         let indexSet = NSIndexSet(index: index)
         
         // The lists controller was previously empty. Remove the "no lists" row.
@@ -56,10 +56,10 @@ class ListsInterfaceController: WKInterfaceController, ListsControllerDelegate {
         
         interfaceTable.insertRowsAt(indexSet, withRowType: Storyboard.RowTypes.list)
 
-        configureRowControllerAt(index)
+        configureRowControllerAtIndex(index)
     }
     
-    func listsController(listsController: ListsController, didRemove listInfo: ListInfo, at index: Int) {
+    func listsController(listsController: ListsController, didRemoveListInfo listInfo: ListInfo, atIndex index: Int) {
         let indexSet = NSIndexSet(index: index)
         
         // The lists controller is now empty. Add the "no lists" row.
@@ -70,8 +70,8 @@ class ListsInterfaceController: WKInterfaceController, ListsControllerDelegate {
         interfaceTable.removeRowsAt(indexSet)
     }
     
-    func listsController(listsController: ListsController, didUpdateListInfo listInfo: ListInfo, at index: Int) {
-        configureRowControllerAt(index)
+    func listsController(listsController: ListsController, didUpdateListInfo listInfo: ListInfo, atIndex index: Int) {
+        configureRowControllerAtIndex(index)
     }
 
     // MARK: Segues
@@ -88,7 +88,7 @@ class ListsInterfaceController: WKInterfaceController, ListsControllerDelegate {
     
     // MARK: Convenience
     
-    func configureRowControllerAt(index: Int) {
+    func configureRowControllerAtIndex(index: Int) {
         let listRowController = interfaceTable.rowControllerAt(index) as! ColoredTextRowController
         
         let listInfo = listsController[index]
@@ -139,7 +139,7 @@ class ListsInterfaceController: WKInterfaceController, ListsControllerDelegate {
         
         let listInfoURL = NSURL(fileURLWithPath: listInfoFilePath!, isDirectory: false)
         // Create a `ListInfo` that represents the list at `listInfoURL`.
-        let listInfo = ListInfo(url: listInfoURL)
+        let listInfo = ListInfo(URL: listInfoURL)
         
         // Present a `ListInterfaceController`.
         pushControllerWithName(ListInterfaceController.Storyboard.interfaceControllerName, context: listInfo)

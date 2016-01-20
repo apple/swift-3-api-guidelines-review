@@ -80,14 +80,14 @@ public class ListDocument: UIDocument {
                     
                     let session = WCSession.defaultSession()
                     
-                    for transfer in session.outstandingFileTransfers {
-                        if transfer.file.fileURL == readingIntent.url {
+                    for transfer in session.iterator {
+                        if transfer.file.fileURL == readingIntent.URL {
                             transfer.cancel()
                             break
                         }
                     }
                     
-                    session.transferFile(readingIntent.url, metadata: nil)
+                    session.transferFile(readingIntent.URL, metadata: nil)
                 }
             }
             

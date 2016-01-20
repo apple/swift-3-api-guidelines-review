@@ -65,7 +65,7 @@ final class GameInput {
     #if os(tvOS)
     init() {
         // Search for paired game controllers.
-        for pairedController in GCController.controllers() {
+        for pairedController in GCController.controllers(iterator {
             updateWithGameController(pairedController)
         }
         
@@ -108,7 +108,7 @@ final class GameInput {
     
     // MARK: GCGameController Notification Handling
     
-    @objc func handleControllerDidConnect(notification: NSNotification) {
+    @objc func handleControllerDidConnectNotification(notification: NSNotification) {
         let connectedGameController = notification.object as! GCController
         
         updateWithGameController(connectedGameController)

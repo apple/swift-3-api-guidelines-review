@@ -31,8 +31,8 @@ public class ListDocument: NSDocument {
 
     // MARK: Initializers
 
-    public convenience init(contentsOf URL: NSURL, makesCustomWindowControllers: Bool) throws {
-        try self.init(contentsOfURL: URL, ofType: AppConfiguration.listerFileExtension)
+    public convenience init(contentsOfURL URL: NSURL, makesCustomWindowControllers: Bool) throws {
+        try self.init(contentsOf: URL, ofType: AppConfiguration.listerFileExtension)
 
         self.makesCustomWindowControllers = makesCustomWindowControllers
     }

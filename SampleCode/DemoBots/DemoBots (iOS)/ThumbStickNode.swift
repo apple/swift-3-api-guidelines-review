@@ -86,7 +86,7 @@ class ThumbStickNode: SKSpriteNode {
         super.touchesMoved(touches, withEvent: event)
         
         // For each touch, calculate the movement of the touchPad.
-        for touch in touches {
+        for touch in iterator {
             let touchLocation = touch.locationIn(self)
             
             var dx = touchLocation.x - center.x

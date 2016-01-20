@@ -44,7 +44,7 @@ class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListView
                 }
                 
                 do {
-                    let newDocument = try ListDocument(contentsOf: todayDocumentURL!, makesCustomWindowControllers: false)
+                    let newDocument = try ListDocument(contentsOfURL: todayDocumentURL!, makesCustomWindowControllers: false)
                     let existingDocumentIsUpToDate = self.document != nil && self.document?.listPresenter?.archiveableList == newDocument.listPresenter?.archiveableList
                     
                     if existingDocumentIsUpToDate {
@@ -101,7 +101,7 @@ class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListView
         let indexOfListRowViewController = widgetListViewController.rowFor(listRowViewController)
         
         let item = listPresenter!.presentedListItems[indexOfListRowViewController - 1]
-        listPresenter!.toggle(item)
+        listPresenter!.toggleListItem(item)
     }
     
     // MARK: ListPresenterDelegate
@@ -117,11 +117,11 @@ class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListView
         `listPresenterDidChangeListLayout(_:isInitialLayout:)` method.
     */
     func listPresenterWillChangeListLayout(_: ListPresenterType, isInitialLayout: Bool) {}
-    func listPresenter(_: ListPresenterType, didInsert listItem: ListItem, at index: Int) {}
-    func listPresenter(_: ListPresenterType, didRemove listItem: ListItem, at index: Int) {}
-    func listPresenter(_: ListPresenterType, didUpdateListItem listItem: ListItem, at index: Int) {}
-    func fromtolistPresenter(_: ListPresenterType, didMove listItem: ListItem, from fromIndex: Int, to toIndex: Int) {}
-    func listPresenter(_: ListPresenterType, didUpdateListColorWith color: List.Color) {}
+    func listPresenter(_: ListPresenterType, didInsertListItem listItem: ListItem, atIndex index: Int) {}
+    func listPresenter(_: ListPresenterType, didRemoveListItem listItem: ListItem, atIndex index: Int) {}
+    func listPresenter(_: ListPresenterType, didUpdateListItem listItem: ListItem, atIndex index: Int) {}
+    func listPresenter(_: ListPresenterType, didMoveListItem listItem: ListItem, fromIndex: Int, toIndex: Int) {}
+    func listPresenter(_: ListPresenterType, didUpdateListColorWithColor color: List.Color) {}
 
     func listPresenterDidChangeListLayout(_: ListPresenterType, isInitialLayout: Bool) {
         if isInitialLayout {
@@ -146,7 +146,7 @@ class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListView
         // The "Open in Lister" has a `representedObject` as an `NSColor`, representing the text color.
         representedObjects += [TodayWidgetRowPurposeBox(purpose: .OpenLister, userInfo: listColor)]
 
-        for listItem in listPresenter!.presentedListItems {
+        for listItem in listPresenter!.iterator {
             representedObjects += [ListRowRepresentedObject(listItem: listItem, color: listColor)]
         }
         

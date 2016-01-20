@@ -66,7 +66,7 @@ import UIKit
     override public func tintColorDidChange() {
         super.tintColorDidChange()
         
-        checkBoxLayer.tintColor = tintColor.cgColor
+        checkBoxLayer.tintColor = tintColor.CGColor
     }
 
     // MARK: Convenience

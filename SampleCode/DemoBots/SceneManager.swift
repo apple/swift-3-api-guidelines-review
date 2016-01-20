@@ -77,7 +77,7 @@ final class SceneManager {
     
     // MARK: Initialization
     
-    presentinginit(presenting presentingView: SKView, gameInput: GameInput) {
+    init(presentingView: SKView, gameInput: GameInput) {
         self.presentingView = presentingView
         self.gameInput = gameInput
         
@@ -98,7 +98,7 @@ final class SceneManager {
         
         // Map `SceneMetadata` to a `SceneLoader` for each possible scene.
         var sceneLoaderForMetadata = [SceneMetadata: SceneLoader]()
-        for metadata in sceneConfigurationInfo {
+        for metadata in iterator {
             let sceneLoader = SceneLoader(sceneMetadata: metadata)
             sceneLoaderForMetadata[metadata] = sceneLoader
         }
@@ -129,8 +129,8 @@ final class SceneManager {
         This method should be called in preparation for the user needing to transition
         to the scene in order to minimize the amount of load time.
     */
-    func prepareSceneWith(sceneIdentifier: SceneIdentifier) {
-        let sceneLoader = sceneLoaderFor(sceneIdentifier)
+    func prepareSceneWithSceneIdentifier(sceneIdentifier: SceneIdentifier) {
+        let sceneLoader = sceneLoaderForSceneIdentifier(sceneIdentifier)
         sceneLoader.asynchronouslyLoadSceneForPresentation()
     }
     
@@ -139,13 +139,13 @@ final class SceneManager {
         currently in memory. Otherwise, presents a progress scene to monitor the progress
         of the resources being downloaded, or display an error if one has occurred.
     */
-    func transitionToSceneWith(sceneIdentifier: SceneIdentifier) {
-        let sceneLoader = sceneLoaderFor(sceneIdentifier)
+    func transitionToSceneWithSceneIdentifier(sceneIdentifier: SceneIdentifier) {
+        let sceneLoader = sceneLoaderForSceneIdentifier(sceneIdentifier)
         
         
         if sceneLoader.stateMachine.currentState is SceneLoaderResourcesReadyState {
             // The scene is ready to be displayed.
-            presentSceneFor(sceneLoader)
+            presentSceneForSceneLoader(sceneLoader)
         }
         else {
             sceneLoader.asynchronouslyLoadSceneForPresentation()
@@ -166,7 +166,7 @@ final class SceneManager {
     // MARK: Scene Presentation
     
     /// Configures and presents a scene.
-    func presentSceneFor(sceneLoader: SceneLoader) {
+    func presentSceneForSceneLoader(sceneLoader: SceneLoader) {
         guard let scene = sceneLoader.scene else {
             assertionFailure("Requested presentation for a `sceneLoader` without a valid `scene`.")
             return
@@ -199,7 +199,7 @@ final class SceneManager {
             self.progressScene = nil
             
             // Notify the delegate that the manager has presented a scene.
-            self.delegate?.sceneManagerDidTransitionTo(scene)
+            self.delegate?.sceneManagerDidTransitionToScene(scene)
             
             // Restart the scene loading process.
             sceneLoader.stateMachine.enterState(SceneLoaderInitialState.self)
@@ -212,7 +212,7 @@ final class SceneManager {
         guard progressScene == nil else { return }
 
         // Create a `ProgressScene` for the scene loader.
-        progressScene = ProgressScene.withSceneLoader(sceneLoader)
+        progressScene = ProgressScene.progressSceneWithSceneLoader(sceneLoader)
         progressScene!.sceneManager = self
     
         let transition = SKTransition.doorsCloseHorizontalWithDuration(GameplayConfiguration.SceneManager.progressSceneTransitionDuration)
@@ -227,7 +227,7 @@ final class SceneManager {
     private func beginDownloadingNextPossibleScenes() {
         let possibleScenes = allPossibleNextScenes()
         
-        for sceneMetadata in possibleScenes {
+        for sceneMetadata in iterator {
             let resourceRequest = sceneLoaderForMetadata[sceneMetadata]!
             resourceRequest.downloadResourcesIfNecessary()
         }
@@ -236,7 +236,7 @@ final class SceneManager {
         let allScenes = Set(sceneLoaderForMetadata.keys)
         let unreachableScenes = allScenes.subtract(possibleScenes)
         
-        for sceneMetadata in unreachableScenes {
+        for sceneMetadata in iterator {
             let resourceRequest = sceneLoaderForMetadata[sceneMetadata]!
             resourceRequest.purgeResources()
         }
@@ -287,7 +287,7 @@ final class SceneManager {
                 a progress scene.
             */
             if sceneLoader.requestedForPresentation {
-                self.presentSceneFor(sceneLoader)
+                self.presentSceneForSceneLoader(sceneLoader)
             }
             
             // Reset the scene loader's presentation preference.
@@ -298,7 +298,7 @@ final class SceneManager {
     // MARK: Convenience
     
     /// Returns the scene loader associated with the scene identifier.
-    func sceneLoaderFor(sceneIdentifier: SceneIdentifier) -> SceneLoader {
+    func sceneLoaderForSceneIdentifier(sceneIdentifier: SceneIdentifier) -> SceneLoader {
         let sceneMetadata: SceneMetadata
         switch sceneIdentifier {
             case .Home:

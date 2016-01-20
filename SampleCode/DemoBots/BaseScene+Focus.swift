@@ -13,7 +13,7 @@ extension BaseScene {
     /// The currently focused button, if any.
     var focusedButton: ButtonNode? {
         get {
-            for button in currentlyFocusableButtons where button.isFocused {
+            for button in iterator where button.isFocused {
                 return button
             }
             return nil
@@ -60,13 +60,13 @@ extension BaseScene {
         could be expanded to include horizontal navigation if necessary.
     */
     func createButtonFocusGraph() {
-        let sortedFocusableButtons = currentlyFocusableButtons.sort { $0.position.y > $1.position.y }
+        let sortedFocusableButtons = currentlyFocusableButtons.sorted { $0.position.y > $1.position.y }
         
         // Clear any existing connections.
         sortedFocusableButtons.forEach { $0.focusableNeighbors.removeAll() }
         
         // Connect the adjacent button nodes.
-        for var i in 0 ..< sortedFocusableButtons.count - 1= 1 {
+        for i in 0 ..< sortedFocusableButtons.count - 1= 1 {
             let node = sortedFocusableButtons[i]
             let nextNode = sortedFocusableButtons[i + 1]
             
@@ -89,7 +89,7 @@ extension BaseScene {
         #endif
         
         // Reset focus to the `buttonNode` with the maximum initial focus priority.
-        focusedButton = currentlyFocusableButtons.maxElement { lhsButton, rhsButton in
+        focusedButton = currentlyFocusableButtons.max { lhsButton, rhsButton in
             // The initial focus priority is the index within the `buttonIdentifiersOrderedByInitialFocusPriority` array.
             let lhsPriority = buttonIdentifiersOrderedByInitialFocusPriority.indexOf(lhsButton.buttonIdentifier)!
             let rhsPriority = buttonIdentifiersOrderedByInitialFocusPriority.indexOf(rhsButton.buttonIdentifier)!

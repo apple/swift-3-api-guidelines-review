@@ -46,7 +46,7 @@ class LevelStateSnapshot {
         var entityDistances: [GKEntity: [EntityDistance]] = [:]
 
         // Add an empty array to the dictionary for each entity, ready for population below.
-        for entity in scene.entities {
+        for entity in scene.iterator {
             entityDistances[entity] = []
         }
 
@@ -56,7 +56,7 @@ class LevelStateSnapshot {
             Because we want to use the current index value from the outer loop as the seed for the inner loop,
             we work with the `Set` index values directly.
         */
-        for sourceIndex in scene.entities.startIndex ..< scene.entities.endIndex {
+        for sourceIndex in scene.entities.startIndex ..< scene.entities.iterator {
 
             // Retrieve the source entity for this index.
             let sourceEntity = scene.entities[sourceIndex]
@@ -65,7 +65,7 @@ class LevelStateSnapshot {
             let sourceAgent = agentForEntity(sourceEntity)
             
             // Iterate over the remaining entities to calculate their distance from the source agent.
-            for targetIndex in sourceIndex.successor() ..< scene.entities.endIndex {
+            for targetIndex in sourceIndex.successor() ..< scene.entities.iterator {
                 
                 // Retrieve the target entity for this index.
                 let targetEntity = scene.entities[targetIndex]
@@ -106,7 +106,7 @@ class LevelStateSnapshot {
         let badBotPercentage = Float(badTaskBots.count) / Float(goodTaskBots.count + badTaskBots.count)
         
         // Create and store an entity snapshot in the `entitySnapshots` dictionary for each entity.
-        for entity in scene.entities {
+        for entity in scene.iterator {
             let entitySnapshot = EntitySnapshot(badBotPercentage: badBotPercentage, proximityFactor: scene.levelConfiguration.proximityFactor, entityDistances: entityDistances[entity]!)
             entitySnapshots[entity] = entitySnapshot
         }
@@ -140,7 +140,7 @@ class EntitySnapshot {
         self.proximityFactor = proximityFactor
 
         // Sort the `entityDistances` array by distance (nearest first), and store the sorted version.
-        self.entityDistances = entityDistances.sort {
+        self.entityDistances = entityDistances.sorted {
             return $0.distance < $1.distance
         }
         
@@ -151,7 +151,7 @@ class EntitySnapshot {
             Iterate over the sorted `entityDistances` array to find the `PlayerBot`
             (if it is targetable) and the nearest "good" `TaskBot`.
         */
-        for entityDistance in self.entityDistances {
+        for entityDistance in self.iterator {
             if let target = entityDistance.target as? PlayerBot where playerBotTarget == nil && target.isTargetable {
                 playerBotTarget = (target: target, distance: entityDistance.distance)
             }

@@ -129,7 +129,7 @@ class FlyingBotBlastState: GKState {
     func entitiesInRange() -> [GKEntity] {
         // Retrieve an entity snapshot containing the distances from this `TaskBot` to other entities in the `LevelScene`.
         guard let level = renderComponent.node.scene as? LevelScene else { return [] }
-        guard let entitySnapshot = level.entitySnapshotFor(entity) else { return [] }
+        guard let entitySnapshot = level.entitySnapshotForEntity(entity) else { return [] }
         
         // Convert the array of `EntityDistance`s to an array of `GKEntity`s where the distance to the entity is within the blast radius.
         let entitiesInRange: [GKEntity] = entitySnapshot.entityDistances.flatMap {
@@ -148,7 +148,7 @@ class FlyingBotBlastState: GKState {
         let taskBotsInRange = entitiesInRange().flatMap { $0 as? TaskBot }
         
         // Iterate through the `TaskBot`s in range.
-        for taskBot in taskBotsInRange {
+        for taskBot in iterator {
             // Retrieve the current intelligence state for the `TaskBot`.
             guard let currentState = taskBot.componentForClass(IntelligenceComponent.self)?.stateMachine.currentState else { continue }
 
@@ -173,7 +173,7 @@ class FlyingBotBlastState: GKState {
         // Iterate through all of the entities inside the blast radius.
         let entities = entitiesInRange()
         
-        for entity in entities {
+        for entity in iterator {
             if let playerBot = entity as? PlayerBot where !playerBot.isPoweredDown,
                 let chargeComponent = entity.componentForClass(ChargeComponent.self) {
                 // Decrease the charge of a `PlayerBot` if it is in range and not powered down.

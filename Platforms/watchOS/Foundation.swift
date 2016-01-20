@@ -5056,18 +5056,18 @@ struct _NSRange {
   init(location: Int, length: Int)
 }
 
-extension _NSRange {
+extension NSRange {
   init(_ x: Range<Int>)
   @warn_unused_result
   func toRange() -> Range<Int>?
 }
 
-extension _NSRange : _Reflectable {
+extension NSRange : _Reflectable {
   /// Returns a mirror that reflects `self`.
   func _getMirror() -> _MirrorType
 }
 
-extension _NSRange : _ObjectiveCBridgeable {
+extension NSRange : _ObjectiveCBridgeable {
   static func _isBridgedToObjectiveC() -> Bool
   static func _getObjectiveCType() -> Any.Type
   func _bridgeToObjectiveC() -> NSValue

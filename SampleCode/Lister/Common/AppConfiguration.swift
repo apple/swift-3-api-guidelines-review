@@ -84,7 +84,7 @@ public class AppConfiguration {
         case NotSet = 0, Local, Cloud
     }
     
-    public class var shared: AppConfiguration {
+    public class var sharedConfiguration: AppConfiguration {
         struct Singleton {
             static let sharedAppConfiguration = AppConfiguration()
         }
@@ -232,7 +232,7 @@ public class AppConfiguration {
         For example, if the user has chosen local storage, a local `ListCoordinator` object will be returned.
     */
     public func listCoordinatorForCurrentConfigurationWithPathExtension(pathExtension: String, firstQueryHandler: (Void -> Void)? = nil) -> ListCoordinator {
-        if AppConfiguration.shared.storageOption != .Cloud {
+        if AppConfiguration.sharedConfiguration.storageOption != .Cloud {
             // This will be called if the storage option is either `.Local` or `.NotSet`.
             return LocalListCoordinator(pathExtension: pathExtension, firstQueryUpdateHandler: firstQueryHandler)
         }
@@ -246,7 +246,7 @@ public class AppConfiguration {
         For example, if the user has chosen local storage, a local `ListCoordinator` object will be returned.
     */
     public func listCoordinatorForCurrentConfigurationWithLastPathComponent(lastPathComponent: String, firstQueryHandler: (Void -> Void)? = nil) -> ListCoordinator {
-        if AppConfiguration.shared.storageOption != .Cloud {
+        if AppConfiguration.sharedConfiguration.storageOption != .Cloud {
             // This will be called if the storage option is either `.Local` or `.NotSet`.
             return LocalListCoordinator(lastPathComponent: lastPathComponent, firstQueryUpdateHandler: firstQueryHandler)
         }

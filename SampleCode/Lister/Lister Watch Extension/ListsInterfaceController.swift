@@ -40,7 +40,7 @@ class ListsInterfaceController: WKInterfaceController, ConnectivityListsControll
     
     // MARK: ConnectivityListsControllerDelegate
 
-    func listsController(listsController: ConnectivityListsController, didInsert listInfo: ListInfo, at index: Int) {
+    func listsController(listsController: ConnectivityListsController, didInsertListInfo listInfo: ListInfo, atIndex index: Int) {
         let indexSet = NSIndexSet(index: index)
         
         // The lists controller was previously empty. Remove the "no lists" row.
@@ -50,10 +50,10 @@ class ListsInterfaceController: WKInterfaceController, ConnectivityListsControll
         
         interfaceTable.insertRowsAt(indexSet, withRowType: Storyboard.RowTypes.list)
 
-        configureRowControllerAt(index)
+        configureRowControllerAtIndex(index)
     }
     
-    func listsController(listsController: ConnectivityListsController, didRemove listInfo: ListInfo, at index: Int) {
+    func listsController(listsController: ConnectivityListsController, didRemoveListInfo listInfo: ListInfo, atIndex index: Int) {
         let indexSet = NSIndexSet(index: index)
         
         // The lists controller is now empty. Add the "no lists" row.
@@ -64,8 +64,8 @@ class ListsInterfaceController: WKInterfaceController, ConnectivityListsControll
         interfaceTable.removeRowsAt(indexSet)
     }
     
-    func listsController(listsController: ConnectivityListsController, didUpdateListInfo listInfo: ListInfo, at index: Int) {
-        configureRowControllerAt(index)
+    func listsController(listsController: ConnectivityListsController, didUpdateListInfo listInfo: ListInfo, atIndex index: Int) {
+        configureRowControllerAtIndex(index)
     }
 
     // MARK: Segues
@@ -82,7 +82,7 @@ class ListsInterfaceController: WKInterfaceController, ConnectivityListsControll
     
     // MARK: Convenience
     
-    func configureRowControllerAt(index: Int) {
+    func configureRowControllerAtIndex(index: Int) {
         let listRowController = interfaceTable.rowControllerAt(index) as! ColoredTextRowController
         
         let listInfo = listsController[index]

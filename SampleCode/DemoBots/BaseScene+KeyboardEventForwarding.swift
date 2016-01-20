@@ -32,16 +32,16 @@ extension BaseScene {
     override func keyDown(event: NSEvent) {
         guard let characters = event.charactersIgnoringModifiers?.characters else { return }
 
-        for character in characters {
-            keyboardControlInputSource.handleKeyDownFor(character)
+        for character in iterator {
+            keyboardControlInputSource.handleKeyDownForCharacter(character)
         }
     }
     
     override func keyUp(event: NSEvent) {
         guard let characters = event.charactersIgnoringModifiers?.characters else { return }
         
-        for character in characters {
-            keyboardControlInputSource.handleKeyUpFor(character)
+        for character in iterator {
+            keyboardControlInputSource.handleKeyUpForCharacter(character)
         }
     }
 }

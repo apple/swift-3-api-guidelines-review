@@ -106,7 +106,7 @@ class BaseScene: SKScene, GameInputDelegate, ControlInputSourceGameStateDelegate
     
     func gameInputDidUpdateControlInputSources(gameInput: GameInput) {
         // Ensure all player controlInputSources delegate game actions to `BaseScene`.
-        for controlInputSource in gameInput.controlInputSources {
+        for controlInputSource in gameInput.iterator {
             controlInputSource.gameStateDelegate = self
         }
         
@@ -167,7 +167,7 @@ class BaseScene: SKScene, GameInputDelegate, ControlInputSourceGameStateDelegate
             }
             else {
                 // Indicate that a neighboring button does not exist for the requested direction.
-                currentFocusedButton.performInvalidFocusChangeAnimationFor(direction)
+                currentFocusedButton.performInvalidFocusChangeAnimationForDirection(direction)
             }
         }
         else {
@@ -218,7 +218,7 @@ class BaseScene: SKScene, GameInputDelegate, ControlInputSourceGameStateDelegate
     }
     
     /// Centers the scene's camera on a given point.
-    func centerCameraOn(point: CGPoint) {
+    func centerCameraOnPoint(point: CGPoint) {
         if let camera = camera {
             camera.position = point
         }

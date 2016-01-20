@@ -48,7 +48,7 @@ public class ListUtilities {
     public class func copyInitialLists() {
         let defaultListURLs = NSBundle.main().urLsForResourcesWithExtension(AppConfiguration.listerFileExtension, subdirectory: "")!
         
-        for url in defaultListURLs {
+        for url in iterator {
             copyURLToDocumentsDirectory(url)
         }
     }
@@ -71,9 +71,9 @@ public class ListUtilities {
                 do {
                     let localDocumentURLs = try fileManager.contentsOfDirectoryAt(ListUtilities.localDocumentsDirectory, includingPropertiesForKeys: nil, options: .SkipsPackageDescendants)
                 
-                    for URL in localDocumentURLs {
+                    for URL in iterator {
                         if URL.pathExtension == AppConfiguration.listerFileExtension {
-                            self.makeItemUbiquitousAt(URL, documentsDirectoryURL: documentsDirectoryURL)
+                            self.makeItemUbiquitousAtURL(URL, documentsDirectoryURL: documentsDirectoryURL)
                         }
                     }
                 }
@@ -88,7 +88,7 @@ public class ListUtilities {
     
     // MARK: Convenience
     
-    private class func makeItemUbiquitousAt(sourceURL: NSURL, documentsDirectoryURL: NSURL) {
+    private class func makeItemUbiquitousAtURL(sourceURL: NSURL, documentsDirectoryURL: NSURL) {
         let destinationFileName = sourceURL.lastPathComponent!
         
         let fileManager = NSFileManager()
@@ -97,7 +97,7 @@ public class ListUtilities {
         if fileManager.isUbiquitousItemAt(destinationURL) ||
             fileManager.fileExistsAtPath(destinationURL.path!) {
             // If the file already exists in the cloud, remove the local version and return.
-            removeListAt(sourceURL, completionHandler: nil)
+            removeListAtURL(sourceURL, completionHandler: nil)
             return
         }
         
@@ -116,7 +116,7 @@ public class ListUtilities {
         }
     }
 
-    public class func readListAt(url: NSURL, completionHandler: (List?, NSError?) -> Void) {
+    public class func readListAtURL(url: NSURL, completionHandler: (List?, NSError?) -> Void) {
         let fileCoordinator = NSFileCoordinator()
         
         // `url` may be a security scoped resource.
@@ -139,7 +139,7 @@ public class ListUtilities {
             var readError: NSError?
             
             do {
-                let contents = try NSData(contentsOf: readingIntent.url, options: .DataReadingUncached)
+                let contents = try NSData(contentsOf: readingIntent.URL, options: .DataReadingUncached)
                 deserializedList = NSKeyedUnarchiver.unarchiveObjectWith(contents) as? List
                 
                 assert(deserializedList != nil, "The provided URL must correspond to a `List` object.")
@@ -158,7 +158,7 @@ public class ListUtilities {
         }
     }
 
-    public class func createList(list: List, at url: NSURL, completionHandler: (NSError? -> Void)? = nil) {
+    public class func createList(list: List, atURL url: NSURL, completionHandler: (NSError? -> Void)? = nil) {
         let fileCoordinator = NSFileCoordinator()
         
         let writingIntent = NSFileAccessIntent.writingIntentWith(url, options: .ForReplacing)
@@ -174,11 +174,11 @@ public class ListUtilities {
             let seralizedListData = NSKeyedArchiver.archivedDataWithRootObject(list)
             
             do {
-                try seralizedListData.writeTo(writingIntent.url, options: .DataWritingAtomic)
+                try seralizedListData.writeTo(writingIntent.URL, options: .DataWritingAtomic)
             
                 let fileAttributes = [NSFileExtensionHidden: true]
                 
-                try NSFileManager.defaultManager().setAttributes(fileAttributes, ofItemAtPath: writingIntent.url.path!)
+                try NSFileManager.defaultManager().setAttributes(fileAttributes, ofItemAtPath: writingIntent.URL.path!)
             }
             catch let error as NSError {
                 writeError = error
@@ -190,7 +190,7 @@ public class ListUtilities {
         }
     }
     
-    class func removeListAt(url: NSURL, completionHandler: (NSError? -> Void)? = nil) {
+    class func removeListAtURL(url: NSURL, completionHandler: (NSError? -> Void)? = nil) {
         let fileCoordinator = NSFileCoordinator()
         
         // `url` may be a security scoped resource.
@@ -209,7 +209,7 @@ public class ListUtilities {
             var removeError: NSError?
             
             do {
-                try fileManager.removeItemAt(writingIntent.url)
+                try fileManager.removeItemAt(writingIntent.URL)
             }
             catch let error as NSError {
                 removeError = error
@@ -235,10 +235,10 @@ public class ListUtilities {
             return
         }
         
-        copyFrom(url, to: toURL)
+        copyFromURL(url, toURL: toURL)
     }
     
-    public class func tocopyFrom(fromURL: NSURL, to toURL: NSURL) {
+    public class func copyFromURL(fromURL: NSURL, toURL: NSURL) {
         let fileCoordinator = NSFileCoordinator()
         
         // `url` may be a security scoped resource.
@@ -250,7 +250,7 @@ public class ListUtilities {
         var tempDirectory: NSURL?
         var tempURL: NSURL?
         do {
-            tempDirectory = try fileManager.urlFor(.ItemReplacementDirectory, inDomain: .User, appropriateFor: toURL, create: true)
+            tempDirectory = try fileManager.urlFor(.ItemReplacementDirectory, inDomain: .UserDomainMask, appropriateFor: toURL, create: true)
             tempURL = tempDirectory!.appendingPathComponent(toURL.lastPathComponent!)
             try fileManager.copyItemAt(fromURL, to: tempURL!)
         }
@@ -272,11 +272,11 @@ public class ListUtilities {
             }
             
             do {
-                try NSData(contentsOf: movingIntent.url).writeTo(mergingIntent.url, atomically: true)
+                try NSData(contentsOf: movingIntent.URL).writeTo(mergingIntent.URL, atomically: true)
                 
                 let fileAttributes = [NSFileExtensionHidden: true]
                 
-                try fileManager.setAttributes(fileAttributes, ofItemAtPath: mergingIntent.url.path!)
+                try fileManager.setAttributes(fileAttributes, ofItemAtPath: mergingIntent.URL.path!)
             }
             catch let error as NSError {
                 // An error occured when moving `url` to `toURL`. In your app, handle this gracefully.

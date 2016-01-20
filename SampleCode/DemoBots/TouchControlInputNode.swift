@@ -124,7 +124,7 @@ class TouchControlInputNode: SKSpriteNode, ThumbStickNodeDelegate, ControlInputS
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesBegan(touches, withEvent: event)
         
-        for touch in touches {
+        for touch in iterator {
             let touchPoint = touch.locationIn(self)
             
             /*
@@ -170,7 +170,7 @@ class TouchControlInputNode: SKSpriteNode, ThumbStickNodeDelegate, ControlInputS
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesEnded(touches, withEvent: event)
         
-        for touch in touches {
+        for touch in iterator {
             let touchPoint = touch.locationIn(self)
             
             /// Toggle pause when touching in the pause node.

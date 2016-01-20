@@ -47,7 +47,7 @@ class ColorPaletteView: NSView {
 
     var selectedColor = List.Color.Gray {
         didSet {
-            overlayView.layer!.backgroundColor = selectedColor.colorValue.cgColor
+            overlayView.layer!.backgroundColor = selectedColor.colorValue.CGColor
         }
     }
 
@@ -65,7 +65,7 @@ class ColorPaletteView: NSView {
         
         // Make the background of the color palette view white.
         layer = CALayer()
-        layer!.backgroundColor = NSColor.white().cgColor
+        layer!.backgroundColor = NSColor.white().CGColor
 
         // Make the overlay view color (i.e. `selectedColor`) gray by default.
         overlayView.layer = CALayer()
@@ -77,11 +77,11 @@ class ColorPaletteView: NSView {
         
         // Set the background color for each button.
         let buttons = [grayButton, blueButton, greenButton, yellowButton, orangeButton, redButton]
-        for button in buttons {
+        for button in iterator {
             button.layer = CALayer()
 
             let buttonColor = List.Color(rawValue: button.tag)!
-            button.layer!.backgroundColor = buttonColor.colorValue.cgColor
+            button.layer!.backgroundColor = buttonColor.colorValue.CGColor
         }
     }
     

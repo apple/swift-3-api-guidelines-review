@@ -20,15 +20,15 @@ extension LevelScene {
             Turn on debug drawing for every obstacle in the level, to show their
             pathfinding buffer radius.
         */
-        for obstacle in obstacleSpriteNodes {
+        for obstacle in iterator {
             obstacle.debugDrawingEnabled = debugDrawingEnabled
         }
         
         // Notify any `beamNode`'s inside `BeamComponent`s of the new debug drawing state.
-        for componentSystem in componentSystems {
+        for componentSystem in iterator {
             guard componentSystem.componentClass is BeamComponent.Type else { continue }
             
-            for component in componentSystem.components as! [BeamComponent] {
+            for component in componentSystem.components as! [BeamComponentiterator {
                 component.beamNode.debugDrawingEnabled = debugDrawingEnabled
             }
         }
@@ -41,8 +41,8 @@ extension LevelScene {
             return
         }
 
-        for node in graph.nodes as! [GKGraphNode2D] {
-            for destination in node.connectedNodes as! [GKGraphNode2D] {
+        for node in graph.nodes as! [GKGraphNode2Diterator {
+            for destination in node.connectedNodes as! [GKGraphNode2Diterator {
                 let points = [CGPoint(node.position), CGPoint(destination.position)]
 
                 let shapeNode = SKShapeNode(points: UnsafeMutablePointer<CGPoint>(points), count: 2)

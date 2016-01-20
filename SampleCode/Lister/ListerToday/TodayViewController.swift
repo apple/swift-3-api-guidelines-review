@@ -68,7 +68,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
 
         tableView.backgroundColor = UIColor.clear()
 
-        listsController = AppConfiguration.shared.listsControllerForCurrentConfigurationWithLastPathComponent(AppConfiguration.localizedTodayDocumentNameAndExtension)
+        listsController = AppConfiguration.sharedConfiguration.listsControllerForCurrentConfigurationWithLastPathComponent(AppConfiguration.localizedTodayDocumentNameAndExtension)
         
         listsController.delegate = self
         listsController.startSearching()
@@ -94,7 +94,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
     
     // MARK: ListsControllerDelegate
     
-    func listsController(_: ListsController, didInsert listInfo: ListInfo, at index: Int) {
+    func listsController(_: ListsController, didInsertListInfo listInfo: ListInfo, atIndex index: Int) {
         // Once we've found the Today list, we'll hand off ownership of listening to udpates to the list presenter.
         listsController.stopSearching()
         
@@ -210,7 +210,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         let colorQueryItem = NSURLQueryItem(name: AppConfiguration.ListerScheme.colorQueryKey, value: colorQueryValue)
         urlComponents.queryItems = [colorQueryItem]
 
-        extensionContext?.open(urlComponents.url!)
+        extensionContext?.open(urlComponents.URL!)
     }
 
     // MARK: IBActions
@@ -218,10 +218,10 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
     @IBAction func checkBoxTapped(sender: CheckBox) {
         guard let listPresenter = listPresenter else { return }
         
-        let indexPath = indexPathFor(sender)
+        let indexPath = indexPathForView(sender)
         
         let item = listPresenter.presentedListItems[indexPath.row]
-        listPresenter.toggle(item)
+        listPresenter.toggleListItem(item)
     }
     
     // MARK: ListPresenterDelegate
@@ -239,7 +239,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         tableView.beginUpdates()
     }
 
-    func listPresenter(_: ListPresenterType, didInsert listItem: ListItem, at index: Int) {
+    func listPresenter(_: ListPresenterType, didInsertListItem listItem: ListItem, atIndex index: Int) {
         guard let listPresenter = listPresenter else { return }
         
         let indexPaths = [NSIndexPath(forRow: index, inSection: 0)]
@@ -252,7 +252,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         tableView.insertRowsAt(indexPaths, withRowAnimation: .Automatic)
     }
     
-    func listPresenter(_: ListPresenterType, didRemove listItem: ListItem, at index: Int) {
+    func listPresenter(_: ListPresenterType, didRemoveListItem listItem: ListItem, atIndex index: Int) {
         guard let listPresenter = listPresenter else { return }
         
         let indexPaths = [NSIndexPath(forRow: index, inSection: 0)]
@@ -265,7 +265,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         }
     }
     
-    func listPresenter(_: ListPresenterType, didUpdateListItem listItem: ListItem, at index: Int) {
+    func listPresenter(_: ListPresenterType, didUpdateListItem listItem: ListItem, atIndex index: Int) {
         let indexPath = NSIndexPath(forRow: index, inSection: 0)
         
         if let checkBoxCell = tableView.cellForRowAt(indexPath) as? CheckBoxCell {
@@ -273,7 +273,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         }
     }
     
-    func fromtolistPresenter(_: ListPresenterType, didMove listItem: ListItem, from fromIndex: Int, to toIndex: Int) {
+    func listPresenter(_: ListPresenterType, didMoveListItem listItem: ListItem, fromIndex: Int, toIndex: Int) {
         let fromIndexPath = NSIndexPath(forRow: fromIndex, inSection: 0)
         
         let toIndexPath = NSIndexPath(forRow: toIndex, inSection: 0)
@@ -281,10 +281,10 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         tableView.moveRowAt(fromIndexPath, to: toIndexPath)
     }
     
-    func listPresenter(_: ListPresenterType, didUpdateListColorWith color: List.Color) {
+    func listPresenter(_: ListPresenterType, didUpdateListColorWithColor color: List.Color) {
         guard let listPresenter = listPresenter else { return }
         
-        for (idx, _) in listPresenter.presentedListItems.enumerate() {
+        for (idx, _) in listPresenter.presentedListItems.enumerated(iterator {
             let indexPath = NSIndexPath(forRow: idx, inSection: 0)
 
             if let checkBoxCell = tableView.cellForRowAt(indexPath) as? CheckBoxCell {
@@ -309,7 +309,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         // Ignore any updates if we already have the Today document.
         if document != nil { return }
         
-        document = ListDocument(fileURL: listInfo.url, listPresenter: IncompleteListItemsPresenter())
+        document = ListDocument(fileURL: listInfo.URL, listPresenter: IncompleteListItemsPresenter())
         
         document!.open { success in
             if !success {
@@ -322,7 +322,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         }
     }
     
-    func indexPathFor(view: UIView) -> NSIndexPath {
+    func indexPathForView(view: UIView) -> NSIndexPath {
         let viewOrigin = view.bounds.origin
         
         let viewLocation = tableView.convert(viewOrigin, from: view)

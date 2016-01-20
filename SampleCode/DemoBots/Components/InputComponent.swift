@@ -33,11 +33,11 @@ class InputComponent: GKComponent, ControlInputSourceDelegate {
         didSet {
             if isEnabled {
                 // Apply the current input state to the movement and beam components.
-                apply(state)
+                applyInputState(state)
             }
             else {
                 // Apply a state of no input to the movement and beam components.
-                apply(InputState.noInput)
+                applyInputState(InputState.noInput)
             }
         }
     }
@@ -45,7 +45,7 @@ class InputComponent: GKComponent, ControlInputSourceDelegate {
     var state = InputState() {
         didSet {
             if isEnabled {
-                apply(state)
+                applyInputState(state)
             }
         }
     }
@@ -89,7 +89,7 @@ class InputComponent: GKComponent, ControlInputSourceDelegate {
     
     // MARK: Convenience
     
-    func apply(state: InputState) {
+    func applyInputState(state: InputState) {
         if let movementComponent = entity?.componentForClass(MovementComponent.self) {
             movementComponent.allowsStrafing = state.allowsStrafing
             movementComponent.nextRotation = state.rotation

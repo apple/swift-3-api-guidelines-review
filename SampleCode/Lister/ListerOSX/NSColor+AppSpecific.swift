@@ -13,11 +13,11 @@ extension NSColor {
         static let completeItemTextColor = NSColor(red: 0.70, green: 0.70, blue: 0.70, alpha: 1)
     }
 
-    public class func completeItemText() -> NSColor {
+    public class func completeItemTextColor() -> NSColor {
         return SharedColors.completeItemTextColor
     }
     
-    public class func incompleteItemText() -> NSColor {
+    public class func incompleteItemTextColor() -> NSColor {
         return NSColor.black()
     }
 }

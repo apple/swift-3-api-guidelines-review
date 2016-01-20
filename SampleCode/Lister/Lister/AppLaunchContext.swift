@@ -58,11 +58,11 @@ struct AppLaunchContext {
             let fileURLForPath = NSURL(fileURLWithPath: listInfoFilePath, isDirectory: false)
             
             // Test for the existence of the file at the URL. If it exists proceed.
-            if !fileURLForPath.checkPromisedItemIsReachableAndReturnError(nil) && !fileURLForPath.checkResourceIsReachableAndReturnError(nil) {
+            if !fileURLForPath.checkPromisedItemIsReachableAndReturn(nil) && !fileURLForPath.checkResourceIsReachableAndReturn(nil) {
                 // If the file does not exist at the URL created from the path construct one based on the filename.
                 let derivedURL = listsController.documentsDirectory.appendingPathComponent(fileURLForPath.lastPathComponent!, isDirectory: false)
                 
-                if !derivedURL.checkPromisedItemIsReachableAndReturnError(nil) && !derivedURL.checkResourceIsReachableAndReturnError(nil) {
+                if !derivedURL.checkPromisedItemIsReachableAndReturn(nil) && !derivedURL.checkResourceIsReachableAndReturn(nil) {
                     possibleURL = nil
                 }
                 else {
@@ -98,7 +98,7 @@ struct AppLaunchContext {
         - parameter listerURL: The URL adhering to the lister:// scheme providing the file URL and list color to launch to.
     */
     init?(listerURL: NSURL) {
-        precondition(listerURL.scheme == AppConfiguration.ListerScheme.name, "Non-lister URL provided to \(__FUNCTION__).")
+        require(listerURL.scheme == AppConfiguration.ListerScheme.name, "Non-lister URL provided to \(__FUNCTION__).")
         
         guard let filePath = listerURL.path else {
             assertionFailure("URL provided to \(__FUNCTION__) is missing `path`.")

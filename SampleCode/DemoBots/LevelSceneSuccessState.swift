@@ -26,7 +26,7 @@ class LevelSceneSuccessState: LevelSceneOverlayState {
         }
         
         // Begin preloading the next scene in preparation for the user to advance.
-        levelScene.sceneManager.prepareSceneWith(.NextLevel)
+        levelScene.sceneManager.prepareSceneWithSceneIdentifier(.NextLevel)
     }
     
     override func isValidNextState(stateClass: AnyClass) -> Bool {

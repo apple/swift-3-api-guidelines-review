@@ -120,7 +120,7 @@ class AnimationComponent: GKComponent {
     
     // MARK: Character Animation
 
-    private func runAnimationFor(animationState: AnimationState, compassDirection: CompassDirection, deltaTime: NSTimeInterval) {
+    private func runAnimationForAnimationState(animationState: AnimationState, compassDirection: CompassDirection, deltaTime: NSTimeInterval) {
         
         // Update the tracking of how long we have been animating.
         elapsedAnimationDuration += deltaTime
@@ -237,7 +237,7 @@ class AnimationComponent: GKComponent {
         if let animationState = requestedAnimationState {
             guard let orientationComponent = entity?.componentForClass(OrientationComponent.self) else { fatalError("An AnimationComponent's entity must have an OrientationComponent.") }
             
-            runAnimationFor(animationState, compassDirection: orientationComponent.compassDirection, deltaTime: deltaTime)
+            runAnimationForAnimationState(animationState, compassDirection: orientationComponent.compassDirection, deltaTime: deltaTime)
             requestedAnimationState = nil
         }
     }
@@ -245,20 +245,20 @@ class AnimationComponent: GKComponent {
     // MARK: Texture loading utilities
 
     /// Returns the first texture in an atlas for a given `CompassDirection`.
-    class func firstTextureForOrientation(compassDirection: CompassDirection, in atlas: SKTextureAtlas, withImageIdentifier identifier: String) -> SKTexture {
+    class func firstTextureForOrientation(compassDirection: CompassDirection, inAtlas atlas: SKTextureAtlas, withImageIdentifier identifier: String) -> SKTexture {
         // Filter for this facing direction, and sort the resulting texture names alphabetically.
         let textureNames = atlas.textureNames.filter {
             $0.hasPrefix("\(identifier)_\(compassDirection.rawValue)_")
-        }.sort()
+        }.sorted()
         
         // Find and return the first texture for this direction.
         return atlas.textureNamed(textureNames.first!)
     }
     
     /// Creates a texture action from all textures in an atlas.
-    class func actionForAllTexturesIn(atlas: SKTextureAtlas) -> SKAction {
+    class func actionForAllTexturesInAtlas(atlas: SKTextureAtlas) -> SKAction {
         // Sort the texture names alphabetically, and map them to an array of actual textures.
-        let textures = atlas.textureNames.sort().map {
+        let textures = atlas.textureNames.sorted().map {
             atlas.textureNamed($0)
         }
 
@@ -273,7 +273,7 @@ class AnimationComponent: GKComponent {
     }
 
     /// Creates an `Animation` from textures in an atlas and actions loaded from file.
-    class func animationsFrom(atlas: SKTextureAtlas, withImageIdentifier identifier: String, forAnimationState animationState: AnimationState, bodyActionName: String? = nil, shadowActionName: String? = nil, repeatTexturesForever: Bool = true, playBackwards: Bool = false) -> [CompassDirection: Animation] {
+    class func animationsFromAtlas(atlas: SKTextureAtlas, withImageIdentifier identifier: String, forAnimationState animationState: AnimationState, bodyActionName: String? = nil, shadowActionName: String? = nil, repeatTexturesForever: Bool = true, playBackwards: Bool = false) -> [CompassDirection: Animation] {
         // Load a body action from an actions file if requested.
         let bodyAction: SKAction?
         if let name = bodyActionName {
@@ -295,12 +295,12 @@ class AnimationComponent: GKComponent {
         /// A dictionary of animations with an entry for each compass direction.
         var animations = [CompassDirection: Animation]()
         
-        for compassDirection in CompassDirection.allDirections {
+        for compassDirection in CompassDirection.iterator {
             
             // Find all matching texture names, sorted alphabetically, and map them to an array of actual textures.
             let textures = atlas.textureNames.filter {
                 $0.hasPrefix("\(identifier)_\(compassDirection.rawValue)_")
-            }.sort {
+            }.sorted {
                 playBackwards ? $0 > $1 : $0 < $1
             }.map {
                 atlas.textureNamed($0)

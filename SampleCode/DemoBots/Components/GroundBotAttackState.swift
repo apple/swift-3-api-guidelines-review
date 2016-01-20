@@ -48,9 +48,9 @@ class GroundBotAttackState: GKState {
 
         // Apply damage to any entities the `GroundBot` is already in contact with.
         let contactedBodies = physicsComponent.physicsBody.allContactedBodies()
-        for contactedBody in contactedBodies {
+        for contactedBody in iterator {
             guard let entity = (contactedBody.node as? EntityNode)?.entity else { continue }
-            applyDamageTo(entity)
+            applyDamageToEntity(entity)
         }
 
         // `targetPosition` is a computed property. Declare a local version so we don't compute it multiple times.
@@ -128,7 +128,7 @@ class GroundBotAttackState: GKState {
     
     // MARK: Convenience
     
-    func applyDamageTo(entity: GKEntity) {
+    func applyDamageToEntity(entity: GKEntity) {
         if let playerBot = entity as? PlayerBot, chargeComponent = playerBot.componentForClass(ChargeComponent.self) where !playerBot.isPoweredDown  {
             // If the other entity is a `PlayerBot` that isn't powered down, reduce its charge.
             chargeComponent.loseCharge(GameplayConfiguration.GroundBot.chargeLossPerContact)

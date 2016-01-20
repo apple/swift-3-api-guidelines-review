@@ -65,18 +65,18 @@ class ProgressScene: BaseScene {
         progress of on demand resources and the loading progress of bringing
         assets into memory.
     */
-    static func withSceneLoader(sceneLoader: SceneLoader) -> ProgressScene {
+    static func progressSceneWithSceneLoader(sceneLoader: SceneLoader) -> ProgressScene {
         // Load the progress scene from its sks file.
         let progressScene = ProgressScene(fileNamed: "ProgressScene")!
         
         progressScene.createCamera()
-        progressScene.setupWith(sceneLoader)
+        progressScene.setupWithSceneLoader(sceneLoader)
         
         // Return the setup progress scene.
         return progressScene
     }
     
-    func setupWith(sceneLoader: SceneLoader) {
+    func setupWithSceneLoader(sceneLoader: SceneLoader) {
         // Set the sceneLoader. This may be in the downloading or preparing state.
         self.sceneLoader = sceneLoader
         
@@ -94,7 +94,7 @@ class ProgressScene: BaseScene {
         downloadFailedObserver = defaultCenter.addObserverForName(SceneLoaderDidFailNotification, object: sceneLoader, queue: NSOperationQueue.main()) { [unowned self] notification in
             guard let sceneLoader = notification.object as? SceneLoader, error = sceneLoader.error else { fatalError("The scene loader has no error to show.") }
             
-            self.showErrorStateFor(error)
+            self.showErrorStateForError(error)
         }
     }
     
@@ -113,14 +113,14 @@ class ProgressScene: BaseScene {
     override func didMoveTo(view: SKView) {
         super.didMoveTo(view)
         
-        centerCameraOn(backgroundNode!.position)
+        centerCameraOnPoint(backgroundNode!.position)
 
         // Remember the progress bar's initial width. It will change to indicate progress.
         progressBarInitialWidth = progressBarNode.frame.width
         
         if let error = sceneLoader.error {
             // Show the scene loader's error.
-            showErrorStateFor(error)
+            showErrorStateForError(error)
         }
         else {
             showDefaultState()
@@ -180,7 +180,7 @@ class ProgressScene: BaseScene {
     
     // MARK: Convenience
     
-    func buttonWith(identifier: ButtonIdentifier) -> ButtonNode? {
+    func buttonWithIdentifier(identifier: ButtonIdentifier) -> ButtonNode? {
         return backgroundNode?.childNodeWithName(identifier.rawValue) as? ButtonNode
     }
     
@@ -188,22 +188,22 @@ class ProgressScene: BaseScene {
         progressBarNode.hidden = false
         
         // Only display the "Cancel" button.
-        buttonWith(.Home)?.hidden = true
-        buttonWith(.Retry)?.hidden = true
-        buttonWith(.Cancel)?.hidden = false
+        buttonWithIdentifier(.Home)?.hidden = true
+        buttonWithIdentifier(.Retry)?.hidden = true
+        buttonWithIdentifier(.Cancel)?.hidden = false
         
         // Reset the button focus.
         resetFocus()
     }
     
-    func showErrorStateFor(error: NSError) {
+    func showErrorStateForError(error: NSError) {
         // A new progress object will have to be created for any subsequent loading attempts.
         progress = nil
         
         // Display "Quit" and "Retry" buttons.
-        buttonWith(.Home)?.hidden = false
-        buttonWith(.Retry)?.hidden = false
-        buttonWith(.Cancel)?.hidden = true
+        buttonWithIdentifier(.Home)?.hidden = false
+        buttonWithIdentifier(.Retry)?.hidden = false
+        buttonWithIdentifier(.Cancel)?.hidden = true
         
         // Hide normal state.
         progressBarNode.hidden = true

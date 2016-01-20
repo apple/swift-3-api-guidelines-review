@@ -64,7 +64,7 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
         - parameter firstQueryUpdateHandler: The handler that is executed once the first results are returned.
     */
     public init(pathExtension: String, firstQueryUpdateHandler: (Void -> Void)? = nil) {
-        directoryMonitor = DirectoryMonitor(url: ListUtilities.localDocumentsDirectory)
+        directoryMonitor = DirectoryMonitor(URL: ListUtilities.localDocumentsDirectory)
         
         predicate = NSPredicate(format: "(pathExtension = %@)", argumentArray: [pathExtension])
         self.firstQueryUpdateHandler = firstQueryUpdateHandler
@@ -81,7 +81,7 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
         - parameter firstQueryUpdateHandler: The handler that is executed once the first results are returned.
     */
     public init(lastPathComponent: String, firstQueryUpdateHandler: (Void -> Void)? = nil) {
-        directoryMonitor = DirectoryMonitor(url: ListUtilities.localDocumentsDirectory)
+        directoryMonitor = DirectoryMonitor(URL: ListUtilities.localDocumentsDirectory)
         
         predicate = NSPredicate(format: "(lastPathComponent = %@)", argumentArray: [lastPathComponent])
         self.firstQueryUpdateHandler = firstQueryUpdateHandler
@@ -101,10 +101,10 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
         directoryMonitor.stopMonitoring()
     }
     
-    public func removeListAt(URL: NSURL) {
-        ListUtilities.removeListAt(URL) { error in
+    public func removeListAtURL(URL: NSURL) {
+        ListUtilities.removeListAtURL(URL) { error in
             if let realError = error {
-                self.delegate?.listCoordinatorDidFailRemovingListAt(URL, withError: realError)
+                self.delegate?.listCoordinatorDidFailRemovingListAtURL(URL, withError: realError)
             }
             else {
                 self.delegate?.listCoordinatorDidUpdateContents(insertedURLs: [], removedURLs: [URL], updatedURLs: [])
@@ -112,12 +112,12 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
         }
     }
     
-    public func createURLFor(list: List, withName name: String) {
+    public func createURLForList(list: List, withName name: String) {
         let documentURL = documentURLForName(name)
 
-        ListUtilities.createList(list, at: documentURL) { error in
+        ListUtilities.createList(list, atURL: documentURL) { error in
             if let realError = error {
-                self.delegate?.listCoordinatorDidFailCreatingListAt(documentURL, withError: realError)
+                self.delegate?.listCoordinatorDidFailCreatingListAtURL(documentURL, withError: realError)
             }
             else {
                 self.delegate?.listCoordinatorDidUpdateContents(insertedURLs: [documentURL], removedURLs: [], updatedURLs: [])
@@ -135,10 +135,10 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
         return !NSFileManager.defaultManager().fileExistsAtPath(documentURL.path!)
     }
     
-    public func copyListFrom(URL: NSURL, toListWithName name: String) {
+    public func copyListFromURL(URL: NSURL, toListWithName name: String) {
         let documentURL = documentURLForName(name)
         
-        ListUtilities.copyFrom(URL, to: documentURL)
+        ListUtilities.copyFromURL(URL, toURL: documentURL)
     }
     
     // MARK: DirectoryMonitorDelegate

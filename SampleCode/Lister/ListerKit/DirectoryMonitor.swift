@@ -29,11 +29,11 @@ class DirectoryMonitor {
     var directoryMonitorSource: dispatch_source_t?
     
     /// URL for the directory being monitored.
-    var url: NSURL
+    var URL: NSURL
     
     // MARK: Initializers
-    urlinit(url URL: NSURL) {
-        self.url = URL
+    init(URL: NSURL) {
+        self.URL = URL
     }
     
     // MARK: Monitoring
@@ -42,7 +42,7 @@ class DirectoryMonitor {
         // Listen for changes to the directory (if we are not already).
         if directoryMonitorSource == nil && monitoredDirectoryFileDescriptor == -1 {
             // Open the directory referenced by URL for monitoring only.
-            monitoredDirectoryFileDescriptor = open(url.path!, O_EVTONLY)
+            monitoredDirectoryFileDescriptor = open(URL.path!, O_EVTONLY)
             
             // Define a dispatch source monitoring the directory for additions, deletions, and renamings.
             directoryMonitorSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_VNODE, UInt(monitoredDirectoryFileDescriptor), DISPATCH_VNODE_WRITE, directoryMonitorQueue)

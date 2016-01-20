@@ -33,7 +33,7 @@ class LevelSceneOverlayState: GKState {
             Set the level preview image to the image for this state's level if this state
             has a "view recorded content" button, with a child node called "levelPreview".
         */
-        if let viewRecordedContentButton = buttonWith(.ViewRecordedContent) , levelPreviewNode = viewRecordedContentButton.childNodeWithName("levelPreview") as? SKSpriteNode {
+        if let viewRecordedContentButton = buttonWithIdentifier(.ViewRecordedContent) , levelPreviewNode = viewRecordedContentButton.childNodeWithName("levelPreview") as? SKSpriteNode {
             levelPreviewNode.texture = SKTexture(imageNamed: levelScene.levelConfiguration.fileName)
         }
     }
@@ -45,10 +45,10 @@ class LevelSceneOverlayState: GKState {
         
         #if os(iOS)
         // Show the appropriate state for the recording buttons.
-        buttonWith(.ScreenRecorderToggle)?.isSelected = levelScene.screenRecordingToggleEnabled
+        buttonWithIdentifier(.ScreenRecorderToggle)?.isSelected = levelScene.screenRecordingToggleEnabled
         
         if self is LevelSceneSuccessState || self is LevelSceneFailState {
-            if let viewRecordedContentButton = buttonWith(.ViewRecordedContent) {
+            if let viewRecordedContentButton = buttonWithIdentifier(.ViewRecordedContent) {
                 viewRecordedContentButton.hidden = true
                 
                 // Stop screen recording and update view recorded content button when complete.
@@ -61,8 +61,8 @@ class LevelSceneOverlayState: GKState {
         }
         #else
         // Hide replay buttons on OSX and tvOS.
-        buttonWith(.ScreenRecorderToggle)?.hidden = true
-        buttonWith(.ViewRecordedContent)?.hidden = true
+        buttonWithIdentifier(.ScreenRecorderToggle)?.hidden = true
+        buttonWithIdentifier(.ViewRecordedContent)?.hidden = true
         #endif
         
         // Provide the levelScene with a reference to the overlay node.
@@ -84,7 +84,7 @@ class LevelSceneOverlayState: GKState {
     
     // MARK: Convenience
     
-    func buttonWith(identifier: ButtonIdentifier) -> ButtonNode? {
+    func buttonWithIdentifier(identifier: ButtonIdentifier) -> ButtonNode? {
         return overlay.contentNode.childNodeWithName("//\(identifier.rawValue)") as? ButtonNode
     }
 }

@@ -20,10 +20,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: NSApplicationDelegate
     
     func applicationDidFinishLaunching(notification: NSNotification) {
-        AppConfiguration.shared.runHandlerOnFirstLaunch {
+        AppConfiguration.sharedConfiguration.runHandlerOnFirstLaunch {
             
             // If iCloud is enabled and it's the first launch, we'll show the Today document initially.
-            if AppConfiguration.shared.isCloudAvailable {
+            if AppConfiguration.sharedConfiguration.isCloudAvailable {
                 // Make sure that no other documents are visible except for the Today document.
                 NSDocumentController.shared().closeAllDocumentsWithDelegate(nil, didCloseAllSelector: nil, contextInfo: nil)
 
@@ -66,7 +66,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: Convenience
     
     func updateTodayListMenuItemForCloudAvailability() {
-        if AppConfiguration.shared.isCloudAvailable {
+        if AppConfiguration.sharedConfiguration.isCloudAvailable {
             todayListMenuItem.action = "openTodayDocument:"
             todayListMenuItem.target = self
         }

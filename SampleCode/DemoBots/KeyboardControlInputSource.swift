@@ -51,7 +51,7 @@ class KeyboardControlInputSource: ControlInputSourceType {
     }
     
     /// The logic matching a key press to `ControlInputSourceDelegate` calls.
-    func handleKeyDownFor(character: Character) {
+    func handleKeyDownForCharacter(character: Character) {
         // Ignore repeat input.
         if downKeys.contains(character) {
             return
@@ -59,7 +59,7 @@ class KeyboardControlInputSource: ControlInputSourceType {
         downKeys.insert(character)
         
         // Retrieve the `relativeDisplacement` vector mapped for each displacement character ("wasd" and arrow keys).
-        if let relativeDisplacement = relativeDisplacementFor(character) {
+        if let relativeDisplacement = relativeDisplacementForCharacter(character) {
             // Add to the `currentDisplacement` to track the overall displacement.
             currentDisplacement += relativeDisplacement
             
@@ -81,7 +81,7 @@ class KeyboardControlInputSource: ControlInputSourceType {
                 gameStateDelegate?.controlInputSource(self, didSpecifyDirection: direction)
             }
         }
-        else if isAttack(character) {
+        else if isAttackCharacter(character) {
             // An attack command was requested.
             delegate?.controlInputSourceDidBeginAttacking(self)
             
@@ -110,11 +110,11 @@ class KeyboardControlInputSource: ControlInputSourceType {
     }
     
     // Handle the logic matching when a key is released to `ControlInputSource` delegate calls.
-    func handleKeyUpFor(character: Character) {
+    func handleKeyUpForCharacter(character: Character) {
         // Ensure the character was accounted for by `handleKeyDownForCharacter(_:)`.
         guard downKeys.remove(character) != nil else { return }
         
-        if let relativeDisplacement = relativeDisplacementFor(character) {
+        if let relativeDisplacement = relativeDisplacementForCharacter(character) {
             // Subtract from the `currentDisplacement` if a displacement key has been released.
             currentDisplacement -= relativeDisplacement
             
@@ -130,7 +130,7 @@ class KeyboardControlInputSource: ControlInputSourceType {
                 delegate?.controlInputSource(self, didUpdateWithRelativeAngularDisplacement: currentDisplacement)
             }
         }
-        else if isAttack(character) {
+        else if isAttackCharacter(character) {
             // An attack command finished.
             delegate?.controlInputSourceDidFinishAttacking(self)
         }
@@ -163,7 +163,7 @@ class KeyboardControlInputSource: ControlInputSourceType {
             || displacement == KeyboardControlInputSource.backwardVector
     }
     
-    private func relativeDisplacementFor(character: Character) -> float2? {
+    private func relativeDisplacementForCharacter(character: Character) -> float2? {
         let mapping: [Character: float2] = [
             // Up arrow.
             Character(UnicodeScalar(0xF700)):   KeyboardControlInputSource.forwardVector,
@@ -186,7 +186,7 @@ class KeyboardControlInputSource: ControlInputSourceType {
     }
     
     /// Indicates if the provided character should trigger an attack.
-    private func isAttack(character: Character) -> Bool {
+    private func isAttackCharacter(character: Character) -> Bool {
         return ["f", " ", "\r"].contains(character)
     }
 }

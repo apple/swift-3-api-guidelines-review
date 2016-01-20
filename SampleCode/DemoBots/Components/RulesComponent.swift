@@ -45,7 +45,7 @@ class RulesComponent: GKComponent {
         
         if let taskBot = entity as? TaskBot,
             level = taskBot.componentForClass(RenderComponent)?.node.scene as? LevelScene,
-            entitySnapshot = level.entitySnapshotFor(taskBot) where !taskBot.isGood {
+            entitySnapshot = level.entitySnapshotForEntity(taskBot) where !taskBot.isGood {
 
             ruleSystem.reset()
             

@@ -11,12 +11,12 @@ import UIKit
 public class ListInfo: NSObject {
     // MARK: Properties
 
-    public let url: NSURL
+    public let URL: NSURL
     
     public var color: List.Color?
 
     public var name: String {
-        let displayName = NSFileManager.defaultManager().displayNameAtPath(url.path!)
+        let displayName = NSFileManager.defaultManager().displayNameAtPath(URL.path!)
 
         return (displayName as NSString).stringByDeletingPathExtension
     }
@@ -25,8 +25,8 @@ public class ListInfo: NSObject {
 
     // MARK: Initializers
 
-    public urlinit(url URL: NSURL) {
-        self.url = URL
+    public init(URL: NSURL) {
+        self.URL = URL
     }
 
     // MARK: Fetch Methods
@@ -40,7 +40,7 @@ public class ListInfo: NSObject {
                 return
             }
             
-            ListUtilities.readListAt(self.url) { list, error in
+            ListUtilities.readListAtURL(self.URL) { list, error in
                 dispatch_async(self.fetchQueue) {
                     if let list = list {
                         self.color = list.color
@@ -59,7 +59,7 @@ public class ListInfo: NSObject {
     
     override public func isEqual(object: AnyObject?) -> Bool {
         if let listInfo = object as? ListInfo {
-            return listInfo.url == url
+            return listInfo.URL == URL
         }
 
         return false

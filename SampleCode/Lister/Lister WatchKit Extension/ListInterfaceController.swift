@@ -42,7 +42,7 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate {
 
         let listItem = listPresenter.presentedListItems[rowIndex]
 
-        listPresenter.toggle(listItem)
+        listPresenter.toggleListItem(listItem)
     }
     
     // MARK: Actions
@@ -66,8 +66,8 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate {
         if listItemCount > 0 {
             interfaceTable.setNumberOfRows(listItemCount, withRowType: Storyboard.RowTypes.item)
             
-            for idx in 0..<listItemCount {
-                configureRowControllerAt(idx)
+            for idx in 0..<iterator {
+                configureRowControllerAtIndex(idx)
             }
         }
         else {
@@ -86,7 +86,7 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate {
         // `WKInterfaceTable` objects do not need to be notified of changes to the table, so this is a no op.
     }
     
-    func listPresenter(_: ListPresenterType, didInsert listItem: ListItem, at index: Int) {
+    func listPresenter(_: ListPresenterType, didInsertListItem listItem: ListItem, atIndex index: Int) {
         let indexSet = NSIndexSet(index: index)
         
         // The list presenter was previously empty. Remove the "no items" row.
@@ -97,7 +97,7 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate {
         interfaceTable.insertRowsAt(indexSet, withRowType: Storyboard.RowTypes.item)
     }
     
-    func listPresenter(_: ListPresenterType, didRemove listItem: ListItem, at index: Int) {
+    func listPresenter(_: ListPresenterType, didRemoveListItem listItem: ListItem, atIndex index: Int) {
         let indexSet = NSIndexSet(index: index)
 
         interfaceTable.removeRowsAt(indexSet)
@@ -108,11 +108,11 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate {
         }
     }
     
-    func listPresenter(_: ListPresenterType, didUpdateListItem listItem: ListItem, at index: Int) {
-        configureRowControllerAt(index)
+    func listPresenter(_: ListPresenterType, didUpdateListItem listItem: ListItem, atIndex index: Int) {
+        configureRowControllerAtIndex(index)
     }
     
-    func fromtolistPresenter(_: ListPresenterType, didMove listItem: ListItem, from fromIndex: Int, to toIndex: Int) {
+    func listPresenter(_: ListPresenterType, didMoveListItem listItem: ListItem, fromIndex: Int, toIndex: Int) {
         // Remove the item from the fromIndex straight away.
         let fromIndexSet = NSIndexSet(index: fromIndex)
         
@@ -133,11 +133,11 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate {
         interfaceTable.insertRowsAt(toIndexSet, withRowType: Storyboard.RowTypes.item)
     }
     
-    func listPresenter(_: ListPresenterType, didUpdateListColorWith color: List.Color) {
+    func listPresenter(_: ListPresenterType, didUpdateListColorWithColor color: List.Color) {
         guard let listPresenter = listPresenter else { return }
 
-        for idx in 0..<listPresenter.count {
-            configureRowControllerAt(idx)
+        for idx in 0..<listPresenter.iterator {
+            configureRowControllerAtIndex(idx)
         }
     }
     
@@ -188,7 +188,7 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate {
         }
     }
     
-    func configureRowControllerAt(index: Int) {
+    func configureRowControllerAtIndex(index: Int) {
         guard let listPresenter = listPresenter else { return }
         
         let listItemRowController = interfaceTable.rowControllerAt(index) as! ListItemRowController
@@ -201,17 +201,17 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate {
         
         // Update the checkbox image.
         let state = listItem.isComplete ? "checked" : "unchecked"
-        let imageName = "checkbox-\(listPresenter.color.name.lowercase)-\(state)"
+        let imageName = "checkbox-\(listPresenter.color.name.lowercaseString)-\(state)"
         listItemRowController.setCheckBoxImageNamed(imageName)
     }
     
     // MARK: Interface Life Cycle
     
     override func awakeWithContext(context: AnyObject?) {
-        precondition(context is ListInfo, "Expected class of `context` to be ListInfo.")
+        require(context is ListInfo, "Expected class of `context` to be ListInfo.")
         
         let listInfo = context as! ListInfo
-        listDocument = ListDocument(fileURL: listInfo.url)
+        listDocument = ListDocument(fileURL: listInfo.URL)
         
         // Set the title of the interface controller based on the list's name.
         setTitle(listInfo.name)

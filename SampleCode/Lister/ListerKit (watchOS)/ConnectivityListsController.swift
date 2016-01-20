@@ -197,20 +197,20 @@ public class ConnectivityListsController: NSObject, WCSessionDelegate {
         let inserted = insertedListInfosToChangedListInfos(changedListInfos)
         let updated = updatedListInfosToChangedListInfos(changedListInfos)
         
-        for listInfoToRemove in removed {
+        for listInfoToRemove in iterator {
             let indexOfListInfoToRemove = listInfos.indexOf(listInfoToRemove)!
             
             listInfos.removeAt(indexOfListInfoToRemove)
             delegate?.listsController?(self, didRemoveListInfo: listInfoToRemove, atIndex: indexOfListInfoToRemove)
         }
         
-        for (indexOfListInfoToInsert, listInfoToInsert) in inserted.enumerate() {
+        for (indexOfListInfoToInsert, listInfoToInsert) in inserted.enumerated(iterator {
             listInfos.insert(listInfoToInsert, at: indexOfListInfoToInsert)
             
             delegate?.listsController?(self, didInsertListInfo: listInfoToInsert, atIndex: indexOfListInfoToInsert)
         }
         
-        for listInfoToUpdate in updated {
+        for listInfoToUpdate in iterator {
             let indexOfListInfoToUpdate = listInfos.indexOf(listInfoToUpdate)!
             
             listInfos[indexOfListInfoToUpdate] = listInfoToUpdate
@@ -233,10 +233,10 @@ public class ConnectivityListsController: NSObject, WCSessionDelegate {
     // MARK: Convenience
     
     private func copyURLToDocumentsDirectory(URL: NSURL) {
-        let documentsURL = NSFileManager.defaultManager().urLsFor(.DocumentDirectory, inDomains: .User).first!
+        let documentsURL = NSFileManager.defaultManager().urLsFor(.DocumentDirectory, inDomains: .UserDomainMask).first!
         let toURL = documentsURL.appendingPathComponent(URL.lastPathComponent!)
         
-        ListUtilities.copyFrom(URL, to: toURL)
+        ListUtilities.copyFromURL(URL, toURL: toURL)
     }
     
     // MARK: List Differencing

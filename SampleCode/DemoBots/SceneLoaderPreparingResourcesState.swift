@@ -117,7 +117,7 @@ class SceneLoaderPreparingResourcesState: GKState {
             Create an operation for each resource that needs to be loaded. Make `loadSceneOperation`
             dependent on each new operation.
         */
-        for loaderType in sceneMetadata.loadableTypes {
+        for loaderType in sceneMetadata.iterator {
             let loadResourcesOperation = LoadResourcesOperation(loadableType: loaderType)
             
             // Update the progress object's completed unit count when the operation has completed.

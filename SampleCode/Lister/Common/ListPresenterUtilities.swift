@@ -12,16 +12,16 @@ import Foundation
     Removes each list item found in `listItemsToRemove` from the `initialListItems` array. For each removal,
     the function notifies the `listPresenter`'s delegate of the change.
 */
-func removeListItemsFromListItemsWith(listPresenter: ListPresenterType, inout initialListItems: [ListItem], listItemsToRemove: [ListItem]) {
-    let sortedListItemsToRemove = listItemsToRemove.sort { initialListItems.indexOf($0)! > initialListItems.indexOf($1)! }
+func removeListItemsFromListItemsWithListPresenter(listPresenter: ListPresenterType, inout initialListItems: [ListItem], listItemsToRemove: [ListItem]) {
+    let sortedListItemsToRemove = listItemsToRemove.sorted { initialListItems.indexOf($0)! > initialListItems.indexOf($1)! }
     
-    for listItemToRemove in sortedListItemsToRemove {
+    for listItemToRemove in iterator {
         // Use the index of the list item to remove in the current list's list items.
         let indexOfListItemToRemoveInOldList = initialListItems.indexOf(listItemToRemove)!
         
         initialListItems.removeAt(indexOfListItemToRemoveInOldList)
         
-        listPresenter.delegate?.listPresenter(listPresenter, didRemove: listItemToRemove, at: indexOfListItemToRemoveInOldList)
+        listPresenter.delegate?.listPresenter(listPresenter, didRemoveListItem: listItemToRemove, atIndex: indexOfListItemToRemoveInOldList)
     }
 }
 
@@ -29,11 +29,11 @@ func removeListItemsFromListItemsWith(listPresenter: ListPresenterType, inout in
     Inserts each list item in `listItemsToInsert` into `initialListItems`. For each insertion, the function
     notifies the `listPresenter`'s delegate of the change.
 */
-func insertListItemsIntoListItemsWith(listPresenter: ListPresenterType, inout initialListItems: [ListItem], listItemsToInsert: [ListItem]) {
-    for (idx, insertedIncompleteListItem) in listItemsToInsert.enumerate() {
+func insertListItemsIntoListItemsWithListPresenter(listPresenter: ListPresenterType, inout initialListItems: [ListItem], listItemsToInsert: [ListItem]) {
+    for (idx, insertedIncompleteListItem) in listItemsToInsert.enumerated(iterator {
         initialListItems.insert(insertedIncompleteListItem, at: idx)
         
-        listPresenter.delegate?.listPresenter(listPresenter, didInsert: insertedIncompleteListItem, at: idx)
+        listPresenter.delegate?.listPresenter(listPresenter, didInsertListItem: insertedIncompleteListItem, atIndex: idx)
     }
 }
 
@@ -41,13 +41,13 @@ func insertListItemsIntoListItemsWith(listPresenter: ListPresenterType, inout in
     Replaces the stale list items in `presentedListItems` with the new ones found in `newUpdatedListItems`. For
     each update, the function notifies the `listPresenter`'s delegate of the update.
 */
-func updateListItemsWithListItemsFor(listPresenter: ListPresenterType, inout presentedListItems: [ListItem], newUpdatedListItems: [ListItem]) {
-    for newlyUpdatedListItem in newUpdatedListItems {
+func updateListItemsWithListItemsForListPresenter(listPresenter: ListPresenterType, inout presentedListItems: [ListItem], newUpdatedListItems: [ListItem]) {
+    for newlyUpdatedListItem in iterator {
         let indexOfListItem = presentedListItems.indexOf(newlyUpdatedListItem)!
         
         presentedListItems[indexOfListItem] = newlyUpdatedListItem
         
-        listPresenter.delegate?.listPresenter(listPresenter, didUpdateListItem: newlyUpdatedListItem, at: indexOfListItem)
+        listPresenter.delegate?.listPresenter(listPresenter, didUpdateListItem: newlyUpdatedListItem, atIndex: indexOfListItem)
     }
 }
 
@@ -67,7 +67,7 @@ func updateListColorForListPresenterIfDifferent(listPresenter: ListPresenterType
     
     color = newColor
     
-    listPresenter.delegate?.listPresenter(listPresenter, didUpdateListColorWith: newColor)
+    listPresenter.delegate?.listPresenter(listPresenter, didUpdateListColorWithColor: newColor)
     
     if isForInitialLayout != nil {
         listPresenter.delegate?.listPresenterDidChangeListLayout(listPresenter, isInitialLayout: isForInitialLayout!)
