@@ -528,8 +528,8 @@ class DOMCSSMediaRule : DOMCSSRule {
   var media: DOMMediaList! { get }
   var cssRules: DOMCSSRuleList! { get }
   @available(OSX 10.5, *)
-  func insertRule(rule: String!, index: UInt32) -> UInt32
-  func deleteRule(index: UInt32)
+  func insert(rule: String!, index: UInt32) -> UInt32
+  func delete(index: UInt32)
 }
 extension DOMCSSMediaRule {
 }
@@ -572,8 +572,8 @@ var DOM_CSS_VMAX: Int { get }
 class DOMCSSPrimitiveValue : DOMCSSValue {
   var primitiveType: UInt16 { get }
   @available(OSX 10.5, *)
-  func setFloatValue(unitType: UInt16, floatValue: Float)
-  func getFloatValue(unitType: UInt16) -> Float
+  func setFloat(unitType: UInt16, floatValue: Float)
+  func getFloat(unitType: UInt16) -> Float
   @available(OSX 10.5, *)
   func setStringValue(stringType: UInt16, stringValue: String!)
   func getStringValue() -> String!
@@ -669,13 +669,13 @@ class DOMCharacterData : DOMNode {
   var length: UInt32 { get }
   @available(OSX 10.5, *)
   func substringData(offset: UInt32, length: UInt32) -> String!
-  func appendData(data: String!)
+  func append(data: String!)
   @available(OSX 10.5, *)
-  func insertData(offset: UInt32, data: String!)
+  func insert(offset: UInt32, data: String!)
   @available(OSX 10.5, *)
-  func deleteData(offset: UInt32, length: UInt32)
+  func delete(offset: UInt32, length: UInt32)
   @available(OSX 10.5, *)
-  func replaceData(offset: UInt32, length: UInt32, data: String!)
+  func replace(offset: UInt32, length: UInt32, data: String!)
 }
 extension DOMCharacterData {
 }
@@ -3191,7 +3191,7 @@ class WebBackForwardList : NSObject {
       @param limit A cap on the size of the array returned.
       @result An array of items before the current entry, or nil if there are none.  The entries are in the order that they were originally visited.
   */
-  func backListWithLimit(limit: Int32) -> [AnyObject]!
+  func backWithLimit(limit: Int32) -> [AnyObject]!
 
   /*!
       @method forwardListWithLimit:
@@ -3864,7 +3864,7 @@ class WebFrame : NSObject {
       @param name The name of the frame to find.
       @result The frame matching the provided name. nil if the frame is not found.
   */
-  func findFrameNamed(name: String!) -> WebFrame!
+  func findNamed(name: String!) -> WebFrame!
 
   /*!
       @property parentFrame
@@ -6275,7 +6275,7 @@ class WebView : NSView {
       @param representationClass The WebDocumentRepresentation class to use to represent data of the given MIME type.
       @param MIMEType The MIME type to represent with an object of the given class.
   */
-  class func registerViewClass(viewClass: AnyClass!, representationClass: AnyClass!, forMIMEType MIMEType: String!)
+  class func registerClass(viewClass: AnyClass!, representationClass: AnyClass!, forMIMEType MIMEType: String!)
 
   /*!
       @property groupName

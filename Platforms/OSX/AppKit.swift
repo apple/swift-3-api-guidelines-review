@@ -1814,8 +1814,8 @@ let NSAnimationProgressMarkNotification: String
 let NSAnimationProgressMark: String
 class NSAnimation : NSObject, NSCopying, NSCoding {
   init(duration: NSTimeInterval, animationCurve: NSAnimationCurve)
-  func startAnimation()
-  func stopAnimation()
+  func start()
+  func stop()
   var isAnimating: Bool { get }
   var currentProgress: NSAnimationProgress
   var duration: NSTimeInterval
@@ -1829,8 +1829,8 @@ class NSAnimation : NSObject, NSCopying, NSCoding {
   func removeProgressMark(progressMark: NSAnimationProgress)
   func startWhenAnimation(animation: NSAnimation, reachesProgress startProgress: NSAnimationProgress)
   func stopWhenAnimation(animation: NSAnimation, reachesProgress stopProgress: NSAnimationProgress)
-  func clearStartAnimation()
-  func clearStopAnimation()
+  func clearStart()
+  func clearStop()
   var runLoopModesForAnimating: [String]? { get }
   init()
   func copy(zone zone: NSZone = nil) -> AnyObject
@@ -3217,7 +3217,7 @@ class NSBezierPath : NSObject, NSCopying, NSCoding {
   func moveTo(point: NSPoint)
   func lineTo(point: NSPoint)
   func curveTo(endPoint: NSPoint, controlPoint1: NSPoint, controlPoint2: NSPoint)
-  func closePath()
+  func close()
   func removeAllPoints()
   func relativeMoveTo(point: NSPoint)
   func relativeLineTo(point: NSPoint)
@@ -3246,17 +3246,17 @@ class NSBezierPath : NSObject, NSCopying, NSCoding {
   func elementAt(index: Int) -> NSBezierPathElement
   func setAssociatedPoints(points: NSPointArray, at index: Int)
   func append(path: NSBezierPath)
-  func appendBezierPathWith(rect: NSRect)
-  func appendBezierPathWithPoints(points: NSPointArray, count: Int)
-  func appendBezierPathWithOvalIn(rect: NSRect)
-  func appendBezierPathWithArcWithCenter(center: NSPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
-  func appendBezierPathWithArcWithCenter(center: NSPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat)
-  func appendBezierPathWithArcFrom(point1: NSPoint, to point2: NSPoint, radius: CGFloat)
-  func appendBezierPathWithGlyph(glyph: NSGlyph, in font: NSFont)
-  func appendBezierPathWithGlyphs(glyphs: UnsafeMutablePointer<NSGlyph>, count: Int, in font: NSFont)
-  func appendBezierPathWithPackedGlyphs(packedGlyphs: UnsafePointer<Int8>)
+  func appendWith(rect: NSRect)
+  func appendWithPoints(points: NSPointArray, count: Int)
+  func appendWithOvalIn(rect: NSRect)
+  func appendWithArcWithCenter(center: NSPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
+  func appendWithArcWithCenter(center: NSPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat)
+  func appendWithArcFrom(point1: NSPoint, to point2: NSPoint, radius: CGFloat)
+  func appendWithGlyph(glyph: NSGlyph, in font: NSFont)
+  func appendWithGlyphs(glyphs: UnsafeMutablePointer<NSGlyph>, count: Int, in font: NSFont)
+  func appendWithPackedGlyphs(packedGlyphs: UnsafePointer<Int8>)
   @available(OSX 10.5, *)
-  func appendBezierPathWithRoundedRect(rect: NSRect, xRadius: CGFloat, yRadius: CGFloat)
+  func appendWithRoundedRect(rect: NSRect, xRadius: CGFloat, yRadius: CGFloat)
   func contains(point: NSPoint) -> Bool
   init()
   func copy(zone zone: NSZone = nil) -> AnyObject
@@ -4774,8 +4774,8 @@ extension NSClipView {
   func constrainScroll(newOrigin: NSPoint) -> NSPoint
 }
 extension NSView {
-  func reflectScrolledClipView(aClipView: NSClipView)
-  func scroll(aClipView: NSClipView, to aPoint: NSPoint)
+  func reflectScrolledClip(aClipView: NSClipView)
+  func scrollClip(aClipView: NSClipView, to aPoint: NSPoint)
 }
 @available(OSX 10.6, *)
 enum NSCollectionViewDropOperation : Int {
@@ -5181,7 +5181,7 @@ class NSCollectionViewLayout : NSObject, NSCoding {
 extension NSCollectionViewLayout {
   class func layoutAttributesClass() -> AnyClass
   class func invalidationContextClass() -> AnyClass
-  func prepareLayout()
+  func prepare()
   func layoutAttributesForElementsIn(rect: NSRect) -> [NSCollectionViewLayoutAttributes]
   func layoutAttributesForItemAt(indexPath: NSIndexPath) -> NSCollectionViewLayoutAttributes?
   func layoutAttributesForSupplementaryViewOfKind(elementKind: String, at indexPath: NSIndexPath) -> NSCollectionViewLayoutAttributes?
@@ -5552,7 +5552,7 @@ class NSColorWell : NSControl {
   func deactivate()
   func activate(exclusive: Bool)
   var isActive: Bool { get }
-  func drawWellInside(insideRect: NSRect)
+  func drawInside(insideRect: NSRect)
   var isBordered: Bool
   func takeColorFrom(sender: AnyObject?)
   @NSCopying var color: NSColor
@@ -6090,10 +6090,10 @@ class NSDocument : NSObject, NSFilePresenter, NSUserInterfaceValidations {
   var keepBackupFile: Bool { get }
   @available(OSX 10.8, *)
   @NSCopying var backupFileURL: NSURL? { get }
-  @IBAction func saveDocument(sender: AnyObject?)
-  @IBAction func saveDocumentAs(sender: AnyObject?)
-  @IBAction func saveDocumentTo(sender: AnyObject?)
-  func saveDocumentWithDelegate(delegate: AnyObject?, didSave didSaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  @IBAction func save(sender: AnyObject?)
+  @IBAction func saveAs(sender: AnyObject?)
+  @IBAction func saveTo(sender: AnyObject?)
+  func saveWithDelegate(delegate: AnyObject?, didSave didSaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func runModalSavePanelFor(saveOperation: NSSaveOperationType, delegate: AnyObject?, didSave didSaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   var shouldRunSavePanelWithAccessoryView: Bool { get }
   func prepare(savePanel: NSSavePanel) -> Bool
@@ -6109,7 +6109,7 @@ class NSDocument : NSObject, NSFilePresenter, NSUserInterfaceValidations {
   @available(OSX 10.7, *)
   func scheduleAutosaving()
   var hasUnautosavedChanges: Bool { get }
-  func autosaveDocumentWithDelegate(delegate: AnyObject?, didAutosaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func autosaveWithDelegate(delegate: AnyObject?, didAutosaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
   func autosaveWithImplicitCancellability(autosavingIsImplicitlyCancellable: Bool, completionHandler: (NSError?) -> Void)
   @available(OSX 10.7, *)
@@ -6122,34 +6122,34 @@ class NSDocument : NSObject, NSFilePresenter, NSUserInterfaceValidations {
   class func autosavesDrafts() -> Bool
   var autosavingFileType: String? { get }
   @NSCopying var autosavedContentsFileURL: NSURL?
-  func canCloseDocumentWithDelegate(delegate: AnyObject, shouldClose shouldCloseSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func canCloseWithDelegate(delegate: AnyObject, shouldClose shouldCloseSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func close()
   @available(OSX 10.7, *)
-  @IBAction func duplicateDocument(sender: AnyObject?)
+  @IBAction func duplicate(sender: AnyObject?)
   @available(OSX 10.7, *)
-  func duplicateDocumentWithDelegate(delegate: AnyObject?, didDuplicate didDuplicateSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func duplicateWithDelegate(delegate: AnyObject?, didDuplicate didDuplicateSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
   func duplicate() throws -> NSDocument
   @available(OSX 10.8, *)
   @IBAction func renameDocument(sender: AnyObject?)
   @available(OSX 10.8, *)
-  @IBAction func moveDocumentToUbiquityContainer(sender: AnyObject?)
+  @IBAction func moveToUbiquityContainer(sender: AnyObject?)
   @available(OSX 10.8, *)
-  @IBAction func moveDocument(sender: AnyObject?)
+  @IBAction func move(sender: AnyObject?)
   @available(OSX 10.8, *)
-  func moveDocument(completionHandler completionHandler: ((Bool) -> Void)? = nil)
+  func move(completionHandler completionHandler: ((Bool) -> Void)? = nil)
   @available(OSX 10.8, *)
   func moveTo(url: NSURL, completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX 10.8, *)
-  @IBAction func lockDocument(sender: AnyObject?)
+  @IBAction func lock(sender: AnyObject?)
   @available(OSX 10.8, *)
-  @IBAction func unlockDocument(sender: AnyObject?)
+  @IBAction func unlock(sender: AnyObject?)
   @available(OSX 10.8, *)
-  func lockDocument(completionHandler completionHandler: ((Bool) -> Void)? = nil)
+  func lock(completionHandler completionHandler: ((Bool) -> Void)? = nil)
   @available(OSX 10.8, *)
   func lock(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX 10.8, *)
-  func unlockDocument(completionHandler completionHandler: ((Bool) -> Void)? = nil)
+  func unlock(completionHandler completionHandler: ((Bool) -> Void)? = nil)
   @available(OSX 10.8, *)
   func unlock(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX 10.8, *)
@@ -6159,12 +6159,13 @@ class NSDocument : NSObject, NSFilePresenter, NSUserInterfaceValidations {
   func prepare(pageLayout: NSPageLayout) -> Bool
   func shouldChangePrintInfo(newPrintInfo: NSPrintInfo) -> Bool
   @NSCopying var printInfo: NSPrintInfo
-  @IBAction func printDocument(sender: AnyObject?)
-  func printDocumentWithSettings(printSettings: [String : AnyObject], showPrintPanel: Bool, delegate: AnyObject?, didPrint didPrintSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  @warn_unqualified_access
+  @IBAction func print(sender: AnyObject?)
+  func printWithSettings(printSettings: [String : AnyObject], showPrintPanel: Bool, delegate: AnyObject?, didPrint didPrintSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func printOperationWithSettings(printSettings: [String : AnyObject]) throws -> NSPrintOperation
   func runModalPrintOperation(printOperation: NSPrintOperation, delegate: AnyObject?, didRun didRunSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.9, *)
-  @IBAction func saveDocumentToPDF(sender: AnyObject?)
+  @IBAction func saveToPDF(sender: AnyObject?)
   @available(OSX 10.9, *)
   var pdfPrintOperation: NSPrintOperation { get }
   var isDocumentEdited: Bool { get }
@@ -7477,7 +7478,7 @@ class NSFont : NSObject, NSCopying, NSSecureCoding {
   class func setUserFixedPitchFont(aFont: NSFont?)
   class func systemFontOfSize(fontSize: CGFloat) -> NSFont
   class func boldSystemFontOfSize(fontSize: CGFloat) -> NSFont
-  class func labelFontOfSize(fontSize: CGFloat) -> NSFont
+  class func labelOfSize(fontSize: CGFloat) -> NSFont
   class func titleBarFontOfSize(fontSize: CGFloat) -> NSFont
   class func menuFontOfSize(fontSize: CGFloat) -> NSFont
   class func menuBarFontOfSize(fontSize: CGFloat) -> NSFont
@@ -7491,7 +7492,7 @@ class NSFont : NSObject, NSCopying, NSSecureCoding {
   class func monospacedDigitSystemFontOfSize(fontSize: CGFloat, weight: CGFloat) -> NSFont
   class func systemFontSize() -> CGFloat
   class func smallSystemFontSize() -> CGFloat
-  class func labelFontSize() -> CGFloat
+  class func labelSize() -> CGFloat
   class func systemFontSizeFor(controlSize: NSControlSize) -> CGFloat
 
   /********* Core font attribute *********/
@@ -7579,7 +7580,7 @@ class NSFontCollection : NSObject, NSCopying, NSMutableCopying, NSCoding {
   class func withAllAvailableDescriptors() -> NSFontCollection
   /*not inherited*/ init?(locale: NSLocale)
   class func show(collection: NSFontCollection, withName name: String, visibility: NSFontCollectionVisibility) throws
-  class func hideFontCollectionWithName(name: String, visibility: NSFontCollectionVisibility) throws
+  class func hideWithName(name: String, visibility: NSFontCollectionVisibility) throws
   class func renameFontCollectionWithName(name: String, visibility: NSFontCollectionVisibility, toName name: String) throws
   class func allFontCollectionNames() -> [String]
   /*not inherited*/ init?(name: String)
@@ -8625,7 +8626,7 @@ class NSImageRep : NSObject, NSCopying, NSCoding {
   var bitsPerSample: Int
   var pixelsWide: Int
   var pixelsHigh: Int
-  class func registerImageRepClass(imageRepClass: AnyClass)
+  class func registerClass(imageRepClass: AnyClass)
   class func unregisterImageRepClass(imageRepClass: AnyClass)
   class func registeredImageRepClasses() -> [AnyClass]
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use +imageRepClassForType: instead")
@@ -9703,7 +9704,7 @@ class NSMenu : NSObject, NSCopying, NSCoding {
   class func popUpContextMenu(menu: NSMenu, withEvent event: NSEvent, forView view: NSView)
   class func popUpContextMenu(menu: NSMenu, withEvent event: NSEvent, forView view: NSView, withFont font: NSFont?)
   @available(OSX 10.6, *)
-  func popUpMenuPositioningItem(item: NSMenuItem?, atLocation location: NSPoint, in view: NSView?) -> Bool
+  func popUpPositioningItem(item: NSMenuItem?, atLocation location: NSPoint, in view: NSView?) -> Bool
   class func setMenuBarVisible(visible: Bool)
   class func menuBarVisible() -> Bool
   unowned(unsafe) var supermenu: @sil_unmanaged NSMenu?
@@ -11890,8 +11891,8 @@ class NSPrintOperation : NSObject {
   var pdfPanel: NSPDFPanel
   var canSpawnSeparateThread: Bool
   var pageOrder: NSPrintingPageOrder
-  func runOperationModalFor(docWindow: NSWindow, delegate: AnyObject?, didRun didRunSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func runOperation() -> Bool
+  func runModalFor(docWindow: NSWindow, delegate: AnyObject?, didRun didRunSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func run() -> Bool
   var view: NSView? { get }
   @NSCopying var printInfo: NSPrintInfo
   var context: NSGraphicsContext? { get }
@@ -11901,7 +11902,7 @@ class NSPrintOperation : NSObject {
   func createContext() -> NSGraphicsContext?
   func destroyContext()
   func deliverResult() -> Bool
-  func cleanUpOperation()
+  func cleanUp()
   init()
 }
 extension NSPrintOperation {
@@ -12636,7 +12637,7 @@ class NSScrollView : NSView, NSTextFinderBarContainer {
   var pageScroll: CGFloat
   var scrollsDynamically: Bool
   func tile()
-  func reflectScrolledClipView(cView: NSClipView)
+  func reflectScrolledClip(cView: NSClipView)
   func scrollWheel(theEvent: NSEvent)
   @available(OSX 10.7, *)
   var scrollerStyle: NSScrollerStyle
@@ -13911,9 +13912,9 @@ class NSStackView : NSView {
   var orientation: NSUserInterfaceLayoutOrientation
   var alignment: NSLayoutAttribute
   var edgeInsets: NSEdgeInsets
-  func addView(aView: NSView, in gravity: NSStackViewGravity)
-  func insertView(aView: NSView, at index: Int, in gravity: NSStackViewGravity)
-  func removeView(aView: NSView)
+  func add(aView: NSView, in gravity: NSStackViewGravity)
+  func insert(aView: NSView, at index: Int, in gravity: NSStackViewGravity)
+  func remove(aView: NSView)
   func viewsIn(gravity: NSStackViewGravity) -> [NSView]
   func setViews(views: [NSView], in gravity: NSStackViewGravity)
   var views: [NSView] { get }
@@ -14030,7 +14031,7 @@ extension NSStatusItem {
   func sendActionOn(mask: Int) -> Int
   var view: NSView?
   func drawStatusBarBackgroundIn(rect: NSRect, withHighlight highlight: Bool)
-  func popUpStatusItemMenu(menu: NSMenu)
+  func popUpMenu(menu: NSMenu)
 }
 class NSStepper : NSControl, NSAccessibilityStepper {
   var minValue: Double
@@ -14159,12 +14160,12 @@ enum NSTabViewType : UInt {
   case NoTabsNoBorder
 }
 class NSTabView : NSView {
-  func selectTabViewItem(tabViewItem: NSTabViewItem?)
-  func selectTabViewItemAt(index: Int)
-  func selectTabViewItemWithIdentifier(identifier: AnyObject)
+  func select(tabViewItem: NSTabViewItem?)
+  func selectItemAt(index: Int)
+  func selectItemWithIdentifier(identifier: AnyObject)
   func takeSelectedTabViewItemFromSender(sender: AnyObject?)
   func selectFirstTabViewItem(sender: AnyObject?)
-  func selectLastTabViewItem(sender: AnyObject?)
+  func selectLastItem(sender: AnyObject?)
   func selectNextTabViewItem(sender: AnyObject?)
   func selectPreviousTabViewItem(sender: AnyObject?)
   var selectedTabViewItem: NSTabViewItem? { get }
@@ -14176,9 +14177,9 @@ class NSTabView : NSView {
   var drawsBackground: Bool
   var controlTint: NSControlTint
   var controlSize: NSControlSize
-  func addTabViewItem(tabViewItem: NSTabViewItem)
-  func insertTabViewItem(tabViewItem: NSTabViewItem, at index: Int)
-  func removeTabViewItem(tabViewItem: NSTabViewItem)
+  func add(tabViewItem: NSTabViewItem)
+  func insert(tabViewItem: NSTabViewItem, at index: Int)
+  func remove(tabViewItem: NSTabViewItem)
   unowned(unsafe) var delegate: @sil_unmanaged NSTabViewDelegate?
   func tabViewItemAt(point: NSPoint) -> NSTabViewItem?
   var contentRect: NSRect { get }
@@ -14651,7 +14652,7 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   @available(OSX 10.7, *)
   func columnFor(view: NSView) -> Int
   @available(OSX 10.7, *)
-  func makeViewWithIdentifier(identifier: String, owner: AnyObject?) -> NSView?
+  func makeWithIdentifier(identifier: String, owner: AnyObject?) -> NSView?
   @available(OSX 10.7, *)
   func enumerateAvailableRowViewsUsing(handler: (NSTableRowView, Int) -> Void)
   @available(OSX 10.7, *)
@@ -15638,7 +15639,7 @@ class NSTextView : NSText, NSUserInterfaceValidations, NSTextInputClient, NSText
   func setNeedsDisplayIn(rect: NSRect, avoidAdditionalLayout flag: Bool)
   var shouldDrawInsertionPoint: Bool { get }
   func drawInsertionPointIn(rect: NSRect, color: NSColor, turnedOn flag: Bool)
-  func drawViewBackgroundIn(rect: NSRect)
+  func drawBackgroundIn(rect: NSRect)
 
   /*************************** Especially for subclassers ***************************/
   func updateRuler()
@@ -17504,7 +17505,7 @@ extension NSViewController {
   @available(OSX 10.10, *)
   func dismiss(viewController: NSViewController)
   @available(OSX 10.10, *)
-  @IBAction func dismissController(sender: AnyObject?)
+  @IBAction func dismiss(sender: AnyObject?)
   @available(OSX 10.10, *)
   var presentedViewControllers: [NSViewController]? { get }
   @available(OSX 10.10, *)
@@ -17512,9 +17513,9 @@ extension NSViewController {
 }
 extension NSViewController {
   @available(OSX 10.10, *)
-  func presentViewControllerAsSheet(viewController: NSViewController)
+  func presentAsSheet(viewController: NSViewController)
   @available(OSX 10.10, *)
-  func presentViewControllerAsModalWindow(viewController: NSViewController)
+  func presentAsModalWindow(viewController: NSViewController)
   @available(OSX 10.10, *)
   func present(viewController: NSViewController, asPopoverRelativeTo positioningRect: NSRect, of positioningView: NSView, preferredEdge: NSRectEdge, behavior: NSPopoverBehavior)
   @available(OSX 10.10, *)
@@ -17811,7 +17812,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   func orderFront(sender: AnyObject?)
   func orderBack(sender: AnyObject?)
   func orderOut(sender: AnyObject?)
-  func orderWindow(place: NSWindowOrderingMode, relativeTo otherWin: Int)
+  func order(place: NSWindowOrderingMode, relativeTo otherWin: Int)
   func orderFrontRegardless()
   var miniwindowImage: NSImage?
   var miniwindowTitle: String!
@@ -17956,7 +17957,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   @available(OSX 10.11, *)
-  func performWindowDragWith(event: NSEvent)
+  func performDragWith(event: NSEvent)
   convenience init()
   init?(coder: NSCoder)
   @available(OSX 10.5, *)
@@ -18777,7 +18778,7 @@ extension NSWindowController {
 }
 extension NSWindowController {
   @available(OSX 10.10, *)
-  @IBAction func dismissController(sender: AnyObject?)
+  @IBAction func dismiss(sender: AnyObject?)
 }
 protocol NSWindowRestoration : NSObjectProtocol {
   @available(OSX 10.7, *)
@@ -18819,7 +18820,7 @@ extension NSApplication {
 }
 extension NSDocument {
   @available(OSX 10.7, *)
-  func restoreDocumentWindowWithIdentifier(identifier: String, state: NSCoder, completionHandler: (NSWindow?, NSError?) -> Void)
+  func restoreWindowWithIdentifier(identifier: String, state: NSCoder, completionHandler: (NSWindow?, NSError?) -> Void)
   @available(OSX 10.7, *)
   func encodeRestorableStateWith(coder: NSCoder)
   @available(OSX 10.7, *)

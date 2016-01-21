@@ -6036,7 +6036,7 @@ class IOBluetoothL2CAPChannel : IOBluetoothObject, NSPortDelegate {
                   has been finished.
   	@result		Returns kIOReturnSuccess on success.
   */
-  func closeChannel() -> IOReturn
+  func close() -> IOReturn
 
   /*!
       @method		getOutgoingMTU
@@ -6476,14 +6476,14 @@ class IOBluetoothRFCOMMChannel : IOBluetoothObject, NSPortDelegate {
   	@abstract	Returns an IOBluetoothRFCOMMChannelRef representation of the target IOBluetoothRFCOMMChannel object.
   	@result		Returns an IOBluetoothRFCOMMChannelRef representation of the target IOBluetoothRFCOMMChannel object.
   */
-  func getRFCOMMChannelRef() -> Unmanaged<IOBluetoothRFCOMMChannel>!
+  func getRef() -> Unmanaged<IOBluetoothRFCOMMChannel>!
 
   /*!
       @method closeChannel
       @abstract Close the channel.
       @result An error code value. 0 if successful.
   */
-  func closeChannel() -> IOReturn
+  func close() -> IOReturn
 
   /*!
       @method isOpen
@@ -6592,7 +6592,7 @@ class IOBluetoothRFCOMMChannel : IOBluetoothObject, NSPortDelegate {
       @abstract Returns the object rfcomm channel ID. 
       @result the RFCOMM channel number .
   */
-  func getChannelID() -> BluetoothRFCOMMChannelID
+  func getID() -> BluetoothRFCOMMChannelID
 
   /*!
       @method isIncoming
@@ -6771,7 +6771,7 @@ class IOBluetoothSDPDataElement : NSObject, NSCoding {
   	@abstract	Returns an IOBluetoothSDPDataElementRef representation of the target IOBluetoothSDPDataElement object.
   	@result		Returns an IOBluetoothSDPDataElementRef representation of the target IOBluetoothSDPDataElement object.
   */
-  func getSDPDataElementRef() -> Unmanaged<IOBluetoothSDPDataElement>!
+  func getRef() -> Unmanaged<IOBluetoothSDPDataElement>!
 
   /*!
       @method getTypeDescriptor
@@ -6929,7 +6929,7 @@ class IOBluetoothSDPServiceAttribute : NSObject, NSCoding {
       @abstract Returns the attribute ID for the target service attribute.
       @result Returns the attribute ID for the target service attribute.
   */
-  func getAttributeID() -> BluetoothSDPServiceAttributeID
+  func getID() -> BluetoothSDPServiceAttributeID
 
   /*!
       @method getDataElement
@@ -7011,7 +7011,7 @@ class IOBluetoothSDPServiceRecord : NSObject, NSCoding {
    @abstract	Removes the service from the local SDP server.
    @result		Returns kIOReturnSuccess if successful.
    */
-  func removeServiceRecord() -> IOReturn
+  func remove() -> IOReturn
 
   /*!
       @method		withServiceDictionary:device:
@@ -7042,7 +7042,7 @@ class IOBluetoothSDPServiceRecord : NSObject, NSCoding {
   	@abstract	Returns an IOBluetoothSDPServiceRecordRef representation of the target IOBluetoothSDPServiceRecord object.
   	@result		Returns an IOBluetoothSDPServiceRecordRef representation of the target IOBluetoothSDPServiceRecord object.
   */
-  func getSDPServiceRecordRef() -> Unmanaged<IOBluetoothSDPServiceRecord>!
+  func getRef() -> Unmanaged<IOBluetoothSDPServiceRecord>!
 
   /*!
       @method		device
@@ -7116,7 +7116,7 @@ class IOBluetoothSDPServiceRecord : NSObject, NSCoding {
       @param		outServiceRecordHandle A pointer to the location that will get the found service record handle.
       @result		Returns kIOReturnSuccess if the service record handle is found.
   */
-  func getServiceRecordHandle(outServiceRecordHandle: UnsafeMutablePointer<BluetoothSDPServiceRecordHandle>) -> IOReturn
+  func getHandle(outServiceRecordHandle: UnsafeMutablePointer<BluetoothSDPServiceRecordHandle>) -> IOReturn
 
   /*!
    @method		matchesUUID16:
@@ -7253,7 +7253,7 @@ class IOBluetoothSDPUUID : NSData {
       @result Returns an IOBluetoothSDPUUID object with the same data as the target but with the given length if it
               is possible to do so.  Otherwise, nil is returned.
   */
-  func getUUIDWithLength(newLength: UInt32) -> Self!
+  func getWithLength(newLength: UInt32) -> Self!
 
   /*!
       @method isEqualToUUID:

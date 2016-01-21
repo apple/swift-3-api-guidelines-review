@@ -5716,7 +5716,7 @@ class ODRecord : NSObject {
                   released after deletion.  outError is optional parameter, nil can be passed if error details are not needed.
   */
   @available(OSX 10.6, *)
-  func deleteRecord() throws
+  func delete() throws
 
   /*!
       @method     policiesAndReturnError:

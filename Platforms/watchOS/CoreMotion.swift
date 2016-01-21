@@ -276,8 +276,8 @@ class CMPedometer : NSObject {
   @available(watchOS 2.0, *)
   class func isCadenceAvailable() -> Bool
   func queryPedometerDataFrom(start: NSDate, to end: NSDate, withHandler handler: CMPedometerHandler)
-  func startPedometerUpdatesFrom(start: NSDate, withHandler handler: CMPedometerHandler)
-  func stopPedometerUpdates()
+  func startUpdatesFrom(start: NSDate, withHandler handler: CMPedometerHandler)
+  func stopUpdates()
   init()
 }
 @available(watchOS 2.0, *)

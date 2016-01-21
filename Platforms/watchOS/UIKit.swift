@@ -417,7 +417,7 @@ class UIBezierPath : NSObject, NSCopying, NSCoding {
   func addQuadCurveTo(endPoint: CGPoint, controlPoint: CGPoint)
   @available(watchOS 2.0, *)
   func addArcWithCenter(center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
-  func closePath()
+  func close()
   func removeAllPoints()
   func append(bezierPath: UIBezierPath)
   @available(watchOS 2.0, *)
@@ -718,7 +718,7 @@ extension NSValue {
   func cgVectorValue() -> CGVector
   func cgSizeValue() -> CGSize
   func cgRectValue() -> CGRect
-  func cgAffineTransformValue() -> CGAffineTransform
+  func cgAffineTransform() -> CGAffineTransform
   func uiEdgeInsetsValue() -> UIEdgeInsets
   @available(watchOS 2.0, *)
   func uiOffsetValue() -> UIOffset

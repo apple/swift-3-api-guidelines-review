@@ -101,6 +101,6 @@ extension BaseScene: RPPreviewViewControllerDelegate, RPScreenRecorderDelegate {
     // MARK: RPPreviewViewControllerDelegate
     
     func previewControllerDidFinish(previewController: RPPreviewViewController) {
-        previewViewController?.dismissViewControllerAnimated(true)
+        previewViewController?.dismissAnimated(true)
     }
 }

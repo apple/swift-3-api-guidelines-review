@@ -1712,13 +1712,13 @@ class IKImageView : NSView {
    @method convertViewPointToImagePoint:
    @abstract Converts an image view coordinate to an image coordinate.
    */
-  func convertViewPointToImagePoint(viewPoint: NSPoint) -> NSPoint
+  func convertPointToImagePoint(viewPoint: NSPoint) -> NSPoint
 
   /*! 
    @method convertViewRectToImageRect:
    @abstract Converts an image view rectangle to an image rectangle.
    */
-  func convertViewRectToImageRect(viewRect: NSRect) -> NSRect
+  func convertRectToImageRect(viewRect: NSRect) -> NSRect
 
   /*! 
    @method convertImagePointToViewPoint:
@@ -1764,7 +1764,7 @@ class IKPictureTaker : NSPanel {
     @discussion didEndSelector should have the following signature: - (void)pictureTakerDidEnd:(IKPictureTaker *)pictureTaker returnCode:(NSInteger)returnCode contextInfo:(void  *)contextInfo;
     returnCode value is set to NSOKButton if the user validate, or to NSCancelButton if the user cancel.
   */
-  func beginPictureTakerWithDelegate(delegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func beginWithDelegate(delegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
 
   /*!
     @method beginPictureTakerSheetForWindow:withDelegate:didEndSelector:contextInfo:
@@ -1775,7 +1775,7 @@ class IKPictureTaker : NSPanel {
     @discussion didEndSelector should have the following signature: - (void)pictureTakerDidEnd:(IKPictureTaker *)pictureTaker returnCode:(NSInteger)returnCode contextInfo:(void  *)contextInfo;
     returnCode value is set to NSOKButton if the user validate, or to NSCancelButton if the user cancel.
   */
-  func beginPictureTakerSheetFor(aWindow: NSWindow!, withDelegate delegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func beginSheetFor(aWindow: NSWindow!, withDelegate delegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
 
   /*!
     @method popUpRecentsMenuForView:withDelegate:didEndSelector:contextInfo:
@@ -1885,13 +1885,13 @@ class IKSaveOptions : NSObject {
    @method addSaveOptionsAccessoryViewToSavePanel:
    @abstract Adds IKSaveOptions UI to a NSSavePanel.
    */
-  func addSaveOptionsAccessoryViewTo(savePanel: NSSavePanel!)
+  func addAccessoryViewTo(savePanel: NSSavePanel!)
 
   /*! 
    @method addSaveOptionsToView:
    @abstract Adds IKSaveOptions UI to a NSView.
    */
-  func addSaveOptionsTo(view: NSView!)
+  func addTo(view: NSView!)
   init()
 }
 
@@ -2104,13 +2104,13 @@ class IKSlideshow : NSObject {
    @method runSlideshowWithDataSource:inMode:options:
    @abstract start the slideshow (slideshowOptions can be NULL).
    */
-  func runSlideshowWith(dataSource: IKSlideshowDataSource!, inMode slideshowMode: String!, options slideshowOptions: [NSObject : AnyObject]! = [:])
+  func runWith(dataSource: IKSlideshowDataSource!, inMode slideshowMode: String!, options slideshowOptions: [NSObject : AnyObject]! = [:])
 
   /*!
    @method stopSlideshow:
    @abstract stop the slideshow.
    */
-  func stopSlideshow(sender: AnyObject!)
+  func stop(sender: AnyObject!)
 
   /*!
    @method reloadData:
@@ -2122,7 +2122,7 @@ class IKSlideshow : NSObject {
    @method reloadSlideshowItemAtIndex:
    @abstract reloadSlideshowItemAtIndex.
    */
-  func reloadSlideshowItemAt(index: Int)
+  func reloadItemAt(index: Int)
 
   /*!
    @method indexOfCurrentSlideshowItem:
@@ -2141,7 +2141,7 @@ class IKSlideshow : NSObject {
    @abstract export an item to the given application.
    @discussion The item can be either: NSImage, NSString, NSURL, or a NSArray of NSImage / NSString / NSURL.
    */
-  class func exportSlideshowItem(item: AnyObject!, toApplication applicationBundleIdentifier: String!)
+  class func exportItem(item: AnyObject!, toApplication applicationBundleIdentifier: String!)
   init()
 }
 let IKSlideshowModeImages: String
@@ -2338,10 +2338,10 @@ class PDFAnnotationLine : PDFAnnotation, NSCopying, NSCoding {
   func setStart(point: NSPoint)
   func endPoint() -> NSPoint
   func setEnd(point: NSPoint)
-  func startLineStyle() -> PDFLineStyle
-  func setStartLineStyle(style: PDFLineStyle)
-  func endLineStyle() -> PDFLineStyle
-  func setEndLineStyle(style: PDFLineStyle)
+  func startStyle() -> PDFLineStyle
+  func setStartStyle(style: PDFLineStyle)
+  func endStyle() -> PDFLineStyle
+  func setEndStyle(style: PDFLineStyle)
   func interiorColor() -> NSColor!
   func setInteriorColor(color: NSColor!)
   init!(bounds: NSRect)
@@ -2625,8 +2625,8 @@ class PDFSelection : NSObject, NSCopying {
   func selectionsByLine() -> [AnyObject]!
   func add(selection: PDFSelection!)
   func addSelections(selections: [AnyObject]!)
-  func extendSelectionAtEnd(succeed: Int)
-  func extendSelectionAtStart(precede: Int)
+  func extendAtEnd(succeed: Int)
+  func extendAtStart(precede: Int)
   func drawFor(page: PDFPage!, active: Bool)
   func drawFor(page: PDFPage!, withBox box: PDFDisplayBox, active: Bool)
   init()
@@ -3069,8 +3069,8 @@ extension QCPlugIn {
   func removeOutputPortForKey(key: String!)
 }
 extension QCPlugIn {
-  class func loadPlugInAtPath(path: String!) -> Bool
-  class func registerPlugIn(aClass: AnyClass!)
+  class func loadAtPath(path: String!) -> Bool
+  class func registerClass(aClass: AnyClass!)
 }
 class QCPlugInViewController : NSViewController {
   init!(plugIn: QCPlugIn!, viewNibName name: String!)

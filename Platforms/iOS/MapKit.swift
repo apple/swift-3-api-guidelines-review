@@ -74,7 +74,7 @@ typealias MKETAHandler = (MKETAResponse?, NSError?) -> Void
 @available(iOS 7.0, *)
 class MKDirections : NSObject {
   init(request: MKDirectionsRequest)
-  func calculateDirectionsWithCompletionHandler(completionHandler: MKDirectionsHandler)
+  func calculateWithCompletionHandler(completionHandler: MKDirectionsHandler)
   func calculateETAWithCompletionHandler(completionHandler: MKETAHandler)
   func cancel()
   var isCalculating: Bool { get }

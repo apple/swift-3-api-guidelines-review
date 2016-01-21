@@ -420,10 +420,10 @@ class PHLivePhoto : NSObject, NSCopying, NSSecureCoding {
   var size: CGSize { get }
 
   /// Requests a Live Photo from the given resource URLs. The result handler will be called multiple times to deliver new PHLivePhoto instances with increasingly more content. If a placeholder image is provided, the result handler will first be invoked synchronously to deliver a live photo containing only the placeholder image. Subsequent invocations of the result handler will occur on the main queue.
-  class func requestLivePhotoWithResourceFileURLs(fileURLs: [NSURL], placeholderImage image: UIImage?, targetSize: CGSize, contentMode: PHImageContentMode, resultHandler: (PHLivePhoto?, [NSObject : AnyObject]) -> Void) -> PHLivePhotoRequestID
+  class func requestWithResourceFileURLs(fileURLs: [NSURL], placeholderImage image: UIImage?, targetSize: CGSize, contentMode: PHImageContentMode, resultHandler: (PHLivePhoto?, [NSObject : AnyObject]) -> Void) -> PHLivePhotoRequestID
 
   /// Cancels the loading of a PHLivePhoto. The request's completion handler will be called.
-  class func cancelLivePhotoRequestWithRequestID(requestID: PHLivePhotoRequestID)
+  class func cancelRequestWithRequestID(requestID: PHLivePhotoRequestID)
   init()
   @available(iOS 9.1, *)
   func copy(zone zone: NSZone = nil) -> AnyObject

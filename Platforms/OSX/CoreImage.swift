@@ -494,7 +494,7 @@ extension CIFilter {
    @param   attributes    Dictionary of the registration attributes of the filter. See below for attribute keys.
   */
   @available(OSX 10.4, *)
-  class func registerFilterName(name: String, constructor anObject: CIFilterConstructor, classAttributes attributes: [String : AnyObject] = [:])
+  class func registerName(name: String, constructor anObject: CIFilterConstructor, classAttributes attributes: [String : AnyObject] = [:])
 
   /** Returns the localized name of a filter for display in the UI. */
   @available(OSX 10.4, *)
@@ -855,7 +855,7 @@ class CIPlugIn : NSObject {
    
    If allowExecutableCode is NO, filters containing executable code will not be loaded. If YES, any kind of filter will be loaded. */
   @available(OSX 10.7, *)
-  class func loadPlugIn(url: NSURL!, allowExecutableCode: Bool)
+  class func load(url: NSURL!, allowExecutableCode: Bool)
   init()
 }
 

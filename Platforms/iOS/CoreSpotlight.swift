@@ -61,8 +61,8 @@ class CSSearchableIndex : NSObject {
   init()
 }
 extension CSSearchableIndex {
-  func beginIndexBatch()
-  func endIndexBatchWithClientState(clientState: NSData, completionHandler: ((NSError?) -> Void)? = nil)
+  func beginBatch()
+  func endBatchWithClientState(clientState: NSData, completionHandler: ((NSError?) -> Void)? = nil)
   func fetchLastClientStateWithCompletionHandler(completionHandler: (NSData?, NSError?) -> Void)
 }
 @available(iOS 9.0, *)

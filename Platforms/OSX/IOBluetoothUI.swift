@@ -646,7 +646,7 @@ class IOBluetoothServiceBrowserController : NSWindowController {
   	@abstract	Returns an IOBluetoothServiceBrowserControllerRef representation of the target IOBluetoothServiceBrowserController object.
   	@result		Returns an IOBluetoothServiceBrowserControllerRef representation of the target IOBluetoothServiceBrowserController object.
   */
-  func getServiceBrowserControllerRef() -> Unmanaged<IOBluetoothServiceBrowserController>!
+  func getRef() -> Unmanaged<IOBluetoothServiceBrowserController>!
 
   /*!
   	@method	setOptions:

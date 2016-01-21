@@ -83,8 +83,8 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
    @abstract Export an asset to the specified URL.
    @return YES is returned if exporting proceeded successfully,
    */
-  func exportAssetTo(URL: NSURL) -> Bool
-  func exportAssetTo(URL: NSURL, error: ()) throws
+  func exportTo(URL: NSURL) -> Bool
+  func exportTo(URL: NSURL, error: ()) throws
 
   /*!
    @method canImportFileExtension:

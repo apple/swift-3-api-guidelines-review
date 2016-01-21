@@ -142,6 +142,6 @@ class ListsInterfaceController: WKInterfaceController, ListsControllerDelegate {
         let listInfo = ListInfo(URL: listInfoURL)
         
         // Present a `ListInterfaceController`.
-        pushControllerWithName(ListInterfaceController.Storyboard.interfaceControllerName, context: listInfo)
+        pushWithName(ListInterfaceController.Storyboard.interfaceControllerName, context: listInfo)
     }
 }

@@ -276,8 +276,8 @@ class CMPedometer : NSObject {
   @available(iOS 9.0, *)
   class func isCadenceAvailable() -> Bool
   func queryPedometerDataFrom(start: NSDate, to end: NSDate, withHandler handler: CMPedometerHandler)
-  func startPedometerUpdatesFrom(start: NSDate, withHandler handler: CMPedometerHandler)
-  func stopPedometerUpdates()
+  func startUpdatesFrom(start: NSDate, withHandler handler: CMPedometerHandler)
+  func stopUpdates()
   init()
 }
 @available(iOS 9.0, *)

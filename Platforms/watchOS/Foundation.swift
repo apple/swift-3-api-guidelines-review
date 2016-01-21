@@ -2408,9 +2408,9 @@ class NSFileWrapper : NSObject, NSCoding {
   @available(watchOS 2.0, *)
   func writeTo(url: NSURL, options: NSFileWrapperWritingOptions = [], originalContentsURL: NSURL?) throws
   @NSCopying var serializedRepresentation: NSData? { get }
-  func addFileWrapper(child: NSFileWrapper) -> String
+  func add(child: NSFileWrapper) -> String
   func addRegularFileWithContents(data: NSData, preferredFilename fileName: String) -> String
-  func removeFileWrapper(child: NSFileWrapper)
+  func remove(child: NSFileWrapper)
   var fileWrappers: [String : NSFileWrapper]? { get }
   func keyFor(child: NSFileWrapper) -> String?
   @NSCopying var regularFileContents: NSData? { get }
@@ -3061,15 +3061,15 @@ class NSIndexSet : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   @available(watchOS 2.0, *)
   func countOfIndexesIn(range: NSRange) -> Int
   func contains(value: Int) -> Bool
-  func containsIndexesIn(range: NSRange) -> Bool
+  func containsIn(range: NSRange) -> Bool
   func contains(indexSet: NSIndexSet) -> Bool
   func intersectsIndexesIn(range: NSRange) -> Bool
   @available(watchOS 2.0, *)
-  func enumerateIndexesUsing(block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateUsing(block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
-  func enumerateIndexes(options opts: NSEnumerationOptions = [], usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerate(options opts: NSEnumerationOptions = [], usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
-  func enumerateIndexesIn(range: NSRange, options opts: NSEnumerationOptions = [], usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateIn(range: NSRange, options opts: NSEnumerationOptions = [], usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
   func indexPassingTest(predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(watchOS 2.0, *)
@@ -3110,8 +3110,8 @@ class NSMutableIndexSet : NSIndexSet {
   func removeAllIndexes()
   func add(value: Int)
   func remove(value: Int)
-  func addIndexesIn(range: NSRange)
-  func removeIndexesIn(range: NSRange)
+  func addIn(range: NSRange)
+  func removeIn(range: NSRange)
   func shiftIndexesStartingAt(index: Int, by delta: Int)
   init(indexesIn range: NSRange)
   init(indexSet: NSIndexSet)
@@ -3683,7 +3683,7 @@ class NSConditionLock : NSObject, NSLocking {
   var condition: Int { get }
   func lockWhenCondition(condition: Int)
   func tryLock() -> Bool
-  func tryLockWhenCondition(condition: Int) -> Bool
+  func tryWhenCondition(condition: Int) -> Bool
   func unlockWithCondition(condition: Int)
   func lockBefore(limit: NSDate) -> Bool
   func lockWhenCondition(condition: Int, before limit: NSDate) -> Bool
@@ -3796,8 +3796,8 @@ class NSMetadataQuery : NSObject {
   var searchItems: [AnyObject]?
   @available(watchOS 2.0, *)
   var operationQueue: NSOperationQueue?
-  func startQuery() -> Bool
-  func stopQuery()
+  func start() -> Bool
+  func stop()
   var isStarted: Bool { get }
   var isGathering: Bool { get }
   var isStopped: Bool { get }
@@ -5995,7 +5995,7 @@ let NSTextCheckingAirlineKey: String
 let NSTextCheckingFlightKey: String
 extension NSTextCheckingResult {
   class func orthographyCheckingResultWith(range: NSRange, orthography: NSOrthography) -> NSTextCheckingResult
-  class func spellCheckingResultWith(range: NSRange) -> NSTextCheckingResult
+  class func spellWith(range: NSRange) -> NSTextCheckingResult
   class func grammarCheckingResultWith(range: NSRange, details: [String]) -> NSTextCheckingResult
   class func dateCheckingResultWith(range: NSRange, date: NSDate) -> NSTextCheckingResult
   class func dateCheckingResultWith(range: NSRange, date: NSDate, timeZone: NSTimeZone, duration: NSTimeInterval) -> NSTextCheckingResult
@@ -6010,7 +6010,7 @@ extension NSTextCheckingResult {
   @available(watchOS 2.0, *)
   class func regularExpressionCheckingResultWithRanges(ranges: NSRangePointer, count: Int, regularExpression: NSRegularExpression) -> NSTextCheckingResult
   @available(watchOS 2.0, *)
-  class func phoneNumberCheckingResultWith(range: NSRange, phoneNumber: String) -> NSTextCheckingResult
+  class func phoneNumberWith(range: NSRange, phoneNumber: String) -> NSTextCheckingResult
   @available(watchOS 2.0, *)
   class func transitInformationCheckingResultWith(range: NSRange, components: [String : String]) -> NSTextCheckingResult
 }
@@ -8877,7 +8877,7 @@ class NSUUID : NSObject, NSCopying, NSSecureCoding {
   init()
   convenience init?(uuidString string: String)
   convenience init(uuidBytes bytes: UnsafePointer<UInt8>)
-  func getUUIDBytes(uuid: UnsafeMutablePointer<UInt8>)
+  func getBytes(uuid: UnsafeMutablePointer<UInt8>)
   var uuidString: String { get }
   @available(watchOS 2.0, *)
   func copy(zone zone: NSZone = nil) -> AnyObject
@@ -9063,7 +9063,7 @@ class NSUserDefaults : NSObject {
   func setBool(value: Bool, forKey defaultName: String)
   @available(watchOS 2.0, *)
   func setURL(url: NSURL?, forKey defaultName: String)
-  func registerDefaults(registrationDictionary: [String : AnyObject])
+  func register(registrationDictionary: [String : AnyObject])
   func addSuiteNamed(suiteName: String)
   func removeSuiteNamed(suiteName: String)
   func dictionaryRepresentation() -> [String : AnyObject]

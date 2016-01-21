@@ -238,7 +238,7 @@ class IMKCandidates : NSResponder {
    @discussion This simply shows the candidates.  No effort is made to position the candidate.  The caller should move the candidate window to an appropriate location prior to showing.
    */
   @available(OSX 10.7, *)
-  func showCandidates()
+  func show()
 
   /*!
    @method

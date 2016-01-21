@@ -160,7 +160,7 @@ class ADBannerView : UIView {
    * Cancels the current in-progress banner view action. This should only be used
    * in cases where the user's attention is required immediately.
    */
-  func cancelBannerViewAction()
+  func cancelAction()
 
   /*!
    * @property advertisingSection
@@ -349,7 +349,7 @@ class ADClient : NSObject {
    * have no effect.
    */
   @available(iOS 8.0, *)
-  func addClientToSegments(segmentIdentifiers: [AnyObject]!, replaceExisting: Bool)
+  func addToSegments(segmentIdentifiers: [AnyObject]!, replaceExisting: Bool)
   init()
 }
 

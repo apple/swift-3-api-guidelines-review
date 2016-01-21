@@ -412,10 +412,10 @@ class ABMultiValue : NSObject, NSCopying, NSMutableCopying, NSFastEnumeration {
   func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 class ABMutableMultiValue : ABMultiValue {
-  func addValue(value: AnyObject!, withLabel label: String!) -> String!
-  func insertValue(value: AnyObject!, withLabel label: String!, at index: Int) -> String!
-  func removeValueAndLabelAt(index: Int) -> Bool
-  func replaceValueAt(index: Int, withValue value: AnyObject!) -> Bool
+  func add(value: AnyObject!, withLabel label: String!) -> String!
+  func insert(value: AnyObject!, withLabel label: String!, at index: Int) -> String!
+  func removeAndLabelAt(index: Int) -> Bool
+  func replaceAt(index: Int, withValue value: AnyObject!) -> Bool
   func replaceLabelAt(index: Int, withLabel label: String!) -> Bool
   func setPrimaryIdentifier(identifier: String!) -> Bool
   init()

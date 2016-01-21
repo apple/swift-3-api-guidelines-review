@@ -129,7 +129,7 @@ class SCNAction : NSObject, NSCopying, NSSecureCoding {
   class func sequence(actions: [SCNAction]) -> SCNAction
   class func group(actions: [SCNAction]) -> SCNAction
   class func repeatAction(action: SCNAction, count: Int) -> SCNAction
-  class func repeatActionForever(action: SCNAction) -> SCNAction
+  class func repeatForever(action: SCNAction) -> SCNAction
   class func fadeInWithDuration(sec: NSTimeInterval) -> SCNAction
   class func fadeOutWithDuration(sec: NSTimeInterval) -> SCNAction
   class func fadeOpacityBy(factor: CGFloat, duration sec: NSTimeInterval) -> SCNAction

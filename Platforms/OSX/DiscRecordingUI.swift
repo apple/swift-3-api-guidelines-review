@@ -69,7 +69,7 @@ class DRBurnProgressPanel : NSPanel {
   								@link //apple_ref/occ/cl/DRBurn DRBurn @/link documentation for information on
   								valid layouts.
   */
-  func beginProgressPanelFor(burn: DRBurn!, layout: AnyObject!)
+  func beginFor(burn: DRBurn!, layout: AnyObject!)
 
   /*! 
   	@method			setDescription:
@@ -629,7 +629,7 @@ class DREraseProgressPanel : NSPanel {
   					caller can perform other operations while the erase continues.
   	@param			erase		The object performing the erase.
   */
-  func beginProgressPanelFor(erase: DRErase!)
+  func beginFor(erase: DRErase!)
 
   /*! 
   	@method			setDescription:
@@ -1056,7 +1056,7 @@ class DRSetupPanel : NSPanel {
   	@result		Returns @link //apple_ref/c/econst/NSOKButton NSOKButton @/link (if the user clicks the default button) or
   				@link //apple_ref/c/econst/NSCancelButton NSCancelButton @/link (if the user clicks the Cancel button).
   */
-  func runSetupPanel() -> Int
+  func run() -> Int
 
   /*!
   	@method		beginSetupSheetForWindow:modalDelegate:didEndSelector:contextInfo:

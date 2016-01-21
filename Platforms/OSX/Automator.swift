@@ -82,7 +82,7 @@ class AMShellScriptAction : AMBundleAction {
   init?(coder aDecoder: NSCoder)
 }
 class AMWorkflow : NSObject, NSCopying {
-  class func runWorkflowAt(fileURL: NSURL, withInput input: AnyObject?) throws -> AnyObject
+  class func runAt(fileURL: NSURL, withInput input: AnyObject?) throws -> AnyObject
   init()
   convenience init(contentsOf fileURL: NSURL) throws
   func writeTo(fileURL: NSURL) throws

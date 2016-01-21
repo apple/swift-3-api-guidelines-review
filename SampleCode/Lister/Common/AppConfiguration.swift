@@ -143,7 +143,7 @@ public class AppConfiguration {
             ]
         #endif
         
-        applicationUserDefaults.registerDefaults(defaultOptions)
+        applicationUserDefaults.register(defaultOptions)
     }
     
     public func runHandlerOnFirstLaunch(firstLaunchHandler: Void -> Void) {

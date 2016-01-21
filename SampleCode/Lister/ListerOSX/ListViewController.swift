@@ -71,13 +71,13 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
     }
     
     func tableView(tableView: NSTableView, viewForTableColumn: NSTableColumn, row: Int) -> NSView {
-        guard let listPresenter = listPresenter else { return tableView.makeViewWithIdentifier(TableViewConstants.ViewIdentifiers.noListItemViewIdentifier, owner: nil)! }
+        guard let listPresenter = listPresenter else { return tableView.makeWithIdentifier(TableViewConstants.ViewIdentifiers.noListItemViewIdentifier, owner: nil)! }
         
         if listPresenter.isEmpty {
-            return tableView.makeViewWithIdentifier(TableViewConstants.ViewIdentifiers.noListItemViewIdentifier, owner: nil)!
+            return tableView.makeWithIdentifier(TableViewConstants.ViewIdentifiers.noListItemViewIdentifier, owner: nil)!
         }
         
-        let listItemView = tableView.makeViewWithIdentifier(TableViewConstants.ViewIdentifiers.listItemViewIdentifier, owner: nil) as! ListItemView
+        let listItemView = tableView.makeWithIdentifier(TableViewConstants.ViewIdentifiers.listItemViewIdentifier, owner: nil) as! ListItemView
         
         let listItem = listPresenter.presentedListItems[row]
         

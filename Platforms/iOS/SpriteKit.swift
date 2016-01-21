@@ -243,7 +243,7 @@ extension SKAction {
   /** Creates an action that repeats forever
    @param action The action to execute
    */
-  class func repeatActionForever(action: SKAction) -> SKAction
+  class func repeatForever(action: SKAction) -> SKAction
 
   /** Creates an action that changes the alpha value of the node to 1.0
    @param duration The duration of the animation
@@ -1992,13 +1992,13 @@ class SKReferenceNode : SKNode {
   convenience init(url referenceURL: NSURL)
 
   /** called each time the url is loaded, after it has been added as a child */
-  func didLoadReferenceNode(node: SKNode?)
+  func didLoad(node: SKNode?)
 
   /** Force the reference to be reloaded. The resolved node will added
    as a child of this node. If the resolved node has not yet been loaded,
    it will be automatically loaded when the resolved node is queryed or
    the refenece node is rendered. */
-  func resolveReferenceNode()
+  func resolve()
   convenience init()
 }
 @available(iOS 8.0, *)

@@ -68,11 +68,11 @@ class NewListDocumentController: UIViewController, UITextFieldDelegate {
         
         listsController.createListInfoForList(list, withName: selectedTitle!)
         
-        dismissViewControllerAnimated(true)
+        dismissAnimated(true)
     }
     
     @IBAction func cancel(sender: AnyObject) {
-        dismissViewControllerAnimated(true)
+        dismissAnimated(true)
     }
     
     // MARK: Touch Handling

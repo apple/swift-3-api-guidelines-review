@@ -92,7 +92,7 @@ class SSReadingList : NSObject {
       @discussion Only URLs with http:// or https:// schemes are supported by Reading List.
   */
   @available(iOS 7.0, *)
-  func addReadingListItemWith(URL: NSURL, title: String?, previewText: String?) throws
+  func addItemWith(URL: NSURL, title: String?, previewText: String?) throws
 }
 @available(iOS 7.0, *)
 let SSReadingListErrorDomain: String

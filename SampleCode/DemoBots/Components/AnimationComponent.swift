@@ -153,7 +153,7 @@ class AnimationComponent: GKComponent {
 
             // Add the new body action to the node if an action exists.
             if let bodyAction = animation.bodyAction {
-                node.run(SKAction.repeatActionForever(bodyAction), withKey: AnimationComponent.bodyActionKey)
+                node.run(SKAction.repeatForever(bodyAction), withKey: AnimationComponent.bodyActionKey)
             }
         }
 
@@ -171,7 +171,7 @@ class AnimationComponent: GKComponent {
             
             // Add the new shadow action to the shadow node if an action exists.
             if let shadowAction = animation.shadowAction {
-                shadowNode?.run(SKAction.repeatActionForever(shadowAction), withKey: AnimationComponent.shadowActionKey)
+                shadowNode?.run(SKAction.repeatForever(shadowAction), withKey: AnimationComponent.shadowActionKey)
             }
         }
 
@@ -211,7 +211,7 @@ class AnimationComponent: GKComponent {
             
             // Create an appropriate action from the (possibly offset) animation frames.
             if animation.repeatTexturesForever {
-                texturesAction = SKAction.repeatActionForever(SKAction.animateWith(animation.offsetTextures, timePerFrame: AnimationComponent.timePerFrame))
+                texturesAction = SKAction.repeatForever(SKAction.animateWith(animation.offsetTextures, timePerFrame: AnimationComponent.timePerFrame))
             }
             else {
                 texturesAction = SKAction.animateWith(animation.offsetTextures, timePerFrame: AnimationComponent.timePerFrame)
@@ -268,7 +268,7 @@ class AnimationComponent: GKComponent {
         }
         else {
             let texturesAction = SKAction.animateWith(textures, timePerFrame: AnimationComponent.timePerFrame)
-            return SKAction.repeatActionForever(texturesAction)
+            return SKAction.repeatForever(texturesAction)
         }
     }
 

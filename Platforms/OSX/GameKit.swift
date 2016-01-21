@@ -25,7 +25,7 @@ class GKAchievement : NSObject, NSCoding, NSSecureCoding {
 }
 extension GKAchievement {
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use +reportAchievements:withCompletionHandler:")
-  func reportAchievement(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
+  func report(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use isHidden on the GKAchievementDescription class instead")
   var isHidden: Bool { get }
 }
@@ -581,9 +581,9 @@ protocol GKMatchmakerViewControllerDelegate : NSObjectProtocol {
 @available(OSX 10.8, *)
 class GKNotificationBanner : NSObject {
   @available(OSX 10.8, *)
-  class func showBannerWithTitle(title: String?, message: String?, completionHandler: (() -> Void)? = nil)
+  class func showWithTitle(title: String?, message: String?, completionHandler: (() -> Void)? = nil)
   @available(OSX 10.8, *)
-  class func showBannerWithTitle(title: String?, message: String?, duration: NSTimeInterval, completionHandler: (() -> Void)? = nil)
+  class func showWithTitle(title: String?, message: String?, duration: NSTimeInterval, completionHandler: (() -> Void)? = nil)
   init()
 }
 @available(OSX 10.8, *)
@@ -718,7 +718,7 @@ class GKScore : NSObject, NSCoding, NSSecureCoding {
 }
 extension GKScore {
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use +reportScores:withCompletionhandler: instead")
-  func reportScore(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
+  func report(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use initWithLeaderboardIdentifier: instead")
   init(category: String?)
   @available(OSX, introduced=10.8, deprecated=10.10, message="use player")
@@ -844,10 +844,10 @@ class GKTurnBasedMatch : NSObject {
   var exchangeDataMaximumSize: Int { get }
   @available(OSX 10.10, *)
   var exchangeMaxInitiatedExchangesPerPlayer: Int { get }
-  class func findMatchFor(request: GKMatchRequest, withCompletionHandler completionHandler: (GKTurnBasedMatch?, NSError?) -> Void)
+  class func findFor(request: GKMatchRequest, withCompletionHandler completionHandler: (GKTurnBasedMatch?, NSError?) -> Void)
   class func loadMatches(completionHandler completionHandler: (([GKTurnBasedMatch]?, NSError?) -> Void)? = nil)
   @available(OSX 10.8, *)
-  class func loadMatchWithID(matchID: String, withCompletionHandler completionHandler: ((GKTurnBasedMatch?, NSError?) -> Void)? = nil)
+  class func loadWithID(matchID: String, withCompletionHandler completionHandler: ((GKTurnBasedMatch?, NSError?) -> Void)? = nil)
   @available(OSX 10.9, *)
   func rematch(completionHandler completionHandler: ((GKTurnBasedMatch?, NSError?) -> Void)? = nil)
   @available(OSX 10.8, *)
@@ -855,7 +855,7 @@ class GKTurnBasedMatch : NSObject {
   @available(OSX 10.8, *)
   func declineInvite(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   func remove(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
-  func loadMatchData(completionHandler completionHandler: ((NSData?, NSError?) -> Void)? = nil)
+  func loadData(completionHandler completionHandler: ((NSData?, NSError?) -> Void)? = nil)
   @available(OSX 10.9, *)
   func endTurnWithNextParticipants(nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: NSTimeInterval, match matchData: NSData, completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX 10.9, *)

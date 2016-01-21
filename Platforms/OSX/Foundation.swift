@@ -214,10 +214,10 @@ class NSAppleEventDescriptor : NSObject, NSCopying, NSSecureCoding {
   var numberOfItems: Int { get }
   func insert(descriptor: NSAppleEventDescriptor, at index: Int)
   func atIndex(index: Int) -> NSAppleEventDescriptor?
-  func removeDescriptorAt(index: Int)
+  func removeAt(index: Int)
   func setDescriptor(descriptor: NSAppleEventDescriptor, forKeyword keyword: AEKeyword)
   func forKeyword(keyword: AEKeyword) -> NSAppleEventDescriptor?
-  func removeDescriptorWithKeyword(keyword: AEKeyword)
+  func removeWithKeyword(keyword: AEKeyword)
   func keywordForDescriptorAt(index: Int) -> AEKeyword
   func coerceToDescriptorType(descriptorType: DescType) -> NSAppleEventDescriptor?
   convenience init()
@@ -2579,7 +2579,7 @@ class NSFileVersion : NSObject {
   class func getNonlocalVersionsOfItemAt(url: NSURL, completionHandler: ([NSFileVersion]?, NSError?) -> Void)
   /*not inherited*/ init?(ofItemAt url: NSURL, forPersistentIdentifier persistentIdentifier: AnyObject)
   @available(OSX 10.7, *)
-  class func addVersionOfItemAt(url: NSURL, withContentsOf contentsURL: NSURL, options: NSFileVersionAddingOptions = []) throws -> NSFileVersion
+  class func addOfItemAt(url: NSURL, withContentsOf contentsURL: NSURL, options: NSFileVersionAddingOptions = []) throws -> NSFileVersion
   @available(OSX 10.7, *)
   class func temporaryDirectoryURLForNewVersionOfItemAt(url: NSURL) -> NSURL
   @NSCopying var url: NSURL { get }
@@ -2637,9 +2637,9 @@ class NSFileWrapper : NSObject, NSCoding {
   @available(OSX 10.6, *)
   func writeTo(url: NSURL, options: NSFileWrapperWritingOptions = [], originalContentsURL: NSURL?) throws
   @NSCopying var serializedRepresentation: NSData? { get }
-  func addFileWrapper(child: NSFileWrapper) -> String
+  func add(child: NSFileWrapper) -> String
   func addRegularFileWithContents(data: NSData, preferredFilename fileName: String) -> String
-  func removeFileWrapper(child: NSFileWrapper)
+  func remove(child: NSFileWrapper)
   var fileWrappers: [String : NSFileWrapper]? { get }
   func keyFor(child: NSFileWrapper) -> String?
   @NSCopying var regularFileContents: NSData? { get }
@@ -3499,15 +3499,15 @@ class NSIndexSet : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   @available(OSX 10.5, *)
   func countOfIndexesIn(range: NSRange) -> Int
   func contains(value: Int) -> Bool
-  func containsIndexesIn(range: NSRange) -> Bool
+  func containsIn(range: NSRange) -> Bool
   func contains(indexSet: NSIndexSet) -> Bool
   func intersectsIndexesIn(range: NSRange) -> Bool
   @available(OSX 10.6, *)
-  func enumerateIndexesUsing(block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateUsing(block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.6, *)
-  func enumerateIndexes(options opts: NSEnumerationOptions = [], usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerate(options opts: NSEnumerationOptions = [], usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.6, *)
-  func enumerateIndexesIn(range: NSRange, options opts: NSEnumerationOptions = [], usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateIn(range: NSRange, options opts: NSEnumerationOptions = [], usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.6, *)
   func indexPassingTest(predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(OSX 10.6, *)
@@ -3548,8 +3548,8 @@ class NSMutableIndexSet : NSIndexSet {
   func removeAllIndexes()
   func add(value: Int)
   func remove(value: Int)
-  func addIndexesIn(range: NSRange)
-  func removeIndexesIn(range: NSRange)
+  func addIn(range: NSRange)
+  func removeIn(range: NSRange)
   func shiftIndexesStartingAt(index: Int, by delta: Int)
   init(indexesIn range: NSRange)
   init(indexSet: NSIndexSet)
@@ -4123,7 +4123,7 @@ class NSConditionLock : NSObject, NSLocking {
   var condition: Int { get }
   func lockWhenCondition(condition: Int)
   func tryLock() -> Bool
-  func tryLockWhenCondition(condition: Int) -> Bool
+  func tryWhenCondition(condition: Int) -> Bool
   func unlockWithCondition(condition: Int)
   func lockBefore(limit: NSDate) -> Bool
   func lockWhenCondition(condition: Int, before limit: NSDate) -> Bool
@@ -4300,8 +4300,8 @@ class NSMetadataQuery : NSObject {
   var searchItems: [AnyObject]?
   @available(OSX 10.9, *)
   var operationQueue: NSOperationQueue?
-  func startQuery() -> Bool
-  func stopQuery()
+  func start() -> Bool
+  func stop()
   var isStarted: Bool { get }
   var isGathering: Bool { get }
   var isStopped: Bool { get }
@@ -6234,7 +6234,7 @@ class NSScriptCommand : NSObject, NSCoding {
   var evaluatedArguments: [String : AnyObject]? { get }
   var isWellFormed: Bool { get }
   func performDefaultImplementation() -> AnyObject?
-  func executeCommand() -> AnyObject?
+  func execute() -> AnyObject?
   var scriptErrorNumber: Int
   @available(OSX 10.5, *)
   var scriptErrorOffendingObjectDescriptor: NSAppleEventDescriptor?
@@ -7374,7 +7374,7 @@ let NSTextCheckingAirlineKey: String
 let NSTextCheckingFlightKey: String
 extension NSTextCheckingResult {
   class func orthographyCheckingResultWith(range: NSRange, orthography: NSOrthography) -> NSTextCheckingResult
-  class func spellCheckingResultWith(range: NSRange) -> NSTextCheckingResult
+  class func spellWith(range: NSRange) -> NSTextCheckingResult
   class func grammarCheckingResultWith(range: NSRange, details: [String]) -> NSTextCheckingResult
   class func dateCheckingResultWith(range: NSRange, date: NSDate) -> NSTextCheckingResult
   class func dateCheckingResultWith(range: NSRange, date: NSDate, timeZone: NSTimeZone, duration: NSTimeInterval) -> NSTextCheckingResult
@@ -7389,7 +7389,7 @@ extension NSTextCheckingResult {
   @available(OSX 10.7, *)
   class func regularExpressionCheckingResultWithRanges(ranges: NSRangePointer, count: Int, regularExpression: NSRegularExpression) -> NSTextCheckingResult
   @available(OSX 10.7, *)
-  class func phoneNumberCheckingResultWith(range: NSRange, phoneNumber: String) -> NSTextCheckingResult
+  class func phoneNumberWith(range: NSRange, phoneNumber: String) -> NSTextCheckingResult
   @available(OSX 10.7, *)
   class func transitInformationCheckingResultWith(range: NSRange, components: [String : String]) -> NSTextCheckingResult
 }
@@ -10596,7 +10596,7 @@ class NSUUID : NSObject, NSCopying, NSSecureCoding {
   init()
   convenience init?(uuidString string: String)
   convenience init(uuidBytes bytes: UnsafePointer<UInt8>)
-  func getUUIDBytes(uuid: UnsafeMutablePointer<UInt8>)
+  func getBytes(uuid: UnsafeMutablePointer<UInt8>)
   var uuidString: String { get }
   @available(OSX 10.8, *)
   func copy(zone zone: NSZone = nil) -> AnyObject
@@ -10780,7 +10780,7 @@ class NSUserDefaults : NSObject {
   func setBool(value: Bool, forKey defaultName: String)
   @available(OSX 10.6, *)
   func setURL(url: NSURL?, forKey defaultName: String)
-  func registerDefaults(registrationDictionary: [String : AnyObject])
+  func register(registrationDictionary: [String : AnyObject])
   func addSuiteNamed(suiteName: String)
   func removeSuiteNamed(suiteName: String)
   func dictionaryRepresentation() -> [String : AnyObject]

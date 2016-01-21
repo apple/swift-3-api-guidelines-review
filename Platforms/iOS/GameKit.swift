@@ -519,9 +519,9 @@ protocol GKMatchmakerViewControllerDelegate : NSObjectProtocol {
 @available(iOS 5.0, *)
 class GKNotificationBanner : NSObject {
   @available(iOS 5.0, *)
-  class func showBannerWithTitle(title: String?, message: String?, completionHandler: (() -> Void)? = nil)
+  class func showWithTitle(title: String?, message: String?, completionHandler: (() -> Void)? = nil)
   @available(iOS 6.0, *)
-  class func showBannerWithTitle(title: String?, message: String?, duration: NSTimeInterval, completionHandler: (() -> Void)? = nil)
+  class func showWithTitle(title: String?, message: String?, duration: NSTimeInterval, completionHandler: (() -> Void)? = nil)
   init()
 }
 protocol GKPeerPickerControllerDelegate : NSObjectProtocol {
@@ -743,10 +743,10 @@ class GKTurnBasedMatch : NSObject {
   var exchangeDataMaximumSize: Int { get }
   @available(iOS 7.0, *)
   var exchangeMaxInitiatedExchangesPerPlayer: Int { get }
-  class func findMatchFor(request: GKMatchRequest, withCompletionHandler completionHandler: (GKTurnBasedMatch?, NSError?) -> Void)
+  class func findFor(request: GKMatchRequest, withCompletionHandler completionHandler: (GKTurnBasedMatch?, NSError?) -> Void)
   class func loadMatches(completionHandler completionHandler: (([GKTurnBasedMatch]?, NSError?) -> Void)? = nil)
   @available(iOS 5.0, *)
-  class func loadMatchWithID(matchID: String, withCompletionHandler completionHandler: ((GKTurnBasedMatch?, NSError?) -> Void)? = nil)
+  class func loadWithID(matchID: String, withCompletionHandler completionHandler: ((GKTurnBasedMatch?, NSError?) -> Void)? = nil)
   @available(iOS 6.0, *)
   func rematch(completionHandler completionHandler: ((GKTurnBasedMatch?, NSError?) -> Void)? = nil)
   @available(iOS 5.0, *)
@@ -754,7 +754,7 @@ class GKTurnBasedMatch : NSObject {
   @available(iOS 5.0, *)
   func declineInvite(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   func remove(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
-  func loadMatchData(completionHandler completionHandler: ((NSData?, NSError?) -> Void)? = nil)
+  func loadData(completionHandler completionHandler: ((NSData?, NSError?) -> Void)? = nil)
   @available(iOS 6.0, *)
   func endTurnWithNextParticipants(nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: NSTimeInterval, match matchData: NSData, completionHandler: ((NSError?) -> Void)? = nil)
   @available(iOS 6.0, *)

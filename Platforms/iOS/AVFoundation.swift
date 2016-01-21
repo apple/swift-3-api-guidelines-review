@@ -7164,7 +7164,7 @@ class AVAudioUnit : AVAudioNode {
       @discussion
           If the .aupreset file cannot be successfully loaded, an error is returned.
   */
-  func loadAudioUnitPresetAt(url: NSURL) throws
+  func loadPresetAt(url: NSURL) throws
 
   /*! @property audioComponentDescription
       @abstract AudioComponentDescription of the underlying audio unit.
@@ -13542,7 +13542,7 @@ class AVMutableCompositionTrack : AVCompositionTrack {
   		be made via an instance of NSMutableArray, and the resulting array can be tested via
   		-validateTrackSegments:error:.
   */
-  func validate(trackSegments: [AVCompositionTrackSegment]) throws
+  func validateSegments(trackSegments: [AVCompositionTrackSegment]) throws
 }
 @available(iOS 4.0, *)
 class AVCompositionTrackSegment : AVAssetTrackSegment {

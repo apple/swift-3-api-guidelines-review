@@ -123,7 +123,7 @@ public class CloudListCoordinator: ListCoordinator {
     public func startQuery() {
         // `NSMetadataQuery` should always be started on the main thread.
         dispatch_async(dispatch_get_main_queue()) {
-            self.metadataQuery.startQuery()
+            self.metadataQuery.start()
             return
         }
     }
@@ -131,7 +131,7 @@ public class CloudListCoordinator: ListCoordinator {
     public func stopQuery() {
         // `NSMetadataQuery` should always be stopped on the main thread.
         dispatch_async(dispatch_get_main_queue()) {
-            self.metadataQuery.stopQuery()
+            self.metadataQuery.stop()
         }
     }
     

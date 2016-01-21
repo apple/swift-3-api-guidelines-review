@@ -90,7 +90,7 @@ class SLRequest : NSObject {
   @available(*, deprecated)
   func addMultipartData(data: NSData!, withName name: String!, type: String!)
   func preparedURLRequest() -> NSURLRequest!
-  func performRequestWithHandler(handler: SLRequestHandler!)
+  func performWithHandler(handler: SLRequestHandler!)
   init()
 }
 @available(OSX 10.8, *)

@@ -465,7 +465,7 @@ extension CIFilter {
    @param   attributes    Dictionary of the registration attributes of the filter. See below for attribute keys.
   */
   @available(tvOS 9.0, *)
-  class func registerFilterName(name: String, constructor anObject: CIFilterConstructor, classAttributes attributes: [String : AnyObject] = [:])
+  class func registerName(name: String, constructor anObject: CIFilterConstructor, classAttributes attributes: [String : AnyObject] = [:])
 
   /** Returns the localized name of a filter for display in the UI. */
   @available(tvOS 9.0, *)

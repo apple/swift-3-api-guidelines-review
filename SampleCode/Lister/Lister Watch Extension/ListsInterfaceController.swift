@@ -122,6 +122,6 @@ class ListsInterfaceController: WKInterfaceController, ConnectivityListsControll
         let listInfo = ListInfo(name: name, color: color)
         
         // Present a `ListInterfaceController`.
-        pushControllerWithName(ListInterfaceController.Storyboard.interfaceControllerName, context: listInfo)
+        pushWithName(ListInterfaceController.Storyboard.interfaceControllerName, context: listInfo)
     }
 }

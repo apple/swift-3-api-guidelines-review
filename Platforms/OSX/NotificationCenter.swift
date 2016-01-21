@@ -53,7 +53,7 @@ protocol NCWidgetProviding : NSExtensionRequestHandling {
 }
 extension NSViewController {
   @available(OSX 10.10, *)
-  func presentViewControllerInWidget(viewController: NSViewController!)
+  func presentInWidget(viewController: NSViewController!)
 }
 @available(OSX 10.10, *)
 class NCWidgetSearchViewController : NSViewController {

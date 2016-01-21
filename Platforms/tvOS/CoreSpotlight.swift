@@ -4,8 +4,8 @@ var CoreSpotlightAPIVersion: Int32 { get }
 //! Project version number for CoreSpotlight.
 var CoreSpotlightVersionNumber: Double
 extension CSSearchableIndex {
-  func beginIndexBatch()
-  func endIndexBatchWithClientState(clientState: NSData, completionHandler: ((NSError?) -> Void)? = nil)
+  func beginBatch()
+  func endBatchWithClientState(clientState: NSData, completionHandler: ((NSError?) -> Void)? = nil)
   func fetchLastClientStateWithCompletionHandler(completionHandler: (NSData?, NSError?) -> Void)
 }
 extension CSSearchableItemAttributeSet {

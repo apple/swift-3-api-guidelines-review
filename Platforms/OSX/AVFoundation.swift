@@ -6728,7 +6728,7 @@ class AVAudioUnit : AVAudioNode {
       @discussion
           If the .aupreset file cannot be successfully loaded, an error is returned.
   */
-  func loadAudioUnitPresetAt(url: NSURL) throws
+  func loadPresetAt(url: NSURL) throws
 
   /*! @property audioComponentDescription
       @abstract AudioComponentDescription of the underlying audio unit.
@@ -11971,7 +11971,7 @@ class AVMutableCompositionTrack : AVCompositionTrack {
   		be made via an instance of NSMutableArray, and the resulting array can be tested via
   		-validateTrackSegments:error:.
   */
-  func validate(trackSegments: [AVCompositionTrackSegment]) throws
+  func validateSegments(trackSegments: [AVCompositionTrackSegment]) throws
 }
 @available(OSX 10.7, *)
 class AVCompositionTrackSegment : AVAssetTrackSegment {
@@ -14415,7 +14415,7 @@ extension AVMovie {
   	@discussion		Data references in the output movie header are adjusted to be relative to the destination URL. Note that modifications to instances of AVMutableMovie, to their constituent AVMutableMovieTracks, or to their collections of metadata are committed to storage when their movie headers are written.
   */
   @available(OSX 10.11, *)
-  func writeMovieHeaderTo(URL: NSURL, fileType: String, options: AVMovieWritingOptions = []) throws
+  func writeHeaderTo(URL: NSURL, fileType: String, options: AVMovieWritingOptions = []) throws
 
   /*!
   	@method			isCompatibleWithFileType:

@@ -925,7 +925,7 @@ class NEFilterControlVerdict : NEFilterNewFlowVerdict, NSSecureCoding, NSCopying
    * @return The NEFilterControlVerdict object.
    */
   @available(iOS 9.0, *)
-  class func allowVerdictWithUpdateRules(updateRules: Bool) -> NEFilterControlVerdict
+  class func allowWithUpdateRules(updateRules: Bool) -> NEFilterControlVerdict
 
   /*!
    * @method dropVerdictWithUpdateRules:
@@ -934,7 +934,7 @@ class NEFilterControlVerdict : NEFilterNewFlowVerdict, NSSecureCoding, NSCopying
    * @return The NEFilterControlVerdict object.
    */
   @available(iOS 9.0, *)
-  class func dropVerdictWithUpdateRules(updateRules: Bool) -> NEFilterControlVerdict
+  class func dropWithUpdateRules(updateRules: Bool) -> NEFilterControlVerdict
 
   /*!
    * @method updateRules

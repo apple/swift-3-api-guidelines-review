@@ -1277,7 +1277,7 @@ class UIActivity : NSObject {
   func canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool
   func prepareWithActivityItems(activityItems: [AnyObject])
   func activityViewController() -> UIViewController?
-  func performActivity()
+  func perform()
   func activityDidFinish(completed: Bool)
   init()
 }
@@ -2230,7 +2230,7 @@ class UIBezierPath : NSObject, NSCopying, NSCoding {
   func addQuadCurveTo(endPoint: CGPoint, controlPoint: CGPoint)
   @available(iOS 4.0, *)
   func addArcWithCenter(center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
-  func closePath()
+  func close()
   func removeAllPoints()
   func append(bezierPath: UIBezierPath)
   @available(iOS 6.0, *)
@@ -2739,7 +2739,7 @@ extension UICollectionViewLayout {
   class func layoutAttributesClass() -> AnyClass
   @available(iOS 7.0, *)
   class func invalidationContextClass() -> AnyClass
-  func prepareLayout()
+  func prepare()
   func layoutAttributesForElementsIn(rect: CGRect) -> [UICollectionViewLayoutAttributes]?
   func layoutAttributesForItemAt(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
   func layoutAttributesForSupplementaryViewOfKind(elementKind: String, at indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
@@ -3923,7 +3923,7 @@ extension NSValue {
   func cgVectorValue() -> CGVector
   func cgSizeValue() -> CGSize
   func cgRectValue() -> CGRect
-  func cgAffineTransformValue() -> CGAffineTransform
+  func cgAffineTransform() -> CGAffineTransform
   func uiEdgeInsetsValue() -> UIEdgeInsets
   @available(iOS 5.0, *)
   func uiOffsetValue() -> UIOffset
@@ -3972,7 +3972,7 @@ class UIGestureRecognizer : NSObject {
   var allowedTouchTypes: [NSNumber]
   @available(iOS 9.0, *)
   var allowedPressTypes: [NSNumber]
-  func requireGestureRecognizerToFail(otherGestureRecognizer: UIGestureRecognizer)
+  func requireToFail(otherGestureRecognizer: UIGestureRecognizer)
   func locationIn(view: UIView?) -> CGPoint
   func numberOfTouches() -> Int
   func locationOfTouch(touchIndex: Int, in view: UIView?) -> CGPoint
@@ -4383,7 +4383,7 @@ extension UIColor {
   class func groupTableViewBackground() -> UIColor
 }
 extension UIFont {
-  class func labelFontSize() -> CGFloat
+  class func labelSize() -> CGFloat
   class func buttonFontSize() -> CGFloat
   class func smallSystemFontSize() -> CGFloat
   class func systemFontSize() -> CGFloat
@@ -4937,18 +4937,18 @@ class UIPasteboard : NSObject {
   /*not inherited*/ init?(name pasteboardName: String, create: Bool)
   class func withUniqueName() -> UIPasteboard
   var name: String { get }
-  class func removePasteboardWithName(pasteboardName: String)
+  class func removeWithName(pasteboardName: String)
   var isPersistent: Bool
   var changeCount: Int { get }
   func pasteboardTypes() -> [String]
-  func containsPasteboardTypes(pasteboardTypes: [String]) -> Bool
+  func containsTypes(pasteboardTypes: [String]) -> Bool
   func dataForPasteboardType(pasteboardType: String) -> NSData?
   func valueForPasteboardType(pasteboardType: String) -> AnyObject?
   func setValue(value: AnyObject, forPasteboardType pasteboardType: String)
   func setData(data: NSData, forPasteboardType pasteboardType: String)
   var numberOfItems: Int { get }
   func pasteboardTypesForItemSet(itemSet: NSIndexSet?) -> [AnyObject]?
-  func containsPasteboardTypes(pasteboardTypes: [String], inItemSet itemSet: NSIndexSet?) -> Bool
+  func containsTypes(pasteboardTypes: [String], inItemSet itemSet: NSIndexSet?) -> Bool
   func itemSetWithPasteboardTypes(pasteboardTypes: [AnyObject]) -> NSIndexSet?
   func valuesForPasteboardType(pasteboardType: String, inItemSet itemSet: NSIndexSet?) -> [AnyObject]?
   func dataForPasteboardType(pasteboardType: String, inItemSet itemSet: NSIndexSet?) -> [AnyObject]?
@@ -6426,7 +6426,7 @@ class UISplitViewController : UIViewController {
   @available(iOS 8.0, *)
   var primaryColumnWidth: CGFloat { get }
   @available(iOS 8.0, *)
-  func showViewController(vc: UIViewController, sender: AnyObject?)
+  func show(vc: UIViewController, sender: AnyObject?)
   @available(iOS 8.0, *)
   func showDetailViewController(vc: UIViewController, sender: AnyObject?)
   init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
@@ -8738,7 +8738,7 @@ extension UIView {
   @available(iOS 7.0, *)
   func resizableSnapshotViewFrom(rect: CGRect, afterScreenUpdates afterUpdates: Bool, withCapInsets capInsets: UIEdgeInsets) -> UIView
   @available(iOS 7.0, *)
-  func drawViewHierarchyIn(rect: CGRect, afterScreenUpdates afterUpdates: Bool) -> Bool
+  func drawHierarchyIn(rect: CGRect, afterScreenUpdates afterUpdates: Bool) -> Bool
 }
 enum UIModalTransitionStyle : Int {
   init?(rawValue: Int)
@@ -8851,7 +8851,7 @@ class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEn
   @available(iOS 5.0, *)
   func present(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil)
   @available(iOS 5.0, *)
-  func dismissViewControllerAnimated(flag: Bool, completion: (() -> Void)? = nil)
+  func dismissAnimated(flag: Bool, completion: (() -> Void)? = nil)
   @available(iOS 3.0, *)
   var modalTransitionStyle: UIModalTransitionStyle
   @available(iOS 3.2, *)
@@ -9177,7 +9177,7 @@ class UIPercentDrivenInteractiveTransition : NSObject, UIViewControllerInteracti
   var completionSpeed: CGFloat
   var completionCurve: UIViewAnimationCurve
   func updateInteractiveTransition(percentComplete: CGFloat)
-  func cancelInteractiveTransition()
+  func cancel()
   func finishInteractiveTransition()
   init()
   @available(iOS 7.0, *)

@@ -130,7 +130,7 @@ class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListView
         else {
             document?.updateChangeCount(.ChangeDone)
             
-            document?.saveDocumentWithDelegate(nil, didSave: nil, contextInfo: nil)
+            document?.saveWithDelegate(nil, didSave: nil, contextInfo: nil)
             
             NCWidgetController.widgetController().setHasContent(true, forWidgetWithBundleIdentifier: AppConfiguration.Extensions.widgetBundleIdentifier)
         }

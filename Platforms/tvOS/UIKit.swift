@@ -1716,7 +1716,7 @@ class UIBezierPath : NSObject, NSCopying, NSCoding {
   func addQuadCurveTo(endPoint: CGPoint, controlPoint: CGPoint)
   @available(tvOS 4.0, *)
   func addArcWithCenter(center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
-  func closePath()
+  func close()
   func removeAllPoints()
   func append(bezierPath: UIBezierPath)
   @available(tvOS 6.0, *)
@@ -2224,7 +2224,7 @@ extension UICollectionViewLayout {
   class func layoutAttributesClass() -> AnyClass
   @available(tvOS 7.0, *)
   class func invalidationContextClass() -> AnyClass
-  func prepareLayout()
+  func prepare()
   func layoutAttributesForElementsIn(rect: CGRect) -> [UICollectionViewLayoutAttributes]?
   func layoutAttributesForItemAt(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
   func layoutAttributesForSupplementaryViewOfKind(elementKind: String, at indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
@@ -3107,7 +3107,7 @@ extension NSValue {
   func cgVectorValue() -> CGVector
   func cgSizeValue() -> CGSize
   func cgRectValue() -> CGRect
-  func cgAffineTransformValue() -> CGAffineTransform
+  func cgAffineTransform() -> CGAffineTransform
   func uiEdgeInsetsValue() -> UIEdgeInsets
   @available(tvOS 5.0, *)
   func uiOffsetValue() -> UIOffset
@@ -3156,7 +3156,7 @@ class UIGestureRecognizer : NSObject {
   var allowedTouchTypes: [NSNumber]
   @available(tvOS 9.0, *)
   var allowedPressTypes: [NSNumber]
-  func requireGestureRecognizerToFail(otherGestureRecognizer: UIGestureRecognizer)
+  func requireToFail(otherGestureRecognizer: UIGestureRecognizer)
   func locationIn(view: UIView?) -> CGPoint
   func numberOfTouches() -> Int
   func locationOfTouch(touchIndex: Int, in view: UIView?) -> CGPoint
@@ -4687,7 +4687,7 @@ class UISplitViewController : UIViewController {
   @available(tvOS 8.0, *)
   var primaryColumnWidth: CGFloat { get }
   @available(tvOS 8.0, *)
-  func showViewController(vc: UIViewController, sender: AnyObject?)
+  func show(vc: UIViewController, sender: AnyObject?)
   @available(tvOS 8.0, *)
   func showDetailViewController(vc: UIViewController, sender: AnyObject?)
   init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
@@ -6660,7 +6660,7 @@ extension UIView {
   @available(tvOS 7.0, *)
   func resizableSnapshotViewFrom(rect: CGRect, afterScreenUpdates afterUpdates: Bool, withCapInsets capInsets: UIEdgeInsets) -> UIView
   @available(tvOS 7.0, *)
-  func drawViewHierarchyIn(rect: CGRect, afterScreenUpdates afterUpdates: Bool) -> Bool
+  func drawHierarchyIn(rect: CGRect, afterScreenUpdates afterUpdates: Bool) -> Bool
 }
 enum UIModalTransitionStyle : Int {
   init?(rawValue: Int)
@@ -6764,7 +6764,7 @@ class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEn
   @available(tvOS 5.0, *)
   func present(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil)
   @available(tvOS 5.0, *)
-  func dismissViewControllerAnimated(flag: Bool, completion: (() -> Void)? = nil)
+  func dismissAnimated(flag: Bool, completion: (() -> Void)? = nil)
   @available(tvOS 3.0, *)
   var modalTransitionStyle: UIModalTransitionStyle
   @available(tvOS 3.2, *)
@@ -7052,7 +7052,7 @@ class UIPercentDrivenInteractiveTransition : NSObject, UIViewControllerInteracti
   var completionSpeed: CGFloat
   var completionCurve: UIViewAnimationCurve
   func updateInteractiveTransition(percentComplete: CGFloat)
-  func cancelInteractiveTransition()
+  func cancel()
   func finishInteractiveTransition()
   init()
   @available(tvOS 7.0, *)
