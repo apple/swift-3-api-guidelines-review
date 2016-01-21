@@ -432,7 +432,7 @@ protocol GKMatchDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
   optional func match(match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState)
   @available(OSX 10.8, *)
-  optional func match(match: GKMatch, didFailWith error: NSError?)
+  optional func match(match: GKMatch, didFailWithError error: NSError?)
   @available(OSX 10.10, *)
   optional func match(match: GKMatch, shouldReinviteDisconnectedPlayer player: GKPlayer) -> Bool
   @available(OSX, introduced=10.8, deprecated=10.10, message="use shouldReinviteDisconnectedPlayer:")
@@ -566,7 +566,7 @@ protocol GKMatchmakerViewControllerDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
   func matchmakerViewControllerWasCancelled(viewController: GKMatchmakerViewController)
   @available(OSX 10.8, *)
-  func matchmakerViewController(viewController: GKMatchmakerViewController, didFailWith error: NSError)
+  func matchmakerViewController(viewController: GKMatchmakerViewController, didFailWithError error: NSError)
   @available(OSX 10.8, *)
   optional func matchmakerViewController(viewController: GKMatchmakerViewController, didFind match: GKMatch)
   @available(OSX 10.10, *)
@@ -644,7 +644,7 @@ protocol GKSessionDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
   optional func session(session: GKSession, connectionWithPeerFailed peerID: String, withError error: NSError)
   @available(OSX 10.8, *)
-  optional func session(session: GKSession, didFailWith error: NSError)
+  optional func session(session: GKSession, didFailWithError error: NSError)
 }
 protocol GKVoiceChatClient : NSObjectProtocol {
   func voiceChatService(voiceChatService: GKVoiceChatService, send data: NSData, toParticipantID participantID: String)
@@ -947,7 +947,7 @@ protocol GKTurnBasedMatchmakerViewControllerDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
   func turnBasedMatchmakerViewControllerWasCancelled(viewController: GKTurnBasedMatchmakerViewController)
   @available(OSX 10.8, *)
-  func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController, didFailWith error: NSError)
+  func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController, didFailWithError error: NSError)
   @available(OSX, introduced=10.8, deprecated=10.11, message="use GKTurnBasedEventListener player:receivedTurnEventForMatch:didBecomeActive:")
   optional func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController, didFind match: GKTurnBasedMatch)
   @available(OSX, introduced=10.8, deprecated=10.11, message="use GKTurnBasedEventListener player:wantsToQuitMatch:")

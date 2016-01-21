@@ -2488,5 +2488,5 @@ protocol HKWorkoutSessionDelegate : NSObjectProtocol {
    @discussion    When the state of the workout session changes due to an error occurring, this method is always called
                   before workoutSession:didChangeToState:fromState:date:.
    */
-  func workoutSession(workoutSession: HKWorkoutSession, didFailWith error: NSError)
+  func workoutSession(workoutSession: HKWorkoutSession, didFailWithError error: NSError)
 }

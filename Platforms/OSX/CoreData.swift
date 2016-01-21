@@ -752,7 +752,7 @@ class NSMigrationManager : NSObject {
   var currentEntityMapping: NSEntityMapping { get }
   var migrationProgress: Float { get }
   var userInfo: [NSObject : AnyObject]?
-  func cancelMigrationWith(error: NSError)
+  func cancelMigrationWithError(error: NSError)
   init()
 }
 struct _migrationManagerFlags {

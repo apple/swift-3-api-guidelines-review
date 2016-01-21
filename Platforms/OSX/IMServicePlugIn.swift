@@ -786,7 +786,7 @@ protocol IMServiceApplication : NSObjectProtocol {
                              IMAccountSettingServerHost associated with the account becomes reachable.
                              reconnect should only be set to YES when a network error causes a log out.
   */
-  func plugInDidLogOutWith(error: NSError!, reconnect: Bool)
+  func plugInDidLogOutWithError(error: NSError!, reconnect: Bool)
 
   /*!
        @method     plugInDidFailToAuthenticate

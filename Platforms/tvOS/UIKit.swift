@@ -1326,7 +1326,7 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(tvOS 3.0, *)
   optional func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
   @available(tvOS 3.0, *)
-  optional func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWith error: NSError)
+  optional func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError)
   @available(tvOS 3.0, *)
   optional func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
   @available(tvOS 7.0, *)

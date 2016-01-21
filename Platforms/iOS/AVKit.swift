@@ -124,7 +124,7 @@ protocol AVPictureInPictureControllerDelegate : NSObjectProtocol {
   	@abstract	Delegate can implement this method to be notified when Picture in Picture failed to start.
    */
   @available(iOS 9.0, *)
-  optional func pictureInPictureController(pictureInPictureController: AVPictureInPictureController, failedToStartPictureInPictureWith error: NSError)
+  optional func pictureInPictureController(pictureInPictureController: AVPictureInPictureController, failedToStartPictureInPictureWithError error: NSError)
 
   /*!
   	@method		pictureInPictureControllerWillStopPictureInPicture:
@@ -248,7 +248,7 @@ protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   	@abstract	Delegate can implement this method to be notified when Picture in Picture failed to start.
    */
   @available(iOS 8.0, *)
-  optional func playerViewController(playerViewController: AVPlayerViewController, failedToStartPictureInPictureWith error: NSError)
+  optional func playerViewController(playerViewController: AVPlayerViewController, failedToStartPictureInPictureWithError error: NSError)
 
   /*!
   	@method		playerViewControllerWillStopPictureInPicture:

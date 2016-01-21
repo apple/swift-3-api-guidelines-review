@@ -6387,7 +6387,7 @@ protocol SCNProgramDelegate : NSObjectProtocol {
    @param error The compilation error.
    */
   @available(OSX 10.8, *)
-  optional func program(program: SCNProgram, handle error: NSError)
+  optional func program(program: SCNProgram, handleError error: NSError)
 
   /*!
    @method programIsOpaque

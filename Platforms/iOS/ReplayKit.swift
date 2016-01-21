@@ -62,7 +62,7 @@ protocol RPScreenRecorderDelegate : NSObjectProtocol {
    @param error An NSError describing why recording has stopped in the RPRecordingErrorDomain.
    @param previewController If a partial movie is available before it was stopped, an instance of RPPreviewViewController will be returned.
    */
-  optional func screenRecorder(screenRecorder: RPScreenRecorder, didStopRecordingWith error: NSError, previewViewController: RPPreviewViewController?)
+  optional func screenRecorder(screenRecorder: RPScreenRecorder, didStopRecordingWithError error: NSError, previewViewController: RPPreviewViewController?)
 
   /*! @abstract Called when the recorder becomes available or stops being available. Check the screen recorder's availability property to check the current availability state. Possible reasons for the recorder to be unavailable include an in-progress Airplay/TVOut session or unsupported hardware.
    @param screenRecorder The instance of the screen recorder.

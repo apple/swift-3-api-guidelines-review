@@ -58,11 +58,11 @@ struct AppLaunchContext {
             let fileURLForPath = NSURL(fileURLWithPath: listInfoFilePath, isDirectory: false)
             
             // Test for the existence of the file at the URL. If it exists proceed.
-            if !fileURLForPath.checkPromisedItemIsReachableAndReturn(nil) && !fileURLForPath.checkResourceIsReachableAndReturn(nil) {
+            if !fileURLForPath.checkPromisedItemIsReachableAndReturnError(nil) && !fileURLForPath.checkResourceIsReachableAndReturnError(nil) {
                 // If the file does not exist at the URL created from the path construct one based on the filename.
                 let derivedURL = listsController.documentsDirectory.appendingPathComponent(fileURLForPath.lastPathComponent!, isDirectory: false)
                 
-                if !derivedURL.checkPromisedItemIsReachableAndReturn(nil) && !derivedURL.checkResourceIsReachableAndReturn(nil) {
+                if !derivedURL.checkPromisedItemIsReachableAndReturnError(nil) && !derivedURL.checkResourceIsReachableAndReturnError(nil) {
                     possibleURL = nil
                 }
                 else {

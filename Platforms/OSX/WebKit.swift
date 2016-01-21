@@ -3937,7 +3937,7 @@ protocol WebFrameLoadDelegate : NSObjectProtocol {
       @discussion This method is called after the provisional data source has failed to load.
       The frame will continue to display the contents of the committed data source if there is one.
   */
-  optional func webView(sender: WebView!, didFailProvisionalLoadWith error: NSError!, forFrame frame: WebFrame!)
+  optional func webView(sender: WebView!, didFailProvisionalLoadWithError error: NSError!, forFrame frame: WebFrame!)
 
   /*!
       @method webView:didCommitLoadForFrame:
@@ -3992,7 +3992,7 @@ protocol WebFrameLoadDelegate : NSObjectProtocol {
       @param frame The frame that failed to load
       @discussion This method is called after a data source has committed but failed to completely load.
   */
-  optional func webView(sender: WebView!, didFailLoadWith error: NSError!, forFrame frame: WebFrame!)
+  optional func webView(sender: WebView!, didFailLoadWithError error: NSError!, forFrame frame: WebFrame!)
 
   /*!
       @method webView:didChangeLocationWithinPageForFrame:
@@ -4448,7 +4448,7 @@ extension NSObject {
       WebPlugInShouldLoadMainResourceKey argument passed to the plug-in was NO.
   */
   @available(OSX 10.6, *)
-  class func webPlugInMainResourceDidFailWith(error: NSError!)
+  class func webPlugInMainResourceDidFailWithError(error: NSError!)
 
   /*!
       @method webPlugInMainResourceDidFailWithError:
@@ -4458,7 +4458,7 @@ extension NSObject {
       WebPlugInShouldLoadMainResourceKey argument passed to the plug-in was NO.
   */
   @available(OSX 10.6, *)
-  func webPlugInMainResourceDidFailWith(error: NSError!)
+  func webPlugInMainResourceDidFailWithError(error: NSError!)
 
   /*!
       @method webPlugInMainResourceDidFinishLoading
@@ -4747,7 +4747,7 @@ protocol WebPolicyDelegate : NSObjectProtocol {
       @param URL The URL of the resource for which a particular action was requested but failed.
       @param frame The frame in which the policy could not be implemented.
   */
-  optional func webView(webView: WebView!, unableToImplementPolicyWith error: NSError!, frame: WebFrame!)
+  optional func webView(webView: WebView!, unableToImplementPolicyWithError error: NSError!, frame: WebFrame!)
 }
 
 /*!
@@ -5150,7 +5150,7 @@ protocol WebResourceLoadDelegate : NSObjectProtocol {
       @param error The error associated with this load.
       @param dataSource The dataSource that initiated the load.
   */
-  optional func webView(sender: WebView!, resource identifier: AnyObject!, didFailLoadingWith error: NSError!, from dataSource: WebDataSource!)
+  optional func webView(sender: WebView!, resource identifier: AnyObject!, didFailLoadingWithError error: NSError!, from dataSource: WebDataSource!)
 
   /*!
       @method webView:plugInFailedWithError:dataSource:
@@ -5164,7 +5164,7 @@ protocol WebResourceLoadDelegate : NSObjectProtocol {
       when none are present.
       @param dataSource The dataSource that contains the plug-in.
   */
-  optional func webView(sender: WebView!, plugInFailedWith error: NSError!, dataSource: WebDataSource!)
+  optional func webView(sender: WebView!, plugInFailedWithError error: NSError!, dataSource: WebDataSource!)
 }
 extension NSObject {
 

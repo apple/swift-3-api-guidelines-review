@@ -114,7 +114,7 @@ protocol SKPaymentTransactionObserver : NSObjectProtocol {
   @available(tvOS 3.0, *)
   optional func paymentQueue(queue: SKPaymentQueue, removedTransactions transactions: [SKPaymentTransaction])
   @available(tvOS 3.0, *)
-  optional func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWith error: NSError)
+  optional func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: NSError)
   @available(tvOS 3.0, *)
   optional func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue)
   @available(tvOS 6.0, *)
@@ -219,7 +219,7 @@ protocol SKRequestDelegate : NSObjectProtocol {
   @available(tvOS 3.0, *)
   optional func requestDidFinish(request: SKRequest)
   @available(tvOS 3.0, *)
-  optional func request(request: SKRequest, didFailWith error: NSError)
+  optional func request(request: SKRequest, didFailWithError error: NSError)
 }
 protocol SKStoreProductViewControllerDelegate : NSObjectProtocol {
 }

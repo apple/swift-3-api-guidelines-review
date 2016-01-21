@@ -153,7 +153,7 @@ protocol ICCameraDeviceDelegate : ICDeviceDelegate {
     @abstract This message is sent after the camera device completes a delete operation initiated by sending a 'requestDeleteFiles:' message to that device.
     @discusson This message is sent after the camera device completes a delete operation initiated by sending a 'requestDeleteFiles:' message to that device.
   */
-  optional func cameraDevice(scanner: ICCameraDevice, didCompleteDeleteFilesWith error: NSError?)
+  optional func cameraDevice(scanner: ICCameraDevice, didCompleteDeleteFilesWithError error: NSError?)
 
   /*! 
     @method cameraDeviceDidChangeCapability:
@@ -892,7 +892,7 @@ protocol ICDeviceDelegate : NSObjectProtocol {
     @abstract This message is sent when a session is opened on a device.
     @discussion This message completes the process initiated by the message "requestOpenSession" sent to the device object.
   */
-  optional func device(device: ICDevice, didOpenSessionWith error: NSError?)
+  optional func device(device: ICDevice, didOpenSessionWithError error: NSError?)
 
   /*! 
     @method deviceDidBecomeReady:
@@ -906,7 +906,7 @@ protocol ICDeviceDelegate : NSObjectProtocol {
     @abstract This message is sent when a session is closed on a device.
     @discussion This message completes the process initiated by the message "requestCloseSession" sent to the device object. This message is also sent if the device module in control of the device ceases to control the device.
   */
-  optional func device(device: ICDevice, didCloseSessionWith error: NSError?)
+  optional func device(device: ICDevice, didCloseSessionWithError error: NSError?)
 
   /*! 
     @method deviceDidChangeName:
@@ -1435,14 +1435,14 @@ protocol ICScannerDeviceDelegate : ICDeviceDelegate {
     @abstract This message is sent after the scanner device completes an overview scan.
     @discusson This message is sent after the scanner device completes an overview scan.
   */
-  optional func scannerDevice(scanner: ICScannerDevice, didCompleteOverviewScanWith error: NSError?)
+  optional func scannerDevice(scanner: ICScannerDevice, didCompleteOverviewScanWithError error: NSError?)
 
   /*! 
     @method scannerDevice:didCompleteScanWithError:
     @abstract This message is sent after the scanner device completes a scan.
     @discusson This message is sent after the scanner device completes a scan.
   */
-  optional func scannerDevice(scanner: ICScannerDevice, didCompleteScanWith error: NSError?)
+  optional func scannerDevice(scanner: ICScannerDevice, didCompleteScanWithError error: NSError?)
 }
 
 /*! 

@@ -2694,11 +2694,11 @@ protocol NSApplicationDelegate : NSObjectProtocol {
   optional func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool
   optional func applicationShouldHandleReopen(sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool
   optional func applicationDockMenu(sender: NSApplication) -> NSMenu?
-  optional func application(application: NSApplication, willPresent error: NSError) -> NSError
+  optional func application(application: NSApplication, willPresentError error: NSError) -> NSError
   @available(OSX 10.7, *)
   optional func application(application: NSApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
   @available(OSX 10.7, *)
-  optional func application(application: NSApplication, didFailToRegisterForRemoteNotificationsWith error: NSError)
+  optional func application(application: NSApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError)
   @available(OSX 10.7, *)
   optional func application(application: NSApplication, didReceiveRemoteNotification userInfo: [String : AnyObject])
   @available(OSX 10.7, *)
@@ -6177,11 +6177,11 @@ class NSDocument : NSObject, NSFilePresenter, NSUserInterfaceValidations {
   func updateChangeCountWithToken(changeCountToken: AnyObject, forSaveOperation saveOperation: NSSaveOperationType)
   var undoManager: NSUndoManager?
   var hasUndoManager: Bool
-  func present(error: NSError, modalFor window: NSWindow, delegate: AnyObject?, didPresent didPresentSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func present(error: NSError) -> Bool
-  func willPresent(error: NSError) -> NSError
+  func presentError(error: NSError, modalFor window: NSWindow, delegate: AnyObject?, didPresent didPresentSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func presentError(error: NSError) -> Bool
+  func willPresentError(error: NSError) -> NSError
   @available(OSX 10.7, *)
-  func willNotPresent(error: NSError)
+  func willNotPresentError(error: NSError)
   func makeWindowControllers()
   var windowNibName: String? { get }
   func windowControllerWillLoadNib(windowController: NSWindowController)
@@ -6283,9 +6283,9 @@ class NSDocumentController : NSObject, NSCoding, NSUserInterfaceValidations {
   func closeAllDocumentsWithDelegate(delegate: AnyObject?, didCloseAllSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
   func duplicateDocumentWithContentsOf(url: NSURL, copying duplicateByCopying: Bool, displayName displayNameOrNil: String?) throws -> NSDocument
-  func present(error: NSError, modalFor window: NSWindow, delegate: AnyObject?, didPresent didPresentSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func present(error: NSError) -> Bool
-  func willPresent(error: NSError) -> NSError
+  func presentError(error: NSError, modalFor window: NSWindow, delegate: AnyObject?, didPresent didPresentSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func presentError(error: NSError) -> Bool
+  func willPresentError(error: NSError) -> NSError
   var maximumRecentDocumentCount: Int { get }
   @IBAction func clearRecentDocuments(sender: AnyObject?)
   func noteNewRecentDocument(document: NSDocument)
@@ -12230,9 +12230,9 @@ extension NSResponder {
   func validateProposedFirstResponder(responder: NSResponder, forEvent event: NSEvent?) -> Bool
 }
 extension NSResponder {
-  func present(error: NSError, modalFor window: NSWindow, delegate: AnyObject?, didPresent didPresentSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func present(error: NSError) -> Bool
-  func willPresent(error: NSError) -> NSError
+  func presentError(error: NSError, modalFor window: NSWindow, delegate: AnyObject?, didPresent didPresentSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func presentError(error: NSError) -> Bool
+  func willPresentError(error: NSError) -> NSError
 }
 extension NSResponder {
   @available(OSX 10.7, *)

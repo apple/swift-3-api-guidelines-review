@@ -207,7 +207,7 @@ protocol CLLocationManagerDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
   optional func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion)
   @available(OSX 10.6, *)
-  optional func locationManager(manager: CLLocationManager, didFailWith error: NSError)
+  optional func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
   @available(OSX 10.8, *)
   optional func locationManager(manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: NSError)
   @available(OSX 10.7, *)
@@ -215,7 +215,7 @@ protocol CLLocationManagerDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
   optional func locationManager(manager: CLLocationManager, didStartMonitoringFor region: CLRegion)
   @available(OSX 10.9, *)
-  optional func locationManager(manager: CLLocationManager, didFinishDeferredUpdatesWith error: NSError?)
+  optional func locationManager(manager: CLLocationManager, didFinishDeferredUpdatesWithError error: NSError?)
 }
 @available(OSX 10.8, *)
 class CLPlacemark : NSObject, NSCopying, NSSecureCoding {

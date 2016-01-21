@@ -213,7 +213,7 @@ protocol ADBannerViewDelegate : NSObjectProtocol {
    * @see ADError for a list of possible error codes.
    */
   @available(iOS 4.0, *)
-  optional func bannerView(banner: ADBannerView!, didFailToReceiveAdWith error: NSError!)
+  optional func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!)
 
   /*!
    * @method bannerViewActionShouldBegin:willLeaveApplication:
@@ -483,7 +483,7 @@ protocol ADInterstitialAdDelegate : NSObjectProtocol {
    * @see ADError for a list of possible error codes.
    */
   @available(iOS 4.3, *)
-  func interstitialAd(interstitialAd: ADInterstitialAd!, didFailWith error: NSError!)
+  func interstitialAd(interstitialAd: ADInterstitialAd!, didFailWithError error: NSError!)
 
   /*!
    * @method interstitialAdWillLoad:

@@ -88,7 +88,7 @@ extension BaseScene: RPPreviewViewControllerDelegate, RPScreenRecorderDelegate {
     
     // MARK: RPScreenRecorderDelegate
     
-    func screenRecorder(screenRecorder: RPScreenRecorder, didStopRecordingWith error: NSError, previewViewController: RPPreviewViewController?) {
+    func screenRecorder(screenRecorder: RPScreenRecorder, didStopRecordingWithError error: NSError, previewViewController: RPPreviewViewController?) {
         // Display the error the user to alert them that the recording failed.
         showScreenRecordingAlert(error.localizedDescription)
         

@@ -486,7 +486,7 @@ protocol MKMapViewDelegate : NSObjectProtocol {
   @available(OSX 10.9, *)
   optional func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
   @available(OSX 10.9, *)
-  optional func mapView(mapView: MKMapView, didFailToLocateUserWith error: NSError)
+  optional func mapView(mapView: MKMapView, didFailToLocateUserWithError error: NSError)
   @available(OSX 10.9, *)
   optional func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState)
   @available(OSX 10.9, *)

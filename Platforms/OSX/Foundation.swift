@@ -1199,7 +1199,7 @@ extension NSCoder {
   @available(OSX 10.8, *)
   var allowedClasses: Set<NSObject>? { get }
   @available(OSX 10.11, *)
-  func failWith(error: NSError)
+  func failWithError(error: NSError)
 }
 extension NSCoder {
 }
@@ -2018,10 +2018,10 @@ extension NSError : ErrorType {
   var _code: Int { get }
 }
 extension NSObject {
-  class func attemptRecoveryFrom(error: NSError, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func attemptRecoveryFrom(error: NSError, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  class func attemptRecoveryFrom(error: NSError, optionIndex recoveryOptionIndex: Int) -> Bool
-  func attemptRecoveryFrom(error: NSError, optionIndex recoveryOptionIndex: Int) -> Bool
+  class func attemptRecoveryFromError(error: NSError, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func attemptRecoveryFromError(error: NSError, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  class func attemptRecoveryFromError(error: NSError, optionIndex recoveryOptionIndex: Int) -> Bool
+  func attemptRecoveryFromError(error: NSError, optionIndex recoveryOptionIndex: Int) -> Bool
 }
 
 /***************	Generic Exception names		***************/
@@ -2167,7 +2167,7 @@ struct _expressionFlags {
 class NSExtensionContext : NSObject {
   var inputItems: [AnyObject] { get }
   func completeRequestReturningItems(items: [AnyObject]?, completionHandler: ((Bool) -> Void)? = nil)
-  func cancelRequestWith(error: NSError)
+  func cancelRequestWithError(error: NSError)
   func open(URL: NSURL, completionHandler: ((Bool) -> Void)? = nil)
   init()
 }
@@ -2451,27 +2451,27 @@ protocol NSFileManagerDelegate : NSObjectProtocol {
   optional func fileManager(fileManager: NSFileManager, shouldCopyItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(OSX 10.6, *)
   optional func fileManager(fileManager: NSFileManager, shouldCopyItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfter error: NSError, copyingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, copyingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(OSX 10.6, *)
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfter error: NSError, copyingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, copyingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
   optional func fileManager(fileManager: NSFileManager, shouldMoveItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(OSX 10.6, *)
   optional func fileManager(fileManager: NSFileManager, shouldMoveItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfter error: NSError, movingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, movingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(OSX 10.6, *)
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfter error: NSError, movingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, movingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
   optional func fileManager(fileManager: NSFileManager, shouldLinkItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(OSX 10.6, *)
   optional func fileManager(fileManager: NSFileManager, shouldLinkItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfter error: NSError, linkingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, linkingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(OSX 10.6, *)
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfter error: NSError, linkingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, linkingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
   optional func fileManager(fileManager: NSFileManager, shouldRemoveItemAtPath path: String) -> Bool
   @available(OSX 10.6, *)
   optional func fileManager(fileManager: NSFileManager, shouldRemoveItemAt URL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfter error: NSError, removingItemAtPath path: String) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, removingItemAtPath path: String) -> Bool
   @available(OSX 10.6, *)
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfter error: NSError, removingItemAt URL: NSURL) -> Bool
+  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, removingItemAt URL: NSURL) -> Bool
 }
 class NSDirectoryEnumerator : NSEnumerator {
   var fileAttributes: [String : AnyObject]? { get }
@@ -7588,7 +7588,7 @@ class NSURL : NSObject, NSSecureCoding, NSCopying, NSURLHandleClient {
   var isFileURL: Bool { get }
   @NSCopying var standardized: NSURL? { get }
   @available(OSX 10.6, *)
-  func checkResourceIsReachableAndReturn(error: NSErrorPointer) -> Bool
+  func checkResourceIsReachableAndReturnError(error: NSErrorPointer) -> Bool
   @available(OSX 10.6, *)
   func isFileReferenceURL() -> Bool
   @available(OSX 10.6, *)
@@ -7877,7 +7877,7 @@ extension NSURL {
   @available(OSX 10.10, *)
   func promisedItemResourceValuesForKeys(keys: [String]) throws -> [String : AnyObject]
   @available(OSX 10.10, *)
-  func checkPromisedItemIsReachableAndReturn(error: NSErrorPointer) -> Bool
+  func checkPromisedItemIsReachableAndReturnError(error: NSErrorPointer) -> Bool
 }
 @available(OSX 10.10, *)
 class NSURLQueryItem : NSObject, NSSecureCoding, NSCopying {
@@ -8541,7 +8541,7 @@ class NSURLConnection : NSObject {
                     with the authentication challenge.
 */
 protocol NSURLConnectionDelegate : NSObjectProtocol {
-  optional func connection(connection: NSURLConnection, didFailWith error: NSError)
+  optional func connection(connection: NSURLConnection, didFailWithError error: NSError)
   optional func connectionShouldUseCredentialStorage(connection: NSURLConnection) -> Bool
   optional func connection(connection: NSURLConnection, willSendRequestFor challenge: NSURLAuthenticationChallenge)
   @available(OSX, introduced=10.6, deprecated=10.10, message="Use -connection:willSendRequestForAuthenticationChallenge: instead.")
@@ -9274,7 +9274,7 @@ protocol NSURLDownloadDelegate : NSObjectProtocol {
       @discussion This method is called when the download encounters a network or file I/O related error.
       This method or downloadDidFinish: will only be called once.
   */
-  optional func download(download: NSURLDownload, didFailWith error: NSError)
+  optional func download(download: NSURLDownload, didFailWithError error: NSError)
 }
 let NSURLErrorDomain: String
 
@@ -9676,7 +9676,7 @@ protocol NSURLProtocolClient : NSObjectProtocol {
    @param URLProtocol the NSURLProtocol object sending the message.
    @param error The error that caused the load to fail.
    */
-  func urlProtocol(protocol: NSURLProtocol, didFailWith error: NSError)
+  func urlProtocol(protocol: NSURLProtocol, didFailWithError error: NSError)
 
   /*!
   @method URLProtocol:didReceiveAuthenticationChallenge:

@@ -1681,7 +1681,7 @@ class AVAssetResourceLoadingRequest : NSObject {
    @param			error
    				An instance of NSError indicating the reason for failure.
   */
-  func finishLoadingWith(error: NSError?)
+  func finishLoadingWithError(error: NSError?)
 }
 
 /*!
@@ -14098,7 +14098,7 @@ class AVMetadataItemValueRequest : NSObject {
   	@param			error
   					An instance of NSError that describes a failure encountered while loading the value of an AVMetadataItem.
   */
-  func respondWith(error: NSError)
+  func respondWithError(error: NSError)
   init()
 }
 @available(OSX 10.9, *)
@@ -18188,7 +18188,7 @@ class AVAsynchronousVideoCompositionRequest : NSObject, NSCopying {
   */
   func sourceFrameByTrackID(trackID: CMPersistentTrackID) -> CVPixelBuffer?
   func finishWithComposedVideoFrame(composedVideoFrame: CVPixelBuffer)
-  func finishWith(error: NSError)
+  func finishWithError(error: NSError)
   func finishCancelledRequest()
   init()
   @available(OSX 10.9, *)
@@ -18200,7 +18200,7 @@ class AVAsynchronousCIImageFilteringRequest : NSObject, NSCopying {
   var compositionTime: CMTime { get }
   var sourceImage: CIImage { get }
   func finishWith(filteredImage: CIImage, context: CIContext?)
-  func finishWith(error: NSError)
+  func finishWithError(error: NSError)
   init()
   @available(OSX 10.11, *)
   func copy(zone zone: NSZone = nil) -> AnyObject

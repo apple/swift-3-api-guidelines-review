@@ -324,7 +324,7 @@ protocol GKMatchDelegate : NSObjectProtocol {
   @available(tvOS 4.1, *)
   optional func match(match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState)
   @available(tvOS 4.1, *)
-  optional func match(match: GKMatch, didFailWith error: NSError?)
+  optional func match(match: GKMatch, didFailWithError error: NSError?)
   @available(tvOS 8.0, *)
   optional func match(match: GKMatch, shouldReinviteDisconnectedPlayer player: GKPlayer) -> Bool
 }
@@ -435,7 +435,7 @@ protocol GKMatchmakerViewControllerDelegate : NSObjectProtocol {
   @available(tvOS 4.1, *)
   func matchmakerViewControllerWasCancelled(viewController: GKMatchmakerViewController)
   @available(tvOS 4.1, *)
-  func matchmakerViewController(viewController: GKMatchmakerViewController, didFailWith error: NSError)
+  func matchmakerViewController(viewController: GKMatchmakerViewController, didFailWithError error: NSError)
   @available(tvOS 4.1, *)
   optional func matchmakerViewController(viewController: GKMatchmakerViewController, didFind match: GKMatch)
   @available(tvOS 8.0, *)
@@ -479,7 +479,7 @@ protocol GKSessionDelegate : NSObjectProtocol {
   optional func session(session: GKSession, peer peerID: String, didChange state: GKPeerConnectionState)
   optional func session(session: GKSession, didReceiveConnectionRequestFromPeer peerID: String)
   optional func session(session: GKSession, connectionWithPeerFailed peerID: String, withError error: NSError)
-  optional func session(session: GKSession, didFailWith error: NSError)
+  optional func session(session: GKSession, didFailWithError error: NSError)
 }
 protocol GKVoiceChatClient : NSObjectProtocol {
   func voiceChatService(voiceChatService: GKVoiceChatService, send data: NSData, toParticipantID participantID: String)
@@ -700,7 +700,7 @@ protocol GKTurnBasedMatchmakerViewControllerDelegate : NSObjectProtocol {
   @available(tvOS 5.0, *)
   func turnBasedMatchmakerViewControllerWasCancelled(viewController: GKTurnBasedMatchmakerViewController)
   @available(tvOS 5.0, *)
-  func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController, didFailWith error: NSError)
+  func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController, didFailWithError error: NSError)
 }
 enum GKVoiceChatPlayerState : Int {
   init?(rawValue: Int)

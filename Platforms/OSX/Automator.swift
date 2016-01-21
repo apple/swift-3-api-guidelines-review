@@ -29,7 +29,7 @@ class AMAction : NSObject {
   @available(OSX 10.5, *)
   func willFinishRunning()
   @available(OSX 10.7, *)
-  func finishRunningWith(error: NSError?)
+  func finishRunningWithError(error: NSError?)
   @available(OSX 10.5, *)
   var output: AnyObject?
   func stop()

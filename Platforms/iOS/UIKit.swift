@@ -1680,7 +1680,7 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(iOS 3.0, *)
   optional func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
   @available(iOS 3.0, *)
-  optional func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWith error: NSError)
+  optional func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError)
   @available(iOS 3.0, *)
   optional func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
   @available(iOS 4.0, *)
@@ -3142,9 +3142,9 @@ class UIDocument : NSObject, NSFilePresenter, NSProgressReporting {
   func fileAttributesToWriteTo(url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation) throws -> [NSObject : AnyObject]
   func readFrom(url: NSURL) throws
   func performAsynchronousFileAccessUsing(block: () -> Void)
-  func handle(error: NSError, userInteractionPermitted: Bool)
-  func finishedHandling(error: NSError, recovered: Bool)
-  func userInteractionNoLongerPermittedFor(error: NSError)
+  func handleError(error: NSError, userInteractionPermitted: Bool)
+  func finishedHandlingError(error: NSError, recovered: Bool)
+  func userInteractionNoLongerPermittedForError(error: NSError)
   func revertToContentsOf(url: NSURL, completionHandler: ((Bool) -> Void)? = nil)
   convenience init()
   @available(iOS 5.0, *)
@@ -8235,7 +8235,7 @@ protocol UIVideoEditorControllerDelegate : NSObjectProtocol {
   @available(iOS 3.1, *)
   optional func videoEditorController(editor: UIVideoEditorController, didSaveEditedVideoToPath editedVideoPath: String)
   @available(iOS 3.1, *)
-  optional func videoEditorController(editor: UIVideoEditorController, didFailWith error: NSError)
+  optional func videoEditorController(editor: UIVideoEditorController, didFailWithError error: NSError)
   @available(iOS 3.1, *)
   optional func videoEditorControllerDidCancel(editor: UIVideoEditorController)
 }
@@ -9332,7 +9332,7 @@ protocol UIWebViewDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
   optional func webViewDidFinishLoad(webView: UIWebView)
   @available(iOS 2.0, *)
-  optional func webView(webView: UIWebView, didFailLoadWith error: NSError?)
+  optional func webView(webView: UIWebView, didFailLoadWithError error: NSError?)
 }
 typealias UIWindowLevel = CGFloat
 @available(iOS 2.0, *)

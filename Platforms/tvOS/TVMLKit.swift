@@ -48,7 +48,7 @@ protocol TVApplicationControllerDelegate : NSObjectProtocol {
    @brief Tells the delegate that the application failed to load.
    */
   @available(tvOS 9.0, *)
-  optional func appController(appController: TVApplicationController, didFailWith error: NSError)
+  optional func appController(appController: TVApplicationController, didFailWithError error: NSError)
 
   /*!
    @brief Tells the delegate that the application did stop.

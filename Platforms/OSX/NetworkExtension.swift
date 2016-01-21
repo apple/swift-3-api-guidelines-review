@@ -64,7 +64,7 @@ class NEAppProxyFlow : NSObject {
    * @param error An error in NEAppProxyErrorDomain that should be passed to the flow's source application.
    */
   @available(OSX 10.11, *)
-  func closeReadWith(error: NSError?)
+  func closeReadWithError(error: NSError?)
 
   /*!
    * @method closeWriteWithError:
@@ -72,7 +72,7 @@ class NEAppProxyFlow : NSObject {
    * @param error An error in NEAppProxyErrorDomain that should be passed to the flow's source application.
    */
   @available(OSX 10.11, *)
-  func closeWriteWith(error: NSError?)
+  func closeWriteWithError(error: NSError?)
 
   /*!
    * @property metaData
@@ -139,7 +139,7 @@ class NEAppProxyProvider : NETunnelProvider {
    * @param error An NSError object containing details about the error that the prxoy provider implementation encountered.
    */
   @available(OSX 10.11, *)
-  func cancelProxyWith(error: NSError?)
+  func cancelProxyWithError(error: NSError?)
 
   /*!
    * @method handleNewFlow:
@@ -1109,7 +1109,7 @@ class NEPacketTunnelProvider : NETunnelProvider {
    * @param error An NSError object containing details about the error that the tunnel provider implementation encountered.
    */
   @available(OSX 10.11, *)
-  func cancelTunnelWith(error: NSError?)
+  func cancelTunnelWithError(error: NSError?)
 
   /*!
    * @property packetFlow

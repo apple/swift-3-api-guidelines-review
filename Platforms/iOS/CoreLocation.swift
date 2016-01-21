@@ -294,7 +294,7 @@ protocol CLLocationManagerDelegate : NSObjectProtocol {
   @available(iOS 4.0, *)
   optional func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion)
   @available(iOS 2.0, *)
-  optional func locationManager(manager: CLLocationManager, didFailWith error: NSError)
+  optional func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
   @available(iOS 4.0, *)
   optional func locationManager(manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: NSError)
   @available(iOS 4.2, *)
@@ -306,7 +306,7 @@ protocol CLLocationManagerDelegate : NSObjectProtocol {
   @available(iOS 6.0, *)
   optional func locationManagerDidResumeLocationUpdates(manager: CLLocationManager)
   @available(iOS 6.0, *)
-  optional func locationManager(manager: CLLocationManager, didFinishDeferredUpdatesWith error: NSError?)
+  optional func locationManager(manager: CLLocationManager, didFinishDeferredUpdatesWithError error: NSError?)
   @available(iOS 8.0, *)
   optional func locationManager(manager: CLLocationManager, didVisit visit: CLVisit)
 }

@@ -5990,7 +5990,7 @@ protocol SCNProgramDelegate : NSObjectProtocol {
    @param error The compilation error.
    */
   @available(tvOS 8.0, *)
-  optional func program(program: SCNProgram, handle error: NSError)
+  optional func program(program: SCNProgram, handleError error: NSError)
 }
 
 /*!
