@@ -24,7 +24,7 @@ public class ListDocument: UIDocument {
 
     // MARK: Initializers
     
-    public init(fileURL URL: NSURL, listPresenter: ListPresenterType? = nil) {
+    public init(fileURL URL: URL, listPresenter: ListPresenterType? = nil) {
         self.listPresenter = listPresenter
 
         super.init(fileURL: URL)
@@ -33,7 +33,7 @@ public class ListDocument: UIDocument {
     // MARK: Serialization / Deserialization
 
     override public func loadFromContents(contents: AnyObject, ofType typeName: String?) throws {
-        if let unarchivedList = NSKeyedUnarchiver.unarchiveObjectWith(contents as! NSData) as? List {
+        if let unarchivedList = KeyedUnarchiver.unarchiveObjectWith(contents as! Data) as? List {
             /*
                 This method is called on the queue that the `openWithCompletionHandler(_:)` method was called
                 on (typically, the main queue). List presenter operations are main queue only, so explicitly
@@ -48,32 +48,32 @@ public class ListDocument: UIDocument {
             return
         }
         
-        throw NSError(domain: NSCocoaErrorDomain, code: NSFileReadCorruptFileError, userInfo: [
-            NSLocalizedDescriptionKey: NSLocalizedString("Could not read file", comment: "Read error description"),
-            NSLocalizedFailureReasonErrorKey: NSLocalizedString("File was in an invalid format", comment: "Read failure reason")
+        throw Error(domain: cocoaErrorDomain, code: fileReadCorruptFileError, userInfo: [
+            localizedDescriptionKey: NSLocalizedString("Could not read file", comment: "Read error description"),
+            localizedFailureReasonErrorKey: NSLocalizedString("File was in an invalid format", comment: "Read failure reason")
         ])
     }
 
     override public func contentsForType(typeName: String) throws -> AnyObject {
         if let archiveableList = listPresenter?.archiveableList {
-            return NSKeyedArchiver.archivedDataWithRootObject(archiveableList)
+            return KeyedArchiver.archivedDataWithRootObject(archiveableList)
         }
 
-        throw NSError(domain: "ListDocumentDomain", code: -1, userInfo: [
-            NSLocalizedDescriptionKey: NSLocalizedString("Could not archive list", comment: "Archive error description"),
-            NSLocalizedFailureReasonErrorKey: NSLocalizedString("No list presenter was available for the document", comment: "Archive failure reason")
+        throw Error(domain: "ListDocumentDomain", code: -1, userInfo: [
+            localizedDescriptionKey: NSLocalizedString("Could not archive list", comment: "Archive error description"),
+            localizedFailureReasonErrorKey: NSLocalizedString("No list presenter was available for the document", comment: "Archive failure reason")
         ])
     }
     
     // MARK: Saving
     
-    override public func saveTo(url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation, completionHandler: ((Bool) -> Void)?) {
+    override public func saveTo(url: URL, forSaveOperation saveOperation: UIDocumentSaveOperation, completionHandler: ((Bool) -> Void)?) {
         super.saveTo(url, forSaveOperation: saveOperation) { success in
             // On a successful save, transfer the file to the paired watch if appropriate.
             if WCSession.isSupported() && WCSession.defaultSession().watchAppInstalled && success {
-                let fileCoordinator = NSFileCoordinator()
-                let readingIntent = NSFileAccessIntent.readingIntentWith(url)
-                fileCoordinator.coordinateAccessWith([readingIntent], queue: NSOperationQueue()) { accessError in
+                let fileCoordinator = FileCoordinator()
+                let readingIntent = FileAccessIntent.readingIntentWith(url)
+                fileCoordinator.coordinateAccessWith([readingIntent], queue: OperationQueue()) { accessError in
                     if accessError != nil {
                         return
                     }
@@ -97,7 +97,7 @@ public class ListDocument: UIDocument {
     
     // MARK: Deletion
 
-    override public func accommodatePresentedItemDeletionWithCompletionHandler(completionHandler: NSError? -> Void) {
+    override public func accommodatePresentedItemDeletionWithCompletionHandler(completionHandler: Error? -> Void) {
         super.accommodatePresentedItemDeletionWithCompletionHandler(completionHandler)
         
         delegate?.listDocumentWasDeleted(self)
@@ -105,7 +105,7 @@ public class ListDocument: UIDocument {
     
     // MARK: Handoff
     
-    override public func updateUserActivityState(userActivity: NSUserActivity) {
+    override public func updateUserActivityState(userActivity: UserActivity) {
         super.updateUserActivityState(userActivity)
         
         if let rawColorValue = listPresenter?.color.rawValue {

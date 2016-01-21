@@ -14,14 +14,14 @@ class LevelSceneActiveState: GKState {
     
     unowned let levelScene: LevelScene
     
-    var timeRemaining: NSTimeInterval = 0.0
+    var timeRemaining: TimeInterval = 0.0
     
     /*
         A formatter for individual date components used to provide an appropriate
         display value for the timer.
     */
-    let timeRemainingFormatter: NSDateComponentsFormatter = {
-        let formatter = NSDateComponentsFormatter()
+    let timeRemainingFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
         formatter.zeroFormattingBehavior = .Pad
         formatter.allowedUnits = [.Minute, .Second]
         
@@ -30,7 +30,7 @@ class LevelSceneActiveState: GKState {
     
     // The formatted string representing the time remaining.
     var timeRemainingString: String {
-        let components = NSDateComponents()
+        let components = DateComponents()
         components.second = Int(max(0.0, timeRemaining))
         
         return timeRemainingFormatter.stringFrom(components)!
@@ -52,7 +52,7 @@ class LevelSceneActiveState: GKState {
         levelScene.timerNode.text = timeRemainingString
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func updateWithDeltaTime(seconds: TimeInterval) {
         super.updateWithDeltaTime(seconds)
         
         // Subtract the elapsed time from the remaining time.

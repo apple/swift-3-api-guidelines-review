@@ -22,7 +22,7 @@ class BeamIdleState: GKState {
     
     // MARK: GKState life cycle
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func updateWithDeltaTime(seconds: TimeInterval) {
         super.updateWithDeltaTime(seconds)
         
         // If the beam has been triggered, enter `BeamFiringState`.

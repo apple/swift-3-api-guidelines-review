@@ -145,12 +145,12 @@ class MFMailComposeViewController : UINavigationController {
                                   the attachment's icon if the attachment is not decoded when displayed.  Must not be <tt>nil</tt>.
   */
   @available(iOS 3.0, *)
-  func addAttachmentData(attachment: NSData, mimeType: String, fileName filename: String)
+  func addAttachmentData(attachment: Data, mimeType: String, fileName filename: String)
   @available(iOS 5.0, *)
   init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
   init(rootViewController: UIViewController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 
@@ -160,7 +160,7 @@ class MFMailComposeViewController : UINavigationController {
     @discussion  This protocol must be implemented for delegates of MFMailComposeViewController instances.  It will
                  be called at various times while the user is composing, sending, saving, or canceling email composition.
 */
-protocol MFMailComposeViewControllerDelegate : NSObjectProtocol {
+protocol MFMailComposeViewControllerDelegate : ObjectProtocol {
 
   /*!
       @method     mailComposeController:didFinishWithResult:error:
@@ -174,7 +174,7 @@ protocol MFMailComposeViewControllerDelegate : NSObjectProtocol {
                                result did not indicate failure.
   */
   @available(iOS 3.0, *)
-  optional func mailComposeController(controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: NSError?)
+  optional func mailComposeController(controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?)
 }
 
 /*!
@@ -322,7 +322,7 @@ class MFMessageComposeViewController : UINavigationController {
    @discussion This property returns an NSArray of NSDictionaries describing the properties of the current attachments.
                See MFMessageComposeViewControllerAttachmentURL, MFMessageComposeViewControllerAttachmentAlternateFilename.
    */
-  var attachments: [[NSObject : AnyObject]]? { get }
+  var attachments: [[Object : AnyObject]]? { get }
 
   /*!
    @method     addAttachmentURL:withAlternateFilename:
@@ -333,7 +333,7 @@ class MFMessageComposeViewController : UINavigationController {
                The alternate filename may be NIL.
    */
   @available(iOS 7.0, *)
-  func addAttachmentURL(attachmentURL: NSURL, withAlternateFilename alternateFilename: String?) -> Bool
+  func addAttachmentURL(attachmentURL: URL, withAlternateFilename alternateFilename: String?) -> Bool
 
   /*!
    @method     addAttachmentData:typeIdentifier:filename:
@@ -342,12 +342,12 @@ class MFMessageComposeViewController : UINavigationController {
    the attachment was not added to the composition.  The data and typeIdentifer must be non-nil.  typeIdentifier should be a valid Uniform Type Identifier.
    */
   @available(iOS 7.0, *)
-  func addAttachmentData(attachmentData: NSData, typeIdentifier uti: String, filename: String) -> Bool
+  func addAttachmentData(attachmentData: Data, typeIdentifier uti: String, filename: String) -> Bool
   @available(iOS 5.0, *)
   init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
   init(rootViewController: UIViewController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 
@@ -358,7 +358,7 @@ class MFMessageComposeViewController : UINavigationController {
 			  It will be called at various times while the user is composing, sending, or canceling
 			  message composition.
  */
-protocol MFMessageComposeViewControllerDelegate : NSObjectProtocol {
+protocol MFMessageComposeViewControllerDelegate : ObjectProtocol {
 
   /*!
    @method     messageComposeViewController:didFinishWithResult:

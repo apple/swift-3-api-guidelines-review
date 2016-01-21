@@ -38,7 +38,7 @@ import Foundation
     For the `AllListItemsPresenter`, a toggle represents both the list item moving as well as the list item
     being updated.
 */
-final public class AllListItemsPresenter: NSObject, ListPresenterType {
+final public class AllListItemsPresenter: Object, ListPresenterType {
     // MARK: Properties
     
     /// The internal storage for the list that we're presenting. By default, it's an empty list.
@@ -48,7 +48,7 @@ final public class AllListItemsPresenter: NSObject, ListPresenterType {
     private var isInitialList = true
 
     /// The undo manager to register undo events with when the `AllListItemsPresenter` instance is manipulated.
-    public var undoManager: NSUndoManager?
+    public var undoManager: UndoManager?
     
     /**
         The index of the first complete item within the list's items. `nil` if there is no complete list item
@@ -456,7 +456,7 @@ final public class AllListItemsPresenter: NSObject, ListPresenterType {
     
         - returns:  The list items that are located at each index in `indexes` within `presentedListItems`.
     */
-    public func listItemsAtIndexes(indexes: NSIndexSet) -> [ListItem] {
+    public func listItemsAtIndexes(indexes: IndexSet) -> [ListItem] {
         var listItems = [ListItem]()
         
         listItems.reserveCapacity(indexes.count)

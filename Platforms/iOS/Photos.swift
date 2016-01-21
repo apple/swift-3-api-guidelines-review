@@ -1,10 +1,10 @@
 
 @available(iOS 8.0, *)
-class PHAdjustmentData : NSObject {
-  init(formatIdentifier: String, formatVersion: String, data: NSData)
+class PHAdjustmentData : Object {
+  init(formatIdentifier: String, formatVersion: String, data: Data)
   var formatIdentifier: String { get }
   var formatVersion: String { get }
-  var data: NSData { get }
+  var data: Data { get }
   init()
 }
 @available(iOS 8.0, *)
@@ -13,10 +13,10 @@ class PHAsset : PHObject {
   var mediaSubtypes: PHAssetMediaSubtype { get }
   var pixelWidth: Int { get }
   var pixelHeight: Int { get }
-  var creationDate: NSDate? { get }
-  var modificationDate: NSDate? { get }
+  var creationDate: Date? { get }
+  var modificationDate: Date? { get }
   var location: CLLocation? { get }
-  var duration: NSTimeInterval { get }
+  var duration: TimeInterval { get }
   var isHidden: Bool { get }
   var isFavorite: Bool { get }
   var burstIdentifier: String? { get }
@@ -31,18 +31,18 @@ class PHAsset : PHObject {
   class func fetchAssetsWithBurstIdentifier(burstIdentifier: String, options: PHFetchOptions?) -> PHFetchResult
   class func fetchAssetsWith(options: PHFetchOptions?) -> PHFetchResult
   class func fetchAssetsWith(mediaType: PHAssetMediaType, options: PHFetchOptions?) -> PHFetchResult
-  class func fetchAssetsWithALAssetURLs(assetURLs: [NSURL], options: PHFetchOptions?) -> PHFetchResult
+  class func fetchAssetsWithALAssetURLs(assetURLs: [URL], options: PHFetchOptions?) -> PHFetchResult
   init()
 }
 @available(iOS 8.0, *)
-class PHAssetChangeRequest : NSObject {
+class PHAssetChangeRequest : Object {
   class func creationRequestForAssetFrom(image: UIImage) -> Self
-  class func creationRequestForAssetFromImageAtFileURL(fileURL: NSURL) -> Self?
-  class func creationRequestForAssetFromVideoAtFileURL(fileURL: NSURL) -> Self?
+  class func creationRequestForAssetFromImageAtFileURL(fileURL: URL) -> Self?
+  class func creationRequestForAssetFromVideoAtFileURL(fileURL: URL) -> Self?
   var placeholderForCreatedAsset: PHObjectPlaceholder? { get }
-  class func deleteAssets(assets: NSFastEnumeration)
+  class func deleteAssets(assets: FastEnumeration)
   convenience init(forAsset asset: PHAsset)
-  var creationDate: NSDate?
+  var creationDate: Date?
   var location: CLLocation?
   var isFavorite: Bool
   var isHidden: Bool
@@ -53,7 +53,7 @@ class PHAssetChangeRequest : NSObject {
 @available(iOS 8.0, *)
 typealias PHContentEditingInputRequestID = Int
 @available(iOS 8.0, *)
-class PHContentEditingInputRequestOptions : NSObject {
+class PHContentEditingInputRequestOptions : Object {
   var canHandleAdjustmentData: (PHAdjustmentData) -> Bool
   var isNetworkAccessAllowed: Bool
   var progressHandler: ((Double, UnsafeMutablePointer<ObjCBool>) -> Void)?
@@ -61,7 +61,7 @@ class PHContentEditingInputRequestOptions : NSObject {
 }
 extension PHAsset {
   @available(iOS 8.0, *)
-  func requestContentEditingInputWith(options: PHContentEditingInputRequestOptions?, completionHandler: (PHContentEditingInput?, [NSObject : AnyObject]) -> Void) -> PHContentEditingInputRequestID
+  func requestContentEditingInputWith(options: PHContentEditingInputRequestOptions?, completionHandler: (PHContentEditingInput?, [Object : AnyObject]) -> Void) -> PHContentEditingInputRequestID
   @available(iOS 8.0, *)
   func cancelContentEditingInputRequest(requestID: PHContentEditingInputRequestID)
 }
@@ -74,41 +74,41 @@ let PHContentEditingInputErrorKey: String
 extension PHContentEditingOutput {
   init(placeholderForCreatedAsset: PHObjectPlaceholder)
 }
-class PHAssetCollectionChangeRequest : NSObject {
+class PHAssetCollectionChangeRequest : Object {
   class func creationRequestForAssetCollectionWithTitle(title: String) -> Self
   var placeholderForCreatedAssetCollection: PHObjectPlaceholder { get }
-  class func deleteAssetCollections(assetCollections: NSFastEnumeration)
+  class func deleteAssetCollections(assetCollections: FastEnumeration)
   convenience init?(forAssetCollection assetCollection: PHAssetCollection)
   convenience init?(forAssetCollection assetCollection: PHAssetCollection, assets: PHFetchResult)
   var title: String
-  func addAssets(assets: NSFastEnumeration)
-  func insertAssets(assets: NSFastEnumeration, at indexes: NSIndexSet)
-  func removeAssets(assets: NSFastEnumeration)
-  func removeAssetsAt(indexes: NSIndexSet)
-  func replaceAssetsAt(indexes: NSIndexSet, withAssets assets: NSFastEnumeration)
-  func moveAssetsAt(fromIndexes: NSIndexSet, to toIndex: Int)
+  func addAssets(assets: FastEnumeration)
+  func insertAssets(assets: FastEnumeration, at indexes: IndexSet)
+  func removeAssets(assets: FastEnumeration)
+  func removeAssetsAt(indexes: IndexSet)
+  func replaceAssetsAt(indexes: IndexSet, withAssets assets: FastEnumeration)
+  func moveAssetsAt(fromIndexes: IndexSet, to toIndex: Int)
   init()
 }
 @available(iOS 9.0, *)
-class PHAssetResourceCreationOptions : NSObject, NSCopying {
+class PHAssetResourceCreationOptions : Object, Copying {
   var originalFilename: String?
   var uniformTypeIdentifier: String?
   var shouldMoveFile: Bool
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class PHAssetCreationRequest : PHAssetChangeRequest {
   class func forAsset() -> Self
-  class func supportsAssetResourceTypes(types: [NSNumber]) -> Bool
-  func addResourceWith(type: PHAssetResourceType, fileURL: NSURL, options: PHAssetResourceCreationOptions?)
-  func addResourceWith(type: PHAssetResourceType, data: NSData, options: PHAssetResourceCreationOptions?)
+  class func supportsAssetResourceTypes(types: [Number]) -> Bool
+  func addResourceWith(type: PHAssetResourceType, fileURL: URL, options: PHAssetResourceCreationOptions?)
+  func addResourceWith(type: PHAssetResourceType, data: Data, options: PHAssetResourceCreationOptions?)
   convenience init(forAsset asset: PHAsset)
   init()
 }
 @available(iOS 9.0, *)
-class PHAssetResource : NSObject {
+class PHAssetResource : Object {
   var type: PHAssetResourceType { get }
   var assetLocalIdentifier: String { get }
   var uniformTypeIdentifier: String { get }
@@ -124,29 +124,29 @@ let PHInvalidAssetResourceDataRequestID: PHAssetResourceDataRequestID
 @available(iOS 9.0, *)
 typealias PHAssetResourceProgressHandler = (Double) -> Void
 @available(iOS 9.0, *)
-class PHAssetResourceRequestOptions : NSObject, NSCopying {
+class PHAssetResourceRequestOptions : Object, Copying {
   var isNetworkAccessAllowed: Bool
   var progressHandler: PHAssetResourceProgressHandler?
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
-class PHAssetResourceManager : NSObject {
+class PHAssetResourceManager : Object {
   class func defaultManager() -> PHAssetResourceManager
-  func requestDataFor(resource: PHAssetResource, options: PHAssetResourceRequestOptions?, dataReceivedHandler handler: (NSData) -> Void, completionHandler: (NSError?) -> Void) -> PHAssetResourceDataRequestID
-  func writeDataFor(resource: PHAssetResource, toFile fileURL: NSURL, options: PHAssetResourceRequestOptions?, completionHandler: (NSError?) -> Void)
+  func requestDataFor(resource: PHAssetResource, options: PHAssetResourceRequestOptions?, dataReceivedHandler handler: (Data) -> Void, completionHandler: (Error?) -> Void) -> PHAssetResourceDataRequestID
+  func writeDataFor(resource: PHAssetResource, toFile fileURL: URL, options: PHAssetResourceRequestOptions?, completionHandler: (Error?) -> Void)
   func cancelDataRequest(requestID: PHAssetResourceDataRequestID)
   init()
 }
 @available(iOS 8.0, *)
-class PHChange : NSObject {
+class PHChange : Object {
   func changeDetailsFor(object: PHObject) -> PHObjectChangeDetails?
   func changeDetailsFor(object: PHFetchResult) -> PHFetchResultChangeDetails?
   init()
 }
 @available(iOS 8.0, *)
-class PHObjectChangeDetails : NSObject {
+class PHObjectChangeDetails : Object {
   var objectBeforeChanges: PHObject { get }
   var objectAfterChanges: PHObject? { get }
   var assetContentChanged: Bool { get }
@@ -154,15 +154,15 @@ class PHObjectChangeDetails : NSObject {
   init()
 }
 @available(iOS 8.0, *)
-class PHFetchResultChangeDetails : NSObject {
+class PHFetchResultChangeDetails : Object {
   var fetchResultBeforeChanges: PHFetchResult { get }
   var fetchResultAfterChanges: PHFetchResult { get }
   var hasIncrementalChanges: Bool { get }
-  var removedIndexes: NSIndexSet? { get }
+  var removedIndexes: IndexSet? { get }
   var removedObjects: [PHObject] { get }
-  var insertedIndexes: NSIndexSet? { get }
+  var insertedIndexes: IndexSet? { get }
   var insertedObjects: [PHObject] { get }
-  var changedIndexes: NSIndexSet? { get }
+  var changedIndexes: IndexSet? { get }
   var changedObjects: [PHObject] { get }
   func enumerateMovesWith(handler: (Int, Int) -> Void)
   var hasMoves: Bool { get }
@@ -184,14 +184,14 @@ class PHAssetCollection : PHCollection {
   var assetCollectionType: PHAssetCollectionType { get }
   var assetCollectionSubtype: PHAssetCollectionSubtype { get }
   var estimatedAssetCount: Int { get }
-  var startDate: NSDate? { get }
-  var endDate: NSDate? { get }
+  var startDate: Date? { get }
+  var endDate: Date? { get }
   var approximateLocation: CLLocation? { get }
   var localizedLocationNames: [String] { get }
   class func fetchAssetCollectionsWithLocalIdentifiers(identifiers: [String], options: PHFetchOptions?) -> PHFetchResult
   class func fetchAssetCollectionsWith(type: PHAssetCollectionType, subtype: PHAssetCollectionSubtype, options: PHFetchOptions?) -> PHFetchResult
   class func fetchAssetCollectionsContaining(asset: PHAsset, withType type: PHAssetCollectionType, options: PHFetchOptions?) -> PHFetchResult
-  class func fetchAssetCollectionsWithALAssetGroupURLs(assetGroupURLs: [NSURL], options: PHFetchOptions?) -> PHFetchResult
+  class func fetchAssetCollectionsWithALAssetGroupURLs(assetGroupURLs: [URL], options: PHFetchOptions?) -> PHFetchResult
   class func fetchMomentsInMomentList(momentList: PHCollectionList, options: PHFetchOptions?) -> PHFetchResult
   class func fetchMomentsWith(options: PHFetchOptions?) -> PHFetchResult
   class func transientAssetCollectionWith(assets: [PHAsset], title: String?) -> PHAssetCollection
@@ -202,8 +202,8 @@ class PHAssetCollection : PHCollection {
 class PHCollectionList : PHCollection {
   var collectionListType: PHCollectionListType { get }
   var collectionListSubtype: PHCollectionListSubtype { get }
-  var startDate: NSDate? { get }
-  var endDate: NSDate? { get }
+  var startDate: Date? { get }
+  var endDate: Date? { get }
   var localizedLocationNames: [String] { get }
   class func fetchCollectionListsContaining(collection: PHCollection, options: PHFetchOptions?) -> PHFetchResult
   class func fetchCollectionListsWithLocalIdentifiers(identifiers: [String], options: PHFetchOptions?) -> PHFetchResult
@@ -215,31 +215,31 @@ class PHCollectionList : PHCollection {
   init()
 }
 @available(iOS 8.0, *)
-class PHCollectionListChangeRequest : NSObject {
+class PHCollectionListChangeRequest : Object {
   class func creationRequestForCollectionListWithTitle(title: String) -> Self
   var placeholderForCreatedCollectionList: PHObjectPlaceholder { get }
-  class func deleteCollectionLists(collectionLists: NSFastEnumeration)
+  class func deleteCollectionLists(collectionLists: FastEnumeration)
   convenience init?(forCollectionList collectionList: PHCollectionList)
   convenience init?(forCollectionList collectionList: PHCollectionList, childCollections: PHFetchResult)
   var title: String
-  func addChildCollections(collections: NSFastEnumeration)
-  func insertChildCollections(collections: NSFastEnumeration, at indexes: NSIndexSet)
-  func removeChildCollections(collections: NSFastEnumeration)
-  func removeChildCollectionsAt(indexes: NSIndexSet)
-  func replaceChildCollectionsAt(indexes: NSIndexSet, withChildCollections collections: NSFastEnumeration)
-  func moveChildCollectionsAt(indexes: NSIndexSet, to toIndex: Int)
+  func addChildCollections(collections: FastEnumeration)
+  func insertChildCollections(collections: FastEnumeration, at indexes: IndexSet)
+  func removeChildCollections(collections: FastEnumeration)
+  func removeChildCollectionsAt(indexes: IndexSet)
+  func replaceChildCollectionsAt(indexes: IndexSet, withChildCollections collections: FastEnumeration)
+  func moveChildCollectionsAt(indexes: IndexSet, to toIndex: Int)
   init()
 }
 @available(iOS 8.0, *)
-class PHContentEditingInput : NSObject {
+class PHContentEditingInput : Object {
   var mediaType: PHAssetMediaType { get }
   var mediaSubtypes: PHAssetMediaSubtype { get }
-  @NSCopying var creationDate: NSDate? { get }
+  @NSCopying var creationDate: Date? { get }
   @NSCopying var location: CLLocation? { get }
   var uniformTypeIdentifier: String? { get }
   var adjustmentData: PHAdjustmentData { get }
   var displaySizeImage: UIImage? { get }
-  @NSCopying var fullSizeImageURL: NSURL? { get }
+  @NSCopying var fullSizeImageURL: URL? { get }
   var fullSizeImageOrientation: Int32 { get }
   @available(iOS, introduced=8.0, deprecated=9.0)
   var avAsset: AVAsset? { get }
@@ -248,16 +248,16 @@ class PHContentEditingInput : NSObject {
   init()
 }
 @available(iOS 8.0, *)
-class PHContentEditingOutput : NSObject {
+class PHContentEditingOutput : Object {
   init(contentEditingInput: PHContentEditingInput)
   var adjustmentData: PHAdjustmentData?
-  @NSCopying var renderedContentURL: NSURL { get }
+  @NSCopying var renderedContentURL: URL { get }
   init()
 }
 @available(iOS 8.0, *)
-class PHFetchOptions : NSObject, NSCopying {
-  var predicate: NSPredicate?
-  var sortDescriptors: [NSSortDescriptor]?
+class PHFetchOptions : Object, Copying {
+  var predicate: Predicate?
+  var sortDescriptors: [SortDescriptor]?
   var includeHiddenAssets: Bool
   var includeAllBurstAssets: Bool
   @available(iOS 9.0, *)
@@ -267,10 +267,10 @@ class PHFetchOptions : NSObject, NSCopying {
   var wantsIncrementalChangeDetails: Bool
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
-class PHFetchResult : NSObject, NSCopying, NSFastEnumeration {
+class PHFetchResult : Object, Copying, FastEnumeration {
   var count: Int { get }
   func objectAt(index: Int) -> AnyObject
   subscript (idx: Int) -> AnyObject { get }
@@ -279,16 +279,16 @@ class PHFetchResult : NSObject, NSCopying, NSFastEnumeration {
   func indexOf(anObject: AnyObject, in range: NSRange) -> Int
   var firstObject: AnyObject? { get }
   var lastObject: AnyObject? { get }
-  func objectsAt(indexes: NSIndexSet) -> [AnyObject]
+  func objectsAt(indexes: IndexSet) -> [AnyObject]
   func enumerateObjectsUsing(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func enumerateObjects(options opts: NSEnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func enumerateObjectsAt(s: NSIndexSet, options opts: NSEnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(options opts: EnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjectsAt(s: IndexSet, options opts: EnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   func countOfAssetsWith(mediaType: PHAssetMediaType) -> Int
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 @available(iOS 8.0, *)
 enum PHImageRequestOptionsVersion : Int {
@@ -315,9 +315,9 @@ enum PHImageRequestOptionsResizeMode : Int {
   case Exact
 }
 @available(iOS 8.0, *)
-typealias PHAssetImageProgressHandler = (Double, NSError?, UnsafeMutablePointer<ObjCBool>, [NSObject : AnyObject]?) -> Void
+typealias PHAssetImageProgressHandler = (Double, Error?, UnsafeMutablePointer<ObjCBool>, [Object : AnyObject]?) -> Void
 @available(iOS 8.0, *)
-class PHImageRequestOptions : NSObject, NSCopying {
+class PHImageRequestOptions : Object, Copying {
   var version: PHImageRequestOptionsVersion
   var deliveryMode: PHImageRequestOptionsDeliveryMode
   var resizeMode: PHImageRequestOptionsResizeMode
@@ -327,16 +327,16 @@ class PHImageRequestOptions : NSObject, NSCopying {
   var progressHandler: PHAssetImageProgressHandler?
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.1, *)
-class PHLivePhotoRequestOptions : NSObject, NSCopying {
+class PHLivePhotoRequestOptions : Object, Copying {
   var deliveryMode: PHImageRequestOptionsDeliveryMode
   var isNetworkAccessAllowed: Bool
   var progressHandler: PHAssetImageProgressHandler?
   init()
   @available(iOS 9.1, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 enum PHVideoRequestOptionsVersion : Int {
@@ -355,9 +355,9 @@ enum PHVideoRequestOptionsDeliveryMode : Int {
   case FastFormat
 }
 @available(iOS 8.0, *)
-typealias PHAssetVideoProgressHandler = (Double, NSError?, UnsafeMutablePointer<ObjCBool>, [NSObject : AnyObject]?) -> Void
+typealias PHAssetVideoProgressHandler = (Double, Error?, UnsafeMutablePointer<ObjCBool>, [Object : AnyObject]?) -> Void
 @available(iOS 8.0, *)
-class PHVideoRequestOptions : NSObject {
+class PHVideoRequestOptions : Object {
   var isNetworkAccessAllowed: Bool
   var version: PHVideoRequestOptionsVersion
   var deliveryMode: PHVideoRequestOptionsDeliveryMode
@@ -380,18 +380,18 @@ let PHImageCancelledKey: String
 @available(iOS 8.0, *)
 let PHImageErrorKey: String
 @available(iOS 8.0, *)
-class PHImageManager : NSObject {
+class PHImageManager : Object {
   class func defaultManager() -> PHImageManager
-  func requestImageFor(asset: PHAsset, targetSize: CGSize, contentMode: PHImageContentMode, options: PHImageRequestOptions?, resultHandler: (UIImage?, [NSObject : AnyObject]?) -> Void) -> PHImageRequestID
-  func requestImageDataFor(asset: PHAsset, options: PHImageRequestOptions?, resultHandler: (NSData?, String?, UIImageOrientation, [NSObject : AnyObject]?) -> Void) -> PHImageRequestID
+  func requestImageFor(asset: PHAsset, targetSize: CGSize, contentMode: PHImageContentMode, options: PHImageRequestOptions?, resultHandler: (UIImage?, [Object : AnyObject]?) -> Void) -> PHImageRequestID
+  func requestImageDataFor(asset: PHAsset, options: PHImageRequestOptions?, resultHandler: (Data?, String?, UIImageOrientation, [Object : AnyObject]?) -> Void) -> PHImageRequestID
   func cancelImageRequest(requestID: PHImageRequestID)
 
   /// Requests a live photo representation of the asset. With PHImageRequestOptionsDeliveryModeOpportunistic (or if no options are specified), the resultHandler block may be called more than once (the first call may occur before the method returns). The PHImageResultIsDegradedKey key in the result handler's info parameter indicates when a temporary low-quality live photo is provided.
   @available(iOS 9.1, *)
-  func requestLivePhotoFor(asset: PHAsset, targetSize: CGSize, contentMode: PHImageContentMode, options: PHLivePhotoRequestOptions?, resultHandler: (PHLivePhoto?, [NSObject : AnyObject]?) -> Void) -> PHImageRequestID
-  func requestPlayerItemForVideo(asset: PHAsset, options: PHVideoRequestOptions?, resultHandler: (AVPlayerItem?, [NSObject : AnyObject]?) -> Void) -> PHImageRequestID
-  func requestExportSessionForVideo(asset: PHAsset, options: PHVideoRequestOptions?, exportPreset: String, resultHandler: (AVAssetExportSession?, [NSObject : AnyObject]?) -> Void) -> PHImageRequestID
-  func requestAVAssetForVideo(asset: PHAsset, options: PHVideoRequestOptions?, resultHandler: (AVAsset?, AVAudioMix?, [NSObject : AnyObject]?) -> Void) -> PHImageRequestID
+  func requestLivePhotoFor(asset: PHAsset, targetSize: CGSize, contentMode: PHImageContentMode, options: PHLivePhotoRequestOptions?, resultHandler: (PHLivePhoto?, [Object : AnyObject]?) -> Void) -> PHImageRequestID
+  func requestPlayerItemForVideo(asset: PHAsset, options: PHVideoRequestOptions?, resultHandler: (AVPlayerItem?, [Object : AnyObject]?) -> Void) -> PHImageRequestID
+  func requestExportSessionForVideo(asset: PHAsset, options: PHVideoRequestOptions?, exportPreset: String, resultHandler: (AVAssetExportSession?, [Object : AnyObject]?) -> Void) -> PHImageRequestID
+  func requestAVAssetForVideo(asset: PHAsset, options: PHVideoRequestOptions?, resultHandler: (AVAsset?, AVAudioMix?, [Object : AnyObject]?) -> Void) -> PHImageRequestID
   init()
 }
 @available(iOS 8.0, *)
@@ -414,31 +414,31 @@ let PHLivePhotoInfoIsDegradedKey: String
 @available(iOS 9.1, *)
 let PHLivePhotoInfoCancelledKey: String
 @available(iOS 9.1, *)
-class PHLivePhoto : NSObject, NSCopying, NSSecureCoding {
+class PHLivePhoto : Object, Copying, SecureCoding {
 
   /// The dimensions of the live photo measured in pixels.
   var size: CGSize { get }
 
   /// Requests a Live Photo from the given resource URLs. The result handler will be called multiple times to deliver new PHLivePhoto instances with increasingly more content. If a placeholder image is provided, the result handler will first be invoked synchronously to deliver a live photo containing only the placeholder image. Subsequent invocations of the result handler will occur on the main queue.
-  class func requestWithResourceFileURLs(fileURLs: [NSURL], placeholderImage image: UIImage?, targetSize: CGSize, contentMode: PHImageContentMode, resultHandler: (PHLivePhoto?, [NSObject : AnyObject]) -> Void) -> PHLivePhotoRequestID
+  class func requestWithResourceFileURLs(fileURLs: [URL], placeholderImage image: UIImage?, targetSize: CGSize, contentMode: PHImageContentMode, resultHandler: (PHLivePhoto?, [Object : AnyObject]) -> Void) -> PHLivePhotoRequestID
 
   /// Cancels the loading of a PHLivePhoto. The request's completion handler will be called.
   class func cancelRequestWithRequestID(requestID: PHLivePhotoRequestID)
   init()
   @available(iOS 9.1, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 9.1, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.1, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 8.0, *)
-class PHObject : NSObject, NSCopying {
+class PHObject : Object, Copying {
   var localIdentifier: String { get }
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class PHObjectPlaceholder : PHObject {
@@ -454,7 +454,7 @@ enum PHAuthorizationStatus : Int {
   case Authorized
 }
 @available(iOS 8.0, *)
-protocol PHPhotoLibraryChangeObserver : NSObjectProtocol {
+protocol PHPhotoLibraryChangeObserver : ObjectProtocol {
   func photoLibraryDidChange(changeInstance: PHChange)
 }
 
@@ -464,11 +464,11 @@ protocol PHPhotoLibraryChangeObserver : NSObjectProtocol {
  @discussion   ...
  */
 @available(iOS 8.0, *)
-class PHPhotoLibrary : NSObject {
+class PHPhotoLibrary : Object {
   class func shared() -> PHPhotoLibrary
   class func authorizationStatus() -> PHAuthorizationStatus
   class func requestAuthorization(handler: (PHAuthorizationStatus) -> Void)
-  func performChanges(changeBlock: dispatch_block_t, completionHandler: ((Bool, NSError?) -> Void)? = nil)
+  func performChanges(changeBlock: dispatch_block_t, completionHandler: ((Bool, Error?) -> Void)? = nil)
   func performChangesAndWait(changeBlock: dispatch_block_t) throws
   func register(observer: PHPhotoLibraryChangeObserver)
   func unregisterChangeObserver(observer: PHPhotoLibraryChangeObserver)

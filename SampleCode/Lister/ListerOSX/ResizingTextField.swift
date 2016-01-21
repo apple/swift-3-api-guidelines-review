@@ -9,15 +9,15 @@
 import Cocoa
 
 class ResizingTextField: NSTextField {
-    override func textDidChange(notification: NSNotification) {
+    override func textDidChange(notification: Notification) {
         super.textDidChange(notification)
         
         invalidateIntrinsicContentSize()
     }
     
-    override var intrinsicContentSize: NSSize {
+    override var intrinsicContentSize: Size {
         // Change the auto layout constraint width to be the drawn size of the text.
-        let maximumSize = NSMakeSize(CGFloat.max, frame.height)
+        let maximumSize = makeSize(CGFloat.max, frame.height)
         
         // Find the size that the string occupies when displayed with the given font.
         let boundingSize = (stringValue as NSString).boundingRectWith(maximumSize, attributes: [
@@ -26,6 +26,6 @@ class ResizingTextField: NSTextField {
 
         let roundedWidth = CGFloat(boundingSize.width + 10)
 
-        return NSSize(width: roundedWidth, height: frame.height)
+        return Size(width: roundedWidth, height: frame.height)
     }
 }

@@ -77,7 +77,7 @@ import ListerWatchKit
     application to deal with `ListInfo` objects rather than the various types that `WCSession` may directly
     vend instances of. In essence, the work of a lists controller is to "front" the device's default WCSession.
 */
-public class ConnectivityListsController: NSObject, WCSessionDelegate {
+public class ConnectivityListsController: Object, WCSessionDelegate {
     // MARK: Properties
     
     /**
@@ -224,7 +224,7 @@ public class ConnectivityListsController: NSObject, WCSessionDelegate {
         copyURLToDocumentsDirectory(file.fileURL)
     }
     
-    public func session(session: WCSession, didFinishFileTransfer fileTransfer: WCSessionFileTransfer, error: NSError?) {
+    public func session(session: WCSession, didFinishFileTransfer fileTransfer: WCSessionFileTransfer, error: Error?) {
         if error != nil {
             print("\(__FUNCTION__), file: \(fileTransfer.file.fileURL), error: \(error!.localizedDescription)")
         }
@@ -232,8 +232,8 @@ public class ConnectivityListsController: NSObject, WCSessionDelegate {
     
     // MARK: Convenience
     
-    private func copyURLToDocumentsDirectory(URL: NSURL) {
-        let documentsURL = NSFileManager.defaultManager().urLsFor(.DocumentDirectory, inDomains: .UserDomainMask).first!
+    private func copyURLToDocumentsDirectory(URL: URL) {
+        let documentsURL = FileManager.defaultManager().urLsFor(.DocumentDirectory, inDomains: .UserDomainMask).first!
         let toURL = documentsURL.appendingPathComponent(URL.lastPathComponent!)
         
         ListUtilities.copyFromURL(URL, toURL: toURL)

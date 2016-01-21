@@ -59,7 +59,7 @@ public class AppConfiguration {
         the user-defined value of `LISTER_BUNDLE_PREFIX` into several static string constants below.
     */
     private struct Bundle {
-        static var prefix = NSBundle.main().objectForInfoDictionaryKey("AAPLListerBundlePrefix") as! String
+        static var prefix = Bundle.main().objectForInfoDictionaryKey("AAPLListerBundlePrefix") as! String
     }
 
     struct ApplicationGroups {
@@ -112,8 +112,8 @@ public class AppConfiguration {
         return "\(localizedTodayDocumentName).\(listerFileExtension)"
     }
     
-    private var applicationUserDefaults: NSUserDefaults {
-        return NSUserDefaults(suiteName: ApplicationGroups.primary)!
+    private var applicationUserDefaults: UserDefaults {
+        return UserDefaults(suiteName: ApplicationGroups.primary)!
     }
     
     public private(set) var isFirstLaunch: Bool {
@@ -155,7 +155,7 @@ public class AppConfiguration {
     }
     
     public var isCloudAvailable: Bool {
-        return NSFileManager.defaultManager().ubiquityIdentityToken != nil
+        return FileManager.defaultManager().ubiquityIdentityToken != nil
     }
     
     #if os(iOS)
@@ -180,8 +180,8 @@ public class AppConfiguration {
     public func hasAccountChanged() -> Bool {
         var hasChanged = false
         
-        let currentToken: protocol<NSCoding, NSCopying, NSObjectProtocol>? = NSFileManager.defaultManager().ubiquityIdentityToken
-        let storedToken: protocol<NSCoding, NSCopying, NSObjectProtocol>? = storedUbiquityIdentityToken
+        let currentToken: protocol<Coding, Copying, ObjectProtocol>? = FileManager.defaultManager().ubiquityIdentityToken
+        let storedToken: protocol<Coding, Copying, ObjectProtocol>? = storedUbiquityIdentityToken
         
         let currentTokenNilStoredNonNil = currentToken == nil && storedToken != nil
         let storedTokenNilCurrentNonNil = currentToken != nil && storedToken == nil
@@ -201,8 +201,8 @@ public class AppConfiguration {
     private func persistAccount() {
         let defaults = applicationUserDefaults
         
-        if let token = NSFileManager.defaultManager().ubiquityIdentityToken {
-            let ubiquityIdentityTokenArchive = NSKeyedArchiver.archivedDataWithRootObject(token)
+        if let token = FileManager.defaultManager().ubiquityIdentityToken {
+            let ubiquityIdentityTokenArchive = KeyedArchiver.archivedDataWithRootObject(token)
             
             defaults.setObject(ubiquityIdentityTokenArchive, forKey: Defaults.storedUbiquityIdentityToken)
         }
@@ -213,14 +213,14 @@ public class AppConfiguration {
     
     // MARK: Convenience
 
-    private var storedUbiquityIdentityToken: protocol<NSCoding, NSCopying, NSObjectProtocol>? {
-        var storedToken: protocol<NSCoding, NSCopying, NSObjectProtocol>?
+    private var storedUbiquityIdentityToken: protocol<Coding, Copying, ObjectProtocol>? {
+        var storedToken: protocol<Coding, Copying, ObjectProtocol>?
         
         // Determine if the logged in iCloud account has changed since the user last launched the app.
         let archivedObject: AnyObject? = applicationUserDefaults.objectForKey(Defaults.storedUbiquityIdentityToken)
         
-        if let ubiquityIdentityTokenArchive = archivedObject as? NSData,
-           let archivedObject = NSKeyedUnarchiver.unarchiveObjectWith(ubiquityIdentityTokenArchive) as? protocol<NSCoding, NSCopying, NSObjectProtocol> {
+        if let ubiquityIdentityTokenArchive = archivedObject as? Data,
+           let archivedObject = KeyedUnarchiver.unarchiveObjectWith(ubiquityIdentityTokenArchive) as? protocol<Coding, Copying, ObjectProtocol> {
             storedToken = archivedObject
         }
         
@@ -263,8 +263,8 @@ public class AppConfiguration {
     public func listsControllerForCurrentConfigurationWithPathExtension(pathExtension: String, firstQueryHandler: (Void -> Void)? = nil) -> ListsController {
         let listCoordinator = listCoordinatorForCurrentConfigurationWithPathExtension(pathExtension, firstQueryHandler: firstQueryHandler)
         
-        return ListsController(listCoordinator: listCoordinator, delegateQueue: NSOperationQueue.main()) { lhs, rhs in
-            return lhs.name.localizedCaseInsensitiveCompare(rhs.name) == NSComparisonResult.OrderedAscending
+        return ListsController(listCoordinator: listCoordinator, delegateQueue: OperationQueue.main()) { lhs, rhs in
+            return lhs.name.localizedCaseInsensitiveCompare(rhs.name) == ComparisonResult.OrderedAscending
         }
     }
 
@@ -276,8 +276,8 @@ public class AppConfiguration {
     public func listsControllerForCurrentConfigurationWithLastPathComponent(lastPathComponent: String, firstQueryHandler: (Void -> Void)? = nil) -> ListsController {
         let listCoordinator = listCoordinatorForCurrentConfigurationWithLastPathComponent(lastPathComponent, firstQueryHandler: firstQueryHandler)
         
-        return ListsController(listCoordinator: listCoordinator, delegateQueue: NSOperationQueue.main()) { lhs, rhs in
-            return lhs.name.localizedCaseInsensitiveCompare(rhs.name) == NSComparisonResult.OrderedAscending
+        return ListsController(listCoordinator: listCoordinator, delegateQueue: OperationQueue.main()) { lhs, rhs in
+            return lhs.name.localizedCaseInsensitiveCompare(rhs.name) == ComparisonResult.OrderedAscending
         }
     }
     

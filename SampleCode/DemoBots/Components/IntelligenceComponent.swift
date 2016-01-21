@@ -26,7 +26,7 @@ class IntelligenceComponent: GKComponent {
     
     // MARK: GKComponent Life Cycle
 
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func updateWithDeltaTime(seconds: TimeInterval) {
         super.updateWithDeltaTime(seconds)
 
         stateMachine.updateWithDeltaTime(seconds)

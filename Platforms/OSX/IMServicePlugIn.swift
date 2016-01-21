@@ -156,7 +156,7 @@ protocol IMServiceApplicationChatRoomSupport : IMServiceApplication {
       @param      roomName   The name of the chat room.
       @param      error      An error, if one occurred during message delivery.
   */
-  func plugInDidSend(message: IMServicePlugInMessage!, toChatRoom roomName: String!, error: NSError!)
+  func plugInDidSend(message: IMServicePlugInMessage!, toChatRoom roomName: String!, error: Error!)
 
   /*!
       @method     plugInDidJoinChatRoom:
@@ -185,7 +185,7 @@ protocol IMServiceApplicationChatRoomSupport : IMServiceApplication {
       @param      error      An error, if any, which caused the user to be removed from the chat room,
                              or prevented the user from joining the chat room.
   */
-  func plugInDidLeaveChatRoom(roomName: String!, error: NSError!)
+  func plugInDidLeaveChatRoom(roomName: String!, error: Error!)
 
   /*!
       @method     handles:didJoinChatRoom:
@@ -423,7 +423,7 @@ protocol IMServicePlugInGroupListAuthorizationSupport : IMServicePlugInGroupList
                 with both the IMHandlePropertyPictureIdentifier and IMHandlePropertyPictureData
                 properties set
 */
-protocol IMServicePlugInGroupListHandlePictureSupport : NSObjectProtocol {
+protocol IMServicePlugInGroupListHandlePictureSupport : ObjectProtocol {
 
   /*!
       @method     requestPictureForHandle:withIdentifier:
@@ -480,7 +480,7 @@ protocol IMServiceApplicationGroupListSupport : IMServiceApplication {
                   
       @param      error   An error for any requested group list modification operation, if one occurred
   */
-  func plugInDidUpdateGroupList(groups: [AnyObject]!, error: NSError!)
+  func plugInDidUpdateGroupList(groups: [AnyObject]!, error: Error!)
 }
 
 /*!
@@ -638,20 +638,20 @@ protocol IMServiceApplicationInstantMessagingSupport {
       @param      handle   The sender of the message
       @param      error    An error that occurred during message delivery
   */
-  func plugInDidSend(message: IMServicePlugInMessage!, toHandle handle: String!, error: NSError!)
+  func plugInDidSend(message: IMServicePlugInMessage!, toHandle handle: String!, error: Error!)
 }
-class IMServicePlugInMessage : NSObject, NSCoding, NSCopying {
-  class func servicePlugInMessageWithContent(content: NSAttributedString!) -> AnyObject!
-  init!(content: NSAttributedString!)
-  class func servicePlugInMessageWithContent(content: NSAttributedString!, date: NSDate!) -> AnyObject!
-  init!(content: NSAttributedString!, date: NSDate!)
+class IMServicePlugInMessage : Object, Coding, Copying {
+  class func servicePlugInMessageWithContent(content: AttributedString!) -> AnyObject!
+  init!(content: AttributedString!)
+  class func servicePlugInMessageWithContent(content: AttributedString!, date: Date!) -> AnyObject!
+  init!(content: AttributedString!, date: Date!)
   var guid: String! { get }
-  @NSCopying var content: NSAttributedString!
-  @NSCopying var date: NSDate!
+  @NSCopying var content: AttributedString!
+  @NSCopying var date: Date!
   init()
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -687,7 +687,7 @@ protocol IMServicePlugInPresenceSupport {
                   IMSessionPropertyIsInvisible    - If YES, the user wishes to appear offline to other users
   */
   @available(OSX 10.0, *)
-  func updateSessionProperties(properties: [NSObject : AnyObject]!)
+  func updateSessionProperties(properties: [Object : AnyObject]!)
 }
 
 /*!
@@ -698,7 +698,7 @@ protocol IMServicePlugInPresenceSupport {
                 Messages messages your service plug-in instance to perform basic tasks such as
                 logging in, logging out, and updating account settings.
 */
-protocol IMServicePlugIn : NSObjectProtocol {
+protocol IMServicePlugIn : ObjectProtocol {
 
   /*!
       @method     initWithServiceApplication:
@@ -730,7 +730,7 @@ protocol IMServicePlugIn : NSObjectProtocol {
                   IMUsesSSLAccountSetting        NSNumber - (YES = use SSL, NO = do not use SSL)
   */
   @available(OSX 10.0, *)
-  func updateAccountSettings(accountSettings: [NSObject : AnyObject]!)
+  func updateAccountSettings(accountSettings: [Object : AnyObject]!)
 
   /*!
       @method     login
@@ -764,7 +764,7 @@ protocol IMServicePlugIn : NSObjectProtocol {
                 An object implementing the IMServiceApplication protocol is handed to your service
                 plug-in in the -initWithServiceApplication: method.
 */
-protocol IMServiceApplication : NSObjectProtocol {
+protocol IMServiceApplication : ObjectProtocol {
 
   /*!
       @method     plugInDidLogIn
@@ -786,7 +786,7 @@ protocol IMServiceApplication : NSObjectProtocol {
                              IMAccountSettingServerHost associated with the account becomes reachable.
                              reconnect should only be set to YES when a network error causes a log out.
   */
-  func plugInDidLogOutWithError(error: NSError!, reconnect: Bool)
+  func plugInDidLogOutWithError(error: Error!, reconnect: Bool)
 
   /*!
        @method     plugInDidFailToAuthenticate
@@ -828,7 +828,7 @@ protocol IMServiceApplication : NSObjectProtocol {
                           IMHandlePropertyCapabilities      - The capabilities of the handle                
   */
   @available(OSX 10.0, *)
-  func plugInDidUpdateProperties(changes: [NSObject : AnyObject]!, ofHandle handle: String!)
+  func plugInDidUpdateProperties(changes: [Object : AnyObject]!, ofHandle handle: String!)
 }
 let IMAccountSettingServerHost: String
 let IMAccountSettingServerPort: String

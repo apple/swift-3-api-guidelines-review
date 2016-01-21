@@ -142,7 +142,7 @@ class GlanceInterfaceController: WKInterfaceController, ListsControllerDelegate,
                 is passed instead of a URL because the `userInfo` dictionary of a WatchKit app's user activity
                 does not allow NSURL values.
             */
-            let userInfo: [NSObject: AnyObject] = [
+            let userInfo: [Object: AnyObject] = [
                 AppConfiguration.UserActivity.listURLPathUserInfoKey: self.listDocument!.fileURL.path!,
                 AppConfiguration.UserActivity.listColorUserInfoKey: self.listPresenter!.color.rawValue
             ]

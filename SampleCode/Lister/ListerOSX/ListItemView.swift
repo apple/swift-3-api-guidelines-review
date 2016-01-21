@@ -57,13 +57,13 @@ class ListItemView: NSTableCellView, NSTextFieldDelegate {
         
         // Listen for the NSControlTextDidEndEditingNotification notification to notify the delegate of any
         // updates it has to do its underlying model.
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleControlTextDidEndEditingNotification:", name: NSControlTextDidEndEditingNotification, object: textField)
+        NotificationCenter.defaultCenter().addObserver(self, selector: "handleControlTextDidEndEditingNotification:", name: NSControlTextDidEndEditingNotification, object: textField)
     }
     
     // MARK: Lifetime
 
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: NSControlTextDidEndEditingNotification, object: textField)
+        NotificationCenter.defaultCenter().removeObserver(self, name: NSControlTextDidEndEditingNotification, object: textField)
     }
     
     // MARK: IBActions
@@ -74,7 +74,7 @@ class ListItemView: NSTableCellView, NSTextFieldDelegate {
 
     // MARK: Notifications
 
-    func handleControlTextDidEndEditingNotification(notification: NSNotification) {
+    func handleControlTextDidEndEditingNotification(notification: Notification) {
         delegate?.listItemViewTextDidEndEditing(self)
     }
 }

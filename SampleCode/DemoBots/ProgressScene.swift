@@ -45,7 +45,7 @@ class ProgressScene: BaseScene {
     var progressBarInitialWidth: CGFloat!
     
     /// Add child progress objects to track downloading and loading states.
-    var progress: NSProgress? {
+    var progress: Progress? {
         didSet {
             // Unregister as an observer on the old value for the "fractionCompleted" property.
             oldValue?.removeObserver(self, forKeyPath: "fractionCompleted", context: &progressSceneKVOContext)
@@ -90,8 +90,8 @@ class ProgressScene: BaseScene {
         }
         
         // Register for notifications posted when the `SceneDownloader` fails.
-        let defaultCenter = NSNotificationCenter.defaultCenter()
-        downloadFailedObserver = defaultCenter.addObserverForName(SceneLoaderDidFailNotification, object: sceneLoader, queue: NSOperationQueue.main()) { [unowned self] notification in
+        let defaultCenter = NotificationCenter.defaultCenter()
+        downloadFailedObserver = defaultCenter.addObserverForName(SceneLoaderDidFailNotification, object: sceneLoader, queue: OperationQueue.main()) { [unowned self] notification in
             guard let sceneLoader = notification.object as? SceneLoader, error = sceneLoader.error else { fatalError("The scene loader has no error to show.") }
             
             self.showErrorStateForError(error)
@@ -101,7 +101,7 @@ class ProgressScene: BaseScene {
     deinit {
         // Unregister as an observer of 'SceneLoaderDownloadFailedNotification' notifications.
         if let downloadFailedObserver = downloadFailedObserver {
-            NSNotificationCenter.defaultCenter().removeObserver(downloadFailedObserver, name: SceneLoaderDidFailNotification, object: sceneLoader)
+            NotificationCenter.defaultCenter().removeObserver(downloadFailedObserver, name: SceneLoaderDidFailNotification, object: sceneLoader)
         }
         
         // Set the progress property to nil which will remove this object as an observer.
@@ -196,7 +196,7 @@ class ProgressScene: BaseScene {
         resetFocus()
     }
     
-    func showErrorStateForError(error: NSError) {
+    func showErrorStateForError(error: Error) {
         // A new progress object will have to be created for any subsequent loading attempts.
         progress = nil
         
@@ -213,7 +213,7 @@ class ProgressScene: BaseScene {
         resetFocus()
         
         // Check if the error was due to the user cancelling the operation.
-        if error.domain == NSCocoaErrorDomain && error.code == NSUserCancelledError {
+        if error.domain == cocoaErrorDomain && error.code == userCancelledError {
             labelNode.text = NSLocalizedString("Cancelled", comment: "Displayed when the user cancels loading.")
         }
         else {
@@ -221,7 +221,7 @@ class ProgressScene: BaseScene {
         }
     }
     
-    func showErrorAlert(error: NSError) {
+    func showErrorAlert(error: Error) {
         labelNode.text = NSLocalizedString("Failed", comment: "Displayed when the scene loader fails to load a scene.")
         
         // Display the error description in a native alert.

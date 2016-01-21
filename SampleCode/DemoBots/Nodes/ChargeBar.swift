@@ -19,7 +19,7 @@ class ChargeBar: SKSpriteNode {
         static let chargeLevelNodeSize = CGSize(width: 70.0, height: 6.0)
         
         /// The duration used for actions to update the level indicator.
-        static let levelUpdateDuration: NSTimeInterval = 0.1
+        static let levelUpdateDuration: TimeInterval = 0.1
         
         /// The background color.
         static let backgroundColor = SKColor.black()
@@ -61,7 +61,7 @@ class ChargeBar: SKSpriteNode {
         chargeLevelNode.constraints = [constraint]
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: Coder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

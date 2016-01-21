@@ -12,7 +12,7 @@
  in the URL specified by -[NKIssue contentURL].
  */
 @available(iOS 5.0, *)
-class NKAssetDownload : NSObject {
+class NKAssetDownload : Object {
 
   /*!
    @property   issue
@@ -35,20 +35,20 @@ class NKAssetDownload : NSObject {
    encoding mechanisms, custom identifiers, etc.  However, performance concerns dictate
    that you should make this content as minimal as possible.
    */
-  var userInfo: [NSObject : AnyObject]?
+  var userInfo: [Object : AnyObject]?
 
   /*!
    @property   URLRequest
    @abstract   The NSURLRequest of the download
    */
-  @NSCopying var urlRequest: NSURLRequest { get }
+  @NSCopying var urlRequest: URLRequest { get }
 
   /*!
    @method     downloadWithDelegate:
    @abstract   Begins downloading the asset with the specified delegate. Delegate
    may not be nil.
    */
-  func downloadWith(delegate: NSURLConnectionDownloadDelegate) -> NSURLConnection
+  func downloadWith(delegate: URLConnectionDownloadDelegate) -> URLConnection
   init()
 }
 
@@ -82,7 +82,7 @@ enum NKIssueContentStatus : Int {
  -[NKLibrary addIssueWithName:date:].
  */
 @available(iOS 5.0, *)
-class NKIssue : NSObject {
+class NKIssue : Object {
 
   /*!
    @property   downloadingAssets
@@ -95,7 +95,7 @@ class NKIssue : NSObject {
    @abstract   All content that represents this issue should be placed in the
    URL provided.
    */
-  @NSCopying var contentURL: NSURL { get }
+  @NSCopying var contentURL: URL { get }
 
   /*!
    @property   status
@@ -118,14 +118,14 @@ class NKIssue : NSObject {
    @property   date
    @abstract   The date of this issue
    */
-  @NSCopying var date: NSDate { get }
+  @NSCopying var date: Date { get }
 
   /*!
    @method     addAssetWithRequest:
    @abstract   Add a downloading asset to this issue. Initiate the download for this
    asset with the downloadWithDelegate: method on the NKAssetDownload.
    */
-  func addAssetWith(request: NSURLRequest) -> NKAssetDownload
+  func addAssetWith(request: URLRequest) -> NKAssetDownload
   init()
 }
 
@@ -139,7 +139,7 @@ class NKIssue : NSObject {
  -[NKAssetDownload downloadWithDelegate:].
  */
 @available(iOS 5.0, *)
-class NKLibrary : NSObject {
+class NKLibrary : Object {
 
   /*!
    @property   issues
@@ -179,7 +179,7 @@ class NKLibrary : NSObject {
    @method     addIssueWithName:date:
    @abstract   Add a new issue to the Newsstand Content Library.
    */
-  func addIssueWithName(name: String, date: NSDate) -> NKIssue
+  func addIssueWithName(name: String, date: Date) -> NKIssue
 
   /*!
    @method     removeIssue:
@@ -195,7 +195,7 @@ class NKLibrary : NSObject {
  @discussion This category provides a convenient way to look up an
  NKAssetDownload that is related to a NSURLConnection.
  */
-extension NSURLConnection {
+extension URLConnection {
 
   /*!
    @property   newsstandAssetDownload

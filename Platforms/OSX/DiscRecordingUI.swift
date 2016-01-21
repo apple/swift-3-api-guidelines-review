@@ -117,12 +117,12 @@ class DRBurnProgressPanel : NSPanel {
   	@abstract		Invoked when the user clicks the panel's stop button.
   */
   @IBAction func stopBurn(sender: AnyObject!)
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
+  init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
-  init?(coder: NSCoder)
+  init?(coder: Coder)
   convenience init?(windowRef: UnsafeMutablePointer<Void>)
 }
 
@@ -132,7 +132,7 @@ class DRBurnProgressPanel : NSPanel {
 					delegates of the burn progress panel can implement to control the 
 					behavior of the panel.
 */
-extension NSObject {
+extension Object {
 
   /*!
   	@method			burnProgressPanelWillBegin:
@@ -143,7 +143,7 @@ extension NSObject {
   					You can retrieve the DRBurnProgressPanel object in question by sending
   					@link //apple_ref/occ/instm/NSNotification/object object @/link message to aNotification.
   */
-  class func burnProgressPanelWillBegin(aNotification: NSNotification!)
+  class func burnProgressPanelWillBegin(aNotification: Notification!)
 
   /*!
   	@method			burnProgressPanelWillBegin:
@@ -154,7 +154,7 @@ extension NSObject {
   					You can retrieve the DRBurnProgressPanel object in question by sending
   					@link //apple_ref/occ/instm/NSNotification/object object @/link message to aNotification.
   */
-  func burnProgressPanelWillBegin(aNotification: NSNotification!)
+  func burnProgressPanelWillBegin(aNotification: Notification!)
 
   /*!
   	@method			burnProgressPanelDidFinish:
@@ -165,7 +165,7 @@ extension NSObject {
   					You can retrieve the DRBurnProgressPanel object in question by sending
   					@link //apple_ref/occ/instm/NSNotification/object object @/link message to aNotification.
   */
-  class func burnProgressPanelDidFinish(aNotification: NSNotification!)
+  class func burnProgressPanelDidFinish(aNotification: Notification!)
 
   /*!
   	@method			burnProgressPanelDidFinish:
@@ -176,7 +176,7 @@ extension NSObject {
   					You can retrieve the DRBurnProgressPanel object in question by sending
   					@link //apple_ref/occ/instm/NSNotification/object object @/link message to aNotification.
   */
-  func burnProgressPanelDidFinish(aNotification: NSNotification!)
+  func burnProgressPanelDidFinish(aNotification: Notification!)
 
   /*! 
   	@method			burnProgressPanel:burnDidFinish:
@@ -549,12 +549,12 @@ class DRBurnSetupPanel : DRSetupPanel {
   	@result		The receiver.
   */
   init!(nibName: String!)
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
+  init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
-  init?(coder: NSCoder)
+  init?(coder: Coder)
   convenience init?(windowRef: UnsafeMutablePointer<Void>)
 }
 
@@ -650,12 +650,12 @@ class DREraseProgressPanel : NSPanel {
   	@result			An NSString containing the text of the description.
   */
   func description() -> String!
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
+  init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
-  init?(coder: NSCoder)
+  init?(coder: Coder)
   convenience init?(windowRef: UnsafeMutablePointer<Void>)
 }
 
@@ -665,7 +665,7 @@ class DREraseProgressPanel : NSPanel {
 					delegates of the burn progress panel can implement to control the 
 					behavior of the panel.
 */
-extension NSObject {
+extension Object {
 
   /*!
   	@method			eraseProgressPanelWillBegin:
@@ -676,7 +676,7 @@ extension NSObject {
   					You can retrieve the DREraseProgressPanel object in question by sending
   					@link //apple_ref/occ/instm/NSNotification/object object @/link message to aNotification.
   */
-  class func eraseProgressPanelWillBegin(aNotification: NSNotification!)
+  class func eraseProgressPanelWillBegin(aNotification: Notification!)
 
   /*!
   	@method			eraseProgressPanelWillBegin:
@@ -687,7 +687,7 @@ extension NSObject {
   					You can retrieve the DREraseProgressPanel object in question by sending
   					@link //apple_ref/occ/instm/NSNotification/object object @/link message to aNotification.
   */
-  func eraseProgressPanelWillBegin(aNotification: NSNotification!)
+  func eraseProgressPanelWillBegin(aNotification: Notification!)
 
   /*!
   	@method			eraseProgressPanelDidFinish:
@@ -698,7 +698,7 @@ extension NSObject {
   					You can retrieve the DREraseProgressPanel object in question by sending
   					@link //apple_ref/occ/instm/NSNotification/object object @/link message to aNotification.
   */
-  class func eraseProgressPanelDidFinish(aNotification: NSNotification!)
+  class func eraseProgressPanelDidFinish(aNotification: Notification!)
 
   /*!
   	@method			eraseProgressPanelDidFinish:
@@ -709,7 +709,7 @@ extension NSObject {
   					You can retrieve the DREraseProgressPanel object in question by sending
   					@link //apple_ref/occ/instm/NSNotification/object object @/link message to aNotification.
   */
-  func eraseProgressPanelDidFinish(aNotification: NSNotification!)
+  func eraseProgressPanelDidFinish(aNotification: Notification!)
 
   /*! 
   	@method			eraseProgressPanel:eraseDidFinish:
@@ -1024,12 +1024,12 @@ class DREraseSetupPanel : DRSetupPanel {
   	@result		The receiver.
   */
   init!(nibName: String!)
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
+  init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
-  init?(coder: NSCoder)
+  init?(coder: Coder)
   convenience init?(windowRef: UnsafeMutablePointer<Void>)
 }
 
@@ -1133,7 +1133,7 @@ class DRSetupPanel : NSPanel {
   	@param		status		The new device status dictionary.
   	@result		<i>YES</i> if the inserted media is valid for use, <i>NO</i> otherwise.
   */
-  func mediaStateChanged(status: [NSObject : AnyObject]!) -> Bool
+  func mediaStateChanged(status: [Object : AnyObject]!) -> Bool
 
   /*!
   	@method		setupForDisplay
@@ -1142,12 +1142,12 @@ class DRSetupPanel : NSPanel {
   				done here.
   */
   func setupForDisplay()
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
+  init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
-  init?(coder: NSCoder)
+  init?(coder: Coder)
   convenience init?(windowRef: UnsafeMutablePointer<Void>)
 }
 
@@ -1172,7 +1172,7 @@ let DRSetupPanelSelectedDeviceKey: String
 					delegates of the setup panels can implement to control the 
 					behavior of the panel.
 */
-extension NSObject {
+extension Object {
 
   /*!
   	@method		setupPanel:deviceCouldBeTarget:
@@ -1235,7 +1235,7 @@ extension NSObject {
   								The userInfo dictionary contains the single key DRSetupPanelSelectedDeviceKey whose
   								value is the @link //apple_ref/occ/cl/DRDevice DRDevice @/link object that is currently selected.
   */
-  class func setupPanelDeviceSelectionChanged(aNotification: NSNotification!)
+  class func setupPanelDeviceSelectionChanged(aNotification: Notification!)
 
   /*!
   	@method		setupPanelDeviceSelectionChanged:
@@ -1246,7 +1246,7 @@ extension NSObject {
   								The userInfo dictionary contains the single key DRSetupPanelSelectedDeviceKey whose
   								value is the @link //apple_ref/occ/cl/DRDevice DRDevice @/link object that is currently selected.
   */
-  func setupPanelDeviceSelectionChanged(aNotification: NSNotification!)
+  func setupPanelDeviceSelectionChanged(aNotification: Notification!)
 
   /*!
   	@method		setupPanelShouldHandleMediaReservations:

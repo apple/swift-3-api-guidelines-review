@@ -26,8 +26,8 @@ class AVCaptureView : NSView {
   	@discussion	Options are AVLayerVideoGravityResize, AVLayerVideoGravityResizeAspect and AVLayerVideoGravityResizeAspectFill. AVLayerVideoGravityResizeAspect is default. See <AVFoundation/AVAnimation.h> for a description of these options.
    */
   var videoGravity: String
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init(frame frameRect: Rect)
+  init?(coder: Coder)
   convenience init()
 }
 
@@ -55,7 +55,7 @@ enum AVCaptureViewControlsStyle : Int {
 	@protocol	AVCaptureViewDelegate
 	@abstract	Defines an interface for delegates of AVCaptureView.
  */
-protocol AVCaptureViewDelegate : NSObjectProtocol {
+protocol AVCaptureViewDelegate : ObjectProtocol {
 }
 
 /*!
@@ -92,7 +92,7 @@ class AVPlayerView : NSView {
   	@abstract	The current size and position of the video image as displayed within the receiver's view's bounds.
    */
   @available(OSX 10.10, *)
-  var videoBounds: NSRect { get }
+  var videoBounds: Rect { get }
 
   /*!
   	@property	contentOverlayView
@@ -100,8 +100,8 @@ class AVPlayerView : NSView {
    */
   @available(OSX 10.10, *)
   var contentOverlayView: NSView? { get }
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init(frame frameRect: Rect)
+  init?(coder: Coder)
   convenience init()
 }
 

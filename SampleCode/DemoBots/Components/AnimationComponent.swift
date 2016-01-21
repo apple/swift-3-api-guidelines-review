@@ -86,7 +86,7 @@ class AnimationComponent: GKComponent {
     static let textureActionKey = "textureAction"
 
     /// The time to display each frame of a texture animation.
-    static let timePerFrame = NSTimeInterval(1.0 / 10.0)
+    static let timePerFrame = TimeInterval(1.0 / 10.0)
     
     // MARK: Properties
     
@@ -109,7 +109,7 @@ class AnimationComponent: GKComponent {
     private(set) var currentAnimation: Animation?
     
     /// The length of time spent in the current animation state and direction.
-    private var elapsedAnimationDuration: NSTimeInterval = 0.0
+    private var elapsedAnimationDuration: TimeInterval = 0.0
     
     // MARK: Initializers
 
@@ -120,7 +120,7 @@ class AnimationComponent: GKComponent {
     
     // MARK: Character Animation
 
-    private func runAnimationForAnimationState(animationState: AnimationState, compassDirection: CompassDirection, deltaTime: NSTimeInterval) {
+    private func runAnimationForAnimationState(animationState: AnimationState, compassDirection: CompassDirection, deltaTime: TimeInterval) {
         
         // Update the tracking of how long we have been animating.
         elapsedAnimationDuration += deltaTime
@@ -230,7 +230,7 @@ class AnimationComponent: GKComponent {
     
     // MARK: GKComponent Life Cycle
     
-    override func updateWithDeltaTime(deltaTime: NSTimeInterval) {
+    override func updateWithDeltaTime(deltaTime: TimeInterval) {
         super.updateWithDeltaTime(deltaTime)
         
         // If an animation has been requested, run the animation.

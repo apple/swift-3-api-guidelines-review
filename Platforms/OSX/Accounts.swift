@@ -1,6 +1,6 @@
 
 @available(OSX 10.8, *)
-class ACAccount : NSObject {
+class ACAccount : Object {
   init!(accountType type: ACAccountType!)
   var identifier: String! { get }
   var accountType: ACAccountType!
@@ -10,9 +10,9 @@ class ACAccount : NSObject {
   convenience init()
 }
 @available(OSX 10.8, *)
-class ACAccountCredential : NSObject {
+class ACAccountCredential : Object {
   init!(oAuthToken token: String!, tokenSecret secret: String!)
-  init!(oAuth2Token token: String!, refreshToken: String!, expiryDate: NSDate!)
+  init!(oAuth2Token token: String!, refreshToken: String!, expiryDate: Date!)
   var oauthToken: String!
   init()
 }
@@ -23,18 +23,18 @@ enum ACAccountCredentialRenewResult : Int {
   case Rejected
   case Failed
 }
-typealias ACAccountStoreSaveCompletionHandler = (Bool, NSError!) -> Void
-typealias ACAccountStoreRemoveCompletionHandler = (Bool, NSError!) -> Void
-typealias ACAccountStoreRequestAccessCompletionHandler = (Bool, NSError!) -> Void
-typealias ACAccountStoreCredentialRenewalHandler = (ACAccountCredentialRenewResult, NSError!) -> Void
+typealias ACAccountStoreSaveCompletionHandler = (Bool, Error!) -> Void
+typealias ACAccountStoreRemoveCompletionHandler = (Bool, Error!) -> Void
+typealias ACAccountStoreRequestAccessCompletionHandler = (Bool, Error!) -> Void
+typealias ACAccountStoreCredentialRenewalHandler = (ACAccountCredentialRenewResult, Error!) -> Void
 @available(OSX 10.8, *)
-class ACAccountStore : NSObject {
+class ACAccountStore : Object {
   var accounts: [AnyObject]! { get }
   func accountWithIdentifier(identifier: String!) -> ACAccount!
   func accountTypeWithAccountTypeIdentifier(typeIdentifier: String!) -> ACAccountType!
   func accountsWith(accountType: ACAccountType!) -> [AnyObject]!
   func saveAccount(account: ACAccount!, withCompletionHandler completionHandler: ACAccountStoreSaveCompletionHandler!)
-  func requestAccessToAccountsWith(accountType: ACAccountType!, options: [NSObject : AnyObject]! = [:], completion: ACAccountStoreRequestAccessCompletionHandler!)
+  func requestAccessToAccountsWith(accountType: ACAccountType!, options: [Object : AnyObject]! = [:], completion: ACAccountStoreRequestAccessCompletionHandler!)
   func renewCredentialsFor(account: ACAccount!, completion completionHandler: ACAccountStoreCredentialRenewalHandler!)
   func removeAccount(account: ACAccount!, withCompletionHandler completionHandler: ACAccountStoreRemoveCompletionHandler!)
   init()
@@ -70,7 +70,7 @@ let ACLinkedInPermissionsKey: String
 @available(OSX 10.9, *)
 let ACTencentWeiboAppIdKey: String
 @available(OSX 10.8, *)
-class ACAccountType : NSObject {
+class ACAccountType : Object {
   var accountTypeDescription: String! { get }
   var identifier: String! { get }
   var accessGranted: Bool { get }

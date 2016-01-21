@@ -50,7 +50,7 @@ extension LevelScene {
     */
     func registerForPauseNotifications() {
         for notificationName in iterator {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "pauseGame", name: notificationName, object: nil)
+            NotificationCenter.defaultCenter().addObserver(self, selector: "pauseGame", name: notificationName, object: nil)
         }
     }
     
@@ -60,7 +60,7 @@ extension LevelScene {
     
     func unregisterForPauseNotifications() {
         for notificationName in iterator {
-            NSNotificationCenter.defaultCenter().removeObserver(self, name: notificationName, object: nil)
+            NotificationCenter.defaultCenter().removeObserver(self, name: notificationName, object: nil)
         }
     }
 }

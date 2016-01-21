@@ -23,7 +23,7 @@ class CNContactPickerViewController : UIViewController {
    * @abstract The predicate to determine if a contact is selectable in the list.
    * @discussion If not set all contacts are selectable.
    */
-  @NSCopying var predicateForEnablingContact: NSPredicate?
+  @NSCopying var predicateForEnablingContact: Predicate?
 
   /*!
    * @abstract The predicate to control the selection of a contact.
@@ -31,7 +31,7 @@ class CNContactPickerViewController : UIViewController {
    * or if the contact detail card should be displayed (evaluates to FALSE).
    * If not set the picker displays the contact detail card when the contact is selected.
    */
-  @NSCopying var predicateForSelectionOfContact: NSPredicate?
+  @NSCopying var predicateForSelectionOfContact: Predicate?
 
   /*!
    * @abstract The predicate to control the selection of a property.
@@ -40,13 +40,13 @@ class CNContactPickerViewController : UIViewController {
    * If not set the picker returns the first selected property.
    * The predicate is evaluated on the CNContactProperty that is being selected.
    */
-  @NSCopying var predicateForSelectionOfProperty: NSPredicate?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  @NSCopying var predicateForSelectionOfProperty: Predicate?
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 @available(iOS 9.0, *)
-protocol CNContactPickerDelegate : NSObjectProtocol {
+protocol CNContactPickerDelegate : ObjectProtocol {
 
   /*!
    * @abstract Invoked when the picker is closed.
@@ -151,12 +151,12 @@ class CNContactViewController : UIViewController {
    * If a single value property key is specified, identifier will be ignored.
    */
   func highlightPropertyWithKey(key: String, identifier: String?)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 @available(iOS 9.0, *)
-protocol CNContactViewControllerDelegate : NSObjectProtocol {
+protocol CNContactViewControllerDelegate : ObjectProtocol {
 
   /*!
    * @abstract Called when the user selects a single property.

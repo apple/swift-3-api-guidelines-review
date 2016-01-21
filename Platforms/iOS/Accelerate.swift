@@ -16464,7 +16464,7 @@ func la_norm_as_double(vector: la_object_t, _ vector_norm: la_norm_t) -> Double
  */
 @available(iOS 8.0, *)
 func la_normalized_vector(vector: la_object_t, _ vector_norm: la_norm_t) -> la_object_t!
-protocol OS_la_object : NSObjectProtocol {
+protocol OS_la_object : ObjectProtocol {
 }
 typealias la_object_t = OS_la_object
 

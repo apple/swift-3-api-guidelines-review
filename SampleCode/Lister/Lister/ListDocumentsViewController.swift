@@ -46,7 +46,7 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
     
     // MARK: Initializers
     
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: Coder) {
         super.init(coder: aDecoder)
         
         if WCSession.isSupported() {
@@ -67,7 +67,7 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
             NSForegroundColorAttributeName: List.Color.Gray.colorValue
         ]
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleContentSizeCategoryDidChangeNotification:", name: UIContentSizeCategoryDidChangeNotification, object: nil)
+        NotificationCenter.defaultCenter().addObserver(self, selector: "handleContentSizeCategoryDidChangeNotification:", name: UIContentSizeCategoryDidChangeNotification, object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -97,12 +97,12 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
     // MARK: Lifetime
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIContentSizeCategoryDidChangeNotification, object: nil)
+        NotificationCenter.defaultCenter().removeObserver(self, name: UIContentSizeCategoryDidChangeNotification, object: nil)
     }
     
     // MARK: UIResponder
     
-    override func restoreUserActivityState(activity: NSUserActivity) {
+    override func restoreUserActivityState(activity: UserActivity) {
         // Obtain an app launch context from the provided activity and configure the view controller with it.
         guard let launchContext = AppLaunchContext(userActivity: activity, listsController: listsController) else { return }
         
@@ -150,7 +150,7 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
     
     // MARK: UIPickerViewDelegate
     
-    func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAt url: NSURL) {
+    func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
         // The user selected the document and it should be picked up by the `ListsController`.
     }
 
@@ -168,19 +168,19 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
     }
     
     func listsController(listsController: ListsController, didInsertListInfo listInfo: ListInfo, atIndex index: Int) {
-        let indexPath = NSIndexPath(forRow: index, inSection: 0)
+        let indexPath = IndexPath(forRow: index, inSection: 0)
         
         tableView.insertRowsAt([indexPath], withRowAnimation: .Automatic)
     }
     
     func listsController(listsController: ListsController, didRemoveListInfo listInfo: ListInfo, atIndex index: Int) {
-        let indexPath = NSIndexPath(forRow: index, inSection: 0)
+        let indexPath = IndexPath(forRow: index, inSection: 0)
         
         tableView.deleteRowsAt([indexPath], withRowAnimation: .Automatic)
     }
     
     func listsController(listsController: ListsController, didUpdateListInfo listInfo: ListInfo, atIndex index: Int) {
-        let indexPath = NSIndexPath(forRow: index, inSection: 0)
+        let indexPath = IndexPath(forRow: index, inSection: 0)
         
         tableView.reloadRowsAt([indexPath], withRowAnimation: .Automatic)
     }
@@ -192,7 +192,7 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
         updateWatchConnectivitySessionApplicationContext()
     }
     
-    func listsController(listsController: ListsController, didFailCreatingListInfo listInfo: ListInfo, withError error: NSError) {
+    func listsController(listsController: ListsController, didFailCreatingListInfo listInfo: ListInfo, withError error: Error) {
         let title = NSLocalizedString("Failed to Create List", comment: "")
         let message = error.localizedDescription
         let okActionTitle = NSLocalizedString("OK", comment: "")
@@ -205,7 +205,7 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
         present(errorOutController, animated: true)
     }
     
-    func listsController(listsController: ListsController, didFailRemovingListInfo listInfo: ListInfo, withError error: NSError) {
+    func listsController(listsController: ListsController, didFailRemovingListInfo listInfo: ListInfo, withError error: Error) {
         let title = NSLocalizedString("Failed to Delete List", comment: "")
         let message = error.localizedFailureReason
         let okActionTitle = NSLocalizedString("OK", comment: "")
@@ -225,13 +225,13 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
         return listsController?.count ?? 0
     }
     
-    override func tableView(tableView: UITableView, cellForRowAt indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return tableView.dequeueReusableCellWithIdentifier(MainStoryboard.TableViewCellIdentifiers.listDocumentCell, forIndexPath: indexPath) as! ListCell
     }
     
     // MARK: UITableViewDelegate
     
-    override func tableView(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         switch cell {
             case let listCell as ListCell:
                 let listInfo = listsController[indexPath.row]
@@ -260,11 +260,11 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
         }
     }
 
-    override func tableView(tableView: UITableView, canEditRowAt indexPath: NSIndexPath) -> Bool {
+    override func tableView(tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return false
     }
     
-    override func tableView(tableView: UITableView, canMoveRowAt indexPath: NSIndexPath) -> Bool {
+    override func tableView(tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return false
     }
     
@@ -277,7 +277,7 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
         }
     }
     
-    func session(session: WCSession, didFinishFileTransfer fileTransfer: WCSessionFileTransfer, error: NSError?) {
+    func session(session: WCSession, didFinishFileTransfer fileTransfer: WCSessionFileTransfer, error: Error?) {
         if error != nil {
             print("\(__FUNCTION__), file: \(fileTransfer.file.fileURL), error: \(error!.localizedDescription)")
         }
@@ -320,7 +320,7 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
 
     // MARK: Notifications
     
-    func handleContentSizeCategoryDidChangeNotification(_: NSNotification) {
+    func handleContentSizeCategoryDidChangeNotification(_: Notification) {
         tableView.setNeedsLayout()
     }
     
@@ -360,14 +360,14 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
         // This array will be used to collect the data about the lists for the application context.
         var lists = [[String: AnyObject]]()
         // A background queue to execute operations on to fetch the information about the lists.
-        let queue = NSOperationQueue()
+        let queue = OperationQueue()
         
         // This operation will execute last and will actually update the application context.
-        let updateApplicationContextOperation = NSBlockOperation {
+        let updateApplicationContextOperation = BlockOperation {
             do {
                 try session.updateApplicationContext([AppConfiguration.ApplicationActivityContext.currentListsKey: lists])
             }
-            catch let error as NSError {
+            catch let error as Error {
                 print("Error updating watch application context: \(error.localizedDescription)")
             }
             // Requiring an additional catch to satisfy exhaustivity is a known issue.
@@ -380,7 +380,7 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
             let info = listsController[idx]
             
             // This operation will fetch the information for an individual list.
-            let listInfoOperation = NSBlockOperation {
+            let listInfoOperation = BlockOperation {
                 // The `fetchInfoWithCompletionHandler(_:)` method executes asynchronously. Use a semaphore to wait.
                 let semaphore = dispatch_semaphore_create(0)
                 info.fetchInfoWithCompletionHandler {
@@ -403,9 +403,9 @@ class ListDocumentsViewController: UITableViewController, ListsControllerDelegat
             queue.addOperation(listInfoOperation)
             
             // Use file coordination to obtain exclusive access to read the file in order to initiate a transfer.
-            let fileCoordinator = NSFileCoordinator()
-            let readingIntent = NSFileAccessIntent.readingIntentWith(info.URL)
-            fileCoordinator.coordinateAccessWith([readingIntent], queue: NSOperationQueue()) { accessError in
+            let fileCoordinator = FileCoordinator()
+            let readingIntent = FileAccessIntent.readingIntentWith(info.URL)
+            fileCoordinator.coordinateAccessWith([readingIntent], queue: OperationQueue()) { accessError in
                 if accessError != nil {
                     return
                 }

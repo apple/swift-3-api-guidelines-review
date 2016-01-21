@@ -19,7 +19,7 @@ enum SCNActionTimingMode : Int {
  and the function must return 1.0 when the input time reaches 1.0.
  */
 typealias SCNActionTimingFunction = (Float) -> Float
-protocol SCNActionable : NSObjectProtocol {
+protocol SCNActionable : ObjectProtocol {
 
   /*!
    @method runAction:
@@ -85,13 +85,13 @@ protocol SCNActionable : NSObjectProtocol {
   var actionKeys: [String] { get }
 }
 @available(OSX 10.10, *)
-class SCNAction : NSObject, NSCopying, NSSecureCoding {
+class SCNAction : Object, Copying, SecureCoding {
 
   /*!
    @property duration
    @abstract This is the expected duration of an action’s animation. The actual time an action takes to complete is modified by the speed property of the action.
    */
-  var duration: NSTimeInterval
+  var duration: TimeInterval
 
   /*!
    @property timingMode
@@ -116,35 +116,35 @@ class SCNAction : NSObject, NSCopying, NSSecureCoding {
    @abstract Creates an action that reverses the behavior of another action.
    */
   func reversed() -> SCNAction
-  class func moveByX(deltaX: CGFloat, y deltaY: CGFloat, z deltaZ: CGFloat, duration: NSTimeInterval) -> SCNAction
-  class func moveBy(delta: SCNVector3, duration: NSTimeInterval) -> SCNAction
-  class func moveTo(location: SCNVector3, duration: NSTimeInterval) -> SCNAction
-  class func rotateByX(xAngle: CGFloat, y yAngle: CGFloat, z zAngle: CGFloat, duration: NSTimeInterval) -> SCNAction
-  class func rotateToX(xAngle: CGFloat, y yAngle: CGFloat, z zAngle: CGFloat, duration: NSTimeInterval) -> SCNAction
-  class func rotateToX(xAngle: CGFloat, y yAngle: CGFloat, z zAngle: CGFloat, duration: NSTimeInterval, shortestUnitArc: Bool) -> SCNAction
-  class func rotateByAngle(angle: CGFloat, aroundAxis axis: SCNVector3, duration: NSTimeInterval) -> SCNAction
-  class func rotateToAxisAngle(axisAngle: SCNVector4, duration: NSTimeInterval) -> SCNAction
-  class func scaleBy(scale: CGFloat, duration sec: NSTimeInterval) -> SCNAction
-  class func scaleTo(scale: CGFloat, duration sec: NSTimeInterval) -> SCNAction
+  class func moveByX(deltaX: CGFloat, y deltaY: CGFloat, z deltaZ: CGFloat, duration: TimeInterval) -> SCNAction
+  class func moveBy(delta: SCNVector3, duration: TimeInterval) -> SCNAction
+  class func moveTo(location: SCNVector3, duration: TimeInterval) -> SCNAction
+  class func rotateByX(xAngle: CGFloat, y yAngle: CGFloat, z zAngle: CGFloat, duration: TimeInterval) -> SCNAction
+  class func rotateToX(xAngle: CGFloat, y yAngle: CGFloat, z zAngle: CGFloat, duration: TimeInterval) -> SCNAction
+  class func rotateToX(xAngle: CGFloat, y yAngle: CGFloat, z zAngle: CGFloat, duration: TimeInterval, shortestUnitArc: Bool) -> SCNAction
+  class func rotateByAngle(angle: CGFloat, aroundAxis axis: SCNVector3, duration: TimeInterval) -> SCNAction
+  class func rotateToAxisAngle(axisAngle: SCNVector4, duration: TimeInterval) -> SCNAction
+  class func scaleBy(scale: CGFloat, duration sec: TimeInterval) -> SCNAction
+  class func scaleTo(scale: CGFloat, duration sec: TimeInterval) -> SCNAction
   class func sequence(actions: [SCNAction]) -> SCNAction
   class func group(actions: [SCNAction]) -> SCNAction
   class func repeatAction(action: SCNAction, count: Int) -> SCNAction
   class func repeatForever(action: SCNAction) -> SCNAction
-  class func fadeInWithDuration(sec: NSTimeInterval) -> SCNAction
-  class func fadeOutWithDuration(sec: NSTimeInterval) -> SCNAction
-  class func fadeOpacityBy(factor: CGFloat, duration sec: NSTimeInterval) -> SCNAction
-  class func fadeOpacityTo(opacity: CGFloat, duration sec: NSTimeInterval) -> SCNAction
+  class func fadeInWithDuration(sec: TimeInterval) -> SCNAction
+  class func fadeOutWithDuration(sec: TimeInterval) -> SCNAction
+  class func fadeOpacityBy(factor: CGFloat, duration sec: TimeInterval) -> SCNAction
+  class func fadeOpacityTo(opacity: CGFloat, duration sec: TimeInterval) -> SCNAction
   @available(OSX 10.11, *)
   class func hide() -> SCNAction
   @available(OSX 10.11, *)
   class func unhide() -> SCNAction
-  class func waitForDuration(sec: NSTimeInterval) -> SCNAction
-  class func waitForDuration(sec: NSTimeInterval, withRange durationRange: NSTimeInterval) -> SCNAction
+  class func waitForDuration(sec: TimeInterval) -> SCNAction
+  class func waitForDuration(sec: TimeInterval, withRange durationRange: TimeInterval) -> SCNAction
   class func removeFromParentNode() -> SCNAction
   class func run(block: (SCNNode) -> Void) -> SCNAction
   class func run(block: (SCNNode) -> Void, queue: dispatch_queue_t) -> SCNAction
-  class func javaScriptActionWithScript(script: String, duration seconds: NSTimeInterval) -> SCNAction
-  class func customActionWithDuration(seconds: NSTimeInterval, actionBlock block: (SCNNode, CGFloat) -> Void) -> SCNAction
+  class func javaScriptActionWithScript(script: String, duration seconds: TimeInterval) -> SCNAction
+  class func customActionWithDuration(seconds: TimeInterval, actionBlock block: (SCNNode, CGFloat) -> Void) -> SCNAction
 
   /** Creates an action that plays a sound
    @param source The audio source to play (see SCNAudioSource.h)
@@ -155,12 +155,12 @@ class SCNAction : NSObject, NSCopying, NSSecureCoding {
   class func play(source: SCNAudioSource, waitForCompletion wait: Bool) -> SCNAction
   init()
   @available(OSX 10.10, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -174,7 +174,7 @@ typealias SCNAnimationEventBlock = (CAAnimation, AnyObject, Bool) -> Void
  @abstract SCNAnimationEvent encapsulate a block to trigger at a specific time.
  */
 @available(OSX 10.9, *)
-class SCNAnimationEvent : NSObject {
+class SCNAnimationEvent : Object {
 
   /*!
    @method animationEventWithKeyTime:block:
@@ -191,7 +191,7 @@ class SCNAnimationEvent : NSObject {
  @protocol SCNAnimatable
  @abstract The SCNAnimatable protocol defines an animatable property. Objects that implement this protocol can be animated through these methods.
 */
-protocol SCNAnimatable : NSObjectProtocol {
+protocol SCNAnimatable : ObjectProtocol {
 
   /*!
    @method addAnimation:forKey:
@@ -305,7 +305,7 @@ extension CAAnimation {
  @abstract The SCNAudioSource class represents an audio source that can be added to a SCNNode.
  */
 @available(OSX 10.11, *)
-class SCNAudioSource : NSObject, NSCopying, NSSecureCoding {
+class SCNAudioSource : Object, Copying, SecureCoding {
 
   /*!
    @method initWithFileNamed:
@@ -317,7 +317,7 @@ class SCNAudioSource : NSObject, NSCopying, NSSecureCoding {
    @method initWithURL:
    @abstract Convenience initializer that creates an AVAudioNode from the URL that contain a audio asset.
    */
-  init?(url: NSURL)
+  init?(url: URL)
 
   /*!
    @method audioSourceNamed:
@@ -370,15 +370,15 @@ class SCNAudioSource : NSObject, NSCopying, NSSecureCoding {
   func load()
   convenience init()
   @available(OSX 10.11, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(OSX 10.11, *)
-class SCNAudioPlayer : NSObject {
+class SCNAudioPlayer : Object {
 
   /*!
    @property initWithSource:
@@ -440,7 +440,7 @@ extension SCNNode {
  @abstract The SCNBoundingVolume protocol is implemented by objects which can compute their bounding boxes.
  @discussion You can currently use this protocol to get the bounding boxes of nodes and geometries.
  */
-protocol SCNBoundingVolume : NSObjectProtocol {
+protocol SCNBoundingVolume : ObjectProtocol {
 
   /*! 
    @method getBoundingBoxMin:max:
@@ -475,7 +475,7 @@ protocol SCNBoundingVolume : NSObjectProtocol {
  @discussion A node with a camera can be used as a point of view to visualize a 3D scene.
  */
 @available(OSX 10.8, *)
-class SCNCamera : NSObject, SCNAnimatable, SCNTechniqueSupport, NSCopying, NSSecureCoding {
+class SCNCamera : Object, SCNAnimatable, SCNTechniqueSupport, Copying, SecureCoding {
 
   /*! 
    @property name
@@ -665,12 +665,12 @@ class SCNCamera : NSObject, SCNAnimatable, SCNTechniqueSupport, NSCopying, NSSec
   @available(OSX 10.10, *)
   @NSCopying var technique: SCNTechnique?
   @available(OSX 10.8, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -678,7 +678,7 @@ class SCNCamera : NSObject, SCNAnimatable, SCNTechniqueSupport, NSCopying, NSSec
  @abstract A SCNConstraint is an abstract class that represents a single constraint that can be applied to a node.
  */
 @available(OSX 10.9, *)
-class SCNConstraint : NSObject, NSCopying, NSSecureCoding, SCNAnimatable {
+class SCNConstraint : Object, Copying, SecureCoding, SCNAnimatable {
 
   /*!
    @property influenceFactor
@@ -688,12 +688,12 @@ class SCNConstraint : NSObject, NSCopying, NSSecureCoding, SCNAnimatable {
   var influenceFactor: CGFloat
   init()
   @available(OSX 10.9, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.9, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.9, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 
   /*!
    @method addAnimation:forKey:
@@ -797,7 +797,7 @@ class SCNLookAtConstraint : SCNConstraint {
    */
   var gimbalLockEnabled: Bool
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 struct SCNBillboardAxis : OptionSetType {
   init(rawValue: UInt)
@@ -816,7 +816,7 @@ class SCNBillboardConstraint : SCNConstraint {
    */
   var freeAxes: SCNBillboardAxis
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -835,7 +835,7 @@ class SCNTransformConstraint : SCNConstraint {
    */
   convenience init(inWorldSpace world: Bool, withBlock block: (SCNNode, SCNMatrix4) -> SCNMatrix4)
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -881,7 +881,7 @@ class SCNIKConstraint : SCNConstraint {
   func setMaxAllowedRotationAngle(angle: CGFloat, forJoint node: SCNNode)
   func maxAllowedRotationAngleForJoint(node: SCNNode) -> CGFloat
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 enum SCNGeometryPrimitiveType : Int {
   init?(rawValue: Int)
@@ -909,7 +909,7 @@ let SCNGeometrySourceSemanticBoneIndices: String
  @abstract SCNGeometry is an abstract class that represents the geometry that can be attached to a SCNNode. 
  */
 @available(OSX 10.8, *)
-class SCNGeometry : NSObject, SCNAnimatable, SCNBoundingVolume, SCNShadable, NSCopying, NSSecureCoding {
+class SCNGeometry : Object, SCNAnimatable, SCNBoundingVolume, SCNShadable, Copying, SecureCoding {
 
   /*!
    @property name
@@ -1260,12 +1260,12 @@ class SCNGeometry : NSObject, SCNAnimatable, SCNBoundingVolume, SCNShadable, NSC
   @available(OSX 10.9, *)
   var shaderModifiers: [String : String]?
   @available(OSX 10.8, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -1273,7 +1273,7 @@ class SCNGeometry : NSObject, SCNAnimatable, SCNBoundingVolume, SCNShadable, NSC
  @abstract A geometry source contains geometry data for a specific semantic. The data format is described by properties.
  */
 @available(OSX 10.8, *)
-class SCNGeometrySource : NSObject, NSSecureCoding {
+class SCNGeometrySource : Object, SecureCoding {
 
   /*! 
    @method geometrySourceWithData:semantic:vectorCount:floatComponents:componentsPerVector:bytesPerComponent:dataOffset:dataStride:
@@ -1287,7 +1287,7 @@ class SCNGeometrySource : NSObject, NSSecureCoding {
    @param offset The offset from the beginning of the data. In bytes.
    @param stride The number of bytes from a vector to the next one in the data.
    */
-  convenience init(data: NSData, semantic: String, vectorCount: Int, floatComponents: Bool, componentsPerVector: Int, bytesPerComponent: Int, dataOffset offset: Int, dataStride stride: Int)
+  convenience init(data: Data, semantic: String, vectorCount: Int, floatComponents: Bool, componentsPerVector: Int, bytesPerComponent: Int, dataOffset offset: Int, dataStride stride: Int)
 
   /*!
    @method geometrySourceWithVertices:count:
@@ -1354,7 +1354,7 @@ class SCNGeometrySource : NSObject, NSSecureCoding {
    @property data
    @abstract The data for the geometry source
    */
-  var data: NSData { get }
+  var data: Data { get }
 
   /*! 
    @property semantic
@@ -1401,8 +1401,8 @@ class SCNGeometrySource : NSObject, NSSecureCoding {
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -1410,7 +1410,7 @@ class SCNGeometrySource : NSObject, NSSecureCoding {
  @abstract A geometry element describes how vertices from a geometry source are connected together.
  */
 @available(OSX 10.8, *)
-class SCNGeometryElement : NSObject, NSSecureCoding {
+class SCNGeometryElement : Object, SecureCoding {
 
   /*!
    @method geometryElementWithData:primitiveType:primitiveCount:bytesPerIndex:
@@ -1420,13 +1420,13 @@ class SCNGeometryElement : NSObject, NSSecureCoding {
    @param primitiveCount The number of primitives in the data.
    @param bytesPerIndex The number of bytes that represent a single index value in the data.
    */
-  convenience init(data: NSData?, primitiveType: SCNGeometryPrimitiveType, primitiveCount: Int, bytesPerIndex: Int)
+  convenience init(data: Data?, primitiveType: SCNGeometryPrimitiveType, primitiveCount: Int, bytesPerIndex: Int)
 
   /*!
    @property data
    @abstract The data for the geometry element
    */
-  var data: NSData { get }
+  var data: Data { get }
 
   /*!
    @property primitiveType
@@ -1449,8 +1449,8 @@ class SCNGeometryElement : NSObject, NSSecureCoding {
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 @available(iOS 8.0, OSX 10.8, *)
@@ -1474,7 +1474,7 @@ class SCNLayer : CAOpenGLLayer, SCNSceneRenderer, SCNTechniqueSupport {
   var scene: SCNScene?
   init()
   init(layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 
   /*!
    @property sceneTime
@@ -1482,7 +1482,7 @@ class SCNLayer : CAOpenGLLayer, SCNSceneRenderer, SCNTechniqueSupport {
    @discussion The scene time only affect scene time based animations (see SCNAnimation.h "usesSceneTimeBase" and SCNSceneSource.h "SCNSceneSourceAnimationImportPolicyKey" for how to create scene time based animations). Scene time based animations and this property are typically used by tools and viewer to ease seeking in time while previewing a scene.
    */
   @available(OSX 10.10, *)
-  var sceneTime: NSTimeInterval
+  var sceneTime: TimeInterval
 
   /*! 
    @property delegate
@@ -1681,7 +1681,7 @@ class SCNLayer : CAOpenGLLayer, SCNSceneRenderer, SCNTechniqueSupport {
    @discussion Deprecated, use "sceneTime" instead.
    */
   @available(OSX, introduced=10.8, deprecated=10.10)
-  var currentTime: NSTimeInterval
+  var currentTime: TimeInterval
 
   /*!
    @property technique
@@ -1696,7 +1696,7 @@ class SCNLayer : CAOpenGLLayer, SCNSceneRenderer, SCNTechniqueSupport {
  @abstract SCNLevelOfDetail represents a level of detail of a geometry.
  */
 @available(OSX 10.9, *)
-class SCNLevelOfDetail : NSObject, NSCopying, NSSecureCoding {
+class SCNLevelOfDetail : Object, Copying, SecureCoding {
 
   /*!
    @method levelOfDetailWithGeometry:screenSpaceRadius:
@@ -1733,12 +1733,12 @@ class SCNLevelOfDetail : NSObject, NSCopying, NSSecureCoding {
   var worldSpaceDistance: CGFloat { get }
   init()
   @available(OSX 10.9, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.9, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.9, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*! @constant SCNLightTypeAmbient Ambient light */
@@ -1773,7 +1773,7 @@ enum SCNShadowMode : Int {
  @abstract SCNLight represents a light that can be attached to a SCNNode. 
  */
 @available(OSX 10.8, *)
-class SCNLight : NSObject, SCNAnimatable, SCNTechniqueSupport, NSCopying, NSSecureCoding {
+class SCNLight : Object, SCNAnimatable, SCNTechniqueSupport, Copying, SecureCoding {
 
   /*! 
    @property type
@@ -2014,12 +2014,12 @@ class SCNLight : NSObject, SCNAnimatable, SCNTechniqueSupport, NSCopying, NSSecu
   @available(OSX 10.10, *)
   @NSCopying var technique: SCNTechnique?
   @available(OSX 10.8, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -2092,7 +2092,7 @@ enum SCNBlendMode : Int {
  @abstract A SCNMaterial determines how a geometry is rendered. It encapsulates the colors and textures that define the appearance of 3d geometries.
  */
 @available(OSX 10.8, *)
-class SCNMaterial : NSObject, SCNAnimatable, SCNShadable, NSCopying, NSSecureCoding {
+class SCNMaterial : Object, SCNAnimatable, SCNShadable, Copying, SecureCoding {
 
   /*! 
    @property name
@@ -2441,12 +2441,12 @@ class SCNMaterial : NSObject, SCNAnimatable, SCNShadable, NSCopying, NSSecureCod
   @available(OSX 10.9, *)
   var shaderModifiers: [String : String]?
   @available(OSX 10.8, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*! @enum SCNFilterMode
@@ -2484,7 +2484,7 @@ enum SCNWrapMode : Int {
     @discussion This can be used to specify the various properties of SCNMaterial slots such as diffuse, ambient, etc.
 */
 @available(OSX 10.8, *)
-class SCNMaterialProperty : NSObject, SCNAnimatable, NSSecureCoding {
+class SCNMaterialProperty : Object, SCNAnimatable, SecureCoding {
 
   /*!
    @method materialPropertyWithContents:
@@ -2648,8 +2648,8 @@ class SCNMaterialProperty : NSObject, SCNAnimatable, NSSecureCoding {
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -2663,7 +2663,7 @@ enum SCNMorpherCalculationMode : Int {
   case Additive
 }
 @available(OSX 10.9, *)
-class SCNMorpher : NSObject, SCNAnimatable, NSSecureCoding {
+class SCNMorpher : Object, SCNAnimatable, SecureCoding {
 
   /*!
    @property targets
@@ -2767,8 +2767,8 @@ class SCNMorpher : NSObject, SCNAnimatable, NSSecureCoding {
   @available(OSX 10.9, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.9, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*! @group Rendering arguments
@@ -2790,7 +2790,7 @@ let SCNModelViewProjectionTransform: String
 		     The coordinate systems of all the sub-nodes are relative to the one of their parent node.
  */
 @available(OSX 10.8, *)
-class SCNNode : NSObject, NSCopying, NSSecureCoding, SCNAnimatable, SCNActionable, SCNBoundingVolume {
+class SCNNode : Object, Copying, SecureCoding, SCNAnimatable, SCNActionable, SCNBoundingVolume {
 
   /*! 
    @method nodeWithGeometry:
@@ -3110,12 +3110,12 @@ class SCNNode : NSObject, NSCopying, NSSecureCoding, SCNAnimatable, SCNActionabl
   var categoryBitMask: Int
   init()
   @available(OSX 10.8, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 
   /*!
    @method addAnimation:forKey:
@@ -3287,7 +3287,7 @@ class SCNNode : NSObject, NSCopying, NSSecureCoding, SCNAnimatable, SCNActionabl
  @category NSObject (SCNNodeRendererDelegate)
  @abstract The SCNNodeRendererDelegate protocol declares the methods that an instance of SCNNode invokes to let a delegate customize its rendering.
  */
-protocol SCNNodeRendererDelegate : NSObjectProtocol {
+protocol SCNNodeRendererDelegate : ObjectProtocol {
 
   /*! 
    @method renderNode:renderer:arguments:
@@ -3300,7 +3300,7 @@ protocol SCNNodeRendererDelegate : NSObjectProtocol {
    @param arguments A dictionary that can have any of the entries described at the beginning of this file.
    */
   @available(OSX 10.8, *)
-  optional func renderNode(node: SCNNode, renderer: SCNRenderer, arguments: [String : NSValue])
+  optional func renderNode(node: SCNNode, renderer: SCNRenderer, arguments: [String : Value])
 }
 
 /*!
@@ -3371,7 +3371,7 @@ class SCNPlane : SCNGeometry {
   */
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
   convenience init(mdlMesh: MDLMesh)
 }
@@ -3458,7 +3458,7 @@ class SCNBox : SCNGeometry {
   */
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
   convenience init(mdlMesh: MDLMesh)
 }
@@ -3530,7 +3530,7 @@ class SCNPyramid : SCNGeometry {
   */
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
   convenience init(mdlMesh: MDLMesh)
 }
@@ -3579,7 +3579,7 @@ class SCNSphere : SCNGeometry {
   */
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
   convenience init(mdlMesh: MDLMesh)
 }
@@ -3636,7 +3636,7 @@ class SCNCylinder : SCNGeometry {
   */
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
   convenience init(mdlMesh: MDLMesh)
 }
@@ -3701,7 +3701,7 @@ class SCNCone : SCNGeometry {
   */
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
   convenience init(mdlMesh: MDLMesh)
 }
@@ -3766,7 +3766,7 @@ class SCNTube : SCNGeometry {
   */
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
   convenience init(mdlMesh: MDLMesh)
 }
@@ -3830,7 +3830,7 @@ class SCNCapsule : SCNGeometry {
   */
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
   convenience init(mdlMesh: MDLMesh)
 }
@@ -3887,7 +3887,7 @@ class SCNTorus : SCNGeometry {
   */
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
   convenience init(mdlMesh: MDLMesh)
 }
@@ -3937,7 +3937,7 @@ class SCNFloor : SCNGeometry {
   */
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
   convenience init(mdlMesh: MDLMesh)
 }
@@ -4044,7 +4044,7 @@ class SCNText : SCNGeometry {
   */
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
   convenience init(mdlMesh: MDLMesh)
 }
@@ -4116,7 +4116,7 @@ class SCNShape : SCNGeometry {
   */
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
   convenience init(mdlMesh: MDLMesh)
 }
@@ -4282,7 +4282,7 @@ enum SCNParticleEvent : Int {
  @abstract The SCNParticlePropertyController class controls the variation over time or over distance of a particle property.
  */
 @available(OSX 10.10, *)
-class SCNParticlePropertyController : NSObject, NSSecureCoding, NSCopying {
+class SCNParticlePropertyController : Object, SecureCoding, Copying {
   convenience init(animation: CAAnimation)
   var animation: CAAnimation
   var inputMode: SCNParticleInputMode
@@ -4294,10 +4294,10 @@ class SCNParticlePropertyController : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.10, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -4305,7 +4305,7 @@ class SCNParticlePropertyController : NSObject, NSSecureCoding, NSCopying {
  @abstract The SCNParticleSystem class represents a system of particles.
  */
 @available(OSX 10.10, *)
-class SCNParticleSystem : NSObject, NSCopying, NSSecureCoding, SCNAnimatable {
+class SCNParticleSystem : Object, Copying, SecureCoding, SCNAnimatable {
   convenience init?(named name: String, inDirectory directory: String?)
   var emissionDuration: CGFloat
   var emissionDurationVariation: CGFloat
@@ -4374,12 +4374,12 @@ class SCNParticleSystem : NSObject, NSCopying, NSSecureCoding, SCNAnimatable {
   func removeAllModifiers()
   init()
   @available(OSX 10.10, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 
   /*!
    @method addAnimation:forKey:
@@ -4481,13 +4481,13 @@ extension SCNScene {
  @abstract SCNPhysicsBehavior is an abstract class that represents a behavior in the physics world.
  */
 @available(OSX 10.10, *)
-class SCNPhysicsBehavior : NSObject, NSSecureCoding {
+class SCNPhysicsBehavior : Object, SecureCoding {
   init()
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -4505,7 +4505,7 @@ class SCNPhysicsHingeJoint : SCNPhysicsBehavior {
   var axisB: SCNVector3
   var anchorB: SCNVector3
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -4521,7 +4521,7 @@ class SCNPhysicsBallSocketJoint : SCNPhysicsBehavior {
   var bodyB: SCNPhysicsBody? { get }
   var anchorB: SCNVector3
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -4547,7 +4547,7 @@ class SCNPhysicsSliderJoint : SCNPhysicsBehavior {
   var motorTargetAngularVelocity: CGFloat
   var motorMaximumTorque: CGFloat
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -4555,7 +4555,7 @@ class SCNPhysicsSliderJoint : SCNPhysicsBehavior {
  @abstract SCNPhysicsVehicleWheel represents a wheel that can be attached to a SCNPhysicsVehicle instance.
  */
 @available(OSX 10.10, *)
-class SCNPhysicsVehicleWheel : NSObject, NSCopying, NSSecureCoding {
+class SCNPhysicsVehicleWheel : Object, Copying, SecureCoding {
   convenience init(node: SCNNode)
   var node: SCNNode { get }
   var suspensionStiffness: CGFloat
@@ -4571,12 +4571,12 @@ class SCNPhysicsVehicleWheel : NSObject, NSCopying, NSSecureCoding {
   var suspensionRestLength: CGFloat
   init()
   @available(OSX 10.10, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -4593,7 +4593,7 @@ class SCNPhysicsVehicle : SCNPhysicsBehavior {
   func setSteeringAngle(value: CGFloat, forWheelAt index: Int)
   func applyBrakingForce(value: CGFloat, forWheelAt index: Int)
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(OSX 10.10, *)
 enum SCNPhysicsBodyType : Int {
@@ -4617,7 +4617,7 @@ struct SCNPhysicsCollisionCategory : OptionSetType {
  @abstract The SCNPhysicsBody class describes the physics properties (such as mass, friction...) of a node.
  */
 @available(OSX 10.10, *)
-class SCNPhysicsBody : NSObject, NSCopying, NSSecureCoding {
+class SCNPhysicsBody : Object, Copying, SecureCoding {
   class func staticBody() -> Self
   class func dynamic() -> Self
   class func kinematic() -> Self
@@ -4654,12 +4654,12 @@ class SCNPhysicsBody : NSObject, NSCopying, NSSecureCoding {
   func resetTransform()
   init()
   @available(OSX 10.10, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -4667,7 +4667,7 @@ class SCNPhysicsBody : NSObject, NSCopying, NSSecureCoding {
  @abstract SCNPhysicsContact contains information about a physics contact.
  */
 @available(OSX 10.10, *)
-class SCNPhysicsContact : NSObject {
+class SCNPhysicsContact : Object {
   var nodeA: SCNNode { get }
   var nodeB: SCNNode { get }
   var contactPoint: SCNVector3 { get }
@@ -4694,7 +4694,7 @@ enum SCNPhysicsFieldScope : Int {
  @abstract SCNPhysicsField is an abstract class that describes a force field that applies in the physics world.
  */
 @available(OSX 10.10, *)
-class SCNPhysicsField : NSObject, NSCopying, NSSecureCoding {
+class SCNPhysicsField : Object, Copying, SecureCoding {
   var strength: CGFloat
   var falloffExponent: CGFloat
   var minimumDistance: CGFloat
@@ -4781,14 +4781,14 @@ class SCNPhysicsField : NSObject, NSCopying, NSSecureCoding {
   class func customFieldWithEvaluationBlock(block: SCNFieldForceEvaluator) -> SCNPhysicsField
   init()
   @available(OSX 10.10, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
-typealias SCNFieldForceEvaluator = (SCNVector3, SCNVector3, Float, Float, NSTimeInterval) -> SCNVector3
+typealias SCNFieldForceEvaluator = (SCNVector3, SCNVector3, Float, Float, TimeInterval) -> SCNVector3
 @available(OSX 10.10, *)
 let SCNPhysicsShapeTypeKey: String
 @available(OSX 10.10, *)
@@ -4807,24 +4807,24 @@ let SCNPhysicsShapeScaleKey: String
  @abstract SCNPhysicsShape represents the shape of a physics body.
  */
 @available(OSX 10.10, *)
-class SCNPhysicsShape : NSObject, NSCopying, NSSecureCoding {
+class SCNPhysicsShape : Object, Copying, SecureCoding {
   convenience init(geometry: SCNGeometry, options: [String : AnyObject]? = [:])
   convenience init(node: SCNNode, options: [String : AnyObject]? = [:])
-  convenience init(shapes: [SCNPhysicsShape], transforms: [NSValue]?)
+  convenience init(shapes: [SCNPhysicsShape], transforms: [Value]?)
   @available(OSX 10.11, *)
   var options: [String : AnyObject]? { get }
   @available(OSX 10.11, *)
   var sourceObject: AnyObject { get }
   @available(OSX 10.11, *)
-  var transforms: [NSValue]? { get }
+  var transforms: [Value]? { get }
   init()
   @available(OSX 10.10, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(OSX 10.10, *)
 let SCNPhysicsTestCollisionBitMaskKey: String
@@ -4844,7 +4844,7 @@ let SCNPhysicsTestSearchModeAll: String
  @abstract The SCNPhysicsContactDelegate protocol is to be implemented by delegates that want to be notified when a contact occured.
  */
 @available(OSX 10.10, *)
-protocol SCNPhysicsContactDelegate : NSObjectProtocol {
+protocol SCNPhysicsContactDelegate : ObjectProtocol {
   optional func physicsWorld(world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact)
   optional func physicsWorld(world: SCNPhysicsWorld, didUpdateContact contact: SCNPhysicsContact)
   optional func physicsWorld(world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact)
@@ -4856,10 +4856,10 @@ protocol SCNPhysicsContactDelegate : NSObjectProtocol {
  @discussion The SCNPhysicsWorld class should not be allocated directly but retrieved from the SCNScene class using the physicsWorld property.
  */
 @available(OSX 10.10, *)
-class SCNPhysicsWorld : NSObject, NSSecureCoding {
+class SCNPhysicsWorld : Object, SecureCoding {
   var gravity: SCNVector3
   var speed: CGFloat
-  var timeStep: NSTimeInterval
+  var timeStep: TimeInterval
   unowned(unsafe) var contactDelegate: @sil_unmanaged SCNPhysicsContactDelegate?
   func add(behavior: SCNPhysicsBehavior)
   func remove(behavior: SCNPhysicsBehavior)
@@ -4874,8 +4874,8 @@ class SCNPhysicsWorld : NSObject, NSSecureCoding {
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*! @enum SCNReferenceLoadingPolicy
@@ -4902,19 +4902,19 @@ class SCNReferenceNode : SCNNode {
    @method initWithURL:
    @abstract Creates a reference node with a url.
    */
-  init?(url referenceURL: NSURL)
+  init?(url referenceURL: URL)
 
   /*!
    @method initWithCoder:
    @abstract Support coding and decoding via NSKeyedArchiver.
    */
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 
   /*!
    @property referenceURL
    @abstract Specifies the url to resolve.
    */
-  @NSCopying var referenceURL: NSURL
+  @NSCopying var referenceURL: URL
 
   /*!
    @property loadingPolicy
@@ -4949,7 +4949,7 @@ class SCNReferenceNode : SCNNode {
 	@abstract SCNRenderer lets you use the SceneKit renderer in an OpenGL context or Metal render pass descriptor of your own.
  */
 @available(OSX 10.8, *)
-class SCNRenderer : NSObject, SCNSceneRenderer, SCNTechniqueSupport {
+class SCNRenderer : Object, SCNSceneRenderer, SCNTechniqueSupport {
 
   /*! 
    @method rendererWithContext:options:
@@ -4957,7 +4957,7 @@ class SCNRenderer : NSObject, SCNSceneRenderer, SCNTechniqueSupport {
    @param context The context to render into.
    @param options An optional dictionary for future extensions.
    */
-  convenience init(context: CGLContextObj, options: [NSObject : AnyObject]? = [:])
+  convenience init(context: CGLContextObj, options: [Object : AnyObject]? = [:])
 
   /*!
    @method rendererWithDevice:options:
@@ -4966,7 +4966,7 @@ class SCNRenderer : NSObject, SCNSceneRenderer, SCNTechniqueSupport {
    @param options An optional dictionary for future extensions.
    */
   @available(OSX 10.11, *)
-  convenience init(device: MTLDevice?, options: [NSObject : AnyObject]? = [:])
+  convenience init(device: MTLDevice?, options: [Object : AnyObject]? = [:])
 
   /*! 
    @property scene
@@ -5012,7 +5012,7 @@ class SCNRenderer : NSObject, SCNSceneRenderer, SCNTechniqueSupport {
    @discussion The scene time only affect scene time based animations (see SCNAnimation.h "usesSceneTimeBase" and SCNSceneSource.h "SCNSceneSourceAnimationImportPolicyKey" for how to create scene time based animations). Scene time based animations and this property are typically used by tools and viewer to ease seeking in time while previewing a scene.
    */
   @available(OSX 10.10, *)
-  var sceneTime: NSTimeInterval
+  var sceneTime: TimeInterval
 
   /*! 
    @property delegate
@@ -5211,7 +5211,7 @@ class SCNRenderer : NSObject, SCNSceneRenderer, SCNTechniqueSupport {
    @discussion Deprecated, use "sceneTime" instead.
    */
   @available(OSX, introduced=10.8, deprecated=10.10)
-  var currentTime: NSTimeInterval
+  var currentTime: TimeInterval
 
   /*!
    @property technique
@@ -5228,7 +5228,7 @@ class SCNRenderer : NSObject, SCNSceneRenderer, SCNTechniqueSupport {
  @param error Will contain information about the failure if any.
  @param stop Set *stop to YES if you want to abort the operation.
  */
-typealias SCNSceneExportProgressHandler = (Float, NSError?, UnsafeMutablePointer<ObjCBool>) -> Void
+typealias SCNSceneExportProgressHandler = (Float, Error?, UnsafeMutablePointer<ObjCBool>) -> Void
 
 /*! @constant SCNSceneExportDestinationURL
  @abstract Specifies the final destination (as a NSURL) of the scene being exported.
@@ -5255,7 +5255,7 @@ let SCNSceneUpAxisAttributeKey: String
  @abstract SCNScene is the class that describes a 3d scene. It encapsulates a node hierarchy.
  */
 @available(OSX 10.8, *)
-class SCNScene : NSObject, NSSecureCoding {
+class SCNScene : Object, SecureCoding {
 
   /*! 
    @property root
@@ -5328,7 +5328,7 @@ class SCNScene : NSObject, NSSecureCoding {
    @discussion This method is here for convenience. It is equivalent to initializing a SCNSceneSource with the specified
    url and options, and asking it for its scene with the same options.
    */
-  convenience init(url: NSURL, options: [String : AnyObject]? = [:]) throws
+  convenience init(url: URL, options: [String : AnyObject]? = [:]) throws
 
   /*!
    @method writeToURL:options:delegate:progressHandler:
@@ -5342,7 +5342,7 @@ class SCNScene : NSObject, NSSecureCoding {
    @discussion Currently only exporting to .dae files is supported.
    */
   @available(OSX 10.9, *)
-  func writeTo(url: NSURL, options: [String : AnyObject]? = [:], delegate: SCNSceneExportDelegate?, progressHandler: SCNSceneExportProgressHandler? = nil) -> Bool
+  func writeTo(url: URL, options: [String : AnyObject]? = [:], delegate: SCNSceneExportDelegate?, progressHandler: SCNSceneExportProgressHandler? = nil) -> Bool
 
   /*!
    @property fogStartDistance
@@ -5385,10 +5385,10 @@ class SCNScene : NSObject, NSSecureCoding {
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
-protocol SCNSceneExportDelegate : NSObjectProtocol {
+protocol SCNSceneExportDelegate : ObjectProtocol {
 
   /*!
    @method writeImage:withSceneDocumentURL:originalImageURL:
@@ -5399,7 +5399,7 @@ protocol SCNSceneExportDelegate : NSObjectProtocol {
    @return The delegate must returns the url of the image that was exported or nil if it didn't export any image. If the returned value is nil, the image will be exported to a default destination in a default format.
    */
   @available(OSX 10.9, *)
-  optional func write(image: NSImage, withSceneDocumentURL documentURL: NSURL, originalImageURL: NSURL?) -> NSURL?
+  optional func write(image: NSImage, withSceneDocumentURL documentURL: URL, originalImageURL: URL?) -> URL?
 }
 
 /*! If set to YES, returns the first object found. This object is not necessarily the nearest. Defaults to NO. */
@@ -5464,7 +5464,7 @@ struct SCNDebugOptions : OptionSetType {
     @abstract Results returned by the hit test methods.
  */
 @available(OSX 10.8, *)
-class SCNHitTestResult : NSObject {
+class SCNHitTestResult : Object {
 
   /*! The node hit. */
   var node: SCNNode { get }
@@ -5502,7 +5502,7 @@ class SCNHitTestResult : NSObject {
 /*! @protocol SCNSceneRenderer
     @abstract Protocol adopted by the various renderers (SCNView, SCNLayer, SCNRenderer)
  */
-protocol SCNSceneRenderer : NSObjectProtocol {
+protocol SCNSceneRenderer : ObjectProtocol {
 
   /*!
    @property scene
@@ -5517,7 +5517,7 @@ protocol SCNSceneRenderer : NSObjectProtocol {
    @discussion The scene time only affect scene time based animations (see SCNAnimation.h "usesSceneTimeBase" and SCNSceneSource.h "SCNSceneSourceAnimationImportPolicyKey" for how to create scene time based animations). Scene time based animations and this property are typically used by tools and viewer to ease seeking in time while previewing a scene.
    */
   @available(OSX 10.10, *)
-  var sceneTime: NSTimeInterval { get set }
+  var sceneTime: TimeInterval { get set }
 
   /*! 
    @property delegate
@@ -5710,14 +5710,14 @@ protocol SCNSceneRenderer : NSObjectProtocol {
    @discussion Deprecated, use "sceneTime" instead.
    */
   @available(OSX, introduced=10.8, deprecated=10.10)
-  var currentTime: NSTimeInterval { get set }
+  var currentTime: TimeInterval { get set }
 }
 
 /*!
  @protocol SCNSceneRendererDelegate
  @abstract Implement this protocol to perform operations at various times during the rendering
  */
-protocol SCNSceneRendererDelegate : NSObjectProtocol {
+protocol SCNSceneRendererDelegate : ObjectProtocol {
 
   /*!
    @method renderer:updateAtTime:
@@ -5727,7 +5727,7 @@ protocol SCNSceneRendererDelegate : NSObjectProtocol {
    @discussion All modifications done within this method don't go through the transaction model, they are directly applied on the presentation tree.
    */
   @available(OSX 10.10, *)
-  optional func renderer(renderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval)
+  optional func renderer(renderer: SCNSceneRenderer, updateAtTime time: TimeInterval)
 
   /*!
    @method renderer:didApplyAnimationsAtTime:
@@ -5737,7 +5737,7 @@ protocol SCNSceneRendererDelegate : NSObjectProtocol {
    @discussion All modifications done within this method don't go through the transaction model, they are directly applied on the presentation tree.
    */
   @available(OSX 10.10, *)
-  optional func renderer(renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: NSTimeInterval)
+  optional func renderer(renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: TimeInterval)
 
   /*!
    @method renderer:didSimulatePhysicsAtTime:
@@ -5747,7 +5747,7 @@ protocol SCNSceneRendererDelegate : NSObjectProtocol {
    @discussion All modifications done within this method don't go through the transaction model, they are directly applied on the presentation tree.
    */
   @available(OSX 10.10, *)
-  optional func renderer(renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: NSTimeInterval)
+  optional func renderer(renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: TimeInterval)
 
   /*!
    @method renderer:willRenderScene:atTime:
@@ -5758,7 +5758,7 @@ protocol SCNSceneRendererDelegate : NSObjectProtocol {
    @discussion Starting in 10.10 all modifications done within this method don't go through the transaction model, they are directly applied on the presentation tree.
    */
   @available(OSX 10.8, *)
-  optional func renderer(renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: NSTimeInterval)
+  optional func renderer(renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval)
 
   /*!
    @method renderer:didRenderScene:atTime:
@@ -5769,7 +5769,7 @@ protocol SCNSceneRendererDelegate : NSObjectProtocol {
    @discussion Starting in 10.10 all modifications done within this method don't go through the transaction model, they are directly applied on the presentation tree.
    */
   @available(OSX 10.8, *)
-  optional func renderer(renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: NSTimeInterval)
+  optional func renderer(renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: TimeInterval)
 }
 
 /*! @group Scene source properties */
@@ -5971,7 +5971,7 @@ enum SCNSceneSourceStatus : Int {
   case Processing
   case Complete
 }
-typealias SCNSceneSourceStatusHandler = (Float, SCNSceneSourceStatus, NSError?, UnsafeMutablePointer<ObjCBool>) -> Void
+typealias SCNSceneSourceStatusHandler = (Float, SCNSceneSourceStatus, Error?, UnsafeMutablePointer<ObjCBool>) -> Void
 
 /*!
  @class SCNSceneSource
@@ -5979,7 +5979,7 @@ typealias SCNSceneSourceStatusHandler = (Float, SCNSceneSourceStatus, NSError?, 
  After creating a SCNSceneSource object for the appropriate source, you can obtain scenes using SCNSceneSource methods.
  */
 @available(OSX 10.8, *)
-class SCNSceneSource : NSObject {
+class SCNSceneSource : Object {
 
   /*!
    @method initWithURL:options:
@@ -5987,7 +5987,7 @@ class SCNSceneSource : NSObject {
    @param url The URL to read scenes from.
    @param options An optional dictionary for future extensions. 
    */
-  init?(url: NSURL, options: [String : AnyObject]? = [:])
+  init?(url: URL, options: [String : AnyObject]? = [:])
 
   /*!
    @method initWithData:options:
@@ -5995,19 +5995,19 @@ class SCNSceneSource : NSObject {
    @param data The data to read scenes from.
    @param options An optional dictionary for future extensions. 
    */
-  init?(data: NSData, options: [String : AnyObject]? = [:])
+  init?(data: Data, options: [String : AnyObject]? = [:])
 
   /*!
    @property url
    @abstract The receiver's URL (if any).
    */
-  var url: NSURL? { get }
+  var url: URL? { get }
 
   /*!
    @property data
    @abstract The receiver's data (if any).
    */
-  var data: NSData? { get }
+  var data: Data? { get }
 
   /*!
    @method sceneWithOptions:statusHandler:
@@ -6077,7 +6077,7 @@ enum SCNBufferFrequency : Int {
   case PerNode
   case PerShadable
 }
-protocol SCNBufferStream : NSObjectProtocol {
+protocol SCNBufferStream : ObjectProtocol {
   func writeBytes(bytes: UnsafeMutablePointer<Void>, length: Int)
 }
 
@@ -6105,7 +6105,7 @@ typealias SCNBindingBlock = (UInt32, UInt32, SCNNode, SCNRenderer) -> Void
  @protocol SCNShadable
  @abstract The SCNShadable protocol defines an object that is rendered with shaders. 
  */
-protocol SCNShadable : NSObjectProtocol {
+protocol SCNShadable : ObjectProtocol {
 
   /*!
    @property program
@@ -6240,7 +6240,7 @@ let SCNProgramMappingChannelKey: String
  @abstract A SCNProgram lets you specify custom shaders to use when rendering materials.
  */
 @available(OSX 10.8, *)
-class SCNProgram : NSObject, NSCopying, NSSecureCoding {
+class SCNProgram : Object, Copying, SecureCoding {
 
   /*!
    @property vertexShader
@@ -6341,19 +6341,19 @@ class SCNProgram : NSObject, NSCopying, NSSecureCoding {
   var library: MTLLibrary?
   init()
   @available(OSX 10.8, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
  @protocol SCNProgramDelegate
  @abstract The SCNProgramDelegate protocol declares the methods that an instance of SCNProgram invokes to delegate the binding of parameters.
  */
-protocol SCNProgramDelegate : NSObjectProtocol {
+protocol SCNProgramDelegate : ObjectProtocol {
 
   /*!
    @method program:withID:bindValueForSymbol:atLocation:renderer:
@@ -6387,7 +6387,7 @@ protocol SCNProgramDelegate : NSObjectProtocol {
    @param error The compilation error.
    */
   @available(OSX 10.8, *)
-  optional func program(program: SCNProgram, handleError error: NSError)
+  optional func program(program: SCNProgram, handleError error: Error)
 
   /*!
    @method programIsOpaque
@@ -6560,7 +6560,7 @@ let SCNShaderModifierEntryPointFragment: String
  @class SCNSkinner
  @abstract SCNSkinner controls the deformation of skinned geometries */
 @available(OSX 10.9, *)
-class SCNSkinner : NSObject, NSSecureCoding {
+class SCNSkinner : Object, SecureCoding {
 
   /*!
    @property skeleton
@@ -6579,7 +6579,7 @@ class SCNSkinner : NSObject, NSSecureCoding {
    @param boneIndices A buffer of bone indexes. This buffer contains the corresponding index in the bones array for every weight in the weights buffer.
    */
   @available(OSX 10.10, *)
-  convenience init(baseGeometry: SCNGeometry?, bones: [SCNNode], boneInverseBindTransforms: [NSValue]?, boneWeights: SCNGeometrySource, boneIndices: SCNGeometrySource)
+  convenience init(baseGeometry: SCNGeometry?, bones: [SCNNode], boneInverseBindTransforms: [Value]?, boneWeights: SCNGeometrySource, boneIndices: SCNGeometrySource)
 
   /*!
    @property baseGeometry
@@ -6605,7 +6605,7 @@ class SCNSkinner : NSObject, NSSecureCoding {
    @discussion boneInverseBindTransforms is an array of SCNMatrix4 wrapped into instances of NSValue.
    */
   @available(OSX 10.10, *)
-  var boneInverseBindTransforms: [NSValue]? { get }
+  var boneInverseBindTransforms: [Value]? { get }
 
   /*!
    @property bones
@@ -6631,8 +6631,8 @@ class SCNSkinner : NSObject, NSSecureCoding {
   @available(OSX 10.9, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.9, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -6641,7 +6641,7 @@ class SCNSkinner : NSObject, NSSecureCoding {
  @discussion A technique is generally initialized from a Property List file. It can be set to any object that conforms to the SCNTechniqueSupport protocol.
  */
 @available(OSX 10.10, *)
-class SCNTechnique : NSObject, SCNAnimatable, NSCopying, NSSecureCoding {
+class SCNTechnique : Object, SCNAnimatable, Copying, SecureCoding {
 
   /*!
    @method techniqueWithDictionary:
@@ -6855,7 +6855,7 @@ class SCNTechnique : NSObject, SCNAnimatable, NSCopying, NSSecureCoding {
   @available(OSX 10.11, *)
   subscript (key: AnyObject) -> AnyObject? { get }
   @available(OSX 10.11, *)
-  func setObject(obj: AnyObject?, forKeyedSubscript key: NSCopying)
+  func setObject(obj: AnyObject?, forKeyedSubscript key: Copying)
   init()
 
   /*!
@@ -6932,19 +6932,19 @@ class SCNTechnique : NSObject, SCNAnimatable, NSCopying, NSSecureCoding {
   @available(OSX 10.10, *)
   func removeAnimationForKey(key: String, fadeOutDuration duration: CGFloat)
   @available(OSX 10.10, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
  @protocol SCNTechniqueSupport
  @abstract The SCNTechniqueSupport protocol describes an object that supports single or multi-pass techniques
  */
-protocol SCNTechniqueSupport : NSObjectProtocol {
+protocol SCNTechniqueSupport : ObjectProtocol {
 
   /*!
    @property technique
@@ -6954,7 +6954,7 @@ protocol SCNTechniqueSupport : NSObjectProtocol {
   @NSCopying var technique: SCNTechnique? { get set }
 }
 @available(OSX 10.8, *)
-class SCNTransaction : NSObject {
+class SCNTransaction : Object {
   class func begin()
   class func commit()
   class func flush()
@@ -7022,7 +7022,7 @@ class SCNView : NSView, SCNSceneRenderer, SCNTechniqueSupport {
    @param frame The frame rectangle for the created view object.
    @param options An optional dictionary. See "View initialization options" above.
    */
-  init(frame: NSRect, options: [String : AnyObject]? = [:])
+  init(frame: Rect, options: [String : AnyObject]? = [:])
 
   /*! 
    @property scene
@@ -7106,8 +7106,8 @@ class SCNView : NSView, SCNSceneRenderer, SCNTechniqueSupport {
    @discussion This property returns nil and has no effect if the current API is Metal.
    */
   var pixelFormat: NSOpenGLPixelFormat?
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init(frame frameRect: Rect)
+  init?(coder: Coder)
   convenience init()
 
   /*!
@@ -7116,7 +7116,7 @@ class SCNView : NSView, SCNSceneRenderer, SCNTechniqueSupport {
    @discussion The scene time only affect scene time based animations (see SCNAnimation.h "usesSceneTimeBase" and SCNSceneSource.h "SCNSceneSourceAnimationImportPolicyKey" for how to create scene time based animations). Scene time based animations and this property are typically used by tools and viewer to ease seeking in time while previewing a scene.
    */
   @available(OSX 10.10, *)
-  var sceneTime: NSTimeInterval
+  var sceneTime: TimeInterval
 
   /*! 
    @property delegate
@@ -7315,7 +7315,7 @@ class SCNView : NSView, SCNSceneRenderer, SCNTechniqueSupport {
    @discussion Deprecated, use "sceneTime" instead.
    */
   @available(OSX, introduced=10.8, deprecated=10.10)
-  var currentTime: NSTimeInterval
+  var currentTime: TimeInterval
 
   /*!
    @property technique
@@ -7406,7 +7406,7 @@ func SCNMatrix4FromGLKMatrix4(mat: GLKMatrix4) -> SCNMatrix4
 /*! @category NSValue(SceneKitAdditions)
  @abstract Adds methods to wrap vectors in NSValue objects.
  */
-extension NSValue {
+extension Value {
   /*not inherited*/ init(scnVector3 v: SCNVector3)
   /*not inherited*/ init(scnVector4 v: SCNVector4)
   @available(OSX 10.10, *)

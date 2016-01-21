@@ -34,14 +34,14 @@ class ListsInterfaceController: WKInterfaceController, ConnectivityListsControll
     override init() {
         super.init()
 
-        let noListsIndexSet = NSIndexSet(index: 0)
+        let noListsIndexSet = IndexSet(index: 0)
         interfaceTable.insertRowsAt(noListsIndexSet, withRowType: Storyboard.RowTypes.noLists)
     }
     
     // MARK: ConnectivityListsControllerDelegate
 
     func listsController(listsController: ConnectivityListsController, didInsertListInfo listInfo: ListInfo, atIndex index: Int) {
-        let indexSet = NSIndexSet(index: index)
+        let indexSet = IndexSet(index: index)
         
         // The lists controller was previously empty. Remove the "no lists" row.
         if index == 0 && listsController.count == 1 {
@@ -54,7 +54,7 @@ class ListsInterfaceController: WKInterfaceController, ConnectivityListsControll
     }
     
     func listsController(listsController: ConnectivityListsController, didRemoveListInfo listInfo: ListInfo, atIndex index: Int) {
-        let indexSet = NSIndexSet(index: index)
+        let indexSet = IndexSet(index: index)
         
         // The lists controller is now empty. Add the "no lists" row.
         if index == 0 && listsController.count == 0 {
@@ -110,7 +110,7 @@ class ListsInterfaceController: WKInterfaceController, ConnectivityListsControll
         listsController.stopSearching()
     }
     
-    override func handleUserActivity(userInfo: [NSObject: AnyObject]?) {
+    override func handleUserActivity(userInfo: [Object: AnyObject]?) {
         //The Lister watch app only supports continuing activities where `AppConfiguration.UserActivity.listURLPathUserInfoKey` is provided.
         guard let listInfoFilePath = userInfo?[AppConfiguration.UserActivity.listURLPathUserInfoKey] as? String,
               let rawColor = userInfo?[AppConfiguration.UserActivity.listColorUserInfoKey] as? Int,

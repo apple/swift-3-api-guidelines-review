@@ -68,8 +68,8 @@ class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListView
         }
     }
     
-    func widgetMarginInsetsForProposedMarginInsets(defaultMarginInset: NSEdgeInsets) -> NSEdgeInsets {
-        return NSEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    func widgetMarginInsetsForProposedMarginInsets(defaultMarginInset: EdgeInsets) -> EdgeInsets {
+        return EdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     // MARK: NCWidgetListViewDelegate

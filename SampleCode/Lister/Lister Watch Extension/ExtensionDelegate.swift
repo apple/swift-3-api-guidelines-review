@@ -8,7 +8,7 @@
 
 import WatchKit
 
-class ExtensionDelegate: NSObject, WKExtensionDelegate {
+class ExtensionDelegate: Object, WKExtensionDelegate {
     // MARK: Properties
     
     /**
@@ -19,7 +19,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     
     // MARK: WKExtensionDelegate
     
-    func handleUserActivity(userInfo: [NSObject : AnyObject]?) {
+    func handleUserActivity(userInfo: [Object : AnyObject]?) {
         mainInterfaceController?.handleUserActivity(userInfo)
     }
 }

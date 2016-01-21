@@ -27,7 +27,7 @@ import Foundation
     these methods trigger calls to the delegate to be notified about inserted list items, removed list items,
     updated list items, etc.
 */
-final public class IncompleteListItemsPresenter: NSObject, ListPresenterType {
+final public class IncompleteListItemsPresenter: Object, ListPresenterType {
     // MARK: Properties
 
     /// The internal storage for the list that we're presenting. By default, it's an empty list.

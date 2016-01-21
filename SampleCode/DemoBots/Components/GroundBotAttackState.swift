@@ -74,7 +74,7 @@ class GroundBotAttackState: GKState {
         movementComponent.nextRotation = nil
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func updateWithDeltaTime(seconds: TimeInterval) {
         super.updateWithDeltaTime(seconds)
         
         // `targetPosition` is a computed property. Declare a local version so we don't compute it multiple times.

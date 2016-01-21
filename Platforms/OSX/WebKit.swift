@@ -944,11 +944,11 @@ struct DOMEventExceptionCode : RawRepresentable, Equatable {
 }
 var DOM_UNSPECIFIED_EVENT_TYPE_ERR: DOMEventExceptionCode { get }
 @available(OSX 10.4, *)
-protocol DOMEventListener : NSObjectProtocol {
+protocol DOMEventListener : ObjectProtocol {
   func handle(event: DOMEvent!)
 }
 @available(OSX 10.4, *)
-protocol DOMEventTarget : NSObjectProtocol, NSCopying {
+protocol DOMEventTarget : ObjectProtocol, Copying {
   @available(OSX 10.5, *)
   func addEventListener(type: String!, listener: DOMEventListener!, useCapture: Bool)
   @available(OSX 10.5, *)
@@ -980,7 +980,7 @@ var DOM_NAMESPACE_ERR: DOMExceptionCode { get }
 var DOM_INVALID_ACCESS_ERR: DOMExceptionCode { get }
 extension DOMNode {
   @available(OSX 10.5, *)
-  func boundingBox() -> NSRect
+  func boundingBox() -> Rect
   @available(OSX 10.5, *)
   func lineBoxRects() -> [AnyObject]!
 }
@@ -990,7 +990,7 @@ extension DOMElement {
 }
 extension DOMHTMLDocument {
   @available(OSX 10.5, *)
-  func createDocumentFragmentWithMarkupString(markupString: String!, baseURL: NSURL!) -> DOMDocumentFragment!
+  func createDocumentFragmentWithMarkupString(markupString: String!, baseURL: URL!) -> DOMDocumentFragment!
   @available(OSX 10.5, *)
   func createDocumentFragmentWithText(text: String!) -> DOMDocumentFragment!
 }
@@ -1032,7 +1032,7 @@ class DOMHTMLAnchorElement : DOMHTMLElement {
   @available(OSX 10.5, *)
   var text: String! { get }
   @available(OSX 10.5, *)
-  @NSCopying var absoluteLinkURL: NSURL! { get }
+  @NSCopying var absoluteLinkURL: URL! { get }
 }
 @available(OSX 10.4, *)
 class DOMHTMLAppletElement : DOMHTMLElement {
@@ -1071,7 +1071,7 @@ class DOMHTMLAreaElement : DOMHTMLElement {
   @available(OSX 10.5, *)
   var search: String! { get }
   @available(OSX 10.5, *)
-  @NSCopying var absoluteLinkURL: NSURL! { get }
+  @NSCopying var absoluteLinkURL: URL! { get }
 }
 @available(OSX 10.4, *)
 class DOMHTMLBRElement : DOMHTMLElement {
@@ -1312,7 +1312,7 @@ class DOMHTMLImageElement : DOMHTMLElement {
   @available(OSX 10.5, *)
   var altDisplayString: String! { get }
   @available(OSX 10.5, *)
-  @NSCopying var absoluteImageURL: NSURL! { get }
+  @NSCopying var absoluteImageURL: URL! { get }
 }
 @available(OSX 10.4, *)
 class DOMHTMLInputElement : DOMHTMLElement {
@@ -1349,7 +1349,7 @@ class DOMHTMLInputElement : DOMHTMLElement {
   @available(OSX 10.5, *)
   var altDisplayString: String! { get }
   @available(OSX 10.5, *)
-  @NSCopying var absoluteImageURL: NSURL! { get }
+  @NSCopying var absoluteImageURL: URL! { get }
   func select()
   @available(OSX 10.5, *)
   func setSelectionRange(start: Int32, end: Int32)
@@ -1384,7 +1384,7 @@ class DOMHTMLLinkElement : DOMHTMLElement {
   @available(OSX 10.4, *)
   var sheet: DOMStyleSheet! { get }
   @available(OSX 10.5, *)
-  @NSCopying var absoluteLinkURL: NSURL! { get }
+  @NSCopying var absoluteLinkURL: URL! { get }
 }
 @available(OSX 10.4, *)
 class DOMHTMLMapElement : DOMHTMLElement {
@@ -1439,7 +1439,7 @@ class DOMHTMLObjectElement : DOMHTMLElement {
   var width: String!
   var contentDocument: DOMDocument! { get }
   @available(OSX 10.5, *)
-  @NSCopying var absoluteImageURL: NSURL! { get }
+  @NSCopying var absoluteImageURL: URL! { get }
 }
 @available(OSX 10.4, *)
 class DOMHTMLOptGroupElement : DOMHTMLElement {
@@ -1844,7 +1844,7 @@ var DOM_SHOW_DOCUMENT_TYPE: UInt32 { get }
 var DOM_SHOW_DOCUMENT_FRAGMENT: UInt32 { get }
 var DOM_SHOW_NOTATION: UInt32 { get }
 @available(OSX 10.4, *)
-protocol DOMNodeFilter : NSObjectProtocol {
+protocol DOMNodeFilter : ObjectProtocol {
   func accept(n: DOMNode!) -> Int16
 }
 @available(OSX 10.4, *)
@@ -1868,9 +1868,9 @@ class DOMNodeList : DOMObject {
 }
 typealias DOMTimeStamp = UInt64
 @available(OSX 10.4, *)
-class DOMObject : WebScriptObject, NSCopying {
+class DOMObject : WebScriptObject, Copying {
   @available(OSX 10.4, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 extension DOMObject {
   @available(OSX 10.4, *)
@@ -2059,7 +2059,7 @@ class DOMXPathExpression : DOMObject {
 extension DOMXPathExpression {
 }
 @available(OSX 10.5, *)
-protocol DOMXPathNSResolver : NSObjectProtocol {
+protocol DOMXPathNSResolver : ObjectProtocol {
   func lookupNamespaceURI(prefix: String!) -> String!
 }
 var DOM_ANY_TYPE: Int { get }
@@ -2089,7 +2089,7 @@ class DOMXPathResult : DOMObject {
  visited in a web view that can be reached by going back or forward.
  */
 @available(OSX 10.10, *)
-class WKBackForwardList : NSObject {
+class WKBackForwardList : Object {
 
   /*! @abstract The current item.
    */
@@ -2132,11 +2132,11 @@ class WKBackForwardList : NSObject {
 /*! A WKBackForwardListItem object represents a webpage in the back-forward list of a web view.
  */
 @available(OSX 10.10, *)
-class WKBackForwardListItem : NSObject {
+class WKBackForwardListItem : Object {
 
   /*! @abstract The URL of the webpage represented by this item.
    */
-  @NSCopying var url: NSURL { get }
+  @NSCopying var url: URL { get }
 
   /*! @abstract The title of the webpage represented by this item.
    */
@@ -2144,7 +2144,7 @@ class WKBackForwardListItem : NSObject {
 
   /*! @abstract The URL of the initial request that created this item.
    */
-  @NSCopying var initialURL: NSURL { get }
+  @NSCopying var initialURL: URL { get }
   init()
 }
 
@@ -2184,7 +2184,7 @@ extension WKErrorCode : _BridgedNSError {
  calls.
  */
 @available(OSX 10.10, *)
-class WKFrameInfo : NSObject, NSCopying {
+class WKFrameInfo : Object, Copying {
 
   /*! @abstract A Boolean value indicating whether the frame is the main frame
    or a subframe.
@@ -2193,7 +2193,7 @@ class WKFrameInfo : NSObject, NSCopying {
 
   /*! @abstract The frame's current request.
    */
-  @NSCopying var request: NSURLRequest { get }
+  @NSCopying var request: URLRequest { get }
 
   /*! @abstract The frame's current security origin.
    */
@@ -2201,7 +2201,7 @@ class WKFrameInfo : NSObject, NSCopying {
   var securityOrigin: WKSecurityOrigin { get }
   init()
   @available(OSX 10.10, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*! A WKNavigation object can be used for tracking the loading progress of a webpage.
@@ -2210,7 +2210,7 @@ class WKFrameInfo : NSObject, NSCopying {
  load from start to finish.
  */
 @available(OSX 10.10, *)
-class WKNavigation : NSObject {
+class WKNavigation : Object {
   init()
 }
 
@@ -2239,7 +2239,7 @@ enum WKNavigationType : Int {
 A WKNavigationAction object contains information about an action that may cause a navigation, used for making policy decisions.
  */
 @available(OSX 10.10, *)
-class WKNavigationAction : NSObject {
+class WKNavigationAction : Object {
 
   /*! @abstract The frame requesting the navigation.
    */
@@ -2256,7 +2256,7 @@ class WKNavigationAction : NSObject {
 
   /*! @abstract The navigation's request.
    */
-  @NSCopying var request: NSURLRequest { get }
+  @NSCopying var request: URLRequest { get }
 
   /*! @abstract The modifier keys that were in effect when the navigation was requested.
    */
@@ -2299,7 +2299,7 @@ enum WKNavigationResponsePolicy : Int {
  methods for tracking progress for main frame navigations and for deciding
  policy for main frame and subframe navigations.
  */
-protocol WKNavigationDelegate : NSObjectProtocol {
+protocol WKNavigationDelegate : ObjectProtocol {
 
   /*! @abstract Decides whether to allow or cancel a navigation.
    @param webView The web view invoking the delegate method.
@@ -2346,7 +2346,7 @@ protocol WKNavigationDelegate : NSObjectProtocol {
    @param error The error that occurred.
    */
   @available(OSX 10.10, *)
-  optional func webView(webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: NSError)
+  optional func webView(webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error)
 
   /*! @abstract Invoked when content starts arriving for the main frame.
    @param webView The web view invoking the delegate method.
@@ -2369,7 +2369,7 @@ protocol WKNavigationDelegate : NSObjectProtocol {
    @param error The error that occurred.
    */
   @available(OSX 10.10, *)
-  optional func webView(webView: WKWebView, didFail navigation: WKNavigation!, withError error: NSError)
+  optional func webView(webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error)
 
   /*! @abstract Invoked when the web view needs to respond to an authentication challenge.
    @param webView The web view that received the authentication challenge.
@@ -2382,7 +2382,7 @@ protocol WKNavigationDelegate : NSObjectProtocol {
    @discussion If you do not implement this method, the web view will respond to the authentication challenge with the NSURLSessionAuthChallengeRejectProtectionSpace disposition.
    */
   @available(OSX 10.10, *)
-  optional func webView(webView: WKWebView, didReceive challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void)
+  optional func webView(webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: (URLSessionAuthChallengeDisposition, URLCredential?) -> Void)
 
   /*! @abstract Invoked when the web view's web content process is terminated.
    @param webView The web view whose underlying web content process was terminated.
@@ -2394,7 +2394,7 @@ protocol WKNavigationDelegate : NSObjectProtocol {
 /*! Contains information about a navigation response, used for making policy decisions.
  */
 @available(OSX 10.10, *)
-class WKNavigationResponse : NSObject {
+class WKNavigationResponse : Object {
 
   /*! @abstract A Boolean value indicating whether the frame being navigated is the main frame.
    */
@@ -2402,7 +2402,7 @@ class WKNavigationResponse : NSObject {
 
   /*! @abstract The frame's response.
    */
-  @NSCopying var response: NSURLResponse { get }
+  @NSCopying var response: URLResponse { get }
 
   /*! @abstract A Boolean value indicating whether WebKit can display the response's MIME type natively.
    @discussion Allowing a navigation response with a MIME type that can't be shown will cause the navigation to fail.
@@ -2416,7 +2416,7 @@ class WKNavigationResponse : NSObject {
  its web view configuration.
  */
 @available(OSX 10.10, *)
-class WKPreferences : NSObject {
+class WKPreferences : Object {
 
   /*! @abstract The minimum font size in points.
    @discussion The default value is 0.
@@ -2453,7 +2453,7 @@ class WKPreferences : NSObject {
  with the same process pool end up sharing web content processes.
  */
 @available(OSX 10.10, *)
-class WKProcessPool : NSObject {
+class WKProcessPool : Object {
   init()
 }
 
@@ -2461,7 +2461,7 @@ class WKProcessPool : NSObject {
  a webpage.
  */
 @available(OSX 10.10, *)
-class WKScriptMessage : NSObject {
+class WKScriptMessage : Object {
 
   /*! @abstract The body of the message.
    @discussion Allowed types are NSNumber, NSString, NSDate, NSArray,
@@ -2484,7 +2484,7 @@ class WKScriptMessage : NSObject {
 /*! A class conforming to the WKScriptMessageHandler protocol provides a
  method for receiving messages from JavaScript running in a webpage.
  */
-protocol WKScriptMessageHandler : NSObjectProtocol {
+protocol WKScriptMessageHandler : ObjectProtocol {
 
   /*! @abstract Invoked when a script message is received from a webpage.
    @param userContentController The user content controller invoking the
@@ -2501,7 +2501,7 @@ protocol WKScriptMessageHandler : NSObjectProtocol {
  calls.
  */
 @available(OSX 10.11, *)
-class WKSecurityOrigin : NSObject {
+class WKSecurityOrigin : Object {
 
   /*! @abstract The security origin's protocol.
    */
@@ -2519,7 +2519,7 @@ class WKSecurityOrigin : NSObject {
 /*! A class conforming to the WKUIDelegate protocol provides methods for
  presenting native UI on behalf of a webpage.
  */
-protocol WKUIDelegate : NSObjectProtocol {
+protocol WKUIDelegate : ObjectProtocol {
 
   /*! @abstract Creates a new web view.
    @param webView The web view invoking the delegate method.
@@ -2604,7 +2604,7 @@ protocol WKUIDelegate : NSObjectProtocol {
  web view configuration.
  */
 @available(OSX 10.10, *)
-class WKUserContentController : NSObject {
+class WKUserContentController : Object {
 
   /*! @abstract The user scripts associated with this user content
    controller.
@@ -2652,7 +2652,7 @@ enum WKUserScriptInjectionTime : Int {
 /*! A @link WKUserScript @/link object represents a script that can be injected into webpages.
  */
 @available(OSX 10.10, *)
-class WKUserScript : NSObject, NSCopying {
+class WKUserScript : Object, Copying {
   var source: String { get }
   var injectionTime: WKUserScriptInjectionTime { get }
   var isForMainFrameOnly: Bool { get }
@@ -2665,7 +2665,7 @@ class WKUserScript : NSObject, NSCopying {
   init(source: String, injectionTime: WKUserScriptInjectionTime, forMainFrameOnly: Bool)
   init()
   @available(OSX 10.10, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.10, *)
 class WKWebView : NSView {
@@ -2701,7 +2701,7 @@ class WKWebView : NSView {
    @param request The request specifying the URL to which to navigate.
    @result A new navigation for the given request.
    */
-  func load(request: NSURLRequest) -> WKNavigation?
+  func load(request: URLRequest) -> WKNavigation?
 
   /*! @abstract Navigates to the requested file URL on the filesystem.
    @param URL The file URL to which to navigate.
@@ -2711,14 +2711,14 @@ class WKWebView : NSView {
    @result A new navigation for the given file URL.
    */
   @available(OSX 10.11, *)
-  func loadFileURL(URL: NSURL, allowingReadAccessTo readAccessURL: NSURL) -> WKNavigation?
+  func loadFileURL(URL: URL, allowingReadAccessTo readAccessURL: URL) -> WKNavigation?
 
   /*! @abstract Sets the webpage contents and base URL.
    @param string The string to use as the contents of the webpage.
    @param baseURL A URL that is used to resolve relative URLs within the document.
    @result A new navigation.
    */
-  func loadHTMLString(string: String, baseURL: NSURL?) -> WKNavigation?
+  func loadHTMLString(string: String, baseURL: URL?) -> WKNavigation?
 
   /*! @abstract Sets the webpage contents and base URL.
    @param data The data to use as the contents of the webpage.
@@ -2728,7 +2728,7 @@ class WKWebView : NSView {
    @result A new navigation.
    */
   @available(OSX 10.11, *)
-  func load(data: NSData, mimeType MIMEType: String, characterEncodingName: String, baseURL: NSURL) -> WKNavigation?
+  func load(data: Data, mimeType MIMEType: String, characterEncodingName: String, baseURL: URL) -> WKNavigation?
 
   /*! @abstract Navigates to an item from the back-forward list and sets it
    as the current item.
@@ -2752,7 +2752,7 @@ class WKWebView : NSView {
    @link WKWebView @/link is key-value observing (KVO) compliant for this
    property.
    */
-  @NSCopying var url: NSURL? { get }
+  @NSCopying var url: URL? { get }
 
   /*! @abstract A Boolean value indicating whether the view is currently
    loading content.
@@ -2828,7 +2828,7 @@ class WKWebView : NSView {
   /*! @abstract Stops loading all resources on the current page.
    */
   func stopLoading()
-  func evaluateJavaScript(javaScriptString: String, completionHandler: ((AnyObject?, NSError?) -> Void)? = nil)
+  func evaluateJavaScript(javaScriptString: String, completionHandler: ((AnyObject?, Error?) -> Void)? = nil)
 
   /*! @abstract A Boolean value indicating whether horizontal swipe gestures
    will trigger back-forward list navigations.
@@ -2850,7 +2850,7 @@ class WKWebView : NSView {
   var allowsMagnification: Bool
   var magnification: CGFloat
   func setMagnification(magnification: CGFloat, centeredAt point: CGPoint)
-  convenience init(frame frameRect: NSRect)
+  convenience init(frame frameRect: Rect)
   convenience init()
 }
 extension WKWebView : NSUserInterfaceValidations {
@@ -2892,7 +2892,7 @@ extension WKWebView : NSUserInterfaceValidations {
  @helps Contains properties used to configure a @link WKWebView @/link.
  */
 @available(OSX 10.10, *)
-class WKWebViewConfiguration : NSObject, NSCopying {
+class WKWebViewConfiguration : Object, Copying {
 
   /*! @abstract The process pool from which to obtain the view's web content
    process.
@@ -2933,7 +2933,7 @@ class WKWebViewConfiguration : NSObject, NSCopying {
   var allowsAirPlayForMediaPlayback: Bool
   init()
   @available(OSX 10.10, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 extension WKWebViewConfiguration {
 }
@@ -2972,7 +2972,7 @@ let WKWebsiteDataTypeIndexedDBDatabases: String
 
 /*! A WKWebsiteDataRecord represents website data, grouped by domain name using the public suffix list. */
 @available(OSX 10.11, *)
-class WKWebsiteDataRecord : NSObject {
+class WKWebsiteDataRecord : Object {
 
   /*! @abstract The display name for the data record. This is usually the domain name. */
   var displayName: String { get }
@@ -2987,7 +2987,7 @@ class WKWebsiteDataRecord : NSObject {
  IndexedDB databases, and local storage.
  */
 @available(OSX 10.11, *)
-class WKWebsiteDataStore : NSObject {
+class WKWebsiteDataStore : Object {
   class func defaultDataStore() -> WKWebsiteDataStore
 
   /** @abstract Returns a new non-persistent data store.
@@ -3020,45 +3020,45 @@ class WKWebsiteDataStore : NSObject {
    @param date A date. All website data modified after this date will be removed.
    @param completionHandler A block to invoke when the website data has been removed.
   */
-  func removeDataOfTypes(websiteDataTypes: Set<String>, modifiedSince date: NSDate, completionHandler: () -> Void)
+  func removeDataOfTypes(websiteDataTypes: Set<String>, modifiedSince date: Date, completionHandler: () -> Void)
 }
 
 /*! WKWindowFeatures specifies optional attributes for the containing window when a new WKWebView is requested.
  */
 @available(OSX 10.10, *)
-class WKWindowFeatures : NSObject {
+class WKWindowFeatures : Object {
 
   /*! @abstract BOOL. Whether the menu bar should be visible. nil if menu bar visibility was not specified.
    */
-  var menuBarVisibility: NSNumber? { get }
+  var menuBarVisibility: Number? { get }
 
   /*! @abstract BOOL. Whether the status bar should be visible. nil if status bar visibility was not specified.
    */
-  var statusBarVisibility: NSNumber? { get }
+  var statusBarVisibility: Number? { get }
 
   /*! @abstract BOOL. Whether toolbars should be visible. nil if toolbar visibility was not specified.
    */
-  var toolbarsVisibility: NSNumber? { get }
+  var toolbarsVisibility: Number? { get }
 
   /*! @abstract BOOL. Whether the containing window should be resizable. nil if resizability was not specified.
    */
-  var allowsResizing: NSNumber? { get }
+  var allowsResizing: Number? { get }
 
   /*! @abstract CGFloat. The x coordinate of the containing window. nil if the x coordinate was not specified.
    */
-  var x: NSNumber? { get }
+  var x: Number? { get }
 
   /*! @abstract CGFloat. The y coordinate of the containing window. nil if the y coordinate was not specified.
    */
-  var y: NSNumber? { get }
+  var y: Number? { get }
 
   /*! @abstract CGFloat. The width coordinate of the containing window. nil if the width was not specified.
    */
-  var width: NSNumber? { get }
+  var width: Number? { get }
 
   /*! @abstract CGFloat. The height coordinate of the containing window. nil if the height was not specified.
    */
-  var height: NSNumber? { get }
+  var height: Number? { get }
   init()
 }
 
@@ -3075,7 +3075,7 @@ let WebArchivePboardType: String
     This class can be used for saving standalone web pages, representing portions of a web page on the pasteboard, or any other
     application where one class is needed to represent rich web content. 
 */
-class WebArchive : NSObject, NSCoding, NSCopying {
+class WebArchive : Object, Coding, Copying {
 
   /*!
       @method initWithMainResource:subresources:subframeArchives:
@@ -3093,7 +3093,7 @@ class WebArchive : NSObject, NSCoding, NSCopying {
       @param data The data representing the archive. This can be obtained using WebArchive's data method.
       @result An initialized WebArchive.
   */
-  init!(data: NSData!)
+  init!(data: Data!)
 
   /*!
       @property mainResource
@@ -3119,11 +3119,11 @@ class WebArchive : NSObject, NSCoding, NSCopying {
       @discussion The data returned by this method can be used to save a web archive to a file or to place a web archive on the pasteboard
       using WebArchivePboardType. To create a WebArchive using the returned data, call initWithData:.
   */
-  @NSCopying var data: NSData! { get }
+  @NSCopying var data: Data! { get }
   init()
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -3135,7 +3135,7 @@ class WebArchive : NSObject, NSCoding, NSCopying {
     navigation to happen in other layers of the stack;  they are only for maintaining this data
     structure.
 */
-class WebBackForwardList : NSObject {
+class WebBackForwardList : Object {
 
   /*!
       @method addItem:
@@ -3277,7 +3277,7 @@ extension DOMDocument {
       An attribute string is the value of an attribute of an element such as the href attribute on 
       the DOMHTMLAnchorElement class. This method is only applicable to attributes that refer to URLs.
   */
-  func urlWithAttributeString(string: String!) -> NSURL!
+  func urlWithAttributeString(string: String!) -> URL!
 }
 extension DOMRange {
 
@@ -3327,7 +3327,7 @@ extension DOMHTMLObjectElement {
     representation of the data.  WebDataSources manage a hierarchy of WebFrames.
     WebDataSources are typically related to a view by their containing WebFrame.
 */
-class WebDataSource : NSObject {
+class WebDataSource : Object {
 
   /*!
       @method initWithRequest:
@@ -3335,7 +3335,7 @@ class WebDataSource : NSObject {
       @param request The request to use in creating a datasource.
       @result Returns an initialized WebDataSource.
   */
-  init!(request: NSURLRequest!)
+  init!(request: URLRequest!)
 
   /*!
       @property data
@@ -3343,7 +3343,7 @@ class WebDataSource : NSObject {
       if the datasource hasn't loaded any data.
      @discussion The data will be incomplete until the datasource has completely loaded.
   */
-  @NSCopying var data: NSData! { get }
+  @NSCopying var data: Data! { get }
 
   /*!
       @property representation
@@ -3367,19 +3367,19 @@ class WebDataSource : NSObject {
       @abstract A reference to the original request that created the
       datasource.  This request will be unmodified by WebKit. 
   */
-  var initialRequest: NSURLRequest! { get }
+  var initialRequest: URLRequest! { get }
 
   /*!
       @property request
       @abstract The request that was used to create this datasource.
   */
-  var request: NSMutableURLRequest! { get }
+  var request: MutableURLRequest! { get }
 
   /*!
       @property response
       @abstract The NSURLResponse for the data source.
   */
-  var response: NSURLResponse! { get }
+  var response: URLResponse! { get }
 
   /*!
       @property textEncodingName
@@ -3406,7 +3406,7 @@ class WebDataSource : NSObject {
       @discussion This will be non-nil only for dataSources created by calls to the 
       WebFrame method loadAlternateHTMLString:baseURL:forUnreachableURL:.
   */
-  var unreachableURL: NSURL! { get }
+  var unreachableURL: URL! { get }
 
   /*!
       @property webArchive
@@ -3439,7 +3439,7 @@ class WebDataSource : NSObject {
       @param URL The URL of the subresource.
       @description Returns non-nil if the data source has fully downloaded a subresource with the given URL.
   */
-  func subresourceFor(URL: NSURL!) -> WebResource!
+  func subresourceFor(URL: URL!) -> WebResource!
 
   /*!
       @method addSubresource:
@@ -3460,7 +3460,7 @@ class WebDataSource : NSObject {
     @protocol WebDocumentView
     @discussion Protocol implemented by the document view of WebFrameView
 */
-protocol WebDocumentView : NSObjectProtocol {
+protocol WebDocumentView : ObjectProtocol {
 
   /*!
       @method setDataSource:
@@ -3509,7 +3509,7 @@ protocol WebDocumentView : NSObjectProtocol {
     @protocol WebDocumentSearching
     @discussion Optional protocol for searching document view of WebFrameView. 
 */
-protocol WebDocumentSearching : NSObjectProtocol {
+protocol WebDocumentSearching : ObjectProtocol {
 
   /*!
       @method searchFor:direction:caseSensitive:wrap:
@@ -3527,7 +3527,7 @@ protocol WebDocumentSearching : NSObjectProtocol {
     @protocol WebDocumentText
     @discussion Optional protocol for supporting text operations.
 */
-protocol WebDocumentText : NSObjectProtocol {
+protocol WebDocumentText : ObjectProtocol {
 
   /*!
       @method supportsTextEncoding
@@ -3546,7 +3546,7 @@ protocol WebDocumentText : NSObjectProtocol {
       @result Attributed string that represents the entire document.
   */
   @available(OSX 10.0, *)
-  func attributedString() -> NSAttributedString!
+  func attributedString() -> AttributedString!
 
   /*!
       @method selectedString
@@ -3559,7 +3559,7 @@ protocol WebDocumentText : NSObjectProtocol {
       @result Attributed string that represents the current selection.
   */
   @available(OSX 10.0, *)
-  func selectedAttributedString() -> NSAttributedString!
+  func selectedAttributedString() -> AttributedString!
 
   /*!
       @method selectAll
@@ -3578,7 +3578,7 @@ protocol WebDocumentText : NSObjectProtocol {
     @protocol WebDocumentRepresentation
     @discussion Protocol implemented by the document representation of a data source.
 */
-protocol WebDocumentRepresentation : NSObjectProtocol {
+protocol WebDocumentRepresentation : ObjectProtocol {
 
   /*!
       @method setDataSource:
@@ -3593,7 +3593,7 @@ protocol WebDocumentRepresentation : NSObjectProtocol {
       @param data The data that the data source has received.
       @param dataSource The data source that has received data.
   */
-  func receivedData(data: NSData!, withDataSource dataSource: WebDataSource!)
+  func receivedData(data: Data!, withDataSource dataSource: WebDataSource!)
 
   /*!
       @method receivedError:withDataSource:
@@ -3601,7 +3601,7 @@ protocol WebDocumentRepresentation : NSObjectProtocol {
       @param error The error that the data source has received.
       @param dataSource The data source that has received the error.
   */
-  func receivedError(error: NSError!, withDataSource dataSource: WebDataSource!)
+  func receivedError(error: Error!, withDataSource dataSource: WebDataSource!)
 
   /*!
       @method finishedLoadingWithDataSource:
@@ -3639,7 +3639,7 @@ protocol WebDocumentRepresentation : NSObjectProtocol {
     panel, as either a sheet or window. It provides no extra methods,
     but does have one additional delegate method.
 */
-class WebDownload : NSURLDownload {
+class WebDownload : URLDownload {
 
   /*!
       @method initWithRequest:delegate:
@@ -3649,7 +3649,7 @@ class WebDownload : NSURLDownload {
       @result An initialized NSURLDownload object.
   */
   @available(OSX, introduced=10.3, deprecated=10.11, message="Use NSURLSession downloadTask (see NSURLSession.h)")
-  init(request: NSURLRequest, delegate: NSURLDownloadDelegate?)
+  init(request: URLRequest, delegate: URLDownloadDelegate?)
 
   /*!
       @method initWithResumeData:delegate:path:
@@ -3660,7 +3660,7 @@ class WebDownload : NSURLDownload {
       @result An initialized NSURLDownload object.
   */
   @available(OSX, introduced=10.3, deprecated=10.11, message="Use NSURLSession downloadTask (see NSURLSession.h)")
-  init(resumeData: NSData, delegate: NSURLDownloadDelegate?, path: String)
+  init(resumeData: Data, delegate: URLDownloadDelegate?, path: String)
   init()
 }
 
@@ -3669,7 +3669,7 @@ class WebDownload : NSURLDownload {
     @discussion The WebDownloadDelegate delegate has one extra method used to choose
     the right window when automatically prompting with a sheet.
 */
-protocol WebDownloadDelegate : NSURLDownloadDelegate {
+protocol WebDownloadDelegate : URLDownloadDelegate {
 
   /*!
       @method downloadWindowForAuthenticationSheet:
@@ -3686,9 +3686,9 @@ enum WebViewInsertAction : Int {
   case Pasted
   case Dropped
 }
-protocol WebEditingDelegate : NSObjectProtocol {
+protocol WebEditingDelegate : ObjectProtocol {
 }
-extension NSObject {
+extension Object {
   class func webView(webView: WebView!, shouldBeginEditingIn range: DOMRange!) -> Bool
   func webView(webView: WebView!, shouldBeginEditingIn range: DOMRange!) -> Bool
   class func webView(webView: WebView!, shouldEndEditingIn range: DOMRange!) -> Bool
@@ -3707,18 +3707,18 @@ extension NSObject {
   func webView(webView: WebView!, shouldChangeTypingStyle currentStyle: DOMCSSStyleDeclaration!, toStyle proposedStyle: DOMCSSStyleDeclaration!) -> Bool
   class func webView(webView: WebView!, doCommandBy selector: Selector) -> Bool
   func webView(webView: WebView!, doCommandBy selector: Selector) -> Bool
-  class func webViewDidBeginEditing(notification: NSNotification!)
-  func webViewDidBeginEditing(notification: NSNotification!)
-  class func webViewDidChange(notification: NSNotification!)
-  func webViewDidChange(notification: NSNotification!)
-  class func webViewDidEndEditing(notification: NSNotification!)
-  func webViewDidEndEditing(notification: NSNotification!)
-  class func webViewDidChangeTypingStyle(notification: NSNotification!)
-  func webViewDidChangeTypingStyle(notification: NSNotification!)
-  class func webViewDidChangeSelection(notification: NSNotification!)
-  func webViewDidChangeSelection(notification: NSNotification!)
-  class func undoManagerFor(webView: WebView!) -> NSUndoManager!
-  func undoManagerFor(webView: WebView!) -> NSUndoManager!
+  class func webViewDidBeginEditing(notification: Notification!)
+  func webViewDidBeginEditing(notification: Notification!)
+  class func webViewDidChange(notification: Notification!)
+  func webViewDidChange(notification: Notification!)
+  class func webViewDidEndEditing(notification: Notification!)
+  func webViewDidEndEditing(notification: Notification!)
+  class func webViewDidChangeTypingStyle(notification: Notification!)
+  func webViewDidChangeTypingStyle(notification: Notification!)
+  class func webViewDidChangeSelection(notification: Notification!)
+  func webViewDidChangeSelection(notification: Notification!)
+  class func undoManagerFor(webView: WebView!) -> UndoManager!
+  func undoManagerFor(webView: WebView!) -> UndoManager!
 }
 
 /*!
@@ -3726,7 +3726,7 @@ extension NSObject {
     @discussion Every web page is represented by at least one WebFrame.  A WebFrame
     has a WebFrameView and a WebDataSource.
 */
-class WebFrame : NSObject {
+class WebFrame : Object {
 
   /*!
       @method initWithName:webFrameView:webView:
@@ -3777,7 +3777,7 @@ class WebFrame : NSObject {
       @method loadRequest:
       @param request The web request to load.
   */
-  func load(request: NSURLRequest!)
+  func load(request: URLRequest!)
 
   /*!
       @method loadData:MIMEType:textEncodingName:baseURL:
@@ -3786,14 +3786,14 @@ class WebFrame : NSObject {
       @param encodingName The encoding of the data.
       @param URL The base URL to apply to relative URLs within the document.
   */
-  func load(data: NSData!, mimeType MIMEType: String!, textEncodingName encodingName: String!, baseURL URL: NSURL!)
+  func load(data: Data!, mimeType MIMEType: String!, textEncodingName encodingName: String!, baseURL URL: URL!)
 
   /*!
       @method loadHTMLString:baseURL:
       @param string The string to use for the main page of the document.
       @param URL The base URL to apply to relative URLs within the document.
   */
-  func loadHTMLString(string: String!, baseURL URL: NSURL!)
+  func loadHTMLString(string: String!, baseURL URL: URL!)
 
   /*!
       @method loadAlternateHTMLString:baseURL:forUnreachableURL:
@@ -3808,7 +3808,7 @@ class WebFrame : NSObject {
       @param baseURL The baseURL to apply to relative URLs within the document.
       @param unreachableURL The URL for which this page will serve as alternate content.
   */
-  func loadAlternateHTMLString(string: String!, baseURL: NSURL!, forUnreachableURL unreachableURL: NSURL!)
+  func loadAlternateHTMLString(string: String!, baseURL: URL!, forUnreachableURL unreachableURL: URL!)
 
   /*!
       @method loadArchive:
@@ -3908,7 +3908,7 @@ class WebFrame : NSObject {
     Once at least one byte is received, the data source is considered "committed". This is done
     so the contents of the frame will not be lost if the new data source fails to successfully load.
 */
-protocol WebFrameLoadDelegate : NSObjectProtocol {
+protocol WebFrameLoadDelegate : ObjectProtocol {
 
   /*!
       @method webView:didStartProvisionalLoadForFrame:
@@ -3937,7 +3937,7 @@ protocol WebFrameLoadDelegate : NSObjectProtocol {
       @discussion This method is called after the provisional data source has failed to load.
       The frame will continue to display the contents of the committed data source if there is one.
   */
-  optional func webView(sender: WebView!, didFailProvisionalLoadWithError error: NSError!, forFrame frame: WebFrame!)
+  optional func webView(sender: WebView!, didFailProvisionalLoadWithError error: Error!, forFrame frame: WebFrame!)
 
   /*!
       @method webView:didCommitLoadForFrame:
@@ -3992,7 +3992,7 @@ protocol WebFrameLoadDelegate : NSObjectProtocol {
       @param frame The frame that failed to load
       @discussion This method is called after a data source has committed but failed to completely load.
   */
-  optional func webView(sender: WebView!, didFailLoadWithError error: NSError!, forFrame frame: WebFrame!)
+  optional func webView(sender: WebView!, didFailLoadWithError error: Error!, forFrame frame: WebFrame!)
 
   /*!
       @method webView:didChangeLocationWithinPageForFrame:
@@ -4014,7 +4014,7 @@ protocol WebFrameLoadDelegate : NSObjectProtocol {
       @discussion This method can be used to continue progress feedback while a client-side
       redirect is pending.
   */
-  optional func webView(sender: WebView!, willPerformClientRedirectTo URL: NSURL!, delay seconds: NSTimeInterval, fire date: NSDate!, forFrame frame: WebFrame!)
+  optional func webView(sender: WebView!, willPerformClientRedirectTo URL: URL!, delay seconds: TimeInterval, fire date: Date!, forFrame frame: WebFrame!)
 
   /*!
       @method webView:didCancelClientRedirectForFrame:
@@ -4117,8 +4117,8 @@ class WebFrameView : NSView {
       @abstract Called by the host application when the WebFrameView returns YES from -documentViewShouldHandlePrint.
   */
   func printDocumentView()
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init(frame frameRect: Rect)
+  init?(coder: Coder)
   convenience init()
 }
 let WebHistoryItemsAddedNotification: String
@@ -4133,7 +4133,7 @@ let WebHistoryItemsKey: String
     @discussion WebHistory is used to track pages that have been loaded
     by WebKit.
 */
-class WebHistory : NSObject {
+class WebHistory : Object {
 
   /*!
       @method optionalSharedHistory
@@ -4155,7 +4155,7 @@ class WebHistory : NSObject {
       @abstract The designated initializer for WebHistory.
       @result Returns YES if successful, NO otherwise.
   */
-  func loadFrom(URL: NSURL!) throws
+  func loadFrom(URL: URL!) throws
 
   /*!
       @method saveToURL:error:
@@ -4164,7 +4164,7 @@ class WebHistory : NSObject {
       @param error Set to nil or an NSError instance if an error occurred.
       @result Returns YES if successful, NO otherwise.
   */
-  func saveTo(URL: NSURL!) throws
+  func saveTo(URL: URL!) throws
 
   /*!
       @method addItems:
@@ -4190,7 +4190,7 @@ class WebHistory : NSObject {
       or more history items, ordered from most recent to oldest.
   */
   var orderedLastVisitedDays: [AnyObject]! { get }
-  func orderedItemsLastVisitedOnDay(calendarDate: NSCalendarDate!) -> [AnyObject]!
+  func orderedItemsLastVisitedOnDay(calendarDate: CalendarDate!) -> [AnyObject]!
 
   /*!
       @method itemForURL:
@@ -4198,7 +4198,7 @@ class WebHistory : NSObject {
       @param URL The URL of the history item to search for
       @result Returns an item matching the URL
   */
-  func itemFor(URL: NSURL!) -> WebHistoryItem!
+  func itemFor(URL: URL!) -> WebHistoryItem!
 
   /*!
       @property historyItemLimit
@@ -4222,7 +4222,7 @@ let WebHistoryItemChangedNotification: String
     pages visited.  With the exception of the displayTitle, the properties of 
     WebHistoryItems are set by WebKit.  WebHistoryItems are normally never created directly.
 */
-class WebHistoryItem : NSObject, NSCopying {
+class WebHistoryItem : Object, Copying {
 
   /*!
       @method initWithURLString:title:lastVisitedTimeInterval:
@@ -4235,7 +4235,7 @@ class WebHistoryItem : NSObject, NSCopying {
       'artificial' items to add to a WebBackForwardList.  When first initialized
       the URLString and originalURLString will be the same.
   */
-  init!(urlString URLString: String!, title: String!, lastVisitedTimeInterval time: NSTimeInterval)
+  init!(urlString URLString: String!, title: String!, lastVisitedTimeInterval time: TimeInterval)
 
   /*!
       @property originalURLString
@@ -4266,7 +4266,7 @@ class WebHistoryItem : NSObject, NSCopying {
       is since the reference date as determined by NSDate.  This value is normally set by
       the WebKit.
   */
-  var lastVisitedTimeInterval: NSTimeInterval { get }
+  var lastVisitedTimeInterval: TimeInterval { get }
   var alternateTitle: String!
 
   /*!
@@ -4276,7 +4276,7 @@ class WebHistoryItem : NSObject, NSCopying {
   */
   var icon: NSImage! { get }
   init()
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 let WebKitErrorDomain: String
 let WebKitErrorMIMETypeKey: String
@@ -4294,7 +4294,7 @@ var WebKitErrorBlockedPlugInVersion: Int { get }
     WebPlugIn is an informal protocol that enables interaction between an application
     and web related plug-ins it may contain.
 */
-extension NSObject {
+extension Object {
 
   /*!
       @method webPlugInInitialize
@@ -4408,7 +4408,7 @@ extension NSObject {
       WebPlugInShouldLoadMainResourceKey argument passed to the plug-in was NO.
   */
   @available(OSX 10.6, *)
-  class func webPlugInMainResourceDidReceive(response: NSURLResponse!)
+  class func webPlugInMainResourceDidReceive(response: URLResponse!)
 
   /*!
       @method webPlugInMainResourceDidReceiveResponse:
@@ -4418,7 +4418,7 @@ extension NSObject {
       WebPlugInShouldLoadMainResourceKey argument passed to the plug-in was NO.
   */
   @available(OSX 10.6, *)
-  func webPlugInMainResourceDidReceive(response: NSURLResponse!)
+  func webPlugInMainResourceDidReceive(response: URLResponse!)
 
   /*!
       @method webPlugInMainResourceDidReceiveData:
@@ -4428,7 +4428,7 @@ extension NSObject {
       WebPlugInShouldLoadMainResourceKey argument passed to the plug-in was NO.
   */
   @available(OSX 10.6, *)
-  class func webPlugInMainResourceDidReceive(data: NSData!)
+  class func webPlugInMainResourceDidReceive(data: Data!)
 
   /*!
       @method webPlugInMainResourceDidReceiveData:
@@ -4438,7 +4438,7 @@ extension NSObject {
       WebPlugInShouldLoadMainResourceKey argument passed to the plug-in was NO.
   */
   @available(OSX 10.6, *)
-  func webPlugInMainResourceDidReceive(data: NSData!)
+  func webPlugInMainResourceDidReceive(data: Data!)
 
   /*!
       @method webPlugInMainResourceDidFailWithError:
@@ -4448,7 +4448,7 @@ extension NSObject {
       WebPlugInShouldLoadMainResourceKey argument passed to the plug-in was NO.
   */
   @available(OSX 10.6, *)
-  class func webPlugInMainResourceDidFailWithError(error: NSError!)
+  class func webPlugInMainResourceDidFailWithError(error: Error!)
 
   /*!
       @method webPlugInMainResourceDidFailWithError:
@@ -4458,7 +4458,7 @@ extension NSObject {
       WebPlugInShouldLoadMainResourceKey argument passed to the plug-in was NO.
   */
   @available(OSX 10.6, *)
-  func webPlugInMainResourceDidFailWithError(error: NSError!)
+  func webPlugInMainResourceDidFailWithError(error: Error!)
 
   /*!
       @method webPlugInMainResourceDidFinishLoading
@@ -4486,7 +4486,7 @@ extension NSObject {
     This informal protocol enables a plug-in to request that its containing application
     perform certain operations.
 */
-extension NSObject {
+extension Object {
 
   /*!
       @method webPlugInContainerLoadRequest:inFrame:
@@ -4497,7 +4497,7 @@ extension NSObject {
       with the specified target.  If nil is specified, the frame that contains
       the applet is targeted.
   */
-  class func webPlugInContainerLoad(request: NSURLRequest!, inFrame target: String!)
+  class func webPlugInContainerLoad(request: URLRequest!, inFrame target: String!)
 
   /*!
       @method webPlugInContainerLoadRequest:inFrame:
@@ -4508,7 +4508,7 @@ extension NSObject {
       with the specified target.  If nil is specified, the frame that contains
       the applet is targeted.
   */
-  func webPlugInContainerLoad(request: NSURLRequest!, inFrame target: String!)
+  func webPlugInContainerLoad(request: URLRequest!, inFrame target: String!)
 
   /*!
       @method webPlugInContainerShowStatus:
@@ -4587,7 +4587,7 @@ let WebPlugInShouldLoadMainResourceKey: String
     @discussion WebPlugInViewFactory are used to create the NSView for a plug-in.
     The principal class of the plug-in bundle must implement this protocol.
 */
-protocol WebPlugInViewFactory : NSObjectProtocol {
+protocol WebPlugInViewFactory : ObjectProtocol {
 
   /*!
       @method plugInViewWithArguments: 
@@ -4595,7 +4595,7 @@ protocol WebPlugInViewFactory : NSObjectProtocol {
       @result Returns an NSView object that conforms to the WebPlugIn informal protocol.
   */
   @available(OSX 10.0, *)
-  static func plugInViewWithArguments(arguments: [NSObject : AnyObject]!) -> NSView!
+  static func plugInViewWithArguments(arguments: [Object : AnyObject]!) -> NSView!
 }
 
 /*!
@@ -4631,7 +4631,7 @@ let WebActionOriginalURLKey: String
     asyncrhonously, which means the decision can be made by prompting
     with a sheet, for example.
 */
-protocol WebPolicyDecisionListener : NSObjectProtocol {
+protocol WebPolicyDecisionListener : ObjectProtocol {
 
   /*!
       @method use
@@ -4694,7 +4694,7 @@ protocol WebPolicyDecisionListener : NSObjectProtocol {
     documents come in one navigation, with each replacing the last. In
     this case, conent policy will be checked for each one.
 */
-protocol WebPolicyDelegate : NSObjectProtocol {
+protocol WebPolicyDelegate : ObjectProtocol {
 
   /*!
      @method webView:decidePolicyForNavigationAction:request:frame:decisionListener:
@@ -4707,7 +4707,7 @@ protocol WebPolicyDelegate : NSObjectProtocol {
      on every redirect.
   */
   @available(OSX 10.0, *)
-  optional func webView(webView: WebView!, decidePolicyForNavigationAction actionInformation: [NSObject : AnyObject]!, request: NSURLRequest!, frame: WebFrame!, decisionListener listener: WebPolicyDecisionListener!)
+  optional func webView(webView: WebView!, decidePolicyForNavigationAction actionInformation: [Object : AnyObject]!, request: URLRequest!, frame: WebFrame!, decisionListener listener: WebPolicyDecisionListener!)
 
   /*!
       @method webView:decidePolicyForNewWindowAction:request:newFrameName:decisionListener:
@@ -4726,7 +4726,7 @@ protocol WebPolicyDelegate : NSObjectProtocol {
       in its action. This is to avoid possible confusion about the modifiers.
   */
   @available(OSX 10.0, *)
-  optional func webView(webView: WebView!, decidePolicyForNewWindowAction actionInformation: [NSObject : AnyObject]!, request: NSURLRequest!, newFrameName frameName: String!, decisionListener listener: WebPolicyDecisionListener!)
+  optional func webView(webView: WebView!, decidePolicyForNewWindowAction actionInformation: [Object : AnyObject]!, request: URLRequest!, newFrameName frameName: String!, decisionListener listener: WebPolicyDecisionListener!)
 
   /*!
       @method webView:decidePolicyForMIMEType:request:frame:
@@ -4737,7 +4737,7 @@ protocol WebPolicyDelegate : NSObjectProtocol {
       @param frame The frame which is loading the URL.
       @param listener The object to call when the decision is made
   */
-  optional func webView(webView: WebView!, decidePolicyForMIMEType type: String!, request: NSURLRequest!, frame: WebFrame!, decisionListener listener: WebPolicyDecisionListener!)
+  optional func webView(webView: WebView!, decidePolicyForMIMEType type: String!, request: URLRequest!, frame: WebFrame!, decisionListener listener: WebPolicyDecisionListener!)
 
   /*!
       @method webView:unableToImplementPolicy:error:forURL:inFrame:
@@ -4747,7 +4747,7 @@ protocol WebPolicyDelegate : NSObjectProtocol {
       @param URL The URL of the resource for which a particular action was requested but failed.
       @param frame The frame in which the policy could not be implemented.
   */
-  optional func webView(webView: WebView!, unableToImplementPolicyWithError error: NSError!, frame: WebFrame!)
+  optional func webView(webView: WebView!, unableToImplementPolicyWithError error: Error!, frame: WebFrame!)
 }
 
 /*!
@@ -4791,7 +4791,7 @@ let WebPreferencesChangedNotification: String
 /*!
     @class WebPreferences
 */
-class WebPreferences : NSObject, NSCoding {
+class WebPreferences : Object, Coding {
 
   /*!
       @method standardPreferences
@@ -4879,7 +4879,7 @@ class WebPreferences : NSObject, NSCoding {
       @property userStyleSheetLocation
       @abstract The location of the user style sheet.
   */
-  var userStyleSheetLocation: NSURL!
+  var userStyleSheetLocation: URL!
 
   /*!
       @property javaEnabled
@@ -4985,8 +4985,8 @@ class WebPreferences : NSObject, NSCoding {
    */
   var allowsAirPlayForMediaPlayback: Bool
   init()
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -4994,7 +4994,7 @@ class WebPreferences : NSObject, NSCoding {
     @discussion A WebResource represents a fully downloaded URL. 
     It includes the data of the resource as well as the metadata associated with the resource.
 */
-class WebResource : NSObject, NSCoding, NSCopying {
+class WebResource : Object, Coding, Copying {
 
   /*!
       @method initWithData:URL:MIMEType:textEncodingName:frameName
@@ -5006,19 +5006,19 @@ class WebResource : NSObject, NSCoding, NSCopying {
       @param frameName The frame name of the resource if the resource represents the contents of an entire HTML frame (can be nil).
       @result An initialized WebResource.
   */
-  init!(data: NSData!, url URL: NSURL!, mimeType MIMEType: String!, textEncodingName: String!, frameName: String!)
+  init!(data: Data!, url URL: URL!, mimeType MIMEType: String!, textEncodingName: String!, frameName: String!)
 
   /*!
       @property data
       @abstract The data of the resource.
   */
-  @NSCopying var data: NSData! { get }
+  @NSCopying var data: Data! { get }
 
   /*!
       @property URL
       @abstract The URL of the resource.
   */
-  var url: NSURL! { get }
+  var url: URL! { get }
 
   /*!
       @property MIMEType
@@ -5038,9 +5038,9 @@ class WebResource : NSObject, NSCoding, NSCopying {
   */
   var frameName: String! { get }
   init()
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -5054,7 +5054,7 @@ class WebResource : NSObject, NSCoding, NSCopying {
     resource.  For example, a single resource may generate multiple 
     resource:willSendRequest:redirectResponse:fromDataSource: messages as it's URL is redirected.
 */
-protocol WebResourceLoadDelegate : NSObjectProtocol {
+protocol WebResourceLoadDelegate : ObjectProtocol {
 
   /*!
       @method webView:identifierForInitialRequest:fromDataSource:
@@ -5069,7 +5069,7 @@ protocol WebResourceLoadDelegate : NSObjectProtocol {
       @result An identifier that will be passed back to the implementor for each callback.
       The identifier will be retained.
   */
-  optional func webView(sender: WebView!, identifierForInitialRequest request: NSURLRequest!, from dataSource: WebDataSource!) -> AnyObject!
+  optional func webView(sender: WebView!, identifierForInitialRequest request: URLRequest!, from dataSource: WebDataSource!) -> AnyObject!
 
   /*!
       @method webView:resource:willSendRequest:redirectResponse:fromDataSource:
@@ -5085,7 +5085,7 @@ protocol WebResourceLoadDelegate : NSObjectProtocol {
       @result Returns the request, which may be mutated by the implementor, although typically
       will be request.
   */
-  optional func webView(sender: WebView!, resource identifier: AnyObject!, willSend request: NSURLRequest!, redirectResponse: NSURLResponse!, from dataSource: WebDataSource!) -> NSURLRequest!
+  optional func webView(sender: WebView!, resource identifier: AnyObject!, willSend request: URLRequest!, redirectResponse: URLResponse!, from dataSource: WebDataSource!) -> URLRequest!
 
   /*!
       @method webView:resource:didReceiveAuthenticationChallenge:fromDataSource:
@@ -5096,14 +5096,14 @@ protocol WebResourceLoadDelegate : NSObjectProtocol {
       @discussion If you do not implement this delegate method, WebKit will handle authentication
       automatically by prompting with a sheet on the window that the WebView is associated with.
   */
-  optional func webView(sender: WebView!, resource identifier: AnyObject!, didReceive challenge: NSURLAuthenticationChallenge!, from dataSource: WebDataSource!)
+  optional func webView(sender: WebView!, resource identifier: AnyObject!, didReceive challenge: URLAuthenticationChallenge!, from dataSource: WebDataSource!)
 
   /*!
       @method webView:resource:didCancelAuthenticationChallenge:fromDataSource:
       @abstract Cancel authentication for a given request
       @param challenge The NSURLAuthenticationChallenge for which to cancel authentication
   */
-  optional func webView(sender: WebView!, resource identifier: AnyObject!, didCancel challenge: NSURLAuthenticationChallenge!, from dataSource: WebDataSource!)
+  optional func webView(sender: WebView!, resource identifier: AnyObject!, didCancel challenge: URLAuthenticationChallenge!, from dataSource: WebDataSource!)
 
   /*!
       @method webView:resource:didReceiveResponse:fromDataSource:
@@ -5118,7 +5118,7 @@ protocol WebResourceLoadDelegate : NSObjectProtocol {
       should assume that each new response resets progress so far for the resource back to 0,
       and should check the new response for the expected content length.
   */
-  optional func webView(sender: WebView!, resource identifier: AnyObject!, didReceive response: NSURLResponse!, from dataSource: WebDataSource!)
+  optional func webView(sender: WebView!, resource identifier: AnyObject!, didReceive response: URLResponse!, from dataSource: WebDataSource!)
 
   /*!
       @method webView:resource:didReceiveContentLength:fromDataSource:
@@ -5150,7 +5150,7 @@ protocol WebResourceLoadDelegate : NSObjectProtocol {
       @param error The error associated with this load.
       @param dataSource The dataSource that initiated the load.
   */
-  optional func webView(sender: WebView!, resource identifier: AnyObject!, didFailLoadingWithError error: NSError!, from dataSource: WebDataSource!)
+  optional func webView(sender: WebView!, resource identifier: AnyObject!, didFailLoadingWithError error: Error!, from dataSource: WebDataSource!)
 
   /*!
       @method webView:plugInFailedWithError:dataSource:
@@ -5164,9 +5164,9 @@ protocol WebResourceLoadDelegate : NSObjectProtocol {
       when none are present.
       @param dataSource The dataSource that contains the plug-in.
   */
-  optional func webView(sender: WebView!, plugInFailedWithError error: NSError!, dataSource: WebDataSource!)
+  optional func webView(sender: WebView!, plugInFailedWithError error: Error!, dataSource: WebDataSource!)
 }
-extension NSObject {
+extension Object {
 
   /*!
       @method webScriptNameForSelector:
@@ -5315,7 +5315,7 @@ extension NSObject {
         - (void)setWebScriptValueAtIndex:(unsigned)index value:(id)value;
 */
 @available(OSX 10.4, *)
-class WebScriptObject : NSObject {
+class WebScriptObject : Object {
 
   /*!
       @method throwException:
@@ -5408,13 +5408,13 @@ class WebScriptObject : NSObject {
     @class WebUndefined
 */
 @available(OSX 10.4, *)
-class WebUndefined : NSObject, NSCoding, NSCopying {
+class WebUndefined : Object, Coding, Copying {
   init()
   @available(OSX 10.4, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.4, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 var WebMenuItemTagOpenLinkInNewWindow: Int { get }
 var WebMenuItemTagDownloadLinkToDisk: Int { get }
@@ -5494,7 +5494,7 @@ struct WebDragSourceAction : OptionSetType {
     @discussion This protocol is used to call back with the results of
     the file open panel requested by runOpenPanelForFileButtonWithResultListener:
 */
-protocol WebOpenPanelResultListener : NSObjectProtocol {
+protocol WebOpenPanelResultListener : ObjectProtocol {
 
   /*!
       @method chooseFilename:
@@ -5525,7 +5525,7 @@ protocol WebOpenPanelResultListener : NSObjectProtocol {
     other aspects of web pages. These methods are used to open new
     windows and control aspects of existing windows.
 */
-protocol WebUIDelegate : NSObjectProtocol {
+protocol WebUIDelegate : ObjectProtocol {
 
   /*!
       @method webView:createWebViewWithRequest:
@@ -5536,7 +5536,7 @@ protocol WebUIDelegate : NSObjectProtocol {
       @param request The request to load.
       @result The WebView for the new window.
   */
-  optional func webView(sender: WebView!, createWebViewWith request: NSURLRequest!) -> WebView!
+  optional func webView(sender: WebView!, createWebViewWith request: URLRequest!) -> WebView!
 
   /*!
       @method webViewShow:
@@ -5557,7 +5557,7 @@ protocol WebUIDelegate : NSObjectProtocol {
       @param request The request to load.
       @result The WebView for the new window.
   */
-  optional func webView(sender: WebView!, createWebViewModalDialogWith request: NSURLRequest!) -> WebView!
+  optional func webView(sender: WebView!, createWebViewModalDialogWith request: URLRequest!) -> WebView!
 
   /*!
       @method webViewRunModal:
@@ -5711,7 +5711,7 @@ protocol WebUIDelegate : NSObjectProtocol {
       this method is provided so implementors of this protocol can do special
       things on programmatic move/resize, like avoiding autosaving of the size.
   */
-  optional func webView(sender: WebView!, setFrame frame: NSRect)
+  optional func webView(sender: WebView!, setFrame frame: Rect)
 
   /*!
       @method webViewFrame:
@@ -5719,7 +5719,7 @@ protocol WebUIDelegate : NSObjectProtocol {
       @abstract REturn the window's frame rect
       @discussion 
   */
-  optional func webViewFrame(sender: WebView!) -> NSRect
+  optional func webViewFrame(sender: WebView!) -> Rect
 
   /*!
       @method webView:runJavaScriptAlertPanelWithMessage:initiatedByFrame:
@@ -5804,7 +5804,7 @@ protocol WebUIDelegate : NSObjectProtocol {
       @param modifierFlags The modifier flags as in NSEvent.
   */
   @available(OSX 10.0, *)
-  optional func webView(sender: WebView!, mouseDidMoveOverElement elementInformation: [NSObject : AnyObject]!, modifierFlags: Int)
+  optional func webView(sender: WebView!, mouseDidMoveOverElement elementInformation: [Object : AnyObject]!, modifierFlags: Int)
 
   /*!
       @method webView:contextMenuItemsForElement:defaultMenuItems:
@@ -5815,7 +5815,7 @@ protocol WebUIDelegate : NSObjectProtocol {
       @result An array of NSMenuItems to include in the contextual menu.
   */
   @available(OSX 10.0, *)
-  optional func webView(sender: WebView!, contextMenuItemsForElement element: [NSObject : AnyObject]!, defaultMenuItems: [AnyObject]!) -> [AnyObject]!
+  optional func webView(sender: WebView!, contextMenuItemsForElement element: [Object : AnyObject]!, defaultMenuItems: [AnyObject]!) -> [AnyObject]!
 
   /*!
       @method webView:validateUserInterfaceItem:defaultValidation:
@@ -5872,7 +5872,7 @@ protocol WebUIDelegate : NSObjectProtocol {
       @discussion This method is called after the user has begun a drag from a WebView. The UI delegate can return a mask indicating
       which drag source actions can occur, WebDragSourceActionAny to allow any kind of action or WebDragSourceActionNone to not begin a drag.
   */
-  optional func webView(webView: WebView!, dragSourceActionMaskFor point: NSPoint) -> Int
+  optional func webView(webView: WebView!, dragSourceActionMaskFor point: Point) -> Int
 
   /*!
       @method webView:willPerformDragSourceAction:fromPoint:withPasteboard:
@@ -5885,7 +5885,7 @@ protocol WebUIDelegate : NSObjectProtocol {
       This method informs the UI delegate of the drag source action that will be performed and gives the delegate an opportunity to modify
       the contents of the dragging pasteboard.
   */
-  optional func webView(webView: WebView!, willPerform action: WebDragSourceAction, from point: NSPoint, withPasteboard pasteboard: NSPasteboard!)
+  optional func webView(webView: WebView!, willPerform action: WebDragSourceAction, from point: Point, withPasteboard pasteboard: NSPasteboard!)
 
   /*!
       @method webView:printFrameView:
@@ -5926,7 +5926,7 @@ protocol WebUIDelegate : NSObjectProtocol {
       @param rect The NSRect reserved for the header of the page
       @abstract The delegate should draw a header for the sender in the supplied rect.
   */
-  optional func webView(sender: WebView!, drawHeaderIn rect: NSRect)
+  optional func webView(sender: WebView!, drawHeaderIn rect: Rect)
 
   /*!
       @method webView:drawFooterInRect:
@@ -5934,7 +5934,7 @@ protocol WebUIDelegate : NSObjectProtocol {
       @param rect The NSRect reserved for the footer of the page
       @abstract The delegate should draw a footer for the sender in the supplied rect.
   */
-  optional func webView(sender: WebView!, drawFooterIn rect: NSRect)
+  optional func webView(sender: WebView!, drawFooterIn rect: Rect)
 }
 let WebElementDOMNodeKey: String
 let WebElementFrameKey: String
@@ -6027,7 +6027,7 @@ class WebView : NSView {
       @discussion This method differs than NSURL's URLFromPasteboard method in that it tries multiple pasteboard types
       including NSURLPboardType to find a URL on the pasteboard.
   */
-  class func urlFrom(pasteboard: NSPasteboard!) -> NSURL!
+  class func urlFrom(pasteboard: NSPasteboard!) -> URL!
 
   /*!
       @method URLTitleFromPasteboard:
@@ -6058,7 +6058,7 @@ class WebView : NSView {
       @param groupName The name of the webView set to which this webView will be added.  May be nil.
       @result Returns an initialized WebView.
   */
-  init!(frame: NSRect, frameName: String!, groupName: String!)
+  init!(frame: Rect, frameName: String!, groupName: String!)
 
   /*!
       @method close
@@ -6186,7 +6186,7 @@ class WebView : NSView {
       @param URL The URL.
       @result The user-agent string for the supplied URL.
   */
-  func userAgentFor(URL: NSURL!) -> String!
+  func userAgentFor(URL: URL!) -> String!
 
   /*!
       @property supportsTextEncoding
@@ -6307,7 +6307,7 @@ class WebView : NSView {
       @param point A point in the coordinates of the WebView
       @result An element dictionary describing the point
   */
-  func elementAt(point: NSPoint) -> [NSObject : AnyObject]!
+  func elementAt(point: Point) -> [Object : AnyObject]!
 
   /*!
       @property pasteboardTypesForSelection
@@ -6328,7 +6328,7 @@ class WebView : NSView {
       @abstract Returns the pasteboard types that WebView can use for an element
       @param element The element
   */
-  func pasteboardTypesForElement(element: [NSObject : AnyObject]!) -> [AnyObject]!
+  func pasteboardTypesForElement(element: [Object : AnyObject]!) -> [AnyObject]!
 
   /*!
       @method writeElement:withPasteboardTypes:toPasteboard:
@@ -6337,7 +6337,7 @@ class WebView : NSView {
       @param types The types that WebView will write to the pasteboard
       @param pasteboard The pasteboard to write to
   */
-  func writeElement(element: [NSObject : AnyObject]!, withPasteboardTypes types: [AnyObject]!, to pasteboard: NSPasteboard!)
+  func writeElement(element: [Object : AnyObject]!, withPasteboardTypes types: [AnyObject]!, to pasteboard: NSPasteboard!)
 
   /*!
       @method moveDragCaretToPoint:
@@ -6345,7 +6345,7 @@ class WebView : NSView {
       @discussion This method moves the caret that shows where something being dragged will be dropped. It may cause the WebView to scroll
       to make the new position of the drag caret visible.
   */
-  func moveDragCaretTo(point: NSPoint)
+  func moveDragCaretTo(point: Point)
 
   /*!
       @method removeDragCaret
@@ -6391,8 +6391,8 @@ class WebView : NSView {
       @abstract The site icon for the current page loaded in the mainFrame, or nil.
   */
   var mainFrameIcon: NSImage! { get }
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init(frame frameRect: Rect)
+  init?(coder: Coder)
   convenience init()
 }
 extension WebView : NSUserInterfaceValidations {
@@ -6423,7 +6423,7 @@ extension WebView {
   func computedStyleFor(element: DOMElement!, pseudoElement: String!) -> DOMCSSStyleDeclaration!
 }
 extension WebView {
-  func editableDOMRangeFor(point: NSPoint) -> DOMRange!
+  func editableDOMRangeFor(point: Point) -> DOMRange!
   func setSelectedDOMRange(range: DOMRange!, affinity selectionAffinity: NSSelectionAffinity)
   var selectedDOMRange: DOMRange! { get }
   var selectionAffinity: NSSelectionAffinity { get }
@@ -6433,7 +6433,7 @@ extension WebView {
   var smartInsertDeleteEnabled: Bool
   var isContinuousSpellCheckingEnabled: Bool
   var spellCheckerDocumentTag: Int { get }
-  var undoManager: NSUndoManager! { get }
+  var undoManager: UndoManager! { get }
   var editingDelegate: AnyObject!
   func styleDeclarationWithText(text: String!) -> DOMCSSStyleDeclaration!
 }

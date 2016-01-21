@@ -47,7 +47,7 @@ class GroundBotRotateToAttackState: GKState {
         animationComponent.requestedAnimationState = .WalkForward
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func updateWithDeltaTime(seconds: TimeInterval) {
         super.updateWithDeltaTime(seconds)
         
         // `orientationComponent` is a computed property. Declare a local version so we don't compute it multiple times.

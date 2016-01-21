@@ -15,7 +15,7 @@ class PlayerBotHitState: GKState {
     unowned var entity: PlayerBot
     
     /// The amount of time the `PlayerBot` has been in the "hit" state.
-    var elapsedTime: NSTimeInterval = 0.0
+    var elapsedTime: TimeInterval = 0.0
     
     /// The `AnimationComponent` associated with the `entity`.
     var animationComponent: AnimationComponent {
@@ -41,7 +41,7 @@ class PlayerBotHitState: GKState {
         animationComponent.requestedAnimationState = .Hit
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func updateWithDeltaTime(seconds: TimeInterval) {
         super.updateWithDeltaTime(seconds)
         
         // Update the amount of time the `PlayerBot` has been in the "hit" state.

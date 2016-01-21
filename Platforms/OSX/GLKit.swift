@@ -1,6 +1,6 @@
 
 @available(OSX 10.8, *)
-class GLKBaseEffect : NSObject, GLKNamedEffect {
+class GLKBaseEffect : Object, GLKNamedEffect {
   func prepareToDraw()
   var colorMaterialEnabled: GLboolean
   var lightModelTwoSided: GLboolean
@@ -22,7 +22,7 @@ class GLKBaseEffect : NSObject, GLKNamedEffect {
 }
 typealias GLKEffectPropertyPrvPtr = COpaquePointer
 @available(OSX 10.8, *)
-class GLKEffectProperty : NSObject {
+class GLKEffectProperty : Object {
   init()
 }
 @available(OSX 10.8, *)
@@ -407,7 +407,7 @@ let kGLKModelErrorKey: String
  @abstract Allocator passed to MDLAsset init method to load vertex and index data directly into OpenGL buffer object
  */
 @available(OSX 10.11, *)
-class GLKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
+class GLKMeshBufferAllocator : Object, MDLMeshBufferAllocator {
   init()
 
   /*!
@@ -431,7 +431,7 @@ class GLKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
                into any alignment restrictions necessary to use these buffers.
    */
   @available(OSX 10.11, *)
-  func newZoneForBuffersWithSize(sizes: [NSNumber], andType types: [NSNumber]) -> MDLMeshBufferZone
+  func newZoneForBuffersWithSize(sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
 
   /*!
    @method newBuffer:type:
@@ -450,7 +450,7 @@ class GLKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
    @param type Type of data to be stored in this buffer
    */
   @available(OSX 10.11, *)
-  func newBufferWith(data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBufferWith(data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
 
   /*!
    @method newBufferFromZone:length:type:
@@ -484,7 +484,7 @@ class GLKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
                buffer could not be allocated.
    */
   @available(OSX 10.11, *)
-  func newBufferFrom(zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFrom(zone: MDLMeshBufferZone?, data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 
 /*!
@@ -493,7 +493,7 @@ class GLKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
  @discussion Memory backing these buffer are OpenGL buffers. Model I/O will load index and vertex data from from a model asset directly in to the OpenGL buffer object.
  */
 @available(OSX 10.11, *)
-class GLKMeshBuffer : NSObject, MDLMeshBuffer {
+class GLKMeshBuffer : Object, MDLMeshBuffer {
 
   /*!
    @method length
@@ -538,7 +538,7 @@ class GLKMeshBuffer : NSObject, MDLMeshBuffer {
                this buffer.
    */
   @available(OSX 10.11, *)
-  func fill(data: NSData, offset: Int)
+  func fill(data: Data, offset: Int)
 
   /*!
    @method map
@@ -553,10 +553,10 @@ class GLKMeshBuffer : NSObject, MDLMeshBuffer {
   @available(OSX 10.11, *)
   func map() -> MDLMeshBufferMap
   @available(OSX 10.11, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
-class GLKSubmesh : NSObject {
+class GLKSubmesh : Object {
 
   /*!
    @property type
@@ -601,7 +601,7 @@ class GLKSubmesh : NSObject {
   var name: String { get }
 }
 @available(OSX 10.11, *)
-class GLKMesh : NSObject {
+class GLKMesh : Object {
 
   /*!
    @method initWithMesh:error:
@@ -709,7 +709,7 @@ class GLKReflectionMapEffect : GLKBaseEffect, GLKNamedEffect {
   init()
 }
 @available(OSX 10.8, *)
-class GLKSkyboxEffect : NSObject, GLKNamedEffect {
+class GLKSkyboxEffect : Object, GLKNamedEffect {
   func prepareToDraw()
   func draw()
   var center: GLKVector3
@@ -776,7 +776,7 @@ enum GLKTextureInfoOrigin : GLint {
   case BottomLeft
 }
 @available(OSX 10.8, *)
-class GLKTextureInfo : NSObject, NSCopying {
+class GLKTextureInfo : Object, Copying {
   var name: GLuint { get }
   var target: GLenum { get }
   var width: GLuint { get }
@@ -786,26 +786,26 @@ class GLKTextureInfo : NSObject, NSCopying {
   var containsMipmaps: Bool { get }
   init()
   @available(OSX 10.8, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
-typealias GLKTextureLoaderCallback = (GLKTextureInfo?, NSError?) -> Void
+typealias GLKTextureLoaderCallback = (GLKTextureInfo?, Error?) -> Void
 @available(OSX 10.8, *)
-class GLKTextureLoader : NSObject {
-  class func textureWithContentsOfFile(path: String, options: [String : NSNumber]? = [:]) throws -> GLKTextureInfo
-  class func textureWithContentsOf(url: NSURL, options: [String : NSNumber]? = [:]) throws -> GLKTextureInfo
-  class func textureWithContentsOf(data: NSData, options: [String : NSNumber]? = [:]) throws -> GLKTextureInfo
-  class func textureWith(cgImage: CGImage, options: [String : NSNumber]? = [:]) throws -> GLKTextureInfo
-  class func cubeMapWithContentsOfFiles(paths: [AnyObject], options: [String : NSNumber]? = [:]) throws -> GLKTextureInfo
-  class func cubeMapWithContentsOfFile(path: String, options: [String : NSNumber]? = [:]) throws -> GLKTextureInfo
-  class func cubeMapWithContentsOf(url: NSURL, options: [String : NSNumber]? = [:]) throws -> GLKTextureInfo
+class GLKTextureLoader : Object {
+  class func textureWithContentsOfFile(path: String, options: [String : Number]? = [:]) throws -> GLKTextureInfo
+  class func textureWithContentsOf(url: URL, options: [String : Number]? = [:]) throws -> GLKTextureInfo
+  class func textureWithContentsOf(data: Data, options: [String : Number]? = [:]) throws -> GLKTextureInfo
+  class func textureWith(cgImage: CGImage, options: [String : Number]? = [:]) throws -> GLKTextureInfo
+  class func cubeMapWithContentsOfFiles(paths: [AnyObject], options: [String : Number]? = [:]) throws -> GLKTextureInfo
+  class func cubeMapWithContentsOfFile(path: String, options: [String : Number]? = [:]) throws -> GLKTextureInfo
+  class func cubeMapWithContentsOf(url: URL, options: [String : Number]? = [:]) throws -> GLKTextureInfo
   init(share context: NSOpenGLContext)
-  func textureWithContentsOfFile(path: String, options: [String : NSNumber]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func textureWithContentsOf(url: NSURL, options: [String : NSNumber]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func textureWithContentsOf(data: NSData, options: [String : NSNumber]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func textureWith(cgImage: CGImage, options: [String : NSNumber]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func cubeMapWithContentsOfFiles(paths: [AnyObject], options: [String : NSNumber]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func cubeMapWithContentsOfFile(path: String, options: [String : NSNumber]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func cubeMapWithContentsOf(url: NSURL, options: [String : NSNumber]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func textureWithContentsOfFile(path: String, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func textureWithContentsOf(url: URL, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func textureWithContentsOf(data: Data, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func textureWith(cgImage: CGImage, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func cubeMapWithContentsOfFiles(paths: [AnyObject], options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func cubeMapWithContentsOfFile(path: String, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func cubeMapWithContentsOf(url: URL, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   init()
 }
 func GLKVector2Make(x: Float, _ y: Float) -> GLKVector2

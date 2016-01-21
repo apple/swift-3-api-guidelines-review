@@ -8,15 +8,15 @@
 
 import UIKit
 
-public class ListInfo: NSObject {
+public class ListInfo: Object {
     // MARK: Properties
 
-    public let URL: NSURL
+    public let URL: URL
     
     public var color: List.Color?
 
     public var name: String {
-        let displayName = NSFileManager.defaultManager().displayNameAtPath(URL.path!)
+        let displayName = FileManager.defaultManager().displayNameAtPath(URL.path!)
 
         return (displayName as NSString).stringByDeletingPathExtension
     }
@@ -25,7 +25,7 @@ public class ListInfo: NSObject {
 
     // MARK: Initializers
 
-    public init(URL: NSURL) {
+    public init(URL: URL) {
         self.URL = URL
     }
 

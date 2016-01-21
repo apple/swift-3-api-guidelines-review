@@ -9,7 +9,7 @@
 import Cocoa
 import ListerKit
 
-class ListRowRepresentedObject: NSObject {
+class ListRowRepresentedObject: Object {
     // MARK: Properties
 
     var listItem: ListItem

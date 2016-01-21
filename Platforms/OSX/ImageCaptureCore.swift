@@ -153,7 +153,7 @@ protocol ICCameraDeviceDelegate : ICDeviceDelegate {
     @abstract This message is sent after the camera device completes a delete operation initiated by sending a 'requestDeleteFiles:' message to that device.
     @discusson This message is sent after the camera device completes a delete operation initiated by sending a 'requestDeleteFiles:' message to that device.
   */
-  optional func cameraDevice(scanner: ICCameraDevice, didCompleteDeleteFilesWithError error: NSError?)
+  optional func cameraDevice(scanner: ICCameraDevice, didCompleteDeleteFilesWithError error: Error?)
 
   /*! 
     @method cameraDeviceDidChangeCapability:
@@ -178,7 +178,7 @@ protocol ICCameraDeviceDelegate : ICDeviceDelegate {
     @method cameraDevice:didReceivePTPEvent:
     @abstract This message is sent to the delegate to convey a PTP event.
   */
-  optional func cameraDevice(camera: ICCameraDevice, didReceivePTPEvent eventData: NSData)
+  optional func cameraDevice(camera: ICCameraDevice, didReceivePTPEvent eventData: Data)
 
   /*! 
     @method deviceDidBecomeReadyWithCompleteContentCatalog:
@@ -207,13 +207,13 @@ protocol ICCameraDeviceDelegate : ICDeviceDelegate {
   @protocol ICCameraDeviceDownloadDelegate <NSObject>
   @abstract The object passed in as 'downloadDelegate' in the 'requestDownloadFile:options:downloadDelegate:didDownloadSelector:contextInfo:' message must conform to ICCameraDeviceDownloadDelegate protocol.
 */
-protocol ICCameraDeviceDownloadDelegate : NSObjectProtocol {
+protocol ICCameraDeviceDownloadDelegate : ObjectProtocol {
 
   /*! 
     @method didDownloadFile:error:options:contextInfo:
     @abstract This message is sent to the delegate when the requested download operation is complete.
   */
-  optional func didDownloadFile(file: ICCameraFile, error: NSError?, options: [String : AnyObject]? = [:], contextInfo: UnsafeMutablePointer<Void>)
+  optional func didDownloadFile(file: ICCameraFile, error: Error?, options: [String : AnyObject]? = [:], contextInfo: UnsafeMutablePointer<Void>)
 
   /*! 
     @method didReceiveDownloadProgressForFile:downloadedBytes:maxBytes:
@@ -268,7 +268,7 @@ class ICCameraDevice : ICDevice {
       @abstract Indicates the time offset, in seconds, between the camera's clock and the computer's clock￼. This value is positive if the camera's clock is ahead of the computer's clock. This property should be ignored if the camera's capabilities property does not contain ICCameraDeviceCanSyncClock.
   
   */
-  var timeOffset: NSTimeInterval { get }
+  var timeOffset: TimeInterval { get }
 
   /*!
       @property isAccessRestrictedAppleDevice
@@ -354,7 +354,7 @@ class ICCameraDevice : ICDevice {
     @abstract Upload a file at fileURL to the camera. The options dictionary is not used in this version.
     @discussion The uploadDelegate passed must not be nil. When this request is completed, the didUploadSelector of the uploadDelegate object is called. The didUploadSelector should have the same signature as: - (void)didUploadFile:(NSURL*)fileURL error:(NSError*)error contextInfo:(void*)contextInfo. The content of error returned should be examined to determine if the request completed successfully.
   */
-  func requestUploadFile(fileURL: NSURL, options: [String : AnyObject]? = [:], uploadDelegate: AnyObject, didUploadSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func requestUploadFile(fileURL: URL, options: [String : AnyObject]? = [:], uploadDelegate: AnyObject, didUploadSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
 
   /*! 
     @method requestReadDataFromFile:atOffset:length:readDelegate:didReadDataSelector:contextInfo:
@@ -368,7 +368,7 @@ class ICCameraDevice : ICDevice {
     @abstract This method asynchronously sends a PTP command to a camera.
     @discussion This should be sent only if the 'capabilities' property contains 'ICCameraDeviceCanAcceptPTPCommands'. All PTP cameras have this capability. The response to this command will be delivered using didSendCommandSelector of sendCommandDelegate. The didSendCommandSelector should have the same signature as: - (void)didSendPTPCommand:(NSData*)command inData:(NSData*)data response:(NSData*)response error:(NSError*)error contextInfo:(void*)contextInfo. The content of error returned should be examined to determine if the request completed successfully.
   */
-  func requestSendPTPCommand(command: NSData, outData data: NSData, sendCommandDelegate: AnyObject, didSendCommand selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func requestSendPTPCommand(command: Data, outData data: Data, sendCommandDelegate: AnyObject, didSendCommand selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   init()
 }
 
@@ -376,7 +376,7 @@ class ICCameraDevice : ICDevice {
   @class ICCameraItem
   @abstract ICCameraItem is an abstract class that represents an item in an ICCameraDevice object. ICCameraDevice object creates instances of two concrete subclasses of ICCameraItem: ICCameraFolder and ICCameraFile.
 */
-class ICCameraItem : NSObject {
+class ICCameraItem : Object {
 
   /*!
       @property device
@@ -439,14 +439,14 @@ class ICCameraItem : NSObject {
       @abstract ￼Creation date of this file. This information is usually the same as the EXIF creation date.
   
   */
-  var creationDate: NSDate { get }
+  var creationDate: Date { get }
 
   /*!
       @property modificationDate
       @abstract ￼Modification date of this file. This information is usually the same as the EXIF modification date.
   
   */
-  var modificationDate: NSDate { get }
+  var modificationDate: Date { get }
 
   /*!
       @property thumbnailIfAvailable
@@ -474,7 +474,7 @@ class ICCameraItem : NSObject {
       @abstract ￼A mutable dictionary to store arbitrary key-value pairs associated with a camera item object. This can be used by view objects that bind to this object to store "house-keeping" information.
   
   */
-  var userData: NSMutableDictionary? { get }
+  var userData: MutableDictionary? { get }
 
   /*!
       @property ptpObjectHandle
@@ -879,7 +879,7 @@ let ICDeviceCanEjectOrDisconnect: String
   @protocol ICDeviceDelegate <NSObject>
   @abstract A delegate of ICDevice must conform to ICDeviceDelegate protocol.
 */
-protocol ICDeviceDelegate : NSObjectProtocol {
+protocol ICDeviceDelegate : ObjectProtocol {
 
   /*! 
     @method didRemoveDevice:
@@ -892,7 +892,7 @@ protocol ICDeviceDelegate : NSObjectProtocol {
     @abstract This message is sent when a session is opened on a device.
     @discussion This message completes the process initiated by the message "requestOpenSession" sent to the device object.
   */
-  optional func device(device: ICDevice, didOpenSessionWithError error: NSError?)
+  optional func device(device: ICDevice, didOpenSessionWithError error: Error?)
 
   /*! 
     @method deviceDidBecomeReady:
@@ -906,7 +906,7 @@ protocol ICDeviceDelegate : NSObjectProtocol {
     @abstract This message is sent when a session is closed on a device.
     @discussion This message completes the process initiated by the message "requestCloseSession" sent to the device object. This message is also sent if the device module in control of the device ceases to control the device.
   */
-  optional func device(device: ICDevice, didCloseSessionWithError error: NSError?)
+  optional func device(device: ICDevice, didCloseSessionWithError error: Error?)
 
   /*! 
     @method deviceDidChangeName:
@@ -932,7 +932,7 @@ protocol ICDeviceDelegate : NSObjectProtocol {
     @method device:didEncounterError:
     @abstract This message is sent to the device delegate when a camera or scanner device encounters an error.
   */
-  optional func device(device: ICDevice, didEncounterError error: NSError?)
+  optional func device(device: ICDevice, didEncounterError error: Error?)
 
   /*! 
     @method device:didReceiveButtonPress:
@@ -946,14 +946,14 @@ protocol ICDeviceDelegate : NSObjectProtocol {
     @abstract This message is sent to the device delegate the device sends a custom notification 'notification' with an arbitrary byte buffer 'data'.
     @discussion This message is sent only if a session is open on the device.
   */
-  optional func device(device: ICDevice, didReceiveCustomNotification notification: [String : AnyObject], data: NSData)
+  optional func device(device: ICDevice, didReceiveCustomNotification notification: [String : AnyObject], data: Data)
 }
 
 /*! 
   @class ICDevice
   @abstract ICDevice is an abstract class that represents a device supported by Image Capture facility. ImageCaptureCore defines two concrete subclasses of ICDevice, ICCameraDevice and ICScannerDevice. ICDeviceBrowser creates instances of these two subclasses to represent cameras and scanners it finds.
 */
-class ICDevice : NSObject {
+class ICDevice : Object {
 
   /*! 
     @property delegate
@@ -1122,7 +1122,7 @@ class ICDevice : NSObject {
       @abstract ￼A mutable dictionary to store arbitrary key-value pairs associated with a device object. This can be used by view objects that bind to this object to store "house-keeping" information.
   
   */
-  var userData: NSMutableDictionary? { get }
+  var userData: MutableDictionary? { get }
 
   /*! 
     @method requestOpenSession:
@@ -1150,7 +1150,7 @@ class ICDevice : NSObject {
     @abstract This method asynchronously sends an arbitrary message with optional data to a device.
     @discussion This method allows developers to send a private message from a client application to a device module. This method is the functional equivalent of calling ICAObjectSendMessage() found in ImageCapture.framework, which has been deprecated in Mac OS X 10.6. The response to this command will be delivered using didSendMessageSelector of sendMessageDelegate. The didSendMessageSelector should have the same signature as: - (void)didSendMessage:(UInt32)messageCode inData:(NSData*)data error:(NSError*)error contextInfo:(void*)contextInfo. The content of error returned should be examined to determine if the request completed successfully. NOTE: This method SHOULD NOT BE USED to send PTP pass-through commands to a PTP camera. Please refer to 'requestSendPTPCommand:outData:sendCommandDelegate:sendCommandDelegate:contextInfo:' defined in ICCameraDevice.h for sending PTP pass-through commands.
   */
-  func requestSendMessage(messageCode: UInt32, outData data: NSData, maxReturnedDataSize: UInt32, sendMessageDelegate: AnyObject, didSendMessageSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func requestSendMessage(messageCode: UInt32, outData data: Data, maxReturnedDataSize: UInt32, sendMessageDelegate: AnyObject, didSendMessageSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
 
   /*! 
     @method requestEjectOrDisconnect
@@ -1164,7 +1164,7 @@ class ICDevice : NSObject {
   @protocol ICDeviceBrowserDelegate <NSObject>
   @abstract A delegate of ICDeviceBrowser must conform to ICDeviceBrowserDelegate protocol. 
 */
-protocol ICDeviceBrowserDelegate : NSObjectProtocol {
+protocol ICDeviceBrowserDelegate : ObjectProtocol {
 
   /*! 
     @method deviceBrowser:didAddDevice:moreComing:
@@ -1213,7 +1213,7 @@ protocol ICDeviceBrowserDelegate : NSObjectProtocol {
   @class ICDeviceBrowser
   @abstract The ICDeviceBrowser object is used to find devices such as digital cameras and scanners that are supported by Image Capture. These device may be directly attached to the USB or FireWire bus on the host computer, shared by other computers, or available over a TCP/IP network. This object communicates with an Image Capture agent process asynchronously to accomplish this.
 */
-class ICDeviceBrowser : NSObject {
+class ICDeviceBrowser : Object {
 
   /*! 
     @property delegate
@@ -1266,7 +1266,7 @@ class ICDeviceBrowser : NSObject {
   */
   func stop()
 }
-class ICScannerBandData : NSObject {
+class ICScannerBandData : Object {
 
   /*!
    @property fullImageWidth
@@ -1357,7 +1357,7 @@ class ICScannerBandData : NSObject {
    @abstract The pointer to the data buffer object.
    
    */
-  var dataBuffer: NSData? { get }
+  var dataBuffer: Data? { get }
   init()
 }
 
@@ -1414,14 +1414,14 @@ protocol ICScannerDeviceDelegate : ICDeviceDelegate {
     @abstract This message is sent when a functional unit is selected on the scanner device.
     @discusson A functional unit is selected immediately after the scanner device is instantiated and in response to "requestSelectFunctionalUnit:" message.
   */
-  optional func scannerDevice(scanner: ICScannerDevice, didSelect functionalUnit: ICScannerFunctionalUnit, error: NSError?)
+  optional func scannerDevice(scanner: ICScannerDevice, didSelect functionalUnit: ICScannerFunctionalUnit, error: Error?)
 
   /*! 
    @method scannerDevice:didScanToURL:
    @abstract This message is sent when the scanner device receives the requested scan. If selectedFunctionalUnit is a document feeder, then this message will be sent once for each scanned page.
    @discusson This message is sent when the scanner device receives the requested scan. If selectedFunctionalUnit is a document feeder, then this message will be sent once for each scanned page.
    */
-  optional func scannerDevice(scanner: ICScannerDevice, didScanTo url: NSURL)
+  optional func scannerDevice(scanner: ICScannerDevice, didScanTo url: URL)
 
   /*! 
    @method scannerDevice:didScanToBandData:
@@ -1435,14 +1435,14 @@ protocol ICScannerDeviceDelegate : ICDeviceDelegate {
     @abstract This message is sent after the scanner device completes an overview scan.
     @discusson This message is sent after the scanner device completes an overview scan.
   */
-  optional func scannerDevice(scanner: ICScannerDevice, didCompleteOverviewScanWithError error: NSError?)
+  optional func scannerDevice(scanner: ICScannerDevice, didCompleteOverviewScanWithError error: Error?)
 
   /*! 
     @method scannerDevice:didCompleteScanWithError:
     @abstract This message is sent after the scanner device completes a scan.
     @discusson This message is sent after the scanner device completes a scan.
   */
-  optional func scannerDevice(scanner: ICScannerDevice, didCompleteScanWithError error: NSError?)
+  optional func scannerDevice(scanner: ICScannerDevice, didCompleteScanWithError error: Error?)
 }
 
 /*! 
@@ -1457,7 +1457,7 @@ class ICScannerDevice : ICDevice {
       @abstract ￼An array of functional unit types available on this scanner device. This is an array of NSNumber objects whose values are of type ICScannerFunctionalUnitType.
   
   */
-  var availableFunctionalUnitTypes: [NSNumber] { get }
+  var availableFunctionalUnitTypes: [Number] { get }
 
   /*!
       @property selectedFunctionalUnit
@@ -1485,7 +1485,7 @@ class ICScannerDevice : ICDevice {
       @abstract ￼The downloads directory.
   
   */
-  var downloadsDirectory: NSURL
+  var downloadsDirectory: URL
 
   /*!
       @property documentName
@@ -1815,7 +1815,7 @@ enum ICScannerFeatureType : UInt {
     @abstract ICScannerFeature class is an abstract base class used to describe a scanner feature. ImageCaptureCore defines three concrete subclasses of ICScannerFeature: ICScannerFeatureEnumeration, ICScannerFeatureRange and ICScannerFeatureBoolean.
     @discussion The scanner functional units may have one or more instances of these classes to allow users to choose scanner-specific settings or operations before performing a scan.
 */
-class ICScannerFeature : NSObject {
+class ICScannerFeature : Object {
 
   /*!
       @property type
@@ -1873,7 +1873,7 @@ class ICScannerFeatureEnumeration : ICScannerFeature {
       @abstract An array of possible values. All items in this array must be of same type￼.
   
   */
-  var values: [NSNumber] { get }
+  var values: [Number] { get }
 
   /*!
       @property menuItemLabels
@@ -1957,7 +1957,7 @@ class ICScannerFeatureBoolean : ICScannerFeature {
     @discussion 
 */
 class ICScannerFeatureTemplate : ICScannerFeature {
-  var targets: [NSMutableArray] { get }
+  var targets: [MutableArray] { get }
   init()
 }
 
@@ -1965,7 +1965,7 @@ class ICScannerFeatureTemplate : ICScannerFeature {
     @class ICScannerFunctionalUnit
     @abstract ICScannerFunctionalUnit is an abstract class that represents a scanner functiona unit. ImageCaptureCore defines three concrete subclasses of ICScannerFunctionalUnit: ICScannerFunctionalUnitFlatbed, ICScannerFunctionalUnitPositiveTransparency, ICScannerFunctionalUnitNegativeTransparency and ICScannerFunctionalUnitDocumentFeeder. ICScannerDevice creates instances of these concrete subclasses.
 */
-class ICScannerFunctionalUnit : NSObject {
+class ICScannerFunctionalUnit : Object {
 
   /*!
       @property type
@@ -1986,7 +1986,7 @@ class ICScannerFunctionalUnit : NSObject {
       @abstract ￼Supported bit depths. The values in this set are valid values defined by ICScannerBitDepth.
   
   */
-  var supportedBitDepths: NSIndexSet { get }
+  var supportedBitDepths: IndexSet { get }
 
   /*!
       @property bitDepth
@@ -2000,7 +2000,7 @@ class ICScannerFunctionalUnit : NSObject {
       @abstract ￼Supported measurement units. The values in this set are valid values defined by ICScannerMeasurementUnit.
   
   */
-  var supportedMeasurementUnits: NSIndexSet { get }
+  var supportedMeasurementUnits: IndexSet { get }
 
   /*!
       @property measurementUnit
@@ -2014,14 +2014,14 @@ class ICScannerFunctionalUnit : NSObject {
       @abstract ￼Supported scan resolutions in DPI.
   
   */
-  var supportedResolutions: NSIndexSet { get }
+  var supportedResolutions: IndexSet { get }
 
   /*!
       @property preferredResolutions
       @abstract ￼Preferred scan resolutions in DPI.
   
   */
-  var preferredResolutions: NSIndexSet { get }
+  var preferredResolutions: IndexSet { get }
 
   /*!
       @property resolution
@@ -2049,14 +2049,14 @@ class ICScannerFunctionalUnit : NSObject {
       @abstract ￼Supported scale factors in percentage.
   
   */
-  var supportedScaleFactors: NSIndexSet { get }
+  var supportedScaleFactors: IndexSet { get }
 
   /*!
       @property preferredScaleFactors
       @abstract ￼Preferred scale factors in percentage.
   
   */
-  var preferredScaleFactors: NSIndexSet { get }
+  var preferredScaleFactors: IndexSet { get }
 
   /*!
       @property scaleFactor
@@ -2084,14 +2084,14 @@ class ICScannerFunctionalUnit : NSObject {
       @abstract ￼Physical size of the scan area in current measurement unit.
   
   */
-  var physicalSize: NSSize { get }
+  var physicalSize: Size { get }
 
   /*!
       @property scanArea
       @abstract ￼This property along with scanAreaOrientation describes the area to be scanned.
   
   */
-  var scanArea: NSRect
+  var scanArea: Rect
 
   /*!
       @property scanAreaOrientation
@@ -2192,7 +2192,7 @@ class ICScannerFunctionalUnitFlatbed : ICScannerFunctionalUnit {
       @abstract ￼Supported document types. The values in this set are valid values defined by ICScannerDocumentType.
   
   */
-  var supportedDocumentTypes: NSIndexSet { get }
+  var supportedDocumentTypes: IndexSet { get }
 
   /*!
       @property documentType
@@ -2206,7 +2206,7 @@ class ICScannerFunctionalUnitFlatbed : ICScannerFunctionalUnit {
       @abstract ￼Document size of the current document type expressed in current measurement unit.
   
   */
-  var documentSize: NSSize { get }
+  var documentSize: Size { get }
   init()
 }
 
@@ -2222,7 +2222,7 @@ class ICScannerFunctionalUnitPositiveTransparency : ICScannerFunctionalUnit {
       @abstract ￼Supported document types. The values in this set are valid values defined by ICScannerDocumentType.
   
   */
-  var supportedDocumentTypes: NSIndexSet { get }
+  var supportedDocumentTypes: IndexSet { get }
 
   /*!
       @property documentType
@@ -2236,7 +2236,7 @@ class ICScannerFunctionalUnitPositiveTransparency : ICScannerFunctionalUnit {
       @abstract ￼Document size of the current document type expressed in current measurement unit.
   
   */
-  var documentSize: NSSize { get }
+  var documentSize: Size { get }
   init()
 }
 
@@ -2252,7 +2252,7 @@ class ICScannerFunctionalUnitNegativeTransparency : ICScannerFunctionalUnit {
       @abstract ￼Supported document types. The values in this set are valid values defined by ICScannerDocumentType.
   
   */
-  var supportedDocumentTypes: NSIndexSet { get }
+  var supportedDocumentTypes: IndexSet { get }
 
   /*!
       @property documentType
@@ -2266,7 +2266,7 @@ class ICScannerFunctionalUnitNegativeTransparency : ICScannerFunctionalUnit {
       @abstract ￼Document size of the current document type expressed in current measurement unit.
   
   */
-  var documentSize: NSSize { get }
+  var documentSize: Size { get }
   init()
 }
 
@@ -2282,7 +2282,7 @@ class ICScannerFunctionalUnitDocumentFeeder : ICScannerFunctionalUnit {
       @abstract ￼Supported document types. The values in this set are valid values defined by ICScannerDocumentType.
   
   */
-  var supportedDocumentTypes: NSIndexSet { get }
+  var supportedDocumentTypes: IndexSet { get }
 
   /*!
       @property documentType
@@ -2296,7 +2296,7 @@ class ICScannerFunctionalUnitDocumentFeeder : ICScannerFunctionalUnit {
       @abstract ￼Document size of the current document type expressed in current measurement unit.
   
   */
-  var documentSize: NSSize { get }
+  var documentSize: Size { get }
 
   /*!
       @property supportsDuplexScanning

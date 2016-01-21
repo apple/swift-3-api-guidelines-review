@@ -1,7 +1,7 @@
 
 var UNIFIED_CORE_IMAGE: Int32 { get }
 @available(OSX 10.4, *)
-class CIColor : NSObject, NSSecureCoding, NSCopying {
+class CIColor : Object, SecureCoding, Copying {
   convenience init(red r: CGFloat, green g: CGFloat, blue b: CGFloat)
   convenience init(string representation: String)
   init(cgColor c: CGColor)
@@ -18,13 +18,13 @@ class CIColor : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.4, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.4, *)
-class CIContext : NSObject {
+class CIContext : Object {
   @available(OSX 10.6, *)
   /*not inherited*/ init(cglContext cglctx: CGLContextObj, pixelFormat: CGLPixelFormatObj, colorSpace: CGColorSpace?, options: [String : AnyObject]? = [:])
   @available(OSX 10.4, *)
@@ -78,7 +78,7 @@ extension CIContext {
  This class potentially holds onto a lot of state. Hence it may be beneficial from a performance perspective to re-use the same CIDetector instance. Specifying a CIContext when creating a detector may have an impact on performance since this context may be used when analyzing an image.
  */
 @available(OSX 10.7, *)
-class CIDetector : NSObject {
+class CIDetector : Object {
 
   /** Returns a new detector instance of the given type.
    
@@ -141,7 +141,7 @@ let CIDetectorReturnSubFeatures: String
 
 /** Generic feature found by a CIDetector. */
 @available(OSX 10.7, *)
-class CIFeature : NSObject {
+class CIFeature : Object {
 
   /** The type of the feature. */
   var type: String { get }
@@ -417,7 +417,7 @@ let kCIInputVersionKey: String
  
  The CIFilter class produces a CIImage object as output. Typically, a filter takes one or more images as input. Some filters, however, generate an image based on other types of input parameters. The parameters of a CIFilter object are set and retrieved through the use of key-value pairs. You use the CIFilter object in conjunction with the CIImage, CIContext, CIVector, CIImageAccumulator, and CIColor objects to take advantage of the built-in Core Image filters when processing images. CIFilter objects are also used along with CIKernel, CISampler, and CIFilterShape objects to create custom filters. */
 @available(OSX 10.4, *)
-class CIFilter : NSObject, NSSecureCoding, NSCopying {
+class CIFilter : Object, SecureCoding, Copying {
   @available(OSX 10.10, *)
   var outputImage: CIImage? { get }
   @available(OSX 10.5, *)
@@ -452,10 +452,10 @@ class CIFilter : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.4, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 extension CIFilter {
@@ -512,15 +512,15 @@ extension CIFilter {
       
    The URL can be a local file or a remote document on a webserver. It is possible, that this method returns nil (like filters that predate this feature). A client of this API has to handle this case gracefully. */
   @available(OSX 10.4, *)
-  class func localizedReferenceDocumentationForFilterName(filterName: String) -> NSURL?
+  class func localizedReferenceDocumentationForFilterName(filterName: String) -> URL?
 }
 
 /** Methods to serialize arrays of filters to xmp. */
 extension CIFilter {
   @available(OSX 10.9, *)
-  class func serializedXMPFrom(filters: [CIFilter], inputImageExtent extent: CGRect) -> NSData
+  class func serializedXMPFrom(filters: [CIFilter], inputImageExtent extent: CGRect) -> Data
   @available(OSX 10.9, *)
-  class func filterArrayFromSerializedXMP(xmpData: NSData, inputImageExtent extent: CGRect, error outError: NSErrorPointer) -> [CIFilter]
+  class func filterArrayFromSerializedXMP(xmpData: Data, inputImageExtent extent: CGRect, error outError: ErrorPointer) -> [CIFilter]
 }
 protocol CIFilterConstructor {
   @available(OSX 10.4, *)
@@ -542,13 +542,13 @@ let kCIFilterGeneratorExportedKeyName: String
  CIFilterGenerator files can be put into the Image Units folders on the system and they will be loaded when the user invokes one of the loadPlugIns methods. They will be registered by their filename or if present by an attribute in its description.
  */
 @available(OSX 10.5, *)
-class CIFilterGenerator : NSObject, NSSecureCoding, NSCopying, CIFilterConstructor {
+class CIFilterGenerator : Object, SecureCoding, Copying, CIFilterConstructor {
 
   /** Initializes a CIFilterGenerator with the contents of the file.
   
    @result   CIFilterGenerator object. If the file could not be read it returns nil.
   */
-  init?(contentsOf aURL: NSURL)
+  init?(contentsOf aURL: URL)
 
   /** Connect two objects into the filter chain.
   
@@ -591,19 +591,19 @@ class CIFilterGenerator : NSObject, NSSecureCoding, NSCopying, CIFilterConstruct
    Use this method to get an NSArray of all the keys that you have exported using exportKey:fromObject:withName: or that were exported before written to a file from which you read the filter chain.
    @result     An array of dictionaries that describe the exported key and target object. See CIExportedKey, CIExportedKeyTargetObject and CIExportedKeyName for keys used in the dictionary.
   */
-  var exportedKeys: [NSObject : AnyObject] { get }
+  var exportedKeys: [Object : AnyObject] { get }
 
   /** Set a new dictionary of attributes for an exported key.
       
    By default, the exported key inherits the attributes from its original key and target object. Use this method to for instance change the default value or lower the maximum allowed value. 
    */
-  func setAttributes(attributes: [NSObject : AnyObject] = [:], forExportedKey key: String)
+  func setAttributes(attributes: [Object : AnyObject] = [:], forExportedKey key: String)
 
   /** Retrieve or Set the class attributes that will be used to register the filter using the registerFilterName method.
    Make sure you set the class attributes before using the registerFilterName method.
    See CIFilter for a description of the classAttributes that are needed to register a filter. 
   */
-  var classAttributes: [NSObject : AnyObject]
+  var classAttributes: [Object : AnyObject]
 
   /** Create a CIFilter object based on this filter chain.
    
@@ -623,20 +623,20 @@ class CIFilterGenerator : NSObject, NSSecureCoding, NSCopying, CIFilterConstruct
   /** Write the CIFilterGenerator into a file
    @result     Returns true when the chain with written our succesfully 
   */
-  func writeTo(aURL: NSURL, atomically flag: Bool) -> Bool
+  func writeTo(aURL: URL, atomically flag: Bool) -> Bool
   init()
   @available(OSX 10.5, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.5, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.5, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.5, *)
   func filterWithName(name: String) -> CIFilter?
 }
 @available(OSX 10.4, *)
-class CIFilterShape : NSObject, NSCopying {
+class CIFilterShape : Object, Copying {
   init(rect r: CGRect)
   func transformBy(m: CGAffineTransform, interior flag: Bool) -> CIFilterShape
   func insetByX(dx: Int32, y dy: Int32) -> CIFilterShape
@@ -647,10 +647,10 @@ class CIFilterShape : NSObject, NSCopying {
   var extent: CGRect { get }
   init()
   @available(OSX 10.4, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.4, *)
-class CIImage : NSObject, NSSecureCoding, NSCopying {
+class CIImage : Object, SecureCoding, Copying {
   class func empty() -> CIImage
   init(cgImage image: CGImage)
   init(cgImage image: CGImage, options: [String : AnyObject]? = [:])
@@ -658,17 +658,17 @@ class CIImage : NSObject, NSSecureCoding, NSCopying {
   init(cgLayer layer: CGLayer)
   @available(OSX, introduced=10.4, deprecated=10.11, message="Use initWithCGImage:options instead.")
   init(cgLayer layer: CGLayer, options: [String : AnyObject]? = [:])
-  init?(data: NSData)
-  init?(data: NSData, options: [String : AnyObject]? = [:])
-  init(bitmapData data: NSData, bytesPerRow: Int, size: CGSize, format: CIFormat, colorSpace: CGColorSpace?)
+  init?(data: Data)
+  init?(data: Data, options: [String : AnyObject]? = [:])
+  init(bitmapData data: Data, bytesPerRow: Int, size: CGSize, format: CIFormat, colorSpace: CGColorSpace?)
   @available(OSX 10.4, *)
   init(texture name: UInt32, size: CGSize, flipped: Bool, colorSpace: CGColorSpace?)
   @available(OSX 10.9, *)
   init(texture name: UInt32, size: CGSize, flipped: Bool, options: [String : AnyObject]? = [:])
   @available(OSX 10.11, *)
   init(mtlTexture texture: MTLTexture, options: [String : AnyObject]? = [:])
-  init?(contentsOf url: NSURL)
-  init?(contentsOf url: NSURL, options: [String : AnyObject]? = [:])
+  init?(contentsOf url: URL)
+  init?(contentsOf url: URL, options: [String : AnyObject]? = [:])
   @available(OSX 10.6, *)
   init(ioSurface surface: IOSurface)
   @available(OSX 10.6, *)
@@ -702,7 +702,7 @@ class CIImage : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.4, *)
   var definition: CIFilterShape { get }
   @available(OSX 10.4, *)
-  var url: NSURL? { get }
+  var url: URL? { get }
   @available(OSX 10.4, *)
   var colorSpace: CGColorSpace? { get }
   @available(OSX 10.11, *)
@@ -711,10 +711,10 @@ class CIImage : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.4, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 typealias CIFormat = Int32
 @available(OSX 10.4, *)
@@ -775,7 +775,7 @@ let kCIImageAutoAdjustCrop: String
 @available(OSX 10.10, *)
 let kCIImageAutoAdjustLevel: String
 @available(OSX 10.4, *)
-class CIImageAccumulator : NSObject {
+class CIImageAccumulator : Object {
   init(extent: CGRect, format: CIFormat)
   @available(OSX 10.7, *)
   init(extent: CGRect, format: CIFormat, colorSpace: CGColorSpace)
@@ -793,7 +793,7 @@ extension CIImage {
 }
 
 /** Informal protocol used to lazily supply image data. */
-extension NSObject {
+extension Object {
   class func provideImageData(data: UnsafeMutablePointer<Void>, bytesPerRow rowbytes: Int, origin x: Int, _ y: Int, size width: Int, _ height: Int, userInfo info: AnyObject?)
   func provideImageData(data: UnsafeMutablePointer<Void>, bytesPerRow rowbytes: Int, origin x: Int, _ y: Int, size width: Int, _ height: Int, userInfo info: AnyObject?)
 }
@@ -803,7 +803,7 @@ let kCIImageProviderTileSize: String
 let kCIImageProviderUserInfo: String
 typealias CIKernelROICallback = (Int32, CGRect) -> CGRect
 @available(OSX 10.4, *)
-class CIKernel : NSObject {
+class CIKernel : Object {
   @available(OSX 10.4, *)
   class func kernelsWith(string: String) -> [CIKernel]?
   @available(OSX 10.10, *)
@@ -840,7 +840,7 @@ class CIWarpKernel : CIKernel {
  An application can, however, call the 2 public class method to load plug-ins.
  */
 @available(OSX 10.4, *)
-class CIPlugIn : NSObject {
+class CIPlugIn : Object {
 
   /** This call will scan for plugins with the extension .plugin in
    		/Library/Graphics/Image Units
@@ -855,7 +855,7 @@ class CIPlugIn : NSObject {
    
    If allowExecutableCode is NO, filters containing executable code will not be loaded. If YES, any kind of filter will be loaded. */
   @available(OSX 10.7, *)
-  class func load(url: NSURL!, allowExecutableCode: Bool)
+  class func load(url: URL!, allowExecutableCode: Bool)
   init()
 }
 
@@ -879,12 +879,12 @@ protocol CIPlugInRegistration {
 extension CIFilter {
 
   /** Returns a CIFilter that will in turn return a properly processed CIImage as "outputImage". */
-  /*not inherited*/ init!(imageURL url: NSURL!, options: [NSObject : AnyObject]! = [:])
+  /*not inherited*/ init!(imageURL url: URL!, options: [Object : AnyObject]! = [:])
 
   /** Returns a CIFilter that will in turn return a properly processed CIImage as "outputImage".
   
    Note that when using this initializer, you should pass in a source type identifier hint (kCGImageSourceTypeIdentifierHint) key/value pair in order to help the decoder determine the file type, as otherwise confusion and incorrect results are possible. An example of use would be: [opts setObject:(id)CGImageSourceGetTypeWithExtension ((CFStringRef)[[url path] pathExtension]) forKey:kCGImageSourceTypeIdentifierHint]; */
-  /*not inherited*/ init!(imageData data: NSData!, options: [NSObject : AnyObject]! = [:])
+  /*not inherited*/ init!(imageData data: Data!, options: [Object : AnyObject]! = [:])
 }
 
 /** NSString: Version string representing the decoder version to be used. A newly initialized object defaults to the newest available decoder version for the given image type. User can request an alternative, older version in order to maintain compatibility with older releases. Must be one of kCISupportedDecoderVersions (below), otherwise a nil output image will be generated. */
@@ -991,18 +991,18 @@ let kCIOutputNativeSizeKey: String
 @available(OSX 10.7, *)
 let kCIActiveKeys: String
 @available(OSX 10.4, *)
-class CISampler : NSObject, NSCopying {
+class CISampler : Object, Copying {
   convenience init(image im: CIImage)
-  init(image im: CIImage, options dict: [NSObject : AnyObject]? = [:])
+  init(image im: CIImage, options dict: [Object : AnyObject]? = [:])
   var definition: CIFilterShape { get }
   var extent: CGRect { get }
   convenience init()
   @available(OSX 10.4, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 extension CISampler {
-  convenience init(im: CIImage!, elements: (NSCopying, AnyObject)...)
+  convenience init(im: CIImage!, elements: (Copying, AnyObject)...)
 }
 @available(OSX 10.4, *)
 let kCISamplerAffineMatrix: String
@@ -1021,7 +1021,7 @@ let kCISamplerFilterLinear: String
 @available(OSX 10.4, *)
 let kCISamplerColorSpace: String
 @available(OSX 10.4, *)
-class CIVector : NSObject, NSCopying, NSSecureCoding {
+class CIVector : Object, Copying, SecureCoding {
   init(values: UnsafePointer<CGFloat>, count: Int)
   convenience init(x: CGFloat)
   convenience init(x: CGFloat, y: CGFloat)
@@ -1049,10 +1049,10 @@ class CIVector : NSObject, NSCopying, NSSecureCoding {
   var stringRepresentation: String { get }
   convenience init()
   @available(OSX 10.4, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }

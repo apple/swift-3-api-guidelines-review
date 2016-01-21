@@ -14,13 +14,13 @@ class SceneLoaderPreparingResourcesState: GKState {
     unowned let sceneLoader: SceneLoader
     
     /// An internal operation queue for loading scene resources in the background.
-    let operationQueue = NSOperationQueue()
+    let operationQueue = OperationQueue()
     
     /**
         An NSProgress object that can be used to query and monitor progress of 
         the resources being loaded. Also supports cancellation.
     */
-    var progress: NSProgress? {
+    var progress: Progress? {
         didSet {
             guard let progress = progress else { return }
             
@@ -90,7 +90,7 @@ class SceneLoaderPreparingResourcesState: GKState {
             Create an `NSProgress` object with the total unit count equal to the number of entities that
             need to be loaded plus a unit for loading the scene itself.
         */
-        let loadingProgress = NSProgress(totalUnitCount: sceneMetadata.loadableTypes.count + 1)
+        let loadingProgress = Progress(totalUnitCount: sceneMetadata.loadableTypes.count + 1)
         
         // Add the `SceneLoaderPreparingResourcesState`'s progress to the overall `sceneLoader`'s progress.
         sceneLoader.progress?.addChild(loadingProgress, withPendingUnitCount: 1)
@@ -139,14 +139,14 @@ class SceneLoaderPreparingResourcesState: GKState {
         // Ensure all operations are cancelled.
         operationQueue.cancelAllOperations()
         sceneLoader.scene = nil
-        sceneLoader.error = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
+        sceneLoader.error = Error(domain: cocoaErrorDomain, code: userCancelledError, userInfo: nil)
         
         // Enter the next state on the main queue.
         dispatch_async(dispatch_get_main_queue()) {
             self.stateMachine!.enterState(SceneLoaderResourcesAvailableState.self)
             
             // Notify that loading was not completed.
-            NSNotificationCenter.defaultCenter().postNotificationName(SceneLoaderDidFailNotification, object: self.sceneLoader)
+            NotificationCenter.defaultCenter().postNotificationName(SceneLoaderDidFailNotification, object: self.sceneLoader)
         }
     }
 }

@@ -15,10 +15,10 @@ class TaskBotAgentControlledState: GKState {
     unowned var entity: TaskBot
     
     /// The amount of time that has passed since the `TaskBot` became agent-controlled.
-    var elapsedTime: NSTimeInterval = 0.0
+    var elapsedTime: TimeInterval = 0.0
     
     /// The amount of time that has passed since the `TaskBot` last determined an appropriate behavior.
-    var timeSinceBehaviorUpdate: NSTimeInterval = 0.0
+    var timeSinceBehaviorUpdate: TimeInterval = 0.0
     
     // MARK: Initializers
     
@@ -48,7 +48,7 @@ class TaskBotAgentControlledState: GKState {
         }
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func updateWithDeltaTime(seconds: TimeInterval) {
         super.updateWithDeltaTime(seconds)
         
         // Update the "time since last behavior update" tracker.

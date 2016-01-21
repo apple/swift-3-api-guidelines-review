@@ -1436,7 +1436,7 @@ func MPSSupportsMTLDevice(device: MTLDevice?) -> Bool
  *                  @endcode
  */
 @available(iOS 9.0, *)
-class MPSKernel : NSObject, NSCopying {
+class MPSKernel : Object, Copying {
 
   /*! @property   options
    *  @abstract   The set of options used to run the kernel.
@@ -1483,10 +1483,10 @@ class MPSKernel : NSObject, NSCopying {
    *              nil if the device is not supported. Devices must be
    *              MTLFeatureSet_iOS_GPUFamily2_v1 or later.
    */
-  func copy(zone zone: NSZone = nil, device: MTLDevice?) -> Self
+  func copy(zone zone: Zone = nil, device: MTLDevice?) -> Self
   convenience init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*! @typedef    MPSKernelOptions

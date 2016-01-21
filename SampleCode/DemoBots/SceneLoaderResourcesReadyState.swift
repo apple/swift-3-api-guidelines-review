@@ -28,7 +28,7 @@ class SceneLoaderResourcesReadyState: GKState {
         sceneLoader.progress = nil
 
         // Notify to any interested objects that the download has completed.
-        NSNotificationCenter.defaultCenter().postNotificationName(SceneLoaderDidCompleteNotification, object: sceneLoader)
+        NotificationCenter.defaultCenter().postNotificationName(SceneLoaderDidCompleteNotification, object: sceneLoader)
     }
     
     override func isValidNextState(stateClass: AnyClass) -> Bool {

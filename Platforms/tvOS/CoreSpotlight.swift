@@ -5,14 +5,14 @@ var CoreSpotlightAPIVersion: Int32 { get }
 var CoreSpotlightVersionNumber: Double
 extension CSSearchableIndex {
   func beginBatch()
-  func endBatchWithClientState(clientState: NSData, completionHandler: ((NSError?) -> Void)? = nil)
-  func fetchLastClientStateWithCompletionHandler(completionHandler: (NSData?, NSError?) -> Void)
+  func endBatchWithClientState(clientState: Data, completionHandler: ((Error?) -> Void)? = nil)
+  func fetchLastClientStateWithCompletionHandler(completionHandler: (Data?, Error?) -> Void)
 }
 extension CSSearchableItemAttributeSet {
-  func setValue(value: NSSecureCoding?, forCustomKey key: CSCustomAttributeKey)
-  func valueForCustomKey(key: CSCustomAttributeKey) -> NSSecureCoding?
+  func setValue(value: SecureCoding?, forCustomKey key: CSCustomAttributeKey)
+  func valueForCustomKey(key: CSCustomAttributeKey) -> SecureCoding?
 }
-extension NSUserActivity {
+extension UserActivity {
 }
 extension CSSearchableItemAttributeSet {
 
@@ -22,10 +22,10 @@ extension CSSearchableItemAttributeSet {
   var contentDescription: String?
   var identifier: String?
   var audiences: [String]?
-  var fileSize: NSNumber?
-  var pageCount: NSNumber?
-  var pageWidth: NSNumber?
-  var pageHeight: NSNumber?
+  var fileSize: Number?
+  var pageCount: Number?
+  var pageWidth: Number?
+  var pageHeight: Number?
   var securityMethod: String?
   var creator: String?
   var encodingApplications: [String]?
@@ -33,67 +33,67 @@ extension CSSearchableItemAttributeSet {
   var fontNames: [String]?
 }
 extension CSSearchableItemAttributeSet {
-  var dueDate: NSDate?
-  var completionDate: NSDate?
-  var startDate: NSDate?
-  var endDate: NSDate?
-  var importantDates: [NSDate]?
-  @NSCopying var allDay: NSNumber?
+  var dueDate: Date?
+  var completionDate: Date?
+  var startDate: Date?
+  var endDate: Date?
+  var importantDates: [Date]?
+  @NSCopying var allDay: Number?
 }
 extension CSSearchableItemAttributeSet {
   var displayName: String?
   var alternateNames: [String]?
   var path: String?
-  var contentURL: NSURL?
-  var thumbnailURL: NSURL?
-  @NSCopying var thumbnailData: NSData?
+  var contentURL: URL?
+  var thumbnailURL: URL?
+  @NSCopying var thumbnailData: Data?
   var relatedUniqueIdentifier: String?
-  var metadataModificationDate: NSDate?
+  var metadataModificationDate: Date?
   var contentType: String?
   var contentTypeTree: [String]?
   var keywords: [String]?
   var title: String?
 }
 extension CSSearchableItemAttributeSet {
-  @NSCopying var supportsPhoneCall: NSNumber?
-  @NSCopying var supportsNavigation: NSNumber?
+  @NSCopying var supportsPhoneCall: Number?
+  @NSCopying var supportsNavigation: Number?
 }
 extension CSSearchableItemAttributeSet {
   var containerTitle: String?
   var containerDisplayName: String?
   var containerIdentifier: String?
-  @NSCopying var containerOrder: NSNumber?
+  @NSCopying var containerOrder: Number?
 }
 extension CSSearchableItemAttributeSet {
-  var pixelHeight: NSNumber?
-  var pixelWidth: NSNumber?
-  var pixelCount: NSNumber?
+  var pixelHeight: Number?
+  var pixelWidth: Number?
+  var pixelCount: Number?
   var colorSpace: String?
-  var bitsPerSample: NSNumber?
-  var flashOn: NSNumber?
-  var focalLength: NSNumber?
-  var focalLength35mm: NSNumber?
+  var bitsPerSample: Number?
+  var flashOn: Number?
+  var focalLength: Number?
+  var focalLength35mm: Number?
   var acquisitionMake: String?
   var acquisitionModel: String?
   var cameraOwner: String?
   var lensModel: String?
-  var isoSpeed: NSNumber?
-  var orientation: NSNumber?
+  var isoSpeed: Number?
+  var orientation: Number?
   var layerNames: [String]?
-  var whiteBalance: NSNumber?
-  var aperture: NSNumber?
+  var whiteBalance: Number?
+  var aperture: Number?
   var profileName: String?
-  var resolutionWidthDPI: NSNumber?
-  var resolutionHeightDPI: NSNumber?
-  var exposureMode: NSNumber?
-  var exposureTime: NSNumber?
+  var resolutionWidthDPI: Number?
+  var resolutionHeightDPI: Number?
+  var exposureMode: Number?
+  var exposureTime: Number?
   var exifVersion: String?
   var exifgpsVersion: String?
-  var hasAlphaChannel: NSNumber?
-  var redEyeOn: NSNumber?
+  var hasAlphaChannel: Number?
+  var redEyeOn: Number?
   var meteringMode: String?
-  var maxAperture: NSNumber?
-  var fNumber: NSNumber?
+  var maxAperture: Number?
+  var fNumber: Number?
   var exposureProgram: String?
   var exposureTimeString: String?
 }
@@ -101,24 +101,24 @@ extension CSSearchableItemAttributeSet {
   var editors: [String]?
   var participants: [String]?
   var projects: [String]?
-  var downloadedDate: NSDate?
+  var downloadedDate: Date?
   var contentSources: [String]?
   var comment: String?
   var copyright: String?
-  var lastUsedDate: NSDate?
-  var contentCreationDate: NSDate?
-  var contentModificationDate: NSDate?
-  var addedDate: NSDate?
-  var duration: NSNumber?
+  var lastUsedDate: Date?
+  var contentCreationDate: Date?
+  var contentModificationDate: Date?
+  var addedDate: Date?
+  var duration: Number?
   var contactKeywords: [String]?
   var version: String?
   var codecs: [String]?
   var mediaTypes: [String]?
-  var streamable: NSNumber?
-  var totalBitRate: NSNumber?
-  var videoBitRate: NSNumber?
-  var audioBitRate: NSNumber?
-  var deliveryType: NSNumber?
+  var streamable: Number?
+  var totalBitRate: Number?
+  var videoBitRate: Number?
+  var audioBitRate: Number?
+  var deliveryType: Number?
   var organizations: [String]?
   var role: String?
   var languages: [String]?
@@ -126,9 +126,9 @@ extension CSSearchableItemAttributeSet {
   var publishers: [String]?
   var contributors: [String]?
   var coverage: [String]?
-  var rating: NSNumber?
+  var rating: Number?
   var ratingDescription: String?
-  var playCount: NSNumber?
+  var playCount: Number?
   var information: String?
   var director: String?
   var producer: String?
@@ -136,14 +136,14 @@ extension CSSearchableItemAttributeSet {
   var performers: [String]?
   var originalFormat: String?
   var originalSource: String?
-  var local: NSNumber?
-  var contentRating: NSNumber?
-  var url: NSURL?
+  var local: Number?
+  var contentRating: Number?
+  var url: URL?
 }
 extension CSSearchableItemAttributeSet {
-  var audioSampleRate: NSNumber?
-  var audioChannelCount: NSNumber?
-  var tempo: NSNumber?
+  var audioSampleRate: Number?
+  var audioChannelCount: Number?
+  var tempo: Number?
   var keySignature: String?
   var timeSignature: String?
   var audioEncodingApplication: String?
@@ -151,10 +151,10 @@ extension CSSearchableItemAttributeSet {
   var lyricist: String?
   var album: String?
   var artist: String?
-  var audioTrackNumber: NSNumber?
-  var recordingDate: NSDate?
+  var audioTrackNumber: Number?
+  var recordingDate: Date?
   var musicalGenre: String?
-  var generalMIDISequence: NSNumber?
+  var generalMIDISequence: Number?
   var musicalInstrumentCategory: String?
   var musicalInstrumentName: String?
 }
@@ -173,7 +173,7 @@ let CSMailboxArchive: String
 extension CSSearchableItemAttributeSet {
   var accountIdentifier: String?
   var accountHandles: [String]?
-  @NSCopying var htmlContentData: NSData?
+  @NSCopying var htmlContentData: Data?
   var textContent: String?
   var authors: [CSPerson]?
   var primaryRecipients: [CSPerson]?
@@ -190,7 +190,7 @@ extension CSSearchableItemAttributeSet {
   var phoneNumbers: [String]?
   var emailAddresses: [String]?
   var instantMessageAddresses: [String]?
-  var likelyJunk: NSNumber
+  var likelyJunk: Number
 }
 extension CSSearchableItemAttributeSet {
   var headline: String?
@@ -198,24 +198,24 @@ extension CSSearchableItemAttributeSet {
   var city: String?
   var stateOrProvince: String?
   var country: String?
-  var altitude: NSNumber?
-  var latitude: NSNumber?
-  var longitude: NSNumber?
-  var speed: NSNumber?
-  var timestamp: NSDate?
-  var imageDirection: NSNumber?
+  var altitude: Number?
+  var latitude: Number?
+  var longitude: Number?
+  var speed: Number?
+  var timestamp: Date?
+  var imageDirection: Number?
   var namedLocation: String?
-  var gpsTrack: NSNumber?
+  var gpsTrack: Number?
   var gpsStatus: String?
   var gpsMeasureMode: String?
-  var gpsdop: NSNumber?
+  var gpsdop: Number?
   var gpsMapDatum: String?
-  var gpsDestLatitude: NSNumber?
-  var gpsDestLongitude: NSNumber?
-  var gpsDestBearing: NSNumber?
-  var gpsDestDistance: NSNumber?
+  var gpsDestLatitude: Number?
+  var gpsDestLongitude: Number?
+  var gpsDestBearing: Number?
+  var gpsDestDistance: Number?
   var gpsProcessingMethod: String?
   var gpsAreaInformation: String?
-  var gpsDateStamp: NSDate?
-  var gpsDifferental: NSNumber?
+  var gpsDateStamp: Date?
+  var gpsDifferental: Number?
 }

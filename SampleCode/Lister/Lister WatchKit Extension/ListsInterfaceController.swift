@@ -36,7 +36,7 @@ class ListsInterfaceController: WKInterfaceController, ListsControllerDelegate {
 
         listsController = AppConfiguration.sharedConfiguration.listsControllerForCurrentConfigurationWithPathExtension(AppConfiguration.listerFileExtension)
 
-        let noListsIndexSet = NSIndexSet(index: 0)
+        let noListsIndexSet = IndexSet(index: 0)
         interfaceTable.insertRowsAt(noListsIndexSet, withRowType: Storyboard.RowTypes.noLists)
         
         if AppConfiguration.sharedConfiguration.isFirstLaunch {
@@ -47,7 +47,7 @@ class ListsInterfaceController: WKInterfaceController, ListsControllerDelegate {
     // MARK: ListsControllerDelegate
 
     func listsController(listsController: ListsController, didInsertListInfo listInfo: ListInfo, atIndex index: Int) {
-        let indexSet = NSIndexSet(index: index)
+        let indexSet = IndexSet(index: index)
         
         // The lists controller was previously empty. Remove the "no lists" row.
         if index == 0 && listsController.count == 1 {
@@ -60,7 +60,7 @@ class ListsInterfaceController: WKInterfaceController, ListsControllerDelegate {
     }
     
     func listsController(listsController: ListsController, didRemoveListInfo listInfo: ListInfo, atIndex index: Int) {
-        let indexSet = NSIndexSet(index: index)
+        let indexSet = IndexSet(index: index)
         
         // The lists controller is now empty. Add the "no lists" row.
         if index == 0 && listsController.count == 0 {
@@ -125,7 +125,7 @@ class ListsInterfaceController: WKInterfaceController, ListsControllerDelegate {
         listsController.delegate = nil
     }
     
-    override func handleUserActivity(userInfo: [NSObject: AnyObject]?) {
+    override func handleUserActivity(userInfo: [Object: AnyObject]?) {
         /*
             The Lister watch app only supports continuing activities where
             `AppConfiguration.UserActivity.listURLPathUserInfoKey` is provided.
@@ -137,7 +137,7 @@ class ListsInterfaceController: WKInterfaceController, ListsControllerDelegate {
             return
         }
         
-        let listInfoURL = NSURL(fileURLWithPath: listInfoFilePath!, isDirectory: false)
+        let listInfoURL = URL(fileURLWithPath: listInfoFilePath!, isDirectory: false)
         // Create a `ListInfo` that represents the list at `listInfoURL`.
         let listInfo = ListInfo(URL: listInfoURL)
         

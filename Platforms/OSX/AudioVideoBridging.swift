@@ -4,7 +4,7 @@
 	@typedef	AVB17221ACMPInterfaceCompletion:
 	@abstract	The prototype for the completion handler block for command messages.
  */
-typealias AVB17221ACMPInterfaceCompletion = (NSError?, AVB17221ACMPMessage) -> Void
+typealias AVB17221ACMPInterfaceCompletion = (Error?, AVB17221ACMPMessage) -> Void
 
 /*!
  @protocol	AVB17221ACMPClient
@@ -124,7 +124,7 @@ class AVB17221ACMPInterface : AVB1722ControlInterface {
 	@discussion	AVB17221ACMPMessage encapsulates an IEEE Std 1722.1™-2013 AVDECC Connection Management Protocol (ACMP) message.
  */
 @available(OSX 10.8, *)
-class AVB17221ACMPMessage : NSObject, NSCopying {
+class AVB17221ACMPMessage : Object, Copying {
 
   /*!
   	@property	messageType
@@ -214,7 +214,7 @@ class AVB17221ACMPMessage : NSObject, NSCopying {
   @NSCopying var sourceMAC: AVBMACAddress?
   init()
   @available(OSX 10.8, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -250,7 +250,7 @@ protocol AVB17221AECPClient {
  @typedef	AVB17221AECPInterfaceCompletion:
  @abstract	The prototype for the completion handler block for AECP command messages.
  */
-typealias AVB17221AECPInterfaceCompletion = (NSError?, AVB17221AECPMessage) -> Void
+typealias AVB17221AECPInterfaceCompletion = (Error?, AVB17221AECPMessage) -> Void
 
 /*!
 	@class		AVB17221AECPInterface
@@ -372,7 +372,7 @@ class AVB17221AECPInterface : AVB1722ControlInterface {
 				AECP message types.
  */
 @available(OSX 10.8, *)
-class AVB17221AECPMessage : NSObject, NSCopying {
+class AVB17221AECPMessage : Object, Copying {
 
   /*!
   	@property	messageType
@@ -413,7 +413,7 @@ class AVB17221AECPMessage : NSObject, NSCopying {
   @NSCopying var sourceMAC: AVBMACAddress
   init()
   @available(OSX 10.8, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -448,7 +448,7 @@ class AVB17221AECPAEMMessage : AVB17221AECPMessage {
   	@property	commandSpecificData
   	@abstract	The command_specific_data field of the AECP AEM message.
    */
-  @NSCopying var commandSpecificData: NSData?
+  @NSCopying var commandSpecificData: Data?
 
   /*!
   	@method		commandMessage
@@ -503,7 +503,7 @@ class AVB17221AECPAddressAccessMessage : AVB17221AECPMessage {
 	@discussion	AVB17221AECPAddressAccessTLV encapsulates a TLV from an IEEE Std 1722.1™-2013 AVDECC Enumeration and Control Protocol (AECP), Address Access message.
  */
 @available(OSX 10.8, *)
-class AVB17221AECPAddressAccessTLV : NSObject {
+class AVB17221AECPAddressAccessTLV : Object {
 
   /*!
   	@property	mode
@@ -521,7 +521,7 @@ class AVB17221AECPAddressAccessTLV : NSObject {
   	@property	memoryData
   	@abstract	The memory_data field of the Address Access TLV.
    */
-  @NSCopying var memoryData: NSData?
+  @NSCopying var memoryData: Data?
   init()
 }
 
@@ -538,7 +538,7 @@ class AVB17221AECPAVCMessage : AVB17221AECPMessage {
   	@property	commandResponse
   	@abstract	The avc_command_response field of the AECP AEM message.
    */
-  @NSCopying var commandResponse: NSData?
+  @NSCopying var commandResponse: Data?
   init()
 }
 
@@ -561,7 +561,7 @@ class AVB17221AECPVendorMessage : AVB17221AECPMessage {
   	@property	protocolSpecificData
   	@abstract	The protocol_specific_data field of the AECP Vendor Unique message.
    */
-  @NSCopying var protocolSpecificData: NSData?
+  @NSCopying var protocolSpecificData: Data?
   init()
 }
 
@@ -575,7 +575,7 @@ class AVB17221AECPVendorMessage : AVB17221AECPMessage {
 				automatic updates when any of the discovery values change.
  */
 @available(OSX 10.8, *)
-class AVB17221Entity : NSObject {
+class AVB17221Entity : Object {
 
   /*!
   	@property	localEntity
@@ -708,7 +708,7 @@ class AVB17221Entity : NSObject {
 				primeIterators is called, no entities will be discovered.
  */
 @available(OSX 10.8, *)
-class AVB17221EntityDiscovery : NSObject {
+class AVB17221EntityDiscovery : Object {
 
   /*!
   	@property	interfaceName
@@ -999,7 +999,7 @@ protocol AVB17221EntityDiscoveryDelegate {
 				It provides the API for the basic IOKit interactions to talk to the kernel driver.
  */
 @available(OSX 10.8, *)
-class AVB1722ControlInterface : NSObject {
+class AVB1722ControlInterface : Object {
   var interfaceName: String { get }
 
   /*!
@@ -1042,7 +1042,7 @@ let AVBNullEUI64: UInt64
  
  */
 @available(OSX 10.10, *)
-class AVBCentralManager : NSObject {
+class AVBCentralManager : Object {
 
   /*!
   	@abstract	This method triggers the IOKit matching for the network controllers.
@@ -2301,7 +2301,7 @@ class AVBEthernetInterface : AVBInterface {
 				subclass should be instantiated.
  */
 @available(OSX 10.8, *)
-class AVBInterface : NSObject {
+class AVBInterface : Object {
 
   /*!
   	@property	interfaceName
@@ -2388,7 +2388,7 @@ class AVBInterface : NSObject {
 	@abstract	AVBMACAddress is a class for holding and representing an Ethernet MAC Address.
  */
 @available(OSX 10.8, *)
-class AVBMACAddress : NSObject, NSCopying {
+class AVBMACAddress : Object, Copying {
 
   /*!
   	@method		initWithBytes:
@@ -2408,7 +2408,7 @@ class AVBMACAddress : NSObject, NSCopying {
   	@property	dataRepresentation
   	@abstract	An NSData object containing the bytes of the MAC address.
    */
-  @NSCopying var dataRepresentation: NSData
+  @NSCopying var dataRepresentation: Data
 
   /*!
   	@property	stringRepresentation
@@ -2423,5 +2423,5 @@ class AVBMACAddress : NSObject, NSCopying {
   var isMulticast: Bool
   init()
   @available(OSX 10.8, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }

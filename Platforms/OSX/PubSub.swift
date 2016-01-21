@@ -1,5 +1,5 @@
 
-extension NSObject {
+extension Object {
   class func feedDidBeginRefresh(feed: PSFeed!)
   func feedDidBeginRefresh(feed: PSFeed!)
   class func feedDidEndRefresh(feed: PSFeed!)

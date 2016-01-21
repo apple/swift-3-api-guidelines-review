@@ -19,7 +19,7 @@ enum TodayWidgetRowPurpose {
     A wrapper around a `TodayWidgetRowPurpose` that is used to bind to different objects in the
     `TodayViewController` widget list view controller's row row views.
 */
-class TodayWidgetRowPurposeBox: NSObject {
+class TodayWidgetRowPurposeBox: Object {
     let purpose: TodayWidgetRowPurpose
     let userInfo: AnyObject?
 

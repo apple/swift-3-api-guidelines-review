@@ -96,7 +96,7 @@ class BeamComponent: GKComponent {
 
     // MARK: GKComponent Life Cycle
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func updateWithDeltaTime(seconds: TimeInterval) {
         stateMachine.updateWithDeltaTime(seconds)
     }
     

@@ -1,6 +1,6 @@
 
 @available(iOS 5.0, *)
-class GLKBaseEffect : NSObject, GLKNamedEffect {
+class GLKBaseEffect : Object, GLKNamedEffect {
   func prepareToDraw()
   var colorMaterialEnabled: GLboolean
   var lightModelTwoSided: GLboolean
@@ -22,7 +22,7 @@ class GLKBaseEffect : NSObject, GLKNamedEffect {
 }
 typealias GLKEffectPropertyPrvPtr = COpaquePointer
 @available(iOS 5.0, *)
-class GLKEffectProperty : NSObject {
+class GLKEffectProperty : Object {
   init()
 }
 @available(iOS 5.0, *)
@@ -409,7 +409,7 @@ let kGLKModelErrorKey: String
  @abstract Allocator passed to MDLAsset init method to load vertex and index data directly into OpenGL buffer object
  */
 @available(iOS 9.0, *)
-class GLKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
+class GLKMeshBufferAllocator : Object, MDLMeshBufferAllocator {
   init()
 
   /*!
@@ -433,7 +433,7 @@ class GLKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
                into any alignment restrictions necessary to use these buffers.
    */
   @available(iOS 9.0, *)
-  func newZoneForBuffersWithSize(sizes: [NSNumber], andType types: [NSNumber]) -> MDLMeshBufferZone
+  func newZoneForBuffersWithSize(sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
 
   /*!
    @method newBuffer:type:
@@ -452,7 +452,7 @@ class GLKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
    @param type Type of data to be stored in this buffer
    */
   @available(iOS 9.0, *)
-  func newBufferWith(data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBufferWith(data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
 
   /*!
    @method newBufferFromZone:length:type:
@@ -486,7 +486,7 @@ class GLKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
                buffer could not be allocated.
    */
   @available(iOS 9.0, *)
-  func newBufferFrom(zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFrom(zone: MDLMeshBufferZone?, data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 
 /*!
@@ -495,7 +495,7 @@ class GLKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
  @discussion Memory backing these buffer are OpenGL buffers. Model I/O will load index and vertex data from from a model asset directly in to the OpenGL buffer object.
  */
 @available(iOS 9.0, *)
-class GLKMeshBuffer : NSObject, MDLMeshBuffer {
+class GLKMeshBuffer : Object, MDLMeshBuffer {
 
   /*!
    @method length
@@ -540,7 +540,7 @@ class GLKMeshBuffer : NSObject, MDLMeshBuffer {
                this buffer.
    */
   @available(iOS 9.0, *)
-  func fill(data: NSData, offset: Int)
+  func fill(data: Data, offset: Int)
 
   /*!
    @method map
@@ -555,10 +555,10 @@ class GLKMeshBuffer : NSObject, MDLMeshBuffer {
   @available(iOS 9.0, *)
   func map() -> MDLMeshBufferMap
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
-class GLKSubmesh : NSObject {
+class GLKSubmesh : Object {
 
   /*!
    @property type
@@ -603,7 +603,7 @@ class GLKSubmesh : NSObject {
   var name: String { get }
 }
 @available(iOS 9.0, *)
-class GLKMesh : NSObject {
+class GLKMesh : Object {
 
   /*!
    @method initWithMesh:error:
@@ -712,7 +712,7 @@ class GLKReflectionMapEffect : GLKBaseEffect, GLKNamedEffect {
   init()
 }
 @available(iOS 5.0, *)
-class GLKSkyboxEffect : NSObject, GLKNamedEffect {
+class GLKSkyboxEffect : Object, GLKNamedEffect {
   func prepareToDraw()
   func draw()
   var center: GLKVector3
@@ -781,7 +781,7 @@ enum GLKTextureInfoOrigin : GLint {
   case BottomLeft
 }
 @available(iOS 5.0, *)
-class GLKTextureInfo : NSObject, NSCopying {
+class GLKTextureInfo : Object, Copying {
   var name: GLuint { get }
   var target: GLenum { get }
   var width: GLuint { get }
@@ -791,26 +791,26 @@ class GLKTextureInfo : NSObject, NSCopying {
   var containsMipmaps: Bool { get }
   init()
   @available(iOS 5.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
-typealias GLKTextureLoaderCallback = (GLKTextureInfo?, NSError?) -> Void
+typealias GLKTextureLoaderCallback = (GLKTextureInfo?, Error?) -> Void
 @available(iOS 5.0, *)
-class GLKTextureLoader : NSObject {
-  class func textureWithContentsOfFile(path: String, options: [String : NSNumber]? = [:]) throws -> GLKTextureInfo
-  class func textureWithContentsOf(url: NSURL, options: [String : NSNumber]? = [:]) throws -> GLKTextureInfo
-  class func textureWithContentsOf(data: NSData, options: [String : NSNumber]? = [:]) throws -> GLKTextureInfo
-  class func textureWith(cgImage: CGImage, options: [String : NSNumber]? = [:]) throws -> GLKTextureInfo
-  class func cubeMapWithContentsOfFiles(paths: [AnyObject], options: [String : NSNumber]? = [:]) throws -> GLKTextureInfo
-  class func cubeMapWithContentsOfFile(path: String, options: [String : NSNumber]? = [:]) throws -> GLKTextureInfo
-  class func cubeMapWithContentsOf(url: NSURL, options: [String : NSNumber]? = [:]) throws -> GLKTextureInfo
+class GLKTextureLoader : Object {
+  class func textureWithContentsOfFile(path: String, options: [String : Number]? = [:]) throws -> GLKTextureInfo
+  class func textureWithContentsOf(url: URL, options: [String : Number]? = [:]) throws -> GLKTextureInfo
+  class func textureWithContentsOf(data: Data, options: [String : Number]? = [:]) throws -> GLKTextureInfo
+  class func textureWith(cgImage: CGImage, options: [String : Number]? = [:]) throws -> GLKTextureInfo
+  class func cubeMapWithContentsOfFiles(paths: [AnyObject], options: [String : Number]? = [:]) throws -> GLKTextureInfo
+  class func cubeMapWithContentsOfFile(path: String, options: [String : Number]? = [:]) throws -> GLKTextureInfo
+  class func cubeMapWithContentsOf(url: URL, options: [String : Number]? = [:]) throws -> GLKTextureInfo
   init(sharegroup: EAGLSharegroup)
-  func textureWithContentsOfFile(path: String, options: [String : NSNumber]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func textureWithContentsOf(url: NSURL, options: [String : NSNumber]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func textureWithContentsOf(data: NSData, options: [String : NSNumber]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func textureWith(cgImage: CGImage, options: [String : NSNumber]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func cubeMapWithContentsOfFiles(paths: [AnyObject], options: [String : NSNumber]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func cubeMapWithContentsOfFile(path: String, options: [String : NSNumber]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func cubeMapWithContentsOf(url: NSURL, options: [String : NSNumber]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func textureWithContentsOfFile(path: String, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func textureWithContentsOf(url: URL, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func textureWithContentsOf(data: Data, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func textureWith(cgImage: CGImage, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func cubeMapWithContentsOfFiles(paths: [AnyObject], options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func cubeMapWithContentsOfFile(path: String, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func cubeMapWithContentsOf(url: URL, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   init()
 }
 func GLKVector2Make(x: Float, _ y: Float) -> GLKVector2
@@ -923,7 +923,7 @@ enum GLKViewDrawableMultisample : GLint {
   case Multisample4X
 }
 @available(iOS 5.0, *)
-class GLKView : UIView, NSCoding {
+class GLKView : UIView, Coding {
   init(frame: CGRect, context: EAGLContext)
   @IBOutlet unowned(unsafe) var delegate: @sil_unmanaged GLKViewDelegate?
   var context: EAGLContext
@@ -939,33 +939,33 @@ class GLKView : UIView, NSCoding {
   var enableSetNeedsDisplay: Bool
   func display()
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
-protocol GLKViewDelegate : NSObjectProtocol {
+protocol GLKViewDelegate : ObjectProtocol {
   @available(iOS 5.0, *)
   func glkView(view: GLKView, drawIn rect: CGRect)
 }
 @available(iOS 5.0, *)
-class GLKViewController : UIViewController, NSCoding, GLKViewDelegate {
+class GLKViewController : UIViewController, Coding, GLKViewDelegate {
   @IBOutlet unowned(unsafe) var delegate: @sil_unmanaged GLKViewControllerDelegate?
   var preferredFramesPerSecond: Int
   var framesPerSecond: Int { get }
   var isPaused: Bool
   var framesDisplayed: Int { get }
-  var timeSinceFirstResume: NSTimeInterval { get }
-  var timeSinceLastResume: NSTimeInterval { get }
-  var timeSinceLastUpdate: NSTimeInterval { get }
-  var timeSinceLastDraw: NSTimeInterval { get }
+  var timeSinceFirstResume: TimeInterval { get }
+  var timeSinceLastResume: TimeInterval { get }
+  var timeSinceLastUpdate: TimeInterval { get }
+  var timeSinceLastDraw: TimeInterval { get }
   var pauseOnWillResignActive: Bool
   var resumeOnDidBecomeActive: Bool
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
   @available(iOS 5.0, *)
   func glkView(view: GLKView, drawIn rect: CGRect)
 }
-protocol GLKViewControllerDelegate : NSObjectProtocol {
+protocol GLKViewControllerDelegate : ObjectProtocol {
   @available(iOS 5.0, *)
   func glkViewControllerUpdate(controller: GLKViewController)
   @available(iOS 5.0, *)

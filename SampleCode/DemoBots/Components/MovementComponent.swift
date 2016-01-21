@@ -86,7 +86,7 @@ class MovementComponent: GKComponent {
     
     // MARK: GKComponent Life Cycle
     
-    override func updateWithDeltaTime(deltaTime: NSTimeInterval) {
+    override func updateWithDeltaTime(deltaTime: TimeInterval) {
         super.updateWithDeltaTime(deltaTime)
 
         // Declare local versions of computed properties so we don't compute them multiple times.
@@ -164,7 +164,7 @@ class MovementComponent: GKComponent {
     }
     
     /// Produces the destination point for the node, based on the provided translation.
-    func pointForTranslatingNode(node: SKNode, withTranslationalMovement translation: MovementKind, duration: NSTimeInterval) -> CGPoint? {
+    func pointForTranslatingNode(node: SKNode, withTranslationalMovement translation: MovementKind, duration: TimeInterval) -> CGPoint? {
         // No translation if the vector is a zeroVector.
         guard translation.displacement != float2() else { return nil }
         
@@ -210,7 +210,7 @@ class MovementComponent: GKComponent {
         return CGPoint(x: node.position.x + dx, y: node.position.y + dy)
     }
     
-    func angleForRotatingNode(node: SKNode, withRotationalMovement rotation: MovementKind, duration: NSTimeInterval) -> CGFloat? {
+    func angleForRotatingNode(node: SKNode, withRotationalMovement rotation: MovementKind, duration: TimeInterval) -> CGFloat? {
         // No rotation if the vector is a zeroVector.
         guard rotation.displacement != float2() else { return nil }
 

@@ -15,7 +15,7 @@ class BeamCoolingState: GKState {
     unowned var beamComponent: BeamComponent
     
     /// The amount of time the beam has been cooling down.
-    var elapsedTime: NSTimeInterval = 0.0
+    var elapsedTime: TimeInterval = 0.0
     
     // MARK: Initializers
     
@@ -31,7 +31,7 @@ class BeamCoolingState: GKState {
         elapsedTime = 0.0
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func updateWithDeltaTime(seconds: TimeInterval) {
         super.updateWithDeltaTime(seconds)
         
         elapsedTime += seconds

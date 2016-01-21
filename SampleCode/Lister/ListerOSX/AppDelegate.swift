@@ -10,16 +10,16 @@ import Cocoa
 import ListerKit
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: Object, NSApplicationDelegate {
     // MARK: Properties
     
     @IBOutlet weak var todayListMenuItem: NSMenuItem!
     
-    var ubiquityIdentityDidChangeNotificationToken: NSObjectProtocol?
+    var ubiquityIdentityDidChangeNotificationToken: ObjectProtocol?
     
     // MARK: NSApplicationDelegate
     
-    func applicationDidFinishLaunching(notification: NSNotification) {
+    func applicationDidFinishLaunching(notification: Notification) {
         AppConfiguration.sharedConfiguration.runHandlerOnFirstLaunch {
             
             // If iCloud is enabled and it's the first launch, we'll show the Today document initially.
@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Update the menu item at app launch.
         updateTodayListMenuItemForCloudAvailability()
         
-        ubiquityIdentityDidChangeNotificationToken = NSNotificationCenter.defaultCenter().addObserverForName(NSUbiquityIdentityDidChangeNotification, object: nil, queue: nil) { [weak self] _ in
+        ubiquityIdentityDidChangeNotificationToken = NotificationCenter.defaultCenter().addObserverForName(ubiquityIdentityDidChangeNotification, object: nil, queue: nil) { [weak self] _ in
             // Update the menu item once the iCloud account changes.
             self?.updateTodayListMenuItemForCloudAvailability()
             

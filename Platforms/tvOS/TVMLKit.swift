@@ -4,12 +4,12 @@
  @brief This class is used to provide launch info to TVApplicationController.
  */
 @available(tvOS 9.0, *)
-class TVApplicationControllerContext : NSObject, NSCopying {
+class TVApplicationControllerContext : Object, Copying {
 
   /*!
    @brief URL to application JavaScript.
    */
-  @NSCopying var javaScriptApplicationURL: NSURL
+  @NSCopying var javaScriptApplicationURL: URL
 
   /*!
    @brief Optional identifier for local storage file name.
@@ -28,9 +28,9 @@ class TVApplicationControllerContext : NSObject, NSCopying {
   var launchOptions: [String : AnyObject]
   init()
   @available(tvOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
-protocol TVApplicationControllerDelegate : NSObjectProtocol {
+protocol TVApplicationControllerDelegate : ObjectProtocol {
 
   /*!
    @brief This method lets delegate to add JavaScript classes and objects.
@@ -48,7 +48,7 @@ protocol TVApplicationControllerDelegate : NSObjectProtocol {
    @brief Tells the delegate that the application failed to load.
    */
   @available(tvOS 9.0, *)
-  optional func appController(appController: TVApplicationController, didFailWithError error: NSError)
+  optional func appController(appController: TVApplicationController, didFailWithError error: Error)
 
   /*!
    @brief Tells the delegate that the application did stop.
@@ -63,7 +63,7 @@ protocol TVApplicationControllerDelegate : NSObjectProtocol {
             bridges the UI, navigation stack, storage and event handling from JavaScript.
   */
 @available(tvOS 9.0, *)
-class TVApplicationController : NSObject {
+class TVApplicationController : Object {
 
   /*!
    @description Initializes and returns application controller given the launch context.
@@ -115,14 +115,14 @@ enum TVColorType : Int {
  @description Defines the color data for styles of type TVViewElementStyleTypeColor.
  */
 @available(tvOS 9.0, *)
-class TVColor : NSObject, NSCopying {
+class TVColor : Object, Copying {
   var colorType: TVColorType { get }
   var color: UIColor? { get }
   var gradientColors: [UIColor]? { get }
-  var gradientPoints: [NSNumber]? { get }
+  var gradientPoints: [Number]? { get }
   init()
   @available(tvOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -130,7 +130,7 @@ class TVColor : NSObject, NSCopying {
         in order for the framework to parse these new elements and should happen prior to initializing TVApplicationController.
  */
 @available(tvOS 9.0, *)
-class TVElementFactory : NSObject {
+class TVElementFactory : Object {
   class func registerViewElementClass(elementClass: AnyClass, forElementName elementName: String)
   init()
 }
@@ -149,12 +149,12 @@ enum TVImageType : Int {
  */
 @available(tvOS 9.0, *)
 class TVImageElement : TVViewElement {
-  var url: NSURL? { get }
-  var srcset: [String : NSURL]? { get }
+  var url: URL? { get }
+  var srcset: [String : URL]? { get }
   var imageType: TVImageType { get }
   init()
 }
-protocol TVInterfaceCreating : NSObjectProtocol {
+protocol TVInterfaceCreating : ObjectProtocol {
 
   /*!
    @description Return a view for the given view element. It is preferred to reuse the existingView if it can be updated.
@@ -177,14 +177,14 @@ protocol TVInterfaceCreating : NSObjectProtocol {
           nil if event is not handled.
    */
   @available(tvOS 9.0, *)
-  optional func urlForResource(resourceName: String) -> NSURL?
+  optional func urlForResource(resourceName: String) -> URL?
 }
 
 /*!
  @description Interface factory for creation of views and view controllers. Application can extend or override framework implementation by setting extendedInterfaceCreator.
  */
 @available(tvOS 9.0, *)
-class TVInterfaceFactory : NSObject, TVInterfaceCreating {
+class TVInterfaceFactory : Object, TVInterfaceCreating {
 
   /*!
    @abstract Returns the singelton instance of the interface factory.
@@ -218,7 +218,7 @@ class TVInterfaceFactory : NSObject, TVInterfaceCreating {
           nil if event is not handled.
    */
   @available(tvOS 9.0, *)
-  func urlForResource(resourceName: String) -> NSURL?
+  func urlForResource(resourceName: String) -> URL?
 }
 @available(tvOS 9.0, *)
 let TVMLKitErrorDomain: String
@@ -249,7 +249,7 @@ enum TVViewElementStyleType : Int {
  @description Factory to register new styles to define custom style data.
  */
 @available(tvOS 9.0, *)
-class TVStyleFactory : NSObject {
+class TVStyleFactory : Object {
   class func registerStyle(styleName: String, withType type: TVViewElementStyleType, inherited: Bool)
   init()
 }
@@ -269,10 +269,10 @@ enum TVTextElementStyle : Int {
  */
 @available(tvOS 9.0, *)
 class TVTextElement : TVViewElement {
-  var attributedText: NSAttributedString? { get }
+  var attributedText: AttributedString? { get }
   var textStyle: TVTextElementStyle { get }
-  func attributedStringWith(font: UIFont) -> NSAttributedString
-  func attributedStringWith(font: UIFont, foregroundColor: UIColor?, textAlignment alignment: NSTextAlignment) -> NSAttributedString
+  func attributedStringWith(font: UIFont) -> AttributedString
+  func attributedStringWith(font: UIFont, foregroundColor: UIColor?, textAlignment alignment: NSTextAlignment) -> AttributedString
   init()
 }
 @available(tvOS 9.0, *)
@@ -339,7 +339,7 @@ enum TVElementResettableProperty : Int {
                 send user events to JavaScript.
  */
 @available(tvOS 9.0, *)
-class TVViewElement : NSObject, NSCopying {
+class TVViewElement : Object, Copying {
   var elementIdentifier: String { get }
   var elementName: String { get }
   weak var parent: @sil_weak TVViewElement? { get }
@@ -360,7 +360,7 @@ class TVViewElement : NSObject, NSCopying {
   func dispatchEventWithName(eventName: String, canBubble: Bool, cancellable isCancellable: Bool, extraInfo: [String : AnyObject]?, completion: ((Bool, Bool) -> Void)? = nil)
   init()
   @available(tvOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(tvOS 9.0, *)
 enum TVElementAlignment : Int {
@@ -402,7 +402,7 @@ enum TVElementPosition : Int {
  @description An instance of TVViewElementStyle contains the set of styles applied to the view element.
  */
 @available(tvOS 9.0, *)
-class TVViewElementStyle : NSObject, NSCopying {
+class TVViewElementStyle : Object, Copying {
   func valueForStyleProperty(name: String) -> AnyObject?
   var backgroundColor: TVColor? { get }
   var color: TVColor? { get }
@@ -431,5 +431,5 @@ class TVViewElementStyle : NSObject, NSCopying {
   var tintColor: TVColor? { get }
   init()
   @available(tvOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }

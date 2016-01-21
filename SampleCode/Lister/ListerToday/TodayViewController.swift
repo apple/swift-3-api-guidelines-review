@@ -122,7 +122,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         return showingAll ? listPresenter.count : min(listPresenter.count, TableViewConstants.baseRowCount + 1)
     }
     
-    override func tableView(tableView: UITableView, cellForRowAt indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let listPresenter = listPresenter {
             if listPresenter.isEmpty {
                 let cell = tableView.dequeueReusableCellWithIdentifier(TableViewConstants.CellIdentifiers.message, forIndexPath: indexPath)
@@ -178,7 +178,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
     
     // MARK: UITableViewDelegate
 
-    override func tableView(tableView: UITableView, didSelectRowAt indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let listPresenter = listPresenter else { return }
         
         // Show all of the cells if the user taps the "Show All..." row.
@@ -187,11 +187,11 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
             
             tableView.beginUpdates()
             
-            let indexPathForRemoval = NSIndexPath(forRow: TableViewConstants.baseRowCount, inSection: 0)
+            let indexPathForRemoval = IndexPath(forRow: TableViewConstants.baseRowCount, inSection: 0)
             tableView.deleteRowsAt([indexPathForRemoval], withRowAnimation: .Fade)
             
             let insertedIndexPathRange = TableViewConstants.baseRowCount..<listPresenter.count
-            let insertedIndexPaths = insertedIndexPathRange.map { NSIndexPath(forRow: $0, inSection: 0) }
+            let insertedIndexPaths = insertedIndexPathRange.map { IndexPath(forRow: $0, inSection: 0) }
             
             tableView.insertRowsAt(insertedIndexPaths, withRowAnimation: .Fade)
             
@@ -201,13 +201,13 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         }
         
         // Construct a URL with the lister scheme and the file path of the document.
-        let urlComponents = NSURLComponents()
+        let urlComponents = URLComponents()
         urlComponents.scheme = AppConfiguration.ListerScheme.name
         urlComponents.path = document!.fileURL.path
         
         // Add a query item to encode the color associated with the list.
         let colorQueryValue = "\(listPresenter.color.rawValue)"
-        let colorQueryItem = NSURLQueryItem(name: AppConfiguration.ListerScheme.colorQueryKey, value: colorQueryValue)
+        let colorQueryItem = URLQueryItem(name: AppConfiguration.ListerScheme.colorQueryKey, value: colorQueryValue)
         urlComponents.queryItems = [colorQueryItem]
 
         extensionContext?.open(urlComponents.URL!)
@@ -242,7 +242,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
     func listPresenter(_: ListPresenterType, didInsertListItem listItem: ListItem, atIndex index: Int) {
         guard let listPresenter = listPresenter else { return }
         
-        let indexPaths = [NSIndexPath(forRow: index, inSection: 0)]
+        let indexPaths = [IndexPath(forRow: index, inSection: 0)]
         
         // Hide the "No items in list" row.
         if index == 0 && listPresenter.count == 1 {
@@ -255,7 +255,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
     func listPresenter(_: ListPresenterType, didRemoveListItem listItem: ListItem, atIndex index: Int) {
         guard let listPresenter = listPresenter else { return }
         
-        let indexPaths = [NSIndexPath(forRow: index, inSection: 0)]
+        let indexPaths = [IndexPath(forRow: index, inSection: 0)]
         
         tableView.deleteRowsAt(indexPaths, withRowAnimation: .Automatic)
         
@@ -266,7 +266,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
     }
     
     func listPresenter(_: ListPresenterType, didUpdateListItem listItem: ListItem, atIndex index: Int) {
-        let indexPath = NSIndexPath(forRow: index, inSection: 0)
+        let indexPath = IndexPath(forRow: index, inSection: 0)
         
         if let checkBoxCell = tableView.cellForRowAt(indexPath) as? CheckBoxCell {
             configureCheckBoxCell(checkBoxCell, forListItem: listPresenter!.presentedListItems[indexPath.row])
@@ -274,9 +274,9 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
     }
     
     func listPresenter(_: ListPresenterType, didMoveListItem listItem: ListItem, fromIndex: Int, toIndex: Int) {
-        let fromIndexPath = NSIndexPath(forRow: fromIndex, inSection: 0)
+        let fromIndexPath = IndexPath(forRow: fromIndex, inSection: 0)
         
-        let toIndexPath = NSIndexPath(forRow: toIndex, inSection: 0)
+        let toIndexPath = IndexPath(forRow: toIndex, inSection: 0)
         
         tableView.moveRowAt(fromIndexPath, to: toIndexPath)
     }
@@ -285,7 +285,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         guard let listPresenter = listPresenter else { return }
         
         for (idx, _) in listPresenter.presentedListItems.enumerated(iterator {
-            let indexPath = NSIndexPath(forRow: idx, inSection: 0)
+            let indexPath = IndexPath(forRow: idx, inSection: 0)
 
             if let checkBoxCell = tableView.cellForRowAt(indexPath) as? CheckBoxCell {
                 checkBoxCell.checkBox.tintColor = color.notificationCenterColorValue
@@ -322,7 +322,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding, ListsContro
         }
     }
     
-    func indexPathForView(view: UIView) -> NSIndexPath {
+    func indexPathForView(view: UIView) -> IndexPath {
         let viewOrigin = view.bounds.origin
         
         let viewLocation = tableView.convert(viewOrigin, from: view)

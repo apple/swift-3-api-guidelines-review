@@ -4900,7 +4900,7 @@ var kODErrorPluginError: ODFrameworkErrors { get }
 var kODErrorDaemonError: ODFrameworkErrors { get }
 var kODErrorPluginOperationTimeout: ODFrameworkErrors { get }
 @available(OSX 10.9, *)
-class ODAttributeMap : NSObject {
+class ODAttributeMap : Object {
   @available(OSX 10.9, *)
   var customQueryFunction: String!
   @available(OSX 10.9, *)
@@ -4973,7 +4973,7 @@ let ODTrustTypeUsingCredentials: String
 @available(OSX 10.9, *)
 let ODTrustTypeAnonymous: String
 @available(OSX 10.9, *)
-class ODConfiguration : NSObject {
+class ODConfiguration : Object {
   @available(OSX 10.9, *)
   var nodeName: String!
   @available(OSX 10.9, *)
@@ -5080,7 +5080,7 @@ class ODConfiguration : NSObject {
   init()
 }
 @available(OSX 10.9, *)
-class ODMappings : NSObject {
+class ODMappings : Object {
   @available(OSX 10.9, *)
   var comment: String!
   @available(OSX 10.9, *)
@@ -5120,7 +5120,7 @@ class ODMappings : NSObject {
   init()
 }
 @available(OSX 10.9, *)
-class ODModuleEntry : NSObject {
+class ODModuleEntry : Object {
   @available(OSX 10.9, *)
   var mappings: ODMappings!
   @available(OSX 10.9, *)
@@ -5175,7 +5175,7 @@ class ODModuleEntry : NSObject {
     @abstract    This class is used to work with OpenDirectory nodes.
     @discussion  OpenDirectory uses nodes to represent different sources of directory information, via the local disk, LDAP, etc.
 */
-class ODNode : NSObject {
+class ODNode : Object {
 
   /*!
       @method     initWithSession:type:error:
@@ -5232,7 +5232,7 @@ class ODNode : NSObject {
                   
   */
   @available(OSX 10.6, *)
-  func nodeDetailsForKeys(inKeys: [AnyObject]!) throws -> [NSObject : AnyObject]
+  func nodeDetailsForKeys(inKeys: [AnyObject]!) throws -> [Object : AnyObject]
 
   /*!
       @method     supportedRecordTypesAndReturnError:
@@ -5292,7 +5292,7 @@ class ODNode : NSObject {
                   other attributes.  inAttributes is optional, nil can be passed if no other attributes are to be set.
   */
   @available(OSX 10.6, *)
-  func createRecordWithRecordType(inRecordType: String!, name inRecordName: String!, attributes inAttributes: [NSObject : AnyObject]! = [:]) throws -> ODRecord
+  func createRecordWithRecordType(inRecordType: String!, name inRecordName: String!, attributes inAttributes: [Object : AnyObject]! = [:]) throws -> ODRecord
 
   /*!
       @method     recordWithRecordType:name:attributes:error:
@@ -5311,7 +5311,7 @@ class ODNode : NSObject {
                   optional parameter, nil can be passed if error details are not needed.
   */
   @available(OSX 10.6, *)
-  func customCall(inCustomCode: Int, send inSendData: NSData!) throws -> NSData
+  func customCall(inCustomCode: Int, send inSendData: Data!) throws -> Data
 
   /*!
       @method     customFunction:payload:error:
@@ -5340,7 +5340,7 @@ class ODNode : NSObject {
       @discussion This will copy any policies configured for the node.
   */
   @available(OSX, introduced=10.9, deprecated=10.10, message="use accountPoliciesAndReturnError:")
-  func policies() throws -> [NSObject : AnyObject]
+  func policies() throws -> [Object : AnyObject]
 
   /*!
       @function   supportedPoliciesAndReturnError:
@@ -5350,7 +5350,7 @@ class ODNode : NSObject {
                   supported.
   */
   @available(OSX, introduced=10.9, deprecated=10.10)
-  func supportedPolicies() throws -> [NSObject : AnyObject]
+  func supportedPolicies() throws -> [Object : AnyObject]
 
   /*!
       @function   setPolicies:error:
@@ -5358,7 +5358,7 @@ class ODNode : NSObject {
       @discussion This will set the policy for the node.  Policies are evaluated in combination with record-level policies.
   */
   @available(OSX, introduced=10.9, deprecated=10.10, message="use setAccountPolicies:error:")
-  func setPolicies(policies: [NSObject : AnyObject]!) throws
+  func setPolicies(policies: [Object : AnyObject]!) throws
 
   /*!
       @function   setPolicy:value:error:
@@ -5396,7 +5396,7 @@ class ODNode : NSObject {
       @result     a BOOL which signifies if the policy addition succeeded, otherwise error is set.
   */
   @available(OSX 10.10, *)
-  func addAccountPolicy(policy: [NSObject : AnyObject]!, toCategory category: String!) throws
+  func addAccountPolicy(policy: [Object : AnyObject]!, toCategory category: String!) throws
 
   /*!
       @method     removeAccountPolicy:fromCategory:error:
@@ -5409,7 +5409,7 @@ class ODNode : NSObject {
       @result     a BOOL which signifies if the policy removal succeeded, otherwise error is set.
   */
   @available(OSX 10.10, *)
-  func removeAccountPolicy(policy: [NSObject : AnyObject]!, fromCategory category: String!) throws
+  func removeAccountPolicy(policy: [Object : AnyObject]!, fromCategory category: String!) throws
 
   /*!
       @method     setAccountPolicies:error:
@@ -5432,7 +5432,7 @@ class ODNode : NSObject {
       @result     a BOOL which signifies if the policy set succeeded, otherwise error is set.
   */
   @available(OSX 10.10, *)
-  func setAccountPolicies(policies: [NSObject : AnyObject]!) throws
+  func setAccountPolicies(policies: [Object : AnyObject]!) throws
 
   /*!
       @method     accountPoliciesAndReturnError:
@@ -5444,7 +5444,7 @@ class ODNode : NSObject {
                   setAccountPolicies.
   */
   @available(OSX 10.10, *)
-  func accountPolicies() throws -> [NSObject : AnyObject]
+  func accountPolicies() throws -> [Object : AnyObject]
 
   /*!
       @method     passwordContentCheck:forRecordName:error:
@@ -5478,9 +5478,9 @@ class ODNode : NSObject {
                  only the most resent results are returned.  inResults can be nil if an error occurs or the query is complete.  If 
                  inResults and inError are nil then the query has completed.
 */
-protocol ODQueryDelegate : NSObjectProtocol {
+protocol ODQueryDelegate : ObjectProtocol {
   @available(OSX 10.6, *)
-  func query(inQuery: ODQuery!, foundResults inResults: [AnyObject]!, error inError: NSError!)
+  func query(inQuery: ODQuery!, foundResults inResults: [AnyObject]!, error inError: Error!)
 }
 
 /*!
@@ -5488,7 +5488,7 @@ protocol ODQueryDelegate : NSObjectProtocol {
     @abstract    Class used for querying OpenDirectory.
     @discussion  OpenDirectory queries may be used to search for different types of records, e.g. users, groups.
 */
-class ODQuery : NSObject, NSCopying {
+class ODQuery : Object, Copying {
 
   /*!
       @method     initWithNode:forRecordTypes:attribute:matchType:queryValues:returnAttributes:maximumResults:error:
@@ -5527,7 +5527,7 @@ class ODQuery : NSObject, NSCopying {
                   in advance otherwise results may be lost due to the lack of a receiver.
   */
   @available(OSX 10.6, *)
-  func scheduleIn(inRunLoop: NSRunLoop!, forMode inMode: String!)
+  func scheduleIn(inRunLoop: RunLoop!, forMode inMode: String!)
 
   /*!
       @method     removeFromRunLoop:forMode:
@@ -5535,7 +5535,7 @@ class ODQuery : NSObject, NSCopying {
       @discussion Removes the query object from the specified NSRunLoop.
   */
   @available(OSX 10.6, *)
-  func removeFrom(inRunLoop: NSRunLoop!, forMode inMode: String!)
+  func removeFrom(inRunLoop: RunLoop!, forMode inMode: String!)
 
   /*!
       @method     synchronize
@@ -5554,9 +5554,9 @@ class ODQuery : NSObject, NSCopying {
       @discussion The NSOperationQueue on which asynchronous results are delivered to the delegate.
    */
   @available(OSX 10.6, *)
-  var operationQueue: NSOperationQueue!
+  var operationQueue: OperationQueue!
   init()
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -5565,7 +5565,7 @@ class ODQuery : NSObject, NSCopying {
     @discussion  This class is used to read, update and modify records within the directory.  outError is optional parameter,
                  nil can be passed if error details are not needed.
 */
-class ODRecord : NSObject {
+class ODRecord : Object {
 
   /*!
       @method     setNodeCredentials:password:error:
@@ -5662,7 +5662,7 @@ class ODRecord : NSObject {
                   nil can be passed if error details are not needed.
   */
   @available(OSX 10.6, *)
-  func recordDetailsForAttributes(inAttributes: [AnyObject]!) throws -> [NSObject : AnyObject]
+  func recordDetailsForAttributes(inAttributes: [AnyObject]!) throws -> [Object : AnyObject]
 
   /*!
       @method     valuesForAttribute:error:
@@ -5724,7 +5724,7 @@ class ODRecord : NSObject {
       @discussion This will copy any policies configured for the record.
   */
   @available(OSX, introduced=10.9, deprecated=10.10, message="use accountPoliciesAndReturnError:")
-  func policies() throws -> [NSObject : AnyObject]
+  func policies() throws -> [Object : AnyObject]
 
   /*!
       @method     effectivePoliciesAndReturnError:
@@ -5732,7 +5732,7 @@ class ODRecord : NSObject {
       @discussion This will copy any policies configured for the record.
   */
   @available(OSX, introduced=10.9, deprecated=10.10, message="use authenticationAllowedAndReturnError: and similar methods")
-  func effectivePolicies() throws -> [NSObject : AnyObject]
+  func effectivePolicies() throws -> [Object : AnyObject]
 
   /*!
       @function   supportedPoliciesAndReturnError:
@@ -5742,7 +5742,7 @@ class ODRecord : NSObject {
                   supported.
   */
   @available(OSX, introduced=10.9, deprecated=10.10)
-  func supportedPolicies() throws -> [NSObject : AnyObject]
+  func supportedPolicies() throws -> [Object : AnyObject]
 
   /*!
       @function   setPolicies:error:
@@ -5750,7 +5750,7 @@ class ODRecord : NSObject {
       @discussion This will set the policy for the record.  Policies are evaluated in combination with node-level policies.
   */
   @available(OSX, introduced=10.9, deprecated=10.10, message="use setAccountPolicies:error:")
-  func setPolicies(policies: [NSObject : AnyObject]!) throws
+  func setPolicies(policies: [Object : AnyObject]!) throws
 
   /*!
       @function   setPolicy:value:error:
@@ -5788,7 +5788,7 @@ class ODRecord : NSObject {
       @result     a BOOL which signifies if the policy addition succeeded, otherwise error is set.
   */
   @available(OSX 10.10, *)
-  func addAccountPolicy(policy: [NSObject : AnyObject]!, toCategory category: String!) throws
+  func addAccountPolicy(policy: [Object : AnyObject]!, toCategory category: String!) throws
 
   /*!
       @method     removeAccountPolicy:fromCategory:error:
@@ -5801,7 +5801,7 @@ class ODRecord : NSObject {
       @result     a BOOL which signifies if the policy removal succeeded, otherwise error is set.
   */
   @available(OSX 10.10, *)
-  func removeAccountPolicy(policy: [NSObject : AnyObject]!, fromCategory category: String!) throws
+  func removeAccountPolicy(policy: [Object : AnyObject]!, fromCategory category: String!) throws
 
   /*!
       @method     setAccountPolicies:error:
@@ -5824,7 +5824,7 @@ class ODRecord : NSObject {
       @result     a BOOL which signifies if the policy set succeeded, otherwise error is set.
   */
   @available(OSX 10.10, *)
-  func setAccountPolicies(policies: [NSObject : AnyObject]!) throws
+  func setAccountPolicies(policies: [Object : AnyObject]!) throws
 
   /*!
       @method     accountPoliciesAndReturnError:
@@ -5838,7 +5838,7 @@ class ODRecord : NSObject {
                   setAccountPolicies. 
   */
   @available(OSX 10.10, *)
-  func accountPolicies() throws -> [NSObject : AnyObject]
+  func accountPolicies() throws -> [Object : AnyObject]
 
   /*!
       @function   authenticationAllowedAndReturnError:
@@ -5993,13 +5993,13 @@ extension ODRecord {
   func isMemberRecord(inRecord: ODRecord!) throws
 }
 @available(OSX 10.9, *)
-class ODRecordMap : NSObject {
+class ODRecordMap : Object {
   @available(OSX 10.9, *)
   var native: String!
   @available(OSX 10.9, *)
-  var odPredicate: [NSObject : AnyObject]!
+  var odPredicate: [Object : AnyObject]!
   @available(OSX 10.9, *)
-  var attributes: [NSObject : AnyObject]! { get }
+  var attributes: [Object : AnyObject]! { get }
   @available(OSX 10.9, *)
   var standardAttributeTypes: [AnyObject]! { get }
 
@@ -6067,7 +6067,7 @@ let ODSessionProxyPassword: String
     @abstract    Class for working with OpenDirectory sessions.
     @discussion  Class for working with OpenDirectory sessions.
 */
-class ODSession : NSObject {
+class ODSession : Object {
 
   /*!
       @method     defaultSession
@@ -6093,7 +6093,7 @@ class ODSession : NSObject {
                       ODSessionProxyPassword       NSString(password)
   */
   @available(OSX 10.6, *)
-  init(options inOptions: [NSObject : AnyObject]! = [:]) throws
+  init(options inOptions: [Object : AnyObject]! = [:]) throws
 
   /*!
       @method     nodeNamesAndReturnError:

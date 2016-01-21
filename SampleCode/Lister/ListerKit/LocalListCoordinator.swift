@@ -44,11 +44,11 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
     */
     private var firstQueryUpdateHandler: (Void -> Void)?
 
-    private let predicate: NSPredicate
+    private let predicate: Predicate
     
-    private var currentLocalContents = [NSURL]()
+    private var currentLocalContents = [URL]()
     
-    public var documentsDirectory: NSURL {
+    public var documentsDirectory: URL {
         return ListUtilities.localDocumentsDirectory
     }
 
@@ -66,7 +66,7 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
     public init(pathExtension: String, firstQueryUpdateHandler: (Void -> Void)? = nil) {
         directoryMonitor = DirectoryMonitor(URL: ListUtilities.localDocumentsDirectory)
         
-        predicate = NSPredicate(format: "(pathExtension = %@)", argumentArray: [pathExtension])
+        predicate = Predicate(format: "(pathExtension = %@)", argumentArray: [pathExtension])
         self.firstQueryUpdateHandler = firstQueryUpdateHandler
         
         directoryMonitor.delegate = self
@@ -83,7 +83,7 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
     public init(lastPathComponent: String, firstQueryUpdateHandler: (Void -> Void)? = nil) {
         directoryMonitor = DirectoryMonitor(URL: ListUtilities.localDocumentsDirectory)
         
-        predicate = NSPredicate(format: "(lastPathComponent = %@)", argumentArray: [lastPathComponent])
+        predicate = Predicate(format: "(lastPathComponent = %@)", argumentArray: [lastPathComponent])
         self.firstQueryUpdateHandler = firstQueryUpdateHandler
         
         directoryMonitor.delegate = self
@@ -101,7 +101,7 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
         directoryMonitor.stopMonitoring()
     }
     
-    public func removeListAtURL(URL: NSURL) {
+    public func removeListAtURL(URL: URL) {
         ListUtilities.removeListAtURL(URL) { error in
             if let realError = error {
                 self.delegate?.listCoordinatorDidFailRemovingListAtURL(URL, withError: realError)
@@ -132,10 +132,10 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
 
         let documentURL = documentURLForName(name)
 
-        return !NSFileManager.defaultManager().fileExistsAtPath(documentURL.path!)
+        return !FileManager.defaultManager().fileExistsAtPath(documentURL.path!)
     }
     
-    public func copyListFromURL(URL: NSURL, toListWithName name: String) {
+    public func copyListFromURL(URL: URL, toListWithName name: String) {
         let documentURL = documentURLForName(name)
         
         ListUtilities.copyFromURL(URL, toURL: documentURL)
@@ -153,7 +153,7 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
         let defaultQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
         
         dispatch_async(defaultQueue) {
-            let fileManager = NSFileManager.defaultManager()
+            let fileManager = FileManager.defaultManager()
             
             do {
                 // Fetch the list documents from containerd documents directory.
@@ -170,7 +170,7 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
                     self.currentLocalContents = localListURLs
                 }
             }
-            catch let error as NSError {
+            catch let error as Error {
                 print("An error occurred accessing the contents of a directory. Domain: \(error.domain) Code: \(error.code)")
             }
             // Requiring an additional catch to satisfy exhaustivity is a known issue.
@@ -185,7 +185,7 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
         }
     }
     
-    private func documentURLForName(name: String) -> NSURL {
+    private func documentURLForName(name: String) -> URL {
         let documentURLWithoutExtension = documentsDirectory.appendingPathComponent(name)
 
         return documentURLWithoutExtension.appendingPathExtension(AppConfiguration.listerFileExtension)

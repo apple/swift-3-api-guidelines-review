@@ -15,7 +15,7 @@ class GroundBotPreAttackState: GKState {
     unowned var entity: GroundBot
     
     /// The amount of time the `GroundBot` has been in its "pre-attack" state.
-    var elapsedTime: NSTimeInterval = 0.0
+    var elapsedTime: TimeInterval = 0.0
     
     /// The `AnimationComponent` associated with the `entity`.
     var animationComponent: AnimationComponent {
@@ -41,7 +41,7 @@ class GroundBotPreAttackState: GKState {
         animationComponent.requestedAnimationState = .Attack
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func updateWithDeltaTime(seconds: TimeInterval) {
         super.updateWithDeltaTime(seconds)
         
         elapsedTime += seconds

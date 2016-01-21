@@ -3,7 +3,7 @@
 /**
  * Delegate that will receive messages regarding GKAgent updates.
  */
-protocol GKAgentDelegate : NSObjectProtocol {
+protocol GKAgentDelegate : ObjectProtocol {
   @available(tvOS 9.0, *)
   optional func agentWillUpdate(agent: GKAgent)
   @available(tvOS 9.0, *)
@@ -99,7 +99,7 @@ class GKAgent2D : GKAgent {
    * Overridden from GKComponent.
    * Updates this agent with the current behavior, generating a force to reach its goals and applying that force.
    */
-  func updateWithDeltaTime(seconds: NSTimeInterval)
+  func updateWithDeltaTime(seconds: TimeInterval)
   init()
 }
 
@@ -107,7 +107,7 @@ class GKAgent2D : GKAgent {
  * A collection of GKGoals and weights that can be applied to a GKAgent
  */
 @available(tvOS 9.0, *)
-class GKBehavior : NSObject, NSFastEnumeration {
+class GKBehavior : Object, FastEnumeration {
   var goalCount: Int { get }
 
   /**
@@ -123,12 +123,12 @@ class GKBehavior : NSObject, NSFastEnumeration {
   /**
    * Creates a behavior with two associated arrays of goals and weights
    */
-  convenience init(goals: [GKGoal], andWeights weights: [NSNumber])
+  convenience init(goals: [GKGoal], andWeights weights: [Number])
 
   /**
    * Creates a behavior with a dictionary of goal/weight pairs
    */
-  convenience init(weightedGoals: [GKGoal : NSNumber])
+  convenience init(weightedGoals: [GKGoal : Number])
 
   /**
    * Adds a new goal or changes the weight of the existing goal in this behavior.
@@ -163,10 +163,10 @@ class GKBehavior : NSObject, NSFastEnumeration {
   /**
    * Supports getting a weight via a [goal] subscript.
    */
-  subscript (goal: GKGoal) -> NSNumber
+  subscript (goal: GKGoal) -> Number
   init()
   @available(tvOS 9.0, *)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 /**
@@ -179,7 +179,7 @@ class GKBehavior : NSObject, NSFastEnumeration {
  @see GKComponentSystem
  */
 @available(tvOS 9.0, *)
-class GKComponent : NSObject, NSCopying {
+class GKComponent : Object, Copying {
 
   /**
    * The entity that this component belongs to. Defaults to nil until the component is added to an entity.
@@ -190,10 +190,10 @@ class GKComponent : NSObject, NSCopying {
    * Updates the component with the given delta time since the last update. Each component should
    * perform its time-based logic in this method.
    */
-  func updateWithDeltaTime(seconds: NSTimeInterval)
+  func updateWithDeltaTime(seconds: TimeInterval)
   init()
   @available(tvOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /**
@@ -201,7 +201,7 @@ class GKComponent : NSObject, NSCopying {
  * The system is homogeneous, meaning it only allows members of the same class into the system.
  */
 @available(tvOS 9.0, *)
-class GKComponentSystem : NSObject, NSFastEnumeration {
+class GKComponentSystem : Object, FastEnumeration {
 
   /**
    * The collection's component class. Any selector the component supports can be called on the system and it will be forwarded
@@ -265,10 +265,10 @@ class GKComponentSystem : NSObject, NSFastEnumeration {
    * Updates each component with the given delta time since the last update. Each component thus performs its time
    * based logic with a single message.
    */
-  func updateWithDeltaTime(seconds: NSTimeInterval)
+  func updateWithDeltaTime(seconds: TimeInterval)
   init()
   @available(tvOS 9.0, *)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 /**
@@ -281,7 +281,7 @@ class GKComponentSystem : NSObject, NSFastEnumeration {
  * @see GKComponentSystem
  */
 @available(tvOS 9.0, *)
-class GKEntity : NSObject, NSCopying {
+class GKEntity : Object, Copying {
 
   /**
    * Creates a new entity ready to have components added to it.
@@ -300,7 +300,7 @@ class GKEntity : NSObject, NSCopying {
    * @see GKComponentSystem
    * @param seconds elapsed time, in seconds, since last frame
    */
-  func updateWithDeltaTime(seconds: NSTimeInterval)
+  func updateWithDeltaTime(seconds: TimeInterval)
 
   /**
    * Access the current set of components as an array.
@@ -321,7 +321,7 @@ class GKEntity : NSObject, NSCopying {
    */
   func removeComponentFor(componentClass: AnyClass)
   @available(tvOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 @available(iOS 9.0, OSX 10.11, tvOS 9.0, *)
@@ -342,7 +342,7 @@ let GKGameModelMinScore: Int
  * A protocol used to encapsulate the data needed to affect an update to a game model. 
  * Typically represents an action or move performed by a player.
  */
-protocol GKGameModelUpdate : NSObjectProtocol {
+protocol GKGameModelUpdate : ObjectProtocol {
 
   /**
    * Property get/set by GKMinmaxStrategist to sort GKGameModelUpdates.
@@ -353,7 +353,7 @@ protocol GKGameModelUpdate : NSObjectProtocol {
 /**
  * A protocol used to represent an individual player within a game model.
  */
-protocol GKGameModelPlayer : NSObjectProtocol {
+protocol GKGameModelPlayer : ObjectProtocol {
 
   /**
    * Identifier used by GKMinmaxStrategist differentiate players from one another.
@@ -366,7 +366,7 @@ protocol GKGameModelPlayer : NSObjectProtocol {
  * strategist uses the game model class, along with GKGameModelPlayer and GKGameModelUpdate to 
  * find optimal moves in an adversarial, turn-based game.
  */
-protocol GKGameModel : NSObjectProtocol, NSCopying {
+protocol GKGameModel : ObjectProtocol, Copying {
 
   /**
    * Array of instances of GKGameModelPlayers representing players within this game model. When the 
@@ -432,7 +432,7 @@ protocol GKGameModel : NSObjectProtocol, NSCopying {
  * The various goals cause force to be applied to agents to try to achieve said goal.
  */
 @available(tvOS 9.0, *)
-class GKGoal : NSObject, NSCopying {
+class GKGoal : Object, Copying {
 
   /**
    * Creates a goal to move toward the agent
@@ -450,13 +450,13 @@ class GKGoal : NSObject, NSCopying {
    * Creates a goal to avoid colliding with a group of agents without taking into account those agents' momentum
    * @param maxPredictionTime how far ahead in the future, in seconds, should we look for potential collisions
    */
-  convenience init(toAvoid obstacles: [GKObstacle], maxPredictionTime: NSTimeInterval)
+  convenience init(toAvoid obstacles: [GKObstacle], maxPredictionTime: TimeInterval)
 
   /**
    * Creates a goal to avoid colliding with a group of agents taking into account those agent's momentum
    * @param timeBeforeCollisionToAvoid how far ahead in the future, in seconds, should we look for potential collisions
    */
-  convenience init(toAvoid agents: [GKAgent], maxPredictionTime: NSTimeInterval)
+  convenience init(toAvoid agents: [GKAgent], maxPredictionTime: TimeInterval)
 
   /**
    * Creates a goal that tries to repel this agent away from the other agents and attempts to prevent overlap
@@ -497,7 +497,7 @@ class GKGoal : NSObject, NSCopying {
    * @param target agent to intercept
    * @param maxPredictionTime how far ahead in the future, in seconds, should we look for potential intercepts
    */
-  convenience init(toInterceptAgent target: GKAgent, maxPredictionTime: NSTimeInterval)
+  convenience init(toInterceptAgent target: GKAgent, maxPredictionTime: TimeInterval)
 
   /**
    * Creates a goal that will attempt to follow the given path
@@ -505,24 +505,24 @@ class GKGoal : NSObject, NSCopying {
    * @param maxPredictionTime how far ahead in the future, in seconds, should we look for potential intercepts
    * @param forward direction to follow the path. forward = NO is reverse
    */
-  convenience init(toFollow path: GKPath, maxPredictionTime: NSTimeInterval, forward: Bool)
+  convenience init(toFollow path: GKPath, maxPredictionTime: TimeInterval, forward: Bool)
 
   /**
    * Creates a goal that will attempt to stay on the given path
    * @param path the path to follow
    * @param maxPredictionTime how far ahead in the future, in seconds, should we look for potential intercepts
    */
-  convenience init(toStayOn path: GKPath, maxPredictionTime: NSTimeInterval)
+  convenience init(toStayOn path: GKPath, maxPredictionTime: TimeInterval)
   init()
   @available(tvOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /**
  * Representation of a directed graph of GKGraphNodes
  */
 @available(tvOS 9.0, *)
-class GKGraph : NSObject {
+class GKGraph : Object {
 
   /**
    * The list of nodes in this graph
@@ -685,7 +685,7 @@ class GKGridGraph : GKGraph {
  * A node in a directed graph. Edges are directed and can have variable costs.
  */
 @available(tvOS 9.0, *)
-class GKGraphNode : NSObject {
+class GKGraphNode : Object {
 
   /**
    * List of other graph nodes that this node has an edge leading to.
@@ -764,7 +764,7 @@ class GKGridGraphNode : GKGraphNode {
  * against the potential gain of other players.
  */
 @available(tvOS 9.0, *)
-class GKMinmaxStrategist : NSObject, GKStrategist {
+class GKMinmaxStrategist : Object, GKStrategist {
 
   /**
    * The maximum number of future turns that will be processed when searching for a move.
@@ -810,7 +810,7 @@ class GKMinmaxStrategist : NSObject, GKStrategist {
  * GKGraph can generate navigation graphs from a list of obstacles
  */
 @available(tvOS 9.0, *)
-class GKObstacle : NSObject {
+class GKObstacle : Object {
   init()
 }
 
@@ -858,7 +858,7 @@ class GKPolygonObstacle : GKObstacle {
  * Followable by GKAgent's steering functions.
  */
 @available(tvOS 9.0, *)
-class GKPath : NSObject {
+class GKPath : Object {
 
   /**
    * Radius of the pathway.  Defines a spatial area that the path occupies.
@@ -890,7 +890,7 @@ class GKPath : NSObject {
  * The distribution is uniform, meaning there is no bias towards any of the possible outcomes.
  */
 @available(tvOS 9.0, *)
-class GKRandomDistribution : NSObject, GKRandom {
+class GKRandomDistribution : Object, GKRandom {
 
   /**The lowest value the distribution will output.*/
   var lowestValue: Int { get }
@@ -1133,7 +1133,7 @@ protocol GKRandom {
  * @see GKRandomSource.systemRandom
  */
 @available(tvOS 9.0, *)
-class GKRandomSource : NSObject, GKRandom, NSSecureCoding, NSCopying {
+class GKRandomSource : Object, GKRandom, SecureCoding, Copying {
 
   /**
    * Creates a new random source initialized using bits from an entropy source like SecRandomCopyBytes.
@@ -1156,7 +1156,7 @@ class GKRandomSource : NSObject, GKRandom, NSSecureCoding, NSCopying {
    * Note that the sharedRandom instance is an exception as it is explicitly seedless and a shared singleton instance.
    * When serialized and deserialized it will return the current sharedRandom instance instead.
    */
-  init(coder aDecoder: NSCoder)
+  init(coder aDecoder: Coder)
 
   /**
    * Returns a shared instance of a random source that uses the system's underlying random source.
@@ -1231,9 +1231,9 @@ class GKRandomSource : NSObject, GKRandom, NSSecureCoding, NSCopying {
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
   @available(tvOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /**
@@ -1250,7 +1250,7 @@ class GKARC4RandomSource : GKRandomSource {
    * The seed used to stir the arc4 random source.
    * The seed is not encoded through archiving, but the equivalent state buffers are encoded.
    */
-  @NSCopying var seed: NSData
+  @NSCopying var seed: Data
 
   /**
    * Initializes an arc4 random source with bits from high entropy system resource like SecRandomCopyBytes.
@@ -1260,7 +1260,7 @@ class GKARC4RandomSource : GKRandomSource {
   /**
    * Initializes an arc4 random source with bits from the seed.
    */
-  init(seed: NSData)
+  init(seed: Data)
 
   /**
    * Arc4 based random sources have repeatable initial sequences. If used for obfuscation you should
@@ -1278,7 +1278,7 @@ class GKARC4RandomSource : GKRandomSource {
    * Note that the sharedRandom instance is an exception as it is explicitly seedless and a shared singleton instance.
    * When serialized and deserialized it will return the current sharedRandom instance instead.
    */
-  init(coder aDecoder: NSCoder)
+  init(coder aDecoder: Coder)
 }
 
 /**
@@ -1319,7 +1319,7 @@ class GKLinearCongruentialRandomSource : GKRandomSource {
    * Note that the sharedRandom instance is an exception as it is explicitly seedless and a shared singleton instance.
    * When serialized and deserialized it will return the current sharedRandom instance instead.
    */
-  init(coder aDecoder: NSCoder)
+  init(coder aDecoder: Coder)
 }
 
 /**
@@ -1358,7 +1358,7 @@ class GKMersenneTwisterRandomSource : GKRandomSource {
    * Note that the sharedRandom instance is an exception as it is explicitly seedless and a shared singleton instance.
    * When serialized and deserialized it will return the current sharedRandom instance instead.
    */
-  init(coder aDecoder: NSCoder)
+  init(coder aDecoder: Coder)
 }
 
 /**
@@ -1380,7 +1380,7 @@ class GKMersenneTwisterRandomSource : GKRandomSource {
  * to query multiple facts for combined membership grade.
  */
 @available(tvOS 9.0, *)
-class GKRuleSystem : NSObject {
+class GKRuleSystem : Object {
 
   /**
    * Initializes a clean rule system with no state, rules or facts.
@@ -1401,7 +1401,7 @@ class GKRuleSystem : NSObject {
    *
    * @see evaluate
    */
-  var state: NSMutableDictionary { get }
+  var state: MutableDictionary { get }
 
   /**
    * The current set of rules that will be used to set the agenda when rules are first added to the system.
@@ -1469,7 +1469,7 @@ class GKRuleSystem : NSObject {
    *
    * @return The membership grade of the given fact, in the range [0.0, 1.0].
    */
-  func gradeForFact(fact: NSObjectProtocol) -> Float
+  func gradeForFact(fact: ObjectProtocol) -> Float
 
   /**
    * Returns the combined membership grade for the all the given facts.
@@ -1501,7 +1501,7 @@ class GKRuleSystem : NSObject {
    * @see evaluate
    * @see NSObject.isEqual:
    */
-  func assertFact(fact: NSObjectProtocol)
+  func assertFact(fact: ObjectProtocol)
 
   /**
    * Asserts a fact with the supplied membership grade.
@@ -1511,7 +1511,7 @@ class GKRuleSystem : NSObject {
    * 
    * @see evaluate
    */
-  func assertFact(fact: NSObjectProtocol, grade: Float)
+  func assertFact(fact: ObjectProtocol, grade: Float)
 
   /**
    * Retracts a fact, setting its membership grade to 0, which also removes it from the fact set.
@@ -1524,7 +1524,7 @@ class GKRuleSystem : NSObject {
    * @see retractFact:grade:
    * @see evaluate
    */
-  func retractFact(fact: NSObjectProtocol)
+  func retractFact(fact: ObjectProtocol)
 
   /**
    * Retracts a fact, reducing its membership grade by the supplied grade. If this brings the grade to 0
@@ -1535,7 +1535,7 @@ class GKRuleSystem : NSObject {
    *
    * @see evaluate
    */
-  func retractFact(fact: NSObjectProtocol, grade: Float)
+  func retractFact(fact: ObjectProtocol, grade: Float)
 
   /**
    * Clears the agenda and executed sets and removes all facts currently in the system.
@@ -1554,7 +1554,7 @@ class GKRuleSystem : NSObject {
  * @see GKRuleSystem.state
  */
 @available(tvOS 9.0, *)
-class GKRule : NSObject {
+class GKRule : Object {
 
   /**
    * Salience defines the order in the rule agenda that the system will evaluate. A rule with higher salience will
@@ -1588,12 +1588,12 @@ class GKRule : NSObject {
   /**
    * Create a data-driven rule that uses NSPredicate and a single assert as the action.
    */
-  convenience init(predicate: NSPredicate, assertingFact fact: NSObjectProtocol, grade: Float)
+  convenience init(predicate: Predicate, assertingFact fact: ObjectProtocol, grade: Float)
 
   /**
    * Short hand for data-driven rule that uses NSPredicate and a single retract as the action.
    */
-  convenience init(predicate: NSPredicate, retractingFact fact: NSObjectProtocol, grade: Float)
+  convenience init(predicate: Predicate, retractingFact fact: ObjectProtocol, grade: Float)
 
   /**
    * Short hand for making a rule that uses blocks for the predicate and action. This rule is not able to be archived
@@ -1616,12 +1616,12 @@ class GKNSPredicateRule : GKRule {
    *
    * @see GKRule.evaluatePredicateWithSystem:
    */
-  var predicate: NSPredicate { get }
+  var predicate: Predicate { get }
 
   /**
    * Initializes a new rule with the given NSPredicate
    */
-  init(predicate: NSPredicate)
+  init(predicate: Predicate)
 
   /**
    * Overridden here to call the predicate's evaluateWithObject:substitutionVariables:, using sys
@@ -1634,12 +1634,12 @@ class GKNSPredicateRule : GKRule {
   /**
    * Create a data-driven rule that uses NSPredicate and a single assert as the action.
    */
-  convenience init(predicate: NSPredicate, assertingFact fact: NSObjectProtocol, grade: Float)
+  convenience init(predicate: Predicate, assertingFact fact: ObjectProtocol, grade: Float)
 
   /**
    * Short hand for data-driven rule that uses NSPredicate and a single retract as the action.
    */
-  convenience init(predicate: NSPredicate, retractingFact fact: NSObjectProtocol, grade: Float)
+  convenience init(predicate: Predicate, retractingFact fact: ObjectProtocol, grade: Float)
 
   /**
    * Short hand for making a rule that uses blocks for the predicate and action. This rule is not able to be archived
@@ -1659,7 +1659,7 @@ class GKNSPredicateRule : GKRule {
  * @see isValidNextState:
  */
 @available(tvOS 9.0, *)
-class GKState : NSObject {
+class GKState : Object {
 
   /**
    * The state machine that this state is associated with.
@@ -1695,7 +1695,7 @@ class GKState : NSObject {
    *
    * @param deltaTime the time, in seconds, since the last update
    */
-  func updateWithDeltaTime(seconds: NSTimeInterval)
+  func updateWithDeltaTime(seconds: TimeInterval)
 
   /**
    * Called by GKStateMachine when this state is exited
@@ -1709,7 +1709,7 @@ class GKState : NSObject {
  * Models a finite state machine that has a single current state.
  */
 @available(tvOS 9.0, *)
-class GKStateMachine : NSObject {
+class GKStateMachine : Object {
 
   /**
    * The current state that the state machine is in.
@@ -1723,7 +1723,7 @@ class GKStateMachine : NSObject {
    *
    * @param sec the time, in seconds, since the last frame
    */
-  func updateWithDeltaTime(sec: NSTimeInterval)
+  func updateWithDeltaTime(sec: TimeInterval)
 
   /**
    * Returns YES if the indicated class is a a valid next state or if currentState is nil
@@ -1751,7 +1751,7 @@ extension GKStateMachine {
   @warn_unused_result
   func stateForClass<StateType : GKState>(stateClass: StateType.Type) -> StateType?
 }
-protocol GKStrategist : NSObjectProtocol {
+protocol GKStrategist : ObjectProtocol {
 
   /**
    * The game model that we wish to select updates for.

@@ -47,7 +47,7 @@ class SceneLoader {
     var scene: BaseScene?
     
     /// The error, if one occurs, from fetching resources.
-    var error: NSError?
+    var error: Error?
     
     /**
         A parent progress, constructed when `prepareSceneForPresentation()`
@@ -55,17 +55,17 @@ class SceneLoader {
         `SceneLoaderDownloadingResourcesState` and `SceneLoaderPreparingResourcesState` 
         states.
     */
-    var progress: NSProgress? {
+    var progress: Progress? {
         didSet {
             guard let progress = progress else { return }
 
             progress.cancellationHandler = { [unowned self] in
                 // Cleanup the `SceneLoader`'s state and assign an appropriate error.
                 self.requestedForPresentation = false
-                self.error = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
+                self.error = Error(domain: cocoaErrorDomain, code: userCancelledError, userInfo: nil)
                 
                 // Notify any interested objects that the download was not completed.
-                NSNotificationCenter.defaultCenter().postNotificationName(SceneLoaderDidFailNotification, object: self)
+                NotificationCenter.defaultCenter().postNotificationName(SceneLoaderDidFailNotification, object: self)
             }
         }
     }
@@ -80,7 +80,7 @@ class SceneLoader {
         the loading scene, and the request is cancelled and released as part of
         cleaning up the scene loader.
     */
-    var bundleResourceRequest: NSBundleResourceRequest?
+    var bundleResourceRequest: BundleResourceRequest?
     #endif
 
     /**
@@ -110,7 +110,7 @@ class SceneLoader {
                     scene's resources, so mark the bundle resource request's loading
                     priority as urgent.
                 */
-                bundleResourceRequest?.loadingPriority = NSBundleResourceRequestLoadingPriorityUrgent
+                bundleResourceRequest?.loadingPriority = bundleResourceRequestLoadingPriorityUrgent
             }
             #endif
             
@@ -156,7 +156,7 @@ class SceneLoader {
         Note: On iOS there are two distinct steps to loading: downloading on demand resources
         -> loading assets into memory.
     */
-    func asynchronouslyLoadSceneForPresentation() -> NSProgress {
+    func asynchronouslyLoadSceneForPresentation() -> Progress {
         // If a valid progress already exists it means the scene is already being prepared.
         if let progress = progress where !progress.cancelled {
             return progress
@@ -165,11 +165,11 @@ class SceneLoader {
         switch stateMachine.currentState {
             case is SceneLoaderResourcesReadyState:
                 // No additional work needs to be done.
-                progress = NSProgress(totalUnitCount: 0)
+                progress = Progress(totalUnitCount: 0)
 
             
             case is SceneLoaderResourcesAvailableState:
-                progress = NSProgress(totalUnitCount: 1)
+                progress = Progress(totalUnitCount: 1)
                 
                 /*
                     Begin preparing the scene's resources.
@@ -182,7 +182,7 @@ class SceneLoader {
             default:
                 #if os(iOS) || os(tvOS)
                 // Set two units of progress to account for both downloading and then loading into memory.
-                progress = NSProgress(totalUnitCount: 2)
+                progress = Progress(totalUnitCount: 2)
                 
                 let downloadingState = stateMachine.stateForClass(SceneLoaderDownloadingResourcesState)!
                 downloadingState.enterPreparingStateWhenFinished = true

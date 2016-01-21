@@ -4014,7 +4014,7 @@ protocol IOBluetoothDeviceAsyncCallbacks {
                 connections, and request the opening of L2CAP and RFCOMM channels on the remote device.  Many of the other
                 APIs in the IOBluetooth framework will return this object, or it's C counterpart (IOBluetoothDeviceRef).
 */
-class IOBluetoothDevice : IOBluetoothObject, NSCoding, NSSecureCoding {
+class IOBluetoothDevice : IOBluetoothObject, Coding, SecureCoding {
 
   /*!
       @property	registerForConnectNotifications:selector:
@@ -4271,7 +4271,7 @@ class IOBluetoothDevice : IOBluetoothObject, NSCoding, NSSecureCoding {
   	@result		Returns the date/time of the last successful remote name request.  If no remote name request has been
                   completed on the target device, nil is returned.
   */
-  var lastNameUpdate: NSDate! { get }
+  var lastNameUpdate: Date! { get }
 
   /*!
       @property	getAddress
@@ -4335,7 +4335,7 @@ class IOBluetoothDevice : IOBluetoothObject, NSCoding, NSSecureCoding {
   	@result		Returns the date/time of the last time the device was seen during an inquiry.
                   If the device has never been seen during an inquiry, nil is returned.
   */
-  func getLastInquiryUpdate() -> NSDate!
+  func getLastInquiryUpdate() -> Date!
 
   /*!
       @property	RSSI
@@ -4569,7 +4569,7 @@ class IOBluetoothDevice : IOBluetoothObject, NSCoding, NSSecureCoding {
   	@result		Returns the date/time of the last SDP query.  If an SDP query has never been performed on the
                   device, nil is returned.
   */
-  func getLastServicesUpdate() -> NSDate!
+  func getLastServicesUpdate() -> Date!
 
   /*!
       @property	getServiceRecordForUUID
@@ -4646,7 +4646,7 @@ class IOBluetoothDevice : IOBluetoothObject, NSCoding, NSSecureCoding {
   	@result		Returns the date/time of the most recent access of the target device.  If the device
   				has not been accessed, nil is returned.
   */
-  func recentAccessDate() -> NSDate!
+  func recentAccessDate() -> Date!
 
   /*!
       @property	pairedDevices
@@ -4706,7 +4706,7 @@ class IOBluetoothDevice : IOBluetoothObject, NSCoding, NSSecureCoding {
   	@result		Returns kIOReturnSuccess if the open process was successfully started (or if an existing
                   L2CAP channel was found). The channel must be released when the caller is done with it.
   */
-  func openL2CAPChannelSync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [NSObject : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
+  func openL2CAPChannelSync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [Object : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
 
   /*!
       @property	openL2CAPChannelAsync:withPSM:withConfiguration:delegate:
@@ -4735,11 +4735,11 @@ class IOBluetoothDevice : IOBluetoothObject, NSCoding, NSSecureCoding {
   	@result		Returns kIOReturnSuccess if the open process was successfully started (or if an existing
                   L2CAP channel was found). The channel must be released when the caller is done with it.
   */
-  func openL2CAPChannelAsync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [NSObject : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
-  func awakeAfterUsing(coder: NSCoder!) -> AnyObject!
+  func openL2CAPChannelAsync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [Object : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
+  func awakeAfterUsing(coder: Coder!) -> AnyObject!
   init()
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   class func supportsSecureCoding() -> Bool
 }
 
@@ -4754,7 +4754,7 @@ class IOBluetoothDevice : IOBluetoothObject, NSCoding, NSSecureCoding {
 					object is in use. If you wish to do your own remote name requests on devices, do them after you have
 					stopped this object. If you do not heed this warning, you could potentially deadlock your process.
 */
-class IOBluetoothDeviceInquiry : NSObject {
+class IOBluetoothDeviceInquiry : Object {
   unowned(unsafe) var delegate: @sil_unmanaged AnyObject!
 
   /*!	@method		initWithDelegate
@@ -4902,7 +4902,7 @@ protocol IOBluetoothDeviceInquiryDelegate {
 				Once started, the pairing can be stopped. This will set the delegate to nil and then attempt to disconnect
  				from the device if already connected.
 */
-class IOBluetoothDevicePair : NSObject {
+class IOBluetoothDevicePair : Object {
   unowned(unsafe) var delegate: @sil_unmanaged AnyObject!
 
   /*!
@@ -4958,7 +4958,7 @@ class IOBluetoothDevicePair : NSObject {
   func replyUserConfirmation(reply: Bool)
   init()
 }
-protocol IOBluetoothDevicePairDelegate : NSObjectProtocol {
+protocol IOBluetoothDevicePairDelegate : ObjectProtocol {
 
   /*!
       @method		devicePairingStarted:
@@ -5103,7 +5103,7 @@ let IOBluetoothPDUUserData: String
  @coclass IOBluetoothHandsFreeAudioGateway
  */
 @available(OSX 10.7, *)
-class IOBluetoothHandsFree : NSObject {
+class IOBluetoothHandsFree : Object {
 
   /*!
    @method		supportedFeatures
@@ -5334,7 +5334,7 @@ class IOBluetoothHandsFree : NSObject {
   func isSCOConnected() -> Bool
   init()
 }
-protocol IOBluetoothHandsFreeDelegate : NSObjectProtocol {
+protocol IOBluetoothHandsFreeDelegate : ObjectProtocol {
 
   /*!
    @method		handsFree:connected
@@ -5343,7 +5343,7 @@ protocol IOBluetoothHandsFreeDelegate : NSObjectProtocol {
    @param			status The result of the connection attempt. An IOReturn result returned in an NSNumber object.
    */
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFree!, connected status: NSNumber!)
+  optional func handsFree(device: IOBluetoothHandsFree!, connected status: Number!)
 
   /*!
    @method		handsFree:disconnected
@@ -5352,7 +5352,7 @@ protocol IOBluetoothHandsFreeDelegate : NSObjectProtocol {
    @param			status The result of the disconnection attempt. An IOReturn result returned in an NSNumber object.
    */
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFree!, disconnected status: NSNumber!)
+  optional func handsFree(device: IOBluetoothHandsFree!, disconnected status: Number!)
 
   /*!
    @method		handsFree:scoConnectionOpened
@@ -5361,7 +5361,7 @@ protocol IOBluetoothHandsFreeDelegate : NSObjectProtocol {
    @param			status The result of the connection attempt. An IOReturn result returned in an NSNumber object.
    */
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFree!, scoConnectionOpened status: NSNumber!)
+  optional func handsFree(device: IOBluetoothHandsFree!, scoConnectionOpened status: Number!)
 
   /*!
    @method		handsFree:scoConnectionClosed
@@ -5370,7 +5370,7 @@ protocol IOBluetoothHandsFreeDelegate : NSObjectProtocol {
    @param			status The result of the disconnection attempt. An IOReturn result returned in an NSNumber object.
    */
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFree!, scoConnectionClosed status: NSNumber!)
+  optional func handsFree(device: IOBluetoothHandsFree!, scoConnectionClosed status: Number!)
 }
 extension IOBluetoothDevice {
 
@@ -5499,7 +5499,7 @@ protocol IOBluetoothHandsFreeAudioGatewayDelegate {
    @param			redial Always 1.
    */
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFreeAudioGateway!, hangup: NSNumber!)
+  optional func handsFree(device: IOBluetoothHandsFreeAudioGateway!, hangup: Number!)
 
   /*!
    @method		handsFree:redial
@@ -5508,7 +5508,7 @@ protocol IOBluetoothHandsFreeAudioGatewayDelegate {
    @param			redial Always 1.
    */
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFreeAudioGateway!, redial: NSNumber!)
+  optional func handsFree(device: IOBluetoothHandsFreeAudioGateway!, redial: Number!)
 }
 
 /*!
@@ -5718,7 +5718,7 @@ protocol IOBluetoothHandsFreeDeviceDelegate : IOBluetoothHandsFreeDelegate {
    @param			isServiceAvailable 0 if no service available; 1 otherwise.
    */
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFreeDevice!, isServiceAvailable: NSNumber!)
+  optional func handsFree(device: IOBluetoothHandsFreeDevice!, isServiceAvailable: Number!)
 
   /*!
    @method		handsFree:isCallActive
@@ -5727,7 +5727,7 @@ protocol IOBluetoothHandsFreeDeviceDelegate : IOBluetoothHandsFreeDelegate {
    @param			isCallActive 0 if no call is active; 1 otherwise.
    */
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFreeDevice!, isCallActive: NSNumber!)
+  optional func handsFree(device: IOBluetoothHandsFreeDevice!, isCallActive: Number!)
 
   /*!
    @method		handsFree:callSetupMode
@@ -5739,7 +5739,7 @@ protocol IOBluetoothHandsFreeDeviceDelegate : IOBluetoothHandsFreeDelegate {
    								3 if the remote party is being alerted for an outgoing call.
    */
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFreeDevice!, callSetupMode: NSNumber!)
+  optional func handsFree(device: IOBluetoothHandsFreeDevice!, callSetupMode: Number!)
 
   /*!
    @method		handsFree:callHoldState
@@ -5750,7 +5750,7 @@ protocol IOBluetoothHandsFreeDeviceDelegate : IOBluetoothHandsFreeDelegate {
   								2 if a call is on hold, but no active call exists.
    */
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFreeDevice!, callHoldState: NSNumber!)
+  optional func handsFree(device: IOBluetoothHandsFreeDevice!, callHoldState: Number!)
 
   /*!
    @method		handsFree:signalStrength
@@ -5759,7 +5759,7 @@ protocol IOBluetoothHandsFreeDeviceDelegate : IOBluetoothHandsFreeDelegate {
    @param			signalStrength 0-5 where 0 represents a weak signal.
    */
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFreeDevice!, signalStrength: NSNumber!)
+  optional func handsFree(device: IOBluetoothHandsFreeDevice!, signalStrength: Number!)
 
   /*!
    @method		handsFree:isRoaming
@@ -5768,7 +5768,7 @@ protocol IOBluetoothHandsFreeDeviceDelegate : IOBluetoothHandsFreeDelegate {
    @param			isRoaming 0 if not roaming; 1 otherwise.
    */
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFreeDevice!, isRoaming: NSNumber!)
+  optional func handsFree(device: IOBluetoothHandsFreeDevice!, isRoaming: Number!)
 
   /*!
    @method		handsFree:batteryCharge
@@ -5777,7 +5777,7 @@ protocol IOBluetoothHandsFreeDeviceDelegate : IOBluetoothHandsFreeDelegate {
    @param			batteryCharge 0-5 where 0 represents a low battery charge.
    */
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFreeDevice!, batteryCharge: NSNumber!)
+  optional func handsFree(device: IOBluetoothHandsFreeDevice!, batteryCharge: Number!)
 
   /*!
    @method		handsFree:incomingCallFrom
@@ -5795,7 +5795,7 @@ protocol IOBluetoothHandsFreeDeviceDelegate : IOBluetoothHandsFreeDelegate {
    @param			ringAttempt The number or ring alerts received
    */
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFreeDevice!, ringAttempt: NSNumber!)
+  optional func handsFree(device: IOBluetoothHandsFreeDevice!, ringAttempt: Number!)
 
   /*!
    @method		handsFree:currentCall
@@ -5804,7 +5804,7 @@ protocol IOBluetoothHandsFreeDeviceDelegate : IOBluetoothHandsFreeDelegate {
    @param			currentCall A dictionary representing a call. See "Hands free current call dictionary keys" for the keys and their values.
    */
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFreeDevice!, currentCall: [NSObject : AnyObject]!)
+  optional func handsFree(device: IOBluetoothHandsFreeDevice!, currentCall: [Object : AnyObject]!)
 
   /*!
    @method		handsFree:subscriberNumber
@@ -5822,7 +5822,7 @@ protocol IOBluetoothHandsFreeDeviceDelegate : IOBluetoothHandsFreeDelegate {
    @param			incomingSMS A dictionary representing an SMS. See "Hands free SMS dictionary keys" for the keys and their values.
    */
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFreeDevice!, incomingSMS sms: [NSObject : AnyObject]!)
+  optional func handsFree(device: IOBluetoothHandsFreeDevice!, incomingSMS sms: [Object : AnyObject]!)
 
   /*!
    @method		handsFree:unhandledResultCode
@@ -5841,7 +5841,7 @@ protocol IOBluetoothHandsFreeDeviceDelegate : IOBluetoothHandsFreeDelegate {
 	@discussion		This object can be used to ask a Bluetooth HCI for certain pieces of information, and be used to make
 					it perform certain functions.
 */
-class IOBluetoothHostController : NSObject {
+class IOBluetoothHostController : Object {
   unowned(unsafe) var delegate: @sil_unmanaged AnyObject!
 
   /*!	@method		defaultController
@@ -5868,7 +5868,7 @@ class IOBluetoothHostController : NSObject {
   				up, or down, as appropriate.
   	@result		Returns the whether setting the class of device value was successful. 0 if success, error code otherwise.
   */
-  func setClassOfDevice(classOfDevice: BluetoothClassOfDevice, forTimeInterval seconds: NSTimeInterval) -> IOReturn
+  func setClassOfDevice(classOfDevice: BluetoothClassOfDevice, forTimeInterval seconds: TimeInterval) -> IOReturn
 
   /*!	@method		addressAsString
   	@abstract	Convience routine to get the HCI controller's Bluetooth address as an NSString object.
@@ -5891,7 +5891,7 @@ class IOBluetoothHostController : NSObject {
 					requests on found IOBluetoothDevice objects unless the controller object has been stopped. Doing so may
 					deadlock your process.
 */
-extension NSObject {
+extension Object {
 
   /*!	@method			readRSSIForDeviceComplete:device:info:error:
   	@discussion 	This delegate gets invoked when an RSSI command complete event occurs. This could occur because you
@@ -5979,7 +5979,7 @@ typealias IOBluetoothL2CAPChannelIncomingEventListener = @convention(c) (IOBluet
                 does not intend to use the connection to the remote device any further, it should call -closeConnection
                 on the IOBluetoothDevice object.
 */
-class IOBluetoothL2CAPChannel : IOBluetoothObject, NSPortDelegate {
+class IOBluetoothL2CAPChannel : IOBluetoothObject, PortDelegate {
 
   /*!
       @method	registerForChannelOpenNotifications:selector:
@@ -6129,7 +6129,7 @@ class IOBluetoothL2CAPChannel : IOBluetoothObject, NSPortDelegate {
   				the channel.
   	@result		Returns kIOReturnSuccess if the delegate is successfully registered.
   */
-  func setDelegate(channelDelegate: AnyObject!, withConfiguration channelConfiguration: [NSObject : AnyObject]!) -> IOReturn
+  func setDelegate(channelDelegate: AnyObject!, withConfiguration channelConfiguration: [Object : AnyObject]!) -> IOReturn
 
   /*!
    @method		delegate
@@ -6198,7 +6198,7 @@ class IOBluetoothL2CAPChannel : IOBluetoothObject, NSPortDelegate {
   */
   func registerForChannelCloseNotification(observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
   init()
-  func handle(message: NSPortMessage)
+  func handle(message: PortMessage)
 }
 protocol IOBluetoothL2CAPChannelDelegate {
   optional func l2capChannelData(l2capChannel: IOBluetoothL2CAPChannel!, data dataPointer: UnsafeMutablePointer<Void>, length dataLength: Int)
@@ -6210,7 +6210,7 @@ protocol IOBluetoothL2CAPChannelDelegate {
 }
 let IOBluetoothL2CAPChannelPublishedNotification: String
 let IOBluetoothL2CAPChannelTerminatedNotification: String
-extension NSObject {
+extension Object {
 }
 class IOBluetoothOBEXSession : OBEXSession, IOBluetoothRFCOMMChannelDelegate {
 
@@ -6399,9 +6399,9 @@ class IOBluetoothOBEXSession : OBEXSession, IOBluetoothRFCOMMChannelDelegate {
   func rfcommChannelWriteComplete(rfcommChannel: IOBluetoothRFCOMMChannel!, refcon: UnsafeMutablePointer<Void>, status error: IOReturn)
   func rfcommChannelQueueSpaceAvailable(rfcommChannel: IOBluetoothRFCOMMChannel!)
 }
-class IOBluetoothObject : NSObject, NSCopying {
+class IOBluetoothObject : Object, Copying {
   init()
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 var kBluetoothTargetDoesNotRespondToCallbackExceptionName: String { get }
 
@@ -6411,7 +6411,7 @@ var kBluetoothTargetDoesNotRespondToCallbackExceptionName: String { get }
     @discussion An RFCOMM channel object can be obtained by opening an rfcomm channel in a device, or
     by requesting a notification when a channel is created (this is commonly used to provide services).
 */
-class IOBluetoothRFCOMMChannel : IOBluetoothObject, NSPortDelegate {
+class IOBluetoothRFCOMMChannel : IOBluetoothObject, PortDelegate {
 
   /*!
   	@method	registerForChannelOpenNotifications:selector:
@@ -6632,7 +6632,7 @@ class IOBluetoothRFCOMMChannel : IOBluetoothObject, NSPortDelegate {
   */
   func registerForChannelCloseNotification(observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
   init()
-  func handle(message: NSPortMessage)
+  func handle(message: PortMessage)
 }
 protocol IOBluetoothRFCOMMChannelDelegate {
   optional func rfcommChannelData(rfcommChannel: IOBluetoothRFCOMMChannel!, data dataPointer: UnsafeMutablePointer<Void>, length dataLength: Int)
@@ -6699,7 +6699,7 @@ protocol IOBluetoothRFCOMMChannelDelegate {
                 type will be inferred and the size taken from the length of the array.  Additionally, the array
                 must contain sub-elements that will be parsed out individually.
 */
-class IOBluetoothSDPDataElement : NSObject, NSCoding {
+class IOBluetoothSDPDataElement : Object, Coding {
 
   /*!
       @method withElementValue:
@@ -6712,7 +6712,7 @@ class IOBluetoothSDPDataElement : NSObject, NSCoding {
               for the caller to release it.  If the object is to be referenced and kept around, retain should be
               called.
   */
-  class func withElementValue(element: NSObject!) -> Self!
+  class func withElementValue(element: Object!) -> Self!
 
   /*!
       @method withType:sizeDescriptor:size:value:
@@ -6730,7 +6730,7 @@ class IOBluetoothSDPDataElement : NSObject, NSCoding {
                       object has been autoreleased, so it is not necessary for the caller to release it.  If the 
                       object is to be referenced and kept around, retain should be called.
   */
-  class func withType(type: BluetoothSDPDataElementTypeDescriptor, sizeDescriptor newSizeDescriptor: BluetoothSDPDataElementSizeDescriptor, size newSize: UInt32, value newValue: NSObject!) -> Self!
+  class func withType(type: BluetoothSDPDataElementTypeDescriptor, sizeDescriptor newSizeDescriptor: BluetoothSDPDataElementSizeDescriptor, size newSize: UInt32, value newValue: Object!) -> Self!
 
   /*!
       @method	withSDPDataElementRef:
@@ -6748,7 +6748,7 @@ class IOBluetoothSDPDataElement : NSObject, NSCoding {
       @param element	The data element value of one of the specified types. 
       @result Returns self if successful.  Returns nil if there was an error parsing the element value.
   */
-  init!(elementValue element: NSObject!)
+  init!(elementValue element: Object!)
 
   /*!
       @method initWithType:sizeDescriptor:size:value:
@@ -6764,7 +6764,7 @@ class IOBluetoothSDPDataElement : NSObject, NSCoding {
       @result Returns self if successful.  Returns nil if an error is encountered (not likely
                       due to the limited error checking currently done).
   */
-  init!(type newType: BluetoothSDPDataElementTypeDescriptor, sizeDescriptor newSizeDescriptor: BluetoothSDPDataElementSizeDescriptor, size newSize: UInt32, value newValue: NSObject!)
+  init!(type newType: BluetoothSDPDataElementTypeDescriptor, sizeDescriptor newSizeDescriptor: BluetoothSDPDataElementSizeDescriptor, size newSize: UInt32, value newValue: Object!)
 
   /*!
       @method	getSDPDataElementRef
@@ -6802,7 +6802,7 @@ class IOBluetoothSDPDataElement : NSObject, NSCoding {
                   except for 128-bit versions of 1 and 2.
       @result Returns an NSNumber representation of the data element if it is a numeric type.
   */
-  func getNumberValue() -> NSNumber!
+  func getNumberValue() -> Number!
 
   /*!
       @method getDataValue
@@ -6811,7 +6811,7 @@ class IOBluetoothSDPDataElement : NSObject, NSCoding {
                   2 (signed int).
       @result Returns an NSData representation of the data element if it is a 128-bit number.
   */
-  func getDataValue() -> NSData!
+  func getDataValue() -> Data!
 
   /*!
       @method getStringValue
@@ -6844,7 +6844,7 @@ class IOBluetoothSDPDataElement : NSObject, NSCoding {
                   depending on the type of the data element.
       @result Returns the object value of the target data element.
   */
-  func getValue() -> NSObject!
+  func getValue() -> Object!
 
   /*!
       @method containsDataElement:
@@ -6866,10 +6866,10 @@ class IOBluetoothSDPDataElement : NSObject, NSCoding {
       @param cmpValue The value to compare with (and search for).
       @result Returns TRUE if the target's value either matches the given value or if it contains the given value.
   */
-  func containsValue(cmpValue: NSObject!) -> Bool
+  func containsValue(cmpValue: Object!) -> Bool
   init()
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -6877,7 +6877,7 @@ class IOBluetoothSDPDataElement : NSObject, NSCoding {
     @abstract IOBluetoothSDPServiceAttribute represents a single SDP service attribute.
     @discussion A service attribute contains two components: an attribute ID and a data element.
 */
-class IOBluetoothSDPServiceAttribute : NSObject, NSCoding {
+class IOBluetoothSDPServiceAttribute : Object, Coding {
 
   /*!
       @method withID:attributeElementValue:
@@ -6890,7 +6890,7 @@ class IOBluetoothSDPServiceAttribute : NSObject, NSCoding {
               necessary for the caller to release it.  If the object is to be referenced and kept around, retain 
               should be called.
   */
-  class func withID(newAttributeID: BluetoothSDPServiceAttributeID, attributeElementValue: NSObject!) -> Self!
+  class func withID(newAttributeID: BluetoothSDPServiceAttributeID, attributeElementValue: Object!) -> Self!
 
   /*!
       @method withID:attributeElement:
@@ -6913,7 +6913,7 @@ class IOBluetoothSDPServiceAttribute : NSObject, NSCoding {
       @param attributeElementValue The data element value of the new service attribute
       @result Returns self if successful.  Returns nil if there was an error parsing the element value.
   */
-  init!(id newAttributeID: BluetoothSDPServiceAttributeID, attributeElementValue: NSObject!)
+  init!(id newAttributeID: BluetoothSDPServiceAttributeID, attributeElementValue: Object!)
 
   /*!
       @method initWithID:attributeElement:
@@ -6945,8 +6945,8 @@ class IOBluetoothSDPServiceAttribute : NSObject, NSCoding {
   */
   func getIDDataElement() -> IOBluetoothSDPDataElement!
   init()
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -6956,7 +6956,7 @@ class IOBluetoothSDPServiceAttribute : NSObject, NSCoding {
                 It also has a link to the IOBluetoothDevice that the service belongs to.  The service
                 dictionary is keyed off of the attribute ID of each attribute represented as an NSNumber.
 */
-class IOBluetoothSDPServiceRecord : NSObject, NSCoding {
+class IOBluetoothSDPServiceRecord : Object, Coding {
 
   /*!
    @method		publishedServiceRecordWithDictionary:
@@ -7005,7 +7005,7 @@ class IOBluetoothSDPServiceRecord : NSObject, NSCoding {
    
    @param		serviceDict	A dictionary containing the attributes for the new service 
   */
-  class func publishedServiceRecordWith(serviceDict: [NSObject : AnyObject]!) -> Self!
+  class func publishedServiceRecordWith(serviceDict: [Object : AnyObject]!) -> Self!
 
   /*!	@function	removeServiceRecord
    @abstract	Removes the service from the local SDP server.
@@ -7019,7 +7019,7 @@ class IOBluetoothSDPServiceRecord : NSObject, NSCoding {
   				a pointer to an IOBlueotothDevice if you wish to associate the record to a specific IOBluetoothDevice.
   	@result		Returns an IOBluetoothSDPServiceRecord * with the attributes specified in the provided dictionary.
   */
-  class func withServiceDictionary(serviceDict: [NSObject : AnyObject]!, device: IOBluetoothDevice!) -> Self!
+  class func withServiceDictionary(serviceDict: [Object : AnyObject]!, device: IOBluetoothDevice!) -> Self!
 
   /*!
       @method		initWithServiceDictionary
@@ -7027,7 +7027,7 @@ class IOBluetoothSDPServiceRecord : NSObject, NSCoding {
   				a pointer to an IOBlueotothDevice if you wish to associate the record to a specific IOBluetoothDevice.
   	@result		Returns an initialized IOBluetoothSDPServiceRecord * with the attributes specified in the provided dictionary.
   */
-  init!(serviceDictionary serviceDict: [NSObject : AnyObject]!, device: IOBluetoothDevice!)
+  init!(serviceDictionary serviceDict: [Object : AnyObject]!, device: IOBluetoothDevice!)
 
   /*!
       @method		withSDPServiceRecordRef:
@@ -7061,7 +7061,7 @@ class IOBluetoothSDPServiceRecord : NSObject, NSCoding {
                   given attribute.
       @result Returns an NSDictionary containing the attributes for the target service.
   */
-  var attributes: [NSObject : AnyObject]! { get }
+  var attributes: [Object : AnyObject]! { get }
 
   /*!
       @method		getAttributeDataElement:
@@ -7178,8 +7178,8 @@ class IOBluetoothSDPServiceRecord : NSObject, NSCoding {
    */
   var sortedAttributes: [AnyObject]! { get }
   init()
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -7189,7 +7189,7 @@ class IOBluetoothSDPServiceRecord : NSObject, NSCoding {
             It provides the ability to compare two UUIDs no matter what their size as well as the ability
             to promote the size of a UUID to a larger one.
 */
-class IOBluetoothSDPUUID : NSData {
+class IOBluetoothSDPUUID : Data {
 
   /*!
       @method uuidWithBytes:length:
@@ -7208,7 +7208,7 @@ class IOBluetoothSDPUUID : NSData {
       @param data The NSData containing the UUID bytes.
       @result Returns the new IOBluetoothSDPUUID object or nil on failure.
   */
-  class func uuidWith(data: NSData!) -> Self!
+  class func uuidWith(data: Data!) -> Self!
 
   /*!
       @method uuid16:
@@ -7268,23 +7268,23 @@ class IOBluetoothSDPUUID : NSData {
   func classForArchiver() -> AnyClass!
   func classForPortCoder() -> AnyClass!
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
   init?(contentsOfMappedFile path: String)
   @available(OSX 10.9, *)
-  init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions = [])
+  init?(base64EncodedString base64String: String, options: DataBase64DecodingOptions = [])
   @available(OSX 10.9, *)
-  init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions = [])
+  init?(base64EncodedData base64Data: Data, options: DataBase64DecodingOptions = [])
   init(bytes: UnsafePointer<Void>, length: Int)
   init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int)
   init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, freeWhenDone b: Bool)
   @available(OSX 10.9, *)
   init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)? = nil)
-  init(contentsOfFile path: String, options readOptionsMask: NSDataReadingOptions = []) throws
-  init(contentsOf url: NSURL, options readOptionsMask: NSDataReadingOptions = []) throws
+  init(contentsOfFile path: String, options readOptionsMask: DataReadingOptions = []) throws
+  init(contentsOf url: URL, options readOptionsMask: DataReadingOptions = []) throws
   init?(contentsOfFile path: String)
-  init?(contentsOf url: NSURL)
-  init(data: NSData)
+  init?(contentsOf url: URL)
+  init(data: Data)
 }
 
 /*!
@@ -7295,7 +7295,7 @@ class IOBluetoothSDPUUID : NSData {
 				IOBluetoothUserNotification object.  Once -unregister is called, the object will no
 				longer be valid.
 */
-class IOBluetoothUserNotification : NSObject {
+class IOBluetoothUserNotification : Object {
 
   /*!
       @method unregister
@@ -7306,10 +7306,10 @@ class IOBluetoothUserNotification : NSObject {
   func unregister()
   init()
 }
-extension NSMutableDictionary {
+extension MutableDictionary {
   convenience init!(obexHeadersData inHeadersData: UnsafePointer<Void>, headersDataSize inDataSize: Int)
-  convenience init!(obexHeadersData inHeadersData: NSData!)
-  func getHeaderBytes() -> NSMutableData!
+  convenience init!(obexHeadersData inHeadersData: Data!)
+  func getHeaderBytes() -> MutableData!
   func addTargetHeader(inHeaderData: UnsafePointer<Void>, length inHeaderDataLength: UInt32) -> OBEXError
   func addHTTPHeader(inHeaderData: UnsafePointer<Void>, length inHeaderDataLength: UInt32) -> OBEXError
   func addBodyHeader(inHeaderData: UnsafePointer<Void>, length inHeaderDataLength: UInt32, endOfBody isEndOfBody: Bool) -> OBEXError
@@ -7340,7 +7340,7 @@ extension NSMutableDictionary {
 					usually concerns the state of this object where as the delegate return value
 					reflects the response of the remote device.
 */
-class OBEXFileTransferServices : NSObject {
+class OBEXFileTransferServices : Object {
   unowned(unsafe) var delegate: @sil_unmanaged AnyObject!
 
   /*!
@@ -7522,7 +7522,7 @@ class OBEXFileTransferServices : NSObject {
   				results returned through the fileTransferServicesSendComplete: and 
   				fileTransferServicesSendProgress: delegate methods if initially successful.
   */
-  func send(inData: NSData!, type inType: String!, name inName: String!) -> OBEXError
+  func send(inData: Data!, type inType: String!, name inName: String!) -> OBEXError
 
   /*!
   	@method     getDefaultVCard:
@@ -7549,7 +7549,7 @@ class OBEXFileTransferServices : NSObject {
   func abort() -> OBEXError
   init()
 }
-extension NSObject {
+extension Object {
 
   /*!
   	@method			fileTransferServicesConnectionComplete:error:
@@ -7686,7 +7686,7 @@ extension NSObject {
   	@param			inProgressDescription A dictionary containing information on the state of the transfer. The keys
   					 to this dictionary are defined in the OBEXFileTransferServicesDelegate category.
   */
-  class func fileTransferServicesSendFileProgress(inServices: OBEXFileTransferServices!, transferProgress inProgressDescription: [NSObject : AnyObject]!)
+  class func fileTransferServicesSendFileProgress(inServices: OBEXFileTransferServices!, transferProgress inProgressDescription: [Object : AnyObject]!)
 
   /*!
   	@method			fileTransferServicesSendFileProgress:transferProgress:
@@ -7695,7 +7695,7 @@ extension NSObject {
   	@param			inProgressDescription A dictionary containing information on the state of the transfer. The keys
   					 to this dictionary are defined in the OBEXFileTransferServicesDelegate category.
   */
-  func fileTransferServicesSendFileProgress(inServices: OBEXFileTransferServices!, transferProgress inProgressDescription: [NSObject : AnyObject]!)
+  func fileTransferServicesSendFileProgress(inServices: OBEXFileTransferServices!, transferProgress inProgressDescription: [Object : AnyObject]!)
 
   /*!
   	@method			fileTransferServicesSendFileComplete:error:
@@ -7718,7 +7718,7 @@ extension NSObject {
   	@param			inProgressDescription A dictionary containing information on the state of the transfer. The keys
   					to this dictionary are defined in the OBEXFileTransferServicesDelegate category.
   */
-  class func fileTransferServicesCopyRemoteFileProgress(inServices: OBEXFileTransferServices!, transferProgress inProgressDescription: [NSObject : AnyObject]!)
+  class func fileTransferServicesCopyRemoteFileProgress(inServices: OBEXFileTransferServices!, transferProgress inProgressDescription: [Object : AnyObject]!)
 
   /*!
   	@method			fileTransferServicesCopyRemoteFileProgress:transferProgress:
@@ -7727,7 +7727,7 @@ extension NSObject {
   	@param			inProgressDescription A dictionary containing information on the state of the transfer. The keys
   					to this dictionary are defined in the OBEXFileTransferServicesDelegate category.
   */
-  func fileTransferServicesCopyRemoteFileProgress(inServices: OBEXFileTransferServices!, transferProgress inProgressDescription: [NSObject : AnyObject]!)
+  func fileTransferServicesCopyRemoteFileProgress(inServices: OBEXFileTransferServices!, transferProgress inProgressDescription: [Object : AnyObject]!)
 
   /*!
   	@method			fileTransferServicesCopyRemoteFileComplete:error:
@@ -7822,7 +7822,7 @@ struct FTSFileType : RawRepresentable, Equatable {
 var kFTSFileTypeFolder: FTSFileType { get }
 var kFTSFileTypeFile: FTSFileType { get }
 typealias PrivOBEXSessionDataRef = COpaquePointer
-class OBEXSession : NSObject {
+class OBEXSession : Object {
 
   /*!	@method		OBEXConnect
   	@abstract	Initiate an OBEX connection to a device. Causes underlying transport (Bluetooth, et al) to attempt to connect

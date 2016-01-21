@@ -81,8 +81,8 @@ struct LevelConfiguration {
     }
     
     /// The time limit (in seconds) for this level.
-    var timeLimit: NSTimeInterval {
-        return configurationInfo["timeLimit"] as! NSTimeInterval
+    var timeLimit: TimeInterval {
+        return configurationInfo["timeLimit"] as! TimeInterval
     }
     
     /// The factor used to normalize distances between characters for 'fuzzy' logic.
@@ -95,7 +95,7 @@ struct LevelConfiguration {
     init(fileName: String) {
         self.fileName = fileName
         
-        let url = NSBundle.main().urlForResource(fileName, withExtension: "plist")!
+        let url = Bundle.main().urlForResource(fileName, withExtension: "plist")!
 
         configurationInfo = NSDictionary(contentsOf: url) as! [String: AnyObject]
         

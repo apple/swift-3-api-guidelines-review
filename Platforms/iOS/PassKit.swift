@@ -13,10 +13,10 @@ class PKAddPassButton : UIButton {
   var addPassButtonStyle: PKAddPassButtonStyle
   convenience init(type buttonType: UIButtonType)
   convenience init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
-protocol PKAddPassesViewControllerDelegate : NSObjectProtocol {
+protocol PKAddPassesViewControllerDelegate : ObjectProtocol {
   @available(iOS 6.0, *)
   optional func addPassesViewControllerDidFinish(controller: PKAddPassesViewController)
 }
@@ -28,8 +28,8 @@ class PKAddPassesViewController : UIViewController {
   @available(iOS 8.0, *)
   class func canAddPasses() -> Bool
   unowned(unsafe) var delegate: @sil_unmanaged PKAddPassesViewControllerDelegate?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 @available(iOS 9.0, *)
@@ -41,7 +41,7 @@ enum PKAddPaymentPassError : Int {
   case SystemCancelled
 }
 @available(iOS 9.0, *)
-class PKAddPaymentPassRequestConfiguration : NSObject {
+class PKAddPaymentPassRequestConfiguration : Object {
   init?(encryptionScheme: String)
   var encryptionScheme: String { get }
   var cardholderName: String?
@@ -52,26 +52,26 @@ class PKAddPaymentPassRequestConfiguration : NSObject {
   convenience init()
 }
 @available(iOS 9.0, *)
-class PKAddPaymentPassRequest : NSObject {
+class PKAddPaymentPassRequest : Object {
   init()
-  @NSCopying var encryptedPassData: NSData?
-  @NSCopying var activationData: NSData?
-  @NSCopying var ephemeralPublicKey: NSData?
-  @NSCopying var wrappedKey: NSData?
+  @NSCopying var encryptedPassData: Data?
+  @NSCopying var activationData: Data?
+  @NSCopying var ephemeralPublicKey: Data?
+  @NSCopying var wrappedKey: Data?
 }
-protocol PKAddPaymentPassViewControllerDelegate : NSObjectProtocol {
+protocol PKAddPaymentPassViewControllerDelegate : ObjectProtocol {
   @available(iOS 9.0, *)
-  func addPaymentPassViewController(controller: PKAddPaymentPassViewController, generateRequestWithCertificateChain certificates: [NSData], nonce: NSData, nonceSignature: NSData, completionHandler handler: (PKAddPaymentPassRequest) -> Void)
+  func addPaymentPassViewController(controller: PKAddPaymentPassViewController, generateRequestWithCertificateChain certificates: [Data], nonce: Data, nonceSignature: Data, completionHandler handler: (PKAddPaymentPassRequest) -> Void)
   @available(iOS 9.0, *)
-  func addPaymentPassViewController(controller: PKAddPaymentPassViewController, didFinishAdding pass: PKPaymentPass?, error: NSError?)
+  func addPaymentPassViewController(controller: PKAddPaymentPassViewController, didFinishAdding pass: PKPaymentPass?, error: Error?)
 }
 @available(iOS 9.0, *)
 class PKAddPaymentPassViewController : UIViewController {
   class func canAddPaymentPass() -> Bool
   init?(requestConfiguration configuration: PKAddPaymentPassRequestConfiguration, delegate: PKAddPaymentPassViewControllerDelegate?)
   weak var delegate: @sil_weak PKAddPaymentPassViewControllerDelegate?
-  convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 @available(iOS 9.0, *)
@@ -91,8 +91,8 @@ let PKPaymentNetworkPrivateLabel: String
 @available(iOS 8.0, *)
 let PKPaymentNetworkVisa: String
 @available(iOS 9.0, *)
-class PKContact : NSObject {
-  var name: NSPersonNameComponents?
+class PKContact : Object {
+  var name: PersonNameComponents?
   var postalAddress: CNPostalAddress?
   var emailAddress: String?
   var phoneNumber: CNPhoneNumber?
@@ -118,7 +118,7 @@ extension PKPassKitErrorCode : _BridgedNSError {
   static var _NSErrorDomain: String { get }
   typealias RawValue = Int
 }
-class PKObject : NSObject {
+class PKObject : Object {
   init()
 }
 @available(iOS 8.0, *)
@@ -130,23 +130,23 @@ enum PKPassType : UInt {
   case Any
 }
 class PKPass : PKObject {
-  init(data: NSData, error: NSErrorPointer)
+  init(data: Data, error: ErrorPointer)
   @available(iOS 8.0, *)
   var passType: PKPassType { get }
   @available(iOS 8.0, *)
   unowned(unsafe) var paymentPass: @sil_unmanaged PKPaymentPass? { get }
   var serialNumber: String { get }
   var passTypeIdentifier: String { get }
-  @NSCopying var webServiceURL: NSURL? { get }
+  @NSCopying var webServiceURL: URL? { get }
   var authenticationToken: String? { get }
   @NSCopying var icon: UIImage { get }
   var localizedName: String { get }
   var localizedDescription: String { get }
   var organizationName: String { get }
-  @NSCopying var relevantDate: NSDate? { get }
+  @NSCopying var relevantDate: Date? { get }
   @available(iOS 7.0, *)
-  var userInfo: [NSObject : AnyObject]? { get }
-  @NSCopying var passURL: NSURL { get }
+  var userInfo: [Object : AnyObject]? { get }
+  @NSCopying var passURL: URL { get }
   @available(iOS 9.0, *)
   var isRemotePass: Bool { get }
   @available(iOS 9.0, *)
@@ -174,7 +174,7 @@ enum PKAutomaticPassPresentationSuppressionResult : UInt {
 }
 typealias PKSuppressionRequestToken = Int
 @available(iOS 6.0, *)
-class PKPassLibrary : NSObject {
+class PKPassLibrary : Object {
   @available(iOS 6.0, *)
   class func isPassLibraryAvailable() -> Bool
   @available(iOS 9.0, *)
@@ -203,9 +203,9 @@ class PKPassLibrary : NSObject {
   @available(iOS 9.0, *)
   func canAddPaymentPassWithPrimaryAccountIdentifier(primaryAccountIdentifier: String) -> Bool
   @available(iOS 8.0, *)
-  func activatePaymentPass(paymentPass: PKPaymentPass, withActivationData activationData: NSData, completion: ((Bool, NSError) -> Void)? = nil)
+  func activatePaymentPass(paymentPass: PKPaymentPass, withActivationData activationData: Data, completion: ((Bool, Error) -> Void)? = nil)
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use activatePaymentPass:withActivationData:completion: instead")
-  func activatePaymentPass(paymentPass: PKPaymentPass, withActivationCode activationCode: String, completion: ((Bool, NSError) -> Void)? = nil)
+  func activatePaymentPass(paymentPass: PKPaymentPass, withActivationCode activationCode: String, completion: ((Bool, Error) -> Void)? = nil)
   init()
 }
 @available(iOS 6.0, *)
@@ -223,7 +223,7 @@ let PKPassLibraryPassTypeIdentifierUserInfoKey: String
 @available(iOS 6.0, *)
 let PKPassLibrarySerialNumberUserInfoKey: String
 @available(iOS 8.0, *)
-class PKPayment : NSObject {
+class PKPayment : Object {
   var token: PKPaymentToken { get }
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use billingContact instead")
   var billingAddress: ABRecord? { get }
@@ -252,7 +252,7 @@ enum PKPaymentAuthorizationStatus : Int {
   @available(iOS 9.2, *)
   case PINLockout
 }
-protocol PKPaymentAuthorizationViewControllerDelegate : NSObjectProtocol {
+protocol PKPaymentAuthorizationViewControllerDelegate : ObjectProtocol {
   @available(iOS 8.0, *)
   func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: (PKPaymentAuthorizationStatus) -> Void)
   @available(iOS 8.0, *)
@@ -276,8 +276,8 @@ class PKPaymentAuthorizationViewController : UIViewController {
   class func canMakePaymentsUsingNetworks(supportedNetworks: [String], capabilities capabilties: PKMerchantCapability) -> Bool
   unowned(unsafe) var delegate: @sil_unmanaged PKPaymentAuthorizationViewControllerDelegate?
   init(paymentRequest request: PKPaymentRequest)
-  convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 @available(iOS 8.3, *)
@@ -304,11 +304,11 @@ class PKPaymentButton : UIButton {
   init(paymentButtonType type: PKPaymentButtonType, paymentButtonStyle style: PKPaymentButtonStyle)
   convenience init(type buttonType: UIButtonType)
   convenience init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 @available(iOS 9.0, *)
-class PKPaymentMethod : NSObject {
+class PKPaymentMethod : Object {
   var displayName: String? { get }
   var network: String? { get }
   var type: PKPaymentMethodType { get }
@@ -342,7 +342,7 @@ class PKPaymentPass : PKPass {
   var deviceAccountIdentifier: String { get }
   var deviceAccountNumberSuffix: String { get }
   var activationState: PKPaymentPassActivationState { get }
-  init(data: NSData, error: NSErrorPointer)
+  init(data: Data, error: ErrorPointer)
   init()
 }
 @available(iOS 8.0, *)
@@ -385,12 +385,12 @@ enum PKPaymentSummaryItemType : UInt {
   case Pending
 }
 @available(iOS 8.0, *)
-class PKPaymentSummaryItem : NSObject {
-  convenience init(label: String, amount: NSDecimalNumber)
+class PKPaymentSummaryItem : Object {
+  convenience init(label: String, amount: DecimalNumber)
   @available(iOS 9.0, *)
-  convenience init(label: String, amount: NSDecimalNumber, type: PKPaymentSummaryItemType)
+  convenience init(label: String, amount: DecimalNumber, type: PKPaymentSummaryItemType)
   var label: String
-  @NSCopying var amount: NSDecimalNumber
+  @NSCopying var amount: DecimalNumber
   @available(iOS 9.0, *)
   var type: PKPaymentSummaryItemType
   init()
@@ -399,13 +399,13 @@ class PKPaymentSummaryItem : NSObject {
 class PKShippingMethod : PKPaymentSummaryItem {
   var identifier: String?
   var detail: String?
-  convenience init(label: String, amount: NSDecimalNumber)
+  convenience init(label: String, amount: DecimalNumber)
   @available(iOS 9.0, *)
-  convenience init(label: String, amount: NSDecimalNumber, type: PKPaymentSummaryItemType)
+  convenience init(label: String, amount: DecimalNumber, type: PKPaymentSummaryItemType)
   init()
 }
 @available(iOS 8.0, *)
-class PKPaymentRequest : NSObject {
+class PKPaymentRequest : Object {
   var merchantIdentifier: String
   var countryCode: String
   var supportedNetworks: [String]
@@ -425,11 +425,11 @@ class PKPaymentRequest : NSObject {
   var shippingMethods: [PKShippingMethod]?
   @available(iOS 8.3, *)
   var shippingType: PKShippingType
-  @NSCopying var applicationData: NSData?
+  @NSCopying var applicationData: Data?
   init()
 }
 @available(iOS 8.0, *)
-class PKPaymentToken : NSObject {
+class PKPaymentToken : Object {
   @available(iOS 9.0, *)
   var paymentMethod: PKPaymentMethod { get }
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use paymentMethod instead")
@@ -437,6 +437,6 @@ class PKPaymentToken : NSObject {
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use paymentMethod instead")
   var paymentNetwork: String { get }
   var transactionIdentifier: String { get }
-  var paymentData: NSData { get }
+  var paymentData: Data { get }
   init()
 }

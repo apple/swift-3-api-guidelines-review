@@ -15,7 +15,7 @@ class TaskBotZappedState: GKState {
     unowned var entity: TaskBot
     
     /// The amount of time the `TaskBot` has been in its "zapped" state.
-    var elapsedTime: NSTimeInterval = 0.0
+    var elapsedTime: TimeInterval = 0.0
     
     /// The `AnimationComponent` associated with the `entity`.
     var animationComponent: AnimationComponent {
@@ -49,7 +49,7 @@ class TaskBotZappedState: GKState {
         animationComponent.requestedAnimationState = .Zapped
     }
 
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func updateWithDeltaTime(seconds: TimeInterval) {
         super.updateWithDeltaTime(seconds)
         
         elapsedTime += seconds

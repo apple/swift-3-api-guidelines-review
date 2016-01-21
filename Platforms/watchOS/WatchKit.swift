@@ -14,7 +14,7 @@ enum WKAlertActionStyle : Int {
 @available(watchOS 2.0, *)
 typealias WKAlertActionHandler = () -> Void
 @available(watchOS 2.0, *)
-class WKAlertAction : NSObject {
+class WKAlertAction : Object {
   convenience init(title: String, style: WKAlertActionStyle, handler: WKAlertActionHandler)
 }
 
@@ -28,7 +28,7 @@ class WKAlertAction : NSObject {
  This class provides the functionality of AVAsset for Watch OS apps. Only file-based assets are allowed.
 */
 @available(watchOS 2.0, *)
-class WKAudioFileAsset : NSObject {
+class WKAudioFileAsset : Object {
 
   /*!
    @method		assetWithURL:
@@ -39,7 +39,7 @@ class WKAudioFileAsset : NSObject {
    @discussion	Returns a newly allocated instance of a subclass of WKAudioFileAsset initialized with the specified URL.
                   Title, ablumTitle, and artist properties are initialized to the values found in the common metadata of the media resource
    */
-  convenience init(url URL: NSURL)
+  convenience init(url URL: URL)
 
   /*!
    @method		assetWithURL:title:albumTitle:artist:
@@ -55,9 +55,9 @@ class WKAudioFileAsset : NSObject {
    @result		An instance of WKAudioFileAsset.
    @discussion	Returns a newly allocated instance of a subclass of WKAudioFileAsset initialized with the specified URL.
    */
-  convenience init(url URL: NSURL, title: String?, albumTitle: String?, artist: String?)
-  var url: NSURL { get }
-  var duration: NSTimeInterval { get }
+  convenience init(url URL: URL, title: String?, albumTitle: String?, artist: String?)
+  var url: URL { get }
+  var duration: TimeInterval { get }
   var title: String? { get }
   var albumTitle: String? { get }
   var artist: String? { get }
@@ -71,16 +71,16 @@ enum WKAudioFilePlayerStatus : Int {
   case Failed
 }
 @available(watchOS 2.0, *)
-class WKAudioFilePlayer : NSObject {
+class WKAudioFilePlayer : Object {
   convenience init(playerItem item: WKAudioFilePlayerItem)
   func play()
   func pause()
   func replaceCurrentItemWith(item: WKAudioFilePlayerItem?)
   var currentItem: WKAudioFilePlayerItem? { get }
   var status: WKAudioFilePlayerStatus { get }
-  var error: NSError? { get }
+  var error: Error? { get }
   var rate: Float
-  var currentTime: NSTimeInterval { get }
+  var currentTime: TimeInterval { get }
 }
 
 /*!
@@ -127,12 +127,12 @@ enum WKAudioFilePlayerItemStatus : Int {
  This class provides the functionality of AVPlayer for Watch OS apps. Only file-based assets are allowed.
  */
 @available(watchOS 2.0, *)
-class WKAudioFilePlayerItem : NSObject {
+class WKAudioFilePlayerItem : Object {
   /*not inherited*/ init(asset: WKAudioFileAsset)
   var asset: WKAudioFileAsset { get }
   var status: WKAudioFilePlayerItemStatus { get }
-  var error: NSError? { get }
-  var currentTime: NSTimeInterval { get }
+  var error: Error? { get }
+  var currentTime: TimeInterval { get }
 }
 @available(watchOS 2.0, *)
 let WatchKitErrorDomain: String
@@ -153,49 +153,49 @@ extension WatchKitErrorCode : _BridgedNSError {
   typealias RawValue = Int
 }
 @available(watchOS 2.0, *)
-class WKExtension : NSObject {
+class WKExtension : Object {
   class func shared() -> WKExtension
-  func openSystemURL(url: NSURL)
+  func openSystemURL(url: URL)
   weak var delegate: @sil_weak WKExtensionDelegate?
   var rootInterfaceController: WKInterfaceController? { get }
   init()
 }
 @available(watchOS 2.0, *)
-protocol WKExtensionDelegate : NSObjectProtocol {
+protocol WKExtensionDelegate : ObjectProtocol {
   optional func applicationDidFinishLaunching()
   optional func applicationDidBecomeActive()
   optional func applicationWillResignActive()
-  optional func handleActionWithIdentifier(identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject])
+  optional func handleActionWithIdentifier(identifier: String?, forRemoteNotification remoteNotification: [Object : AnyObject])
   optional func handleActionWithIdentifier(identifier: String?, forLocalNotification localNotification: UILocalNotification)
-  optional func handleActionWithIdentifier(identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject], withResponseInfo responseInfo: [NSObject : AnyObject])
-  optional func handleActionWithIdentifier(identifier: String?, forLocalNotification localNotification: UILocalNotification, withResponseInfo responseInfo: [NSObject : AnyObject])
-  optional func handleUserActivity(userInfo: [NSObject : AnyObject]?)
-  optional func didReceiveRemoteNotification(userInfo: [NSObject : AnyObject])
+  optional func handleActionWithIdentifier(identifier: String?, forRemoteNotification remoteNotification: [Object : AnyObject], withResponseInfo responseInfo: [Object : AnyObject])
+  optional func handleActionWithIdentifier(identifier: String?, forLocalNotification localNotification: UILocalNotification, withResponseInfo responseInfo: [Object : AnyObject])
+  optional func handleUserActivity(userInfo: [Object : AnyObject]?)
+  optional func didReceiveRemoteNotification(userInfo: [Object : AnyObject])
   optional func didReceive(notification: UILocalNotification)
 }
 @available(watchOS 2.0, *)
-class WKImage : NSObject, NSCopying, NSSecureCoding {
+class WKImage : Object, Copying, SecureCoding {
   convenience init(image: UIImage)
-  convenience init(imageData: NSData)
+  convenience init(imageData: Data)
   convenience init(imageName: String)
   var image: UIImage? { get }
-  var imageData: NSData? { get }
+  var imageData: Data? { get }
   var imageName: String? { get }
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(watchOS 2.0, *)
 class WKInterfaceButton : WKInterfaceObject {
   func setTitle(title: String?)
-  func setAttributedTitle(attributedTitle: NSAttributedString?)
+  func setAttributedTitle(attributedTitle: AttributedString?)
   func setBackgroundColor(color: UIColor?)
   func setBackgroundImage(image: UIImage?)
-  func setBackgroundImageData(imageData: NSData?)
+  func setBackgroundImageData(imageData: Data?)
   func setBackgroundImageNamed(imageName: String?)
   func setEnabled(enabled: Bool)
 }
@@ -259,7 +259,7 @@ enum WKAudioRecorderPreset : Int {
   case HighQualityAudio
 }
 @available(watchOS 2.0, *)
-class WKInterfaceController : NSObject {
+class WKInterfaceController : Object {
   init()
   func awakeWithContext(context: AnyObject?)
   var contentFrame: CGRect { get }
@@ -276,9 +276,9 @@ class WKInterfaceController : NSObject {
   @available(watchOS 2.0, *)
   func pickerDidSettle(picker: WKInterfacePicker)
   func table(table: WKInterfaceTable, didSelectRowAt rowIndex: Int)
-  func handleActionWithIdentifier(identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject])
+  func handleActionWithIdentifier(identifier: String?, forRemoteNotification remoteNotification: [Object : AnyObject])
   func handleActionWithIdentifier(identifier: String?, forLocalNotification localNotification: UILocalNotification)
-  func handleUserActivity(userInfo: [NSObject : AnyObject]?)
+  func handleUserActivity(userInfo: [Object : AnyObject]?)
   func setTitle(title: String?)
   func pushWithName(name: String, context: AnyObject?)
   func pop()
@@ -292,11 +292,11 @@ class WKInterfaceController : NSObject {
   func presentTextInputControllerWithSuggestionsForLanguage(suggestionsHandler: ((String) -> [AnyObject]?)?, allowedInputMode inputMode: WKTextInputMode, completion: ([AnyObject]?) -> Void)
   func dismissTextInputController()
   @available(watchOS 2.0, *)
-  func presentMediaPlayerControllerWith(URL: NSURL, options: [NSObject : AnyObject]? = [:], completion: (Bool, NSTimeInterval, NSError?) -> Void)
+  func presentMediaPlayerControllerWith(URL: URL, options: [Object : AnyObject]? = [:], completion: (Bool, TimeInterval, Error?) -> Void)
   @available(watchOS 2.0, *)
   func dismissMediaPlayerController()
   @available(watchOS 2.0, *)
-  func presentAudioRecorderControllerWithOutputURL(URL: NSURL, preset: WKAudioRecorderPreset, options: [NSObject : AnyObject]? = [:], completion: (Bool, NSError?) -> Void)
+  func presentAudioRecorderControllerWithOutputURL(URL: URL, preset: WKAudioRecorderPreset, options: [Object : AnyObject]? = [:], completion: (Bool, Error?) -> Void)
   @available(watchOS 2.0, *)
   func dismissAudioRecorderController()
   func contextForSegueWithIdentifier(segueIdentifier: String) -> AnyObject?
@@ -304,7 +304,7 @@ class WKInterfaceController : NSObject {
   func contextForSegueWithIdentifier(segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> AnyObject?
   func contextsForSegueWithIdentifier(segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> [AnyObject]?
   @available(watchOS 2.0, *)
-  func animateWithDuration(duration: NSTimeInterval, animations: () -> Void)
+  func animateWithDuration(duration: TimeInterval, animations: () -> Void)
   @available(watchOS 2.0, *)
   func presentAlertWithTitle(title: String?, message: String?, preferredStyle: WKAlertControllerStyle, actions: [WKAlertAction])
   @available(watchOS 2.0, *)
@@ -315,7 +315,7 @@ class WKInterfaceController : NSObject {
   func addMenuItemWithImageNamed(imageName: String, title: String, action: Selector)
   func addMenuItemWith(itemIcon: WKMenuItemIcon, title: String, action: Selector)
   func clearAllMenuItems()
-  func updateUserActivity(type: String, userInfo: [NSObject : AnyObject]? = [:], webpageURL: NSURL?)
+  func updateUserActivity(type: String, userInfo: [Object : AnyObject]? = [:], webpageURL: URL?)
   func invalidateUserActivity()
   @available(watchOS 2.0, *)
   func beginGlanceUpdates()
@@ -349,18 +349,18 @@ let WKAudioRecorderControllerOptionsMaximumDurationKey: String
 @available(watchOS 2.0, *)
 class WKUserNotificationInterfaceController : WKInterfaceController {
   init()
-  func didReceiveRemoteNotification(remoteNotification: [NSObject : AnyObject], withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
+  func didReceiveRemoteNotification(remoteNotification: [Object : AnyObject], withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
   func didReceive(localNotification: UILocalNotification, withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
   @available(watchOS 2.0, *)
-  func suggestionsForResponseToActionWithIdentifier(identifier: String, forRemoteNotification remoteNotification: [NSObject : AnyObject], inputLanguage: String) -> [String]
+  func suggestionsForResponseToActionWithIdentifier(identifier: String, forRemoteNotification remoteNotification: [Object : AnyObject], inputLanguage: String) -> [String]
   @available(watchOS 2.0, *)
   func suggestionsForResponseToActionWithIdentifier(identifier: String, forLocalNotification localNotification: UILocalNotification, inputLanguage: String) -> [String]
 }
 @available(watchOS 2.0, *)
 class WKInterfaceDate : WKInterfaceObject {
   func setTextColor(color: UIColor?)
-  func setTimeZone(timeZone: NSTimeZone?)
-  func setCalendar(calendar: NSCalendar?)
+  func setTimeZone(timeZone: TimeZone?)
+  func setCalendar(calendar: Calendar?)
 }
 @available(watchOS 2.0, *)
 enum WKHapticType : Int {
@@ -393,7 +393,7 @@ enum WKInterfaceSemanticContentAttribute : Int {
   case ForceLeftToRight
   case ForceRightToLeft
 }
-class WKInterfaceDevice : NSObject {
+class WKInterfaceDevice : Object {
   class func current() -> WKInterfaceDevice
   var screenBounds: CGRect { get }
   var screenScale: CGFloat { get }
@@ -423,30 +423,30 @@ class WKInterfaceGroup : WKInterfaceObject, WKImageAnimatable {
   func setContentInset(contentInset: UIEdgeInsets)
   func setBackgroundColor(color: UIColor?)
   func setBackgroundImage(image: UIImage?)
-  func setBackgroundImageData(imageData: NSData?)
+  func setBackgroundImageData(imageData: Data?)
   func setBackgroundImageNamed(imageName: String?)
   @available(watchOS 2.0, *)
   func startAnimating()
   @available(watchOS 2.0, *)
-  func startAnimatingWithImagesIn(imageRange: NSRange, duration: NSTimeInterval, repeatCount: Int)
+  func startAnimatingWithImagesIn(imageRange: NSRange, duration: TimeInterval, repeatCount: Int)
   @available(watchOS 2.0, *)
   func stopAnimating()
 }
-protocol WKImageAnimatable : NSObjectProtocol {
+protocol WKImageAnimatable : ObjectProtocol {
   func startAnimating()
-  func startAnimatingWithImagesIn(imageRange: NSRange, duration: NSTimeInterval, repeatCount: Int)
+  func startAnimatingWithImagesIn(imageRange: NSRange, duration: TimeInterval, repeatCount: Int)
   func stopAnimating()
 }
 @available(watchOS 2.0, *)
 class WKInterfaceImage : WKInterfaceObject, WKImageAnimatable {
   func setImage(image: UIImage?)
-  func setImageData(imageData: NSData?)
+  func setImageData(imageData: Data?)
   func setImageNamed(imageName: String?)
   func setTintColor(tintColor: UIColor?)
   @available(watchOS 2.0, *)
   func startAnimating()
   @available(watchOS 2.0, *)
-  func startAnimatingWithImagesIn(imageRange: NSRange, duration: NSTimeInterval, repeatCount: Int)
+  func startAnimatingWithImagesIn(imageRange: NSRange, duration: TimeInterval, repeatCount: Int)
   @available(watchOS 2.0, *)
   func stopAnimating()
 }
@@ -454,7 +454,7 @@ class WKInterfaceImage : WKInterfaceObject, WKImageAnimatable {
 class WKInterfaceLabel : WKInterfaceObject {
   func setText(text: String?)
   func setTextColor(color: UIColor?)
-  func setAttributedText(attributedText: NSAttributedString?)
+  func setAttributedText(attributedText: AttributedString?)
 }
 @available(watchOS 2.0, *)
 enum WKInterfaceMapPinColor : Int {
@@ -475,7 +475,7 @@ class WKInterfaceMap : WKInterfaceObject {
 }
 @available(watchOS 2.0, *)
 class WKInterfaceMovie : WKInterfaceObject {
-  func setMovieURL(URL: NSURL)
+  func setMovieURL(URL: URL)
   func setVideoGravity(videoGravity: WKVideoGravity)
   func setLoops(loops: Bool)
   func setPosterImage(posterImage: WKImage?)
@@ -497,7 +497,7 @@ enum WKInterfaceObjectVerticalAlignment : Int {
   case Bottom
 }
 @available(watchOS 2.0, *)
-class WKInterfaceObject : NSObject {
+class WKInterfaceObject : Object {
   func setHidden(hidden: Bool)
   func setAlpha(alpha: CGFloat)
   @available(watchOS 2.1, *)
@@ -529,7 +529,7 @@ extension WKInterfaceObject {
   func setAccessibilityImageRegions(accessibilityImageRegions: [WKAccessibilityImageRegion])
 }
 @available(watchOS 2.0, *)
-class WKAccessibilityImageRegion : NSObject {
+class WKAccessibilityImageRegion : Object {
   var frame: CGRect
   var label: String
   init()
@@ -544,7 +544,7 @@ class WKInterfacePicker : WKInterfaceObject {
   func setEnabled(enabled: Bool)
 }
 @available(watchOS 2.0, *)
-class WKPickerItem : NSObject, NSSecureCoding {
+class WKPickerItem : Object, SecureCoding {
   var title: String?
   var caption: String?
   @NSCopying var accessoryImage: WKImage?
@@ -553,8 +553,8 @@ class WKPickerItem : NSObject, NSSecureCoding {
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(watchOS 2.0, *)
 class WKInterfaceSeparator : WKInterfaceObject {
@@ -570,7 +570,7 @@ class WKInterfaceSlider : WKInterfaceObject {
 @available(watchOS 2.0, *)
 class WKInterfaceSwitch : WKInterfaceObject {
   func setTitle(title: String?)
-  func setAttributedTitle(attributedTitle: NSAttributedString?)
+  func setAttributedTitle(attributedTitle: AttributedString?)
   func setEnabled(enabled: Bool)
   func setOn(on: Bool)
   func setColor(color: UIColor?)
@@ -581,14 +581,14 @@ class WKInterfaceTable : WKInterfaceObject {
   func setNumberOfRows(numberOfRows: Int, withRowType rowType: String)
   var numberOfRows: Int { get }
   func rowControllerAt(index: Int) -> AnyObject?
-  func insertRowsAt(rows: NSIndexSet, withRowType rowType: String)
-  func removeRowsAt(rows: NSIndexSet)
+  func insertRowsAt(rows: IndexSet, withRowType rowType: String)
+  func removeRowsAt(rows: IndexSet)
   func scrollToRowAt(index: Int)
 }
 @available(watchOS 2.0, *)
 class WKInterfaceTimer : WKInterfaceObject {
   func setTextColor(color: UIColor?)
-  func setDate(date: NSDate)
+  func setDate(date: Date)
   func start()
   func stop()
 }

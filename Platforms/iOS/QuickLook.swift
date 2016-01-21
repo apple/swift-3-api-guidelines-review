@@ -38,8 +38,8 @@ class QLPreviewController : UIViewController {
    * @discussion Should implement the <QLPreviewControllerDelegate> protocol
    */
   weak var delegate: @sil_weak QLPreviewControllerDelegate?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 
@@ -65,7 +65,7 @@ protocol QLPreviewControllerDataSource {
   @available(iOS 4.0, *)
   func previewController(controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem
 }
-protocol QLPreviewControllerDelegate : NSObjectProtocol {
+protocol QLPreviewControllerDelegate : ObjectProtocol {
 
   /*!
    * @abstract Invoked before the preview controller is closed.
@@ -85,7 +85,7 @@ protocol QLPreviewControllerDelegate : NSObjectProtocol {
    * @discussion If not implemented, defaults is YES.
    */
   @available(iOS 4.0, *)
-  optional func previewController(controller: QLPreviewController, shouldOpen url: NSURL, forPreviewItem item: QLPreviewItem) -> Bool
+  optional func previewController(controller: QLPreviewController, shouldOpen url: URL, forPreviewItem item: QLPreviewItem) -> Bool
 
   /*!
    * @abstract Invoked when the preview controller is about to be presented full screen or dismissed from full screen, to provide a zoom effect.
@@ -106,13 +106,13 @@ protocol QLPreviewControllerDelegate : NSObjectProtocol {
 /*!
  * @abstract The QLPreviewItem protocol declares the methods that a QLPreviewController  instance uses to access the contents of a given item.
  */
-protocol QLPreviewItem : NSObjectProtocol {
+protocol QLPreviewItem : ObjectProtocol {
 
   /*!
    * @abstract The URL of the item to preview.
    * @discussion The URL must be a file URL. 
    */
-  var previewItemURL: NSURL { get }
+  var previewItemURL: URL { get }
 
   /*!
    * @abstract The item's title this will be used as apparent item title.
@@ -124,13 +124,13 @@ protocol QLPreviewItem : NSObjectProtocol {
 /*!
  * @abstract This category makes NSURL instances as suitable items for the Preview Controller.
  */
-extension NSURL : QLPreviewItem {
+extension URL : QLPreviewItem {
 
   /*!
    * @abstract The URL of the item to preview.
    * @discussion The URL must be a file URL. 
    */
-  var previewItemURL: NSURL { get }
+  var previewItemURL: URL { get }
 
   /*!
    * @abstract The item's title this will be used as apparent item title.

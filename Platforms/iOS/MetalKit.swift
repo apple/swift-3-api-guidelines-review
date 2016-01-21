@@ -17,7 +17,7 @@ let MTKModelErrorKey: String
  @abstract Allocator passed to MDLAsset init method to load vertex and index data directly into Metal buffers.
  */
 @available(iOS 9.0, *)
-class MTKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
+class MTKMeshBufferAllocator : Object, MDLMeshBufferAllocator {
 
   /*!
    @method initWithDevice
@@ -53,7 +53,7 @@ class MTKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
                into any alignment restrictions necessary to use these buffers.
    */
   @available(iOS 9.0, *)
-  func newZoneForBuffersWithSize(sizes: [NSNumber], andType types: [NSNumber]) -> MDLMeshBufferZone
+  func newZoneForBuffersWithSize(sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
 
   /*!
    @method newBuffer:type:
@@ -72,7 +72,7 @@ class MTKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
    @param type Type of data to be stored in this buffer
    */
   @available(iOS 9.0, *)
-  func newBufferWith(data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBufferWith(data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
 
   /*!
    @method newBufferFromZone:length:type:
@@ -106,7 +106,7 @@ class MTKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
                buffer could not be allocated.
    */
   @available(iOS 9.0, *)
-  func newBufferFrom(zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFrom(zone: MDLMeshBufferZone?, data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 
 /*!
@@ -115,7 +115,7 @@ class MTKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
  @discussion Memory backing these buffer are Metal buffers.  Model I/O will load index and vertex data from from a model asset directly in to the Metal buffer.
  */
 @available(iOS 9.0, *)
-class MTKMeshBuffer : NSObject, MDLMeshBuffer {
+class MTKMeshBuffer : Object, MDLMeshBuffer {
 
   /*!
    @method length
@@ -159,7 +159,7 @@ class MTKMeshBuffer : NSObject, MDLMeshBuffer {
                this buffer.
    */
   @available(iOS 9.0, *)
-  func fill(data: NSData, offset: Int)
+  func fill(data: Data, offset: Int)
 
   /*!
    @method map
@@ -174,7 +174,7 @@ class MTKMeshBuffer : NSObject, MDLMeshBuffer {
   @available(iOS 9.0, *)
   func map() -> MDLMeshBufferMap
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -183,7 +183,7 @@ class MTKMeshBuffer : NSObject, MDLMeshBuffer {
  @discussion Container for data that can be rendered in a single draw call. 1:1 mapping to MDLSubmesh.  Each submesh contains an index Buffer with which the parents mesh data can be rendered.  Actual vertex data resides in the submesh's parent MTKMesh object.
  */
 @available(iOS 9.0, *)
-class MTKSubmesh : NSObject {
+class MTKSubmesh : Object {
 
   /*!
    @property primitiveType
@@ -235,7 +235,7 @@ class MTKSubmesh : NSObject {
  @abstract Container for vertex data of a mesh and submeshes to render it.
  */
 @available(iOS 9.0, *)
-class MTKMesh : NSObject {
+class MTKMesh : Object {
 
   /*!
    @method initWithMesh:device:error:
@@ -363,14 +363,14 @@ let MTKTextureLoaderOptionTextureUsage: String
  */
 @available(iOS 9.0, *)
 let MTKTextureLoaderOptionTextureCPUCacheMode: String
-typealias MTKTextureLoaderCallback = (MTLTexture?, NSError?) -> Void
+typealias MTKTextureLoaderCallback = (MTLTexture?, Error?) -> Void
 
 /*!
  @class MTKTextureLoader
  @abstract Load Metal textures from files with the device specified at initialization
  */
 @available(iOS 9.0, *)
-class MTKTextureLoader : NSObject {
+class MTKTextureLoader : Object {
 
   /*!
    @property device
@@ -392,7 +392,7 @@ class MTKTextureLoader : NSObject {
    @param options Dictonary of MTKTextureLoaderOptions
    @param completionHandler Block called when the texture has been loaded and fully initialized
    */
-  func newTextureWithContentsOf(URL: NSURL, options: [String : NSNumber]? = [:], completionHandler: MTKTextureLoaderCallback)
+  func newTextureWithContentsOf(URL: URL, options: [String : Number]? = [:], completionHandler: MTKTextureLoaderCallback)
 
   /*!
    @method newTextureWithData:options:completionHandler:
@@ -401,7 +401,7 @@ class MTKTextureLoader : NSObject {
    @param options Dictonary of MTKTextureLoaderOptions
    @param completionHandler Block called when texture has been loaded and fully initialized
    */
-  func newTextureWith(data: NSData, options: [String : NSNumber]? = [:], completionHandler: MTKTextureLoaderCallback)
+  func newTextureWith(data: Data, options: [String : Number]? = [:], completionHandler: MTKTextureLoaderCallback)
 
   /*!
    @method newTextureWithCGImage:options:completionHandler:
@@ -410,7 +410,7 @@ class MTKTextureLoader : NSObject {
    @param options Dictonary of MTKTextureLoaderOptions
    @param completionHandler Block called when texture has been loaded and fully initialized
    */
-  func newTextureWith(cgImage: CGImage, options: [String : NSNumber]? = [:], completionHandler: MTKTextureLoaderCallback)
+  func newTextureWith(cgImage: CGImage, options: [String : Number]? = [:], completionHandler: MTKTextureLoaderCallback)
 
   /*!
    @method newTextureWithContentsOfURL:options:error:
@@ -420,7 +420,7 @@ class MTKTextureLoader : NSObject {
    @param options Dictonary of MTKTextureLoaderOptions
    @param error Pointer to an autoreleased NSError object which will be set if an error occurred
    */
-  func newTextureWithContentsOf(URL: NSURL, options: [String : NSNumber]? = [:]) throws -> MTLTexture
+  func newTextureWithContentsOf(URL: URL, options: [String : Number]? = [:]) throws -> MTLTexture
 
   /*!
    @method newTextureWithData:options:error:
@@ -430,7 +430,7 @@ class MTKTextureLoader : NSObject {
    @param options Dictonary of MTKTextureLoaderOptions
    @param error Pointer to an autoreleased NSError object which will be set if an error occurred
    */
-  func newTextureWith(data: NSData, options: [String : NSNumber]? = [:]) throws -> MTLTexture
+  func newTextureWith(data: Data, options: [String : Number]? = [:]) throws -> MTLTexture
 
   /*!
    @method newTextureWithCGImage:options:error:
@@ -440,7 +440,7 @@ class MTKTextureLoader : NSObject {
    @param options Dictonary of MTKTextureLoaderOptions
    @param error Pointer to an autoreleased NSError object which will be set if an error occurred
    */
-  func newTextureWith(cgImage: CGImage, options: [String : NSNumber]? = [:]) throws -> MTLTexture
+  func newTextureWith(cgImage: CGImage, options: [String : Number]? = [:]) throws -> MTLTexture
 }
 
 /*!
@@ -448,7 +448,7 @@ class MTKTextureLoader : NSObject {
  @abstract View for rendering metal content
  */
 @available(iOS 9.0, *)
-class MTKView : UIView, NSCoding {
+class MTKView : UIView, Coding {
 
   /*!
    @method initWithFrame:device
@@ -463,7 +463,7 @@ class MTKView : UIView, NSCoding {
    @abstract Returns a view initalized from data in a given unarchiver
    @param coder An unarchiver object
    */
-  init(coder: NSCoder)
+  init(coder: Coder)
 
   /*!
    @property delegate
@@ -617,7 +617,7 @@ class MTKView : UIView, NSCoding {
  @abstract Allows an object to render into the view and respond to resize events
  */
 @available(iOS 9.0, *)
-protocol MTKViewDelegate : NSObjectProtocol {
+protocol MTKViewDelegate : ObjectProtocol {
 
   /*!
    @method mtkView:drawableSizeWillChange:

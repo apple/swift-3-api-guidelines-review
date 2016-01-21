@@ -21,7 +21,7 @@ class AddItemViewController: NSViewController {
     // MARK: IBActions
 
     @IBAction func textChanged(textField: NSTextField) {
-        let cleansedString = textField.stringValue.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewline())
+        let cleansedString = textField.stringValue.stringByTrimmingCharactersInSet(CharacterSet.whitespaceAndNewline())
         
         if !cleansedString.isEmpty {
             delegate?.addItemViewController(self, didCreateNewItemWithText: cleansedString)

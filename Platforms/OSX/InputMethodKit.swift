@@ -82,7 +82,7 @@ class IMKCandidates : NSResponder {
    @abstract   Displays an annotation window whose contents are the annotationString.
    @discussion An annotation is additional text that explains or somehow adds to the candidate string in a candidate window. Annotations are displayed in a small borderless window that is aligned with the current candidate panel. An input method calls showAnnotation: when the method [IMKInputController candidateSelectionChanged:] is called, and the candidateString has annotations.  
    */
-  func showAnnotation(annotationString: NSAttributedString!)
+  func showAnnotation(annotationString: AttributedString!)
   func showSublist(candidates: [AnyObject]!, subListDelegate delegate: AnyObject!)
 
   /*!
@@ -90,14 +90,14 @@ class IMKCandidates : NSResponder {
    @abstract   Returns the current selection.
    @discussion Call this to get the string that the user has selected.  Will return nil if no selection or window is not visible.  
    */
-  func selectedCandidateString() -> NSAttributedString!
+  func selectedCandidateString() -> AttributedString!
 
   /*!
    @method
    @abstract	Positions the top-left corner of the candidate window’s frame rectangle at a given point in screen coordinates. 
    */
-  func setCandidateFrameTopLeft(point: NSPoint)
-  func candidateFrame() -> NSRect
+  func setCandidateFrameTopLeft(point: Point)
+  func candidateFrame() -> Rect
 
   /*!
    @method     
@@ -150,13 +150,13 @@ class IMKCandidates : NSResponder {
    
    IMKCandidatesSendServerKeyEventFirst (value = NSNumber).  NO (default) gives the candidate window first chance at key events.  YES causes events to first be routed to the current IMKInputController.  In that case, if the event is not handled it will then be sent to the candidate window.
    */
-  func setAttributes(attributes: [NSObject : AnyObject]!)
+  func setAttributes(attributes: [Object : AnyObject]!)
 
   /*!
    @method     
    @abstract   Returns the attributes dictionary.
    */
-  func attributes() -> [NSObject : AnyObject]!
+  func attributes() -> [Object : AnyObject]!
 
   /*!
    @method     
@@ -274,7 +274,7 @@ class IMKCandidates : NSResponder {
   @available(OSX 10.7, *)
   func clearSelection()
   init()
-  init?(coder: NSCoder)
+  init?(coder: Coder)
 }
 
 /*!
@@ -312,7 +312,7 @@ let kIMKCommandClientName: String
                 3. Receive events directly from the Text Services Manager as NSEvent objects.  For this approach implement:
                         -(BOOL)handleEvent:(NSEvent*)event client:(id)sender;
 */
-extension NSObject {
+extension Object {
 
   /*!
       @method     
@@ -395,14 +395,14 @@ extension NSObject {
       @abstract   Return the a string consisting of the original pre-composition unicodes.
       @discussion If an input method stores the original input text it should return that text here.  The return value is an attributed string so that input method's can potentially restore changes they may have made to the font, etc.  The returned object should be an autoreleased object.
   */
-  class func originalString(sender: AnyObject!) -> NSAttributedString!
+  class func originalString(sender: AnyObject!) -> AttributedString!
 
   /*!
       @method     
       @abstract   Return the a string consisting of the original pre-composition unicodes.
       @discussion If an input method stores the original input text it should return that text here.  The return value is an attributed string so that input method's can potentially restore changes they may have made to the font, etc.  The returned object should be an autoreleased object.
   */
-  func originalString(sender: AnyObject!) -> NSAttributedString!
+  func originalString(sender: AnyObject!) -> AttributedString!
 
   /*!
       @method     
@@ -473,7 +473,7 @@ protocol IMKStateSetting {
       @discussion Typically this is called to to build the text input menu.  By calling the input method rather than reading the modes from the info.plist the input method can dynamically modify he modes supported. The returned NSDictionary should be an autoreleased object.
   */
   @available(OSX 10.0, *)
-  func modes(sender: AnyObject!) -> [NSObject : AnyObject]!
+  func modes(sender: AnyObject!) -> [Object : AnyObject]!
 
   /*!
       @method      
@@ -504,7 +504,7 @@ protocol IMKMouseHandling {
       @abstract   Sends a mouseDown to an input method.
       @discussion A mouse down event happened at given index within the sender� text storage, at the given point, and with modifier keys identified in flags. Return YES if handled.  Set keepTracking to YES if you want to receive subsequent mouseMoved and mouseUp events.
   */
-  func mouseDownOnCharacterIndex(index: Int, coordinate point: NSPoint, withModifier flags: Int, continueTracking keepTracking: UnsafeMutablePointer<ObjCBool>, client sender: AnyObject!) -> Bool
+  func mouseDownOnCharacterIndex(index: Int, coordinate point: Point, withModifier flags: Int, continueTracking keepTracking: UnsafeMutablePointer<ObjCBool>, client sender: AnyObject!) -> Bool
 
   /*!
       @method
@@ -512,7 +512,7 @@ protocol IMKMouseHandling {
       @abstract   Sends a mouseUp to an input method.
       @discussion A mouse up event happened at given index within the sender text view� text storage, at the given point, with modifier keys identified in flags. Return YES if handled.
   */
-  func mouseUpOnCharacterIndex(index: Int, coordinate point: NSPoint, withModifier flags: Int, client sender: AnyObject!) -> Bool
+  func mouseUpOnCharacterIndex(index: Int, coordinate point: Point, withModifier flags: Int, client sender: AnyObject!) -> Bool
 
   /*!
       @method
@@ -520,7 +520,7 @@ protocol IMKMouseHandling {
       @abstract   Passes a mouseMoved event to the input method.
       @discussion A mouse moved event happened at given index within the sender text view� text storage, at the given point, with modifier keys identified in flags. Return YES if handled.
   */
-  func mouseMovedOnCharacterIndex(index: Int, coordinate point: NSPoint, withModifier flags: Int, client sender: AnyObject!) -> Bool
+  func mouseMovedOnCharacterIndex(index: Int, coordinate point: Point, withModifier flags: Int, client sender: AnyObject!) -> Bool
 }
 
 /*!
@@ -530,7 +530,7 @@ protocol IMKMouseHandling {
     
     			The IMKServer class which is allocated in an input method's main function creates a controller class for each input session created by a client application. Therefore for every input session there is a corresponding IMKInputController.
 */
-class IMKInputController : NSObject, IMKStateSetting, IMKMouseHandling {
+class IMKInputController : Object, IMKStateSetting, IMKMouseHandling {
 
   /*!
       @method     
@@ -561,7 +561,7 @@ class IMKInputController : NSObject, IMKStateSetting, IMKMouseHandling {
       @abstract   Called to obtain a dictionary of text attributes.
       @discussion The default implementation returns an empty dictionary.  You should override this method if your input method wants to provide font or glyphInformation. The returned object should be an autoreleased object.
   */
-  func compositionAttributesAt(range: NSRange) -> NSMutableDictionary!
+  func compositionAttributesAt(range: NSRange) -> MutableDictionary!
 
   /*!
       @method    
@@ -588,7 +588,7 @@ class IMKInputController : NSObject, IMKStateSetting, IMKMouseHandling {
                   
                   Finally the style value is added as dictionary value.  The key for the style value is NSMarkedClauseSegment. The returned object should be an autoreleased object.
   */
-  func markForStyle(style: Int, at range: NSRange) -> [NSObject : AnyObject]!
+  func markForStyle(style: Int, at range: NSRange) -> [Object : AnyObject]!
 
   /*!
       @method     
@@ -604,7 +604,7 @@ class IMKInputController : NSObject, IMKStateSetting, IMKMouseHandling {
     	kIMKCommandMenuItemName			NSMenuItem  -- the NSMenuItem that was selected
     	kIMKCommandClientName			id<IMKTextInput, NSObject> - the current client
   */
-  func doCommandBy(aSelector: Selector, command infoDictionary: [NSObject : AnyObject]!)
+  func doCommandBy(aSelector: Selector, command infoDictionary: [Object : AnyObject]!)
 
   /*!
       @method     
@@ -642,7 +642,7 @@ class IMKInputController : NSObject, IMKStateSetting, IMKMouseHandling {
       @abstract   Returns this controller's client object.
       @discussion The client object will conform to the IMKTextInput protocol. The returned object is an autoreleased object.
   */
-  func client() -> protocol<IMKTextInput, NSObjectProtocol>!
+  func client() -> protocol<IMKTextInput, ObjectProtocol>!
 
   /*!
    @method     
@@ -656,21 +656,21 @@ class IMKInputController : NSObject, IMKStateSetting, IMKMouseHandling {
       @abstract   Called when a user has selected a annotation in a candidate window.
       @discussion When a candidate window is displayed and the user selects an annotation the selected annotation is sent to the input controller via this method.  The currently selected candidateString is also sent to the input method.
   */
-  func annotationSelected(annotationString: NSAttributedString!, forCandidate candidateString: NSAttributedString!)
+  func annotationSelected(annotationString: AttributedString!, forCandidate candidateString: AttributedString!)
 
   /*!
       @method     
       @abstract   Informs an input controller that the current candidate selection in the candidate window has changed.
       @discussion The candidate parameter is the candidate string that the selection changed to.  Note this method is called to indicate that the user is moving around in the candidate window.  The candidate object is not a final selection.
   */
-  func candidateSelectionChanged(candidateString: NSAttributedString!)
+  func candidateSelectionChanged(candidateString: AttributedString!)
 
   /*!
       @method     
       @abstract   Called when a new candidate has been finally selected.
       @discussion The candidate parameter is the users final choice from the candidate window. The candidate window will have been closed before this method is called.
   */
-  func candidateSelected(candidateString: NSAttributedString!)
+  func candidateSelected(candidateString: AttributedString!)
   init()
 
   /*!
@@ -703,7 +703,7 @@ class IMKInputController : NSObject, IMKStateSetting, IMKMouseHandling {
       @discussion Typically this is called to to build the text input menu.  By calling the input method rather than reading the modes from the info.plist the input method can dynamically modify he modes supported. The returned NSDictionary should be an autoreleased object.
   */
   @available(OSX 10.0, *)
-  func modes(sender: AnyObject!) -> [NSObject : AnyObject]!
+  func modes(sender: AnyObject!) -> [Object : AnyObject]!
 
   /*!
       @method      
@@ -727,7 +727,7 @@ class IMKInputController : NSObject, IMKStateSetting, IMKMouseHandling {
       @abstract   Sends a mouseDown to an input method.
       @discussion A mouse down event happened at given index within the sender� text storage, at the given point, and with modifier keys identified in flags. Return YES if handled.  Set keepTracking to YES if you want to receive subsequent mouseMoved and mouseUp events.
   */
-  func mouseDownOnCharacterIndex(index: Int, coordinate point: NSPoint, withModifier flags: Int, continueTracking keepTracking: UnsafeMutablePointer<ObjCBool>, client sender: AnyObject!) -> Bool
+  func mouseDownOnCharacterIndex(index: Int, coordinate point: Point, withModifier flags: Int, continueTracking keepTracking: UnsafeMutablePointer<ObjCBool>, client sender: AnyObject!) -> Bool
 
   /*!
       @method
@@ -735,7 +735,7 @@ class IMKInputController : NSObject, IMKStateSetting, IMKMouseHandling {
       @abstract   Sends a mouseUp to an input method.
       @discussion A mouse up event happened at given index within the sender text view� text storage, at the given point, with modifier keys identified in flags. Return YES if handled.
   */
-  func mouseUpOnCharacterIndex(index: Int, coordinate point: NSPoint, withModifier flags: Int, client sender: AnyObject!) -> Bool
+  func mouseUpOnCharacterIndex(index: Int, coordinate point: Point, withModifier flags: Int, client sender: AnyObject!) -> Bool
 
   /*!
       @method
@@ -743,7 +743,7 @@ class IMKInputController : NSObject, IMKStateSetting, IMKMouseHandling {
       @abstract   Passes a mouseMoved event to the input method.
       @discussion A mouse moved event happened at given index within the sender text view� text storage, at the given point, with modifier keys identified in flags. Return YES if handled.
   */
-  func mouseMovedOnCharacterIndex(index: Int, coordinate point: NSPoint, withModifier flags: Int, client sender: AnyObject!) -> Bool
+  func mouseMovedOnCharacterIndex(index: Int, coordinate point: Point, withModifier flags: Int, client sender: AnyObject!) -> Bool
 }
 
 /*!
@@ -771,7 +771,7 @@ let IMKDelegateClass: String
     
     			IMKServer's also will manage a basic candidate window for an input method.  See IMKCandidates.h to understand how to create a candidate window and associate the candidate window with the IMKServer object.
 */
-class IMKServer : NSObject {
+class IMKServer : Object {
 
   /*!
       @method     
@@ -794,7 +794,7 @@ class IMKServer : NSObject {
       @abstract   Returns an NSBundle for the input method.
       @discussion If the IMKServer contains a bundle identifier the NSBundle is created from that.  Otherwise, the bundle  is created for the main bundle.  The returned NSBundle is an autoreleased object.
   */
-  func bundle() -> NSBundle!
+  func bundle() -> Bundle!
 
   /*!
    @method     

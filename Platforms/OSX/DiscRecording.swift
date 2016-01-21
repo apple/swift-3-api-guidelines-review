@@ -19,7 +19,7 @@ func DRGetVersion() -> NumVersion
 
 					For examples of how to use this class see the on-disk sample code projects at /Developer/Examples/DiscRecording/ObjectiveC/. 
 */
-class DRBurn : NSObject {
+class DRBurn : Object {
 
   /*! 
      	@method 		burnForDevice:
@@ -69,7 +69,7 @@ class DRBurn : NSObject {
   	@discussion		The same dictionary is returned through the @link //apple_ref/occ/data/DRBurnStatusChangedNotification DRBurnStatusChangedNotification @/link notification
       @result  		An NSDictionary	reporting the status of the burn.	
   */
-  func status() -> [NSObject : AnyObject]!
+  func status() -> [Object : AnyObject]!
 
   /*! 
      	@method 		abort
@@ -88,14 +88,14 @@ class DRBurn : NSObject {
      	@abstract		Returns the properties dictionary of the burn.
       @result  		An NSDictionary containing the properties of the burn.
   */
-  func properties() -> [NSObject : AnyObject]!
+  func properties() -> [Object : AnyObject]!
 
   /*! 
      	@method 		setProperties:
      	@abstract		Sets the properties dictionary of the burn.
      	@param 			properties	NSDictionary of the properties to set.
   */
-  func setProperties(properties: [NSObject : AnyObject]!)
+  func setProperties(properties: [Object : AnyObject]!)
 
   /*! 
      	@method 		device
@@ -522,7 +522,7 @@ var DRCDTextGenreCodeWorldMusic: Int { get }
 	@abstract	Defines a CD-Text block, which holds the CD-Text strings
 				for the entire disc in one language.
 */
-class DRCDTextBlock : NSObject {
+class DRCDTextBlock : Object {
 
   /*!
   	@method		arrayOfCDTextBlocksFromPacks:
@@ -538,7 +538,7 @@ class DRCDTextBlock : NSObject {
   	@result		An autoreleased array of DRCDTextBlock objects describing the information
   				in the raw PACKs, or nil if the data could not be parsed.
   */
-  class func arrayOfCDTextBlocksFromPacks(packs: NSData!) -> [AnyObject]!
+  class func arrayOfCDTextBlocksFromPacks(packs: Data!) -> [AnyObject]!
 
   /*!
   	@method		cdTextBlockWithLanguage:encoding:
@@ -567,14 +567,14 @@ class DRCDTextBlock : NSObject {
      	@abstract		Returns the properties dictionary of the CD-Text block.
       @result  		An NSDictionary containing the properties of the block.
   */
-  func properties() -> [NSObject : AnyObject]!
+  func properties() -> [Object : AnyObject]!
 
   /*! 
      	@method 		setProperties:
      	@abstract		Sets the properties dictionary of the CD-Text block.
      	@param 			properties	NSDictionary of the properties to set.
   */
-  func setProperties(properties: [NSObject : AnyObject]!)
+  func setProperties(properties: [Object : AnyObject]!)
 
   /*!
   	@method		trackDictionaries
@@ -5697,7 +5697,7 @@ struct DRTrackProductionInfo {
 				closed (@link //apple_ref/occ/instm/DRDevice/closeTray closeTray @/link) and media 
 				can be ejected (@link //apple_ref/occ/instm/DRDevice/ejectMedia ejectMedia @/link).
 */
-class DRDevice : NSObject {
+class DRDevice : Object {
 
   /*! 
      	@method 		devices
@@ -5745,7 +5745,7 @@ class DRDevice : NSObject {
   					it's connected and its identifying information such as the vendor and product name.
   	@result			An NSDictionary containing device information.
   */
-  func info() -> [NSObject : AnyObject]!
+  func info() -> [Object : AnyObject]!
 
   /*!
   	@method			status
@@ -5755,7 +5755,7 @@ class DRDevice : NSObject {
   					itself which are in part determined by the media (i.e., maximum burn speed).
   	@result			An NSDictionary containing media information.
   */
-  func status() -> [NSObject : AnyObject]!
+  func status() -> [Object : AnyObject]!
 
   /*!
   	@method			openTray
@@ -7045,7 +7045,7 @@ let DRDeviceMediaTypeUnknown: String
 				}
 				@/textblock</pre>
 */
-class DRErase : NSObject {
+class DRErase : Object {
 
   /*!
   	@method			eraseForDevice:
@@ -7081,21 +7081,21 @@ class DRErase : NSObject {
   					through the @link //apple_ref/occ/data/DREraseStatusChangedNotification DREraseStatusChangedNotification @/link notification.
   	@result			An NSDictionary containing the status of the erase.
   */
-  func status() -> [NSObject : AnyObject]!
+  func status() -> [Object : AnyObject]!
 
   /*! 
      	@method 		properties
      	@abstract		Returns the properties dictionary of the erase.
       @result  		An NSDictionary containing the properties of the erase.
   */
-  func properties() -> [NSObject : AnyObject]!
+  func properties() -> [Object : AnyObject]!
 
   /*! 
      	@method 		setProperties:
      	@abstract		Sets the properties dictionary of the erase
      	@param 			properties	NSDictionary of the properties to set.
   */
-  func setProperties(properties: [NSObject : AnyObject]!)
+  func setProperties(properties: [Object : AnyObject]!)
 
   /*! 
      	@method 		device
@@ -7389,7 +7389,7 @@ var DRFilesystemInclusionMaskHFSPlus: Int { get }
 				is guaranteed to have a correct path on <b>all</b> filesystems is to create a virtual symlink
 				using @link //apple_ref/occ/clm/DRFSObject/symLinkPointingTo:inFilesystem: symLinkPointingTo:inFilesystem: @/link.  
 */
-class DRFSObject : NSObject {
+class DRFSObject : Object {
 
   /*!
   	@method		isVirtual
@@ -7475,7 +7475,7 @@ class DRFSObject : NSObject {
   	@param		filesystem	The filesystem to return the name from.
   	@result		An NSDictionary containing the name of the file on all the filesystems.
   */
-  func specificNames() -> [NSObject : AnyObject]!
+  func specificNames() -> [Object : AnyObject]!
 
   /*!
   	@method		setSpecificName:forFilesystem:
@@ -7503,7 +7503,7 @@ class DRFSObject : NSObject {
   				that you are always displaying the most current names to the user.
   	@param		specificNames	The names to set.
   */
-  func setSpecificNames(specificNames: [NSObject : AnyObject]!)
+  func setSpecificNames(specificNames: [Object : AnyObject]!)
 
   /*!
   	@method		mangledNameForFilesystem:
@@ -7525,7 +7525,7 @@ class DRFSObject : NSObject {
   				empty dictionary is returned.
   	@result		An NSDictionary containing the filesystem-specific mangled file names.
   */
-  func mangledNames() -> [NSObject : AnyObject]!
+  func mangledNames() -> [Object : AnyObject]!
 
   /*!
   	@method		propertyForKey:inFilesystem:mergeWithOtherFilesystems:
@@ -7556,7 +7556,7 @@ class DRFSObject : NSObject {
   	@param		merge		If <i>YES</i>, also look for properties in the umbrella @link DRAllFilesystems DRAllFilesystems @/link.
   	@result		A dictionary of property values.
   */
-  func propertiesForFilesystem(filesystem: String!, mergeWithOtherFilesystems merge: Bool) -> [NSObject : AnyObject]!
+  func propertiesForFilesystem(filesystem: String!, mergeWithOtherFilesystems merge: Bool) -> [Object : AnyObject]!
 
   /*!
   	@method		setProperty:forKey:inFilesystem:
@@ -7585,7 +7585,7 @@ class DRFSObject : NSObject {
   	@param		properties	The value of the property.
   	@param		filesystem	The filesystem to set the property in.
   */
-  func setProperties(properties: [NSObject : AnyObject]!, inFilesystem filesystem: String!)
+  func setProperties(properties: [Object : AnyObject]!, inFilesystem filesystem: String!)
 
   /*!
   	@method		explicitFilesystemMask
@@ -8026,7 +8026,7 @@ extension DRFile {
      	@param			data	The data that will become the contents of the file on the disc.
       @result  		An autoreleased DRFile object.
   */
-  class func virtualFileWithName(name: String!, data: NSData!) -> DRFile!
+  class func virtualFileWithName(name: String!, data: Data!) -> DRFile!
 
   /*! 
      	@method 		virtualFileWithName:dataProducer:
@@ -8048,7 +8048,7 @@ extension DRFile {
      	@param			data	The data that will become the contents of the file on the output disc.
       @result  		A DRFile object.
   */
-  init!(name: String!, data: NSData!)
+  init!(name: String!, data: Data!)
 
   /*! 
      	@method 		initWithName:dataProducer:
@@ -8360,7 +8360,7 @@ extension DRFolder {
 				A frame is equivalent to a sector or block in normal disk parlance. 75 frames make up one
 				second, so a 2 second pause (typical pregap size) is 150 frames. 
 */
-class DRMSF : NSNumber {
+class DRMSF : Number {
 
   /*!
   	@method		msf
@@ -8491,7 +8491,7 @@ class DRMSF : NSNumber {
   	@result		<i>YES</i> if the two object are equal, <i>NO</i> otherwise.
   */
   func isEqualTo(otherDRMSF: DRMSF!) -> Bool
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   init(char value: Int8)
   init(unsignedChar value: UInt8)
   init(short value: Int16)
@@ -8520,7 +8520,7 @@ class DRMSF : NSNumber {
 				MSF objects and convert textual representations of msf values into MSF objects.
 				DRMSFFormatters are typically instantiated in IB using the DiscRecording Interface builder palette.
 */
-class DRMSFFormatter : NSFormatter {
+class DRMSFFormatter : Formatter {
 
   /*!
   	@method 	initWithFormat:
@@ -8563,7 +8563,7 @@ class DRMSFFormatter : NSFormatter {
   */
   func setFormat(format: String!)
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -8586,7 +8586,7 @@ class DRMSFFormatter : NSFormatter {
 				will have it's own notification center and notifications from that notification
 				center will be posted to the runloop it was created on.
 */
-class DRNotificationCenter : NSObject {
+class DRNotificationCenter : Object {
 
   /*!
   	@method			currentRunLoopCenter
@@ -8926,7 +8926,7 @@ let DRErrorStatusAdditionalSenseStringKey: String
 	
 	All other keys contained in the properties dictionary are optional and can be omitted.
 */
-class DRTrack : NSObject {
+class DRTrack : Object {
 
   /*!
   	@method			initWithProducer:
@@ -8941,14 +8941,14 @@ class DRTrack : NSObject {
      	@abstract		Returns the properties dictionary of the track.
       @result  		An NSDictionary containing the properties of the track.
   */
-  func properties() -> [NSObject : AnyObject]!
+  func properties() -> [Object : AnyObject]!
 
   /*! 
      	@method 		setProperties:
      	@abstract		Sets the properties dictionary of the track
      	@param 			properties	NSDictionary of the properties to set.
   */
-  func setProperties(properties: [NSObject : AnyObject]!)
+  func setProperties(properties: [Object : AnyObject]!)
 
   /*! 
      	@method 		testProductionSpeedForInterval:
@@ -8965,7 +8965,7 @@ class DRTrack : NSObject {
      	@param 			interval	The length of the test in seconds.
      	@result			The maximum speed data can be produced at.
   */
-  func testProductionSpeedForInterval(interval: NSTimeInterval) -> Float
+  func testProductionSpeedForInterval(interval: TimeInterval) -> Float
 
   /*! 
      	@method 		testProductionSpeedForLength:
@@ -9104,7 +9104,7 @@ protocol DRTrackDataProduction {
   	@result			<i>YES</i> to indicate that the burn should proceed and <i>NO</i> to indicate a failure occurred.
   */
   @available(OSX 10.0, *)
-  func prepare(track: DRTrack!, forBurn burn: DRBurn!, toMedia mediaInfo: [NSObject : AnyObject]!) -> Bool
+  func prepare(track: DRTrack!, forBurn burn: DRBurn!, toMedia mediaInfo: [Object : AnyObject]!) -> Bool
 
   /*!
   	@method			cleanupTrackAfterBurn:

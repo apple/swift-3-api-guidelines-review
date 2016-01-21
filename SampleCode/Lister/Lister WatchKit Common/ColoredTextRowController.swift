@@ -12,7 +12,7 @@ import WatchKit
     A lightweight controller object that is responsible for displaying the content in a group within the
     `ListsInterfaceController` controller's `WKInterfaceTable` property.
 */
-class ColoredTextRowController: NSObject {
+class ColoredTextRowController: Object {
     // MARK: Properties
     
     @IBOutlet weak var listColorGroup: WKInterfaceGroup!

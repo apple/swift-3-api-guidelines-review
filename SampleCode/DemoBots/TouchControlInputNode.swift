@@ -77,7 +77,7 @@ class TouchControlInputNode: SKSpriteNode, ThumbStickNodeDelegate, ControlInputS
         userInteractionEnabled = true
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: Coder) {
         fatalError("init(coder:) has not been implemented")
     }
     

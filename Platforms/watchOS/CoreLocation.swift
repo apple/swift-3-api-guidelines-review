@@ -10,7 +10,7 @@ class CLCircularRegion : CLRegion {
   @available(watchOS, introduced=2.0, deprecated=2.0)
   init(circularRegionWithCenter center: CLLocationCoordinate2D, radius: CLLocationDistance, identifier: String)
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 enum CLError : Int {
   init?(rawValue: Int)
@@ -40,12 +40,12 @@ extension CLError : _BridgedNSError {
   typealias RawValue = Int
 }
 let kCLErrorDomain: String
-typealias CLGeocodeCompletionHandler = ([CLPlacemark]?, NSError?) -> Void
+typealias CLGeocodeCompletionHandler = ([CLPlacemark]?, Error?) -> Void
 @available(watchOS 2.0, *)
-class CLGeocoder : NSObject {
+class CLGeocoder : Object {
   var isGeocoding: Bool { get }
   func reverseGeocodeLocation(location: CLLocation, completionHandler: CLGeocodeCompletionHandler)
-  func geocodeAddressDictionary(addressDictionary: [NSObject : AnyObject], completionHandler: CLGeocodeCompletionHandler)
+  func geocodeAddressDictionary(addressDictionary: [Object : AnyObject], completionHandler: CLGeocodeCompletionHandler)
   func geocodeAddressString(addressString: String, completionHandler: CLGeocodeCompletionHandler)
   func geocodeAddressString(addressString: String, in region: CLRegion?, completionHandler: CLGeocodeCompletionHandler)
   func cancelGeocode()
@@ -75,7 +75,7 @@ let kCLLocationAccuracyThreeKilometers: CLLocationAccuracy
 @available(watchOS 2.0, *)
 let CLLocationDistanceMax: CLLocationDistance
 @available(watchOS 2.0, *)
-let CLTimeIntervalMax: NSTimeInterval
+let CLTimeIntervalMax: TimeInterval
 @available(watchOS 2.0, *)
 let kCLLocationCoordinate2DInvalid: CLLocationCoordinate2D
 @available(watchOS 2.0, *)
@@ -83,28 +83,28 @@ func CLLocationCoordinate2DIsValid(coord: CLLocationCoordinate2D) -> Bool
 @available(watchOS 2.0, *)
 func CLLocationCoordinate2DMake(latitude: CLLocationDegrees, _ longitude: CLLocationDegrees) -> CLLocationCoordinate2D
 @available(watchOS 2.0, *)
-class CLFloor : NSObject, NSCopying, NSSecureCoding {
+class CLFloor : Object, Copying, SecureCoding {
   var level: Int { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(watchOS 2.0, *)
-class CLLocation : NSObject, NSCopying, NSSecureCoding {
+class CLLocation : Object, Copying, SecureCoding {
   init(latitude: CLLocationDegrees, longitude: CLLocationDegrees)
-  init(coordinate: CLLocationCoordinate2D, altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, timestamp: NSDate)
+  init(coordinate: CLLocationCoordinate2D, altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, timestamp: Date)
   @available(watchOS 2.0, *)
-  init(coordinate: CLLocationCoordinate2D, altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, course: CLLocationDirection, speed: CLLocationSpeed, timestamp: NSDate)
+  init(coordinate: CLLocationCoordinate2D, altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, course: CLLocationDirection, speed: CLLocationSpeed, timestamp: Date)
   var coordinate: CLLocationCoordinate2D { get }
   var altitude: CLLocationDistance { get }
   var horizontalAccuracy: CLLocationAccuracy { get }
   var verticalAccuracy: CLLocationAccuracy { get }
-  @NSCopying var timestamp: NSDate { get }
+  @NSCopying var timestamp: Date { get }
   @available(watchOS 2.0, *)
   @NSCopying var floor: CLFloor? { get }
   var description: String { get }
@@ -112,12 +112,12 @@ class CLLocation : NSObject, NSCopying, NSSecureCoding {
   func distanceFrom(location: CLLocation) -> CLLocationDistance
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 enum CLDeviceOrientation : Int32 {
   init?(rawValue: Int32)
@@ -150,7 +150,7 @@ enum CLActivityType : Int {
   case OtherNavigation
 }
 @available(watchOS 2.0, *)
-class CLLocationManager : NSObject {
+class CLLocationManager : Object {
   @available(watchOS 2.0, *)
   class func locationServicesEnabled() -> Bool
   @available(watchOS 2.0, *)
@@ -168,24 +168,24 @@ class CLLocationManager : NSObject {
   func requestLocation()
   init()
 }
-protocol CLLocationManagerDelegate : NSObjectProtocol {
+protocol CLLocationManagerDelegate : ObjectProtocol {
   @available(watchOS 2.0, *)
   optional func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
   @available(watchOS 2.0, *)
-  optional func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
+  optional func locationManager(manager: CLLocationManager, didFailWithError error: Error)
   @available(watchOS 2.0, *)
   optional func locationManager(manager: CLLocationManager, didChange status: CLAuthorizationStatus)
 }
 extension CLLocationManager {
 }
 @available(watchOS 2.0, *)
-class CLPlacemark : NSObject, NSCopying, NSSecureCoding {
+class CLPlacemark : Object, Copying, SecureCoding {
   init(placemark: CLPlacemark)
   @NSCopying var location: CLLocation? { get }
   @NSCopying var region: CLRegion? { get }
   @available(watchOS 2.0, *)
-  @NSCopying var timeZone: NSTimeZone? { get }
-  var addressDictionary: [NSObject : AnyObject]? { get }
+  @NSCopying var timeZone: TimeZone? { get }
+  var addressDictionary: [Object : AnyObject]? { get }
   var name: String? { get }
   var thoroughfare: String? { get }
   var subThoroughfare: String? { get }
@@ -201,15 +201,15 @@ class CLPlacemark : NSObject, NSCopying, NSSecureCoding {
   var areasOfInterest: [String]? { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(watchOS 2.0, *)
-class CLRegion : NSObject, NSCopying, NSSecureCoding {
+class CLRegion : Object, Copying, SecureCoding {
   @available(watchOS, introduced=2.0, deprecated=2.0)
   init(circularRegionWithCenter center: CLLocationCoordinate2D, radius: CLLocationDistance, identifier: String)
   @available(watchOS, introduced=2.0, deprecated=2.0)
@@ -226,10 +226,10 @@ class CLRegion : NSObject, NSCopying, NSSecureCoding {
   func contains(coordinate: CLLocationCoordinate2D) -> Bool
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }

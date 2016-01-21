@@ -80,7 +80,7 @@ import Foundation
         - parameter listInfo: The `ListInfo` that represents the list that couldn't be created.
         - parameter error: The error that occured.
     */
-    optional func listsController(listsController: ListsController, didFailCreatingListInfo listInfo: ListInfo, withError error: NSError)
+    optional func listsController(listsController: ListsController, didFailCreatingListInfo listInfo: ListInfo, withError error: Error)
 
     /**
         Notifies the receiver of this method that an error occured when removing an existing `ListInfo`
@@ -90,7 +90,7 @@ import Foundation
         - parameter listInfo: The `ListInfo` that represents the list that couldn't be removed.
         - parameter error: The error that occured.
     */
-    optional func listsController(listsController: ListsController, didFailRemovingListInfo listInfo: ListInfo, withError error: NSError)
+    optional func listsController(listsController: ListsController, didFailRemovingListInfo listInfo: ListInfo, withError error: Error)
 }
 
 /**
@@ -109,7 +109,7 @@ import Foundation
     the application are unaffected since the lists controller will notify them of the appropriate
     changes (removes, inserts, etc.).
 */
-final public class ListsController: NSObject, ListCoordinatorDelegate {
+final public class ListsController: Object, ListCoordinatorDelegate {
     // MARK: Properties
 
     /// The `ListsController`'s delegate who is responsible for responding to `ListsController` updates.
@@ -132,7 +132,7 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
             oldListCoordinator.stopQuery()
             
             // Map the listInfo objects protected by listInfoQueue.
-            var allURLs: [NSURL]!
+            var allURLs: [URL]!
             dispatch_sync(listInfoQueue) {
                 allURLs = self.listInfos.map { $0.URL }
             }
@@ -146,7 +146,7 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
     }
     
     /// A URL for the directory containing documents within the application's container.
-    public var documentsDirectory: NSURL {
+    public var documentsDirectory: URL {
         return listCoordinator.documentsDirectory
     }
 
@@ -169,7 +169,7 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
     private let sortPredicate: ((lhs: ListInfo, rhs: ListInfo) -> Bool)?
     
     /// The queue on which the `ListsController` object invokes delegate messages.
-    private var delegateQueue: NSOperationQueue
+    private var delegateQueue: OperationQueue
 
     // MARK: Initializers
     
@@ -181,7 +181,7 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
         - parameter delegateQueue: The queue on which the `ListsController` object invokes delegate messages.
         - parameter sortPredicate: The predicate that determines the strict sort ordering of the `listInfos` array.
     */
-    public init(listCoordinator: ListCoordinator, delegateQueue: NSOperationQueue, sortPredicate: ((lhs: ListInfo, rhs: ListInfo) -> Bool)? = nil) {
+    public init(listCoordinator: ListCoordinator, delegateQueue: OperationQueue, sortPredicate: ((lhs: ListInfo, rhs: ListInfo) -> Bool)? = nil) {
         self.listCoordinator = listCoordinator
         self.delegateQueue = delegateQueue
         self.sortPredicate = sortPredicate
@@ -281,7 +281,7 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
         - parameter URL: The `NSURL` object representing the list to be copied.
         - parameter name: The name of the `list` to be overwritten.
     */
-    public func copyListFromURL(URL: NSURL, toListWithName name: String) {
+    public func copyListFromURL(URL: URL, toListWithName name: String) {
         listCoordinator.copyListFromURL(URL, toListWithName: name)
     }
     
@@ -322,7 +322,7 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
         - parameter removedURLs: The `NSURL` instances that should be untracked.
         - parameter updatedURLs: The `NSURL` instances that have had their underlying model updated.
     */
-    public func listCoordinatorDidUpdateContents(insertedURLs insertedURLs: [NSURL], removedURLs: [NSURL], updatedURLs: [NSURL]) {
+    public func listCoordinatorDidUpdateContents(insertedURLs insertedURLs: [URL], removedURLs: [URL], updatedURLs: [URL]) {
         processContentChanges(insertedURLs: insertedURLs, removedURLs: removedURLs, updatedURLs: updatedURLs)
     }
     
@@ -334,7 +334,7 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
         - parameter URL: The `NSURL` instances that was failed to be created.
         - parameter error: The error the describes why the create failed.
     */
-    public func listCoordinatorDidFailCreatingListAtURL(URL: NSURL, withError error: NSError) {
+    public func listCoordinatorDidFailCreatingListAtURL(URL: URL, withError error: Error) {
         let listInfo = ListInfo(URL: URL)
         
         delegateQueue.addOperationWith {
@@ -352,7 +352,7 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
         - parameter URL: The `NSURL` instance that failed to be removed
         - parameter error: The error that describes why the remove failed.
     */
-    public func listCoordinatorDidFailRemovingListAtURL(URL: NSURL, withError error: NSError) {
+    public func listCoordinatorDidFailRemovingListAtURL(URL: URL, withError error: Error) {
         let listInfo = ListInfo(URL: URL)
         
         delegateQueue.addOperationWith {
@@ -373,7 +373,7 @@ final public class ListsController: NSObject, ListCoordinatorDelegate {
         - parameter removedURLs: The `NSURL` instances that have just been untracked.
         - parameter updatedURLs: The `NSURL` instances that have had their underlying model updated.
     */
-    private func processContentChanges(insertedURLs insertedURLs: [NSURL], removedURLs: [NSURL], updatedURLs: [NSURL]) {
+    private func processContentChanges(insertedURLs insertedURLs: [URL], removedURLs: [URL], updatedURLs: [URL]) {
         let insertedListInfos = insertedURLs.map { ListInfo(URL: $0) }
         let removedListInfos = removedURLs.map { ListInfo(URL: $0) }
         let updatedListInfos = updatedURLs.map { ListInfo(URL: $0) }

@@ -75,13 +75,13 @@ final class GameInput {
 
     /// Register for `GCGameController` pairing notifications.
     func registerForGameControllerNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleControllerDidConnectNotification:", name: GCControllerDidConnectNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleControllerDidDisconnectNotification:", name: GCControllerDidDisconnectNotification, object: nil)
+        NotificationCenter.defaultCenter().addObserver(self, selector: "handleControllerDidConnectNotification:", name: GCControllerDidConnectNotification, object: nil)
+        NotificationCenter.defaultCenter().addObserver(self, selector: "handleControllerDidDisconnectNotification:", name: GCControllerDidDisconnectNotification, object: nil)
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: GCControllerDidConnectNotification, object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: GCControllerDidDisconnectNotification, object: nil)
+        NotificationCenter.defaultCenter().removeObserver(self, name: GCControllerDidConnectNotification, object: nil)
+        NotificationCenter.defaultCenter().removeObserver(self, name: GCControllerDidDisconnectNotification, object: nil)
     }
     
     func updateWithGameController(gameController: GCController) {
@@ -108,14 +108,14 @@ final class GameInput {
     
     // MARK: GCGameController Notification Handling
     
-    @objc func handleControllerDidConnectNotification(notification: NSNotification) {
+    @objc func handleControllerDidConnectNotification(notification: Notification) {
         let connectedGameController = notification.object as! GCController
         
         updateWithGameController(connectedGameController)
         delegate?.gameInputDidUpdateControlInputSources(self)
     }
     
-    @objc func handleControllerDidDisconnectNotification(notification: NSNotification) {
+    @objc func handleControllerDidDisconnectNotification(notification: Notification) {
         let disconnectedGameController = notification.object as! GCController
         
         // Check if the player was being controlled by the disconnected controller.

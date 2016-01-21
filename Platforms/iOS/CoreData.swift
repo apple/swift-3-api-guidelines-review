@@ -98,7 +98,7 @@ var NSInferredMappingModelError: Int { get }
 var NSExternalRecordImportError: Int { get }
 @available(iOS 3.0, *)
 class NSAtomicStore : NSPersistentStore {
-  init(persistentStoreCoordinator coordinator: NSPersistentStoreCoordinator?, configurationName: String?, url: NSURL, options: [NSObject : AnyObject]? = [:])
+  init(persistentStoreCoordinator coordinator: NSPersistentStoreCoordinator?, configurationName: String?, url: URL, options: [Object : AnyObject]? = [:])
   func load() throws
   func save() throws
   func newCacheNodeFor(managedObject: NSManagedObject) -> NSAtomicStoreCacheNode
@@ -112,10 +112,10 @@ class NSAtomicStore : NSPersistentStore {
   func referenceObjectFor(objectID: NSManagedObjectID) -> AnyObject
 }
 @available(iOS 3.0, *)
-class NSAtomicStoreCacheNode : NSObject {
+class NSAtomicStoreCacheNode : Object {
   init(objectID moid: NSManagedObjectID)
   var objectID: NSManagedObjectID { get }
-  var propertyCache: NSMutableDictionary?
+  var propertyCache: MutableDictionary?
   func valueForKey(key: String) -> AnyObject?
   func setValue(value: AnyObject?, forKey key: String)
   init()
@@ -145,13 +145,13 @@ class NSAttributeDescription : NSPropertyDescription {
   var attributeValueClassName: String?
   var defaultValue: AnyObject?
   @available(iOS 3.0, *)
-  @NSCopying var versionHash: NSData { get }
+  @NSCopying var versionHash: Data { get }
   @available(iOS 3.0, *)
   var valueTransformerName: String?
   @available(iOS 5.0, *)
   var allowsExternalBinaryDataStorage: Bool
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 struct __attributeDescriptionFlags {
   var _hasMaxValueInExtraIvars: UInt32
@@ -174,10 +174,10 @@ class NSBatchUpdateRequest : NSPersistentStoreRequest {
   init(entity: NSEntityDescription)
   var entityName: String { get }
   var entity: NSEntityDescription { get }
-  var predicate: NSPredicate?
+  var predicate: Predicate?
   var includesSubentities: Bool
   var resultType: NSBatchUpdateRequestResultType
-  var propertiesToUpdate: [NSObject : AnyObject]?
+  var propertiesToUpdate: [Object : AnyObject]?
   init()
 }
 struct _requestFlags {
@@ -189,7 +189,7 @@ struct _requestFlags {
   init(includesSubentities: UInt32, resultType: UInt32, entityIsName: UInt32, _RESERVED: UInt32)
 }
 @available(iOS 3.0, *)
-class NSEntityDescription : NSObject, NSCoding, NSCopying, NSFastEnumeration {
+class NSEntityDescription : Object, Coding, Copying, FastEnumeration {
   class func entityForName(entityName: String, in context: NSManagedObjectContext) -> NSEntityDescription?
   class func insertNewObjectForEntityForName(entityName: String, in context: NSManagedObjectContext) -> NSManagedObject
   unowned(unsafe) var managedObjectModel: @sil_unmanaged NSManagedObjectModel { get }
@@ -201,14 +201,14 @@ class NSEntityDescription : NSObject, NSCoding, NSCopying, NSFastEnumeration {
   unowned(unsafe) var superentity: @sil_unmanaged NSEntityDescription? { get }
   var propertiesByName: [String : NSPropertyDescription] { get }
   var properties: [NSPropertyDescription]
-  var userInfo: [NSObject : AnyObject]?
+  var userInfo: [Object : AnyObject]?
   var attributesByName: [String : NSAttributeDescription] { get }
   var relationshipsByName: [String : NSRelationshipDescription] { get }
   func relationshipsWithDestinationEntity(entity: NSEntityDescription) -> [NSRelationshipDescription]
   @available(iOS 3.0, *)
   func isKindOfEntity(entity: NSEntityDescription) -> Bool
   @available(iOS 3.0, *)
-  @NSCopying var versionHash: NSData { get }
+  @NSCopying var versionHash: Data { get }
   @available(iOS 3.0, *)
   var versionHashModifier: String?
   @available(iOS 3.0, *)
@@ -219,12 +219,12 @@ class NSEntityDescription : NSObject, NSCoding, NSCopying, NSFastEnumeration {
   var uniquenessConstraints: [[AnyObject]]
   init()
   @available(iOS 3.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(iOS 3.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 3.0, *)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 struct __entityDescriptionFlags {
   var _isAbstract: UInt32
@@ -254,17 +254,17 @@ enum NSEntityMappingType : UInt {
   case TransformEntityMappingType
 }
 @available(iOS 3.0, *)
-class NSEntityMapping : NSObject {
+class NSEntityMapping : Object {
   var name: String!
   var mappingType: NSEntityMappingType
   var sourceEntityName: String?
-  @NSCopying var sourceEntityVersionHash: NSData?
+  @NSCopying var sourceEntityVersionHash: Data?
   var destinationEntityName: String?
-  @NSCopying var destinationEntityVersionHash: NSData?
+  @NSCopying var destinationEntityVersionHash: Data?
   var attributeMappings: [NSPropertyMapping]?
   var relationshipMappings: [NSPropertyMapping]?
-  var sourceExpression: NSExpression?
-  var userInfo: [NSObject : AnyObject]?
+  var sourceExpression: Expression?
+  var userInfo: [Object : AnyObject]?
   var entityMigrationPolicyClassName: String?
   init()
 }
@@ -287,7 +287,7 @@ let NSMigrationPropertyMappingKey: String
 @available(iOS 3.0, *)
 let NSMigrationEntityPolicyKey: String
 @available(iOS 3.0, *)
-class NSEntityMigrationPolicy : NSObject {
+class NSEntityMigrationPolicy : Object {
   func begin(mapping: NSEntityMapping, manager: NSMigrationManager) throws
   func createDestinationInstancesForSourceInstance(sInstance: NSManagedObject, entityMapping mapping: NSEntityMapping, manager: NSMigrationManager) throws
   func endInstanceCreationFor(mapping: NSEntityMapping, manager: NSMigrationManager) throws
@@ -299,10 +299,10 @@ class NSEntityMigrationPolicy : NSObject {
 }
 @available(iOS 3.0, *)
 class NSExpressionDescription : NSPropertyDescription {
-  var expression: NSExpression?
+  var expression: Expression?
   var expressionResultType: NSAttributeType
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 struct NSFetchRequestResultType : OptionSetType {
   init(rawValue: UInt)
@@ -315,15 +315,15 @@ struct NSFetchRequestResultType : OptionSetType {
   static var CountResultType: NSFetchRequestResultType { get }
 }
 @available(iOS 3.0, *)
-class NSFetchRequest : NSPersistentStoreRequest, NSCoding {
+class NSFetchRequest : NSPersistentStoreRequest, Coding {
   init()
   @available(iOS 4.0, *)
   convenience init(entityName: String)
   var entity: NSEntityDescription?
   @available(iOS 4.0, *)
   var entityName: String? { get }
-  var predicate: NSPredicate?
-  var sortDescriptors: [NSSortDescriptor]?
+  var predicate: Predicate?
+  var sortDescriptors: [SortDescriptor]?
   var fetchLimit: Int
   var affectedStores: [NSPersistentStore]?
   @available(iOS 3.0, *)
@@ -351,10 +351,10 @@ class NSFetchRequest : NSPersistentStoreRequest, NSCoding {
   @available(iOS 5.0, *)
   var propertiesToGroupBy: [AnyObject]?
   @available(iOS 5.0, *)
-  var havingPredicate: NSPredicate?
+  var havingPredicate: Predicate?
   @available(iOS 3.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 struct _fetchRequestFlags {
   var distinctValuesOnly: UInt32
@@ -372,15 +372,15 @@ struct _fetchRequestFlags {
   init()
   init(distinctValuesOnly: UInt32, includesSubentities: UInt32, includesPropertyValues: UInt32, resultType: UInt32, returnsObjectsAsFaults: UInt32, excludePendingChanges: UInt32, isInUse: UInt32, entityIsName: UInt32, refreshesRefetched: UInt32, propertiesValidated: UInt32, disableCaching: UInt32, _RESERVED: UInt32)
 }
-let NSFetchRequestExpressionType: NSExpressionType
+let NSFetchRequestExpressionType: ExpressionType
 @available(iOS 3.0, *)
-class NSFetchRequestExpression : NSExpression {
-  class func expressionForFetch(fetch: NSExpression, context: NSExpression, countOnly countFlag: Bool) -> NSExpression
-  var requestExpression: NSExpression { get }
-  var contextExpression: NSExpression { get }
+class NSFetchRequestExpression : Expression {
+  class func expressionForFetch(fetch: Expression, context: Expression, countOnly countFlag: Bool) -> Expression
+  var requestExpression: Expression { get }
+  var contextExpression: Expression { get }
   var isCountOnlyRequest: Bool { get }
-  init(expressionType type: NSExpressionType)
-  init?(coder: NSCoder)
+  init(expressionType type: ExpressionType)
+  init?(coder: Coder)
   convenience init()
 }
 struct _fetchExpressionFlags {
@@ -393,10 +393,10 @@ struct _fetchExpressionFlags {
 class NSFetchedPropertyDescription : NSPropertyDescription {
   var fetchRequest: NSFetchRequest?
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 3.0, *)
-class NSFetchedResultsController : NSObject {
+class NSFetchedResultsController : Object {
   init(fetchRequest: NSFetchRequest, managedObjectContext context: NSManagedObjectContext, sectionNameKeyPath: String?, cacheName name: String?)
   func performFetch() throws
   var fetchRequest: NSFetchRequest { get }
@@ -406,8 +406,8 @@ class NSFetchedResultsController : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged NSFetchedResultsControllerDelegate?
   class func deleteCacheWithName(name: String?)
   var fetchedObjects: [AnyObject]? { get }
-  func objectAt(indexPath: NSIndexPath) -> AnyObject
-  func indexPathFor(object: AnyObject) -> NSIndexPath?
+  func objectAt(indexPath: IndexPath) -> AnyObject
+  func indexPathFor(object: AnyObject) -> IndexPath?
   func sectionIndexTitleForSectionName(sectionName: String) -> String?
   var sectionIndexTitles: [String] { get }
   var sections: [NSFetchedResultsSectionInfo]? { get }
@@ -436,9 +436,9 @@ protocol NSFetchedResultsSectionInfo {
   var numberOfObjects: Int { get }
   var objects: [AnyObject]? { get }
 }
-protocol NSFetchedResultsControllerDelegate : NSObjectProtocol {
+protocol NSFetchedResultsControllerDelegate : ObjectProtocol {
   @available(iOS 3.0, *)
-  optional func controller(controller: NSFetchedResultsController, didChange anObject: AnyObject, at indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?)
+  optional func controller(controller: NSFetchedResultsController, didChange anObject: AnyObject, at indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
   @available(iOS 3.0, *)
   optional func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, at sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType)
   @available(iOS 3.0, *)
@@ -463,16 +463,16 @@ class NSIncrementalStore : NSPersistentStore {
   func execute(request: NSPersistentStoreRequest, withContext context: NSManagedObjectContext?) throws -> AnyObject
   func newValuesForObjectWith(objectID: NSManagedObjectID, withContext context: NSManagedObjectContext) throws -> NSIncrementalStoreNode
   func newValueForRelationship(relationship: NSRelationshipDescription, forObjectWith objectID: NSManagedObjectID, withContext context: NSManagedObjectContext?) throws -> AnyObject
-  class func identifierForNewStoreAt(storeURL: NSURL) -> AnyObject
+  class func identifierForNewStoreAt(storeURL: URL) -> AnyObject
   func obtainPermanentIDsFor(array: [NSManagedObject]) throws -> [NSManagedObjectID]
   func managedObjectContextDidRegisterObjectsWithIDs(objectIDs: [NSManagedObjectID])
   func managedObjectContextDidUnregisterObjectsWithIDs(objectIDs: [NSManagedObjectID])
   func newObjectIDForEntity(entity: NSEntityDescription, referenceObject data: AnyObject) -> NSManagedObjectID
   func referenceObjectFor(objectID: NSManagedObjectID) -> AnyObject
-  init(persistentStoreCoordinator root: NSPersistentStoreCoordinator?, configurationName name: String?, url: NSURL, options: [NSObject : AnyObject]? = [:])
+  init(persistentStoreCoordinator root: NSPersistentStoreCoordinator?, configurationName name: String?, url: URL, options: [Object : AnyObject]? = [:])
 }
 @available(iOS 5.0, *)
-class NSIncrementalStoreNode : NSObject {
+class NSIncrementalStoreNode : Object {
   init(objectID: NSManagedObjectID, withValues values: [String : AnyObject], version: UInt64)
   func updateWithValues(values: [String : AnyObject], version: UInt64)
   var objectID: NSManagedObjectID { get }
@@ -491,7 +491,7 @@ struct NSSnapshotEventType : OptionSetType {
   static var MergePolicy: NSSnapshotEventType { get }
 }
 @available(iOS 3.0, *)
-class NSManagedObject : NSObject {
+class NSManagedObject : Object {
   @available(iOS 3.0, *)
   class func contextShouldIgnoreUnmodeledPropertyChanges() -> Bool
   init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?)
@@ -516,8 +516,8 @@ class NSManagedObject : NSObject {
   func didAccessValueForKey(key: String?)
   func willChangeValueForKey(key: String)
   func didChangeValueForKey(key: String)
-  func willChangeValueForKey(inKey: String, withSetMutation inMutationKind: NSKeyValueSetMutationKind, usingObjects inObjects: Set<NSObject>)
-  func didChangeValueForKey(inKey: String, withSetMutation inMutationKind: NSKeyValueSetMutationKind, usingObjects inObjects: Set<NSObject>)
+  func willChangeValueForKey(inKey: String, withSetMutation inMutationKind: KeyValueSetMutationKind, usingObjects inObjects: Set<Object>)
+  func didChangeValueForKey(inKey: String, withSetMutation inMutationKind: KeyValueSetMutationKind, usingObjects inObjects: Set<Object>)
   func awakeFromFetch()
   func awakeFromInsert()
   @available(iOS 3.0, *)
@@ -571,7 +571,7 @@ enum NSManagedObjectContextConcurrencyType : UInt {
   case MainQueueConcurrencyType
 }
 @available(iOS 3.0, *)
-class NSManagedObjectContext : NSObject, NSCoding, NSLocking {
+class NSManagedObjectContext : Object, Coding, Locking {
   @available(iOS, introduced=3.0, deprecated=9.0, message="Use -initWithConcurrencyType: instead")
   class func new() -> Self
   @available(iOS, introduced=3.0, deprecated=9.0, message="Use -initWithConcurrencyType: instead")
@@ -587,10 +587,10 @@ class NSManagedObjectContext : NSObject, NSCoding, NSLocking {
   var parent: NSManagedObjectContext?
   @available(iOS 8.0, *)
   var name: String?
-  var undoManager: NSUndoManager?
+  var undoManager: UndoManager?
   var hasChanges: Bool { get }
   @available(iOS 5.0, *)
-  var userInfo: NSMutableDictionary { get }
+  var userInfo: MutableDictionary { get }
   @available(iOS 5.0, *)
   var concurrencyType: NSManagedObjectContextConcurrencyType { get }
   func objectRegisteredFor(objectID: NSManagedObjectID) -> NSManagedObject?
@@ -599,7 +599,7 @@ class NSManagedObjectContext : NSObject, NSCoding, NSLocking {
   func existingObjectWith(objectID: NSManagedObjectID) throws -> NSManagedObject
   func execute(request: NSFetchRequest) throws -> [AnyObject]
   @available(iOS 3.0, *)
-  func countFor(request: NSFetchRequest, error: NSErrorPointer) -> Int
+  func countFor(request: NSFetchRequest, error: ErrorPointer) -> Int
   @available(iOS 8.0, *)
   func execute(request: NSPersistentStoreRequest) throws -> NSPersistentStoreResult
   func insert(object: NSManagedObject)
@@ -632,17 +632,17 @@ class NSManagedObjectContext : NSObject, NSCoding, NSLocking {
   var shouldDeleteInaccessibleFaults: Bool
   @available(iOS 9.0, *)
   func shouldHandleInaccessibleFault(fault: NSManagedObject, forObjectID oid: NSManagedObjectID, triggeredByProperty property: NSPropertyDescription?) -> Bool
-  var stalenessInterval: NSTimeInterval
+  var stalenessInterval: TimeInterval
   var mergePolicy: AnyObject
   @available(iOS 3.0, *)
   func obtainPermanentIDsFor(objects: [NSManagedObject]) throws
   @available(iOS 3.0, *)
-  func mergeChangesFromContextDidSave(notification: NSNotification)
+  func mergeChangesFromContextDidSave(notification: Notification)
   @available(iOS 9.0, *)
-  class func mergeChangesFromRemoteContextSave(changeNotificationData: [NSObject : AnyObject], into contexts: [NSManagedObjectContext])
+  class func mergeChangesFromRemoteContextSave(changeNotificationData: [Object : AnyObject], into contexts: [NSManagedObjectContext])
   @available(iOS 3.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 struct _managedObjectContextFlags {
   var _registeredForCallback: UInt32
@@ -673,21 +673,21 @@ struct _managedObjectContextFlags {
   init(_registeredForCallback: UInt32, _propagatesDeletesAtEndOfEvent: UInt32, _exhaustiveValidation: UInt32, _processingChanges: UInt32, _useCommittedSnapshot: UInt32, _registeredUndoTransactionID: UInt32, _retainsAllRegisteredObjects: UInt32, _savingInProgress: UInt32, _wasDisposed: UInt32, _unprocessedChangesPending: UInt32, _isDirty: UInt32, _ignoreUndoCheckpoints: UInt32, _propagatingDeletes: UInt32, _isNSEditorEditing: UInt32, _isMainThreadBlessed: UInt32, _isImportContext: UInt32, _preflightSaveInProgress: UInt32, _disableDiscardEditing: UInt32, _isParentStoreContext: UInt32, _postSaveNotifications: UInt32, _isMerging: UInt32, _concurrencyType: UInt32, _deleteInaccessible: UInt32, _reservedFlags: UInt32)
 }
 @available(iOS 3.0, *)
-class NSManagedObjectID : NSObject, NSCopying {
+class NSManagedObjectID : Object, Copying {
   var entity: NSEntityDescription { get }
   weak var persistentStore: @sil_weak NSPersistentStore? { get }
   var isTemporaryID: Bool { get }
-  func uriRepresentation() -> NSURL
+  func uriRepresentation() -> URL
   init()
   @available(iOS 3.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 3.0, *)
-class NSManagedObjectModel : NSObject, NSCoding, NSCopying, NSFastEnumeration {
-  class func mergedModelFrom(bundles: [NSBundle]?) -> NSManagedObjectModel?
+class NSManagedObjectModel : Object, Coding, Copying, FastEnumeration {
+  class func mergedModelFrom(bundles: [Bundle]?) -> NSManagedObjectModel?
   /*not inherited*/ init?(byMerging models: [NSManagedObjectModel]?)
   init()
-  convenience init?(contentsOf url: NSURL)
+  convenience init?(contentsOf url: URL)
   var entitiesByName: [String : NSEntityDescription] { get }
   var entities: [NSEntityDescription]
   var configurations: [String] { get }
@@ -698,24 +698,24 @@ class NSManagedObjectModel : NSObject, NSCoding, NSCopying, NSFastEnumeration {
   func fetchRequestFromTemplateWithName(name: String, substitutionVariables variables: [String : AnyObject]) -> NSFetchRequest?
   var localizationDictionary: [String : String]?
   @available(iOS 3.0, *)
-  class func mergedModelFrom(bundles: [NSBundle]?, forStoreMetadata metadata: [String : AnyObject]) -> NSManagedObjectModel?
+  class func mergedModelFrom(bundles: [Bundle]?, forStoreMetadata metadata: [String : AnyObject]) -> NSManagedObjectModel?
   @available(iOS 3.0, *)
   /*not inherited*/ init?(byMerging models: [NSManagedObjectModel], forStoreMetadata metadata: [String : AnyObject])
   @available(iOS 3.0, *)
   var fetchRequestTemplatesByName: [String : NSFetchRequest] { get }
   @available(iOS 3.0, *)
-  var versionIdentifiers: Set<NSObject>
+  var versionIdentifiers: Set<Object>
   @available(iOS 3.0, *)
   func isConfiguration(configuration: String?, compatibleWithStoreMetadata metadata: [String : AnyObject]) -> Bool
   @available(iOS 3.0, *)
-  var entityVersionHashesByName: [String : NSData] { get }
+  var entityVersionHashesByName: [String : Data] { get }
   @available(iOS 3.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(iOS 3.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 3.0, *)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 struct __managedObjectModelFlags {
   var _isInUse: UInt32
@@ -727,11 +727,11 @@ struct __managedObjectModelFlags {
   init(_isInUse: UInt32, _isImmutable: UInt32, _isOptimizedForEncoding: UInt32, _hasEntityWithConstraints: UInt32, _reservedEntityDescription: UInt32)
 }
 @available(iOS 3.0, *)
-class NSMappingModel : NSObject {
-  /*not inherited*/ init?(from bundles: [NSBundle]?, forSourceModel sourceModel: NSManagedObjectModel?, destinationModel: NSManagedObjectModel?)
+class NSMappingModel : Object {
+  /*not inherited*/ init?(from bundles: [Bundle]?, forSourceModel sourceModel: NSManagedObjectModel?, destinationModel: NSManagedObjectModel?)
   @available(iOS 3.0, *)
   class func inferredMappingModelForSourceModel(sourceModel: NSManagedObjectModel, destinationModel: NSManagedObjectModel) throws -> NSMappingModel
-  init?(contentsOf url: NSURL?)
+  init?(contentsOf url: URL?)
   var entityMappings: [NSEntityMapping]!
   var entityMappingsByName: [String : NSEntityMapping] { get }
   init()
@@ -762,7 +762,7 @@ enum NSMergePolicyType : UInt {
   case RollbackMergePolicyType
 }
 @available(iOS 5.0, *)
-class NSMergeConflict : NSObject {
+class NSMergeConflict : Object {
   var sourceObject: NSManagedObject { get }
   var objectSnapshot: [String : AnyObject]? { get }
   var cachedSnapshot: [String : AnyObject]? { get }
@@ -772,18 +772,18 @@ class NSMergeConflict : NSObject {
   init(source srcObject: NSManagedObject, newVersion newvers: Int, oldVersion oldvers: Int, cachedSnapshot cachesnap: [String : AnyObject]?, persistedSnapshot persnap: [String : AnyObject]?)
 }
 @available(iOS 9.0, *)
-class NSConstraintConflict : NSObject {
+class NSConstraintConflict : Object {
   var constraint: [String] { get }
   var constraintValues: [String : AnyObject] { get }
   var databaseObject: NSManagedObject? { get }
   var databaseSnapshot: [String : AnyObject]? { get }
   var conflictingObjects: [NSManagedObject] { get }
-  var conflictingSnapshots: [[NSObject : AnyObject]] { get }
-  init(constraint contraint: [String], databaseObject: NSManagedObject?, databaseSnapshot: [NSObject : AnyObject]?, conflictingObjects: [NSManagedObject], conflictingSnapshots: [AnyObject])
+  var conflictingSnapshots: [[Object : AnyObject]] { get }
+  init(constraint contraint: [String], databaseObject: NSManagedObject?, databaseSnapshot: [Object : AnyObject]?, conflictingObjects: [NSManagedObject], conflictingSnapshots: [AnyObject])
   convenience init()
 }
 @available(iOS 5.0, *)
-class NSMergePolicy : NSObject {
+class NSMergePolicy : Object {
   var mergeType: NSMergePolicyType { get }
   init(merge ty: NSMergePolicyType)
   func resolveConflicts(list: [AnyObject]) throws
@@ -793,9 +793,9 @@ class NSMergePolicy : NSObject {
   func resolve(list: [NSConstraintConflict]) throws
 }
 @available(iOS 3.0, *)
-class NSMigrationManager : NSObject {
+class NSMigrationManager : Object {
   init(sourceModel: NSManagedObjectModel, destinationModel: NSManagedObjectModel)
-  func migrateStoreFrom(sourceURL: NSURL, type sStoreType: String, options sOptions: [NSObject : AnyObject]? = [:], withMappingModel mappings: NSMappingModel?, toDestinationURL dURL: NSURL, destinationType dStoreType: String, destinationOptions dOptions: [NSObject : AnyObject]? = [:]) throws
+  func migrateStoreFrom(sourceURL: URL, type sStoreType: String, options sOptions: [Object : AnyObject]? = [:], withMappingModel mappings: NSMappingModel?, toDestinationURL dURL: URL, destinationType dStoreType: String, destinationOptions dOptions: [Object : AnyObject]? = [:]) throws
   @available(iOS 5.0, *)
   var usesStoreSpecificMigrationManager: Bool
   func reset()
@@ -811,8 +811,8 @@ class NSMigrationManager : NSObject {
   func sourceInstancesForEntityMappingNamed(mappingName: String, destinationInstances: [NSManagedObject]?) -> [NSManagedObject]
   var currentEntityMapping: NSEntityMapping { get }
   var migrationProgress: Float { get }
-  var userInfo: [NSObject : AnyObject]?
-  func cancelMigrationWithError(error: NSError)
+  var userInfo: [Object : AnyObject]?
+  func cancelMigrationWithError(error: Error)
   init()
 }
 struct _migrationManagerFlags {
@@ -823,17 +823,17 @@ struct _migrationManagerFlags {
   init(_migrationWasCancelled: UInt32, _usesStoreSpecificMigrationManager: UInt32, _reservedMigrationManager: UInt32)
 }
 @available(iOS 3.0, *)
-class NSPersistentStore : NSObject {
-  class func metadataForPersistentStoreWith(url: NSURL) throws -> [String : AnyObject]
-  class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreWith url: NSURL) throws
+class NSPersistentStore : Object {
+  class func metadataForPersistentStoreWith(url: URL) throws -> [String : AnyObject]
+  class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreWith url: URL) throws
   @available(iOS 3.0, *)
   class func migrationManagerClass() -> AnyClass
-  init(persistentStoreCoordinator root: NSPersistentStoreCoordinator?, configurationName name: String?, url: NSURL, options: [NSObject : AnyObject]? = [:])
+  init(persistentStoreCoordinator root: NSPersistentStoreCoordinator?, configurationName name: String?, url: URL, options: [Object : AnyObject]? = [:])
   func loadMetadata() throws
   weak var persistentStoreCoordinator: @sil_weak NSPersistentStoreCoordinator? { get }
   var configurationName: String { get }
-  var options: [NSObject : AnyObject]? { get }
-  var url: NSURL?
+  var options: [Object : AnyObject]? { get }
+  var url: URL?
   var identifier: String!
   var type: String { get }
   var isReadOnly: Bool
@@ -923,42 +923,42 @@ let NSPersistentStoreForceDestroyOption: String
 @available(iOS 5.0, *)
 let NSPersistentStoreFileProtectionKey: String
 @available(iOS 3.0, *)
-class NSPersistentStoreCoordinator : NSObject, NSLocking {
+class NSPersistentStoreCoordinator : Object, Locking {
   init(managedObjectModel model: NSManagedObjectModel)
   var managedObjectModel: NSManagedObjectModel { get }
   var persistentStores: [NSPersistentStore] { get }
   @available(iOS 8.0, *)
   var name: String?
-  func persistentStoreFor(URL: NSURL) -> NSPersistentStore?
-  func urlFor(store: NSPersistentStore) -> NSURL
+  func persistentStoreFor(URL: URL) -> NSPersistentStore?
+  func urlFor(store: NSPersistentStore) -> URL
   @available(iOS 3.0, *)
-  func setURL(url: NSURL, forPersistentStore store: NSPersistentStore) -> Bool
-  func addPersistentStoreWithType(storeType: String, configuration: String?, url storeURL: NSURL?, options: [NSObject : AnyObject]? = [:]) throws -> NSPersistentStore
+  func setURL(url: URL, forPersistentStore store: NSPersistentStore) -> Bool
+  func addPersistentStoreWithType(storeType: String, configuration: String?, url storeURL: URL?, options: [Object : AnyObject]? = [:]) throws -> NSPersistentStore
   func removePersistentStore(store: NSPersistentStore) throws
   func setMetadata(metadata: [String : AnyObject]?, forPersistentStore store: NSPersistentStore)
   func metadataFor(store: NSPersistentStore) -> [String : AnyObject]
-  func managedObjectIDForURIRepresentation(url: NSURL) -> NSManagedObjectID?
+  func managedObjectIDForURIRepresentation(url: URL) -> NSManagedObjectID?
   @available(iOS 5.0, *)
   func execute(request: NSPersistentStoreRequest, withContext context: NSManagedObjectContext) throws -> AnyObject
   @available(iOS 3.0, *)
-  class func registeredStoreTypes() -> [String : NSValue]
+  class func registeredStoreTypes() -> [String : Value]
   @available(iOS 3.0, *)
   class func registerStoreClass(storeClass: AnyClass, forStoreType storeType: String)
   @available(iOS 7.0, *)
-  class func metadataForPersistentStoreOfType(storeType: String, url: NSURL, options: [NSObject : AnyObject]? = [:]) throws -> [String : AnyObject]
+  class func metadataForPersistentStoreOfType(storeType: String, url: URL, options: [Object : AnyObject]? = [:]) throws -> [String : AnyObject]
   @available(iOS 7.0, *)
-  class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String, url: NSURL, options: [NSObject : AnyObject]? = [:]) throws
+  class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String, url: URL, options: [Object : AnyObject]? = [:]) throws
   @available(iOS, introduced=3.0, deprecated=9.0, message="Use a -metadataForPersistentStoreOfType:URL:options:error: and pass in an options dictionary matching addPersistentStoreWithType")
-  class func metadataForPersistentStoreOfType(storeType: String?, url: NSURL) throws -> [String : AnyObject]
+  class func metadataForPersistentStoreOfType(storeType: String?, url: URL) throws -> [String : AnyObject]
   @available(iOS, introduced=3.0, deprecated=9.0, message="Use a -setMetadata:forPersistentStoreOfType:URL:options:error: and pass in an options dictionary matching addPersistentStoreWithType")
-  class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String?, url: NSURL) throws
+  class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String?, url: URL) throws
   @available(iOS 7.0, *)
-  class func removeUbiquitousContentAndPersistentStoreAt(storeURL: NSURL, options: [NSObject : AnyObject]? = [:]) throws
-  func migratePersistentStore(store: NSPersistentStore, to URL: NSURL, options: [NSObject : AnyObject]? = [:], withType storeType: String) throws -> NSPersistentStore
+  class func removeUbiquitousContentAndPersistentStoreAt(storeURL: URL, options: [Object : AnyObject]? = [:]) throws
+  func migratePersistentStore(store: NSPersistentStore, to URL: URL, options: [Object : AnyObject]? = [:], withType storeType: String) throws -> NSPersistentStore
   @available(iOS 9.0, *)
-  func destroyPersistentStoreAt(url: NSURL, withType storeType: String, options: [NSObject : AnyObject]? = [:]) throws
+  func destroyPersistentStoreAt(url: URL, withType storeType: String, options: [Object : AnyObject]? = [:]) throws
   @available(iOS 9.0, *)
-  func replacePersistentStoreAt(destinationURL: NSURL, destinationOptions: [NSObject : AnyObject]? = [:], withPersistentStoreFrom sourceURL: NSURL, sourceOptions: [NSObject : AnyObject]? = [:], storeType: String) throws
+  func replacePersistentStoreAt(destinationURL: URL, destinationOptions: [Object : AnyObject]? = [:], withPersistentStoreFrom sourceURL: URL, sourceOptions: [Object : AnyObject]? = [:], storeType: String) throws
   @available(iOS 8.0, *)
   func perform(block: () -> Void)
   @available(iOS 8.0, *)
@@ -988,12 +988,12 @@ enum NSPersistentStoreRequestType : UInt {
   case BatchDeleteRequestType
 }
 @available(iOS 5.0, *)
-class NSPersistentStoreRequest : NSObject, NSCopying {
+class NSPersistentStoreRequest : Object, Copying {
   var affectedStores: [NSPersistentStore]?
   var requestType: NSPersistentStoreRequestType { get }
   init()
   @available(iOS 5.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 typealias NSPersistentStoreAsynchronousFetchResultCompletionBlock = (NSAsynchronousFetchResult) -> Void
 @available(iOS 8.0, *)
@@ -1021,14 +1021,14 @@ enum NSBatchDeleteRequestResultType : UInt {
   case ResultTypeCount
 }
 @available(iOS 8.0, *)
-class NSPersistentStoreResult : NSObject {
+class NSPersistentStoreResult : Object {
   init()
 }
 @available(iOS 8.0, *)
 class NSPersistentStoreAsynchronousResult : NSPersistentStoreResult {
   var managedObjectContext: NSManagedObjectContext { get }
-  var operationError: NSError? { get }
-  var progress: NSProgress? { get }
+  var operationError: Error? { get }
+  var progress: Progress? { get }
   func cancel()
   init()
 }
@@ -1051,19 +1051,19 @@ class NSBatchDeleteResult : NSPersistentStoreResult {
   init()
 }
 @available(iOS 3.0, *)
-class NSPropertyDescription : NSObject, NSCoding, NSCopying {
+class NSPropertyDescription : Object, Coding, Copying {
   unowned(unsafe) var entity: @sil_unmanaged NSEntityDescription { get }
   var name: String
   var isOptional: Bool
   var isTransient: Bool
-  var validationPredicates: [NSPredicate] { get }
+  var validationPredicates: [Predicate] { get }
   var validationWarnings: [AnyObject] { get }
-  func setValidationPredicates(validationPredicates: [NSPredicate]?, withValidationWarnings validationWarnings: [String]?)
-  var userInfo: [NSObject : AnyObject]?
+  func setValidationPredicates(validationPredicates: [Predicate]?, withValidationWarnings validationWarnings: [String]?)
+  var userInfo: [Object : AnyObject]?
   @available(iOS 3.0, *)
   var isIndexed: Bool
   @available(iOS 3.0, *)
-  @NSCopying var versionHash: NSData { get }
+  @NSCopying var versionHash: Data { get }
   @available(iOS 3.0, *)
   var versionHashModifier: String?
   @available(iOS 3.0, *)
@@ -1074,10 +1074,10 @@ class NSPropertyDescription : NSObject, NSCoding, NSCopying {
   var renamingIdentifier: String?
   init()
   @available(iOS 3.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(iOS 3.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 struct __propertyDescriptionFlags {
   var _isReadOnly: UInt32
@@ -1094,10 +1094,10 @@ struct __propertyDescriptionFlags {
   init(_isReadOnly: UInt32, _isTransient: UInt32, _isOptional: UInt32, _isIndexed: UInt32, _skipValidation: UInt32, _isIndexedBySpotlight: UInt32, _isStoredInExternalRecord: UInt32, _extraIvarsAreInDataBlob: UInt32, _isOrdered: UInt32, _reservedPropertyDescription: UInt32)
 }
 @available(iOS 3.0, *)
-class NSPropertyMapping : NSObject {
+class NSPropertyMapping : Object {
   var name: String?
-  var valueExpression: NSExpression?
-  var userInfo: [NSObject : AnyObject]?
+  var valueExpression: Expression?
+  var userInfo: [Object : AnyObject]?
   init()
 }
 struct __propertyMappingFlags {
@@ -1123,11 +1123,11 @@ class NSRelationshipDescription : NSPropertyDescription {
   var deleteRule: NSDeleteRule
   var isToMany: Bool { get }
   @available(iOS 3.0, *)
-  @NSCopying var versionHash: NSData { get }
+  @NSCopying var versionHash: Data { get }
   @available(iOS 5.0, *)
   var isOrdered: Bool
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 5.0, *)
 class NSSaveChangesRequest : NSPersistentStoreRequest {

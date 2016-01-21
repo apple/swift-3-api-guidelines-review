@@ -51,8 +51,8 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     let playerBot = PlayerBot()
     var entities = Set<GKEntity>()
     
-    var lastUpdateTimeInterval: NSTimeInterval = 0
-    let maximumUpdateDeltaTime: NSTimeInterval = 1.0 / 60.0
+    var lastUpdateTimeInterval: TimeInterval = 0
+    let maximumUpdateDeltaTime: TimeInterval = 1.0 / 60.0
     
     var levelConfiguration: LevelConfiguration!
     
@@ -237,7 +237,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     // MARK: SKScene Processing
     
     /// Called before each frame is rendered.
-    override func update(currentTime: NSTimeInterval) {
+    override func update(currentTime: TimeInterval) {
         super.update(currentTime)
         
         // Don't perform any updates if the scene isn't in a view.

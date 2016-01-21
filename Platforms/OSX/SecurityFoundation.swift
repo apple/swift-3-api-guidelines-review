@@ -4,7 +4,7 @@
 	@class SFAuthorization 
     @abstract SFAuthorization APIs are used for implementing access control in applications and daemons. It has NSCoder support for proxied objects SFAuthorization is a wrapper for using the Authorization API.
 */
-class SFAuthorization : NSObject, NSCoding {
+class SFAuthorization : Object, Coding {
 
   /*!
   	@method authorization
@@ -67,8 +67,8 @@ class SFAuthorization : NSObject, NSCoding {
   	@param error Resulting error.
   */
   func obtainWithRights(rights: UnsafePointer<AuthorizationRights>, flags: AuthorizationFlags, environment: UnsafePointer<AuthorizationEnvironment>, authorizedRights: UnsafeMutablePointer<UnsafeMutablePointer<AuthorizationRights>>) throws
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 extension SFAuthorization {
 }

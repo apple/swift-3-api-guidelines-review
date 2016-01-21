@@ -161,7 +161,7 @@ var ABPropertyReadOnlyError: Int { get }
 let ABAddressBookErrorDomain: String
 @available(OSX 10.7, *)
 let ABMultiValueIdentifiersErrorKey: String
-class ABAddressBook : NSObject {
+class ABAddressBook : Object {
   class func shared() -> ABAddressBook!
   func recordsMatching(search: ABSearchElement!) -> [AnyObject]!
   func save() -> Bool
@@ -182,7 +182,7 @@ class ABAddressBook : NSObject {
   @available(OSX 10.3, *)
   func recordClassFromUniqueId(uniqueId: String!) -> String!
   @available(OSX 10.3, *)
-  func formattedAddressFrom(address: [NSObject : AnyObject]!) -> NSAttributedString!
+  func formattedAddressFrom(address: [Object : AnyObject]!) -> AttributedString!
   @available(OSX 10.3, *)
   func defaultCountryCode() -> String!
   @available(OSX 10.3, *)
@@ -379,7 +379,7 @@ class ABGroup : ABRecord {
   init!(addressBook: ABAddressBook!)
 }
 extension ABGroup {
-  class func addPropertiesAndTypes(properties: [NSObject : AnyObject]!) -> Int
+  class func addPropertiesAndTypes(properties: [Object : AnyObject]!) -> Int
   class func removeProperties(properties: [AnyObject]!) -> Int
   class func properties() -> [AnyObject]!
   class func typeOfProperty(property: String!) -> ABPropertyType
@@ -387,16 +387,16 @@ extension ABGroup {
 extension ABGroup {
   class func searchElementForProperty(property: String!, label: String!, key: String!, value: AnyObject!, comparison: ABSearchComparison) -> ABSearchElement!
 }
-protocol ABImageClient : NSObjectProtocol {
-  func consumeImageData(data: NSData!, forTag tag: Int)
+protocol ABImageClient : ObjectProtocol {
+  func consumeImageData(data: Data!, forTag tag: Int)
 }
 extension ABPerson {
-  func setImageData(data: NSData!) -> Bool
-  func imageData() -> NSData!
+  func setImageData(data: Data!) -> Bool
+  func imageData() -> Data!
   func beginLoadingImageDataFor(client: ABImageClient!) -> Int
   class func cancelLoadingImageDataForTag(tag: Int)
 }
-class ABMultiValue : NSObject, NSCopying, NSMutableCopying, NSFastEnumeration {
+class ABMultiValue : Object, Copying, MutableCopying, FastEnumeration {
   func count() -> Int
   func valueAt(index: Int) -> AnyObject!
   func labelAt(index: Int) -> String!
@@ -407,9 +407,9 @@ class ABMultiValue : NSObject, NSCopying, NSMutableCopying, NSFastEnumeration {
   func valueForIdentifier(identifier: String!) -> AnyObject!
   func labelForIdentifier(identifier: String!) -> AnyObject!
   init()
-  func copy(zone zone: NSZone = nil) -> AnyObject
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
-  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func copy(zone zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 class ABMutableMultiValue : ABMultiValue {
   func add(value: AnyObject!, withLabel label: String!) -> String!
@@ -429,7 +429,7 @@ class ABPerson : ABRecord {
   init!(addressBook: ABAddressBook!)
 }
 extension ABPerson {
-  class func addPropertiesAndTypes(properties: [NSObject : AnyObject]!) -> Int
+  class func addPropertiesAndTypes(properties: [Object : AnyObject]!) -> Int
   class func removeProperties(properties: [AnyObject]!) -> Int
   class func properties() -> [AnyObject]!
   class func typeOfProperty(property: String!) -> ABPropertyType
@@ -438,10 +438,10 @@ extension ABPerson {
   class func searchElementForProperty(property: String!, label: String!, key: String!, value: AnyObject!, comparison: ABSearchComparison) -> ABSearchElement!
 }
 extension ABPerson {
-  init!(vCardRepresentation vCardData: NSData!)
-  func vCardRepresentation() -> NSData!
+  init!(vCardRepresentation vCardData: Data!)
+  func vCardRepresentation() -> Data!
 }
-class ABRecord : NSObject {
+class ABRecord : Object {
   init!()
   @available(OSX 10.5, *)
   init!(addressBook: ABAddressBook!)
@@ -458,7 +458,7 @@ extension ABRecord {
   @available(OSX 10.10, *)
   var displayName: String! { get }
 }
-class ABSearchElement : NSObject {
+class ABSearchElement : Object {
   /*not inherited*/ init!(forConjunction conjuction: ABSearchConjunction, children: [AnyObject]!)
   func matchesRecord(record: ABRecord!) -> Bool
   init()

@@ -33,8 +33,8 @@ import Cocoa
         return layer as! CheckBoxLayer
     }
     
-    override public var intrinsicContentSize: NSSize {
-        return NSSize(width: 40, height: 40)
+    override public var intrinsicContentSize: Size {
+        return Size(width: 40, height: 40)
     }
     
     // MARK: View Life Cycle

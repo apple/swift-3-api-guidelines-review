@@ -40,7 +40,7 @@ enum LAPolicy : Int {
 
 /// The maximum value for LAContext touchIDAuthenticationAllowableReuseDuration property.
 @available(iOS 9.0, *)
-let LATouchIDAuthenticationMaximumAllowableReuseDuration: NSTimeInterval
+let LATouchIDAuthenticationMaximumAllowableReuseDuration: TimeInterval
 
 /// Class that represents an authentication context.
 ///
@@ -48,7 +48,7 @@ let LATouchIDAuthenticationMaximumAllowableReuseDuration: NSTimeInterval
 ///
 /// @see LAPolicy
 @available(iOS 8.0, *)
-class LAContext : NSObject {
+class LAContext : Object {
 
   /// Determines if a particular policy can be evaluated.
   ///
@@ -69,7 +69,7 @@ class LAContext : NSObject {
   ///              contains error information if policy evaluation is not possible.
   ///
   /// @return YES if the policy can be evaluated, NO otherwise.
-  func canEvaluatePolicy(policy: LAPolicy, error: NSErrorPointer) -> Bool
+  func canEvaluatePolicy(policy: LAPolicy, error: ErrorPointer) -> Bool
 
   /// Evaluates the specified policy.
   ///
@@ -113,7 +113,7 @@ class LAContext : NSObject {
   /// @li          LAErrorUserFallback if user tapped the fallback button
   /// @li          LAErrorUserCancel if user has tapped the Cancel button
   /// @li          LAErrorSystemCancel if some system event interrupted the evaluation (e.g. Home button pressed).
-  func evaluatePolicy(policy: LAPolicy, localizedReason: String, reply: (Bool, NSError?) -> Void)
+  func evaluatePolicy(policy: LAPolicy, localizedReason: String, reply: (Bool, Error?) -> Void)
 
   /// Invalidates the context.
   ///
@@ -141,7 +141,7 @@ class LAContext : NSObject {
   /// @return YES if the credential was set successfully, NO otherwise.
   ///
   @available(iOS 9.0, *)
-  func setCredential(credential: NSData?, type: LACredentialType) -> Bool
+  func setCredential(credential: Data?, type: LACredentialType) -> Bool
 
   /// Reveals if credential was set with this context.
   ///
@@ -192,7 +192,7 @@ class LAContext : NSObject {
   /// @warning localizedReason parameter is mandatory and the call will throw NSInvalidArgumentException if
   ///          nil or empty string is specified.
   @available(iOS 9.0, *)
-  func evaluateAccessControl(accessControl: SecAccessControl, operation: LAAccessControlOperation, localizedReason: String, reply: (Bool, NSError?) -> Void)
+  func evaluateAccessControl(accessControl: SecAccessControl, operation: LAAccessControlOperation, localizedReason: String, reply: (Bool, Error?) -> Void)
 
   /// Fallback button title.
   /// @discussion Allows fallback button title customization. A default title "Enter Password" is used when
@@ -208,7 +208,7 @@ class LAContext : NSObject {
   /// @warning Please note that setting this property with high values does not prevent biometry lockout after 5
   ///          wrong attempts.
   @available(iOS, introduced=8.3, deprecated=9.0)
-  var maxBiometryFailures: NSNumber?
+  var maxBiometryFailures: Number?
 
   /// Contains policy domain state.
   ///
@@ -220,7 +220,7 @@ class LAContext : NSObject {
   ///              but comparing data of evaluatedPolicyDomainState after different evaluatePolicy
   ///              will reveal the fact database was changed between calls.
   @available(iOS 9.0, *)
-  var evaluatedPolicyDomainState: NSData? { get }
+  var evaluatedPolicyDomainState: Data? { get }
 
   /// Time interval for accepting a successful Touch ID unlock from the past.
   ///
@@ -235,7 +235,7 @@ class LAContext : NSObject {
   ///
   /// @see LATouchIDAuthenticationMaximumAllowableReuseDuration
   @available(iOS 9.0, *)
-  var touchIDAuthenticationAllowableReuseDuration: NSTimeInterval
+  var touchIDAuthenticationAllowableReuseDuration: TimeInterval
   init()
 }
 @available(iOS 9.0, *)

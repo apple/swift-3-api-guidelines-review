@@ -1,14 +1,14 @@
 
 @available(iOS 8.0, *)
-class PKPushCredentials : NSObject {
+class PKPushCredentials : Object {
   var type: String! { get }
-  @NSCopying var token: NSData! { get }
+  @NSCopying var token: Data! { get }
   init()
 }
 @available(iOS 8.0, *)
-class PKPushPayload : NSObject {
+class PKPushPayload : Object {
   var type: String! { get }
-  var dictionaryPayload: [NSObject : AnyObject]! { get }
+  var dictionaryPayload: [Object : AnyObject]! { get }
   init()
 }
 @available(iOS 8.0, *)
@@ -22,7 +22,7 @@ let PKPushTypeComplication: String
                 notification types are listed above as NSString constants.
  */
 @available(iOS 8.0, *)
-class PKPushRegistry : NSObject {
+class PKPushRegistry : Object {
 
   /*!
    @property      delegate
@@ -35,7 +35,7 @@ class PKPushRegistry : NSObject {
    @abstract      An app requests registration for various types of pushes by setting this NSSet to the desired
                   PKPushType NSString constants. Push tokens and notifications will be delivered via delegate callback.
    */
-  var desiredPushTypes: Set<NSObject>!
+  var desiredPushTypes: Set<Object>!
 
   /*!
    @method        pushTokenForType:
@@ -47,7 +47,7 @@ class PKPushRegistry : NSObject {
    @result        Returns the push token that can be used to send pushes to the device for the specified PKPushType.
                   Returns nil if no push token is available for this PKPushType at the time of invocation.
    */
-  func pushTokenForType(type: String!) -> NSData!
+  func pushTokenForType(type: String!) -> Data!
 
   /*!
    @method        initWithQueue:
@@ -60,7 +60,7 @@ class PKPushRegistry : NSObject {
   init!(queue: dispatch_queue_t!)
   init()
 }
-protocol PKPushRegistryDelegate : NSObjectProtocol {
+protocol PKPushRegistryDelegate : ObjectProtocol {
 
   /*!
    @method        pushRegistry:didUpdatePushCredentials:forType:

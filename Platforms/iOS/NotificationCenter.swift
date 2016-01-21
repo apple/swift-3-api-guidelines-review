@@ -1,6 +1,6 @@
 
 @available(iOS 8.0, *)
-class NCWidgetController : NSObject {
+class NCWidgetController : Object {
   class func widgetController() -> Self
   func setHasContent(flag: Bool, forWidgetWithBundleIdentifier bundleID: String)
   init()
@@ -13,7 +13,7 @@ enum NCUpdateResult : UInt {
   case NoData
   case Failed
 }
-protocol NCWidgetProviding : NSObjectProtocol {
+protocol NCWidgetProviding : ObjectProtocol {
   @available(iOS 8.0, *)
   optional func widgetPerformUpdateWithCompletionHandler(completionHandler: (NCUpdateResult) -> Void)
   optional func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets

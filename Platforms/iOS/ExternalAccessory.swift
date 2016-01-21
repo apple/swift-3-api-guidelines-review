@@ -1,7 +1,7 @@
 
 var EAConnectionIDNone: Int { get }
 @available(iOS 3.0, *)
-class EAAccessory : NSObject {
+class EAAccessory : Object {
   @available(iOS 3.0, *)
   var isConnected: Bool { get }
   @available(iOS 3.0, *)
@@ -26,7 +26,7 @@ class EAAccessory : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged EAAccessoryDelegate?
   init()
 }
-protocol EAAccessoryDelegate : NSObjectProtocol {
+protocol EAAccessoryDelegate : ObjectProtocol {
   @available(iOS 3.0, *)
   optional func accessoryDidDisconnect(accessory: EAAccessory)
 }
@@ -39,7 +39,7 @@ enum EABluetoothAccessoryPickerErrorCode : Int {
   case ResultFailed
 }
 let EABluetoothAccessoryPickerErrorDomain: String
-typealias EABluetoothAccessoryPickerCompletion = (NSError?) -> Void
+typealias EABluetoothAccessoryPickerCompletion = (Error?) -> Void
 @available(iOS 3.0, *)
 let EAAccessoryDidConnectNotification: String
 @available(iOS 3.0, *)
@@ -49,11 +49,11 @@ let EAAccessoryKey: String
 @available(iOS 6.0, *)
 let EAAccessorySelectedKey: String
 @available(iOS 3.0, *)
-class EAAccessoryManager : NSObject {
+class EAAccessoryManager : Object {
   @available(iOS 3.0, *)
   class func shared() -> EAAccessoryManager
   @available(iOS 6.0, *)
-  func showBluetoothAccessoryPickerWithNameFilter(predicate: NSPredicate?, completion: EABluetoothAccessoryPickerCompletion? = nil)
+  func showBluetoothAccessoryPickerWithNameFilter(predicate: Predicate?, completion: EABluetoothAccessoryPickerCompletion? = nil)
   @available(iOS 3.0, *)
   func registerForLocalNotifications()
   @available(iOS 3.0, *)
@@ -63,7 +63,7 @@ class EAAccessoryManager : NSObject {
   init()
 }
 @available(iOS 3.0, *)
-class EASession : NSObject {
+class EASession : Object {
   @available(iOS 3.0, *)
   init(accessory: EAAccessory, forProtocol protocolString: String)
   @available(iOS 3.0, *)
@@ -71,9 +71,9 @@ class EASession : NSObject {
   @available(iOS 3.0, *)
   var protocolString: String { get }
   @available(iOS 3.0, *)
-  var inputStream: NSInputStream? { get }
+  var inputStream: InputStream? { get }
   @available(iOS 3.0, *)
-  var outputStream: NSOutputStream? { get }
+  var outputStream: OutputStream? { get }
   init()
 }
 
@@ -103,7 +103,7 @@ struct EAWiFiUnconfiguredAccessoryProperties : OptionSetType {
  *
  */
 @available(iOS 8.0, *)
-class EAWiFiUnconfiguredAccessory : NSObject {
+class EAWiFiUnconfiguredAccessory : Object {
 
   /*!
    * @property name
@@ -203,7 +203,7 @@ enum EAWiFiUnconfiguredAccessoryConfigurationStatus : Int {
  *
  */
 @available(iOS 8.0, *)
-class EAWiFiUnconfiguredAccessoryBrowser : NSObject {
+class EAWiFiUnconfiguredAccessoryBrowser : Object {
 
   /*!
    *  @property delegate
@@ -248,7 +248,7 @@ class EAWiFiUnconfiguredAccessoryBrowser : NSObject {
    *
    */
   @available(iOS 8.0, *)
-  func startSearchingForUnconfiguredAccessoriesMatching(predicate: NSPredicate?)
+  func startSearchingForUnconfiguredAccessoriesMatching(predicate: Predicate?)
 
   /*!
    * @brief Stop the search for unconfigured MFi Wireless Accessory Configuration accessories
@@ -267,7 +267,7 @@ class EAWiFiUnconfiguredAccessoryBrowser : NSObject {
  *              callbacks keep the delegate informed of the state of the search and configuration processes.
  *
  */
-protocol EAWiFiUnconfiguredAccessoryBrowserDelegate : NSObjectProtocol {
+protocol EAWiFiUnconfiguredAccessoryBrowserDelegate : ObjectProtocol {
 
   /*!
    *  @method accessoryBrowser:didUpdateState:

@@ -71,7 +71,7 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate {
             }
         }
         else {
-            let indexSet = NSIndexSet(index: 0)
+            let indexSet = IndexSet(index: 0)
             interfaceTable.insertRowsAt(indexSet, withRowType: Storyboard.RowTypes.noItems)
         }
     }
@@ -87,7 +87,7 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate {
     }
     
     func listPresenter(_: ListPresenterType, didInsertListItem listItem: ListItem, atIndex index: Int) {
-        let indexSet = NSIndexSet(index: index)
+        let indexSet = IndexSet(index: index)
         
         // The list presenter was previously empty. Remove the "no items" row.
         if index == 0 && listPresenter!.count == 1 {
@@ -98,7 +98,7 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate {
     }
     
     func listPresenter(_: ListPresenterType, didRemoveListItem listItem: ListItem, atIndex index: Int) {
-        let indexSet = NSIndexSet(index: index)
+        let indexSet = IndexSet(index: index)
 
         interfaceTable.removeRowsAt(indexSet)
         
@@ -114,7 +114,7 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate {
     
     func listPresenter(_: ListPresenterType, didMoveListItem listItem: ListItem, fromIndex: Int, toIndex: Int) {
         // Remove the item from the fromIndex straight away.
-        let fromIndexSet = NSIndexSet(index: fromIndex)
+        let fromIndexSet = IndexSet(index: fromIndex)
         
         interfaceTable.removeRowsAt(fromIndexSet)
         
@@ -122,12 +122,12 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate {
             Determine where to insert the moved item. If the `toIndex` was beyond the `fromIndex`, normalize
             its value.
         */
-        var toIndexSet: NSIndexSet
+        var toIndexSet: IndexSet
         if toIndex > fromIndex {
-            toIndexSet = NSIndexSet(index: toIndex - 1)
+            toIndexSet = IndexSet(index: toIndex - 1)
         }
         else {
-            toIndexSet = NSIndexSet(index: toIndex)
+            toIndexSet = IndexSet(index: toIndex)
         }
         
         interfaceTable.insertRowsAt(toIndexSet, withRowType: Storyboard.RowTypes.item)
@@ -175,7 +175,7 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate {
                 is passed instead of a URL because the `userInfo` dictionary of a WatchKit app's user activity
                 does not allow NSURL values.
             */
-            let userInfo: [NSObject: AnyObject] = [
+            let userInfo: [Object: AnyObject] = [
                 AppConfiguration.UserActivity.listURLPathUserInfoKey: self.listDocument.fileURL.path!,
                 AppConfiguration.UserActivity.listColorUserInfoKey: self.listDocument.listPresenter!.color.rawValue
             ]

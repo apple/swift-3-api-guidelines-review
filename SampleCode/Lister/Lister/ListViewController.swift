@@ -46,7 +46,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
     }
     
     // Provide the document's undoManager property as the default NSUndoManager for this UIViewController.
-    override var undoManager: NSUndoManager? {
+    override var undoManager: UndoManager? {
         return document?.undoManager
     }
     
@@ -54,7 +54,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         return document.listPresenter as? AllListItemsPresenter
     }
     
-    var documentURL: NSURL {
+    var documentURL: URL {
         return document.fileURL
     }
     
@@ -128,7 +128,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
             UIApplication.shared().networkActivityIndicatorVisible = false
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleDocumentStateChangedNotification:", name: UIDocumentStateChangedNotification, object: document)
+        NotificationCenter.defaultCenter().addObserver(self, selector: "handleDocumentStateChangedNotification:", name: UIDocumentStateChangedNotification, object: document)
     }
     
     // Become first responder after the view appears so that we can respond to undo events.
@@ -138,7 +138,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         becomeFirstResponder()
         
         // If available, obtain a reference to the 'newItemCell` and make its `textField` the first responder.
-        let newItemIndexPath = NSIndexPath(forRow: 0, inSection: 0)
+        let newItemIndexPath = IndexPath(forRow: 0, inSection: 0)
         guard let newItemCell = tableView.cellForRowAt(newItemIndexPath) as? ListItemCell else { return }
         
         newItemCell.textField.becomeFirstResponder()
@@ -153,7 +153,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         document.delegate = nil
         document.close()
         
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIDocumentStateChangedNotification, object: document)
+        NotificationCenter.defaultCenter().removeObserver(self, name: UIDocumentStateChangedNotification, object: document)
         
         // Hide the toolbar so the list can't be edited.
         navigationController?.setToolbarHidden(true, animated: animated)
@@ -177,7 +177,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
     
     // MARK: Notifications
 
-    func handleDocumentStateChangedNotification(notification: NSNotification) {
+    func handleDocumentStateChangedNotification(notification: Notification) {
         if document.documentState.contains(.InConflict) {
             resolveConflicts()
         }
@@ -198,7 +198,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         activeTextField?.endEditing(false)
         
         // Reload the first row to switch from "Add Item" to "Change Color".
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        let indexPath = IndexPath(forRow: 0, inSection: 0)
         tableView.reloadRowsAt([indexPath], withRowAnimation: .Automatic)
         
         // If moving out of edit mode, notify observers about the list color and trigger a save.
@@ -229,7 +229,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         return listPresenter.count + 1
     }
     
-    override func tableView(_: UITableView, cellForRowAt indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var identifier: String
 
         // Show the "color selection" cell if in edit mode.
@@ -243,7 +243,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         return tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
     }
     
-    override func tableView(_: UITableView, canEditRowAt indexPath: NSIndexPath) -> Bool {
+    override func tableView(_: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // The initial row is reserved for adding new items so it can't be deleted or edited.
         if indexPath.row == 0 {
             return false
@@ -252,7 +252,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         return true
     }
 
-    override func tableView(_: UITableView, canMoveRowAt indexPath: NSIndexPath) -> Bool {
+    override func tableView(_: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // The initial row is reserved for adding new items so it can't be moved.
         if indexPath.row == 0 {
             return false
@@ -261,7 +261,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         return true
     }
     
-    override func tableView(_: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: NSIndexPath) {
+    override func tableView(_: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle != .Delete {
             return
         }
@@ -271,7 +271,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         listPresenter.removeListItem(listItem)
     }
     
-    override func tableView(_: UITableView, moveRowAt fromIndexPath: NSIndexPath, to toIndexPath: NSIndexPath) {
+    override func tableView(_: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
         let listItem = listPresenter.presentedListItems[fromIndexPath.row - 1]
 
         // `toIndexPath.row` will never be `0` since we don't allow moving to the zeroth row (it's the color selection row).
@@ -280,7 +280,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
     
     // MARK: UITableViewDelegate
     
-    override func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: NSIndexPath) {
+    override func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         switch cell {
             case let colorCell as ListColorCell:
                 colorCell.configure()
@@ -295,14 +295,14 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         }
     }
     
-    override func tableView(_: UITableView, willBeginEditingRowAt willBeginEditingRowAtIndexPath: NSIndexPath) {
+    override func tableView(_: UITableView, willBeginEditingRowAt willBeginEditingRowAtIndexPath: IndexPath) {
         /* 
             When the user swipes to show the delete confirmation, don't enter editing mode.
             `UITableViewController` enters editing mode by default so we override without calling super.
         */
     }
     
-    override func tableView(_: UITableView, didEndEditingRowAt didEndEditingRowAtIndexPath: NSIndexPath) {
+    override func tableView(_: UITableView, didEndEditingRowAt didEndEditingRowAtIndexPath: IndexPath) {
         /*
             When the user swipes to hide the delete confirmation, no need to exit edit mode because we didn't
             enter it. `UITableViewController` enters editing mode by default so we override without calling
@@ -310,11 +310,11 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         */
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAt indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRowAt(indexPath, animated: true)
     }
     
-    override func tableView(_: UITableView, targetIndexPathForMoveFromRowAt fromIndexPath: NSIndexPath, toProposedIndexPath proposedIndexPath: NSIndexPath) -> NSIndexPath {
+    override func tableView(_: UITableView, targetIndexPathForMoveFromRowAt fromIndexPath: IndexPath, toProposedIndexPath proposedIndexPath: IndexPath) -> IndexPath {
         let listItem = listPresenter.presentedListItems[fromIndexPath.row - 1]
 
         if proposedIndexPath.row == 0 {
@@ -420,20 +420,20 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
     }
 
     func listPresenter(_: ListPresenterType, didInsertListItem listItem: ListItem, atIndex index: Int) {
-        let indexPathsForInsertion = [NSIndexPath(forRow: index + 1, inSection: 0)]
+        let indexPathsForInsertion = [IndexPath(forRow: index + 1, inSection: 0)]
         
         tableView.insertRowsAt(indexPathsForInsertion, withRowAnimation: .Fade)
         
         // Reload the ListItemCell to be configured for the row to create a new list item.
         if index == 0 {
-            let indexPathsForReloading = [NSIndexPath(forRow: 0, inSection: 0)]
+            let indexPathsForReloading = [IndexPath(forRow: 0, inSection: 0)]
             
             tableView.reloadRowsAt(indexPathsForReloading, withRowAnimation: .Automatic)
         }
     }
     
     func listPresenter(_: ListPresenterType, didRemoveListItem listItem: ListItem, atIndex index: Int) {
-        let indexPaths = [NSIndexPath(forRow: index + 1, inSection: 0)]
+        let indexPaths = [IndexPath(forRow: index + 1, inSection: 0)]
         
         tableView.deleteRowsAt(indexPaths, withRowAnimation: .Automatic)
     }
@@ -443,7 +443,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         
         tableView.beginUpdates()
 
-        let indexPath = NSIndexPath(forRow: index + 1, inSection: 0)
+        let indexPath = IndexPath(forRow: index + 1, inSection: 0)
  
         if let listItemCell = tableView.cellForRowAt(indexPath) as? ListItemCell {
             configureListItemCell(listItemCell, forRow: index + 1)
@@ -451,9 +451,9 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
     }
     
     func listPresenter(_: ListPresenterType, didMoveListItem listItem: ListItem, fromIndex: Int, toIndex: Int) {
-        let fromIndexPath = NSIndexPath(forRow: fromIndex + 1, inSection: 0)
+        let fromIndexPath = IndexPath(forRow: fromIndex + 1, inSection: 0)
 
-        let toIndexPath = NSIndexPath(forRow: toIndex + 1, inSection: 0)
+        let toIndexPath = IndexPath(forRow: toIndex + 1, inSection: 0)
 
         tableView.moveRowAt(fromIndexPath, to: toIndexPath)
     }
@@ -536,9 +536,9 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
             For Lister we'll pick the current version and mark the conflict versions as resolved.
         */
         do {
-            try NSFileVersion.removeOtherVersionsOfItemAt(documentURL)
+            try FileVersion.removeOtherVersionsOfItemAt(documentURL)
             
-            let conflictVersions = NSFileVersion.unresolvedConflictVersionsOfItemAt(documentURL)!
+            let conflictVersions = FileVersion.unresolvedConflictVersionsOfItemAt(documentURL)!
             
             for fileVersion in iterator {
                 fileVersion.resolved = true
@@ -548,7 +548,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         catch {}
     }
     
-    func indexPathForView(view: UIView) -> NSIndexPath? {
+    func indexPathForView(view: UIView) -> IndexPath? {
         let viewOrigin = view.bounds.origin
         
         let viewLocation = tableView.convert(viewOrigin, from: view)

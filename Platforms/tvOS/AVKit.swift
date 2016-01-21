@@ -6,7 +6,7 @@
 	@discussion	An AVInterstitialTimeRange identifies a portion of an asset as an interstitial. When the asset is presented, the time range of this interstitial content will be collapsed in the user interface timeline to a single dot, scrubbing will skip over this range, and the duration will be subtracted from the time remaining in the video as displayed to the user.
  */
 @available(tvOS 9.0, *)
-class AVInterstitialTimeRange : NSObject, NSCopying, NSSecureCoding {
+class AVInterstitialTimeRange : Object, Copying, SecureCoding {
 
   /*!
   	@method		initWithTimeRange:
@@ -23,12 +23,12 @@ class AVInterstitialTimeRange : NSObject, NSCopying, NSSecureCoding {
   var timeRange: CMTimeRange { get }
   convenience init()
   @available(tvOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -36,7 +36,7 @@ class AVInterstitialTimeRange : NSObject, NSCopying, NSSecureCoding {
 	@abstract	AVNavigationMarkersGroup represents a group of navigation markers.
  */
 @available(tvOS 9.0, *)
-class AVNavigationMarkersGroup : NSObject {
+class AVNavigationMarkersGroup : Object {
 
   /*!
   	@method		initWithTitle:timedNavigationMarkers:
@@ -163,8 +163,8 @@ class AVPlayerViewController : UIViewController {
   	@abstract	The object that acts as the delegate of the AVPlayerViewController.
    */
   weak var delegate: @sil_weak AVPlayerViewControllerDelegate?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 extension AVPlayerViewController {
@@ -188,7 +188,7 @@ extension AVPlayerViewController {
 	@protocol	AVPlayerViewControllerDelegate
 	@abstract	A protocol for delegates of AVPlayerViewController.
  */
-protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
+protocol AVPlayerViewControllerDelegate : ObjectProtocol {
 
   /*!
   	@method		playerViewController:willPresentInterstitialTimeRange:

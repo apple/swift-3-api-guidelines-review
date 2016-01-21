@@ -10,23 +10,23 @@ struct CMAcceleration {
 class CMAccelerometerData : CMLogItem {
   var acceleration: CMAcceleration { get }
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(watchOS 2.0, *)
-typealias CMAltitudeHandler = (CMAltitudeData?, NSError?) -> Void
+typealias CMAltitudeHandler = (CMAltitudeData?, Error?) -> Void
 @available(watchOS 2.0, *)
-class CMAltimeter : NSObject {
+class CMAltimeter : Object {
   class func isRelativeAltitudeAvailable() -> Bool
-  func startRelativeAltitudeUpdatesTo(queue: NSOperationQueue, withHandler handler: CMAltitudeHandler)
+  func startRelativeAltitudeUpdatesTo(queue: OperationQueue, withHandler handler: CMAltitudeHandler)
   func stopRelativeAltitudeUpdates()
   init()
 }
 @available(watchOS 2.0, *)
 class CMAltitudeData : CMLogItem {
-  var relativeAltitude: NSNumber { get }
-  var pressure: NSNumber { get }
+  var relativeAltitude: Number { get }
+  var pressure: Number { get }
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 struct CMRotationMatrix {
   var m11: Double
@@ -58,7 +58,7 @@ struct CMAttitudeReferenceFrame : OptionSetType {
   static var XTrueNorthZVertical: CMAttitudeReferenceFrame { get }
 }
 @available(watchOS 2.0, *)
-class CMAttitude : NSObject, NSCopying, NSSecureCoding {
+class CMAttitude : Object, Copying, SecureCoding {
   var roll: Double { get }
   var pitch: Double { get }
   var yaw: Double { get }
@@ -67,12 +67,12 @@ class CMAttitude : NSObject, NSCopying, NSSecureCoding {
   func multiplyByInverseOf(attitude: CMAttitude)
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 struct CMMagneticFieldCalibrationAccuracy : RawRepresentable, Equatable {
   init(_ rawValue: Int32)
@@ -98,7 +98,7 @@ class CMDeviceMotion : CMLogItem {
   @available(watchOS 2.0, *)
   var magneticField: CMCalibratedMagneticField { get }
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 struct CMError : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
@@ -130,19 +130,19 @@ struct CMRotationRate {
 class CMGyroData : CMLogItem {
   var rotationRate: CMRotationRate { get }
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(watchOS 2.0, *)
-class CMLogItem : NSObject, NSSecureCoding, NSCopying {
-  var timestamp: NSTimeInterval { get }
+class CMLogItem : Object, SecureCoding, Copying {
+  var timestamp: TimeInterval { get }
   init()
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 struct CMMagneticField {
   var x: Double
@@ -155,7 +155,7 @@ struct CMMagneticField {
 class CMMagnetometerData : CMLogItem {
   var magneticField: CMMagneticField { get }
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 enum CMMotionActivityConfidence : Int {
   init?(rawValue: Int)
@@ -167,7 +167,7 @@ enum CMMotionActivityConfidence : Int {
 @available(watchOS 2.0, *)
 class CMMotionActivity : CMLogItem {
   var confidence: CMMotionActivityConfidence { get }
-  var startDate: NSDate { get }
+  var startDate: Date { get }
   var unknown: Bool { get }
   var stationary: Bool { get }
   var walking: Bool { get }
@@ -176,43 +176,43 @@ class CMMotionActivity : CMLogItem {
   @available(watchOS 2.0, *)
   var cycling: Bool { get }
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(watchOS 2.0, *)
 typealias CMMotionActivityHandler = (CMMotionActivity?) -> Void
 @available(watchOS 2.0, *)
-typealias CMMotionActivityQueryHandler = ([CMMotionActivity]?, NSError?) -> Void
+typealias CMMotionActivityQueryHandler = ([CMMotionActivity]?, Error?) -> Void
 @available(watchOS 2.0, *)
-class CMMotionActivityManager : NSObject {
+class CMMotionActivityManager : Object {
   class func isActivityAvailable() -> Bool
-  func queryActivityStartingFrom(start: NSDate, to end: NSDate, to queue: NSOperationQueue, withHandler handler: CMMotionActivityQueryHandler)
-  func startActivityUpdatesTo(queue: NSOperationQueue, withHandler handler: CMMotionActivityHandler)
+  func queryActivityStartingFrom(start: Date, to end: Date, to queue: OperationQueue, withHandler handler: CMMotionActivityQueryHandler)
+  func startActivityUpdatesTo(queue: OperationQueue, withHandler handler: CMMotionActivityHandler)
   func stopActivityUpdates()
   init()
 }
-typealias CMAccelerometerHandler = (CMAccelerometerData?, NSError?) -> Void
-typealias CMGyroHandler = (CMGyroData?, NSError?) -> Void
-typealias CMDeviceMotionHandler = (CMDeviceMotion?, NSError?) -> Void
+typealias CMAccelerometerHandler = (CMAccelerometerData?, Error?) -> Void
+typealias CMGyroHandler = (CMGyroData?, Error?) -> Void
+typealias CMDeviceMotionHandler = (CMDeviceMotion?, Error?) -> Void
 @available(watchOS 2.0, *)
-typealias CMMagnetometerHandler = (CMMagnetometerData?, NSError?) -> Void
+typealias CMMagnetometerHandler = (CMMagnetometerData?, Error?) -> Void
 @available(watchOS 2.0, *)
-class CMMotionManager : NSObject {
-  var accelerometerUpdateInterval: NSTimeInterval
+class CMMotionManager : Object {
+  var accelerometerUpdateInterval: TimeInterval
   var isAccelerometerAvailable: Bool { get }
   var isAccelerometerActive: Bool { get }
   var accelerometerData: CMAccelerometerData? { get }
   func startAccelerometerUpdates()
-  func startAccelerometerUpdatesTo(queue: NSOperationQueue, withHandler handler: CMAccelerometerHandler)
+  func startAccelerometerUpdatesTo(queue: OperationQueue, withHandler handler: CMAccelerometerHandler)
   func stopAccelerometerUpdates()
-  var gyroUpdateInterval: NSTimeInterval
+  var gyroUpdateInterval: TimeInterval
   var isGyroAvailable: Bool { get }
   var isGyroActive: Bool { get }
   var gyroData: CMGyroData? { get }
   func startGyroUpdates()
-  func startGyroUpdatesTo(queue: NSOperationQueue, withHandler handler: CMGyroHandler)
+  func startGyroUpdatesTo(queue: OperationQueue, withHandler handler: CMGyroHandler)
   func stopGyroUpdates()
   @available(watchOS 2.0, *)
-  var magnetometerUpdateInterval: NSTimeInterval
+  var magnetometerUpdateInterval: TimeInterval
   @available(watchOS 2.0, *)
   var isMagnetometerAvailable: Bool { get }
   @available(watchOS 2.0, *)
@@ -222,10 +222,10 @@ class CMMotionManager : NSObject {
   @available(watchOS 2.0, *)
   func startMagnetometerUpdates()
   @available(watchOS 2.0, *)
-  func startMagnetometerUpdatesTo(queue: NSOperationQueue, withHandler handler: CMMagnetometerHandler)
+  func startMagnetometerUpdatesTo(queue: OperationQueue, withHandler handler: CMMagnetometerHandler)
   @available(watchOS 2.0, *)
   func stopMagnetometerUpdates()
-  var deviceMotionUpdateInterval: NSTimeInterval
+  var deviceMotionUpdateInterval: TimeInterval
   @available(watchOS 2.0, *)
   class func availableAttitudeReferenceFrames() -> CMAttitudeReferenceFrame
   @available(watchOS 2.0, *)
@@ -234,40 +234,40 @@ class CMMotionManager : NSObject {
   var isDeviceMotionActive: Bool { get }
   var deviceMotion: CMDeviceMotion? { get }
   func startDeviceMotionUpdates()
-  func startDeviceMotionUpdatesTo(queue: NSOperationQueue, withHandler handler: CMDeviceMotionHandler)
+  func startDeviceMotionUpdatesTo(queue: OperationQueue, withHandler handler: CMDeviceMotionHandler)
   @available(watchOS 2.0, *)
   func startDeviceMotionUpdatesUsing(referenceFrame: CMAttitudeReferenceFrame)
   @available(watchOS 2.0, *)
-  func startDeviceMotionUpdatesUsing(referenceFrame: CMAttitudeReferenceFrame, to queue: NSOperationQueue, withHandler handler: CMDeviceMotionHandler)
+  func startDeviceMotionUpdatesUsing(referenceFrame: CMAttitudeReferenceFrame, to queue: OperationQueue, withHandler handler: CMDeviceMotionHandler)
   func stopDeviceMotionUpdates()
   @available(watchOS 2.0, *)
   var showsDeviceMovementDisplay: Bool
   init()
 }
 @available(watchOS 2.0, *)
-class CMPedometerData : NSObject, NSSecureCoding, NSCopying {
-  var startDate: NSDate { get }
-  var endDate: NSDate { get }
-  var numberOfSteps: NSNumber { get }
-  var distance: NSNumber? { get }
-  var floorsAscended: NSNumber? { get }
-  var floorsDescended: NSNumber? { get }
+class CMPedometerData : Object, SecureCoding, Copying {
+  var startDate: Date { get }
+  var endDate: Date { get }
+  var numberOfSteps: Number { get }
+  var distance: Number? { get }
+  var floorsAscended: Number? { get }
+  var floorsDescended: Number? { get }
   @available(watchOS 2.0, *)
-  var currentPace: NSNumber? { get }
+  var currentPace: Number? { get }
   @available(watchOS 2.0, *)
-  var currentCadence: NSNumber? { get }
+  var currentCadence: Number? { get }
   init()
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
-typealias CMPedometerHandler = (CMPedometerData?, NSError?) -> Void
+typealias CMPedometerHandler = (CMPedometerData?, Error?) -> Void
 @available(watchOS 2.0, *)
-class CMPedometer : NSObject {
+class CMPedometer : Object {
   class func isStepCountingAvailable() -> Bool
   class func isDistanceAvailable() -> Bool
   class func isFloorCountingAvailable() -> Bool
@@ -275,29 +275,29 @@ class CMPedometer : NSObject {
   class func isPaceAvailable() -> Bool
   @available(watchOS 2.0, *)
   class func isCadenceAvailable() -> Bool
-  func queryPedometerDataFrom(start: NSDate, to end: NSDate, withHandler handler: CMPedometerHandler)
-  func startUpdatesFrom(start: NSDate, withHandler handler: CMPedometerHandler)
+  func queryPedometerDataFrom(start: Date, to end: Date, withHandler handler: CMPedometerHandler)
+  func startUpdatesFrom(start: Date, withHandler handler: CMPedometerHandler)
   func stopUpdates()
   init()
 }
 @available(watchOS 2.0, *)
 class CMRecordedAccelerometerData : CMAccelerometerData {
   var identifier: UInt64 { get }
-  var startDate: NSDate { get }
+  var startDate: Date { get }
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(watchOS 2.0, *)
-class CMSensorDataList : NSObject, NSFastEnumeration {
+class CMSensorDataList : Object, FastEnumeration {
   init()
   @available(watchOS 2.0, *)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 @available(watchOS 2.0, *)
-class CMSensorRecorder : NSObject {
+class CMSensorRecorder : Object {
   class func isAccelerometerRecordingAvailable() -> Bool
   class func isAuthorizedForRecording() -> Bool
-  func accelerometerDataFrom(fromDate: NSDate, to toDate: NSDate) -> CMSensorDataList?
-  func recordAccelerometerForDuration(duration: NSTimeInterval)
+  func accelerometerDataFrom(fromDate: Date, to toDate: Date) -> CMSensorDataList?
+  func recordAccelerometerForDuration(duration: TimeInterval)
   init()
 }

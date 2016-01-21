@@ -79,7 +79,7 @@ enum NSWritingDirectionFormatType : Int {
 let NSTextEffectLetterpressStyle: String
 
 /************************ Attribute fixing ************************/
-extension NSMutableAttributedString {
+extension MutableAttributedString {
   @available(tvOS 7.0, *)
   func fixAttributesIn(range: NSRange)
 }
@@ -123,57 +123,57 @@ let NSHyphenationFactorDocumentAttribute: String
 let NSDefaultTabIntervalDocumentAttribute: String
 @available(tvOS 7.0, *)
 let NSTextLayoutSectionsAttribute: String
-extension NSAttributedString {
+extension AttributedString {
   @available(tvOS 9.0, *)
-  init(url: NSURL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(url: URL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(tvOS 7.0, *)
-  init(data: NSData, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(data: Data, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(tvOS 7.0, *)
-  func dataFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> NSData
+  func dataFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> Data
   @available(tvOS 7.0, *)
-  func fileWrapperFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> NSFileWrapper
+  func fileWrapperFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> FileWrapper
 }
-extension NSMutableAttributedString {
+extension MutableAttributedString {
   @available(tvOS 9.0, *)
-  func readFrom(url: NSURL, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func readFrom(url: URL, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(tvOS 7.0, *)
-  func readFrom(data: NSData, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func readFrom(data: Data, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
 
 /************************ Misc methods ************************/
-extension NSAttributedString {
+extension AttributedString {
   @available(tvOS 9.0, *)
   func containsAttachmentsIn(range: NSRange) -> Bool
 }
-extension NSAttributedString {
+extension AttributedString {
 }
-extension NSMutableAttributedString {
+extension MutableAttributedString {
 }
 
 /// NSDataAsset represents the contents of data entries in your asset catalog.
 /// Data assets are not in the same class of stored content as images, so you cannot use a data asset to get image data for an image.
 @available(tvOS 9.0, *)
-class NSDataAsset : NSObject, NSCopying {
+class NSDataAsset : Object, Copying {
 
   /// Equivalent to -initWithName:name bundle:[NSBundle mainBundle];
   convenience init?(name: String)
 
   /// Create a data asset with the given name from the given bundle. Returns nil if the asset was not found.
-  init?(name: String, bundle: NSBundle)
+  init?(name: String, bundle: Bundle)
 
   /// The name used to reference the data asset
   var name: String { get }
 
   /// The data for this asset, as stored in the asset catalog
-  @NSCopying var data: NSData { get }
+  @NSCopying var data: Data { get }
 
   /// The Uniform Type Identifier for this data object.
   var typeIdentifier: String { get }
   @available(tvOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(tvOS 9.0, *)
-class NSLayoutAnchor : NSObject {
+class NSLayoutAnchor : Object {
   func constraintEqualTo(anchor: NSLayoutAnchor!) -> NSLayoutConstraint!
   func constraintGreaterThanOrEqualTo(anchor: NSLayoutAnchor!) -> NSLayoutConstraint!
   func constraintLessThanOrEqualTo(anchor: NSLayoutAnchor!) -> NSLayoutConstraint!
@@ -276,7 +276,7 @@ let UILayoutPriorityDefaultLow: UILayoutPriority
 @available(tvOS 6.0, *)
 let UILayoutPriorityFittingSizeLevel: UILayoutPriority
 @available(tvOS 6.0, *)
-class NSLayoutConstraint : NSObject {
+class NSLayoutConstraint : Object {
   class func constraintsWithVisualFormat(format: String, options opts: NSLayoutFormatOptions = [], metrics: [String : AnyObject]?, views: [String : AnyObject]) -> [NSLayoutConstraint]
   convenience init(item view1: AnyObject, attribute attr1: NSLayoutAttribute, relatedBy relation: NSLayoutRelation, toItem view2: AnyObject?, attribute attr2: NSLayoutAttribute, multiplier: CGFloat, constant c: CGFloat)
   var priority: UILayoutPriority
@@ -300,7 +300,7 @@ extension NSLayoutConstraint {
   @available(tvOS 7.0, *)
   var identifier: String?
 }
-protocol UILayoutSupport : NSObjectProtocol {
+protocol UILayoutSupport : ObjectProtocol {
   var length: CGFloat { get }
   @available(tvOS 9.0, *)
   var topAnchor: NSLayoutYAxisAnchor { get }
@@ -341,11 +341,11 @@ protocol NSTextLayoutOrientationProvider {
   var layoutOrientation: NSTextLayoutOrientation { get }
 }
 @available(tvOS 7.0, *)
-class NSLayoutManager : NSObject, NSCoding {
+class NSLayoutManager : Object, Coding {
 
   /**************************** Initialization ****************************/
   init()
-  init?(coder: NSCoder)
+  init?(coder: Coder)
 
   /*************************** Text storage ***************************/
   unowned(unsafe) var textStorage: @sil_unmanaged NSTextStorage?
@@ -371,9 +371,9 @@ class NSLayoutManager : NSObject, NSCoding {
   var hasNonContiguousLayout: Bool { get }
 
   /************************** Invalidation **************************/
-  func invalidateGlyphsForCharacterRange(charRange: NSRange, changeInLength delta: Int, actualCharacterRange actualCharRange: NSRangePointer)
+  func invalidateGlyphsForCharacterRange(charRange: NSRange, changeInLength delta: Int, actualCharacterRange actualCharRange: RangePointer)
   @available(tvOS 7.0, *)
-  func invalidateLayoutForCharacterRange(charRange: NSRange, actualCharacterRange actualCharRange: NSRangePointer)
+  func invalidateLayoutForCharacterRange(charRange: NSRange, actualCharacterRange actualCharRange: RangePointer)
   func invalidateDisplayForCharacterRange(charRange: NSRange)
   func invalidateDisplayForGlyphRange(glyphRange: NSRange)
   @available(tvOS 7.0, *)
@@ -414,16 +414,16 @@ class NSLayoutManager : NSObject, NSCoding {
   func getFirstUnlaidCharacterIndex(charIndex: UnsafeMutablePointer<Int>, glyphIndex: UnsafeMutablePointer<Int>)
   func firstUnlaidCharacterIndex() -> Int
   func firstUnlaidGlyphIndex() -> Int
-  func textContainerForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer) -> NSTextContainer?
+  func textContainerForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer) -> NSTextContainer?
   @available(tvOS 9.0, *)
-  func textContainerForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer, withoutAdditionalLayout flag: Bool) -> NSTextContainer?
+  func textContainerForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer, withoutAdditionalLayout flag: Bool) -> NSTextContainer?
   func usedRectFor(container: NSTextContainer) -> CGRect
-  func lineFragmentRectForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer) -> CGRect
+  func lineFragmentRectForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer) -> CGRect
   @available(tvOS 9.0, *)
-  func lineFragmentRectForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer, withoutAdditionalLayout flag: Bool) -> CGRect
-  func lineFragmentUsedRectForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer) -> CGRect
+  func lineFragmentRectForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer, withoutAdditionalLayout flag: Bool) -> CGRect
+  func lineFragmentUsedRectForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer) -> CGRect
   @available(tvOS 9.0, *)
-  func lineFragmentUsedRectForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer, withoutAdditionalLayout flag: Bool) -> CGRect
+  func lineFragmentUsedRectForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer, withoutAdditionalLayout flag: Bool) -> CGRect
   var extraLineFragmentRect: CGRect { get }
   var extraLineFragmentUsedRect: CGRect { get }
   var extraLineFragmentTextContainer: NSTextContainer? { get }
@@ -435,8 +435,8 @@ class NSLayoutManager : NSObject, NSCoding {
   func truncatedGlyphRangeInLineFragmentForGlyphAt(glyphIndex: Int) -> NSRange
 
   /************************ More sophisticated queries ************************/
-  func glyphRangeForCharacterRange(charRange: NSRange, actualCharacterRange actualCharRange: NSRangePointer) -> NSRange
-  func characterRangeForGlyphRange(glyphRange: NSRange, actualGlyphRange: NSRangePointer) -> NSRange
+  func glyphRangeForCharacterRange(charRange: NSRange, actualCharacterRange actualCharRange: RangePointer) -> NSRange
+  func characterRangeForGlyphRange(glyphRange: NSRange, actualGlyphRange: RangePointer) -> NSRange
   func glyphRangeFor(container: NSTextContainer) -> NSRange
   func rangeOfNominallySpacedGlyphsContaining(glyphIndex: Int) -> NSRange
   func boundingRectForGlyphRange(glyphRange: NSRange, in container: NSTextContainer) -> CGRect
@@ -464,9 +464,9 @@ class NSLayoutManager : NSObject, NSCoding {
   func drawStrikethroughForGlyphRange(glyphRange: NSRange, strikethroughType strikethroughVal: NSUnderlineStyle, baselineOffset: CGFloat, lineFragmentRect lineRect: CGRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: CGPoint)
   func strikethroughGlyphRange(glyphRange: NSRange, strikethroughType strikethroughVal: NSUnderlineStyle, lineFragmentRect lineRect: CGRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: CGPoint)
   @available(tvOS 7.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
 }
-protocol NSLayoutManagerDelegate : NSObjectProtocol {
+protocol NSLayoutManagerDelegate : ObjectProtocol {
 
   /************************ Glyph generation ************************/
   @available(tvOS 7.0, *)
@@ -517,19 +517,19 @@ extension NSLayoutManager {
 @available(tvOS 7.0, *)
 let NSTabColumnTerminatorsAttributeName: String
 @available(tvOS 7.0, *)
-class NSTextTab : NSObject, NSCopying, NSCoding {
+class NSTextTab : Object, Copying, Coding {
   @available(tvOS 7.0, *)
-  class func columnTerminatorsFor(aLocale: NSLocale?) -> NSCharacterSet
+  class func columnTerminatorsFor(aLocale: Locale?) -> CharacterSet
   init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options: [String : AnyObject] = [:])
   var alignment: NSTextAlignment { get }
   var location: CGFloat { get }
   var options: [String : AnyObject] { get }
   convenience init()
   @available(tvOS 7.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(tvOS 7.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(tvOS 6.0, *)
 enum NSLineBreakMode : Int {
@@ -543,7 +543,7 @@ enum NSLineBreakMode : Int {
   case ByTruncatingMiddle
 }
 @available(tvOS 6.0, *)
-class NSParagraphStyle : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
+class NSParagraphStyle : Object, Copying, MutableCopying, SecureCoding {
   class func defaultParagraphStyle() -> NSParagraphStyle
   class func defaultWritingDirectionForLanguage(languageName: String?) -> NSWritingDirection
   var lineSpacing: CGFloat { get }
@@ -567,14 +567,14 @@ class NSParagraphStyle : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var allowsDefaultTighteningForTruncation: Bool { get }
   init()
   @available(tvOS 6.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(tvOS 6.0, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
   @available(tvOS 6.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 6.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(tvOS 6.0, *)
 class NSMutableParagraphStyle : NSParagraphStyle {
@@ -604,22 +604,22 @@ class NSMutableParagraphStyle : NSParagraphStyle {
   @available(tvOS 9.0, *)
   func setParagraphStyle(obj: NSParagraphStyle)
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(tvOS 6.0, *)
-class NSShadow : NSObject, NSCopying, NSCoding {
+class NSShadow : Object, Copying, Coding {
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   var shadowOffset: CGSize
   var shadowBlurRadius: CGFloat
   var shadowColor: AnyObject?
   @available(tvOS 6.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(tvOS 6.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
 }
 @available(tvOS 6.0, *)
-class NSStringDrawingContext : NSObject {
+class NSStringDrawingContext : Object {
   var minimumScaleFactor: CGFloat
   var actualScaleFactor: CGFloat { get }
   var totalBounds: CGRect { get }
@@ -633,7 +633,7 @@ extension NSString {
   @available(tvOS 7.0, *)
   func drawIn(rect: CGRect, withAttributes attrs: [String : AnyObject]? = [:])
 }
-extension NSAttributedString {
+extension AttributedString {
   @available(tvOS 6.0, *)
   func size() -> CGSize
   @available(tvOS 6.0, *)
@@ -657,7 +657,7 @@ extension NSString {
   @available(tvOS 7.0, *)
   func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?) -> CGRect
 }
-extension NSAttributedString {
+extension AttributedString {
   @available(tvOS 6.0, *)
   func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?)
   @available(tvOS 6.0, *)
@@ -691,22 +691,22 @@ enum NSWritingDirection : Int {
 }
 @available(tvOS 7.0, *)
 var NSAttachmentCharacter: Int { get }
-protocol NSTextAttachmentContainer : NSObjectProtocol {
+protocol NSTextAttachmentContainer : ObjectProtocol {
   @available(tvOS 7.0, *)
   func imageForBounds(imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
   @available(tvOS 7.0, *)
   func attachmentBoundsFor(textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
 }
 @available(tvOS 7.0, *)
-class NSTextAttachment : NSObject, NSTextAttachmentContainer, NSCoding {
+class NSTextAttachment : Object, NSTextAttachmentContainer, Coding {
 
   /**************************** Initialization ****************************/
   @available(tvOS 7.0, *)
-  init(data contentData: NSData?, ofType uti: String?)
+  init(data contentData: Data?, ofType uti: String?)
 
   /**************************** Content properties ****************************/
   @available(tvOS 7.0, *)
-  @NSCopying var contents: NSData?
+  @NSCopying var contents: Data?
   @available(tvOS 7.0, *)
   var fileType: String?
 
@@ -717,27 +717,27 @@ class NSTextAttachment : NSObject, NSTextAttachmentContainer, NSCoding {
   var bounds: CGRect
 
   /**************************** Non-image contents properties ****************************/
-  var fileWrapper: NSFileWrapper?
+  var fileWrapper: FileWrapper?
   convenience init()
   @available(tvOS 7.0, *)
   func imageForBounds(imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
   @available(tvOS 7.0, *)
   func attachmentBoundsFor(textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
   @available(tvOS 7.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
-extension NSAttributedString {
+extension AttributedString {
   @available(tvOS 7.0, *)
   /*not inherited*/ init(attachment: NSTextAttachment)
 }
 @available(tvOS 7.0, *)
-class NSTextContainer : NSObject, NSCoding, NSTextLayoutOrientationProvider {
+class NSTextContainer : Object, Coding, NSTextLayoutOrientationProvider {
 
   /**************************** Initialization ****************************/
   @available(tvOS 7.0, *)
   init(size: CGSize)
-  init?(coder: NSCoder)
+  init?(coder: Coder)
 
   /**************************** Layout ****************************/
   unowned(unsafe) var layoutManager: @sil_unmanaged NSLayoutManager?
@@ -768,7 +768,7 @@ class NSTextContainer : NSObject, NSCoding, NSTextLayoutOrientationProvider {
   var heightTracksTextView: Bool
   convenience init()
   @available(tvOS 7.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
   @available(tvOS 7.0, *)
   var layoutOrientation: NSTextLayoutOrientation { get }
 }
@@ -780,7 +780,7 @@ struct NSTextStorageEditActions : OptionSetType {
   static var EditedCharacters: NSTextStorageEditActions { get }
 }
 @available(tvOS 7.0, *)
-class NSTextStorage : NSMutableAttributedString {
+class NSTextStorage : MutableAttributedString {
 
   /**************************** Layout manager ****************************/
   var layoutManagers: [NSLayoutManager] { get }
@@ -804,18 +804,18 @@ class NSTextStorage : NSMutableAttributedString {
   func invalidateAttributesIn(range: NSRange)
   func ensureAttributesAreFixedIn(range: NSRange)
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   @available(tvOS 9.0, *)
-  init(url: NSURL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(url: URL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(tvOS 7.0, *)
-  init(data: NSData, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(data: Data, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   init(string str: String)
   init(string str: String, attributes attrs: [String : AnyObject]? = [:])
-  init(attributedString attrStr: NSAttributedString)
+  init(attributedString attrStr: AttributedString)
 }
 
 /****  NSTextStorage delegate methods ****/
-protocol NSTextStorageDelegate : NSObjectProtocol {
+protocol NSTextStorageDelegate : ObjectProtocol {
   @available(tvOS 7.0, *)
   optional func textStorage(textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int)
   @available(tvOS 7.0, *)
@@ -828,7 +828,7 @@ let NSTextStorageWillProcessEditingNotification: String
 @available(tvOS 7.0, *)
 let NSTextStorageDidProcessEditingNotification: String
 typealias UIAccelerationValue = Double
-extension NSObject {
+extension Object {
   var isAccessibilityElement: Bool
   var accessibilityLabel: String?
   var accessibilityHint: String?
@@ -883,7 +883,7 @@ extension NSObject {
 func UIAccessibilityConvertFrameToScreenCoordinates(rect: CGRect, _ view: UIView) -> CGRect
 @available(tvOS 7.0, *)
 func UIAccessibilityConvertPathToScreenCoordinates(path: UIBezierPath, _ view: UIView) -> UIBezierPath
-extension NSObject {
+extension Object {
   class func accessibilityElementCount() -> Int
   func accessibilityElementCount() -> Int
   class func accessibilityElementAt(index: Int) -> AnyObject?
@@ -895,7 +895,7 @@ extension NSObject {
   class func accessibilityElements() -> [AnyObject]?
   class func setAccessibilityElements(accessibilityElements: [AnyObject]?)
 }
-extension NSObject {
+extension Object {
   @available(tvOS 4.0, *)
   class func accessibilityElementDidBecomeFocused()
   @available(tvOS 4.0, *)
@@ -915,7 +915,7 @@ extension NSObject {
 }
 @available(tvOS 9.0, *)
 func UIAccessibilityFocusedElement(assistiveTechnologyIdentifier: String?) -> AnyObject?
-extension NSObject {
+extension Object {
   @available(tvOS 7.0, *)
   class func accessibilityActivate() -> Bool
   @available(tvOS 7.0, *)
@@ -1097,7 +1097,7 @@ let UIAccessibilitySpeechAttributeLanguage: String
 @available(tvOS 7.0, *)
 let UIAccessibilitySpeechAttributePitch: String
 @available(tvOS 8.0, *)
-class UIAccessibilityCustomAction : NSObject {
+class UIAccessibilityCustomAction : Object {
   init(name: String, target: AnyObject?, selector: Selector)
   var name: String
   weak var target: @sil_weak AnyObject?
@@ -1105,7 +1105,7 @@ class UIAccessibilityCustomAction : NSObject {
   init()
 }
 @available(tvOS 3.0, *)
-class UIAccessibilityElement : NSObject, UIAccessibilityIdentification {
+class UIAccessibilityElement : Object, UIAccessibilityIdentification {
   init(accessibilityContainer container: AnyObject)
   unowned(unsafe) var accessibilityContainer: @sil_unmanaged AnyObject?
   var isAccessibilityElement: Bool
@@ -1118,7 +1118,7 @@ class UIAccessibilityElement : NSObject, UIAccessibilityIdentification {
   @available(tvOS 5.0, *)
   var accessibilityIdentifier: String?
 }
-protocol UIAccessibilityIdentification : NSObjectProtocol {
+protocol UIAccessibilityIdentification : ObjectProtocol {
   @available(tvOS 5.0, *)
   var accessibilityIdentifier: String? { get set }
 }
@@ -1151,10 +1151,10 @@ enum UIActivityIndicatorViewStyle : Int {
   case White
 }
 @available(tvOS 2.0, *)
-class UIActivityIndicatorView : UIView, NSCoding {
+class UIActivityIndicatorView : UIView, Coding {
   init(activityIndicatorStyle style: UIActivityIndicatorViewStyle)
   init(frame: CGRect)
-  init(coder: NSCoder)
+  init(coder: Coder)
   var activityIndicatorViewStyle: UIActivityIndicatorViewStyle
   var hidesWhenStopped: Bool
   @available(tvOS 5.0, *)
@@ -1164,7 +1164,7 @@ class UIActivityIndicatorView : UIView, NSCoding {
   func isAnimating() -> Bool
   convenience init()
 }
-protocol UIActivityItemSource : NSObjectProtocol {
+protocol UIActivityItemSource : ObjectProtocol {
   func activityViewControllerPlaceholderItem(activityViewController: UIActivityViewController) -> AnyObject
   func activityViewController(activityViewController: UIActivityViewController, itemForActivityType activityType: String) -> AnyObject?
   optional func activityViewController(activityViewController: UIActivityViewController, subjectForActivityType activityType: String?) -> String
@@ -1173,7 +1173,7 @@ protocol UIActivityItemSource : NSObjectProtocol {
   optional func activityViewController(activityViewController: UIActivityViewController, thumbnailImageForActivityType activityType: String?, suggestedSize size: CGSize) -> UIImage?
 }
 typealias UIActivityViewControllerCompletionHandler = (String?, Bool) -> Void
-typealias UIActivityViewControllerCompletionWithItemsHandler = (String?, Bool, [AnyObject]?, NSError?) -> Void
+typealias UIActivityViewControllerCompletionWithItemsHandler = (String?, Bool, [AnyObject]?, Error?) -> Void
 @available(tvOS 8.0, *)
 enum UIAlertActionStyle : Int {
   init?(rawValue: Int)
@@ -1190,14 +1190,14 @@ enum UIAlertControllerStyle : Int {
   case Alert
 }
 @available(tvOS 8.0, *)
-class UIAlertAction : NSObject, NSCopying {
+class UIAlertAction : Object, Copying {
   convenience init(title: String?, style: UIAlertActionStyle, handler: ((UIAlertAction) -> Void)? = nil)
   var title: String? { get }
   var style: UIAlertActionStyle { get }
   var isEnabled: Bool
   init()
   @available(tvOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 class UIAlertController : UIViewController {
@@ -1211,13 +1211,13 @@ class UIAlertController : UIViewController {
   var title: String?
   var message: String?
   var preferredStyle: UIAlertControllerStyle { get }
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
-protocol UIAppearanceContainer : NSObjectProtocol {
+protocol UIAppearanceContainer : ObjectProtocol {
 }
-protocol UIAppearance : NSObjectProtocol {
+protocol UIAppearance : ObjectProtocol {
   static func appearance() -> Self
   @available(tvOS 9.0, *)
   static func appearanceWhenContainedInInstancesOfClasses(containerTypes: [AnyObject.Type]) -> Self
@@ -1238,7 +1238,7 @@ typealias UIBackgroundTaskIdentifier = Int
 @available(tvOS 4.0, *)
 let UIBackgroundTaskInvalid: UIBackgroundTaskIdentifier
 @available(tvOS 4.0, *)
-let UIMinimumKeepAliveTimeout: NSTimeInterval
+let UIMinimumKeepAliveTimeout: TimeInterval
 @available(tvOS 2.0, *)
 class UIApplication : UIResponder {
   class func shared() -> UIApplication
@@ -1247,9 +1247,9 @@ class UIApplication : UIResponder {
   func endIgnoringInteractionEvents()
   func isIgnoringInteractionEvents() -> Bool
   var isIdleTimerDisabled: Bool
-  func open(url: NSURL) -> Bool
+  func open(url: URL) -> Bool
   @available(tvOS 3.0, *)
-  func canOpen(url: NSURL) -> Bool
+  func canOpen(url: URL) -> Bool
   func send(event: UIEvent)
   var keyWindow: UIWindow? { get }
   var windows: [UIWindow] { get }
@@ -1257,7 +1257,7 @@ class UIApplication : UIResponder {
   @available(tvOS 4.0, *)
   var applicationState: UIApplicationState { get }
   @available(tvOS 4.0, *)
-  var backgroundTimeRemaining: NSTimeInterval { get }
+  var backgroundTimeRemaining: TimeInterval { get }
   @available(tvOS 4.0, *)
   func beginBackgroundTask(expirationHandler handler: (() -> Void)? = nil) -> UIBackgroundTaskIdentifier
   @available(tvOS 7.0, *)
@@ -1304,19 +1304,19 @@ extension UIApplication {
   @available(tvOS 7.0, *)
   class func registerObjectForStateRestoration(object: UIStateRestoring, restorationIdentifier: String)
 }
-protocol UIApplicationDelegate : NSObjectProtocol {
+protocol UIApplicationDelegate : ObjectProtocol {
   @available(tvOS 2.0, *)
   optional func applicationDidFinishLaunching(application: UIApplication)
   @available(tvOS 6.0, *)
-  optional func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]? = [:]) -> Bool
+  optional func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [Object : AnyObject]? = [:]) -> Bool
   @available(tvOS 3.0, *)
-  optional func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]? = [:]) -> Bool
+  optional func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [Object : AnyObject]? = [:]) -> Bool
   @available(tvOS 2.0, *)
   optional func applicationDidBecomeActive(application: UIApplication)
   @available(tvOS 2.0, *)
   optional func applicationWillResignActive(application: UIApplication)
   @available(tvOS 9.0, *)
-  optional func application(app: UIApplication, open url: NSURL, options: [String : AnyObject] = [:]) -> Bool
+  optional func application(app: UIApplication, open url: URL, options: [String : AnyObject] = [:]) -> Bool
   @available(tvOS 2.0, *)
   optional func applicationDidReceiveMemoryWarning(application: UIApplication)
   @available(tvOS 2.0, *)
@@ -1324,15 +1324,15 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(tvOS 2.0, *)
   optional func applicationSignificantTimeChange(application: UIApplication)
   @available(tvOS 3.0, *)
-  optional func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
+  optional func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
   @available(tvOS 3.0, *)
-  optional func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError)
+  optional func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error)
   @available(tvOS 3.0, *)
-  optional func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
+  optional func application(application: UIApplication, didReceiveRemoteNotification userInfo: [Object : AnyObject])
   @available(tvOS 7.0, *)
   optional func application(application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: () -> Void)
   @available(tvOS 8.2, *)
-  optional func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: ([NSObject : AnyObject]?) -> Void)
+  optional func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [Object : AnyObject]?, reply: ([Object : AnyObject]?) -> Void)
   @available(tvOS 9.0, *)
   optional func applicationShouldRequestHealthAuthorization(application: UIApplication)
   @available(tvOS 4.0, *)
@@ -1348,23 +1348,23 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(tvOS 8.0, *)
   optional func application(application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: String) -> Bool
   @available(tvOS 6.0, *)
-  optional func application(application: UIApplication, viewControllerWithRestorationIdentifierPath identifierComponents: [AnyObject], coder: NSCoder) -> UIViewController?
+  optional func application(application: UIApplication, viewControllerWithRestorationIdentifierPath identifierComponents: [AnyObject], coder: Coder) -> UIViewController?
   @available(tvOS 6.0, *)
-  optional func application(application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool
+  optional func application(application: UIApplication, shouldSaveApplicationState coder: Coder) -> Bool
   @available(tvOS 6.0, *)
-  optional func application(application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool
+  optional func application(application: UIApplication, shouldRestoreApplicationState coder: Coder) -> Bool
   @available(tvOS 6.0, *)
-  optional func application(application: UIApplication, willEncodeRestorableStateWith coder: NSCoder)
+  optional func application(application: UIApplication, willEncodeRestorableStateWith coder: Coder)
   @available(tvOS 6.0, *)
-  optional func application(application: UIApplication, didDecodeRestorableStateWith coder: NSCoder)
+  optional func application(application: UIApplication, didDecodeRestorableStateWith coder: Coder)
   @available(tvOS 8.0, *)
   optional func application(application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool
   @available(tvOS 8.0, *)
-  optional func application(application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool
+  optional func application(application: UIApplication, continue userActivity: UserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool
   @available(tvOS 8.0, *)
-  optional func application(application: UIApplication, didFailToContinueUserActivityWithType userActivityType: String, error: NSError)
+  optional func application(application: UIApplication, didFailToContinueUserActivityWithType userActivityType: String, error: Error)
   @available(tvOS 8.0, *)
-  optional func application(application: UIApplication, didUpdateUserActivity userActivity: NSUserActivity)
+  optional func application(application: UIApplication, didUpdateUserActivity userActivity: UserActivity)
 }
 extension UIApplication {
 }
@@ -1575,9 +1575,9 @@ enum UIBarButtonSystemItem : Int {
   case PageCurl
 }
 @available(tvOS 2.0, *)
-class UIBarButtonItem : UIBarItem, NSCoding {
+class UIBarButtonItem : UIBarItem, Coding {
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init(image: UIImage?, style: UIBarButtonItemStyle, target: AnyObject?, action: Selector)
   @available(tvOS 5.0, *)
   convenience init(image: UIImage?, landscapeImagePhone: UIImage?, style: UIBarButtonItemStyle, target: AnyObject?, action: Selector)
@@ -1610,11 +1610,11 @@ class UIBarButtonItem : UIBarItem, NSCoding {
   func titlePositionAdjustmentFor(barMetrics: UIBarMetrics) -> UIOffset
 }
 @available(tvOS 9.0, *)
-class UIBarButtonItemGroup : NSObject, NSCoding {
+class UIBarButtonItemGroup : Object, Coding {
 
   /// Create a new bar button item group with the given items. When bar button item layout is done, either the group's barButtonItems or its representativeItem is displayed (if it exists).
   init(barButtonItems: [UIBarButtonItem], representativeItem: UIBarButtonItem?)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 
   /// The bar button items assocaited with this group. Changing these items will affect the bar displaying these items without needing to re-set the groups that are in that bar. Any UIBarButtonItems that are already in group will be removed from that group.
   var barButtonItems: [UIBarButtonItem]
@@ -1629,7 +1629,7 @@ class UIBarButtonItemGroup : NSObject, NSCoding {
   var isDisplayingRepresentativeItem: Bool { get }
   convenience init()
   @available(tvOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
 }
 extension UIBarButtonItem {
 
@@ -1658,18 +1658,18 @@ enum UIBarPosition : Int {
   case Top
   case TopAttached
 }
-protocol UIBarPositioning : NSObjectProtocol {
+protocol UIBarPositioning : ObjectProtocol {
   @available(tvOS 7.0, *)
   var barPosition: UIBarPosition { get }
 }
-protocol UIBarPositioningDelegate : NSObjectProtocol {
+protocol UIBarPositioningDelegate : ObjectProtocol {
   @available(tvOS 7.0, *)
   optional func positionForBar(bar: UIBarPositioning) -> UIBarPosition
 }
 @available(tvOS 2.0, *)
-class UIBarItem : NSObject, NSCoding, UIAppearance {
+class UIBarItem : Object, Coding, UIAppearance {
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   var isEnabled: Bool
   var title: String?
   var image: UIImage?
@@ -1680,7 +1680,7 @@ class UIBarItem : NSObject, NSCoding, UIAppearance {
   @available(tvOS 5.0, *)
   func titleTextAttributesFor(state: UIControlState) -> [String : AnyObject]?
   @available(tvOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
   @available(tvOS 2.0, *)
   class func appearance() -> Self
   @available(tvOS 9.0, *)
@@ -1700,7 +1700,7 @@ struct UIRectCorner : OptionSetType {
   static var AllCorners: UIRectCorner { get }
 }
 @available(tvOS 3.2, *)
-class UIBezierPath : NSObject, NSCopying, NSCoding {
+class UIBezierPath : Object, Copying, Coding {
   convenience init(rect: CGRect)
   convenience init(ovalIn rect: CGRect)
   convenience init(roundedRect rect: CGRect, cornerRadius: CGFloat)
@@ -1708,7 +1708,7 @@ class UIBezierPath : NSObject, NSCopying, NSCoding {
   convenience init(arcCenter center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
   convenience init(cgPath CGPath: CGPath)
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   var cgPath: CGPath
   func moveTo(point: CGPoint)
   func addLineTo(point: CGPoint)
@@ -1740,9 +1740,9 @@ class UIBezierPath : NSObject, NSCopying, NSCoding {
   func strokeWith(blendMode: CGBlendMode, alpha: CGFloat)
   func addClip()
   @available(tvOS 3.2, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(tvOS 3.2, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
 }
 enum UIButtonType : Int {
   init?(rawValue: Int)
@@ -1757,7 +1757,7 @@ enum UIButtonType : Int {
   static var RoundedRect: UIButtonType { get }
 }
 @available(tvOS 2.0, *)
-class UIButton : UIControl, NSCoding {
+class UIButton : UIControl, Coding {
   convenience init(type buttonType: UIButtonType)
   var contentEdgeInsets: UIEdgeInsets
   var titleEdgeInsets: UIEdgeInsets
@@ -1774,21 +1774,21 @@ class UIButton : UIControl, NSCoding {
   func setImage(image: UIImage?, forState state: UIControlState)
   func setBackgroundImage(image: UIImage?, forState state: UIControlState)
   @available(tvOS 6.0, *)
-  func setAttributedTitle(title: NSAttributedString?, forState state: UIControlState)
+  func setAttributedTitle(title: AttributedString?, forState state: UIControlState)
   func titleFor(state: UIControlState) -> String?
   func titleColorFor(state: UIControlState) -> UIColor?
   func titleShadowColorFor(state: UIControlState) -> UIColor?
   func imageFor(state: UIControlState) -> UIImage?
   func backgroundImageFor(state: UIControlState) -> UIImage?
   @available(tvOS 6.0, *)
-  func attributedTitleFor(state: UIControlState) -> NSAttributedString?
+  func attributedTitleFor(state: UIControlState) -> AttributedString?
   var currentTitle: String? { get }
   var currentTitleColor: UIColor { get }
   var currentTitleShadowColor: UIColor? { get }
   var currentImage: UIImage? { get }
   var currentBackgroundImage: UIImage? { get }
   @available(tvOS 6.0, *)
-  var currentAttributedTitle: NSAttributedString? { get }
+  var currentAttributedTitle: AttributedString? { get }
   @available(tvOS 3.0, *)
   var titleLabel: UILabel? { get }
   @available(tvOS 3.0, *)
@@ -1798,7 +1798,7 @@ class UIButton : UIControl, NSCoding {
   func titleRectForContentRect(contentRect: CGRect) -> CGRect
   func imageRectForContentRect(contentRect: CGRect) -> CGRect
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 extension UIButton {
@@ -1817,72 +1817,72 @@ struct UICollectionViewScrollPosition : OptionSetType {
 typealias UICollectionViewLayoutInteractiveTransitionCompletion = (Bool, Bool) -> Void
 @available(tvOS 9.0, *)
 class UICollectionViewFocusUpdateContext : UIFocusUpdateContext {
-  var previouslyFocusedIndexPath: NSIndexPath? { get }
-  var nextFocusedIndexPath: NSIndexPath? { get }
+  var previouslyFocusedIndexPath: IndexPath? { get }
+  var nextFocusedIndexPath: IndexPath? { get }
   init()
 }
-protocol UICollectionViewDataSource : NSObjectProtocol {
+protocol UICollectionViewDataSource : ObjectProtocol {
   @available(tvOS 6.0, *)
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, cellForItemAt indexPath: NSIndexPath) -> UICollectionViewCell
+  func collectionView(collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
   @available(tvOS 6.0, *)
   optional func numberOfSectionsIn(collectionView: UICollectionView) -> Int
   @available(tvOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: NSIndexPath) -> UICollectionReusableView
+  optional func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
   @available(tvOS 9.0, *)
-  optional func collectionView(collectionView: UICollectionView, canMoveItemAt indexPath: NSIndexPath) -> Bool
+  optional func collectionView(collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool
   @available(tvOS 9.0, *)
-  optional func collectionView(collectionView: UICollectionView, moveItemAt sourceIndexPath: NSIndexPath, to destinationIndexPath: NSIndexPath)
+  optional func collectionView(collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
 }
 protocol UICollectionViewDelegate : UIScrollViewDelegate {
   @available(tvOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, shouldHighlightItemAt indexPath: NSIndexPath) -> Bool
+  optional func collectionView(collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool
   @available(tvOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, didHighlightItemAt indexPath: NSIndexPath)
+  optional func collectionView(collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, didUnhighlightItemAt indexPath: NSIndexPath)
+  optional func collectionView(collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, shouldSelectItemAt indexPath: NSIndexPath) -> Bool
+  optional func collectionView(collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool
   @available(tvOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, shouldDeselectItemAt indexPath: NSIndexPath) -> Bool
+  optional func collectionView(collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool
   @available(tvOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, didSelectItemAt indexPath: NSIndexPath)
+  optional func collectionView(collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, didDeselectItemAt indexPath: NSIndexPath)
+  optional func collectionView(collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath)
   @available(tvOS 8.0, *)
-  optional func collectionView(collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: NSIndexPath)
+  optional func collectionView(collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
   @available(tvOS 8.0, *)
-  optional func collectionView(collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: NSIndexPath)
+  optional func collectionView(collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: NSIndexPath)
+  optional func collectionView(collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: NSIndexPath)
+  optional func collectionView(collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: NSIndexPath) -> Bool
+  optional func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool
   @available(tvOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
+  optional func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: AnyObject?) -> Bool
   @available(tvOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: NSIndexPath, withSender sender: AnyObject?)
+  optional func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: AnyObject?)
   @available(tvOS 7.0, *)
   optional func collectionView(collectionView: UICollectionView, transitionLayoutForOldLayout fromLayout: UICollectionViewLayout, newLayout toLayout: UICollectionViewLayout) -> UICollectionViewTransitionLayout
   @available(tvOS 9.0, *)
-  optional func collectionView(collectionView: UICollectionView, canFocusItemAt indexPath: NSIndexPath) -> Bool
+  optional func collectionView(collectionView: UICollectionView, canFocusItemAt indexPath: IndexPath) -> Bool
   @available(tvOS 9.0, *)
   optional func collectionView(collectionView: UICollectionView, shouldUpdateFocusIn context: UICollectionViewFocusUpdateContext) -> Bool
   @available(tvOS 9.0, *)
   optional func collectionView(collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
   @available(tvOS 9.0, *)
-  optional func indexPathForPreferredFocusedViewIn(collectionView: UICollectionView) -> NSIndexPath?
+  optional func indexPathForPreferredFocusedViewIn(collectionView: UICollectionView) -> IndexPath?
   @available(tvOS 9.0, *)
-  optional func collectionView(collectionView: UICollectionView, targetIndexPathForMoveFromItemAt originalIndexPath: NSIndexPath, toProposedIndexPath proposedIndexPath: NSIndexPath) -> NSIndexPath
+  optional func collectionView(collectionView: UICollectionView, targetIndexPathForMoveFromItemAt originalIndexPath: IndexPath, toProposedIndexPath proposedIndexPath: IndexPath) -> IndexPath
   @available(tvOS 9.0, *)
   optional func collectionView(collectionView: UICollectionView, targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint
 }
 @available(tvOS 6.0, *)
 class UICollectionView : UIScrollView {
   init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   var collectionViewLayout: UICollectionViewLayout
   weak var delegate: @sil_weak UICollectionViewDelegate?
   weak var dataSource: @sil_weak UICollectionViewDataSource?
@@ -1891,13 +1891,13 @@ class UICollectionView : UIScrollView {
   func register(nib: UINib?, forCellWithReuseIdentifier identifier: String)
   func register(viewClass: AnyClass?, forSupplementaryViewOfKind elementKind: String, withReuseIdentifier identifier: String)
   func register(nib: UINib?, forSupplementaryViewOfKind kind: String, withReuseIdentifier identifier: String)
-  func dequeueReusableCellWithReuseIdentifier(identifier: String, forIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
-  func dequeueReusableSupplementaryViewOfKind(elementKind: String, withReuseIdentifier identifier: String, forIndexPath indexPath: NSIndexPath) -> UICollectionReusableView
+  func dequeueReusableCellWithReuseIdentifier(identifier: String, forIndexPath indexPath: IndexPath) -> UICollectionViewCell
+  func dequeueReusableSupplementaryViewOfKind(elementKind: String, withReuseIdentifier identifier: String, forIndexPath indexPath: IndexPath) -> UICollectionReusableView
   var allowsSelection: Bool
   var allowsMultipleSelection: Bool
-  func indexPathsForSelectedItems() -> [NSIndexPath]?
-  func selectItemAt(indexPath: NSIndexPath?, animated: Bool, scrollPosition: UICollectionViewScrollPosition)
-  func deselectItemAt(indexPath: NSIndexPath, animated: Bool)
+  func indexPathsForSelectedItems() -> [IndexPath]?
+  func selectItemAt(indexPath: IndexPath?, animated: Bool, scrollPosition: UICollectionViewScrollPosition)
+  func deselectItemAt(indexPath: IndexPath, animated: Bool)
   func reloadData()
   func setCollectionViewLayout(layout: UICollectionViewLayout, animated: Bool)
   @available(tvOS 7.0, *)
@@ -1910,31 +1910,31 @@ class UICollectionView : UIScrollView {
   func cancelInteractiveTransition()
   func numberOfSections() -> Int
   func numberOfItemsInSection(section: Int) -> Int
-  func layoutAttributesForItemAt(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForSupplementaryElementOfKind(kind: String, at indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func indexPathForItemAt(point: CGPoint) -> NSIndexPath?
-  func indexPathFor(cell: UICollectionViewCell) -> NSIndexPath?
-  func cellForItemAt(indexPath: NSIndexPath) -> UICollectionViewCell?
+  func layoutAttributesForItemAt(indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryElementOfKind(kind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func indexPathForItemAt(point: CGPoint) -> IndexPath?
+  func indexPathFor(cell: UICollectionViewCell) -> IndexPath?
+  func cellForItemAt(indexPath: IndexPath) -> UICollectionViewCell?
   func visibleCells() -> [UICollectionViewCell]
-  func indexPathsForVisibleItems() -> [NSIndexPath]
+  func indexPathsForVisibleItems() -> [IndexPath]
   @available(tvOS 9.0, *)
-  func supplementaryViewForElementKind(elementKind: String, at indexPath: NSIndexPath) -> UICollectionReusableView
+  func supplementaryViewForElementKind(elementKind: String, at indexPath: IndexPath) -> UICollectionReusableView
   @available(tvOS 9.0, *)
   func visibleSupplementaryViewsOfKind(elementKind: String) -> [UICollectionReusableView]
   @available(tvOS 9.0, *)
-  func indexPathsForVisibleSupplementaryElementsOfKind(elementKind: String) -> [NSIndexPath]
-  func scrollToItemAt(indexPath: NSIndexPath, at scrollPosition: UICollectionViewScrollPosition, animated: Bool)
-  func insertSections(sections: NSIndexSet)
-  func deleteSections(sections: NSIndexSet)
-  func reloadSections(sections: NSIndexSet)
+  func indexPathsForVisibleSupplementaryElementsOfKind(elementKind: String) -> [IndexPath]
+  func scrollToItemAt(indexPath: IndexPath, at scrollPosition: UICollectionViewScrollPosition, animated: Bool)
+  func insertSections(sections: IndexSet)
+  func deleteSections(sections: IndexSet)
+  func reloadSections(sections: IndexSet)
   func moveSection(section: Int, toSection newSection: Int)
-  func insertItemsAt(indexPaths: [NSIndexPath])
-  func deleteItemsAt(indexPaths: [NSIndexPath])
-  func reloadItemsAt(indexPaths: [NSIndexPath])
-  func moveItemAt(indexPath: NSIndexPath, to newIndexPath: NSIndexPath)
+  func insertItemsAt(indexPaths: [IndexPath])
+  func deleteItemsAt(indexPaths: [IndexPath])
+  func reloadItemsAt(indexPaths: [IndexPath])
+  func moveItemAt(indexPath: IndexPath, to newIndexPath: IndexPath)
   func performBatchUpdates(updates: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 9.0, *)
-  func beginInteractiveMovementForItemAt(indexPath: NSIndexPath) -> Bool
+  func beginInteractiveMovementForItemAt(indexPath: IndexPath) -> Bool
   @available(tvOS 9.0, *)
   func updateInteractiveMovementTargetPosition(targetPosition: CGPoint)
   @available(tvOS 9.0, *)
@@ -1946,7 +1946,7 @@ class UICollectionView : UIScrollView {
   convenience init(frame: CGRect)
   convenience init()
 }
-extension NSIndexPath {
+extension IndexPath {
   @available(tvOS 6.0, *)
   convenience init(forItem item: Int, inSection section: Int)
   @available(tvOS 6.0, *)
@@ -1962,7 +1962,7 @@ class UICollectionReusableView : UIView {
   @available(tvOS 8.0, *)
   func preferredLayoutAttributesFitting(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 @available(tvOS 6.0, *)
@@ -1973,14 +1973,14 @@ class UICollectionViewCell : UICollectionReusableView {
   var backgroundView: UIView?
   var selectedBackgroundView: UIView?
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 @available(tvOS 6.0, *)
 class UICollectionViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
   init(collectionViewLayout layout: UICollectionViewLayout)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   var collectionView: UICollectionView?
   var clearsSelectionOnViewWillAppear: Bool
   @available(tvOS 7.0, *)
@@ -1991,45 +1991,45 @@ class UICollectionViewController : UIViewController, UICollectionViewDelegate, U
   var installsStandardGestureForInteractiveMovement: Bool
   convenience init()
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, shouldHighlightItemAt indexPath: NSIndexPath) -> Bool
+  func collectionView(collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didHighlightItemAt indexPath: NSIndexPath)
+  func collectionView(collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didUnhighlightItemAt indexPath: NSIndexPath)
+  func collectionView(collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, shouldSelectItemAt indexPath: NSIndexPath) -> Bool
+  func collectionView(collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, shouldDeselectItemAt indexPath: NSIndexPath) -> Bool
+  func collectionView(collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didSelectItemAt indexPath: NSIndexPath)
+  func collectionView(collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didDeselectItemAt indexPath: NSIndexPath)
+  func collectionView(collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath)
   @available(tvOS 8.0, *)
-  func collectionView(collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: NSIndexPath)
+  func collectionView(collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
   @available(tvOS 8.0, *)
-  func collectionView(collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: NSIndexPath)
+  func collectionView(collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: NSIndexPath)
+  func collectionView(collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: NSIndexPath)
+  func collectionView(collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: NSIndexPath) -> Bool
+  func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
+  func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: AnyObject?) -> Bool
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: NSIndexPath, withSender sender: AnyObject?)
+  func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: AnyObject?)
   @available(tvOS 7.0, *)
   func collectionView(collectionView: UICollectionView, transitionLayoutForOldLayout fromLayout: UICollectionViewLayout, newLayout toLayout: UICollectionViewLayout) -> UICollectionViewTransitionLayout
   @available(tvOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, canFocusItemAt indexPath: NSIndexPath) -> Bool
+  func collectionView(collectionView: UICollectionView, canFocusItemAt indexPath: IndexPath) -> Bool
   @available(tvOS 9.0, *)
   func collectionView(collectionView: UICollectionView, shouldUpdateFocusIn context: UICollectionViewFocusUpdateContext) -> Bool
   @available(tvOS 9.0, *)
   func collectionView(collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
   @available(tvOS 9.0, *)
-  func indexPathForPreferredFocusedViewIn(collectionView: UICollectionView) -> NSIndexPath?
+  func indexPathForPreferredFocusedViewIn(collectionView: UICollectionView) -> IndexPath?
   @available(tvOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, targetIndexPathForMoveFromItemAt originalIndexPath: NSIndexPath, toProposedIndexPath proposedIndexPath: NSIndexPath) -> NSIndexPath
+  func collectionView(collectionView: UICollectionView, targetIndexPathForMoveFromItemAt originalIndexPath: IndexPath, toProposedIndexPath proposedIndexPath: IndexPath) -> IndexPath
   @available(tvOS 9.0, *)
   func collectionView(collectionView: UICollectionView, targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint
   @available(tvOS 6.0, *)
@@ -2061,15 +2061,15 @@ class UICollectionViewController : UIViewController, UICollectionViewDelegate, U
   @available(tvOS 6.0, *)
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, cellForItemAt indexPath: NSIndexPath) -> UICollectionViewCell
+  func collectionView(collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
   @available(tvOS 6.0, *)
   func numberOfSectionsIn(collectionView: UICollectionView) -> Int
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: NSIndexPath) -> UICollectionReusableView
+  func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
   @available(tvOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, canMoveItemAt indexPath: NSIndexPath) -> Bool
+  func collectionView(collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool
   @available(tvOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, moveItemAt sourceIndexPath: NSIndexPath, to destinationIndexPath: NSIndexPath)
+  func collectionView(collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
 }
 @available(tvOS 6.0, *)
 let UICollectionElementKindSectionHeader: String
@@ -2089,7 +2089,7 @@ class UICollectionViewFlowLayoutInvalidationContext : UICollectionViewLayoutInva
 }
 protocol UICollectionViewDelegateFlowLayout : UICollectionViewDelegate {
   @available(tvOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: NSIndexPath) -> CGSize
+  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
   @available(tvOS 6.0, *)
   optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
   @available(tvOS 6.0, *)
@@ -2117,7 +2117,7 @@ class UICollectionViewFlowLayout : UICollectionViewLayout {
   @available(tvOS 9.0, *)
   var sectionFootersPinToVisibleBounds: Bool
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 enum UICollectionElementCategory : UInt {
   init?(rawValue: UInt)
@@ -2127,7 +2127,7 @@ enum UICollectionElementCategory : UInt {
   case DecorationView
 }
 @available(tvOS 6.0, *)
-class UICollectionViewLayoutAttributes : NSObject, NSCopying, UIDynamicItem {
+class UICollectionViewLayoutAttributes : Object, Copying, UIDynamicItem {
   var frame: CGRect
   var center: CGPoint
   var size: CGSize
@@ -2139,15 +2139,15 @@ class UICollectionViewLayoutAttributes : NSObject, NSCopying, UIDynamicItem {
   var alpha: CGFloat
   var zIndex: Int
   var isHidden: Bool
-  var indexPath: NSIndexPath
+  var indexPath: IndexPath
   var representedElementCategory: UICollectionElementCategory { get }
   var representedElementKind: String? { get }
-  convenience init(forCellWith indexPath: NSIndexPath)
-  convenience init(forSupplementaryViewOfKind elementKind: String, withIndexPath indexPath: NSIndexPath)
-  convenience init(forDecorationViewOfKind decorationViewKind: String, withIndexPath indexPath: NSIndexPath)
+  convenience init(forCellWith indexPath: IndexPath)
+  convenience init(forSupplementaryViewOfKind elementKind: String, withIndexPath indexPath: IndexPath)
+  convenience init(forDecorationViewOfKind decorationViewKind: String, withIndexPath indexPath: IndexPath)
   init()
   @available(tvOS 6.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 
   /**
    The collision type represents how the dynamics system will evaluate collisions with 
@@ -2173,44 +2173,44 @@ enum UICollectionUpdateAction : Int {
   case None
 }
 @available(tvOS 6.0, *)
-class UICollectionViewUpdateItem : NSObject {
-  var indexPathBeforeUpdate: NSIndexPath? { get }
-  var indexPathAfterUpdate: NSIndexPath? { get }
+class UICollectionViewUpdateItem : Object {
+  var indexPathBeforeUpdate: IndexPath? { get }
+  var indexPathAfterUpdate: IndexPath? { get }
   var updateAction: UICollectionUpdateAction { get }
   init()
 }
 @available(tvOS 7.0, *)
-class UICollectionViewLayoutInvalidationContext : NSObject {
+class UICollectionViewLayoutInvalidationContext : Object {
   var invalidateEverything: Bool { get }
   var invalidateDataSourceCounts: Bool { get }
   @available(tvOS 8.0, *)
-  func invalidateItemsAt(indexPaths: [NSIndexPath])
+  func invalidateItemsAt(indexPaths: [IndexPath])
   @available(tvOS 8.0, *)
-  func invalidateSupplementaryElementsOfKind(elementKind: String, at indexPaths: [NSIndexPath])
+  func invalidateSupplementaryElementsOfKind(elementKind: String, at indexPaths: [IndexPath])
   @available(tvOS 8.0, *)
-  func invalidateDecorationElementsOfKind(elementKind: String, at indexPaths: [NSIndexPath])
+  func invalidateDecorationElementsOfKind(elementKind: String, at indexPaths: [IndexPath])
   @available(tvOS 8.0, *)
-  var invalidatedItemIndexPaths: [NSIndexPath]? { get }
+  var invalidatedItemIndexPaths: [IndexPath]? { get }
   @available(tvOS 8.0, *)
-  var invalidatedSupplementaryIndexPaths: [String : [NSIndexPath]]? { get }
+  var invalidatedSupplementaryIndexPaths: [String : [IndexPath]]? { get }
   @available(tvOS 8.0, *)
-  var invalidatedDecorationIndexPaths: [String : [NSIndexPath]]? { get }
+  var invalidatedDecorationIndexPaths: [String : [IndexPath]]? { get }
   @available(tvOS 8.0, *)
   var contentOffsetAdjustment: CGPoint
   @available(tvOS 8.0, *)
   var contentSizeAdjustment: CGSize
   @available(tvOS 9.0, *)
-  var previousIndexPathsForInteractivelyMovingItems: [NSIndexPath]? { get }
+  var previousIndexPathsForInteractivelyMovingItems: [IndexPath]? { get }
   @available(tvOS 9.0, *)
-  var targetIndexPathsForInteractivelyMovingItems: [NSIndexPath]? { get }
+  var targetIndexPathsForInteractivelyMovingItems: [IndexPath]? { get }
   @available(tvOS 9.0, *)
   var interactiveMovementTarget: CGPoint { get }
   init()
 }
 @available(tvOS 6.0, *)
-class UICollectionViewLayout : NSObject, NSCoding {
+class UICollectionViewLayout : Object, Coding {
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   var collectionView: UICollectionView? { get }
   func invalidateLayout()
   @available(tvOS 7.0, *)
@@ -2218,7 +2218,7 @@ class UICollectionViewLayout : NSObject, NSCoding {
   func register(viewClass: AnyClass?, forDecorationViewOfKind elementKind: String)
   func register(nib: UINib?, forDecorationViewOfKind elementKind: String)
   @available(tvOS 6.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
 }
 extension UICollectionViewLayout {
   class func layoutAttributesClass() -> AnyClass
@@ -2226,9 +2226,9 @@ extension UICollectionViewLayout {
   class func invalidationContextClass() -> AnyClass
   func prepare()
   func layoutAttributesForElementsIn(rect: CGRect) -> [UICollectionViewLayoutAttributes]?
-  func layoutAttributesForItemAt(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForSupplementaryViewOfKind(elementKind: String, at indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForDecorationViewOfKind(elementKind: String, at indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForItemAt(indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryViewOfKind(elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForDecorationViewOfKind(elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
   func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool
   @available(tvOS 7.0, *)
   func invalidationContextForBoundsChange(newBounds: CGRect) -> UICollectionViewLayoutInvalidationContext
@@ -2252,30 +2252,30 @@ extension UICollectionViewLayout {
   func prepareForTransitionFrom(oldLayout: UICollectionViewLayout)
   @available(tvOS 7.0, *)
   func finalizeLayoutTransition()
-  func initialLayoutAttributesForAppearingItemAt(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func finalLayoutAttributesForDisappearingItemAt(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func initialLayoutAttributesForAppearingSupplementaryElementOfKind(elementKind: String, at elementIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func finalLayoutAttributesForDisappearingSupplementaryElementOfKind(elementKind: String, at elementIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func initialLayoutAttributesForAppearingDecorationElementOfKind(elementKind: String, at decorationIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func finalLayoutAttributesForDisappearingDecorationElementOfKind(elementKind: String, at decorationIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func initialLayoutAttributesForAppearingItemAt(itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func finalLayoutAttributesForDisappearingItemAt(itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func initialLayoutAttributesForAppearingSupplementaryElementOfKind(elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func finalLayoutAttributesForDisappearingSupplementaryElementOfKind(elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func initialLayoutAttributesForAppearingDecorationElementOfKind(elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func finalLayoutAttributesForDisappearingDecorationElementOfKind(elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
   @available(tvOS 7.0, *)
-  func indexPathsToDeleteForSupplementaryViewOfKind(elementKind: String) -> [NSIndexPath]
+  func indexPathsToDeleteForSupplementaryViewOfKind(elementKind: String) -> [IndexPath]
   @available(tvOS 7.0, *)
-  func indexPathsToDeleteForDecorationViewOfKind(elementKind: String) -> [NSIndexPath]
+  func indexPathsToDeleteForDecorationViewOfKind(elementKind: String) -> [IndexPath]
   @available(tvOS 7.0, *)
-  func indexPathsToInsertForSupplementaryViewOfKind(elementKind: String) -> [NSIndexPath]
+  func indexPathsToInsertForSupplementaryViewOfKind(elementKind: String) -> [IndexPath]
   @available(tvOS 7.0, *)
-  func indexPathsToInsertForDecorationViewOfKind(elementKind: String) -> [NSIndexPath]
+  func indexPathsToInsertForDecorationViewOfKind(elementKind: String) -> [IndexPath]
 }
 extension UICollectionViewLayout {
   @available(tvOS 9.0, *)
-  func targetIndexPathForInteractivelyMovingItem(previousIndexPath: NSIndexPath, withPosition position: CGPoint) -> NSIndexPath
+  func targetIndexPathForInteractivelyMovingItem(previousIndexPath: IndexPath, withPosition position: CGPoint) -> IndexPath
   @available(tvOS 9.0, *)
-  func layoutAttributesForInteractivelyMovingItemAt(indexPath: NSIndexPath, withTargetPosition position: CGPoint) -> UICollectionViewLayoutAttributes
+  func layoutAttributesForInteractivelyMovingItemAt(indexPath: IndexPath, withTargetPosition position: CGPoint) -> UICollectionViewLayoutAttributes
   @available(tvOS 9.0, *)
-  func invalidationContextForInteractivelyMovingItems(targetIndexPaths: [NSIndexPath], withTargetPosition targetPosition: CGPoint, previousIndexPaths: [NSIndexPath], previousPosition: CGPoint) -> UICollectionViewLayoutInvalidationContext
+  func invalidationContextForInteractivelyMovingItems(targetIndexPaths: [IndexPath], withTargetPosition targetPosition: CGPoint, previousIndexPaths: [IndexPath], previousPosition: CGPoint) -> UICollectionViewLayoutInvalidationContext
   @available(tvOS 9.0, *)
-  func invalidationContextForEndingInteractiveMovementOfItemsToFinalIndexPaths(indexPaths: [NSIndexPath], previousIndexPaths: [NSIndexPath], movementCancelled: Bool) -> UICollectionViewLayoutInvalidationContext
+  func invalidationContextForEndingInteractiveMovementOfItemsToFinalIndexPaths(indexPaths: [IndexPath], previousIndexPaths: [IndexPath], movementCancelled: Bool) -> UICollectionViewLayoutInvalidationContext
 }
 @available(tvOS 7.0, *)
 class UICollectionViewTransitionLayout : UICollectionViewLayout {
@@ -2283,7 +2283,7 @@ class UICollectionViewTransitionLayout : UICollectionViewLayout {
   var currentLayout: UICollectionViewLayout { get }
   var nextLayout: UICollectionViewLayout { get }
   init(currentLayout: UICollectionViewLayout, nextLayout newLayout: UICollectionViewLayout)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   func updateValue(value: CGFloat, forAnimatedKey key: String)
   func valueForAnimatedKey(key: String) -> CGFloat
 }
@@ -2295,15 +2295,15 @@ struct UICollisionBehaviorMode : OptionSetType {
   static var Boundaries: UICollisionBehaviorMode { get }
   static var Everything: UICollisionBehaviorMode { get }
 }
-protocol UICollisionBehaviorDelegate : NSObjectProtocol {
+protocol UICollisionBehaviorDelegate : ObjectProtocol {
   @available(tvOS 7.0, *)
   optional func collisionBehavior(behavior: UICollisionBehavior, beganContactFor item1: UIDynamicItem, withItem item2: UIDynamicItem, at p: CGPoint)
   @available(tvOS 7.0, *)
   optional func collisionBehavior(behavior: UICollisionBehavior, endedContactFor item1: UIDynamicItem, withItem item2: UIDynamicItem)
   @available(tvOS 7.0, *)
-  optional func collisionBehavior(behavior: UICollisionBehavior, beganContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, at p: CGPoint)
+  optional func collisionBehavior(behavior: UICollisionBehavior, beganContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: Copying?, at p: CGPoint)
   @available(tvOS 7.0, *)
-  optional func collisionBehavior(behavior: UICollisionBehavior, endedContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?)
+  optional func collisionBehavior(behavior: UICollisionBehavior, endedContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: Copying?)
 }
 @available(tvOS 7.0, *)
 class UICollisionBehavior : UIDynamicBehavior {
@@ -2314,17 +2314,17 @@ class UICollisionBehavior : UIDynamicBehavior {
   var collisionMode: UICollisionBehaviorMode
   var translatesReferenceBoundsIntoBoundary: Bool
   func setTranslatesReferenceBoundsIntoBoundaryWith(insets: UIEdgeInsets)
-  func addBoundaryWithIdentifier(identifier: NSCopying, forPath bezierPath: UIBezierPath)
-  func addBoundaryWithIdentifier(identifier: NSCopying, from p1: CGPoint, to p2: CGPoint)
-  func boundaryWithIdentifier(identifier: NSCopying) -> UIBezierPath?
-  func removeBoundaryWithIdentifier(identifier: NSCopying)
-  var boundaryIdentifiers: [NSCopying]? { get }
+  func addBoundaryWithIdentifier(identifier: Copying, forPath bezierPath: UIBezierPath)
+  func addBoundaryWithIdentifier(identifier: Copying, from p1: CGPoint, to p2: CGPoint)
+  func boundaryWithIdentifier(identifier: Copying) -> UIBezierPath?
+  func removeBoundaryWithIdentifier(identifier: Copying)
+  var boundaryIdentifiers: [Copying]? { get }
   func removeAllBoundaries()
   weak var collisionDelegate: @sil_weak UICollisionBehaviorDelegate?
   convenience init()
 }
 @available(tvOS 2.0, *)
-class UIColor : NSObject, NSSecureCoding, NSCopying {
+class UIColor : Object, SecureCoding, Copying {
   init(white: CGFloat, alpha: CGFloat)
   init(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat)
   init(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
@@ -2364,10 +2364,10 @@ class UIColor : NSObject, NSSecureCoding, NSCopying {
   @available(tvOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(tvOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 extension UIColor : _ColorLiteralConvertible {
@@ -2446,13 +2446,13 @@ class UIControl : UIView {
   func cancelTrackingWith(event: UIEvent?)
   func addTarget(target: AnyObject?, action: Selector, forControlEvents controlEvents: UIControlEvents)
   func removeTarget(target: AnyObject?, action: Selector, forControlEvents controlEvents: UIControlEvents)
-  func allTargets() -> Set<NSObject>
+  func allTargets() -> Set<Object>
   func allControlEvents() -> UIControlEvents
   func actionsForTarget(target: AnyObject?, forControlEvent controlEvent: UIControlEvents) -> [String]?
   func sendAction(action: Selector, to target: AnyObject?, forEvent event: UIEvent?)
   func sendActionsFor(controlEvents: UIControlEvents)
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 enum UIUserInterfaceIdiom : Int {
@@ -2467,7 +2467,7 @@ enum UIUserInterfaceIdiom : Int {
   case TV
 }
 @available(tvOS 2.0, *)
-class UIDevice : NSObject {
+class UIDevice : Object {
   class func current() -> UIDevice
   var name: String { get }
   var model: String { get }
@@ -2475,7 +2475,7 @@ class UIDevice : NSObject {
   var systemName: String { get }
   var systemVersion: String { get }
   @available(tvOS 6.0, *)
-  var identifierForVendor: NSUUID? { get }
+  var identifierForVendor: UUID? { get }
   @available(tvOS 3.0, *)
   var isProximityMonitoringEnabled: Bool
   @available(tvOS 3.0, *)
@@ -2488,7 +2488,7 @@ class UIDevice : NSObject {
   func playInputClick()
   init()
 }
-protocol UIInputViewAudioFeedback : NSObjectProtocol {
+protocol UIInputViewAudioFeedback : ObjectProtocol {
   optional var enableInputClicksWhenVisible: Bool { get }
 }
 func UI_USER_INTERFACE_IDIOM() -> UIUserInterfaceIdiom
@@ -2496,14 +2496,14 @@ func UI_USER_INTERFACE_IDIOM() -> UIUserInterfaceIdiom
 let UIDeviceProximityStateDidChangeNotification: String
 extension UIDocument {
 }
-protocol UIDynamicAnimatorDelegate : NSObjectProtocol {
+protocol UIDynamicAnimatorDelegate : ObjectProtocol {
   @available(tvOS 7.0, *)
   optional func dynamicAnimatorWillResume(animator: UIDynamicAnimator)
   @available(tvOS 7.0, *)
   optional func dynamicAnimatorDidPause(animator: UIDynamicAnimator)
 }
 @available(tvOS 7.0, *)
-class UIDynamicAnimator : NSObject {
+class UIDynamicAnimator : Object {
   init(referenceView view: UIView)
   func addBehavior(behavior: UIDynamicBehavior)
   func removeBehavior(behavior: UIDynamicBehavior)
@@ -2513,15 +2513,15 @@ class UIDynamicAnimator : NSObject {
   func itemsIn(rect: CGRect) -> [UIDynamicItem]
   func updateItemUsingCurrentState(item: UIDynamicItem)
   var isRunning: Bool { get }
-  func elapsedTime() -> NSTimeInterval
+  func elapsedTime() -> TimeInterval
   weak var delegate: @sil_weak UIDynamicAnimatorDelegate?
   convenience init()
 }
 extension UIDynamicAnimator {
   convenience init(collectionViewLayout layout: UICollectionViewLayout)
-  func layoutAttributesForCellAt(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForSupplementaryViewOfKind(kind: String, at indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForDecorationViewOfKind(decorationViewKind: String, at indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForCellAt(indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryViewOfKind(kind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForDecorationViewOfKind(decorationViewKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
 }
 @available(tvOS 9.0, *)
 enum UIDynamicItemCollisionBoundsType : UInt {
@@ -2531,7 +2531,7 @@ enum UIDynamicItemCollisionBoundsType : UInt {
   case Ellipse
   case Path
 }
-protocol UIDynamicItem : NSObjectProtocol {
+protocol UIDynamicItem : ObjectProtocol {
   var center: CGPoint { get set }
   var bounds: CGRect { get }
   var transform: CGAffineTransform { get set }
@@ -2551,7 +2551,7 @@ protocol UIDynamicItem : NSObjectProtocol {
   optional var collisionBoundingPath: UIBezierPath { get }
 }
 @available(tvOS 9.0, *)
-class UIDynamicItemGroup : NSObject, UIDynamicItem {
+class UIDynamicItemGroup : Object, UIDynamicItem {
   init(items: [UIDynamicItem])
   var items: [UIDynamicItem] { get }
   init()
@@ -2577,7 +2577,7 @@ class UIDynamicItemGroup : NSObject, UIDynamicItem {
   var collisionBoundingPath: UIBezierPath { get }
 }
 @available(tvOS 7.0, *)
-class UIDynamicBehavior : NSObject {
+class UIDynamicBehavior : Object {
   func addChildBehavior(behavior: UIDynamicBehavior)
   func removeChildBehavior(behavior: UIDynamicBehavior)
   var childBehaviors: [UIDynamicBehavior] { get }
@@ -2646,12 +2646,12 @@ enum UIEventSubtype : Int {
   case RemoteControlEndSeekingForward
 }
 @available(tvOS 2.0, *)
-class UIEvent : NSObject {
+class UIEvent : Object {
   @available(tvOS 3.0, *)
   var type: UIEventType { get }
   @available(tvOS 3.0, *)
   var subtype: UIEventSubtype { get }
-  var timestamp: NSTimeInterval { get }
+  var timestamp: TimeInterval { get }
   func allTouches() -> Set<UITouch>?
   func touchesFor(window: UIWindow) -> Set<UITouch>?
   func touchesFor(view: UIView) -> Set<UITouch>?
@@ -2803,7 +2803,7 @@ class UIFieldBehavior : UIDynamicBehavior {
    @param charge The charge to be taken into account during force evaluation
    @param deltaTime The current time step
    */
-  class func fieldWithEvaluationBlock(block: (UIFieldBehavior, CGPoint, CGVector, CGFloat, CGFloat, NSTimeInterval) -> CGVector) -> Self
+  class func fieldWithEvaluationBlock(block: (UIFieldBehavior, CGPoint, CGVector, CGFloat, CGFloat, TimeInterval) -> CGVector) -> Self
 }
 @available(tvOS 9.0, *)
 struct UIFocusHeading : OptionSetType {
@@ -2819,7 +2819,7 @@ struct UIFocusHeading : OptionSetType {
 
 /// UIFocusUpdateContexts provide information relevant to a specific focus update from one view to another. They are ephemeral objects that are usually discarded after the update is finished.
 @available(tvOS 9.0, *)
-class UIFocusUpdateContext : NSObject {
+class UIFocusUpdateContext : Object {
 
   /// The view that was focused before the update. May be nil if no view was focused, such as when setting initial focus.
   weak var previouslyFocusedView: @sil_weak UIView? { get }
@@ -2834,7 +2834,7 @@ class UIFocusUpdateContext : NSObject {
 
 /// UIFocusEnvironments represent branches of the view hierarchy participating in the focus system.
 @available(tvOS 9.0, *)
-protocol UIFocusEnvironment : NSObjectProtocol {
+protocol UIFocusEnvironment : ObjectProtocol {
 
   /// The preferred focused view is the view that will be focused when focus is updated programmatically. This includes setting initial focus and forcing updates via -updateFocusIfNeeded. May be self in the case of UIView instances.
   weak var preferredFocusedView: @sil_weak UIView? { get }
@@ -2862,12 +2862,12 @@ class UIFocusGuide : UILayoutGuide {
   /// Setting a preferred focused view marks this guide's layoutFrame as focusable, and if focused, redirects focus to its preferred focused view. If nil, this guide is effectively disabled.
   weak var preferredFocusedView: @sil_weak UIView?
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /// UIFocusAnimationCoordinator is used to coordinate disparate animations that are related to a focus update.
 @available(tvOS 9.0, *)
-class UIFocusAnimationCoordinator : NSObject {
+class UIFocusAnimationCoordinator : Object {
 
   /**
    Specifies focus-related animations that should be coordinated with the animations of the focusing or un-focusing view.
@@ -2881,7 +2881,7 @@ class UIFocusAnimationCoordinator : NSObject {
   init()
 }
 @available(tvOS 2.0, *)
-class UIFont : NSObject, NSCopying {
+class UIFont : Object, Copying {
   @available(tvOS 7.0, *)
   class func preferredFontForTextStyle(style: String) -> UIFont
   /*not inherited*/ init?(name fontName: String, size fontSize: CGFloat)
@@ -2911,7 +2911,7 @@ class UIFont : NSObject, NSCopying {
   func fontDescriptor() -> UIFontDescriptor
   init()
   @available(tvOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(tvOS 7.0, *)
 struct UIFontDescriptorSymbolicTraits : OptionSetType {
@@ -2941,9 +2941,9 @@ struct UIFontDescriptorSymbolicTraits : OptionSetType {
 }
 typealias UIFontDescriptorClass = Int
 @available(tvOS 7.0, *)
-class UIFontDescriptor : NSObject, NSCopying, NSSecureCoding {
+class UIFontDescriptor : Object, Copying, SecureCoding {
   convenience init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   var postscriptName: String { get }
   var pointSize: CGFloat { get }
   var matrix: CGAffineTransform { get }
@@ -2962,11 +2962,11 @@ class UIFontDescriptor : NSObject, NSCopying, NSSecureCoding {
   func withFace(newFace: String) -> UIFontDescriptor
   func withFamily(newFamily: String) -> UIFontDescriptor
   @available(tvOS 7.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(tvOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 7.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
 }
 @available(tvOS 7.0, *)
 let UIFontDescriptorFamilyAttribute: String
@@ -3094,7 +3094,7 @@ func CGRectFromString(string: String) -> CGRect
 func CGAffineTransformFromString(string: String) -> CGAffineTransform
 func UIEdgeInsetsFromString(string: String) -> UIEdgeInsets
 func UIOffsetFromString(string: String) -> UIOffset
-extension NSValue {
+extension Value {
   /*not inherited*/ init(cgPoint point: CGPoint)
   /*not inherited*/ init(cgVector vector: CGVector)
   /*not inherited*/ init(cgSize size: CGSize)
@@ -3112,7 +3112,7 @@ extension NSValue {
   @available(tvOS 5.0, *)
   func uiOffsetValue() -> UIOffset
 }
-extension NSCoder {
+extension Coder {
   func encode(point: CGPoint, forKey key: String)
   func encode(vector: CGVector, forKey key: String)
   func encode(size: CGSize, forKey key: String)
@@ -3142,7 +3142,7 @@ enum UIGestureRecognizerState : Int {
   static var Recognized: UIGestureRecognizerState { get }
 }
 @available(tvOS 3.2, *)
-class UIGestureRecognizer : NSObject {
+class UIGestureRecognizer : Object {
   init(target: AnyObject?, action: Selector)
   func addTarget(target: AnyObject, action: Selector)
   func removeTarget(target: AnyObject?, action: Selector)
@@ -3153,16 +3153,16 @@ class UIGestureRecognizer : NSObject {
   var delaysTouchesBegan: Bool
   var delaysTouchesEnded: Bool
   @available(tvOS 9.0, *)
-  var allowedTouchTypes: [NSNumber]
+  var allowedTouchTypes: [Number]
   @available(tvOS 9.0, *)
-  var allowedPressTypes: [NSNumber]
+  var allowedPressTypes: [Number]
   func requireToFail(otherGestureRecognizer: UIGestureRecognizer)
   func locationIn(view: UIView?) -> CGPoint
   func numberOfTouches() -> Int
   func locationOfTouch(touchIndex: Int, in view: UIView?) -> CGPoint
   convenience init()
 }
-protocol UIGestureRecognizerDelegate : NSObjectProtocol {
+protocol UIGestureRecognizerDelegate : ObjectProtocol {
   @available(tvOS 3.2, *)
   optional func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool
   @available(tvOS 3.2, *)
@@ -3190,19 +3190,19 @@ func UIGraphicsBeginImageContextWithOptions(size: CGSize, _ opaque: Bool, _ scal
 func UIGraphicsGetImageFromCurrentImageContext() -> UIImage!
 func UIGraphicsEndImageContext()
 @available(tvOS 3.2, *)
-func UIGraphicsBeginPDFContextToFile(path: String, _ bounds: CGRect, _ documentInfo: [NSObject : AnyObject]?) -> Bool
+func UIGraphicsBeginPDFContextToFile(path: String, _ bounds: CGRect, _ documentInfo: [Object : AnyObject]?) -> Bool
 @available(tvOS 3.2, *)
-func UIGraphicsBeginPDFContextToData(data: NSMutableData, _ bounds: CGRect, _ documentInfo: [NSObject : AnyObject]?)
+func UIGraphicsBeginPDFContextToData(data: MutableData, _ bounds: CGRect, _ documentInfo: [Object : AnyObject]?)
 @available(tvOS 3.2, *)
 func UIGraphicsEndPDFContext()
 @available(tvOS 3.2, *)
 func UIGraphicsBeginPDFPage()
 @available(tvOS 3.2, *)
-func UIGraphicsBeginPDFPageWithInfo(bounds: CGRect, _ pageInfo: [NSObject : AnyObject]?)
+func UIGraphicsBeginPDFPageWithInfo(bounds: CGRect, _ pageInfo: [Object : AnyObject]?)
 @available(tvOS 3.2, *)
 func UIGraphicsGetPDFContextBounds() -> CGRect
 @available(tvOS 3.2, *)
-func UIGraphicsSetPDFContextURLForRect(url: NSURL, _ rect: CGRect)
+func UIGraphicsSetPDFContextURLForRect(url: URL, _ rect: CGRect)
 @available(tvOS 3.2, *)
 func UIGraphicsAddPDFContextDestinationAtPoint(name: String, _ point: CGPoint)
 @available(tvOS 3.2, *)
@@ -3226,7 +3226,7 @@ enum UIGuidedAccessRestrictionState : Int {
   case Deny
 }
 @available(tvOS 7.0, *)
-protocol UIGuidedAccessRestrictionDelegate : NSObjectProtocol {
+protocol UIGuidedAccessRestrictionDelegate : ObjectProtocol {
   func guidedAccessRestrictionIdentifiers() -> [String]?
   func guidedAccessRestrictionWithIdentifier(restrictionIdentifier: String, didChange newRestrictionState: UIGuidedAccessRestrictionState)
   func textForGuidedAccessRestrictionWithIdentifier(restrictionIdentifier: String) -> String?
@@ -3273,14 +3273,14 @@ enum UIImageRenderingMode : Int {
  UITabBarController is rotatable if all of its view controllers are rotatable.
  */
 @available(tvOS 2.0, *)
-class UIImage : NSObject, NSSecureCoding {
+class UIImage : Object, SecureCoding {
   /*not inherited*/ init?(named name: String)
   @available(tvOS 8.0, *)
-  /*not inherited*/ init?(named name: String, in bundle: NSBundle?, compatibleWith traitCollection: UITraitCollection?)
+  /*not inherited*/ init?(named name: String, in bundle: Bundle?, compatibleWith traitCollection: UITraitCollection?)
   init?(contentsOfFile path: String)
-  init?(data: NSData)
+  init?(data: Data)
   @available(tvOS 6.0, *)
-  init?(data: NSData, scale: CGFloat)
+  init?(data: Data, scale: CGFloat)
   init(cgImage: CGImage)
   @available(tvOS 4.0, *)
   init(cgImage: CGImage, scale: CGFloat, orientation: UIImageOrientation)
@@ -3296,17 +3296,17 @@ class UIImage : NSObject, NSSecureCoding {
   @available(tvOS 4.0, *)
   var scale: CGFloat { get }
   @available(tvOS 5.0, *)
-  class func animatedImageNamed(name: String, duration: NSTimeInterval) -> UIImage?
+  class func animatedImageNamed(name: String, duration: TimeInterval) -> UIImage?
   @available(tvOS 5.0, *)
-  class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, duration: NSTimeInterval) -> UIImage?
+  class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, duration: TimeInterval) -> UIImage?
   @available(tvOS 6.0, *)
-  class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode, duration: NSTimeInterval) -> UIImage?
+  class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode, duration: TimeInterval) -> UIImage?
   @available(tvOS 5.0, *)
-  class func animatedImageWith(images: [UIImage], duration: NSTimeInterval) -> UIImage?
+  class func animatedImageWith(images: [UIImage], duration: TimeInterval) -> UIImage?
   @available(tvOS 5.0, *)
   var images: [UIImage]? { get }
   @available(tvOS 5.0, *)
-  var duration: NSTimeInterval { get }
+  var duration: TimeInterval { get }
   func drawAt(point: CGPoint)
   func drawAt(point: CGPoint, blendMode: CGBlendMode, alpha: CGFloat)
   func drawIn(rect: CGRect)
@@ -3340,8 +3340,8 @@ class UIImage : NSObject, NSSecureCoding {
   @available(tvOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 extension UIImage : _ImageLiteralConvertible {
@@ -3354,21 +3354,21 @@ extension CIImage {
   @available(tvOS 5.0, *)
   init?(image: UIImage)
   @available(tvOS 5.0, *)
-  init?(image: UIImage, options: [NSObject : AnyObject]? = [:])
+  init?(image: UIImage, options: [Object : AnyObject]? = [:])
 }
-func UIImagePNGRepresentation(image: UIImage) -> NSData?
-func UIImageJPEGRepresentation(image: UIImage, _ compressionQuality: CGFloat) -> NSData?
+func UIImagePNGRepresentation(image: UIImage) -> Data?
+func UIImageJPEGRepresentation(image: UIImage, _ compressionQuality: CGFloat) -> Data?
 @available(tvOS 8.0, *)
-class UIImageAsset : NSObject, NSSecureCoding {
+class UIImageAsset : Object, SecureCoding {
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   func imageWith(traitCollection: UITraitCollection) -> UIImage
   func register(image: UIImage, withTraitCollection traitCollection: UITraitCollection)
   func unregisterImageWith(traitCollection: UITraitCollection)
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
 }
 @available(tvOS 2.0, *)
 class UIImageView : UIView {
@@ -3384,7 +3384,7 @@ class UIImageView : UIView {
   var animationImages: [UIImage]?
   @available(tvOS 3.0, *)
   var highlightedAnimationImages: [UIImage]?
-  var animationDuration: NSTimeInterval
+  var animationDuration: TimeInterval
   var animationRepeatCount: Int
   @available(tvOS 7.0, *)
   var tintColor: UIColor!
@@ -3396,7 +3396,7 @@ class UIImageView : UIView {
   @available(tvOS 9.0, *)
   var focusedFrameGuide: UILayoutGuide { get }
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 @available(tvOS 7.0, *)
@@ -3412,7 +3412,7 @@ class UIInputView : UIView {
   @available(tvOS 9.0, *)
   var allowsSelfSizing: Bool
   init(frame: CGRect, inputViewStyle: UIInputViewStyle)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init(frame: CGRect)
   convenience init()
 }
@@ -3429,8 +3429,8 @@ class UIInputViewController : UIViewController, UITextInputDelegate {
   func dismissKeyboard()
   func advanceToNextInputMode()
   func requestSupplementaryLexiconWithCompletion(completionHandler: (UILexicon) -> Void)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
   @available(tvOS 8.0, *)
   func selectionWillChange(textInput: UITextInput?)
@@ -3454,7 +3454,7 @@ extension UIColor {
 extension UIFont {
 }
 @available(tvOS 2.0, *)
-class UILabel : UIView, NSCoding {
+class UILabel : UIView, Coding {
   var text: String?
   var font: UIFont!
   var textColor: UIColor!
@@ -3463,7 +3463,7 @@ class UILabel : UIView, NSCoding {
   var textAlignment: NSTextAlignment
   var lineBreakMode: NSLineBreakMode
   @available(tvOS 6.0, *)
-  @NSCopying var attributedText: NSAttributedString?
+  @NSCopying var attributedText: AttributedString?
   var highlightedTextColor: UIColor?
   var isHighlighted: Bool
   var isUserInteractionEnabled: Bool
@@ -3480,11 +3480,11 @@ class UILabel : UIView, NSCoding {
   @available(tvOS 6.0, *)
   var preferredMaxLayoutWidth: CGFloat
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 @available(tvOS 9.0, *)
-class UILayoutGuide : NSObject, NSCoding {
+class UILayoutGuide : Object, Coding {
   var layoutFrame: CGRect { get }
   weak var owningView: @sil_weak UIView?
   var identifier: String
@@ -3500,8 +3500,8 @@ class UILayoutGuide : NSObject, NSCoding {
   var centerYAnchor: NSLayoutYAxisAnchor { get }
   init()
   @available(tvOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(tvOS 3.2, *)
 class UILongPressGestureRecognizer : UIGestureRecognizer {
@@ -3518,9 +3518,9 @@ class UILongPressGestureRecognizer : UIGestureRecognizer {
  
     Subclasses must implement conformance for NSCopying and NSCoding. */
 @available(tvOS 7.0, *)
-class UIMotionEffect : NSObject, NSCopying, NSCoding {
+class UIMotionEffect : Object, Copying, Coding {
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 
   /*! Abstract method. Given the `viewerOffset`, this method should compute a set of key paths
       and relative values pairs which will represent the effect of the device's motion on
@@ -3540,9 +3540,9 @@ class UIMotionEffect : NSObject, NSCopying, NSCoding {
                                 @"layer.shadowOffset.x": @(-1.1) }` */
   func keyPathsAndRelativeValuesForViewerOffset(viewerOffset: UIOffset) -> [String : AnyObject]?
   @available(tvOS 7.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(tvOS 7.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
 }
 enum UIInterpolatingMotionEffectType : Int {
   init?(rawValue: Int)
@@ -3567,7 +3567,7 @@ enum UIInterpolatingMotionEffectType : Int {
 @available(tvOS 7.0, *)
 class UIInterpolatingMotionEffect : UIMotionEffect {
   init(keyPath: String, type: UIInterpolatingMotionEffectType)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   var keyPath: String { get }
   var type: UIInterpolatingMotionEffectType { get }
   var minimumRelativeValue: AnyObject?
@@ -3581,10 +3581,10 @@ class UIInterpolatingMotionEffect : UIMotionEffect {
 class UIMotionEffectGroup : UIMotionEffect {
   var motionEffects: [UIMotionEffect]?
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(tvOS 2.0, *)
-class UINavigationBar : UIView, NSCoding, UIBarPositioning {
+class UINavigationBar : UIView, Coding, UIBarPositioning {
   weak var delegate: @sil_weak UINavigationBarDelegate?
   @available(tvOS 3.0, *)
   var isTranslucent: Bool
@@ -3614,7 +3614,7 @@ class UINavigationBar : UIView, NSCoding, UIBarPositioning {
   @available(tvOS 5.0, *)
   func titleVerticalPositionAdjustmentFor(barMetrics: UIBarMetrics) -> CGFloat
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
   @available(tvOS 7.0, *)
   var barPosition: UIBarPosition { get }
@@ -3630,9 +3630,9 @@ protocol UINavigationBarDelegate : UIBarPositioningDelegate {
   optional func navigationBar(navigationBar: UINavigationBar, didPop item: UINavigationItem)
 }
 @available(tvOS 2.0, *)
-class UINavigationItem : NSObject, NSCoding {
+class UINavigationItem : Object, Coding {
   init(title: String)
-  init?(coder: NSCoder)
+  init?(coder: Coder)
   var title: String?
   var titleView: UIView?
   @available(tvOS 5.0, *)
@@ -3649,7 +3649,7 @@ class UINavigationItem : NSObject, NSCoding {
   func setRightBarButtonItem(item: UIBarButtonItem?, animated: Bool)
   convenience init()
   @available(tvOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
 }
 
 /*!
@@ -3703,11 +3703,11 @@ class UINavigationController : UIViewController {
   weak var delegate: @sil_weak UINavigationControllerDelegate?
   @available(tvOS 8.0, *)
   func showViewController(vc: UIViewController, sender: AnyObject?)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
-protocol UINavigationControllerDelegate : NSObjectProtocol {
+protocol UINavigationControllerDelegate : ObjectProtocol {
   @available(tvOS 2.0, *)
   optional func navigationController(navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool)
   @available(tvOS 2.0, *)
@@ -3724,18 +3724,18 @@ extension UIViewController {
 extension UIViewController {
 }
 @available(tvOS 4.0, *)
-class UINib : NSObject {
-  /*not inherited*/ init(nibName name: String, bundle bundleOrNil: NSBundle?)
-  /*not inherited*/ init(data: NSData, bundle bundleOrNil: NSBundle?)
-  func instantiateWithOwner(ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = [:]) -> [AnyObject]
+class UINib : Object {
+  /*not inherited*/ init(nibName name: String, bundle bundleOrNil: Bundle?)
+  /*not inherited*/ init(data: Data, bundle bundleOrNil: Bundle?)
+  func instantiateWithOwner(ownerOrNil: AnyObject?, options optionsOrNil: [Object : AnyObject]? = [:]) -> [AnyObject]
   init()
 }
 @available(tvOS 3.0, *)
 let UINibExternalObjects: String
-extension NSBundle {
-  func loadNibNamed(name: String!, owner: AnyObject!, options: [NSObject : AnyObject]! = [:]) -> [AnyObject]!
+extension Bundle {
+  func loadNibNamed(name: String!, owner: AnyObject!, options: [Object : AnyObject]! = [:]) -> [AnyObject]!
 }
-extension NSObject {
+extension Object {
   class func awakeFromNib()
   func awakeFromNib()
   @available(tvOS 8.0, *)
@@ -3756,7 +3756,7 @@ class UIPageControl : UIControl {
   @available(tvOS 6.0, *)
   var currentPageIndicatorTintColor: UIColor?
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 enum UIPageViewControllerNavigationOrientation : Int {
@@ -3791,7 +3791,7 @@ let UIPageViewControllerOptionInterPageSpacingKey: String
 @available(tvOS 5.0, *)
 class UIPageViewController : UIViewController {
   init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : AnyObject]? = [:])
-  init?(coder: NSCoder)
+  init?(coder: Coder)
   weak var delegate: @sil_weak UIPageViewControllerDelegate?
   weak var dataSource: @sil_weak UIPageViewControllerDataSource?
   var transitionStyle: UIPageViewControllerTransitionStyle { get }
@@ -3801,16 +3801,16 @@ class UIPageViewController : UIViewController {
   var gestureRecognizers: [UIGestureRecognizer] { get }
   var viewControllers: [UIViewController]? { get }
   func setViewControllers(viewControllers: [UIViewController]?, direction: UIPageViewControllerNavigationDirection, animated: Bool, completion: ((Bool) -> Void)? = nil)
-  convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
   convenience init()
 }
-protocol UIPageViewControllerDelegate : NSObjectProtocol {
+protocol UIPageViewControllerDelegate : ObjectProtocol {
   @available(tvOS 6.0, *)
   optional func pageViewController(pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController])
   @available(tvOS 5.0, *)
   optional func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool)
 }
-protocol UIPageViewControllerDataSource : NSObjectProtocol {
+protocol UIPageViewControllerDataSource : ObjectProtocol {
   @available(tvOS 5.0, *)
   func pageViewController(pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?
   @available(tvOS 5.0, *)
@@ -3842,7 +3842,7 @@ class UIPopoverBackgroundView : UIView, UIPopoverBackgroundViewMethods {
   @available(tvOS 6.0, *)
   class func wantsDefaultContentAppearance() -> Bool
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
   @available(tvOS 5.0, *)
   class func arrowBase() -> CGFloat
@@ -3852,7 +3852,7 @@ class UIPopoverBackgroundView : UIView, UIPopoverBackgroundViewMethods {
   class func arrowHeight() -> CGFloat
 }
 @available(tvOS, introduced=3.2, deprecated=9.0, message="UIPopoverController is deprecated. Popovers are now implemented as UIViewController presentations. Use a modal presentation style of UIModalPresentationPopover and UIPopoverPresentationController.")
-class UIPopoverController : NSObject, UIAppearanceContainer {
+class UIPopoverController : Object, UIAppearanceContainer {
   init(contentViewController viewController: UIViewController)
   weak var delegate: @sil_weak UIPopoverControllerDelegate?
   var contentViewController: UIViewController
@@ -3873,7 +3873,7 @@ class UIPopoverController : NSObject, UIAppearanceContainer {
   var popoverBackgroundViewClass: AnyClass?
   init()
 }
-protocol UIPopoverControllerDelegate : NSObjectProtocol {
+protocol UIPopoverControllerDelegate : ObjectProtocol {
   @available(tvOS, introduced=3.2, deprecated=9.0)
   optional func popoverControllerShouldDismissPopover(popoverController: UIPopoverController) -> Bool
   @available(tvOS, introduced=3.2, deprecated=9.0)
@@ -3895,7 +3895,7 @@ extension UIViewController {
   @available(tvOS 3.2, *)
   var isModalInPopover: Bool
 }
-protocol UIAdaptivePresentationControllerDelegate : NSObjectProtocol {
+protocol UIAdaptivePresentationControllerDelegate : ObjectProtocol {
   @available(tvOS 8.0, *)
   optional func adaptivePresentationStyleFor(controller: UIPresentationController) -> UIModalPresentationStyle
   @available(tvOS 8.3, *)
@@ -3906,7 +3906,7 @@ protocol UIAdaptivePresentationControllerDelegate : NSObjectProtocol {
   optional func presentationController(presentationController: UIPresentationController, willPresentWithAdaptiveStyle style: UIModalPresentationStyle, transitionCoordinator: UIViewControllerTransitionCoordinator?)
 }
 @available(tvOS 8.0, *)
-class UIPresentationController : NSObject, UIAppearanceContainer, UITraitEnvironment, UIContentContainer, UIFocusEnvironment {
+class UIPresentationController : Object, UIAppearanceContainer, UITraitEnvironment, UIContentContainer, UIFocusEnvironment {
   var presentingViewController: UIViewController { get }
   var presentedViewController: UIViewController { get }
   var presentationStyle: UIModalPresentationStyle { get }
@@ -3990,8 +3990,8 @@ enum UIPressType : Int {
   case PlayPause
 }
 @available(tvOS 9.0, *)
-class UIPress : NSObject {
-  var timestamp: NSTimeInterval { get }
+class UIPress : Object {
+  var timestamp: TimeInterval { get }
   var phase: UIPressPhase { get }
   var type: UIPressType { get }
   var window: UIWindow? { get }
@@ -4014,16 +4014,16 @@ extension UIView {
 }
 extension UIPrintPaper {
 }
-typealias UIPrinterPickerCompletionHandler = (UIPrinterPickerController, Bool, NSError?) -> Void
+typealias UIPrinterPickerCompletionHandler = (UIPrinterPickerController, Bool, Error?) -> Void
 enum UIProgressViewStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   case Default
 }
 @available(tvOS 2.0, *)
-class UIProgressView : UIView, NSCoding {
+class UIProgressView : UIView, Coding {
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init(progressViewStyle style: UIProgressViewStyle)
   var progressViewStyle: UIProgressViewStyle
   var progress: Float
@@ -4038,7 +4038,7 @@ class UIProgressView : UIView, NSCoding {
   @available(tvOS 5.0, *)
   func setProgress(progress: Float, animated: Bool)
   @available(tvOS 9.0, *)
-  var observedProgress: NSProgress?
+  var observedProgress: Progress?
   convenience init()
 }
 @available(tvOS 7.0, *)
@@ -4065,7 +4065,7 @@ class UIPushBehavior : UIDynamicBehavior {
   convenience init()
 }
 @available(tvOS 9.0, *)
-class UIRegion : NSObject, NSCopying, NSCoding {
+class UIRegion : Object, Copying, Coding {
 
   /*! A shared infinite region
    */
@@ -4102,13 +4102,13 @@ class UIRegion : NSObject, NSCopying, NSCoding {
   func contains(point: CGPoint) -> Bool
   init()
   @available(tvOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(tvOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(tvOS 2.0, *)
-class UIResponder : NSObject {
+class UIResponder : Object {
   func next() -> UIResponder?
   func canBecomeFirstResponder() -> Bool
   func becomeFirstResponder() -> Bool
@@ -4120,7 +4120,7 @@ class UIResponder : NSObject {
   func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
   func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
   @available(tvOS 9.1, *)
-  func touchesEstimatedPropertiesUpdated(touches: Set<NSObject>)
+  func touchesEstimatedPropertiesUpdated(touches: Set<Object>)
   @available(tvOS 9.0, *)
   func pressesBegan(presses: Set<UIPress>, withEvent event: UIPressesEvent?)
   @available(tvOS 9.0, *)
@@ -4142,7 +4142,7 @@ class UIResponder : NSObject {
   @available(tvOS 7.0, *)
   func targetForAction(action: Selector, withSender sender: AnyObject?) -> AnyObject?
   @available(tvOS 3.0, *)
-  var undoManager: NSUndoManager? { get }
+  var undoManager: UndoManager? { get }
   init()
 }
 @available(tvOS 7.0, *)
@@ -4157,9 +4157,9 @@ struct UIKeyModifierFlags : OptionSetType {
   static var NumericPad: UIKeyModifierFlags { get }
 }
 @available(tvOS 7.0, *)
-class UIKeyCommand : NSObject, NSCopying, NSSecureCoding {
+class UIKeyCommand : Object, Copying, SecureCoding {
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   var input: String { get }
   var modifierFlags: UIKeyModifierFlags { get }
   @available(tvOS 9.0, *)
@@ -4168,17 +4168,17 @@ class UIKeyCommand : NSObject, NSCopying, NSSecureCoding {
   @available(tvOS 9.0, *)
   /*not inherited*/ init(input: String, modifierFlags: UIKeyModifierFlags, action: Selector, discoverabilityTitle: String)
   @available(tvOS 7.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(tvOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 7.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
 }
 extension UIResponder {
   @available(tvOS 7.0, *)
   var keyCommands: [UIKeyCommand]? { get }
 }
-extension NSObject {
+extension Object {
   @available(tvOS 3.0, *)
   class func cut(sender: AnyObject?)
   @available(tvOS 3.0, *)
@@ -4262,11 +4262,11 @@ let UIKeyInputRightArrow: String
 let UIKeyInputEscape: String
 extension UIResponder {
   @available(tvOS 8.0, *)
-  var userActivity: NSUserActivity?
+  var userActivity: UserActivity?
   @available(tvOS 8.0, *)
-  func updateUserActivityState(activity: NSUserActivity)
+  func updateUserActivityState(activity: UserActivity)
   @available(tvOS 8.0, *)
-  func restoreUserActivityState(activity: NSUserActivity)
+  func restoreUserActivityState(activity: UserActivity)
 }
 @available(tvOS 3.2, *)
 let UIScreenDidConnectNotification: String
@@ -4287,7 +4287,7 @@ enum UIScreenOverscanCompensation : Int {
   static var InsetApplicationFrame: UIScreenOverscanCompensation { get }
 }
 @available(tvOS 2.0, *)
-class UIScreen : NSObject, UITraitEnvironment {
+class UIScreen : Object, UITraitEnvironment {
   @available(tvOS 3.2, *)
   class func screens() -> [UIScreen]
   class func main() -> UIScreen
@@ -4329,7 +4329,7 @@ extension UIScreen {
   func snapshotViewAfterScreenUpdates(afterUpdates: Bool) -> UIView
 }
 @available(tvOS 3.2, *)
-class UIScreenMode : NSObject {
+class UIScreenMode : Object {
   var size: CGSize { get }
   var pixelAspectRatio: CGFloat { get }
   init()
@@ -4354,7 +4354,7 @@ let UIScrollViewDecelerationRateNormal: CGFloat
 @available(tvOS 3.0, *)
 let UIScrollViewDecelerationRateFast: CGFloat
 @available(tvOS 2.0, *)
-class UIScrollView : UIView, NSCoding {
+class UIScrollView : UIView, Coding {
   var contentOffset: CGPoint
   var contentSize: CGSize
   var contentInset: UIEdgeInsets
@@ -4400,10 +4400,10 @@ class UIScrollView : UIView, NSCoding {
   @available(tvOS 7.0, *)
   var keyboardDismissMode: UIScrollViewKeyboardDismissMode
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
-protocol UIScrollViewDelegate : NSObjectProtocol {
+protocol UIScrollViewDelegate : ObjectProtocol {
   @available(tvOS 2.0, *)
   optional func scrollViewDidScroll(scrollView: UIScrollView)
   @available(tvOS 3.2, *)
@@ -4541,11 +4541,11 @@ protocol UISearchBarDelegate : UIBarPositioningDelegate {
 class UISearchContainerViewController : UIViewController {
   var searchController: UISearchController { get }
   init(searchController: UISearchController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
-protocol UISearchControllerDelegate : NSObjectProtocol {
+protocol UISearchControllerDelegate : ObjectProtocol {
   @available(tvOS 8.0, *)
   optional func willPresent(searchController: UISearchController)
   @available(tvOS 8.0, *)
@@ -4557,7 +4557,7 @@ protocol UISearchControllerDelegate : NSObjectProtocol {
   @available(tvOS 8.0, *)
   optional func present(searchController: UISearchController)
 }
-protocol UISearchResultsUpdating : NSObjectProtocol {
+protocol UISearchResultsUpdating : ObjectProtocol {
   @available(tvOS 8.0, *)
   func updateSearchResultsFor(searchController: UISearchController)
 }
@@ -4572,8 +4572,8 @@ class UISearchController : UIViewController, UIViewControllerTransitioningDelega
   var hidesNavigationBarDuringPresentation: Bool
   var searchResultsController: UIViewController? { get }
   var searchBar: UISearchBar { get }
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
   @available(tvOS 8.0, *)
   func animationControllerForPresentedController(presented: UIViewController, presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
@@ -4586,7 +4586,7 @@ class UISearchController : UIViewController, UIViewControllerTransitioningDelega
   @available(tvOS 8.0, *)
   func presentationControllerForPresentedViewController(presented: UIViewController, presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController?
   @available(tvOS 8.0, *)
-  func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
+  func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval
   @available(tvOS 8.0, *)
   func animateTransition(transitionContext: UIViewControllerContextTransitioning)
   @available(tvOS 8.0, *)
@@ -4603,7 +4603,7 @@ enum UISegmentedControlSegment : Int {
   case Alone
 }
 @available(tvOS 2.0, *)
-class UISegmentedControl : UIControl, NSCoding {
+class UISegmentedControl : UIControl, Coding {
   init(items: [AnyObject]?)
   var isMomentary: Bool
   var numberOfSegments: Int { get }
@@ -4634,15 +4634,15 @@ class UISegmentedControl : UIControl, NSCoding {
   @available(tvOS 5.0, *)
   func dividerImageForLeftSegmentState(leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
   @available(tvOS 5.0, *)
-  func setTitleTextAttributes(attributes: [NSObject : AnyObject]? = [:], forState state: UIControlState)
+  func setTitleTextAttributes(attributes: [Object : AnyObject]? = [:], forState state: UIControlState)
   @available(tvOS 5.0, *)
-  func titleTextAttributesFor(state: UIControlState) -> [NSObject : AnyObject]?
+  func titleTextAttributesFor(state: UIControlState) -> [Object : AnyObject]?
   @available(tvOS 5.0, *)
   func setContentPositionAdjustment(adjustment: UIOffset, forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
   func contentPositionAdjustmentForSegmentType(leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics) -> UIOffset
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 @available(tvOS 7.0, *)
@@ -4690,8 +4690,8 @@ class UISplitViewController : UIViewController {
   func show(vc: UIViewController, sender: AnyObject?)
   @available(tvOS 8.0, *)
   func showDetailViewController(vc: UIViewController, sender: AnyObject?)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 protocol UISplitViewControllerDelegate {
@@ -4756,7 +4756,7 @@ class UIStackView : UIView {
   var isBaselineRelativeArrangement: Bool
   var isLayoutMarginsRelativeArrangement: Bool
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 @available(tvOS 6.0, *)
@@ -4771,27 +4771,27 @@ let UIApplicationStateRestorationTimestampKey: String
 let UIApplicationStateRestorationSystemVersionKey: String
 protocol UIViewControllerRestoration {
   @available(tvOS 2.0, *)
-  static func viewControllerWithRestorationIdentifierPath(identifierComponents: [AnyObject], coder: NSCoder) -> UIViewController?
+  static func viewControllerWithRestorationIdentifierPath(identifierComponents: [AnyObject], coder: Coder) -> UIViewController?
 }
 protocol UIDataSourceModelAssociation {
   @available(tvOS 2.0, *)
-  func modelIdentifierForElementAt(idx: NSIndexPath, in view: UIView) -> String?
+  func modelIdentifierForElementAt(idx: IndexPath, in view: UIView) -> String?
   @available(tvOS 2.0, *)
-  func indexPathForElementWithModelIdentifier(identifier: String, in view: UIView) -> NSIndexPath?
+  func indexPathForElementWithModelIdentifier(identifier: String, in view: UIView) -> IndexPath?
 }
-protocol UIStateRestoring : NSObjectProtocol {
+protocol UIStateRestoring : ObjectProtocol {
   optional var restorationParent: UIStateRestoring? { get }
   optional var objectRestorationClass: AnyObject.Type? { get }
-  optional func encodeRestorableStateWith(coder: NSCoder)
-  optional func decodeRestorableStateWith(coder: NSCoder)
+  optional func encodeRestorableStateWith(coder: Coder)
+  optional func decodeRestorableStateWith(coder: Coder)
   optional func applicationFinishedRestoringState()
 }
 protocol UIObjectRestoration {
-  static func objectWithRestorationIdentifierPath(identifierComponents: [String], coder: NSCoder) -> UIStateRestoring?
+  static func objectWithRestorationIdentifierPath(identifierComponents: [String], coder: Coder) -> UIStateRestoring?
 }
 @available(tvOS 5.0, *)
-class UIStoryboard : NSObject {
-  /*not inherited*/ init(name: String, bundle storyboardBundleOrNil: NSBundle?)
+class UIStoryboard : Object {
+  /*not inherited*/ init(name: String, bundle storyboardBundleOrNil: Bundle?)
   func instantiateInitialViewController() -> UIViewController?
   func instantiateViewControllerWithIdentifier(identifier: String) -> UIViewController
   init()
@@ -4804,7 +4804,7 @@ class UIStoryboardPopoverSegue : UIStoryboardSegue {
   init(identifier: String?, source: UIViewController, destination: UIViewController)
 }
 @available(tvOS 5.0, *)
-class UIStoryboardSegue : NSObject {
+class UIStoryboardSegue : Object {
   @available(tvOS 6.0, *)
   convenience init(identifier: String?, source: UIViewController, destination: UIViewController, performHandler: () -> Void)
   init(identifier: String?, source: UIViewController, destination: UIViewController)
@@ -4820,7 +4820,7 @@ class UIStoryboardSegue : NSObject {
 /// Encapsulates the source of a prospective unwind segue.
 /// You do not create instances of this class directly. Instead, UIKit creates an instance of this class and sends -destinationViewControllerForUnwindSource: to each ancestor of the sourceViewController until one returns a non-null result or the chain is exhausted.
 @available(tvOS 9.0, *)
-class UIStoryboardUnwindSegueSource : NSObject {
+class UIStoryboardUnwindSegueSource : Object {
   var sourceViewController: UIViewController { get }
   var unwindAction: Selector { get }
   var sender: AnyObject? { get }
@@ -4879,15 +4879,15 @@ class UITabBar : UIView {
   @available(tvOS 7.0, *)
   var isTranslucent: Bool
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
-protocol UITabBarDelegate : NSObjectProtocol {
+protocol UITabBarDelegate : ObjectProtocol {
   @available(tvOS 2.0, *)
   optional func tabBar(tabBar: UITabBar, didSelect item: UITabBarItem)
 }
 @available(tvOS 2.0, *)
-class UITabBarController : UIViewController, UITabBarDelegate, NSCoding {
+class UITabBarController : UIViewController, UITabBarDelegate, Coding {
   var viewControllers: [UIViewController]?
   func setViewControllers(viewControllers: [UIViewController]?, animated: Bool)
   unowned(unsafe) var selectedViewController: @sil_unmanaged UIViewController?
@@ -4895,13 +4895,13 @@ class UITabBarController : UIViewController, UITabBarDelegate, NSCoding {
   @available(tvOS 3.0, *)
   var tabBar: UITabBar { get }
   weak var delegate: @sil_weak UITabBarControllerDelegate?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
   @available(tvOS 2.0, *)
   func tabBar(tabBar: UITabBar, didSelect item: UITabBarItem)
 }
-protocol UITabBarControllerDelegate : NSObjectProtocol {
+protocol UITabBarControllerDelegate : ObjectProtocol {
   @available(tvOS 3.0, *)
   optional func tabBarController(tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool
   @available(tvOS 2.0, *)
@@ -4946,7 +4946,7 @@ enum UITabBarSystemItem : Int {
 @available(tvOS 2.0, *)
 class UITabBarItem : UIBarItem {
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init(title: String?, image: UIImage?, tag: Int)
   @available(tvOS 7.0, *)
   convenience init(title: String?, image: UIImage?, selectedImage: UIImage?)
@@ -4987,31 +4987,31 @@ enum UITableViewRowAnimation : Int {
 let UITableViewAutomaticDimension: CGFloat
 @available(tvOS 9.0, *)
 class UITableViewFocusUpdateContext : UIFocusUpdateContext {
-  var previouslyFocusedIndexPath: NSIndexPath? { get }
-  var nextFocusedIndexPath: NSIndexPath? { get }
+  var previouslyFocusedIndexPath: IndexPath? { get }
+  var nextFocusedIndexPath: IndexPath? { get }
   init()
 }
-protocol UITableViewDelegate : NSObjectProtocol, UIScrollViewDelegate {
+protocol UITableViewDelegate : ObjectProtocol, UIScrollViewDelegate {
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
   optional func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
   @available(tvOS 6.0, *)
   optional func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int)
   @available(tvOS 6.0, *)
-  optional func tableView(tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
   optional func tableView(tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int)
   @available(tvOS 6.0, *)
   optional func tableView(tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection section: Int)
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, heightForRowAt indexPath: NSIndexPath) -> CGFloat
+  optional func tableView(tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
   @available(tvOS 2.0, *)
   optional func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
   @available(tvOS 2.0, *)
   optional func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
   @available(tvOS 7.0, *)
-  optional func tableView(tableView: UITableView, estimatedHeightForRowAt indexPath: NSIndexPath) -> CGFloat
+  optional func tableView(tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
   @available(tvOS 7.0, *)
   optional func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat
   @available(tvOS 7.0, *)
@@ -5021,49 +5021,49 @@ protocol UITableViewDelegate : NSObjectProtocol, UIScrollViewDelegate {
   @available(tvOS 2.0, *)
   optional func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, accessoryButtonTappedForRowWith indexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  optional func tableView(tableView: UITableView, shouldHighlightRowAt indexPath: NSIndexPath) -> Bool
+  optional func tableView(tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool
   @available(tvOS 6.0, *)
-  optional func tableView(tableView: UITableView, didHighlightRowAt indexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, didHighlightRowAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  optional func tableView(tableView: UITableView, didUnhighlightRowAt indexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath)
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, willSelectRowAt indexPath: NSIndexPath) -> NSIndexPath?
+  optional func tableView(tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
   @available(tvOS 3.0, *)
-  optional func tableView(tableView: UITableView, willDeselectRowAt indexPath: NSIndexPath) -> NSIndexPath?
+  optional func tableView(tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath?
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, didSelectRowAt indexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath)
   @available(tvOS 3.0, *)
-  optional func tableView(tableView: UITableView, didDeselectRowAt indexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, editingStyleForRowAt indexPath: NSIndexPath) -> UITableViewCellEditingStyle
+  optional func tableView(tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: NSIndexPath) -> Bool
+  optional func tableView(tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath
+  optional func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, indentationLevelForRowAt indexPath: NSIndexPath) -> Int
+  optional func tableView(tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int
   @available(tvOS 5.0, *)
-  optional func tableView(tableView: UITableView, shouldShowMenuForRowAt indexPath: NSIndexPath) -> Bool
+  optional func tableView(tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool
   @available(tvOS 5.0, *)
-  optional func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
+  optional func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: AnyObject?) -> Bool
   @available(tvOS 5.0, *)
-  optional func tableView(tableView: UITableView, performAction action: Selector, forRowAt indexPath: NSIndexPath, withSender sender: AnyObject?)
+  optional func tableView(tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: AnyObject?)
   @available(tvOS 9.0, *)
-  optional func tableView(tableView: UITableView, canFocusRowAt indexPath: NSIndexPath) -> Bool
+  optional func tableView(tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool
   @available(tvOS 9.0, *)
   optional func tableView(tableView: UITableView, shouldUpdateFocusIn context: UITableViewFocusUpdateContext) -> Bool
   @available(tvOS 9.0, *)
   optional func tableView(tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
   @available(tvOS 9.0, *)
-  optional func indexPathForPreferredFocusedViewIn(tableView: UITableView) -> NSIndexPath?
+  optional func indexPathForPreferredFocusedViewIn(tableView: UITableView) -> IndexPath?
 }
 let UITableViewSelectionDidChangeNotification: String
 @available(tvOS 2.0, *)
-class UITableView : UIScrollView, NSCoding {
+class UITableView : UIScrollView, Coding {
   init(frame: CGRect, style: UITableViewStyle)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   var style: UITableViewStyle { get }
   weak var dataSource: @sil_weak UITableViewDataSource?
   weak var delegate: @sil_weak UITableViewDelegate?
@@ -5088,33 +5088,33 @@ class UITableView : UIScrollView, NSCoding {
   func rectForSection(section: Int) -> CGRect
   func rectForHeaderInSection(section: Int) -> CGRect
   func rectForFooterInSection(section: Int) -> CGRect
-  func rectForRowAt(indexPath: NSIndexPath) -> CGRect
-  func indexPathForRowAt(point: CGPoint) -> NSIndexPath?
-  func indexPathFor(cell: UITableViewCell) -> NSIndexPath?
-  func indexPathsForRowsIn(rect: CGRect) -> [NSIndexPath]?
-  func cellForRowAt(indexPath: NSIndexPath) -> UITableViewCell?
+  func rectForRowAt(indexPath: IndexPath) -> CGRect
+  func indexPathForRowAt(point: CGPoint) -> IndexPath?
+  func indexPathFor(cell: UITableViewCell) -> IndexPath?
+  func indexPathsForRowsIn(rect: CGRect) -> [IndexPath]?
+  func cellForRowAt(indexPath: IndexPath) -> UITableViewCell?
   var visibleCells: [UITableViewCell] { get }
-  var indexPathsForVisibleRows: [NSIndexPath]? { get }
+  var indexPathsForVisibleRows: [IndexPath]? { get }
   @available(tvOS 6.0, *)
   func headerViewForSection(section: Int) -> UITableViewHeaderFooterView?
   @available(tvOS 6.0, *)
   func footerViewForSection(section: Int) -> UITableViewHeaderFooterView?
-  func scrollToRowAt(indexPath: NSIndexPath, at scrollPosition: UITableViewScrollPosition, animated: Bool)
+  func scrollToRowAt(indexPath: IndexPath, at scrollPosition: UITableViewScrollPosition, animated: Bool)
   func scrollToNearestSelectedRowAt(scrollPosition: UITableViewScrollPosition, animated: Bool)
   func beginUpdates()
   func endUpdates()
-  func insertSections(sections: NSIndexSet, withRowAnimation animation: UITableViewRowAnimation)
-  func deleteSections(sections: NSIndexSet, withRowAnimation animation: UITableViewRowAnimation)
+  func insertSections(sections: IndexSet, withRowAnimation animation: UITableViewRowAnimation)
+  func deleteSections(sections: IndexSet, withRowAnimation animation: UITableViewRowAnimation)
   @available(tvOS 3.0, *)
-  func reloadSections(sections: NSIndexSet, withRowAnimation animation: UITableViewRowAnimation)
+  func reloadSections(sections: IndexSet, withRowAnimation animation: UITableViewRowAnimation)
   @available(tvOS 5.0, *)
   func moveSection(section: Int, toSection newSection: Int)
-  func insertRowsAt(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation)
-  func deleteRowsAt(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation)
+  func insertRowsAt(indexPaths: [IndexPath], withRowAnimation animation: UITableViewRowAnimation)
+  func deleteRowsAt(indexPaths: [IndexPath], withRowAnimation animation: UITableViewRowAnimation)
   @available(tvOS 3.0, *)
-  func reloadRowsAt(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation)
+  func reloadRowsAt(indexPaths: [IndexPath], withRowAnimation animation: UITableViewRowAnimation)
   @available(tvOS 5.0, *)
-  func moveRowAt(indexPath: NSIndexPath, to newIndexPath: NSIndexPath)
+  func moveRowAt(indexPath: IndexPath, to newIndexPath: IndexPath)
   var isEditing: Bool
   func setEditing(editing: Bool, animated: Bool)
   @available(tvOS 3.0, *)
@@ -5124,11 +5124,11 @@ class UITableView : UIScrollView, NSCoding {
   var allowsMultipleSelection: Bool
   @available(tvOS 5.0, *)
   var allowsMultipleSelectionDuringEditing: Bool
-  var indexPathForSelectedRow: NSIndexPath? { get }
+  var indexPathForSelectedRow: IndexPath? { get }
   @available(tvOS 5.0, *)
-  var indexPathsForSelectedRows: [NSIndexPath]? { get }
-  func selectRowAt(indexPath: NSIndexPath?, animated: Bool, scrollPosition: UITableViewScrollPosition)
-  func deselectRowAt(indexPath: NSIndexPath, animated: Bool)
+  var indexPathsForSelectedRows: [IndexPath]? { get }
+  func selectRowAt(indexPath: IndexPath?, animated: Bool, scrollPosition: UITableViewScrollPosition)
+  func deselectRowAt(indexPath: IndexPath, animated: Bool)
   var sectionIndexMinimumDisplayRowCount: Int
   @available(tvOS 6.0, *)
   var sectionIndexColor: UIColor?
@@ -5142,7 +5142,7 @@ class UITableView : UIScrollView, NSCoding {
   var tableFooterView: UIView?
   func dequeueReusableCellWithIdentifier(identifier: String) -> UITableViewCell?
   @available(tvOS 6.0, *)
-  func dequeueReusableCellWithIdentifier(identifier: String, forIndexPath indexPath: NSIndexPath) -> UITableViewCell
+  func dequeueReusableCellWithIdentifier(identifier: String, forIndexPath indexPath: IndexPath) -> UITableViewCell
   @available(tvOS 6.0, *)
   func dequeueReusableHeaderFooterViewWithIdentifier(identifier: String) -> UITableViewHeaderFooterView?
   @available(tvOS 5.0, *)
@@ -5158,11 +5158,11 @@ class UITableView : UIScrollView, NSCoding {
   convenience init(frame: CGRect)
   convenience init()
 }
-protocol UITableViewDataSource : NSObjectProtocol {
+protocol UITableViewDataSource : ObjectProtocol {
   @available(tvOS 2.0, *)
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   @available(tvOS 2.0, *)
-  func tableView(tableView: UITableView, cellForRowAt indexPath: NSIndexPath) -> UITableViewCell
+  func tableView(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
   @available(tvOS 2.0, *)
   optional func numberOfSectionsIn(tableView: UITableView) -> Int
   @available(tvOS 2.0, *)
@@ -5170,15 +5170,15 @@ protocol UITableViewDataSource : NSObjectProtocol {
   @available(tvOS 2.0, *)
   optional func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String?
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, canEditRowAt indexPath: NSIndexPath) -> Bool
+  optional func tableView(tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, canMoveRowAt indexPath: NSIndexPath) -> Bool
+  optional func tableView(tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, moveRowAt sourceIndexPath: NSIndexPath, to destinationIndexPath: NSIndexPath)
+  optional func tableView(tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
 }
-extension NSIndexPath {
+extension IndexPath {
   convenience init(forRow row: Int, inSection section: Int)
   var section: Int { get }
   var row: Int { get }
@@ -5229,10 +5229,10 @@ struct UITableViewCellStateMask : OptionSetType {
   static var ShowingDeleteConfirmationMask: UITableViewCellStateMask { get }
 }
 @available(tvOS 2.0, *)
-class UITableViewCell : UIView, NSCoding, UIGestureRecognizerDelegate {
+class UITableViewCell : UIView, Coding, UIGestureRecognizerDelegate {
   @available(tvOS 3.0, *)
   init(style: UITableViewCellStyle, reuseIdentifier: String?)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   @available(tvOS 3.0, *)
   var imageView: UIImageView? { get }
   @available(tvOS 3.0, *)
@@ -5289,32 +5289,32 @@ extension UITableViewCell {
 @available(tvOS 2.0, *)
 class UITableViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
   init(style: UITableViewStyle)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   var tableView: UITableView!
   @available(tvOS 3.2, *)
   var clearsSelectionOnViewWillAppear: Bool
   convenience init()
   @available(tvOS 2.0, *)
-  func tableView(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: NSIndexPath)
+  func tableView(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
   func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
   @available(tvOS 6.0, *)
   func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int)
   @available(tvOS 6.0, *)
-  func tableView(tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: NSIndexPath)
+  func tableView(tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
   func tableView(tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int)
   @available(tvOS 6.0, *)
   func tableView(tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection section: Int)
   @available(tvOS 2.0, *)
-  func tableView(tableView: UITableView, heightForRowAt indexPath: NSIndexPath) -> CGFloat
+  func tableView(tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
   @available(tvOS 2.0, *)
   func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
   @available(tvOS 2.0, *)
   func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
   @available(tvOS 7.0, *)
-  func tableView(tableView: UITableView, estimatedHeightForRowAt indexPath: NSIndexPath) -> CGFloat
+  func tableView(tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
   @available(tvOS 7.0, *)
   func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat
   @available(tvOS 7.0, *)
@@ -5324,43 +5324,43 @@ class UITableViewController : UIViewController, UITableViewDelegate, UITableView
   @available(tvOS 2.0, *)
   func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
   @available(tvOS 2.0, *)
-  func tableView(tableView: UITableView, accessoryButtonTappedForRowWith indexPath: NSIndexPath)
+  func tableView(tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  func tableView(tableView: UITableView, shouldHighlightRowAt indexPath: NSIndexPath) -> Bool
+  func tableView(tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool
   @available(tvOS 6.0, *)
-  func tableView(tableView: UITableView, didHighlightRowAt indexPath: NSIndexPath)
+  func tableView(tableView: UITableView, didHighlightRowAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  func tableView(tableView: UITableView, didUnhighlightRowAt indexPath: NSIndexPath)
+  func tableView(tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath)
   @available(tvOS 2.0, *)
-  func tableView(tableView: UITableView, willSelectRowAt indexPath: NSIndexPath) -> NSIndexPath?
+  func tableView(tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
   @available(tvOS 3.0, *)
-  func tableView(tableView: UITableView, willDeselectRowAt indexPath: NSIndexPath) -> NSIndexPath?
+  func tableView(tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath?
   @available(tvOS 2.0, *)
-  func tableView(tableView: UITableView, didSelectRowAt indexPath: NSIndexPath)
+  func tableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath)
   @available(tvOS 3.0, *)
-  func tableView(tableView: UITableView, didDeselectRowAt indexPath: NSIndexPath)
+  func tableView(tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
   @available(tvOS 2.0, *)
-  func tableView(tableView: UITableView, editingStyleForRowAt indexPath: NSIndexPath) -> UITableViewCellEditingStyle
+  func tableView(tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle
   @available(tvOS 2.0, *)
-  func tableView(tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: NSIndexPath) -> Bool
+  func tableView(tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool
   @available(tvOS 2.0, *)
-  func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath
+  func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath
   @available(tvOS 2.0, *)
-  func tableView(tableView: UITableView, indentationLevelForRowAt indexPath: NSIndexPath) -> Int
+  func tableView(tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int
   @available(tvOS 5.0, *)
-  func tableView(tableView: UITableView, shouldShowMenuForRowAt indexPath: NSIndexPath) -> Bool
+  func tableView(tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool
   @available(tvOS 5.0, *)
-  func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
+  func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: AnyObject?) -> Bool
   @available(tvOS 5.0, *)
-  func tableView(tableView: UITableView, performAction action: Selector, forRowAt indexPath: NSIndexPath, withSender sender: AnyObject?)
+  func tableView(tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: AnyObject?)
   @available(tvOS 9.0, *)
-  func tableView(tableView: UITableView, canFocusRowAt indexPath: NSIndexPath) -> Bool
+  func tableView(tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool
   @available(tvOS 9.0, *)
   func tableView(tableView: UITableView, shouldUpdateFocusIn context: UITableViewFocusUpdateContext) -> Bool
   @available(tvOS 9.0, *)
   func tableView(tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
   @available(tvOS 9.0, *)
-  func indexPathForPreferredFocusedViewIn(tableView: UITableView) -> NSIndexPath?
+  func indexPathForPreferredFocusedViewIn(tableView: UITableView) -> IndexPath?
   @available(tvOS 2.0, *)
   func scrollViewDidScroll(scrollView: UIScrollView)
   @available(tvOS 3.2, *)
@@ -5390,7 +5390,7 @@ class UITableViewController : UIViewController, UITableViewDelegate, UITableView
   @available(tvOS 2.0, *)
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   @available(tvOS 2.0, *)
-  func tableView(tableView: UITableView, cellForRowAt indexPath: NSIndexPath) -> UITableViewCell
+  func tableView(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
   @available(tvOS 2.0, *)
   func numberOfSectionsIn(tableView: UITableView) -> Int
   @available(tvOS 2.0, *)
@@ -5398,18 +5398,18 @@ class UITableViewController : UIViewController, UITableViewDelegate, UITableView
   @available(tvOS 2.0, *)
   func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String?
   @available(tvOS 2.0, *)
-  func tableView(tableView: UITableView, canEditRowAt indexPath: NSIndexPath) -> Bool
+  func tableView(tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
   @available(tvOS 2.0, *)
-  func tableView(tableView: UITableView, canMoveRowAt indexPath: NSIndexPath) -> Bool
+  func tableView(tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
   @available(tvOS 2.0, *)
-  func tableView(tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: NSIndexPath)
+  func tableView(tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
   @available(tvOS 2.0, *)
-  func tableView(tableView: UITableView, moveRowAt sourceIndexPath: NSIndexPath, to destinationIndexPath: NSIndexPath)
+  func tableView(tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
 }
 @available(tvOS 6.0, *)
 class UITableViewHeaderFooterView : UIView {
   init(reuseIdentifier: String?)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   var tintColor: UIColor!
   var textLabel: UILabel? { get }
   var detailTextLabel: UILabel? { get }
@@ -5427,7 +5427,7 @@ class UITapGestureRecognizer : UIGestureRecognizer {
   convenience init()
 }
 @available(tvOS 3.2, *)
-class UITextChecker : NSObject {
+class UITextChecker : Object {
   func rangeOfMisspelledWordIn(stringToCheck: String, range: NSRange, startingAt startingOffset: Int, wrap wrapFlag: Bool, language: String) -> NSRange
   func guessesForWordRange(range: NSRange, in string: String, language: String) -> [AnyObject]?
   func completionsForPartialWordRange(range: NSRange, in string: String?, language: String) -> [AnyObject]?
@@ -5457,10 +5457,10 @@ enum UITextFieldViewMode : Int {
   case Always
 }
 @available(tvOS 2.0, *)
-class UITextField : UIControl, UITextInput, NSCoding {
+class UITextField : UIControl, UITextInput, Coding {
   var text: String?
   @available(tvOS 6.0, *)
-  @NSCopying var attributedText: NSAttributedString?
+  @NSCopying var attributedText: AttributedString?
   var textColor: UIColor?
   var font: UIFont?
   var textAlignment: NSTextAlignment
@@ -5469,7 +5469,7 @@ class UITextField : UIControl, UITextInput, NSCoding {
   var defaultTextAttributes: [String : AnyObject]
   var placeholder: String?
   @available(tvOS 6.0, *)
-  @NSCopying var attributedPlaceholder: NSAttributedString?
+  @NSCopying var attributedPlaceholder: AttributedString?
   var clearsOnBeginEditing: Bool
   var adjustsFontSizeToFitWidth: Bool
   var minimumFontSize: CGFloat
@@ -5500,7 +5500,7 @@ class UITextField : UIControl, UITextInput, NSCoding {
   @available(tvOS 6.0, *)
   var clearsOnInsertion: Bool
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
   @available(tvOS 3.2, *)
   func textIn(range: UITextRange) -> String?
@@ -5511,7 +5511,7 @@ class UITextField : UIControl, UITextInput, NSCoding {
   @available(tvOS 3.2, *)
   var markedTextRange: UITextRange? { get }
   @available(tvOS 2.0, *)
-  var markedTextStyle: [NSObject : AnyObject]?
+  var markedTextStyle: [Object : AnyObject]?
   @available(tvOS 2.0, *)
   func setMarkedText(markedText: String?, selectedRange: NSRange)
   @available(tvOS 2.0, *)
@@ -5527,7 +5527,7 @@ class UITextField : UIControl, UITextInput, NSCoding {
   @available(tvOS 3.2, *)
   func positionFrom(position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func compare(position: UITextPosition, to other: UITextPosition) -> NSComparisonResult
+  func compare(position: UITextPosition, to other: UITextPosition) -> ComparisonResult
   @available(tvOS 3.2, *)
   func offsetFrom(from: UITextPosition, to toPosition: UITextPosition) -> Int
   @available(tvOS 2.0, *)
@@ -5610,7 +5610,7 @@ class UITextField : UIControl, UITextInput, NSCoding {
 extension UIView {
   func endEditing(force: Bool) -> Bool
 }
-protocol UITextFieldDelegate : NSObjectProtocol {
+protocol UITextFieldDelegate : ObjectProtocol {
   @available(tvOS 2.0, *)
   optional func textFieldShouldBeginEditing(textField: UITextField) -> Bool
   @available(tvOS 2.0, *)
@@ -5667,7 +5667,7 @@ enum UITextGranularity : Int {
   case Document
 }
 @available(tvOS 5.1, *)
-class UIDictationPhrase : NSObject {
+class UIDictationPhrase : Object {
   var text: String { get }
   var alternativeInterpretations: [String]? { get }
   init()
@@ -5682,7 +5682,7 @@ protocol UITextInput : UIKeyInput {
   @available(tvOS 3.2, *)
   var markedTextRange: UITextRange? { get }
   @available(tvOS 2.0, *)
-  var markedTextStyle: [NSObject : AnyObject]? { get set }
+  var markedTextStyle: [Object : AnyObject]? { get set }
   func setMarkedText(markedText: String?, selectedRange: NSRange)
   func unmarkText()
   @available(tvOS 3.2, *)
@@ -5696,7 +5696,7 @@ protocol UITextInput : UIKeyInput {
   @available(tvOS 3.2, *)
   func positionFrom(position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func compare(position: UITextPosition, to other: UITextPosition) -> NSComparisonResult
+  func compare(position: UITextPosition, to other: UITextPosition) -> ComparisonResult
   @available(tvOS 3.2, *)
   func offsetFrom(from: UITextPosition, to toPosition: UITextPosition) -> Int
   weak var inputDelegate: @sil_weak UITextInputDelegate? { get set }
@@ -5747,18 +5747,18 @@ protocol UITextInput : UIKeyInput {
   optional func endFloatingCursor()
 }
 @available(tvOS 3.2, *)
-class UITextPosition : NSObject {
+class UITextPosition : Object {
   init()
 }
 @available(tvOS 3.2, *)
-class UITextRange : NSObject {
+class UITextRange : Object {
   var isEmpty: Bool { get }
   var start: UITextPosition { get }
   var end: UITextPosition { get }
   init()
 }
 @available(tvOS 6.0, *)
-class UITextSelectionRect : NSObject {
+class UITextSelectionRect : Object {
   var rect: CGRect { get }
   var writingDirection: UITextWritingDirection { get }
   var containsStart: Bool { get }
@@ -5766,13 +5766,13 @@ class UITextSelectionRect : NSObject {
   var isVertical: Bool { get }
   init()
 }
-protocol UITextInputDelegate : NSObjectProtocol {
+protocol UITextInputDelegate : ObjectProtocol {
   func selectionWillChange(textInput: UITextInput?)
   func selectionDidChange(textInput: UITextInput?)
   func textWillChange(textInput: UITextInput?)
   func textDidChange(textInput: UITextInput?)
 }
-protocol UITextInputTokenizer : NSObjectProtocol {
+protocol UITextInputTokenizer : ObjectProtocol {
   @available(tvOS 3.2, *)
   func rangeEnclosingPosition(position: UITextPosition, withGranularity granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextRange?
   @available(tvOS 3.2, *)
@@ -5783,7 +5783,7 @@ protocol UITextInputTokenizer : NSObjectProtocol {
   func isPosition(position: UITextPosition, withinTextUnit granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
 }
 @available(tvOS 3.2, *)
-class UITextInputStringTokenizer : NSObject, UITextInputTokenizer {
+class UITextInputStringTokenizer : Object, UITextInputTokenizer {
   init(textInput: UIResponder)
   init()
   @available(tvOS 3.2, *)
@@ -5796,15 +5796,15 @@ class UITextInputStringTokenizer : NSObject, UITextInputTokenizer {
   func isPosition(position: UITextPosition, withinTextUnit granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
 }
 @available(tvOS 4.2, *)
-class UITextInputMode : NSObject, NSSecureCoding {
+class UITextInputMode : Object, SecureCoding {
   var primaryLanguage: String? { get }
   class func activeInputModes() -> [String]
   init()
   @available(tvOS 4.2, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 4.2, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(tvOS 4.2, *)
 let UITextInputCurrentInputModeDidChangeNotification: String
@@ -5877,7 +5877,7 @@ enum UIReturnKeyType : Int {
   @available(tvOS 9.0, *)
   case Continue
 }
-protocol UITextInputTraits : NSObjectProtocol {
+protocol UITextInputTraits : ObjectProtocol {
   optional var autocapitalizationType: UITextAutocapitalizationType { get set }
   optional var autocorrectionType: UITextAutocorrectionType { get set }
   @available(tvOS 5.0, *)
@@ -5888,7 +5888,7 @@ protocol UITextInputTraits : NSObjectProtocol {
   optional var enablesReturnKeyAutomatically: Bool { get set }
   optional var isSecureTextEntry: Bool { get set }
 }
-protocol UITextViewDelegate : NSObjectProtocol, UIScrollViewDelegate {
+protocol UITextViewDelegate : ObjectProtocol, UIScrollViewDelegate {
   @available(tvOS 2.0, *)
   optional func textViewShouldBeginEditing(textView: UITextView) -> Bool
   @available(tvOS 2.0, *)
@@ -5904,7 +5904,7 @@ protocol UITextViewDelegate : NSObjectProtocol, UIScrollViewDelegate {
   @available(tvOS 2.0, *)
   optional func textViewDidChangeSelection(textView: UITextView)
   @available(tvOS 7.0, *)
-  optional func textView(textView: UITextView, shouldInteractWith URL: NSURL, in characterRange: NSRange) -> Bool
+  optional func textView(textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool
   @available(tvOS 7.0, *)
   optional func textView(textView: UITextView, shouldInteractWith textAttachment: NSTextAttachment, in characterRange: NSRange) -> Bool
 }
@@ -5921,7 +5921,7 @@ class UITextView : UIScrollView, UITextInput {
   @available(tvOS 6.0, *)
   var allowsEditingTextAttributes: Bool
   @available(tvOS 6.0, *)
-  @NSCopying var attributedText: NSAttributedString!
+  @NSCopying var attributedText: AttributedString!
   @available(tvOS 6.0, *)
   var typingAttributes: [String : AnyObject]
   func scrollRangeToVisible(range: NSRange)
@@ -5931,7 +5931,7 @@ class UITextView : UIScrollView, UITextInput {
   var clearsOnInsertion: Bool
   @available(tvOS 7.0, *)
   init(frame: CGRect, textContainer: NSTextContainer?)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   @available(tvOS 7.0, *)
   var textContainer: NSTextContainer { get }
   @available(tvOS 7.0, *)
@@ -5953,7 +5953,7 @@ class UITextView : UIScrollView, UITextInput {
   @available(tvOS 3.2, *)
   var markedTextRange: UITextRange? { get }
   @available(tvOS 2.0, *)
-  var markedTextStyle: [NSObject : AnyObject]?
+  var markedTextStyle: [Object : AnyObject]?
   @available(tvOS 2.0, *)
   func setMarkedText(markedText: String?, selectedRange: NSRange)
   @available(tvOS 2.0, *)
@@ -5969,7 +5969,7 @@ class UITextView : UIScrollView, UITextInput {
   @available(tvOS 3.2, *)
   func positionFrom(position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func compare(position: UITextPosition, to other: UITextPosition) -> NSComparisonResult
+  func compare(position: UITextPosition, to other: UITextPosition) -> ComparisonResult
   @available(tvOS 3.2, *)
   func offsetFrom(from: UITextPosition, to toPosition: UITextPosition) -> Int
   @available(tvOS 2.0, *)
@@ -6087,8 +6087,8 @@ struct UITouchProperties : OptionSetType {
   static var Location: UITouchProperties { get }
 }
 @available(tvOS 2.0, *)
-class UITouch : NSObject {
-  var timestamp: NSTimeInterval { get }
+class UITouch : Object {
+  var timestamp: TimeInterval { get }
   var phase: UITouchPhase { get }
   var tapCount: Int { get }
   @available(tvOS 9.0, *)
@@ -6118,7 +6118,7 @@ class UITouch : NSObject {
   @available(tvOS 9.1, *)
   var altitudeAngle: CGFloat { get }
   @available(tvOS 9.1, *)
-  var estimationUpdateIndex: NSNumber? { get }
+  var estimationUpdateIndex: Number? { get }
   @available(tvOS 9.1, *)
   var estimatedProperties: UITouchProperties { get }
   @available(tvOS 9.1, *)
@@ -6128,9 +6128,9 @@ class UITouch : NSObject {
 
 /*! A trait collection encapsulates the system traits of an interface's environment. */
 @available(tvOS 8.0, *)
-class UITraitCollection : NSObject, NSCopying, NSSecureCoding {
+class UITraitCollection : Object, Copying, SecureCoding {
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   func containsTraitsIn(trait: UITraitCollection?) -> Bool
 
   /*! Returns a trait collection by merging the traits in `traitCollections`. The last trait along any given
@@ -6149,15 +6149,15 @@ class UITraitCollection : NSObject, NSCopying, NSSecureCoding {
   @available(tvOS 9.0, *)
   var forceTouchCapability: UIForceTouchCapability { get }
   @available(tvOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
 }
 
 /*! Trait environments expose a trait collection that describes their environment. */
-protocol UITraitEnvironment : NSObjectProtocol {
+protocol UITraitEnvironment : ObjectProtocol {
   @available(tvOS 8.0, *)
   var traitCollection: UITraitCollection { get }
 
@@ -6285,7 +6285,7 @@ enum UIUserInterfaceLayoutDirection : Int {
   case LeftToRight
   case RightToLeft
 }
-protocol UICoordinateSpace : NSObjectProtocol {
+protocol UICoordinateSpace : ObjectProtocol {
   @available(tvOS 8.0, *)
   func convert(point: CGPoint, to coordinateSpace: UICoordinateSpace) -> CGPoint
   @available(tvOS 8.0, *)
@@ -6310,10 +6310,10 @@ protocol UICoordinateSpace : NSObjectProtocol {
  UITabBarController is rotatable if all of its view controllers are rotatable.
  */
 @available(tvOS 2.0, *)
-class UIView : UIResponder, NSCoding, UIAppearance, UIAppearanceContainer, UIDynamicItem, UITraitEnvironment, UICoordinateSpace, UIFocusEnvironment {
+class UIView : UIResponder, Coding, UIAppearance, UIAppearanceContainer, UIDynamicItem, UITraitEnvironment, UICoordinateSpace, UIFocusEnvironment {
   class func layerClass() -> AnyClass
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   var isUserInteractionEnabled: Bool
   var tag: Int
   var layer: CALayer { get }
@@ -6327,7 +6327,7 @@ class UIView : UIResponder, NSCoding, UIAppearance, UIAppearanceContainer, UIDyn
   var semanticContentAttribute: UISemanticContentAttribute
   convenience init()
   @available(tvOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
   @available(tvOS 2.0, *)
   class func appearance() -> Self
   @available(tvOS 9.0, *)
@@ -6470,9 +6470,9 @@ extension UIView {
   class func setAnimationDelegate(delegate: AnyObject?)
   class func setAnimationWillStart(selector: Selector)
   class func setAnimationDidStop(selector: Selector)
-  class func setAnimationDuration(duration: NSTimeInterval)
-  class func setAnimationDelay(delay: NSTimeInterval)
-  class func setAnimationStart(startDate: NSDate)
+  class func setAnimationDuration(duration: TimeInterval)
+  class func setAnimationDelay(delay: TimeInterval)
+  class func setAnimationStart(startDate: Date)
   class func setAnimationCurve(curve: UIViewAnimationCurve)
   class func setAnimationRepeatCount(repeatCount: Float)
   class func setAnimationRepeatAutoreverses(repeatAutoreverses: Bool)
@@ -6483,27 +6483,27 @@ extension UIView {
   @available(tvOS 7.0, *)
   class func performWithoutAnimation(actionsWithoutAnimation: () -> Void)
   @available(tvOS 9.0, *)
-  class func inheritedAnimationDuration() -> NSTimeInterval
+  class func inheritedAnimationDuration() -> TimeInterval
 }
 extension UIView {
   @available(tvOS 4.0, *)
-  class func animateWithDuration(duration: NSTimeInterval, delay: NSTimeInterval, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animateWithDuration(duration: TimeInterval, delay: TimeInterval, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 4.0, *)
-  class func animateWithDuration(duration: NSTimeInterval, animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animateWithDuration(duration: TimeInterval, animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 4.0, *)
-  class func animateWithDuration(duration: NSTimeInterval, animations: () -> Void)
+  class func animateWithDuration(duration: TimeInterval, animations: () -> Void)
   @available(tvOS 7.0, *)
-  class func animateWithDuration(duration: NSTimeInterval, delay: NSTimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animateWithDuration(duration: TimeInterval, delay: TimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 4.0, *)
-  class func transitionWith(view: UIView, duration: NSTimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
+  class func transitionWith(view: UIView, duration: TimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 4.0, *)
-  class func transitionFrom(fromView: UIView, to toView: UIView, duration: NSTimeInterval, options: UIViewAnimationOptions = [], completion: ((Bool) -> Void)? = nil)
+  class func transitionFrom(fromView: UIView, to toView: UIView, duration: TimeInterval, options: UIViewAnimationOptions = [], completion: ((Bool) -> Void)? = nil)
   @available(tvOS 7.0, *)
   class func perform(animation: UISystemAnimation, on views: [UIView], options: UIViewAnimationOptions = [], animations parallelAnimations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
 }
 extension UIView {
   @available(tvOS 7.0, *)
-  class func animateKeyframesWithDuration(duration: NSTimeInterval, delay: NSTimeInterval, options: UIViewKeyframeAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animateKeyframesWithDuration(duration: TimeInterval, delay: TimeInterval, options: UIViewKeyframeAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 7.0, *)
   class func addKeyframeWithRelativeStartTime(frameStartTime: Double, relativeDuration frameDuration: Double, animations: () -> Void)
 }
@@ -6650,9 +6650,9 @@ extension UIView {
   @available(tvOS 6.0, *)
   var restorationIdentifier: String?
   @available(tvOS 6.0, *)
-  func encodeRestorableStateWith(coder: NSCoder)
+  func encodeRestorableStateWith(coder: Coder)
   @available(tvOS 6.0, *)
-  func decodeRestorableStateWith(coder: NSCoder)
+  func decodeRestorableStateWith(coder: Coder)
 }
 extension UIView {
   @available(tvOS 7.0, *)
@@ -6683,7 +6683,7 @@ enum UIModalPresentationStyle : Int {
   @available(tvOS 7.0, *)
   case None
 }
-protocol UIContentContainer : NSObjectProtocol {
+protocol UIContentContainer : ObjectProtocol {
   @available(tvOS 8.0, *)
   var preferredContentSize: CGSize { get }
   @available(tvOS 8.0, *)
@@ -6700,9 +6700,9 @@ protocol UIContentContainer : NSObjectProtocol {
 @available(tvOS 8.0, *)
 let UIViewControllerShowDetailTargetDidChangeNotification: String
 @available(tvOS 2.0, *)
-class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEnvironment, UIContentContainer, UIFocusEnvironment {
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvironment, UIContentContainer, UIFocusEnvironment {
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   var view: UIView!
   func loadView()
   @available(tvOS 9.0, *)
@@ -6713,7 +6713,7 @@ class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEn
   @available(tvOS 3.0, *)
   func isViewLoaded() -> Bool
   var nibName: String? { get }
-  var nibBundle: NSBundle? { get }
+  var nibBundle: Bundle? { get }
   @available(tvOS 5.0, *)
   var storyboard: UIStoryboard? { get }
   @available(tvOS 5.0, *)
@@ -6787,7 +6787,7 @@ class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEn
   func showDetailViewController(vc: UIViewController, sender: AnyObject?)
   convenience init()
   @available(tvOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
   @available(tvOS 8.0, *)
   var traitCollection: UITraitCollection { get }
 
@@ -6844,7 +6844,7 @@ extension UIViewController {
   @available(tvOS 5.0, *)
   func removeFromParentViewController()
   @available(tvOS 5.0, *)
-  func transitionFrom(fromViewController: UIViewController, to toViewController: UIViewController, duration: NSTimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
+  func transitionFrom(fromViewController: UIViewController, to toViewController: UIViewController, duration: TimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 5.0, *)
   func beginAppearanceTransition(isAppearing: Bool, animated: Bool)
   @available(tvOS 5.0, *)
@@ -6868,9 +6868,9 @@ extension UIViewController : UIStateRestoring {
   @available(tvOS 6.0, *)
   var restorationClass: AnyObject.Type?
   @available(tvOS 6.0, *)
-  func encodeRestorableStateWith(coder: NSCoder)
+  func encodeRestorableStateWith(coder: Coder)
   @available(tvOS 6.0, *)
-  func decodeRestorableStateWith(coder: NSCoder)
+  func decodeRestorableStateWith(coder: Coder)
   @available(tvOS 7.0, *)
   func applicationFinishedRestoringState()
   var restorationParent: UIStateRestoring? { get }
@@ -6896,11 +6896,11 @@ extension UIViewController {
   @available(tvOS 9.0, *)
   func removeKeyCommand(keyCommand: UIKeyCommand)
 }
-extension UIViewController : NSExtensionRequestHandling {
+extension UIViewController : ExtensionRequestHandling {
   @available(tvOS 8.0, *)
-  var extensionContext: NSExtensionContext? { get }
+  var extensionContext: ExtensionContext? { get }
   @available(tvOS 8.0, *)
-  func beginRequestWith(context: NSExtensionContext)
+  func beginRequestWith(context: ExtensionContext)
 }
 extension UIViewController {
   @available(tvOS 8.0, *)
@@ -6908,7 +6908,7 @@ extension UIViewController {
   @available(tvOS 8.0, *)
   var popoverPresentationController: UIPopoverPresentationController? { get }
 }
-protocol UIViewControllerPreviewing : NSObjectProtocol {
+protocol UIViewControllerPreviewing : ObjectProtocol {
   @available(tvOS 9.0, *)
   var previewingGestureRecognizerForFailureRelationship: UIGestureRecognizer { get }
   @available(tvOS 9.0, *)
@@ -6919,7 +6919,7 @@ protocol UIViewControllerPreviewing : NSObjectProtocol {
   var sourceRect: CGRect { get set }
 }
 @available(tvOS 9.0, *)
-protocol UIViewControllerPreviewingDelegate : NSObjectProtocol {
+protocol UIViewControllerPreviewingDelegate : ObjectProtocol {
   @available(tvOS 9.0, *)
   func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController?
   @available(tvOS 9.0, *)
@@ -6936,7 +6936,7 @@ extension UIViewController {
   func previewActionItems() -> [UIPreviewActionItem]
 }
 @available(tvOS 9.0, *)
-protocol UIPreviewActionItem : NSObjectProtocol {
+protocol UIPreviewActionItem : ObjectProtocol {
   var title: String { get }
 }
 @available(tvOS 9.0, *)
@@ -6948,31 +6948,31 @@ enum UIPreviewActionStyle : Int {
   case Destructive
 }
 @available(tvOS 9.0, *)
-class UIPreviewAction : NSObject, NSCopying, UIPreviewActionItem {
+class UIPreviewAction : Object, Copying, UIPreviewActionItem {
   var handler: (UIPreviewActionItem, UIViewController) -> Void { get }
   convenience init(title: String, style: UIPreviewActionStyle, handler: (UIPreviewAction, UIViewController) -> Void)
   init()
   @available(tvOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(tvOS 9.0, *)
   var title: String { get }
 }
 @available(tvOS 9.0, *)
-class UIPreviewActionGroup : NSObject, NSCopying, UIPreviewActionItem {
+class UIPreviewActionGroup : Object, Copying, UIPreviewActionItem {
   convenience init(title: String, style: UIPreviewActionStyle, actions: [UIPreviewAction])
   init()
   @available(tvOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(tvOS 9.0, *)
   var title: String { get }
 }
-protocol UIViewControllerTransitionCoordinatorContext : NSObjectProtocol {
+protocol UIViewControllerTransitionCoordinatorContext : ObjectProtocol {
   func isAnimated() -> Bool
   func presentationStyle() -> UIModalPresentationStyle
   func initiallyInteractive() -> Bool
   func isInteractive() -> Bool
   func isCancelled() -> Bool
-  func transitionDuration() -> NSTimeInterval
+  func transitionDuration() -> TimeInterval
   func percentComplete() -> CGFloat
   func completionVelocity() -> CGFloat
   func completionCurve() -> UIViewAnimationCurve
@@ -7003,7 +7003,7 @@ let UITransitionContextToViewControllerKey: String
 let UITransitionContextFromViewKey: String
 @available(tvOS 8.0, *)
 let UITransitionContextToViewKey: String
-protocol UIViewControllerContextTransitioning : NSObjectProtocol {
+protocol UIViewControllerContextTransitioning : ObjectProtocol {
   @available(tvOS 2.0, *)
   func containerView() -> UIView?
   func isAnimated() -> Bool
@@ -7025,17 +7025,17 @@ protocol UIViewControllerContextTransitioning : NSObjectProtocol {
   @available(tvOS 2.0, *)
   func finalFrameFor(vc: UIViewController) -> CGRect
 }
-protocol UIViewControllerAnimatedTransitioning : NSObjectProtocol {
-  func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
+protocol UIViewControllerAnimatedTransitioning : ObjectProtocol {
+  func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval
   func animateTransition(transitionContext: UIViewControllerContextTransitioning)
   optional func animationEnded(transitionCompleted: Bool)
 }
-protocol UIViewControllerInteractiveTransitioning : NSObjectProtocol {
+protocol UIViewControllerInteractiveTransitioning : ObjectProtocol {
   func startInteractiveTransition(transitionContext: UIViewControllerContextTransitioning)
   optional func completionSpeed() -> CGFloat
   optional func completionCurve() -> UIViewAnimationCurve
 }
-protocol UIViewControllerTransitioningDelegate : NSObjectProtocol {
+protocol UIViewControllerTransitioningDelegate : ObjectProtocol {
   @available(tvOS 2.0, *)
   optional func animationControllerForPresentedController(presented: UIViewController, presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
   @available(tvOS 2.0, *)
@@ -7046,7 +7046,7 @@ protocol UIViewControllerTransitioningDelegate : NSObjectProtocol {
   optional func presentationControllerForPresentedViewController(presented: UIViewController, presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController?
 }
 @available(tvOS 7.0, *)
-class UIPercentDrivenInteractiveTransition : NSObject, UIViewControllerInteractiveTransitioning {
+class UIPercentDrivenInteractiveTransition : Object, UIViewControllerInteractiveTransitioning {
   var duration: CGFloat { get }
   var percentComplete: CGFloat { get }
   var completionSpeed: CGFloat
@@ -7067,34 +7067,34 @@ enum UIBlurEffectStyle : Int {
   case Dark
 }
 @available(tvOS 8.0, *)
-class UIVisualEffect : NSObject, NSCopying, NSSecureCoding {
+class UIVisualEffect : Object, Copying, SecureCoding {
   init()
   @available(tvOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(tvOS 8.0, *)
 class UIBlurEffect : UIVisualEffect {
   /*not inherited*/ init(style: UIBlurEffectStyle)
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(tvOS 8.0, *)
 class UIVibrancyEffect : UIVisualEffect {
   /*not inherited*/ init(forBlurEffect blurEffect: UIBlurEffect)
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(tvOS 8.0, *)
-class UIVisualEffectView : UIView, NSSecureCoding {
+class UIVisualEffectView : UIView, SecureCoding {
   var contentView: UIView { get }
   @NSCopying var effect: UIVisualEffect?
   init(effect: UIVisualEffect?)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init(frame: CGRect)
   convenience init()
   @available(tvOS 8.0, *)
@@ -7119,7 +7119,7 @@ class UIWindow : UIView {
   func convert(rect: CGRect, to window: UIWindow?) -> CGRect
   func convert(rect: CGRect, from window: UIWindow?) -> CGRect
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 let UIWindowLevelNormal: UIWindowLevel

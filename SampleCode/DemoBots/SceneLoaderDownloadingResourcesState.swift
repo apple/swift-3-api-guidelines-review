@@ -50,7 +50,7 @@ class SceneLoaderDownloadingResourcesState: GKState {
             Create a new bundle request every time downloading needs to begin 
             because `NSBundleResourceRequest`s are single use objects.
         */
-        let bundleResourceRequest = NSBundleResourceRequest(tags: sceneLoader.sceneMetadata.onDemandResourcesTags)
+        let bundleResourceRequest = BundleResourceRequest(tags: sceneLoader.sceneMetadata.onDemandResourcesTags)
         
         // Hold onto the new resource request. 
         sceneLoader.bundleResourceRequest = bundleResourceRequest

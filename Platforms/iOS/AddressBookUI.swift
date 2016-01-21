@@ -1,36 +1,36 @@
 
 @available(iOS, introduced=2.0, deprecated=9.0, message="Use CNPostalAddressFormatter from Contacts.framework instead")
-func ABCreateStringWithAddressDictionary(address: [NSObject : AnyObject], _ addCountryName: Bool) -> String
+func ABCreateStringWithAddressDictionary(address: [Object : AnyObject], _ addCountryName: Bool) -> String
 @available(iOS, introduced=2.0, deprecated=9.0, message="Use +[CNContactViewController viewControllerForNewContact:] from ContactsUI.framework instead")
 class ABNewPersonViewController : UIViewController {
   unowned(unsafe) var newPersonViewDelegate: @sil_unmanaged ABNewPersonViewControllerDelegate?
   var addressBook: ABAddressBook?
   var displayedPerson: ABRecord?
   var parentGroup: ABRecord?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
-protocol ABNewPersonViewControllerDelegate : NSObjectProtocol {
+protocol ABNewPersonViewControllerDelegate : ObjectProtocol {
   @available(iOS 2.0, *)
   func newPersonViewController(newPersonView: ABNewPersonViewController, didCompleteWithNewPerson person: ABRecord?)
 }
 @available(iOS, introduced=2.0, deprecated=9.0, message="Use CNContactPickerViewController from ContactsUI.framework instead")
 class ABPeoplePickerNavigationController : UINavigationController {
   unowned(unsafe) var peoplePickerDelegate: @sil_unmanaged ABPeoplePickerNavigationControllerDelegate?
-  var displayedProperties: [NSNumber]?
+  var displayedProperties: [Number]?
   var addressBook: ABAddressBook?
   @available(iOS 8.0, *)
-  @NSCopying var predicateForEnablingPerson: NSPredicate?
+  @NSCopying var predicateForEnablingPerson: Predicate?
   @available(iOS 8.0, *)
-  @NSCopying var predicateForSelectionOfPerson: NSPredicate?
+  @NSCopying var predicateForSelectionOfPerson: Predicate?
   @available(iOS 8.0, *)
-  @NSCopying var predicateForSelectionOfProperty: NSPredicate?
+  @NSCopying var predicateForSelectionOfProperty: Predicate?
   @available(iOS 5.0, *)
   init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
   init(rootViewController: UIViewController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 @available(iOS 8.0, *)
@@ -79,7 +79,7 @@ let ABPersonRelatedNamesProperty: String
 let ABPersonSocialProfilesProperty: String
 @available(iOS 8.0, *)
 let ABPersonPostalAddressesProperty: String
-protocol ABPeoplePickerNavigationControllerDelegate : NSObjectProtocol {
+protocol ABPeoplePickerNavigationControllerDelegate : ObjectProtocol {
   @available(iOS 8.0, *)
   optional func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord)
   @available(iOS 8.0, *)
@@ -96,20 +96,20 @@ class ABPersonViewController : UIViewController, UIViewControllerRestoration {
   unowned(unsafe) var personViewDelegate: @sil_unmanaged ABPersonViewControllerDelegate?
   var addressBook: ABAddressBook?
   var displayedPerson: ABRecord
-  var displayedProperties: [NSNumber]?
+  var displayedProperties: [Number]?
   var allowsEditing: Bool
   @available(iOS 4.0, *)
   var allowsActions: Bool
   @available(iOS 4.0, *)
   var shouldShowLinkedPeople: Bool
   func setHighlightedItemForProperty(property: ABPropertyID, withIdentifier identifier: ABMultiValueIdentifier)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
   @available(iOS 2.0, *)
-  class func viewControllerWithRestorationIdentifierPath(identifierComponents: [AnyObject], coder: NSCoder) -> UIViewController?
+  class func viewControllerWithRestorationIdentifierPath(identifierComponents: [AnyObject], coder: Coder) -> UIViewController?
 }
-protocol ABPersonViewControllerDelegate : NSObjectProtocol {
+protocol ABPersonViewControllerDelegate : ObjectProtocol {
   @available(iOS 2.0, *)
   func personViewController(personViewController: ABPersonViewController, shouldPerformDefaultActionForPerson person: ABRecord, property: ABPropertyID, identifier: ABMultiValueIdentifier) -> Bool
 }
@@ -122,11 +122,11 @@ class ABUnknownPersonViewController : UIViewController {
   var message: String?
   var allowsActions: Bool
   var allowsAddingToAddressBook: Bool
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
-protocol ABUnknownPersonViewControllerDelegate : NSObjectProtocol {
+protocol ABUnknownPersonViewControllerDelegate : ObjectProtocol {
   @available(iOS 2.0, *)
   func unknownPersonViewController(unknownCardViewController: ABUnknownPersonViewController, didResolveToPerson person: ABRecord?)
   @available(iOS 3.0, *)

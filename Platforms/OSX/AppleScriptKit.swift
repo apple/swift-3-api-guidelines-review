@@ -1,5 +1,5 @@
 
-class ASKPluginObject : NSObject {
-  class func pluginDidLoad(bundle: NSBundle!)
+class ASKPluginObject : Object {
+  class func pluginDidLoad(bundle: Bundle!)
   init()
 }

@@ -12,8 +12,8 @@ let PKPaymentNetworkPrivateLabel: String
 @available(watchOS 2.0, *)
 let PKPaymentNetworkVisa: String
 @available(watchOS 2.0, *)
-class PKContact : NSObject {
-  var name: NSPersonNameComponents?
+class PKContact : Object {
+  var name: PersonNameComponents?
   var postalAddress: CNPostalAddress?
   var emailAddress: String?
   var phoneNumber: CNPhoneNumber?
@@ -37,7 +37,7 @@ extension PKPassKitErrorCode : _BridgedNSError {
   static var _NSErrorDomain: String { get }
   typealias RawValue = Int
 }
-class PKObject : NSObject {
+class PKObject : Object {
   init()
 }
 @available(watchOS 2.0, *)
@@ -49,22 +49,22 @@ enum PKPassType : UInt {
   case Any
 }
 class PKPass : PKObject {
-  init(data: NSData, error: NSErrorPointer)
+  init(data: Data, error: ErrorPointer)
   @available(watchOS 2.0, *)
   var passType: PKPassType { get }
   @available(watchOS 2.0, *)
   unowned(unsafe) var paymentPass: @sil_unmanaged PKPaymentPass? { get }
   var serialNumber: String { get }
   var passTypeIdentifier: String { get }
-  @NSCopying var webServiceURL: NSURL? { get }
+  @NSCopying var webServiceURL: URL? { get }
   var authenticationToken: String? { get }
   var localizedName: String { get }
   var localizedDescription: String { get }
   var organizationName: String { get }
-  @NSCopying var relevantDate: NSDate? { get }
+  @NSCopying var relevantDate: Date? { get }
   @available(watchOS 2.0, *)
-  var userInfo: [NSObject : AnyObject]? { get }
-  @NSCopying var passURL: NSURL { get }
+  var userInfo: [Object : AnyObject]? { get }
+  @NSCopying var passURL: URL { get }
   @available(watchOS 2.0, *)
   var isRemotePass: Bool { get }
   @available(watchOS 2.0, *)
@@ -82,7 +82,7 @@ enum PKPassLibraryAddPassesStatus : Int {
 }
 typealias PKSuppressionRequestToken = Int
 @available(watchOS 2.0, *)
-class PKPassLibrary : NSObject {
+class PKPassLibrary : Object {
   @available(watchOS 2.0, *)
   class func isPassLibraryAvailable() -> Bool
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -[PKPassLibrary isPaymentPassActivationAvailable] instead")
@@ -135,6 +135,6 @@ class PKPaymentPass : PKPass {
   var deviceAccountIdentifier: String { get }
   var deviceAccountNumberSuffix: String { get }
   var activationState: PKPaymentPassActivationState { get }
-  init(data: NSData, error: NSErrorPointer)
+  init(data: Data, error: ErrorPointer)
   init()
 }

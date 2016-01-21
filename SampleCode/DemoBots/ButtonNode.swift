@@ -136,7 +136,7 @@ class ButtonNode: SKSpriteNode {
         super.init(texture: texture, color: color, size: size)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: Coder) {
         super.init(coder: aDecoder)
 
         // Ensure that the node has a supported button identifier as its name.

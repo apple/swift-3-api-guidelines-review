@@ -22,7 +22,7 @@ extension ButtonNodeResponderType where Self: BaseScene {
 
         button.isSelected = !button.isSelected
         
-        NSUserDefaults.standard().setBool(button.isSelected, forKey: screenRecorderEnabledKey)
+        UserDefaults.standard().setBool(button.isSelected, forKey: screenRecorderEnabledKey)
     }
     
     func displayRecordedContent() {

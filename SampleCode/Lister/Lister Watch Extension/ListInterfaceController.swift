@@ -14,7 +14,7 @@ import ListerWatchKit
     The interface controller that presents a list. The interface controller listens for changes to how the list
     should be presented by the list presenter.
 */
-class ListInterfaceController: WKInterfaceController, ListPresenterDelegate, NSFilePresenter {
+class ListInterfaceController: WKInterfaceController, ListPresenterDelegate, FilePresenter {
     // MARK: Types
     
     struct Storyboard {
@@ -40,13 +40,13 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate, NSF
     
     var isEditingDisabled = false
     
-    var listURL: NSURL?
+    var listURL: URL?
     
-    var presentedItemURL: NSURL? {
+    var presentedItemURL: URL? {
         return listURL
     }
     
-    var presentedItemOperationQueue = NSOperationQueue()
+    var presentedItemOperationQueue = OperationQueue()
     
     // MARK: Interface Table Selection
     
@@ -79,7 +79,7 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate, NSF
             }
         }
         else {
-            let indexSet = NSIndexSet(index: 0)
+            let indexSet = IndexSet(index: 0)
             interfaceTable.insertRowsAt(indexSet, withRowType: Storyboard.RowTypes.noItems)
         }
     }
@@ -95,7 +95,7 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate, NSF
     }
     
     func listPresenter(_: ListPresenterType, didInsertListItem listItem: ListItem, atIndex index: Int) {
-        let indexSet = NSIndexSet(index: index)
+        let indexSet = IndexSet(index: index)
         
         // The list presenter was previously empty. Remove the "no items" row.
         if index == 0 && listPresenter.count == 1 {
@@ -106,7 +106,7 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate, NSF
     }
     
     func listPresenter(_: ListPresenterType, didRemoveListItem listItem: ListItem, atIndex index: Int) {
-        let indexSet = NSIndexSet(index: index)
+        let indexSet = IndexSet(index: index)
 
         interfaceTable.removeRowsAt(indexSet)
         
@@ -122,7 +122,7 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate, NSF
     
     func listPresenter(_: ListPresenterType, didMoveListItem listItem: ListItem, fromIndex: Int, toIndex: Int) {
         // Remove the item from the fromIndex straight away.
-        let fromIndexSet = NSIndexSet(index: fromIndex)
+        let fromIndexSet = IndexSet(index: fromIndex)
         
         interfaceTable.removeRowsAt(fromIndexSet)
         
@@ -130,12 +130,12 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate, NSF
             Determine where to insert the moved item. If the `toIndex` was beyond the `fromIndex`, normalize
             its value.
         */
-        var toIndexSet: NSIndexSet
+        var toIndexSet: IndexSet
         if toIndex > fromIndex {
-            toIndexSet = NSIndexSet(index: toIndex - 1)
+            toIndexSet = IndexSet(index: toIndex - 1)
         }
         else {
-            toIndexSet = NSIndexSet(index: toIndex)
+            toIndexSet = IndexSet(index: toIndex)
         }
         
         interfaceTable.insertRowsAt(toIndexSet, withRowType: Storyboard.RowTypes.item)
@@ -159,14 +159,14 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate, NSF
     func addFilePresenterIfNeeded() {
         if !isPresenting {
             isPresenting = true
-            NSFileCoordinator.addFilePresenter(self)
+            FileCoordinator.addFilePresenter(self)
         }
     }
     
     func removeFilePresenterIfNeeded() {
         if isPresenting {
             isPresenting = false
-            NSFileCoordinator.removeFilePresenter(self)
+            FileCoordinator.removeFilePresenter(self)
         }
     }
     
@@ -187,7 +187,7 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate, NSF
                     is passed instead of a URL because the `userInfo` dictionary of a WatchKit app's user activity
                     does not allow NSURL values.
                 */
-                let userInfo: [NSObject: AnyObject] = [
+                let userInfo: [Object: AnyObject] = [
                     AppConfiguration.UserActivity.listURLPathUserInfoKey: self.presentedItemURL!.path!,
                     AppConfiguration.UserActivity.listColorUserInfoKey: self.listPresenter.color.rawValue
                 ]
@@ -253,7 +253,7 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate, NSF
         require(context is ListInfo, "Expected class of `context` to be ListInfo.")
         
         let listInfo = context as! ListInfo
-        let documentsURL = NSFileManager.defaultManager().urLsFor(.DocumentDirectory, inDomains: .UserDomainMask).first!
+        let documentsURL = FileManager.defaultManager().urLsFor(.DocumentDirectory, inDomains: .UserDomainMask).first!
         listURL = documentsURL.appendingPathComponent("\(listInfo.name).\(AppConfiguration.listerFileExtension)")
         
         // Set the title of the interface controller based on the list's name.
@@ -291,13 +291,13 @@ class ListInterfaceController: WKInterfaceController, ListPresenterDelegate, NSF
         setupInterfaceTable()
     }
     
-    func savePresentedItemChangesWithCompletionHandler(completionHandler: (NSError?) -> Void) {
+    func savePresentedItemChangesWithCompletionHandler(completionHandler: (Error?) -> Void) {
         saveUnsavedChangesWithCompletionHandler { success in
             completionHandler(nil)
         }
     }
     
-    func presentedItemDidMoveTo(newURL: NSURL) {
+    func presentedItemDidMoveTo(newURL: URL) {
         listURL = newURL
     }
 }

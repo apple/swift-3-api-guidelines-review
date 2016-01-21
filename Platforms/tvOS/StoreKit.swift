@@ -11,9 +11,9 @@ enum SKDownloadState : Int {
   case Cancelled
 }
 @available(tvOS 6.0, *)
-var SKDownloadTimeRemainingUnknown: NSTimeInterval
+var SKDownloadTimeRemainingUnknown: TimeInterval
 @available(tvOS 6.0, *)
-class SKDownload : NSObject {
+class SKDownload : Object {
   @available(tvOS 6.0, *)
   var downloadState: SKDownloadState { get }
   @available(tvOS 6.0, *)
@@ -21,15 +21,15 @@ class SKDownload : NSObject {
   @available(tvOS 6.0, *)
   var contentIdentifier: String { get }
   @available(tvOS 6.0, *)
-  var contentURL: NSURL? { get }
+  var contentURL: URL? { get }
   @available(tvOS 6.0, *)
   var contentVersion: String { get }
   @available(tvOS 6.0, *)
-  var error: NSError? { get }
+  var error: Error? { get }
   @available(tvOS 6.0, *)
   var progress: Float { get }
   @available(tvOS 6.0, *)
-  var timeRemaining: NSTimeInterval { get }
+  var timeRemaining: TimeInterval { get }
   @available(tvOS 6.0, *)
   var transaction: SKPaymentTransaction { get }
   init()
@@ -43,13 +43,13 @@ var SKErrorPaymentInvalid: Int { get }
 var SKErrorPaymentNotAllowed: Int { get }
 var SKErrorStoreProductNotAvailable: Int { get }
 @available(tvOS 3.0, *)
-class SKPayment : NSObject, NSCopying, NSMutableCopying {
+class SKPayment : Object, Copying, MutableCopying {
   @available(tvOS 3.0, *)
   convenience init(product: SKProduct)
   @available(tvOS 3.0, *)
   var productIdentifier: String { get }
   @available(tvOS 3.0, *)
-  @NSCopying var requestData: NSData? { get }
+  @NSCopying var requestData: Data? { get }
   @available(tvOS 3.0, *)
   var quantity: Int { get }
   @available(tvOS 7.0, *)
@@ -58,9 +58,9 @@ class SKPayment : NSObject, NSCopying, NSMutableCopying {
   var simulatesAskToBuyInSandbox: Bool { get }
   init()
   @available(tvOS 3.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(tvOS 3.0, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
 }
 @available(tvOS 3.0, *)
 class SKMutablePayment : SKPayment {
@@ -71,7 +71,7 @@ class SKMutablePayment : SKPayment {
   @available(tvOS 3.0, *)
   var quantity: Int
   @available(tvOS 3.0, *)
-  @NSCopying var requestData: NSData?
+  @NSCopying var requestData: Data?
   @available(tvOS 8.3, *)
   var simulatesAskToBuyInSandbox: Bool
   @available(tvOS 3.0, *)
@@ -79,7 +79,7 @@ class SKMutablePayment : SKPayment {
   init()
 }
 @available(tvOS 3.0, *)
-class SKPaymentQueue : NSObject {
+class SKPaymentQueue : Object {
   @available(tvOS 3.0, *)
   class func defaultQueue() -> Self
   @available(tvOS 3.0, *)
@@ -108,13 +108,13 @@ class SKPaymentQueue : NSObject {
   var transactions: [SKPaymentTransaction] { get }
   init()
 }
-protocol SKPaymentTransactionObserver : NSObjectProtocol {
+protocol SKPaymentTransactionObserver : ObjectProtocol {
   @available(tvOS 3.0, *)
   func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction])
   @available(tvOS 3.0, *)
   optional func paymentQueue(queue: SKPaymentQueue, removedTransactions transactions: [SKPaymentTransaction])
   @available(tvOS 3.0, *)
-  optional func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: NSError)
+  optional func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error)
   @available(tvOS 3.0, *)
   optional func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue)
   @available(tvOS 6.0, *)
@@ -132,9 +132,9 @@ enum SKPaymentTransactionState : Int {
   case Deferred
 }
 @available(tvOS 3.0, *)
-class SKPaymentTransaction : NSObject {
+class SKPaymentTransaction : Object {
   @available(tvOS 3.0, *)
-  var error: NSError? { get }
+  var error: Error? { get }
   @available(tvOS 3.0, *)
   var original: SKPaymentTransaction? { get }
   @available(tvOS 3.0, *)
@@ -142,7 +142,7 @@ class SKPaymentTransaction : NSObject {
   @available(tvOS 6.0, *)
   var downloads: [SKDownload] { get }
   @available(tvOS 3.0, *)
-  var transactionDate: NSDate? { get }
+  var transactionDate: Date? { get }
   @available(tvOS 3.0, *)
   var transactionIdentifier: String? { get }
   @available(tvOS 3.0, *)
@@ -150,21 +150,21 @@ class SKPaymentTransaction : NSObject {
   init()
 }
 @available(tvOS 3.0, *)
-class SKProduct : NSObject {
+class SKProduct : Object {
   @available(tvOS 3.0, *)
   var localizedDescription: String { get }
   @available(tvOS 3.0, *)
   var localizedTitle: String { get }
   @available(tvOS 3.0, *)
-  var price: NSDecimalNumber { get }
+  var price: DecimalNumber { get }
   @available(tvOS 3.0, *)
-  var priceLocale: NSLocale { get }
+  var priceLocale: Locale { get }
   @available(tvOS 3.0, *)
   var productIdentifier: String { get }
   @available(tvOS 6.0, *)
   var isDownloadable: Bool { get }
   @available(tvOS 6.0, *)
-  var downloadContentLengths: [NSNumber] { get }
+  var downloadContentLengths: [Number] { get }
   @available(tvOS 6.0, *)
   var downloadContentVersion: String { get }
   init()
@@ -182,7 +182,7 @@ class SKProductsRequest : SKRequest {
   init()
 }
 @available(tvOS 3.0, *)
-class SKProductsResponse : NSObject {
+class SKProductsResponse : Object {
   @available(tvOS 3.0, *)
   var products: [SKProduct] { get }
   @available(tvOS 3.0, *)
@@ -206,7 +206,7 @@ let SKReceiptPropertyIsRevoked: String
 @available(tvOS 7.0, *)
 let SKReceiptPropertyIsVolumePurchase: String
 @available(tvOS 3.0, *)
-class SKRequest : NSObject {
+class SKRequest : Object {
   @available(tvOS 3.0, *)
   unowned(unsafe) var delegate: @sil_unmanaged SKRequestDelegate?
   @available(tvOS 3.0, *)
@@ -215,13 +215,13 @@ class SKRequest : NSObject {
   func start()
   init()
 }
-protocol SKRequestDelegate : NSObjectProtocol {
+protocol SKRequestDelegate : ObjectProtocol {
   @available(tvOS 3.0, *)
   optional func requestDidFinish(request: SKRequest)
   @available(tvOS 3.0, *)
-  optional func request(request: SKRequest, didFailWithError error: NSError)
+  optional func request(request: SKRequest, didFailWithError error: Error)
 }
-protocol SKStoreProductViewControllerDelegate : NSObjectProtocol {
+protocol SKStoreProductViewControllerDelegate : ObjectProtocol {
 }
 @available(tvOS 6.0, *)
 let SKStoreProductParameterITunesItemIdentifier: String

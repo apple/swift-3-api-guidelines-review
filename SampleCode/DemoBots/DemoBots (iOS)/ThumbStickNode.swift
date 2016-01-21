@@ -63,7 +63,7 @@ class ThumbStickNode: SKSpriteNode {
         addChild(touchPad)
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: Coder) {
         fatalError("init(coder:) has not been implemented")
     }
 

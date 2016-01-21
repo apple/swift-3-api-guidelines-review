@@ -18,7 +18,7 @@ class GlanceBadge {
     // MARK: Types
     
     struct Constants {
-        static let maxDuration: NSTimeInterval = 0.75
+        static let maxDuration: TimeInterval = 0.75
     }
     
     // MARK: Properties
@@ -37,11 +37,11 @@ class GlanceBadge {
     
     /// The range of images to display in the Glance badge.
     var imageRange: NSRange {
-        return NSMakeRange(0, rangeLength)
+        return makeRange(0, rangeLength)
     }
     
     /// The length that the Glance badge image will animate.
-    var animationDuration: NSTimeInterval {
+    var animationDuration: TimeInterval {
         return percentage * Constants.maxDuration
     }
     

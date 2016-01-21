@@ -1,6 +1,6 @@
 
 @available(OSX 10.10, *)
-class NCWidgetController : NSObject {
+class NCWidgetController : Object {
   class func widgetController() -> Self!
   @available(*, deprecated, message="Use widgetController instead.")
   class func defaultWidgetController() -> NCWidgetController!
@@ -17,11 +17,11 @@ class NCWidgetListViewController : NSViewController {
   var showsAddButtonWhenEditing: Bool
   func viewControllerAtRow(row: Int, makeIfNecessary makeIfNecesary: Bool) -> NSViewController!
   func rowFor(viewController: NSViewController!) -> Int
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder: NSCoder)
+  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder: Coder)
   convenience init()
 }
-protocol NCWidgetListViewDelegate : NSObjectProtocol {
+protocol NCWidgetListViewDelegate : ObjectProtocol {
   @available(OSX 10.10, *)
   func widgetList(list: NCWidgetListViewController!, viewControllerForRow row: Int) -> NSViewController!
   @available(OSX 10.10, *)
@@ -43,10 +43,10 @@ enum NCUpdateResult : UInt {
   case NoData
   case Failed
 }
-protocol NCWidgetProviding : NSExtensionRequestHandling {
+protocol NCWidgetProviding : ExtensionRequestHandling {
   @available(OSX 10.10, *)
   optional func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!)
-  optional func widgetMarginInsetsForProposedMarginInsets(defaultMarginInset: NSEdgeInsets) -> NSEdgeInsets
+  optional func widgetMarginInsetsForProposedMarginInsets(defaultMarginInset: EdgeInsets) -> EdgeInsets
   optional var widgetAllowsEditing: Bool { get }
   optional func widgetDidBeginEditing()
   optional func widgetDidEndEditing()
@@ -62,11 +62,11 @@ class NCWidgetSearchViewController : NSViewController {
   var searchDescription: String!
   var searchResultsPlaceholderString: String!
   var searchResultKeyPath: String!
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder: NSCoder)
+  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder: Coder)
   convenience init()
 }
-protocol NCWidgetSearchViewDelegate : NSObjectProtocol {
+protocol NCWidgetSearchViewDelegate : ObjectProtocol {
   @available(OSX 10.10, *)
   func widgetSearch(controller: NCWidgetSearchViewController!, searchForTerm searchTerm: String!, maxResults max: Int)
   @available(OSX 10.10, *)

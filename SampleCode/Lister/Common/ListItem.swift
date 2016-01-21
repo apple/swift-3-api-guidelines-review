@@ -18,7 +18,7 @@ import Foundation
     version of Lister to unarchive a `ListItem` instance that was archived in the Swift version.
 */
 @objc(AAPLListItem)
-final public class ListItem: NSObject, NSCoding, NSCopying {
+final public class ListItem: Object, Coding, Copying {
     // MARK: Types
     
     /**
@@ -40,7 +40,7 @@ final public class ListItem: NSObject, NSCoding, NSCopying {
     public var isComplete: Bool
     
     /// An underlying identifier to distinguish one `ListItem` from another.
-    private var UUID: NSUUID
+    private var UUID: UUID
     
     // MARK: Initializers
     
@@ -53,7 +53,7 @@ final public class ListItem: NSObject, NSCoding, NSCopying {
         - parameter complete: The item's initial completion state.
         - parameter UUID: The item's initial UUID.
     */
-    private init(text: String, complete: Bool, UUID: NSUUID) {
+    private init(text: String, complete: Bool, UUID: UUID) {
         self.text = text
         self.isComplete = complete
         self.UUID = UUID
@@ -66,7 +66,7 @@ final public class ListItem: NSObject, NSCoding, NSCopying {
         - parameter complete: The item's initial completion state.
     */
     public convenience init(text: String, complete: Bool) {
-        self.init(text: text, complete: complete, UUID: NSUUID())
+        self.init(text: text, complete: complete, UUID: UUID())
     }
     
     /**
@@ -87,13 +87,13 @@ final public class ListItem: NSObject, NSCoding, NSCopying {
     
     // MARK: NSCoding
     
-    public required init(coder aDecoder: NSCoder) {
+    public required init(coder aDecoder: Coder) {
         text = aDecoder.decodeObjectForKey(SerializationKeys.text) as! String
         isComplete = aDecoder.decodeBoolForKey(SerializationKeys.complete)
-        UUID = aDecoder.decodeObjectForKey(SerializationKeys.uuid) as! NSUUID
+        UUID = aDecoder.decodeObjectForKey(SerializationKeys.uuid) as! UUID
     }
     
-    public func encodeWith(encoder: NSCoder) {
+    public func encodeWith(encoder: Coder) {
         encoder.encode(text, forKey: SerializationKeys.text)
         encoder.encode(isComplete, forKey: SerializationKeys.complete)
         encoder.encode(UUID, forKey: SerializationKeys.uuid)
@@ -104,7 +104,7 @@ final public class ListItem: NSObject, NSCoding, NSCopying {
         to refreshIdentity() is made afterward, the items will no longer be equal.
     */
     public func refreshIdentity() {
-        UUID = NSUUID()
+        UUID = UUID()
     }
     
     // MARK: Overrides

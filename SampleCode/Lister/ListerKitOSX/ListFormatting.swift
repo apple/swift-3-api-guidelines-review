@@ -13,10 +13,10 @@ public class ListFormatting {
     public class func listItemsFromString(string: String) -> [ListItem] {
         var listItems = [ListItem]()
 
-        let enumerationOptions: NSStringEnumerationOptions = [.BySentences, .ByLines]
+        let enumerationOptions: StringEnumerationOptions = [.BySentences, .ByLines]
         let range = Range(start: string.startIndex, end: string.endIndex)
 
-        let characterSet = NSCharacterSet.whitespaceAndNewline()
+        let characterSet = CharacterSet.whitespaceAndNewline()
 
         string.enumerateSubstringsInRange(range, options: enumerationOptions) { substring, _, _, _ in
             let trimmedString = substring!.stringByTrimmingCharactersInSet(characterSet)

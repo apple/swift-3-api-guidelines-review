@@ -11,7 +11,7 @@ class SK3DNode : SKNode {
   /**
    Support coding and decoding via NSKeyedArchiver.
    */
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 
   /** The viewport size that the 3D content will be rendered with */
   var viewportSize: CGSize
@@ -20,7 +20,7 @@ class SK3DNode : SKNode {
    @property sceneTime
    @abstract Specifies the current time to display the scene.
   */
-  var sceneTime: NSTimeInterval
+  var sceneTime: TimeInterval
 
   /**
    @method hitTest:options:
@@ -104,10 +104,10 @@ typealias SKActionTimingFunction = (Float) -> Float
  which they are attached, but can also make other changes to the scene. When
  the scene processes its nodes, actions associated with those nodes are evaluated.
  */
-class SKAction : NSObject, NSCopying, NSCoding {
+class SKAction : Object, Copying, Coding {
 
   /** The duration required to complete an action. */
-  var duration: NSTimeInterval
+  var duration: TimeInterval
 
   /** The timing mode used to execute an action
    @see SKActionTimingMode
@@ -131,9 +131,9 @@ class SKAction : NSObject, NSCopying, NSCoding {
    */
   func reversed() -> SKAction
   init()
-  func copy(zone zone: NSZone = nil) -> AnyObject
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func copy(zone zone: Zone = nil) -> AnyObject
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 extension SKAction {
 
@@ -141,28 +141,28 @@ extension SKAction {
    @param delta A vector that describes the change to apply to the node’s position
    @param duration The duration of the animation
    */
-  class func moveBy(delta: CGVector, duration sec: NSTimeInterval) -> SKAction
-  class func moveByX(deltaX: CGFloat, y deltaY: CGFloat, duration sec: NSTimeInterval) -> SKAction
+  class func moveBy(delta: CGVector, duration sec: TimeInterval) -> SKAction
+  class func moveByX(deltaX: CGFloat, y deltaY: CGFloat, duration sec: TimeInterval) -> SKAction
 
   /** Creates an action that moves a node to a new position
    @param location The coordinates for the node’s new position
    @param duration The duration of the animation
    */
-  class func moveTo(location: CGPoint, duration sec: NSTimeInterval) -> SKAction
-  class func moveToX(x: CGFloat, duration sec: NSTimeInterval) -> SKAction
-  class func moveToY(y: CGFloat, duration sec: NSTimeInterval) -> SKAction
+  class func moveTo(location: CGPoint, duration sec: TimeInterval) -> SKAction
+  class func moveToX(x: CGFloat, duration sec: TimeInterval) -> SKAction
+  class func moveToY(y: CGFloat, duration sec: TimeInterval) -> SKAction
 
   /** Creates an action that rotates the node by a relative value
    @param radians The amount to rotate the node, in radians
    @param duration The duration of the animation
    */
-  class func rotateByAngle(radians: CGFloat, duration sec: NSTimeInterval) -> SKAction
+  class func rotateByAngle(radians: CGFloat, duration sec: TimeInterval) -> SKAction
 
   /** Creates an action that rotates the node counterclockwise to an absolute angle
    @param radians The angle to rotate the node to, in radians
    @param duration The duration of the animation
    */
-  class func rotateToAngle(radians: CGFloat, duration sec: NSTimeInterval) -> SKAction
+  class func rotateToAngle(radians: CGFloat, duration sec: TimeInterval) -> SKAction
 
   /** Creates an action that rotates the node to an absolute value
    @param radians The angle to rotate the node to, in radians
@@ -171,39 +171,39 @@ extension SKAction {
    direction results in the smallest rotation. If NO, then the rotation
    is interpolated
    */
-  class func rotateToAngle(radians: CGFloat, duration sec: NSTimeInterval, shortestUnitArc: Bool) -> SKAction
+  class func rotateToAngle(radians: CGFloat, duration sec: TimeInterval, shortestUnitArc: Bool) -> SKAction
 
   /** Creates an action that adjusts the size of a sprite
    @param width The amount to add to the sprite’s width
    @param height The amount to add to the sprite’s height
    @param duration The duration of the animation
    */
-  class func resizeByWidth(width: CGFloat, height: CGFloat, duration: NSTimeInterval) -> SKAction
+  class func resizeByWidth(width: CGFloat, height: CGFloat, duration: TimeInterval) -> SKAction
 
   /** Creates an action that changes the width and height of a sprite to a new absolute value
    @param width The new width of the sprite
    @param height The new height of the sprite
    @param duration The duration of the animation
    */
-  class func resizeToWidth(width: CGFloat, height: CGFloat, duration: NSTimeInterval) -> SKAction
-  class func resizeToWidth(width: CGFloat, duration: NSTimeInterval) -> SKAction
-  class func resizeToHeight(height: CGFloat, duration: NSTimeInterval) -> SKAction
+  class func resizeToWidth(width: CGFloat, height: CGFloat, duration: TimeInterval) -> SKAction
+  class func resizeToWidth(width: CGFloat, duration: TimeInterval) -> SKAction
+  class func resizeToHeight(height: CGFloat, duration: TimeInterval) -> SKAction
 
   /** Creates an action that changes the x and y scale values of a node by a relative value
    @param scale The amount to modify to the node’s x and y scale values
    @param sec The duration of the animation
    */
-  class func scaleBy(scale: CGFloat, duration sec: NSTimeInterval) -> SKAction
-  class func scaleXBy(xScale: CGFloat, y yScale: CGFloat, duration sec: NSTimeInterval) -> SKAction
+  class func scaleBy(scale: CGFloat, duration sec: TimeInterval) -> SKAction
+  class func scaleXBy(xScale: CGFloat, y yScale: CGFloat, duration sec: TimeInterval) -> SKAction
 
   /** Creates an action that changes the x and y scale values of a node by a relative value
    @param scale The new value for the node’s x and y scale values
    @param sec The duration of the animation
    */
-  class func scaleTo(scale: CGFloat, duration sec: NSTimeInterval) -> SKAction
-  class func scaleXTo(xScale: CGFloat, y yScale: CGFloat, duration sec: NSTimeInterval) -> SKAction
-  class func scaleXTo(scale: CGFloat, duration sec: NSTimeInterval) -> SKAction
-  class func scaleYTo(scale: CGFloat, duration sec: NSTimeInterval) -> SKAction
+  class func scaleTo(scale: CGFloat, duration sec: TimeInterval) -> SKAction
+  class func scaleXTo(xScale: CGFloat, y yScale: CGFloat, duration sec: TimeInterval) -> SKAction
+  class func scaleXTo(scale: CGFloat, duration sec: TimeInterval) -> SKAction
+  class func scaleYTo(scale: CGFloat, duration sec: TimeInterval) -> SKAction
 
   /** Creates an action that runs a collection of actions sequentially
    @param sequence An array of SKAction objects
@@ -248,24 +248,24 @@ extension SKAction {
   /** Creates an action that changes the alpha value of the node to 1.0
    @param duration The duration of the animation
    */
-  class func fadeInWithDuration(sec: NSTimeInterval) -> SKAction
+  class func fadeInWithDuration(sec: TimeInterval) -> SKAction
 
   /** Creates an action that changes the alpha value of the node to 0.0
    @param duration The duration of the animation
    */
-  class func fadeOutWithDuration(sec: NSTimeInterval) -> SKAction
+  class func fadeOutWithDuration(sec: TimeInterval) -> SKAction
 
   /** Creates an action that adjusts the alpha value of a node by a relative value
    @param factor The amount to modify the node’s alpha value
    @param duration The duration of the animation
    */
-  class func fadeAlphaBy(factor: CGFloat, duration sec: NSTimeInterval) -> SKAction
+  class func fadeAlphaBy(factor: CGFloat, duration sec: TimeInterval) -> SKAction
 
   /** Creates an action that adjusts the alpha value of a node to a new value
    @param alpha The new value of the node’s alpha
    @param duration The duration of the animation
    */
-  class func fadeAlphaTo(alpha: CGFloat, duration sec: NSTimeInterval) -> SKAction
+  class func fadeAlphaTo(alpha: CGFloat, duration sec: TimeInterval) -> SKAction
 
   /** Creates an action that hides a node */
   @available(iOS 8.0, *)
@@ -297,9 +297,9 @@ extension SKAction {
    @param textures An array of textures to use when animating a sprite
    @param timePerFrame The amount of time that each texture is displayed
    */
-  class func animateWith(textures: [SKTexture], timePerFrame sec: NSTimeInterval) -> SKAction
+  class func animateWith(textures: [SKTexture], timePerFrame sec: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func animateWithNormalTextures(textures: [SKTexture], timePerFrame sec: NSTimeInterval) -> SKAction
+  class func animateWithNormalTextures(textures: [SKTexture], timePerFrame sec: TimeInterval) -> SKAction
 
   /** Creates an action that animates changes to a sprite’s texture
    @param textures An array of textures to use when animating a sprite
@@ -313,9 +313,9 @@ extension SKAction {
    If NO, when the action completes the sprite’s texture remains
    set to the final texture in the array.
    */
-  class func animateWith(textures: [SKTexture], timePerFrame sec: NSTimeInterval, resize: Bool, restore: Bool) -> SKAction
+  class func animateWith(textures: [SKTexture], timePerFrame sec: TimeInterval, resize: Bool, restore: Bool) -> SKAction
   @available(iOS 9.0, *)
-  class func animateWithNormalTextures(textures: [SKTexture], timePerFrame sec: NSTimeInterval, resize: Bool, restore: Bool) -> SKAction
+  class func animateWithNormalTextures(textures: [SKTexture], timePerFrame sec: TimeInterval, resize: Bool, restore: Bool) -> SKAction
 
   /** Creates an action that plays a sound
    @param soundFile The name of a sound file in the app’s bundle
@@ -333,8 +333,8 @@ extension SKAction {
    @param colorBlendFactor The new blend factor for the sprite
    @param duration The duration of the animation
    */
-  class func colorizeWith(color: UIColor, colorBlendFactor: CGFloat, duration sec: NSTimeInterval) -> SKAction
-  class func colorizeWithColorBlendFactor(colorBlendFactor: CGFloat, duration sec: NSTimeInterval) -> SKAction
+  class func colorizeWith(color: UIColor, colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction
+  class func colorizeWithColorBlendFactor(colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction
 
   /** Creates an action that sets the falloff of a field
    @param falloff The new value for falloff
@@ -342,7 +342,7 @@ extension SKAction {
    @see SKFieldNode
    */
   @available(iOS 8.0, *)
-  class func falloffTo(falloff: Float, duration sec: NSTimeInterval) -> SKAction
+  class func falloffTo(falloff: Float, duration sec: TimeInterval) -> SKAction
 
   /** Creates an action that sets the falloff of a field
    @param falloff The value to modify falloff by
@@ -350,7 +350,7 @@ extension SKAction {
    @see SKFieldNode
    */
   @available(iOS 8.0, *)
-  class func falloffBy(falloff: Float, duration sec: NSTimeInterval) -> SKAction
+  class func falloffBy(falloff: Float, duration sec: TimeInterval) -> SKAction
 
   /** Creates an action that moves the node along a relative path, orienting the
    node to the path
@@ -359,7 +359,7 @@ extension SKAction {
    current position
    @param duration The duration of the animation
    */
-  class func follow(path: CGPath, duration sec: NSTimeInterval) -> SKAction
+  class func follow(path: CGPath, duration sec: TimeInterval) -> SKAction
 
   /** Creates an action that moves the node along a path
    
@@ -373,7 +373,7 @@ extension SKAction {
    the node is unchanged.
    @param duration The duration of the animation
    */
-  class func follow(path: CGPath, asOffset offset: Bool, orientToPath orient: Bool, duration sec: NSTimeInterval) -> SKAction
+  class func follow(path: CGPath, asOffset offset: Bool, orientToPath orient: Bool, duration sec: TimeInterval) -> SKAction
 
   /** Creates an action that moves the node along a relative path, orienting the
    node to the path
@@ -390,13 +390,13 @@ extension SKAction {
    @param speed amount to modify the speed by
    @param duration The duration of the animation
    */
-  class func speedBy(speed: CGFloat, duration sec: NSTimeInterval) -> SKAction
+  class func speedBy(speed: CGFloat, duration sec: TimeInterval) -> SKAction
 
   /** Creates an action that changes how fast the node executes actions
    @param speed The new value for the node’s speed
    @param duration The duration of the animation
    */
-  class func speedTo(speed: CGFloat, duration sec: NSTimeInterval) -> SKAction
+  class func speedTo(speed: CGFloat, duration sec: TimeInterval) -> SKAction
 
   /** Creates an action that performs an inverse kinematic reach.
    This action must be run on a descendent of the rootNode for animation to occur.
@@ -406,7 +406,7 @@ extension SKAction {
    @param duration The duration of the animation
    */
   @available(iOS 8.0, *)
-  class func reachTo(position: CGPoint, rootNode root: SKNode, duration sec: NSTimeInterval) -> SKAction
+  class func reachTo(position: CGPoint, rootNode root: SKNode, duration sec: TimeInterval) -> SKAction
 
   /** Creates an action that performs an inverse kinematic reach.
    This action must be run on a descendent of the rootNode for animation to occur.
@@ -426,7 +426,7 @@ extension SKAction {
    @param duration The duration of the animation
    */
   @available(iOS 8.0, *)
-  class func reachTo(node: SKNode, rootNode root: SKNode, duration sec: NSTimeInterval) -> SKAction
+  class func reachTo(node: SKNode, rootNode root: SKNode, duration sec: TimeInterval) -> SKAction
 
   /** Creates an action that performs an inverse kinematic reach.
    This action must be run on a descendent of the rootNode for animation to occur.
@@ -444,7 +444,7 @@ extension SKAction {
    @see SKFieldNode
    */
   @available(iOS 8.0, *)
-  class func strengthTo(strength: Float, duration sec: NSTimeInterval) -> SKAction
+  class func strengthTo(strength: Float, duration sec: TimeInterval) -> SKAction
 
   /** Creates an action that sets the strength of a field
    @param strength The value to modify strength by
@@ -452,17 +452,17 @@ extension SKAction {
    @see SKFieldNode
    */
   @available(iOS 8.0, *)
-  class func strengthBy(strength: Float, duration sec: NSTimeInterval) -> SKAction
+  class func strengthBy(strength: Float, duration sec: TimeInterval) -> SKAction
 
   /** Creates an action that idles for a specified period of time
    @param duration The duration of the idle
    */
-  class func waitForDuration(sec: NSTimeInterval) -> SKAction
+  class func waitForDuration(sec: TimeInterval) -> SKAction
 
   /** Creates an action that idles for a randomized period of time
    @param withRange The range of possible values for the duration
    */
-  class func waitForDuration(sec: NSTimeInterval, withRange durationRange: NSTimeInterval) -> SKAction
+  class func waitForDuration(sec: TimeInterval, withRange durationRange: TimeInterval) -> SKAction
 
   /** Creates an action that removes the node from its parent */
   class func removeFromParent() -> SKAction
@@ -497,7 +497,7 @@ extension SKAction {
    node The node on which the action is running.
    elapsedTime The amount of time that has passed in the animation.
    */
-  class func customActionWithDuration(seconds: NSTimeInterval, actionBlock block: (SKNode, CGFloat) -> Void) -> SKAction
+  class func customActionWithDuration(seconds: TimeInterval, actionBlock block: (SKNode, CGFloat) -> Void) -> SKAction
 
   /** Creates an action of the given name from an action file.
    @param name The name of the action
@@ -510,14 +510,14 @@ extension SKAction {
    @param duration The duration of the action
    */
   @available(iOS 9.0, *)
-  /*not inherited*/ init?(named name: String, duration sec: NSTimeInterval)
+  /*not inherited*/ init?(named name: String, duration sec: TimeInterval)
 
   /** Creates an action of the given name from an action file.
    @param name The name of the action
    @param url The url of the file containing the action
    */
   @available(iOS 9.0, *)
-  /*not inherited*/ init?(named name: String, from url: NSURL)
+  /*not inherited*/ init?(named name: String, from url: URL)
 
   /** Creates an action of the given name from an action file with a new duration.
    @param name The name of the action
@@ -525,29 +525,29 @@ extension SKAction {
    @param duration The duration of the action
    */
   @available(iOS 9.0, *)
-  /*not inherited*/ init?(named name: String, from url: NSURL, duration sec: NSTimeInterval)
+  /*not inherited*/ init?(named name: String, from url: URL, duration sec: TimeInterval)
 }
 extension SKAction {
   @available(iOS 9.0, *)
-  class func changeChargeTo(v: Float, duration: NSTimeInterval) -> SKAction
+  class func changeChargeTo(v: Float, duration: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func changeChargeBy(v: Float, duration: NSTimeInterval) -> SKAction
+  class func changeChargeBy(v: Float, duration: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func changeMassTo(v: Float, duration: NSTimeInterval) -> SKAction
+  class func changeMassTo(v: Float, duration: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func changeMassBy(v: Float, duration: NSTimeInterval) -> SKAction
+  class func changeMassBy(v: Float, duration: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func applyForce(force: CGVector, duration sec: NSTimeInterval) -> SKAction
+  class func applyForce(force: CGVector, duration sec: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func applyForce(force: CGVector, at point: CGPoint, duration sec: NSTimeInterval) -> SKAction
+  class func applyForce(force: CGVector, at point: CGPoint, duration sec: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func applyTorque(torque: CGFloat, duration sec: NSTimeInterval) -> SKAction
+  class func applyTorque(torque: CGFloat, duration sec: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func applyImpulse(impulse: CGVector, duration sec: NSTimeInterval) -> SKAction
+  class func applyImpulse(impulse: CGVector, duration sec: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func applyImpulse(impulse: CGVector, at point: CGPoint, duration sec: NSTimeInterval) -> SKAction
+  class func applyImpulse(impulse: CGVector, at point: CGPoint, duration sec: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func applyAngularImpulse(impulse: CGFloat, duration sec: NSTimeInterval) -> SKAction
+  class func applyAngularImpulse(impulse: CGFloat, duration sec: TimeInterval) -> SKAction
 }
 extension SKAction {
   @available(iOS 9.0, *)
@@ -557,15 +557,15 @@ extension SKAction {
   @available(iOS 9.0, *)
   class func stop() -> SKAction
   @available(iOS 9.0, *)
-  class func changePlaybackRateTo(v: Float, duration: NSTimeInterval) -> SKAction
+  class func changePlaybackRateTo(v: Float, duration: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func changePlaybackRateBy(v: Float, duration: NSTimeInterval) -> SKAction
+  class func changePlaybackRateBy(v: Float, duration: TimeInterval) -> SKAction
 }
 extension SKAction {
   @available(iOS 9.0, *)
-  class func changeVolumeTo(v: Float, duration: NSTimeInterval) -> SKAction
+  class func changeVolumeTo(v: Float, duration: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func changeVolumeBy(v: Float, duration: NSTimeInterval) -> SKAction
+  class func changeVolumeBy(v: Float, duration: TimeInterval) -> SKAction
 }
 
 /**
@@ -579,8 +579,8 @@ extension SKAction {
  * @see SKScene.listener
  */
 @available(iOS 9.0, *)
-class SKAudioNode : SKNode, NSCoding {
-  init?(coder aDecoder: NSCoder)
+class SKAudioNode : SKNode, Coding {
+  init?(coder aDecoder: Coder)
 
   /**Convenience initializer that creates an AVAudioNode from the named audio asset in the main bundle.
    * @see initWithAVAudioNode
@@ -590,7 +590,7 @@ class SKAudioNode : SKNode, NSCoding {
   /**Convenience initializer that creates an AVAudioNode from the URL that contain a audio asset.
    * @see initWithAVAudioNode
    */
-  convenience init(url: NSURL)
+  convenience init(url: URL)
 
   /**Specifies whether the node is to automatically play sound when added to a scene.
    * If autoplaysLooped is NO, the node and its sound must be explicitly scheduled and played using
@@ -617,21 +617,21 @@ class SKAudioNode : SKNode, NSCoding {
  */
 extension SKAction {
   @available(iOS 9.0, *)
-  class func stereoPanTo(v: Float, duration: NSTimeInterval) -> SKAction
+  class func stereoPanTo(v: Float, duration: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func stereoPanBy(v: Float, duration: NSTimeInterval) -> SKAction
+  class func stereoPanBy(v: Float, duration: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func changeReverbTo(v: Float, duration: NSTimeInterval) -> SKAction
+  class func changeReverbTo(v: Float, duration: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func changeReverbBy(v: Float, duration: NSTimeInterval) -> SKAction
+  class func changeReverbBy(v: Float, duration: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func changeObstructionTo(v: Float, duration: NSTimeInterval) -> SKAction
+  class func changeObstructionTo(v: Float, duration: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func changeObstructionBy(v: Float, duration: NSTimeInterval) -> SKAction
+  class func changeObstructionBy(v: Float, duration: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func changeOcclusionTo(v: Float, duration: NSTimeInterval) -> SKAction
+  class func changeOcclusionTo(v: Float, duration: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func changeOcclusionBy(v: Float, duration: NSTimeInterval) -> SKAction
+  class func changeOcclusionBy(v: Float, duration: TimeInterval) -> SKAction
 }
 
 /**A Camera node is a full fledged SKNode that can have actions and physics applied to it.
@@ -671,7 +671,7 @@ class SKCameraNode : SKNode {
   /**
    Support coding and decoding via NSKeyedArchiver.
    */
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init?(fileNamed filename: String)
 }
 
@@ -679,7 +679,7 @@ class SKCameraNode : SKNode {
  SKRange object used to define a range of allowable values 
  */
 @available(iOS 8.0, *)
-class SKRange : NSObject, NSCoding, NSCopying {
+class SKRange : Object, Coding, Copying {
   init(lowerLimit lower: CGFloat, upperLimit upper: CGFloat)
   convenience init(lowerLimit lower: CGFloat)
   convenience init(upperLimit upper: CGFloat)
@@ -690,10 +690,10 @@ class SKRange : NSObject, NSCoding, NSCopying {
   var upperLimit: CGFloat
   convenience init()
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /**
@@ -701,7 +701,7 @@ class SKRange : NSObject, NSCoding, NSCopying {
  The node's transform will be changed to staisfy the constarint
  */
 @available(iOS 8.0, *)
-class SKConstraint : NSObject, NSCoding, NSCopying {
+class SKConstraint : Object, Coding, Copying {
   var enabled: Bool
   var referenceNode: SKNode?
 
@@ -732,10 +732,10 @@ class SKConstraint : NSObject, NSCoding, NSCopying {
   class func orientTo(point: CGPoint, in node: SKNode, offset radians: SKRange) -> Self
   init()
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /**
@@ -754,7 +754,7 @@ class SKCropNode : SKNode {
   /**
    Support coding and decoding via NSKeyedArchiver.
    */
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init?(fileNamed filename: String)
 }
 
@@ -796,7 +796,7 @@ class SKEffectNode : SKNode {
   /**
    Support coding and decoding via NSKeyedArchiver.
    */
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init?(fileNamed filename: String)
 }
 @available(iOS 9.0, *)
@@ -816,7 +816,7 @@ class SKEmitterNode : SKNode {
   /**
    The particle simulation is stepped automatically each frame when present in the scene. This allows the user to manually advance the simulation by a fixed amount of time. Useful for pre-populating particles before adding them to the scene.
    */
-  func advanceSimulationTime(sec: NSTimeInterval)
+  func advanceSimulationTime(sec: TimeInterval)
   func resetSimulation()
 
   /**
@@ -1019,7 +1019,7 @@ class SKEmitterNode : SKNode {
   /**
    Support coding and decoding via NSKeyedArchiver.
    */
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init?(fileNamed filename: String)
 }
 @available(iOS 8.0, *)
@@ -1203,7 +1203,7 @@ class SKFieldNode : SKNode {
   /**
    Support coding and decoding via NSKeyedArchiver.
    */
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init?(fileNamed filename: String)
 }
 
@@ -1216,7 +1216,7 @@ class SKFieldNode : SKNode {
  @param charge The charge to be taken into accoutn during force evaluation
  @param deltaTime The current time step
  */
-typealias SKFieldForceEvaluator = (vector_float3, vector_float3, Float, Float, NSTimeInterval) -> vector_float3
+typealias SKFieldForceEvaluator = (vector_float3, vector_float3, Float, Float, TimeInterval) -> vector_float3
 enum SKInterpolationMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
@@ -1230,14 +1230,14 @@ enum SKRepeatMode : Int {
   case Clamp
   case Loop
 }
-class SKKeyframeSequence : NSObject, NSCoding, NSCopying {
-  init(keyframeValues values: [AnyObject], times: [NSNumber])
+class SKKeyframeSequence : Object, Coding, Copying {
+  init(keyframeValues values: [AnyObject], times: [Number])
   convenience init(capacity numItems: Int)
 
   /**
    Support coding and decoding via NSKeyedArchiver.
    */
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   func count() -> Int
   func addKeyframeValue(value: AnyObject, time: CGFloat)
   func removeLastKeyframe()
@@ -1251,8 +1251,8 @@ class SKKeyframeSequence : NSObject, NSCoding, NSCopying {
   var interpolationMode: SKInterpolationMode
   var repeatMode: SKRepeatMode
   convenience init()
-  func encodeWith(aCoder: NSCoder)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func encodeWith(aCoder: Coder)
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 7.0, *)
 enum SKLabelVerticalAlignmentMode : Int {
@@ -1309,7 +1309,7 @@ class SKLabelNode : SKNode {
   /**
    Support coding and decoding via NSKeyedArchiver.
    */
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init?(fileNamed filename: String)
 }
 @available(iOS 8.0, *)
@@ -1392,7 +1392,7 @@ class SKLightNode : SKNode {
   /**
    Support coding and decoding via NSKeyedArchiver.
    */
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init?(fileNamed filename: String)
 }
 @available(iOS 8.0, *)
@@ -1467,8 +1467,8 @@ class SKMutableTexture : SKTexture {
    @param pixelData the pixelData to read in creating the texture.
    @param size the dimensions of the pixelData given.
    */
-  convenience init(data pixelData: NSData, size: CGSize)
-  convenience init(data pixelData: NSData, size: CGSize, flipped: Bool)
+  convenience init(data pixelData: Data, size: CGSize)
+  convenience init(data pixelData: Data, size: CGSize, flipped: Bool)
 
   /**
    Create new texture with bitmap RGBA data in unsigned bytes using a custom row length and row alignment. Data is copied once, additional changes to the data does not affect the texture. All pixel data is assumed to be premultiplied alpha.
@@ -1479,9 +1479,9 @@ class SKMutableTexture : SKTexture {
    @param alignment the byte alignment of the data, provide 0 for tightly packed data.
   
    */
-  convenience init(data pixelData: NSData, size: CGSize, rowLength: UInt32, alignment: UInt32)
+  convenience init(data pixelData: Data, size: CGSize, rowLength: UInt32, alignment: UInt32)
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /**
@@ -1499,13 +1499,13 @@ enum SKBlendMode : Int {
   case Screen
   case Replace
 }
-class SKNode : UIResponder, NSCopying, NSCoding {
+class SKNode : UIResponder, Copying, Coding {
   init()
 
   /**
    Support coding and decoding via NSKeyedArchiver.
    */
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init?(fileNamed filename: String)
   var frame: CGRect { get }
 
@@ -1597,7 +1597,7 @@ class SKNode : UIResponder, NSCopying, NSCoding {
   /**
    An optional dictionary that can be used to store your own data in a node. Defaults to nil.
    */
-  var userData: NSMutableDictionary?
+  var userData: MutableDictionary?
 
   /**
    Kinematic constraints, used in IK solving
@@ -1670,8 +1670,8 @@ class SKNode : UIResponder, NSCopying, NSCoding {
   class func obstaclesFromSpriteTextures(sprites: [SKNode], accuracy: Float) -> [AnyObject]
   class func obstaclesFromNodeBounds(nodes: [SKNode]) -> [AnyObject]
   class func obstaclesFromNodePhysicsBodies(nodes: [SKNode]) -> [AnyObject]
-  func copy(zone zone: NSZone = nil) -> AnyObject
-  func encodeWith(aCoder: NSCoder)
+  func copy(zone zone: Zone = nil) -> AnyObject
+  func encodeWith(aCoder: Coder)
 }
 extension UITouch {
   func locationIn(node: SKNode) -> CGPoint
@@ -1683,7 +1683,7 @@ extension UITouch {
  
  All bodies have zero, one or more shapes that define its area. A body with no shapes is ethereal and does not collide with other bodies.
  */
-class SKPhysicsBody : NSObject, NSCopying, NSCoding {
+class SKPhysicsBody : Object, Copying, Coding {
 
   /**
    Creates a circle of radius r centered at the node's origin.
@@ -1869,11 +1869,11 @@ class SKPhysicsBody : NSObject, NSCopying, NSCoding {
   func applyAngularImpulse(impulse: CGFloat)
   func allContactedBodies() -> [SKPhysicsBody]
   init()
-  func copy(zone zone: NSZone = nil) -> AnyObject
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func copy(zone zone: Zone = nil) -> AnyObject
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
-class SKPhysicsContact : NSObject {
+class SKPhysicsContact : Object {
   var bodyA: SKPhysicsBody { get }
   var bodyB: SKPhysicsBody { get }
   var contactPoint: CGPoint { get }
@@ -1881,14 +1881,14 @@ class SKPhysicsContact : NSObject {
   var collisionImpulse: CGFloat { get }
   init()
 }
-class SKPhysicsJoint : NSObject, NSCoding {
+class SKPhysicsJoint : Object, Coding {
   var bodyA: SKPhysicsBody
   var bodyB: SKPhysicsBody
   var reactionForce: CGVector { get }
   var reactionTorque: CGFloat { get }
   init()
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 class SKPhysicsJointPin : SKPhysicsJoint {
   class func jointWithBodyA(bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchor: CGPoint) -> SKPhysicsJointPin
@@ -1898,19 +1898,19 @@ class SKPhysicsJointPin : SKPhysicsJoint {
   var frictionTorque: CGFloat
   var rotationSpeed: CGFloat
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 class SKPhysicsJointSpring : SKPhysicsJoint {
   class func jointWithBodyA(bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchorA: CGPoint, anchorB: CGPoint) -> SKPhysicsJointSpring
   var damping: CGFloat
   var frequency: CGFloat
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 class SKPhysicsJointFixed : SKPhysicsJoint {
   class func jointWithBodyA(bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchor: CGPoint) -> SKPhysicsJointFixed
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 class SKPhysicsJointSliding : SKPhysicsJoint {
   class func jointWithBodyA(bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchor: CGPoint, axis: CGVector) -> SKPhysicsJointSliding
@@ -1918,19 +1918,19 @@ class SKPhysicsJointSliding : SKPhysicsJoint {
   var lowerDistanceLimit: CGFloat
   var upperDistanceLimit: CGFloat
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 class SKPhysicsJointLimit : SKPhysicsJoint {
   var maxLength: CGFloat
   class func jointWithBodyA(bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchorA: CGPoint, anchorB: CGPoint) -> SKPhysicsJointLimit
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
-protocol SKPhysicsContactDelegate : NSObjectProtocol {
+protocol SKPhysicsContactDelegate : ObjectProtocol {
   optional func didBegin(contact: SKPhysicsContact)
   optional func didEnd(contact: SKPhysicsContact)
 }
-class SKPhysicsWorld : NSObject, NSCoding {
+class SKPhysicsWorld : Object, Coding {
 
   /**
    A global 2D vector specifying the field force acceleration due to gravity. The unit is meters per second so standard earth gravity would be { 0.0, +/-9.8 }.
@@ -1950,11 +1950,11 @@ class SKPhysicsWorld : NSObject, NSCoding {
   func enumerateBodiesIn(rect: CGRect, usingBlock block: (SKPhysicsBody, UnsafeMutablePointer<ObjCBool>) -> Void)
   func enumerateBodiesAlongRayStart(start: CGPoint, end: CGPoint, usingBlock block: (SKPhysicsBody, CGPoint, CGVector, UnsafeMutablePointer<ObjCBool>) -> Void)
   init()
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 8.0, *)
-class SKReachConstraints : NSObject, NSCoding {
+class SKReachConstraints : Object, Coding {
 
   /**
    Lower angle limit in radians
@@ -1968,14 +1968,14 @@ class SKReachConstraints : NSObject, NSCoding {
   init(lowerAngleLimit: CGFloat, upperAngleLimit: CGFloat)
   convenience init()
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 9.0, *)
 class SKReferenceNode : SKNode {
 
   /** Create a reference node with a url */
-  init(url: NSURL?)
+  init(url: URL?)
 
   /** Create a reference node with a url */
   init(fileNamed fileName: String?)
@@ -1983,13 +1983,13 @@ class SKReferenceNode : SKNode {
   /**
    Support coding and decoding via NSKeyedArchiver.
    */
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 
   /** Create a reference node with a url */
   convenience init(fileNamed fileName: String)
 
   /** Create a reference node with a url */
-  convenience init(url referenceURL: NSURL)
+  convenience init(url referenceURL: URL)
 
   /** called each time the url is loaded, after it has been added as a child */
   func didLoad(node: SKNode?)
@@ -2002,7 +2002,7 @@ class SKReferenceNode : SKNode {
   convenience init()
 }
 @available(iOS 8.0, *)
-class SKRegion : NSObject, NSCopying, NSCoding {
+class SKRegion : Object, Copying, Coding {
   var path: CGPath? { get }
 
   /** A shared infinite region
@@ -2045,10 +2045,10 @@ class SKRegion : NSObject, NSCopying, NSCoding {
   func contains(point: CGPoint) -> Bool
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 7.0, *)
 enum SKSceneScaleMode : Int {
@@ -2060,8 +2060,8 @@ enum SKSceneScaleMode : Int {
   case ResizeFill
 }
 @available(iOS 8.0, *)
-protocol SKSceneDelegate : NSObjectProtocol {
-  optional func update(currentTime: NSTimeInterval, forScene scene: SKScene)
+protocol SKSceneDelegate : ObjectProtocol {
+  optional func update(currentTime: TimeInterval, forScene scene: SKScene)
   optional func didEvaluateActionsFor(scene: SKScene)
   optional func didSimulatePhysicsFor(scene: SKScene)
   optional func didApplyConstraintsFor(scene: SKScene)
@@ -2134,7 +2134,7 @@ class SKScene : SKEffectNode {
    
    @param currentTime the current time in the app. This must be monotonically increasing.
    */
-  func update(currentTime: NSTimeInterval)
+  func update(currentTime: TimeInterval)
 
   /**
    Override this to perform game logic. Called exactly once per frame after any actions have been evaluated but before any physics are simulated. Any additional actions applied is not evaluated until the next update.
@@ -2167,11 +2167,11 @@ class SKScene : SKEffectNode {
   /**
    Support coding and decoding via NSKeyedArchiver.
    */
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init?(fileNamed filename: String)
 }
 @available(iOS 8.0, *)
-class SKShader : NSObject, NSCopying, NSCoding {
+class SKShader : Object, Copying, Coding {
 
   /**
    Create a custom shader with source code.
@@ -2239,10 +2239,10 @@ class SKShader : NSObject, NSCopying, NSCoding {
   func removeUniformNamed(name: String)
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /**
@@ -2342,7 +2342,7 @@ class SKShapeNode : SKNode {
   /**
    Support coding and decoding via NSKeyedArchiver.
    */
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init?(fileNamed filename: String)
 }
 
@@ -2402,7 +2402,7 @@ class SKSpriteNode : SKNode {
   /**
    Support coding and decoding via NSKeyedArchiver.
    */
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 
   /**
    Texture to be drawn (is stretched to fill the sprite)
@@ -2486,7 +2486,7 @@ enum SKTextureFilteringMode : Int {
 /**
  A texture to be mapped onto SKSpriteNode instances.
  */
-class SKTexture : NSObject, NSCopying, NSCoding {
+class SKTexture : Object, Copying, Coding {
 
   /**
    Create a texture from an image file. Behaves similar to imageNamed: in UIImage or NSImage
@@ -2537,8 +2537,8 @@ class SKTexture : NSObject, NSCopying, NSCoding {
    @param pixelData the pixelData to read in creating the texture.
    @param size the dimensions of the pixelData given.
    */
-  convenience init(data pixelData: NSData, size: CGSize)
-  convenience init(data pixelData: NSData, size: CGSize, flipped: Bool)
+  convenience init(data pixelData: Data, size: CGSize)
+  convenience init(data pixelData: Data, size: CGSize, flipped: Bool)
 
   /**
    Create new texture with bitmap RGBA data in unsigned bytes using a custom row length and row alignment. Data is copied once, additional changes to the data does not affect the texture. All pixel data is assumed to be premultiplied alpha.
@@ -2549,7 +2549,7 @@ class SKTexture : NSObject, NSCopying, NSCoding {
    @param alignment the byte alignment of the data, provide 0 for tightly packed data.
   
    */
-  convenience init(data pixelData: NSData, size: CGSize, rowLength: UInt32, alignment: UInt32)
+  convenience init(data pixelData: Data, size: CGSize, rowLength: UInt32, alignment: UInt32)
 
   /**
    Create new texture by applying a CIFilter to an existing one. Any CIFilter that requires only a single "inputImage" and produces an "outputImage" is allowed.
@@ -2613,16 +2613,16 @@ class SKTexture : NSObject, NSCopying, NSCoding {
    */
   func preloadWithCompletionHandler(completionHandler: () -> Void)
   init()
-  func copy(zone zone: NSZone = nil) -> AnyObject
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func copy(zone zone: Zone = nil) -> AnyObject
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 extension SKTexture : _Reflectable {
   /// Returns a mirror that reflects `self`.
   func _getMirror() -> _MirrorType
 }
-class SKTextureAtlas : NSObject, NSCoding {
+class SKTextureAtlas : Object, Coding {
   convenience init(named name: String)
   @available(iOS 8.0, *)
   convenience init(dictionary properties: [String : AnyObject])
@@ -2646,7 +2646,7 @@ class SKTextureAtlas : NSObject, NSCoding {
    @param error will contain which ones couldn't be found.
    */
   @available(iOS 9.0, *)
-  class func preloadTextureAtlasesNamed(atlasNames: [String], withCompletionHandler completionHandler: (NSError?, [SKTextureAtlas]) -> Void)
+  class func preloadTextureAtlasesNamed(atlasNames: [String], withCompletionHandler completionHandler: (Error?, [SKTextureAtlas]) -> Void)
 
   /**
    Request that this texture atlas be loaded into vram on the next render update, with a callback handler.
@@ -2654,8 +2654,8 @@ class SKTextureAtlas : NSObject, NSCoding {
   func preloadWithCompletionHandler(completionHandler: () -> Void)
   var textureNames: [String] { get }
   init()
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 extension SKTextureAtlas : _Reflectable {
@@ -2675,21 +2675,21 @@ enum SKTransitionDirection : Int {
 /**
  A transition style from one scene to another.
  */
-class SKTransition : NSObject, NSCopying {
-  class func crossFadeWithDuration(sec: NSTimeInterval) -> SKTransition
-  class func fadeWithDuration(sec: NSTimeInterval) -> SKTransition
-  class func fadeWith(color: UIColor, duration sec: NSTimeInterval) -> SKTransition
-  class func flipHorizontalWithDuration(sec: NSTimeInterval) -> SKTransition
-  class func flipVerticalWithDuration(sec: NSTimeInterval) -> SKTransition
-  class func revealWith(direction: SKTransitionDirection, duration sec: NSTimeInterval) -> SKTransition
-  class func moveInWith(direction: SKTransitionDirection, duration sec: NSTimeInterval) -> SKTransition
-  class func pushWith(direction: SKTransitionDirection, duration sec: NSTimeInterval) -> SKTransition
-  class func doorsOpenHorizontalWithDuration(sec: NSTimeInterval) -> SKTransition
-  class func doorsOpenVerticalWithDuration(sec: NSTimeInterval) -> SKTransition
-  class func doorsCloseHorizontalWithDuration(sec: NSTimeInterval) -> SKTransition
-  class func doorsCloseVerticalWithDuration(sec: NSTimeInterval) -> SKTransition
-  class func doorwayWithDuration(sec: NSTimeInterval) -> SKTransition
-  /*not inherited*/ init(ciFilter filter: CIFilter, duration sec: NSTimeInterval)
+class SKTransition : Object, Copying {
+  class func crossFadeWithDuration(sec: TimeInterval) -> SKTransition
+  class func fadeWithDuration(sec: TimeInterval) -> SKTransition
+  class func fadeWith(color: UIColor, duration sec: TimeInterval) -> SKTransition
+  class func flipHorizontalWithDuration(sec: TimeInterval) -> SKTransition
+  class func flipVerticalWithDuration(sec: TimeInterval) -> SKTransition
+  class func revealWith(direction: SKTransitionDirection, duration sec: TimeInterval) -> SKTransition
+  class func moveInWith(direction: SKTransitionDirection, duration sec: TimeInterval) -> SKTransition
+  class func pushWith(direction: SKTransitionDirection, duration sec: TimeInterval) -> SKTransition
+  class func doorsOpenHorizontalWithDuration(sec: TimeInterval) -> SKTransition
+  class func doorsOpenVerticalWithDuration(sec: TimeInterval) -> SKTransition
+  class func doorsCloseHorizontalWithDuration(sec: TimeInterval) -> SKTransition
+  class func doorsCloseVerticalWithDuration(sec: TimeInterval) -> SKTransition
+  class func doorwayWithDuration(sec: TimeInterval) -> SKTransition
+  /*not inherited*/ init(ciFilter filter: CIFilter, duration sec: TimeInterval)
 
   /**
    Pause the incoming Scene during the transition, defaults to YES.
@@ -2701,7 +2701,7 @@ class SKTransition : NSObject, NSCopying {
    */
   var pausesOutgoingScene: Bool
   init()
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 enum SKUniformType : Int {
@@ -2718,7 +2718,7 @@ enum SKUniformType : Int {
   case Texture
 }
 @available(iOS 8.0, *)
-class SKUniform : NSObject, NSCopying, NSCoding {
+class SKUniform : Object, Copying, Coding {
 
   /**
    Create a shader uniform with a given name, and texture data
@@ -2748,10 +2748,10 @@ class SKUniform : NSObject, NSCopying, NSCoding {
   init(name: String, float value: GLKMatrix4)
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 var SK_VERSION: Int32 { get }
 class SKVideoNode : SKNode {
@@ -2764,14 +2764,14 @@ class SKVideoNode : SKNode {
   @available(iOS 8.0, *)
   init(fileNamed videoFile: String)
   @available(iOS, introduced=7.0, deprecated=8.0)
-  init(videoURL url: NSURL)
+  init(videoURL url: URL)
   @available(iOS 8.0, *)
-  init(url: NSURL)
+  init(url: URL)
 
   /**
    Support coding and decoding via NSKeyedArchiver.
    */
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   func play()
   func pause()
 
@@ -2885,6 +2885,6 @@ class SKView : UIView {
    */
   func convert(point: CGPoint, from scene: SKScene) -> CGPoint
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }

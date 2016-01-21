@@ -1,8 +1,8 @@
 
 @available(iOS 9.0, *)
-class AUViewController : UIViewController, NSExtensionRequestHandling {
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+class AUViewController : UIViewController, ExtensionRequestHandling {
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 extension AUAudioUnit {
@@ -19,14 +19,14 @@ extension AUAudioUnit {
 @available(iOS 8.0, *)
 class CABTMIDICentralViewController : UITableViewController {
   init(style: UITableViewStyle)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 @available(iOS 8.0, *)
 class CABTMIDILocalPeripheralViewController : UIViewController {
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 @available(iOS 8.0, *)
@@ -35,7 +35,7 @@ class CAInterAppAudioSwitcherView : UIView {
   func setOutputAudioUnit(au: AudioUnit)
   func contentWidth() -> CGFloat
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 @available(iOS 8.0, *)
@@ -52,6 +52,6 @@ class CAInterAppAudioTransportView : UIView {
   var recordButtonColor: UIColor
   func setOutputAudioUnit(au: AudioUnit)
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }

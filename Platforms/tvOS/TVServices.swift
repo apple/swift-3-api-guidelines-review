@@ -19,7 +19,7 @@
                 different container hierarchies.
  */
 @available(tvOS 9.0, *)
-class TVContentIdentifier : NSObject, NSCopying, NSSecureCoding {
+class TVContentIdentifier : Object, Copying, SecureCoding {
 
   /*!
    @property      identifier
@@ -40,13 +40,13 @@ class TVContentIdentifier : NSObject, NSCopying, NSSecureCoding {
    */
   @NSCopying var container: TVContentIdentifier? { get }
   init?(identifier: String, container: TVContentIdentifier?)
-  init?(coder: NSCoder)
+  init?(coder: Coder)
   @available(tvOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
 }
 
 /*!
@@ -57,7 +57,7 @@ class TVContentIdentifier : NSObject, NSCopying, NSSecureCoding {
                 of content.
  */
 @available(tvOS 9.0, *)
-class TVContentItem : NSObject, NSCopying, NSSecureCoding {
+class TVContentItem : Object, Copying, SecureCoding {
 
   /*!
    @property      contentIdentifier
@@ -69,7 +69,7 @@ class TVContentItem : NSObject, NSCopying, NSSecureCoding {
    @property      imageURL
    @abstract      A URL giving the location of the image to display for this content item.
    */
-  @NSCopying var imageURL: NSURL?
+  @NSCopying var imageURL: URL?
 
   /*!
    @property      imageShape
@@ -106,20 +106,20 @@ class TVContentItem : NSObject, NSCopying, NSSecureCoding {
                   represents a group of items), for content types where "playing"
                   applies. This should not be when the user just looked at an item.
    */
-  @NSCopying var lastAccessedDate: NSDate?
+  @NSCopying var lastAccessedDate: Date?
 
   /*!
    @property      expirationDate
    @abstract      Date at which the user will no longer be able to access the item.
    */
-  @NSCopying var expirationDate: NSDate?
+  @NSCopying var expirationDate: Date?
 
   /*!
    @property      creationDate
    @abstract      Date at which the content item was created, or was first
                   broadcast, or other such kind of origination date.
    */
-  @NSCopying var creationDate: NSDate?
+  @NSCopying var creationDate: Date?
 
   /*!
    @property      badgeCount
@@ -127,21 +127,21 @@ class TVContentItem : NSObject, NSCopying, NSSecureCoding {
    @discussion    The number is interpreted as a positive integer. Not all UI uses
                   of content items display badges.
    */
-  @NSCopying var badgeCount: NSNumber?
+  @NSCopying var badgeCount: Number?
 
   /*!
    @property      duration
    @abstract      The time length of this item.
    @discussion    The number is interpreted as a double number of seconds.
    */
-  @NSCopying var duration: NSNumber?
+  @NSCopying var duration: Number?
 
   /*!
    @property      currentPosition
    @abstract      The last time index the user was at in playing this item.
    @discussion    The number is interpreted as a double number of seconds.
    */
-  @NSCopying var currentPosition: NSNumber?
+  @NSCopying var currentPosition: Number?
 
   /*!
    @property      hasPlayedToEnd
@@ -149,7 +149,7 @@ class TVContentItem : NSObject, NSCopying, NSSecureCoding {
                   finished this item.
    @discussion    The number is interpreted as a boolean.
    */
-  @NSCopying var hasPlayedToEnd: NSNumber?
+  @NSCopying var hasPlayedToEnd: Number?
 
   /*!
    @property      playURL
@@ -161,7 +161,7 @@ class TVContentItem : NSObject, NSCopying, NSSecureCoding {
                   prompting for other information or confirmation panels or other
                   UI, if at all possible.
    */
-  @NSCopying var playURL: NSURL?
+  @NSCopying var playURL: URL?
 
   /*!
    @property      displayURL
@@ -173,7 +173,7 @@ class TVContentItem : NSObject, NSCopying, NSSecureCoding {
                   description of the item without any prompting for other information
                   or confirmation panels or other UI, if at all possible.
    */
-  @NSCopying var displayURL: NSURL?
+  @NSCopying var displayURL: URL?
 
   /*!
    @property      topShelfItems
@@ -185,13 +185,13 @@ class TVContentItem : NSObject, NSCopying, NSSecureCoding {
    */
   var topShelfItems: [TVContentItem]?
   init?(contentIdentifier ident: TVContentIdentifier)
-  init?(coder: NSCoder)
+  init?(coder: Coder)
   @available(tvOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
 }
 
 /*!

@@ -67,8 +67,8 @@ class ListWindowController: NSWindowController, SegueHandlerType {
             
             let sharingServicePicker = NSSharingServicePicker(items: [listContents])
             
-            let preferredEdge =  NSRectEdge(rawValue: UInt(CGRectEdge.MinYEdge.rawValue))!
-            sharingServicePicker.showRelativeTo(NSZeroRect, of: sender, preferredEdge: preferredEdge)
+            let preferredEdge =  RectEdge(rawValue: UInt(CGRectEdge.MinYEdge.rawValue))!
+            sharingServicePicker.showRelativeTo(zeroRect, of: sender, preferredEdge: preferredEdge)
         }
     }
 }

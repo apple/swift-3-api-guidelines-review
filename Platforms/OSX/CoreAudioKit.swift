@@ -38,8 +38,8 @@ class AUGenericView : NSView, AUCustomViewPersistentData {
   	@result  Returns the newly created view object
   */
   init(audioUnit inAudioUnit: AudioUnit, displayFlags inFlags: AUGenericViewDisplayFlags)
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init(frame frameRect: Rect)
+  init?(coder: Coder)
   convenience init()
 
   /*!
@@ -68,14 +68,14 @@ class AUPannerView : NSView {
       @result  Returns the newly created view object autoreleased or nil on error
   */
   /*not inherited*/ init(audioUnit au: AudioUnit)
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init(frame frameRect: Rect)
+  init?(coder: Coder)
   convenience init()
 }
 @available(OSX 10.11, *)
-class AUViewController : NSViewController, NSExtensionRequestHandling {
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder: NSCoder)
+class AUViewController : NSViewController, ExtensionRequestHandling {
+  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder: Coder)
   convenience init()
 }
 extension AUAudioUnit {
@@ -98,7 +98,7 @@ extension AUAudioUnit {
  */
 class CABTLEMIDIWindowController : NSWindowController {
   init(window: NSWindow?)
-  init?(coder: NSCoder)
+  init?(coder: Coder)
   convenience init(windowNibName: String)
   convenience init(windowNibName: String, owner: AnyObject)
   convenience init(windowNibPath: String, owner: AnyObject)
@@ -112,8 +112,8 @@ class CABTLEMIDIWindowController : NSWindowController {
  @discussion To use this class, create an instance of the CAInterDeviceAudioController, get the view and add it as a subview of a NSWindow.
  */
 class CAInterDeviceAudioViewController : NSViewController {
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder: NSCoder)
+  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder: Coder)
   convenience init()
 }
 
@@ -137,7 +137,7 @@ class CANetworkBrowserWindowController : NSWindowController {
    */
   init()
   convenience init(window: NSWindow?)
-  init?(coder: NSCoder)
+  init?(coder: Coder)
   convenience init(windowNibName: String)
   convenience init(windowNibName: String, owner: AnyObject)
   convenience init(windowNibPath: String, owner: AnyObject)

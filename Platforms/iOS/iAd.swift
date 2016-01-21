@@ -170,14 +170,14 @@ class ADBannerView : UIView {
    */
   var advertisingSection: String!
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 
 /*!
  * @protocol ADBannerViewDelegate
  */
-protocol ADBannerViewDelegate : NSObjectProtocol {
+protocol ADBannerViewDelegate : ObjectProtocol {
 
   /*!
    * @method bannerViewWillLoadAd:
@@ -213,7 +213,7 @@ protocol ADBannerViewDelegate : NSObjectProtocol {
    * @see ADError for a list of possible error codes.
    */
   @available(iOS 4.0, *)
-  optional func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!)
+  optional func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: Error!)
 
   /*!
    * @method bannerViewActionShouldBegin:willLeaveApplication:
@@ -264,7 +264,7 @@ protocol ADBannerViewDelegate : NSObjectProtocol {
 extension ADBannerView {
 }
 @available(iOS 7.1, *)
-class ADClient : NSObject {
+class ADClient : Object {
 
   /*!
    * @method sharedClient
@@ -312,7 +312,7 @@ class ADClient : NSObject {
    * which resulted in the user's purchase of the app.
    */
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use requestAttributionDetailsWithBlock instead.")
-  func lookupAdConversionDetails(completionHandler: ((NSDate!, NSDate!) -> Void)!)
+  func lookupAdConversionDetails(completionHandler: ((Date!, Date!) -> Void)!)
 
   /*!
    * @method requestAttributionDetailsWithBlock:
@@ -330,7 +330,7 @@ class ADClient : NSObject {
    * which resulted in the user's purchase of the app.
    */
   @available(iOS 9.0, *)
-  func requestAttributionDetailsWith(completionHandler: (([NSObject : AnyObject]!, NSError!) -> Void)!)
+  func requestAttributionDetailsWith(completionHandler: (([Object : AnyObject]!, Error!) -> Void)!)
 
   /*!
    * @method addClientToSegments:replaceExisting:
@@ -408,7 +408,7 @@ enum ADClientError : Int {
  * exception to be thrown.
  */
 @available(iOS 4.3, *)
-class ADInterstitialAd : NSObject {
+class ADInterstitialAd : Object {
 
   /*!
    * @property delegate
@@ -456,7 +456,7 @@ class ADInterstitialAd : NSObject {
 /*!
  * @protocol ADInterstitialAdDelegate
  */
-protocol ADInterstitialAdDelegate : NSObjectProtocol {
+protocol ADInterstitialAdDelegate : ObjectProtocol {
 
   /*!
    * @method interstitialAdDidUnload:
@@ -483,7 +483,7 @@ protocol ADInterstitialAdDelegate : NSObjectProtocol {
    * @see ADError for a list of possible error codes.
    */
   @available(iOS 4.3, *)
-  func interstitialAd(interstitialAd: ADInterstitialAd!, didFailWithError error: NSError!)
+  func interstitialAd(interstitialAd: ADInterstitialAd!, didFailWithError error: Error!)
 
   /*!
    * @method interstitialAdWillLoad:
@@ -563,7 +563,7 @@ extension AVPlayerViewController {
    * Passing nil as the completion handler is an error and will throw an exception.
    */
   @available(iOS 8.0, *)
-  func playPrerollAdWithCompletionHandler(completionHandler: ((NSError!) -> Void)!)
+  func playPrerollAdWithCompletionHandler(completionHandler: ((Error!) -> Void)!)
 
   /*!
    * @method -cancelPreroll
@@ -620,7 +620,7 @@ extension MPMoviePlayerController {
    * ad will be skipped immediately.
    */
   @available(iOS 7.0, *)
-  func playPrerollAdWithCompletionHandler(completionHandler: ((NSError!) -> Void)!)
+  func playPrerollAdWithCompletionHandler(completionHandler: ((Error!) -> Void)!)
 
   /*!
    * @method -cancelPreroll

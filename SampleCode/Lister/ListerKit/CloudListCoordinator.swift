@@ -37,10 +37,10 @@ public class CloudListCoordinator: ListCoordinator {
     private var firstQueryUpdateHandler: (Void -> Void)?
     
     /// Initialized asynchronously in init(predicate:).
-    private var _documentsDirectory: NSURL!
+    private var _documentsDirectory: URL!
     
-    public var documentsDirectory: NSURL {
-        var documentsDirectory: NSURL!
+    public var documentsDirectory: URL {
+        var documentsDirectory: URL!
         
         dispatch_sync(documentsDirectoryQueue) {
             documentsDirectory = self._documentsDirectory
@@ -49,7 +49,7 @@ public class CloudListCoordinator: ListCoordinator {
         return documentsDirectory
     }
 
-    private var metadataQuery: NSMetadataQuery
+    private var metadataQuery: MetadataQuery
     
     /// A private, local queue to `CloudListCoordinator` that is used to ensure serial accesss to `documentsDirectory`.
     private let documentsDirectoryQueue = dispatch_queue_create("com.example.apple-samplecode.lister.cloudlistcoordinator", DISPATCH_QUEUE_CONCURRENT)
@@ -66,7 +66,7 @@ public class CloudListCoordinator: ListCoordinator {
         - parameter firstQueryUpdateHandler: The handler that is executed once the first results are returned.
     */
     public convenience init(pathExtension: String, firstQueryUpdateHandler: (Void -> Void)? = nil) {
-        let predicate = NSPredicate(format: "(%K.pathExtension = %@)", argumentArray: [NSMetadataItemURLKey, pathExtension])
+        let predicate = Predicate(format: "(%K.pathExtension = %@)", argumentArray: [metadataItemURLKey, pathExtension])
         
         self.init(predicate: predicate, firstQueryUpdateHandler: firstQueryUpdateHandler)
     }
@@ -80,42 +80,42 @@ public class CloudListCoordinator: ListCoordinator {
         - parameter firstQueryUpdateHandler: The handler that is executed once the first results are returned.
     */
     public convenience init(lastPathComponent: String, firstQueryUpdateHandler: (Void -> Void)? = nil) {
-        let predicate = NSPredicate(format: "(%K.lastPathComponent = %@)", argumentArray: [NSMetadataItemURLKey, lastPathComponent])
+        let predicate = Predicate(format: "(%K.lastPathComponent = %@)", argumentArray: [metadataItemURLKey, lastPathComponent])
 
         self.init(predicate: predicate, firstQueryUpdateHandler: firstQueryUpdateHandler)
     }
     
-    private init(predicate: NSPredicate, firstQueryUpdateHandler: (Void -> Void)?) {
+    private init(predicate: Predicate, firstQueryUpdateHandler: (Void -> Void)?) {
         self.firstQueryUpdateHandler = firstQueryUpdateHandler
         
-        metadataQuery = NSMetadataQuery()
+        metadataQuery = MetadataQuery()
 
         // These search scopes search for files in iCloud Drive.
-        metadataQuery.searchScopes = [NSMetadataQueryUbiquitousDocumentsScope, NSMetadataQueryAccessibleUbiquitousExternalDocumentsScope]
+        metadataQuery.searchScopes = [metadataQueryUbiquitousDocumentsScope, metadataQueryAccessibleUbiquitousExternalDocumentsScope]
         
         metadataQuery.predicate = predicate
         
         dispatch_barrier_async(documentsDirectoryQueue) {
-            let cloudContainerURL = NSFileManager.defaultManager().urlForUbiquityContainerIdentifier(nil)
+            let cloudContainerURL = FileManager.defaultManager().urlForUbiquityContainerIdentifier(nil)
 
             self._documentsDirectory = cloudContainerURL?.appendingPathComponent("Documents")
         }
         
         // Observe the query.
-        let notificationCenter = NSNotificationCenter.defaultCenter()
+        let notificationCenter = NotificationCenter.defaultCenter()
         
-        notificationCenter.addObserver(self, selector: "metadataQueryDidFinishGathering:", name: NSMetadataQueryDidFinishGatheringNotification, object: metadataQuery)
+        notificationCenter.addObserver(self, selector: "metadataQueryDidFinishGathering:", name: metadataQueryDidFinishGatheringNotification, object: metadataQuery)
 
-        notificationCenter.addObserver(self, selector: "metadataQueryDidUpdate:", name: NSMetadataQueryDidUpdateNotification, object: metadataQuery)
+        notificationCenter.addObserver(self, selector: "metadataQueryDidUpdate:", name: metadataQueryDidUpdateNotification, object: metadataQuery)
     }
     
     // MARK: Lifetime
     
     deinit {
         // Stop observing the query.
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.removeObserver(self, name: NSMetadataQueryDidFinishGatheringNotification, object: metadataQuery)
-        notificationCenter.removeObserver(self, name: NSMetadataQueryDidUpdateNotification, object: metadataQuery)
+        let notificationCenter = NotificationCenter.defaultCenter()
+        notificationCenter.removeObserver(self, name: metadataQueryDidFinishGatheringNotification, object: metadataQuery)
+        notificationCenter.removeObserver(self, name: metadataQueryDidUpdateNotification, object: metadataQuery)
     }
     
     // MARK: ListCoordinator
@@ -155,16 +155,16 @@ public class CloudListCoordinator: ListCoordinator {
         
         let documentURL = documentURLForName(name)
         
-        return !NSFileManager.defaultManager().fileExistsAtPath(documentURL.path!)
+        return !FileManager.defaultManager().fileExistsAtPath(documentURL.path!)
     }
     
-    public func copyListFromURL(URL: NSURL, toListWithName name: String) {
+    public func copyListFromURL(URL: URL, toListWithName name: String) {
         let documentURL = documentURLForName(name)
         
         ListUtilities.copyFromURL(URL, toURL: documentURL)
     }
 
-    public func removeListAtURL(URL: NSURL) {
+    public func removeListAtURL(URL: URL) {
         ListUtilities.removeListAtURL(URL) { error in
             if let realError = error {
                 self.delegate?.listCoordinatorDidFailRemovingListAtURL(URL, withError: realError)
@@ -177,12 +177,12 @@ public class CloudListCoordinator: ListCoordinator {
     
     // MARK: NSMetadataQuery Notifications
     
-    @objc private func metadataQueryDidFinishGathering(notifcation: NSNotification) {
+    @objc private func metadataQueryDidFinishGathering(notifcation: Notification) {
         metadataQuery.disableUpdates()
 
-        let metadataItems = metadataQuery.results as! [NSMetadataItem]
+        let metadataItems = metadataQuery.results as! [MetadataItem]
 
-        let insertedURLs = metadataItems.map { $0.valueForAttribute(NSMetadataItemURLKey) as! NSURL }
+        let insertedURLs = metadataItems.map { $0.valueForAttribute(metadataItemURLKey) as! URL }
 
         delegate?.listCoordinatorDidUpdateContents(insertedURLs: insertedURLs, removedURLs: [], updatedURLs: [])
         
@@ -200,36 +200,36 @@ public class CloudListCoordinator: ListCoordinator {
         Private methods that are used with Objective-C for notifications, target / action, etc. should
         be marked as @objc.
     */
-    @objc private func metadataQueryDidUpdate(notification: NSNotification) {
+    @objc private func metadataQueryDidUpdate(notification: Notification) {
         metadataQuery.disableUpdates()
         
-        let insertedURLs: [NSURL]
-        let removedURLs: [NSURL]
-        let updatedURLs: [NSURL]
+        let insertedURLs: [URL]
+        let removedURLs: [URL]
+        let updatedURLs: [URL]
         
-        let metadataItemToURLTransform: NSMetadataItem -> NSURL = { metadataItem in
-            return metadataItem.valueForAttribute(NSMetadataItemURLKey) as! NSURL
+        let metadataItemToURLTransform: MetadataItem -> URL = { metadataItem in
+            return metadataItem.valueForAttribute(metadataItemURLKey) as! URL
         }
 
-        if let insertedMetadataItems = notification.userInfo?[NSMetadataQueryUpdateAddedItemsKey] as? [NSMetadataItem] {
+        if let insertedMetadataItems = notification.userInfo?[metadataQueryUpdateAddedItemsKey] as? [MetadataItem] {
             insertedURLs = insertedMetadataItems.map(metadataItemToURLTransform)
         }
         else {
             insertedURLs = []
         }
         
-        if let removedMetadataItems = notification.userInfo?[NSMetadataQueryUpdateRemovedItemsKey] as? [NSMetadataItem] {
+        if let removedMetadataItems = notification.userInfo?[metadataQueryUpdateRemovedItemsKey] as? [MetadataItem] {
             removedURLs = removedMetadataItems.map(metadataItemToURLTransform)
         }
         else {
             removedURLs = []
         }
         
-        if let updatedMetadataItems = notification.userInfo?[NSMetadataQueryUpdateChangedItemsKey] as? [NSMetadataItem] {
+        if let updatedMetadataItems = notification.userInfo?[metadataQueryUpdateChangedItemsKey] as? [MetadataItem] {
             let completelyDownloadedUpdatedMetadataItems = updatedMetadataItems.filter { updatedMetadataItem in
-                let downloadStatus = updatedMetadataItem.valueForAttribute(NSMetadataUbiquitousItemDownloadingStatusKey) as! String
+                let downloadStatus = updatedMetadataItem.valueForAttribute(metadataUbiquitousItemDownloadingStatusKey) as! String
 
-                return downloadStatus == NSMetadataUbiquitousItemDownloadingStatusCurrent
+                return downloadStatus == metadataUbiquitousItemDownloadingStatusCurrent
             }
 
             updatedURLs = completelyDownloadedUpdatedMetadataItems.map(metadataItemToURLTransform)
@@ -245,7 +245,7 @@ public class CloudListCoordinator: ListCoordinator {
     
     // MARK: Convenience
     
-    private func documentURLForName(name: String) -> NSURL {
+    private func documentURLForName(name: String) -> URL {
         let documentURLWithoutExtension = documentsDirectory.appendingPathComponent(name)
         
         return documentURLWithoutExtension.appendingPathExtension(AppConfiguration.listerFileExtension)

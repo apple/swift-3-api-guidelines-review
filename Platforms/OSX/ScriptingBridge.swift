@@ -1,8 +1,8 @@
 
 @available(OSX 10.5, *)
-class SBApplication : SBObject, NSCoding {
+class SBApplication : SBObject, Coding {
   init?(bundleIdentifier ident: String)
-  init?(url: NSURL)
+  init?(url: URL)
   init?(processIdentifier pid: pid_t)
   func classForScriptingClass(className: String) -> AnyClass?
   var isRunning: Bool { get }
@@ -12,16 +12,16 @@ class SBApplication : SBObject, NSCoding {
   var sendMode: AESendMode
   var timeout: Int
   init()
-  init(properties: [NSObject : AnyObject])
+  init(properties: [Object : AnyObject])
   init(data: AnyObject)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   init(elementCode code: DescType, properties: [String : AnyObject]?, data: AnyObject?)
 }
 protocol SBApplicationDelegate {
-  func eventDidFail(event: UnsafePointer<AppleEvent>, withError error: NSError) -> AnyObject
+  func eventDidFail(event: UnsafePointer<AppleEvent>, withError error: Error) -> AnyObject
 }
 @available(OSX 10.5, *)
-class SBElementArray : NSMutableArray {
+class SBElementArray : MutableArray {
   func objectWithName(name: String) -> AnyObject
   func objectWithID(identifier: AnyObject) -> AnyObject
   func objectAtLocation(location: AnyObject) -> AnyObject
@@ -30,25 +30,25 @@ class SBElementArray : NSMutableArray {
   func get() -> [AnyObject]?
   init()
   init(capacity numItems: Int)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
   convenience init(object anObject: AnyObject)
   convenience init(array: [AnyObject])
   convenience init(array: [AnyObject], copyItems flag: Bool)
   convenience init?(contentsOfFile path: String)
-  convenience init?(contentsOf url: NSURL)
+  convenience init?(contentsOf url: URL)
 }
 @available(OSX 10.5, *)
-class SBObject : NSObject, NSCoding {
+class SBObject : Object, Coding {
   init()
-  init(properties: [NSObject : AnyObject])
+  init(properties: [Object : AnyObject])
   init(data: AnyObject)
   func get() -> AnyObject?
   @available(OSX 10.6, *)
-  func lastError() -> NSError?
+  func lastError() -> Error?
   @available(OSX 10.5, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 extension SBObject {
   init(elementCode code: DescType, properties: [String : AnyObject]?, data: AnyObject?)

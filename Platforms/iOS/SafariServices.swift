@@ -10,8 +10,8 @@ enum SFContentBlockerErrorCode : Int {
   case LoadingInterrupted
 }
 @available(iOS 9.0, *)
-class SFContentBlockerManager : NSObject {
-  class func reloadContentBlockerWithIdentifier(identifier: String, completionHandler: ((NSError?) -> Void)? = nil)
+class SFContentBlockerManager : Object {
+  class func reloadContentBlockerWithIdentifier(identifier: String, completionHandler: ((Error?) -> Void)? = nil)
   init()
 }
 
@@ -31,22 +31,22 @@ class SFSafariViewController : UIViewController {
       @param entersReaderIfAvailable indicates if the Safari Reader version of content should be shown automatically
       when Safari Reader is available on a web page
    */
-  init(url URL: NSURL, entersReaderIfAvailable: Bool)
+  init(url URL: URL, entersReaderIfAvailable: Bool)
 
   /*! @abstract Returns a view controller that loads a URL.
       @param URL, the URL to navigate to.
    */
-  convenience init(url URL: NSURL)
+  convenience init(url URL: URL)
 }
 @available(iOS 9.0, *)
-protocol SFSafariViewControllerDelegate : NSObjectProtocol {
+protocol SFSafariViewControllerDelegate : ObjectProtocol {
 
   /*! @abstract Called when the view controller is about to show UIActivityViewController after the user taps the action button.
       @param URL, the URL of the web page.
       @param title, the title of the web page.
       @result Returns an array of UIActivity instances that will be appended to UIActivityViewController.
    */
-  optional func safariViewController(controller: SFSafariViewController, activityItemsFor URL: NSURL, title: String?) -> [UIActivity]
+  optional func safariViewController(controller: SFSafariViewController, activityItemsFor URL: URL, title: String?) -> [UIActivity]
 
   /*! @abstract Delegate callback called when the user taps the Done button. Upon this call, the view controller is dismissed modally. */
   optional func safariViewControllerDidFinish(controller: SFSafariViewController)
@@ -64,7 +64,7 @@ protocol SFSafariViewControllerDelegate : NSObjectProtocol {
     Provides an interface for adding to a user's Reading List.
 */
 @available(iOS 7.0, *)
-class SSReadingList : NSObject {
+class SSReadingList : Object {
 
   /*!
       @method defaultReadingList
@@ -79,7 +79,7 @@ class SSReadingList : NSObject {
       @param URL The URL to be tested for Reading List support.
       @result Returns YES if the URL is supported by Reading List, NO if not.
   */
-  class func supportsURL(URL: NSURL) -> Bool
+  class func supportsURL(URL: URL) -> Bool
 
   /*!
       @method addReadingListItemWithURL:title:previewText:error:
@@ -92,7 +92,7 @@ class SSReadingList : NSObject {
       @discussion Only URLs with http:// or https:// schemes are supported by Reading List.
   */
   @available(iOS 7.0, *)
-  func addItemWith(URL: NSURL, title: String?, previewText: String?) throws
+  func addItemWith(URL: URL, title: String?, previewText: String?) throws
 }
 @available(iOS 7.0, *)
 let SSReadingListErrorDomain: String

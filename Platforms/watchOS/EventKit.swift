@@ -7,14 +7,14 @@
                     or absolute (specific time).
 */
 @available(watchOS 2.0, *)
-class EKAlarm : EKObject, NSCopying {
+class EKAlarm : EKObject, Copying {
 
   /*!
       @method     alarmWithAbsoluteDate:
       @abstract   Creates a new autoreleased alarm with an absolute trigger time.
       @param      date    The date the alarm should fire.
   */
-  /*not inherited*/ init(absoluteDate date: NSDate)
+  /*not inherited*/ init(absoluteDate date: Date)
 
   /*!
       @method     alarmWithRelativeOffset:
@@ -24,7 +24,7 @@ class EKAlarm : EKObject, NSCopying {
   
       @param      offset    The offset from the event start that the alarm should fire.
   */
-  /*not inherited*/ init(relativeOffset offset: NSTimeInterval)
+  /*not inherited*/ init(relativeOffset offset: TimeInterval)
 
   /*!
       @property   relativeOffset
@@ -33,7 +33,7 @@ class EKAlarm : EKObject, NSCopying {
                   relative to the start date/time of an event. Setting this clears any existing
                   date trigger.
   */
-  var relativeOffset: NSTimeInterval
+  var relativeOffset: TimeInterval
 
   /*!
       @property   absoluteDate
@@ -41,7 +41,7 @@ class EKAlarm : EKObject, NSCopying {
       @discussion Set this property to a date to establish an absolute alarm trigger. Setting this
                   clears any relative interval trigger.
   */
-  @NSCopying var absoluteDate: NSDate?
+  @NSCopying var absoluteDate: Date?
 
   /*!
       @property   structuredLocation
@@ -59,7 +59,7 @@ class EKAlarm : EKObject, NSCopying {
   var proximity: EKAlarmProximity
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -205,12 +205,12 @@ class EKCalendarItem : EKObject {
   var location: String?
   var notes: String?
   @available(watchOS 2.0, *)
-  @NSCopying var url: NSURL?
-  var lastModifiedDate: NSDate? { get }
+  @NSCopying var url: URL?
+  var lastModifiedDate: Date? { get }
   @available(watchOS 2.0, *)
-  var creationDate: NSDate? { get }
+  var creationDate: Date? { get }
   @available(watchOS 2.0, *)
-  @NSCopying var timeZone: NSTimeZone?
+  @NSCopying var timeZone: TimeZone?
   @available(watchOS 2.0, *)
   var hasAlarms: Bool { get }
   @available(watchOS 2.0, *)
@@ -357,13 +357,13 @@ class EKEvent : EKCalendarItem {
                    as all-day events) are currently always returned in the default time zone.
                    ([NSTimeZone defaultTimeZone])
    */
-  @NSCopying var startDate: NSDate
+  @NSCopying var startDate: Date
 
   /*!
       @property   endDate
       @abstract   The end date for the event.
   */
-  @NSCopying var endDate: NSDate
+  @NSCopying var endDate: Date
 
   /*!
       @property   structuredLocation
@@ -379,7 +379,7 @@ class EKEvent : EKCalendarItem {
       @method     compareStartDateWithEvent
       @abstract   Comparison function you can pass to sort NSArrays of EKEvents by start date.
   */
-  func compareStartDateWith(other: EKEvent) -> NSComparisonResult
+  func compareStartDateWith(other: EKEvent) -> ComparisonResult
 
   /*!
       @property   organizer
@@ -428,7 +428,7 @@ class EKEvent : EKCalendarItem {
                   in the default time zone. ([NSTimeZone defaultTimeZone])
    */
   @available(watchOS 2.0, *)
-  var occurrenceDate: NSDate { get }
+  var occurrenceDate: Date { get }
 
   /*!
        @method     refresh
@@ -498,7 +498,7 @@ typealias EKEventSearchCallback = (EKEvent, UnsafeMutablePointer<ObjCBool>) -> V
                  likely as a singleton instance in your application.
 */
 @available(watchOS 2.0, *)
-class EKEventStore : NSObject {
+class EKEventStore : Object {
 
   /*!
       @method     authorizationStatusForEntityType:
@@ -629,7 +629,7 @@ class EKEventStore : NSObject {
                               creation functions in this class, an exception is raised.
       @result     An array of EKEvent objects, or nil. There is no guaranteed order to the events.
   */
-  func eventsMatching(predicate: NSPredicate) -> [EKEvent]
+  func eventsMatching(predicate: Predicate) -> [EKEvent]
 
   /*!
       @method     enumerateEventsMatchingPredicate:usingBlock:
@@ -646,7 +646,7 @@ class EKEventStore : NSObject {
       @param      block       The block to call for each event. Your block should return YES in the stop
                               parameter to stop iterating.
   */
-  func enumerateEventsMatching(predicate: NSPredicate, usingBlock block: EKEventSearchCallback)
+  func enumerateEventsMatching(predicate: Predicate, usingBlock block: EKEventSearchCallback)
 
   /*!
       @method     predicateForEventsWithStartDate:endDate:calendars:
@@ -662,7 +662,7 @@ class EKEventStore : NSObject {
       @param      endDate     The end date.
       @param      calendars   The calendars to search for events in, or nil to search all calendars.
   */
-  func predicateForEventsWithStart(startDate: NSDate, end endDate: NSDate, calendars: [EKCalendar]?) -> NSPredicate
+  func predicateForEventsWithStart(startDate: Date, end endDate: Date, calendars: [EKCalendar]?) -> Predicate
 
   /*!
       @method     fetchRemindersMatchingPredicate:completion:
@@ -674,7 +674,7 @@ class EKEventStore : NSObject {
                   saveReminder:commit:NO are not included until commit: is called.)
   */
   @available(watchOS 2.0, *)
-  func fetchRemindersMatching(predicate: NSPredicate, completion: ([EKReminder]?) -> Void) -> AnyObject
+  func fetchRemindersMatching(predicate: Predicate, completion: ([EKReminder]?) -> Void) -> AnyObject
 
   /*!
       @method     cancelFetchRequest:
@@ -691,7 +691,7 @@ class EKEventStore : NSObject {
       @discussion You can pass nil for calendars to fetch from all available calendars.
   */
   @available(watchOS 2.0, *)
-  func predicateForRemindersIn(calendars: [EKCalendar]?) -> NSPredicate
+  func predicateForRemindersIn(calendars: [EKCalendar]?) -> Predicate
 
   /*!
       @method     predicateForIncompleteRemindersWithDueDateStarting:ending:calendars:
@@ -703,7 +703,7 @@ class EKEventStore : NSObject {
                   You can pass nil for calendars to fetch from all available calendars.
   */
   @available(watchOS 2.0, *)
-  func predicateForIncompleteRemindersWithDueDateStarting(startDate: NSDate?, ending endDate: NSDate?, calendars: [EKCalendar]?) -> NSPredicate
+  func predicateForIncompleteRemindersWithDueDateStarting(startDate: Date?, ending endDate: Date?, calendars: [EKCalendar]?) -> Predicate
 
   /*!
       @method     predicateForCompletedRemindersWithCompletionDateStarting:ending:calendars:
@@ -715,7 +715,7 @@ class EKEventStore : NSObject {
                   You can pass nil for calendars to fetch from all available calendars.
   */
   @available(watchOS 2.0, *)
-  func predicateForCompletedRemindersWithCompletionDateStarting(startDate: NSDate?, ending endDate: NSDate?, calendars: [EKCalendar]?) -> NSPredicate
+  func predicateForCompletedRemindersWithCompletionDateStarting(startDate: Date?, ending endDate: Date?, calendars: [EKCalendar]?) -> Predicate
 
   /*!
       @method     reset
@@ -728,7 +728,7 @@ class EKEventStore : NSObject {
   @available(watchOS 2.0, *)
   func reset()
 }
-typealias EKEventStoreRequestAccessCompletionHandler = (Bool, NSError?) -> Void
+typealias EKEventStoreRequestAccessCompletionHandler = (Bool, Error?) -> Void
 
 /*!
     @constant   EKEventStoreChangedNotification
@@ -746,7 +746,7 @@ typealias EKEventStoreRequestAccessCompletionHandler = (Bool, NSError?) -> Void
 */
 @available(watchOS 2.0, *)
 let EKEventStoreChangedNotification: String
-class EKObject : NSObject {
+class EKObject : Object {
   var hasChanges: Bool { get }
   var isNew: Bool { get }
   func reset()
@@ -760,13 +760,13 @@ class EKObject : NSObject {
     @abstract   Abstract class representing a participant attached to an event.
 */
 @available(watchOS 2.0, *)
-class EKParticipant : EKObject, NSCopying {
+class EKParticipant : EKObject, Copying {
 
   /*!
       @property   url
       @abstract   URL representing this participant.
   */
-  var url: NSURL { get }
+  var url: URL { get }
 
   /*!
       @property   name
@@ -811,10 +811,10 @@ class EKParticipant : EKObject, NSCopying {
                   a CNContact instance for this participant, if one exists.
    */
   @available(watchOS 2.0, *)
-  var contactPredicate: NSPredicate { get }
+  var contactPredicate: Predicate { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -839,7 +839,7 @@ class EKParticipant : EKObject, NSCopying {
                 recurrence.
 */
 @available(watchOS 2.0, *)
-class EKRecurrenceDayOfWeek : NSObject, NSCopying {
+class EKRecurrenceDayOfWeek : Object, Copying {
 
   /*!
        @method     dayOfWeek:
@@ -872,7 +872,7 @@ class EKRecurrenceDayOfWeek : NSObject, NSCopying {
   var weekNumber: Int { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -894,13 +894,13 @@ class EKRecurrenceDayOfWeek : NSObject, NSCopying {
                 One initialized with a number of occurrences will return nil for its endDate.
 */
 @available(watchOS 2.0, *)
-class EKRecurrenceEnd : NSObject, NSCopying {
+class EKRecurrenceEnd : Object, Copying {
 
   /*!
       @method     recurrenceEndWithEndDate:
       @abstract   Creates an autoreleased recurrence end with a specific end date.
   */
-  convenience init(end endDate: NSDate)
+  convenience init(end endDate: Date)
 
   /*!
       @method     recurrenceEndWithOccurrenceCount:
@@ -912,7 +912,7 @@ class EKRecurrenceEnd : NSObject, NSCopying {
       @property   endDate
       @abstract   The end date of this recurrence, or nil if it's count-based.
   */
-  var endDate: NSDate? { get }
+  var endDate: Date? { get }
 
   /*!
       @property   occurrenceCount
@@ -921,7 +921,7 @@ class EKRecurrenceEnd : NSObject, NSCopying {
   var occurrenceCount: Int { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -936,7 +936,7 @@ class EKRecurrenceEnd : NSObject, NSCopying {
                 has passed the modified event to EKEventStore's saveEvent: method.
  */
 @available(watchOS 2.0, *)
-class EKRecurrenceRule : EKObject, NSCopying {
+class EKRecurrenceRule : EKObject, Copying {
 
   /*!
       @method     initRecurrenceWithFrequency:interval:end:
@@ -973,7 +973,7 @@ class EKRecurrenceRule : EKObject, NSCopying {
                                   daysOfTheYear is passed. Ignored otherwise. Corresponds to the BYSETPOS value in the iCalendar specification.
       @param      end             The recurrence end, or nil.
   */
-  init(recurrenceWith type: EKRecurrenceFrequency, interval: Int, daysOfTheWeek days: [EKRecurrenceDayOfWeek]?, daysOfTheMonth monthDays: [NSNumber]?, monthsOfTheYear months: [NSNumber]?, weeksOfTheYear: [NSNumber]?, daysOfTheYear: [NSNumber]?, setPositions: [NSNumber]?, end: EKRecurrenceEnd?)
+  init(recurrenceWith type: EKRecurrenceFrequency, interval: Int, daysOfTheWeek days: [EKRecurrenceDayOfWeek]?, daysOfTheMonth monthDays: [Number]?, monthsOfTheYear months: [Number]?, weeksOfTheYear: [Number]?, daysOfTheYear: [Number]?, setPositions: [Number]?, end: EKRecurrenceEnd?)
 
   /*!
       @property       calendarIdentifier;
@@ -1033,7 +1033,7 @@ class EKRecurrenceRule : EKObject, NSCopying {
                       For all other EKRecurrenceRules, this property is nil. This property corresponds to BYMONTHDAY in the iCalendar 
                       specification.
   */
-  var daysOfTheMonth: [NSNumber]? { get }
+  var daysOfTheMonth: [Number]? { get }
 
   /*!
       @property       daysOfTheYear
@@ -1042,7 +1042,7 @@ class EKRecurrenceRule : EKObject, NSCopying {
                       EKRecurrenceRules, this property is nil. This property corresponds to BYYEARDAY in the iCalendar specification. It should
                       contain values between 1 to 366 or -366 to -1.
   */
-  var daysOfTheYear: [NSNumber]? { get }
+  var daysOfTheYear: [Number]? { get }
 
   /*!
       @property       weeksOfTheYear
@@ -1051,7 +1051,7 @@ class EKRecurrenceRule : EKObject, NSCopying {
                       EKRecurrenceRules, this property is nil. This property corresponds to BYWEEK in the iCalendar specification. It should
                       contain integers from 1 to 53 or -1 to -53.
   */
-  var weeksOfTheYear: [NSNumber]? { get }
+  var weeksOfTheYear: [Number]? { get }
 
   /*!
       @property       monthsOfTheYear
@@ -1059,7 +1059,7 @@ class EKRecurrenceRule : EKObject, NSCopying {
                       as an array containing one or more NSNumbers corresponding to the months of the year the event recurs. For all other 
                       EKRecurrenceRules, this property is nil. This property corresponds to BYMONTH in the iCalendar specification.
   */
-  var monthsOfTheYear: [NSNumber]? { get }
+  var monthsOfTheYear: [Number]? { get }
 
   /*!
       @property       setPositions
@@ -1068,10 +1068,10 @@ class EKRecurrenceRule : EKObject, NSCopying {
                       included. For example, setting the daysOfTheWeek to Monday-Friday and including a value of -1 in the array would indicate
                       the last weekday in the recurrence range (month, year, etc). This value corresponds to the iCalendar BYSETPOS property.
   */
-  var setPositions: [NSNumber]? { get }
+  var setPositions: [Number]? { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -1094,7 +1094,7 @@ class EKReminder : EKCalendarItem {
                   A nil time zone represents a floating date.  Setting a date component without a hour, minute and second component will set allDay to YES.
                   If you set this property, the calendar must be set to NSCalendarIdentifierGregorian. An exception is raised otherwise.
   */
-  @NSCopying var startDateComponents: NSDateComponents?
+  @NSCopying var startDateComponents: DateComponents?
 
   /*!
       @property   dueDateComponents
@@ -1106,7 +1106,7 @@ class EKReminder : EKCalendarItem {
                   On iOS, if you set the due date for a reminder, you must also set a start date, otherwise you will receive
                   an error (EKErrorNoStartDate) when attempting to save this reminder. This is not a requirement on OS X.
   */
-  @NSCopying var dueDateComponents: NSDateComponents?
+  @NSCopying var dueDateComponents: DateComponents?
 
   /*!
       @property   completed
@@ -1120,7 +1120,7 @@ class EKReminder : EKCalendarItem {
       @property   completionDate
       @abstract   The date on which this reminder was completed.
   */
-  @NSCopying var completionDate: NSDate?
+  @NSCopying var completionDate: Date?
 
   /*!
       @property   priority
@@ -1155,14 +1155,14 @@ class EKSource : EKObject {
   init()
 }
 @available(watchOS 2.0, *)
-class EKStructuredLocation : EKObject, NSCopying {
+class EKStructuredLocation : EKObject, Copying {
   convenience init(title: String)
   var title: String
   var geoLocation: CLLocation?
   var radius: Double
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!

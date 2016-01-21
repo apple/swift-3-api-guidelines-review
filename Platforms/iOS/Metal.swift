@@ -100,7 +100,7 @@ enum MTLArgumentAccess : UInt {
   case WriteOnly
 }
 @available(iOS 8.0, *)
-class MTLStructMember : NSObject {
+class MTLStructMember : Object {
   var name: String { get }
   var offset: Int { get }
   var dataType: MTLDataType { get }
@@ -109,13 +109,13 @@ class MTLStructMember : NSObject {
   init()
 }
 @available(iOS 8.0, *)
-class MTLStructType : NSObject {
+class MTLStructType : Object {
   var members: [MTLStructMember] { get }
   func memberByName(name: String) -> MTLStructMember?
   init()
 }
 @available(iOS 8.0, *)
-class MTLArrayType : NSObject {
+class MTLArrayType : Object {
   var arrayLength: Int { get }
   var elementType: MTLDataType { get }
   var stride: Int { get }
@@ -128,7 +128,7 @@ class MTLArrayType : NSObject {
  MTLArgument
 */
 @available(iOS 8.0, *)
-class MTLArgument : NSObject {
+class MTLArgument : Object {
   var name: String { get }
   var type: MTLArgumentType { get }
   var access: MTLArgumentAccess { get }
@@ -325,7 +325,7 @@ typealias MTLCommandBufferHandler = (MTLCommandBuffer) -> Void
  @abstract A serial list of commands for the device to execute.
  */
 @available(iOS 8.0, *)
-protocol MTLCommandBuffer : NSObjectProtocol {
+protocol MTLCommandBuffer : ObjectProtocol {
 
   /*!
    @property device
@@ -409,7 +409,7 @@ protocol MTLCommandBuffer : NSObjectProtocol {
    @property error
    @abstract If an error occurred during execution, the NSError may contain more details about the problem.
    */
-  var error: NSError? { get }
+  var error: Error? { get }
 
   /*!
    @method blitCommandEncoder
@@ -441,7 +441,7 @@ protocol MTLCommandBuffer : NSObjectProtocol {
  @abstract MTLCommandEncoder is the common interface for objects that write commands into MTLCommandBuffers.
  */
 @available(iOS 8.0, *)
-protocol MTLCommandEncoder : NSObjectProtocol {
+protocol MTLCommandEncoder : ObjectProtocol {
 
   /*!
    @property device
@@ -485,7 +485,7 @@ protocol MTLCommandEncoder : NSObjectProtocol {
  @brief A serial queue of command buffers to be executed by the device.
  */
 @available(iOS 8.0, *)
-protocol MTLCommandQueue : NSObjectProtocol {
+protocol MTLCommandQueue : ObjectProtocol {
 
   /*! @brief A string to help identify this object */
   var label: String? { get set }
@@ -604,12 +604,12 @@ protocol MTLComputeCommandEncoder : MTLCommandEncoder {
   func dispatchThreadgroupsWithIndirectBuffer(indirectBuffer: MTLBuffer, indirectBufferOffset: Int, threadsPerThreadgroup: MTLSize)
 }
 @available(iOS 8.0, *)
-class MTLComputePipelineReflection : NSObject {
+class MTLComputePipelineReflection : Object {
   var arguments: [MTLArgument] { get }
   init()
 }
 @available(iOS 9.0, *)
-class MTLComputePipelineDescriptor : NSObject, NSCopying {
+class MTLComputePipelineDescriptor : Object, Copying {
 
   /*!
    @property label
@@ -636,7 +636,7 @@ class MTLComputePipelineDescriptor : NSObject, NSCopying {
   func reset()
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -645,7 +645,7 @@ class MTLComputePipelineDescriptor : NSObject, NSCopying {
  @discussion MTLComputePipelineState is a single compute function.  It can only be used with the device that it was created against.
 */
 @available(iOS 8.0, *)
-protocol MTLComputePipelineState : NSObjectProtocol {
+protocol MTLComputePipelineState : ObjectProtocol {
 
   /*!
    @property device
@@ -692,7 +692,7 @@ enum MTLStencilOperation : UInt {
   case DecrementWrap
 }
 @available(iOS 8.0, *)
-class MTLStencilDescriptor : NSObject, NSCopying {
+class MTLStencilDescriptor : Object, Copying {
   var stencilCompareFunction: MTLCompareFunction
 
   /*! Stencil is tested first.  stencilFailureOperation declares how the stencil buffer is updated when the stencil test fails. */
@@ -707,10 +707,10 @@ class MTLStencilDescriptor : NSObject, NSCopying {
   var writeMask: UInt32
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
-class MTLDepthStencilDescriptor : NSObject, NSCopying {
+class MTLDepthStencilDescriptor : Object, Copying {
   var depthCompareFunction: MTLCompareFunction
   var isDepthWriteEnabled: Bool
   @NSCopying var frontFaceStencil: MTLStencilDescriptor!
@@ -723,10 +723,10 @@ class MTLDepthStencilDescriptor : NSObject, NSCopying {
   var label: String?
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
-protocol MTLDepthStencilState : NSObjectProtocol {
+protocol MTLDepthStencilState : ObjectProtocol {
 
   /*!
    @property label
@@ -780,18 +780,18 @@ struct MTLPipelineOption : OptionSetType {
 }
 typealias MTLAutoreleasedRenderPipelineReflection = MTLRenderPipelineReflection
 typealias MTLAutoreleasedComputePipelineReflection = MTLComputePipelineReflection
-typealias MTLNewLibraryCompletionHandler = (MTLLibrary?, NSError?) -> Void
-typealias MTLNewRenderPipelineStateCompletionHandler = (MTLRenderPipelineState?, NSError?) -> Void
-typealias MTLNewRenderPipelineStateWithReflectionCompletionHandler = (MTLRenderPipelineState?, MTLRenderPipelineReflection?, NSError?) -> Void
-typealias MTLNewComputePipelineStateCompletionHandler = (MTLComputePipelineState?, NSError?) -> Void
-typealias MTLNewComputePipelineStateWithReflectionCompletionHandler = (MTLComputePipelineState?, MTLComputePipelineReflection?, NSError?) -> Void
+typealias MTLNewLibraryCompletionHandler = (MTLLibrary?, Error?) -> Void
+typealias MTLNewRenderPipelineStateCompletionHandler = (MTLRenderPipelineState?, Error?) -> Void
+typealias MTLNewRenderPipelineStateWithReflectionCompletionHandler = (MTLRenderPipelineState?, MTLRenderPipelineReflection?, Error?) -> Void
+typealias MTLNewComputePipelineStateCompletionHandler = (MTLComputePipelineState?, Error?) -> Void
+typealias MTLNewComputePipelineStateWithReflectionCompletionHandler = (MTLComputePipelineState?, MTLComputePipelineReflection?, Error?) -> Void
 
 /*!
  @protocol MTLDevice
  @abstract MTLDevice represents a processor capable of data parallel computations
  */
 @available(iOS 8.0, *)
-protocol MTLDevice : NSObjectProtocol {
+protocol MTLDevice : ObjectProtocol {
 
   /*!
    @property name
@@ -970,12 +970,12 @@ protocol MTLDevice : NSObjectProtocol {
  @abstract All "drawable" objects (such as those coming from CAMetalLayer) are expected to conform to this protocol
  */
 @available(iOS 8.0, *)
-protocol MTLDrawable : NSObjectProtocol {
+protocol MTLDrawable : ObjectProtocol {
   func present()
   func presentAtTime(presentationTime: CFTimeInterval)
 }
 @available(iOS 8.0, *)
-class MTLVertexAttribute : NSObject {
+class MTLVertexAttribute : Object {
   var name: String? { get }
   var attributeIndex: Int { get }
   @available(iOS 8.3, *)
@@ -1013,7 +1013,7 @@ enum MTLFunctionType : UInt {
  @discussion MTLFunction is a single vertex shader, fragment shader, or compute function.  A Function can only be used with the device that it was created against.
 */
 @available(iOS 8.0, *)
-protocol MTLFunction : NSObjectProtocol {
+protocol MTLFunction : ObjectProtocol {
 
   /*!
    @property device
@@ -1043,14 +1043,14 @@ enum MTLLanguageVersion : UInt {
   case Version1_1
 }
 @available(iOS 8.0, *)
-class MTLCompileOptions : NSObject, NSCopying {
+class MTLCompileOptions : Object, Copying {
 
   /*!
    @property preprocessorNames
    @abstract List of preprocessor macros to consider to when compiling this program. Specified as key value pairs, using a NSDictionary. The keys must be NSString objects and values can be either NSString or NSNumber objects.
    @discussion The default value is nil.
    */
-  var preprocessorMacros: [String : NSObject]?
+  var preprocessorMacros: [String : Object]?
 
   /*!
    @property fastMathEnabled
@@ -1066,7 +1066,7 @@ class MTLCompileOptions : NSObject, NSCopying {
   var languageVersion: MTLLanguageVersion
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -1104,7 +1104,7 @@ enum MTLRenderPipelineError : UInt {
   case InvalidInput
 }
 @available(iOS 8.0, *)
-protocol MTLLibrary : NSObjectProtocol {
+protocol MTLLibrary : ObjectProtocol {
 
   /*!
    @property label
@@ -1755,7 +1755,7 @@ struct MTLClearColor {
   init(red: Double, green: Double, blue: Double, alpha: Double)
 }
 @available(iOS 8.0, *)
-class MTLRenderPassAttachmentDescriptor : NSObject, NSCopying {
+class MTLRenderPassAttachmentDescriptor : Object, Copying {
 
   /*!
    @property texture
@@ -1821,7 +1821,7 @@ class MTLRenderPassAttachmentDescriptor : NSObject, NSCopying {
   var storeAction: MTLStoreAction
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class MTLRenderPassColorAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {
@@ -1874,7 +1874,7 @@ class MTLRenderPassStencilAttachmentDescriptor : MTLRenderPassAttachmentDescript
   init()
 }
 @available(iOS 8.0, *)
-class MTLRenderPassColorAttachmentDescriptorArray : NSObject {
+class MTLRenderPassColorAttachmentDescriptorArray : Object {
   subscript (attachmentIndex: Int) -> MTLRenderPassColorAttachmentDescriptor!
   init()
 }
@@ -1884,7 +1884,7 @@ class MTLRenderPassColorAttachmentDescriptorArray : NSObject {
  @abstract MTLRenderPassDescriptor represents a collection of attachments to be used to create a concrete render command encoder
  */
 @available(iOS 8.0, *)
-class MTLRenderPassDescriptor : NSObject, NSCopying {
+class MTLRenderPassDescriptor : Object, Copying {
   var colorAttachments: MTLRenderPassColorAttachmentDescriptorArray { get }
   @NSCopying var depthAttachment: MTLRenderPassDepthAttachmentDescriptor!
   @NSCopying var stencilAttachment: MTLRenderPassStencilAttachmentDescriptor!
@@ -1896,7 +1896,7 @@ class MTLRenderPassDescriptor : NSObject, NSCopying {
   var visibilityResultBuffer: MTLBuffer?
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 func MTLClearColorMake(red: Double, _ green: Double, _ blue: Double, _ alpha: Double) -> MTLClearColor
 @available(iOS 8.0, *)
@@ -1941,7 +1941,7 @@ struct MTLColorWriteMask : OptionSetType {
   static var All: MTLColorWriteMask { get }
 }
 @available(iOS 8.0, *)
-class MTLRenderPipelineColorAttachmentDescriptor : NSObject, NSCopying {
+class MTLRenderPipelineColorAttachmentDescriptor : Object, Copying {
 
   /*! Pixel format.  Defaults to MTLPixelFormatInvalid */
   var pixelFormat: MTLPixelFormat
@@ -1971,16 +1971,16 @@ class MTLRenderPipelineColorAttachmentDescriptor : NSObject, NSCopying {
   var writeMask: MTLColorWriteMask
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
-class MTLRenderPipelineReflection : NSObject {
+class MTLRenderPipelineReflection : Object {
   var vertexArguments: [MTLArgument]? { get }
   var fragmentArguments: [MTLArgument]? { get }
   init()
 }
 @available(iOS 8.0, *)
-class MTLRenderPipelineDescriptor : NSObject, NSCopying {
+class MTLRenderPipelineDescriptor : Object, Copying {
   var label: String?
   var vertexFunction: MTLFunction?
   var fragmentFunction: MTLFunction?
@@ -2000,7 +2000,7 @@ class MTLRenderPipelineDescriptor : NSObject, NSCopying {
   func reset()
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -2010,12 +2010,12 @@ class MTLRenderPipelineDescriptor : NSObject, NSCopying {
  @discussion MTLRenderPipelineState is a compiled render pipeline and can be set on a MTLRenderCommandEncoder.
  */
 @available(iOS 8.0, *)
-protocol MTLRenderPipelineState : NSObjectProtocol {
+protocol MTLRenderPipelineState : ObjectProtocol {
   var label: String? { get }
   var device: MTLDevice { get }
 }
 @available(iOS 8.0, *)
-class MTLRenderPipelineColorAttachmentDescriptorArray : NSObject {
+class MTLRenderPipelineColorAttachmentDescriptorArray : Object {
   subscript (attachmentIndex: Int) -> MTLRenderPipelineColorAttachmentDescriptor!
   init()
 }
@@ -2114,7 +2114,7 @@ struct MTLResourceOptions : OptionSetType {
  @abstract Common APIs available for MTLBuffer and MTLTexture instances
  */
 @available(iOS 8.0, *)
-protocol MTLResource : NSObjectProtocol {
+protocol MTLResource : ObjectProtocol {
 
   /*!
    @property label
@@ -2218,7 +2218,7 @@ enum MTLSamplerAddressMode : UInt {
  @abstract A mutable descriptor used to configure a sampler.  When complete, this can be used to create an immutable MTLSamplerState.
  */
 @available(iOS 8.0, *)
-class MTLSamplerDescriptor : NSObject, NSCopying {
+class MTLSamplerDescriptor : Object, Copying {
 
   /*!
    @property minFilter
@@ -2309,7 +2309,7 @@ class MTLSamplerDescriptor : NSObject, NSCopying {
   var label: String?
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -2317,7 +2317,7 @@ class MTLSamplerDescriptor : NSObject, NSCopying {
  @abstract An immutable collection of sampler state compiled for a single device.
  */
 @available(iOS 8.0, *)
-protocol MTLSamplerState : NSObjectProtocol {
+protocol MTLSamplerState : ObjectProtocol {
 
   /*!
    @property label
@@ -2370,7 +2370,7 @@ struct MTLTextureUsage : OptionSetType {
  @discussion Header file for MTLBuffer
  */
 @available(iOS 8.0, *)
-class MTLTextureDescriptor : NSObject, NSCopying {
+class MTLTextureDescriptor : Object, Copying {
 
   /*!
    @method texture2DDescriptorWithPixelFormat:width:height:mipmapped:
@@ -2465,7 +2465,7 @@ class MTLTextureDescriptor : NSObject, NSCopying {
   var usage: MTLTextureUsage
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -2724,39 +2724,39 @@ enum MTLVertexStepFunction : UInt {
   case PerInstance
 }
 @available(iOS 8.0, *)
-class MTLVertexBufferLayoutDescriptor : NSObject, NSCopying {
+class MTLVertexBufferLayoutDescriptor : Object, Copying {
   var stride: Int
   var stepFunction: MTLVertexStepFunction
   var stepRate: Int
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
-class MTLVertexBufferLayoutDescriptorArray : NSObject {
+class MTLVertexBufferLayoutDescriptorArray : Object {
   subscript (index: Int) -> MTLVertexBufferLayoutDescriptor!
   init()
 }
 @available(iOS 8.0, *)
-class MTLVertexAttributeDescriptor : NSObject, NSCopying {
+class MTLVertexAttributeDescriptor : Object, Copying {
   var format: MTLVertexFormat
   var offset: Int
   var bufferIndex: Int
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
-class MTLVertexAttributeDescriptorArray : NSObject {
+class MTLVertexAttributeDescriptorArray : Object {
   subscript (index: Int) -> MTLVertexAttributeDescriptor!
   init()
 }
 @available(iOS 8.0, *)
-class MTLVertexDescriptor : NSObject, NSCopying {
+class MTLVertexDescriptor : Object, Copying {
   var layouts: MTLVertexBufferLayoutDescriptorArray { get }
   var attributes: MTLVertexAttributeDescriptorArray { get }
   func reset()
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }

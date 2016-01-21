@@ -26,7 +26,7 @@ enum AVKitError : Int {
 	@abstract	AVPictureInPictureController is a subclass of NSObject that can be used to present the contents of an AVPlayerLayer floating on top of applications.
  */
 @available(iOS 9.0, *)
-class AVPictureInPictureController : NSObject {
+class AVPictureInPictureController : Object {
 
   /*!
   	@method		isPictureInPictureSupported
@@ -95,7 +95,7 @@ class AVPictureInPictureController : NSObject {
 	@protocol	AVPictureInPictureControllerDelegate
 	@abstract	A protocol for delegates of AVPictureInPictureController.
  */
-protocol AVPictureInPictureControllerDelegate : NSObjectProtocol {
+protocol AVPictureInPictureControllerDelegate : ObjectProtocol {
 
   /*!
   	@method		pictureInPictureControllerWillStartPictureInPicture:
@@ -124,7 +124,7 @@ protocol AVPictureInPictureControllerDelegate : NSObjectProtocol {
   	@abstract	Delegate can implement this method to be notified when Picture in Picture failed to start.
    */
   @available(iOS 9.0, *)
-  optional func pictureInPictureController(pictureInPictureController: AVPictureInPictureController, failedToStartPictureInPictureWithError error: NSError)
+  optional func pictureInPictureController(pictureInPictureController: AVPictureInPictureController, failedToStartPictureInPictureWithError error: Error)
 
   /*!
   	@method		pictureInPictureControllerWillStopPictureInPicture:
@@ -210,8 +210,8 @@ class AVPlayerViewController : UIViewController {
    */
   @available(iOS 9.0, *)
   weak var delegate: @sil_weak AVPlayerViewControllerDelegate?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 
@@ -219,7 +219,7 @@ class AVPlayerViewController : UIViewController {
 	@protocol	AVPlayerViewControllerDelegate
 	@abstract	A protocol for delegates of AVPlayerViewController.
  */
-protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
+protocol AVPlayerViewControllerDelegate : ObjectProtocol {
 
   /*!
   	@method		playerViewControllerWillStartPictureInPicture:
@@ -248,7 +248,7 @@ protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   	@abstract	Delegate can implement this method to be notified when Picture in Picture failed to start.
    */
   @available(iOS 8.0, *)
-  optional func playerViewController(playerViewController: AVPlayerViewController, failedToStartPictureInPictureWithError error: NSError)
+  optional func playerViewController(playerViewController: AVPlayerViewController, failedToStartPictureInPictureWithError error: Error)
 
   /*!
   	@method		playerViewControllerWillStopPictureInPicture:

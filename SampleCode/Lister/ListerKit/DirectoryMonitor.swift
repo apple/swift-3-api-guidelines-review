@@ -29,10 +29,10 @@ class DirectoryMonitor {
     var directoryMonitorSource: dispatch_source_t?
     
     /// URL for the directory being monitored.
-    var URL: NSURL
+    var URL: URL
     
     // MARK: Initializers
-    init(URL: NSURL) {
+    init(URL: URL) {
         self.URL = URL
     }
     

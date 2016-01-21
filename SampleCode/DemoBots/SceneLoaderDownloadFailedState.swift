@@ -28,7 +28,7 @@ class SceneLoaderDownloadFailedState: GKState {
         sceneLoader.progress = nil
 
         // Notify any interested objects that the download has failed.
-        NSNotificationCenter.defaultCenter().postNotificationName(SceneLoaderDidFailNotification, object: sceneLoader)
+        NotificationCenter.defaultCenter().postNotificationName(SceneLoaderDidFailNotification, object: sceneLoader)
     }
     
     override func isValidNextState(stateClass: AnyClass) -> Bool {

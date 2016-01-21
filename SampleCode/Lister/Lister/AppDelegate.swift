@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // MARK: Properties
         
         var type: String {
-            return NSBundle.main().bundleIdentifier! + ".\(self.rawValue)"
+            return Bundle.main().bundleIdentifier! + ".\(self.rawValue)"
         }
     }
 
@@ -78,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     // MARK: UIApplicationDelegate
     
-    func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [Object : AnyObject]?) -> Bool {
         let appConfiguration = AppConfiguration.sharedConfiguration
         if appConfiguration.isCloudAvailable {
             /*
@@ -87,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             */
             dispatch_async(appDelegateQueue) {
                 // The initial call extends the sandbox. No need to capture the URL.
-                NSFileManager.defaultManager().urlForUbiquityContainerIdentifier(nil)
+                FileManager.defaultManager().urlForUbiquityContainerIdentifier(nil)
                 
                 return
             }
@@ -96,9 +96,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         return true
     }
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [Object: AnyObject]?) -> Bool {
         // Observe changes to the user's iCloud account status (account changed, logged out, etc...).
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleUbiquityIdentityDidChangeNotification:", name: NSUbiquityIdentityDidChangeNotification, object: nil)
+        NotificationCenter.defaultCenter().addObserver(self, selector: "handleUbiquityIdentityDidChangeNotification:", name: ubiquityIdentityDidChangeNotification, object: nil)
         
         // Provide default lists from the app's bundle on first launch.
         AppConfiguration.sharedConfiguration.runHandlerOnFirstLaunch {
@@ -142,7 +142,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         }
     }
     
-    func application(_: UIApplication, continue userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+    func application(_: UIApplication, continue userActivity: UserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
         // Lister only supports a single user activity type; if you support more than one the type is available from the `continueUserActivity` parameter.
         if let listDocumentsViewController = listDocumentsViewController {
             // Make sure that user activity continuation occurs after the app sandbox is extended. See `application(_:, willFinishLaunchingWithOptions:)` above.
@@ -156,7 +156,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         return false
     }
     
-    func application(application: UIApplication, open url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+    func application(application: UIApplication, open url: URL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         // Lister currently only opens URLs of the Lister scheme type.
         if url.scheme == AppConfiguration.ListerScheme.name {
             // Obtain an app launch context from the provided lister:// URL and configure the view controller with it.
@@ -238,7 +238,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     // MARK: Notifications
     
-    func handleUbiquityIdentityDidChangeNotification(notification: NSNotification) {
+    func handleUbiquityIdentityDidChangeNotification(notification: Notification) {
         primaryViewController.popToRootViewControllerAnimated(true)
         
         setupUserStoragePreferences()

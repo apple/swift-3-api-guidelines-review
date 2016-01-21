@@ -71,7 +71,7 @@ class BeamNode: SKNode, ResourceLoadableType {
         self.addChild(debugNode)
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: Coder) {
         fatalError("init(coder:) has not been implemented")
     }
     

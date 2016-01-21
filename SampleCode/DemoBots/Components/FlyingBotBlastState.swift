@@ -24,7 +24,7 @@ class FlyingBotBlastState: GKState {
     var currentEmitterNode: SKEmitterNode?
 
     /// The amount of time the `TaskBot` has been in the "blast" state.
-    var elapsedTime: NSTimeInterval = 0.0
+    var elapsedTime: TimeInterval = 0.0
 
     /// The `AnimationComponent` associated with the `entity`.
     var animationComponent: AnimationComponent {
@@ -84,7 +84,7 @@ class FlyingBotBlastState: GKState {
         animationComponent.requestedAnimationState = .Attack
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func updateWithDeltaTime(seconds: TimeInterval) {
         super.updateWithDeltaTime(seconds)
         
         // Check if the `FlyingBot` has reached the end of its blast duration.
@@ -166,7 +166,7 @@ class FlyingBotBlastState: GKState {
     }
     
     /// Performs a "bad" blast that removes charge from the `PlayerBot` and turns "good" `TaskBot`s "bad".
-    func performBadBlastWithDeltaTime(seconds: NSTimeInterval) {
+    func performBadBlastWithDeltaTime(seconds: TimeInterval) {
         // Calculate how much charge `PlayerBot`s should lose if hit by this application of the blast attack.
         let chargeToLose = GameplayConfiguration.FlyingBot.blastChargeLossPerSecond * seconds
         

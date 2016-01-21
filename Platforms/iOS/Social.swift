@@ -10,15 +10,15 @@ class SLComposeServiceViewController : UIViewController, UITextViewDelegate {
   func cancel()
   func isContentValid() -> Bool
   func validateContent()
-  var charactersRemaining: NSNumber!
+  var charactersRemaining: Number!
   func configurationItems() -> [AnyObject]!
   func reloadConfigurationItems()
   func pushConfigurationViewController(viewController: UIViewController!)
   func popConfigurationViewController()
   func loadPreviewView() -> UIView!
   var autoCompletionViewController: UIViewController!
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
   @available(iOS 8.0, *)
   func textViewShouldBeginEditing(textView: UITextView) -> Bool
@@ -35,7 +35,7 @@ class SLComposeServiceViewController : UIViewController, UITextViewDelegate {
   @available(iOS 8.0, *)
   func textViewDidChangeSelection(textView: UITextView)
   @available(iOS 7.0, *)
-  func textView(textView: UITextView, shouldInteractWith URL: NSURL, in characterRange: NSRange) -> Bool
+  func textView(textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool
   @available(iOS 7.0, *)
   func textView(textView: UITextView, shouldInteractWith textAttachment: NSTextAttachment, in characterRange: NSRange) -> Bool
   @available(iOS 8.0, *)
@@ -67,7 +67,7 @@ class SLComposeServiceViewController : UIViewController, UITextViewDelegate {
 }
 typealias SLComposeSheetConfigurationItemTapHandler = () -> Void
 @available(iOS 8.0, *)
-class SLComposeSheetConfigurationItem : NSObject {
+class SLComposeSheetConfigurationItem : Object {
   init!()
   var title: String!
   var value: String!
@@ -89,11 +89,11 @@ class SLComposeViewController : UIViewController {
   func setInitialText(text: String!) -> Bool
   func add(image: UIImage!) -> Bool
   func removeAllImages() -> Bool
-  func add(url: NSURL!) -> Bool
+  func add(url: URL!) -> Bool
   func removeAllURLs() -> Bool
   var completionHandler: SLComposeViewControllerCompletionHandler!
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 enum SLRequestMethod : Int {
@@ -104,15 +104,15 @@ enum SLRequestMethod : Int {
   case DELETE
   case PUT
 }
-typealias SLRequestHandler = (NSData!, NSHTTPURLResponse!, NSError!) -> Void
+typealias SLRequestHandler = (Data!, HTTPURLResponse!, Error!) -> Void
 @available(iOS 6.0, *)
-class SLRequest : NSObject {
-  /*not inherited*/ init!(forServiceType serviceType: String!, requestMethod: SLRequestMethod, url: NSURL!, parameters: [NSObject : AnyObject]!)
+class SLRequest : Object {
+  /*not inherited*/ init!(forServiceType serviceType: String!, requestMethod: SLRequestMethod, url: URL!, parameters: [Object : AnyObject]!)
   var requestMethod: SLRequestMethod { get }
-  var url: NSURL! { get }
-  var parameters: [NSObject : AnyObject]! { get }
-  func addMultipartData(data: NSData!, withName name: String!, type: String!, filename: String!)
-  func preparedURLRequest() -> NSURLRequest!
+  var url: URL! { get }
+  var parameters: [Object : AnyObject]! { get }
+  func addMultipartData(data: Data!, withName name: String!, type: String!, filename: String!)
+  func preparedURLRequest() -> URLRequest!
   func performWithHandler(handler: SLRequestHandler!)
   init()
 }

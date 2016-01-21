@@ -20,11 +20,11 @@ class EKCalendarChooser : UIViewController {
   var showsDoneButton: Bool
   var showsCancelButton: Bool
   var selectedCalendars: Set<EKCalendar>
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
-protocol EKCalendarChooserDelegate : NSObjectProtocol {
+protocol EKCalendarChooserDelegate : ObjectProtocol {
   @available(iOS 5.0, *)
   optional func calendarChooserSelectionDidChange(calendarChooser: EKCalendarChooser)
   @available(iOS 5.0, *)
@@ -81,8 +81,8 @@ class EKEventEditViewController : UINavigationController {
   @available(iOS 5.0, *)
   init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
   init(rootViewController: UIViewController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 
@@ -90,7 +90,7 @@ class EKEventEditViewController : UINavigationController {
     @enum       EKEventEditViewDelegate
     @abstract   Delegate protocol for event edit view controller.
 */
-protocol EKEventEditViewDelegate : NSObjectProtocol {
+protocol EKEventEditViewDelegate : ObjectProtocol {
 
   /*!
       @method     eventEditViewController:didCompleteWithAction:
@@ -156,8 +156,8 @@ class EKEventViewController : UIViewController {
                   the event along with their other events for the day.
   */
   var allowsCalendarPreview: Bool
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 
@@ -172,7 +172,7 @@ class EKEventViewController : UIViewController {
                 the underlying event gets deleted, this controller will remove itself from
                 the stack and clear its event property.
 */
-protocol EKEventViewDelegate : NSObjectProtocol {
+protocol EKEventViewDelegate : ObjectProtocol {
 
   /*!
    @method     eventViewController:didCompleteWithAction:

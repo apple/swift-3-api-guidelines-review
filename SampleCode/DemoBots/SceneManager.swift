@@ -85,7 +85,7 @@ final class SceneManager {
             Load the game's `SceneConfiguration` plist. This provides information
             about every scene in the game, and the order in which they should be displayed.
         */
-        let url = NSBundle.main().urlForResource("SceneConfiguration", withExtension: "plist")!
+        let url = Bundle.main().urlForResource("SceneConfiguration", withExtension: "plist")!
         let scenes = NSArray(contentsOf: url) as! [[String: AnyObject]]
         
         /*
@@ -116,7 +116,7 @@ final class SceneManager {
     deinit {
         // Unregister for `SceneLoader` notifications if the observer is still around.
         if let loadingCompletedObserver = loadingCompletedObserver {
-            NSNotificationCenter.defaultCenter().removeObserver(loadingCompletedObserver, name: SceneLoaderDidCompleteNotification, object: nil)
+            NotificationCenter.defaultCenter().removeObserver(loadingCompletedObserver, name: SceneLoaderDidCompleteNotification, object: nil)
         }
     }
     
@@ -269,7 +269,7 @@ final class SceneManager {
         // Avoid reregistering for the notification.
         guard loadingCompletedObserver == nil else { return }
         
-        loadingCompletedObserver = NSNotificationCenter.defaultCenter().addObserverForName(SceneLoaderDidCompleteNotification, object: nil, queue: NSOperationQueue.main()) { [unowned self] notification in
+        loadingCompletedObserver = NotificationCenter.defaultCenter().addObserverForName(SceneLoaderDidCompleteNotification, object: nil, queue: OperationQueue.main()) { [unowned self] notification in
             let sceneLoader = notification.object as! SceneLoader
             
             // Ensure this is a `sceneLoader` managed by this `SceneManager`.

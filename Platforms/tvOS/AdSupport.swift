@@ -1,8 +1,8 @@
 
 @available(tvOS 6.0, *)
-class ASIdentifierManager : NSObject {
+class ASIdentifierManager : Object {
   class func shared() -> ASIdentifierManager!
-  var advertisingIdentifier: NSUUID! { get }
+  var advertisingIdentifier: UUID! { get }
   var isAdvertisingTrackingEnabled: Bool { get }
   init()
 }

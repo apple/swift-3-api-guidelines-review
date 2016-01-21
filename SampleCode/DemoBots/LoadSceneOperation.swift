@@ -9,7 +9,7 @@
 
 import Foundation
 
-class LoadSceneOperation: Operation, NSProgressReporting {
+class LoadSceneOperation: Operation, ProgressReporting {
     // MARK: Properties
     
     /// The metadata for the scene to load.
@@ -19,14 +19,14 @@ class LoadSceneOperation: Operation, NSProgressReporting {
     var scene: BaseScene?
     
     /// Progress used to report on the status of this operation.
-    let progress: NSProgress
+    let progress: Progress
     
     // MARK: Initialization
     
     init(sceneMetadata: SceneMetadata) {
         self.sceneMetadata = sceneMetadata
         
-        progress = NSProgress(totalUnitCount: 1)
+        progress = Progress(totalUnitCount: 1)
         super.init()
     }
     

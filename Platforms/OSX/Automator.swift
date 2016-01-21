@@ -8,10 +8,10 @@ enum AMLogLevel : UInt {
   case Error
 }
 @available(OSX 10.4, *)
-class AMAction : NSObject {
+class AMAction : Object {
   init?(definition dict: [String : AnyObject], fromArchive archived: Bool)
   @available(OSX 10.5, *)
-  init(contentsOf fileURL: NSURL) throws
+  init(contentsOf fileURL: URL) throws
   @available(OSX 10.5, *)
   var name: String { get }
   @available(OSX 10.5, *)
@@ -29,12 +29,12 @@ class AMAction : NSObject {
   @available(OSX 10.5, *)
   func willFinishRunning()
   @available(OSX 10.7, *)
-  func finishRunningWithError(error: NSError?)
+  func finishRunningWithError(error: Error?)
   @available(OSX 10.5, *)
   var output: AnyObject?
   func stop()
   func reset()
-  func writeTo(dictionary: NSMutableDictionary)
+  func writeTo(dictionary: MutableDictionary)
   func opened()
   func activated()
   @available(OSX 10.5, *)
@@ -49,26 +49,26 @@ class AMAppleScriptAction : AMBundleAction {
   var script: OSAScript
   init?(definition dict: [String : AnyObject], fromArchive archived: Bool)
   @available(OSX 10.5, *)
-  init(contentsOf fileURL: NSURL) throws
+  init(contentsOf fileURL: URL) throws
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(OSX 10.4, *)
-class AMBundleAction : AMAction, NSCoding, NSCopying {
+class AMBundleAction : AMAction, Coding, Copying {
   func awakeFromBundle()
   var hasView: Bool { get }
   var view: NSView? { get }
-  var bundle: NSBundle { get }
-  var parameters: NSMutableDictionary?
+  var bundle: Bundle { get }
+  var parameters: MutableDictionary?
   init?(definition dict: [String : AnyObject], fromArchive archived: Bool)
   @available(OSX 10.5, *)
-  init(contentsOf fileURL: NSURL) throws
+  init(contentsOf fileURL: URL) throws
   init()
   @available(OSX 10.4, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.4, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.4, *)
 class AMShellScriptAction : AMBundleAction {
@@ -77,27 +77,27 @@ class AMShellScriptAction : AMBundleAction {
   var outputFieldSeparator: String { get }
   init?(definition dict: [String : AnyObject], fromArchive archived: Bool)
   @available(OSX 10.5, *)
-  init(contentsOf fileURL: NSURL) throws
+  init(contentsOf fileURL: URL) throws
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
-class AMWorkflow : NSObject, NSCopying {
-  class func runAt(fileURL: NSURL, withInput input: AnyObject?) throws -> AnyObject
+class AMWorkflow : Object, Copying {
+  class func runAt(fileURL: URL, withInput input: AnyObject?) throws -> AnyObject
   init()
-  convenience init(contentsOf fileURL: NSURL) throws
-  func writeTo(fileURL: NSURL) throws
+  convenience init(contentsOf fileURL: URL) throws
+  func writeTo(fileURL: URL) throws
   func setValue(value: AnyObject?, forVariableWithName variableName: String) -> Bool
   func valueForVariableWithName(variableName: String) -> AnyObject
   func addAction(action: AMAction)
   func removeAction(action: AMAction)
   func insertAction(action: AMAction, at index: Int)
   func moveActionAt(startIndex: Int, to endIndex: Int)
-  @NSCopying var fileURL: NSURL? { get }
+  @NSCopying var fileURL: URL? { get }
   var actions: [AMAction] { get }
   var input: AnyObject?
   @available(OSX 10.6, *)
   var output: AnyObject? { get }
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 class AMWorkflowController : NSController {
   var workflow: AMWorkflow?
@@ -112,7 +112,7 @@ class AMWorkflowController : NSController {
   @IBAction func step(sender: AnyObject)
   @IBAction func reset(sender: AnyObject)
   init()
-  init?(coder: NSCoder)
+  init?(coder: Coder)
 }
 struct __AMWorkflowControllerFlags {
   var shouldRunLocally: Int
@@ -144,7 +144,7 @@ struct __AMWorkflowControllerDelegateRespondTo {
   init()
   init(workflowControllerDidAddWorkflow: Int, workflowControllerDidRemoveWorkflow: Int, workflowControllerWillRun: Int, workflowControllerWillStep: Int, workflowControllerWillStop: Int, workflowControllerWillPause: Int, workflowControllerDidRun: Int, workflowControllerDidStep: Int, workflowControllerDidStop: Int, workflowControllerDidPause: Int, workflowControllerWillRunAction: Int, workflowControllerDidRunAction: Int, workflowControllerDidError: Int, workflowControllerDidLogMessageOfTypeFromAction: Int, workflowControllerWillRunConversion: Int, workflowControllerDidRunConversion: Int, workflowControllerDidResumeWithAction: Int, reserved: Int)
 }
-extension NSObject {
+extension Object {
   class func workflowControllerWillRun(controller: AMWorkflowController)
   func workflowControllerWillRun(controller: AMWorkflowController)
   class func workflowControllerWillStop(controller: AMWorkflowController)
@@ -157,14 +157,14 @@ extension NSObject {
   func workflowController(controller: AMWorkflowController, willRun action: AMAction)
   class func workflowController(controller: AMWorkflowController, didRun action: AMAction)
   func workflowController(controller: AMWorkflowController, didRun action: AMAction)
-  class func workflowController(controller: AMWorkflowController, didError error: NSError)
-  func workflowController(controller: AMWorkflowController, didError error: NSError)
+  class func workflowController(controller: AMWorkflowController, didError error: Error)
+  func workflowController(controller: AMWorkflowController, didError error: Error)
 }
 class AMWorkflowView : NSView {
   var isEditable: Bool
   var workflowController: AMWorkflowController?
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init(frame frameRect: Rect)
+  init?(coder: Coder)
   convenience init()
 }
 struct __AMWorkflowViewFlags {

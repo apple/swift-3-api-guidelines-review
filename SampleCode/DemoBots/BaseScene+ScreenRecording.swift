@@ -12,7 +12,7 @@ extension BaseScene: RPPreviewViewControllerDelegate, RPScreenRecorderDelegate {
     // MARK: Computed Properties
     
     var screenRecordingToggleEnabled: Bool {
-        return NSUserDefaults.standard().boolForKey(screenRecorderEnabledKey)
+        return UserDefaults.standard().boolForKey(screenRecorderEnabledKey)
     }
     
     // MARK: Start/Stop Screen Recording
@@ -36,7 +36,7 @@ extension BaseScene: RPPreviewViewControllerDelegate, RPScreenRecorderDelegate {
     func stopScreenRecordingWithHandler(handler:(() -> Void)) {
         let sharedRecorder = RPScreenRecorder.shared()
 
-        sharedRecorder.stopRecording { (previewViewController: RPPreviewViewController?, error: NSError?) in
+        sharedRecorder.stopRecording { (previewViewController: RPPreviewViewController?, error: Error?) in
             if let error = error {
                 // If an error has occurred, display an alert to the user.
                 self.showScreenRecordingAlert(error.localizedDescription)
@@ -88,7 +88,7 @@ extension BaseScene: RPPreviewViewControllerDelegate, RPScreenRecorderDelegate {
     
     // MARK: RPScreenRecorderDelegate
     
-    func screenRecorder(screenRecorder: RPScreenRecorder, didStopRecordingWithError error: NSError, previewViewController: RPPreviewViewController?) {
+    func screenRecorder(screenRecorder: RPScreenRecorder, didStopRecordingWithError error: Error, previewViewController: RPPreviewViewController?) {
         // Display the error the user to alert them that the recording failed.
         showScreenRecordingAlert(error.localizedDescription)
         

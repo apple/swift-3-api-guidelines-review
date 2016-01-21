@@ -11,9 +11,9 @@ enum SKDownloadState : Int {
   case Cancelled
 }
 @available(iOS 6.0, *)
-var SKDownloadTimeRemainingUnknown: NSTimeInterval
+var SKDownloadTimeRemainingUnknown: TimeInterval
 @available(iOS 6.0, *)
-class SKDownload : NSObject {
+class SKDownload : Object {
   @available(iOS 6.0, *)
   var downloadState: SKDownloadState { get }
   @available(iOS 6.0, *)
@@ -21,15 +21,15 @@ class SKDownload : NSObject {
   @available(iOS 6.0, *)
   var contentIdentifier: String { get }
   @available(iOS 6.0, *)
-  var contentURL: NSURL? { get }
+  var contentURL: URL? { get }
   @available(iOS 6.0, *)
   var contentVersion: String { get }
   @available(iOS 6.0, *)
-  var error: NSError? { get }
+  var error: Error? { get }
   @available(iOS 6.0, *)
   var progress: Float { get }
   @available(iOS 6.0, *)
-  var timeRemaining: NSTimeInterval { get }
+  var timeRemaining: TimeInterval { get }
   @available(iOS 6.0, *)
   var transaction: SKPaymentTransaction { get }
   init()
@@ -43,13 +43,13 @@ var SKErrorPaymentInvalid: Int { get }
 var SKErrorPaymentNotAllowed: Int { get }
 var SKErrorStoreProductNotAvailable: Int { get }
 @available(iOS 3.0, *)
-class SKPayment : NSObject, NSCopying, NSMutableCopying {
+class SKPayment : Object, Copying, MutableCopying {
   @available(iOS 3.0, *)
   convenience init(product: SKProduct)
   @available(iOS 3.0, *)
   var productIdentifier: String { get }
   @available(iOS 3.0, *)
-  @NSCopying var requestData: NSData? { get }
+  @NSCopying var requestData: Data? { get }
   @available(iOS 3.0, *)
   var quantity: Int { get }
   @available(iOS 7.0, *)
@@ -58,9 +58,9 @@ class SKPayment : NSObject, NSCopying, NSMutableCopying {
   var simulatesAskToBuyInSandbox: Bool { get }
   init()
   @available(iOS 3.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 3.0, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 3.0, *)
 class SKMutablePayment : SKPayment {
@@ -71,7 +71,7 @@ class SKMutablePayment : SKPayment {
   @available(iOS 3.0, *)
   var quantity: Int
   @available(iOS 3.0, *)
-  @NSCopying var requestData: NSData?
+  @NSCopying var requestData: Data?
   @available(iOS 8.3, *)
   var simulatesAskToBuyInSandbox: Bool
   @available(iOS 3.0, *)
@@ -79,7 +79,7 @@ class SKMutablePayment : SKPayment {
   init()
 }
 @available(iOS 3.0, *)
-class SKPaymentQueue : NSObject {
+class SKPaymentQueue : Object {
   @available(iOS 3.0, *)
   class func defaultQueue() -> Self
   @available(iOS 3.0, *)
@@ -108,13 +108,13 @@ class SKPaymentQueue : NSObject {
   var transactions: [SKPaymentTransaction] { get }
   init()
 }
-protocol SKPaymentTransactionObserver : NSObjectProtocol {
+protocol SKPaymentTransactionObserver : ObjectProtocol {
   @available(iOS 3.0, *)
   func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction])
   @available(iOS 3.0, *)
   optional func paymentQueue(queue: SKPaymentQueue, removedTransactions transactions: [SKPaymentTransaction])
   @available(iOS 3.0, *)
-  optional func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: NSError)
+  optional func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error)
   @available(iOS 3.0, *)
   optional func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue)
   @available(iOS 6.0, *)
@@ -132,9 +132,9 @@ enum SKPaymentTransactionState : Int {
   case Deferred
 }
 @available(iOS 3.0, *)
-class SKPaymentTransaction : NSObject {
+class SKPaymentTransaction : Object {
   @available(iOS 3.0, *)
-  var error: NSError? { get }
+  var error: Error? { get }
   @available(iOS 3.0, *)
   var original: SKPaymentTransaction? { get }
   @available(iOS 3.0, *)
@@ -142,7 +142,7 @@ class SKPaymentTransaction : NSObject {
   @available(iOS 6.0, *)
   var downloads: [SKDownload] { get }
   @available(iOS 3.0, *)
-  var transactionDate: NSDate? { get }
+  var transactionDate: Date? { get }
   @available(iOS 3.0, *)
   var transactionIdentifier: String? { get }
   @available(iOS 3.0, *)
@@ -150,21 +150,21 @@ class SKPaymentTransaction : NSObject {
   init()
 }
 @available(iOS 3.0, *)
-class SKProduct : NSObject {
+class SKProduct : Object {
   @available(iOS 3.0, *)
   var localizedDescription: String { get }
   @available(iOS 3.0, *)
   var localizedTitle: String { get }
   @available(iOS 3.0, *)
-  var price: NSDecimalNumber { get }
+  var price: DecimalNumber { get }
   @available(iOS 3.0, *)
-  var priceLocale: NSLocale { get }
+  var priceLocale: Locale { get }
   @available(iOS 3.0, *)
   var productIdentifier: String { get }
   @available(iOS 6.0, *)
   var isDownloadable: Bool { get }
   @available(iOS 6.0, *)
-  var downloadContentLengths: [NSNumber] { get }
+  var downloadContentLengths: [Number] { get }
   @available(iOS 6.0, *)
   var downloadContentVersion: String { get }
   init()
@@ -182,7 +182,7 @@ class SKProductsRequest : SKRequest {
   init()
 }
 @available(iOS 3.0, *)
-class SKProductsResponse : NSObject {
+class SKProductsResponse : Object {
   @available(iOS 3.0, *)
   var products: [SKProduct] { get }
   @available(iOS 3.0, *)
@@ -206,7 +206,7 @@ let SKReceiptPropertyIsRevoked: String
 @available(iOS 7.0, *)
 let SKReceiptPropertyIsVolumePurchase: String
 @available(iOS 3.0, *)
-class SKRequest : NSObject {
+class SKRequest : Object {
   @available(iOS 3.0, *)
   unowned(unsafe) var delegate: @sil_unmanaged SKRequestDelegate?
   @available(iOS 3.0, *)
@@ -215,23 +215,23 @@ class SKRequest : NSObject {
   func start()
   init()
 }
-protocol SKRequestDelegate : NSObjectProtocol {
+protocol SKRequestDelegate : ObjectProtocol {
   @available(iOS 3.0, *)
   optional func requestDidFinish(request: SKRequest)
   @available(iOS 3.0, *)
-  optional func request(request: SKRequest, didFailWithError error: NSError)
+  optional func request(request: SKRequest, didFailWithError error: Error)
 }
 @available(iOS 6.0, *)
 class SKStoreProductViewController : UIViewController {
   @available(iOS 6.0, *)
   unowned(unsafe) var delegate: @sil_unmanaged SKStoreProductViewControllerDelegate?
   @available(iOS 6.0, *)
-  func loadProductWithParameters(parameters: [String : AnyObject], completionBlock block: ((Bool, NSError?) -> Void)? = nil)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  func loadProductWithParameters(parameters: [String : AnyObject], completionBlock block: ((Bool, Error?) -> Void)? = nil)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
-protocol SKStoreProductViewControllerDelegate : NSObjectProtocol {
+protocol SKStoreProductViewControllerDelegate : ObjectProtocol {
   @available(iOS 6.0, *)
   optional func productViewControllerDidFinish(viewController: SKStoreProductViewController)
 }

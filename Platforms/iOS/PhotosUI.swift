@@ -1,5 +1,5 @@
 
-protocol PHContentEditingController : NSObjectProtocol {
+protocol PHContentEditingController : ObjectProtocol {
   @available(iOS 8.0, *)
   func canHandle(adjustmentData: PHAdjustmentData!) -> Bool
   @available(iOS 8.0, *)
@@ -46,10 +46,10 @@ class PHLivePhotoView : UIView {
   func startPlaybackWith(playbackStyle: PHLivePhotoViewPlaybackStyle)
   func stopPlayback()
   init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
-protocol PHLivePhotoViewDelegate : NSObjectProtocol {
+protocol PHLivePhotoViewDelegate : ObjectProtocol {
   @available(iOS 9.1, *)
   optional func livePhotoView(livePhotoView: PHLivePhotoView, willBeginPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle)
   @available(iOS 9.1, *)

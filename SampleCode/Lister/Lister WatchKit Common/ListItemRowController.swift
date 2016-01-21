@@ -9,13 +9,13 @@
 import WatchKit
 
 /// An empty row controller that is displayed when there are no list items in a list.
-class NoItemsRowController: NSObject {}
+class NoItemsRowController: Object {}
 
 /**
     A row controller that represents a `ListItem` object. The `ListItemRowController` is used by the
     `ListInterfaceController`.
 */
-class ListItemRowController: NSObject {
+class ListItemRowController: Object {
     // MARK: Properties
     
     @IBOutlet weak var textLabel: WKInterfaceLabel!

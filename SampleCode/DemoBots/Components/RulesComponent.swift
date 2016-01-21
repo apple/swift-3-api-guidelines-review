@@ -21,7 +21,7 @@ class RulesComponent: GKComponent {
     var ruleSystem: GKRuleSystem
     
     /// The amount of time that has passed since the `TaskBot` last evaluated its rules.
-    private var timeSinceRulesUpdate: NSTimeInterval = 0.0
+    private var timeSinceRulesUpdate: TimeInterval = 0.0
     
     // MARK: Initializers
     
@@ -36,7 +36,7 @@ class RulesComponent: GKComponent {
     
     // MARK: GKComponent Life Cycle
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func updateWithDeltaTime(seconds: TimeInterval) {
         timeSinceRulesUpdate += seconds
         
         if timeSinceRulesUpdate < GameplayConfiguration.TaskBot.rulesUpdateWaitDuration { return }

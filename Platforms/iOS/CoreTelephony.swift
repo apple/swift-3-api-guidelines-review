@@ -8,7 +8,7 @@ let CTCallStateConnected: String
 @available(iOS 4.0, *)
 let CTCallStateDisconnected: String
 @available(iOS 4.0, *)
-class CTCall : NSObject {
+class CTCall : Object {
   @available(iOS 4.0, *)
   var callState: String { get }
   @available(iOS 4.0, *)
@@ -16,7 +16,7 @@ class CTCall : NSObject {
   init()
 }
 @available(iOS 4.0, *)
-class CTCallCenter : NSObject {
+class CTCallCenter : Object {
   @available(iOS 4.0, *)
   var currentCalls: Set<CTCall>? { get }
   @available(iOS 4.0, *)
@@ -24,7 +24,7 @@ class CTCallCenter : NSObject {
   init()
 }
 @available(iOS 4.0, *)
-class CTCarrier : NSObject {
+class CTCarrier : Object {
   @available(iOS 4.0, *)
   var carrierName: String? { get }
   @available(iOS 4.0, *)
@@ -46,7 +46,7 @@ enum CTCellularDataRestrictedState : UInt {
 }
 typealias CellularDataRestrictionDidUpdateNotifier = (CTCellularDataRestrictedState) -> Void
 @available(iOS 9.0, *)
-class CTCellularData : NSObject {
+class CTCellularData : Object {
   @available(iOS 9.0, *)
   var cellularDataRestrictionDidUpdateNotifier: CellularDataRestrictionDidUpdateNotifier?
   @available(iOS 9.0, *)
@@ -56,13 +56,13 @@ class CTCellularData : NSObject {
 @available(iOS 7.0, *)
 let CTSubscriberTokenRefreshed: String
 @available(iOS 7.0, *)
-class CTSubscriber : NSObject {
+class CTSubscriber : Object {
   @available(iOS 7.0, *)
-  var carrierToken: NSData? { get }
+  var carrierToken: Data? { get }
   init()
 }
 @available(iOS 6.0, *)
-class CTSubscriberInfo : NSObject {
+class CTSubscriberInfo : Object {
   class func subscriber() -> CTSubscriber
   init()
 }
@@ -91,7 +91,7 @@ let CTRadioAccessTechnologyeHRPD: String
 @available(iOS 7.0, *)
 let CTRadioAccessTechnologyLTE: String
 @available(iOS 4.0, *)
-class CTTelephonyNetworkInfo : NSObject {
+class CTTelephonyNetworkInfo : Object {
   @available(iOS 4.0, *)
   var subscriberCellularProvider: CTCarrier? { get }
   @available(iOS 4.0, *)

@@ -47,7 +47,7 @@ class PlayerBotPlayerControlledState: GKState {
         inputComponent.isEnabled = true
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func updateWithDeltaTime(seconds: TimeInterval) {
         super.updateWithDeltaTime(seconds)
         
         /*

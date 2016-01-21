@@ -10,7 +10,7 @@ class CLCircularRegion : CLRegion {
   @available(OSX, introduced=10.7, deprecated=10.10)
   init(circularRegionWithCenter center: CLLocationCoordinate2D, radius: CLLocationDistance, identifier: String)
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 enum CLError : Int {
   init?(rawValue: Int)
@@ -42,12 +42,12 @@ extension CLError : _BridgedNSError {
 @available(OSX 10.7, *)
 let kCLErrorUserInfoAlternateRegionKey: String
 let kCLErrorDomain: String
-typealias CLGeocodeCompletionHandler = ([CLPlacemark]?, NSError?) -> Void
+typealias CLGeocodeCompletionHandler = ([CLPlacemark]?, Error?) -> Void
 @available(OSX 10.8, *)
-class CLGeocoder : NSObject {
+class CLGeocoder : Object {
   var isGeocoding: Bool { get }
   func reverseGeocodeLocation(location: CLLocation, completionHandler: CLGeocodeCompletionHandler)
-  func geocodeAddressDictionary(addressDictionary: [NSObject : AnyObject], completionHandler: CLGeocodeCompletionHandler)
+  func geocodeAddressDictionary(addressDictionary: [Object : AnyObject], completionHandler: CLGeocodeCompletionHandler)
   func geocodeAddressString(addressString: String, completionHandler: CLGeocodeCompletionHandler)
   func geocodeAddressString(addressString: String, in region: CLRegion?, completionHandler: CLGeocodeCompletionHandler)
   func cancelGeocode()
@@ -56,23 +56,23 @@ class CLGeocoder : NSObject {
 typealias CLHeadingComponentValue = Double
 let kCLHeadingFilterNone: CLLocationDegrees
 @available(OSX 10.7, *)
-class CLHeading : NSObject, NSCopying, NSSecureCoding {
+class CLHeading : Object, Copying, SecureCoding {
   var magneticHeading: CLLocationDirection { get }
   var trueHeading: CLLocationDirection { get }
   var headingAccuracy: CLLocationDirection { get }
   var x: CLHeadingComponentValue { get }
   var y: CLHeadingComponentValue { get }
   var z: CLHeadingComponentValue { get }
-  @NSCopying var timestamp: NSDate { get }
+  @NSCopying var timestamp: Date { get }
   var description: String { get }
   init()
   @available(OSX 10.7, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.7, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 typealias CLLocationDegrees = Double
 typealias CLLocationAccuracy = Double
@@ -100,11 +100,11 @@ func CLLocationCoordinate2DIsValid(coord: CLLocationCoordinate2D) -> Bool
 @available(OSX 10.7, *)
 func CLLocationCoordinate2DMake(latitude: CLLocationDegrees, _ longitude: CLLocationDegrees) -> CLLocationCoordinate2D
 @available(OSX 10.6, *)
-class CLLocation : NSObject, NSCopying, NSSecureCoding {
+class CLLocation : Object, Copying, SecureCoding {
   init(latitude: CLLocationDegrees, longitude: CLLocationDegrees)
-  init(coordinate: CLLocationCoordinate2D, altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, timestamp: NSDate)
+  init(coordinate: CLLocationCoordinate2D, altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, timestamp: Date)
   @available(OSX 10.7, *)
-  init(coordinate: CLLocationCoordinate2D, altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, course: CLLocationDirection, speed: CLLocationSpeed, timestamp: NSDate)
+  init(coordinate: CLLocationCoordinate2D, altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, course: CLLocationDirection, speed: CLLocationSpeed, timestamp: Date)
   var coordinate: CLLocationCoordinate2D { get }
   var altitude: CLLocationDistance { get }
   var horizontalAccuracy: CLLocationAccuracy { get }
@@ -113,18 +113,18 @@ class CLLocation : NSObject, NSCopying, NSSecureCoding {
   var course: CLLocationDirection { get }
   @available(OSX 10.7, *)
   var speed: CLLocationSpeed { get }
-  @NSCopying var timestamp: NSDate { get }
+  @NSCopying var timestamp: Date { get }
   var description: String { get }
   @available(OSX 10.6, *)
   func distanceFrom(location: CLLocation) -> CLLocationDistance
   init()
   @available(OSX 10.6, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.6, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.6, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 enum CLDeviceOrientation : Int32 {
   init?(rawValue: Int32)
@@ -154,7 +154,7 @@ enum CLActivityType : Int {
   case OtherNavigation
 }
 @available(OSX 10.6, *)
-class CLLocationManager : NSObject {
+class CLLocationManager : Object {
   @available(OSX 10.7, *)
   class func locationServicesEnabled() -> Bool
   @available(OSX 10.7, *)
@@ -195,7 +195,7 @@ class CLLocationManager : NSObject {
   class func deferredLocationUpdatesAvailable() -> Bool
   init()
 }
-protocol CLLocationManagerDelegate : NSObjectProtocol {
+protocol CLLocationManagerDelegate : ObjectProtocol {
   @available(OSX 10.6, *)
   optional func locationManager(manager: CLLocationManager, didUpdateTo newLocation: CLLocation, from oldLocation: CLLocation)
   @available(OSX 10.9, *)
@@ -207,24 +207,24 @@ protocol CLLocationManagerDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
   optional func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion)
   @available(OSX 10.6, *)
-  optional func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
+  optional func locationManager(manager: CLLocationManager, didFailWithError error: Error)
   @available(OSX 10.8, *)
-  optional func locationManager(manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: NSError)
+  optional func locationManager(manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error)
   @available(OSX 10.7, *)
   optional func locationManager(manager: CLLocationManager, didChange status: CLAuthorizationStatus)
   @available(OSX 10.8, *)
   optional func locationManager(manager: CLLocationManager, didStartMonitoringFor region: CLRegion)
   @available(OSX 10.9, *)
-  optional func locationManager(manager: CLLocationManager, didFinishDeferredUpdatesWithError error: NSError?)
+  optional func locationManager(manager: CLLocationManager, didFinishDeferredUpdatesWithError error: Error?)
 }
 @available(OSX 10.8, *)
-class CLPlacemark : NSObject, NSCopying, NSSecureCoding {
+class CLPlacemark : Object, Copying, SecureCoding {
   init(placemark: CLPlacemark)
   @NSCopying var location: CLLocation? { get }
   @NSCopying var region: CLRegion? { get }
   @available(OSX 10.11, *)
-  @NSCopying var timeZone: NSTimeZone? { get }
-  var addressDictionary: [NSObject : AnyObject]? { get }
+  @NSCopying var timeZone: TimeZone? { get }
+  var addressDictionary: [Object : AnyObject]? { get }
   var name: String? { get }
   var thoroughfare: String? { get }
   var subThoroughfare: String? { get }
@@ -240,12 +240,12 @@ class CLPlacemark : NSObject, NSCopying, NSSecureCoding {
   var areasOfInterest: [String]? { get }
   init()
   @available(OSX 10.8, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(OSX 10.10, *)
 enum CLRegionState : Int {
@@ -256,7 +256,7 @@ enum CLRegionState : Int {
   case Outside
 }
 @available(OSX 10.7, *)
-class CLRegion : NSObject, NSCopying, NSSecureCoding {
+class CLRegion : Object, Copying, SecureCoding {
   @available(OSX, introduced=10.7, deprecated=10.10)
   init(circularRegionWithCenter center: CLLocationCoordinate2D, radius: CLLocationDistance, identifier: String)
   @available(OSX, introduced=10.7, deprecated=10.10)
@@ -273,10 +273,10 @@ class CLRegion : NSObject, NSCopying, NSSecureCoding {
   func contains(coordinate: CLLocationCoordinate2D) -> Bool
   init()
   @available(OSX 10.7, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.7, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }

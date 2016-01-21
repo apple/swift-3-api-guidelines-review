@@ -12,7 +12,7 @@ import ListerKit
 struct AppLaunchContext {
     // MARK: Properties
     
-    let listURL: NSURL
+    let listURL: URL
     
     let listColor: List.Color
     
@@ -24,7 +24,7 @@ struct AppLaunchContext {
         - parameter listURL: The `URL` of the file to launch to.
         - parameter listColor: The `List.Color` of the file to launch to.
     */
-    init(listURL: NSURL, listColor: List.Color) {
+    init(listURL: URL, listColor: List.Color) {
         self.listURL = listURL
         self.listColor = listColor
     }
@@ -35,7 +35,7 @@ struct AppLaunchContext {
         - parameter userActivity: The `userActivity` providing the file URL and list color to launch to.
         - parameter listsController: The `listsController` to be used to derive the `URL` available in the `userActivty`, if necessary.
     */
-    init?(userActivity: NSUserActivity, listsController: ListsController) {
+    init?(userActivity: UserActivity, listsController: ListsController) {
         guard let userInfo = userActivity.userInfo else {
             assertionFailure("User activity provided to \(__FUNCTION__) has no `userInfo` dictionary.")
             return nil
@@ -46,7 +46,7 @@ struct AppLaunchContext {
             `NSUserActivityDocumentURLKey`, if not provided, obtain the path and create a file URL from it.
         */
         
-        var possibleURL = userInfo[NSUserActivityDocumentURLKey] as? NSURL
+        var possibleURL = userInfo[NSUserActivityDocumentURLKey] as? URL
         
         // If `URL` is `nil` the activity is being continued from a platofrm other than iOS or OS X.
         if possibleURL == nil {
@@ -55,7 +55,7 @@ struct AppLaunchContext {
                 return nil
             }
             
-            let fileURLForPath = NSURL(fileURLWithPath: listInfoFilePath, isDirectory: false)
+            let fileURLForPath = URL(fileURLWithPath: listInfoFilePath, isDirectory: false)
             
             // Test for the existence of the file at the URL. If it exists proceed.
             if !fileURLForPath.checkPromisedItemIsReachableAndReturnError(nil) && !fileURLForPath.checkResourceIsReachableAndReturnError(nil) {
@@ -97,7 +97,7 @@ struct AppLaunchContext {
         
         - parameter listerURL: The URL adhering to the lister:// scheme providing the file URL and list color to launch to.
     */
-    init?(listerURL: NSURL) {
+    init?(listerURL: URL) {
         require(listerURL.scheme == AppConfiguration.ListerScheme.name, "Non-lister URL provided to \(__FUNCTION__).")
         
         guard let filePath = listerURL.path else {
@@ -106,10 +106,10 @@ struct AppLaunchContext {
         }
         
         // Construct a file URL from the path of the lister:// URL.
-        listURL = NSURL(fileURLWithPath: filePath, isDirectory: false)
+        listURL = URL(fileURLWithPath: filePath, isDirectory: false)
         
         // Extract the query items to initialize the `listColor` property from the `color` query item.
-        guard let urlComponents = NSURLComponents(url: listerURL, resolvingAgainstBaseURL: false),
+        guard let urlComponents = URLComponents(url: listerURL, resolvingAgainstBaseURL: false),
               let queryItems = urlComponents.queryItems else {
                 assertionFailure("URL provided to \(__FUNCTION__) contains no query items.")
                 return nil

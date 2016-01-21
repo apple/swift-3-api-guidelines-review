@@ -9,7 +9,7 @@
 import Cocoa
 
 class TableRowView: NSTableRowView {
-    override func drawSelectionIn(dirtyRect: NSRect) {
+    override func drawSelectionIn(dirtyRect: Rect) {
         super.drawSelectionIn(dirtyRect)
 
         struct SharedColors {

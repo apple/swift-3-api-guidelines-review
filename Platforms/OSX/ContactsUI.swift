@@ -4,7 +4,7 @@
  * @abstract CNContactPicker is a popover-based contact picker for choosing a contact or a contact's value, such as a phone number or email address.
  */
 @available(OSX 10.11, *)
-class CNContactPicker : NSObject {
+class CNContactPicker : Object {
 
   /*!
    * @abstract The CNContact keys to display when a contact is expanded.
@@ -20,7 +20,7 @@ class CNContactPicker : NSObject {
   /*!
    * @abstract Shows the picker popover relative to a positioning rect for a view with a preferred edge. See NSPopover for more information.
    */
-  func showRelativeTo(positioningRect: NSRect, of positioningView: NSView, preferredEdge: NSRectEdge)
+  func showRelativeTo(positioningRect: Rect, of positioningView: NSView, preferredEdge: RectEdge)
 
   /*!
    * @abstract Closes the popover.
@@ -29,7 +29,7 @@ class CNContactPicker : NSObject {
   init()
 }
 @available(OSX 10.11, *)
-protocol CNContactPickerDelegate : NSObjectProtocol {
+protocol CNContactPickerDelegate : ObjectProtocol {
 
   /*!
    * @abstract Notifies the delegate when the contact picker's popover will close.
@@ -47,7 +47,7 @@ protocol CNContactPickerDelegate : NSObjectProtocol {
  */
 @available(OSX 10.11, *)
 class CNContactViewController : NSViewController {
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder: NSCoder)
+  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder: Coder)
   convenience init()
 }

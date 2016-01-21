@@ -36,7 +36,7 @@ let AVLayerVideoGravityResizeAspectFill: String
 @available(iOS 4.0, *)
 let AVLayerVideoGravityResize: String
 @available(iOS 4.0, *)
-class AVAsset : NSObject, NSCopying, AVAsynchronousKeyValueLoading {
+class AVAsset : Object, Copying, AVAsynchronousKeyValueLoading {
 
   /*!
     @method		assetWithURL:
@@ -46,14 +46,14 @@ class AVAsset : NSObject, NSCopying, AVAsynchronousKeyValueLoading {
     @result		An instance of AVAsset.
     @discussion	Returns a newly allocated instance of a subclass of AVAsset initialized with the specified URL.
   */
-  convenience init(url URL: NSURL)
+  convenience init(url URL: URL)
   var duration: CMTime { get }
   var preferredRate: Float { get }
   var preferredVolume: Float { get }
   var preferredTransform: CGAffineTransform { get }
   init()
   @available(iOS 4.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 
   /*!
     @method		statusOfValueForKey:
@@ -73,7 +73,7 @@ class AVAsset : NSObject, NSCopying, AVAsynchronousKeyValueLoading {
       The sole exception to this general rule is in usage on Mac OS X on the desktop, where it may be acceptable to block in cases in which the client is preparing objects for use on background threads or in operation queues. On iOS, values should always be loaded asynchronously prior to calling getters for the values, in any usage scenario.
   */
   @available(iOS 4.0, *)
-  func statusOfValueForKey(key: String, error outError: NSErrorPointer) -> AVKeyValueStatus
+  func statusOfValueForKey(key: String, error outError: ErrorPointer) -> AVKeyValueStatus
 
   /*!
     @method		loadValuesAsynchronouslyForKeys:completionHandler:
@@ -205,7 +205,7 @@ extension AVAsset {
 }
 extension AVAsset {
   @available(iOS 4.3, *)
-  var availableChapterLocales: [NSLocale] { get }
+  var availableChapterLocales: [Locale] { get }
 
   /*!
     @method		chapterMetadataGroupsWithTitleLocale:containingMetadataItemsWithCommonKeys:
@@ -224,7 +224,7 @@ extension AVAsset {
   	Further filtering of the metadata items in AVTimedMetadataGroups according to language can be accomplished using +[AVMetadataItem metadataItemsFromArray:filteredAndSortedAccordingToPreferredLanguages:]; filtering of the metadata items according to locale can be accomplished using +[AVMetadataItem metadataItemsFromArray:withLocale:].
   */
   @available(iOS 4.3, *)
-  func chapterMetadataGroupsWithTitleLocale(locale: NSLocale, containingItemsWithCommonKeys commonKeys: [String]?) -> [AVTimedMetadataGroup]
+  func chapterMetadataGroupsWithTitleLocale(locale: Locale, containingItemsWithCommonKeys commonKeys: [String]?) -> [AVTimedMetadataGroup]
 
   /*!
    @method		chapterMetadataGroupsBestMatchingPreferredLanguages:
@@ -399,8 +399,8 @@ class AVURLAsset : AVAsset {
   				An instance of NSDictionary that contains keys for specifying options for the initialization of the AVURLAsset. See AVURLAssetPreferPreciseDurationAndTimingKey and AVURLAssetReferenceRestrictionsKey above.
     @result		An instance of AVURLAsset.
   */
-  init(url URL: NSURL, options: [String : AnyObject]? = [:])
-  @NSCopying var url: NSURL { get }
+  init(url URL: URL, options: [String : AnyObject]? = [:])
+  @NSCopying var url: URL { get }
 
   /*!
     @method		assetWithURL:
@@ -410,7 +410,7 @@ class AVURLAsset : AVAsset {
     @result		An instance of AVAsset.
     @discussion	Returns a newly allocated instance of a subclass of AVAsset initialized with the specified URL.
   */
-  convenience init(url URL: NSURL)
+  convenience init(url URL: URL)
 }
 extension AVURLAsset {
 
@@ -529,7 +529,7 @@ let AVAssetDownloadTaskMediaSelectionKey: String
  @discussion	Should be created with -[AVAssetDownloadURLSession assetDownloadTaskWithURLAsset:destinationURL:options:]. To utilize local data for playback for downloads that are in-progress, re-use the URLAsset supplied in initialization. An AVAssetDownloadTask may be instantiated with a destinationURL pointing to an existing asset on disk, for the purpose of completing or augmenting a downloaded asset.
 */
 @available(iOS 9.0, *)
-class AVAssetDownloadTask : NSURLSessionTask {
+class AVAssetDownloadTask : URLSessionTask {
 
   /*!
    @property		URLAsset
@@ -542,7 +542,7 @@ class AVAssetDownloadTask : NSURLSessionTask {
    @abstract		The file URL supplied to the download task upon initialization.
    @discussion	This URL may have been appended with the appropriate extension for the asset.
   */
-  var destinationURL: NSURL { get }
+  var destinationURL: URL { get }
 
   /*!
    @property		options
@@ -555,7 +555,7 @@ class AVAssetDownloadTask : NSURLSessionTask {
    @abstract		This property provides a collection of time ranges for which the download task has media data already downloaded and playable. The ranges provided might be discontinuous.
    @discussion	Returns an NSArray of NSValues containing CMTimeRanges.
   */
-  var loadedTimeRanges: [NSValue] { get }
+  var loadedTimeRanges: [Value] { get }
   init()
 }
 
@@ -563,7 +563,7 @@ class AVAssetDownloadTask : NSURLSessionTask {
  @protocol		AVAssetDownloadDelegate
  @abstract		Delegate method to implement when adopting AVAssetDownloadTask.
 */
-protocol AVAssetDownloadDelegate : NSURLSessionTaskDelegate {
+protocol AVAssetDownloadDelegate : URLSessionTaskDelegate {
 
   /*!
    @method		URLSession:assetDownloadTask:didLoadTimeRange:totalTimeRangesLoaded:timeRangeExpectedToLoad:
@@ -580,9 +580,9 @@ protocol AVAssetDownloadDelegate : NSURLSessionTaskDelegate {
   				A CMTimeRange indicating the single time range that is expected to be loaded when the download is complete.
   */
   @available(iOS 9.0, *)
-  optional func urlSession(session: NSURLSession, assetDownloadTask: AVAssetDownloadTask, didLoad timeRange: CMTimeRange, totalTimeRangesLoaded loadedTimeRanges: [NSValue], timeRangeExpectedToLoad: CMTimeRange)
+  optional func urlSession(session: URLSession, assetDownloadTask: AVAssetDownloadTask, didLoad timeRange: CMTimeRange, totalTimeRangesLoaded loadedTimeRanges: [Value], timeRangeExpectedToLoad: CMTimeRange)
   @available(iOS 9.0, *)
-  optional func urlSession(session: NSURLSession, assetDownloadTask: AVAssetDownloadTask, didResolve resolvedMediaSelection: AVMediaSelection)
+  optional func urlSession(session: URLSession, assetDownloadTask: AVAssetDownloadTask, didResolve resolvedMediaSelection: AVMediaSelection)
 }
 
 /*!
@@ -590,7 +590,7 @@ protocol AVAssetDownloadDelegate : NSURLSessionTaskDelegate {
  @abstract		A subclass of NSURLSession to support AVAssetDownloadTask.
 */
 @available(iOS 9.0, *)
-class AVAssetDownloadURLSession : NSURLSession {
+class AVAssetDownloadURLSession : URLSession {
 
   /*!
    @method		sessionWithConfiguration:assetDownloadDelegate:delegateQueue:
@@ -602,7 +602,7 @@ class AVAssetDownloadURLSession : NSURLSession {
    @param			delegateQueue
   				The queue to receive delegate callbacks on. If nil, a serial queue will be provided.
   */
-  /*not inherited*/ init(configuration: NSURLSessionConfiguration, assetDownloadDelegate delegate: AVAssetDownloadDelegate?, delegateQueue: NSOperationQueue?)
+  /*not inherited*/ init(configuration: URLSessionConfiguration, assetDownloadDelegate delegate: AVAssetDownloadDelegate?, delegateQueue: OperationQueue?)
 
   /*!
    @method		assetDownloadTaskWithURLAsset:destinationURL:options:
@@ -615,7 +615,7 @@ class AVAssetDownloadURLSession : NSURLSession {
    @param			options
   				See AVAssetDownloadTask*Key above. Configures non-default behavior for the download task. Using this parameter is required for downloading non-default media selections for HLS assets.
   */
-  func assetDownloadTaskWith(URLAsset: AVURLAsset, destinationURL: NSURL, options: [String : AnyObject]? = [:]) -> AVAssetDownloadTask?
+  func assetDownloadTaskWith(URLAsset: AVURLAsset, destinationURL: URL, options: [String : AnyObject]? = [:]) -> AVAssetDownloadTask?
   init()
 }
 
@@ -680,7 +680,7 @@ enum AVAssetExportSessionStatus : Int {
   case Cancelled
 }
 @available(iOS 4.0, *)
-class AVAssetExportSession : NSObject {
+class AVAssetExportSession : Object {
 
   /*!
   	@method						initWithAsset:presetName:
@@ -695,10 +695,10 @@ class AVAssetExportSession : NSObject {
   @available(iOS 5.0, *)
   var asset: AVAsset { get }
   var outputFileType: String?
-  @NSCopying var outputURL: NSURL?
+  @NSCopying var outputURL: URL?
   var shouldOptimizeForNetworkUse: Bool
   var status: AVAssetExportSessionStatus { get }
-  var error: NSError? { get }
+  var error: Error? { get }
 
   /*!
   	@method						exportAsynchronouslyWithCompletionHandler:
@@ -832,7 +832,7 @@ extension AVAssetExportSession {
   		This property cannot be set after the export has started.  The export will fail if the URL points to a location that is not a directory, does not exist, is not on the local file system, or if a file cannot be created in this directory (for example, due to insufficient permissions or sandboxing restrictions).
   */
   @available(iOS 8.0, *)
-  @NSCopying var directoryForTemporaryFiles: NSURL?
+  @NSCopying var directoryForTemporaryFiles: URL?
 }
 
 /*!
@@ -863,7 +863,7 @@ enum AVAssetImageGeneratorResult : Int {
   case Cancelled
 }
 @available(iOS 4.0, *)
-class AVAssetImageGenerator : NSObject {
+class AVAssetImageGenerator : Object {
   @available(iOS 6.0, *)
   var asset: AVAsset { get }
   var appliesPreferredTrackTransform: Bool
@@ -924,7 +924,7 @@ class AVAssetImageGenerator : NSObject {
   					Changes to generator properties (snap behavior, maximum size, etc...) will not affect outstanding asynchronous image generation requests.
   					The generated image is not retained.  Clients should retain the image if they wish it to persist after the completion handler returns.
   */
-  func generateCGImagesAsynchronouslyForTimes(requestedTimes: [NSValue], completionHandler handler: AVAssetImageGeneratorCompletionHandler)
+  func generateCGImagesAsynchronouslyForTimes(requestedTimes: [Value], completionHandler handler: AVAssetImageGeneratorCompletionHandler)
 
   /*!
   	@method			cancelAllCGImageGeneration
@@ -934,7 +934,7 @@ class AVAssetImageGenerator : NSObject {
   */
   func cancelAllCGImageGeneration()
 }
-typealias AVAssetImageGeneratorCompletionHandler = (CMTime, CGImage?, CMTime, AVAssetImageGeneratorResult, NSError?) -> Void
+typealias AVAssetImageGeneratorCompletionHandler = (CMTime, CGImage?, CMTime, AVAssetImageGeneratorResult, Error?) -> Void
 
 /*!
  @enum AVAssetReaderStatus
@@ -977,7 +977,7 @@ enum AVAssetReaderStatus : Int {
 	AVAssetReaderAudioMixOutput mixes multiple audio tracks of the asset after reading them, while AVAssetReaderVideoCompositionOutput composites multiple video tracks after reading them.
  */
 @available(iOS 4.1, *)
-class AVAssetReader : NSObject {
+class AVAssetReader : Object {
 
   /*!
    @method initWithAsset:error:
@@ -1023,7 +1023,7 @@ class AVAssetReader : NSObject {
    @discussion
   	The value of this property is an NSError that describes what caused the receiver to no longer be able to read its asset. If the receiver's status is not AVAssetReaderStatusFailed, the value of this property is nil. This property is thread safe.
    */
-  var error: NSError? { get }
+  var error: Error? { get }
 
   /*!
    @property timeRange
@@ -1114,7 +1114,7 @@ class AVAssetReader : NSObject {
 	Clients can read the media data of an asset by adding one or more concrete instances of AVAssetReaderOutput to an AVAssetReader using the -[AVAssetReader addOutput:] method.
  */
 @available(iOS 4.1, *)
-class AVAssetReaderOutput : NSObject {
+class AVAssetReaderOutput : Object {
 
   /*!
    @property mediaType
@@ -1190,7 +1190,7 @@ extension AVAssetReaderOutput {
   	If this method is invoked before all media data has been read (i.e. -copyNextSampleBuffer has not yet returned NULL), an exception will be thrown.  This method may not be called before -startReading has been invoked on the attached asset reader.
    */
   @available(iOS 8.0, *)
-  func resetForReadingTimeRanges(timeRanges: [NSValue])
+  func resetForReadingTimeRanges(timeRanges: [Value])
 
   /*!
    @method markConfigurationAsFinal
@@ -1449,7 +1449,7 @@ class AVAssetReaderVideoCompositionOutput : AVAssetReaderOutput {
 	Defines an interface for reading metadata, packaged as instances of AVTimedMetadataGroup, from a single AVAssetReaderTrackOutput object.
  */
 @available(iOS 8.0, *)
-class AVAssetReaderOutputMetadataAdaptor : NSObject {
+class AVAssetReaderOutputMetadataAdaptor : Object {
 
   /*!
    @method initWithAssetReaderTrackOutput:
@@ -1533,7 +1533,7 @@ class AVAssetReaderSampleReferenceOutput : AVAssetReaderOutput {
   var track: AVAssetTrack { get }
 }
 @available(iOS 6.0, *)
-class AVAssetResourceLoader : NSObject {
+class AVAssetResourceLoader : Object {
 
   /*!
    @method 		setDelegate:queue:
@@ -1561,7 +1561,7 @@ class AVAssetResourceLoader : NSObject {
   */
   var delegateQueue: dispatch_queue_t? { get }
 }
-protocol AVAssetResourceLoaderDelegate : NSObjectProtocol {
+protocol AVAssetResourceLoaderDelegate : ObjectProtocol {
 
   /*!
    @method 		resourceLoader:shouldWaitForLoadingOfRequestedResource:
@@ -1620,7 +1620,7 @@ protocol AVAssetResourceLoaderDelegate : NSObjectProtocol {
     If the result is YES, the resource loader expects you to send an appropriate response, either subsequently or immediately, to the NSURLAuthenticationChallenge's sender, i.e. [authenticationChallenge sender], via use of one of the messages defined in the NSURLAuthenticationChallengeSender protocol (see NSAuthenticationChallenge.h). If you intend to respond to the authentication challenge after your handling of -resourceLoader:shouldWaitForResponseToAuthenticationChallenge: returns, you must retain the instance of NSURLAuthenticationChallenge until after your response has been made.
   */
   @available(iOS 8.0, *)
-  optional func resourceLoader(resourceLoader: AVAssetResourceLoader, shouldWaitForResponseTo authenticationChallenge: NSURLAuthenticationChallenge) -> Bool
+  optional func resourceLoader(resourceLoader: AVAssetResourceLoader, shouldWaitForResponseTo authenticationChallenge: URLAuthenticationChallenge) -> Bool
 
   /*!
    @method 		resourceLoader:didCancelAuthenticationChallenge:
@@ -1629,16 +1629,16 @@ protocol AVAssetResourceLoaderDelegate : NSObjectProtocol {
   				The authentication challenge that has been cancelled. 
   */
   @available(iOS 8.0, *)
-  optional func resourceLoader(resourceLoader: AVAssetResourceLoader, didCancel authenticationChallenge: NSURLAuthenticationChallenge)
+  optional func resourceLoader(resourceLoader: AVAssetResourceLoader, didCancel authenticationChallenge: URLAuthenticationChallenge)
 }
 @available(iOS 6.0, *)
-class AVAssetResourceLoadingRequest : NSObject {
+class AVAssetResourceLoadingRequest : Object {
 
   /*! 
    @property 		request
    @abstract		An NSURLRequest for the requested resource.
   */
-  var request: NSURLRequest { get }
+  var request: URLRequest { get }
 
   /*! 
    @property 		finished
@@ -1674,7 +1674,7 @@ class AVAssetResourceLoadingRequest : NSObject {
    @abstract		Set the value of this property to an instance of NSURLResponse indicating a response to the loading request. If no response is needed, leave the value of this property set to nil.
   */
   @available(iOS 7.0, *)
-  @NSCopying var response: NSURLResponse?
+  @NSCopying var response: URLResponse?
 
   /*! 
    @property 		redirect
@@ -1682,7 +1682,7 @@ class AVAssetResourceLoadingRequest : NSObject {
    @discussion	AVAssetResourceLoader supports redirects to HTTP URLs only. Redirects to other URLs will result in a loading failure.
   */
   @available(iOS 7.0, *)
-  @NSCopying var redirect: NSURLRequest?
+  @NSCopying var redirect: URLRequest?
 
   /*! 
    @method 		finishLoading   
@@ -1698,7 +1698,7 @@ class AVAssetResourceLoadingRequest : NSObject {
    @param			error
    				An instance of NSError indicating the reason for failure.
   */
-  func finishLoadingWithError(error: NSError?)
+  func finishLoadingWithError(error: Error?)
 }
 
 /*!
@@ -1714,7 +1714,7 @@ class AVAssetResourceLoadingRequest : NSObject {
 class AVAssetResourceRenewalRequest : AVAssetResourceLoadingRequest {
 }
 @available(iOS 7.0, *)
-class AVAssetResourceLoadingContentInformationRequest : NSObject {
+class AVAssetResourceLoadingContentInformationRequest : Object {
 
   /*! 
    @property 		contentType
@@ -1743,10 +1743,10 @@ class AVAssetResourceLoadingContentInformationRequest : NSObject {
    @discussion	Before you finish loading an AVAssetResourceLoadingRequest, if the resource is prone to expiry you should set the value of this property to the date at which a renewal should be triggered. This value should be set sufficiently early enough to allow an AVAssetResourceRenewalRequest, delivered to your delegate via -resourceLoader:shouldWaitForRenewalOfRequestedResource:, to finish before the actual expiry time. Otherwise media playback may fail.
    */
   @available(iOS 8.0, *)
-  @NSCopying var renewalDate: NSDate?
+  @NSCopying var renewalDate: Date?
 }
 @available(iOS 7.0, *)
-class AVAssetResourceLoadingDataRequest : NSObject {
+class AVAssetResourceLoadingDataRequest : Object {
 
   /*! 
    @property 		requestedOffset
@@ -1784,7 +1784,7 @@ class AVAssetResourceLoadingDataRequest : NSObject {
    				An instance of NSData containing some or all of the requested bytes.
    @discussion	May be invoked multiple times on the same instance of AVAssetResourceLoadingDataRequest to provide the full range of requested data incrementally. Upon each invocation, the value of currentOffset will be updated to accord with the amount of data provided.
   */
-  func respondWith(data: NSData)
+  func respondWith(data: Data)
 }
 extension AVAssetResourceLoader {
 
@@ -1811,7 +1811,7 @@ extension AVAssetResourceLoadingRequest {
    				If obtaining the streaming content key request fails, will be set to an instance of NSError describing the failure.
    @result		The key request data that must be transmitted to the key vendor to obtain the content key.
   */
-  func streamingContentKeyRequestDataForApp(appIdentifier: NSData, contentIdentifier: NSData, options: [String : AnyObject]? = [:]) throws -> NSData
+  func streamingContentKeyRequestDataForApp(appIdentifier: Data, contentIdentifier: Data, options: [String : AnyObject]? = [:]) throws -> Data
 
   /*! 
    @method 		persistentContentKeyFromKeyVendorResponse:options:error:
@@ -1826,7 +1826,7 @@ extension AVAssetResourceLoadingRequest {
    @discussion	The data returned from this method may be used to immediately satisfy an AVAssetResourceLoadingDataRequest, as well as any subsequent requests for the same key url. The value of AVAssetResourceLoadingContentInformationRequest.contentType must be set to AVStreamingKeyDeliveryPersistentContentKeyType when responding with data created with this method.
   */
   @available(iOS 9.0, *)
-  func persistentContentKeyFromKeyVendorResponse(keyVendorResponse: NSData, options: [String : AnyObject]? = [:], error outError: NSErrorPointer) -> NSData
+  func persistentContentKeyFromKeyVendorResponse(keyVendorResponse: Data, options: [String : AnyObject]? = [:], error outError: ErrorPointer) -> Data
 }
 
 /*!
@@ -1865,11 +1865,11 @@ extension AVAssetResourceLoadingRequest {
 
 */
 @available(iOS 4.0, *)
-class AVAssetTrack : NSObject, NSCopying, AVAsynchronousKeyValueLoading {
+class AVAssetTrack : Object, Copying, AVAsynchronousKeyValueLoading {
   weak var asset: @sil_weak AVAsset? { get }
   var trackID: CMPersistentTrackID { get }
   @available(iOS 4.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 
   /*!
     @method		statusOfValueForKey:
@@ -1889,7 +1889,7 @@ class AVAssetTrack : NSObject, NSCopying, AVAsynchronousKeyValueLoading {
       The sole exception to this general rule is in usage on Mac OS X on the desktop, where it may be acceptable to block in cases in which the client is preparing objects for use on background threads or in operation queues. On iOS, values should always be loaded asynchronously prior to calling getters for the values, in any usage scenario.
   */
   @available(iOS 4.0, *)
-  func statusOfValueForKey(key: String, error outError: NSErrorPointer) -> AVKeyValueStatus
+  func statusOfValueForKey(key: String, error outError: ErrorPointer) -> AVKeyValueStatus
 
   /*!
     @method		loadValuesAsynchronouslyForKeys:completionHandler:
@@ -2055,7 +2055,7 @@ let AVAssetTrackTrackAssociationsDidChangeNotification: String
 	Clients can inspect the track groups contained in an AVAsset by loading and obtaining the value of its trackGroups property.
  */
 @available(iOS 7.0, *)
-class AVAssetTrackGroup : NSObject, NSCopying {
+class AVAssetTrackGroup : Object, Copying {
 
   /*!
    @property trackIDs
@@ -2066,13 +2066,13 @@ class AVAssetTrackGroup : NSObject, NSCopying {
   	The value of this property is an NSArray of NSNumbers interpreted as CMPersistentTrackIDs, one for each track in the
   	group.
    */
-  var trackIDs: [NSNumber] { get }
+  var trackIDs: [Number] { get }
   init()
   @available(iOS 7.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 4.0, *)
-class AVAssetTrackSegment : NSObject {
+class AVAssetTrackSegment : Object {
   var timeMapping: CMTimeMapping { get }
   var isEmpty: Bool { get }
 }
@@ -2116,7 +2116,7 @@ enum AVAssetWriterStatus : Int {
 	A single instance of AVAssetWriter can be used once to write to a single file. Clients that wish to write to files multiple times must use a new instance of AVAssetWriter each time.
  */
 @available(iOS 4.1, *)
-class AVAssetWriter : NSObject {
+class AVAssetWriter : Object {
 
   /*!
    @method initWithURL:fileType:error:
@@ -2137,7 +2137,7 @@ class AVAssetWriter : NSObject {
   	
   	UTIs for container formats that can be written are declared in AVMediaFormat.h.
    */
-  init(url outputURL: NSURL, fileType outputFileType: String) throws
+  init(url outputURL: URL, fileType outputFileType: String) throws
 
   /*!
    @property outputURL
@@ -2146,7 +2146,7 @@ class AVAssetWriter : NSObject {
    @discussion
   	You may use UTTypeCopyPreferredTagWithClass(outputFileType, kUTTagClassFilenameExtension) to obtain an appropriate path extension for the outputFileType you have specified. For more information about UTTypeCopyPreferredTagWithClass and kUTTagClassFilenameExtension, on iOS see <MobileCoreServices/UTType.h> and on Mac OS X see <LaunchServices/UTType.h>.
    */
-  @NSCopying var outputURL: NSURL { get }
+  @NSCopying var outputURL: URL { get }
 
   /*!
    @property outputFileType
@@ -2183,7 +2183,7 @@ class AVAssetWriter : NSObject {
    @discussion
   	The value of this property is an NSError that describes what caused the receiver to no longer be able to write to its output file. If the receiver's status is not AVAssetWriterStatusFailed, the value of this property is nil. This property is thread safe.
    */
-  var error: NSError? { get }
+  var error: Error? { get }
 
   /*!
    @property metadata
@@ -2222,7 +2222,7 @@ class AVAssetWriter : NSObject {
   	This property cannot be set after writing has started.  The asset writer will fail if a file cannot be created in this directory (for example, due to insufficient permissions).
    */
   @available(iOS 8.0, *)
-  @NSCopying var directoryForTemporaryFiles: NSURL?
+  @NSCopying var directoryForTemporaryFiles: URL?
 
   /*!
    @property inputs
@@ -2478,7 +2478,7 @@ class AVAssetWriterInputGroup : AVMediaSelectionGroup {
 	As of OS X 10.10 and iOS 8.0 AVAssetWriterInput can also be used to create tracks that are not self-contained.  Such tracks reference sample data that is located in another file. This is currently supported only for instances of AVAssetWriterInput attached to an instance of AVAssetWriter that writes files of type AVFileTypeQuickTimeMovie.
  */
 @available(iOS 4.1, *)
-class AVAssetWriterInput : NSObject {
+class AVAssetWriterInput : Object {
 
   /*!
    @method initWithMediaType:outputSettings:
@@ -2836,7 +2836,7 @@ extension AVAssetWriterInput {
   	This property cannot be set after -startWriting has been called on the receiver.
    */
   @available(iOS 8.0, *)
-  @NSCopying var sampleReferenceBaseURL: NSURL?
+  @NSCopying var sampleReferenceBaseURL: URL?
 }
 extension AVAssetWriterInput {
 
@@ -2983,7 +2983,7 @@ extension AVAssetWriterInput {
 	Defines an interface for querying information about the requirements of the current pass, such as the time ranges of media data to append.
  */
 @available(iOS 8.0, *)
-class AVAssetWriterInputPassDescription : NSObject {
+class AVAssetWriterInputPassDescription : Object {
 
   /*!
    @property sourceTimeRanges
@@ -2993,7 +2993,7 @@ class AVAssetWriterInputPassDescription : NSObject {
    @discussion
   	The value of this property is suitable for using as a parameter for -[AVAssetReaderOutput resetForReadingTimeRanges:].
    */
-  var sourceTimeRanges: [NSValue] { get }
+  var sourceTimeRanges: [Value] { get }
 }
 
 /*!
@@ -3005,7 +3005,7 @@ class AVAssetWriterInputPassDescription : NSObject {
 	Instances of AVAssetWriterInputPixelBufferAdaptor provide a CVPixelBufferPool that can be used to allocate pixel buffers for writing to the output file.  Using the provided pixel buffer pool for buffer allocation is typically more efficient than appending pixel buffers allocated using a separate pool.
  */
 @available(iOS 4.1, *)
-class AVAssetWriterInputPixelBufferAdaptor : NSObject {
+class AVAssetWriterInputPixelBufferAdaptor : Object {
 
   /*!
    @method initWithAssetWriterInput:sourcePixelBufferAttributes:
@@ -3097,7 +3097,7 @@ class AVAssetWriterInputPixelBufferAdaptor : NSObject {
 	Defines an interface for writing metadata, packaged as instances of AVTimedMetadataGroup, to a single AVAssetWriterInput object.
  */
 @available(iOS 8.0, *)
-class AVAssetWriterInputMetadataAdaptor : NSObject {
+class AVAssetWriterInputMetadataAdaptor : Object {
 
   /*!
    @method initWithAssetWriterInput:
@@ -3184,7 +3184,7 @@ protocol AVAsynchronousKeyValueLoading {
         
       The sole exception to this general rule is in usage on Mac OS X on the desktop, where it may be acceptable to block in cases in which the client is preparing objects for use on background threads or in operation queues. On iOS, values should always be loaded asynchronously prior to calling getters for the values, in any usage scenario.
   */
-  func statusOfValueForKey(key: String, error outError: NSErrorPointer) -> AVKeyValueStatus
+  func statusOfValueForKey(key: String, error outError: ErrorPointer) -> AVKeyValueStatus
 
   /*!
     @method		loadValuesAsynchronouslyForKeys:completionHandler:
@@ -3204,7 +3204,7 @@ protocol AVAsynchronousKeyValueLoading {
 		AVAudioBuffer represents a buffer of audio data and its format.
 */
 @available(iOS 8.0, *)
-class AVAudioBuffer : NSObject, NSCopying, NSMutableCopying {
+class AVAudioBuffer : Object, Copying, MutableCopying {
 
   /*!
   	@property format
@@ -3235,9 +3235,9 @@ class AVAudioBuffer : NSObject, NSCopying, NSMutableCopying {
   var mutableAudioBufferList: UnsafeMutablePointer<AudioBufferList> { get }
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -3397,7 +3397,7 @@ class AVAudioCompressedBuffer : AVAudioBuffer {
 		in <CoreAudio/CoreAudioTypes.h>.
 */
 @available(iOS 8.0, *)
-class AVAudioChannelLayout : NSObject, NSSecureCoding {
+class AVAudioChannelLayout : Object, SecureCoding {
 
   /*!	@method initWithLayoutTag:
   	@abstract Initialize from a layout tag.
@@ -3441,8 +3441,8 @@ class AVAudioChannelLayout : NSObject, NSSecureCoding {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*! @class AVAudioConnectionPoint
@@ -3454,7 +3454,7 @@ class AVAudioChannelLayout : NSObject, NSSecureCoding {
 		Instances of this class are immutable.
 */
 @available(iOS 9.0, *)
-class AVAudioConnectionPoint : NSObject {
+class AVAudioConnectionPoint : Object {
 
   /*! @method initWithNode:bus:
   	@abstract Create a connection point object.
@@ -3632,7 +3632,7 @@ typealias AVAudioConverterInputBlock = (AVAudioPacketCount, UnsafeMutablePointer
 	@discussion
 */
 @available(iOS 9.0, *)
-class AVAudioConverter : NSObject {
+class AVAudioConverter : Object {
 
   /*!	@method initFromFormat:toFormat:
   	@abstract Initialize from input and output formats.
@@ -3666,12 +3666,12 @@ class AVAudioConverter : NSObject {
   		that the output channel will have no source and will be silent.
   		Setting a channel map overrides channel mapping due to any channel layouts in the input and output formats that may have been supplied.
   */
-  var channelMap: [NSNumber]
+  var channelMap: [Number]
 
   /*! @property magicCookie
       @abstract Decoders require some data in the form of a magicCookie in order to decode properly. Encoders will produce a magicCookie.
   */
-  var magicCookie: NSData?
+  var magicCookie: Data?
 
   /*! @property downmix
       @abstract If YES and channel remapping is necessary, then channels will be mixed as appropriate instead of remapped. Default value is NO.
@@ -3734,7 +3734,7 @@ class AVAudioConverter : NSObject {
   		It attempts to fill the buffer to its capacity. On return, the buffer's length indicates the number of 
   		sample frames successfully converted.
   */
-  func convertTo(outputBuffer: AVAudioBuffer, error outError: NSErrorPointer, withInputFrom inputBlock: AVAudioConverterInputBlock) -> AVAudioConverterOutputStatus
+  func convertTo(outputBuffer: AVAudioBuffer, error outError: ErrorPointer, withInputFrom inputBlock: AVAudioConverterInputBlock) -> AVAudioConverterOutputStatus
   init()
 }
 extension AVAudioConverter {
@@ -3757,27 +3757,27 @@ extension AVAudioConverter {
   /*! @property availableEncodeBitRates
       @abstract When encoding, an NSArray of NSNumber of all bit rates provided by the codec. Returns nil if not encoding.
   */
-  var availableEncodeBitRates: [NSNumber]? { get }
+  var availableEncodeBitRates: [Number]? { get }
 
   /*! @property applicableEncodeBitRates
       @abstract When encoding, an NSArray of NSNumber of bit rates that can be applied based on the current formats and settings. Returns nil if not encoding.
   */
-  var applicableEncodeBitRates: [NSNumber]? { get }
+  var applicableEncodeBitRates: [Number]? { get }
 
   /*! @property availableEncodeSampleRates
       @abstract When encoding, an NSArray of NSNumber of all output sample rates provided by the codec. Returns nil if not encoding.
   */
-  var availableEncodeSampleRates: [NSNumber]? { get }
+  var availableEncodeSampleRates: [Number]? { get }
 
   /*! @property applicableEncodeSampleRates
       @abstract When encoding, an NSArray of NSNumber of output sample rates that can be applied based on the current formats and settings. Returns nil if not encoding.
   */
-  var applicableEncodeSampleRates: [NSNumber]? { get }
+  var applicableEncodeSampleRates: [Number]? { get }
 
   /*! @property availableEncodeChannelLayoutTags
       @abstract When encoding, an NSArray of NSNumber of all output channel layout tags provided by the codec. Returns nil if not encoding.
   */
-  var availableEncodeChannelLayoutTags: [NSNumber]? { get }
+  var availableEncodeChannelLayoutTags: [Number]? { get }
 }
 
 /*!
@@ -3796,7 +3796,7 @@ extension AVAudioConverter {
 			is a mixer, is likely to result in a broken graph.
 */
 @available(iOS 8.0, *)
-class AVAudioEngine : NSObject {
+class AVAudioEngine : Object {
 
   /*! @method init
   	@abstract
@@ -4130,7 +4130,7 @@ enum AVAudioEnvironmentDistanceAttenuationModel : Int {
         Only an instance vended out by a source object (e.g. AVAudioEnvironmentNode) can be used.
 */
 @available(iOS 8.0, *)
-class AVAudioEnvironmentDistanceAttenuationParameters : NSObject {
+class AVAudioEnvironmentDistanceAttenuationParameters : Object {
 
   /*! @property distanceAttenuationModel
       @abstract Type of distance attenuation model
@@ -4186,7 +4186,7 @@ class AVAudioEnvironmentDistanceAttenuationParameters : NSObject {
         Only an instance vended out by a source object (e.g. AVAudioEnvironmentNode) can be used.
 */
 @available(iOS 8.0, *)
-class AVAudioEnvironmentReverbParameters : NSObject {
+class AVAudioEnvironmentReverbParameters : Object {
 
   /*! @property enable
       @abstract Turns on/off the reverb
@@ -4325,7 +4325,7 @@ class AVAudioEnvironmentNode : AVAudioNode, AVAudioMixing {
           This information should be retrieved after a successful connection to the destination node 
           via the engine's connect method.
   */
-  var applicableRenderingAlgorithms: [NSNumber] { get }
+  var applicableRenderingAlgorithms: [Number] { get }
   init()
 
   /*! @method destinationForMixer:bus:
@@ -4463,7 +4463,7 @@ class AVAudioEnvironmentNode : AVAudioNode, AVAudioMixing {
 		framePosition property.
 */
 @available(iOS 8.0, *)
-class AVAudioFile : NSObject {
+class AVAudioFile : Object {
 
   /*! @method initForReading:error:
   	@abstract Open a file for reading.
@@ -4474,7 +4474,7 @@ class AVAudioFile : NSObject {
   	@discussion
   		This opens the file for reading using the standard format (deinterleaved floating point).
   */
-  init(forReading fileURL: NSURL) throws
+  init(forReading fileURL: URL) throws
 
   /*!	@method initForReading:commonFormat:interleaved:error:
   	@abstract Open a file for reading, using a specified processing format.
@@ -4487,7 +4487,7 @@ class AVAudioFile : NSObject {
   	@param outError
   		on exit, if an error occurs, a description of the error
   */
-  init(forReading fileURL: NSURL, commonFormat format: AVAudioCommonFormat, interleaved: Bool) throws
+  init(forReading fileURL: URL, commonFormat format: AVAudioCommonFormat, interleaved: Bool) throws
 
   /*! @method initForWriting:settings:error:
   	@abstract Open a file for writing.
@@ -4503,7 +4503,7 @@ class AVAudioFile : NSObject {
   
   		This opens the file for writing using the standard format (deinterleaved floating point).
   */
-  init(forWriting fileURL: NSURL, settings: [String : AnyObject]) throws
+  init(forWriting fileURL: URL, settings: [String : AnyObject]) throws
 
   /*! @method initForWriting:settings:commonFormat:interleaved:error:
   	@abstract Open a file for writing.
@@ -4521,7 +4521,7 @@ class AVAudioFile : NSObject {
   		The file type to create is inferred from the file extension. Will overwrite a file at the
   		specified URL if a file exists.
   */
-  init(forWriting fileURL: NSURL, settings: [String : AnyObject], commonFormat format: AVAudioCommonFormat, interleaved: Bool) throws
+  init(forWriting fileURL: URL, settings: [String : AnyObject], commonFormat format: AVAudioCommonFormat, interleaved: Bool) throws
 
   /*! @method readIntoBuffer:error:
   	@abstract Read an entire buffer.
@@ -4571,7 +4571,7 @@ class AVAudioFile : NSObject {
   /*!	@property url
   	@abstract The URL the file is reading or writing.
   */
-  var url: NSURL { get }
+  var url: URL { get }
 
   /*! @property fileFormat
   	@abstract The on-disk format of the file.
@@ -4633,7 +4633,7 @@ enum AVAudioCommonFormat : UInt {
 		Instances of this class are immutable.
 */
 @available(iOS 8.0, *)
-class AVAudioFormat : NSObject, NSSecureCoding {
+class AVAudioFormat : Object, SecureCoding {
 
   /*! @method initWithStreamDescription:
   	@abstract Initialize from an AudioStreamBasicDescription.
@@ -4791,8 +4791,8 @@ class AVAudioFormat : NSObject, NSSecureCoding {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!	@class AVAudioIONode
@@ -4812,7 +4812,7 @@ class AVAudioIONode : AVAudioNode {
   		This corresponds to kAudioDevicePropertyLatency and kAudioStreamPropertyLatency.
   		See <CoreAudio/AudioHardwareBase.h>.
   */
-  var presentationLatency: NSTimeInterval { get }
+  var presentationLatency: TimeInterval { get }
 
   /*!	@property audioUnit
   	@abstract The node's underlying AudioUnit, if any.
@@ -4967,13 +4967,13 @@ class AVAudioOutputNode : AVAudioIONode {
   init()
 }
 @available(iOS 4.0, *)
-class AVAudioMix : NSObject, NSCopying, NSMutableCopying {
+class AVAudioMix : Object, Copying, MutableCopying {
   var inputParameters: [AVAudioMixInputParameters] { get }
   init()
   @available(iOS 4.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 4.0, *)
 class AVMutableAudioMix : AVAudioMix {
@@ -4987,7 +4987,7 @@ class AVMutableAudioMix : AVAudioMix {
   init()
 }
 @available(iOS 4.0, *)
-class AVAudioMixInputParameters : NSObject, NSCopying, NSMutableCopying {
+class AVAudioMixInputParameters : Object, Copying, MutableCopying {
 
   /*!
    @property		trackID
@@ -5014,9 +5014,9 @@ class AVAudioMixInputParameters : NSObject, NSCopying, NSMutableCopying {
   func getVolumeRampFor(time: CMTime, startVolume: UnsafeMutablePointer<Float>, endVolume: UnsafeMutablePointer<Float>, timeRange: UnsafeMutablePointer<CMTimeRange>) -> Bool
   init()
   @available(iOS 4.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 4.0, *)
 class AVMutableAudioMixInputParameters : AVAudioMixInputParameters {
@@ -5269,7 +5269,7 @@ protocol AVAudioMixing : AVAudioStereoMixing, AVAudio3DMixing {
     @abstract   Protocol that defines stereo mixing properties
 */
 @available(iOS 8.0, *)
-protocol AVAudioStereoMixing : NSObjectProtocol {
+protocol AVAudioStereoMixing : ObjectProtocol {
 
   /*! @property pan
       @abstract Set a bus's stereo pan
@@ -5331,7 +5331,7 @@ enum AVAudio3DMixingRenderingAlgorithm : Int {
 /*! @protocol   AVAudio3DMixing
     @abstract   Protocol that defines 3D mixing properties
 */
-protocol AVAudio3DMixing : NSObjectProtocol {
+protocol AVAudio3DMixing : ObjectProtocol {
 
   /*! @property renderingAlgorithm
       @abstract Type of rendering algorithm used
@@ -5412,7 +5412,7 @@ protocol AVAudio3DMixing : NSObjectProtocol {
 		(see `AVAudioMixing`).
 */
 @available(iOS 9.0, *)
-class AVAudioMixingDestination : NSObject, AVAudioMixing {
+class AVAudioMixingDestination : Object, AVAudioMixing {
 
   /*! @property connectionPoint
   	@abstract Returns the underlying mixer connection point
@@ -5570,7 +5570,7 @@ typealias AVAudioNodeTapBlock = (AVAudioPCMBuffer, AVAudioTime) -> Void
 		Nodes do not currently provide useful functionality until attached to an engine.
 */
 @available(iOS 8.0, *)
-class AVAudioNode : NSObject {
+class AVAudioNode : Object {
 
   /*! @method reset
   	@abstract Clear a unit's previous processing state.
@@ -5665,25 +5665,25 @@ class AVAudioNode : NSObject {
   init()
 }
 @available(iOS 2.2, *)
-class AVAudioPlayer : NSObject {
-  init(contentsOf url: NSURL) throws
-  init(data: NSData) throws
+class AVAudioPlayer : Object {
+  init(contentsOf url: URL) throws
+  init(data: Data) throws
   @available(iOS 7.0, *)
-  init(contentsOf url: NSURL, fileTypeHint utiString: String?) throws
+  init(contentsOf url: URL, fileTypeHint utiString: String?) throws
   @available(iOS 7.0, *)
-  init(data: NSData, fileTypeHint utiString: String?) throws
+  init(data: Data, fileTypeHint utiString: String?) throws
   func prepareToPlay() -> Bool
   func play() -> Bool
   @available(iOS 4.0, *)
-  func playAtTime(time: NSTimeInterval) -> Bool
+  func playAtTime(time: TimeInterval) -> Bool
   func pause()
   func stop()
   var isPlaying: Bool { get }
   var numberOfChannels: Int { get }
-  var duration: NSTimeInterval { get }
+  var duration: TimeInterval { get }
   unowned(unsafe) var delegate: @sil_unmanaged AVAudioPlayerDelegate?
-  var url: NSURL? { get }
-  var data: NSData? { get }
+  var url: URL? { get }
+  var data: Data? { get }
   @available(iOS 4.0, *)
   var pan: Float
   var volume: Float
@@ -5691,9 +5691,9 @@ class AVAudioPlayer : NSObject {
   var enableRate: Bool
   @available(iOS 5.0, *)
   var rate: Float
-  var currentTime: NSTimeInterval
+  var currentTime: TimeInterval
   @available(iOS 4.0, *)
-  var deviceCurrentTime: NSTimeInterval { get }
+  var deviceCurrentTime: TimeInterval { get }
   var numberOfLoops: Int
   @available(iOS 4.0, *)
   var settings: [String : AnyObject] { get }
@@ -5702,14 +5702,14 @@ class AVAudioPlayer : NSObject {
   func peakPowerForChannel(channelNumber: Int) -> Float
   func averagePowerForChannel(channelNumber: Int) -> Float
   @available(iOS 7.0, *)
-  var channelAssignments: [NSNumber]?
+  var channelAssignments: [Number]?
   init()
 }
-protocol AVAudioPlayerDelegate : NSObjectProtocol {
+protocol AVAudioPlayerDelegate : ObjectProtocol {
   @available(iOS 2.2, *)
   optional func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool)
   @available(iOS 2.2, *)
-  optional func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?)
+  optional func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: Error?)
   @available(iOS, introduced=2.2, deprecated=8.0)
   optional func audioPlayerBeginInterruption(player: AVAudioPlayer)
   @available(iOS, introduced=6.0, deprecated=8.0)
@@ -6095,38 +6095,38 @@ let AVAudioTimePitchAlgorithmSpectral: String
 @available(iOS 7.0, *)
 let AVAudioTimePitchAlgorithmVarispeed: String
 @available(iOS 3.0, *)
-class AVAudioRecorder : NSObject {
-  init(url: NSURL, settings: [String : AnyObject]) throws
+class AVAudioRecorder : Object {
+  init(url: URL, settings: [String : AnyObject]) throws
   func prepareToRecord() -> Bool
   func record() -> Bool
   @available(iOS 6.0, *)
-  func recordAtTime(time: NSTimeInterval) -> Bool
-  func recordForDuration(duration: NSTimeInterval) -> Bool
+  func recordAtTime(time: TimeInterval) -> Bool
+  func recordForDuration(duration: TimeInterval) -> Bool
   @available(iOS 6.0, *)
-  func recordAtTime(time: NSTimeInterval, forDuration duration: NSTimeInterval) -> Bool
+  func recordAtTime(time: TimeInterval, forDuration duration: TimeInterval) -> Bool
   func pause()
   func stop()
   func deleteRecording() -> Bool
   var isRecording: Bool { get }
-  var url: NSURL { get }
+  var url: URL { get }
   var settings: [String : AnyObject] { get }
   unowned(unsafe) var delegate: @sil_unmanaged AVAudioRecorderDelegate?
-  var currentTime: NSTimeInterval { get }
+  var currentTime: TimeInterval { get }
   @available(iOS 6.0, *)
-  var deviceCurrentTime: NSTimeInterval { get }
+  var deviceCurrentTime: TimeInterval { get }
   var isMeteringEnabled: Bool
   func updateMeters()
   func peakPowerForChannel(channelNumber: Int) -> Float
   func averagePowerForChannel(channelNumber: Int) -> Float
   @available(iOS 7.0, *)
-  var channelAssignments: [NSNumber]?
+  var channelAssignments: [Number]?
   init()
 }
-protocol AVAudioRecorderDelegate : NSObjectProtocol {
+protocol AVAudioRecorderDelegate : ObjectProtocol {
   @available(iOS 3.0, *)
   optional func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool)
   @available(iOS 3.0, *)
-  optional func audioRecorderEncodeErrorDidOccur(recorder: AVAudioRecorder, error: NSError?)
+  optional func audioRecorderEncodeErrorDidOccur(recorder: AVAudioRecorder, error: Error?)
   @available(iOS, introduced=2.2, deprecated=8.0)
   optional func audioRecorderBeginInterruption(recorder: AVAudioRecorder)
   @available(iOS, introduced=6.0, deprecated=8.0)
@@ -6175,7 +6175,7 @@ func AVMakeBeatRange(startBeat: AVMusicTimeStamp, _ lengthInBeats: AVMusicTimeSt
     @abstract A collection of MIDI events organized into AVMusicTracks, plus a player to play back the events.
  */
 @available(iOS 9.0, *)
-class AVAudioSequencer : NSObject {
+class AVAudioSequencer : Object {
 
   /*! @method init
   	@abstract
@@ -6198,7 +6198,7 @@ class AVAudioSequencer : NSObject {
    		determines how the file's contents are mapped to tracks inside the sequence
   	@param outError
   */
-  func loadFrom(fileURL: NSURL, options: AVMusicSequenceLoadOptions = []) throws
+  func loadFrom(fileURL: URL, options: AVMusicSequenceLoadOptions = []) throws
 
   /*! @method loadFromData:options:error:
   	@abstract Parse the data and add the its events to the sequence
@@ -6207,7 +6207,7 @@ class AVAudioSequencer : NSObject {
    		determines how the contents are mapped to tracks inside the sequence
   	@param outError
   */
-  func loadFrom(data: NSData, options: AVMusicSequenceLoadOptions = []) throws
+  func loadFrom(data: Data, options: AVMusicSequenceLoadOptions = []) throws
 
   /*! @method writeToURL:SMPTEResolution:replaceExisting:error:
   	@abstract Create and write a MIDI file from the events in the sequence
@@ -6226,7 +6226,7 @@ class AVAudioSequencer : NSObject {
    		The relationship between "tick" and quarter note for saving to Standard MIDI File
   		- pass in zero to use default - this will be the value that is currently set on the tempo track
    */
-  func writeTo(fileURL: NSURL, smpteResolution resolution: Int, replaceExisting replace: Bool) throws
+  func writeTo(fileURL: URL, smpteResolution resolution: Int, replaceExisting replace: Bool) throws
 
   /*!	@method dataWithSMPTEResolution:error:
    	@abstract Return a data object containing the events from the sequence
@@ -6234,17 +6234,17 @@ class AVAudioSequencer : NSObject {
    		All details regarding the SMPTE resolution apply here as well.
    		The returned NSData lifetime is controlled by the client.
   */
-  func dataWithSMPTEResolution(SMPTEResolution: Int, error outError: NSErrorPointer) -> NSData
+  func dataWithSMPTEResolution(SMPTEResolution: Int, error outError: ErrorPointer) -> Data
 
   /*!	@method secondsForBeats:
   	@abstract Get the time in seconds for the given beat position (timestamp) in the track
   */
-  func secondsForBeats(beats: AVMusicTimeStamp) -> NSTimeInterval
+  func secondsForBeats(beats: AVMusicTimeStamp) -> TimeInterval
 
   /*!	@method beatsForSeconds:
   	@abstract Get the beat position (timestamp) for the given time in the track
   */
-  func beatsForSeconds(seconds: NSTimeInterval) -> AVMusicTimeStamp
+  func beatsForSeconds(seconds: TimeInterval) -> AVMusicTimeStamp
 
   /*!	@property tracks
   	@abstract An NSArray containing all the tracks in the sequence
@@ -6279,7 +6279,7 @@ extension AVAudioSequencer {
   		Setting this positions the sequencer's player to the specified time.  This can be set while
   		the player is playing, in which case playback will resume at the new position.
    */
-  var currentPositionInSeconds: NSTimeInterval
+  var currentPositionInSeconds: TimeInterval
 
   /*! @property currentPositionInBeats
   	@abstract The current playback position in beats
@@ -6287,7 +6287,7 @@ extension AVAudioSequencer {
   		Setting this positions the sequencer's player to the specified beat.  This can be set while
   		the player is playing, in which case playback will resume at the new position.
    */
-  var currentPositionInBeats: NSTimeInterval
+  var currentPositionInBeats: TimeInterval
 
   /*! @property playing
   	@abstract Indicates whether or not the sequencer's player is playing
@@ -6313,7 +6313,7 @@ extension AVAudioSequencer {
   		after the specified beat.  The method uses the sequence's tempo map to translate a beat
   		time from the starting time and beat of the player.
   */
-  func hostTimeForBeats(inBeats: AVMusicTimeStamp, error outError: NSErrorPointer) -> UInt64
+  func hostTimeForBeats(inBeats: AVMusicTimeStamp, error outError: ErrorPointer) -> UInt64
 
   /*!	@method beatsForHostTime:error:
   	@abstract Returns the beat that will be (or was) played at the specified host time.
@@ -6323,7 +6323,7 @@ extension AVAudioSequencer {
   		time.  The method uses the sequence's tempo map to retrieve a beat time from the starting
   		and specified host time.
   */
-  func beatsForHostTime(inHostTime: UInt64, error outError: NSErrorPointer) -> AVMusicTimeStamp
+  func beatsForHostTime(inHostTime: UInt64, error outError: ErrorPointer) -> AVMusicTimeStamp
 
   /*! @method prepareToPlay
   	@abstract Get ready to play the sequence by prerolling all events
@@ -6354,7 +6354,7 @@ extension AVAudioSequencer {
  				offset, muted, etc. independently of events in other tracks.
  */
 @available(iOS 9.0, *)
-class AVMusicTrack : NSObject {
+class AVMusicTrack : Object {
 
   /*!	@property destinationAudioUnit
   	@abstract The AVAudioUnit which will receive the track's events
@@ -6428,7 +6428,7 @@ class AVMusicTrack : NSObject {
    
    The property will return the maximum of the user-set track length, or the calculated length.
    */
-  var lengthInSeconds: NSTimeInterval
+  var lengthInSeconds: TimeInterval
 
   /*! @property timeResolution
       @abstract The time resolution value for the sequence, in ticks (pulses) per quarter note (PPQN)
@@ -6585,7 +6585,7 @@ enum AVAudioSessionErrorCode : Int {
   case CodeUnspecified
 }
 @available(iOS 3.0, *)
-class AVAudioSession : NSObject {
+class AVAudioSession : Object {
   class func sharedInstance() -> AVAudioSession
   func setActive(active: Bool) throws
   @available(iOS 6.0, *)
@@ -6630,8 +6630,8 @@ extension AVAudioSession {
   func setPreferredSampleRate(sampleRate: Double) throws
   @available(iOS 6.0, *)
   var preferredSampleRate: Double { get }
-  func setPreferredIOBufferDuration(duration: NSTimeInterval) throws
-  var preferredIOBufferDuration: NSTimeInterval { get }
+  func setPreferredIOBufferDuration(duration: TimeInterval) throws
+  var preferredIOBufferDuration: TimeInterval { get }
   @available(iOS 7.0, *)
   func setPreferredInputNumberOfChannels(count: Int) throws
   @available(iOS 7.0, *)
@@ -6673,11 +6673,11 @@ extension AVAudioSession {
   @available(iOS 6.0, *)
   var outputVolume: Float { get }
   @available(iOS 6.0, *)
-  var inputLatency: NSTimeInterval { get }
+  var inputLatency: TimeInterval { get }
   @available(iOS 6.0, *)
-  var outputLatency: NSTimeInterval { get }
+  var outputLatency: TimeInterval { get }
   @available(iOS 6.0, *)
-  var ioBufferDuration: NSTimeInterval { get }
+  var ioBufferDuration: TimeInterval { get }
 }
 extension AVAudioSession {
 }
@@ -6781,7 +6781,7 @@ let AVAudioSessionPolarPatternCardioid: String
 @available(iOS 7.0, *)
 let AVAudioSessionPolarPatternSubcardioid: String
 @available(iOS 6.0, *)
-class AVAudioSessionChannelDescription : NSObject {
+class AVAudioSessionChannelDescription : Object {
   var channelName: String { get }
   var owningPortUID: String { get }
   var channelNumber: Int { get }
@@ -6789,7 +6789,7 @@ class AVAudioSessionChannelDescription : NSObject {
   init()
 }
 @available(iOS 6.0, *)
-class AVAudioSessionPortDescription : NSObject {
+class AVAudioSessionPortDescription : Object {
   var portType: String { get }
   var portName: String { get }
   var uid: String { get }
@@ -6805,14 +6805,14 @@ class AVAudioSessionPortDescription : NSObject {
   init()
 }
 @available(iOS 6.0, *)
-class AVAudioSessionRouteDescription : NSObject {
+class AVAudioSessionRouteDescription : Object {
   var inputs: [AVAudioSessionPortDescription] { get }
   var outputs: [AVAudioSessionPortDescription] { get }
   init()
 }
 @available(iOS 6.0, *)
-class AVAudioSessionDataSourceDescription : NSObject {
-  var dataSourceID: NSNumber { get }
+class AVAudioSessionDataSourceDescription : Object {
+  var dataSourceID: Number { get }
   var dataSourceName: String { get }
   @available(iOS 7.0, *)
   var location: String? { get }
@@ -6828,7 +6828,7 @@ class AVAudioSessionDataSourceDescription : NSObject {
   func setPreferredPolarPattern(pattern: String?) throws
   init()
 }
-protocol AVAudioSessionDelegate : NSObjectProtocol {
+protocol AVAudioSessionDelegate : ObjectProtocol {
   optional func beginInterruption()
   @available(iOS 4.0, *)
   optional func endInterruptionWithFlags(flags: Int)
@@ -6902,7 +6902,7 @@ Rationale for using host time:
 	least not be cluttered by ugly multiplications and divisions by the host clock frequency.
 */
 @available(iOS 8.0, *)
-class AVAudioTime : NSObject {
+class AVAudioTime : Object {
 
   /*!	@method initWithAudioTimeStamp:sampleRate:
   */
@@ -6923,12 +6923,12 @@ class AVAudioTime : NSObject {
   /*!	@method hostTimeForSeconds:
   	@abstract Convert seconds to host time.
   */
-  class func hostTimeForSeconds(seconds: NSTimeInterval) -> UInt64
+  class func hostTimeForSeconds(seconds: TimeInterval) -> UInt64
 
   /*!	@method secondsForHostTime:
   	@abstract Convert host time to seconds.
   */
-  class func secondsForHostTime(hostTime: UInt64) -> NSTimeInterval
+  class func secondsForHostTime(hostTime: UInt64) -> TimeInterval
 
   /*!	@method extrapolateTimeFromAnchor:
   	@abstract Converts between host and sample time.
@@ -7154,7 +7154,7 @@ class AVAudioUnit : AVAudioNode {
   		according to the component's type.
   */
   @available(iOS 9.0, *)
-  class func instantiateWith(audioComponentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = [], completionHandler: (AVAudioUnit?, NSError?) -> Void)
+  class func instantiateWith(audioComponentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = [], completionHandler: (AVAudioUnit?, Error?) -> Void)
 
   /*! @method loadAudioUnitPresetAtURL:error:
       @abstract Load an audio unit preset.
@@ -7164,7 +7164,7 @@ class AVAudioUnit : AVAudioNode {
       @discussion
           If the .aupreset file cannot be successfully loaded, an error is returned.
   */
-  func loadPresetAt(url: NSURL) throws
+  func loadPresetAt(url: URL) throws
 
   /*! @property audioComponentDescription
       @abstract AudioComponentDescription of the underlying audio unit.
@@ -7244,7 +7244,7 @@ let AVAudioUnitManufacturerNameApple: String
  	 for display.
  */
 @available(iOS 9.0, *)
-class AVAudioUnitComponent : NSObject {
+class AVAudioUnitComponent : Object {
 
   /*! @property name
   	@abstract the name of an audio component
@@ -7330,7 +7330,7 @@ let AVAudioUnitComponentTagsDidChangeNotification: String
 			- using an AudioComponentDescription
  */
 @available(iOS 9.0, *)
-class AVAudioUnitComponentManager : NSObject {
+class AVAudioUnitComponentManager : Object {
 
   /*! @discussion 
    		returns all tags associated with the current user as well as all system tags defined by 
@@ -7351,7 +7351,7 @@ class AVAudioUnitComponentManager : NSObject {
    		AudioComponent's information or tags can be used to build a search criteria. 
    		For example, "typeName CONTAINS 'Effect'" or tags IN {'Sampler', 'MIDI'}"
    */
-  func componentsMatching(predicate: NSPredicate) -> [AVAudioUnitComponent]
+  func componentsMatching(predicate: Predicate) -> [AVAudioUnitComponent]
 
   /*!
    @method componentsPassingTest:
@@ -7394,7 +7394,7 @@ class AVAudioUnitDelay : AVAudioUnitEffect {
       Default:    1
       Unit:       Seconds
    */
-  var delayTime: NSTimeInterval
+  var delayTime: TimeInterval
 
   /*! @property feedback
       @abstract
@@ -7592,7 +7592,7 @@ enum AVAudioUnitEQFilterType : Int {
         vended out by a source object (e.g. AVAudioUnitEQ) can be used.
 */
 @available(iOS 8.0, *)
-class AVAudioUnitEQFilterParameters : NSObject {
+class AVAudioUnitEQFilterParameters : Object {
 
   /*! @property filterType
       @abstract AVAudioUnitEQFilterType
@@ -8018,7 +8018,7 @@ class AVAudioUnitMIDIInstrument : AVAudioUnit, AVAudioMixing {
       a NSData object containing the complete SysEx data including start(F0) and termination(F7) bytes.
    
    */
-  func sendMIDISysExEvent(midiData: NSData)
+  func sendMIDISysExEvent(midiData: Data)
   init()
 
   /*! @method destinationForMixer:bus:
@@ -8232,7 +8232,7 @@ class AVAudioUnitSampler : AVAudioUnitMIDIInstrument {
   	@discussion
    		This method reads from file and allocates memory, so it should not be called on a real time thread.
    */
-  func loadSoundBankInstrumentAt(bankURL: NSURL, program: UInt8, bankMSB: UInt8, bankLSB: UInt8) throws
+  func loadSoundBankInstrumentAt(bankURL: URL, program: UInt8, bankMSB: UInt8, bankLSB: UInt8) throws
 
   /*! @method loadInstrumentAtURL:error:
   	@abstract configures the sampler by loading the specified preset file.
@@ -8250,7 +8250,7 @@ class AVAudioUnitSampler : AVAudioUnitMIDIInstrument {
   		This method reads from file and allocates memory, so it should not be called on a real time thread.
    
    */
-  func loadInstrumentAt(instrumentURL: NSURL) throws
+  func loadInstrumentAt(instrumentURL: URL) throws
 
   /*! @method loadAudioFilesAtURLs:error:
   	@abstract configures the sampler by loading a set of audio files.
@@ -8265,7 +8265,7 @@ class AVAudioUnitSampler : AVAudioUnitMIDIInstrument {
   		This method reads from file and allocates memory, so it should not be called on a real time thread.
    
    */
-  func loadAudioFilesAtURLs(audioFiles: [NSURL]) throws
+  func loadAudioFilesAtURLs(audioFiles: [URL]) throws
 
   /*! @property stereoPan
   	@abstract
@@ -8475,7 +8475,7 @@ let AVCaptureDeviceSubjectAreaDidChangeNotification: String
     AVCaptureDeviceInput with the device and adding that to the capture session.
 */
 @available(iOS 4.0, *)
-class AVCaptureDevice : NSObject {
+class AVCaptureDevice : Object {
 
   /*!
    @method devices
@@ -10065,7 +10065,7 @@ extension AVCaptureDevice {
     duration (CMTime).  An AVFrameRateRange object is immutable.  Its values do not change for the life of the object.
 */
 @available(iOS 7.0, *)
-class AVFrameRateRange : NSObject {
+class AVFrameRateRange : Object {
 
   /*!
    @property minFrameRate
@@ -10184,7 +10184,7 @@ enum AVCaptureAutoFocusSystem : Int {
     Its values do not change for the life of the object.
 */
 @available(iOS 7.0, *)
-class AVCaptureDeviceFormat : NSObject {
+class AVCaptureDeviceFormat : Object {
 
   /*!
    @property mediaType
@@ -10397,7 +10397,7 @@ class AVCaptureDeviceFormat : NSObject {
     between a set of AVCaptureInputPort objects and a single AVCaptureOutput.
 */
 @available(iOS 4.0, *)
-class AVCaptureInput : NSObject {
+class AVCaptureInput : Object {
 
   /*!
    @property ports
@@ -10436,7 +10436,7 @@ let AVCaptureInputPortFormatDescriptionDidChangeNotification: String
     are used by an AVCaptureConnection to define the mapping between inputs and outputs in an AVCaptureSession.
 */
 @available(iOS 4.0, *)
-class AVCaptureInputPort : NSObject {
+class AVCaptureInputPort : Object {
 
   /*!
    @property input
@@ -10617,7 +10617,7 @@ class AVCaptureMetadataInput : AVCaptureInput {
     -[AVCaptureSession addOutputWithNoConnections:] methods.
 */
 @available(iOS 4.0, *)
-class AVCaptureOutput : NSObject {
+class AVCaptureOutput : Object {
 
   /*!
    @property connections
@@ -10815,7 +10815,7 @@ class AVCaptureVideoDataOutput : AVCaptureOutput {
       On iOS, the only supported key is kCVPixelBufferPixelFormatTypeKey. Supported pixel formats are
       kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange, kCVPixelFormatType_420YpCbCr8BiPlanarFullRange and kCVPixelFormatType_32BGRA.
   */
-  var videoSettings: [NSObject : AnyObject]!
+  var videoSettings: [Object : AnyObject]!
 
   /*!
    @method recommendedVideoSettingsForAssetWriterWithOutputFileType:
@@ -10844,7 +10844,7 @@ class AVCaptureVideoDataOutput : AVCaptureOutput {
       settings successfully import into the iOS camera roll and sync to and from like devices via iTunes.
   */
   @available(iOS 7.0, *)
-  func recommendedVideoSettingsForAssetWriterWithOutputFileType(outputFileType: String!) -> [NSObject : AnyObject]!
+  func recommendedVideoSettingsForAssetWriterWithOutputFileType(outputFileType: String!) -> [Object : AnyObject]!
 
   /*!
    @property availableVideoCVPixelFormatTypes
@@ -10894,7 +10894,7 @@ class AVCaptureVideoDataOutput : AVCaptureOutput {
     Defines an interface for delegates of AVCaptureVideoDataOutput to receive captured video sample buffers and be
     notified of late sample buffers that were dropped.
 */
-protocol AVCaptureVideoDataOutputSampleBufferDelegate : NSObjectProtocol {
+protocol AVCaptureVideoDataOutputSampleBufferDelegate : ObjectProtocol {
 
   /*!
    @method captureOutput:didOutputSampleBuffer:fromConnection:
@@ -11050,7 +11050,7 @@ class AVCaptureAudioDataOutput : AVCaptureOutput {
       configure your session first, then query the recommended audio settings.
   */
   @available(iOS 7.0, *)
-  func recommendedAudioSettingsForAssetWriterWithOutputFileType(outputFileType: String!) -> [NSObject : AnyObject]!
+  func recommendedAudioSettingsForAssetWriterWithOutputFileType(outputFileType: String!) -> [Object : AnyObject]!
   init()
 }
 
@@ -11059,7 +11059,7 @@ class AVCaptureAudioDataOutput : AVCaptureOutput {
  @abstract
     Defines an interface for delegates of AVCaptureAudioDataOutput to receive captured audio sample buffers.
 */
-protocol AVCaptureAudioDataOutputSampleBufferDelegate : NSObjectProtocol {
+protocol AVCaptureAudioDataOutputSampleBufferDelegate : ObjectProtocol {
 
   /*!
    @method captureOutput:didOutputSampleBuffer:fromConnection:
@@ -11119,7 +11119,7 @@ class AVCaptureFileOutput : AVCaptureOutput {
       The value of this property is an NSURL object containing the file URL of the file currently being written by the
       receiver. Returns nil if the receiver is not recording to any file.
   */
-  var outputFileURL: NSURL! { get }
+  var outputFileURL: URL! { get }
 
   /*!
    @method startRecordingToOutputFileURL:recordingDelegate:
@@ -11156,7 +11156,7 @@ class AVCaptureFileOutput : AVCaptureOutput {
       Note: AVCaptureAudioFileOutput does not support -startRecordingToOutputFileURL:recordingDelegate:.  Use
       -startRecordingToOutputFileURL:outputFileType:recordingDelegate: instead.
   */
-  func startRecordingToOutputFileURL(outputFileURL: NSURL!, recordingDelegate delegate: AVCaptureFileOutputRecordingDelegate!)
+  func startRecordingToOutputFileURL(outputFileURL: URL!, recordingDelegate delegate: AVCaptureFileOutputRecordingDelegate!)
 
   /*!
    @method stopRecording
@@ -11256,7 +11256,7 @@ class AVCaptureFileOutput : AVCaptureOutput {
     Defines an interface for delegates of AVCaptureFileOutput to respond to events that occur in the process of recording
     a single file.
 */
-protocol AVCaptureFileOutputRecordingDelegate : NSObjectProtocol {
+protocol AVCaptureFileOutputRecordingDelegate : ObjectProtocol {
 
   /*!
    @method captureOutput:didStartRecordingToOutputFileAtURL:fromConnections:
@@ -11282,7 +11282,7 @@ protocol AVCaptureFileOutputRecordingDelegate : NSObjectProtocol {
       method as efficient as possible.
   */
   @available(iOS 4.0, *)
-  optional func capture(captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: NSURL!, fromConnections connections: [AnyObject]!)
+  optional func capture(captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [AnyObject]!)
 
   /*!
    @method captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:
@@ -11310,7 +11310,7 @@ protocol AVCaptureFileOutputRecordingDelegate : NSObjectProtocol {
       Delegates are required to implement this method.
   */
   @available(iOS 4.0, *)
-  func capture(captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: NSURL!, fromConnections connections: [AnyObject]!, error: NSError!)
+  func capture(captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [AnyObject]!, error: Error!)
 }
 
 /*!
@@ -11456,7 +11456,7 @@ class AVCaptureStillImageOutput : AVCaptureOutput {
       codec keys and pixel formats are supported. AVVideoQualityKey is supported on iOS 6.0 and later
       and may only be used when AVVideoCodecKey is set to AVVideoCodecJPEG.
   */
-  var outputSettings: [NSObject : AnyObject]!
+  var outputSettings: [Object : AnyObject]!
 
   /*!
    @property availableImageDataCVPixelFormatTypes
@@ -11581,7 +11581,7 @@ class AVCaptureStillImageOutput : AVCaptureOutput {
       CMSampleBufferGetPresentationTimestamp(). If the still image has an earlier timestamp, your manual control command 
       does not apply to it.
   */
-  func captureStillImageAsynchronouslyFrom(connection: AVCaptureConnection!, completionHandler handler: ((CMSampleBuffer!, NSError!) -> Void)!)
+  func captureStillImageAsynchronouslyFrom(connection: AVCaptureConnection!, completionHandler handler: ((CMSampleBuffer!, Error!) -> Void)!)
 
   /*!
    @method jpegStillImageNSDataRepresentation:
@@ -11597,7 +11597,7 @@ class AVCaptureStillImageOutput : AVCaptureOutput {
       Exif metadata sample buffer attachments without recompressing the image.
       The returned NSData is suitable for writing to disk.
   */
-  class func jpegStillImageNSDataRepresentation(jpegSampleBuffer: CMSampleBuffer!) -> NSData!
+  class func jpegStillImageNSDataRepresentation(jpegSampleBuffer: CMSampleBuffer!) -> Data!
   init()
 }
 
@@ -11611,7 +11611,7 @@ class AVCaptureStillImageOutput : AVCaptureOutput {
     AVCaptureBracketedStillImageSettings may not be instantiated directly.
 */
 @available(iOS 8.0, *)
-class AVCaptureBracketedStillImageSettings : NSObject {
+class AVCaptureBracketedStillImageSettings : Object {
   init()
 }
 
@@ -11750,7 +11750,7 @@ extension AVCaptureStillImageOutput {
   
   */
   @available(iOS 8.0, *)
-  func prepareToCaptureStillImageBracketFrom(connection: AVCaptureConnection!, withSettingsArray settings: [AnyObject]!, completionHandler handler: ((Bool, NSError!) -> Void)!)
+  func prepareToCaptureStillImageBracketFrom(connection: AVCaptureConnection!, withSettingsArray settings: [AnyObject]!, completionHandler handler: ((Bool, Error!) -> Void)!)
 
   /*!
    @method captureStillImageBracketAsynchronouslyFromConnection:withSettingsArray:completionHandler:
@@ -11778,7 +11778,7 @@ extension AVCaptureStillImageOutput {
       prepare resources.
   */
   @available(iOS 8.0, *)
-  func captureStillImageBracketAsynchronouslyFrom(connection: AVCaptureConnection!, withSettingsArray settings: [AnyObject]!, completionHandler handler: ((CMSampleBuffer!, AVCaptureBracketedStillImageSettings!, NSError!) -> Void)!)
+  func captureStillImageBracketAsynchronouslyFrom(connection: AVCaptureConnection!, withSettingsArray settings: [AnyObject]!, completionHandler handler: ((CMSampleBuffer!, AVCaptureBracketedStillImageSettings!, Error!) -> Void)!)
 }
 
 /*!
@@ -11891,7 +11891,7 @@ class AVCaptureMetadataOutput : AVCaptureOutput {
  @abstract
     Defines an interface for delegates of AVCaptureMetadataOutput to receive emitted objects.
 */
-protocol AVCaptureMetadataOutputObjectsDelegate : NSObjectProtocol {
+protocol AVCaptureMetadataOutputObjectsDelegate : ObjectProtocol {
 
   /*!
    @method captureOutput:didOutputMetadataObjects:fromConnection:
@@ -12247,7 +12247,7 @@ let AVCaptureSessionPresetInputPriority: String
     customize the quality level or bitrate of the output.
 */
 @available(iOS 4.0, *)
-class AVCaptureSession : NSObject {
+class AVCaptureSession : Object {
 
   /*!
    @method canSetSessionPreset:
@@ -12635,7 +12635,7 @@ class AVCaptureSession : NSObject {
     Connections involving video expose video specific properties, such as videoMirrored and videoOrientation.
 */
 @available(iOS 4.0, *)
-class AVCaptureConnection : NSObject {
+class AVCaptureConnection : Object {
 
   /*!
    @method initWithInputPorts:output:
@@ -12972,7 +12972,7 @@ class AVCaptureConnection : NSObject {
     for audio levels. Instances of AVCaptureAudioChannel cannot be created directly.
 */
 @available(iOS 4.0, *)
-class AVCaptureAudioChannel : NSObject {
+class AVCaptureAudioChannel : Object {
 
   /*!
    @property averagePowerLevel
@@ -13206,10 +13206,10 @@ class AVCaptureVideoPreviewLayer : CALayer {
   func transformedMetadataObjectFor(metadataObject: AVMetadataObject!) -> AVMetadataObject!
   init()
   init(layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 4.0, *)
-class AVComposition : AVAsset, NSMutableCopying {
+class AVComposition : AVAsset, MutableCopying {
   var tracks: [AVCompositionTrack] { get }
   var naturalSize: CGSize { get }
 
@@ -13231,10 +13231,10 @@ class AVComposition : AVAsset, NSMutableCopying {
     @result		An instance of AVAsset.
     @discussion	Returns a newly allocated instance of a subclass of AVAsset initialized with the specified URL.
   */
-  convenience init(url URL: NSURL)
+  convenience init(url URL: URL)
   init()
   @available(iOS 4.0, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
 }
 extension AVComposition {
 
@@ -13291,7 +13291,7 @@ class AVMutableComposition : AVComposition {
     @result		An instance of AVAsset.
     @discussion	Returns a newly allocated instance of a subclass of AVAsset initialized with the specified URL.
   */
-  convenience init(url URL: NSURL)
+  convenience init(url URL: URL)
   init()
 }
 extension AVMutableComposition {
@@ -13488,7 +13488,7 @@ class AVMutableCompositionTrack : AVCompositionTrack {
   		This method is equivalent to (but more efficient than) calling -insertTimeRange:ofTrack:atTime:error: for each timeRange/track pair. If this method returns an error, none of the time ranges will be inserted into the composition track. To specify an empty time range, pass NSNull for the track and a time range of starting at kCMTimeInvalid with a duration of the desired empty edit.
   */
   @available(iOS 5.0, *)
-  func insertTimeRanges(timeRanges: [NSValue], of tracks: [AVAssetTrack], at startTime: CMTime) throws
+  func insertTimeRanges(timeRanges: [Value], of tracks: [AVAssetTrack], at startTime: CMTime) throws
 
   /*!
   	@method			insertEmptyTimeRange:
@@ -13562,7 +13562,7 @@ class AVCompositionTrackSegment : AVAssetTrackSegment {
   	@discussion		To specify that the segment be played at the asset's normal rate, set source.duration == target.duration in the timeMapping.
   					Otherwise, the segment will be played at a rate equal to the ratio source.duration / target.duration.
   */
-  init(url URL: NSURL, trackID: CMPersistentTrackID, sourceTimeRange: CMTimeRange, targetTimeRange: CMTimeRange)
+  init(url URL: URL, trackID: CMPersistentTrackID, sourceTimeRange: CMTimeRange, targetTimeRange: CMTimeRange)
 
   /*!
   	@method			initWithTimeRange:
@@ -13573,7 +13573,7 @@ class AVCompositionTrackSegment : AVAssetTrackSegment {
   */
   init(timeRange: CMTimeRange)
   var isEmpty: Bool { get }
-  var sourceURL: NSURL? { get }
+  var sourceURL: URL? { get }
   var sourceTrackID: CMPersistentTrackID { get }
 }
 @available(iOS 4.0, *)
@@ -13682,7 +13682,7 @@ typealias AVMIDIPlayerCompletionHandler = () -> Void
 	@abstract A player for music file formats (MIDI, iMelody).
  */
 @available(iOS 8.0, *)
-class AVMIDIPlayer : NSObject {
+class AVMIDIPlayer : Object {
 
   /*!	@method initWithContentsOfURL:soundBankURL:error:
    	@abstract Create a player with the contents of the file specified by the URL.
@@ -13691,7 +13691,7 @@ class AVMIDIPlayer : NSObject {
    		by the MIDI synthesizer.  For OSX it can be set to nil for the default,
    		but for iOS it must always refer to a valid bank file.
   */
-  init(contentsOf inURL: NSURL, soundBankURL bankURL: NSURL?) throws
+  init(contentsOf inURL: URL, soundBankURL bankURL: URL?) throws
 
   /*!	@method initWithData:soundBankURL:error:
   	@abstract Create a player with the contents of the data object
@@ -13700,7 +13700,7 @@ class AVMIDIPlayer : NSObject {
   		by the MIDI synthesizer.  For OSX it can be set to nil for the default,
   		but for iOS it must always refer to a valid bank file.
    */
-  init(data: NSData, soundBankURL bankURL: NSURL?) throws
+  init(data: Data, soundBankURL bankURL: URL?) throws
 
   /*! @method prepareToPlay
   	@abstract Get ready to play the sequence by prerolling all events
@@ -13722,7 +13722,7 @@ class AVMIDIPlayer : NSObject {
   /*! @property duration
   	@abstract The length of the currently loaded file in seconds.
    */
-  var duration: NSTimeInterval { get }
+  var duration: TimeInterval { get }
 
   /*! @property playing
   	@abstract Indicates whether or not the player is playing
@@ -13742,7 +13742,7 @@ class AVMIDIPlayer : NSObject {
   		Setting this positions the player to the specified time.  No range checking on the time value is done.
    		This can be set while the player is playing, in which case playback will resume at the new time.
    */
-  var currentPosition: NSTimeInterval
+  var currentPosition: TimeInterval
   init()
 }
 @available(iOS 4.0, *)
@@ -14150,7 +14150,7 @@ let AVStreamingKeyDeliveryContentKeyType: String
 @available(iOS 9.0, *)
 let AVStreamingKeyDeliveryPersistentContentKeyType: String
 @available(iOS 9.0, *)
-class AVMediaSelection : NSObject, NSCopying, NSMutableCopying {
+class AVMediaSelection : Object, Copying, MutableCopying {
   weak var asset: @sil_weak AVAsset? { get }
 
   /*!
@@ -14175,9 +14175,9 @@ class AVMediaSelection : NSObject, NSCopying, NSMutableCopying {
   func mediaSelectionCriteriaCanBeAppliedAutomaticallyTo(mediaSelectionGroup: AVMediaSelectionGroup) -> Bool
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class AVMutableMediaSelection : AVMediaSelection {
@@ -14197,7 +14197,7 @@ class AVMutableMediaSelection : AVMediaSelection {
   init()
 }
 @available(iOS 5.0, *)
-class AVMediaSelectionGroup : NSObject, NSCopying {
+class AVMediaSelectionGroup : Object, Copying {
 
   /*!
    @property		options
@@ -14234,7 +14234,7 @@ class AVMediaSelectionGroup : NSObject, NSCopying {
   func mediaSelectionOptionWithPropertyList(plist: AnyObject) -> AVMediaSelectionOption?
   init()
   @available(iOS 5.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -14277,7 +14277,7 @@ extension AVMediaSelectionGroup {
     				The NSLocale that must be matched for a media selection option to be copied to the output array.
     @result		An instance of NSArray containing the media selection options of the specified NSArray that match the specified locale.
   */
-  class func mediaSelectionOptionsFrom(mediaSelectionOptions: [AVMediaSelectionOption], withLocale locale: NSLocale) -> [AVMediaSelectionOption]
+  class func mediaSelectionOptionsFrom(mediaSelectionOptions: [AVMediaSelectionOption], withLocale locale: Locale) -> [AVMediaSelectionOption]
 
   /*!
     @method		mediaSelectionOptionsFromArray:withMediaCharacteristics:
@@ -14304,7 +14304,7 @@ extension AVMediaSelectionGroup {
   class func mediaSelectionOptionsFrom(mediaSelectionOptions: [AVMediaSelectionOption], withoutMediaCharacteristics mediaCharacteristics: [String]) -> [AVMediaSelectionOption]
 }
 @available(iOS 5.0, *)
-class AVMediaSelectionOption : NSObject, NSCopying {
+class AVMediaSelectionOption : Object, Copying {
 
   /*!
    @property		mediaType
@@ -14321,7 +14321,7 @@ class AVMediaSelectionOption : NSObject, NSCopying {
   	
   	Note that if no information is available about the encoding of the media presented when a media option is selected, the value of mediaSubTypes will be an empty array. This can occur, for example, with streaming media. In these cases the value of mediaSubTypes should simply not be used as a criteria for selection.
   */
-  var mediaSubTypes: [NSNumber] { get }
+  var mediaSubTypes: [Number] { get }
 
   /*!
     @method		hasMediaCharacteristic:
@@ -14352,7 +14352,7 @@ class AVMediaSelectionOption : NSObject, NSCopying {
    @discussion
    	Use -[NSLocale objectForKey:NSLocaleLanguageCode] to obtain the language code of the locale. See NSLocale.h for additional information.
   */
-  var locale: NSLocale? { get }
+  var locale: Locale? { get }
 
   /*!
    @property		commonMetadata
@@ -14427,7 +14427,7 @@ class AVMediaSelectionOption : NSObject, NSCopying {
      May use this option's common metadata, media characteristics and locale properties in addition to the provided locale to formulate an NSString intended for display. Will only consider common metadata with the specified locale.
   */
   @available(iOS 7.0, *)
-  func displayNameWith(locale: NSLocale) -> String
+  func displayNameWith(locale: Locale) -> String
 
   /*!
     @property		displayName
@@ -14441,7 +14441,7 @@ class AVMediaSelectionOption : NSObject, NSCopying {
   var displayName: String { get }
   init()
   @available(iOS 5.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 4.0, *)
 let AVMetadataKeySpaceCommon: String
@@ -15551,38 +15551,38 @@ let AVMetadataIdentifierIcyMetadataStreamTitle: String
 @available(iOS 8.0, *)
 let AVMetadataIdentifierIcyMetadataStreamURL: String
 @available(iOS 4.0, *)
-class AVMetadataItem : NSObject, AVAsynchronousKeyValueLoading, NSCopying, NSMutableCopying {
+class AVMetadataItem : Object, AVAsynchronousKeyValueLoading, Copying, MutableCopying {
   @available(iOS 8.0, *)
   var identifier: String? { get }
   @available(iOS 8.0, *)
   var extendedLanguageTag: String? { get }
-  @NSCopying var locale: NSLocale? { get }
+  @NSCopying var locale: Locale? { get }
   var time: CMTime { get }
   @available(iOS 4.2, *)
   var duration: CMTime { get }
   @available(iOS 8.0, *)
   var dataType: String? { get }
-  @NSCopying var value: protocol<NSCopying, NSObjectProtocol>? { get }
+  @NSCopying var value: protocol<Copying, ObjectProtocol>? { get }
   var extraAttributes: [String : AnyObject]? { get }
   init()
   @available(iOS 4.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
 }
 extension AVMetadataItem {
   @available(iOS 9.0, *)
-  @NSCopying var startDate: NSDate? { get }
+  @NSCopying var startDate: Date? { get }
 }
 extension AVMetadataItem {
   var stringValue: String? { get }
-  var numberValue: NSNumber? { get }
-  var dateValue: NSDate? { get }
-  var dataValue: NSData? { get }
+  var numberValue: Number? { get }
+  var dateValue: Date? { get }
+  var dataValue: Data? { get }
 }
 extension AVMetadataItem {
   @available(iOS 4.2, *)
-  func statusOfValueForKey(key: String, error outError: NSErrorPointer) -> AVKeyValueStatus
+  func statusOfValueForKey(key: String, error outError: ErrorPointer) -> AVKeyValueStatus
   @available(iOS 4.2, *)
   func loadValuesAsynchronouslyForKeys(keys: [String], completionHandler handler: (() -> Void)? = nil)
 }
@@ -15645,7 +15645,7 @@ extension AVMetadataItem {
   class func keySpaceForIdentifier(identifier: String) -> String?
   @available(iOS 8.0, *)
   class func keyForIdentifier(identifier: String) -> AnyObject?
-  @NSCopying var key: protocol<NSCopying, NSObjectProtocol>? { get }
+  @NSCopying var key: protocol<Copying, ObjectProtocol>? { get }
   var commonKey: String? { get }
   var keySpace: String? { get }
 }
@@ -15655,23 +15655,23 @@ class AVMutableMetadataItem : AVMetadataItem {
   var identifier: String?
   @available(iOS 8.0, *)
   var extendedLanguageTag: String?
-  @NSCopying var locale: NSLocale?
+  @NSCopying var locale: Locale?
   var time: CMTime
   @available(iOS 4.2, *)
   var duration: CMTime
   @available(iOS 8.0, *)
   var dataType: String?
-  @NSCopying var value: protocol<NSCopying, NSObjectProtocol>?
+  @NSCopying var value: protocol<Copying, ObjectProtocol>?
   var extraAttributes: [String : AnyObject]?
   init()
 }
 extension AVMutableMetadataItem {
   @available(iOS 9.0, *)
-  @NSCopying var startDate: NSDate?
+  @NSCopying var startDate: Date?
 }
 extension AVMutableMetadataItem {
   var keySpace: String?
-  @NSCopying var key: protocol<NSCopying, NSObjectProtocol>?
+  @NSCopying var key: protocol<Copying, ObjectProtocol>?
 }
 extension AVMetadataItem {
 
@@ -15691,7 +15691,7 @@ extension AVMetadataItem {
   /*not inherited*/ init(propertiesOf metadataItem: AVMetadataItem, valueLoadingHandler handler: (AVMetadataItemValueRequest) -> Void)
 }
 @available(iOS 9.0, *)
-class AVMetadataItemValueRequest : NSObject {
+class AVMetadataItemValueRequest : Object {
   weak var metadataItem: @sil_weak AVMetadataItem? { get }
 
   /*!
@@ -15700,7 +15700,7 @@ class AVMetadataItemValueRequest : NSObject {
   	@param			value
   					The value of the AVMetadataItem.
   */
-  func respondWithValue(value: protocol<NSCopying, NSObjectProtocol>)
+  func respondWithValue(value: protocol<Copying, ObjectProtocol>)
 
   /*!
   	@method			respondWithError:
@@ -15708,11 +15708,11 @@ class AVMetadataItemValueRequest : NSObject {
   	@param			error
   					An instance of NSError that describes a failure encountered while loading the value of an AVMetadataItem.
   */
-  func respondWithError(error: NSError)
+  func respondWithError(error: Error)
   init()
 }
 @available(iOS 7.0, *)
-class AVMetadataItemFilter : NSObject {
+class AVMetadataItemFilter : Object {
   class func forSharing() -> AVMetadataItemFilter
   init()
 }
@@ -15722,7 +15722,7 @@ extension AVMetadataItem {
    @method			metadataItemsFromArray:withLocale:
    @discussion		Instead, use metadataItemsFromArray:filteredAndSortedAccordingToPreferredLanguages:.
    */
-  class func metadataItemsFrom(metadataItems: [AVMetadataItem], withLocale locale: NSLocale) -> [AVMetadataItem]
+  class func metadataItemsFrom(metadataItems: [AVMetadataItem], withLocale locale: Locale) -> [AVMetadataItem]
 
   /*!
    @method			metadataItemsFromArray:withKey:keySpace:
@@ -15743,7 +15743,7 @@ extension AVMetadataItem {
     The concrete AVMetadataFaceObject is used by AVCaptureMetadataOutput for face detection.
 */
 @available(iOS 6.0, *)
-class AVMetadataObject : NSObject {
+class AVMetadataObject : Object {
 
   /*!
    @property time
@@ -15816,7 +15816,7 @@ let AVMetadataObjectTypeFace: String
     On supported platforms, AVCaptureMetadataOutput outputs arrays of detected face objects.  See AVCaptureOutput.h.
 */
 @available(iOS 6.0, *)
-class AVMetadataFaceObject : AVMetadataObject, NSCopying {
+class AVMetadataFaceObject : AVMetadataObject, Copying {
 
   /*!
    @property faceID
@@ -15874,7 +15874,7 @@ class AVMetadataFaceObject : AVMetadataObject, NSCopying {
   var yawAngle: CGFloat { get }
   init()
   @available(iOS 6.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -16055,7 +16055,7 @@ let AVOutputSettingsPreset3840x2160: String
 		The recommendations made by an instance get better as you tell it more about the format of your source data.  For example, if you set the sourceVideoFormat property, the recommendation made by the videoSettings property will ensure that your video frames are not scaled up from a smaller size.
  */
 @available(iOS 7.0, *)
-class AVOutputSettingsAssistant : NSObject {
+class AVOutputSettingsAssistant : Object {
 
   /*!
   	@method availableOutputSettingsPresets
@@ -16189,7 +16189,7 @@ enum AVPlayerStatus : Int {
   case Failed
 }
 @available(iOS 4.0, *)
-class AVPlayer : NSObject {
+class AVPlayer : Object {
 
   /*!
   	@method			initWithURL:
@@ -16198,7 +16198,7 @@ class AVPlayer : NSObject {
   	@result			An instance of AVPlayer
   	@discussion		Implicitly creates an AVPlayerItem. Clients can obtain the AVPlayerItem as it becomes the player's currentItem.
   */
-  init(url URL: NSURL)
+  init(url URL: URL)
 
   /*!
   	@method			initWithPlayerItem:
@@ -16231,7 +16231,7 @@ class AVPlayer : NSObject {
   	The value of this property is an NSError that describes what caused the receiver to no longer be able to play items.
   	If the receiver's status is not AVPlayerStatusFailed, the value of this property is nil.
    */
-  var error: NSError? { get }
+  var error: Error? { get }
   init()
 }
 extension AVPlayer {
@@ -16307,7 +16307,7 @@ extension AVPlayer {
    @discussion		Use this method to seek to a specified time for the current player item.
   					The time seeked to may differ from the specified time for efficiency. For sample accurate seeking see seekToTime:toleranceBefore:toleranceAfter:.
    */
-  func seekTo(date: NSDate)
+  func seekTo(date: Date)
 
   /*!
    @method			seekToDate:completionHandler:
@@ -16320,7 +16320,7 @@ extension AVPlayer {
   					completion handler will be invoked with the finished parameter set to YES. 
    */
   @available(iOS 5.0, *)
-  func seekTo(date: NSDate, completionHandler: (Bool) -> Void)
+  func seekTo(date: Date, completionHandler: (Bool) -> Void)
 
   /*!
    @method			seekToTime:
@@ -16462,7 +16462,7 @@ extension AVPlayer {
   	@discussion		Each call to -addPeriodicTimeObserverForInterval:queue:usingBlock: should be paired with a corresponding call to -removeTimeObserver:.
   					Releasing the observer object without a call to -removeTimeObserver: will result in undefined behavior.
   */
-  func addBoundaryTimeObserverForTimes(times: [NSValue], queue: dispatch_queue_t?, usingBlock block: () -> Void) -> AnyObject
+  func addBoundaryTimeObserverForTimes(times: [Value], queue: dispatch_queue_t?, usingBlock block: () -> Void) -> AnyObject
 
   /*!
   	@method			removeTimeObserver:
@@ -16626,7 +16626,7 @@ class AVQueuePlayer : AVPlayer {
   	@result			An instance of AVPlayer
   	@discussion		Implicitly creates an AVPlayerItem. Clients can obtain the AVPlayerItem as it becomes the player's currentItem.
   */
-  init(url URL: NSURL)
+  init(url URL: URL)
 
   /*!
   	@method			initWithPlayerItem:
@@ -16675,7 +16675,7 @@ enum AVPlayerItemStatus : Int {
   case Failed
 }
 @available(iOS 4.0, *)
-class AVPlayerItem : NSObject, NSCopying {
+class AVPlayerItem : Object, Copying {
 
   /*!
    @method		initWithURL:
@@ -16684,7 +16684,7 @@ class AVPlayerItem : NSObject, NSCopying {
    @result		An instance of AVPlayerItem
    @discussion	Equivalent to -initWithAsset:, passing [AVAsset assetWithURL:URL] as the value of asset.
    */
-  convenience init(url URL: NSURL)
+  convenience init(url URL: URL)
 
   /*!
    @method		initWithAsset:
@@ -16730,9 +16730,9 @@ class AVPlayerItem : NSObject, NSCopying {
   	The value of this property is an NSError that describes what caused the receiver to no longer be able to be played.
   	If the receiver's status is not AVPlayerItemStatusFailed, the value of this property is nil.
    */
-  var error: NSError? { get }
+  var error: Error? { get }
   @available(iOS 4.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 extension AVPlayerItem {
 
@@ -16869,7 +16869,7 @@ extension AVPlayerItem {
    @abstract This property provides a collection of time ranges that the player item can seek to. The ranges provided might be discontinous.
    @discussion Returns an NSArray of NSValues containing CMTimeRanges.
    */
-  var seekableTimeRanges: [NSValue] { get }
+  var seekableTimeRanges: [Value] { get }
 
   /*!
    @method			seekToTime:
@@ -16940,7 +16940,7 @@ extension AVPlayerItem {
   	@abstract	If currentTime is mapped to a particular (real-time) date, return that date.
   	@result		Returns the date of current playback, or nil if playback is not mapped to any date.
   */
-  func currentDate() -> NSDate?
+  func currentDate() -> Date?
 
   /*!
    @method		seekToDate
@@ -16952,7 +16952,7 @@ extension AVPlayerItem {
    @param			date	The new position for the playhead.
    @result		Returns true if the playhead was moved to the supplied date.
    */
-  func seekTo(date: NSDate) -> Bool
+  func seekTo(date: Date) -> Bool
 
   /*!
    @method		seekToDate:completionHandler:
@@ -16969,7 +16969,7 @@ extension AVPlayerItem {
    @result		Returns true if the playhead was moved to the supplied date.
    */
   @available(iOS 6.0, *)
-  func seekTo(date: NSDate, completionHandler: (Bool) -> Void) -> Bool
+  func seekTo(date: Date, completionHandler: (Bool) -> Void) -> Bool
 
   /*!
    @method		stepByCount:
@@ -17065,7 +17065,7 @@ extension AVPlayerItem {
    @abstract This property provides a collection of time ranges for which the player has the media data readily available. The ranges provided might be discontinuous.
    @discussion Returns an NSArray of NSValues containing CMTimeRanges.
    */
-  var loadedTimeRanges: [NSValue] { get }
+  var loadedTimeRanges: [Value] { get }
 
   /*!
    @property playbackLikelyToKeepUp
@@ -17223,7 +17223,7 @@ extension AVPlayerItem {
  				that relates to each uninterrupted period of playback.
 */
 @available(iOS 4.3, *)
-class AVPlayerItemAccessLog : NSObject, NSCopying {
+class AVPlayerItemAccessLog : Object, Copying {
 
   /*!
    @method		extendedLogData
@@ -17233,7 +17233,7 @@ class AVPlayerItemAccessLog : NSObject, NSCopying {
   				For more information see: http://www.w3.org/pub/WWW/TR/WD-logfile.html
    @result		An autoreleased NSData instance.
    */
-  func extendedLogData() -> NSData?
+  func extendedLogData() -> Data?
 
   /*!
    @property		extendedLogDataStringEncoding
@@ -17253,7 +17253,7 @@ class AVPlayerItemAccessLog : NSObject, NSCopying {
   var events: [AVPlayerItemAccessLogEvent] { get }
   init()
   @available(iOS 4.3, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -17262,7 +17262,7 @@ class AVPlayerItemAccessLog : NSObject, NSCopying {
  @discussion	An AVPlayerItemErrorLog provides data to identify if, and when, network resource playback failures occured.
 */
 @available(iOS 4.3, *)
-class AVPlayerItemErrorLog : NSObject, NSCopying {
+class AVPlayerItemErrorLog : Object, Copying {
 
   /*!
    @method		extendedLogData
@@ -17272,7 +17272,7 @@ class AVPlayerItemErrorLog : NSObject, NSCopying {
   				For more information see: http://www.w3.org/pub/WWW/TR/WD-logfile.html
    @result		An autoreleased NSData instance.
    */
-  func extendedLogData() -> NSData?
+  func extendedLogData() -> Data?
 
   /*!
    @property		extendedLogDataStringEncoding
@@ -17292,7 +17292,7 @@ class AVPlayerItemErrorLog : NSObject, NSCopying {
   var events: [AVPlayerItemErrorLogEvent] { get }
   init()
   @available(iOS 4.3, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -17302,7 +17302,7 @@ class AVPlayerItemErrorLog : NSObject, NSCopying {
 				fields of each log event. None of the properties of this class are observable.
 */
 @available(iOS 4.3, *)
-class AVPlayerItemAccessLogEvent : NSObject, NSCopying {
+class AVPlayerItemAccessLogEvent : Object, Copying {
 
   /*!
    @property		numberOfMediaRequests
@@ -17321,7 +17321,7 @@ class AVPlayerItemAccessLogEvent : NSObject, NSCopying {
    @discussion	If nil is returned the date is unknown. Corresponds to "date".
    				This property is not observable.
    */
-  var playbackStartDate: NSDate? { get }
+  var playbackStartDate: Date? { get }
 
   /*!
    @property		URI
@@ -17361,7 +17361,7 @@ class AVPlayerItemAccessLogEvent : NSObject, NSCopying {
    @discussion	Value is negative if unknown. Corresponds to "c-start-time".
    				This property is not observable.
    */
-  var playbackStartOffset: NSTimeInterval { get }
+  var playbackStartOffset: TimeInterval { get }
 
   /*!
    @property		segmentsDownloadedDuration
@@ -17369,7 +17369,7 @@ class AVPlayerItemAccessLogEvent : NSObject, NSCopying {
    @discussion	Value is negative if unknown. Corresponds to "c-duration-downloaded".
    				This property is not observable.
    */
-  var segmentsDownloadedDuration: NSTimeInterval { get }
+  var segmentsDownloadedDuration: TimeInterval { get }
 
   /*!
    @property		durationWatched
@@ -17377,7 +17377,7 @@ class AVPlayerItemAccessLogEvent : NSObject, NSCopying {
    @discussion	Value is negative if unknown. Corresponds to "c-duration-watched".
    				This property is not observable.
    */
-  var durationWatched: NSTimeInterval { get }
+  var durationWatched: TimeInterval { get }
 
   /*!
    @property		numberOfStalls
@@ -17402,7 +17402,7 @@ class AVPlayerItemAccessLogEvent : NSObject, NSCopying {
   				This property is not observable.
    */
   @available(iOS 7.0, *)
-  var transferDuration: NSTimeInterval { get }
+  var transferDuration: TimeInterval { get }
 
   /*!
    @property		observedBitrate
@@ -17435,7 +17435,7 @@ class AVPlayerItemAccessLogEvent : NSObject, NSCopying {
   				This property is not observable.
    */
   @available(iOS 7.0, *)
-  var startupTime: NSTimeInterval { get }
+  var startupTime: TimeInterval { get }
 
   /*!
    @property		downloadOverdue
@@ -17501,7 +17501,7 @@ class AVPlayerItemAccessLogEvent : NSObject, NSCopying {
   var switchBitrate: Double { get }
   init()
   @available(iOS 4.3, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -17511,7 +17511,7 @@ class AVPlayerItemAccessLogEvent : NSObject, NSCopying {
 				fields of each log event. None of the properties of this class are observable.
 */
 @available(iOS 4.3, *)
-class AVPlayerItemErrorLogEvent : NSObject, NSCopying {
+class AVPlayerItemErrorLogEvent : Object, Copying {
 
   /*!
    @property		date
@@ -17519,7 +17519,7 @@ class AVPlayerItemErrorLogEvent : NSObject, NSCopying {
    @discussion	If nil is returned the date is unknown. Corresponds to "date".
    				This property is not observable.
    */
-  var date: NSDate? { get }
+  var date: Date? { get }
 
   /*!
    @property		URI
@@ -17570,10 +17570,10 @@ class AVPlayerItemErrorLogEvent : NSObject, NSCopying {
   var errorComment: String? { get }
   init()
   @available(iOS 4.3, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 6.0, *)
-class AVPlayerItemOutput : NSObject {
+class AVPlayerItemOutput : Object {
 
   /*!
   	@method			itemTimeForHostTime:
@@ -17669,7 +17669,7 @@ class AVPlayerItemVideoOutput : AVPlayerItemOutput {
   	@discussion
   		Message this method before you suspend your use of a CVDisplayLink or CADisplayLink. The interval you provide will be used to message your delegate, in advance, that it should resume the display link. If the interval you provide is large, effectively requesting wakeup earlier than the AVPlayerItemVideoOutput is prepared to act, the delegate will be invoked as soon as possible. Do not use this method to force a delegate invocation for each sample.
    */
-  func requestNotificationOfMediaDataChangeWithAdvanceInterval(interval: NSTimeInterval)
+  func requestNotificationOfMediaDataChangeWithAdvanceInterval(interval: TimeInterval)
 
   /*!
   	@property		delegate
@@ -17689,7 +17689,7 @@ class AVPlayerItemVideoOutput : AVPlayerItemOutput {
 	@protocol		AVPlayerItemOutputPullDelegate
 	@abstract		Defines common delegate methods for objects participating in AVPlayerItemOutput pull sample output acquisition.
  */
-protocol AVPlayerItemOutputPullDelegate : NSObjectProtocol {
+protocol AVPlayerItemOutputPullDelegate : ObjectProtocol {
 
   /*!
   	@method			outputMediaDataWillChange:
@@ -17753,7 +17753,7 @@ class AVPlayerItemLegibleOutput : AVPlayerItemOutput {
   	@discussion
   		If it is possible, an AVPlayerItemLegibleOutput will message its delegate advanceIntervalForDelegateInvocation seconds earlier than otherwise. If the value you provide is large, effectively requesting provision of samples earlier than the AVPlayerItemLegibleOutput is prepared to act on them, the delegate will be invoked as soon as possible.
    */
-  var advanceIntervalForDelegateInvocation: NSTimeInterval
+  var advanceIntervalForDelegateInvocation: TimeInterval
   init()
 }
 extension AVPlayerItemLegibleOutput {
@@ -17769,7 +17769,7 @@ extension AVPlayerItemLegibleOutput {
    
   		If a media subtype for which there is no legible data in the current player item is included in the media subtypes array, no error will occur.  AVPlayerItemLegibleOutput will not vend closed caption data as CMSampleBuffers, so it is an error to include 'c608' in the media subtypes array.
    */
-  init(mediaSubtypesForNativeRepresentation subtypes: [NSNumber])
+  init(mediaSubtypesForNativeRepresentation subtypes: [Number])
 }
 extension AVPlayerItemLegibleOutput {
 
@@ -17819,14 +17819,14 @@ protocol AVPlayerItemLegibleOutputPushDelegate : AVPlayerItemOutputPushDelegate 
   		For each media subtype in the array passed in to -initWithMediaSubtypesForNativeRepresentation:, the delegate will receive sample buffers carrying data in its native format via the nativeSamples parameter, if there is media data of that subtype in the media resource.  For all other media subtypes present in the media resource, the delegate will receive attributed strings in a common format via the strings parameter.  See <CoreMedia/CMTextMarkup.h> for the string attributes that are used in the attributed strings.
    */
   @available(iOS 7.0, *)
-  optional func legibleOutput(output: AVPlayerItemLegibleOutput, didOutputAttributedStrings strings: [NSAttributedString], nativeSampleBuffers nativeSamples: [AnyObject], forItemTime itemTime: CMTime)
+  optional func legibleOutput(output: AVPlayerItemLegibleOutput, didOutputAttributedStrings strings: [AttributedString], nativeSampleBuffers nativeSamples: [AnyObject], forItemTime itemTime: CMTime)
 }
 
 /*!
  @protocol		AVPlayerItemOutputPushDelegate
  @abstract		Defines common delegate methods for objects participating in AVPlayerItemOutput push sample output acquisition.
  */
-protocol AVPlayerItemOutputPushDelegate : NSObjectProtocol {
+protocol AVPlayerItemOutputPushDelegate : ObjectProtocol {
 
   /*!
   	@method			outputSequenceWasFlushed:
@@ -17890,7 +17890,7 @@ class AVPlayerItemMetadataOutput : AVPlayerItemOutput {
   	@discussion
   		If it is possible, an AVPlayerItemMetadataOutput will message its delegate advanceIntervalForDelegateInvocation seconds earlier than otherwise. If the value you provide is large, effectively requesting provision of samples earlier than the AVPlayerItemMetadataOutput is prepared to act on them, the delegate will be invoked as soon as possible.
    */
-  var advanceIntervalForDelegateInvocation: NSTimeInterval
+  var advanceIntervalForDelegateInvocation: TimeInterval
   convenience init()
 }
 
@@ -17935,7 +17935,7 @@ protocol AVPlayerItemMetadataOutputPushDelegate : AVPlayerItemOutputPushDelegate
 		is naturally achieved by invoking AVPlayerItemTrack's various methods on the main thread or queue.
 */
 @available(iOS 4.0, *)
-class AVPlayerItemTrack : NSObject {
+class AVPlayerItemTrack : Object {
 
   /*!
    @property		assetTrack
@@ -18012,10 +18012,10 @@ class AVPlayerLayer : CALayer {
   var pixelBufferAttributes: [String : AnyObject]?
   init()
   init(layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 7.0, *)
-class AVPlayerMediaSelectionCriteria : NSObject {
+class AVPlayerMediaSelectionCriteria : Object {
   var preferredLanguages: [String]? { get }
   var preferredMediaCharacteristics: [String]? { get }
 
@@ -18100,10 +18100,10 @@ class AVSampleBufferDisplayLayer : CALayer {
   	@discussion		The value of this property is an NSError that describes what caused the display layer to no longer be able to enqueue sample buffers. If the status is not AVQueuedSampleBufferRenderingStatusFailed, the value of this property is nil.
    */
   @available(iOS 8.0, *)
-  var error: NSError? { get }
+  var error: Error? { get }
   init()
   init(layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 extension AVSampleBufferDisplayLayer {
 
@@ -18234,7 +18234,7 @@ let AVSpeechSynthesisVoiceIdentifierAlex: String
  for a known voice identifier.
  */
 @available(iOS 7.0, *)
-class AVSpeechSynthesisVoice : NSObject, NSSecureCoding {
+class AVSpeechSynthesisVoice : Object, SecureCoding {
   class func speechVoices() -> [AVSpeechSynthesisVoice]
   class func currentLanguageCode() -> String
 
@@ -18274,8 +18274,8 @@ class AVSpeechSynthesisVoice : NSObject, NSSecureCoding {
   @available(iOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 7.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -18287,23 +18287,23 @@ class AVSpeechSynthesisVoice : NSObject, NSSecureCoding {
  To start speaking, specify the AVSpeechSynthesisVoice and the string to be spoken, then optionally change the rate, pitch or volume if desired.
  */
 @available(iOS 7.0, *)
-class AVSpeechUtterance : NSObject, NSCopying, NSSecureCoding {
+class AVSpeechUtterance : Object, Copying, SecureCoding {
   init(string: String)
   var voice: AVSpeechSynthesisVoice?
   var speechString: String { get }
   var rate: Float
   var pitchMultiplier: Float
   var volume: Float
-  var preUtteranceDelay: NSTimeInterval
-  var postUtteranceDelay: NSTimeInterval
+  var preUtteranceDelay: TimeInterval
+  var postUtteranceDelay: TimeInterval
   init()
   @available(iOS 7.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 7.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -18315,7 +18315,7 @@ class AVSpeechUtterance : NSObject, NSCopying, NSSecureCoding {
  Create an instance of AVSpeechSynthesizer to start generating synthesized speech by using AVSpeechUtterance objects.
  */
 @available(iOS 7.0, *)
-class AVSpeechSynthesizer : NSObject {
+class AVSpeechSynthesizer : Object {
   unowned(unsafe) var delegate: @sil_unmanaged AVSpeechSynthesizerDelegate?
   var isSpeaking: Bool { get }
   var isPaused: Bool { get }
@@ -18331,7 +18331,7 @@ class AVSpeechSynthesizer : NSObject {
  @abstract
  Defines an interface for delegates of AVSpeechSynthesizer to receive notifications of important speech utterance events.
  */
-protocol AVSpeechSynthesizerDelegate : NSObjectProtocol {
+protocol AVSpeechSynthesizerDelegate : ObjectProtocol {
   @available(iOS 7.0, *)
   optional func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance)
   @available(iOS 7.0, *)
@@ -18357,10 +18357,10 @@ class AVSynchronizedLayer : CALayer {
   var playerItem: AVPlayerItem?
   init()
   init(layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 6.0, *)
-class AVTextStyleRule : NSObject, NSCopying {
+class AVTextStyleRule : Object, Copying {
 
   /*!
    @method		propertyListForTextStyleRules:
@@ -18415,9 +18415,9 @@ class AVTextStyleRule : NSObject, NSCopying {
   */
   var textSelector: String? { get }
   @available(iOS 6.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
-extension NSValue {
+extension Value {
   @available(iOS 4.0, *)
   /*not inherited*/ init(cmTime time: CMTime)
   @available(iOS 4.0, *)
@@ -18431,7 +18431,7 @@ extension NSValue {
   @available(iOS 4.0, *)
   var cmTimeMappingValue: CMTimeMapping { get }
 }
-extension NSCoder {
+extension Coder {
   @available(iOS 4.0, *)
   func encode(time: CMTime, forKey key: String)
   @available(iOS 4.0, *)
@@ -18452,7 +18452,7 @@ extension NSCoder {
 	@abstract	AVMetadataGroup is the common superclass for AVTimedMetadataGroup and AVDateRangeMetadataGroup; each represents a collection of metadata items associated with a segment of a timeline. AVTimedMetadataGroup is typically used with content that defines an independent timeline, while AVDateRangeMetadataGroup is typically used with content that's associated with a specific range of dates.
 */
 @available(iOS 9.0, *)
-class AVMetadataGroup : NSObject {
+class AVMetadataGroup : Object {
   var items: [AVMetadataItem] { get }
   init()
 }
@@ -18463,7 +18463,7 @@ class AVMetadataGroup : NSObject {
 	@abstract	AVTimedMetadataGroup is used to represent a collection of metadata items that are valid for use during a specific range of time. For example, AVTimedMetadataGroups are used to represent chapters, optionally containing metadata items for chapter titles and chapter images.
 */
 @available(iOS 4.3, *)
-class AVTimedMetadataGroup : AVMetadataGroup, NSCopying, NSMutableCopying {
+class AVTimedMetadataGroup : AVMetadataGroup, Copying, MutableCopying {
 
   /*!
   	@method		initWithItems:timeRange:
@@ -18489,9 +18489,9 @@ class AVTimedMetadataGroup : AVMetadataGroup, NSCopying, NSMutableCopying {
   var items: [AVMetadataItem] { get }
   init()
   @available(iOS 4.3, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 4.3, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
 }
 extension AVTimedMetadataGroup {
 
@@ -18547,7 +18547,7 @@ class AVMutableTimedMetadataGroup : AVTimedMetadataGroup {
 	@abstract	AVDateRangeMetadataGroup is used to represent a collection of metadata items that are valid for use within a specific range of dates.
 */
 @available(iOS 9.0, *)
-class AVDateRangeMetadataGroup : AVMetadataGroup, NSCopying, NSMutableCopying {
+class AVDateRangeMetadataGroup : AVMetadataGroup, Copying, MutableCopying {
 
   /*!
   	@method		initWithItems:startDate:endDate:
@@ -18560,15 +18560,15 @@ class AVDateRangeMetadataGroup : AVMetadataGroup, NSCopying, NSMutableCopying {
   				The end date of the collection of AVMetadataItems. If the receiver is intended to represent information about an instantaneous event, the value of endDate should be equal to the value of startDate. A value of nil for endDate indicates that the endDate is indefinite.
   	@result		An instance of AVDateRangeMetadataGroup.
   */
-  init(items: [AVMetadataItem], start startDate: NSDate, end endDate: NSDate?)
-  @NSCopying var startDate: NSDate { get }
-  @NSCopying var endDate: NSDate? { get }
+  init(items: [AVMetadataItem], start startDate: Date, end endDate: Date?)
+  @NSCopying var startDate: Date { get }
+  @NSCopying var endDate: Date? { get }
   var items: [AVMetadataItem] { get }
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -18578,8 +18578,8 @@ class AVDateRangeMetadataGroup : AVMetadataGroup, NSCopying, NSMutableCopying {
 */
 @available(iOS 9.0, *)
 class AVMutableDateRangeMetadataGroup : AVDateRangeMetadataGroup {
-  @NSCopying var startDate: NSDate
-  @NSCopying var endDate: NSDate?
+  @NSCopying var startDate: Date
+  @NSCopying var endDate: Date?
   var items: [AVMetadataItem]
 
   /*!
@@ -18593,7 +18593,7 @@ class AVMutableDateRangeMetadataGroup : AVDateRangeMetadataGroup {
   				The end date of the collection of AVMetadataItems. If the receiver is intended to represent information about an instantaneous event, the value of endDate should be equal to the value of startDate. A value of nil for endDate indicates that the endDate is indefinite.
   	@result		An instance of AVDateRangeMetadataGroup.
   */
-  init(items: [AVMetadataItem], start startDate: NSDate, end endDate: NSDate?)
+  init(items: [AVMetadataItem], start startDate: Date, end endDate: Date?)
   init()
 }
 
@@ -18623,7 +18623,7 @@ struct AVEdgeWidths {
   init(left: CGFloat, top: CGFloat, right: CGFloat, bottom: CGFloat)
 }
 @available(iOS 7.0, *)
-class AVVideoCompositionRenderContext : NSObject {
+class AVVideoCompositionRenderContext : Object {
   var size: CGSize { get }
   var renderTransform: CGAffineTransform { get }
   var renderScale: Float { get }
@@ -18654,7 +18654,7 @@ class AVVideoCompositionRenderContext : NSObject {
 		Custom video compositor instances will then be retained by the AVFoundation object for as long as the value of its videoComposition property indicates that an instance of the same custom video compositor class should be used, even if the value is changed from one instance of AVVideoComposition to another instance that's associated with the same custom video compositor class.
 */
 @available(iOS 7.0, *)
-protocol AVVideoCompositing : NSObjectProtocol {
+protocol AVVideoCompositing : ObjectProtocol {
   var sourcePixelBufferAttributes: [String : AnyObject]? { get }
   var requiredPixelBufferAttributesForRenderContext: [String : AnyObject] { get }
 
@@ -18700,10 +18700,10 @@ protocol AVVideoCompositing : NSObjectProtocol {
   optional func cancelAllPendingVideoCompositionRequests()
 }
 @available(iOS 7.0, *)
-class AVAsynchronousVideoCompositionRequest : NSObject, NSCopying {
+class AVAsynchronousVideoCompositionRequest : Object, Copying {
   var renderContext: AVVideoCompositionRenderContext { get }
   var compositionTime: CMTime { get }
-  var sourceTrackIDs: [NSNumber] { get }
+  var sourceTrackIDs: [Number] { get }
   var videoCompositionInstruction: AVVideoCompositionInstructionProtocol { get }
 
   /*!
@@ -18714,20 +18714,20 @@ class AVAsynchronousVideoCompositionRequest : NSObject, NSCopying {
   */
   func sourceFrameByTrackID(trackID: CMPersistentTrackID) -> CVPixelBuffer?
   func finishWithComposedVideoFrame(composedVideoFrame: CVPixelBuffer)
-  func finishWithError(error: NSError)
+  func finishWithError(error: Error)
   func finishCancelledRequest()
   init()
   @available(iOS 7.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
-class AVAsynchronousCIImageFilteringRequest : NSObject, NSCopying {
+class AVAsynchronousCIImageFilteringRequest : Object, Copying {
   var renderSize: CGSize { get }
   var compositionTime: CMTime { get }
-  func finishWithError(error: NSError)
+  func finishWithError(error: Error)
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -18736,11 +18736,11 @@ class AVAsynchronousCIImageFilteringRequest : NSObject, NSCopying {
 	@abstract	The AVVideoCompositionInstruction protocol is implemented by objects to represent operations to be performed by a compositor.
 */
 @available(iOS 7.0, *)
-protocol AVVideoCompositionInstructionProtocol : NSObjectProtocol {
+protocol AVVideoCompositionInstructionProtocol : ObjectProtocol {
   var timeRange: CMTimeRange { get }
   var enablePostProcessing: Bool { get }
   var containsTweening: Bool { get }
-  var requiredSourceTrackIDs: [NSValue]? { get }
+  var requiredSourceTrackIDs: [Value]? { get }
   var passthroughTrackID: CMPersistentTrackID { get }
 }
 
@@ -18753,7 +18753,7 @@ protocol AVVideoCompositionInstructionProtocol : NSObjectProtocol {
 		An instance of AVVideoCompositionRenderContext provides size and scaling information and offers a service for efficiently providing pixel buffers from a managed pool of buffers.
 */
 @available(iOS 4.0, *)
-class AVVideoComposition : NSObject, NSCopying, NSMutableCopying {
+class AVVideoComposition : Object, Copying, MutableCopying {
   @available(iOS 6.0, *)
   /*not inherited*/ init(propertiesOf asset: AVAsset)
   @available(iOS 7.0, *)
@@ -18765,9 +18765,9 @@ class AVVideoComposition : NSObject, NSCopying, NSMutableCopying {
   var animationTool: AVVideoCompositionCoreAnimationTool? { get }
   init()
   @available(iOS 4.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
 }
 extension AVVideoComposition {
   @available(iOS 9.0, *)
@@ -18791,25 +18791,25 @@ extension AVMutableVideoComposition {
   /*not inherited*/ init(asset: AVAsset, applyingCIFiltersWithHandler applier: (AVAsynchronousCIImageFilteringRequest) -> Void)
 }
 @available(iOS 4.0, *)
-class AVVideoCompositionInstruction : NSObject, NSSecureCoding, NSCopying, NSMutableCopying, AVVideoCompositionInstructionProtocol {
+class AVVideoCompositionInstruction : Object, SecureCoding, Copying, MutableCopying, AVVideoCompositionInstructionProtocol {
   var timeRange: CMTimeRange { get }
   var backgroundColor: CGColor? { get }
   var layerInstructions: [AVVideoCompositionLayerInstruction] { get }
   var enablePostProcessing: Bool { get }
   @available(iOS 7.0, *)
-  var requiredSourceTrackIDs: [NSValue] { get }
+  var requiredSourceTrackIDs: [Value] { get }
   @available(iOS 7.0, *)
   var passthroughTrackID: CMPersistentTrackID { get }
   init()
   @available(iOS 4.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 4.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(iOS 4.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 7.0, *)
   var containsTweening: Bool { get }
 }
@@ -18820,10 +18820,10 @@ class AVMutableVideoCompositionInstruction : AVVideoCompositionInstruction {
   var layerInstructions: [AVVideoCompositionLayerInstruction]
   var enablePostProcessing: Bool
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 4.0, *)
-class AVVideoCompositionLayerInstruction : NSObject, NSSecureCoding, NSCopying, NSMutableCopying {
+class AVVideoCompositionLayerInstruction : Object, SecureCoding, Copying, MutableCopying {
   var trackID: CMPersistentTrackID { get }
   func getTransformRampFor(time: CMTime, start startTransform: UnsafeMutablePointer<CGAffineTransform>, end endTransform: UnsafeMutablePointer<CGAffineTransform>, timeRange: UnsafeMutablePointer<CMTimeRange>) -> Bool
   func getOpacityRampFor(time: CMTime, startOpacity: UnsafeMutablePointer<Float>, endOpacity: UnsafeMutablePointer<Float>, timeRange: UnsafeMutablePointer<CMTimeRange>) -> Bool
@@ -18833,12 +18833,12 @@ class AVVideoCompositionLayerInstruction : NSObject, NSSecureCoding, NSCopying, 
   @available(iOS 4.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 4.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(iOS 4.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 4.0, *)
 class AVMutableVideoCompositionLayerInstruction : AVVideoCompositionLayerInstruction {
@@ -18853,7 +18853,7 @@ class AVMutableVideoCompositionLayerInstruction : AVVideoCompositionLayerInstruc
   @available(iOS 7.0, *)
   func setCropRectangle(cropRectangle: CGRect, at time: CMTime)
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -18867,7 +18867,7 @@ class AVMutableVideoCompositionLayerInstruction : AVVideoCompositionLayerInstruc
 		A client can implement their own custom video compositor by implementing the AVVideoCompositing protocol; a custom video compositor is provided with pixel buffers for each of its video sources during playback and other operations and can perform arbitrary graphical operations on them in order to produce visual output.
 */
 @available(iOS 4.0, *)
-class AVVideoCompositionCoreAnimationTool : NSObject {
+class AVVideoCompositionCoreAnimationTool : Object {
 
   /*!
    	@method						videoCompositionCoreAnimationToolWithAdditionalLayer:asTrackID:
@@ -18935,7 +18935,7 @@ extension AVVideoComposition {
   @available(iOS 5.0, *)
   func isValidFor(asset: AVAsset?, timeRange: CMTimeRange, validationDelegate: AVVideoCompositionValidationHandling?) -> Bool
 }
-protocol AVVideoCompositionValidationHandling : NSObjectProtocol {
+protocol AVVideoCompositionValidationHandling : ObjectProtocol {
 
   /*!
    @method		videoComposition:shouldContinueValidatingAfterFindingInvalidValueForKey:

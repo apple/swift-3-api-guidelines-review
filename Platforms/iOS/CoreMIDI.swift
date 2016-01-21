@@ -338,9 +338,9 @@ enum MIDINetworkConnectionPolicy : UInt {
   case Anyone
 }
 @available(iOS 4.2, *)
-class MIDINetworkHost : NSObject {
+class MIDINetworkHost : Object {
   convenience init(name: String, address: String, port: Int)
-  convenience init(name: String, netService: NSNetService)
+  convenience init(name: String, netService: NetService)
   convenience init(name: String, netServiceName: String, netServiceDomain: String)
   func hasSameAddressAs(other: MIDINetworkHost) -> Bool
   var name: String { get }
@@ -351,13 +351,13 @@ class MIDINetworkHost : NSObject {
   init()
 }
 @available(iOS 4.2, *)
-class MIDINetworkConnection : NSObject {
+class MIDINetworkConnection : Object {
   convenience init(host: MIDINetworkHost)
   var host: MIDINetworkHost { get }
   init()
 }
 @available(iOS 4.2, *)
-class MIDINetworkSession : NSObject {
+class MIDINetworkSession : Object {
   class func defaultSession() -> MIDINetworkSession
   var isEnabled: Bool
   var networkPort: Int { get }

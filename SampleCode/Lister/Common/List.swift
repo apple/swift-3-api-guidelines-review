@@ -18,7 +18,7 @@ import Foundation
     the Objective-C version of Lister to unarchive a `List` instance that was archived in the Swift version.
 */
 @objc(AAPLList)
-final public class List: NSObject, NSCoding, NSCopying {
+final public class List: Object, Coding, Copying {
     // MARK: Types
     
     /**
@@ -91,12 +91,12 @@ final public class List: NSObject, NSCoding, NSCopying {
 
     // MARK: NSCoding
     
-    public required init(coder aDecoder: NSCoder) {
+    public required init(coder aDecoder: Coder) {
         items = aDecoder.decodeObjectForKey(SerializationKeys.items) as! [ListItem]
         color = Color(rawValue: aDecoder.decodeIntegerForKey(SerializationKeys.color))!
     }
     
-    public func encodeWith(aCoder: NSCoder) {
+    public func encodeWith(aCoder: Coder) {
         aCoder.encode(items, forKey: SerializationKeys.items)
         aCoder.encode(color.rawValue, forKey: SerializationKeys.color)
     }

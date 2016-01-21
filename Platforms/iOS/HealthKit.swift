@@ -6,7 +6,7 @@ var HKAnchoredObjectQueryNoAnchor: Int32 { get }
  @discussion    This object encapsulates the state of an HKAnchoredObjectQuery
  */
 @available(iOS 9.0, *)
-class HKQueryAnchor : NSObject, NSSecureCoding, NSCopying {
+class HKQueryAnchor : Object, SecureCoding, Copying {
 
   /*!
    @method        anchorFromValue:
@@ -16,10 +16,10 @@ class HKQueryAnchor : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -37,9 +37,9 @@ class HKAnchoredObjectQuery : HKQuery {
                   no limit.
    */
   @available(iOS 9.0, *)
-  var updateHandler: ((HKAnchoredObjectQuery, [HKSample]?, [HKDeletedObject]?, HKQueryAnchor?, NSError?) -> Void)?
+  var updateHandler: ((HKAnchoredObjectQuery, [HKSample]?, [HKDeletedObject]?, HKQueryAnchor?, Error?) -> Void)?
   @available(iOS, introduced=8.0, deprecated=9.0)
-  init(type: HKSampleType, predicate: NSPredicate?, anchor: Int, limit: Int, completionHandler handler: (HKAnchoredObjectQuery, [HKSample]?, Int, NSError?) -> Void)
+  init(type: HKSampleType, predicate: Predicate?, anchor: Int, limit: Int, completionHandler handler: (HKAnchoredObjectQuery, [HKSample]?, Int, Error?) -> Void)
 
   /*!
    @method        initWithType:predicate:anchor:limit:resultsHandler:
@@ -58,7 +58,7 @@ class HKAnchoredObjectQuery : HKQuery {
    @param         resultsHandler  The block to invoke with results when the query has finished finding.
    */
   @available(iOS 9.0, *)
-  init(type: HKSampleType, predicate: NSPredicate?, anchor: HKQueryAnchor?, limit: Int, resultsHandler handler: (HKAnchoredObjectQuery, [HKSample]?, [HKDeletedObject]?, HKQueryAnchor?, NSError?) -> Void)
+  init(type: HKSampleType, predicate: Predicate?, anchor: HKQueryAnchor?, limit: Int, resultsHandler handler: (HKAnchoredObjectQuery, [HKSample]?, [HKDeletedObject]?, HKQueryAnchor?, Error?) -> Void)
 }
 
 /*!
@@ -86,7 +86,7 @@ class HKCategorySample : HKSample {
    @param      endDate    The end date of the sample.
    @param      metadata   Metadata for the sample (optional).
    */
-  convenience init(type: HKCategoryType, value: Int, start startDate: NSDate, end endDate: NSDate, metadata: [String : AnyObject]?)
+  convenience init(type: HKCategoryType, value: Int, start startDate: Date, end endDate: Date, metadata: [String : AnyObject]?)
 
   /*!
    @method     categorySampleWithType:value:startDate:endDate:
@@ -97,7 +97,7 @@ class HKCategorySample : HKSample {
    @param      startDate  The start date of the sample.
    @param      endDate    The end date of the sample.
    */
-  convenience init(type: HKCategoryType, value: Int, start startDate: NSDate, end endDate: NSDate)
+  convenience init(type: HKCategoryType, value: Int, start startDate: Date, end endDate: Date)
 
   /*!
    @method     categorySampleWithType:value:startDate:endDate:device:metadata:
@@ -111,8 +111,8 @@ class HKCategorySample : HKSample {
    @param      metadata   Metadata for the sample (optional).
    */
   @available(iOS 9.0, *)
-  convenience init(type: HKCategoryType, value: Int, start startDate: NSDate, end endDate: NSDate, device: HKDevice?, metadata: [String : AnyObject]?)
-  init?(coder aDecoder: NSCoder)
+  convenience init(type: HKCategoryType, value: Int, start startDate: Date, end endDate: Date, device: HKDevice?, metadata: [String : AnyObject]?)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -145,14 +145,14 @@ class HKCorrelation : HKSample {
    @abstract      Creates a new HKCorrelation with the given type, start date, end date, and objects.
    @discussion    objects must be a set of HKQuantitySamples and HKCategorySamples
    */
-  convenience init(type correlationType: HKCorrelationType, start startDate: NSDate, end endDate: NSDate, objects: Set<HKSample>)
+  convenience init(type correlationType: HKCorrelationType, start startDate: Date, end endDate: Date, objects: Set<HKSample>)
 
   /*!
    @method        correlationWithType:startDate:endDate:objects:metadata:
    @abstract      Creates a new HKCorrelation with the given type, start date, end date, objects, and metadata.
    @discussion    objects must be a set of HKQuantitySamples and HKCategorySamples
    */
-  convenience init(type correlationType: HKCorrelationType, start startDate: NSDate, end endDate: NSDate, objects: Set<HKSample>, metadata: [String : AnyObject]?)
+  convenience init(type correlationType: HKCorrelationType, start startDate: Date, end endDate: Date, objects: Set<HKSample>, metadata: [String : AnyObject]?)
 
   /*!
    @method        correlationWithType:startDate:endDate:objects:device:metadata:
@@ -165,14 +165,14 @@ class HKCorrelation : HKSample {
    @discussion    objects must be a set of HKQuantitySamples and HKCategorySamples
    */
   @available(iOS 9.0, *)
-  convenience init(type correlationType: HKCorrelationType, start startDate: NSDate, end endDate: NSDate, objects: Set<HKSample>, device: HKDevice?, metadata: [String : AnyObject]?)
+  convenience init(type correlationType: HKCorrelationType, start startDate: Date, end endDate: Date, objects: Set<HKSample>, device: HKDevice?, metadata: [String : AnyObject]?)
 
   /*!
    @method    objectsForType:
    @abstract  Returns the set of correlated objects with the specified type.
    */
   func objectsFor(objectType: HKObjectType) -> Set<HKSample>
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -193,7 +193,7 @@ class HKCorrelationQuery : HKQuery {
                   to objects of the key type. 
    
    */
-  var samplePredicates: [HKSampleType : NSPredicate]? { get }
+  var samplePredicates: [HKSampleType : Predicate]? { get }
 
   /*!
    @method    initWithTypes:predicate:samplePredicate:completion:
@@ -207,7 +207,7 @@ class HKCorrelationQuery : HKQuery {
                                   is provided, it is assumed to be a nil predicate and objects of that type will not be
                                   filtered.
    */
-  init(type correlationType: HKCorrelationType, predicate: NSPredicate?, samplePredicates: [HKSampleType : NSPredicate]?, completion: (HKCorrelationQuery, [HKCorrelation]?, NSError?) -> Void)
+  init(type correlationType: HKCorrelationType, predicate: Predicate?, samplePredicates: [HKSampleType : Predicate]?, completion: (HKCorrelationQuery, [HKCorrelation]?, Error?) -> Void)
 }
 @available(iOS 8.0, *)
 let HKErrorDomain: String
@@ -434,18 +434,18 @@ enum HKCategoryValue : Int {
  @abstract      A class representing an HKObject that was deleted from the HealtKit database.
  */
 @available(iOS 9.0, *)
-class HKDeletedObject : NSObject, NSSecureCoding {
+class HKDeletedObject : Object, SecureCoding {
 
   /*!
    @property      UUID
    @abstract      The unique identifier of the HKObject that was deleted from the HealthKit database.
    */
-  var uuid: NSUUID { get }
+  var uuid: UUID { get }
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -512,7 +512,7 @@ let HKDevicePropertyKeyLocalIdentifier: String
 @available(iOS 9.0, *)
 let HKDevicePropertyKeyUDIDeviceIdentifier: String
 @available(iOS 9.0, *)
-class HKDevice : NSObject, NSSecureCoding, NSCopying {
+class HKDevice : Object, SecureCoding, Copying {
 
   /*!
    @property      name
@@ -592,10 +592,10 @@ class HKDevice : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -603,7 +603,7 @@ class HKDevice : NSObject, NSSecureCoding, NSCopying {
  @abstract      The HKHealthStore class provides an interface for accessing and storing the user's health data.
  */
 @available(iOS 8.0, *)
-class HKHealthStore : NSObject {
+class HKHealthStore : Object {
 
   /*!
    @method        isHealthDataAvailable
@@ -637,7 +637,7 @@ class HKHealthStore : NSObject {
                   Info.plist file. Set the NSHealthShareUsageDescription key to customize the message for reading data. Set
                   the NSHealthUpdateUsageDescription key to customize the message for writing data.
    */
-  func requestAuthorizationToShare(typesToShare: Set<HKSampleType>?, read typesToRead: Set<HKObjectType>?, completion: (Bool, NSError?) -> Void)
+  func requestAuthorizationToShare(typesToShare: Set<HKSampleType>?, read typesToRead: Set<HKObjectType>?, completion: (Bool, Error?) -> Void)
 
   /*!
    @method        handleAuthorizationForExtensionWithCompletion:
@@ -652,7 +652,7 @@ class HKHealthStore : NSObject {
                   whether the application was granted authorization.
    */
   @available(iOS 9.0, *)
-  func handleAuthorizationForExtensionWithCompletion(completion: (Bool, NSError?) -> Void)
+  func handleAuthorizationForExtensionWithCompletion(completion: (Bool, Error?) -> Void)
 
   /*!
    @method        earliestPermittedSampleDate
@@ -661,7 +661,7 @@ class HKHealthStore : NSObject {
                   may be saved or retreived.
    */
   @available(iOS 9.0, *)
-  func earliestPermittedSampleDate() -> NSDate
+  func earliestPermittedSampleDate() -> Date
 
   /*!
    @method        saveObject:withCompletion:
@@ -679,21 +679,21 @@ class HKHealthStore : NSObject {
                   This operation is performed asynchronously and the completion will be executed on an arbitrary
                   background queue.
    */
-  func save(object: HKObject, withCompletion completion: (Bool, NSError?) -> Void)
+  func save(object: HKObject, withCompletion completion: (Bool, Error?) -> Void)
 
   /*!
    @method        saveObjects:withCompletion:
    @abstract      Saves an array of HKObjects.
    @discussion    See discussion of saveObject:withCompletion:.
    */
-  func save(objects: [HKObject], withCompletion completion: (Bool, NSError?) -> Void)
+  func save(objects: [HKObject], withCompletion completion: (Bool, Error?) -> Void)
 
   /*!
    @method        deleteObject:withCompletion:
    @abstract      Deletes a single HKObject from the HealthKit database.
    @discussion    See deleteObjects:withCompletion:.
    */
-  func delete(object: HKObject, withCompletion completion: (Bool, NSError?) -> Void)
+  func delete(object: HKObject, withCompletion completion: (Bool, Error?) -> Void)
 
   /*!
    @method        deleteObjects:withCompletion:
@@ -702,7 +702,7 @@ class HKHealthStore : NSObject {
                   asynchronously and the completion will be executed on an arbitrary background queue.
    */
   @available(iOS 9.0, *)
-  func delete(objects: [HKObject], withCompletion completion: (Bool, NSError?) -> Void)
+  func delete(objects: [HKObject], withCompletion completion: (Bool, Error?) -> Void)
 
   /*!
    @method        deleteObjectsMatchingQuery:withCompletion:
@@ -711,7 +711,7 @@ class HKHealthStore : NSObject {
                   asynchronously and the completion will be executed on an arbitrary background queue.
    */
   @available(iOS 9.0, *)
-  func deleteObjectsOf(objectType: HKObjectType, predicate: NSPredicate, withCompletion completion: (Bool, Int, NSError?) -> Void)
+  func deleteObjectsOf(objectType: HKObjectType, predicate: Predicate, withCompletion completion: (Bool, Int, Error?) -> Void)
 
   /*!
    @method        executeQuery:
@@ -742,7 +742,7 @@ class HKHealthStore : NSObject {
                   or if the user has not entered their data then this method uses builtin default values.
    */
   @available(iOS 9.0, *)
-  func splitTotalEnergy(totalEnergy: HKQuantity, start startDate: NSDate, end endDate: NSDate, resultsHandler: (HKQuantity?, HKQuantity?, NSError?) -> Void)
+  func splitTotalEnergy(totalEnergy: HKQuantity, start startDate: Date, end endDate: Date, resultsHandler: (HKQuantity?, HKQuantity?, Error?) -> Void)
 
   /*!
    @method        dateOfBirthWithError:
@@ -750,7 +750,7 @@ class HKHealthStore : NSObject {
    @discussion    Before calling this method, the application should request authorization to access objects with the
                   HKCharacteristicType identified by HKCharacteristicTypeIdentifierDateOfBirth.
    */
-  func dateOfBirth() throws -> NSDate
+  func dateOfBirth() throws -> Date
 
   /*!
    @method        biologicalSexWithError:
@@ -789,7 +789,7 @@ extension HKHealthStore {
    
                   The workout provided must be one that has already been saved to HealthKit.
    */
-  func add(samples: [HKSample], to workout: HKWorkout, completion: (Bool, NSError?) -> Void)
+  func add(samples: [HKSample], to workout: HKWorkout, completion: (Bool, Error?) -> Void)
 }
 extension HKHealthStore {
 
@@ -802,9 +802,9 @@ extension HKHealthStore {
                   HKQuantityTypeIdentifierStepCount) have a minimum frequency of HKUpdateFrequencyHourly. This is enforced
                   transparently to the caller.
    */
-  func enableBackgroundDeliveryFor(type: HKObjectType, frequency: HKUpdateFrequency, withCompletion completion: (Bool, NSError?) -> Void)
-  func disableBackgroundDeliveryFor(type: HKObjectType, withCompletion completion: (Bool, NSError?) -> Void)
-  func disableAllBackgroundDeliveryWithCompletion(completion: (Bool, NSError?) -> Void)
+  func enableBackgroundDeliveryFor(type: HKObjectType, frequency: HKUpdateFrequency, withCompletion completion: (Bool, Error?) -> Void)
+  func disableBackgroundDeliveryFor(type: HKObjectType, withCompletion completion: (Bool, Error?) -> Void)
+  func disableAllBackgroundDeliveryWithCompletion(completion: (Bool, Error?) -> Void)
 }
 
 /*!
@@ -834,7 +834,7 @@ extension HKHealthStore {
                   The returned dictionary will map HKQuantityType to HKUnit.
    */
   @available(iOS 8.2, *)
-  func preferredUnitsFor(quantityTypes: Set<HKQuantityType>, completion: ([HKQuantityType : HKUnit], NSError?) -> Void)
+  func preferredUnitsFor(quantityTypes: Set<HKQuantityType>, completion: ([HKQuantityType : HKUnit], Error?) -> Void)
 }
 
 /*!
@@ -842,16 +842,16 @@ extension HKHealthStore {
  @abstract  A wrapper object for HKBiologicalSex enumeration.
  */
 @available(iOS 8.0, *)
-class HKBiologicalSexObject : NSObject, NSCopying, NSSecureCoding {
+class HKBiologicalSexObject : Object, Copying, SecureCoding {
   var biologicalSex: HKBiologicalSex { get }
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -859,16 +859,16 @@ class HKBiologicalSexObject : NSObject, NSCopying, NSSecureCoding {
  @abstract  A wrapper object for HKBloodType enumeration.
  */
 @available(iOS 8.0, *)
-class HKBloodTypeObject : NSObject, NSCopying, NSSecureCoding {
+class HKBloodTypeObject : Object, Copying, SecureCoding {
   var bloodType: HKBloodType { get }
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -876,16 +876,16 @@ class HKBloodTypeObject : NSObject, NSCopying, NSSecureCoding {
  @abstract  A wrapper object for HKFitzpatrickSkinType enumeration.
  */
 @available(iOS 9.0, *)
-class HKFitzpatrickSkinTypeObject : NSObject, NSCopying, NSSecureCoding {
+class HKFitzpatrickSkinTypeObject : Object, Copying, SecureCoding {
   var skinType: HKFitzpatrickSkinType { get }
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -1105,13 +1105,13 @@ let HKMetadataKeySexualActivityProtectionUsed: String
 @available(iOS 9.0, *)
 let HKMetadataKeyMenstrualCycleStart: String
 @available(iOS 8.0, *)
-class HKObject : NSObject, NSSecureCoding {
+class HKObject : Object, SecureCoding {
 
   /*!
    @property      UUID
    @abstract      A unique identifier of the receiver in the HealthKit database.
    */
-  var uuid: NSUUID { get }
+  var uuid: UUID { get }
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use sourceRevision")
   var source: HKSource { get }
 
@@ -1139,8 +1139,8 @@ class HKObject : NSObject, NSSecureCoding {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 8.0, *)
 let HKPredicateKeyPathUUID: String
@@ -1162,7 +1162,7 @@ let HKPredicateKeyPathSourceRevision: String
  @abstract      An abstract class representing a type of object that can be stored by HealthKit.
  */
 @available(iOS 8.0, *)
-class HKObjectType : NSObject, NSSecureCoding, NSCopying {
+class HKObjectType : Object, SecureCoding, Copying {
 
   /*!
    @property      identifier
@@ -1178,10 +1178,10 @@ class HKObjectType : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -1190,7 +1190,7 @@ class HKObjectType : NSObject, NSSecureCoding, NSCopying {
  */
 @available(iOS 8.0, *)
 class HKCharacteristicType : HKObjectType {
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -1199,7 +1199,7 @@ class HKCharacteristicType : HKObjectType {
  */
 @available(iOS 8.0, *)
 class HKSampleType : HKObjectType {
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -1208,7 +1208,7 @@ class HKSampleType : HKObjectType {
  */
 @available(iOS 8.0, *)
 class HKCategoryType : HKSampleType {
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -1217,7 +1217,7 @@ class HKCategoryType : HKSampleType {
  */
 @available(iOS 8.0, *)
 class HKCorrelationType : HKSampleType {
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -1249,7 +1249,7 @@ class HKQuantityType : HKSampleType {
                   of the given unit.
    */
   func isCompatibleWith(unit: HKUnit) -> Bool
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -1258,7 +1258,7 @@ class HKQuantityType : HKSampleType {
  */
 @available(iOS 8.0, *)
 class HKWorkoutType : HKSampleType {
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 typealias HKObserverQueryCompletionHandler = () -> Void
 @available(iOS 8.0, *)
@@ -1271,7 +1271,7 @@ class HKObserverQuery : HKQuery {
                   once you have processed data from this notification. Otherwise the system will continue
                   to notify you of this data.
    */
-  init(sampleType: HKSampleType, predicate: NSPredicate?, updateHandler: (HKObserverQuery, HKObserverQueryCompletionHandler, NSError?) -> Void)
+  init(sampleType: HKSampleType, predicate: Predicate?, updateHandler: (HKObserverQuery, HKObserverQueryCompletionHandler, Error?) -> Void)
 }
 
 /*!
@@ -1279,7 +1279,7 @@ class HKObserverQuery : HKQuery {
  @abstract      The HKQuantity class provides an encapsulation of a quantity value and the unit of measurement.
  */
 @available(iOS 8.0, *)
-class HKQuantity : NSObject, NSSecureCoding, NSCopying {
+class HKQuantity : Object, SecureCoding, Copying {
 
   /*!
    @method        quantityWithUnit:doubleValue:
@@ -1306,14 +1306,14 @@ class HKQuantity : NSObject, NSSecureCoding, NSCopying {
                   less than a given quantity.
    @discussion    Throws an exception if the unit of the given quantity is not compatible with the receiver's unit.
    */
-  func compare(quantity: HKQuantity) -> NSComparisonResult
+  func compare(quantity: HKQuantity) -> ComparisonResult
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -1331,7 +1331,7 @@ class HKQuantitySample : HKSample {
    @discussion    The quantity must have a unit that is compatible with the given quantity type.
                   See -[HKQuantityType isCompatibleWithUnit:].
    */
-  convenience init(type quantityType: HKQuantityType, quantity: HKQuantity, start startDate: NSDate, end endDate: NSDate)
+  convenience init(type quantityType: HKQuantityType, quantity: HKQuantity, start startDate: Date, end endDate: Date)
 
   /*!
    @method        quantitySampleWithType:quantity:startDate:endDate:metadata:
@@ -1339,7 +1339,7 @@ class HKQuantitySample : HKSample {
    @discussion    The quantity must have a unit that is compatible with the given quantity type.
                   See -[HKQuantityType isCompatibleWithUnit:].
    */
-  convenience init(type quantityType: HKQuantityType, quantity: HKQuantity, start startDate: NSDate, end endDate: NSDate, metadata: [String : AnyObject]?)
+  convenience init(type quantityType: HKQuantityType, quantity: HKQuantity, start startDate: Date, end endDate: Date, metadata: [String : AnyObject]?)
 
   /*!
    @method        quantitySampleWithType:quantity:startDate:endDate:device:metadata:
@@ -1353,15 +1353,15 @@ class HKQuantitySample : HKSample {
                   See -[HKQuantityType isCompatibleWithUnit:].
    */
   @available(iOS 9.0, *)
-  convenience init(type quantityType: HKQuantityType, quantity: HKQuantity, start startDate: NSDate, end endDate: NSDate, device: HKDevice?, metadata: [String : AnyObject]?)
-  init?(coder aDecoder: NSCoder)
+  convenience init(type quantityType: HKQuantityType, quantity: HKQuantity, start startDate: Date, end endDate: Date, device: HKDevice?, metadata: [String : AnyObject]?)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 8.0, *)
 let HKPredicateKeyPathQuantity: String
 @available(iOS 8.0, *)
-class HKQuery : NSObject {
+class HKQuery : Object {
   var sampleType: HKSampleType { get }
-  var predicate: NSPredicate? { get }
+  var predicate: Predicate? { get }
 }
 
 /**
@@ -1390,7 +1390,7 @@ extension HKQuery {
    
    @param         key     The metadata key.
    */
-  class func predicateForObjectsWithMetadataKey(key: String) -> NSPredicate
+  class func predicateForObjectsWithMetadataKey(key: String) -> Predicate
 
   /*!
    @method        predicateForObjectsWithMetadataKey:allowedValues:
@@ -1401,7 +1401,7 @@ extension HKQuery {
    @param         key             The metadata key.
    @param         allowedValues   The list of values that the metadata value can be equal to.
    */
-  class func predicateForObjectsWithMetadataKey(key: String, allowedValues: [AnyObject]) -> NSPredicate
+  class func predicateForObjectsWithMetadataKey(key: String, allowedValues: [AnyObject]) -> Predicate
 
   /*!
    @method        predicateForObjectsWithMetadataKey:operatorType:value:
@@ -1413,7 +1413,7 @@ extension HKQuery {
    @param         operatorType   The comparison operator type for the expression.
    @param         value          The value to be compared against.
    */
-  class func predicateForObjectsWithMetadataKey(key: String, operatorType: NSPredicateOperatorType, value: AnyObject) -> NSPredicate
+  class func predicateForObjectsWithMetadataKey(key: String, operatorType: PredicateOperatorType, value: AnyObject) -> Predicate
 
   /*!
    @method        predicateForObjectsFromSource:
@@ -1422,7 +1422,7 @@ extension HKQuery {
    
    @param         source  The source.
    */
-  class func predicateForObjectsFrom(source: HKSource) -> NSPredicate
+  class func predicateForObjectsFrom(source: HKSource) -> Predicate
 
   /*!
    @method        predicateForObjectsFromSources:
@@ -1431,7 +1431,7 @@ extension HKQuery {
    
    @param         sources The list of sources.
    */
-  class func predicateForObjectsFrom(sources: Set<HKSource>) -> NSPredicate
+  class func predicateForObjectsFrom(sources: Set<HKSource>) -> Predicate
 
   /*!
    @method        predicateForObjectsFromSourceRevisions:
@@ -1441,7 +1441,7 @@ extension HKQuery {
    @param         sourceRevisions The list of source revisions.
    */
   @available(iOS 9.0, *)
-  class func predicateForObjectsFrom(sourceRevisions: Set<HKSourceRevision>) -> NSPredicate
+  class func predicateForObjectsFrom(sourceRevisions: Set<HKSourceRevision>) -> Predicate
 
   /*!
    @method        predicateForObjectsFromDevices:
@@ -1453,7 +1453,7 @@ extension HKQuery {
    @param         devices     The set of devices that generated data.
    */
   @available(iOS 9.0, *)
-  class func predicateForObjectsFrom(devices: Set<HKDevice>) -> NSPredicate
+  class func predicateForObjectsFrom(devices: Set<HKDevice>) -> Predicate
 
   /*!
    @method        predicateForObjectsWithDeviceProperty:allowedValues:
@@ -1467,7 +1467,7 @@ extension HKQuery {
                   devices whose property value is nil.
    */
   @available(iOS 9.0, *)
-  class func predicateForObjectsWithDeviceProperty(key: String, allowedValues: Set<String>) -> NSPredicate
+  class func predicateForObjectsWithDeviceProperty(key: String, allowedValues: Set<String>) -> Predicate
 
   /*!
    @method        predicateForObjectWithUUID:
@@ -1476,7 +1476,7 @@ extension HKQuery {
    
    @param         UUID The UUID of the object.
    */
-  class func predicateForObjectWith(UUID: NSUUID) -> NSPredicate
+  class func predicateForObjectWith(UUID: UUID) -> Predicate
 
   /*!
    @method        predicateForObjectsWithUUIDs:
@@ -1485,14 +1485,14 @@ extension HKQuery {
    
    @param         UUIDs The set of NSUUIDs.
    */
-  class func predicateForObjectsWithUUIDs(UUIDs: Set<NSUUID>) -> NSPredicate
+  class func predicateForObjectsWithUUIDs(UUIDs: Set<UUID>) -> Predicate
 
   /*!
    @method        predicateForObjectsNoCorrelation
    @abstract      Creates a predicate for use with HKQuery subclasses.
    @discussion    Creates a query predicate that matches the objects that are not associated with an HKCorrelation.
    */
-  class func predicateForObjectsWithNoCorrelation() -> NSPredicate
+  class func predicateForObjectsWithNoCorrelation() -> Predicate
 
   /*!
    @method        predicateForObjectsFromWorkout:
@@ -1501,7 +1501,7 @@ extension HKQuery {
    
    @param         workout     The HKWorkout that the object was added to.
    */
-  class func predicateForObjectsFrom(workout: HKWorkout) -> NSPredicate
+  class func predicateForObjectsFrom(workout: HKWorkout) -> Predicate
 }
 extension HKQuery {
 
@@ -1515,7 +1515,7 @@ extension HKQuery {
    @param         endDate    The end date of the predicate's time interval.
    @param         options    The rules for how a sample's time interval overlaps with the predicate's time interval.
    */
-  class func predicateForSamplesWithStart(startDate: NSDate?, end endDate: NSDate?, options: HKQueryOptions = []) -> NSPredicate
+  class func predicateForSamplesWithStart(startDate: Date?, end endDate: Date?, options: HKQueryOptions = []) -> Predicate
 }
 extension HKQuery {
 
@@ -1529,7 +1529,7 @@ extension HKQuery {
    @param         quantity        The quantity that the sample's quantity is being compared to. It is the right hand side
                                   of the expression.
    */
-  class func predicateForQuantitySamplesWith(operatorType: NSPredicateOperatorType, quantity: HKQuantity) -> NSPredicate
+  class func predicateForQuantitySamplesWith(operatorType: PredicateOperatorType, quantity: HKQuantity) -> Predicate
 }
 extension HKQuery {
 
@@ -1543,7 +1543,7 @@ extension HKQuery {
    @param         value           The value that the sample's value is being compared to. It is the right hand side of the
                                   expression.
    */
-  class func predicateForCategorySamplesWith(operatorType: NSPredicateOperatorType, value: Int) -> NSPredicate
+  class func predicateForCategorySamplesWith(operatorType: PredicateOperatorType, value: Int) -> Predicate
 }
 extension HKQuery {
 
@@ -1554,7 +1554,7 @@ extension HKQuery {
    
    @param         workoutActivityType     The HKWorkoutActivity type of the workout
    */
-  class func predicateForWorkoutsWith(workoutActivityType: HKWorkoutActivityType) -> NSPredicate
+  class func predicateForWorkoutsWith(workoutActivityType: HKWorkoutActivityType) -> Predicate
 
   /*!
    @method        predicateForWorkoutsWithOperatorType:duration:
@@ -1565,7 +1565,7 @@ extension HKQuery {
    @param         duration        The value that the workout's duration is being compared to. It is the right hand side of the
                                   expression.
    */
-  class func predicateForWorkoutsWith(operatorType: NSPredicateOperatorType, duration: NSTimeInterval) -> NSPredicate
+  class func predicateForWorkoutsWith(operatorType: PredicateOperatorType, duration: TimeInterval) -> Predicate
 
   /*!
    @method        predicateForWorkoutsWithOperatorType:totalEnergyBurned:
@@ -1576,7 +1576,7 @@ extension HKQuery {
    @param         totalEnergyBurned   The value that the workout's totalEnergyBurned is being compared to. It is the right hand side of the
                                       expression. The unit for this value should be of type Energy.
    */
-  class func predicateForWorkoutsWith(operatorType: NSPredicateOperatorType, totalEnergyBurned: HKQuantity) -> NSPredicate
+  class func predicateForWorkoutsWith(operatorType: PredicateOperatorType, totalEnergyBurned: HKQuantity) -> Predicate
 
   /*!
    @method        predicateForWorkoutsWithOperatorType:totalDistance:
@@ -1587,7 +1587,7 @@ extension HKQuery {
    @param         totalDistance   The value that the workout's totalEnergyBurned is being compared to. It is the right hand side of the
                                   expression. The unit for this value should be of type Distance
    */
-  class func predicateForWorkoutsWith(operatorType: NSPredicateOperatorType, totalDistance: HKQuantity) -> NSPredicate
+  class func predicateForWorkoutsWith(operatorType: PredicateOperatorType, totalDistance: HKQuantity) -> Predicate
 }
 
 /*!
@@ -1597,9 +1597,9 @@ extension HKQuery {
 @available(iOS 8.0, *)
 class HKSample : HKObject {
   var sampleType: HKSampleType { get }
-  var startDate: NSDate { get }
-  var endDate: NSDate { get }
-  init?(coder aDecoder: NSCoder)
+  var startDate: Date { get }
+  var endDate: Date { get }
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 8.0, *)
 let HKSampleSortIdentifierStartDate: String
@@ -1628,7 +1628,7 @@ class HKSampleQuery : HKQuery {
    @property      sortDescriptors
    @abstract      An array of NSSortDescriptors.
    */
-  var sortDescriptors: [NSSortDescriptor]? { get }
+  var sortDescriptors: [SortDescriptor]? { get }
 
   /*!
    @method        initWithSampleType:predicate:limit:sortDescriptors:resultsHandler:
@@ -1640,7 +1640,7 @@ class HKSampleQuery : HKQuery {
    @param         sortDescriptors The sort descriptors to use to order the resulting samples.
    @param         resultsHandler  The block to invoke with results when the query has finished executing.
    */
-  init(sampleType: HKSampleType, predicate: NSPredicate?, limit: Int, sortDescriptors: [NSSortDescriptor]?, resultsHandler: (HKSampleQuery, [HKSample]?, NSError?) -> Void)
+  init(sampleType: HKSampleType, predicate: Predicate?, limit: Int, sortDescriptors: [SortDescriptor]?, resultsHandler: (HKSampleQuery, [HKSample]?, Error?) -> Void)
 }
 
 /*!
@@ -1648,7 +1648,7 @@ class HKSampleQuery : HKQuery {
  @abstract  Represents the entity that created an object stored by HealthKit.
  */
 @available(iOS 8.0, *)
-class HKSource : NSObject, NSSecureCoding, NSCopying {
+class HKSource : Object, SecureCoding, Copying {
 
   /*!
    @property      name
@@ -1671,10 +1671,10 @@ class HKSource : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -1693,7 +1693,7 @@ class HKSourceQuery : HKQuery {
    @param         samplePredicate     The predicate which samples must match.
    @param         completionHandler   The block to be called when the query has finished executing.
    */
-  init(sampleType: HKSampleType, samplePredicate objectPredicate: NSPredicate?, completionHandler: (HKSourceQuery, Set<HKSource>?, NSError?) -> Void)
+  init(sampleType: HKSampleType, samplePredicate objectPredicate: Predicate?, completionHandler: (HKSourceQuery, Set<HKSource>?, Error?) -> Void)
 }
 
 /*!
@@ -1701,7 +1701,7 @@ class HKSourceQuery : HKQuery {
  @abstract      Represents a specific revision of an HKSource.
  */
 @available(iOS 9.0, *)
-class HKSourceRevision : NSObject, NSSecureCoding, NSCopying {
+class HKSourceRevision : Object, SecureCoding, Copying {
 
   /*!
    @property      source
@@ -1724,10 +1724,10 @@ class HKSourceRevision : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -1764,10 +1764,10 @@ struct HKStatisticsOptions : OptionSetType {
  @abstract      Represents statistics for quantity samples over a period of time.
  */
 @available(iOS 8.0, *)
-class HKStatistics : NSObject, NSSecureCoding, NSCopying {
+class HKStatistics : Object, SecureCoding, Copying {
   var quantityType: HKQuantityType { get }
-  var startDate: NSDate { get }
-  var endDate: NSDate { get }
+  var startDate: Date { get }
+  var endDate: Date { get }
   var sources: [HKSource]? { get }
 
   /*!
@@ -1824,20 +1824,20 @@ class HKStatistics : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
-class HKStatisticsCollection : NSObject {
+class HKStatisticsCollection : Object {
 
   /*!
    @method        statisticsForDate:
    @abstract      Returns the statistics object that this date is inside of
    @discussion    If there are no samples for the given date, an HKStatistics instance with nil quantities will be returned.
    */
-  func statisticsFor(date: NSDate) -> HKStatistics?
+  func statisticsFor(date: Date) -> HKStatistics?
 
   /*!
    @method        enumerateStatisticsFromDate:toDate:withBlock:
@@ -1845,7 +1845,7 @@ class HKStatisticsCollection : NSObject {
    @discussion    Statistics objects will be enumerated in chronological order. If there are no samples for an interval
                   between the start and end date, then the HKStatistics object for that interval will have nil quantities.
    */
-  func enumerateStatisticsFrom(startDate: NSDate, to endDate: NSDate, withBlock block: (HKStatistics, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateStatisticsFrom(startDate: Date, to endDate: Date, withBlock block: (HKStatistics, UnsafeMutablePointer<ObjCBool>) -> Void)
 
   /*!
    @method        statistics
@@ -1864,12 +1864,12 @@ class HKStatisticsCollection : NSObject {
 }
 @available(iOS 8.0, *)
 class HKStatisticsCollectionQuery : HKQuery {
-  var anchorDate: NSDate { get }
+  var anchorDate: Date { get }
   var options: HKStatisticsOptions { get }
-  @NSCopying var intervalComponents: NSDateComponents { get }
-  var initialResultsHandler: ((HKStatisticsCollectionQuery, HKStatisticsCollection?, NSError?) -> Void)?
-  var statisticsUpdateHandler: ((HKStatisticsCollectionQuery, HKStatistics?, HKStatisticsCollection?, NSError?) -> Void)?
-  init(quantityType: HKQuantityType, quantitySamplePredicate: NSPredicate?, options: HKStatisticsOptions = [], anchorDate: NSDate, intervalComponents: NSDateComponents)
+  @NSCopying var intervalComponents: DateComponents { get }
+  var initialResultsHandler: ((HKStatisticsCollectionQuery, HKStatisticsCollection?, Error?) -> Void)?
+  var statisticsUpdateHandler: ((HKStatisticsCollectionQuery, HKStatistics?, HKStatisticsCollection?, Error?) -> Void)?
+  init(quantityType: HKQuantityType, quantitySamplePredicate: Predicate?, options: HKStatisticsOptions = [], anchorDate: Date, intervalComponents: DateComponents)
 }
 
 /*!
@@ -1878,7 +1878,7 @@ class HKStatisticsCollectionQuery : HKQuery {
  */
 @available(iOS 8.0, *)
 class HKStatisticsQuery : HKQuery {
-  init(quantityType: HKQuantityType, quantitySamplePredicate: NSPredicate?, options: HKStatisticsOptions = [], completionHandler handler: (HKStatisticsQuery, HKStatistics?, NSError?) -> Void)
+  init(quantityType: HKQuantityType, quantitySamplePredicate: Predicate?, options: HKStatisticsOptions = [], completionHandler handler: (HKStatisticsQuery, HKStatistics?, Error?) -> Void)
 }
 @available(iOS 8.0, *)
 let HKQuantityTypeIdentifierBodyMassIndex: String
@@ -2045,25 +2045,25 @@ let HKCorrelationTypeIdentifierFood: String
 @available(iOS 8.0, *)
 let HKWorkoutTypeIdentifier: String
 @available(iOS 8.0, *)
-class HKUnit : NSObject, NSSecureCoding, NSCopying {
+class HKUnit : Object, SecureCoding, Copying {
 
   /// Returns a unique string representation for the unit that could be used with +unitFromString:
   var unitString: String { get }
   convenience init(from string: String)
-  convenience init(from massFormatterUnit: NSMassFormatterUnit)
-  class func massFormatterUnitFrom(unit: HKUnit) -> NSMassFormatterUnit
-  convenience init(from lengthFormatterUnit: NSLengthFormatterUnit)
-  class func lengthFormatterUnitFrom(unit: HKUnit) -> NSLengthFormatterUnit
-  convenience init(from energyFormatterUnit: NSEnergyFormatterUnit)
-  class func energyFormatterUnitFrom(unit: HKUnit) -> NSEnergyFormatterUnit
+  convenience init(from massFormatterUnit: MassFormatterUnit)
+  class func massFormatterUnitFrom(unit: HKUnit) -> MassFormatterUnit
+  convenience init(from lengthFormatterUnit: LengthFormatterUnit)
+  class func lengthFormatterUnitFrom(unit: HKUnit) -> LengthFormatterUnit
+  convenience init(from energyFormatterUnit: EnergyFormatterUnit)
+  class func energyFormatterUnitFrom(unit: HKUnit) -> EnergyFormatterUnit
   func isNull() -> Bool
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 enum HKMetricPrefix : Int {
@@ -2234,15 +2234,15 @@ enum HKWorkoutEventType : Int {
  @abstract      Represents a particular event that occurred during a workout
  */
 @available(iOS 8.0, *)
-class HKWorkoutEvent : NSObject, NSSecureCoding {
+class HKWorkoutEvent : Object, SecureCoding {
   var type: HKWorkoutEventType { get }
-  @NSCopying var date: NSDate { get }
-  convenience init(type: HKWorkoutEventType, date: NSDate)
+  @NSCopying var date: Date { get }
+  convenience init(type: HKWorkoutEventType, date: Date)
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -2274,7 +2274,7 @@ class HKWorkout : HKSample {
    @discussion    The duration is derived from the start an end date of the workout, and takes into account periods that the 
                   workout was paused. Periods that the workout was paused are based off of the workoutEvents property.
    */
-  var duration: NSTimeInterval { get }
+  var duration: TimeInterval { get }
 
   /*!
    @property      totalEnergyBurned
@@ -2299,7 +2299,7 @@ class HKWorkout : HKSample {
    @param         startDate               The point in time that the workout was started
    @param         endDate                 The point in time that the workout was ended
    */
-  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: NSDate, end endDate: NSDate)
+  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: Date, end endDate: Date)
 
   /*!
    @method        workoutWithActivityType:startDate:endDate:workoutEvents:totalEnergyBurned:totalDistance:metadata
@@ -2314,7 +2314,7 @@ class HKWorkout : HKSample {
    @param         totalDistance           The total distance that was traveled during the workout. (Optional)
    @param         metadata                Metadata for the workout. (Optional)
    */
-  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: NSDate, end endDate: NSDate, workoutEvents: [HKWorkoutEvent]?, totalEnergyBurned: HKQuantity?, totalDistance: HKQuantity?, metadata: [String : AnyObject]?)
+  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: Date, end endDate: Date, workoutEvents: [HKWorkoutEvent]?, totalEnergyBurned: HKQuantity?, totalDistance: HKQuantity?, metadata: [String : AnyObject]?)
 
   /*!
    @method        workoutWithActivityType:startDate:endDate:workoutEvents:totalEnergyBurned:totalDistance:metadata
@@ -2331,7 +2331,7 @@ class HKWorkout : HKSample {
    @param         metadata                Metadata for the workout. (Optional)
    */
   @available(iOS 9.0, *)
-  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: NSDate, end endDate: NSDate, workoutEvents: [HKWorkoutEvent]?, totalEnergyBurned: HKQuantity?, totalDistance: HKQuantity?, device: HKDevice?, metadata: [String : AnyObject]?)
+  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: Date, end endDate: Date, workoutEvents: [HKWorkoutEvent]?, totalEnergyBurned: HKQuantity?, totalDistance: HKQuantity?, device: HKDevice?, metadata: [String : AnyObject]?)
 
   /*!
    @method        workoutWithActivityType:startDate:endDate:duration:totalEnergyBurned:totalDistance:metadata:
@@ -2346,7 +2346,7 @@ class HKWorkout : HKSample {
    @param         totalDistance           The total distance that was traveled during the workout. (Optional)
    @param         metadata                Metadata for the workout. (Optional)
    */
-  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: NSDate, end endDate: NSDate, duration: NSTimeInterval, totalEnergyBurned: HKQuantity?, totalDistance: HKQuantity?, metadata: [String : AnyObject]?)
+  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: Date, end endDate: Date, duration: TimeInterval, totalEnergyBurned: HKQuantity?, totalDistance: HKQuantity?, metadata: [String : AnyObject]?)
 
   /*!
    @method        workoutWithActivityType:startDate:endDate:duration:totalEnergyBurned:totalDistance:device:metadata:
@@ -2363,8 +2363,8 @@ class HKWorkout : HKSample {
    @param         metadata                Metadata for the workout. (Optional)
    */
   @available(iOS 9.0, *)
-  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: NSDate, end endDate: NSDate, duration: NSTimeInterval, totalEnergyBurned: HKQuantity?, totalDistance: HKQuantity?, device: HKDevice?, metadata: [String : AnyObject]?)
-  init?(coder aDecoder: NSCoder)
+  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: Date, end endDate: Date, duration: TimeInterval, totalEnergyBurned: HKQuantity?, totalDistance: HKQuantity?, device: HKDevice?, metadata: [String : AnyObject]?)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 8.0, *)
 let HKPredicateKeyPathWorkoutDuration: String

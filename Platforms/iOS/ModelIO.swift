@@ -29,7 +29,7 @@
  Fast enumeration of an MDLAsset iterates the top level objects contained within.
  */
 @available(iOS 9.0, *)
-class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
+class MDLAsset : Object, Copying, FastEnumeration {
 
   /*!
    @method initWithURL:
@@ -41,7 +41,7 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
   
                Submeshes will be converted to triangle topology.
    */
-  init(url URL: NSURL)
+  init(url URL: URL)
 
   /*!
    @method initWithURL:vertexDescriptor:bufferAllocator:
@@ -60,7 +60,7 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
    
                Submeshes will be converted to triangle topology.
     */
-  init(url URL: NSURL, vertexDescriptor: MDLVertexDescriptor?, bufferAllocator: MDLMeshBufferAllocator?)
+  init(url URL: URL, vertexDescriptor: MDLVertexDescriptor?, bufferAllocator: MDLMeshBufferAllocator?)
 
   /*! 
    @method initWithURL:vertexDescriptor:bufferAllocator:preserveTopology
@@ -76,15 +76,15 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
                MDLGeometryTypeVariableTopology, and a faceTopologyBuffer will be
                created.
    */
-  init(url URL: NSURL, vertexDescriptor: MDLVertexDescriptor?, bufferAllocator: MDLMeshBufferAllocator?, preserveTopology: Bool, error: NSErrorPointer)
+  init(url URL: URL, vertexDescriptor: MDLVertexDescriptor?, bufferAllocator: MDLMeshBufferAllocator?, preserveTopology: Bool, error: ErrorPointer)
 
   /*!
    @method exportAssetToURL:
    @abstract Export an asset to the specified URL.
    @return YES is returned if exporting proceeded successfully,
    */
-  func exportTo(URL: NSURL) -> Bool
-  func exportTo(URL: NSURL, error: ()) throws
+  func exportTo(URL: URL) -> Bool
+  func exportTo(URL: URL, error: ()) throws
 
   /*!
    @method canImportFileExtension:
@@ -108,7 +108,7 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
    @method boundingBoxAtTime:
    @abstract The bounds of the MDLAsset at the specified time
    */
-  func boundingBoxAtTime(time: NSTimeInterval) -> MDLAxisAlignedBoundingBox
+  func boundingBoxAtTime(time: TimeInterval) -> MDLAxisAlignedBoundingBox
 
   /*!
    @property bounds
@@ -122,7 +122,7 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
    @discussion If no framerate was specified by resource or resource uncapable of 
                specifying framerate, this value defaults to 0
    */
-  var frameInterval: NSTimeInterval
+  var frameInterval: TimeInterval
 
   /*!
    @property startTime
@@ -130,7 +130,7 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
    @discussion If no animation data was specified by resource or resource incapable 
                of specifying animation data, this value defaults to 0
    */
-  var startTime: NSTimeInterval
+  var startTime: TimeInterval
 
   /*!
    @property endTime
@@ -138,7 +138,7 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
    @discussion If no animation data was specified by resource or resource incapable
                of specifying animation data, this value defaults to 0
    */
-  var endTime: NSTimeInterval
+  var endTime: TimeInterval
 
   /*!
    @property URL
@@ -146,7 +146,7 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
    @discussion If no animation data was specified by resource or resource incapable 
                of specifying animation data, this value defaults to 0
    */
-  var url: NSURL? { get }
+  var url: URL? { get }
 
   /*!
    @property bufferAllocator
@@ -193,9 +193,9 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
   func objectAt(index: Int) -> MDLObject
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 /**
@@ -517,7 +517,7 @@ class MDLCamera : MDLObject {
   /**
    Shutter open interval, in seconds
    */
-  var shutterOpenInterval: NSTimeInterval
+  var shutterOpenInterval: TimeInterval
 
   /**
    vertical aperture of the sensor or film gate, default is 24mm
@@ -688,12 +688,12 @@ class MDLAreaLight : MDLPhysicallyPlausibleLight {
 */
 @available(iOS 9.0, *)
 class MDLPhotometricLight : MDLPhysicallyPlausibleLight {
-  init?(iesProfile URL: NSURL)
+  init?(iesProfile URL: URL)
   func generateSphericalHarmonicsFromLight(sphericalHarmonicsLevel: Int)
   func generateCubemapFromLight(textureSize: Int)
   var lightCubeMap: MDLTexture? { get }
   var sphericalHarmonicsLevel: Int { get }
-  @NSCopying var sphericalHarmonicsCoefficients: NSData? { get }
+  @NSCopying var sphericalHarmonicsCoefficients: Data? { get }
   init()
 }
 @available(iOS 9.0, *)
@@ -703,7 +703,7 @@ class MDLLightProbe : MDLLight {
   var reflectiveTexture: MDLTexture? { get }
   var irradianceTexture: MDLTexture? { get }
   var sphericalHarmonicsLevel: Int { get }
-  @NSCopying var sphericalHarmonicsCoefficients: NSData? { get }
+  @NSCopying var sphericalHarmonicsCoefficients: Data? { get }
   init()
 }
 extension MDLLightProbe {
@@ -883,7 +883,7 @@ enum MDLMaterialMipMapFilterMode : UInt {
   case Linear
 }
 @available(iOS 9.0, *)
-class MDLTextureFilter : NSObject {
+class MDLTextureFilter : Object {
   var sWrapMode: MDLMaterialTextureWrapMode
   var tWrapMode: MDLMaterialTextureWrapMode
   var rWrapMode: MDLMaterialTextureWrapMode
@@ -893,7 +893,7 @@ class MDLTextureFilter : NSObject {
   init()
 }
 @available(iOS 9.0, *)
-class MDLTextureSampler : NSObject {
+class MDLTextureSampler : Object {
   var texture: MDLTexture?
   var hardwareFilter: MDLTextureFilter?
   var transform: MDLTransform?
@@ -905,14 +905,14 @@ class MDLTextureSampler : NSObject {
  a Rec 709 color.
  */
 @available(iOS 9.0, *)
-class MDLMaterialProperty : NSObject, MDLNamed {
+class MDLMaterialProperty : Object, MDLNamed {
   init(name: String, semantic: MDLMaterialSemantic)
   convenience init(name: String, semantic: MDLMaterialSemantic, float value: Float)
   convenience init(name: String, semantic: MDLMaterialSemantic, float2 value: vector_float2)
   convenience init(name: String, semantic: MDLMaterialSemantic, float3 value: vector_float3)
   convenience init(name: String, semantic: MDLMaterialSemantic, float4 value: vector_float4)
   convenience init(name: String, semantic: MDLMaterialSemantic, matrix4x4 value: matrix_float4x4)
-  convenience init(name: String, semantic: MDLMaterialSemantic, url URL: NSURL?)
+  convenience init(name: String, semantic: MDLMaterialSemantic, url URL: URL?)
   convenience init(name: String, semantic: MDLMaterialSemantic, string: String?)
   convenience init(name: String, semantic: MDLMaterialSemantic, textureSampler: MDLTextureSampler?)
   convenience init(name: String, semantic: MDLMaterialSemantic, color: CGColor)
@@ -923,7 +923,7 @@ class MDLMaterialProperty : NSObject, MDLNamed {
   /** @see MDLNamed */
   var name: String
   var stringValue: String?
-  @NSCopying var urlValue: NSURL?
+  @NSCopying var urlValue: URL?
   var textureSamplerValue: MDLTextureSampler?
   var color: CGColor?
   var floatValue: Float
@@ -939,7 +939,7 @@ class MDLMaterialProperty : NSObject, MDLNamed {
  an approximation.
  */
 @available(iOS 9.0, *)
-class MDLScatteringFunction : NSObject, MDLNamed {
+class MDLScatteringFunction : Object, MDLNamed {
 
   /** @see MDLNamed */
   var name: String
@@ -970,7 +970,7 @@ class MDLPhysicallyPlausibleScatteringFunction : MDLScatteringFunction {
   init()
 }
 @available(iOS 9.0, *)
-class MDLMaterial : NSObject, MDLNamed, NSFastEnumeration {
+class MDLMaterial : Object, MDLNamed, FastEnumeration {
   init(name: String, scatteringFunction: MDLScatteringFunction)
   func setProperty(property: MDLMaterialProperty)
   func remove(property: MDLMaterialProperty)
@@ -987,7 +987,7 @@ class MDLMaterial : NSObject, MDLNamed, NSFastEnumeration {
   var count: Int { get }
   init()
   @available(iOS 9.0, *)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 /*!
@@ -996,7 +996,7 @@ class MDLMaterial : NSObject, MDLNamed, NSFastEnumeration {
  @discussion created by MDLMesh's vertexAttributeData selector
  */
 @available(iOS 9.0, *)
-class MDLVertexAttributeData : NSObject {
+class MDLVertexAttributeData : Object {
   var map: MDLMeshBufferMap
   var dataStart: UnsafeMutablePointer<Void>
   var stride: Int
@@ -1098,7 +1098,7 @@ class MDLMesh : MDLObject {
    @abstract Array of submeshes containing an indexbuffer referencing the vertex 
              data and material to be applied when the mesh is rendered
    */
-  var submeshes: NSMutableArray { get }
+  var submeshes: MutableArray { get }
   init()
 }
 extension MDLMesh {
@@ -1345,7 +1345,7 @@ enum MDLMeshBufferType : UInt {
  @abstract Represents a reference to memory of a mapped MeshBuffer
  */
 @available(iOS 9.0, *)
-class MDLMeshBufferMap : NSObject {
+class MDLMeshBufferMap : Object {
 
   /*!
    @method initWithBytes:deallocator:
@@ -1369,7 +1369,7 @@ class MDLMeshBufferMap : NSObject {
  @discussion Supports deep copy of data by conforming to the NSCopying protocol
  */
 @available(iOS 9.0, *)
-protocol MDLMeshBuffer : NSObjectProtocol, NSCopying {
+protocol MDLMeshBuffer : ObjectProtocol, Copying {
 
   /*!
    @method fillData:offset:
@@ -1379,7 +1379,7 @@ protocol MDLMeshBuffer : NSObjectProtocol, NSCopying {
    @discussion Fills data.length bytes of data.  Will not write beyond length of 
                this buffer.
    */
-  func fill(data: NSData, offset: Int)
+  func fill(data: Data, offset: Int)
 
   /*!
    @method map
@@ -1419,7 +1419,7 @@ protocol MDLMeshBuffer : NSObjectProtocol, NSCopying {
  @abstract A CPU memory backed mesh buffer
  */
 @available(iOS 9.0, *)
-class MDLMeshBufferData : NSObject, MDLMeshBuffer {
+class MDLMeshBufferData : Object, MDLMeshBuffer {
 
   /*! 
    @method initWithType:length
@@ -1435,8 +1435,8 @@ class MDLMeshBufferData : NSObject, MDLMeshBuffer {
    @param type the intended use of the buffer
    @param data the data to be used as a mesh buffer. It will be copied.
    */
-  init(type: MDLMeshBufferType, data: NSData?)
-  var data: NSData { get }
+  init(type: MDLMeshBufferType, data: Data?)
+  var data: Data { get }
   init()
 
   /*!
@@ -1448,7 +1448,7 @@ class MDLMeshBufferData : NSObject, MDLMeshBuffer {
                this buffer.
    */
   @available(iOS 9.0, *)
-  func fill(data: NSData, offset: Int)
+  func fill(data: Data, offset: Int)
 
   /*!
    @method map
@@ -1486,7 +1486,7 @@ class MDLMeshBufferData : NSObject, MDLMeshBuffer {
   @available(iOS 9.0, *)
   var type: MDLMeshBufferType { get }
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -1495,7 +1495,7 @@ class MDLMeshBufferData : NSObject, MDLMeshBuffer {
            be allocated
  */
 @available(iOS 9.0, *)
-protocol MDLMeshBufferZone : NSObjectProtocol {
+protocol MDLMeshBufferZone : ObjectProtocol {
 
   /*!
    @property capacity
@@ -1518,7 +1518,7 @@ protocol MDLMeshBufferZone : NSObjectProtocol {
              index data during 3d file loading and parsing.
  */
 @available(iOS 9.0, *)
-protocol MDLMeshBufferAllocator : NSObjectProtocol {
+protocol MDLMeshBufferAllocator : ObjectProtocol {
 
   /*!
    @method newZone:
@@ -1539,7 +1539,7 @@ protocol MDLMeshBufferAllocator : NSObjectProtocol {
                for each of the buffers with sizes and types specified even taking
                into any alignment restrictions necessary to use these buffers.
    */
-  func newZoneForBuffersWithSize(sizes: [NSNumber], andType types: [NSNumber]) -> MDLMeshBufferZone
+  func newZoneForBuffersWithSize(sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
 
   /*!
    @method newBuffer:type:
@@ -1556,7 +1556,7 @@ protocol MDLMeshBufferAllocator : NSObjectProtocol {
    @param data Memory to fill the buffer with
    @param type Type of data to be stored in this buffer
    */
-  func newBufferWith(data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBufferWith(data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
 
   /*!
    @method newBufferFromZone:length:type:
@@ -1588,13 +1588,13 @@ protocol MDLMeshBufferAllocator : NSObjectProtocol {
                zone size. Alternatively the implementation may return nil if the 
                buffer could not be allocated.
    */
-  func newBufferFrom(zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFrom(zone: MDLMeshBufferZone?, data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 
 /*!
  An allocator to use when backing with an NSData is appropriate.
  */
-class MDLMeshBufferDataAllocator : NSObject, MDLMeshBufferAllocator {
+class MDLMeshBufferDataAllocator : Object, MDLMeshBufferAllocator {
   init()
 
   /*!
@@ -1618,7 +1618,7 @@ class MDLMeshBufferDataAllocator : NSObject, MDLMeshBufferAllocator {
                into any alignment restrictions necessary to use these buffers.
    */
   @available(iOS 9.0, *)
-  func newZoneForBuffersWithSize(sizes: [NSNumber], andType types: [NSNumber]) -> MDLMeshBufferZone
+  func newZoneForBuffersWithSize(sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
 
   /*!
    @method newBuffer:type:
@@ -1637,7 +1637,7 @@ class MDLMeshBufferDataAllocator : NSObject, MDLMeshBufferAllocator {
    @param type Type of data to be stored in this buffer
    */
   @available(iOS 9.0, *)
-  func newBufferWith(data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBufferWith(data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
 
   /*!
    @method newBufferFromZone:length:type:
@@ -1671,13 +1671,13 @@ class MDLMeshBufferDataAllocator : NSObject, MDLMeshBufferAllocator {
                buffer could not be allocated.
    */
   @available(iOS 9.0, *)
-  func newBufferFrom(zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFrom(zone: MDLMeshBufferZone?, data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 
 /*!
  A default zone that can be use for convenience 
  */
-class MDLMeshBufferZoneDefault : NSObject, MDLMeshBufferZone {
+class MDLMeshBufferZoneDefault : Object, MDLMeshBufferZone {
   var capacity: Int { get }
   var allocator: MDLMeshBufferAllocator { get }
   init()
@@ -1690,7 +1690,7 @@ class MDLMeshBufferZoneDefault : NSObject, MDLMeshBufferZone {
              children in the hierachy
  */
 @available(iOS 9.0, *)
-class MDLObject : NSObject, MDLNamed {
+class MDLObject : Object, MDLNamed {
 
   /*!
    @method setComponent:forProtocol:
@@ -1757,7 +1757,7 @@ class MDLObject : NSObject, MDLNamed {
    @method boundingBoxAtTime:
    @abstract Bounds ob object at the specified time
    */
-  func boundingBoxAtTime(time: NSTimeInterval) -> MDLAxisAlignedBoundingBox
+  func boundingBoxAtTime(time: TimeInterval) -> MDLAxisAlignedBoundingBox
   init()
   @available(iOS 9.0, *)
   var name: String
@@ -1771,7 +1771,7 @@ class MDLObject : NSObject, MDLNamed {
              databases, and so on.
  */
 @available(iOS 9.0, *)
-class MDLObjectContainer : NSObject, MDLObjectContainerComponent {
+class MDLObjectContainer : Object, MDLObjectContainerComponent {
   init()
   @available(iOS 9.0, *)
   func add(object: MDLObject)
@@ -1780,10 +1780,10 @@ class MDLObjectContainer : NSObject, MDLObjectContainerComponent {
   @available(iOS 9.0, *)
   var objects: [MDLObject] { get }
   @available(iOS 9.0, *)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 @available(iOS 9.0, *)
-class MDLSubmeshTopology : NSObject {
+class MDLSubmeshTopology : Object {
 
   /*!
    @property faceTopologyBuffer
@@ -1871,7 +1871,7 @@ class MDLSubmeshTopology : NSObject {
  @abstract A drawable subset of an MDLMesh, with its own material
  */
 @available(iOS 9.0, *)
-class MDLSubmesh : NSObject, MDLNamed {
+class MDLSubmesh : Object, MDLNamed {
 
   /*!
    @method initWithName:indexBuffer:indexCount:indexType:geometryType:material:
@@ -2003,14 +2003,14 @@ enum MDLTextureChannelEncoding : Int {
            dimension.x. Other layouts are possible in the future.
  */
 @available(iOS 9.0, *)
-class MDLTexture : NSObject, MDLNamed {
+class MDLTexture : Object, MDLNamed {
 
   /**
    Creates a texture from a source in the main bundle named in a manner matching
     name.
    */
   convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
+  convenience init?(named name: String, bundle bundleOrNil: Bundle?)
 
   /**
     Creates a cube texture map image using 6 faces of the same dimensions, 
@@ -2029,21 +2029,21 @@ class MDLTexture : NSObject, MDLNamed {
       orientation and demosaiced in all other instances.
    */
   convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
+  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: Bundle?)
   class func irradianceTextureCubeWith(texture: MDLTexture, name: String?, dimensions: vector_int2) -> Self
   class func irradianceTextureCubeWith(texture: MDLTexture, name: String?, dimensions: vector_int2, roughness: Float) -> Self
-  init(data pixelData: NSData?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
+  init(data pixelData: Data?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
 
   /** writeToURL, deducing type from path extension */
-  func writeTo(URL: NSURL) -> Bool
+  func writeTo(URL: URL) -> Bool
 
   /** writeToURL using a specific UT type */
-  func writeTo(nsurl: NSURL, type: CFString) -> Bool
+  func writeTo(nsurl: URL, type: CFString) -> Bool
   func imageFromTexture() -> Unmanaged<CGImage>?
-  func texelDataWithTopLeftOrigin() -> NSData?
-  func texelDataWithBottomLeftOrigin() -> NSData?
-  func texelDataWithTopLeftOriginAtMipLevel(level: Int, create: Bool) -> NSData?
-  func texelDataWithBottomLeftOriginAtMipLevel(level: Int, create: Bool) -> NSData?
+  func texelDataWithTopLeftOrigin() -> Data?
+  func texelDataWithBottomLeftOrigin() -> Data?
+  func texelDataWithTopLeftOriginAtMipLevel(level: Int, create: Bool) -> Data?
+  func texelDataWithBottomLeftOriginAtMipLevel(level: Int, create: Bool) -> Data?
   var dimensions: vector_int2 { get }
   var rowStride: Int { get }
   var channelCount: Int { get }
@@ -2064,15 +2064,15 @@ class MDLTexture : NSObject, MDLNamed {
  */
 @available(iOS 9.0, *)
 class MDLURLTexture : MDLTexture {
-  init(url URL: NSURL, name: String?)
-  @NSCopying var url: NSURL
+  init(url URL: URL, name: String?)
+  @NSCopying var url: URL
 
   /**
    Creates a texture from a source in the main bundle named in a manner matching
     name.
    */
   convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
+  convenience init?(named name: String, bundle bundleOrNil: Bundle?)
 
   /**
     Creates a cube texture map image using 6 faces of the same dimensions, 
@@ -2091,8 +2091,8 @@ class MDLURLTexture : MDLTexture {
       orientation and demosaiced in all other instances.
    */
   convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
-  init(data pixelData: NSData?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
+  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: Bundle?)
+  init(data pixelData: Data?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
   convenience init()
 }
 
@@ -2115,7 +2115,7 @@ class MDLCheckerboardTexture : MDLTexture {
     name.
    */
   convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
+  convenience init?(named name: String, bundle bundleOrNil: Bundle?)
 
   /**
     Creates a cube texture map image using 6 faces of the same dimensions, 
@@ -2134,8 +2134,8 @@ class MDLCheckerboardTexture : MDLTexture {
       orientation and demosaiced in all other instances.
    */
   convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
-  init(data pixelData: NSData?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
+  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: Bundle?)
+  init(data pixelData: Data?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
   convenience init()
 }
 
@@ -2203,7 +2203,7 @@ class MDLSkyCubeTexture : MDLTexture {
     name.
    */
   convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
+  convenience init?(named name: String, bundle bundleOrNil: Bundle?)
 
   /**
     Creates a cube texture map image using 6 faces of the same dimensions, 
@@ -2222,8 +2222,8 @@ class MDLSkyCubeTexture : MDLTexture {
       orientation and demosaiced in all other instances.
    */
   convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
-  init(data pixelData: NSData?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
+  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: Bundle?)
+  init(data pixelData: Data?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
   convenience init()
 }
 @available(iOS 9.0, *)
@@ -2246,7 +2246,7 @@ class MDLColorSwatchTexture : MDLTexture {
     name.
    */
   convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
+  convenience init?(named name: String, bundle bundleOrNil: Bundle?)
 
   /**
     Creates a cube texture map image using 6 faces of the same dimensions, 
@@ -2265,8 +2265,8 @@ class MDLColorSwatchTexture : MDLTexture {
       orientation and demosaiced in all other instances.
    */
   convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
-  init(data pixelData: NSData?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
+  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: Bundle?)
+  init(data pixelData: Data?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
   convenience init()
 }
 
@@ -2306,7 +2306,7 @@ class MDLNoiseTexture : MDLTexture {
     name.
    */
   convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
+  convenience init?(named name: String, bundle bundleOrNil: Bundle?)
 
   /**
     Creates a cube texture map image using 6 faces of the same dimensions, 
@@ -2325,8 +2325,8 @@ class MDLNoiseTexture : MDLTexture {
       orientation and demosaiced in all other instances.
    */
   convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
-  init(data pixelData: NSData?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
+  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: Bundle?)
+  init(data pixelData: Data?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
   convenience init()
 }
 @available(iOS 9.0, *)
@@ -2338,7 +2338,7 @@ class MDLNormalMapTexture : MDLTexture {
     name.
    */
   convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
+  convenience init?(named name: String, bundle bundleOrNil: Bundle?)
 
   /**
     Creates a cube texture map image using 6 faces of the same dimensions, 
@@ -2357,8 +2357,8 @@ class MDLNormalMapTexture : MDLTexture {
       orientation and demosaiced in all other instances.
    */
   convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
-  init(data pixelData: NSData?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
+  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: Bundle?)
+  init(data pixelData: Data?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
   convenience init()
 }
 
@@ -2376,9 +2376,9 @@ protocol MDLTransformComponent : MDLComponent {
 
   /** If no animation data is present, minimumTime and maximumTime will be zero
    */
-  var minimumTime: NSTimeInterval { get }
-  var maximumTime: NSTimeInterval { get }
-  optional func setLocalTransform(transform: matrix_float4x4, forTime time: NSTimeInterval)
+  var minimumTime: TimeInterval { get }
+  var maximumTime: TimeInterval { get }
+  optional func setLocalTransform(transform: matrix_float4x4, forTime time: TimeInterval)
 
   /**
    Resets any timing information, and makes transform valid at all times 
@@ -2389,12 +2389,12 @@ protocol MDLTransformComponent : MDLComponent {
       in the transformable's parent's space.
       If non-animated, all frame values will return the same result. 
    */
-  optional func localTransformAtTime(time: NSTimeInterval) -> matrix_float4x4
+  optional func localTransformAtTime(time: TimeInterval) -> matrix_float4x4
 
   /** Returns the transform governing this transformable at the specified frame in
       world space. If there is no parent, identity will be returned
    */
-  optional static func globalTransformWith(object: MDLObject, atTime time: NSTimeInterval) -> matrix_float4x4
+  optional static func globalTransformWith(object: MDLObject, atTime time: TimeInterval) -> matrix_float4x4
 }
 
 /**
@@ -2407,7 +2407,7 @@ protocol MDLTransformComponent : MDLComponent {
  
  */
 @available(iOS 9.0, *)
-class MDLTransform : NSObject, MDLTransformComponent {
+class MDLTransform : Object, MDLTransformComponent {
   init(identity: ())
   convenience init(transformComponent component: MDLTransformComponent)
 
@@ -2422,19 +2422,19 @@ class MDLTransform : NSObject, MDLTransformComponent {
    Set all transform components to identity
    */
   func setIdentity()
-  func translationAtTime(time: NSTimeInterval) -> vector_float3
-  func rotationAtTime(time: NSTimeInterval) -> vector_float3
-  func shearAtTime(time: NSTimeInterval) -> vector_float3
-  func scaleAtTime(time: NSTimeInterval) -> vector_float3
-  func setTranslation(translation: vector_float3, forTime time: NSTimeInterval)
-  func setRotation(rotation: vector_float3, forTime time: NSTimeInterval)
-  func setShear(shear: vector_float3, forTime time: NSTimeInterval)
-  func setScale(scale: vector_float3, forTime time: NSTimeInterval)
+  func translationAtTime(time: TimeInterval) -> vector_float3
+  func rotationAtTime(time: TimeInterval) -> vector_float3
+  func shearAtTime(time: TimeInterval) -> vector_float3
+  func scaleAtTime(time: TimeInterval) -> vector_float3
+  func setTranslation(translation: vector_float3, forTime time: TimeInterval)
+  func setRotation(rotation: vector_float3, forTime time: TimeInterval)
+  func setShear(shear: vector_float3, forTime time: TimeInterval)
+  func setScale(scale: vector_float3, forTime time: TimeInterval)
 
   /**
    Construct a right handed rotation matrix at the specified time
    */
-  func rotationMatrixAtTime(time: NSTimeInterval) -> matrix_float4x4
+  func rotationMatrixAtTime(time: TimeInterval) -> matrix_float4x4
 
   /**
    If these properties are read and animation data exists the earliest value is returned.
@@ -2454,11 +2454,11 @@ class MDLTransform : NSObject, MDLTransformComponent {
   /** If no animation data is present, minimumTime and maximumTime will be zero
    */
   @available(iOS 9.0, *)
-  var minimumTime: NSTimeInterval { get }
+  var minimumTime: TimeInterval { get }
   @available(iOS 9.0, *)
-  var maximumTime: NSTimeInterval { get }
+  var maximumTime: TimeInterval { get }
   @available(iOS 9.0, *)
-  func setLocalTransform(transform: matrix_float4x4, forTime time: NSTimeInterval)
+  func setLocalTransform(transform: matrix_float4x4, forTime time: TimeInterval)
 
   /**
    Resets any timing information, and makes transform valid at all times 
@@ -2471,13 +2471,13 @@ class MDLTransform : NSObject, MDLTransformComponent {
       If non-animated, all frame values will return the same result. 
    */
   @available(iOS 9.0, *)
-  func localTransformAtTime(time: NSTimeInterval) -> matrix_float4x4
+  func localTransformAtTime(time: TimeInterval) -> matrix_float4x4
 
   /** Returns the transform governing this transformable at the specified frame in
       world space. If there is no parent, identity will be returned
    */
   @available(iOS 9.0, *)
-  class func globalTransformWith(object: MDLObject, atTime time: NSTimeInterval) -> matrix_float4x4
+  class func globalTransformWith(object: MDLObject, atTime time: TimeInterval) -> matrix_float4x4
 }
 @available(iOS 9.0, *)
 let kUTTypeAlembic: String
@@ -2518,10 +2518,10 @@ protocol MDLNamed {
   var name: String { get set }
 }
 @available(iOS 9.0, *)
-protocol MDLComponent : NSObjectProtocol {
+protocol MDLComponent : ObjectProtocol {
 }
 @available(iOS 9.0, *)
-protocol MDLObjectContainerComponent : MDLComponent, NSFastEnumeration {
+protocol MDLObjectContainerComponent : MDLComponent, FastEnumeration {
   func add(object: MDLObject)
   func remove(object: MDLObject)
   var objects: [MDLObject] { get }
@@ -2664,7 +2664,7 @@ enum MDLVertexFormat : UInt {
  @abstract Describes a vertex buffer's layout
  */
 @available(iOS 9.0, *)
-class MDLVertexBufferLayout : NSObject, NSCopying {
+class MDLVertexBufferLayout : Object, Copying {
 
   /*!
    @property stride
@@ -2673,7 +2673,7 @@ class MDLVertexBufferLayout : NSObject, NSCopying {
   var stride: Int
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -2681,7 +2681,7 @@ class MDLVertexBufferLayout : NSObject, NSCopying {
  @abstract Structure with properties of a vertex attribute
  */
 @available(iOS 9.0, *)
-class MDLVertexAttribute : NSObject, NSCopying {
+class MDLVertexAttribute : Object, Copying {
 
   /*!
    @method initWithName:format:offset:bufferIndex
@@ -2730,7 +2730,7 @@ class MDLVertexAttribute : NSObject, NSCopying {
   var initializationValue: vector_float4
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -2747,7 +2747,7 @@ class MDLVertexAttribute : NSObject, NSCopying {
  the other
  */
 @available(iOS 9.0, *)
-class MDLVertexDescriptor : NSObject, NSCopying {
+class MDLVertexDescriptor : Object, Copying {
 
   /*!
    @method initVertexDescriptor:
@@ -2777,7 +2777,7 @@ class MDLVertexDescriptor : NSObject, NSCopying {
    @discussion An array describing the current attribute state of vertex buffers in an
                MDLMesh mesh
    */
-  var attributes: NSMutableArray
+  var attributes: MutableArray
 
   /*!
    @property layouts
@@ -2785,7 +2785,7 @@ class MDLVertexDescriptor : NSObject, NSCopying {
    @discussion An array describing the current layout state of vertex buffers in an 
                MDLMesh mesh
    */
-  var layouts: NSMutableArray
+  var layouts: MutableArray
 
   /*!
    @method reset
@@ -2809,7 +2809,7 @@ class MDLVertexDescriptor : NSObject, NSCopying {
   func setPackedOffsets()
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /**
@@ -2841,7 +2841,7 @@ struct MDLVoxelIndexExtent {
           series of shells on the outside and inside of the surface.
  */
 @available(iOS 9.0, *)
-class MDLVoxelArray : NSObject {
+class MDLVoxelArray : Object {
 
   /**
    Initialize a voxel grid from an MDLAsset and dilate the resulting voxels by
@@ -2877,7 +2877,7 @@ class MDLVoxelArray : NSObject {
    @param boundingBox The bounds defining the extent of the volume model in Cartesian space
    @param voxelExtent The extent of a single voxel
    */
-  init(data voxelData: NSData, boundingBox: MDLAxisAlignedBoundingBox, voxelExtent: Float)
+  init(data voxelData: Data, boundingBox: MDLAxisAlignedBoundingBox, voxelExtent: Float)
 
   /**
    Create a mesh from the voxel grid
@@ -2928,12 +2928,12 @@ class MDLVoxelArray : NSObject {
   /**
    Returns an NSData containing the indices of all voxels found in the extent
    */
-  func voxelsWithin(extent: MDLVoxelIndexExtent) -> NSData?
+  func voxelsWithin(extent: MDLVoxelIndexExtent) -> Data?
 
   /**
    Returns an NSData containing the indices of all voxels in the voxel grid
    */
-  func voxelIndices() -> NSData?
+  func voxelIndices() -> Data?
 
   /**
    Union modifies the voxel grid to be the merger with the supplied voxel grid.

@@ -267,7 +267,7 @@ class IOBluetoothDeviceSelectorController : NSWindowController {
    */
   func getCancel() -> String!
   init(window: NSWindow?)
-  init?(coder: NSCoder)
+  init?(coder: Coder)
   convenience init(windowNibName: String)
   convenience init(windowNibName: String, owner: AnyObject)
   convenience init(windowNibPath: String, owner: AnyObject)
@@ -386,7 +386,7 @@ class IOBluetoothObjectPushUIController : NSWindowController {
   */
   func isTransferInProgress() -> Bool
   init(window: NSWindow?)
-  init?(coder: NSCoder)
+  init?(coder: Coder)
   convenience init(windowNibName: String)
   convenience init(windowNibName: String, owner: AnyObject)
   convenience init(windowNibPath: String, owner: AnyObject)
@@ -569,7 +569,7 @@ class IOBluetoothPairingController : NSWindowController {
   */
   func getPrompt() -> String!
   init(window: NSWindow?)
-  init?(coder: NSCoder)
+  init?(coder: Coder)
   convenience init(windowNibName: String)
   convenience init(windowNibName: String, owner: AnyObject)
   convenience init(windowNibPath: String, owner: AnyObject)
@@ -597,21 +597,21 @@ class IOBluetoothPasskeyDisplay : NSView {
   func advancePasskeyIndicator()
   func retreatPasskeyIndicator()
   func resetPasskeyIndicator()
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init(frame frameRect: Rect)
+  init?(coder: Coder)
   convenience init()
 }
 class IOBluetoothAccessibilityIgnoredTextFieldCell : NSTextFieldCell {
   init(textCell aString: String)
   init(imageCell image: NSImage?)
   convenience init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 class IOBluetoothAccessibilityIgnoredImageCell : NSImageCell {
   init(textCell aString: String)
   init(imageCell image: NSImage?)
   convenience init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -829,7 +829,7 @@ class IOBluetoothServiceBrowserController : NSWindowController {
   */
   func getPrompt() -> String!
   init(window: NSWindow?)
-  init?(coder: NSCoder)
+  init?(coder: Coder)
   convenience init(windowNibName: String)
   convenience init(windowNibName: String, owner: AnyObject)
   convenience init(windowNibPath: String, owner: AnyObject)

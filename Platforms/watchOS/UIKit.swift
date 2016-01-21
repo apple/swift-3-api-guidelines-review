@@ -79,7 +79,7 @@ enum NSWritingDirectionFormatType : Int {
 let NSTextEffectLetterpressStyle: String
 
 /************************ Attribute fixing ************************/
-extension NSMutableAttributedString {
+extension MutableAttributedString {
   @available(watchOS 2.0, *)
   func fixAttributesIn(range: NSRange)
 }
@@ -123,25 +123,25 @@ let NSHyphenationFactorDocumentAttribute: String
 let NSDefaultTabIntervalDocumentAttribute: String
 @available(watchOS 2.0, *)
 let NSTextLayoutSectionsAttribute: String
-extension NSAttributedString {
+extension AttributedString {
   @available(watchOS 2.0, *)
-  init(url: NSURL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(url: URL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(watchOS 2.0, *)
-  init(data: NSData, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(data: Data, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(watchOS 2.0, *)
-  func dataFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> NSData
+  func dataFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> Data
   @available(watchOS 2.0, *)
-  func fileWrapperFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> NSFileWrapper
+  func fileWrapperFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> FileWrapper
 }
-extension NSMutableAttributedString {
+extension MutableAttributedString {
   @available(watchOS 2.0, *)
-  func readFrom(url: NSURL, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func readFrom(url: URL, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(watchOS 2.0, *)
-  func readFrom(data: NSData, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func readFrom(data: Data, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
 
 /************************ Misc methods ************************/
-extension NSAttributedString {
+extension AttributedString {
   @available(watchOS 2.0, *)
   func containsAttachmentsIn(range: NSRange) -> Bool
 }
@@ -154,30 +154,30 @@ enum NSTextWritingDirection : Int {
   case Embedding
   case Override
 }
-extension NSAttributedString {
+extension AttributedString {
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init(fileURL url: NSURL, options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(fileURL url: URL, options: [Object : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
-extension NSMutableAttributedString {
+extension MutableAttributedString {
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -readFromURL:options:documentAttributes:error: instead")
-  func readFromFileURL(url: NSURL, options opts: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func readFromFileURL(url: URL, options opts: [Object : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
 @available(watchOS 2.0, *)
 let NSTabColumnTerminatorsAttributeName: String
 @available(watchOS 2.0, *)
-class NSTextTab : NSObject, NSCopying, NSCoding {
+class NSTextTab : Object, Copying, Coding {
   @available(watchOS 2.0, *)
-  class func columnTerminatorsFor(aLocale: NSLocale?) -> NSCharacterSet
+  class func columnTerminatorsFor(aLocale: Locale?) -> CharacterSet
   init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options: [String : AnyObject] = [:])
   var alignment: NSTextAlignment { get }
   var location: CGFloat { get }
   var options: [String : AnyObject] { get }
   convenience init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(watchOS 2.0, *)
 enum NSLineBreakMode : Int {
@@ -191,7 +191,7 @@ enum NSLineBreakMode : Int {
   case ByTruncatingMiddle
 }
 @available(watchOS 2.0, *)
-class NSParagraphStyle : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
+class NSParagraphStyle : Object, Copying, MutableCopying, SecureCoding {
   class func defaultParagraphStyle() -> NSParagraphStyle
   class func defaultWritingDirectionForLanguage(languageName: String?) -> NSWritingDirection
   var lineSpacing: CGFloat { get }
@@ -215,14 +215,14 @@ class NSParagraphStyle : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var allowsDefaultTighteningForTruncation: Bool { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(watchOS 2.0, *)
 class NSMutableParagraphStyle : NSParagraphStyle {
@@ -252,10 +252,10 @@ class NSMutableParagraphStyle : NSParagraphStyle {
   @available(watchOS 2.0, *)
   func setParagraphStyle(obj: NSParagraphStyle)
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(watchOS 2.0, *)
-class NSStringDrawingContext : NSObject {
+class NSStringDrawingContext : Object {
   var minimumScaleFactor: CGFloat
   var actualScaleFactor: CGFloat { get }
   var totalBounds: CGRect { get }
@@ -269,7 +269,7 @@ extension NSString {
   @available(watchOS 2.0, *)
   func drawIn(rect: CGRect, withAttributes attrs: [String : AnyObject]? = [:])
 }
-extension NSAttributedString {
+extension AttributedString {
   @available(watchOS 2.0, *)
   func size() -> CGSize
   @available(watchOS 2.0, *)
@@ -293,7 +293,7 @@ extension NSString {
   @available(watchOS 2.0, *)
   func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?) -> CGRect
 }
-extension NSAttributedString {
+extension AttributedString {
   @available(watchOS 2.0, *)
   func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?)
   @available(watchOS 2.0, *)
@@ -401,7 +401,7 @@ struct UIRectCorner : OptionSetType {
   static var AllCorners: UIRectCorner { get }
 }
 @available(watchOS 2.0, *)
-class UIBezierPath : NSObject, NSCopying, NSCoding {
+class UIBezierPath : Object, Copying, Coding {
   convenience init(rect: CGRect)
   convenience init(ovalIn rect: CGRect)
   convenience init(roundedRect rect: CGRect, cornerRadius: CGFloat)
@@ -409,7 +409,7 @@ class UIBezierPath : NSObject, NSCopying, NSCoding {
   convenience init(arcCenter center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
   convenience init(cgPath CGPath: CGPath)
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   var cgPath: CGPath
   func moveTo(point: CGPoint)
   func addLineTo(point: CGPoint)
@@ -441,12 +441,12 @@ class UIBezierPath : NSObject, NSCopying, NSCoding {
   func strokeWith(blendMode: CGBlendMode, alpha: CGFloat)
   func addClip()
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
 }
 @available(watchOS 2.0, *)
-class UIColor : NSObject, NSSecureCoding, NSCopying {
+class UIColor : Object, SecureCoding, Copying {
   init(white: CGFloat, alpha: CGFloat)
   init(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat)
   init(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
@@ -482,17 +482,17 @@ class UIColor : NSObject, NSSecureCoding, NSCopying {
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 extension UIColor : _ColorLiteralConvertible {
   required convenience init(colorLiteralRed red: Float, green: Float, blue: Float, alpha: Float)
 }
 @available(watchOS 2.0, *)
-class UIFont : NSObject, NSCopying {
+class UIFont : Object, Copying {
   @available(watchOS 2.0, *)
   class func preferredFontForTextStyle(style: String) -> UIFont
   /*not inherited*/ init?(name fontName: String, size fontSize: CGFloat)
@@ -522,7 +522,7 @@ class UIFont : NSObject, NSCopying {
   func fontDescriptor() -> UIFontDescriptor
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(watchOS 2.0, *)
 struct UIFontDescriptorSymbolicTraits : OptionSetType {
@@ -552,9 +552,9 @@ struct UIFontDescriptorSymbolicTraits : OptionSetType {
 }
 typealias UIFontDescriptorClass = Int
 @available(watchOS 2.0, *)
-class UIFontDescriptor : NSObject, NSCopying, NSSecureCoding {
+class UIFontDescriptor : Object, Copying, SecureCoding {
   convenience init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   var postscriptName: String { get }
   var pointSize: CGFloat { get }
   var matrix: CGAffineTransform { get }
@@ -573,11 +573,11 @@ class UIFontDescriptor : NSObject, NSCopying, NSSecureCoding {
   func withFace(newFace: String) -> UIFontDescriptor
   func withFamily(newFamily: String) -> UIFontDescriptor
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
 }
 @available(watchOS 2.0, *)
 let UIFontDescriptorFamilyAttribute: String
@@ -705,7 +705,7 @@ func CGRectFromString(string: String) -> CGRect
 func CGAffineTransformFromString(string: String) -> CGAffineTransform
 func UIEdgeInsetsFromString(string: String) -> UIEdgeInsets
 func UIOffsetFromString(string: String) -> UIOffset
-extension NSValue {
+extension Value {
   /*not inherited*/ init(cgPoint point: CGPoint)
   /*not inherited*/ init(cgVector vector: CGVector)
   /*not inherited*/ init(cgSize size: CGSize)
@@ -723,7 +723,7 @@ extension NSValue {
   @available(watchOS 2.0, *)
   func uiOffsetValue() -> UIOffset
 }
-extension NSCoder {
+extension Coder {
   func encode(point: CGPoint, forKey key: String)
   func encode(vector: CGVector, forKey key: String)
   func encode(size: CGSize, forKey key: String)
@@ -755,19 +755,19 @@ func UIGraphicsBeginImageContextWithOptions(size: CGSize, _ opaque: Bool, _ scal
 func UIGraphicsGetImageFromCurrentImageContext() -> UIImage!
 func UIGraphicsEndImageContext()
 @available(watchOS 2.0, *)
-func UIGraphicsBeginPDFContextToFile(path: String, _ bounds: CGRect, _ documentInfo: [NSObject : AnyObject]?) -> Bool
+func UIGraphicsBeginPDFContextToFile(path: String, _ bounds: CGRect, _ documentInfo: [Object : AnyObject]?) -> Bool
 @available(watchOS 2.0, *)
-func UIGraphicsBeginPDFContextToData(data: NSMutableData, _ bounds: CGRect, _ documentInfo: [NSObject : AnyObject]?)
+func UIGraphicsBeginPDFContextToData(data: MutableData, _ bounds: CGRect, _ documentInfo: [Object : AnyObject]?)
 @available(watchOS 2.0, *)
 func UIGraphicsEndPDFContext()
 @available(watchOS 2.0, *)
 func UIGraphicsBeginPDFPage()
 @available(watchOS 2.0, *)
-func UIGraphicsBeginPDFPageWithInfo(bounds: CGRect, _ pageInfo: [NSObject : AnyObject]?)
+func UIGraphicsBeginPDFPageWithInfo(bounds: CGRect, _ pageInfo: [Object : AnyObject]?)
 @available(watchOS 2.0, *)
 func UIGraphicsGetPDFContextBounds() -> CGRect
 @available(watchOS 2.0, *)
-func UIGraphicsSetPDFContextURLForRect(url: NSURL, _ rect: CGRect)
+func UIGraphicsSetPDFContextURLForRect(url: URL, _ rect: CGRect)
 @available(watchOS 2.0, *)
 func UIGraphicsAddPDFContextDestinationAtPoint(name: String, _ point: CGPoint)
 @available(watchOS 2.0, *)
@@ -799,12 +799,12 @@ enum UIImageRenderingMode : Int {
   case AlwaysTemplate
 }
 @available(watchOS 2.0, *)
-class UIImage : NSObject, NSSecureCoding {
+class UIImage : Object, SecureCoding {
   /*not inherited*/ init?(named name: String)
   init?(contentsOfFile path: String)
-  init?(data: NSData)
+  init?(data: Data)
   @available(watchOS 2.0, *)
-  init?(data: NSData, scale: CGFloat)
+  init?(data: Data, scale: CGFloat)
   init(cgImage: CGImage)
   @available(watchOS 2.0, *)
   init(cgImage: CGImage, scale: CGFloat, orientation: UIImageOrientation)
@@ -814,17 +814,17 @@ class UIImage : NSObject, NSSecureCoding {
   @available(watchOS 2.0, *)
   var scale: CGFloat { get }
   @available(watchOS 2.0, *)
-  class func animatedImageNamed(name: String, duration: NSTimeInterval) -> UIImage?
+  class func animatedImageNamed(name: String, duration: TimeInterval) -> UIImage?
   @available(watchOS 2.0, *)
-  class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, duration: NSTimeInterval) -> UIImage?
+  class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, duration: TimeInterval) -> UIImage?
   @available(watchOS 2.0, *)
-  class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode, duration: NSTimeInterval) -> UIImage?
+  class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode, duration: TimeInterval) -> UIImage?
   @available(watchOS 2.0, *)
-  class func animatedImageWith(images: [UIImage], duration: NSTimeInterval) -> UIImage?
+  class func animatedImageWith(images: [UIImage], duration: TimeInterval) -> UIImage?
   @available(watchOS 2.0, *)
   var images: [UIImage]? { get }
   @available(watchOS 2.0, *)
-  var duration: NSTimeInterval { get }
+  var duration: TimeInterval { get }
   func drawAt(point: CGPoint)
   func drawAt(point: CGPoint, blendMode: CGBlendMode, alpha: CGFloat)
   func drawIn(rect: CGRect)
@@ -854,8 +854,8 @@ class UIImage : NSObject, NSSecureCoding {
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 extension UIImage : _ImageLiteralConvertible {
@@ -867,16 +867,16 @@ extension UIImage {
   var leftCapWidth: Int { get }
   var topCapHeight: Int { get }
 }
-func UIImagePNGRepresentation(image: UIImage) -> NSData?
-func UIImageJPEGRepresentation(image: UIImage, _ compressionQuality: CGFloat) -> NSData?
+func UIImagePNGRepresentation(image: UIImage) -> Data?
+func UIImageJPEGRepresentation(image: UIImage, _ compressionQuality: CGFloat) -> Data?
 @available(watchOS 2.0, *)
-class UILocalNotification : NSObject, NSCopying, NSCoding {
+class UILocalNotification : Object, Copying, Coding {
   init()
-  init?(coder aDecoder: NSCoder)
-  @NSCopying var fireDate: NSDate?
-  @NSCopying var timeZone: NSTimeZone?
-  var repeatInterval: NSCalendarUnit
-  @NSCopying var repeatCalendar: NSCalendar?
+  init?(coder aDecoder: Coder)
+  @NSCopying var fireDate: Date?
+  @NSCopying var timeZone: TimeZone?
+  var repeatInterval: CalendarUnit
+  @NSCopying var repeatCalendar: Calendar?
   @available(watchOS 2.0, *)
   var regionTriggersOnce: Bool
   var alertBody: String?
@@ -887,13 +887,13 @@ class UILocalNotification : NSObject, NSCopying, NSCoding {
   var alertTitle: String?
   var soundName: String?
   var applicationIconBadgeNumber: Int
-  var userInfo: [NSObject : AnyObject]?
+  var userInfo: [Object : AnyObject]?
   @available(watchOS 2.0, *)
   var category: String?
   @available(watchOS 2.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: NSCoder)
+  func encodeWith(aCoder: Coder)
 }
 @available(watchOS 2.0, *)
 let UILocalNotificationDefaultSoundName: String

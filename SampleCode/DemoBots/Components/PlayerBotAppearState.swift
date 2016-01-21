@@ -15,7 +15,7 @@ class PlayerBotAppearState: GKState {
     unowned var entity: PlayerBot
     
     /// The amount of time the `PlayerBot` has been in the "appear" state.
-    var elapsedTime: NSTimeInterval = 0.0
+    var elapsedTime: TimeInterval = 0.0
     
     /// The `AnimationComponent` associated with the `entity`.
     var animationComponent: AnimationComponent {
@@ -84,7 +84,7 @@ class PlayerBotAppearState: GKState {
         inputComponent.isEnabled = false
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func updateWithDeltaTime(seconds: TimeInterval) {
         super.updateWithDeltaTime(seconds)
         
         // Update the amount of time that the `PlayerBot` has been teleporting in to the level.

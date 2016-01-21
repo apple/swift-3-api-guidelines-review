@@ -38,7 +38,7 @@ public protocol ListCoordinator: class {
     weak var delegate: ListCoordinatorDelegate? { get set }
     
     /// A URL for the directory containing documents within the application's container.
-    var documentsDirectory: NSURL { get }
+    var documentsDirectory: URL { get }
     
     // MARK: Methods
     
@@ -71,7 +71,7 @@ public protocol ListCoordinator: class {
     
         - parameter URL: The `NSURL` instance to remove from the list of important instances.
     */
-    func removeListAtURL(URL: NSURL)
+    func removeListAtURL(URL: URL)
 
     /**
         Creates an `NSURL` object representing `list` with the provided name. Callers of this method
@@ -109,7 +109,7 @@ public protocol ListCoordinator: class {
         - parameter URL: The `NSURL` object representing the list to be copied.
         - parameter name: The name of the `list` to be overwritten.
     */
-    func copyListFromURL(URL: NSURL, toListWithName name: String)
+    func copyListFromURL(URL: URL, toListWithName name: String)
 }
 
 
@@ -130,7 +130,7 @@ public protocol ListCoordinatorDelegate: class {
         - parameter removedURLs: The `NSURL` instances that have just been untracked.
         - parameter updatedURLs: The `NSURL` instances that have had their underlying model updated.
     */
-     func listCoordinatorDidUpdateContents(insertedURLs insertedURLs: [NSURL], removedURLs: [NSURL], updatedURLs: [NSURL])
+     func listCoordinatorDidUpdateContents(insertedURLs insertedURLs: [URL], removedURLs: [URL], updatedURLs: [URL])
     
     /**
         Notifies a `ListCoordinatorDelegate` instance of an error that occured when a coordinator
@@ -141,7 +141,7 @@ public protocol ListCoordinatorDelegate: class {
         - parameter URL: The `NSURL` instance that failed to be removed.
         - parameter error: The error that describes why the remove failed.
     */
-    func listCoordinatorDidFailRemovingListAtURL(URL: NSURL, withError error: NSError)
+    func listCoordinatorDidFailRemovingListAtURL(URL: URL, withError error: Error)
 
     /**
         Notifies a `ListCoordinatorDelegate` instance of an error that occured when a coordinator
@@ -151,5 +151,5 @@ public protocol ListCoordinatorDelegate: class {
         - parameter URL: The `NSURL` instance that couldn't be created for a list.
         - parameter error: The error the describes why the create failed.
     */
-    func listCoordinatorDidFailCreatingListAtURL(URL: NSURL, withError error: NSError)
+    func listCoordinatorDidFailCreatingListAtURL(URL: URL, withError error: Error)
 }

@@ -15,14 +15,14 @@ enum EAGLRenderingAPI : UInt {
 func EAGLGetVersion(major: UnsafeMutablePointer<UInt32>, _ minor: UnsafeMutablePointer<UInt32>)
 
 /************************************************************************/
-class EAGLSharegroup : NSObject {
+class EAGLSharegroup : Object {
   @available(tvOS 6.0, *)
   var debugLabel: String!
   init()
 }
 
 /************************************************************************/
-class EAGLContext : NSObject {
+class EAGLContext : Object {
   convenience init!(api: EAGLRenderingAPI)
   init!(api: EAGLRenderingAPI, sharegroup: EAGLSharegroup!)
   class func setCurrentContext(context: EAGLContext!) -> Bool
@@ -48,7 +48,7 @@ let kEAGLColorFormatSRGBA8: String
 /************************************************************************/
 protocol EAGLDrawable {
   @available(tvOS 2.0, *)
-  var drawableProperties: [NSObject : AnyObject]! { get set }
+  var drawableProperties: [Object : AnyObject]! { get set }
 }
 extension EAGLContext {
   func renderbufferStorage(target: Int, from drawable: EAGLDrawable!) -> Bool

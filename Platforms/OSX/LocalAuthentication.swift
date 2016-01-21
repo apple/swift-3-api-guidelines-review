@@ -27,7 +27,7 @@ enum LAPolicy : Int {
 ///
 /// @see LAPolicy
 @available(OSX 10.10, *)
-class LAContext : NSObject {
+class LAContext : Object {
 
   /// Determines if a particular policy can be evaluated.
   ///
@@ -48,7 +48,7 @@ class LAContext : NSObject {
   ///              contains error information if policy evaluation is not possible.
   ///
   /// @return YES if the policy can be evaluated, NO otherwise.
-  func canEvaluatePolicy(policy: LAPolicy, error: NSErrorPointer) -> Bool
+  func canEvaluatePolicy(policy: LAPolicy, error: ErrorPointer) -> Bool
 
   /// Evaluates the specified policy.
   ///
@@ -92,7 +92,7 @@ class LAContext : NSObject {
   /// @li          LAErrorUserFallback if user tapped the fallback button
   /// @li          LAErrorUserCancel if user has tapped the Cancel button
   /// @li          LAErrorSystemCancel if some system event interrupted the evaluation (e.g. Home button pressed).
-  func evaluatePolicy(policy: LAPolicy, localizedReason: String, reply: (Bool, NSError?) -> Void)
+  func evaluatePolicy(policy: LAPolicy, localizedReason: String, reply: (Bool, Error?) -> Void)
 
   /// Invalidates the context.
   ///
@@ -120,7 +120,7 @@ class LAContext : NSObject {
   /// @return YES if the credential was set successfully, NO otherwise.
   ///
   @available(OSX 10.11, *)
-  func setCredential(credential: NSData?, type: LACredentialType) -> Bool
+  func setCredential(credential: Data?, type: LACredentialType) -> Bool
 
   /// Reveals if credential was set with this context.
   ///
@@ -171,7 +171,7 @@ class LAContext : NSObject {
   /// @warning localizedReason parameter is mandatory and the call will throw NSInvalidArgumentException if
   ///          nil or empty string is specified.
   @available(OSX 10.11, *)
-  func evaluateAccessControl(accessControl: SecAccessControl, operation: LAAccessControlOperation, localizedReason: String, reply: (Bool, NSError?) -> Void)
+  func evaluateAccessControl(accessControl: SecAccessControl, operation: LAAccessControlOperation, localizedReason: String, reply: (Bool, Error?) -> Void)
 
   /// Fallback button title.
   /// @discussion Allows fallback button title customization. A default title "Enter Password" is used when
@@ -188,7 +188,7 @@ class LAContext : NSObject {
   ///              but comparing data of evaluatedPolicyDomainState after different evaluatePolicy
   ///              will reveal the fact database was changed between calls.
   @available(OSX 10.11, *)
-  var evaluatedPolicyDomainState: NSData? { get }
+  var evaluatedPolicyDomainState: Data? { get }
   init()
 }
 @available(OSX 10.11, *)

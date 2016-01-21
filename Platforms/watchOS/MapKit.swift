@@ -1,18 +1,18 @@
 
-protocol MKAnnotation : NSObjectProtocol {
+protocol MKAnnotation : ObjectProtocol {
   var coordinate: CLLocationCoordinate2D { get }
   optional var title: String? { get }
   optional var subtitle: String? { get }
 }
 @available(watchOS 2.0, *)
-class MKDistanceFormatter : NSFormatter {
+class MKDistanceFormatter : Formatter {
   func stringFromDistance(distance: CLLocationDistance) -> String
   func distanceFrom(distance: String) -> CLLocationDistance
-  @NSCopying var locale: NSLocale!
+  @NSCopying var locale: Locale!
   var units: MKDistanceFormatterUnits
   var unitStyle: MKDistanceFormatterUnitStyle
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(watchOS 2.0, *)
 enum MKDistanceFormatterUnits : UInt {
@@ -122,21 +122,21 @@ func MKCoordinateRegionForMapRect(rect: MKMapRect) -> MKCoordinateRegion
 func MKMapRectSpans180thMeridian(rect: MKMapRect) -> Bool
 @available(watchOS 2.0, *)
 func MKMapRectRemainder(rect: MKMapRect) -> MKMapRect
-extension NSValue {
+extension Value {
   /*not inherited*/ init(mkCoordinate coordinate: CLLocationCoordinate2D)
   /*not inherited*/ init(mkCoordinateSpan span: MKCoordinateSpan)
   var mkCoordinateValue: CLLocationCoordinate2D { get }
   var mkCoordinateSpanValue: MKCoordinateSpan { get }
 }
 @available(watchOS 2.0, *)
-class MKMapItem : NSObject {
+class MKMapItem : Object {
   var placemark: MKPlacemark { get }
   var isCurrentLocation: Bool { get }
   var name: String?
   var phoneNumber: String?
-  var url: NSURL?
+  var url: URL?
   @available(watchOS 2.0, *)
-  @NSCopying var timeZone: NSTimeZone?
+  @NSCopying var timeZone: TimeZone?
   class func forCurrentLocation() -> MKMapItem
   init(placemark: MKPlacemark)
   func openInMapsWithLaunchOptions(launchOptions: [String : AnyObject]? = [:]) -> Bool
@@ -163,7 +163,7 @@ class MKPlacemark : CLPlacemark, MKAnnotation {
   var countryCode: String? { get }
   init(placemark: CLPlacemark)
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
   @available(watchOS 2.0, *)
   var coordinate: CLLocationCoordinate2D { get }
   @available(watchOS 2.0, *)

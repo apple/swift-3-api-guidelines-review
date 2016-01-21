@@ -33,7 +33,7 @@
    information about service types.
  */
 @available(iOS 7.0, *)
-class MCAdvertiserAssistant : NSObject {
+class MCAdvertiserAssistant : Object {
   init(serviceType: String, discoveryInfo info: [String : String]?, session: MCSession)
   func start()
   func stop()
@@ -43,7 +43,7 @@ class MCAdvertiserAssistant : NSObject {
   var serviceType: String { get }
   convenience init()
 }
-protocol MCAdvertiserAssistantDelegate : NSObjectProtocol {
+protocol MCAdvertiserAssistantDelegate : ObjectProtocol {
   @available(iOS 7.0, *)
   optional func advertiserAssistantWillPresentInvitation(advertiserAssistant: MCAdvertiserAssistant)
   @available(iOS 7.0, *)
@@ -90,17 +90,17 @@ class MCBrowserViewController : UIViewController, MCNearbyServiceBrowserDelegate
   var session: MCSession { get }
   var minimumNumberOfPeers: Int
   var maximumNumberOfPeers: Int
-  convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
   @available(iOS 7.0, *)
   func browser(browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?)
   @available(iOS 7.0, *)
   func browser(browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID)
   @available(iOS 7.0, *)
-  func browser(browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: NSError)
+  func browser(browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error)
 }
-protocol MCBrowserViewControllerDelegate : NSObjectProtocol {
+protocol MCBrowserViewControllerDelegate : ObjectProtocol {
   @available(iOS 7.0, *)
   func browserViewControllerDidFinish(browserViewController: MCBrowserViewController)
   @available(iOS 7.0, *)
@@ -166,7 +166,7 @@ extension MCErrorCode : _BridgedNSError {
    information about service types.
  */
 @available(iOS 7.0, *)
-class MCNearbyServiceAdvertiser : NSObject {
+class MCNearbyServiceAdvertiser : Object {
   init(peer myPeerID: MCPeerID, discoveryInfo info: [String : String]?, serviceType: String)
   func startAdvertisingPeer()
   func stopAdvertisingPeer()
@@ -176,11 +176,11 @@ class MCNearbyServiceAdvertiser : NSObject {
   var serviceType: String { get }
   convenience init()
 }
-protocol MCNearbyServiceAdvertiserDelegate : NSObjectProtocol {
+protocol MCNearbyServiceAdvertiserDelegate : ObjectProtocol {
   @available(iOS 7.0, *)
-  func advertiser(advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: NSData?, invitationHandler: (Bool, MCSession) -> Void)
+  func advertiser(advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: (Bool, MCSession) -> Void)
   @available(iOS 7.0, *)
-  optional func advertiser(advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: NSError)
+  optional func advertiser(advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error)
 }
 
 /*!
@@ -215,23 +215,23 @@ protocol MCNearbyServiceAdvertiserDelegate : NSObjectProtocol {
    information about service types.
  */
 @available(iOS 7.0, *)
-class MCNearbyServiceBrowser : NSObject {
+class MCNearbyServiceBrowser : Object {
   init(peer myPeerID: MCPeerID, serviceType: String)
   func startBrowsingForPeers()
   func stopBrowsingForPeers()
-  func invitePeer(peerID: MCPeerID, to session: MCSession, withContext context: NSData?, timeout: NSTimeInterval)
+  func invitePeer(peerID: MCPeerID, to session: MCSession, withContext context: Data?, timeout: TimeInterval)
   weak var delegate: @sil_weak MCNearbyServiceBrowserDelegate?
   var myPeerID: MCPeerID { get }
   var serviceType: String { get }
   convenience init()
 }
-protocol MCNearbyServiceBrowserDelegate : NSObjectProtocol {
+protocol MCNearbyServiceBrowserDelegate : ObjectProtocol {
   @available(iOS 7.0, *)
   func browser(browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?)
   @available(iOS 7.0, *)
   func browser(browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID)
   @available(iOS 7.0, *)
-  optional func browser(browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: NSError)
+  optional func browser(browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error)
 }
 
 /*!
@@ -254,17 +254,17 @@ protocol MCNearbyServiceBrowserDelegate : NSObjectProtocol {
     NSDictionary.
  */
 @available(iOS 7.0, *)
-class MCPeerID : NSObject, NSCopying, NSSecureCoding {
+class MCPeerID : Object, Copying, SecureCoding {
   init(displayName myDisplayName: String)
   var displayName: String { get }
   convenience init()
   @available(iOS 7.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 7.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 7.0, *)
 enum MCSessionSendDataMode : Int {
@@ -336,13 +336,13 @@ let kMCSessionMaximumNumberOfPeers: Int
    delegate method should explicitly dispatch or schedule that work.
  */
 @available(iOS 7.0, *)
-class MCSession : NSObject {
+class MCSession : Object {
   convenience init(peer myPeerID: MCPeerID)
   init(peer myPeerID: MCPeerID, securityIdentity identity: [AnyObject]?, encryptionPreference: MCEncryptionPreference)
-  func send(data: NSData, toPeers peerIDs: [MCPeerID], withMode mode: MCSessionSendDataMode) throws
+  func send(data: Data, toPeers peerIDs: [MCPeerID], withMode mode: MCSessionSendDataMode) throws
   func disconnect()
-  func sendResourceAt(resourceURL: NSURL, withName resourceName: String, toPeer peerID: MCPeerID, withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil) -> NSProgress?
-  func startStreamWithName(streamName: String, toPeer peerID: MCPeerID) throws -> NSOutputStream
+  func sendResourceAt(resourceURL: URL, withName resourceName: String, toPeer peerID: MCPeerID, withCompletionHandler completionHandler: ((Error?) -> Void)? = nil) -> Progress?
+  func startStreamWithName(streamName: String, toPeer peerID: MCPeerID) throws -> OutputStream
   weak var delegate: @sil_weak MCSessionDelegate?
   var myPeerID: MCPeerID { get }
   var securityIdentity: [AnyObject]? { get }
@@ -350,22 +350,22 @@ class MCSession : NSObject {
   var connectedPeers: [MCPeerID] { get }
   convenience init()
 }
-protocol MCSessionDelegate : NSObjectProtocol {
+protocol MCSessionDelegate : ObjectProtocol {
   @available(iOS 7.0, *)
   func session(session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState)
   @available(iOS 7.0, *)
-  func session(session: MCSession, didReceive data: NSData, fromPeer peerID: MCPeerID)
+  func session(session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID)
   @available(iOS 7.0, *)
-  func session(session: MCSession, didReceive stream: NSInputStream, withName streamName: String, fromPeer peerID: MCPeerID)
+  func session(session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID)
   @available(iOS 7.0, *)
-  func session(session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, withProgress progress: NSProgress)
+  func session(session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, withProgress progress: Progress)
   @available(iOS 7.0, *)
-  func session(session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: NSURL, withError error: NSError?)
+  func session(session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?)
   @available(iOS 7.0, *)
   optional func session(session: MCSession, didReceiveCertificate certificate: [AnyObject]?, fromPeer peerID: MCPeerID, certificateHandler: (Bool) -> Void)
 }
 extension MCSession {
-  func nearbyConnectionDataForPeer(peerID: MCPeerID, withCompletionHandler completionHandler: (NSData, NSError?) -> Void)
-  func connectPeer(peerID: MCPeerID, withNearbyConnectionData data: NSData)
+  func nearbyConnectionDataForPeer(peerID: MCPeerID, withCompletionHandler completionHandler: (Data, Error?) -> Void)
+  func connectPeer(peerID: MCPeerID, withNearbyConnectionData data: Data)
   func cancelConnectPeer(peerID: MCPeerID)
 }

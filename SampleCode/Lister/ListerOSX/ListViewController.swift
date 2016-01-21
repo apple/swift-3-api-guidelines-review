@@ -159,7 +159,7 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
         return true
     }
     
-    func tableView(tableView: NSTableView, writeRowsWithIndexes indexes: NSIndexSet, toPasteboard pasteboard: NSPasteboard) -> Bool {
+    func tableView(tableView: NSTableView, writeRowsWithIndexes indexes: IndexSet, toPasteboard pasteboard: NSPasteboard) -> Bool {
         guard let listPresenter = listPresenter else { return false }
         
         if listPresenter.isEmpty {
@@ -182,7 +182,7 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
                 if let itemsData = pasteboardItem.dataForType(TableViewConstants.pasteboardType) {
                     var allItems = [ListItem]()
 
-                    let pasteboardListItems = NSKeyedUnarchiver.unarchiveObjectWith(itemsData) as! [ListItem]
+                    let pasteboardListItems = KeyedUnarchiver.unarchiveObjectWith(itemsData) as! [ListItem]
                     
                     for item in iterator {
                         if refreshesItemIdentities {
@@ -222,7 +222,7 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
         pasteboard.declareTypes([TableViewConstants.dragType, NSPasteboardTypeString], owner: self)
 
         // Save `listItems` as data.
-        let data = NSKeyedArchiver.archivedDataWithRootObject(listItems)
+        let data = KeyedArchiver.archivedDataWithRootObject(listItems)
         pasteboard.setData(data, forType: TableViewConstants.pasteboardType)
 
         // Save `listItems` as a string.
@@ -314,7 +314,7 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
             return
         }
         
-        let cleansedString = listItemView.stringValue.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewline())
+        let cleansedString = listItemView.stringValue.stringByTrimmingCharactersInSet(CharacterSet.whitespaceAndNewline())
         
         guard let listPresenter = listPresenter else { return }
         
@@ -360,7 +360,7 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
     }
 
     func listPresenter(_: ListPresenterType, didInsertListItem listItem: ListItem, atIndex index: Int) {
-        let indexSet = NSIndexSet(index: index)
+        let indexSet = IndexSet(index: index)
         
         guard let listPresenter = listPresenter else { return }
         
@@ -373,7 +373,7 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
     }
 
     func listPresenter(_: ListPresenterType, didRemoveListItem listItem: ListItem, atIndex index: Int) {
-        let indexSet = NSIndexSet(index: index)
+        let indexSet = IndexSet(index: index)
         
         tableView.removeRowsAt(indexSet, withAnimation: .SlideUp)
         

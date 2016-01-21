@@ -9,7 +9,7 @@ A subclass of `NSOperation` that maps the different states of an `NSOperation`
 
 import Foundation
 
-class Operation: NSOperation {
+class Operation: Operation {
     // MARK: Types
     
     /**

@@ -73,7 +73,7 @@ protocol MPMediaPlayback {
   func play()
   func pause()
   func stop()
-  var currentPlaybackTime: NSTimeInterval { get set }
+  var currentPlaybackTime: TimeInterval { get set }
   var currentPlaybackRate: Float { get set }
   func beginSeekingForward()
   func beginSeekingBackward()
@@ -95,15 +95,15 @@ extension MPMoviePlayerController {
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
   var movieSourceType: MPMovieSourceType
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
-  var duration: NSTimeInterval { get }
+  var duration: TimeInterval { get }
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
-  var playableDuration: NSTimeInterval { get }
+  var playableDuration: TimeInterval { get }
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
   var naturalSize: CGSize { get }
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
-  var initialPlaybackTime: NSTimeInterval
+  var initialPlaybackTime: TimeInterval
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
-  var endPlaybackTime: NSTimeInterval
+  var endPlaybackTime: TimeInterval
   @available(tvOS, introduced=4.3, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
   var allowsAirPlay: Bool
   @available(tvOS, introduced=5.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
@@ -203,7 +203,7 @@ extension MPMusicPlayerController {
   func endGeneratingPlaybackNotifications()
 }
 @available(tvOS 5.0, *)
-class MPNowPlayingInfoCenter : NSObject {
+class MPNowPlayingInfoCenter : Object {
   class func defaultCenter() -> MPNowPlayingInfoCenter
   var nowPlayingInfo: [String : AnyObject]?
   init()
@@ -256,7 +256,7 @@ enum MPNowPlayingInfoLanguageOptionType : UInt {
 
 /// Represents a single language option option.
 @available(tvOS 9.0, *)
-class MPNowPlayingInfoLanguageOption : NSObject {
+class MPNowPlayingInfoLanguageOption : Object {
   init(type languageOptionType: MPNowPlayingInfoLanguageOptionType, languageTag: String, characteristics languageOptionCharacteristics: [String]?, displayName: String, identifier: String)
 
   /// Represents a special case that is used to
@@ -290,7 +290,7 @@ class MPNowPlayingInfoLanguageOption : NSObject {
   init()
 }
 @available(tvOS 9.0, *)
-class MPNowPlayingInfoLanguageOptionGroup : NSObject {
+class MPNowPlayingInfoLanguageOptionGroup : Object {
   init(languageOptions: [MPNowPlayingInfoLanguageOption], defaultLanguageOption: MPNowPlayingInfoLanguageOption?, allowEmptySelection: Bool)
 
   /// The available language options within this group.
@@ -326,7 +326,7 @@ enum MPRemoteCommandHandlerStatus : Int {
   case CommandFailed
 }
 @available(tvOS 7.1, *)
-class MPRemoteCommand : NSObject {
+class MPRemoteCommand : Object {
 
   /// Whether a button (for example) should be enabled and tappable for this
   /// particular command.
@@ -379,7 +379,7 @@ class MPChangePlaybackRateCommand : MPRemoteCommand {
 
   /// An array of NSNumbers (floats) that contain supported playback rates that
   /// the command can send.
-  var supportedPlaybackRates: [NSNumber]
+  var supportedPlaybackRates: [Number]
   init()
 }
 @available(tvOS 9.0, *)
@@ -387,7 +387,7 @@ class MPChangePlaybackPositionCommand : MPRemoteCommand {
   init()
 }
 @available(tvOS 7.1, *)
-class MPRemoteCommandCenter : NSObject {
+class MPRemoteCommandCenter : Object {
   var pauseCommand: MPRemoteCommand { get }
   var playCommand: MPRemoteCommand { get }
   var stopCommand: MPRemoteCommand { get }
@@ -410,20 +410,20 @@ class MPRemoteCommandCenter : NSObject {
   init()
 }
 @available(tvOS 7.1, *)
-class MPRemoteCommandEvent : NSObject {
+class MPRemoteCommandEvent : Object {
 
   /// The command that sent the event.
   var command: MPRemoteCommand { get }
 
   /// The time when the event occurred.
-  var timestamp: NSTimeInterval { get }
+  var timestamp: TimeInterval { get }
   init()
 }
 @available(tvOS 7.1, *)
 class MPSkipIntervalCommandEvent : MPRemoteCommandEvent {
 
   /// The chosen interval for this skip command event.
-  var interval: NSTimeInterval { get }
+  var interval: TimeInterval { get }
   init()
 }
 @available(tvOS 7.1, *)
@@ -487,6 +487,6 @@ class MPChangeLanguageOptionCommandEvent : MPRemoteCommandEvent {
 class MPChangePlaybackPositionCommandEvent : MPRemoteCommandEvent {
 
   /// The desired playback position to use when setting the current time of the player.
-  var positionTime: NSTimeInterval { get }
+  var positionTime: TimeInterval { get }
   init()
 }

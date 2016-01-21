@@ -1,15 +1,15 @@
 
 @available(OSX 10.5, *)
-class CBIdentity : NSObject, NSCoding, NSCopying {
+class CBIdentity : Object, Coding, Copying {
   /*not inherited*/ init?(name: String, authority: CBIdentityAuthority)
   @available(OSX 10.11, *)
-  /*not inherited*/ init?(uniqueIdentifier uuid: NSUUID, authority: CBIdentityAuthority)
+  /*not inherited*/ init?(uniqueIdentifier uuid: UUID, authority: CBIdentityAuthority)
   @available(OSX, introduced=10.5, deprecated=10.11, message="Use +identityWithUniqueIdentifier:authority: instead.")
   /*not inherited*/ init?(uuidString uuid: String, authority: CBIdentityAuthority)
-  /*not inherited*/ init?(persistentReference data: NSData)
+  /*not inherited*/ init?(persistentReference data: Data)
   var authority: CBIdentityAuthority { get }
   @available(OSX 10.11, *)
-  var uniqueIdentifier: NSUUID { get }
+  var uniqueIdentifier: UUID { get }
   @available(OSX, introduced=10.5, deprecated=10.11, message="Use the uniqueIdentifier property instead.")
   var uuidString: String { get }
   var fullName: String { get }
@@ -17,25 +17,25 @@ class CBIdentity : NSObject, NSCoding, NSCopying {
   var aliases: [String] { get }
   var emailAddress: String? { get }
   var image: NSImage? { get }
-  var persistentReference: NSData? { get }
+  var persistentReference: Data? { get }
   var isHidden: Bool { get }
   func isMemberOfGroup(group: CBGroupIdentity) -> Bool
   init()
   @available(OSX 10.5, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.5, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.5, *)
-class CBUserIdentity : CBIdentity, NSCoding, NSCopying {
+class CBUserIdentity : CBIdentity, Coding, Copying {
   /*not inherited*/ init?(posixUID uid: uid_t, authority: CBIdentityAuthority)
   var posixUID: uid_t { get }
   var certificate: SecCertificate? { get }
   var isEnabled: Bool { get }
   func authenticateWithPassword(password: String) -> Bool
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(OSX 10.5, *)
 class CBGroupIdentity : CBIdentity {
@@ -44,10 +44,10 @@ class CBGroupIdentity : CBIdentity {
   @available(OSX 10.11, *)
   var memberIdentities: [CBIdentity] { get }
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 @available(OSX 10.5, *)
-class CBIdentityAuthority : NSObject {
+class CBIdentityAuthority : Object {
   class func local() -> CBIdentityAuthority
   class func managed() -> CBIdentityAuthority
   class func defaultIdentityAuthority() -> CBIdentityAuthority
@@ -55,7 +55,7 @@ class CBIdentityAuthority : NSObject {
   init()
 }
 @available(OSX 10.5, *)
-class CBIdentityPicker : NSObject {
+class CBIdentityPicker : Object {
   var title: String?
   var allowsMultipleSelection: Bool
   func runModal() -> Int

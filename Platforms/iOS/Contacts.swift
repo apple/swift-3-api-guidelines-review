@@ -23,7 +23,7 @@ enum CNContactSortOrder : Int {
 }
 
 /*! This protocol is reserved for Contacts framework usage. */
-protocol CNKeyDescriptor : NSObjectProtocol, NSSecureCoding, NSCopying {
+protocol CNKeyDescriptor : ObjectProtocol, SecureCoding, Copying {
 }
 
 /*! Allows contact property keys to be used with keysToFetch. */
@@ -38,7 +38,7 @@ extension NSString : CNKeyDescriptor {
  * If using a CNContact instance where you are not certain of the keys that were fetched, use isKeyAvailable: or areKeysAvailable:. If these return NO you need to refetch the contact by the contact identifier with the keys you want to fetch. Accessing a property that was not fetched will throw CNContactPropertyNotFetchedExceptionName.
  */
 @available(iOS 9.0, *)
-class CNContact : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
+class CNContact : Object, Copying, MutableCopying, SecureCoding {
 
   /*! The identifier is unique among contacts on the device. It can be saved and used for fetching contacts next application launch. */
   var identifier: String { get }
@@ -57,8 +57,8 @@ class CNContact : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var departmentName: String { get }
   var jobTitle: String { get }
   var note: String { get }
-  @NSCopying var imageData: NSData? { get }
-  @NSCopying var thumbnailImageData: NSData? { get }
+  @NSCopying var imageData: Data? { get }
+  @NSCopying var thumbnailImageData: Data? { get }
   @available(iOS 9.0, *)
   var imageDataAvailable: Bool { get }
   var phoneNumbers: [CNLabeledValue] { get }
@@ -70,10 +70,10 @@ class CNContact : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var instantMessageAddresses: [CNLabeledValue] { get }
 
   /*! The Gregorian birthday. */
-  @NSCopying var birthday: NSDateComponents? { get }
+  @NSCopying var birthday: DateComponents? { get }
 
   /*! The alternate birthday (Lunisolar). */
-  @NSCopying var nonGregorianBirthday: NSDateComponents? { get }
+  @NSCopying var nonGregorianBirthday: DateComponents? { get }
 
   /*! Other Gregorian dates (anniversaries, etc). */
   var dates: [CNLabeledValue] { get }
@@ -88,7 +88,7 @@ class CNContact : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   class func localizedStringForKey(key: String) -> String
 
   /*! The contact comparator for a given sort order. */
-  class func comparatorForNameSortOrder(sortOrder: CNContactSortOrder) -> NSComparator
+  class func comparatorForNameSortOrder(sortOrder: CNContactSortOrder) -> Comparator
 
   /*! Use to fetch all contact keys required for the contact sort comparator. */
   class func descriptorForAllComparatorKeys() -> CNKeyDescriptor
@@ -97,14 +97,14 @@ class CNContact : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   func isUnifiedWithContactWithIdentifier(contactIdentifier: String) -> Bool
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 let CNContactPropertyNotFetchedExceptionName: String
 @available(iOS 9.0, *)
@@ -172,7 +172,7 @@ let CNContactInstantMessageAddressesKey: String
  * @discussion Used with [CNContactStore enumerateContactsWithFetchRequest:error:usingBlock:]. Can combine any of these options to create a contact fetch request.
  */
 @available(iOS 9.0, *)
-class CNContactFetchRequest : NSObject {
+class CNContactFetchRequest : Object {
 
   /*!
    *  @abstract Use this initiliazer, using init raises an exception. Pass in the properties to fetch for the returned contacts.
@@ -186,7 +186,7 @@ class CNContactFetchRequest : NSObject {
    *
    * @discussion Use only predicates from CNContact+Predicates.h. Compound predicates are not supported. Set to nil to match all contacts.
    */
-  @NSCopying var predicate: NSPredicate?
+  @NSCopying var predicate: Predicate?
 
   /*!
    * @abstract The properties to fetch in the returned contacts.
@@ -253,7 +253,7 @@ enum CNContactDisplayNameOrder : Int {
  * @discussion This formatter handles international ordering and delimiting of the contact name components. This includes applying the user defaults when appropriate.
  */
 @available(iOS 9.0, *)
-class CNContactFormatter : NSFormatter {
+class CNContactFormatter : Formatter {
 
   /*!
    * @abstract The contact key descriptor required for the formatter.
@@ -284,7 +284,7 @@ class CNContactFormatter : NSFormatter {
    * @param attributes The default attributes to use. See NSFormatter for details.
    * @return The formatted contact name as an attributed string.
    */
-  class func attributedStringFrom(contact: CNContact, style: CNContactFormatterStyle, defaultAttributes attributes: [NSObject : AnyObject]? = [:]) -> NSAttributedString?
+  class func attributedStringFrom(contact: CNContact, style: CNContactFormatterStyle, defaultAttributes attributes: [Object : AnyObject]? = [:]) -> AttributedString?
 
   /*!
    * @abstract The recommended name order for a given contact.
@@ -320,9 +320,9 @@ class CNContactFormatter : NSFormatter {
    * @param attributes The default attributes to use. See NSFormatter for details.
    * @return The formatted contact name as an attributed string.
    */
-  func attributedStringFrom(contact: CNContact, defaultAttributes attributes: [NSObject : AnyObject]? = [:]) -> NSAttributedString?
+  func attributedStringFrom(contact: CNContact, defaultAttributes attributes: [Object : AnyObject]? = [:]) -> AttributedString?
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 let CNContactPropertyAttribute: String
 
@@ -332,7 +332,7 @@ let CNContactPropertyAttribute: String
  * @discussion CNContactProperty is used by the CNContactPicker to return the user's selected property.
  */
 @available(iOS 9.0, *)
-class CNContactProperty : NSObject, NSCopying, NSSecureCoding {
+class CNContactProperty : Object, Copying, SecureCoding {
   @NSCopying var contact: CNContact { get }
 
   /*!
@@ -356,12 +356,12 @@ class CNContactProperty : NSObject, NSCopying, NSSecureCoding {
   var label: String? { get }
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -370,17 +370,17 @@ class CNContactProperty : NSObject, NSCopying, NSSecureCoding {
  * @discussion CNContactRelation is thread safe.
  */
 @available(iOS 9.0, *)
-class CNContactRelation : NSObject, NSCopying, NSSecureCoding {
+class CNContactRelation : Object, Copying, SecureCoding {
   init(name: String)
   var name: String { get }
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 9.0, *)
 let CNLabelContactRelationFather: String
@@ -451,7 +451,7 @@ enum CNAuthorizationStatus : Int {
  * 4) When CNContactStoreDidChangeNotification is posted, if you cache any fetched contacts/groups/containers then they must be refetched and the old cached objects released.
  */
 @available(iOS 9.0, *)
-class CNContactStore : NSObject {
+class CNContactStore : Object {
 
   /*!
    * @abstract Indicates the current authorization status to access contact data.
@@ -472,7 +472,7 @@ class CNContactStore : NSObject {
    * @param entityType Set to CNEntityTypeContacts.
    * @param completionHandler This block is called upon completion. If the user grants access then granted is YES and error is nil. Otherwise granted is NO with an error. 
    */
-  func requestAccessFor(entityType: CNEntityType, completionHandler: (Bool, NSError?) -> Void)
+  func requestAccessFor(entityType: CNEntityType, completionHandler: (Bool, Error?) -> Void)
 
   /*!
    * @abstract Fetch all unified contacts matching a given predicate.
@@ -486,7 +486,7 @@ class CNContactStore : NSObject {
    * @param error If an error occurs, contains error information.
    * @return An array of CNContact objects matching the predicate. If no matches are found, an empty array is returned. If an error occurs, nil is returned.
    */
-  func unifiedContactsMatching(predicate: NSPredicate, keysToFetch keys: [CNKeyDescriptor]) throws -> [CNContact]
+  func unifiedContactsMatching(predicate: Predicate, keysToFetch keys: [CNKeyDescriptor]) throws -> [CNContact]
 
   /*!
    * @abstract Fetch a unified contact with a given identifier.
@@ -521,7 +521,7 @@ class CNContactStore : NSObject {
    * @param error If an error occurs, contains error information.
    * @return An array of CNGroup objects matching the predicate. If no matches are found, an empty array is returned. If an error occurs, nil is returned.
    */
-  func groupsMatching(predicate: NSPredicate?) throws -> [CNGroup]
+  func groupsMatching(predicate: Predicate?) throws -> [CNGroup]
 
   /*!
    * @abstract Fetch all containers matching a given predicate.
@@ -532,7 +532,7 @@ class CNContactStore : NSObject {
    * @param error If an error occurs, contains error information.
    * @return An array of CNContainer objects matching the predicate. If no matches are found, an empty array is returned. If an error occurs, nil is returned.
    */
-  func containersMatching(predicate: NSPredicate?) throws -> [CNContainer]
+  func containersMatching(predicate: Predicate?) throws -> [CNContainer]
 
   /*!
    * @abstract Executes a save request.
@@ -568,7 +568,7 @@ let CNContactStoreDidChangeNotification: String
  * @discussion This converts between a contact and its vCard representation.
  */
 @available(iOS 9.0, *)
-class CNContactVCardSerialization : NSObject {
+class CNContactVCardSerialization : Object {
 
   /*!
    *  @abstract Descriptor for all contact keys required by vCard serialization
@@ -577,8 +577,8 @@ class CNContactVCardSerialization : NSObject {
    *              contacts are to be serialized with dataWithContacts:error:.
    */
   class func descriptorForRequiredKeys() -> CNKeyDescriptor
-  class func dataWithContacts(contacts: [AnyObject]) throws -> NSData
-  class func contactsWith(data: NSData) throws -> [AnyObject]
+  class func dataWithContacts(contacts: [AnyObject]) throws -> Data
+  class func contactsWith(data: Data) throws -> [AnyObject]
   init()
 }
 
@@ -594,19 +594,19 @@ extension CNContact {
    *
    * @discussion The name can contain any number of words.
    */
-  class func predicateForContactsMatchingName(name: String) -> NSPredicate
+  class func predicateForContactsMatchingName(name: String) -> Predicate
 
   /*! To fetch contacts matching contact identifiers. */
-  class func predicateForContactsWithIdentifiers(identifiers: [String]) -> NSPredicate
-  class func predicateForContactsInGroupWithIdentifier(groupIdentifier: String) -> NSPredicate
-  class func predicateForContactsInContainerWithIdentifier(containerIdentifier: String) -> NSPredicate
+  class func predicateForContactsWithIdentifiers(identifiers: [String]) -> Predicate
+  class func predicateForContactsInGroupWithIdentifier(groupIdentifier: String) -> Predicate
+  class func predicateForContactsInContainerWithIdentifier(containerIdentifier: String) -> Predicate
 }
 
 /*!
  * @abstract The user defaults for contacts.
  */
 @available(iOS 9.0, *)
-class CNContactsUserDefaults : NSObject {
+class CNContactsUserDefaults : Object {
   class func shared() -> Self
   var sortOrder: CNContactSortOrder { get }
   var countryCode: String { get }
@@ -628,7 +628,7 @@ enum CNContainerType : Int {
  * @discussion CNContainer is thread safe.
  */
 @available(iOS 9.0, *)
-class CNContainer : NSObject, NSCopying, NSSecureCoding {
+class CNContainer : Object, Copying, SecureCoding {
 
   /*! The identifier is unique among containers on the device. It can be saved and used for fetching containers next application launch. */
   var identifier: String { get }
@@ -636,12 +636,12 @@ class CNContainer : NSObject, NSCopying, NSSecureCoding {
   var type: CNContainerType { get }
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 9.0, *)
 let CNContainerIdentifierKey: String
@@ -656,11 +656,11 @@ let CNContainerTypeKey: String
  * @discussion Can only use these predicates with CNContactStore.
  */
 extension CNContainer {
-  class func predicateForContainersWithIdentifiers(identifiers: [String]) -> NSPredicate
+  class func predicateForContainersWithIdentifiers(identifiers: [String]) -> Predicate
 
   /*! @discussion If the identifier is for a unified contact then the fetch will return an empty array. To fetch the containers of a unified contact, first fetch the linked contacts then fetch the container of each linked contact. */
-  class func predicateForContainerOfContactWithIdentifier(contactIdentifier: String) -> NSPredicate
-  class func predicateForContainerOfGroupWithIdentifier(groupIdentifier: String) -> NSPredicate
+  class func predicateForContainerOfContactWithIdentifier(contactIdentifier: String) -> Predicate
+  class func predicateForContainerOfGroupWithIdentifier(groupIdentifier: String) -> Predicate
 }
 @available(iOS 9.0, *)
 let CNErrorDomain: String
@@ -711,21 +711,21 @@ let CNErrorUserInfoKeyPathsKey: String
  * @discussion CNGroup is thread safe.
  */
 @available(iOS 9.0, *)
-class CNGroup : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
+class CNGroup : Object, Copying, MutableCopying, SecureCoding {
 
   /*! The identifier is unique among groups on the device. It can be saved and used for fetching groups next application launch. */
   var identifier: String { get }
   var name: String { get }
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 9.0, *)
 let CNGroupIdentifierKey: String
@@ -738,8 +738,8 @@ let CNGroupNameKey: String
  * @discussion Can only use these predicates with CNContactStore.
  */
 extension CNGroup {
-  class func predicateForGroupsWithIdentifiers(identifiers: [String]) -> NSPredicate
-  class func predicateForGroupsInContainerWithIdentifier(containerIdentifier: String) -> NSPredicate
+  class func predicateForGroupsWithIdentifiers(identifiers: [String]) -> Predicate
+  class func predicateForGroupsInContainerWithIdentifier(containerIdentifier: String) -> Predicate
 }
 
 /*!
@@ -748,7 +748,7 @@ extension CNGroup {
  * @discussion CNInstantMessageAddress is thread safe.
  */
 @available(iOS 9.0, *)
-class CNInstantMessageAddress : NSObject, NSCopying, NSSecureCoding {
+class CNInstantMessageAddress : Object, Copying, SecureCoding {
   var username: String { get }
   var service: String { get }
   init(username: String, service: String)
@@ -760,12 +760,12 @@ class CNInstantMessageAddress : NSObject, NSCopying, NSSecureCoding {
   class func localizedStringForService(service: String) -> String
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 9.0, *)
 let CNInstantMessageAddressUsernameKey: String
@@ -796,24 +796,24 @@ let CNInstantMessageServiceYahoo: String
  * @abstract A contact property that has a value and label.
  */
 @available(iOS 9.0, *)
-class CNLabeledValue : NSObject, NSCopying, NSSecureCoding {
+class CNLabeledValue : Object, Copying, SecureCoding {
 
   /*! The identifier is unique among contacts on the device. It can be saved and used for finding labeled values next application launch. */
   var identifier: String { get }
   var label: String { get }
-  @NSCopying var value: protocol<NSCopying, NSSecureCoding> { get }
+  @NSCopying var value: protocol<Copying, SecureCoding> { get }
 
   /*! Initializes the CNLabeledValue with a new identifier. */
-  init(label: String?, value: protocol<NSCopying, NSSecureCoding>)
+  init(label: String?, value: protocol<Copying, SecureCoding>)
 
   /*! Returns a new CNLabeledValue with the existing value and identifier. */
   func bySettingLabel(label: String?) -> Self
 
   /*! Returns a new CNLabeledValue with the existing label and identifier. */
-  func bySettingValue(value: protocol<NSCopying, NSSecureCoding>) -> Self
+  func bySettingValue(value: protocol<Copying, SecureCoding>) -> Self
 
   /*! Returns a new CNLabeledValue with the existing identifier. */
-  func bySettingLabel(label: String?, value: protocol<NSCopying, NSSecureCoding>) -> Self
+  func bySettingLabel(label: String?, value: protocol<Copying, SecureCoding>) -> Self
 
   /*!
    * @abstract Get a localized label.
@@ -826,12 +826,12 @@ class CNLabeledValue : NSObject, NSCopying, NSSecureCoding {
   class func localizedStringForLabel(label: String) -> String
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 9.0, *)
 let CNLabelHome: String
@@ -870,7 +870,7 @@ class CNMutableContact : CNContact {
   var departmentName: String
   var jobTitle: String
   var note: String
-  @NSCopying var imageData: NSData?
+  @NSCopying var imageData: Data?
   var phoneNumbers: [CNLabeledValue]
   var emailAddresses: [CNLabeledValue]
   var postalAddresses: [CNLabeledValue]
@@ -883,13 +883,13 @@ class CNMutableContact : CNContact {
    *
    *  @description Only uses day, month and year components. Needs to have at least a day and a month.
    */
-  @NSCopying var birthday: NSDateComponents?
+  @NSCopying var birthday: DateComponents?
 
   /*! @abstract The alternate birthday (Lunisolar).
    *
    *  @description Only uses day, month, year and calendar components. Needs to have at least a day and a month. Calendar must be Chinese, Hebrew or Islamic.
    */
-  @NSCopying var nonGregorianBirthday: NSDateComponents?
+  @NSCopying var nonGregorianBirthday: DateComponents?
 
   /*! @abstract Other Gregorian dates (anniversaries, etc).
    *
@@ -897,7 +897,7 @@ class CNMutableContact : CNContact {
    */
   var dates: [CNLabeledValue]
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -909,7 +909,7 @@ class CNMutableContact : CNContact {
 class CNMutableGroup : CNGroup {
   var name: String
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -930,7 +930,7 @@ class CNMutablePostalAddress : CNPostalAddress {
   var country: String
   var isoCountryCode: String
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -939,17 +939,17 @@ class CNMutablePostalAddress : CNPostalAddress {
  * @discussion CNPhoneNumber is thread safe.
  */
 @available(iOS 9.0, *)
-class CNPhoneNumber : NSObject, NSCopying, NSSecureCoding {
+class CNPhoneNumber : Object, Copying, SecureCoding {
   init(stringValue string: String)
   var stringValue: String { get }
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 9.0, *)
 let CNLabelPhoneNumberiPhone: String
@@ -972,7 +972,7 @@ let CNLabelPhoneNumberPager: String
  * @discussion CNPostalAddress is thread safe.
  */
 @available(iOS 9.0, *)
-class CNPostalAddress : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
+class CNPostalAddress : Object, Copying, MutableCopying, SecureCoding {
 
   /*! multi-street address is delimited with carriage returns “\n” */
   var street: String { get }
@@ -986,14 +986,14 @@ class CNPostalAddress : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   class func localizedStringForKey(key: String) -> String
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 9.0, *)
 let CNPostalAddressStreetKey: String
@@ -1026,7 +1026,7 @@ enum CNPostalAddressFormatterStyle : Int {
  * @discussion This formatter handles international formatting of a postal address.
  */
 @available(iOS 9.0, *)
-class CNPostalAddressFormatter : NSFormatter {
+class CNPostalAddressFormatter : Formatter {
 
   /*!
    * @abstract Formats the postal address.
@@ -1047,7 +1047,7 @@ class CNPostalAddressFormatter : NSFormatter {
    * @param attributes The default attributes to use. See NSFormatter for details.
    * @return The formatted postal address as an attributed string.
    */
-  class func attributedStringFrom(postalAddress: CNPostalAddress, style: CNPostalAddressFormatterStyle, withDefaultAttributes attributes: [NSObject : AnyObject] = [:]) -> NSAttributedString
+  class func attributedStringFrom(postalAddress: CNPostalAddress, style: CNPostalAddressFormatterStyle, withDefaultAttributes attributes: [Object : AnyObject] = [:]) -> AttributedString
 
   /*!
    * @abstract The style for a postal address formatter instance.
@@ -1073,9 +1073,9 @@ class CNPostalAddressFormatter : NSFormatter {
    * @param attributes The default attributes to use. See NSFormatter for details.
    * @return The formatted postal address as an attributed string.
    */
-  func attributedStringFrom(postalAddress: CNPostalAddress, withDefaultAttributes attributes: [NSObject : AnyObject] = [:]) -> NSAttributedString
+  func attributedStringFrom(postalAddress: CNPostalAddress, withDefaultAttributes attributes: [Object : AnyObject] = [:]) -> AttributedString
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 let CNPostalAddressPropertyAttribute: String
 let CNPostalAddressLocalizedPropertyNameAttribute: String
@@ -1091,7 +1091,7 @@ let CNPostalAddressLocalizedPropertyNameAttribute: String
  *
  */
 @available(iOS 9.0, *)
-class CNSaveRequest : NSObject {
+class CNSaveRequest : Object {
 
   /*!
    * @abstract Add a new contact to the contact store.
@@ -1169,7 +1169,7 @@ class CNSaveRequest : NSObject {
  * @discussion CNSocialProfile is thread safe.
  */
 @available(iOS 9.0, *)
-class CNSocialProfile : NSObject, NSCopying, NSSecureCoding {
+class CNSocialProfile : Object, Copying, SecureCoding {
   var urlString: String { get }
   var username: String { get }
   var userIdentifier: String { get }
@@ -1183,12 +1183,12 @@ class CNSocialProfile : NSObject, NSCopying, NSSecureCoding {
   class func localizedStringForService(service: String) -> String
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 @available(iOS 9.0, *)
 let CNSocialProfileURLStringKey: String

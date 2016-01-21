@@ -47,7 +47,7 @@ let NEAppProxyErrorDomain: String
  * Instances of this class are thread safe.
  */
 @available(OSX 10.11, *)
-class NEAppProxyFlow : NSObject {
+class NEAppProxyFlow : Object {
 
   /*!
    * @method openWithLocalAddress:completionHandler:
@@ -56,7 +56,7 @@ class NEAppProxyFlow : NSObject {
    * @param completionHandler A block that is called when the process of opening flow is complete. A nil value passed to this block indicates that the flow was opened successfully. A non-nil NSError value indicates that the flow failed to open successfully.
    */
   @available(OSX 10.11, *)
-  func openWithLocalEndpoint(localEndpoint: NWHostEndpoint?, completionHandler: (NSError?) -> Void)
+  func openWithLocalEndpoint(localEndpoint: NWHostEndpoint?, completionHandler: (Error?) -> Void)
 
   /*!
    * @method closeReadWithError:
@@ -64,7 +64,7 @@ class NEAppProxyFlow : NSObject {
    * @param error An error in NEAppProxyErrorDomain that should be passed to the flow's source application.
    */
   @available(OSX 10.11, *)
-  func closeReadWithError(error: NSError?)
+  func closeReadWithError(error: Error?)
 
   /*!
    * @method closeWriteWithError:
@@ -72,7 +72,7 @@ class NEAppProxyFlow : NSObject {
    * @param error An error in NEAppProxyErrorDomain that should be passed to the flow's source application.
    */
   @available(OSX 10.11, *)
-  func closeWriteWithError(error: NSError?)
+  func closeWriteWithError(error: Error?)
 
   /*!
    * @property metaData
@@ -88,14 +88,14 @@ class NEAppProxyFlow : NSObject {
  * @discussion The NEFlowMetaData class declares the programmatic interface for an object that contains extra information about a flow.
  */
 @available(OSX 10.11, *)
-class NEFlowMetaData : NSObject {
+class NEFlowMetaData : Object {
 
   /*!
    * @property sourceAppUniqueIdentifier
    * @discussion A blob of bytes that uniquely identifies the source app binary of the flow. This value is unique across multiple versions of the same app.
    */
   @available(OSX 10.11, *)
-  var sourceAppUniqueIdentifier: NSData { get }
+  var sourceAppUniqueIdentifier: Data { get }
 
   /*!
    * @property sourceAppSigningIdentifier
@@ -122,7 +122,7 @@ class NEAppProxyProvider : NETunnelProvider {
    * @param completionHandler A block that must be called when the process of starting the proxy complete. If the proxy cannot be started then the subclass' implementation of this method must pass a non-nill NSError object to this block. A value of nil passed to the completion handler indicates that the proxy was successfully started.
    */
   @available(OSX 10.11, *)
-  func startProxy(options options: [String : AnyObject]? = [:], completionHandler: (NSError?) -> Void)
+  func startProxy(options options: [String : AnyObject]? = [:], completionHandler: (Error?) -> Void)
 
   /*!
    * @method stopProxyWithReason:completionHandler:
@@ -139,7 +139,7 @@ class NEAppProxyProvider : NETunnelProvider {
    * @param error An NSError object containing details about the error that the prxoy provider implementation encountered.
    */
   @available(OSX 10.11, *)
-  func cancelProxyWithError(error: NSError?)
+  func cancelProxyWithError(error: Error?)
 
   /*!
    * @method handleNewFlow:
@@ -167,7 +167,7 @@ class NEAppProxyProviderManager : NETunnelProviderManager {
    * @param completionHandler A block that takes an array NEAppProxyProviderManager objects. The array passed to the block may be empty if no NETunnelProvider configurations were successfully read from the disk.  The NSError passed to this block will be nil if the load operation succeeded, non-nil otherwise.
    */
   @available(OSX 10.11, *)
-  class func loadAllFromPreferencesWithCompletionHandler(completionHandler: ([NEAppProxyProviderManager]?, NSError?) -> Void)
+  class func loadAllFromPreferencesWithCompletionHandler(completionHandler: ([NEAppProxyProviderManager]?, Error?) -> Void)
   init()
 }
 
@@ -188,7 +188,7 @@ class NEAppProxyTCPFlow : NEAppProxyFlow {
    * @param completionHandler A block that will be executed when some data is read from the flow. The block is passed either the data that was read or a non-nil error if an error occurred. If data has a length of 0 then no data can be subsequently read from the flow. The completion handler is only called for the single read operation that was initiated by calling this method. If the caller wants to read more data then it should call this method again to schedule another read operation and another execution of the completion handler block.
    */
   @available(OSX 10.11, *)
-  func readDataWithCompletionHandler(completionHandler: (NSData?, NSError?) -> Void)
+  func readDataWithCompletionHandler(completionHandler: (Data?, Error?) -> Void)
 
   /*!
    * @method writeData:completionHandler
@@ -197,7 +197,7 @@ class NEAppProxyTCPFlow : NEAppProxyFlow {
    * @param completionHandler A block that will be executed when the data is written into the associated socket's receive buffer. The caller should use this callback as an indication that it is possible to write more data to the flow without using up excessive buffer memory. If an error occurs while writing the data then a non-nil NSError object is passed to the block.
    */
   @available(OSX 10.11, *)
-  func write(data: NSData, withCompletionHandler completionHandler: (NSError?) -> Void)
+  func write(data: Data, withCompletionHandler completionHandler: (Error?) -> Void)
 
   /*!
    * @property remoteEndpoint
@@ -225,7 +225,7 @@ class NEAppProxyUDPFlow : NEAppProxyFlow {
    * @param completionHandler A block that will be executed when datagrams have been read from the flow. The block takes the datagrams that were read, the destination endpoints of the datagrams, and an NSError. If an error occurred while reading then the error parameter will be non-nil. If the datagrams and remoteEndpoints arrays are non-nill but 
    */
   @available(OSX 10.11, *)
-  func readDatagramsWithCompletionHandler(completionHandler: ([NSData]?, [NWEndpoint]?, NSError?) -> Void)
+  func readDatagramsWithCompletionHandler(completionHandler: ([Data]?, [NWEndpoint]?, Error?) -> Void)
 
   /*!
    * @method writeDatagram:sentByEndpoint:completionHandler:
@@ -235,7 +235,7 @@ class NEAppProxyUDPFlow : NEAppProxyFlow {
    * @param completionHandler A block that will be executed when the datagrams have been written to the corresponding socket's receive buffer.
    */
   @available(OSX 10.11, *)
-  func writeDatagrams(datagrams: [NSData], sentBy remoteEndpoints: [NWEndpoint], completionHandler: (NSError?) -> Void)
+  func writeDatagrams(datagrams: [Data], sentBy remoteEndpoints: [NWEndpoint], completionHandler: (Error?) -> Void)
 
   /*!
    * @property localEndpoint
@@ -255,7 +255,7 @@ class NEAppProxyUDPFlow : NEAppProxyFlow {
  * Instances of this class are thread safe.
  */
 @available(OSX 10.11, *)
-class NEAppRule : NSObject, NSSecureCoding, NSCopying {
+class NEAppRule : Object, SecureCoding, Copying {
 
   /*!
    * @method initWithSigningIdentifier:designatedRequirement:
@@ -297,10 +297,10 @@ class NEAppRule : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -308,7 +308,7 @@ class NEAppRule : NSObject, NSSecureCoding, NSCopying {
  * @discussion The NEDNSSettings class declares the programmatic interface for an object that contains DNS settings.
  */
 @available(OSX 10.11, *)
-class NEDNSSettings : NSObject, NSSecureCoding, NSCopying {
+class NEDNSSettings : Object, SecureCoding, Copying {
 
   /*!
    * @method initWithServers:
@@ -356,10 +356,10 @@ class NEDNSSettings : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 var NEFilterFlowBytesMax: UInt64 { get }
 
@@ -402,7 +402,7 @@ let NEFilterConfigurationDidChangeNotification: String
  * Instances of this class are thread safe.
  */
 @available(OSX 10.10, *)
-class NEFilterManager : NSObject {
+class NEFilterManager : Object {
 
   /*!
    * @method sharedManager
@@ -417,7 +417,7 @@ class NEFilterManager : NSObject {
    * @param completionHandler A block that will be called when the load operation is completed. The NSError passed to this block will be nil if the load operation succeeded, non-nil otherwise.
    */
   @available(OSX 10.10, *)
-  func loadFromPreferencesWithCompletionHandler(completionHandler: (NSError?) -> Void)
+  func loadFromPreferencesWithCompletionHandler(completionHandler: (Error?) -> Void)
 
   /*!
    * @method removeFromPreferencesWithCompletionHandler:
@@ -425,7 +425,7 @@ class NEFilterManager : NSObject {
    * @param completionHandler A block that will be called when the remove operation is completed. The NSError passed to this block will be nil if the remove operation succeeded, non-nil otherwise.
    */
   @available(OSX 10.10, *)
-  func removeFromPreferencesWithCompletionHandler(completionHandler: (NSError?) -> Void)
+  func removeFromPreferencesWithCompletionHandler(completionHandler: (Error?) -> Void)
 
   /*!
    * @method saveToPreferencesWithCompletionHandler:
@@ -433,7 +433,7 @@ class NEFilterManager : NSObject {
    * @param completionHandler A block that will be called when the save operation is completed. The NSError passed to this block will be nil if the save operation succeeded, non-nil otherwise.
    */
   @available(OSX 10.10, *)
-  func saveToPreferencesWithCompletionHandler(completionHandler: (NSError?) -> Void)
+  func saveToPreferencesWithCompletionHandler(completionHandler: (Error?) -> Void)
 
   /*!
    * @property localizedDescription
@@ -467,7 +467,7 @@ var NEFilterProviderRemediationURLUsername: String { get }
  * @discussion The NEFilterProviderConfiguration class declares the programmatic interface of an object that configures a plugin-based content filter.
  */
 @available(OSX 10.11, *)
-class NEFilterProviderConfiguration : NSObject, NSSecureCoding, NSCopying {
+class NEFilterProviderConfiguration : Object, SecureCoding, Copying {
 
   /*!
    * @property filterBrowsers
@@ -516,22 +516,22 @@ class NEFilterProviderConfiguration : NSObject, NSSecureCoding, NSCopying {
    * @discussion The optional password keychain reference associated with the filter.
    */
   @available(OSX 10.11, *)
-  @NSCopying var passwordReference: NSData?
+  @NSCopying var passwordReference: Data?
 
   /*!
    * @property identityReference
    * @discussion The optional certificate identity keychain reference associated with the filter.
    */
   @available(OSX 10.11, *)
-  @NSCopying var identityReference: NSData?
+  @NSCopying var identityReference: Data?
   init()
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -541,7 +541,7 @@ class NEFilterProviderConfiguration : NSObject, NSSecureCoding, NSCopying {
  * Instances of this class are thread safe.
  */
 @available(OSX 10.11, *)
-class NEIPv4Settings : NSObject, NSSecureCoding, NSCopying {
+class NEIPv4Settings : Object, SecureCoding, Copying {
 
   /*!
    * @method initWithAddresses:subnetMasks:
@@ -584,10 +584,10 @@ class NEIPv4Settings : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -597,7 +597,7 @@ class NEIPv4Settings : NSObject, NSSecureCoding, NSCopying {
  * Instances of this class are thread safe.
  */
 @available(OSX 10.11, *)
-class NEIPv4Route : NSObject, NSSecureCoding, NSCopying {
+class NEIPv4Route : Object, SecureCoding, Copying {
 
   /*!
    * @method initWithDestinationAddress:subnetMask:
@@ -640,10 +640,10 @@ class NEIPv4Route : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -653,7 +653,7 @@ class NEIPv4Route : NSObject, NSSecureCoding, NSCopying {
  * Instances of this class are thread safe.
  */
 @available(OSX 10.11, *)
-class NEIPv6Settings : NSObject, NSSecureCoding, NSCopying {
+class NEIPv6Settings : Object, SecureCoding, Copying {
 
   /*!
    * @method initWithAddresses:networkPrefixLengths:
@@ -663,7 +663,7 @@ class NEIPv6Settings : NSObject, NSSecureCoding, NSCopying {
    * @return The initialized object.
    */
   @available(OSX 10.11, *)
-  init(addresses: [String], networkPrefixLengths: [NSNumber])
+  init(addresses: [String], networkPrefixLengths: [Number])
 
   /*!
    * @property addresses
@@ -677,7 +677,7 @@ class NEIPv6Settings : NSObject, NSSecureCoding, NSCopying {
    * @discussion An array of NSNumber objects each representing the length in bits of the network prefix of the corresponding address in the addresses property.
    */
   @available(OSX 10.11, *)
-  var networkPrefixLengths: [NSNumber] { get }
+  var networkPrefixLengths: [Number] { get }
 
   /*!
    * @property includedRoutes
@@ -696,10 +696,10 @@ class NEIPv6Settings : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -709,7 +709,7 @@ class NEIPv6Settings : NSObject, NSSecureCoding, NSCopying {
  * Instances of this class are thread safe.
  */
 @available(OSX 10.11, *)
-class NEIPv6Route : NSObject, NSSecureCoding, NSCopying {
+class NEIPv6Route : Object, SecureCoding, Copying {
 
   /*!
    * @method initWithDestinationAddress:networkPrefixLength:
@@ -719,7 +719,7 @@ class NEIPv6Route : NSObject, NSSecureCoding, NSCopying {
    * @return The initialized NEIPv6Route.
    */
   @available(OSX 10.11, *)
-  init(destinationAddress address: String, networkPrefixLength: NSNumber)
+  init(destinationAddress address: String, networkPrefixLength: Number)
 
   /*!
    * @property destinationAddress
@@ -733,7 +733,7 @@ class NEIPv6Route : NSObject, NSSecureCoding, NSCopying {
    * @discussion A number containing the length in bits of the network prefix of the destination network. This prefix in combination with the destinationAddress property is used to determine the destination network of the route.
    */
   @available(OSX 10.11, *)
-  var destinationNetworkPrefixLength: NSNumber { get }
+  var destinationNetworkPrefixLength: Number { get }
 
   /*!
    * @property gatewayAddress
@@ -752,10 +752,10 @@ class NEIPv6Route : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -811,7 +811,7 @@ enum NEOnDemandRuleInterfaceType : Int {
  * Instances of this class are thread safe.
  */
 @available(OSX 10.10, *)
-class NEOnDemandRule : NSObject, NSSecureCoding, NSCopying {
+class NEOnDemandRule : Object, SecureCoding, Copying {
 
   /*!
    * @property action
@@ -853,15 +853,15 @@ class NEOnDemandRule : NSObject, NSSecureCoding, NSCopying {
    * @discussion An HTTP or HTTPS URL. If a request sent to this URL results in a HTTP 200 OK response and all of the other conditions in the rule match, then then rule matches. If this property is nil (the default), then an HTTP request does not factor into the rule match.
    */
   @available(OSX 10.10, *)
-  @NSCopying var probeURL: NSURL?
+  @NSCopying var probeURL: URL?
   init()
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.10, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -875,7 +875,7 @@ class NEOnDemandRule : NSObject, NSSecureCoding, NSCopying {
 @available(OSX 10.10, *)
 class NEOnDemandRuleConnect : NEOnDemandRule {
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -889,7 +889,7 @@ class NEOnDemandRuleConnect : NEOnDemandRule {
 @available(OSX 10.10, *)
 class NEOnDemandRuleDisconnect : NEOnDemandRule {
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -903,7 +903,7 @@ class NEOnDemandRuleDisconnect : NEOnDemandRule {
 @available(OSX 10.10, *)
 class NEOnDemandRuleIgnore : NEOnDemandRule {
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -924,7 +924,7 @@ class NEOnDemandRuleEvaluateConnection : NEOnDemandRule {
   @available(OSX 10.10, *)
   var connectionRules: [NEEvaluateConnectionRule]?
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -950,7 +950,7 @@ enum NEEvaluateConnectionRuleAction : Int {
  * Instances of this class are thread safe.
  */
 @available(OSX 10.10, *)
-class NEEvaluateConnectionRule : NSObject, NSSecureCoding, NSCopying {
+class NEEvaluateConnectionRule : Object, SecureCoding, Copying {
 
   /*!
    * @method initWithMatchDomains:andAction
@@ -985,15 +985,15 @@ class NEEvaluateConnectionRule : NSObject, NSSecureCoding, NSCopying {
    * @discussion An HTTP or HTTPS URL. If the rule matches the connection being established and the action is NEEvaluateConnectionRuleActionConnectIfNeeded and a request sent to this URL results in a response with an HTTP response code other than 200, then the VPN is started.
    */
   @available(OSX 10.10, *)
-  @NSCopying var probeURL: NSURL?
+  @NSCopying var probeURL: URL?
   init()
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.10, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -1005,7 +1005,7 @@ class NEEvaluateConnectionRule : NSObject, NSSecureCoding, NSCopying {
  * Instances of this class are thread safe.
  */
 @available(OSX 10.11, *)
-class NEPacketTunnelFlow : NSObject {
+class NEPacketTunnelFlow : Object {
 
   /*!
    * @method readPacketsWithCompletionHandler:
@@ -1013,7 +1013,7 @@ class NEPacketTunnelFlow : NSObject {
    * @param completionHandler A block that will be executed to handle the packets. This block takes an array of NSData objects and an array of NSNumber objects. The NSData and NSNumber in corresponding indicies in the array represent one packet. If after handling the packets the caller wants to read more packets then the caller must call this method again.
    */
   @available(OSX 10.11, *)
-  func readPacketsWithCompletionHandler(completionHandler: ([NSData], [NSNumber]) -> Void)
+  func readPacketsWithCompletionHandler(completionHandler: ([Data], [Number]) -> Void)
 
   /*!
    * @method writePackets:completionHandler:
@@ -1022,7 +1022,7 @@ class NEPacketTunnelFlow : NSObject {
    * @param protocols An array of NSNumber objects. Each number contains the protocol of the packet in the corresponding index in the packets array.
    */
   @available(OSX 10.11, *)
-  func writePackets(packets: [NSData], withProtocols protocols: [NSNumber]) -> Bool
+  func writePackets(packets: [Data], withProtocols protocols: [Number]) -> Bool
   init()
 }
 
@@ -1056,14 +1056,14 @@ class NEPacketTunnelNetworkSettings : NETunnelNetworkSettings {
    * @discussion An NSNumber object containing the number of bytes of overhead appended to each outbound packet through the tunnel. The MTU for the TUN interface is computed by subtracting this value from the MTU of the primary physical interface.
    */
   @available(OSX 10.11, *)
-  @NSCopying var tunnelOverheadBytes: NSNumber?
+  @NSCopying var tunnelOverheadBytes: Number?
 
   /*!
    * @property MTU
    * @discussion An NSNumber object containing the Maximum Transmission Unit (MTU) size in bytes to assign to the TUN interface. If this property is set, the tunnelOverheadBytes property is ignored.
    */
   @available(OSX 10.11, *)
-  @NSCopying var mtu: NSNumber?
+  @NSCopying var mtu: Number?
 
   /*!
    * @method initWithTunnelRemoteAddress:
@@ -1073,7 +1073,7 @@ class NEPacketTunnelNetworkSettings : NETunnelNetworkSettings {
   @available(OSX 10.11, *)
   init(tunnelRemoteAddress address: String)
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -1092,7 +1092,7 @@ class NEPacketTunnelProvider : NETunnelProvider {
    * @param completionHandler A block that must be called when the process of startingt the tunnel is complete. If the tunnel cannot be established then the subclass' implementation of this method must pass a non-nil NSError object to this block. A value of nil passed to the completion handler indicates that the tunnel was successfully established.
    */
   @available(OSX 10.11, *)
-  func startTunnel(options options: [String : NSObject]? = [:], completionHandler: (NSError?) -> Void)
+  func startTunnel(options options: [String : Object]? = [:], completionHandler: (Error?) -> Void)
 
   /*!
    * @method stopTunnelWithReason:completionHandler:
@@ -1109,7 +1109,7 @@ class NEPacketTunnelProvider : NETunnelProvider {
    * @param error An NSError object containing details about the error that the tunnel provider implementation encountered.
    */
   @available(OSX 10.11, *)
-  func cancelTunnelWithError(error: NSError?)
+  func cancelTunnelWithError(error: Error?)
 
   /*!
    * @property packetFlow
@@ -1207,7 +1207,7 @@ enum NEProviderStopReason : Int {
  * Instances of this class are thread safe.
  */
 @available(OSX 10.11, *)
-class NEProvider : NSObject {
+class NEProvider : Object {
 
   /*!
    * @method sleepWithCompletionHandler:
@@ -1262,7 +1262,7 @@ class NEProvider : NSObject {
  * Instances of this class are thread safe.
  */
 @available(OSX 10.11, *)
-class NEProxyServer : NSObject, NSSecureCoding, NSCopying {
+class NEProxyServer : Object, SecureCoding, Copying {
 
   /*!
    * @method initWithAddress:port:
@@ -1311,10 +1311,10 @@ class NEProxyServer : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -1324,7 +1324,7 @@ class NEProxyServer : NSObject, NSSecureCoding, NSCopying {
  * NEProxySettings is used in the context of a Network Extension configuration to specify the proxy that should be used for network traffic when the Network Extension is active.
  */
 @available(OSX 10.11, *)
-class NEProxySettings : NSObject, NSSecureCoding, NSCopying {
+class NEProxySettings : Object, SecureCoding, Copying {
 
   /*!
    * @property autoProxyConfigurationEnabled
@@ -1338,7 +1338,7 @@ class NEProxySettings : NSObject, NSSecureCoding, NSCopying {
    * @discussion A URL specifying where the PAC script is located.
    */
   @available(OSX 10.11, *)
-  @NSCopying var proxyAutoConfigurationURL: NSURL?
+  @NSCopying var proxyAutoConfigurationURL: URL?
 
   /*!
    * @property proxyAutoConfigurationJavaScript
@@ -1399,10 +1399,10 @@ class NEProxySettings : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -1414,7 +1414,7 @@ class NEProxySettings : NSObject, NSSecureCoding, NSCopying {
  * Instances of this class are thread safe.
  */
 @available(OSX 10.11, *)
-class NETunnelNetworkSettings : NSObject, NSSecureCoding, NSCopying {
+class NETunnelNetworkSettings : Object, SecureCoding, Copying {
 
   /*!
    * @method initWithTunnelRemoteAddress:
@@ -1448,10 +1448,10 @@ class NETunnelNetworkSettings : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -1509,7 +1509,7 @@ class NETunnelProvider : NEProvider {
    * @param completionHandler A block that the method can execute to send a response to the container app. If this parameter is non-nil then the method implementation should always execute the block. If this parameter is nil then the method implementation should treat this as an indication that the container app is not expecting a response.
    */
   @available(OSX 10.11, *)
-  func handleAppMessage(messageData: NSData, completionHandler: ((NSData?) -> Void)? = nil)
+  func handleAppMessage(messageData: Data, completionHandler: ((Data?) -> Void)? = nil)
 
   /*!
    * @method setTunnelNetworkSettings:completionHandler:
@@ -1518,7 +1518,7 @@ class NETunnelProvider : NEProvider {
    * @param completionHandler A block that will be called by the framework when the process of setting or clearing the network settings is complete. If an error occurred during the process of setting or clearing the IP network settings then a non-nill NSError object will be passed to this block containing error details.
    */
   @available(OSX 10.11, *)
-  func setTunnelNetworkSettings(tunnelNetworkSettings: NETunnelNetworkSettings?, completionHandler: ((NSError?) -> Void)? = nil)
+  func setTunnelNetworkSettings(tunnelNetworkSettings: NETunnelNetworkSettings?, completionHandler: ((Error?) -> Void)? = nil)
 
   /*!
    * @property protocolConfiguration
@@ -1565,7 +1565,7 @@ class NETunnelProviderManager : NEVPNManager {
    * @param completionHandler A block that takes an array NETunnelProviderManager objects. The array passed to the block may be empty if no NETunnelProvider configurations were successfully read from the disk.  The NSError passed to this block will be nil if the load operation succeeded, non-nil otherwise.
    */
   @available(OSX 10.11, *)
-  class func loadAllFromPreferencesWithCompletionHandler(completionHandler: ([NETunnelProviderManager]?, NSError?) -> Void)
+  class func loadAllFromPreferencesWithCompletionHandler(completionHandler: ([NETunnelProviderManager]?, Error?) -> Void)
 
   /*!
    * @method copyAppRules
@@ -1606,7 +1606,7 @@ class NETunnelProviderProtocol : NEVPNProtocol {
   @available(OSX 10.11, *)
   var providerBundleIdentifier: String?
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -1648,7 +1648,7 @@ class NETunnelProviderSession : NEVPNConnection {
    * @return YES if the message was sent successfully, NO if an error occurred.
    */
   @available(OSX 10.11, *)
-  func sendProviderMessage(messageData: NSData, responseHandler: ((NSData?) -> Void)? = nil) throws
+  func sendProviderMessage(messageData: Data, responseHandler: ((Data?) -> Void)? = nil) throws
   init()
 }
 
@@ -1699,7 +1699,7 @@ let NEVPNConnectionStartOptionPassword: String
  * Instances of this class are thread safe.
  */
 @available(OSX 10.10, *)
-class NEVPNConnection : NSObject {
+class NEVPNConnection : Object {
 
   /*!
    * @method startVPNTunnelAndReturnError:
@@ -1725,7 +1725,7 @@ class NEVPNConnection : NSObject {
    * @return YES if the VPN tunnel was started successfully, NO if an error occurred.
    */
   @available(OSX 10.11, *)
-  func startVPNTunnel(options options: [String : NSObject]? = [:]) throws
+  func startVPNTunnel(options options: [String : Object]? = [:]) throws
 
   /*!
    * @method stopVPNTunnel:
@@ -1746,7 +1746,7 @@ class NEVPNConnection : NSObject {
    * @discussion The date and time when the connection status changed to NEVPNStatusConnected. This property is nil if the connection is not fully established.
    */
   @available(OSX 10.11, *)
-  var connectedDate: NSDate? { get }
+  var connectedDate: Date? { get }
   init()
 }
 
@@ -1795,7 +1795,7 @@ let NEVPNConfigurationChangeNotification: String
  * Instances of this class are thread safe.
  */
 @available(OSX 10.10, *)
-class NEVPNManager : NSObject {
+class NEVPNManager : Object {
 
   /*!
    * @method sharedManager
@@ -1810,7 +1810,7 @@ class NEVPNManager : NSObject {
    * @param completionHandler A block that will be called on the main thread when the load operation is completed. The NSError passed to this block will be nil if the load operation succeeded, non-nil otherwise.
    */
   @available(OSX 10.10, *)
-  func loadFromPreferencesWithCompletionHandler(completionHandler: (NSError?) -> Void)
+  func loadFromPreferencesWithCompletionHandler(completionHandler: (Error?) -> Void)
 
   /*!
    * @method removeFromPreferencesWithCompletionHandler:
@@ -1818,7 +1818,7 @@ class NEVPNManager : NSObject {
    * @param completionHandler A block that will be called on the main thread when the remove operation is completed. The NSError passed to this block will be nil if the remove operation succeeded, non-nil otherwise.
    */
   @available(OSX 10.10, *)
-  func removeFromPreferences(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
+  func removeFromPreferences(completionHandler completionHandler: ((Error?) -> Void)? = nil)
 
   /*!
    * @method saveToPreferencesWithCompletionHandler:
@@ -1827,7 +1827,7 @@ class NEVPNManager : NSObject {
    * @param completionHandler A block that will be called on the main thread when the save operation is completed. The NSError passed to this block will be nil if the save operation succeeded, non-nil otherwise.
    */
   @available(OSX 10.10, *)
-  func saveToPreferences(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
+  func saveToPreferences(completionHandler completionHandler: ((Error?) -> Void)? = nil)
 
   /*!
    * @method setAuthorization:
@@ -1897,7 +1897,7 @@ class NEVPNManager : NSObject {
  * Instances of this class are thread safe.
  */
 @available(OSX 10.10, *)
-class NEVPNProtocol : NSObject, NSCopying, NSSecureCoding {
+class NEVPNProtocol : Object, Copying, SecureCoding {
 
   /*!
    * @property serverAddress
@@ -1918,21 +1918,21 @@ class NEVPNProtocol : NSObject, NSCopying, NSSecureCoding {
    * @discussion The password component of the VPN authentication credential. The value is a persistent reference to a keychain item with the kSecClassGenericPassword class.
    */
   @available(OSX 10.10, *)
-  @NSCopying var passwordReference: NSData?
+  @NSCopying var passwordReference: Data?
 
   /*!
    * @property identityReference
    * @discussion The certificate and private key component of the VPN authentication credential. The value is a persistent reference to a keychain item with the kSecClassIdentity class.
    */
   @available(OSX 10.10, *)
-  @NSCopying var identityReference: NSData?
+  @NSCopying var identityReference: Data?
 
   /*!
    * @property identityData
    * @discussion The PKCS12 data for the VPN authentication identity. The value is a NSData in PKCS12 format.
    */
   @available(OSX 10.11, *)
-  @NSCopying var identityData: NSData?
+  @NSCopying var identityData: Data?
 
   /*!
    * @property identityDataPassword 
@@ -1956,12 +1956,12 @@ class NEVPNProtocol : NSObject, NSCopying, NSSecureCoding {
   @NSCopying var proxySettings: NEProxySettings?
   init()
   @available(OSX 10.10, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -2116,7 +2116,7 @@ enum NEVPNIKEv2CertificateType : Int {
  * Instances of this class are thread safe.
  */
 @available(OSX 10.10, *)
-class NEVPNIKEv2SecurityAssociationParameters : NSObject, NSSecureCoding, NSCopying {
+class NEVPNIKEv2SecurityAssociationParameters : Object, SecureCoding, Copying {
 
   /*!
    * @property encryptionAlgorithm
@@ -2149,10 +2149,10 @@ class NEVPNIKEv2SecurityAssociationParameters : NSObject, NSSecureCoding, NSCopy
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
   @available(OSX 10.10, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -2249,7 +2249,7 @@ class NEVPNProtocolIKEv2 : NEVPNProtocolIPSec {
   @available(OSX 10.11, *)
   var strictRevocationCheck: Bool
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -2301,7 +2301,7 @@ class NEVPNProtocolIPSec : NEVPNProtocol {
    * @discussion A persistent reference to a keychain item of class kSecClassGenericPassword containing the IKE shared secret.
    */
   @available(OSX 10.10, *)
-  @NSCopying var sharedSecretReference: NSData?
+  @NSCopying var sharedSecretReference: Data?
 
   /*!
    * @property localIdentifier
@@ -2317,7 +2317,7 @@ class NEVPNProtocolIPSec : NEVPNProtocol {
   @available(OSX 10.10, *)
   var remoteIdentifier: String?
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -2368,7 +2368,7 @@ class NWBonjourServiceEndpoint : NWEndpoint {
  * @discussion NWEndpoint is a generic class to represent network endpoints, such as a port on a remote server.
  */
 @available(OSX 10.11, *)
-class NWEndpoint : NSObject {
+class NWEndpoint : Object {
   init()
 }
 
@@ -2435,7 +2435,7 @@ enum NWPathStatus : Int {
  *		if the path status is NWPathStatusSatisfied, then a connection could use that path.
  */
 @available(OSX 10.11, *)
-class NWPath : NSObject {
+class NWPath : Object {
 
   /*!
    * @property status
@@ -2504,7 +2504,7 @@ enum NWTCPConnectionState : Int {
  * @discussion Establish TCP connections to an endpoint, and send and receive data on the TCP connection.
  */
 @available(OSX 10.11, *)
-class NWTCPConnection : NSObject {
+class NWTCPConnection : Object {
 
   /*!
    * @method initWithUpgradeForConnection:
@@ -2594,7 +2594,7 @@ class NWTCPConnection : NSObject {
    * 		the network. Care must be taken when parsing this potentially malicious value.
    */
   @available(OSX 10.11, *)
-  var txtRecord: NSData? { get }
+  var txtRecord: Data? { get }
 
   /*!
    * @property error
@@ -2602,7 +2602,7 @@ class NWTCPConnection : NSObject {
    * 		processing the connection or performing data reading or writing.
    */
   @available(OSX 10.11, *)
-  var error: NSError? { get }
+  var error: Error? { get }
 
   /*!
    * @method cancel:
@@ -2622,7 +2622,7 @@ class NWTCPConnection : NSObject {
    * @param completion The completion handler to be invoked when there is data to read or an error occurred
    */
   @available(OSX 10.11, *)
-  func readLength(length: Int, completionHandler completion: (NSData?, NSError?) -> Void)
+  func readLength(length: Int, completionHandler completion: (Data?, Error?) -> Void)
 
   /*!
    * @method readMinimumLength:maximumLength:completionHandler:
@@ -2650,7 +2650,7 @@ class NWTCPConnection : NSObject {
    * @param completion The completion handler to be invoked when there is data to read or an error occurred
    */
   @available(OSX 10.11, *)
-  func readMinimumLength(minimum: Int, maximumLength maximum: Int, completionHandler completion: (NSData?, NSError?) -> Void)
+  func readMinimumLength(minimum: Int, maximumLength maximum: Int, completionHandler completion: (Data?, Error?) -> Void)
 
   /*!
    * @method write:completionHandler:
@@ -2661,7 +2661,7 @@ class NWTCPConnection : NSObject {
    * 		If the error is nil, the write succeeded and the caller can write more data.
    */
   @available(OSX 10.11, *)
-  func write(data: NSData, completionHandler completion: (NSError?) -> Void)
+  func write(data: Data, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @method writeClose:
@@ -2679,7 +2679,7 @@ class NWTCPConnection : NSObject {
  * @protocol NWTCPConnectionAuthenticationDelegate
  * @discussion Allows the caller to take custom actions on some connection events.
  */
-protocol NWTCPConnectionAuthenticationDelegate : NSObjectProtocol {
+protocol NWTCPConnectionAuthenticationDelegate : ObjectProtocol {
 
   /*!
    * @method shouldProvideIdentityForConnection:
@@ -2740,7 +2740,7 @@ protocol NWTCPConnectionAuthenticationDelegate : NSObjectProtocol {
   @available(OSX 10.11, *)
   optional func evaluateTrustFor(connection: NWTCPConnection, peerCertificateChain: [AnyObject], completionHandler completion: (SecTrust) -> Void)
 }
-class NWTLSParameters : NSObject {
+class NWTLSParameters : Object {
 
   /*!
    * @property TLSSessionID
@@ -2748,7 +2748,7 @@ class NWTLSParameters : NSObject {
    *		This property is optional when using TLS.
    */
   @available(OSX 10.11, *)
-  @NSCopying var tlsSessionID: NSData?
+  @NSCopying var tlsSessionID: Data?
 
   /*!
    * @property SSLCipherSuites
@@ -2756,7 +2756,7 @@ class NWTLSParameters : NSObject {
    *		If set to nil, the default cipher suites will be used.
    */
   @available(OSX 10.11, *)
-  var sslCipherSuites: Set<NSNumber>?
+  var sslCipherSuites: Set<Number>?
 
   /*!
    * @property minimumSSLProtocolVersion
@@ -2816,7 +2816,7 @@ enum NWUDPSessionState : Int {
  * @discussion Open UDP datagram sessions to an endpoint, and send and receive datagrams.
  */
 @available(OSX 10.11, *)
-class NWUDPSession : NSObject {
+class NWUDPSession : Object {
 
   /*!
    * @method initWithUpgradeForSession:
@@ -2912,7 +2912,7 @@ class NWUDPSession : NSObject {
    * @param minDatagrams The maximum number of datagrams to send to the handler.
    */
   @available(OSX 10.11, *)
-  func setReadHandler(handler: ([NSData]?, NSError?) -> Void, maxDatagrams: Int)
+  func setReadHandler(handler: ([Data]?, Error?) -> Void, maxDatagrams: Int)
 
   /*!
    * @method writeMultipleDatagrams:completionHandler
@@ -2922,7 +2922,7 @@ class NWUDPSession : NSObject {
    * @param completionHandler A handler called when the write request has either succeeded or failed.
    */
   @available(OSX 10.11, *)
-  func writeMultipleDatagrams(datagramArray: [NSData], completionHandler: (NSError?) -> Void)
+  func writeMultipleDatagrams(datagramArray: [Data], completionHandler: (Error?) -> Void)
 
   /*!
    * @method writeDatagram:completionHandler
@@ -2932,7 +2932,7 @@ class NWUDPSession : NSObject {
    * @param completionHandler A handler called when the write request has either succeeded or failed.
    */
   @available(OSX 10.11, *)
-  func writeDatagram(datagram: NSData, completionHandler: (NSError?) -> Void)
+  func writeDatagram(datagram: Data, completionHandler: (Error?) -> Void)
 
   /*!
    * @method cancel

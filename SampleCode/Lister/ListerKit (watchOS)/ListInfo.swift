@@ -9,7 +9,7 @@
 import UIKit
 import ListerWatchKit
 
-public class ListInfo: NSObject {
+public class ListInfo: Object {
     // MARK: Properties
     
     public var name: String

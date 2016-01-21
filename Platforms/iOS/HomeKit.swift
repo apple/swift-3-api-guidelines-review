@@ -8,7 +8,7 @@
  *             class. An accessory is composed of one or more services.
  */
 @available(iOS 8.0, *)
-class HMAccessory : NSObject {
+class HMAccessory : Object {
 
   /*!
    * @brief The name of the accessory.
@@ -24,13 +24,13 @@ class HMAccessory : NSObject {
    * @discussion Use uniqueIdentifier to obtain the identifier for this object.
    */
   @available(iOS, introduced=8.0, deprecated=9.0)
-  @NSCopying var identifier: NSUUID { get }
+  @NSCopying var identifier: UUID { get }
 
   /*!
    * @brief A unique identifier for the accessory.
    */
   @available(iOS 9.0, *)
-  @NSCopying var uniqueIdentifier: NSUUID { get }
+  @NSCopying var uniqueIdentifier: UUID { get }
 
   /*!
    * @brief Delegate object that receives updates on the state of the accessory.
@@ -58,7 +58,7 @@ class HMAccessory : NSObject {
    *             bridged accessories.
    */
   @available(iOS, introduced=8.0, deprecated=9.0)
-  var identifiersForBridgedAccessories: [NSUUID]? { get }
+  var identifiersForBridgedAccessories: [UUID]? { get }
 
   /*!
    * @brief If this accessory is a bridge, this property is an array of NSUUID objects that,
@@ -73,7 +73,7 @@ class HMAccessory : NSObject {
    *                    its 'uniqueIdentifiersForBridgedAccessories' property set to nil.
    */
   @available(iOS 9.0, *)
-  var uniqueIdentifiersForBridgedAccessories: [NSUUID]? { get }
+  var uniqueIdentifiersForBridgedAccessories: [UUID]? { get }
 
   /*!
    * @brief Category information for the accessory. 
@@ -107,7 +107,7 @@ class HMAccessory : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func updateName(name: String, completionHandler completion: (NSError?) -> Void)
+  func updateName(name: String, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief This method is used to have an accessory identify itself.
@@ -116,7 +116,7 @@ class HMAccessory : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func identifyWithCompletionHandler(completion: (NSError?) -> Void)
+  func identifyWithCompletionHandler(completion: (Error?) -> Void)
   init()
 }
 
@@ -125,7 +125,7 @@ class HMAccessory : NSObject {
  *        different aspects of an accessory
  */
 @available(iOS 8.0, *)
-protocol HMAccessoryDelegate : NSObjectProtocol {
+protocol HMAccessoryDelegate : ObjectProtocol {
 
   /*!
    * @brief Informs the delegate when the name of the accessory is modified.
@@ -184,7 +184,7 @@ protocol HMAccessoryDelegate : NSObjectProtocol {
  *        that have never been paired with and therefore not part of the home.
  */
 @available(iOS 8.0, *)
-class HMAccessoryBrowser : NSObject {
+class HMAccessoryBrowser : Object {
 
   /*!
    * @brief Delegate that receives updates on the state of the accessories discovered.
@@ -228,7 +228,7 @@ class HMAccessoryBrowser : NSObject {
  * @brief This delegate receives updates about new accessories in the home.
  */
 @available(iOS 8.0, *)
-protocol HMAccessoryBrowserDelegate : NSObjectProtocol {
+protocol HMAccessoryBrowserDelegate : ObjectProtocol {
 
   /*!
    * @brief Informs the delegate about new accessories discovered in the home.
@@ -254,7 +254,7 @@ protocol HMAccessoryBrowserDelegate : NSObjectProtocol {
  * @brief This class is used to represent an accessory category.
  */
 @available(iOS 9.0, *)
-class HMAccessoryCategory : NSObject {
+class HMAccessoryCategory : Object {
 
   /*!
    * @brief A type identifier that represents the category.
@@ -362,13 +362,13 @@ let HMAccessoryCategoryTypeWindowCovering: String
  * @brief This class is used to represent a generic action.
  */
 @available(iOS 8.0, *)
-class HMAction : NSObject {
+class HMAction : Object {
 
   /*!
    * @brief A unique identifier for the action.
    */
   @available(iOS 9.0, *)
-  @NSCopying var uniqueIdentifier: NSUUID { get }
+  @NSCopying var uniqueIdentifier: UUID { get }
   init()
 }
 
@@ -377,7 +377,7 @@ class HMAction : NSObject {
  *        The order of execution of these actions is undefined.
  */
 @available(iOS 8.0, *)
-class HMActionSet : NSObject {
+class HMActionSet : Object {
 
   /*!
    * @brief The name of the action set.
@@ -405,7 +405,7 @@ class HMActionSet : NSObject {
    * @brief A unique identifier for the action set.
    */
   @available(iOS 9.0, *)
-  @NSCopying var uniqueIdentifier: NSUUID { get }
+  @NSCopying var uniqueIdentifier: UUID { get }
 
   /*!
    * @brief This method is used to change the name of the action set.
@@ -416,7 +416,7 @@ class HMActionSet : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func updateName(name: String, completionHandler completion: (NSError?) -> Void)
+  func updateName(name: String, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief Adds an action to the action set.
@@ -427,7 +427,7 @@ class HMActionSet : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func addAction(action: HMAction, completionHandler completion: (NSError?) -> Void)
+  func addAction(action: HMAction, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief Removes an existing action from the action set.
@@ -438,7 +438,7 @@ class HMActionSet : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func removeAction(action: HMAction, completionHandler completion: (NSError?) -> Void)
+  func removeAction(action: HMAction, completionHandler completion: (Error?) -> Void)
 }
 
 /*!
@@ -475,7 +475,7 @@ let HMActionSetTypeUserDefined: String
  * @brief Represent a characteristic on a service of an accessory.
  */
 @available(iOS 8.0, *)
-class HMCharacteristic : NSObject {
+class HMCharacteristic : Object {
 
   /*!
    * @brief The type of the characteristic, e.g. HMCharacteristicTypePowerState.
@@ -525,7 +525,7 @@ class HMCharacteristic : NSObject {
    * @brief A unique identifier for the characteristic.
    */
   @available(iOS 9.0, *)
-  @NSCopying var uniqueIdentifier: NSUUID { get }
+  @NSCopying var uniqueIdentifier: UUID { get }
 
   /*!
    * @brief Modifies the value of the characteristic.
@@ -541,7 +541,7 @@ class HMCharacteristic : NSObject {
    *             float format. If validation fails, the error provided to the completion handler
    *             indicates the type of failure.
    */
-  func writeValue(value: AnyObject?, completionHandler completion: (NSError?) -> Void)
+  func writeValue(value: AnyObject?, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief Reads the value of the characteristic. The updated value can be read from the 'value' property of the characteristic.
@@ -550,7 +550,7 @@ class HMCharacteristic : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func readValueWithCompletionHandler(completion: (NSError?) -> Void)
+  func readValueWithCompletionHandler(completion: (Error?) -> Void)
 
   /*!
    * @brief Enables/disables notifications or indications for the value of a specified characteristic.
@@ -562,7 +562,7 @@ class HMCharacteristic : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func enableNotification(enable: Bool, completionHandler completion: (NSError?) -> Void)
+  func enableNotification(enable: Bool, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief Sets/clears authorization data used when writing to the characteristic.
@@ -573,7 +573,7 @@ class HMCharacteristic : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func updateAuthorizationData(data: NSData?, completionHandler completion: (NSError?) -> Void)
+  func updateAuthorizationData(data: Data?, completionHandler completion: (Error?) -> Void)
   init()
 }
 
@@ -802,7 +802,7 @@ class HMCharacteristicEvent : HMEvent {
    *
    * @return Instance object representing the characteristic event.
    */
-  init(characteristic: HMCharacteristic, triggerValue: NSCopying?)
+  init(characteristic: HMCharacteristic, triggerValue: Copying?)
 
   /*!
    * @brief The characteristic associated with the event.
@@ -813,7 +813,7 @@ class HMCharacteristicEvent : HMEvent {
    * @brief The value of the characteristic that triggers the event.
    *        A value of nil corresponds to any change in the value of the characteristic.
    */
-  @NSCopying var triggerValue: NSCopying? { get }
+  @NSCopying var triggerValue: Copying? { get }
 
   /*!
    * @brief This method is used to change trigger value for the characteristic.
@@ -826,7 +826,7 @@ class HMCharacteristicEvent : HMEvent {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func updateTriggerValue(triggerValue: NSCopying?, completionHandler completion: (NSError?) -> Void)
+  func updateTriggerValue(triggerValue: Copying?, completionHandler completion: (Error?) -> Void)
 }
 
 /*!
@@ -835,27 +835,27 @@ class HMCharacteristicEvent : HMEvent {
  * 		  for presentation purposes.
  */
 @available(iOS 8.0, *)
-class HMCharacteristicMetadata : NSObject {
+class HMCharacteristicMetadata : Object {
 
   /*!
    * @brief The minimum value for the characteristic if it has a format of "int" or "float".
    */
-  var minimumValue: NSNumber? { get }
+  var minimumValue: Number? { get }
 
   /*!
    * @brief The maximum value for the characteristic if it has a format of "int" or "float".
    */
-  var maximumValue: NSNumber? { get }
+  var maximumValue: Number? { get }
 
   /*!
    * @brief Step value for the characteristic that indicates the minimum step value allowed if it has a format of "int" or "float".
    */
-  var stepValue: NSNumber? { get }
+  var stepValue: Number? { get }
 
   /*!
    * @brief Max length value for the characteristic that indicates the maximum number of UTF-8 characters allowed if it has a format of "string".
    */
-  var maxLength: NSNumber? { get }
+  var maxLength: Number? { get }
 
   /*!
    * @brief The format of the value. Refer to HMCharacteristicMetadataFormat constants for supported units.
@@ -1510,7 +1510,7 @@ class HMCharacteristicWriteAction : HMAction {
    *
    * @return Instance object representing the characteristic write action.
    */
-  init(characteristic: HMCharacteristic, targetValue: NSCopying)
+  init(characteristic: HMCharacteristic, targetValue: Copying)
 
   /*!
    * @brief The characteristic associated with the action.
@@ -1520,7 +1520,7 @@ class HMCharacteristicWriteAction : HMAction {
   /*!
    * @brief The target value for the action.
    */
-  @NSCopying var targetValue: NSCopying { get }
+  @NSCopying var targetValue: Copying { get }
 
   /*!
    * @brief This method is used to change target value for the characteristic.
@@ -1531,7 +1531,7 @@ class HMCharacteristicWriteAction : HMAction {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func updateTargetValue(targetValue: NSCopying, completionHandler completion: (NSError?) -> Void)
+  func updateTargetValue(targetValue: Copying, completionHandler completion: (Error?) -> Void)
 }
 @available(iOS 8.0, *)
 let HMErrorDomain: String
@@ -1643,12 +1643,12 @@ extension HMErrorCode : _BridgedNSError {
  * @brief This class is used to represent a generic HomeKit event.
  */
 @available(iOS 9.0, *)
-class HMEvent : NSObject {
+class HMEvent : Object {
 
   /*!
    * @brief A unique identifier for the event.
    */
-  @NSCopying var uniqueIdentifier: NSUUID { get }
+  @NSCopying var uniqueIdentifier: UUID { get }
   init()
 }
 
@@ -1697,7 +1697,7 @@ class HMEventTrigger : HMTrigger {
    *
    * @return Instance object representing the event trigger.
    */
-  init(name: String, events: [HMEvent], predicate: NSPredicate?)
+  init(name: String, events: [HMEvent], predicate: Predicate?)
 
   /*!
    * @brief The events associated with the trigger.
@@ -1707,7 +1707,7 @@ class HMEventTrigger : HMTrigger {
   /*!
    * @brief The predicate to evaluate before executing the action sets associated with the trigger.
    */
-  @NSCopying var predicate: NSPredicate? { get }
+  @NSCopying var predicate: Predicate? { get }
 
   /*!
    * @brief Creates a predicate that will evaluate whether the event occurred before a significant event.
@@ -1721,7 +1721,7 @@ class HMEventTrigger : HMTrigger {
    *
    * @return Predicate object representing a condition to evaluate before executing the action set.
    */
-  class func predicateForEvaluatingTriggerOccurringBeforeSignificantEvent(significantEvent: String, applyingOffset offset: NSDateComponents?) -> NSPredicate
+  class func predicateForEvaluatingTriggerOccurringBeforeSignificantEvent(significantEvent: String, applyingOffset offset: DateComponents?) -> Predicate
 
   /*!
    * @brief Creates a predicate that will evaluate whether the event occurred before a significant event.
@@ -1735,7 +1735,7 @@ class HMEventTrigger : HMTrigger {
    *
    * @return Predicate object representing a condition to evaluate before executing the action set.
    */
-  class func predicateForEvaluatingTriggerOccurringAfterSignificantEvent(significantEvent: String, applyingOffset offset: NSDateComponents?) -> NSPredicate
+  class func predicateForEvaluatingTriggerOccurringAfterSignificantEvent(significantEvent: String, applyingOffset offset: DateComponents?) -> Predicate
 
   /*!
    * @brief Creates a predicate that will evaluate whether the event occurred before the time specified.
@@ -1744,7 +1744,7 @@ class HMEventTrigger : HMTrigger {
    *
    * @return Predicate object representing a condition to evaluate before executing the action set.
    */
-  class func predicateForEvaluatingTriggerOccurringBeforeDateWith(dateComponents: NSDateComponents) -> NSPredicate
+  class func predicateForEvaluatingTriggerOccurringBeforeDateWith(dateComponents: DateComponents) -> Predicate
 
   /*!
    * @brief Creates a predicate that will evaluate whether the event occurred at the time specified.
@@ -1753,7 +1753,7 @@ class HMEventTrigger : HMTrigger {
    *
    * @return Predicate object representing a condition to evaluate before executing the action set.
    */
-  class func predicateForEvaluatingTriggerOccurringOnDateWith(dateComponents: NSDateComponents) -> NSPredicate
+  class func predicateForEvaluatingTriggerOccurringOnDateWith(dateComponents: DateComponents) -> Predicate
 
   /*!
    * @brief Creates a predicate that will evaluate whether the event occurred at or after the time specified.
@@ -1762,7 +1762,7 @@ class HMEventTrigger : HMTrigger {
    *
    * @return Predicate object representing a condition to evaluate before executing the action set.
    */
-  class func predicateForEvaluatingTriggerOccurringAfterDateWith(dateComponents: NSDateComponents) -> NSPredicate
+  class func predicateForEvaluatingTriggerOccurringAfterDateWith(dateComponents: DateComponents) -> Predicate
 
   /*!
    * @brief Creates a predicate that will evaluate whether a characteristic value is related to the specified value.
@@ -1777,7 +1777,7 @@ class HMEventTrigger : HMTrigger {
    *
    * @return Predicate object representing a condition to evaluate before executing the action set.
    */
-  class func predicateForEvaluatingTriggerWith(characteristic: HMCharacteristic, relatedBy operatorType: NSPredicateOperatorType, toValue value: AnyObject) -> NSPredicate
+  class func predicateForEvaluatingTriggerWith(characteristic: HMCharacteristic, relatedBy operatorType: PredicateOperatorType, toValue value: AnyObject) -> Predicate
 
   /*!
    * @brief Adds a new event to the event trigger.
@@ -1788,7 +1788,7 @@ class HMEventTrigger : HMTrigger {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func addEvent(event: HMEvent, completionHandler completion: (NSError?) -> Void)
+  func addEvent(event: HMEvent, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief Removes the specified event from the event trigger.
@@ -1799,7 +1799,7 @@ class HMEventTrigger : HMTrigger {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func removeEvent(event: HMEvent, completionHandler completion: (NSError?) -> Void)
+  func removeEvent(event: HMEvent, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief This method replaces the predicate used to evaluate execution of the action sets associated with the trigger.
@@ -1810,7 +1810,7 @@ class HMEventTrigger : HMTrigger {
    *                   The NSError provides more information on the status of the request,
    *                   error will be nil on success. 
    */
-  func updatePredicate(predicate: NSPredicate?, completionHandler completion: (NSError?) -> Void)
+  func updatePredicate(predicate: Predicate?, completionHandler completion: (Error?) -> Void)
 }
 
 /*!
@@ -1822,7 +1822,7 @@ class HMEventTrigger : HMTrigger {
  *             the home.
  */
 @available(iOS 8.0, *)
-class HMHome : NSObject {
+class HMHome : Object {
 
   /*!
    * @brief Delegate that receives updates on the state of the home.
@@ -1843,7 +1843,7 @@ class HMHome : NSObject {
    * @brief A unique identifier for the home.
    */
   @available(iOS 9.0, *)
-  @NSCopying var uniqueIdentifier: NSUUID { get }
+  @NSCopying var uniqueIdentifier: UUID { get }
 
   /*!
    * @brief This method is used to change the name of the home.
@@ -1854,7 +1854,7 @@ class HMHome : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func updateName(name: String, completionHandler completion: (NSError?) -> Void)
+  func updateName(name: String, completionHandler completion: (Error?) -> Void)
 }
 extension HMHome {
 
@@ -1872,7 +1872,7 @@ extension HMHome {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func addAccessory(accessory: HMAccessory, completionHandler completion: (NSError?) -> Void)
+  func addAccessory(accessory: HMAccessory, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief Removes an accessory from the home.
@@ -1883,7 +1883,7 @@ extension HMHome {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func removeAccessory(accessory: HMAccessory, completionHandler completion: (NSError?) -> Void)
+  func removeAccessory(accessory: HMAccessory, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief Assigns a new room for the accessory.
@@ -1899,7 +1899,7 @@ extension HMHome {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func assignAccessory(accessory: HMAccessory, to room: HMRoom, completionHandler completion: (NSError?) -> Void)
+  func assignAccessory(accessory: HMAccessory, to room: HMRoom, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief Queries all services that match the specified types.
@@ -1924,7 +1924,7 @@ extension HMHome {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func unblockAccessory(accessory: HMAccessory, completionHandler completion: (NSError?) -> Void)
+  func unblockAccessory(accessory: HMAccessory, completionHandler completion: (Error?) -> Void)
 }
 extension HMHome {
 
@@ -1952,7 +1952,7 @@ extension HMHome {
    *                   HMErrorCodeInsufficientPrivileges.
    */
   @available(iOS 9.0, *)
-  func manageUsersWithCompletionHandler(completion: (NSError?) -> Void)
+  func manageUsersWithCompletionHandler(completion: (Error?) -> Void)
 
   /*!
    * @brief Adds a user to the home.
@@ -1964,7 +1964,7 @@ extension HMHome {
    *                   more details on the accessories that failed to add the user.
    */
   @available(iOS, introduced=8.0, deprecated=9.0)
-  func addUserWithCompletionHandler(completion: (HMUser?, NSError?) -> Void)
+  func addUserWithCompletionHandler(completion: (HMUser?, Error?) -> Void)
 
   /*!
    * @brief Removes a user from the home.
@@ -1977,7 +1977,7 @@ extension HMHome {
    *                   more details on the accessories that failed to remove the user.
    */
   @available(iOS, introduced=8.0, deprecated=9.0)
-  func removeUser(user: HMUser, completionHandler completion: (NSError?) -> Void)
+  func removeUser(user: HMUser, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief Retrieve the access level of the user associated with the home.
@@ -2002,7 +2002,7 @@ extension HMHome {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func addRoomWithName(roomName: String, completionHandler completion: (HMRoom?, NSError?) -> Void)
+  func addRoomWithName(roomName: String, completionHandler completion: (HMRoom?, Error?) -> Void)
 
   /*!
    * @brief Removes a room from the home. 
@@ -2017,7 +2017,7 @@ extension HMHome {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func removeRoom(room: HMRoom, completionHandler completion: (NSError?) -> Void)
+  func removeRoom(room: HMRoom, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief This method returns a room that represents the entire home. This can be used to assign a room
@@ -2044,7 +2044,7 @@ extension HMHome {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func addZoneWithName(zoneName: String, completionHandler completion: (HMZone?, NSError?) -> Void)
+  func addZoneWithName(zoneName: String, completionHandler completion: (HMZone?, Error?) -> Void)
 
   /*!
    * @brief Removes a zone from the home.
@@ -2055,7 +2055,7 @@ extension HMHome {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func removeZone(zone: HMZone, completionHandler completion: (NSError?) -> Void)
+  func removeZone(zone: HMZone, completionHandler completion: (Error?) -> Void)
 }
 extension HMHome {
 
@@ -2074,7 +2074,7 @@ extension HMHome {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func addServiceGroupWithName(serviceGroupName: String, completionHandler completion: (HMServiceGroup?, NSError?) -> Void)
+  func addServiceGroupWithName(serviceGroupName: String, completionHandler completion: (HMServiceGroup?, Error?) -> Void)
 
   /*!
    * @brief Removes a service group from the home.
@@ -2085,7 +2085,7 @@ extension HMHome {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func removeServiceGroup(group: HMServiceGroup, completionHandler completion: (NSError?) -> Void)
+  func removeServiceGroup(group: HMServiceGroup, completionHandler completion: (Error?) -> Void)
 }
 extension HMHome {
 
@@ -2104,7 +2104,7 @@ extension HMHome {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func addActionSetWithName(actionSetName: String, completionHandler completion: (HMActionSet?, NSError?) -> Void)
+  func addActionSetWithName(actionSetName: String, completionHandler completion: (HMActionSet?, Error?) -> Void)
 
   /*!
    * @brief Removes an existing action set from the home.
@@ -2115,7 +2115,7 @@ extension HMHome {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func removeActionSet(actionSet: HMActionSet, completionHandler completion: (NSError?) -> Void)
+  func removeActionSet(actionSet: HMActionSet, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief Executes all the actions within an action set.
@@ -2126,7 +2126,7 @@ extension HMHome {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func executeActionSet(actionSet: HMActionSet, completionHandler completion: (NSError?) -> Void)
+  func executeActionSet(actionSet: HMActionSet, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief Retrieve a built-in action set for the home.
@@ -2161,7 +2161,7 @@ extension HMHome {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func addTrigger(trigger: HMTrigger, completionHandler completion: (NSError?) -> Void)
+  func addTrigger(trigger: HMTrigger, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief Removes a trigger from the home. If the trigger is active, they are automatically deactivated.
@@ -2172,7 +2172,7 @@ extension HMHome {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func removeTrigger(trigger: HMTrigger, completionHandler completion: (NSError?) -> Void)
+  func removeTrigger(trigger: HMTrigger, completionHandler completion: (Error?) -> Void)
 }
 
 /*!
@@ -2180,7 +2180,7 @@ extension HMHome {
  *        managed in the home.
  */
 @available(iOS 8.0, *)
-protocol HMHomeDelegate : NSObjectProtocol {
+protocol HMHomeDelegate : ObjectProtocol {
 
   /*!
    * @brief Informs the delegate of a change in the name of a home.
@@ -2455,7 +2455,7 @@ protocol HMHomeDelegate : NSObjectProtocol {
    *
    * @param accessory Accessory that encountered the error
    */
-  optional func home(home: HMHome, didEncounterError error: NSError, forAccessory accessory: HMAccessory)
+  optional func home(home: HMHome, didEncounterError error: Error, forAccessory accessory: HMAccessory)
 }
 
 /*!
@@ -2474,7 +2474,7 @@ let HMUserFailedAccessoriesKey: String
  * @brief Represents the access control of a user associated with a home.
  */
 @available(iOS 9.0, *)
-class HMHomeAccessControl : NSObject {
+class HMHomeAccessControl : Object {
 
   /*!
    * @brief Specifies if the user has administrative privileges for the home.
@@ -2488,7 +2488,7 @@ class HMHomeAccessControl : NSObject {
  * @discussion This class is responsible for managing a collection of homes. 
  */
 @available(iOS 8.0, *)
-class HMHomeManager : NSObject {
+class HMHomeManager : Object {
 
   /*!
    * @brief Delegate that receives updates on the collection of homes.
@@ -2518,7 +2518,7 @@ class HMHomeManager : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func updatePrimaryHome(home: HMHome, completionHandler completion: (NSError?) -> Void)
+  func updatePrimaryHome(home: HMHome, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief Adds a new home to the collection.
@@ -2530,7 +2530,7 @@ class HMHomeManager : NSObject {
    *                   will be nil on success.
    *
    */
-  func addHomeWithName(homeName: String, completionHandler completion: (HMHome?, NSError?) -> Void)
+  func addHomeWithName(homeName: String, completionHandler completion: (HMHome?, Error?) -> Void)
 
   /*!
    * @brief Removes an existing home from the collection.
@@ -2541,7 +2541,7 @@ class HMHomeManager : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func removeHome(home: HMHome, completionHandler completion: (NSError?) -> Void)
+  func removeHome(home: HMHome, completionHandler completion: (Error?) -> Void)
   init()
 }
 
@@ -2549,7 +2549,7 @@ class HMHomeManager : NSObject {
  * @brief This delegate receives updates on homes being managed via the home manager.
  */
 @available(iOS 8.0, *)
-protocol HMHomeManagerDelegate : NSObjectProtocol {
+protocol HMHomeManagerDelegate : ObjectProtocol {
 
   /*!
    * @brief Informs the delegate when homes configured by the user have been detected by the system.
@@ -2600,7 +2600,7 @@ class HMLocationEvent : HMEvent {
  * @brief This class describes a room in the home.
  */
 @available(iOS 8.0, *)
-class HMRoom : NSObject {
+class HMRoom : Object {
 
   /*!
    * @brief Name of the room.
@@ -2617,7 +2617,7 @@ class HMRoom : NSObject {
    * @brief A unique identifier for the room.
    */
   @available(iOS 9.0, *)
-  @NSCopying var uniqueIdentifier: NSUUID { get }
+  @NSCopying var uniqueIdentifier: UUID { get }
 
   /*!
    * @brief This method is used to change the name of the room.
@@ -2628,7 +2628,7 @@ class HMRoom : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func updateName(name: String, completionHandler completion: (NSError?) -> Void)
+  func updateName(name: String, completionHandler completion: (Error?) -> Void)
 }
 
 /*!
@@ -2639,7 +2639,7 @@ class HMRoom : NSObject {
  *             modified.
  */
 @available(iOS 8.0, *)
-class HMService : NSObject {
+class HMService : Object {
 
   /*!
    * @brief Accessory that provides this service.
@@ -2683,7 +2683,7 @@ class HMService : NSObject {
    * @brief A unique identifier for the service.
    */
   @available(iOS 9.0, *)
-  @NSCopying var uniqueIdentifier: NSUUID { get }
+  @NSCopying var uniqueIdentifier: UUID { get }
 
   /*!
    * @brief Indicates if this service supports user interaction or not.
@@ -2705,7 +2705,7 @@ class HMService : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func updateName(name: String, completionHandler completion: (NSError?) -> Void)
+  func updateName(name: String, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief This method is used to set up the service type of the device connected to a switch or an outlet.
@@ -2720,7 +2720,7 @@ class HMService : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func updateAssociatedServiceType(serviceType: String?, completionHandler completion: (NSError?) -> Void)
+  func updateAssociatedServiceType(serviceType: String?, completionHandler completion: (Error?) -> Void)
   init()
 }
 
@@ -2732,7 +2732,7 @@ class HMService : NSObject {
  *             Eg. A collection of lights can be grouped as the "Desk Lamps" service group.
  */
 @available(iOS 8.0, *)
-class HMServiceGroup : NSObject {
+class HMServiceGroup : Object {
 
   /*!
    * @brief Name of the service group.
@@ -2748,7 +2748,7 @@ class HMServiceGroup : NSObject {
    * @brief A unique identifier for the service group.
    */
   @available(iOS 9.0, *)
-  @NSCopying var uniqueIdentifier: NSUUID { get }
+  @NSCopying var uniqueIdentifier: UUID { get }
 
   /*!
    * @brief This method is used to change the name of the service group.
@@ -2759,7 +2759,7 @@ class HMServiceGroup : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func updateName(name: String, completionHandler completion: (NSError?) -> Void)
+  func updateName(name: String, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief Adds an service to this service group. The service and the group must be part of the same
@@ -2772,7 +2772,7 @@ class HMServiceGroup : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func addService(service: HMService, completionHandler completion: (NSError?) -> Void)
+  func addService(service: HMService, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief Removes an service from this service group.
@@ -2783,7 +2783,7 @@ class HMServiceGroup : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func removeService(service: HMService, completionHandler completion: (NSError?) -> Void)
+  func removeService(service: HMService, completionHandler completion: (Error?) -> Void)
 }
 
 /*!
@@ -2982,7 +2982,7 @@ class HMTimerTrigger : HMTrigger {
    *             HMErrorCodeRecurrenceTooLarge is returned if recurrence interval is greater than 5 weeks.
    *             HMErrorCodeFireDateInPast is returned if recurrence is nil and fireDate is in the past.
    */
-  init(name: String, fire fireDate: NSDate, timeZone: NSTimeZone?, recurrence: NSDateComponents?, recurrenceCalendar: NSCalendar?)
+  init(name: String, fire fireDate: Date, timeZone: TimeZone?, recurrence: DateComponents?, recurrenceCalendar: Calendar?)
 
   /*!
    * @brief Specifies when, in an absolute time, the trigger should fire the first time.
@@ -2991,7 +2991,7 @@ class HMTimerTrigger : HMTrigger {
    *             it will typically fire within 1 minute of the scheduled fire date or calculated
    *             recurrence fire date, depending on how the system is managing its resources.
    */
-  @NSCopying var fireDate: NSDate { get }
+  @NSCopying var fireDate: Date { get }
 
   /*!
    * @brief Set the time zone to interpret the fire date in. 
@@ -3000,7 +3000,7 @@ class HMTimerTrigger : HMTrigger {
    *             fired will be adjusted to account for the time zone change. If this value is
    *             non-nil, the trigger will fire at the specified time in the specific time zone.
    */
-  @NSCopying var timeZone: NSTimeZone? { get }
+  @NSCopying var timeZone: TimeZone? { get }
 
   /*!
    * @brief The date components that specify how a trigger is to be repeated. 
@@ -3015,12 +3015,12 @@ class HMTimerTrigger : HMTrigger {
    *             whole minutes. Examples are 5 minutes, 6 minutes, 1 day, 2 weeks.
    *
    */
-  @NSCopying var recurrence: NSDateComponents? { get }
+  @NSCopying var recurrence: DateComponents? { get }
 
   /*!
    * @brief The calendar corresponding to a recurring timer trigger.
    */
-  @NSCopying var recurrenceCalendar: NSCalendar? { get }
+  @NSCopying var recurrenceCalendar: Calendar? { get }
 
   /*!
    * @brief This method is used to change the fire date of a timer trigger.
@@ -3032,7 +3032,7 @@ class HMTimerTrigger : HMTrigger {
    *                   error will be nil on success. HMErrorCodeDateMustBeOnSpecifiedBoundaries will
    *                   be returned if the fireDate includes a seconds value other than 0.
    */
-  func updateFire(fireDate: NSDate, completionHandler completion: (NSError?) -> Void)
+  func updateFire(fireDate: Date, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief This method is used to change the time zone of the fire date of a timer trigger.
@@ -3044,7 +3044,7 @@ class HMTimerTrigger : HMTrigger {
    *                   The NSError provides more information on the status of the request,
    *                   error will be nil on success.
    */
-  func updateTimeZone(timeZone: NSTimeZone?, completionHandler completion: (NSError?) -> Void)
+  func updateTimeZone(timeZone: TimeZone?, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief This method is used to change the recurrence interval for a timer trigger.
@@ -3063,7 +3063,7 @@ class HMTimerTrigger : HMTrigger {
    *                   HMErrorCodeRecurrenceTooLarge is returned if the recurrence interval is
    *                   greater than 5 weeks. *                   error will be nil on success.
    */
-  func updateRecurrence(recurrence: NSDateComponents?, completionHandler completion: (NSError?) -> Void)
+  func updateRecurrence(recurrence: DateComponents?, completionHandler completion: (Error?) -> Void)
 }
 
 /*!
@@ -3073,7 +3073,7 @@ class HMTimerTrigger : HMTrigger {
  *             be used to execute one or more action sets when the event fires.
  */
 @available(iOS 8.0, *)
-class HMTrigger : NSObject {
+class HMTrigger : Object {
 
   /*!
    * @brief Name of the trigger.
@@ -3096,13 +3096,13 @@ class HMTrigger : NSObject {
   /*!
    * @brief The date that this trigger was most recently fired.
    */
-  @NSCopying var lastFireDate: NSDate? { get }
+  @NSCopying var lastFireDate: Date? { get }
 
   /*!
    * @brief A unique identifier for the trigger.
    */
   @available(iOS 9.0, *)
-  @NSCopying var uniqueIdentifier: NSUUID { get }
+  @NSCopying var uniqueIdentifier: UUID { get }
 
   /*!
    * @brief This method is used to change the name of the trigger.
@@ -3112,7 +3112,7 @@ class HMTrigger : NSObject {
    * @param completion Block that is invoked once the request is processed.
    *                   The NSError provides more information on the status of the request.
    */
-  func updateName(name: String, completionHandler completion: (NSError?) -> Void)
+  func updateName(name: String, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief Registers an action set to be executed when the trigger is fired.
@@ -3123,7 +3123,7 @@ class HMTrigger : NSObject {
    * @param completion Block that is invoked once the request is processed. 
    *                   The NSError provides more information on the status of the request.
    */
-  func addActionSet(actionSet: HMActionSet, completionHandler completion: (NSError?) -> Void)
+  func addActionSet(actionSet: HMActionSet, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief De-registers an action set from the trigger.
@@ -3133,7 +3133,7 @@ class HMTrigger : NSObject {
    * @param completion Block that is invoked once the request is processed. 
    *                   The NSError provides more information on the status of the request.
    */
-  func removeActionSet(actionSet: HMActionSet, completionHandler completion: (NSError?) -> Void)
+  func removeActionSet(actionSet: HMActionSet, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief Enables or disables the trigger. 
@@ -3150,14 +3150,14 @@ class HMTrigger : NSObject {
    * @param completion Block that is invoked once the request is processed. 
    *                   The NSError provides more information on the status of the request.
    */
-  func enable(enable: Bool, completionHandler completion: (NSError?) -> Void)
+  func enable(enable: Bool, completionHandler completion: (Error?) -> Void)
 }
 
 /*!
  * @brief This class describes a user in the home.
  */
 @available(iOS 8.0, *)
-class HMUser : NSObject {
+class HMUser : Object {
 
   /*!
    * @brief Name of the user.
@@ -3168,7 +3168,7 @@ class HMUser : NSObject {
    * @brief A unique identifier for the user.
    */
   @available(iOS 9.0, *)
-  @NSCopying var uniqueIdentifier: NSUUID { get }
+  @NSCopying var uniqueIdentifier: UUID { get }
 }
 
 /*!
@@ -3180,7 +3180,7 @@ class HMUser : NSObject {
  *             in the "Downstairs" zone.
  */
 @available(iOS 8.0, *)
-class HMZone : NSObject {
+class HMZone : Object {
 
   /*!
    * @brief Name of the zone.
@@ -3196,7 +3196,7 @@ class HMZone : NSObject {
    * @brief A unique identifier for the zone.
    */
   @available(iOS 9.0, *)
-  @NSCopying var uniqueIdentifier: NSUUID { get }
+  @NSCopying var uniqueIdentifier: UUID { get }
 
   /*!
    * @brief This method is used to change the name of the zone.
@@ -3207,7 +3207,7 @@ class HMZone : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func updateName(name: String, completionHandler completion: (NSError?) -> Void)
+  func updateName(name: String, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief Adds a room to a zone.
@@ -3221,7 +3221,7 @@ class HMZone : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func addRoom(room: HMRoom, completionHandler completion: (NSError?) -> Void)
+  func addRoom(room: HMRoom, completionHandler completion: (Error?) -> Void)
 
   /*!
    * @brief Removes a room from the zone.
@@ -3232,5 +3232,5 @@ class HMZone : NSObject {
    *                   The NSError provides more information on the status of the request, error
    *                   will be nil on success.
    */
-  func removeRoom(room: HMRoom, completionHandler completion: (NSError?) -> Void)
+  func removeRoom(room: HMRoom, completionHandler completion: (Error?) -> Void)
 }

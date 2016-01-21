@@ -1,14 +1,14 @@
 
-class NSCoercionHandler : NSScriptCoercionHandler {
+class NSCoercionHandler : ScriptCoercionHandler {
   init()
 }
-class NSObjectSpecifier : NSScriptObjectSpecifier {
-  convenience init(containerSpecifier container: NSScriptObjectSpecifier, key property: String)
-  init(containerClassDescription classDesc: NSScriptClassDescription, containerSpecifier container: NSScriptObjectSpecifier?, key property: String)
-  init?(coder inCoder: NSCoder)
+class NSObjectSpecifier : ScriptObjectSpecifier {
+  convenience init(containerSpecifier container: ScriptObjectSpecifier, key property: String)
+  init(containerClassDescription classDesc: ScriptClassDescription, containerSpecifier container: ScriptObjectSpecifier?, key property: String)
+  init?(coder inCoder: Coder)
   convenience init()
 }
-class NSWhoseTest : NSScriptWhoseTest {
+class NSWhoseTest : ScriptWhoseTest {
   init()
-  init?(coder inCoder: NSCoder)
+  init?(coder inCoder: Coder)
 }

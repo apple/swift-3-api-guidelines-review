@@ -4,7 +4,7 @@
  visited in a web view that can be reached by going back or forward.
  */
 @available(iOS 8.0, *)
-class WKBackForwardList : NSObject {
+class WKBackForwardList : Object {
 
   /*! @abstract The current item.
    */
@@ -47,11 +47,11 @@ class WKBackForwardList : NSObject {
 /*! A WKBackForwardListItem object represents a webpage in the back-forward list of a web view.
  */
 @available(iOS 8.0, *)
-class WKBackForwardListItem : NSObject {
+class WKBackForwardListItem : Object {
 
   /*! @abstract The URL of the webpage represented by this item.
    */
-  @NSCopying var url: NSURL { get }
+  @NSCopying var url: URL { get }
 
   /*! @abstract The title of the webpage represented by this item.
    */
@@ -59,7 +59,7 @@ class WKBackForwardListItem : NSObject {
 
   /*! @abstract The URL of the initial request that created this item.
    */
-  @NSCopying var initialURL: NSURL { get }
+  @NSCopying var initialURL: URL { get }
   init()
 }
 
@@ -100,7 +100,7 @@ var WK_API_ENABLED: Int32 { get }
  calls.
  */
 @available(iOS 8.0, *)
-class WKFrameInfo : NSObject, NSCopying {
+class WKFrameInfo : Object, Copying {
 
   /*! @abstract A Boolean value indicating whether the frame is the main frame
    or a subframe.
@@ -109,7 +109,7 @@ class WKFrameInfo : NSObject, NSCopying {
 
   /*! @abstract The frame's current request.
    */
-  @NSCopying var request: NSURLRequest { get }
+  @NSCopying var request: URLRequest { get }
 
   /*! @abstract The frame's current security origin.
    */
@@ -117,7 +117,7 @@ class WKFrameInfo : NSObject, NSCopying {
   var securityOrigin: WKSecurityOrigin { get }
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*! A WKNavigation object can be used for tracking the loading progress of a webpage.
@@ -126,7 +126,7 @@ class WKFrameInfo : NSObject, NSCopying {
  load from start to finish.
  */
 @available(iOS 8.0, *)
-class WKNavigation : NSObject {
+class WKNavigation : Object {
   init()
 }
 
@@ -155,7 +155,7 @@ enum WKNavigationType : Int {
 A WKNavigationAction object contains information about an action that may cause a navigation, used for making policy decisions.
  */
 @available(iOS 8.0, *)
-class WKNavigationAction : NSObject {
+class WKNavigationAction : Object {
 
   /*! @abstract The frame requesting the navigation.
    */
@@ -172,7 +172,7 @@ class WKNavigationAction : NSObject {
 
   /*! @abstract The navigation's request.
    */
-  @NSCopying var request: NSURLRequest { get }
+  @NSCopying var request: URLRequest { get }
   init()
 }
 
@@ -207,7 +207,7 @@ enum WKNavigationResponsePolicy : Int {
  methods for tracking progress for main frame navigations and for deciding
  policy for main frame and subframe navigations.
  */
-protocol WKNavigationDelegate : NSObjectProtocol {
+protocol WKNavigationDelegate : ObjectProtocol {
 
   /*! @abstract Decides whether to allow or cancel a navigation.
    @param webView The web view invoking the delegate method.
@@ -254,7 +254,7 @@ protocol WKNavigationDelegate : NSObjectProtocol {
    @param error The error that occurred.
    */
   @available(iOS 8.0, *)
-  optional func webView(webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: NSError)
+  optional func webView(webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error)
 
   /*! @abstract Invoked when content starts arriving for the main frame.
    @param webView The web view invoking the delegate method.
@@ -277,7 +277,7 @@ protocol WKNavigationDelegate : NSObjectProtocol {
    @param error The error that occurred.
    */
   @available(iOS 8.0, *)
-  optional func webView(webView: WKWebView, didFail navigation: WKNavigation!, withError error: NSError)
+  optional func webView(webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error)
 
   /*! @abstract Invoked when the web view needs to respond to an authentication challenge.
    @param webView The web view that received the authentication challenge.
@@ -290,7 +290,7 @@ protocol WKNavigationDelegate : NSObjectProtocol {
    @discussion If you do not implement this method, the web view will respond to the authentication challenge with the NSURLSessionAuthChallengeRejectProtectionSpace disposition.
    */
   @available(iOS 8.0, *)
-  optional func webView(webView: WKWebView, didReceive challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void)
+  optional func webView(webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: (URLSessionAuthChallengeDisposition, URLCredential?) -> Void)
 
   /*! @abstract Invoked when the web view's web content process is terminated.
    @param webView The web view whose underlying web content process was terminated.
@@ -302,7 +302,7 @@ protocol WKNavigationDelegate : NSObjectProtocol {
 /*! Contains information about a navigation response, used for making policy decisions.
  */
 @available(iOS 8.0, *)
-class WKNavigationResponse : NSObject {
+class WKNavigationResponse : Object {
 
   /*! @abstract A Boolean value indicating whether the frame being navigated is the main frame.
    */
@@ -310,7 +310,7 @@ class WKNavigationResponse : NSObject {
 
   /*! @abstract The frame's response.
    */
-  @NSCopying var response: NSURLResponse { get }
+  @NSCopying var response: URLResponse { get }
 
   /*! @abstract A Boolean value indicating whether WebKit can display the response's MIME type natively.
    @discussion Allowing a navigation response with a MIME type that can't be shown will cause the navigation to fail.
@@ -324,7 +324,7 @@ class WKNavigationResponse : NSObject {
  its web view configuration.
  */
 @available(iOS 8.0, *)
-class WKPreferences : NSObject {
+class WKPreferences : Object {
 
   /*! @abstract The minimum font size in points.
    @discussion The default value is 0.
@@ -351,7 +351,7 @@ class WKPreferences : NSObject {
  with the same process pool end up sharing web content processes.
  */
 @available(iOS 8.0, *)
-class WKProcessPool : NSObject {
+class WKProcessPool : Object {
   init()
 }
 
@@ -359,7 +359,7 @@ class WKProcessPool : NSObject {
  a webpage.
  */
 @available(iOS 8.0, *)
-class WKScriptMessage : NSObject {
+class WKScriptMessage : Object {
 
   /*! @abstract The body of the message.
    @discussion Allowed types are NSNumber, NSString, NSDate, NSArray,
@@ -382,7 +382,7 @@ class WKScriptMessage : NSObject {
 /*! A class conforming to the WKScriptMessageHandler protocol provides a
  method for receiving messages from JavaScript running in a webpage.
  */
-protocol WKScriptMessageHandler : NSObjectProtocol {
+protocol WKScriptMessageHandler : ObjectProtocol {
 
   /*! @abstract Invoked when a script message is received from a webpage.
    @param userContentController The user content controller invoking the
@@ -399,7 +399,7 @@ protocol WKScriptMessageHandler : NSObjectProtocol {
  calls.
  */
 @available(iOS 9.0, *)
-class WKSecurityOrigin : NSObject {
+class WKSecurityOrigin : Object {
 
   /*! @abstract The security origin's protocol.
    */
@@ -417,7 +417,7 @@ class WKSecurityOrigin : NSObject {
 /*! A class conforming to the WKUIDelegate protocol provides methods for
  presenting native UI on behalf of a webpage.
  */
-protocol WKUIDelegate : NSObjectProtocol {
+protocol WKUIDelegate : ObjectProtocol {
 
   /*! @abstract Creates a new web view.
    @param webView The web view invoking the delegate method.
@@ -502,7 +502,7 @@ protocol WKUIDelegate : NSObjectProtocol {
  web view configuration.
  */
 @available(iOS 8.0, *)
-class WKUserContentController : NSObject {
+class WKUserContentController : Object {
 
   /*! @abstract The user scripts associated with this user content
    controller.
@@ -550,7 +550,7 @@ enum WKUserScriptInjectionTime : Int {
 /*! A @link WKUserScript @/link object represents a script that can be injected into webpages.
  */
 @available(iOS 8.0, *)
-class WKUserScript : NSObject, NSCopying {
+class WKUserScript : Object, Copying {
   var source: String { get }
   var injectionTime: WKUserScriptInjectionTime { get }
   var isForMainFrameOnly: Bool { get }
@@ -563,7 +563,7 @@ class WKUserScript : NSObject, NSCopying {
   init(source: String, injectionTime: WKUserScriptInjectionTime, forMainFrameOnly: Bool)
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class WKWebView : UIView {
@@ -599,7 +599,7 @@ class WKWebView : UIView {
    @param request The request specifying the URL to which to navigate.
    @result A new navigation for the given request.
    */
-  func load(request: NSURLRequest) -> WKNavigation?
+  func load(request: URLRequest) -> WKNavigation?
 
   /*! @abstract Navigates to the requested file URL on the filesystem.
    @param URL The file URL to which to navigate.
@@ -609,14 +609,14 @@ class WKWebView : UIView {
    @result A new navigation for the given file URL.
    */
   @available(iOS 9.0, *)
-  func loadFileURL(URL: NSURL, allowingReadAccessTo readAccessURL: NSURL) -> WKNavigation?
+  func loadFileURL(URL: URL, allowingReadAccessTo readAccessURL: URL) -> WKNavigation?
 
   /*! @abstract Sets the webpage contents and base URL.
    @param string The string to use as the contents of the webpage.
    @param baseURL A URL that is used to resolve relative URLs within the document.
    @result A new navigation.
    */
-  func loadHTMLString(string: String, baseURL: NSURL?) -> WKNavigation?
+  func loadHTMLString(string: String, baseURL: URL?) -> WKNavigation?
 
   /*! @abstract Sets the webpage contents and base URL.
    @param data The data to use as the contents of the webpage.
@@ -626,7 +626,7 @@ class WKWebView : UIView {
    @result A new navigation.
    */
   @available(iOS 9.0, *)
-  func load(data: NSData, mimeType MIMEType: String, characterEncodingName: String, baseURL: NSURL) -> WKNavigation?
+  func load(data: Data, mimeType MIMEType: String, characterEncodingName: String, baseURL: URL) -> WKNavigation?
 
   /*! @abstract Navigates to an item from the back-forward list and sets it
    as the current item.
@@ -650,7 +650,7 @@ class WKWebView : UIView {
    @link WKWebView @/link is key-value observing (KVO) compliant for this
    property.
    */
-  @NSCopying var url: NSURL? { get }
+  @NSCopying var url: URL? { get }
 
   /*! @abstract A Boolean value indicating whether the view is currently
    loading content.
@@ -726,7 +726,7 @@ class WKWebView : UIView {
   /*! @abstract Stops loading all resources on the current page.
    */
   func stopLoading()
-  func evaluateJavaScript(javaScriptString: String, completionHandler: ((AnyObject?, NSError?) -> Void)? = nil)
+  func evaluateJavaScript(javaScriptString: String, completionHandler: ((AnyObject?, Error?) -> Void)? = nil)
 
   /*! @abstract A Boolean value indicating whether horizontal swipe gestures
    will trigger back-forward list navigations.
@@ -774,7 +774,7 @@ enum WKSelectionGranularity : Int {
  @helps Contains properties used to configure a @link WKWebView @/link.
  */
 @available(iOS 8.0, *)
-class WKWebViewConfiguration : NSObject, NSCopying {
+class WKWebViewConfiguration : Object, Copying {
 
   /*! @abstract The process pool from which to obtain the view's web content
    process.
@@ -842,7 +842,7 @@ class WKWebViewConfiguration : NSObject, NSCopying {
   var allowsPictureInPictureMediaPlayback: Bool
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 extension WKWebViewConfiguration {
   @available(iOS, introduced=8.0, deprecated=9.0, message="Please use requiresUserActionForMediaPlayback")
@@ -885,7 +885,7 @@ let WKWebsiteDataTypeIndexedDBDatabases: String
 
 /*! A WKWebsiteDataRecord represents website data, grouped by domain name using the public suffix list. */
 @available(iOS 9.0, *)
-class WKWebsiteDataRecord : NSObject {
+class WKWebsiteDataRecord : Object {
 
   /*! @abstract The display name for the data record. This is usually the domain name. */
   var displayName: String { get }
@@ -900,7 +900,7 @@ class WKWebsiteDataRecord : NSObject {
  IndexedDB databases, and local storage.
  */
 @available(iOS 9.0, *)
-class WKWebsiteDataStore : NSObject {
+class WKWebsiteDataStore : Object {
   class func defaultDataStore() -> WKWebsiteDataStore
 
   /** @abstract Returns a new non-persistent data store.
@@ -933,44 +933,44 @@ class WKWebsiteDataStore : NSObject {
    @param date A date. All website data modified after this date will be removed.
    @param completionHandler A block to invoke when the website data has been removed.
   */
-  func removeDataOfTypes(websiteDataTypes: Set<String>, modifiedSince date: NSDate, completionHandler: () -> Void)
+  func removeDataOfTypes(websiteDataTypes: Set<String>, modifiedSince date: Date, completionHandler: () -> Void)
 }
 
 /*! WKWindowFeatures specifies optional attributes for the containing window when a new WKWebView is requested.
  */
 @available(iOS 8.0, *)
-class WKWindowFeatures : NSObject {
+class WKWindowFeatures : Object {
 
   /*! @abstract BOOL. Whether the menu bar should be visible. nil if menu bar visibility was not specified.
    */
-  var menuBarVisibility: NSNumber? { get }
+  var menuBarVisibility: Number? { get }
 
   /*! @abstract BOOL. Whether the status bar should be visible. nil if status bar visibility was not specified.
    */
-  var statusBarVisibility: NSNumber? { get }
+  var statusBarVisibility: Number? { get }
 
   /*! @abstract BOOL. Whether toolbars should be visible. nil if toolbar visibility was not specified.
    */
-  var toolbarsVisibility: NSNumber? { get }
+  var toolbarsVisibility: Number? { get }
 
   /*! @abstract BOOL. Whether the containing window should be resizable. nil if resizability was not specified.
    */
-  var allowsResizing: NSNumber? { get }
+  var allowsResizing: Number? { get }
 
   /*! @abstract CGFloat. The x coordinate of the containing window. nil if the x coordinate was not specified.
    */
-  var x: NSNumber? { get }
+  var x: Number? { get }
 
   /*! @abstract CGFloat. The y coordinate of the containing window. nil if the y coordinate was not specified.
    */
-  var y: NSNumber? { get }
+  var y: Number? { get }
 
   /*! @abstract CGFloat. The width coordinate of the containing window. nil if the width was not specified.
    */
-  var width: NSNumber? { get }
+  var width: Number? { get }
 
   /*! @abstract CGFloat. The height coordinate of the containing window. nil if the height was not specified.
    */
-  var height: NSNumber? { get }
+  var height: Number? { get }
   init()
 }

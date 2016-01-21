@@ -49,8 +49,8 @@ class GCEventViewController : UIViewController {
    @see UIView.userInteractionEnabled
    */
   var controllerUserInteractionEnabled: Bool
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  init?(coder aDecoder: Coder)
   convenience init()
 }
 
@@ -81,7 +81,7 @@ enum GCControllerPlayerIndex : Int {
  your application, as the user will expect their controller to either be fully supported or not supported at all.
   */
 @available(tvOS 7.0, *)
-class GCController : NSObject {
+class GCController : Object {
 
   /**
    Set this block to be notified when a user intends to suspend or resume the current game state. A controller will have a button
@@ -291,7 +291,7 @@ typealias GCControllerDirectionPadValueChangedHandler = (GCControllerDirectionPa
  Every controller element knows which collection it belongs to and whether its input value is analog or digital.
  */
 @available(tvOS 7.0, *)
-class GCControllerElement : NSObject {
+class GCControllerElement : Object {
   weak var collection: @sil_weak GCControllerElement? { get }
 
   /**
@@ -314,7 +314,7 @@ class GCControllerElement : NSObject {
  design for and depend on, no matter the underlying hardware.
  */
 @available(tvOS 7.0, *)
-class GCExtendedGamepad : NSObject {
+class GCExtendedGamepad : Object {
   weak var controller: @sil_weak GCController? { get }
   var valueChangedHandler: GCExtendedGamepadValueChangedHandler?
 
@@ -400,9 +400,9 @@ typealias GCExtendedGamepadValueChangedHandler = (GCExtendedGamepad, GCControlle
  */
 @available(tvOS 7.0, *)
 class GCExtendedGamepadSnapshot : GCExtendedGamepad {
-  @NSCopying var snapshotData: NSData
-  init(snapshotData data: NSData)
-  init(controller: GCController, snapshotData data: NSData)
+  @NSCopying var snapshotData: Data
+  init(snapshotData data: Data)
+  init(controller: GCController, snapshotData data: Data)
   init()
 }
 struct GCExtendedGamepadSnapShotDataV100 {
@@ -431,7 +431,7 @@ struct GCExtendedGamepadSnapShotDataV100 {
  @return NO if data is nil, snapshotData is nil or the contents of data does not contain a compatible snapshot. YES for all other cases.
  */
 @available(tvOS 7.0, *)
-func GCExtendedGamepadSnapShotDataV100FromNSData(snapshotData: UnsafeMutablePointer<GCExtendedGamepadSnapShotDataV100>, _ data: NSData?) -> Bool
+func GCExtendedGamepadSnapShotDataV100FromNSData(snapshotData: UnsafeMutablePointer<GCExtendedGamepadSnapShotDataV100>, _ data: Data?) -> Bool
 
 /**Creates an NSData object from a v100 snapshot.
  If the version and size is not set in the snapshot the data will automatically have version 0x100 and sizeof(GCExtendedGamepadSnapShotDataV100) set as the values implicitly.
@@ -439,7 +439,7 @@ func GCExtendedGamepadSnapShotDataV100FromNSData(snapshotData: UnsafeMutablePoin
  @return nil if the snapshot is NULL, otherwise an NSData instance compatible with GCExtendedGamepadSnapshot.snapshotData
  */
 @available(tvOS 7.0, *)
-func NSDataFromGCExtendedGamepadSnapShotDataV100(snapshotData: UnsafeMutablePointer<GCExtendedGamepadSnapShotDataV100>) -> NSData?
+func NSDataFromGCExtendedGamepadSnapShotDataV100(snapshotData: UnsafeMutablePointer<GCExtendedGamepadSnapShotDataV100>) -> Data?
 
 /**
  Standard Gamepad profile.
@@ -450,7 +450,7 @@ func NSDataFromGCExtendedGamepadSnapShotDataV100(snapshotData: UnsafeMutablePoin
  and depend on, no matter the underlying hardware.
  */
 @available(tvOS 7.0, *)
-class GCGamepad : NSObject {
+class GCGamepad : Object {
   weak var controller: @sil_weak GCController? { get }
   var valueChangedHandler: GCGamepadValueChangedHandler?
 
@@ -521,9 +521,9 @@ typealias GCGamepadValueChangedHandler = (GCGamepad, GCControllerElement) -> Voi
  */
 @available(tvOS 7.0, *)
 class GCGamepadSnapshot : GCGamepad {
-  @NSCopying var snapshotData: NSData
-  init(snapshotData data: NSData)
-  init(controller: GCController, snapshotData data: NSData)
+  @NSCopying var snapshotData: Data
+  init(snapshotData data: Data)
+  init(controller: GCController, snapshotData data: Data)
   init()
 }
 struct GCGamepadSnapShotDataV100 {
@@ -546,7 +546,7 @@ struct GCGamepadSnapShotDataV100 {
  @return NO if data is nil, snapshotData is nil or the contents of data does not contain a compatible snapshot. YES for all other cases.
  */
 @available(tvOS 7.0, *)
-func GCGamepadSnapShotDataV100FromNSData(snapshotData: UnsafeMutablePointer<GCGamepadSnapShotDataV100>, _ data: NSData?) -> Bool
+func GCGamepadSnapShotDataV100FromNSData(snapshotData: UnsafeMutablePointer<GCGamepadSnapShotDataV100>, _ data: Data?) -> Bool
 
 /**Creates an NSData object from a v100 snapshot.
  If the version and size is not set in the snapshot the data will automatically have version 0x100 and sizeof(GCGamepadSnapShotDataV100) set as the values implicitly.
@@ -554,7 +554,7 @@ func GCGamepadSnapShotDataV100FromNSData(snapshotData: UnsafeMutablePointer<GCGa
  @return nil if the snapshot is NULL, otherwise an NSData instance compatible with GCGamepadSnapshot.snapshotData
  */
 @available(tvOS 7.0, *)
-func NSDataFromGCGamepadSnapShotDataV100(snapshotData: UnsafeMutablePointer<GCGamepadSnapShotDataV100>) -> NSData?
+func NSDataFromGCGamepadSnapShotDataV100(snapshotData: UnsafeMutablePointer<GCGamepadSnapShotDataV100>) -> Data?
 
 /**
  Micro Gamepad profile.
@@ -565,7 +565,7 @@ func NSDataFromGCGamepadSnapShotDataV100(snapshotData: UnsafeMutablePointer<GCGa
  and depend on, no matter the underlying hardware.
  */
 @available(tvOS 9.0, *)
-class GCMicroGamepad : NSObject {
+class GCMicroGamepad : Object {
   weak var controller: @sil_weak GCController? { get }
   var valueChangedHandler: GCMicroGamepadValueChangedHandler?
 
@@ -648,9 +648,9 @@ typealias GCMicroGamepadValueChangedHandler = (GCMicroGamepad, GCControllerEleme
  */
 @available(tvOS 7.0, *)
 class GCMicroGamepadSnapshot : GCMicroGamepad {
-  @NSCopying var snapshotData: NSData
-  init(snapshotData data: NSData)
-  init(controller: GCController, snapshotData data: NSData)
+  @NSCopying var snapshotData: Data
+  init(snapshotData data: Data)
+  init(controller: GCController, snapshotData data: Data)
   init()
 }
 struct GCMicroGamepadSnapShotDataV100 {
@@ -669,7 +669,7 @@ struct GCMicroGamepadSnapShotDataV100 {
  @return NO if data is nil, snapshotData is nil or the contents of data does not contain a compatible snapshot. YES for all other cases.
  */
 @available(tvOS 7.0, *)
-func GCMicroGamepadSnapShotDataV100FromNSData(snapshotData: UnsafeMutablePointer<GCMicroGamepadSnapShotDataV100>, _ data: NSData?) -> Bool
+func GCMicroGamepadSnapShotDataV100FromNSData(snapshotData: UnsafeMutablePointer<GCMicroGamepadSnapShotDataV100>, _ data: Data?) -> Bool
 
 /**Creates an NSData object from a v100 snapshot.
  If the version and size is not set in the snapshot the data will automatically have version 0x100 and sizeof(GCMicroGamepadSnapShotDataV100) set as the values implicitly.
@@ -677,7 +677,7 @@ func GCMicroGamepadSnapShotDataV100FromNSData(snapshotData: UnsafeMutablePointer
  @return nil if the snapshot is NULL, otherwise an NSData instance compatible with GCGamepadSnapshot.snapshotData
  */
 @available(tvOS 7.0, *)
-func NSDataFromGCMicroGamepadSnapShotDataV100(snapshotData: UnsafeMutablePointer<GCMicroGamepadSnapShotDataV100>) -> NSData?
+func NSDataFromGCMicroGamepadSnapShotDataV100(snapshotData: UnsafeMutablePointer<GCMicroGamepadSnapShotDataV100>) -> Data?
 
 /**
  A 3 dimensional acceleration vector measured as scalar multiples of earth's gravitational acceleration, G.
@@ -778,7 +778,7 @@ struct GCQuaternion {
  @see GCController.motion
  */
 @available(tvOS 8.0, *)
-class GCMotion : NSObject {
+class GCMotion : Object {
   weak var controller: @sil_weak GCController? { get }
   var valueChangedHandler: GCMotionValueChangedHandler?
 

@@ -250,7 +250,7 @@ typealias AUHostTransportStateBlock = (UnsafeMutablePointer<AUHostTransportState
 		two API's. This header describes, for each v3 method or property, the v2 equivalent.
 */
 @available(OSX 10.11, *)
-class AUAudioUnit : NSObject {
+class AUAudioUnit : Object {
 
   /*!	@method		initWithComponentDescription:options:error:
   	@brief		Designated initializer.
@@ -287,7 +287,7 @@ class AUAudioUnit : NSObject {
   		Note: Do not block the main thread while waiting for the completion handler to be called;
   		this can deadlock.
   */
-  class func instantiateWith(componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = [], completionHandler: (AUAudioUnit?, NSError?) -> Void)
+  class func instantiateWith(componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = [], completionHandler: (AUAudioUnit?, Error?) -> Void)
 
   /*!	@property	componentDescription
   	@brief		The AudioComponentDescription with which the audio unit was created.
@@ -479,7 +479,7 @@ class AUAudioUnit : NSObject {
   		Partially bridged to kAudioUnitProperty_ParametersForOverview (v2 hosts can use that
   		property to access this v3 method of an audio unit).
   */
-  func parametersForOverviewWithCount(count: Int) -> [NSNumber]
+  func parametersForOverviewWithCount(count: Int) -> [Number]
   var allParameterValues: Bool { get }
 
   /*!	@property	musicDeviceOrEffect
@@ -586,7 +586,7 @@ class AUAudioUnit : NSObject {
   
   		Bridged to the v2 property kAudioUnitProperty_Latency.
   */
-  var latency: NSTimeInterval { get }
+  var latency: TimeInterval { get }
 
   /*!	@property	tailTime
   	@brief		The audio unit's tail time, in seconds.
@@ -597,7 +597,7 @@ class AUAudioUnit : NSObject {
   		
   		Bridged to the v2 property kAudioUnitProperty_TailTime.
   */
-  var tailTime: NSTimeInterval { get }
+  var tailTime: TimeInterval { get }
 
   /*!	@property	renderQuality
   	@brief		Provides a trade-off between rendering quality and CPU load.
@@ -666,7 +666,7 @@ class AUAudioUnit : NSObject {
   
   		Bridged to the v2 property kAudioUnitProperty_SupportedNumChannels.
   */
-  var channelCapabilities: [NSNumber]? { get }
+  var channelCapabilities: [Number]? { get }
 
   /*!	@property	musicalContextBlock
   	@brief		A callback for the AU to call the host for musical context information.
@@ -805,7 +805,7 @@ extension AUAudioUnit {
 		The bus array is bridged to the v2 property kAudioUnitProperty_ElementCount.
 */
 @available(OSX 10.11, *)
-class AUAudioUnitBusArray : NSObject, NSFastEnumeration {
+class AUAudioUnitBusArray : Object, FastEnumeration {
 
   /*!	@method		initWithAudioUnit:busType:busses:
   	@brief		Initializes by making a copy of the supplied bus array.
@@ -840,12 +840,12 @@ class AUAudioUnitBusArray : NSObject, NSFastEnumeration {
   /*!	@method		addObserverToAllBusses:forKeyPath:options:context:
   	@brief		Add a KVO observer for a property on all busses in the array.
   */
-  func addObserverToAllBusses(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
+  func addObserverToAllBusses(observer: Object, forKeyPath keyPath: String, options: KeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
 
   /*!	@method		removeObserverFromAllBusses:forKeyPath:context:
   	@brief		Remove a KVO observer for a property on all busses in the array.
   */
-  func removeObserverFromAllBusses(observer: NSObject, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
+  func removeObserverFromAllBusses(observer: Object, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
 
   /// The audio unit that owns the bus.
   unowned(unsafe) var ownerAudioUnit: @sil_unmanaged AUAudioUnit { get }
@@ -853,14 +853,14 @@ class AUAudioUnitBusArray : NSObject, NSFastEnumeration {
   /// Which bus array this is (input or output).
   var busType: AUAudioUnitBusType { get }
   @available(OSX 10.11, *)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 /*!	@class	AUAudioUnitBus
 	@brief	An input or output connection point on an audio unit.
 */
 @available(OSX 10.11, *)
-class AUAudioUnitBus : NSObject {
+class AUAudioUnitBus : Object {
 
   /*!	@property	enabled
   	@brief		Whether the bus is active.
@@ -898,7 +898,7 @@ class AUAudioUnitBus : NSObject {
   	@discussion
   		This is an array of NSNumbers representing AudioChannelLayoutTag.
   */
-  var supportedChannelLayoutTags: [NSNumber]? { get }
+  var supportedChannelLayoutTags: [Number]? { get }
 
   /*!	@property	contextPresentationLatency
   	@brief		Information about latency in the audio unit's processing context.
@@ -938,7 +938,7 @@ class AUAudioUnitBus : NSObject {
   		
   		Bridged to the v2 property kAudioUnitProperty_PresentationLatency.
   */
-  var contextPresentationLatency: NSTimeInterval
+  var contextPresentationLatency: TimeInterval
   init()
 }
 
@@ -947,7 +947,7 @@ class AUAudioUnitBus : NSObject {
 			useful sound or starting point.
 */
 @available(OSX 10.11, *)
-class AUAudioUnitPreset : NSObject, NSSecureCoding {
+class AUAudioUnitPreset : Object, SecureCoding {
 
   /*!	@property	number
   	@brief		The preset's unique numeric identifier.
@@ -962,8 +962,8 @@ class AUAudioUnitPreset : NSObject, NSSecureCoding {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /// Describes the type of a render event.
@@ -1110,7 +1110,7 @@ extension AUAudioUnitBus {
   		is supported. If setting supportedChannelCounts makes the current format unsupported, then
   		format will be set to nil. The default value is nil.
   */
-  var supportedChannelCounts: [NSNumber]?
+  var supportedChannelCounts: [Number]?
 
   /*!	@property	maximumChannelCount
   	@brief		The maximum numbers of channels supported for this bus.
@@ -1138,7 +1138,7 @@ extension AUParameterTree {
 
   ///	Create an AUParameter.
   /// See AUParameter's properties for descriptions of the arguments.
-  class func createParameterWithIdentifier(identifier: String, name: String, address: AUParameterAddress, min: AUValue, max: AUValue, unit: AudioUnitParameterUnit, unitName: String?, flags: AudioUnitParameterOptions = [], valueStrings: [String]?, dependentParameters: [NSNumber]?) -> AUParameter
+  class func createParameterWithIdentifier(identifier: String, name: String, address: AUParameterAddress, min: AUValue, max: AUValue, unit: AudioUnitParameterUnit, unitName: String?, flags: AudioUnitParameterOptions = [], valueStrings: [String]?, dependentParameters: [Number]?) -> AUParameter
 
   /*!	@brief	Create an AUParameterGroup.
   	@param identifier	An identifier for the group (non-localized, persistent).
@@ -1259,7 +1259,7 @@ class AUAudioUnitV2Bridge : AUAudioUnit {
 		The principal class of a UI v3 audio unit extension must derive from AUViewController and
 		implement this protocol.
 */
-protocol AUAudioUnitFactory : NSExtensionRequestHandling {
+protocol AUAudioUnitFactory : ExtensionRequestHandling {
 
   /*!	@brief	Create an instance of an extension's AUAudioUnit.
   	@discussion
@@ -1306,7 +1306,7 @@ protocol AUCocoaUIBase {
   				Each view must be returned with a retain count of 1 and autoreleased.
   				It is the client's responsibility to retain the returned view and to release the view when it's no longer needed.
   */
-  func uiViewForAudioUnit(inAudioUnit: AudioUnit, withSize inPreferredSize: NSSize) -> NSView?
+  func uiViewForAudioUnit(inAudioUnit: AudioUnit, withSize inPreferredSize: Size) -> NSView?
 }
 
 /*!
@@ -2242,7 +2242,7 @@ typealias AUParameterObserverToken = UnsafeMutablePointer<Void>
 		Nodes are instances of either AUParameterGroup or AUParameter.
 */
 @available(OSX 10.11, *)
-class AUParameterNode : NSObject {
+class AUParameterNode : Object {
 
   /*!	@property	identifier
   	@brief		A non-localized, permanent name for a parameter or group.
@@ -2339,7 +2339,7 @@ class AUParameterNode : NSObject {
 		return a child parameter whose identifier is "volume".
 */
 @available(OSX 10.11, *)
-class AUParameterGroup : AUParameterNode, NSSecureCoding {
+class AUParameterGroup : AUParameterNode, SecureCoding {
 
   /// The group's child nodes (AUParameterGroupNode).
   var children: [AUParameterNode] { get }
@@ -2350,8 +2350,8 @@ class AUParameterGroup : AUParameterNode, NSSecureCoding {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!	@class	AUParameterTree
@@ -2368,7 +2368,7 @@ class AUParameterGroup : AUParameterNode, NSSecureCoding {
 		issue a KVO notification on the audio unit's parameterTree property.
 */
 @available(OSX 10.11, *)
-class AUParameterTree : AUParameterGroup, NSSecureCoding {
+class AUParameterTree : AUParameterGroup, SecureCoding {
 
   /*!	@method	parameterWithAddress:
   	@brief	Search a tree for a parameter with a specific address.
@@ -2389,14 +2389,14 @@ class AUParameterTree : AUParameterGroup, NSSecureCoding {
   */
   func parameterWithID(paramID: AudioUnitParameterID, scope: AudioUnitScope, element: AudioUnitElement) -> AUParameter?
   init()
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!	@class	AUParameter
 	@brief	A node representing a single parameter.
 */
 @available(OSX 10.11, *)
-class AUParameter : AUParameterNode, NSSecureCoding {
+class AUParameter : AUParameterNode, SecureCoding {
 
   /// The parameter's minimum value.
   var minValue: AUValue { get }
@@ -2425,7 +2425,7 @@ class AUParameter : AUParameterNode, NSSecureCoding {
   	@discussion
   		Each array value is an NSNumber representing AUParameterAddress.
   */
-  var dependentParameters: [NSNumber]? { get }
+  var dependentParameters: [Number]? { get }
 
   /// The parameter's current value.
   var value: AUValue
@@ -2445,8 +2445,8 @@ class AUParameter : AUParameterNode, NSSecureCoding {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 typealias AudioCodec = AudioComponentInstance
 typealias AudioCodecPropertyID = UInt32

@@ -18,7 +18,7 @@ class BeamFiringState: GKState {
     var target: TaskBot?
     
     /// The amount of time the beam has been in its "firing" state.
-    var elapsedTime: NSTimeInterval = 0.0
+    var elapsedTime: TimeInterval = 0.0
 
     /// The `PlayerBot` associated with the `BeamComponent`'s `entity`.
     var playerBot: PlayerBot {
@@ -79,7 +79,7 @@ class BeamFiringState: GKState {
         updateBeamNodeWithDeltaTime(0.0)
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func updateWithDeltaTime(seconds: TimeInterval) {
         super.updateWithDeltaTime(seconds)
         
         // Update the "amount of time firing" tracker.
@@ -123,7 +123,7 @@ class BeamFiringState: GKState {
     
     // MARK: Convenience
     
-    func updateBeamNodeWithDeltaTime(seconds: NSTimeInterval) {
+    func updateBeamNodeWithDeltaTime(seconds: TimeInterval) {
         // Find an appropriate target for the beam.
         target = beamComponent.findTargetInBeamArcWithCurrentTarget(target)
         

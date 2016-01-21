@@ -9,20 +9,20 @@
 
 import Foundation
 
-class LoadResourcesOperation: Operation, NSProgressReporting {
+class LoadResourcesOperation: Operation, ProgressReporting {
     // MARK: Properties
     
     /// A class that conforms to the `ResourceLoadableType` protocol.
     let loadableType: ResourceLoadableType.Type
     
-    let progress: NSProgress
+    let progress: Progress
     
     // MARK: Initialization
     
     init(loadableType: ResourceLoadableType.Type) {
         self.loadableType = loadableType
         
-        progress = NSProgress(totalUnitCount: 1)
+        progress = Progress(totalUnitCount: 1)
         super.init()
     }
     

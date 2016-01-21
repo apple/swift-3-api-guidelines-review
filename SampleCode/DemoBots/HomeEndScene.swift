@@ -34,7 +34,7 @@ class HomeEndScene: BaseScene {
     deinit {
         // Deregister for scene loader notifications.
         for observer in iterator {
-            NSNotificationCenter.defaultCenter().removeObserver(observer)
+            NotificationCenter.defaultCenter().removeObserver(observer)
         }
     }
     
@@ -75,7 +75,7 @@ class HomeEndScene: BaseScene {
         guard sceneLoaderNotificationObservers.isEmpty else { return }
         
         // Create a closure to pass as a notification handler for when loading completes or fails.
-        let handleSceneLoaderNotification: (NSNotification) -> () = { [unowned self] notification in
+        let handleSceneLoaderNotification: (Notification) -> () = { [unowned self] notification in
             let sceneLoader = notification.object as! SceneLoader
             
             // Show the proceed button if the `sceneLoader` pertains to a `LevelScene`.
@@ -97,8 +97,8 @@ class HomeEndScene: BaseScene {
         }
         
         // Register for scene loader notifications.
-        let completeNotification = NSNotificationCenter.defaultCenter().addObserverForName(SceneLoaderDidCompleteNotification, object: nil, queue: NSOperationQueue.main(), usingBlock: handleSceneLoaderNotification)
-        let failNotification = NSNotificationCenter.defaultCenter().addObserverForName(SceneLoaderDidFailNotification, object: nil, queue: NSOperationQueue.main(), usingBlock: handleSceneLoaderNotification)
+        let completeNotification = NotificationCenter.defaultCenter().addObserverForName(SceneLoaderDidCompleteNotification, object: nil, queue: OperationQueue.main(), usingBlock: handleSceneLoaderNotification)
+        let failNotification = NotificationCenter.defaultCenter().addObserverForName(SceneLoaderDidFailNotification, object: nil, queue: OperationQueue.main(), usingBlock: handleSceneLoaderNotification)
         
         // Keep track of the notifications we are registered to so we can remove them in `deinit`.
         sceneLoaderNotificationObservers += [completeNotification, failNotification]

@@ -9,7 +9,7 @@
 import WatchKit
 import ListerWatchKit
 
-class GlanceInterfaceController: WKInterfaceController, ConnectivityListsControllerDelegate, ListPresenterDelegate, NSFilePresenter {
+class GlanceInterfaceController: WKInterfaceController, ConnectivityListsControllerDelegate, ListPresenterDelegate, FilePresenter {
     // MARK: Properties
     
     @IBOutlet weak var glanceBadgeImage: WKInterfaceImage!
@@ -24,13 +24,13 @@ class GlanceInterfaceController: WKInterfaceController, ConnectivityListsControl
     
     var isPresenting = false
     
-    var listURL: NSURL?
+    var listURL: URL?
     
-    var presentedItemURL: NSURL? {
+    var presentedItemURL: URL? {
         return listURL
     }
     
-    var presentedItemOperationQueue = NSOperationQueue()
+    var presentedItemOperationQueue = OperationQueue()
     
     // Tracks underlying values that represent the badge.
     var previousPresentedBadgeCounts: (totalListItemCount: Int, completeListItemCount: Int)?
@@ -109,21 +109,21 @@ class GlanceInterfaceController: WKInterfaceController, ConnectivityListsControl
     func addFilePresenterIfNeeded() {
         if !isPresenting {
             isPresenting = true
-            NSFileCoordinator.addFilePresenter(self)
+            FileCoordinator.addFilePresenter(self)
         }
     }
     
     func removeFilePresenterIfNeeded() {
         if isPresenting {
             isPresenting = false
-            NSFileCoordinator.removeFilePresenter(self)
+            FileCoordinator.removeFilePresenter(self)
         }
     }
     
     func processListInfoAsTodayDocument(listInfo: ListInfo) {
         listPresenter.delegate = self
         
-        let documentsURL = NSFileManager.defaultManager().urLsFor(.DocumentDirectory, inDomains: .UserDomainMask).first!
+        let documentsURL = FileManager.defaultManager().urLsFor(.DocumentDirectory, inDomains: .UserDomainMask).first!
         listURL = documentsURL.appendingPathComponent("\(listInfo.name).\(AppConfiguration.listerFileExtension)")
         
         readTodayDocument()
@@ -144,7 +144,7 @@ class GlanceInterfaceController: WKInterfaceController, ConnectivityListsControl
                     is passed instead of a URL because the `userInfo` dictionary of a WatchKit app's user activity
                     does not allow NSURL values.
                 */
-                let userInfo: [NSObject: AnyObject] = [
+                let userInfo: [Object: AnyObject] = [
                     AppConfiguration.UserActivity.listURLPathUserInfoKey: self.presentedItemURL!.path!,
                     AppConfiguration.UserActivity.listColorUserInfoKey: self.listPresenter.color.rawValue
                 ]
@@ -200,7 +200,7 @@ class GlanceInterfaceController: WKInterfaceController, ConnectivityListsControl
         }
     }
     
-    func presentedItemDidMoveTo(newURL: NSURL) {
+    func presentedItemDidMoveTo(newURL: URL) {
         listURL = newURL
     }
 }

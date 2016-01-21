@@ -10,7 +10,7 @@
  * The CWChannel class is used by both CWInterface and CWNetwork as a representation of an IEEE 802.11 Wi-Fi channel.
  */
 @available(OSX 10.7, *)
-class CWChannel : NSObject, NSCopying, NSSecureCoding {
+class CWChannel : Object, Copying, SecureCoding {
 
   /*!
    * @property
@@ -58,12 +58,12 @@ class CWChannel : NSObject, NSCopying, NSSecureCoding {
   func isEqualTo(channel: CWChannel) -> Bool
   init()
   @available(OSX 10.7, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.7, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -77,7 +77,7 @@ class CWChannel : NSObject, NSCopying, NSSecureCoding {
  * CWConfiguration is an immutable object. For changing configuration settings and/or the preferred networks list, see CWMutableConfiguration.
  */
 @available(OSX 10.6, *)
-class CWConfiguration : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
+class CWConfiguration : Object, Copying, MutableCopying, SecureCoding {
 
   /*!
    * @property
@@ -92,7 +92,7 @@ class CWConfiguration : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
    * The order of the ordered set corresponds to the order the preferred networks list.
    */
   @available(OSX 10.7, *)
-  @NSCopying var networkProfiles: NSOrderedSet { get }
+  @NSCopying var networkProfiles: OrderedSet { get }
 
   /*!
    * @property
@@ -196,14 +196,14 @@ class CWConfiguration : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   @available(OSX 10.6, *)
   func isEqualTo(configuration: CWConfiguration) -> Bool
   @available(OSX 10.6, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.6, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.6, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.6, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -225,7 +225,7 @@ class CWMutableConfiguration : CWConfiguration {
    * Add, remove, or update the preferred networks list.
    */
   @available(OSX 10.7, *)
-  @NSCopying var networkProfiles: NSOrderedSet
+  @NSCopying var networkProfiles: OrderedSet
 
   /*!
    * @property
@@ -286,7 +286,7 @@ class CWMutableConfiguration : CWConfiguration {
    */
   @available(OSX 10.7, *)
   init(configuration: CWConfiguration)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -299,7 +299,7 @@ class CWMutableConfiguration : CWConfiguration {
  * All actions performed by a CWInterface object are executed on the Wi-Fi device with the corresponding interface name.
  */
 @available(OSX 10.6, *)
-class CWInterface : NSObject {
+class CWInterface : Object {
 
   /*!
    * @property
@@ -387,7 +387,7 @@ class CWInterface : NSObject {
    * Returns nil if an error occurs, or if the interface is not participating in a Wi-Fi network.
    */
   @available(OSX 10.7, *)
-  func ssidData() -> NSData?
+  func ssidData() -> Data?
 
   /*!
    * @method
@@ -657,7 +657,7 @@ class CWInterface : NSObject {
    * Requires the <i>com.apple.wifi.set_pmk</i> entitlement.
    */
   @available(OSX 10.6, *)
-  func setPairwiseMasterKey(key: NSData?) throws
+  func setPairwiseMasterKey(key: Data?) throws
 
   /*!
    * @method
@@ -686,7 +686,7 @@ class CWInterface : NSObject {
    * Requires the <i>com.apple.wifi.set_wep_key</i> entitlement.
    */
   @available(OSX 10.6, *)
-  func setWEPKey(key: NSData?, flags: CWCipherKeyFlags, index: Int) throws
+  func setWEPKey(key: Data?, flags: CWCipherKeyFlags, index: Int) throws
 
   /*!
    * @method
@@ -711,7 +711,7 @@ class CWInterface : NSObject {
    * Requires the <i>com.apple.wifi.scan</i> entitlement.
    */
   @available(OSX 10.7, *)
-  func scanForNetworksWithSSID(ssid: NSData?) throws -> Set<CWNetwork>
+  func scanForNetworksWithSSID(ssid: Data?) throws -> Set<CWNetwork>
 
   /*!
    * @method
@@ -838,7 +838,7 @@ class CWInterface : NSObject {
    * Requires the <i>com.apple.wifi.ibss</i> entitlement.
    */
   @available(OSX 10.7, *)
-  func startIBSSModeWithSSID(ssidData: NSData, security: CWIBSSModeSecurity, channel: Int, password: String?) throws
+  func startIBSSModeWithSSID(ssidData: Data, security: CWIBSSModeSecurity, channel: Int, password: String?) throws
   init()
 }
 
@@ -849,7 +849,7 @@ class CWInterface : NSObject {
  * Represents a device participating in a Wi-Fi network, providing accessors to various network attributes.
  */
 @available(OSX 10.6, *)
-class CWNetwork : NSObject, NSCopying, NSSecureCoding {
+class CWNetwork : Object, Copying, SecureCoding {
 
   /*!
    * @property
@@ -873,7 +873,7 @@ class CWNetwork : NSObject, NSCopying, NSSecureCoding {
    * The SSID is defined as 1-32 octets.
    */
   @available(OSX 10.7, *)
-  var ssidData: NSData? { get }
+  var ssidData: Data? { get }
 
   /*!
    * @property
@@ -921,7 +921,7 @@ class CWNetwork : NSObject, NSCopying, NSSecureCoding {
    * Returns information element data included in beacon or probe response frames.
    */
   @available(OSX 10.7, *)
-  var informationElementData: NSData? { get }
+  var informationElementData: Data? { get }
 
   /*!
    * @property
@@ -1002,12 +1002,12 @@ class CWNetwork : NSObject, NSCopying, NSSecureCoding {
   func supportsPHYMode(phyMode: CWPHYMode) -> Bool
   init()
   @available(OSX 10.6, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.6, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.6, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -1017,7 +1017,7 @@ class CWNetwork : NSObject, NSCopying, NSSecureCoding {
  * Encapsulates a preferred network entry.
  */
 @available(OSX 10.7, *)
-class CWNetworkProfile : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
+class CWNetworkProfile : Object, Copying, MutableCopying, SecureCoding {
 
   /*!
    * @property
@@ -1041,7 +1041,7 @@ class CWNetworkProfile : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
    * The SSID is 1-32 octets.
    */
   @available(OSX 10.7, *)
-  @NSCopying var ssidData: NSData? { get }
+  @NSCopying var ssidData: Data? { get }
 
   /*!
    * @property
@@ -1094,14 +1094,14 @@ class CWNetworkProfile : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   @available(OSX 10.7, *)
   func isEqualTo(networkProfile: CWNetworkProfile) -> Bool
   @available(OSX 10.7, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopy(zone zone: NSZone = nil) -> AnyObject
+  func mutableCopy(zone zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.7, *)
-  func encodeWith(aCoder: NSCoder)
-  init?(coder aDecoder: NSCoder)
+  func encodeWith(aCoder: Coder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -1124,7 +1124,7 @@ class CWMutableNetworkProfile : CWNetworkProfile {
    * Set the service set identifier (SSID).
    */
   @available(OSX 10.7, *)
-  @NSCopying var ssidData: NSData
+  @NSCopying var ssidData: Data
 
   /*!
    * @property
@@ -1158,7 +1158,7 @@ class CWMutableNetworkProfile : CWNetworkProfile {
    */
   @available(OSX 10.7, *)
   init(networkProfile: CWNetworkProfile)
-  init?(coder aDecoder: NSCoder)
+  init?(coder aDecoder: Coder)
 }
 
 /*!
@@ -1341,7 +1341,7 @@ protocol CWEventDelegate {
  * initializer directly.
  */
 @available(OSX 10.10, *)
-class CWWiFiClient : NSObject {
+class CWWiFiClient : Object {
 
   /*!
    * @property
@@ -2095,7 +2095,7 @@ enum CWEventType : Int {
  * Finds and returns (by reference) the password for the specified SSID and keychain domain.
  */
 @available(OSX 10.9, *)
-func CWKeychainFindWiFiPassword(domain: CWKeychainDomain, _ ssid: NSData, _ password: AutoreleasingUnsafeMutablePointer<NSString?>) -> OSStatus
+func CWKeychainFindWiFiPassword(domain: CWKeychainDomain, _ ssid: Data, _ password: AutoreleasingUnsafeMutablePointer<NSString?>) -> OSStatus
 
 /*!
  * @method
@@ -2117,7 +2117,7 @@ func CWKeychainFindWiFiPassword(domain: CWKeychainDomain, _ ssid: NSData, _ pass
  * Sets the Wi-Fi network keychain password for the specified SSID and keychain domain.
  */
 @available(OSX 10.9, *)
-func CWKeychainSetWiFiPassword(domain: CWKeychainDomain, _ ssid: NSData, _ password: String) -> OSStatus
+func CWKeychainSetWiFiPassword(domain: CWKeychainDomain, _ ssid: Data, _ password: String) -> OSStatus
 
 /*!
  * @method
@@ -2136,7 +2136,7 @@ func CWKeychainSetWiFiPassword(domain: CWKeychainDomain, _ ssid: NSData, _ passw
  * Deletes the password for the specified SSID and keychain domain.
  */
 @available(OSX 10.9, *)
-func CWKeychainDeleteWiFiPassword(domain: CWKeychainDomain, _ ssid: NSData) -> OSStatus
+func CWKeychainDeleteWiFiPassword(domain: CWKeychainDomain, _ ssid: Data) -> OSStatus
 
 /*!
  * @method
@@ -2163,7 +2163,7 @@ func CWKeychainDeleteWiFiPassword(domain: CWKeychainDomain, _ ssid: NSData) -> O
  * Finds and returns the 802.1X username and password stored for the specified SSID and keychain domain.
  */
 @available(OSX 10.9, *)
-func CWKeychainFindWiFiEAPUsernameAndPassword(domain: CWKeychainDomain, _ ssid: NSData, _ username: AutoreleasingUnsafeMutablePointer<NSString?>, _ password: AutoreleasingUnsafeMutablePointer<NSString?>) -> OSStatus
+func CWKeychainFindWiFiEAPUsernameAndPassword(domain: CWKeychainDomain, _ ssid: Data, _ username: AutoreleasingUnsafeMutablePointer<NSString?>, _ password: AutoreleasingUnsafeMutablePointer<NSString?>) -> OSStatus
 
 /*!
  * @method
@@ -2188,7 +2188,7 @@ func CWKeychainFindWiFiEAPUsernameAndPassword(domain: CWKeychainDomain, _ ssid: 
  * Sets the 802.1X username and password for the specified SSID and keychain domain.
  */
 @available(OSX 10.9, *)
-func CWKeychainSetWiFiEAPUsernameAndPassword(domain: CWKeychainDomain, _ ssid: NSData, _ username: String?, _ password: String?) -> OSStatus
+func CWKeychainSetWiFiEAPUsernameAndPassword(domain: CWKeychainDomain, _ ssid: Data, _ username: String?, _ password: String?) -> OSStatus
 
 /*!
  * @method
@@ -2207,7 +2207,7 @@ func CWKeychainSetWiFiEAPUsernameAndPassword(domain: CWKeychainDomain, _ ssid: N
  * Deletes the 802.1X username and password for the specified SSID and keychain domain.
  */
 @available(OSX 10.9, *)
-func CWKeychainDeleteWiFiEAPUsernameAndPassword(domain: CWKeychainDomain, _ ssid: NSData) -> OSStatus
+func CWKeychainDeleteWiFiEAPUsernameAndPassword(domain: CWKeychainDomain, _ ssid: Data) -> OSStatus
 
 /*!
  * @method
@@ -2230,7 +2230,7 @@ func CWKeychainDeleteWiFiEAPUsernameAndPassword(domain: CWKeychainDomain, _ ssid
  * Finds and returns the identity stored for the specified SSID and keychain domain.
  */
 @available(OSX 10.9, *)
-func CWKeychainCopyWiFiEAPIdentity(domain: CWKeychainDomain, _ ssid: NSData, _ identity: UnsafeMutablePointer<Unmanaged<SecIdentity>?>) -> OSStatus
+func CWKeychainCopyWiFiEAPIdentity(domain: CWKeychainDomain, _ ssid: Data, _ identity: UnsafeMutablePointer<Unmanaged<SecIdentity>?>) -> OSStatus
 
 /*!
  * @method
@@ -2253,7 +2253,7 @@ func CWKeychainCopyWiFiEAPIdentity(domain: CWKeychainDomain, _ ssid: NSData, _ i
  * Associates an identity to the specified SSID and keychain domain.
  */
 @available(OSX 10.9, *)
-func CWKeychainSetWiFiEAPIdentity(domain: CWKeychainDomain, _ ssid: NSData, _ identity: SecIdentity?) -> OSStatus
+func CWKeychainSetWiFiEAPIdentity(domain: CWKeychainDomain, _ ssid: Data, _ identity: SecIdentity?) -> OSStatus
 
 /*!
  * @method

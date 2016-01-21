@@ -7,7 +7,7 @@
  *
  */
 @available(tvOS 6.0, *)
-class CBATTRequest : NSObject {
+class CBATTRequest : Object {
 
   /*!
    *  @property central
@@ -41,7 +41,7 @@ class CBATTRequest : NSObject {
    *				For write requests, <i>value</i> will contain the data to be written.
    *
    */
-  @NSCopying var value: NSData?
+  @NSCopying var value: Data?
 }
 
 /*!
@@ -117,7 +117,7 @@ let CBAdvertisementDataIsConnectable: String
 @available(tvOS 7.0, *)
 let CBAdvertisementDataSolicitedServiceUUIDsKey: String
 @available(tvOS 8.0, *)
-class CBAttribute : NSObject {
+class CBAttribute : Object {
 
   /*!
    * @property UUID
@@ -179,7 +179,7 @@ enum CBCentralManagerState : Int {
  *
  */
 @available(tvOS 5.0, *)
-class CBCentralManager : NSObject {
+class CBCentralManager : Object {
 
   /*!
    *  @property delegate
@@ -247,7 +247,7 @@ class CBCentralManager : NSObject {
    *
    */
   @available(tvOS 7.0, *)
-  func retrievePeripheralsWithIdentifiers(identifiers: [NSUUID]) -> [CBPeripheral]
+  func retrievePeripheralsWithIdentifiers(identifiers: [UUID]) -> [CBPeripheral]
 
   /*!
    *  @method retrieveConnectedPeripheralsWithServices
@@ -332,7 +332,7 @@ class CBCentralManager : NSObject {
  *              connection of peripherals.
  *
  */
-protocol CBCentralManagerDelegate : NSObjectProtocol {
+protocol CBCentralManagerDelegate : ObjectProtocol {
 
   /*!
    *  @method centralManagerDidUpdateState:
@@ -386,7 +386,7 @@ protocol CBCentralManagerDelegate : NSObjectProtocol {
    *
    */
   @available(tvOS 5.0, *)
-  optional func centralManager(central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : AnyObject], rssi RSSI: NSNumber)
+  optional func centralManager(central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : AnyObject], rssi RSSI: Number)
 
   /*!
    *  @method centralManager:didConnectPeripheral:
@@ -412,7 +412,7 @@ protocol CBCentralManagerDelegate : NSObjectProtocol {
    *
    */
   @available(tvOS 5.0, *)
-  optional func centralManager(central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: NSError?)
+  optional func centralManager(central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?)
 
   /*!
    *  @method centralManager:didDisconnectPeripheral:error:
@@ -427,7 +427,7 @@ protocol CBCentralManagerDelegate : NSObjectProtocol {
    *
    */
   @available(tvOS 5.0, *)
-  optional func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?)
+  optional func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?)
 }
 
 /*!
@@ -633,7 +633,7 @@ class CBCharacteristic : CBAttribute {
    *      The value of the characteristic.
    *
    */
-  var value: NSData? { get }
+  var value: Data? { get }
 
   /*!
    * @property descriptors
@@ -716,7 +716,7 @@ class CBMutableCharacteristic : CBCharacteristic {
   @available(tvOS 7.0, *)
   var subscribedCentrals: [CBCentral]? { get }
   var properties: CBCharacteristicProperties
-  var value: NSData?
+  var value: Data?
   var descriptors: [CBDescriptor]?
 }
 
@@ -831,7 +831,7 @@ extension CBATTError : _BridgedNSError {
   typealias RawValue = Int
 }
 @available(tvOS 8.0, *)
-class CBPeer : NSObject, NSCopying {
+class CBPeer : Object, Copying {
 
   /*!
    *  @property identifier
@@ -839,9 +839,9 @@ class CBPeer : NSObject, NSCopying {
    *  @discussion The unique, persistent identifier associated with the peer.
    */
   @available(tvOS 7.0, *)
-  var identifier: NSUUID { get }
+  var identifier: UUID { get }
   @available(tvOS 8.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
 
 /*!
@@ -904,7 +904,7 @@ class CBPeripheral : CBPeer {
    *  @deprecated Use {@link peripheral:didReadRSSI:error:} instead.
    */
   @available(tvOS, introduced=5.0, deprecated=8.0)
-  var rssi: NSNumber? { get }
+  var rssi: Number? { get }
 
   /*!
    *  @property state
@@ -1004,7 +1004,7 @@ class CBPeripheral : CBPeer {
    *  @see					peripheral:didWriteValueForCharacteristic:error:
    *	@see					CBCharacteristicWriteType
    */
-  func writeValue(data: NSData, forCharacteristic characteristic: CBCharacteristic, type: CBCharacteristicWriteType)
+  func writeValue(data: Data, forCharacteristic characteristic: CBCharacteristic, type: CBCharacteristicWriteType)
 
   /*!
    *  @method setNotifyValue:forCharacteristic:
@@ -1056,7 +1056,7 @@ class CBPeripheral : CBPeer {
    *
    *  @see				peripheral:didWriteValueForCharacteristic:error:
    */
-  func writeValue(data: NSData, forDescriptor descriptor: CBDescriptor)
+  func writeValue(data: Data, forDescriptor descriptor: CBDescriptor)
 }
 
 /*!
@@ -1065,7 +1065,7 @@ class CBPeripheral : CBPeer {
  *  @discussion Delegate for CBPeripheral.
  *
  */
-protocol CBPeripheralDelegate : NSObjectProtocol {
+protocol CBPeripheralDelegate : ObjectProtocol {
 
   /*!
    *  @method peripheralDidUpdateName:
@@ -1101,7 +1101,7 @@ protocol CBPeripheralDelegate : NSObjectProtocol {
    *  @deprecated			Use {@link peripheral:didReadRSSI:error:} instead.
    */
   @available(tvOS, introduced=5.0, deprecated=8.0)
-  optional func peripheralDidUpdateRSSI(peripheral: CBPeripheral, error: NSError?)
+  optional func peripheralDidUpdateRSSI(peripheral: CBPeripheral, error: Error?)
 
   /*!
    *  @method peripheral:didReadRSSI:error:
@@ -1113,7 +1113,7 @@ protocol CBPeripheralDelegate : NSObjectProtocol {
    *  @discussion			This method returns the result of a @link readRSSI: @/link call.
    */
   @available(tvOS 8.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: NSError?)
+  optional func peripheral(peripheral: CBPeripheral, didReadRSSI RSSI: Number, error: Error?)
 
   /*!
    *  @method peripheral:didDiscoverServices:
@@ -1126,7 +1126,7 @@ protocol CBPeripheralDelegate : NSObjectProtocol {
    *
    */
   @available(tvOS 5.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didDiscoverServices error: NSError?)
+  optional func peripheral(peripheral: CBPeripheral, didDiscoverServices error: Error?)
 
   /*!
    *  @method peripheral:didDiscoverIncludedServicesForService:error:
@@ -1139,7 +1139,7 @@ protocol CBPeripheralDelegate : NSObjectProtocol {
    *						they can be retrieved via <i>service</i>'s <code>includedServices</code> property.
    */
   @available(tvOS 5.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didDiscoverIncludedServicesFor service: CBService, error: NSError?)
+  optional func peripheral(peripheral: CBPeripheral, didDiscoverIncludedServicesFor service: CBService, error: Error?)
 
   /*!
    *  @method peripheral:didDiscoverCharacteristicsForService:error:
@@ -1152,7 +1152,7 @@ protocol CBPeripheralDelegate : NSObjectProtocol {
    *						they can be retrieved via <i>service</i>'s <code>characteristics</code> property.
    */
   @available(tvOS 5.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: NSError?)
+  optional func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?)
 
   /*!
    *  @method peripheral:didUpdateValueForCharacteristic:error:
@@ -1164,7 +1164,7 @@ protocol CBPeripheralDelegate : NSObjectProtocol {
    *  @discussion				This method is invoked after a @link readValueForCharacteristic: @/link call, or upon receipt of a notification/indication.
    */
   @available(tvOS 5.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: NSError?)
+  optional func peripheral(peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?)
 
   /*!
    *  @method peripheral:didWriteValueForCharacteristic:error:
@@ -1176,7 +1176,7 @@ protocol CBPeripheralDelegate : NSObjectProtocol {
    *  @discussion				This method returns the result of a {@link writeValue:forCharacteristic:type:} call, when the <code>CBCharacteristicWriteWithResponse</code> type is used.
    */
   @available(tvOS 5.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: NSError?)
+  optional func peripheral(peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?)
 
   /*!
    *  @method peripheral:didUpdateNotificationStateForCharacteristic:error:
@@ -1188,7 +1188,7 @@ protocol CBPeripheralDelegate : NSObjectProtocol {
    *  @discussion				This method returns the result of a @link setNotifyValue:forCharacteristic: @/link call. 
    */
   @available(tvOS 5.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: NSError?)
+  optional func peripheral(peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?)
 
   /*!
    *  @method peripheral:didDiscoverDescriptorsForCharacteristic:error:
@@ -1201,7 +1201,7 @@ protocol CBPeripheralDelegate : NSObjectProtocol {
    *							they can be retrieved via <i>characteristic</i>'s <code>descriptors</code> property.
    */
   @available(tvOS 5.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didDiscoverDescriptorsFor characteristic: CBCharacteristic, error: NSError?)
+  optional func peripheral(peripheral: CBPeripheral, didDiscoverDescriptorsFor characteristic: CBCharacteristic, error: Error?)
 
   /*!
    *  @method peripheral:didUpdateValueForDescriptor:error:
@@ -1213,7 +1213,7 @@ protocol CBPeripheralDelegate : NSObjectProtocol {
    *  @discussion				This method returns the result of a @link readValueForDescriptor: @/link call.
    */
   @available(tvOS 5.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didUpdateValueFor descriptor: CBDescriptor, error: NSError?)
+  optional func peripheral(peripheral: CBPeripheral, didUpdateValueFor descriptor: CBDescriptor, error: Error?)
 
   /*!
    *  @method peripheral:didWriteValueForDescriptor:error:
@@ -1225,7 +1225,7 @@ protocol CBPeripheralDelegate : NSObjectProtocol {
    *  @discussion				This method returns the result of a @link writeValue:forDescriptor: @/link call.
    */
   @available(tvOS 5.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didWriteValueFor descriptor: CBDescriptor, error: NSError?)
+  optional func peripheral(peripheral: CBPeripheral, didWriteValueFor descriptor: CBDescriptor, error: Error?)
 }
 
 /*!
@@ -1310,7 +1310,7 @@ enum CBPeripheralManagerConnectionLatency : Int {
  *
  */
 @available(tvOS 6.0, *)
-class CBPeripheralManager : NSObject {
+class CBPeripheralManager : Object {
 
   /*!
    *  @property delegate
@@ -1461,7 +1461,7 @@ class CBPeripheralManager : NSObject {
    *  @see                    peripheralManagerIsReadyToUpdateSubscribers:
    *	@seealso				maximumUpdateValueLength
    */
-  func updateValue(value: NSData, forCharacteristic characteristic: CBMutableCharacteristic, onSubscribedCentrals centrals: [CBCentral]?) -> Bool
+  func updateValue(value: Data, forCharacteristic characteristic: CBMutableCharacteristic, onSubscribedCentrals centrals: [CBCentral]?) -> Bool
   convenience init()
 }
 
@@ -1473,7 +1473,7 @@ class CBPeripheralManager : NSObject {
  *              centrals, which can connect and access the local database.
  *
  */
-protocol CBPeripheralManagerDelegate : NSObjectProtocol {
+protocol CBPeripheralManagerDelegate : ObjectProtocol {
 
   /*!
    *  @method peripheralManagerDidUpdateState:
@@ -1520,7 +1520,7 @@ protocol CBPeripheralManagerDelegate : NSObjectProtocol {
    *
    */
   @available(tvOS 6.0, *)
-  optional func peripheralManagerDidStartAdvertising(peripheral: CBPeripheralManager, error: NSError?)
+  optional func peripheralManagerDidStartAdvertising(peripheral: CBPeripheralManager, error: Error?)
 
   /*!
    *  @method peripheralManager:didAddService:error:
@@ -1534,7 +1534,7 @@ protocol CBPeripheralManagerDelegate : NSObjectProtocol {
    *
    */
   @available(tvOS 6.0, *)
-  optional func peripheralManager(peripheral: CBPeripheralManager, didAdd service: CBService, error: NSError?)
+  optional func peripheralManager(peripheral: CBPeripheralManager, didAdd service: CBService, error: Error?)
 
   /*!
    *  @method peripheralManager:central:didSubscribeToCharacteristic:
@@ -1772,7 +1772,7 @@ let CBUUIDCharacteristicAggregateFormatString: String
  *
  */
 @available(tvOS 5.0, *)
-class CBUUID : NSObject, NSCopying {
+class CBUUID : Object, Copying {
 
   /*!
    * @property data
@@ -1781,7 +1781,7 @@ class CBUUID : NSObject, NSCopying {
    *      The UUID as NSData.
    *
    */
-  var data: NSData { get }
+  var data: Data { get }
 
   /*!
    * @property UUIDString
@@ -1810,7 +1810,7 @@ class CBUUID : NSObject, NSCopying {
    *      Creates a CBUUID with a 16-bit, 32-bit, or 128-bit UUID data container.
    *
    */
-  /*not inherited*/ init(data theData: NSData)
+  /*not inherited*/ init(data theData: Data)
 
   /*!
    * @method UUIDWithCFUUID:
@@ -1830,8 +1830,8 @@ class CBUUID : NSObject, NSCopying {
    *
    */
   @available(tvOS 7.0, *)
-  /*not inherited*/ init(nsuuid theUUID: NSUUID)
+  /*not inherited*/ init(nsuuid theUUID: UUID)
   init()
   @available(tvOS 5.0, *)
-  func copy(zone zone: NSZone = nil) -> AnyObject
+  func copy(zone zone: Zone = nil) -> AnyObject
 }
