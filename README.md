@@ -1,6 +1,6 @@
 # Swift 3 API Guidelines Review
 
-This repository is part of the [Swift 3 API Design Guidelines effort](https://github.com/apple/swift-evolution/blob/master/README.md), which helps evaluate the effects of applying the [Swift API Design Guidelines](https://swift.org/documentation/api-design-guidelines.html) to Objective-C APIs through [improvements to Swift's Clang importer](https://github.com/apple/swift-evolution/blob/master/proposals/0005-objective-c-name-translation.md).
+This repository is part of the [Swift 3 API Design Guidelines effort](https://github.com/apple/swift-evolution/blob/master/README.md), which helps evaluate the effects of applying the [Swift API Design Guidelines](https://swift.org/documentation/api-design-guidelines/) to Objective-C APIs through [improvements to Swift's Clang importer](https://github.com/apple/swift-evolution/blob/master/proposals/0005-objective-c-name-translation.md).
 
 This repository contains the Swift projections of Objective-C APIs for
 Cocoa and Cocoa Touch across the four Apple platforms (iOS, OS X,
