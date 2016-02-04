@@ -1,0 +1,75 @@
+
+@available(OSX 10.11, *)
+enum SCNBufferFrequency : Int {
+  init?(rawValue: Int)
+  var rawValue: Int { get }
+  case PerFrame
+  case PerNode
+  case PerShadable
+}
+protocol SCNBufferStream : NSObjectProtocol {
+  func writeBytes(bytes: UnsafeMutablePointer<Void>, length: Int)
+}
+typealias SCNBufferBindingBlock = (SCNBufferStream, SCNNode, SCNShadable, SCNRenderer) -> Void
+typealias SCNBindingBlock = (UInt32, UInt32, SCNNode, SCNRenderer) -> Void
+protocol SCNShadable : NSObjectProtocol {
+  @available(OSX 10.8, *)
+  optional var program: SCNProgram? { get set }
+  @available(OSX 10.9, *)
+  optional func handleBindingOfSymbol(symbol: String, usingBlock block: SCNBindingBlock?)
+  @available(OSX 10.9, *)
+  optional func handleUnbindingOfSymbol(symbol: String, usingBlock block: SCNBindingBlock?)
+  @available(OSX 10.9, *)
+  optional var shaderModifiers: [String : String]? { get set }
+}
+let SCNProgramMappingChannelKey: String
+@available(OSX 10.8, *)
+class SCNProgram : NSObject, NSCopying, NSSecureCoding {
+  var vertexShader: String?
+  var fragmentShader: String?
+  @available(OSX 10.10, *)
+  var tessellationControlShader: String?
+  @available(OSX 10.10, *)
+  var tessellationEvaluationShader: String?
+  @available(OSX 10.10, *)
+  var geometryShader: String?
+  @available(OSX 10.11, *)
+  var vertexFunctionName: String?
+  @available(OSX 10.11, *)
+  var fragmentFunctionName: String?
+  @available(OSX 10.11, *)
+  func handleBindingOfBufferNamed(name: String, frequency: SCNBufferFrequency, usingBlock block: SCNBufferBindingBlock)
+  @available(OSX 10.10, *)
+  var opaque: Bool
+  func setSemantic(semantic: String?, forSymbol symbol: String, options: [String : AnyObject]?)
+  func semanticForSymbol(symbol: String) -> String?
+  unowned(unsafe) var delegate: @sil_unmanaged SCNProgramDelegate?
+  @available(OSX 10.11, *)
+  var library: MTLLibrary?
+  init()
+  @available(OSX 10.8, *)
+  func copyWithZone(zone: NSZone) -> AnyObject
+  @available(OSX 10.8, *)
+  class func supportsSecureCoding() -> Bool
+  @available(OSX 10.8, *)
+  func encodeWithCoder(aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
+}
+protocol SCNProgramDelegate : NSObjectProtocol {
+  @available(OSX, introduced=10.8, deprecated=10.10)
+  optional func program(program: SCNProgram, bindValueForSymbol symbol: String, atLocation location: UInt32, programID: UInt32, renderer: SCNRenderer) -> Bool
+  @available(OSX, introduced=10.8, deprecated=10.10)
+  optional func program(program: SCNProgram, unbindValueForSymbol symbol: String, atLocation location: UInt32, programID: UInt32, renderer: SCNRenderer)
+  @available(OSX 10.8, *)
+  optional func program(program: SCNProgram, handleError error: NSError)
+  @available(OSX, introduced=10.8, deprecated=10.10)
+  optional func programIsOpaque(program: SCNProgram) -> Bool
+}
+@available(OSX 10.9, *)
+let SCNShaderModifierEntryPointGeometry: String
+@available(OSX 10.9, *)
+let SCNShaderModifierEntryPointSurface: String
+@available(OSX 10.9, *)
+let SCNShaderModifierEntryPointLightingModel: String
+@available(OSX 10.9, *)
+let SCNShaderModifierEntryPointFragment: String

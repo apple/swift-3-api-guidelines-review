@@ -1,0 +1,142 @@
+
+class CTFontDescriptor {
+}
+@available(*, deprecated, renamed="CTFontDescriptor")
+typealias CTFontDescriptorRef = CTFontDescriptor
+@available(OSX 10.5, *)
+func CTFontDescriptorGetTypeID() -> CFTypeID
+@available(OSX 10.6, *)
+let kCTFontURLAttribute: CFString
+@available(OSX 10.5, *)
+let kCTFontNameAttribute: CFString
+@available(OSX 10.5, *)
+let kCTFontDisplayNameAttribute: CFString
+@available(OSX 10.5, *)
+let kCTFontFamilyNameAttribute: CFString
+@available(OSX 10.5, *)
+let kCTFontStyleNameAttribute: CFString
+@available(OSX 10.5, *)
+let kCTFontTraitsAttribute: CFString
+@available(OSX 10.5, *)
+let kCTFontVariationAttribute: CFString
+@available(OSX 10.5, *)
+let kCTFontSizeAttribute: CFString
+@available(OSX 10.5, *)
+let kCTFontMatrixAttribute: CFString
+@available(OSX 10.5, *)
+let kCTFontCascadeListAttribute: CFString
+@available(OSX 10.5, *)
+let kCTFontCharacterSetAttribute: CFString
+@available(OSX 10.5, *)
+let kCTFontLanguagesAttribute: CFString
+@available(OSX 10.5, *)
+let kCTFontBaselineAdjustAttribute: CFString
+@available(OSX 10.5, *)
+let kCTFontMacintoshEncodingsAttribute: CFString
+@available(OSX 10.5, *)
+let kCTFontFeaturesAttribute: CFString
+@available(OSX 10.5, *)
+let kCTFontFeatureSettingsAttribute: CFString
+@available(OSX 10.5, *)
+let kCTFontFixedAdvanceAttribute: CFString
+@available(OSX 10.5, *)
+let kCTFontOrientationAttribute: CFString
+enum CTFontOrientation : UInt32 {
+  init?(rawValue: UInt32)
+  var rawValue: UInt32 { get }
+  @available(OSX 10.8, *)
+  case Default
+  @available(OSX 10.8, *)
+  case Horizontal
+  @available(OSX 10.8, *)
+  case Vertical
+  @available(OSX, introduced=10.5, deprecated=10.11)
+  static var kCTFontDefaultOrientation: CTFontOrientation { get }
+  @available(OSX, introduced=10.5, deprecated=10.11)
+  static var kCTFontHorizontalOrientation: CTFontOrientation { get }
+  @available(OSX, introduced=10.5, deprecated=10.11)
+  static var kCTFontVerticalOrientation: CTFontOrientation { get }
+}
+@available(OSX 10.6, *)
+let kCTFontFormatAttribute: CFString
+enum CTFontFormat : UInt32 {
+  init?(rawValue: UInt32)
+  var rawValue: UInt32 { get }
+  case Unrecognized
+  case OpenTypePostScript
+  case OpenTypeTrueType
+  case TrueType
+  case PostScript
+  case Bitmap
+}
+@available(OSX 10.6, *)
+let kCTFontRegistrationScopeAttribute: CFString
+@available(OSX 10.6, *)
+let kCTFontPriorityAttribute: CFString
+var kCTFontPrioritySystem: Int { get }
+var kCTFontPriorityNetwork: Int { get }
+var kCTFontPriorityComputer: Int { get }
+var kCTFontPriorityUser: Int { get }
+var kCTFontPriorityDynamic: Int { get }
+var kCTFontPriorityProcess: Int { get }
+typealias CTFontPriority = UInt32
+@available(OSX 10.6, *)
+let kCTFontEnabledAttribute: CFString
+@available(OSX 10.8, *)
+let kCTFontDownloadableAttribute: CFString
+@available(OSX 10.5, *)
+func CTFontDescriptorCreateWithNameAndSize(name: CFString, _ size: CGFloat) -> CTFontDescriptor
+@available(OSX 10.5, *)
+func CTFontDescriptorCreateWithAttributes(attributes: CFDictionary) -> CTFontDescriptor
+@available(OSX 10.5, *)
+func CTFontDescriptorCreateCopyWithAttributes(original: CTFontDescriptor, _ attributes: CFDictionary) -> CTFontDescriptor
+@available(OSX 10.9, *)
+func CTFontDescriptorCreateCopyWithFamily(original: CTFontDescriptor, _ family: CFString) -> CTFontDescriptor?
+@available(OSX 10.9, *)
+func CTFontDescriptorCreateCopyWithSymbolicTraits(original: CTFontDescriptor, _ symTraitValue: CTFontSymbolicTraits, _ symTraitMask: CTFontSymbolicTraits) -> CTFontDescriptor?
+@available(OSX 10.5, *)
+func CTFontDescriptorCreateCopyWithVariation(original: CTFontDescriptor, _ variationIdentifier: CFNumber, _ variationValue: CGFloat) -> CTFontDescriptor
+@available(OSX 10.5, *)
+func CTFontDescriptorCreateCopyWithFeature(original: CTFontDescriptor, _ featureTypeIdentifier: CFNumber, _ featureSelectorIdentifier: CFNumber) -> CTFontDescriptor
+@available(OSX 10.5, *)
+func CTFontDescriptorCreateMatchingFontDescriptors(descriptor: CTFontDescriptor, _ mandatoryAttributes: CFSet?) -> CFArray?
+@available(OSX 10.5, *)
+func CTFontDescriptorCreateMatchingFontDescriptor(descriptor: CTFontDescriptor, _ mandatoryAttributes: CFSet?) -> CTFontDescriptor?
+enum CTFontDescriptorMatchingState : UInt32 {
+  init?(rawValue: UInt32)
+  var rawValue: UInt32 { get }
+  case DidBegin
+  case DidFinish
+  case WillBeginQuerying
+  case Stalled
+  case WillBeginDownloading
+  case Downloading
+  case DidFinishDownloading
+  case DidMatch
+  case DidFailWithError
+}
+@available(OSX 10.8, *)
+let kCTFontDescriptorMatchingSourceDescriptor: CFString
+@available(OSX 10.8, *)
+let kCTFontDescriptorMatchingDescriptors: CFString
+@available(OSX 10.8, *)
+let kCTFontDescriptorMatchingResult: CFString
+@available(OSX 10.8, *)
+let kCTFontDescriptorMatchingPercentage: CFString
+@available(OSX 10.8, *)
+let kCTFontDescriptorMatchingCurrentAssetSize: CFString
+@available(OSX 10.8, *)
+let kCTFontDescriptorMatchingTotalDownloadedSize: CFString
+@available(OSX 10.8, *)
+let kCTFontDescriptorMatchingTotalAssetSize: CFString
+@available(OSX 10.8, *)
+let kCTFontDescriptorMatchingError: CFString
+typealias CTFontDescriptorProgressHandler = (CTFontDescriptorMatchingState, CFDictionary) -> Bool
+@available(OSX 10.9, *)
+func CTFontDescriptorMatchFontDescriptorsWithProgressHandler(descriptors: CFArray, _ mandatoryAttributes: CFSet?, _ progressBlock: CTFontDescriptorProgressHandler) -> Bool
+@available(OSX 10.5, *)
+func CTFontDescriptorCopyAttributes(descriptor: CTFontDescriptor) -> CFDictionary
+@available(OSX 10.5, *)
+func CTFontDescriptorCopyAttribute(descriptor: CTFontDescriptor, _ attribute: CFString) -> CFTypeRef?
+@available(OSX 10.5, *)
+func CTFontDescriptorCopyLocalizedAttribute(descriptor: CTFontDescriptor, _ attribute: CFString, _ language: UnsafeMutablePointer<Unmanaged<CFString>?>) -> CFTypeRef?

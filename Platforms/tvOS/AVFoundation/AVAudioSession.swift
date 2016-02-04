@@ -1,0 +1,310 @@
+
+@available(tvOS 6.0, *)
+struct AVAudioSessionInterruptionOptions : OptionSetType {
+  init(rawValue: UInt)
+  let rawValue: UInt
+  static var ShouldResume: AVAudioSessionInterruptionOptions { get }
+}
+@available(tvOS 6.0, *)
+struct AVAudioSessionSetActiveOptions : OptionSetType {
+  init(rawValue: UInt)
+  let rawValue: UInt
+  static var NotifyOthersOnDeactivation: AVAudioSessionSetActiveOptions { get }
+}
+@available(tvOS 6.0, *)
+enum AVAudioSessionPortOverride : UInt {
+  init?(rawValue: UInt)
+  var rawValue: UInt { get }
+  case None
+}
+@available(tvOS 6.0, *)
+enum AVAudioSessionRouteChangeReason : UInt {
+  init?(rawValue: UInt)
+  var rawValue: UInt { get }
+  case Unknown
+  case NewDeviceAvailable
+  case OldDeviceUnavailable
+  case CategoryChange
+  case Override
+  case WakeFromSleep
+  case NoSuitableRouteForCategory
+  @available(tvOS 7.0, *)
+  case RouteConfigurationChange
+}
+@available(tvOS 6.0, *)
+struct AVAudioSessionCategoryOptions : OptionSetType {
+  init(rawValue: UInt)
+  let rawValue: UInt
+  static var MixWithOthers: AVAudioSessionCategoryOptions { get }
+  static var DuckOthers: AVAudioSessionCategoryOptions { get }
+  @available(tvOS 9.0, *)
+  static var InterruptSpokenAudioAndMixWithOthers: AVAudioSessionCategoryOptions { get }
+}
+@available(tvOS 6.0, *)
+enum AVAudioSessionInterruptionType : UInt {
+  init?(rawValue: UInt)
+  var rawValue: UInt { get }
+  case Began
+  case Ended
+}
+@available(tvOS 8.0, *)
+enum AVAudioSessionSilenceSecondaryAudioHintType : UInt {
+  init?(rawValue: UInt)
+  var rawValue: UInt { get }
+  case Begin
+  case End
+}
+@available(tvOS 7.0, *)
+enum AVAudioSessionErrorCode : Int {
+  init?(rawValue: Int)
+  var rawValue: Int { get }
+  case CodeNone
+  case CodeMediaServicesFailed
+  case CodeIsBusy
+  case CodeIncompatibleCategory
+  case CodeCannotInterruptOthers
+  case CodeMissingEntitlement
+  case CodeSiriIsRecording
+  case CodeCannotStartPlaying
+  case CodeCannotStartRecording
+  case CodeBadParam
+  case InsufficientPriority
+  case CodeResourceNotAvailable
+  case CodeUnspecified
+}
+@available(tvOS 3.0, *)
+class AVAudioSession : NSObject {
+  class func sharedInstance() -> AVAudioSession
+  func setActive(active: Bool) throws
+  @available(tvOS 6.0, *)
+  func setActive(active: Bool, withOptions options: AVAudioSessionSetActiveOptions) throws
+  @available(tvOS 9.0, *)
+  var availableCategories: [String] { get }
+  func setCategory(category: String) throws
+  @available(tvOS 6.0, *)
+  func setCategory(category: String, withOptions options: AVAudioSessionCategoryOptions) throws
+  var category: String { get }
+  @available(tvOS 6.0, *)
+  var categoryOptions: AVAudioSessionCategoryOptions { get }
+  @available(tvOS 9.0, *)
+  var availableModes: [String] { get }
+  @available(tvOS 5.0, *)
+  func setMode(mode: String) throws
+  @available(tvOS 5.0, *)
+  var mode: String { get }
+  @available(tvOS 6.0, *)
+  func overrideOutputAudioPort(portOverride: AVAudioSessionPortOverride) throws
+  @available(tvOS 6.0, *)
+  var otherAudioPlaying: Bool { get }
+  @available(tvOS 8.0, *)
+  var secondaryAudioShouldBeSilencedHint: Bool { get }
+  @available(tvOS 6.0, *)
+  var currentRoute: AVAudioSessionRouteDescription { get }
+  @available(tvOS 7.0, *)
+  func setPreferredInput(inPort: AVAudioSessionPortDescription?) throws
+  @available(tvOS 7.0, *)
+  var preferredInput: AVAudioSessionPortDescription? { get }
+  @available(tvOS 7.0, *)
+  var availableInputs: [AVAudioSessionPortDescription]? { get }
+  init()
+}
+typealias PermissionBlock = (Bool) -> Void
+extension AVAudioSession {
+  @available(tvOS 6.0, *)
+  func setPreferredSampleRate(sampleRate: Double) throws
+  @available(tvOS 6.0, *)
+  var preferredSampleRate: Double { get }
+  func setPreferredIOBufferDuration(duration: NSTimeInterval) throws
+  var preferredIOBufferDuration: NSTimeInterval { get }
+  @available(tvOS 7.0, *)
+  func setPreferredInputNumberOfChannels(count: Int) throws
+  @available(tvOS 7.0, *)
+  var preferredInputNumberOfChannels: Int { get }
+  @available(tvOS 7.0, *)
+  func setPreferredOutputNumberOfChannels(count: Int) throws
+  @available(tvOS 7.0, *)
+  var preferredOutputNumberOfChannels: Int { get }
+  @available(tvOS 7.0, *)
+  var maximumInputNumberOfChannels: Int { get }
+  @available(tvOS 7.0, *)
+  var maximumOutputNumberOfChannels: Int { get }
+  @available(tvOS 6.0, *)
+  func setInputGain(gain: Float) throws
+  @available(tvOS 6.0, *)
+  var inputGain: Float { get }
+  @available(tvOS 6.0, *)
+  var inputGainSettable: Bool { get }
+  @available(tvOS 6.0, *)
+  var inputAvailable: Bool { get }
+  @available(tvOS 6.0, *)
+  var inputDataSources: [AVAudioSessionDataSourceDescription]? { get }
+  @available(tvOS 6.0, *)
+  var inputDataSource: AVAudioSessionDataSourceDescription? { get }
+  @available(tvOS 6.0, *)
+  func setInputDataSource(dataSource: AVAudioSessionDataSourceDescription?) throws
+  @available(tvOS 6.0, *)
+  var outputDataSources: [AVAudioSessionDataSourceDescription]? { get }
+  @available(tvOS 6.0, *)
+  var outputDataSource: AVAudioSessionDataSourceDescription? { get }
+  @available(tvOS 6.0, *)
+  func setOutputDataSource(dataSource: AVAudioSessionDataSourceDescription?) throws
+  @available(tvOS 6.0, *)
+  var sampleRate: Double { get }
+  @available(tvOS 6.0, *)
+  var inputNumberOfChannels: Int { get }
+  @available(tvOS 6.0, *)
+  var outputNumberOfChannels: Int { get }
+  @available(tvOS 6.0, *)
+  var outputVolume: Float { get }
+  @available(tvOS 6.0, *)
+  var inputLatency: NSTimeInterval { get }
+  @available(tvOS 6.0, *)
+  var outputLatency: NSTimeInterval { get }
+  @available(tvOS 6.0, *)
+  var IOBufferDuration: NSTimeInterval { get }
+}
+extension AVAudioSession {
+}
+@available(tvOS 6.0, *)
+let AVAudioSessionInterruptionNotification: String
+@available(tvOS 6.0, *)
+let AVAudioSessionRouteChangeNotification: String
+@available(tvOS 7.0, *)
+let AVAudioSessionMediaServicesWereLostNotification: String
+@available(tvOS 6.0, *)
+let AVAudioSessionMediaServicesWereResetNotification: String
+@available(tvOS 8.0, *)
+let AVAudioSessionSilenceSecondaryAudioHintNotification: String
+@available(tvOS 6.0, *)
+let AVAudioSessionInterruptionTypeKey: String
+@available(tvOS 6.0, *)
+let AVAudioSessionInterruptionOptionKey: String
+@available(tvOS 6.0, *)
+let AVAudioSessionRouteChangeReasonKey: String
+@available(tvOS 6.0, *)
+let AVAudioSessionRouteChangePreviousRouteKey: String
+@available(tvOS 8.0, *)
+let AVAudioSessionSilenceSecondaryAudioHintTypeKey: String
+let AVAudioSessionCategoryAmbient: String
+let AVAudioSessionCategorySoloAmbient: String
+let AVAudioSessionCategoryPlayback: String
+let AVAudioSessionCategoryRecord: String
+let AVAudioSessionCategoryPlayAndRecord: String
+@available(tvOS 6.0, *)
+let AVAudioSessionCategoryMultiRoute: String
+@available(tvOS 5.0, *)
+let AVAudioSessionModeDefault: String
+@available(tvOS 5.0, *)
+let AVAudioSessionModeVoiceChat: String
+@available(tvOS 5.0, *)
+let AVAudioSessionModeGameChat: String
+@available(tvOS 5.0, *)
+let AVAudioSessionModeVideoRecording: String
+@available(tvOS 5.0, *)
+let AVAudioSessionModeMeasurement: String
+@available(tvOS 6.0, *)
+let AVAudioSessionModeMoviePlayback: String
+@available(tvOS 7.0, *)
+let AVAudioSessionModeVideoChat: String
+@available(tvOS 9.0, *)
+let AVAudioSessionModeSpokenAudio: String
+@available(tvOS 6.0, *)
+let AVAudioSessionPortLineIn: String
+@available(tvOS 6.0, *)
+let AVAudioSessionPortBuiltInMic: String
+@available(tvOS 6.0, *)
+let AVAudioSessionPortHeadsetMic: String
+@available(tvOS 6.0, *)
+let AVAudioSessionPortLineOut: String
+@available(tvOS 6.0, *)
+let AVAudioSessionPortHeadphones: String
+@available(tvOS 6.0, *)
+let AVAudioSessionPortBluetoothA2DP: String
+@available(tvOS 6.0, *)
+let AVAudioSessionPortBuiltInReceiver: String
+@available(tvOS 6.0, *)
+let AVAudioSessionPortBuiltInSpeaker: String
+@available(tvOS 6.0, *)
+let AVAudioSessionPortHDMI: String
+@available(tvOS 6.0, *)
+let AVAudioSessionPortAirPlay: String
+@available(tvOS 7.0, *)
+let AVAudioSessionPortBluetoothLE: String
+@available(tvOS 6.0, *)
+let AVAudioSessionPortBluetoothHFP: String
+@available(tvOS 6.0, *)
+let AVAudioSessionPortUSBAudio: String
+@available(tvOS 7.0, *)
+let AVAudioSessionPortCarAudio: String
+@available(tvOS 7.0, *)
+let AVAudioSessionLocationUpper: String
+@available(tvOS 7.0, *)
+let AVAudioSessionLocationLower: String
+@available(tvOS 7.0, *)
+let AVAudioSessionOrientationTop: String
+@available(tvOS 7.0, *)
+let AVAudioSessionOrientationBottom: String
+@available(tvOS 7.0, *)
+let AVAudioSessionOrientationFront: String
+@available(tvOS 7.0, *)
+let AVAudioSessionOrientationBack: String
+@available(tvOS 8.0, *)
+let AVAudioSessionOrientationLeft: String
+@available(tvOS 8.0, *)
+let AVAudioSessionOrientationRight: String
+@available(tvOS 7.0, *)
+let AVAudioSessionPolarPatternOmnidirectional: String
+@available(tvOS 7.0, *)
+let AVAudioSessionPolarPatternCardioid: String
+@available(tvOS 7.0, *)
+let AVAudioSessionPolarPatternSubcardioid: String
+@available(tvOS 6.0, *)
+class AVAudioSessionChannelDescription : NSObject {
+  var channelName: String { get }
+  var owningPortUID: String { get }
+  var channelNumber: Int { get }
+  var channelLabel: AudioChannelLabel { get }
+  init()
+}
+@available(tvOS 6.0, *)
+class AVAudioSessionPortDescription : NSObject {
+  var portType: String { get }
+  var portName: String { get }
+  var UID: String { get }
+  var channels: [AVAudioSessionChannelDescription]? { get }
+  @available(tvOS 7.0, *)
+  var dataSources: [AVAudioSessionDataSourceDescription]? { get }
+  @available(tvOS 7.0, *)
+  var selectedDataSource: AVAudioSessionDataSourceDescription? { get }
+  @available(tvOS 7.0, *)
+  var preferredDataSource: AVAudioSessionDataSourceDescription? { get }
+  @available(tvOS 7.0, *)
+  func setPreferredDataSource(dataSource: AVAudioSessionDataSourceDescription?) throws
+  init()
+}
+@available(tvOS 6.0, *)
+class AVAudioSessionRouteDescription : NSObject {
+  var inputs: [AVAudioSessionPortDescription] { get }
+  var outputs: [AVAudioSessionPortDescription] { get }
+  init()
+}
+@available(tvOS 6.0, *)
+class AVAudioSessionDataSourceDescription : NSObject {
+  var dataSourceID: NSNumber { get }
+  var dataSourceName: String { get }
+  @available(tvOS 7.0, *)
+  var location: String? { get }
+  @available(tvOS 7.0, *)
+  var orientation: String? { get }
+  @available(tvOS 7.0, *)
+  var supportedPolarPatterns: [String]? { get }
+  @available(tvOS 7.0, *)
+  var selectedPolarPattern: String? { get }
+  @available(tvOS 7.0, *)
+  var preferredPolarPattern: String? { get }
+  @available(tvOS 7.0, *)
+  func setPreferredPolarPattern(pattern: String?) throws
+  init()
+}
+var AVAudioSessionInterruptionFlags_ShouldResume: Int { get }
+var AVAudioSessionSetActiveFlags_NotifyOthersOnDeactivation: Int { get }

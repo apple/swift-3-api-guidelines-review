@@ -1,0 +1,4 @@
+
+class PKObject : NSObject {
+  init()
+}

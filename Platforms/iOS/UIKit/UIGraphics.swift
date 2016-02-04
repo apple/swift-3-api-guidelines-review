@@ -1,0 +1,32 @@
+
+func UIGraphicsGetCurrentContext() -> CGContext?
+func UIGraphicsPushContext(context: CGContext)
+func UIGraphicsPopContext()
+func UIRectFillUsingBlendMode(rect: CGRect, _ blendMode: CGBlendMode)
+func UIRectFill(rect: CGRect)
+func UIRectFrameUsingBlendMode(rect: CGRect, _ blendMode: CGBlendMode)
+func UIRectFrame(rect: CGRect)
+func UIRectClip(rect: CGRect)
+func UIGraphicsBeginImageContext(size: CGSize)
+@available(iOS 4.0, *)
+func UIGraphicsBeginImageContextWithOptions(size: CGSize, _ opaque: Bool, _ scale: CGFloat)
+func UIGraphicsGetImageFromCurrentImageContext() -> UIImage!
+func UIGraphicsEndImageContext()
+@available(iOS 3.2, *)
+func UIGraphicsBeginPDFContextToFile(path: String, _ bounds: CGRect, _ documentInfo: [NSObject : AnyObject]?) -> Bool
+@available(iOS 3.2, *)
+func UIGraphicsBeginPDFContextToData(data: NSMutableData, _ bounds: CGRect, _ documentInfo: [NSObject : AnyObject]?)
+@available(iOS 3.2, *)
+func UIGraphicsEndPDFContext()
+@available(iOS 3.2, *)
+func UIGraphicsBeginPDFPage()
+@available(iOS 3.2, *)
+func UIGraphicsBeginPDFPageWithInfo(bounds: CGRect, _ pageInfo: [NSObject : AnyObject]?)
+@available(iOS 3.2, *)
+func UIGraphicsGetPDFContextBounds() -> CGRect
+@available(iOS 3.2, *)
+func UIGraphicsSetPDFContextURLForRect(url: NSURL, _ rect: CGRect)
+@available(iOS 3.2, *)
+func UIGraphicsAddPDFContextDestinationAtPoint(name: String, _ point: CGPoint)
+@available(iOS 3.2, *)
+func UIGraphicsSetPDFContextDestinationForRect(name: String, _ rect: CGRect)

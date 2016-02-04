@@ -1,0 +1,53 @@
+
+enum AVAssetWriterStatus : Int {
+  init?(rawValue: Int)
+  var rawValue: Int { get }
+  case Unknown
+  case Writing
+  case Completed
+  case Failed
+  case Cancelled
+}
+@available(OSX 10.7, *)
+class AVAssetWriter : NSObject {
+  init(URL outputURL: NSURL, fileType outputFileType: String) throws
+  @NSCopying var outputURL: NSURL { get }
+  var outputFileType: String { get }
+  var availableMediaTypes: [String] { get }
+  var status: AVAssetWriterStatus { get }
+  var error: NSError? { get }
+  var metadata: [AVMetadataItem]
+  var shouldOptimizeForNetworkUse: Bool
+  @available(OSX 10.10, *)
+  @NSCopying var directoryForTemporaryFiles: NSURL?
+  var inputs: [AVAssetWriterInput] { get }
+  func canApplyOutputSettings(outputSettings: [String : AnyObject]?, forMediaType mediaType: String) -> Bool
+  func canAddInput(input: AVAssetWriterInput) -> Bool
+  func addInput(input: AVAssetWriterInput)
+  func startWriting() -> Bool
+  func startSessionAtSourceTime(startTime: CMTime)
+  func endSessionAtSourceTime(endTime: CMTime)
+  func cancelWriting()
+  @available(OSX 10.9, *)
+  func finishWritingWithCompletionHandler(handler: () -> Void)
+}
+extension AVAssetWriter {
+  var movieFragmentInterval: CMTime
+  var overallDurationHint: CMTime
+  @available(OSX 10.7, *)
+  var movieTimeScale: CMTimeScale
+}
+extension AVAssetWriter {
+  @available(OSX 10.9, *)
+  func canAddInputGroup(inputGroup: AVAssetWriterInputGroup) -> Bool
+  @available(OSX 10.9, *)
+  func addInputGroup(inputGroup: AVAssetWriterInputGroup)
+  @available(OSX 10.9, *)
+  var inputGroups: [AVAssetWriterInputGroup] { get }
+}
+@available(OSX 10.9, *)
+class AVAssetWriterInputGroup : AVMediaSelectionGroup {
+  init(inputs: [AVAssetWriterInput], defaultInput: AVAssetWriterInput?)
+  var inputs: [AVAssetWriterInput] { get }
+  var defaultInput: AVAssetWriterInput? { get }
+}
