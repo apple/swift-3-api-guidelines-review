@@ -1,0 +1,39 @@
+
+enum NSTokenStyle : UInt {
+  init?(rawValue: UInt)
+  var rawValue: UInt { get }
+  case Default
+  case None
+  case Rounded
+  @available(OSX 10.10, *)
+  case Squared
+  @available(OSX 10.10, *)
+  case PlainSquared
+}
+let NSDefaultTokenStyle: NSTokenStyle
+let NSPlainTextTokenStyle: NSTokenStyle
+let NSRoundedTokenStyle: NSTokenStyle
+class NSTokenFieldCell : NSTextFieldCell {
+  var tokenStyle: NSTokenStyle
+  var completionDelay: TimeInterval
+  class func defaultCompletionDelay() -> TimeInterval
+  @NSCopying var tokenizingCharacterSet: CharacterSet!
+  class func defaultTokenizingCharacterSet() -> CharacterSet
+  unowned(unsafe) var delegate: @sil_unmanaged NSTokenFieldCellDelegate?
+  init(textCell aString: String)
+  init(imageCell image: NSImage?)
+  convenience init()
+  init?(coder aDecoder: Coder)
+}
+protocol NSTokenFieldCellDelegate : ObjectProtocol {
+  optional func tokenFieldCell(tokenFieldCell: NSTokenFieldCell, completionsForSubstring substring: String, indexOfToken tokenIndex: Int, indexOfSelectedItem selectedIndex: UnsafeMutablePointer<Int>) -> [AnyObject]
+  optional func tokenFieldCell(tokenFieldCell: NSTokenFieldCell, shouldAdd tokens: [AnyObject], at index: Int) -> [AnyObject]
+  optional func tokenFieldCell(tokenFieldCell: NSTokenFieldCell, displayStringForRepresentedObject representedObject: AnyObject) -> String?
+  optional func tokenFieldCell(tokenFieldCell: NSTokenFieldCell, editingStringForRepresentedObject representedObject: AnyObject) -> String?
+  optional func tokenFieldCell(tokenFieldCell: NSTokenFieldCell, representedObjectForEditing editingString: String) -> AnyObject
+  optional func tokenFieldCell(tokenFieldCell: NSTokenFieldCell, writeRepresentedObjects objects: [AnyObject], to pboard: NSPasteboard) -> Bool
+  optional func tokenFieldCell(tokenFieldCell: NSTokenFieldCell, readFrom pboard: NSPasteboard) -> [AnyObject]?
+  optional func tokenFieldCell(tokenFieldCell: NSTokenFieldCell, menuForRepresentedObject representedObject: AnyObject) -> NSMenu?
+  optional func tokenFieldCell(tokenFieldCell: NSTokenFieldCell, hasMenuForRepresentedObject representedObject: AnyObject) -> Bool
+  optional func tokenFieldCell(tokenFieldCell: NSTokenFieldCell, styleForRepresentedObject representedObject: AnyObject) -> NSTokenStyle
+}

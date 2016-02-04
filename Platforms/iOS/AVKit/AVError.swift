@@ -1,0 +1,10 @@
+
+@available(iOS 9.0, *)
+let AVKitErrorDomain: String
+@available(iOS 9.0, *)
+enum AVKitError : Int {
+  init?(rawValue: Int)
+  var rawValue: Int { get }
+  case Unknown
+  case PictureInPictureStartFailed
+}

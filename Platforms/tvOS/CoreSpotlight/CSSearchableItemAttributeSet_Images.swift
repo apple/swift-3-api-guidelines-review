@@ -1,0 +1,34 @@
+
+extension CSSearchableItemAttributeSet {
+  var pixelHeight: Number?
+  var pixelWidth: Number?
+  var pixelCount: Number?
+  var colorSpace: String?
+  var bitsPerSample: Number?
+  var flashOn: Number?
+  var focalLength: Number?
+  var focalLength35mm: Number?
+  var acquisitionMake: String?
+  var acquisitionModel: String?
+  var cameraOwner: String?
+  var lensModel: String?
+  var isoSpeed: Number?
+  var orientation: Number?
+  var layerNames: [String]?
+  var whiteBalance: Number?
+  var aperture: Number?
+  var profileName: String?
+  var resolutionWidthDPI: Number?
+  var resolutionHeightDPI: Number?
+  var exposureMode: Number?
+  var exposureTime: Number?
+  var exifVersion: String?
+  var exifgpsVersion: String?
+  var hasAlphaChannel: Number?
+  var redEyeOn: Number?
+  var meteringMode: String?
+  var maxAperture: Number?
+  var fNumber: Number?
+  var exposureProgram: String?
+  var exposureTimeString: String?
+}

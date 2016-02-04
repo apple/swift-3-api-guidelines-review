@@ -1,0 +1,20 @@
+
+@available(OSX 10.10, *)
+class AVMetadataObject : Object {
+  var time: CMTime { get }
+  var duration: CMTime { get }
+  var bounds: CGRect { get }
+  var type: String! { get }
+}
+@available(OSX 10.10, *)
+let AVMetadataObjectTypeFace: String
+@available(OSX 10.10, *)
+class AVMetadataFaceObject : AVMetadataObject, Copying {
+  var faceID: Int { get }
+  var hasRollAngle: Bool { get }
+  var rollAngle: CGFloat { get }
+  var hasYawAngle: Bool { get }
+  var yawAngle: CGFloat { get }
+  @available(OSX 10.10, *)
+  func copy(zone zone: Zone = nil) -> AnyObject
+}

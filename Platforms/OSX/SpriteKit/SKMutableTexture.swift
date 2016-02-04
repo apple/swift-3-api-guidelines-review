@@ -1,0 +1,20 @@
+
+@available(OSX 10.10, *)
+class SKMutableTexture : SKTexture {
+  init(size: CGSize)
+  init(size: CGSize, pixelFormat format: Int32)
+  func modifyPixelDataWith(block: (UnsafeMutablePointer<Void>, Int) -> Void)
+  convenience init(imageNamed name: String)
+  convenience init(rect: CGRect, in texture: SKTexture)
+  @available(OSX 10.10, *)
+  convenience init(vectorNoiseWithSmoothness smoothness: CGFloat, size: CGSize)
+  @available(OSX 10.10, *)
+  convenience init(noiseWithSmoothness smoothness: CGFloat, size: CGSize, grayscale: Bool)
+  convenience init(cgImage image: CGImage)
+  convenience init(image: NSImage)
+  convenience init(data pixelData: Data, size: CGSize)
+  convenience init(data pixelData: Data, size: CGSize, flipped: Bool)
+  convenience init(data pixelData: Data, size: CGSize, rowLength: UInt32, alignment: UInt32)
+  init()
+  init?(coder aDecoder: Coder)
+}

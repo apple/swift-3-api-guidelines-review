@@ -1,0 +1,4 @@
+
+class PKObject : Object {
+  init()
+}

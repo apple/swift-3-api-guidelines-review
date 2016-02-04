@@ -1,0 +1,119 @@
+
+enum NumberFormatterBehavior : UInt {
+  init?(rawValue: UInt)
+  var rawValue: UInt { get }
+  case BehaviorDefault
+  case Behavior10_4
+}
+class NumberFormatter : Formatter {
+  @available(tvOS 8.0, *)
+  var formattingContext: FormattingContext
+  func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, range rangep: UnsafeMutablePointer<NSRange>) throws
+  func stringFrom(number: Number) -> String?
+  func numberFrom(string: String) -> Number?
+  @available(tvOS 4.0, *)
+  class func localizedStringFrom(num: Number, number nstyle: NumberFormatterStyle) -> String
+  class func defaultFormatterBehavior() -> NumberFormatterBehavior
+  class func setDefaultFormatterBehavior(behavior: NumberFormatterBehavior)
+  var numberStyle: NumberFormatterStyle
+  @NSCopying var locale: Locale!
+  var generatesDecimalNumbers: Bool
+  var formatterBehavior: NumberFormatterBehavior
+  var negativeFormat: String!
+  var textAttributesForNegativeValues: [String : AnyObject]?
+  var positiveFormat: String!
+  var textAttributesForPositiveValues: [String : AnyObject]?
+  var allowsFloats: Bool
+  var decimalSeparator: String!
+  var alwaysShowsDecimalSeparator: Bool
+  var currencyDecimalSeparator: String!
+  var usesGroupingSeparator: Bool
+  var groupingSeparator: String!
+  var zeroSymbol: String?
+  var textAttributesForZero: [String : AnyObject]?
+  var nilSymbol: String
+  var textAttributesForNil: [String : AnyObject]?
+  var notANumberSymbol: String!
+  var textAttributesForNotANumber: [String : AnyObject]?
+  var positiveInfinitySymbol: String
+  var textAttributesForPositiveInfinity: [String : AnyObject]?
+  var negativeInfinitySymbol: String
+  var textAttributesForNegativeInfinity: [String : AnyObject]?
+  var positivePrefix: String!
+  var positiveSuffix: String!
+  var negativePrefix: String!
+  var negativeSuffix: String!
+  var currencyCode: String!
+  var currencySymbol: String!
+  var internationalCurrencySymbol: String!
+  var percentSymbol: String!
+  var perMillSymbol: String!
+  var minusSign: String!
+  var plusSign: String!
+  var exponentSymbol: String!
+  var groupingSize: Int
+  var secondaryGroupingSize: Int
+  @NSCopying var multiplier: Number?
+  var formatWidth: Int
+  var paddingCharacter: String!
+  var paddingPosition: NumberFormatterPadPosition
+  var roundingMode: NumberFormatterRoundingMode
+  @NSCopying var roundingIncrement: Number!
+  var minimumIntegerDigits: Int
+  var maximumIntegerDigits: Int
+  var minimumFractionDigits: Int
+  var maximumFractionDigits: Int
+  @NSCopying var minimum: Number?
+  @NSCopying var maximum: Number?
+  @available(tvOS 2.0, *)
+  var currencyGroupingSeparator: String!
+  @available(tvOS 2.0, *)
+  var isLenient: Bool
+  @available(tvOS 2.0, *)
+  var usesSignificantDigits: Bool
+  @available(tvOS 2.0, *)
+  var minimumSignificantDigits: Int
+  @available(tvOS 2.0, *)
+  var maximumSignificantDigits: Int
+  @available(tvOS 2.0, *)
+  var isPartialStringValidationEnabled: Bool
+  init()
+  init?(coder aDecoder: Coder)
+}
+enum NumberFormatterStyle : UInt {
+  init?(rawValue: UInt)
+  var rawValue: UInt { get }
+  case NoStyle
+  case DecimalStyle
+  case CurrencyStyle
+  case PercentStyle
+  case ScientificStyle
+  case SpellOutStyle
+  @available(tvOS 9.0, *)
+  case OrdinalStyle
+  @available(tvOS 9.0, *)
+  case CurrencyISOCodeStyle
+  @available(tvOS 9.0, *)
+  case CurrencyPluralStyle
+  @available(tvOS 9.0, *)
+  case CurrencyAccountingStyle
+}
+enum NumberFormatterPadPosition : UInt {
+  init?(rawValue: UInt)
+  var rawValue: UInt { get }
+  case BeforePrefix
+  case AfterPrefix
+  case BeforeSuffix
+  case AfterSuffix
+}
+enum NumberFormatterRoundingMode : UInt {
+  init?(rawValue: UInt)
+  var rawValue: UInt { get }
+  case RoundCeiling
+  case RoundFloor
+  case RoundDown
+  case RoundUp
+  case RoundHalfEven
+  case RoundHalfDown
+  case RoundHalfUp
+}

@@ -1,0 +1,9 @@
+
+@available(OSX 10.11, *)
+protocol MTLCommandQueue : ObjectProtocol {
+  var label: String? { get set }
+  var device: MTLDevice { get }
+  func commandBuffer() -> MTLCommandBuffer
+  func commandBufferWithUnretainedReferences() -> MTLCommandBuffer
+  func insertDebugCaptureBoundary()
+}

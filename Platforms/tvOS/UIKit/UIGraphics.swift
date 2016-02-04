@@ -1,0 +1,32 @@
+
+func UIGraphicsGetCurrentContext() -> CGContext?
+func UIGraphicsPushContext(context: CGContext)
+func UIGraphicsPopContext()
+func UIRectFillUsingBlendMode(rect: CGRect, _ blendMode: CGBlendMode)
+func UIRectFill(rect: CGRect)
+func UIRectFrameUsingBlendMode(rect: CGRect, _ blendMode: CGBlendMode)
+func UIRectFrame(rect: CGRect)
+func UIRectClip(rect: CGRect)
+func UIGraphicsBeginImageContext(size: CGSize)
+@available(tvOS 4.0, *)
+func UIGraphicsBeginImageContextWithOptions(size: CGSize, _ opaque: Bool, _ scale: CGFloat)
+func UIGraphicsGetImageFromCurrentImageContext() -> UIImage!
+func UIGraphicsEndImageContext()
+@available(tvOS 3.2, *)
+func UIGraphicsBeginPDFContextToFile(path: String, _ bounds: CGRect, _ documentInfo: [Object : AnyObject]?) -> Bool
+@available(tvOS 3.2, *)
+func UIGraphicsBeginPDFContextToData(data: MutableData, _ bounds: CGRect, _ documentInfo: [Object : AnyObject]?)
+@available(tvOS 3.2, *)
+func UIGraphicsEndPDFContext()
+@available(tvOS 3.2, *)
+func UIGraphicsBeginPDFPage()
+@available(tvOS 3.2, *)
+func UIGraphicsBeginPDFPageWithInfo(bounds: CGRect, _ pageInfo: [Object : AnyObject]?)
+@available(tvOS 3.2, *)
+func UIGraphicsGetPDFContextBounds() -> CGRect
+@available(tvOS 3.2, *)
+func UIGraphicsSetPDFContextURLForRect(url: URL, _ rect: CGRect)
+@available(tvOS 3.2, *)
+func UIGraphicsAddPDFContextDestinationAtPoint(name: String, _ point: CGPoint)
+@available(tvOS 3.2, *)
+func UIGraphicsSetPDFContextDestinationForRect(name: String, _ rect: CGRect)

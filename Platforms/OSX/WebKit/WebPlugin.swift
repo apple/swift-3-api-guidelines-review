@@ -1,0 +1,31 @@
+
+extension Object {
+  class func webPlugInInitialize()
+  func webPlugInInitialize()
+  class func webPlugInStart()
+  func webPlugInStart()
+  class func webPlugInStop()
+  func webPlugInStop()
+  class func webPlugInDestroy()
+  func webPlugInDestroy()
+  class func webPlugInSetIsSelected(isSelected: Bool)
+  func webPlugInSetIsSelected(isSelected: Bool)
+  var objectForWebScript: AnyObject! { get }
+  @available(OSX 10.6, *)
+  class func webPlugInMainResourceDidReceive(response: URLResponse!)
+  @available(OSX 10.6, *)
+  func webPlugInMainResourceDidReceive(response: URLResponse!)
+  @available(OSX 10.6, *)
+  class func webPlugInMainResourceDidReceive(data: Data!)
+  @available(OSX 10.6, *)
+  func webPlugInMainResourceDidReceive(data: Data!)
+  @available(OSX 10.6, *)
+  class func webPlugInMainResourceDidFailWithError(error: Error!)
+  @available(OSX 10.6, *)
+  func webPlugInMainResourceDidFailWithError(error: Error!)
+  @available(OSX 10.6, *)
+  class func webPlugInMainResourceDidFinishLoading()
+  @available(OSX 10.6, *)
+  func webPlugInMainResourceDidFinishLoading()
+  class func objectForWebScript() -> AnyObject!
+}

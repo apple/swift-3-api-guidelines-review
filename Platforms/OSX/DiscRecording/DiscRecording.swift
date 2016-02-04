@@ -1,0 +1,2 @@
+
+func DRGetVersion() -> NumVersion

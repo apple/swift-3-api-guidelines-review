@@ -1,0 +1,4 @@
+
+class NSCoercionHandler : ScriptCoercionHandler {
+  init()
+}

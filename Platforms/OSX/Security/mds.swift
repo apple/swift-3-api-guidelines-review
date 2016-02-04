@@ -1,0 +1,22 @@
+
+typealias MDS_HANDLE = CSSM_DL_HANDLE
+typealias MDS_DB_HANDLE = CSSM_DL_DB_HANDLE
+struct mds_funcs {
+  var DbOpen: (@convention(c) (MDS_HANDLE, UnsafePointer<Int8>, UnsafePointer<CSSM_NET_ADDRESS>, CSSM_DB_ACCESS_TYPE, UnsafePointer<CSSM_ACCESS_CREDENTIALS>, UnsafePointer<Void>, UnsafeMutablePointer<CSSM_DB_HANDLE>) -> CSSM_RETURN)!
+  var DbClose: (@convention(c) (MDS_DB_HANDLE) -> CSSM_RETURN)!
+  var GetDbNames: (@convention(c) (MDS_HANDLE, UnsafeMutablePointer<CSSM_NAME_LIST_PTR>) -> CSSM_RETURN)!
+  var GetDbNameFromHandle: (@convention(c) (MDS_DB_HANDLE, UnsafeMutablePointer<UnsafeMutablePointer<Int8>>) -> CSSM_RETURN)!
+  var FreeNameList: (@convention(c) (MDS_HANDLE, CSSM_NAME_LIST_PTR) -> CSSM_RETURN)!
+  var DataInsert: (@convention(c) (MDS_DB_HANDLE, CSSM_DB_RECORDTYPE, UnsafePointer<CSSM_DB_RECORD_ATTRIBUTE_DATA>, UnsafePointer<CSSM_DATA>, UnsafeMutablePointer<CSSM_DB_UNIQUE_RECORD_PTR>) -> CSSM_RETURN)!
+  var DataDelete: (@convention(c) (MDS_DB_HANDLE, UnsafePointer<CSSM_DB_UNIQUE_RECORD>) -> CSSM_RETURN)!
+  var DataModify: (@convention(c) (MDS_DB_HANDLE, CSSM_DB_RECORDTYPE, CSSM_DB_UNIQUE_RECORD_PTR, UnsafePointer<CSSM_DB_RECORD_ATTRIBUTE_DATA>, UnsafePointer<CSSM_DATA>, CSSM_DB_MODIFY_MODE) -> CSSM_RETURN)!
+  var DataGetFirst: (@convention(c) (MDS_DB_HANDLE, UnsafePointer<CSSM_QUERY>, CSSM_HANDLE_PTR, CSSM_DB_RECORD_ATTRIBUTE_DATA_PTR, CSSM_DATA_PTR, UnsafeMutablePointer<CSSM_DB_UNIQUE_RECORD_PTR>) -> CSSM_RETURN)!
+  var DataGetNext: (@convention(c) (MDS_DB_HANDLE, CSSM_HANDLE, CSSM_DB_RECORD_ATTRIBUTE_DATA_PTR, CSSM_DATA_PTR, UnsafeMutablePointer<CSSM_DB_UNIQUE_RECORD_PTR>) -> CSSM_RETURN)!
+  var DataAbortQuery: (@convention(c) (MDS_DB_HANDLE, CSSM_HANDLE) -> CSSM_RETURN)!
+  var DataGetFromUniqueRecordId: (@convention(c) (MDS_DB_HANDLE, UnsafePointer<CSSM_DB_UNIQUE_RECORD>, CSSM_DB_RECORD_ATTRIBUTE_DATA_PTR, CSSM_DATA_PTR) -> CSSM_RETURN)!
+  var FreeUniqueRecord: (@convention(c) (MDS_DB_HANDLE, CSSM_DB_UNIQUE_RECORD_PTR) -> CSSM_RETURN)!
+  var CreateRelation: (@convention(c) (MDS_DB_HANDLE, CSSM_DB_RECORDTYPE, UnsafePointer<Int8>, uint32, UnsafePointer<CSSM_DB_SCHEMA_ATTRIBUTE_INFO>, uint32, UnsafePointer<CSSM_DB_SCHEMA_INDEX_INFO>) -> CSSM_RETURN)!
+  var DestroyRelation: (@convention(c) (MDS_DB_HANDLE, CSSM_DB_RECORDTYPE) -> CSSM_RETURN)!
+  init()
+  init(DbOpen: (@convention(c) (MDS_HANDLE, UnsafePointer<Int8>, UnsafePointer<CSSM_NET_ADDRESS>, CSSM_DB_ACCESS_TYPE, UnsafePointer<CSSM_ACCESS_CREDENTIALS>, UnsafePointer<Void>, UnsafeMutablePointer<CSSM_DB_HANDLE>) -> CSSM_RETURN)!, DbClose: (@convention(c) (MDS_DB_HANDLE) -> CSSM_RETURN)!, GetDbNames: (@convention(c) (MDS_HANDLE, UnsafeMutablePointer<CSSM_NAME_LIST_PTR>) -> CSSM_RETURN)!, GetDbNameFromHandle: (@convention(c) (MDS_DB_HANDLE, UnsafeMutablePointer<UnsafeMutablePointer<Int8>>) -> CSSM_RETURN)!, FreeNameList: (@convention(c) (MDS_HANDLE, CSSM_NAME_LIST_PTR) -> CSSM_RETURN)!, DataInsert: (@convention(c) (MDS_DB_HANDLE, CSSM_DB_RECORDTYPE, UnsafePointer<CSSM_DB_RECORD_ATTRIBUTE_DATA>, UnsafePointer<CSSM_DATA>, UnsafeMutablePointer<CSSM_DB_UNIQUE_RECORD_PTR>) -> CSSM_RETURN)!, DataDelete: (@convention(c) (MDS_DB_HANDLE, UnsafePointer<CSSM_DB_UNIQUE_RECORD>) -> CSSM_RETURN)!, DataModify: (@convention(c) (MDS_DB_HANDLE, CSSM_DB_RECORDTYPE, CSSM_DB_UNIQUE_RECORD_PTR, UnsafePointer<CSSM_DB_RECORD_ATTRIBUTE_DATA>, UnsafePointer<CSSM_DATA>, CSSM_DB_MODIFY_MODE) -> CSSM_RETURN)!, DataGetFirst: (@convention(c) (MDS_DB_HANDLE, UnsafePointer<CSSM_QUERY>, CSSM_HANDLE_PTR, CSSM_DB_RECORD_ATTRIBUTE_DATA_PTR, CSSM_DATA_PTR, UnsafeMutablePointer<CSSM_DB_UNIQUE_RECORD_PTR>) -> CSSM_RETURN)!, DataGetNext: (@convention(c) (MDS_DB_HANDLE, CSSM_HANDLE, CSSM_DB_RECORD_ATTRIBUTE_DATA_PTR, CSSM_DATA_PTR, UnsafeMutablePointer<CSSM_DB_UNIQUE_RECORD_PTR>) -> CSSM_RETURN)!, DataAbortQuery: (@convention(c) (MDS_DB_HANDLE, CSSM_HANDLE) -> CSSM_RETURN)!, DataGetFromUniqueRecordId: (@convention(c) (MDS_DB_HANDLE, UnsafePointer<CSSM_DB_UNIQUE_RECORD>, CSSM_DB_RECORD_ATTRIBUTE_DATA_PTR, CSSM_DATA_PTR) -> CSSM_RETURN)!, FreeUniqueRecord: (@convention(c) (MDS_DB_HANDLE, CSSM_DB_UNIQUE_RECORD_PTR) -> CSSM_RETURN)!, CreateRelation: (@convention(c) (MDS_DB_HANDLE, CSSM_DB_RECORDTYPE, UnsafePointer<Int8>, uint32, UnsafePointer<CSSM_DB_SCHEMA_ATTRIBUTE_INFO>, uint32, UnsafePointer<CSSM_DB_SCHEMA_INDEX_INFO>) -> CSSM_RETURN)!, DestroyRelation: (@convention(c) (MDS_DB_HANDLE, CSSM_DB_RECORDTYPE) -> CSSM_RETURN)!)
+}
