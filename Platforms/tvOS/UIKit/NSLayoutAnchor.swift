@@ -19,14 +19,14 @@ class NSLayoutYAxisAnchor : NSLayoutAnchor {
 }
 @available(tvOS 9.0, *)
 class NSLayoutDimension : NSLayoutAnchor {
-  func constraintEqualToConstant(c: CGFloat) -> NSLayoutConstraint!
-  func constraintGreaterThanOrEqualToConstant(c: CGFloat) -> NSLayoutConstraint!
-  func constraintLessThanOrEqualToConstant(c: CGFloat) -> NSLayoutConstraint!
-  func constraintEqualToAnchor(anchor: NSLayoutDimension!, multiplier m: CGFloat) -> NSLayoutConstraint!
-  func constraintGreaterThanOrEqualToAnchor(anchor: NSLayoutDimension!, multiplier m: CGFloat) -> NSLayoutConstraint!
-  func constraintLessThanOrEqualToAnchor(anchor: NSLayoutDimension!, multiplier m: CGFloat) -> NSLayoutConstraint!
-  func constraintEqualToAnchor(anchor: NSLayoutDimension!, multiplier m: CGFloat, constant c: CGFloat) -> NSLayoutConstraint!
-  func constraintGreaterThanOrEqualToAnchor(anchor: NSLayoutDimension!, multiplier m: CGFloat, constant c: CGFloat) -> NSLayoutConstraint!
-  func constraintLessThanOrEqualToAnchor(anchor: NSLayoutDimension!, multiplier m: CGFloat, constant c: CGFloat) -> NSLayoutConstraint!
+  func constraintEqualTo(constant c: CGFloat) -> NSLayoutConstraint!
+  func constraintGreaterThanOrEqualTo(constant c: CGFloat) -> NSLayoutConstraint!
+  func constraintLessThanOrEqualTo(constant c: CGFloat) -> NSLayoutConstraint!
+  func constraintEqualTo(anchor anchor: NSLayoutDimension!, multiplier m: CGFloat) -> NSLayoutConstraint!
+  func constraintGreaterThanOrEqualTo(anchor anchor: NSLayoutDimension!, multiplier m: CGFloat) -> NSLayoutConstraint!
+  func constraintLessThanOrEqualTo(anchor anchor: NSLayoutDimension!, multiplier m: CGFloat) -> NSLayoutConstraint!
+  func constraintEqualTo(anchor anchor: NSLayoutDimension!, multiplier m: CGFloat, constant c: CGFloat) -> NSLayoutConstraint!
+  func constraintGreaterThanOrEqualTo(anchor anchor: NSLayoutDimension!, multiplier m: CGFloat, constant c: CGFloat) -> NSLayoutConstraint!
+  func constraintLessThanOrEqualTo(anchor anchor: NSLayoutDimension!, multiplier m: CGFloat, constant c: CGFloat) -> NSLayoutConstraint!
   init()
 }

@@ -60,9 +60,9 @@ extension AVAssetResourceLoader {
   var preloadsEligibleContentKeys: Bool
 }
 extension AVAssetResourceLoadingRequest {
-  func streamingContentKeyRequestDataForApp(appIdentifier: Data, contentIdentifier: Data, options: [String : AnyObject]? = [:]) throws -> Data
+  func streamingContentKeyRequestDataFor(app appIdentifier: Data, contentIdentifier: Data, options: [String : AnyObject]? = [:]) throws -> Data
   @available(tvOS 9.0, *)
-  func persistentContentKeyFromKeyVendorResponse(keyVendorResponse: Data, options: [String : AnyObject]? = [:], error outError: ErrorPointer) -> Data
+  func persistentContentKeyFrom(keyVendorResponse keyVendorResponse: Data, options: [String : AnyObject]? = [:], error outError: ErrorPointer) -> Data
 }
 @available(tvOS 9.0, *)
 let AVAssetResourceLoadingRequestStreamingContentKeyRequestRequiresPersistentKey: String

@@ -11,10 +11,10 @@ class XMLDTD : XMLNode {
   func setChildren(children: [XMLNode]?)
   func addChild(child: XMLNode)
   func replaceChildAt(index: Int, withNode node: XMLNode)
-  func entityDeclarationForName(name: String) -> XMLDTDNode?
-  func notationDeclarationForName(name: String) -> XMLDTDNode?
-  func elementDeclarationForName(name: String) -> XMLDTDNode?
-  func attributeDeclarationForName(name: String, elementName: String) -> XMLDTDNode?
-  class func predefinedEntityDeclarationForName(name: String) -> XMLDTDNode?
+  func entityDeclarationFor(name name: String) -> XMLDTDNode?
+  func notationDeclarationFor(name name: String) -> XMLDTDNode?
+  func elementDeclarationFor(name name: String) -> XMLDTDNode?
+  func attributeDeclarationFor(name name: String, elementName: String) -> XMLDTDNode?
+  class func predefinedEntityDeclarationFor(name name: String) -> XMLDTDNode?
   convenience init(kind: XMLNodeKind)
 }

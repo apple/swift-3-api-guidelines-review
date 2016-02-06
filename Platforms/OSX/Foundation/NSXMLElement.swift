@@ -5,20 +5,20 @@ class XMLElement : XMLNode {
   convenience init(name: String, stringValue string: String?)
   init(xmlString string: String) throws
   convenience init(kind: XMLNodeKind, options: Int)
-  func elementsForName(name: String) -> [XMLElement]
-  func elementsForLocalName(localName: String, uri URI: String?) -> [XMLElement]
+  func elementsFor(name name: String) -> [XMLElement]
+  func elementsFor(localName localName: String, uri URI: String?) -> [XMLElement]
   func addAttribute(attribute: XMLNode)
-  func removeAttributeForName(name: String)
+  func removeAttributeFor(name name: String)
   var attributes: [XMLNode]?
   func setAttributesWith(attributes: [String : String])
-  func attributeForName(name: String) -> XMLNode?
-  func attributeForLocalName(localName: String, uri URI: String?) -> XMLNode?
+  func attributeFor(name name: String) -> XMLNode?
+  func attributeFor(localName localName: String, uri URI: String?) -> XMLNode?
   func addNamespace(aNamespace: XMLNode)
-  func removeNamespaceForPrefix(name: String)
+  func removeNamespaceFor(prefix name: String)
   var namespaces: [XMLNode]?
-  func namespaceForPrefix(name: String) -> XMLNode?
-  func resolveNamespaceForName(name: String) -> XMLNode?
-  func resolvePrefixForNamespaceURI(namespaceURI: String) -> String?
+  func namespaceFor(prefix name: String) -> XMLNode?
+  func resolveNamespaceFor(name name: String) -> XMLNode?
+  func resolvePrefixFor(namespaceURI namespaceURI: String) -> String?
   func insertChild(child: XMLNode, at index: Int)
   func insertChildren(children: [XMLNode], at index: Int)
   func removeChildAt(index: Int)

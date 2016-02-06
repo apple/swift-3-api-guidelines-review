@@ -43,7 +43,7 @@ extension WKWebView : NSUserInterfaceValidations {
   @IBAction func goBack(sender: AnyObject?)
   @IBAction func goForward(sender: AnyObject?)
   @IBAction func reload(sender: AnyObject?)
-  @IBAction func reloadFromOrigin(sender: AnyObject?)
+  @IBAction func reloadFrom(origin sender: AnyObject?)
   @IBAction func stopLoading(sender: AnyObject?)
   @available(OSX 10.10, *)
   func validate(anItem: NSValidatedUserInterfaceItem) -> Bool

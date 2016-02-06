@@ -22,14 +22,14 @@ class MetadataQuery : Object {
   var resultCount: Int { get }
   func resultAt(idx: Int) -> AnyObject
   @available(OSX 10.9, *)
-  func enumerateResultsUsing(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateResults(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.9, *)
-  func enumerateResults(options opts: EnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateResults(opts: EnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   var results: [AnyObject] { get }
-  func indexOfResult(result: AnyObject) -> Int
+  func indexOf(result result: AnyObject) -> Int
   var valueLists: [String : [MetadataQueryAttributeValueTuple]] { get }
   var groupedResults: [MetadataQueryResultGroup] { get }
-  func valueOfAttribute(attrName: String, forResultAt idx: Int) -> AnyObject?
+  func valueOf(attribute attrName: String, forResultAt idx: Int) -> AnyObject?
   init()
 }
 protocol MetadataQueryDelegate : ObjectProtocol {
@@ -74,8 +74,8 @@ let metadataQueryAccessibleUbiquitousExternalDocumentsScope: String
 class MetadataItem : Object {
   @available(OSX 10.9, *)
   init?(url: URL)
-  func valueForAttribute(key: String) -> AnyObject?
-  func valuesForAttributes(keys: [String]) -> [String : AnyObject]?
+  func valueFor(attribute key: String) -> AnyObject?
+  func valuesFor(attributes keys: [String]) -> [String : AnyObject]?
   var attributes: [String] { get }
   convenience init()
 }

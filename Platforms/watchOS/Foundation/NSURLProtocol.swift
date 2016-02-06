@@ -19,9 +19,9 @@ class URLProtocol : Object {
   class func requestIsCacheEquivalent(a: URLRequest, to b: URLRequest) -> Bool
   func startLoading()
   func stopLoading()
-  class func propertyForKey(key: String, in request: URLRequest) -> AnyObject?
+  class func propertyFor(key key: String, in request: URLRequest) -> AnyObject?
   class func setProperty(value: AnyObject, forKey key: String, in request: MutableURLRequest)
-  class func removePropertyForKey(key: String, in request: MutableURLRequest)
+  class func removePropertyFor(key key: String, in request: MutableURLRequest)
   class func registerClass(protocolClass: AnyClass) -> Bool
   class func unregisterClass(protocolClass: AnyClass)
   convenience init()

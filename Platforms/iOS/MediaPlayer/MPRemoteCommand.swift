@@ -15,7 +15,7 @@ class MPRemoteCommand : Object {
   func addTarget(target: AnyObject, action: Selector)
   func removeTarget(target: AnyObject, action: Selector)
   func removeTarget(target: AnyObject?)
-  func addTargetWithHandler(handler: (MPRemoteCommandEvent) -> MPRemoteCommandHandlerStatus) -> AnyObject
+  func addTarget(handler handler: (MPRemoteCommandEvent) -> MPRemoteCommandHandlerStatus) -> AnyObject
   init()
 }
 @available(iOS 7.1, *)

@@ -16,7 +16,7 @@ class NSHelpManager : Object {
 let NSContextHelpModeDidActivateNotification: String
 let NSContextHelpModeDidDeactivateNotification: String
 extension Bundle {
-  func contextHelpForKey(key: String) -> AttributedString?
+  func contextHelpFor(key key: String) -> AttributedString?
 }
 extension NSApplication {
   func activateContextHelpMode(sender: AnyObject?)

@@ -16,7 +16,7 @@ class HKUnit : Object, SecureCoding, Copying {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 enum HKMetricPrefix : Int {
@@ -43,7 +43,7 @@ extension HKUnit {
   class func pound() -> Self
   class func stone() -> Self
   class func moleUnitWith(prefix: HKMetricPrefix, molarMass gramsPerMole: Double) -> Self
-  class func moleUnitWithMolarMass(gramsPerMole: Double) -> Self
+  class func moleUnitWith(molarMass gramsPerMole: Double) -> Self
 }
 extension HKUnit {
   class func meterUnitWith(prefix: HKMetricPrefix) -> Self
@@ -102,7 +102,7 @@ extension HKUnit {
 extension HKUnit {
   func unitMultipliedBy(unit: HKUnit) -> HKUnit
   func unitDividedBy(unit: HKUnit) -> HKUnit
-  func unitRaisedToPower(power: Int) -> HKUnit
+  func unitRaisedTo(power power: Int) -> HKUnit
   func reciprocal() -> HKUnit
 }
 var HKUnitMolarMassBloodGlucose: Double { get }

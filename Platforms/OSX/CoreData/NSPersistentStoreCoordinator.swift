@@ -105,11 +105,11 @@ class NSPersistentStoreCoordinator : Object, Locking {
   func urlFor(store: NSPersistentStore) -> URL
   @available(OSX 10.5, *)
   func setURL(url: URL, forPersistentStore store: NSPersistentStore) -> Bool
-  func addPersistentStoreWithType(storeType: String, configuration: String?, url storeURL: URL?, options: [Object : AnyObject]? = [:]) throws -> NSPersistentStore
+  func addPersistentStore(type storeType: String, configuration: String?, url storeURL: URL?, options: [Object : AnyObject]? = [:]) throws -> NSPersistentStore
   func removePersistentStore(store: NSPersistentStore) throws
   func setMetadata(metadata: [String : AnyObject]?, forPersistentStore store: NSPersistentStore)
   func metadataFor(store: NSPersistentStore) -> [String : AnyObject]
-  func managedObjectIDForURIRepresentation(url: URL) -> NSManagedObjectID?
+  func managedObjectIDFor(uriRepresentation url: URL) -> NSManagedObjectID?
   @available(OSX 10.7, *)
   func execute(request: NSPersistentStoreRequest, withContext context: NSManagedObjectContext) throws -> AnyObject
   @available(OSX 10.5, *)
@@ -117,11 +117,11 @@ class NSPersistentStoreCoordinator : Object, Locking {
   @available(OSX 10.5, *)
   class func registerStoreClass(storeClass: AnyClass, forStoreType storeType: String)
   @available(OSX 10.9, *)
-  class func metadataForPersistentStoreOfType(storeType: String, url: URL, options: [Object : AnyObject]? = [:]) throws -> [String : AnyObject]
+  class func metadataForPersistentStoreOf(type storeType: String, url: URL, options: [Object : AnyObject]? = [:]) throws -> [String : AnyObject]
   @available(OSX 10.9, *)
   class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String, url: URL, options: [Object : AnyObject]? = [:]) throws
   @available(OSX, introduced=10.5, deprecated=10.11, message="Use a -metadataForPersistentStoreOfType:URL:options:error: and pass in an options dictionary matching addPersistentStoreWithType")
-  class func metadataForPersistentStoreOfType(storeType: String?, url: URL) throws -> [String : AnyObject]
+  class func metadataForPersistentStoreOf(type storeType: String?, url: URL) throws -> [String : AnyObject]
   @available(OSX, introduced=10.5, deprecated=10.11, message="Use a -setMetadata:forPersistentStoreOfType:URL:options:error: and pass in an options dictionary matching addPersistentStoreWithType")
   class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String?, url: URL) throws
   @available(OSX 10.6, *)
@@ -129,7 +129,7 @@ class NSPersistentStoreCoordinator : Object, Locking {
   @available(OSX 10.9, *)
   class func removeUbiquitousContentAndPersistentStoreAt(storeURL: URL, options: [Object : AnyObject]? = [:]) throws
   @available(OSX 10.6, *)
-  func importStoreWithIdentifier(storeIdentifier: String?, fromExternalRecordsDirectory externalRecordsURL: URL, to destinationURL: URL, options: [Object : AnyObject]? = [:], withType storeType: String) throws -> NSPersistentStore
+  func importStore(identifier storeIdentifier: String?, fromExternalRecordsDirectory externalRecordsURL: URL, to destinationURL: URL, options: [Object : AnyObject]? = [:], withType storeType: String) throws -> NSPersistentStore
   func migratePersistentStore(store: NSPersistentStore, to URL: URL, options: [Object : AnyObject]? = [:], withType storeType: String) throws -> NSPersistentStore
   @available(OSX 10.11, *)
   func destroyPersistentStoreAt(url: URL, withType storeType: String, options: [Object : AnyObject]? = [:]) throws

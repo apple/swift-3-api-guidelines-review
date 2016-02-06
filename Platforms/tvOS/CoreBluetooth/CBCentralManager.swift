@@ -19,10 +19,10 @@ class CBCentralManager : Object {
   @available(tvOS 7.0, *)
   init(delegate: CBCentralManagerDelegate?, queue: dispatch_queue_t?, options: [String : AnyObject]? = [:])
   @available(tvOS 7.0, *)
-  func retrievePeripheralsWithIdentifiers(identifiers: [UUID]) -> [CBPeripheral]
+  func retrievePeripheralsWith(identifiers identifiers: [UUID]) -> [CBPeripheral]
   @available(tvOS 7.0, *)
-  func retrieveConnectedPeripheralsWithServices(serviceUUIDs: [CBUUID]) -> [CBPeripheral]
-  func scanForPeripheralsWithServices(serviceUUIDs: [CBUUID]?, options: [String : AnyObject]? = [:])
+  func retrieveConnectedPeripheralsWith(services serviceUUIDs: [CBUUID]) -> [CBPeripheral]
+  func scanForPeripheralsWith(services serviceUUIDs: [CBUUID]?, options: [String : AnyObject]? = [:])
   func stopScan()
   func connect(peripheral: CBPeripheral, options: [String : AnyObject]? = [:])
   func cancelPeripheralConnection(peripheral: CBPeripheral)

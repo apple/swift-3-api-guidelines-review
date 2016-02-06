@@ -8,15 +8,15 @@ class NSMenuItemCell : NSButtonCell {
   var imageWidth: CGFloat { get }
   var titleWidth: CGFloat { get }
   var keyEquivalentWidth: CGFloat { get }
-  func stateImageRectForBounds(cellFrame: Rect) -> Rect
-  func titleRectForBounds(cellFrame: Rect) -> Rect
-  func keyEquivalentRectForBounds(cellFrame: Rect) -> Rect
-  func drawSeparatorItemWithFrame(cellFrame: Rect, in controlView: NSView)
-  func drawStateImageWithFrame(cellFrame: Rect, in controlView: NSView)
-  func drawImageWithFrame(cellFrame: Rect, in controlView: NSView)
-  func drawTitleWithFrame(cellFrame: Rect, in controlView: NSView)
-  func drawKeyEquivalentWithFrame(cellFrame: Rect, in controlView: NSView)
-  func drawBorderAndBackgroundWithFrame(cellFrame: Rect, in controlView: NSView)
+  func stateImageRectFor(bounds cellFrame: Rect) -> Rect
+  func titleRectFor(bounds cellFrame: Rect) -> Rect
+  func keyEquivalentRectFor(bounds cellFrame: Rect) -> Rect
+  func drawSeparatorItem(frame cellFrame: Rect, in controlView: NSView)
+  func drawStateImage(frame cellFrame: Rect, in controlView: NSView)
+  func drawImage(frame cellFrame: Rect, in controlView: NSView)
+  func drawTitle(frame cellFrame: Rect, in controlView: NSView)
+  func drawKeyEquivalent(frame cellFrame: Rect, in controlView: NSView)
+  func drawBorderAndBackground(frame cellFrame: Rect, in controlView: NSView)
   var tag: Int
   init(textCell aString: String)
   init(imageCell image: NSImage?)

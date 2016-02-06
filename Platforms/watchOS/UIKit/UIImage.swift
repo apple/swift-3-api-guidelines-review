@@ -58,9 +58,9 @@ class UIImage : Object, SecureCoding {
   func drawIn(rect: CGRect, blendMode: CGBlendMode, alpha: CGFloat)
   func drawAsPatternIn(rect: CGRect)
   @available(watchOS 2.0, *)
-  func resizableImageWithCapInsets(capInsets: UIEdgeInsets) -> UIImage
+  func resizableImageWith(capInsets capInsets: UIEdgeInsets) -> UIImage
   @available(watchOS 2.0, *)
-  func resizableImageWithCapInsets(capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode) -> UIImage
+  func resizableImageWith(capInsets capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode) -> UIImage
   @available(watchOS 2.0, *)
   var capInsets: UIEdgeInsets { get }
   @available(watchOS 2.0, *)
@@ -90,7 +90,7 @@ extension UIImage : _ImageLiteralConvertible {
   required convenience init(imageLiteral name: String)
 }
 extension UIImage {
-  func stretchableImageWithLeftCapWidth(leftCapWidth: Int, topCapHeight: Int) -> UIImage
+  func stretchableImageWith(leftCapWidth leftCapWidth: Int, topCapHeight: Int) -> UIImage
   var leftCapWidth: Int { get }
   var topCapHeight: Int { get }
 }

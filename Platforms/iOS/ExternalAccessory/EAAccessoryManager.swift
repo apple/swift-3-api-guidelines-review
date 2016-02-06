@@ -22,7 +22,7 @@ class EAAccessoryManager : Object {
   @available(iOS 3.0, *)
   class func shared() -> EAAccessoryManager
   @available(iOS 6.0, *)
-  func showBluetoothAccessoryPickerWithNameFilter(predicate: Predicate?, completion: EABluetoothAccessoryPickerCompletion? = nil)
+  func showBluetoothAccessoryPicker(nameFilter predicate: Predicate?, completion: EABluetoothAccessoryPickerCompletion? = nil)
   @available(iOS 3.0, *)
   func registerForLocalNotifications()
   @available(iOS 3.0, *)

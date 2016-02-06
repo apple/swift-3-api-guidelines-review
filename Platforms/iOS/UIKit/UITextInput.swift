@@ -114,7 +114,7 @@ protocol UITextInput : UIKeyInput {
   optional func dictationRecordingDidEnd()
   optional func dictationRecognitionFailed()
   optional func insertDictationResultPlaceholder() -> AnyObject
-  optional func frameForDictationResultPlaceholder(placeholder: AnyObject) -> CGRect
+  optional func frameFor(dictationResultPlaceholder placeholder: AnyObject) -> CGRect
   optional func removeDictationResultPlaceholder(placeholder: AnyObject, willInsertResult: Bool)
   @available(iOS 9.0, *)
   optional func beginFloatingCursorAt(point: CGPoint)

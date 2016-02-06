@@ -17,7 +17,7 @@ class ABAddressBook : Object {
   func hasUnsavedChanges() -> Bool
   func me() -> ABPerson!
   func setMe(moi: ABPerson!)
-  func recordForUniqueId(uniqueId: String!) -> ABRecord!
+  func recordFor(uniqueId uniqueId: String!) -> ABRecord!
   @available(OSX 10.7, *)
   func add(record: ABRecord!, error: ()) throws
   func add(record: ABRecord!) -> Bool
@@ -27,7 +27,7 @@ class ABAddressBook : Object {
   func people() -> [AnyObject]!
   func groups() -> [AnyObject]!
   @available(OSX 10.3, *)
-  func recordClassFromUniqueId(uniqueId: String!) -> String!
+  func recordClassFrom(uniqueId uniqueId: String!) -> String!
   @available(OSX 10.3, *)
   func formattedAddressFrom(address: [Object : AnyObject]!) -> AttributedString!
   @available(OSX 10.3, *)

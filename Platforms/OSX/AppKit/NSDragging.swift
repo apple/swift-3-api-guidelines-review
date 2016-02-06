@@ -57,7 +57,7 @@ protocol NSDraggingInfo : ObjectProtocol {
   func draggingSource() -> AnyObject?
   func draggingSequenceNumber() -> Int
   func slideDraggedImageTo(screenPoint: Point)
-  func namesOfPromisedFilesDroppedAtDestination(dropDestination: URL) -> [String]?
+  func namesOfPromisedFilesDroppedAt(destination dropDestination: URL) -> [String]?
   @available(OSX 10.7, *)
   var draggingFormation: NSDraggingFormation { get set }
   @available(OSX 10.7, *)
@@ -65,7 +65,7 @@ protocol NSDraggingInfo : ObjectProtocol {
   @available(OSX 10.7, *)
   var numberOfValidItemsForDrop: Int { get set }
   @available(OSX 10.7, *)
-  func enumerateDraggingItems(options enumOpts: NSDraggingItemEnumerationOptions = [], forView view: NSView, classes classArray: [AnyClass], searchOptions: [String : AnyObject] = [:], usingBlock block: (NSDraggingItem, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateDraggingItems(enumOpts: NSDraggingItemEnumerationOptions = [], forView view: NSView, classes classArray: [AnyClass], searchOptions: [String : AnyObject] = [:], usingBlock block: (NSDraggingItem, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.11, *)
   var springLoadingHighlight: NSSpringLoadingHighlight { get }
   @available(OSX 10.11, *)
@@ -119,6 +119,6 @@ protocol NSSpringLoadingDestination : ObjectProtocol {
   optional func draggingEnded(draggingInfo: NSDraggingInfo)
 }
 extension Object {
-  class func namesOfPromisedFilesDroppedAtDestination(dropDestination: URL) -> [String]?
-  func namesOfPromisedFilesDroppedAtDestination(dropDestination: URL) -> [String]?
+  class func namesOfPromisedFilesDroppedAt(destination dropDestination: URL) -> [String]?
+  func namesOfPromisedFilesDroppedAt(destination dropDestination: URL) -> [String]?
 }

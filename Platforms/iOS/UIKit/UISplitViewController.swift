@@ -60,7 +60,7 @@ protocol UISplitViewControllerDelegate {
   @available(iOS 7.0, *)
   optional func splitViewControllerSupportedInterfaceOrientations(splitViewController: UISplitViewController) -> UIInterfaceOrientationMask
   @available(iOS 7.0, *)
-  optional func splitViewControllerPreferredInterfaceOrientationForPresentation(splitViewController: UISplitViewController) -> UIInterfaceOrientation
+  optional func splitViewControllerPreferredInterfaceOrientationFor(presentation splitViewController: UISplitViewController) -> UIInterfaceOrientation
   @available(iOS, introduced=2.0, deprecated=8.0, message="Use splitViewController:willChangeToDisplayMode: and displayModeButtonItem instead")
   optional func splitViewController(svc: UISplitViewController, willHide aViewController: UIViewController, withBarButtonItem barButtonItem: UIBarButtonItem, forPopoverController pc: UIPopoverController)
   @available(iOS, introduced=2.0, deprecated=8.0, message="Use splitViewController:willChangeToDisplayMode: and displayModeButtonItem instead")

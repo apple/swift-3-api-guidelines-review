@@ -8,15 +8,15 @@ class Orthography : Object, Copying, Coding {
   init?(coder aDecoder: Coder)
   convenience init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   func encodeWith(aCoder: Coder)
 }
 extension Orthography {
   @available(watchOS 2.0, *)
-  func languagesForScript(script: String) -> [String]?
+  func languagesFor(script script: String) -> [String]?
   @available(watchOS 2.0, *)
-  func dominantLanguageForScript(script: String) -> String?
+  func dominantLanguageFor(script script: String) -> String?
   @available(watchOS 2.0, *)
   var dominantLanguage: String { get }
   @available(watchOS 2.0, *)

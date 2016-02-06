@@ -3,6 +3,6 @@
 class UIStoryboard : Object {
   /*not inherited*/ init(name: String, bundle storyboardBundleOrNil: Bundle?)
   func instantiateInitialViewController() -> UIViewController?
-  func instantiateViewControllerWithIdentifier(identifier: String) -> UIViewController
+  func instantiateViewControllerWith(identifier identifier: String) -> UIViewController
   init()
 }

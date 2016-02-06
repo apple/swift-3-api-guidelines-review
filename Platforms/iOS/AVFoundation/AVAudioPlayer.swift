@@ -34,8 +34,8 @@ class AVAudioPlayer : Object {
   var settings: [String : AnyObject] { get }
   var isMeteringEnabled: Bool
   func updateMeters()
-  func peakPowerForChannel(channelNumber: Int) -> Float
-  func averagePowerForChannel(channelNumber: Int) -> Float
+  func peakPowerFor(channel channelNumber: Int) -> Float
+  func averagePowerFor(channel channelNumber: Int) -> Float
   @available(iOS 7.0, *)
   var channelAssignments: [Number]?
   init()

@@ -29,11 +29,11 @@ class UIPrintInteractionController : Object {
   var printFormatter: UIPrintFormatter?
   @NSCopying var printingItem: AnyObject?
   var printingItems: [AnyObject]?
-  func presentAnimated(animated: Bool, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
+  func present(animated animated: Bool, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
   func presentFrom(rect: CGRect, in view: UIView, animated: Bool, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
   func presentFrom(item: UIBarButtonItem, animated: Bool, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
   func printTo(printer: UIPrinter, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
-  func dismissAnimated(animated: Bool)
+  func dismiss(animated animated: Bool)
   init()
 }
 protocol UIPrintInteractionControllerDelegate : ObjectProtocol {

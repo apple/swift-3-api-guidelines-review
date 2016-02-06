@@ -14,8 +14,8 @@ class NSMigrationManager : Object {
   func sourceEntityFor(mEntity: NSEntityMapping) -> NSEntityDescription?
   func destinationEntityFor(mEntity: NSEntityMapping) -> NSEntityDescription?
   func associateSourceInstance(sourceInstance: NSManagedObject, withDestinationInstance destinationInstance: NSManagedObject, forEntityMapping entityMapping: NSEntityMapping)
-  func destinationInstancesForEntityMappingNamed(mappingName: String, sourceInstances: [NSManagedObject]?) -> [NSManagedObject]
-  func sourceInstancesForEntityMappingNamed(mappingName: String, destinationInstances: [NSManagedObject]?) -> [NSManagedObject]
+  func destinationInstancesFor(entityMappingNamed mappingName: String, sourceInstances: [NSManagedObject]?) -> [NSManagedObject]
+  func sourceInstancesFor(entityMappingNamed mappingName: String, destinationInstances: [NSManagedObject]?) -> [NSManagedObject]
   var currentEntityMapping: NSEntityMapping { get }
   var migrationProgress: Float { get }
   var userInfo: [Object : AnyObject]?

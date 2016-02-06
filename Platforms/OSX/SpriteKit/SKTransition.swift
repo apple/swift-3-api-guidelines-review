@@ -9,22 +9,22 @@ enum SKTransitionDirection : Int {
   case Left
 }
 class SKTransition : Object, Copying {
-  class func crossFadeWithDuration(sec: TimeInterval) -> SKTransition
-  class func fadeWithDuration(sec: TimeInterval) -> SKTransition
-  class func fadeWith(color: NSColor, duration sec: TimeInterval) -> SKTransition
-  class func flipHorizontalWithDuration(sec: TimeInterval) -> SKTransition
-  class func flipVerticalWithDuration(sec: TimeInterval) -> SKTransition
+  class func crossFade(duration sec: TimeInterval) -> SKTransition
+  class func fade(duration sec: TimeInterval) -> SKTransition
+  class func fade(color: NSColor, duration sec: TimeInterval) -> SKTransition
+  class func flipHorizontal(duration sec: TimeInterval) -> SKTransition
+  class func flipVertical(duration sec: TimeInterval) -> SKTransition
   class func revealWith(direction: SKTransitionDirection, duration sec: TimeInterval) -> SKTransition
-  class func moveInWith(direction: SKTransitionDirection, duration sec: TimeInterval) -> SKTransition
-  class func pushWith(direction: SKTransitionDirection, duration sec: TimeInterval) -> SKTransition
-  class func doorsOpenHorizontalWithDuration(sec: TimeInterval) -> SKTransition
-  class func doorsOpenVerticalWithDuration(sec: TimeInterval) -> SKTransition
-  class func doorsCloseHorizontalWithDuration(sec: TimeInterval) -> SKTransition
-  class func doorsCloseVerticalWithDuration(sec: TimeInterval) -> SKTransition
-  class func doorwayWithDuration(sec: TimeInterval) -> SKTransition
+  class func moveIn(direction: SKTransitionDirection, duration sec: TimeInterval) -> SKTransition
+  class func push(direction: SKTransitionDirection, duration sec: TimeInterval) -> SKTransition
+  class func doorsOpenHorizontalWith(duration sec: TimeInterval) -> SKTransition
+  class func doorsOpenVerticalWith(duration sec: TimeInterval) -> SKTransition
+  class func doorsCloseHorizontalWith(duration sec: TimeInterval) -> SKTransition
+  class func doorsCloseVerticalWith(duration sec: TimeInterval) -> SKTransition
+  class func doorwayWith(duration sec: TimeInterval) -> SKTransition
   /*not inherited*/ init(ciFilter filter: CIFilter, duration sec: TimeInterval)
   var pausesIncomingScene: Bool
   var pausesOutgoingScene: Bool
   init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

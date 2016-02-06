@@ -37,7 +37,7 @@ class MTLCompileOptions : Object, Copying {
   var languageVersion: MTLLanguageVersion
   init()
   @available(OSX 10.11, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 let MTLLibraryErrorDomain: String
@@ -63,6 +63,6 @@ enum MTLRenderPipelineError : UInt {
 protocol MTLLibrary : ObjectProtocol {
   var label: String? { get set }
   var device: MTLDevice { get }
-  func newFunctionWithName(functionName: String) -> MTLFunction?
+  func newFunctionWith(name functionName: String) -> MTLFunction?
   var functionNames: [String] { get }
 }

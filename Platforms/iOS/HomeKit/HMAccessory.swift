@@ -19,7 +19,7 @@ class HMAccessory : Object {
   var services: [HMService] { get }
   var isBlocked: Bool { get }
   func updateName(name: String, completionHandler completion: (Error?) -> Void)
-  func identifyWithCompletionHandler(completion: (Error?) -> Void)
+  func identify(completionHandler completion: (Error?) -> Void)
   init()
 }
 @available(iOS 8.0, *)

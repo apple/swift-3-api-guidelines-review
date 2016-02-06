@@ -25,7 +25,7 @@ class Stream : Object {
   func open()
   func close()
   unowned(unsafe) var delegate: @sil_unmanaged StreamDelegate?
-  func propertyForKey(key: String) -> AnyObject?
+  func propertyFor(key key: String) -> AnyObject?
   func setProperty(property: AnyObject?, forKey key: String) -> Bool
   func scheduleIn(aRunLoop: RunLoop, forMode mode: String)
   func removeFrom(aRunLoop: RunLoop, forMode mode: String)
@@ -55,7 +55,7 @@ extension Stream {
 }
 extension Stream {
   @available(watchOS 2.0, *)
-  class func getBoundStreamsWithBufferSize(bufferSize: Int, inputStream: AutoreleasingUnsafeMutablePointer<InputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<OutputStream?>)
+  class func getBoundStreams(bufferSize bufferSize: Int, inputStream: AutoreleasingUnsafeMutablePointer<InputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<OutputStream?>)
 }
 extension InputStream {
   convenience init?(fileAtPath path: String)

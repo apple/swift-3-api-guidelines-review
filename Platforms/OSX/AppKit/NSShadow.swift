@@ -5,7 +5,7 @@ class NSShadow : Object, Copying, Coding {
   var shadowBlurRadius: CGFloat
   @NSCopying var shadowColor: NSColor?
   func set()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

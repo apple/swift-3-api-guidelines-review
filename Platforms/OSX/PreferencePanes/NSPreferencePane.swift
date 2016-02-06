@@ -21,7 +21,7 @@ class NSPreferencePane : Object {
   func willSelect()
   func didSelect()
   var shouldUnselect: NSPreferencePaneUnselectReply { get }
-  func replyToShouldUnselect(shouldUnselect: Bool)
+  func replyTo(shouldUnselect shouldUnselect: Bool)
   func willUnselect()
   func didUnselect()
   var mainView: NSView

@@ -57,7 +57,7 @@ extension NSSliderCell {
   func tickMarkValueAt(index: Int) -> Double
   func rectOfTickMarkAt(index: Int) -> Rect
   func indexOfTickMarkAt(point: Point) -> Int
-  func closestTickMarkValueToValue(value: Double) -> Double
+  func closestTickMarkValueTo(value value: Double) -> Double
   @available(OSX 10.9, *)
   func drawTickMarks()
 }

@@ -51,8 +51,8 @@ class NSString : Object, Copying, MutableCopying, SecureCoding {
   func characterAt(index: Int) -> unichar
   init()
   init?(coder aDecoder: Coder)
-  func copy(zone zone: Zone = nil) -> AnyObject
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
 }
@@ -151,7 +151,7 @@ extension NSString {
   @available(watchOS 2.0, *)
   func enumerateSubstringsIn(range: NSRange, options opts: StringEnumerationOptions = [], usingBlock block: (String?, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
-  func enumerateLinesUsing(block: (String, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateLines(block: (String, UnsafeMutablePointer<ObjCBool>) -> Void)
   var utf8String: UnsafePointer<Int8> { get }
   var fastestEncoding: UInt { get }
   var smallestEncoding: UInt { get }
@@ -174,9 +174,9 @@ extension NSString {
   @available(watchOS 2.0, *)
   func componentsSeparatedByCharactersIn(separator: CharacterSet) -> [String]
   func byTrimmingCharactersIn(set: CharacterSet) -> String
-  func byPaddingToLength(newLength: Int, withString padString: String, startingAt padIndex: Int) -> String
+  func byPaddingTo(length newLength: Int, withString padString: String, startingAt padIndex: Int) -> String
   @available(watchOS 2.0, *)
-  func folding(options options: StringCompareOptions = [], locale: Locale?) -> String
+  func foldingWith(options: StringCompareOptions = [], locale: Locale?) -> String
   @available(watchOS 2.0, *)
   func replacingOccurrencesOf(target: String, withString replacement: String, options: StringCompareOptions = [], range searchRange: NSRange) -> String
   @available(watchOS 2.0, *)
@@ -186,7 +186,7 @@ extension NSString {
   @available(watchOS 2.0, *)
   func applyingTransform(transform: String, reverse: Bool) -> String?
   func writeTo(url: URL, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
-  func writeToFile(path: String, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
+  func writeTo(file path: String, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
   var description: String { get }
   var hash: Int { get }
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
@@ -329,7 +329,7 @@ extension NSString {
   @available(watchOS, introduced=2.0, deprecated=2.0)
   func getCString(bytes: UnsafeMutablePointer<Int8>, maxLength: Int, range aRange: NSRange, remaining leftoverRange: RangePointer)
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  func writeToFile(path: String, atomically useAuxiliaryFile: Bool) -> Bool
+  func writeTo(file path: String, atomically useAuxiliaryFile: Bool) -> Bool
   @available(watchOS, introduced=2.0, deprecated=2.0)
   func writeTo(url: URL, atomically: Bool) -> Bool
   @available(watchOS, introduced=2.0, deprecated=2.0)
@@ -337,7 +337,7 @@ extension NSString {
   @available(watchOS, introduced=2.0, deprecated=2.0)
   convenience init?(contentsOf url: URL)
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func stringWithContentsOfFile(path: String) -> AnyObject?
+  class func stringWithContentsOf(file path: String) -> AnyObject?
   @available(watchOS, introduced=2.0, deprecated=2.0)
   class func stringWithContentsOf(url: URL) -> AnyObject?
   @available(watchOS, introduced=2.0, deprecated=2.0)
@@ -347,9 +347,9 @@ extension NSString {
   @available(watchOS, introduced=2.0, deprecated=2.0)
   convenience init?(cString bytes: UnsafePointer<Int8>)
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func stringWithCString(bytes: UnsafePointer<Int8>, length: Int) -> AnyObject?
+  class func stringWith(cString bytes: UnsafePointer<Int8>, length: Int) -> AnyObject?
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func stringWithCString(bytes: UnsafePointer<Int8>) -> AnyObject?
+  class func stringWith(cString bytes: UnsafePointer<Int8>) -> AnyObject?
   func getCharacters(buffer: UnsafeMutablePointer<unichar>)
 }
 var proprietaryStringEncoding: UInt { get }

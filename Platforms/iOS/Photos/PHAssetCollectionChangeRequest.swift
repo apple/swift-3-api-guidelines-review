@@ -1,6 +1,6 @@
 
 class PHAssetCollectionChangeRequest : Object {
-  class func creationRequestForAssetCollectionWithTitle(title: String) -> Self
+  class func creationRequestForAssetCollectionWith(title title: String) -> Self
   var placeholderForCreatedAssetCollection: PHObjectPlaceholder { get }
   class func deleteAssetCollections(assetCollections: FastEnumeration)
   convenience init?(forAssetCollection assetCollection: PHAssetCollection)

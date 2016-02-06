@@ -4,15 +4,15 @@ class ABMultiValue : Object, Copying, MutableCopying, FastEnumeration {
   func valueAt(index: Int) -> AnyObject!
   func labelAt(index: Int) -> String!
   func identifierAt(index: Int) -> String!
-  func indexForIdentifier(identifier: String!) -> Int
+  func indexFor(identifier identifier: String!) -> Int
   func primaryIdentifier() -> String!
   func propertyType() -> ABPropertyType
-  func valueForIdentifier(identifier: String!) -> AnyObject!
-  func labelForIdentifier(identifier: String!) -> AnyObject!
+  func valueFor(identifier identifier: String!) -> AnyObject!
+  func labelFor(identifier identifier: String!) -> AnyObject!
   init()
-  func copy(zone zone: Zone = nil) -> AnyObject
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
-  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func copyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
+  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 class ABMutableMultiValue : ABMultiValue {
   func add(value: AnyObject!, withLabel label: String!) -> String!

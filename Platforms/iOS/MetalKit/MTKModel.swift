@@ -10,7 +10,7 @@ class MTKMeshBufferAllocator : Object, MDLMeshBufferAllocator {
   @available(iOS 9.0, *)
   func newZone(capacity: Int) -> MDLMeshBufferZone
   @available(iOS 9.0, *)
-  func newZoneForBuffersWithSize(sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
+  func newZoneForBuffersWith(size sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
   @available(iOS 9.0, *)
   func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(iOS 9.0, *)
@@ -33,7 +33,7 @@ class MTKMeshBuffer : Object, MDLMeshBuffer {
   @available(iOS 9.0, *)
   func map() -> MDLMeshBufferMap
   @available(iOS 9.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class MTKSubmesh : Object {

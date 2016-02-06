@@ -35,27 +35,27 @@ class UIDocument : Object, FilePresenter, ProgressReporting {
   var documentState: UIDocumentState { get }
   func open(completionHandler completionHandler: ((Bool) -> Void)? = nil)
   func close(completionHandler completionHandler: ((Bool) -> Void)? = nil)
-  func loadFromContents(contents: AnyObject, ofType typeName: String?) throws
-  func contentsForType(typeName: String) throws -> AnyObject
+  func loadFrom(contents contents: AnyObject, ofType typeName: String?) throws
+  func contentsFor(type typeName: String) throws -> AnyObject
   func disableEditing()
   func enableEditing()
   var undoManager: UndoManager!
   func hasUnsavedChanges() -> Bool
   func updateChangeCount(change: UIDocumentChangeKind)
   func changeCountTokenFor(saveOperation: UIDocumentSaveOperation) -> AnyObject
-  func updateChangeCountWithToken(changeCountToken: AnyObject, forSaveOperation saveOperation: UIDocumentSaveOperation)
+  func updateChangeCountWith(token changeCountToken: AnyObject, forSaveOperation saveOperation: UIDocumentSaveOperation)
   func saveTo(url: URL, forSaveOperation saveOperation: UIDocumentSaveOperation, completionHandler: ((Bool) -> Void)? = nil)
   func autosave(completionHandler completionHandler: ((Bool) -> Void)? = nil)
   func savingFileType() -> String?
-  func fileNameExtensionForType(typeName: String?, saveOperation: UIDocumentSaveOperation) -> String
+  func fileNameExtensionFor(type typeName: String?, saveOperation: UIDocumentSaveOperation) -> String
   func writeContents(contents: AnyObject, andAttributes additionalFileAttributes: [Object : AnyObject]? = [:], safelyTo url: URL, forSaveOperation saveOperation: UIDocumentSaveOperation) throws
   func writeContents(contents: AnyObject, to url: URL, forSaveOperation saveOperation: UIDocumentSaveOperation, originalContentsURL: URL?) throws
   func fileAttributesToWriteTo(url: URL, forSaveOperation saveOperation: UIDocumentSaveOperation) throws -> [Object : AnyObject]
   func readFrom(url: URL) throws
-  func performAsynchronousFileAccessUsing(block: () -> Void)
+  func performAsynchronousFileAccess(block: () -> Void)
   func handleError(error: Error, userInteractionPermitted: Bool)
   func finishedHandlingError(error: Error, recovered: Bool)
-  func userInteractionNoLongerPermittedForError(error: Error)
+  func userInteractionNoLongerPermittedFor(error: Error)
   func revertToContentsOf(url: URL, completionHandler: ((Bool) -> Void)? = nil)
   convenience init()
   @available(iOS 5.0, *)
@@ -63,13 +63,13 @@ class UIDocument : Object, FilePresenter, ProgressReporting {
   @available(iOS 5.0, *)
   var presentedItemOperationQueue: OperationQueue { get }
   @available(iOS 5.0, *)
-  func relinquishPresentedItemToReader(reader: ((() -> Void)?) -> Void)
+  func relinquishPresentedItemTo(reader reader: ((() -> Void)?) -> Void)
   @available(iOS 5.0, *)
-  func relinquishPresentedItemToWriter(writer: ((() -> Void)?) -> Void)
+  func relinquishPresentedItemTo(writer writer: ((() -> Void)?) -> Void)
   @available(iOS 5.0, *)
-  func savePresentedItemChangesWithCompletionHandler(completionHandler: (Error?) -> Void)
+  func savePresentedItemChanges(completionHandler completionHandler: (Error?) -> Void)
   @available(iOS 5.0, *)
-  func accommodatePresentedItemDeletionWithCompletionHandler(completionHandler: (Error?) -> Void)
+  func accommodatePresentedItemDeletionWith(completionHandler completionHandler: (Error?) -> Void)
   @available(iOS 5.0, *)
   func presentedItemDidMoveTo(newURL: URL)
   @available(iOS 5.0, *)

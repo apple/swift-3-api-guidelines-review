@@ -90,7 +90,7 @@ class MTLStructMember : Object {
 @available(iOS 8.0, *)
 class MTLStructType : Object {
   var members: [MTLStructMember] { get }
-  func memberByName(name: String) -> MTLStructMember?
+  func memberBy(name name: String) -> MTLStructMember?
   init()
 }
 @available(iOS 8.0, *)

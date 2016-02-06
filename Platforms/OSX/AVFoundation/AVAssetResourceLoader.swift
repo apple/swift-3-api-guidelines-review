@@ -60,7 +60,7 @@ extension AVAssetResourceLoader {
   var preloadsEligibleContentKeys: Bool
 }
 extension AVAssetResourceLoadingRequest {
-  func streamingContentKeyRequestDataForApp(appIdentifier: Data, contentIdentifier: Data, options: [String : AnyObject]? = [:]) throws -> Data
+  func streamingContentKeyRequestDataFor(app appIdentifier: Data, contentIdentifier: Data, options: [String : AnyObject]? = [:]) throws -> Data
 }
 extension AVAssetResourceLoadingRequest {
 }

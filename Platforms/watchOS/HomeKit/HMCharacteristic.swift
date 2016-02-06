@@ -12,7 +12,7 @@ class HMCharacteristic : Object {
   @available(watchOS 2.0, *)
   @NSCopying var uniqueIdentifier: UUID { get }
   func writeValue(value: AnyObject?, completionHandler completion: (Error?) -> Void)
-  func readValueWithCompletionHandler(completion: (Error?) -> Void)
+  func readValue(completionHandler completion: (Error?) -> Void)
   func enableNotification(enable: Bool, completionHandler completion: (Error?) -> Void)
   init()
 }

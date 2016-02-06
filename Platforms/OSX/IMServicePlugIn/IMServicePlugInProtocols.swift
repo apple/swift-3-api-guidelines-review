@@ -11,5 +11,5 @@ protocol IMServiceApplication : ObjectProtocol {
   func plugInDidLogOutWithError(error: Error!, reconnect: Bool)
   func plugInDidFailToAuthenticate()
   @available(OSX 10.0, *)
-  func plugInDidUpdateProperties(changes: [Object : AnyObject]!, ofHandle handle: String!)
+  func plugIn(didUpdateProperties changes: [Object : AnyObject]!, ofHandle handle: String!)
 }

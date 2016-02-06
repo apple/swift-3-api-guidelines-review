@@ -19,7 +19,7 @@ class NEVPNManager : Object {
   @available(iOS 8.0, *)
   class func shared() -> NEVPNManager
   @available(iOS 8.0, *)
-  func loadFromPreferencesWithCompletionHandler(completionHandler: (Error?) -> Void)
+  func loadFromPreferences(completionHandler completionHandler: (Error?) -> Void)
   @available(iOS 8.0, *)
   func removeFromPreferences(completionHandler completionHandler: ((Error?) -> Void)? = nil)
   @available(iOS 8.0, *)

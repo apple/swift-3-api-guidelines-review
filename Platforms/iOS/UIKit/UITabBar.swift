@@ -14,7 +14,7 @@ class UITabBar : UIView {
   unowned(unsafe) var selectedItem: @sil_unmanaged UITabBarItem?
   func setItems(items: [UITabBarItem]?, animated: Bool)
   func beginCustomizingItems(items: [UITabBarItem])
-  func endCustomizingAnimated(animated: Bool) -> Bool
+  func endCustomizing(animated animated: Bool) -> Bool
   func isCustomizing() -> Bool
   @available(iOS 5.0, *)
   var tintColor: UIColor!

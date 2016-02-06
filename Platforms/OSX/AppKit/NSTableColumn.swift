@@ -41,5 +41,5 @@ struct __colFlags {
 }
 extension NSTableColumn {
   var dataCell: AnyObject
-  func dataCellForRow(row: Int) -> AnyObject
+  func dataCellFor(row row: Int) -> AnyObject
 }

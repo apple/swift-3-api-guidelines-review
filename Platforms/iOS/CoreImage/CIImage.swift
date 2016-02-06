@@ -26,9 +26,9 @@ class CIImage : Object, SecureCoding, Copying {
   @available(iOS 8.0, *)
   func applyingOrientation(orientation: Int32) -> CIImage
   @available(iOS 8.0, *)
-  func imageTransformForOrientation(orientation: Int32) -> CGAffineTransform
+  func imageTransformFor(orientation orientation: Int32) -> CGAffineTransform
   @available(iOS 8.0, *)
-  func byCompositingOverImage(dest: CIImage) -> CIImage
+  func by(compositingOverImage dest: CIImage) -> CIImage
   func byCroppingTo(rect: CGRect) -> CIImage
   @available(iOS 8.0, *)
   func byClampingToExtent() -> CIImage
@@ -50,7 +50,7 @@ class CIImage : Object, SecureCoding, Copying {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 5.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 typealias CIFormat = Int32
 @available(iOS 6.0, *)
@@ -92,7 +92,7 @@ let kCIImageColorSpace: String
 let kCIImageProperties: String
 extension CIImage {
   @available(iOS 5.0, *)
-  func autoAdjustmentFilters(options options: [String : AnyObject]? = [:]) -> [CIFilter]
+  func autoAdjustmentFiltersWith(options options: [String : AnyObject]? = [:]) -> [CIFilter]
 }
 @available(iOS 5.0, *)
 let kCIImageAutoAdjustEnhance: String

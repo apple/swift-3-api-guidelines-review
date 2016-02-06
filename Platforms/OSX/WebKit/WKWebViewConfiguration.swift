@@ -13,7 +13,7 @@ class WKWebViewConfiguration : Object, Copying {
   var allowsAirPlayForMediaPlayback: Bool
   init()
   @available(OSX 10.10, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 extension WKWebViewConfiguration {
 }

@@ -26,21 +26,21 @@ class NSManagedObject : Object {
   var hasPersistentChangedValues: Bool { get }
   var isFault: Bool { get }
   @available(OSX 10.5, *)
-  func hasFaultForRelationshipNamed(key: String) -> Bool
+  func hasFaultFor(relationshipNamed key: String) -> Bool
   @available(OSX 10.11, *)
-  func objectIDsForRelationshipNamed(key: String) -> [NSManagedObjectID]
+  func objectIDsFor(relationshipNamed key: String) -> [NSManagedObjectID]
   @available(OSX 10.5, *)
   var faultingState: Int { get }
-  func willAccessValueForKey(key: String?)
-  func didAccessValueForKey(key: String?)
-  func willChangeValueForKey(key: String)
-  func didChangeValueForKey(key: String)
-  func willChangeValueForKey(inKey: String, withSetMutation inMutationKind: KeyValueSetMutationKind, usingObjects inObjects: Set<Object>)
-  func didChangeValueForKey(inKey: String, withSetMutation inMutationKind: KeyValueSetMutationKind, usingObjects inObjects: Set<Object>)
+  func willAccessValueFor(key key: String?)
+  func didAccessValueFor(key key: String?)
+  func willChangeValueFor(key key: String)
+  func didChangeValueFor(key key: String)
+  func willChangeValueFor(key inKey: String, withSetMutation inMutationKind: KeyValueSetMutationKind, usingObjects inObjects: Set<Object>)
+  func didChangeValueFor(key inKey: String, withSetMutation inMutationKind: KeyValueSetMutationKind, usingObjects inObjects: Set<Object>)
   func awakeFromFetch()
   func awakeFromInsert()
   @available(OSX 10.6, *)
-  func awakeFromSnapshotEvents(flags: NSSnapshotEventType)
+  func awakeFrom(snapshotEvents flags: NSSnapshotEventType)
   @available(OSX 10.6, *)
   func prepareForDeletion()
   func willSave()
@@ -48,11 +48,11 @@ class NSManagedObject : Object {
   @available(OSX 10.5, *)
   func willTurnIntoFault()
   func didTurnIntoFault()
-  func valueForKey(key: String) -> AnyObject?
+  func valueFor(key key: String) -> AnyObject?
   func setValue(value: AnyObject?, forKey key: String)
-  func primitiveValueForKey(key: String) -> AnyObject?
+  func primitiveValueFor(key key: String) -> AnyObject?
   func setPrimitiveValue(value: AnyObject?, forKey key: String)
-  func committedValuesForKeys(keys: [String]?) -> [String : AnyObject]
+  func committedValuesFor(keys keys: [String]?) -> [String : AnyObject]
   func changedValues() -> [String : AnyObject]
   @available(OSX 10.7, *)
   func changedValuesForCurrentEvent() -> [String : AnyObject]

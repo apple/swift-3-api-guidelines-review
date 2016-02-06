@@ -78,9 +78,9 @@ class UICollectionViewController : UIViewController, UICollectionViewDelegate, U
   @available(iOS 6.0, *)
   func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
   @available(iOS 6.0, *)
-  func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool
+  func scrollViewShouldScrollTo(top scrollView: UIScrollView) -> Bool
   @available(iOS 6.0, *)
-  func scrollViewDidScrollToTop(scrollView: UIScrollView)
+  func scrollViewDidScrollTo(top scrollView: UIScrollView)
   @available(iOS 6.0, *)
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
   @available(iOS 6.0, *)

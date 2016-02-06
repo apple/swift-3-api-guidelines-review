@@ -22,7 +22,7 @@ enum NEProviderStopReason : Int {
 @available(OSX 10.11, *)
 class NEProvider : Object {
   @available(OSX 10.11, *)
-  func sleepWithCompletionHandler(completionHandler: () -> Void)
+  func sleep(completionHandler completionHandler: () -> Void)
   @available(OSX 10.11, *)
   func wake()
   @available(OSX 10.11, *)

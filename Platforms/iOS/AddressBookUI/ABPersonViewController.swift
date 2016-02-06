@@ -10,12 +10,12 @@ class ABPersonViewController : UIViewController, UIViewControllerRestoration {
   var allowsActions: Bool
   @available(iOS 4.0, *)
   var shouldShowLinkedPeople: Bool
-  func setHighlightedItemForProperty(property: ABPropertyID, withIdentifier identifier: ABMultiValueIdentifier)
+  func setHighlightedItemFor(property property: ABPropertyID, withIdentifier identifier: ABMultiValueIdentifier)
   init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
   init?(coder aDecoder: Coder)
   convenience init()
   @available(iOS 2.0, *)
-  class func viewControllerWithRestorationIdentifierPath(identifierComponents: [AnyObject], coder: Coder) -> UIViewController?
+  class func viewControllerWith(restorationIdentifierPath identifierComponents: [AnyObject], coder: Coder) -> UIViewController?
 }
 protocol ABPersonViewControllerDelegate : ObjectProtocol {
   @available(iOS 2.0, *)

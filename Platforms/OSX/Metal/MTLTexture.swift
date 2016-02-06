@@ -44,7 +44,7 @@ class MTLTextureDescriptor : Object, Copying {
   var usage: MTLTextureUsage
   init()
   @available(OSX 10.11, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 protocol MTLTexture : MTLResource {

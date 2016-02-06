@@ -35,7 +35,7 @@ let ubiquityIdentityDidChangeNotification: String
 class FileManager : Object {
   class func defaultManager() -> FileManager
   @available(iOS 4.0, *)
-  func mountedVolumeURLsIncludingResourceValuesForKeys(propertyKeys: [String]?, options: VolumeEnumerationOptions = []) -> [URL]?
+  func mountedVolumeURLsIncludingResourceValuesFor(keys propertyKeys: [String]?, options: VolumeEnumerationOptions = []) -> [URL]?
   @available(iOS 4.0, *)
   func contentsOfDirectoryAt(url: URL, includingPropertiesForKeys keys: [String]?, options mask: DirectoryEnumerationOptions = []) throws -> [URL]
   @available(iOS 4.0, *)
@@ -55,27 +55,27 @@ class FileManager : Object {
   @available(iOS 2.0, *)
   func setAttributes(attributes: [String : AnyObject] = [:], ofItemAtPath path: String) throws
   @available(iOS 2.0, *)
-  func createDirectoryAtPath(path: String, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]? = [:]) throws
+  func createDirectoryAt(path path: String, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]? = [:]) throws
   @available(iOS 2.0, *)
-  func contentsOfDirectoryAtPath(path: String) throws -> [String]
+  func contentsOfDirectoryAt(path path: String) throws -> [String]
   @available(iOS 2.0, *)
-  func subpathsOfDirectoryAtPath(path: String) throws -> [String]
+  func subpathsOfDirectoryAt(path path: String) throws -> [String]
   @available(iOS 2.0, *)
-  func attributesOfItemAtPath(path: String) throws -> [String : AnyObject]
+  func attributesOfItemAt(path path: String) throws -> [String : AnyObject]
   @available(iOS 2.0, *)
-  func attributesOfFileSystemForPath(path: String) throws -> [String : AnyObject]
+  func attributesOfFileSystemFor(path path: String) throws -> [String : AnyObject]
   @available(iOS 2.0, *)
-  func createSymbolicLinkAtPath(path: String, withDestinationPath destPath: String) throws
+  func createSymbolicLinkAt(path path: String, withDestinationPath destPath: String) throws
   @available(iOS 2.0, *)
-  func destinationOfSymbolicLinkAtPath(path: String) throws -> String
+  func destinationOfSymbolicLinkAt(path path: String) throws -> String
   @available(iOS 2.0, *)
-  func copyItemAtPath(srcPath: String, toPath dstPath: String) throws
+  func copyItemAt(path srcPath: String, toPath dstPath: String) throws
   @available(iOS 2.0, *)
-  func moveItemAtPath(srcPath: String, toPath dstPath: String) throws
+  func moveItemAt(path srcPath: String, toPath dstPath: String) throws
   @available(iOS 2.0, *)
-  func linkItemAtPath(srcPath: String, toPath dstPath: String) throws
+  func linkItemAt(path srcPath: String, toPath dstPath: String) throws
   @available(iOS 2.0, *)
-  func removeItemAtPath(path: String) throws
+  func removeItemAt(path path: String) throws
   @available(iOS 4.0, *)
   func copyItemAt(srcURL: URL, to dstURL: URL) throws
   @available(iOS 4.0, *)
@@ -86,23 +86,23 @@ class FileManager : Object {
   func removeItemAt(URL: URL) throws
   var currentDirectoryPath: String { get }
   func changeCurrentDirectoryPath(path: String) -> Bool
-  func fileExistsAtPath(path: String) -> Bool
-  func fileExistsAtPath(path: String, isDirectory: UnsafeMutablePointer<ObjCBool>) -> Bool
-  func isReadableFileAtPath(path: String) -> Bool
-  func isWritableFileAtPath(path: String) -> Bool
-  func isExecutableFileAtPath(path: String) -> Bool
-  func isDeletableFileAtPath(path: String) -> Bool
-  func contentsEqualAtPath(path1: String, andPath path2: String) -> Bool
-  func displayNameAtPath(path: String) -> String
-  func componentsToDisplayForPath(path: String) -> [String]?
-  func enumeratorAtPath(path: String) -> DirectoryEnumerator?
+  func fileExistsAt(path path: String) -> Bool
+  func fileExistsAt(path path: String, isDirectory: UnsafeMutablePointer<ObjCBool>) -> Bool
+  func isReadableFileAt(path path: String) -> Bool
+  func isWritableFileAt(path path: String) -> Bool
+  func isExecutableFileAt(path path: String) -> Bool
+  func isDeletableFileAt(path path: String) -> Bool
+  func contentsEqualAt(path path1: String, andPath path2: String) -> Bool
+  func displayNameAt(path path: String) -> String
+  func componentsToDisplayFor(path path: String) -> [String]?
+  func enumeratorAt(path path: String) -> DirectoryEnumerator?
   @available(iOS 4.0, *)
   func enumeratorAt(url: URL, includingPropertiesForKeys keys: [String]?, options mask: DirectoryEnumerationOptions = [], errorHandler handler: ((URL, Error) -> Bool)? = nil) -> DirectoryEnumerator?
-  func subpathsAtPath(path: String) -> [String]?
-  func contentsAtPath(path: String) -> Data?
-  func createFileAtPath(path: String, contents data: Data?, attributes attr: [String : AnyObject]? = [:]) -> Bool
-  func fileSystemRepresentationWithPath(path: String) -> UnsafePointer<Int8>
-  func stringWithFileSystemRepresentation(str: UnsafePointer<Int8>, length len: Int) -> String
+  func subpathsAt(path path: String) -> [String]?
+  func contentsAt(path path: String) -> Data?
+  func createFileAt(path path: String, contents data: Data?, attributes attr: [String : AnyObject]? = [:]) -> Bool
+  func fileSystemRepresentationWith(path path: String) -> UnsafePointer<Int8>
+  func stringWith(fileSystemRepresentation str: UnsafePointer<Int8>, length len: Int) -> String
   @available(iOS 4.0, *)
   func replaceItemAt(originalItemURL: URL, withItemAt newItemURL: URL, backupItemName: String?, options: FileManagerItemReplacementOptions = [], resultingItemURL resultingURL: AutoreleasingUnsafeMutablePointer<URL?>) throws
   @available(iOS 5.0, *)
@@ -114,13 +114,13 @@ class FileManager : Object {
   @available(iOS 5.0, *)
   func evictUbiquitousItemAt(url: URL) throws
   @available(iOS 5.0, *)
-  func urlForUbiquityContainerIdentifier(containerIdentifier: String?) -> URL?
+  func urlFor(ubiquityContainerIdentifier containerIdentifier: String?) -> URL?
   @available(iOS 5.0, *)
   func urlForPublishingUbiquitousItemAt(url: URL, expirationDate outDate: AutoreleasingUnsafeMutablePointer<Date?>) throws -> URL
   @available(iOS 6.0, *)
   @NSCopying var ubiquityIdentityToken: protocol<Coding, Copying, ObjectProtocol>? { get }
   @available(iOS 7.0, *)
-  func containerURLForSecurityApplicationGroupIdentifier(groupIdentifier: String) -> URL?
+  func containerURLFor(securityApplicationGroupIdentifier groupIdentifier: String) -> URL?
   init()
 }
 extension Object {

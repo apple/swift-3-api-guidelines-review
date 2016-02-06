@@ -8,11 +8,11 @@ class DateFormatter : Formatter {
   @available(iOS 4.0, *)
   class func localizedStringFrom(date: Date, dateStyle dstyle: DateFormatterStyle, time tstyle: DateFormatterStyle) -> String
   @available(iOS 4.0, *)
-  class func dateFormatFromTemplate(tmplate: String, options opts: Int, locale: Locale?) -> String?
+  class func dateFormatFrom(template tmplate: String, options opts: Int, locale: Locale?) -> String?
   class func defaultFormatterBehavior() -> DateFormatterBehavior
   class func setDefaultFormatterBehavior(behavior: DateFormatterBehavior)
   @available(iOS 8.0, *)
-  func setLocalizedDateFormatFromTemplate(dateFormatTemplate: String)
+  func setLocalizedDateFormatFrom(template dateFormatTemplate: String)
   var dateFormat: String!
   var dateStyle: DateFormatterStyle
   var timeStyle: DateFormatterStyle

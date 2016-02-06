@@ -2,10 +2,10 @@
 @available(watchOS 2.0, *)
 class HKObjectType : Object, SecureCoding, Copying {
   var identifier: String { get }
-  class func quantityTypeForIdentifier(identifier: String) -> HKQuantityType?
-  class func categoryTypeForIdentifier(identifier: String) -> HKCategoryType?
-  class func characteristicTypeForIdentifier(identifier: String) -> HKCharacteristicType?
-  class func correlationTypeForIdentifier(identifier: String) -> HKCorrelationType?
+  class func quantityTypeFor(identifier identifier: String) -> HKQuantityType?
+  class func categoryTypeFor(identifier identifier: String) -> HKCategoryType?
+  class func characteristicTypeFor(identifier identifier: String) -> HKCharacteristicType?
+  class func correlationTypeFor(identifier identifier: String) -> HKCorrelationType?
   class func workoutType() -> HKWorkoutType
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
@@ -13,7 +13,7 @@ class HKObjectType : Object, SecureCoding, Copying {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(watchOS 2.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(watchOS 2.0, *)
 class HKCharacteristicType : HKObjectType {

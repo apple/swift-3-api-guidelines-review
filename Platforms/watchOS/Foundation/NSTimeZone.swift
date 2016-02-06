@@ -10,7 +10,7 @@ class TimeZone : Object, Copying, SecureCoding {
   @available(watchOS 2.0, *)
   func nextDaylightSavingTimeTransitionAfter(aDate: Date) -> Date?
   init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)

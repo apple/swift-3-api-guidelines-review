@@ -22,27 +22,27 @@ class EKEventStore : Object {
   @available(OSX 10.8, *)
   var sources: [EKSource] { get }
   @available(OSX 10.8, *)
-  func sourceWithIdentifier(identifier: String) -> EKSource
+  func sourceWith(identifier identifier: String) -> EKSource
   @available(OSX 10.8, *)
   func calendarsFor(entityType: EKEntityType) -> [EKCalendar]
   var defaultCalendarForNewEvents: EKCalendar { get }
   @available(OSX 10.8, *)
   func defaultCalendarForNewReminders() -> EKCalendar
   @available(OSX 10.8, *)
-  func calendarWithIdentifier(identifier: String) -> EKCalendar?
+  func calendarWith(identifier identifier: String) -> EKCalendar?
   @available(OSX 10.8, *)
   func saveCalendar(calendar: EKCalendar, commit: Bool) throws
   @available(OSX 10.8, *)
   func removeCalendar(calendar: EKCalendar, commit: Bool) throws
   @available(OSX 10.8, *)
-  func calendarItemWithIdentifier(identifier: String) -> EKCalendarItem
+  func calendarItemWith(identifier identifier: String) -> EKCalendarItem
   @available(OSX 10.8, *)
-  func calendarItemsWithExternalIdentifier(externalIdentifier: String) -> [EKCalendarItem]
+  func calendarItemsWith(externalIdentifier externalIdentifier: String) -> [EKCalendarItem]
   @available(OSX 10.8, *)
   func save(event: EKEvent, span: EKSpan, commit: Bool) throws
   @available(OSX 10.8, *)
   func remove(event: EKEvent, span: EKSpan, commit: Bool) throws
-  func eventWithIdentifier(identifier: String) -> EKEvent?
+  func eventWith(identifier identifier: String) -> EKEvent?
   func eventsMatching(predicate: Predicate) -> [EKEvent]
   func enumerateEventsMatching(predicate: Predicate, usingBlock block: EKEventSearchCallback)
   func predicateForEventsWithStart(startDate: Date, end endDate: Date, calendars: [EKCalendar]?) -> Predicate

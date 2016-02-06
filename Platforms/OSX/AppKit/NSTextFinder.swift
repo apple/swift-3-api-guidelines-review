@@ -58,11 +58,11 @@ protocol NSTextFinderClient : ObjectProtocol {
   optional var firstSelectedRange: NSRange { get }
   optional var selectedRanges: [Value] { get set }
   optional func scrollRangeToVisible(range: NSRange)
-  optional func shouldReplaceCharactersInRanges(ranges: [Value], withStrings strings: [String]) -> Bool
+  optional func shouldReplaceCharactersIn(ranges ranges: [Value], withStrings strings: [String]) -> Bool
   optional func replaceCharactersIn(range: NSRange, withString string: String)
   optional func didReplaceCharacters()
   optional func contentViewAt(index: Int, effectiveCharacterRange outRange: RangePointer) -> NSView
-  optional func rectsForCharacterRange(range: NSRange) -> [Value]?
+  optional func rectsFor(characterRange range: NSRange) -> [Value]?
   optional var visibleCharacterRanges: [Value] { get }
   optional func drawCharactersIn(range: NSRange, forContentView view: NSView)
 }

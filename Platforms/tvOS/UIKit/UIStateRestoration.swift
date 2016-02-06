@@ -11,21 +11,21 @@ let UIApplicationStateRestorationTimestampKey: String
 let UIApplicationStateRestorationSystemVersionKey: String
 protocol UIViewControllerRestoration {
   @available(tvOS 2.0, *)
-  static func viewControllerWithRestorationIdentifierPath(identifierComponents: [AnyObject], coder: Coder) -> UIViewController?
+  static func viewControllerWith(restorationIdentifierPath identifierComponents: [AnyObject], coder: Coder) -> UIViewController?
 }
 protocol UIDataSourceModelAssociation {
   @available(tvOS 2.0, *)
   func modelIdentifierForElementAt(idx: IndexPath, in view: UIView) -> String?
   @available(tvOS 2.0, *)
-  func indexPathForElementWithModelIdentifier(identifier: String, in view: UIView) -> IndexPath?
+  func indexPathForElementWith(modelIdentifier identifier: String, in view: UIView) -> IndexPath?
 }
 protocol UIStateRestoring : ObjectProtocol {
   optional var restorationParent: UIStateRestoring? { get }
   optional var objectRestorationClass: AnyObject.Type? { get }
-  optional func encodeRestorableStateWith(coder: Coder)
-  optional func decodeRestorableStateWith(coder: Coder)
+  optional func encodeRestorableState(coder: Coder)
+  optional func decodeRestorableState(coder: Coder)
   optional func applicationFinishedRestoringState()
 }
 protocol UIObjectRestoration {
-  static func objectWithRestorationIdentifierPath(identifierComponents: [String], coder: Coder) -> UIStateRestoring?
+  static func objectWith(restorationIdentifierPath identifierComponents: [String], coder: Coder) -> UIStateRestoring?
 }

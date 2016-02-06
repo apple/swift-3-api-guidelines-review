@@ -8,12 +8,12 @@ class AVComposition : AVAsset, MutableCopying {
   convenience init(url URL: URL)
   init()
   @available(iOS 4.0, *)
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
 }
 extension AVComposition {
-  func trackWithTrackID(trackID: CMPersistentTrackID) -> AVCompositionTrack?
-  func tracksWithMediaType(mediaType: String) -> [AVCompositionTrack]
-  func tracksWithMediaCharacteristic(mediaCharacteristic: String) -> [AVCompositionTrack]
+  func trackWith(trackID trackID: CMPersistentTrackID) -> AVCompositionTrack?
+  func tracksWith(mediaType mediaType: String) -> [AVCompositionTrack]
+  func tracksWith(mediaCharacteristic mediaCharacteristic: String) -> [AVCompositionTrack]
 }
 @available(iOS 4.0, *)
 class AVMutableComposition : AVComposition {
@@ -31,12 +31,12 @@ extension AVMutableComposition {
   func scaleTimeRange(timeRange: CMTimeRange, toDuration duration: CMTime)
 }
 extension AVMutableComposition {
-  func addMutableTrackWithMediaType(mediaType: String, preferredTrackID: CMPersistentTrackID) -> AVMutableCompositionTrack
+  func addMutableTrack(mediaType mediaType: String, preferredTrackID: CMPersistentTrackID) -> AVMutableCompositionTrack
   func removeTrack(track: AVCompositionTrack)
   func mutableTrackCompatibleWith(track: AVAssetTrack) -> AVMutableCompositionTrack?
 }
 extension AVMutableComposition {
-  func trackWithTrackID(trackID: CMPersistentTrackID) -> AVMutableCompositionTrack?
-  func tracksWithMediaType(mediaType: String) -> [AVMutableCompositionTrack]
-  func tracksWithMediaCharacteristic(mediaCharacteristic: String) -> [AVMutableCompositionTrack]
+  func trackWith(trackID trackID: CMPersistentTrackID) -> AVMutableCompositionTrack?
+  func tracksWith(mediaType mediaType: String) -> [AVMutableCompositionTrack]
+  func tracksWith(mediaCharacteristic mediaCharacteristic: String) -> [AVMutableCompositionTrack]
 }

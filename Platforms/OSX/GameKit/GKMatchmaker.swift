@@ -79,7 +79,7 @@ class GKMatchmaker : Object {
   @available(OSX 10.9, *)
   func finishMatchmakingFor(match: GKMatch)
   func queryPlayerGroupActivity(playerGroup: Int, withCompletionHandler completionHandler: ((Int, Error?) -> Void)? = nil)
-  func queryActivity(completionHandler completionHandler: ((Int, Error?) -> Void)? = nil)
+  func queryActivityWith(completionHandler completionHandler: ((Int, Error?) -> Void)? = nil)
   @available(OSX 10.10, *)
   func startBrowsingForNearbyPlayers(handler reachableHandler: ((GKPlayer, Bool) -> Void)? = nil)
   @available(OSX 10.9, *)
@@ -92,7 +92,7 @@ extension GKMatchmaker {
   @available(OSX, introduced=10.9, deprecated=10.10)
   func startBrowsingForNearbyPlayers(reachableHandler reachableHandler: ((String, Bool) -> Void)? = nil)
   @available(OSX, introduced=10.9, deprecated=10.10, message="use cancelPendingInviteToPlayer:")
-  func cancelInviteToPlayer(playerID: String)
+  func cancelInviteTo(player playerID: String)
   @available(OSX, introduced=10.8, deprecated=10.10, message="use findPlayersForHostedRequest:")
   func findPlayersForHostedMatchRequest(request: GKMatchRequest, withCompletionHandler completionHandler: (([String]?, Error?) -> Void)? = nil)
 }

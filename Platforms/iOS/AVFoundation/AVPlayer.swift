@@ -21,7 +21,7 @@ extension AVPlayer {
 }
 extension AVPlayer {
   var currentItem: AVPlayerItem? { get }
-  func replaceCurrentItemWith(item: AVPlayerItem?)
+  func replaceCurrentItem(item: AVPlayerItem?)
   var actionAtItemEnd: AVPlayerActionAtItemEnd
 }
 enum AVPlayerActionAtItemEnd : Int {
@@ -47,15 +47,15 @@ extension AVPlayer {
   @available(iOS 6.0, *)
   func setRate(rate: Float, time itemTime: CMTime, atHostTime hostClockTime: CMTime)
   @available(iOS 6.0, *)
-  func prerollAtRate(rate: Float, completionHandler: ((Bool) -> Void)? = nil)
+  func prerollAt(rate rate: Float, completionHandler: ((Bool) -> Void)? = nil)
   @available(iOS 6.0, *)
   func cancelPendingPrerolls()
   @available(iOS 6.0, *)
   var masterClock: CMClock?
 }
 extension AVPlayer {
-  func addPeriodicTimeObserverForInterval(interval: CMTime, queue: dispatch_queue_t?, usingBlock block: (CMTime) -> Void) -> AnyObject
-  func addBoundaryTimeObserverForTimes(times: [Value], queue: dispatch_queue_t?, usingBlock block: () -> Void) -> AnyObject
+  func addPeriodicTimeObserverFor(interval interval: CMTime, queue: dispatch_queue_t?, usingBlock block: (CMTime) -> Void) -> AnyObject
+  func addBoundaryTimeObserverFor(times times: [Value], queue: dispatch_queue_t?, usingBlock block: () -> Void) -> AnyObject
   func removeTimeObserver(observer: AnyObject)
 }
 extension AVPlayer {
@@ -71,7 +71,7 @@ extension AVPlayer {
   @available(iOS 7.0, *)
   func setMediaSelectionCriteria(criteria: AVPlayerMediaSelectionCriteria?, forMediaCharacteristic mediaCharacteristic: String)
   @available(iOS 7.0, *)
-  func mediaSelectionCriteriaForMediaCharacteristic(mediaCharacteristic: String) -> AVPlayerMediaSelectionCriteria?
+  func mediaSelectionCriteriaFor(mediaCharacteristic mediaCharacteristic: String) -> AVPlayerMediaSelectionCriteria?
 }
 extension AVPlayer {
 }

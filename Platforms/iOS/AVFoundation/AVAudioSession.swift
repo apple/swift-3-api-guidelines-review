@@ -132,11 +132,11 @@ extension AVAudioSession {
   func setPreferredIOBufferDuration(duration: TimeInterval) throws
   var preferredIOBufferDuration: TimeInterval { get }
   @available(iOS 7.0, *)
-  func setPreferredInputNumberOfChannels(count: Int) throws
+  func setPreferredInputNumberOf(channels count: Int) throws
   @available(iOS 7.0, *)
   var preferredInputNumberOfChannels: Int { get }
   @available(iOS 7.0, *)
-  func setPreferredOutputNumberOfChannels(count: Int) throws
+  func setPreferredOutputNumberOf(channels count: Int) throws
   @available(iOS 7.0, *)
   var preferredOutputNumberOfChannels: Int { get }
   @available(iOS 7.0, *)
@@ -325,7 +325,7 @@ class AVAudioSessionDataSourceDescription : Object {
 protocol AVAudioSessionDelegate : ObjectProtocol {
   optional func beginInterruption()
   @available(iOS 4.0, *)
-  optional func endInterruptionWithFlags(flags: Int)
+  optional func endInterruption(flags flags: Int)
   optional func endInterruption()
   optional func inputIsAvailableChanged(isInputAvailable: Bool)
 }

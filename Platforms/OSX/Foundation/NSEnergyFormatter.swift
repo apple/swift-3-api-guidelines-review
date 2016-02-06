@@ -13,10 +13,10 @@ class EnergyFormatter : Formatter {
   @NSCopying var numberFormatter: NumberFormatter!
   var unitStyle: FormattingUnitStyle
   var isForFoodEnergyUse: Bool
-  func stringFromValue(value: Double, unit: EnergyFormatterUnit) -> String
-  func stringFromJoules(numberInJoules: Double) -> String
-  func unitStringFromValue(value: Double, unit: EnergyFormatterUnit) -> String
-  func unitStringFromJoules(numberInJoules: Double, usedUnit unitp: UnsafeMutablePointer<EnergyFormatterUnit>) -> String
+  func stringFrom(value value: Double, unit: EnergyFormatterUnit) -> String
+  func stringFrom(joules numberInJoules: Double) -> String
+  func unitStringFrom(value value: Double, unit: EnergyFormatterUnit) -> String
+  func unitStringFrom(joules numberInJoules: Double, usedUnit unitp: UnsafeMutablePointer<EnergyFormatterUnit>) -> String
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   init()
   init?(coder aDecoder: Coder)

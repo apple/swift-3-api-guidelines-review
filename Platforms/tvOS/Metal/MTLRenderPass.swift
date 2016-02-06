@@ -37,7 +37,7 @@ class MTLRenderPassAttachmentDescriptor : Object, Copying {
   var storeAction: MTLStoreAction
   init()
   @available(tvOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 class MTLRenderPassColorAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {
@@ -66,7 +66,7 @@ class MTLRenderPassStencilAttachmentDescriptor : MTLRenderPassAttachmentDescript
 }
 @available(tvOS 8.0, *)
 class MTLRenderPassColorAttachmentDescriptorArray : Object {
-  subscript (attachmentIndex: Int) -> MTLRenderPassColorAttachmentDescriptor!
+  subscript (indexedSubscript attachmentIndex: Int) -> MTLRenderPassColorAttachmentDescriptor!
   init()
 }
 @available(tvOS 8.0, *)
@@ -77,6 +77,6 @@ class MTLRenderPassDescriptor : Object, Copying {
   var visibilityResultBuffer: MTLBuffer?
   init()
   @available(tvOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 func MTLClearColorMake(red: Double, _ green: Double, _ blue: Double, _ alpha: Double) -> MTLClearColor

@@ -1,6 +1,6 @@
 
 extension NSString {
-  class func pathWithComponents(components: [String]) -> String
+  class func pathWith(components components: [String]) -> String
   var pathComponents: [String] { get }
   var isAbsolutePath: Bool { get }
   var lastPathComponent: String { get }
@@ -19,7 +19,7 @@ extension NSString {
   func getFileSystemRepresentation(cname: UnsafeMutablePointer<Int8>, maxLength max: Int) -> Bool
 }
 extension NSArray {
-  func pathsMatchingExtensions(filterTypes: [String]) -> [String]
+  func pathsMatching(extensions filterTypes: [String]) -> [String]
 }
 func userName() -> String
 func fullUserName() -> String

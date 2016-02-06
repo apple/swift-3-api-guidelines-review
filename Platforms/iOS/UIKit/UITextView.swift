@@ -131,7 +131,7 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 2.0, *)
   func insertDictationResultPlaceholder() -> AnyObject
   @available(iOS 2.0, *)
-  func frameForDictationResultPlaceholder(placeholder: AnyObject) -> CGRect
+  func frameFor(dictationResultPlaceholder placeholder: AnyObject) -> CGRect
   @available(iOS 2.0, *)
   func removeDictationResultPlaceholder(placeholder: AnyObject, willInsertResult: Bool)
   @available(iOS 9.0, *)

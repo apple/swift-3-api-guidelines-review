@@ -45,7 +45,7 @@ class NSOutlineView : NSTableView, NSAccessibilityOutline {
   unowned(unsafe) var outlineTableColumn: @sil_unmanaged NSTableColumn?
   func isExpandable(item: AnyObject?) -> Bool
   @available(OSX 10.10, *)
-  func numberOfChildrenOfItem(item: AnyObject?) -> Int
+  func numberOfChildrenOf(item item: AnyObject?) -> Int
   @available(OSX 10.10, *)
   func child(index: Int, ofItem item: AnyObject?) -> AnyObject?
   func expandItem(item: AnyObject?, expandChildren: Bool)
@@ -54,21 +54,21 @@ class NSOutlineView : NSTableView, NSAccessibilityOutline {
   func collapseItem(item: AnyObject?)
   func reloadItem(item: AnyObject?, reloadChildren: Bool)
   func reloadItem(item: AnyObject?)
-  func parentForItem(item: AnyObject?) -> AnyObject?
+  func parentFor(item item: AnyObject?) -> AnyObject?
   @available(OSX 10.11, *)
-  func childIndexForItem(item: AnyObject) -> Int
-  func itemAtRow(row: Int) -> AnyObject?
-  func rowForItem(item: AnyObject?) -> Int
-  func levelForItem(item: AnyObject?) -> Int
-  func levelForRow(row: Int) -> Int
+  func childIndexFor(item item: AnyObject) -> Int
+  func itemAt(row row: Int) -> AnyObject?
+  func rowFor(item item: AnyObject?) -> Int
+  func levelFor(item item: AnyObject?) -> Int
+  func levelFor(row row: Int) -> Int
   func isItemExpanded(item: AnyObject?) -> Bool
   var indentationPerLevel: CGFloat
   var indentationMarkerFollowsCell: Bool
   var autoresizesOutlineColumn: Bool
   @available(OSX 10.5, *)
-  func frameOfOutlineCellAtRow(row: Int) -> Rect
+  func frameOfOutlineCellAt(row row: Int) -> Rect
   func setDropItem(item: AnyObject?, dropChildIndex index: Int)
-  func shouldCollapseAutoExpandedItemsForDeposited(deposited: Bool) -> Bool
+  func shouldCollapseAutoExpandedItemsFor(deposited deposited: Bool) -> Bool
   var autosaveExpandedItems: Bool
   @available(OSX 10.7, *)
   func insertItemsAt(indexes: IndexSet, inParent parent: AnyObject?, withAnimation animationOptions: NSTableViewAnimationOptions = [])

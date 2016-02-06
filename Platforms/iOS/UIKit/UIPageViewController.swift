@@ -54,7 +54,7 @@ protocol UIPageViewControllerDelegate : ObjectProtocol {
   @available(iOS 7.0, *)
   optional func pageViewControllerSupportedInterfaceOrientations(pageViewController: UIPageViewController) -> UIInterfaceOrientationMask
   @available(iOS 7.0, *)
-  optional func pageViewControllerPreferredInterfaceOrientationForPresentation(pageViewController: UIPageViewController) -> UIInterfaceOrientation
+  optional func pageViewControllerPreferredInterfaceOrientationFor(presentation pageViewController: UIPageViewController) -> UIInterfaceOrientation
 }
 protocol UIPageViewControllerDataSource : ObjectProtocol {
   @available(iOS 5.0, *)

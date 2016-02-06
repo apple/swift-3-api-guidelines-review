@@ -13,7 +13,7 @@ protocol NSSeguePerforming : ObjectProtocol {
   @available(OSX 10.10, *)
   optional func prepareFor(segue: NSStoryboardSegue, sender: AnyObject?)
   @available(OSX 10.10, *)
-  optional func performSegueWithIdentifier(identifier: String, sender: AnyObject?)
+  optional func performSegue(identifier identifier: String, sender: AnyObject?)
   @available(OSX 10.10, *)
-  optional func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool
+  optional func shouldPerformSegueWith(identifier identifier: String, sender: AnyObject?) -> Bool
 }

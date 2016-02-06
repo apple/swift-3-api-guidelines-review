@@ -6,7 +6,7 @@ class NSController : Object, Coding {
   func objectDidEndEditing(editor: AnyObject)
   func discardEditing()
   func commitEditing() -> Bool
-  func commitEditingWithDelegate(delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func commitEditing(delegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   var isEditing: Bool { get }
   func encodeWith(aCoder: Coder)
 }

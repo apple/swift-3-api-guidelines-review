@@ -35,7 +35,7 @@ class AVAudioEnvironmentNode : AVAudioNode, AVAudioMixing {
   var applicableRenderingAlgorithms: [Number] { get }
   init()
   @available(tvOS 9.0, *)
-  func destinationForMixer(mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
+  func destinationFor(mixer mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(tvOS 8.0, *)
   var volume: Float
   @available(tvOS 8.0, *)

@@ -29,7 +29,7 @@ class TextCheckingResult : Object, Copying, Coding {
   var range: NSRange { get }
   init()
   @available(iOS 4.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
@@ -56,7 +56,7 @@ extension TextCheckingResult {
   @available(iOS 4.0, *)
   func rangeAt(idx: Int) -> NSRange
   @available(iOS 5.0, *)
-  func adjustingRangesWithOffset(offset: Int) -> TextCheckingResult
+  func adjustingRangesWith(offset offset: Int) -> TextCheckingResult
 }
 @available(iOS 4.0, *)
 let textCheckingNameKey: String
@@ -82,7 +82,7 @@ let textCheckingAirlineKey: String
 let textCheckingFlightKey: String
 extension TextCheckingResult {
   class func orthographyCheckingResultWith(range: NSRange, orthography: Orthography) -> TextCheckingResult
-  class func spellWith(range: NSRange) -> TextCheckingResult
+  class func spell(range: NSRange) -> TextCheckingResult
   class func grammarCheckingResultWith(range: NSRange, details: [String]) -> TextCheckingResult
   class func dateCheckingResultWith(range: NSRange, date: Date) -> TextCheckingResult
   class func dateCheckingResultWith(range: NSRange, date: Date, timeZone: TimeZone, duration: TimeInterval) -> TextCheckingResult
@@ -95,9 +95,9 @@ extension TextCheckingResult {
   @available(iOS 7.0, *)
   class func correctionCheckingResultWith(range: NSRange, replacementString: String, alternativeStrings: [String]) -> TextCheckingResult
   @available(iOS 4.0, *)
-  class func regularExpressionCheckingResultWithRanges(ranges: RangePointer, count: Int, regularExpression: RegularExpression) -> TextCheckingResult
+  class func regularExpressionCheckingResultWith(ranges ranges: RangePointer, count: Int, regularExpression: RegularExpression) -> TextCheckingResult
   @available(iOS 4.0, *)
-  class func phoneNumberWith(range: NSRange, phoneNumber: String) -> TextCheckingResult
+  class func phoneNumber(range: NSRange, phoneNumber: String) -> TextCheckingResult
   @available(iOS 4.0, *)
   class func transitInformationCheckingResultWith(range: NSRange, components: [String : String]) -> TextCheckingResult
 }

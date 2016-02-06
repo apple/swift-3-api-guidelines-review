@@ -78,12 +78,12 @@ extension Coder {
   func encode(insets: UIEdgeInsets, forKey key: String)
   @available(iOS 5.0, *)
   func encode(offset: UIOffset, forKey key: String)
-  func decodeCGPointForKey(key: String) -> CGPoint
-  func decodeCGVectorForKey(key: String) -> CGVector
-  func decodeCGSizeForKey(key: String) -> CGSize
-  func decodeCGRectForKey(key: String) -> CGRect
-  func decodeCGAffineTransformForKey(key: String) -> CGAffineTransform
-  func decodeUIEdgeInsetsForKey(key: String) -> UIEdgeInsets
+  func decodeCGPointFor(key key: String) -> CGPoint
+  func decodeCGVectorFor(key key: String) -> CGVector
+  func decodeCGSizeFor(key key: String) -> CGSize
+  func decodeCGRectFor(key key: String) -> CGRect
+  func decodeCGAffineTransformFor(key key: String) -> CGAffineTransform
+  func decodeUIEdgeInsetsFor(key key: String) -> UIEdgeInsets
   @available(iOS 5.0, *)
-  func decodeUIOffsetForKey(key: String) -> UIOffset
+  func decodeUIOffsetFor(key key: String) -> UIOffset
 }

@@ -1,7 +1,7 @@
 
 @available(iOS 7.0, *)
 class MKDistanceFormatter : Formatter {
-  func stringFromDistance(distance: CLLocationDistance) -> String
+  func stringFrom(distance distance: CLLocationDistance) -> String
   func distanceFrom(distance: String) -> CLLocationDistance
   @NSCopying var locale: Locale!
   var units: MKDistanceFormatterUnits

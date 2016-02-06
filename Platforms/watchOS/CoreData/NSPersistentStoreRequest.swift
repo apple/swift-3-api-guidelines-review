@@ -15,7 +15,7 @@ class NSPersistentStoreRequest : Object, Copying {
   var requestType: NSPersistentStoreRequestType { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 typealias NSPersistentStoreAsynchronousFetchResultCompletionBlock = (NSAsynchronousFetchResult) -> Void
 @available(watchOS 2.0, *)

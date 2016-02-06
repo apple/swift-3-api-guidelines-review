@@ -7,7 +7,7 @@ class AVAudioUnitMIDIInstrument : AVAudioUnit, AVAudioMixing {
   func sendController(controller: UInt8, withValue value: UInt8, onChannel channel: UInt8)
   func sendPitchBend(pitchbend: UInt16, onChannel channel: UInt8)
   func sendPressure(pressure: UInt8, onChannel channel: UInt8)
-  func sendPressureForKey(key: UInt8, withValue value: UInt8, onChannel channel: UInt8)
+  func sendPressureFor(key key: UInt8, withValue value: UInt8, onChannel channel: UInt8)
   func sendProgramChange(program: UInt8, onChannel channel: UInt8)
   func sendProgramChange(program: UInt8, bankMSB: UInt8, bankLSB: UInt8, onChannel channel: UInt8)
   func sendMIDIEvent(midiStatus: UInt8, data1: UInt8, data2: UInt8)
@@ -15,7 +15,7 @@ class AVAudioUnitMIDIInstrument : AVAudioUnit, AVAudioMixing {
   func sendMIDISysExEvent(midiData: Data)
   init()
   @available(tvOS 9.0, *)
-  func destinationForMixer(mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
+  func destinationFor(mixer mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(tvOS 8.0, *)
   var volume: Float
   @available(tvOS 8.0, *)

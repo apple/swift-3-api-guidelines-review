@@ -4,7 +4,7 @@ class GKState : Object {
   weak var stateMachine: @sil_weak GKStateMachine? { get }
   init()
   func isValidNextState(stateClass: AnyClass) -> Bool
-  func didEnterWithPreviousState(previousState: GKState?)
+  func didEnterWith(previousState previousState: GKState?)
   func updateWithDeltaTime(seconds: TimeInterval)
-  func willExitWithNextState(nextState: GKState)
+  func willExitWith(nextState nextState: GKState)
 }

@@ -5,10 +5,10 @@ class AVMediaSelectionGroup : Object, Copying {
   @available(iOS 8.0, *)
   var defaultOption: AVMediaSelectionOption? { get }
   var allowsEmptySelection: Bool { get }
-  func mediaSelectionOptionWithPropertyList(plist: AnyObject) -> AVMediaSelectionOption?
+  func mediaSelectionOptionWith(propertyList plist: AnyObject) -> AVMediaSelectionOption?
   init()
   @available(iOS 5.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 extension AVMediaSelectionGroup {
   class func playableMediaSelectionOptionsFrom(mediaSelectionOptions: [AVMediaSelectionOption]) -> [AVMediaSelectionOption]
@@ -29,14 +29,14 @@ class AVMediaSelectionOption : Object, Copying {
   var locale: Locale? { get }
   var commonMetadata: [AVMetadataItem] { get }
   var availableMetadataFormats: [String] { get }
-  func metadataForFormat(format: String) -> [AVMetadataItem]
+  func metadataFor(format format: String) -> [AVMetadataItem]
   func associatedMediaSelectionOptionIn(mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
   func propertyList() -> AnyObject
   @available(iOS 7.0, *)
-  func displayNameWith(locale: Locale) -> String
+  func displayName(locale: Locale) -> String
   @available(iOS 7.0, *)
   var displayName: String { get }
   init()
   @available(iOS 5.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

@@ -19,11 +19,11 @@ class MDLAsset : Object, Copying, FastEnumeration {
   func add(object: MDLObject)
   func remove(object: MDLObject)
   var count: Int { get }
-  subscript (index: Int) -> MDLObject? { get }
+  subscript (indexedSubscript index: Int) -> MDLObject? { get }
   func objectAt(index: Int) -> MDLObject
   init()
   @available(OSX 10.11, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.11, *)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

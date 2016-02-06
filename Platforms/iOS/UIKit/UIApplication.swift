@@ -117,7 +117,7 @@ class UIApplication : UIResponder {
   @available(iOS 4.0, *)
   func beginBackgroundTask(expirationHandler handler: (() -> Void)? = nil) -> UIBackgroundTaskIdentifier
   @available(iOS 7.0, *)
-  func beginBackgroundTaskWithName(taskName: String?, expirationHandler handler: (() -> Void)? = nil) -> UIBackgroundTaskIdentifier
+  func beginBackgroundTask(name taskName: String?, expirationHandler handler: (() -> Void)? = nil) -> UIBackgroundTaskIdentifier
   @available(iOS 4.0, *)
   func endBackgroundTask(identifier: UIBackgroundTaskIdentifier)
   @available(iOS 7.0, *)
@@ -140,7 +140,7 @@ extension UIApplication {
   @available(iOS 8.0, *)
   func isRegisteredForRemoteNotifications() -> Bool
   @available(iOS, introduced=3.0, deprecated=8.0, message="Please use registerForRemoteNotifications and registerUserNotificationSettings: instead")
-  func registerForRemoteNotificationTypes(types: UIRemoteNotificationType)
+  func registerFor(remoteNotificationTypes types: UIRemoteNotificationType)
   @available(iOS, introduced=3.0, deprecated=8.0, message="Please use -[UIApplication isRegisteredForRemoteNotifications], or -[UIApplication currentUserNotificationSettings] to retrieve user-enabled remote notification and user notification settings")
   func enabledRemoteNotificationTypes() -> UIRemoteNotificationType
 }
@@ -184,7 +184,7 @@ extension UIApplication {
   @available(iOS 7.0, *)
   func ignoreSnapshotOnNextApplicationLaunch()
   @available(iOS 7.0, *)
-  class func registerObjectForStateRestoration(object: UIStateRestoring, restorationIdentifier: String)
+  class func registerObjectFor(stateRestoration object: UIStateRestoring, restorationIdentifier: String)
 }
 protocol UIApplicationDelegate : ObjectProtocol {
   @available(iOS 2.0, *)

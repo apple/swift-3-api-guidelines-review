@@ -12,9 +12,9 @@ class CALayer : Object, Coding, CAMediaTiming {
   init(layer: AnyObject)
   func presentationLayer() -> AnyObject?
   func modelLayer() -> AnyObject
-  class func defaultValueForKey(key: String) -> AnyObject?
-  class func needsDisplayForKey(key: String) -> Bool
-  func shouldArchiveValueForKey(key: String) -> Bool
+  class func defaultValueFor(key key: String) -> AnyObject?
+  class func needsDisplayFor(key key: String) -> Bool
+  func shouldArchiveValueFor(key key: String) -> Bool
   var bounds: CGRect
   var position: CGPoint
   var zPosition: CGFloat
@@ -90,14 +90,14 @@ class CALayer : Object, Coding, CAMediaTiming {
   func needsLayout() -> Bool
   func layoutIfNeeded()
   func layoutSublayers()
-  class func defaultActionForKey(event: String) -> CAAction?
-  func actionForKey(event: String) -> CAAction?
+  class func defaultActionFor(key event: String) -> CAAction?
+  func actionFor(key event: String) -> CAAction?
   var actions: [String : CAAction]?
   func add(anim: CAAnimation, forKey key: String?)
   func removeAllAnimations()
-  func removeAnimationForKey(key: String)
+  func removeAnimationFor(key key: String)
   func animationKeys() -> [String]?
-  func animationForKey(key: String) -> CAAnimation?
+  func animationFor(key key: String) -> CAAnimation?
   var name: String?
   weak var delegate: @sil_weak AnyObject?
   var style: [Object : AnyObject]?
@@ -119,11 +119,11 @@ struct _CALayerIvars {
 }
 protocol CAAction {
   @available(iOS 2.0, *)
-  func runActionForKey(event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
+  func runActionFor(key event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
 }
 extension Null : CAAction {
   @available(iOS 2.0, *)
-  func runActionForKey(event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
+  func runActionFor(key event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
 }
 extension Object {
   class func display(layer: CALayer)

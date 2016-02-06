@@ -16,9 +16,9 @@ protocol SCNShadable : ObjectProtocol {
   @available(iOS 8.0, *)
   optional var program: SCNProgram? { get set }
   @available(iOS 8.0, *)
-  optional func handleBindingOfSymbol(symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  optional func handleBindingOf(symbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
   @available(iOS 8.0, *)
-  optional func handleUnbindingOfSymbol(symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  optional func handleUnbindingOf(symbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
   @available(iOS 8.0, *)
   optional var shaderModifiers: [String : String]? { get set }
 }
@@ -32,17 +32,17 @@ class SCNProgram : Object, Copying, SecureCoding {
   @available(iOS 9.0, *)
   var fragmentFunctionName: String?
   @available(iOS 9.0, *)
-  func handleBindingOfBufferNamed(name: String, frequency: SCNBufferFrequency, usingBlock block: SCNBufferBindingBlock)
+  func handleBindingOf(bufferNamed name: String, frequency: SCNBufferFrequency, usingBlock block: SCNBufferBindingBlock)
   @available(iOS 8.0, *)
   var isOpaque: Bool
   func setSemantic(semantic: String?, forSymbol symbol: String, options: [String : AnyObject]? = [:])
-  func semanticForSymbol(symbol: String) -> String?
+  func semanticFor(symbol symbol: String) -> String?
   unowned(unsafe) var delegate: @sil_unmanaged SCNProgramDelegate?
   @available(iOS 9.0, *)
   var library: MTLLibrary?
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)

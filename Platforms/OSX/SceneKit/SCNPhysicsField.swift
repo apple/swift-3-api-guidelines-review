@@ -24,15 +24,15 @@ class SCNPhysicsField : Object, Copying, SecureCoding {
   class func vortex() -> SCNPhysicsField
   class func radialGravity() -> SCNPhysicsField
   class func linearGravity() -> SCNPhysicsField
-  class func noiseFieldWithSmoothness(smoothness: CGFloat, animationSpeed speed: CGFloat) -> SCNPhysicsField
-  class func turbulenceFieldWithSmoothness(smoothness: CGFloat, animationSpeed speed: CGFloat) -> SCNPhysicsField
+  class func noiseFieldWith(smoothness smoothness: CGFloat, animationSpeed speed: CGFloat) -> SCNPhysicsField
+  class func turbulenceFieldWith(smoothness smoothness: CGFloat, animationSpeed speed: CGFloat) -> SCNPhysicsField
   class func spring() -> SCNPhysicsField
   class func electric() -> SCNPhysicsField
   class func magnetic() -> SCNPhysicsField
-  class func customFieldWithEvaluationBlock(block: SCNFieldForceEvaluator) -> SCNPhysicsField
+  class func customFieldWith(evaluationBlock block: SCNFieldForceEvaluator) -> SCNPhysicsField
   init()
   @available(OSX 10.10, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)

@@ -9,7 +9,7 @@ enum HTTPCookieAcceptPolicy : UInt {
 class HTTPCookieStorage : Object {
   class func shared() -> HTTPCookieStorage
   @available(watchOS 2.0, *)
-  class func sharedCookieStorageForGroupContainerIdentifier(identifier: String) -> HTTPCookieStorage
+  class func sharedCookieStorageFor(groupContainerIdentifier identifier: String) -> HTTPCookieStorage
   var cookies: [HTTPCookie]? { get }
   func setCookie(cookie: HTTPCookie)
   func deleteCookie(cookie: HTTPCookie)

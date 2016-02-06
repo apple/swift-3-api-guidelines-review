@@ -34,9 +34,9 @@ protocol PKPaymentAuthorizationViewControllerDelegate : ObjectProtocol {
 @available(iOS 8.0, *)
 class PKPaymentAuthorizationViewController : UIViewController {
   class func canMakePayments() -> Bool
-  class func canMakePaymentsUsingNetworks(supportedNetworks: [String]) -> Bool
+  class func canMakePaymentsUsing(networks supportedNetworks: [String]) -> Bool
   @available(iOS 9.0, *)
-  class func canMakePaymentsUsingNetworks(supportedNetworks: [String], capabilities capabilties: PKMerchantCapability) -> Bool
+  class func canMakePaymentsUsing(networks supportedNetworks: [String], capabilities capabilties: PKMerchantCapability) -> Bool
   unowned(unsafe) var delegate: @sil_unmanaged PKPaymentAuthorizationViewControllerDelegate?
   init(paymentRequest request: PKPaymentRequest)
   convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)

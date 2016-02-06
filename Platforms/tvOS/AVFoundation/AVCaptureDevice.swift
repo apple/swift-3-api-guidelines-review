@@ -42,7 +42,7 @@ extension AVCaptureDevice {
   @available(tvOS 8.0, *)
   var lensPosition: Float { get }
   @available(tvOS 8.0, *)
-  func setFocusModeLockedWithLensPosition(lensPosition: Float, completionHandler handler: ((CMTime) -> Void)!)
+  func setFocusModeLockedWith(lensPosition lensPosition: Float, completionHandler handler: ((CMTime) -> Void)!)
 }
 @available(tvOS 8.0, *)
 let AVCaptureLensPositionCurrent: Float
@@ -59,7 +59,7 @@ extension AVCaptureDevice {
   @available(tvOS 8.0, *)
   var iso: Float { get }
   @available(tvOS 8.0, *)
-  func setExposureModeCustomWithDuration(duration: CMTime, iso ISO: Float, completionHandler handler: ((CMTime) -> Void)!)
+  func setExposureModeCustomWith(duration duration: CMTime, iso ISO: Float, completionHandler handler: ((CMTime) -> Void)!)
   @available(tvOS 8.0, *)
   var exposureTargetOffset: Float { get }
   @available(tvOS 8.0, *)
@@ -124,9 +124,9 @@ extension AVCaptureDevice {
 }
 extension AVCaptureDevice {
   @available(tvOS 7.0, *)
-  class func authorizationStatusForMediaType(mediaType: String!) -> AVAuthorizationStatus
+  class func authorizationStatusFor(mediaType mediaType: String!) -> AVAuthorizationStatus
   @available(tvOS 7.0, *)
-  class func requestAccessForMediaType(mediaType: String!, completionHandler handler: ((Bool) -> Void)!)
+  class func requestAccessFor(mediaType mediaType: String!, completionHandler handler: ((Bool) -> Void)!)
 }
 extension AVCaptureDevice {
   @available(tvOS 8.0, *)

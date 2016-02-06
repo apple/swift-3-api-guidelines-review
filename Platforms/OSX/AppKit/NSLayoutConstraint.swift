@@ -70,7 +70,7 @@ let NSLayoutPriorityDefaultLow: NSLayoutPriority
 let NSLayoutPriorityFittingSizeCompression: NSLayoutPriority
 @available(OSX 10.7, *)
 class NSLayoutConstraint : Object, NSAnimatablePropertyContainer {
-  class func constraintsWithVisualFormat(format: String, options opts: NSLayoutFormatOptions = [], metrics: [String : Number]?, views: [String : AnyObject]) -> [NSLayoutConstraint]
+  class func constraintsWith(visualFormat format: String, options opts: NSLayoutFormatOptions = [], metrics: [String : Number]?, views: [String : AnyObject]) -> [NSLayoutConstraint]
   convenience init(item view1: AnyObject, attribute attr1: NSLayoutAttribute, relatedBy relation: NSLayoutRelation, toItem view2: AnyObject?, attribute attr2: NSLayoutAttribute, multiplier: CGFloat, constant c: CGFloat)
   var priority: NSLayoutPriority
   var shouldBeArchived: Bool
@@ -93,9 +93,9 @@ class NSLayoutConstraint : Object, NSAnimatablePropertyContainer {
   @available(OSX 10.5, *)
   var animations: [String : AnyObject]
   @available(OSX 10.5, *)
-  func animationForKey(key: String) -> AnyObject?
+  func animationFor(key key: String) -> AnyObject?
   @available(OSX 10.5, *)
-  class func defaultAnimationForKey(key: String) -> AnyObject?
+  class func defaultAnimationFor(key key: String) -> AnyObject?
 }
 extension NSLayoutConstraint {
   var identifier: String?
@@ -164,9 +164,9 @@ extension NSView {
 }
 extension NSView {
   @available(OSX 10.7, *)
-  func alignmentRectForFrame(frame: Rect) -> Rect
+  func alignmentRectFor(frame frame: Rect) -> Rect
   @available(OSX 10.7, *)
-  func frameForAlignmentRect(alignmentRect: Rect) -> Rect
+  func frameFor(alignmentRect alignmentRect: Rect) -> Rect
   @available(OSX 10.7, *)
   var alignmentRectInsets: EdgeInsets { get }
   @available(OSX 10.11, *)

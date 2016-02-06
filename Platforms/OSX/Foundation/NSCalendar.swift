@@ -182,9 +182,9 @@ class Calendar : Object, Copying, SecureCoding {
   @available(OSX 10.9, *)
   func component(unit: CalendarUnit, from date: Date) -> Int
   @available(OSX 10.9, *)
-  func dateWithEra(eraValue: Int, year yearValue: Int, month monthValue: Int, day dayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
+  func dateWith(era eraValue: Int, year yearValue: Int, month monthValue: Int, day dayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
   @available(OSX 10.9, *)
-  func dateWithEra(eraValue: Int, yearForWeekOfYear yearValue: Int, weekOfYear weekValue: Int, weekday weekdayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
+  func dateWith(era eraValue: Int, yearForWeekOfYear yearValue: Int, weekOfYear weekValue: Int, weekday weekdayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
   @available(OSX 10.9, *)
   func startOfDayFor(date: Date) -> Date
   @available(OSX 10.9, *)
@@ -196,13 +196,13 @@ class Calendar : Object, Copying, SecureCoding {
   @available(OSX 10.9, *)
   func isDate(date1: Date, inSameDayAs date2: Date) -> Bool
   @available(OSX 10.9, *)
-  func isDateInToday(date: Date) -> Bool
+  func isDateIn(today date: Date) -> Bool
   @available(OSX 10.9, *)
-  func isDateInYesterday(date: Date) -> Bool
+  func isDateIn(yesterday date: Date) -> Bool
   @available(OSX 10.9, *)
-  func isDateInTomorrow(date: Date) -> Bool
+  func isDateIn(tomorrow date: Date) -> Bool
   @available(OSX 10.9, *)
-  func isDateInWeekend(date: Date) -> Bool
+  func isDateIn(weekend date: Date) -> Bool
   @available(OSX 10.9, *)
   func rangeOfWeekendStart(datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, containing date: Date) -> Bool
   @available(OSX 10.9, *)
@@ -220,12 +220,12 @@ class Calendar : Object, Copying, SecureCoding {
   @available(OSX 10.9, *)
   func nextDateAfter(date: Date, matchingHour hourValue: Int, minute minuteValue: Int, second secondValue: Int, options: CalendarOptions = []) -> Date?
   @available(OSX 10.9, *)
-  func dateBySettingUnit(unit: CalendarUnit, value v: Int, of date: Date, options opts: CalendarOptions = []) -> Date?
+  func dateBy(settingUnit unit: CalendarUnit, value v: Int, of date: Date, options opts: CalendarOptions = []) -> Date?
   @available(OSX 10.9, *)
-  func dateBySettingHour(h: Int, minute m: Int, second s: Int, of date: Date, options opts: CalendarOptions = []) -> Date?
+  func dateBy(settingHour h: Int, minute m: Int, second s: Int, of date: Date, options opts: CalendarOptions = []) -> Date?
   @available(OSX 10.9, *)
   func date(date: Date, matchesComponents components: DateComponents) -> Bool
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
@@ -266,13 +266,13 @@ class DateComponents : Object, Copying, SecureCoding {
   @available(OSX 10.9, *)
   func setValue(value: Int, forComponent unit: CalendarUnit)
   @available(OSX 10.9, *)
-  func valueForComponent(unit: CalendarUnit) -> Int
+  func valueFor(component unit: CalendarUnit) -> Int
   @available(OSX 10.9, *)
   var isValidDate: Bool { get }
   @available(OSX 10.9, *)
   func isValidDateIn(calendar: Calendar) -> Bool
   init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)

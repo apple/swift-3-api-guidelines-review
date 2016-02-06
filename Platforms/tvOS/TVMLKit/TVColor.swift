@@ -16,5 +16,5 @@ class TVColor : Object, Copying {
   var gradientPoints: [Number]? { get }
   init()
   @available(tvOS 9.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

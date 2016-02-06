@@ -26,7 +26,7 @@ class CLRegion : Object, Copying, SecureCoding {
   var notifyOnExit: Bool
   init()
   @available(iOS 4.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 4.0, *)

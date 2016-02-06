@@ -14,5 +14,5 @@ class NSTextList : Object, Coding, Copying {
   init()
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

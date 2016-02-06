@@ -36,7 +36,7 @@ class MDLMeshBufferData : Object, MDLMeshBuffer {
   @available(iOS 9.0, *)
   var type: MDLMeshBufferType { get }
   @available(iOS 9.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 protocol MDLMeshBufferZone : ObjectProtocol {
@@ -46,7 +46,7 @@ protocol MDLMeshBufferZone : ObjectProtocol {
 @available(iOS 9.0, *)
 protocol MDLMeshBufferAllocator : ObjectProtocol {
   func newZone(capacity: Int) -> MDLMeshBufferZone
-  func newZoneForBuffersWithSize(sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
+  func newZoneForBuffersWith(size sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
   func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
   func newBufferWith(data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
   func newBufferFrom(zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
@@ -57,7 +57,7 @@ class MDLMeshBufferDataAllocator : Object, MDLMeshBufferAllocator {
   @available(iOS 9.0, *)
   func newZone(capacity: Int) -> MDLMeshBufferZone
   @available(iOS 9.0, *)
-  func newZoneForBuffersWithSize(sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
+  func newZoneForBuffersWith(size sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
   @available(iOS 9.0, *)
   func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(iOS 9.0, *)

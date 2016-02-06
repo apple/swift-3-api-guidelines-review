@@ -2,8 +2,8 @@
 @available(iOS 8.0, *)
 class PHAssetChangeRequest : Object {
   class func creationRequestForAssetFrom(image: UIImage) -> Self
-  class func creationRequestForAssetFromImageAtFileURL(fileURL: URL) -> Self?
-  class func creationRequestForAssetFromVideoAtFileURL(fileURL: URL) -> Self?
+  class func creationRequestForAssetFromImageAt(fileURL fileURL: URL) -> Self?
+  class func creationRequestForAssetFromVideoAt(fileURL fileURL: URL) -> Self?
   var placeholderForCreatedAsset: PHObjectPlaceholder? { get }
   class func deleteAssets(assets: FastEnumeration)
   convenience init(forAsset asset: PHAsset)
@@ -26,7 +26,7 @@ class PHContentEditingInputRequestOptions : Object {
 }
 extension PHAsset {
   @available(iOS 8.0, *)
-  func requestContentEditingInputWith(options: PHContentEditingInputRequestOptions?, completionHandler: (PHContentEditingInput?, [Object : AnyObject]) -> Void) -> PHContentEditingInputRequestID
+  func requestContentEditingInput(options: PHContentEditingInputRequestOptions?, completionHandler: (PHContentEditingInput?, [Object : AnyObject]) -> Void) -> PHContentEditingInputRequestID
   @available(iOS 8.0, *)
   func cancelContentEditingInputRequest(requestID: PHContentEditingInputRequestID)
 }

@@ -32,7 +32,7 @@ class NSTextField : NSControl, NSUserInterfaceValidations, NSAccessibilityNaviga
   func validate(anItem: NSValidatedUserInterfaceItem) -> Bool
   func accessibilityStringFor(range: NSRange) -> String?
   func accessibilityLineFor(index: Int) -> Int
-  func accessibilityRangeForLine(lineNumber: Int) -> NSRange
+  func accessibilityRangeFor(line lineNumber: Int) -> NSRange
   func accessibilityFrameFor(range: NSRange) -> Rect
   func accessibilityValue() -> String?
   @available(OSX 10.0, *)

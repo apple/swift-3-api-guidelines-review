@@ -66,9 +66,9 @@ class UIImage : Object, SecureCoding {
   func drawIn(rect: CGRect, blendMode: CGBlendMode, alpha: CGFloat)
   func drawAsPatternIn(rect: CGRect)
   @available(tvOS 5.0, *)
-  func resizableImageWithCapInsets(capInsets: UIEdgeInsets) -> UIImage
+  func resizableImageWith(capInsets capInsets: UIEdgeInsets) -> UIImage
   @available(tvOS 6.0, *)
-  func resizableImageWithCapInsets(capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode) -> UIImage
+  func resizableImageWith(capInsets capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode) -> UIImage
   @available(tvOS 5.0, *)
   var capInsets: UIEdgeInsets { get }
   @available(tvOS 6.0, *)

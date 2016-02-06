@@ -43,8 +43,8 @@ class UIActivity : Object {
   func activityType() -> String?
   func activityTitle() -> String?
   func activityImage() -> UIImage?
-  func canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool
-  func prepareWithActivityItems(activityItems: [AnyObject])
+  func canPerformWith(activityItems activityItems: [AnyObject]) -> Bool
+  func prepare(activityItems activityItems: [AnyObject])
   func activityViewController() -> UIViewController?
   func perform()
   func activityDidFinish(completed: Bool)

@@ -3,7 +3,7 @@
 var NSAttachmentCharacter: Int { get }
 protocol NSTextAttachmentContainer : ObjectProtocol {
   @available(OSX 10.11, *)
-  func imageForBounds(imageBounds: Rect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> NSImage?
+  func imageFor(bounds imageBounds: Rect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> NSImage?
   @available(OSX 10.11, *)
   func attachmentBoundsFor(textContainer: NSTextContainer?, proposedLineFragment lineFrag: Rect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> Rect
 }
@@ -24,7 +24,7 @@ class NSTextAttachment : Object, NSTextAttachmentContainer, Coding {
   var attachmentCell: NSTextAttachmentCellProtocol?
   convenience init()
   @available(OSX 10.11, *)
-  func imageForBounds(imageBounds: Rect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> NSImage?
+  func imageFor(bounds imageBounds: Rect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> NSImage?
   @available(OSX 10.11, *)
   func attachmentBoundsFor(textContainer: NSTextContainer?, proposedLineFragment lineFrag: Rect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> Rect
   @available(OSX 10.0, *)
@@ -36,10 +36,10 @@ extension AttributedString {
   /*not inherited*/ init(attachment: NSTextAttachment)
 }
 extension MutableAttributedString {
-  func updateAttachmentsFromPath(path: String)
+  func updateAttachmentsFrom(path path: String)
 }
 protocol NSTextAttachmentCellProtocol : ObjectProtocol {
-  func drawWithFrame(cellFrame: Rect, in controlView: NSView?)
+  func draw(frame cellFrame: Rect, in controlView: NSView?)
   func wantsToTrackMouse() -> Bool
   func highlight(flag: Bool, withFrame cellFrame: Rect, in controlView: NSView?)
   func trackMouse(theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView?, untilMouseUp flag: Bool) -> Bool
@@ -47,9 +47,9 @@ protocol NSTextAttachmentCellProtocol : ObjectProtocol {
   func cellBaselineOffset() -> Point
   @available(OSX 10.0, *)
   unowned(unsafe) var attachment: @sil_unmanaged NSTextAttachment? { get set }
-  func drawWithFrame(cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int)
+  func draw(frame cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int)
   @available(OSX 10.0, *)
-  func drawWithFrame(cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int, layoutManager: NSLayoutManager)
+  func draw(frame cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int, layoutManager: NSLayoutManager)
   func wantsToTrackMouseFor(theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView?, atCharacterIndex charIndex: Int) -> Bool
   func trackMouse(theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView?, atCharacterIndex charIndex: Int, untilMouseUp flag: Bool) -> Bool
   @available(OSX 10.0, *)
@@ -60,7 +60,7 @@ class NSTextAttachmentCell : NSCell, NSTextAttachmentCellProtocol {
   init(imageCell image: NSImage?)
   convenience init()
   init?(coder aDecoder: Coder)
-  func drawWithFrame(cellFrame: Rect, in controlView: NSView?)
+  func draw(frame cellFrame: Rect, in controlView: NSView?)
   func wantsToTrackMouse() -> Bool
   func highlight(flag: Bool, withFrame cellFrame: Rect, in controlView: NSView?)
   func trackMouse(theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView?, untilMouseUp flag: Bool) -> Bool
@@ -68,9 +68,9 @@ class NSTextAttachmentCell : NSCell, NSTextAttachmentCellProtocol {
   func cellBaselineOffset() -> Point
   @available(OSX 10.0, *)
   unowned(unsafe) var attachment: @sil_unmanaged NSTextAttachment?
-  func drawWithFrame(cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int)
+  func draw(frame cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int)
   @available(OSX 10.0, *)
-  func drawWithFrame(cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int, layoutManager: NSLayoutManager)
+  func draw(frame cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int, layoutManager: NSLayoutManager)
   func wantsToTrackMouseFor(theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView?, atCharacterIndex charIndex: Int) -> Bool
   func trackMouse(theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView?, atCharacterIndex charIndex: Int, untilMouseUp flag: Bool) -> Bool
   @available(OSX 10.0, *)

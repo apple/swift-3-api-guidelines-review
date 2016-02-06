@@ -7,7 +7,7 @@ let PKPushTypeComplication: String
 class PKPushRegistry : Object {
   weak var delegate: @sil_weak PKPushRegistryDelegate!
   var desiredPushTypes: Set<Object>!
-  func pushTokenForType(type: String!) -> Data!
+  func pushTokenFor(type type: String!) -> Data!
   init!(queue: dispatch_queue_t!)
   init()
 }

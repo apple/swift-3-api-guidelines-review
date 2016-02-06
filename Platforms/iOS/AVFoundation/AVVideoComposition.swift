@@ -12,9 +12,9 @@ class AVVideoComposition : Object, Copying, MutableCopying {
   var animationTool: AVVideoCompositionCoreAnimationTool? { get }
   init()
   @available(iOS 4.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
 }
 extension AVVideoComposition {
   @available(iOS 9.0, *)
@@ -54,9 +54,9 @@ class AVVideoCompositionInstruction : Object, SecureCoding, Copying, MutableCopy
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 4.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 7.0, *)
   var containsTweening: Bool { get }
 }
@@ -83,9 +83,9 @@ class AVVideoCompositionLayerInstruction : Object, SecureCoding, Copying, Mutabl
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 4.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 4.0, *)
 class AVMutableVideoCompositionLayerInstruction : AVVideoCompositionLayerInstruction {

@@ -2,7 +2,7 @@
 @available(iOS 3.1, *)
 class UIVideoEditorController : UINavigationController {
   @available(iOS 3.1, *)
-  class func canEditVideoAtPath(videoPath: String) -> Bool
+  class func canEditVideoAt(path videoPath: String) -> Bool
   unowned(unsafe) var delegate: @sil_unmanaged protocol<UINavigationControllerDelegate, UIVideoEditorControllerDelegate>?
   var videoPath: String
   var videoMaximumDuration: TimeInterval

@@ -54,7 +54,7 @@ class OperationQueue : Object {
   @available(watchOS 2.0, *)
   func addOperations(ops: [Operation], waitUntilFinished wait: Bool)
   @available(watchOS 2.0, *)
-  func addOperationWith(block: () -> Void)
+  func addOperation(block: () -> Void)
   var operations: [Operation] { get }
   @available(watchOS 2.0, *)
   var operationCount: Int { get }

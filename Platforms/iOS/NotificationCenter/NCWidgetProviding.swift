@@ -9,8 +9,8 @@ enum NCUpdateResult : UInt {
 }
 protocol NCWidgetProviding : ObjectProtocol {
   @available(iOS 8.0, *)
-  optional func widgetPerformUpdateWithCompletionHandler(completionHandler: (NCUpdateResult) -> Void)
-  optional func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets
+  optional func widgetPerformUpdateWith(completionHandler completionHandler: (NCUpdateResult) -> Void)
+  optional func widgetMarginInsetsFor(proposedMarginInsets defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets
 }
 extension UIVibrancyEffect {
   class func notificationCenter() -> UIVibrancyEffect

@@ -33,11 +33,11 @@ protocol UIContentContainer : ObjectProtocol {
   @available(iOS 8.0, *)
   var preferredContentSize: CGSize { get }
   @available(iOS 8.0, *)
-  func preferredContentSizeDidChangeForChildContentContainer(container: UIContentContainer)
+  func preferredContentSizeDidChangeFor(childContentContainer container: UIContentContainer)
   @available(iOS 8.0, *)
-  func systemLayoutFittingSizeDidChangeForChildContentContainer(container: UIContentContainer)
+  func systemLayoutFittingSizeDidChangeFor(childContentContainer container: UIContentContainer)
   @available(iOS 8.0, *)
-  func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
+  func sizeFor(childContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
   @available(iOS 8.0, *)
   func viewWillTransitionTo(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
   @available(iOS 8.0, *)
@@ -63,9 +63,9 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   @available(iOS 5.0, *)
   var storyboard: UIStoryboard? { get }
   @available(iOS 5.0, *)
-  func performSegueWithIdentifier(identifier: String, sender: AnyObject?)
+  func performSegue(identifier identifier: String, sender: AnyObject?)
   @available(iOS 6.0, *)
-  func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool
+  func shouldPerformSegueWith(identifier identifier: String, sender: AnyObject?) -> Bool
   @available(iOS 5.0, *)
   func prepareFor(segue: UIStoryboardSegue, sender: AnyObject?)
   @available(iOS 6.0, *)
@@ -110,7 +110,7 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   @available(iOS 5.0, *)
   func present(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil)
   @available(iOS 5.0, *)
-  func dismissAnimated(flag: Bool, completion: (() -> Void)? = nil)
+  func dismiss(animated flag: Bool, completion: (() -> Void)? = nil)
   @available(iOS 3.0, *)
   var modalTransitionStyle: UIModalTransitionStyle
   @available(iOS 3.2, *)
@@ -136,7 +136,7 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   @available(iOS 7.0, *)
   func setNeedsStatusBarAppearanceUpdate()
   @available(iOS 8.0, *)
-  func targetViewControllerForAction(action: Selector, sender: AnyObject?) -> UIViewController?
+  func targetViewControllerFor(action action: Selector, sender: AnyObject?) -> UIViewController?
   @available(iOS 8.0, *)
   func show(vc: UIViewController, sender: AnyObject?)
   @available(iOS 8.0, *)
@@ -149,11 +149,11 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   @available(iOS 8.0, *)
   func traitCollectionDidChange(previousTraitCollection: UITraitCollection?)
   @available(iOS 8.0, *)
-  func preferredContentSizeDidChangeForChildContentContainer(container: UIContentContainer)
+  func preferredContentSizeDidChangeFor(childContentContainer container: UIContentContainer)
   @available(iOS 8.0, *)
-  func systemLayoutFittingSizeDidChangeForChildContentContainer(container: UIContentContainer)
+  func systemLayoutFittingSizeDidChangeFor(childContentContainer container: UIContentContainer)
   @available(iOS 8.0, *)
-  func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
+  func sizeFor(childContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
   @available(iOS 8.0, *)
   func viewWillTransitionTo(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
   @available(iOS 8.0, *)
@@ -222,7 +222,7 @@ extension UIViewController {
   @available(iOS 8.0, *)
   func setOverrideTraitCollection(collection: UITraitCollection?, forChildViewController childViewController: UIViewController)
   @available(iOS 8.0, *)
-  func overrideTraitCollectionForChildViewController(childViewController: UIViewController) -> UITraitCollection?
+  func overrideTraitCollectionFor(childViewController childViewController: UIViewController) -> UITraitCollection?
 }
 extension UIViewController {
   @available(iOS, introduced=6.0, deprecated=8.0, message="Manually forward viewWillTransitionToSize:withTransitionCoordinator: if necessary")
@@ -230,9 +230,9 @@ extension UIViewController {
   @available(iOS 6.0, *)
   func shouldAutomaticallyForwardAppearanceMethods() -> Bool
   @available(iOS 5.0, *)
-  func willMoveToParentViewController(parent: UIViewController?)
+  func willMoveTo(parentViewController parent: UIViewController?)
   @available(iOS 5.0, *)
-  func didMoveToParentViewController(parent: UIViewController?)
+  func didMoveTo(parentViewController parent: UIViewController?)
 }
 extension UIViewController : UIStateRestoring {
   @available(iOS 6.0, *)
@@ -240,9 +240,9 @@ extension UIViewController : UIStateRestoring {
   @available(iOS 6.0, *)
   var restorationClass: AnyObject.Type?
   @available(iOS 6.0, *)
-  func encodeRestorableStateWith(coder: Coder)
+  func encodeRestorableState(coder: Coder)
   @available(iOS 6.0, *)
-  func decodeRestorableStateWith(coder: Coder)
+  func decodeRestorableState(coder: Coder)
   @available(iOS 7.0, *)
   func applicationFinishedRestoringState()
   var restorationParent: UIStateRestoring? { get }
@@ -272,7 +272,7 @@ extension UIViewController : ExtensionRequestHandling {
   @available(iOS 8.0, *)
   var extensionContext: ExtensionContext? { get }
   @available(iOS 8.0, *)
-  func beginRequestWith(context: ExtensionContext)
+  func beginRequest(context: ExtensionContext)
 }
 extension UIViewController {
   @available(iOS 8.0, *)
@@ -299,9 +299,9 @@ protocol UIViewControllerPreviewingDelegate : ObjectProtocol {
 }
 extension UIViewController {
   @available(iOS 9.0, *)
-  func registerForPreviewingWith(delegate: UIViewControllerPreviewingDelegate, sourceView: UIView) -> UIViewControllerPreviewing
+  func registerForPreviewing(delegate: UIViewControllerPreviewingDelegate, sourceView: UIView) -> UIViewControllerPreviewing
   @available(iOS 9.0, *)
-  func unregisterForPreviewingWithContext(previewing: UIViewControllerPreviewing)
+  func unregisterForPreviewingWith(context previewing: UIViewControllerPreviewing)
 }
 extension UIViewController {
   @available(iOS 9.0, *)
@@ -325,7 +325,7 @@ class UIPreviewAction : Object, Copying, UIPreviewActionItem {
   convenience init(title: String, style: UIPreviewActionStyle, handler: (UIPreviewAction, UIViewController) -> Void)
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   var title: String { get }
 }
@@ -334,7 +334,7 @@ class UIPreviewActionGroup : Object, Copying, UIPreviewActionItem {
   convenience init(title: String, style: UIPreviewActionStyle, actions: [UIPreviewAction])
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   var title: String { get }
 }

@@ -53,15 +53,15 @@ class CNContact : Object, Copying, MutableCopying, SecureCoding {
   var dates: [CNLabeledValue] { get }
   func isKeyAvailable(key: String) -> Bool
   func areKeysAvailable(keyDescriptors: [CNKeyDescriptor]) -> Bool
-  class func localizedStringForKey(key: String) -> String
+  class func localizedStringFor(key key: String) -> String
   class func comparatorForNameSortOrder(sortOrder: CNContactSortOrder) -> Comparator
   class func descriptorForAllComparatorKeys() -> CNKeyDescriptor
-  func isUnifiedWithContactWithIdentifier(contactIdentifier: String) -> Bool
+  func isUnifiedWithContactWith(identifier contactIdentifier: String) -> Bool
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)

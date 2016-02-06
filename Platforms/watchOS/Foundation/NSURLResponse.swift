@@ -10,14 +10,14 @@ class URLResponse : Object, SecureCoding, Copying {
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 class HTTPURLResponse : URLResponse {
   @available(watchOS 2.0, *)
   init?(url: URL, statusCode: Int, httpVersion HTTPVersion: String?, headerFields: [String : String]?)
   var statusCode: Int { get }
   var allHeaderFields: [Object : AnyObject] { get }
-  class func localizedStringForStatusCode(statusCode: Int) -> String
+  class func localizedStringFor(statusCode statusCode: Int) -> String
   init(url URL: URL, mimeType MIMEType: String?, expectedContentLength length: Int, textEncodingName name: String?)
   convenience init()
   init?(coder aDecoder: Coder)

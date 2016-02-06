@@ -12,15 +12,15 @@ class AVB17221AECPInterface : AVB1722ControlInterface {
   @available(OSX, introduced=10.9, deprecated=10.11, message="Use -setCommandHandler:forEntityID: and -setResponseHandler:forControllerEntityID: instead.")
   func setHandler(handler: AVB17221AECPClient, forEntityID targetEntityID: UInt64) -> Bool
   @available(OSX, introduced=10.9, deprecated=10.11, message="Use -removeCommandHandlerForEntityID: or -removeResponseHandlerForControllerEntityID: instead.")
-  func removeHandlerForEntityID(targetEntityID: UInt64)
+  func removeHandlerFor(entityID targetEntityID: UInt64)
   @available(OSX 10.11, *)
   func setCommandHandler(handler: AVB17221AECPClient, forEntityID targetEntityID: UInt64) -> Bool
   @available(OSX 10.11, *)
-  func removeCommandHandlerForEntityID(targetEntityID: UInt64)
+  func removeCommandHandlerFor(entityID targetEntityID: UInt64)
   @available(OSX 10.11, *)
   func setResponseHandler(handler: AVB17221AECPClient, forControllerEntityID controllerEntityID: UInt64) -> Bool
   @available(OSX 10.11, *)
-  func removeResponseHandlerForControllerEntityID(controllerEntityID: UInt64)
+  func removeResponseHandlerFor(controllerEntityID controllerEntityID: UInt64)
   func sendCommand(message: AVB17221AECPMessage, to destMAC: AVBMACAddress, completionHandler: AVB17221AECPInterfaceCompletion) -> Bool
   func sendResponse(message: AVB17221AECPMessage, to destMAC: AVBMACAddress) throws
   @available(OSX 10.9, *)

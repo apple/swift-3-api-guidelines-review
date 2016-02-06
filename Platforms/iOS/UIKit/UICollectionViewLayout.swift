@@ -27,7 +27,7 @@ class UICollectionViewLayoutAttributes : Object, Copying, UIDynamicItem {
   convenience init(forDecorationViewOfKind decorationViewKind: String, withIndexPath indexPath: IndexPath)
   init()
   @available(iOS 6.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   var collisionBoundsType: UIDynamicItemCollisionBoundsType { get }
   @available(iOS 9.0, *)
@@ -56,9 +56,9 @@ class UICollectionViewLayoutInvalidationContext : Object {
   @available(iOS 8.0, *)
   func invalidateItemsAt(indexPaths: [IndexPath])
   @available(iOS 8.0, *)
-  func invalidateSupplementaryElementsOfKind(elementKind: String, at indexPaths: [IndexPath])
+  func invalidateSupplementaryElementsOf(kind elementKind: String, at indexPaths: [IndexPath])
   @available(iOS 8.0, *)
-  func invalidateDecorationElementsOfKind(elementKind: String, at indexPaths: [IndexPath])
+  func invalidateDecorationElementsOf(kind elementKind: String, at indexPaths: [IndexPath])
   @available(iOS 8.0, *)
   var invalidatedItemIndexPaths: [IndexPath]? { get }
   @available(iOS 8.0, *)
@@ -97,22 +97,22 @@ extension UICollectionViewLayout {
   func prepare()
   func layoutAttributesForElementsIn(rect: CGRect) -> [UICollectionViewLayoutAttributes]?
   func layoutAttributesForItemAt(indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForSupplementaryViewOfKind(elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForDecorationViewOfKind(elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryViewOf(kind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForDecorationViewOf(kind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
   func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool
   @available(iOS 7.0, *)
   func invalidationContextForBoundsChange(newBounds: CGRect) -> UICollectionViewLayoutInvalidationContext
   @available(iOS 8.0, *)
-  func shouldInvalidateLayoutForPreferredLayoutAttributes(preferredAttributes: UICollectionViewLayoutAttributes, withOriginalAttributes originalAttributes: UICollectionViewLayoutAttributes) -> Bool
+  func shouldInvalidateLayoutFor(preferredLayoutAttributes preferredAttributes: UICollectionViewLayoutAttributes, withOriginalAttributes originalAttributes: UICollectionViewLayoutAttributes) -> Bool
   @available(iOS 8.0, *)
-  func invalidationContextForPreferredLayoutAttributes(preferredAttributes: UICollectionViewLayoutAttributes, withOriginalAttributes originalAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutInvalidationContext
-  func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint
+  func invalidationContextFor(preferredLayoutAttributes preferredAttributes: UICollectionViewLayoutAttributes, withOriginalAttributes originalAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutInvalidationContext
+  func targetContentOffsetFor(proposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint
   @available(iOS 7.0, *)
-  func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint) -> CGPoint
+  func targetContentOffsetFor(proposedContentOffset proposedContentOffset: CGPoint) -> CGPoint
   func collectionViewContentSize() -> CGSize
 }
 extension UICollectionViewLayout {
-  func prepareForCollectionViewUpdates(updateItems: [UICollectionViewUpdateItem])
+  func prepareFor(collectionViewUpdates updateItems: [UICollectionViewUpdateItem])
   func finalizeCollectionViewUpdates()
   func prepareForAnimatedBoundsChange(oldBounds: CGRect)
   func finalizeAnimatedBoundsChange()
@@ -124,18 +124,18 @@ extension UICollectionViewLayout {
   func finalizeLayoutTransition()
   func initialLayoutAttributesForAppearingItemAt(itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
   func finalLayoutAttributesForDisappearingItemAt(itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func initialLayoutAttributesForAppearingSupplementaryElementOfKind(elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func finalLayoutAttributesForDisappearingSupplementaryElementOfKind(elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func initialLayoutAttributesForAppearingDecorationElementOfKind(elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func finalLayoutAttributesForDisappearingDecorationElementOfKind(elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func initialLayoutAttributesForAppearingSupplementaryElementOf(kind elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func finalLayoutAttributesForDisappearingSupplementaryElementOf(kind elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func initialLayoutAttributesForAppearingDecorationElementOf(kind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func finalLayoutAttributesForDisappearingDecorationElementOf(kind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
   @available(iOS 7.0, *)
-  func indexPathsToDeleteForSupplementaryViewOfKind(elementKind: String) -> [IndexPath]
+  func indexPathsToDeleteForSupplementaryViewOf(kind elementKind: String) -> [IndexPath]
   @available(iOS 7.0, *)
-  func indexPathsToDeleteForDecorationViewOfKind(elementKind: String) -> [IndexPath]
+  func indexPathsToDeleteForDecorationViewOf(kind elementKind: String) -> [IndexPath]
   @available(iOS 7.0, *)
-  func indexPathsToInsertForSupplementaryViewOfKind(elementKind: String) -> [IndexPath]
+  func indexPathsToInsertForSupplementaryViewOf(kind elementKind: String) -> [IndexPath]
   @available(iOS 7.0, *)
-  func indexPathsToInsertForDecorationViewOfKind(elementKind: String) -> [IndexPath]
+  func indexPathsToInsertForDecorationViewOf(kind elementKind: String) -> [IndexPath]
 }
 extension UICollectionViewLayout {
   @available(iOS 9.0, *)
@@ -145,5 +145,5 @@ extension UICollectionViewLayout {
   @available(iOS 9.0, *)
   func invalidationContextForInteractivelyMovingItems(targetIndexPaths: [IndexPath], withTargetPosition targetPosition: CGPoint, previousIndexPaths: [IndexPath], previousPosition: CGPoint) -> UICollectionViewLayoutInvalidationContext
   @available(iOS 9.0, *)
-  func invalidationContextForEndingInteractiveMovementOfItemsToFinalIndexPaths(indexPaths: [IndexPath], previousIndexPaths: [IndexPath], movementCancelled: Bool) -> UICollectionViewLayoutInvalidationContext
+  func invalidationContextForEndingInteractiveMovementOfItemsTo(finalIndexPaths indexPaths: [IndexPath], previousIndexPaths: [IndexPath], movementCancelled: Bool) -> UICollectionViewLayoutInvalidationContext
 }

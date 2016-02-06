@@ -10,16 +10,16 @@ class URL : Object, SecureCoding, Copying {
   init(fileURLWithPath path: String, isDirectory isDir: Bool)
   init(fileURLWithPath path: String)
   @available(iOS 9.0, *)
-  class func fileURLWithPath(path: String, isDirectory isDir: Bool, relativeTo baseURL: URL?) -> URL
+  class func fileURLWith(path path: String, isDirectory isDir: Bool, relativeTo baseURL: URL?) -> URL
   @available(iOS 9.0, *)
-  class func fileURLWithPath(path: String, relativeTo baseURL: URL?) -> URL
+  class func fileURLWith(path path: String, relativeTo baseURL: URL?) -> URL
   @available(iOS 2.0, *)
-  class func fileURLWithPath(path: String, isDirectory isDir: Bool) -> URL
-  class func fileURLWithPath(path: String) -> URL
+  class func fileURLWith(path path: String, isDirectory isDir: Bool) -> URL
+  class func fileURLWith(path path: String) -> URL
   @available(iOS 7.0, *)
   init(fileURLWithFileSystemRepresentation path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeTo baseURL: URL?)
   @available(iOS 7.0, *)
-  class func fileURLWithFileSystemRepresentation(path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeTo baseURL: URL?) -> URL
+  class func fileURLWith(fileSystemRepresentation path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeTo baseURL: URL?) -> URL
   convenience init?(string URLString: String)
   init?(string URLString: String, relativeTo baseURL: URL?)
   @available(iOS 9.0, *)
@@ -27,7 +27,7 @@ class URL : Object, SecureCoding, Copying {
   @available(iOS 9.0, *)
   init(absoluteURLWithDataRepresentation data: Data, relativeTo baseURL: URL?)
   @available(iOS 9.0, *)
-  class func absoluteURLWithDataRepresentation(data: Data, relativeTo baseURL: URL?) -> URL
+  class func absoluteURLWith(dataRepresentation data: Data, relativeTo baseURL: URL?) -> URL
   @available(iOS 9.0, *)
   @NSCopying var dataRepresentation: Data { get }
   var absoluteString: String { get }
@@ -64,23 +64,23 @@ class URL : Object, SecureCoding, Copying {
   @available(iOS 4.0, *)
   func getResourceValue(value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
   @available(iOS 4.0, *)
-  func resourceValuesForKeys(keys: [String]) throws -> [String : AnyObject]
+  func resourceValuesFor(keys keys: [String]) throws -> [String : AnyObject]
   @available(iOS 4.0, *)
   func setResourceValue(value: AnyObject?, forKey key: String) throws
   @available(iOS 4.0, *)
   func setResourceValues(keyedValues: [String : AnyObject]) throws
   @available(iOS 7.0, *)
-  func removeCachedResourceValueForKey(key: String)
+  func removeCachedResourceValueFor(key key: String)
   @available(iOS 7.0, *)
   func removeAllCachedResourceValues()
   @available(iOS 7.0, *)
   func setTemporaryResourceValue(value: AnyObject?, forKey key: String)
   @available(iOS 4.0, *)
-  func bookmarkData(options options: URLBookmarkCreationOptions = [], includingResourceValuesForKeys keys: [String]?, relativeTo relativeURL: URL?) throws -> Data
+  func bookmarkDataWith(options: URLBookmarkCreationOptions = [], includingResourceValuesForKeys keys: [String]?, relativeTo relativeURL: URL?) throws -> Data
   @available(iOS 4.0, *)
   convenience init(byResolvingBookmarkData bookmarkData: Data, options: URLBookmarkResolutionOptions = [], relativeTo relativeURL: URL?, bookmarkDataIsStale isStale: UnsafeMutablePointer<ObjCBool>) throws
   @available(iOS 4.0, *)
-  class func resourceValuesForKeys(keys: [String], fromBookmarkData bookmarkData: Data) -> [String : AnyObject]?
+  class func resourceValuesFor(keys keys: [String], fromBookmarkData bookmarkData: Data) -> [String : AnyObject]?
   @available(iOS 4.0, *)
   class func writeBookmarkData(bookmarkData: Data, to bookmarkFileURL: URL, options: URLBookmarkFileCreationOptions) throws
   @available(iOS 4.0, *)
@@ -95,7 +95,7 @@ class URL : Object, SecureCoding, Copying {
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 
 extension URL : _FileReferenceLiteralConvertible {
@@ -336,7 +336,7 @@ extension URL {
   @available(iOS 8.0, *)
   func getPromisedItemResourceValue(value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
   @available(iOS 8.0, *)
-  func promisedItemResourceValuesForKeys(keys: [String]) throws -> [String : AnyObject]
+  func promisedItemResourceValuesFor(keys keys: [String]) throws -> [String : AnyObject]
   @available(iOS 8.0, *)
   func checkPromisedItemIsReachableAndReturnError(error: ErrorPointer) -> Bool
 }
@@ -352,7 +352,7 @@ class URLQueryItem : Object, SecureCoding, Copying {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 7.0, *)
 class URLComponents : Object, Copying {
@@ -396,7 +396,7 @@ class URLComponents : Object, Copying {
   @available(iOS 8.0, *)
   var queryItems: [URLQueryItem]?
   @available(iOS 7.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 extension CharacterSet {
   @available(iOS 7.0, *)
@@ -414,7 +414,7 @@ extension CharacterSet {
 }
 extension NSString {
   @available(iOS 7.0, *)
-  func addingPercentEncodingWithAllowedCharacters(allowedCharacters: CharacterSet) -> String?
+  func addingPercentEncodingWith(allowedCharacters allowedCharacters: CharacterSet) -> String?
   @available(iOS 7.0, *)
   var removingPercentEncoding: String? { get }
   @available(iOS, introduced=2.0, deprecated=9.0, message="Use -stringByAddingPercentEncodingWithAllowedCharacters: instead, which always uses the recommended UTF-8 encoding, and which encodes for a specific URL component or subcomponent since each URL component or subcomponent has different rules for what characters are valid.")
@@ -424,7 +424,7 @@ extension NSString {
 }
 extension URL {
   @available(iOS 4.0, *)
-  class func fileURLWithPathComponents(components: [String]) -> URL?
+  class func fileURLWith(pathComponents components: [String]) -> URL?
   @available(iOS 4.0, *)
   var pathComponents: [String]? { get }
   @available(iOS 4.0, *)
@@ -451,7 +451,7 @@ class FileSecurity : Object, Copying, Coding {
   init?(coder aDecoder: Coder)
   convenience init()
   @available(iOS 5.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 5.0, *)
   func encodeWith(aCoder: Coder)
 }

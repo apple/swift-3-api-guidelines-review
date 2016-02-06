@@ -76,7 +76,7 @@ class GKTurnBasedMatch : Object {
   var currentParticipant: GKTurnBasedParticipant? { get }
   var matchData: Data? { get }
   @available(iOS 7.0, *)
-  func setLocalizableMessageWithKey(key: String, arguments: [String]?)
+  func setLocalizableMessageWith(key key: String, arguments: [String]?)
   var message: String?
   @available(iOS 6.0, *)
   var matchDataMaximumSize: Int { get }
@@ -93,17 +93,17 @@ class GKTurnBasedMatch : Object {
   class func findFor(request: GKMatchRequest, withCompletionHandler completionHandler: (GKTurnBasedMatch?, Error?) -> Void)
   class func loadMatches(completionHandler completionHandler: (([GKTurnBasedMatch]?, Error?) -> Void)? = nil)
   @available(iOS 5.0, *)
-  class func loadWithID(matchID: String, withCompletionHandler completionHandler: ((GKTurnBasedMatch?, Error?) -> Void)? = nil)
+  class func load(id matchID: String, withCompletionHandler completionHandler: ((GKTurnBasedMatch?, Error?) -> Void)? = nil)
   @available(iOS 6.0, *)
   func rematch(completionHandler completionHandler: ((GKTurnBasedMatch?, Error?) -> Void)? = nil)
   @available(iOS 5.0, *)
   func acceptInvite(completionHandler completionHandler: ((GKTurnBasedMatch?, Error?) -> Void)? = nil)
   @available(iOS 5.0, *)
-  func declineInvite(completionHandler completionHandler: ((Error?) -> Void)? = nil)
+  func declineInviteWith(completionHandler completionHandler: ((Error?) -> Void)? = nil)
   func remove(completionHandler completionHandler: ((Error?) -> Void)? = nil)
   func loadData(completionHandler completionHandler: ((Data?, Error?) -> Void)? = nil)
   @available(iOS 6.0, *)
-  func endTurnWithNextParticipants(nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
+  func endTurn(nextParticipants nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
   @available(iOS 6.0, *)
   func participantQuitInTurnWith(matchOutcome: GKTurnBasedMatchOutcome, nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
   func participantQuitOutOfTurnWith(matchOutcome: GKTurnBasedMatchOutcome, withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
@@ -147,9 +147,9 @@ class GKTurnBasedExchange : Object {
   var completionDate: Date? { get }
   var replies: [GKTurnBasedExchangeReply]? { get }
   @available(iOS 7.0, *)
-  func cancelWithLocalizableMessageKey(key: String, arguments: [String], completionHandler: ((Error?) -> Void)? = nil)
+  func cancel(localizableMessageKey key: String, arguments: [String], completionHandler: ((Error?) -> Void)? = nil)
   @available(iOS 7.0, *)
-  func replyWithLocalizableMessageKey(key: String, arguments: [String], data: Data, completionHandler: ((Error?) -> Void)? = nil)
+  func reply(localizableMessageKey key: String, arguments: [String], data: Data, completionHandler: ((Error?) -> Void)? = nil)
   init()
 }
 @available(iOS 7.0, *)

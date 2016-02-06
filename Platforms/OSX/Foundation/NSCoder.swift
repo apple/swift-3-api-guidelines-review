@@ -1,10 +1,10 @@
 
 class Coder : Object {
-  func encodeValueOfObjCType(type: UnsafePointer<Int8>, at addr: UnsafePointer<Void>)
+  func encodeValueOf(objCType type: UnsafePointer<Int8>, at addr: UnsafePointer<Void>)
   func encodeDataObject(data: Data)
-  func decodeValueOfObjCType(type: UnsafePointer<Int8>, at data: UnsafeMutablePointer<Void>)
+  func decodeValueOf(objCType type: UnsafePointer<Int8>, at data: UnsafeMutablePointer<Void>)
   func decodeDataObject() -> Data?
-  func versionForClassName(className: String) -> Int
+  func versionFor(className className: String) -> Int
   init()
 }
 
@@ -28,11 +28,11 @@ extension Coder {
   func encodeBycopyObject(anObject: AnyObject?)
   func encodeByrefObject(anObject: AnyObject?)
   func encodeConditionalObject(object: AnyObject?)
-  func encodeArrayOfObjCType(type: UnsafePointer<Int8>, count: Int, at array: UnsafePointer<Void>)
+  func encodeArrayOf(objCType type: UnsafePointer<Int8>, count: Int, at array: UnsafePointer<Void>)
   func encodeBytes(byteaddr: UnsafePointer<Void>, length: Int)
   func decodeObject() -> AnyObject?
-  func decodeArrayOfObjCType(itemType: UnsafePointer<Int8>, count: Int, at array: UnsafeMutablePointer<Void>)
-  func decodeBytesWithReturnedLength(lengthp: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<Void>
+  func decodeArrayOf(objCType itemType: UnsafePointer<Int8>, count: Int, at array: UnsafeMutablePointer<Void>)
+  func decodeBytes(returnedLength lengthp: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<Void>
   func encodePropertyList(aPropertyList: AnyObject)
   func decodePropertyList() -> AnyObject?
   var systemVersion: UInt32 { get }
@@ -46,25 +46,25 @@ extension Coder {
   func encode(realv: Float, forKey key: String)
   func encode(realv: Double, forKey key: String)
   func encodeBytes(bytesp: UnsafePointer<UInt8>, length lenv: Int, forKey key: String)
-  func containsValueForKey(key: String) -> Bool
-  func decodeObjectForKey(key: String) -> AnyObject?
-  func decodeBoolForKey(key: String) -> Bool
-  func decodeIntForKey(key: String) -> Int32
-  func decodeInt32ForKey(key: String) -> Int32
-  func decodeInt64ForKey(key: String) -> Int64
-  func decodeFloatForKey(key: String) -> Float
-  func decodeDoubleForKey(key: String) -> Double
-  func decodeBytesForKey(key: String, returnedLength lengthp: UnsafeMutablePointer<Int>) -> UnsafePointer<UInt8>
+  func containsValueFor(key key: String) -> Bool
+  func decodeObjectFor(key key: String) -> AnyObject?
+  func decodeBoolFor(key key: String) -> Bool
+  func decodeIntFor(key key: String) -> Int32
+  func decodeInt32For(key key: String) -> Int32
+  func decodeInt64For(key key: String) -> Int64
+  func decodeFloatFor(key key: String) -> Float
+  func decodeDoubleFor(key key: String) -> Double
+  func decodeBytesFor(key key: String, returnedLength lengthp: UnsafeMutablePointer<Int>) -> UnsafePointer<UInt8>
   @available(OSX 10.5, *)
   func encode(intv: Int, forKey key: String)
   @available(OSX 10.5, *)
-  func decodeIntegerForKey(key: String) -> Int
+  func decodeIntegerFor(key key: String) -> Int
   @available(OSX 10.8, *)
   var requiresSecureCoding: Bool { get }
   @available(OSX 10.8, *)
-  func __decodeObjectOfClasses(classes: Set<Object>?, forKey key: String) -> AnyObject?
+  func __decodeObjectOf(classes classes: Set<Object>?, forKey key: String) -> AnyObject?
   @available(OSX 10.8, *)
-  func decodePropertyListForKey(key: String) -> AnyObject?
+  func decodePropertyListFor(key key: String) -> AnyObject?
   @available(OSX 10.8, *)
   var allowedClasses: Set<Object>? { get }
   @available(OSX 10.11, *)

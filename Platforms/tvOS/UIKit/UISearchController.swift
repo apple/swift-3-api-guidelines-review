@@ -30,15 +30,15 @@ class UISearchController : UIViewController, UIViewControllerTransitioningDelega
   init?(coder aDecoder: Coder)
   convenience init()
   @available(tvOS 8.0, *)
-  func animationControllerForPresentedController(presented: UIViewController, presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
+  func animationControllerFor(presentedController presented: UIViewController, presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
   @available(tvOS 8.0, *)
-  func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning?
+  func animationControllerFor(dismissedController dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning?
   @available(tvOS 8.0, *)
-  func interactionControllerForPresentation(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
+  func interactionControllerFor(presentation animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
   @available(tvOS 8.0, *)
-  func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
+  func interactionControllerFor(dismissal animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
   @available(tvOS 8.0, *)
-  func presentationControllerForPresentedViewController(presented: UIViewController, presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController?
+  func presentationControllerFor(presentedViewController presented: UIViewController, presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController?
   @available(tvOS 8.0, *)
   func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval
   @available(tvOS 8.0, *)

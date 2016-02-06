@@ -28,6 +28,6 @@ class PKPass : PKObject {
   var isRemotePass: Bool { get }
   @available(watchOS 2.0, *)
   var deviceName: String { get }
-  func localizedValueForFieldKey(key: String) -> AnyObject?
+  func localizedValueFor(fieldKey key: String) -> AnyObject?
   init()
 }

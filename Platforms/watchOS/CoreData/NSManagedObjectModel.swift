@@ -8,11 +8,11 @@ class NSManagedObjectModel : Object, Coding, Copying, FastEnumeration {
   var entitiesByName: [String : NSEntityDescription] { get }
   var entities: [NSEntityDescription]
   var configurations: [String] { get }
-  func entitiesForConfiguration(configuration: String?) -> [NSEntityDescription]?
+  func entitiesFor(configuration configuration: String?) -> [NSEntityDescription]?
   func setEntities(entities: [NSEntityDescription], forConfiguration configuration: String)
   func setFetchRequestTemplate(fetchRequestTemplate: NSFetchRequest?, forName name: String)
-  func fetchRequestTemplateForName(name: String) -> NSFetchRequest?
-  func fetchRequestFromTemplateWithName(name: String, substitutionVariables variables: [String : AnyObject]) -> NSFetchRequest?
+  func fetchRequestTemplateFor(name name: String) -> NSFetchRequest?
+  func fetchRequestFromTemplate(name name: String, substitutionVariables variables: [String : AnyObject]) -> NSFetchRequest?
   var localizationDictionary: [String : String]?
   @available(watchOS 2.0, *)
   class func mergedModelFrom(bundles: [Bundle]?, forStoreMetadata metadata: [String : AnyObject]) -> NSManagedObjectModel?
@@ -30,9 +30,9 @@ class NSManagedObjectModel : Object, Coding, Copying, FastEnumeration {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(watchOS 2.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 struct __managedObjectModelFlags {
   var _isInUse: UInt32

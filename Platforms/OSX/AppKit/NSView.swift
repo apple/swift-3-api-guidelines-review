@@ -95,10 +95,10 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   func viewDidUnhide()
   func addSubview(aView: NSView)
   func addSubview(aView: NSView, positioned place: NSWindowOrderingMode, relativeTo otherView: NSView?)
-  func sortSubviewsUsing(compare: @convention(c) (NSView, NSView, UnsafeMutablePointer<Void>) -> ComparisonResult, context: UnsafeMutablePointer<Void>)
+  func sortSubviews(compare: @convention(c) (NSView, NSView, UnsafeMutablePointer<Void>) -> ComparisonResult, context: UnsafeMutablePointer<Void>)
   func viewWillMoveTo(newWindow: NSWindow?)
   func viewDidMoveToWindow()
-  func viewWillMoveToSuperview(newSuperview: NSView?)
+  func viewWillMoveTo(superview newSuperview: NSView?)
   func viewDidMoveToSuperview()
   func didAddSubview(subview: NSView)
   func willRemoveSubview(subview: NSView)
@@ -108,8 +108,8 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.7, *)
   func viewDidChangeBackingProperties()
   var postsFrameChangedNotifications: Bool
-  func resizeSubviewsWithOldSize(oldSize: Size)
-  func resizeWithOldSuperviewSize(oldSize: Size)
+  func resizeSubviews(oldSize oldSize: Size)
+  func resize(oldSuperviewSize oldSize: Size)
   var autoresizesSubviews: Bool
   var autoresizingMask: NSAutoresizingMaskOptions
   func setFrameOrigin(newOrigin: Point)
@@ -123,7 +123,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   var boundsRotation: CGFloat
   func translateOriginTo(translation: Point)
   func scaleUnitSquareTo(newUnitSize: Size)
-  func rotateByAngle(angle: CGFloat)
+  func rotateBy(angle angle: CGFloat)
   var bounds: Rect
   var isFlipped: Bool { get }
   var isRotatedFromBase: Bool { get }
@@ -151,17 +151,17 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.7, *)
   func convertRectFromBacking(aRect: Rect) -> Rect
   @available(OSX 10.7, *)
-  func convertPointToLayer(aPoint: Point) -> Point
+  func convertPointTo(layer aPoint: Point) -> Point
   @available(OSX 10.7, *)
-  func convertPointFromLayer(aPoint: Point) -> Point
+  func convertPointFrom(layer aPoint: Point) -> Point
   @available(OSX 10.7, *)
-  func convertSizeToLayer(aSize: Size) -> Size
+  func convertSizeTo(layer aSize: Size) -> Size
   @available(OSX 10.7, *)
-  func convertSizeFromLayer(aSize: Size) -> Size
+  func convertSizeFrom(layer aSize: Size) -> Size
   @available(OSX 10.7, *)
-  func convertRectToLayer(aRect: Rect) -> Rect
+  func convertRectTo(layer aRect: Rect) -> Rect
   @available(OSX 10.7, *)
-  func convertRectFromLayer(aRect: Rect) -> Rect
+  func convertRectFrom(layer aRect: Rect) -> Rect
   @available(OSX 10.6, *)
   var canDrawConcurrently: Bool
   var canDraw: Bool { get }
@@ -288,9 +288,9 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.5, *)
   var animations: [String : AnyObject]
   @available(OSX 10.5, *)
-  func animationForKey(key: String) -> AnyObject?
+  func animationFor(key key: String) -> AnyObject?
   @available(OSX 10.5, *)
-  class func defaultAnimationForKey(key: String) -> AnyObject?
+  class func defaultAnimationFor(key key: String) -> AnyObject?
   var identifier: String?
   func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation
   func draggingUpdated(sender: NSDraggingInfo) -> NSDragOperation
@@ -311,23 +311,23 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   func isAccessibilityFocused() -> Bool
   func accessibilityIdentifier() -> String
   @available(OSX 10.10, *)
-  func accessibilityLayoutPointForScreenPoint(point: Point) -> Point
+  func accessibilityLayoutPointFor(screenPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityLayoutSizeForScreenSize(size: Size) -> Size
+  func accessibilityLayoutSizeFor(screenSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityScreenPointForLayoutPoint(point: Point) -> Point
+  func accessibilityScreenPointFor(layoutPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityScreenSizeForLayoutSize(size: Size) -> Size
+  func accessibilityScreenSizeFor(layoutSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityCellForColumn(column: Int, row: Int) -> AnyObject?
+  func accessibilityCellFor(column column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
   func accessibilityAttributedStringFor(range: NSRange) -> AttributedString?
   @available(OSX 10.10, *)
-  func accessibilityRangeForLine(line: Int) -> NSRange
+  func accessibilityRangeFor(line line: Int) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityStringFor(range: NSRange) -> String?
   @available(OSX 10.10, *)
-  func accessibilityRangeForPosition(point: Point) -> NSRange
+  func accessibilityRangeFor(position point: Point) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityRangeFor(index: Int) -> NSRange
   @available(OSX 10.10, *)
@@ -455,7 +455,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.10, *)
   func accessibilityServesAsTitleForUIElements() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityServesAsTitleForUIElements(accessibilityServesAsTitleForUIElements: [AnyObject]?)
+  func setAccessibilityServesAsTitleFor(uiElements accessibilityServesAsTitleForUIElements: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityShownMenu() -> AnyObject?
   @available(OSX 10.10, *)
@@ -569,7 +569,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.10, *)
   func isAccessibilityOrderedByRow() -> Bool
   @available(OSX 10.10, *)
-  func setAccessibilityOrderedByRow(accessibilityOrderedByRow: Bool)
+  func setAccessibilityOrderedBy(row accessibilityOrderedByRow: Bool)
   @available(OSX 10.10, *)
   func accessibilityHorizontalUnits() -> NSAccessibilityUnits
   @available(OSX 10.10, *)
@@ -605,7 +605,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.10, *)
   func accessibilityDisclosedByRow() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityDisclosedByRow(accessibilityDisclosedByRow: AnyObject?)
+  func setAccessibilityDisclosedBy(row accessibilityDisclosedByRow: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityDisclosedRows() -> AnyObject?
   @available(OSX 10.10, *)
@@ -765,7 +765,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.10, *)
   func accessibilityNumberOfCharacters() -> Int
   @available(OSX 10.10, *)
-  func setAccessibilityNumberOfCharacters(accessibilityNumberOfCharacters: Int)
+  func setAccessibilityNumberOf(characters accessibilityNumberOfCharacters: Int)
   @available(OSX 10.10, *)
   func accessibilitySelectedText() -> String?
   @available(OSX 10.10, *)
@@ -879,12 +879,12 @@ extension NSView {
   var widthAdjustLimit: CGFloat { get }
   func adjustPageWidthNew(newRight: UnsafeMutablePointer<CGFloat>, left oldLeft: CGFloat, right oldRight: CGFloat, limit rightLimit: CGFloat)
   func adjustPageHeightNew(newBottom: UnsafeMutablePointer<CGFloat>, top oldTop: CGFloat, bottom oldBottom: CGFloat, limit bottomLimit: CGFloat)
-  func rectForPage(page: Int) -> Rect
+  func rectFor(page page: Int) -> Rect
   func locationOfPrint(aRect: Rect) -> Point
-  func drawPageBorderWith(borderSize: Size)
+  func drawPageBorder(borderSize: Size)
   @NSCopying var pageHeader: AttributedString { get }
   @NSCopying var pageFooter: AttributedString { get }
-  func drawSheetBorderWith(borderSize: Size)
+  func drawSheetBorder(borderSize: Size)
   var printJobTitle: String { get }
   func beginDocument()
   func endDocument()
@@ -893,18 +893,18 @@ extension NSView {
 }
 extension NSView {
   @available(OSX 10.7, *)
-  func beginDraggingSessionWith(items: [NSDraggingItem], event: NSEvent, source: NSDraggingSource) -> NSDraggingSession
+  func beginDraggingSession(items: [NSDraggingItem], event: NSEvent, source: NSDraggingSource) -> NSDraggingSession
   var registeredDraggedTypes: [String] { get }
-  func registerForDraggedTypes(newTypes: [String])
+  func registerFor(draggedTypes newTypes: [String])
   func unregisterDraggedTypes()
   func dragFile(filename: String, from rect: Rect, slideBack aFlag: Bool, event: NSEvent) -> Bool
-  func dragPromisedFilesOfTypes(typeArray: [String], from rect: Rect, source sourceObject: AnyObject, slideBack aFlag: Bool, event: NSEvent) -> Bool
+  func dragPromisedFilesOf(types typeArray: [String], from rect: Rect, source sourceObject: AnyObject, slideBack aFlag: Bool, event: NSEvent) -> Bool
 }
 extension NSView {
   @available(OSX 10.5, *)
   func enterFullScreenMode(screen: NSScreen, withOptions options: [String : AnyObject]? = [:]) -> Bool
   @available(OSX 10.5, *)
-  func exitFullScreenMode(options options: [String : AnyObject]? = [:])
+  func exitFullScreenModeWith(options options: [String : AnyObject]? = [:])
   @available(OSX 10.5, *)
   var isInFullScreenMode: Bool { get }
 }

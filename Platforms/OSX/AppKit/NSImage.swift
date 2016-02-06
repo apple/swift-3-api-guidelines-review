@@ -90,7 +90,7 @@ class NSImage : Object, Copying, Coding, SecureCoding, NSPasteboardReading, NSPa
   @available(OSX 10.6, *)
   init(cgImage: CGImage, size: Size)
   @available(OSX 10.6, *)
-  func cgImageForProposedRect(proposedDestRect: UnsafeMutablePointer<Rect>, context referenceContext: NSGraphicsContext?, hints: [String : AnyObject]?) -> CGImage?
+  func cgImageFor(proposedRect proposedDestRect: UnsafeMutablePointer<Rect>, context referenceContext: NSGraphicsContext?, hints: [String : AnyObject]?) -> CGImage?
   @available(OSX 10.6, *)
   func bestRepresentationFor(rect: Rect, context referenceContext: NSGraphicsContext?, hints: [String : AnyObject]?) -> NSImageRep?
   @available(OSX 10.6, *)
@@ -98,24 +98,24 @@ class NSImage : Object, Copying, Coding, SecureCoding, NSPasteboardReading, NSPa
   @available(OSX 10.7, *)
   func recommendedLayerContentsScale(preferredContentsScale: CGFloat) -> CGFloat
   @available(OSX 10.7, *)
-  func layerContentsForContentsScale(layerContentsScale: CGFloat) -> AnyObject
+  func layerContentsFor(contentsScale layerContentsScale: CGFloat) -> AnyObject
   @available(OSX 10.10, *)
   var capInsets: EdgeInsets
   @available(OSX 10.10, *)
   var resizingMode: NSImageResizingMode
   init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   class func supportsSecureCoding() -> Bool
   class func readableTypesFor(pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  class func readingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
+  class func readingOptionsFor(type type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
   func writableTypesFor(pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  func writingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
-  func pasteboardPropertyListForType(type: String) -> AnyObject?
+  func writingOptionsFor(type type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
+  func pasteboardPropertyListFor(type type: String) -> AnyObject?
 }
 
 extension NSImage : _ImageLiteralConvertible {
@@ -161,10 +161,10 @@ protocol NSImageDelegate : ObjectProtocol {
 }
 extension Bundle {
   @available(OSX 10.7, *)
-  func imageForResource(name: String) -> NSImage?
-  func pathForImageResource(name: String) -> String?
+  func imageFor(resource name: String) -> NSImage?
+  func pathFor(imageResource name: String) -> String?
   @available(OSX 10.6, *)
-  func urlForImageResource(name: String) -> URL?
+  func urlFor(imageResource name: String) -> URL?
 }
 extension NSImage {
 }

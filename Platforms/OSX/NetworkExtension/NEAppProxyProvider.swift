@@ -4,7 +4,7 @@ class NEAppProxyProvider : NETunnelProvider {
   @available(OSX 10.11, *)
   func startProxy(options options: [String : AnyObject]? = [:], completionHandler: (Error?) -> Void)
   @available(OSX 10.11, *)
-  func stopProxyWith(reason: NEProviderStopReason, completionHandler: () -> Void)
+  func stopProxy(reason: NEProviderStopReason, completionHandler: () -> Void)
   @available(OSX 10.11, *)
   func cancelProxyWithError(error: Error?)
   @available(OSX 10.11, *)

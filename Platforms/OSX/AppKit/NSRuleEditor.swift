@@ -24,14 +24,14 @@ class NSRuleEditor : NSControl {
   var canRemoveAllRows: Bool
   var predicate: Predicate? { get }
   func reloadPredicate()
-  func predicateForRow(row: Int) -> Predicate?
+  func predicateFor(row row: Int) -> Predicate?
   var numberOfRows: Int { get }
-  func subrowIndexesForRow(rowIndex: Int) -> IndexSet
-  func criteriaForRow(row: Int) -> [AnyObject]
-  func displayValuesForRow(row: Int) -> [AnyObject]
+  func subrowIndexesFor(row rowIndex: Int) -> IndexSet
+  func criteriaFor(row row: Int) -> [AnyObject]
+  func displayValuesFor(row row: Int) -> [AnyObject]
   func rowForDisplayValue(displayValue: AnyObject) -> Int
-  func rowTypeForRow(rowIndex: Int) -> NSRuleEditorRowType
-  func parentRowForRow(rowIndex: Int) -> Int
+  func rowTypeFor(row rowIndex: Int) -> NSRuleEditorRowType
+  func parentRowFor(row rowIndex: Int) -> Int
   func addRow(sender: AnyObject?)
   func insertRowAt(rowIndex: Int, withType rowType: NSRuleEditorRowType, asSubrowOfRow parentRow: Int, animate shouldAnimate: Bool)
   func setCriteria(criteria: [AnyObject], andDisplayValues values: [AnyObject], forRowAt rowIndex: Int)

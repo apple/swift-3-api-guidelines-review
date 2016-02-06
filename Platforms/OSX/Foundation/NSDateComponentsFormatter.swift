@@ -23,7 +23,7 @@ struct DateComponentsFormatterZeroFormattingBehavior : OptionSetType {
 }
 @available(OSX 10.10, *)
 class DateComponentsFormatter : Formatter {
-  func stringForObjectValue(obj: AnyObject) -> String?
+  func stringFor(objectValue obj: AnyObject) -> String?
   func stringFrom(components: DateComponents) -> String?
   func stringFrom(startDate: Date, to endDate: Date) -> String?
   func stringFromTimeInterval(ti: TimeInterval) -> String?

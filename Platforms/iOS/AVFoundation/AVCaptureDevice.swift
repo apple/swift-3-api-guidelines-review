@@ -8,8 +8,8 @@ let AVCaptureDeviceSubjectAreaDidChangeNotification: String
 @available(iOS 4.0, *)
 class AVCaptureDevice : Object {
   class func devices() -> [AnyObject]!
-  class func devicesWithMediaType(mediaType: String!) -> [AnyObject]!
-  class func defaultDeviceWithMediaType(mediaType: String!) -> AVCaptureDevice!
+  class func devicesWith(mediaType mediaType: String!) -> [AnyObject]!
+  class func defaultDeviceWith(mediaType mediaType: String!) -> AVCaptureDevice!
   /*not inherited*/ init!(uniqueID deviceUniqueID: String!)
   var uniqueID: String! { get }
   var modelID: String! { get }
@@ -112,7 +112,7 @@ extension AVCaptureDevice {
   @available(iOS 8.0, *)
   var lensPosition: Float { get }
   @available(iOS 8.0, *)
-  func setFocusModeLockedWithLensPosition(lensPosition: Float, completionHandler handler: ((CMTime) -> Void)!)
+  func setFocusModeLockedWith(lensPosition lensPosition: Float, completionHandler handler: ((CMTime) -> Void)!)
 }
 @available(iOS 8.0, *)
 let AVCaptureLensPositionCurrent: Float
@@ -139,7 +139,7 @@ extension AVCaptureDevice {
   @available(iOS 8.0, *)
   var iso: Float { get }
   @available(iOS 8.0, *)
-  func setExposureModeCustomWithDuration(duration: CMTime, iso ISO: Float, completionHandler handler: ((CMTime) -> Void)!)
+  func setExposureModeCustomWith(duration duration: CMTime, iso ISO: Float, completionHandler handler: ((CMTime) -> Void)!)
   @available(iOS 8.0, *)
   var exposureTargetOffset: Float { get }
   @available(iOS 8.0, *)
@@ -243,9 +243,9 @@ enum AVAuthorizationStatus : Int {
 }
 extension AVCaptureDevice {
   @available(iOS 7.0, *)
-  class func authorizationStatusForMediaType(mediaType: String!) -> AVAuthorizationStatus
+  class func authorizationStatusFor(mediaType mediaType: String!) -> AVAuthorizationStatus
   @available(iOS 7.0, *)
-  class func requestAccessForMediaType(mediaType: String!, completionHandler handler: ((Bool) -> Void)!)
+  class func requestAccessFor(mediaType mediaType: String!, completionHandler handler: ((Bool) -> Void)!)
 }
 extension AVCaptureDevice {
   @available(iOS 8.0, *)

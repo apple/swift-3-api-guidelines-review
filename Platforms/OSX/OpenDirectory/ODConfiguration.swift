@@ -71,6 +71,6 @@ class ODConfiguration : Object {
   @available(OSX 10.9, *)
   func addTrustType(trustType: String!, trustAccount account: String!, trustPassword accountPassword: String!, username: String!, password: String!, joinExisting join: Bool) throws
   @available(OSX 10.9, *)
-  func removeTrustUsingUsername(username: String!, password: String!, deleteTrustAccount deleteAccount: Bool) throws
+  func removeTrustUsing(username username: String!, password: String!, deleteTrustAccount deleteAccount: Bool) throws
   init()
 }

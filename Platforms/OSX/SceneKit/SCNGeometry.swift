@@ -27,11 +27,11 @@ class SCNGeometry : Object, SCNAnimatable, SCNBoundingVolume, SCNShadable, Copyi
   func insertMaterial(material: SCNMaterial, at index: Int)
   func removeMaterialAt(index: Int)
   func replaceMaterialAt(index: Int, withMaterial material: SCNMaterial)
-  func materialWithName(name: String) -> SCNMaterial?
+  func materialWith(name name: String) -> SCNMaterial?
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   @available(OSX 10.10, *)
   var geometrySources: [SCNGeometrySource] { get }
-  func geometrySourcesForSemantic(semantic: String) -> [SCNGeometrySource]
+  func geometrySourcesFor(semantic semantic: String) -> [SCNGeometrySource]
   @available(OSX 10.10, *)
   var geometryElements: [SCNGeometryElement] { get }
   var geometryElementCount: Int { get }
@@ -50,19 +50,19 @@ class SCNGeometry : Object, SCNAnimatable, SCNBoundingVolume, SCNShadable, Copyi
   @available(OSX 10.8, *)
   func removeAllAnimations()
   @available(OSX 10.8, *)
-  func removeAnimationForKey(key: String)
+  func removeAnimationFor(key key: String)
   @available(OSX 10.8, *)
   var animationKeys: [String] { get }
   @available(OSX 10.8, *)
-  func animationForKey(key: String) -> CAAnimation?
+  func animationFor(key key: String) -> CAAnimation?
   @available(OSX 10.9, *)
-  func pauseAnimationForKey(key: String)
+  func pauseAnimationFor(key key: String)
   @available(OSX 10.9, *)
-  func resumeAnimationForKey(key: String)
+  func resumeAnimationFor(key key: String)
   @available(OSX 10.9, *)
-  func isAnimationForKeyPaused(key: String) -> Bool
+  func isAnimationFor(keyPaused key: String) -> Bool
   @available(OSX 10.10, *)
-  func removeAnimationForKey(key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimationFor(key key: String, fadeOutDuration duration: CGFloat)
   @available(OSX 10.8, *)
   func getBoundingBoxMin(min: UnsafeMutablePointer<SCNVector3>, max: UnsafeMutablePointer<SCNVector3>) -> Bool
   @available(OSX 10.8, *)
@@ -72,13 +72,13 @@ class SCNGeometry : Object, SCNAnimatable, SCNBoundingVolume, SCNShadable, Copyi
   @available(OSX 10.8, *)
   var program: SCNProgram?
   @available(OSX 10.9, *)
-  func handleBindingOfSymbol(symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  func handleBindingOf(symbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
   @available(OSX 10.9, *)
-  func handleUnbindingOfSymbol(symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  func handleUnbindingOf(symbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
   @available(OSX 10.9, *)
   var shaderModifiers: [String : String]?
   @available(OSX 10.8, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)

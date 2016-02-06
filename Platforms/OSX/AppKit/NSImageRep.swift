@@ -19,11 +19,11 @@ class NSImageRep : Object, Copying, Coding {
   class func unregisterImageRepClass(imageRepClass: AnyClass)
   class func registeredImageRepClasses() -> [AnyClass]
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use +imageRepClassForType: instead")
-  class func imageRepClassForFileType(type: String) -> AnyClass?
+  class func imageRepClassFor(fileType type: String) -> AnyClass?
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use +imageRepClassForType: instead")
-  class func imageRepClassForPasteboardType(type: String) -> AnyClass?
+  class func imageRepClassFor(pasteboardType type: String) -> AnyClass?
   @available(OSX 10.5, *)
-  class func imageRepClassForType(type: String) -> AnyClass?
+  class func imageRepClassFor(type type: String) -> AnyClass?
   class func imageRepClassFor(data: Data) -> AnyClass?
   class func canInitWith(data: Data) -> Bool
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use +imageUnfilteredTypes instead")
@@ -39,15 +39,15 @@ class NSImageRep : Object, Copying, Coding {
   @available(OSX 10.5, *)
   class func imageTypes() -> [String]
   class func canInitWith(pasteboard: NSPasteboard) -> Bool
-  class func imageRepsWithContentsOfFile(filename: String) -> [NSImageRep]?
+  class func imageRepsWithContentsOf(file filename: String) -> [NSImageRep]?
   /*not inherited*/ init?(contentsOfFile filename: String)
   class func imageRepsWithContentsOf(url: URL) -> [NSImageRep]?
   /*not inherited*/ init?(contentsOf url: URL)
   class func imageRepsWith(pasteboard: NSPasteboard) -> [NSImageRep]?
   /*not inherited*/ init?(pasteboard: NSPasteboard)
   @available(OSX 10.6, *)
-  func cgImageForProposedRect(proposedDestRect: UnsafeMutablePointer<Rect>, context: NSGraphicsContext?, hints: [String : AnyObject]?) -> CGImage?
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func cgImageFor(proposedRect proposedDestRect: UnsafeMutablePointer<Rect>, context: NSGraphicsContext?, hints: [String : AnyObject]?) -> CGImage?
+  func copyWith(zone: Zone = nil) -> AnyObject
   func encodeWith(aCoder: Coder)
 }
 struct __repFlags {

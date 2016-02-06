@@ -15,9 +15,9 @@ class AVMetadataItem : Object, AVAsynchronousKeyValueLoading, Copying, MutableCo
   var extraAttributes: [String : AnyObject]? { get }
   init()
   @available(OSX 10.7, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
 }
 extension AVMetadataItem {
   @available(OSX 10.11, *)
@@ -31,9 +31,9 @@ extension AVMetadataItem {
 }
 extension AVMetadataItem {
   @available(OSX 10.7, *)
-  func statusOfValueForKey(key: String, error outError: ErrorPointer) -> AVKeyValueStatus
+  func statusOfValueFor(key key: String, error outError: ErrorPointer) -> AVKeyValueStatus
   @available(OSX 10.7, *)
-  func loadValuesAsynchronouslyForKeys(keys: [String], completionHandler handler: (() -> Void)? = nil)
+  func loadValuesAsynchronouslyFor(keys keys: [String], completionHandler handler: (() -> Void)? = nil)
 }
 extension AVMetadataItem {
   @available(OSX 10.8, *)
@@ -45,11 +45,11 @@ extension AVMetadataItem {
 }
 extension AVMetadataItem {
   @available(OSX 10.10, *)
-  class func identifierForKey(key: AnyObject, keySpace: String) -> String?
+  class func identifierFor(key key: AnyObject, keySpace: String) -> String?
   @available(OSX 10.10, *)
-  class func keySpaceForIdentifier(identifier: String) -> String?
+  class func keySpaceFor(identifier identifier: String) -> String?
   @available(OSX 10.10, *)
-  class func keyForIdentifier(identifier: String) -> AnyObject?
+  class func keyFor(identifier identifier: String) -> AnyObject?
   @NSCopying var key: protocol<Copying, ObjectProtocol>? { get }
   var commonKey: String? { get }
   var keySpace: String? { get }
@@ -85,7 +85,7 @@ extension AVMetadataItem {
 @available(OSX 10.11, *)
 class AVMetadataItemValueRequest : Object {
   weak var metadataItem: @sil_weak AVMetadataItem? { get }
-  func respondWithValue(value: protocol<Copying, ObjectProtocol>)
+  func respondWith(value value: protocol<Copying, ObjectProtocol>)
   func respondWithError(error: Error)
   init()
 }

@@ -48,10 +48,10 @@ let willBecomeMultiThreadedNotification: String
 let didBecomeSingleThreadedNotification: String
 let threadWillExitNotification: String
 extension Object {
-  class func performSelectorOnMainThread(aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
-  func performSelectorOnMainThread(aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
-  class func performSelectorOnMainThread(aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool)
-  func performSelectorOnMainThread(aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool)
+  class func performSelectorOn(mainThread aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
+  func performSelectorOn(mainThread aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
+  class func performSelectorOn(mainThread aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool)
+  func performSelectorOn(mainThread aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool)
   @available(watchOS 2.0, *)
   class func perform(aSelector: Selector, on thr: Thread, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
   @available(watchOS 2.0, *)
@@ -61,7 +61,7 @@ extension Object {
   @available(watchOS 2.0, *)
   func perform(aSelector: Selector, on thr: Thread, withObject arg: AnyObject?, waitUntilDone wait: Bool)
   @available(watchOS 2.0, *)
-  class func performSelectorInBackground(aSelector: Selector, withObject arg: AnyObject?)
+  class func performSelectorIn(background aSelector: Selector, withObject arg: AnyObject?)
   @available(watchOS 2.0, *)
-  func performSelectorInBackground(aSelector: Selector, withObject arg: AnyObject?)
+  func performSelectorIn(background aSelector: Selector, withObject arg: AnyObject?)
 }

@@ -38,7 +38,7 @@ class NSAnimation : Object, Copying, Coding {
   func clearStop()
   var runLoopModesForAnimating: [String]? { get }
   init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
@@ -93,9 +93,9 @@ protocol NSAnimatablePropertyContainer {
   @available(OSX 10.5, *)
   var animations: [String : AnyObject] { get set }
   @available(OSX 10.5, *)
-  func animationForKey(key: String) -> AnyObject?
+  func animationFor(key key: String) -> AnyObject?
   @available(OSX 10.5, *)
-  static func defaultAnimationForKey(key: String) -> AnyObject?
+  static func defaultAnimationFor(key key: String) -> AnyObject?
 }
 @available(OSX 10.5, *)
 let NSAnimationTriggerOrderIn: String

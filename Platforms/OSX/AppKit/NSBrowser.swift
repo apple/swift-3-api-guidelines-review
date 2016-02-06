@@ -71,32 +71,32 @@ class NSBrowser : NSControl {
   @available(OSX 10.6, *)
   func itemAt(indexPath: IndexPath) -> AnyObject?
   @available(OSX 10.6, *)
-  func itemAtRow(row: Int, inColumn column: Int) -> AnyObject?
+  func itemAt(row row: Int, inColumn column: Int) -> AnyObject?
   @available(OSX 10.6, *)
-  func indexPathForColumn(column: Int) -> IndexPath
+  func indexPathFor(column column: Int) -> IndexPath
   @available(OSX 10.6, *)
   func isLeafItem(item: AnyObject?) -> Bool
   @available(OSX 10.6, *)
-  func reloadDataForRowIndexes(rowIndexes: IndexSet, inColumn column: Int)
+  func reloadDataFor(rowIndexes rowIndexes: IndexSet, inColumn column: Int)
   @available(OSX 10.6, *)
-  func parentForItemsInColumn(column: Int) -> AnyObject?
+  func parentForItemsIn(column column: Int) -> AnyObject?
   @available(OSX 10.6, *)
   func scrollRowToVisible(row: Int, inColumn column: Int)
   func setTitle(aString: String, ofColumn column: Int)
-  func titleOfColumn(column: Int) -> String?
+  func titleOf(column column: Int) -> String?
   var pathSeparator: String
   func setPath(path: String) -> Bool
   func path() -> String
-  func pathToColumn(column: Int) -> String
+  func pathTo(column column: Int) -> String
   @available(OSX 10.6, *)
   var clickedColumn: Int { get }
   @available(OSX 10.6, *)
   var clickedRow: Int { get }
   var selectedColumn: Int { get }
-  func selectedCellInColumn(column: Int) -> AnyObject?
+  func selectedCellIn(column column: Int) -> AnyObject?
   var selectedCells: [NSCell]? { get }
   func selectRow(row: Int, inColumn column: Int)
-  func selectedRowInColumn(column: Int) -> Int
+  func selectedRowIn(column column: Int) -> Int
   @available(OSX 10.6, *)
   @NSCopying var selectionIndexPath: IndexPath
   @available(OSX 10.6, *)
@@ -104,7 +104,7 @@ class NSBrowser : NSControl {
   @available(OSX 10.5, *)
   func selectRowIndexes(indexes: IndexSet, inColumn column: Int)
   @available(OSX 10.5, *)
-  func selectedRowIndexesInColumn(column: Int) -> IndexSet?
+  func selectedRowIndexesIn(column column: Int) -> IndexSet?
   func reloadColumn(column: Int)
   func validateVisibleColumns()
   func scrollColumnsRightBy(shiftAmount: Int)
@@ -115,37 +115,37 @@ class NSBrowser : NSControl {
   var numberOfVisibleColumns: Int { get }
   var firstVisibleColumn: Int { get }
   var lastVisibleColumn: Int { get }
-  func loadedCellAtRow(row: Int, column col: Int) -> AnyObject?
+  func loadedCellAt(row row: Int, column col: Int) -> AnyObject?
   func selectAll(sender: AnyObject?)
   func tile()
   func doClick(sender: AnyObject?)
   func doDoubleClick(sender: AnyObject?)
   func sendAction() -> Bool
-  func titleFrameOfColumn(column: Int) -> Rect
-  func drawTitleOfColumn(column: Int, in aRect: Rect)
+  func titleFrameOf(column column: Int) -> Rect
+  func drawTitleOf(column column: Int, in aRect: Rect)
   var titleHeight: CGFloat { get }
-  func frameOfColumn(column: Int) -> Rect
-  func frameOfInsideOfColumn(column: Int) -> Rect
+  func frameOf(column column: Int) -> Rect
+  func frameOfInsideOf(column column: Int) -> Rect
   @available(OSX 10.6, *)
-  func frameOfRow(row: Int, inColumn column: Int) -> Rect
+  func frameOf(row row: Int, inColumn column: Int) -> Rect
   @available(OSX 10.6, *)
   func getRow(row: UnsafeMutablePointer<Int>, column: UnsafeMutablePointer<Int>, forPoint point: Point) -> Bool
-  func columnWidthForColumnContentWidth(columnContentWidth: CGFloat) -> CGFloat
-  func columnContentWidthForColumnWidth(columnWidth: CGFloat) -> CGFloat
+  func columnWidthFor(columnContentWidth columnContentWidth: CGFloat) -> CGFloat
+  func columnContentWidthFor(columnWidth columnWidth: CGFloat) -> CGFloat
   var columnResizingType: NSBrowserColumnResizingType
   var prefersAllColumnUserResizing: Bool
   func setWidth(columnWidth: CGFloat, ofColumn columnIndex: Int)
-  func widthOfColumn(column: Int) -> CGFloat
+  func widthOf(column column: Int) -> CGFloat
   @available(OSX 10.6, *)
   var rowHeight: CGFloat
   @available(OSX 10.6, *)
-  func noteHeightOfRowsWithIndexesChanged(indexSet: IndexSet, inColumn columnIndex: Int)
+  func noteHeightOfRows(indexesChanged indexSet: IndexSet, inColumn columnIndex: Int)
   @available(OSX 10.6, *)
   func setDefaultColumnWidth(columnWidth: CGFloat)
   @available(OSX 10.6, *)
   func defaultColumnWidth() -> CGFloat
   var columnsAutosaveName: String
-  class func removeSavedColumnsWithAutosaveName(name: String)
+  class func removeSavedColumns(autosaveName name: String)
   @available(OSX 10.5, *)
   func canDragRowsWith(rowIndexes: IndexSet, inColumn column: Int, withEvent event: NSEvent) -> Bool
   @available(OSX 10.5, *)
@@ -229,5 +229,5 @@ extension NSBrowser {
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use the item based NSBrowser instead")
   func columnOf(matrix: NSMatrix) -> Int
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use the item based NSBrowser instead")
-  func matrixInColumn(column: Int) -> NSMatrix?
+  func matrixIn(column column: Int) -> NSMatrix?
 }

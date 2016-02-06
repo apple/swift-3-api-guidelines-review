@@ -11,6 +11,6 @@ enum SFContentBlockerErrorCode : Int {
 }
 @available(iOS 9.0, *)
 class SFContentBlockerManager : Object {
-  class func reloadContentBlockerWithIdentifier(identifier: String, completionHandler: ((Error?) -> Void)? = nil)
+  class func reloadContentBlocker(identifier identifier: String, completionHandler: ((Error?) -> Void)? = nil)
   init()
 }

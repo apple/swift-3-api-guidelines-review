@@ -98,7 +98,7 @@ class NSButtonCell : NSActionCell {
   func performClick(sender: AnyObject?)
   func drawImage(image: NSImage, withFrame frame: Rect, in controlView: NSView)
   func drawTitle(title: AttributedString, withFrame frame: Rect, in controlView: NSView) -> Rect
-  func drawBezelWithFrame(frame: Rect, in controlView: NSView)
+  func drawBezel(frame frame: Rect, in controlView: NSView)
   init(textCell aString: String)
   init(imageCell image: NSImage?)
   convenience init()

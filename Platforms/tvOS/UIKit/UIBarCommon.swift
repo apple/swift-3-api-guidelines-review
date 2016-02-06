@@ -26,5 +26,5 @@ protocol UIBarPositioning : ObjectProtocol {
 }
 protocol UIBarPositioningDelegate : ObjectProtocol {
   @available(tvOS 7.0, *)
-  optional func positionForBar(bar: UIBarPositioning) -> UIBarPosition
+  optional func positionFor(bar bar: UIBarPositioning) -> UIBarPosition
 }

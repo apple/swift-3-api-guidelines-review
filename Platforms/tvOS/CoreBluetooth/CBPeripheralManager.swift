@@ -62,5 +62,5 @@ protocol CBPeripheralManagerDelegate : ObjectProtocol {
   @available(tvOS 6.0, *)
   optional func peripheralManager(peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest])
   @available(tvOS 6.0, *)
-  optional func peripheralManagerIsReadyToUpdateSubscribers(peripheral: CBPeripheralManager)
+  optional func peripheralManagerIsReadyTo(updateSubscribers peripheral: CBPeripheralManager)
 }

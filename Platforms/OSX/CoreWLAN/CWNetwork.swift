@@ -29,7 +29,7 @@ class CWNetwork : Object, Copying, SecureCoding {
   func supportsPHYMode(phyMode: CWPHYMode) -> Bool
   init()
   @available(OSX 10.6, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.6, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.6, *)

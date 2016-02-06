@@ -9,23 +9,23 @@ let NSOptionsKey: String
 extension Object {
   class func exposeBinding(binding: String)
   var exposedBindings: [String] { get }
-  class func valueClassForBinding(binding: String) -> AnyClass?
-  func valueClassForBinding(binding: String) -> AnyClass?
+  class func valueClassFor(binding binding: String) -> AnyClass?
+  func valueClassFor(binding binding: String) -> AnyClass?
   class func bind(binding: String, to observable: AnyObject, withKeyPath keyPath: String, options: [String : AnyObject]? = [:])
   func bind(binding: String, to observable: AnyObject, withKeyPath keyPath: String, options: [String : AnyObject]? = [:])
   class func unbind(binding: String)
   func unbind(binding: String)
-  class func infoForBinding(binding: String) -> [String : AnyObject]?
-  func infoForBinding(binding: String) -> [String : AnyObject]?
+  class func infoFor(binding binding: String) -> [String : AnyObject]?
+  func infoFor(binding binding: String) -> [String : AnyObject]?
   @available(OSX 10.5, *)
-  class func optionDescriptionsForBinding(aBinding: String) -> [NSAttributeDescription]
+  class func optionDescriptionsFor(binding aBinding: String) -> [NSAttributeDescription]
   @available(OSX 10.5, *)
-  func optionDescriptionsForBinding(aBinding: String) -> [NSAttributeDescription]
+  func optionDescriptionsFor(binding aBinding: String) -> [NSAttributeDescription]
   class func exposedBindings() -> [String]
 }
 extension Object {
   class func setDefaultPlaceholder(placeholder: AnyObject?, forMarker marker: AnyObject?, withBinding binding: String)
-  class func defaultPlaceholderForMarker(marker: AnyObject?, withBinding binding: String) -> AnyObject?
+  class func defaultPlaceholderFor(marker marker: AnyObject?, withBinding binding: String) -> AnyObject?
 }
 extension Object {
   class func objectDidBeginEditing(editor: AnyObject)
@@ -38,8 +38,8 @@ extension Object {
   func discardEditing()
   class func commitEditing() -> Bool
   func commitEditing() -> Bool
-  class func commitEditingWithDelegate(delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func commitEditingWithDelegate(delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  class func commitEditing(delegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func commitEditing(delegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
   class func commitEditingAndReturnError() throws
   @available(OSX 10.7, *)

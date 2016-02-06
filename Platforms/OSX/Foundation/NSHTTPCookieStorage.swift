@@ -9,7 +9,7 @@ enum HTTPCookieAcceptPolicy : UInt {
 class HTTPCookieStorage : Object {
   class func shared() -> HTTPCookieStorage
   @available(OSX 10.11, *)
-  class func sharedCookieStorageForGroupContainerIdentifier(identifier: String) -> HTTPCookieStorage
+  class func sharedCookieStorageFor(groupContainerIdentifier identifier: String) -> HTTPCookieStorage
   var cookies: [HTTPCookie]? { get }
   func setCookie(cookie: HTTPCookie)
   func deleteCookie(cookie: HTTPCookie)

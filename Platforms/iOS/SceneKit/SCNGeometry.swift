@@ -27,11 +27,11 @@ class SCNGeometry : Object, SCNAnimatable, SCNBoundingVolume, SCNShadable, Copyi
   func insertMaterial(material: SCNMaterial, at index: Int)
   func removeMaterialAt(index: Int)
   func replaceMaterialAt(index: Int, withMaterial material: SCNMaterial)
-  func materialWithName(name: String) -> SCNMaterial?
+  func materialWith(name name: String) -> SCNMaterial?
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   @available(iOS 8.0, *)
   var geometrySources: [SCNGeometrySource] { get }
-  func geometrySourcesForSemantic(semantic: String) -> [SCNGeometrySource]
+  func geometrySourcesFor(semantic semantic: String) -> [SCNGeometrySource]
   @available(iOS 8.0, *)
   var geometryElements: [SCNGeometryElement] { get }
   var geometryElementCount: Int { get }
@@ -50,19 +50,19 @@ class SCNGeometry : Object, SCNAnimatable, SCNBoundingVolume, SCNShadable, Copyi
   @available(iOS 8.0, *)
   func removeAllAnimations()
   @available(iOS 8.0, *)
-  func removeAnimationForKey(key: String)
+  func removeAnimationFor(key key: String)
   @available(iOS 8.0, *)
   var animationKeys: [String] { get }
   @available(iOS 8.0, *)
-  func animationForKey(key: String) -> CAAnimation?
+  func animationFor(key key: String) -> CAAnimation?
   @available(iOS 8.0, *)
-  func pauseAnimationForKey(key: String)
+  func pauseAnimationFor(key key: String)
   @available(iOS 8.0, *)
-  func resumeAnimationForKey(key: String)
+  func resumeAnimationFor(key key: String)
   @available(iOS 8.0, *)
-  func isAnimationForKeyPaused(key: String) -> Bool
+  func isAnimationFor(keyPaused key: String) -> Bool
   @available(iOS 8.0, *)
-  func removeAnimationForKey(key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimationFor(key key: String, fadeOutDuration duration: CGFloat)
   @available(iOS 8.0, *)
   func getBoundingBoxMin(min: UnsafeMutablePointer<SCNVector3>, max: UnsafeMutablePointer<SCNVector3>) -> Bool
   @available(iOS 8.0, *)
@@ -72,13 +72,13 @@ class SCNGeometry : Object, SCNAnimatable, SCNBoundingVolume, SCNShadable, Copyi
   @available(iOS 8.0, *)
   var program: SCNProgram?
   @available(iOS 8.0, *)
-  func handleBindingOfSymbol(symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  func handleBindingOf(symbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
   @available(iOS 8.0, *)
-  func handleUnbindingOfSymbol(symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  func handleUnbindingOf(symbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
   @available(iOS 8.0, *)
   var shaderModifiers: [String : String]?
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)

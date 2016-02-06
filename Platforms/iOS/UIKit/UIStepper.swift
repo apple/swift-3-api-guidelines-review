@@ -17,7 +17,7 @@ class UIStepper : UIControl {
   @available(iOS 6.0, *)
   func setDividerImage(image: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState)
   @available(iOS 6.0, *)
-  func dividerImageForLeftSegmentState(state: UIControlState, rightSegmentState state: UIControlState) -> UIImage?
+  func dividerImageFor(leftSegmentState state: UIControlState, rightSegmentState state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
   func setIncrementImage(image: UIImage?, forState state: UIControlState)
   @available(iOS 6.0, *)

@@ -12,5 +12,5 @@ class PHFetchOptions : Object, Copying {
   var wantsIncrementalChangeDetails: Bool
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

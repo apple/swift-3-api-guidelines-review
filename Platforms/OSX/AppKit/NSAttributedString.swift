@@ -221,14 +221,14 @@ extension AttributedString : NSPasteboardReading, NSPasteboardWriting {
   @available(OSX 10.0, *)
   class func readableTypesFor(pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  class func readingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
+  class func readingOptionsFor(type type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
   @available(OSX 10.0, *)
   func writableTypesFor(pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  func writingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
+  func writingOptionsFor(type type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
   @available(OSX 10.0, *)
-  func pasteboardPropertyListForType(type: String) -> AnyObject?
+  func pasteboardPropertyListFor(type type: String) -> AnyObject?
 }
 extension MutableAttributedString {
   func superscriptRange(range: NSRange)

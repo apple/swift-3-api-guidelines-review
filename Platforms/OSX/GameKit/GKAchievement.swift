@@ -2,7 +2,7 @@
 @available(OSX 10.8, *)
 class GKAchievement : Object, Coding, SecureCoding {
   class func loadAchievements(completionHandler completionHandler: (([GKAchievement]?, Error?) -> Void)? = nil)
-  class func resetAchievements(completionHandler completionHandler: ((Error?) -> Void)? = nil)
+  class func resetAchievementsWith(completionHandler completionHandler: ((Error?) -> Void)? = nil)
   init(identifier: String?)
   @available(OSX 10.10, *)
   init(identifier: String?, player: GKPlayer)

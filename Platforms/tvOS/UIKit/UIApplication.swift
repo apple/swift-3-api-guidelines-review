@@ -34,7 +34,7 @@ class UIApplication : UIResponder {
   @available(tvOS 4.0, *)
   func beginBackgroundTask(expirationHandler handler: (() -> Void)? = nil) -> UIBackgroundTaskIdentifier
   @available(tvOS 7.0, *)
-  func beginBackgroundTaskWithName(taskName: String?, expirationHandler handler: (() -> Void)? = nil) -> UIBackgroundTaskIdentifier
+  func beginBackgroundTask(name taskName: String?, expirationHandler handler: (() -> Void)? = nil) -> UIBackgroundTaskIdentifier
   @available(tvOS 4.0, *)
   func endBackgroundTask(identifier: UIBackgroundTaskIdentifier)
   @available(tvOS 4.0, *)
@@ -75,7 +75,7 @@ extension UIApplication {
   @available(tvOS 7.0, *)
   func ignoreSnapshotOnNextApplicationLaunch()
   @available(tvOS 7.0, *)
-  class func registerObjectForStateRestoration(object: UIStateRestoring, restorationIdentifier: String)
+  class func registerObjectFor(stateRestoration object: UIStateRestoring, restorationIdentifier: String)
 }
 protocol UIApplicationDelegate : ObjectProtocol {
   @available(tvOS 2.0, *)

@@ -61,11 +61,11 @@ class MTLVertexBufferLayoutDescriptor : Object, Copying {
   var stepRate: Int
   init()
   @available(OSX 10.11, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class MTLVertexBufferLayoutDescriptorArray : Object {
-  subscript (index: Int) -> MTLVertexBufferLayoutDescriptor!
+  subscript (indexedSubscript index: Int) -> MTLVertexBufferLayoutDescriptor!
   init()
 }
 @available(OSX 10.11, *)
@@ -75,11 +75,11 @@ class MTLVertexAttributeDescriptor : Object, Copying {
   var bufferIndex: Int
   init()
   @available(OSX 10.11, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class MTLVertexAttributeDescriptorArray : Object {
-  subscript (index: Int) -> MTLVertexAttributeDescriptor!
+  subscript (indexedSubscript index: Int) -> MTLVertexAttributeDescriptor!
   init()
 }
 @available(OSX 10.11, *)
@@ -89,5 +89,5 @@ class MTLVertexDescriptor : Object, Copying {
   func reset()
   init()
   @available(OSX 10.11, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

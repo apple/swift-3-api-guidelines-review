@@ -6,11 +6,11 @@ class NSDictionary : Object, Copying, MutableCopying, SecureCoding, FastEnumerat
   init()
   init(objects: UnsafePointer<AnyObject?>, forKeys keys: UnsafePointer<Copying?>, count cnt: Int)
   init?(coder aDecoder: Coder)
-  func copy(zone zone: Zone = nil) -> AnyObject
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSDictionary : DictionaryLiteralConvertible {
@@ -44,30 +44,30 @@ extension NSDictionary {
   var allValues: [AnyObject] { get }
   var description: String { get }
   var descriptionInStringsFileFormat: String { get }
-  func descriptionWithLocale(locale: AnyObject?) -> String
-  func descriptionWithLocale(locale: AnyObject?, indent level: Int) -> String
+  func descriptionWith(locale locale: AnyObject?) -> String
+  func descriptionWith(locale locale: AnyObject?, indent level: Int) -> String
   func isEqualTo(otherDictionary: [Object : AnyObject]) -> Bool
   func objectEnumerator() -> Enumerator
   func objectsFor(keys: [AnyObject], notFoundMarker marker: AnyObject) -> [AnyObject]
-  func writeToFile(path: String, atomically useAuxiliaryFile: Bool) -> Bool
+  func writeTo(file path: String, atomically useAuxiliaryFile: Bool) -> Bool
   func writeTo(url: URL, atomically: Bool) -> Bool
   func keysSortedByValueUsing(comparator: Selector) -> [AnyObject]
   @available(iOS 5.0, *)
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, andKeys keys: AutoreleasingUnsafeMutablePointer<AnyObject?>, count: Int)
   @available(iOS 6.0, *)
-  subscript (key: Copying) -> AnyObject? { get }
+  subscript (keyedSubscript key: Copying) -> AnyObject? { get }
   @available(iOS 4.0, *)
-  func enumerateKeysAndObjectsUsing(block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateKeysAndObjects(block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(iOS 4.0, *)
-  func enumerateKeysAndObjects(options opts: EnumerationOptions = [], usingBlock block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateKeysAndObjects(opts: EnumerationOptions = [], usingBlock block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(iOS 4.0, *)
-  func keysSortedByValueUsingComparator(cmptr: Comparator) -> [AnyObject]
+  func keysSortedByValue(comparator cmptr: Comparator) -> [AnyObject]
   @available(iOS 4.0, *)
-  func keysSortedByValue(options opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
+  func keysSortedByValueWith(opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
   @available(iOS 4.0, *)
   func keysOfEntriesPassingTest(predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
   @available(iOS 4.0, *)
-  func keysOfEntries(options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
+  func keysOfEntriesWith(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
 }
 extension NSDictionary {
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, andKeys keys: AutoreleasingUnsafeMutablePointer<AnyObject?>)
@@ -98,7 +98,7 @@ extension MutableDictionary {
   func removeObjectsFor(keyArray: [AnyObject])
   func setDictionary(otherDictionary: [Object : AnyObject])
   @available(iOS 6.0, *)
-  subscript (key: Copying) -> AnyObject?
+  subscript (keyedSubscript key: Copying) -> AnyObject?
 }
 extension MutableDictionary {
   convenience init?(contentsOfFile path: String)
@@ -106,7 +106,7 @@ extension MutableDictionary {
 }
 extension NSDictionary {
   @available(iOS 6.0, *)
-  class func sharedKeySetForKeys(keys: [Copying]) -> AnyObject
+  class func sharedKeySetFor(keys keys: [Copying]) -> AnyObject
 }
 extension MutableDictionary {
   @available(iOS 6.0, *)

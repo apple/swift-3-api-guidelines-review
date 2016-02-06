@@ -96,7 +96,7 @@ class CLLocationManager : Object {
   @available(iOS 7.0, *)
   func stopRangingBeaconsIn(region: CLBeaconRegion)
   @available(iOS 6.0, *)
-  func allowDeferredLocationUpdatesUntilTraveled(distance: CLLocationDistance, timeout: TimeInterval)
+  func allowDeferredLocationUpdatesUntil(traveled distance: CLLocationDistance, timeout: TimeInterval)
   @available(iOS 6.0, *)
   func disallowDeferredLocationUpdates()
   @available(iOS 6.0, *)

@@ -6,5 +6,5 @@ extension ABPerson {
   func setImageData(data: Data!) -> Bool
   func imageData() -> Data!
   func beginLoadingImageDataFor(client: ABImageClient!) -> Int
-  class func cancelLoadingImageDataForTag(tag: Int)
+  class func cancelLoadingImageDataFor(tag tag: Int)
 }

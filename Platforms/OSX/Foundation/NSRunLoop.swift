@@ -11,8 +11,8 @@ class RunLoop : Object {
   func add(timer: Timer, forMode mode: String)
   func add(aPort: Port, forMode mode: String)
   func remove(aPort: Port, forMode mode: String)
-  func limitDateForMode(mode: String) -> Date?
-  func acceptInputForMode(mode: String, before limitDate: Date)
+  func limitDateFor(mode mode: String) -> Date?
+  func acceptInputFor(mode mode: String, before limitDate: Date)
   init()
 }
 extension RunLoop {
@@ -25,11 +25,11 @@ extension Object {
   func perform(aSelector: Selector, withObject anArgument: AnyObject?, afterDelay delay: TimeInterval, inModes modes: [String])
   class func perform(aSelector: Selector, withObject anArgument: AnyObject?, afterDelay delay: TimeInterval)
   func perform(aSelector: Selector, withObject anArgument: AnyObject?, afterDelay delay: TimeInterval)
-  class func cancelPreviousPerformRequestsWithTarget(aTarget: AnyObject, selector aSelector: Selector, object anArgument: AnyObject?)
-  class func cancelPreviousPerformRequestsWithTarget(aTarget: AnyObject)
+  class func cancelPreviousPerformRequests(target aTarget: AnyObject, selector aSelector: Selector, object anArgument: AnyObject?)
+  class func cancelPreviousPerformRequests(target aTarget: AnyObject)
 }
 extension RunLoop {
   func perform(aSelector: Selector, target: AnyObject, argument arg: AnyObject?, order: Int, modes: [String])
   func cancelPerform(aSelector: Selector, target: AnyObject, argument arg: AnyObject?)
-  func cancelPerformSelectorsWithTarget(target: AnyObject)
+  func cancelPerformSelectors(target target: AnyObject)
 }

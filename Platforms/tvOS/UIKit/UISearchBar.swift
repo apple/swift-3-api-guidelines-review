@@ -55,7 +55,7 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(tvOS 5.0, *)
   func setScopeBarButtonDividerImage(dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState)
   @available(tvOS 5.0, *)
-  func scopeBarButtonDividerImageForLeftSegmentState(leftState: UIControlState, rightSegmentState rightState: UIControlState) -> UIImage?
+  func scopeBarButtonDividerImageFor(leftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState) -> UIImage?
   @available(tvOS 5.0, *)
   func setScopeBarButtonTitleTextAttributes(attributes: [String : AnyObject]? = [:], forState state: UIControlState)
   @available(tvOS 5.0, *)

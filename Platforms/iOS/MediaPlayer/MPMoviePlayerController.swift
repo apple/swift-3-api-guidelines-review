@@ -172,7 +172,7 @@ enum MPMovieTimeOption : Int {
 }
 extension MPMoviePlayerController {
   @available(iOS, introduced=3.2, deprecated=9.0)
-  func requestThumbnailImagesAtTimes(playbackTimes: [AnyObject]!, timeOption option: MPMovieTimeOption)
+  func requestThumbnailImagesAt(times playbackTimes: [AnyObject]!, timeOption option: MPMovieTimeOption)
   @available(iOS, introduced=3.2, deprecated=9.0)
   func cancelAllThumbnailImageRequests()
 }
@@ -226,7 +226,7 @@ class MPMovieAccessLog : Object, Copying {
   var events: [AnyObject]! { get }
   init()
   @available(iOS 4.3, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 4.3, *)
 @available(iOS, introduced=4.3, deprecated=9.0)
@@ -236,7 +236,7 @@ class MPMovieErrorLog : Object, Copying {
   var events: [AnyObject]! { get }
   init()
   @available(iOS 4.3, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 4.3, *)
 @available(iOS, introduced=4.3, deprecated=9.0)
@@ -257,7 +257,7 @@ class MPMovieAccessLogEvent : Object, Copying {
   var numberOfDroppedVideoFrames: Int { get }
   init()
   @available(iOS 4.3, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 4.3, *)
 @available(iOS, introduced=4.3, deprecated=9.0)
@@ -271,7 +271,7 @@ class MPMovieErrorLogEvent : Object, Copying {
   var errorComment: String! { get }
   init()
   @available(iOS 4.3, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 extension MPMoviePlayerController {
 }

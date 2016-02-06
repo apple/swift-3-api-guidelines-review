@@ -31,7 +31,7 @@ protocol NSAccessibilityStaticText : NSAccessibilityElementProtocol {
 protocol NSAccessibilityNavigableStaticText : NSAccessibilityStaticText {
   func accessibilityStringFor(range: NSRange) -> String?
   func accessibilityLineFor(index: Int) -> Int
-  func accessibilityRangeForLine(lineNumber: Int) -> NSRange
+  func accessibilityRangeFor(line lineNumber: Int) -> NSRange
   func accessibilityFrameFor(range: NSRange) -> Rect
 }
 protocol NSAccessibilityProgressIndicator : NSAccessibilityGroup {
@@ -91,23 +91,23 @@ protocol NSAccessibilityLayoutItem : NSAccessibilityGroup {
 }
 protocol NSAccessibility : ObjectProtocol {
   @available(OSX 10.10, *)
-  func accessibilityLayoutPointForScreenPoint(point: Point) -> Point
+  func accessibilityLayoutPointFor(screenPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityLayoutSizeForScreenSize(size: Size) -> Size
+  func accessibilityLayoutSizeFor(screenSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityScreenPointForLayoutPoint(point: Point) -> Point
+  func accessibilityScreenPointFor(layoutPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityScreenSizeForLayoutSize(size: Size) -> Size
+  func accessibilityScreenSizeFor(layoutSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityCellForColumn(column: Int, row: Int) -> AnyObject?
+  func accessibilityCellFor(column column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
   func accessibilityAttributedStringFor(range: NSRange) -> AttributedString?
   @available(OSX 10.10, *)
-  func accessibilityRangeForLine(line: Int) -> NSRange
+  func accessibilityRangeFor(line line: Int) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityStringFor(range: NSRange) -> String?
   @available(OSX 10.10, *)
-  func accessibilityRangeForPosition(point: Point) -> NSRange
+  func accessibilityRangeFor(position point: Point) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityRangeFor(index: Int) -> NSRange
   @available(OSX 10.10, *)
@@ -241,7 +241,7 @@ protocol NSAccessibility : ObjectProtocol {
   @available(OSX 10.10, *)
   func accessibilityServesAsTitleForUIElements() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityServesAsTitleForUIElements(accessibilityServesAsTitleForUIElements: [AnyObject]?)
+  func setAccessibilityServesAsTitleFor(uiElements accessibilityServesAsTitleForUIElements: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityShownMenu() -> AnyObject?
   @available(OSX 10.10, *)
@@ -357,7 +357,7 @@ protocol NSAccessibility : ObjectProtocol {
   @available(OSX 10.10, *)
   func isAccessibilityOrderedByRow() -> Bool
   @available(OSX 10.10, *)
-  func setAccessibilityOrderedByRow(accessibilityOrderedByRow: Bool)
+  func setAccessibilityOrderedBy(row accessibilityOrderedByRow: Bool)
   @available(OSX 10.10, *)
   func accessibilityHorizontalUnits() -> NSAccessibilityUnits
   @available(OSX 10.10, *)
@@ -393,7 +393,7 @@ protocol NSAccessibility : ObjectProtocol {
   @available(OSX 10.10, *)
   func accessibilityDisclosedByRow() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityDisclosedByRow(accessibilityDisclosedByRow: AnyObject?)
+  func setAccessibilityDisclosedBy(row accessibilityDisclosedByRow: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityDisclosedRows() -> AnyObject?
   @available(OSX 10.10, *)
@@ -553,7 +553,7 @@ protocol NSAccessibility : ObjectProtocol {
   @available(OSX 10.10, *)
   func accessibilityNumberOfCharacters() -> Int
   @available(OSX 10.10, *)
-  func setAccessibilityNumberOfCharacters(accessibilityNumberOfCharacters: Int)
+  func setAccessibilityNumberOf(characters accessibilityNumberOfCharacters: Int)
   @available(OSX 10.10, *)
   func accessibilitySelectedText() -> String?
   @available(OSX 10.10, *)

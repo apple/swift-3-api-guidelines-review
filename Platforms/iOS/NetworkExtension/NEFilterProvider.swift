@@ -10,9 +10,9 @@ var NEFilterProviderRemediationURLUsername: String { get }
 @available(iOS 9.0, *)
 class NEFilterProvider : NEProvider {
   @available(iOS 9.0, *)
-  func startFilterWithCompletionHandler(completionHandler: (Error?) -> Void)
+  func startFilter(completionHandler completionHandler: (Error?) -> Void)
   @available(iOS 9.0, *)
-  func stopFilterWith(reason: NEProviderStopReason, completionHandler: () -> Void)
+  func stopFilter(reason: NEProviderStopReason, completionHandler: () -> Void)
   @available(iOS 9.0, *)
   var filterConfiguration: NEFilterProviderConfiguration { get }
   init()
@@ -26,7 +26,7 @@ class NEFilterVerdict : Object, SecureCoding, Copying {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 9.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class NEFilterNewFlowVerdict : NEFilterVerdict, SecureCoding, Copying {
@@ -37,20 +37,20 @@ class NEFilterNewFlowVerdict : NEFilterVerdict, SecureCoding, Copying {
   @available(iOS 9.0, *)
   class func drop() -> NEFilterNewFlowVerdict
   @available(iOS 9.0, *)
-  class func remediateVerdictWithRemediationURLMapKey(remediationURLMapKey: String, remediationButtonTextMapKey: String) -> NEFilterNewFlowVerdict
+  class func remediateVerdictWith(remediationURLMapKey remediationURLMapKey: String, remediationButtonTextMapKey: String) -> NEFilterNewFlowVerdict
   @available(iOS 9.0, *)
-  class func urlAppendStringVerdictWithMapKey(urlAppendMapKey: String) -> NEFilterNewFlowVerdict
+  class func urlAppendStringVerdictWith(mapKey urlAppendMapKey: String) -> NEFilterNewFlowVerdict
   @available(iOS 9.0, *)
-  class func filterDataVerdictWithFilterInbound(filterInbound: Bool, peekInboundBytes: Int, filterOutbound: Bool, peekOutboundBytes: Int) -> NEFilterNewFlowVerdict
+  class func filterDataVerdictWith(filterInbound filterInbound: Bool, peekInboundBytes: Int, filterOutbound: Bool, peekOutboundBytes: Int) -> NEFilterNewFlowVerdict
   init()
   init?(coder aDecoder: Coder)
 }
 @available(iOS 9.0, *)
 class NEFilterControlVerdict : NEFilterNewFlowVerdict, SecureCoding, Copying {
   @available(iOS 9.0, *)
-  class func allowWithUpdateRules(updateRules: Bool) -> NEFilterControlVerdict
+  class func allow(updateRules updateRules: Bool) -> NEFilterControlVerdict
   @available(iOS 9.0, *)
-  class func dropWithUpdateRules(updateRules: Bool) -> NEFilterControlVerdict
+  class func drop(updateRules updateRules: Bool) -> NEFilterControlVerdict
   @available(iOS 9.0, *)
   class func updateRules() -> NEFilterControlVerdict
   init()

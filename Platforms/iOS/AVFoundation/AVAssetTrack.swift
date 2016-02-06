@@ -4,11 +4,11 @@ class AVAssetTrack : Object, Copying, AVAsynchronousKeyValueLoading {
   weak var asset: @sil_weak AVAsset? { get }
   var trackID: CMPersistentTrackID { get }
   @available(iOS 4.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
-  func statusOfValueForKey(key: String, error outError: ErrorPointer) -> AVKeyValueStatus
+  func statusOfValueFor(key key: String, error outError: ErrorPointer) -> AVKeyValueStatus
   @available(iOS 4.0, *)
-  func loadValuesAsynchronouslyForKeys(keys: [String], completionHandler handler: (() -> Void)? = nil)
+  func loadValuesAsynchronouslyFor(keys keys: [String], completionHandler handler: (() -> Void)? = nil)
 }
 extension AVAssetTrack {
   var mediaType: String { get }
@@ -53,13 +53,13 @@ extension AVAssetTrack {
   @available(iOS 8.0, *)
   var metadata: [AVMetadataItem] { get }
   var availableMetadataFormats: [String] { get }
-  func metadataForFormat(format: String) -> [AVMetadataItem]
+  func metadataFor(format format: String) -> [AVMetadataItem]
 }
 extension AVAssetTrack {
   @available(iOS 7.0, *)
   var availableTrackAssociationTypes: [String] { get }
   @available(iOS 7.0, *)
-  func associatedTracksOfType(trackAssociationType: String) -> [AVAssetTrack]
+  func associatedTracksOf(type trackAssociationType: String) -> [AVAssetTrack]
 }
 @available(iOS 7.0, *)
 let AVTrackAssociationTypeAudioFallback: String

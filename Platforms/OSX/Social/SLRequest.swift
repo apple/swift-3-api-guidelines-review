@@ -18,6 +18,6 @@ class SLRequest : Object {
   @available(*, deprecated)
   func addMultipartData(data: Data!, withName name: String!, type: String!)
   func preparedURLRequest() -> URLRequest!
-  func performWithHandler(handler: SLRequestHandler!)
+  func perform(handler handler: SLRequestHandler!)
   init()
 }

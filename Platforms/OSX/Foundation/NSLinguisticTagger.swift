@@ -93,7 +93,7 @@ class LinguisticTagger : Object {
   @available(OSX 10.7, *)
   var string: String?
   @available(OSX 10.7, *)
-  class func availableTagSchemesForLanguage(language: String) -> [String]
+  class func availableTagSchemesFor(language language: String) -> [String]
   @available(OSX 10.7, *)
   func setOrthography(orthography: Orthography?, range: NSRange)
   @available(OSX 10.7, *)

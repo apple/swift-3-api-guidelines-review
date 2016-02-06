@@ -35,7 +35,7 @@ class ProcessInfo : Object {
   @available(watchOS 2.0, *)
   var physicalMemory: UInt64 { get }
   @available(watchOS 2.0, *)
-  func isOperatingSystemAtLeastVersion(version: OperatingSystemVersion) -> Bool
+  func isOperatingSystemAt(leastVersion version: OperatingSystemVersion) -> Bool
   @available(watchOS 2.0, *)
   var systemUptime: TimeInterval { get }
   init()
@@ -55,13 +55,13 @@ struct ActivityOptions : OptionSetType {
 }
 extension ProcessInfo {
   @available(watchOS 2.0, *)
-  func beginActivity(options options: ActivityOptions = [], reason: String) -> ObjectProtocol
+  func beginActivity(options: ActivityOptions = [], reason: String) -> ObjectProtocol
   @available(watchOS 2.0, *)
   func endActivity(activity: ObjectProtocol)
   @available(watchOS 2.0, *)
-  func performActivity(options options: ActivityOptions = [], reason: String, usingBlock block: () -> Void)
+  func performActivity(options: ActivityOptions = [], reason: String, usingBlock block: () -> Void)
   @available(watchOS 2.0, *)
-  func performExpiringActivityWithReason(reason: String, usingBlock block: (Bool) -> Void)
+  func performExpiringActivity(reason reason: String, usingBlock block: (Bool) -> Void)
 }
 extension ProcessInfo {
 }

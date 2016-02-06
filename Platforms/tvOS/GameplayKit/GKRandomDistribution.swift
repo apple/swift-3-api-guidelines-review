@@ -6,7 +6,7 @@ class GKRandomDistribution : Object, GKRandom {
   var numberOfPossibleOutcomes: Int { get }
   init(randomSource source: GKRandom, lowestValue lowestInclusive: Int, highestValue highestInclusive: Int)
   func nextInt() -> Int
-  func nextIntWithUpperBound(upperBound: Int) -> Int
+  func nextIntWith(upperBound upperBound: Int) -> Int
   func nextUniform() -> Float
   func nextBool() -> Bool
   convenience init(lowestValue lowestInclusive: Int, highestValue highestInclusive: Int)

@@ -8,17 +8,17 @@ class SCNAnimationEvent : Object {
 protocol SCNAnimatable : ObjectProtocol {
   func add(animation: CAAnimation, forKey key: String?)
   func removeAllAnimations()
-  func removeAnimationForKey(key: String)
+  func removeAnimationFor(key key: String)
   var animationKeys: [String] { get }
-  func animationForKey(key: String) -> CAAnimation?
+  func animationFor(key key: String) -> CAAnimation?
   @available(OSX 10.9, *)
-  func pauseAnimationForKey(key: String)
+  func pauseAnimationFor(key key: String)
   @available(OSX 10.9, *)
-  func resumeAnimationForKey(key: String)
+  func resumeAnimationFor(key key: String)
   @available(OSX 10.9, *)
-  func isAnimationForKeyPaused(key: String) -> Bool
+  func isAnimationFor(keyPaused key: String) -> Bool
   @available(OSX 10.10, *)
-  func removeAnimationForKey(key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimationFor(key key: String, fadeOutDuration duration: CGFloat)
 }
 extension CAAnimation {
   var usesSceneTimeBase: Bool

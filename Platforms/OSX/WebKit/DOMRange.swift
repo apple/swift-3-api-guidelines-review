@@ -47,7 +47,7 @@ class DOMRange : DOMObject {
   @available(OSX 10.5, *)
   func comparePoint(refNode: DOMNode!, offset: Int32) -> Int16
   @available(OSX 10.5, *)
-  func isPointInRange(refNode: DOMNode!, offset: Int32) -> Bool
+  func isPointIn(range refNode: DOMNode!, offset: Int32) -> Bool
 }
 extension DOMRange {
 }

@@ -2,12 +2,12 @@
 class FileHandle : Object, SecureCoding {
   @NSCopying var availableData: Data { get }
   func readDataToEndOfFile() -> Data
-  func readDataOfLength(length: Int) -> Data
+  func readDataOf(length length: Int) -> Data
   func write(data: Data)
   var offsetInFile: UInt64 { get }
   func seekToEndOfFile() -> UInt64
-  func seekToFileOffset(offset: UInt64)
-  func truncateFileAtOffset(offset: UInt64)
+  func seekTo(fileOffset offset: UInt64)
+  func truncateFileAt(offset offset: UInt64)
   func synchronizeFile()
   func closeFile()
   init(fileDescriptor fd: Int32, closeOnDealloc closeopt: Bool)
@@ -41,13 +41,13 @@ let fileHandleNotificationFileHandleItem: String
 @available(watchOS, introduced=2.0, deprecated=2.0)
 let fileHandleNotificationMonitorModes: String
 extension FileHandle {
-  func readInBackgroundAndNotifyForModes(modes: [String]?)
+  func readInBackgroundAndNotifyFor(modes modes: [String]?)
   func readInBackgroundAndNotify()
-  func readToEndOfFileInBackgroundAndNotifyForModes(modes: [String]?)
+  func readToEndOfFileInBackgroundAndNotifyFor(modes modes: [String]?)
   func readToEndOfFileInBackgroundAndNotify()
-  func acceptConnectionInBackgroundAndNotifyForModes(modes: [String]?)
+  func acceptConnectionInBackgroundAndNotifyFor(modes modes: [String]?)
   func acceptConnectionInBackgroundAndNotify()
-  func waitForDataInBackgroundAndNotifyForModes(modes: [String]?)
+  func waitForDataInBackgroundAndNotifyFor(modes modes: [String]?)
   func waitForDataInBackgroundAndNotify()
   @available(watchOS 2.0, *)
   var readabilityHandler: ((FileHandle) -> Void)?

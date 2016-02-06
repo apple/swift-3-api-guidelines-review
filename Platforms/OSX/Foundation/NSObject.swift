@@ -1,9 +1,9 @@
 
 protocol Copying {
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 protocol MutableCopying {
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
 }
 protocol Coding {
   func encodeWith(aCoder: Coder)

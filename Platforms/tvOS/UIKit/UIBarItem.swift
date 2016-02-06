@@ -17,7 +17,7 @@ class UIBarItem : Object, Coding, UIAppearance {
   @available(tvOS 2.0, *)
   class func appearance() -> Self
   @available(tvOS 9.0, *)
-  class func appearanceWhenContainedInInstancesOfClasses(containerTypes: [AnyObject.Type]) -> Self
+  class func appearanceWhenContainedInInstancesOf(classes containerTypes: [AnyObject.Type]) -> Self
   @available(tvOS 8.0, *)
   class func appearanceFor(trait: UITraitCollection) -> Self
   @available(tvOS 9.0, *)

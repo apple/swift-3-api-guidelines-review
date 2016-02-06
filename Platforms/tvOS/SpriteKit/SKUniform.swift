@@ -37,7 +37,7 @@ class SKUniform : Object, Copying, Coding {
   init(name: String, float value: GLKMatrix4)
   init()
   @available(tvOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)

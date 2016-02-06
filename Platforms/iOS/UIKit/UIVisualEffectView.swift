@@ -11,7 +11,7 @@ enum UIBlurEffectStyle : Int {
 class UIVisualEffect : Object, Copying, SecureCoding {
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)

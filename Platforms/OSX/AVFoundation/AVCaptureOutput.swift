@@ -3,7 +3,7 @@
 class AVCaptureOutput : Object {
   var connections: [AnyObject]! { get }
   @available(OSX 10.7, *)
-  func connectionWithMediaType(mediaType: String!) -> AVCaptureConnection!
+  func connectionWith(mediaType mediaType: String!) -> AVCaptureConnection!
   init()
 }
 @available(OSX 10.7, *)
@@ -43,7 +43,7 @@ class AVCaptureFileOutput : AVCaptureOutput {
   @available(OSX 10.7, *)
   unowned(unsafe) var delegate: @sil_unmanaged AVCaptureFileOutputDelegate!
   var outputFileURL: URL! { get }
-  func startRecordingToOutputFileURL(outputFileURL: URL!, recordingDelegate delegate: AVCaptureFileOutputRecordingDelegate!)
+  func startRecordingTo(outputFileURL outputFileURL: URL!, recordingDelegate delegate: AVCaptureFileOutputRecordingDelegate!)
   func stopRecording()
   var isRecording: Bool { get }
   @available(OSX 10.7, *)
@@ -90,7 +90,7 @@ class AVCaptureMovieFileOutput : AVCaptureFileOutput {
 @available(OSX 10.7, *)
 class AVCaptureAudioFileOutput : AVCaptureFileOutput {
   class func availableOutputFileTypes() -> [AnyObject]!
-  func startRecordingToOutputFileURL(outputFileURL: URL!, outputFileType fileType: String!, recordingDelegate delegate: AVCaptureFileOutputRecordingDelegate!)
+  func startRecordingTo(outputFileURL outputFileURL: URL!, outputFileType fileType: String!, recordingDelegate delegate: AVCaptureFileOutputRecordingDelegate!)
   var metadata: [AnyObject]!
   var audioSettings: [Object : AnyObject]!
   init()

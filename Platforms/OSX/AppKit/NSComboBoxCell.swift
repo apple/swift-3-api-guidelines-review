@@ -8,7 +8,7 @@ class NSComboBoxCell : NSTextFieldCell {
   func reloadData()
   func noteNumberOfItemsChanged()
   var usesDataSource: Bool
-  func scrollItemAtIndexToTop(index: Int)
+  func scrollItemAtIndexTo(top index: Int)
   func scrollItemAtIndexToVisible(index: Int)
   func selectItemAt(index: Int)
   func deselectItemAt(index: Int)
@@ -17,16 +17,16 @@ class NSComboBoxCell : NSTextFieldCell {
   var completes: Bool
   func completedString(string: String) -> String?
   unowned(unsafe) var dataSource: @sil_unmanaged NSComboBoxCellDataSource?
-  func addItemWithObjectValue(object: AnyObject)
-  func addItemsWithObjectValues(objects: [AnyObject])
-  func insertItemWithObjectValue(object: AnyObject, at index: Int)
-  func removeItemWithObjectValue(object: AnyObject)
+  func addItem(objectValue object: AnyObject)
+  func addItems(objectValues objects: [AnyObject])
+  func insertItem(objectValue object: AnyObject, at index: Int)
+  func removeItem(objectValue object: AnyObject)
   func removeItemAt(index: Int)
   func removeAllItems()
-  func selectItemWithObjectValue(object: AnyObject?)
+  func selectItem(objectValue object: AnyObject?)
   func itemObjectValueAt(index: Int) -> AnyObject
   var objectValueOfSelectedItem: AnyObject? { get }
-  func indexOfItemWithObjectValue(object: AnyObject) -> Int
+  func indexOfItemWith(objectValue object: AnyObject) -> Int
   var objectValues: [AnyObject] { get }
   init(textCell aString: String)
   init(imageCell image: NSImage?)

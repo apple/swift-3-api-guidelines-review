@@ -21,7 +21,7 @@ class UserActivity : Object {
   @available(OSX 10.11, *)
   func resignCurrent()
   func invalidate()
-  func getContinuationStreamsWithCompletionHandler(completionHandler: (InputStream?, OutputStream?, Error?) -> Void)
+  func getContinuationStreams(completionHandler completionHandler: (InputStream?, OutputStream?, Error?) -> Void)
   @available(OSX 10.11, *)
   var isEligibleForHandoff: Bool
   @available(OSX 10.11, *)

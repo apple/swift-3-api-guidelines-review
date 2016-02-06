@@ -14,9 +14,9 @@ class GKObstacleGraph : GKGraph {
   var obstacles: [GKPolygonObstacle] { get }
   var bufferRadius: Float { get }
   init(obstacles: [GKPolygonObstacle], bufferRadius: Float)
-  func connectNodeUsingObstacles(node: GKGraphNode2D)
-  func connectNodeUsingObstacles(node: GKGraphNode2D, ignoring obstaclesToIgnore: [GKPolygonObstacle])
-  func connectNodeUsingObstacles(node: GKGraphNode2D, ignoringBufferRadiusOf obstaclesBufferRadiusToIgnore: [GKPolygonObstacle])
+  func connectNodeUsing(obstacles node: GKGraphNode2D)
+  func connectNodeUsing(obstacles node: GKGraphNode2D, ignoring obstaclesToIgnore: [GKPolygonObstacle])
+  func connectNodeUsing(obstacles node: GKGraphNode2D, ignoringBufferRadiusOf obstaclesBufferRadiusToIgnore: [GKPolygonObstacle])
   func addObstacles(obstacles: [GKPolygonObstacle])
   func removeObstacles(obstacles: [GKPolygonObstacle])
   func removeAllObstacles()
@@ -34,8 +34,8 @@ class GKGridGraph : GKGraph {
   var gridHeight: Int { get }
   var diagonalsAllowed: Bool { get }
   init(fromGridStartingAt position: vector_int2, width: Int32, height: Int32, diagonalsAllowed: Bool)
-  func nodeAtGridPosition(position: vector_int2) -> GKGridGraphNode?
-  func connectNodeToAdjacentNodes(node: GKGridGraphNode)
+  func nodeAt(gridPosition position: vector_int2) -> GKGridGraphNode?
+  func connectNodeTo(adjacentNodes node: GKGridGraphNode)
   init(nodes: [GKGraphNode])
   init()
 }

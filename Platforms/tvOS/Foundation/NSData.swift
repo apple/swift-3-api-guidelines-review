@@ -54,8 +54,8 @@ class Data : Object, Copying, MutableCopying, SecureCoding {
   var length: Int { get }
   var bytes: UnsafePointer<Void> { get }
   init()
-  func copy(zone zone: Zone = nil) -> AnyObject
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
@@ -66,14 +66,14 @@ extension Data {
   func getBytes(buffer: UnsafeMutablePointer<Void>, range: NSRange)
   func isEqualTo(other: Data) -> Bool
   func subdataWith(range: NSRange) -> Data
-  func writeToFile(path: String, atomically useAuxiliaryFile: Bool) -> Bool
+  func writeTo(file path: String, atomically useAuxiliaryFile: Bool) -> Bool
   func writeTo(url: URL, atomically: Bool) -> Bool
-  func writeToFile(path: String, options writeOptionsMask: DataWritingOptions = []) throws
+  func writeTo(file path: String, options writeOptionsMask: DataWritingOptions = []) throws
   func writeTo(url: URL, options writeOptionsMask: DataWritingOptions = []) throws
   @available(tvOS 4.0, *)
   func rangeOf(dataToFind: Data, options mask: DataSearchOptions = [], range searchRange: NSRange) -> NSRange
   @available(tvOS 7.0, *)
-  func enumerateByteRangesUsing(block: (UnsafePointer<Void>, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateByteRanges(block: (UnsafePointer<Void>, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
 }
 extension Data {
   init(bytes: UnsafePointer<Void>, length: Int)
@@ -91,17 +91,17 @@ extension Data {
   @available(tvOS 7.0, *)
   init?(base64EncodedString base64String: String, options: DataBase64DecodingOptions = [])
   @available(tvOS 7.0, *)
-  func base64EncodedString(options options: DataBase64EncodingOptions = []) -> String
+  func base64EncodedStringWith(options: DataBase64EncodingOptions = []) -> String
   @available(tvOS 7.0, *)
   init?(base64EncodedData base64Data: Data, options: DataBase64DecodingOptions = [])
   @available(tvOS 7.0, *)
-  func base64EncodedData(options options: DataBase64EncodingOptions = []) -> Data
+  func base64EncodedDataWith(options: DataBase64EncodingOptions = []) -> Data
 }
 extension Data {
   @available(tvOS, introduced=2.0, deprecated=8.0, message="This method is unsafe because it could potentially cause buffer overruns. Use -getBytes:length: instead.")
   func getBytes(buffer: UnsafeMutablePointer<Void>)
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use +dataWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
-  class func dataWithContentsOfMappedFile(path: String) -> AnyObject?
+  class func dataWithContentsOf(mappedFile path: String) -> AnyObject?
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
   init?(contentsOfMappedFile path: String)
 }

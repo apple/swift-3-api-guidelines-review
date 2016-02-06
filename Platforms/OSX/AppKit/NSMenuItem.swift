@@ -15,7 +15,7 @@ class NSMenuItem : Object, Copying, Coding, NSValidatedUserInterfaceItem {
   var keyEquivalent: String
   var keyEquivalentModifierMask: Int
   var userKeyEquivalent: String { get }
-  func setTitleWithMnemonic(stringWithAmpersand: String)
+  func setTitleWith(mnemonic stringWithAmpersand: String)
   var image: NSImage?
   var state: Int
   var onStateImage: NSImage!
@@ -38,7 +38,7 @@ class NSMenuItem : Object, Copying, Coding, NSValidatedUserInterfaceItem {
   var isHiddenOrHasHiddenAncestor: Bool { get }
   var toolTip: String?
   init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

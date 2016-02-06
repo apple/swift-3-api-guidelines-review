@@ -28,9 +28,9 @@ class NSWindowController : NSResponder, Coding, NSSeguePerforming {
   @available(OSX 10.10, *)
   func prepareFor(segue: NSStoryboardSegue, sender: AnyObject?)
   @available(OSX 10.10, *)
-  func performSegueWithIdentifier(identifier: String, sender: AnyObject?)
+  func performSegue(identifier identifier: String, sender: AnyObject?)
   @available(OSX 10.10, *)
-  func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool
+  func shouldPerformSegueWith(identifier identifier: String, sender: AnyObject?) -> Bool
 }
 struct __wcFlags {
   var shouldCloseDocument: UInt32

@@ -22,7 +22,7 @@ class NSTrackingArea : Object, Copying, Coding {
   var userInfo: [Object : AnyObject]? { get }
   init()
   @available(OSX 10.5, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.5, *)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)

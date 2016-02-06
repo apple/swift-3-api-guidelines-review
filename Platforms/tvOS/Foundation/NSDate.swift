@@ -8,7 +8,7 @@ class Date : Object, Copying, SecureCoding {
   init()
   init(timeIntervalSinceReferenceDate ti: TimeInterval)
   init?(coder aDecoder: Coder)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
 }
@@ -28,7 +28,7 @@ extension Date {
   func compare(other: Date) -> ComparisonResult
   func isEqualTo(otherDate: Date) -> Bool
   var description: String { get }
-  func descriptionWithLocale(locale: AnyObject?) -> String
+  func descriptionWith(locale locale: AnyObject?) -> String
   class func timeIntervalSinceReferenceDate() -> TimeInterval
 }
 extension Date {

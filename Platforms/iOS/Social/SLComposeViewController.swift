@@ -8,7 +8,7 @@ enum SLComposeViewControllerResult : Int {
 typealias SLComposeViewControllerCompletionHandler = (SLComposeViewControllerResult) -> Void
 @available(iOS 6.0, *)
 class SLComposeViewController : UIViewController {
-  class func isAvailableForServiceType(serviceType: String!) -> Bool
+  class func isAvailableFor(serviceType serviceType: String!) -> Bool
   /*not inherited*/ init!(forServiceType serviceType: String!)
   var serviceType: String! { get }
   func setInitialText(text: String!) -> Bool

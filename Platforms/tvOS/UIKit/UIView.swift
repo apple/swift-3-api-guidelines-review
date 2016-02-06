@@ -153,7 +153,7 @@ class UIView : UIResponder, Coding, UIAppearance, UIAppearanceContainer, UIDynam
   @available(tvOS 2.0, *)
   class func appearance() -> Self
   @available(tvOS 9.0, *)
-  class func appearanceWhenContainedInInstancesOfClasses(containerTypes: [AnyObject.Type]) -> Self
+  class func appearanceWhenContainedInInstancesOf(classes containerTypes: [AnyObject.Type]) -> Self
   @available(tvOS 8.0, *)
   class func appearanceFor(trait: UITraitCollection) -> Self
   @available(tvOS 9.0, *)
@@ -217,11 +217,11 @@ extension UIView {
   func addSubview(view: UIView)
   func insertSubview(view: UIView, belowSubview siblingSubview: UIView)
   func insertSubview(view: UIView, aboveSubview siblingSubview: UIView)
-  func bringSubviewToFront(view: UIView)
+  func bringSubviewTo(front view: UIView)
   func sendSubviewToBack(view: UIView)
   func didAddSubview(subview: UIView)
   func willRemoveSubview(subview: UIView)
-  func willMoveToSuperview(newSuperview: UIView?)
+  func willMoveTo(superview newSuperview: UIView?)
   func didMoveToSuperview()
   func willMoveTo(newWindow: UIWindow?)
   func didMoveToWindow()
@@ -273,7 +273,7 @@ extension UIView {
   class func setAnimationCurve(curve: UIViewAnimationCurve)
   class func setAnimationRepeatCount(repeatCount: Float)
   class func setAnimationRepeatAutoreverses(repeatAutoreverses: Bool)
-  class func setAnimationBeginsFromCurrentState(fromCurrentState: Bool)
+  class func setAnimationBeginsFrom(currentState fromCurrentState: Bool)
   class func setAnimationTransition(transition: UIViewAnimationTransition, forView view: UIView, cache: Bool)
   class func setAnimationsEnabled(enabled: Bool)
   class func areAnimationsEnabled() -> Bool
@@ -284,13 +284,13 @@ extension UIView {
 }
 extension UIView {
   @available(tvOS 4.0, *)
-  class func animateWithDuration(duration: TimeInterval, delay: TimeInterval, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animate(duration duration: TimeInterval, delay: TimeInterval, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 4.0, *)
-  class func animateWithDuration(duration: TimeInterval, animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animate(duration duration: TimeInterval, animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 4.0, *)
-  class func animateWithDuration(duration: TimeInterval, animations: () -> Void)
+  class func animate(duration duration: TimeInterval, animations: () -> Void)
   @available(tvOS 7.0, *)
-  class func animateWithDuration(duration: TimeInterval, delay: TimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animate(duration duration: TimeInterval, delay: TimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 4.0, *)
   class func transitionWith(view: UIView, duration: TimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 4.0, *)
@@ -300,7 +300,7 @@ extension UIView {
 }
 extension UIView {
   @available(tvOS 7.0, *)
-  class func animateKeyframesWithDuration(duration: TimeInterval, delay: TimeInterval, options: UIViewKeyframeAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animateKeyframes(duration duration: TimeInterval, delay: TimeInterval, options: UIViewKeyframeAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 7.0, *)
   class func addKeyframeWithRelativeStartTime(frameStartTime: Double, relativeDuration frameDuration: Double, animations: () -> Void)
 }
@@ -358,9 +358,9 @@ extension UIView {
 }
 extension UIView {
   @available(tvOS 6.0, *)
-  func alignmentRectForFrame(frame: CGRect) -> CGRect
+  func alignmentRectFor(frame frame: CGRect) -> CGRect
   @available(tvOS 6.0, *)
-  func frameForAlignmentRect(alignmentRect: CGRect) -> CGRect
+  func frameFor(alignmentRect alignmentRect: CGRect) -> CGRect
   @available(tvOS 6.0, *)
   func alignmentRectInsets() -> UIEdgeInsets
   @available(tvOS 9.0, *)
@@ -438,13 +438,13 @@ extension UIView {
   @available(tvOS 6.0, *)
   var restorationIdentifier: String?
   @available(tvOS 6.0, *)
-  func encodeRestorableStateWith(coder: Coder)
+  func encodeRestorableState(coder: Coder)
   @available(tvOS 6.0, *)
-  func decodeRestorableStateWith(coder: Coder)
+  func decodeRestorableState(coder: Coder)
 }
 extension UIView {
   @available(tvOS 7.0, *)
-  func snapshotViewAfterScreenUpdates(afterUpdates: Bool) -> UIView
+  func snapshotViewAfter(screenUpdates afterUpdates: Bool) -> UIView
   @available(tvOS 7.0, *)
   func resizableSnapshotViewFrom(rect: CGRect, afterScreenUpdates afterUpdates: Bool, withCapInsets capInsets: UIEdgeInsets) -> UIView
   @available(tvOS 7.0, *)

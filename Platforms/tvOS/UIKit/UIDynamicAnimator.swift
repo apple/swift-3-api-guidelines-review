@@ -14,7 +14,7 @@ class UIDynamicAnimator : Object {
   var referenceView: UIView? { get }
   var behaviors: [UIDynamicBehavior] { get }
   func itemsIn(rect: CGRect) -> [UIDynamicItem]
-  func updateItemUsingCurrentState(item: UIDynamicItem)
+  func updateItemUsing(currentState item: UIDynamicItem)
   var isRunning: Bool { get }
   func elapsedTime() -> TimeInterval
   weak var delegate: @sil_weak UIDynamicAnimatorDelegate?
@@ -23,6 +23,6 @@ class UIDynamicAnimator : Object {
 extension UIDynamicAnimator {
   convenience init(collectionViewLayout layout: UICollectionViewLayout)
   func layoutAttributesForCellAt(indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForSupplementaryViewOfKind(kind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForDecorationViewOfKind(decorationViewKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryViewOf(kind kind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForDecorationViewOf(kind decorationViewKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
 }

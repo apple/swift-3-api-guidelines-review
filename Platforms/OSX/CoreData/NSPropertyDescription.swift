@@ -26,7 +26,7 @@ class NSPropertyDescription : Object, Coding, Copying {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.4, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 struct __propertyDescriptionFlags {
   var _isReadOnly: UInt32

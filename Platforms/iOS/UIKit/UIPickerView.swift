@@ -5,13 +5,13 @@ class UIPickerView : UIView, Coding, UITableViewDataSource {
   weak var delegate: @sil_weak UIPickerViewDelegate?
   var showsSelectionIndicator: Bool
   var numberOfComponents: Int { get }
-  func numberOfRowsInComponent(component: Int) -> Int
-  func rowSizeForComponent(component: Int) -> CGSize
-  func viewForRow(row: Int, forComponent component: Int) -> UIView?
+  func numberOfRowsIn(component component: Int) -> Int
+  func rowSizeFor(component component: Int) -> CGSize
+  func viewFor(row row: Int, forComponent component: Int) -> UIView?
   func reloadAllComponents()
   func reloadComponent(component: Int)
   func selectRow(row: Int, inComponent component: Int, animated: Bool)
-  func selectedRowInComponent(component: Int) -> Int
+  func selectedRowIn(component component: Int) -> Int
   init(frame: CGRect)
   init?(coder aDecoder: Coder)
   convenience init()

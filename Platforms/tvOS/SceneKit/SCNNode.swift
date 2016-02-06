@@ -40,10 +40,10 @@ class SCNNode : Object, Copying, SecureCoding, SCNAnimatable, SCNActionable, SCN
   func insertChildNode(child: SCNNode, at index: Int)
   func removeFromParentNode()
   func replaceChildNode(oldChild: SCNNode, with newChild: SCNNode)
-  func childNodeWithName(name: String, recursively: Bool) -> SCNNode?
+  func childNodeWith(name name: String, recursively: Bool) -> SCNNode?
   func childNodesPassingTest(predicate: (SCNNode, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [SCNNode]
   @available(tvOS 8.0, *)
-  func enumerateChildNodesUsing(block: (SCNNode, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateChildNodes(block: (SCNNode, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 8.0, *)
   func convertPosition(position: SCNVector3, to node: SCNNode?) -> SCNVector3
   @available(tvOS 8.0, *)
@@ -65,12 +65,12 @@ class SCNNode : Object, Copying, SecureCoding, SCNAnimatable, SCNActionable, SCN
   var isPaused: Bool
   unowned(unsafe) var rendererDelegate: @sil_unmanaged SCNNodeRendererDelegate?
   @available(tvOS 8.0, *)
-  func hitTestWithSegmentFromPoint(pointA: SCNVector3, toPoint pointB: SCNVector3, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
+  func hitTestWithSegmentFrom(point pointA: SCNVector3, toPoint pointB: SCNVector3, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
   @available(tvOS 8.0, *)
   var categoryBitMask: Int
   init()
   @available(tvOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
@@ -81,19 +81,19 @@ class SCNNode : Object, Copying, SecureCoding, SCNAnimatable, SCNActionable, SCN
   @available(tvOS 8.0, *)
   func removeAllAnimations()
   @available(tvOS 8.0, *)
-  func removeAnimationForKey(key: String)
+  func removeAnimationFor(key key: String)
   @available(tvOS 8.0, *)
   var animationKeys: [String] { get }
   @available(tvOS 8.0, *)
-  func animationForKey(key: String) -> CAAnimation?
+  func animationFor(key key: String) -> CAAnimation?
   @available(tvOS 8.0, *)
-  func pauseAnimationForKey(key: String)
+  func pauseAnimationFor(key key: String)
   @available(tvOS 8.0, *)
-  func resumeAnimationForKey(key: String)
+  func resumeAnimationFor(key key: String)
   @available(tvOS 8.0, *)
-  func isAnimationForKeyPaused(key: String) -> Bool
+  func isAnimationFor(keyPaused key: String) -> Bool
   @available(tvOS 8.0, *)
-  func removeAnimationForKey(key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimationFor(key key: String, fadeOutDuration duration: CGFloat)
   @available(tvOS 8.0, *)
   func run(action: SCNAction)
   @available(tvOS 8.0, *)
@@ -105,9 +105,9 @@ class SCNNode : Object, Copying, SecureCoding, SCNAnimatable, SCNActionable, SCN
   @available(tvOS 8.0, *)
   var hasActions: Bool { get }
   @available(tvOS 8.0, *)
-  func actionForKey(key: String) -> SCNAction?
+  func actionFor(key key: String) -> SCNAction?
   @available(tvOS 8.0, *)
-  func removeActionForKey(key: String)
+  func removeActionFor(key key: String)
   @available(tvOS 8.0, *)
   func removeAllActions()
   @available(tvOS 8.0, *)

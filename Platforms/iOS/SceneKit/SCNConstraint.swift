@@ -5,7 +5,7 @@ class SCNConstraint : Object, Copying, SecureCoding, SCNAnimatable {
   var influenceFactor: CGFloat
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
@@ -16,19 +16,19 @@ class SCNConstraint : Object, Copying, SecureCoding, SCNAnimatable {
   @available(iOS 8.0, *)
   func removeAllAnimations()
   @available(iOS 8.0, *)
-  func removeAnimationForKey(key: String)
+  func removeAnimationFor(key key: String)
   @available(iOS 8.0, *)
   var animationKeys: [String] { get }
   @available(iOS 8.0, *)
-  func animationForKey(key: String) -> CAAnimation?
+  func animationFor(key key: String) -> CAAnimation?
   @available(iOS 8.0, *)
-  func pauseAnimationForKey(key: String)
+  func pauseAnimationFor(key key: String)
   @available(iOS 8.0, *)
-  func resumeAnimationForKey(key: String)
+  func resumeAnimationFor(key key: String)
   @available(iOS 8.0, *)
-  func isAnimationForKeyPaused(key: String) -> Bool
+  func isAnimationFor(keyPaused key: String) -> Bool
   @available(iOS 8.0, *)
-  func removeAnimationForKey(key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimationFor(key key: String, fadeOutDuration duration: CGFloat)
 }
 @available(iOS 8.0, *)
 class SCNLookAtConstraint : SCNConstraint {
@@ -62,11 +62,11 @@ class SCNTransformConstraint : SCNConstraint {
 class SCNIKConstraint : SCNConstraint {
   @available(iOS 9.0, *)
   init(chainRootNode: SCNNode)
-  class func inverseKinematicsConstraintWithChainRootNode(chainRootNode: SCNNode) -> Self
+  class func inverseKinematicsConstraintWith(chainRootNode chainRootNode: SCNNode) -> Self
   var chainRootNode: SCNNode { get }
   var targetPosition: SCNVector3
   func setMaxAllowedRotationAngle(angle: CGFloat, forJoint node: SCNNode)
-  func maxAllowedRotationAngleForJoint(node: SCNNode) -> CGFloat
+  func maxAllowedRotationAngleFor(joint node: SCNNode) -> CGFloat
   init()
   init?(coder aDecoder: Coder)
 }

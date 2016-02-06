@@ -11,7 +11,7 @@ class NSTextTab : Object, Copying, Coding {
   var options: [String : AnyObject] { get }
   convenience init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
@@ -30,7 +30,7 @@ enum NSLineBreakMode : Int {
 @available(watchOS 2.0, *)
 class NSParagraphStyle : Object, Copying, MutableCopying, SecureCoding {
   class func defaultParagraphStyle() -> NSParagraphStyle
-  class func defaultWritingDirectionForLanguage(languageName: String?) -> NSWritingDirection
+  class func defaultWritingDirectionFor(language languageName: String?) -> NSWritingDirection
   var lineSpacing: CGFloat { get }
   var paragraphSpacing: CGFloat { get }
   var alignment: NSTextAlignment { get }
@@ -52,9 +52,9 @@ class NSParagraphStyle : Object, Copying, MutableCopying, SecureCoding {
   var allowsDefaultTighteningForTruncation: Bool { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)

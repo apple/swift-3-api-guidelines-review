@@ -1,8 +1,8 @@
 
 @available(tvOS 3.0, *)
 class NSEntityDescription : Object, Coding, Copying, FastEnumeration {
-  class func entityForName(entityName: String, in context: NSManagedObjectContext) -> NSEntityDescription?
-  class func insertNewObjectForEntityForName(entityName: String, in context: NSManagedObjectContext) -> NSManagedObject
+  class func entityFor(name entityName: String, in context: NSManagedObjectContext) -> NSEntityDescription?
+  class func insertNewObjectForEntityFor(name entityName: String, in context: NSManagedObjectContext) -> NSManagedObject
   unowned(unsafe) var managedObjectModel: @sil_unmanaged NSManagedObjectModel { get }
   var managedObjectClassName: String!
   var name: String?
@@ -15,9 +15,9 @@ class NSEntityDescription : Object, Coding, Copying, FastEnumeration {
   var userInfo: [Object : AnyObject]?
   var attributesByName: [String : NSAttributeDescription] { get }
   var relationshipsByName: [String : NSRelationshipDescription] { get }
-  func relationshipsWithDestinationEntity(entity: NSEntityDescription) -> [NSRelationshipDescription]
+  func relationshipsWith(destinationEntity entity: NSEntityDescription) -> [NSRelationshipDescription]
   @available(tvOS 3.0, *)
-  func isKindOfEntity(entity: NSEntityDescription) -> Bool
+  func isKindOf(entity entity: NSEntityDescription) -> Bool
   @available(tvOS 3.0, *)
   @NSCopying var versionHash: Data { get }
   @available(tvOS 3.0, *)
@@ -33,9 +33,9 @@ class NSEntityDescription : Object, Coding, Copying, FastEnumeration {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(tvOS 3.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 3.0, *)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 struct __entityDescriptionFlags {
   var _isAbstract: UInt32

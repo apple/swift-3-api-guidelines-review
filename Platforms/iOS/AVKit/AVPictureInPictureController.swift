@@ -14,15 +14,15 @@ class AVPictureInPictureController : Object {
 }
 protocol AVPictureInPictureControllerDelegate : ObjectProtocol {
   @available(iOS 9.0, *)
-  optional func pictureInPictureControllerWillStartPictureInPicture(pictureInPictureController: AVPictureInPictureController)
+  optional func pictureInPictureControllerWillStartPictureIn(picture pictureInPictureController: AVPictureInPictureController)
   @available(iOS 9.0, *)
-  optional func pictureInPictureControllerDidStartPictureInPicture(pictureInPictureController: AVPictureInPictureController)
+  optional func pictureInPictureControllerDidStartPictureIn(picture pictureInPictureController: AVPictureInPictureController)
   @available(iOS 9.0, *)
-  optional func pictureInPictureController(pictureInPictureController: AVPictureInPictureController, failedToStartPictureInPictureWithError error: Error)
+  optional func pictureIn(pictureInPictureController: AVPictureInPictureController, failedToStartPictureInPictureWithError error: Error)
   @available(iOS 9.0, *)
-  optional func pictureInPictureControllerWillStopPictureInPicture(pictureInPictureController: AVPictureInPictureController)
+  optional func pictureInPictureControllerWillStopPictureIn(picture pictureInPictureController: AVPictureInPictureController)
   @available(iOS 9.0, *)
-  optional func pictureInPictureControllerDidStopPictureInPicture(pictureInPictureController: AVPictureInPictureController)
+  optional func pictureInPictureControllerDidStopPictureIn(picture pictureInPictureController: AVPictureInPictureController)
   @available(iOS 9.0, *)
-  optional func pictureInPictureController(pictureInPictureController: AVPictureInPictureController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: (Bool) -> Void)
+  optional func pictureIn(pictureInPictureController: AVPictureInPictureController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: (Bool) -> Void)
 }

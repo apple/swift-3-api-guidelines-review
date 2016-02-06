@@ -5,13 +5,13 @@ typealias ItemProviderLoadHandler = (ItemProviderCompletionHandler!, AnyClass!, 
 class ItemProvider : Object, Copying {
   init(item: SecureCoding?, typeIdentifier: String?)
   convenience init?(contentsOf fileURL: URL!)
-  func registerItemForTypeIdentifier(typeIdentifier: String, loadHandler: ItemProviderLoadHandler)
+  func registerItemFor(typeIdentifier typeIdentifier: String, loadHandler: ItemProviderLoadHandler)
   var registeredTypeIdentifiers: [AnyObject] { get }
-  func hasItemConformingToTypeIdentifier(typeIdentifier: String) -> Bool
-  func loadItemForTypeIdentifier(typeIdentifier: String, options: [Object : AnyObject]? = [:], completionHandler: ItemProviderCompletionHandler? = nil)
+  func hasItemConformingTo(typeIdentifier typeIdentifier: String) -> Bool
+  func loadItemFor(typeIdentifier typeIdentifier: String, options: [Object : AnyObject]? = [:], completionHandler: ItemProviderCompletionHandler? = nil)
   convenience init()
   @available(OSX 10.10, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.10, *)
 let itemProviderPreferredImageSizeKey: String

@@ -31,10 +31,10 @@ class NSRunningApplication : Object {
   var executableArchitecture: Int { get }
   func hide() -> Bool
   func unhide() -> Bool
-  func activate(options options: NSApplicationActivationOptions = []) -> Bool
+  func activateWith(options: NSApplicationActivationOptions = []) -> Bool
   func terminate() -> Bool
   func forceTerminate() -> Bool
-  class func runningApplicationsWithBundleIdentifier(bundleIdentifier: String) -> [NSRunningApplication]
+  class func runningApplicationsWith(bundleIdentifier bundleIdentifier: String) -> [NSRunningApplication]
   convenience init?(processIdentifier pid: pid_t)
   class func current() -> Self
   class func terminateAutomaticallyTerminableApplications()

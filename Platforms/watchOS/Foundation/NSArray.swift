@@ -5,11 +5,11 @@ class NSArray : Object, Copying, MutableCopying, SecureCoding, FastEnumeration {
   init()
   init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
   init?(coder aDecoder: Coder)
-  func copy(zone zone: Zone = nil) -> AnyObject
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSArray : ArrayLiteralConvertible {
@@ -40,8 +40,8 @@ extension NSArray {
   func componentsJoinedBy(separator: String) -> String
   func contains(anObject: AnyObject) -> Bool
   var description: String { get }
-  func descriptionWithLocale(locale: AnyObject?) -> String
-  func descriptionWithLocale(locale: AnyObject?, indent level: Int) -> String
+  func descriptionWith(locale locale: AnyObject?) -> String
+  func descriptionWith(locale locale: AnyObject?, indent level: Int) -> String
   func firstObjectCommonWith(otherArray: [AnyObject]) -> AnyObject?
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, range: NSRange)
   func indexOf(anObject: AnyObject) -> Int
@@ -55,37 +55,37 @@ extension NSArray {
   func objectEnumerator() -> Enumerator
   func reverseObjectEnumerator() -> Enumerator
   @NSCopying var sortedArrayHint: Data { get }
-  func sortedArrayUsing(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>) -> [AnyObject]
-  func sortedArrayUsing(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>, hint: Data?) -> [AnyObject]
+  func sortedArray(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>) -> [AnyObject]
+  func sortedArray(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>, hint: Data?) -> [AnyObject]
   func sortedArrayUsing(comparator: Selector) -> [AnyObject]
   func subarrayWith(range: NSRange) -> [AnyObject]
-  func writeToFile(path: String, atomically useAuxiliaryFile: Bool) -> Bool
+  func writeTo(file path: String, atomically useAuxiliaryFile: Bool) -> Bool
   func writeTo(url: URL, atomically: Bool) -> Bool
   func objectsAt(indexes: IndexSet) -> [AnyObject]
   @available(watchOS 2.0, *)
-  subscript (idx: Int) -> AnyObject { get }
+  subscript (indexedSubscript idx: Int) -> AnyObject { get }
   @available(watchOS 2.0, *)
-  func enumerateObjectsUsing(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
-  func enumerateObjects(options opts: EnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(opts: EnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
   func enumerateObjectsAt(s: IndexSet, options opts: EnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
   func indexOfObjectPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(watchOS 2.0, *)
-  func indexOfObject(options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexOfObjectWith(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(watchOS 2.0, *)
   func indexOfObjectAt(s: IndexSet, options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(watchOS 2.0, *)
   func indexesOfObjectsPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
   @available(watchOS 2.0, *)
-  func indexesOfObjects(options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
+  func indexesOfObjectsWith(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
   @available(watchOS 2.0, *)
   func indexesOfObjectsAt(s: IndexSet, options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
   @available(watchOS 2.0, *)
-  func sortedArrayUsingComparator(cmptr: Comparator) -> [AnyObject]
+  func sortedArray(comparator cmptr: Comparator) -> [AnyObject]
   @available(watchOS 2.0, *)
-  func sortedArray(options opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
+  func sortedArrayWith(opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
   @available(watchOS 2.0, *)
   func indexOf(obj: AnyObject, inSortedRange r: NSRange, options opts: BinarySearchingOptions = [], usingComparator cmp: Comparator) -> Int
 }
@@ -129,23 +129,23 @@ extension MutableArray {
   func removeObjectIdenticalTo(anObject: AnyObject, in range: NSRange)
   func removeObjectIdenticalTo(anObject: AnyObject)
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  func removeObjectsFromIndices(indices: UnsafeMutablePointer<Int>, numIndices cnt: Int)
+  func removeObjectsFrom(indices indices: UnsafeMutablePointer<Int>, numIndices cnt: Int)
   func removeObjectsIn(otherArray: [AnyObject])
   func removeObjectsIn(range: NSRange)
   func replaceObjectsIn(range: NSRange, withObjectsFrom otherArray: [AnyObject], range otherRange: NSRange)
   func replaceObjectsIn(range: NSRange, withObjectsFrom otherArray: [AnyObject])
   func setArray(otherArray: [AnyObject])
-  func sortUsing(compare: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>)
+  func sort(compare: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>)
   func sortUsing(comparator: Selector)
   func insert(objects: [AnyObject], at indexes: IndexSet)
   func removeObjectsAt(indexes: IndexSet)
   func replaceObjectsAt(indexes: IndexSet, withObjects objects: [AnyObject])
   @available(watchOS 2.0, *)
-  subscript (idx: Int) -> AnyObject
+  subscript (indexedSubscript idx: Int) -> AnyObject
   @available(watchOS 2.0, *)
-  func sortUsingComparator(cmptr: Comparator)
+  func sort(comparator cmptr: Comparator)
   @available(watchOS 2.0, *)
-  func sort(options opts: SortOptions = [], usingComparator cmptr: Comparator)
+  func sortWith(opts: SortOptions = [], usingComparator cmptr: Comparator)
 }
 extension MutableArray {
   convenience init?(contentsOfFile path: String)

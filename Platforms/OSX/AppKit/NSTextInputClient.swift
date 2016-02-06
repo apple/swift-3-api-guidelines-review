@@ -8,9 +8,9 @@ protocol NSTextInputClient {
   func markedRange() -> NSRange
   func hasMarkedText() -> Bool
   @available(OSX 10.0, *)
-  func attributedSubstringForProposedRange(aRange: NSRange, actualRange: RangePointer) -> AttributedString?
+  func attributedSubstringFor(proposedRange aRange: NSRange, actualRange: RangePointer) -> AttributedString?
   func validAttributesForMarkedText() -> [String]
-  func firstRectForCharacterRange(aRange: NSRange, actualRange: RangePointer) -> Rect
+  func firstRectFor(characterRange aRange: NSRange, actualRange: RangePointer) -> Rect
   func characterIndexFor(aPoint: Point) -> Int
   @available(OSX 10.0, *)
   optional func attributedString() -> AttributedString

@@ -37,11 +37,11 @@ class NetService : Object {
   var port: Int { get }
   func publish()
   @available(OSX 10.5, *)
-  func publish(options options: NetServiceOptions = [])
+  func publishWith(options: NetServiceOptions = [])
   func stop()
   class func dictionaryFromTXTRecord(txtData: Data) -> [String : Data]
   class func dataFromTXTRecord(txtDictionary: [String : Data]) -> Data
-  func resolveWithTimeout(timeout: TimeInterval)
+  func resolve(timeout timeout: TimeInterval)
   func getInputStream(inputStream: UnsafeMutablePointer<InputStream?>, outputStream: UnsafeMutablePointer<OutputStream?>) -> Bool
   func setTXTRecord(recordData: Data?) -> Bool
   func txtRecordData() -> Data?
@@ -58,7 +58,7 @@ class NetServiceBrowser : Object {
   func removeFrom(aRunLoop: RunLoop, forMode mode: String)
   func searchForBrowsableDomains()
   func searchForRegistrationDomains()
-  func searchForServicesOfType(type: String, inDomain domainString: String)
+  func searchForServicesOf(type type: String, inDomain domainString: String)
   func stop()
 }
 protocol NetServiceDelegate : ObjectProtocol {

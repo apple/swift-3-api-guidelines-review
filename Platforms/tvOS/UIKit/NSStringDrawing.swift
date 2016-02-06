@@ -8,7 +8,7 @@ class NSStringDrawingContext : Object {
 }
 extension NSString {
   @available(tvOS 7.0, *)
-  func size(attributes attrs: [String : AnyObject]? = [:]) -> CGSize
+  func sizeWith(attributes attrs: [String : AnyObject]? = [:]) -> CGSize
   @available(tvOS 7.0, *)
   func drawAt(point: CGPoint, withAttributes attrs: [String : AnyObject]? = [:])
   @available(tvOS 7.0, *)
@@ -34,13 +34,13 @@ struct NSStringDrawingOptions : OptionSetType {
 }
 extension NSString {
   @available(tvOS 7.0, *)
-  func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?)
+  func draw(rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?)
   @available(tvOS 7.0, *)
   func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?) -> CGRect
 }
 extension AttributedString {
   @available(tvOS 6.0, *)
-  func drawWith(rect: CGRect, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?)
+  func draw(rect: CGRect, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?)
   @available(tvOS 6.0, *)
   func boundingRectWith(size: CGSize, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?) -> CGRect
 }

@@ -5,12 +5,12 @@ class UILexiconEntry : Object, Copying {
   var userInput: String { get }
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class UILexicon : Object, Copying {
   var entries: [UILexiconEntry] { get }
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

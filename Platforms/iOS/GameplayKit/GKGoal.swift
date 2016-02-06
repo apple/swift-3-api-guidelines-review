@@ -15,5 +15,5 @@ class GKGoal : Object, Copying {
   convenience init(toStayOn path: GKPath, maxPredictionTime: TimeInterval)
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

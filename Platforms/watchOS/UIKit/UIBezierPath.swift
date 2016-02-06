@@ -45,11 +45,11 @@ class UIBezierPath : Object, Copying, Coding {
   func getLineDash(pattern: UnsafeMutablePointer<CGFloat>, count: UnsafeMutablePointer<Int>, phase: UnsafeMutablePointer<CGFloat>)
   func fill()
   func stroke()
-  func fillWith(blendMode: CGBlendMode, alpha: CGFloat)
-  func strokeWith(blendMode: CGBlendMode, alpha: CGFloat)
+  func fill(blendMode: CGBlendMode, alpha: CGFloat)
+  func stroke(blendMode: CGBlendMode, alpha: CGFloat)
   func addClip()
   @available(watchOS 2.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   func encodeWith(aCoder: Coder)
 }

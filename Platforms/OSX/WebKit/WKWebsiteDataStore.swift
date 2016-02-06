@@ -5,7 +5,7 @@ class WKWebsiteDataStore : Object {
   class func nonPersistent() -> WKWebsiteDataStore
   var isPersistent: Bool { get }
   class func allWebsiteDataTypes() -> Set<String>
-  func fetchDataRecordsOfTypes(dataTypes: Set<String>, completionHandler: ([WKWebsiteDataRecord]) -> Void)
-  func removeDataOfTypes(dataTypes: Set<String>, forDataRecords dataRecords: [WKWebsiteDataRecord], completionHandler: () -> Void)
-  func removeDataOfTypes(websiteDataTypes: Set<String>, modifiedSince date: Date, completionHandler: () -> Void)
+  func fetchDataRecordsOf(types dataTypes: Set<String>, completionHandler: ([WKWebsiteDataRecord]) -> Void)
+  func removeDataOf(types dataTypes: Set<String>, forDataRecords dataRecords: [WKWebsiteDataRecord], completionHandler: () -> Void)
+  func removeDataOf(types websiteDataTypes: Set<String>, modifiedSince date: Date, completionHandler: () -> Void)
 }

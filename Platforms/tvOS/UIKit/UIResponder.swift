@@ -32,7 +32,7 @@ class UIResponder : Object {
   @available(tvOS 3.0, *)
   func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool
   @available(tvOS 7.0, *)
-  func targetForAction(action: Selector, withSender sender: AnyObject?) -> AnyObject?
+  func targetFor(action action: Selector, withSender sender: AnyObject?) -> AnyObject?
   @available(tvOS 3.0, *)
   var undoManager: UndoManager? { get }
   init()
@@ -60,7 +60,7 @@ class UIKeyCommand : Object, Copying, SecureCoding {
   @available(tvOS 9.0, *)
   /*not inherited*/ init(input: String, modifierFlags: UIKeyModifierFlags, action: Selector, discoverabilityTitle: String)
   @available(tvOS 7.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 7.0, *)
@@ -96,13 +96,13 @@ extension Object {
   @available(tvOS 3.2, *)
   func delete(sender: AnyObject?)
   @available(tvOS 5.0, *)
-  class func makeTextWritingDirectionLeftToRight(sender: AnyObject?)
+  class func makeTextWritingDirectionLeftTo(right sender: AnyObject?)
   @available(tvOS 5.0, *)
-  func makeTextWritingDirectionLeftToRight(sender: AnyObject?)
+  func makeTextWritingDirectionLeftTo(right sender: AnyObject?)
   @available(tvOS 5.0, *)
-  class func makeTextWritingDirectionRightToLeft(sender: AnyObject?)
+  class func makeTextWritingDirectionRightTo(left sender: AnyObject?)
   @available(tvOS 5.0, *)
-  func makeTextWritingDirectionRightToLeft(sender: AnyObject?)
+  func makeTextWritingDirectionRightTo(left sender: AnyObject?)
   @available(tvOS 6.0, *)
   class func toggleBoldface(sender: AnyObject?)
   @available(tvOS 6.0, *)

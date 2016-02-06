@@ -35,7 +35,7 @@ class ProcessInfo : Object {
   @available(OSX 10.5, *)
   var physicalMemory: UInt64 { get }
   @available(OSX 10.10, *)
-  func isOperatingSystemAtLeastVersion(version: OperatingSystemVersion) -> Bool
+  func isOperatingSystemAt(leastVersion version: OperatingSystemVersion) -> Bool
   @available(OSX 10.6, *)
   var systemUptime: TimeInterval { get }
   @available(OSX 10.6, *)
@@ -65,11 +65,11 @@ struct ActivityOptions : OptionSetType {
 }
 extension ProcessInfo {
   @available(OSX 10.9, *)
-  func beginActivity(options options: ActivityOptions = [], reason: String) -> ObjectProtocol
+  func beginActivity(options: ActivityOptions = [], reason: String) -> ObjectProtocol
   @available(OSX 10.9, *)
   func endActivity(activity: ObjectProtocol)
   @available(OSX 10.9, *)
-  func performActivity(options options: ActivityOptions = [], reason: String, usingBlock block: () -> Void)
+  func performActivity(options: ActivityOptions = [], reason: String, usingBlock block: () -> Void)
 }
 @available(OSX 10.10.3, *)
 enum ProcessInfoThermalState : Int {

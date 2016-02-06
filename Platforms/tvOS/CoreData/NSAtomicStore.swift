@@ -10,7 +10,7 @@ class NSAtomicStore : NSPersistentStore {
   func addCacheNodes(cacheNodes: Set<NSAtomicStoreCacheNode>)
   func willRemoveCacheNodes(cacheNodes: Set<NSAtomicStoreCacheNode>)
   func cacheNodeFor(objectID: NSManagedObjectID) -> NSAtomicStoreCacheNode?
-  func objectIDForEntity(entity: NSEntityDescription, referenceObject data: AnyObject) -> NSManagedObjectID
+  func objectIDFor(entity entity: NSEntityDescription, referenceObject data: AnyObject) -> NSManagedObjectID
   func newReferenceObjectFor(managedObject: NSManagedObject) -> AnyObject
   func referenceObjectFor(objectID: NSManagedObjectID) -> AnyObject
 }

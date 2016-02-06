@@ -23,7 +23,7 @@ class AVAudioPlayerNode : AVAudioNode, AVAudioMixing {
   var isPlaying: Bool { get }
   init()
   @available(OSX 10.11, *)
-  func destinationForMixer(mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
+  func destinationFor(mixer mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(OSX 10.10, *)
   var volume: Float
   @available(OSX 10.10, *)

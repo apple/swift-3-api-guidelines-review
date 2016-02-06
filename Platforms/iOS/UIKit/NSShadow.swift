@@ -7,7 +7,7 @@ class NSShadow : Object, Copying, Coding {
   var shadowBlurRadius: CGFloat
   var shadowColor: AnyObject?
   @available(iOS 6.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 6.0, *)
   func encodeWith(aCoder: Coder)
 }

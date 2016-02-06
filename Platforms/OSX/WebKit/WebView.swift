@@ -15,12 +15,12 @@ let WebViewProgressEstimateChangedNotification: String
 let WebViewProgressFinishedNotification: String
 class WebView : NSView {
   class func canShowMIMEType(MIMEType: String!) -> Bool
-  class func canShowMIMETypeAsHTML(MIMEType: String!) -> Bool
+  class func canShowMIMETypeAs(html MIMEType: String!) -> Bool
   class func mimeTypesShownAsHTML() -> [AnyObject]!
-  class func setMIMETypesShownAsHTML(MIMETypes: [AnyObject]!)
+  class func setMIMETypesShownAs(html MIMETypes: [AnyObject]!)
   class func urlFrom(pasteboard: NSPasteboard!) -> URL!
   class func urlTitleFrom(pasteboard: NSPasteboard!) -> String!
-  class func registerURLSchemeAsLocal(scheme: String!)
+  class func registerURLSchemeAs(local scheme: String!)
   init!(frame: Rect, frameName: String!, groupName: String!)
   func close()
   var shouldCloseWithWindow: Bool
@@ -55,8 +55,8 @@ class WebView : NSView {
   var isLoading: Bool { get }
   func elementAt(point: Point) -> [Object : AnyObject]!
   var pasteboardTypesForSelection: [AnyObject]! { get }
-  func writeSelectionWithPasteboardTypes(types: [AnyObject]!, to pasteboard: NSPasteboard!)
-  func pasteboardTypesForElement(element: [Object : AnyObject]!) -> [AnyObject]!
+  func writeSelection(pasteboardTypes types: [AnyObject]!, to pasteboard: NSPasteboard!)
+  func pasteboardTypesFor(element element: [Object : AnyObject]!) -> [AnyObject]!
   func writeElement(element: [Object : AnyObject]!, withPasteboardTypes types: [AnyObject]!, to pasteboard: NSPasteboard!)
   func moveDragCaretTo(point: Point)
   func removeDragCaret()
@@ -74,7 +74,7 @@ extension WebView : NSUserInterfaceValidations {
   @IBAction func takeStringURLFrom(sender: AnyObject?)
   @IBAction func stopLoading(sender: AnyObject?)
   @IBAction func reload(sender: AnyObject?)
-  @IBAction func reloadFromOrigin(sender: AnyObject?)
+  @IBAction func reloadFrom(origin sender: AnyObject?)
   var canGoBack: Bool { get }
   @IBAction func goBack(sender: AnyObject?)
   var canGoForward: Bool { get }
@@ -110,13 +110,13 @@ extension WebView {
   var spellCheckerDocumentTag: Int { get }
   var undoManager: UndoManager! { get }
   var editingDelegate: AnyObject!
-  func styleDeclarationWithText(text: String!) -> DOMCSSStyleDeclaration!
+  func styleDeclarationWith(text text: String!) -> DOMCSSStyleDeclaration!
 }
 extension WebView {
-  func replaceSelectionWith(node: DOMNode!)
-  func replaceSelectionWithText(text: String!)
-  func replaceSelectionWithMarkupString(markupString: String!)
-  func replaceSelectionWith(archive: WebArchive!)
+  func replaceSelection(node: DOMNode!)
+  func replaceSelection(text text: String!)
+  func replaceSelection(markupString markupString: String!)
+  func replaceSelection(archive: WebArchive!)
   func deleteSelection()
   func applyStyle(style: DOMCSSStyleDeclaration!)
 }
@@ -127,8 +127,8 @@ extension WebView {
   func copyFont(sender: AnyObject?)
   func pasteFont(sender: AnyObject?)
   func delete(sender: AnyObject?)
-  func pasteAsPlainText(sender: AnyObject?)
-  func pasteAsRichText(sender: AnyObject?)
+  func pasteAs(plainText sender: AnyObject?)
+  func pasteAs(richText sender: AnyObject?)
   func changeFont(sender: AnyObject?)
   func changeAttributes(sender: AnyObject?)
   func changeDocumentBackgroundColor(sender: AnyObject?)
@@ -142,10 +142,10 @@ extension WebView {
   func performFindPanelAction(sender: AnyObject?)
   func startSpeaking(sender: AnyObject?)
   func stopSpeaking(sender: AnyObject?)
-  func moveToBeginningOfSentence(sender: AnyObject?)
-  func moveToBeginningOfSentenceAndModifySelection(sender: AnyObject?)
-  func moveToEndOfSentence(sender: AnyObject?)
-  func moveToEndOfSentenceAndModifySelection(sender: AnyObject?)
+  func moveToBeginningOf(sentence sender: AnyObject?)
+  func moveToBeginningOf(sentenceAndModifySelection sender: AnyObject?)
+  func moveToEndOf(sentence sender: AnyObject?)
+  func moveToEndOf(sentenceAndModifySelection sender: AnyObject?)
   func selectSentence(sender: AnyObject?)
   func overWrite(sender: AnyObject?)
 }

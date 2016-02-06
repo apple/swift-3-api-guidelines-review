@@ -13,11 +13,11 @@ typealias ACAccountStoreCredentialRenewalHandler = (ACAccountCredentialRenewResu
 @available(iOS 5.0, *)
 class ACAccountStore : Object {
   var accounts: [AnyObject]! { get }
-  func accountWithIdentifier(identifier: String!) -> ACAccount!
-  func accountTypeWithAccountTypeIdentifier(typeIdentifier: String!) -> ACAccountType!
+  func accountWith(identifier identifier: String!) -> ACAccount!
+  func accountTypeWith(accountTypeIdentifier typeIdentifier: String!) -> ACAccountType!
   func accountsWith(accountType: ACAccountType!) -> [AnyObject]!
   func saveAccount(account: ACAccount!, withCompletionHandler completionHandler: ACAccountStoreSaveCompletionHandler!)
-  func requestAccessToAccountsWith(accountType: ACAccountType!, options: [Object : AnyObject]! = [:], completion: ACAccountStoreRequestAccessCompletionHandler!)
+  func requestAccessToAccounts(accountType: ACAccountType!, options: [Object : AnyObject]! = [:], completion: ACAccountStoreRequestAccessCompletionHandler!)
   func renewCredentialsFor(account: ACAccount!, completion completionHandler: ACAccountStoreCredentialRenewalHandler!)
   func removeAccount(account: ACAccount!, withCompletionHandler completionHandler: ACAccountStoreRemoveCompletionHandler!)
   init()

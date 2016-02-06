@@ -84,7 +84,7 @@ class Expression : Object, SecureCoding, Copying {
   @available(tvOS 3.0, *)
   func encodeWith(aCoder: Coder)
   @available(tvOS 3.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 
 extension Expression {

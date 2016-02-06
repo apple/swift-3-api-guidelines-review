@@ -22,7 +22,7 @@ class UIAlertAction : Object, Copying {
   var isEnabled: Bool
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class UIAlertController : UIViewController {

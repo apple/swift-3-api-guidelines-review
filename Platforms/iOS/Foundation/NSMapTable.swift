@@ -34,10 +34,10 @@ class MapTable : Object, Copying, Coding, FastEnumeration {
   func dictionaryRepresentation() -> [Object : AnyObject]
   convenience init()
   @available(iOS 6.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 6.0, *)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 6.0, *)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

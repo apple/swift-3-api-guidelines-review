@@ -5,7 +5,7 @@ protocol NSAlignmentFeedbackToken : ObjectProtocol {
 class NSAlignmentFeedbackFilter : Object {
   class func inputEventMask() -> NSEventMask
   func updateWith(event: NSEvent)
-  func updateWithPanRecognizer(panRecognizer: NSPanGestureRecognizer)
+  func updateWith(panRecognizer panRecognizer: NSPanGestureRecognizer)
   func alignmentFeedbackTokenForMovementIn(view: NSView?, previousPoint: Point, alignedPoint: Point, defaultPoint: Point) -> NSAlignmentFeedbackToken?
   func alignmentFeedbackTokenForHorizontalMovementIn(view: NSView?, previousX: CGFloat, alignedX: CGFloat, defaultX: CGFloat) -> NSAlignmentFeedbackToken?
   func alignmentFeedbackTokenForVerticalMovementIn(view: NSView?, previousY: CGFloat, alignedY: CGFloat, defaultY: CGFloat) -> NSAlignmentFeedbackToken?

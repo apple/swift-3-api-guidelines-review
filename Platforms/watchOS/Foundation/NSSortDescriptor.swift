@@ -17,7 +17,7 @@ class SortDescriptor : Object, SecureCoding, Copying {
   init()
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 extension NSSet {
   @available(watchOS 2.0, *)

@@ -4,7 +4,7 @@ protocol WebDocumentView : ObjectProtocol {
   func dataSourceUpdated(dataSource: WebDataSource!)
   func setNeedsLayout(flag: Bool)
   func layout()
-  func viewWillMoveToHostWindow(hostWindow: NSWindow!)
+  func viewWillMoveTo(hostWindow hostWindow: NSWindow!)
   func viewDidMoveToHostWindow()
 }
 protocol WebDocumentSearching : ObjectProtocol {

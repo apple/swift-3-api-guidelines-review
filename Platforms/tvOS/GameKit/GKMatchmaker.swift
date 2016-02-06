@@ -73,7 +73,7 @@ class GKMatchmaker : Object {
   @available(tvOS 6.0, *)
   func finishMatchmakingFor(match: GKMatch)
   func queryPlayerGroupActivity(playerGroup: Int, withCompletionHandler completionHandler: ((Int, Error?) -> Void)? = nil)
-  func queryActivity(completionHandler completionHandler: ((Int, Error?) -> Void)? = nil)
+  func queryActivityWith(completionHandler completionHandler: ((Int, Error?) -> Void)? = nil)
   @available(tvOS 8.0, *)
   func startBrowsingForNearbyPlayers(handler reachableHandler: ((GKPlayer, Bool) -> Void)? = nil)
   @available(tvOS 6.0, *)

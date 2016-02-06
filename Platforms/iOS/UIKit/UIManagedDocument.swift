@@ -5,7 +5,7 @@ class UIManagedDocument : UIDocument {
   var persistentStoreOptions: [Object : AnyObject]?
   var modelConfiguration: String?
   func configurePersistentStoreCoordinatorFor(storeURL: URL, ofType fileType: String, modelConfiguration configuration: String?, storeOptions: [Object : AnyObject]? = [:]) throws
-  func persistentStoreTypeForFileType(fileType: String) -> String
+  func persistentStoreTypeFor(fileType fileType: String) -> String
   func readAdditionalContentFrom(absoluteURL: URL) throws
   func additionalContentFor(absoluteURL: URL) throws -> AnyObject
   func writeAdditionalContent(content: AnyObject, to absoluteURL: URL, originalContentsURL absoluteOriginalContentsURL: URL?) throws

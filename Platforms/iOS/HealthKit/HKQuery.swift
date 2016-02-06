@@ -13,9 +13,9 @@ struct HKQueryOptions : OptionSetType {
   static var StrictEndDate: HKQueryOptions { get }
 }
 extension HKQuery {
-  class func predicateForObjectsWithMetadataKey(key: String) -> Predicate
-  class func predicateForObjectsWithMetadataKey(key: String, allowedValues: [AnyObject]) -> Predicate
-  class func predicateForObjectsWithMetadataKey(key: String, operatorType: PredicateOperatorType, value: AnyObject) -> Predicate
+  class func predicateForObjectsWith(metadataKey key: String) -> Predicate
+  class func predicateForObjectsWith(metadataKey key: String, allowedValues: [AnyObject]) -> Predicate
+  class func predicateForObjectsWith(metadataKey key: String, operatorType: PredicateOperatorType, value: AnyObject) -> Predicate
   class func predicateForObjectsFrom(source: HKSource) -> Predicate
   class func predicateForObjectsFrom(sources: Set<HKSource>) -> Predicate
   @available(iOS 9.0, *)
@@ -23,9 +23,9 @@ extension HKQuery {
   @available(iOS 9.0, *)
   class func predicateForObjectsFrom(devices: Set<HKDevice>) -> Predicate
   @available(iOS 9.0, *)
-  class func predicateForObjectsWithDeviceProperty(key: String, allowedValues: Set<String>) -> Predicate
+  class func predicateForObjectsWith(deviceProperty key: String, allowedValues: Set<String>) -> Predicate
   class func predicateForObjectWith(UUID: UUID) -> Predicate
-  class func predicateForObjectsWithUUIDs(UUIDs: Set<UUID>) -> Predicate
+  class func predicateForObjectsWith(UUIDs: Set<UUID>) -> Predicate
   class func predicateForObjectsWithNoCorrelation() -> Predicate
   class func predicateForObjectsFrom(workout: HKWorkout) -> Predicate
 }

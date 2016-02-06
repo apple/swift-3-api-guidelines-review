@@ -25,7 +25,7 @@ class CLRegion : Object, Copying, SecureCoding {
   func contains(coordinate: CLLocationCoordinate2D) -> Bool
   init()
   @available(OSX 10.7, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.7, *)

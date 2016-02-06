@@ -17,10 +17,10 @@ class LengthFormatter : Formatter {
   @NSCopying var numberFormatter: NumberFormatter!
   var unitStyle: FormattingUnitStyle
   var isForPersonHeightUse: Bool
-  func stringFromValue(value: Double, unit: LengthFormatterUnit) -> String
-  func stringFromMeters(numberInMeters: Double) -> String
-  func unitStringFromValue(value: Double, unit: LengthFormatterUnit) -> String
-  func unitStringFromMeters(numberInMeters: Double, usedUnit unitp: UnsafeMutablePointer<LengthFormatterUnit>) -> String
+  func stringFrom(value value: Double, unit: LengthFormatterUnit) -> String
+  func stringFrom(meters numberInMeters: Double) -> String
+  func unitStringFrom(value value: Double, unit: LengthFormatterUnit) -> String
+  func unitStringFrom(meters numberInMeters: Double, usedUnit unitp: UnsafeMutablePointer<LengthFormatterUnit>) -> String
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   init()
   init?(coder aDecoder: Coder)

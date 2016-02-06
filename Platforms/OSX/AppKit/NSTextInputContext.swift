@@ -13,7 +13,7 @@ class NSTextInputContext : Object {
   func invalidateCharacterCoordinates()
   var keyboardInputSources: [String]? { get }
   var selectedKeyboardInputSource: String?
-  class func localizedNameForInputSource(inputSourceIdentifier: String) -> String?
+  class func localizedNameFor(inputSource inputSourceIdentifier: String) -> String?
   convenience init()
 }
 @available(OSX 10.6, *)

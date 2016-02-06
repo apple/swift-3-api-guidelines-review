@@ -16,12 +16,12 @@ enum PHLivePhotoViewPlaybackStyle : Int {
 }
 @available(iOS 9.1, *)
 class PHLivePhotoView : UIView {
-  class func livePhotoBadgeImage(options badgeOptions: PHLivePhotoBadgeOptions = []) -> UIImage
+  class func livePhotoBadgeImage(badgeOptions: PHLivePhotoBadgeOptions = []) -> UIImage
   weak var delegate: @sil_weak PHLivePhotoViewDelegate?
   var livePhoto: PHLivePhoto?
   var isMuted: Bool
   var playbackGestureRecognizer: UIGestureRecognizer { get }
-  func startPlaybackWith(playbackStyle: PHLivePhotoViewPlaybackStyle)
+  func startPlayback(playbackStyle: PHLivePhotoViewPlaybackStyle)
   func stopPlayback()
   init(frame: CGRect)
   init?(coder aDecoder: Coder)

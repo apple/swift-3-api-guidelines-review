@@ -3,8 +3,8 @@ class DRTrack : Object {
   init!(producer: AnyObject!)
   func properties() -> [Object : AnyObject]!
   func setProperties(properties: [Object : AnyObject]!)
-  func testProductionSpeedForInterval(interval: TimeInterval) -> Float
-  func testProductionSpeedForLength(length: UInt32) -> Float
+  func testProductionSpeedFor(interval interval: TimeInterval) -> Float
+  func testProductionSpeedFor(length length: UInt32) -> Float
   func estimateLength() -> UInt64
   init()
 }
@@ -20,10 +20,10 @@ protocol DRTrackDataProduction {
   func cleanupTrackAfterBurn(track: DRTrack!)
   func producePreGapFor(track: DRTrack!, intoBuffer buffer: UnsafeMutablePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> UInt32
   func produceDataFor(track: DRTrack!, intoBuffer buffer: UnsafeMutablePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> UInt32
-  func prepareTrackForVerification(track: DRTrack!) -> Bool
+  func prepareTrackFor(verification track: DRTrack!) -> Bool
   func verifyPreGapFor(track: DRTrack!, inBuffer buffer: UnsafePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> Bool
   func verifyDataFor(track: DRTrack!, inBuffer buffer: UnsafePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> Bool
-  func cleanupTrackAfterVerification(track: DRTrack!) -> Bool
+  func cleanupTrackAfter(verification track: DRTrack!) -> Bool
 }
 @available(OSX 10.2, *)
 let DRTrackLengthKey: String

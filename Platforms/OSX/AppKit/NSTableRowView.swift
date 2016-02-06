@@ -18,7 +18,7 @@ class NSTableRowView : NSView, NSAccessibilityRow {
   func drawSelectionIn(dirtyRect: Rect)
   func drawSeparatorIn(dirtyRect: Rect)
   func drawDraggingDestinationFeedbackIn(dirtyRect: Rect)
-  func viewAtColumn(column: Int) -> AnyObject?
+  func viewAt(column column: Int) -> AnyObject?
   var numberOfColumns: Int { get }
   init(frame frameRect: Rect)
   init?(coder: Coder)

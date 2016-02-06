@@ -38,7 +38,7 @@ protocol UITabBarControllerDelegate : ObjectProtocol {
   @available(iOS 7.0, *)
   optional func tabBarControllerSupportedInterfaceOrientations(tabBarController: UITabBarController) -> UIInterfaceOrientationMask
   @available(iOS 7.0, *)
-  optional func tabBarControllerPreferredInterfaceOrientationForPresentation(tabBarController: UITabBarController) -> UIInterfaceOrientation
+  optional func tabBarControllerPreferredInterfaceOrientationFor(presentation tabBarController: UITabBarController) -> UIInterfaceOrientation
   @available(iOS 7.0, *)
   optional func tabBarController(tabBarController: UITabBarController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
   @available(iOS 7.0, *)

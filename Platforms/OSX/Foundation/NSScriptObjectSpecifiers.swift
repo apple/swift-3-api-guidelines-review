@@ -43,8 +43,8 @@ class ScriptObjectSpecifier : Object, Coding {
   var key: String
   var containerClassDescription: ScriptClassDescription?
   var keyClassDescription: ScriptClassDescription? { get }
-  func indicesOfObjectsByEvaluatingWithContainer(container: AnyObject, count: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<Int>
-  func objectsByEvaluatingWithContainers(containers: AnyObject) -> AnyObject?
+  func indicesOfObjectsByEvaluatingWith(container container: AnyObject, count: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<Int>
+  func objectsByEvaluatingWith(containers containers: AnyObject) -> AnyObject?
   var objectsByEvaluatingSpecifier: AnyObject? { get }
   var evaluationErrorNumber: Int
   var evaluationError: ScriptObjectSpecifier? { get }
@@ -55,8 +55,8 @@ class ScriptObjectSpecifier : Object, Coding {
 }
 extension Object {
   var objectSpecifier: ScriptObjectSpecifier? { get }
-  class func indicesOfObjectsByEvaluatingObjectSpecifier(specifier: ScriptObjectSpecifier) -> [Number]?
-  func indicesOfObjectsByEvaluatingObjectSpecifier(specifier: ScriptObjectSpecifier) -> [Number]?
+  class func indicesOfObjectsBy(evaluatingObjectSpecifier specifier: ScriptObjectSpecifier) -> [Number]?
+  func indicesOfObjectsBy(evaluatingObjectSpecifier specifier: ScriptObjectSpecifier) -> [Number]?
   class func objectSpecifier() -> ScriptObjectSpecifier?
 }
 class IndexSpecifier : ScriptObjectSpecifier {

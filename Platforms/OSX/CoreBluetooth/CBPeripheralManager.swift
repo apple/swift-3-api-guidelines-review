@@ -63,5 +63,5 @@ protocol CBPeripheralManagerDelegate : ObjectProtocol {
   @available(OSX 10.9, *)
   optional func peripheralManager(peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest])
   @available(OSX 10.9, *)
-  optional func peripheralManagerIsReadyToUpdateSubscribers(peripheral: CBPeripheralManager)
+  optional func peripheralManagerIsReadyTo(updateSubscribers peripheral: CBPeripheralManager)
 }

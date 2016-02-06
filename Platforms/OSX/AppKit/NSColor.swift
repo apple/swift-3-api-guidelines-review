@@ -90,7 +90,7 @@ class NSColor : Object, Copying, SecureCoding, NSPasteboardReading, NSPasteboard
   func usingColorSpaceName(colorSpace: String) -> NSColor?
   func usingColorSpaceName(colorSpace: String?, device deviceDescription: [String : AnyObject]?) -> NSColor?
   func usingColorSpace(space: NSColorSpace) -> NSColor?
-  func blendedColorWithFraction(fraction: CGFloat, of color: NSColor) -> NSColor?
+  func blendedColorWith(fraction fraction: CGFloat, of color: NSColor) -> NSColor?
   func withAlphaComponent(alpha: CGFloat) -> NSColor
   var catalogNameComponent: String { get }
   var colorNameComponent: String { get }
@@ -126,17 +126,17 @@ class NSColor : Object, Copying, SecureCoding, NSPasteboardReading, NSPasteboard
   var cgColor: CGColor { get }
   class func setIgnoresAlpha(flag: Bool)
   class func ignoresAlpha() -> Bool
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
   class func readableTypesFor(pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  class func readingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
+  class func readingOptionsFor(type type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
   func writableTypesFor(pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  func writingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
-  func pasteboardPropertyListForType(type: String) -> AnyObject?
+  func writingOptionsFor(type type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
+  func pasteboardPropertyListFor(type type: String) -> AnyObject?
 }
 
 extension NSColor : _ColorLiteralConvertible {

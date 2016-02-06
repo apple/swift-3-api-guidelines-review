@@ -125,7 +125,7 @@ extension Coder {
   func encode(point: Point, forKey key: String)
   func encode(size: Size, forKey key: String)
   func encode(rect: Rect, forKey key: String)
-  func decodePointForKey(key: String) -> Point
-  func decodeSizeForKey(key: String) -> Size
-  func decodeRectForKey(key: String) -> Rect
+  func decodePointFor(key key: String) -> Point
+  func decodeSizeFor(key key: String) -> Size
+  func decodeRectFor(key key: String) -> Rect
 }

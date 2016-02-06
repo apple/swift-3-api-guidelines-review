@@ -11,9 +11,9 @@ class GKRuleSystem : Object {
   var agenda: [GKRule] { get }
   var executed: [GKRule] { get }
   var facts: [AnyObject] { get }
-  func gradeForFact(fact: ObjectProtocol) -> Float
-  func minimumGradeForFacts(facts: [AnyObject]) -> Float
-  func maximumGradeForFacts(facts: [AnyObject]) -> Float
+  func gradeFor(fact fact: ObjectProtocol) -> Float
+  func minimumGradeFor(facts facts: [AnyObject]) -> Float
+  func maximumGradeFor(facts facts: [AnyObject]) -> Float
   func assertFact(fact: ObjectProtocol)
   func assertFact(fact: ObjectProtocol, grade: Float)
   func retractFact(fact: ObjectProtocol)
@@ -24,7 +24,7 @@ class GKRuleSystem : Object {
 class GKRule : Object {
   var salience: Int
   func evaluatePredicateWith(system: GKRuleSystem) -> Bool
-  func performActionWith(system: GKRuleSystem)
+  func performAction(system: GKRuleSystem)
   convenience init(predicate: Predicate, assertingFact fact: ObjectProtocol, grade: Float)
   convenience init(predicate: Predicate, retractingFact fact: ObjectProtocol, grade: Float)
   convenience init(blockPredicate predicate: (GKRuleSystem) -> Bool, action: (GKRuleSystem) -> Void)

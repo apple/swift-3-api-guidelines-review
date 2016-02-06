@@ -7,7 +7,7 @@ class NCWidgetListViewController : NSViewController {
   var hasDividerLines: Bool
   var editing: Bool
   var showsAddButtonWhenEditing: Bool
-  func viewControllerAtRow(row: Int, makeIfNecessary makeIfNecesary: Bool) -> NSViewController!
+  func viewControllerAt(row row: Int, makeIfNecessary makeIfNecesary: Bool) -> NSViewController!
   func rowFor(viewController: NSViewController!) -> Int
   init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
   init?(coder: Coder)

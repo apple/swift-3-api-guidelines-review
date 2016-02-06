@@ -57,11 +57,11 @@ class NSSharingService : Object {
   var accountName: String? { get }
   @available(OSX 10.9, *)
   var attachmentFileURLs: [URL]? { get }
-  class func sharingServicesForItems(items: [AnyObject]) -> [NSSharingService]
+  class func sharingServicesFor(items items: [AnyObject]) -> [NSSharingService]
   /*not inherited*/ init?(named serviceName: String)
   init(title: String, image: NSImage, alternateImage: NSImage?, handler block: () -> Void)
-  func canPerformWithItems(items: [AnyObject]?) -> Bool
-  func performWithItems(items: [AnyObject])
+  func canPerformWith(items items: [AnyObject]?) -> Bool
+  func perform(items items: [AnyObject])
 }
 @available(OSX 10.8, *)
 enum NSSharingContentScope : Int {

@@ -13,7 +13,7 @@ protocol IOBluetoothDeviceAsyncCallbacks {
 }
 class IOBluetoothDevice : IOBluetoothObject, Coding, SecureCoding {
   class func registerForConnectNotifications(observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
-  func registerForDisconnectNotification(observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
+  func registerFor(disconnectNotification observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
   convenience init!(address: UnsafePointer<BluetoothDeviceAddress>)
   convenience init!(addressString address: String!)
   func openL2CAPChannelSync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, delegate channelDelegate: AnyObject!) -> IOReturn

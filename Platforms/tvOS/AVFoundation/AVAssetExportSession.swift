@@ -40,7 +40,7 @@ class AVAssetExportSession : Object {
   var shouldOptimizeForNetworkUse: Bool
   var status: AVAssetExportSessionStatus { get }
   var error: Error? { get }
-  func exportAsynchronouslyWithCompletionHandler(handler: () -> Void)
+  func exportAsynchronously(completionHandler handler: () -> Void)
   var progress: Float { get }
   func cancelExport()
 }
@@ -53,7 +53,7 @@ extension AVAssetExportSession {
 extension AVAssetExportSession {
   var supportedFileTypes: [String] { get }
   @available(tvOS 6.0, *)
-  func determineCompatibleFileTypesWithCompletionHandler(handler: ([String]) -> Void)
+  func determineCompatibleFileTypesWith(completionHandler handler: ([String]) -> Void)
 }
 extension AVAssetExportSession {
   var timeRange: CMTimeRange

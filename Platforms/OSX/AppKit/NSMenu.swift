@@ -11,8 +11,8 @@ class NSMenu : Object, Copying, Coding {
   unowned(unsafe) var supermenu: @sil_unmanaged NSMenu?
   func insert(newItem: NSMenuItem, at index: Int)
   func add(newItem: NSMenuItem)
-  func insertItemWithTitle(aString: String, action aSelector: Selector, keyEquivalent charCode: String, at index: Int) -> NSMenuItem?
-  func addItemWithTitle(aString: String, action aSelector: Selector, keyEquivalent charCode: String) -> NSMenuItem?
+  func insertItem(title aString: String, action aSelector: Selector, keyEquivalent charCode: String, at index: Int) -> NSMenuItem?
+  func addItem(title aString: String, action aSelector: Selector, keyEquivalent charCode: String) -> NSMenuItem?
   func removeItemAt(index: Int)
   func remove(item: NSMenuItem)
   func setSubmenu(aMenu: NSMenu?, forItem anItem: NSMenuItem)
@@ -22,13 +22,13 @@ class NSMenu : Object, Copying, Coding {
   var numberOfItems: Int { get }
   func itemAt(index: Int) -> NSMenuItem?
   func indexOf(item: NSMenuItem) -> Int
-  func indexOfItemWithTitle(aTitle: String) -> Int
-  func indexOfItemWithTag(aTag: Int) -> Int
-  func indexOfItemWithRepresentedObject(object: AnyObject) -> Int
-  func indexOfItemWithSubmenu(submenu: NSMenu?) -> Int
-  func indexOfItemWithTarget(target: AnyObject?, andAction actionSelector: Selector) -> Int
-  func itemWithTitle(aTitle: String) -> NSMenuItem?
-  func itemWithTag(tag: Int) -> NSMenuItem?
+  func indexOfItemWith(title aTitle: String) -> Int
+  func indexOfItemWith(tag aTag: Int) -> Int
+  func indexOfItemWith(representedObject object: AnyObject) -> Int
+  func indexOfItemWith(submenu submenu: NSMenu?) -> Int
+  func indexOfItemWith(target target: AnyObject?, andAction actionSelector: Selector) -> Int
+  func itemWith(title aTitle: String) -> NSMenuItem?
+  func itemWith(tag tag: Int) -> NSMenuItem?
   var autoenablesItems: Bool
   func update()
   func performKeyEquivalent(theEvent: NSEvent) -> Bool
@@ -55,7 +55,7 @@ class NSMenu : Object, Copying, Coding {
   @available(OSX 10.11, *)
   var userInterfaceLayoutDirection: NSUserInterfaceLayoutDirection
   convenience init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

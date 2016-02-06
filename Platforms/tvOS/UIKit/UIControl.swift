@@ -65,12 +65,12 @@ class UIControl : UIView {
   func beginTrackingWith(touch: UITouch, withEvent event: UIEvent?) -> Bool
   func continueTrackingWith(touch: UITouch, withEvent event: UIEvent?) -> Bool
   func endTrackingWith(touch: UITouch?, withEvent event: UIEvent?)
-  func cancelTrackingWith(event: UIEvent?)
+  func cancelTracking(event: UIEvent?)
   func addTarget(target: AnyObject?, action: Selector, forControlEvents controlEvents: UIControlEvents)
   func removeTarget(target: AnyObject?, action: Selector, forControlEvents controlEvents: UIControlEvents)
   func allTargets() -> Set<Object>
   func allControlEvents() -> UIControlEvents
-  func actionsForTarget(target: AnyObject?, forControlEvent controlEvent: UIControlEvents) -> [String]?
+  func actionsFor(target target: AnyObject?, forControlEvent controlEvent: UIControlEvents) -> [String]?
   func sendAction(action: Selector, to target: AnyObject?, forEvent event: UIEvent?)
   func sendActionsFor(controlEvents: UIControlEvents)
   init(frame: CGRect)

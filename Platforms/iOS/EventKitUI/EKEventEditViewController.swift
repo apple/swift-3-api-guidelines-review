@@ -24,5 +24,5 @@ protocol EKEventEditViewDelegate : ObjectProtocol {
   @available(iOS 4.0, *)
   func eventEditViewController(controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction)
   @available(iOS 4.0, *)
-  optional func eventEditViewControllerDefaultCalendarForNewEvents(controller: EKEventEditViewController) -> EKCalendar
+  optional func eventEditViewControllerDefaultCalendarFor(newEvents controller: EKEventEditViewController) -> EKCalendar
 }

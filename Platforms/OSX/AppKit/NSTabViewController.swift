@@ -32,7 +32,7 @@ class NSTabViewController : NSViewController, NSTabViewDelegate, NSToolbarDelega
   init?(coder: Coder)
   convenience init()
   @available(OSX 10.10, *)
-  func tabViewDidChangeNumberOfTabViewItems(tabView: NSTabView)
+  func tabViewDidChangeNumberOf(tabViewItems tabView: NSTabView)
   @available(OSX 10.10, *)
   func toolbarWillAddItem(notification: Notification)
   @available(OSX 10.10, *)

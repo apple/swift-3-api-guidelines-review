@@ -41,7 +41,7 @@ class MPMediaQuery : Object, SecureCoding, Copying {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 3.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 3.0, *)
 class MPMediaPredicate : Object, SecureCoding {
@@ -71,7 +71,7 @@ class MPMediaPropertyPredicate : MPMediaPredicate {
 }
 extension MPMediaItem {
   @available(iOS 4.2, *)
-  class func persistentIDPropertyForGroupingType(groupingType: MPMediaGrouping) -> String
+  class func persistentIDPropertyFor(groupingType groupingType: MPMediaGrouping) -> String
   @available(iOS 4.2, *)
-  class func titlePropertyForGroupingType(groupingType: MPMediaGrouping) -> String
+  class func titlePropertyFor(groupingType groupingType: MPMediaGrouping) -> String
 }

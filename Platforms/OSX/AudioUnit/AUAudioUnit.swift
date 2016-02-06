@@ -86,15 +86,15 @@ class AUAudioUnitBusArray : Object, FastEnumeration {
   init(audioUnit owner: AUAudioUnit, busType: AUAudioUnitBusType, busses busArray: [AUAudioUnitBus])
   convenience init(audioUnit owner: AUAudioUnit, busType: AUAudioUnitBusType)
   var count: Int { get }
-  subscript (index: Int) -> AUAudioUnitBus { get }
+  subscript (indexedSubscript index: Int) -> AUAudioUnitBus { get }
   var isCountChangeable: Bool { get }
   func setBusCount(count: Int) throws
-  func addObserverToAllBusses(observer: Object, forKeyPath keyPath: String, options: KeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
-  func removeObserverFromAllBusses(observer: Object, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
+  func addObserverTo(allBusses observer: Object, forKeyPath keyPath: String, options: KeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
+  func removeObserverFrom(allBusses observer: Object, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
   unowned(unsafe) var ownerAudioUnit: @sil_unmanaged AUAudioUnit { get }
   var busType: AUAudioUnitBusType { get }
   @available(OSX 10.11, *)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 @available(OSX 10.11, *)
 class AUAudioUnitBus : Object {

@@ -17,14 +17,14 @@ enum MDLLightType : UInt {
 }
 @available(iOS 9.0, *)
 class MDLLight : MDLObject {
-  func irradianceAtPoint(point: vector_float3) -> Unmanaged<CGColor>
-  func irradianceAtPoint(point: vector_float3, colorSpace: CGColorSpace) -> Unmanaged<CGColor>
+  func irradianceAt(point point: vector_float3) -> Unmanaged<CGColor>
+  func irradianceAt(point point: vector_float3, colorSpace: CGColorSpace) -> Unmanaged<CGColor>
   var lightType: MDLLightType
   init()
 }
 @available(iOS 9.0, *)
 class MDLPhysicallyPlausibleLight : MDLLight {
-  func setColorByTemperature(temperature: Float)
+  func setColorBy(temperature temperature: Float)
   var color: CGColor?
   var lumens: Float
   var innerConeAngle: Float
@@ -43,8 +43,8 @@ class MDLAreaLight : MDLPhysicallyPlausibleLight {
 @available(iOS 9.0, *)
 class MDLPhotometricLight : MDLPhysicallyPlausibleLight {
   init?(iesProfile URL: URL)
-  func generateSphericalHarmonicsFromLight(sphericalHarmonicsLevel: Int)
-  func generateCubemapFromLight(textureSize: Int)
+  func generateSphericalHarmonicsFrom(light sphericalHarmonicsLevel: Int)
+  func generateCubemapFrom(light textureSize: Int)
   var lightCubeMap: MDLTexture? { get }
   var sphericalHarmonicsLevel: Int { get }
   @NSCopying var sphericalHarmonicsCoefficients: Data? { get }
@@ -53,7 +53,7 @@ class MDLPhotometricLight : MDLPhysicallyPlausibleLight {
 @available(iOS 9.0, *)
 class MDLLightProbe : MDLLight {
   init(reflectiveTexture: MDLTexture?, irradianceTexture: MDLTexture?)
-  func generateSphericalHarmonicsFromIrradiance(sphericalHarmonicsLevel: Int)
+  func generateSphericalHarmonicsFrom(irradiance sphericalHarmonicsLevel: Int)
   var reflectiveTexture: MDLTexture? { get }
   var irradianceTexture: MDLTexture? { get }
   var sphericalHarmonicsLevel: Int { get }

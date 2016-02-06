@@ -4,9 +4,9 @@ class MLMediaSource : Object {
   var mediaSourceIdentifier: String { get }
   var attributes: [String : AnyObject] { get }
   var rootMediaGroup: MLMediaGroup? { get }
-  func mediaGroupForIdentifier(mediaGroupIdentifier: String) -> MLMediaGroup?
-  func mediaGroupsForIdentifiers(mediaGroupIdentifiers: [String]) -> [String : MLMediaGroup]
-  func mediaObjectForIdentifier(mediaObjectIdentifier: String) -> MLMediaObject?
-  func mediaObjectsForIdentifiers(mediaObjectIdentifiers: [String]) -> [String : MLMediaObject]
+  func mediaGroupFor(identifier mediaGroupIdentifier: String) -> MLMediaGroup?
+  func mediaGroupsFor(identifiers mediaGroupIdentifiers: [String]) -> [String : MLMediaGroup]
+  func mediaObjectFor(identifier mediaObjectIdentifier: String) -> MLMediaObject?
+  func mediaObjectsFor(identifiers mediaObjectIdentifiers: [String]) -> [String : MLMediaObject]
   init()
 }

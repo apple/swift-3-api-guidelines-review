@@ -105,15 +105,15 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   @available(OSX 10.7, *)
   var effectiveRowSizeStyle: NSTableViewRowSizeStyle { get }
   var rowHeight: CGFloat
-  func noteHeightOfRowsWithIndexesChanged(indexSet: IndexSet)
+  func noteHeightOfRows(indexesChanged indexSet: IndexSet)
   var tableColumns: [NSTableColumn] { get }
   var numberOfColumns: Int { get }
   var numberOfRows: Int { get }
   func addTableColumn(tableColumn: NSTableColumn)
   func removeTableColumn(tableColumn: NSTableColumn)
   func moveColumn(oldIndex: Int, toColumn newIndex: Int)
-  func columnWithIdentifier(identifier: String) -> Int
-  func tableColumnWithIdentifier(identifier: String) -> NSTableColumn?
+  func columnWith(identifier identifier: String) -> Int
+  func tableColumnWith(identifier identifier: String) -> NSTableColumn?
   func tile()
   func sizeToFit()
   func sizeLastColumnToFit()
@@ -122,7 +122,7 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   func reloadData()
   func noteNumberOfRowsChanged()
   @available(OSX 10.6, *)
-  func reloadDataForRowIndexes(rowIndexes: IndexSet, columnIndexes: IndexSet)
+  func reloadDataFor(rowIndexes rowIndexes: IndexSet, columnIndexes: IndexSet)
   var editedColumn: Int { get }
   var editedRow: Int { get }
   var clickedColumn: Int { get }
@@ -134,7 +134,7 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   unowned(unsafe) var highlightedTableColumn: @sil_unmanaged NSTableColumn?
   var verticalMotionCanBeginDrag: Bool
   func canDragRowsWith(rowIndexes: IndexSet, at mouseDownPoint: Point) -> Bool
-  func dragImageForRowsWith(dragRows: IndexSet, tableColumns: [NSTableColumn], event dragEvent: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
+  func dragImageForRows(dragRows: IndexSet, tableColumns: [NSTableColumn], event dragEvent: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
   func setDraggingSourceOperationMask(mask: NSDragOperation, forLocal isLocal: Bool)
   func setDropRow(row: Int, dropOperation: NSTableViewDropOperation)
   var allowsMultipleSelection: Bool
@@ -160,14 +160,14 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   var selectionHighlightStyle: NSTableViewSelectionHighlightStyle
   @available(OSX 10.6, *)
   var draggingDestinationFeedbackStyle: NSTableViewDraggingDestinationFeedbackStyle
-  func rectOfColumn(column: Int) -> Rect
-  func rectOfRow(row: Int) -> Rect
+  func rectOf(column column: Int) -> Rect
+  func rectOf(row row: Int) -> Rect
   @available(OSX 10.5, *)
   func columnIndexesIn(rect: Rect) -> IndexSet
   func rowsIn(rect: Rect) -> NSRange
   func columnAt(point: Point) -> Int
   func rowAt(point: Point) -> Int
-  func frameOfCellAtColumn(column: Int, row: Int) -> Rect
+  func frameOfCellAt(column column: Int, row: Int) -> Rect
   var autosaveName: String?
   var autosaveTableColumns: Bool
   func editColumn(column: Int, row: Int, withEvent theEvent: NSEvent?, select: Bool)
@@ -176,17 +176,17 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   func drawGridInClip(clipRect: Rect)
   func drawBackgroundInClip(clipRect: Rect)
   @available(OSX 10.7, *)
-  func viewAtColumn(column: Int, row: Int, makeIfNecessary: Bool) -> NSView?
+  func viewAt(column column: Int, row: Int, makeIfNecessary: Bool) -> NSView?
   @available(OSX 10.7, *)
-  func rowViewAtRow(row: Int, makeIfNecessary: Bool) -> NSTableRowView?
+  func rowViewAt(row row: Int, makeIfNecessary: Bool) -> NSTableRowView?
   @available(OSX 10.7, *)
   func rowFor(view: NSView) -> Int
   @available(OSX 10.7, *)
   func columnFor(view: NSView) -> Int
   @available(OSX 10.7, *)
-  func makeWithIdentifier(identifier: String, owner: AnyObject?) -> NSView?
+  func make(identifier identifier: String, owner: AnyObject?) -> NSView?
   @available(OSX 10.7, *)
-  func enumerateAvailableRowViewsUsing(handler: (NSTableRowView, Int) -> Void)
+  func enumerateAvailableRowViews(handler: (NSTableRowView, Int) -> Void)
   @available(OSX 10.7, *)
   var floatsGroupRows: Bool
   @available(OSX 10.11, *)
@@ -359,7 +359,7 @@ extension Object {
 }
 extension NSTableView {
   @available(OSX, introduced=10.5, deprecated=10.10, message="Use View Based TableView and -viewAtColumn:row:")
-  func preparedCellAtColumn(column: Int, row: Int) -> NSCell?
+  func preparedCellAt(column column: Int, row: Int) -> NSCell?
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use a View Based TableView with an NSTextField")
   func textShouldBeginEditing(textObject: NSText) -> Bool
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use a View Based TableView with an NSTextField")
@@ -377,5 +377,5 @@ extension NSTableView {
   @available(OSX, introduced=10.6, deprecated=10.10, message="Use a View Based TableView; make a particular view the first responder with [window makeFirstResponder:view] to focus it.")
   func setFocusedColumn(focusedColumn: Int)
   @available(OSX, introduced=10.6, deprecated=10.10, message="Use a View Based TableView; directly interact with a particular view as required and call -performClick: on it, if necessary")
-  func performClickOnCellAtColumn(column: Int, row: Int)
+  func performClickOnCellAt(column column: Int, row: Int)
 }

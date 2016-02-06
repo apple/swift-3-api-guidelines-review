@@ -24,7 +24,7 @@ enum CKAccountStatus : Int {
 @available(OSX 10.11, *)
 let CKAccountChangedNotification: String
 extension CKContainer {
-  func accountStatusWithCompletionHandler(completionHandler: (CKAccountStatus, Error?) -> Void)
+  func accountStatusWith(completionHandler completionHandler: (CKAccountStatus, Error?) -> Void)
 }
 @available(OSX 10.10, *)
 struct CKApplicationPermissions : OptionSetType {
@@ -43,12 +43,12 @@ enum CKApplicationPermissionStatus : Int {
 }
 typealias CKApplicationPermissionBlock = (CKApplicationPermissionStatus, Error?) -> Void
 extension CKContainer {
-  func statusForApplicationPermission(applicationPermission: CKApplicationPermissions, completionHandler: CKApplicationPermissionBlock)
+  func statusFor(applicationPermission applicationPermission: CKApplicationPermissions, completionHandler: CKApplicationPermissionBlock)
   func requestApplicationPermission(applicationPermission: CKApplicationPermissions, completionHandler: CKApplicationPermissionBlock)
 }
 extension CKContainer {
-  func fetchUserRecordIDWithCompletionHandler(completionHandler: (CKRecordID?, Error?) -> Void)
-  func discoverAllContactUserInfosWithCompletionHandler(completionHandler: ([CKDiscoveredUserInfo]?, Error?) -> Void)
-  func discoverUserInfoWithEmailAddress(email: String, completionHandler: (CKDiscoveredUserInfo?, Error?) -> Void)
+  func fetchUserRecordID(completionHandler completionHandler: (CKRecordID?, Error?) -> Void)
+  func discoverAllContactUserInfos(completionHandler completionHandler: ([CKDiscoveredUserInfo]?, Error?) -> Void)
+  func discoverUserInfo(emailAddress email: String, completionHandler: (CKDiscoveredUserInfo?, Error?) -> Void)
   func discoverUserInfoWithUserRecordID(userRecordID: CKRecordID, completionHandler: (CKDiscoveredUserInfo?, Error?) -> Void)
 }

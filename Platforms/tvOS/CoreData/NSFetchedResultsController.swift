@@ -8,14 +8,14 @@ class NSFetchedResultsController : Object {
   var sectionNameKeyPath: String? { get }
   var cacheName: String? { get }
   unowned(unsafe) var delegate: @sil_unmanaged NSFetchedResultsControllerDelegate?
-  class func deleteCacheWithName(name: String?)
+  class func deleteCache(name name: String?)
   var fetchedObjects: [AnyObject]? { get }
   func objectAt(indexPath: IndexPath) -> AnyObject
   func indexPathFor(object: AnyObject) -> IndexPath?
-  func sectionIndexTitleForSectionName(sectionName: String) -> String?
+  func sectionIndexTitleFor(sectionName sectionName: String) -> String?
   var sectionIndexTitles: [String] { get }
   var sections: [NSFetchedResultsSectionInfo]? { get }
-  func sectionForSectionIndexTitle(title: String, at sectionIndex: Int) -> Int
+  func sectionFor(sectionIndexTitle title: String, at sectionIndex: Int) -> Int
   init()
 }
 struct _fetchResultsControllerFlags {

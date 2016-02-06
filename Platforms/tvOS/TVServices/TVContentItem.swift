@@ -18,7 +18,7 @@ class TVContentItem : Object, Copying, SecureCoding {
   init?(contentIdentifier ident: TVContentIdentifier)
   init?(coder: Coder)
   @available(tvOS 9.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)

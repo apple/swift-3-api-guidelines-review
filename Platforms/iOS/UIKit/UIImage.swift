@@ -66,9 +66,9 @@ class UIImage : Object, SecureCoding {
   func drawIn(rect: CGRect, blendMode: CGBlendMode, alpha: CGFloat)
   func drawAsPatternIn(rect: CGRect)
   @available(iOS 5.0, *)
-  func resizableImageWithCapInsets(capInsets: UIEdgeInsets) -> UIImage
+  func resizableImageWith(capInsets capInsets: UIEdgeInsets) -> UIImage
   @available(iOS 6.0, *)
-  func resizableImageWithCapInsets(capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode) -> UIImage
+  func resizableImageWith(capInsets capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode) -> UIImage
   @available(iOS 5.0, *)
   var capInsets: UIEdgeInsets { get }
   @available(iOS 6.0, *)
@@ -102,7 +102,7 @@ extension UIImage : _ImageLiteralConvertible {
   required convenience init(imageLiteral name: String)
 }
 extension UIImage {
-  func stretchableImageWithLeftCapWidth(leftCapWidth: Int, topCapHeight: Int) -> UIImage
+  func stretchableImageWith(leftCapWidth leftCapWidth: Int, topCapHeight: Int) -> UIImage
   var leftCapWidth: Int { get }
   var topCapHeight: Int { get }
 }

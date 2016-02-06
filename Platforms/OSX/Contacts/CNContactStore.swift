@@ -19,7 +19,7 @@ class CNContactStore : Object {
   class func authorizationStatusFor(entityType: CNEntityType) -> CNAuthorizationStatus
   func requestAccessFor(entityType: CNEntityType, completionHandler: (Bool, Error?) -> Void)
   func unifiedContactsMatching(predicate: Predicate, keysToFetch keys: [CNKeyDescriptor]) throws -> [CNContact]
-  func unifiedContactWithIdentifier(identifier: String, keysToFetch keys: [CNKeyDescriptor]) throws -> CNContact
+  func unifiedContactWith(identifier identifier: String, keysToFetch keys: [CNKeyDescriptor]) throws -> CNContact
   @available(OSX 10.11, *)
   func unifiedMeContactWithKeysToFetch(keys: [CNKeyDescriptor]) throws -> CNContact
   func enumerateContactsWith(fetchRequest: CNContactFetchRequest, usingBlock block: (CNContact, UnsafeMutablePointer<ObjCBool>) -> Void) throws

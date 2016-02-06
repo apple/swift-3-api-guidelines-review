@@ -6,11 +6,11 @@ class NSSet : Object, Copying, MutableCopying, SecureCoding, FastEnumeration {
   init()
   init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
   init?(coder aDecoder: Coder)
-  func copy(zone zone: Zone = nil) -> AnyObject
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSSet : SequenceType {
@@ -40,7 +40,7 @@ extension NSSet {
   func anyObject() -> AnyObject?
   func contains(anObject: AnyObject) -> Bool
   var description: String { get }
-  func descriptionWithLocale(locale: AnyObject?) -> String
+  func descriptionWith(locale locale: AnyObject?) -> String
   func intersectsSet(otherSet: Set<Object>) -> Bool
   func isEqualTo(otherSet: Set<Object>) -> Bool
   func isSubsetOf(otherSet: Set<Object>) -> Bool
@@ -51,13 +51,13 @@ extension NSSet {
   @available(OSX 10.5, *)
   func addingObjectsFrom(other: [AnyObject]) -> Set<Object>
   @available(OSX 10.6, *)
-  func enumerateObjectsUsing(block: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(block: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.6, *)
-  func enumerateObjects(options opts: EnumerationOptions = [], usingBlock block: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(opts: EnumerationOptions = [], usingBlock block: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.6, *)
   func objectsPassingTest(predicate: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
   @available(OSX 10.6, *)
-  func objects(options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
+  func objectsWith(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
 }
 extension NSSet {
   convenience init(object: AnyObject)

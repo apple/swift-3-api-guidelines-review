@@ -54,11 +54,11 @@ class NSTextBlock : Object, Coding, Copying {
   func setBorderColor(color: NSColor?)
   func borderColorFor(edge: RectEdge) -> NSColor?
   func rectForLayoutAt(startingPoint: Point, in rect: Rect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> Rect
-  func boundsRectForContentRect(contentRect: Rect, in rect: Rect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> Rect
-  func drawBackgroundWithFrame(frameRect: Rect, in controlView: NSView, characterRange charRange: NSRange, layoutManager: NSLayoutManager)
+  func boundsRectFor(contentRect contentRect: Rect, in rect: Rect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> Rect
+  func drawBackground(frame frameRect: Rect, in controlView: NSView, characterRange charRange: NSRange, layoutManager: NSLayoutManager)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 class NSTextTableBlock : NSTextBlock {
   init(table: NSTextTable, startingRow row: Int, rowSpan: Int, startingColumn col: Int, columnSpan colSpan: Int)

@@ -21,5 +21,5 @@ class NSTouch : Object, Copying {
   var deviceSize: Size { get }
   init()
   @available(OSX 10.6, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

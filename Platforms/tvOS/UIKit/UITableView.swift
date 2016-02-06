@@ -126,10 +126,10 @@ class UITableView : UIScrollView, Coding {
   @available(tvOS 3.0, *)
   func reloadSectionIndexTitles()
   var numberOfSections: Int { get }
-  func numberOfRowsInSection(section: Int) -> Int
-  func rectForSection(section: Int) -> CGRect
-  func rectForHeaderInSection(section: Int) -> CGRect
-  func rectForFooterInSection(section: Int) -> CGRect
+  func numberOfRowsIn(section section: Int) -> Int
+  func rectFor(section section: Int) -> CGRect
+  func rectForHeaderIn(section section: Int) -> CGRect
+  func rectForFooterIn(section section: Int) -> CGRect
   func rectForRowAt(indexPath: IndexPath) -> CGRect
   func indexPathForRowAt(point: CGPoint) -> IndexPath?
   func indexPathFor(cell: UITableViewCell) -> IndexPath?
@@ -138,9 +138,9 @@ class UITableView : UIScrollView, Coding {
   var visibleCells: [UITableViewCell] { get }
   var indexPathsForVisibleRows: [IndexPath]? { get }
   @available(tvOS 6.0, *)
-  func headerViewForSection(section: Int) -> UITableViewHeaderFooterView?
+  func headerViewFor(section section: Int) -> UITableViewHeaderFooterView?
   @available(tvOS 6.0, *)
-  func footerViewForSection(section: Int) -> UITableViewHeaderFooterView?
+  func footerViewFor(section section: Int) -> UITableViewHeaderFooterView?
   func scrollToRowAt(indexPath: IndexPath, at scrollPosition: UITableViewScrollPosition, animated: Bool)
   func scrollToNearestSelectedRowAt(scrollPosition: UITableViewScrollPosition, animated: Bool)
   func beginUpdates()
@@ -182,11 +182,11 @@ class UITableView : UIScrollView, Coding {
   var cellLayoutMarginsFollowReadableWidth: Bool
   var tableHeaderView: UIView?
   var tableFooterView: UIView?
-  func dequeueReusableCellWithIdentifier(identifier: String) -> UITableViewCell?
+  func dequeueReusableCellWith(identifier identifier: String) -> UITableViewCell?
   @available(tvOS 6.0, *)
-  func dequeueReusableCellWithIdentifier(identifier: String, forIndexPath indexPath: IndexPath) -> UITableViewCell
+  func dequeueReusableCellWith(identifier identifier: String, forIndexPath indexPath: IndexPath) -> UITableViewCell
   @available(tvOS 6.0, *)
-  func dequeueReusableHeaderFooterViewWithIdentifier(identifier: String) -> UITableViewHeaderFooterView?
+  func dequeueReusableHeaderFooterViewWith(identifier identifier: String) -> UITableViewHeaderFooterView?
   @available(tvOS 5.0, *)
   func register(nib: UINib?, forCellReuseIdentifier identifier: String)
   @available(tvOS 6.0, *)

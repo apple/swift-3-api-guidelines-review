@@ -27,9 +27,9 @@ class NSPageController : NSViewController, NSAnimatablePropertyContainer, Coding
   @available(OSX 10.5, *)
   var animations: [String : AnyObject]
   @available(OSX 10.5, *)
-  func animationForKey(key: String) -> AnyObject?
+  func animationFor(key key: String) -> AnyObject?
   @available(OSX 10.5, *)
-  class func defaultAnimationForKey(key: String) -> AnyObject?
+  class func defaultAnimationFor(key key: String) -> AnyObject?
 }
 struct __pcDelegateFlags {
   var delegateRespondsToIdentifierForRepresentedObject: UInt32

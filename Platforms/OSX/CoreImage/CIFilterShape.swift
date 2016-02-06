@@ -3,7 +3,7 @@
 class CIFilterShape : Object, Copying {
   init(rect r: CGRect)
   func transformBy(m: CGAffineTransform, interior flag: Bool) -> CIFilterShape
-  func insetByX(dx: Int32, y dy: Int32) -> CIFilterShape
+  func insetBy(x dx: Int32, y dy: Int32) -> CIFilterShape
   func unionWith(s2: CIFilterShape) -> CIFilterShape
   func unionWith(r: CGRect) -> CIFilterShape
   func intersectWith(s2: CIFilterShape) -> CIFilterShape
@@ -11,5 +11,5 @@ class CIFilterShape : Object, Copying {
   var extent: CGRect { get }
   init()
   @available(OSX 10.4, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

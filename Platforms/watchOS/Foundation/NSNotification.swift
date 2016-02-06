@@ -6,7 +6,7 @@ class Notification : Object, Copying, Coding {
   @available(watchOS 2.0, *)
   init(name: String, object: AnyObject?, userInfo: [Object : AnyObject]? = [:])
   init?(coder aDecoder: Coder)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   func encodeWith(aCoder: Coder)
 }
 extension Notification {
@@ -22,6 +22,6 @@ class NotificationCenter : Object {
   func removeObserver(observer: AnyObject)
   func removeObserver(observer: AnyObject, name aName: String?, object anObject: AnyObject?)
   @available(watchOS 2.0, *)
-  func addObserverForName(name: String?, object obj: AnyObject?, queue: OperationQueue?, usingBlock block: (Notification) -> Void) -> ObjectProtocol
+  func addObserverFor(name name: String?, object obj: AnyObject?, queue: OperationQueue?, usingBlock block: (Notification) -> Void) -> ObjectProtocol
   init()
 }

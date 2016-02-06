@@ -1,5 +1,5 @@
 
 extension CNGroup {
-  class func predicateForGroupsWithIdentifiers(identifiers: [String]) -> Predicate
-  class func predicateForGroupsInContainerWithIdentifier(containerIdentifier: String) -> Predicate
+  class func predicateForGroupsWith(identifiers identifiers: [String]) -> Predicate
+  class func predicateForGroupsInContainerWith(identifier containerIdentifier: String) -> Predicate
 }
