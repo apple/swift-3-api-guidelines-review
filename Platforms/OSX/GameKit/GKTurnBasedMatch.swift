@@ -74,7 +74,7 @@ class GKTurnBasedMatch : Object {
   var currentParticipant: GKTurnBasedParticipant? { get }
   var matchData: Data? { get }
   @available(OSX 10.10, *)
-  func setLocalizableMessageWith(key key: String, arguments: [String]?)
+  func setLocalizableMessageWithKey(key: String, arguments: [String]?)
   var message: String?
   @available(OSX 10.8, *)
   var matchDataMaximumSize: Int { get }

@@ -15,7 +15,7 @@ class NSMenuItem : Object, Copying, Coding, NSValidatedUserInterfaceItem {
   var keyEquivalent: String
   var keyEquivalentModifierMask: Int
   var userKeyEquivalent: String { get }
-  func setTitleWith(mnemonic stringWithAmpersand: String)
+  func setTitleWithMnemonic(stringWithAmpersand: String)
   var image: NSImage?
   var state: Int
   var onStateImage: NSImage!

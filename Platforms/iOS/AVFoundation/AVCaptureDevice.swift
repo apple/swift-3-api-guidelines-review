@@ -112,7 +112,7 @@ extension AVCaptureDevice {
   @available(iOS 8.0, *)
   var lensPosition: Float { get }
   @available(iOS 8.0, *)
-  func setFocusModeLockedWith(lensPosition lensPosition: Float, completionHandler handler: ((CMTime) -> Void)!)
+  func setFocusModeLockedWithLensPosition(lensPosition: Float, completionHandler handler: ((CMTime) -> Void)!)
 }
 @available(iOS 8.0, *)
 let AVCaptureLensPositionCurrent: Float
@@ -139,7 +139,7 @@ extension AVCaptureDevice {
   @available(iOS 8.0, *)
   var iso: Float { get }
   @available(iOS 8.0, *)
-  func setExposureModeCustomWith(duration duration: CMTime, iso ISO: Float, completionHandler handler: ((CMTime) -> Void)!)
+  func setExposureModeCustomWithDuration(duration: CMTime, iso ISO: Float, completionHandler handler: ((CMTime) -> Void)!)
   @available(iOS 8.0, *)
   var exposureTargetOffset: Float { get }
   @available(iOS 8.0, *)

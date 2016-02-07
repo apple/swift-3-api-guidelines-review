@@ -31,7 +31,7 @@ class NSCursor : Object, Coding {
   convenience init(image newImage: NSImage, foregroundColorHint fg: NSColor?, backgroundColorHint bg: NSColor?, hotSpot: Point)
   class func hide()
   class func unhide()
-  class func setHiddenUntil(mouseMoves flag: Bool)
+  class func setHiddenUntilMouseMoves(flag: Bool)
   class func pop()
   var image: NSImage { get }
   var hotSpot: Point { get }

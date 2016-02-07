@@ -31,7 +31,7 @@ class NSBox : NSView {
   var titleCell: AnyObject { get }
   func sizeToFit()
   var contentViewMargins: Size
-  func setFrameFrom(contentFrame contentFrame: Rect)
+  func setFrameFromContentFrame(contentFrame: Rect)
   unowned(unsafe) var contentView: @sil_unmanaged NSView?
   @available(OSX 10.5, *)
   var isTransparent: Bool

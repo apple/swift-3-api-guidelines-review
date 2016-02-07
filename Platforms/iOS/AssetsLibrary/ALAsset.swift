@@ -46,6 +46,6 @@ class ALAsset : Object {
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use contentEditingOutput on a PHAssetChangeRequest from the Photos framework instead")
   func setImageData(imageData: Data!, metadata: [Object : AnyObject]!, completionBlock: ALAssetsLibraryWriteImageCompletionBlock!)
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use contentEditingOutput on a PHAssetChangeRequest from the Photos framework instead")
-  func setVideoAt(path videoPathURL: URL!, completionBlock: ALAssetsLibraryWriteVideoCompletionBlock!)
+  func setVideoAtPath(videoPathURL: URL!, completionBlock: ALAssetsLibraryWriteVideoCompletionBlock!)
   init()
 }

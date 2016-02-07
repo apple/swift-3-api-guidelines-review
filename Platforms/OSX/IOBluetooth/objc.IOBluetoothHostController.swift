@@ -4,7 +4,7 @@ class IOBluetoothHostController : Object {
   class func defaultController() -> Self!
   var powerState: BluetoothHCIPowerState { get }
   func classOfDevice() -> BluetoothClassOfDevice
-  func setClassOf(device classOfDevice: BluetoothClassOfDevice, forTimeInterval seconds: TimeInterval) -> IOReturn
+  func setClassOfDevice(classOfDevice: BluetoothClassOfDevice, forTimeInterval seconds: TimeInterval) -> IOReturn
   func addressAsString() -> String!
   func nameAsString() -> String!
   init()

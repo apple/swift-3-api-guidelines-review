@@ -273,7 +273,7 @@ extension UIView {
   class func setAnimationCurve(curve: UIViewAnimationCurve)
   class func setAnimationRepeatCount(repeatCount: Float)
   class func setAnimationRepeatAutoreverses(repeatAutoreverses: Bool)
-  class func setAnimationBeginsFrom(currentState fromCurrentState: Bool)
+  class func setAnimationBeginsFromCurrentState(fromCurrentState: Bool)
   class func setAnimationTransition(transition: UIViewAnimationTransition, forView view: UIView, cache: Bool)
   class func setAnimationsEnabled(enabled: Bool)
   class func areAnimationsEnabled() -> Bool

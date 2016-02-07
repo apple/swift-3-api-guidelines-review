@@ -98,7 +98,7 @@ extension NSFontManager {
   func availableFontNamesWith(traits someTraits: NSFontTraitMask) -> [String]?
   func addFontTrait(sender: AnyObject?)
   func removeFontTrait(sender: AnyObject?)
-  func modifyFontVia(panel sender: AnyObject?)
+  func modifyFontViaPanel(sender: AnyObject?)
   func modifyFont(sender: AnyObject?)
   func orderFrontFontPanel(sender: AnyObject?)
   func orderFrontStylesPanel(sender: AnyObject?)

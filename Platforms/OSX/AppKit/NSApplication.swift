@@ -287,7 +287,7 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   @available(OSX 10.10, *)
   func accessibilityServesAsTitleForUIElements() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityServesAsTitleFor(uiElements accessibilityServesAsTitleForUIElements: [AnyObject]?)
+  func setAccessibilityServesAsTitleForUIElements(accessibilityServesAsTitleForUIElements: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityShownMenu() -> AnyObject?
   @available(OSX 10.10, *)
@@ -401,7 +401,7 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   @available(OSX 10.10, *)
   func isAccessibilityOrderedByRow() -> Bool
   @available(OSX 10.10, *)
-  func setAccessibilityOrderedBy(row accessibilityOrderedByRow: Bool)
+  func setAccessibilityOrderedByRow(accessibilityOrderedByRow: Bool)
   @available(OSX 10.10, *)
   func accessibilityHorizontalUnits() -> NSAccessibilityUnits
   @available(OSX 10.10, *)
@@ -437,7 +437,7 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   @available(OSX 10.10, *)
   func accessibilityDisclosedByRow() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityDisclosedBy(row accessibilityDisclosedByRow: AnyObject?)
+  func setAccessibilityDisclosedByRow(accessibilityDisclosedByRow: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityDisclosedRows() -> AnyObject?
   @available(OSX 10.10, *)
@@ -597,7 +597,7 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   @available(OSX 10.10, *)
   func accessibilityNumberOfCharacters() -> Int
   @available(OSX 10.10, *)
-  func setAccessibilityNumberOf(characters accessibilityNumberOfCharacters: Int)
+  func setAccessibilityNumberOfCharacters(accessibilityNumberOfCharacters: Int)
   @available(OSX 10.10, *)
   func accessibilitySelectedText() -> String?
   @available(OSX 10.10, *)
@@ -710,7 +710,7 @@ enum NSApplicationDelegateReply : UInt {
 }
 extension NSApplication {
   var windowsMenu: NSMenu?
-  func arrangeIn(front sender: AnyObject?)
+  func arrangeInFront(sender: AnyObject?)
   func removeWindowsItem(win: NSWindow)
   func addWindowsItem(win: NSWindow, title aString: String, filename isFilename: Bool)
   func changeWindowsItem(win: NSWindow, title aString: String, filename isFilename: Bool)

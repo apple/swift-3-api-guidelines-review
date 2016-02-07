@@ -72,7 +72,7 @@ class GKTurnBasedMatch : Object {
   var currentParticipant: GKTurnBasedParticipant? { get }
   var matchData: Data? { get }
   @available(tvOS 7.0, *)
-  func setLocalizableMessageWith(key key: String, arguments: [String]?)
+  func setLocalizableMessageWithKey(key: String, arguments: [String]?)
   var message: String?
   @available(tvOS 6.0, *)
   var matchDataMaximumSize: Int { get }

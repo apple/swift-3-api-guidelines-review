@@ -134,7 +134,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.5, *)
   @NSCopying var representedURL: URL?
   var representedFilename: String
-  func setTitleWith(representedFilename filename: String)
+  func setTitleWithRepresentedFilename(filename: String)
   var isExcludedFromWindowsMenu: Bool
   var contentView: NSView?
   unowned(unsafe) var delegate: @sil_unmanaged NSWindowDelegate?
@@ -283,8 +283,8 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   var stringWithSavedFrame: String { get }
   func setFrameFrom(string: String)
   func saveFrameUsing(name name: String)
-  func setFrameUsing(name name: String, force: Bool) -> Bool
-  func setFrameUsing(name name: String) -> Bool
+  func setFrameUsingName(name: String, force: Bool) -> Bool
+  func setFrameUsingName(name: String) -> Bool
   func setFrameAutosaveName(name: String) -> Bool
   var frameAutosaveName: String { get }
   class func removeFrameUsing(name name: String)
@@ -512,7 +512,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.10, *)
   func accessibilityServesAsTitleForUIElements() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityServesAsTitleFor(uiElements accessibilityServesAsTitleForUIElements: [AnyObject]?)
+  func setAccessibilityServesAsTitleForUIElements(accessibilityServesAsTitleForUIElements: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityShownMenu() -> AnyObject?
   @available(OSX 10.10, *)
@@ -626,7 +626,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.10, *)
   func isAccessibilityOrderedByRow() -> Bool
   @available(OSX 10.10, *)
-  func setAccessibilityOrderedBy(row accessibilityOrderedByRow: Bool)
+  func setAccessibilityOrderedByRow(accessibilityOrderedByRow: Bool)
   @available(OSX 10.10, *)
   func accessibilityHorizontalUnits() -> NSAccessibilityUnits
   @available(OSX 10.10, *)
@@ -662,7 +662,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.10, *)
   func accessibilityDisclosedByRow() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityDisclosedBy(row accessibilityDisclosedByRow: AnyObject?)
+  func setAccessibilityDisclosedByRow(accessibilityDisclosedByRow: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityDisclosedRows() -> AnyObject?
   @available(OSX 10.10, *)
@@ -822,7 +822,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.10, *)
   func accessibilityNumberOfCharacters() -> Int
   @available(OSX 10.10, *)
-  func setAccessibilityNumberOf(characters accessibilityNumberOfCharacters: Int)
+  func setAccessibilityNumberOfCharacters(accessibilityNumberOfCharacters: Int)
   @available(OSX 10.10, *)
   func accessibilitySelectedText() -> String?
   @available(OSX 10.10, *)

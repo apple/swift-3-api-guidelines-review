@@ -21,7 +21,7 @@ class ODNode : Object {
   @available(OSX 10.6, *)
   func setCredentialsWithRecordType(inRecordType: String!, authenticationType inType: String!, authenticationItems inItems: [AnyObject]!, continueItems outItems: AutoreleasingUnsafeMutablePointer<NSArray?>, context outContext: AutoreleasingUnsafeMutablePointer<AnyObject?>) throws
   @available(OSX 10.6, *)
-  func setCredentialsUsing(kerberosCache inCacheName: String!) throws
+  func setCredentialsUsingKerberosCache(inCacheName: String!) throws
   @available(OSX 10.6, *)
   func createRecordWithRecordType(inRecordType: String!, name inRecordName: String!, attributes inAttributes: [Object : AnyObject]! = [:]) throws -> ODRecord
   @available(OSX 10.6, *)

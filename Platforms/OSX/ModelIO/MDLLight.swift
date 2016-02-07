@@ -24,7 +24,7 @@ class MDLLight : MDLObject {
 }
 @available(OSX 10.11, *)
 class MDLPhysicallyPlausibleLight : MDLLight {
-  func setColorBy(temperature temperature: Float)
+  func setColorByTemperature(temperature: Float)
   var color: CGColor?
   var lumens: Float
   var innerConeAngle: Float

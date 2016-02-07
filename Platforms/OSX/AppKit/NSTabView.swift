@@ -15,7 +15,7 @@ class NSTabView : NSView {
   func select(tabViewItem: NSTabViewItem?)
   func selectItemAt(index: Int)
   func selectItem(identifier identifier: AnyObject)
-  func takeSelectedTabViewItemFrom(sender sender: AnyObject?)
+  func takeSelectedTabViewItemFromSender(sender: AnyObject?)
   func selectFirstTabViewItem(sender: AnyObject?)
   func selectLastItem(sender: AnyObject?)
   func selectNextTabViewItem(sender: AnyObject?)

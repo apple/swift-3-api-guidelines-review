@@ -455,7 +455,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.10, *)
   func accessibilityServesAsTitleForUIElements() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityServesAsTitleFor(uiElements accessibilityServesAsTitleForUIElements: [AnyObject]?)
+  func setAccessibilityServesAsTitleForUIElements(accessibilityServesAsTitleForUIElements: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityShownMenu() -> AnyObject?
   @available(OSX 10.10, *)
@@ -569,7 +569,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.10, *)
   func isAccessibilityOrderedByRow() -> Bool
   @available(OSX 10.10, *)
-  func setAccessibilityOrderedBy(row accessibilityOrderedByRow: Bool)
+  func setAccessibilityOrderedByRow(accessibilityOrderedByRow: Bool)
   @available(OSX 10.10, *)
   func accessibilityHorizontalUnits() -> NSAccessibilityUnits
   @available(OSX 10.10, *)
@@ -605,7 +605,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.10, *)
   func accessibilityDisclosedByRow() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityDisclosedBy(row accessibilityDisclosedByRow: AnyObject?)
+  func setAccessibilityDisclosedByRow(accessibilityDisclosedByRow: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityDisclosedRows() -> AnyObject?
   @available(OSX 10.10, *)
@@ -765,7 +765,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.10, *)
   func accessibilityNumberOfCharacters() -> Int
   @available(OSX 10.10, *)
-  func setAccessibilityNumberOf(characters accessibilityNumberOfCharacters: Int)
+  func setAccessibilityNumberOfCharacters(accessibilityNumberOfCharacters: Int)
   @available(OSX 10.10, *)
   func accessibilitySelectedText() -> String?
   @available(OSX 10.10, *)

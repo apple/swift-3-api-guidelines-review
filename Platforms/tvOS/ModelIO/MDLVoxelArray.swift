@@ -13,7 +13,7 @@ class MDLVoxelArray : Object {
   init(data voxelData: Data, boundingBox: MDLAxisAlignedBoundingBox, voxelExtent: Float)
   func meshUsing(allocator: MDLMeshBufferAllocator?) -> MDLMesh?
   func voxelExistsAt(index index: MDLVoxelIndex, allowAnyX: Bool, allowAnyY: Bool, allowAnyZ: Bool, allowAnyShell: Bool) -> Bool
-  func setVoxelAt(index index: MDLVoxelIndex)
+  func setVoxelAtIndex(index: MDLVoxelIndex)
   func setVoxelsFor(mesh: MDLMesh, divisions: Int32, interiorShells: Int32, exteriorShells: Int32, patchRadius: Float)
   func setVoxelsFor(mesh: MDLMesh, divisions: Int32, interiorNBWidth: Float, exteriorNBWidth: Float, patchRadius: Float)
   func voxelsWithin(extent: MDLVoxelIndexExtent) -> Data?

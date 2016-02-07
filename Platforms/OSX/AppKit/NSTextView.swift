@@ -135,8 +135,8 @@ extension NSTextView {
   func readSelectionFrom(pboard: NSPasteboard) -> Bool
   class func registerForServices()
   func validRequestorForSendType(sendType: String, returnType: String) -> AnyObject?
-  func pasteAs(plainText sender: AnyObject?)
-  func pasteAs(richText sender: AnyObject?)
+  func pasteAsPlainText(sender: AnyObject?)
+  func pasteAsRichText(sender: AnyObject?)
 }
 extension NSTextView {
   func dragSelection(event: NSEvent, offset mouseOffset: Size, slideBack: Bool) -> Bool
@@ -247,9 +247,9 @@ extension NSTextView {
   @available(OSX 10.6, *)
   func orderFrontSubstitutionsPanel(sender: AnyObject?)
   @available(OSX 10.6, *)
-  func checkTextIn(selection sender: AnyObject?)
+  func checkTextInSelection(sender: AnyObject?)
   @available(OSX 10.6, *)
-  func checkTextIn(document sender: AnyObject?)
+  func checkTextInDocument(sender: AnyObject?)
   var usesFindPanel: Bool
   @available(OSX 10.7, *)
   var usesFindBar: Bool

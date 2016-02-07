@@ -10,7 +10,7 @@ class ABPersonViewController : UIViewController, UIViewControllerRestoration {
   var allowsActions: Bool
   @available(iOS 4.0, *)
   var shouldShowLinkedPeople: Bool
-  func setHighlightedItemFor(property property: ABPropertyID, withIdentifier identifier: ABMultiValueIdentifier)
+  func setHighlightedItemForProperty(property: ABPropertyID, withIdentifier identifier: ABMultiValueIdentifier)
   init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
   init?(coder aDecoder: Coder)
   convenience init()

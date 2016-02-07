@@ -10,7 +10,7 @@ class NSUserDefaultsController : NSController {
   var values: AnyObject { get }
   func revert(sender: AnyObject?)
   func save(sender: AnyObject?)
-  func revertTo(initialValues sender: AnyObject?)
+  func revertToInitialValues(sender: AnyObject?)
   convenience init()
 }
 struct __userDefaultsControllerFlags {

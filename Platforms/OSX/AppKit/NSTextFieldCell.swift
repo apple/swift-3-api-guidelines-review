@@ -14,7 +14,7 @@ class NSTextFieldCell : NSActionCell {
   var placeholderString: String?
   @NSCopying var placeholderAttributedString: AttributedString?
   @available(OSX 10.5, *)
-  func setWantsNotificationFor(markedText flag: Bool)
+  func setWantsNotificationForMarkedText(flag: Bool)
   @available(OSX 10.5, *)
   var allowedInputSourceLocales: [String]?
   init(textCell aString: String)

@@ -6,7 +6,7 @@ class AVCaptureVideoPreviewLayer : CALayer {
   init!(sessionWithNoConnection session: AVCaptureSession!)
   var session: AVCaptureSession!
   @available(iOS 8.0, *)
-  func setSessionWith(noConnection session: AVCaptureSession!)
+  func setSessionWithNoConnection(session: AVCaptureSession!)
   @available(iOS 6.0, *)
   var connection: AVCaptureConnection! { get }
   var videoGravity: String!

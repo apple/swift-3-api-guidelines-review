@@ -12,7 +12,7 @@ class DateFormatter : Formatter {
   class func defaultFormatterBehavior() -> DateFormatterBehavior
   class func setDefaultFormatterBehavior(behavior: DateFormatterBehavior)
   @available(OSX 10.10, *)
-  func setLocalizedDateFormatFrom(template dateFormatTemplate: String)
+  func setLocalizedDateFormatFromTemplate(dateFormatTemplate: String)
   var dateFormat: String!
   var dateStyle: DateFormatterStyle
   var timeStyle: DateFormatterStyle

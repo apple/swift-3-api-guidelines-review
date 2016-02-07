@@ -132,11 +132,11 @@ extension AVAudioSession {
   func setPreferredIOBufferDuration(duration: TimeInterval) throws
   var preferredIOBufferDuration: TimeInterval { get }
   @available(iOS 7.0, *)
-  func setPreferredInputNumberOf(channels count: Int) throws
+  func setPreferredInputNumberOfChannels(count: Int) throws
   @available(iOS 7.0, *)
   var preferredInputNumberOfChannels: Int { get }
   @available(iOS 7.0, *)
-  func setPreferredOutputNumberOf(channels count: Int) throws
+  func setPreferredOutputNumberOfChannels(count: Int) throws
   @available(iOS 7.0, *)
   var preferredOutputNumberOfChannels: Int { get }
   @available(iOS 7.0, *)

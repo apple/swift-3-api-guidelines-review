@@ -12,7 +12,7 @@ class DateFormatter : Formatter {
   class func defaultFormatterBehavior() -> DateFormatterBehavior
   class func setDefaultFormatterBehavior(behavior: DateFormatterBehavior)
   @available(watchOS 2.0, *)
-  func setLocalizedDateFormatFrom(template dateFormatTemplate: String)
+  func setLocalizedDateFormatFromTemplate(dateFormatTemplate: String)
   var dateFormat: String!
   var dateStyle: DateFormatterStyle
   var timeStyle: DateFormatterStyle

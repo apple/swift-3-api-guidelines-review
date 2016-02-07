@@ -45,8 +45,8 @@ extension Object {
   func valueFor(undefinedKey key: String) -> AnyObject?
   class func setValue(value: AnyObject?, forUndefinedKey key: String)
   func setValue(value: AnyObject?, forUndefinedKey key: String)
-  class func setNilValueFor(key key: String)
-  func setNilValueFor(key key: String)
+  class func setNilValueForKey(key: String)
+  func setNilValueForKey(key: String)
   class func dictionaryWithValuesFor(keys keys: [String]) -> [String : AnyObject]
   func dictionaryWithValuesFor(keys keys: [String]) -> [String : AnyObject]
   class func setValuesForKeysWith(keyedValues: [String : AnyObject])

@@ -25,7 +25,7 @@ class Error : Object, Copying, SecureCoding {
   var recoveryAttempter: AnyObject? { get }
   var helpAnchor: String? { get }
   @available(tvOS 9.0, *)
-  class func setUserInfoValueProviderFor(domain errorDomain: String, provider: ((Error, String) -> AnyObject?)? = nil)
+  class func setUserInfoValueProviderForDomain(errorDomain: String, provider: ((Error, String) -> AnyObject?)? = nil)
   @available(tvOS 9.0, *)
   class func userInfoValueProviderFor(domain errorDomain: String) -> ((Error, String) -> AnyObject?)?
   func copyWith(zone: Zone = nil) -> AnyObject

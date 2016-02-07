@@ -47,7 +47,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   func performSynchronousFileAccess(block: () -> Void)
   @available(OSX 10.7, *)
   func performAsynchronousFileAccess(block: (() -> Void) -> Void)
-  @IBAction func revertDocumentTo(saved sender: AnyObject?)
+  @IBAction func revertDocumentToSaved(sender: AnyObject?)
   func revertToContentsOf(url: URL, ofType typeName: String) throws
   func readFrom(url: URL, ofType typeName: String) throws
   func readFrom(fileWrapper: FileWrapper, ofType typeName: String) throws
@@ -110,7 +110,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   @available(OSX 10.8, *)
   @IBAction func renameDocument(sender: AnyObject?)
   @available(OSX 10.8, *)
-  @IBAction func moveTo(ubiquityContainer sender: AnyObject?)
+  @IBAction func moveToUbiquityContainer(sender: AnyObject?)
   @available(OSX 10.8, *)
   @IBAction func move(sender: AnyObject?)
   @available(OSX 10.8, *)
@@ -142,7 +142,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   func printOperation(settings printSettings: [String : AnyObject]) throws -> NSPrintOperation
   func runModalPrintOperation(printOperation: NSPrintOperation, delegate: AnyObject?, didRun didRunSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.9, *)
-  @IBAction func saveTo(pdf sender: AnyObject?)
+  @IBAction func saveToPDF(sender: AnyObject?)
   @available(OSX 10.9, *)
   var pdfPrintOperation: NSPrintOperation { get }
   var isDocumentEdited: Bool { get }
