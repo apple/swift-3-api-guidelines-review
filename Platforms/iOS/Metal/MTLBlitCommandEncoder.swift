@@ -3,11 +3,11 @@
 struct MTLBlitOption : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: MTLBlitOption { get }
-  static var DepthFromDepthStencil: MTLBlitOption { get }
-  static var StencilFromDepthStencil: MTLBlitOption { get }
+  static var none: MTLBlitOption { get }
+  static var depthFromDepthStencil: MTLBlitOption { get }
+  static var stencilFromDepthStencil: MTLBlitOption { get }
   @available(iOS 9.0, *)
-  static var RowLinearPVRTC: MTLBlitOption { get }
+  static var rowLinearPVRTC: MTLBlitOption { get }
 }
 @available(iOS 8.0, *)
 protocol MTLBlitCommandEncoder : MTLCommandEncoder {

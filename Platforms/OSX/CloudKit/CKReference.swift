@@ -3,8 +3,8 @@
 enum CKReferenceAction : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
-  case DeleteSelf
+  case none
+  case deleteSelf
 }
 @available(OSX 10.10, *)
 class CKReference : Object, SecureCoding, Copying {

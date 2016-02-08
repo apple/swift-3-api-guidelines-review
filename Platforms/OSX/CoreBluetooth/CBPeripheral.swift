@@ -3,15 +3,15 @@
 enum CBPeripheralState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Disconnected
-  case Connecting
-  case Connected
+  case disconnected
+  case connecting
+  case connected
 }
 enum CBCharacteristicWriteType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case WithResponse
-  case WithoutResponse
+  case withResponse
+  case withoutResponse
 }
 @available(OSX 10.7, *)
 class CBPeripheral : Object, Copying {

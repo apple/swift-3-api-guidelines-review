@@ -319,21 +319,21 @@ let urlUbiquitousItemDownloadingStatusCurrent: String
 struct URLBookmarkCreationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var MinimalBookmark: URLBookmarkCreationOptions { get }
-  static var SuitableForBookmarkFile: URLBookmarkCreationOptions { get }
+  static var minimalBookmark: URLBookmarkCreationOptions { get }
+  static var suitableForBookmarkFile: URLBookmarkCreationOptions { get }
   @available(OSX 10.7, *)
-  static var WithSecurityScope: URLBookmarkCreationOptions { get }
+  static var withSecurityScope: URLBookmarkCreationOptions { get }
   @available(OSX 10.7, *)
-  static var SecurityScopeAllowOnlyReadAccess: URLBookmarkCreationOptions { get }
+  static var securityScopeAllowOnlyReadAccess: URLBookmarkCreationOptions { get }
 }
 @available(OSX 10.6, *)
 struct URLBookmarkResolutionOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var WithoutUI: URLBookmarkResolutionOptions { get }
-  static var WithoutMounting: URLBookmarkResolutionOptions { get }
+  static var withoutUI: URLBookmarkResolutionOptions { get }
+  static var withoutMounting: URLBookmarkResolutionOptions { get }
   @available(OSX 10.7, *)
-  static var WithSecurityScope: URLBookmarkResolutionOptions { get }
+  static var withSecurityScope: URLBookmarkResolutionOptions { get }
 }
 typealias URLBookmarkFileCreationOptions = Int
 extension URL {

@@ -4,29 +4,29 @@ struct PointerFunctionsOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
   @available(OSX 10.5, *)
-  static var StrongMemory: PointerFunctionsOptions { get }
+  static var strongMemory: PointerFunctionsOptions { get }
   @available(OSX 10.5, *)
-  static var OpaqueMemory: PointerFunctionsOptions { get }
+  static var opaqueMemory: PointerFunctionsOptions { get }
   @available(OSX 10.5, *)
-  static var MallocMemory: PointerFunctionsOptions { get }
+  static var mallocMemory: PointerFunctionsOptions { get }
   @available(OSX 10.5, *)
-  static var MachVirtualMemory: PointerFunctionsOptions { get }
+  static var machVirtualMemory: PointerFunctionsOptions { get }
   @available(OSX 10.8, *)
-  static var WeakMemory: PointerFunctionsOptions { get }
+  static var weakMemory: PointerFunctionsOptions { get }
   @available(OSX 10.5, *)
-  static var ObjectPersonality: PointerFunctionsOptions { get }
+  static var objectPersonality: PointerFunctionsOptions { get }
   @available(OSX 10.5, *)
-  static var OpaquePersonality: PointerFunctionsOptions { get }
+  static var opaquePersonality: PointerFunctionsOptions { get }
   @available(OSX 10.5, *)
-  static var ObjectPointerPersonality: PointerFunctionsOptions { get }
+  static var objectPointerPersonality: PointerFunctionsOptions { get }
   @available(OSX 10.5, *)
-  static var CStringPersonality: PointerFunctionsOptions { get }
+  static var cStringPersonality: PointerFunctionsOptions { get }
   @available(OSX 10.5, *)
-  static var StructPersonality: PointerFunctionsOptions { get }
+  static var structPersonality: PointerFunctionsOptions { get }
   @available(OSX 10.5, *)
-  static var IntegerPersonality: PointerFunctionsOptions { get }
+  static var integerPersonality: PointerFunctionsOptions { get }
   @available(OSX 10.5, *)
-  static var CopyIn: PointerFunctionsOptions { get }
+  static var copyIn: PointerFunctionsOptions { get }
 }
 @available(OSX 10.5, *)
 class PointerFunctions : Object, Copying {

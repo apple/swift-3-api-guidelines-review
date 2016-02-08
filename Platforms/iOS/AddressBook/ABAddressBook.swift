@@ -9,10 +9,10 @@ typealias ABAddressBook = CFTypeRef
 enum ABAuthorizationStatus : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case NotDetermined
-  case Restricted
-  case Denied
-  case Authorized
+  case notDetermined
+  case restricted
+  case denied
+  case authorized
 }
 @available(iOS, introduced=2.0, deprecated=9.0, message="use [CNContactStore authorizationStatusForEntityType:]")
 func ABAddressBookGetAuthorizationStatus() -> ABAuthorizationStatus

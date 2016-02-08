@@ -2,22 +2,22 @@
 struct TextCheckingType : OptionSetType {
   init(rawValue: UInt64)
   let rawValue: UInt64
-  static var Orthography: TextCheckingType { get }
-  static var Spelling: TextCheckingType { get }
-  static var Grammar: TextCheckingType { get }
-  static var Date: TextCheckingType { get }
-  static var Address: TextCheckingType { get }
-  static var Link: TextCheckingType { get }
-  static var Quote: TextCheckingType { get }
-  static var Dash: TextCheckingType { get }
-  static var Replacement: TextCheckingType { get }
-  static var Correction: TextCheckingType { get }
+  static var orthography: TextCheckingType { get }
+  static var spelling: TextCheckingType { get }
+  static var grammar: TextCheckingType { get }
+  static var date: TextCheckingType { get }
+  static var address: TextCheckingType { get }
+  static var link: TextCheckingType { get }
+  static var quote: TextCheckingType { get }
+  static var dash: TextCheckingType { get }
+  static var replacement: TextCheckingType { get }
+  static var correction: TextCheckingType { get }
   @available(iOS 4.0, *)
-  static var RegularExpression: TextCheckingType { get }
+  static var regularExpression: TextCheckingType { get }
   @available(iOS 4.0, *)
-  static var PhoneNumber: TextCheckingType { get }
+  static var phoneNumber: TextCheckingType { get }
   @available(iOS 4.0, *)
-  static var TransitInformation: TextCheckingType { get }
+  static var transitInformation: TextCheckingType { get }
 }
 typealias TextCheckingTypes = UInt64
 var textCheckingAllSystemTypes: TextCheckingTypes { get }

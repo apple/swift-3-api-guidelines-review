@@ -4,21 +4,21 @@ enum ALAssetOrientation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   @available(iOS, introduced=4.0, deprecated=9.0)
-  case Up
+  case up
   @available(iOS, introduced=4.0, deprecated=9.0)
-  case Down
+  case down
   @available(iOS, introduced=4.0, deprecated=9.0)
-  case Left
+  case left
   @available(iOS, introduced=4.0, deprecated=9.0)
-  case Right
+  case right
   @available(iOS, introduced=4.0, deprecated=9.0)
-  case UpMirrored
+  case upMirrored
   @available(iOS, introduced=4.0, deprecated=9.0)
-  case DownMirrored
+  case downMirrored
   @available(iOS, introduced=4.0, deprecated=9.0)
-  case LeftMirrored
+  case leftMirrored
   @available(iOS, introduced=4.0, deprecated=9.0)
-  case RightMirrored
+  case rightMirrored
 }
 @available(iOS, introduced=4.0, deprecated=9.0)
 var ALAssetsGroupLibrary: UInt32 { get }
@@ -41,13 +41,13 @@ enum ALAuthorizationStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   @available(iOS, introduced=6.0, deprecated=9.0)
-  case NotDetermined
+  case notDetermined
   @available(iOS, introduced=6.0, deprecated=9.0)
-  case Restricted
+  case restricted
   @available(iOS, introduced=6.0, deprecated=9.0)
-  case Denied
+  case denied
   @available(iOS, introduced=6.0, deprecated=9.0)
-  case Authorized
+  case authorized
 }
 @available(iOS, introduced=4.0, deprecated=9.0, message="Use the PHFetchResult returned by fetchAssetCollectionsInCollectionList:options: on PHAssetCollection from the Photos framework to enumerate the asset collections in a collection list instead")
 typealias ALAssetsLibraryGroupsEnumerationResultsBlock = (ALAssetsGroup!, UnsafeMutablePointer<ObjCBool>) -> Void

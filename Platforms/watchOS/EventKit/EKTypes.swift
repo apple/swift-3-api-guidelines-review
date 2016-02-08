@@ -3,21 +3,21 @@
 enum EKAuthorizationStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case NotDetermined
-  case Restricted
-  case Denied
-  case Authorized
+  case notDetermined
+  case restricted
+  case denied
+  case authorized
 }
 enum EKWeekday : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Sunday
-  case Monday
-  case Tuesday
-  case Wednesday
-  case Thursday
-  case Friday
-  case Saturday
+  case sunday
+  case monday
+  case tuesday
+  case wednesday
+  case thursday
+  case friday
+  case saturday
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use EKWeekdaySunday instead")
   static var EKSunday: EKWeekday { get }
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use EKWeekdayMonday instead")
@@ -36,114 +36,114 @@ enum EKWeekday : Int {
 enum EKRecurrenceFrequency : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Daily
-  case Weekly
-  case Monthly
-  case Yearly
+  case daily
+  case weekly
+  case monthly
+  case yearly
 }
 enum EKParticipantType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Person
-  case Room
-  case Resource
-  case Group
+  case unknown
+  case person
+  case room
+  case resource
+  case group
 }
 enum EKParticipantRole : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Required
-  case Optional
-  case Chair
-  case NonParticipant
+  case unknown
+  case required
+  case optional
+  case chair
+  case nonParticipant
 }
 enum EKParticipantScheduleStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Pending
-  case Sent
-  case Delivered
-  case RecipientNotRecognized
-  case NoPrivileges
-  case DeliveryFailed
-  case CannotDeliver
-  case RecipientNotAllowed
+  case none
+  case pending
+  case sent
+  case delivered
+  case recipientNotRecognized
+  case noPrivileges
+  case deliveryFailed
+  case cannotDeliver
+  case recipientNotAllowed
 }
 enum EKParticipantStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Pending
-  case Accepted
-  case Declined
-  case Tentative
-  case Delegated
-  case Completed
-  case InProcess
+  case unknown
+  case pending
+  case accepted
+  case declined
+  case tentative
+  case delegated
+  case completed
+  case inProcess
 }
 enum EKCalendarType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Local
-  case CalDAV
-  case Exchange
-  case Subscription
-  case Birthday
+  case local
+  case calDAV
+  case exchange
+  case subscription
+  case birthday
 }
 struct EKCalendarEventAvailabilityMask : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: EKCalendarEventAvailabilityMask { get }
-  static var Busy: EKCalendarEventAvailabilityMask { get }
-  static var Free: EKCalendarEventAvailabilityMask { get }
-  static var Tentative: EKCalendarEventAvailabilityMask { get }
-  static var Unavailable: EKCalendarEventAvailabilityMask { get }
+  static var none: EKCalendarEventAvailabilityMask { get }
+  static var busy: EKCalendarEventAvailabilityMask { get }
+  static var free: EKCalendarEventAvailabilityMask { get }
+  static var tentative: EKCalendarEventAvailabilityMask { get }
+  static var unavailable: EKCalendarEventAvailabilityMask { get }
 }
 enum EKSourceType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Local
-  case Exchange
-  case CalDAV
-  case MobileMe
-  case Subscribed
-  case Birthdays
+  case local
+  case exchange
+  case calDAV
+  case mobileMe
+  case subscribed
+  case birthdays
 }
 enum EKEntityType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Event
-  case Reminder
+  case event
+  case reminder
 }
 struct EKEntityMask : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Event: EKEntityMask { get }
-  static var Reminder: EKEntityMask { get }
+  static var event: EKEntityMask { get }
+  static var reminder: EKEntityMask { get }
 }
 enum EKAlarmProximity : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Enter
-  case Leave
+  case none
+  case enter
+  case leave
 }
 enum EKAlarmType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Display
-  case Audio
-  case Procedure
-  case Email
+  case display
+  case audio
+  case procedure
+  case email
 }
 enum EKReminderPriority : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
-  case High
-  case Medium
-  case Low
+  case none
+  case high
+  case medium
+  case low
 }

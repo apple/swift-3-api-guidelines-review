@@ -2,10 +2,10 @@
 enum UIActionSheetStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Automatic
-  case Default
-  case BlackTranslucent
-  case BlackOpaque
+  case automatic
+  case `default`
+  case blackTranslucent
+  case blackOpaque
 }
 @available(iOS, introduced=2.0, deprecated=8.3, message="UIActionSheet is deprecated. Use UIAlertController with a preferredStyle of UIAlertControllerStyleActionSheet instead")
 class UIActionSheet : UIView {

@@ -15,9 +15,9 @@ func CGCancelDisplayConfiguration(config: CGDisplayConfigRef) -> CGError
 struct CGConfigureOption : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var ForAppOnly: CGConfigureOption { get }
-  static var ForSession: CGConfigureOption { get }
-  static var Permanently: CGConfigureOption { get }
+  static var forAppOnly: CGConfigureOption { get }
+  static var forSession: CGConfigureOption { get }
+  static var permanently: CGConfigureOption { get }
 }
 @available(OSX 10.0, *)
 func CGCompleteDisplayConfiguration(config: CGDisplayConfigRef, _ option: CGConfigureOption) -> CGError
@@ -26,17 +26,17 @@ func CGRestorePermanentDisplayConfiguration()
 struct CGDisplayChangeSummaryFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var BeginConfigurationFlag: CGDisplayChangeSummaryFlags { get }
-  static var MovedFlag: CGDisplayChangeSummaryFlags { get }
-  static var SetMainFlag: CGDisplayChangeSummaryFlags { get }
-  static var SetModeFlag: CGDisplayChangeSummaryFlags { get }
-  static var AddFlag: CGDisplayChangeSummaryFlags { get }
-  static var RemoveFlag: CGDisplayChangeSummaryFlags { get }
-  static var EnabledFlag: CGDisplayChangeSummaryFlags { get }
-  static var DisabledFlag: CGDisplayChangeSummaryFlags { get }
-  static var MirrorFlag: CGDisplayChangeSummaryFlags { get }
-  static var UnMirrorFlag: CGDisplayChangeSummaryFlags { get }
-  static var DesktopShapeChangedFlag: CGDisplayChangeSummaryFlags { get }
+  static var beginConfigurationFlag: CGDisplayChangeSummaryFlags { get }
+  static var movedFlag: CGDisplayChangeSummaryFlags { get }
+  static var setMainFlag: CGDisplayChangeSummaryFlags { get }
+  static var setModeFlag: CGDisplayChangeSummaryFlags { get }
+  static var addFlag: CGDisplayChangeSummaryFlags { get }
+  static var removeFlag: CGDisplayChangeSummaryFlags { get }
+  static var enabledFlag: CGDisplayChangeSummaryFlags { get }
+  static var disabledFlag: CGDisplayChangeSummaryFlags { get }
+  static var mirrorFlag: CGDisplayChangeSummaryFlags { get }
+  static var unMirrorFlag: CGDisplayChangeSummaryFlags { get }
+  static var desktopShapeChangedFlag: CGDisplayChangeSummaryFlags { get }
 }
 typealias CGDisplayReconfigurationCallBack = @convention(c) (CGDirectDisplayID, CGDisplayChangeSummaryFlags, UnsafeMutablePointer<Void>) -> Void
 @available(OSX 10.3, *)

@@ -11,10 +11,10 @@ class FIFinderSyncController : ExtensionContext {
 enum FIMenuKind : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ContextualMenuForItems
-  case ContextualMenuForContainer
-  case ContextualMenuForSidebar
-  case ToolbarItemMenu
+  case contextualMenuForItems
+  case contextualMenuForContainer
+  case contextualMenuForSidebar
+  case toolbarItemMenu
 }
 protocol FIFinderSyncProtocol {
   optional func menuFor(menu: FIMenuKind) -> NSMenu?

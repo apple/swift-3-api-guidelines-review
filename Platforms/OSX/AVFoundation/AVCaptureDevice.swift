@@ -45,9 +45,9 @@ class AVCaptureDevice : Object {
 enum AVCaptureDevicePosition : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unspecified
-  case Back
-  case Front
+  case unspecified
+  case back
+  case front
 }
 extension AVCaptureDevice {
   var position: AVCaptureDevicePosition { get }
@@ -56,9 +56,9 @@ extension AVCaptureDevice {
 enum AVCaptureFlashMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Off
-  case On
-  case Auto
+  case off
+  case on
+  case auto
 }
 extension AVCaptureDevice {
   var hasFlash: Bool { get }
@@ -69,9 +69,9 @@ extension AVCaptureDevice {
 enum AVCaptureTorchMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Off
-  case On
-  case Auto
+  case off
+  case on
+  case auto
 }
 let AVCaptureMaxAvailableTorchLevel: Float
 extension AVCaptureDevice {
@@ -83,9 +83,9 @@ extension AVCaptureDevice {
 enum AVCaptureFocusMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Locked
-  case AutoFocus
-  case ContinuousAutoFocus
+  case locked
+  case autoFocus
+  case continuousAutoFocus
 }
 extension AVCaptureDevice {
   func isFocusModeSupported(focusMode: AVCaptureFocusMode) -> Bool
@@ -98,9 +98,9 @@ extension AVCaptureDevice {
 enum AVCaptureExposureMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Locked
-  case AutoExpose
-  case ContinuousAutoExposure
+  case locked
+  case autoExpose
+  case continuousAutoExposure
 }
 extension AVCaptureDevice {
   func isExposureModeSupported(exposureMode: AVCaptureExposureMode) -> Bool
@@ -113,9 +113,9 @@ extension AVCaptureDevice {
 enum AVCaptureWhiteBalanceMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Locked
-  case AutoWhiteBalance
-  case ContinuousAutoWhiteBalance
+  case locked
+  case autoWhiteBalance
+  case continuousAutoWhiteBalance
 }
 extension AVCaptureDevice {
   func isWhiteBalanceModeSupported(whiteBalanceMode: AVCaptureWhiteBalanceMode) -> Bool
@@ -135,8 +135,8 @@ typealias AVCaptureDeviceTransportControlsSpeed = Float
 enum AVCaptureDeviceTransportControlsPlaybackMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case NotPlayingMode
-  case PlayingMode
+  case notPlayingMode
+  case playingMode
 }
 extension AVCaptureDevice {
   @available(OSX 10.7, *)

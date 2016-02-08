@@ -3,9 +3,9 @@
 enum AVQueuedSampleBufferRenderingStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Rendering
-  case Failed
+  case unknown
+  case rendering
+  case failed
 }
 @available(OSX 10.10, *)
 let AVSampleBufferDisplayLayerFailedToDecodeNotification: String

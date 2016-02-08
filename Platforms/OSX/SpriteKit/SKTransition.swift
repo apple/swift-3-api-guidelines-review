@@ -3,10 +3,10 @@
 enum SKTransitionDirection : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Up
-  case Down
-  case Right
-  case Left
+  case up
+  case down
+  case right
+  case left
 }
 class SKTransition : Object, Copying {
   class func crossFade(duration sec: TimeInterval) -> SKTransition

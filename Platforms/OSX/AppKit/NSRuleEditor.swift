@@ -2,16 +2,16 @@
 enum NSRuleEditorNestingMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Single
-  case List
-  case Compound
-  case Simple
+  case single
+  case list
+  case compound
+  case simple
 }
 enum NSRuleEditorRowType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Simple
-  case Compound
+  case simple
+  case compound
 }
 class NSRuleEditor : NSControl {
   unowned(unsafe) var delegate: @sil_unmanaged NSRuleEditorDelegate?

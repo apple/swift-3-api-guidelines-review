@@ -5,6 +5,6 @@ let AVKitErrorDomain: String
 enum AVKitError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case PictureInPictureStartFailed
+  case unknown
+  case pictureInPictureStartFailed
 }

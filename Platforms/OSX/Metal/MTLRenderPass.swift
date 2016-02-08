@@ -3,17 +3,17 @@
 enum MTLLoadAction : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case DontCare
-  case Load
-  case Clear
+  case dontCare
+  case load
+  case clear
 }
 @available(OSX 10.11, *)
 enum MTLStoreAction : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case DontCare
-  case Store
-  case MultisampleResolve
+  case dontCare
+  case store
+  case multisampleResolve
 }
 struct MTLClearColor {
   var red: Double

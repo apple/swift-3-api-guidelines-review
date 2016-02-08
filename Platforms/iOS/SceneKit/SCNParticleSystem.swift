@@ -37,80 +37,80 @@ typealias SCNParticleModifierBlock = (UnsafeMutablePointer<UnsafeMutablePointer<
 enum SCNParticleSortingMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case ProjectedDepth
-  case Distance
-  case OldestFirst
-  case YoungestFirst
+  case none
+  case projectedDepth
+  case distance
+  case oldestFirst
+  case youngestFirst
 }
 @available(iOS 8.0, *)
 enum SCNParticleBlendMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Additive
-  case Subtract
-  case Multiply
-  case Screen
-  case Alpha
-  case Replace
+  case additive
+  case subtract
+  case multiply
+  case screen
+  case alpha
+  case replace
 }
 @available(iOS 8.0, *)
 enum SCNParticleOrientationMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case BillboardScreenAligned
-  case BillboardViewAligned
-  case Free
-  case BillboardYAligned
+  case billboardScreenAligned
+  case billboardViewAligned
+  case free
+  case billboardYAligned
 }
 @available(iOS 8.0, *)
 enum SCNParticleBirthLocation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Surface
-  case Volume
-  case Vertex
+  case surface
+  case volume
+  case vertex
 }
 @available(iOS 8.0, *)
 enum SCNParticleBirthDirection : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Constant
-  case SurfaceNormal
-  case Random
+  case constant
+  case surfaceNormal
+  case random
 }
 @available(iOS 8.0, *)
 enum SCNParticleImageSequenceAnimationMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Repeat
-  case Clamp
-  case AutoReverse
+  case `repeat`
+  case clamp
+  case autoReverse
 }
 @available(iOS 8.0, *)
 enum SCNParticleInputMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case OverLife
-  case OverDistance
-  case OverOtherProperty
+  case overLife
+  case overDistance
+  case overOtherProperty
 }
 @available(iOS 8.0, *)
 enum SCNParticleModifierStage : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case PreDynamics
-  case PostDynamics
-  case PreCollision
-  case PostCollision
+  case preDynamics
+  case postDynamics
+  case preCollision
+  case postCollision
 }
 @available(iOS 8.0, *)
 enum SCNParticleEvent : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Birth
-  case Death
-  case Collision
+  case birth
+  case death
+  case collision
 }
 @available(iOS 8.0, *)
 class SCNParticlePropertyController : Object, SecureCoding, Copying {

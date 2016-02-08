@@ -3,9 +3,9 @@
 enum UITabBarItemPositioning : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Automatic
-  case Fill
-  case Centered
+  case automatic
+  case fill
+  case centered
 }
 @available(tvOS 2.0, *)
 class UITabBar : UIView {

@@ -20,12 +20,12 @@ class NSTextTab : Object, Copying, Coding {
 enum NSLineBreakMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ByWordWrapping
-  case ByCharWrapping
-  case ByClipping
-  case ByTruncatingHead
-  case ByTruncatingTail
-  case ByTruncatingMiddle
+  case byWordWrapping
+  case byCharWrapping
+  case byClipping
+  case byTruncatingHead
+  case byTruncatingTail
+  case byTruncatingMiddle
 }
 @available(tvOS 6.0, *)
 class NSParagraphStyle : Object, Copying, MutableCopying, SecureCoding {

@@ -2,10 +2,10 @@
 enum NSMatrixMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case RadioModeMatrix
-  case HighlightModeMatrix
-  case ListModeMatrix
-  case TrackModeMatrix
+  case radioModeMatrix
+  case highlightModeMatrix
+  case listModeMatrix
+  case trackModeMatrix
 }
 struct __MFlags {
   var reservedMatrix: UInt32

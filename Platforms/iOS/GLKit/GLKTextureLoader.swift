@@ -19,41 +19,41 @@ let GLKTextureLoaderGLErrorKey: String
 enum GLKTextureLoaderError : GLuint {
   init?(rawValue: GLuint)
   var rawValue: GLuint { get }
-  case FileOrURLNotFound
-  case InvalidNSData
-  case InvalidCGImage
-  case UnknownPathType
-  case UnknownFileType
-  case PVRAtlasUnsupported
-  case CubeMapInvalidNumFiles
-  case CompressedTextureUpload
-  case UncompressedTextureUpload
-  case UnsupportedCubeMapDimensions
-  case UnsupportedBitDepth
-  case UnsupportedPVRFormat
-  case DataPreprocessingFailure
-  case MipmapUnsupported
-  case UnsupportedOrientation
-  case ReorientationFailure
-  case AlphaPremultiplicationFailure
-  case InvalidEAGLContext
-  case IncompatibleFormatSRGB
+  case fileOrURLNotFound
+  case invalidNSData
+  case invalidCGImage
+  case unknownPathType
+  case unknownFileType
+  case pvrAtlasUnsupported
+  case cubeMapInvalidNumFiles
+  case compressedTextureUpload
+  case uncompressedTextureUpload
+  case unsupportedCubeMapDimensions
+  case unsupportedBitDepth
+  case unsupportedPVRFormat
+  case dataPreprocessingFailure
+  case mipmapUnsupported
+  case unsupportedOrientation
+  case reorientationFailure
+  case alphaPremultiplicationFailure
+  case invalidEAGLContext
+  case incompatibleFormatSRGB
 }
 @available(iOS 5.0, *)
 enum GLKTextureInfoAlphaState : GLint {
   init?(rawValue: GLint)
   var rawValue: GLint { get }
-  case None
-  case NonPremultiplied
-  case Premultiplied
+  case none
+  case nonPremultiplied
+  case premultiplied
 }
 @available(iOS 5.0, *)
 enum GLKTextureInfoOrigin : GLint {
   init?(rawValue: GLint)
   var rawValue: GLint { get }
-  case Unknown
-  case TopLeft
-  case BottomLeft
+  case unknown
+  case topLeft
+  case bottomLeft
 }
 @available(iOS 5.0, *)
 class GLKTextureInfo : Object, Copying {

@@ -3,23 +3,23 @@
 enum DateComponentsFormatterUnitsStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Positional
-  case Abbreviated
-  case Short
-  case Full
-  case SpellOut
+  case positional
+  case abbreviated
+  case short
+  case full
+  case spellOut
 }
 @available(tvOS 8.0, *)
 struct DateComponentsFormatterZeroFormattingBehavior : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: DateComponentsFormatterZeroFormattingBehavior { get }
-  static var Default: DateComponentsFormatterZeroFormattingBehavior { get }
-  static var DropLeading: DateComponentsFormatterZeroFormattingBehavior { get }
-  static var DropMiddle: DateComponentsFormatterZeroFormattingBehavior { get }
-  static var DropTrailing: DateComponentsFormatterZeroFormattingBehavior { get }
-  static var DropAll: DateComponentsFormatterZeroFormattingBehavior { get }
-  static var Pad: DateComponentsFormatterZeroFormattingBehavior { get }
+  static var none: DateComponentsFormatterZeroFormattingBehavior { get }
+  static var `default`: DateComponentsFormatterZeroFormattingBehavior { get }
+  static var dropLeading: DateComponentsFormatterZeroFormattingBehavior { get }
+  static var dropMiddle: DateComponentsFormatterZeroFormattingBehavior { get }
+  static var dropTrailing: DateComponentsFormatterZeroFormattingBehavior { get }
+  static var dropAll: DateComponentsFormatterZeroFormattingBehavior { get }
+  static var pad: DateComponentsFormatterZeroFormattingBehavior { get }
 }
 @available(tvOS 8.0, *)
 class DateComponentsFormatter : Formatter {

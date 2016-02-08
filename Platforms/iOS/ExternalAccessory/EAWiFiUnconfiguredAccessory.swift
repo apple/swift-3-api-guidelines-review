@@ -2,9 +2,9 @@
 struct EAWiFiUnconfiguredAccessoryProperties : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var PropertySupportsAirPlay: EAWiFiUnconfiguredAccessoryProperties { get }
-  static var PropertySupportsAirPrint: EAWiFiUnconfiguredAccessoryProperties { get }
-  static var PropertySupportsHomeKit: EAWiFiUnconfiguredAccessoryProperties { get }
+  static var propertySupportsAirPlay: EAWiFiUnconfiguredAccessoryProperties { get }
+  static var propertySupportsAirPrint: EAWiFiUnconfiguredAccessoryProperties { get }
+  static var propertySupportsHomeKit: EAWiFiUnconfiguredAccessoryProperties { get }
 }
 @available(iOS 8.0, *)
 class EAWiFiUnconfiguredAccessory : Object {

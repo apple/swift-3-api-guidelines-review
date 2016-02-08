@@ -3,9 +3,9 @@
 enum UIApplicationState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Active
-  case Inactive
-  case Background
+  case active
+  case inactive
+  case background
 }
 typealias UIBackgroundTaskIdentifier = Int
 @available(tvOS 4.0, *)

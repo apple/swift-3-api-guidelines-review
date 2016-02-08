@@ -2,10 +2,10 @@
 enum SCNGeometryPrimitiveType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Triangles
-  case TriangleStrip
-  case Line
-  case Point
+  case triangles
+  case triangleStrip
+  case line
+  case point
 }
 let SCNGeometrySourceSemanticVertex: String
 let SCNGeometrySourceSemanticNormal: String

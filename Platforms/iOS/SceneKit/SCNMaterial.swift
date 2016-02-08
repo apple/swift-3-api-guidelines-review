@@ -6,25 +6,25 @@ let SCNLightingModelConstant: String
 enum SCNCullMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Back
-  case Front
+  case back
+  case front
 }
 enum SCNTransparencyMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case AOne
-  case RGBZero
+  case aOne
+  case rgbZero
 }
 @available(iOS 9.0, *)
 enum SCNBlendMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Alpha
-  case Add
-  case Subtract
-  case Multiply
-  case Screen
-  case Replace
+  case alpha
+  case add
+  case subtract
+  case multiply
+  case screen
+  case replace
 }
 @available(iOS 8.0, *)
 class SCNMaterial : Object, SCNAnimatable, SCNShadable, Copying, SecureCoding {

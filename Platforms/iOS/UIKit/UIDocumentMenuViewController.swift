@@ -3,8 +3,8 @@
 enum UIDocumentMenuOrder : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case First
-  case Last
+  case first
+  case last
 }
 protocol UIDocumentMenuDelegate : ObjectProtocol {
   @available(iOS 8.0, *)

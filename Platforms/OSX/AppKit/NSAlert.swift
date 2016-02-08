@@ -2,9 +2,9 @@
 enum NSAlertStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case WarningAlertStyle
-  case InformationalAlertStyle
-  case CriticalAlertStyle
+  case warningAlertStyle
+  case informationalAlertStyle
+  case criticalAlertStyle
 }
 class NSAlert : Object {
   /*not inherited*/ init(error: Error)

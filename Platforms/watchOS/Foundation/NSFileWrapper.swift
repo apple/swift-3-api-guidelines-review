@@ -3,15 +3,15 @@
 struct FileWrapperReadingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Immediate: FileWrapperReadingOptions { get }
-  static var WithoutMapping: FileWrapperReadingOptions { get }
+  static var immediate: FileWrapperReadingOptions { get }
+  static var withoutMapping: FileWrapperReadingOptions { get }
 }
 @available(watchOS 2.0, *)
 struct FileWrapperWritingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Atomic: FileWrapperWritingOptions { get }
-  static var WithNameUpdating: FileWrapperWritingOptions { get }
+  static var atomic: FileWrapperWritingOptions { get }
+  static var withNameUpdating: FileWrapperWritingOptions { get }
 }
 @available(watchOS 2.0, *)
 class FileWrapper : Object, Coding {

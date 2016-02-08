@@ -2,11 +2,11 @@
 enum AVAssetWriterStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Writing
-  case Completed
-  case Failed
-  case Cancelled
+  case unknown
+  case writing
+  case completed
+  case failed
+  case cancelled
 }
 @available(iOS 4.1, *)
 class AVAssetWriter : Object {

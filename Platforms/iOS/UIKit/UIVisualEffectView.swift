@@ -3,9 +3,9 @@
 enum UIBlurEffectStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ExtraLight
-  case Light
-  case Dark
+  case extraLight
+  case light
+  case dark
 }
 @available(iOS 8.0, *)
 class UIVisualEffect : Object, Copying, SecureCoding {

@@ -3,9 +3,9 @@
 struct NSPDFPanelOptions : OptionSetType {
   init(rawValue: Int)
   let rawValue: Int
-  static var ShowsPaperSize: NSPDFPanelOptions { get }
-  static var ShowsOrientation: NSPDFPanelOptions { get }
-  static var RequestsParentDirectory: NSPDFPanelOptions { get }
+  static var showsPaperSize: NSPDFPanelOptions { get }
+  static var showsOrientation: NSPDFPanelOptions { get }
+  static var requestsParentDirectory: NSPDFPanelOptions { get }
 }
 @available(OSX 10.9, *)
 class NSPDFPanel : Object {

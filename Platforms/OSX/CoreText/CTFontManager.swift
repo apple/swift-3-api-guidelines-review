@@ -14,10 +14,10 @@ func CTFontManagerCreateFontDescriptorFromData(data: CFData) -> CTFontDescriptor
 enum CTFontManagerScope : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case None
-  case Process
-  case User
-  case Session
+  case none
+  case process
+  case user
+  case session
 }
 @available(OSX 10.6, *)
 func CTFontManagerRegisterFontsForURL(fontURL: CFURL, _ scope: CTFontManagerScope, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
@@ -44,10 +44,10 @@ let kCTFontManagerBundleIdentifier: CFString
 enum CTFontManagerAutoActivationSetting : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Default
-  case Disabled
-  case Enabled
-  case PromptUser
+  case `default`
+  case disabled
+  case enabled
+  case promptUser
 }
 @available(OSX 10.6, *)
 func CTFontManagerSetAutoActivationSetting(bundleIdentifier: CFString?, _ setting: CTFontManagerAutoActivationSetting)

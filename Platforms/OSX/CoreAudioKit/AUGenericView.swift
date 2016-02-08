@@ -2,9 +2,9 @@
 struct AUGenericViewDisplayFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var ViewTitleDisplayFlag: AUGenericViewDisplayFlags { get }
-  static var ViewPropertiesDisplayFlag: AUGenericViewDisplayFlags { get }
-  static var ViewParametersDisplayFlag: AUGenericViewDisplayFlags { get }
+  static var viewTitleDisplayFlag: AUGenericViewDisplayFlags { get }
+  static var viewPropertiesDisplayFlag: AUGenericViewDisplayFlags { get }
+  static var viewParametersDisplayFlag: AUGenericViewDisplayFlags { get }
 }
 class AUGenericView : NSView, AUCustomViewPersistentData {
   var audioUnit: AudioUnit { get }

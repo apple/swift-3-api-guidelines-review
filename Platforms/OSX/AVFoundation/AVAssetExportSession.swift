@@ -38,12 +38,12 @@ let AVAssetExportPresetAppleProRes422LPCM: String
 enum AVAssetExportSessionStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Waiting
-  case Exporting
-  case Completed
-  case Failed
-  case Cancelled
+  case unknown
+  case waiting
+  case exporting
+  case completed
+  case failed
+  case cancelled
 }
 @available(OSX 10.7, *)
 class AVAssetExportSession : Object {

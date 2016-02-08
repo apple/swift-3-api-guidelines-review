@@ -7,9 +7,9 @@ let SCNLightTypeSpot: String
 enum SCNShadowMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Forward
-  case Deferred
-  case Modulated
+  case forward
+  case deferred
+  case modulated
 }
 @available(tvOS 8.0, *)
 class SCNLight : Object, SCNAnimatable, SCNTechniqueSupport, Copying, SecureCoding {

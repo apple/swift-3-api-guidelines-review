@@ -2,15 +2,15 @@
 enum GKLeaderboardTimeScope : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Today
-  case Week
-  case AllTime
+  case today
+  case week
+  case allTime
 }
 enum GKLeaderboardPlayerScope : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Global
-  case FriendsOnly
+  case global
+  case friendsOnly
 }
 @available(iOS 4.1, *)
 class GKLeaderboard : Object {

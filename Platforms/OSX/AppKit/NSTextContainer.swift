@@ -42,19 +42,19 @@ struct __tcFlags {
 enum NSLineSweepDirection : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Left
-  case Right
-  case Down
-  case Up
+  case left
+  case right
+  case down
+  case up
 }
 enum NSLineMovementDirection : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case DoesntMove
-  case MovesLeft
-  case MovesRight
-  case MovesDown
-  case MovesUp
+  case doesntMove
+  case movesLeft
+  case movesRight
+  case movesDown
+  case movesUp
 }
 extension NSTextContainer {
   convenience init(containerSize aContainerSize: Size)

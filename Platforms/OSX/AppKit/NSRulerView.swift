@@ -2,8 +2,8 @@
 enum NSRulerOrientation : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case HorizontalRuler
-  case VerticalRuler
+  case horizontalRuler
+  case verticalRuler
 }
 class NSRulerView : NSView {
   class func registerUnit(name unitName: String, abbreviation: String, unitToPointsConversionFactor conversionFactor: CGFloat, stepUpCycle: [Number], stepDownCycle: [Number])

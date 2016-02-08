@@ -45,31 +45,31 @@ let NSVerticalGlyphFormAttributeName: String
 enum NSUnderlineStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case StyleNone
-  case StyleSingle
+  case styleNone
+  case styleSingle
   @available(tvOS 7.0, *)
-  case StyleThick
+  case styleThick
   @available(tvOS 7.0, *)
-  case StyleDouble
+  case styleDouble
   @available(tvOS 7.0, *)
-  static var PatternSolid: NSUnderlineStyle { get }
+  static var patternSolid: NSUnderlineStyle { get }
   @available(tvOS 7.0, *)
-  case PatternDot
+  case patternDot
   @available(tvOS 7.0, *)
-  case PatternDash
+  case patternDash
   @available(tvOS 7.0, *)
-  case PatternDashDot
+  case patternDashDot
   @available(tvOS 7.0, *)
-  case PatternDashDotDot
+  case patternDashDotDot
   @available(tvOS 7.0, *)
-  case ByWord
+  case byWord
 }
 @available(tvOS 9.0, *)
 enum NSWritingDirectionFormatType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Embedding
-  case Override
+  case embedding
+  case override
 }
 @available(tvOS 7.0, *)
 let NSTextEffectLetterpressStyle: String

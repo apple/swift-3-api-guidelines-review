@@ -2,30 +2,30 @@
 enum NSLineCapStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ButtLineCapStyle
-  case RoundLineCapStyle
-  case SquareLineCapStyle
+  case buttLineCapStyle
+  case roundLineCapStyle
+  case squareLineCapStyle
 }
 enum NSLineJoinStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case MiterLineJoinStyle
-  case RoundLineJoinStyle
-  case BevelLineJoinStyle
+  case miterLineJoinStyle
+  case roundLineJoinStyle
+  case bevelLineJoinStyle
 }
 enum NSWindingRule : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NonZeroWindingRule
-  case EvenOddWindingRule
+  case nonZeroWindingRule
+  case evenOddWindingRule
 }
 enum NSBezierPathElement : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case MoveToBezierPathElement
-  case LineToBezierPathElement
-  case CurveToBezierPathElement
-  case ClosePathBezierPathElement
+  case moveToBezierPathElement
+  case lineToBezierPathElement
+  case curveToBezierPathElement
+  case closePathBezierPathElement
 }
 class NSBezierPath : Object, Copying, Coding {
   /*not inherited*/ init(rect: Rect)

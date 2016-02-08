@@ -12,9 +12,9 @@ class MTLVertexAttribute : Object {
 enum MTLFunctionType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Vertex
-  case Fragment
-  case Kernel
+  case vertex
+  case fragment
+  case kernel
 }
 @available(tvOS 8.0, *)
 protocol MTLFunction : ObjectProtocol {
@@ -28,8 +28,8 @@ enum MTLLanguageVersion : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   @available(tvOS 9.0, *)
-  case Version1_0
-  case Version1_1
+  case version1_0
+  case version1_1
 }
 @available(tvOS 8.0, *)
 class MTLCompileOptions : Object, Copying {
@@ -47,19 +47,19 @@ let MTLLibraryErrorDomain: String
 enum MTLLibraryError : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Unsupported
-  case Internal
-  case CompileFailure
-  case CompileWarning
+  case unsupported
+  case `internal`
+  case compileFailure
+  case compileWarning
 }
 let MTLRenderPipelineErrorDomain: String
 @available(tvOS 8.0, *)
 enum MTLRenderPipelineError : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Internal
-  case Unsupported
-  case InvalidInput
+  case `internal`
+  case unsupported
+  case invalidInput
 }
 @available(tvOS 8.0, *)
 protocol MTLLibrary : ObjectProtocol {

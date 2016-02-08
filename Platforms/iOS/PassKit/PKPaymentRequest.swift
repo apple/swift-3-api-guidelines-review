@@ -3,40 +3,40 @@
 struct PKMerchantCapability : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Capability3DS: PKMerchantCapability { get }
-  static var CapabilityEMV: PKMerchantCapability { get }
+  static var capability3DS: PKMerchantCapability { get }
+  static var capabilityEMV: PKMerchantCapability { get }
   @available(iOS 9.0, *)
-  static var CapabilityCredit: PKMerchantCapability { get }
+  static var capabilityCredit: PKMerchantCapability { get }
   @available(iOS 9.0, *)
-  static var CapabilityDebit: PKMerchantCapability { get }
+  static var capabilityDebit: PKMerchantCapability { get }
 }
 @available(iOS 8.0, *)
 struct PKAddressField : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: PKAddressField { get }
-  static var PostalAddress: PKAddressField { get }
-  static var Phone: PKAddressField { get }
-  static var Email: PKAddressField { get }
+  static var none: PKAddressField { get }
+  static var postalAddress: PKAddressField { get }
+  static var phone: PKAddressField { get }
+  static var email: PKAddressField { get }
   @available(iOS 8.3, *)
-  static var Name: PKAddressField { get }
-  static var All: PKAddressField { get }
+  static var name: PKAddressField { get }
+  static var all: PKAddressField { get }
 }
 @available(iOS 8.3, *)
 enum PKShippingType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Shipping
-  case Delivery
-  case StorePickup
-  case ServicePickup
+  case shipping
+  case delivery
+  case storePickup
+  case servicePickup
 }
 @available(iOS 9.0, *)
 enum PKPaymentSummaryItemType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Final
-  case Pending
+  case final
+  case pending
 }
 @available(iOS 8.0, *)
 class PKPaymentSummaryItem : Object {

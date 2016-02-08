@@ -2,9 +2,9 @@
 enum WebCacheModel : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case DocumentViewer
-  case DocumentBrowser
-  case PrimaryWebBrowser
+  case documentViewer
+  case documentBrowser
+  case primaryWebBrowser
 }
 let WebPreferencesChangedNotification: String
 class WebPreferences : Object, Coding {

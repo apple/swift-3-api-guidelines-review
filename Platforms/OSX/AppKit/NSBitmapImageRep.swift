@@ -2,14 +2,14 @@
 enum NSTIFFCompression : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
+  case none
   case CCITTFAX3
   case CCITTFAX4
   case LZW
   case JPEG
   case NEXT
-  case PackBits
-  case OldJPEG
+  case packBits
+  case oldJPEG
 }
 enum NSBitmapImageFileType : UInt {
   init?(rawValue: UInt)
@@ -24,12 +24,12 @@ enum NSBitmapImageFileType : UInt {
 enum NSImageRepLoadStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case UnknownType
-  case ReadingHeader
-  case WillNeedAllData
-  case InvalidData
-  case UnexpectedEOF
-  case Completed
+  case unknownType
+  case readingHeader
+  case willNeedAllData
+  case invalidData
+  case unexpectedEOF
+  case completed
 }
 struct NSBitmapFormat : OptionSetType {
   init(rawValue: UInt)

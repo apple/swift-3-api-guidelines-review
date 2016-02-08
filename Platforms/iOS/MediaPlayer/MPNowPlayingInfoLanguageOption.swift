@@ -23,8 +23,8 @@ let MPLanguageOptionCharacteristicVoiceOverTranslation: String
 enum MPNowPlayingInfoLanguageOptionType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Audible
-  case Legible
+  case audible
+  case legible
 }
 @available(iOS 9.0, *)
 class MPNowPlayingInfoLanguageOption : Object {

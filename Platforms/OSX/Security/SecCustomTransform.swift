@@ -2,17 +2,17 @@
 enum SecTransformMetaAttributeType : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case Value
-  case Name
-  case Ref
-  case Required
-  case RequiresOutboundConnection
-  case Deferred
-  case Stream
-  case CanCycle
-  case Externalize
-  case HasOutboundConnections
-  case HasInboundConnection
+  case value
+  case name
+  case ref
+  case required
+  case requiresOutboundConnection
+  case deferred
+  case stream
+  case canCycle
+  case externalize
+  case hasOutboundConnections
+  case hasInboundConnection
 }
 typealias SecTransformAttribute = CFTypeRef
 typealias SecTransformStringOrAttribute = CFTypeRef

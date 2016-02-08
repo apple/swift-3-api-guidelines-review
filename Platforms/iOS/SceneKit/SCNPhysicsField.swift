@@ -3,8 +3,8 @@
 enum SCNPhysicsFieldScope : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case InsideExtent
-  case OutsideExtent
+  case insideExtent
+  case outsideExtent
 }
 @available(iOS 8.0, *)
 class SCNPhysicsField : Object, Copying, SecureCoding {

@@ -3,10 +3,10 @@
 enum CNContainerType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unassigned
-  case Local
-  case Exchange
-  case CardDAV
+  case unassigned
+  case local
+  case exchange
+  case cardDAV
 }
 @available(watchOS 2.0, *)
 class CNContainer : Object, Copying, SecureCoding {

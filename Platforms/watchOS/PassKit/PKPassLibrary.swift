@@ -3,9 +3,9 @@
 enum PKPassLibraryAddPassesStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case DidAddPasses
-  case ShouldReviewPasses
-  case DidCancelAddPasses
+  case didAddPasses
+  case shouldReviewPasses
+  case didCancelAddPasses
 }
 typealias PKSuppressionRequestToken = Int
 @available(watchOS 2.0, *)

@@ -3,12 +3,12 @@
 struct HKStatisticsOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: HKStatisticsOptions { get }
-  static var SeparateBySource: HKStatisticsOptions { get }
-  static var DiscreteAverage: HKStatisticsOptions { get }
-  static var DiscreteMin: HKStatisticsOptions { get }
-  static var DiscreteMax: HKStatisticsOptions { get }
-  static var CumulativeSum: HKStatisticsOptions { get }
+  static var none: HKStatisticsOptions { get }
+  static var separateBySource: HKStatisticsOptions { get }
+  static var discreteAverage: HKStatisticsOptions { get }
+  static var discreteMin: HKStatisticsOptions { get }
+  static var discreteMax: HKStatisticsOptions { get }
+  static var cumulativeSum: HKStatisticsOptions { get }
 }
 @available(iOS 8.0, *)
 class HKStatistics : Object, SecureCoding, Copying {

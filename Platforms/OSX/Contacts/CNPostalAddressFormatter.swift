@@ -3,7 +3,7 @@
 enum CNPostalAddressFormatterStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case MailingAddress
+  case mailingAddress
 }
 @available(OSX 10.11, *)
 class CNPostalAddressFormatter : Formatter {

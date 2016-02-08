@@ -3,13 +3,13 @@
 struct NSTouchPhase : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Began: NSTouchPhase { get }
-  static var Moved: NSTouchPhase { get }
-  static var Stationary: NSTouchPhase { get }
-  static var Ended: NSTouchPhase { get }
-  static var Cancelled: NSTouchPhase { get }
-  static var Touching: NSTouchPhase { get }
-  static var Any: NSTouchPhase { get }
+  static var began: NSTouchPhase { get }
+  static var moved: NSTouchPhase { get }
+  static var stationary: NSTouchPhase { get }
+  static var ended: NSTouchPhase { get }
+  static var cancelled: NSTouchPhase { get }
+  static var touching: NSTouchPhase { get }
+  static var any: NSTouchPhase { get }
 }
 @available(OSX 10.6, *)
 class NSTouch : Object, Copying {

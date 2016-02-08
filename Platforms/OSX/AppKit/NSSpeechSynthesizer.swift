@@ -17,9 +17,9 @@ let NSVoiceGenderFemale: String
 enum NSSpeechBoundary : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ImmediateBoundary
-  case WordBoundary
-  case SentenceBoundary
+  case immediateBoundary
+  case wordBoundary
+  case sentenceBoundary
 }
 class NSSpeechSynthesizer : Object {
   init?(voice: String?)

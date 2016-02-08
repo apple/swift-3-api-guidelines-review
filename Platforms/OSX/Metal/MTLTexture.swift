@@ -3,25 +3,25 @@
 enum MTLTextureType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Type1D
-  case Type1DArray
-  case Type2D
-  case Type2DArray
-  case Type2DMultisample
-  case TypeCube
+  case type1D
+  case type1DArray
+  case type2D
+  case type2DArray
+  case type2DMultisample
+  case typeCube
   @available(OSX 10.11, *)
-  case TypeCubeArray
-  case Type3D
+  case typeCubeArray
+  case type3D
 }
 @available(OSX 10.11, *)
 struct MTLTextureUsage : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Unknown: MTLTextureUsage { get }
-  static var ShaderRead: MTLTextureUsage { get }
-  static var ShaderWrite: MTLTextureUsage { get }
-  static var RenderTarget: MTLTextureUsage { get }
-  static var PixelFormatView: MTLTextureUsage { get }
+  static var unknown: MTLTextureUsage { get }
+  static var shaderRead: MTLTextureUsage { get }
+  static var shaderWrite: MTLTextureUsage { get }
+  static var renderTarget: MTLTextureUsage { get }
+  static var pixelFormatView: MTLTextureUsage { get }
 }
 @available(OSX 10.11, *)
 class MTLTextureDescriptor : Object, Copying {

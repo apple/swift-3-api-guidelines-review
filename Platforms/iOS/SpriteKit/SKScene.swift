@@ -3,10 +3,10 @@
 enum SKSceneScaleMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Fill
-  case AspectFill
-  case AspectFit
-  case ResizeFill
+  case fill
+  case aspectFill
+  case aspectFit
+  case resizeFill
 }
 @available(iOS 8.0, *)
 protocol SKSceneDelegate : ObjectProtocol {

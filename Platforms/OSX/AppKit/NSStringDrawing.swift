@@ -26,15 +26,15 @@ extension AttributedString {
 struct NSStringDrawingOptions : OptionSetType {
   init(rawValue: Int)
   let rawValue: Int
-  static var UsesLineFragmentOrigin: NSStringDrawingOptions { get }
-  static var UsesFontLeading: NSStringDrawingOptions { get }
-  static var UsesDeviceMetrics: NSStringDrawingOptions { get }
+  static var usesLineFragmentOrigin: NSStringDrawingOptions { get }
+  static var usesFontLeading: NSStringDrawingOptions { get }
+  static var usesDeviceMetrics: NSStringDrawingOptions { get }
   @available(OSX 10.5, *)
-  static var TruncatesLastVisibleLine: NSStringDrawingOptions { get }
+  static var truncatesLastVisibleLine: NSStringDrawingOptions { get }
   @available(OSX, introduced=10.0, deprecated=10.11)
-  static var DisableScreenFontSubstitution: NSStringDrawingOptions { get }
+  static var disableScreenFontSubstitution: NSStringDrawingOptions { get }
   @available(OSX, introduced=10.0, deprecated=10.11)
-  static var OneShot: NSStringDrawingOptions { get }
+  static var oneShot: NSStringDrawingOptions { get }
 }
 extension NSString {
   @available(OSX 10.11, *)

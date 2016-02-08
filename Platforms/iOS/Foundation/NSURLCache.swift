@@ -2,9 +2,9 @@
 enum URLCacheStoragePolicy : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Allowed
-  case AllowedInMemoryOnly
-  case NotAllowed
+  case allowed
+  case allowedInMemoryOnly
+  case notAllowed
 }
 class CachedURLResponse : Object, SecureCoding, Copying {
   init(response: URLResponse, data: Data)

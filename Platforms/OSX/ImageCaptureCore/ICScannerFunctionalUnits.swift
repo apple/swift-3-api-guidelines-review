@@ -2,41 +2,41 @@
 enum ICScannerFunctionalUnitType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Flatbed
-  case PositiveTransparency
-  case NegativeTransparency
-  case DocumentFeeder
+  case flatbed
+  case positiveTransparency
+  case negativeTransparency
+  case documentFeeder
 }
 enum ICScannerMeasurementUnit : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Inches
-  case Centimeters
-  case Picas
-  case Points
-  case Twips
-  case Pixels
+  case inches
+  case centimeters
+  case picas
+  case points
+  case twips
+  case pixels
 }
 enum ICScannerBitDepth : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Depth1Bit
-  case Depth8Bits
-  case Depth16Bits
+  case depth1Bit
+  case depth8Bits
+  case depth16Bits
 }
 enum ICScannerColorDataFormatType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Chunky
-  case Planar
+  case chunky
+  case planar
 }
 enum ICScannerPixelDataType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case BW
-  case Gray
+  case gray
   case RGB
-  case Palette
+  case palette
   case CMY
   case CMYK
   case YUV
@@ -46,93 +46,93 @@ enum ICScannerPixelDataType : UInt {
 enum ICScannerDocumentType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case TypeDefault
-  case TypeA4
-  case TypeB5
-  case TypeUSLetter
-  case TypeUSLegal
-  case TypeA5
-  case TypeISOB4
-  case TypeISOB6
-  case TypeUSLedger
-  case TypeUSExecutive
-  case TypeA3
-  case TypeISOB3
-  case TypeA6
-  case TypeC4
-  case TypeC5
-  case TypeC6
-  case Type4A0
-  case Type2A0
-  case TypeA0
-  case TypeA1
-  case TypeA2
-  case TypeA7
-  case TypeA8
-  case TypeA9
-  case Type10
-  case TypeISOB0
-  case TypeISOB1
-  case TypeISOB2
-  case TypeISOB5
-  case TypeISOB7
-  case TypeISOB8
-  case TypeISOB9
-  case TypeISOB10
-  case TypeJISB0
-  case TypeJISB1
-  case TypeJISB2
-  case TypeJISB3
-  case TypeJISB4
-  case TypeJISB6
-  case TypeJISB7
-  case TypeJISB8
-  case TypeJISB9
-  case TypeJISB10
-  case TypeC0
-  case TypeC1
-  case TypeC2
-  case TypeC3
-  case TypeC7
-  case TypeC8
-  case TypeC9
-  case TypeC10
-  case TypeUSStatement
-  case TypeBusinessCard
-  case TypeE
-  case Type3R
-  case Type4R
-  case Type5R
-  case Type6R
-  case Type8R
-  case TypeS8R
-  case Type10R
-  case TypeS10R
-  case Type11R
-  case Type12R
-  case TypeS12R
-  case Type110
-  case TypeAPSH
-  case TypeAPSC
-  case TypeAPSP
-  case Type135
-  case TypeMF
-  case TypeLF
+  case typeDefault
+  case typeA4
+  case typeB5
+  case typeUSLetter
+  case typeUSLegal
+  case typeA5
+  case typeISOB4
+  case typeISOB6
+  case typeUSLedger
+  case typeUSExecutive
+  case typeA3
+  case typeISOB3
+  case typeA6
+  case typeC4
+  case typeC5
+  case typeC6
+  case type4A0
+  case type2A0
+  case typeA0
+  case typeA1
+  case typeA2
+  case typeA7
+  case typeA8
+  case typeA9
+  case type10
+  case typeISOB0
+  case typeISOB1
+  case typeISOB2
+  case typeISOB5
+  case typeISOB7
+  case typeISOB8
+  case typeISOB9
+  case typeISOB10
+  case typeJISB0
+  case typeJISB1
+  case typeJISB2
+  case typeJISB3
+  case typeJISB4
+  case typeJISB6
+  case typeJISB7
+  case typeJISB8
+  case typeJISB9
+  case typeJISB10
+  case typeC0
+  case typeC1
+  case typeC2
+  case typeC3
+  case typeC7
+  case typeC8
+  case typeC9
+  case typeC10
+  case typeUSStatement
+  case typeBusinessCard
+  case typeE
+  case type3R
+  case type4R
+  case type5R
+  case type6R
+  case type8R
+  case typeS8R
+  case type10R
+  case typeS10R
+  case type11R
+  case type12R
+  case typeS12R
+  case type110
+  case typeAPSH
+  case typeAPSC
+  case typeAPSP
+  case type135
+  case typeMF
+  case typeLF
 }
 enum ICScannerFunctionalUnitState : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Ready
-  case ScanInProgress
-  case OverviewScanInProgress
+  case ready
+  case scanInProgress
+  case overviewScanInProgress
 }
 enum ICScannerFeatureType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Enumeration
-  case Range
-  case Boolean
-  case Template
+  case enumeration
+  case range
+  case boolean
+  case template
 }
 class ICScannerFeature : Object {
   var type: ICScannerFeatureType { get }

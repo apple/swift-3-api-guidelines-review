@@ -24,15 +24,15 @@ typealias MIDITimeStamp = UInt64
 enum MIDIObjectType : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Other
-  case Device
-  case Entity
-  case Source
-  case Destination
-  case ExternalDevice
-  case ExternalEntity
-  case ExternalSource
-  case ExternalDestination
+  case other
+  case device
+  case entity
+  case source
+  case destination
+  case externalDevice
+  case externalEntity
+  case externalSource
+  case externalDestination
 }
 let kMIDIObjectType_ExternalMask: MIDIObjectType
 typealias MIDIUniqueID = Int32
@@ -67,13 +67,13 @@ struct MIDISysexSendRequest {
 enum MIDINotificationMessageID : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case MsgSetupChanged
-  case MsgObjectAdded
-  case MsgObjectRemoved
-  case MsgPropertyChanged
-  case MsgThruConnectionsChanged
-  case MsgSerialPortOwnerChanged
-  case MsgIOError
+  case msgSetupChanged
+  case msgObjectAdded
+  case msgObjectRemoved
+  case msgPropertyChanged
+  case msgThruConnectionsChanged
+  case msgSerialPortOwnerChanged
+  case msgIOError
 }
 struct MIDINotification {
   var messageID: MIDINotificationMessageID

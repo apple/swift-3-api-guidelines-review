@@ -12,8 +12,8 @@ class UIMotionEffect : Object, Copying, Coding {
 enum UIInterpolatingMotionEffectType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case TiltAlongHorizontalAxis
-  case TiltAlongVerticalAxis
+  case tiltAlongHorizontalAxis
+  case tiltAlongVerticalAxis
 }
 @available(iOS 7.0, *)
 class UIInterpolatingMotionEffect : UIMotionEffect {

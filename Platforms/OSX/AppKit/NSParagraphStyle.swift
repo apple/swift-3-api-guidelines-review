@@ -20,12 +20,12 @@ class NSTextTab : Object, Copying, Coding {
 enum NSLineBreakMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ByWordWrapping
-  case ByCharWrapping
-  case ByClipping
-  case ByTruncatingHead
-  case ByTruncatingTail
-  case ByTruncatingMiddle
+  case byWordWrapping
+  case byCharWrapping
+  case byClipping
+  case byTruncatingHead
+  case byTruncatingTail
+  case byTruncatingMiddle
 }
 @available(OSX 10.0, *)
 class NSParagraphStyle : Object, Copying, MutableCopying, SecureCoding {
@@ -102,10 +102,10 @@ class NSMutableParagraphStyle : NSParagraphStyle {
 enum NSTextTabType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case LeftTabStopType
-  case RightTabStopType
-  case CenterTabStopType
-  case DecimalTabStopType
+  case leftTabStopType
+  case rightTabStopType
+  case centerTabStopType
+  case decimalTabStopType
 }
 extension NSTextTab {
   convenience init(type: NSTextTabType, location loc: CGFloat)

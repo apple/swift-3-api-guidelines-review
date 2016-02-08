@@ -5,12 +5,12 @@ let WatchKitErrorDomain: String
 enum WatchKitErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case UnknownError
-  case ApplicationDelegateWatchKitRequestReplyNotCalledError
-  case InvalidArgumentError
-  case MediaPlayerError
-  case DownloadError
-  case RecordingFailedError
+  case unknownError
+  case applicationDelegateWatchKitRequestReplyNotCalledError
+  case invalidArgumentError
+  case mediaPlayerError
+  case downloadError
+  case recordingFailedError
 }
 
 extension WatchKitErrorCode : _BridgedNSError {

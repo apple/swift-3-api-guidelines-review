@@ -3,9 +3,9 @@
 enum SCNAntialiasingMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
-  case Multisampling2X
-  case Multisampling4X
+  case none
+  case multisampling2X
+  case multisampling4X
 }
 @available(tvOS 9.0, *)
 let SCNPreferredRenderingAPIKey: String

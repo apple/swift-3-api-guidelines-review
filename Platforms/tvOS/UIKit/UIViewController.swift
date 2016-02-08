@@ -2,23 +2,23 @@
 enum UIModalTransitionStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case CoverVertical
-  case CrossDissolve
+  case coverVertical
+  case crossDissolve
 }
 enum UIModalPresentationStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case FullScreen
+  case fullScreen
   @available(tvOS 3.2, *)
-  case CurrentContext
+  case currentContext
   @available(tvOS 7.0, *)
-  case Custom
+  case custom
   @available(tvOS 8.0, *)
-  case OverFullScreen
+  case overFullScreen
   @available(tvOS 8.0, *)
-  case OverCurrentContext
+  case overCurrentContext
   @available(tvOS 7.0, *)
-  case None
+  case none
 }
 protocol UIContentContainer : ObjectProtocol {
   @available(tvOS 8.0, *)
@@ -268,9 +268,9 @@ protocol UIPreviewActionItem : ObjectProtocol {
 enum UIPreviewActionStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Selected
-  case Destructive
+  case `default`
+  case selected
+  case destructive
 }
 @available(tvOS 9.0, *)
 class UIPreviewAction : Object, Copying, UIPreviewActionItem {

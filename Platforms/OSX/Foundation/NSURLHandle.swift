@@ -2,10 +2,10 @@
 enum URLHandleStatus : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NotLoaded
-  case LoadSucceeded
-  case LoadInProgress
-  case LoadFailed
+  case notLoaded
+  case loadSucceeded
+  case loadInProgress
+  case loadFailed
 }
 protocol URLHandleClient {
 }

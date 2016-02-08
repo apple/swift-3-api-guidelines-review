@@ -3,11 +3,11 @@
 enum MassFormatterUnit : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Gram
-  case Kilogram
-  case Ounce
-  case Pound
-  case Stone
+  case gram
+  case kilogram
+  case ounce
+  case pound
+  case stone
 }
 @available(OSX 10.10, *)
 class MassFormatter : Formatter {

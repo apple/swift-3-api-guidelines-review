@@ -16,10 +16,10 @@ extension CKContainer {
 enum CKAccountStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case CouldNotDetermine
-  case Available
-  case Restricted
-  case NoAccount
+  case couldNotDetermine
+  case available
+  case restricted
+  case noAccount
 }
 @available(iOS 9.0, *)
 let CKAccountChangedNotification: String
@@ -30,16 +30,16 @@ extension CKContainer {
 struct CKApplicationPermissions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var UserDiscoverability: CKApplicationPermissions { get }
+  static var userDiscoverability: CKApplicationPermissions { get }
 }
 @available(iOS 8.0, *)
 enum CKApplicationPermissionStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case InitialState
-  case CouldNotComplete
-  case Denied
-  case Granted
+  case initialState
+  case couldNotComplete
+  case denied
+  case granted
 }
 typealias CKApplicationPermissionBlock = (CKApplicationPermissionStatus, Error?) -> Void
 extension CKContainer {

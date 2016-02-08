@@ -3,8 +3,8 @@
 enum WKUserScriptInjectionTime : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case AtDocumentStart
-  case AtDocumentEnd
+  case atDocumentStart
+  case atDocumentEnd
 }
 @available(OSX 10.10, *)
 class WKUserScript : Object, Copying {

@@ -43,29 +43,29 @@ var NSUpdateWindowsRunLoopOrdering: Int { get }
 struct NSApplicationPresentationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Default: NSApplicationPresentationOptions { get }
-  static var AutoHideDock: NSApplicationPresentationOptions { get }
-  static var HideDock: NSApplicationPresentationOptions { get }
-  static var AutoHideMenuBar: NSApplicationPresentationOptions { get }
-  static var HideMenuBar: NSApplicationPresentationOptions { get }
-  static var DisableAppleMenu: NSApplicationPresentationOptions { get }
-  static var DisableProcessSwitching: NSApplicationPresentationOptions { get }
-  static var DisableForceQuit: NSApplicationPresentationOptions { get }
-  static var DisableSessionTermination: NSApplicationPresentationOptions { get }
-  static var DisableHideApplication: NSApplicationPresentationOptions { get }
-  static var DisableMenuBarTransparency: NSApplicationPresentationOptions { get }
+  static var `default`: NSApplicationPresentationOptions { get }
+  static var autoHideDock: NSApplicationPresentationOptions { get }
+  static var hideDock: NSApplicationPresentationOptions { get }
+  static var autoHideMenuBar: NSApplicationPresentationOptions { get }
+  static var hideMenuBar: NSApplicationPresentationOptions { get }
+  static var disableAppleMenu: NSApplicationPresentationOptions { get }
+  static var disableProcessSwitching: NSApplicationPresentationOptions { get }
+  static var disableForceQuit: NSApplicationPresentationOptions { get }
+  static var disableSessionTermination: NSApplicationPresentationOptions { get }
+  static var disableHideApplication: NSApplicationPresentationOptions { get }
+  static var disableMenuBarTransparency: NSApplicationPresentationOptions { get }
   @available(OSX 10.7, *)
-  static var FullScreen: NSApplicationPresentationOptions { get }
+  static var fullScreen: NSApplicationPresentationOptions { get }
   @available(OSX 10.7, *)
-  static var AutoHideToolbar: NSApplicationPresentationOptions { get }
+  static var autoHideToolbar: NSApplicationPresentationOptions { get }
   @available(OSX 10.11.2, *)
-  static var DisableCursorLocationAssistance: NSApplicationPresentationOptions { get }
+  static var disableCursorLocationAssistance: NSApplicationPresentationOptions { get }
 }
 @available(OSX 10.9, *)
 struct NSApplicationOcclusionState : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Visible: NSApplicationOcclusionState { get }
+  static var visible: NSApplicationOcclusionState { get }
 }
 typealias NSModalSession = COpaquePointer
 class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityElementProtocol, NSAccessibility {
@@ -698,15 +698,15 @@ var NSApp: NSApplication!
 enum NSRequestUserAttentionType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case CriticalRequest
-  case InformationalRequest
+  case criticalRequest
+  case informationalRequest
 }
 enum NSApplicationDelegateReply : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Success
-  case Cancel
-  case Failure
+  case success
+  case cancel
+  case failure
 }
 extension NSApplication {
   var windowsMenu: NSMenu?
@@ -724,17 +724,17 @@ extension NSApplication {
 enum NSApplicationTerminateReply : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case TerminateCancel
-  case TerminateNow
-  case TerminateLater
+  case terminateCancel
+  case terminateNow
+  case terminateLater
 }
 enum NSApplicationPrintReply : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case PrintingCancelled
-  case PrintingSuccess
-  case PrintingFailure
-  case PrintingReplyLater
+  case printingCancelled
+  case printingSuccess
+  case printingFailure
+  case printingReplyLater
 }
 protocol NSApplicationDelegate : ObjectProtocol {
   optional func applicationShouldTerminate(sender: NSApplication) -> NSApplicationTerminateReply
@@ -814,13 +814,13 @@ struct NSRemoteNotificationType : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
   @available(OSX 10.7, *)
-  static var None: NSRemoteNotificationType { get }
+  static var none: NSRemoteNotificationType { get }
   @available(OSX 10.7, *)
-  static var Badge: NSRemoteNotificationType { get }
+  static var badge: NSRemoteNotificationType { get }
   @available(OSX 10.8, *)
-  static var Sound: NSRemoteNotificationType { get }
+  static var sound: NSRemoteNotificationType { get }
   @available(OSX 10.8, *)
-  static var Alert: NSRemoteNotificationType { get }
+  static var alert: NSRemoteNotificationType { get }
 }
 extension NSApplication {
   @available(OSX 10.7, *)

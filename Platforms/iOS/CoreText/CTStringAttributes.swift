@@ -34,19 +34,19 @@ let kCTRunDelegateAttributeName: CFString
 struct CTUnderlineStyle : OptionSetType {
   init(rawValue: Int32)
   let rawValue: Int32
-  static var None: CTUnderlineStyle { get }
-  static var Single: CTUnderlineStyle { get }
-  static var Thick: CTUnderlineStyle { get }
-  static var Double: CTUnderlineStyle { get }
+  static var none: CTUnderlineStyle { get }
+  static var single: CTUnderlineStyle { get }
+  static var thick: CTUnderlineStyle { get }
+  static var double: CTUnderlineStyle { get }
 }
 struct CTUnderlineStyleModifiers : OptionSetType {
   init(rawValue: Int32)
   let rawValue: Int32
-  static var PatternSolid: CTUnderlineStyleModifiers { get }
-  static var PatternDot: CTUnderlineStyleModifiers { get }
-  static var PatternDash: CTUnderlineStyleModifiers { get }
-  static var PatternDashDot: CTUnderlineStyleModifiers { get }
-  static var PatternDashDotDot: CTUnderlineStyleModifiers { get }
+  static var patternSolid: CTUnderlineStyleModifiers { get }
+  static var patternDot: CTUnderlineStyleModifiers { get }
+  static var patternDash: CTUnderlineStyleModifiers { get }
+  static var patternDashDot: CTUnderlineStyleModifiers { get }
+  static var patternDashDotDot: CTUnderlineStyleModifiers { get }
 }
 @available(iOS 6.0, *)
 let kCTBaselineClassAttributeName: CFString

@@ -3,18 +3,18 @@
 enum PKPaymentButtonStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case White
-  case WhiteOutline
-  case Black
+  case white
+  case whiteOutline
+  case black
 }
 @available(iOS 8.3, *)
 enum PKPaymentButtonType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Plain
-  case Buy
+  case plain
+  case buy
   @available(iOS 9.0, *)
-  case SetUp
+  case setUp
 }
 @available(iOS 8.3, *)
 class PKPaymentButton : UIButton {

@@ -2,28 +2,28 @@
 enum UITableViewStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Plain
-  case Grouped
+  case plain
+  case grouped
 }
 enum UITableViewScrollPosition : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Top
-  case Middle
-  case Bottom
+  case none
+  case top
+  case middle
+  case bottom
 }
 enum UITableViewRowAnimation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Fade
-  case Right
-  case Left
-  case Top
-  case Bottom
-  case None
-  case Middle
-  case Automatic
+  case fade
+  case right
+  case left
+  case top
+  case bottom
+  case none
+  case middle
+  case automatic
 }
 @available(iOS 3.0, *)
 let UITableViewIndexSearch: String
@@ -33,9 +33,9 @@ let UITableViewAutomaticDimension: CGFloat
 enum UITableViewRowActionStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  static var Destructive: UITableViewRowActionStyle { get }
-  case Normal
+  case `default`
+  static var destructive: UITableViewRowActionStyle { get }
+  case normal
 }
 @available(iOS 8.0, *)
 class UITableViewRowAction : Object, Copying {

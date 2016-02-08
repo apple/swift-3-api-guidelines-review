@@ -5,8 +5,8 @@ class SCPreferences {
 struct SCPreferencesNotification : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var Commit: SCPreferencesNotification { get }
-  static var Apply: SCPreferencesNotification { get }
+  static var commit: SCPreferencesNotification { get }
+  static var apply: SCPreferencesNotification { get }
 }
 struct SCPreferencesContext {
   var version: CFIndex

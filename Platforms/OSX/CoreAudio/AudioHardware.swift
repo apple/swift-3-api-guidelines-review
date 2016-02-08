@@ -29,8 +29,8 @@ var kAudioSystemObjectClassID: AudioClassID { get }
 enum AudioHardwarePowerHint : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case None
-  case FavorSavingPower
+  case none
+  case favorSavingPower
 }
 var kAudioHardwarePropertyDevices: AudioObjectPropertySelector { get }
 var kAudioHardwarePropertyDefaultInputDevice: AudioObjectPropertySelector { get }

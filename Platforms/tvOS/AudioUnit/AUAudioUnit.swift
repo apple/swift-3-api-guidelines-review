@@ -7,8 +7,8 @@ typealias AUAudioChannelCount = UInt32
 enum AUAudioUnitBusType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Input
-  case Output
+  case input
+  case output
 }
 typealias AURenderPullInputBlock = (UnsafeMutablePointer<AudioUnitRenderActionFlags>, UnsafePointer<AudioTimeStamp>, AUAudioFrameCount, Int, UnsafeMutablePointer<AudioBufferList>) -> AUAudioUnitStatus
 typealias AURenderBlock = (UnsafeMutablePointer<AudioUnitRenderActionFlags>, UnsafePointer<AudioTimeStamp>, AUAudioFrameCount, Int, UnsafeMutablePointer<AudioBufferList>, AURenderPullInputBlock?) -> AUAudioUnitStatus
@@ -19,10 +19,10 @@ typealias AUHostMusicalContextBlock = (UnsafeMutablePointer<Double>, UnsafeMutab
 struct AUHostTransportStateFlags : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Changed: AUHostTransportStateFlags { get }
-  static var Moving: AUHostTransportStateFlags { get }
-  static var Recording: AUHostTransportStateFlags { get }
-  static var Cycling: AUHostTransportStateFlags { get }
+  static var changed: AUHostTransportStateFlags { get }
+  static var moving: AUHostTransportStateFlags { get }
+  static var recording: AUHostTransportStateFlags { get }
+  static var cycling: AUHostTransportStateFlags { get }
 }
 typealias AUHostTransportStateBlock = (UnsafeMutablePointer<AUHostTransportStateFlags>, UnsafeMutablePointer<Double>, UnsafeMutablePointer<Double>, UnsafeMutablePointer<Double>) -> Bool
 @available(tvOS 9.0, *)

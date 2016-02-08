@@ -2,9 +2,9 @@
 enum CompoundPredicateType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NotPredicateType
-  case AndPredicateType
-  case OrPredicateType
+  case notPredicateType
+  case andPredicateType
+  case orPredicateType
 }
 @available(iOS 3.0, *)
 class CompoundPredicate : Predicate {

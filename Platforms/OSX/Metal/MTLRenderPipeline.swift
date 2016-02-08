@@ -3,51 +3,51 @@
 enum MTLBlendFactor : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Zero
-  case One
-  case SourceColor
-  case OneMinusSourceColor
-  case SourceAlpha
-  case OneMinusSourceAlpha
-  case DestinationColor
-  case OneMinusDestinationColor
-  case DestinationAlpha
-  case OneMinusDestinationAlpha
-  case SourceAlphaSaturated
-  case BlendColor
-  case OneMinusBlendColor
-  case BlendAlpha
-  case OneMinusBlendAlpha
+  case zero
+  case one
+  case sourceColor
+  case oneMinusSourceColor
+  case sourceAlpha
+  case oneMinusSourceAlpha
+  case destinationColor
+  case oneMinusDestinationColor
+  case destinationAlpha
+  case oneMinusDestinationAlpha
+  case sourceAlphaSaturated
+  case blendColor
+  case oneMinusBlendColor
+  case blendAlpha
+  case oneMinusBlendAlpha
 }
 @available(OSX 10.11, *)
 enum MTLBlendOperation : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Add
-  case Subtract
-  case ReverseSubtract
-  case Min
-  case Max
+  case add
+  case subtract
+  case reverseSubtract
+  case min
+  case max
 }
 @available(OSX 10.11, *)
 struct MTLColorWriteMask : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: MTLColorWriteMask { get }
-  static var Red: MTLColorWriteMask { get }
-  static var Green: MTLColorWriteMask { get }
-  static var Blue: MTLColorWriteMask { get }
-  static var Alpha: MTLColorWriteMask { get }
-  static var All: MTLColorWriteMask { get }
+  static var none: MTLColorWriteMask { get }
+  static var red: MTLColorWriteMask { get }
+  static var green: MTLColorWriteMask { get }
+  static var blue: MTLColorWriteMask { get }
+  static var alpha: MTLColorWriteMask { get }
+  static var all: MTLColorWriteMask { get }
 }
 @available(OSX 10.11, *)
 enum MTLPrimitiveTopologyClass : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Unspecified
-  case Point
-  case Line
-  case Triangle
+  case unspecified
+  case point
+  case line
+  case triangle
 }
 @available(OSX 10.11, *)
 class MTLRenderPipelineColorAttachmentDescriptor : Object, Copying {

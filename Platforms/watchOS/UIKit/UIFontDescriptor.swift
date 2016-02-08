@@ -3,27 +3,27 @@
 struct UIFontDescriptorSymbolicTraits : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var TraitItalic: UIFontDescriptorSymbolicTraits { get }
-  static var TraitBold: UIFontDescriptorSymbolicTraits { get }
-  static var TraitExpanded: UIFontDescriptorSymbolicTraits { get }
-  static var TraitCondensed: UIFontDescriptorSymbolicTraits { get }
-  static var TraitMonoSpace: UIFontDescriptorSymbolicTraits { get }
-  static var TraitVertical: UIFontDescriptorSymbolicTraits { get }
-  static var TraitUIOptimized: UIFontDescriptorSymbolicTraits { get }
-  static var TraitTightLeading: UIFontDescriptorSymbolicTraits { get }
-  static var TraitLooseLeading: UIFontDescriptorSymbolicTraits { get }
-  static var ClassMask: UIFontDescriptorSymbolicTraits { get }
-  static var ClassUnknown: UIFontDescriptorSymbolicTraits { get }
-  static var ClassOldStyleSerifs: UIFontDescriptorSymbolicTraits { get }
-  static var ClassTransitionalSerifs: UIFontDescriptorSymbolicTraits { get }
-  static var ClassModernSerifs: UIFontDescriptorSymbolicTraits { get }
-  static var ClassClarendonSerifs: UIFontDescriptorSymbolicTraits { get }
-  static var ClassSlabSerifs: UIFontDescriptorSymbolicTraits { get }
-  static var ClassFreeformSerifs: UIFontDescriptorSymbolicTraits { get }
-  static var ClassSansSerif: UIFontDescriptorSymbolicTraits { get }
-  static var ClassOrnamentals: UIFontDescriptorSymbolicTraits { get }
-  static var ClassScripts: UIFontDescriptorSymbolicTraits { get }
-  static var ClassSymbolic: UIFontDescriptorSymbolicTraits { get }
+  static var traitItalic: UIFontDescriptorSymbolicTraits { get }
+  static var traitBold: UIFontDescriptorSymbolicTraits { get }
+  static var traitExpanded: UIFontDescriptorSymbolicTraits { get }
+  static var traitCondensed: UIFontDescriptorSymbolicTraits { get }
+  static var traitMonoSpace: UIFontDescriptorSymbolicTraits { get }
+  static var traitVertical: UIFontDescriptorSymbolicTraits { get }
+  static var traitUIOptimized: UIFontDescriptorSymbolicTraits { get }
+  static var traitTightLeading: UIFontDescriptorSymbolicTraits { get }
+  static var traitLooseLeading: UIFontDescriptorSymbolicTraits { get }
+  static var classMask: UIFontDescriptorSymbolicTraits { get }
+  static var classUnknown: UIFontDescriptorSymbolicTraits { get }
+  static var classOldStyleSerifs: UIFontDescriptorSymbolicTraits { get }
+  static var classTransitionalSerifs: UIFontDescriptorSymbolicTraits { get }
+  static var classModernSerifs: UIFontDescriptorSymbolicTraits { get }
+  static var classClarendonSerifs: UIFontDescriptorSymbolicTraits { get }
+  static var classSlabSerifs: UIFontDescriptorSymbolicTraits { get }
+  static var classFreeformSerifs: UIFontDescriptorSymbolicTraits { get }
+  static var classSansSerif: UIFontDescriptorSymbolicTraits { get }
+  static var classOrnamentals: UIFontDescriptorSymbolicTraits { get }
+  static var classScripts: UIFontDescriptorSymbolicTraits { get }
+  static var classSymbolic: UIFontDescriptorSymbolicTraits { get }
 }
 typealias UIFontDescriptorClass = Int
 @available(watchOS 2.0, *)

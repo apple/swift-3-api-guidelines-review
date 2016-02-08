@@ -3,17 +3,17 @@
 enum GLKTextureTarget : GLenum {
   init?(rawValue: GLenum)
   var rawValue: GLenum { get }
-  case Target2D
-  case TargetCubeMap
-  case TargetCt
+  case target2D
+  case targetCubeMap
+  case targetCt
 }
 @available(OSX 10.8, *)
 enum GLKTextureEnvMode : GLint {
   init?(rawValue: GLint)
   var rawValue: GLint { get }
-  case Replace
-  case Modulate
-  case Decal
+  case replace
+  case modulate
+  case decal
 }
 @available(OSX 10.8, *)
 class GLKEffectPropertyTexture : GLKEffectProperty {

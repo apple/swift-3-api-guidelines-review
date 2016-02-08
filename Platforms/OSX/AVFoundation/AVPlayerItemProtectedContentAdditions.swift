@@ -2,13 +2,13 @@
 enum AVContentAuthorizationStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Completed
-  case Cancelled
-  case TimedOut
-  case Busy
-  case NotAvailable
-  case NotPossible
+  case unknown
+  case completed
+  case cancelled
+  case timedOut
+  case busy
+  case notAvailable
+  case notPossible
 }
 extension AVPlayerItem {
   @available(OSX 10.7, *)

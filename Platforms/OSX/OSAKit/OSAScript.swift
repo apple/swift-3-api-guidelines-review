@@ -21,12 +21,12 @@ let OSAStorageTextType: String
 struct OSAStorageOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Null: OSAStorageOptions { get }
-  static var PreventGetSource: OSAStorageOptions { get }
-  static var CompileIntoContext: OSAStorageOptions { get }
-  static var DontSetScriptLocation: OSAStorageOptions { get }
-  static var StayOpenApplet: OSAStorageOptions { get }
-  static var ShowStartupScreen: OSAStorageOptions { get }
+  static var null: OSAStorageOptions { get }
+  static var preventGetSource: OSAStorageOptions { get }
+  static var compileIntoContext: OSAStorageOptions { get }
+  static var dontSetScriptLocation: OSAStorageOptions { get }
+  static var stayOpenApplet: OSAStorageOptions { get }
+  static var showStartupScreen: OSAStorageOptions { get }
 }
 class OSAScript : Object, Copying {
   @available(OSX 10.6, *)

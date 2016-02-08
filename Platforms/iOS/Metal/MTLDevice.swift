@@ -20,9 +20,9 @@ enum MTLFeatureSet : UInt {
 struct MTLPipelineOption : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: MTLPipelineOption { get }
-  static var ArgumentInfo: MTLPipelineOption { get }
-  static var BufferTypeInfo: MTLPipelineOption { get }
+  static var none: MTLPipelineOption { get }
+  static var argumentInfo: MTLPipelineOption { get }
+  static var bufferTypeInfo: MTLPipelineOption { get }
 }
 typealias MTLAutoreleasedRenderPipelineReflection = MTLRenderPipelineReflection
 typealias MTLAutoreleasedComputePipelineReflection = MTLComputePipelineReflection

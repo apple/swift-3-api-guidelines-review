@@ -2,49 +2,49 @@
 enum ICEXIFOrientationType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Orientation1
-  case Orientation2
-  case Orientation3
-  case Orientation4
-  case Orientation5
-  case Orientation6
-  case Orientation7
-  case Orientation8
+  case orientation1
+  case orientation2
+  case orientation3
+  case orientation4
+  case orientation5
+  case orientation6
+  case orientation7
+  case orientation8
 }
 enum ICReturnCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Success
-  case InvalidParam
-  case CommunicationTimedOut
-  case ScanOperationCanceled
-  case ScannerInUseByLocalUser
-  case ScannerInUseByRemoteUser
-  case DeviceFailedToOpenSession
-  case DeviceFailedToCloseSession
-  case ScannerFailedToSelectFunctionalUnit
-  case ScannerFailedToCompleteOverviewScan
-  case ScannerFailedToCompleteScan
-  case ReceivedUnsolicitedScannerStatusInfo
-  case ReceivedUnsolicitedScannerErrorInfo
-  case DownloadFailed
-  case UploadFailed
-  case FailedToCompletePassThroughCommand
-  case DownloadCanceled
-  case FailedToEnabeTethering
-  case FailedToDisabeTethering
-  case FailedToCompleteSendMessageRequest
-  case DeleteFilesFailed
-  case DeleteFilesCanceled
-  case DeviceIsPasscodeLocked
-  case DeviceFailedToTakePicture
-  case DeviceSoftwareNotInstalled
-  case DeviceSoftwareIsBeingInstalled
-  case DeviceSoftwareInstallationCompleted
-  case DeviceSoftwareInstallationCanceled
-  case DeviceSoftwareInstallationFailed
-  case DeviceSoftwareNotAvailable
-  case DeviceCouldNotPair
-  case DeviceCouldNotUnpair
-  case DeviceNeedsCredentials
+  case success
+  case invalidParam
+  case communicationTimedOut
+  case scanOperationCanceled
+  case scannerInUseByLocalUser
+  case scannerInUseByRemoteUser
+  case deviceFailedToOpenSession
+  case deviceFailedToCloseSession
+  case scannerFailedToSelectFunctionalUnit
+  case scannerFailedToCompleteOverviewScan
+  case scannerFailedToCompleteScan
+  case receivedUnsolicitedScannerStatusInfo
+  case receivedUnsolicitedScannerErrorInfo
+  case downloadFailed
+  case uploadFailed
+  case failedToCompletePassThroughCommand
+  case downloadCanceled
+  case failedToEnabeTethering
+  case failedToDisabeTethering
+  case failedToCompleteSendMessageRequest
+  case deleteFilesFailed
+  case deleteFilesCanceled
+  case deviceIsPasscodeLocked
+  case deviceFailedToTakePicture
+  case deviceSoftwareNotInstalled
+  case deviceSoftwareIsBeingInstalled
+  case deviceSoftwareInstallationCompleted
+  case deviceSoftwareInstallationCanceled
+  case deviceSoftwareInstallationFailed
+  case deviceSoftwareNotAvailable
+  case deviceCouldNotPair
+  case deviceCouldNotUnpair
+  case deviceNeedsCredentials
 }

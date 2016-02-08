@@ -16,15 +16,15 @@ enum NSColorPanelMode : Int {
 struct NSColorPanelOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var GrayModeMask: NSColorPanelOptions { get }
-  static var RGBModeMask: NSColorPanelOptions { get }
-  static var CMYKModeMask: NSColorPanelOptions { get }
-  static var HSBModeMask: NSColorPanelOptions { get }
-  static var CustomPaletteModeMask: NSColorPanelOptions { get }
-  static var ColorListModeMask: NSColorPanelOptions { get }
-  static var WheelModeMask: NSColorPanelOptions { get }
-  static var CrayonModeMask: NSColorPanelOptions { get }
-  static var AllModesMask: NSColorPanelOptions { get }
+  static var grayModeMask: NSColorPanelOptions { get }
+  static var rgbModeMask: NSColorPanelOptions { get }
+  static var cmykModeMask: NSColorPanelOptions { get }
+  static var hsbModeMask: NSColorPanelOptions { get }
+  static var customPaletteModeMask: NSColorPanelOptions { get }
+  static var colorListModeMask: NSColorPanelOptions { get }
+  static var wheelModeMask: NSColorPanelOptions { get }
+  static var crayonModeMask: NSColorPanelOptions { get }
+  static var allModesMask: NSColorPanelOptions { get }
 }
 class NSColorPanel : NSPanel {
   class func shared() -> NSColorPanel

@@ -2,26 +2,26 @@
 enum UIDocumentChangeKind : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Done
-  case Undone
-  case Redone
-  case Cleared
+  case done
+  case undone
+  case redone
+  case cleared
 }
 enum UIDocumentSaveOperation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ForCreating
-  case ForOverwriting
+  case forCreating
+  case forOverwriting
 }
 struct UIDocumentState : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Normal: UIDocumentState { get }
-  static var Closed: UIDocumentState { get }
-  static var InConflict: UIDocumentState { get }
-  static var SavingError: UIDocumentState { get }
-  static var EditingDisabled: UIDocumentState { get }
-  static var ProgressAvailable: UIDocumentState { get }
+  static var normal: UIDocumentState { get }
+  static var closed: UIDocumentState { get }
+  static var inConflict: UIDocumentState { get }
+  static var savingError: UIDocumentState { get }
+  static var editingDisabled: UIDocumentState { get }
+  static var progressAvailable: UIDocumentState { get }
 }
 @available(iOS 5.0, *)
 let UIDocumentStateChangedNotification: String

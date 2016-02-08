@@ -2,9 +2,9 @@
 enum AVAudioConverterPrimeMethod : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Pre
-  case Normal
-  case None
+  case pre
+  case normal
+  case none
 }
 struct AVAudioConverterPrimeInfo {
   var leadingFrames: AVAudioFrameCount
@@ -16,18 +16,18 @@ struct AVAudioConverterPrimeInfo {
 enum AVAudioConverterInputStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case HaveData
-  case NoDataNow
-  case EndOfStream
+  case haveData
+  case noDataNow
+  case endOfStream
 }
 @available(tvOS 9.0, *)
 enum AVAudioConverterOutputStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case HaveData
-  case InputRanDry
-  case EndOfStream
-  case Error
+  case haveData
+  case inputRanDry
+  case endOfStream
+  case error
 }
 typealias AVAudioConverterInputBlock = (AVAudioPacketCount, UnsafeMutablePointer<AVAudioConverterInputStatus>) -> AVAudioBuffer?
 @available(tvOS 9.0, *)

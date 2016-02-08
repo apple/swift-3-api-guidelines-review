@@ -2,19 +2,19 @@
 enum RoundingMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case RoundPlain
-  case RoundDown
-  case RoundUp
-  case RoundBankers
+  case roundPlain
+  case roundDown
+  case roundUp
+  case roundBankers
 }
 enum CalculationError : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NoError
-  case LossOfPrecision
-  case Underflow
-  case Overflow
-  case DivideByZero
+  case noError
+  case lossOfPrecision
+  case underflow
+  case overflow
+  case divideByZero
 }
 var decimalMaxSize: Int32 { get }
 var decimalNoScale: Int32 { get }

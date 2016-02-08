@@ -3,17 +3,17 @@
 enum CNContactType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Person
-  case Organization
+  case person
+  case organization
 }
 @available(iOS 9.0, *)
 enum CNContactSortOrder : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case UserDefault
-  case GivenName
-  case FamilyName
+  case none
+  case userDefault
+  case givenName
+  case familyName
 }
 protocol CNKeyDescriptor : ObjectProtocol, SecureCoding, Copying {
 }

@@ -2,31 +2,31 @@
 enum ICDeviceType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Camera
-  case Scanner
+  case camera
+  case scanner
 }
 enum ICDeviceLocationType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Local
-  case Shared
-  case Bonjour
-  case Bluetooth
+  case local
+  case shared
+  case bonjour
+  case bluetooth
 }
 enum ICDeviceTypeMask : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Camera
-  case Scanner
+  case camera
+  case scanner
 }
 enum ICDeviceLocationTypeMask : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Local
-  case Shared
-  case Bonjour
-  case Bluetooth
-  case Remote
+  case local
+  case shared
+  case bonjour
+  case bluetooth
+  case remote
 }
 let ICTransportTypeUSB: String
 let ICTransportTypeFireWire: String

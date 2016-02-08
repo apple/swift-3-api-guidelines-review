@@ -3,36 +3,36 @@
 enum WKUserNotificationInterfaceType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Custom
+  case `default`
+  case custom
 }
 @available(iOS 8.2, *)
 enum WKMenuItemIcon : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Accept
-  case Add
-  case Block
-  case Decline
-  case Info
-  case Maybe
-  case More
-  case Mute
-  case Pause
-  case Play
-  case Repeat
-  case Resume
-  case Share
-  case Shuffle
-  case Speaker
-  case Trash
+  case accept
+  case add
+  case block
+  case decline
+  case info
+  case maybe
+  case more
+  case mute
+  case pause
+  case play
+  case `repeat`
+  case resume
+  case share
+  case shuffle
+  case speaker
+  case trash
 }
 enum WKTextInputMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Plain
-  case AllowEmoji
-  case AllowAnimatedEmoji
+  case plain
+  case allowEmoji
+  case allowAnimatedEmoji
 }
 @available(iOS 8.2, *)
 class WKInterfaceController : Object {

@@ -2,7 +2,7 @@
 struct NSTextListOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var PrependEnclosingMarker: NSTextListOptions { get }
+  static var prependEnclosingMarker: NSTextListOptions { get }
 }
 class NSTextList : Object, Coding, Copying {
   init(markerFormat format: String, options mask: Int)

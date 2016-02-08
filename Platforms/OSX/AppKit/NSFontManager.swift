@@ -2,35 +2,35 @@
 struct NSFontTraitMask : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ItalicFontMask: NSFontTraitMask { get }
-  static var BoldFontMask: NSFontTraitMask { get }
-  static var UnboldFontMask: NSFontTraitMask { get }
-  static var NonStandardCharacterSetFontMask: NSFontTraitMask { get }
-  static var NarrowFontMask: NSFontTraitMask { get }
-  static var ExpandedFontMask: NSFontTraitMask { get }
-  static var CondensedFontMask: NSFontTraitMask { get }
-  static var SmallCapsFontMask: NSFontTraitMask { get }
-  static var PosterFontMask: NSFontTraitMask { get }
-  static var CompressedFontMask: NSFontTraitMask { get }
-  static var FixedPitchFontMask: NSFontTraitMask { get }
-  static var UnitalicFontMask: NSFontTraitMask { get }
+  static var italicFontMask: NSFontTraitMask { get }
+  static var boldFontMask: NSFontTraitMask { get }
+  static var unboldFontMask: NSFontTraitMask { get }
+  static var nonStandardCharacterSetFontMask: NSFontTraitMask { get }
+  static var narrowFontMask: NSFontTraitMask { get }
+  static var expandedFontMask: NSFontTraitMask { get }
+  static var condensedFontMask: NSFontTraitMask { get }
+  static var smallCapsFontMask: NSFontTraitMask { get }
+  static var posterFontMask: NSFontTraitMask { get }
+  static var compressedFontMask: NSFontTraitMask { get }
+  static var fixedPitchFontMask: NSFontTraitMask { get }
+  static var unitalicFontMask: NSFontTraitMask { get }
 }
 struct NSFontCollectionOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ApplicationOnlyMask: NSFontCollectionOptions { get }
+  static var applicationOnlyMask: NSFontCollectionOptions { get }
 }
 enum NSFontAction : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NoFontChangeAction
-  case ViaPanelFontAction
-  case AddTraitFontAction
-  case SizeUpFontAction
-  case SizeDownFontAction
-  case HeavierFontAction
-  case LighterFontAction
-  case RemoveTraitFontAction
+  case noFontChangeAction
+  case viaPanelFontAction
+  case addTraitFontAction
+  case sizeUpFontAction
+  case sizeDownFontAction
+  case heavierFontAction
+  case lighterFontAction
+  case removeTraitFontAction
 }
 class NSFontManager : Object {
   class func setFontPanelFactory(factoryId: AnyClass?)

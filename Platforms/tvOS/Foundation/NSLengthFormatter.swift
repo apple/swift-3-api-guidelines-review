@@ -3,14 +3,14 @@
 enum LengthFormatterUnit : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Millimeter
-  case Centimeter
-  case Meter
-  case Kilometer
-  case Inch
-  case Foot
-  case Yard
-  case Mile
+  case millimeter
+  case centimeter
+  case meter
+  case kilometer
+  case inch
+  case foot
+  case yard
+  case mile
 }
 @available(tvOS 8.0, *)
 class LengthFormatter : Formatter {

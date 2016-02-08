@@ -3,9 +3,9 @@
 enum PKPassType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Barcode
-  case Payment
-  case Any
+  case barcode
+  case payment
+  case any
 }
 class PKPass : PKObject {
   init(data: Data, error: ErrorPointer)

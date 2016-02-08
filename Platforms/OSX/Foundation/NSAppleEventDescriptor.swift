@@ -3,17 +3,17 @@
 struct AppleEventSendOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var NoReply: AppleEventSendOptions { get }
-  static var QueueReply: AppleEventSendOptions { get }
-  static var WaitForReply: AppleEventSendOptions { get }
-  static var NeverInteract: AppleEventSendOptions { get }
-  static var CanInteract: AppleEventSendOptions { get }
-  static var AlwaysInteract: AppleEventSendOptions { get }
-  static var CanSwitchLayer: AppleEventSendOptions { get }
-  static var DontRecord: AppleEventSendOptions { get }
-  static var DontExecute: AppleEventSendOptions { get }
-  static var DontAnnotate: AppleEventSendOptions { get }
-  static var DefaultOptions: AppleEventSendOptions { get }
+  static var noReply: AppleEventSendOptions { get }
+  static var queueReply: AppleEventSendOptions { get }
+  static var waitForReply: AppleEventSendOptions { get }
+  static var neverInteract: AppleEventSendOptions { get }
+  static var canInteract: AppleEventSendOptions { get }
+  static var alwaysInteract: AppleEventSendOptions { get }
+  static var canSwitchLayer: AppleEventSendOptions { get }
+  static var dontRecord: AppleEventSendOptions { get }
+  static var dontExecute: AppleEventSendOptions { get }
+  static var dontAnnotate: AppleEventSendOptions { get }
+  static var defaultOptions: AppleEventSendOptions { get }
 }
 class AppleEventDescriptor : Object, Copying, SecureCoding {
   class func null() -> AppleEventDescriptor

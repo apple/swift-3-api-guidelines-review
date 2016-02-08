@@ -4,9 +4,9 @@ let kCFStreamErrorDomainHTTP: Int32
 enum CFStreamErrorHTTP : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case ParseFailure
-  case RedirectionLoop
-  case BadURL
+  case parseFailure
+  case redirectionLoop
+  case badURL
 }
 @available(tvOS, introduced=2.0, deprecated=9.0, message="Use NSURLSession API for http requests")
 let kCFStreamPropertyHTTPResponseHeader: CFString

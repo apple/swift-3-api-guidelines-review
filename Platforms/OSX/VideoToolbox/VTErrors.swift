@@ -39,13 +39,13 @@ struct VTDecodeFrameFlags : OptionSetType {
 struct VTDecodeInfoFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var Asynchronous: VTDecodeInfoFlags { get }
-  static var FrameDropped: VTDecodeInfoFlags { get }
-  static var ImageBufferModifiable: VTDecodeInfoFlags { get }
+  static var asynchronous: VTDecodeInfoFlags { get }
+  static var frameDropped: VTDecodeInfoFlags { get }
+  static var imageBufferModifiable: VTDecodeInfoFlags { get }
 }
 struct VTEncodeInfoFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var Asynchronous: VTEncodeInfoFlags { get }
-  static var FrameDropped: VTEncodeInfoFlags { get }
+  static var asynchronous: VTEncodeInfoFlags { get }
+  static var frameDropped: VTEncodeInfoFlags { get }
 }

@@ -42,8 +42,8 @@ struct CAF_UUID_ChunkHeader {
 struct CAFFormatFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var LinearPCMFormatFlagIsFloat: CAFFormatFlags { get }
-  static var LinearPCMFormatFlagIsLittleEndian: CAFFormatFlags { get }
+  static var linearPCMFormatFlagIsFloat: CAFFormatFlags { get }
+  static var linearPCMFormatFlagIsLittleEndian: CAFFormatFlags { get }
 }
 struct CAFAudioDescription {
   var mSampleRate: Float64
@@ -141,9 +141,9 @@ struct CAFMarkerChunk {
 struct CAFRegionFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var LoopEnable: CAFRegionFlags { get }
-  static var PlayForward: CAFRegionFlags { get }
-  static var PlayBackward: CAFRegionFlags { get }
+  static var loopEnable: CAFRegionFlags { get }
+  static var playForward: CAFRegionFlags { get }
+  static var playBackward: CAFRegionFlags { get }
 }
 struct CAFRegion {
   var mRegionID: UInt32

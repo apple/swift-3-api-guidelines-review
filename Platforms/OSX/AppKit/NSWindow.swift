@@ -20,53 +20,53 @@ var NSResetCursorRectsRunLoopOrdering: Int { get }
 enum NSWindowSharingType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
-  case ReadOnly
-  case ReadWrite
+  case none
+  case readOnly
+  case readWrite
 }
 @available(OSX 10.5, *)
 enum NSWindowBackingLocation : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Default
-  case VideoMemory
-  case MainMemory
+  case `default`
+  case videoMemory
+  case mainMemory
 }
 @available(OSX 10.5, *)
 struct NSWindowCollectionBehavior : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Default: NSWindowCollectionBehavior { get }
-  static var CanJoinAllSpaces: NSWindowCollectionBehavior { get }
-  static var MoveToActiveSpace: NSWindowCollectionBehavior { get }
+  static var `default`: NSWindowCollectionBehavior { get }
+  static var canJoinAllSpaces: NSWindowCollectionBehavior { get }
+  static var moveToActiveSpace: NSWindowCollectionBehavior { get }
   @available(OSX 10.6, *)
-  static var Managed: NSWindowCollectionBehavior { get }
+  static var managed: NSWindowCollectionBehavior { get }
   @available(OSX 10.6, *)
-  static var Transient: NSWindowCollectionBehavior { get }
+  static var transient: NSWindowCollectionBehavior { get }
   @available(OSX 10.6, *)
-  static var Stationary: NSWindowCollectionBehavior { get }
+  static var stationary: NSWindowCollectionBehavior { get }
   @available(OSX 10.6, *)
-  static var ParticipatesInCycle: NSWindowCollectionBehavior { get }
+  static var participatesInCycle: NSWindowCollectionBehavior { get }
   @available(OSX 10.6, *)
-  static var IgnoresCycle: NSWindowCollectionBehavior { get }
+  static var ignoresCycle: NSWindowCollectionBehavior { get }
   @available(OSX 10.7, *)
-  static var FullScreenPrimary: NSWindowCollectionBehavior { get }
+  static var fullScreenPrimary: NSWindowCollectionBehavior { get }
   @available(OSX 10.7, *)
-  static var FullScreenAuxiliary: NSWindowCollectionBehavior { get }
+  static var fullScreenAuxiliary: NSWindowCollectionBehavior { get }
   @available(OSX 10.11, *)
-  static var FullScreenAllowsTiling: NSWindowCollectionBehavior { get }
+  static var fullScreenAllowsTiling: NSWindowCollectionBehavior { get }
   @available(OSX 10.11, *)
-  static var FullScreenDisallowsTiling: NSWindowCollectionBehavior { get }
+  static var fullScreenDisallowsTiling: NSWindowCollectionBehavior { get }
 }
 @available(OSX 10.7, *)
 enum NSWindowAnimationBehavior : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case None
-  case DocumentWindow
-  case UtilityWindow
-  case AlertPanel
+  case `default`
+  case none
+  case documentWindow
+  case utilityWindow
+  case alertPanel
 }
 var NSWindowNumberListAllApplications: Int { get }
 var NSWindowNumberListAllSpaces: Int { get }
@@ -74,35 +74,35 @@ var NSWindowNumberListAllSpaces: Int { get }
 struct NSWindowOcclusionState : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Visible: NSWindowOcclusionState { get }
+  static var visible: NSWindowOcclusionState { get }
 }
 typealias NSWindowNumberListOptions = Int
 enum NSSelectionDirection : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case DirectSelection
-  case SelectingNext
-  case SelectingPrevious
+  case directSelection
+  case selectingNext
+  case selectingPrevious
 }
 enum NSWindowButton : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case CloseButton
-  case MiniaturizeButton
-  case ZoomButton
-  case ToolbarButton
-  case DocumentIconButton
+  case closeButton
+  case miniaturizeButton
+  case zoomButton
+  case toolbarButton
+  case documentIconButton
   @available(OSX 10.7, *)
-  case DocumentVersionsButton
+  case documentVersionsButton
   @available(OSX 10.7, *)
-  case FullScreenButton
+  case fullScreenButton
 }
 @available(OSX 10.10, *)
 enum NSWindowTitleVisibility : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Visible
-  case Hidden
+  case visible
+  case hidden
 }
 var NSEventDurationForever: Double { get }
 class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceValidations, NSUserInterfaceItemIdentification, NSAppearanceCustomization, NSAccessibilityElementProtocol, NSAccessibility {

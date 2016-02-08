@@ -6,16 +6,16 @@ class CGPath {
 enum CGLineJoin : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Miter
-  case Round
-  case Bevel
+  case miter
+  case round
+  case bevel
 }
 enum CGLineCap : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Butt
-  case Round
-  case Square
+  case butt
+  case round
+  case square
 }
 @available(OSX 10.2, *)
 func CGPathGetTypeID() -> CFTypeID
@@ -84,11 +84,11 @@ func CGPathContainsPoint(path: CGPath?, _ m: UnsafePointer<CGAffineTransform>, _
 enum CGPathElementType : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case MoveToPoint
-  case AddLineToPoint
-  case AddQuadCurveToPoint
-  case AddCurveToPoint
-  case CloseSubpath
+  case moveToPoint
+  case addLineToPoint
+  case addQuadCurveToPoint
+  case addCurveToPoint
+  case closeSubpath
 }
 struct CGPathElement {
   var type: CGPathElementType

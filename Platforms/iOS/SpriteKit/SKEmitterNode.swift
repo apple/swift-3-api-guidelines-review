@@ -3,9 +3,9 @@
 enum SKParticleRenderOrder : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case OldestLast
-  case OldestFirst
-  case DontCare
+  case oldestLast
+  case oldestFirst
+  case dontCare
 }
 class SKEmitterNode : SKNode {
   func advanceSimulationTime(sec: TimeInterval)

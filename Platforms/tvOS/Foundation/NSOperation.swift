@@ -30,11 +30,11 @@ class Operation : Object {
 enum OperationQueuePriority : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case VeryLow
-  case Low
-  case Normal
-  case High
-  case VeryHigh
+  case veryLow
+  case low
+  case normal
+  case high
+  case veryHigh
 }
 @available(tvOS 4.0, *)
 class BlockOperation : Operation {

@@ -2,17 +2,17 @@
 enum NSAnimationCurve : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case EaseInOut
-  case EaseIn
-  case EaseOut
-  case Linear
+  case easeInOut
+  case easeIn
+  case easeOut
+  case linear
 }
 enum NSAnimationBlockingMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Blocking
-  case Nonblocking
-  case NonblockingThreaded
+  case blocking
+  case nonblocking
+  case nonblockingThreaded
 }
 typealias NSAnimationProgress = Float
 let NSAnimationProgressMarkNotification: String

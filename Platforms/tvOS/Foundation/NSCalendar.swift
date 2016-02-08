@@ -34,29 +34,29 @@ let calendarIdentifierIslamicUmmAlQura: String
 struct CalendarUnit : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Era: CalendarUnit { get }
-  static var Year: CalendarUnit { get }
-  static var Month: CalendarUnit { get }
-  static var Day: CalendarUnit { get }
-  static var Hour: CalendarUnit { get }
-  static var Minute: CalendarUnit { get }
-  static var Second: CalendarUnit { get }
-  static var Weekday: CalendarUnit { get }
-  static var WeekdayOrdinal: CalendarUnit { get }
+  static var era: CalendarUnit { get }
+  static var year: CalendarUnit { get }
+  static var month: CalendarUnit { get }
+  static var day: CalendarUnit { get }
+  static var hour: CalendarUnit { get }
+  static var minute: CalendarUnit { get }
+  static var second: CalendarUnit { get }
+  static var weekday: CalendarUnit { get }
+  static var weekdayOrdinal: CalendarUnit { get }
   @available(tvOS 4.0, *)
-  static var Quarter: CalendarUnit { get }
+  static var quarter: CalendarUnit { get }
   @available(tvOS 5.0, *)
-  static var WeekOfMonth: CalendarUnit { get }
+  static var weekOfMonth: CalendarUnit { get }
   @available(tvOS 5.0, *)
-  static var WeekOfYear: CalendarUnit { get }
+  static var weekOfYear: CalendarUnit { get }
   @available(tvOS 5.0, *)
-  static var YearForWeekOfYear: CalendarUnit { get }
+  static var yearForWeekOfYear: CalendarUnit { get }
   @available(tvOS 5.0, *)
-  static var Nanosecond: CalendarUnit { get }
+  static var nanosecond: CalendarUnit { get }
   @available(tvOS 4.0, *)
-  static var Calendar: CalendarUnit { get }
+  static var calendar: CalendarUnit { get }
   @available(tvOS 4.0, *)
-  static var TimeZone: CalendarUnit { get }
+  static var timeZone: CalendarUnit { get }
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use NSCalendarUnitEra instead")
   static var eraCalendarUnit: CalendarUnit { get }
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use NSCalendarUnitYear instead")
@@ -93,21 +93,21 @@ struct CalendarUnit : OptionSetType {
 struct CalendarOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var WrapComponents: CalendarOptions { get }
+  static var wrapComponents: CalendarOptions { get }
   @available(tvOS 7.0, *)
-  static var MatchStrictly: CalendarOptions { get }
+  static var matchStrictly: CalendarOptions { get }
   @available(tvOS 7.0, *)
-  static var SearchBackwards: CalendarOptions { get }
+  static var searchBackwards: CalendarOptions { get }
   @available(tvOS 7.0, *)
-  static var MatchPreviousTimePreservingSmallerUnits: CalendarOptions { get }
+  static var matchPreviousTimePreservingSmallerUnits: CalendarOptions { get }
   @available(tvOS 7.0, *)
-  static var MatchNextTimePreservingSmallerUnits: CalendarOptions { get }
+  static var matchNextTimePreservingSmallerUnits: CalendarOptions { get }
   @available(tvOS 7.0, *)
-  static var MatchNextTime: CalendarOptions { get }
+  static var matchNextTime: CalendarOptions { get }
   @available(tvOS 7.0, *)
-  static var MatchFirst: CalendarOptions { get }
+  static var matchFirst: CalendarOptions { get }
   @available(tvOS 7.0, *)
-  static var MatchLast: CalendarOptions { get }
+  static var matchLast: CalendarOptions { get }
 }
 @available(tvOS, introduced=2.0, deprecated=8.0, message="Use NSCalendarWrapComponents instead")
 var wrapCalendarComponents: Int { get }

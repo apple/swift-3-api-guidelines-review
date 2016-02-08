@@ -3,35 +3,35 @@
 enum NSVisualEffectMaterial : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case AppearanceBased
-  case Titlebar
+  case appearanceBased
+  case titlebar
   @available(OSX 10.11, *)
-  case Menu
+  case menu
   @available(OSX 10.11, *)
-  case Popover
+  case popover
   @available(OSX 10.11, *)
-  case Sidebar
-  case Light
-  case Dark
+  case sidebar
+  case light
+  case dark
   @available(OSX 10.11, *)
-  case MediumLight
+  case mediumLight
   @available(OSX 10.11, *)
-  case UltraDark
+  case ultraDark
 }
 @available(OSX 10.10, *)
 enum NSVisualEffectBlendingMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case BehindWindow
-  case WithinWindow
+  case behindWindow
+  case withinWindow
 }
 @available(OSX 10.10, *)
 enum NSVisualEffectState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case FollowsWindowActiveState
-  case Active
-  case Inactive
+  case followsWindowActiveState
+  case active
+  case inactive
 }
 @available(OSX 10.10, *)
 class NSVisualEffectView : NSView {

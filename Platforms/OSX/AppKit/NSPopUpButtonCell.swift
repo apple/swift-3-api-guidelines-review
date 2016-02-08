@@ -2,9 +2,9 @@
 enum NSPopUpArrowPosition : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NoArrow
-  case ArrowAtCenter
-  case ArrowAtBottom
+  case noArrow
+  case arrowAtCenter
+  case arrowAtBottom
 }
 class NSPopUpButtonCell : NSMenuItemCell {
   init(textCell stringValue: String, pullsDown pullDown: Bool)

@@ -10,12 +10,12 @@ let UIScreenBrightnessDidChangeNotification: String
 enum UIScreenOverscanCompensation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Scale
-  case InsetBounds
+  case scale
+  case insetBounds
   @available(iOS 9.0, *)
-  case None
+  case none
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use UIScreenOverscanCompensationNone")
-  static var InsetApplicationFrame: UIScreenOverscanCompensation { get }
+  static var insetApplicationFrame: UIScreenOverscanCompensation { get }
 }
 @available(iOS 2.0, *)
 class UIScreen : Object, UITraitEnvironment {

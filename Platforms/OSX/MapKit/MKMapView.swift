@@ -66,8 +66,8 @@ class MKMapView : NSView, Coding {
 enum MKOverlayLevel : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case AboveRoads
-  case AboveLabels
+  case aboveRoads
+  case aboveLabels
 }
 extension MKMapView {
   @available(OSX 10.9, *)

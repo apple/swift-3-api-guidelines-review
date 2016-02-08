@@ -3,23 +3,23 @@ struct AudioComponentFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
   @available(OSX 10.7, *)
-  static var Unsearchable: AudioComponentFlags { get }
+  static var unsearchable: AudioComponentFlags { get }
   @available(OSX 10.8, *)
-  static var SandboxSafe: AudioComponentFlags { get }
+  static var sandboxSafe: AudioComponentFlags { get }
   @available(OSX 10.11, *)
-  static var IsV3AudioUnit: AudioComponentFlags { get }
+  static var isv3AudioUnit: AudioComponentFlags { get }
   @available(OSX 10.11, *)
-  static var RequiresAsyncInstantiation: AudioComponentFlags { get }
+  static var requiresAsyncInstantiation: AudioComponentFlags { get }
   @available(OSX 10.11, *)
-  static var CanLoadInProcess: AudioComponentFlags { get }
+  static var canLoadInProcess: AudioComponentFlags { get }
 }
 struct AudioComponentInstantiationOptions : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
   @available(OSX 10.11, *)
-  static var LoadOutOfProcess: AudioComponentInstantiationOptions { get }
+  static var loadOutOfProcess: AudioComponentInstantiationOptions { get }
   @available(OSX 10.11, *)
-  static var LoadInProcess: AudioComponentInstantiationOptions { get }
+  static var loadInProcess: AudioComponentInstantiationOptions { get }
 }
 struct AudioComponentDescription {
   var componentType: OSType
@@ -69,12 +69,12 @@ func AudioComponentCopyConfigurationInfo(inComponent: AudioComponent, _ outConfi
 enum AudioComponentValidationResult : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Unknown
-  case Passed
-  case Failed
-  case TimedOut
-  case UnauthorizedError_Open
-  case UnauthorizedError_Init
+  case unknown
+  case passed
+  case failed
+  case timedOut
+  case unauthorizedError_Open
+  case unauthorizedError_Init
 }
 var kAudioComponentConfigurationInfo_ValidationResult: String { get }
 @available(OSX 10.7, *)

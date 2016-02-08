@@ -2,14 +2,14 @@
 enum EKCalendarChooserSelectionStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Single
-  case Multiple
+  case single
+  case multiple
 }
 enum EKCalendarChooserDisplayStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case AllCalendars
-  case WritableCalendarsOnly
+  case allCalendars
+  case writableCalendarsOnly
 }
 @available(iOS 5.0, *)
 class EKCalendarChooser : UIViewController {

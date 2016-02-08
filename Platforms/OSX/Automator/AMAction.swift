@@ -2,10 +2,10 @@
 enum AMLogLevel : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Debug
-  case Info
-  case Warn
-  case Error
+  case debug
+  case info
+  case warn
+  case error
 }
 @available(OSX 10.4, *)
 class AMAction : Object {

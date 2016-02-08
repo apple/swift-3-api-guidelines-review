@@ -3,8 +3,8 @@
 enum PKAddPassButtonStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Black
-  case BlackOutline
+  case black
+  case blackOutline
 }
 @available(iOS 9.0, *)
 class PKAddPassButton : UIButton {

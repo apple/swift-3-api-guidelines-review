@@ -2,27 +2,27 @@
 enum NSSegmentSwitchTracking : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case SelectOne
-  case SelectAny
-  case Momentary
+  case selectOne
+  case selectAny
+  case momentary
   @available(OSX 10.10.3, *)
-  case MomentaryAccelerator
+  case momentaryAccelerator
 }
 @available(OSX 10.5, *)
 enum NSSegmentStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Automatic
-  case Rounded
-  case RoundRect
-  case TexturedSquare
-  case SmallSquare
+  case automatic
+  case rounded
+  case roundRect
+  case texturedSquare
+  case smallSquare
   @available(OSX 10.10, *)
-  case Separated
+  case separated
   @available(OSX 10.5, *)
-  case TexturedRounded
+  case texturedRounded
   @available(OSX 10.5, *)
-  case Capsule
+  case capsule
 }
 class NSSegmentedControl : NSControl {
   var segmentCount: Int

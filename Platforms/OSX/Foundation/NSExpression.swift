@@ -2,26 +2,26 @@
 enum ExpressionType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ConstantValueExpressionType
-  case EvaluatedObjectExpressionType
-  case VariableExpressionType
-  case KeyPathExpressionType
-  case FunctionExpressionType
+  case constantValueExpressionType
+  case evaluatedObjectExpressionType
+  case variableExpressionType
+  case keyPathExpressionType
+  case functionExpressionType
   @available(OSX 10.5, *)
-  case UnionSetExpressionType
+  case unionSetExpressionType
   @available(OSX 10.5, *)
-  case IntersectSetExpressionType
+  case intersectSetExpressionType
   @available(OSX 10.5, *)
-  case MinusSetExpressionType
+  case minusSetExpressionType
   @available(OSX 10.5, *)
-  case SubqueryExpressionType
+  case subqueryExpressionType
   @available(OSX 10.5, *)
-  case AggregateExpressionType
+  case aggregateExpressionType
   @available(OSX 10.9, *)
-  case AnyKeyExpressionType
-  case BlockExpressionType
+  case anyKeyExpressionType
+  case blockExpressionType
   @available(OSX 10.11, *)
-  case ConditionalExpressionType
+  case conditionalExpressionType
 }
 @available(OSX 10.4, *)
 class Expression : Object, SecureCoding, Copying {

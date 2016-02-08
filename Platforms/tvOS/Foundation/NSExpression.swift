@@ -2,26 +2,26 @@
 enum ExpressionType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ConstantValueExpressionType
-  case EvaluatedObjectExpressionType
-  case VariableExpressionType
-  case KeyPathExpressionType
-  case FunctionExpressionType
+  case constantValueExpressionType
+  case evaluatedObjectExpressionType
+  case variableExpressionType
+  case keyPathExpressionType
+  case functionExpressionType
   @available(tvOS 3.0, *)
-  case UnionSetExpressionType
+  case unionSetExpressionType
   @available(tvOS 3.0, *)
-  case IntersectSetExpressionType
+  case intersectSetExpressionType
   @available(tvOS 3.0, *)
-  case MinusSetExpressionType
+  case minusSetExpressionType
   @available(tvOS 3.0, *)
-  case SubqueryExpressionType
+  case subqueryExpressionType
   @available(tvOS 3.0, *)
-  case AggregateExpressionType
+  case aggregateExpressionType
   @available(tvOS 7.0, *)
-  case AnyKeyExpressionType
-  case BlockExpressionType
+  case anyKeyExpressionType
+  case blockExpressionType
   @available(tvOS 9.0, *)
-  case ConditionalExpressionType
+  case conditionalExpressionType
 }
 @available(tvOS 3.0, *)
 class Expression : Object, SecureCoding, Copying {

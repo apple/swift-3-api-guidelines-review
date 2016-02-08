@@ -3,23 +3,23 @@ enum SCNFilterMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   @available(OSX 10.9, *)
-  case None
+  case none
   @available(OSX 10.9, *)
-  case Nearest
+  case nearest
   @available(OSX 10.9, *)
-  case Linear
+  case linear
 }
 enum SCNWrapMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   @available(OSX 10.9, *)
-  case Clamp
+  case clamp
   @available(OSX 10.9, *)
-  case Repeat
+  case `repeat`
   @available(OSX 10.9, *)
-  case ClampToBorder
+  case clampToBorder
   @available(OSX 10.9, *)
-  case Mirror
+  case mirror
 }
 @available(OSX 10.8, *)
 class SCNMaterialProperty : Object, SCNAnimatable, SecureCoding {

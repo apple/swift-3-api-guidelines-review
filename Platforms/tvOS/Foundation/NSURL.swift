@@ -321,15 +321,15 @@ let urlUbiquitousItemDownloadingStatusCurrent: String
 struct URLBookmarkCreationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var MinimalBookmark: URLBookmarkCreationOptions { get }
-  static var SuitableForBookmarkFile: URLBookmarkCreationOptions { get }
+  static var minimalBookmark: URLBookmarkCreationOptions { get }
+  static var suitableForBookmarkFile: URLBookmarkCreationOptions { get }
 }
 @available(tvOS 4.0, *)
 struct URLBookmarkResolutionOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var WithoutUI: URLBookmarkResolutionOptions { get }
-  static var WithoutMounting: URLBookmarkResolutionOptions { get }
+  static var withoutUI: URLBookmarkResolutionOptions { get }
+  static var withoutMounting: URLBookmarkResolutionOptions { get }
 }
 typealias URLBookmarkFileCreationOptions = Int
 extension URL {

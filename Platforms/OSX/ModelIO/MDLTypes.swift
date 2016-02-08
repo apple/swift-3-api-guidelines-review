@@ -10,28 +10,28 @@ let kUTTypeStereolithography: String
 enum MDLIndexBitDepth : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Invalid
-  case UInt8
-  static var Uint8: MDLIndexBitDepth { get }
-  case UInt16
-  static var Uint16: MDLIndexBitDepth { get }
-  case UInt32
-  static var Uint32: MDLIndexBitDepth { get }
+  case invalid
+  case uInt8
+  static var uint8: MDLIndexBitDepth { get }
+  case uInt16
+  static var uint16: MDLIndexBitDepth { get }
+  case uInt32
+  static var uint32: MDLIndexBitDepth { get }
 }
 enum MDLGeometryType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case TypePoints
-  case TypeLines
-  case TypeTriangles
-  case TypeTriangleStrips
-  case TypeQuads
-  case TypeVariableTopology
-  static var KindPoints: MDLGeometryType { get }
-  static var KindLines: MDLGeometryType { get }
-  static var KindTriangles: MDLGeometryType { get }
-  static var KindTriangleStrips: MDLGeometryType { get }
-  static var KindQuads: MDLGeometryType { get }
+  case typePoints
+  case typeLines
+  case typeTriangles
+  case typeTriangleStrips
+  case typeQuads
+  case typeVariableTopology
+  static var kindPoints: MDLGeometryType { get }
+  static var kindLines: MDLGeometryType { get }
+  static var kindTriangles: MDLGeometryType { get }
+  static var kindTriangleStrips: MDLGeometryType { get }
+  static var kindQuads: MDLGeometryType { get }
 }
 @available(OSX 10.11, *)
 protocol MDLNamed {

@@ -2,9 +2,9 @@
 enum UINavigationControllerOperation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Push
-  case Pop
+  case none
+  case push
+  case pop
 }
 let UINavigationControllerHideShowBarDuration: CGFloat
 @available(tvOS 2.0, *)

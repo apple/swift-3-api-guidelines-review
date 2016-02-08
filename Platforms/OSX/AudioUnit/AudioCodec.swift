@@ -99,10 +99,10 @@ var kAudioSettings_Unit: String { get }
 struct AudioSettingsFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var ExpertParameter: AudioSettingsFlags { get }
-  static var InvisibleParameter: AudioSettingsFlags { get }
-  static var MetaParameter: AudioSettingsFlags { get }
-  static var UserInterfaceParameter: AudioSettingsFlags { get }
+  static var expertParameter: AudioSettingsFlags { get }
+  static var invisibleParameter: AudioSettingsFlags { get }
+  static var metaParameter: AudioSettingsFlags { get }
+  static var userInterfaceParameter: AudioSettingsFlags { get }
 }
 var kAudioCodecProduceOutputPacketFailure: UInt32 { get }
 var kAudioCodecProduceOutputPacketSuccess: UInt32 { get }

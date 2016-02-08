@@ -2,17 +2,17 @@
 enum EAWiFiUnconfiguredAccessoryBrowserState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case WiFiUnavailable
-  case Stopped
-  case Searching
-  case Configuring
+  case wiFiUnavailable
+  case stopped
+  case searching
+  case configuring
 }
 enum EAWiFiUnconfiguredAccessoryConfigurationStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Success
-  case UserCancelledConfiguration
-  case Failed
+  case success
+  case userCancelledConfiguration
+  case failed
 }
 @available(iOS 8.0, *)
 class EAWiFiUnconfiguredAccessoryBrowser : Object {

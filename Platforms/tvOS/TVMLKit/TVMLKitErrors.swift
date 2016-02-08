@@ -5,8 +5,8 @@ let TVMLKitErrorDomain: String
 enum TVMLKitError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case InternetUnavailable
-  case FailedToLaunch
-  case Last
+  case unknown
+  case internetUnavailable
+  case failedToLaunch
+  case last
 }

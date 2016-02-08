@@ -8,9 +8,9 @@ let MIDINetworkNotificationSessionDidChange: String
 enum MIDINetworkConnectionPolicy : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NoOne
-  case HostsInContactList
-  case Anyone
+  case noOne
+  case hostsInContactList
+  case anyone
 }
 @available(iOS 4.2, *)
 class MIDINetworkHost : Object {

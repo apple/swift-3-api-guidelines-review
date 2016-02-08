@@ -3,20 +3,20 @@
 enum FormattingContext : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Dynamic
-  case Standalone
-  case ListItem
-  case BeginningOfSentence
-  case MiddleOfSentence
+  case unknown
+  case dynamic
+  case standalone
+  case listItem
+  case beginningOfSentence
+  case middleOfSentence
 }
 @available(tvOS 8.0, *)
 enum FormattingUnitStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Short
-  case Medium
-  case Long
+  case short
+  case medium
+  case long
 }
 class Formatter : Object, Copying, Coding {
   func stringFor(objectValue obj: AnyObject) -> String?

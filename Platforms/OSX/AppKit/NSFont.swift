@@ -6,15 +6,15 @@ var NSFontIdentityMatrix: UnsafePointer<CGFloat>
 enum NSMultibyteGlyphPacking : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NativeShortGlyphPacking
+  case nativeShortGlyphPacking
 }
 enum NSFontRenderingMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case DefaultRenderingMode
-  case AntialiasedRenderingMode
-  case IntegerAdvancementsRenderingMode
-  case AntialiasedIntegerAdvancementsRenderingMode
+  case defaultRenderingMode
+  case antialiasedRenderingMode
+  case integerAdvancementsRenderingMode
+  case antialiasedIntegerAdvancementsRenderingMode
 }
 class NSFont : Object, Copying, SecureCoding {
   /*not inherited*/ init?(name fontName: String, size fontSize: CGFloat)

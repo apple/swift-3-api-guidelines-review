@@ -3,17 +3,17 @@
 enum NSBatchUpdateRequestResultType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case StatusOnlyResultType
-  case UpdatedObjectIDsResultType
-  case UpdatedObjectsCountResultType
+  case statusOnlyResultType
+  case updatedObjectIDsResultType
+  case updatedObjectsCountResultType
 }
 @available(OSX 10.11, *)
 enum NSBatchDeleteRequestResultType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ResultTypeStatusOnly
-  case ResultTypeObjectIDs
-  case ResultTypeCount
+  case resultTypeStatusOnly
+  case resultTypeObjectIDs
+  case resultTypeCount
 }
 @available(OSX 10.10, *)
 class NSPersistentStoreResult : Object {

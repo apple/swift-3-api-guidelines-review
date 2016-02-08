@@ -22,9 +22,9 @@ enum NSManagedObjectContextConcurrencyType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use another NSManagedObjectContextConcurrencyType")
-  case ConfinementConcurrencyType
-  case PrivateQueueConcurrencyType
-  case MainQueueConcurrencyType
+  case confinementConcurrencyType
+  case privateQueueConcurrencyType
+  case mainQueueConcurrencyType
 }
 @available(watchOS 2.0, *)
 class NSManagedObjectContext : Object, Coding {

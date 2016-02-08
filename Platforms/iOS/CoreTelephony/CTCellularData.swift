@@ -2,9 +2,9 @@
 enum CTCellularDataRestrictedState : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case RestrictedStateUnknown
-  case Restricted
-  case NotRestricted
+  case restrictedStateUnknown
+  case restricted
+  case notRestricted
 }
 typealias CellularDataRestrictionDidUpdateNotifier = (CTCellularDataRestrictedState) -> Void
 @available(iOS 9.0, *)

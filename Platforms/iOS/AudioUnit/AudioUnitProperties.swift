@@ -128,59 +128,59 @@ struct AudioUnitParameterHistoryInfo {
 enum AudioUnitParameterUnit : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Generic
-  case Indexed
-  case Boolean
-  case Percent
-  case Seconds
-  case SampleFrames
-  case Phase
-  case Rate
-  case Hertz
-  case Cents
-  case RelativeSemiTones
-  case MIDINoteNumber
-  case MIDIController
-  case Decibels
-  case LinearGain
-  case Degrees
-  case EqualPowerCrossfade
-  case MixerFaderCurve1
-  case Pan
-  case Meters
-  case AbsoluteCents
-  case Octaves
+  case generic
+  case indexed
+  case boolean
+  case percent
+  case seconds
+  case sampleFrames
+  case phase
+  case rate
+  case hertz
+  case cents
+  case relativeSemiTones
+  case midiNoteNumber
+  case midiController
+  case decibels
+  case linearGain
+  case degrees
+  case equalPowerCrossfade
+  case mixerFaderCurve1
+  case pan
+  case meters
+  case absoluteCents
+  case octaves
   case BPM
-  case Beats
-  case Milliseconds
-  case Ratio
-  case CustomUnit
+  case beats
+  case milliseconds
+  case ratio
+  case customUnit
 }
 struct AudioUnitParameterOptions : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var Flag_CFNameRelease: AudioUnitParameterOptions { get }
-  static var Flag_OmitFromPresets: AudioUnitParameterOptions { get }
-  static var Flag_PlotHistory: AudioUnitParameterOptions { get }
-  static var Flag_MeterReadOnly: AudioUnitParameterOptions { get }
-  static var Flag_DisplayMask: AudioUnitParameterOptions { get }
-  static var Flag_DisplaySquareRoot: AudioUnitParameterOptions { get }
-  static var Flag_DisplaySquared: AudioUnitParameterOptions { get }
-  static var Flag_DisplayCubed: AudioUnitParameterOptions { get }
-  static var Flag_DisplayCubeRoot: AudioUnitParameterOptions { get }
-  static var Flag_DisplayExponential: AudioUnitParameterOptions { get }
-  static var Flag_HasClump: AudioUnitParameterOptions { get }
-  static var Flag_ValuesHaveStrings: AudioUnitParameterOptions { get }
-  static var Flag_DisplayLogarithmic: AudioUnitParameterOptions { get }
-  static var Flag_IsHighResolution: AudioUnitParameterOptions { get }
-  static var Flag_NonRealTime: AudioUnitParameterOptions { get }
-  static var Flag_CanRamp: AudioUnitParameterOptions { get }
-  static var Flag_ExpertMode: AudioUnitParameterOptions { get }
-  static var Flag_HasCFNameString: AudioUnitParameterOptions { get }
-  static var Flag_IsGlobalMeta: AudioUnitParameterOptions { get }
-  static var Flag_IsElementMeta: AudioUnitParameterOptions { get }
-  static var Flag_IsReadable: AudioUnitParameterOptions { get }
-  static var Flag_IsWritable: AudioUnitParameterOptions { get }
+  static var flag_CFNameRelease: AudioUnitParameterOptions { get }
+  static var flag_OmitFromPresets: AudioUnitParameterOptions { get }
+  static var flag_PlotHistory: AudioUnitParameterOptions { get }
+  static var flag_MeterReadOnly: AudioUnitParameterOptions { get }
+  static var flag_DisplayMask: AudioUnitParameterOptions { get }
+  static var flag_DisplaySquareRoot: AudioUnitParameterOptions { get }
+  static var flag_DisplaySquared: AudioUnitParameterOptions { get }
+  static var flag_DisplayCubed: AudioUnitParameterOptions { get }
+  static var flag_DisplayCubeRoot: AudioUnitParameterOptions { get }
+  static var flag_DisplayExponential: AudioUnitParameterOptions { get }
+  static var flag_HasClump: AudioUnitParameterOptions { get }
+  static var flag_ValuesHaveStrings: AudioUnitParameterOptions { get }
+  static var flag_DisplayLogarithmic: AudioUnitParameterOptions { get }
+  static var flag_IsHighResolution: AudioUnitParameterOptions { get }
+  static var flag_NonRealTime: AudioUnitParameterOptions { get }
+  static var flag_CanRamp: AudioUnitParameterOptions { get }
+  static var flag_ExpertMode: AudioUnitParameterOptions { get }
+  static var flag_HasCFNameString: AudioUnitParameterOptions { get }
+  static var flag_IsGlobalMeta: AudioUnitParameterOptions { get }
+  static var flag_IsElementMeta: AudioUnitParameterOptions { get }
+  static var flag_IsReadable: AudioUnitParameterOptions { get }
+  static var flag_IsWritable: AudioUnitParameterOptions { get }
 }
 struct AudioUnitParameterInfo {
   var name: (Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8)
@@ -220,9 +220,9 @@ struct AudioUnitParameterValueFromString {
 enum AudioUnitRemoteControlEvent : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case TogglePlayPause
-  case ToggleRecord
-  case Rewind
+  case togglePlayPause
+  case toggleRecord
+  case rewind
 }
 typealias AudioUnitRemoteControlEventListener = (AudioUnitRemoteControlEvent) -> Void
 var kAudioUnitConfigurationInfo_HasCustomView: String { get }
@@ -288,37 +288,37 @@ var kAudioUnitProperty_SpatialMixerRenderingFlags: AudioUnitPropertyID { get }
 enum AUSpatializationAlgorithm : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case SpatializationAlgorithm_EqualPowerPanning
-  case SpatializationAlgorithm_SphericalHead
-  case SpatializationAlgorithm_HRTF
-  case SpatializationAlgorithm_SoundField
-  case SpatializationAlgorithm_VectorBasedPanning
-  case SpatializationAlgorithm_StereoPassThrough
+  case spatializationAlgorithm_EqualPowerPanning
+  case spatializationAlgorithm_SphericalHead
+  case spatializationAlgorithm_HRTF
+  case spatializationAlgorithm_SoundField
+  case spatializationAlgorithm_VectorBasedPanning
+  case spatializationAlgorithm_StereoPassThrough
 }
 enum AUReverbRoomType : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case ReverbRoomType_SmallRoom
-  case ReverbRoomType_MediumRoom
-  case ReverbRoomType_LargeRoom
-  case ReverbRoomType_MediumHall
-  case ReverbRoomType_LargeHall
-  case ReverbRoomType_Plate
-  case ReverbRoomType_MediumChamber
-  case ReverbRoomType_LargeChamber
-  case ReverbRoomType_Cathedral
-  case ReverbRoomType_LargeRoom2
-  case ReverbRoomType_MediumHall2
-  case ReverbRoomType_MediumHall3
-  case ReverbRoomType_LargeHall2
+  case reverbRoomType_SmallRoom
+  case reverbRoomType_MediumRoom
+  case reverbRoomType_LargeRoom
+  case reverbRoomType_MediumHall
+  case reverbRoomType_LargeHall
+  case reverbRoomType_Plate
+  case reverbRoomType_MediumChamber
+  case reverbRoomType_LargeChamber
+  case reverbRoomType_Cathedral
+  case reverbRoomType_LargeRoom2
+  case reverbRoomType_MediumHall2
+  case reverbRoomType_MediumHall3
+  case reverbRoomType_LargeHall2
 }
 enum AUSpatialMixerAttenuationCurve : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case SpatialMixerAttenuationCurve_Power
-  case SpatialMixerAttenuationCurve_Exponential
-  case SpatialMixerAttenuationCurve_Inverse
-  case SpatialMixerAttenuationCurve_Linear
+  case spatialMixerAttenuationCurve_Power
+  case spatialMixerAttenuationCurve_Exponential
+  case spatialMixerAttenuationCurve_Inverse
+  case spatialMixerAttenuationCurve_Linear
 }
 struct MixerDistanceParams {
   var mReferenceDistance: Float32
@@ -330,8 +330,8 @@ struct MixerDistanceParams {
 struct AUSpatialMixerRenderingFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var SpatialMixerRenderingFlags_InterAuralDelay: AUSpatialMixerRenderingFlags { get }
-  static var SpatialMixerRenderingFlags_DistanceAttenuation: AUSpatialMixerRenderingFlags { get }
+  static var spatialMixerRenderingFlags_InterAuralDelay: AUSpatialMixerRenderingFlags { get }
+  static var spatialMixerRenderingFlags_DistanceAttenuation: AUSpatialMixerRenderingFlags { get }
 }
 var kAudioUnitProperty_3DMixerDistanceParams: AudioUnitPropertyID { get }
 var kAudioUnitProperty_3DMixerAttenuationCurve: AudioUnitPropertyID { get }
@@ -364,12 +364,12 @@ var kAudioUnitProperty_CurrentPlayTime: AudioUnitPropertyID { get }
 struct AUScheduledAudioSliceFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var ScheduledAudioSliceFlag_Complete: AUScheduledAudioSliceFlags { get }
-  static var ScheduledAudioSliceFlag_BeganToRender: AUScheduledAudioSliceFlags { get }
-  static var ScheduledAudioSliceFlag_BeganToRenderLate: AUScheduledAudioSliceFlags { get }
-  static var ScheduledAudioSliceFlag_Loop: AUScheduledAudioSliceFlags { get }
-  static var ScheduledAudioSliceFlag_Interrupt: AUScheduledAudioSliceFlags { get }
-  static var ScheduledAudioSliceFlag_InterruptAtLoop: AUScheduledAudioSliceFlags { get }
+  static var scheduledAudioSliceFlag_Complete: AUScheduledAudioSliceFlags { get }
+  static var scheduledAudioSliceFlag_BeganToRender: AUScheduledAudioSliceFlags { get }
+  static var scheduledAudioSliceFlag_BeganToRenderLate: AUScheduledAudioSliceFlags { get }
+  static var scheduledAudioSliceFlag_Loop: AUScheduledAudioSliceFlags { get }
+  static var scheduledAudioSliceFlag_Interrupt: AUScheduledAudioSliceFlags { get }
+  static var scheduledAudioSliceFlag_InterruptAtLoop: AUScheduledAudioSliceFlags { get }
 }
 typealias ScheduledAudioSliceCompletionProc = @convention(c) (UnsafeMutablePointer<Void>, UnsafeMutablePointer<ScheduledAudioSlice>) -> Void
 struct ScheduledAudioSlice {

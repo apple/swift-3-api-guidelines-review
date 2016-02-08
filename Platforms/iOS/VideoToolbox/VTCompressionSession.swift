@@ -24,7 +24,7 @@ func VTCompressionSessionCompleteFrames(session: VTCompressionSession, _ complet
 struct VTCompressionSessionOptionFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var BeginFinalPass: VTCompressionSessionOptionFlags { get }
+  static var beginFinalPass: VTCompressionSessionOptionFlags { get }
 }
 @available(iOS 8.0, *)
 func VTCompressionSessionBeginPass(session: VTCompressionSession, _ beginPassFlags: VTCompressionSessionOptionFlags, _ reserved: UnsafeMutablePointer<UInt32>) -> OSStatus

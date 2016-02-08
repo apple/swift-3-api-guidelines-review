@@ -2,8 +2,8 @@
 enum SLComposeViewControllerResult : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Cancelled
-  case Done
+  case cancelled
+  case done
 }
 typealias SLComposeViewControllerCompletionHandler = (SLComposeViewControllerResult) -> Void
 @available(iOS 6.0, *)

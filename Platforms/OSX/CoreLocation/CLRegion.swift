@@ -3,9 +3,9 @@
 enum CLRegionState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Inside
-  case Outside
+  case unknown
+  case inside
+  case outside
 }
 @available(OSX 10.7, *)
 class CLRegion : Object, Copying, SecureCoding {

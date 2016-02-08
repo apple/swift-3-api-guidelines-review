@@ -92,9 +92,9 @@ extension NSArray {
 struct BinarySearchingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var FirstEqual: BinarySearchingOptions { get }
-  static var LastEqual: BinarySearchingOptions { get }
-  static var InsertionIndex: BinarySearchingOptions { get }
+  static var firstEqual: BinarySearchingOptions { get }
+  static var lastEqual: BinarySearchingOptions { get }
+  static var insertionIndex: BinarySearchingOptions { get }
 }
 extension NSArray {
   convenience init(object anObject: AnyObject)

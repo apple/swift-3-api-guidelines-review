@@ -5,19 +5,19 @@ let CNErrorDomain: String
 enum CNErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case CommunicationError
-  case DataAccessError
-  case AuthorizationDenied
-  case RecordDoesNotExist
-  case InsertedRecordAlreadyExists
-  case ContainmentCycle
-  case ContainmentScope
-  case ParentRecordDoesNotExist
-  case ValidationMultipleErrors
-  case ValidationTypeMismatch
-  case ValidationConfigurationError
-  case PredicateInvalid
-  case PolicyViolation
+  case communicationError
+  case dataAccessError
+  case authorizationDenied
+  case recordDoesNotExist
+  case insertedRecordAlreadyExists
+  case containmentCycle
+  case containmentScope
+  case parentRecordDoesNotExist
+  case validationMultipleErrors
+  case validationTypeMismatch
+  case validationConfigurationError
+  case predicateInvalid
+  case policyViolation
 }
 
 @available(OSX 10.11, iOS 9.0, *)

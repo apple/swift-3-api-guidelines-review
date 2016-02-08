@@ -2,8 +2,8 @@
 enum SCNMorpherCalculationMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Normalized
-  case Additive
+  case normalized
+  case additive
 }
 @available(OSX 10.9, *)
 class SCNMorpher : Object, SCNAnimatable, SecureCoding {

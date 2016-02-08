@@ -3,18 +3,18 @@
 enum CLRegionState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Inside
-  case Outside
+  case unknown
+  case inside
+  case outside
 }
 @available(iOS 7.0, *)
 enum CLProximity : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Immediate
-  case Near
-  case Far
+  case unknown
+  case immediate
+  case near
+  case far
 }
 @available(iOS 4.0, *)
 class CLRegion : Object, Copying, SecureCoding {

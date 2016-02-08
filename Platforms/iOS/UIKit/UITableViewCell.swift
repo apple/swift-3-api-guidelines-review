@@ -2,57 +2,57 @@
 enum UITableViewCellStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Value1
-  case Value2
-  case Subtitle
+  case `default`
+  case value1
+  case value2
+  case subtitle
 }
 enum UITableViewCellSeparatorStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case SingleLine
-  case SingleLineEtched
+  case none
+  case singleLine
+  case singleLineEtched
 }
 enum UITableViewCellSelectionStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Blue
-  case Gray
+  case none
+  case blue
+  case gray
   @available(iOS 7.0, *)
-  case Default
+  case `default`
 }
 @available(iOS 9.0, *)
 enum UITableViewCellFocusStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Custom
+  case `default`
+  case custom
 }
 enum UITableViewCellEditingStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Delete
-  case Insert
+  case none
+  case delete
+  case insert
 }
 enum UITableViewCellAccessoryType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case DisclosureIndicator
-  case DetailDisclosureButton
-  case Checkmark
+  case none
+  case disclosureIndicator
+  case detailDisclosureButton
+  case checkmark
   @available(iOS 7.0, *)
-  case DetailButton
+  case detailButton
 }
 struct UITableViewCellStateMask : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var DefaultMask: UITableViewCellStateMask { get }
-  static var ShowingEditControlMask: UITableViewCellStateMask { get }
-  static var ShowingDeleteConfirmationMask: UITableViewCellStateMask { get }
+  static var defaultMask: UITableViewCellStateMask { get }
+  static var showingEditControlMask: UITableViewCellStateMask { get }
+  static var showingDeleteConfirmationMask: UITableViewCellStateMask { get }
 }
 @available(iOS 2.0, *)
 class UITableViewCell : UIView, Coding, UIGestureRecognizerDelegate {

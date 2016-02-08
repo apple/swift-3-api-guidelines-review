@@ -3,32 +3,32 @@
 enum WKHapticType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Notification
-  case DirectionUp
-  case DirectionDown
-  case Success
-  case Failure
-  case Retry
-  case Start
-  case Stop
-  case Click
+  case notification
+  case directionUp
+  case directionDown
+  case success
+  case failure
+  case retry
+  case start
+  case stop
+  case click
 }
 @available(watchOS 2.1, *)
 enum WKInterfaceLayoutDirection : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case LeftToRight
-  case RightToLeft
+  case leftToRight
+  case rightToLeft
 }
 @available(watchOS 2.1, *)
 enum WKInterfaceSemanticContentAttribute : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unspecified
-  case Playback
-  case Spatial
-  case ForceLeftToRight
-  case ForceRightToLeft
+  case unspecified
+  case playback
+  case spatial
+  case forceLeftToRight
+  case forceRightToLeft
 }
 class WKInterfaceDevice : Object {
   class func current() -> WKInterfaceDevice

@@ -2,12 +2,12 @@
 enum NSPersistentStoreRequestType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case FetchRequestType
-  case SaveRequestType
+  case fetchRequestType
+  case saveRequestType
   @available(tvOS 8.0, *)
-  case BatchUpdateRequestType
+  case batchUpdateRequestType
   @available(tvOS 9.0, *)
-  case BatchDeleteRequestType
+  case batchDeleteRequestType
 }
 @available(tvOS 5.0, *)
 class NSPersistentStoreRequest : Object, Copying {

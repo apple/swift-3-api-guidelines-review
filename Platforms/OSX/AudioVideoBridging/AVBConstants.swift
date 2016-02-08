@@ -7,246 +7,246 @@ enum AVB17221ADPEntityCapabilities : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
   @available(OSX 10.9, *)
-  static var EFUMode: AVB17221ADPEntityCapabilities { get }
-  case AddressAccessSupported
-  case GatewayEntity
-  case AEMSupported
-  case LegacyAVC
-  case AssociationIDSupported
-  case AssociationIDValid
-  case VendorUniqueSupported
-  case ClassASupported
-  case ClassBSupported
+  static var efuMode: AVB17221ADPEntityCapabilities { get }
+  case addressAccessSupported
+  case gatewayEntity
+  case aemSupported
+  case legacyAVC
+  case associationIDSupported
+  case associationIDValid
+  case vendorUniqueSupported
+  case classASupported
+  case classBSupported
   @available(OSX 10.9, *)
-  static var GPTPSupported: AVB17221ADPEntityCapabilities { get }
+  static var gptpSupported: AVB17221ADPEntityCapabilities { get }
   @available(OSX 10.9, *)
-  case AEMAuthenticationSupported
+  case aemAuthenticationSupported
   @available(OSX 10.9, *)
-  case AEMAuthenticationRequired
+  case aemAuthenticationRequired
   @available(OSX 10.9, *)
-  case AEMPersistentAcquireSupported
+  case aemPersistentAcquireSupported
   @available(OSX 10.9, *)
-  case AEMIdenitifyControlIndexValid
+  case aemIdenitifyControlIndexValid
   @available(OSX 10.9, *)
-  case AEMInterfaceIndexValid
+  case aemInterfaceIndexValid
   @available(OSX 10.9, *)
-  case GeneralControllerIgnore
+  case generalControllerIgnore
   @available(OSX 10.9, *)
-  case EntityNotReady
+  case entityNotReady
 }
 @available(OSX 10.8, *)
 struct AVB17221ADPTalkerCapabilities : OptionSetType {
   init(rawValue: UInt16)
   let rawValue: UInt16
-  static var Implemented: AVB17221ADPTalkerCapabilities { get }
-  static var HasOtherSource: AVB17221ADPTalkerCapabilities { get }
-  static var HasControlSource: AVB17221ADPTalkerCapabilities { get }
-  static var HasMediaClockSource: AVB17221ADPTalkerCapabilities { get }
-  static var HasSMPTESource: AVB17221ADPTalkerCapabilities { get }
-  static var HasMIDISource: AVB17221ADPTalkerCapabilities { get }
-  static var HasAudioSource: AVB17221ADPTalkerCapabilities { get }
-  static var HasVideoSource: AVB17221ADPTalkerCapabilities { get }
+  static var implemented: AVB17221ADPTalkerCapabilities { get }
+  static var hasOtherSource: AVB17221ADPTalkerCapabilities { get }
+  static var hasControlSource: AVB17221ADPTalkerCapabilities { get }
+  static var hasMediaClockSource: AVB17221ADPTalkerCapabilities { get }
+  static var hasSMPTESource: AVB17221ADPTalkerCapabilities { get }
+  static var hasMIDISource: AVB17221ADPTalkerCapabilities { get }
+  static var hasAudioSource: AVB17221ADPTalkerCapabilities { get }
+  static var hasVideoSource: AVB17221ADPTalkerCapabilities { get }
 }
 @available(OSX 10.8, *)
 struct AVB17221ADPListenerCapabilities : OptionSetType {
   init(rawValue: UInt16)
   let rawValue: UInt16
-  static var Implemented: AVB17221ADPListenerCapabilities { get }
-  static var HasOtherSink: AVB17221ADPListenerCapabilities { get }
-  static var HasControlSink: AVB17221ADPListenerCapabilities { get }
-  static var HasMediaClockSink: AVB17221ADPListenerCapabilities { get }
-  static var HasSMPTESink: AVB17221ADPListenerCapabilities { get }
-  static var HasMIDISink: AVB17221ADPListenerCapabilities { get }
-  static var HasAudioSink: AVB17221ADPListenerCapabilities { get }
-  static var HasVideoSink: AVB17221ADPListenerCapabilities { get }
+  static var implemented: AVB17221ADPListenerCapabilities { get }
+  static var hasOtherSink: AVB17221ADPListenerCapabilities { get }
+  static var hasControlSink: AVB17221ADPListenerCapabilities { get }
+  static var hasMediaClockSink: AVB17221ADPListenerCapabilities { get }
+  static var hasSMPTESink: AVB17221ADPListenerCapabilities { get }
+  static var hasMIDISink: AVB17221ADPListenerCapabilities { get }
+  static var hasAudioSink: AVB17221ADPListenerCapabilities { get }
+  static var hasVideoSink: AVB17221ADPListenerCapabilities { get }
 }
 @available(OSX 10.8, *)
 struct AVB17221ADPControllerCapabilities : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var Implemented: AVB17221ADPControllerCapabilities { get }
-  static var HasLayer3Proxy: AVB17221ADPControllerCapabilities { get }
+  static var implemented: AVB17221ADPControllerCapabilities { get }
+  static var hasLayer3Proxy: AVB17221ADPControllerCapabilities { get }
 }
 @available(OSX 10.8, *)
 enum AVB17221AECPMessageType : UInt8 {
   init?(rawValue: UInt8)
   var rawValue: UInt8 { get }
-  case AEMCommand
-  case AEMResponse
-  case AddressAccessCommand
-  case AddressAccessResponse
-  case LegacyAVCCommand
-  case LegacyAVCResponse
-  case VendorUniqueCommand
-  case VendorUniqueResponse
+  case aemCommand
+  case aemResponse
+  case addressAccessCommand
+  case addressAccessResponse
+  case legacyAVCCommand
+  case legacyAVCResponse
+  case vendorUniqueCommand
+  case vendorUniqueResponse
 }
 @available(OSX 10.8, *)
 enum AVB17221AECPStatusCode : UInt8 {
   init?(rawValue: UInt8)
   var rawValue: UInt8 { get }
-  case Success
-  case NotImplemented
-  case NoSuchDescriptor
-  case EntityLocked
-  case EntityAcquired
-  case NotAuthorized
-  case InsufficientPrivileges
-  case BadArguments
-  case NoResources
-  case InProgress
-  case EntityMisbehaving
-  case NotSupported
-  case StreamIsRunning
-  static var AddressAccessAddressTooLow: AVB17221AECPStatusCode { get }
-  static var AddressAccessAddressTooHigh: AVB17221AECPStatusCode { get }
-  static var AddressAccessAddressInvalid: AVB17221AECPStatusCode { get }
-  static var AddressAccessTLVInvalid: AVB17221AECPStatusCode { get }
-  static var AddressAccessDataInvalid: AVB17221AECPStatusCode { get }
-  static var AddressAccessUnsupported: AVB17221AECPStatusCode { get }
-  static var AVCFailure: AVB17221AECPStatusCode { get }
+  case success
+  case notImplemented
+  case noSuchDescriptor
+  case entityLocked
+  case entityAcquired
+  case notAuthorized
+  case insufficientPrivileges
+  case badArguments
+  case noResources
+  case inProgress
+  case entityMisbehaving
+  case notSupported
+  case streamIsRunning
+  static var addressAccessAddressTooLow: AVB17221AECPStatusCode { get }
+  static var addressAccessAddressTooHigh: AVB17221AECPStatusCode { get }
+  static var addressAccessAddressInvalid: AVB17221AECPStatusCode { get }
+  static var addressAccessTLVInvalid: AVB17221AECPStatusCode { get }
+  static var addressAccessDataInvalid: AVB17221AECPStatusCode { get }
+  static var addressAccessUnsupported: AVB17221AECPStatusCode { get }
+  static var avcFailure: AVB17221AECPStatusCode { get }
 }
 @available(OSX 10.8, *)
 enum AVB17221ACMPMessageType : UInt8 {
   init?(rawValue: UInt8)
   var rawValue: UInt8 { get }
-  case ConnectTXCommand
-  case ConnectTXResponse
-  case DisconnectTXCommand
-  case DisconnectTXResponse
-  case GetTXStateCommand
-  case GetTXStateResponse
-  case ConnectRXCommand
-  case ConnectRXResponse
-  case DisconnectRXCommand
-  case DisconnectRXResponse
-  case GetRXStateCommand
-  case GetRXStateResponse
-  case GetTXConnectionCommand
-  case GetTXConnectionResponse
+  case connectTXCommand
+  case connectTXResponse
+  case disconnectTXCommand
+  case disconnectTXResponse
+  case getTXStateCommand
+  case getTXStateResponse
+  case connectRXCommand
+  case connectRXResponse
+  case disconnectRXCommand
+  case disconnectRXResponse
+  case getRXStateCommand
+  case getRXStateResponse
+  case getTXConnectionCommand
+  case getTXConnectionResponse
 }
 @available(OSX 10.8, *)
 enum AVB17221ACMPStatusCode : UInt8 {
   init?(rawValue: UInt8)
   var rawValue: UInt8 { get }
-  case Success
-  case ListenerUnknownID
-  case TalkerUnknownID
-  case TalkerDestMACFail
-  case TalkerNoStreamIndex
-  case TalkerNoBandwidth
-  case TalkerExclusive
-  case ListenerTalkerTimeout
-  case ListenerExclusive
-  case StateUnavailable
-  case NotConnected
-  case NoSuchConnection
-  case UnableToSendMessage
-  case TalkerMisbehaving
-  case ListenerMisbehaving
-  case SRPFace
-  case ControllerNotAuthorized
-  case IncompatibleRequest
-  case NotSupported
+  case success
+  case listenerUnknownID
+  case talkerUnknownID
+  case talkerDestMACFail
+  case talkerNoStreamIndex
+  case talkerNoBandwidth
+  case talkerExclusive
+  case listenerTalkerTimeout
+  case listenerExclusive
+  case stateUnavailable
+  case notConnected
+  case noSuchConnection
+  case unableToSendMessage
+  case talkerMisbehaving
+  case listenerMisbehaving
+  case srpFace
+  case controllerNotAuthorized
+  case incompatibleRequest
+  case notSupported
 }
 @available(OSX 10.8, *)
 struct AVB17221ACMPFlags : OptionSetType {
   init(rawValue: UInt16)
   let rawValue: UInt16
-  static var None: AVB17221ACMPFlags { get }
-  static var ClassB: AVB17221ACMPFlags { get }
-  static var FastConnect: AVB17221ACMPFlags { get }
-  static var SavedState: AVB17221ACMPFlags { get }
-  static var StreamingWait: AVB17221ACMPFlags { get }
-  static var SupportsEncrypted: AVB17221ACMPFlags { get }
-  static var EncryptedPDU: AVB17221ACMPFlags { get }
-  static var StreamingTalkerFailed: AVB17221ACMPFlags { get }
+  static var none: AVB17221ACMPFlags { get }
+  static var classB: AVB17221ACMPFlags { get }
+  static var fastConnect: AVB17221ACMPFlags { get }
+  static var savedState: AVB17221ACMPFlags { get }
+  static var streamingWait: AVB17221ACMPFlags { get }
+  static var supportsEncrypted: AVB17221ACMPFlags { get }
+  static var encryptedPDU: AVB17221ACMPFlags { get }
+  static var streamingTalkerFailed: AVB17221ACMPFlags { get }
 }
 @available(OSX 10.8, *)
 enum AVB17221AEMCommandType : UInt16 {
   init?(rawValue: UInt16)
   var rawValue: UInt16 { get }
-  case AcquireEntity
-  case LockEntity
-  case EntityAvailable
-  case ControllerAvailable
-  case ReadDescriptor
-  case WriteDescriptor
-  case SetConfiguration
-  case GetConfiguration
-  case SetStreamFormat
-  case GetStreamFormat
-  case SetVideoFormat
-  case GetVideoFormat
-  case SetSensorFormat
-  case GetSensorFormat
-  case SetStreamInfo
-  case GetStreamInfo
-  case SetName
-  case GetName
-  case SetAssociationID
-  case GetAssociationID
-  case SetSamplingRate
-  case GetSamplingRate
-  case SetClockSource
-  case GetClockSource
-  case SetControl
-  case GetControl
-  case IncrementControl
-  case DecrementControl
-  case SetSignalSelector
-  case GetSignalSelector
-  case SetMixer
-  case GetMixer
-  case SetMatrix
-  case GetMatrix
-  case StartStreaming
-  case StopStreaming
-  case RegisterUnsolicitedNotification
-  case DeregisterUnsolicitedNotification
-  case IdentifyNotification
-  case GetAVBInfo
-  case GetASPath
-  case GetCounters
-  case Reboot
-  case GetAudioMap
-  case AddAudioMapping
-  case RemoveAudioMapping
-  case GetVideoMap
-  case AddVideoMapping
-  case RemoveVideoMapping
-  case GetSensorMap
-  case AddSensorMapping
-  case RemoveSensorMapping
-  case StartOperation
-  case AbortOperation
-  case OperationStatus
-  case AuthenticateAddKey
-  case AuthenticateDeleteKey
-  case AuthenticateGetKeyList
-  case AuthenticateGetKey
-  case AuthenticateAddKeyToChain
-  case AuthenticateDeleteKeyFromChain
-  case AuthenticateGetKeychainList
-  case AuthenticateGetIdentity
-  case AuthenticateAddToken
-  case AuthenticateDeleteToken
-  case Authenticate
-  case Deauthenticate
-  case EnableTransportSecurity
-  case DisableTransportSecurity
-  case EnableStreamEncryption
-  case DisableStreamEncryption
-  case SetMemoryObjectLength
-  case GetMemoryObjectLength
-  case SetStreamBackup
-  case GetStreamBackup
+  case acquireEntity
+  case lockEntity
+  case entityAvailable
+  case controllerAvailable
+  case readDescriptor
+  case writeDescriptor
+  case setConfiguration
+  case getConfiguration
+  case setStreamFormat
+  case getStreamFormat
+  case setVideoFormat
+  case getVideoFormat
+  case setSensorFormat
+  case getSensorFormat
+  case setStreamInfo
+  case getStreamInfo
+  case setName
+  case getName
+  case setAssociationID
+  case getAssociationID
+  case setSamplingRate
+  case getSamplingRate
+  case setClockSource
+  case getClockSource
+  case setControl
+  case getControl
+  case incrementControl
+  case decrementControl
+  case setSignalSelector
+  case getSignalSelector
+  case setMixer
+  case getMixer
+  case setMatrix
+  case getMatrix
+  case startStreaming
+  case stopStreaming
+  case registerUnsolicitedNotification
+  case deregisterUnsolicitedNotification
+  case identifyNotification
+  case getAVBInfo
+  case getASPath
+  case getCounters
+  case reboot
+  case getAudioMap
+  case addAudioMapping
+  case removeAudioMapping
+  case getVideoMap
+  case addVideoMapping
+  case removeVideoMapping
+  case getSensorMap
+  case addSensorMapping
+  case removeSensorMapping
+  case startOperation
+  case abortOperation
+  case operationStatus
+  case authenticateAddKey
+  case authenticateDeleteKey
+  case authenticateGetKeyList
+  case authenticateGetKey
+  case authenticateAddKeyToChain
+  case authenticateDeleteKeyFromChain
+  case authenticateGetKeychainList
+  case authenticateGetIdentity
+  case authenticateAddToken
+  case authenticateDeleteToken
+  case authenticate
+  case deauthenticate
+  case enableTransportSecurity
+  case disableTransportSecurity
+  case enableStreamEncryption
+  case disableStreamEncryption
+  case setMemoryObjectLength
+  case getMemoryObjectLength
+  case setStreamBackup
+  case getStreamBackup
 }
 @available(OSX 10.9, *)
 enum AVB17221AECPAddressAccessTLVMode : UInt8 {
   init?(rawValue: UInt8)
   var rawValue: UInt8 { get }
-  case Read
-  case Write
-  case Execute
+  case read
+  case write
+  case execute
 }
 let AVBErrorDomain: String

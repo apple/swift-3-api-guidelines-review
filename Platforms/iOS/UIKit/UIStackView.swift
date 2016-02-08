@@ -3,24 +3,24 @@
 enum UIStackViewDistribution : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Fill
-  case FillEqually
-  case FillProportionally
-  case EqualSpacing
-  case EqualCentering
+  case fill
+  case fillEqually
+  case fillProportionally
+  case equalSpacing
+  case equalCentering
 }
 @available(iOS 9.0, *)
 enum UIStackViewAlignment : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Fill
-  case Leading
-  static var Top: UIStackViewAlignment { get }
-  case FirstBaseline
-  case Center
-  case Trailing
-  static var Bottom: UIStackViewAlignment { get }
-  case LastBaseline
+  case fill
+  case leading
+  static var top: UIStackViewAlignment { get }
+  case firstBaseline
+  case center
+  case trailing
+  static var bottom: UIStackViewAlignment { get }
+  case lastBaseline
 }
 @available(iOS 9.0, *)
 class UIStackView : UIView {

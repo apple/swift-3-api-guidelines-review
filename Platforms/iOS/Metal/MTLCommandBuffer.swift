@@ -3,12 +3,12 @@
 enum MTLCommandBufferStatus : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NotEnqueued
-  case Enqueued
-  case Committed
-  case Scheduled
-  case Completed
-  case Error
+  case notEnqueued
+  case enqueued
+  case committed
+  case scheduled
+  case completed
+  case error
 }
 @available(iOS 8.0, *)
 let MTLCommandBufferErrorDomain: String
@@ -16,14 +16,14 @@ let MTLCommandBufferErrorDomain: String
 enum MTLCommandBufferError : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
-  case Internal
-  case Timeout
-  case PageFault
-  case Blacklisted
-  case NotPermitted
-  case OutOfMemory
-  case InvalidResource
+  case none
+  case `internal`
+  case timeout
+  case pageFault
+  case blacklisted
+  case notPermitted
+  case outOfMemory
+  case invalidResource
 }
 typealias MTLCommandBufferHandler = (MTLCommandBuffer) -> Void
 @available(iOS 8.0, *)

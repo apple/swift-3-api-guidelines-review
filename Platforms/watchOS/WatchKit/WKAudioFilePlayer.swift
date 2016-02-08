@@ -3,9 +3,9 @@
 enum WKAudioFilePlayerStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case ReadyToPlay
-  case Failed
+  case unknown
+  case readyToPlay
+  case failed
 }
 @available(watchOS 2.0, *)
 class WKAudioFilePlayer : Object {

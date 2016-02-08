@@ -3,8 +3,8 @@
 struct CKRecordZoneCapabilities : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var FetchChanges: CKRecordZoneCapabilities { get }
-  static var Atomic: CKRecordZoneCapabilities { get }
+  static var fetchChanges: CKRecordZoneCapabilities { get }
+  static var atomic: CKRecordZoneCapabilities { get }
 }
 @available(OSX 10.10, *)
 let CKRecordZoneDefaultName: String

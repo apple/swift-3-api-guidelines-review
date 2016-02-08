@@ -3,9 +3,9 @@
 enum NEVPNIKEAuthenticationMethod : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Certificate
-  case SharedSecret
+  case none
+  case certificate
+  case sharedSecret
 }
 @available(iOS 8.0, *)
 class NEVPNProtocolIPSec : NEVPNProtocol {

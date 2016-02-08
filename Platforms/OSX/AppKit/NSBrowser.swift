@@ -36,16 +36,16 @@ typealias _Brflags = __Brflags
 enum NSBrowserColumnResizingType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NoColumnResizing
-  case AutoColumnResizing
-  case UserColumnResizing
+  case noColumnResizing
+  case autoColumnResizing
+  case userColumnResizing
 }
 @available(OSX 10.5, *)
 enum NSBrowserDropOperation : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case On
-  case Above
+  case on
+  case above
 }
 class NSBrowser : NSControl {
   class func cellClass() -> AnyClass

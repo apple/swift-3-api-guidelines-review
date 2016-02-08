@@ -3,8 +3,8 @@
 enum WKSelectionGranularity : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Dynamic
-  case Character
+  case dynamic
+  case character
 }
 @available(iOS 8.0, *)
 class WKWebViewConfiguration : Object, Copying {

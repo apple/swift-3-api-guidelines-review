@@ -2,50 +2,50 @@
 struct NSDragOperation : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: NSDragOperation { get }
-  static var Copy: NSDragOperation { get }
-  static var Link: NSDragOperation { get }
-  static var Generic: NSDragOperation { get }
-  static var Private: NSDragOperation { get }
-  static var Move: NSDragOperation { get }
-  static var Delete: NSDragOperation { get }
-  static var Every: NSDragOperation { get }
+  static var none: NSDragOperation { get }
+  static var copy: NSDragOperation { get }
+  static var link: NSDragOperation { get }
+  static var generic: NSDragOperation { get }
+  static var `private`: NSDragOperation { get }
+  static var move: NSDragOperation { get }
+  static var delete: NSDragOperation { get }
+  static var every: NSDragOperation { get }
   @available(OSX, introduced=10.0, deprecated=10.10)
-  static var All_Obsolete: NSDragOperation { get }
+  static var all_Obsolete: NSDragOperation { get }
   @available(OSX, introduced=10.0, deprecated=10.10)
-  static var All: NSDragOperation { get }
+  static var all: NSDragOperation { get }
 }
 @available(OSX 10.7, *)
 enum NSDraggingFormation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case None
-  case Pile
-  case List
-  case Stack
+  case `default`
+  case none
+  case pile
+  case list
+  case stack
 }
 @available(OSX 10.7, *)
 enum NSDraggingContext : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case OutsideApplication
-  case WithinApplication
+  case outsideApplication
+  case withinApplication
 }
 @available(OSX 10.7, *)
 struct NSDraggingItemEnumerationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Concurrent: NSDraggingItemEnumerationOptions { get }
-  static var ClearNonenumeratedImages: NSDraggingItemEnumerationOptions { get }
+  static var concurrent: NSDraggingItemEnumerationOptions { get }
+  static var clearNonenumeratedImages: NSDraggingItemEnumerationOptions { get }
 }
 @available(OSX 10.11, *)
 enum NSSpringLoadingHighlight : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Standard
-  case Emphasized
+  case none
+  case standard
+  case emphasized
 }
 protocol NSDraggingInfo : ObjectProtocol {
   func draggingDestinationWindow() -> NSWindow?
@@ -99,10 +99,10 @@ protocol NSDraggingSource : ObjectProtocol {
 struct NSSpringLoadingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Disabled: NSSpringLoadingOptions { get }
-  static var Enabled: NSSpringLoadingOptions { get }
-  static var ContinuousActivation: NSSpringLoadingOptions { get }
-  static var NoHover: NSSpringLoadingOptions { get }
+  static var disabled: NSSpringLoadingOptions { get }
+  static var enabled: NSSpringLoadingOptions { get }
+  static var continuousActivation: NSSpringLoadingOptions { get }
+  static var noHover: NSSpringLoadingOptions { get }
 }
 protocol NSSpringLoadingDestination : ObjectProtocol {
   @available(OSX 10.11, *)

@@ -6,21 +6,21 @@ typealias CFXMLTree = CFTree
 enum CFXMLNodeTypeCode : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case Document
-  case Element
-  case Attribute
-  case ProcessingInstruction
-  case Comment
-  case Text
-  case CDATASection
-  case DocumentFragment
-  case Entity
-  case EntityReference
-  case DocumentType
-  case Whitespace
-  case Notation
-  case ElementTypeDeclaration
-  case AttributeListDeclaration
+  case document
+  case element
+  case attribute
+  case processingInstruction
+  case comment
+  case text
+  case cdataSection
+  case documentFragment
+  case entity
+  case entityReference
+  case documentType
+  case whitespace
+  case notation
+  case elementTypeDeclaration
+  case attributeListDeclaration
 }
 struct CFXMLElementInfo {
   var attributes: Unmanaged<CFDictionary>!
@@ -78,11 +78,11 @@ struct CFXMLAttributeListDeclarationInfo {
 enum CFXMLEntityTypeCode : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case Parameter
-  case ParsedInternal
-  case ParsedExternal
-  case Unparsed
-  case Character
+  case parameter
+  case parsedInternal
+  case parsedExternal
+  case unparsed
+  case character
 }
 struct CFXMLEntityInfo {
   var entityType: CFXMLEntityTypeCode

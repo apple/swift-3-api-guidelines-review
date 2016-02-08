@@ -2,9 +2,9 @@
 struct NSFontCollectionVisibility : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Process: NSFontCollectionVisibility { get }
-  static var User: NSFontCollectionVisibility { get }
-  static var Computer: NSFontCollectionVisibility { get }
+  static var process: NSFontCollectionVisibility { get }
+  static var user: NSFontCollectionVisibility { get }
+  static var computer: NSFontCollectionVisibility { get }
 }
 @available(OSX 10.7, *)
 class NSFontCollection : Object, Copying, MutableCopying, Coding {

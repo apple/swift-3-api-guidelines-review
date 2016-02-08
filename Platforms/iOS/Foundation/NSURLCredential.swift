@@ -2,11 +2,11 @@
 enum URLCredentialPersistence : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
-  case ForSession
-  case Permanent
+  case none
+  case forSession
+  case permanent
   @available(iOS 6.0, *)
-  case Synchronizable
+  case synchronizable
 }
 class URLCredential : Object, SecureCoding, Copying {
   var persistence: URLCredentialPersistence { get }

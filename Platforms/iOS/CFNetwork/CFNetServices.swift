@@ -12,14 +12,14 @@ let kCFStreamErrorDomainNetServices: Int32
 enum CFNetServicesError : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Unknown
-  case Collision
-  case NotFound
-  case InProgress
-  case BadArgument
-  case Cancel
-  case Invalid
-  case Timeout
+  case unknown
+  case collision
+  case notFound
+  case inProgress
+  case badArgument
+  case cancel
+  case invalid
+  case timeout
 }
 enum CFNetServiceMonitorType : Int32 {
   init?(rawValue: Int32)
@@ -29,15 +29,15 @@ enum CFNetServiceMonitorType : Int32 {
 struct CFNetServiceRegisterFlags : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
-  static var NoAutoRename: CFNetServiceRegisterFlags { get }
+  static var noAutoRename: CFNetServiceRegisterFlags { get }
 }
 struct CFNetServiceBrowserFlags : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
-  static var MoreComing: CFNetServiceBrowserFlags { get }
-  static var IsDomain: CFNetServiceBrowserFlags { get }
-  static var IsDefault: CFNetServiceBrowserFlags { get }
-  static var Remove: CFNetServiceBrowserFlags { get }
+  static var moreComing: CFNetServiceBrowserFlags { get }
+  static var isDomain: CFNetServiceBrowserFlags { get }
+  static var isDefault: CFNetServiceBrowserFlags { get }
+  static var remove: CFNetServiceBrowserFlags { get }
 }
 struct CFNetServiceClientContext {
   var version: CFIndex

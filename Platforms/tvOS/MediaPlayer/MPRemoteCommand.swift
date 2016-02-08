@@ -3,11 +3,11 @@
 enum MPRemoteCommandHandlerStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Success
-  case NoSuchContent
+  case success
+  case noSuchContent
   @available(tvOS 9.1, *)
-  case NoActionableNowPlayingItem
-  case CommandFailed
+  case noActionableNowPlayingItem
+  case commandFailed
 }
 @available(tvOS 7.1, *)
 class MPRemoteCommand : Object {

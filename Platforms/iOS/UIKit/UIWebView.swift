@@ -2,27 +2,27 @@
 enum UIWebViewNavigationType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case LinkClicked
-  case FormSubmitted
-  case BackForward
-  case Reload
-  case FormResubmitted
-  case Other
+  case linkClicked
+  case formSubmitted
+  case backForward
+  case reload
+  case formResubmitted
+  case other
 }
 enum UIWebPaginationMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unpaginated
-  case LeftToRight
-  case TopToBottom
-  case BottomToTop
-  case RightToLeft
+  case unpaginated
+  case leftToRight
+  case topToBottom
+  case bottomToTop
+  case rightToLeft
 }
 enum UIWebPaginationBreakingMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Page
-  case Column
+  case page
+  case column
 }
 @available(iOS 2.0, *)
 class UIWebView : UIView, Coding, UIScrollViewDelegate {

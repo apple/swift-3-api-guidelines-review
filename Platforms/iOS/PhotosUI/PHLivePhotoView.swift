@@ -3,16 +3,16 @@
 struct PHLivePhotoBadgeOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var OverContent: PHLivePhotoBadgeOptions { get }
-  static var LiveOff: PHLivePhotoBadgeOptions { get }
+  static var overContent: PHLivePhotoBadgeOptions { get }
+  static var liveOff: PHLivePhotoBadgeOptions { get }
 }
 @available(iOS 9.1, *)
 enum PHLivePhotoViewPlaybackStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Undefined
-  case Full
-  case Hint
+  case undefined
+  case full
+  case hint
 }
 @available(iOS 9.1, *)
 class PHLivePhotoView : UIView {

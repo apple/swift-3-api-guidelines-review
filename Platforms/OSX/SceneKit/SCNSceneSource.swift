@@ -42,11 +42,11 @@ var SCNConsistencyXMLSchemaValidationError: Int { get }
 enum SCNSceneSourceStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Error
-  case Parsing
-  case Validating
-  case Processing
-  case Complete
+  case error
+  case parsing
+  case validating
+  case processing
+  case complete
 }
 typealias SCNSceneSourceStatusHandler = (Float, SCNSceneSourceStatus, Error?, UnsafeMutablePointer<ObjCBool>) -> Void
 @available(OSX 10.8, *)

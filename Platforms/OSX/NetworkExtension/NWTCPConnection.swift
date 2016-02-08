@@ -3,12 +3,12 @@
 enum NWTCPConnectionState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Invalid
-  case Connecting
-  case Waiting
-  case Connected
-  case Disconnected
-  case Cancelled
+  case invalid
+  case connecting
+  case waiting
+  case connected
+  case disconnected
+  case cancelled
 }
 @available(OSX 10.11, *)
 class NWTCPConnection : Object {

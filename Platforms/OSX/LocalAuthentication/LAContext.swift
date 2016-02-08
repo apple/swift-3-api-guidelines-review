@@ -4,7 +4,7 @@ enum LAPolicy : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   @available(OSX 10.11, *)
-  case DeviceOwnerAuthentication
+  case deviceOwnerAuthentication
 }
 @available(OSX 10.10, *)
 class LAContext : Object {
@@ -27,14 +27,14 @@ class LAContext : Object {
 enum LACredentialType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ApplicationPassword
+  case applicationPassword
 }
 @available(OSX 10.11, *)
 enum LAAccessControlOperation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case CreateItem
-  case UseItem
-  case CreateKey
-  case UseKeySign
+  case createItem
+  case useItem
+  case createKey
+  case useKeySign
 }

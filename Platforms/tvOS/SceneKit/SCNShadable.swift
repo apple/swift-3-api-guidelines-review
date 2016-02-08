@@ -3,9 +3,9 @@
 enum SCNBufferFrequency : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case PerFrame
-  case PerNode
-  case PerShadable
+  case perFrame
+  case perNode
+  case perShadable
 }
 protocol SCNBufferStream : ObjectProtocol {
   func writeBytes(bytes: UnsafeMutablePointer<Void>, length: Int)

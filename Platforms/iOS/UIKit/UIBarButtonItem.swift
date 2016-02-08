@@ -2,41 +2,41 @@
 enum UIBarButtonItemStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Plain
+  case plain
   @available(iOS, introduced=2.0, deprecated=8.0, message="Use UIBarButtonItemStylePlain when minimum deployment target is iOS7 or later")
-  case Bordered
-  case Done
+  case bordered
+  case done
 }
 enum UIBarButtonSystemItem : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Done
-  case Cancel
-  case Edit
-  case Save
-  case Add
-  case FlexibleSpace
-  case FixedSpace
-  case Compose
-  case Reply
-  case Action
-  case Organize
-  case Bookmarks
-  case Search
-  case Refresh
-  case Stop
-  case Camera
-  case Trash
-  case Play
-  case Pause
-  case Rewind
-  case FastForward
+  case done
+  case cancel
+  case edit
+  case save
+  case add
+  case flexibleSpace
+  case fixedSpace
+  case compose
+  case reply
+  case action
+  case organize
+  case bookmarks
+  case search
+  case refresh
+  case stop
+  case camera
+  case trash
+  case play
+  case pause
+  case rewind
+  case fastForward
   @available(iOS 3.0, *)
-  case Undo
+  case undo
   @available(iOS 3.0, *)
-  case Redo
+  case redo
   @available(iOS 4.0, *)
-  case PageCurl
+  case pageCurl
 }
 @available(iOS 2.0, *)
 class UIBarButtonItem : UIBarItem, Coding {

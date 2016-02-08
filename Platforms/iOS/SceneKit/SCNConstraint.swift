@@ -44,7 +44,7 @@ struct SCNBillboardAxis : OptionSetType {
   static var X: SCNBillboardAxis { get }
   static var Y: SCNBillboardAxis { get }
   static var Z: SCNBillboardAxis { get }
-  static var All: SCNBillboardAxis { get }
+  static var all: SCNBillboardAxis { get }
 }
 @available(iOS 9.0, *)
 class SCNBillboardConstraint : SCNConstraint {

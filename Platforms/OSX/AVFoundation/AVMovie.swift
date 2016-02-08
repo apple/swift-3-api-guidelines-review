@@ -25,8 +25,8 @@ class AVMovie : AVAsset, Copying, MutableCopying {
 struct AVMovieWritingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var AddMovieHeaderToDestination: AVMovieWritingOptions { get }
-  static var TruncateDestinationToMovieHeaderOnly: AVMovieWritingOptions { get }
+  static var addMovieHeaderToDestination: AVMovieWritingOptions { get }
+  static var truncateDestinationToMovieHeaderOnly: AVMovieWritingOptions { get }
 }
 extension AVMovie {
   @available(OSX 10.11, *)

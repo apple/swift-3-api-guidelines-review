@@ -3,19 +3,19 @@
 enum AVAudioUnitReverbPreset : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case SmallRoom
-  case MediumRoom
-  case LargeRoom
-  case MediumHall
-  case LargeHall
-  case Plate
-  case MediumChamber
-  case LargeChamber
-  case Cathedral
-  case LargeRoom2
-  case MediumHall2
-  case MediumHall3
-  case LargeHall2
+  case smallRoom
+  case mediumRoom
+  case largeRoom
+  case mediumHall
+  case largeHall
+  case plate
+  case mediumChamber
+  case largeChamber
+  case cathedral
+  case largeRoom2
+  case mediumHall2
+  case mediumHall3
+  case largeHall2
 }
 @available(tvOS 8.0, *)
 class AVAudioUnitReverb : AVAudioUnitEffect {

@@ -3,16 +3,16 @@
 enum NETunnelProviderError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case NetworkSettingsInvalid
-  case NetworkSettingsCanceled
-  case NetworkSettingsFailed
+  case networkSettingsInvalid
+  case networkSettingsCanceled
+  case networkSettingsFailed
 }
 @available(iOS 9.0, *)
 enum NETunnelProviderRoutingMethod : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case DestinationIP
-  case SourceApplication
+  case destinationIP
+  case sourceApplication
 }
 @available(iOS 9.0, *)
 let NETunnelProviderErrorDomain: String

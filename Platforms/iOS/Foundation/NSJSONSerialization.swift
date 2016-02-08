@@ -3,15 +3,15 @@
 struct JSONReadingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var MutableContainers: JSONReadingOptions { get }
-  static var MutableLeaves: JSONReadingOptions { get }
-  static var AllowFragments: JSONReadingOptions { get }
+  static var mutableContainers: JSONReadingOptions { get }
+  static var mutableLeaves: JSONReadingOptions { get }
+  static var allowFragments: JSONReadingOptions { get }
 }
 @available(iOS 5.0, *)
 struct JSONWritingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var PrettyPrinted: JSONWritingOptions { get }
+  static var prettyPrinted: JSONWritingOptions { get }
 }
 @available(iOS 5.0, *)
 class JSONSerialization : Object {

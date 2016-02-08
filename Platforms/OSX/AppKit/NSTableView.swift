@@ -26,62 +26,62 @@ typealias _TvFlags = __TvFlags
 enum NSTableViewDropOperation : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case On
-  case Above
+  case on
+  case above
 }
 enum NSTableViewColumnAutoresizingStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NoColumnAutoresizing
-  case UniformColumnAutoresizingStyle
-  case SequentialColumnAutoresizingStyle
-  case ReverseSequentialColumnAutoresizingStyle
-  case LastColumnOnlyAutoresizingStyle
-  case FirstColumnOnlyAutoresizingStyle
+  case noColumnAutoresizing
+  case uniformColumnAutoresizingStyle
+  case sequentialColumnAutoresizingStyle
+  case reverseSequentialColumnAutoresizingStyle
+  case lastColumnOnlyAutoresizingStyle
+  case firstColumnOnlyAutoresizingStyle
 }
 struct NSTableViewGridLineStyle : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var GridNone: NSTableViewGridLineStyle { get }
-  static var SolidVerticalGridLineMask: NSTableViewGridLineStyle { get }
-  static var SolidHorizontalGridLineMask: NSTableViewGridLineStyle { get }
+  static var gridNone: NSTableViewGridLineStyle { get }
+  static var solidVerticalGridLineMask: NSTableViewGridLineStyle { get }
+  static var solidHorizontalGridLineMask: NSTableViewGridLineStyle { get }
   @available(OSX 10.7, *)
-  static var DashedHorizontalGridLineMask: NSTableViewGridLineStyle { get }
+  static var dashedHorizontalGridLineMask: NSTableViewGridLineStyle { get }
 }
 @available(OSX 10.7, *)
 enum NSTableViewRowSizeStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Custom
-  case Small
-  case Medium
-  case Large
+  case `default`
+  case custom
+  case small
+  case medium
+  case large
 }
 enum NSTableViewSelectionHighlightStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   @available(OSX 10.6, *)
-  case None
-  case Regular
-  case SourceList
+  case none
+  case regular
+  case sourceList
 }
 @available(OSX 10.6, *)
 enum NSTableViewDraggingDestinationFeedbackStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Regular
-  case SourceList
+  case none
+  case regular
+  case sourceList
   @available(OSX 10.9, *)
-  case Gap
+  case gap
 }
 @available(OSX 10.11, *)
 enum NSTableRowActionEdge : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Leading
-  case Trailing
+  case leading
+  case trailing
 }
 class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, NSDraggingSource, NSAccessibilityTable {
   init(frame frameRect: Rect)
@@ -277,13 +277,13 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
 struct NSTableViewAnimationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var EffectNone: NSTableViewAnimationOptions { get }
-  static var EffectFade: NSTableViewAnimationOptions { get }
-  static var EffectGap: NSTableViewAnimationOptions { get }
-  static var SlideUp: NSTableViewAnimationOptions { get }
-  static var SlideDown: NSTableViewAnimationOptions { get }
-  static var SlideLeft: NSTableViewAnimationOptions { get }
-  static var SlideRight: NSTableViewAnimationOptions { get }
+  static var effectNone: NSTableViewAnimationOptions { get }
+  static var effectFade: NSTableViewAnimationOptions { get }
+  static var effectGap: NSTableViewAnimationOptions { get }
+  static var slideUp: NSTableViewAnimationOptions { get }
+  static var slideDown: NSTableViewAnimationOptions { get }
+  static var slideLeft: NSTableViewAnimationOptions { get }
+  static var slideRight: NSTableViewAnimationOptions { get }
 }
 protocol NSTableViewDelegate : NSControlTextEditingDelegate {
   @available(OSX 10.7, *)

@@ -6,15 +6,15 @@ typealias CGPDFObjectRef = COpaquePointer
 enum CGPDFObjectType : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Null
-  case Boolean
-  case Integer
-  case Real
-  case Name
-  case String
-  case Array
-  case Dictionary
-  case Stream
+  case null
+  case boolean
+  case integer
+  case real
+  case name
+  case string
+  case array
+  case dictionary
+  case stream
 }
 @available(OSX 10.3, *)
 func CGPDFObjectGetType(object: CGPDFObjectRef) -> CGPDFObjectType

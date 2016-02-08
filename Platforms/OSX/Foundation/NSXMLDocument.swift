@@ -2,10 +2,10 @@
 enum XMLDocumentContentKind : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case XMLKind
-  case XHTMLKind
-  case HTMLKind
-  case TextKind
+  case xmlKind
+  case xhtmlKind
+  case htmlKind
+  case textKind
 }
 class XMLDocument : XMLNode {
   init()

@@ -4,9 +4,9 @@ enum LAPolicy : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   @available(iOS 8.0, *)
-  case DeviceOwnerAuthenticationWithBiometrics
+  case deviceOwnerAuthenticationWithBiometrics
   @available(iOS 9.0, *)
-  case DeviceOwnerAuthentication
+  case deviceOwnerAuthentication
 }
 @available(iOS 9.0, *)
 let LATouchIDAuthenticationMaximumAllowableReuseDuration: TimeInterval
@@ -35,14 +35,14 @@ class LAContext : Object {
 enum LACredentialType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ApplicationPassword
+  case applicationPassword
 }
 @available(iOS 9.0, *)
 enum LAAccessControlOperation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case CreateItem
-  case UseItem
-  case CreateKey
-  case UseKeySign
+  case createItem
+  case useItem
+  case createKey
+  case useKeySign
 }

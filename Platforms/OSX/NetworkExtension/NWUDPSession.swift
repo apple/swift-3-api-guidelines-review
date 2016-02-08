@@ -3,12 +3,12 @@
 enum NWUDPSessionState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Invalid
-  case Waiting
-  case Preparing
-  case Ready
-  case Failed
-  case Cancelled
+  case invalid
+  case waiting
+  case preparing
+  case ready
+  case failed
+  case cancelled
 }
 @available(OSX 10.11, *)
 class NWUDPSession : Object {

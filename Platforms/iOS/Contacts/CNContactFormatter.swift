@@ -3,16 +3,16 @@
 enum CNContactFormatterStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case FullName
-  case PhoneticFullName
+  case fullName
+  case phoneticFullName
 }
 @available(iOS 9.0, *)
 enum CNContactDisplayNameOrder : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case UserDefault
-  case GivenNameFirst
-  case FamilyNameFirst
+  case userDefault
+  case givenNameFirst
+  case familyNameFirst
 }
 @available(iOS 9.0, *)
 class CNContactFormatter : Formatter {

@@ -2,10 +2,10 @@
 enum UIAlertViewStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case SecureTextInput
-  case PlainTextInput
-  case LoginAndPasswordInput
+  case `default`
+  case secureTextInput
+  case plainTextInput
+  case loginAndPasswordInput
 }
 @available(iOS, introduced=2.0, deprecated=9.0, message="UIAlertView is deprecated. Use UIAlertController with a preferredStyle of UIAlertControllerStyleAlert instead")
 class UIAlertView : UIView {

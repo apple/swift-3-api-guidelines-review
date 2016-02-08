@@ -56,8 +56,8 @@ protocol NSFetchedResultsControllerDelegate : ObjectProtocol {
 enum NSFetchedResultsChangeType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Insert
-  case Delete
-  case Move
-  case Update
+  case insert
+  case delete
+  case move
+  case update
 }

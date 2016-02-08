@@ -2,14 +2,14 @@
 enum UIButtonType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Custom
+  case custom
   @available(tvOS 7.0, *)
-  case System
-  case DetailDisclosure
-  case InfoLight
-  case InfoDark
-  case ContactAdd
-  static var RoundedRect: UIButtonType { get }
+  case system
+  case detailDisclosure
+  case infoLight
+  case infoDark
+  case contactAdd
+  static var roundedRect: UIButtonType { get }
 }
 @available(tvOS 2.0, *)
 class UIButton : UIControl, Coding {

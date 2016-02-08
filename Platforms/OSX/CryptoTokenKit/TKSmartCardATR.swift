@@ -3,11 +3,11 @@
 struct TKSmartCardProtocol : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: TKSmartCardProtocol { get }
+  static var none: TKSmartCardProtocol { get }
   static var T0: TKSmartCardProtocol { get }
   static var T1: TKSmartCardProtocol { get }
   static var T15: TKSmartCardProtocol { get }
-  static var Any: TKSmartCardProtocol { get }
+  static var any: TKSmartCardProtocol { get }
 }
 @available(OSX 10.10, *)
 class TKSmartCardATRInterfaceGroup : Object {

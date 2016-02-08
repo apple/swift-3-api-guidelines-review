@@ -2,12 +2,12 @@
 struct NSTypesetterControlCharacterAction : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ZeroAdvancementAction: NSTypesetterControlCharacterAction { get }
-  static var WhitespaceAction: NSTypesetterControlCharacterAction { get }
-  static var HorizontalTabAction: NSTypesetterControlCharacterAction { get }
-  static var LineBreakAction: NSTypesetterControlCharacterAction { get }
-  static var ParagraphBreakAction: NSTypesetterControlCharacterAction { get }
-  static var ContainerBreakAction: NSTypesetterControlCharacterAction { get }
+  static var zeroAdvancementAction: NSTypesetterControlCharacterAction { get }
+  static var whitespaceAction: NSTypesetterControlCharacterAction { get }
+  static var horizontalTabAction: NSTypesetterControlCharacterAction { get }
+  static var lineBreakAction: NSTypesetterControlCharacterAction { get }
+  static var paragraphBreakAction: NSTypesetterControlCharacterAction { get }
+  static var containerBreakAction: NSTypesetterControlCharacterAction { get }
 }
 class NSTypesetter : Object {
   var usesFontLeading: Bool

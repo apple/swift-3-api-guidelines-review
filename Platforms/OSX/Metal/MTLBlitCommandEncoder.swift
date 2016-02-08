@@ -3,9 +3,9 @@
 struct MTLBlitOption : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: MTLBlitOption { get }
-  static var DepthFromDepthStencil: MTLBlitOption { get }
-  static var StencilFromDepthStencil: MTLBlitOption { get }
+  static var none: MTLBlitOption { get }
+  static var depthFromDepthStencil: MTLBlitOption { get }
+  static var stencilFromDepthStencil: MTLBlitOption { get }
 }
 @available(OSX 10.11, *)
 protocol MTLBlitCommandEncoder : MTLCommandEncoder {

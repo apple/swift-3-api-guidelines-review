@@ -72,9 +72,9 @@ func CGDisplayRestoreColorSyncSettings()
 struct CGCaptureOptions : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var NoOptions: CGCaptureOptions { get }
+  static var noOptions: CGCaptureOptions { get }
   @available(*, deprecated)
-  static var NoFill: CGCaptureOptions { get }
+  static var noFill: CGCaptureOptions { get }
 }
 @available(OSX 10.0, *)
 func CGDisplayCapture(display: CGDirectDisplayID) -> CGError

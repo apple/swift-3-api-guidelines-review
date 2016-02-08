@@ -3,9 +3,9 @@
 enum AVAudioEnvironmentDistanceAttenuationModel : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Exponential
-  case Inverse
-  case Linear
+  case exponential
+  case inverse
+  case linear
 }
 @available(iOS 8.0, *)
 class AVAudioEnvironmentDistanceAttenuationParameters : Object {

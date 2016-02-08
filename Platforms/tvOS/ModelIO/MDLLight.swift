@@ -2,18 +2,18 @@
 enum MDLLightType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Unknown
-  case Ambient
-  case Directional
-  case Spot
-  case Point
-  case Linear
-  case DiscArea
-  case RectangularArea
-  case SuperElliptical
-  case Photometric
-  case Probe
-  case Environment
+  case unknown
+  case ambient
+  case directional
+  case spot
+  case point
+  case linear
+  case discArea
+  case rectangularArea
+  case superElliptical
+  case photometric
+  case probe
+  case environment
 }
 @available(tvOS 9.0, *)
 class MDLLight : MDLObject {

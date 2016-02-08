@@ -2,13 +2,13 @@
 struct UICollectionViewScrollPosition : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: UICollectionViewScrollPosition { get }
-  static var Top: UICollectionViewScrollPosition { get }
-  static var CenteredVertically: UICollectionViewScrollPosition { get }
-  static var Bottom: UICollectionViewScrollPosition { get }
-  static var Left: UICollectionViewScrollPosition { get }
-  static var CenteredHorizontally: UICollectionViewScrollPosition { get }
-  static var Right: UICollectionViewScrollPosition { get }
+  static var none: UICollectionViewScrollPosition { get }
+  static var top: UICollectionViewScrollPosition { get }
+  static var centeredVertically: UICollectionViewScrollPosition { get }
+  static var bottom: UICollectionViewScrollPosition { get }
+  static var left: UICollectionViewScrollPosition { get }
+  static var centeredHorizontally: UICollectionViewScrollPosition { get }
+  static var right: UICollectionViewScrollPosition { get }
 }
 typealias UICollectionViewLayoutInteractiveTransitionCompletion = (Bool, Bool) -> Void
 @available(tvOS 9.0, *)

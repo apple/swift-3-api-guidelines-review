@@ -32,8 +32,8 @@ extension AttributedString {
 struct AttributedStringEnumerationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Reverse: AttributedStringEnumerationOptions { get }
-  static var LongestEffectiveRangeNotRequired: AttributedStringEnumerationOptions { get }
+  static var reverse: AttributedStringEnumerationOptions { get }
+  static var longestEffectiveRangeNotRequired: AttributedStringEnumerationOptions { get }
 }
 @available(tvOS 3.2, *)
 class MutableAttributedString : AttributedString {

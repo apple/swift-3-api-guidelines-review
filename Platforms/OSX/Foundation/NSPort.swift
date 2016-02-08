@@ -38,9 +38,9 @@ class MachPort : Port {
 struct MachPortOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var DeallocateNone: MachPortOptions { get }
-  static var DeallocateSendRight: MachPortOptions { get }
-  static var DeallocateReceiveRight: MachPortOptions { get }
+  static var deallocateNone: MachPortOptions { get }
+  static var deallocateSendRight: MachPortOptions { get }
+  static var deallocateReceiveRight: MachPortOptions { get }
 }
 protocol MachPortDelegate : PortDelegate {
   optional func handleMachMessage(msg: UnsafeMutablePointer<Void>)

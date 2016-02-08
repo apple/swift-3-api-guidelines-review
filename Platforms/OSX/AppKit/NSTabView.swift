@@ -3,13 +3,13 @@ var NSAppKitVersionNumberWithDirectionalTabs: Double { get }
 enum NSTabViewType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case TopTabsBezelBorder
-  case LeftTabsBezelBorder
-  case BottomTabsBezelBorder
-  case RightTabsBezelBorder
-  case NoTabsBezelBorder
-  case NoTabsLineBorder
-  case NoTabsNoBorder
+  case topTabsBezelBorder
+  case leftTabsBezelBorder
+  case bottomTabsBezelBorder
+  case rightTabsBezelBorder
+  case noTabsBezelBorder
+  case noTabsLineBorder
+  case noTabsNoBorder
 }
 class NSTabView : NSView {
   func select(tabViewItem: NSTabViewItem?)

@@ -3,12 +3,12 @@
 enum SKPaymentTransactionState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Purchasing
-  case Purchased
-  case Failed
-  case Restored
+  case purchasing
+  case purchased
+  case failed
+  case restored
   @available(iOS 8.0, *)
-  case Deferred
+  case deferred
 }
 @available(iOS 3.0, *)
 class SKPaymentTransaction : Object {

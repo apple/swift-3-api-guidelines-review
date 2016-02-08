@@ -2,147 +2,147 @@
 enum NSEventType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case LeftMouseDown
-  case LeftMouseUp
-  case RightMouseDown
-  case RightMouseUp
-  case MouseMoved
-  case LeftMouseDragged
-  case RightMouseDragged
-  case MouseEntered
-  case MouseExited
-  case KeyDown
-  case KeyUp
-  case FlagsChanged
-  case AppKitDefined
-  case SystemDefined
-  case ApplicationDefined
-  case Periodic
-  case CursorUpdate
-  case ScrollWheel
-  case TabletPoint
-  case TabletProximity
-  case OtherMouseDown
-  case OtherMouseUp
-  case OtherMouseDragged
+  case leftMouseDown
+  case leftMouseUp
+  case rightMouseDown
+  case rightMouseUp
+  case mouseMoved
+  case leftMouseDragged
+  case rightMouseDragged
+  case mouseEntered
+  case mouseExited
+  case keyDown
+  case keyUp
+  case flagsChanged
+  case appKitDefined
+  case systemDefined
+  case applicationDefined
+  case periodic
+  case cursorUpdate
+  case scrollWheel
+  case tabletPoint
+  case tabletProximity
+  case otherMouseDown
+  case otherMouseUp
+  case otherMouseDragged
   @available(OSX 10.5, *)
-  case EventTypeGesture
+  case eventTypeGesture
   @available(OSX 10.5, *)
-  case EventTypeMagnify
+  case eventTypeMagnify
   @available(OSX 10.5, *)
-  case EventTypeSwipe
+  case eventTypeSwipe
   @available(OSX 10.5, *)
-  case EventTypeRotate
+  case eventTypeRotate
   @available(OSX 10.5, *)
-  case EventTypeBeginGesture
+  case eventTypeBeginGesture
   @available(OSX 10.5, *)
-  case EventTypeEndGesture
+  case eventTypeEndGesture
   @available(OSX 10.8, *)
-  case EventTypeSmartMagnify
+  case eventTypeSmartMagnify
   @available(OSX 10.8, *)
-  case EventTypeQuickLook
+  case eventTypeQuickLook
   @available(OSX 10.10.3, *)
-  case EventTypePressure
+  case eventTypePressure
 }
 struct NSEventMask : OptionSetType {
   init(rawValue: UInt64)
   let rawValue: UInt64
-  static var LeftMouseDownMask: NSEventMask { get }
-  static var LeftMouseUpMask: NSEventMask { get }
-  static var RightMouseDownMask: NSEventMask { get }
-  static var RightMouseUpMask: NSEventMask { get }
-  static var MouseMovedMask: NSEventMask { get }
-  static var LeftMouseDraggedMask: NSEventMask { get }
-  static var RightMouseDraggedMask: NSEventMask { get }
-  static var MouseEnteredMask: NSEventMask { get }
-  static var MouseExitedMask: NSEventMask { get }
-  static var KeyDownMask: NSEventMask { get }
-  static var KeyUpMask: NSEventMask { get }
-  static var FlagsChangedMask: NSEventMask { get }
-  static var AppKitDefinedMask: NSEventMask { get }
-  static var SystemDefinedMask: NSEventMask { get }
-  static var ApplicationDefinedMask: NSEventMask { get }
-  static var PeriodicMask: NSEventMask { get }
-  static var CursorUpdateMask: NSEventMask { get }
-  static var ScrollWheelMask: NSEventMask { get }
-  static var TabletPointMask: NSEventMask { get }
-  static var TabletProximityMask: NSEventMask { get }
-  static var OtherMouseDownMask: NSEventMask { get }
-  static var OtherMouseUpMask: NSEventMask { get }
-  static var OtherMouseDraggedMask: NSEventMask { get }
+  static var leftMouseDownMask: NSEventMask { get }
+  static var leftMouseUpMask: NSEventMask { get }
+  static var rightMouseDownMask: NSEventMask { get }
+  static var rightMouseUpMask: NSEventMask { get }
+  static var mouseMovedMask: NSEventMask { get }
+  static var leftMouseDraggedMask: NSEventMask { get }
+  static var rightMouseDraggedMask: NSEventMask { get }
+  static var mouseEnteredMask: NSEventMask { get }
+  static var mouseExitedMask: NSEventMask { get }
+  static var keyDownMask: NSEventMask { get }
+  static var keyUpMask: NSEventMask { get }
+  static var flagsChangedMask: NSEventMask { get }
+  static var appKitDefinedMask: NSEventMask { get }
+  static var systemDefinedMask: NSEventMask { get }
+  static var applicationDefinedMask: NSEventMask { get }
+  static var periodicMask: NSEventMask { get }
+  static var cursorUpdateMask: NSEventMask { get }
+  static var scrollWheelMask: NSEventMask { get }
+  static var tabletPointMask: NSEventMask { get }
+  static var tabletProximityMask: NSEventMask { get }
+  static var otherMouseDownMask: NSEventMask { get }
+  static var otherMouseUpMask: NSEventMask { get }
+  static var otherMouseDraggedMask: NSEventMask { get }
   @available(OSX 10.5, *)
-  static var EventMaskGesture: NSEventMask { get }
+  static var eventMaskGesture: NSEventMask { get }
   @available(OSX 10.5, *)
-  static var EventMaskMagnify: NSEventMask { get }
+  static var eventMaskMagnify: NSEventMask { get }
   @available(OSX 10.5, *)
-  static var EventMaskSwipe: NSEventMask { get }
+  static var eventMaskSwipe: NSEventMask { get }
   @available(OSX 10.5, *)
-  static var EventMaskRotate: NSEventMask { get }
+  static var eventMaskRotate: NSEventMask { get }
   @available(OSX 10.5, *)
-  static var EventMaskBeginGesture: NSEventMask { get }
+  static var eventMaskBeginGesture: NSEventMask { get }
   @available(OSX 10.5, *)
-  static var EventMaskEndGesture: NSEventMask { get }
+  static var eventMaskEndGesture: NSEventMask { get }
   @available(OSX 10.8, *)
-  static var EventMaskSmartMagnify: NSEventMask { get }
+  static var eventMaskSmartMagnify: NSEventMask { get }
   @available(OSX 10.10.3, *)
-  static var EventMaskPressure: NSEventMask { get }
-  static var AnyEventMask: NSEventMask { get }
+  static var eventMaskPressure: NSEventMask { get }
+  static var anyEventMask: NSEventMask { get }
 }
 func NSEventMaskFromType(type: NSEventType) -> NSEventMask
 struct NSEventModifierFlags : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var AlphaShiftKeyMask: NSEventModifierFlags { get }
-  static var ShiftKeyMask: NSEventModifierFlags { get }
-  static var ControlKeyMask: NSEventModifierFlags { get }
-  static var AlternateKeyMask: NSEventModifierFlags { get }
-  static var CommandKeyMask: NSEventModifierFlags { get }
-  static var NumericPadKeyMask: NSEventModifierFlags { get }
-  static var HelpKeyMask: NSEventModifierFlags { get }
-  static var FunctionKeyMask: NSEventModifierFlags { get }
-  static var DeviceIndependentModifierFlagsMask: NSEventModifierFlags { get }
+  static var alphaShiftKeyMask: NSEventModifierFlags { get }
+  static var shiftKeyMask: NSEventModifierFlags { get }
+  static var controlKeyMask: NSEventModifierFlags { get }
+  static var alternateKeyMask: NSEventModifierFlags { get }
+  static var commandKeyMask: NSEventModifierFlags { get }
+  static var numericPadKeyMask: NSEventModifierFlags { get }
+  static var helpKeyMask: NSEventModifierFlags { get }
+  static var functionKeyMask: NSEventModifierFlags { get }
+  static var deviceIndependentModifierFlagsMask: NSEventModifierFlags { get }
 }
 enum NSPointingDeviceType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case UnknownPointingDevice
-  case PenPointingDevice
-  case CursorPointingDevice
-  case EraserPointingDevice
+  case unknownPointingDevice
+  case penPointingDevice
+  case cursorPointingDevice
+  case eraserPointingDevice
 }
 struct NSEventButtonMask : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var PenTipMask: NSEventButtonMask { get }
-  static var PenLowerSideMask: NSEventButtonMask { get }
-  static var PenUpperSideMask: NSEventButtonMask { get }
+  static var penTipMask: NSEventButtonMask { get }
+  static var penLowerSideMask: NSEventButtonMask { get }
+  static var penUpperSideMask: NSEventButtonMask { get }
 }
 @available(OSX 10.7, *)
 struct NSEventPhase : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: NSEventPhase { get }
-  static var Began: NSEventPhase { get }
-  static var Stationary: NSEventPhase { get }
-  static var Changed: NSEventPhase { get }
-  static var Ended: NSEventPhase { get }
-  static var Cancelled: NSEventPhase { get }
-  static var MayBegin: NSEventPhase { get }
+  static var none: NSEventPhase { get }
+  static var began: NSEventPhase { get }
+  static var stationary: NSEventPhase { get }
+  static var changed: NSEventPhase { get }
+  static var ended: NSEventPhase { get }
+  static var cancelled: NSEventPhase { get }
+  static var mayBegin: NSEventPhase { get }
 }
 @available(OSX 10.7, *)
 enum NSEventGestureAxis : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Horizontal
-  case Vertical
+  case none
+  case horizontal
+  case vertical
 }
 @available(OSX 10.7, *)
 struct NSEventSwipeTrackingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var LockDirection: NSEventSwipeTrackingOptions { get }
-  static var ClampGestureAmount: NSEventSwipeTrackingOptions { get }
+  static var lockDirection: NSEventSwipeTrackingOptions { get }
+  static var clampGestureAmount: NSEventSwipeTrackingOptions { get }
 }
 enum NSEventSubtype : Int16 {
   init?(rawValue: Int16)
@@ -164,13 +164,13 @@ enum NSEventSubtype : Int16 {
 enum NSPressureBehavior : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case PrimaryDefault
-  case PrimaryClick
-  case PrimaryGeneric
-  case PrimaryAccelerator
-  case PrimaryDeepClick
-  case PrimaryDeepDrag
+  case unknown
+  case primaryDefault
+  case primaryClick
+  case primaryGeneric
+  case primaryAccelerator
+  case primaryDeepClick
+  case primaryDeepDrag
 }
 class NSEvent : Object, Copying, Coding {
   var type: NSEventType { get }

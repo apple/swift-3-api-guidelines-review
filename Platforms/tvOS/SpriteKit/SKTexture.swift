@@ -3,8 +3,8 @@
 enum SKTextureFilteringMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Nearest
-  case Linear
+  case nearest
+  case linear
 }
 class SKTexture : Object, Copying, Coding {
   convenience init(imageNamed name: String)

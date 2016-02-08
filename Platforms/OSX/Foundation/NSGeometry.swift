@@ -11,10 +11,10 @@ typealias RectArray = UnsafeMutablePointer<Rect>
 enum RectEdge : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case MinX
-  case MinY
-  case MaxX
-  case MaxY
+  case minX
+  case minY
+  case maxX
+  case maxY
 }
 
 extension RectEdge {
@@ -31,28 +31,28 @@ struct EdgeInsets {
 struct AlignmentOptions : OptionSetType {
   init(rawValue: UInt64)
   let rawValue: UInt64
-  static var AlignMinXInward: AlignmentOptions { get }
-  static var AlignMinYInward: AlignmentOptions { get }
-  static var AlignMaxXInward: AlignmentOptions { get }
-  static var AlignMaxYInward: AlignmentOptions { get }
-  static var AlignWidthInward: AlignmentOptions { get }
-  static var AlignHeightInward: AlignmentOptions { get }
-  static var AlignMinXOutward: AlignmentOptions { get }
-  static var AlignMinYOutward: AlignmentOptions { get }
-  static var AlignMaxXOutward: AlignmentOptions { get }
-  static var AlignMaxYOutward: AlignmentOptions { get }
-  static var AlignWidthOutward: AlignmentOptions { get }
-  static var AlignHeightOutward: AlignmentOptions { get }
-  static var AlignMinXNearest: AlignmentOptions { get }
-  static var AlignMinYNearest: AlignmentOptions { get }
-  static var AlignMaxXNearest: AlignmentOptions { get }
-  static var AlignMaxYNearest: AlignmentOptions { get }
-  static var AlignWidthNearest: AlignmentOptions { get }
-  static var AlignHeightNearest: AlignmentOptions { get }
-  static var AlignRectFlipped: AlignmentOptions { get }
-  static var AlignAllEdgesInward: AlignmentOptions { get }
-  static var AlignAllEdgesOutward: AlignmentOptions { get }
-  static var AlignAllEdgesNearest: AlignmentOptions { get }
+  static var alignMinXInward: AlignmentOptions { get }
+  static var alignMinYInward: AlignmentOptions { get }
+  static var alignMaxXInward: AlignmentOptions { get }
+  static var alignMaxYInward: AlignmentOptions { get }
+  static var alignWidthInward: AlignmentOptions { get }
+  static var alignHeightInward: AlignmentOptions { get }
+  static var alignMinXOutward: AlignmentOptions { get }
+  static var alignMinYOutward: AlignmentOptions { get }
+  static var alignMaxXOutward: AlignmentOptions { get }
+  static var alignMaxYOutward: AlignmentOptions { get }
+  static var alignWidthOutward: AlignmentOptions { get }
+  static var alignHeightOutward: AlignmentOptions { get }
+  static var alignMinXNearest: AlignmentOptions { get }
+  static var alignMinYNearest: AlignmentOptions { get }
+  static var alignMaxXNearest: AlignmentOptions { get }
+  static var alignMaxYNearest: AlignmentOptions { get }
+  static var alignWidthNearest: AlignmentOptions { get }
+  static var alignHeightNearest: AlignmentOptions { get }
+  static var alignRectFlipped: AlignmentOptions { get }
+  static var alignAllEdgesInward: AlignmentOptions { get }
+  static var alignAllEdgesOutward: AlignmentOptions { get }
+  static var alignAllEdgesNearest: AlignmentOptions { get }
 }
 let zeroPoint: Point
 let zeroSize: Size

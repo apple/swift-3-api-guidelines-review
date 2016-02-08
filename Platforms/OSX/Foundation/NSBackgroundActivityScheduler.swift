@@ -3,8 +3,8 @@
 enum BackgroundActivityResult : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Finished
-  case Deferred
+  case finished
+  case deferred
 }
 typealias BackgroundActivityCompletionHandler = (BackgroundActivityResult) -> Void
 @available(OSX 10.10, *)

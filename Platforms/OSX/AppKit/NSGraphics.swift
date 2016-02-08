@@ -2,87 +2,87 @@
 enum NSCompositingOperation : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case CompositeClear
-  case CompositeCopy
-  case CompositeSourceOver
-  case CompositeSourceIn
-  case CompositeSourceOut
-  case CompositeSourceAtop
-  case CompositeDestinationOver
-  case CompositeDestinationIn
-  case CompositeDestinationOut
-  case CompositeDestinationAtop
-  case CompositeXOR
-  case CompositePlusDarker
-  case CompositePlusLighter
+  case compositeClear
+  case compositeCopy
+  case compositeSourceOver
+  case compositeSourceIn
+  case compositeSourceOut
+  case compositeSourceAtop
+  case compositeDestinationOver
+  case compositeDestinationIn
+  case compositeDestinationOut
+  case compositeDestinationAtop
+  case compositeXOR
+  case compositePlusDarker
+  case compositePlusLighter
   @available(OSX 10.10, *)
-  case CompositeMultiply
+  case compositeMultiply
   @available(OSX 10.10, *)
-  case CompositeScreen
+  case compositeScreen
   @available(OSX 10.10, *)
-  case CompositeOverlay
+  case compositeOverlay
   @available(OSX 10.10, *)
-  case CompositeDarken
+  case compositeDarken
   @available(OSX 10.10, *)
-  case CompositeLighten
+  case compositeLighten
   @available(OSX 10.10, *)
-  case CompositeColorDodge
+  case compositeColorDodge
   @available(OSX 10.10, *)
-  case CompositeColorBurn
+  case compositeColorBurn
   @available(OSX 10.10, *)
-  case CompositeSoftLight
+  case compositeSoftLight
   @available(OSX 10.10, *)
-  case CompositeHardLight
+  case compositeHardLight
   @available(OSX 10.10, *)
-  case CompositeDifference
+  case compositeDifference
   @available(OSX 10.10, *)
-  case CompositeExclusion
+  case compositeExclusion
   @available(OSX 10.10, *)
-  case CompositeHue
+  case compositeHue
   @available(OSX 10.10, *)
-  case CompositeSaturation
+  case compositeSaturation
   @available(OSX 10.10, *)
-  case CompositeColor
+  case compositeColor
   @available(OSX 10.10, *)
-  case CompositeLuminosity
+  case compositeLuminosity
 }
 enum NSBackingStoreType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Retained
-  case Nonretained
-  case Buffered
+  case retained
+  case nonretained
+  case buffered
 }
 enum NSWindowOrderingMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Above
-  case Below
-  case Out
+  case above
+  case below
+  case out
 }
 enum NSFocusRingPlacement : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Only
-  case Below
-  case Above
+  case only
+  case below
+  case above
 }
 enum NSFocusRingType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Default
-  case None
-  case Exterior
+  case `default`
+  case none
+  case exterior
 }
 @available(OSX 10.5, *)
 enum NSColorRenderingIntent : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case AbsoluteColorimetric
-  case RelativeColorimetric
-  case Perceptual
-  case Saturation
+  case `default`
+  case absoluteColorimetric
+  case relativeColorimetric
+  case perceptual
+  case saturation
 }
 let NSCalibratedWhiteColorSpace: String
 let NSCalibratedRGBColorSpace: String
@@ -146,8 +146,8 @@ func NSEnableScreenUpdates()
 enum NSAnimationEffect : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case DisappearingItemDefault
-  case Poof
+  case disappearingItemDefault
+  case poof
 }
 func NSShowAnimationEffect(animationEffect: NSAnimationEffect, _ centerLocation: Point, _ size: Size, _ animationDelegate: AnyObject?, _ didEndSelector: Selector, _ contextInfo: UnsafeMutablePointer<Void>)
 @available(OSX, introduced=10.0, deprecated=10.10)

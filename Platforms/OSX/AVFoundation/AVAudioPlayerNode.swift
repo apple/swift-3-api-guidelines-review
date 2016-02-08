@@ -3,9 +3,9 @@
 struct AVAudioPlayerNodeBufferOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Loops: AVAudioPlayerNodeBufferOptions { get }
-  static var Interrupts: AVAudioPlayerNodeBufferOptions { get }
-  static var InterruptsAtLoop: AVAudioPlayerNodeBufferOptions { get }
+  static var loops: AVAudioPlayerNodeBufferOptions { get }
+  static var interrupts: AVAudioPlayerNodeBufferOptions { get }
+  static var interruptsAtLoop: AVAudioPlayerNodeBufferOptions { get }
 }
 @available(OSX 10.10, *)
 class AVAudioPlayerNode : AVAudioNode, AVAudioMixing {

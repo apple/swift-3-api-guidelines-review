@@ -2,15 +2,15 @@
 enum UISearchBarIcon : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Search
+  case search
 }
 @available(tvOS 7.0, *)
 enum UISearchBarStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Default
-  case Prominent
-  case Minimal
+  case `default`
+  case prominent
+  case minimal
 }
 @available(tvOS 2.0, *)
 class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {

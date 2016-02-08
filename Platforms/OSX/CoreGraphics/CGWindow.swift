@@ -3,16 +3,16 @@ typealias CGWindowID = UInt32
 enum CGWindowSharingType : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case None
-  case ReadOnly
-  case ReadWrite
+  case none
+  case readOnly
+  case readWrite
 }
 enum CGWindowBackingType : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case BackingStoreRetained
-  case BackingStoreNonretained
-  case BackingStoreBuffered
+  case backingStoreRetained
+  case backingStoreNonretained
+  case backingStoreBuffered
 }
 @available(OSX 10.5, *)
 let kCGWindowNumber: CFString
@@ -41,12 +41,12 @@ let kCGWindowBackingLocationVideoMemory: CFString
 struct CGWindowListOption : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var OptionAll: CGWindowListOption { get }
-  static var OptionOnScreenOnly: CGWindowListOption { get }
-  static var OptionOnScreenAboveWindow: CGWindowListOption { get }
-  static var OptionOnScreenBelowWindow: CGWindowListOption { get }
-  static var OptionIncludingWindow: CGWindowListOption { get }
-  static var ExcludeDesktopElements: CGWindowListOption { get }
+  static var optionAll: CGWindowListOption { get }
+  static var optionOnScreenOnly: CGWindowListOption { get }
+  static var optionOnScreenAboveWindow: CGWindowListOption { get }
+  static var optionOnScreenBelowWindow: CGWindowListOption { get }
+  static var optionIncludingWindow: CGWindowListOption { get }
+  static var excludeDesktopElements: CGWindowListOption { get }
 }
 @available(OSX 10.5, *)
 func CGWindowListCopyWindowInfo(option: CGWindowListOption, _ relativeToWindow: CGWindowID) -> CFArray?
@@ -55,12 +55,12 @@ func CGWindowListCreateDescriptionFromArray(windowArray: CFArray?) -> CFArray?
 struct CGWindowImageOption : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var Default: CGWindowImageOption { get }
-  static var BoundsIgnoreFraming: CGWindowImageOption { get }
-  static var ShouldBeOpaque: CGWindowImageOption { get }
-  static var OnlyShadows: CGWindowImageOption { get }
-  static var BestResolution: CGWindowImageOption { get }
-  static var NominalResolution: CGWindowImageOption { get }
+  static var `default`: CGWindowImageOption { get }
+  static var boundsIgnoreFraming: CGWindowImageOption { get }
+  static var shouldBeOpaque: CGWindowImageOption { get }
+  static var onlyShadows: CGWindowImageOption { get }
+  static var bestResolution: CGWindowImageOption { get }
+  static var nominalResolution: CGWindowImageOption { get }
 }
 @available(OSX 10.5, *)
 func CGWindowListCreateImage(screenBounds: CGRect, _ listOption: CGWindowListOption, _ windowID: CGWindowID, _ imageOption: CGWindowImageOption) -> CGImage?

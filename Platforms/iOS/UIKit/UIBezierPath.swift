@@ -2,11 +2,11 @@
 struct UIRectCorner : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var TopLeft: UIRectCorner { get }
-  static var TopRight: UIRectCorner { get }
-  static var BottomLeft: UIRectCorner { get }
-  static var BottomRight: UIRectCorner { get }
-  static var AllCorners: UIRectCorner { get }
+  static var topLeft: UIRectCorner { get }
+  static var topRight: UIRectCorner { get }
+  static var bottomLeft: UIRectCorner { get }
+  static var bottomRight: UIRectCorner { get }
+  static var allCorners: UIRectCorner { get }
 }
 @available(iOS 3.2, *)
 class UIBezierPath : Object, Copying, Coding {

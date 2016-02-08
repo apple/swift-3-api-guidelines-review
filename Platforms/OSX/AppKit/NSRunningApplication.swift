@@ -2,15 +2,15 @@
 struct NSApplicationActivationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ActivateAllWindows: NSApplicationActivationOptions { get }
-  static var ActivateIgnoringOtherApps: NSApplicationActivationOptions { get }
+  static var activateAllWindows: NSApplicationActivationOptions { get }
+  static var activateIgnoringOtherApps: NSApplicationActivationOptions { get }
 }
 enum NSApplicationActivationPolicy : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Regular
-  case Accessory
-  case Prohibited
+  case regular
+  case accessory
+  case prohibited
 }
 @available(OSX 10.6, *)
 class NSRunningApplication : Object {

@@ -3,9 +3,9 @@
 enum NSPageControllerTransitionStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case StackHistory
-  case StackBook
-  case HorizontalStrip
+  case stackHistory
+  case stackBook
+  case horizontalStrip
 }
 @available(OSX 10.8, *)
 class NSPageController : NSViewController, NSAnimatablePropertyContainer, Coding {

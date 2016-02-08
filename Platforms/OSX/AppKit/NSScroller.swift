@@ -2,49 +2,49 @@
 enum NSScrollArrowPosition : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ScrollerArrowsMaxEnd
-  case ScrollerArrowsMinEnd
-  static var ScrollerArrowsDefaultSetting: NSScrollArrowPosition { get }
-  case ScrollerArrowsNone
+  case scrollerArrowsMaxEnd
+  case scrollerArrowsMinEnd
+  static var scrollerArrowsDefaultSetting: NSScrollArrowPosition { get }
+  case scrollerArrowsNone
 }
 enum NSUsableScrollerParts : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NoScrollerParts
-  case OnlyScrollerArrows
-  case AllScrollerParts
+  case noScrollerParts
+  case onlyScrollerArrows
+  case allScrollerParts
 }
 enum NSScrollerPart : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NoPart
-  case DecrementPage
-  case Knob
-  case IncrementPage
-  case DecrementLine
-  case IncrementLine
-  case KnobSlot
+  case noPart
+  case decrementPage
+  case knob
+  case incrementPage
+  case decrementLine
+  case incrementLine
+  case knobSlot
 }
 enum NSScrollerArrow : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case IncrementArrow
-  case DecrementArrow
+  case incrementArrow
+  case decrementArrow
 }
 @available(OSX 10.7, *)
 enum NSScrollerStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Legacy
-  case Overlay
+  case legacy
+  case overlay
 }
 @available(OSX 10.7, *)
 enum NSScrollerKnobStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Dark
-  case Light
+  case `default`
+  case dark
+  case light
 }
 class NSScroller : NSControl {
   @available(OSX 10.7, *)

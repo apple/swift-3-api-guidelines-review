@@ -3,56 +3,56 @@
 enum MTLVertexFormat : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Invalid
-  case UChar2
-  case UChar3
-  case UChar4
-  case Char2
-  case Char3
-  case Char4
-  case UChar2Normalized
-  case UChar3Normalized
-  case UChar4Normalized
-  case Char2Normalized
-  case Char3Normalized
-  case Char4Normalized
-  case UShort2
-  case UShort3
-  case UShort4
-  case Short2
-  case Short3
-  case Short4
-  case UShort2Normalized
-  case UShort3Normalized
-  case UShort4Normalized
-  case Short2Normalized
-  case Short3Normalized
-  case Short4Normalized
-  case Half2
-  case Half3
-  case Half4
-  case Float
-  case Float2
-  case Float3
-  case Float4
-  case Int
-  case Int2
-  case Int3
-  case Int4
-  case UInt
-  case UInt2
-  case UInt3
-  case UInt4
-  case Int1010102Normalized
-  case UInt1010102Normalized
+  case invalid
+  case uChar2
+  case uChar3
+  case uChar4
+  case char2
+  case char3
+  case char4
+  case uChar2Normalized
+  case uChar3Normalized
+  case uChar4Normalized
+  case char2Normalized
+  case char3Normalized
+  case char4Normalized
+  case uShort2
+  case uShort3
+  case uShort4
+  case short2
+  case short3
+  case short4
+  case uShort2Normalized
+  case uShort3Normalized
+  case uShort4Normalized
+  case short2Normalized
+  case short3Normalized
+  case short4Normalized
+  case half2
+  case half3
+  case half4
+  case float
+  case float2
+  case float3
+  case float4
+  case int
+  case int2
+  case int3
+  case int4
+  case uInt
+  case uInt2
+  case uInt3
+  case uInt4
+  case int1010102Normalized
+  case uInt1010102Normalized
 }
 @available(tvOS 8.0, *)
 enum MTLVertexStepFunction : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Constant
-  case PerVertex
-  case PerInstance
+  case constant
+  case perVertex
+  case perInstance
 }
 @available(tvOS 8.0, *)
 class MTLVertexBufferLayoutDescriptor : Object, Copying {

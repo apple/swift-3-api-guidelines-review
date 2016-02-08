@@ -43,11 +43,11 @@ enum CTFontOrientation : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
   @available(tvOS 6.0, *)
-  case Default
+  case `default`
   @available(tvOS 6.0, *)
-  case Horizontal
+  case horizontal
   @available(tvOS 6.0, *)
-  case Vertical
+  case vertical
   @available(tvOS, introduced=3.2, deprecated=9.0)
   static var kCTFontDefaultOrientation: CTFontOrientation { get }
   @available(tvOS, introduced=3.2, deprecated=9.0)
@@ -60,12 +60,12 @@ let kCTFontFormatAttribute: CFString
 enum CTFontFormat : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Unrecognized
-  case OpenTypePostScript
-  case OpenTypeTrueType
-  case TrueType
-  case PostScript
-  case Bitmap
+  case unrecognized
+  case openTypePostScript
+  case openTypeTrueType
+  case trueType
+  case postScript
+  case bitmap
 }
 @available(tvOS 3.2, *)
 let kCTFontRegistrationScopeAttribute: CFString
@@ -105,15 +105,15 @@ func CTFontDescriptorCreateMatchingFontDescriptor(descriptor: CTFontDescriptor, 
 enum CTFontDescriptorMatchingState : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case DidBegin
-  case DidFinish
-  case WillBeginQuerying
-  case Stalled
-  case WillBeginDownloading
-  case Downloading
-  case DidFinishDownloading
-  case DidMatch
-  case DidFailWithError
+  case didBegin
+  case didFinish
+  case willBeginQuerying
+  case stalled
+  case willBeginDownloading
+  case downloading
+  case didFinishDownloading
+  case didMatch
+  case didFailWithError
 }
 @available(tvOS 6.0, *)
 let kCTFontDescriptorMatchingSourceDescriptor: CFString

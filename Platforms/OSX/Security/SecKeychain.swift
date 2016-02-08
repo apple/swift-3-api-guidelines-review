@@ -18,17 +18,17 @@ enum SecAuthenticationType : FourCharCode {
   case MSN
   case DPA
   case RPA
-  case HTTPBasic
-  case HTTPDigest
-  case HTMLForm
-  case Default
-  case Any
+  case httpBasic
+  case httpDigest
+  case htmlForm
+  case `default`
+  case any
 }
 enum SecProtocolType : FourCharCode {
   init?(rawValue: FourCharCode)
   var rawValue: FourCharCode { get }
   case FTP
-  case FTPAccount
+  case ftpAccount
   case HTTP
   case IRC
   case NNTP
@@ -37,60 +37,60 @@ enum SecProtocolType : FourCharCode {
   case SOCKS
   case IMAP
   case LDAP
-  case AppleTalk
+  case appleTalk
   case AFP
-  case Telnet
+  case telnet
   case SSH
   case FTPS
   case HTTPS
-  case HTTPProxy
-  case HTTPSProxy
-  case FTPProxy
+  case httpProxy
+  case httpsProxy
+  case ftpProxy
   case CIFS
   case SMB
   case RTSP
-  case RTSPProxy
+  case rtspProxy
   case DAAP
   case EPPC
   case IPP
   case NNTPS
   case LDAPS
-  case TelnetS
+  case telnetS
   case IMAPS
   case IRCS
   case POP3S
-  case CVSpserver
+  case cvSpserver
   case SVN
-  case Any
+  case any
 }
 enum SecKeychainEvent : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case LockEvent
-  case UnlockEvent
-  case AddEvent
-  case DeleteEvent
-  case UpdateEvent
-  case PasswordChangedEvent
-  case DefaultChangedEvent
-  case DataAccessEvent
-  case KeychainListChangedEvent
-  case TrustSettingsChangedEvent
+  case lockEvent
+  case unlockEvent
+  case addEvent
+  case deleteEvent
+  case updateEvent
+  case passwordChangedEvent
+  case defaultChangedEvent
+  case dataAccessEvent
+  case keychainListChangedEvent
+  case trustSettingsChangedEvent
 }
 struct SecKeychainEventMask : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var LockEventMask: SecKeychainEventMask { get }
-  static var UnlockEventMask: SecKeychainEventMask { get }
-  static var AddEventMask: SecKeychainEventMask { get }
-  static var DeleteEventMask: SecKeychainEventMask { get }
-  static var UpdateEventMask: SecKeychainEventMask { get }
-  static var PasswordChangedEventMask: SecKeychainEventMask { get }
-  static var DefaultChangedEventMask: SecKeychainEventMask { get }
-  static var DataAccessEventMask: SecKeychainEventMask { get }
-  static var KeychainListChangedMask: SecKeychainEventMask { get }
-  static var TrustSettingsChangedEventMask: SecKeychainEventMask { get }
-  static var EveryEventMask: SecKeychainEventMask { get }
+  static var lockEventMask: SecKeychainEventMask { get }
+  static var unlockEventMask: SecKeychainEventMask { get }
+  static var addEventMask: SecKeychainEventMask { get }
+  static var deleteEventMask: SecKeychainEventMask { get }
+  static var updateEventMask: SecKeychainEventMask { get }
+  static var passwordChangedEventMask: SecKeychainEventMask { get }
+  static var defaultChangedEventMask: SecKeychainEventMask { get }
+  static var dataAccessEventMask: SecKeychainEventMask { get }
+  static var keychainListChangedMask: SecKeychainEventMask { get }
+  static var trustSettingsChangedEventMask: SecKeychainEventMask { get }
+  static var everyEventMask: SecKeychainEventMask { get }
 }
 struct SecKeychainCallbackInfo {
   var version: UInt32
@@ -115,10 +115,10 @@ func SecKeychainSetSearchList(searchList: CFArray) -> OSStatus
 enum SecPreferencesDomain : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case User
-  case System
-  case Common
-  case Dynamic
+  case user
+  case system
+  case common
+  case dynamic
 }
 func SecKeychainCopyDomainDefault(domain: SecPreferencesDomain, _ keychain: UnsafeMutablePointer<SecKeychain?>) -> OSStatus
 func SecKeychainSetDomainDefault(domain: SecPreferencesDomain, _ keychain: SecKeychain?) -> OSStatus

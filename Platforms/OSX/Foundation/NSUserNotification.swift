@@ -3,13 +3,13 @@
 enum UserNotificationActivationType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case ContentsClicked
-  case ActionButtonClicked
+  case none
+  case contentsClicked
+  case actionButtonClicked
   @available(OSX 10.9, *)
-  case Replied
+  case replied
   @available(OSX 10.10, *)
-  case AdditionalActionClicked
+  case additionalActionClicked
 }
 @available(OSX 10.8, *)
 class UserNotification : Object, Copying {

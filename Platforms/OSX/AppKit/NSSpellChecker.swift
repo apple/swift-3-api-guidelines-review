@@ -107,19 +107,19 @@ let NSTextCheckingRegularExpressionsKey: String
 enum NSCorrectionResponse : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Accepted
-  case Rejected
-  case Ignored
-  case Edited
-  case Reverted
+  case none
+  case accepted
+  case rejected
+  case ignored
+  case edited
+  case reverted
 }
 enum NSCorrectionIndicatorType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Reversion
-  case Guesses
+  case `default`
+  case reversion
+  case guesses
 }
 @available(OSX 10.7, *)
 let NSSpellCheckerDidChangeAutomaticSpellingCorrectionNotification: String

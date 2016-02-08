@@ -3,11 +3,11 @@
 enum TVTextElementStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Title
-  case Subtitle
-  case Description
-  case Decoration
+  case none
+  case title
+  case subtitle
+  case description
+  case decoration
 }
 @available(tvOS 9.0, *)
 class TVTextElement : TVViewElement {

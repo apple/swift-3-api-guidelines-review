@@ -37,36 +37,36 @@ typealias DVDErrorCode = OSStatus
 enum DVDState : OSStatus {
   init?(rawValue: OSStatus)
   var rawValue: OSStatus { get }
-  case Unknown
-  case Playing
-  case PlayingStill
-  case Paused
-  case Stopped
-  case Scanning
-  case Idle
-  case PlayingSlow
+  case unknown
+  case playing
+  case playingStill
+  case paused
+  case stopped
+  case scanning
+  case idle
+  case playingSlow
 }
 enum DVDMenu : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Title
-  case Root
-  case SubPicture
-  case Audio
-  case Angle
+  case title
+  case root
+  case subPicture
+  case audio
+  case angle
   case PTT
-  case None
+  case none
 }
 var kDVDButtonIndexNone: Int { get }
 typealias DVDButtonIndex = Int32
 enum DVDUserNavigation : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case MoveUp
-  case MoveDown
-  case MoveLeft
-  case MoveRight
-  case Enter
+  case moveUp
+  case moveDown
+  case moveLeft
+  case moveRight
+  case enter
 }
 typealias DVDTimePosition = UInt32
 var kDVDTimeCodeUninitialized: Int { get }
@@ -80,35 +80,35 @@ typealias DVDTimeCode = Int16
 enum DVDScanDirection : Int8 {
   init?(rawValue: Int8)
   var rawValue: Int8 { get }
-  case Forward
-  case Backward
+  case forward
+  case backward
 }
 enum DVDScanRate : Int16 {
   init?(rawValue: Int16)
   var rawValue: Int16 { get }
-  case RateOneEigth
-  case RateOneFourth
-  case RateOneHalf
-  case Rate1x
-  case Rate2x
-  case Rate4x
-  case Rate8x
-  case Rate16x
-  case Rate32x
+  case rateOneEigth
+  case rateOneFourth
+  case rateOneHalf
+  case rate1x
+  case rate2x
+  case rate4x
+  case rate8x
+  case rate16x
+  case rate32x
 }
 enum DVDAspectRatio : Int16 {
   init?(rawValue: Int16)
   var rawValue: Int16 { get }
-  case RatioUninitialized
-  case Ratio4x3
-  case Ratio4x3PanAndScan
-  case Ratio16x9
-  case RatioLetterBox
+  case ratioUninitialized
+  case ratio4x3
+  case ratio4x3PanAndScan
+  case ratio16x9
+  case ratioLetterBox
 }
 enum DVDFormat : Int16 {
   init?(rawValue: Int16)
   var rawValue: Int16 { get }
-  case Uninitialized
+  case uninitialized
   case NTSC
   case PAL
   case NTSC_HDTV
@@ -121,16 +121,16 @@ typealias DVDAudioMode = Int32
 enum DVDAudioFormat : Int16 {
   init?(rawValue: Int16)
   var rawValue: Int16 { get }
-  case UnknownFormat
-  case AC3Format
-  case MPEG1Format
-  case MPEG2Format
-  case PCMFormat
-  case DTSFormat
-  case SDDSFormat
-  case MLPFormat
-  case DDPlusFormat
-  case DTSHDFormat
+  case unknownFormat
+  case ac3Format
+  case mpeg1Format
+  case mpeg2Format
+  case pcmFormat
+  case dtsFormat
+  case sddsFormat
+  case mlpFormat
+  case ddPlusFormat
+  case dtshdFormat
 }
 var kDVDLanguageCodeUninitialized: Int { get }
 var kDVDLanguageNoPreference: Int { get }
@@ -304,13 +304,13 @@ typealias DVDRegionCode = UInt32
 enum DVDDomainCode : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case DVDFPDomain
-  case DVDVMGMDomain
-  case DVDVTSMDomain
-  case DVDTTDomain
-  case DVDSTOPDomain
-  case DVDAMGMDomain
-  case DVDTTGRDomain
+  case dvdfpDomain
+  case dvdvmgmDomain
+  case dvdvtsmDomain
+  case dvdttDomain
+  case dvdstopDomain
+  case dvdamgmDomain
+  case dvdttgrDomain
 }
 var kDVDUOPTimePlaySearch: Int { get }
 var kDVDUOPPTTPlaySearch: Int { get }
@@ -343,32 +343,32 @@ typealias DVDUOPCode = UInt32
 enum DVDEventCode : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Title
+  case title
   case PTT
-  case ValidUOP
-  case Angle
-  case AudioStream
-  case SubpictureStream
-  case DisplayMode
-  case Domain
-  case Bitrate
-  case Still
-  case Playback
-  case VideoStandard
-  case Streams
-  case ScanSpeed
-  case MenuCalled
-  case Parental
+  case validUOP
+  case angle
+  case audioStream
+  case subpictureStream
+  case displayMode
+  case domain
+  case bitrate
+  case still
+  case playback
+  case videoStandard
+  case streams
+  case scanSpeed
+  case menuCalled
+  case parental
   case PGC
   case GPRM
-  case RegionMismatch
-  case TitleTime
-  case SubpictureStreamNumbers
-  case AudioStreamNumbers
-  case AngleNumbers
-  case Error
-  case CCInfo
-  case ChapterTime
+  case regionMismatch
+  case titleTime
+  case subpictureStreamNumbers
+  case audioStreamNumbers
+  case angleNumbers
+  case error
+  case ccInfo
+  case chapterTime
 }
 typealias DVDEventValue = UInt
 typealias DVDEventCallBackRef = UnsafeMutablePointer<Void>

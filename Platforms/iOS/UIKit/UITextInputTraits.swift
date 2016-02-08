@@ -2,71 +2,71 @@
 enum UITextAutocapitalizationType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Words
-  case Sentences
-  case AllCharacters
+  case none
+  case words
+  case sentences
+  case allCharacters
 }
 enum UITextAutocorrectionType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case No
-  case Yes
+  case `default`
+  case no
+  case yes
 }
 @available(iOS 5.0, *)
 enum UITextSpellCheckingType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case No
-  case Yes
+  case `default`
+  case no
+  case yes
 }
 enum UIKeyboardType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case ASCIICapable
-  case NumbersAndPunctuation
+  case `default`
+  case asciiCapable
+  case numbersAndPunctuation
   case URL
-  case NumberPad
-  case PhonePad
-  case NamePhonePad
-  case EmailAddress
+  case numberPad
+  case phonePad
+  case namePhonePad
+  case emailAddress
   @available(iOS 4.1, *)
-  case DecimalPad
+  case decimalPad
   @available(iOS 5.0, *)
-  case Twitter
+  case twitter
   @available(iOS 7.0, *)
-  case WebSearch
-  static var Alphabet: UIKeyboardType { get }
+  case webSearch
+  static var alphabet: UIKeyboardType { get }
 }
 enum UIKeyboardAppearance : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
+  case `default`
   @available(iOS 7.0, *)
-  case Dark
+  case dark
   @available(iOS 7.0, *)
-  case Light
-  static var Alert: UIKeyboardAppearance { get }
+  case light
+  static var alert: UIKeyboardAppearance { get }
 }
 enum UIReturnKeyType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Go
-  case Google
-  case Join
-  case Next
-  case Route
-  case Search
-  case Send
-  case Yahoo
-  case Done
-  case EmergencyCall
+  case `default`
+  case go
+  case google
+  case join
+  case next
+  case route
+  case search
+  case send
+  case yahoo
+  case done
+  case emergencyCall
   @available(iOS 9.0, *)
-  case Continue
+  case `continue`
 }
 protocol UITextInputTraits : ObjectProtocol {
   optional var autocapitalizationType: UITextAutocapitalizationType { get set }

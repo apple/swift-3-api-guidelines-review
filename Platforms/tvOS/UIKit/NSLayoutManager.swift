@@ -3,28 +3,28 @@
 enum NSTextLayoutOrientation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Horizontal
-  case Vertical
+  case horizontal
+  case vertical
 }
 @available(tvOS 7.0, *)
 enum NSGlyphProperty : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Null
-  case ControlCharacter
-  case Elastic
-  case NonBaseCharacter
+  case null
+  case controlCharacter
+  case elastic
+  case nonBaseCharacter
 }
 @available(tvOS 7.0, *)
 enum NSControlCharacterAction : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ZeroAdvancement
-  case Whitespace
-  case HorizontalTab
-  case LineBreak
-  case ParagraphBreak
-  case ContainerBreak
+  case zeroAdvancement
+  case whitespace
+  case horizontalTab
+  case lineBreak
+  case paragraphBreak
+  case containerBreak
 }
 protocol NSTextLayoutOrientationProvider {
   @available(tvOS 7.0, *)

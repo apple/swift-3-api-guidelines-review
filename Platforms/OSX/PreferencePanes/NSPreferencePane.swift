@@ -2,9 +2,9 @@
 enum NSPreferencePaneUnselectReply : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case UnselectCancel
-  case UnselectNow
-  case UnselectLater
+  case unselectCancel
+  case unselectNow
+  case unselectLater
 }
 let NSPreferencePaneDoUnselectNotification: String
 let NSPreferencePaneCancelUnselectNotification: String

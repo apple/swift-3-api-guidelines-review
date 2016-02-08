@@ -3,12 +3,12 @@
 enum NEVPNError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ConfigurationInvalid
-  case ConfigurationDisabled
-  case ConnectionFailed
-  case ConfigurationStale
-  case ConfigurationReadWriteFailed
-  case ConfigurationUnknown
+  case configurationInvalid
+  case configurationDisabled
+  case connectionFailed
+  case configurationStale
+  case configurationReadWriteFailed
+  case configurationUnknown
 }
 @available(iOS 8.0, *)
 let NEVPNErrorDomain: String

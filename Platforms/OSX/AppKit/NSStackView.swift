@@ -3,22 +3,22 @@
 enum NSStackViewGravity : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Top
-  static var Leading: NSStackViewGravity { get }
-  case Center
-  case Bottom
-  static var Trailing: NSStackViewGravity { get }
+  case top
+  static var leading: NSStackViewGravity { get }
+  case center
+  case bottom
+  static var trailing: NSStackViewGravity { get }
 }
 @available(OSX 10.11, *)
 enum NSStackViewDistribution : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case GravityAreas
-  case Fill
-  case FillEqually
-  case FillProportionally
-  case EqualSpacing
-  case EqualCentering
+  case gravityAreas
+  case fill
+  case fillEqually
+  case fillProportionally
+  case equalSpacing
+  case equalCentering
 }
 @available(OSX 10.9, *)
 typealias NSStackViewVisibilityPriority = Float

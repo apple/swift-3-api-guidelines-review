@@ -28,11 +28,11 @@ class TVContentItem : Object, Copying, SecureCoding {
 enum TVContentItemImageShape : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Poster
-  case Square
+  case none
+  case poster
+  case square
   case SDTV
   case HDTV
-  case Wide
-  case ExtraWide
+  case wide
+  case extraWide
 }

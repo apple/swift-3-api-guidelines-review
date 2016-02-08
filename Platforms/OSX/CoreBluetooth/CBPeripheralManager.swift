@@ -3,29 +3,29 @@
 enum CBPeripheralAuthorizationStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case NotDetermined
-  case Restricted
-  case Denied
-  case Authorized
+  case notDetermined
+  case restricted
+  case denied
+  case authorized
 }
 @available(OSX 10.9, *)
 enum CBPeripheralManagerState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Resetting
-  case Unsupported
-  case Unauthorized
-  case PoweredOff
-  case PoweredOn
+  case unknown
+  case resetting
+  case unsupported
+  case unauthorized
+  case poweredOff
+  case poweredOn
 }
 @available(OSX 10.9, *)
 enum CBPeripheralManagerConnectionLatency : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Low
-  case Medium
-  case High
+  case low
+  case medium
+  case high
 }
 @available(OSX 10.9, *)
 class CBPeripheralManager : Object {

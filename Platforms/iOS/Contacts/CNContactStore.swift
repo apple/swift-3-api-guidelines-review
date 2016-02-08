@@ -3,16 +3,16 @@
 enum CNEntityType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Contacts
+  case contacts
 }
 @available(iOS 9.0, *)
 enum CNAuthorizationStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case NotDetermined
-  case Restricted
-  case Denied
-  case Authorized
+  case notDetermined
+  case restricted
+  case denied
+  case authorized
 }
 @available(iOS 9.0, *)
 class CNContactStore : Object {

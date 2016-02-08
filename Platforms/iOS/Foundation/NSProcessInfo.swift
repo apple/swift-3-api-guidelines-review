@@ -44,14 +44,14 @@ class ProcessInfo : Object {
 struct ActivityOptions : OptionSetType {
   init(rawValue: UInt64)
   let rawValue: UInt64
-  static var IdleDisplaySleepDisabled: ActivityOptions { get }
-  static var IdleSystemSleepDisabled: ActivityOptions { get }
-  static var SuddenTerminationDisabled: ActivityOptions { get }
-  static var AutomaticTerminationDisabled: ActivityOptions { get }
-  static var UserInitiated: ActivityOptions { get }
-  static var UserInitiatedAllowingIdleSystemSleep: ActivityOptions { get }
-  static var Background: ActivityOptions { get }
-  static var LatencyCritical: ActivityOptions { get }
+  static var idleDisplaySleepDisabled: ActivityOptions { get }
+  static var idleSystemSleepDisabled: ActivityOptions { get }
+  static var suddenTerminationDisabled: ActivityOptions { get }
+  static var automaticTerminationDisabled: ActivityOptions { get }
+  static var userInitiated: ActivityOptions { get }
+  static var userInitiatedAllowingIdleSystemSleep: ActivityOptions { get }
+  static var background: ActivityOptions { get }
+  static var latencyCritical: ActivityOptions { get }
 }
 extension ProcessInfo {
   @available(iOS 7.0, *)

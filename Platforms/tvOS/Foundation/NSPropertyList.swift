@@ -2,16 +2,16 @@
 struct PropertyListMutabilityOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Immutable: PropertyListMutabilityOptions { get }
-  static var MutableContainers: PropertyListMutabilityOptions { get }
-  static var MutableContainersAndLeaves: PropertyListMutabilityOptions { get }
+  static var immutable: PropertyListMutabilityOptions { get }
+  static var mutableContainers: PropertyListMutabilityOptions { get }
+  static var mutableContainersAndLeaves: PropertyListMutabilityOptions { get }
 }
 enum PropertyListFormat : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case OpenStepFormat
-  case XMLFormat_v1_0
-  case BinaryFormat_v1_0
+  case openStepFormat
+  case xmlFormat_v1_0
+  case binaryFormat_v1_0
 }
 typealias PropertyListReadOptions = PropertyListMutabilityOptions
 typealias PropertyListWriteOptions = Int

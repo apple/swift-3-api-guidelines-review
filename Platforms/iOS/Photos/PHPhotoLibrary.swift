@@ -3,10 +3,10 @@
 enum PHAuthorizationStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case NotDetermined
-  case Restricted
-  case Denied
-  case Authorized
+  case notDetermined
+  case restricted
+  case denied
+  case authorized
 }
 @available(iOS 8.0, *)
 protocol PHPhotoLibraryChangeObserver : ObjectProtocol {

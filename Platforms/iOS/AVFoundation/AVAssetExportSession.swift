@@ -22,12 +22,12 @@ let AVAssetExportPresetPassthrough: String
 enum AVAssetExportSessionStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Waiting
-  case Exporting
-  case Completed
-  case Failed
-  case Cancelled
+  case unknown
+  case waiting
+  case exporting
+  case completed
+  case failed
+  case cancelled
 }
 @available(iOS 4.0, *)
 class AVAssetExportSession : Object {

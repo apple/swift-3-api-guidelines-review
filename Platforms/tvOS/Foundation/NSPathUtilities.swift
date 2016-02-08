@@ -30,49 +30,49 @@ func openStepRootDirectory() -> String
 enum SearchPathDirectory : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ApplicationDirectory
-  case DemoApplicationDirectory
-  case DeveloperApplicationDirectory
-  case AdminApplicationDirectory
-  case LibraryDirectory
-  case DeveloperDirectory
-  case UserDirectory
-  case DocumentationDirectory
-  case DocumentDirectory
-  case CoreServiceDirectory
+  case applicationDirectory
+  case demoApplicationDirectory
+  case developerApplicationDirectory
+  case adminApplicationDirectory
+  case libraryDirectory
+  case developerDirectory
+  case userDirectory
+  case documentationDirectory
+  case documentDirectory
+  case coreServiceDirectory
   @available(tvOS 4.0, *)
-  case AutosavedInformationDirectory
-  case DesktopDirectory
-  case CachesDirectory
-  case ApplicationSupportDirectory
+  case autosavedInformationDirectory
+  case desktopDirectory
+  case cachesDirectory
+  case applicationSupportDirectory
   @available(tvOS 2.0, *)
-  case DownloadsDirectory
+  case downloadsDirectory
   @available(tvOS 4.0, *)
-  case InputMethodsDirectory
+  case inputMethodsDirectory
   @available(tvOS 4.0, *)
-  case MoviesDirectory
+  case moviesDirectory
   @available(tvOS 4.0, *)
-  case MusicDirectory
+  case musicDirectory
   @available(tvOS 4.0, *)
-  case PicturesDirectory
+  case picturesDirectory
   @available(tvOS 4.0, *)
-  case PrinterDescriptionDirectory
+  case printerDescriptionDirectory
   @available(tvOS 4.0, *)
-  case SharedPublicDirectory
+  case sharedPublicDirectory
   @available(tvOS 4.0, *)
-  case PreferencePanesDirectory
+  case preferencePanesDirectory
   @available(tvOS 4.0, *)
-  case ItemReplacementDirectory
-  case AllApplicationsDirectory
-  case AllLibrariesDirectory
+  case itemReplacementDirectory
+  case allApplicationsDirectory
+  case allLibrariesDirectory
 }
 struct SearchPathDomainMask : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var UserDomainMask: SearchPathDomainMask { get }
-  static var LocalDomainMask: SearchPathDomainMask { get }
-  static var NetworkDomainMask: SearchPathDomainMask { get }
-  static var SystemDomainMask: SearchPathDomainMask { get }
-  static var AllDomainsMask: SearchPathDomainMask { get }
+  static var userDomainMask: SearchPathDomainMask { get }
+  static var localDomainMask: SearchPathDomainMask { get }
+  static var networkDomainMask: SearchPathDomainMask { get }
+  static var systemDomainMask: SearchPathDomainMask { get }
+  static var allDomainsMask: SearchPathDomainMask { get }
 }
 func searchPathForDirectoriesInDomains(directory: SearchPathDirectory, _ domainMask: SearchPathDomainMask, _ expandTilde: Bool) -> [String]

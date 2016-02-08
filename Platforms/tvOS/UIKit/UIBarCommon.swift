@@ -2,23 +2,23 @@
 enum UIBarMetrics : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Compact
-  case DefaultPrompt
-  case CompactPrompt
+  case `default`
+  case compact
+  case defaultPrompt
+  case compactPrompt
   @available(tvOS, introduced=5.0, deprecated=8.0, message="Use UIBarMetricsCompact instead")
-  static var LandscapePhone: UIBarMetrics { get }
+  static var landscapePhone: UIBarMetrics { get }
   @available(tvOS, introduced=7.0, deprecated=8.0, message="Use UIBarMetricsCompactPrompt")
-  static var LandscapePhonePrompt: UIBarMetrics { get }
+  static var landscapePhonePrompt: UIBarMetrics { get }
 }
 @available(tvOS 7.0, *)
 enum UIBarPosition : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Any
-  case Bottom
-  case Top
-  case TopAttached
+  case any
+  case bottom
+  case top
+  case topAttached
 }
 protocol UIBarPositioning : ObjectProtocol {
   @available(tvOS 7.0, *)

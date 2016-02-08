@@ -2,19 +2,19 @@
 enum XMLNodeKind : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case InvalidKind
-  case DocumentKind
-  case ElementKind
-  case AttributeKind
-  case NamespaceKind
-  case ProcessingInstructionKind
-  case CommentKind
-  case TextKind
+  case invalidKind
+  case documentKind
+  case elementKind
+  case attributeKind
+  case namespaceKind
+  case processingInstructionKind
+  case commentKind
+  case textKind
   case DTDKind
-  case EntityDeclarationKind
-  case AttributeDeclarationKind
-  case ElementDeclarationKind
-  case NotationDeclarationKind
+  case entityDeclarationKind
+  case attributeDeclarationKind
+  case elementDeclarationKind
+  case notationDeclarationKind
 }
 class XMLNode : Object, Copying {
   init()

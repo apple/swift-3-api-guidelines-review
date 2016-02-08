@@ -2,28 +2,28 @@
 enum MPMusicPlaybackState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Stopped
-  case Playing
-  case Paused
-  case Interrupted
-  case SeekingForward
-  case SeekingBackward
+  case stopped
+  case playing
+  case paused
+  case interrupted
+  case seekingForward
+  case seekingBackward
 }
 enum MPMusicRepeatMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case None
-  case One
-  case All
+  case `default`
+  case none
+  case one
+  case all
 }
 enum MPMusicShuffleMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Off
-  case Songs
-  case Albums
+  case `default`
+  case off
+  case songs
+  case albums
 }
 @available(iOS 3.0, *)
 class MPMusicPlayerController : Object, MPMediaPlayback {

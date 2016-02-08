@@ -4,11 +4,11 @@ class CGPDFPage {
 enum CGPDFBox : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case MediaBox
-  case CropBox
-  case BleedBox
-  case TrimBox
-  case ArtBox
+  case mediaBox
+  case cropBox
+  case bleedBox
+  case trimBox
+  case artBox
 }
 @available(OSX 10.3, *)
 func CGPDFPageGetDocument(page: CGPDFPage?) -> CGPDFDocument?

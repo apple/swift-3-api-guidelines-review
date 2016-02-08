@@ -2,8 +2,8 @@
 enum EKSpan : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ThisEvent
-  case FutureEvents
+  case thisEvent
+  case futureEvents
 }
 typealias EKEventSearchCallback = (EKEvent, UnsafeMutablePointer<ObjCBool>) -> Void
 @available(iOS 4.0, *)

@@ -3,8 +3,8 @@ enum NSPrinterTableStatus : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case OK
-  case NotFound
-  case Error
+  case notFound
+  case error
 }
 class NSPrinter : Object, Copying, Coding {
   class func printerNames() -> [String]

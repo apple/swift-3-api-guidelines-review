@@ -2,10 +2,10 @@
 struct CAEdgeAntialiasingMask : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var LayerLeftEdge: CAEdgeAntialiasingMask { get }
-  static var LayerRightEdge: CAEdgeAntialiasingMask { get }
-  static var LayerBottomEdge: CAEdgeAntialiasingMask { get }
-  static var LayerTopEdge: CAEdgeAntialiasingMask { get }
+  static var layerLeftEdge: CAEdgeAntialiasingMask { get }
+  static var layerRightEdge: CAEdgeAntialiasingMask { get }
+  static var layerBottomEdge: CAEdgeAntialiasingMask { get }
+  static var layerTopEdge: CAEdgeAntialiasingMask { get }
 }
 class CALayer : Object, Coding, CAMediaTiming {
   init()

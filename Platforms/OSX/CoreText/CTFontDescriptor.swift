@@ -43,11 +43,11 @@ enum CTFontOrientation : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
   @available(OSX 10.8, *)
-  case Default
+  case `default`
   @available(OSX 10.8, *)
-  case Horizontal
+  case horizontal
   @available(OSX 10.8, *)
-  case Vertical
+  case vertical
   @available(OSX, introduced=10.5, deprecated=10.11)
   static var kCTFontDefaultOrientation: CTFontOrientation { get }
   @available(OSX, introduced=10.5, deprecated=10.11)
@@ -60,12 +60,12 @@ let kCTFontFormatAttribute: CFString
 enum CTFontFormat : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Unrecognized
-  case OpenTypePostScript
-  case OpenTypeTrueType
-  case TrueType
-  case PostScript
-  case Bitmap
+  case unrecognized
+  case openTypePostScript
+  case openTypeTrueType
+  case trueType
+  case postScript
+  case bitmap
 }
 @available(OSX 10.6, *)
 let kCTFontRegistrationScopeAttribute: CFString
@@ -103,15 +103,15 @@ func CTFontDescriptorCreateMatchingFontDescriptor(descriptor: CTFontDescriptor, 
 enum CTFontDescriptorMatchingState : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case DidBegin
-  case DidFinish
-  case WillBeginQuerying
-  case Stalled
-  case WillBeginDownloading
-  case Downloading
-  case DidFinishDownloading
-  case DidMatch
-  case DidFailWithError
+  case didBegin
+  case didFinish
+  case willBeginQuerying
+  case stalled
+  case willBeginDownloading
+  case downloading
+  case didFinishDownloading
+  case didMatch
+  case didFailWithError
 }
 @available(OSX 10.8, *)
 let kCTFontDescriptorMatchingSourceDescriptor: CFString

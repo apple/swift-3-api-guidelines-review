@@ -2,12 +2,12 @@
 enum NSEntityMappingType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case UndefinedEntityMappingType
-  case CustomEntityMappingType
-  case AddEntityMappingType
-  case RemoveEntityMappingType
-  case CopyEntityMappingType
-  case TransformEntityMappingType
+  case undefinedEntityMappingType
+  case customEntityMappingType
+  case addEntityMappingType
+  case removeEntityMappingType
+  case copyEntityMappingType
+  case transformEntityMappingType
 }
 @available(OSX 10.5, *)
 class NSEntityMapping : Object {

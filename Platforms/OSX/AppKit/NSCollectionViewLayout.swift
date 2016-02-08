@@ -3,10 +3,10 @@
 enum NSCollectionElementCategory : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Item
-  case SupplementaryView
-  case DecorationView
-  case InterItemGap
+  case item
+  case supplementaryView
+  case decorationView
+  case interItemGap
 }
 @available(OSX 10.11, *)
 let NSCollectionElementKindInterItemGapIndicator: String
@@ -32,11 +32,11 @@ class NSCollectionViewLayoutAttributes : Object, Copying {
 enum NSCollectionUpdateAction : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Insert
-  case Delete
-  case Reload
-  case Move
-  case None
+  case insert
+  case delete
+  case reload
+  case move
+  case none
 }
 @available(OSX 10.11, *)
 class NSCollectionViewUpdateItem : Object {

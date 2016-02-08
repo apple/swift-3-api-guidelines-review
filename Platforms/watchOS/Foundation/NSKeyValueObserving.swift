@@ -2,28 +2,28 @@
 struct KeyValueObservingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var New: KeyValueObservingOptions { get }
-  static var Old: KeyValueObservingOptions { get }
+  static var new: KeyValueObservingOptions { get }
+  static var old: KeyValueObservingOptions { get }
   @available(watchOS 2.0, *)
-  static var Initial: KeyValueObservingOptions { get }
+  static var initial: KeyValueObservingOptions { get }
   @available(watchOS 2.0, *)
-  static var Prior: KeyValueObservingOptions { get }
+  static var prior: KeyValueObservingOptions { get }
 }
 enum KeyValueChange : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Setting
-  case Insertion
-  case Removal
-  case Replacement
+  case setting
+  case insertion
+  case removal
+  case replacement
 }
 enum KeyValueSetMutationKind : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case UnionSetMutation
-  case MinusSetMutation
-  case IntersectSetMutation
-  case SetSetMutation
+  case unionSetMutation
+  case minusSetMutation
+  case intersectSetMutation
+  case setSetMutation
 }
 let keyValueChangeKindKey: String
 let keyValueChangeNewKey: String

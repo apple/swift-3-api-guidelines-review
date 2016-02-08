@@ -8,9 +8,9 @@ let kCFStreamErrorDomainSystemConfiguration: Int32
 enum CFHostInfoType : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Addresses
-  case Names
-  case Reachability
+  case addresses
+  case names
+  case reachability
 }
 struct CFHostClientContext {
   var version: CFIndex

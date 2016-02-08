@@ -119,14 +119,14 @@ extension Object {
 enum UIAccessibilityScrollDirection : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Right
-  case Left
-  case Up
-  case Down
+  case right
+  case left
+  case up
+  case down
   @available(tvOS 5.0, *)
-  case Next
+  case next
   @available(tvOS 5.0, *)
-  case Previous
+  case previous
 }
 protocol UIAccessibilityReadingContent {
   @available(tvOS 5.0, *)

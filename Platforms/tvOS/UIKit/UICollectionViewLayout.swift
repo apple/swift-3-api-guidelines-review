@@ -2,9 +2,9 @@
 enum UICollectionElementCategory : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Cell
-  case SupplementaryView
-  case DecorationView
+  case cell
+  case supplementaryView
+  case decorationView
 }
 @available(tvOS 6.0, *)
 class UICollectionViewLayoutAttributes : Object, Copying, UIDynamicItem {
@@ -36,11 +36,11 @@ class UICollectionViewLayoutAttributes : Object, Copying, UIDynamicItem {
 enum UICollectionUpdateAction : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Insert
-  case Delete
-  case Reload
-  case Move
-  case None
+  case insert
+  case delete
+  case reload
+  case move
+  case none
 }
 @available(tvOS 6.0, *)
 class UICollectionViewUpdateItem : Object {

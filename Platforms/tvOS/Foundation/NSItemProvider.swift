@@ -31,9 +31,9 @@ let itemProviderErrorDomain: String
 enum ItemProviderErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case UnknownError
-  case ItemUnavailableError
-  case UnexpectedValueClassError
+  case unknownError
+  case itemUnavailableError
+  case unexpectedValueClassError
   @available(tvOS 9.0, *)
-  case UnavailableCoercionError
+  case unavailableCoercionError
 }

@@ -3,14 +3,14 @@
 enum MPMediaGrouping : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Title
-  case Album
-  case Artist
-  case AlbumArtist
-  case Composer
-  case Genre
-  case Playlist
-  case PodcastTitle
+  case title
+  case album
+  case artist
+  case albumArtist
+  case composer
+  case genre
+  case playlist
+  case podcastTitle
 }
 @available(iOS 3.0, *)
 class MPMediaQuery : Object, SecureCoding, Copying {
@@ -56,8 +56,8 @@ class MPMediaPredicate : Object, SecureCoding {
 enum MPMediaPredicateComparison : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case EqualTo
-  case Contains
+  case equalTo
+  case contains
 }
 @available(iOS 3.0, *)
 class MPMediaPropertyPredicate : MPMediaPredicate {

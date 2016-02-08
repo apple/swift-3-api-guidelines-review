@@ -3,8 +3,8 @@
 enum UIPushBehaviorMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Continuous
-  case Instantaneous
+  case continuous
+  case instantaneous
 }
 @available(tvOS 7.0, *)
 class UIPushBehavior : UIDynamicBehavior {

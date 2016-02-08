@@ -55,11 +55,11 @@ var kAudioQueueParam_Pan: AudioQueueParameterID { get }
 struct AudioQueueProcessingTapFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var PreEffects: AudioQueueProcessingTapFlags { get }
-  static var PostEffects: AudioQueueProcessingTapFlags { get }
-  static var Siphon: AudioQueueProcessingTapFlags { get }
-  static var StartOfStream: AudioQueueProcessingTapFlags { get }
-  static var EndOfStream: AudioQueueProcessingTapFlags { get }
+  static var preEffects: AudioQueueProcessingTapFlags { get }
+  static var postEffects: AudioQueueProcessingTapFlags { get }
+  static var siphon: AudioQueueProcessingTapFlags { get }
+  static var startOfStream: AudioQueueProcessingTapFlags { get }
+  static var endOfStream: AudioQueueProcessingTapFlags { get }
 }
 struct AudioQueueBuffer {
   var mAudioDataBytesCapacity: UInt32

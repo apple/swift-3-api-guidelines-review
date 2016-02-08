@@ -2,14 +2,14 @@
 enum TestComparisonOperation : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case EqualToComparison
-  case LessThanOrEqualToComparison
-  case LessThanComparison
-  case GreaterThanOrEqualToComparison
-  case GreaterThanComparison
-  case BeginsWithComparison
-  case EndsWithComparison
-  case ContainsComparison
+  case equalToComparison
+  case lessThanOrEqualToComparison
+  case lessThanComparison
+  case greaterThanOrEqualToComparison
+  case greaterThanComparison
+  case beginsWithComparison
+  case endsWithComparison
+  case containsComparison
 }
 class ScriptWhoseTest : Object, Coding {
   func isTrue() -> Bool

@@ -132,9 +132,9 @@ let NSAccessibilityExtrasMenuBarAttribute: String
 enum NSAccessibilityOrientation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Vertical
-  case Horizontal
+  case unknown
+  case vertical
+  case horizontal
 }
 let NSAccessibilityOrientationAttribute: String
 let NSAccessibilityVerticalOrientationValue: String
@@ -190,9 +190,9 @@ let NSAccessibilityUnknownSortDirectionValue: String
 enum NSAccessibilitySortDirection : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Ascending
-  case Descending
+  case unknown
+  case ascending
+  case descending
 }
 let NSAccessibilityDisclosingAttribute: String
 let NSAccessibilityDisclosedRowsAttribute: String
@@ -226,14 +226,14 @@ let NSAccessibilityUnknownMarkerTypeValue: String
 enum NSAccessibilityRulerMarkerType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case TabStopLeft
-  case TabStopRight
-  case TabStopCenter
-  case TabStopDecimal
-  case IndentHead
-  case IndentTail
-  case IndentFirstLine
+  case unknown
+  case tabStopLeft
+  case tabStopRight
+  case tabStopCenter
+  case tabStopDecimal
+  case indentHead
+  case indentTail
+  case indentFirstLine
 }
 let NSAccessibilityInchesUnitValue: String
 let NSAccessibilityCentimetersUnitValue: String
@@ -244,11 +244,11 @@ let NSAccessibilityUnknownUnitValue: String
 enum NSAccessibilityUnits : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Inches
-  case Centimeters
-  case Points
-  case Picas
+  case unknown
+  case inches
+  case centimeters
+  case points
+  case picas
 }
 let NSAccessibilityPressAction: String
 let NSAccessibilityIncrementAction: String
@@ -415,7 +415,7 @@ let NSAccessibilityAnnouncementKey: String
 enum NSAccessibilityPriorityLevel : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Low
-  case Medium
-  case High
+  case low
+  case medium
+  case high
 }

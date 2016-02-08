@@ -22,9 +22,9 @@ enum NSManagedObjectContextConcurrencyType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   @available(OSX, introduced=10.4, deprecated=10.11, message="Use another NSManagedObjectContextConcurrencyType")
-  case ConfinementConcurrencyType
-  case PrivateQueueConcurrencyType
-  case MainQueueConcurrencyType
+  case confinementConcurrencyType
+  case privateQueueConcurrencyType
+  case mainQueueConcurrencyType
 }
 @available(OSX 10.4, *)
 class NSManagedObjectContext : Object, Coding, Locking {

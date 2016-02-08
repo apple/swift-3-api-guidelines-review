@@ -73,13 +73,13 @@ func SecTrustSetOCSPResponse(trust: SecTrust, _ responseData: CFTypeRef?) -> OSS
 struct SecTrustOptionFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var AllowExpired: SecTrustOptionFlags { get }
-  static var LeafIsCA: SecTrustOptionFlags { get }
-  static var FetchIssuerFromNet: SecTrustOptionFlags { get }
-  static var AllowExpiredRoot: SecTrustOptionFlags { get }
-  static var RequireRevPerCert: SecTrustOptionFlags { get }
-  static var UseTrustSettings: SecTrustOptionFlags { get }
-  static var ImplicitAnchors: SecTrustOptionFlags { get }
+  static var allowExpired: SecTrustOptionFlags { get }
+  static var leafIsCA: SecTrustOptionFlags { get }
+  static var fetchIssuerFromNet: SecTrustOptionFlags { get }
+  static var allowExpiredRoot: SecTrustOptionFlags { get }
+  static var requireRevPerCert: SecTrustOptionFlags { get }
+  static var useTrustSettings: SecTrustOptionFlags { get }
+  static var implicitAnchors: SecTrustOptionFlags { get }
 }
 @available(OSX 10.7, *)
 func SecTrustSetOptions(trustRef: SecTrust, _ options: SecTrustOptionFlags) -> OSStatus

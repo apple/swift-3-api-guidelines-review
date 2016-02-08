@@ -2,9 +2,9 @@
 enum HTTPCookieAcceptPolicy : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Always
-  case Never
-  case OnlyFromMainDocumentDomain
+  case always
+  case never
+  case onlyFromMainDocumentDomain
 }
 class HTTPCookieStorage : Object {
   class func shared() -> HTTPCookieStorage

@@ -2,19 +2,19 @@
 enum EKEventAvailability : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case NotSupported
-  case Busy
-  case Free
-  case Tentative
-  case Unavailable
+  case notSupported
+  case busy
+  case free
+  case tentative
+  case unavailable
 }
 enum EKEventStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Confirmed
-  case Tentative
-  case Canceled
+  case none
+  case confirmed
+  case tentative
+  case canceled
 }
 @available(watchOS 2.0, *)
 class EKEvent : EKCalendarItem {

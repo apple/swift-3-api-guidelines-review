@@ -2,16 +2,16 @@
 enum PostingStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case PostWhenIdle
-  case PostASAP
-  case PostNow
+  case postWhenIdle
+  case postASAP
+  case postNow
 }
 struct NotificationCoalescing : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var NoCoalescing: NotificationCoalescing { get }
-  static var CoalescingOnName: NotificationCoalescing { get }
-  static var CoalescingOnSender: NotificationCoalescing { get }
+  static var noCoalescing: NotificationCoalescing { get }
+  static var coalescingOnName: NotificationCoalescing { get }
+  static var coalescingOnSender: NotificationCoalescing { get }
 }
 class NotificationQueue : Object {
   class func defaultQueue() -> NotificationQueue

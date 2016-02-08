@@ -2,11 +2,11 @@
 enum AVAssetReaderStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Reading
-  case Completed
-  case Failed
-  case Cancelled
+  case unknown
+  case reading
+  case completed
+  case failed
+  case cancelled
 }
 @available(OSX 10.7, *)
 class AVAssetReader : Object {

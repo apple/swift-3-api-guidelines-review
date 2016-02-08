@@ -2,27 +2,27 @@
 enum UIEventType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Touches
-  case Motion
-  case RemoteControl
+  case touches
+  case motion
+  case remoteControl
   @available(tvOS 9.0, *)
-  case Presses
+  case presses
 }
 enum UIEventSubtype : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case MotionShake
-  case RemoteControlPlay
-  case RemoteControlPause
-  case RemoteControlStop
-  case RemoteControlTogglePlayPause
-  case RemoteControlNextTrack
-  case RemoteControlPreviousTrack
-  case RemoteControlBeginSeekingBackward
-  case RemoteControlEndSeekingBackward
-  case RemoteControlBeginSeekingForward
-  case RemoteControlEndSeekingForward
+  case none
+  case motionShake
+  case remoteControlPlay
+  case remoteControlPause
+  case remoteControlStop
+  case remoteControlTogglePlayPause
+  case remoteControlNextTrack
+  case remoteControlPreviousTrack
+  case remoteControlBeginSeekingBackward
+  case remoteControlEndSeekingBackward
+  case remoteControlBeginSeekingForward
+  case remoteControlEndSeekingForward
 }
 @available(tvOS 2.0, *)
 class UIEvent : Object {

@@ -2,39 +2,39 @@
 enum NSTextBlockValueType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case AbsoluteValueType
-  case PercentageValueType
+  case absoluteValueType
+  case percentageValueType
 }
 enum NSTextBlockDimension : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Width
-  case MinimumWidth
-  case MaximumWidth
-  case Height
-  case MinimumHeight
-  case MaximumHeight
+  case width
+  case minimumWidth
+  case maximumWidth
+  case height
+  case minimumHeight
+  case maximumHeight
 }
 enum NSTextBlockLayer : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Padding
-  case Border
-  case Margin
+  case padding
+  case border
+  case margin
 }
 enum NSTextBlockVerticalAlignment : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case TopAlignment
-  case MiddleAlignment
-  case BottomAlignment
-  case BaselineAlignment
+  case topAlignment
+  case middleAlignment
+  case bottomAlignment
+  case baselineAlignment
 }
 enum NSTextTableLayoutAlgorithm : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case AutomaticLayoutAlgorithm
-  case FixedLayoutAlgorithm
+  case automaticLayoutAlgorithm
+  case fixedLayoutAlgorithm
 }
 class NSTextBlock : Object, Coding, Copying {
   init()

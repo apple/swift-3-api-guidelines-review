@@ -3,17 +3,17 @@
 enum CKSubscriptionType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Query
-  case RecordZone
+  case query
+  case recordZone
 }
 @available(OSX 10.10, *)
 struct CKSubscriptionOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var FiresOnRecordCreation: CKSubscriptionOptions { get }
-  static var FiresOnRecordUpdate: CKSubscriptionOptions { get }
-  static var FiresOnRecordDeletion: CKSubscriptionOptions { get }
-  static var FiresOnce: CKSubscriptionOptions { get }
+  static var firesOnRecordCreation: CKSubscriptionOptions { get }
+  static var firesOnRecordUpdate: CKSubscriptionOptions { get }
+  static var firesOnRecordDeletion: CKSubscriptionOptions { get }
+  static var firesOnce: CKSubscriptionOptions { get }
 }
 @available(OSX 10.10, *)
 class CKSubscription : Object, SecureCoding, Copying {

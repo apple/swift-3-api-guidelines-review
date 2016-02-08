@@ -2,10 +2,10 @@
 enum NSDrawerState : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ClosedState
-  case OpeningState
-  case OpenState
-  case ClosingState
+  case closedState
+  case openingState
+  case openState
+  case closingState
 }
 class NSDrawer : NSResponder, NSAccessibilityElementProtocol, NSAccessibility {
   init(contentSize: Size, preferredEdge edge: RectEdge)

@@ -2,8 +2,8 @@
 enum NSPathStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Standard
-  case PopUp
+  case standard
+  case popUp
 }
 @available(OSX 10.5, *)
 class NSPathCell : NSActionCell, NSOpenSavePanelDelegate {

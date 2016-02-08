@@ -3,11 +3,11 @@
 enum DateIntervalFormatterStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NoStyle
-  case ShortStyle
-  case MediumStyle
-  case LongStyle
-  case FullStyle
+  case noStyle
+  case shortStyle
+  case mediumStyle
+  case longStyle
+  case fullStyle
 }
 @available(iOS 8.0, *)
 class DateIntervalFormatter : Formatter {

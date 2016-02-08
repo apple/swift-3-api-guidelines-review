@@ -3,8 +3,8 @@
 enum NSTableViewRowActionStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Regular
-  case Destructive
+  case regular
+  case destructive
 }
 @available(OSX 10.11, *)
 class NSTableViewRowAction : Object, Copying {

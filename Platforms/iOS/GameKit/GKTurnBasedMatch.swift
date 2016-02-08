@@ -2,35 +2,35 @@
 enum GKTurnBasedMatchStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Open
-  case Ended
-  case Matching
+  case unknown
+  case open
+  case ended
+  case matching
 }
 enum GKTurnBasedParticipantStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Invited
-  case Declined
-  case Matching
-  case Active
-  case Done
+  case unknown
+  case invited
+  case declined
+  case matching
+  case active
+  case done
 }
 enum GKTurnBasedMatchOutcome : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Quit
-  case Won
-  case Lost
-  case Tied
-  case TimeExpired
-  case First
-  case Second
-  case Third
-  case Fourth
-  case CustomRange
+  case none
+  case quit
+  case won
+  case lost
+  case tied
+  case timeExpired
+  case first
+  case second
+  case third
+  case fourth
+  case customRange
 }
 @available(iOS 5.0, *)
 class GKTurnBasedParticipant : Object {
@@ -124,11 +124,11 @@ class GKTurnBasedMatch : Object {
 enum GKTurnBasedExchangeStatus : Int8 {
   init?(rawValue: Int8)
   var rawValue: Int8 { get }
-  case Unknown
-  case Active
-  case Complete
-  case Resolved
-  case Canceled
+  case unknown
+  case active
+  case complete
+  case resolved
+  case canceled
 }
 @available(iOS 7.0, *)
 var GKExchangeTimeoutDefault: TimeInterval

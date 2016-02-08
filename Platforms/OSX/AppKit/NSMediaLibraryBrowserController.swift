@@ -3,9 +3,9 @@
 struct NSMediaLibrary : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Audio: NSMediaLibrary { get }
-  static var Image: NSMediaLibrary { get }
-  static var Movie: NSMediaLibrary { get }
+  static var audio: NSMediaLibrary { get }
+  static var image: NSMediaLibrary { get }
+  static var movie: NSMediaLibrary { get }
 }
 @available(OSX 10.9, *)
 class NSMediaLibraryBrowserController : Object {

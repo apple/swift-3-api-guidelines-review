@@ -2,9 +2,9 @@
 enum EKEventViewAction : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Done
-  case Responded
-  case Deleted
+  case done
+  case responded
+  case deleted
 }
 @available(iOS 4.0, *)
 class EKEventViewController : UIViewController {

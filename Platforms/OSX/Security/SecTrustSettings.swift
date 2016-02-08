@@ -8,29 +8,29 @@ var kSecTrustSettingsResult: String { get }
 struct SecTrustSettingsKeyUsage : OptionSetType {
   init(rawValue: uint32)
   let rawValue: uint32
-  static var UseSignature: SecTrustSettingsKeyUsage { get }
-  static var UseEnDecryptData: SecTrustSettingsKeyUsage { get }
-  static var UseEnDecryptKey: SecTrustSettingsKeyUsage { get }
-  static var UseSignCert: SecTrustSettingsKeyUsage { get }
-  static var UseSignRevocation: SecTrustSettingsKeyUsage { get }
-  static var UseKeyExchange: SecTrustSettingsKeyUsage { get }
-  static var UseAny: SecTrustSettingsKeyUsage { get }
+  static var useSignature: SecTrustSettingsKeyUsage { get }
+  static var useEnDecryptData: SecTrustSettingsKeyUsage { get }
+  static var useEnDecryptKey: SecTrustSettingsKeyUsage { get }
+  static var useSignCert: SecTrustSettingsKeyUsage { get }
+  static var useSignRevocation: SecTrustSettingsKeyUsage { get }
+  static var useKeyExchange: SecTrustSettingsKeyUsage { get }
+  static var useAny: SecTrustSettingsKeyUsage { get }
 }
 enum SecTrustSettingsResult : uint32 {
   init?(rawValue: uint32)
   var rawValue: uint32 { get }
-  case Invalid
-  case TrustRoot
-  case TrustAsRoot
-  case Deny
-  case Unspecified
+  case invalid
+  case trustRoot
+  case trustAsRoot
+  case deny
+  case unspecified
 }
 enum SecTrustSettingsDomain : uint32 {
   init?(rawValue: uint32)
   var rawValue: uint32 { get }
-  case User
-  case Admin
-  case System
+  case user
+  case admin
+  case system
 }
 func SecTrustSettingsCopyTrustSettings(certRef: SecCertificate, _ domain: SecTrustSettingsDomain, _ trustSettings: UnsafeMutablePointer<CFArray?>) -> OSStatus
 func SecTrustSettingsSetTrustSettings(certRef: SecCertificate, _ domain: SecTrustSettingsDomain, _ trustSettingsDictOrArray: CFTypeRef?) -> OSStatus

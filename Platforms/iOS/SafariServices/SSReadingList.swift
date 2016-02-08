@@ -12,5 +12,5 @@ let SSReadingListErrorDomain: String
 enum SSReadingListErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case URLSchemeNotAllowed
+  case urlSchemeNotAllowed
 }

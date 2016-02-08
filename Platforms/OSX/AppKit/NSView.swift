@@ -2,49 +2,49 @@
 struct NSAutoresizingMaskOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ViewNotSizable: NSAutoresizingMaskOptions { get }
-  static var ViewMinXMargin: NSAutoresizingMaskOptions { get }
-  static var ViewWidthSizable: NSAutoresizingMaskOptions { get }
-  static var ViewMaxXMargin: NSAutoresizingMaskOptions { get }
-  static var ViewMinYMargin: NSAutoresizingMaskOptions { get }
-  static var ViewHeightSizable: NSAutoresizingMaskOptions { get }
-  static var ViewMaxYMargin: NSAutoresizingMaskOptions { get }
+  static var viewNotSizable: NSAutoresizingMaskOptions { get }
+  static var viewMinXMargin: NSAutoresizingMaskOptions { get }
+  static var viewWidthSizable: NSAutoresizingMaskOptions { get }
+  static var viewMaxXMargin: NSAutoresizingMaskOptions { get }
+  static var viewMinYMargin: NSAutoresizingMaskOptions { get }
+  static var viewHeightSizable: NSAutoresizingMaskOptions { get }
+  static var viewMaxYMargin: NSAutoresizingMaskOptions { get }
 }
 enum NSBorderType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NoBorder
-  case LineBorder
-  case BezelBorder
-  case GrooveBorder
+  case noBorder
+  case lineBorder
+  case bezelBorder
+  case grooveBorder
 }
 @available(OSX 10.6, *)
 enum NSViewLayerContentsRedrawPolicy : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Never
-  case OnSetNeedsDisplay
-  case DuringViewResize
-  case BeforeViewResize
+  case never
+  case onSetNeedsDisplay
+  case duringViewResize
+  case beforeViewResize
   @available(OSX 10.9, *)
-  case Crossfade
+  case crossfade
 }
 @available(OSX 10.6, *)
 enum NSViewLayerContentsPlacement : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ScaleAxesIndependently
-  case ScaleProportionallyToFit
-  case ScaleProportionallyToFill
-  case Center
-  case Top
-  case TopRight
-  case Right
-  case BottomRight
-  case Bottom
-  case BottomLeft
-  case Left
-  case TopLeft
+  case scaleAxesIndependently
+  case scaleProportionallyToFit
+  case scaleProportionallyToFill
+  case center
+  case top
+  case topRight
+  case right
+  case bottomRight
+  case bottom
+  case bottomLeft
+  case left
+  case topLeft
 }
 struct __VFlags {
   var aboutToResize: UInt32

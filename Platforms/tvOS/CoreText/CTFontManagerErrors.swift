@@ -6,12 +6,12 @@ let kCTFontManagerErrorFontURLsKey: CFString
 enum CTFontManagerError : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case FileNotFound
-  case InsufficientPermissions
-  case UnrecognizedFormat
-  case InvalidFontData
-  case AlreadyRegistered
-  case NotRegistered
-  case InUse
-  case SystemRequired
+  case fileNotFound
+  case insufficientPermissions
+  case unrecognizedFormat
+  case invalidFontData
+  case alreadyRegistered
+  case notRegistered
+  case inUse
+  case systemRequired
 }

@@ -2,44 +2,44 @@
 enum SecItemClass : FourCharCode {
   init?(rawValue: FourCharCode)
   var rawValue: FourCharCode { get }
-  case InternetPasswordItemClass
-  case GenericPasswordItemClass
-  case CertificateItemClass
-  case PublicKeyItemClass
-  case PrivateKeyItemClass
-  case SymmetricKeyItemClass
+  case internetPasswordItemClass
+  case genericPasswordItemClass
+  case certificateItemClass
+  case publicKeyItemClass
+  case privateKeyItemClass
+  case symmetricKeyItemClass
 }
 enum SecItemAttr : FourCharCode {
   init?(rawValue: FourCharCode)
   var rawValue: FourCharCode { get }
-  case CreationDateItemAttr
-  case ModDateItemAttr
-  case DescriptionItemAttr
-  case CommentItemAttr
-  case CreatorItemAttr
-  case TypeItemAttr
-  case ScriptCodeItemAttr
-  case LabelItemAttr
-  case InvisibleItemAttr
-  case NegativeItemAttr
-  case CustomIconItemAttr
-  case AccountItemAttr
-  case ServiceItemAttr
-  case GenericItemAttr
-  case SecurityDomainItemAttr
-  case ServerItemAttr
-  case AuthenticationTypeItemAttr
-  case PortItemAttr
-  case PathItemAttr
-  case VolumeItemAttr
-  case AddressItemAttr
-  case SignatureItemAttr
-  case ProtocolItemAttr
-  case CertificateType
-  case CertificateEncoding
-  case CrlType
-  case CrlEncoding
-  case Alias
+  case creationDateItemAttr
+  case modDateItemAttr
+  case descriptionItemAttr
+  case commentItemAttr
+  case creatorItemAttr
+  case typeItemAttr
+  case scriptCodeItemAttr
+  case labelItemAttr
+  case invisibleItemAttr
+  case negativeItemAttr
+  case customIconItemAttr
+  case accountItemAttr
+  case serviceItemAttr
+  case genericItemAttr
+  case securityDomainItemAttr
+  case serverItemAttr
+  case authenticationTypeItemAttr
+  case portItemAttr
+  case pathItemAttr
+  case volumeItemAttr
+  case addressItemAttr
+  case signatureItemAttr
+  case protocolItemAttr
+  case certificateType
+  case certificateEncoding
+  case crlType
+  case crlEncoding
+  case alias
 }
 typealias SecAFPServerSignature = (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
 typealias SecPublicKeyHash = (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)

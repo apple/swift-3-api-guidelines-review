@@ -8,15 +8,15 @@ class AVSampleBufferGenerator : Object {
 enum AVSampleBufferRequestDirection : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Forward
-  case None
-  case Reverse
+  case forward
+  case none
+  case reverse
 }
 enum AVSampleBufferRequestMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Immediate
-  case Scheduled
+  case immediate
+  case scheduled
 }
 @available(OSX 10.10, *)
 class AVSampleBufferRequest : Object {

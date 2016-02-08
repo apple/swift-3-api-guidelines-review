@@ -3,11 +3,11 @@
 enum SCNAntialiasingMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
-  case Multisampling2X
-  case Multisampling4X
-  case Multisampling8X
-  case Multisampling16X
+  case none
+  case multisampling2X
+  case multisampling4X
+  case multisampling8X
+  case multisampling16X
 }
 @available(OSX 10.11, *)
 let SCNPreferredRenderingAPIKey: String

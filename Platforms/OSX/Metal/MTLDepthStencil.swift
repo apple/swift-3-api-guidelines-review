@@ -3,27 +3,27 @@
 enum MTLCompareFunction : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Never
-  case Less
-  case Equal
-  case LessEqual
-  case Greater
-  case NotEqual
-  case GreaterEqual
-  case Always
+  case never
+  case less
+  case equal
+  case lessEqual
+  case greater
+  case notEqual
+  case greaterEqual
+  case always
 }
 @available(OSX 10.11, *)
 enum MTLStencilOperation : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Keep
-  case Zero
-  case Replace
-  case IncrementClamp
-  case DecrementClamp
-  case Invert
-  case IncrementWrap
-  case DecrementWrap
+  case keep
+  case zero
+  case replace
+  case incrementClamp
+  case decrementClamp
+  case invert
+  case incrementWrap
+  case decrementWrap
 }
 @available(OSX 10.11, *)
 class MTLStencilDescriptor : Object, Copying {

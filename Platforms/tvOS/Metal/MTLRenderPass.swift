@@ -3,17 +3,17 @@
 enum MTLLoadAction : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case DontCare
-  case Load
-  case Clear
+  case dontCare
+  case load
+  case clear
 }
 @available(tvOS 8.0, *)
 enum MTLStoreAction : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case DontCare
-  case Store
-  case MultisampleResolve
+  case dontCare
+  case store
+  case multisampleResolve
 }
 struct MTLClearColor {
   var red: Double
@@ -48,9 +48,9 @@ class MTLRenderPassColorAttachmentDescriptor : MTLRenderPassAttachmentDescriptor
 enum MTLMultisampleDepthResolveFilter : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Sample0
-  case Min
-  case Max
+  case sample0
+  case min
+  case max
 }
 @available(tvOS 8.0, *)
 class MTLRenderPassDepthAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {

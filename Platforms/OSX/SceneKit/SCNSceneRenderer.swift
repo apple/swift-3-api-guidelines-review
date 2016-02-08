@@ -12,22 +12,22 @@ let SCNHitTestIgnoreHiddenNodesKey: String
 enum SCNRenderingAPI : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Metal
-  case OpenGLLegacy
-  case OpenGLCore32
-  case OpenGLCore41
+  case metal
+  case openGLLegacy
+  case openGLCore32
+  case openGLCore41
 }
 @available(OSX 10.11, *)
 struct SCNDebugOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: SCNDebugOptions { get }
-  static var ShowPhysicsShapes: SCNDebugOptions { get }
-  static var ShowBoundingBoxes: SCNDebugOptions { get }
-  static var ShowLightInfluences: SCNDebugOptions { get }
-  static var ShowLightExtents: SCNDebugOptions { get }
-  static var ShowPhysicsFields: SCNDebugOptions { get }
-  static var ShowWireframe: SCNDebugOptions { get }
+  static var none: SCNDebugOptions { get }
+  static var showPhysicsShapes: SCNDebugOptions { get }
+  static var showBoundingBoxes: SCNDebugOptions { get }
+  static var showLightInfluences: SCNDebugOptions { get }
+  static var showLightExtents: SCNDebugOptions { get }
+  static var showPhysicsFields: SCNDebugOptions { get }
+  static var showWireframe: SCNDebugOptions { get }
 }
 @available(OSX 10.8, *)
 class SCNHitTestResult : Object {

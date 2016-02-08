@@ -25,12 +25,12 @@ extension AVAsset {
 struct AVAssetReferenceRestrictions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ForbidNone: AVAssetReferenceRestrictions { get }
-  static var ForbidRemoteReferenceToLocal: AVAssetReferenceRestrictions { get }
-  static var ForbidLocalReferenceToRemote: AVAssetReferenceRestrictions { get }
-  static var ForbidCrossSiteReference: AVAssetReferenceRestrictions { get }
-  static var ForbidLocalReferenceToLocal: AVAssetReferenceRestrictions { get }
-  static var ForbidAll: AVAssetReferenceRestrictions { get }
+  static var forbidNone: AVAssetReferenceRestrictions { get }
+  static var forbidRemoteReferenceToLocal: AVAssetReferenceRestrictions { get }
+  static var forbidLocalReferenceToRemote: AVAssetReferenceRestrictions { get }
+  static var forbidCrossSiteReference: AVAssetReferenceRestrictions { get }
+  static var forbidLocalReferenceToLocal: AVAssetReferenceRestrictions { get }
+  static var forbidAll: AVAssetReferenceRestrictions { get }
 }
 extension AVAsset {
   var tracks: [AVAssetTrack] { get }

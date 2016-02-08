@@ -4,21 +4,21 @@ let netServicesErrorDomain: String
 enum NetServicesError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case UnknownError
-  case CollisionError
-  case NotFoundError
-  case ActivityInProgress
-  case BadArgumentError
-  case CancelledError
-  case InvalidError
-  case TimeoutError
+  case unknownError
+  case collisionError
+  case notFoundError
+  case activityInProgress
+  case badArgumentError
+  case cancelledError
+  case invalidError
+  case timeoutError
 }
 struct NetServiceOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var NoAutoRename: NetServiceOptions { get }
+  static var noAutoRename: NetServiceOptions { get }
   @available(tvOS 7.0, *)
-  static var ListenForConnections: NetServiceOptions { get }
+  static var listenForConnections: NetServiceOptions { get }
 }
 class NetService : Object {
   init(domain: String, type: String, name: String, port: Int32)

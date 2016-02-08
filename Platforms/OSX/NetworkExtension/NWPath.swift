@@ -3,10 +3,10 @@
 enum NWPathStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Invalid
-  case Satisfied
-  case Unsatisfied
-  case Satisfiable
+  case invalid
+  case satisfied
+  case unsatisfied
+  case satisfiable
 }
 @available(OSX 10.11, *)
 class NWPath : Object {

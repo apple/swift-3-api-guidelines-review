@@ -5,21 +5,21 @@ let WCErrorDomain: String
 enum WCErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case GenericError
-  case SessionNotSupported
-  case SessionMissingDelegate
-  case SessionNotActivated
-  case DeviceNotPaired
-  case WatchAppNotInstalled
-  case NotReachable
-  case InvalidParameter
-  case PayloadTooLarge
-  case PayloadUnsupportedTypes
-  case MessageReplyFailed
-  case MessageReplyTimedOut
-  case FileAccessDenied
-  case DeliveryFailed
-  case InsufficientSpace
+  case genericError
+  case sessionNotSupported
+  case sessionMissingDelegate
+  case sessionNotActivated
+  case deviceNotPaired
+  case watchAppNotInstalled
+  case notReachable
+  case invalidParameter
+  case payloadTooLarge
+  case payloadUnsupportedTypes
+  case messageReplyFailed
+  case messageReplyTimedOut
+  case fileAccessDenied
+  case deliveryFailed
+  case insufficientSpace
 }
 
 @available(iOS 9.0, *)

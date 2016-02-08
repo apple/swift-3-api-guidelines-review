@@ -3,33 +3,33 @@
 enum NEHotspotHelperCommandType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case FilterScanList
-  case Evaluate
-  case Authenticate
-  case PresentUI
-  case Maintain
-  case Logoff
+  case none
+  case filterScanList
+  case evaluate
+  case authenticate
+  case presentUI
+  case maintain
+  case logoff
 }
 @available(iOS 9.0, *)
 enum NEHotspotHelperResult : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Success
-  case Failure
-  case UIRequired
-  case CommandNotRecognized
-  case AuthenticationRequired
-  case UnsupportedNetwork
-  case TemporaryFailure
+  case success
+  case failure
+  case uiRequired
+  case commandNotRecognized
+  case authenticationRequired
+  case unsupportedNetwork
+  case temporaryFailure
 }
 @available(iOS 9.0, *)
 enum NEHotspotHelperConfidence : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Low
-  case High
+  case none
+  case low
+  case high
 }
 @available(iOS 9.0, *)
 class NEHotspotNetwork : Object {

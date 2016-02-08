@@ -5,12 +5,12 @@ let WKErrorDomain: String
 enum WKErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case WebContentProcessTerminated
-  case WebViewInvalidated
-  case JavaScriptExceptionOccurred
+  case unknown
+  case webContentProcessTerminated
+  case webViewInvalidated
+  case javaScriptExceptionOccurred
   @available(iOS 9.0, *)
-  case JavaScriptResultTypeIsUnsupported
+  case javaScriptResultTypeIsUnsupported
 }
 
 @available(OSX 10.10, iOS 8.0, *)

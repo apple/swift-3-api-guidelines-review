@@ -3,10 +3,10 @@
 enum TVColorType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Plain
-  case LinearGradientTopToBottom
-  case LinearGradientLeftToRight
+  case none
+  case plain
+  case linearGradientTopToBottom
+  case linearGradientLeftToRight
 }
 @available(tvOS 9.0, *)
 class TVColor : Object, Copying {

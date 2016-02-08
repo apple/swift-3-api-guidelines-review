@@ -2,26 +2,26 @@
 struct NSWorkspaceLaunchOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var AndPrint: NSWorkspaceLaunchOptions { get }
-  static var WithErrorPresentation: NSWorkspaceLaunchOptions { get }
-  static var InhibitingBackgroundOnly: NSWorkspaceLaunchOptions { get }
-  static var WithoutAddingToRecents: NSWorkspaceLaunchOptions { get }
-  static var WithoutActivation: NSWorkspaceLaunchOptions { get }
-  static var Async: NSWorkspaceLaunchOptions { get }
-  static var NewInstance: NSWorkspaceLaunchOptions { get }
-  static var AndHide: NSWorkspaceLaunchOptions { get }
-  static var AndHideOthers: NSWorkspaceLaunchOptions { get }
-  static var Default: NSWorkspaceLaunchOptions { get }
+  static var andPrint: NSWorkspaceLaunchOptions { get }
+  static var withErrorPresentation: NSWorkspaceLaunchOptions { get }
+  static var inhibitingBackgroundOnly: NSWorkspaceLaunchOptions { get }
+  static var withoutAddingToRecents: NSWorkspaceLaunchOptions { get }
+  static var withoutActivation: NSWorkspaceLaunchOptions { get }
+  static var async: NSWorkspaceLaunchOptions { get }
+  static var newInstance: NSWorkspaceLaunchOptions { get }
+  static var andHide: NSWorkspaceLaunchOptions { get }
+  static var andHideOthers: NSWorkspaceLaunchOptions { get }
+  static var `default`: NSWorkspaceLaunchOptions { get }
   @available(OSX, introduced=10.3, deprecated=10.11, message="The Classic environment is no longer supported.")
-  static var AllowingClassicStartup: NSWorkspaceLaunchOptions { get }
+  static var allowingClassicStartup: NSWorkspaceLaunchOptions { get }
   @available(OSX, introduced=10.3, deprecated=10.11, message="The Classic environment is no longer supported.")
-  static var PreferringClassic: NSWorkspaceLaunchOptions { get }
+  static var preferringClassic: NSWorkspaceLaunchOptions { get }
 }
 struct NSWorkspaceIconCreationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ExcludeQuickDrawElementsIconCreationOption: NSWorkspaceIconCreationOptions { get }
-  static var Exclude10_4ElementsIconCreationOption: NSWorkspaceIconCreationOptions { get }
+  static var excludeQuickDrawElementsIconCreationOption: NSWorkspaceIconCreationOptions { get }
+  static var exclude10_4ElementsIconCreationOption: NSWorkspaceIconCreationOptions { get }
 }
 class NSWorkspace : Object {
   class func shared() -> NSWorkspace

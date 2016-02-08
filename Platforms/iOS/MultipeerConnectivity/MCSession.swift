@@ -3,24 +3,24 @@
 enum MCSessionSendDataMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Reliable
-  case Unreliable
+  case reliable
+  case unreliable
 }
 @available(iOS 7.0, *)
 enum MCSessionState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case NotConnected
-  case Connecting
-  case Connected
+  case notConnected
+  case connecting
+  case connected
 }
 @available(iOS 7.0, *)
 enum MCEncryptionPreference : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Optional
-  case Required
-  case None
+  case optional
+  case required
+  case none
 }
 @available(iOS 7.0, *)
 let kMCSessionMinimumNumberOfPeers: Int

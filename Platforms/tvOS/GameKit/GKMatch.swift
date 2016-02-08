@@ -2,15 +2,15 @@
 enum GKMatchSendDataMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Reliable
-  case Unreliable
+  case reliable
+  case unreliable
 }
 enum GKPlayerConnectionState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case StateUnknown
-  case StateConnected
-  case StateDisconnected
+  case stateUnknown
+  case stateConnected
+  case stateDisconnected
 }
 @available(tvOS 4.1, *)
 class GKMatch : Object {

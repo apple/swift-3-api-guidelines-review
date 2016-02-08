@@ -2,18 +2,18 @@
 enum UITabBarSystemItem : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case More
-  case Favorites
-  case Featured
-  case TopRated
-  case Recents
-  case Contacts
-  case History
-  case Bookmarks
-  case Search
-  case Downloads
-  case MostRecent
-  case MostViewed
+  case more
+  case favorites
+  case featured
+  case topRated
+  case recents
+  case contacts
+  case history
+  case bookmarks
+  case search
+  case downloads
+  case mostRecent
+  case mostViewed
 }
 @available(iOS 2.0, *)
 class UITabBarItem : UIBarItem {

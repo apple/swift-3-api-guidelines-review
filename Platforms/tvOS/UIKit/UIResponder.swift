@@ -41,12 +41,12 @@ class UIResponder : Object {
 struct UIKeyModifierFlags : OptionSetType {
   init(rawValue: Int)
   let rawValue: Int
-  static var AlphaShift: UIKeyModifierFlags { get }
-  static var Shift: UIKeyModifierFlags { get }
-  static var Control: UIKeyModifierFlags { get }
-  static var Alternate: UIKeyModifierFlags { get }
-  static var Command: UIKeyModifierFlags { get }
-  static var NumericPad: UIKeyModifierFlags { get }
+  static var alphaShift: UIKeyModifierFlags { get }
+  static var shift: UIKeyModifierFlags { get }
+  static var control: UIKeyModifierFlags { get }
+  static var alternate: UIKeyModifierFlags { get }
+  static var command: UIKeyModifierFlags { get }
+  static var numericPad: UIKeyModifierFlags { get }
 }
 @available(tvOS 7.0, *)
 class UIKeyCommand : Object, Copying, SecureCoding {

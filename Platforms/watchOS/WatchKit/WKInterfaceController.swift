@@ -3,60 +3,60 @@
 enum WKUserNotificationInterfaceType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Custom
+  case `default`
+  case custom
 }
 @available(watchOS 2.0, *)
 enum WKMenuItemIcon : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Accept
-  case Add
-  case Block
-  case Decline
-  case Info
-  case Maybe
-  case More
-  case Mute
-  case Pause
-  case Play
-  case Repeat
-  case Resume
-  case Share
-  case Shuffle
-  case Speaker
-  case Trash
+  case accept
+  case add
+  case block
+  case decline
+  case info
+  case maybe
+  case more
+  case mute
+  case pause
+  case play
+  case `repeat`
+  case resume
+  case share
+  case shuffle
+  case speaker
+  case trash
 }
 enum WKTextInputMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Plain
-  case AllowEmoji
-  case AllowAnimatedEmoji
+  case plain
+  case allowEmoji
+  case allowAnimatedEmoji
 }
 @available(watchOS 2.0, *)
 enum WKAlertControllerStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Alert
-  case SideBySideButtonsAlert
-  case ActionSheet
+  case alert
+  case sideBySideButtonsAlert
+  case actionSheet
 }
 @available(watchOS 2.0, *)
 enum WKVideoGravity : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ResizeAspect
-  case ResizeAspectFill
-  case Resize
+  case resizeAspect
+  case resizeAspectFill
+  case resize
 }
 @available(watchOS 2.0, *)
 enum WKAudioRecorderPreset : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case NarrowBandSpeech
-  case WideBandSpeech
-  case HighQualityAudio
+  case narrowBandSpeech
+  case wideBandSpeech
+  case highQualityAudio
 }
 @available(watchOS 2.0, *)
 class WKInterfaceController : Object {

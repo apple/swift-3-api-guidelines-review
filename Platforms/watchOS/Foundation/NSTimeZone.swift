@@ -42,12 +42,12 @@ extension TimeZone {
 enum TimeZoneNameStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Standard
-  case ShortStandard
-  case DaylightSaving
-  case ShortDaylightSaving
-  case Generic
-  case ShortGeneric
+  case standard
+  case shortStandard
+  case daylightSaving
+  case shortDaylightSaving
+  case generic
+  case shortGeneric
 }
 extension TimeZone {
   init?(name tzName: String)

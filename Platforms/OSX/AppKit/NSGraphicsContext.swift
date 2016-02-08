@@ -6,12 +6,12 @@ let NSGraphicsContextPDFFormat: String
 enum NSImageInterpolation : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Default
-  case None
-  case Low
+  case `default`
+  case none
+  case low
   @available(OSX 10.6, *)
-  case Medium
-  case High
+  case medium
+  case high
 }
 class NSGraphicsContext : Object {
   /*not inherited*/ init?(attributes: [String : AnyObject] = [:])

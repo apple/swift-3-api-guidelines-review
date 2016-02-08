@@ -6,18 +6,18 @@ class CGDisplayStreamUpdate {
 enum CGDisplayStreamUpdateRectType : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case RefreshedRects
-  case MovedRects
-  case DirtyRects
-  case ReducedDirtyRects
+  case refreshedRects
+  case movedRects
+  case dirtyRects
+  case reducedDirtyRects
 }
 enum CGDisplayStreamFrameStatus : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case FrameComplete
-  case FrameIdle
-  case FrameBlank
-  case Stopped
+  case frameComplete
+  case frameIdle
+  case frameBlank
+  case stopped
 }
 typealias CGDisplayStreamFrameAvailableHandler = (CGDisplayStreamFrameStatus, UInt64, IOSurface?, CGDisplayStreamUpdate?) -> Void
 @available(OSX 10.8, *)

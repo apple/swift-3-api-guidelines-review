@@ -2,12 +2,12 @@
 enum CBCentralManagerState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Resetting
-  case Unsupported
-  case Unauthorized
-  case PoweredOff
-  case PoweredOn
+  case unknown
+  case resetting
+  case unsupported
+  case unauthorized
+  case poweredOff
+  case poweredOn
 }
 @available(OSX 10.7, *)
 class CBCentralManager : Object {

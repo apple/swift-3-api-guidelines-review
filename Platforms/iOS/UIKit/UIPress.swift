@@ -3,23 +3,23 @@
 enum UIPressPhase : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Began
-  case Changed
-  case Stationary
-  case Ended
-  case Cancelled
+  case began
+  case changed
+  case stationary
+  case ended
+  case cancelled
 }
 @available(iOS 9.0, *)
 enum UIPressType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case UpArrow
-  case DownArrow
-  case LeftArrow
-  case RightArrow
-  case Select
-  case Menu
-  case PlayPause
+  case upArrow
+  case downArrow
+  case leftArrow
+  case rightArrow
+  case select
+  case menu
+  case playPause
 }
 @available(iOS 9.0, *)
 class UIPress : Object {

@@ -11,9 +11,9 @@ class PKPaymentMethod : Object {
 struct PKPaymentMethodType : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Unknown: PKPaymentMethodType { get }
-  static var Debit: PKPaymentMethodType { get }
-  static var Credit: PKPaymentMethodType { get }
-  static var Prepaid: PKPaymentMethodType { get }
-  static var Store: PKPaymentMethodType { get }
+  static var unknown: PKPaymentMethodType { get }
+  static var debit: PKPaymentMethodType { get }
+  static var credit: PKPaymentMethodType { get }
+  static var prepaid: PKPaymentMethodType { get }
+  static var store: PKPaymentMethodType { get }
 }

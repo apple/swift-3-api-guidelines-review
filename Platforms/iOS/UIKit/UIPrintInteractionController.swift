@@ -4,11 +4,11 @@ typealias UIPrintInteractionCompletionHandler = (UIPrintInteractionController, B
 enum UIPrinterCutterBehavior : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case NoCut
-  case PrinterDefault
-  case CutAfterEachPage
-  case CutAfterEachCopy
-  case CutAfterEachJob
+  case noCut
+  case printerDefault
+  case cutAfterEachPage
+  case cutAfterEachCopy
+  case cutAfterEachJob
 }
 @available(iOS 4.2, *)
 class UIPrintInteractionController : Object {

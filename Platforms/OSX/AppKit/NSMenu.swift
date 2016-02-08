@@ -107,12 +107,12 @@ protocol NSMenuDelegate : ObjectProtocol {
 struct NSMenuProperties : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var PropertyItemTitle: NSMenuProperties { get }
-  static var PropertyItemAttributedTitle: NSMenuProperties { get }
-  static var PropertyItemKeyEquivalent: NSMenuProperties { get }
-  static var PropertyItemImage: NSMenuProperties { get }
-  static var PropertyItemEnabled: NSMenuProperties { get }
-  static var PropertyItemAccessibilityDescription: NSMenuProperties { get }
+  static var propertyItemTitle: NSMenuProperties { get }
+  static var propertyItemAttributedTitle: NSMenuProperties { get }
+  static var propertyItemKeyEquivalent: NSMenuProperties { get }
+  static var propertyItemImage: NSMenuProperties { get }
+  static var propertyItemEnabled: NSMenuProperties { get }
+  static var propertyItemAccessibilityDescription: NSMenuProperties { get }
 }
 extension NSMenu {
   @available(OSX 10.6, *)

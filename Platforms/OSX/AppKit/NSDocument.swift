@@ -2,28 +2,28 @@
 enum NSDocumentChangeType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ChangeDone
-  case ChangeUndone
+  case changeDone
+  case changeUndone
   @available(OSX 10.5, *)
-  case ChangeRedone
-  case ChangeCleared
-  case ChangeReadOtherContents
-  case ChangeAutosaved
+  case changeRedone
+  case changeCleared
+  case changeReadOtherContents
+  case changeAutosaved
   @available(OSX 10.7, *)
-  case ChangeDiscardable
+  case changeDiscardable
 }
 enum NSSaveOperationType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case SaveOperation
-  case SaveAsOperation
-  case SaveToOperation
+  case saveOperation
+  case saveAsOperation
+  case saveToOperation
   @available(OSX 10.7, *)
-  case AutosaveInPlaceOperation
+  case autosaveInPlaceOperation
   @available(OSX 10.7, *)
-  case AutosaveElsewhereOperation
+  case autosaveElsewhereOperation
   @available(OSX 10.8, *)
-  case AutosaveAsOperation
+  case autosaveAsOperation
 }
 class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   init()

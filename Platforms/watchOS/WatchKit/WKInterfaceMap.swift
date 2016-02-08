@@ -3,9 +3,9 @@
 enum WKInterfaceMapPinColor : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Red
-  case Green
-  case Purple
+  case red
+  case green
+  case purple
 }
 @available(watchOS 2.0, *)
 class WKInterfaceMap : WKInterfaceObject {

@@ -3,13 +3,13 @@
 enum SKBlendMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Alpha
-  case Add
-  case Subtract
-  case Multiply
-  case MultiplyX2
-  case Screen
-  case Replace
+  case alpha
+  case add
+  case subtract
+  case multiply
+  case multiplyX2
+  case screen
+  case replace
 }
 class SKNode : NSResponder, Copying, Coding {
   init()

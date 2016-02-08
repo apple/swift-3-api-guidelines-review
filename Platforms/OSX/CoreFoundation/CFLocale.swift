@@ -22,11 +22,11 @@ func CFLocaleGetWindowsLocaleCodeFromLocaleIdentifier(localeIdentifier: CFString
 enum CFLocaleLanguageDirection : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case Unknown
-  case LeftToRight
-  case RightToLeft
-  case TopToBottom
-  case BottomToTop
+  case unknown
+  case leftToRight
+  case rightToLeft
+  case topToBottom
+  case bottomToTop
 }
 @available(OSX 10.6, *)
 func CFLocaleGetLanguageCharacterDirection(isoLangCode: CFString!) -> CFLocaleLanguageDirection

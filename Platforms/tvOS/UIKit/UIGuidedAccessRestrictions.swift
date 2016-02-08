@@ -2,8 +2,8 @@
 enum UIGuidedAccessRestrictionState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Allow
-  case Deny
+  case allow
+  case deny
 }
 @available(tvOS 7.0, *)
 protocol UIGuidedAccessRestrictionDelegate : ObjectProtocol {

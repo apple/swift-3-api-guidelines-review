@@ -26,11 +26,11 @@ extension AttributedString {
 struct NSStringDrawingOptions : OptionSetType {
   init(rawValue: Int)
   let rawValue: Int
-  static var UsesLineFragmentOrigin: NSStringDrawingOptions { get }
-  static var UsesFontLeading: NSStringDrawingOptions { get }
-  static var UsesDeviceMetrics: NSStringDrawingOptions { get }
+  static var usesLineFragmentOrigin: NSStringDrawingOptions { get }
+  static var usesFontLeading: NSStringDrawingOptions { get }
+  static var usesDeviceMetrics: NSStringDrawingOptions { get }
   @available(iOS 6.0, *)
-  static var TruncatesLastVisibleLine: NSStringDrawingOptions { get }
+  static var truncatesLastVisibleLine: NSStringDrawingOptions { get }
 }
 extension NSString {
   @available(iOS 7.0, *)

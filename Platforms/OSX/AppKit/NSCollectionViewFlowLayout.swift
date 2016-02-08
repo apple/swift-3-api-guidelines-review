@@ -3,8 +3,8 @@
 enum NSCollectionViewScrollDirection : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Vertical
-  case Horizontal
+  case vertical
+  case horizontal
 }
 @available(OSX 10.11, *)
 let NSCollectionElementKindSectionHeader: String

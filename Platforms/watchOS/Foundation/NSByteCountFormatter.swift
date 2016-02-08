@@ -2,25 +2,25 @@
 struct ByteCountFormatterUnits : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var UseDefault: ByteCountFormatterUnits { get }
-  static var UseBytes: ByteCountFormatterUnits { get }
-  static var UseKB: ByteCountFormatterUnits { get }
-  static var UseMB: ByteCountFormatterUnits { get }
-  static var UseGB: ByteCountFormatterUnits { get }
-  static var UseTB: ByteCountFormatterUnits { get }
-  static var UsePB: ByteCountFormatterUnits { get }
-  static var UseEB: ByteCountFormatterUnits { get }
-  static var UseZB: ByteCountFormatterUnits { get }
-  static var UseYBOrHigher: ByteCountFormatterUnits { get }
-  static var UseAll: ByteCountFormatterUnits { get }
+  static var useDefault: ByteCountFormatterUnits { get }
+  static var useBytes: ByteCountFormatterUnits { get }
+  static var useKB: ByteCountFormatterUnits { get }
+  static var useMB: ByteCountFormatterUnits { get }
+  static var useGB: ByteCountFormatterUnits { get }
+  static var useTB: ByteCountFormatterUnits { get }
+  static var usePB: ByteCountFormatterUnits { get }
+  static var useEB: ByteCountFormatterUnits { get }
+  static var useZB: ByteCountFormatterUnits { get }
+  static var useYBOrHigher: ByteCountFormatterUnits { get }
+  static var useAll: ByteCountFormatterUnits { get }
 }
 enum ByteCountFormatterCountStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case File
-  case Memory
-  case Decimal
-  case Binary
+  case file
+  case memory
+  case decimal
+  case binary
 }
 @available(watchOS 2.0, *)
 class ByteCountFormatter : Formatter {

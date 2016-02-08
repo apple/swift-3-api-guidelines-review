@@ -3,15 +3,15 @@
 enum WKNavigationActionPolicy : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Cancel
-  case Allow
+  case cancel
+  case allow
 }
 @available(OSX 10.10, *)
 enum WKNavigationResponsePolicy : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Cancel
-  case Allow
+  case cancel
+  case allow
 }
 protocol WKNavigationDelegate : ObjectProtocol {
   @available(OSX 10.10, *)

@@ -328,16 +328,16 @@ struct URLBookmarkCreationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  static var PreferFileIDResolution: URLBookmarkCreationOptions { get }
-  static var MinimalBookmark: URLBookmarkCreationOptions { get }
-  static var SuitableForBookmarkFile: URLBookmarkCreationOptions { get }
+  static var preferFileIDResolution: URLBookmarkCreationOptions { get }
+  static var minimalBookmark: URLBookmarkCreationOptions { get }
+  static var suitableForBookmarkFile: URLBookmarkCreationOptions { get }
 }
 @available(watchOS 2.0, *)
 struct URLBookmarkResolutionOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var WithoutUI: URLBookmarkResolutionOptions { get }
-  static var WithoutMounting: URLBookmarkResolutionOptions { get }
+  static var withoutUI: URLBookmarkResolutionOptions { get }
+  static var withoutMounting: URLBookmarkResolutionOptions { get }
 }
 typealias URLBookmarkFileCreationOptions = Int
 extension URL {

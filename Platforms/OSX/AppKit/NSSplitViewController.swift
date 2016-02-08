@@ -43,18 +43,18 @@ extension NSSplitViewController {
 enum NSSplitViewItemBehavior : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Sidebar
-  case ContentList
+  case `default`
+  case sidebar
+  case contentList
 }
 @available(OSX 10.11, *)
 enum NSSplitViewItemCollapseBehavior : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case PreferResizingSplitViewWithFixedSiblings
-  case PreferResizingSiblingsWithFixedSplitView
-  case UseConstraints
+  case `default`
+  case preferResizingSplitViewWithFixedSiblings
+  case preferResizingSiblingsWithFixedSplitView
+  case useConstraints
 }
 @available(OSX 10.11, *)
 let NSSplitViewItemUnspecifiedDimension: CGFloat

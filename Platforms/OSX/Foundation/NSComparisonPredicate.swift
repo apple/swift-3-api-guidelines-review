@@ -2,37 +2,37 @@
 struct ComparisonPredicateOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var CaseInsensitivePredicateOption: ComparisonPredicateOptions { get }
-  static var DiacriticInsensitivePredicateOption: ComparisonPredicateOptions { get }
+  static var caseInsensitivePredicateOption: ComparisonPredicateOptions { get }
+  static var diacriticInsensitivePredicateOption: ComparisonPredicateOptions { get }
   @available(OSX 10.6, *)
-  static var NormalizedPredicateOption: ComparisonPredicateOptions { get }
+  static var normalizedPredicateOption: ComparisonPredicateOptions { get }
 }
 enum ComparisonPredicateModifier : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case DirectPredicateModifier
-  case AllPredicateModifier
-  case AnyPredicateModifier
+  case directPredicateModifier
+  case allPredicateModifier
+  case anyPredicateModifier
 }
 enum PredicateOperatorType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case LessThanPredicateOperatorType
-  case LessThanOrEqualToPredicateOperatorType
-  case GreaterThanPredicateOperatorType
-  case GreaterThanOrEqualToPredicateOperatorType
-  case EqualToPredicateOperatorType
-  case NotEqualToPredicateOperatorType
-  case MatchesPredicateOperatorType
-  case LikePredicateOperatorType
-  case BeginsWithPredicateOperatorType
-  case EndsWithPredicateOperatorType
-  case InPredicateOperatorType
-  case CustomSelectorPredicateOperatorType
+  case lessThanPredicateOperatorType
+  case lessThanOrEqualToPredicateOperatorType
+  case greaterThanPredicateOperatorType
+  case greaterThanOrEqualToPredicateOperatorType
+  case equalToPredicateOperatorType
+  case notEqualToPredicateOperatorType
+  case matchesPredicateOperatorType
+  case likePredicateOperatorType
+  case beginsWithPredicateOperatorType
+  case endsWithPredicateOperatorType
+  case inPredicateOperatorType
+  case customSelectorPredicateOperatorType
   @available(OSX 10.5, *)
-  case ContainsPredicateOperatorType
+  case containsPredicateOperatorType
   @available(OSX 10.5, *)
-  case BetweenPredicateOperatorType
+  case betweenPredicateOperatorType
 }
 @available(OSX 10.4, *)
 class ComparisonPredicate : Predicate {

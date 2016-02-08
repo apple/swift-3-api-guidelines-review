@@ -4,8 +4,8 @@ typealias AVMusicTimeStamp = Float64
 struct AVMusicSequenceLoadOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var SMF_PreserveTracks: AVMusicSequenceLoadOptions { get }
-  static var SMF_ChannelsToTracks: AVMusicSequenceLoadOptions { get }
+  static var smf_PreserveTracks: AVMusicSequenceLoadOptions { get }
+  static var smf_ChannelsToTracks: AVMusicSequenceLoadOptions { get }
 }
 struct _AVBeatRange {
   var start: AVMusicTimeStamp
@@ -57,5 +57,5 @@ class AVMusicTrack : Object {
 enum AVMusicTrackLoopCount : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Forever
+  case forever
 }

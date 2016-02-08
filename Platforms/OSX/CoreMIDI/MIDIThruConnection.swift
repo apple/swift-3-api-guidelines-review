@@ -8,25 +8,25 @@ struct MIDIValueMap {
 enum MIDITransformType : UInt16 {
   init?(rawValue: UInt16)
   var rawValue: UInt16 { get }
-  case None
-  case FilterOut
-  case MapControl
-  case Add
-  case Scale
-  case MinValue
-  case MaxValue
-  case MapValue
+  case none
+  case filterOut
+  case mapControl
+  case add
+  case scale
+  case minValue
+  case maxValue
+  case mapValue
 }
 var kMIDIThruConnection_MaxEndpoints: Int { get }
 enum MIDITransformControlType : UInt8 {
   init?(rawValue: UInt8)
   var rawValue: UInt8 { get }
-  case ControlType_7Bit
-  case ControlType_14Bit
-  case ControlType_7BitRPN
-  case ControlType_14BitRPN
-  case ControlType_7BitNRPN
-  case ControlType_14BitNRPN
+  case controlType_7Bit
+  case controlType_14Bit
+  case controlType_7BitRPN
+  case controlType_14BitRPN
+  case controlType_7BitNRPN
+  case controlType_14BitNRPN
 }
 struct MIDITransform {
   var transform: MIDITransformType

@@ -11,15 +11,15 @@ func CFURLCreatePropertyFromResource(alloc: CFAllocator!, _ url: CFURL!, _ prope
 enum CFURLError : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case UnknownError
-  case UnknownSchemeError
-  case ResourceNotFoundError
-  case ResourceAccessViolationError
-  case RemoteHostUnavailableError
-  case ImproperArgumentsError
-  case UnknownPropertyKeyError
-  case PropertyKeyUnavailableError
-  case TimeoutError
+  case unknownError
+  case unknownSchemeError
+  case resourceNotFoundError
+  case resourceAccessViolationError
+  case remoteHostUnavailableError
+  case improperArgumentsError
+  case unknownPropertyKeyError
+  case propertyKeyUnavailableError
+  case timeoutError
 }
 @available(watchOS, introduced=2.0, deprecated=2.0, message="Use CFURLResourceIsReachable instead.")
 let kCFURLFileExists: CFString!

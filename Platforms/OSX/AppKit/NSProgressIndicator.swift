@@ -2,16 +2,16 @@
 enum NSProgressIndicatorThickness : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case PreferredThickness
-  case PreferredSmallThickness
-  case PreferredLargeThickness
-  case PreferredAquaThickness
+  case preferredThickness
+  case preferredSmallThickness
+  case preferredLargeThickness
+  case preferredAquaThickness
 }
 enum NSProgressIndicatorStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case BarStyle
-  case SpinningStyle
+  case barStyle
+  case spinningStyle
 }
 class NSProgressIndicator : NSView, NSAccessibilityProgressIndicator {
   var isIndeterminate: Bool

@@ -13,11 +13,11 @@ protocol AVAudioStereoMixing : ObjectProtocol {
 enum AVAudio3DMixingRenderingAlgorithm : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case EqualPowerPanning
-  case SphericalHead
+  case equalPowerPanning
+  case sphericalHead
   case HRTF
-  case SoundField
-  case StereoPassThrough
+  case soundField
+  case stereoPassThrough
 }
 protocol AVAudio3DMixing : ObjectProtocol {
   @available(OSX 10.10, *)

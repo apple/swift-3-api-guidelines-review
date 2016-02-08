@@ -4,31 +4,31 @@ var foundationVersionWithFileManagerResourceForkSupport: Int32 { get }
 struct VolumeEnumerationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var SkipHiddenVolumes: VolumeEnumerationOptions { get }
-  static var ProduceFileReferenceURLs: VolumeEnumerationOptions { get }
+  static var skipHiddenVolumes: VolumeEnumerationOptions { get }
+  static var produceFileReferenceURLs: VolumeEnumerationOptions { get }
 }
 @available(watchOS 2.0, *)
 struct DirectoryEnumerationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var SkipsSubdirectoryDescendants: DirectoryEnumerationOptions { get }
-  static var SkipsPackageDescendants: DirectoryEnumerationOptions { get }
-  static var SkipsHiddenFiles: DirectoryEnumerationOptions { get }
+  static var skipsSubdirectoryDescendants: DirectoryEnumerationOptions { get }
+  static var skipsPackageDescendants: DirectoryEnumerationOptions { get }
+  static var skipsHiddenFiles: DirectoryEnumerationOptions { get }
 }
 @available(watchOS 2.0, *)
 struct FileManagerItemReplacementOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var UsingNewMetadataOnly: FileManagerItemReplacementOptions { get }
-  static var WithoutDeletingBackupItem: FileManagerItemReplacementOptions { get }
+  static var usingNewMetadataOnly: FileManagerItemReplacementOptions { get }
+  static var withoutDeletingBackupItem: FileManagerItemReplacementOptions { get }
 }
 @available(watchOS 2.0, *)
 enum URLRelationship : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Contains
-  case Same
-  case Other
+  case contains
+  case same
+  case other
 }
 @available(watchOS 2.0, *)
 let ubiquityIdentityDidChangeNotification: String

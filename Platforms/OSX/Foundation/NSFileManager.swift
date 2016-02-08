@@ -4,38 +4,38 @@ var foundationVersionWithFileManagerResourceForkSupport: Int32 { get }
 struct VolumeEnumerationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var SkipHiddenVolumes: VolumeEnumerationOptions { get }
-  static var ProduceFileReferenceURLs: VolumeEnumerationOptions { get }
+  static var skipHiddenVolumes: VolumeEnumerationOptions { get }
+  static var produceFileReferenceURLs: VolumeEnumerationOptions { get }
 }
 @available(OSX 10.6, *)
 struct DirectoryEnumerationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var SkipsSubdirectoryDescendants: DirectoryEnumerationOptions { get }
-  static var SkipsPackageDescendants: DirectoryEnumerationOptions { get }
-  static var SkipsHiddenFiles: DirectoryEnumerationOptions { get }
+  static var skipsSubdirectoryDescendants: DirectoryEnumerationOptions { get }
+  static var skipsPackageDescendants: DirectoryEnumerationOptions { get }
+  static var skipsHiddenFiles: DirectoryEnumerationOptions { get }
 }
 @available(OSX 10.6, *)
 struct FileManagerItemReplacementOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var UsingNewMetadataOnly: FileManagerItemReplacementOptions { get }
-  static var WithoutDeletingBackupItem: FileManagerItemReplacementOptions { get }
+  static var usingNewMetadataOnly: FileManagerItemReplacementOptions { get }
+  static var withoutDeletingBackupItem: FileManagerItemReplacementOptions { get }
 }
 @available(OSX 10.10, *)
 enum URLRelationship : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Contains
-  case Same
-  case Other
+  case contains
+  case same
+  case other
 }
 @available(OSX 10.11, *)
 struct FileManagerUnmountOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var AllPartitionsAndEjectDisk: FileManagerUnmountOptions { get }
-  static var WithoutUI: FileManagerUnmountOptions { get }
+  static var allPartitionsAndEjectDisk: FileManagerUnmountOptions { get }
+  static var withoutUI: FileManagerUnmountOptions { get }
 }
 @available(OSX 10.11, *)
 let fileManagerUnmountDissentingProcessIdentifierErrorKey: String

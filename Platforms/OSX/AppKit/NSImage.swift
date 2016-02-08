@@ -2,26 +2,26 @@
 enum NSImageLoadStatus : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Completed
-  case Cancelled
-  case InvalidData
-  case UnexpectedEOF
-  case ReadError
+  case completed
+  case cancelled
+  case invalidData
+  case unexpectedEOF
+  case readError
 }
 enum NSImageCacheMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Default
-  case Always
-  case BySize
-  case Never
+  case `default`
+  case always
+  case bySize
+  case never
 }
 @available(OSX 10.10, *)
 enum NSImageResizingMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Stretch
-  case Tile
+  case stretch
+  case tile
 }
 class NSImage : Object, Copying, Coding, SecureCoding, NSPasteboardReading, NSPasteboardWriting {
   /*not inherited*/ init?(named name: String)

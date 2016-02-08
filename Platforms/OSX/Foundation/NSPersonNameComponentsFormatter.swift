@@ -3,17 +3,17 @@
 enum PersonNameComponentsFormatterStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Short
-  case Medium
-  case Long
-  case Abbreviated
+  case `default`
+  case short
+  case medium
+  case long
+  case abbreviated
 }
 @available(OSX 10.11, *)
 struct PersonNameComponentsFormatterOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Phonetic: PersonNameComponentsFormatterOptions { get }
+  static var phonetic: PersonNameComponentsFormatterOptions { get }
 }
 @available(OSX 10.11, *)
 class PersonNameComponentsFormatter : Formatter {

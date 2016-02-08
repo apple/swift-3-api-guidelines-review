@@ -3,27 +3,27 @@ let CBErrorDomain: String
 enum CBError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
+  case unknown
   @available(OSX 10.9, *)
-  case InvalidParameters
+  case invalidParameters
   @available(OSX 10.9, *)
-  case InvalidHandle
+  case invalidHandle
   @available(OSX 10.9, *)
-  case NotConnected
+  case notConnected
   @available(OSX 10.9, *)
-  case OutOfSpace
+  case outOfSpace
   @available(OSX 10.9, *)
-  case OperationCancelled
+  case operationCancelled
   @available(OSX 10.9, *)
-  case ConnectionTimeout
+  case connectionTimeout
   @available(OSX 10.9, *)
-  case PeripheralDisconnected
+  case peripheralDisconnected
   @available(OSX 10.9, *)
-  case UUIDNotAllowed
+  case uuidNotAllowed
   @available(OSX 10.9, *)
-  case AlreadyAdvertising
+  case alreadyAdvertising
   @available(OSX 10.11, *)
-  case MaxConnection
+  case maxConnection
 }
 
 extension CBError : _BridgedNSError {
@@ -35,24 +35,24 @@ enum CBATTError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   @available(OSX 10.9, *)
-  case Success
-  case InvalidHandle
-  case ReadNotPermitted
-  case WriteNotPermitted
-  case InvalidPdu
-  case InsufficientAuthentication
-  case RequestNotSupported
-  case InvalidOffset
-  case InsufficientAuthorization
-  case PrepareQueueFull
-  case AttributeNotFound
-  case AttributeNotLong
-  case InsufficientEncryptionKeySize
-  case InvalidAttributeValueLength
-  case UnlikelyError
-  case InsufficientEncryption
-  case UnsupportedGroupType
-  case InsufficientResources
+  case success
+  case invalidHandle
+  case readNotPermitted
+  case writeNotPermitted
+  case invalidPdu
+  case insufficientAuthentication
+  case requestNotSupported
+  case invalidOffset
+  case insufficientAuthorization
+  case prepareQueueFull
+  case attributeNotFound
+  case attributeNotLong
+  case insufficientEncryptionKeySize
+  case invalidAttributeValueLength
+  case unlikelyError
+  case insufficientEncryption
+  case unsupportedGroupType
+  case insufficientResources
 }
 
 extension CBATTError : _BridgedNSError {

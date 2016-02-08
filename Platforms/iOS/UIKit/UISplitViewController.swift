@@ -3,10 +3,10 @@
 enum UISplitViewControllerDisplayMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Automatic
-  case PrimaryHidden
-  case AllVisible
-  case PrimaryOverlay
+  case automatic
+  case primaryHidden
+  case allVisible
+  case primaryOverlay
 }
 @available(iOS 8.0, *)
 let UISplitViewControllerAutomaticDimension: CGFloat

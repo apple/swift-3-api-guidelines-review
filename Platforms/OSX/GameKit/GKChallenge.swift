@@ -3,10 +3,10 @@ typealias GKChallengeComposeCompletionBlock = (NSViewController, Bool, [String]?
 enum GKChallengeState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Invalid
-  case Pending
-  case Completed
-  case Declined
+  case invalid
+  case pending
+  case completed
+  case declined
 }
 @available(OSX 10.8, *)
 class GKChallenge : Object, Coding, SecureCoding {

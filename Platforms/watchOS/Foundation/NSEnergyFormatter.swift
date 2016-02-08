@@ -3,10 +3,10 @@
 enum EnergyFormatterUnit : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Joule
-  case Kilojoule
-  case Calorie
-  case Kilocalorie
+  case joule
+  case kilojoule
+  case calorie
+  case kilocalorie
 }
 @available(watchOS 2.0, *)
 class EnergyFormatter : Formatter {

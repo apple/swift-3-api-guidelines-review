@@ -4,20 +4,20 @@ class CTLine {
 struct CTLineBoundsOptions : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
-  static var ExcludeTypographicLeading: CTLineBoundsOptions { get }
-  static var ExcludeTypographicShifts: CTLineBoundsOptions { get }
-  static var UseHangingPunctuation: CTLineBoundsOptions { get }
-  static var UseGlyphPathBounds: CTLineBoundsOptions { get }
-  static var UseOpticalBounds: CTLineBoundsOptions { get }
+  static var excludeTypographicLeading: CTLineBoundsOptions { get }
+  static var excludeTypographicShifts: CTLineBoundsOptions { get }
+  static var useHangingPunctuation: CTLineBoundsOptions { get }
+  static var useGlyphPathBounds: CTLineBoundsOptions { get }
+  static var useOpticalBounds: CTLineBoundsOptions { get }
   @available(OSX 10.11, *)
-  static var IncludeLanguageExtents: CTLineBoundsOptions { get }
+  static var includeLanguageExtents: CTLineBoundsOptions { get }
 }
 enum CTLineTruncationType : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Start
-  case End
-  case Middle
+  case start
+  case end
+  case middle
 }
 @available(OSX 10.5, *)
 func CTLineGetTypeID() -> CFTypeID

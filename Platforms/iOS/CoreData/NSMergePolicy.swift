@@ -12,11 +12,11 @@ var NSRollbackMergePolicy: AnyObject
 enum NSMergePolicyType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ErrorMergePolicyType
-  case MergeByPropertyStoreTrumpMergePolicyType
-  case MergeByPropertyObjectTrumpMergePolicyType
-  case OverwriteMergePolicyType
-  case RollbackMergePolicyType
+  case errorMergePolicyType
+  case mergeByPropertyStoreTrumpMergePolicyType
+  case mergeByPropertyObjectTrumpMergePolicyType
+  case overwriteMergePolicyType
+  case rollbackMergePolicyType
 }
 @available(iOS 5.0, *)
 class NSMergeConflict : Object {

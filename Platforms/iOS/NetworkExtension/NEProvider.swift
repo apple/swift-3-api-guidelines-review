@@ -3,21 +3,21 @@
 enum NEProviderStopReason : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case UserInitiated
-  case ProviderFailed
-  case NoNetworkAvailable
-  case UnrecoverableNetworkChange
-  case ProviderDisabled
-  case AuthenticationCanceled
-  case ConfigurationFailed
-  case IdleTimeout
-  case ConfigurationDisabled
-  case ConfigurationRemoved
-  case Superceded
-  case UserLogout
-  case UserSwitch
-  case ConnectionFailed
+  case none
+  case userInitiated
+  case providerFailed
+  case noNetworkAvailable
+  case unrecoverableNetworkChange
+  case providerDisabled
+  case authenticationCanceled
+  case configurationFailed
+  case idleTimeout
+  case configurationDisabled
+  case configurationRemoved
+  case superceded
+  case userLogout
+  case userSwitch
+  case connectionFailed
 }
 @available(iOS 9.0, *)
 class NEProvider : Object {

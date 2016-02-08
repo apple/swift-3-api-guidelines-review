@@ -3,17 +3,17 @@
 enum NSHapticFeedbackPattern : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Generic
-  case Alignment
-  case LevelChange
+  case generic
+  case alignment
+  case levelChange
 }
 @available(OSX 10.11, *)
 enum NSHapticFeedbackPerformanceTime : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Default
-  case Now
-  case DrawCompleted
+  case `default`
+  case now
+  case drawCompleted
 }
 protocol NSHapticFeedbackPerformer : ObjectProtocol {
   @available(OSX 10.11, *)

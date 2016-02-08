@@ -4,9 +4,9 @@ var EAGL_MINOR_VERSION: Int32 { get }
 enum EAGLRenderingAPI : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case OpenGLES1
-  case OpenGLES2
-  case OpenGLES3
+  case openGLES1
+  case openGLES2
+  case openGLES3
 }
 func EAGLGetVersion(major: UnsafeMutablePointer<UInt32>, _ minor: UnsafeMutablePointer<UInt32>)
 class EAGLSharegroup : Object {

@@ -16,9 +16,9 @@ let AVPlayerItemFailedToPlayToEndTimeErrorKey: String
 enum AVPlayerItemStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case ReadyToPlay
-  case Failed
+  case unknown
+  case readyToPlay
+  case failed
 }
 @available(iOS 4.0, *)
 class AVPlayerItem : Object, Copying {

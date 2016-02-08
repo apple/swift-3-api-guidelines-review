@@ -3,8 +3,8 @@
 enum TVTopShelfContentStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Inset
-  case Sectioned
+  case inset
+  case sectioned
 }
 protocol TVTopShelfProvider {
   @available(tvOS 9.0, *)

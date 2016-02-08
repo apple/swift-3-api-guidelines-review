@@ -29,16 +29,16 @@ var kSecKeyUnwrap: Int32 { get }
 enum SecCredentialType : uint32 {
   init?(rawValue: uint32)
   var rawValue: uint32 { get }
-  case Default
-  case WithUI
-  case NoUI
+  case `default`
+  case withUI
+  case noui
 }
 enum SecPadding : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case None
+  case none
   case PKCS1
-  case SigRaw
+  case sigRaw
   case PKCS1MD2
   case PKCS1MD5
   case PKCS1SHA1
@@ -46,17 +46,17 @@ enum SecPadding : UInt32 {
 enum SecKeySizes : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case SecDefaultKeySize
-  case Sec3DES192
-  case SecAES128
-  static var SecAES192: SecKeySizes { get }
-  case SecAES256
-  static var Secp192r1: SecKeySizes { get }
-  static var Secp256r1: SecKeySizes { get }
-  case Secp384r1
-  case Secp521r1
-  case SecRSAMin
-  case SecRSAMax
+  case secDefaultKeySize
+  case sec3DES192
+  case secAES128
+  static var secAES192: SecKeySizes { get }
+  case secAES256
+  static var secp192r1: SecKeySizes { get }
+  static var secp256r1: SecKeySizes { get }
+  case secp384r1
+  case secp521r1
+  case secRSAMin
+  case secRSAMax
 }
 @available(OSX 10.8, *)
 let kSecPrivateKeyAttrs: CFString

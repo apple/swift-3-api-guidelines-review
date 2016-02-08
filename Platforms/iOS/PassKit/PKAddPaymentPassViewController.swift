@@ -3,9 +3,9 @@
 enum PKAddPaymentPassError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unsupported
-  case UserCancelled
-  case SystemCancelled
+  case unsupported
+  case userCancelled
+  case systemCancelled
 }
 @available(iOS 9.0, *)
 class PKAddPaymentPassRequestConfiguration : Object {

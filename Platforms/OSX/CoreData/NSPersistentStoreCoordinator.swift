@@ -11,10 +11,10 @@ let NSInMemoryStoreType: String
 enum NSPersistentStoreUbiquitousTransitionType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case AccountAdded
-  case AccountRemoved
-  case ContentRemoved
-  case InitialImportCompleted
+  case accountAdded
+  case accountRemoved
+  case contentRemoved
+  case initialImportCompleted
 }
 @available(OSX 10.4, *)
 let NSStoreTypeKey: String

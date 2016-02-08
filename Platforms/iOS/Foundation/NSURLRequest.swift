@@ -2,22 +2,22 @@
 enum URLRequestCachePolicy : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case UseProtocolCachePolicy
-  case ReloadIgnoringLocalCacheData
-  case ReloadIgnoringLocalAndRemoteCacheData
-  static var ReloadIgnoringCacheData: URLRequestCachePolicy { get }
-  case ReturnCacheDataElseLoad
-  case ReturnCacheDataDontLoad
-  case ReloadRevalidatingCacheData
+  case useProtocolCachePolicy
+  case reloadIgnoringLocalCacheData
+  case reloadIgnoringLocalAndRemoteCacheData
+  static var reloadIgnoringCacheData: URLRequestCachePolicy { get }
+  case returnCacheDataElseLoad
+  case returnCacheDataDontLoad
+  case reloadRevalidatingCacheData
 }
 enum URLRequestNetworkServiceType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NetworkServiceTypeDefault
-  case NetworkServiceTypeVoIP
-  case NetworkServiceTypeVideo
-  case NetworkServiceTypeBackground
-  case NetworkServiceTypeVoice
+  case networkServiceTypeDefault
+  case networkServiceTypeVoIP
+  case networkServiceTypeVideo
+  case networkServiceTypeBackground
+  case networkServiceTypeVoice
 }
 class URLRequest : Object, SecureCoding, Copying, MutableCopying {
   class func supportsSecureCoding() -> Bool

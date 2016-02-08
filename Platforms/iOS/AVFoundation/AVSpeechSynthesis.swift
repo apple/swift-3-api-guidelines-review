@@ -3,15 +3,15 @@
 enum AVSpeechBoundary : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Immediate
-  case Word
+  case immediate
+  case word
 }
 @available(iOS 9.0, *)
 enum AVSpeechSynthesisVoiceQuality : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Enhanced
+  case `default`
+  case enhanced
 }
 @available(iOS 7.0, *)
 let AVSpeechUtteranceMinimumSpeechRate: Float

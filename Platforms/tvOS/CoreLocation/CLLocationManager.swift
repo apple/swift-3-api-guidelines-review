@@ -2,32 +2,32 @@
 enum CLDeviceOrientation : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Unknown
-  case Portrait
-  case PortraitUpsideDown
-  case LandscapeLeft
-  case LandscapeRight
-  case FaceUp
-  case FaceDown
+  case unknown
+  case portrait
+  case portraitUpsideDown
+  case landscapeLeft
+  case landscapeRight
+  case faceUp
+  case faceDown
 }
 enum CLAuthorizationStatus : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case NotDetermined
-  case Restricted
-  case Denied
+  case notDetermined
+  case restricted
+  case denied
   @available(tvOS 8.0, *)
-  case AuthorizedAlways
+  case authorizedAlways
   @available(tvOS 8.0, *)
-  case AuthorizedWhenInUse
+  case authorizedWhenInUse
 }
 enum CLActivityType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Other
-  case AutomotiveNavigation
-  case Fitness
-  case OtherNavigation
+  case other
+  case automotiveNavigation
+  case fitness
+  case otherNavigation
 }
 @available(tvOS 2.0, *)
 class CLLocationManager : Object {

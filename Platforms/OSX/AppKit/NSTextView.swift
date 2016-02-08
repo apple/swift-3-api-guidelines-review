@@ -2,15 +2,15 @@
 enum NSSelectionGranularity : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case SelectByCharacter
-  case SelectByWord
-  case SelectByParagraph
+  case selectByCharacter
+  case selectByWord
+  case selectByParagraph
 }
 enum NSSelectionAffinity : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Upstream
-  case Downstream
+  case upstream
+  case downstream
 }
 @available(OSX 10.5, *)
 let NSAllRomanInputSourcesLocaleIdentifier: String
@@ -308,16 +308,16 @@ let NSTextViewDidChangeTypingAttributesNotification: String
 enum NSFindPanelAction : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ShowFindPanel
-  case Next
-  case Previous
-  case ReplaceAll
-  case Replace
-  case ReplaceAndFind
-  case SetFindString
-  case ReplaceAllInSelection
-  case SelectAll
-  case SelectAllInSelection
+  case showFindPanel
+  case next
+  case previous
+  case replaceAll
+  case replace
+  case replaceAndFind
+  case setFindString
+  case replaceAllInSelection
+  case selectAll
+  case selectAllInSelection
 }
 @available(OSX 10.5, *)
 let NSFindPanelSearchOptionsPboardType: String
@@ -328,8 +328,8 @@ let NSFindPanelSubstringMatch: String
 enum NSFindPanelSubstringMatchType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Contains
-  case StartsWith
-  case FullWord
-  case EndsWith
+  case contains
+  case startsWith
+  case fullWord
+  case endsWith
 }

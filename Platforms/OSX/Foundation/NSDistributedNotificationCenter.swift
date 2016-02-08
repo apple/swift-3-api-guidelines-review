@@ -3,16 +3,16 @@ let localNotificationCenterType: String
 enum NotificationSuspensionBehavior : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Drop
-  case Coalesce
-  case Hold
-  case DeliverImmediately
+  case drop
+  case coalesce
+  case hold
+  case deliverImmediately
 }
 struct DistributedNotificationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var DeliverImmediately: DistributedNotificationOptions { get }
-  static var PostToAllSessions: DistributedNotificationOptions { get }
+  static var deliverImmediately: DistributedNotificationOptions { get }
+  static var postToAllSessions: DistributedNotificationOptions { get }
 }
 let notificationDeliverImmediately: DistributedNotificationOptions
 let notificationPostToAllSessions: DistributedNotificationOptions

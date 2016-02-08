@@ -55,8 +55,8 @@ func IOSurfaceGetID(buffer: IOSurface) -> IOSurfaceID
 struct IOSurfaceLockOptions : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var ReadOnly: IOSurfaceLockOptions { get }
-  static var AvoidSync: IOSurfaceLockOptions { get }
+  static var readOnly: IOSurfaceLockOptions { get }
+  static var avoidSync: IOSurfaceLockOptions { get }
 }
 @available(OSX 10.6, *)
 func IOSurfaceLock(buffer: IOSurface, _ options: IOSurfaceLockOptions, _ seed: UnsafeMutablePointer<UInt32>) -> IOReturn

@@ -3,19 +3,19 @@
 enum PKPassLibraryAddPassesStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case DidAddPasses
-  case ShouldReviewPasses
-  case DidCancelAddPasses
+  case didAddPasses
+  case shouldReviewPasses
+  case didCancelAddPasses
 }
 @available(iOS 9.0, *)
 enum PKAutomaticPassPresentationSuppressionResult : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NotSupported
-  case AlreadyPresenting
-  case Denied
-  case Cancelled
-  case Success
+  case notSupported
+  case alreadyPresenting
+  case denied
+  case cancelled
+  case success
 }
 typealias PKSuppressionRequestToken = Int
 @available(iOS 6.0, *)

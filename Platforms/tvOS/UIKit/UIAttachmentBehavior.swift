@@ -3,8 +3,8 @@
 enum UIAttachmentBehaviorType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Items
-  case Anchor
+  case items
+  case anchor
 }
 struct UIFloatRange {
   var minimum: CGFloat

@@ -2,17 +2,17 @@
 enum UIScrollViewIndicatorStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Black
-  case White
+  case `default`
+  case black
+  case white
 }
 @available(iOS 7.0, *)
 enum UIScrollViewKeyboardDismissMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case OnDrag
-  case Interactive
+  case none
+  case onDrag
+  case interactive
 }
 @available(iOS 3.0, *)
 let UIScrollViewDecelerationRateNormal: CGFloat

@@ -11,23 +11,23 @@ enum GLKViewDrawableColorFormat : GLint {
 enum GLKViewDrawableDepthFormat : GLint {
   init?(rawValue: GLint)
   var rawValue: GLint { get }
-  case FormatNone
-  case Format16
-  case Format24
+  case formatNone
+  case format16
+  case format24
 }
 @available(iOS 5.0, *)
 enum GLKViewDrawableStencilFormat : GLint {
   init?(rawValue: GLint)
   var rawValue: GLint { get }
-  case FormatNone
-  case Format8
+  case formatNone
+  case format8
 }
 @available(iOS 5.0, *)
 enum GLKViewDrawableMultisample : GLint {
   init?(rawValue: GLint)
   var rawValue: GLint { get }
-  case MultisampleNone
-  case Multisample4X
+  case multisampleNone
+  case multisample4X
 }
 @available(iOS 5.0, *)
 class GLKView : UIView, Coding {

@@ -2,13 +2,13 @@
 enum NSUserInterfaceLayoutDirection : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case LeftToRight
-  case RightToLeft
+  case leftToRight
+  case rightToLeft
 }
 @available(OSX 10.9, *)
 enum NSUserInterfaceLayoutOrientation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Horizontal
-  case Vertical
+  case horizontal
+  case vertical
 }

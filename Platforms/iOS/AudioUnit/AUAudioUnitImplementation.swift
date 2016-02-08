@@ -2,10 +2,10 @@
 enum AURenderEventType : UInt8 {
   init?(rawValue: UInt8)
   var rawValue: UInt8 { get }
-  case Parameter
-  case ParameterRamp
+  case parameter
+  case parameterRamp
   case MIDI
-  case MIDISysEx
+  case midiSysEx
 }
 struct AURenderEventHeader {
   var next: UnsafeMutablePointer<AURenderEvent>

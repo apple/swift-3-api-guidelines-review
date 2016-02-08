@@ -3,10 +3,10 @@
 enum CNContainerType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unassigned
-  case Local
-  case Exchange
-  case CardDAV
+  case unassigned
+  case local
+  case exchange
+  case cardDAV
 }
 @available(OSX 10.11, *)
 class CNContainer : Object, Copying, SecureCoding {

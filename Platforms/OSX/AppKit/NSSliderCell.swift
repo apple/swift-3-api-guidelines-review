@@ -2,16 +2,16 @@
 enum NSTickMarkPosition : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Below
-  case Above
-  static var Left: NSTickMarkPosition { get }
-  static var Right: NSTickMarkPosition { get }
+  case below
+  case above
+  static var left: NSTickMarkPosition { get }
+  static var right: NSTickMarkPosition { get }
 }
 enum NSSliderType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case LinearSlider
-  case CircularSlider
+  case linearSlider
+  case circularSlider
 }
 class NSSliderCell : NSActionCell {
   class func prefersTrackingUntilMouseUp() -> Bool

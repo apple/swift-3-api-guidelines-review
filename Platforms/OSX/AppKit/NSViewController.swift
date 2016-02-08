@@ -3,15 +3,15 @@
 struct NSViewControllerTransitionOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: NSViewControllerTransitionOptions { get }
-  static var Crossfade: NSViewControllerTransitionOptions { get }
-  static var SlideUp: NSViewControllerTransitionOptions { get }
-  static var SlideDown: NSViewControllerTransitionOptions { get }
-  static var SlideLeft: NSViewControllerTransitionOptions { get }
-  static var SlideRight: NSViewControllerTransitionOptions { get }
-  static var SlideForward: NSViewControllerTransitionOptions { get }
-  static var SlideBackward: NSViewControllerTransitionOptions { get }
-  static var AllowUserInteraction: NSViewControllerTransitionOptions { get }
+  static var none: NSViewControllerTransitionOptions { get }
+  static var crossfade: NSViewControllerTransitionOptions { get }
+  static var slideUp: NSViewControllerTransitionOptions { get }
+  static var slideDown: NSViewControllerTransitionOptions { get }
+  static var slideLeft: NSViewControllerTransitionOptions { get }
+  static var slideRight: NSViewControllerTransitionOptions { get }
+  static var slideForward: NSViewControllerTransitionOptions { get }
+  static var slideBackward: NSViewControllerTransitionOptions { get }
+  static var allowUserInteraction: NSViewControllerTransitionOptions { get }
 }
 @available(OSX 10.5, *)
 class NSViewController : NSResponder, Coding, NSSeguePerforming, NSUserInterfaceItemIdentification {

@@ -3,10 +3,10 @@
 enum SKActionTimingMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Linear
-  case EaseIn
-  case EaseOut
-  case EaseInEaseOut
+  case linear
+  case easeIn
+  case easeOut
+  case easeInEaseOut
 }
 typealias SKActionTimingFunction = (Float) -> Float
 class SKAction : Object, Copying, Coding {

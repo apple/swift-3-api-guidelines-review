@@ -54,14 +54,14 @@ var kAudioUnitSubType_AudioFilePlayer: UInt32 { get }
 struct AudioUnitRenderActionFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var UnitRenderAction_PreRender: AudioUnitRenderActionFlags { get }
-  static var UnitRenderAction_PostRender: AudioUnitRenderActionFlags { get }
-  static var UnitRenderAction_OutputIsSilence: AudioUnitRenderActionFlags { get }
-  static var OfflineUnitRenderAction_Preflight: AudioUnitRenderActionFlags { get }
-  static var OfflineUnitRenderAction_Render: AudioUnitRenderActionFlags { get }
-  static var OfflineUnitRenderAction_Complete: AudioUnitRenderActionFlags { get }
-  static var UnitRenderAction_PostRenderError: AudioUnitRenderActionFlags { get }
-  static var UnitRenderAction_DoNotCheckRenderArgs: AudioUnitRenderActionFlags { get }
+  static var unitRenderAction_PreRender: AudioUnitRenderActionFlags { get }
+  static var unitRenderAction_PostRender: AudioUnitRenderActionFlags { get }
+  static var unitRenderAction_OutputIsSilence: AudioUnitRenderActionFlags { get }
+  static var offlineUnitRenderAction_Preflight: AudioUnitRenderActionFlags { get }
+  static var offlineUnitRenderAction_Render: AudioUnitRenderActionFlags { get }
+  static var offlineUnitRenderAction_Complete: AudioUnitRenderActionFlags { get }
+  static var unitRenderAction_PostRenderError: AudioUnitRenderActionFlags { get }
+  static var unitRenderAction_DoNotCheckRenderArgs: AudioUnitRenderActionFlags { get }
 }
 var kAudioUnitErr_InvalidProperty: OSStatus { get }
 var kAudioUnitErr_InvalidParameter: OSStatus { get }
@@ -97,8 +97,8 @@ typealias AudioUnitParameterValue = Float32
 enum AUParameterEventType : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case ParameterEvent_Immediate
-  case ParameterEvent_Ramped
+  case parameterEvent_Immediate
+  case parameterEvent_Ramped
 }
 struct AudioUnitParameterEvent {
   struct __Unnamed_union_eventValues {

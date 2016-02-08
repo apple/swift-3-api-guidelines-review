@@ -2,24 +2,24 @@
 enum UIPrintInfoOutputType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case General
-  case Photo
-  case Grayscale
+  case general
+  case photo
+  case grayscale
   @available(iOS 7.0, *)
-  case PhotoGrayscale
+  case photoGrayscale
 }
 enum UIPrintInfoOrientation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Portrait
-  case Landscape
+  case portrait
+  case landscape
 }
 enum UIPrintInfoDuplex : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case LongEdge
-  case ShortEdge
+  case none
+  case longEdge
+  case shortEdge
 }
 @available(iOS 4.2, *)
 class UIPrintInfo : Object, Copying, Coding {

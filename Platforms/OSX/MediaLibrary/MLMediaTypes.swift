@@ -2,16 +2,16 @@
 struct MLMediaSourceType : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Audio: MLMediaSourceType { get }
-  static var Image: MLMediaSourceType { get }
-  static var Movie: MLMediaSourceType { get }
+  static var audio: MLMediaSourceType { get }
+  static var image: MLMediaSourceType { get }
+  static var movie: MLMediaSourceType { get }
 }
 enum MLMediaType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Audio
-  case Image
-  case Movie
+  case audio
+  case image
+  case movie
 }
 let MLFolderRootGroupTypeIdentifier: String
 let MLFolderGroupTypeIdentifier: String

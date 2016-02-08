@@ -51,14 +51,14 @@ let kCGImageMetadataPrefixXMPRights: CFString
 enum CGImageMetadataType : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Invalid
-  case Default
-  case String
-  case ArrayUnordered
-  case ArrayOrdered
-  case AlternateArray
-  case AlternateText
-  case Structure
+  case invalid
+  case `default`
+  case string
+  case arrayUnordered
+  case arrayOrdered
+  case alternateArray
+  case alternateText
+  case structure
 }
 @available(watchOS 2.0, *)
 func CGImageMetadataTagCreate(xmlns: CFString, _ prefix: CFString?, _ name: CFString, _ type: CGImageMetadataType, _ value: CFTypeRef) -> CGImageMetadataTag?
@@ -105,9 +105,9 @@ let kCFErrorDomainCGImageMetadata: CFString
 enum CGImageMetadataErrors : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Unknown
-  case UnsupportedFormat
-  case BadArgument
-  case ConflictingArguments
-  case PrefixConflict
+  case unknown
+  case unsupportedFormat
+  case badArgument
+  case conflictingArguments
+  case prefixConflict
 }

@@ -23,10 +23,10 @@ struct CMQuaternion {
 struct CMAttitudeReferenceFrame : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var XArbitraryZVertical: CMAttitudeReferenceFrame { get }
-  static var XArbitraryCorrectedZVertical: CMAttitudeReferenceFrame { get }
-  static var XMagneticNorthZVertical: CMAttitudeReferenceFrame { get }
-  static var XTrueNorthZVertical: CMAttitudeReferenceFrame { get }
+  static var xArbitraryZVertical: CMAttitudeReferenceFrame { get }
+  static var xArbitraryCorrectedZVertical: CMAttitudeReferenceFrame { get }
+  static var xMagneticNorthZVertical: CMAttitudeReferenceFrame { get }
+  static var xTrueNorthZVertical: CMAttitudeReferenceFrame { get }
 }
 @available(iOS 4.0, *)
 class CMAttitude : Object, Copying, SecureCoding {

@@ -4,47 +4,47 @@ let kMACaptionAppearanceSettingsChangedNotification: CFString
 enum MACaptionAppearanceDomain : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case Default
-  case User
+  case `default`
+  case user
 }
 @available(OSX 10.9, *)
 enum MACaptionAppearanceDisplayType : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case ForcedOnly
-  case Automatic
-  case AlwaysOn
+  case forcedOnly
+  case automatic
+  case alwaysOn
 }
 @available(OSX 10.9, *)
 enum MACaptionAppearanceBehavior : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case UseValue
-  case UseContentIfAvailable
+  case useValue
+  case useContentIfAvailable
 }
 @available(OSX 10.9, *)
 enum MACaptionAppearanceFontStyle : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case Default
-  case MonospacedWithSerif
-  case ProportionalWithSerif
-  case MonospacedWithoutSerif
-  case ProportionalWithoutSerif
-  case Casual
-  case Cursive
-  case SmallCapital
+  case `default`
+  case monospacedWithSerif
+  case proportionalWithSerif
+  case monospacedWithoutSerif
+  case proportionalWithoutSerif
+  case casual
+  case cursive
+  case smallCapital
 }
 @available(OSX 10.9, *)
 enum MACaptionAppearanceTextEdgeStyle : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case Undefined
-  case None
-  case Raised
-  case Depressed
-  case Uniform
-  case DropShadow
+  case undefined
+  case none
+  case raised
+  case depressed
+  case uniform
+  case dropShadow
 }
 @available(OSX 10.9, *)
 let MAMediaCharacteristicDescribesMusicAndSoundForAccessibility: CFString

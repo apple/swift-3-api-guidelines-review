@@ -23,12 +23,12 @@ extension UIOffset : Equatable {
 struct UIRectEdge : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: UIRectEdge { get }
-  static var Top: UIRectEdge { get }
-  static var Left: UIRectEdge { get }
-  static var Bottom: UIRectEdge { get }
-  static var Right: UIRectEdge { get }
-  static var All: UIRectEdge { get }
+  static var none: UIRectEdge { get }
+  static var top: UIRectEdge { get }
+  static var left: UIRectEdge { get }
+  static var bottom: UIRectEdge { get }
+  static var right: UIRectEdge { get }
+  static var all: UIRectEdge { get }
 }
 func UIEdgeInsetsMake(top: CGFloat, _ left: CGFloat, _ bottom: CGFloat, _ right: CGFloat) -> UIEdgeInsets
 func UIEdgeInsetsInsetRect(rect: CGRect, _ insets: UIEdgeInsets) -> CGRect

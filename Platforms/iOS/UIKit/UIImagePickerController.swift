@@ -2,41 +2,41 @@
 enum UIImagePickerControllerSourceType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case PhotoLibrary
-  case Camera
-  case SavedPhotosAlbum
+  case photoLibrary
+  case camera
+  case savedPhotosAlbum
 }
 enum UIImagePickerControllerQualityType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case TypeHigh
-  case TypeMedium
-  case TypeLow
+  case typeHigh
+  case typeMedium
+  case typeLow
   @available(iOS 4.0, *)
-  case Type640x480
+  case type640x480
   @available(iOS 5.0, *)
-  case TypeIFrame1280x720
+  case typeIFrame1280x720
   @available(iOS 5.0, *)
-  case TypeIFrame960x540
+  case typeIFrame960x540
 }
 enum UIImagePickerControllerCameraCaptureMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Photo
-  case Video
+  case photo
+  case video
 }
 enum UIImagePickerControllerCameraDevice : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Rear
-  case Front
+  case rear
+  case front
 }
 enum UIImagePickerControllerCameraFlashMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Off
-  case Auto
-  case On
+  case off
+  case auto
+  case on
 }
 let UIImagePickerControllerMediaType: String
 let UIImagePickerControllerOriginalImage: String

@@ -3,11 +3,11 @@
 enum NSTextAlignment : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Left
-  case Center
-  case Right
-  case Justified
-  case Natural
+  case left
+  case center
+  case right
+  case justified
+  case natural
 }
 @available(iOS 6.0, *)
 func NSTextAlignmentToCTTextAlignment(nsTextAlignment: NSTextAlignment) -> CTTextAlignment
@@ -17,7 +17,7 @@ func NSTextAlignmentFromCTTextAlignment(ctTextAlignment: CTTextAlignment) -> NST
 enum NSWritingDirection : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Natural
-  case LeftToRight
-  case RightToLeft
+  case natural
+  case leftToRight
+  case rightToLeft
 }

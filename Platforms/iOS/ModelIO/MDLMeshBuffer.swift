@@ -2,8 +2,8 @@
 enum MDLMeshBufferType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Vertex
-  case Index
+  case vertex
+  case index
 }
 @available(iOS 9.0, *)
 class MDLMeshBufferMap : Object {

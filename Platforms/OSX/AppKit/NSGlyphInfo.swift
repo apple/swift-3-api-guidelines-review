@@ -2,12 +2,12 @@
 enum NSCharacterCollection : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case IdentityMappingCharacterCollection
-  case AdobeCNS1CharacterCollection
-  case AdobeGB1CharacterCollection
-  case AdobeJapan1CharacterCollection
-  case AdobeJapan2CharacterCollection
-  case AdobeKorea1CharacterCollection
+  case identityMappingCharacterCollection
+  case adobeCNS1CharacterCollection
+  case adobeGB1CharacterCollection
+  case adobeJapan1CharacterCollection
+  case adobeJapan2CharacterCollection
+  case adobeKorea1CharacterCollection
 }
 class NSGlyphInfo : Object, Copying, SecureCoding {
   /*not inherited*/ init?(glyphName: String, forFont font: NSFont, baseString theString: String)

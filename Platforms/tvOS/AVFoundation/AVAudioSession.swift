@@ -3,74 +3,74 @@
 struct AVAudioSessionInterruptionOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ShouldResume: AVAudioSessionInterruptionOptions { get }
+  static var shouldResume: AVAudioSessionInterruptionOptions { get }
 }
 @available(tvOS 6.0, *)
 struct AVAudioSessionSetActiveOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var NotifyOthersOnDeactivation: AVAudioSessionSetActiveOptions { get }
+  static var notifyOthersOnDeactivation: AVAudioSessionSetActiveOptions { get }
 }
 @available(tvOS 6.0, *)
 enum AVAudioSessionPortOverride : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
+  case none
 }
 @available(tvOS 6.0, *)
 enum AVAudioSessionRouteChangeReason : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Unknown
-  case NewDeviceAvailable
-  case OldDeviceUnavailable
-  case CategoryChange
-  case Override
-  case WakeFromSleep
-  case NoSuitableRouteForCategory
+  case unknown
+  case newDeviceAvailable
+  case oldDeviceUnavailable
+  case categoryChange
+  case override
+  case wakeFromSleep
+  case noSuitableRouteForCategory
   @available(tvOS 7.0, *)
-  case RouteConfigurationChange
+  case routeConfigurationChange
 }
 @available(tvOS 6.0, *)
 struct AVAudioSessionCategoryOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var MixWithOthers: AVAudioSessionCategoryOptions { get }
-  static var DuckOthers: AVAudioSessionCategoryOptions { get }
+  static var mixWithOthers: AVAudioSessionCategoryOptions { get }
+  static var duckOthers: AVAudioSessionCategoryOptions { get }
   @available(tvOS 9.0, *)
-  static var InterruptSpokenAudioAndMixWithOthers: AVAudioSessionCategoryOptions { get }
+  static var interruptSpokenAudioAndMixWithOthers: AVAudioSessionCategoryOptions { get }
 }
 @available(tvOS 6.0, *)
 enum AVAudioSessionInterruptionType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Began
-  case Ended
+  case began
+  case ended
 }
 @available(tvOS 8.0, *)
 enum AVAudioSessionSilenceSecondaryAudioHintType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Begin
-  case End
+  case begin
+  case end
 }
 @available(tvOS 7.0, *)
 enum AVAudioSessionErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case CodeNone
-  case CodeMediaServicesFailed
-  case CodeIsBusy
-  case CodeIncompatibleCategory
-  case CodeCannotInterruptOthers
-  case CodeMissingEntitlement
-  case CodeSiriIsRecording
-  case CodeCannotStartPlaying
-  case CodeCannotStartRecording
-  case CodeBadParam
-  case InsufficientPriority
-  case CodeResourceNotAvailable
-  case CodeUnspecified
+  case codeNone
+  case codeMediaServicesFailed
+  case codeIsBusy
+  case codeIncompatibleCategory
+  case codeCannotInterruptOthers
+  case codeMissingEntitlement
+  case codeSiriIsRecording
+  case codeCannotStartPlaying
+  case codeCannotStartRecording
+  case codeBadParam
+  case insufficientPriority
+  case codeResourceNotAvailable
+  case codeUnspecified
 }
 @available(tvOS 3.0, *)
 class AVAudioSession : Object {

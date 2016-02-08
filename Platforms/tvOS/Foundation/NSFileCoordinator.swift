@@ -2,22 +2,22 @@
 struct FileCoordinatorReadingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var WithoutChanges: FileCoordinatorReadingOptions { get }
-  static var ResolvesSymbolicLink: FileCoordinatorReadingOptions { get }
+  static var withoutChanges: FileCoordinatorReadingOptions { get }
+  static var resolvesSymbolicLink: FileCoordinatorReadingOptions { get }
   @available(tvOS 8.0, *)
-  static var ImmediatelyAvailableMetadataOnly: FileCoordinatorReadingOptions { get }
+  static var immediatelyAvailableMetadataOnly: FileCoordinatorReadingOptions { get }
   @available(tvOS 8.0, *)
-  static var ForUploading: FileCoordinatorReadingOptions { get }
+  static var forUploading: FileCoordinatorReadingOptions { get }
 }
 struct FileCoordinatorWritingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ForDeleting: FileCoordinatorWritingOptions { get }
-  static var ForMoving: FileCoordinatorWritingOptions { get }
-  static var ForMerging: FileCoordinatorWritingOptions { get }
-  static var ForReplacing: FileCoordinatorWritingOptions { get }
+  static var forDeleting: FileCoordinatorWritingOptions { get }
+  static var forMoving: FileCoordinatorWritingOptions { get }
+  static var forMerging: FileCoordinatorWritingOptions { get }
+  static var forReplacing: FileCoordinatorWritingOptions { get }
   @available(tvOS 8.0, *)
-  static var ContentIndependentMetadataOnly: FileCoordinatorWritingOptions { get }
+  static var contentIndependentMetadataOnly: FileCoordinatorWritingOptions { get }
 }
 @available(tvOS 8.0, *)
 class FileAccessIntent : Object {

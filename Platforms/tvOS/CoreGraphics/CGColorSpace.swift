@@ -4,23 +4,23 @@ class CGColorSpace {
 enum CGColorRenderingIntent : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case RenderingIntentDefault
-  case RenderingIntentAbsoluteColorimetric
-  case RenderingIntentRelativeColorimetric
-  case RenderingIntentPerceptual
-  case RenderingIntentSaturation
+  case renderingIntentDefault
+  case renderingIntentAbsoluteColorimetric
+  case renderingIntentRelativeColorimetric
+  case renderingIntentPerceptual
+  case renderingIntentSaturation
 }
 enum CGColorSpaceModel : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Unknown
-  case Monochrome
+  case unknown
+  case monochrome
   case RGB
   case CMYK
-  case Lab
-  case DeviceN
-  case Indexed
-  case Pattern
+  case lab
+  case deviceN
+  case indexed
+  case pattern
 }
 @available(tvOS 9.0, *)
 let kCGColorSpaceGenericGray: CFString

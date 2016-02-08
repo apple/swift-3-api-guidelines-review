@@ -67,9 +67,9 @@ class NSSharingService : Object {
 enum NSSharingContentScope : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Item
-  case Partial
-  case Full
+  case item
+  case partial
+  case full
 }
 protocol NSSharingServiceDelegate : ObjectProtocol {
   @available(OSX 10.8, *)

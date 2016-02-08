@@ -85,7 +85,7 @@ let NSPasteboardURLReadingContentsConformToTypesKey: String
 struct NSPasteboardWritingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Promised: NSPasteboardWritingOptions { get }
+  static var promised: NSPasteboardWritingOptions { get }
 }
 protocol NSPasteboardWriting : ObjectProtocol {
   func writableTypesFor(pasteboard: NSPasteboard) -> [String]
@@ -97,10 +97,10 @@ protocol NSPasteboardWriting : ObjectProtocol {
 struct NSPasteboardReadingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var AsData: NSPasteboardReadingOptions { get }
-  static var AsString: NSPasteboardReadingOptions { get }
-  static var AsPropertyList: NSPasteboardReadingOptions { get }
-  static var AsKeyedArchive: NSPasteboardReadingOptions { get }
+  static var asData: NSPasteboardReadingOptions { get }
+  static var asString: NSPasteboardReadingOptions { get }
+  static var asPropertyList: NSPasteboardReadingOptions { get }
+  static var asKeyedArchive: NSPasteboardReadingOptions { get }
 }
 protocol NSPasteboardReading : ObjectProtocol {
   static func readableTypesFor(pasteboard: NSPasteboard) -> [String]

@@ -2,18 +2,18 @@
 enum UITextBorderStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Line
-  case Bezel
-  case RoundedRect
+  case none
+  case line
+  case bezel
+  case roundedRect
 }
 enum UITextFieldViewMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Never
-  case WhileEditing
-  case UnlessEditing
-  case Always
+  case never
+  case whileEditing
+  case unlessEditing
+  case always
 }
 @available(iOS 2.0, *)
 class UITextField : UIControl, UITextInput, Coding {

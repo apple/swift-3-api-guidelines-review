@@ -67,18 +67,18 @@ class DateFormatter : Formatter {
 enum DateFormatterStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NoStyle
-  case ShortStyle
-  case MediumStyle
-  case LongStyle
-  case FullStyle
+  case noStyle
+  case shortStyle
+  case mediumStyle
+  case longStyle
+  case fullStyle
 }
 enum DateFormatterBehavior : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case BehaviorDefault
-  case Behavior10_0
-  case Behavior10_4
+  case behaviorDefault
+  case behavior10_0
+  case behavior10_4
 }
 extension DateFormatter {
 }

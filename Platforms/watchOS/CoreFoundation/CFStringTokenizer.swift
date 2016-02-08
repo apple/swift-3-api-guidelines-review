@@ -13,13 +13,13 @@ var kCFStringTokenizerAttributeLanguage: CFOptionFlags { get }
 struct CFStringTokenizerTokenType : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
-  static var None: CFStringTokenizerTokenType { get }
-  static var Normal: CFStringTokenizerTokenType { get }
-  static var HasSubTokensMask: CFStringTokenizerTokenType { get }
-  static var HasDerivedSubTokensMask: CFStringTokenizerTokenType { get }
-  static var HasHasNumbersMask: CFStringTokenizerTokenType { get }
-  static var HasNonLettersMask: CFStringTokenizerTokenType { get }
-  static var IsCJWordMask: CFStringTokenizerTokenType { get }
+  static var none: CFStringTokenizerTokenType { get }
+  static var normal: CFStringTokenizerTokenType { get }
+  static var hasSubTokensMask: CFStringTokenizerTokenType { get }
+  static var hasDerivedSubTokensMask: CFStringTokenizerTokenType { get }
+  static var hasHasNumbersMask: CFStringTokenizerTokenType { get }
+  static var hasNonLettersMask: CFStringTokenizerTokenType { get }
+  static var iscjWordMask: CFStringTokenizerTokenType { get }
 }
 @available(watchOS 2.0, *)
 func CFStringTokenizerGetTypeID() -> CFTypeID

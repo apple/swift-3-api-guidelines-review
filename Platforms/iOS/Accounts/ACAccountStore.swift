@@ -2,9 +2,9 @@
 enum ACAccountCredentialRenewResult : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Renewed
-  case Rejected
-  case Failed
+  case renewed
+  case rejected
+  case failed
 }
 typealias ACAccountStoreSaveCompletionHandler = (Bool, Error!) -> Void
 typealias ACAccountStoreRemoveCompletionHandler = (Bool, Error!) -> Void

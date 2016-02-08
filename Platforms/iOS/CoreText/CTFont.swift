@@ -46,9 +46,9 @@ func CTFontCreateWithFontDescriptor(descriptor: CTFontDescriptor, _ size: CGFloa
 struct CTFontOptions : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
-  static var Default: CTFontOptions { get }
-  static var PreventAutoActivation: CTFontOptions { get }
-  static var PreferSystemFont: CTFontOptions { get }
+  static var `default`: CTFontOptions { get }
+  static var preventAutoActivation: CTFontOptions { get }
+  static var preferSystemFont: CTFontOptions { get }
 }
 @available(iOS 3.2, *)
 func CTFontCreateWithNameAndOptions(name: CFString, _ size: CGFloat, _ matrix: UnsafePointer<CGAffineTransform>, _ options: CTFontOptions) -> CTFont
@@ -58,61 +58,61 @@ enum CTFontUIFontType : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
   @available(iOS 6.0, *)
-  case None
+  case none
   @available(iOS 6.0, *)
-  case User
+  case user
   @available(iOS 6.0, *)
-  case UserFixedPitch
+  case userFixedPitch
   @available(iOS 6.0, *)
-  case System
+  case system
   @available(iOS 6.0, *)
-  case EmphasizedSystem
+  case emphasizedSystem
   @available(iOS 6.0, *)
-  case SmallSystem
+  case smallSystem
   @available(iOS 6.0, *)
-  case SmallEmphasizedSystem
+  case smallEmphasizedSystem
   @available(iOS 6.0, *)
-  case MiniSystem
+  case miniSystem
   @available(iOS 6.0, *)
-  case MiniEmphasizedSystem
+  case miniEmphasizedSystem
   @available(iOS 6.0, *)
-  case Views
+  case views
   @available(iOS 6.0, *)
-  case Application
+  case application
   @available(iOS 6.0, *)
-  case Label
+  case label
   @available(iOS 6.0, *)
-  case MenuTitle
+  case menuTitle
   @available(iOS 6.0, *)
-  case MenuItem
+  case menuItem
   @available(iOS 6.0, *)
-  case MenuItemMark
+  case menuItemMark
   @available(iOS 6.0, *)
-  case MenuItemCmdKey
+  case menuItemCmdKey
   @available(iOS 6.0, *)
-  case WindowTitle
+  case windowTitle
   @available(iOS 6.0, *)
-  case PushButton
+  case pushButton
   @available(iOS 6.0, *)
-  case UtilityWindowTitle
+  case utilityWindowTitle
   @available(iOS 6.0, *)
-  case AlertHeader
+  case alertHeader
   @available(iOS 6.0, *)
-  case SystemDetail
+  case systemDetail
   @available(iOS 6.0, *)
-  case EmphasizedSystemDetail
+  case emphasizedSystemDetail
   @available(iOS 6.0, *)
-  case Toolbar
+  case toolbar
   @available(iOS 6.0, *)
-  case SmallToolbar
+  case smallToolbar
   @available(iOS 6.0, *)
-  case Message
+  case message
   @available(iOS 6.0, *)
-  case Palette
+  case palette
   @available(iOS 6.0, *)
-  case ToolTip
+  case toolTip
   @available(iOS 6.0, *)
-  case ControlContent
+  case controlContent
   @available(iOS, introduced=3.2, deprecated=9.0)
   static var kCTFontNoFontType: CTFontUIFontType { get }
   @available(iOS, introduced=3.2, deprecated=9.0)
@@ -354,7 +354,7 @@ struct CTFontTableOptions : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
   @available(iOS 3.2, *)
-  static var NoOptions: CTFontTableOptions { get }
+  static var noOptions: CTFontTableOptions { get }
 }
 @available(iOS 3.2, *)
 func CTFontCopyAvailableTables(font: CTFont, _ options: CTFontTableOptions) -> CFArray?

@@ -22,19 +22,19 @@ class HKUnit : Object, SecureCoding, Copying {
 enum HKMetricPrefix : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Pico
-  case Nano
-  case Micro
-  case Milli
-  case Centi
-  case Deci
-  case Deca
-  case Hecto
-  case Kilo
-  case Mega
-  case Giga
-  case Tera
+  case none
+  case pico
+  case nano
+  case micro
+  case milli
+  case centi
+  case deci
+  case deca
+  case hecto
+  case kilo
+  case mega
+  case giga
+  case tera
 }
 extension HKUnit {
   class func gramUnitWith(prefix: HKMetricPrefix) -> Self

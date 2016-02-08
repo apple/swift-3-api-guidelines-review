@@ -9,26 +9,26 @@ var operationNotSupportedForKeySpecifierError: Int { get }
 enum InsertionPosition : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case PositionAfter
-  case PositionBefore
-  case PositionBeginning
-  case PositionEnd
-  case PositionReplace
+  case positionAfter
+  case positionBefore
+  case positionBeginning
+  case positionEnd
+  case positionReplace
 }
 enum RelativePosition : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case After
-  case Before
+  case after
+  case before
 }
 enum WhoseSubelementIdentifier : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case IndexSubelement
-  case EverySubelement
-  case MiddleSubelement
-  case RandomSubelement
-  case NoSubelement
+  case indexSubelement
+  case everySubelement
+  case middleSubelement
+  case randomSubelement
+  case noSubelement
 }
 class ScriptObjectSpecifier : Object, Coding {
   @available(OSX 10.5, *)

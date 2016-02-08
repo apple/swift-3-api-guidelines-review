@@ -4,27 +4,27 @@ class CGImage {
 enum CGImageAlphaInfo : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case None
-  case PremultipliedLast
-  case PremultipliedFirst
-  case Last
-  case First
-  case NoneSkipLast
-  case NoneSkipFirst
-  case Only
+  case none
+  case premultipliedLast
+  case premultipliedFirst
+  case last
+  case first
+  case noneSkipLast
+  case noneSkipFirst
+  case only
 }
 @available(watchOS 2.0, *)
 struct CGBitmapInfo : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var AlphaInfoMask: CGBitmapInfo { get }
-  static var FloatComponents: CGBitmapInfo { get }
-  static var ByteOrderMask: CGBitmapInfo { get }
-  static var ByteOrderDefault: CGBitmapInfo { get }
-  static var ByteOrder16Little: CGBitmapInfo { get }
-  static var ByteOrder32Little: CGBitmapInfo { get }
-  static var ByteOrder16Big: CGBitmapInfo { get }
-  static var ByteOrder32Big: CGBitmapInfo { get }
+  static var alphaInfoMask: CGBitmapInfo { get }
+  static var floatComponents: CGBitmapInfo { get }
+  static var byteOrderMask: CGBitmapInfo { get }
+  static var byteOrderDefault: CGBitmapInfo { get }
+  static var byteOrder16Little: CGBitmapInfo { get }
+  static var byteOrder32Little: CGBitmapInfo { get }
+  static var byteOrder16Big: CGBitmapInfo { get }
+  static var byteOrder32Big: CGBitmapInfo { get }
 }
 @available(watchOS 2.0, *)
 func CGImageGetTypeID() -> CFTypeID

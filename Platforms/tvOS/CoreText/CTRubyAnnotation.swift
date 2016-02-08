@@ -7,34 +7,34 @@ func CTRubyAnnotationGetTypeID() -> CFTypeID
 enum CTRubyAlignment : UInt8 {
   init?(rawValue: UInt8)
   var rawValue: UInt8 { get }
-  case Invalid
-  case Auto
-  case Start
-  case Center
-  case End
-  case DistributeLetter
-  case DistributeSpace
-  case LineEdge
+  case invalid
+  case auto
+  case start
+  case center
+  case end
+  case distributeLetter
+  case distributeSpace
+  case lineEdge
 }
 @available(tvOS 8.0, *)
 enum CTRubyOverhang : UInt8 {
   init?(rawValue: UInt8)
   var rawValue: UInt8 { get }
-  case Invalid
-  case Auto
-  case Start
-  case End
-  case None
+  case invalid
+  case auto
+  case start
+  case end
+  case none
 }
 @available(tvOS 8.0, *)
 enum CTRubyPosition : UInt8 {
   init?(rawValue: UInt8)
   var rawValue: UInt8 { get }
-  case Before
-  case After
-  case InterCharacter
-  case Inline
-  case Count
+  case before
+  case after
+  case interCharacter
+  case inline
+  case count
 }
 @available(tvOS 8.0, *)
 func CTRubyAnnotationCreate(alignment: CTRubyAlignment, _ overhang: CTRubyOverhang, _ sizeFactor: CGFloat, _ text: UnsafeMutablePointer<Unmanaged<CFString>?>) -> CTRubyAnnotation

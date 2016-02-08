@@ -3,19 +3,19 @@ typealias unichar = UInt16
 struct StringCompareOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var CaseInsensitiveSearch: StringCompareOptions { get }
-  static var LiteralSearch: StringCompareOptions { get }
-  static var BackwardsSearch: StringCompareOptions { get }
-  static var AnchoredSearch: StringCompareOptions { get }
-  static var NumericSearch: StringCompareOptions { get }
+  static var caseInsensitiveSearch: StringCompareOptions { get }
+  static var literalSearch: StringCompareOptions { get }
+  static var backwardsSearch: StringCompareOptions { get }
+  static var anchoredSearch: StringCompareOptions { get }
+  static var numericSearch: StringCompareOptions { get }
   @available(watchOS 2.0, *)
-  static var DiacriticInsensitiveSearch: StringCompareOptions { get }
+  static var diacriticInsensitiveSearch: StringCompareOptions { get }
   @available(watchOS 2.0, *)
-  static var WidthInsensitiveSearch: StringCompareOptions { get }
+  static var widthInsensitiveSearch: StringCompareOptions { get }
   @available(watchOS 2.0, *)
-  static var ForcedOrderingSearch: StringCompareOptions { get }
+  static var forcedOrderingSearch: StringCompareOptions { get }
   @available(watchOS 2.0, *)
-  static var RegularExpressionSearch: StringCompareOptions { get }
+  static var regularExpressionSearch: StringCompareOptions { get }
 }
 var asciiStringEncoding: UInt { get }
 var nextstepStringEncoding: UInt { get }
@@ -43,8 +43,8 @@ var utf32LittleEndianStringEncoding: UInt { get }
 struct StringEncodingConversionOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var AllowLossy: StringEncodingConversionOptions { get }
-  static var ExternalRepresentation: StringEncodingConversionOptions { get }
+  static var allowLossy: StringEncodingConversionOptions { get }
+  static var externalRepresentation: StringEncodingConversionOptions { get }
 }
 class NSString : Object, Copying, MutableCopying, SecureCoding {
   var length: Int { get }
@@ -207,14 +207,14 @@ extension NSString {
 struct StringEnumerationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ByLines: StringEnumerationOptions { get }
-  static var ByParagraphs: StringEnumerationOptions { get }
-  static var ByComposedCharacterSequences: StringEnumerationOptions { get }
-  static var ByWords: StringEnumerationOptions { get }
-  static var BySentences: StringEnumerationOptions { get }
-  static var Reverse: StringEnumerationOptions { get }
-  static var SubstringNotRequired: StringEnumerationOptions { get }
-  static var Localized: StringEnumerationOptions { get }
+  static var byLines: StringEnumerationOptions { get }
+  static var byParagraphs: StringEnumerationOptions { get }
+  static var byComposedCharacterSequences: StringEnumerationOptions { get }
+  static var byWords: StringEnumerationOptions { get }
+  static var bySentences: StringEnumerationOptions { get }
+  static var reverse: StringEnumerationOptions { get }
+  static var substringNotRequired: StringEnumerationOptions { get }
+  static var localized: StringEnumerationOptions { get }
 }
 @available(watchOS 2.0, *)
 let stringTransformLatinToKatakana: String

@@ -2,18 +2,18 @@
 struct CBCharacteristicProperties : OptionSetType {
   init(rawValue: Int)
   let rawValue: Int
-  static var Broadcast: CBCharacteristicProperties { get }
-  static var Read: CBCharacteristicProperties { get }
-  static var WriteWithoutResponse: CBCharacteristicProperties { get }
-  static var Write: CBCharacteristicProperties { get }
-  static var Notify: CBCharacteristicProperties { get }
-  static var Indicate: CBCharacteristicProperties { get }
-  static var AuthenticatedSignedWrites: CBCharacteristicProperties { get }
-  static var ExtendedProperties: CBCharacteristicProperties { get }
+  static var broadcast: CBCharacteristicProperties { get }
+  static var read: CBCharacteristicProperties { get }
+  static var writeWithoutResponse: CBCharacteristicProperties { get }
+  static var write: CBCharacteristicProperties { get }
+  static var notify: CBCharacteristicProperties { get }
+  static var indicate: CBCharacteristicProperties { get }
+  static var authenticatedSignedWrites: CBCharacteristicProperties { get }
+  static var extendedProperties: CBCharacteristicProperties { get }
   @available(OSX 10.9, *)
-  static var NotifyEncryptionRequired: CBCharacteristicProperties { get }
+  static var notifyEncryptionRequired: CBCharacteristicProperties { get }
   @available(OSX 10.9, *)
-  static var IndicateEncryptionRequired: CBCharacteristicProperties { get }
+  static var indicateEncryptionRequired: CBCharacteristicProperties { get }
 }
 @available(OSX 10.7, *)
 class CBCharacteristic : Object {
@@ -30,10 +30,10 @@ class CBCharacteristic : Object {
 struct CBAttributePermissions : OptionSetType {
   init(rawValue: Int)
   let rawValue: Int
-  static var Readable: CBAttributePermissions { get }
-  static var Writeable: CBAttributePermissions { get }
-  static var ReadEncryptionRequired: CBAttributePermissions { get }
-  static var WriteEncryptionRequired: CBAttributePermissions { get }
+  static var readable: CBAttributePermissions { get }
+  static var writeable: CBAttributePermissions { get }
+  static var readEncryptionRequired: CBAttributePermissions { get }
+  static var writeEncryptionRequired: CBAttributePermissions { get }
 }
 @available(OSX 10.9, *)
 class CBMutableCharacteristic : CBCharacteristic {

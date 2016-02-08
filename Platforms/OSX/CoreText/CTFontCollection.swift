@@ -40,9 +40,9 @@ func CTFontCollectionCreateMatchingFontDescriptorsForFamily(collection: CTFontCo
 struct CTFontCollectionCopyOptions : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var DefaultOptions: CTFontCollectionCopyOptions { get }
-  static var Unique: CTFontCollectionCopyOptions { get }
-  static var StandardSort: CTFontCollectionCopyOptions { get }
+  static var defaultOptions: CTFontCollectionCopyOptions { get }
+  static var unique: CTFontCollectionCopyOptions { get }
+  static var standardSort: CTFontCollectionCopyOptions { get }
 }
 @available(OSX 10.7, *)
 func CTFontCollectionCopyFontAttribute(collection: CTFontCollection, _ attributeName: CFString, _ options: CTFontCollectionCopyOptions) -> CFArray

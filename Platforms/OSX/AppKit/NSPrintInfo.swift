@@ -3,15 +3,15 @@
 enum NSPaperOrientation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Portrait
-  case Landscape
+  case portrait
+  case landscape
 }
 enum NSPrintingPaginationMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case AutoPagination
-  case FitPagination
-  case ClipPagination
+  case autoPagination
+  case fitPagination
+  case clipPagination
 }
 let NSPrintSpoolJob: String
 let NSPrintPreviewJob: String
@@ -100,6 +100,6 @@ extension NSPrintInfo {
 enum NSPrintingOrientation : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case PortraitOrientation
-  case LandscapeOrientation
+  case portraitOrientation
+  case landscapeOrientation
 }

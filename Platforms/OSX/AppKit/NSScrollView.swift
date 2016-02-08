@@ -3,9 +3,9 @@
 enum NSScrollElasticity : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Automatic
-  case None
-  case Allowed
+  case automatic
+  case none
+  case allowed
 }
 struct __SFlags {
   var RESERVED: UInt32
@@ -128,9 +128,9 @@ extension NSScrollView {
 enum NSScrollViewFindBarPosition : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case AboveHorizontalRuler
-  case AboveContent
-  case BelowContent
+  case aboveHorizontalRuler
+  case aboveContent
+  case belowContent
 }
 extension NSScrollView {
   @available(OSX 10.7, *)

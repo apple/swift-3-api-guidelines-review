@@ -3,17 +3,17 @@
 enum PKPaymentAuthorizationStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Success
-  case Failure
-  case InvalidBillingPostalAddress
-  case InvalidShippingPostalAddress
-  case InvalidShippingContact
+  case success
+  case failure
+  case invalidBillingPostalAddress
+  case invalidShippingPostalAddress
+  case invalidShippingContact
   @available(iOS 9.2, *)
-  case PINRequired
+  case pinRequired
   @available(iOS 9.2, *)
-  case PINIncorrect
+  case pinIncorrect
   @available(iOS 9.2, *)
-  case PINLockout
+  case pinLockout
 }
 protocol PKPaymentAuthorizationViewControllerDelegate : ObjectProtocol {
   @available(iOS 8.0, *)

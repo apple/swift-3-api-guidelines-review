@@ -2,56 +2,56 @@
 enum CAClockPropertyID : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case InternalTimebase
-  case TimebaseSource
-  case SyncMode
-  case SyncSource
-  case SMPTEFormat
-  case SMPTEOffset
-  case MIDIClockDestinations
-  case MTCDestinations
-  case MTCFreewheelTime
-  case TempoMap
-  case MeterTrack
-  case Name
-  case SendMIDISPP
+  case internalTimebase
+  case timebaseSource
+  case syncMode
+  case syncSource
+  case smpteFormat
+  case smpteOffset
+  case midiClockDestinations
+  case mtcDestinations
+  case mtcFreewheelTime
+  case tempoMap
+  case meterTrack
+  case name
+  case sendMIDISPP
 }
 enum CAClockTimebase : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case HostTime
-  case AudioDevice
-  case AudioOutputUnit
+  case hostTime
+  case audioDevice
+  case audioOutputUnit
 }
 enum CAClockSyncMode : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Internal
-  case MIDIClockTransport
-  case MTCTransport
+  case `internal`
+  case midiClockTransport
+  case mtcTransport
 }
 typealias CAClockSMPTEFormat = SMPTETimeType
 enum CAClockMessage : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case StartTimeSet
-  case Started
-  case Stopped
-  case Armed
-  case Disarmed
-  case PropertyChanged
-  case WrongSMPTEFormat
+  case startTimeSet
+  case started
+  case stopped
+  case armed
+  case disarmed
+  case propertyChanged
+  case wrongSMPTEFormat
 }
 enum CAClockTimeFormat : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case HostTime
-  case Samples
-  case Beats
-  case Seconds
-  case SMPTESeconds
-  case SMPTETime
-  case AbsoluteSeconds
+  case hostTime
+  case samples
+  case beats
+  case seconds
+  case smpteSeconds
+  case smpteTime
+  case absoluteSeconds
 }
 var kCAClock_UnknownPropertyError: OSStatus { get }
 var kCAClock_InvalidPropertySizeError: OSStatus { get }

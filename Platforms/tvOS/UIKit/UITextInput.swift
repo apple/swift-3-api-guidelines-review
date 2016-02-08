@@ -7,34 +7,34 @@ protocol UIKeyInput : UITextInputTraits {
 enum UITextStorageDirection : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Forward
-  case Backward
+  case forward
+  case backward
 }
 enum UITextLayoutDirection : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Right
-  case Left
-  case Up
-  case Down
+  case right
+  case left
+  case up
+  case down
 }
 typealias UITextDirection = Int
 enum UITextWritingDirection : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Natural
-  case LeftToRight
-  case RightToLeft
+  case natural
+  case leftToRight
+  case rightToLeft
 }
 enum UITextGranularity : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Character
-  case Word
-  case Sentence
-  case Paragraph
-  case Line
-  case Document
+  case character
+  case word
+  case sentence
+  case paragraph
+  case line
+  case document
 }
 @available(tvOS 5.1, *)
 class UIDictationPhrase : Object {

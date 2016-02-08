@@ -3,14 +3,14 @@
 enum NEAppProxyFlowError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case NotConnected
-  case PeerReset
-  case HostUnreachable
-  case InvalidArgument
-  case Aborted
-  case Refused
-  case TimedOut
-  case Internal
+  case notConnected
+  case peerReset
+  case hostUnreachable
+  case invalidArgument
+  case aborted
+  case refused
+  case timedOut
+  case `internal`
 }
 @available(OSX 10.11, *)
 let NEAppProxyErrorDomain: String

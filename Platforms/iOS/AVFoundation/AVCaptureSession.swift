@@ -13,10 +13,10 @@ let AVCaptureSessionWasInterruptedNotification: String
 enum AVCaptureSessionInterruptionReason : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case VideoDeviceNotAvailableInBackground
-  case AudioDeviceInUseByAnotherClient
-  case VideoDeviceInUseByAnotherClient
-  case VideoDeviceNotAvailableWithMultipleForegroundApps
+  case videoDeviceNotAvailableInBackground
+  case audioDeviceInUseByAnotherClient
+  case videoDeviceInUseByAnotherClient
+  case videoDeviceNotAvailableWithMultipleForegroundApps
 }
 @available(iOS 9.0, *)
 let AVCaptureSessionInterruptionReasonKey: String
@@ -26,10 +26,10 @@ let AVCaptureSessionInterruptionEndedNotification: String
 enum AVCaptureVideoOrientation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Portrait
-  case PortraitUpsideDown
-  case LandscapeRight
-  case LandscapeLeft
+  case portrait
+  case portraitUpsideDown
+  case landscapeRight
+  case landscapeLeft
 }
 @available(iOS 4.0, *)
 let AVCaptureSessionPresetPhoto: String

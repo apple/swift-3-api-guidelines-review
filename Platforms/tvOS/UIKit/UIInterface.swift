@@ -3,9 +3,9 @@
 enum UIUserInterfaceSizeClass : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unspecified
-  case Compact
-  case Regular
+  case unspecified
+  case compact
+  case regular
 }
 extension UIColor {
 }

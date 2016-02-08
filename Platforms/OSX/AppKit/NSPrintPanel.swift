@@ -3,15 +3,15 @@
 struct NSPrintPanelOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ShowsCopies: NSPrintPanelOptions { get }
-  static var ShowsPageRange: NSPrintPanelOptions { get }
-  static var ShowsPaperSize: NSPrintPanelOptions { get }
-  static var ShowsOrientation: NSPrintPanelOptions { get }
-  static var ShowsScaling: NSPrintPanelOptions { get }
+  static var showsCopies: NSPrintPanelOptions { get }
+  static var showsPageRange: NSPrintPanelOptions { get }
+  static var showsPaperSize: NSPrintPanelOptions { get }
+  static var showsOrientation: NSPrintPanelOptions { get }
+  static var showsScaling: NSPrintPanelOptions { get }
   @available(OSX 10.6, *)
-  static var ShowsPrintSelection: NSPrintPanelOptions { get }
-  static var ShowsPageSetupAccessory: NSPrintPanelOptions { get }
-  static var ShowsPreview: NSPrintPanelOptions { get }
+  static var showsPrintSelection: NSPrintPanelOptions { get }
+  static var showsPageSetupAccessory: NSPrintPanelOptions { get }
+  static var showsPreview: NSPrintPanelOptions { get }
 }
 let NSPrintPhotoJobStyleHint: String
 @available(OSX 10.6, *)

@@ -42,11 +42,11 @@ extension Locale {
 enum LocaleLanguageDirection : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Unknown
-  case LeftToRight
-  case RightToLeft
-  case TopToBottom
-  case BottomToTop
+  case unknown
+  case leftToRight
+  case rightToLeft
+  case topToBottom
+  case bottomToTop
 }
 @available(iOS 2.0, *)
 let currentLocaleDidChangeNotification: String

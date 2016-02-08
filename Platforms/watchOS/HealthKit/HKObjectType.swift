@@ -35,8 +35,8 @@ class HKCorrelationType : HKSampleType {
 enum HKQuantityAggregationStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Cumulative
-  case Discrete
+  case cumulative
+  case discrete
 }
 @available(watchOS 2.0, *)
 class HKQuantityType : HKSampleType {

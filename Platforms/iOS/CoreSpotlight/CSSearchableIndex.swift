@@ -5,13 +5,13 @@ let CSIndexErrorDomain: String
 enum CSIndexErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case UnknownError
-  case IndexUnavailableError
-  case InvalidItemError
-  case InvalidClientStateError
-  case RemoteConnectionError
-  case QuotaExceeded
-  case IndexingUnsupported
+  case unknownError
+  case indexUnavailableError
+  case invalidItemError
+  case invalidClientStateError
+  case remoteConnectionError
+  case quotaExceeded
+  case indexingUnsupported
 }
 @available(iOS 9.0, *)
 class CSSearchableIndex : Object {

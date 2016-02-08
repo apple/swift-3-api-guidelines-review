@@ -2,27 +2,27 @@
 enum UIStatusBarStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
+  case `default`
   @available(iOS 7.0, *)
-  case LightContent
+  case lightContent
 }
 enum UIStatusBarAnimation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
+  case none
   @available(iOS 3.2, *)
-  case Fade
+  case fade
   @available(iOS 3.2, *)
-  case Slide
+  case slide
 }
 enum UIInterfaceOrientation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Portrait
-  case PortraitUpsideDown
-  case LandscapeLeft
-  case LandscapeRight
+  case unknown
+  case portrait
+  case portraitUpsideDown
+  case landscapeLeft
+  case landscapeRight
 }
 
 extension UIInterfaceOrientation {
@@ -34,13 +34,13 @@ let UIApplicationInvalidInterfaceOrientationException: String
 struct UIInterfaceOrientationMask : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Portrait: UIInterfaceOrientationMask { get }
-  static var LandscapeLeft: UIInterfaceOrientationMask { get }
-  static var LandscapeRight: UIInterfaceOrientationMask { get }
-  static var PortraitUpsideDown: UIInterfaceOrientationMask { get }
-  static var Landscape: UIInterfaceOrientationMask { get }
-  static var All: UIInterfaceOrientationMask { get }
-  static var AllButUpsideDown: UIInterfaceOrientationMask { get }
+  static var portrait: UIInterfaceOrientationMask { get }
+  static var landscapeLeft: UIInterfaceOrientationMask { get }
+  static var landscapeRight: UIInterfaceOrientationMask { get }
+  static var portraitUpsideDown: UIInterfaceOrientationMask { get }
+  static var landscape: UIInterfaceOrientationMask { get }
+  static var all: UIInterfaceOrientationMask { get }
+  static var allButUpsideDown: UIInterfaceOrientationMask { get }
 }
 func UIInterfaceOrientationIsPortrait(orientation: UIInterfaceOrientation) -> Bool
 func UIInterfaceOrientationIsLandscape(orientation: UIInterfaceOrientation) -> Bool
@@ -48,35 +48,35 @@ func UIInterfaceOrientationIsLandscape(orientation: UIInterfaceOrientation) -> B
 struct UIRemoteNotificationType : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: UIRemoteNotificationType { get }
-  static var Badge: UIRemoteNotificationType { get }
-  static var Sound: UIRemoteNotificationType { get }
-  static var Alert: UIRemoteNotificationType { get }
-  static var NewsstandContentAvailability: UIRemoteNotificationType { get }
+  static var none: UIRemoteNotificationType { get }
+  static var badge: UIRemoteNotificationType { get }
+  static var sound: UIRemoteNotificationType { get }
+  static var alert: UIRemoteNotificationType { get }
+  static var newsstandContentAvailability: UIRemoteNotificationType { get }
 }
 @available(iOS 7.0, *)
 enum UIBackgroundFetchResult : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NewData
-  case NoData
-  case Failed
+  case newData
+  case noData
+  case failed
 }
 @available(iOS 7.0, *)
 enum UIBackgroundRefreshStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Restricted
-  case Denied
-  case Available
+  case restricted
+  case denied
+  case available
 }
 @available(iOS 4.0, *)
 enum UIApplicationState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Active
-  case Inactive
-  case Background
+  case active
+  case inactive
+  case background
 }
 typealias UIBackgroundTaskIdentifier = Int
 @available(iOS 4.0, *)

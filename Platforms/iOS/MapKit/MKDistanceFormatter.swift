@@ -13,16 +13,16 @@ class MKDistanceFormatter : Formatter {
 enum MKDistanceFormatterUnits : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Default
-  case Metric
-  case Imperial
-  case ImperialWithYards
+  case `default`
+  case metric
+  case imperial
+  case imperialWithYards
 }
 @available(iOS 7.0, *)
 enum MKDistanceFormatterUnitStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Default
-  case Abbreviated
-  case Full
+  case `default`
+  case abbreviated
+  case full
 }

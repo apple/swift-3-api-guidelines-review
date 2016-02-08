@@ -2,9 +2,9 @@
 struct CFPropertyListMutabilityOptions : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
-  static var Immutable: CFPropertyListMutabilityOptions { get }
-  static var MutableContainers: CFPropertyListMutabilityOptions { get }
-  static var MutableContainersAndLeaves: CFPropertyListMutabilityOptions { get }
+  static var immutable: CFPropertyListMutabilityOptions { get }
+  static var mutableContainers: CFPropertyListMutabilityOptions { get }
+  static var mutableContainersAndLeaves: CFPropertyListMutabilityOptions { get }
 }
 @available(iOS, introduced=2.0, deprecated=8.0, message="Use CFPropertyListCreateWithData instead.")
 func CFPropertyListCreateFromXMLData(allocator: CFAllocator!, _ xmlData: CFData!, _ mutabilityOption: CFOptionFlags, _ errorString: UnsafeMutablePointer<Unmanaged<CFString>?>) -> Unmanaged<CFPropertyList>!
@@ -14,9 +14,9 @@ func CFPropertyListCreateDeepCopy(allocator: CFAllocator!, _ propertyList: CFPro
 enum CFPropertyListFormat : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case OpenStepFormat
-  case XMLFormat_v1_0
-  case BinaryFormat_v1_0
+  case openStepFormat
+  case xmlFormat_v1_0
+  case binaryFormat_v1_0
 }
 func CFPropertyListIsValid(plist: CFPropertyList!, _ format: CFPropertyListFormat) -> Bool
 @available(iOS, introduced=2.0, deprecated=8.0, message="Use CFPropertyListWrite instead.")

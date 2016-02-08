@@ -2,14 +2,14 @@
 enum CAConstraintAttribute : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case MinX
-  case MidX
-  case MaxX
-  case Width
-  case MinY
-  case MidY
-  case MaxY
-  case Height
+  case minX
+  case midX
+  case maxX
+  case width
+  case minY
+  case midY
+  case maxY
+  case height
 }
 extension CALayer {
   var constraints: [CAConstraint]?

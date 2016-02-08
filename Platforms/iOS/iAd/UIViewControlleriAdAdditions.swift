@@ -3,9 +3,9 @@
 enum ADInterstitialPresentationPolicy : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Automatic
-  case Manual
+  case none
+  case automatic
+  case manual
 }
 extension UIViewController {
   @available(iOS 7.0, *)

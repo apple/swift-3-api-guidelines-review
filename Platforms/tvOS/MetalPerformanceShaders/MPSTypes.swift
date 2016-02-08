@@ -3,19 +3,19 @@ struct MPSKernelOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
   @available(tvOS 9.0, *)
-  static var None: MPSKernelOptions { get }
+  static var none: MPSKernelOptions { get }
   @available(tvOS 9.0, *)
-  static var SkipAPIValidation: MPSKernelOptions { get }
+  static var skipAPIValidation: MPSKernelOptions { get }
   @available(tvOS 9.0, *)
-  static var AllowReducedPrecision: MPSKernelOptions { get }
+  static var allowReducedPrecision: MPSKernelOptions { get }
 }
 enum MPSImageEdgeMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   @available(tvOS 9.0, *)
-  case Zero
+  case zero
   @available(tvOS 9.0, *)
-  case Clamp
+  case clamp
 }
 struct MPSOffset {
   var x: Int

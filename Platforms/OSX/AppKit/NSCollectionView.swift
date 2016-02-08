@@ -3,32 +3,32 @@
 enum NSCollectionViewDropOperation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case On
-  case Before
+  case on
+  case before
 }
 @available(OSX 10.11, *)
 enum NSCollectionViewItemHighlightState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case ForSelection
-  case ForDeselection
-  case AsDropTarget
+  case none
+  case forSelection
+  case forDeselection
+  case asDropTarget
 }
 struct NSCollectionViewScrollPosition : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: NSCollectionViewScrollPosition { get }
-  static var Top: NSCollectionViewScrollPosition { get }
-  static var CenteredVertically: NSCollectionViewScrollPosition { get }
-  static var Bottom: NSCollectionViewScrollPosition { get }
-  static var NearestHorizontalEdge: NSCollectionViewScrollPosition { get }
-  static var Left: NSCollectionViewScrollPosition { get }
-  static var CenteredHorizontally: NSCollectionViewScrollPosition { get }
-  static var Right: NSCollectionViewScrollPosition { get }
-  static var LeadingEdge: NSCollectionViewScrollPosition { get }
-  static var TrailingEdge: NSCollectionViewScrollPosition { get }
-  static var NearestVerticalEdge: NSCollectionViewScrollPosition { get }
+  static var none: NSCollectionViewScrollPosition { get }
+  static var top: NSCollectionViewScrollPosition { get }
+  static var centeredVertically: NSCollectionViewScrollPosition { get }
+  static var bottom: NSCollectionViewScrollPosition { get }
+  static var nearestHorizontalEdge: NSCollectionViewScrollPosition { get }
+  static var left: NSCollectionViewScrollPosition { get }
+  static var centeredHorizontally: NSCollectionViewScrollPosition { get }
+  static var right: NSCollectionViewScrollPosition { get }
+  static var leadingEdge: NSCollectionViewScrollPosition { get }
+  static var trailingEdge: NSCollectionViewScrollPosition { get }
+  static var nearestVerticalEdge: NSCollectionViewScrollPosition { get }
 }
 protocol NSCollectionViewElement : ObjectProtocol, NSUserInterfaceItemIdentification {
   @available(OSX 10.11, *)

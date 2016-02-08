@@ -3,21 +3,21 @@
 enum NEOnDemandRuleAction : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Connect
-  case Disconnect
-  case EvaluateConnection
-  case Ignore
+  case connect
+  case disconnect
+  case evaluateConnection
+  case ignore
 }
 @available(OSX 10.10, *)
 enum NEOnDemandRuleInterfaceType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   @available(OSX 10.11, *)
-  case Any
+  case any
   @available(OSX 10.10, *)
-  case Ethernet
+  case ethernet
   @available(OSX 10.10, *)
-  case WiFi
+  case wiFi
 }
 @available(OSX 10.10, *)
 class NEOnDemandRule : Object, SecureCoding, Copying {
@@ -68,8 +68,8 @@ class NEOnDemandRuleEvaluateConnection : NEOnDemandRule {
 enum NEEvaluateConnectionRuleAction : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ConnectIfNeeded
-  case NeverConnect
+  case connectIfNeeded
+  case neverConnect
 }
 @available(OSX 10.10, *)
 class NEEvaluateConnectionRule : Object, SecureCoding, Copying {

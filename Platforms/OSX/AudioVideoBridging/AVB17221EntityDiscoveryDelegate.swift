@@ -3,29 +3,29 @@
 struct AVB17221EntityPropertyChanged : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var TimeToLive: AVB17221EntityPropertyChanged { get }
+  static var timeToLive: AVB17221EntityPropertyChanged { get }
   @available(OSX 10.9, *)
-  static var EntityID: AVB17221EntityPropertyChanged { get }
-  static var VendorID: AVB17221EntityPropertyChanged { get }
-  static var ModelID: AVB17221EntityPropertyChanged { get }
-  static var EntityCapabilities: AVB17221EntityPropertyChanged { get }
-  static var TalkerStreamSources: AVB17221EntityPropertyChanged { get }
-  static var TalkerCapabilities: AVB17221EntityPropertyChanged { get }
-  static var ListenerStreamSinks: AVB17221EntityPropertyChanged { get }
-  static var ListenerCapabilities: AVB17221EntityPropertyChanged { get }
-  static var ControllerCapabilities: AVB17221EntityPropertyChanged { get }
-  static var AvailableIndex: AVB17221EntityPropertyChanged { get }
+  static var entityID: AVB17221EntityPropertyChanged { get }
+  static var vendorID: AVB17221EntityPropertyChanged { get }
+  static var modelID: AVB17221EntityPropertyChanged { get }
+  static var entityCapabilities: AVB17221EntityPropertyChanged { get }
+  static var talkerStreamSources: AVB17221EntityPropertyChanged { get }
+  static var talkerCapabilities: AVB17221EntityPropertyChanged { get }
+  static var listenerStreamSinks: AVB17221EntityPropertyChanged { get }
+  static var listenerCapabilities: AVB17221EntityPropertyChanged { get }
+  static var controllerCapabilities: AVB17221EntityPropertyChanged { get }
+  static var availableIndex: AVB17221EntityPropertyChanged { get }
   @available(OSX 10.9, *)
-  static var GPTPGrandmasterID: AVB17221EntityPropertyChanged { get }
-  static var MACAddress: AVB17221EntityPropertyChanged { get }
-  static var AssociationID: AVB17221EntityPropertyChanged { get }
-  static var EntityType: AVB17221EntityPropertyChanged { get }
+  static var gptpGrandmasterID: AVB17221EntityPropertyChanged { get }
+  static var macAddress: AVB17221EntityPropertyChanged { get }
+  static var associationID: AVB17221EntityPropertyChanged { get }
+  static var entityType: AVB17221EntityPropertyChanged { get }
   @available(OSX 10.9, *)
-  static var IdentifyControlIndex: AVB17221EntityPropertyChanged { get }
+  static var identifyControlIndex: AVB17221EntityPropertyChanged { get }
   @available(OSX 10.9, *)
-  static var InterfaceIndex: AVB17221EntityPropertyChanged { get }
+  static var interfaceIndex: AVB17221EntityPropertyChanged { get }
   @available(OSX 10.9, *)
-  static var GPTPDomainNumber: AVB17221EntityPropertyChanged { get }
+  static var gptpDomainNumber: AVB17221EntityPropertyChanged { get }
 }
 protocol AVB17221EntityDiscoveryDelegate {
   @available(OSX 10.8, *)

@@ -4,14 +4,14 @@ var kCFStringEncodingInvalidId: UInt32 { get }
 enum CFStringBuiltInEncodings : CFStringEncoding {
   init?(rawValue: CFStringEncoding)
   var rawValue: CFStringEncoding { get }
-  case MacRoman
-  case WindowsLatin1
-  case ISOLatin1
-  case NextStepLatin
+  case macRoman
+  case windowsLatin1
+  case isoLatin1
+  case nextStepLatin
   case ASCII
-  case Unicode
+  case unicode
   case UTF8
-  case NonLossyASCII
+  case nonLossyASCII
   static var UTF16: CFStringBuiltInEncodings { get }
   case UTF16BE
   case UTF16LE
@@ -55,18 +55,18 @@ func CFStringCreateWithFileSystemRepresentation(alloc: CFAllocator!, _ buffer: U
 struct CFStringCompareFlags : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
-  static var CompareCaseInsensitive: CFStringCompareFlags { get }
-  static var CompareBackwards: CFStringCompareFlags { get }
-  static var CompareAnchored: CFStringCompareFlags { get }
-  static var CompareNonliteral: CFStringCompareFlags { get }
-  static var CompareLocalized: CFStringCompareFlags { get }
-  static var CompareNumerically: CFStringCompareFlags { get }
+  static var compareCaseInsensitive: CFStringCompareFlags { get }
+  static var compareBackwards: CFStringCompareFlags { get }
+  static var compareAnchored: CFStringCompareFlags { get }
+  static var compareNonliteral: CFStringCompareFlags { get }
+  static var compareLocalized: CFStringCompareFlags { get }
+  static var compareNumerically: CFStringCompareFlags { get }
   @available(tvOS 2.0, *)
-  static var CompareDiacriticInsensitive: CFStringCompareFlags { get }
+  static var compareDiacriticInsensitive: CFStringCompareFlags { get }
   @available(tvOS 2.0, *)
-  static var CompareWidthInsensitive: CFStringCompareFlags { get }
+  static var compareWidthInsensitive: CFStringCompareFlags { get }
   @available(tvOS 2.0, *)
-  static var CompareForcedOrdering: CFStringCompareFlags { get }
+  static var compareForcedOrdering: CFStringCompareFlags { get }
 }
 @available(tvOS 2.0, *)
 func CFStringCompareWithOptionsAndLocale(theString1: CFString!, _ theString2: CFString!, _ rangeToCompare: CFRange, _ compareOptions: CFStringCompareFlags, _ locale: CFLocale!) -> CFComparisonResult

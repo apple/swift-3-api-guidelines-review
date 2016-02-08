@@ -78,11 +78,11 @@ let linguisticTagOrganizationName: String
 struct LinguisticTaggerOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var OmitWords: LinguisticTaggerOptions { get }
-  static var OmitPunctuation: LinguisticTaggerOptions { get }
-  static var OmitWhitespace: LinguisticTaggerOptions { get }
-  static var OmitOther: LinguisticTaggerOptions { get }
-  static var JoinNames: LinguisticTaggerOptions { get }
+  static var omitWords: LinguisticTaggerOptions { get }
+  static var omitPunctuation: LinguisticTaggerOptions { get }
+  static var omitWhitespace: LinguisticTaggerOptions { get }
+  static var omitOther: LinguisticTaggerOptions { get }
+  static var joinNames: LinguisticTaggerOptions { get }
 }
 @available(iOS 5.0, *)
 class LinguisticTagger : Object {

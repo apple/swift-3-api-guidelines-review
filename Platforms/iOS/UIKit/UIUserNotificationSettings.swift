@@ -3,31 +3,31 @@
 struct UIUserNotificationType : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: UIUserNotificationType { get }
-  static var Badge: UIUserNotificationType { get }
-  static var Sound: UIUserNotificationType { get }
-  static var Alert: UIUserNotificationType { get }
+  static var none: UIUserNotificationType { get }
+  static var badge: UIUserNotificationType { get }
+  static var sound: UIUserNotificationType { get }
+  static var alert: UIUserNotificationType { get }
 }
 @available(iOS 9.0, *)
 enum UIUserNotificationActionBehavior : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Default
-  case TextInput
+  case `default`
+  case textInput
 }
 @available(iOS 8.0, *)
 enum UIUserNotificationActivationMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Foreground
-  case Background
+  case foreground
+  case background
 }
 @available(iOS 8.0, *)
 enum UIUserNotificationActionContext : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Default
-  case Minimal
+  case `default`
+  case minimal
 }
 @available(iOS 9.0, *)
 let UIUserNotificationTextInputActionButtonTitleKey: String

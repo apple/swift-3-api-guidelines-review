@@ -39,19 +39,19 @@ struct CFGregorianUnitFlags : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
   @available(OSX, introduced=10.4, deprecated=10.10, message="Use CFCalendar or NSCalendar API instead")
-  static var UnitsYears: CFGregorianUnitFlags { get }
+  static var unitsYears: CFGregorianUnitFlags { get }
   @available(OSX, introduced=10.4, deprecated=10.10, message="Use CFCalendar or NSCalendar API instead")
-  static var UnitsMonths: CFGregorianUnitFlags { get }
+  static var unitsMonths: CFGregorianUnitFlags { get }
   @available(OSX, introduced=10.4, deprecated=10.10, message="Use CFCalendar or NSCalendar API instead")
-  static var UnitsDays: CFGregorianUnitFlags { get }
+  static var unitsDays: CFGregorianUnitFlags { get }
   @available(OSX, introduced=10.4, deprecated=10.10, message="Use CFCalendar or NSCalendar API instead")
-  static var UnitsHours: CFGregorianUnitFlags { get }
+  static var unitsHours: CFGregorianUnitFlags { get }
   @available(OSX, introduced=10.4, deprecated=10.10, message="Use CFCalendar or NSCalendar API instead")
-  static var UnitsMinutes: CFGregorianUnitFlags { get }
+  static var unitsMinutes: CFGregorianUnitFlags { get }
   @available(OSX, introduced=10.4, deprecated=10.10, message="Use CFCalendar or NSCalendar API instead")
-  static var UnitsSeconds: CFGregorianUnitFlags { get }
+  static var unitsSeconds: CFGregorianUnitFlags { get }
   @available(OSX, introduced=10.4, deprecated=10.10, message="Use CFCalendar or NSCalendar API instead")
-  static var AllUnits: CFGregorianUnitFlags { get }
+  static var allUnits: CFGregorianUnitFlags { get }
 }
 @available(OSX, introduced=10.4, deprecated=10.10, message="Use CFCalendar or NSCalendar API instead")
 func CFGregorianDateIsValid(gdate: CFGregorianDate, _ unitFlags: CFOptionFlags) -> Bool

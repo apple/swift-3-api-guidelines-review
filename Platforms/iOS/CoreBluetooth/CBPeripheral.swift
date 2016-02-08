@@ -3,17 +3,17 @@
 enum CBPeripheralState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Disconnected
-  case Connecting
-  case Connected
+  case disconnected
+  case connecting
+  case connected
   @available(iOS 9.0, *)
-  case Disconnecting
+  case disconnecting
 }
 enum CBCharacteristicWriteType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case WithResponse
-  case WithoutResponse
+  case withResponse
+  case withoutResponse
 }
 @available(iOS 5.0, *)
 class CBPeripheral : CBPeer {

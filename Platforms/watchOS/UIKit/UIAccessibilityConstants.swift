@@ -55,9 +55,9 @@ let UIAccessibilityNotificationVoiceOverIdentifier: String
 enum UIAccessibilityNavigationStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Automatic
-  case Separate
-  case Combined
+  case automatic
+  case separate
+  case combined
 }
 @available(watchOS 2.0, *)
 let UIAccessibilitySpeechAttributePunctuation: String

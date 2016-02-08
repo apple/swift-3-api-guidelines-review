@@ -2,12 +2,12 @@
 struct NSSnapshotEventType : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var UndoInsertion: NSSnapshotEventType { get }
-  static var UndoDeletion: NSSnapshotEventType { get }
-  static var UndoUpdate: NSSnapshotEventType { get }
-  static var Rollback: NSSnapshotEventType { get }
-  static var Refresh: NSSnapshotEventType { get }
-  static var MergePolicy: NSSnapshotEventType { get }
+  static var undoInsertion: NSSnapshotEventType { get }
+  static var undoDeletion: NSSnapshotEventType { get }
+  static var undoUpdate: NSSnapshotEventType { get }
+  static var rollback: NSSnapshotEventType { get }
+  static var refresh: NSSnapshotEventType { get }
+  static var mergePolicy: NSSnapshotEventType { get }
 }
 @available(watchOS 2.0, *)
 class NSManagedObject : Object {

@@ -3,10 +3,10 @@
 enum NEFilterManagerError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ConfigurationInvalid
-  case ConfigurationDisabled
-  case ConfigurationStale
-  case ConfigurationCannotBeRemoved
+  case configurationInvalid
+  case configurationDisabled
+  case configurationStale
+  case configurationCannotBeRemoved
 }
 @available(iOS 8.0, *)
 let NEFilterErrorDomain: String

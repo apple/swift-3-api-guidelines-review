@@ -8,15 +8,15 @@ enum MTLFeatureSet : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   @available(OSX 10.11, *)
-  case OSX_GPUFamily1_v1
+  case osx_GPUFamily1_v1
 }
 @available(OSX 10.11, *)
 struct MTLPipelineOption : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: MTLPipelineOption { get }
-  static var ArgumentInfo: MTLPipelineOption { get }
-  static var BufferTypeInfo: MTLPipelineOption { get }
+  static var none: MTLPipelineOption { get }
+  static var argumentInfo: MTLPipelineOption { get }
+  static var bufferTypeInfo: MTLPipelineOption { get }
 }
 typealias MTLAutoreleasedRenderPipelineReflection = MTLRenderPipelineReflection
 typealias MTLAutoreleasedComputePipelineReflection = MTLComputePipelineReflection

@@ -3,8 +3,8 @@
 enum GLKLightingType : GLint {
   init?(rawValue: GLint)
   var rawValue: GLint { get }
-  case PerVertex
-  case PerPixel
+  case perVertex
+  case perPixel
 }
 @available(iOS 5.0, *)
 class GLKEffectPropertyLight : GLKEffectProperty {

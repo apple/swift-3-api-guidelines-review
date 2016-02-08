@@ -8,9 +8,9 @@ class HKQuery : Object {
 struct HKQueryOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: HKQueryOptions { get }
-  static var StrictStartDate: HKQueryOptions { get }
-  static var StrictEndDate: HKQueryOptions { get }
+  static var none: HKQueryOptions { get }
+  static var strictStartDate: HKQueryOptions { get }
+  static var strictEndDate: HKQueryOptions { get }
 }
 extension HKQuery {
   class func predicateForObjectsWith(metadataKey key: String) -> Predicate

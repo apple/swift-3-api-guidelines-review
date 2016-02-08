@@ -3,28 +3,28 @@
 enum NSTextLayoutOrientation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Horizontal
-  case Vertical
+  case horizontal
+  case vertical
 }
 @available(OSX 10.11, *)
 enum NSGlyphProperty : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Null
-  case ControlCharacter
-  case Elastic
-  case NonBaseCharacter
+  case null
+  case controlCharacter
+  case elastic
+  case nonBaseCharacter
 }
 @available(OSX 10.11, *)
 enum NSControlCharacterAction : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ZeroAdvancement
-  case Whitespace
-  case HorizontalTab
-  case LineBreak
-  case ParagraphBreak
-  case ContainerBreak
+  case zeroAdvancement
+  case whitespace
+  case horizontalTab
+  case lineBreak
+  case paragraphBreak
+  case containerBreak
 }
 protocol NSTextLayoutOrientationProvider {
   @available(OSX 10.7, *)
@@ -33,12 +33,12 @@ protocol NSTextLayoutOrientationProvider {
 enum NSTypesetterBehavior : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case LatestBehavior
-  case OriginalBehavior
-  case Behavior_10_2_WithCompatibility
-  case Behavior_10_2
-  case Behavior_10_3
-  case Behavior_10_4
+  case latestBehavior
+  case originalBehavior
+  case behavior_10_2_WithCompatibility
+  case behavior_10_2
+  case behavior_10_3
+  case behavior_10_4
 }
 @available(OSX 10.0, *)
 class NSLayoutManager : Object, Coding {
@@ -253,11 +253,11 @@ var NSGlyphAttributeInscribe: Int { get }
 enum NSGlyphInscription : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case InscribeBase
-  case InscribeBelow
-  case InscribeAbove
-  case InscribeOverstrike
-  case InscribeOverBelow
+  case inscribeBase
+  case inscribeBelow
+  case inscribeAbove
+  case inscribeOverstrike
+  case inscribeOverBelow
 }
 extension NSLayoutManager {
   func glyphAt(glyphIndex: Int, isValidIndex: UnsafeMutablePointer<ObjCBool>) -> NSGlyph

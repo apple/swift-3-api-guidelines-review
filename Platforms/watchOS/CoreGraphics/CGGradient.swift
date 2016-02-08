@@ -4,8 +4,8 @@ class CGGradient {
 struct CGGradientDrawingOptions : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var DrawsBeforeStartLocation: CGGradientDrawingOptions { get }
-  static var DrawsAfterEndLocation: CGGradientDrawingOptions { get }
+  static var drawsBeforeStartLocation: CGGradientDrawingOptions { get }
+  static var drawsAfterEndLocation: CGGradientDrawingOptions { get }
 }
 @available(watchOS 2.0, *)
 func CGGradientGetTypeID() -> CFTypeID

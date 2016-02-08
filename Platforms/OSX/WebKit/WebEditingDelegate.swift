@@ -2,9 +2,9 @@
 enum WebViewInsertAction : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Typed
-  case Pasted
-  case Dropped
+  case typed
+  case pasted
+  case dropped
 }
 protocol WebEditingDelegate : ObjectProtocol {
 }

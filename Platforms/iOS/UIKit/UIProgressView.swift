@@ -2,8 +2,8 @@
 enum UIProgressViewStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Bar
+  case `default`
+  case bar
 }
 @available(iOS 2.0, *)
 class UIProgressView : UIView, Coding {

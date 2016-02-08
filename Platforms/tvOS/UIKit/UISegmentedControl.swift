@@ -3,11 +3,11 @@ var UISegmentedControlNoSegment: Int { get }
 enum UISegmentedControlSegment : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Any
-  case Left
-  case Center
-  case Right
-  case Alone
+  case any
+  case left
+  case center
+  case right
+  case alone
 }
 @available(tvOS 2.0, *)
 class UISegmentedControl : UIControl, Coding {

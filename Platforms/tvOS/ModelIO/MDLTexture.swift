@@ -2,16 +2,16 @@
 enum MDLTextureChannelEncoding : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case UInt8
-  static var Uint8: MDLTextureChannelEncoding { get }
-  case UInt16
-  static var Uint16: MDLTextureChannelEncoding { get }
-  case UInt24
-  static var Uint24: MDLTextureChannelEncoding { get }
-  case UInt32
-  static var Uint32: MDLTextureChannelEncoding { get }
-  case Float16
-  case Float32
+  case uInt8
+  static var uint8: MDLTextureChannelEncoding { get }
+  case uInt16
+  static var uint16: MDLTextureChannelEncoding { get }
+  case uInt24
+  static var uint24: MDLTextureChannelEncoding { get }
+  case uInt32
+  static var uint32: MDLTextureChannelEncoding { get }
+  case float16
+  case float32
 }
 @available(tvOS 9.0, *)
 class MDLTexture : Object, MDLNamed {

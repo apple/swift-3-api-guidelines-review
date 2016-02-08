@@ -2,10 +2,10 @@
 enum EABluetoothAccessoryPickerErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case AlreadyConnected
-  case ResultNotFound
-  case ResultCancelled
-  case ResultFailed
+  case alreadyConnected
+  case resultNotFound
+  case resultCancelled
+  case resultFailed
 }
 let EABluetoothAccessoryPickerErrorDomain: String
 typealias EABluetoothAccessoryPickerCompletion = (Error?) -> Void

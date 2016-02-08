@@ -2,9 +2,9 @@
 enum AVPlayerStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case ReadyToPlay
-  case Failed
+  case unknown
+  case readyToPlay
+  case failed
 }
 @available(OSX 10.7, *)
 class AVPlayer : Object {
@@ -27,9 +27,9 @@ extension AVPlayer {
 enum AVPlayerActionAtItemEnd : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Advance
-  case Pause
-  case None
+  case advance
+  case pause
+  case none
 }
 extension AVPlayer {
   func currentTime() -> CMTime

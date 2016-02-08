@@ -3,9 +3,9 @@
 struct UICollisionBehaviorMode : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Items: UICollisionBehaviorMode { get }
-  static var Boundaries: UICollisionBehaviorMode { get }
-  static var Everything: UICollisionBehaviorMode { get }
+  static var items: UICollisionBehaviorMode { get }
+  static var boundaries: UICollisionBehaviorMode { get }
+  static var everything: UICollisionBehaviorMode { get }
 }
 protocol UICollisionBehaviorDelegate : ObjectProtocol {
   @available(tvOS 7.0, *)

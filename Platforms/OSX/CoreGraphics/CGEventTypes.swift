@@ -4,167 +4,167 @@ class CGEvent {
 enum CGMouseButton : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Left
-  case Right
-  case Center
+  case left
+  case right
+  case center
 }
 enum CGScrollEventUnit : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Pixel
-  case Line
+  case pixel
+  case line
 }
 enum CGMomentumScrollPhase : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case None
-  case Begin
-  case Continue
-  case End
+  case none
+  case begin
+  case `continue`
+  case end
 }
 enum CGScrollPhase : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Began
-  case Changed
-  case Ended
-  case Cancelled
-  case MayBegin
+  case began
+  case changed
+  case ended
+  case cancelled
+  case mayBegin
 }
 enum CGGesturePhase : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case None
-  case Began
-  case Changed
-  case Ended
-  case Cancelled
-  case MayBegin
+  case none
+  case began
+  case changed
+  case ended
+  case cancelled
+  case mayBegin
 }
 enum CGEventFlags : UInt64 {
   init?(rawValue: UInt64)
   var rawValue: UInt64 { get }
-  case MaskAlphaShift
-  case MaskShift
-  case MaskControl
-  case MaskAlternate
-  case MaskCommand
-  case MaskHelp
-  case MaskSecondaryFn
-  case MaskNumericPad
-  case MaskNonCoalesced
+  case maskAlphaShift
+  case maskShift
+  case maskControl
+  case maskAlternate
+  case maskCommand
+  case maskHelp
+  case maskSecondaryFn
+  case maskNumericPad
+  case maskNonCoalesced
 }
 enum CGEventType : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Null
-  case LeftMouseDown
-  case LeftMouseUp
-  case RightMouseDown
-  case RightMouseUp
-  case MouseMoved
-  case LeftMouseDragged
-  case RightMouseDragged
-  case KeyDown
-  case KeyUp
-  case FlagsChanged
-  case ScrollWheel
-  case TabletPointer
-  case TabletProximity
-  case OtherMouseDown
-  case OtherMouseUp
-  case OtherMouseDragged
-  case TapDisabledByTimeout
-  case TapDisabledByUserInput
+  case null
+  case leftMouseDown
+  case leftMouseUp
+  case rightMouseDown
+  case rightMouseUp
+  case mouseMoved
+  case leftMouseDragged
+  case rightMouseDragged
+  case keyDown
+  case keyUp
+  case flagsChanged
+  case scrollWheel
+  case tabletPointer
+  case tabletProximity
+  case otherMouseDown
+  case otherMouseUp
+  case otherMouseDragged
+  case tapDisabledByTimeout
+  case tapDisabledByUserInput
 }
 typealias CGEventTimestamp = UInt64
 enum CGEventField : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case MouseEventNumber
-  case MouseEventClickState
-  case MouseEventPressure
-  case MouseEventButtonNumber
-  case MouseEventDeltaX
-  case MouseEventDeltaY
-  case MouseEventInstantMouser
-  case MouseEventSubtype
-  case KeyboardEventAutorepeat
-  case KeyboardEventKeycode
-  case KeyboardEventKeyboardType
-  case ScrollWheelEventDeltaAxis1
-  case ScrollWheelEventDeltaAxis2
-  case ScrollWheelEventDeltaAxis3
-  case ScrollWheelEventFixedPtDeltaAxis1
-  case ScrollWheelEventFixedPtDeltaAxis2
-  case ScrollWheelEventFixedPtDeltaAxis3
-  case ScrollWheelEventPointDeltaAxis1
-  case ScrollWheelEventPointDeltaAxis2
-  case ScrollWheelEventPointDeltaAxis3
-  case ScrollWheelEventScrollPhase
-  case ScrollWheelEventScrollCount
-  case ScrollWheelEventMomentumPhase
-  case ScrollWheelEventInstantMouser
-  case TabletEventPointX
-  case TabletEventPointY
-  case TabletEventPointZ
-  case TabletEventPointButtons
-  case TabletEventPointPressure
-  case TabletEventTiltX
-  case TabletEventTiltY
-  case TabletEventRotation
-  case TabletEventTangentialPressure
-  case TabletEventDeviceID
-  case TabletEventVendor1
-  case TabletEventVendor2
-  case TabletEventVendor3
-  case TabletProximityEventVendorID
-  case TabletProximityEventTabletID
-  case TabletProximityEventPointerID
-  case TabletProximityEventDeviceID
-  case TabletProximityEventSystemTabletID
-  case TabletProximityEventVendorPointerType
-  case TabletProximityEventVendorPointerSerialNumber
-  case TabletProximityEventVendorUniqueID
-  case TabletProximityEventCapabilityMask
-  case TabletProximityEventPointerType
-  case TabletProximityEventEnterProximity
-  case EventTargetProcessSerialNumber
-  case EventTargetUnixProcessID
-  case EventSourceUnixProcessID
-  case EventSourceUserData
-  case EventSourceUserID
-  case EventSourceGroupID
-  case EventSourceStateID
-  case ScrollWheelEventIsContinuous
-  case MouseEventWindowUnderMousePointer
-  case MouseEventWindowUnderMousePointerThatCanHandleThisEvent
+  case mouseEventNumber
+  case mouseEventClickState
+  case mouseEventPressure
+  case mouseEventButtonNumber
+  case mouseEventDeltaX
+  case mouseEventDeltaY
+  case mouseEventInstantMouser
+  case mouseEventSubtype
+  case keyboardEventAutorepeat
+  case keyboardEventKeycode
+  case keyboardEventKeyboardType
+  case scrollWheelEventDeltaAxis1
+  case scrollWheelEventDeltaAxis2
+  case scrollWheelEventDeltaAxis3
+  case scrollWheelEventFixedPtDeltaAxis1
+  case scrollWheelEventFixedPtDeltaAxis2
+  case scrollWheelEventFixedPtDeltaAxis3
+  case scrollWheelEventPointDeltaAxis1
+  case scrollWheelEventPointDeltaAxis2
+  case scrollWheelEventPointDeltaAxis3
+  case scrollWheelEventScrollPhase
+  case scrollWheelEventScrollCount
+  case scrollWheelEventMomentumPhase
+  case scrollWheelEventInstantMouser
+  case tabletEventPointX
+  case tabletEventPointY
+  case tabletEventPointZ
+  case tabletEventPointButtons
+  case tabletEventPointPressure
+  case tabletEventTiltX
+  case tabletEventTiltY
+  case tabletEventRotation
+  case tabletEventTangentialPressure
+  case tabletEventDeviceID
+  case tabletEventVendor1
+  case tabletEventVendor2
+  case tabletEventVendor3
+  case tabletProximityEventVendorID
+  case tabletProximityEventTabletID
+  case tabletProximityEventPointerID
+  case tabletProximityEventDeviceID
+  case tabletProximityEventSystemTabletID
+  case tabletProximityEventVendorPointerType
+  case tabletProximityEventVendorPointerSerialNumber
+  case tabletProximityEventVendorUniqueID
+  case tabletProximityEventCapabilityMask
+  case tabletProximityEventPointerType
+  case tabletProximityEventEnterProximity
+  case eventTargetProcessSerialNumber
+  case eventTargetUnixProcessID
+  case eventSourceUnixProcessID
+  case eventSourceUserData
+  case eventSourceUserID
+  case eventSourceGroupID
+  case eventSourceStateID
+  case scrollWheelEventIsContinuous
+  case mouseEventWindowUnderMousePointer
+  case mouseEventWindowUnderMousePointerThatCanHandleThisEvent
 }
 enum CGEventMouseSubtype : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Default
-  case TabletPoint
-  case TabletProximity
+  case `default`
+  case tabletPoint
+  case tabletProximity
 }
 enum CGEventTapLocation : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case CGHIDEventTap
-  case CGSessionEventTap
-  case CGAnnotatedSessionEventTap
+  case cghidEventTap
+  case cgSessionEventTap
+  case cgAnnotatedSessionEventTap
 }
 enum CGEventTapPlacement : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case HeadInsertEventTap
-  case TailAppendEventTap
+  case headInsertEventTap
+  case tailAppendEventTap
 }
 enum CGEventTapOptions : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Default
-  case ListenOnly
+  case `default`
+  case listenOnly
 }
 typealias CGEventMask = UInt64
 typealias CGEventTapProxy = COpaquePointer
@@ -191,8 +191,8 @@ class CGEventSource {
 enum CGEventSourceStateID : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Private
-  case CombinedSessionState
-  case HIDSystemState
+  case `private`
+  case combinedSessionState
+  case hidSystemState
 }
 typealias CGEventSourceKeyboardType = UInt32

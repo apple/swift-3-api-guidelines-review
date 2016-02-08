@@ -2,47 +2,47 @@
 enum UITableViewCellStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Value1
-  case Value2
-  case Subtitle
+  case `default`
+  case value1
+  case value2
+  case subtitle
 }
 enum UITableViewCellSelectionStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Blue
-  case Gray
+  case none
+  case blue
+  case gray
   @available(tvOS 7.0, *)
-  case Default
+  case `default`
 }
 @available(tvOS 9.0, *)
 enum UITableViewCellFocusStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Custom
+  case `default`
+  case custom
 }
 enum UITableViewCellEditingStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Delete
-  case Insert
+  case none
+  case delete
+  case insert
 }
 enum UITableViewCellAccessoryType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case DisclosureIndicator
-  case Checkmark
+  case none
+  case disclosureIndicator
+  case checkmark
 }
 struct UITableViewCellStateMask : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var DefaultMask: UITableViewCellStateMask { get }
-  static var ShowingEditControlMask: UITableViewCellStateMask { get }
-  static var ShowingDeleteConfirmationMask: UITableViewCellStateMask { get }
+  static var defaultMask: UITableViewCellStateMask { get }
+  static var showingEditControlMask: UITableViewCellStateMask { get }
+  static var showingDeleteConfirmationMask: UITableViewCellStateMask { get }
 }
 @available(tvOS 2.0, *)
 class UITableViewCell : UIView, Coding, UIGestureRecognizerDelegate {

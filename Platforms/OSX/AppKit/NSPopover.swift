@@ -4,16 +4,16 @@ enum NSPopoverAppearance : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   @available(OSX, introduced=10.7, deprecated=10.10)
-  case Minimal
+  case minimal
   @available(OSX, introduced=10.7, deprecated=10.10)
   case HUD
 }
 enum NSPopoverBehavior : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ApplicationDefined
-  case Transient
-  case Semitransient
+  case applicationDefined
+  case transient
+  case semitransient
 }
 @available(OSX 10.7, *)
 class NSPopover : NSResponder, NSAppearanceCustomization, NSAccessibilityElementProtocol, NSAccessibility {

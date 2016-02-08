@@ -3,19 +3,19 @@
 enum NSTextFinderAction : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ShowFindInterface
-  case NextMatch
-  case PreviousMatch
-  case ReplaceAll
-  case Replace
-  case ReplaceAndFind
-  case SetSearchString
-  case ReplaceAllInSelection
-  case SelectAll
-  case SelectAllInSelection
-  case HideFindInterface
-  case ShowReplaceInterface
-  case HideReplaceInterface
+  case showFindInterface
+  case nextMatch
+  case previousMatch
+  case replaceAll
+  case replace
+  case replaceAndFind
+  case setSearchString
+  case replaceAllInSelection
+  case selectAll
+  case selectAllInSelection
+  case hideFindInterface
+  case showReplaceInterface
+  case hideReplaceInterface
 }
 @available(OSX 10.7, *)
 let NSTextFinderCaseInsensitiveKey: String
@@ -25,10 +25,10 @@ let NSTextFinderMatchingTypeKey: String
 enum NSTextFinderMatchingType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Contains
-  case StartsWith
-  case FullWord
-  case EndsWith
+  case contains
+  case startsWith
+  case fullWord
+  case endsWith
 }
 @available(OSX 10.7, *)
 class NSTextFinder : Object, Coding {

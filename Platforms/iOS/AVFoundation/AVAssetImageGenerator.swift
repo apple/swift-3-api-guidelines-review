@@ -8,9 +8,9 @@ let AVAssetImageGeneratorApertureModeEncodedPixels: String
 enum AVAssetImageGeneratorResult : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Succeeded
-  case Failed
-  case Cancelled
+  case succeeded
+  case failed
+  case cancelled
 }
 @available(iOS 4.0, *)
 class AVAssetImageGenerator : Object {

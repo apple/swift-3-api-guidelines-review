@@ -2,65 +2,65 @@
 enum NSLayoutRelation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case LessThanOrEqual
-  case Equal
-  case GreaterThanOrEqual
+  case lessThanOrEqual
+  case equal
+  case greaterThanOrEqual
 }
 enum NSLayoutAttribute : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Left
-  case Right
-  case Top
-  case Bottom
-  case Leading
-  case Trailing
-  case Width
-  case Height
-  case CenterX
-  case CenterY
-  case Baseline
-  static var LastBaseline: NSLayoutAttribute { get }
+  case left
+  case right
+  case top
+  case bottom
+  case leading
+  case trailing
+  case width
+  case height
+  case centerX
+  case centerY
+  case baseline
+  static var lastBaseline: NSLayoutAttribute { get }
   @available(iOS 8.0, *)
-  case FirstBaseline
+  case firstBaseline
   @available(iOS 8.0, *)
-  case LeftMargin
+  case leftMargin
   @available(iOS 8.0, *)
-  case RightMargin
+  case rightMargin
   @available(iOS 8.0, *)
-  case TopMargin
+  case topMargin
   @available(iOS 8.0, *)
-  case BottomMargin
+  case bottomMargin
   @available(iOS 8.0, *)
-  case LeadingMargin
+  case leadingMargin
   @available(iOS 8.0, *)
-  case TrailingMargin
+  case trailingMargin
   @available(iOS 8.0, *)
-  case CenterXWithinMargins
+  case centerXWithinMargins
   @available(iOS 8.0, *)
-  case CenterYWithinMargins
-  case NotAnAttribute
+  case centerYWithinMargins
+  case notAnAttribute
 }
 struct NSLayoutFormatOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var AlignAllLeft: NSLayoutFormatOptions { get }
-  static var AlignAllRight: NSLayoutFormatOptions { get }
-  static var AlignAllTop: NSLayoutFormatOptions { get }
-  static var AlignAllBottom: NSLayoutFormatOptions { get }
-  static var AlignAllLeading: NSLayoutFormatOptions { get }
-  static var AlignAllTrailing: NSLayoutFormatOptions { get }
-  static var AlignAllCenterX: NSLayoutFormatOptions { get }
-  static var AlignAllCenterY: NSLayoutFormatOptions { get }
-  static var AlignAllBaseline: NSLayoutFormatOptions { get }
-  static var AlignAllLastBaseline: NSLayoutFormatOptions { get }
+  static var alignAllLeft: NSLayoutFormatOptions { get }
+  static var alignAllRight: NSLayoutFormatOptions { get }
+  static var alignAllTop: NSLayoutFormatOptions { get }
+  static var alignAllBottom: NSLayoutFormatOptions { get }
+  static var alignAllLeading: NSLayoutFormatOptions { get }
+  static var alignAllTrailing: NSLayoutFormatOptions { get }
+  static var alignAllCenterX: NSLayoutFormatOptions { get }
+  static var alignAllCenterY: NSLayoutFormatOptions { get }
+  static var alignAllBaseline: NSLayoutFormatOptions { get }
+  static var alignAllLastBaseline: NSLayoutFormatOptions { get }
   @available(iOS 8.0, *)
-  static var AlignAllFirstBaseline: NSLayoutFormatOptions { get }
-  static var AlignmentMask: NSLayoutFormatOptions { get }
-  static var DirectionLeadingToTrailing: NSLayoutFormatOptions { get }
-  static var DirectionLeftToRight: NSLayoutFormatOptions { get }
-  static var DirectionRightToLeft: NSLayoutFormatOptions { get }
-  static var DirectionMask: NSLayoutFormatOptions { get }
+  static var alignAllFirstBaseline: NSLayoutFormatOptions { get }
+  static var alignmentMask: NSLayoutFormatOptions { get }
+  static var directionLeadingToTrailing: NSLayoutFormatOptions { get }
+  static var directionLeftToRight: NSLayoutFormatOptions { get }
+  static var directionRightToLeft: NSLayoutFormatOptions { get }
+  static var directionMask: NSLayoutFormatOptions { get }
 }
 typealias UILayoutPriority = Float
 @available(iOS 6.0, *)

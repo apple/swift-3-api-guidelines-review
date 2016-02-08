@@ -4,36 +4,36 @@ class CFXMLParser {
 struct CFXMLParserOptions : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
-  static var ValidateDocument: CFXMLParserOptions { get }
-  static var SkipMetaData: CFXMLParserOptions { get }
-  static var ReplacePhysicalEntities: CFXMLParserOptions { get }
-  static var SkipWhitespace: CFXMLParserOptions { get }
-  static var ResolveExternalEntities: CFXMLParserOptions { get }
-  static var AddImpliedAttributes: CFXMLParserOptions { get }
-  static var AllOptions: CFXMLParserOptions { get }
-  static var NoOptions: CFXMLParserOptions { get }
+  static var validateDocument: CFXMLParserOptions { get }
+  static var skipMetaData: CFXMLParserOptions { get }
+  static var replacePhysicalEntities: CFXMLParserOptions { get }
+  static var skipWhitespace: CFXMLParserOptions { get }
+  static var resolveExternalEntities: CFXMLParserOptions { get }
+  static var addImpliedAttributes: CFXMLParserOptions { get }
+  static var allOptions: CFXMLParserOptions { get }
+  static var noOptions: CFXMLParserOptions { get }
 }
 struct CFXMLParserStatusCode : OptionSetType {
   init(rawValue: CFIndex)
   let rawValue: CFIndex
-  static var StatusParseNotBegun: CFXMLParserStatusCode { get }
-  static var StatusParseInProgress: CFXMLParserStatusCode { get }
-  static var StatusParseSuccessful: CFXMLParserStatusCode { get }
-  static var ErrorUnexpectedEOF: CFXMLParserStatusCode { get }
-  static var ErrorUnknownEncoding: CFXMLParserStatusCode { get }
-  static var ErrorEncodingConversionFailure: CFXMLParserStatusCode { get }
-  static var ErrorMalformedProcessingInstruction: CFXMLParserStatusCode { get }
-  static var ErrorMalformedDTD: CFXMLParserStatusCode { get }
-  static var ErrorMalformedName: CFXMLParserStatusCode { get }
-  static var ErrorMalformedCDSect: CFXMLParserStatusCode { get }
-  static var ErrorMalformedCloseTag: CFXMLParserStatusCode { get }
-  static var ErrorMalformedStartTag: CFXMLParserStatusCode { get }
-  static var ErrorMalformedDocument: CFXMLParserStatusCode { get }
-  static var ErrorElementlessDocument: CFXMLParserStatusCode { get }
-  static var ErrorMalformedComment: CFXMLParserStatusCode { get }
-  static var ErrorMalformedCharacterReference: CFXMLParserStatusCode { get }
-  static var ErrorMalformedParsedCharacterData: CFXMLParserStatusCode { get }
-  static var ErrorNoData: CFXMLParserStatusCode { get }
+  static var statusParseNotBegun: CFXMLParserStatusCode { get }
+  static var statusParseInProgress: CFXMLParserStatusCode { get }
+  static var statusParseSuccessful: CFXMLParserStatusCode { get }
+  static var errorUnexpectedEOF: CFXMLParserStatusCode { get }
+  static var errorUnknownEncoding: CFXMLParserStatusCode { get }
+  static var errorEncodingConversionFailure: CFXMLParserStatusCode { get }
+  static var errorMalformedProcessingInstruction: CFXMLParserStatusCode { get }
+  static var errorMalformedDTD: CFXMLParserStatusCode { get }
+  static var errorMalformedName: CFXMLParserStatusCode { get }
+  static var errorMalformedCDSect: CFXMLParserStatusCode { get }
+  static var errorMalformedCloseTag: CFXMLParserStatusCode { get }
+  static var errorMalformedStartTag: CFXMLParserStatusCode { get }
+  static var errorMalformedDocument: CFXMLParserStatusCode { get }
+  static var errorElementlessDocument: CFXMLParserStatusCode { get }
+  static var errorMalformedComment: CFXMLParserStatusCode { get }
+  static var errorMalformedCharacterReference: CFXMLParserStatusCode { get }
+  static var errorMalformedParsedCharacterData: CFXMLParserStatusCode { get }
+  static var errorNoData: CFXMLParserStatusCode { get }
 }
 typealias CFXMLParserCreateXMLStructureCallBack = @convention(c) (CFXMLParser!, CFXMLNode!, UnsafeMutablePointer<Void>) -> UnsafeMutablePointer<Void>
 typealias CFXMLParserAddChildCallBack = @convention(c) (CFXMLParser!, UnsafeMutablePointer<Void>, UnsafeMutablePointer<Void>, UnsafeMutablePointer<Void>) -> Void

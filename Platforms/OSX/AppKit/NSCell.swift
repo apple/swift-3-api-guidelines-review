@@ -2,50 +2,50 @@
 enum NSCellType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NullCellType
-  case TextCellType
-  case ImageCellType
+  case nullCellType
+  case textCellType
+  case imageCellType
 }
 enum NSCellAttribute : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case CellDisabled
-  case CellState
-  case PushInCell
-  case CellEditable
-  case ChangeGrayCell
-  case CellHighlighted
-  case CellLightsByContents
-  case CellLightsByGray
-  case ChangeBackgroundCell
-  case CellLightsByBackground
-  case CellIsBordered
-  case CellHasOverlappingImage
-  case CellHasImageHorizontal
-  case CellHasImageOnLeftOrBottom
-  case CellChangesContents
-  case CellIsInsetButton
-  case CellAllowsMixedState
+  case cellDisabled
+  case cellState
+  case pushInCell
+  case cellEditable
+  case changeGrayCell
+  case cellHighlighted
+  case cellLightsByContents
+  case cellLightsByGray
+  case changeBackgroundCell
+  case cellLightsByBackground
+  case cellIsBordered
+  case cellHasOverlappingImage
+  case cellHasImageHorizontal
+  case cellHasImageOnLeftOrBottom
+  case cellChangesContents
+  case cellIsInsetButton
+  case cellAllowsMixedState
 }
 enum NSCellImagePosition : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NoImage
-  case ImageOnly
-  case ImageLeft
-  case ImageRight
-  case ImageBelow
-  case ImageAbove
-  case ImageOverlaps
+  case noImage
+  case imageOnly
+  case imageLeft
+  case imageRight
+  case imageBelow
+  case imageAbove
+  case imageOverlaps
 }
 @available(OSX 10.5, *)
 enum NSImageScaling : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ScaleProportionallyDown
-  case ScaleAxesIndependently
-  case ScaleNone
-  case ScaleProportionallyUpOrDown
+  case scaleProportionallyDown
+  case scaleAxesIndependently
+  case scaleNone
+  case scaleProportionallyUpOrDown
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use NSImageScaleProportionallyDown instead")
   static var NSScaleProportionally: NSImageScaling { get }
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use NSImageScaleAxesIndependently instead")
@@ -60,26 +60,26 @@ typealias NSCellStateValue = Int
 struct NSCellStyleMask : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var NoCellMask: NSCellStyleMask { get }
-  static var ContentsCellMask: NSCellStyleMask { get }
-  static var PushInCellMask: NSCellStyleMask { get }
-  static var ChangeGrayCellMask: NSCellStyleMask { get }
-  static var ChangeBackgroundCellMask: NSCellStyleMask { get }
+  static var noCellMask: NSCellStyleMask { get }
+  static var contentsCellMask: NSCellStyleMask { get }
+  static var pushInCellMask: NSCellStyleMask { get }
+  static var changeGrayCellMask: NSCellStyleMask { get }
+  static var changeBackgroundCellMask: NSCellStyleMask { get }
 }
 enum NSControlTint : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case DefaultControlTint
-  case BlueControlTint
-  case GraphiteControlTint
-  case ClearControlTint
+  case defaultControlTint
+  case blueControlTint
+  case graphiteControlTint
+  case clearControlTint
 }
 enum NSControlSize : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case RegularControlSize
-  case SmallControlSize
-  case MiniControlSize
+  case regularControlSize
+  case smallControlSize
+  case miniControlSize
 }
 struct __CFlags {
   var state: UInt32
@@ -776,10 +776,10 @@ let NSControlTintDidChangeNotification: String
 struct NSCellHitResult : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: NSCellHitResult { get }
-  static var ContentArea: NSCellHitResult { get }
-  static var EditableTextArea: NSCellHitResult { get }
-  static var TrackableArea: NSCellHitResult { get }
+  static var none: NSCellHitResult { get }
+  static var contentArea: NSCellHitResult { get }
+  static var editableTextArea: NSCellHitResult { get }
+  static var trackableArea: NSCellHitResult { get }
 }
 extension NSCell {
   @available(OSX 10.5, *)
@@ -795,10 +795,10 @@ extension NSCell {
 enum NSBackgroundStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Light
-  case Dark
-  case Raised
-  case Lowered
+  case light
+  case dark
+  case raised
+  case lowered
 }
 extension NSCell {
   @available(OSX 10.5, *)

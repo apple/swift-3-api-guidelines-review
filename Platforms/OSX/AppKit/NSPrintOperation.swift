@@ -2,17 +2,17 @@
 enum NSPrintingPageOrder : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case DescendingPageOrder
-  case SpecialPageOrder
-  case AscendingPageOrder
-  case UnknownPageOrder
+  case descendingPageOrder
+  case specialPageOrder
+  case ascendingPageOrder
+  case unknownPageOrder
 }
 @available(OSX 10.7, *)
 enum NSPrintRenderingQuality : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Best
-  case Responsive
+  case best
+  case responsive
 }
 let NSPrintOperationExistsException: String
 class NSPrintOperation : Object {

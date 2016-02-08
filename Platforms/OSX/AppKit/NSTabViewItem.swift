@@ -2,9 +2,9 @@
 enum NSTabState : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case SelectedTab
-  case BackgroundTab
-  case PressedTab
+  case selectedTab
+  case backgroundTab
+  case pressedTab
 }
 class NSTabViewItem : Object, Coding {
   @available(OSX 10.10, *)

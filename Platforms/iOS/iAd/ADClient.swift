@@ -17,6 +17,6 @@ let ADClientErrorDomain: String
 enum ADClientError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case LimitAdTracking
+  case unknown
+  case limitAdTracking
 }

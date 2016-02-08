@@ -3,20 +3,20 @@
 enum PHAssetMediaType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Image
-  case Video
-  case Audio
+  case unknown
+  case image
+  case video
+  case audio
 }
 @available(OSX 10.11, *)
 struct PHAssetMediaSubtype : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: PHAssetMediaSubtype { get }
-  static var PhotoPanorama: PHAssetMediaSubtype { get }
-  static var PhotoHDR: PHAssetMediaSubtype { get }
-  static var PhotoScreenshot: PHAssetMediaSubtype { get }
-  static var VideoStreamed: PHAssetMediaSubtype { get }
-  static var VideoHighFrameRate: PHAssetMediaSubtype { get }
-  static var VideoTimelapse: PHAssetMediaSubtype { get }
+  static var none: PHAssetMediaSubtype { get }
+  static var photoPanorama: PHAssetMediaSubtype { get }
+  static var photoHDR: PHAssetMediaSubtype { get }
+  static var photoScreenshot: PHAssetMediaSubtype { get }
+  static var videoStreamed: PHAssetMediaSubtype { get }
+  static var videoHighFrameRate: PHAssetMediaSubtype { get }
+  static var videoTimelapse: PHAssetMediaSubtype { get }
 }

@@ -3,8 +3,8 @@
 struct NSTextStorageEditActions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var EditedAttributes: NSTextStorageEditActions { get }
-  static var EditedCharacters: NSTextStorageEditActions { get }
+  static var editedAttributes: NSTextStorageEditActions { get }
+  static var editedCharacters: NSTextStorageEditActions { get }
 }
 @available(iOS 7.0, *)
 class NSTextStorage : MutableAttributedString {
