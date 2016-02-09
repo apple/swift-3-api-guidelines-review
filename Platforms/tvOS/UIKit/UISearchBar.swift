@@ -37,9 +37,9 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(tvOS 5.0, *)
   var scopeBarBackgroundImage: UIImage?
   @available(tvOS 7.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, forBarPosition barPosition: UIBarPosition, barMetrics: UIBarMetrics)
+  func setBackgroundImage(backgroundImage: UIImage?, forBarPosition barPosition: UIBarPosition, barMetrics: UIBarMetrics = .`default`)
   @available(tvOS 7.0, *)
-  func backgroundImageFor(barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImageFor(barPosition: UIBarPosition, barMetrics: UIBarMetrics = .`default`) -> UIImage?
   @available(tvOS 5.0, *)
   func setSearchFieldBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState)
   @available(tvOS 5.0, *)

@@ -16,7 +16,7 @@ enum UIAlertControllerStyle : Int {
 }
 @available(tvOS 8.0, *)
 class UIAlertAction : Object, Copying {
-  convenience init(title: String?, style: UIAlertActionStyle, handler: ((UIAlertAction) -> Void)? = nil)
+  convenience init(title: String?, style: UIAlertActionStyle = .`default`, handler: ((UIAlertAction) -> Void)? = nil)
   var title: String? { get }
   var style: UIAlertActionStyle { get }
   var isEnabled: Bool

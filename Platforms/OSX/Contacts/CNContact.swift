@@ -52,7 +52,7 @@ class CNContact : Object, Copying, MutableCopying, SecureCoding {
   func isKeyAvailable(key: String) -> Bool
   func areKeysAvailable(keyDescriptors: [CNKeyDescriptor]) -> Bool
   class func localizedStringFor(key key: String) -> String
-  class func comparatorForNameSortOrder(sortOrder: CNContactSortOrder) -> Comparator
+  class func comparatorForNameSortOrder(sortOrder: CNContactSortOrder = .`default`) -> Comparator
   class func descriptorForAllComparatorKeys() -> CNKeyDescriptor
   func isUnifiedWithContactWith(identifier contactIdentifier: String) -> Bool
   init()

@@ -275,7 +275,7 @@ enum UIPreviewActionStyle : Int {
 @available(tvOS 9.0, *)
 class UIPreviewAction : Object, Copying, UIPreviewActionItem {
   var handler: (UIPreviewActionItem, UIViewController) -> Void { get }
-  convenience init(title: String, style: UIPreviewActionStyle, handler: (UIPreviewAction, UIViewController) -> Void)
+  convenience init(title: String, style: UIPreviewActionStyle = .`default`, handler: (UIPreviewAction, UIViewController) -> Void)
   init()
   @available(tvOS 9.0, *)
   func copyWith(zone: Zone = nil) -> AnyObject
@@ -284,7 +284,7 @@ class UIPreviewAction : Object, Copying, UIPreviewActionItem {
 }
 @available(tvOS 9.0, *)
 class UIPreviewActionGroup : Object, Copying, UIPreviewActionItem {
-  convenience init(title: String, style: UIPreviewActionStyle, actions: [UIPreviewAction])
+  convenience init(title: String, style: UIPreviewActionStyle = .`default`, actions: [UIPreviewAction])
   init()
   @available(tvOS 9.0, *)
   func copyWith(zone: Zone = nil) -> AnyObject

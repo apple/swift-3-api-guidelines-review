@@ -101,7 +101,7 @@ class NSBitmapImageRep : NSImageRep, SecureCoding {
   @available(OSX 10.6, *)
   var colorSpace: NSColorSpace { get }
   @available(OSX 10.6, *)
-  func convertingTo(targetSpace: NSColorSpace, renderingIntent: NSColorRenderingIntent) -> NSBitmapImageRep?
+  func convertingTo(targetSpace: NSColorSpace, renderingIntent: NSColorRenderingIntent = .`default`) -> NSBitmapImageRep?
   @available(OSX 10.6, *)
   func byRetaggingWith(newSpace: NSColorSpace) -> NSBitmapImageRep?
   init()

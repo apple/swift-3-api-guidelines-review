@@ -39,7 +39,7 @@ enum UITableViewRowActionStyle : Int {
 }
 @available(iOS 8.0, *)
 class UITableViewRowAction : Object, Copying {
-  convenience init(style: UITableViewRowActionStyle, title: String?, handler: (UITableViewRowAction, IndexPath) -> Void)
+  convenience init(style: UITableViewRowActionStyle = .`default`, title: String?, handler: (UITableViewRowAction, IndexPath) -> Void)
   var style: UITableViewRowActionStyle { get }
   var title: String?
   @NSCopying var backgroundColor: UIColor?

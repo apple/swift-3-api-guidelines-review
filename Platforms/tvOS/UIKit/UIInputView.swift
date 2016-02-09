@@ -11,7 +11,7 @@ class UIInputView : UIView {
   var inputViewStyle: UIInputViewStyle { get }
   @available(tvOS 9.0, *)
   var allowsSelfSizing: Bool
-  init(frame: CGRect, inputViewStyle: UIInputViewStyle)
+  init(frame: CGRect, inputViewStyle: UIInputViewStyle = .`default`)
   init?(coder aDecoder: Coder)
   convenience init(frame: CGRect)
   convenience init()

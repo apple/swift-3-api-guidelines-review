@@ -10,9 +10,9 @@ class UIToolbar : UIView, UIBarPositioning {
   @available(iOS 7.0, *)
   var barTintColor: UIColor?
   @available(iOS 5.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, forToolbarPosition topOrBottom: UIBarPosition, barMetrics: UIBarMetrics)
+  func setBackgroundImage(backgroundImage: UIImage?, forToolbarPosition topOrBottom: UIBarPosition, barMetrics: UIBarMetrics = .`default`)
   @available(iOS 5.0, *)
-  func backgroundImageFor(toolbarPosition topOrBottom: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImageFor(toolbarPosition topOrBottom: UIBarPosition, barMetrics: UIBarMetrics = .`default`) -> UIImage?
   @available(iOS 6.0, *)
   func setShadowImage(shadowImage: UIImage?, forToolbarPosition topOrBottom: UIBarPosition)
   @available(iOS 6.0, *)

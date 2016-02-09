@@ -17,7 +17,7 @@ enum NSHapticFeedbackPerformanceTime : UInt {
 }
 protocol NSHapticFeedbackPerformer : ObjectProtocol {
   @available(OSX 10.11, *)
-  func perform(pattern: NSHapticFeedbackPattern, performanceTime: NSHapticFeedbackPerformanceTime)
+  func perform(pattern: NSHapticFeedbackPattern, performanceTime: NSHapticFeedbackPerformanceTime = .`default`)
 }
 @available(OSX 10.11, *)
 class NSHapticFeedbackManager : Object {

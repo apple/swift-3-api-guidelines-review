@@ -33,21 +33,21 @@ class UISegmentedControl : UIControl, Coding {
   var selectedSegmentIndex: Int
   var tintColor: UIColor!
   @available(tvOS 5.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState, barMetrics: UIBarMetrics)
+  func setBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState, barMetrics: UIBarMetrics = .`default`)
   @available(tvOS 5.0, *)
-  func backgroundImageFor(state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImageFor(state: UIControlState, barMetrics: UIBarMetrics = .`default`) -> UIImage?
   @available(tvOS 5.0, *)
-  func setDividerImage(dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics)
+  func setDividerImage(dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics = .`default`)
   @available(tvOS 5.0, *)
-  func dividerImageFor(leftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
+  func dividerImageFor(leftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics = .`default`) -> UIImage?
   @available(tvOS 5.0, *)
   func setTitleTextAttributes(attributes: [Object : AnyObject]? = [:], forState state: UIControlState)
   @available(tvOS 5.0, *)
   func titleTextAttributesFor(state: UIControlState) -> [Object : AnyObject]?
   @available(tvOS 5.0, *)
-  func setContentPositionAdjustment(adjustment: UIOffset, forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics)
+  func setContentPositionAdjustment(adjustment: UIOffset, forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics = .`default`)
   @available(tvOS 5.0, *)
-  func contentPositionAdjustmentFor(segmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics) -> UIOffset
+  func contentPositionAdjustmentFor(segmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics = .`default`) -> UIOffset
   init(frame: CGRect)
   init?(coder aDecoder: Coder)
   convenience init()

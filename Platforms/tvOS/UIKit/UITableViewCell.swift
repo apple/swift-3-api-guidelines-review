@@ -47,7 +47,7 @@ struct UITableViewCellStateMask : OptionSetType {
 @available(tvOS 2.0, *)
 class UITableViewCell : UIView, Coding, UIGestureRecognizerDelegate {
   @available(tvOS 3.0, *)
-  init(style: UITableViewCellStyle, reuseIdentifier: String?)
+  init(style: UITableViewCellStyle = .`default`, reuseIdentifier: String?)
   init?(coder aDecoder: Coder)
   @available(tvOS 3.0, *)
   var imageView: UIImageView? { get }

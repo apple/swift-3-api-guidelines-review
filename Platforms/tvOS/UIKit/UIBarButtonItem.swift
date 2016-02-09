@@ -55,21 +55,21 @@ class UIBarButtonItem : UIBarItem, Coding {
   var action: Selector
   weak var target: @sil_weak AnyObject?
   @available(tvOS 5.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState, barMetrics: UIBarMetrics)
+  func setBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState, barMetrics: UIBarMetrics = .`default`)
   @available(tvOS 5.0, *)
-  func backgroundImageFor(state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImageFor(state: UIControlState, barMetrics: UIBarMetrics = .`default`) -> UIImage?
   @available(tvOS 6.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState, style: UIBarButtonItemStyle, barMetrics: UIBarMetrics)
+  func setBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState, style: UIBarButtonItemStyle, barMetrics: UIBarMetrics = .`default`)
   @available(tvOS 6.0, *)
-  func backgroundImageFor(state: UIControlState, style: UIBarButtonItemStyle, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImageFor(state: UIControlState, style: UIBarButtonItemStyle, barMetrics: UIBarMetrics = .`default`) -> UIImage?
   @available(tvOS 5.0, *)
   var tintColor: UIColor?
   @available(tvOS 5.0, *)
-  func setBackgroundVerticalPositionAdjustment(adjustment: CGFloat, forBarMetrics barMetrics: UIBarMetrics)
+  func setBackgroundVerticalPositionAdjustment(adjustment: CGFloat, forBarMetrics barMetrics: UIBarMetrics = .`default`)
   @available(tvOS 5.0, *)
-  func backgroundVerticalPositionAdjustmentFor(barMetrics: UIBarMetrics) -> CGFloat
+  func backgroundVerticalPositionAdjustment(barMetrics: UIBarMetrics = .`default`) -> CGFloat
   @available(tvOS 5.0, *)
-  func setTitlePositionAdjustment(adjustment: UIOffset, forBarMetrics barMetrics: UIBarMetrics)
+  func setTitlePositionAdjustment(adjustment: UIOffset, forBarMetrics barMetrics: UIBarMetrics = .`default`)
   @available(tvOS 5.0, *)
-  func titlePositionAdjustmentFor(barMetrics: UIBarMetrics) -> UIOffset
+  func titlePositionAdjustment(barMetrics: UIBarMetrics = .`default`) -> UIOffset
 }

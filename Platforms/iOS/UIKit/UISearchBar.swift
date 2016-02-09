@@ -54,9 +54,9 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(iOS 5.0, *)
   var scopeBarBackgroundImage: UIImage?
   @available(iOS 7.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, forBarPosition barPosition: UIBarPosition, barMetrics: UIBarMetrics)
+  func setBackgroundImage(backgroundImage: UIImage?, forBarPosition barPosition: UIBarPosition, barMetrics: UIBarMetrics = .`default`)
   @available(iOS 7.0, *)
-  func backgroundImageFor(barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImageFor(barPosition: UIBarPosition, barMetrics: UIBarMetrics = .`default`) -> UIImage?
   @available(iOS 5.0, *)
   func setSearchFieldBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState)
   @available(iOS 5.0, *)

@@ -14,21 +14,21 @@ class UINavigationBar : UIView, Coding, UIBarPositioning {
   @available(tvOS 7.0, *)
   var barTintColor: UIColor?
   @available(tvOS 7.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, forBarPosition barPosition: UIBarPosition, barMetrics: UIBarMetrics)
+  func setBackgroundImage(backgroundImage: UIImage?, forBarPosition barPosition: UIBarPosition, barMetrics: UIBarMetrics = .`default`)
   @available(tvOS 7.0, *)
-  func backgroundImageFor(barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImageFor(barPosition: UIBarPosition, barMetrics: UIBarMetrics = .`default`) -> UIImage?
   @available(tvOS 5.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, forBarMetrics barMetrics: UIBarMetrics)
+  func setBackgroundImage(backgroundImage: UIImage?, forBarMetrics barMetrics: UIBarMetrics = .`default`)
   @available(tvOS 5.0, *)
-  func backgroundImageFor(barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(barMetrics: UIBarMetrics = .`default`) -> UIImage?
   @available(tvOS 6.0, *)
   var shadowImage: UIImage?
   @available(tvOS 5.0, *)
   var titleTextAttributes: [String : AnyObject]?
   @available(tvOS 5.0, *)
-  func setTitleVerticalPositionAdjustment(adjustment: CGFloat, forBarMetrics barMetrics: UIBarMetrics)
+  func setTitleVerticalPositionAdjustment(adjustment: CGFloat, forBarMetrics barMetrics: UIBarMetrics = .`default`)
   @available(tvOS 5.0, *)
-  func titleVerticalPositionAdjustmentFor(barMetrics: UIBarMetrics) -> CGFloat
+  func titleVerticalPositionAdjustment(barMetrics: UIBarMetrics = .`default`) -> CGFloat
   init(frame: CGRect)
   init?(coder aDecoder: Coder)
   convenience init()

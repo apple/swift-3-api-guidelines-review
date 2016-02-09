@@ -11,5 +11,5 @@ enum WKAlertActionStyle : Int {
 typealias WKAlertActionHandler = () -> Void
 @available(watchOS 2.0, *)
 class WKAlertAction : Object {
-  convenience init(title: String, style: WKAlertActionStyle, handler: WKAlertActionHandler)
+  convenience init(title: String, style: WKAlertActionStyle = .`default`, handler: WKAlertActionHandler)
 }

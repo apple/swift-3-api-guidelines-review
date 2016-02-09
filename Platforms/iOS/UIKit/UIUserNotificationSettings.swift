@@ -45,7 +45,7 @@ class UIUserNotificationCategory : Object, Copying, MutableCopying, SecureCoding
   init()
   init?(coder aDecoder: Coder)
   var identifier: String? { get }
-  func actionsFor(context: UIUserNotificationActionContext) -> [UIUserNotificationAction]?
+  func actions(context: UIUserNotificationActionContext = .`default`) -> [UIUserNotificationAction]?
   @available(iOS 8.0, *)
   func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
@@ -58,7 +58,7 @@ class UIUserNotificationCategory : Object, Copying, MutableCopying, SecureCoding
 @available(iOS 8.0, *)
 class UIMutableUserNotificationCategory : UIUserNotificationCategory {
   var identifier: String?
-  func setActions(actions: [UIUserNotificationAction]?, forContext context: UIUserNotificationActionContext)
+  func setActions(actions: [UIUserNotificationAction]?, forContext context: UIUserNotificationActionContext = .`default`)
   init()
   init?(coder aDecoder: Coder)
 }

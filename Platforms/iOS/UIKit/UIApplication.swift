@@ -288,7 +288,7 @@ extension UIApplication {
   @available(iOS, introduced=2.0, deprecated=9.0, message="Use -[UIViewController preferredStatusBarStyle]")
   var statusBarStyle: UIStatusBarStyle
   @available(iOS, introduced=2.0, deprecated=9.0, message="Use -[UIViewController preferredStatusBarStyle]")
-  func setStatusBarStyle(statusBarStyle: UIStatusBarStyle, animated: Bool)
+  func setStatusBarStyle(statusBarStyle: UIStatusBarStyle = .`default`, animated: Bool)
   @available(iOS, introduced=2.0, deprecated=9.0, message="Use -[UIViewController prefersStatusBarHidden]")
   var isStatusBarHidden: Bool
   @available(iOS, introduced=3.2, deprecated=9.0, message="Use -[UIViewController prefersStatusBarHidden]")
