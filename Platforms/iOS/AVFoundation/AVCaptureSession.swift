@@ -68,9 +68,9 @@ class AVCaptureSession : Object {
   func addOutput(output: AVCaptureOutput!)
   func removeOutput(output: AVCaptureOutput!)
   @available(iOS 8.0, *)
-  func addInput(noConnections input: AVCaptureInput!)
+  func addInputWithNoConnections(input: AVCaptureInput!)
   @available(iOS 8.0, *)
-  func addOutput(noConnections output: AVCaptureOutput!)
+  func addOutputWithNoConnections(output: AVCaptureOutput!)
   @available(iOS 8.0, *)
   func canAdd(connection: AVCaptureConnection!) -> Bool
   @available(iOS 8.0, *)
