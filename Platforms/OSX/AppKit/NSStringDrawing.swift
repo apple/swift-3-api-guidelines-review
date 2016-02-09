@@ -8,7 +8,7 @@ class NSStringDrawingContext : Object {
 }
 extension NSString {
   @available(OSX 10.0, *)
-  func sizeWith(attributes attrs: [String : AnyObject]? = [:]) -> Size
+  func size(attributes attrs: [String : AnyObject]? = [:]) -> Size
   @available(OSX 10.0, *)
   func drawAt(point: Point, withAttributes attrs: [String : AnyObject]? = [:])
   @available(OSX 10.0, *)

@@ -81,11 +81,11 @@ extension Data {
   @available(OSX 10.9, *)
   init?(base64EncodedString base64String: String, options: DataBase64DecodingOptions = [])
   @available(OSX 10.9, *)
-  func base64EncodedStringWith(options: DataBase64EncodingOptions = []) -> String
+  func base64EncodedString(options: DataBase64EncodingOptions = []) -> String
   @available(OSX 10.9, *)
   init?(base64EncodedData base64Data: Data, options: DataBase64DecodingOptions = [])
   @available(OSX 10.9, *)
-  func base64EncodedDataWith(options: DataBase64EncodingOptions = []) -> Data
+  func base64EncodedData(options: DataBase64EncodingOptions = []) -> Data
 }
 extension Data {
   @available(OSX, introduced=10.0, deprecated=10.10, message="This method is unsafe because it could potentially cause buffer overruns. Use -getBytes:length: instead.")

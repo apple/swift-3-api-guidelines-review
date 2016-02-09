@@ -57,7 +57,7 @@ extension NSSet {
   @available(OSX 10.6, *)
   func objectsPassingTest(predicate: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
   @available(OSX 10.6, *)
-  func objectsWith(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
+  func objects(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
 }
 extension NSSet {
   convenience init(object: AnyObject)

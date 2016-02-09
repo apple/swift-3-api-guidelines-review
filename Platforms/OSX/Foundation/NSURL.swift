@@ -76,7 +76,7 @@ class URL : Object, SecureCoding, Copying, URLHandleClient {
   @available(OSX 10.9, *)
   func setTemporaryResourceValue(value: AnyObject?, forKey key: String)
   @available(OSX 10.6, *)
-  func bookmarkDataWith(options: URLBookmarkCreationOptions = [], includingResourceValuesForKeys keys: [String]?, relativeTo relativeURL: URL?) throws -> Data
+  func bookmarkData(options: URLBookmarkCreationOptions = [], includingResourceValuesForKeys keys: [String]?, relativeTo relativeURL: URL?) throws -> Data
   @available(OSX 10.6, *)
   convenience init(byResolvingBookmarkData bookmarkData: Data, options: URLBookmarkResolutionOptions = [], relativeTo relativeURL: URL?, bookmarkDataIsStale isStale: UnsafeMutablePointer<ObjCBool>) throws
   @available(OSX 10.6, *)

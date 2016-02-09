@@ -8,7 +8,7 @@ class NSStringDrawingContext : Object {
 }
 extension NSString {
   @available(tvOS 7.0, *)
-  func sizeWith(attributes attrs: [String : AnyObject]? = [:]) -> CGSize
+  func size(attributes attrs: [String : AnyObject]? = [:]) -> CGSize
   @available(tvOS 7.0, *)
   func drawAt(point: CGPoint, withAttributes attrs: [String : AnyObject]? = [:])
   @available(tvOS 7.0, *)

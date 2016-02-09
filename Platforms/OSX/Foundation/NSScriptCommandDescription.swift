@@ -14,6 +14,6 @@ class ScriptCommandDescription : Object, Coding {
   func appleEventCodeForArgumentWith(name argumentName: String) -> FourCharCode
   func isOptionalArgumentWith(name argumentName: String) -> Bool
   func createCommandInstance() -> ScriptCommand
-  func createCommandInstanceWith(zone: Zone = nil) -> ScriptCommand
+  func createCommandInstance(zone: Zone = nil) -> ScriptCommand
   func encodeWith(aCoder: Coder)
 }

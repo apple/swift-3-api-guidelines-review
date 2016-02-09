@@ -97,7 +97,7 @@ class GKTurnBasedMatch : Object {
   @available(OSX 10.8, *)
   func acceptInvite(completionHandler completionHandler: ((GKTurnBasedMatch?, Error?) -> Void)? = nil)
   @available(OSX 10.8, *)
-  func declineInviteWith(completionHandler completionHandler: ((Error?) -> Void)? = nil)
+  func declineInvite(completionHandler completionHandler: ((Error?) -> Void)? = nil)
   func remove(completionHandler completionHandler: ((Error?) -> Void)? = nil)
   func loadData(completionHandler completionHandler: ((Data?, Error?) -> Void)? = nil)
   @available(OSX 10.9, *)

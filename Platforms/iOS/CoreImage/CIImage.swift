@@ -92,7 +92,7 @@ let kCIImageColorSpace: String
 let kCIImageProperties: String
 extension CIImage {
   @available(iOS 5.0, *)
-  func autoAdjustmentFiltersWith(options options: [String : AnyObject]? = [:]) -> [CIFilter]
+  func autoAdjustmentFilters(options options: [String : AnyObject]? = [:]) -> [CIFilter]
 }
 @available(iOS 5.0, *)
 let kCIImageAutoAdjustEnhance: String

@@ -37,7 +37,7 @@ class NetService : Object {
   var port: Int { get }
   func publish()
   @available(OSX 10.5, *)
-  func publishWith(options: NetServiceOptions = [])
+  func publish(options: NetServiceOptions = [])
   func stop()
   class func dictionaryFromTXTRecord(txtData: Data) -> [String : Data]
   class func dataFromTXTRecord(txtDictionary: [String : Data]) -> Data

@@ -76,7 +76,7 @@ class URL : Object, SecureCoding, Copying {
   @available(tvOS 7.0, *)
   func setTemporaryResourceValue(value: AnyObject?, forKey key: String)
   @available(tvOS 4.0, *)
-  func bookmarkDataWith(options: URLBookmarkCreationOptions = [], includingResourceValuesForKeys keys: [String]?, relativeTo relativeURL: URL?) throws -> Data
+  func bookmarkData(options: URLBookmarkCreationOptions = [], includingResourceValuesForKeys keys: [String]?, relativeTo relativeURL: URL?) throws -> Data
   @available(tvOS 4.0, *)
   convenience init(byResolvingBookmarkData bookmarkData: Data, options: URLBookmarkResolutionOptions = [], relativeTo relativeURL: URL?, bookmarkDataIsStale isStale: UnsafeMutablePointer<ObjCBool>) throws
   @available(tvOS 4.0, *)

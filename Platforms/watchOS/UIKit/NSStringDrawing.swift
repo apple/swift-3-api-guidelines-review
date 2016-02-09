@@ -8,7 +8,7 @@ class NSStringDrawingContext : Object {
 }
 extension NSString {
   @available(watchOS 2.0, *)
-  func sizeWith(attributes attrs: [String : AnyObject]? = [:]) -> CGSize
+  func size(attributes attrs: [String : AnyObject]? = [:]) -> CGSize
   @available(watchOS 2.0, *)
   func drawAt(point: CGPoint, withAttributes attrs: [String : AnyObject]? = [:])
   @available(watchOS 2.0, *)

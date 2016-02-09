@@ -176,7 +176,7 @@ extension NSString {
   func byTrimmingCharactersIn(set: CharacterSet) -> String
   func byPaddingTo(length newLength: Int, withString padString: String, startingAt padIndex: Int) -> String
   @available(OSX 10.5, *)
-  func foldingWith(options: StringCompareOptions = [], locale: Locale?) -> String
+  func folding(options: StringCompareOptions = [], locale: Locale?) -> String
   @available(OSX 10.5, *)
   func replacingOccurrencesOf(target: String, withString replacement: String, options: StringCompareOptions = [], range searchRange: NSRange) -> String
   @available(OSX 10.5, *)

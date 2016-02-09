@@ -55,14 +55,14 @@ extension OrderedSet {
   func enumerateObjects(opts: EnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   func enumerateObjectsAt(s: IndexSet, options opts: EnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   func indexOfObjectPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
-  func indexOfObjectWith(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexOfObject(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   func indexOfObjectAt(s: IndexSet, options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   func indexesOfObjectsPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
-  func indexesOfObjectsWith(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
+  func indexesOfObjects(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
   func indexesOfObjectsAt(s: IndexSet, options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
   func indexOf(object: AnyObject, inSortedRange range: NSRange, options opts: BinarySearchingOptions = [], usingComparator cmp: Comparator) -> Int
   func sortedArray(comparator cmptr: Comparator) -> [AnyObject]
-  func sortedArrayWith(opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
+  func sortedArray(opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
   var description: String { get }
   func descriptionWith(locale locale: AnyObject?) -> String
   func descriptionWith(locale locale: AnyObject?, indent level: Int) -> String
@@ -121,7 +121,7 @@ extension MutableOrderedSet {
   func minusSet(other: Set<Object>)
   func unionSet(other: Set<Object>)
   func sort(comparator cmptr: Comparator)
-  func sortWith(opts: SortOptions = [], usingComparator cmptr: Comparator)
+  func sort(opts: SortOptions = [], usingComparator cmptr: Comparator)
   func sortRange(range: NSRange, options opts: SortOptions = [], usingComparator cmptr: Comparator)
 }
 extension MutableOrderedSet {

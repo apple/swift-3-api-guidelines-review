@@ -112,7 +112,7 @@ let kCIImageTextureTarget: String
 let kCIImageTextureFormat: String
 extension CIImage {
   @available(OSX 10.8, *)
-  func autoAdjustmentFiltersWith(options options: [String : AnyObject]? = [:]) -> [CIFilter]
+  func autoAdjustmentFilters(options options: [String : AnyObject]? = [:]) -> [CIFilter]
 }
 @available(OSX 10.8, *)
 let kCIImageAutoAdjustEnhance: String

@@ -73,19 +73,19 @@ extension NSArray {
   @available(watchOS 2.0, *)
   func indexOfObjectPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(watchOS 2.0, *)
-  func indexOfObjectWith(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexOfObject(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(watchOS 2.0, *)
   func indexOfObjectAt(s: IndexSet, options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(watchOS 2.0, *)
   func indexesOfObjectsPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
   @available(watchOS 2.0, *)
-  func indexesOfObjectsWith(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
+  func indexesOfObjects(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
   @available(watchOS 2.0, *)
   func indexesOfObjectsAt(s: IndexSet, options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
   @available(watchOS 2.0, *)
   func sortedArray(comparator cmptr: Comparator) -> [AnyObject]
   @available(watchOS 2.0, *)
-  func sortedArrayWith(opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
+  func sortedArray(opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
   @available(watchOS 2.0, *)
   func indexOf(obj: AnyObject, inSortedRange r: NSRange, options opts: BinarySearchingOptions = [], usingComparator cmp: Comparator) -> Int
 }
@@ -145,7 +145,7 @@ extension MutableArray {
   @available(watchOS 2.0, *)
   func sort(comparator cmptr: Comparator)
   @available(watchOS 2.0, *)
-  func sortWith(opts: SortOptions = [], usingComparator cmptr: Comparator)
+  func sort(opts: SortOptions = [], usingComparator cmptr: Comparator)
 }
 extension MutableArray {
   convenience init?(contentsOfFile path: String)

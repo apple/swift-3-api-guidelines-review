@@ -95,7 +95,7 @@ class GKTurnBasedMatch : Object {
   @available(tvOS 5.0, *)
   func acceptInvite(completionHandler completionHandler: ((GKTurnBasedMatch?, Error?) -> Void)? = nil)
   @available(tvOS 5.0, *)
-  func declineInviteWith(completionHandler completionHandler: ((Error?) -> Void)? = nil)
+  func declineInvite(completionHandler completionHandler: ((Error?) -> Void)? = nil)
   func remove(completionHandler completionHandler: ((Error?) -> Void)? = nil)
   func loadData(completionHandler completionHandler: ((Data?, Error?) -> Void)? = nil)
   @available(tvOS 6.0, *)

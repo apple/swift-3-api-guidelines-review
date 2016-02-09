@@ -91,11 +91,11 @@ extension Data {
   @available(tvOS 7.0, *)
   init?(base64EncodedString base64String: String, options: DataBase64DecodingOptions = [])
   @available(tvOS 7.0, *)
-  func base64EncodedStringWith(options: DataBase64EncodingOptions = []) -> String
+  func base64EncodedString(options: DataBase64EncodingOptions = []) -> String
   @available(tvOS 7.0, *)
   init?(base64EncodedData base64Data: Data, options: DataBase64DecodingOptions = [])
   @available(tvOS 7.0, *)
-  func base64EncodedDataWith(options: DataBase64EncodingOptions = []) -> Data
+  func base64EncodedData(options: DataBase64EncodingOptions = []) -> Data
 }
 extension Data {
   @available(tvOS, introduced=2.0, deprecated=8.0, message="This method is unsafe because it could potentially cause buffer overruns. Use -getBytes:length: instead.")

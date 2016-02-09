@@ -256,7 +256,7 @@ class NSEvent : Object, Copying, Coding {
   @available(OSX 10.7, *)
   class func isSwipeTrackingFromScrollEventsEnabled() -> Bool
   @available(OSX 10.7, *)
-  func trackSwipeEventWith(options: NSEventSwipeTrackingOptions = [], dampenAmountThresholdMin minDampenThreshold: CGFloat, max maxDampenThreshold: CGFloat, usingHandler trackingHandler: (CGFloat, NSEventPhase, Bool, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func trackSwipeEvent(options: NSEventSwipeTrackingOptions = [], dampenAmountThresholdMin minDampenThreshold: CGFloat, max maxDampenThreshold: CGFloat, usingHandler trackingHandler: (CGFloat, NSEventPhase, Bool, UnsafeMutablePointer<ObjCBool>) -> Void)
   class func startPeriodicEventsAfterDelay(delay: TimeInterval, withPeriod period: TimeInterval)
   class func stopPeriodicEvents()
   class func mouseEventWith(type: NSEventType, location: Point, modifierFlags flags: NSEventModifierFlags, timestamp time: TimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, eventNumber eNum: Int, clickCount cNum: Int, pressure: Float) -> NSEvent?

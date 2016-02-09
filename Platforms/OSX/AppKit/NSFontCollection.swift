@@ -20,7 +20,7 @@ class NSFontCollection : Object, Copying, MutableCopying, Coding {
   var queryDescriptors: [NSFontDescriptor]? { get }
   var exclusionDescriptors: [NSFontDescriptor]? { get }
   var matchingDescriptors: [NSFontDescriptor]? { get }
-  func matchingDescriptorsWith(options options: [String : Number]? = [:]) -> [NSFontDescriptor]?
+  func matchingDescriptors(options options: [String : Number]? = [:]) -> [NSFontDescriptor]?
   func matchingDescriptorsFor(family family: String) -> [NSFontDescriptor]?
   func matchingDescriptorsFor(family family: String, options: [String : Number]? = [:]) -> [NSFontDescriptor]?
   init()

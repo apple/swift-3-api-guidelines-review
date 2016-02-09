@@ -31,7 +31,7 @@ class NSRunningApplication : Object {
   var executableArchitecture: Int { get }
   func hide() -> Bool
   func unhide() -> Bool
-  func activateWith(options: NSApplicationActivationOptions = []) -> Bool
+  func activate(options: NSApplicationActivationOptions = []) -> Bool
   func terminate() -> Bool
   func forceTerminate() -> Bool
   class func runningApplicationsWith(bundleIdentifier bundleIdentifier: String) -> [NSRunningApplication]

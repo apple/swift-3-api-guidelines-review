@@ -81,7 +81,7 @@ class GKMatchmaker : Object {
   @available(iOS 6.0, *)
   func finishMatchmakingFor(match: GKMatch)
   func queryPlayerGroupActivity(playerGroup: Int, withCompletionHandler completionHandler: ((Int, Error?) -> Void)? = nil)
-  func queryActivityWith(completionHandler completionHandler: ((Int, Error?) -> Void)? = nil)
+  func queryActivity(completionHandler completionHandler: ((Int, Error?) -> Void)? = nil)
   @available(iOS 8.0, *)
   func startBrowsingForNearbyPlayers(handler reachableHandler: ((GKPlayer, Bool) -> Void)? = nil)
   @available(iOS 6.0, *)

@@ -76,7 +76,7 @@ class URL : Object, SecureCoding, Copying {
   @available(watchOS 2.0, *)
   func setTemporaryResourceValue(value: AnyObject?, forKey key: String)
   @available(watchOS 2.0, *)
-  func bookmarkDataWith(options: URLBookmarkCreationOptions = [], includingResourceValuesForKeys keys: [String]?, relativeTo relativeURL: URL?) throws -> Data
+  func bookmarkData(options: URLBookmarkCreationOptions = [], includingResourceValuesForKeys keys: [String]?, relativeTo relativeURL: URL?) throws -> Data
   @available(watchOS 2.0, *)
   convenience init(byResolvingBookmarkData bookmarkData: Data, options: URLBookmarkResolutionOptions = [], relativeTo relativeURL: URL?, bookmarkDataIsStale isStale: UnsafeMutablePointer<ObjCBool>) throws
   @available(watchOS 2.0, *)

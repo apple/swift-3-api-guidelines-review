@@ -904,7 +904,7 @@ extension NSView {
   @available(OSX 10.5, *)
   func enterFullScreenMode(screen: NSScreen, withOptions options: [String : AnyObject]? = [:]) -> Bool
   @available(OSX 10.5, *)
-  func exitFullScreenModeWith(options options: [String : AnyObject]? = [:])
+  func exitFullScreenMode(options options: [String : AnyObject]? = [:])
   @available(OSX 10.5, *)
   var isInFullScreenMode: Bool { get }
 }

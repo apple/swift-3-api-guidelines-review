@@ -55,8 +55,8 @@ class SCNSceneSource : Object {
   init?(data: Data, options: [String : AnyObject]? = [:])
   var url: URL? { get }
   var data: Data? { get }
-  func sceneWith(options options: [String : AnyObject]? = [:], statusHandler: SCNSceneSourceStatusHandler? = nil) -> SCNScene?
-  func sceneWith(options options: [String : AnyObject]? = [:]) throws -> SCNScene
+  func scene(options options: [String : AnyObject]? = [:], statusHandler: SCNSceneSourceStatusHandler? = nil) -> SCNScene?
+  func scene(options options: [String : AnyObject]? = [:]) throws -> SCNScene
   func propertyFor(key key: String) -> AnyObject?
   func __entryWith(identifier uid: String, withClass entryClass: AnyClass) -> AnyObject?
   func identifiersOfEntriesWith(entryClass: AnyClass) -> [String]

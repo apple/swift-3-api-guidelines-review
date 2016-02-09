@@ -63,11 +63,11 @@ extension NSDictionary {
   @available(tvOS 4.0, *)
   func keysSortedByValue(comparator cmptr: Comparator) -> [AnyObject]
   @available(tvOS 4.0, *)
-  func keysSortedByValueWith(opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
+  func keysSortedByValue(opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
   @available(tvOS 4.0, *)
   func keysOfEntriesPassingTest(predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
   @available(tvOS 4.0, *)
-  func keysOfEntriesWith(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
+  func keysOfEntries(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
 }
 extension NSDictionary {
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, andKeys keys: AutoreleasingUnsafeMutablePointer<AnyObject?>)
