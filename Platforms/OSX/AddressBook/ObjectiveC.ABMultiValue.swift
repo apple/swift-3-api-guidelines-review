@@ -12,7 +12,7 @@ class ABMultiValue : Object, Copying, MutableCopying, FastEnumeration {
   init()
   func copyWith(zone: Zone = nil) -> AnyObject
   func mutableCopyWith(zone: Zone = nil) -> AnyObject
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(withState state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 class ABMutableMultiValue : ABMultiValue {
   func add(value: AnyObject!, withLabel label: String!) -> String!

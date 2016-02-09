@@ -54,7 +54,7 @@ class OperationQueue : Object {
   @available(tvOS 4.0, *)
   func addOperations(ops: [Operation], waitUntilFinished wait: Bool)
   @available(tvOS 4.0, *)
-  func addOperation(block: () -> Void)
+  func addOperation(withBlock block: () -> Void)
   var operations: [Operation] { get }
   @available(tvOS 4.0, *)
   var operationCount: Int { get }

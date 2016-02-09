@@ -23,7 +23,7 @@ class NSViewController : NSResponder, Coding, NSSeguePerforming, NSUserInterface
   var title: String?
   var view: NSView
   func loadView()
-  func commitEditing(delegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func commitEditing(withDelegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func commitEditing() -> Bool
   func discardEditing()
   @available(OSX 10.10, *)
@@ -50,7 +50,7 @@ class NSViewController : NSResponder, Coding, NSSeguePerforming, NSUserInterface
   @available(OSX 10.10, *)
   func prepare(forSegue segue: NSStoryboardSegue, sender: AnyObject?)
   @available(OSX 10.10, *)
-  func performSegue(identifier identifier: String, sender: AnyObject?)
+  func performSegue(withIdentifier identifier: String, sender: AnyObject?)
   @available(OSX 10.10, *)
   func shouldPerformSegue(withIdentifier identifier: String, sender: AnyObject?) -> Bool
   @available(OSX 10.5, *)

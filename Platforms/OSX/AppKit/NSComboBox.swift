@@ -22,13 +22,13 @@ class NSComboBox : NSTextField {
   func delegate() -> NSComboBoxDelegate?
   func setDelegate(anObject: NSComboBoxDelegate?)
   unowned(unsafe) var dataSource: @sil_unmanaged NSComboBoxDataSource?
-  func addItem(objectValue object: AnyObject)
-  func addItems(objectValues objects: [AnyObject])
-  func insertItem(objectValue object: AnyObject, at index: Int)
-  func removeItem(objectValue object: AnyObject)
+  func addItem(withObjectValue object: AnyObject)
+  func addItems(withObjectValues objects: [AnyObject])
+  func insertItem(withObjectValue object: AnyObject, at index: Int)
+  func removeItem(withObjectValue object: AnyObject)
   func removeItem(at index: Int)
   func removeAllItems()
-  func selectItem(objectValue object: AnyObject?)
+  func selectItem(withObjectValue object: AnyObject?)
   func itemObjectValue(at index: Int) -> AnyObject
   var objectValueOfSelectedItem: AnyObject? { get }
   func indexOfItem(withObjectValue object: AnyObject) -> Int

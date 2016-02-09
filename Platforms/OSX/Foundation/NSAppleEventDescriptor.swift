@@ -65,7 +65,7 @@ class AppleEventDescriptor : Object, Copying, SecureCoding {
   var transactionID: AETransactionID { get }
   func setParamDescriptor(descriptor: AppleEventDescriptor, forKeyword keyword: AEKeyword)
   func paramDescriptor(forKeyword keyword: AEKeyword) -> AppleEventDescriptor?
-  func removeParamDescriptor(keyword keyword: AEKeyword)
+  func removeParamDescriptor(withKeyword keyword: AEKeyword)
   func setAttributeDescriptor(descriptor: AppleEventDescriptor, forKeyword keyword: AEKeyword)
   func attributeDescriptor(forKeyword keyword: AEKeyword) -> AppleEventDescriptor?
   @available(OSX 10.11, *)

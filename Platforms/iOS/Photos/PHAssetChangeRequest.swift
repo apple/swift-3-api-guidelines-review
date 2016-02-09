@@ -26,7 +26,7 @@ class PHContentEditingInputRequestOptions : Object {
 }
 extension PHAsset {
   @available(iOS 8.0, *)
-  func requestContentEditingInput(options: PHContentEditingInputRequestOptions?, completionHandler: (PHContentEditingInput?, [Object : AnyObject]) -> Void) -> PHContentEditingInputRequestID
+  func requestContentEditingInput(withOptions options: PHContentEditingInputRequestOptions?, completionHandler: (PHContentEditingInput?, [Object : AnyObject]) -> Void) -> PHContentEditingInputRequestID
   @available(iOS 8.0, *)
   func cancelContentEditingInputRequest(requestID: PHContentEditingInputRequestID)
 }

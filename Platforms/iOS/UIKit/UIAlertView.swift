@@ -15,7 +15,7 @@ class UIAlertView : UIView {
   weak var delegate: @sil_weak AnyObject?
   var title: String
   var message: String?
-  func addButton(title title: String?) -> Int
+  func addButton(withTitle title: String?) -> Int
   func buttonTitle(at buttonIndex: Int) -> String?
   var numberOfButtons: Int { get }
   var cancelButtonIndex: Int

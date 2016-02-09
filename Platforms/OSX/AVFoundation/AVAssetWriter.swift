@@ -29,7 +29,7 @@ class AVAssetWriter : Object {
   func endSessionAtSourceTime(endTime: CMTime)
   func cancelWriting()
   @available(OSX 10.9, *)
-  func finishWriting(completionHandler handler: () -> Void)
+  func finishWriting(withCompletionHandler handler: () -> Void)
 }
 extension AVAssetWriter {
   var movieFragmentInterval: CMTime

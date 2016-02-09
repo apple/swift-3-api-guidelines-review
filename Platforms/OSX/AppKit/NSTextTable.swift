@@ -55,7 +55,7 @@ class NSTextBlock : Object, Coding, Copying {
   func borderColor(forEdge edge: RectEdge) -> NSColor?
   func rectForLayout(at startingPoint: Point, in rect: Rect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> Rect
   func boundsRect(forContentRect contentRect: Rect, in rect: Rect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> Rect
-  func drawBackground(frame frameRect: Rect, in controlView: NSView, characterRange charRange: NSRange, layoutManager: NSLayoutManager)
+  func drawBackground(withFrame frameRect: Rect, in controlView: NSView, characterRange charRange: NSRange, layoutManager: NSLayoutManager)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   func copyWith(zone: Zone = nil) -> AnyObject

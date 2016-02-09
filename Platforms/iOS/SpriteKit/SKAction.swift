@@ -45,7 +45,7 @@ extension SKAction {
   class func repeatAction(action: SKAction, count: Int) -> SKAction
   class func repeatForever(action: SKAction) -> SKAction
   class func fadeIn(duration sec: TimeInterval) -> SKAction
-  class func fadeOut(duration sec: TimeInterval) -> SKAction
+  class func fadeOut(withDuration sec: TimeInterval) -> SKAction
   class func fadeAlpha(by factor: CGFloat, duration sec: TimeInterval) -> SKAction
   class func fadeAlpha(to alpha: CGFloat, duration sec: TimeInterval) -> SKAction
   @available(iOS 8.0, *)

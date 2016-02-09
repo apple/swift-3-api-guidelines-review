@@ -12,8 +12,8 @@ class PHAssetResourceCreationOptions : Object, Copying {
 class PHAssetCreationRequest : PHAssetChangeRequest {
   class func forAsset() -> Self
   class func supportsAssetResourceTypes(types: [Number]) -> Bool
-  func addResource(type: PHAssetResourceType, fileURL: URL, options: PHAssetResourceCreationOptions?)
-  func addResource(type: PHAssetResourceType, data: Data, options: PHAssetResourceCreationOptions?)
+  func addResource(withType type: PHAssetResourceType, fileURL: URL, options: PHAssetResourceCreationOptions?)
+  func addResource(withType type: PHAssetResourceType, data: Data, options: PHAssetResourceCreationOptions?)
   convenience init(forAsset asset: PHAsset)
   init()
 }

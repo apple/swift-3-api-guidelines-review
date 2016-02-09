@@ -54,7 +54,7 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   @available(tvOS 5.0, *)
   var storyboard: UIStoryboard? { get }
   @available(tvOS 5.0, *)
-  func performSegue(identifier identifier: String, sender: AnyObject?)
+  func performSegue(withIdentifier identifier: String, sender: AnyObject?)
   @available(tvOS 6.0, *)
   func shouldPerformSegue(withIdentifier identifier: String, sender: AnyObject?) -> Bool
   @available(tvOS 5.0, *)
@@ -193,9 +193,9 @@ extension UIViewController : UIStateRestoring {
   @available(tvOS 6.0, *)
   var restorationClass: AnyObject.Type?
   @available(tvOS 6.0, *)
-  func encodeRestorableState(coder: Coder)
+  func encodeRestorableState(withCoder coder: Coder)
   @available(tvOS 6.0, *)
-  func decodeRestorableState(coder: Coder)
+  func decodeRestorableState(withCoder coder: Coder)
   @available(tvOS 7.0, *)
   func applicationFinishedRestoringState()
   var restorationParent: UIStateRestoring? { get }
@@ -252,7 +252,7 @@ protocol UIViewControllerPreviewingDelegate : ObjectProtocol {
 }
 extension UIViewController {
   @available(tvOS 9.0, *)
-  func registerForPreviewing(delegate: UIViewControllerPreviewingDelegate, sourceView: UIView) -> UIViewControllerPreviewing
+  func registerForPreviewing(withDelegate delegate: UIViewControllerPreviewingDelegate, sourceView: UIView) -> UIViewControllerPreviewing
   @available(tvOS 9.0, *)
   func unregisterForPreviewing(withContext previewing: UIViewControllerPreviewing)
 }

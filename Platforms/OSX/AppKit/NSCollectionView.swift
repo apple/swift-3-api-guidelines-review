@@ -122,7 +122,7 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.11, *)
   func register(nib: NSNib?, forSupplementaryViewOfKind kind: String, withIdentifier identifier: String)
   @available(OSX 10.11, *)
-  func makeItem(identifier identifier: String, forIndexPath indexPath: IndexPath) -> NSCollectionViewItem
+  func makeItem(withIdentifier identifier: String, forIndexPath indexPath: IndexPath) -> NSCollectionViewItem
   @available(OSX 10.11, *)
   func makeSupplementaryView(ofKind elementKind: String, withIdentifier identifier: String, forIndexPath indexPath: IndexPath) -> NSView
   func newItem(forRepresentedObject object: AnyObject) -> NSCollectionViewItem

@@ -7,7 +7,7 @@ protocol FilePresenter : ObjectProtocol {
   @NSCopying optional var primaryPresentedItemURL: URL? { get }
   optional func relinquishPresentedItem(toReader reader: ((() -> Void)?) -> Void)
   optional func relinquishPresentedItem(toWriter writer: ((() -> Void)?) -> Void)
-  optional func savePresentedItemChanges(completionHandler completionHandler: (Error?) -> Void)
+  optional func savePresentedItemChanges(withCompletionHandler completionHandler: (Error?) -> Void)
   optional func accommodatePresentedItemDeletion(withCompletionHandler completionHandler: (Error?) -> Void)
   optional func presentedItemDidMove(to newURL: URL)
   optional func presentedItemDidChange()

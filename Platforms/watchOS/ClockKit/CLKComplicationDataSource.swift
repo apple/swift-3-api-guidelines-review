@@ -8,7 +8,7 @@ protocol CLKComplicationDataSource : ObjectProtocol {
   func getCurrentTimelineEntry(forComplication complication: CLKComplication, withHandler handler: (CLKComplicationTimelineEntry?) -> Void)
   optional func getTimelineEntries(forComplication complication: CLKComplication, before date: Date, limit: Int, withHandler handler: ([CLKComplicationTimelineEntry]?) -> Void)
   optional func getTimelineEntries(forComplication complication: CLKComplication, after date: Date, limit: Int, withHandler handler: ([CLKComplicationTimelineEntry]?) -> Void)
-  optional func getNextRequestedUpdateDate(handler handler: (Date?) -> Void)
+  optional func getNextRequestedUpdateDate(withHandler handler: (Date?) -> Void)
   optional func requestedUpdateDidBegin()
   optional func requestedUpdateBudgetExhausted()
   func getPlaceholderTemplate(forComplication complication: CLKComplication, withHandler handler: (CLKComplicationTemplate?) -> Void)

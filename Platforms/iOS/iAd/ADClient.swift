@@ -8,7 +8,7 @@ class ADClient : Object {
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use requestAttributionDetailsWithBlock instead.")
   func lookupAdConversionDetails(completionHandler: ((Date!, Date!) -> Void)!)
   @available(iOS 9.0, *)
-  func requestAttributionDetails(completionHandler: (([Object : AnyObject]!, Error!) -> Void)!)
+  func requestAttributionDetails(withBlock completionHandler: (([Object : AnyObject]!, Error!) -> Void)!)
   @available(iOS 8.0, *)
   func add(toSegments segmentIdentifiers: [AnyObject]!, replaceExisting: Bool)
   init()

@@ -14,11 +14,11 @@ class GKComponentSystem : Object, FastEnumeration {
   subscript (atIndexedSubscript idx: Int) -> GKComponent { get }
   init(componentClass cls: AnyClass)
   func addComponent(component: GKComponent)
-  func addComponent(entity: GKEntity)
-  func removeComponent(entity: GKEntity)
+  func addComponent(withEntity entity: GKEntity)
+  func removeComponent(withEntity entity: GKEntity)
   func removeComponent(component: GKComponent)
   func updateWithDeltaTime(seconds: TimeInterval)
   init()
   @available(OSX 10.11, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(withState state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

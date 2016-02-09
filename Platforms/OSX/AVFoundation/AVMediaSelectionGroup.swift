@@ -33,7 +33,7 @@ class AVMediaSelectionOption : Object, Copying {
   func associatedMediaSelectionOption(in mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
   func propertyList() -> AnyObject
   @available(OSX 10.9, *)
-  func displayName(locale: Locale) -> String
+  func displayName(withLocale locale: Locale) -> String
   @available(OSX 10.9, *)
   var displayName: String { get }
   init()

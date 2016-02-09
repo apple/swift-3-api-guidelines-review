@@ -11,7 +11,7 @@ class UIInputViewController : UIViewController, UITextInputDelegate {
   var primaryLanguage: String?
   func dismissKeyboard()
   func advanceToNextInputMode()
-  func requestSupplementaryLexicon(completion completionHandler: (UILexicon) -> Void)
+  func requestSupplementaryLexicon(withCompletion completionHandler: (UILexicon) -> Void)
   init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
   init?(coder aDecoder: Coder)
   convenience init()

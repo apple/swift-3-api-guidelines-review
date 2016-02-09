@@ -1,7 +1,7 @@
 
 class RPScreenRecorder : Object {
   class func shared() -> RPScreenRecorder
-  func startRecording(microphoneEnabled microphoneEnabled: Bool, handler: ((Error?) -> Void)? = nil)
+  func startRecording(withMicrophoneEnabled microphoneEnabled: Bool, handler: ((Error?) -> Void)? = nil)
   func stopRecording(handler handler: ((RPPreviewViewController?, Error?) -> Void)? = nil)
   func discardRecording(withHandler handler: () -> Void)
   weak var delegate: @sil_weak RPScreenRecorderDelegate?

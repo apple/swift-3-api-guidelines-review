@@ -39,7 +39,7 @@ class NSSpellChecker : Object {
   func completions(forPartialWordRange range: NSRange, in string: String, language: String?, inSpellDocumentWithTag tag: Int) -> [String]?
   @available(OSX 10.7, *)
   func language(forWordRange range: NSRange, in string: String, orthography: Orthography?) -> String?
-  func closeSpellDocument(tag tag: Int)
+  func closeSpellDocument(withTag tag: Int)
   @available(OSX 10.7, *)
   func record(response: NSCorrectionResponse, toCorrection correction: String, forWord word: String, language: String?, inSpellDocumentWithTag tag: Int)
   @available(OSX 10.7, *)

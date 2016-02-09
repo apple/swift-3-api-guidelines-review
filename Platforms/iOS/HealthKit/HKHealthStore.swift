@@ -5,7 +5,7 @@ class HKHealthStore : Object {
   func authorizationStatus(forType type: HKObjectType) -> HKAuthorizationStatus
   func requestAuthorizationToShare(typesToShare: Set<HKSampleType>?, read typesToRead: Set<HKObjectType>?, completion: (Bool, Error?) -> Void)
   @available(iOS 9.0, *)
-  func handleAuthorizationForExtension(completion completion: (Bool, Error?) -> Void)
+  func handleAuthorizationForExtension(withCompletion completion: (Bool, Error?) -> Void)
   @available(iOS 9.0, *)
   func earliestPermittedSampleDate() -> Date
   func save(object: HKObject, withCompletion completion: (Bool, Error?) -> Void)

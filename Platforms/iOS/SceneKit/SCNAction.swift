@@ -51,7 +51,7 @@ class SCNAction : Object, Copying, SecureCoding {
   class func repeatAction(action: SCNAction, count: Int) -> SCNAction
   class func repeatForever(action: SCNAction) -> SCNAction
   class func fadeIn(duration sec: TimeInterval) -> SCNAction
-  class func fadeOut(duration sec: TimeInterval) -> SCNAction
+  class func fadeOut(withDuration sec: TimeInterval) -> SCNAction
   class func fadeOpacity(by factor: CGFloat, duration sec: TimeInterval) -> SCNAction
   class func fadeOpacity(to opacity: CGFloat, duration sec: TimeInterval) -> SCNAction
   @available(iOS 9.0, *)

@@ -1,6 +1,6 @@
 
 extension CSSearchableIndex {
   func beginBatch()
-  func endBatch(clientState clientState: Data, completionHandler: ((Error?) -> Void)? = nil)
-  func fetchLastClientState(completionHandler completionHandler: (Data?, Error?) -> Void)
+  func endBatch(withClientState clientState: Data, completionHandler: ((Error?) -> Void)? = nil)
+  func fetchLastClientState(withCompletionHandler completionHandler: (Data?, Error?) -> Void)
 }

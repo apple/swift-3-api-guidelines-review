@@ -6,5 +6,5 @@ class AUViewController : UIViewController, ExtensionRequestHandling {
   convenience init()
 }
 extension AUAudioUnit {
-  func requestViewController(completionHandler completionHandler: (UIViewController?) -> Void)
+  func requestViewController(withCompletionHandler completionHandler: (UIViewController?) -> Void)
 }

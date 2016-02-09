@@ -6,7 +6,7 @@ class NKLibrary : Object {
   var currentlyReadingIssue: NKIssue?
   class func shared() -> NKLibrary?
   func issue(withName name: String) -> NKIssue?
-  func addIssue(name name: String, date: Date) -> NKIssue
+  func addIssue(withName name: String, date: Date) -> NKIssue
   func removeIssue(issue: NKIssue)
   init()
 }

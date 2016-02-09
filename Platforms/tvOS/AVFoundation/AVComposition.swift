@@ -31,7 +31,7 @@ extension AVMutableComposition {
   func scaleTimeRange(timeRange: CMTimeRange, toDuration duration: CMTime)
 }
 extension AVMutableComposition {
-  func addMutableTrack(mediaType mediaType: String, preferredTrackID: CMPersistentTrackID) -> AVMutableCompositionTrack
+  func addMutableTrack(withMediaType mediaType: String, preferredTrackID: CMPersistentTrackID) -> AVMutableCompositionTrack
   func removeTrack(track: AVCompositionTrack)
   func mutableTrackCompatible(withTrack track: AVAssetTrack) -> AVMutableCompositionTrack?
 }

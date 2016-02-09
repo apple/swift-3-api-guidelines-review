@@ -14,7 +14,7 @@ let httpCookieMaximumAge: String
 let httpCookiePort: String
 class HTTPCookie : Object {
   init?(properties: [String : AnyObject])
-  class func requestHeaderFields(cookies: [HTTPCookie]) -> [String : String]
+  class func requestHeaderFields(withCookies cookies: [HTTPCookie]) -> [String : String]
   class func cookies(withResponseHeaderFields headerFields: [String : String], forURL URL: URL) -> [HTTPCookie]
   var properties: [String : AnyObject]? { get }
   var version: Int { get }

@@ -56,7 +56,7 @@ class AVAssetExportSession : Object {
   var shouldOptimizeForNetworkUse: Bool
   var status: AVAssetExportSessionStatus { get }
   var error: Error? { get }
-  func exportAsynchronously(completionHandler handler: () -> Void)
+  func exportAsynchronously(withCompletionHandler handler: () -> Void)
   var progress: Float { get }
   func cancelExport()
 }

@@ -24,7 +24,7 @@ class GKMatch : Object {
   func disconnect()
   func voiceChat(withName name: String) -> GKVoiceChat?
   @available(OSX 10.10, *)
-  func chooseBestHostingPlayer(completionHandler completionHandler: (GKPlayer?) -> Void)
+  func chooseBestHostingPlayer(withCompletionHandler completionHandler: (GKPlayer?) -> Void)
   @available(OSX 10.9, *)
   func rematch(completionHandler completionHandler: ((GKMatch?, Error?) -> Void)? = nil)
   init()
@@ -47,7 +47,7 @@ protocol GKMatchDelegate : ObjectProtocol {
 }
 extension GKMatch {
   @available(OSX, introduced=10.9, deprecated=10.10, message="use chooseBestHostingPlayerWithCompletionHandler:")
-  func chooseBestHostPlayer(completionHandler completionHandler: (String?) -> Void)
+  func chooseBestHostPlayer(withCompletionHandler completionHandler: (String?) -> Void)
   @available(OSX, introduced=10.8, deprecated=10.10, message="use sendData:toPlayers:dataMode:error:")
   func send(data: Data, toPlayers playerIDs: [String], withDataMode mode: GKMatchSendDataMode) throws
   @available(OSX, introduced=10.8, deprecated=10.10, message="use players")

@@ -23,7 +23,7 @@ class PKPassLibrary : Object {
   @available(iOS 6.0, *)
   class func isPassLibraryAvailable() -> Bool
   @available(iOS 9.0, *)
-  class func requestAutomaticPassPresentationSuppression(responseHandler responseHandler: (PKAutomaticPassPresentationSuppressionResult) -> Void) -> PKSuppressionRequestToken
+  class func requestAutomaticPassPresentationSuppression(withResponseHandler responseHandler: (PKAutomaticPassPresentationSuppressionResult) -> Void) -> PKSuppressionRequestToken
   @available(iOS 9.0, *)
   class func endAutomaticPassPresentationSuppressionWithRequestToken(requestToken: PKSuppressionRequestToken)
   @available(iOS 9.0, *)

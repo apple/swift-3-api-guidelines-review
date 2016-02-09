@@ -10,9 +10,9 @@ var NEFilterProviderRemediationURLUsername: String { get }
 @available(iOS 9.0, *)
 class NEFilterProvider : NEProvider {
   @available(iOS 9.0, *)
-  func startFilter(completionHandler completionHandler: (Error?) -> Void)
+  func startFilter(withCompletionHandler completionHandler: (Error?) -> Void)
   @available(iOS 9.0, *)
-  func stopFilter(reason: NEProviderStopReason, completionHandler: () -> Void)
+  func stopFilter(withReason reason: NEProviderStopReason, completionHandler: () -> Void)
   @available(iOS 9.0, *)
   var filterConfiguration: NEFilterProviderConfiguration { get }
   init()

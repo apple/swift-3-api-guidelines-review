@@ -19,11 +19,11 @@ class UndoManager : Object {
   var isUndoing: Bool { get }
   var isRedoing: Bool { get }
   func removeAllActions()
-  func removeAllActions(target target: AnyObject)
-  func registerUndo(target target: AnyObject, selector: Selector, object anObject: AnyObject?)
+  func removeAllActions(withTarget target: AnyObject)
+  func registerUndo(withTarget target: AnyObject, selector: Selector, object anObject: AnyObject?)
   func prepare(invocationTarget target: AnyObject) -> AnyObject
   @available(watchOS 2.0, *)
-  func __registerUndo(target target: AnyObject, handler undoHandler: (AnyObject) -> Void)
+  func __registerUndo(withTarget target: AnyObject, handler undoHandler: (AnyObject) -> Void)
   @available(watchOS 2.0, *)
   func setActionIsDiscardable(discardable: Bool)
   @available(watchOS 2.0, *)

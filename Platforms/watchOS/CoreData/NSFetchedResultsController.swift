@@ -8,7 +8,7 @@ class NSFetchedResultsController : Object {
   var sectionNameKeyPath: String? { get }
   var cacheName: String? { get }
   unowned(unsafe) var delegate: @sil_unmanaged NSFetchedResultsControllerDelegate?
-  class func deleteCache(name name: String?)
+  class func deleteCache(withName name: String?)
   var fetchedObjects: [AnyObject]? { get }
   func object(at indexPath: IndexPath) -> AnyObject
   func indexPath(forObject object: AnyObject) -> IndexPath?

@@ -61,7 +61,7 @@ extension ProcessInfo {
   @available(watchOS 2.0, *)
   func performActivity(options: ActivityOptions = [], reason: String, usingBlock block: () -> Void)
   @available(watchOS 2.0, *)
-  func performExpiringActivity(reason reason: String, usingBlock block: (Bool) -> Void)
+  func performExpiringActivity(withReason reason: String, usingBlock block: (Bool) -> Void)
 }
 extension ProcessInfo {
 }

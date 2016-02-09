@@ -35,7 +35,7 @@ class NSEntityDescription : Object, Coding, Copying, FastEnumeration {
   @available(OSX 10.4, *)
   func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.4, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(withState state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 struct __entityDescriptionFlags {
   var _isAbstract: UInt32

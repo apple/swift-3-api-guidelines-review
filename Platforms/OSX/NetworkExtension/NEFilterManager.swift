@@ -17,11 +17,11 @@ class NEFilterManager : Object {
   @available(OSX 10.10, *)
   class func shared() -> NEFilterManager
   @available(OSX 10.10, *)
-  func loadFromPreferences(completionHandler completionHandler: (Error?) -> Void)
+  func loadFromPreferences(withCompletionHandler completionHandler: (Error?) -> Void)
   @available(OSX 10.10, *)
-  func removeFromPreferences(completionHandler completionHandler: (Error?) -> Void)
+  func removeFromPreferences(withCompletionHandler completionHandler: (Error?) -> Void)
   @available(OSX 10.10, *)
-  func saveToPreferences(completionHandler completionHandler: (Error?) -> Void)
+  func saveToPreferences(withCompletionHandler completionHandler: (Error?) -> Void)
   @available(OSX 10.10, *)
   var localizedDescription: String?
   @available(OSX 10.11, *)

@@ -68,7 +68,7 @@ extension AVMutableMovie {
 }
 extension AVMutableMovie {
   func mutableTrackCompatible(withTrack track: AVAssetTrack) -> AVMutableMovieTrack?
-  func addMutableTrack(mediaType mediaType: String, copySettingsFrom track: AVAssetTrack?, options: [String : AnyObject]? = [:]) -> AVMutableMovieTrack
+  func addMutableTrack(withMediaType mediaType: String, copySettingsFrom track: AVAssetTrack?, options: [String : AnyObject]? = [:]) -> AVMutableMovieTrack
   func addMutableTracksCopyingSettings(from existingTracks: [AVAssetTrack], options: [String : AnyObject]? = [:]) -> [AVMutableMovieTrack]
   func removeTrack(track: AVMovieTrack)
 }

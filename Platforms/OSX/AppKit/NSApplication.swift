@@ -90,7 +90,7 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   func runModal(forWindow theWindow: NSWindow) -> Int
   func stop(sender: AnyObject?)
   func stopModal()
-  func stopModal(code returnCode: Int)
+  func stopModal(withCode returnCode: Int)
   func abortModal()
   var modalWindow: NSWindow? { get }
   func beginModalSession(forWindow theWindow: NSWindow) -> NSModalSession

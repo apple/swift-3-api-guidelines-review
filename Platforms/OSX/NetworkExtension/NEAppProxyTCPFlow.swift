@@ -2,7 +2,7 @@
 @available(OSX 10.11, *)
 class NEAppProxyTCPFlow : NEAppProxyFlow {
   @available(OSX 10.11, *)
-  func readData(completionHandler completionHandler: (Data?, Error?) -> Void)
+  func readData(withCompletionHandler completionHandler: (Data?, Error?) -> Void)
   @available(OSX 10.11, *)
   func write(data: Data, withCompletionHandler completionHandler: (Error?) -> Void)
   @available(OSX 10.11, *)

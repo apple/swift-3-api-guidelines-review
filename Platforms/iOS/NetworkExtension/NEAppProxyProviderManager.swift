@@ -2,6 +2,6 @@
 @available(iOS 9.0, *)
 class NEAppProxyProviderManager : NETunnelProviderManager {
   @available(iOS 9.0, *)
-  class func loadAllFromPreferences(completionHandler completionHandler: ([NEAppProxyProviderManager]?, Error?) -> Void)
+  class func loadAllFromPreferences(withCompletionHandler completionHandler: ([NEAppProxyProviderManager]?, Error?) -> Void)
   init()
 }

@@ -139,7 +139,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   @warn_unqualified_access
   @IBAction func print(sender: AnyObject?)
   func print(settings printSettings: [String : AnyObject], showPrintPanel: Bool, delegate: AnyObject?, didPrint didPrintSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func printOperation(settings printSettings: [String : AnyObject]) throws -> NSPrintOperation
+  func printOperation(withSettings printSettings: [String : AnyObject]) throws -> NSPrintOperation
   func runModalPrintOperation(printOperation: NSPrintOperation, delegate: AnyObject?, didRun didRunSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.9, *)
   @IBAction func saveToPDF(sender: AnyObject?)
@@ -192,7 +192,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   @NSCopying var primaryPresentedItemURL: URL? { get }
   func relinquishPresentedItem(toReader reader: ((() -> Void)?) -> Void)
   func relinquishPresentedItem(toWriter writer: ((() -> Void)?) -> Void)
-  func savePresentedItemChanges(completionHandler completionHandler: (Error?) -> Void)
+  func savePresentedItemChanges(withCompletionHandler completionHandler: (Error?) -> Void)
   func accommodatePresentedItemDeletion(withCompletionHandler completionHandler: (Error?) -> Void)
   func presentedItemDidMove(to newURL: URL)
   func presentedItemDidChange()

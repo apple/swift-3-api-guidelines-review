@@ -95,7 +95,7 @@ class BundleResourceRequest : Object, ProgressReporting {
   var loadingPriority: Double
   var tags: Set<String> { get }
   var bundle: Bundle { get }
-  func beginAccessingResources(completionHandler completionHandler: (Error?) -> Void)
+  func beginAccessingResources(withCompletionHandler completionHandler: (Error?) -> Void)
   func conditionallyBeginAccessingResources(withCompletionHandler completionHandler: (Bool) -> Void)
   func endAccessingResources()
   var progress: Progress { get }

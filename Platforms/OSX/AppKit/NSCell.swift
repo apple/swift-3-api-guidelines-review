@@ -185,10 +185,10 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   func drawingRect(forBounds theRect: Rect) -> Rect
   var cellSize: Size { get }
   func cellSize(forBounds aRect: Rect) -> Size
-  func highlightColor(frame cellFrame: Rect, in controlView: NSView) -> NSColor
+  func highlightColor(withFrame cellFrame: Rect, in controlView: NSView) -> NSColor
   func calcDrawInfo(aRect: Rect)
   func setUpFieldEditorAttributes(textObj: NSText) -> NSText
-  func drawInterior(frame cellFrame: Rect, in controlView: NSView)
+  func drawInterior(withFrame cellFrame: Rect, in controlView: NSView)
   func draw(frame cellFrame: Rect, in controlView: NSView)
   func highlight(flag: Bool, withFrame cellFrame: Rect, in controlView: NSView)
   var mouseDownFlags: Int { get }
@@ -756,7 +756,7 @@ extension NSCell {
   var focusRingType: NSFocusRingType
   class func defaultFocusRingType() -> NSFocusRingType
   @available(OSX 10.7, *)
-  func drawFocusRingMask(frame cellFrame: Rect, in controlView: NSView)
+  func drawFocusRingMask(withFrame cellFrame: Rect, in controlView: NSView)
   @available(OSX 10.7, *)
   func focusRingMaskBounds(forFrame cellFrame: Rect, in controlView: NSView) -> Rect
   var wantsNotificationForMarkedText: Bool { get }

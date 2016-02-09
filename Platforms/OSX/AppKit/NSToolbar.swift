@@ -16,7 +16,7 @@ enum NSToolbarSizeMode : UInt {
 }
 class NSToolbar : Object {
   init(identifier: String)
-  func insertItem(itemIdentifier itemIdentifier: String, at index: Int)
+  func insertItem(withItemIdentifier itemIdentifier: String, at index: Int)
   func removeItem(at index: Int)
   unowned(unsafe) var delegate: @sil_unmanaged NSToolbarDelegate?
   var isVisible: Bool

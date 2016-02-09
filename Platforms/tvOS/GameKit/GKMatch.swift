@@ -24,7 +24,7 @@ class GKMatch : Object {
   func disconnect()
   func voiceChat(withName name: String) -> GKVoiceChat?
   @available(tvOS 8.0, *)
-  func chooseBestHostingPlayer(completionHandler completionHandler: (GKPlayer?) -> Void)
+  func chooseBestHostingPlayer(withCompletionHandler completionHandler: (GKPlayer?) -> Void)
   @available(tvOS 6.0, *)
   func rematch(completionHandler completionHandler: ((GKMatch?, Error?) -> Void)? = nil)
   init()

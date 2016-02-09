@@ -16,7 +16,7 @@ class AUParameterNode : Object {
   var identifier: String { get }
   var keyPath: String { get }
   var displayName: String { get }
-  func displayName(length maximumLength: Int) -> String
+  func displayName(withLength maximumLength: Int) -> String
   func tokenByAddingParameterObserver(observer: AUParameterObserver) -> AUParameterObserverToken
   func tokenByAddingParameterRecordingObserver(observer: AUParameterRecordingObserver) -> AUParameterObserverToken
   func removeParameterObserver(token: AUParameterObserverToken)

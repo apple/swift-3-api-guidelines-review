@@ -12,8 +12,8 @@ class SKTransition : Object, Copying {
   class func crossFade(duration sec: TimeInterval) -> SKTransition
   class func fade(duration sec: TimeInterval) -> SKTransition
   class func fade(color: UIColor, duration sec: TimeInterval) -> SKTransition
-  class func flipHorizontal(duration sec: TimeInterval) -> SKTransition
-  class func flipVertical(duration sec: TimeInterval) -> SKTransition
+  class func flipHorizontal(withDuration sec: TimeInterval) -> SKTransition
+  class func flipVertical(withDuration sec: TimeInterval) -> SKTransition
   class func reveal(withDirection direction: SKTransitionDirection, duration sec: TimeInterval) -> SKTransition
   class func moveIn(direction: SKTransitionDirection, duration sec: TimeInterval) -> SKTransition
   class func push(direction: SKTransitionDirection, duration sec: TimeInterval) -> SKTransition

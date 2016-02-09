@@ -67,7 +67,7 @@ class UIDocument : Object, FilePresenter, ProgressReporting {
   @available(iOS 5.0, *)
   func relinquishPresentedItem(toWriter writer: ((() -> Void)?) -> Void)
   @available(iOS 5.0, *)
-  func savePresentedItemChanges(completionHandler completionHandler: (Error?) -> Void)
+  func savePresentedItemChanges(withCompletionHandler completionHandler: (Error?) -> Void)
   @available(iOS 5.0, *)
   func accommodatePresentedItemDeletion(withCompletionHandler completionHandler: (Error?) -> Void)
   @available(iOS 5.0, *)

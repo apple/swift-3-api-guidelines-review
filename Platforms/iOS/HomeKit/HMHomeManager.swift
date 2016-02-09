@@ -5,7 +5,7 @@ class HMHomeManager : Object {
   var primaryHome: HMHome? { get }
   var homes: [HMHome] { get }
   func updatePrimaryHome(home: HMHome, completionHandler completion: (Error?) -> Void)
-  func addHome(name homeName: String, completionHandler completion: (HMHome?, Error?) -> Void)
+  func addHome(withName homeName: String, completionHandler completion: (HMHome?, Error?) -> Void)
   func removeHome(home: HMHome, completionHandler completion: (Error?) -> Void)
   init()
 }

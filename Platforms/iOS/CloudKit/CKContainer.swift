@@ -47,8 +47,8 @@ extension CKContainer {
   func requestApplicationPermission(applicationPermission: CKApplicationPermissions, completionHandler: CKApplicationPermissionBlock)
 }
 extension CKContainer {
-  func fetchUserRecordID(completionHandler completionHandler: (CKRecordID?, Error?) -> Void)
-  func discoverAllContactUserInfos(completionHandler completionHandler: ([CKDiscoveredUserInfo]?, Error?) -> Void)
-  func discoverUserInfo(emailAddress email: String, completionHandler: (CKDiscoveredUserInfo?, Error?) -> Void)
+  func fetchUserRecordID(withCompletionHandler completionHandler: (CKRecordID?, Error?) -> Void)
+  func discoverAllContactUserInfos(withCompletionHandler completionHandler: ([CKDiscoveredUserInfo]?, Error?) -> Void)
+  func discoverUserInfo(withEmailAddress email: String, completionHandler: (CKDiscoveredUserInfo?, Error?) -> Void)
   func discoverUserInfoWithUserRecordID(userRecordID: CKRecordID, completionHandler: (CKDiscoveredUserInfo?, Error?) -> Void)
 }
