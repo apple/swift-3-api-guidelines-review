@@ -10,15 +10,15 @@ class MTKMeshBufferAllocator : Object, MDLMeshBufferAllocator {
   @available(OSX 10.11, *)
   func newZone(capacity: Int) -> MDLMeshBufferZone
   @available(OSX 10.11, *)
-  func newZoneForBuffersWith(size sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
+  func newZoneForBuffers(withSize sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
   @available(OSX 10.11, *)
   func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(OSX 10.11, *)
-  func newBufferWith(data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(withData data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(OSX 10.11, *)
-  func newBufferFrom(zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBuffer(from zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
   @available(OSX 10.11, *)
-  func newBufferFrom(zone: MDLMeshBufferZone?, data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBuffer(from zone: MDLMeshBufferZone?, data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 @available(OSX 10.11, *)
 class MTKMeshBuffer : Object, MDLMeshBuffer {
@@ -47,7 +47,7 @@ class MTKSubmesh : Object {
 @available(OSX 10.11, *)
 class MTKMesh : Object {
   init(mesh: MDLMesh, device: MTLDevice) throws
-  class func newMeshesFrom(asset: MDLAsset, device: MTLDevice, sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [MTKMesh]
+  class func newMeshes(from asset: MDLAsset, device: MTLDevice, sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [MTKMesh]
   var vertexBuffers: [MTKMeshBuffer] { get }
   var vertexDescriptor: MDLVertexDescriptor { get }
   var submeshes: [MTKSubmesh] { get }

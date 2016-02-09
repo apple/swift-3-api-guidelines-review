@@ -21,8 +21,8 @@ class UILabel : UIView, Coding {
   var minimumScaleFactor: CGFloat
   @available(tvOS 9.0, *)
   var allowsDefaultTighteningForTruncation: Bool
-  func textRectFor(bounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect
-  func drawTextIn(rect: CGRect)
+  func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect
+  func drawText(in rect: CGRect)
   @available(tvOS 6.0, *)
   var preferredMaxLayoutWidth: CGFloat
   init(frame: CGRect)

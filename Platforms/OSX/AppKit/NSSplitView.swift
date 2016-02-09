@@ -15,20 +15,20 @@ class NSSplitView : NSView {
   @available(OSX 10.5, *)
   var autosaveName: String?
   unowned(unsafe) var delegate: @sil_unmanaged NSSplitViewDelegate?
-  func drawDividerIn(rect: Rect)
+  func drawDivider(in rect: Rect)
   @available(OSX 10.5, *)
   @NSCopying var dividerColor: NSColor { get }
   var dividerThickness: CGFloat { get }
   func adjustSubviews()
   func isSubviewCollapsed(subview: NSView) -> Bool
   @available(OSX 10.5, *)
-  func minPossiblePositionOfDividerAt(dividerIndex: Int) -> CGFloat
+  func minPossiblePositionOfDivider(at dividerIndex: Int) -> CGFloat
   @available(OSX 10.5, *)
-  func maxPossiblePositionOfDividerAt(dividerIndex: Int) -> CGFloat
+  func maxPossiblePositionOfDivider(at dividerIndex: Int) -> CGFloat
   @available(OSX 10.5, *)
   func setPosition(position: CGFloat, ofDividerAt dividerIndex: Int)
   @available(OSX 10.8, *)
-  func holdingPriorityForSubviewAt(subviewIndex: Int) -> NSLayoutPriority
+  func holdingPriorityForSubview(at subviewIndex: Int) -> NSLayoutPriority
   @available(OSX 10.8, *)
   func setHoldingPriority(priority: NSLayoutPriority, forSubviewAt subviewIndex: Int)
   init(frame frameRect: Rect)

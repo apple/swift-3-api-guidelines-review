@@ -16,11 +16,11 @@ class UINavigationBar : UIView, Coding, UIBarPositioning {
   @available(tvOS 7.0, *)
   func setBackgroundImage(backgroundImage: UIImage?, forBarPosition barPosition: UIBarPosition, barMetrics: UIBarMetrics)
   @available(tvOS 7.0, *)
-  func backgroundImageFor(barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(forBarPosition barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
   @available(tvOS 5.0, *)
   func setBackgroundImage(backgroundImage: UIImage?, forBarMetrics barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
-  func backgroundImageFor(barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(forBarMetrics barMetrics: UIBarMetrics) -> UIImage?
   @available(tvOS 6.0, *)
   var shadowImage: UIImage?
   @available(tvOS 5.0, *)
@@ -28,7 +28,7 @@ class UINavigationBar : UIView, Coding, UIBarPositioning {
   @available(tvOS 5.0, *)
   func setTitleVerticalPositionAdjustment(adjustment: CGFloat, forBarMetrics barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
-  func titleVerticalPositionAdjustmentFor(barMetrics: UIBarMetrics) -> CGFloat
+  func titleVerticalPositionAdjustment(forBarMetrics barMetrics: UIBarMetrics) -> CGFloat
   init(frame: CGRect)
   init?(coder aDecoder: Coder)
   convenience init()

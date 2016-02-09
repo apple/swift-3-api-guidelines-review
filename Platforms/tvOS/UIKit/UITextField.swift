@@ -45,15 +45,15 @@ class UITextField : UIControl, UITextInput, Coding {
   var leftViewMode: UITextFieldViewMode
   var rightView: UIView?
   var rightViewMode: UITextFieldViewMode
-  func borderRectFor(bounds bounds: CGRect) -> CGRect
-  func textRectFor(bounds bounds: CGRect) -> CGRect
-  func placeholderRectFor(bounds bounds: CGRect) -> CGRect
-  func editingRectFor(bounds bounds: CGRect) -> CGRect
-  func clearButtonRectFor(bounds bounds: CGRect) -> CGRect
-  func leftViewRectFor(bounds bounds: CGRect) -> CGRect
-  func rightViewRectFor(bounds bounds: CGRect) -> CGRect
-  func drawTextIn(rect: CGRect)
-  func drawPlaceholderIn(rect: CGRect)
+  func borderRect(forBounds bounds: CGRect) -> CGRect
+  func textRect(forBounds bounds: CGRect) -> CGRect
+  func placeholderRect(forBounds bounds: CGRect) -> CGRect
+  func editingRect(forBounds bounds: CGRect) -> CGRect
+  func clearButtonRect(forBounds bounds: CGRect) -> CGRect
+  func leftViewRect(forBounds bounds: CGRect) -> CGRect
+  func rightViewRect(forBounds bounds: CGRect) -> CGRect
+  func drawText(in rect: CGRect)
+  func drawPlaceholder(in rect: CGRect)
   var inputView: UIView?
   var inputAccessoryView: UIView?
   @available(tvOS 6.0, *)
@@ -62,7 +62,7 @@ class UITextField : UIControl, UITextInput, Coding {
   init?(coder aDecoder: Coder)
   convenience init()
   @available(tvOS 3.2, *)
-  func textIn(range: UITextRange) -> String?
+  func text(in range: UITextRange) -> String?
   @available(tvOS 3.2, *)
   func replace(range: UITextRange, withText text: String)
   @available(tvOS 3.2, *)
@@ -80,47 +80,47 @@ class UITextField : UIControl, UITextInput, Coding {
   @available(tvOS 3.2, *)
   var endOfDocument: UITextPosition { get }
   @available(tvOS 3.2, *)
-  func textRangeFrom(fromPosition: UITextPosition, to toPosition: UITextPosition) -> UITextRange?
+  func textRange(from fromPosition: UITextPosition, to toPosition: UITextPosition) -> UITextRange?
   @available(tvOS 3.2, *)
-  func positionFrom(position: UITextPosition, offset: Int) -> UITextPosition?
+  func position(from position: UITextPosition, offset: Int) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func positionFrom(position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
+  func position(from position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
   @available(tvOS 3.2, *)
   func compare(position: UITextPosition, to other: UITextPosition) -> ComparisonResult
   @available(tvOS 3.2, *)
-  func offsetFrom(from: UITextPosition, to toPosition: UITextPosition) -> Int
+  func offset(from from: UITextPosition, to toPosition: UITextPosition) -> Int
   @available(tvOS 2.0, *)
   weak var inputDelegate: @sil_weak UITextInputDelegate?
   @available(tvOS 2.0, *)
   var tokenizer: UITextInputTokenizer { get }
   @available(tvOS 3.2, *)
-  func positionWithin(range: UITextRange, farthestIn direction: UITextLayoutDirection) -> UITextPosition?
+  func position(within range: UITextRange, farthestIn direction: UITextLayoutDirection) -> UITextPosition?
   @available(tvOS 3.2, *)
   func characterRangeByExtending(position: UITextPosition, in direction: UITextLayoutDirection) -> UITextRange?
   @available(tvOS 3.2, *)
-  func baseWritingDirectionFor(position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
+  func baseWritingDirection(forPosition position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
   @available(tvOS 3.2, *)
   func setBaseWritingDirection(writingDirection: UITextWritingDirection, forRange range: UITextRange)
   @available(tvOS 3.2, *)
-  func firstRectFor(range: UITextRange) -> CGRect
+  func firstRect(forRange range: UITextRange) -> CGRect
   @available(tvOS 3.2, *)
-  func caretRectFor(position: UITextPosition) -> CGRect
+  func caretRect(forPosition position: UITextPosition) -> CGRect
   @available(tvOS 6.0, *)
-  func selectionRectsFor(range: UITextRange) -> [AnyObject]
+  func selectionRects(forRange range: UITextRange) -> [AnyObject]
   @available(tvOS 3.2, *)
-  func closestPositionTo(point: CGPoint) -> UITextPosition?
+  func closestPosition(to point: CGPoint) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func closestPositionTo(point: CGPoint, within range: UITextRange) -> UITextPosition?
+  func closestPosition(to point: CGPoint, within range: UITextRange) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func characterRangeAt(point: CGPoint) -> UITextRange?
+  func characterRange(at point: CGPoint) -> UITextRange?
   @available(tvOS 6.0, *)
-  func shouldChangeTextIn(range: UITextRange, replacementText text: String) -> Bool
+  func shouldChangeText(in range: UITextRange, replacementText text: String) -> Bool
   @available(tvOS 3.2, *)
-  func textStylingAt(position: UITextPosition, in direction: UITextStorageDirection) -> [String : AnyObject]?
+  func textStyling(at position: UITextPosition, in direction: UITextStorageDirection) -> [String : AnyObject]?
   @available(tvOS 3.2, *)
-  func positionWithin(range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
+  func position(within range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func characterOffsetOf(position: UITextPosition, within range: UITextRange) -> Int
+  func characterOffset(of position: UITextPosition, within range: UITextRange) -> Int
   @available(tvOS 2.0, *)
   var textInputView: UIView { get }
   @available(tvOS 2.0, *)
@@ -134,13 +134,13 @@ class UITextField : UIControl, UITextInput, Coding {
   @available(tvOS 2.0, *)
   func insertDictationResultPlaceholder() -> AnyObject
   @available(tvOS 2.0, *)
-  func frameFor(dictationResultPlaceholder placeholder: AnyObject) -> CGRect
+  func frame(forDictationResultPlaceholder placeholder: AnyObject) -> CGRect
   @available(tvOS 2.0, *)
   func removeDictationResultPlaceholder(placeholder: AnyObject, willInsertResult: Bool)
   @available(tvOS 9.0, *)
-  func beginFloatingCursorAt(point: CGPoint)
+  func beginFloatingCursor(at point: CGPoint)
   @available(tvOS 9.0, *)
-  func updateFloatingCursorAt(point: CGPoint)
+  func updateFloatingCursor(at point: CGPoint)
   @available(tvOS 9.0, *)
   func endFloatingCursor()
   @available(tvOS 2.0, *)

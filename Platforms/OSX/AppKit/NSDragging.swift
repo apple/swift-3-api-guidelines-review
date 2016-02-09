@@ -56,8 +56,8 @@ protocol NSDraggingInfo : ObjectProtocol {
   func draggingPasteboard() -> NSPasteboard
   func draggingSource() -> AnyObject?
   func draggingSequenceNumber() -> Int
-  func slideDraggedImageTo(screenPoint: Point)
-  func namesOfPromisedFilesDroppedAt(destination dropDestination: URL) -> [String]?
+  func slideDraggedImage(to screenPoint: Point)
+  func namesOfPromisedFilesDropped(atDestination dropDestination: URL) -> [String]?
   @available(OSX 10.7, *)
   var draggingFormation: NSDraggingFormation { get set }
   @available(OSX 10.7, *)
@@ -119,6 +119,6 @@ protocol NSSpringLoadingDestination : ObjectProtocol {
   optional func draggingEnded(draggingInfo: NSDraggingInfo)
 }
 extension Object {
-  class func namesOfPromisedFilesDroppedAt(destination dropDestination: URL) -> [String]?
-  func namesOfPromisedFilesDroppedAt(destination dropDestination: URL) -> [String]?
+  class func namesOfPromisedFilesDropped(atDestination dropDestination: URL) -> [String]?
+  func namesOfPromisedFilesDropped(atDestination dropDestination: URL) -> [String]?
 }

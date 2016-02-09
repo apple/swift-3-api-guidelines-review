@@ -17,7 +17,7 @@ class DateIntervalFormatter : Formatter {
   var dateTemplate: String!
   var dateStyle: DateIntervalFormatterStyle
   var timeStyle: DateIntervalFormatterStyle
-  func stringFrom(fromDate: Date, to toDate: Date) -> String
+  func string(from fromDate: Date, to toDate: Date) -> String
   init()
   init?(coder aDecoder: Coder)
 }

@@ -22,7 +22,7 @@ class Bundle : Object {
   @available(tvOS 4.0, *)
   @NSCopying var executableURL: URL? { get }
   @available(tvOS 4.0, *)
-  func urlFor(auxiliaryExecutable executableName: String) -> URL?
+  func url(forAuxiliaryExecutable executableName: String) -> URL?
   @available(tvOS 4.0, *)
   @NSCopying var privateFrameworksURL: URL? { get }
   @available(tvOS 4.0, *)
@@ -36,44 +36,44 @@ class Bundle : Object {
   var bundlePath: String { get }
   var resourcePath: String? { get }
   var executablePath: String? { get }
-  func pathFor(auxiliaryExecutable executableName: String) -> String?
+  func path(forAuxiliaryExecutable executableName: String) -> String?
   var privateFrameworksPath: String? { get }
   var sharedFrameworksPath: String? { get }
   var sharedSupportPath: String? { get }
   var builtInPlugInsPath: String? { get }
   @available(tvOS 4.0, *)
-  class func urlFor(resource name: String?, withExtension ext: String?, subdirectory subpath: String?, inBundleWith bundleURL: URL) -> URL?
+  class func url(forResource name: String?, withExtension ext: String?, subdirectory subpath: String?, inBundleWith bundleURL: URL) -> URL?
   @available(tvOS 4.0, *)
-  class func urlsForResourcesWith(extension ext: String?, subdirectory subpath: String?, inBundleWith bundleURL: URL) -> [URL]?
+  class func urlsForResources(withExtension ext: String?, subdirectory subpath: String?, inBundleWith bundleURL: URL) -> [URL]?
   @available(tvOS 4.0, *)
-  func urlFor(resource name: String?, withExtension ext: String?) -> URL?
+  func url(forResource name: String?, withExtension ext: String?) -> URL?
   @available(tvOS 4.0, *)
-  func urlFor(resource name: String?, withExtension ext: String?, subdirectory subpath: String?) -> URL?
+  func url(forResource name: String?, withExtension ext: String?, subdirectory subpath: String?) -> URL?
   @available(tvOS 4.0, *)
-  func urlFor(resource name: String?, withExtension ext: String?, subdirectory subpath: String?, localization localizationName: String?) -> URL?
+  func url(forResource name: String?, withExtension ext: String?, subdirectory subpath: String?, localization localizationName: String?) -> URL?
   @available(tvOS 4.0, *)
-  func urlsForResourcesWith(extension ext: String?, subdirectory subpath: String?) -> [URL]?
+  func urlsForResources(withExtension ext: String?, subdirectory subpath: String?) -> [URL]?
   @available(tvOS 4.0, *)
-  func urlsForResourcesWith(extension ext: String?, subdirectory subpath: String?, localization localizationName: String?) -> [URL]?
-  class func pathFor(resource name: String?, ofType ext: String?, inDirectory bundlePath: String) -> String?
-  class func pathsForResourcesOf(type ext: String?, inDirectory bundlePath: String) -> [String]
-  func pathFor(resource name: String?, ofType ext: String?) -> String?
-  func pathFor(resource name: String?, ofType ext: String?, inDirectory subpath: String?) -> String?
-  func pathFor(resource name: String?, ofType ext: String?, inDirectory subpath: String?, forLocalization localizationName: String?) -> String?
-  func pathsForResourcesOf(type ext: String?, inDirectory subpath: String?) -> [String]
-  func pathsForResourcesOf(type ext: String?, inDirectory subpath: String?, forLocalization localizationName: String?) -> [String]
-  func localizedStringFor(key key: String, value: String?, table tableName: String?) -> String
+  func urlsForResources(withExtension ext: String?, subdirectory subpath: String?, localization localizationName: String?) -> [URL]?
+  class func path(forResource name: String?, ofType ext: String?, inDirectory bundlePath: String) -> String?
+  class func pathsForResources(ofType ext: String?, inDirectory bundlePath: String) -> [String]
+  func path(forResource name: String?, ofType ext: String?) -> String?
+  func path(forResource name: String?, ofType ext: String?, inDirectory subpath: String?) -> String?
+  func path(forResource name: String?, ofType ext: String?, inDirectory subpath: String?, forLocalization localizationName: String?) -> String?
+  func pathsForResources(ofType ext: String?, inDirectory subpath: String?) -> [String]
+  func pathsForResources(ofType ext: String?, inDirectory subpath: String?, forLocalization localizationName: String?) -> [String]
+  func localizedString(forKey key: String, value: String?, table tableName: String?) -> String
   var bundleIdentifier: String? { get }
   var infoDictionary: [String : AnyObject]? { get }
   var localizedInfoDictionary: [String : AnyObject]? { get }
-  func objectFor(infoDictionaryKey key: String) -> AnyObject?
+  func object(forInfoDictionaryKey key: String) -> AnyObject?
   func classNamed(className: String) -> AnyClass?
   var principalClass: AnyClass? { get }
   var preferredLocalizations: [String] { get }
   var localizations: [String] { get }
   var developmentLocalization: String? { get }
-  class func preferredLocalizationsFrom(localizationsArray: [String]) -> [String]
-  class func preferredLocalizationsFrom(localizationsArray: [String], forPreferences preferencesArray: [String]?) -> [String]
+  class func preferredLocalizations(from localizationsArray: [String]) -> [String]
+  class func preferredLocalizations(from localizationsArray: [String], forPreferences preferencesArray: [String]?) -> [String]
   @available(tvOS 2.0, *)
   var executableArchitectures: [Number]? { get }
   convenience init()
@@ -96,7 +96,7 @@ class BundleResourceRequest : Object, ProgressReporting {
   var tags: Set<String> { get }
   var bundle: Bundle { get }
   func beginAccessingResources(completionHandler completionHandler: (Error?) -> Void)
-  func conditionallyBeginAccessingResourcesWith(completionHandler completionHandler: (Bool) -> Void)
+  func conditionallyBeginAccessingResources(withCompletionHandler completionHandler: (Bool) -> Void)
   func endAccessingResources()
   var progress: Progress { get }
 }
@@ -104,7 +104,7 @@ extension Bundle {
   @available(tvOS 9.0, *)
   func setPreservationPriority(priority: Double, forTags tags: Set<String>)
   @available(tvOS 9.0, *)
-  func preservationPriorityFor(tag tag: String) -> Double
+  func preservationPriority(forTag tag: String) -> Double
 }
 @available(tvOS 9.0, *)
 let bundleResourceRequestLowDiskSpaceNotification: String

@@ -3,7 +3,7 @@
 class UITraitCollection : Object, Copying, SecureCoding {
   init()
   init?(coder aDecoder: Coder)
-  func containsTraitsIn(trait: UITraitCollection?) -> Bool
+  func containsTraits(in trait: UITraitCollection?) -> Bool
   /*not inherited*/ init(traitsFrom traitCollections: [UITraitCollection])
   /*not inherited*/ init(userInterfaceIdiom idiom: UIUserInterfaceIdiom)
   var userInterfaceIdiom: UIUserInterfaceIdiom { get }

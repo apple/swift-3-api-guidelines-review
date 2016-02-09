@@ -1,7 +1,7 @@
 
 extension CNContact {
-  class func predicateForContactsMatching(name name: String) -> Predicate
-  class func predicateForContactsWith(identifiers identifiers: [String]) -> Predicate
-  class func predicateForContactsInGroupWith(identifier groupIdentifier: String) -> Predicate
-  class func predicateForContactsInContainerWith(identifier containerIdentifier: String) -> Predicate
+  class func predicateForContacts(matchingName name: String) -> Predicate
+  class func predicateForContacts(withIdentifiers identifiers: [String]) -> Predicate
+  class func predicateForContactsInGroup(withIdentifier groupIdentifier: String) -> Predicate
+  class func predicateForContactsInContainer(withIdentifier containerIdentifier: String) -> Predicate
 }

@@ -25,6 +25,6 @@ class TVApplicationController : Object {
   var context: TVApplicationControllerContext { get }
   weak var delegate: @sil_weak TVApplicationControllerDelegate? { get }
   var navigationController: UINavigationController { get }
-  func evaluateIn(javaScriptContext evaluation: (JSContext) -> Void, completion: ((Bool) -> Void)? = nil)
+  func evaluate(inJavaScriptContext evaluation: (JSContext) -> Void, completion: ((Bool) -> Void)? = nil)
   func stop()
 }

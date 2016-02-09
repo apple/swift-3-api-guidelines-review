@@ -21,7 +21,7 @@ class NSPreferencePane : Object {
   func willSelect()
   func didSelect()
   var shouldUnselect: NSPreferencePaneUnselectReply { get }
-  func replyTo(shouldUnselect shouldUnselect: Bool)
+  func reply(toShouldUnselect shouldUnselect: Bool)
   func willUnselect()
   func didUnselect()
   var mainView: NSView
@@ -30,6 +30,6 @@ class NSPreferencePane : Object {
   var lastKeyView: NSView?
   var autoSaveTextFields: Bool { get }
   var isSelected: Bool { get }
-  func updateHelpMenuWith(inArrayOfMenuItems: [[String : String]]?)
+  func updateHelpMenu(withArray inArrayOfMenuItems: [[String : String]]?)
   init()
 }

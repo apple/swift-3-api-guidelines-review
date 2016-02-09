@@ -2,7 +2,7 @@
 @available(watchOS 2.0, *)
 class NSMigrationManager : Object {
   init(sourceModel: NSManagedObjectModel, destinationModel: NSManagedObjectModel)
-  func migrateStoreFrom(sourceURL: URL, type sStoreType: String, options sOptions: [Object : AnyObject]? = [:], withMappingModel mappings: NSMappingModel?, toDestinationURL dURL: URL, destinationType dStoreType: String, destinationOptions dOptions: [Object : AnyObject]? = [:]) throws
+  func migrateStore(from sourceURL: URL, type sStoreType: String, options sOptions: [Object : AnyObject]? = [:], withMappingModel mappings: NSMappingModel?, toDestinationURL dURL: URL, destinationType dStoreType: String, destinationOptions dOptions: [Object : AnyObject]? = [:]) throws
   @available(watchOS 2.0, *)
   var usesStoreSpecificMigrationManager: Bool
   func reset()
@@ -11,11 +11,11 @@ class NSMigrationManager : Object {
   var destinationModel: NSManagedObjectModel { get }
   var sourceContext: NSManagedObjectContext { get }
   var destinationContext: NSManagedObjectContext { get }
-  func sourceEntityFor(mEntity: NSEntityMapping) -> NSEntityDescription?
-  func destinationEntityFor(mEntity: NSEntityMapping) -> NSEntityDescription?
+  func sourceEntity(forEntityMapping mEntity: NSEntityMapping) -> NSEntityDescription?
+  func destinationEntity(forEntityMapping mEntity: NSEntityMapping) -> NSEntityDescription?
   func associateSourceInstance(sourceInstance: NSManagedObject, withDestinationInstance destinationInstance: NSManagedObject, forEntityMapping entityMapping: NSEntityMapping)
-  func destinationInstancesFor(entityMappingNamed mappingName: String, sourceInstances: [NSManagedObject]?) -> [NSManagedObject]
-  func sourceInstancesFor(entityMappingNamed mappingName: String, destinationInstances: [NSManagedObject]?) -> [NSManagedObject]
+  func destinationInstances(forEntityMappingNamed mappingName: String, sourceInstances: [NSManagedObject]?) -> [NSManagedObject]
+  func sourceInstances(forEntityMappingNamed mappingName: String, destinationInstances: [NSManagedObject]?) -> [NSManagedObject]
   var currentEntityMapping: NSEntityMapping { get }
   var migrationProgress: Float { get }
   var userInfo: [Object : AnyObject]?

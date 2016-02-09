@@ -69,34 +69,34 @@ class NSBrowser : NSControl {
   var takesTitleFromPreviousColumn: Bool
   var sendsActionOnArrowKeys: Bool
   @available(OSX 10.6, *)
-  func itemAt(indexPath: IndexPath) -> AnyObject?
+  func item(at indexPath: IndexPath) -> AnyObject?
   @available(OSX 10.6, *)
-  func itemAt(row row: Int, inColumn column: Int) -> AnyObject?
+  func item(atRow row: Int, inColumn column: Int) -> AnyObject?
   @available(OSX 10.6, *)
-  func indexPathFor(column column: Int) -> IndexPath
+  func indexPath(forColumn column: Int) -> IndexPath
   @available(OSX 10.6, *)
   func isLeafItem(item: AnyObject?) -> Bool
   @available(OSX 10.6, *)
-  func reloadDataFor(rowIndexes rowIndexes: IndexSet, inColumn column: Int)
+  func reloadData(forRowIndexes rowIndexes: IndexSet, inColumn column: Int)
   @available(OSX 10.6, *)
-  func parentForItemsIn(column column: Int) -> AnyObject?
+  func parentForItems(inColumn column: Int) -> AnyObject?
   @available(OSX 10.6, *)
   func scrollRowToVisible(row: Int, inColumn column: Int)
   func setTitle(aString: String, ofColumn column: Int)
-  func titleOf(column column: Int) -> String?
+  func title(ofColumn column: Int) -> String?
   var pathSeparator: String
   func setPath(path: String) -> Bool
   func path() -> String
-  func pathTo(column column: Int) -> String
+  func path(toColumn column: Int) -> String
   @available(OSX 10.6, *)
   var clickedColumn: Int { get }
   @available(OSX 10.6, *)
   var clickedRow: Int { get }
   var selectedColumn: Int { get }
-  func selectedCellIn(column column: Int) -> AnyObject?
+  func selectedCell(inColumn column: Int) -> AnyObject?
   var selectedCells: [NSCell]? { get }
   func selectRow(row: Int, inColumn column: Int)
-  func selectedRowIn(column column: Int) -> Int
+  func selectedRow(inColumn column: Int) -> Int
   @available(OSX 10.6, *)
   @NSCopying var selectionIndexPath: IndexPath
   @available(OSX 10.6, *)
@@ -104,38 +104,38 @@ class NSBrowser : NSControl {
   @available(OSX 10.5, *)
   func selectRowIndexes(indexes: IndexSet, inColumn column: Int)
   @available(OSX 10.5, *)
-  func selectedRowIndexesIn(column column: Int) -> IndexSet?
+  func selectedRowIndexes(inColumn column: Int) -> IndexSet?
   func reloadColumn(column: Int)
   func validateVisibleColumns()
-  func scrollColumnsRightBy(shiftAmount: Int)
-  func scrollColumnsLeftBy(shiftAmount: Int)
+  func scrollColumnsRight(by shiftAmount: Int)
+  func scrollColumnsLeft(by shiftAmount: Int)
   func scrollColumnToVisible(column: Int)
   var lastColumn: Int
   func addColumn()
   var numberOfVisibleColumns: Int { get }
   var firstVisibleColumn: Int { get }
   var lastVisibleColumn: Int { get }
-  func loadedCellAt(row row: Int, column col: Int) -> AnyObject?
+  func loadedCell(atRow row: Int, column col: Int) -> AnyObject?
   func selectAll(sender: AnyObject?)
   func tile()
   func doClick(sender: AnyObject?)
   func doDoubleClick(sender: AnyObject?)
   func sendAction() -> Bool
-  func titleFrameOf(column column: Int) -> Rect
-  func drawTitleOf(column column: Int, in aRect: Rect)
+  func titleFrame(ofColumn column: Int) -> Rect
+  func drawTitle(ofColumn column: Int, in aRect: Rect)
   var titleHeight: CGFloat { get }
-  func frameOf(column column: Int) -> Rect
-  func frameOfInsideOf(column column: Int) -> Rect
+  func frame(ofColumn column: Int) -> Rect
+  func frameOfInside(ofColumn column: Int) -> Rect
   @available(OSX 10.6, *)
-  func frameOf(row row: Int, inColumn column: Int) -> Rect
+  func frame(ofRow row: Int, inColumn column: Int) -> Rect
   @available(OSX 10.6, *)
   func getRow(row: UnsafeMutablePointer<Int>, column: UnsafeMutablePointer<Int>, forPoint point: Point) -> Bool
-  func columnWidthFor(columnContentWidth columnContentWidth: CGFloat) -> CGFloat
-  func columnContentWidthFor(columnWidth columnWidth: CGFloat) -> CGFloat
+  func columnWidth(forColumnContentWidth columnContentWidth: CGFloat) -> CGFloat
+  func columnContentWidth(forColumnWidth columnWidth: CGFloat) -> CGFloat
   var columnResizingType: NSBrowserColumnResizingType
   var prefersAllColumnUserResizing: Bool
   func setWidth(columnWidth: CGFloat, ofColumn columnIndex: Int)
-  func widthOf(column column: Int) -> CGFloat
+  func width(ofColumn column: Int) -> CGFloat
   @available(OSX 10.6, *)
   var rowHeight: CGFloat
   @available(OSX 10.6, *)
@@ -147,9 +147,9 @@ class NSBrowser : NSControl {
   var columnsAutosaveName: String
   class func removeSavedColumns(autosaveName name: String)
   @available(OSX 10.5, *)
-  func canDragRowsWith(rowIndexes: IndexSet, inColumn column: Int, withEvent event: NSEvent) -> Bool
+  func canDragRows(withIndexes rowIndexes: IndexSet, inColumn column: Int, withEvent event: NSEvent) -> Bool
   @available(OSX 10.5, *)
-  func draggingImageForRowsWith(rowIndexes: IndexSet, inColumn column: Int, withEvent event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage?
+  func draggingImageForRows(withIndexes rowIndexes: IndexSet, inColumn column: Int, withEvent event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage?
   @available(OSX 10.5, *)
   func setDraggingSourceOperationMask(mask: NSDragOperation, forLocal isLocal: Bool)
   @available(OSX 10.5, *)
@@ -157,7 +157,7 @@ class NSBrowser : NSControl {
   @available(OSX 10.5, *)
   var backgroundColor: NSColor
   @available(OSX 10.6, *)
-  func editItemAt(indexPath: IndexPath, withEvent theEvent: NSEvent, select: Bool)
+  func editItem(at indexPath: IndexPath, withEvent theEvent: NSEvent, select: Bool)
   func selectedCell() -> AnyObject?
   init(frame frameRect: Rect)
   init?(coder: Coder)
@@ -178,7 +178,7 @@ protocol NSBrowserDelegate : ObjectProtocol {
   @available(OSX 10.6, *)
   optional func browser(browser: NSBrowser, heightOfRow row: Int, inColumn columnIndex: Int) -> CGFloat
   @available(OSX 10.6, *)
-  optional func rootItemFor(browser: NSBrowser) -> AnyObject?
+  optional func rootItem(forBrowser browser: NSBrowser) -> AnyObject?
   @available(OSX 10.6, *)
   optional func browser(browser: NSBrowser, setObjectValue object: AnyObject?, forItem item: AnyObject?)
   @available(OSX 10.6, *)
@@ -227,7 +227,7 @@ extension NSBrowser {
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use the item based NSBrowser instead")
   func matrixClass() -> AnyClass
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use the item based NSBrowser instead")
-  func columnOf(matrix: NSMatrix) -> Int
+  func column(of matrix: NSMatrix) -> Int
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use the item based NSBrowser instead")
-  func matrixIn(column column: Int) -> NSMatrix?
+  func matrix(inColumn column: Int) -> NSMatrix?
 }

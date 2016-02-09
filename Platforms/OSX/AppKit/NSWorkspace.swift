@@ -32,24 +32,24 @@ class NSWorkspace : Object {
   func open(url: URL) -> Bool
   func launchApplication(appName: String) -> Bool
   @available(OSX 10.6, *)
-  func launchApplicationAt(url: URL, options: NSWorkspaceLaunchOptions = [], configuration: [String : AnyObject]) throws -> NSRunningApplication
+  func launchApplication(at url: URL, options: NSWorkspaceLaunchOptions = [], configuration: [String : AnyObject]) throws -> NSRunningApplication
   @available(OSX 10.10, *)
   func open(url: URL, options: NSWorkspaceLaunchOptions = [], configuration: [String : AnyObject]) throws -> NSRunningApplication
   @available(OSX 10.10, *)
   func open(urls: [URL], withApplicationAt applicationURL: URL, options: NSWorkspaceLaunchOptions = [], configuration: [String : AnyObject]) throws -> NSRunningApplication
   func launchApplication(appName: String, showIcon: Bool, autolaunch: Bool) -> Bool
-  func fullPathFor(application appName: String) -> String?
+  func fullPath(forApplication appName: String) -> String?
   func selectFile(fullPath: String?, inFileViewerRootedAtPath rootFullPath: String) -> Bool
   @available(OSX 10.6, *)
   func activateFileViewerSelecting(fileURLs: [URL])
   @available(OSX 10.6, *)
-  func showSearchResultsFor(queryString queryString: String) -> Bool
+  func showSearchResults(forQueryString queryString: String) -> Bool
   func noteFileSystemChanged(path: String)
-  func getInfoFor(file fullPath: String, application appName: AutoreleasingUnsafeMutablePointer<NSString?>, type: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
-  func isFilePackageAt(path fullPath: String) -> Bool
-  func iconFor(file fullPath: String) -> NSImage
-  func iconFor(files fullPaths: [String]) -> NSImage?
-  func iconFor(fileType fileType: String) -> NSImage
+  func getInfoForFile(fullPath: String, application appName: AutoreleasingUnsafeMutablePointer<NSString?>, type: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
+  func isFilePackage(atPath fullPath: String) -> Bool
+  func icon(forFile fullPath: String) -> NSImage
+  func icon(forFiles fullPaths: [String]) -> NSImage?
+  func icon(forFileType fileType: String) -> NSImage
   func setIcon(image: NSImage?, forFile fullPath: String, options: NSWorkspaceIconCreationOptions = []) -> Bool
   @available(OSX 10.6, *)
   var fileLabels: [String] { get }
@@ -59,17 +59,17 @@ class NSWorkspace : Object {
   func recycle(URLs: [URL], completionHandler handler: (([URL : URL], Error?) -> Void)? = nil)
   @available(OSX 10.6, *)
   func duplicate(URLs: [URL], completionHandler handler: (([URL : URL], Error?) -> Void)? = nil)
-  func getFileSystemInfoFor(path fullPath: String, isRemovable removableFlag: UnsafeMutablePointer<ObjCBool>, isWritable writableFlag: UnsafeMutablePointer<ObjCBool>, isUnmountable unmountableFlag: UnsafeMutablePointer<ObjCBool>, description: AutoreleasingUnsafeMutablePointer<NSString?>, type fileSystemType: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
-  func unmountAndEjectDeviceAt(path path: String) -> Bool
+  func getFileSystemInfo(forPath fullPath: String, isRemovable removableFlag: UnsafeMutablePointer<ObjCBool>, isWritable writableFlag: UnsafeMutablePointer<ObjCBool>, isUnmountable unmountableFlag: UnsafeMutablePointer<ObjCBool>, description: AutoreleasingUnsafeMutablePointer<NSString?>, type fileSystemType: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
+  func unmountAndEjectDevice(atPath path: String) -> Bool
   @available(OSX 10.6, *)
-  func unmountAndEjectDeviceAt(url: URL) throws
-  func extendPowerOffBy(requested: Int) -> Int
+  func unmountAndEjectDevice(at url: URL) throws
+  func extendPowerOff(by requested: Int) -> Int
   func hideOtherApplications()
   @available(OSX 10.6, *)
-  func urlForApplicationWith(bundleIdentifier bundleIdentifier: String) -> URL?
+  func urlForApplication(withBundleIdentifier bundleIdentifier: String) -> URL?
   @available(OSX 10.6, *)
   func urlForApplicationToOpen(url: URL) -> URL?
-  func absolutePathForAppBundleWith(identifier bundleIdentifier: String) -> String?
+  func absolutePathForAppBundle(withIdentifier bundleIdentifier: String) -> String?
   func launchApp(bundleIdentifier bundleIdentifier: String, options: NSWorkspaceLaunchOptions = [], additionalEventParamDescriptor descriptor: AppleEventDescriptor?, launchIdentifier identifier: AutoreleasingUnsafeMutablePointer<Number?>) -> Bool
   func open(urls: [URL], withAppBundleIdentifier bundleIdentifier: String?, options: NSWorkspaceLaunchOptions = [], additionalEventParamDescriptor descriptor: AppleEventDescriptor?, launchIdentifiers identifiers: AutoreleasingUnsafeMutablePointer<NSArray?>) -> Bool
   @available(OSX 10.7, *)
@@ -77,11 +77,11 @@ class NSWorkspace : Object {
   @available(OSX 10.7, *)
   var menuBarOwningApplication: NSRunningApplication? { get }
   @available(OSX 10.5, *)
-  func typeOf(file absoluteFilePath: String) throws -> String
+  func type(ofFile absoluteFilePath: String) throws -> String
   @available(OSX 10.5, *)
-  func localizedDescriptionFor(type typeName: String) -> String?
+  func localizedDescription(forType typeName: String) -> String?
   @available(OSX 10.5, *)
-  func preferredFilenameExtensionFor(type typeName: String) -> String?
+  func preferredFilenameExtension(forType typeName: String) -> String?
   @available(OSX 10.5, *)
   func filenameExtension(filenameExtension: String, isValidForType typeName: String) -> Bool
   @available(OSX 10.5, *)
@@ -92,9 +92,9 @@ extension NSWorkspace {
   @available(OSX 10.6, *)
   func setDesktopImageURL(url: URL, forScreen screen: NSScreen, options: [String : AnyObject] = [:]) throws
   @available(OSX 10.6, *)
-  func desktopImageURLFor(screen: NSScreen) -> URL?
+  func desktopImageURL(forScreen screen: NSScreen) -> URL?
   @available(OSX 10.6, *)
-  func desktopImageOptionsFor(screen: NSScreen) -> [String : AnyObject]?
+  func desktopImageOptions(forScreen screen: NSScreen) -> [String : AnyObject]?
 }
 @available(OSX 10.6, *)
 let NSWorkspaceDesktopImageScalingKey: String

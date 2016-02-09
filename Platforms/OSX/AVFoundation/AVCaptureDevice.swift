@@ -6,8 +6,8 @@ let AVCaptureDeviceWasDisconnectedNotification: String
 @available(OSX 10.7, *)
 class AVCaptureDevice : Object {
   class func devices() -> [AnyObject]!
-  class func devicesWith(mediaType mediaType: String!) -> [AnyObject]!
-  class func defaultDeviceWith(mediaType mediaType: String!) -> AVCaptureDevice!
+  class func devices(withMediaType mediaType: String!) -> [AnyObject]!
+  class func defaultDevice(withMediaType mediaType: String!) -> AVCaptureDevice!
   /*not inherited*/ init!(uniqueID deviceUniqueID: String!)
   var uniqueID: String! { get }
   var modelID: String! { get }

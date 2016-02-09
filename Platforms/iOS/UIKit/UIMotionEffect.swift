@@ -3,7 +3,7 @@
 class UIMotionEffect : Object, Copying, Coding {
   init()
   init?(coder aDecoder: Coder)
-  func keyPathsAndRelativeValuesFor(viewerOffset viewerOffset: UIOffset) -> [String : AnyObject]?
+  func keyPathsAndRelativeValues(forViewerOffset viewerOffset: UIOffset) -> [String : AnyObject]?
   @available(iOS 7.0, *)
   func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 7.0, *)

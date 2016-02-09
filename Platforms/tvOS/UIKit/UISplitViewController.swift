@@ -44,7 +44,7 @@ protocol UISplitViewControllerDelegate {
   @available(tvOS 8.0, *)
   optional func splitViewController(svc: UISplitViewController, willChangeTo displayMode: UISplitViewControllerDisplayMode)
   @available(tvOS 8.0, *)
-  optional func targetDisplayModeForActionIn(svc: UISplitViewController) -> UISplitViewControllerDisplayMode
+  optional func targetDisplayModeForAction(in svc: UISplitViewController) -> UISplitViewControllerDisplayMode
   @available(tvOS 8.0, *)
   optional func splitViewController(splitViewController: UISplitViewController, show vc: UIViewController, sender: AnyObject?) -> Bool
   @available(tvOS 8.0, *)
@@ -63,5 +63,5 @@ extension UIViewController {
   @available(tvOS 8.0, *)
   func collapseSecondaryViewController(secondaryViewController: UIViewController, forSplitViewController splitViewController: UISplitViewController)
   @available(tvOS 8.0, *)
-  func separateSecondaryViewControllerFor(splitViewController: UISplitViewController) -> UIViewController?
+  func separateSecondaryViewController(forSplitViewController splitViewController: UISplitViewController) -> UIViewController?
 }

@@ -2,7 +2,7 @@
 protocol UITextDocumentProxy : UIKeyInput {
   var documentContextBeforeInput: String? { get }
   var documentContextAfterInput: String? { get }
-  func adjustTextPositionBy(characterOffset offset: Int)
+  func adjustTextPosition(byCharacterOffset offset: Int)
 }
 @available(tvOS 8.0, *)
 class UIInputViewController : UIViewController, UITextInputDelegate {

@@ -1,13 +1,13 @@
 
 class URLCredentialStorage : Object {
   class func shared() -> URLCredentialStorage
-  func credentialsFor(space: URLProtectionSpace) -> [String : URLCredential]?
+  func credentials(forProtectionSpace space: URLProtectionSpace) -> [String : URLCredential]?
   var allCredentials: [URLProtectionSpace : [String : URLCredential]] { get }
   func setCredential(credential: URLCredential, forProtectionSpace space: URLProtectionSpace)
   func remove(credential: URLCredential, forProtectionSpace space: URLProtectionSpace)
   @available(tvOS 7.0, *)
   func remove(credential: URLCredential, forProtectionSpace space: URLProtectionSpace, options: [String : AnyObject]? = [:])
-  func defaultCredentialFor(space: URLProtectionSpace) -> URLCredential?
+  func defaultCredential(forProtectionSpace space: URLProtectionSpace) -> URLCredential?
   func setDefaultCredential(credential: URLCredential, forProtectionSpace space: URLProtectionSpace)
   init()
 }
@@ -19,7 +19,7 @@ extension URLCredentialStorage {
   @available(tvOS 8.0, *)
   func remove(credential: URLCredential, forProtectionSpace protectionSpace: URLProtectionSpace, options: [String : AnyObject]? = [:], task: URLSessionTask)
   @available(tvOS 8.0, *)
-  func getDefaultCredentialFor(space: URLProtectionSpace, task: URLSessionTask, completionHandler: (URLCredential?) -> Void)
+  func getDefaultCredential(forProtectionSpace space: URLProtectionSpace, task: URLSessionTask, completionHandler: (URLCredential?) -> Void)
   @available(tvOS 8.0, *)
   func setDefaultCredential(credential: URLCredential, forProtectionSpace protectionSpace: URLProtectionSpace, task: URLSessionTask)
 }

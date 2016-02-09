@@ -39,7 +39,7 @@ class AVAsynchronousVideoCompositionRequest : Object, Copying {
   var compositionTime: CMTime { get }
   var sourceTrackIDs: [Number] { get }
   var videoCompositionInstruction: AVVideoCompositionInstructionProtocol { get }
-  func sourceFrameBy(trackID trackID: CMPersistentTrackID) -> CVPixelBuffer?
+  func sourceFrame(byTrackID trackID: CMPersistentTrackID) -> CVPixelBuffer?
   func finish(composedVideoFrame composedVideoFrame: CVPixelBuffer)
   func finishWithError(error: Error)
   func finishCancelledRequest()

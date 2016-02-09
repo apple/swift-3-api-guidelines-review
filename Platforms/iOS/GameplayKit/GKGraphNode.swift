@@ -2,18 +2,18 @@
 @available(iOS 9.0, *)
 class GKGraphNode : Object {
   var connectedNodes: [GKGraphNode] { get }
-  func addConnectionsTo(nodes: [GKGraphNode], bidirectional: Bool)
-  func removeConnectionsTo(nodes: [GKGraphNode], bidirectional: Bool)
-  func estimatedCostTo(node: GKGraphNode) -> Float
-  func costTo(node: GKGraphNode) -> Float
-  func findPathTo(goalNode: GKGraphNode) -> [GKGraphNode]
-  func findPathFrom(startNode: GKGraphNode) -> [GKGraphNode]
+  func addConnections(to nodes: [GKGraphNode], bidirectional: Bool)
+  func removeConnections(to nodes: [GKGraphNode], bidirectional: Bool)
+  func estimatedCost(to node: GKGraphNode) -> Float
+  func cost(to node: GKGraphNode) -> Float
+  func findPath(to goalNode: GKGraphNode) -> [GKGraphNode]
+  func findPath(from startNode: GKGraphNode) -> [GKGraphNode]
   init()
 }
 @available(iOS 9.0, *)
 class GKGraphNode2D : GKGraphNode {
   var position: vector_float2
-  class func nodeWith(point point: vector_float2) -> Self
+  class func node(withPoint point: vector_float2) -> Self
   init(point: vector_float2)
   convenience init()
 }

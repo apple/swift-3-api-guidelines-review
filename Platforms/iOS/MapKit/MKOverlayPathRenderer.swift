@@ -12,8 +12,8 @@ class MKOverlayPathRenderer : MKOverlayRenderer {
   func createPath()
   var path: CGPath!
   func invalidatePath()
-  func applyStrokePropertiesTo(context: CGContext, atZoomScale zoomScale: MKZoomScale)
-  func applyFillPropertiesTo(context: CGContext, atZoomScale zoomScale: MKZoomScale)
+  func applyStrokeProperties(to context: CGContext, atZoomScale zoomScale: MKZoomScale)
+  func applyFillProperties(to context: CGContext, atZoomScale zoomScale: MKZoomScale)
   func strokePath(path: CGPath, in context: CGContext)
   func fillPath(path: CGPath, in context: CGContext)
   init(overlay: MKOverlay)

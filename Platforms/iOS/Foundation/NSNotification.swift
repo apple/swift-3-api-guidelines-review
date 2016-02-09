@@ -22,6 +22,6 @@ class NotificationCenter : Object {
   func removeObserver(observer: AnyObject)
   func removeObserver(observer: AnyObject, name aName: String?, object anObject: AnyObject?)
   @available(iOS 4.0, *)
-  func addObserverFor(name name: String?, object obj: AnyObject?, queue: OperationQueue?, usingBlock block: (Notification) -> Void) -> ObjectProtocol
+  func addObserver(forName name: String?, object obj: AnyObject?, queue: OperationQueue?, usingBlock block: (Notification) -> Void) -> ObjectProtocol
   init()
 }

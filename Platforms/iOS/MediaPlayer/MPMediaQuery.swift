@@ -71,7 +71,7 @@ class MPMediaPropertyPredicate : MPMediaPredicate {
 }
 extension MPMediaItem {
   @available(iOS 4.2, *)
-  class func persistentIDPropertyFor(groupingType groupingType: MPMediaGrouping) -> String
+  class func persistentIDProperty(forGroupingType groupingType: MPMediaGrouping) -> String
   @available(iOS 4.2, *)
-  class func titlePropertyFor(groupingType groupingType: MPMediaGrouping) -> String
+  class func titleProperty(forGroupingType groupingType: MPMediaGrouping) -> String
 }

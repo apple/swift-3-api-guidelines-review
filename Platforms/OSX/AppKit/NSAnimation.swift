@@ -93,9 +93,9 @@ protocol NSAnimatablePropertyContainer {
   @available(OSX 10.5, *)
   var animations: [String : AnyObject] { get set }
   @available(OSX 10.5, *)
-  func animationFor(key key: String) -> AnyObject?
+  func animation(forKey key: String) -> AnyObject?
   @available(OSX 10.5, *)
-  static func defaultAnimationFor(key key: String) -> AnyObject?
+  static func defaultAnimation(forKey key: String) -> AnyObject?
 }
 @available(OSX 10.5, *)
 let NSAnimationTriggerOrderIn: String

@@ -40,7 +40,7 @@ class SCNNode : Object, Copying, SecureCoding, SCNAnimatable, SCNActionable, SCN
   func insertChildNode(child: SCNNode, at index: Int)
   func removeFromParentNode()
   func replaceChildNode(oldChild: SCNNode, with newChild: SCNNode)
-  func childNodeWith(name name: String, recursively: Bool) -> SCNNode?
+  func childNode(withName name: String, recursively: Bool) -> SCNNode?
   func childNodesPassingTest(predicate: (SCNNode, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [SCNNode]
   @available(OSX 10.10, *)
   func enumerateChildNodes(block: (SCNNode, UnsafeMutablePointer<ObjCBool>) -> Void)
@@ -65,7 +65,7 @@ class SCNNode : Object, Copying, SecureCoding, SCNAnimatable, SCNActionable, SCN
   var isPaused: Bool
   unowned(unsafe) var rendererDelegate: @sil_unmanaged SCNNodeRendererDelegate?
   @available(OSX 10.9, *)
-  func hitTestWithSegmentFrom(point pointA: SCNVector3, toPoint pointB: SCNVector3, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
+  func hitTestWithSegment(fromPoint pointA: SCNVector3, toPoint pointB: SCNVector3, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
   @available(OSX 10.10, *)
   var categoryBitMask: Int
   init()
@@ -81,19 +81,19 @@ class SCNNode : Object, Copying, SecureCoding, SCNAnimatable, SCNActionable, SCN
   @available(OSX 10.8, *)
   func removeAllAnimations()
   @available(OSX 10.8, *)
-  func removeAnimationFor(key key: String)
+  func removeAnimation(forKey key: String)
   @available(OSX 10.8, *)
   var animationKeys: [String] { get }
   @available(OSX 10.8, *)
-  func animationFor(key key: String) -> CAAnimation?
+  func animation(forKey key: String) -> CAAnimation?
   @available(OSX 10.9, *)
-  func pauseAnimationFor(key key: String)
+  func pauseAnimation(forKey key: String)
   @available(OSX 10.9, *)
-  func resumeAnimationFor(key key: String)
+  func resumeAnimation(forKey key: String)
   @available(OSX 10.9, *)
-  func isAnimationFor(keyPaused key: String) -> Bool
+  func isAnimation(forKeyPaused key: String) -> Bool
   @available(OSX 10.10, *)
-  func removeAnimationFor(key key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimation(forKey key: String, fadeOutDuration duration: CGFloat)
   @available(OSX 10.10, *)
   func run(action: SCNAction)
   @available(OSX 10.10, *)
@@ -105,9 +105,9 @@ class SCNNode : Object, Copying, SecureCoding, SCNAnimatable, SCNActionable, SCN
   @available(OSX 10.10, *)
   var hasActions: Bool { get }
   @available(OSX 10.10, *)
-  func actionFor(key key: String) -> SCNAction?
+  func action(forKey key: String) -> SCNAction?
   @available(OSX 10.10, *)
-  func removeActionFor(key key: String)
+  func removeAction(forKey key: String)
   @available(OSX 10.10, *)
   func removeAllActions()
   @available(OSX 10.10, *)

@@ -2,7 +2,7 @@
 class NSBrowserCell : NSCell {
   class func branchImage() -> NSImage?
   class func highlightedBranchImage() -> NSImage?
-  func highlightColorIn(controlView: NSView) -> NSColor?
+  func highlightColor(in controlView: NSView) -> NSColor?
   var isLeaf: Bool
   var isLoaded: Bool
   func reset()

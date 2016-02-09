@@ -48,7 +48,7 @@ struct StringEncodingConversionOptions : OptionSetType {
 }
 class NSString : Object, Copying, MutableCopying, SecureCoding {
   var length: Int { get }
-  func characterAt(index: Int) -> unichar
+  func character(at index: Int) -> unichar
   init()
   init?(coder aDecoder: Coder)
   func copyWith(zone: Zone = nil) -> AnyObject
@@ -83,9 +83,9 @@ extension NSString : CustomPlaygroundQuickLookable {
   func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 extension NSString {
-  func substringFrom(from: Int) -> String
-  func substringTo(to: Int) -> String
-  func substringWith(range: NSRange) -> String
+  func substring(from from: Int) -> String
+  func substring(to to: Int) -> String
+  func substring(withRange range: NSRange) -> String
   func getCharacters(buffer: UnsafeMutablePointer<unichar>, range: NSRange)
   func compare(string: String) -> ComparisonResult
   func compare(string: String, options mask: StringCompareOptions = []) -> ComparisonResult
@@ -96,10 +96,10 @@ extension NSString {
   func localizedCaseInsensitiveCompare(string: String) -> ComparisonResult
   @available(watchOS 2.0, *)
   func localizedStandardCompare(string: String) -> ComparisonResult
-  func isEqualTo(aString: String) -> Bool
+  func isEqual(to aString: String) -> Bool
   func hasPrefix(str: String) -> Bool
   func hasSuffix(str: String) -> Bool
-  func commonPrefixWith(str: String, options mask: StringCompareOptions = []) -> String
+  func commonPrefix(withString str: String, options mask: StringCompareOptions = []) -> String
   @available(watchOS 2.0, *)
   func contains(str: String) -> Bool
   @available(watchOS 2.0, *)
@@ -107,18 +107,18 @@ extension NSString {
   @available(watchOS 2.0, *)
   func localizedStandardContains(str: String) -> Bool
   @available(watchOS 2.0, *)
-  func localizedStandardRangeOf(str: String) -> NSRange
-  func rangeOf(searchString: String) -> NSRange
-  func rangeOf(searchString: String, options mask: StringCompareOptions = []) -> NSRange
-  func rangeOf(searchString: String, options mask: StringCompareOptions = [], range searchRange: NSRange) -> NSRange
+  func localizedStandardRange(of str: String) -> NSRange
+  func range(of searchString: String) -> NSRange
+  func range(of searchString: String, options mask: StringCompareOptions = []) -> NSRange
+  func range(of searchString: String, options mask: StringCompareOptions = [], range searchRange: NSRange) -> NSRange
   @available(watchOS 2.0, *)
-  func rangeOf(searchString: String, options mask: StringCompareOptions = [], range searchRange: NSRange, locale: Locale?) -> NSRange
-  func rangeOfCharacterFrom(searchSet: CharacterSet) -> NSRange
-  func rangeOfCharacterFrom(searchSet: CharacterSet, options mask: StringCompareOptions = []) -> NSRange
-  func rangeOfCharacterFrom(searchSet: CharacterSet, options mask: StringCompareOptions = [], range searchRange: NSRange) -> NSRange
-  func rangeOfComposedCharacterSequenceAt(index: Int) -> NSRange
+  func range(of searchString: String, options mask: StringCompareOptions = [], range searchRange: NSRange, locale: Locale?) -> NSRange
+  func rangeOfCharacter(from searchSet: CharacterSet) -> NSRange
+  func rangeOfCharacter(from searchSet: CharacterSet, options mask: StringCompareOptions = []) -> NSRange
+  func rangeOfCharacter(from searchSet: CharacterSet, options mask: StringCompareOptions = [], range searchRange: NSRange) -> NSRange
+  func rangeOfComposedCharacterSequence(at index: Int) -> NSRange
   @available(watchOS 2.0, *)
-  func rangeOfComposedCharacterSequencesFor(range: NSRange) -> NSRange
+  func rangeOfComposedCharacterSequences(forRange range: NSRange) -> NSRange
   func appending(aString: String) -> String
   var doubleValue: Double { get }
   var floatValue: Float { get }
@@ -139,17 +139,17 @@ extension NSString {
   @available(watchOS 2.0, *)
   var localizedCapitalized: String { get }
   @available(watchOS 2.0, *)
-  func uppercaseStringWith(locale: Locale?) -> String
+  func uppercaseString(withLocale locale: Locale?) -> String
   @available(watchOS 2.0, *)
-  func lowercaseStringWith(locale: Locale?) -> String
+  func lowercaseString(withLocale locale: Locale?) -> String
   @available(watchOS 2.0, *)
-  func capitalizedStringWith(locale: Locale?) -> String
+  func capitalizedString(withLocale locale: Locale?) -> String
   func getLineStart(startPtr: UnsafeMutablePointer<Int>, end lineEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, forRange range: NSRange)
-  func lineRangeFor(range: NSRange) -> NSRange
+  func lineRange(forRange range: NSRange) -> NSRange
   func getParagraphStart(startPtr: UnsafeMutablePointer<Int>, end parEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, forRange range: NSRange)
-  func paragraphRangeFor(range: NSRange) -> NSRange
+  func paragraphRange(forRange range: NSRange) -> NSRange
   @available(watchOS 2.0, *)
-  func enumerateSubstringsIn(range: NSRange, options opts: StringEnumerationOptions = [], usingBlock block: (String?, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateSubstrings(in range: NSRange, options opts: StringEnumerationOptions = [], usingBlock block: (String?, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
   func enumerateLines(block: (String, UnsafeMutablePointer<ObjCBool>) -> Void)
   var utf8String: UnsafePointer<Int8> { get }
@@ -170,23 +170,23 @@ extension NSString {
   var precomposedStringWithCanonicalMapping: String { get }
   var decomposedStringWithCompatibilityMapping: String { get }
   var precomposedStringWithCompatibilityMapping: String { get }
-  func componentsSeparatedBy(separator: String) -> [String]
+  func componentsSeparated(by separator: String) -> [String]
   @available(watchOS 2.0, *)
-  func componentsSeparatedByCharactersIn(separator: CharacterSet) -> [String]
-  func byTrimmingCharactersIn(set: CharacterSet) -> String
-  func byPaddingTo(length newLength: Int, withString padString: String, startingAt padIndex: Int) -> String
+  func componentsSeparatedByCharacters(in separator: CharacterSet) -> [String]
+  func byTrimmingCharacters(in set: CharacterSet) -> String
+  func byPadding(toLength newLength: Int, withString padString: String, startingAt padIndex: Int) -> String
   @available(watchOS 2.0, *)
   func folding(options: StringCompareOptions = [], locale: Locale?) -> String
   @available(watchOS 2.0, *)
-  func replacingOccurrencesOf(target: String, withString replacement: String, options: StringCompareOptions = [], range searchRange: NSRange) -> String
+  func replacingOccurrences(of target: String, withString replacement: String, options: StringCompareOptions = [], range searchRange: NSRange) -> String
   @available(watchOS 2.0, *)
-  func replacingOccurrencesOf(target: String, withString replacement: String) -> String
+  func replacingOccurrences(of target: String, withString replacement: String) -> String
   @available(watchOS 2.0, *)
-  func replacingCharactersIn(range: NSRange, withString replacement: String) -> String
+  func replacingCharacters(in range: NSRange, withString replacement: String) -> String
   @available(watchOS 2.0, *)
   func applyingTransform(transform: String, reverse: Bool) -> String?
-  func writeTo(url: URL, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
-  func writeTo(file path: String, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
+  func write(to url: URL, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
+  func write(toFile path: String, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
   var description: String { get }
   var hash: Int { get }
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
@@ -250,7 +250,7 @@ let stringTransformStripCombiningMarks: String
 let stringTransformStripDiacritics: String
 extension NSString {
   @available(watchOS 2.0, *)
-  class func stringEncodingFor(data: Data, encodingOptions opts: [String : AnyObject]? = [:], convertedString string: AutoreleasingUnsafeMutablePointer<NSString?>, usedLossyConversion: UnsafeMutablePointer<ObjCBool>) -> UInt
+  class func stringEncoding(forData data: Data, encodingOptions opts: [String : AnyObject]? = [:], convertedString string: AutoreleasingUnsafeMutablePointer<NSString?>, usedLossyConversion: UnsafeMutablePointer<ObjCBool>) -> UInt
 }
 @available(watchOS 2.0, *)
 let stringEncodingDetectionSuggestedEncodingsKey: String
@@ -267,7 +267,7 @@ let stringEncodingDetectionLossySubstitutionKey: String
 @available(watchOS 2.0, *)
 let stringEncodingDetectionLikelyLanguageKey: String
 class MutableString : NSString {
-  func replaceCharactersIn(range: NSRange, withString aString: String)
+  func replaceCharacters(in range: NSRange, withString aString: String)
   init()
   init?(coder aDecoder: Coder)
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
@@ -301,10 +301,10 @@ extension MutableString {
 }
 extension MutableString {
   func insert(aString: String, at loc: Int)
-  func deleteCharactersIn(range: NSRange)
+  func deleteCharacters(in range: NSRange)
   func append(aString: String)
   func setString(aString: String)
-  func replaceOccurrencesOf(target: String, withString replacement: String, options: StringCompareOptions = [], range searchRange: NSRange) -> Int
+  func replaceOccurrences(of target: String, withString replacement: String, options: StringCompareOptions = [], range searchRange: NSRange) -> Int
   @available(watchOS 2.0, *)
   func applyTransform(transform: String, reverse: Bool, range: NSRange, updatedRange resultingRange: RangePointer) -> Bool
   init(capacity: Int)
@@ -329,17 +329,17 @@ extension NSString {
   @available(watchOS, introduced=2.0, deprecated=2.0)
   func getCString(bytes: UnsafeMutablePointer<Int8>, maxLength: Int, range aRange: NSRange, remaining leftoverRange: RangePointer)
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  func writeTo(file path: String, atomically useAuxiliaryFile: Bool) -> Bool
+  func write(toFile path: String, atomically useAuxiliaryFile: Bool) -> Bool
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  func writeTo(url: URL, atomically: Bool) -> Bool
+  func write(to url: URL, atomically: Bool) -> Bool
   @available(watchOS, introduced=2.0, deprecated=2.0)
   convenience init?(contentsOfFile path: String)
   @available(watchOS, introduced=2.0, deprecated=2.0)
   convenience init?(contentsOf url: URL)
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func stringWithContentsOf(file path: String) -> AnyObject?
+  class func stringWithContents(ofFile path: String) -> AnyObject?
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func stringWithContentsOf(url: URL) -> AnyObject?
+  class func stringWithContents(of url: URL) -> AnyObject?
   @available(watchOS, introduced=2.0, deprecated=2.0)
   convenience init?(cStringNoCopy bytes: UnsafeMutablePointer<Int8>, length: Int, freeWhenDone freeBuffer: Bool)
   @available(watchOS, introduced=2.0, deprecated=2.0)
@@ -347,9 +347,9 @@ extension NSString {
   @available(watchOS, introduced=2.0, deprecated=2.0)
   convenience init?(cString bytes: UnsafePointer<Int8>)
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func stringWith(cString bytes: UnsafePointer<Int8>, length: Int) -> AnyObject?
+  class func string(withCString bytes: UnsafePointer<Int8>, length: Int) -> AnyObject?
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func stringWith(cString bytes: UnsafePointer<Int8>) -> AnyObject?
+  class func string(withCString bytes: UnsafePointer<Int8>) -> AnyObject?
   func getCharacters(buffer: UnsafeMutablePointer<unichar>)
 }
 var proprietaryStringEncoding: UInt { get }

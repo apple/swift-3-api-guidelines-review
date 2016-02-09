@@ -35,7 +35,7 @@ class ProcessInfo : Object {
   @available(iOS 2.0, *)
   var physicalMemory: UInt64 { get }
   @available(iOS 8.0, *)
-  func isOperatingSystemAt(leastVersion version: OperatingSystemVersion) -> Bool
+  func isOperatingSystem(atLeastVersion version: OperatingSystemVersion) -> Bool
   @available(iOS 4.0, *)
   var systemUptime: TimeInterval { get }
   init()

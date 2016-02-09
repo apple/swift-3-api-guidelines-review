@@ -10,13 +10,13 @@ class NSForm : NSMatrix {
   func setTextAlignment(mode: NSTextAlignment)
   func setTitleFont(fontObj: NSFont)
   func setTextFont(fontObj: NSFont)
-  func cellAt(index: Int) -> AnyObject!
-  func drawCellAt(index: Int)
+  func cell(at index: Int) -> AnyObject!
+  func drawCell(at index: Int)
   func addEntry(title: String) -> NSFormCell
   func insertEntry(title: String, at index: Int) -> NSFormCell!
-  func removeEntryAt(index: Int)
-  func indexOfCellWith(tag aTag: Int) -> Int
-  func selectTextAt(index: Int)
+  func removeEntry(at index: Int)
+  func indexOfCell(withTag aTag: Int) -> Int
+  func selectText(at index: Int)
   func setFrameSize(newSize: Size)
   func setTitleBaseWritingDirection(writingDirection: NSWritingDirection)
   func setTextBaseWritingDirection(writingDirection: NSWritingDirection)

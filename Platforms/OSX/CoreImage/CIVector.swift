@@ -13,7 +13,7 @@ class CIVector : Object, Copying, SecureCoding {
   @available(OSX 10.9, *)
   convenience init(cgAffineTransform r: CGAffineTransform)
   convenience init(string representation: String)
-  func valueAt(index: Int) -> CGFloat
+  func value(at index: Int) -> CGFloat
   var count: Int { get }
   var x: CGFloat { get }
   var y: CGFloat { get }

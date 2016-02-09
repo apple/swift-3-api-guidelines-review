@@ -86,6 +86,6 @@ protocol MTLRenderPipelineState : ObjectProtocol {
 }
 @available(tvOS 8.0, *)
 class MTLRenderPipelineColorAttachmentDescriptorArray : Object {
-  subscript (indexedSubscript attachmentIndex: Int) -> MTLRenderPipelineColorAttachmentDescriptor!
+  subscript (atIndexedSubscript attachmentIndex: Int) -> MTLRenderPipelineColorAttachmentDescriptor!
   init()
 }

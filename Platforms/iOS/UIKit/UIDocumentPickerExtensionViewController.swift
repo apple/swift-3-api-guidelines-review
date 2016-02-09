@@ -1,8 +1,8 @@
 
 @available(iOS 8.0, *)
 class UIDocumentPickerExtensionViewController : UIViewController {
-  func dismissGrantingAccessTo(url: URL?)
-  func prepareForPresentationIn(mode: UIDocumentPickerMode)
+  func dismissGrantingAccess(to url: URL?)
+  func prepareForPresentation(in mode: UIDocumentPickerMode)
   var documentPickerMode: UIDocumentPickerMode { get }
   @NSCopying var originalURL: URL? { get }
   var validTypes: [String]? { get }

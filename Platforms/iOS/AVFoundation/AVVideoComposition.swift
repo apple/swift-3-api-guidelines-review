@@ -115,7 +115,7 @@ extension AVAsset {
 }
 extension AVVideoComposition {
   @available(iOS 5.0, *)
-  func isValidFor(asset: AVAsset?, timeRange: CMTimeRange, validationDelegate: AVVideoCompositionValidationHandling?) -> Bool
+  func isValid(forAsset asset: AVAsset?, timeRange: CMTimeRange, validationDelegate: AVVideoCompositionValidationHandling?) -> Bool
 }
 protocol AVVideoCompositionValidationHandling : ObjectProtocol {
   @available(iOS 5.0, *)

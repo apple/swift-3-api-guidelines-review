@@ -6,7 +6,7 @@ class UserActivity : Object {
   var activityType: String { get }
   var title: String?
   var userInfo: [Object : AnyObject]?
-  func addUserInfoEntriesFrom(otherDictionary: [Object : AnyObject])
+  func addUserInfoEntries(from otherDictionary: [Object : AnyObject])
   @available(OSX 10.11, *)
   var requiredUserInfoKeys: Set<String>
   var needsSave: Bool

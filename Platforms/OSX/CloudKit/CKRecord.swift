@@ -15,11 +15,11 @@ class CKRecord : Object, SecureCoding, Copying {
   @NSCopying var creationDate: Date? { get }
   @NSCopying var lastModifiedUserRecordID: CKRecordID? { get }
   @NSCopying var modificationDate: Date? { get }
-  func objectFor(key key: String) -> CKRecordValue?
+  func object(forKey key: String) -> CKRecordValue?
   func setObject(object: CKRecordValue?, forKey key: String)
   func allKeys() -> [String]
   func allTokens() -> [String]
-  subscript (keyedSubscript key: String) -> CKRecordValue?
+  subscript (forKeyedSubscript key: String) -> CKRecordValue?
   func changedKeys() -> [String]
   func encodeSystemFields(coder: Coder)
   @available(OSX 10.10, *)

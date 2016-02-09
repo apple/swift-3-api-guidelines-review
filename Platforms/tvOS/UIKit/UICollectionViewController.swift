@@ -50,7 +50,7 @@ class UICollectionViewController : UIViewController, UICollectionViewDelegate, U
   @available(tvOS 9.0, *)
   func collectionView(collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
   @available(tvOS 9.0, *)
-  func indexPathForPreferredFocusedViewIn(collectionView: UICollectionView) -> IndexPath?
+  func indexPathForPreferredFocusedView(in collectionView: UICollectionView) -> IndexPath?
   @available(tvOS 9.0, *)
   func collectionView(collectionView: UICollectionView, targetIndexPathForMoveFromItemAt originalIndexPath: IndexPath, toProposedIndexPath proposedIndexPath: IndexPath) -> IndexPath
   @available(tvOS 9.0, *)
@@ -78,15 +78,15 @@ class UICollectionViewController : UIViewController, UICollectionViewDelegate, U
   @available(tvOS 6.0, *)
   func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
   @available(tvOS 6.0, *)
-  func scrollViewShouldScrollTo(top scrollView: UIScrollView) -> Bool
+  func scrollViewShouldScroll(toTop scrollView: UIScrollView) -> Bool
   @available(tvOS 6.0, *)
-  func scrollViewDidScrollTo(top scrollView: UIScrollView)
+  func scrollViewDidScroll(toTop scrollView: UIScrollView)
   @available(tvOS 6.0, *)
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
   @available(tvOS 6.0, *)
   func collectionView(collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
   @available(tvOS 6.0, *)
-  func numberOfSectionsIn(collectionView: UICollectionView) -> Int
+  func numberOfSections(in collectionView: UICollectionView) -> Int
   @available(tvOS 6.0, *)
   func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
   @available(tvOS 9.0, *)

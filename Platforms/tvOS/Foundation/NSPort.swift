@@ -9,8 +9,8 @@ class Port : Object, Copying, Coding {
   func scheduleIn(runLoop: RunLoop, forMode mode: String)
   func removeFrom(runLoop: RunLoop, forMode mode: String)
   var reservedSpaceLength: Int { get }
-  func sendBefore(limitDate: Date, components: MutableArray?, from receivePort: Port?, reserved headerSpaceReserved: Int) -> Bool
-  func sendBefore(limitDate: Date, msgid msgID: Int, components: MutableArray?, from receivePort: Port?, reserved headerSpaceReserved: Int) -> Bool
+  func send(before limitDate: Date, components: MutableArray?, from receivePort: Port?, reserved headerSpaceReserved: Int) -> Bool
+  func send(before limitDate: Date, msgid msgID: Int, components: MutableArray?, from receivePort: Port?, reserved headerSpaceReserved: Int) -> Bool
   init()
   func copyWith(zone: Zone = nil) -> AnyObject
   func encodeWith(aCoder: Coder)
@@ -19,12 +19,12 @@ class Port : Object, Copying, Coding {
 protocol PortDelegate : ObjectProtocol {
 }
 class MachPort : Port {
-  class func portWith(machPort machPort: UInt32) -> Port
+  class func port(withMachPort machPort: UInt32) -> Port
   init(machPort: UInt32)
   func setDelegate(anObject: MachPortDelegate?)
   func delegate() -> MachPortDelegate?
   @available(tvOS 2.0, *)
-  class func portWith(machPort machPort: UInt32, options f: MachPortOptions = []) -> Port
+  class func port(withMachPort machPort: UInt32, options f: MachPortOptions = []) -> Port
   @available(tvOS 2.0, *)
   init(machPort: UInt32, options f: MachPortOptions = [])
   var machPort: UInt32 { get }

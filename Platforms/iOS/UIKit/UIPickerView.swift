@@ -5,13 +5,13 @@ class UIPickerView : UIView, Coding, UITableViewDataSource {
   weak var delegate: @sil_weak UIPickerViewDelegate?
   var showsSelectionIndicator: Bool
   var numberOfComponents: Int { get }
-  func numberOfRowsIn(component component: Int) -> Int
-  func rowSizeFor(component component: Int) -> CGSize
-  func viewFor(row row: Int, forComponent component: Int) -> UIView?
+  func numberOfRows(inComponent component: Int) -> Int
+  func rowSize(forComponent component: Int) -> CGSize
+  func view(forRow row: Int, forComponent component: Int) -> UIView?
   func reloadAllComponents()
   func reloadComponent(component: Int)
   func selectRow(row: Int, inComponent component: Int, animated: Bool)
-  func selectedRowIn(component component: Int) -> Int
+  func selectedRow(inComponent component: Int) -> Int
   init(frame: CGRect)
   init?(coder aDecoder: Coder)
   convenience init()
@@ -20,7 +20,7 @@ class UIPickerView : UIView, Coding, UITableViewDataSource {
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
   @available(iOS 2.0, *)
-  func numberOfSectionsIn(tableView: UITableView) -> Int
+  func numberOfSections(in tableView: UITableView) -> Int
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
   @available(iOS 2.0, *)
@@ -30,7 +30,7 @@ class UIPickerView : UIView, Coding, UITableViewDataSource {
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
   @available(iOS 2.0, *)
-  func sectionIndexTitlesFor(tableView: UITableView) -> [String]?
+  func sectionIndexTitles(forTableView tableView: UITableView) -> [String]?
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int
   @available(iOS 2.0, *)
@@ -40,7 +40,7 @@ class UIPickerView : UIView, Coding, UITableViewDataSource {
 }
 protocol UIPickerViewDataSource : ObjectProtocol {
   @available(iOS 2.0, *)
-  func numberOfComponentsIn(pickerView: UIPickerView) -> Int
+  func numberOfComponents(in pickerView: UIPickerView) -> Int
   @available(iOS 2.0, *)
   func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
 }

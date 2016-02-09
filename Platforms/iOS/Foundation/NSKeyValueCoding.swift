@@ -13,62 +13,62 @@ let unionOfObjectsKeyValueOperator: String
 let unionOfSetsKeyValueOperator: String
 extension Object {
   class func accessInstanceVariablesDirectly() -> Bool
-  class func valueFor(key key: String) -> AnyObject?
-  func valueFor(key key: String) -> AnyObject?
+  class func value(forKey key: String) -> AnyObject?
+  func value(forKey key: String) -> AnyObject?
   class func setValue(value: AnyObject?, forKey key: String)
   func setValue(value: AnyObject?, forKey key: String)
   class func validateValue(ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey inKey: String) throws
   func validateValue(ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey inKey: String) throws
-  class func mutableArrayValueFor(key key: String) -> MutableArray
-  func mutableArrayValueFor(key key: String) -> MutableArray
+  class func mutableArrayValue(forKey key: String) -> MutableArray
+  func mutableArrayValue(forKey key: String) -> MutableArray
   @available(iOS 5.0, *)
-  class func mutableOrderedSetValueFor(key key: String) -> MutableOrderedSet
+  class func mutableOrderedSetValue(forKey key: String) -> MutableOrderedSet
   @available(iOS 5.0, *)
-  func mutableOrderedSetValueFor(key key: String) -> MutableOrderedSet
-  class func mutableSetValueFor(key key: String) -> MutableSet
-  func mutableSetValueFor(key key: String) -> MutableSet
-  class func valueFor(keyPath keyPath: String) -> AnyObject?
-  func valueFor(keyPath keyPath: String) -> AnyObject?
+  func mutableOrderedSetValue(forKey key: String) -> MutableOrderedSet
+  class func mutableSetValue(forKey key: String) -> MutableSet
+  func mutableSetValue(forKey key: String) -> MutableSet
+  class func value(forKeyPath keyPath: String) -> AnyObject?
+  func value(forKeyPath keyPath: String) -> AnyObject?
   class func setValue(value: AnyObject?, forKeyPath keyPath: String)
   func setValue(value: AnyObject?, forKeyPath keyPath: String)
   class func validateValue(ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKeyPath inKeyPath: String) throws
   func validateValue(ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKeyPath inKeyPath: String) throws
-  class func mutableArrayValueFor(keyPath keyPath: String) -> MutableArray
-  func mutableArrayValueFor(keyPath keyPath: String) -> MutableArray
+  class func mutableArrayValue(forKeyPath keyPath: String) -> MutableArray
+  func mutableArrayValue(forKeyPath keyPath: String) -> MutableArray
   @available(iOS 5.0, *)
-  class func mutableOrderedSetValueFor(keyPath keyPath: String) -> MutableOrderedSet
+  class func mutableOrderedSetValue(forKeyPath keyPath: String) -> MutableOrderedSet
   @available(iOS 5.0, *)
-  func mutableOrderedSetValueFor(keyPath keyPath: String) -> MutableOrderedSet
-  class func mutableSetValueFor(keyPath keyPath: String) -> MutableSet
-  func mutableSetValueFor(keyPath keyPath: String) -> MutableSet
-  class func valueFor(undefinedKey key: String) -> AnyObject?
-  func valueFor(undefinedKey key: String) -> AnyObject?
+  func mutableOrderedSetValue(forKeyPath keyPath: String) -> MutableOrderedSet
+  class func mutableSetValue(forKeyPath keyPath: String) -> MutableSet
+  func mutableSetValue(forKeyPath keyPath: String) -> MutableSet
+  class func value(forUndefinedKey key: String) -> AnyObject?
+  func value(forUndefinedKey key: String) -> AnyObject?
   class func setValue(value: AnyObject?, forUndefinedKey key: String)
   func setValue(value: AnyObject?, forUndefinedKey key: String)
   class func setNilValueForKey(key: String)
   func setNilValueForKey(key: String)
-  class func dictionaryWithValuesFor(keys keys: [String]) -> [String : AnyObject]
-  func dictionaryWithValuesFor(keys keys: [String]) -> [String : AnyObject]
+  class func dictionaryWithValues(forKeys keys: [String]) -> [String : AnyObject]
+  func dictionaryWithValues(forKeys keys: [String]) -> [String : AnyObject]
   class func setValuesForKeysWith(keyedValues: [String : AnyObject])
   func setValuesForKeysWith(keyedValues: [String : AnyObject])
 }
 extension NSArray {
-  func valueFor(key key: String) -> AnyObject
+  func value(forKey key: String) -> AnyObject
   func setValue(value: AnyObject?, forKey key: String)
 }
 extension NSDictionary {
-  func valueFor(key key: String) -> AnyObject?
+  func value(forKey key: String) -> AnyObject?
 }
 extension MutableDictionary {
   func setValue(value: AnyObject?, forKey key: String)
 }
 extension OrderedSet {
   @available(iOS 5.0, *)
-  func valueFor(key key: String) -> AnyObject
+  func value(forKey key: String) -> AnyObject
   @available(iOS 5.0, *)
   func setValue(value: AnyObject?, forKey key: String)
 }
 extension NSSet {
-  func valueFor(key key: String) -> AnyObject
+  func value(forKey key: String) -> AnyObject
   func setValue(value: AnyObject?, forKey key: String)
 }

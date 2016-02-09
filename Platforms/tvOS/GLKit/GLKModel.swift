@@ -9,15 +9,15 @@ class GLKMeshBufferAllocator : Object, MDLMeshBufferAllocator {
   @available(tvOS 9.0, *)
   func newZone(capacity: Int) -> MDLMeshBufferZone
   @available(tvOS 9.0, *)
-  func newZoneForBuffersWith(size sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
+  func newZoneForBuffers(withSize sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
   @available(tvOS 9.0, *)
   func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(tvOS 9.0, *)
-  func newBufferWith(data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(withData data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(tvOS 9.0, *)
-  func newBufferFrom(zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBuffer(from zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
   @available(tvOS 9.0, *)
-  func newBufferFrom(zone: MDLMeshBufferZone?, data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBuffer(from zone: MDLMeshBufferZone?, data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 @available(tvOS 9.0, *)
 class GLKMeshBuffer : Object, MDLMeshBuffer {
@@ -47,7 +47,7 @@ class GLKSubmesh : Object {
 @available(tvOS 9.0, *)
 class GLKMesh : Object {
   init(mesh: MDLMesh) throws
-  class func newMeshesFrom(asset: MDLAsset, sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [GLKMesh]
+  class func newMeshes(from asset: MDLAsset, sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [GLKMesh]
   var vertexCount: Int { get }
   var vertexBuffers: [GLKMeshBuffer] { get }
   var vertexDescriptor: MDLVertexDescriptor { get }

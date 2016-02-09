@@ -26,10 +26,10 @@ class CIImage : Object, SecureCoding, Copying {
   @available(tvOS 8.0, *)
   func applyingOrientation(orientation: Int32) -> CIImage
   @available(tvOS 8.0, *)
-  func imageTransformFor(orientation orientation: Int32) -> CGAffineTransform
+  func imageTransform(forOrientation orientation: Int32) -> CGAffineTransform
   @available(tvOS 8.0, *)
-  func by(compositingOverImage dest: CIImage) -> CIImage
-  func byCroppingTo(rect: CGRect) -> CIImage
+  func byCompositingOverImage(dest: CIImage) -> CIImage
+  func byCropping(to rect: CGRect) -> CIImage
   @available(tvOS 8.0, *)
   func byClampingToExtent() -> CIImage
   @available(tvOS 8.0, *)
@@ -42,7 +42,7 @@ class CIImage : Object, SecureCoding, Copying {
   @available(tvOS 9.0, *)
   var colorSpace: CGColorSpace? { get }
   @available(tvOS 6.0, *)
-  func regionOfInterestFor(image: CIImage, in rect: CGRect) -> CGRect
+  func regionOfInterest(forImage image: CIImage, in rect: CGRect) -> CGRect
   init()
   @available(tvOS 5.0, *)
   class func supportsSecureCoding() -> Bool

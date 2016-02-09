@@ -11,12 +11,12 @@ class SKPhysicsWorld : Object, Coding {
   func remove(joint: SKPhysicsJoint)
   func removeAllJoints()
   @available(OSX 10.10, *)
-  func sampleFieldsAt(position: vector_float3) -> vector_float3
-  func bodyAt(point: CGPoint) -> SKPhysicsBody?
-  func bodyIn(rect: CGRect) -> SKPhysicsBody?
+  func sampleFields(at position: vector_float3) -> vector_float3
+  func body(at point: CGPoint) -> SKPhysicsBody?
+  func body(in rect: CGRect) -> SKPhysicsBody?
   func bodyAlongRayStart(start: CGPoint, end: CGPoint) -> SKPhysicsBody?
-  func enumerateBodiesAt(point: CGPoint, usingBlock block: (SKPhysicsBody, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func enumerateBodiesIn(rect: CGRect, usingBlock block: (SKPhysicsBody, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateBodies(at point: CGPoint, usingBlock block: (SKPhysicsBody, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateBodies(in rect: CGRect, usingBlock block: (SKPhysicsBody, UnsafeMutablePointer<ObjCBool>) -> Void)
   func enumerateBodiesAlongRayStart(start: CGPoint, end: CGPoint, usingBlock block: (SKPhysicsBody, CGPoint, CGVector, UnsafeMutablePointer<ObjCBool>) -> Void)
   init()
   func encodeWith(aCoder: Coder)

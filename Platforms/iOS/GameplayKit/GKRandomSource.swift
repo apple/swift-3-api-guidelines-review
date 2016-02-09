@@ -1,7 +1,7 @@
 
 protocol GKRandom {
   func nextInt() -> Int
-  func nextIntWith(upperBound upperBound: Int) -> Int
+  func nextInt(withUpperBound upperBound: Int) -> Int
   func nextUniform() -> Float
   func nextBool() -> Bool
 }
@@ -10,11 +10,11 @@ class GKRandomSource : Object, GKRandom, SecureCoding, Copying {
   init()
   init(coder aDecoder: Coder)
   class func sharedRandom() -> GKRandomSource
-  func arrayByShufflingObjectsIn(array: [AnyObject]) -> [AnyObject]
+  func arrayByShufflingObjects(in array: [AnyObject]) -> [AnyObject]
   @available(iOS 9.0, *)
   func nextInt() -> Int
   @available(iOS 9.0, *)
-  func nextIntWith(upperBound upperBound: Int) -> Int
+  func nextInt(withUpperBound upperBound: Int) -> Int
   @available(iOS 9.0, *)
   func nextUniform() -> Float
   @available(iOS 9.0, *)

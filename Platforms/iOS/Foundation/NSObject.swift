@@ -16,10 +16,10 @@ extension Object {
   class func version() -> Int
   class func setVersion(aVersion: Int)
   var classForCoder: AnyClass { get }
-  class func replacementObjectFor(aCoder: Coder) -> AnyObject?
-  func replacementObjectFor(aCoder: Coder) -> AnyObject?
-  class func awakeAfterUsing(aDecoder: Coder) -> AnyObject?
-  func awakeAfterUsing(aDecoder: Coder) -> AnyObject?
+  class func replacementObject(forCoder aCoder: Coder) -> AnyObject?
+  func replacementObject(forCoder aCoder: Coder) -> AnyObject?
+  class func awakeAfter(usingCoder aDecoder: Coder) -> AnyObject?
+  func awakeAfter(usingCoder aDecoder: Coder) -> AnyObject?
   class func classForCoder() -> AnyClass
 }
 protocol DiscardableContent {

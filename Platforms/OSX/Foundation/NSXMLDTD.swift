@@ -7,14 +7,14 @@ class XMLDTD : XMLNode {
   var systemID: String?
   func insertChild(child: XMLNode, at index: Int)
   func insertChildren(children: [XMLNode], at index: Int)
-  func removeChildAt(index: Int)
+  func removeChild(at index: Int)
   func setChildren(children: [XMLNode]?)
   func addChild(child: XMLNode)
-  func replaceChildAt(index: Int, withNode node: XMLNode)
-  func entityDeclarationFor(name name: String) -> XMLDTDNode?
-  func notationDeclarationFor(name name: String) -> XMLDTDNode?
-  func elementDeclarationFor(name name: String) -> XMLDTDNode?
-  func attributeDeclarationFor(name name: String, elementName: String) -> XMLDTDNode?
-  class func predefinedEntityDeclarationFor(name name: String) -> XMLDTDNode?
+  func replaceChild(at index: Int, withNode node: XMLNode)
+  func entityDeclaration(forName name: String) -> XMLDTDNode?
+  func notationDeclaration(forName name: String) -> XMLDTDNode?
+  func elementDeclaration(forName name: String) -> XMLDTDNode?
+  func attributeDeclaration(forName name: String, elementName: String) -> XMLDTDNode?
+  class func predefinedEntityDeclaration(forName name: String) -> XMLDTDNode?
   convenience init(kind: XMLNodeKind)
 }

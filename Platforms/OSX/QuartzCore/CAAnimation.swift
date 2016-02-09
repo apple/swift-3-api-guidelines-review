@@ -1,7 +1,7 @@
 
 class CAAnimation : Object, Coding, Copying, CAMediaTiming, CAAction {
-  class func defaultValueFor(key key: String) -> AnyObject?
-  func shouldArchiveValueFor(key key: String) -> Bool
+  class func defaultValue(forKey key: String) -> AnyObject?
+  func shouldArchiveValue(forKey key: String) -> Bool
   var timingFunction: CAMediaTimingFunction?
   var delegate: AnyObject?
   var isRemovedOnCompletion: Bool
@@ -18,7 +18,7 @@ class CAAnimation : Object, Coding, Copying, CAMediaTiming, CAAction {
   var autoreverses: Bool
   var fillMode: String
   @available(OSX 10.0, *)
-  func runActionFor(key event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
+  func runAction(forKey event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
 }
 extension Object {
   class func animationDidStart(anim: CAAnimation)

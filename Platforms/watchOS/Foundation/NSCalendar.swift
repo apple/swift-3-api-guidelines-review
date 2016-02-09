@@ -163,13 +163,13 @@ class Calendar : Object, Copying, SecureCoding {
   var amSymbol: String { get }
   @available(watchOS 2.0, *)
   var pmSymbol: String { get }
-  func minimumRangeOf(unit: CalendarUnit) -> NSRange
-  func maximumRangeOf(unit: CalendarUnit) -> NSRange
-  func rangeOf(smaller: CalendarUnit, in larger: CalendarUnit, forDate date: Date) -> NSRange
-  func ordinalityOf(smaller: CalendarUnit, in larger: CalendarUnit, forDate date: Date) -> Int
+  func minimumRange(of unit: CalendarUnit) -> NSRange
+  func maximumRange(of unit: CalendarUnit) -> NSRange
+  func range(of smaller: CalendarUnit, in larger: CalendarUnit, forDate date: Date) -> NSRange
+  func ordinality(of smaller: CalendarUnit, in larger: CalendarUnit, forDate date: Date) -> Int
   @available(watchOS 2.0, *)
-  func rangeOf(unit: CalendarUnit, start datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, forDate date: Date) -> Bool
-  func dateFrom(comps: DateComponents) -> Date?
+  func range(of unit: CalendarUnit, start datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, forDate date: Date) -> Bool
+  func date(from comps: DateComponents) -> Date?
   func components(unitFlags: CalendarUnit, from date: Date) -> DateComponents
   func dateByAdding(comps: DateComponents, to date: Date, options opts: CalendarOptions = []) -> Date?
   func components(unitFlags: CalendarUnit, from startingDate: Date, to resultDate: Date, options opts: CalendarOptions = []) -> DateComponents
@@ -182,11 +182,11 @@ class Calendar : Object, Copying, SecureCoding {
   @available(watchOS 2.0, *)
   func component(unit: CalendarUnit, from date: Date) -> Int
   @available(watchOS 2.0, *)
-  func dateWith(era eraValue: Int, year yearValue: Int, month monthValue: Int, day dayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
+  func date(withEra eraValue: Int, year yearValue: Int, month monthValue: Int, day dayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
   @available(watchOS 2.0, *)
-  func dateWith(era eraValue: Int, yearForWeekOfYear yearValue: Int, weekOfYear weekValue: Int, weekday weekdayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
+  func date(withEra eraValue: Int, yearForWeekOfYear yearValue: Int, weekOfYear weekValue: Int, weekday weekdayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
   @available(watchOS 2.0, *)
-  func startOfDayFor(date: Date) -> Date
+  func startOfDay(forDate date: Date) -> Date
   @available(watchOS 2.0, *)
   func componentsIn(timezone: TimeZone, from date: Date) -> DateComponents
   @available(watchOS 2.0, *)
@@ -196,13 +196,13 @@ class Calendar : Object, Copying, SecureCoding {
   @available(watchOS 2.0, *)
   func isDate(date1: Date, inSameDayAs date2: Date) -> Bool
   @available(watchOS 2.0, *)
-  func isDateIn(today date: Date) -> Bool
+  func isDate(inToday date: Date) -> Bool
   @available(watchOS 2.0, *)
-  func isDateIn(yesterday date: Date) -> Bool
+  func isDate(inYesterday date: Date) -> Bool
   @available(watchOS 2.0, *)
-  func isDateIn(tomorrow date: Date) -> Bool
+  func isDate(inTomorrow date: Date) -> Bool
   @available(watchOS 2.0, *)
-  func isDateIn(weekend date: Date) -> Bool
+  func isDate(inWeekend date: Date) -> Bool
   @available(watchOS 2.0, *)
   func rangeOfWeekendStart(datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, containing date: Date) -> Bool
   @available(watchOS 2.0, *)
@@ -212,17 +212,17 @@ class Calendar : Object, Copying, SecureCoding {
   @available(watchOS 2.0, *)
   func dateByAdding(unit: CalendarUnit, value: Int, to date: Date, options: CalendarOptions = []) -> Date?
   @available(watchOS 2.0, *)
-  func enumerateDatesStartingAfter(start: Date, matching comps: DateComponents, options opts: CalendarOptions = [], usingBlock block: (Date?, Bool, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateDatesStarting(after start: Date, matching comps: DateComponents, options opts: CalendarOptions = [], usingBlock block: (Date?, Bool, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
-  func nextDateAfter(date: Date, matching comps: DateComponents, options: CalendarOptions = []) -> Date?
+  func nextDate(after date: Date, matching comps: DateComponents, options: CalendarOptions = []) -> Date?
   @available(watchOS 2.0, *)
-  func nextDateAfter(date: Date, matching unit: CalendarUnit, value: Int, options: CalendarOptions = []) -> Date?
+  func nextDate(after date: Date, matching unit: CalendarUnit, value: Int, options: CalendarOptions = []) -> Date?
   @available(watchOS 2.0, *)
-  func nextDateAfter(date: Date, matchingHour hourValue: Int, minute minuteValue: Int, second secondValue: Int, options: CalendarOptions = []) -> Date?
+  func nextDate(after date: Date, matchingHour hourValue: Int, minute minuteValue: Int, second secondValue: Int, options: CalendarOptions = []) -> Date?
   @available(watchOS 2.0, *)
-  func dateBy(settingUnit unit: CalendarUnit, value v: Int, of date: Date, options opts: CalendarOptions = []) -> Date?
+  func date(bySettingUnit unit: CalendarUnit, value v: Int, of date: Date, options opts: CalendarOptions = []) -> Date?
   @available(watchOS 2.0, *)
-  func dateBy(settingHour h: Int, minute m: Int, second s: Int, of date: Date, options opts: CalendarOptions = []) -> Date?
+  func date(bySettingHour h: Int, minute m: Int, second s: Int, of date: Date, options opts: CalendarOptions = []) -> Date?
   @available(watchOS 2.0, *)
   func date(date: Date, matchesComponents components: DateComponents) -> Bool
   func copyWith(zone: Zone = nil) -> AnyObject
@@ -270,11 +270,11 @@ class DateComponents : Object, Copying, SecureCoding {
   @available(watchOS 2.0, *)
   func setValue(value: Int, forComponent unit: CalendarUnit)
   @available(watchOS 2.0, *)
-  func valueFor(component unit: CalendarUnit) -> Int
+  func value(forComponent unit: CalendarUnit) -> Int
   @available(watchOS 2.0, *)
   var isValidDate: Bool { get }
   @available(watchOS 2.0, *)
-  func isValidDateIn(calendar: Calendar) -> Bool
+  func isValidDate(in calendar: Calendar) -> Bool
   init()
   func copyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool

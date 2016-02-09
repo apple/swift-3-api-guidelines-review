@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 class PHCollectionListChangeRequest : Object {
-  class func creationRequestForCollectionListWith(title title: String) -> Self
+  class func creationRequestForCollectionList(withTitle title: String) -> Self
   var placeholderForCreatedCollectionList: PHObjectPlaceholder { get }
   class func deleteCollectionLists(collectionLists: FastEnumeration)
   convenience init?(forCollectionList collectionList: PHCollectionList)
@@ -10,8 +10,8 @@ class PHCollectionListChangeRequest : Object {
   func addChildCollections(collections: FastEnumeration)
   func insertChildCollections(collections: FastEnumeration, at indexes: IndexSet)
   func removeChildCollections(collections: FastEnumeration)
-  func removeChildCollectionsAt(indexes: IndexSet)
-  func replaceChildCollectionsAt(indexes: IndexSet, withChildCollections collections: FastEnumeration)
-  func moveChildCollectionsAt(indexes: IndexSet, to toIndex: Int)
+  func removeChildCollections(at indexes: IndexSet)
+  func replaceChildCollections(at indexes: IndexSet, withChildCollections collections: FastEnumeration)
+  func moveChildCollections(at indexes: IndexSet, to toIndex: Int)
   init()
 }

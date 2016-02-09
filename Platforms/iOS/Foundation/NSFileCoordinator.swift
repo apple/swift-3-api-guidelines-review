@@ -21,8 +21,8 @@ struct FileCoordinatorWritingOptions : OptionSetType {
 }
 @available(iOS 8.0, *)
 class FileAccessIntent : Object {
-  class func readingIntentWith(url: URL, options: FileCoordinatorReadingOptions = []) -> Self
-  class func writingIntentWith(url: URL, options: FileCoordinatorWritingOptions = []) -> Self
+  class func readingIntent(withURL url: URL, options: FileCoordinatorReadingOptions = []) -> Self
+  class func writingIntent(withURL url: URL, options: FileCoordinatorWritingOptions = []) -> Self
   @NSCopying var url: URL { get }
   init()
 }
@@ -35,15 +35,15 @@ class FileCoordinator : Object {
   @available(iOS 5.0, *)
   var purposeIdentifier: String
   @available(iOS 8.0, *)
-  func coordinateAccessWith(intents: [FileAccessIntent], queue: OperationQueue, byAccessor accessor: (Error?) -> Void)
-  func coordinateReadingItemAt(url: URL, options: FileCoordinatorReadingOptions = [], error outError: ErrorPointer, byAccessor reader: (URL) -> Void)
-  func coordinateWritingItemAt(url: URL, options: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor writer: (URL) -> Void)
-  func coordinateReadingItemAt(readingURL: URL, options readingOptions: FileCoordinatorReadingOptions = [], writingItemAt writingURL: URL, options writingOptions: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor readerWriter: (URL, URL) -> Void)
-  func coordinateWritingItemAt(url1: URL, options options1: FileCoordinatorWritingOptions = [], writingItemAt url2: URL, options options2: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor writer: (URL, URL) -> Void)
-  func prepareForReadingItemsAt(readingURLs: [URL], options readingOptions: FileCoordinatorReadingOptions = [], writingItemsAt writingURLs: [URL], options writingOptions: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor batchAccessor: (() -> Void) -> Void)
+  func coordinateAccess(withIntents intents: [FileAccessIntent], queue: OperationQueue, byAccessor accessor: (Error?) -> Void)
+  func coordinateReadingItem(at url: URL, options: FileCoordinatorReadingOptions = [], error outError: ErrorPointer, byAccessor reader: (URL) -> Void)
+  func coordinateWritingItem(at url: URL, options: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor writer: (URL) -> Void)
+  func coordinateReadingItem(at readingURL: URL, options readingOptions: FileCoordinatorReadingOptions = [], writingItemAt writingURL: URL, options writingOptions: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor readerWriter: (URL, URL) -> Void)
+  func coordinateWritingItem(at url1: URL, options options1: FileCoordinatorWritingOptions = [], writingItemAt url2: URL, options options2: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor writer: (URL, URL) -> Void)
+  func prepareForReadingItems(at readingURLs: [URL], options readingOptions: FileCoordinatorReadingOptions = [], writingItemsAt writingURLs: [URL], options writingOptions: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor batchAccessor: (() -> Void) -> Void)
   @available(iOS 6.0, *)
-  func itemAt(oldURL: URL, willMoveTo newURL: URL)
-  func itemAt(oldURL: URL, didMoveTo newURL: URL)
+  func item(at oldURL: URL, willMoveTo newURL: URL)
+  func item(at oldURL: URL, didMoveTo newURL: URL)
   func cancel()
   convenience init()
 }

@@ -22,7 +22,7 @@ class CWNetwork : Object, Copying, SecureCoding {
   @available(OSX 10.7, *)
   var ibss: Bool { get }
   @available(OSX 10.6, *)
-  func isEqualTo(network: CWNetwork) -> Bool
+  func isEqual(to network: CWNetwork) -> Bool
   @available(OSX 10.7, *)
   func supportsSecurity(security: CWSecurity) -> Bool
   @available(OSX 10.8, *)

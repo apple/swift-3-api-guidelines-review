@@ -1,8 +1,8 @@
 
 @available(OSX 10.9, *)
 class MKDistanceFormatter : Formatter {
-  func stringFrom(distance distance: CLLocationDistance) -> String
-  func distanceFrom(distance: String) -> CLLocationDistance
+  func string(fromDistance distance: CLLocationDistance) -> String
+  func distance(from distance: String) -> CLLocationDistance
   @NSCopying var locale: Locale!
   var units: MKDistanceFormatterUnits
   var unitStyle: MKDistanceFormatterUnitStyle

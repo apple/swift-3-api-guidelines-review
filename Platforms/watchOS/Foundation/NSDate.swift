@@ -18,7 +18,7 @@ extension Date : CustomPlaygroundQuickLookable {
   func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 extension Date {
-  func timeIntervalSince(anotherDate: Date) -> TimeInterval
+  func timeInterval(since anotherDate: Date) -> TimeInterval
   var timeIntervalSinceNow: TimeInterval { get }
   var timeIntervalSince1970: TimeInterval { get }
   @available(watchOS, introduced=2.0, deprecated=2.0)
@@ -28,9 +28,9 @@ extension Date {
   func earlierDate(anotherDate: Date) -> Date
   func laterDate(anotherDate: Date) -> Date
   func compare(other: Date) -> ComparisonResult
-  func isEqualTo(otherDate: Date) -> Bool
+  func isEqual(to otherDate: Date) -> Bool
   var description: String { get }
-  func descriptionWith(locale locale: AnyObject?) -> String
+  func description(withLocale locale: AnyObject?) -> String
   class func timeIntervalSinceReferenceDate() -> TimeInterval
 }
 extension Date {

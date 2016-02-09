@@ -106,12 +106,12 @@ enum NSWindowTitleVisibility : Int {
 }
 var NSEventDurationForever: Double { get }
 class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceValidations, NSUserInterfaceItemIdentification, NSAppearanceCustomization, NSAccessibilityElementProtocol, NSAccessibility {
-  class func frameRectFor(contentRect cRect: Rect, styleMask aStyle: Int) -> Rect
-  class func contentRectFor(frameRect fRect: Rect, styleMask aStyle: Int) -> Rect
-  class func minFrameWidthWith(title aTitle: String, styleMask aStyle: Int) -> CGFloat
+  class func frameRect(forContentRect cRect: Rect, styleMask aStyle: Int) -> Rect
+  class func contentRect(forFrameRect fRect: Rect, styleMask aStyle: Int) -> Rect
+  class func minFrameWidth(withTitle aTitle: String, styleMask aStyle: Int) -> CGFloat
   class func defaultDepthLimit() -> NSWindowDepth
-  func frameRectFor(contentRect contentRect: Rect) -> Rect
-  func contentRectFor(frameRect frameRect: Rect) -> Rect
+  func frameRect(forContentRect contentRect: Rect) -> Rect
+  func contentRect(forFrameRect frameRect: Rect) -> Rect
   init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
   convenience init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   var title: String
@@ -130,7 +130,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.10, *)
   func insertTitlebarAccessoryViewController(childViewController: NSTitlebarAccessoryViewController, at index: Int)
   @available(OSX 10.10, *)
-  func removeTitlebarAccessoryViewControllerAt(index: Int)
+  func removeTitlebarAccessoryViewController(at index: Int)
   @available(OSX 10.5, *)
   @NSCopying var representedURL: URL?
   var representedFilename: String
@@ -141,13 +141,13 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   var windowNumber: Int { get }
   var styleMask: Int
   func fieldEditor(createFlag: Bool, forObject anObject: AnyObject?) -> NSText?
-  func endEditingFor(anObject: AnyObject?)
+  func endEditing(for anObject: AnyObject?)
   func constrainFrameRect(frameRect: Rect, to screen: NSScreen?) -> Rect
   func setFrame(frameRect: Rect, display flag: Bool)
   func setContentSize(aSize: Size)
   func setFrameOrigin(aPoint: Point)
   func setFrameTopLeftPoint(aPoint: Point)
-  func cascadeTopLeftFrom(topLeftPoint: Point) -> Point
+  func cascadeTopLeft(from topLeftPoint: Point) -> Point
   var frame: Rect { get }
   func animationResizeTime(newFrame: Rect) -> TimeInterval
   func setFrame(frameRect: Rect, display displayFlag: Bool, animate animateFlag: Bool)
@@ -186,11 +186,11 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.5, *)
   func setContentBorderThickness(thickness: CGFloat, forEdge edge: RectEdge)
   @available(OSX 10.5, *)
-  func contentBorderThicknessFor(edge: RectEdge) -> CGFloat
+  func contentBorderThickness(forEdge edge: RectEdge) -> CGFloat
   @available(OSX 10.5, *)
   func setAutorecalculatesContentBorderThickness(flag: Bool, forEdge edge: RectEdge)
   @available(OSX 10.5, *)
-  func autorecalculatesContentBorderThicknessFor(edge: RectEdge) -> Bool
+  func autorecalculatesContentBorderThickness(forEdge edge: RectEdge) -> Bool
   @available(OSX 10.6, *)
   var isMovable: Bool
   var isMovableByWindowBackground: Bool
@@ -223,9 +223,9 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.6, *)
   var preventsApplicationTerminationWhenModal: Bool
   @available(OSX 10.7, *)
-  func convertRectTo(screen aRect: Rect) -> Rect
+  func convertRect(toScreen aRect: Rect) -> Rect
   @available(OSX 10.7, *)
-  func convertRectFrom(screen aRect: Rect) -> Rect
+  func convertRect(fromScreen aRect: Rect) -> Rect
   @available(OSX 10.7, *)
   func convertRectToBacking(aRect: Rect) -> Rect
   @available(OSX 10.7, *)
@@ -238,15 +238,15 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   func performMiniaturize(sender: AnyObject?)
   func performZoom(sender: AnyObject?)
   var isOneShot: Bool
-  func dataWithEPSInside(rect: Rect) -> Data
-  func dataWithPDFInside(rect: Rect) -> Data
+  func dataWithEPS(inside rect: Rect) -> Data
+  func dataWithPDF(inside rect: Rect) -> Data
   @warn_unqualified_access
   func print(sender: AnyObject?)
   func disableCursorRects()
   func enableCursorRects()
   func discardCursorRects()
   var areCursorRectsEnabled: Bool { get }
-  func invalidateCursorRectsFor(aView: NSView)
+  func invalidateCursorRects(forView aView: NSView)
   func resetCursorRects()
   var allowsToolTipsWhenApplicationIsInactive: Bool
   var backingType: NSBackingStoreType
@@ -282,13 +282,13 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   func toggleFullScreen(sender: AnyObject?)
   var stringWithSavedFrame: String { get }
   func setFrameFrom(string: String)
-  func saveFrameUsing(name name: String)
+  func saveFrame(usingName name: String)
   func setFrameUsingName(name: String, force: Bool) -> Bool
   func setFrameUsingName(name: String) -> Bool
   func setFrameAutosaveName(name: String) -> Bool
   var frameAutosaveName: String { get }
-  class func removeFrameUsing(name name: String)
-  func cacheImageIn(aRect: Rect)
+  class func removeFrame(usingName name: String)
+  func cacheImage(in aRect: Rect)
   func restoreCachedImage()
   func discardCachedImage()
   var minSize: Size
@@ -300,10 +300,10 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.11, *)
   var maxFullScreenContentSize: Size
   @available(OSX 10.10, *)
-  func trackEventsMatching(mask: NSEventMask, timeout: TimeInterval, mode: String, handler trackingHandler: (NSEvent, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func nextEventMatching(mask mask: Int) -> NSEvent?
-  func nextEventMatching(mask mask: Int, until expiration: Date?, inMode mode: String, dequeue deqFlag: Bool) -> NSEvent?
-  func discardEventsMatching(mask mask: Int, before lastEvent: NSEvent?)
+  func trackEvents(matching mask: NSEventMask, timeout: TimeInterval, mode: String, handler trackingHandler: (NSEvent, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func nextEvent(matchingMask mask: Int) -> NSEvent?
+  func nextEvent(matchingMask mask: Int, until expiration: Date?, inMode mode: String, dequeue deqFlag: Bool) -> NSEvent?
+  func discardEvents(matchingMask mask: Int, before lastEvent: NSEvent?)
   func post(event: NSEvent, atStart flag: Bool)
   var currentEvent: NSEvent? { get }
   var acceptsMouseMovedEvents: Bool
@@ -336,9 +336,9 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.6, *)
   var colorSpace: NSColorSpace?
   @available(OSX 10.6, *)
-  class func windowNumbersWith(options options: NSWindowNumberListOptions) -> [Number]?
+  class func windowNumbers(withOptions options: NSWindowNumberListOptions) -> [Number]?
   @available(OSX 10.6, *)
-  class func windowNumberAt(point: Point, belowWindowWithWindowNumber windowNumber: Int) -> Int
+  class func windowNumber(at point: Point, belowWindowWithWindowNumber windowNumber: Int) -> Int
   @available(OSX 10.9, *)
   var occlusionState: NSWindowOcclusionState { get }
   @available(OSX 10.10, *)
@@ -354,9 +354,9 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.5, *)
   var animations: [String : AnyObject]
   @available(OSX 10.5, *)
-  func animationFor(key key: String) -> AnyObject?
+  func animation(forKey key: String) -> AnyObject?
   @available(OSX 10.5, *)
-  class func defaultAnimationFor(key key: String) -> AnyObject?
+  class func defaultAnimation(forKey key: String) -> AnyObject?
   func validate(anItem: NSValidatedUserInterfaceItem) -> Bool
   var identifier: String?
   @available(OSX 10.9, *)
@@ -368,33 +368,33 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   func isAccessibilityFocused() -> Bool
   func accessibilityIdentifier() -> String
   @available(OSX 10.10, *)
-  func accessibilityLayoutPointFor(screenPoint point: Point) -> Point
+  func accessibilityLayoutPoint(forScreenPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityLayoutSizeFor(screenSize size: Size) -> Size
+  func accessibilityLayoutSize(forScreenSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityScreenPointFor(layoutPoint point: Point) -> Point
+  func accessibilityScreenPoint(forLayoutPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityScreenSizeFor(layoutSize size: Size) -> Size
+  func accessibilityScreenSize(forLayoutSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityCellFor(column column: Int, row: Int) -> AnyObject?
+  func accessibilityCell(forColumn column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
-  func accessibilityAttributedStringFor(range: NSRange) -> AttributedString?
+  func accessibilityAttributedString(forRange range: NSRange) -> AttributedString?
   @available(OSX 10.10, *)
-  func accessibilityRangeFor(line line: Int) -> NSRange
+  func accessibilityRange(forLine line: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityStringFor(range: NSRange) -> String?
+  func accessibilityString(forRange range: NSRange) -> String?
   @available(OSX 10.10, *)
-  func accessibilityRangeFor(position point: Point) -> NSRange
+  func accessibilityRange(forPosition point: Point) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityRangeFor(index: Int) -> NSRange
+  func accessibilityRange(forIndex index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityFrameFor(range: NSRange) -> Rect
+  func accessibilityFrame(forRange range: NSRange) -> Rect
   @available(OSX 10.10, *)
-  func accessibilityRTFFor(range: NSRange) -> Data?
+  func accessibilityRTF(forRange range: NSRange) -> Data?
   @available(OSX 10.10, *)
-  func accessibilityStyleRangeFor(index: Int) -> NSRange
+  func accessibilityStyleRange(forIndex index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityLineFor(index: Int) -> Int
+  func accessibilityLine(forIndex index: Int) -> Int
   @available(OSX 10.10, *)
   func accessibilityPerformCancel() -> Bool
   @available(OSX 10.10, *)
@@ -950,7 +950,7 @@ extension NSWindow {
   unowned(unsafe) var initialFirstResponder: @sil_unmanaged NSView?
   func selectNextKeyView(sender: AnyObject?)
   func selectPreviousKeyView(sender: AnyObject?)
-  func selectKeyViewFollowing(aView: NSView)
+  func selectKeyView(following aView: NSView)
   func selectKeyViewPreceding(aView: NSView)
   var keyViewSelectionDirection: NSSelectionDirection { get }
   var defaultButtonCell: NSButtonCell?
@@ -967,7 +967,7 @@ extension NSWindow {
 }
 extension NSWindow {
   func drag(anImage: NSImage, at baseLocation: Point, offset initialOffset: Size, event: NSEvent, pasteboard pboard: NSPasteboard, source sourceObj: AnyObject, slideBack slideFlag: Bool)
-  func registerFor(draggedTypes newTypes: [String])
+  func register(forDraggedTypes newTypes: [String])
   func unregisterDraggedTypes()
 }
 extension NSWindow {
@@ -1002,21 +1002,21 @@ protocol NSWindowDelegate : ObjectProtocol {
   @available(OSX 10.7, *)
   optional func window(window: NSWindow, willUseFullScreenPresentationOptions proposedOptions: NSApplicationPresentationOptions = []) -> NSApplicationPresentationOptions
   @available(OSX 10.7, *)
-  optional func customWindowsToEnterFullScreenFor(window: NSWindow) -> [NSWindow]?
+  optional func customWindowsToEnterFullScreen(forWindow window: NSWindow) -> [NSWindow]?
   @available(OSX 10.7, *)
   optional func window(window: NSWindow, startCustomAnimationToEnterFullScreenWithDuration duration: TimeInterval)
   @available(OSX 10.7, *)
   optional func windowDidFailToEnterFullScreen(window: NSWindow)
   @available(OSX 10.7, *)
-  optional func customWindowsToExitFullScreenFor(window: NSWindow) -> [NSWindow]?
+  optional func customWindowsToExitFullScreen(forWindow window: NSWindow) -> [NSWindow]?
   @available(OSX 10.7, *)
   optional func window(window: NSWindow, startCustomAnimationToExitFullScreenWithDuration duration: TimeInterval)
   @available(OSX 10.9, *)
-  optional func customWindowsToEnterFullScreenFor(window: NSWindow, on screen: NSScreen) -> [NSWindow]?
+  optional func customWindowsToEnterFullScreen(forWindow window: NSWindow, on screen: NSScreen) -> [NSWindow]?
   @available(OSX 10.9, *)
   optional func window(window: NSWindow, startCustomAnimationToEnterFullScreenOn screen: NSScreen, withDuration duration: TimeInterval)
   @available(OSX 10.7, *)
-  optional func windowDidFailTo(exitFullScreen window: NSWindow)
+  optional func windowDidFail(toExitFullScreen window: NSWindow)
   @available(OSX 10.7, *)
   optional func window(window: NSWindow, willResizeForVersionBrowserWithMaxPreferredSize maxPreferredFrameSize: Size, maxAllowedSize maxAllowedFrameSize: Size) -> Size
   @available(OSX 10.7, *)

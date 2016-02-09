@@ -14,7 +14,7 @@ class JSValue : Object {
   /*not inherited*/ init!(nullIn context: JSContext!)
   /*not inherited*/ init!(undefinedIn context: JSContext!)
   func toObject() -> AnyObject!
-  func toObjectOf(expectedClass: AnyClass!) -> AnyObject!
+  func toObject(of expectedClass: AnyClass!) -> AnyObject!
   func toBool() -> Bool
   func toDouble() -> Double
   func toInt32() -> Int32
@@ -29,7 +29,7 @@ class JSValue : Object {
   func deleteProperty(property: String!) -> Bool
   func hasProperty(property: String!) -> Bool
   func defineProperty(property: String!, descriptor: AnyObject!)
-  func at(index: Int) -> JSValue!
+  func atIndex(index: Int) -> JSValue!
   func setValue(value: AnyObject!, at index: Int)
   var isUndefined: Bool { get }
   var isNull: Bool { get }
@@ -41,11 +41,11 @@ class JSValue : Object {
   var isArray: Bool { get }
   @available(iOS 9.0, *)
   var isDate: Bool { get }
-  func isEqualTo(value: AnyObject!) -> Bool
-  func isEqualWithTypeCoercionTo(value: AnyObject!) -> Bool
-  func isInstanceOf(value: AnyObject!) -> Bool
+  func isEqual(to value: AnyObject!) -> Bool
+  func isEqualWithTypeCoercion(to value: AnyObject!) -> Bool
+  func isInstance(of value: AnyObject!) -> Bool
   func call(arguments arguments: [AnyObject]!) -> JSValue!
-  func constructWith(arguments arguments: [AnyObject]!) -> JSValue!
+  func construct(withArguments arguments: [AnyObject]!) -> JSValue!
   func invokeMethod(method: String!, withArguments arguments: [AnyObject]!) -> JSValue!
   init()
 }
@@ -60,8 +60,8 @@ extension JSValue {
   func toSize() -> CGSize
 }
 extension JSValue {
-  func objectFor(keyedSubscript key: AnyObject!) -> JSValue!
-  func objectAt(indexedSubscript index: Int) -> JSValue!
+  func object(forKeyedSubscript key: AnyObject!) -> JSValue!
+  func object(atIndexedSubscript index: Int) -> JSValue!
   func setObject(object: AnyObject!, forKeyedSubscript key: protocol<Copying, ObjectProtocol>!)
   func setObject(object: AnyObject!, atIndexedSubscript index: Int)
 }

@@ -2,7 +2,7 @@
 class SFAuthorization : Object, Coding {
   class func authorization() -> AnyObject!
   func authorizationRef() -> AuthorizationRef
-  class func authorizationWith(flags: AuthorizationFlags, rights: UnsafePointer<AuthorizationRights>, environment: UnsafePointer<AuthorizationEnvironment>) -> AnyObject!
+  class func authorization(withFlags flags: AuthorizationFlags, rights: UnsafePointer<AuthorizationRights>, environment: UnsafePointer<AuthorizationEnvironment>) -> AnyObject!
   init!(flags: AuthorizationFlags, rights: UnsafePointer<AuthorizationRights>, environment: UnsafePointer<AuthorizationEnvironment>)
   init!()
   func invalidateCredentials()

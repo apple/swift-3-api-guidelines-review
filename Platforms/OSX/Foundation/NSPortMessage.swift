@@ -4,7 +4,7 @@ class PortMessage : Object {
   var components: [AnyObject]? { get }
   var receivePort: Port? { get }
   var sendPort: Port? { get }
-  func sendBefore(date: Date) -> Bool
+  func send(before date: Date) -> Bool
   var msgid: UInt32
   convenience init()
 }

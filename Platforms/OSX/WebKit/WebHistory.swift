@@ -8,14 +8,14 @@ let WebHistoryItemsKey: String
 class WebHistory : Object {
   class func optionalShared() -> WebHistory!
   class func setOptionalSharedHistory(history: WebHistory!)
-  func loadFrom(URL: URL!) throws
-  func saveTo(URL: URL!) throws
+  func load(from URL: URL!) throws
+  func save(to URL: URL!) throws
   func addItems(newItems: [AnyObject]!)
   func removeItems(items: [AnyObject]!)
   func removeAllItems()
   var orderedLastVisitedDays: [AnyObject]! { get }
-  func orderedItemsLastVisitedOn(day calendarDate: CalendarDate!) -> [AnyObject]!
-  func itemFor(URL: URL!) -> WebHistoryItem!
+  func orderedItemsLastVisited(onDay calendarDate: CalendarDate!) -> [AnyObject]!
+  func item(forURL URL: URL!) -> WebHistoryItem!
   var historyItemLimit: Int32
   var historyAgeInDaysLimit: Int32
   init()

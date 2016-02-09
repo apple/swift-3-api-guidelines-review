@@ -2,7 +2,7 @@
 @available(watchOS 2.0, *)
 class HKHealthStore : Object {
   class func isHealthDataAvailable() -> Bool
-  func authorizationStatusFor(type: HKObjectType) -> HKAuthorizationStatus
+  func authorizationStatus(forType type: HKObjectType) -> HKAuthorizationStatus
   func requestAuthorizationToShare(typesToShare: Set<HKSampleType>?, read typesToRead: Set<HKObjectType>?, completion: (Bool, Error?) -> Void)
   @available(watchOS 2.0, *)
   func earliestPermittedSampleDate() -> Date
@@ -12,7 +12,7 @@ class HKHealthStore : Object {
   @available(watchOS 2.0, *)
   func delete(objects: [HKObject], withCompletion completion: (Bool, Error?) -> Void)
   @available(watchOS 2.0, *)
-  func deleteObjectsOf(objectType: HKObjectType, predicate: Predicate, withCompletion completion: (Bool, Int, Error?) -> Void)
+  func deleteObjects(of objectType: HKObjectType, predicate: Predicate, withCompletion completion: (Bool, Int, Error?) -> Void)
   func execute(query: HKQuery)
   func stop(query: HKQuery)
   @available(watchOS 2.0, *)
@@ -37,7 +37,7 @@ extension HKHealthStore {
 let HKUserPreferencesDidChangeNotification: String
 extension HKHealthStore {
   @available(watchOS 2.0, *)
-  func preferredUnitsFor(quantityTypes: Set<HKQuantityType>, completion: ([HKQuantityType : HKUnit], Error?) -> Void)
+  func preferredUnits(forQuantityTypes quantityTypes: Set<HKQuantityType>, completion: ([HKQuantityType : HKUnit], Error?) -> Void)
 }
 @available(watchOS 2.0, *)
 class HKBiologicalSexObject : Object, Copying, SecureCoding {

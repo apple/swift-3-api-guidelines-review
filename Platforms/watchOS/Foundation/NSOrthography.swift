@@ -14,9 +14,9 @@ class Orthography : Object, Copying, Coding {
 }
 extension Orthography {
   @available(watchOS 2.0, *)
-  func languagesFor(script script: String) -> [String]?
+  func languages(forScript script: String) -> [String]?
   @available(watchOS 2.0, *)
-  func dominantLanguageFor(script script: String) -> String?
+  func dominantLanguage(forScript script: String) -> String?
   @available(watchOS 2.0, *)
   var dominantLanguage: String { get }
   @available(watchOS 2.0, *)

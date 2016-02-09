@@ -19,7 +19,7 @@ class NSProgressIndicator : NSView, NSAccessibilityProgressIndicator {
   var controlTint: NSControlTint
   var controlSize: NSControlSize
   var doubleValue: Double
-  func incrementBy(delta: Double)
+  func increment(by delta: Double)
   var minValue: Double
   var maxValue: Double
   var usesThreadedAnimation: Bool

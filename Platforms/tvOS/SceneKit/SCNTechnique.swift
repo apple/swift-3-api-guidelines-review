@@ -3,10 +3,10 @@
 class SCNTechnique : Object, SCNAnimatable, Copying, SecureCoding {
   /*not inherited*/ init?(dictionary: [String : AnyObject])
   /*not inherited*/ init?(bySequencingTechniques techniques: [SCNTechnique])
-  func handleBindingOf(symbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  func handleBinding(ofSymbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
   var dictionaryRepresentation: [String : AnyObject] { get }
   @available(tvOS 9.0, *)
-  subscript (keyedSubscript key: AnyObject) -> AnyObject? { get }
+  subscript (forKeyedSubscript key: AnyObject) -> AnyObject? { get }
   @available(tvOS 9.0, *)
   func setObject(obj: AnyObject?, forKeyedSubscript key: Copying)
   init()
@@ -15,19 +15,19 @@ class SCNTechnique : Object, SCNAnimatable, Copying, SecureCoding {
   @available(tvOS 8.0, *)
   func removeAllAnimations()
   @available(tvOS 8.0, *)
-  func removeAnimationFor(key key: String)
+  func removeAnimation(forKey key: String)
   @available(tvOS 8.0, *)
   var animationKeys: [String] { get }
   @available(tvOS 8.0, *)
-  func animationFor(key key: String) -> CAAnimation?
+  func animation(forKey key: String) -> CAAnimation?
   @available(tvOS 8.0, *)
-  func pauseAnimationFor(key key: String)
+  func pauseAnimation(forKey key: String)
   @available(tvOS 8.0, *)
-  func resumeAnimationFor(key key: String)
+  func resumeAnimation(forKey key: String)
   @available(tvOS 8.0, *)
-  func isAnimationFor(keyPaused key: String) -> Bool
+  func isAnimation(forKeyPaused key: String) -> Bool
   @available(tvOS 8.0, *)
-  func removeAnimationFor(key key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimation(forKey key: String, fadeOutDuration duration: CGFloat)
   @available(tvOS 8.0, *)
   func copyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 8.0, *)

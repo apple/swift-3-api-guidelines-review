@@ -14,7 +14,7 @@ class UINavigationController : UIViewController {
   init(rootViewController: UIViewController)
   func pushViewController(viewController: UIViewController, animated: Bool)
   func popViewController(animated animated: Bool) -> UIViewController?
-  func popTo(viewController: UIViewController, animated: Bool) -> [UIViewController]?
+  func pop(to viewController: UIViewController, animated: Bool) -> [UIViewController]?
   func popToRootViewController(animated animated: Bool) -> [UIViewController]?
   var topViewController: UIViewController? { get }
   var visibleViewController: UIViewController? { get }

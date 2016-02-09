@@ -27,13 +27,13 @@ class CBPeripheral : CBPeer {
   func discoverServices(serviceUUIDs: [CBUUID]?)
   func discoverIncludedServices(includedServiceUUIDs: [CBUUID]?, forService service: CBService)
   func discoverCharacteristics(characteristicUUIDs: [CBUUID]?, forService service: CBService)
-  func readValueFor(characteristic: CBCharacteristic)
+  func readValue(forCharacteristic characteristic: CBCharacteristic)
   @available(tvOS 9.0, *)
-  func maximumWriteValueLengthFor(type: CBCharacteristicWriteType) -> Int
+  func maximumWriteValueLength(forType type: CBCharacteristicWriteType) -> Int
   func writeValue(data: Data, forCharacteristic characteristic: CBCharacteristic, type: CBCharacteristicWriteType)
   func setNotifyValue(enabled: Bool, forCharacteristic characteristic: CBCharacteristic)
-  func discoverDescriptorsFor(characteristic: CBCharacteristic)
-  func readValueFor(descriptor: CBDescriptor)
+  func discoverDescriptors(forCharacteristic characteristic: CBCharacteristic)
+  func readValue(forDescriptor descriptor: CBDescriptor)
   func writeValue(data: Data, forDescriptor descriptor: CBDescriptor)
 }
 protocol CBPeripheralDelegate : ObjectProtocol {

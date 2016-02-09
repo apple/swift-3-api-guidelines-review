@@ -35,7 +35,7 @@ class GKMatchRequest : Object {
   @available(iOS, introduced=6.0, deprecated=8.0, message="use recipientResponseHandler")
   var inviteeResponseHandler: ((String, GKInviteeResponse) -> Void)?
   @available(iOS 6.0, *)
-  class func maxPlayersAllowedForMatchOf(matchType: GKMatchType) -> Int
+  class func maxPlayersAllowedForMatch(of matchType: GKMatchType) -> Int
   init()
 }
 enum GKMatchType : UInt {
@@ -77,7 +77,7 @@ class GKMatchmaker : Object {
   func addPlayersTo(match: GKMatch, matchRequest: GKMatchRequest, completionHandler: ((Error?) -> Void)? = nil)
   func cancel()
   @available(iOS 8.0, *)
-  func cancelPendingInviteTo(player: GKPlayer)
+  func cancelPendingInvite(to player: GKPlayer)
   @available(iOS 6.0, *)
   func finishMatchmakingFor(match: GKMatch)
   func queryPlayerGroupActivity(playerGroup: Int, withCompletionHandler completionHandler: ((Int, Error?) -> Void)? = nil)
@@ -92,7 +92,7 @@ extension GKMatchmaker {
   @available(iOS, introduced=6.0, deprecated=8.0)
   func startBrowsingForNearbyPlayers(reachableHandler reachableHandler: ((String, Bool) -> Void)? = nil)
   @available(iOS, introduced=6.0, deprecated=8.0, message="use cancelPendingInviteToPlayer:")
-  func cancelInviteTo(player playerID: String)
+  func cancelInvite(toPlayer playerID: String)
   @available(iOS, introduced=4.1, deprecated=8.0, message="use findPlayersForHostedRequest:")
   func findPlayersForHostedMatchRequest(request: GKMatchRequest, withCompletionHandler completionHandler: (([String]?, Error?) -> Void)? = nil)
 }

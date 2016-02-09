@@ -75,7 +75,7 @@ extension UIApplication {
   @available(tvOS 7.0, *)
   func ignoreSnapshotOnNextApplicationLaunch()
   @available(tvOS 7.0, *)
-  class func registerObjectFor(stateRestoration object: UIStateRestoring, restorationIdentifier: String)
+  class func registerObject(forStateRestoration object: UIStateRestoring, restorationIdentifier: String)
 }
 protocol UIApplicationDelegate : ObjectProtocol {
   @available(tvOS 2.0, *)

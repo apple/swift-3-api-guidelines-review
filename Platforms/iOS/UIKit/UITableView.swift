@@ -128,7 +128,7 @@ protocol UITableViewDelegate : ObjectProtocol, UIScrollViewDelegate {
   @available(iOS 9.0, *)
   optional func tableView(tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
   @available(iOS 9.0, *)
-  optional func indexPathForPreferredFocusedViewIn(tableView: UITableView) -> IndexPath?
+  optional func indexPathForPreferredFocusedView(in tableView: UITableView) -> IndexPath?
 }
 let UITableViewSelectionDidChangeNotification: String
 @available(iOS 2.0, *)
@@ -155,22 +155,22 @@ class UITableView : UIScrollView, Coding {
   @available(iOS 3.0, *)
   func reloadSectionIndexTitles()
   var numberOfSections: Int { get }
-  func numberOfRowsIn(section section: Int) -> Int
-  func rectFor(section section: Int) -> CGRect
-  func rectForHeaderIn(section section: Int) -> CGRect
-  func rectForFooterIn(section section: Int) -> CGRect
-  func rectForRowAt(indexPath: IndexPath) -> CGRect
-  func indexPathForRowAt(point: CGPoint) -> IndexPath?
-  func indexPathFor(cell: UITableViewCell) -> IndexPath?
-  func indexPathsForRowsIn(rect: CGRect) -> [IndexPath]?
-  func cellForRowAt(indexPath: IndexPath) -> UITableViewCell?
+  func numberOfRows(inSection section: Int) -> Int
+  func rect(forSection section: Int) -> CGRect
+  func rectForHeader(inSection section: Int) -> CGRect
+  func rectForFooter(inSection section: Int) -> CGRect
+  func rectForRow(at indexPath: IndexPath) -> CGRect
+  func indexPathForRow(at point: CGPoint) -> IndexPath?
+  func indexPath(forCell cell: UITableViewCell) -> IndexPath?
+  func indexPathsForRows(in rect: CGRect) -> [IndexPath]?
+  func cellForRow(at indexPath: IndexPath) -> UITableViewCell?
   var visibleCells: [UITableViewCell] { get }
   var indexPathsForVisibleRows: [IndexPath]? { get }
   @available(iOS 6.0, *)
-  func headerViewFor(section section: Int) -> UITableViewHeaderFooterView?
+  func headerView(forSection section: Int) -> UITableViewHeaderFooterView?
   @available(iOS 6.0, *)
-  func footerViewFor(section section: Int) -> UITableViewHeaderFooterView?
-  func scrollToRowAt(indexPath: IndexPath, at scrollPosition: UITableViewScrollPosition, animated: Bool)
+  func footerView(forSection section: Int) -> UITableViewHeaderFooterView?
+  func scrollToRow(at indexPath: IndexPath, at scrollPosition: UITableViewScrollPosition, animated: Bool)
   func scrollToNearestSelectedRowAt(scrollPosition: UITableViewScrollPosition, animated: Bool)
   func beginUpdates()
   func endUpdates()
@@ -180,12 +180,12 @@ class UITableView : UIScrollView, Coding {
   func reloadSections(sections: IndexSet, withRowAnimation animation: UITableViewRowAnimation)
   @available(iOS 5.0, *)
   func moveSection(section: Int, toSection newSection: Int)
-  func insertRowsAt(indexPaths: [IndexPath], withRowAnimation animation: UITableViewRowAnimation)
-  func deleteRowsAt(indexPaths: [IndexPath], withRowAnimation animation: UITableViewRowAnimation)
+  func insertRows(at indexPaths: [IndexPath], withRowAnimation animation: UITableViewRowAnimation)
+  func deleteRows(at indexPaths: [IndexPath], withRowAnimation animation: UITableViewRowAnimation)
   @available(iOS 3.0, *)
-  func reloadRowsAt(indexPaths: [IndexPath], withRowAnimation animation: UITableViewRowAnimation)
+  func reloadRows(at indexPaths: [IndexPath], withRowAnimation animation: UITableViewRowAnimation)
   @available(iOS 5.0, *)
-  func moveRowAt(indexPath: IndexPath, to newIndexPath: IndexPath)
+  func moveRow(at indexPath: IndexPath, to newIndexPath: IndexPath)
   var isEditing: Bool
   func setEditing(editing: Bool, animated: Bool)
   @available(iOS 3.0, *)
@@ -198,8 +198,8 @@ class UITableView : UIScrollView, Coding {
   var indexPathForSelectedRow: IndexPath? { get }
   @available(iOS 5.0, *)
   var indexPathsForSelectedRows: [IndexPath]? { get }
-  func selectRowAt(indexPath: IndexPath?, animated: Bool, scrollPosition: UITableViewScrollPosition)
-  func deselectRowAt(indexPath: IndexPath, animated: Bool)
+  func selectRow(at indexPath: IndexPath?, animated: Bool, scrollPosition: UITableViewScrollPosition)
+  func deselectRow(at indexPath: IndexPath, animated: Bool)
   var sectionIndexMinimumDisplayRowCount: Int
   @available(iOS 6.0, *)
   var sectionIndexColor: UIColor?
@@ -215,11 +215,11 @@ class UITableView : UIScrollView, Coding {
   var cellLayoutMarginsFollowReadableWidth: Bool
   var tableHeaderView: UIView?
   var tableFooterView: UIView?
-  func dequeueReusableCellWith(identifier identifier: String) -> UITableViewCell?
+  func dequeueReusableCell(withIdentifier identifier: String) -> UITableViewCell?
   @available(iOS 6.0, *)
-  func dequeueReusableCellWith(identifier identifier: String, forIndexPath indexPath: IndexPath) -> UITableViewCell
+  func dequeueReusableCell(withIdentifier identifier: String, forIndexPath indexPath: IndexPath) -> UITableViewCell
   @available(iOS 6.0, *)
-  func dequeueReusableHeaderFooterViewWith(identifier identifier: String) -> UITableViewHeaderFooterView?
+  func dequeueReusableHeaderFooterView(withIdentifier identifier: String) -> UITableViewHeaderFooterView?
   @available(iOS 5.0, *)
   func register(nib: UINib?, forCellReuseIdentifier identifier: String)
   @available(iOS 6.0, *)
@@ -239,7 +239,7 @@ protocol UITableViewDataSource : ObjectProtocol {
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
   @available(iOS 2.0, *)
-  optional func numberOfSectionsIn(tableView: UITableView) -> Int
+  optional func numberOfSections(in tableView: UITableView) -> Int
   @available(iOS 2.0, *)
   optional func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
   @available(iOS 2.0, *)
@@ -249,7 +249,7 @@ protocol UITableViewDataSource : ObjectProtocol {
   @available(iOS 2.0, *)
   optional func tableView(tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
   @available(iOS 2.0, *)
-  optional func sectionIndexTitlesFor(tableView: UITableView) -> [String]?
+  optional func sectionIndexTitles(forTableView tableView: UITableView) -> [String]?
   @available(iOS 2.0, *)
   optional func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int
   @available(iOS 2.0, *)

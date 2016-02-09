@@ -13,7 +13,7 @@ extension HMHome {
   func addAccessory(accessory: HMAccessory, completionHandler completion: (Error?) -> Void)
   func removeAccessory(accessory: HMAccessory, completionHandler completion: (Error?) -> Void)
   func assignAccessory(accessory: HMAccessory, to room: HMRoom, completionHandler completion: (Error?) -> Void)
-  func servicesWith(types serviceTypes: [String]) -> [HMService]?
+  func services(withTypes serviceTypes: [String]) -> [HMService]?
   func unblockAccessory(accessory: HMAccessory, completionHandler completion: (Error?) -> Void)
 }
 extension HMHome {
@@ -28,7 +28,7 @@ extension HMHome {
   @available(iOS, introduced=8.0, deprecated=9.0)
   func removeUser(user: HMUser, completionHandler completion: (Error?) -> Void)
   @available(iOS 9.0, *)
-  func homeAccessControlFor(user: HMUser) -> HMHomeAccessControl
+  func homeAccessControl(forUser user: HMUser) -> HMHomeAccessControl
 }
 extension HMHome {
   var rooms: [HMRoom] { get }
@@ -52,7 +52,7 @@ extension HMHome {
   func removeActionSet(actionSet: HMActionSet, completionHandler completion: (Error?) -> Void)
   func executeActionSet(actionSet: HMActionSet, completionHandler completion: (Error?) -> Void)
   @available(iOS 9.0, *)
-  func builtinActionSetOf(type actionSetType: String) -> HMActionSet?
+  func builtinActionSet(ofType actionSetType: String) -> HMActionSet?
 }
 extension HMHome {
   var triggers: [HMTrigger] { get }

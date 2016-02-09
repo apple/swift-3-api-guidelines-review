@@ -93,28 +93,28 @@ class LinguisticTagger : Object {
   @available(watchOS 2.0, *)
   var string: String?
   @available(watchOS 2.0, *)
-  class func availableTagSchemesFor(language language: String) -> [String]
+  class func availableTagSchemes(forLanguage language: String) -> [String]
   @available(watchOS 2.0, *)
   func setOrthography(orthography: Orthography?, range: NSRange)
   @available(watchOS 2.0, *)
-  func orthographyAt(charIndex: Int, effectiveRange: RangePointer) -> Orthography?
+  func orthography(at charIndex: Int, effectiveRange: RangePointer) -> Orthography?
   @available(watchOS 2.0, *)
-  func stringEditedIn(newRange: NSRange, changeInLength delta: Int)
+  func stringEdited(in newRange: NSRange, changeInLength delta: Int)
   @available(watchOS 2.0, *)
-  func enumerateTagsIn(range: NSRange, scheme tagScheme: String, options opts: LinguisticTaggerOptions = [], usingBlock block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateTags(in range: NSRange, scheme tagScheme: String, options opts: LinguisticTaggerOptions = [], usingBlock block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
-  func sentenceRangeFor(range: NSRange) -> NSRange
+  func sentenceRange(forRange range: NSRange) -> NSRange
   @available(watchOS 2.0, *)
-  func tagAt(charIndex: Int, scheme tagScheme: String, tokenRange: RangePointer, sentenceRange: RangePointer) -> String?
+  func tag(at charIndex: Int, scheme tagScheme: String, tokenRange: RangePointer, sentenceRange: RangePointer) -> String?
   @available(watchOS 2.0, *)
-  func tagsIn(range: NSRange, scheme tagScheme: String, options opts: LinguisticTaggerOptions = [], tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
+  func tags(in range: NSRange, scheme tagScheme: String, options opts: LinguisticTaggerOptions = [], tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
   @available(watchOS 2.0, *)
-  func possibleTagsAt(charIndex: Int, scheme tagScheme: String, tokenRange: RangePointer, sentenceRange: RangePointer, scores: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]?
+  func possibleTags(at charIndex: Int, scheme tagScheme: String, tokenRange: RangePointer, sentenceRange: RangePointer, scores: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]?
   convenience init()
 }
 extension NSString {
   @available(watchOS 2.0, *)
-  func linguisticTagsIn(range: NSRange, scheme tagScheme: String, options opts: LinguisticTaggerOptions = [], orthography: Orthography?, tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
+  func linguisticTags(in range: NSRange, scheme tagScheme: String, options opts: LinguisticTaggerOptions = [], orthography: Orthography?, tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
   @available(watchOS 2.0, *)
-  func enumerateLinguisticTagsIn(range: NSRange, scheme tagScheme: String, options opts: LinguisticTaggerOptions = [], orthography: Orthography?, usingBlock block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateLinguisticTags(in range: NSRange, scheme tagScheme: String, options opts: LinguisticTaggerOptions = [], orthography: Orthography?, usingBlock block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
 }

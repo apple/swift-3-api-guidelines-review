@@ -40,22 +40,22 @@ class NSStackView : NSView {
   func add(aView: NSView, in gravity: NSStackViewGravity)
   func insert(aView: NSView, at index: Int, in gravity: NSStackViewGravity)
   func remove(aView: NSView)
-  func viewsIn(gravity: NSStackViewGravity) -> [NSView]
+  func views(in gravity: NSStackViewGravity) -> [NSView]
   func setViews(views: [NSView], in gravity: NSStackViewGravity)
   var views: [NSView] { get }
   var detachedViews: [NSView] { get }
   @available(OSX 10.11, *)
   var detachesHiddenViews: Bool
   func setVisibilityPriority(priority: NSStackViewVisibilityPriority, forView aView: NSView)
-  func visibilityPriorityFor(aView: NSView) -> NSStackViewVisibilityPriority
+  func visibilityPriority(forView aView: NSView) -> NSStackViewVisibilityPriority
   var spacing: CGFloat
   func setCustomSpacing(spacing: CGFloat, after aView: NSView)
-  func customSpacingAfter(aView: NSView) -> CGFloat
+  func customSpacing(after aView: NSView) -> CGFloat
   @available(OSX 10.11, *)
   var distribution: NSStackViewDistribution
-  func clippingResistancePriorityFor(orientation: NSLayoutConstraintOrientation) -> NSLayoutPriority
+  func clippingResistancePriority(forOrientation orientation: NSLayoutConstraintOrientation) -> NSLayoutPriority
   func setClippingResistancePriority(clippingResistancePriority: NSLayoutPriority, forOrientation orientation: NSLayoutConstraintOrientation)
-  func huggingPriorityFor(orientation: NSLayoutConstraintOrientation) -> NSLayoutPriority
+  func huggingPriority(forOrientation orientation: NSLayoutConstraintOrientation) -> NSLayoutPriority
   func setHuggingPriority(huggingPriority: NSLayoutPriority, forOrientation orientation: NSLayoutConstraintOrientation)
   init(frame frameRect: Rect)
   init?(coder: Coder)

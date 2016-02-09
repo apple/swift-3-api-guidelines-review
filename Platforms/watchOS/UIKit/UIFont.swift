@@ -2,17 +2,17 @@
 @available(watchOS 2.0, *)
 class UIFont : Object, Copying {
   @available(watchOS 2.0, *)
-  class func preferredFontFor(textStyle style: String) -> UIFont
+  class func preferredFont(forTextStyle style: String) -> UIFont
   /*not inherited*/ init?(name fontName: String, size fontSize: CGFloat)
   class func familyNames() -> [String]
-  class func fontNamesFor(familyName familyName: String) -> [String]
-  class func systemFontOf(size fontSize: CGFloat) -> UIFont
-  class func boldSystemFontOf(size fontSize: CGFloat) -> UIFont
-  class func italicSystemFontOf(size fontSize: CGFloat) -> UIFont
+  class func fontNames(forFamilyName familyName: String) -> [String]
+  class func systemFont(ofSize fontSize: CGFloat) -> UIFont
+  class func boldSystemFont(ofSize fontSize: CGFloat) -> UIFont
+  class func italicSystemFont(ofSize fontSize: CGFloat) -> UIFont
   @available(watchOS 2.0, *)
-  class func systemFontOf(size fontSize: CGFloat, weight: CGFloat) -> UIFont
+  class func systemFont(ofSize fontSize: CGFloat, weight: CGFloat) -> UIFont
   @available(watchOS 2.0, *)
-  class func monospacedDigitSystemFontOf(size fontSize: CGFloat, weight: CGFloat) -> UIFont
+  class func monospacedDigitSystemFont(ofSize fontSize: CGFloat, weight: CGFloat) -> UIFont
   var familyName: String { get }
   var fontName: String { get }
   var pointSize: CGFloat { get }

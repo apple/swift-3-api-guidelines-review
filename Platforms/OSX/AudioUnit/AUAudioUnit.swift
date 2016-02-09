@@ -29,7 +29,7 @@ typealias AUHostTransportStateBlock = (UnsafeMutablePointer<AUHostTransportState
 class AUAudioUnit : Object {
   init(componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = []) throws
   convenience init(componentDescription: AudioComponentDescription) throws
-  class func instantiateWith(componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = [], completionHandler: (AUAudioUnit?, Error?) -> Void)
+  class func instantiate(withComponentDescription componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = [], completionHandler: (AUAudioUnit?, Error?) -> Void)
   var componentDescription: AudioComponentDescription { get }
   var component: AudioComponent { get }
   var componentName: String? { get }
@@ -86,11 +86,11 @@ class AUAudioUnitBusArray : Object, FastEnumeration {
   init(audioUnit owner: AUAudioUnit, busType: AUAudioUnitBusType, busses busArray: [AUAudioUnitBus])
   convenience init(audioUnit owner: AUAudioUnit, busType: AUAudioUnitBusType)
   var count: Int { get }
-  subscript (indexedSubscript index: Int) -> AUAudioUnitBus { get }
+  subscript (atIndexedSubscript index: Int) -> AUAudioUnitBus { get }
   var isCountChangeable: Bool { get }
   func setBusCount(count: Int) throws
-  func addObserverTo(allBusses observer: Object, forKeyPath keyPath: String, options: KeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
-  func removeObserverFrom(allBusses observer: Object, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
+  func addObserver(toAllBusses observer: Object, forKeyPath keyPath: String, options: KeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
+  func removeObserver(fromAllBusses observer: Object, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
   unowned(unsafe) var ownerAudioUnit: @sil_unmanaged AUAudioUnit { get }
   var busType: AUAudioUnitBusType { get }
   @available(OSX 10.11, *)

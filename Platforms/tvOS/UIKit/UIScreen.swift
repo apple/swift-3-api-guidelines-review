@@ -55,5 +55,5 @@ class UIScreen : Object, UITraitEnvironment {
 }
 extension UIScreen {
   @available(tvOS 7.0, *)
-  func snapshotViewAfter(screenUpdates afterUpdates: Bool) -> UIView
+  func snapshotView(afterScreenUpdates afterUpdates: Bool) -> UIView
 }

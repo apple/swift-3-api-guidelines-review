@@ -71,9 +71,9 @@ extension AVPlayerItem {
   @available(iOS 5.0, *)
   func cancelPendingSeeks()
   func currentDate() -> Date?
-  func seekTo(date: Date) -> Bool
+  func seek(to date: Date) -> Bool
   @available(iOS 6.0, *)
-  func seekTo(date: Date, completionHandler: (Bool) -> Void) -> Bool
+  func seek(to date: Date, completionHandler: (Bool) -> Void) -> Bool
   func stepByCount(stepCount: Int)
   @available(iOS 6.0, *)
   var timebase: CMTimebase? { get }
@@ -108,9 +108,9 @@ extension AVPlayerItem {
   @available(iOS 5.0, *)
   func selectMediaOption(mediaSelectionOption: AVMediaSelectionOption?, in mediaSelectionGroup: AVMediaSelectionGroup)
   @available(iOS 7.0, *)
-  func selectMediaOptionAutomaticallyIn(mediaSelectionGroup: AVMediaSelectionGroup)
+  func selectMediaOptionAutomatically(in mediaSelectionGroup: AVMediaSelectionGroup)
   @available(iOS 5.0, *)
-  func selectedMediaOptionIn(mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
+  func selectedMediaOption(in mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
   @available(iOS 9.0, *)
   var currentMediaSelection: AVMediaSelection { get }
 }

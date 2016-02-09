@@ -11,10 +11,10 @@ extension ABPerson {
   class func addPropertiesAndTypes(properties: [Object : AnyObject]!) -> Int
   class func removeProperties(properties: [AnyObject]!) -> Int
   class func properties() -> [AnyObject]!
-  class func typeOf(property property: String!) -> ABPropertyType
+  class func type(ofProperty property: String!) -> ABPropertyType
 }
 extension ABPerson {
-  class func searchElementFor(property property: String!, label: String!, key: String!, value: AnyObject!, comparison: ABSearchComparison) -> ABSearchElement!
+  class func searchElement(forProperty property: String!, label: String!, key: String!, value: AnyObject!, comparison: ABSearchComparison) -> ABSearchElement!
 }
 extension ABPerson {
   init!(vCardRepresentation vCardData: Data!)

@@ -30,5 +30,5 @@ class MTKView : NSView, Coding {
 @available(OSX 10.11, *)
 protocol MTKViewDelegate : ObjectProtocol {
   func mtkView(view: MTKView, drawableSizeWillChange size: CGSize)
-  func drawIn(view: MTKView)
+  func draw(in view: MTKView)
 }

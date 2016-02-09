@@ -49,12 +49,12 @@ class NSMatrix : NSControl, NSUserInterfaceValidations {
   init(frame frameRect: Rect, mode aMode: NSMatrixMode, cellClass factoryId: AnyClass?, numberOfRows rowsHigh: Int, numberOfColumns colsWide: Int)
   var cellClass: AnyClass
   @NSCopying var prototype: NSCell?
-  func makeCellAt(row row: Int, column col: Int) -> NSCell
+  func makeCell(atRow row: Int, column col: Int) -> NSCell
   var mode: NSMatrixMode
   var allowsEmptySelection: Bool
   func sendAction(aSelector: Selector, to anObject: AnyObject, forAllCells flag: Bool)
   var cells: [NSCell] { get }
-  func sortUsing(comparator: Selector)
+  func sort(usingSelector comparator: Selector)
   func sort(compare: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>)
   var selectedCells: [NSCell] { get }
   var selectedRow: Int { get }
@@ -63,7 +63,7 @@ class NSMatrix : NSControl, NSUserInterfaceValidations {
   func setSelectionFrom(startPos: Int, to endPos: Int, anchor anchorPos: Int, highlight lit: Bool)
   func deselectSelectedCell()
   func deselectAllCells()
-  func selectCellAt(row row: Int, column col: Int)
+  func selectCell(atRow row: Int, column col: Int)
   func selectAll(sender: AnyObject?)
   func selectCell(tag anInt: Int) -> Bool
   var cellSize: Size
@@ -74,11 +74,11 @@ class NSMatrix : NSControl, NSUserInterfaceValidations {
   var drawsCellBackground: Bool
   var drawsBackground: Bool
   func setState(value: Int, atRow row: Int, column col: Int)
-  func getNumberOf(rows rowCount: UnsafeMutablePointer<Int>, columns colCount: UnsafeMutablePointer<Int>)
+  func getNumberOfRows(rowCount: UnsafeMutablePointer<Int>, columns colCount: UnsafeMutablePointer<Int>)
   var numberOfRows: Int { get }
   var numberOfColumns: Int { get }
-  func cellAt(row row: Int, column col: Int) -> NSCell?
-  func cellFrameAt(row row: Int, column col: Int) -> Rect
+  func cell(atRow row: Int, column col: Int) -> NSCell?
+  func cellFrame(atRow row: Int, column col: Int) -> Rect
   func getRow(row: UnsafeMutablePointer<Int>, column col: UnsafeMutablePointer<Int>, of aCell: NSCell) -> Bool
   func getRow(row: UnsafeMutablePointer<Int>, column col: UnsafeMutablePointer<Int>, forPoint aPoint: Point) -> Bool
   func renewRows(newRows: Int, columns newCols: Int)
@@ -93,15 +93,15 @@ class NSMatrix : NSControl, NSUserInterfaceValidations {
   func insertColumn(column: Int)
   func insertColumn(column: Int, withCells newCells: [NSCell])
   func removeColumn(col: Int)
-  func cellWith(tag anInt: Int) -> NSCell?
+  func cell(withTag anInt: Int) -> NSCell?
   var doubleAction: Selector
   var autosizesCells: Bool
   func sizeToCells()
   func setValidateSize(flag: Bool)
-  func drawCellAt(row row: Int, column col: Int)
+  func drawCell(atRow row: Int, column col: Int)
   func highlightCell(flag: Bool, atRow row: Int, column col: Int)
   var isAutoscroll: Bool
-  func scrollCellToVisibleAt(row row: Int, column col: Int)
+  func scrollCellToVisible(atRow row: Int, column col: Int)
   var mouseDownFlags: Int { get }
   func mouseDown(theEvent: NSEvent)
   func performKeyEquivalent(theEvent: NSEvent) -> Bool
@@ -114,11 +114,11 @@ class NSMatrix : NSControl, NSUserInterfaceValidations {
   func textDidEndEditing(notification: Notification)
   func textDidChange(notification: Notification)
   func selectText(sender: AnyObject?)
-  func selectTextAt(row row: Int, column col: Int) -> NSCell?
+  func selectText(atRow row: Int, column col: Int) -> NSCell?
   func acceptsFirstMouse(theEvent: NSEvent?) -> Bool
   func resetCursorRects()
   func setToolTip(toolTipString: String?, forCell cell: NSCell)
-  func toolTipFor(cell: NSCell) -> String?
+  func toolTip(forCell cell: NSCell) -> String?
   @available(OSX 10.8, *)
   var autorecalculatesCellSize: Bool
   func selectedCell() -> NSCell?

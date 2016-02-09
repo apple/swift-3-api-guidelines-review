@@ -2,7 +2,7 @@
 @available(iOS 8.0, *)
 class HKHealthStore : Object {
   class func isHealthDataAvailable() -> Bool
-  func authorizationStatusFor(type: HKObjectType) -> HKAuthorizationStatus
+  func authorizationStatus(forType type: HKObjectType) -> HKAuthorizationStatus
   func requestAuthorizationToShare(typesToShare: Set<HKSampleType>?, read typesToRead: Set<HKObjectType>?, completion: (Bool, Error?) -> Void)
   @available(iOS 9.0, *)
   func handleAuthorizationForExtension(completion completion: (Bool, Error?) -> Void)
@@ -14,7 +14,7 @@ class HKHealthStore : Object {
   @available(iOS 9.0, *)
   func delete(objects: [HKObject], withCompletion completion: (Bool, Error?) -> Void)
   @available(iOS 9.0, *)
-  func deleteObjectsOf(objectType: HKObjectType, predicate: Predicate, withCompletion completion: (Bool, Int, Error?) -> Void)
+  func deleteObjects(of objectType: HKObjectType, predicate: Predicate, withCompletion completion: (Bool, Int, Error?) -> Void)
   func execute(query: HKQuery)
   func stop(query: HKQuery)
   @available(iOS 9.0, *)
@@ -30,15 +30,15 @@ extension HKHealthStore {
   func add(samples: [HKSample], to workout: HKWorkout, completion: (Bool, Error?) -> Void)
 }
 extension HKHealthStore {
-  func enableBackgroundDeliveryFor(type: HKObjectType, frequency: HKUpdateFrequency, withCompletion completion: (Bool, Error?) -> Void)
-  func disableBackgroundDeliveryFor(type: HKObjectType, withCompletion completion: (Bool, Error?) -> Void)
-  func disableAllBackgroundDeliveryWith(completion completion: (Bool, Error?) -> Void)
+  func enableBackgroundDelivery(forType type: HKObjectType, frequency: HKUpdateFrequency, withCompletion completion: (Bool, Error?) -> Void)
+  func disableBackgroundDelivery(forType type: HKObjectType, withCompletion completion: (Bool, Error?) -> Void)
+  func disableAllBackgroundDelivery(withCompletion completion: (Bool, Error?) -> Void)
 }
 @available(iOS 8.2, *)
 let HKUserPreferencesDidChangeNotification: String
 extension HKHealthStore {
   @available(iOS 8.2, *)
-  func preferredUnitsFor(quantityTypes: Set<HKQuantityType>, completion: ([HKQuantityType : HKUnit], Error?) -> Void)
+  func preferredUnits(forQuantityTypes quantityTypes: Set<HKQuantityType>, completion: ([HKQuantityType : HKUnit], Error?) -> Void)
 }
 @available(iOS 8.0, *)
 class HKBiologicalSexObject : Object, Copying, SecureCoding {

@@ -11,10 +11,10 @@ enum SKSceneScaleMode : Int {
 @available(tvOS 8.0, *)
 protocol SKSceneDelegate : ObjectProtocol {
   optional func update(currentTime: TimeInterval, forScene scene: SKScene)
-  optional func didEvaluateActionsFor(scene: SKScene)
-  optional func didSimulatePhysicsFor(scene: SKScene)
-  optional func didApplyConstraintsFor(scene: SKScene)
-  optional func didFinishUpdateFor(scene: SKScene)
+  optional func didEvaluateActions(forScene scene: SKScene)
+  optional func didSimulatePhysics(forScene scene: SKScene)
+  optional func didApplyConstraints(forScene scene: SKScene)
+  optional func didFinishUpdate(forScene scene: SKScene)
 }
 class SKScene : SKEffectNode {
   init(size: CGSize)
@@ -29,8 +29,8 @@ class SKScene : SKEffectNode {
   unowned(unsafe) var delegate: @sil_unmanaged SKSceneDelegate?
   var anchorPoint: CGPoint
   var physicsWorld: SKPhysicsWorld { get }
-  func convertPointFrom(view point: CGPoint) -> CGPoint
-  func convertPointTo(view point: CGPoint) -> CGPoint
+  func convertPoint(fromView point: CGPoint) -> CGPoint
+  func convertPoint(toView point: CGPoint) -> CGPoint
   weak var view: @sil_weak SKView? { get }
   func update(currentTime: TimeInterval)
   func didEvaluateActions()
@@ -39,8 +39,8 @@ class SKScene : SKEffectNode {
   func didApplyConstraints()
   @available(tvOS 8.0, *)
   func didFinishUpdate()
-  func didMoveTo(view: SKView)
-  func willMoveFrom(view: SKView)
+  func didMove(to view: SKView)
+  func willMove(from view: SKView)
   func didChangeSize(oldSize: CGSize)
   init()
   init?(coder aDecoder: Coder)

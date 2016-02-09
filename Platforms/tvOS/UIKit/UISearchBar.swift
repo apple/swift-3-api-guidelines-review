@@ -39,11 +39,11 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(tvOS 7.0, *)
   func setBackgroundImage(backgroundImage: UIImage?, forBarPosition barPosition: UIBarPosition, barMetrics: UIBarMetrics)
   @available(tvOS 7.0, *)
-  func backgroundImageFor(barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(forBarPosition barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
   @available(tvOS 5.0, *)
   func setSearchFieldBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState)
   @available(tvOS 5.0, *)
-  func searchFieldBackgroundImageFor(state: UIControlState) -> UIImage?
+  func searchFieldBackgroundImage(forState state: UIControlState) -> UIImage?
   @available(tvOS 5.0, *)
   func setImage(iconImage: UIImage?, forSearchBarIcon icon: UISearchBarIcon, state: UIControlState)
   @available(tvOS 5.0, *)
@@ -51,15 +51,15 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(tvOS 5.0, *)
   func setScopeBarButtonBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState)
   @available(tvOS 5.0, *)
-  func scopeBarButtonBackgroundImageFor(state: UIControlState) -> UIImage?
+  func scopeBarButtonBackgroundImage(forState state: UIControlState) -> UIImage?
   @available(tvOS 5.0, *)
   func setScopeBarButtonDividerImage(dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState)
   @available(tvOS 5.0, *)
-  func scopeBarButtonDividerImageFor(leftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState) -> UIImage?
+  func scopeBarButtonDividerImage(forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState) -> UIImage?
   @available(tvOS 5.0, *)
   func setScopeBarButtonTitleTextAttributes(attributes: [String : AnyObject]? = [:], forState state: UIControlState)
   @available(tvOS 5.0, *)
-  func scopeBarButtonTitleTextAttributesFor(state: UIControlState) -> [String : AnyObject]?
+  func scopeBarButtonTitleTextAttributes(forState state: UIControlState) -> [String : AnyObject]?
   @available(tvOS 5.0, *)
   var searchFieldBackgroundPositionAdjustment: UIOffset
   @available(tvOS 5.0, *)

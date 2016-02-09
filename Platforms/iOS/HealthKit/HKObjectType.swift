@@ -2,10 +2,10 @@
 @available(iOS 8.0, *)
 class HKObjectType : Object, SecureCoding, Copying {
   var identifier: String { get }
-  class func quantityTypeFor(identifier identifier: String) -> HKQuantityType?
-  class func categoryTypeFor(identifier identifier: String) -> HKCategoryType?
-  class func characteristicTypeFor(identifier identifier: String) -> HKCharacteristicType?
-  class func correlationTypeFor(identifier identifier: String) -> HKCorrelationType?
+  class func quantityType(forIdentifier identifier: String) -> HKQuantityType?
+  class func categoryType(forIdentifier identifier: String) -> HKCategoryType?
+  class func characteristicType(forIdentifier identifier: String) -> HKCharacteristicType?
+  class func correlationType(forIdentifier identifier: String) -> HKCorrelationType?
   class func workoutType() -> HKWorkoutType
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
@@ -41,7 +41,7 @@ enum HKQuantityAggregationStyle : Int {
 @available(iOS 8.0, *)
 class HKQuantityType : HKSampleType {
   var aggregationStyle: HKQuantityAggregationStyle { get }
-  func isCompatibleWith(unit: HKUnit) -> Bool
+  func isCompatible(withUnit unit: HKUnit) -> Bool
   init?(coder aDecoder: Coder)
 }
 @available(iOS 8.0, *)

@@ -44,7 +44,7 @@ class UIScrollView : UIView, Coding {
   var delaysContentTouches: Bool
   var canCancelContentTouches: Bool
   func touchesShouldBegin(touches: Set<UITouch>, withEvent event: UIEvent?, inContentView view: UIView) -> Bool
-  func touchesShouldCancelIn(contentView view: UIView) -> Bool
+  func touchesShouldCancel(inContentView view: UIView) -> Bool
   var minimumZoomScale: CGFloat
   var maximumZoomScale: CGFloat
   @available(tvOS 3.0, *)
@@ -52,7 +52,7 @@ class UIScrollView : UIView, Coding {
   @available(tvOS 3.0, *)
   func setZoomScale(scale: CGFloat, animated: Bool)
   @available(tvOS 3.0, *)
-  func zoomTo(rect: CGRect, animated: Bool)
+  func zoom(to rect: CGRect, animated: Bool)
   var bouncesZoom: Bool
   var isZooming: Bool { get }
   var isZoomBouncing: Bool { get }
@@ -92,7 +92,7 @@ protocol UIScrollViewDelegate : ObjectProtocol {
   @available(tvOS 2.0, *)
   optional func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
   @available(tvOS 2.0, *)
-  optional func scrollViewShouldScrollTo(top scrollView: UIScrollView) -> Bool
+  optional func scrollViewShouldScroll(toTop scrollView: UIScrollView) -> Bool
   @available(tvOS 2.0, *)
-  optional func scrollViewDidScrollTo(top scrollView: UIScrollView)
+  optional func scrollViewDidScroll(toTop scrollView: UIScrollView)
 }

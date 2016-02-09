@@ -172,7 +172,7 @@ enum MPMovieTimeOption : Int {
 }
 extension MPMoviePlayerController {
   @available(iOS, introduced=3.2, deprecated=9.0)
-  func requestThumbnailImagesAt(times playbackTimes: [AnyObject]!, timeOption option: MPMovieTimeOption)
+  func requestThumbnailImages(atTimes playbackTimes: [AnyObject]!, timeOption option: MPMovieTimeOption)
   @available(iOS, introduced=3.2, deprecated=9.0)
   func cancelAllThumbnailImageRequests()
 }

@@ -30,17 +30,17 @@ class FileWrapper : Object, Coding {
   var filename: String?
   var fileAttributes: [String : AnyObject]
   @available(tvOS 4.0, *)
-  func matchesContentsOf(url: URL) -> Bool
+  func matchesContents(of url: URL) -> Bool
   @available(tvOS 4.0, *)
-  func readFrom(url: URL, options: FileWrapperReadingOptions = []) throws
+  func read(from url: URL, options: FileWrapperReadingOptions = []) throws
   @available(tvOS 4.0, *)
-  func writeTo(url: URL, options: FileWrapperWritingOptions = [], originalContentsURL: URL?) throws
+  func write(to url: URL, options: FileWrapperWritingOptions = [], originalContentsURL: URL?) throws
   @NSCopying var serializedRepresentation: Data? { get }
   func add(child: FileWrapper) -> String
   func addRegularFile(contents data: Data, preferredFilename fileName: String) -> String
   func remove(child: FileWrapper)
   var fileWrappers: [String : FileWrapper]? { get }
-  func keyFor(child: FileWrapper) -> String?
+  func key(forFileWrapper child: FileWrapper) -> String?
   @NSCopying var regularFileContents: Data? { get }
   @available(tvOS 4.0, *)
   @NSCopying var symbolicLinkDestinationURL: URL? { get }

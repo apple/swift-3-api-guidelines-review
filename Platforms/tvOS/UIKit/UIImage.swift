@@ -55,20 +55,20 @@ class UIImage : Object, SecureCoding {
   @available(tvOS 6.0, *)
   class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode, duration: TimeInterval) -> UIImage?
   @available(tvOS 5.0, *)
-  class func animatedImageWith(images: [UIImage], duration: TimeInterval) -> UIImage?
+  class func animatedImage(withImages images: [UIImage], duration: TimeInterval) -> UIImage?
   @available(tvOS 5.0, *)
   var images: [UIImage]? { get }
   @available(tvOS 5.0, *)
   var duration: TimeInterval { get }
-  func drawAt(point: CGPoint)
-  func drawAt(point: CGPoint, blendMode: CGBlendMode, alpha: CGFloat)
-  func drawIn(rect: CGRect)
-  func drawIn(rect: CGRect, blendMode: CGBlendMode, alpha: CGFloat)
-  func drawAsPatternIn(rect: CGRect)
+  func draw(at point: CGPoint)
+  func draw(at point: CGPoint, blendMode: CGBlendMode, alpha: CGFloat)
+  func draw(in rect: CGRect)
+  func draw(in rect: CGRect, blendMode: CGBlendMode, alpha: CGFloat)
+  func drawAsPattern(in rect: CGRect)
   @available(tvOS 5.0, *)
-  func resizableImageWith(capInsets capInsets: UIEdgeInsets) -> UIImage
+  func resizableImage(withCapInsets capInsets: UIEdgeInsets) -> UIImage
   @available(tvOS 6.0, *)
-  func resizableImageWith(capInsets capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode) -> UIImage
+  func resizableImage(withCapInsets capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode) -> UIImage
   @available(tvOS 5.0, *)
   var capInsets: UIEdgeInsets { get }
   @available(tvOS 6.0, *)

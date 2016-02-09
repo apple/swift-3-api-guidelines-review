@@ -4,7 +4,7 @@ class IndexPath : Object, Copying, SecureCoding {
   convenience init(index: Int)
   func adding(index: Int) -> IndexPath
   func removingLastIndex() -> IndexPath
-  func indexAt(position position: Int) -> Int
+  func index(atPosition position: Int) -> Int
   var length: Int { get }
   @available(iOS 7.0, *)
   func getIndexes(indexes: UnsafeMutablePointer<Int>, range positionRange: NSRange)

@@ -55,10 +55,10 @@ func UIAccessibilityConvertPathToScreenCoordinates(path: UIBezierPath, _ view: U
 extension Object {
   class func accessibilityElementCount() -> Int
   func accessibilityElementCount() -> Int
-  class func accessibilityElementAt(index: Int) -> AnyObject?
-  func accessibilityElementAt(index: Int) -> AnyObject?
-  class func indexOf(accessibilityElement element: AnyObject) -> Int
-  func indexOf(accessibilityElement element: AnyObject) -> Int
+  class func accessibilityElement(at index: Int) -> AnyObject?
+  func accessibilityElement(at index: Int) -> AnyObject?
+  class func index(ofAccessibilityElement element: AnyObject) -> Int
+  func index(ofAccessibilityElement element: AnyObject) -> Int
   @available(iOS 8.0, *)
   var accessibilityElements: [AnyObject]?
   class func accessibilityElements() -> [AnyObject]?
@@ -128,7 +128,7 @@ enum UIAccessibilityScrollDirection : Int {
 }
 protocol UIAccessibilityReadingContent {
   @available(iOS 5.0, *)
-  func accessibilityLineNumberFor(point: CGPoint) -> Int
+  func accessibilityLineNumber(forPoint point: CGPoint) -> Int
   @available(iOS 5.0, *)
   func accessibilityContentForLineNumber(lineNumber: Int) -> String?
   @available(iOS 5.0, *)

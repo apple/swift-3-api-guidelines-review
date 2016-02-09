@@ -35,8 +35,8 @@ class AUParameterGroup : AUParameterNode, SecureCoding {
 }
 @available(iOS 9.0, *)
 class AUParameterTree : AUParameterGroup, SecureCoding {
-  func parameterWith(address address: AUParameterAddress) -> AUParameter?
-  func parameterWith(id paramID: AudioUnitParameterID, scope: AudioUnitScope, element: AudioUnitElement) -> AUParameter?
+  func parameter(withAddress address: AUParameterAddress) -> AUParameter?
+  func parameter(withID paramID: AudioUnitParameterID, scope: AudioUnitScope, element: AudioUnitElement) -> AUParameter?
   init()
   init?(coder aDecoder: Coder)
 }
@@ -53,8 +53,8 @@ class AUParameter : AUParameterNode, SecureCoding {
   var value: AUValue
   func setValue(value: AUValue, originator: AUParameterObserverToken)
   func setValue(value: AUValue, originator: AUParameterObserverToken, atHostTime hostTime: UInt64)
-  func stringFrom(value value: UnsafePointer<AUValue>) -> String
-  func valueFrom(string: String) -> AUValue
+  func string(fromValue value: UnsafePointer<AUValue>) -> String
+  func value(from string: String) -> AUValue
   init()
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool

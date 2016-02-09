@@ -16,9 +16,9 @@ protocol SCNShadable : ObjectProtocol {
   @available(OSX 10.8, *)
   optional var program: SCNProgram? { get set }
   @available(OSX 10.9, *)
-  optional func handleBindingOf(symbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  optional func handleBinding(ofSymbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
   @available(OSX 10.9, *)
-  optional func handleUnbindingOf(symbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  optional func handleUnbinding(ofSymbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
   @available(OSX 10.9, *)
   optional var shaderModifiers: [String : String]? { get set }
 }
@@ -38,11 +38,11 @@ class SCNProgram : Object, Copying, SecureCoding {
   @available(OSX 10.11, *)
   var fragmentFunctionName: String?
   @available(OSX 10.11, *)
-  func handleBindingOf(bufferNamed name: String, frequency: SCNBufferFrequency, usingBlock block: SCNBufferBindingBlock)
+  func handleBinding(ofBufferNamed name: String, frequency: SCNBufferFrequency, usingBlock block: SCNBufferBindingBlock)
   @available(OSX 10.10, *)
   var isOpaque: Bool
   func setSemantic(semantic: String?, forSymbol symbol: String, options: [String : AnyObject]? = [:])
-  func semanticFor(symbol symbol: String) -> String?
+  func semantic(forSymbol symbol: String) -> String?
   unowned(unsafe) var delegate: @sil_unmanaged SCNProgramDelegate?
   @available(OSX 10.11, *)
   var library: MTLLibrary?

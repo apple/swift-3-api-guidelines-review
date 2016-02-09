@@ -2,7 +2,7 @@
 class DRSetupPanel : NSPanel {
   init!(nibName: String!)
   func run() -> Int
-  func beginSetupSheetFor(owner: NSWindow!, modalDelegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func beginSetupSheet(forWindow owner: NSWindow!, modalDelegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   @IBAction func ok(sender: AnyObject!)
   @IBAction func cancel(sender: AnyObject!)
   @IBAction func eject(sender: AnyObject!)

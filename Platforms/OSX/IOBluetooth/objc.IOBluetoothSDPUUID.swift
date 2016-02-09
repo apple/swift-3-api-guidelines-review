@@ -7,7 +7,7 @@ class IOBluetoothSDPUUID : Data {
   init!(uuid16: BluetoothSDPUUID16)
   init!(uuid32: BluetoothSDPUUID32)
   func getWithLength(newLength: UInt32) -> Self!
-  func isEqualTo(otherUUID: IOBluetoothSDPUUID!) -> Bool
+  func isEqual(to otherUUID: IOBluetoothSDPUUID!) -> Bool
   func classForCoder() -> AnyClass!
   func classForArchiver() -> AnyClass!
   func classForPortCoder() -> AnyClass!

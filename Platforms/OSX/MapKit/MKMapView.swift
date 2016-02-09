@@ -11,7 +11,7 @@ class MKMapView : NSView, Coding {
   var visibleMapRect: MKMapRect
   func setVisibleMapRect(mapRect: MKMapRect, animated animate: Bool)
   func mapRectThatFits(mapRect: MKMapRect) -> MKMapRect
-  func _handleSelectionAt(locationInView: CGPoint)
+  func _handleSelection(at locationInView: CGPoint)
   func setVisibleMapRect(mapRect: MKMapRect, edgePadding insets: EdgeInsets, animated animate: Bool)
   func mapRectThatFits(mapRect: MKMapRect, edgePadding insets: EdgeInsets) -> MKMapRect
   @available(OSX 10.9, *)
@@ -49,9 +49,9 @@ class MKMapView : NSView, Coding {
   func removeAnnotations(annotations: [MKAnnotation])
   var annotations: [MKAnnotation] { get }
   @available(OSX 10.9, *)
-  func annotationsIn(mapRect: MKMapRect) -> Set<Object>
-  func viewFor(annotation: MKAnnotation) -> MKAnnotationView?
-  func dequeueReusableAnnotationViewWith(identifier identifier: String) -> MKAnnotationView?
+  func annotations(in mapRect: MKMapRect) -> Set<Object>
+  func view(forAnnotation annotation: MKAnnotation) -> MKAnnotationView?
+  func dequeueReusableAnnotationView(withIdentifier identifier: String) -> MKAnnotationView?
   func selectAnnotation(annotation: MKAnnotation, animated: Bool)
   func deselectAnnotation(annotation: MKAnnotation?, animated: Bool)
   var selectedAnnotations: [MKAnnotation]
@@ -91,7 +91,7 @@ extension MKMapView {
   @available(OSX 10.9, *)
   func overlaysIn(level: MKOverlayLevel) -> [MKOverlay]
   @available(OSX 10.9, *)
-  func rendererFor(overlay: MKOverlay) -> MKOverlayRenderer?
+  func renderer(forOverlay overlay: MKOverlay) -> MKOverlayRenderer?
   @available(OSX 10.9, *)
   func add(overlay: MKOverlay)
   @available(OSX 10.9, *)
@@ -99,7 +99,7 @@ extension MKMapView {
   @available(OSX 10.9, *)
   func insert(overlay: MKOverlay, at index: Int)
   @available(OSX 10.9, *)
-  func exchangeOverlayAt(index1: Int, withOverlayAt index2: Int)
+  func exchangeOverlay(at index1: Int, withOverlayAt index2: Int)
 }
 protocol MKMapViewDelegate : ObjectProtocol {
   @available(OSX 10.9, *)

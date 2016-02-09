@@ -30,19 +30,19 @@ class SCNCamera : Object, SCNAnimatable, SCNTechniqueSupport, Copying, SecureCod
   @available(OSX 10.8, *)
   func removeAllAnimations()
   @available(OSX 10.8, *)
-  func removeAnimationFor(key key: String)
+  func removeAnimation(forKey key: String)
   @available(OSX 10.8, *)
   var animationKeys: [String] { get }
   @available(OSX 10.8, *)
-  func animationFor(key key: String) -> CAAnimation?
+  func animation(forKey key: String) -> CAAnimation?
   @available(OSX 10.9, *)
-  func pauseAnimationFor(key key: String)
+  func pauseAnimation(forKey key: String)
   @available(OSX 10.9, *)
-  func resumeAnimationFor(key key: String)
+  func resumeAnimation(forKey key: String)
   @available(OSX 10.9, *)
-  func isAnimationFor(keyPaused key: String) -> Bool
+  func isAnimation(forKeyPaused key: String) -> Bool
   @available(OSX 10.10, *)
-  func removeAnimationFor(key key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimation(forKey key: String, fadeOutDuration duration: CGFloat)
   @available(OSX 10.10, *)
   @NSCopying var technique: SCNTechnique?
   @available(OSX 10.8, *)

@@ -21,19 +21,19 @@ class SortDescriptor : Object, SecureCoding, Copying {
 }
 extension NSSet {
   @available(tvOS 4.0, *)
-  func sortedArrayUsing(sortDescriptors: [SortDescriptor]) -> [AnyObject]
+  func sortedArray(usingDescriptors sortDescriptors: [SortDescriptor]) -> [AnyObject]
 }
 extension NSArray {
-  func sortedArrayUsing(sortDescriptors: [SortDescriptor]) -> [AnyObject]
+  func sortedArray(usingDescriptors sortDescriptors: [SortDescriptor]) -> [AnyObject]
 }
 extension MutableArray {
-  func sortUsing(sortDescriptors: [SortDescriptor])
+  func sort(usingDescriptors sortDescriptors: [SortDescriptor])
 }
 extension OrderedSet {
   @available(tvOS 5.0, *)
-  func sortedArrayUsing(sortDescriptors: [SortDescriptor]) -> [AnyObject]
+  func sortedArray(usingDescriptors sortDescriptors: [SortDescriptor]) -> [AnyObject]
 }
 extension MutableOrderedSet {
   @available(tvOS 5.0, *)
-  func sortUsing(sortDescriptors: [SortDescriptor])
+  func sort(usingDescriptors sortDescriptors: [SortDescriptor])
 }

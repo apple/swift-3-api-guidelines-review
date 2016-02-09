@@ -14,7 +14,7 @@ class NSDrawer : NSResponder, NSAccessibilityElementProtocol, NSAccessibility {
   var preferredEdge: RectEdge
   unowned(unsafe) var delegate: @sil_unmanaged NSDrawerDelegate?
   func open()
-  func openOn(edge: RectEdge)
+  func open(on edge: RectEdge)
   func close()
   func open(sender: AnyObject?)
   func close(sender: AnyObject?)
@@ -33,33 +33,33 @@ class NSDrawer : NSResponder, NSAccessibilityElementProtocol, NSAccessibility {
   func isAccessibilityFocused() -> Bool
   func accessibilityIdentifier() -> String
   @available(OSX 10.10, *)
-  func accessibilityLayoutPointFor(screenPoint point: Point) -> Point
+  func accessibilityLayoutPoint(forScreenPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityLayoutSizeFor(screenSize size: Size) -> Size
+  func accessibilityLayoutSize(forScreenSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityScreenPointFor(layoutPoint point: Point) -> Point
+  func accessibilityScreenPoint(forLayoutPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityScreenSizeFor(layoutSize size: Size) -> Size
+  func accessibilityScreenSize(forLayoutSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityCellFor(column column: Int, row: Int) -> AnyObject?
+  func accessibilityCell(forColumn column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
-  func accessibilityAttributedStringFor(range: NSRange) -> AttributedString?
+  func accessibilityAttributedString(forRange range: NSRange) -> AttributedString?
   @available(OSX 10.10, *)
-  func accessibilityRangeFor(line line: Int) -> NSRange
+  func accessibilityRange(forLine line: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityStringFor(range: NSRange) -> String?
+  func accessibilityString(forRange range: NSRange) -> String?
   @available(OSX 10.10, *)
-  func accessibilityRangeFor(position point: Point) -> NSRange
+  func accessibilityRange(forPosition point: Point) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityRangeFor(index: Int) -> NSRange
+  func accessibilityRange(forIndex index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityFrameFor(range: NSRange) -> Rect
+  func accessibilityFrame(forRange range: NSRange) -> Rect
   @available(OSX 10.10, *)
-  func accessibilityRTFFor(range: NSRange) -> Data?
+  func accessibilityRTF(forRange range: NSRange) -> Data?
   @available(OSX 10.10, *)
-  func accessibilityStyleRangeFor(index: Int) -> NSRange
+  func accessibilityStyleRange(forIndex index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityLineFor(index: Int) -> Int
+  func accessibilityLine(forIndex index: Int) -> Int
   @available(OSX 10.10, *)
   func accessibilityPerformCancel() -> Bool
   @available(OSX 10.10, *)

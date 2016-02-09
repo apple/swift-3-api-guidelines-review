@@ -42,12 +42,12 @@ class NSFontManager : Object {
   func setFontMenu(newMenu: NSMenu)
   func fontMenu(create: Bool) -> NSMenu?
   func fontPanel(create: Bool) -> NSFontPanel?
-  func fontWith(family family: String, traits: NSFontTraitMask, weight: Int, size: CGFloat) -> NSFont?
-  func traitsOf(fontObj: NSFont) -> NSFontTraitMask
-  func weightOf(fontObj: NSFont) -> Int
+  func font(withFamily family: String, traits: NSFontTraitMask, weight: Int, size: CGFloat) -> NSFont?
+  func traits(of fontObj: NSFont) -> NSFontTraitMask
+  func weight(of fontObj: NSFont) -> Int
   var availableFonts: [String] { get }
   var availableFontFamilies: [String] { get }
-  func availableMembersOf(fontFamily fam: String) -> [[AnyObject]]?
+  func availableMembers(ofFontFamily fam: String) -> [[AnyObject]]?
   func convert(fontObj: NSFont) -> NSFont
   func convert(fontObj: NSFont, toSize size: CGFloat) -> NSFont
   func convert(fontObj: NSFont, toFace typeface: String) -> NSFont?
@@ -60,15 +60,15 @@ class NSFontManager : Object {
   @available(OSX, introduced=10.0, deprecated=10.11, message="NSFontManager doesn't have any delegate method. This property should not be used.")
   unowned(unsafe) var delegate: @sil_unmanaged AnyObject?
   func sendAction() -> Bool
-  func localizedNameFor(family family: String, face faceKey: String?) -> String
+  func localizedName(forFamily family: String, face faceKey: String?) -> String
   func setSelectedAttributes(attributes: [String : AnyObject] = [:], isMultiple flag: Bool)
   func convertAttributes(attributes: [String : AnyObject] = [:]) -> [String : AnyObject]
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -[NSFontDescriptor matchingFontDescriptorsWithMandatoryKeys:] instead")
-  func availableFontNamesMatching(descriptor: NSFontDescriptor) -> [AnyObject]?
+  func availableFontNames(matching descriptor: NSFontDescriptor) -> [AnyObject]?
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use +[NSFontCollection allFontCollectionNames] instead")
   var collectionNames: [AnyObject] { get }
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -[NSFontCollection matchingDescriptors] instead")
-  func fontDescriptorsIn(collection collectionNames: String) -> [AnyObject]?
+  func fontDescriptors(inCollection collectionNames: String) -> [AnyObject]?
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use +[NSFontCollection showFontCollection:withName:visibility:name:] instead")
   func addCollection(collectionName: String, options collectionOptions: NSFontCollectionOptions = []) -> Bool
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use +[NSFontCollection hideFontCollectionWithName:visibility:error:] instead")
@@ -95,7 +95,7 @@ struct _fmFlags {
 }
 extension NSFontManager {
   func fontNamed(fName: String, hasTraits someTraits: NSFontTraitMask) -> Bool
-  func availableFontNamesWith(traits someTraits: NSFontTraitMask) -> [String]?
+  func availableFontNames(withTraits someTraits: NSFontTraitMask) -> [String]?
   func addFontTrait(sender: AnyObject?)
   func removeFontTrait(sender: AnyObject?)
   func modifyFontViaPanel(sender: AnyObject?)

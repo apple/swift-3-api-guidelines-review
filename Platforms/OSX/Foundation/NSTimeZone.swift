@@ -2,13 +2,13 @@
 class TimeZone : Object, Copying, SecureCoding {
   var name: String { get }
   @NSCopying var data: Data { get }
-  func secondsFromGMTFor(aDate: Date) -> Int
-  func abbreviationFor(aDate: Date) -> String?
-  func isDaylightSavingTimeFor(aDate: Date) -> Bool
+  func secondsFromGMT(forDate aDate: Date) -> Int
+  func abbreviation(forDate aDate: Date) -> String?
+  func isDaylightSavingTime(forDate aDate: Date) -> Bool
   @available(OSX 10.5, *)
-  func daylightSavingTimeOffsetFor(aDate: Date) -> TimeInterval
+  func daylightSavingTimeOffset(forDate aDate: Date) -> TimeInterval
   @available(OSX 10.5, *)
-  func nextDaylightSavingTimeTransitionAfter(aDate: Date) -> Date?
+  func nextDaylightSavingTimeTransition(after aDate: Date) -> Date?
   init()
   func copyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool

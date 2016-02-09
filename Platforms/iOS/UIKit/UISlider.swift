@@ -17,16 +17,16 @@ class UISlider : UIControl, Coding {
   func setThumbImage(image: UIImage?, forState state: UIControlState)
   func setMinimumTrackImage(image: UIImage?, forState state: UIControlState)
   func setMaximumTrackImage(image: UIImage?, forState state: UIControlState)
-  func thumbImageFor(state: UIControlState) -> UIImage?
-  func minimumTrackImageFor(state: UIControlState) -> UIImage?
-  func maximumTrackImageFor(state: UIControlState) -> UIImage?
+  func thumbImage(forState state: UIControlState) -> UIImage?
+  func minimumTrackImage(forState state: UIControlState) -> UIImage?
+  func maximumTrackImage(forState state: UIControlState) -> UIImage?
   var currentThumbImage: UIImage? { get }
   var currentMinimumTrackImage: UIImage? { get }
   var currentMaximumTrackImage: UIImage? { get }
-  func minimumValueImageRectFor(bounds bounds: CGRect) -> CGRect
-  func maximumValueImageRectFor(bounds bounds: CGRect) -> CGRect
-  func trackRectFor(bounds bounds: CGRect) -> CGRect
-  func thumbRectFor(bounds bounds: CGRect, trackRect rect: CGRect, value: Float) -> CGRect
+  func minimumValueImageRect(forBounds bounds: CGRect) -> CGRect
+  func maximumValueImageRect(forBounds bounds: CGRect) -> CGRect
+  func trackRect(forBounds bounds: CGRect) -> CGRect
+  func thumbRect(forBounds bounds: CGRect, trackRect rect: CGRect, value: Float) -> CGRect
   init(frame: CGRect)
   init?(coder aDecoder: Coder)
   convenience init()

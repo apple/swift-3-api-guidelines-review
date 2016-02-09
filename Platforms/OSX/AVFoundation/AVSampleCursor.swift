@@ -11,7 +11,7 @@ class AVSampleCursor : Object, Copying {
 extension AVSampleCursor {
   var presentationTimeStamp: CMTime { get }
   var decodeTimeStamp: CMTime { get }
-  func comparePositionInDecodeOrderWithPositionOf(cursor: AVSampleCursor) -> ComparisonResult
+  func comparePositionInDecodeOrderWithPosition(of cursor: AVSampleCursor) -> ComparisonResult
   func samplesWithEarlierDecodeTimeStampsMayHaveLaterPresentationTimeStampsThanCursor(cursor: AVSampleCursor) -> Bool
   func samplesWithLaterDecodeTimeStampsMayHaveEarlierPresentationTimeStampsThanCursor(cursor: AVSampleCursor) -> Bool
 }

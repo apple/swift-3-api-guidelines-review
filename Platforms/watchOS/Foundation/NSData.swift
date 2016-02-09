@@ -64,14 +64,14 @@ extension Data {
   var description: String { get }
   func getBytes(buffer: UnsafeMutablePointer<Void>, length: Int)
   func getBytes(buffer: UnsafeMutablePointer<Void>, range: NSRange)
-  func isEqualTo(other: Data) -> Bool
-  func subdataWith(range: NSRange) -> Data
-  func writeTo(file path: String, atomically useAuxiliaryFile: Bool) -> Bool
-  func writeTo(url: URL, atomically: Bool) -> Bool
-  func writeTo(file path: String, options writeOptionsMask: DataWritingOptions = []) throws
-  func writeTo(url: URL, options writeOptionsMask: DataWritingOptions = []) throws
+  func isEqual(to other: Data) -> Bool
+  func subdata(withRange range: NSRange) -> Data
+  func write(toFile path: String, atomically useAuxiliaryFile: Bool) -> Bool
+  func write(to url: URL, atomically: Bool) -> Bool
+  func write(toFile path: String, options writeOptionsMask: DataWritingOptions = []) throws
+  func write(to url: URL, options writeOptionsMask: DataWritingOptions = []) throws
   @available(watchOS 2.0, *)
-  func rangeOf(dataToFind: Data, options mask: DataSearchOptions = [], range searchRange: NSRange) -> NSRange
+  func range(of dataToFind: Data, options mask: DataSearchOptions = [], range searchRange: NSRange) -> NSRange
   @available(watchOS 2.0, *)
   func enumerateByteRanges(block: (UnsafePointer<Void>, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
 }
@@ -101,7 +101,7 @@ extension Data {
   @available(watchOS, introduced=2.0, deprecated=2.0, message="This method is unsafe because it could potentially cause buffer overruns. Use -getBytes:length: instead.")
   func getBytes(buffer: UnsafeMutablePointer<Void>)
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use +dataWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
-  class func dataWithContentsOf(mappedFile path: String) -> AnyObject?
+  class func dataWithContents(ofMappedFile path: String) -> AnyObject?
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
   init?(contentsOfMappedFile path: String)
   @available(watchOS, introduced=2.0, deprecated=2.0)
@@ -136,11 +136,11 @@ class MutableData : Data {
 extension MutableData {
   func appendBytes(bytes: UnsafePointer<Void>, length: Int)
   func append(other: Data)
-  func increaseLengthBy(extraLength: Int)
-  func replaceBytesIn(range: NSRange, withBytes bytes: UnsafePointer<Void>)
-  func resetBytesIn(range: NSRange)
+  func increaseLength(by extraLength: Int)
+  func replaceBytes(in range: NSRange, withBytes bytes: UnsafePointer<Void>)
+  func resetBytes(in range: NSRange)
   func setData(data: Data)
-  func replaceBytesIn(range: NSRange, withBytes replacementBytes: UnsafePointer<Void>, length replacementLength: Int)
+  func replaceBytes(in range: NSRange, withBytes replacementBytes: UnsafePointer<Void>, length replacementLength: Int)
 }
 extension MutableData {
   init?(capacity: Int)

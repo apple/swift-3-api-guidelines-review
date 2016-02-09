@@ -9,39 +9,39 @@ typealias EKEventSearchCallback = (EKEvent, UnsafeMutablePointer<ObjCBool>) -> V
 @available(watchOS 2.0, *)
 class EKEventStore : Object {
   @available(watchOS 2.0, *)
-  class func authorizationStatusFor(entityType: EKEntityType) -> EKAuthorizationStatus
+  class func authorizationStatus(forEntityType entityType: EKEntityType) -> EKAuthorizationStatus
   @available(watchOS 2.0, *)
   init()
   @available(watchOS 2.0, *)
-  func requestAccessTo(entityType: EKEntityType, completion: EKEventStoreRequestAccessCompletionHandler)
+  func requestAccess(to entityType: EKEntityType, completion: EKEventStoreRequestAccessCompletionHandler)
   var eventStoreIdentifier: String { get }
   @available(watchOS 2.0, *)
   var sources: [EKSource] { get }
   @available(watchOS 2.0, *)
-  func sourceWith(identifier identifier: String) -> EKSource
+  func source(withIdentifier identifier: String) -> EKSource
   @available(watchOS, introduced=2.0, deprecated=2.0)
   var calendars: [EKCalendar] { get }
   @available(watchOS 2.0, *)
-  func calendarsFor(entityType: EKEntityType) -> [EKCalendar]
+  func calendars(forEntityType entityType: EKEntityType) -> [EKCalendar]
   var defaultCalendarForNewEvents: EKCalendar { get }
   @available(watchOS 2.0, *)
   func defaultCalendarForNewReminders() -> EKCalendar
   @available(watchOS 2.0, *)
-  func calendarWith(identifier identifier: String) -> EKCalendar?
+  func calendar(withIdentifier identifier: String) -> EKCalendar?
   @available(watchOS 2.0, *)
-  func calendarItemWith(identifier identifier: String) -> EKCalendarItem
+  func calendarItem(withIdentifier identifier: String) -> EKCalendarItem
   @available(watchOS 2.0, *)
-  func calendarItemsWith(externalIdentifier externalIdentifier: String) -> [EKCalendarItem]
-  func eventWith(identifier identifier: String) -> EKEvent?
-  func eventsMatching(predicate: Predicate) -> [EKEvent]
-  func enumerateEventsMatching(predicate: Predicate, usingBlock block: EKEventSearchCallback)
+  func calendarItems(withExternalIdentifier externalIdentifier: String) -> [EKCalendarItem]
+  func event(withIdentifier identifier: String) -> EKEvent?
+  func events(matching predicate: Predicate) -> [EKEvent]
+  func enumerateEvents(matching predicate: Predicate, usingBlock block: EKEventSearchCallback)
   func predicateForEventsWithStart(startDate: Date, end endDate: Date, calendars: [EKCalendar]?) -> Predicate
   @available(watchOS 2.0, *)
-  func fetchRemindersMatching(predicate: Predicate, completion: ([EKReminder]?) -> Void) -> AnyObject
+  func fetchReminders(matching predicate: Predicate, completion: ([EKReminder]?) -> Void) -> AnyObject
   @available(watchOS 2.0, *)
   func cancelFetchRequest(fetchIdentifier: AnyObject)
   @available(watchOS 2.0, *)
-  func predicateForRemindersIn(calendars: [EKCalendar]?) -> Predicate
+  func predicateForReminders(in calendars: [EKCalendar]?) -> Predicate
   @available(watchOS 2.0, *)
   func predicateForIncompleteRemindersWithDueDateStarting(startDate: Date?, ending endDate: Date?, calendars: [EKCalendar]?) -> Predicate
   @available(watchOS 2.0, *)

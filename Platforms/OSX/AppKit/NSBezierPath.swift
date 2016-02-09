@@ -35,7 +35,7 @@ class NSBezierPath : Object, Copying, Coding {
   class func fill(rect: Rect)
   class func stroke(rect: Rect)
   class func clip(rect: Rect)
-  class func strokeLineFrom(point1: Point, to point2: Point)
+  class func strokeLine(from point1: Point, to point2: Point)
   class func drawPackedGlyphs(packedGlyphs: UnsafePointer<Int8>, at point: Point)
   class func setDefaultMiterLimit(limit: CGFloat)
   class func defaultMiterLimit() -> CGFloat
@@ -49,14 +49,14 @@ class NSBezierPath : Object, Copying, Coding {
   class func defaultLineJoinStyle() -> NSLineJoinStyle
   class func setDefaultLineWidth(lineWidth: CGFloat)
   class func defaultLineWidth() -> CGFloat
-  func moveTo(point: Point)
-  func lineTo(point: Point)
-  func curveTo(endPoint: Point, controlPoint1: Point, controlPoint2: Point)
+  func move(to point: Point)
+  func line(to point: Point)
+  func curve(to endPoint: Point, controlPoint1: Point, controlPoint2: Point)
   func close()
   func removeAllPoints()
-  func relativeMoveTo(point: Point)
-  func relativeLineTo(point: Point)
-  func relativeCurveTo(endPoint: Point, controlPoint1: Point, controlPoint2: Point)
+  func relativeMove(to point: Point)
+  func relativeLine(to point: Point)
+  func relativeCurve(to endPoint: Point, controlPoint1: Point, controlPoint2: Point)
   var lineWidth: CGFloat
   var lineCapStyle: NSLineCapStyle
   var lineJoinStyle: NSLineJoinStyle
@@ -77,16 +77,16 @@ class NSBezierPath : Object, Copying, Coding {
   var controlPointBounds: Rect { get }
   var bounds: Rect { get }
   var elementCount: Int { get }
-  func elementAt(index: Int, associatedPoints points: PointArray) -> NSBezierPathElement
-  func elementAt(index: Int) -> NSBezierPathElement
+  func element(at index: Int, associatedPoints points: PointArray) -> NSBezierPathElement
+  func element(at index: Int) -> NSBezierPathElement
   func setAssociatedPoints(points: PointArray, at index: Int)
   func append(path: NSBezierPath)
   func append(rect: Rect)
   func append(points points: PointArray, count: Int)
-  func appendWithOvalIn(rect: Rect)
+  func appendWithOval(in rect: Rect)
   func appendWithArcWithCenter(center: Point, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
   func appendWithArcWithCenter(center: Point, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat)
-  func appendWithArcFrom(point1: Point, to point2: Point, radius: CGFloat)
+  func appendWithArc(from point1: Point, to point2: Point, radius: CGFloat)
   func append(glyph glyph: NSGlyph, in font: NSFont)
   func append(glyphs glyphs: UnsafeMutablePointer<NSGlyph>, count: Int, in font: NSFont)
   func append(packedGlyphs packedGlyphs: UnsafePointer<Int8>)

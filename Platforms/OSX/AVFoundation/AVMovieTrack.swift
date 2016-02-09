@@ -52,8 +52,8 @@ extension AVMutableMovieTrack {
   var metadata: [AVMetadataItem]
 }
 extension AVMutableMovieTrack {
-  func addTrackAssociationTo(movieTrack: AVMovieTrack, type trackAssociationType: String)
-  func removeTrackAssociationTo(movieTrack: AVMovieTrack, type trackAssociationType: String)
+  func addTrackAssociation(to movieTrack: AVMovieTrack, type trackAssociationType: String)
+  func removeTrackAssociation(to movieTrack: AVMovieTrack, type trackAssociationType: String)
 }
 @available(OSX 10.10, *)
 let AVFragmentedMovieTrackTimeRangeDidChangeNotification: String

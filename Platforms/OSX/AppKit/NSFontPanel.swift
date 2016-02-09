@@ -1,7 +1,7 @@
 
 extension Object {
-  class func validModesFor(fontPanel: NSFontPanel) -> Int
-  func validModesFor(fontPanel: NSFontPanel) -> Int
+  class func validModes(forFontPanel fontPanel: NSFontPanel) -> Int
+  func validModes(forFontPanel fontPanel: NSFontPanel) -> Int
 }
 class NSFontPanel : NSPanel {
   class func shared() -> NSFontPanel

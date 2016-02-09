@@ -78,12 +78,12 @@ extension Coder {
   func encode(insets: UIEdgeInsets, forKey key: String)
   @available(watchOS 2.0, *)
   func encode(offset: UIOffset, forKey key: String)
-  func decodeCGPointFor(key key: String) -> CGPoint
-  func decodeCGVectorFor(key key: String) -> CGVector
-  func decodeCGSizeFor(key key: String) -> CGSize
-  func decodeCGRectFor(key key: String) -> CGRect
-  func decodeCGAffineTransformFor(key key: String) -> CGAffineTransform
-  func decodeUIEdgeInsetsFor(key key: String) -> UIEdgeInsets
+  func decodeCGPoint(forKey key: String) -> CGPoint
+  func decodeCGVector(forKey key: String) -> CGVector
+  func decodeCGSize(forKey key: String) -> CGSize
+  func decodeCGRect(forKey key: String) -> CGRect
+  func decodeCGAffineTransform(forKey key: String) -> CGAffineTransform
+  func decodeUIEdgeInsets(forKey key: String) -> UIEdgeInsets
   @available(watchOS 2.0, *)
-  func decodeUIOffsetFor(key key: String) -> UIOffset
+  func decodeUIOffset(forKey key: String) -> UIOffset
 }

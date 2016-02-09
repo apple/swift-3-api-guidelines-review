@@ -38,7 +38,7 @@ class Progress : Object {
   @available(OSX 10.9, *)
   func unpublish()
   @available(OSX 10.9, *)
-  class func addSubscriberFor(fileURL url: URL, withPublishingHandler publishingHandler: ProgressPublishingHandler) -> AnyObject
+  class func addSubscriber(forFileURL url: URL, withPublishingHandler publishingHandler: ProgressPublishingHandler) -> AnyObject
   @available(OSX 10.9, *)
   class func removeSubscriber(subscriber: AnyObject)
   @available(OSX 10.9, *)

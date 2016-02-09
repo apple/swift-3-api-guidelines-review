@@ -40,7 +40,7 @@ class CLLocationManager : Object {
   @available(iOS 4.0, *)
   class func significantLocationChangeMonitoringAvailable() -> Bool
   @available(iOS 7.0, *)
-  class func isMonitoringAvailableFor(regionClass: AnyClass) -> Bool
+  class func isMonitoringAvailable(forClass regionClass: AnyClass) -> Bool
   @available(iOS 7.0, *)
   class func isRangingAvailable() -> Bool
   @available(iOS 4.2, *)
@@ -86,17 +86,17 @@ class CLLocationManager : Object {
   @available(iOS 4.0, *)
   func stopMonitoringSignificantLocationChanges()
   @available(iOS 4.0, *)
-  func stopMonitoringFor(region: CLRegion)
+  func stopMonitoring(forRegion region: CLRegion)
   @available(iOS 5.0, *)
-  func startMonitoringFor(region: CLRegion)
+  func startMonitoring(forRegion region: CLRegion)
   @available(iOS 7.0, *)
-  func requestStateFor(region: CLRegion)
+  func requestState(forRegion region: CLRegion)
   @available(iOS 7.0, *)
-  func startRangingBeaconsIn(region: CLBeaconRegion)
+  func startRangingBeacons(in region: CLBeaconRegion)
   @available(iOS 7.0, *)
-  func stopRangingBeaconsIn(region: CLBeaconRegion)
+  func stopRangingBeacons(in region: CLBeaconRegion)
   @available(iOS 6.0, *)
-  func allowDeferredLocationUpdatesUntil(traveled distance: CLLocationDistance, timeout: TimeInterval)
+  func allowDeferredLocationUpdates(untilTraveled distance: CLLocationDistance, timeout: TimeInterval)
   @available(iOS 6.0, *)
   func disallowDeferredLocationUpdates()
   @available(iOS 6.0, *)

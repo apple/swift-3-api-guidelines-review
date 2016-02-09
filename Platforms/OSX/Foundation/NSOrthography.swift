@@ -14,9 +14,9 @@ class Orthography : Object, Copying, Coding {
 }
 extension Orthography {
   @available(OSX 10.6, *)
-  func languagesFor(script script: String) -> [String]?
+  func languages(forScript script: String) -> [String]?
   @available(OSX 10.6, *)
-  func dominantLanguageFor(script script: String) -> String?
+  func dominantLanguage(forScript script: String) -> String?
   @available(OSX 10.6, *)
   var dominantLanguage: String { get }
   @available(OSX 10.6, *)

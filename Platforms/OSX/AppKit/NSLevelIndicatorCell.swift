@@ -17,8 +17,8 @@ class NSLevelIndicatorCell : NSActionCell {
   var tickMarkPosition: NSTickMarkPosition
   var numberOfTickMarks: Int
   var numberOfMajorTickMarks: Int
-  func rectOfTickMarkAt(index: Int) -> Rect
-  func tickMarkValueAt(index: Int) -> Double
+  func rectOfTickMark(at index: Int) -> Rect
+  func tickMarkValue(at index: Int) -> Double
   func setImage(image: NSImage?)
   init(textCell aString: String)
   init(imageCell image: NSImage?)

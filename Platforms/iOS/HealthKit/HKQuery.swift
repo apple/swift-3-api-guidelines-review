@@ -13,34 +13,34 @@ struct HKQueryOptions : OptionSetType {
   static var strictEndDate: HKQueryOptions { get }
 }
 extension HKQuery {
-  class func predicateForObjectsWith(metadataKey key: String) -> Predicate
-  class func predicateForObjectsWith(metadataKey key: String, allowedValues: [AnyObject]) -> Predicate
-  class func predicateForObjectsWith(metadataKey key: String, operatorType: PredicateOperatorType, value: AnyObject) -> Predicate
-  class func predicateForObjectsFrom(source: HKSource) -> Predicate
-  class func predicateForObjectsFrom(sources: Set<HKSource>) -> Predicate
+  class func predicateForObjects(withMetadataKey key: String) -> Predicate
+  class func predicateForObjects(withMetadataKey key: String, allowedValues: [AnyObject]) -> Predicate
+  class func predicateForObjects(withMetadataKey key: String, operatorType: PredicateOperatorType, value: AnyObject) -> Predicate
+  class func predicateForObjects(from source: HKSource) -> Predicate
+  class func predicateForObjects(from sources: Set<HKSource>) -> Predicate
   @available(iOS 9.0, *)
-  class func predicateForObjectsFrom(sourceRevisions: Set<HKSourceRevision>) -> Predicate
+  class func predicateForObjects(from sourceRevisions: Set<HKSourceRevision>) -> Predicate
   @available(iOS 9.0, *)
-  class func predicateForObjectsFrom(devices: Set<HKDevice>) -> Predicate
+  class func predicateForObjects(from devices: Set<HKDevice>) -> Predicate
   @available(iOS 9.0, *)
-  class func predicateForObjectsWith(deviceProperty key: String, allowedValues: Set<String>) -> Predicate
-  class func predicateForObjectWith(UUID: UUID) -> Predicate
-  class func predicateForObjectsWith(UUIDs: Set<UUID>) -> Predicate
+  class func predicateForObjects(withDeviceProperty key: String, allowedValues: Set<String>) -> Predicate
+  class func predicateForObject(withUUID UUID: UUID) -> Predicate
+  class func predicateForObjects(withUUIDs UUIDs: Set<UUID>) -> Predicate
   class func predicateForObjectsWithNoCorrelation() -> Predicate
-  class func predicateForObjectsFrom(workout: HKWorkout) -> Predicate
+  class func predicateForObjects(from workout: HKWorkout) -> Predicate
 }
 extension HKQuery {
   class func predicateForSamplesWithStart(startDate: Date?, end endDate: Date?, options: HKQueryOptions = []) -> Predicate
 }
 extension HKQuery {
-  class func predicateForQuantitySamplesWith(operatorType: PredicateOperatorType, quantity: HKQuantity) -> Predicate
+  class func predicateForQuantitySamples(withOperatorType operatorType: PredicateOperatorType, quantity: HKQuantity) -> Predicate
 }
 extension HKQuery {
-  class func predicateForCategorySamplesWith(operatorType: PredicateOperatorType, value: Int) -> Predicate
+  class func predicateForCategorySamples(withOperatorType operatorType: PredicateOperatorType, value: Int) -> Predicate
 }
 extension HKQuery {
-  class func predicateForWorkoutsWith(workoutActivityType: HKWorkoutActivityType) -> Predicate
-  class func predicateForWorkoutsWith(operatorType: PredicateOperatorType, duration: TimeInterval) -> Predicate
-  class func predicateForWorkoutsWith(operatorType: PredicateOperatorType, totalEnergyBurned: HKQuantity) -> Predicate
-  class func predicateForWorkoutsWith(operatorType: PredicateOperatorType, totalDistance: HKQuantity) -> Predicate
+  class func predicateForWorkouts(withWorkoutActivityType workoutActivityType: HKWorkoutActivityType) -> Predicate
+  class func predicateForWorkouts(withOperatorType operatorType: PredicateOperatorType, duration: TimeInterval) -> Predicate
+  class func predicateForWorkouts(withOperatorType operatorType: PredicateOperatorType, totalEnergyBurned: HKQuantity) -> Predicate
+  class func predicateForWorkouts(withOperatorType operatorType: PredicateOperatorType, totalDistance: HKQuantity) -> Predicate
 }

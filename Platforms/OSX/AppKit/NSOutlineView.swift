@@ -45,7 +45,7 @@ class NSOutlineView : NSTableView, NSAccessibilityOutline {
   unowned(unsafe) var outlineTableColumn: @sil_unmanaged NSTableColumn?
   func isExpandable(item: AnyObject?) -> Bool
   @available(OSX 10.10, *)
-  func numberOfChildrenOf(item item: AnyObject?) -> Int
+  func numberOfChildren(ofItem item: AnyObject?) -> Int
   @available(OSX 10.10, *)
   func child(index: Int, ofItem item: AnyObject?) -> AnyObject?
   func expandItem(item: AnyObject?, expandChildren: Bool)
@@ -54,28 +54,28 @@ class NSOutlineView : NSTableView, NSAccessibilityOutline {
   func collapseItem(item: AnyObject?)
   func reloadItem(item: AnyObject?, reloadChildren: Bool)
   func reloadItem(item: AnyObject?)
-  func parentFor(item item: AnyObject?) -> AnyObject?
+  func parent(forItem item: AnyObject?) -> AnyObject?
   @available(OSX 10.11, *)
-  func childIndexFor(item item: AnyObject) -> Int
-  func itemAt(row row: Int) -> AnyObject?
-  func rowFor(item item: AnyObject?) -> Int
-  func levelFor(item item: AnyObject?) -> Int
-  func levelFor(row row: Int) -> Int
+  func childIndex(forItem item: AnyObject) -> Int
+  func item(atRow row: Int) -> AnyObject?
+  func row(forItem item: AnyObject?) -> Int
+  func level(forItem item: AnyObject?) -> Int
+  func level(forRow row: Int) -> Int
   func isItemExpanded(item: AnyObject?) -> Bool
   var indentationPerLevel: CGFloat
   var indentationMarkerFollowsCell: Bool
   var autoresizesOutlineColumn: Bool
   @available(OSX 10.5, *)
-  func frameOfOutlineCellAt(row row: Int) -> Rect
+  func frameOfOutlineCell(atRow row: Int) -> Rect
   func setDropItem(item: AnyObject?, dropChildIndex index: Int)
-  func shouldCollapseAutoExpandedItemsFor(deposited deposited: Bool) -> Bool
+  func shouldCollapseAutoExpandedItems(forDeposited deposited: Bool) -> Bool
   var autosaveExpandedItems: Bool
   @available(OSX 10.7, *)
-  func insertItemsAt(indexes: IndexSet, inParent parent: AnyObject?, withAnimation animationOptions: NSTableViewAnimationOptions = [])
+  func insertItems(at indexes: IndexSet, inParent parent: AnyObject?, withAnimation animationOptions: NSTableViewAnimationOptions = [])
   @available(OSX 10.7, *)
-  func removeItemsAt(indexes: IndexSet, inParent parent: AnyObject?, withAnimation animationOptions: NSTableViewAnimationOptions = [])
+  func removeItems(at indexes: IndexSet, inParent parent: AnyObject?, withAnimation animationOptions: NSTableViewAnimationOptions = [])
   @available(OSX 10.7, *)
-  func moveItemAt(fromIndex: Int, inParent oldParent: AnyObject?, to toIndex: Int, inParent newParent: AnyObject?)
+  func moveItem(at fromIndex: Int, inParent oldParent: AnyObject?, to toIndex: Int, inParent newParent: AnyObject?)
   @available(OSX 10.7, *)
   var userInterfaceLayoutDirection: NSUserInterfaceLayoutDirection
   init(frame frameRect: Rect)
@@ -115,7 +115,7 @@ protocol NSOutlineViewDelegate : NSControlTextEditingDelegate {
   optional func outlineView(outlineView: NSOutlineView, didRemove rowView: NSTableRowView, forRow row: Int)
   optional func outlineView(outlineView: NSOutlineView, willDisplayCell cell: AnyObject, forTableColumn tableColumn: NSTableColumn?, item: AnyObject)
   optional func outlineView(outlineView: NSOutlineView, shouldEdit tableColumn: NSTableColumn?, item: AnyObject) -> Bool
-  optional func selectionShouldChangeIn(outlineView: NSOutlineView) -> Bool
+  optional func selectionShouldChange(in outlineView: NSOutlineView) -> Bool
   optional func outlineView(outlineView: NSOutlineView, shouldSelectItem item: AnyObject) -> Bool
   @available(OSX 10.5, *)
   optional func outlineView(outlineView: NSOutlineView, selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet) -> IndexSet

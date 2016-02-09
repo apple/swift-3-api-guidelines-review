@@ -4,7 +4,7 @@ let NSTabColumnTerminatorsAttributeName: String
 @available(OSX 10.0, *)
 class NSTextTab : Object, Copying, Coding {
   @available(OSX 10.11, *)
-  class func columnTerminatorsFor(aLocale: Locale?) -> CharacterSet
+  class func columnTerminators(forLocale aLocale: Locale?) -> CharacterSet
   init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options: [String : AnyObject] = [:])
   var alignment: NSTextAlignment { get }
   var location: CGFloat { get }
@@ -30,7 +30,7 @@ enum NSLineBreakMode : UInt {
 @available(OSX 10.0, *)
 class NSParagraphStyle : Object, Copying, MutableCopying, SecureCoding {
   class func defaultParagraphStyle() -> NSParagraphStyle
-  class func defaultWritingDirectionFor(language languageName: String?) -> NSWritingDirection
+  class func defaultWritingDirection(forLanguage languageName: String?) -> NSWritingDirection
   var lineSpacing: CGFloat { get }
   var paragraphSpacing: CGFloat { get }
   var alignment: NSTextAlignment { get }

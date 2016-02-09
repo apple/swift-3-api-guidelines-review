@@ -4,7 +4,7 @@ class NSNib : Object, Coding {
   @available(OSX 10.8, *)
   init(nibData: Data, bundle: Bundle?)
   @available(OSX 10.8, *)
-  func instantiateWith(owner owner: AnyObject?, topLevel topLevelObjects: AutoreleasingUnsafeMutablePointer<NSArray?>) -> Bool
+  func instantiate(withOwner owner: AnyObject?, topLevel topLevelObjects: AutoreleasingUnsafeMutablePointer<NSArray?>) -> Bool
   init()
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)

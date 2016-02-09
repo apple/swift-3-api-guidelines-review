@@ -57,10 +57,10 @@ class NSSharingService : Object {
   var accountName: String? { get }
   @available(OSX 10.9, *)
   var attachmentFileURLs: [URL]? { get }
-  class func sharingServicesFor(items items: [AnyObject]) -> [NSSharingService]
+  class func sharingServices(forItems items: [AnyObject]) -> [NSSharingService]
   /*not inherited*/ init?(named serviceName: String)
   init(title: String, image: NSImage, alternateImage: NSImage?, handler block: () -> Void)
-  func canPerformWith(items items: [AnyObject]?) -> Bool
+  func canPerform(withItems items: [AnyObject]?) -> Bool
   func perform(items items: [AnyObject])
 }
 @available(OSX 10.8, *)
@@ -89,7 +89,7 @@ protocol NSSharingServiceDelegate : ObjectProtocol {
 class NSSharingServicePicker : Object {
   unowned(unsafe) var delegate: @sil_unmanaged NSSharingServicePickerDelegate?
   init(items: [AnyObject])
-  func showRelativeTo(rect: Rect, of view: NSView, preferredEdge: RectEdge)
+  func showRelative(to rect: Rect, of view: NSView, preferredEdge: RectEdge)
 }
 protocol NSSharingServicePickerDelegate : ObjectProtocol {
   @available(OSX 10.8, *)

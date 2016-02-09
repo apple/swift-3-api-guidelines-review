@@ -26,18 +26,18 @@ class CharacterSet : Object, Copying, MutableCopying, Coding {
   @NSCopying var bitmapRepresentation: Data { get }
   @NSCopying var inverted: CharacterSet { get }
   func longCharacterIsMember(theLongChar: UTF32Char) -> Bool
-  func isSupersetOf(theOtherSet: CharacterSet) -> Bool
-  func hasMemberIn(plane thePlane: UInt8) -> Bool
+  func isSuperset(of theOtherSet: CharacterSet) -> Bool
+  func hasMember(inPlane thePlane: UInt8) -> Bool
   convenience init()
   func copyWith(zone: Zone = nil) -> AnyObject
   func mutableCopyWith(zone: Zone = nil) -> AnyObject
   func encodeWith(aCoder: Coder)
 }
 class MutableCharacterSet : CharacterSet, Copying, MutableCopying {
-  func addCharactersIn(aRange: NSRange)
-  func removeCharactersIn(aRange: NSRange)
-  func addCharactersIn(aString: String)
-  func removeCharactersIn(aString: String)
+  func addCharacters(in aRange: NSRange)
+  func removeCharacters(in aRange: NSRange)
+  func addCharacters(in aString: String)
+  func removeCharacters(in aString: String)
   func formUnion(otherSet: CharacterSet)
   func formIntersection(otherSet: CharacterSet)
   func invert()

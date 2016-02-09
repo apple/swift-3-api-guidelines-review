@@ -7,11 +7,11 @@ enum CNPostalAddressFormatterStyle : Int {
 }
 @available(OSX 10.11, *)
 class CNPostalAddressFormatter : Formatter {
-  class func stringFrom(postalAddress: CNPostalAddress, style: CNPostalAddressFormatterStyle) -> String
-  class func attributedStringFrom(postalAddress: CNPostalAddress, style: CNPostalAddressFormatterStyle, withDefaultAttributes attributes: [Object : AnyObject] = [:]) -> AttributedString
+  class func string(from postalAddress: CNPostalAddress, style: CNPostalAddressFormatterStyle) -> String
+  class func attributedString(from postalAddress: CNPostalAddress, style: CNPostalAddressFormatterStyle, withDefaultAttributes attributes: [Object : AnyObject] = [:]) -> AttributedString
   var style: CNPostalAddressFormatterStyle
-  func stringFrom(postalAddress: CNPostalAddress) -> String
-  func attributedStringFrom(postalAddress: CNPostalAddress, withDefaultAttributes attributes: [Object : AnyObject] = [:]) -> AttributedString
+  func string(from postalAddress: CNPostalAddress) -> String
+  func attributedString(from postalAddress: CNPostalAddress, withDefaultAttributes attributes: [Object : AnyObject] = [:]) -> AttributedString
   init()
   init?(coder aDecoder: Coder)
 }

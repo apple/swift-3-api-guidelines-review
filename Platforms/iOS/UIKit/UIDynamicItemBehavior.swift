@@ -16,8 +16,8 @@ class UIDynamicItemBehavior : UIDynamicBehavior {
   var isAnchored: Bool
   var allowsRotation: Bool
   func addLinearVelocity(velocity: CGPoint, forItem item: UIDynamicItem)
-  func linearVelocityFor(item: UIDynamicItem) -> CGPoint
+  func linearVelocity(forItem item: UIDynamicItem) -> CGPoint
   func addAngularVelocity(velocity: CGFloat, forItem item: UIDynamicItem)
-  func angularVelocityFor(item: UIDynamicItem) -> CGFloat
+  func angularVelocity(forItem item: UIDynamicItem) -> CGFloat
   convenience init()
 }

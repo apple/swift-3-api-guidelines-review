@@ -53,10 +53,10 @@ class CNContact : Object, Copying, MutableCopying, SecureCoding {
   var dates: [CNLabeledValue] { get }
   func isKeyAvailable(key: String) -> Bool
   func areKeysAvailable(keyDescriptors: [CNKeyDescriptor]) -> Bool
-  class func localizedStringFor(key key: String) -> String
+  class func localizedString(forKey key: String) -> String
   class func comparatorForNameSortOrder(sortOrder: CNContactSortOrder) -> Comparator
   class func descriptorForAllComparatorKeys() -> CNKeyDescriptor
-  func isUnifiedWithContactWith(identifier contactIdentifier: String) -> Bool
+  func isUnifiedWithContact(withIdentifier contactIdentifier: String) -> Bool
   init()
   @available(iOS 9.0, *)
   func copyWith(zone: Zone = nil) -> AnyObject

@@ -1,11 +1,11 @@
 
 @available(OSX 10.5, *)
 class NSPredicateEditorRowTemplate : Object, Coding, Copying {
-  func matchFor(predicate: Predicate) -> Double
+  func match(forPredicate predicate: Predicate) -> Double
   var templateViews: [NSView] { get }
   func setPredicate(predicate: Predicate)
-  func predicateWith(subpredicates subpredicates: [Predicate]?) -> Predicate
-  func displayableSubpredicatesOf(predicate: Predicate) -> [Predicate]?
+  func predicate(withSubpredicates subpredicates: [Predicate]?) -> Predicate
+  func displayableSubpredicates(of predicate: Predicate) -> [Predicate]?
   init(leftExpressions: [Expression], rightExpressions: [Expression], modifier: ComparisonPredicateModifier, operators: [Number], options: Int)
   init(leftExpressions: [Expression], rightExpressionAttributeType attributeType: NSAttributeType, modifier: ComparisonPredicateModifier, operators: [Number], options: Int)
   init(compoundTypes: [Number])
@@ -16,7 +16,7 @@ class NSPredicateEditorRowTemplate : Object, Coding, Copying {
   var operators: [Number]? { get }
   var options: Int { get }
   var compoundTypes: [Number]? { get }
-  class func templatesWith(attributeKeyPaths keyPaths: [String], in entityDescription: NSEntityDescription) -> [NSPredicateEditorRowTemplate]
+  class func templates(withAttributeKeyPaths keyPaths: [String], in entityDescription: NSEntityDescription) -> [NSPredicateEditorRowTemplate]
   init()
   @available(OSX 10.5, *)
   func encodeWith(aCoder: Coder)

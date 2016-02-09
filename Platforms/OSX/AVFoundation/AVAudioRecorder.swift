@@ -4,7 +4,7 @@ class AVAudioRecorder : Object {
   init(url: URL, settings: [String : AnyObject]) throws
   func prepareToRecord() -> Bool
   func record() -> Bool
-  func recordFor(duration duration: TimeInterval) -> Bool
+  func record(forDuration duration: TimeInterval) -> Bool
   func pause()
   func stop()
   func deleteRecording() -> Bool
@@ -15,8 +15,8 @@ class AVAudioRecorder : Object {
   var currentTime: TimeInterval { get }
   var isMeteringEnabled: Bool
   func updateMeters()
-  func peakPowerFor(channel channelNumber: Int) -> Float
-  func averagePowerFor(channel channelNumber: Int) -> Float
+  func peakPower(forChannel channelNumber: Int) -> Float
+  func averagePower(forChannel channelNumber: Int) -> Float
   init()
 }
 protocol AVAudioRecorderDelegate : ObjectProtocol {

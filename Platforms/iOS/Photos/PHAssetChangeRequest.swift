@@ -1,9 +1,9 @@
 
 @available(iOS 8.0, *)
 class PHAssetChangeRequest : Object {
-  class func creationRequestForAssetFrom(image: UIImage) -> Self
-  class func creationRequestForAssetFromImageAt(fileURL fileURL: URL) -> Self?
-  class func creationRequestForAssetFromVideoAt(fileURL fileURL: URL) -> Self?
+  class func creationRequestForAsset(from image: UIImage) -> Self
+  class func creationRequestForAssetFromImage(atFileURL fileURL: URL) -> Self?
+  class func creationRequestForAssetFromVideo(atFileURL fileURL: URL) -> Self?
   var placeholderForCreatedAsset: PHObjectPlaceholder? { get }
   class func deleteAssets(assets: FastEnumeration)
   convenience init(forAsset asset: PHAsset)

@@ -16,23 +16,23 @@ class MPVolumeView : UIView, Coding {
   @available(iOS 6.0, *)
   func setVolumeThumbImage(image: UIImage?, forState state: UIControlState)
   @available(iOS 6.0, *)
-  func minimumVolumeSliderImageFor(state: UIControlState) -> UIImage?
+  func minimumVolumeSliderImage(forState state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
-  func maximumVolumeSliderImageFor(state: UIControlState) -> UIImage?
+  func maximumVolumeSliderImage(forState state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
-  func volumeThumbImageFor(state: UIControlState) -> UIImage?
+  func volumeThumbImage(forState state: UIControlState) -> UIImage?
   @available(iOS 7.0, *)
   var volumeWarningSliderImage: UIImage?
   @available(iOS 6.0, *)
-  func volumeSliderRectFor(bounds bounds: CGRect) -> CGRect
+  func volumeSliderRect(forBounds bounds: CGRect) -> CGRect
   @available(iOS 6.0, *)
-  func volumeThumbRectFor(bounds bounds: CGRect, volumeSliderRect rect: CGRect, value: Float) -> CGRect
+  func volumeThumbRect(forBounds bounds: CGRect, volumeSliderRect rect: CGRect, value: Float) -> CGRect
   @available(iOS 6.0, *)
   func setRouteButtonImage(image: UIImage?, forState state: UIControlState)
   @available(iOS 6.0, *)
-  func routeButtonImageFor(state: UIControlState) -> UIImage?
+  func routeButtonImage(forState state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
-  func routeButtonRectFor(bounds bounds: CGRect) -> CGRect
+  func routeButtonRect(forBounds bounds: CGRect) -> CGRect
   init(frame: CGRect)
   init?(coder aDecoder: Coder)
   convenience init()

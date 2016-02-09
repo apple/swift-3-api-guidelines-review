@@ -53,7 +53,7 @@ class XPCInterface : Object {
   /*not inherited*/ init(withProtocol protocol: Protocol)
   unowned(unsafe) var `protocol`: @sil_unmanaged Protocol
   func setClasses(classes: Set<Object>, forSelector sel: Selector, argumentIndex arg: Int, ofReply: Bool)
-  func classesFor(sel: Selector, argumentIndex arg: Int, ofReply: Bool) -> Set<Object>
+  func classes(forSelector sel: Selector, argumentIndex arg: Int, ofReply: Bool) -> Set<Object>
   func setInterface(ifc: XPCInterface, forSelector sel: Selector, argumentIndex arg: Int, ofReply: Bool)
   func forSelector(sel: Selector, argumentIndex arg: Int, ofReply: Bool) -> XPCInterface?
   init()

@@ -10,19 +10,19 @@ class SKAudioNode : SKNode, Coding {
 }
 extension SKAction {
   @available(tvOS 9.0, *)
-  class func stereoPanTo(v: Float, duration: TimeInterval) -> SKAction
+  class func stereoPan(to v: Float, duration: TimeInterval) -> SKAction
   @available(tvOS 9.0, *)
-  class func stereoPanBy(v: Float, duration: TimeInterval) -> SKAction
+  class func stereoPan(by v: Float, duration: TimeInterval) -> SKAction
   @available(tvOS 9.0, *)
-  class func changeReverbTo(v: Float, duration: TimeInterval) -> SKAction
+  class func changeReverb(to v: Float, duration: TimeInterval) -> SKAction
   @available(tvOS 9.0, *)
-  class func changeReverbBy(v: Float, duration: TimeInterval) -> SKAction
+  class func changeReverb(by v: Float, duration: TimeInterval) -> SKAction
   @available(tvOS 9.0, *)
-  class func changeObstructionTo(v: Float, duration: TimeInterval) -> SKAction
+  class func changeObstruction(to v: Float, duration: TimeInterval) -> SKAction
   @available(tvOS 9.0, *)
-  class func changeObstructionBy(v: Float, duration: TimeInterval) -> SKAction
+  class func changeObstruction(by v: Float, duration: TimeInterval) -> SKAction
   @available(tvOS 9.0, *)
-  class func changeOcclusionTo(v: Float, duration: TimeInterval) -> SKAction
+  class func changeOcclusion(to v: Float, duration: TimeInterval) -> SKAction
   @available(tvOS 9.0, *)
-  class func changeOcclusionBy(v: Float, duration: TimeInterval) -> SKAction
+  class func changeOcclusion(by v: Float, duration: TimeInterval) -> SKAction
 }

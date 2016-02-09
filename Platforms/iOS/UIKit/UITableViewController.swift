@@ -83,7 +83,7 @@ class UITableViewController : UIViewController, UITableViewDelegate, UITableView
   @available(iOS 9.0, *)
   func tableView(tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
   @available(iOS 9.0, *)
-  func indexPathForPreferredFocusedViewIn(tableView: UITableView) -> IndexPath?
+  func indexPathForPreferredFocusedView(in tableView: UITableView) -> IndexPath?
   @available(iOS 2.0, *)
   func scrollViewDidScroll(scrollView: UIScrollView)
   @available(iOS 3.2, *)
@@ -107,15 +107,15 @@ class UITableViewController : UIViewController, UITableViewDelegate, UITableView
   @available(iOS 2.0, *)
   func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
   @available(iOS 2.0, *)
-  func scrollViewShouldScrollTo(top scrollView: UIScrollView) -> Bool
+  func scrollViewShouldScroll(toTop scrollView: UIScrollView) -> Bool
   @available(iOS 2.0, *)
-  func scrollViewDidScrollTo(top scrollView: UIScrollView)
+  func scrollViewDidScroll(toTop scrollView: UIScrollView)
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
   @available(iOS 2.0, *)
-  func numberOfSectionsIn(tableView: UITableView) -> Int
+  func numberOfSections(in tableView: UITableView) -> Int
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
   @available(iOS 2.0, *)
@@ -125,7 +125,7 @@ class UITableViewController : UIViewController, UITableViewDelegate, UITableView
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
   @available(iOS 2.0, *)
-  func sectionIndexTitlesFor(tableView: UITableView) -> [String]?
+  func sectionIndexTitles(forTableView tableView: UITableView) -> [String]?
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int
   @available(iOS 2.0, *)

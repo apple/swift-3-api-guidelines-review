@@ -28,7 +28,7 @@ class URLCache : Object {
   func removeCachedResponseFor(request: URLRequest)
   func removeAllCachedResponses()
   @available(iOS 8.0, *)
-  func removeCachedResponsesSince(date: Date)
+  func removeCachedResponses(since date: Date)
   var memoryCapacity: Int
   var diskCapacity: Int
   var currentMemoryUsage: Int { get }
@@ -39,7 +39,7 @@ extension URLCache {
   @available(iOS 8.0, *)
   func storeCachedResponse(cachedResponse: CachedURLResponse, forDataTask dataTask: URLSessionDataTask)
   @available(iOS 8.0, *)
-  func getCachedResponseFor(dataTask: URLSessionDataTask, completionHandler: (CachedURLResponse?) -> Void)
+  func getCachedResponse(forDataTask dataTask: URLSessionDataTask, completionHandler: (CachedURLResponse?) -> Void)
   @available(iOS 8.0, *)
-  func removeCachedResponseFor(dataTask: URLSessionDataTask)
+  func removeCachedResponse(forDataTask dataTask: URLSessionDataTask)
 }

@@ -8,7 +8,7 @@ class NSSplitViewController : NSViewController, NSSplitViewDelegate {
   func addSplitViewItem(splitViewItem: NSSplitViewItem)
   func insertSplitViewItem(splitViewItem: NSSplitViewItem, at index: Int)
   func removeSplitViewItem(splitViewItem: NSSplitViewItem)
-  func splitViewItemFor(viewController: NSViewController) -> NSSplitViewItem?
+  func splitViewItem(forViewController viewController: NSViewController) -> NSSplitViewItem?
   @available(OSX 10.11, *)
   var minimumThicknessForInlineSidebars: CGFloat
   func viewDidLoad()
@@ -89,9 +89,9 @@ class NSSplitViewItem : Object, NSAnimatablePropertyContainer, Coding {
   @available(OSX 10.5, *)
   var animations: [String : AnyObject]
   @available(OSX 10.5, *)
-  func animationFor(key key: String) -> AnyObject?
+  func animation(forKey key: String) -> AnyObject?
   @available(OSX 10.5, *)
-  class func defaultAnimationFor(key key: String) -> AnyObject?
+  class func defaultAnimation(forKey key: String) -> AnyObject?
   @available(OSX 10.10, *)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)

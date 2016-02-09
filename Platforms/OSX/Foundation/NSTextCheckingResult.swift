@@ -54,9 +54,9 @@ extension TextCheckingResult {
   @available(OSX 10.7, *)
   var numberOfRanges: Int { get }
   @available(OSX 10.7, *)
-  func rangeAt(idx: Int) -> NSRange
+  func range(at idx: Int) -> NSRange
   @available(OSX 10.7, *)
-  func adjustingRangesWith(offset offset: Int) -> TextCheckingResult
+  func adjustingRanges(withOffset offset: Int) -> TextCheckingResult
 }
 @available(OSX 10.6, *)
 let textCheckingNameKey: String
@@ -81,23 +81,23 @@ let textCheckingAirlineKey: String
 @available(OSX 10.7, *)
 let textCheckingFlightKey: String
 extension TextCheckingResult {
-  class func orthographyCheckingResultWith(range: NSRange, orthography: Orthography) -> TextCheckingResult
+  class func orthographyCheckingResult(withRange range: NSRange, orthography: Orthography) -> TextCheckingResult
   class func spell(range: NSRange) -> TextCheckingResult
-  class func grammarCheckingResultWith(range: NSRange, details: [String]) -> TextCheckingResult
-  class func dateCheckingResultWith(range: NSRange, date: Date) -> TextCheckingResult
-  class func dateCheckingResultWith(range: NSRange, date: Date, timeZone: TimeZone, duration: TimeInterval) -> TextCheckingResult
-  class func addressCheckingResultWith(range: NSRange, components: [String : String]) -> TextCheckingResult
-  class func linkCheckingResultWith(range: NSRange, url: URL) -> TextCheckingResult
-  class func quoteCheckingResultWith(range: NSRange, replacementString: String) -> TextCheckingResult
-  class func dashCheckingResultWith(range: NSRange, replacementString: String) -> TextCheckingResult
-  class func replacementCheckingResultWith(range: NSRange, replacementString: String) -> TextCheckingResult
-  class func correctionCheckingResultWith(range: NSRange, replacementString: String) -> TextCheckingResult
+  class func grammarCheckingResult(withRange range: NSRange, details: [String]) -> TextCheckingResult
+  class func dateCheckingResult(withRange range: NSRange, date: Date) -> TextCheckingResult
+  class func dateCheckingResult(withRange range: NSRange, date: Date, timeZone: TimeZone, duration: TimeInterval) -> TextCheckingResult
+  class func addressCheckingResult(withRange range: NSRange, components: [String : String]) -> TextCheckingResult
+  class func linkCheckingResult(withRange range: NSRange, url: URL) -> TextCheckingResult
+  class func quoteCheckingResult(withRange range: NSRange, replacementString: String) -> TextCheckingResult
+  class func dashCheckingResult(withRange range: NSRange, replacementString: String) -> TextCheckingResult
+  class func replacementCheckingResult(withRange range: NSRange, replacementString: String) -> TextCheckingResult
+  class func correctionCheckingResult(withRange range: NSRange, replacementString: String) -> TextCheckingResult
   @available(OSX 10.9, *)
-  class func correctionCheckingResultWith(range: NSRange, replacementString: String, alternativeStrings: [String]) -> TextCheckingResult
+  class func correctionCheckingResult(withRange range: NSRange, replacementString: String, alternativeStrings: [String]) -> TextCheckingResult
   @available(OSX 10.7, *)
-  class func regularExpressionCheckingResultWith(ranges ranges: RangePointer, count: Int, regularExpression: RegularExpression) -> TextCheckingResult
+  class func regularExpressionCheckingResult(withRanges ranges: RangePointer, count: Int, regularExpression: RegularExpression) -> TextCheckingResult
   @available(OSX 10.7, *)
   class func phoneNumber(range: NSRange, phoneNumber: String) -> TextCheckingResult
   @available(OSX 10.7, *)
-  class func transitInformationCheckingResultWith(range: NSRange, components: [String : String]) -> TextCheckingResult
+  class func transitInformationCheckingResult(withRange range: NSRange, components: [String : String]) -> TextCheckingResult
 }

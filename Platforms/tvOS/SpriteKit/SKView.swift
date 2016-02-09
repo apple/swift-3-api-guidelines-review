@@ -20,8 +20,8 @@ class SKView : UIView {
   func presentScene(scene: SKScene?)
   func presentScene(scene: SKScene, transition: SKTransition)
   var scene: SKScene? { get }
-  func textureFrom(node: SKNode) -> SKTexture?
-  func textureFrom(node: SKNode, crop: CGRect) -> SKTexture?
+  func texture(from node: SKNode) -> SKTexture?
+  func texture(from node: SKNode, crop: CGRect) -> SKTexture?
   func convert(point: CGPoint, to scene: SKScene) -> CGPoint
   func convert(point: CGPoint, from scene: SKScene) -> CGPoint
   init(frame: CGRect)

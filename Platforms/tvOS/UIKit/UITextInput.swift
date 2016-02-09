@@ -44,7 +44,7 @@ class UIDictationPhrase : Object {
 }
 protocol UITextInput : UIKeyInput {
   @available(tvOS 3.2, *)
-  func textIn(range: UITextRange) -> String?
+  func text(in range: UITextRange) -> String?
   @available(tvOS 3.2, *)
   func replace(range: UITextRange, withText text: String)
   @available(tvOS 3.2, *)
@@ -60,45 +60,45 @@ protocol UITextInput : UIKeyInput {
   @available(tvOS 3.2, *)
   var endOfDocument: UITextPosition { get }
   @available(tvOS 3.2, *)
-  func textRangeFrom(fromPosition: UITextPosition, to toPosition: UITextPosition) -> UITextRange?
+  func textRange(from fromPosition: UITextPosition, to toPosition: UITextPosition) -> UITextRange?
   @available(tvOS 3.2, *)
-  func positionFrom(position: UITextPosition, offset: Int) -> UITextPosition?
+  func position(from position: UITextPosition, offset: Int) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func positionFrom(position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
+  func position(from position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
   @available(tvOS 3.2, *)
   func compare(position: UITextPosition, to other: UITextPosition) -> ComparisonResult
   @available(tvOS 3.2, *)
-  func offsetFrom(from: UITextPosition, to toPosition: UITextPosition) -> Int
+  func offset(from from: UITextPosition, to toPosition: UITextPosition) -> Int
   weak var inputDelegate: @sil_weak UITextInputDelegate? { get set }
   var tokenizer: UITextInputTokenizer { get }
   @available(tvOS 3.2, *)
-  func positionWithin(range: UITextRange, farthestIn direction: UITextLayoutDirection) -> UITextPosition?
+  func position(within range: UITextRange, farthestIn direction: UITextLayoutDirection) -> UITextPosition?
   @available(tvOS 3.2, *)
   func characterRangeByExtending(position: UITextPosition, in direction: UITextLayoutDirection) -> UITextRange?
   @available(tvOS 3.2, *)
-  func baseWritingDirectionFor(position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
+  func baseWritingDirection(forPosition position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
   @available(tvOS 3.2, *)
   func setBaseWritingDirection(writingDirection: UITextWritingDirection, forRange range: UITextRange)
   @available(tvOS 3.2, *)
-  func firstRectFor(range: UITextRange) -> CGRect
+  func firstRect(forRange range: UITextRange) -> CGRect
   @available(tvOS 3.2, *)
-  func caretRectFor(position: UITextPosition) -> CGRect
+  func caretRect(forPosition position: UITextPosition) -> CGRect
   @available(tvOS 6.0, *)
-  func selectionRectsFor(range: UITextRange) -> [AnyObject]
+  func selectionRects(forRange range: UITextRange) -> [AnyObject]
   @available(tvOS 3.2, *)
-  func closestPositionTo(point: CGPoint) -> UITextPosition?
+  func closestPosition(to point: CGPoint) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func closestPositionTo(point: CGPoint, within range: UITextRange) -> UITextPosition?
+  func closestPosition(to point: CGPoint, within range: UITextRange) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func characterRangeAt(point: CGPoint) -> UITextRange?
+  func characterRange(at point: CGPoint) -> UITextRange?
   @available(tvOS 6.0, *)
-  optional func shouldChangeTextIn(range: UITextRange, replacementText text: String) -> Bool
+  optional func shouldChangeText(in range: UITextRange, replacementText text: String) -> Bool
   @available(tvOS 3.2, *)
-  optional func textStylingAt(position: UITextPosition, in direction: UITextStorageDirection) -> [String : AnyObject]?
+  optional func textStyling(at position: UITextPosition, in direction: UITextStorageDirection) -> [String : AnyObject]?
   @available(tvOS 3.2, *)
-  optional func positionWithin(range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
+  optional func position(within range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
   @available(tvOS 3.2, *)
-  optional func characterOffsetOf(position: UITextPosition, within range: UITextRange) -> Int
+  optional func characterOffset(of position: UITextPosition, within range: UITextRange) -> Int
   @available(tvOS 2.0, *)
   optional var textInputView: UIView { get }
   optional var selectionAffinity: UITextStorageDirection { get set }
@@ -107,12 +107,12 @@ protocol UITextInput : UIKeyInput {
   optional func dictationRecordingDidEnd()
   optional func dictationRecognitionFailed()
   optional func insertDictationResultPlaceholder() -> AnyObject
-  optional func frameFor(dictationResultPlaceholder placeholder: AnyObject) -> CGRect
+  optional func frame(forDictationResultPlaceholder placeholder: AnyObject) -> CGRect
   optional func removeDictationResultPlaceholder(placeholder: AnyObject, willInsertResult: Bool)
   @available(tvOS 9.0, *)
-  optional func beginFloatingCursorAt(point: CGPoint)
+  optional func beginFloatingCursor(at point: CGPoint)
   @available(tvOS 9.0, *)
-  optional func updateFloatingCursorAt(point: CGPoint)
+  optional func updateFloatingCursor(at point: CGPoint)
   @available(tvOS 9.0, *)
   optional func endFloatingCursor()
 }
@@ -148,7 +148,7 @@ protocol UITextInputTokenizer : ObjectProtocol {
   @available(tvOS 3.2, *)
   func isPosition(position: UITextPosition, atBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
   @available(tvOS 3.2, *)
-  func positionFrom(position: UITextPosition, toBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextPosition?
+  func position(from position: UITextPosition, toBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextPosition?
   @available(tvOS 3.2, *)
   func isPosition(position: UITextPosition, withinTextUnit granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
 }
@@ -161,7 +161,7 @@ class UITextInputStringTokenizer : Object, UITextInputTokenizer {
   @available(tvOS 3.2, *)
   func isPosition(position: UITextPosition, atBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
   @available(tvOS 3.2, *)
-  func positionFrom(position: UITextPosition, toBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextPosition?
+  func position(from position: UITextPosition, toBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextPosition?
   @available(tvOS 3.2, *)
   func isPosition(position: UITextPosition, withinTextUnit granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
 }

@@ -92,11 +92,11 @@ extension AVCaptureDevice {
   @available(tvOS 8.0, *)
   func chromaticityValuesForDeviceWhiteBalanceGains(whiteBalanceGains: AVCaptureWhiteBalanceGains) -> AVCaptureWhiteBalanceChromaticityValues
   @available(tvOS 8.0, *)
-  func deviceWhiteBalanceGainsFor(chromaticityValues: AVCaptureWhiteBalanceChromaticityValues) -> AVCaptureWhiteBalanceGains
+  func deviceWhiteBalanceGains(forChromaticityValues chromaticityValues: AVCaptureWhiteBalanceChromaticityValues) -> AVCaptureWhiteBalanceGains
   @available(tvOS 8.0, *)
   func temperatureAndTintValuesForDeviceWhiteBalanceGains(whiteBalanceGains: AVCaptureWhiteBalanceGains) -> AVCaptureWhiteBalanceTemperatureAndTintValues
   @available(tvOS 8.0, *)
-  func deviceWhiteBalanceGainsFor(tempAndTintValues: AVCaptureWhiteBalanceTemperatureAndTintValues) -> AVCaptureWhiteBalanceGains
+  func deviceWhiteBalanceGains(forTemperatureAndTintValues tempAndTintValues: AVCaptureWhiteBalanceTemperatureAndTintValues) -> AVCaptureWhiteBalanceGains
 }
 @available(tvOS 8.0, *)
 let AVCaptureWhiteBalanceGainsCurrent: AVCaptureWhiteBalanceGains
@@ -124,9 +124,9 @@ extension AVCaptureDevice {
 }
 extension AVCaptureDevice {
   @available(tvOS 7.0, *)
-  class func authorizationStatusFor(mediaType mediaType: String!) -> AVAuthorizationStatus
+  class func authorizationStatus(forMediaType mediaType: String!) -> AVAuthorizationStatus
   @available(tvOS 7.0, *)
-  class func requestAccessFor(mediaType mediaType: String!, completionHandler handler: ((Bool) -> Void)!)
+  class func requestAccess(forMediaType mediaType: String!, completionHandler handler: ((Bool) -> Void)!)
 }
 extension AVCaptureDevice {
   @available(tvOS 8.0, *)

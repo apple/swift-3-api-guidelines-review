@@ -57,19 +57,19 @@ class UIBarButtonItem : UIBarItem, Coding {
   @available(tvOS 5.0, *)
   func setBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState, barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
-  func backgroundImageFor(state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(forState state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
   @available(tvOS 6.0, *)
   func setBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState, style: UIBarButtonItemStyle, barMetrics: UIBarMetrics)
   @available(tvOS 6.0, *)
-  func backgroundImageFor(state: UIControlState, style: UIBarButtonItemStyle, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(forState state: UIControlState, style: UIBarButtonItemStyle, barMetrics: UIBarMetrics) -> UIImage?
   @available(tvOS 5.0, *)
   var tintColor: UIColor?
   @available(tvOS 5.0, *)
   func setBackgroundVerticalPositionAdjustment(adjustment: CGFloat, forBarMetrics barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
-  func backgroundVerticalPositionAdjustmentFor(barMetrics: UIBarMetrics) -> CGFloat
+  func backgroundVerticalPositionAdjustment(forBarMetrics barMetrics: UIBarMetrics) -> CGFloat
   @available(tvOS 5.0, *)
   func setTitlePositionAdjustment(adjustment: UIOffset, forBarMetrics barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
-  func titlePositionAdjustmentFor(barMetrics: UIBarMetrics) -> UIOffset
+  func titlePositionAdjustment(forBarMetrics barMetrics: UIBarMetrics) -> UIOffset
 }

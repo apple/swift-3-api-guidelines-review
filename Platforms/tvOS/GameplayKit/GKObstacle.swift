@@ -14,6 +14,6 @@ class GKCircleObstacle : GKObstacle {
 class GKPolygonObstacle : GKObstacle {
   var vertexCount: Int { get }
   init(points: UnsafeMutablePointer<vector_float2>, count numPoints: Int)
-  func vertexAt(index: Int) -> vector_float2
+  func vertex(at index: Int) -> vector_float2
   convenience init()
 }

@@ -1,7 +1,7 @@
 
 class CAScrollLayer : CALayer {
-  func scrollTo(p: CGPoint)
-  func scrollTo(r: CGRect)
+  func scroll(to p: CGPoint)
+  func scroll(to r: CGRect)
   var scrollMode: String
   init()
   init(layer: AnyObject)

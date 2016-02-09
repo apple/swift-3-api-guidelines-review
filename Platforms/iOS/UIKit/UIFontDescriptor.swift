@@ -34,12 +34,12 @@ class UIFontDescriptor : Object, Copying, SecureCoding {
   var pointSize: CGFloat { get }
   var matrix: CGAffineTransform { get }
   var symbolicTraits: UIFontDescriptorSymbolicTraits { get }
-  func objectFor(key anAttribute: String) -> AnyObject?
+  func object(forKey anAttribute: String) -> AnyObject?
   func fontAttributes() -> [String : AnyObject]
-  func matchingFontDescriptorsWith(mandatoryKeys mandatoryKeys: Set<String>?) -> [UIFontDescriptor]
+  func matchingFontDescriptors(withMandatoryKeys mandatoryKeys: Set<String>?) -> [UIFontDescriptor]
   /*not inherited*/ init(name fontName: String, size: CGFloat)
   /*not inherited*/ init(name fontName: String, matrix: CGAffineTransform)
-  class func preferredFontDescriptorWith(textStyle style: String) -> UIFontDescriptor
+  class func preferredFontDescriptor(withTextStyle style: String) -> UIFontDescriptor
   init(fontAttributes attributes: [String : AnyObject] = [:])
   func addingAttributes(attributes: [String : AnyObject] = [:]) -> UIFontDescriptor
   func withSymbolicTraits(symbolicTraits: UIFontDescriptorSymbolicTraits) -> UIFontDescriptor

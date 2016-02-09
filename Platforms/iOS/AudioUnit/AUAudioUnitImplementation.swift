@@ -60,11 +60,11 @@ extension AUAudioUnitBusArray {
   func replaceBusses(busArray: [AUAudioUnitBus])
 }
 extension AUParameterTree {
-  class func createParameterWith(identifier identifier: String, name: String, address: AUParameterAddress, min: AUValue, max: AUValue, unit: AudioUnitParameterUnit, unitName: String?, flags: AudioUnitParameterOptions = [], valueStrings: [String]?, dependentParameters: [Number]?) -> AUParameter
-  class func createGroupWith(identifier identifier: String, name: String, children: [AUParameterNode]) -> AUParameterGroup
+  class func createParameter(withIdentifier identifier: String, name: String, address: AUParameterAddress, min: AUValue, max: AUValue, unit: AudioUnitParameterUnit, unitName: String?, flags: AudioUnitParameterOptions = [], valueStrings: [String]?, dependentParameters: [Number]?) -> AUParameter
+  class func createGroup(withIdentifier identifier: String, name: String, children: [AUParameterNode]) -> AUParameterGroup
   class func createGroupTemplate(children: [AUParameterNode]) -> AUParameterGroup
-  class func createGroupFrom(template templateGroup: AUParameterGroup, identifier: String, name: String, addressOffset: AUParameterAddress) -> AUParameterGroup
-  class func createTreeWith(children children: [AUParameterNode]) -> AUParameterTree
+  class func createGroup(fromTemplate templateGroup: AUParameterGroup, identifier: String, name: String, addressOffset: AUParameterAddress) -> AUParameterGroup
+  class func createTree(withChildren children: [AUParameterNode]) -> AUParameterTree
 }
 typealias AUImplementorValueObserver = (AUParameter, AUValue) -> Void
 typealias AUImplementorValueProvider = (AUParameter) -> AUValue
@@ -85,5 +85,5 @@ class AUAudioUnitV2Bridge : AUAudioUnit {
 }
 protocol AUAudioUnitFactory : ExtensionRequestHandling {
   @available(iOS 9.0, *)
-  func createAudioUnitWith(desc: AudioComponentDescription) throws -> AUAudioUnit
+  func createAudioUnit(withComponentDescription desc: AudioComponentDescription) throws -> AUAudioUnit
 }

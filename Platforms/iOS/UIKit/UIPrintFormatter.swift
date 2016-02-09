@@ -9,8 +9,8 @@ class UIPrintFormatter : Object, Copying {
   var perPageContentInsets: UIEdgeInsets
   var startPage: Int
   var pageCount: Int { get }
-  func rectForPageAt(pageIndex: Int) -> CGRect
-  func drawIn(rect: CGRect, forPageAt pageIndex: Int)
+  func rectForPage(at pageIndex: Int) -> CGRect
+  func draw(in rect: CGRect, forPageAt pageIndex: Int)
   init()
   @available(iOS 4.2, *)
   func copyWith(zone: Zone = nil) -> AnyObject

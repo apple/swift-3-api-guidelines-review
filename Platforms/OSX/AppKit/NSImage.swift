@@ -47,16 +47,16 @@ class NSImage : Object, Copying, Coding, SecureCoding, NSPasteboardReading, NSPa
   var matchesOnMultipleResolution: Bool
   @available(OSX 10.7, *)
   var matchesOnlyOnBestFittingAxis: Bool
-  func drawAt(point: Point, from fromRect: Rect, operation op: NSCompositingOperation, fraction delta: CGFloat)
-  func drawIn(rect: Rect, from fromRect: Rect, operation op: NSCompositingOperation, fraction delta: CGFloat)
+  func draw(at point: Point, from fromRect: Rect, operation op: NSCompositingOperation, fraction delta: CGFloat)
+  func draw(in rect: Rect, from fromRect: Rect, operation op: NSCompositingOperation, fraction delta: CGFloat)
   @available(OSX 10.6, *)
-  func drawIn(dstSpacePortionRect: Rect, from srcSpacePortionRect: Rect, operation op: NSCompositingOperation, fraction requestedAlpha: CGFloat, respectFlipped respectContextIsFlipped: Bool, hints: [String : AnyObject]?)
+  func draw(in dstSpacePortionRect: Rect, from srcSpacePortionRect: Rect, operation op: NSCompositingOperation, fraction requestedAlpha: CGFloat, respectFlipped respectContextIsFlipped: Bool, hints: [String : AnyObject]?)
   func drawRepresentation(imageRep: NSImageRep, in rect: Rect) -> Bool
   @available(OSX 10.9, *)
-  func drawIn(rect: Rect)
+  func draw(in rect: Rect)
   func recache()
   var tiffRepresentation: Data? { get }
-  func tiffRepresentationUsing(comp: NSTIFFCompression, factor aFloat: Float) -> Data?
+  func tiffRepresentation(usingCompression comp: NSTIFFCompression, factor aFloat: Float) -> Data?
   var representations: [NSImageRep] { get }
   func addRepresentations(imageReps: [NSImageRep])
   func addRepresentation(imageRep: NSImageRep)
@@ -79,7 +79,7 @@ class NSImage : Object, Copying, Coding, SecureCoding, NSPasteboardReading, NSPa
   class func imageTypes() -> [String]
   @available(OSX 10.5, *)
   class func imageUnfilteredTypes() -> [String]
-  class func canInitWith(pasteboard: NSPasteboard) -> Bool
+  class func canInit(withPasteboard pasteboard: NSPasteboard) -> Bool
   func cancelIncrementalLoad()
   var cacheMode: NSImageCacheMode
   @available(OSX 10.5, *)
@@ -90,15 +90,15 @@ class NSImage : Object, Copying, Coding, SecureCoding, NSPasteboardReading, NSPa
   @available(OSX 10.6, *)
   init(cgImage: CGImage, size: Size)
   @available(OSX 10.6, *)
-  func cgImageFor(proposedRect proposedDestRect: UnsafeMutablePointer<Rect>, context referenceContext: NSGraphicsContext?, hints: [String : AnyObject]?) -> CGImage?
+  func cgImage(forProposedRect proposedDestRect: UnsafeMutablePointer<Rect>, context referenceContext: NSGraphicsContext?, hints: [String : AnyObject]?) -> CGImage?
   @available(OSX 10.6, *)
-  func bestRepresentationFor(rect: Rect, context referenceContext: NSGraphicsContext?, hints: [String : AnyObject]?) -> NSImageRep?
+  func bestRepresentation(forRect rect: Rect, context referenceContext: NSGraphicsContext?, hints: [String : AnyObject]?) -> NSImageRep?
   @available(OSX 10.6, *)
   func hitTest(testRectDestSpace: Rect, withImageDestinationRect imageRectDestSpace: Rect, context: NSGraphicsContext?, hints: [String : AnyObject]?, flipped: Bool) -> Bool
   @available(OSX 10.7, *)
   func recommendedLayerContentsScale(preferredContentsScale: CGFloat) -> CGFloat
   @available(OSX 10.7, *)
-  func layerContentsFor(contentsScale layerContentsScale: CGFloat) -> AnyObject
+  func layerContents(forContentsScale layerContentsScale: CGFloat) -> AnyObject
   @available(OSX 10.10, *)
   var capInsets: EdgeInsets
   @available(OSX 10.10, *)
@@ -108,14 +108,14 @@ class NSImage : Object, Copying, Coding, SecureCoding, NSPasteboardReading, NSPa
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   class func supportsSecureCoding() -> Bool
-  class func readableTypesFor(pasteboard: NSPasteboard) -> [String]
+  class func readableTypes(forPasteboard pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  class func readingOptionsFor(type type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
+  class func readingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
-  func writableTypesFor(pasteboard: NSPasteboard) -> [String]
+  func writableTypes(forPasteboard pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  func writingOptionsFor(type type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
-  func pasteboardPropertyListFor(type type: String) -> AnyObject?
+  func writingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
+  func pasteboardPropertyList(forType type: String) -> AnyObject?
 }
 
 extension NSImage : _ImageLiteralConvertible {
@@ -161,10 +161,10 @@ protocol NSImageDelegate : ObjectProtocol {
 }
 extension Bundle {
   @available(OSX 10.7, *)
-  func imageFor(resource name: String) -> NSImage?
-  func pathFor(imageResource name: String) -> String?
+  func image(forResource name: String) -> NSImage?
+  func path(forImageResource name: String) -> String?
   @available(OSX 10.6, *)
-  func urlFor(imageResource name: String) -> URL?
+  func url(forImageResource name: String) -> URL?
 }
 extension NSImage {
 }

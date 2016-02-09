@@ -10,14 +10,14 @@ class DRFSObject : Object {
   func parent() -> DRFolder!
   func baseName() -> String!
   func setBaseName(baseName: String!)
-  func specificNameFor(filesystem filesystem: String!) -> String!
+  func specificName(forFilesystem filesystem: String!) -> String!
   func specificNames() -> [Object : AnyObject]!
   func setSpecificName(name: String!, forFilesystem filesystem: String!)
   func setSpecificNames(specificNames: [Object : AnyObject]!)
-  func mangledNameFor(filesystem filesystem: String!) -> String!
+  func mangledName(forFilesystem filesystem: String!) -> String!
   func mangledNames() -> [Object : AnyObject]!
-  func propertyFor(key key: String!, inFilesystem filesystem: String!, mergeWithOtherFilesystems merge: Bool) -> AnyObject!
-  func propertiesFor(filesystem filesystem: String!, mergeWithOtherFilesystems merge: Bool) -> [Object : AnyObject]!
+  func property(forKey key: String!, inFilesystem filesystem: String!, mergeWithOtherFilesystems merge: Bool) -> AnyObject!
+  func properties(forFilesystem filesystem: String!, mergeWithOtherFilesystems merge: Bool) -> [Object : AnyObject]!
   func setProperty(property: AnyObject!, forKey key: String!, inFilesystem filesystem: String!)
   func setProperties(properties: [Object : AnyObject]!, inFilesystem filesystem: String!)
   func explicitFilesystemMask() -> DRFilesystemInclusionMask

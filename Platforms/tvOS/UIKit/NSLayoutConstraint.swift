@@ -73,7 +73,7 @@ let UILayoutPriorityDefaultLow: UILayoutPriority
 let UILayoutPriorityFittingSizeLevel: UILayoutPriority
 @available(tvOS 6.0, *)
 class NSLayoutConstraint : Object {
-  class func constraintsWith(visualFormat format: String, options opts: NSLayoutFormatOptions = [], metrics: [String : AnyObject]?, views: [String : AnyObject]) -> [NSLayoutConstraint]
+  class func constraints(withVisualFormat format: String, options opts: NSLayoutFormatOptions = [], metrics: [String : AnyObject]?, views: [String : AnyObject]) -> [NSLayoutConstraint]
   convenience init(item view1: AnyObject, attribute attr1: NSLayoutAttribute, relatedBy relation: NSLayoutRelation, toItem view2: AnyObject?, attribute attr2: NSLayoutAttribute, multiplier: CGFloat, constant c: CGFloat)
   var priority: UILayoutPriority
   var shouldBeArchived: Bool

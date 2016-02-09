@@ -65,7 +65,7 @@ class MTLVertexBufferLayoutDescriptor : Object, Copying {
 }
 @available(tvOS 8.0, *)
 class MTLVertexBufferLayoutDescriptorArray : Object {
-  subscript (indexedSubscript index: Int) -> MTLVertexBufferLayoutDescriptor!
+  subscript (atIndexedSubscript index: Int) -> MTLVertexBufferLayoutDescriptor!
   init()
 }
 @available(tvOS 8.0, *)
@@ -79,7 +79,7 @@ class MTLVertexAttributeDescriptor : Object, Copying {
 }
 @available(tvOS 8.0, *)
 class MTLVertexAttributeDescriptorArray : Object {
-  subscript (indexedSubscript index: Int) -> MTLVertexAttributeDescriptor!
+  subscript (atIndexedSubscript index: Int) -> MTLVertexAttributeDescriptor!
   init()
 }
 @available(tvOS 8.0, *)

@@ -44,9 +44,9 @@ extension AVAssetWriterInput {
 }
 extension AVAssetWriterInput {
   @available(tvOS 7.0, *)
-  func canAddTrackAssociationWithTrackOf(input: AVAssetWriterInput, type trackAssociationType: String) -> Bool
+  func canAddTrackAssociationWithTrack(of input: AVAssetWriterInput, type trackAssociationType: String) -> Bool
   @available(tvOS 7.0, *)
-  func addTrackAssociationWithTrackOf(input: AVAssetWriterInput, type trackAssociationType: String)
+  func addTrackAssociationWithTrack(of input: AVAssetWriterInput, type trackAssociationType: String)
 }
 extension AVAssetWriterInput {
   @available(tvOS 8.0, *)

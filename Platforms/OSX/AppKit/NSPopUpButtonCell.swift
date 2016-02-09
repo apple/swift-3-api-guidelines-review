@@ -18,27 +18,27 @@ class NSPopUpButtonCell : NSMenuItemCell {
   func addItems(titles itemTitles: [String])
   func insertItem(title title: String, at index: Int)
   func removeItem(title title: String)
-  func removeItemAt(index: Int)
+  func removeItem(at index: Int)
   func removeAllItems()
   var itemArray: [NSMenuItem] { get }
   var numberOfItems: Int { get }
-  func indexOf(item: NSMenuItem) -> Int
-  func indexOfItemWith(title title: String) -> Int
-  func indexOfItemWith(tag tag: Int) -> Int
-  func indexOfItemWith(representedObject obj: AnyObject?) -> Int
-  func indexOfItemWith(target target: AnyObject?, andAction actionSelector: Selector) -> Int
-  func itemAt(index: Int) -> NSMenuItem?
-  func itemWith(title title: String) -> NSMenuItem?
+  func index(of item: NSMenuItem) -> Int
+  func indexOfItem(withTitle title: String) -> Int
+  func indexOfItem(withTag tag: Int) -> Int
+  func indexOfItem(withRepresentedObject obj: AnyObject?) -> Int
+  func indexOfItem(withTarget target: AnyObject?, andAction actionSelector: Selector) -> Int
+  func item(at index: Int) -> NSMenuItem?
+  func item(withTitle title: String) -> NSMenuItem?
   var lastItem: NSMenuItem? { get }
   func select(item: NSMenuItem?)
-  func selectItemAt(index: Int)
+  func selectItem(at index: Int)
   func selectItem(title title: String)
   func selectItem(tag tag: Int) -> Bool
   func setTitle(aString: String?)
   var selectedItem: NSMenuItem? { get }
   var indexOfSelectedItem: Int { get }
   func synchronizeTitleAndSelectedItem()
-  func itemTitleAt(index: Int) -> String
+  func itemTitle(at index: Int) -> String
   var itemTitles: [String] { get }
   var titleOfSelectedItem: String? { get }
   func attachPopUp(frame cellFrame: Rect, in controlView: NSView)

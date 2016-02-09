@@ -5,9 +5,9 @@ class AVBInterface : Object {
   var entityDiscovery: AVB17221EntityDiscovery? { get }
   var aecp: AVB17221AECPInterface? { get }
   var acmp: AVB17221ACMPInterface? { get }
-  class func macAddressFor(interfaceNamed anInterfaceName: String) -> AVBMACAddress?
+  class func macAddress(forInterfaceNamed anInterfaceName: String) -> AVBMACAddress?
   class func supportedInterfaces() -> [String]?
-  class func isAVBEnabledOn(interfaceNamed anInterfaceName: String) -> Bool
+  class func isAVBEnabled(onInterfaceNamed anInterfaceName: String) -> Bool
   class func isAVBCapableInterfaceNamed(anInterfaceName: String) -> Bool
   init?(interfaceName anInterfaceName: String)
   @available(OSX, introduced=10.8, deprecated=10.10)

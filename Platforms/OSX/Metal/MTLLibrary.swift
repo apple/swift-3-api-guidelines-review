@@ -63,6 +63,6 @@ enum MTLRenderPipelineError : UInt {
 protocol MTLLibrary : ObjectProtocol {
   var label: String? { get set }
   var device: MTLDevice { get }
-  func newFunctionWith(name functionName: String) -> MTLFunction?
+  func newFunction(withName functionName: String) -> MTLFunction?
   var functionNames: [String] { get }
 }

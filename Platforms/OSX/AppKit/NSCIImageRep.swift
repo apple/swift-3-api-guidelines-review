@@ -7,6 +7,6 @@ class NSCIImageRep : NSImageRep {
 }
 extension CIImage {
   init?(bitmapImageRep: NSBitmapImageRep)
-  func drawIn(rect: Rect, from fromRect: Rect, operation op: NSCompositingOperation, fraction delta: CGFloat)
-  func drawAt(point: Point, from fromRect: Rect, operation op: NSCompositingOperation, fraction delta: CGFloat)
+  func draw(in rect: Rect, from fromRect: Rect, operation op: NSCompositingOperation, fraction delta: CGFloat)
+  func draw(at point: Point, from fromRect: Rect, operation op: NSCompositingOperation, fraction delta: CGFloat)
 }

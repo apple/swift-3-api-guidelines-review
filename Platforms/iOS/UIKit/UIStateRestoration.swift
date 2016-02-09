@@ -11,13 +11,13 @@ let UIApplicationStateRestorationTimestampKey: String
 let UIApplicationStateRestorationSystemVersionKey: String
 protocol UIViewControllerRestoration {
   @available(iOS 2.0, *)
-  static func viewControllerWith(restorationIdentifierPath identifierComponents: [AnyObject], coder: Coder) -> UIViewController?
+  static func viewController(withRestorationIdentifierPath identifierComponents: [AnyObject], coder: Coder) -> UIViewController?
 }
 protocol UIDataSourceModelAssociation {
   @available(iOS 2.0, *)
-  func modelIdentifierForElementAt(idx: IndexPath, in view: UIView) -> String?
+  func modelIdentifierForElement(at idx: IndexPath, in view: UIView) -> String?
   @available(iOS 2.0, *)
-  func indexPathForElementWith(modelIdentifier identifier: String, in view: UIView) -> IndexPath?
+  func indexPathForElement(withModelIdentifier identifier: String, in view: UIView) -> IndexPath?
 }
 protocol UIStateRestoring : ObjectProtocol {
   optional var restorationParent: UIStateRestoring? { get }
@@ -27,5 +27,5 @@ protocol UIStateRestoring : ObjectProtocol {
   optional func applicationFinishedRestoringState()
 }
 protocol UIObjectRestoration {
-  static func objectWith(restorationIdentifierPath identifierComponents: [String], coder: Coder) -> UIStateRestoring?
+  static func object(withRestorationIdentifierPath identifierComponents: [String], coder: Coder) -> UIStateRestoring?
 }

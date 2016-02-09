@@ -8,9 +8,9 @@ class NSMenuItemCell : NSButtonCell {
   var imageWidth: CGFloat { get }
   var titleWidth: CGFloat { get }
   var keyEquivalentWidth: CGFloat { get }
-  func stateImageRectFor(bounds cellFrame: Rect) -> Rect
-  func titleRectFor(bounds cellFrame: Rect) -> Rect
-  func keyEquivalentRectFor(bounds cellFrame: Rect) -> Rect
+  func stateImageRect(forBounds cellFrame: Rect) -> Rect
+  func titleRect(forBounds cellFrame: Rect) -> Rect
+  func keyEquivalentRect(forBounds cellFrame: Rect) -> Rect
   func drawSeparatorItem(frame cellFrame: Rect, in controlView: NSView)
   func drawStateImage(frame cellFrame: Rect, in controlView: NSView)
   func drawImage(frame cellFrame: Rect, in controlView: NSView)

@@ -47,7 +47,7 @@ extension GKScore {
   @available(OSX 10.10, *)
   func challengeComposeController(message message: String?, players: [GKPlayer]?, completionHandler: GKChallengeComposeCompletionBlock? = nil) -> NSViewController
   @available(OSX, introduced=10.8, deprecated=10.10, message="pass GKPlayers to challengeComposeControllerWithMessage:players:completionHandler: and present the view controller instead")
-  func issueChallengeTo(players playerIDs: [String]?, message: String?)
+  func issueChallenge(toPlayers playerIDs: [String]?, message: String?)
   @available(OSX 10.10, *)
   class func report(scores: [GKScore], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
 }
@@ -55,7 +55,7 @@ extension GKAchievement {
   @available(OSX 10.10, *)
   func challengeComposeController(message message: String?, players: [GKPlayer], completionHandler: GKChallengeComposeCompletionBlock? = nil) -> NSViewController
   @available(OSX, introduced=10.8, deprecated=10.10, message="pass GKPlayers to challengeComposeControllerWithMessage:players:completionHandler: and present the view controller instead")
-  func issueChallengeTo(players playerIDs: [String]?, message: String?)
+  func issueChallenge(toPlayers playerIDs: [String]?, message: String?)
   @available(OSX 10.10, *)
   func selectChallengeablePlayers(players: [GKPlayer], withCompletionHandler completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
   @available(OSX 10.10, *)

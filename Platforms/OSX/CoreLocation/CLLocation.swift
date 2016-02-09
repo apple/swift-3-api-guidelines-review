@@ -41,7 +41,7 @@ class CLLocation : Object, Copying, SecureCoding {
   @NSCopying var timestamp: Date { get }
   var description: String { get }
   @available(OSX 10.6, *)
-  func distanceFrom(location: CLLocation) -> CLLocationDistance
+  func distance(from location: CLLocation) -> CLLocationDistance
   init()
   @available(OSX 10.6, *)
   func copyWith(zone: Zone = nil) -> AnyObject

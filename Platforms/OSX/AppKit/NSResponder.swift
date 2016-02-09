@@ -27,30 +27,30 @@ class NSResponder : Object, Coding {
   @available(OSX 10.5, *)
   func cursorUpdate(event: NSEvent)
   @available(OSX 10.5, *)
-  func magnifyWith(event: NSEvent)
+  func magnify(withEvent event: NSEvent)
   @available(OSX 10.5, *)
-  func rotateWith(event: NSEvent)
+  func rotate(withEvent event: NSEvent)
   @available(OSX 10.5, *)
-  func swipeWith(event: NSEvent)
+  func swipe(withEvent event: NSEvent)
   @available(OSX 10.5, *)
   func beginGesture(event: NSEvent)
   @available(OSX 10.5, *)
   func endGesture(event: NSEvent)
   @available(OSX 10.8, *)
-  func smartMagnifyWith(event: NSEvent)
+  func smartMagnify(withEvent event: NSEvent)
   @available(OSX 10.6, *)
-  func touchesBeganWith(event: NSEvent)
+  func touchesBegan(withEvent event: NSEvent)
   @available(OSX 10.6, *)
-  func touchesMovedWith(event: NSEvent)
+  func touchesMoved(withEvent event: NSEvent)
   @available(OSX 10.6, *)
-  func touchesEndedWith(event: NSEvent)
+  func touchesEnded(withEvent event: NSEvent)
   @available(OSX 10.6, *)
-  func touchesCancelledWith(event: NSEvent)
+  func touchesCancelled(withEvent event: NSEvent)
   @available(OSX 10.8, *)
-  func quickLookWith(event: NSEvent)
+  func quickLook(withEvent event: NSEvent)
   @available(OSX 10.10.3, *)
-  func pressureChangeWith(event: NSEvent)
-  func noResponderFor(eventSelector: Selector)
+  func pressureChange(withEvent event: NSEvent)
+  func noResponder(for eventSelector: Selector)
   var acceptsFirstResponder: Bool { get }
   func becomeFirstResponder() -> Bool
   func resignFirstResponder() -> Bool
@@ -59,18 +59,18 @@ class NSResponder : Object, Coding {
   var menu: NSMenu?
   func showContextHelp(sender: AnyObject?)
   func helpRequested(eventPtr: NSEvent)
-  func shouldBeTreatedAs(inkEvent theEvent: NSEvent) -> Bool
+  func shouldBeTreated(asInkEvent theEvent: NSEvent) -> Bool
   @available(OSX 10.7, *)
-  func wantsScrollEventsForSwipeTrackingOn(axis: NSEventGestureAxis) -> Bool
+  func wantsScrollEventsForSwipeTracking(on axis: NSEventGestureAxis) -> Bool
   @available(OSX 10.7, *)
-  func wantsForwardedScrollEventsFor(axis: NSEventGestureAxis) -> Bool
+  func wantsForwardedScrollEvents(forAxis axis: NSEventGestureAxis) -> Bool
   @available(OSX 10.7, *)
-  func supplementalTargetFor(action action: Selector, sender: AnyObject?) -> AnyObject?
+  func supplementalTarget(forAction action: Selector, sender: AnyObject?) -> AnyObject?
   func encodeWith(aCoder: Coder)
 }
 extension NSResponder {
   func insertText(insertString: AnyObject)
-  func doCommandBy(aSelector: Selector)
+  func doCommand(by aSelector: Selector)
   func moveForward(sender: AnyObject?)
   func moveRight(sender: AnyObject?)
   func moveBackward(sender: AnyObject?)

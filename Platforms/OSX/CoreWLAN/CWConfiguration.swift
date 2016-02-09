@@ -16,7 +16,7 @@ class CWConfiguration : Object, Copying, MutableCopying, SecureCoding {
   @available(OSX 10.7, *)
   init(configuration: CWConfiguration)
   @available(OSX 10.6, *)
-  func isEqualTo(configuration: CWConfiguration) -> Bool
+  func isEqual(to configuration: CWConfiguration) -> Bool
   @available(OSX 10.6, *)
   func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.6, *)

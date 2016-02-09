@@ -14,7 +14,7 @@ class NSPrinter : Object, Copying, Coding {
   var name: String { get }
   var type: String { get }
   var languageLevel: Int { get }
-  func pageSizeFor(paper paperName: String) -> Size
+  func pageSize(forPaper paperName: String) -> Size
   var deviceDescription: [String : AnyObject] { get }
   init()
   func copyWith(zone: Zone = nil) -> AnyObject

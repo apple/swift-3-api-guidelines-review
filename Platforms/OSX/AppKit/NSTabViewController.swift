@@ -19,7 +19,7 @@ class NSTabViewController : NSViewController, NSTabViewDelegate, NSToolbarDelega
   func addTabViewItem(tabViewItem: NSTabViewItem)
   func insertTabViewItem(tabViewItem: NSTabViewItem, at index: Int)
   func removeTabViewItem(tabViewItem: NSTabViewItem)
-  func tabViewItemFor(viewController: NSViewController) -> NSTabViewItem?
+  func tabViewItem(forViewController viewController: NSViewController) -> NSTabViewItem?
   func viewDidLoad()
   func tabView(tabView: NSTabView, willSelect tabViewItem: NSTabViewItem?)
   func tabView(tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?)
@@ -32,7 +32,7 @@ class NSTabViewController : NSViewController, NSTabViewDelegate, NSToolbarDelega
   init?(coder: Coder)
   convenience init()
   @available(OSX 10.10, *)
-  func tabViewDidChangeNumberOf(tabViewItems tabView: NSTabView)
+  func tabViewDidChangeNumber(ofTabViewItems tabView: NSTabView)
   @available(OSX 10.10, *)
   func toolbarWillAddItem(notification: Notification)
   @available(OSX 10.10, *)

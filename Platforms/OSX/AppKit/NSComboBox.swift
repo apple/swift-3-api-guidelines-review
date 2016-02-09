@@ -12,10 +12,10 @@ class NSComboBox : NSTextField {
   func reloadData()
   func noteNumberOfItemsChanged()
   var usesDataSource: Bool
-  func scrollItemAtIndexTo(top index: Int)
+  func scrollItemAtIndex(toTop index: Int)
   func scrollItemAtIndexToVisible(index: Int)
-  func selectItemAt(index: Int)
-  func deselectItemAt(index: Int)
+  func selectItem(at index: Int)
+  func deselectItem(at index: Int)
   var indexOfSelectedItem: Int { get }
   var numberOfItems: Int { get }
   var completes: Bool
@@ -26,12 +26,12 @@ class NSComboBox : NSTextField {
   func addItems(objectValues objects: [AnyObject])
   func insertItem(objectValue object: AnyObject, at index: Int)
   func removeItem(objectValue object: AnyObject)
-  func removeItemAt(index: Int)
+  func removeItem(at index: Int)
   func removeAllItems()
   func selectItem(objectValue object: AnyObject?)
-  func itemObjectValueAt(index: Int) -> AnyObject
+  func itemObjectValue(at index: Int) -> AnyObject
   var objectValueOfSelectedItem: AnyObject? { get }
-  func indexOfItemWith(objectValue object: AnyObject) -> Int
+  func indexOfItem(withObjectValue object: AnyObject) -> Int
   var objectValues: [AnyObject] { get }
   init(frame frameRect: Rect)
   init?(coder: Coder)

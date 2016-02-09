@@ -35,8 +35,8 @@ class UndoManager : Object {
   func setActionName(actionName: String)
   var undoMenuItemTitle: String { get }
   var redoMenuItemTitle: String { get }
-  func undoMenuTitleFor(undoActionName actionName: String) -> String
-  func redoMenuTitleFor(undoActionName actionName: String) -> String
+  func undoMenuTitle(forUndoActionName actionName: String) -> String
+  func redoMenuTitle(forUndoActionName actionName: String) -> String
   init()
 }
 

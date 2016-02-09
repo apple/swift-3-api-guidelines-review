@@ -45,7 +45,7 @@ class UIUserNotificationCategory : Object, Copying, MutableCopying, SecureCoding
   init()
   init?(coder aDecoder: Coder)
   var identifier: String? { get }
-  func actionsFor(context: UIUserNotificationActionContext) -> [UIUserNotificationAction]?
+  func actions(forContext context: UIUserNotificationActionContext) -> [UIUserNotificationAction]?
   @available(iOS 8.0, *)
   func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)

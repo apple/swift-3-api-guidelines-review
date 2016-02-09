@@ -67,8 +67,8 @@ class AVSpeechSynthesizer : Object {
   var isSpeaking: Bool { get }
   var isPaused: Bool { get }
   func speak(utterance: AVSpeechUtterance)
-  func stopSpeakingAt(boundary: AVSpeechBoundary) -> Bool
-  func pauseSpeakingAt(boundary: AVSpeechBoundary) -> Bool
+  func stopSpeaking(at boundary: AVSpeechBoundary) -> Bool
+  func pauseSpeaking(at boundary: AVSpeechBoundary) -> Bool
   func continueSpeaking() -> Bool
   init()
 }

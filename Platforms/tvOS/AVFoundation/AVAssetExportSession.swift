@@ -46,14 +46,14 @@ class AVAssetExportSession : Object {
 }
 extension AVAssetExportSession {
   class func allExportPresets() -> [String]
-  class func exportPresetsCompatibleWith(asset: AVAsset) -> [String]
+  class func exportPresetsCompatible(withAsset asset: AVAsset) -> [String]
   @available(tvOS 6.0, *)
   class func determineCompatibilityOfExportPreset(presetName: String, withAsset asset: AVAsset, outputFileType: String?, completionHandler handler: (Bool) -> Void)
 }
 extension AVAssetExportSession {
   var supportedFileTypes: [String] { get }
   @available(tvOS 6.0, *)
-  func determineCompatibleFileTypesWith(completionHandler handler: ([String]) -> Void)
+  func determineCompatibleFileTypes(withCompletionHandler handler: ([String]) -> Void)
 }
 extension AVAssetExportSession {
   var timeRange: CMTimeRange

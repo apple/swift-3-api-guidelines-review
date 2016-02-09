@@ -11,13 +11,13 @@ class RunLoop : Object {
   func add(timer: Timer, forMode mode: String)
   func add(aPort: Port, forMode mode: String)
   func remove(aPort: Port, forMode mode: String)
-  func limitDateFor(mode mode: String) -> Date?
-  func acceptInputFor(mode mode: String, before limitDate: Date)
+  func limitDate(forMode mode: String) -> Date?
+  func acceptInput(forMode mode: String, before limitDate: Date)
   init()
 }
 extension RunLoop {
   func run()
-  func runUntil(limitDate: Date)
+  func run(until limitDate: Date)
   func runMode(mode: String, before limitDate: Date) -> Bool
 }
 extension Object {

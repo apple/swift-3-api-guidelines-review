@@ -4,11 +4,11 @@ protocol WebDocumentView : ObjectProtocol {
   func dataSourceUpdated(dataSource: WebDataSource!)
   func setNeedsLayout(flag: Bool)
   func layout()
-  func viewWillMoveTo(hostWindow hostWindow: NSWindow!)
+  func viewWillMove(toHostWindow hostWindow: NSWindow!)
   func viewDidMoveToHostWindow()
 }
 protocol WebDocumentSearching : ObjectProtocol {
-  func searchFor(string: String!, direction forward: Bool, caseSensitive caseFlag: Bool, wrap wrapFlag: Bool) -> Bool
+  func search(for string: String!, direction forward: Bool, caseSensitive caseFlag: Bool, wrap wrapFlag: Bool) -> Bool
 }
 protocol WebDocumentText : ObjectProtocol {
   func supportsTextEncoding() -> Bool
@@ -25,7 +25,7 @@ protocol WebDocumentRepresentation : ObjectProtocol {
   func setDataSource(dataSource: WebDataSource!)
   func receivedData(data: Data!, withDataSource dataSource: WebDataSource!)
   func receivedError(error: Error!, withDataSource dataSource: WebDataSource!)
-  func finishedLoadingWith(dataSource: WebDataSource!)
+  func finishedLoading(withDataSource dataSource: WebDataSource!)
   func canProvideDocumentSource() -> Bool
   func documentSource() -> String!
   func title() -> String!

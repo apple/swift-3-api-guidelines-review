@@ -37,11 +37,11 @@ class NEFilterNewFlowVerdict : NEFilterVerdict, SecureCoding, Copying {
   @available(iOS 9.0, *)
   class func drop() -> NEFilterNewFlowVerdict
   @available(iOS 9.0, *)
-  class func remediateVerdictWith(remediationURLMapKey remediationURLMapKey: String, remediationButtonTextMapKey: String) -> NEFilterNewFlowVerdict
+  class func remediateVerdict(withRemediationURLMapKey remediationURLMapKey: String, remediationButtonTextMapKey: String) -> NEFilterNewFlowVerdict
   @available(iOS 9.0, *)
-  class func urlAppendStringVerdictWith(mapKey urlAppendMapKey: String) -> NEFilterNewFlowVerdict
+  class func urlAppendStringVerdict(withMapKey urlAppendMapKey: String) -> NEFilterNewFlowVerdict
   @available(iOS 9.0, *)
-  class func filterDataVerdictWith(filterInbound filterInbound: Bool, peekInboundBytes: Int, filterOutbound: Bool, peekOutboundBytes: Int) -> NEFilterNewFlowVerdict
+  class func filterDataVerdict(withFilterInbound filterInbound: Bool, peekInboundBytes: Int, filterOutbound: Bool, peekOutboundBytes: Int) -> NEFilterNewFlowVerdict
   init()
   init?(coder aDecoder: Coder)
 }

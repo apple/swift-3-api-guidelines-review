@@ -9,7 +9,7 @@ class WKInterfaceGroup : WKInterfaceObject, WKImageAnimatable {
   @available(iOS 8.2, *)
   func startAnimating()
   @available(iOS 8.2, *)
-  func startAnimatingWithImagesIn(imageRange: NSRange, duration: TimeInterval, repeatCount: Int)
+  func startAnimatingWithImages(in imageRange: NSRange, duration: TimeInterval, repeatCount: Int)
   @available(iOS 8.2, *)
   func stopAnimating()
 }

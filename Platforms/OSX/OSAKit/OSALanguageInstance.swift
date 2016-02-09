@@ -6,6 +6,6 @@ class OSALanguageInstance : Object {
   @available(OSX 10.10, *)
   var defaultTarget: AppleEventDescriptor?
   @available(OSX 10.10, *)
-  func richTextFrom(descriptor: AppleEventDescriptor) -> AttributedString?
+  func richText(from descriptor: AppleEventDescriptor) -> AttributedString?
   init()
 }

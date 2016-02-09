@@ -6,7 +6,7 @@ class AVAudioRecorder : Object {
   func record() -> Bool
   @available(iOS 6.0, *)
   func recordAtTime(time: TimeInterval) -> Bool
-  func recordFor(duration duration: TimeInterval) -> Bool
+  func record(forDuration duration: TimeInterval) -> Bool
   @available(iOS 6.0, *)
   func recordAtTime(time: TimeInterval, forDuration duration: TimeInterval) -> Bool
   func pause()
@@ -21,8 +21,8 @@ class AVAudioRecorder : Object {
   var deviceCurrentTime: TimeInterval { get }
   var isMeteringEnabled: Bool
   func updateMeters()
-  func peakPowerFor(channel channelNumber: Int) -> Float
-  func averagePowerFor(channel channelNumber: Int) -> Float
+  func peakPower(forChannel channelNumber: Int) -> Float
+  func averagePower(forChannel channelNumber: Int) -> Float
   @available(iOS 7.0, *)
   var channelAssignments: [Number]?
   init()

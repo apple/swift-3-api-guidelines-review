@@ -54,7 +54,7 @@ class MutableURLRequest : URLRequest {
 extension URLRequest {
   var httpMethod: String? { get }
   var allHTTPHeaderFields: [String : String]? { get }
-  func valueFor(httpHeaderField field: String) -> String?
+  func value(forHTTPHeaderField field: String) -> String?
   @NSCopying var httpBody: Data? { get }
   var httpBodyStream: InputStream? { get }
   var httpShouldHandleCookies: Bool { get }

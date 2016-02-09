@@ -16,9 +16,9 @@ struct JSONWritingOptions : OptionSetType {
 @available(iOS 5.0, *)
 class JSONSerialization : Object {
   class func isValidJSONObject(obj: AnyObject) -> Bool
-  class func dataWith(jsonObject obj: AnyObject, options opt: JSONWritingOptions = []) throws -> Data
-  class func jsonObjectWith(data: Data, options opt: JSONReadingOptions = []) throws -> AnyObject
+  class func data(withJSONObject obj: AnyObject, options opt: JSONWritingOptions = []) throws -> Data
+  class func jsonObject(withData data: Data, options opt: JSONReadingOptions = []) throws -> AnyObject
   class func writeJSONObject(obj: AnyObject, to stream: OutputStream, options opt: JSONWritingOptions = [], error: ErrorPointer) -> Int
-  class func jsonObjectWith(stream: InputStream, options opt: JSONReadingOptions = []) throws -> AnyObject
+  class func jsonObject(withStream stream: InputStream, options opt: JSONReadingOptions = []) throws -> AnyObject
   init()
 }

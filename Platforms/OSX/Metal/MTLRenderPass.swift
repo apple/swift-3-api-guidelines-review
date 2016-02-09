@@ -56,7 +56,7 @@ class MTLRenderPassStencilAttachmentDescriptor : MTLRenderPassAttachmentDescript
 }
 @available(OSX 10.11, *)
 class MTLRenderPassColorAttachmentDescriptorArray : Object {
-  subscript (indexedSubscript attachmentIndex: Int) -> MTLRenderPassColorAttachmentDescriptor!
+  subscript (atIndexedSubscript attachmentIndex: Int) -> MTLRenderPassColorAttachmentDescriptor!
   init()
 }
 @available(OSX 10.11, *)

@@ -10,7 +10,7 @@ class Proxy : ObjectProtocol {
   func finalize()
   var description: String { get }
   var debugDescription: String { get }
-  class func respondsTo(aSelector: Selector) -> Bool
+  class func responds(to aSelector: Selector) -> Bool
   class func description() -> String
   class func debugDescription() -> String
   func isEqual(object: AnyObject?) -> Bool
@@ -26,11 +26,11 @@ class Proxy : ObjectProtocol {
   class func perform(aSelector: Selector, withObject object1: AnyObject!, withObject object2: AnyObject!) -> Unmanaged<AnyObject>!
   func isProxy() -> Bool
   class func isProxy() -> Bool
-  func isKindOf(aClass: AnyClass) -> Bool
-  class func isKindOf(aClass: AnyClass) -> Bool
-  func isMemberOf(aClass: AnyClass) -> Bool
-  class func isMemberOf(aClass: AnyClass) -> Bool
-  func conformsTo(aProtocol: Protocol) -> Bool
-  class func conformsTo(aProtocol: Protocol) -> Bool
-  func respondsTo(aSelector: Selector) -> Bool
+  func isKind(of aClass: AnyClass) -> Bool
+  class func isKind(of aClass: AnyClass) -> Bool
+  func isMember(of aClass: AnyClass) -> Bool
+  class func isMember(of aClass: AnyClass) -> Bool
+  func conforms(to aProtocol: Protocol) -> Bool
+  class func conforms(to aProtocol: Protocol) -> Bool
+  func responds(to aSelector: Selector) -> Bool
 }

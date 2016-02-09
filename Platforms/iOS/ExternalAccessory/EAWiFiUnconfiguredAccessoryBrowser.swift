@@ -21,7 +21,7 @@ class EAWiFiUnconfiguredAccessoryBrowser : Object {
   @available(iOS 8.0, *)
   init(delegate: EAWiFiUnconfiguredAccessoryBrowserDelegate?, queue: dispatch_queue_t?)
   @available(iOS 8.0, *)
-  func startSearchingForUnconfiguredAccessoriesMatching(predicate: Predicate?)
+  func startSearchingForUnconfiguredAccessories(matching predicate: Predicate?)
   @available(iOS 8.0, *)
   func stopSearchingForUnconfiguredAccessories()
   convenience init()

@@ -18,6 +18,6 @@ class NotificationQueue : Object {
   init(notificationCenter: NotificationCenter)
   func enqueueNotification(notification: Notification, postingStyle: PostingStyle)
   func enqueueNotification(notification: Notification, postingStyle: PostingStyle, coalesceMask: NotificationCoalescing, forModes modes: [String]?)
-  func dequeueNotificationsMatching(notification: Notification, coalesceMask: Int)
+  func dequeueNotifications(matching notification: Notification, coalesceMask: Int)
   convenience init()
 }

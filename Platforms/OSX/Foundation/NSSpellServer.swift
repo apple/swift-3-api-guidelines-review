@@ -2,7 +2,7 @@
 class SpellServer : Object {
   unowned(unsafe) var delegate: @sil_unmanaged SpellServerDelegate?
   func registerLanguage(language: String?, byVendor vendor: String?) -> Bool
-  func isWordIn(userDictionaries word: String, caseSensitive flag: Bool) -> Bool
+  func isWord(inUserDictionaries word: String, caseSensitive flag: Bool) -> Bool
   func run()
   init()
 }

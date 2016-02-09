@@ -23,7 +23,7 @@ protocol UICollectionViewDataSource : ObjectProtocol {
   @available(tvOS 6.0, *)
   func collectionView(collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
   @available(tvOS 6.0, *)
-  optional func numberOfSectionsIn(collectionView: UICollectionView) -> Int
+  optional func numberOfSections(in collectionView: UICollectionView) -> Int
   @available(tvOS 6.0, *)
   optional func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
   @available(tvOS 9.0, *)
@@ -69,7 +69,7 @@ protocol UICollectionViewDelegate : UIScrollViewDelegate {
   @available(tvOS 9.0, *)
   optional func collectionView(collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
   @available(tvOS 9.0, *)
-  optional func indexPathForPreferredFocusedViewIn(collectionView: UICollectionView) -> IndexPath?
+  optional func indexPathForPreferredFocusedView(in collectionView: UICollectionView) -> IndexPath?
   @available(tvOS 9.0, *)
   optional func collectionView(collectionView: UICollectionView, targetIndexPathForMoveFromItemAt originalIndexPath: IndexPath, toProposedIndexPath proposedIndexPath: IndexPath) -> IndexPath
   @available(tvOS 9.0, *)
@@ -88,49 +88,49 @@ class UICollectionView : UIScrollView {
   func register(viewClass: AnyClass?, forSupplementaryViewOfKind elementKind: String, withReuseIdentifier identifier: String)
   func register(nib: UINib?, forSupplementaryViewOfKind kind: String, withReuseIdentifier identifier: String)
   func dequeueReusableCellWithReuseIdentifier(identifier: String, forIndexPath indexPath: IndexPath) -> UICollectionViewCell
-  func dequeueReusableSupplementaryViewOf(kind elementKind: String, withReuseIdentifier identifier: String, forIndexPath indexPath: IndexPath) -> UICollectionReusableView
+  func dequeueReusableSupplementaryView(ofKind elementKind: String, withReuseIdentifier identifier: String, forIndexPath indexPath: IndexPath) -> UICollectionReusableView
   var allowsSelection: Bool
   var allowsMultipleSelection: Bool
   func indexPathsForSelectedItems() -> [IndexPath]?
-  func selectItemAt(indexPath: IndexPath?, animated: Bool, scrollPosition: UICollectionViewScrollPosition)
-  func deselectItemAt(indexPath: IndexPath, animated: Bool)
+  func selectItem(at indexPath: IndexPath?, animated: Bool, scrollPosition: UICollectionViewScrollPosition)
+  func deselectItem(at indexPath: IndexPath, animated: Bool)
   func reloadData()
   func setCollectionViewLayout(layout: UICollectionViewLayout, animated: Bool)
   @available(tvOS 7.0, *)
   func setCollectionViewLayout(layout: UICollectionViewLayout, animated: Bool, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 7.0, *)
-  func startInteractiveTransitionTo(layout: UICollectionViewLayout, completion: UICollectionViewLayoutInteractiveTransitionCompletion? = nil) -> UICollectionViewTransitionLayout
+  func startInteractiveTransition(to layout: UICollectionViewLayout, completion: UICollectionViewLayoutInteractiveTransitionCompletion? = nil) -> UICollectionViewTransitionLayout
   @available(tvOS 7.0, *)
   func finishInteractiveTransition()
   @available(tvOS 7.0, *)
   func cancelInteractiveTransition()
   func numberOfSections() -> Int
-  func numberOfItemsIn(section section: Int) -> Int
-  func layoutAttributesForItemAt(indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForSupplementaryElementOf(kind kind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func indexPathForItemAt(point: CGPoint) -> IndexPath?
-  func indexPathFor(cell: UICollectionViewCell) -> IndexPath?
-  func cellForItemAt(indexPath: IndexPath) -> UICollectionViewCell?
+  func numberOfItems(inSection section: Int) -> Int
+  func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryElement(ofKind kind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func indexPathForItem(at point: CGPoint) -> IndexPath?
+  func indexPath(forCell cell: UICollectionViewCell) -> IndexPath?
+  func cellForItem(at indexPath: IndexPath) -> UICollectionViewCell?
   func visibleCells() -> [UICollectionViewCell]
   func indexPathsForVisibleItems() -> [IndexPath]
   @available(tvOS 9.0, *)
-  func supplementaryViewFor(elementKind elementKind: String, at indexPath: IndexPath) -> UICollectionReusableView
+  func supplementaryView(forElementKind elementKind: String, at indexPath: IndexPath) -> UICollectionReusableView
   @available(tvOS 9.0, *)
-  func visibleSupplementaryViewsOf(kind elementKind: String) -> [UICollectionReusableView]
+  func visibleSupplementaryViews(ofKind elementKind: String) -> [UICollectionReusableView]
   @available(tvOS 9.0, *)
-  func indexPathsForVisibleSupplementaryElementsOf(kind elementKind: String) -> [IndexPath]
-  func scrollToItemAt(indexPath: IndexPath, at scrollPosition: UICollectionViewScrollPosition, animated: Bool)
+  func indexPathsForVisibleSupplementaryElements(ofKind elementKind: String) -> [IndexPath]
+  func scrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionViewScrollPosition, animated: Bool)
   func insertSections(sections: IndexSet)
   func deleteSections(sections: IndexSet)
   func reloadSections(sections: IndexSet)
   func moveSection(section: Int, toSection newSection: Int)
-  func insertItemsAt(indexPaths: [IndexPath])
-  func deleteItemsAt(indexPaths: [IndexPath])
-  func reloadItemsAt(indexPaths: [IndexPath])
-  func moveItemAt(indexPath: IndexPath, to newIndexPath: IndexPath)
+  func insertItems(at indexPaths: [IndexPath])
+  func deleteItems(at indexPaths: [IndexPath])
+  func reloadItems(at indexPaths: [IndexPath])
+  func moveItem(at indexPath: IndexPath, to newIndexPath: IndexPath)
   func performBatchUpdates(updates: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 9.0, *)
-  func beginInteractiveMovementForItemAt(indexPath: IndexPath) -> Bool
+  func beginInteractiveMovementForItem(at indexPath: IndexPath) -> Bool
   @available(tvOS 9.0, *)
   func updateInteractiveMovementTargetPosition(targetPosition: CGPoint)
   @available(tvOS 9.0, *)

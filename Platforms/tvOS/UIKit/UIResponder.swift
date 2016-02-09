@@ -28,11 +28,11 @@ class UIResponder : Object {
   @available(tvOS 3.0, *)
   func motionCancelled(motion: UIEventSubtype, withEvent event: UIEvent?)
   @available(tvOS 4.0, *)
-  func remoteControlReceivedWith(event: UIEvent?)
+  func remoteControlReceived(withEvent event: UIEvent?)
   @available(tvOS 3.0, *)
   func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool
   @available(tvOS 7.0, *)
-  func targetFor(action action: Selector, withSender sender: AnyObject?) -> AnyObject?
+  func target(forAction action: Selector, withSender sender: AnyObject?) -> AnyObject?
   @available(tvOS 3.0, *)
   var undoManager: UndoManager? { get }
   init()

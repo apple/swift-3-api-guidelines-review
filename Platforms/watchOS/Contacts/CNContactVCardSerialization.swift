@@ -2,7 +2,7 @@
 @available(watchOS 2.0, *)
 class CNContactVCardSerialization : Object {
   class func descriptorForRequiredKeys() -> CNKeyDescriptor
-  class func dataWith(contacts contacts: [AnyObject]) throws -> Data
-  class func contactsWith(data: Data) throws -> [AnyObject]
+  class func data(withContacts contacts: [AnyObject]) throws -> Data
+  class func contacts(withData data: Data) throws -> [AnyObject]
   init()
 }

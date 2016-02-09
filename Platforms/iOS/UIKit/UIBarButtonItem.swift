@@ -57,31 +57,31 @@ class UIBarButtonItem : UIBarItem, Coding {
   @available(iOS 5.0, *)
   func setBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState, barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func backgroundImageFor(state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(forState state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 6.0, *)
   func setBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState, style: UIBarButtonItemStyle, barMetrics: UIBarMetrics)
   @available(iOS 6.0, *)
-  func backgroundImageFor(state: UIControlState, style: UIBarButtonItemStyle, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(forState state: UIControlState, style: UIBarButtonItemStyle, barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 5.0, *)
   var tintColor: UIColor?
   @available(iOS 5.0, *)
   func setBackgroundVerticalPositionAdjustment(adjustment: CGFloat, forBarMetrics barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func backgroundVerticalPositionAdjustmentFor(barMetrics: UIBarMetrics) -> CGFloat
+  func backgroundVerticalPositionAdjustment(forBarMetrics barMetrics: UIBarMetrics) -> CGFloat
   @available(iOS 5.0, *)
   func setTitlePositionAdjustment(adjustment: UIOffset, forBarMetrics barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func titlePositionAdjustmentFor(barMetrics: UIBarMetrics) -> UIOffset
+  func titlePositionAdjustment(forBarMetrics barMetrics: UIBarMetrics) -> UIOffset
   @available(iOS 5.0, *)
   func setBackButtonBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState, barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func backButtonBackgroundImageFor(state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
+  func backButtonBackgroundImage(forState state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 5.0, *)
   func setBackButtonTitlePositionAdjustment(adjustment: UIOffset, forBarMetrics barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func backButtonTitlePositionAdjustmentFor(barMetrics: UIBarMetrics) -> UIOffset
+  func backButtonTitlePositionAdjustment(forBarMetrics barMetrics: UIBarMetrics) -> UIOffset
   @available(iOS 5.0, *)
   func setBackButtonBackgroundVerticalPositionAdjustment(adjustment: CGFloat, forBarMetrics barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func backButtonBackgroundVerticalPositionAdjustmentFor(barMetrics: UIBarMetrics) -> CGFloat
+  func backButtonBackgroundVerticalPositionAdjustment(forBarMetrics barMetrics: UIBarMetrics) -> CGFloat
 }

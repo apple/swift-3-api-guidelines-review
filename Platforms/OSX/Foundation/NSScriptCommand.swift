@@ -31,7 +31,7 @@ class ScriptCommand : Object, Coding {
   class func current() -> ScriptCommand?
   @NSCopying var appleEvent: AppleEventDescriptor? { get }
   func suspendExecution()
-  func resumeExecutionWith(result result: AnyObject?)
+  func resumeExecution(withResult result: AnyObject?)
   convenience init()
   func encodeWith(aCoder: Coder)
 }

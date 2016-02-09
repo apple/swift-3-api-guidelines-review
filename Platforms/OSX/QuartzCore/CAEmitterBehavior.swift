@@ -6,8 +6,8 @@ class CAEmitterBehavior : Object, Coding {
   var name: String?
   var isEnabled: Bool
   func inputKeys() -> [AnyObject]
-  class func attributesFor(key key: String) -> [Object : AnyObject]
-  func attributesFor(keyPath keyPath: String) -> [Object : AnyObject]
+  class func attributes(forKey key: String) -> [Object : AnyObject]
+  func attributes(forKeyPath keyPath: String) -> [Object : AnyObject]
   init()
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)

@@ -16,13 +16,13 @@ enum CNAuthorizationStatus : Int {
 }
 @available(watchOS 2.0, *)
 class CNContactStore : Object {
-  class func authorizationStatusFor(entityType: CNEntityType) -> CNAuthorizationStatus
-  func requestAccessFor(entityType: CNEntityType, completionHandler: (Bool, Error?) -> Void)
-  func unifiedContactsMatching(predicate: Predicate, keysToFetch keys: [CNKeyDescriptor]) throws -> [CNContact]
-  func unifiedContactWith(identifier identifier: String, keysToFetch keys: [CNKeyDescriptor]) throws -> CNContact
+  class func authorizationStatus(forEntityType entityType: CNEntityType) -> CNAuthorizationStatus
+  func requestAccess(forEntityType entityType: CNEntityType, completionHandler: (Bool, Error?) -> Void)
+  func unifiedContacts(matching predicate: Predicate, keysToFetch keys: [CNKeyDescriptor]) throws -> [CNContact]
+  func unifiedContact(withIdentifier identifier: String, keysToFetch keys: [CNKeyDescriptor]) throws -> CNContact
   func enumerateContactsWith(fetchRequest: CNContactFetchRequest, usingBlock block: (CNContact, UnsafeMutablePointer<ObjCBool>) -> Void) throws
-  func groupsMatching(predicate: Predicate?) throws -> [CNGroup]
-  func containersMatching(predicate: Predicate?) throws -> [CNContainer]
+  func groups(matching predicate: Predicate?) throws -> [CNGroup]
+  func containers(matching predicate: Predicate?) throws -> [CNContainer]
   func defaultContainerIdentifier() -> String
   init()
 }

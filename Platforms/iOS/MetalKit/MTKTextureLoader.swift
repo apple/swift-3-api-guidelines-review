@@ -16,10 +16,10 @@ typealias MTKTextureLoaderCallback = (MTLTexture?, Error?) -> Void
 class MTKTextureLoader : Object {
   var device: MTLDevice { get }
   init(device: MTLDevice)
-  func newTextureWithContentsOf(URL: URL, options: [String : Number]? = [:], completionHandler: MTKTextureLoaderCallback)
-  func newTextureWith(data: Data, options: [String : Number]? = [:], completionHandler: MTKTextureLoaderCallback)
-  func newTextureWith(cgImage: CGImage, options: [String : Number]? = [:], completionHandler: MTKTextureLoaderCallback)
-  func newTextureWithContentsOf(URL: URL, options: [String : Number]? = [:]) throws -> MTLTexture
-  func newTextureWith(data: Data, options: [String : Number]? = [:]) throws -> MTLTexture
-  func newTextureWith(cgImage: CGImage, options: [String : Number]? = [:]) throws -> MTLTexture
+  func newTextureWithContents(of URL: URL, options: [String : Number]? = [:], completionHandler: MTKTextureLoaderCallback)
+  func newTexture(withData data: Data, options: [String : Number]? = [:], completionHandler: MTKTextureLoaderCallback)
+  func newTexture(withCGImage cgImage: CGImage, options: [String : Number]? = [:], completionHandler: MTKTextureLoaderCallback)
+  func newTextureWithContents(of URL: URL, options: [String : Number]? = [:]) throws -> MTLTexture
+  func newTexture(withData data: Data, options: [String : Number]? = [:]) throws -> MTLTexture
+  func newTexture(withCGImage cgImage: CGImage, options: [String : Number]? = [:]) throws -> MTLTexture
 }

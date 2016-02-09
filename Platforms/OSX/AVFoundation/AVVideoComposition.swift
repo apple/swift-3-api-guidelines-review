@@ -113,7 +113,7 @@ extension AVAsset {
 }
 extension AVVideoComposition {
   @available(OSX 10.8, *)
-  func isValidFor(asset: AVAsset?, timeRange: CMTimeRange, validationDelegate: AVVideoCompositionValidationHandling?) -> Bool
+  func isValid(forAsset asset: AVAsset?, timeRange: CMTimeRange, validationDelegate: AVVideoCompositionValidationHandling?) -> Bool
 }
 protocol AVVideoCompositionValidationHandling : ObjectProtocol {
   @available(OSX 10.8, *)

@@ -22,8 +22,8 @@ protocol UIFocusEnvironment : ObjectProtocol {
   weak var preferredFocusedView: @sil_weak UIView? { get }
   func setNeedsFocusUpdate()
   func updateFocusIfNeeded()
-  func shouldUpdateFocusIn(context: UIFocusUpdateContext) -> Bool
-  func didUpdateFocusIn(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+  func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool
+  func didUpdateFocus(in context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
 }
 @available(tvOS 9.0, *)
 class UIFocusGuide : UILayoutGuide {

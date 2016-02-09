@@ -10,18 +10,18 @@ protocol UIViewControllerTransitionCoordinatorContext : ObjectProtocol {
   func completionVelocity() -> CGFloat
   func completionCurve() -> UIViewAnimationCurve
   @available(iOS 2.0, *)
-  func viewControllerFor(key key: String) -> UIViewController?
+  func viewController(forKey key: String) -> UIViewController?
   @available(iOS 8.0, *)
-  func viewFor(key key: String) -> UIView?
+  func view(forKey key: String) -> UIView?
   @available(iOS 2.0, *)
   func containerView() -> UIView
   @available(iOS 8.0, *)
   func targetTransform() -> CGAffineTransform
 }
 protocol UIViewControllerTransitionCoordinator : UIViewControllerTransitionCoordinatorContext {
-  func animateAlongside(transition animation: ((UIViewControllerTransitionCoordinatorContext) -> Void)?, completion: ((UIViewControllerTransitionCoordinatorContext) -> Void)? = nil) -> Bool
+  func animate(alongsideTransition animation: ((UIViewControllerTransitionCoordinatorContext) -> Void)?, completion: ((UIViewControllerTransitionCoordinatorContext) -> Void)? = nil) -> Bool
   @available(iOS 2.0, *)
-  func animateAlongsideTransitionIn(view: UIView?, animation: ((UIViewControllerTransitionCoordinatorContext) -> Void)?, completion: ((UIViewControllerTransitionCoordinatorContext) -> Void)? = nil) -> Bool
+  func animateAlongsideTransition(in view: UIView?, animation: ((UIViewControllerTransitionCoordinatorContext) -> Void)?, completion: ((UIViewControllerTransitionCoordinatorContext) -> Void)? = nil) -> Bool
   func notifyWhenInteractionEnds(handler: (UIViewControllerTransitionCoordinatorContext) -> Void)
 }
 extension UIViewController {

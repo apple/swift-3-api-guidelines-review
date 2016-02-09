@@ -75,7 +75,7 @@ class Expression : Object, SecureCoding, Copying {
   @NSCopying var falseExpression: Expression { get }
   @available(watchOS 2.0, *)
   var expressionBlock: (AnyObject?, [AnyObject], MutableDictionary?) -> AnyObject { get }
-  func expressionValueWith(object: AnyObject?, context: MutableDictionary?) -> AnyObject
+  func expressionValue(withObject object: AnyObject?, context: MutableDictionary?) -> AnyObject
   @available(watchOS 2.0, *)
   func allowEvaluation()
   convenience init()

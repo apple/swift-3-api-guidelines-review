@@ -6,7 +6,7 @@ class CLBeaconRegion : CLRegion {
   init(proximityUUID: UUID, identifier: String)
   init(proximityUUID: UUID, major: CLBeaconMajorValue, identifier: String)
   init(proximityUUID: UUID, major: CLBeaconMajorValue, minor: CLBeaconMinorValue, identifier: String)
-  func peripheralDataWith(measuredPower measuredPower: Number?) -> MutableDictionary
+  func peripheralData(withMeasuredPower measuredPower: Number?) -> MutableDictionary
   var proximityUUID: UUID { get }
   var major: Number? { get }
   var minor: Number? { get }

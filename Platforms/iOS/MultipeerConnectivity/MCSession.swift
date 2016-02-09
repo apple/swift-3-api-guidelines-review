@@ -32,7 +32,7 @@ class MCSession : Object {
   init(peer myPeerID: MCPeerID, securityIdentity identity: [AnyObject]?, encryptionPreference: MCEncryptionPreference)
   func send(data: Data, toPeers peerIDs: [MCPeerID], withMode mode: MCSessionSendDataMode) throws
   func disconnect()
-  func sendResourceAt(resourceURL: URL, withName resourceName: String, toPeer peerID: MCPeerID, withCompletionHandler completionHandler: ((Error?) -> Void)? = nil) -> Progress?
+  func sendResource(at resourceURL: URL, withName resourceName: String, toPeer peerID: MCPeerID, withCompletionHandler completionHandler: ((Error?) -> Void)? = nil) -> Progress?
   func startStream(name streamName: String, toPeer peerID: MCPeerID) throws -> OutputStream
   weak var delegate: @sil_weak MCSessionDelegate?
   var myPeerID: MCPeerID { get }
@@ -56,7 +56,7 @@ protocol MCSessionDelegate : ObjectProtocol {
   optional func session(session: MCSession, didReceiveCertificate certificate: [AnyObject]?, fromPeer peerID: MCPeerID, certificateHandler: (Bool) -> Void)
 }
 extension MCSession {
-  func nearbyConnectionDataFor(peer peerID: MCPeerID, withCompletionHandler completionHandler: (Data, Error?) -> Void)
+  func nearbyConnectionData(forPeer peerID: MCPeerID, withCompletionHandler completionHandler: (Data, Error?) -> Void)
   func connectPeer(peerID: MCPeerID, withNearbyConnectionData data: Data)
   func cancelConnectPeer(peerID: MCPeerID)
 }

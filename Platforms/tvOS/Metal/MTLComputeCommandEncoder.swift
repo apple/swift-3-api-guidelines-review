@@ -22,5 +22,5 @@ protocol MTLComputeCommandEncoder : MTLCommandEncoder {
   func setThreadgroupMemoryLength(length: Int, at index: Int)
   func dispatchThreadgroups(threadgroupsPerGrid: MTLSize, threadsPerThreadgroup: MTLSize)
   @available(tvOS 9.0, *)
-  func dispatchThreadgroupsWith(indirectBuffer indirectBuffer: MTLBuffer, indirectBufferOffset: Int, threadsPerThreadgroup: MTLSize)
+  func dispatchThreadgroups(withIndirectBuffer indirectBuffer: MTLBuffer, indirectBufferOffset: Int, threadsPerThreadgroup: MTLSize)
 }

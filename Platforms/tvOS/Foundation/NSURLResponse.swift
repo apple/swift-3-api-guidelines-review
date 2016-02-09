@@ -17,7 +17,7 @@ class HTTPURLResponse : URLResponse {
   init?(url: URL, statusCode: Int, httpVersion HTTPVersion: String?, headerFields: [String : String]?)
   var statusCode: Int { get }
   var allHeaderFields: [Object : AnyObject] { get }
-  class func localizedStringFor(statusCode statusCode: Int) -> String
+  class func localizedString(forStatusCode statusCode: Int) -> String
   init(url URL: URL, mimeType MIMEType: String?, expectedContentLength length: Int, textEncodingName name: String?)
   convenience init()
   init?(coder aDecoder: Coder)

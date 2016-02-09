@@ -14,7 +14,7 @@ class CIFilterGenerator : Object, SecureCoding, Copying, CIFilterConstructor {
   var classAttributes: [Object : AnyObject]
   func filter() -> CIFilter
   func registerFilterName(name: String)
-  func writeTo(aURL: URL, atomically flag: Bool) -> Bool
+  func write(to aURL: URL, atomically flag: Bool) -> Bool
   init()
   @available(OSX 10.5, *)
   class func supportsSecureCoding() -> Bool
@@ -24,5 +24,5 @@ class CIFilterGenerator : Object, SecureCoding, Copying, CIFilterConstructor {
   @available(OSX 10.5, *)
   func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.5, *)
-  func filterWith(name name: String) -> CIFilter?
+  func filter(withName name: String) -> CIFilter?
 }

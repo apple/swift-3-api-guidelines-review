@@ -59,7 +59,7 @@ class CLLocation : Object, Copying, SecureCoding {
   @NSCopying var floor: CLFloor? { get }
   var description: String { get }
   @available(iOS 3.2, *)
-  func distanceFrom(location: CLLocation) -> CLLocationDistance
+  func distance(from location: CLLocation) -> CLLocationDistance
   init()
   @available(iOS 2.0, *)
   func copyWith(zone: Zone = nil) -> AnyObject

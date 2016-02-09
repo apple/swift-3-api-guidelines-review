@@ -2,8 +2,8 @@
 @available(iOS 9.0, *)
 class AVPictureInPictureController : Object {
   class func isPictureInPictureSupported() -> Bool
-  class func pictureInPictureButtonStartImageCompatibleWith(traitCollection: UITraitCollection?) -> UIImage
-  class func pictureInPictureButtonStopImageCompatibleWith(traitCollection: UITraitCollection?) -> UIImage
+  class func pictureInPictureButtonStartImageCompatible(withTraitCollection traitCollection: UITraitCollection?) -> UIImage
+  class func pictureInPictureButtonStopImageCompatible(withTraitCollection traitCollection: UITraitCollection?) -> UIImage
   weak var delegate: @sil_weak AVPictureInPictureControllerDelegate?
   func startPictureInPicture()
   func stopPictureInPicture()
@@ -14,15 +14,15 @@ class AVPictureInPictureController : Object {
 }
 protocol AVPictureInPictureControllerDelegate : ObjectProtocol {
   @available(iOS 9.0, *)
-  optional func pictureInPictureControllerWillStartPictureIn(picture pictureInPictureController: AVPictureInPictureController)
+  optional func pictureInPictureControllerWillStartPicture(inPicture pictureInPictureController: AVPictureInPictureController)
   @available(iOS 9.0, *)
-  optional func pictureInPictureControllerDidStartPictureIn(picture pictureInPictureController: AVPictureInPictureController)
+  optional func pictureInPictureControllerDidStartPicture(inPicture pictureInPictureController: AVPictureInPictureController)
   @available(iOS 9.0, *)
-  optional func pictureIn(pictureInPictureController: AVPictureInPictureController, failedToStartPictureInPictureWithError error: Error)
+  optional func picture(pictureInPictureController: AVPictureInPictureController, failedToStartPictureInPictureWithError error: Error)
   @available(iOS 9.0, *)
-  optional func pictureInPictureControllerWillStopPictureIn(picture pictureInPictureController: AVPictureInPictureController)
+  optional func pictureInPictureControllerWillStopPicture(inPicture pictureInPictureController: AVPictureInPictureController)
   @available(iOS 9.0, *)
-  optional func pictureInPictureControllerDidStopPictureIn(picture pictureInPictureController: AVPictureInPictureController)
+  optional func pictureInPictureControllerDidStopPicture(inPicture pictureInPictureController: AVPictureInPictureController)
   @available(iOS 9.0, *)
-  optional func pictureIn(pictureInPictureController: AVPictureInPictureController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: (Bool) -> Void)
+  optional func picture(pictureInPictureController: AVPictureInPictureController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: (Bool) -> Void)
 }

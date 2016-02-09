@@ -2,8 +2,8 @@
 @available(iOS 8.0, *)
 class HKQuantity : Object, SecureCoding, Copying {
   convenience init(unit: HKUnit, doubleValue value: Double)
-  func isCompatibleWith(unit: HKUnit) -> Bool
-  func doubleValueFor(unit: HKUnit) -> Double
+  func isCompatible(withUnit unit: HKUnit) -> Bool
+  func doubleValue(forUnit unit: HKUnit) -> Double
   func compare(quantity: HKQuantity) -> ComparisonResult
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool

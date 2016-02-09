@@ -36,7 +36,7 @@ class NSColorSpace : Object, SecureCoding {
   @available(OSX 10.5, *)
   class func adobeRGB1998() -> NSColorSpace
   @available(OSX 10.6, *)
-  class func availableColorSpacesWith(model: NSColorSpaceModel) -> [NSColorSpace]
+  class func availableColorSpaces(withModel model: NSColorSpaceModel) -> [NSColorSpace]
   init()
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)

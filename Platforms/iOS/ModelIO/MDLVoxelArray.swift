@@ -11,19 +11,19 @@ class MDLVoxelArray : Object {
   init(asset: MDLAsset, divisions: Int32, interiorShells: Int32, exteriorShells: Int32, patchRadius: Float)
   init(asset: MDLAsset, divisions: Int32, interiorNBWidth: Float, exteriorNBWidth: Float, patchRadius: Float)
   init(data voxelData: Data, boundingBox: MDLAxisAlignedBoundingBox, voxelExtent: Float)
-  func meshUsing(allocator: MDLMeshBufferAllocator?) -> MDLMesh?
-  func voxelExistsAt(index index: MDLVoxelIndex, allowAnyX: Bool, allowAnyY: Bool, allowAnyZ: Bool, allowAnyShell: Bool) -> Bool
+  func mesh(usingAllocator allocator: MDLMeshBufferAllocator?) -> MDLMesh?
+  func voxelExists(atIndex index: MDLVoxelIndex, allowAnyX: Bool, allowAnyY: Bool, allowAnyZ: Bool, allowAnyShell: Bool) -> Bool
   func setVoxelAtIndex(index: MDLVoxelIndex)
   func setVoxelsFor(mesh: MDLMesh, divisions: Int32, interiorShells: Int32, exteriorShells: Int32, patchRadius: Float)
   func setVoxelsFor(mesh: MDLMesh, divisions: Int32, interiorNBWidth: Float, exteriorNBWidth: Float, patchRadius: Float)
-  func voxelsWithin(extent: MDLVoxelIndexExtent) -> Data?
+  func voxels(within extent: MDLVoxelIndexExtent) -> Data?
   func voxelIndices() -> Data?
-  func unionWith(voxels voxels: MDLVoxelArray)
-  func differenceWith(voxels voxels: MDLVoxelArray)
-  func intersectWith(voxels voxels: MDLVoxelArray)
-  func indexOf(spatialLocation location: vector_float3) -> MDLVoxelIndex
-  func spatialLocationOf(index index: MDLVoxelIndex) -> vector_float3
-  func voxelBoundingBoxAt(index index: MDLVoxelIndex) -> MDLAxisAlignedBoundingBox
+  func union(withVoxels voxels: MDLVoxelArray)
+  func difference(withVoxels voxels: MDLVoxelArray)
+  func intersect(withVoxels voxels: MDLVoxelArray)
+  func index(ofSpatialLocation location: vector_float3) -> MDLVoxelIndex
+  func spatialLocation(ofIndex index: MDLVoxelIndex) -> vector_float3
+  func voxelBoundingBox(atIndex index: MDLVoxelIndex) -> MDLAxisAlignedBoundingBox
   var count: Int { get }
   var voxelIndexExtent: MDLVoxelIndexExtent { get }
   var boundingBox: MDLAxisAlignedBoundingBox { get }

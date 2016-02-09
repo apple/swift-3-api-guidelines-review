@@ -44,7 +44,7 @@ protocol UISplitViewControllerDelegate {
   @available(iOS 8.0, *)
   optional func splitViewController(svc: UISplitViewController, willChangeTo displayMode: UISplitViewControllerDisplayMode)
   @available(iOS 8.0, *)
-  optional func targetDisplayModeForActionIn(svc: UISplitViewController) -> UISplitViewControllerDisplayMode
+  optional func targetDisplayModeForAction(in svc: UISplitViewController) -> UISplitViewControllerDisplayMode
   @available(iOS 8.0, *)
   optional func splitViewController(splitViewController: UISplitViewController, show vc: UIViewController, sender: AnyObject?) -> Bool
   @available(iOS 8.0, *)
@@ -60,7 +60,7 @@ protocol UISplitViewControllerDelegate {
   @available(iOS 7.0, *)
   optional func splitViewControllerSupportedInterfaceOrientations(splitViewController: UISplitViewController) -> UIInterfaceOrientationMask
   @available(iOS 7.0, *)
-  optional func splitViewControllerPreferredInterfaceOrientationFor(presentation splitViewController: UISplitViewController) -> UIInterfaceOrientation
+  optional func splitViewControllerPreferredInterfaceOrientation(forPresentation splitViewController: UISplitViewController) -> UIInterfaceOrientation
   @available(iOS, introduced=2.0, deprecated=8.0, message="Use splitViewController:willChangeToDisplayMode: and displayModeButtonItem instead")
   optional func splitViewController(svc: UISplitViewController, willHide aViewController: UIViewController, withBarButtonItem barButtonItem: UIBarButtonItem, forPopoverController pc: UIPopoverController)
   @available(iOS, introduced=2.0, deprecated=8.0, message="Use splitViewController:willChangeToDisplayMode: and displayModeButtonItem instead")
@@ -75,5 +75,5 @@ extension UIViewController {
   @available(iOS 8.0, *)
   func collapseSecondaryViewController(secondaryViewController: UIViewController, forSplitViewController splitViewController: UISplitViewController)
   @available(iOS 8.0, *)
-  func separateSecondaryViewControllerFor(splitViewController: UISplitViewController) -> UIViewController?
+  func separateSecondaryViewController(forSplitViewController splitViewController: UISplitViewController) -> UIViewController?
 }

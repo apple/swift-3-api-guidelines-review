@@ -16,19 +16,19 @@ class SCNConstraint : Object, Copying, SecureCoding, SCNAnimatable {
   @available(tvOS 8.0, *)
   func removeAllAnimations()
   @available(tvOS 8.0, *)
-  func removeAnimationFor(key key: String)
+  func removeAnimation(forKey key: String)
   @available(tvOS 8.0, *)
   var animationKeys: [String] { get }
   @available(tvOS 8.0, *)
-  func animationFor(key key: String) -> CAAnimation?
+  func animation(forKey key: String) -> CAAnimation?
   @available(tvOS 8.0, *)
-  func pauseAnimationFor(key key: String)
+  func pauseAnimation(forKey key: String)
   @available(tvOS 8.0, *)
-  func resumeAnimationFor(key key: String)
+  func resumeAnimation(forKey key: String)
   @available(tvOS 8.0, *)
-  func isAnimationFor(keyPaused key: String) -> Bool
+  func isAnimation(forKeyPaused key: String) -> Bool
   @available(tvOS 8.0, *)
-  func removeAnimationFor(key key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimation(forKey key: String, fadeOutDuration duration: CGFloat)
 }
 @available(tvOS 8.0, *)
 class SCNLookAtConstraint : SCNConstraint {
@@ -62,11 +62,11 @@ class SCNTransformConstraint : SCNConstraint {
 class SCNIKConstraint : SCNConstraint {
   @available(tvOS 9.0, *)
   init(chainRootNode: SCNNode)
-  class func inverseKinematicsConstraintWith(chainRootNode chainRootNode: SCNNode) -> Self
+  class func inverseKinematicsConstraint(withChainRootNode chainRootNode: SCNNode) -> Self
   var chainRootNode: SCNNode { get }
   var targetPosition: SCNVector3
   func setMaxAllowedRotationAngle(angle: CGFloat, forJoint node: SCNNode)
-  func maxAllowedRotationAngleFor(joint node: SCNNode) -> CGFloat
+  func maxAllowedRotationAngle(forJoint node: SCNNode) -> CGFloat
   init()
   init?(coder aDecoder: Coder)
 }

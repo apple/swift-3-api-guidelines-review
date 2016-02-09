@@ -13,7 +13,7 @@ enum NSTabViewType : UInt {
 }
 class NSTabView : NSView {
   func select(tabViewItem: NSTabViewItem?)
-  func selectItemAt(index: Int)
+  func selectItem(at index: Int)
   func selectItem(identifier identifier: AnyObject)
   func takeSelectedTabViewItemFromSender(sender: AnyObject?)
   func selectFirstTabViewItem(sender: AnyObject?)
@@ -33,12 +33,12 @@ class NSTabView : NSView {
   func insert(tabViewItem: NSTabViewItem, at index: Int)
   func remove(tabViewItem: NSTabViewItem)
   unowned(unsafe) var delegate: @sil_unmanaged NSTabViewDelegate?
-  func tabViewItemAt(point: Point) -> NSTabViewItem?
+  func tabViewItem(at point: Point) -> NSTabViewItem?
   var contentRect: Rect { get }
   var numberOfTabViewItems: Int { get }
-  func indexOf(tabViewItem: NSTabViewItem) -> Int
-  func tabViewItemAt(index: Int) -> NSTabViewItem
-  func indexOfTabViewItemWith(identifier identifier: AnyObject) -> Int
+  func index(of tabViewItem: NSTabViewItem) -> Int
+  func tabViewItem(at index: Int) -> NSTabViewItem
+  func indexOfTabViewItem(withIdentifier identifier: AnyObject) -> Int
   init(frame frameRect: Rect)
   init?(coder: Coder)
   convenience init()
@@ -71,5 +71,5 @@ protocol NSTabViewDelegate : ObjectProtocol {
   optional func tabView(tabView: NSTabView, shouldSelect tabViewItem: NSTabViewItem?) -> Bool
   optional func tabView(tabView: NSTabView, willSelect tabViewItem: NSTabViewItem?)
   optional func tabView(tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?)
-  optional func tabViewDidChangeNumberOf(tabViewItems tabView: NSTabView)
+  optional func tabViewDidChangeNumber(ofTabViewItems tabView: NSTabView)
 }

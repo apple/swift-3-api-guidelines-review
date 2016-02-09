@@ -13,7 +13,7 @@ class DRDevice : Object {
   func releaseExclusiveAccess()
   func acquireMediaReservation()
   func releaseMediaReservation()
-  func isEqualTo(otherDevice: DRDevice!) -> Bool
+  func isEqual(to otherDevice: DRDevice!) -> Bool
   init()
 }
 extension DRDevice {

@@ -10,17 +10,17 @@ extension NSString {
   @available(OSX 10.0, *)
   func size(attributes attrs: [String : AnyObject]? = [:]) -> Size
   @available(OSX 10.0, *)
-  func drawAt(point: Point, withAttributes attrs: [String : AnyObject]? = [:])
+  func draw(at point: Point, withAttributes attrs: [String : AnyObject]? = [:])
   @available(OSX 10.0, *)
-  func drawIn(rect: Rect, withAttributes attrs: [String : AnyObject]? = [:])
+  func draw(in rect: Rect, withAttributes attrs: [String : AnyObject]? = [:])
 }
 extension AttributedString {
   @available(OSX 10.0, *)
   func size() -> Size
   @available(OSX 10.0, *)
-  func drawAt(point: Point)
+  func draw(at point: Point)
   @available(OSX 10.0, *)
-  func drawIn(rect: Rect)
+  func draw(in rect: Rect)
 }
 @available(OSX 10.0, *)
 struct NSStringDrawingOptions : OptionSetType {
@@ -40,19 +40,19 @@ extension NSString {
   @available(OSX 10.11, *)
   func draw(rect: Rect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?)
   @available(OSX 10.11, *)
-  func boundingRectWith(size: Size, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?) -> Rect
+  func boundingRect(withSize size: Size, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?) -> Rect
 }
 extension AttributedString {
   @available(OSX 10.11, *)
   func draw(rect: Rect, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?)
   @available(OSX 10.11, *)
-  func boundingRectWith(size: Size, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?) -> Rect
+  func boundingRect(withSize size: Size, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?) -> Rect
 }
 extension NSString {
   func draw(rect: Rect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:])
-  func boundingRectWith(size: Size, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:]) -> Rect
+  func boundingRect(withSize size: Size, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:]) -> Rect
 }
 extension AttributedString {
   func draw(rect: Rect, options: NSStringDrawingOptions = [])
-  func boundingRectWith(size: Size, options: NSStringDrawingOptions = []) -> Rect
+  func boundingRect(withSize size: Size, options: NSStringDrawingOptions = []) -> Rect
 }

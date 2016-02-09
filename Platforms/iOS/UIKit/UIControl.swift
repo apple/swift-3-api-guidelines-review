@@ -70,9 +70,9 @@ class UIControl : UIView {
   func removeTarget(target: AnyObject?, action: Selector, forControlEvents controlEvents: UIControlEvents)
   func allTargets() -> Set<Object>
   func allControlEvents() -> UIControlEvents
-  func actionsFor(target target: AnyObject?, forControlEvent controlEvent: UIControlEvents) -> [String]?
+  func actions(forTarget target: AnyObject?, forControlEvent controlEvent: UIControlEvents) -> [String]?
   func sendAction(action: Selector, to target: AnyObject?, forEvent event: UIEvent?)
-  func sendActionsFor(controlEvents: UIControlEvents)
+  func sendActions(forControlEvents controlEvents: UIControlEvents)
   init(frame: CGRect)
   init?(coder aDecoder: Coder)
   convenience init()
