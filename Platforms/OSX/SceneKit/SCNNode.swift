@@ -65,7 +65,7 @@ class SCNNode : Object, Copying, SecureCoding, SCNAnimatable, SCNActionable, SCN
   var isPaused: Bool
   unowned(unsafe) var rendererDelegate: @sil_unmanaged SCNNodeRendererDelegate?
   @available(OSX 10.9, *)
-  func hitTestWithSegmentFrom(point pointA: SCNVector3, toPoint pointB: SCNVector3, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
+  func hitTestWithSegment(fromPoint pointA: SCNVector3, toPoint pointB: SCNVector3, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
   @available(OSX 10.10, *)
   var categoryBitMask: Int
   init()

@@ -99,7 +99,7 @@ class LinguisticTagger : Object {
   @available(OSX 10.7, *)
   func orthographyAt(charIndex: Int, effectiveRange: RangePointer) -> Orthography?
   @available(OSX 10.7, *)
-  func stringEditedIn(newRange: NSRange, changeInLength delta: Int)
+  func stringEdited(in newRange: NSRange, changeInLength delta: Int)
   @available(OSX 10.7, *)
   func enumerateTagsIn(range: NSRange, scheme tagScheme: String, options opts: LinguisticTaggerOptions = [], usingBlock block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.7, *)

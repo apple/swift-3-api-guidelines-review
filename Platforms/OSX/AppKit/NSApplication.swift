@@ -99,8 +99,8 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   func terminate(sender: AnyObject?)
   func requestUserAttention(requestType: NSRequestUserAttentionType) -> Int
   func cancelUserAttentionRequest(request: Int)
-  func nextEventMatching(mask mask: Int, until expiration: Date?, inMode mode: String, dequeue deqFlag: Bool) -> NSEvent?
-  func discardEventsMatching(mask mask: Int, before lastEvent: NSEvent?)
+  func nextEvent(matchingMask mask: Int, until expiration: Date?, inMode mode: String, dequeue deqFlag: Bool) -> NSEvent?
+  func discardEvents(matchingMask mask: Int, before lastEvent: NSEvent?)
   func post(event: NSEvent, atStart flag: Bool)
   var currentEvent: NSEvent? { get }
   func send(theEvent: NSEvent)
@@ -121,7 +121,7 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   var dockTile: NSDockTile { get }
   func sendAction(theAction: Selector, to theTarget: AnyObject?, from sender: AnyObject?) -> Bool
   func targetFor(action theAction: Selector) -> AnyObject?
-  func targetFor(action theAction: Selector, to theTarget: AnyObject?, from sender: AnyObject?) -> AnyObject?
+  func target(forAction theAction: Selector, to theTarget: AnyObject?, from sender: AnyObject?) -> AnyObject?
   func tryToPerform(anAction: Selector, with anObject: AnyObject?) -> Bool
   func validRequestorForSendType(sendType: String, returnType: String) -> AnyObject?
   func report(theException: Exception)

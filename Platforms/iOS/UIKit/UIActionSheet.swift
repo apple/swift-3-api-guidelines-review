@@ -25,7 +25,7 @@ class UIActionSheet : UIView {
   @available(iOS 3.2, *)
   func showFrom(item: UIBarButtonItem, animated: Bool)
   @available(iOS 3.2, *)
-  func showFrom(rect: CGRect, in view: UIView, animated: Bool)
+  func show(from rect: CGRect, in view: UIView, animated: Bool)
   func showIn(view: UIView)
   func dismiss(clickedButtonIndex buttonIndex: Int, animated: Bool)
   init(frame: CGRect)

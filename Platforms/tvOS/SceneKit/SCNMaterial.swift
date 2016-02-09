@@ -78,9 +78,9 @@ class SCNMaterial : Object, SCNAnimatable, SCNShadable, Copying, SecureCoding {
   @available(tvOS 8.0, *)
   var program: SCNProgram?
   @available(tvOS 8.0, *)
-  func handleBindingOf(symbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  func handleBinding(ofSymbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
   @available(tvOS 8.0, *)
-  func handleUnbindingOf(symbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  func handleUnbinding(ofSymbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
   @available(tvOS 8.0, *)
   var shaderModifiers: [String : String]?
   @available(tvOS 8.0, *)

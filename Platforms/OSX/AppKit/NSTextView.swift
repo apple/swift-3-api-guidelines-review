@@ -68,7 +68,7 @@ class NSTextView : NSText, NSUserInterfaceValidations, NSTextInputClient, NSText
   func updateFontPanel()
   func updateDragTypeRegistration()
   func selectionRangeFor(proposedRange proposedCharRange: NSRange, granularity: NSSelectionGranularity) -> NSRange
-  func clickedOn(link link: AnyObject, at charIndex: Int)
+  func clicked(onLink link: AnyObject, at charIndex: Int)
   func startSpeaking(sender: AnyObject?)
   func stopSpeaking(sender: AnyObject?)
   @available(OSX 10.7, *)
@@ -122,7 +122,7 @@ class NSTextView : NSText, NSUserInterfaceValidations, NSTextInputClient, NSText
 extension NSTextView {
   func complete(sender: AnyObject?)
   var rangeForUserCompletion: NSRange { get }
-  func completionsFor(partialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [String]?
+  func completions(forPartialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [String]?
   func insertCompletion(word: String, forPartialWordRange charRange: NSRange, movement: Int, isFinal flag: Bool)
 }
 extension NSTextView {
@@ -130,7 +130,7 @@ extension NSTextView {
   func writeSelectionTo(pboard: NSPasteboard, type: String) -> Bool
   func writeSelectionTo(pboard: NSPasteboard, types: [String]) -> Bool
   var readablePasteboardTypes: [String] { get }
-  func preferredPasteboardTypeFrom(availableTypes: [String], restrictedToTypesFrom allowedTypes: [String]?) -> String?
+  func preferredPasteboardType(from availableTypes: [String], restrictedToTypesFrom allowedTypes: [String]?) -> String?
   func readSelectionFrom(pboard: NSPasteboard, type: String) -> Bool
   func readSelectionFrom(pboard: NSPasteboard) -> Bool
   class func registerForServices()

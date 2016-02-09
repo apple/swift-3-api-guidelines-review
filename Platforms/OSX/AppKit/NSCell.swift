@@ -193,7 +193,7 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   func highlight(flag: Bool, withFrame cellFrame: Rect, in controlView: NSView)
   var mouseDownFlags: Int { get }
   func getPeriodicDelay(delay: UnsafeMutablePointer<Float>, interval: UnsafeMutablePointer<Float>)
-  func startTrackingAt(startPoint: Point, in controlView: NSView) -> Bool
+  func startTracking(at startPoint: Point, in controlView: NSView) -> Bool
   func continueTracking(lastPoint: Point, at currentPoint: Point, in controlView: NSView) -> Bool
   func stopTracking(lastPoint: Point, at stopPoint: Point, in controlView: NSView, mouseIsUp flag: Bool)
   func trackMouse(theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView, untilMouseUp flag: Bool) -> Bool
@@ -202,7 +202,7 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   func endEditing(textObj: NSText)
   func resetCursorRect(cellFrame: Rect, in controlView: NSView)
   var menu: NSMenu?
-  func menuFor(event: NSEvent, in cellFrame: Rect, of view: NSView) -> NSMenu?
+  func menu(forEvent event: NSEvent, in cellFrame: Rect, of view: NSView) -> NSMenu?
   class func defaultMenu() -> NSMenu?
   var sendsActionOnEndEditing: Bool
   var baseWritingDirection: NSWritingDirection
@@ -221,7 +221,7 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   @available(OSX 10.6, *)
   var usesSingleLineMode: Bool
   @available(OSX 10.7, *)
-  func draggingImageComponentsWith(frame frame: Rect, in view: NSView) -> [NSDraggingImageComponent]
+  func draggingImageComponents(withFrame frame: Rect, in view: NSView) -> [NSDraggingImageComponent]
   convenience init()
   func copyWith(zone: Zone = nil) -> AnyObject
   func encodeWith(aCoder: Coder)
@@ -758,7 +758,7 @@ extension NSCell {
   @available(OSX 10.7, *)
   func drawFocusRingMask(frame cellFrame: Rect, in controlView: NSView)
   @available(OSX 10.7, *)
-  func focusRingMaskBoundsFor(frame cellFrame: Rect, in controlView: NSView) -> Rect
+  func focusRingMaskBounds(forFrame cellFrame: Rect, in controlView: NSView) -> Rect
   var wantsNotificationForMarkedText: Bool { get }
 }
 extension NSCell {
@@ -783,11 +783,11 @@ struct NSCellHitResult : OptionSetType {
 }
 extension NSCell {
   @available(OSX 10.5, *)
-  func hitTestFor(event: NSEvent, in cellFrame: Rect, of controlView: NSView) -> NSCellHitResult
+  func hitTest(forEvent event: NSEvent, in cellFrame: Rect, of controlView: NSView) -> NSCellHitResult
 }
 extension NSCell {
   @available(OSX 10.5, *)
-  func expansionFrameWith(frame cellFrame: Rect, in view: NSView) -> Rect
+  func expansionFrame(withFrame cellFrame: Rect, in view: NSView) -> Rect
   @available(OSX 10.5, *)
   func draw(expansionFrame cellFrame: Rect, in view: NSView)
 }

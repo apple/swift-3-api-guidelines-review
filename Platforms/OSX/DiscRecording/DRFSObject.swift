@@ -16,7 +16,7 @@ class DRFSObject : Object {
   func setSpecificNames(specificNames: [Object : AnyObject]!)
   func mangledNameFor(filesystem filesystem: String!) -> String!
   func mangledNames() -> [Object : AnyObject]!
-  func propertyFor(key key: String!, inFilesystem filesystem: String!, mergeWithOtherFilesystems merge: Bool) -> AnyObject!
+  func property(forKey key: String!, inFilesystem filesystem: String!, mergeWithOtherFilesystems merge: Bool) -> AnyObject!
   func propertiesFor(filesystem filesystem: String!, mergeWithOtherFilesystems merge: Bool) -> [Object : AnyObject]!
   func setProperty(property: AnyObject!, forKey key: String!, inFilesystem filesystem: String!)
   func setProperties(properties: [Object : AnyObject]!, inFilesystem filesystem: String!)

@@ -20,8 +20,8 @@ class UIPasteboard : Object {
   func pasteboardTypesFor(itemSet itemSet: IndexSet?) -> [AnyObject]?
   func containsTypes(pasteboardTypes: [String], inItemSet itemSet: IndexSet?) -> Bool
   func itemSetWith(pasteboardTypes pasteboardTypes: [AnyObject]) -> IndexSet?
-  func valuesFor(pasteboardType pasteboardType: String, inItemSet itemSet: IndexSet?) -> [AnyObject]?
-  func dataFor(pasteboardType pasteboardType: String, inItemSet itemSet: IndexSet?) -> [AnyObject]?
+  func values(forPasteboardType pasteboardType: String, inItemSet itemSet: IndexSet?) -> [AnyObject]?
+  func data(forPasteboardType pasteboardType: String, inItemSet itemSet: IndexSet?) -> [AnyObject]?
   var items: [AnyObject]
   func addItems(items: [[String : AnyObject]])
   init()

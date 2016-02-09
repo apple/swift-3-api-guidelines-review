@@ -56,9 +56,9 @@ class UICollectionViewLayoutInvalidationContext : Object {
   @available(iOS 8.0, *)
   func invalidateItemsAt(indexPaths: [IndexPath])
   @available(iOS 8.0, *)
-  func invalidateSupplementaryElementsOf(kind elementKind: String, at indexPaths: [IndexPath])
+  func invalidateSupplementaryElements(ofKind elementKind: String, at indexPaths: [IndexPath])
   @available(iOS 8.0, *)
-  func invalidateDecorationElementsOf(kind elementKind: String, at indexPaths: [IndexPath])
+  func invalidateDecorationElements(ofKind elementKind: String, at indexPaths: [IndexPath])
   @available(iOS 8.0, *)
   var invalidatedItemIndexPaths: [IndexPath]? { get }
   @available(iOS 8.0, *)
@@ -97,8 +97,8 @@ extension UICollectionViewLayout {
   func prepare()
   func layoutAttributesForElementsIn(rect: CGRect) -> [UICollectionViewLayoutAttributes]?
   func layoutAttributesForItemAt(indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForSupplementaryViewOf(kind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForDecorationViewOf(kind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForDecorationView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
   func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool
   @available(iOS 7.0, *)
   func invalidationContextForBoundsChange(newBounds: CGRect) -> UICollectionViewLayoutInvalidationContext
@@ -124,10 +124,10 @@ extension UICollectionViewLayout {
   func finalizeLayoutTransition()
   func initialLayoutAttributesForAppearingItemAt(itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
   func finalLayoutAttributesForDisappearingItemAt(itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func initialLayoutAttributesForAppearingSupplementaryElementOf(kind elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func finalLayoutAttributesForDisappearingSupplementaryElementOf(kind elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func initialLayoutAttributesForAppearingDecorationElementOf(kind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func finalLayoutAttributesForDisappearingDecorationElementOf(kind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func initialLayoutAttributesForAppearingSupplementaryElement(ofKind elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func finalLayoutAttributesForDisappearingSupplementaryElement(ofKind elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func initialLayoutAttributesForAppearingDecorationElement(ofKind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func finalLayoutAttributesForDisappearingDecorationElement(ofKind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
   @available(iOS 7.0, *)
   func indexPathsToDeleteForSupplementaryViewOf(kind elementKind: String) -> [IndexPath]
   @available(iOS 7.0, *)

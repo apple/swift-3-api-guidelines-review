@@ -60,7 +60,7 @@ extension OrderedSet {
   func indexesOfObjectsPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
   func indexesOfObjects(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
   func indexesOfObjectsAt(s: IndexSet, options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
-  func indexOf(object: AnyObject, inSortedRange range: NSRange, options opts: BinarySearchingOptions = [], usingComparator cmp: Comparator) -> Int
+  func index(of object: AnyObject, inSortedRange range: NSRange, options opts: BinarySearchingOptions = [], usingComparator cmp: Comparator) -> Int
   func sortedArray(comparator cmptr: Comparator) -> [AnyObject]
   func sortedArray(opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
   var description: String { get }
@@ -101,8 +101,8 @@ extension MutableOrderedSet {
   func add(object: AnyObject)
   func addObjects(objects: UnsafePointer<AnyObject?>, count: Int)
   func addObjectsFrom(array: [AnyObject])
-  func exchangeObjectAt(idx1: Int, withObjectAt idx2: Int)
-  func moveObjectsAt(indexes: IndexSet, to idx: Int)
+  func exchangeObject(at idx1: Int, withObjectAt idx2: Int)
+  func moveObjects(at indexes: IndexSet, to idx: Int)
   func insert(objects: [AnyObject], at indexes: IndexSet)
   func setObject(obj: AnyObject, at idx: Int)
   @available(watchOS 2.0, *)

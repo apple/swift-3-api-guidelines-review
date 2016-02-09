@@ -12,7 +12,7 @@ class RunLoop : Object {
   func add(aPort: Port, forMode mode: String)
   func remove(aPort: Port, forMode mode: String)
   func limitDateFor(mode mode: String) -> Date?
-  func acceptInputFor(mode mode: String, before limitDate: Date)
+  func acceptInput(forMode mode: String, before limitDate: Date)
   init()
 }
 extension RunLoop {

@@ -12,7 +12,7 @@ class URL : Object, SecureCoding, Copying {
   @available(watchOS 2.0, *)
   class func fileURLWith(path path: String, isDirectory isDir: Bool, relativeTo baseURL: URL?) -> URL
   @available(watchOS 2.0, *)
-  class func fileURLWith(path path: String, relativeTo baseURL: URL?) -> URL
+  class func fileURL(withPath path: String, relativeTo baseURL: URL?) -> URL
   @available(watchOS 2.0, *)
   class func fileURLWith(path path: String, isDirectory isDir: Bool) -> URL
   class func fileURLWith(path path: String) -> URL
@@ -27,7 +27,7 @@ class URL : Object, SecureCoding, Copying {
   @available(watchOS 2.0, *)
   init(absoluteURLWithDataRepresentation data: Data, relativeTo baseURL: URL?)
   @available(watchOS 2.0, *)
-  class func absoluteURLWith(dataRepresentation data: Data, relativeTo baseURL: URL?) -> URL
+  class func absoluteURL(withDataRepresentation data: Data, relativeTo baseURL: URL?) -> URL
   @available(watchOS 2.0, *)
   @NSCopying var dataRepresentation: Data { get }
   var absoluteString: String { get }
@@ -80,7 +80,7 @@ class URL : Object, SecureCoding, Copying {
   @available(watchOS 2.0, *)
   convenience init(byResolvingBookmarkData bookmarkData: Data, options: URLBookmarkResolutionOptions = [], relativeTo relativeURL: URL?, bookmarkDataIsStale isStale: UnsafeMutablePointer<ObjCBool>) throws
   @available(watchOS 2.0, *)
-  class func resourceValuesFor(keys keys: [String], fromBookmarkData bookmarkData: Data) -> [String : AnyObject]?
+  class func resourceValues(forKeys keys: [String], fromBookmarkData bookmarkData: Data) -> [String : AnyObject]?
   @available(watchOS 2.0, *)
   class func writeBookmarkData(bookmarkData: Data, to bookmarkFileURL: URL, options: URLBookmarkFileCreationOptions) throws
   @available(watchOS 2.0, *)

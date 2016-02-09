@@ -133,7 +133,7 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   func indicatorImageIn(tableColumn: NSTableColumn) -> NSImage?
   unowned(unsafe) var highlightedTableColumn: @sil_unmanaged NSTableColumn?
   var verticalMotionCanBeginDrag: Bool
-  func canDragRowsWith(rowIndexes: IndexSet, at mouseDownPoint: Point) -> Bool
+  func canDragRows(withIndexes rowIndexes: IndexSet, at mouseDownPoint: Point) -> Bool
   func dragImageForRows(dragRows: IndexSet, tableColumns: [NSTableColumn], event dragEvent: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
   func setDraggingSourceOperationMask(mask: NSDragOperation, forLocal isLocal: Bool)
   func setDropRow(row: Int, dropOperation: NSTableViewDropOperation)
@@ -200,7 +200,7 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   @available(OSX 10.7, *)
   func removeRowsAt(indexes: IndexSet, withAnimation animationOptions: NSTableViewAnimationOptions = [])
   @available(OSX 10.7, *)
-  func moveRowAt(oldIndex: Int, to newIndex: Int)
+  func moveRow(at oldIndex: Int, to newIndex: Int)
   @available(OSX 10.11, *)
   func hideRowsAt(indexes: IndexSet, withAnimation rowAnimation: NSTableViewAnimationOptions = [])
   @available(OSX 10.11, *)

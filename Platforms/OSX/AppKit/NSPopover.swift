@@ -32,7 +32,7 @@ class NSPopover : NSResponder, NSAppearanceCustomization, NSAccessibilityElement
   @available(OSX 10.10, *)
   var isDetached: Bool { get }
   var positioningRect: Rect
-  func showRelativeTo(positioningRect: Rect, of positioningView: NSView, preferredEdge: RectEdge)
+  func showRelative(to positioningRect: Rect, of positioningView: NSView, preferredEdge: RectEdge)
   @IBAction func performClose(sender: AnyObject?)
   func close()
   @available(OSX 10.7, *)

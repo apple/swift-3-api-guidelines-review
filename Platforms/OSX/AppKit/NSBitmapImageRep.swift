@@ -85,11 +85,11 @@ class NSBitmapImageRep : NSImageRep, SecureCoding {
   @NSCopying var tiffRepresentation: Data? { get }
   func tiffRepresentationUsing(comp: NSTIFFCompression, factor: Float) -> Data?
   class func tiffRepresentationOfImageRepsIn(array: [NSImageRep]) -> Data?
-  class func tiffRepresentationOfImageRepsIn(array: [NSImageRep], usingCompression comp: NSTIFFCompression, factor: Float) -> Data?
+  class func tiffRepresentationOfImageReps(in array: [NSImageRep], usingCompression comp: NSTIFFCompression, factor: Float) -> Data?
   class func getTIFFCompressionTypes(list: UnsafeMutablePointer<UnsafePointer<NSTIFFCompression>>, count numTypes: UnsafeMutablePointer<Int>)
   class func localizedNameFor(tiffCompressionType compression: NSTIFFCompression) -> String?
   func canBeCompressedUsing(compression: NSTIFFCompression) -> Bool
-  func colorizeBy(mappingGray midPoint: CGFloat, to midPointColor: NSColor?, blackMapping shadowColor: NSColor?, whiteMapping lightColor: NSColor?)
+  func colorize(byMappingGray midPoint: CGFloat, to midPointColor: NSColor?, blackMapping shadowColor: NSColor?, whiteMapping lightColor: NSColor?)
   init(forIncrementalLoad: ())
   func incrementalLoadFrom(data: Data, complete: Bool) -> Int
   func setColor(color: NSColor, atX x: Int, y: Int)
@@ -126,7 +126,7 @@ struct __bitmapRepFlags {
   init(bitsPerPixel: UInt32, isPlanar: UInt32, explicitPlanes: UInt32, imageSourceIsIndexed: UInt32, dataLoaded: UInt32, colorModel: UInt32, tierTwoInfoIsLoaded: UInt32, respectO: UInt32, compressionFactor: UInt32, imageNumber: UInt32, bitmapFormat: UInt32, cgImageIsPrimary: UInt32, compression: UInt32)
 }
 extension NSBitmapImageRep {
-  class func representationOfImageRepsIn(imageReps: [NSImageRep], usingType storageType: NSBitmapImageFileType, properties: [String : AnyObject]) -> Data?
+  class func representationOfImageReps(in imageReps: [NSImageRep], usingType storageType: NSBitmapImageFileType, properties: [String : AnyObject]) -> Data?
   func representationUsing(storageType: NSBitmapImageFileType, properties: [String : AnyObject]) -> Data?
   func setProperty(property: String, withValue value: AnyObject?)
   func valueFor(property property: String) -> AnyObject?

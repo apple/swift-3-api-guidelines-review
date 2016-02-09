@@ -109,7 +109,7 @@ extension MKMapView {
   @available(iOS 4.0, *)
   func insert(overlay: MKOverlay, at index: Int)
   @available(iOS 4.0, *)
-  func exchangeOverlayAt(index1: Int, withOverlayAt index2: Int)
+  func exchangeOverlay(at index1: Int, withOverlayAt index2: Int)
 }
 protocol MKMapViewDelegate : ObjectProtocol {
   @available(iOS 3.0, *)

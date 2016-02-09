@@ -107,19 +107,19 @@ class UICollectionView : UIScrollView {
   func numberOfSections() -> Int
   func numberOfItemsIn(section section: Int) -> Int
   func layoutAttributesForItemAt(indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForSupplementaryElementOf(kind kind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryElement(ofKind kind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
   func indexPathForItemAt(point: CGPoint) -> IndexPath?
   func indexPathFor(cell: UICollectionViewCell) -> IndexPath?
   func cellForItemAt(indexPath: IndexPath) -> UICollectionViewCell?
   func visibleCells() -> [UICollectionViewCell]
   func indexPathsForVisibleItems() -> [IndexPath]
   @available(tvOS 9.0, *)
-  func supplementaryViewFor(elementKind elementKind: String, at indexPath: IndexPath) -> UICollectionReusableView
+  func supplementaryView(forElementKind elementKind: String, at indexPath: IndexPath) -> UICollectionReusableView
   @available(tvOS 9.0, *)
   func visibleSupplementaryViewsOf(kind elementKind: String) -> [UICollectionReusableView]
   @available(tvOS 9.0, *)
   func indexPathsForVisibleSupplementaryElementsOf(kind elementKind: String) -> [IndexPath]
-  func scrollToItemAt(indexPath: IndexPath, at scrollPosition: UICollectionViewScrollPosition, animated: Bool)
+  func scrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionViewScrollPosition, animated: Bool)
   func insertSections(sections: IndexSet)
   func deleteSections(sections: IndexSet)
   func reloadSections(sections: IndexSet)
@@ -127,7 +127,7 @@ class UICollectionView : UIScrollView {
   func insertItemsAt(indexPaths: [IndexPath])
   func deleteItemsAt(indexPaths: [IndexPath])
   func reloadItemsAt(indexPaths: [IndexPath])
-  func moveItemAt(indexPath: IndexPath, to newIndexPath: IndexPath)
+  func moveItem(at indexPath: IndexPath, to newIndexPath: IndexPath)
   func performBatchUpdates(updates: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 9.0, *)
   func beginInteractiveMovementForItemAt(indexPath: IndexPath) -> Bool

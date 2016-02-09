@@ -15,7 +15,7 @@ let httpCookiePort: String
 class HTTPCookie : Object {
   init?(properties: [String : AnyObject])
   class func requestHeaderFields(cookies: [HTTPCookie]) -> [String : String]
-  class func cookiesWith(responseHeaderFields headerFields: [String : String], forURL URL: URL) -> [HTTPCookie]
+  class func cookies(withResponseHeaderFields headerFields: [String : String], forURL URL: URL) -> [HTTPCookie]
   var properties: [String : AnyObject]? { get }
   var version: Int { get }
   var name: String { get }

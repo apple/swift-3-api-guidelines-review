@@ -71,13 +71,13 @@ class NSBrowser : NSControl {
   @available(OSX 10.6, *)
   func itemAt(indexPath: IndexPath) -> AnyObject?
   @available(OSX 10.6, *)
-  func itemAt(row row: Int, inColumn column: Int) -> AnyObject?
+  func item(atRow row: Int, inColumn column: Int) -> AnyObject?
   @available(OSX 10.6, *)
   func indexPathFor(column column: Int) -> IndexPath
   @available(OSX 10.6, *)
   func isLeafItem(item: AnyObject?) -> Bool
   @available(OSX 10.6, *)
-  func reloadDataFor(rowIndexes rowIndexes: IndexSet, inColumn column: Int)
+  func reloadData(forRowIndexes rowIndexes: IndexSet, inColumn column: Int)
   @available(OSX 10.6, *)
   func parentForItemsIn(column column: Int) -> AnyObject?
   @available(OSX 10.6, *)
@@ -122,12 +122,12 @@ class NSBrowser : NSControl {
   func doDoubleClick(sender: AnyObject?)
   func sendAction() -> Bool
   func titleFrameOf(column column: Int) -> Rect
-  func drawTitleOf(column column: Int, in aRect: Rect)
+  func drawTitle(ofColumn column: Int, in aRect: Rect)
   var titleHeight: CGFloat { get }
   func frameOf(column column: Int) -> Rect
   func frameOfInsideOf(column column: Int) -> Rect
   @available(OSX 10.6, *)
-  func frameOf(row row: Int, inColumn column: Int) -> Rect
+  func frame(ofRow row: Int, inColumn column: Int) -> Rect
   @available(OSX 10.6, *)
   func getRow(row: UnsafeMutablePointer<Int>, column: UnsafeMutablePointer<Int>, forPoint point: Point) -> Bool
   func columnWidthFor(columnContentWidth columnContentWidth: CGFloat) -> CGFloat
@@ -147,9 +147,9 @@ class NSBrowser : NSControl {
   var columnsAutosaveName: String
   class func removeSavedColumns(autosaveName name: String)
   @available(OSX 10.5, *)
-  func canDragRowsWith(rowIndexes: IndexSet, inColumn column: Int, withEvent event: NSEvent) -> Bool
+  func canDragRows(withIndexes rowIndexes: IndexSet, inColumn column: Int, withEvent event: NSEvent) -> Bool
   @available(OSX 10.5, *)
-  func draggingImageForRowsWith(rowIndexes: IndexSet, inColumn column: Int, withEvent event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage?
+  func draggingImageForRows(withIndexes rowIndexes: IndexSet, inColumn column: Int, withEvent event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage?
   @available(OSX 10.5, *)
   func setDraggingSourceOperationMask(mask: NSDragOperation, forLocal isLocal: Bool)
   @available(OSX 10.5, *)

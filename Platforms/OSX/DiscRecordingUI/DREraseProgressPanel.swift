@@ -4,7 +4,7 @@ let DREraseProgressPanelWillBeginNotification: String
 @available(OSX 10.2, *)
 let DREraseProgressPanelDidFinishNotification: String
 class DREraseProgressPanel : NSPanel {
-  func beginProgressSheetFor(erase: DRErase!, modalFor docWindow: NSWindow!)
+  func beginProgressSheet(forErase erase: DRErase!, modalFor docWindow: NSWindow!)
   func beginFor(erase: DRErase!)
   func setDescription(description: String!)
   func description() -> String!

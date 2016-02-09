@@ -7,7 +7,7 @@ class NSGradient : Object, Copying, Coding {
   convenience init?(starting startingColor: NSColor, ending endingColor: NSColor)
   convenience init?(colors colorArray: [NSColor])
   init?(colors colorArray: [NSColor], atLocations locations: UnsafePointer<CGFloat>, colorSpace: NSColorSpace)
-  func drawFrom(startingPoint: Point, to endingPoint: Point, options: NSGradientDrawingOptions)
+  func draw(from startingPoint: Point, to endingPoint: Point, options: NSGradientDrawingOptions)
   func drawIn(rect: Rect, angle: CGFloat)
   func drawIn(path: NSBezierPath, angle: CGFloat)
   func drawFromCenter(startCenter: Point, radius startRadius: CGFloat, toCenter endCenter: Point, radius endRadius: CGFloat, options: NSGradientDrawingOptions)

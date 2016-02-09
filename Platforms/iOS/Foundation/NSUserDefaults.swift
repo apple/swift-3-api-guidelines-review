@@ -41,6 +41,6 @@ class UserDefaults : Object {
   func removePersistentDomainFor(name domainName: String)
   func synchronize() -> Bool
   func objectIsForcedFor(key key: String) -> Bool
-  func objectIsForcedFor(key key: String, inDomain domain: String) -> Bool
+  func objectIsForced(forKey key: String, inDomain domain: String) -> Bool
 }
 let userDefaultsDidChangeNotification: String

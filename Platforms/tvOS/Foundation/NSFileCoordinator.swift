@@ -42,8 +42,8 @@ class FileCoordinator : Object {
   func coordinateWritingItemAt(url1: URL, options options1: FileCoordinatorWritingOptions = [], writingItemAt url2: URL, options options2: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor writer: (URL, URL) -> Void)
   func prepareForReadingItemsAt(readingURLs: [URL], options readingOptions: FileCoordinatorReadingOptions = [], writingItemsAt writingURLs: [URL], options writingOptions: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor batchAccessor: (() -> Void) -> Void)
   @available(tvOS 6.0, *)
-  func itemAt(oldURL: URL, willMoveTo newURL: URL)
-  func itemAt(oldURL: URL, didMoveTo newURL: URL)
+  func item(at oldURL: URL, willMoveTo newURL: URL)
+  func item(at oldURL: URL, didMoveTo newURL: URL)
   func cancel()
   convenience init()
 }

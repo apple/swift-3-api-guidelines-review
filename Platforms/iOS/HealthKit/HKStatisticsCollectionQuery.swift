@@ -2,7 +2,7 @@
 @available(iOS 8.0, *)
 class HKStatisticsCollection : Object {
   func statisticsFor(date: Date) -> HKStatistics?
-  func enumerateStatisticsFrom(startDate: Date, to endDate: Date, withBlock block: (HKStatistics, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateStatistics(from startDate: Date, to endDate: Date, withBlock block: (HKStatistics, UnsafeMutablePointer<ObjCBool>) -> Void)
   func statistics() -> [HKStatistics]
   func sources() -> Set<HKSource>
 }

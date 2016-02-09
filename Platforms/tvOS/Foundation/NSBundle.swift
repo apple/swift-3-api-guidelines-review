@@ -55,13 +55,13 @@ class Bundle : Object {
   func urlsForResourcesWith(extension ext: String?, subdirectory subpath: String?) -> [URL]?
   @available(tvOS 4.0, *)
   func urlsForResourcesWith(extension ext: String?, subdirectory subpath: String?, localization localizationName: String?) -> [URL]?
-  class func pathFor(resource name: String?, ofType ext: String?, inDirectory bundlePath: String) -> String?
-  class func pathsForResourcesOf(type ext: String?, inDirectory bundlePath: String) -> [String]
-  func pathFor(resource name: String?, ofType ext: String?) -> String?
-  func pathFor(resource name: String?, ofType ext: String?, inDirectory subpath: String?) -> String?
-  func pathFor(resource name: String?, ofType ext: String?, inDirectory subpath: String?, forLocalization localizationName: String?) -> String?
-  func pathsForResourcesOf(type ext: String?, inDirectory subpath: String?) -> [String]
-  func pathsForResourcesOf(type ext: String?, inDirectory subpath: String?, forLocalization localizationName: String?) -> [String]
+  class func path(forResource name: String?, ofType ext: String?, inDirectory bundlePath: String) -> String?
+  class func pathsForResources(ofType ext: String?, inDirectory bundlePath: String) -> [String]
+  func path(forResource name: String?, ofType ext: String?) -> String?
+  func path(forResource name: String?, ofType ext: String?, inDirectory subpath: String?) -> String?
+  func path(forResource name: String?, ofType ext: String?, inDirectory subpath: String?, forLocalization localizationName: String?) -> String?
+  func pathsForResources(ofType ext: String?, inDirectory subpath: String?) -> [String]
+  func pathsForResources(ofType ext: String?, inDirectory subpath: String?, forLocalization localizationName: String?) -> [String]
   func localizedStringFor(key key: String, value: String?, table tableName: String?) -> String
   var bundleIdentifier: String? { get }
   var infoDictionary: [String : AnyObject]? { get }
@@ -73,7 +73,7 @@ class Bundle : Object {
   var localizations: [String] { get }
   var developmentLocalization: String? { get }
   class func preferredLocalizationsFrom(localizationsArray: [String]) -> [String]
-  class func preferredLocalizationsFrom(localizationsArray: [String], forPreferences preferencesArray: [String]?) -> [String]
+  class func preferredLocalizations(from localizationsArray: [String], forPreferences preferencesArray: [String]?) -> [String]
   @available(tvOS 2.0, *)
   var executableArchitectures: [Number]? { get }
   convenience init()

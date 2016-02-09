@@ -99,7 +99,7 @@ class LinguisticTagger : Object {
   @available(watchOS 2.0, *)
   func orthographyAt(charIndex: Int, effectiveRange: RangePointer) -> Orthography?
   @available(watchOS 2.0, *)
-  func stringEditedIn(newRange: NSRange, changeInLength delta: Int)
+  func stringEdited(in newRange: NSRange, changeInLength delta: Int)
   @available(watchOS 2.0, *)
   func enumerateTagsIn(range: NSRange, scheme tagScheme: String, options opts: LinguisticTaggerOptions = [], usingBlock block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)

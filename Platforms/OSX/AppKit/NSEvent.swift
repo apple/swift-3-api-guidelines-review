@@ -242,7 +242,7 @@ class NSEvent : Object, Copying, Coding {
   var pointingDeviceType: NSPointingDeviceType { get }
   var isEnteringProximity: Bool { get }
   @available(OSX 10.6, *)
-  func touchesMatching(phase: NSTouchPhase, in view: NSView?) -> Set<NSTouch>
+  func touches(matching phase: NSTouchPhase, in view: NSView?) -> Set<NSTouch>
   @available(OSX 10.7, *)
   var phase: NSEventPhase { get }
   @available(OSX 10.10.3, *)

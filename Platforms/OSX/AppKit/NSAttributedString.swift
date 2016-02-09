@@ -204,14 +204,14 @@ extension AttributedString {
   func rulerAttributesIn(range: NSRange) -> [String : AnyObject]
   @available(OSX 10.11, *)
   func containsAttachmentsIn(range: NSRange) -> Bool
-  func lineBreakBefore(location: Int, within aRange: NSRange) -> Int
-  func lineBreakByHyphenatingBefore(location: Int, within aRange: NSRange) -> Int
+  func lineBreak(before location: Int, within aRange: NSRange) -> Int
+  func lineBreakByHyphenating(before location: Int, within aRange: NSRange) -> Int
   func doubleClickAt(location: Int) -> NSRange
   func nextWordFrom(location: Int, forward isForward: Bool) -> Int
-  func rangeOf(block: NSTextBlock, at location: Int) -> NSRange
-  func rangeOf(table: NSTextTable, at location: Int) -> NSRange
-  func rangeOf(list: NSTextList, at location: Int) -> NSRange
-  func itemNumberIn(list: NSTextList, at location: Int) -> Int
+  func range(of block: NSTextBlock, at location: Int) -> NSRange
+  func range(of table: NSTextTable, at location: Int) -> NSRange
+  func range(of list: NSTextList, at location: Int) -> NSRange
+  func itemNumber(in list: NSTextList, at location: Int) -> Int
 }
 extension AttributedString : NSPasteboardReading, NSPasteboardWriting {
   @available(OSX 10.5, *)

@@ -12,7 +12,7 @@ class URL : Object, SecureCoding, Copying, URLHandleClient {
   @available(OSX 10.11, *)
   class func fileURLWith(path path: String, isDirectory isDir: Bool, relativeTo baseURL: URL?) -> URL
   @available(OSX 10.11, *)
-  class func fileURLWith(path path: String, relativeTo baseURL: URL?) -> URL
+  class func fileURL(withPath path: String, relativeTo baseURL: URL?) -> URL
   @available(OSX 10.5, *)
   class func fileURLWith(path path: String, isDirectory isDir: Bool) -> URL
   class func fileURLWith(path path: String) -> URL
@@ -27,7 +27,7 @@ class URL : Object, SecureCoding, Copying, URLHandleClient {
   @available(OSX 10.11, *)
   init(absoluteURLWithDataRepresentation data: Data, relativeTo baseURL: URL?)
   @available(OSX 10.11, *)
-  class func absoluteURLWith(dataRepresentation data: Data, relativeTo baseURL: URL?) -> URL
+  class func absoluteURL(withDataRepresentation data: Data, relativeTo baseURL: URL?) -> URL
   @available(OSX 10.11, *)
   @NSCopying var dataRepresentation: Data { get }
   var absoluteString: String { get }
@@ -80,7 +80,7 @@ class URL : Object, SecureCoding, Copying, URLHandleClient {
   @available(OSX 10.6, *)
   convenience init(byResolvingBookmarkData bookmarkData: Data, options: URLBookmarkResolutionOptions = [], relativeTo relativeURL: URL?, bookmarkDataIsStale isStale: UnsafeMutablePointer<ObjCBool>) throws
   @available(OSX 10.6, *)
-  class func resourceValuesFor(keys keys: [String], fromBookmarkData bookmarkData: Data) -> [String : AnyObject]?
+  class func resourceValues(forKeys keys: [String], fromBookmarkData bookmarkData: Data) -> [String : AnyObject]?
   @available(OSX 10.6, *)
   class func writeBookmarkData(bookmarkData: Data, to bookmarkFileURL: URL, options: URLBookmarkFileCreationOptions) throws
   @available(OSX 10.6, *)

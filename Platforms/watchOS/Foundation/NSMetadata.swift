@@ -29,7 +29,7 @@ class MetadataQuery : Object {
   func indexOf(result result: AnyObject) -> Int
   var valueLists: [String : [MetadataQueryAttributeValueTuple]] { get }
   var groupedResults: [MetadataQueryResultGroup] { get }
-  func valueOf(attribute attrName: String, forResultAt idx: Int) -> AnyObject?
+  func value(ofAttribute attrName: String, forResultAt idx: Int) -> AnyObject?
   init()
 }
 protocol MetadataQueryDelegate : ObjectProtocol {

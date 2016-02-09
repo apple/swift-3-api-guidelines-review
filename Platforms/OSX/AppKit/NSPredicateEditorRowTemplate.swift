@@ -16,7 +16,7 @@ class NSPredicateEditorRowTemplate : Object, Coding, Copying {
   var operators: [Number]? { get }
   var options: Int { get }
   var compoundTypes: [Number]? { get }
-  class func templatesWith(attributeKeyPaths keyPaths: [String], in entityDescription: NSEntityDescription) -> [NSPredicateEditorRowTemplate]
+  class func templates(withAttributeKeyPaths keyPaths: [String], in entityDescription: NSEntityDescription) -> [NSPredicateEditorRowTemplate]
   init()
   @available(OSX 10.5, *)
   func encodeWith(aCoder: Coder)

@@ -41,7 +41,7 @@ class IMKInputController : Object, IMKStateSetting, IMKMouseHandling {
   func compositionAttributesAt(range: NSRange) -> MutableDictionary!
   func selectionRange() -> NSRange
   func replacementRange() -> NSRange
-  func markFor(style style: Int, at range: NSRange) -> [Object : AnyObject]!
+  func mark(forStyle style: Int, at range: NSRange) -> [Object : AnyObject]!
   func doCommandBy(aSelector: Selector, command infoDictionary: [Object : AnyObject]!)
   func hidePalettes()
   func menu() -> NSMenu!

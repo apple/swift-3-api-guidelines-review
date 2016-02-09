@@ -18,11 +18,11 @@ protocol AVPictureInPictureControllerDelegate : ObjectProtocol {
   @available(iOS 9.0, *)
   optional func pictureInPictureControllerDidStartPictureIn(picture pictureInPictureController: AVPictureInPictureController)
   @available(iOS 9.0, *)
-  optional func pictureIn(pictureInPictureController: AVPictureInPictureController, failedToStartPictureInPictureWithError error: Error)
+  optional func picture(pictureInPictureController: AVPictureInPictureController, failedToStartPictureInPictureWithError error: Error)
   @available(iOS 9.0, *)
   optional func pictureInPictureControllerWillStopPictureIn(picture pictureInPictureController: AVPictureInPictureController)
   @available(iOS 9.0, *)
   optional func pictureInPictureControllerDidStopPictureIn(picture pictureInPictureController: AVPictureInPictureController)
   @available(iOS 9.0, *)
-  optional func pictureIn(pictureInPictureController: AVPictureInPictureController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: (Bool) -> Void)
+  optional func picture(pictureInPictureController: AVPictureInPictureController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: (Bool) -> Void)
 }

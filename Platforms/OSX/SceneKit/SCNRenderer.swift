@@ -21,7 +21,7 @@ class SCNRenderer : Object, SCNSceneRenderer, SCNTechniqueSupport {
   @available(OSX 10.8, *)
   func hitTest(point: CGPoint, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
   @available(OSX 10.9, *)
-  func isNodeInside(frustum node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
+  func isNode(insideFrustum node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
   @available(OSX 10.11, *)
   func nodesInsideFrustumWithPointOf(view pointOfView: SCNNode) -> [SCNNode]
   @available(OSX 10.9, *)

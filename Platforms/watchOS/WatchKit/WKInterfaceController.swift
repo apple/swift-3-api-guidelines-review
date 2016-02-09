@@ -101,8 +101,8 @@ class WKInterfaceController : Object {
   func dismissAudioRecorderController()
   func contextForSegueWith(identifier segueIdentifier: String) -> AnyObject?
   func contextsForSegueWith(identifier segueIdentifier: String) -> [AnyObject]?
-  func contextForSegueWith(identifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> AnyObject?
-  func contextsForSegueWith(identifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> [AnyObject]?
+  func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> AnyObject?
+  func contextsForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> [AnyObject]?
   @available(watchOS 2.0, *)
   func animate(duration duration: TimeInterval, animations: () -> Void)
   @available(watchOS 2.0, *)
@@ -152,7 +152,7 @@ class WKUserNotificationInterfaceController : WKInterfaceController {
   func didReceiveRemoteNotification(remoteNotification: [Object : AnyObject], withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
   func didReceive(localNotification: UILocalNotification, withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
   @available(watchOS 2.0, *)
-  func suggestionsForResponseToActionWith(identifier identifier: String, forRemoteNotification remoteNotification: [Object : AnyObject], inputLanguage: String) -> [String]
+  func suggestionsForResponseToAction(withIdentifier identifier: String, forRemoteNotification remoteNotification: [Object : AnyObject], inputLanguage: String) -> [String]
   @available(watchOS 2.0, *)
-  func suggestionsForResponseToActionWith(identifier identifier: String, forLocalNotification localNotification: UILocalNotification, inputLanguage: String) -> [String]
+  func suggestionsForResponseToAction(withIdentifier identifier: String, forLocalNotification localNotification: UILocalNotification, inputLanguage: String) -> [String]
 }

@@ -80,25 +80,25 @@ class UITextField : UIControl, UITextInput, Coding {
   @available(tvOS 3.2, *)
   var endOfDocument: UITextPosition { get }
   @available(tvOS 3.2, *)
-  func textRangeFrom(fromPosition: UITextPosition, to toPosition: UITextPosition) -> UITextRange?
+  func textRange(from fromPosition: UITextPosition, to toPosition: UITextPosition) -> UITextRange?
   @available(tvOS 3.2, *)
   func positionFrom(position: UITextPosition, offset: Int) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func positionFrom(position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
+  func position(from position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
   @available(tvOS 3.2, *)
   func compare(position: UITextPosition, to other: UITextPosition) -> ComparisonResult
   @available(tvOS 3.2, *)
-  func offsetFrom(from: UITextPosition, to toPosition: UITextPosition) -> Int
+  func offset(from from: UITextPosition, to toPosition: UITextPosition) -> Int
   @available(tvOS 2.0, *)
   weak var inputDelegate: @sil_weak UITextInputDelegate?
   @available(tvOS 2.0, *)
   var tokenizer: UITextInputTokenizer { get }
   @available(tvOS 3.2, *)
-  func positionWithin(range: UITextRange, farthestIn direction: UITextLayoutDirection) -> UITextPosition?
+  func position(within range: UITextRange, farthestIn direction: UITextLayoutDirection) -> UITextPosition?
   @available(tvOS 3.2, *)
   func characterRangeByExtending(position: UITextPosition, in direction: UITextLayoutDirection) -> UITextRange?
   @available(tvOS 3.2, *)
-  func baseWritingDirectionFor(position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
+  func baseWritingDirection(forPosition position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
   @available(tvOS 3.2, *)
   func setBaseWritingDirection(writingDirection: UITextWritingDirection, forRange range: UITextRange)
   @available(tvOS 3.2, *)
@@ -110,17 +110,17 @@ class UITextField : UIControl, UITextInput, Coding {
   @available(tvOS 3.2, *)
   func closestPositionTo(point: CGPoint) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func closestPositionTo(point: CGPoint, within range: UITextRange) -> UITextPosition?
+  func closestPosition(to point: CGPoint, within range: UITextRange) -> UITextPosition?
   @available(tvOS 3.2, *)
   func characterRangeAt(point: CGPoint) -> UITextRange?
   @available(tvOS 6.0, *)
   func shouldChangeTextIn(range: UITextRange, replacementText text: String) -> Bool
   @available(tvOS 3.2, *)
-  func textStylingAt(position: UITextPosition, in direction: UITextStorageDirection) -> [String : AnyObject]?
+  func textStyling(at position: UITextPosition, in direction: UITextStorageDirection) -> [String : AnyObject]?
   @available(tvOS 3.2, *)
-  func positionWithin(range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
+  func position(within range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func characterOffsetOf(position: UITextPosition, within range: UITextRange) -> Int
+  func characterOffset(of position: UITextPosition, within range: UITextRange) -> Int
   @available(tvOS 2.0, *)
   var textInputView: UIView { get }
   @available(tvOS 2.0, *)

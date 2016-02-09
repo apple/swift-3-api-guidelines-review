@@ -28,7 +28,7 @@ class NEProvider : Object {
   @available(iOS 9.0, *)
   func createTCPConnectionTo(remoteEndpoint: NWEndpoint, enableTLS: Bool, tlsParameters TLSParameters: NWTLSParameters?, delegate: AnyObject?) -> NWTCPConnection
   @available(iOS 9.0, *)
-  func createUDPSessionTo(remoteEndpoint: NWEndpoint, from localEndpoint: NWHostEndpoint?) -> NWUDPSession
+  func createUDPSession(to remoteEndpoint: NWEndpoint, from localEndpoint: NWHostEndpoint?) -> NWUDPSession
   @available(iOS 9.0, *)
   var defaultPath: NWPath? { get }
   init()

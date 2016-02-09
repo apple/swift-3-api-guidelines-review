@@ -12,6 +12,6 @@ class PHCollectionListChangeRequest : Object {
   func removeChildCollections(collections: FastEnumeration)
   func removeChildCollectionsAt(indexes: IndexSet)
   func replaceChildCollectionsAt(indexes: IndexSet, withChildCollections collections: FastEnumeration)
-  func moveChildCollectionsAt(indexes: IndexSet, to toIndex: Int)
+  func moveChildCollections(at indexes: IndexSet, to toIndex: Int)
   init()
 }

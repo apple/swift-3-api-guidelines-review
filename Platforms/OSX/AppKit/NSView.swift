@@ -183,7 +183,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   func draw(dirtyRect: Rect)
   func displayRectIgnoringOpacity(aRect: Rect, in context: NSGraphicsContext)
   func bitmapImageRepForCachingDisplayIn(rect: Rect) -> NSBitmapImageRep?
-  func cacheDisplayIn(rect: Rect, to bitmapImageRep: NSBitmapImageRep)
+  func cacheDisplay(in rect: Rect, to bitmapImageRep: NSBitmapImageRep)
   @available(OSX 10.5, *)
   func viewWillDraw()
   func scroll(aPoint: Point)
@@ -192,7 +192,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   func adjustScroll(newVisible: Rect) -> Rect
   func scroll(aRect: Rect, by delta: Size)
   @available(OSX 10.5, *)
-  func translateRectsNeedingDisplayIn(clipRect: Rect, by delta: Size)
+  func translateRectsNeedingDisplay(in clipRect: Rect, by delta: Size)
   func hitTest(aPoint: Point) -> NSView?
   func mouse(aPoint: Point, in aRect: Rect) -> Bool
   func withTag(aTag: Int) -> NSView?
@@ -269,7 +269,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.6, *)
   var inputContext: NSTextInputContext? { get }
   @available(OSX 10.8, *)
-  func rectForSmartMagnificationAt(location: Point, in visibleRect: Rect) -> Rect
+  func rectForSmartMagnification(at location: Point, in visibleRect: Rect) -> Rect
   @available(OSX 10.8, *)
   var userInterfaceLayoutDirection: NSUserInterfaceLayoutDirection
   @available(OSX 10.7, *)
@@ -868,9 +868,9 @@ extension NSView {
   func noteFocusRingMaskChanged()
 }
 extension NSView {
-  func writeEPSInside(rect: Rect, to pasteboard: NSPasteboard)
+  func writeEPS(inside rect: Rect, to pasteboard: NSPasteboard)
   func dataWithEPSInside(rect: Rect) -> Data
-  func writePDFInside(rect: Rect, to pasteboard: NSPasteboard)
+  func writePDF(inside rect: Rect, to pasteboard: NSPasteboard)
   func dataWithPDFInside(rect: Rect) -> Data
   @warn_unqualified_access
   func print(sender: AnyObject?)
@@ -888,7 +888,7 @@ extension NSView {
   var printJobTitle: String { get }
   func beginDocument()
   func endDocument()
-  func beginPageIn(aRect: Rect, atPlacement location: Point)
+  func beginPage(in aRect: Rect, atPlacement location: Point)
   func endPage()
 }
 extension NSView {
@@ -898,7 +898,7 @@ extension NSView {
   func registerFor(draggedTypes newTypes: [String])
   func unregisterDraggedTypes()
   func dragFile(filename: String, from rect: Rect, slideBack aFlag: Bool, event: NSEvent) -> Bool
-  func dragPromisedFilesOf(types typeArray: [String], from rect: Rect, source sourceObject: AnyObject, slideBack aFlag: Bool, event: NSEvent) -> Bool
+  func dragPromisedFiles(ofTypes typeArray: [String], from rect: Rect, source sourceObject: AnyObject, slideBack aFlag: Bool, event: NSEvent) -> Bool
 }
 extension NSView {
   @available(OSX 10.5, *)
@@ -918,7 +918,7 @@ let NSFullScreenModeWindowLevel: String
 let NSFullScreenModeApplicationPresentationOptions: String
 extension NSView {
   @available(OSX 10.6, *)
-  func showDefinitionFor(attrString: AttributedString?, at textBaselineOrigin: Point)
+  func showDefinition(forAttributedString attrString: AttributedString?, at textBaselineOrigin: Point)
   @available(OSX 10.6, *)
   func showDefinitionFor(attrString: AttributedString?, range targetRange: NSRange, options: [String : AnyObject]? = [:], baselineOriginProvider originProvider: ((NSRange) -> Point)? = nil)
 }

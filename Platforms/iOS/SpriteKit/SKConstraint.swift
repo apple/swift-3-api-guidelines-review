@@ -29,7 +29,7 @@ class SKConstraint : Object, Coding, Copying {
   class func zRotation(zRange: SKRange) -> Self
   class func orientTo(node: SKNode, offset radians: SKRange) -> Self
   class func orientTo(point: CGPoint, offset radians: SKRange) -> Self
-  class func orientTo(point: CGPoint, in node: SKNode, offset radians: SKRange) -> Self
+  class func orient(to point: CGPoint, in node: SKNode, offset radians: SKRange) -> Self
   init()
   @available(iOS 8.0, *)
   func encodeWith(aCoder: Coder)

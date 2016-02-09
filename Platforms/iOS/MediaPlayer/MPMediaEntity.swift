@@ -4,7 +4,7 @@ typealias MPMediaEntityPersistentID = UInt64
 class MPMediaEntity : Object, SecureCoding {
   class func canFilterBy(property property: String) -> Bool
   @available(iOS 4.0, *)
-  func enumerateValuesFor(properties properties: Set<String>, usingBlock block: (String, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateValues(forProperties properties: Set<String>, usingBlock block: (String, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(iOS 8.0, *)
   subscript (keyedSubscript key: AnyObject) -> AnyObject? { get }
   func valueFor(property property: String) -> AnyObject?

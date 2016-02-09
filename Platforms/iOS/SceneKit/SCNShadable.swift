@@ -16,9 +16,9 @@ protocol SCNShadable : ObjectProtocol {
   @available(iOS 8.0, *)
   optional var program: SCNProgram? { get set }
   @available(iOS 8.0, *)
-  optional func handleBindingOf(symbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  optional func handleBinding(ofSymbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
   @available(iOS 8.0, *)
-  optional func handleUnbindingOf(symbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  optional func handleUnbinding(ofSymbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
   @available(iOS 8.0, *)
   optional var shaderModifiers: [String : String]? { get set }
 }

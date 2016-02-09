@@ -15,7 +15,7 @@ class NSFetchedResultsController : Object {
   func sectionIndexTitleFor(sectionName sectionName: String) -> String?
   var sectionIndexTitles: [String] { get }
   var sections: [NSFetchedResultsSectionInfo]? { get }
-  func sectionFor(sectionIndexTitle title: String, at sectionIndex: Int) -> Int
+  func section(forSectionIndexTitle title: String, at sectionIndex: Int) -> Int
   init()
 }
 struct _fetchResultsControllerFlags {

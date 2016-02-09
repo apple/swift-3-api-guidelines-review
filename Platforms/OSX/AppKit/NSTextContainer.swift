@@ -17,7 +17,7 @@ class NSTextContainer : Object, Coding, NSTextLayoutOrientationProvider {
   @available(OSX 10.11, *)
   var maximumNumberOfLines: Int
   @available(OSX 10.11, *)
-  func lineFragmentRectFor(proposedRect proposedRect: Rect, at characterIndex: Int, writingDirection baseWritingDirection: NSWritingDirection, remaining remainingRect: UnsafeMutablePointer<Rect>) -> Rect
+  func lineFragmentRect(forProposedRect proposedRect: Rect, at characterIndex: Int, writingDirection baseWritingDirection: NSWritingDirection, remaining remainingRect: UnsafeMutablePointer<Rect>) -> Rect
   @available(OSX 10.0, *)
   var isSimpleRectangularTextContainer: Bool { get }
   var widthTracksTextView: Bool

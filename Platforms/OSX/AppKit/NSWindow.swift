@@ -302,8 +302,8 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.10, *)
   func trackEventsMatching(mask: NSEventMask, timeout: TimeInterval, mode: String, handler trackingHandler: (NSEvent, UnsafeMutablePointer<ObjCBool>) -> Void)
   func nextEventMatching(mask mask: Int) -> NSEvent?
-  func nextEventMatching(mask mask: Int, until expiration: Date?, inMode mode: String, dequeue deqFlag: Bool) -> NSEvent?
-  func discardEventsMatching(mask mask: Int, before lastEvent: NSEvent?)
+  func nextEvent(matchingMask mask: Int, until expiration: Date?, inMode mode: String, dequeue deqFlag: Bool) -> NSEvent?
+  func discardEvents(matchingMask mask: Int, before lastEvent: NSEvent?)
   func post(event: NSEvent, atStart flag: Bool)
   var currentEvent: NSEvent? { get }
   var acceptsMouseMovedEvents: Bool
@@ -338,7 +338,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.6, *)
   class func windowNumbersWith(options options: NSWindowNumberListOptions) -> [Number]?
   @available(OSX 10.6, *)
-  class func windowNumberAt(point: Point, belowWindowWithWindowNumber windowNumber: Int) -> Int
+  class func windowNumber(at point: Point, belowWindowWithWindowNumber windowNumber: Int) -> Int
   @available(OSX 10.9, *)
   var occlusionState: NSWindowOcclusionState { get }
   @available(OSX 10.10, *)
@@ -1012,7 +1012,7 @@ protocol NSWindowDelegate : ObjectProtocol {
   @available(OSX 10.7, *)
   optional func window(window: NSWindow, startCustomAnimationToExitFullScreenWithDuration duration: TimeInterval)
   @available(OSX 10.9, *)
-  optional func customWindowsToEnterFullScreenFor(window: NSWindow, on screen: NSScreen) -> [NSWindow]?
+  optional func customWindowsToEnterFullScreen(forWindow window: NSWindow, on screen: NSScreen) -> [NSWindow]?
   @available(OSX 10.9, *)
   optional func window(window: NSWindow, startCustomAnimationToEnterFullScreenOn screen: NSScreen, withDuration duration: TimeInterval)
   @available(OSX 10.7, *)

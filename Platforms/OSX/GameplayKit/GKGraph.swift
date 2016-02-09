@@ -6,7 +6,7 @@ class GKGraph : Object {
   func connectNodeToLowestCostNode(node: GKGraphNode, bidirectional: Bool)
   func removeNodes(nodes: [GKGraphNode])
   func addNodes(nodes: [GKGraphNode])
-  func findPathFrom(startNode: GKGraphNode, to endNode: GKGraphNode) -> [GKGraphNode]
+  func findPath(from startNode: GKGraphNode, to endNode: GKGraphNode) -> [GKGraphNode]
   init()
 }
 @available(OSX 10.11, *)
@@ -16,14 +16,14 @@ class GKObstacleGraph : GKGraph {
   init(obstacles: [GKPolygonObstacle], bufferRadius: Float)
   func connectNodeUsing(obstacles node: GKGraphNode2D)
   func connectNodeUsing(obstacles node: GKGraphNode2D, ignoring obstaclesToIgnore: [GKPolygonObstacle])
-  func connectNodeUsing(obstacles node: GKGraphNode2D, ignoringBufferRadiusOf obstaclesBufferRadiusToIgnore: [GKPolygonObstacle])
+  func connectNode(usingObstacles node: GKGraphNode2D, ignoringBufferRadiusOf obstaclesBufferRadiusToIgnore: [GKPolygonObstacle])
   func addObstacles(obstacles: [GKPolygonObstacle])
   func removeObstacles(obstacles: [GKPolygonObstacle])
   func removeAllObstacles()
   func nodesFor(obstacle: GKPolygonObstacle) -> [GKGraphNode2D]
-  func lockConnectionFrom(startNode: GKGraphNode2D, to endNode: GKGraphNode2D)
-  func unlockConnectionFrom(startNode: GKGraphNode2D, to endNode: GKGraphNode2D)
-  func isConnectionLockedFrom(startNode: GKGraphNode2D, to endNode: GKGraphNode2D) -> Bool
+  func lockConnection(from startNode: GKGraphNode2D, to endNode: GKGraphNode2D)
+  func unlockConnection(from startNode: GKGraphNode2D, to endNode: GKGraphNode2D)
+  func isConnectionLocked(from startNode: GKGraphNode2D, to endNode: GKGraphNode2D) -> Bool
   init(nodes: [GKGraphNode])
   init()
 }

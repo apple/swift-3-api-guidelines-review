@@ -76,7 +76,7 @@ extension NSViewController {
   @available(OSX 10.10, *)
   func present(viewController: NSViewController, asPopoverRelativeTo positioningRect: Rect, of positioningView: NSView, preferredEdge: RectEdge, behavior: NSPopoverBehavior)
   @available(OSX 10.10, *)
-  func transitionFrom(fromViewController: NSViewController, to toViewController: NSViewController, options: NSViewControllerTransitionOptions = [], completionHandler completion: (() -> Void)? = nil)
+  func transition(from fromViewController: NSViewController, to toViewController: NSViewController, options: NSViewControllerTransitionOptions = [], completionHandler completion: (() -> Void)? = nil)
 }
 extension NSViewController {
   @available(OSX 10.10, *)
@@ -98,9 +98,9 @@ extension NSViewController {
 }
 protocol NSViewControllerPresentationAnimator : ObjectProtocol {
   @available(OSX 10.10, *)
-  func animatePresentationOf(viewController: NSViewController, from fromViewController: NSViewController)
+  func animatePresentation(of viewController: NSViewController, from fromViewController: NSViewController)
   @available(OSX 10.10, *)
-  func animateDismissalOf(viewController: NSViewController, from fromViewController: NSViewController)
+  func animateDismissal(of viewController: NSViewController, from fromViewController: NSViewController)
 }
 extension NSViewController {
   @available(OSX 10.10, *)

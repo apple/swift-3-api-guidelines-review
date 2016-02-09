@@ -17,7 +17,7 @@ protocol FilePresenter : ObjectProtocol {
   optional func presentedItemDidResolveConflictVersion(version: FileVersion)
   optional func accommodatePresentedSubitemDeletionAt(url: URL, completionHandler: (Error?) -> Void)
   optional func presentedSubitemDidAppearAt(url: URL)
-  optional func presentedSubitemAt(oldURL: URL, didMoveTo newURL: URL)
+  optional func presentedSubitem(at oldURL: URL, didMoveTo newURL: URL)
   optional func presentedSubitemDidChangeAt(url: URL)
   @available(tvOS 5.0, *)
   optional func presentedSubitemAt(url: URL, didGainVersion version: FileVersion)

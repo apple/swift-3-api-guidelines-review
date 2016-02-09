@@ -151,8 +151,8 @@ extension Object {
   func display(layer: CALayer)
   class func draw(layer: CALayer, in ctx: CGContext)
   func draw(layer: CALayer, in ctx: CGContext)
-  class func actionFor(layer: CALayer, forKey event: String) -> CAAction?
-  func actionFor(layer: CALayer, forKey event: String) -> CAAction?
+  class func action(forLayer layer: CALayer, forKey event: String) -> CAAction?
+  func action(forLayer layer: CALayer, forKey event: String) -> CAAction?
 }
 @available(OSX 10.5, *)
 let kCAGravityCenter: String

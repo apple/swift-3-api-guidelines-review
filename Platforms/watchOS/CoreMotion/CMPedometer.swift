@@ -30,7 +30,7 @@ class CMPedometer : Object {
   class func isPaceAvailable() -> Bool
   @available(watchOS 2.0, *)
   class func isCadenceAvailable() -> Bool
-  func queryPedometerDataFrom(start: Date, to end: Date, withHandler handler: CMPedometerHandler)
+  func queryPedometerData(from start: Date, to end: Date, withHandler handler: CMPedometerHandler)
   func startUpdatesFrom(start: Date, withHandler handler: CMPedometerHandler)
   func stopUpdates()
   init()

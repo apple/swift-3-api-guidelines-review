@@ -4,7 +4,7 @@ class NSIncrementalStore : NSPersistentStore {
   func loadMetadata() throws
   func execute(request: NSPersistentStoreRequest, withContext context: NSManagedObjectContext?) throws -> AnyObject
   func newValuesForObjectWith(objectID: NSManagedObjectID, withContext context: NSManagedObjectContext) throws -> NSIncrementalStoreNode
-  func newValueFor(relationship relationship: NSRelationshipDescription, forObjectWith objectID: NSManagedObjectID, withContext context: NSManagedObjectContext?) throws -> AnyObject
+  func newValue(forRelationship relationship: NSRelationshipDescription, forObjectWith objectID: NSManagedObjectID, withContext context: NSManagedObjectContext?) throws -> AnyObject
   class func identifierForNewStoreAt(storeURL: URL) -> AnyObject
   func obtainPermanentIDsFor(array: [NSManagedObject]) throws -> [NSManagedObjectID]
   func managedObjectContextDidRegisterObjectsWith(objectIDs: [NSManagedObjectID])

@@ -7,7 +7,7 @@ class NSImageRep : Object, Copying, Coding {
   func drawAt(point: Point) -> Bool
   func drawIn(rect: Rect) -> Bool
   @available(OSX 10.6, *)
-  func drawIn(dstSpacePortionRect: Rect, from srcSpacePortionRect: Rect, operation op: NSCompositingOperation, fraction requestedAlpha: CGFloat, respectFlipped respectContextIsFlipped: Bool, hints: [String : AnyObject]?) -> Bool
+  func draw(in dstSpacePortionRect: Rect, from srcSpacePortionRect: Rect, operation op: NSCompositingOperation, fraction requestedAlpha: CGFloat, respectFlipped respectContextIsFlipped: Bool, hints: [String : AnyObject]?) -> Bool
   var size: Size
   var hasAlpha: Bool
   var isOpaque: Bool

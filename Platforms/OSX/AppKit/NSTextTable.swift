@@ -53,8 +53,8 @@ class NSTextBlock : Object, Coding, Copying {
   func setBorderColor(color: NSColor?, forEdge edge: RectEdge)
   func setBorderColor(color: NSColor?)
   func borderColorFor(edge: RectEdge) -> NSColor?
-  func rectForLayoutAt(startingPoint: Point, in rect: Rect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> Rect
-  func boundsRectFor(contentRect contentRect: Rect, in rect: Rect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> Rect
+  func rectForLayout(at startingPoint: Point, in rect: Rect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> Rect
+  func boundsRect(forContentRect contentRect: Rect, in rect: Rect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> Rect
   func drawBackground(frame frameRect: Rect, in controlView: NSView, characterRange charRange: NSRange, layoutManager: NSLayoutManager)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
@@ -75,7 +75,7 @@ class NSTextTable : NSTextBlock {
   var layoutAlgorithm: NSTextTableLayoutAlgorithm
   var collapsesBorders: Bool
   var hidesEmptyCells: Bool
-  func rectFor(block: NSTextTableBlock, layoutAt startingPoint: Point, in rect: Rect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> Rect
+  func rect(forBlock block: NSTextTableBlock, layoutAt startingPoint: Point, in rect: Rect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> Rect
   func boundsRectFor(block: NSTextTableBlock, contentRect: Rect, in rect: Rect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> Rect
   func drawBackgroundFor(block: NSTextTableBlock, withFrame frameRect: Rect, in controlView: NSView, characterRange charRange: NSRange, layoutManager: NSLayoutManager)
   init()

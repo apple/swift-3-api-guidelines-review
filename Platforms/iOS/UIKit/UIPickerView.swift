@@ -7,7 +7,7 @@ class UIPickerView : UIView, Coding, UITableViewDataSource {
   var numberOfComponents: Int { get }
   func numberOfRowsIn(component component: Int) -> Int
   func rowSizeFor(component component: Int) -> CGSize
-  func viewFor(row row: Int, forComponent component: Int) -> UIView?
+  func view(forRow row: Int, forComponent component: Int) -> UIView?
   func reloadAllComponents()
   func reloadComponent(component: Int)
   func selectRow(row: Int, inComponent component: Int, animated: Bool)

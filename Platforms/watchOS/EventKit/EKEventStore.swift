@@ -34,7 +34,7 @@ class EKEventStore : Object {
   func calendarItemsWith(externalIdentifier externalIdentifier: String) -> [EKCalendarItem]
   func eventWith(identifier identifier: String) -> EKEvent?
   func eventsMatching(predicate: Predicate) -> [EKEvent]
-  func enumerateEventsMatching(predicate: Predicate, usingBlock block: EKEventSearchCallback)
+  func enumerateEvents(matching predicate: Predicate, usingBlock block: EKEventSearchCallback)
   func predicateForEventsWithStart(startDate: Date, end endDate: Date, calendars: [EKCalendar]?) -> Predicate
   @available(watchOS 2.0, *)
   func fetchRemindersMatching(predicate: Predicate, completion: ([EKReminder]?) -> Void) -> AnyObject

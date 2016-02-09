@@ -64,7 +64,7 @@ protocol NSTextFinderClient : ObjectProtocol {
   optional func contentViewAt(index: Int, effectiveCharacterRange outRange: RangePointer) -> NSView
   optional func rectsFor(characterRange range: NSRange) -> [Value]?
   optional var visibleCharacterRanges: [Value] { get }
-  optional func drawCharactersIn(range: NSRange, forContentView view: NSView)
+  optional func drawCharacters(in range: NSRange, forContentView view: NSView)
 }
 protocol NSTextFinderBarContainer : ObjectProtocol {
   var findBarView: NSView? { get set }

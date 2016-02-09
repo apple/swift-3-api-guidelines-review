@@ -45,9 +45,9 @@ extension NSArray {
   func firstObjectCommonWith(otherArray: [AnyObject]) -> AnyObject?
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, range: NSRange)
   func indexOf(anObject: AnyObject) -> Int
-  func indexOf(anObject: AnyObject, in range: NSRange) -> Int
+  func index(of anObject: AnyObject, in range: NSRange) -> Int
   func indexOfObjectIdenticalTo(anObject: AnyObject) -> Int
-  func indexOfObjectIdenticalTo(anObject: AnyObject, in range: NSRange) -> Int
+  func indexOfObjectIdentical(to anObject: AnyObject, in range: NSRange) -> Int
   func isEqualTo(otherArray: [AnyObject]) -> Bool
   @available(iOS 4.0, *)
   var firstObject: AnyObject? { get }
@@ -87,7 +87,7 @@ extension NSArray {
   @available(iOS 4.0, *)
   func sortedArray(opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
   @available(iOS 4.0, *)
-  func indexOf(obj: AnyObject, inSortedRange r: NSRange, options opts: BinarySearchingOptions = [], usingComparator cmp: Comparator) -> Int
+  func index(of obj: AnyObject, inSortedRange r: NSRange, options opts: BinarySearchingOptions = [], usingComparator cmp: Comparator) -> Int
 }
 struct BinarySearchingOptions : OptionSetType {
   init(rawValue: UInt)
@@ -122,16 +122,16 @@ class MutableArray : NSArray {
 }
 extension MutableArray {
   func addObjectsFrom(otherArray: [AnyObject])
-  func exchangeObjectAt(idx1: Int, withObjectAt idx2: Int)
+  func exchangeObject(at idx1: Int, withObjectAt idx2: Int)
   func removeAllObjects()
   func remove(anObject: AnyObject, in range: NSRange)
   func remove(anObject: AnyObject)
-  func removeObjectIdenticalTo(anObject: AnyObject, in range: NSRange)
+  func removeObjectIdentical(to anObject: AnyObject, in range: NSRange)
   func removeObjectIdenticalTo(anObject: AnyObject)
   func removeObjectsIn(otherArray: [AnyObject])
   func removeObjectsIn(range: NSRange)
-  func replaceObjectsIn(range: NSRange, withObjectsFrom otherArray: [AnyObject], range otherRange: NSRange)
-  func replaceObjectsIn(range: NSRange, withObjectsFrom otherArray: [AnyObject])
+  func replaceObjects(in range: NSRange, withObjectsFrom otherArray: [AnyObject], range otherRange: NSRange)
+  func replaceObjects(in range: NSRange, withObjectsFrom otherArray: [AnyObject])
   func setArray(otherArray: [AnyObject])
   func sort(compare: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>)
   func sortUsing(comparator: Selector)

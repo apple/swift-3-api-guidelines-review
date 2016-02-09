@@ -165,8 +165,8 @@ class Calendar : Object, Copying, SecureCoding {
   var pmSymbol: String { get }
   func minimumRangeOf(unit: CalendarUnit) -> NSRange
   func maximumRangeOf(unit: CalendarUnit) -> NSRange
-  func rangeOf(smaller: CalendarUnit, in larger: CalendarUnit, forDate date: Date) -> NSRange
-  func ordinalityOf(smaller: CalendarUnit, in larger: CalendarUnit, forDate date: Date) -> Int
+  func range(of smaller: CalendarUnit, in larger: CalendarUnit, forDate date: Date) -> NSRange
+  func ordinality(of smaller: CalendarUnit, in larger: CalendarUnit, forDate date: Date) -> Int
   @available(watchOS 2.0, *)
   func rangeOf(unit: CalendarUnit, start datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, forDate date: Date) -> Bool
   func dateFrom(comps: DateComponents) -> Date?
@@ -184,7 +184,7 @@ class Calendar : Object, Copying, SecureCoding {
   @available(watchOS 2.0, *)
   func dateWith(era eraValue: Int, year yearValue: Int, month monthValue: Int, day dayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
   @available(watchOS 2.0, *)
-  func dateWith(era eraValue: Int, yearForWeekOfYear yearValue: Int, weekOfYear weekValue: Int, weekday weekdayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
+  func date(withEra eraValue: Int, yearForWeekOfYear yearValue: Int, weekOfYear weekValue: Int, weekday weekdayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
   @available(watchOS 2.0, *)
   func startOfDayFor(date: Date) -> Date
   @available(watchOS 2.0, *)
@@ -212,13 +212,13 @@ class Calendar : Object, Copying, SecureCoding {
   @available(watchOS 2.0, *)
   func dateByAdding(unit: CalendarUnit, value: Int, to date: Date, options: CalendarOptions = []) -> Date?
   @available(watchOS 2.0, *)
-  func enumerateDatesStartingAfter(start: Date, matching comps: DateComponents, options opts: CalendarOptions = [], usingBlock block: (Date?, Bool, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateDatesStarting(after start: Date, matching comps: DateComponents, options opts: CalendarOptions = [], usingBlock block: (Date?, Bool, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
-  func nextDateAfter(date: Date, matching comps: DateComponents, options: CalendarOptions = []) -> Date?
+  func nextDate(after date: Date, matching comps: DateComponents, options: CalendarOptions = []) -> Date?
   @available(watchOS 2.0, *)
-  func nextDateAfter(date: Date, matching unit: CalendarUnit, value: Int, options: CalendarOptions = []) -> Date?
+  func nextDate(after date: Date, matching unit: CalendarUnit, value: Int, options: CalendarOptions = []) -> Date?
   @available(watchOS 2.0, *)
-  func nextDateAfter(date: Date, matchingHour hourValue: Int, minute minuteValue: Int, second secondValue: Int, options: CalendarOptions = []) -> Date?
+  func nextDate(after date: Date, matchingHour hourValue: Int, minute minuteValue: Int, second secondValue: Int, options: CalendarOptions = []) -> Date?
   @available(watchOS 2.0, *)
   func dateBy(settingUnit unit: CalendarUnit, value v: Int, of date: Date, options opts: CalendarOptions = []) -> Date?
   @available(watchOS 2.0, *)

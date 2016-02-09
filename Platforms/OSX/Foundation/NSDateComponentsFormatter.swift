@@ -25,7 +25,7 @@ struct DateComponentsFormatterZeroFormattingBehavior : OptionSetType {
 class DateComponentsFormatter : Formatter {
   func stringFor(objectValue obj: AnyObject) -> String?
   func stringFrom(components: DateComponents) -> String?
-  func stringFrom(startDate: Date, to endDate: Date) -> String?
+  func string(from startDate: Date, to endDate: Date) -> String?
   func stringFromTimeInterval(ti: TimeInterval) -> String?
   class func localizedStringFrom(components: DateComponents, unitsStyle: DateComponentsFormatterUnitsStyle) -> String?
   var unitsStyle: DateComponentsFormatterUnitsStyle

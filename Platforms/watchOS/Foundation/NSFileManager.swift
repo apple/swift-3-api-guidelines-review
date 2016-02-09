@@ -37,11 +37,11 @@ class FileManager : Object {
   @available(watchOS 2.0, *)
   func mountedVolumeURLsIncludingResourceValuesFor(keys propertyKeys: [String]?, options: VolumeEnumerationOptions = []) -> [URL]?
   @available(watchOS 2.0, *)
-  func contentsOfDirectoryAt(url: URL, includingPropertiesForKeys keys: [String]?, options mask: DirectoryEnumerationOptions = []) throws -> [URL]
+  func contentsOfDirectory(at url: URL, includingPropertiesForKeys keys: [String]?, options mask: DirectoryEnumerationOptions = []) throws -> [URL]
   @available(watchOS 2.0, *)
-  func urlsFor(directory: SearchPathDirectory, inDomains domainMask: SearchPathDomainMask) -> [URL]
+  func urls(forDirectory directory: SearchPathDirectory, inDomains domainMask: SearchPathDomainMask) -> [URL]
   @available(watchOS 2.0, *)
-  func urlFor(directory: SearchPathDirectory, inDomain domain: SearchPathDomainMask, appropriateFor url: URL?, create shouldCreate: Bool) throws -> URL
+  func url(forDirectory directory: SearchPathDirectory, inDomain domain: SearchPathDomainMask, appropriateFor url: URL?, create shouldCreate: Bool) throws -> URL
   @available(watchOS 2.0, *)
   func getRelationship(outRelationship: UnsafeMutablePointer<URLRelationship>, ofDirectoryAt directoryURL: URL, toItemAt otherURL: URL) throws
   @available(watchOS 2.0, *)
@@ -69,19 +69,19 @@ class FileManager : Object {
   @available(watchOS 2.0, *)
   func destinationOfSymbolicLinkAt(path path: String) throws -> String
   @available(watchOS 2.0, *)
-  func copyItemAt(path srcPath: String, toPath dstPath: String) throws
+  func copyItem(atPath srcPath: String, toPath dstPath: String) throws
   @available(watchOS 2.0, *)
-  func moveItemAt(path srcPath: String, toPath dstPath: String) throws
+  func moveItem(atPath srcPath: String, toPath dstPath: String) throws
   @available(watchOS 2.0, *)
-  func linkItemAt(path srcPath: String, toPath dstPath: String) throws
+  func linkItem(atPath srcPath: String, toPath dstPath: String) throws
   @available(watchOS 2.0, *)
   func removeItemAt(path path: String) throws
   @available(watchOS 2.0, *)
-  func copyItemAt(srcURL: URL, to dstURL: URL) throws
+  func copyItem(at srcURL: URL, to dstURL: URL) throws
   @available(watchOS 2.0, *)
-  func moveItemAt(srcURL: URL, to dstURL: URL) throws
+  func moveItem(at srcURL: URL, to dstURL: URL) throws
   @available(watchOS 2.0, *)
-  func linkItemAt(srcURL: URL, to dstURL: URL) throws
+  func linkItem(at srcURL: URL, to dstURL: URL) throws
   @available(watchOS 2.0, *)
   func removeItemAt(URL: URL) throws
   @available(watchOS, introduced=2.0, deprecated=2.0)
@@ -111,14 +111,14 @@ class FileManager : Object {
   func componentsToDisplayFor(path path: String) -> [String]?
   func enumeratorAt(path path: String) -> DirectoryEnumerator?
   @available(watchOS 2.0, *)
-  func enumeratorAt(url: URL, includingPropertiesForKeys keys: [String]?, options mask: DirectoryEnumerationOptions = [], errorHandler handler: ((URL, Error) -> Bool)? = nil) -> DirectoryEnumerator?
+  func enumerator(at url: URL, includingPropertiesForKeys keys: [String]?, options mask: DirectoryEnumerationOptions = [], errorHandler handler: ((URL, Error) -> Bool)? = nil) -> DirectoryEnumerator?
   func subpathsAt(path path: String) -> [String]?
   func contentsAt(path path: String) -> Data?
   func createFileAt(path path: String, contents data: Data?, attributes attr: [String : AnyObject]? = [:]) -> Bool
   func fileSystemRepresentationWith(path path: String) -> UnsafePointer<Int8>
   func stringWith(fileSystemRepresentation str: UnsafePointer<Int8>, length len: Int) -> String
   @available(watchOS 2.0, *)
-  func replaceItemAt(originalItemURL: URL, withItemAt newItemURL: URL, backupItemName: String?, options: FileManagerItemReplacementOptions = [], resultingItemURL resultingURL: AutoreleasingUnsafeMutablePointer<URL?>) throws
+  func replaceItem(at originalItemURL: URL, withItemAt newItemURL: URL, backupItemName: String?, options: FileManagerItemReplacementOptions = [], resultingItemURL resultingURL: AutoreleasingUnsafeMutablePointer<URL?>) throws
   @available(watchOS 2.0, *)
   func setUbiquitous(flag: Bool, itemAt url: URL, destinationURL: URL) throws
   @available(watchOS 2.0, *)

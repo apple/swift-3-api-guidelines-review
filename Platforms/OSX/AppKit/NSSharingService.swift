@@ -89,7 +89,7 @@ protocol NSSharingServiceDelegate : ObjectProtocol {
 class NSSharingServicePicker : Object {
   unowned(unsafe) var delegate: @sil_unmanaged NSSharingServicePickerDelegate?
   init(items: [AnyObject])
-  func showRelativeTo(rect: Rect, of view: NSView, preferredEdge: RectEdge)
+  func showRelative(to rect: Rect, of view: NSView, preferredEdge: RectEdge)
 }
 protocol NSSharingServicePickerDelegate : ObjectProtocol {
   @available(OSX 10.8, *)

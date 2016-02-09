@@ -132,8 +132,8 @@ extension Object {
   func draw(layer: CALayer, in ctx: CGContext)
   class func layoutSublayersOf(layer: CALayer)
   func layoutSublayersOf(layer: CALayer)
-  class func actionFor(layer: CALayer, forKey event: String) -> CAAction?
-  func actionFor(layer: CALayer, forKey event: String) -> CAAction?
+  class func action(forLayer layer: CALayer, forKey event: String) -> CAAction?
+  func action(forLayer layer: CALayer, forKey event: String) -> CAAction?
 }
 @available(tvOS 2.0, *)
 let kCAGravityCenter: String

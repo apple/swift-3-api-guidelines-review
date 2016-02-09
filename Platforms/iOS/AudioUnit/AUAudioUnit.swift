@@ -87,8 +87,8 @@ class AUAudioUnitBusArray : Object, FastEnumeration {
   subscript (indexedSubscript index: Int) -> AUAudioUnitBus { get }
   var isCountChangeable: Bool { get }
   func setBusCount(count: Int) throws
-  func addObserverTo(allBusses observer: Object, forKeyPath keyPath: String, options: KeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
-  func removeObserverFrom(allBusses observer: Object, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
+  func addObserver(toAllBusses observer: Object, forKeyPath keyPath: String, options: KeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
+  func removeObserver(fromAllBusses observer: Object, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
   unowned(unsafe) var ownerAudioUnit: @sil_unmanaged AUAudioUnit { get }
   var busType: AUAudioUnitBusType { get }
   @available(iOS 9.0, *)

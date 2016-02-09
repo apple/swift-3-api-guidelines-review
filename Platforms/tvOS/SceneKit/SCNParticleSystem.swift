@@ -195,7 +195,7 @@ class SCNParticleSystem : Object, Copying, SecureCoding, SCNAnimatable {
   var propertyControllers: [String : SCNParticlePropertyController]?
   func reset()
   func handle(event: SCNParticleEvent, forProperties properties: [String], withBlock block: SCNParticleEventBlock)
-  func addModifierFor(properties properties: [String], at stage: SCNParticleModifierStage, withBlock block: SCNParticleModifierBlock)
+  func addModifier(forProperties properties: [String], at stage: SCNParticleModifierStage, withBlock block: SCNParticleModifierBlock)
   func removeModifiersOf(stage: SCNParticleModifierStage)
   func removeAllModifiers()
   init()

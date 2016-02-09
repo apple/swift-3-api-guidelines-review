@@ -59,8 +59,8 @@ class WKInterfaceController : Object {
   func dismissTextInputController()
   func contextForSegueWith(identifier segueIdentifier: String) -> AnyObject?
   func contextsForSegueWith(identifier segueIdentifier: String) -> [AnyObject]?
-  func contextForSegueWith(identifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> AnyObject?
-  func contextsForSegueWith(identifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> [AnyObject]?
+  func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> AnyObject?
+  func contextsForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> [AnyObject]?
   func addMenuItem(image: UIImage, title: String, action: Selector)
   func addMenuItem(imageNamed imageName: String, title: String, action: Selector)
   func addMenuItem(itemIcon: WKMenuItemIcon, title: String, action: Selector)

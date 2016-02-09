@@ -48,11 +48,11 @@ class FileManager : Object {
   @available(OSX 10.11, *)
   func unmountVolumeAt(url: URL, options mask: FileManagerUnmountOptions = [], completionHandler: (Error?) -> Void)
   @available(OSX 10.6, *)
-  func contentsOfDirectoryAt(url: URL, includingPropertiesForKeys keys: [String]?, options mask: DirectoryEnumerationOptions = []) throws -> [URL]
+  func contentsOfDirectory(at url: URL, includingPropertiesForKeys keys: [String]?, options mask: DirectoryEnumerationOptions = []) throws -> [URL]
   @available(OSX 10.6, *)
-  func urlsFor(directory: SearchPathDirectory, inDomains domainMask: SearchPathDomainMask) -> [URL]
+  func urls(forDirectory directory: SearchPathDirectory, inDomains domainMask: SearchPathDomainMask) -> [URL]
   @available(OSX 10.6, *)
-  func urlFor(directory: SearchPathDirectory, inDomain domain: SearchPathDomainMask, appropriateFor url: URL?, create shouldCreate: Bool) throws -> URL
+  func url(forDirectory directory: SearchPathDirectory, inDomain domain: SearchPathDomainMask, appropriateFor url: URL?, create shouldCreate: Bool) throws -> URL
   @available(OSX 10.10, *)
   func getRelationship(outRelationship: UnsafeMutablePointer<URLRelationship>, ofDirectoryAt directoryURL: URL, toItemAt otherURL: URL) throws
   @available(OSX 10.10, *)
@@ -80,19 +80,19 @@ class FileManager : Object {
   @available(OSX 10.5, *)
   func destinationOfSymbolicLinkAt(path path: String) throws -> String
   @available(OSX 10.5, *)
-  func copyItemAt(path srcPath: String, toPath dstPath: String) throws
+  func copyItem(atPath srcPath: String, toPath dstPath: String) throws
   @available(OSX 10.5, *)
-  func moveItemAt(path srcPath: String, toPath dstPath: String) throws
+  func moveItem(atPath srcPath: String, toPath dstPath: String) throws
   @available(OSX 10.5, *)
-  func linkItemAt(path srcPath: String, toPath dstPath: String) throws
+  func linkItem(atPath srcPath: String, toPath dstPath: String) throws
   @available(OSX 10.5, *)
   func removeItemAt(path path: String) throws
   @available(OSX 10.6, *)
-  func copyItemAt(srcURL: URL, to dstURL: URL) throws
+  func copyItem(at srcURL: URL, to dstURL: URL) throws
   @available(OSX 10.6, *)
-  func moveItemAt(srcURL: URL, to dstURL: URL) throws
+  func moveItem(at srcURL: URL, to dstURL: URL) throws
   @available(OSX 10.6, *)
-  func linkItemAt(srcURL: URL, to dstURL: URL) throws
+  func linkItem(at srcURL: URL, to dstURL: URL) throws
   @available(OSX 10.6, *)
   func removeItemAt(URL: URL) throws
   @available(OSX 10.8, *)
@@ -110,14 +110,14 @@ class FileManager : Object {
   func componentsToDisplayFor(path path: String) -> [String]?
   func enumeratorAt(path path: String) -> DirectoryEnumerator?
   @available(OSX 10.6, *)
-  func enumeratorAt(url: URL, includingPropertiesForKeys keys: [String]?, options mask: DirectoryEnumerationOptions = [], errorHandler handler: ((URL, Error) -> Bool)? = nil) -> DirectoryEnumerator?
+  func enumerator(at url: URL, includingPropertiesForKeys keys: [String]?, options mask: DirectoryEnumerationOptions = [], errorHandler handler: ((URL, Error) -> Bool)? = nil) -> DirectoryEnumerator?
   func subpathsAt(path path: String) -> [String]?
   func contentsAt(path path: String) -> Data?
   func createFileAt(path path: String, contents data: Data?, attributes attr: [String : AnyObject]? = [:]) -> Bool
   func fileSystemRepresentationWith(path path: String) -> UnsafePointer<Int8>
   func stringWith(fileSystemRepresentation str: UnsafePointer<Int8>, length len: Int) -> String
   @available(OSX 10.6, *)
-  func replaceItemAt(originalItemURL: URL, withItemAt newItemURL: URL, backupItemName: String?, options: FileManagerItemReplacementOptions = [], resultingItemURL resultingURL: AutoreleasingUnsafeMutablePointer<URL?>) throws
+  func replaceItem(at originalItemURL: URL, withItemAt newItemURL: URL, backupItemName: String?, options: FileManagerItemReplacementOptions = [], resultingItemURL resultingURL: AutoreleasingUnsafeMutablePointer<URL?>) throws
   @available(OSX 10.7, *)
   func setUbiquitous(flag: Bool, itemAt url: URL, destinationURL: URL) throws
   @available(OSX 10.7, *)

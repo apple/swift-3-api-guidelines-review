@@ -35,7 +35,7 @@ class SCNView : UIView, SCNSceneRenderer, SCNTechniqueSupport {
   @available(iOS 8.0, *)
   func hitTest(point: CGPoint, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
   @available(iOS 8.0, *)
-  func isNodeInside(frustum node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
+  func isNode(insideFrustum node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
   @available(iOS 9.0, *)
   func nodesInsideFrustumWithPointOf(view pointOfView: SCNNode) -> [SCNNode]
   @available(iOS 8.0, *)

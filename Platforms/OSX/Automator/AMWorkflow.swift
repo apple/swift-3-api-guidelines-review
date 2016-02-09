@@ -9,7 +9,7 @@ class AMWorkflow : Object, Copying {
   func addAction(action: AMAction)
   func removeAction(action: AMAction)
   func insertAction(action: AMAction, at index: Int)
-  func moveActionAt(startIndex: Int, to endIndex: Int)
+  func moveAction(at startIndex: Int, to endIndex: Int)
   @NSCopying var fileURL: URL? { get }
   var actions: [AMAction] { get }
   var input: AnyObject?

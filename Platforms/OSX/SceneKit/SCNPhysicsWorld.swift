@@ -27,10 +27,10 @@ class SCNPhysicsWorld : Object, SecureCoding {
   func remove(behavior: SCNPhysicsBehavior)
   func removeAllBehaviors()
   var allBehaviors: [SCNPhysicsBehavior] { get }
-  func rayTestWithSegmentFrom(point origin: SCNVector3, toPoint dest: SCNVector3, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
+  func rayTestWithSegment(fromPoint origin: SCNVector3, toPoint dest: SCNVector3, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
   func contactTestBetweenBody(bodyA: SCNPhysicsBody, andBody bodyB: SCNPhysicsBody, options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
   func contactTestWith(body: SCNPhysicsBody, options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
-  func convexSweepTestWith(shape: SCNPhysicsShape, from: SCNMatrix4, to: SCNMatrix4, options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
+  func convexSweepTest(withShape shape: SCNPhysicsShape, from: SCNMatrix4, to: SCNMatrix4, options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
   func updateCollisionPairs()
   init()
   @available(OSX 10.10, *)

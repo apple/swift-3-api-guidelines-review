@@ -8,5 +8,5 @@ protocol UIAppearance : ObjectProtocol {
   @available(iOS 8.0, *)
   static func appearanceFor(trait: UITraitCollection) -> Self
   @available(iOS 9.0, *)
-  static func appearanceFor(trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
+  static func appearance(forTraitCollection trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
 }

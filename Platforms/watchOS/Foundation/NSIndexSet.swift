@@ -63,7 +63,7 @@ class MutableIndexSet : IndexSet {
   func remove(value: Int)
   func addIn(range: NSRange)
   func removeIn(range: NSRange)
-  func shiftIndexesStartingAt(index: Int, by delta: Int)
+  func shiftIndexesStarting(at index: Int, by delta: Int)
   init(indexesIn range: NSRange)
   init(indexSet: IndexSet)
   convenience init(index value: Int)

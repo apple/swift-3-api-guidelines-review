@@ -90,7 +90,7 @@ class NSColor : Object, Copying, SecureCoding, NSPasteboardReading, NSPasteboard
   func usingColorSpaceName(colorSpace: String) -> NSColor?
   func usingColorSpaceName(colorSpace: String?, device deviceDescription: [String : AnyObject]?) -> NSColor?
   func usingColorSpace(space: NSColorSpace) -> NSColor?
-  func blendedColorWith(fraction fraction: CGFloat, of color: NSColor) -> NSColor?
+  func blendedColor(withFraction fraction: CGFloat, of color: NSColor) -> NSColor?
   func withAlphaComponent(alpha: CGFloat) -> NSColor
   var catalogNameComponent: String { get }
   var colorNameComponent: String { get }

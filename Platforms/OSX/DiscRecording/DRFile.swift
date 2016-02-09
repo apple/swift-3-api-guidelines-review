@@ -10,9 +10,9 @@ extension DRFile {
   init!(name: String!, dataProducer producer: AnyObject!)
 }
 extension DRFile {
-  class func hardLinkPointingTo(original: DRFile!, inFilesystem filesystem: String!) -> DRFile!
-  class func symLinkPointingTo(original: DRFSObject!, inFilesystem filesystem: String!) -> DRFile!
-  class func finderAliasPointingTo(original: DRFSObject!, inFilesystem filesystem: String!) -> DRFile!
+  class func hardLinkPointing(to original: DRFile!, inFilesystem filesystem: String!) -> DRFile!
+  class func symLinkPointing(to original: DRFSObject!, inFilesystem filesystem: String!) -> DRFile!
+  class func finderAliasPointing(to original: DRFSObject!, inFilesystem filesystem: String!) -> DRFile!
   init!(linkType: String!, pointingTo original: DRFSObject!, inFilesystem filesystem: String!)
 }
 @available(OSX 10.2, *)

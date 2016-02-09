@@ -12,11 +12,11 @@ struct AffineTransformStruct {
 class AffineTransform : Object, Copying, SecureCoding {
   convenience init(transform: AffineTransform)
   init()
-  func translateXBy(deltaX: CGFloat, yBy deltaY: CGFloat)
+  func translateX(by deltaX: CGFloat, yBy deltaY: CGFloat)
   func rotateBy(degrees angle: CGFloat)
   func rotateBy(radians angle: CGFloat)
   func scaleBy(scale: CGFloat)
-  func scaleXBy(scaleX: CGFloat, yBy scaleY: CGFloat)
+  func scaleX(by scaleX: CGFloat, yBy scaleY: CGFloat)
   func invert()
   func append(transform: AffineTransform)
   func prependTransform(transform: AffineTransform)

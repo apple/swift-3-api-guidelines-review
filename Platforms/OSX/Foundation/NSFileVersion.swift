@@ -18,7 +18,7 @@ class FileVersion : Object {
   class func getNonlocalVersionsOfItemAt(url: URL, completionHandler: ([FileVersion]?, Error?) -> Void)
   /*not inherited*/ init?(ofItemAt url: URL, forPersistentIdentifier persistentIdentifier: AnyObject)
   @available(OSX 10.7, *)
-  class func addOfItemAt(url: URL, withContentsOf contentsURL: URL, options: FileVersionAddingOptions = []) throws -> FileVersion
+  class func addOfItem(at url: URL, withContentsOf contentsURL: URL, options: FileVersionAddingOptions = []) throws -> FileVersion
   @available(OSX 10.7, *)
   class func temporaryDirectoryURLForNewVersionOfItemAt(url: URL) -> URL
   @NSCopying var url: URL { get }

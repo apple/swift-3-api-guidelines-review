@@ -23,7 +23,7 @@ class NSRulerView : NSView {
   var markers: [NSRulerMarker]?
   func trackMarker(marker: NSRulerMarker, withMouseEvent event: NSEvent) -> Bool
   var accessoryView: NSView?
-  func moveRulerlineFrom(location oldLocation: CGFloat, toLocation newLocation: CGFloat)
+  func moveRulerline(fromLocation oldLocation: CGFloat, toLocation newLocation: CGFloat)
   func invalidateHashMarks()
   func drawHashMarksAndLabelsIn(rect: Rect)
   func drawMarkersIn(rect: Rect)

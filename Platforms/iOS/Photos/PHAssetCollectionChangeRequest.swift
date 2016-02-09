@@ -11,6 +11,6 @@ class PHAssetCollectionChangeRequest : Object {
   func removeAssets(assets: FastEnumeration)
   func removeAssetsAt(indexes: IndexSet)
   func replaceAssetsAt(indexes: IndexSet, withAssets assets: FastEnumeration)
-  func moveAssetsAt(fromIndexes: IndexSet, to toIndex: Int)
+  func moveAssets(at fromIndexes: IndexSet, to toIndex: Int)
   init()
 }

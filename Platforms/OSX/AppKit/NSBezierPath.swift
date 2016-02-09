@@ -35,7 +35,7 @@ class NSBezierPath : Object, Copying, Coding {
   class func fill(rect: Rect)
   class func stroke(rect: Rect)
   class func clip(rect: Rect)
-  class func strokeLineFrom(point1: Point, to point2: Point)
+  class func strokeLine(from point1: Point, to point2: Point)
   class func drawPackedGlyphs(packedGlyphs: UnsafePointer<Int8>, at point: Point)
   class func setDefaultMiterLimit(limit: CGFloat)
   class func defaultMiterLimit() -> CGFloat
@@ -86,7 +86,7 @@ class NSBezierPath : Object, Copying, Coding {
   func appendWithOvalIn(rect: Rect)
   func appendWithArcWithCenter(center: Point, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
   func appendWithArcWithCenter(center: Point, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat)
-  func appendWithArcFrom(point1: Point, to point2: Point, radius: CGFloat)
+  func appendWithArc(from point1: Point, to point2: Point, radius: CGFloat)
   func append(glyph glyph: NSGlyph, in font: NSFont)
   func append(glyphs glyphs: UnsafeMutablePointer<NSGlyph>, count: Int, in font: NSFont)
   func append(packedGlyphs packedGlyphs: UnsafePointer<Int8>)

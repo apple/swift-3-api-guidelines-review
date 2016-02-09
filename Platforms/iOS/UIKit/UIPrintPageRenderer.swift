@@ -10,10 +10,10 @@ class UIPrintPageRenderer : Object {
   func addPrintFormatter(formatter: UIPrintFormatter, startingAtPageAt pageIndex: Int)
   func numberOfPages() -> Int
   func prepareForDrawingPages(range: NSRange)
-  func drawPageAt(pageIndex: Int, in printableRect: CGRect)
+  func drawPage(at pageIndex: Int, in printableRect: CGRect)
   func drawPrintFormatter(printFormatter: UIPrintFormatter, forPageAt pageIndex: Int)
-  func drawHeaderForPageAt(pageIndex: Int, in headerRect: CGRect)
-  func drawContentForPageAt(pageIndex: Int, in contentRect: CGRect)
-  func drawFooterForPageAt(pageIndex: Int, in footerRect: CGRect)
+  func drawHeaderForPage(at pageIndex: Int, in headerRect: CGRect)
+  func drawContentForPage(at pageIndex: Int, in contentRect: CGRect)
+  func drawFooterForPage(at pageIndex: Int, in footerRect: CGRect)
   init()
 }

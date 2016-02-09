@@ -22,7 +22,7 @@ class UIPrinterPickerController : Object {
   var selectedPrinter: UIPrinter? { get }
   weak var delegate: @sil_weak UIPrinterPickerControllerDelegate?
   func present(animated animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler? = nil) -> Bool
-  func presentFrom(rect: CGRect, in view: UIView, animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler? = nil) -> Bool
+  func present(from rect: CGRect, in view: UIView, animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler? = nil) -> Bool
   func presentFrom(item: UIBarButtonItem, animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler? = nil) -> Bool
   func dismiss(animated animated: Bool)
   init()

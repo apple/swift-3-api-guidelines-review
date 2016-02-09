@@ -1,8 +1,8 @@
 
 class Coder : Object {
-  func encodeValueOf(objCType type: UnsafePointer<Int8>, at addr: UnsafePointer<Void>)
+  func encodeValue(ofObjCType type: UnsafePointer<Int8>, at addr: UnsafePointer<Void>)
   func encodeDataObject(data: Data)
-  func decodeValueOf(objCType type: UnsafePointer<Int8>, at data: UnsafeMutablePointer<Void>)
+  func decodeValue(ofObjCType type: UnsafePointer<Int8>, at data: UnsafeMutablePointer<Void>)
   func decodeDataObject() -> Data?
   func versionFor(className className: String) -> Int
   init()
@@ -62,7 +62,7 @@ extension Coder {
   @available(OSX 10.8, *)
   var requiresSecureCoding: Bool { get }
   @available(OSX 10.8, *)
-  func __decodeObjectOf(classes classes: Set<Object>?, forKey key: String) -> AnyObject?
+  func __decodeObject(ofClasses classes: Set<Object>?, forKey key: String) -> AnyObject?
   @available(OSX 10.8, *)
   func decodePropertyListFor(key key: String) -> AnyObject?
   @available(OSX 10.8, *)

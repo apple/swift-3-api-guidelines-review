@@ -17,7 +17,7 @@ class CMSensorRecorder : Object {
   class func isAccelerometerRecordingAvailable() -> Bool
   class func isAuthorizedForRecording() -> Bool
   func accelerometerDataSince(identifier: UInt64) -> CMSensorDataList?
-  func accelerometerDataFrom(fromDate: Date, to toDate: Date) -> CMSensorDataList?
+  func accelerometerData(from fromDate: Date, to toDate: Date) -> CMSensorDataList?
   func recordAccelerometerFor(duration: TimeInterval)
   init()
 }

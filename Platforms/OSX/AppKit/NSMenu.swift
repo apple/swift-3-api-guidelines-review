@@ -102,7 +102,7 @@ protocol NSMenuDelegate : ObjectProtocol {
   @available(OSX 10.5, *)
   optional func menu(menu: NSMenu, willHighlight item: NSMenuItem?)
   @available(OSX 10.6, *)
-  optional func confinementRectFor(menu: NSMenu, on screen: NSScreen?) -> Rect
+  optional func confinementRect(forMenu menu: NSMenu, on screen: NSScreen?) -> Rect
 }
 struct NSMenuProperties : OptionSetType {
   init(rawValue: UInt)

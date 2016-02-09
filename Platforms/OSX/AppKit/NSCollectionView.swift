@@ -36,9 +36,9 @@ protocol NSCollectionViewElement : ObjectProtocol, NSUserInterfaceItemIdentifica
   @available(OSX 10.11, *)
   optional func apply(layoutAttributes: NSCollectionViewLayoutAttributes)
   @available(OSX 10.11, *)
-  optional func willTransitionFrom(oldLayout: NSCollectionViewLayout, to newLayout: NSCollectionViewLayout)
+  optional func willTransition(from oldLayout: NSCollectionViewLayout, to newLayout: NSCollectionViewLayout)
   @available(OSX 10.11, *)
-  optional func didTransitionFrom(oldLayout: NSCollectionViewLayout, to newLayout: NSCollectionViewLayout)
+  optional func didTransition(from oldLayout: NSCollectionViewLayout, to newLayout: NSCollectionViewLayout)
   @available(OSX 10.11, *)
   optional func preferredLayoutAttributesFitting(layoutAttributes: NSCollectionViewLayoutAttributes) -> NSCollectionViewLayoutAttributes
 }
@@ -64,9 +64,9 @@ class NSCollectionViewItem : NSViewController, Copying, NSCollectionViewElement 
   @available(OSX 10.11, *)
   func apply(layoutAttributes: NSCollectionViewLayoutAttributes)
   @available(OSX 10.11, *)
-  func willTransitionFrom(oldLayout: NSCollectionViewLayout, to newLayout: NSCollectionViewLayout)
+  func willTransition(from oldLayout: NSCollectionViewLayout, to newLayout: NSCollectionViewLayout)
   @available(OSX 10.11, *)
-  func didTransitionFrom(oldLayout: NSCollectionViewLayout, to newLayout: NSCollectionViewLayout)
+  func didTransition(from oldLayout: NSCollectionViewLayout, to newLayout: NSCollectionViewLayout)
   @available(OSX 10.11, *)
   func preferredLayoutAttributesFitting(layoutAttributes: NSCollectionViewLayoutAttributes) -> NSCollectionViewLayoutAttributes
 }
@@ -85,11 +85,11 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.11, *)
   func layoutAttributesForItemAt(indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
   @available(OSX 10.11, *)
-  func layoutAttributesForSupplementaryElementOf(kind kind: String, at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryElement(ofKind kind: String, at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
   @available(OSX 10.6, *)
   func frameForItemAt(index: Int) -> Rect
   @available(OSX 10.7, *)
-  func frameForItemAt(index: Int, withNumberOfItems numberOfItems: Int) -> Rect
+  func frameForItem(at index: Int, withNumberOfItems numberOfItems: Int) -> Rect
   var maxNumberOfRows: Int
   var maxNumberOfColumns: Int
   var minItemSize: Size
@@ -140,7 +140,7 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.11, *)
   func indexPathForItemAt(point: Point) -> IndexPath?
   @available(OSX 10.11, *)
-  func supplementaryViewFor(elementKind elementKind: String, at indexPath: IndexPath) -> NSView?
+  func supplementaryView(forElementKind elementKind: String, at indexPath: IndexPath) -> NSView?
   @available(OSX 10.11, *)
   func visibleSupplementaryViewsOf(kind elementKind: String) -> [NSView]
   @available(OSX 10.11, *)
@@ -160,7 +160,7 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.11, *)
   func reloadItemsAt(indexPaths: Set<IndexPath>)
   @available(OSX 10.11, *)
-  func moveItemAt(indexPath: IndexPath, to newIndexPath: IndexPath)
+  func moveItem(at indexPath: IndexPath, to newIndexPath: IndexPath)
   @available(OSX 10.11, *)
   func performBatchUpdates(updates: (() -> Void)?, completionHandler: ((Bool) -> Void)? = nil)
   @available(OSX 10.11, *)

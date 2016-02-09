@@ -8,10 +8,10 @@ class UIDocumentInteractionController : Object, UIActionSheetDelegate {
   var name: String?
   var icons: [UIImage] { get }
   var annotation: AnyObject?
-  func presentOptionsMenuFrom(rect: CGRect, in view: UIView, animated: Bool) -> Bool
+  func presentOptionsMenu(from rect: CGRect, in view: UIView, animated: Bool) -> Bool
   func presentOptionsMenuFrom(item: UIBarButtonItem, animated: Bool) -> Bool
   func presentPreview(animated animated: Bool) -> Bool
-  func presentOpenInMenuFrom(rect: CGRect, in view: UIView, animated: Bool) -> Bool
+  func presentOpenInMenu(from rect: CGRect, in view: UIView, animated: Bool) -> Bool
   func presentOpenInMenuFrom(item: UIBarButtonItem, animated: Bool) -> Bool
   func dismissPreview(animated animated: Bool)
   func dismissMenu(animated animated: Bool)

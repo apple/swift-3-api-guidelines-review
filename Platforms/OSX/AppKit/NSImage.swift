@@ -47,10 +47,10 @@ class NSImage : Object, Copying, Coding, SecureCoding, NSPasteboardReading, NSPa
   var matchesOnMultipleResolution: Bool
   @available(OSX 10.7, *)
   var matchesOnlyOnBestFittingAxis: Bool
-  func drawAt(point: Point, from fromRect: Rect, operation op: NSCompositingOperation, fraction delta: CGFloat)
-  func drawIn(rect: Rect, from fromRect: Rect, operation op: NSCompositingOperation, fraction delta: CGFloat)
+  func draw(at point: Point, from fromRect: Rect, operation op: NSCompositingOperation, fraction delta: CGFloat)
+  func draw(in rect: Rect, from fromRect: Rect, operation op: NSCompositingOperation, fraction delta: CGFloat)
   @available(OSX 10.6, *)
-  func drawIn(dstSpacePortionRect: Rect, from srcSpacePortionRect: Rect, operation op: NSCompositingOperation, fraction requestedAlpha: CGFloat, respectFlipped respectContextIsFlipped: Bool, hints: [String : AnyObject]?)
+  func draw(in dstSpacePortionRect: Rect, from srcSpacePortionRect: Rect, operation op: NSCompositingOperation, fraction requestedAlpha: CGFloat, respectFlipped respectContextIsFlipped: Bool, hints: [String : AnyObject]?)
   func drawRepresentation(imageRep: NSImageRep, in rect: Rect) -> Bool
   @available(OSX 10.9, *)
   func drawIn(rect: Rect)

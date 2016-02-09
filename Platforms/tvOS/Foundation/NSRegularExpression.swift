@@ -52,7 +52,7 @@ extension RegularExpression {
 extension RegularExpression {
   func stringByReplacingMatchesIn(string: String, options: MatchingOptions = [], range: NSRange, withTemplate templ: String) -> String
   func replaceMatchesIn(string: MutableString, options: MatchingOptions = [], range: NSRange, withTemplate templ: String) -> Int
-  func replacementStringFor(result: TextCheckingResult, in string: String, offset: Int, template templ: String) -> String
+  func replacementString(forResult result: TextCheckingResult, in string: String, offset: Int, template templ: String) -> String
   class func escapedTemplateFor(string: String) -> String
 }
 @available(tvOS 4.0, *)

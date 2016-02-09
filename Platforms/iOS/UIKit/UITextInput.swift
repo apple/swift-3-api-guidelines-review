@@ -67,23 +67,23 @@ protocol UITextInput : UIKeyInput {
   @available(iOS 3.2, *)
   var endOfDocument: UITextPosition { get }
   @available(iOS 3.2, *)
-  func textRangeFrom(fromPosition: UITextPosition, to toPosition: UITextPosition) -> UITextRange?
+  func textRange(from fromPosition: UITextPosition, to toPosition: UITextPosition) -> UITextRange?
   @available(iOS 3.2, *)
   func positionFrom(position: UITextPosition, offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func positionFrom(position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
+  func position(from position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
   func compare(position: UITextPosition, to other: UITextPosition) -> ComparisonResult
   @available(iOS 3.2, *)
-  func offsetFrom(from: UITextPosition, to toPosition: UITextPosition) -> Int
+  func offset(from from: UITextPosition, to toPosition: UITextPosition) -> Int
   weak var inputDelegate: @sil_weak UITextInputDelegate? { get set }
   var tokenizer: UITextInputTokenizer { get }
   @available(iOS 3.2, *)
-  func positionWithin(range: UITextRange, farthestIn direction: UITextLayoutDirection) -> UITextPosition?
+  func position(within range: UITextRange, farthestIn direction: UITextLayoutDirection) -> UITextPosition?
   @available(iOS 3.2, *)
   func characterRangeByExtending(position: UITextPosition, in direction: UITextLayoutDirection) -> UITextRange?
   @available(iOS 3.2, *)
-  func baseWritingDirectionFor(position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
+  func baseWritingDirection(forPosition position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
   @available(iOS 3.2, *)
   func setBaseWritingDirection(writingDirection: UITextWritingDirection, forRange range: UITextRange)
   @available(iOS 3.2, *)
@@ -95,17 +95,17 @@ protocol UITextInput : UIKeyInput {
   @available(iOS 3.2, *)
   func closestPositionTo(point: CGPoint) -> UITextPosition?
   @available(iOS 3.2, *)
-  func closestPositionTo(point: CGPoint, within range: UITextRange) -> UITextPosition?
+  func closestPosition(to point: CGPoint, within range: UITextRange) -> UITextPosition?
   @available(iOS 3.2, *)
   func characterRangeAt(point: CGPoint) -> UITextRange?
   @available(iOS 6.0, *)
   optional func shouldChangeTextIn(range: UITextRange, replacementText text: String) -> Bool
   @available(iOS 3.2, *)
-  optional func textStylingAt(position: UITextPosition, in direction: UITextStorageDirection) -> [String : AnyObject]?
+  optional func textStyling(at position: UITextPosition, in direction: UITextStorageDirection) -> [String : AnyObject]?
   @available(iOS 3.2, *)
-  optional func positionWithin(range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
+  optional func position(within range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  optional func characterOffsetOf(position: UITextPosition, within range: UITextRange) -> Int
+  optional func characterOffset(of position: UITextPosition, within range: UITextRange) -> Int
   @available(iOS 2.0, *)
   optional var textInputView: UIView { get }
   optional var selectionAffinity: UITextStorageDirection { get set }
@@ -161,7 +161,7 @@ protocol UITextInputTokenizer : ObjectProtocol {
   @available(iOS 3.2, *)
   func isPosition(position: UITextPosition, atBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
   @available(iOS 3.2, *)
-  func positionFrom(position: UITextPosition, toBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextPosition?
+  func position(from position: UITextPosition, toBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextPosition?
   @available(iOS 3.2, *)
   func isPosition(position: UITextPosition, withinTextUnit granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
 }
@@ -174,7 +174,7 @@ class UITextInputStringTokenizer : Object, UITextInputTokenizer {
   @available(iOS 3.2, *)
   func isPosition(position: UITextPosition, atBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
   @available(iOS 3.2, *)
-  func positionFrom(position: UITextPosition, toBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextPosition?
+  func position(from position: UITextPosition, toBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextPosition?
   @available(iOS 3.2, *)
   func isPosition(position: UITextPosition, withinTextUnit granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
 }

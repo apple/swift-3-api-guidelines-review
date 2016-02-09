@@ -44,7 +44,7 @@ class EKEventStore : Object {
   func remove(event: EKEvent, span: EKSpan, commit: Bool) throws
   func eventWith(identifier identifier: String) -> EKEvent?
   func eventsMatching(predicate: Predicate) -> [EKEvent]
-  func enumerateEventsMatching(predicate: Predicate, usingBlock block: EKEventSearchCallback)
+  func enumerateEvents(matching predicate: Predicate, usingBlock block: EKEventSearchCallback)
   func predicateForEventsWithStart(startDate: Date, end endDate: Date, calendars: [EKCalendar]?) -> Predicate
   @available(iOS 6.0, *)
   func save(reminder: EKReminder, commit: Bool) throws

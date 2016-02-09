@@ -42,7 +42,7 @@ class CIImage : Object, SecureCoding, Copying {
   @available(tvOS 9.0, *)
   var colorSpace: CGColorSpace? { get }
   @available(tvOS 6.0, *)
-  func regionOfInterestFor(image: CIImage, in rect: CGRect) -> CGRect
+  func regionOfInterest(forImage image: CIImage, in rect: CGRect) -> CGRect
   init()
   @available(tvOS 5.0, *)
   class func supportsSecureCoding() -> Bool

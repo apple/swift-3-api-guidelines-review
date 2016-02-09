@@ -141,7 +141,7 @@ class UITableView : UIScrollView, Coding {
   func headerViewFor(section section: Int) -> UITableViewHeaderFooterView?
   @available(tvOS 6.0, *)
   func footerViewFor(section section: Int) -> UITableViewHeaderFooterView?
-  func scrollToRowAt(indexPath: IndexPath, at scrollPosition: UITableViewScrollPosition, animated: Bool)
+  func scrollToRow(at indexPath: IndexPath, at scrollPosition: UITableViewScrollPosition, animated: Bool)
   func scrollToNearestSelectedRowAt(scrollPosition: UITableViewScrollPosition, animated: Bool)
   func beginUpdates()
   func endUpdates()
@@ -156,7 +156,7 @@ class UITableView : UIScrollView, Coding {
   @available(tvOS 3.0, *)
   func reloadRowsAt(indexPaths: [IndexPath], withRowAnimation animation: UITableViewRowAnimation)
   @available(tvOS 5.0, *)
-  func moveRowAt(indexPath: IndexPath, to newIndexPath: IndexPath)
+  func moveRow(at indexPath: IndexPath, to newIndexPath: IndexPath)
   var isEditing: Bool
   func setEditing(editing: Bool, animated: Bool)
   @available(tvOS 3.0, *)
@@ -184,7 +184,7 @@ class UITableView : UIScrollView, Coding {
   var tableFooterView: UIView?
   func dequeueReusableCellWith(identifier identifier: String) -> UITableViewCell?
   @available(tvOS 6.0, *)
-  func dequeueReusableCellWith(identifier identifier: String, forIndexPath indexPath: IndexPath) -> UITableViewCell
+  func dequeueReusableCell(withIdentifier identifier: String, forIndexPath indexPath: IndexPath) -> UITableViewCell
   @available(tvOS 6.0, *)
   func dequeueReusableHeaderFooterViewWith(identifier identifier: String) -> UITableViewHeaderFooterView?
   @available(tvOS 5.0, *)

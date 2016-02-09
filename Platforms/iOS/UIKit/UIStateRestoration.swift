@@ -15,9 +15,9 @@ protocol UIViewControllerRestoration {
 }
 protocol UIDataSourceModelAssociation {
   @available(iOS 2.0, *)
-  func modelIdentifierForElementAt(idx: IndexPath, in view: UIView) -> String?
+  func modelIdentifierForElement(at idx: IndexPath, in view: UIView) -> String?
   @available(iOS 2.0, *)
-  func indexPathForElementWith(modelIdentifier identifier: String, in view: UIView) -> IndexPath?
+  func indexPathForElement(withModelIdentifier identifier: String, in view: UIView) -> IndexPath?
 }
 protocol UIStateRestoring : ObjectProtocol {
   optional var restorationParent: UIStateRestoring? { get }

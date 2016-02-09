@@ -22,10 +22,10 @@ class NSDocumentController : Object, Coding, NSUserInterfaceValidations {
   func begin(openPanel: NSOpenPanel, forTypes inTypes: [String]?, completionHandler: (Int) -> Void)
   @available(OSX 10.7, *)
   func openDocumentWithContentsOf(url: URL, display displayDocument: Bool, completionHandler: (NSDocument?, Bool, Error?) -> Void)
-  func makeDocumentWithContentsOf(url: URL, ofType typeName: String) throws -> NSDocument
+  func makeDocumentWithContents(of url: URL, ofType typeName: String) throws -> NSDocument
   @available(OSX 10.7, *)
-  func reopenDocumentFor(urlOrNil: URL?, withContentsOf contentsURL: URL, display displayDocument: Bool, completionHandler: (NSDocument?, Bool, Error?) -> Void)
-  func makeDocumentFor(urlOrNil: URL?, withContentsOf contentsURL: URL, ofType typeName: String) throws -> NSDocument
+  func reopenDocument(forURL urlOrNil: URL?, withContentsOf contentsURL: URL, display displayDocument: Bool, completionHandler: (NSDocument?, Bool, Error?) -> Void)
+  func makeDocument(forURL urlOrNil: URL?, withContentsOf contentsURL: URL, ofType typeName: String) throws -> NSDocument
   var autosavingDelay: TimeInterval
   @IBAction func saveAllDocuments(sender: AnyObject?)
   var hasEditedDocuments: Bool { get }
