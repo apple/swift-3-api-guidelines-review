@@ -36,12 +36,12 @@ class NSWorkspace : Object {
   @available(OSX 10.10, *)
   func open(url: URL, options: NSWorkspaceLaunchOptions = [], configuration: [String : AnyObject]) throws -> NSRunningApplication
   @available(OSX 10.10, *)
-  func openURLs(urls: [URL], withApplicationAt applicationURL: URL, options: NSWorkspaceLaunchOptions = [], configuration: [String : AnyObject]) throws -> NSRunningApplication
+  func open(urls: [URL], withApplicationAt applicationURL: URL, options: NSWorkspaceLaunchOptions = [], configuration: [String : AnyObject]) throws -> NSRunningApplication
   func launchApplication(appName: String, showIcon: Bool, autolaunch: Bool) -> Bool
   func fullPathFor(application appName: String) -> String?
   func selectFile(fullPath: String?, inFileViewerRootedAtPath rootFullPath: String) -> Bool
   @available(OSX 10.6, *)
-  func activateFileViewerSelectingURLs(fileURLs: [URL])
+  func activateFileViewerSelecting(fileURLs: [URL])
   @available(OSX 10.6, *)
   func showSearchResultsFor(queryString queryString: String) -> Bool
   func noteFileSystemChanged(path: String)
@@ -56,9 +56,9 @@ class NSWorkspace : Object {
   @available(OSX 10.6, *)
   var fileLabelColors: [NSColor] { get }
   @available(OSX 10.6, *)
-  func recycleURLs(URLs: [URL], completionHandler handler: (([URL : URL], Error?) -> Void)? = nil)
+  func recycle(URLs: [URL], completionHandler handler: (([URL : URL], Error?) -> Void)? = nil)
   @available(OSX 10.6, *)
-  func duplicateURLs(URLs: [URL], completionHandler handler: (([URL : URL], Error?) -> Void)? = nil)
+  func duplicate(URLs: [URL], completionHandler handler: (([URL : URL], Error?) -> Void)? = nil)
   func getFileSystemInfoFor(path fullPath: String, isRemovable removableFlag: UnsafeMutablePointer<ObjCBool>, isWritable writableFlag: UnsafeMutablePointer<ObjCBool>, isUnmountable unmountableFlag: UnsafeMutablePointer<ObjCBool>, description: AutoreleasingUnsafeMutablePointer<NSString?>, type fileSystemType: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   func unmountAndEjectDeviceAt(path path: String) -> Bool
   @available(OSX 10.6, *)
@@ -71,7 +71,7 @@ class NSWorkspace : Object {
   func urlForApplicationToOpen(url: URL) -> URL?
   func absolutePathForAppBundleWith(identifier bundleIdentifier: String) -> String?
   func launchApp(bundleIdentifier bundleIdentifier: String, options: NSWorkspaceLaunchOptions = [], additionalEventParamDescriptor descriptor: AppleEventDescriptor?, launchIdentifier identifier: AutoreleasingUnsafeMutablePointer<Number?>) -> Bool
-  func openURLs(urls: [URL], withAppBundleIdentifier bundleIdentifier: String?, options: NSWorkspaceLaunchOptions = [], additionalEventParamDescriptor descriptor: AppleEventDescriptor?, launchIdentifiers identifiers: AutoreleasingUnsafeMutablePointer<NSArray?>) -> Bool
+  func open(urls: [URL], withAppBundleIdentifier bundleIdentifier: String?, options: NSWorkspaceLaunchOptions = [], additionalEventParamDescriptor descriptor: AppleEventDescriptor?, launchIdentifiers identifiers: AutoreleasingUnsafeMutablePointer<NSArray?>) -> Bool
   @available(OSX 10.7, *)
   var frontmostApplication: NSRunningApplication? { get }
   @available(OSX 10.7, *)
