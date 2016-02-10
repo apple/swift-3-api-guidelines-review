@@ -90,10 +90,10 @@ class NSTextView : NSText, NSUserInterfaceValidations, NSTextInputClient, NSText
   func attributedSubstring(forProposedRange aRange: NSRange, actualRange: RangePointer) -> AttributedString?
   func validAttributesForMarkedText() -> [String]
   func firstRect(forCharacterRange aRange: NSRange, actualRange: RangePointer) -> Rect
-  func characterIndex(for aPoint: Point) -> Int
+  func characterIndex(forPoint aPoint: Point) -> Int
   @available(OSX 10.0, *)
   func attributedString() -> AttributedString
-  func fractionOfDistanceThroughGlyph(for aPoint: Point) -> CGFloat
+  func fractionOfDistanceThroughGlyph(forPoint aPoint: Point) -> CGFloat
   func baselineDeltaForCharacter(at anIndex: Int) -> CGFloat
   func windowLevel() -> Int
   @available(OSX 10.6, *)
@@ -110,13 +110,13 @@ class NSTextView : NSText, NSUserInterfaceValidations, NSTextInputClient, NSText
   func draggingSession(session: NSDraggingSession, endedAt screenPoint: Point, operation: NSDragOperation)
   @available(OSX 10.7, *)
   func ignoreModifierKeysFor(session: NSDraggingSession) -> Bool
-  func accessibilityString(for range: NSRange) -> String?
-  func accessibilityLine(for index: Int) -> Int
+  func accessibilityString(forRange range: NSRange) -> String?
+  func accessibilityLine(forIndex index: Int) -> Int
   func accessibilityRange(forLine lineNumber: Int) -> NSRange
-  func accessibilityFrame(for range: NSRange) -> Rect
+  func accessibilityFrame(forRange range: NSRange) -> Rect
   func accessibilityValue() -> String?
   @available(OSX 10.0, *)
-  func accessibilityAttributedString(for range: NSRange) -> AttributedString?
+  func accessibilityAttributedString(forRange range: NSRange) -> AttributedString?
   func accessibilityVisibleCharacterRange() -> NSRange
 }
 extension NSTextView {
@@ -190,7 +190,7 @@ extension NSTextView {
   @available(OSX 10.5, *)
   var allowsImageEditing: Bool
   @available(OSX 10.5, *)
-  func showFindIndicator(for charRange: NSRange)
+  func showFindIndicator(forRange charRange: NSRange)
   @available(OSX 10.10, *)
   var usesRolloverButtonForSelection: Bool
   unowned(unsafe) var delegate: @sil_unmanaged NSTextViewDelegate?
@@ -211,9 +211,9 @@ extension NSTextView {
   var smartInsertDeleteEnabled: Bool
   func smartDeleteRange(forProposedRange proposedCharRange: NSRange) -> NSRange
   func toggleSmartInsertDelete(sender: AnyObject?)
-  func smartInsert(for pasteString: String, replacing charRangeToReplace: NSRange, before beforeString: AutoreleasingUnsafeMutablePointer<NSString?>, after afterString: AutoreleasingUnsafeMutablePointer<NSString?>)
-  func smartInsertBeforeString(for pasteString: String, replacing charRangeToReplace: NSRange) -> String?
-  func smartInsertAfterString(for pasteString: String, replacing charRangeToReplace: NSRange) -> String?
+  func smartInsert(forString pasteString: String, replacing charRangeToReplace: NSRange, before beforeString: AutoreleasingUnsafeMutablePointer<NSString?>, after afterString: AutoreleasingUnsafeMutablePointer<NSString?>)
+  func smartInsertBeforeString(forString pasteString: String, replacing charRangeToReplace: NSRange) -> String?
+  func smartInsertAfterString(forString pasteString: String, replacing charRangeToReplace: NSRange) -> String?
   @available(OSX 10.5, *)
   var isAutomaticQuoteSubstitutionEnabled: Bool
   @available(OSX 10.5, *)
@@ -243,7 +243,7 @@ extension NSTextView {
   @available(OSX 10.6, *)
   func checkText(in range: NSRange, types checkingTypes: TextCheckingTypes, options: [String : AnyObject] = [:])
   @available(OSX 10.6, *)
-  func handle(results: [TextCheckingResult], for range: NSRange, types checkingTypes: TextCheckingTypes, options: [String : AnyObject] = [:], orthography: Orthography, wordCount: Int)
+  func handle(results: [TextCheckingResult], forRange range: NSRange, types checkingTypes: TextCheckingTypes, options: [String : AnyObject] = [:], orthography: Orthography, wordCount: Int)
   @available(OSX 10.6, *)
   func orderFrontSubstitutionsPanel(sender: AnyObject?)
   @available(OSX 10.6, *)
@@ -290,7 +290,7 @@ protocol NSTextViewDelegate : NSTextDelegate {
   @available(OSX 10.5, *)
   optional func textView(textView: NSTextView, shouldSetSpellingState value: Int, range affectedCharRange: NSRange) -> Int
   @available(OSX 10.5, *)
-  optional func textView(view: NSTextView, menu: NSMenu, for event: NSEvent, at charIndex: Int) -> NSMenu?
+  optional func textView(view: NSTextView, menu: NSMenu, forEvent event: NSEvent, at charIndex: Int) -> NSMenu?
   @available(OSX 10.6, *)
   optional func textView(view: NSTextView, willCheckTextIn range: NSRange, options: [String : AnyObject] = [:], types checkingTypes: UnsafeMutablePointer<TextCheckingTypes>) -> [String : AnyObject]
   @available(OSX 10.6, *)
@@ -300,7 +300,7 @@ protocol NSTextViewDelegate : NSTextDelegate {
   @available(OSX 10.8, *)
   optional func textView(textView: NSTextView, willShow servicePicker: NSSharingServicePicker, forItems items: [AnyObject]) -> NSSharingServicePicker?
   @available(OSX 10.0, *)
-  optional func undoManager(for view: NSTextView) -> UndoManager?
+  optional func undoManager(forTextView view: NSTextView) -> UndoManager?
 }
 let NSTextViewWillChangeNotifyingTextViewNotification: String
 let NSTextViewDidChangeSelectionNotification: String

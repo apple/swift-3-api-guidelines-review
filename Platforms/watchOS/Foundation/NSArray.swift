@@ -5,10 +5,10 @@ class NSArray : Object, Copying, MutableCopying, SecureCoding, FastEnumeration {
   init()
   init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
   init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
@@ -42,7 +42,7 @@ extension NSArray {
   var description: String { get }
   func description(withLocale locale: AnyObject?) -> String
   func description(withLocale locale: AnyObject?, indent level: Int) -> String
-  func firstObjectCommon(with otherArray: [AnyObject]) -> AnyObject?
+  func firstObjectCommon(withArray otherArray: [AnyObject]) -> AnyObject?
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, range: NSRange)
   func index(of anObject: AnyObject) -> Int
   func index(of anObject: AnyObject, in range: NSRange) -> Int
@@ -57,8 +57,8 @@ extension NSArray {
   @NSCopying var sortedArrayHint: Data { get }
   func sortedArray(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>) -> [AnyObject]
   func sortedArray(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>, hint: Data?) -> [AnyObject]
-  func sortedArray(using comparator: Selector) -> [AnyObject]
-  func subarray(with range: NSRange) -> [AnyObject]
+  func sortedArray(usingSelector comparator: Selector) -> [AnyObject]
+  func subarray(withRange range: NSRange) -> [AnyObject]
   func write(toFile path: String, atomically useAuxiliaryFile: Bool) -> Bool
   func write(to url: URL, atomically: Bool) -> Bool
   func objects(at indexes: IndexSet) -> [AnyObject]
@@ -67,9 +67,9 @@ extension NSArray {
   @available(watchOS 2.0, *)
   func enumerateObjects(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
-  func enumerateObjects(opts: EnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(opts: EnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
-  func enumerateObjects(at s: IndexSet, options opts: EnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(at s: IndexSet, options opts: EnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
   func indexOfObjectPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(watchOS 2.0, *)
@@ -111,7 +111,7 @@ class MutableArray : NSArray {
   func insert(anObject: AnyObject, at index: Int)
   func removeLastObject()
   func removeObject(at index: Int)
-  func replaceObject(at index: Int, with anObject: AnyObject)
+  func replaceObject(at index: Int, withObject anObject: AnyObject)
   init()
   init(capacity numItems: Int)
   init?(coder aDecoder: Coder)
@@ -136,10 +136,10 @@ extension MutableArray {
   func replaceObjects(in range: NSRange, withObjectsFrom otherArray: [AnyObject])
   func setArray(otherArray: [AnyObject])
   func sort(compare: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>)
-  func sort(using comparator: Selector)
+  func sort(usingSelector comparator: Selector)
   func insert(objects: [AnyObject], at indexes: IndexSet)
   func removeObjects(at indexes: IndexSet)
-  func replaceObjects(at indexes: IndexSet, with objects: [AnyObject])
+  func replaceObjects(at indexes: IndexSet, withObjects objects: [AnyObject])
   @available(watchOS 2.0, *)
   subscript (atIndexedSubscript idx: Int) -> AnyObject
   @available(watchOS 2.0, *)

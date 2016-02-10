@@ -2,7 +2,7 @@
 @available(iOS 3.0, *)
 class NSMigrationManager : Object {
   init(sourceModel: NSManagedObjectModel, destinationModel: NSManagedObjectModel)
-  func migrateStore(from sourceURL: URL, type sStoreType: String, options sOptions: [Object : AnyObject]? = [:], with mappings: NSMappingModel?, toDestinationURL dURL: URL, destinationType dStoreType: String, destinationOptions dOptions: [Object : AnyObject]? = [:]) throws
+  func migrateStore(from sourceURL: URL, type sStoreType: String, options sOptions: [Object : AnyObject]? = [:], withMappingModel mappings: NSMappingModel?, toDestinationURL dURL: URL, destinationType dStoreType: String, destinationOptions dOptions: [Object : AnyObject]? = [:]) throws
   @available(iOS 5.0, *)
   var usesStoreSpecificMigrationManager: Bool
   func reset()
@@ -11,9 +11,9 @@ class NSMigrationManager : Object {
   var destinationModel: NSManagedObjectModel { get }
   var sourceContext: NSManagedObjectContext { get }
   var destinationContext: NSManagedObjectContext { get }
-  func sourceEntity(for mEntity: NSEntityMapping) -> NSEntityDescription?
-  func destinationEntity(for mEntity: NSEntityMapping) -> NSEntityDescription?
-  func associateSourceInstance(sourceInstance: NSManagedObject, withDestinationInstance destinationInstance: NSManagedObject, for entityMapping: NSEntityMapping)
+  func sourceEntity(forEntityMapping mEntity: NSEntityMapping) -> NSEntityDescription?
+  func destinationEntity(forEntityMapping mEntity: NSEntityMapping) -> NSEntityDescription?
+  func associateSourceInstance(sourceInstance: NSManagedObject, withDestinationInstance destinationInstance: NSManagedObject, forEntityMapping entityMapping: NSEntityMapping)
   func destinationInstances(forEntityMappingNamed mappingName: String, sourceInstances: [NSManagedObject]?) -> [NSManagedObject]
   func sourceInstances(forEntityMappingNamed mappingName: String, destinationInstances: [NSManagedObject]?) -> [NSManagedObject]
   var currentEntityMapping: NSEntityMapping { get }

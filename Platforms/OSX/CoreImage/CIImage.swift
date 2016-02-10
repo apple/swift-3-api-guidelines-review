@@ -56,15 +56,15 @@ class CIImage : Object, SecureCoding, Copying {
   @available(OSX 10.4, *)
   var colorSpace: CGColorSpace? { get }
   @available(OSX 10.11, *)
-  func regionOfInterest(for image: CIImage, in rect: CGRect) -> CGRect
+  func regionOfInterest(forImage image: CIImage, in rect: CGRect) -> CGRect
   init()
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.4, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 typealias CIFormat = Int32
 @available(OSX 10.4, *)

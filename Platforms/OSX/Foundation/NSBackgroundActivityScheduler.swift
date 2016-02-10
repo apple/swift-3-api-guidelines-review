@@ -15,7 +15,7 @@ class BackgroundActivityScheduler : Object {
   var repeats: Bool
   var interval: TimeInterval
   var tolerance: TimeInterval
-  func schedule(block: (BackgroundActivityCompletionHandler) -> Void)
+  func schedule(withBlock block: (BackgroundActivityCompletionHandler) -> Void)
   func invalidate()
   var shouldDefer: Bool { get }
   convenience init()

@@ -17,7 +17,7 @@ class CIContext : Object {
   func createCGImage(image: CIImage, from fromRect: CGRect) -> CGImage
   func createCGImage(image: CIImage, from fromRect: CGRect, format: CIFormat, colorSpace: CGColorSpace?) -> CGImage
   @available(OSX, introduced=10.4, deprecated=10.11)
-  func createCGLayer(with size: CGSize, info: CFDictionary?) -> CGLayer
+  func createCGLayer(withSize size: CGSize, info: CFDictionary?) -> CGLayer
   func render(image: CIImage, toBitmap data: UnsafeMutablePointer<Void>, rowBytes: Int, bounds: CGRect, format: CIFormat, colorSpace: CGColorSpace?)
   @available(OSX 10.6, *)
   func render(image: CIImage, to surface: IOSurface, bounds: CGRect, colorSpace: CGColorSpace?)

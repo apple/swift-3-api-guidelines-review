@@ -22,9 +22,9 @@ class PropertyListSerialization : Object {
   @available(watchOS 2.0, *)
   class func writePropertyList(plist: AnyObject, to stream: OutputStream, format: PropertyListFormat, options opt: PropertyListWriteOptions, error: ErrorPointer) -> Int
   @available(watchOS 2.0, *)
-  class func propertyList(with data: Data, options opt: PropertyListReadOptions = [], format: UnsafeMutablePointer<PropertyListFormat>) throws -> AnyObject
+  class func propertyList(withData data: Data, options opt: PropertyListReadOptions = [], format: UnsafeMutablePointer<PropertyListFormat>) throws -> AnyObject
   @available(watchOS 2.0, *)
-  class func propertyList(with stream: InputStream, options opt: PropertyListReadOptions = [], format: UnsafeMutablePointer<PropertyListFormat>) throws -> AnyObject
+  class func propertyList(withStream stream: InputStream, options opt: PropertyListReadOptions = [], format: UnsafeMutablePointer<PropertyListFormat>) throws -> AnyObject
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use dataWithPropertyList:format:options:error: instead.")
   class func data(fromPropertyList plist: AnyObject, format: PropertyListFormat, errorDescription errorString: UnsafeMutablePointer<NSString?>) -> Data?
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use propertyListWithData:options:format:error: instead.")

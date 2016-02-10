@@ -20,7 +20,7 @@ class GKMatch : Object {
   var expectedPlayerCount: Int { get }
   @available(iOS 8.0, *)
   func send(data: Data, to players: [GKPlayer], dataMode mode: GKMatchSendDataMode) throws
-  func sendData(toAllPlayers data: Data, with mode: GKMatchSendDataMode) throws
+  func sendData(toAllPlayers data: Data, withDataMode mode: GKMatchSendDataMode) throws
   func disconnect()
   func voiceChat(withName name: String) -> GKVoiceChat?
   @available(iOS 8.0, *)
@@ -51,7 +51,7 @@ extension GKMatch {
   @available(iOS, introduced=6.0, deprecated=8.0, message="use chooseBestHostingPlayerWithCompletionHandler:")
   func chooseBestHostPlayer(completionHandler completionHandler: (String?) -> Void)
   @available(iOS, introduced=4.1, deprecated=8.0, message="use sendData:toPlayers:dataMode:error:")
-  func send(data: Data, toPlayers playerIDs: [String], with mode: GKMatchSendDataMode) throws
+  func send(data: Data, toPlayers playerIDs: [String], withDataMode mode: GKMatchSendDataMode) throws
   @available(iOS, introduced=4.1, deprecated=8.0, message="use players")
   var playerIDs: [String] { get }
 }

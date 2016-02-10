@@ -18,11 +18,11 @@ class UITraitCollection : Object, Copying, SecureCoding {
   @available(tvOS 9.0, *)
   var forceTouchCapability: UIForceTouchCapability { get }
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
 }
 protocol UITraitEnvironment : ObjectProtocol {
   @available(tvOS 8.0, *)

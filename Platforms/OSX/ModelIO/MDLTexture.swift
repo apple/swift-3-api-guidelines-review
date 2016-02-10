@@ -19,8 +19,8 @@ class MDLTexture : Object, MDLNamed {
   convenience init?(named name: String, bundle bundleOrNil: Bundle?)
   convenience init?(cubeWithImagesNamed names: [String])
   convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: Bundle?)
-  class func irradianceTextureCube(with texture: MDLTexture, name: String?, dimensions: vector_int2) -> Self
-  class func irradianceTextureCube(with texture: MDLTexture, name: String?, dimensions: vector_int2, roughness: Float) -> Self
+  class func irradianceTextureCube(withTexture texture: MDLTexture, name: String?, dimensions: vector_int2) -> Self
+  class func irradianceTextureCube(withTexture texture: MDLTexture, name: String?, dimensions: vector_int2, roughness: Float) -> Self
   init(data pixelData: Data?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
   func write(to URL: URL) -> Bool
   func write(to nsurl: URL, type: CFString) -> Bool

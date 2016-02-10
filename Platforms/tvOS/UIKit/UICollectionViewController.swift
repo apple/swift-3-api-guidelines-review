@@ -48,7 +48,7 @@ class UICollectionViewController : UIViewController, UICollectionViewDelegate, U
   @available(tvOS 9.0, *)
   func collectionView(collectionView: UICollectionView, shouldUpdateFocusIn context: UICollectionViewFocusUpdateContext) -> Bool
   @available(tvOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
+  func collectionView(collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
   @available(tvOS 9.0, *)
   func indexPathForPreferredFocusedView(in collectionView: UICollectionView) -> IndexPath?
   @available(tvOS 9.0, *)
@@ -74,9 +74,9 @@ class UICollectionViewController : UIViewController, UICollectionViewDelegate, U
   @available(tvOS 6.0, *)
   func viewForZoomingIn(scrollView: UIScrollView) -> UIView?
   @available(tvOS 3.2, *)
-  func scrollViewWillBeginZooming(scrollView: UIScrollView, with view: UIView?)
+  func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView?)
   @available(tvOS 6.0, *)
-  func scrollViewDidEndZooming(scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat)
+  func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
   @available(tvOS 6.0, *)
   func scrollViewShouldScroll(toTop scrollView: UIScrollView) -> Bool
   @available(tvOS 6.0, *)

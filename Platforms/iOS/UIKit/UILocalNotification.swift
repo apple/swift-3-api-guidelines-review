@@ -21,9 +21,9 @@ class UILocalNotification : Object, Copying, Coding {
   @available(iOS 8.0, *)
   var category: String?
   @available(iOS 4.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
 }
 @available(iOS 4.0, *)
 let UILocalNotificationDefaultSoundName: String

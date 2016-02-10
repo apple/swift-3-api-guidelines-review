@@ -36,12 +36,12 @@ class CBPeripheralManager : Object {
   class func authorizationStatus() -> CBPeripheralManagerAuthorizationStatus
   func startAdvertising(advertisementData: [String : AnyObject]?)
   func stopAdvertising()
-  func setDesiredConnectionLatency(latency: CBPeripheralManagerConnectionLatency, for central: CBCentral)
+  func setDesiredConnectionLatency(latency: CBPeripheralManagerConnectionLatency, forCentral central: CBCentral)
   func add(service: CBMutableService)
   func remove(service: CBMutableService)
   func removeAllServices()
   func respondTo(request: CBATTRequest, withResult result: CBATTError)
-  func updateValue(value: Data, for characteristic: CBMutableCharacteristic, onSubscribedCentrals centrals: [CBCentral]?) -> Bool
+  func updateValue(value: Data, forCharacteristic characteristic: CBMutableCharacteristic, onSubscribedCentrals centrals: [CBCentral]?) -> Bool
   convenience init()
 }
 protocol CBPeripheralManagerDelegate : ObjectProtocol {

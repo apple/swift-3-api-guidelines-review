@@ -66,7 +66,7 @@ class GLKTextureInfo : Object, Copying {
   var containsMipmaps: Bool { get }
   init()
   @available(iOS 5.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 typealias GLKTextureLoaderCallback = (GLKTextureInfo?, Error?) -> Void
 @available(iOS 5.0, *)
@@ -74,7 +74,7 @@ class GLKTextureLoader : Object {
   class func textureWithContents(ofFile path: String, options: [String : Number]? = [:]) throws -> GLKTextureInfo
   class func textureWithContents(of url: URL, options: [String : Number]? = [:]) throws -> GLKTextureInfo
   class func textureWithContents(of data: Data, options: [String : Number]? = [:]) throws -> GLKTextureInfo
-  class func texture(with cgImage: CGImage, options: [String : Number]? = [:]) throws -> GLKTextureInfo
+  class func texture(withCGImage cgImage: CGImage, options: [String : Number]? = [:]) throws -> GLKTextureInfo
   class func cubeMapWithContents(ofFiles paths: [AnyObject], options: [String : Number]? = [:]) throws -> GLKTextureInfo
   class func cubeMapWithContents(ofFile path: String, options: [String : Number]? = [:]) throws -> GLKTextureInfo
   class func cubeMapWithContents(of url: URL, options: [String : Number]? = [:]) throws -> GLKTextureInfo
@@ -82,7 +82,7 @@ class GLKTextureLoader : Object {
   func textureWithContents(ofFile path: String, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   func textureWithContents(of url: URL, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   func textureWithContents(of data: Data, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func texture(with cgImage: CGImage, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func texture(withCGImage cgImage: CGImage, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   func cubeMapWithContents(ofFiles paths: [AnyObject], options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   func cubeMapWithContents(ofFile path: String, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   func cubeMapWithContents(of url: URL, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)

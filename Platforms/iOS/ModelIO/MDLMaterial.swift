@@ -140,7 +140,7 @@ class MDLMaterial : Object, MDLNamed, FastEnumeration {
   func setProperty(property: MDLMaterialProperty)
   func remove(property: MDLMaterialProperty)
   func propertyNamed(name: String) -> MDLMaterialProperty?
-  func property(with semantic: MDLMaterialSemantic) -> MDLMaterialProperty?
+  func property(withSemantic semantic: MDLMaterialSemantic) -> MDLMaterialProperty?
   func removeAllProperties()
   var scatteringFunction: MDLScatteringFunction { get }
   var name: String

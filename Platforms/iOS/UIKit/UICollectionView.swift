@@ -67,7 +67,7 @@ protocol UICollectionViewDelegate : UIScrollViewDelegate {
   @available(iOS 9.0, *)
   optional func collectionView(collectionView: UICollectionView, shouldUpdateFocusIn context: UICollectionViewFocusUpdateContext) -> Bool
   @available(iOS 9.0, *)
-  optional func collectionView(collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
+  optional func collectionView(collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
   @available(iOS 9.0, *)
   optional func indexPathForPreferredFocusedView(in collectionView: UICollectionView) -> IndexPath?
   @available(iOS 9.0, *)
@@ -87,8 +87,8 @@ class UICollectionView : UIScrollView {
   func register(nib: UINib?, forCellWithReuseIdentifier identifier: String)
   func register(viewClass: AnyClass?, forSupplementaryViewOfKind elementKind: String, withReuseIdentifier identifier: String)
   func register(nib: UINib?, forSupplementaryViewOfKind kind: String, withReuseIdentifier identifier: String)
-  func dequeueReusableCellWithReuseIdentifier(identifier: String, for indexPath: IndexPath) -> UICollectionViewCell
-  func dequeueReusableSupplementaryView(ofKind elementKind: String, withReuseIdentifier identifier: String, for indexPath: IndexPath) -> UICollectionReusableView
+  func dequeueReusableCellWithReuseIdentifier(identifier: String, forIndexPath indexPath: IndexPath) -> UICollectionViewCell
+  func dequeueReusableSupplementaryView(ofKind elementKind: String, withReuseIdentifier identifier: String, forIndexPath indexPath: IndexPath) -> UICollectionReusableView
   var allowsSelection: Bool
   var allowsMultipleSelection: Bool
   func indexPathsForSelectedItems() -> [IndexPath]?
@@ -109,7 +109,7 @@ class UICollectionView : UIScrollView {
   func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
   func layoutAttributesForSupplementaryElement(ofKind kind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
   func indexPathForItem(at point: CGPoint) -> IndexPath?
-  func indexPath(for cell: UICollectionViewCell) -> IndexPath?
+  func indexPath(forCell cell: UICollectionViewCell) -> IndexPath?
   func cellForItem(at indexPath: IndexPath) -> UICollectionViewCell?
   func visibleCells() -> [UICollectionViewCell]
   func indexPathsForVisibleItems() -> [IndexPath]

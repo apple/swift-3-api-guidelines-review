@@ -2,6 +2,6 @@
 @available(iOS 7.0, *)
 class MKMapSnapshot : Object {
   var image: UIImage { get }
-  func point(for coordinate: CLLocationCoordinate2D) -> CGPoint
+  func point(forCoordinate coordinate: CLLocationCoordinate2D) -> CGPoint
   init()
 }

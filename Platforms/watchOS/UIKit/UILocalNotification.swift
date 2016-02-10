@@ -21,9 +21,9 @@ class UILocalNotification : Object, Copying, Coding {
   @available(watchOS 2.0, *)
   var category: String?
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
 }
 @available(watchOS 2.0, *)
 let UILocalNotificationDefaultSoundName: String

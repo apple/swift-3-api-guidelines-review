@@ -129,7 +129,7 @@ class NSBrowser : NSControl {
   @available(OSX 10.6, *)
   func frame(ofRow row: Int, inColumn column: Int) -> Rect
   @available(OSX 10.6, *)
-  func getRow(row: UnsafeMutablePointer<Int>, column: UnsafeMutablePointer<Int>, for point: Point) -> Bool
+  func getRow(row: UnsafeMutablePointer<Int>, column: UnsafeMutablePointer<Int>, forPoint point: Point) -> Bool
   func columnWidth(forColumnContentWidth columnContentWidth: CGFloat) -> CGFloat
   func columnContentWidth(forColumnWidth columnWidth: CGFloat) -> CGFloat
   var columnResizingType: NSBrowserColumnResizingType
@@ -139,7 +139,7 @@ class NSBrowser : NSControl {
   @available(OSX 10.6, *)
   var rowHeight: CGFloat
   @available(OSX 10.6, *)
-  func noteHeightOfRows(withIndexesChanged indexSet: IndexSet, inColumn columnIndex: Int)
+  func noteHeightOfRows(indexesChanged indexSet: IndexSet, inColumn columnIndex: Int)
   @available(OSX 10.6, *)
   func setDefaultColumnWidth(columnWidth: CGFloat)
   @available(OSX 10.6, *)
@@ -147,9 +147,9 @@ class NSBrowser : NSControl {
   var columnsAutosaveName: String
   class func removeSavedColumns(autosaveName name: String)
   @available(OSX 10.5, *)
-  func canDragRows(with rowIndexes: IndexSet, inColumn column: Int, with event: NSEvent) -> Bool
+  func canDragRows(withIndexes rowIndexes: IndexSet, inColumn column: Int, withEvent event: NSEvent) -> Bool
   @available(OSX 10.5, *)
-  func draggingImageForRows(with rowIndexes: IndexSet, inColumn column: Int, with event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage?
+  func draggingImageForRows(withIndexes rowIndexes: IndexSet, inColumn column: Int, withEvent event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage?
   @available(OSX 10.5, *)
   func setDraggingSourceOperationMask(mask: NSDragOperation, forLocal isLocal: Bool)
   @available(OSX 10.5, *)
@@ -157,7 +157,7 @@ class NSBrowser : NSControl {
   @available(OSX 10.5, *)
   var backgroundColor: NSColor
   @available(OSX 10.6, *)
-  func editItem(at indexPath: IndexPath, with theEvent: NSEvent, select: Bool)
+  func editItem(at indexPath: IndexPath, withEvent theEvent: NSEvent, select: Bool)
   func selectedCell() -> AnyObject?
   init(frame frameRect: Rect)
   init?(coder: Coder)
@@ -178,7 +178,7 @@ protocol NSBrowserDelegate : ObjectProtocol {
   @available(OSX 10.6, *)
   optional func browser(browser: NSBrowser, heightOfRow row: Int, inColumn columnIndex: Int) -> CGFloat
   @available(OSX 10.6, *)
-  optional func rootItem(for browser: NSBrowser) -> AnyObject?
+  optional func rootItem(forBrowser browser: NSBrowser) -> AnyObject?
   @available(OSX 10.6, *)
   optional func browser(browser: NSBrowser, setObjectValue object: AnyObject?, forItem item: AnyObject?)
   @available(OSX 10.6, *)
@@ -200,9 +200,9 @@ protocol NSBrowserDelegate : ObjectProtocol {
   @available(OSX 10.5, *)
   optional func browser(browser: NSBrowser, namesOfPromisedFilesDroppedAtDestination dropDestination: URL, forDraggedRowsWith rowIndexes: IndexSet, inColumn column: Int) -> [String]
   @available(OSX 10.5, *)
-  optional func browser(browser: NSBrowser, canDragRowsWith rowIndexes: IndexSet, inColumn column: Int, with event: NSEvent) -> Bool
+  optional func browser(browser: NSBrowser, canDragRowsWith rowIndexes: IndexSet, inColumn column: Int, withEvent event: NSEvent) -> Bool
   @available(OSX 10.5, *)
-  optional func browser(browser: NSBrowser, draggingImageForRowsWith rowIndexes: IndexSet, inColumn column: Int, with event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage?
+  optional func browser(browser: NSBrowser, draggingImageForRowsWith rowIndexes: IndexSet, inColumn column: Int, withEvent event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage?
   @available(OSX 10.5, *)
   optional func browser(browser: NSBrowser, validateDrop info: NSDraggingInfo, proposedRow row: UnsafeMutablePointer<Int>, column: UnsafeMutablePointer<Int>, dropOperation: UnsafeMutablePointer<NSBrowserDropOperation>) -> NSDragOperation
   @available(OSX 10.5, *)
@@ -212,7 +212,7 @@ protocol NSBrowserDelegate : ObjectProtocol {
   @available(OSX 10.5, *)
   optional func browser(browser: NSBrowser, shouldTypeSelectFor event: NSEvent, withCurrentSearch searchString: String?) -> Bool
   @available(OSX 10.5, *)
-  optional func browser(browser: NSBrowser, nextTypeSelectMatchFromRow startRow: Int, toRow endRow: Int, inColumn column: Int, for searchString: String?) -> Int
+  optional func browser(browser: NSBrowser, nextTypeSelectMatchFromRow startRow: Int, toRow endRow: Int, inColumn column: Int, forString searchString: String?) -> Int
   @available(OSX 10.6, *)
   optional func browser(browser: NSBrowser, previewViewControllerForLeafItem item: AnyObject) -> NSViewController?
   @available(OSX 10.6, *)

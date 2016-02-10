@@ -10,19 +10,19 @@ class Predicate : Object, SecureCoding, Copying {
   /*not inherited*/ init(block: (AnyObject, [String : AnyObject]?) -> Bool)
   var predicateFormat: String { get }
   func withSubstitutionVariables(variables: [String : AnyObject]) -> Self
-  func evaluate(with object: AnyObject?) -> Bool
+  func evaluate(withObject object: AnyObject?) -> Bool
   @available(OSX 10.5, *)
-  func evaluate(with object: AnyObject?, substitutionVariables bindings: [String : AnyObject]?) -> Bool
+  func evaluate(withObject object: AnyObject?, substitutionVariables bindings: [String : AnyObject]?) -> Bool
   @available(OSX 10.9, *)
   func allowEvaluation()
   init()
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.4, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 
 extension Predicate {
@@ -35,24 +35,24 @@ struct _predicateFlags {
   init(_evaluationBlocked: UInt32, _reservedPredicateFlags: UInt32)
 }
 extension NSArray {
-  func filteredArray(using predicate: Predicate) -> [AnyObject]
+  func filteredArray(usingPredicate predicate: Predicate) -> [AnyObject]
 }
 extension MutableArray {
-  func filter(using predicate: Predicate)
+  func filter(usingPredicate predicate: Predicate)
 }
 extension NSSet {
   @available(OSX 10.5, *)
-  func filteredSet(using predicate: Predicate) -> Set<Object>
+  func filteredSet(usingPredicate predicate: Predicate) -> Set<Object>
 }
 extension MutableSet {
   @available(OSX 10.5, *)
-  func filter(using predicate: Predicate)
+  func filter(usingPredicate predicate: Predicate)
 }
 extension OrderedSet {
   @available(OSX 10.7, *)
-  func filteredOrderedSet(using p: Predicate) -> OrderedSet
+  func filteredOrderedSet(usingPredicate p: Predicate) -> OrderedSet
 }
 extension MutableOrderedSet {
   @available(OSX 10.7, *)
-  func filter(using p: Predicate)
+  func filter(usingPredicate p: Predicate)
 }

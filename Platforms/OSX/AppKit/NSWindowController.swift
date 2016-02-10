@@ -26,7 +26,7 @@ class NSWindowController : NSResponder, Coding, NSSeguePerforming {
   @IBAction func showWindow(sender: AnyObject?)
   convenience init()
   @available(OSX 10.10, *)
-  func prepare(for segue: NSStoryboardSegue, sender: AnyObject?)
+  func prepare(forSegue segue: NSStoryboardSegue, sender: AnyObject?)
   @available(OSX 10.10, *)
   func performSegue(identifier identifier: String, sender: AnyObject?)
   @available(OSX 10.10, *)

@@ -22,10 +22,10 @@ class CLPlacemark : Object, Copying, SecureCoding {
   var areasOfInterest: [String]? { get }
   init()
   @available(iOS 5.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 5.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

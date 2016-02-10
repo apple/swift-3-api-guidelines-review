@@ -180,24 +180,24 @@ extension NSView {
   @available(OSX 10.7, *)
   func invalidateIntrinsicContentSize()
   @available(OSX 10.7, *)
-  func contentHuggingPriority(for orientation: NSLayoutConstraintOrientation) -> NSLayoutPriority
+  func contentHuggingPriority(forOrientation orientation: NSLayoutConstraintOrientation) -> NSLayoutPriority
   @available(OSX 10.7, *)
-  func setContentHuggingPriority(priority: NSLayoutPriority, for orientation: NSLayoutConstraintOrientation)
+  func setContentHuggingPriority(priority: NSLayoutPriority, forOrientation orientation: NSLayoutConstraintOrientation)
   @available(OSX 10.7, *)
-  func contentCompressionResistancePriority(for orientation: NSLayoutConstraintOrientation) -> NSLayoutPriority
+  func contentCompressionResistancePriority(forOrientation orientation: NSLayoutConstraintOrientation) -> NSLayoutPriority
   @available(OSX 10.7, *)
-  func setContentCompressionResistancePriority(priority: NSLayoutPriority, for orientation: NSLayoutConstraintOrientation)
+  func setContentCompressionResistancePriority(priority: NSLayoutPriority, forOrientation orientation: NSLayoutConstraintOrientation)
 }
 let NSViewNoInstrinsicMetric: CGFloat
 @available(OSX 10.11, *)
 let NSViewNoIntrinsicMetric: CGFloat
 extension NSControl {
   @available(OSX 10.7, *)
-  func invalidateIntrinsicContentSize(for cell: NSCell)
+  func invalidateIntrinsicContentSize(forCell cell: NSCell)
 }
 extension NSWindow {
-  func anchorAttribute(for orientation: NSLayoutConstraintOrientation) -> NSLayoutAttribute
-  func setAnchorAttribute(attr: NSLayoutAttribute, for orientation: NSLayoutConstraintOrientation)
+  func anchorAttribute(forOrientation orientation: NSLayoutConstraintOrientation) -> NSLayoutAttribute
+  func setAnchorAttribute(attr: NSLayoutAttribute, forOrientation orientation: NSLayoutConstraintOrientation)
 }
 extension NSView {
   @available(OSX 10.7, *)
@@ -205,7 +205,7 @@ extension NSView {
 }
 extension NSView {
   @available(OSX 10.7, *)
-  func constraintsAffectingLayout(for orientation: NSLayoutConstraintOrientation) -> [NSLayoutConstraint]
+  func constraintsAffectingLayout(forOrientation orientation: NSLayoutConstraintOrientation) -> [NSLayoutConstraint]
   @available(OSX 10.7, *)
   var hasAmbiguousLayout: Bool { get }
   @available(OSX 10.7, *)

@@ -54,7 +54,7 @@ class NSMatrix : NSControl, NSUserInterfaceValidations {
   var allowsEmptySelection: Bool
   func sendAction(aSelector: Selector, to anObject: AnyObject, forAllCells flag: Bool)
   var cells: [NSCell] { get }
-  func sort(using comparator: Selector)
+  func sort(usingSelector comparator: Selector)
   func sort(compare: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>)
   var selectedCells: [NSCell] { get }
   var selectedRow: Int { get }
@@ -80,18 +80,18 @@ class NSMatrix : NSControl, NSUserInterfaceValidations {
   func cell(atRow row: Int, column col: Int) -> NSCell?
   func cellFrame(atRow row: Int, column col: Int) -> Rect
   func getRow(row: UnsafeMutablePointer<Int>, column col: UnsafeMutablePointer<Int>, of aCell: NSCell) -> Bool
-  func getRow(row: UnsafeMutablePointer<Int>, column col: UnsafeMutablePointer<Int>, for aPoint: Point) -> Bool
+  func getRow(row: UnsafeMutablePointer<Int>, column col: UnsafeMutablePointer<Int>, forPoint aPoint: Point) -> Bool
   func renewRows(newRows: Int, columns newCols: Int)
   func putCell(newCell: NSCell, atRow row: Int, column col: Int)
   func addRow()
   func addRow(newCells: [NSCell])
   func insertRow(row: Int)
-  func insertRow(row: Int, with newCells: [NSCell])
+  func insertRow(row: Int, withCells newCells: [NSCell])
   func removeRow(row: Int)
   func addColumn()
   func addColumn(newCells: [NSCell])
   func insertColumn(column: Int)
-  func insertColumn(column: Int, with newCells: [NSCell])
+  func insertColumn(column: Int, withCells newCells: [NSCell])
   func removeColumn(col: Int)
   func cell(withTag anInt: Int) -> NSCell?
   var doubleAction: Selector
@@ -117,8 +117,8 @@ class NSMatrix : NSControl, NSUserInterfaceValidations {
   func selectText(atRow row: Int, column col: Int) -> NSCell?
   func acceptsFirstMouse(theEvent: NSEvent?) -> Bool
   func resetCursorRects()
-  func setToolTip(toolTipString: String?, for cell: NSCell)
-  func toolTip(for cell: NSCell) -> String?
+  func setToolTip(toolTipString: String?, forCell cell: NSCell)
+  func toolTip(forCell cell: NSCell) -> String?
   @available(OSX 10.8, *)
   var autorecalculatesCellSize: Bool
   func selectedCell() -> NSCell?

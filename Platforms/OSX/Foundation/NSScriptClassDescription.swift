@@ -1,6 +1,6 @@
 
 class ScriptClassDescription : ClassDescription {
-  /*not inherited*/ init?(for aClass: AnyClass)
+  /*not inherited*/ init?(forClass aClass: AnyClass)
   init?(suiteName: String, className: String, dictionary classDeclaration: [Object : AnyObject]?)
   var suiteName: String? { get }
   var className: String? { get }

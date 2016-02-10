@@ -16,12 +16,12 @@ class RegularExpression : Object, Copying, Coding {
   var pattern: String { get }
   var options: RegularExpressionOptions { get }
   var numberOfCaptureGroups: Int { get }
-  class func escapedPattern(for string: String) -> String
+  class func escapedPattern(forString string: String) -> String
   convenience init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct MatchingOptions : OptionSetType {
@@ -43,7 +43,7 @@ struct MatchingFlags : OptionSetType {
   static var internalError: MatchingFlags { get }
 }
 extension RegularExpression {
-  func enumerateMatches(in string: String, options: MatchingOptions = [], range: NSRange, using block: (TextCheckingResult?, MatchingFlags, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateMatches(in string: String, options: MatchingOptions = [], range: NSRange, usingBlock block: (TextCheckingResult?, MatchingFlags, UnsafeMutablePointer<ObjCBool>) -> Void)
   func matches(in string: String, options: MatchingOptions = [], range: NSRange) -> [TextCheckingResult]
   func numberOfMatches(in string: String, options: MatchingOptions = [], range: NSRange) -> Int
   func firstMatch(in string: String, options: MatchingOptions = [], range: NSRange) -> TextCheckingResult?
@@ -52,8 +52,8 @@ extension RegularExpression {
 extension RegularExpression {
   func stringByReplacingMatches(in string: String, options: MatchingOptions = [], range: NSRange, withTemplate templ: String) -> String
   func replaceMatches(in string: MutableString, options: MatchingOptions = [], range: NSRange, withTemplate templ: String) -> Int
-  func replacementString(for result: TextCheckingResult, in string: String, offset: Int, template templ: String) -> String
-  class func escapedTemplate(for string: String) -> String
+  func replacementString(forResult result: TextCheckingResult, in string: String, offset: Int, template templ: String) -> String
+  class func escapedTemplate(forString string: String) -> String
 }
 @available(watchOS 2.0, *)
 class DataDetector : RegularExpression {

@@ -93,7 +93,7 @@ class NSScrollView : NSView, NSTextFinderBarContainer {
   @available(OSX 10.8, *)
   func setMagnification(magnification: CGFloat, centeredAt point: Point)
   @available(OSX 10.9, *)
-  func addFloatingSubview(view: NSView, for axis: NSEventGestureAxis)
+  func addFloatingSubview(view: NSView, forAxis axis: NSEventGestureAxis)
   @available(OSX 10.10, *)
   var automaticallyAdjustsContentInsets: Bool
   @available(OSX 10.10, *)

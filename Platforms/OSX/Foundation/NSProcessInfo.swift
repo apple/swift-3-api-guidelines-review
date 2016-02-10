@@ -69,7 +69,7 @@ extension ProcessInfo {
   @available(OSX 10.9, *)
   func endActivity(activity: ObjectProtocol)
   @available(OSX 10.9, *)
-  func performActivity(options: ActivityOptions = [], reason: String, using block: () -> Void)
+  func performActivity(options: ActivityOptions = [], reason: String, usingBlock block: () -> Void)
 }
 @available(OSX 10.10.3, *)
 enum ProcessInfoThermalState : Int {

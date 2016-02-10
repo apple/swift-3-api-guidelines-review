@@ -23,10 +23,10 @@ class NSPropertyDescription : Object, Coding, Copying {
   var renamingIdentifier: String?
   init()
   @available(OSX 10.4, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.4, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 struct __propertyDescriptionFlags {
   var _isReadOnly: UInt32

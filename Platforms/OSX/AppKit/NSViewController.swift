@@ -48,7 +48,7 @@ class NSViewController : NSResponder, Coding, NSSeguePerforming, NSUserInterface
   func viewDidLayout()
   convenience init()
   @available(OSX 10.10, *)
-  func prepare(for segue: NSStoryboardSegue, sender: AnyObject?)
+  func prepare(forSegue segue: NSStoryboardSegue, sender: AnyObject?)
   @available(OSX 10.10, *)
   func performSegue(identifier identifier: String, sender: AnyObject?)
   @available(OSX 10.10, *)
@@ -92,7 +92,7 @@ extension NSViewController {
   @available(OSX 10.10, *)
   func removeChildViewController(at index: Int)
   @available(OSX 10.10, *)
-  func preferredContentSizeDidChange(for viewController: NSViewController)
+  func preferredContentSizeDidChange(forViewController viewController: NSViewController)
   @available(OSX 10.10, *)
   func viewWillTransition(to newSize: Size)
 }

@@ -53,7 +53,7 @@ class AVAssetResourceLoadingDataRequest : Object {
   @available(tvOS 9.0, *)
   var requestsAllDataToEndOfResource: Bool { get }
   var currentOffset: Int64 { get }
-  func respond(with data: Data)
+  func respond(withData data: Data)
 }
 extension AVAssetResourceLoader {
   @available(tvOS 9.0, *)

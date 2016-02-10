@@ -11,10 +11,10 @@ protocol GKGameModel : ObjectProtocol, Copying {
   var players: [GKGameModelPlayer]? { get }
   var activePlayer: GKGameModelPlayer? { get }
   func setGameModel(gameModel: GKGameModel)
-  func gameModelUpdates(for player: GKGameModelPlayer) -> [GKGameModelUpdate]?
+  func gameModelUpdates(forPlayer player: GKGameModelPlayer) -> [GKGameModelUpdate]?
   func apply(gameModelUpdate: GKGameModelUpdate)
-  optional func score(for player: GKGameModelPlayer) -> Int
-  optional func isWin(for player: GKGameModelPlayer) -> Bool
-  optional func isLoss(for player: GKGameModelPlayer) -> Bool
+  optional func score(forPlayer player: GKGameModelPlayer) -> Int
+  optional func isWin(forPlayer player: GKGameModelPlayer) -> Bool
+  optional func isLoss(forPlayer player: GKGameModelPlayer) -> Bool
   optional func unapplyGameModelUpdate(gameModelUpdate: GKGameModelUpdate)
 }

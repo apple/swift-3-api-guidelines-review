@@ -44,7 +44,7 @@ class UIScrollView : UIView, Coding {
   var isDecelerating: Bool { get }
   var delaysContentTouches: Bool
   var canCancelContentTouches: Bool
-  func touchesShouldBegin(touches: Set<UITouch>, with event: UIEvent?, inContentView view: UIView) -> Bool
+  func touchesShouldBegin(touches: Set<UITouch>, withEvent event: UIEvent?, inContentView view: UIView) -> Bool
   func touchesShouldCancel(inContentView view: UIView) -> Bool
   var minimumZoomScale: CGFloat
   var maximumZoomScale: CGFloat
@@ -88,9 +88,9 @@ protocol UIScrollViewDelegate : ObjectProtocol {
   @available(iOS 2.0, *)
   optional func viewForZoomingIn(scrollView: UIScrollView) -> UIView?
   @available(iOS 3.2, *)
-  optional func scrollViewWillBeginZooming(scrollView: UIScrollView, with view: UIView?)
+  optional func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView?)
   @available(iOS 2.0, *)
-  optional func scrollViewDidEndZooming(scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat)
+  optional func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
   @available(iOS 2.0, *)
   optional func scrollViewShouldScroll(toTop scrollView: UIScrollView) -> Bool
   @available(iOS 2.0, *)

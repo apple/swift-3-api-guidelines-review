@@ -22,7 +22,7 @@ class GKChallenge : Object, Coding, SecureCoding {
   var message: String? { get }
   init()
   @available(tvOS 6.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(tvOS 6.0, *)
   class func supportsSecureCoding() -> Bool

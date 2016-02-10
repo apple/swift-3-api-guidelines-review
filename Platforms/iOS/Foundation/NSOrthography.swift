@@ -8,9 +8,9 @@ class Orthography : Object, Copying, Coding {
   init?(coder aDecoder: Coder)
   convenience init()
   @available(iOS 4.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
 }
 extension Orthography {
   @available(iOS 4.0, *)

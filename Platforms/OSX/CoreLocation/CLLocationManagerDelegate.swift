@@ -5,7 +5,7 @@ protocol CLLocationManagerDelegate : ObjectProtocol {
   @available(OSX 10.9, *)
   optional func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject])
   @available(OSX 10.10, *)
-  optional func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion)
+  optional func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion)
   @available(OSX 10.8, *)
   optional func locationManager(manager: CLLocationManager, didEnter region: CLRegion)
   @available(OSX 10.8, *)

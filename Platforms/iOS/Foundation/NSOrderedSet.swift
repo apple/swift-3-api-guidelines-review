@@ -8,13 +8,13 @@ class OrderedSet : Object, Copying, MutableCopying, SecureCoding, FastEnumeratio
   init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
   init?(coder aDecoder: Coder)
   @available(iOS 5.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 5.0, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 5.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   @available(iOS 5.0, *)
   func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
@@ -52,8 +52,8 @@ extension OrderedSet {
   var array: [AnyObject] { get }
   var set: Set<Object> { get }
   func enumerateObjects(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func enumerateObjects(opts: EnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func enumerateObjects(at s: IndexSet, options opts: EnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(opts: EnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(at s: IndexSet, options opts: EnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   func indexOfObjectPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   func indexOfObject(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   func indexOfObject(at s: IndexSet, options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
@@ -82,7 +82,7 @@ extension OrderedSet {
 class MutableOrderedSet : OrderedSet {
   func insert(object: AnyObject, at idx: Int)
   func removeObject(at idx: Int)
-  func replaceObject(at idx: Int, with object: AnyObject)
+  func replaceObject(at idx: Int, withObject object: AnyObject)
   init?(coder aDecoder: Coder)
   init()
   init(capacity numItems: Int)
@@ -108,7 +108,7 @@ extension MutableOrderedSet {
   @available(iOS 6.0, *)
   subscript (atIndexedSubscript idx: Int) -> AnyObject
   func replaceObjects(in range: NSRange, withObjects objects: UnsafePointer<AnyObject?>, count: Int)
-  func replaceObjects(at indexes: IndexSet, with objects: [AnyObject])
+  func replaceObjects(at indexes: IndexSet, withObjects objects: [AnyObject])
   func removeObjects(in range: NSRange)
   func removeObjects(at indexes: IndexSet)
   func removeAllObjects()

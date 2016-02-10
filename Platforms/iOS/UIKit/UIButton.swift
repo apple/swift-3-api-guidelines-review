@@ -24,20 +24,20 @@ class UIButton : UIControl, Coding {
   @available(iOS 5.0, *)
   var tintColor: UIColor!
   var buttonType: UIButtonType { get }
-  func setTitle(title: String?, for state: UIControlState)
-  func setTitleColor(color: UIColor?, for state: UIControlState)
-  func setTitleShadowColor(color: UIColor?, for state: UIControlState)
-  func setImage(image: UIImage?, for state: UIControlState)
-  func setBackgroundImage(image: UIImage?, for state: UIControlState)
+  func setTitle(title: String?, forState state: UIControlState)
+  func setTitleColor(color: UIColor?, forState state: UIControlState)
+  func setTitleShadowColor(color: UIColor?, forState state: UIControlState)
+  func setImage(image: UIImage?, forState state: UIControlState)
+  func setBackgroundImage(image: UIImage?, forState state: UIControlState)
   @available(iOS 6.0, *)
-  func setAttributedTitle(title: AttributedString?, for state: UIControlState)
-  func title(for state: UIControlState) -> String?
-  func titleColor(for state: UIControlState) -> UIColor?
-  func titleShadowColor(for state: UIControlState) -> UIColor?
-  func image(for state: UIControlState) -> UIImage?
-  func backgroundImage(for state: UIControlState) -> UIImage?
+  func setAttributedTitle(title: AttributedString?, forState state: UIControlState)
+  func title(forState state: UIControlState) -> String?
+  func titleColor(forState state: UIControlState) -> UIColor?
+  func titleShadowColor(forState state: UIControlState) -> UIColor?
+  func image(forState state: UIControlState) -> UIImage?
+  func backgroundImage(forState state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
-  func attributedTitle(for state: UIControlState) -> AttributedString?
+  func attributedTitle(forState state: UIControlState) -> AttributedString?
   var currentTitle: String? { get }
   var currentTitleColor: UIColor { get }
   var currentTitleShadowColor: UIColor? { get }

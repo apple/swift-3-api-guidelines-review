@@ -101,17 +101,17 @@ class NSPersistentStoreCoordinator : Object, Locking {
   var persistentStores: [NSPersistentStore] { get }
   @available(OSX 10.10, *)
   var name: String?
-  func persistentStore(for URL: URL) -> NSPersistentStore?
+  func persistentStore(forURL URL: URL) -> NSPersistentStore?
   func urlFor(store: NSPersistentStore) -> URL
   @available(OSX 10.5, *)
-  func setURL(url: URL, for store: NSPersistentStore) -> Bool
+  func setURL(url: URL, forPersistentStore store: NSPersistentStore) -> Bool
   func addPersistentStore(type storeType: String, configuration: String?, url storeURL: URL?, options: [Object : AnyObject]? = [:]) throws -> NSPersistentStore
   func removePersistentStore(store: NSPersistentStore) throws
-  func setMetadata(metadata: [String : AnyObject]?, for store: NSPersistentStore)
+  func setMetadata(metadata: [String : AnyObject]?, forPersistentStore store: NSPersistentStore)
   func metadataFor(store: NSPersistentStore) -> [String : AnyObject]
   func managedObjectID(forURIRepresentation url: URL) -> NSManagedObjectID?
   @available(OSX 10.7, *)
-  func execute(request: NSPersistentStoreRequest, with context: NSManagedObjectContext) throws -> AnyObject
+  func execute(request: NSPersistentStoreRequest, withContext context: NSManagedObjectContext) throws -> AnyObject
   @available(OSX 10.5, *)
   class func registeredStoreTypes() -> [String : Value]
   @available(OSX 10.5, *)

@@ -59,9 +59,9 @@ extension ProcessInfo {
   @available(tvOS 7.0, *)
   func endActivity(activity: ObjectProtocol)
   @available(tvOS 7.0, *)
-  func performActivity(options: ActivityOptions = [], reason: String, using block: () -> Void)
+  func performActivity(options: ActivityOptions = [], reason: String, usingBlock block: () -> Void)
   @available(tvOS 8.2, *)
-  func performExpiringActivity(reason reason: String, using block: (Bool) -> Void)
+  func performExpiringActivity(reason reason: String, usingBlock block: (Bool) -> Void)
 }
 extension ProcessInfo {
 }

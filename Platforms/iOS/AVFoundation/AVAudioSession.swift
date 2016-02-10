@@ -88,12 +88,12 @@ class AVAudioSession : Object {
   class func sharedInstance() -> AVAudioSession
   func setActive(active: Bool) throws
   @available(iOS 6.0, *)
-  func setActive(active: Bool, with options: AVAudioSessionSetActiveOptions = []) throws
+  func setActive(active: Bool, withOptions options: AVAudioSessionSetActiveOptions = []) throws
   @available(iOS 9.0, *)
   var availableCategories: [String] { get }
   func setCategory(category: String) throws
   @available(iOS 6.0, *)
-  func setCategory(category: String, with options: AVAudioSessionCategoryOptions = []) throws
+  func setCategory(category: String, withOptions options: AVAudioSessionCategoryOptions = []) throws
   var category: String { get }
   @available(iOS 8.0, *)
   func recordPermission() -> AVAudioSessionRecordPermission

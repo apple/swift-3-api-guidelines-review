@@ -29,7 +29,7 @@ class AVPlayerItem : Object, Copying {
   var status: AVPlayerItemStatus { get }
   var error: Error? { get }
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 extension AVPlayerItem {
   var asset: AVAsset { get }
@@ -135,7 +135,7 @@ class AVPlayerItemAccessLog : Object, Copying {
   var events: [AVPlayerItemAccessLogEvent] { get }
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.7, *)
 class AVPlayerItemErrorLog : Object, Copying {
@@ -144,7 +144,7 @@ class AVPlayerItemErrorLog : Object, Copying {
   var events: [AVPlayerItemErrorLogEvent] { get }
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.7, *)
 class AVPlayerItemAccessLogEvent : Object, Copying {
@@ -183,7 +183,7 @@ class AVPlayerItemAccessLogEvent : Object, Copying {
   var switchBitrate: Double { get }
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.7, *)
 class AVPlayerItemErrorLogEvent : Object, Copying {
@@ -196,5 +196,5 @@ class AVPlayerItemErrorLogEvent : Object, Copying {
   var errorComment: String? { get }
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

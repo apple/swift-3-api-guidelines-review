@@ -25,9 +25,9 @@ protocol UIViewControllerContextTransitioning : ObjectProtocol {
   @available(tvOS 8.0, *)
   func targetTransform() -> CGAffineTransform
   @available(tvOS 2.0, *)
-  func initialFrame(for vc: UIViewController) -> CGRect
+  func initialFrame(forViewController vc: UIViewController) -> CGRect
   @available(tvOS 2.0, *)
-  func finalFrame(for vc: UIViewController) -> CGRect
+  func finalFrame(forViewController vc: UIViewController) -> CGRect
 }
 protocol UIViewControllerAnimatedTransitioning : ObjectProtocol {
   func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval

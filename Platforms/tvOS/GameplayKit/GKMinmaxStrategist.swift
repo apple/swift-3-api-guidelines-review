@@ -2,8 +2,8 @@
 @available(tvOS 9.0, *)
 class GKMinmaxStrategist : Object, GKStrategist {
   var maxLookAheadDepth: Int
-  func bestMove(for player: GKGameModelPlayer) -> GKGameModelUpdate?
-  func randomMove(for player: GKGameModelPlayer, fromNumberOfBestMoves numMovesToConsider: Int) -> GKGameModelUpdate?
+  func bestMove(forPlayer player: GKGameModelPlayer) -> GKGameModelUpdate?
+  func randomMove(forPlayer player: GKGameModelPlayer, fromNumberOfBestMoves numMovesToConsider: Int) -> GKGameModelUpdate?
   init()
   @available(tvOS 9.0, *)
   var gameModel: GKGameModel?

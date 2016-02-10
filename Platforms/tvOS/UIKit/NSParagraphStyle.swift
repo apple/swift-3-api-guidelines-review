@@ -4,16 +4,16 @@ let NSTabColumnTerminatorsAttributeName: String
 @available(tvOS 7.0, *)
 class NSTextTab : Object, Copying, Coding {
   @available(tvOS 7.0, *)
-  class func columnTerminators(for aLocale: Locale?) -> CharacterSet
+  class func columnTerminators(forLocale aLocale: Locale?) -> CharacterSet
   init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options: [String : AnyObject] = [:])
   var alignment: NSTextAlignment { get }
   var location: CGFloat { get }
   var options: [String : AnyObject] { get }
   convenience init()
   @available(tvOS 7.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 7.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(tvOS 6.0, *)
@@ -52,13 +52,13 @@ class NSParagraphStyle : Object, Copying, MutableCopying, SecureCoding {
   var allowsDefaultTighteningForTruncation: Bool { get }
   init()
   @available(tvOS 6.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 6.0, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 6.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 6.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(tvOS 6.0, *)

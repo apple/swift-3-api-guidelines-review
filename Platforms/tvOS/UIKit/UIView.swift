@@ -144,20 +144,20 @@ class UIView : UIResponder, Coding, UIAppearance, UIAppearanceContainer, UIDynam
   @available(tvOS 9.0, *)
   var isFocused: Bool { get }
   @available(tvOS 9.0, *)
-  class func userInterfaceLayoutDirection(for attribute: UISemanticContentAttribute) -> UIUserInterfaceLayoutDirection
+  class func userInterfaceLayoutDirection(forSemanticContentAttribute attribute: UISemanticContentAttribute) -> UIUserInterfaceLayoutDirection
   @available(tvOS 9.0, *)
   var semanticContentAttribute: UISemanticContentAttribute
   convenience init()
   @available(tvOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   @available(tvOS 2.0, *)
   class func appearance() -> Self
   @available(tvOS 9.0, *)
   class func appearanceWhenContainedInInstances(ofClasses containerTypes: [AnyObject.Type]) -> Self
   @available(tvOS 8.0, *)
-  class func appearance(for trait: UITraitCollection) -> Self
+  class func appearance(forTraitCollection trait: UITraitCollection) -> Self
   @available(tvOS 9.0, *)
-  class func appearance(for trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
+  class func appearance(forTraitCollection trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
   @available(tvOS 9.0, *)
   var collisionBoundsType: UIDynamicItemCollisionBoundsType { get }
   @available(tvOS 9.0, *)
@@ -183,7 +183,7 @@ class UIView : UIResponder, Coding, UIAppearance, UIAppearanceContainer, UIDynam
   @available(tvOS 9.0, *)
   func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool
   @available(tvOS 9.0, *)
-  func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
+  func didUpdateFocus(in context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
 }
 
 extension UIView : CustomPlaygroundQuickLookable {
@@ -196,8 +196,8 @@ extension UIView {
   var transform: CGAffineTransform
   @available(tvOS 4.0, *)
   var contentScaleFactor: CGFloat
-  func hitTest(point: CGPoint, with event: UIEvent?) -> UIView?
-  func point(inside point: CGPoint, with event: UIEvent?) -> Bool
+  func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView?
+  func point(inside point: CGPoint, withEvent event: UIEvent?) -> Bool
   func convert(point: CGPoint, to view: UIView?) -> CGPoint
   func convert(point: CGPoint, from view: UIView?) -> CGPoint
   func convert(rect: CGRect, to view: UIView?) -> CGRect
@@ -274,7 +274,7 @@ extension UIView {
   class func setAnimationRepeatCount(repeatCount: Float)
   class func setAnimationRepeatAutoreverses(repeatAutoreverses: Bool)
   class func setAnimationBeginsFromCurrentState(fromCurrentState: Bool)
-  class func setAnimationTransition(transition: UIViewAnimationTransition, for view: UIView, cache: Bool)
+  class func setAnimationTransition(transition: UIViewAnimationTransition, forView view: UIView, cache: Bool)
   class func setAnimationsEnabled(enabled: Bool)
   class func areAnimationsEnabled() -> Bool
   @available(tvOS 7.0, *)
@@ -292,7 +292,7 @@ extension UIView {
   @available(tvOS 7.0, *)
   class func animate(duration duration: TimeInterval, delay: TimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 4.0, *)
-  class func transition(with view: UIView, duration: TimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
+  class func transition(withView view: UIView, duration: TimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 4.0, *)
   class func transition(from fromView: UIView, to toView: UIView, duration: TimeInterval, options: UIViewAnimationOptions = [], completion: ((Bool) -> Void)? = nil)
   @available(tvOS 7.0, *)
@@ -372,13 +372,13 @@ extension UIView {
   @available(tvOS 6.0, *)
   func invalidateIntrinsicContentSize()
   @available(tvOS 6.0, *)
-  func contentHuggingPriority(for axis: UILayoutConstraintAxis) -> UILayoutPriority
+  func contentHuggingPriority(forAxis axis: UILayoutConstraintAxis) -> UILayoutPriority
   @available(tvOS 6.0, *)
-  func setContentHuggingPriority(priority: UILayoutPriority, for axis: UILayoutConstraintAxis)
+  func setContentHuggingPriority(priority: UILayoutPriority, forAxis axis: UILayoutConstraintAxis)
   @available(tvOS 6.0, *)
-  func contentCompressionResistancePriority(for axis: UILayoutConstraintAxis) -> UILayoutPriority
+  func contentCompressionResistancePriority(forAxis axis: UILayoutConstraintAxis) -> UILayoutPriority
   @available(tvOS 6.0, *)
-  func setContentCompressionResistancePriority(priority: UILayoutPriority, for axis: UILayoutConstraintAxis)
+  func setContentCompressionResistancePriority(priority: UILayoutPriority, forAxis axis: UILayoutConstraintAxis)
 }
 @available(tvOS 6.0, *)
 let UIViewNoIntrinsicMetric: CGFloat
@@ -428,7 +428,7 @@ extension UIView {
 }
 extension UIView {
   @available(tvOS 6.0, *)
-  func constraintsAffectingLayout(for axis: UILayoutConstraintAxis) -> [NSLayoutConstraint]
+  func constraintsAffectingLayout(forAxis axis: UILayoutConstraintAxis) -> [NSLayoutConstraint]
   @available(tvOS 6.0, *)
   func hasAmbiguousLayout() -> Bool
   @available(tvOS 6.0, *)
@@ -438,9 +438,9 @@ extension UIView {
   @available(tvOS 6.0, *)
   var restorationIdentifier: String?
   @available(tvOS 6.0, *)
-  func encodeRestorableState(with coder: Coder)
+  func encodeRestorableState(coder: Coder)
   @available(tvOS 6.0, *)
-  func decodeRestorableState(with coder: Coder)
+  func decodeRestorableState(coder: Coder)
 }
 extension UIView {
   @available(tvOS 7.0, *)

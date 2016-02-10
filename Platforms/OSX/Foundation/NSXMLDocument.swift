@@ -13,7 +13,7 @@ class XMLDocument : XMLNode {
   convenience init(contentsOf url: URL, options mask: Int) throws
   init(data: Data, options mask: Int) throws
   init(rootElement element: XMLElement?)
-  class func replacementClass(for cls: AnyClass) -> AnyClass
+  class func replacementClass(forClass cls: AnyClass) -> AnyClass
   var characterEncoding: String?
   var version: String?
   var isStandalone: Bool
@@ -27,7 +27,7 @@ class XMLDocument : XMLNode {
   func removeChild(at index: Int)
   func setChildren(children: [XMLNode]?)
   func addChild(child: XMLNode)
-  func replaceChild(at index: Int, with node: XMLNode)
+  func replaceChild(at index: Int, withNode node: XMLNode)
   @NSCopying var xmlData: Data { get }
   func xmlData(withOptions options: Int) -> Data
   func objectByApplyingXSLT(xslt: Data, arguments: [String : String]?) throws -> AnyObject

@@ -3,7 +3,7 @@ typealias CIKernelROICallback = (Int32, CGRect) -> CGRect
 @available(iOS 8.0, *)
 class CIKernel : Object {
   @available(iOS 8.0, *)
-  class func kernels(with string: String) -> [CIKernel]?
+  class func kernels(withString string: String) -> [CIKernel]?
   @available(iOS 8.0, *)
   convenience init?(string: String)
   @available(iOS 8.0, *)

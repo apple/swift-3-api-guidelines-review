@@ -77,12 +77,12 @@ class AVAudioSession : Object {
   class func sharedInstance() -> AVAudioSession
   func setActive(active: Bool) throws
   @available(tvOS 6.0, *)
-  func setActive(active: Bool, with options: AVAudioSessionSetActiveOptions = []) throws
+  func setActive(active: Bool, withOptions options: AVAudioSessionSetActiveOptions = []) throws
   @available(tvOS 9.0, *)
   var availableCategories: [String] { get }
   func setCategory(category: String) throws
   @available(tvOS 6.0, *)
-  func setCategory(category: String, with options: AVAudioSessionCategoryOptions = []) throws
+  func setCategory(category: String, withOptions options: AVAudioSessionCategoryOptions = []) throws
   var category: String { get }
   @available(tvOS 6.0, *)
   var categoryOptions: AVAudioSessionCategoryOptions { get }

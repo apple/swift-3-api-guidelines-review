@@ -6,10 +6,10 @@ class NSSet : Object, Copying, MutableCopying, SecureCoding, FastEnumeration {
   init()
   init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
   init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
@@ -53,7 +53,7 @@ extension NSSet {
   @available(OSX 10.6, *)
   func enumerateObjects(block: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.6, *)
-  func enumerateObjects(opts: EnumerationOptions = [], using block: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(opts: EnumerationOptions = [], usingBlock block: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.6, *)
   func objectsPassingTest(predicate: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
   @available(OSX 10.6, *)
@@ -91,7 +91,7 @@ class CountedSet : MutableSet {
   init(capacity numItems: Int)
   convenience init(array: [AnyObject])
   convenience init(set: Set<Object>)
-  func count(for object: AnyObject) -> Int
+  func count(forObject object: AnyObject) -> Int
   func objectEnumerator() -> Enumerator
   func add(object: AnyObject)
   func remove(object: AnyObject)

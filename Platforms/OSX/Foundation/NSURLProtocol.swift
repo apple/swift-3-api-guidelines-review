@@ -28,7 +28,7 @@ class URLProtocol : Object {
 }
 extension URLProtocol {
   @available(OSX 10.10, *)
-  class func canInit(with task: URLSessionTask) -> Bool
+  class func canInit(withTask task: URLSessionTask) -> Bool
   @available(OSX 10.10, *)
   convenience init(task: URLSessionTask, cachedResponse: CachedURLResponse?, client: URLProtocolClient?)
   @available(OSX 10.10, *)

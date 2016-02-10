@@ -6,8 +6,8 @@ class Notification : Object, Copying, Coding {
   @available(iOS 4.0, *)
   init(name: String, object: AnyObject?, userInfo: [Object : AnyObject]? = [:])
   init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
+  func copyWith(zone: Zone = nil) -> AnyObject
+  func encodeWith(aCoder: Coder)
 }
 extension Notification {
   convenience init(name aName: String, object anObject: AnyObject?)
@@ -22,6 +22,6 @@ class NotificationCenter : Object {
   func removeObserver(observer: AnyObject)
   func removeObserver(observer: AnyObject, name aName: String?, object anObject: AnyObject?)
   @available(iOS 4.0, *)
-  func addObserver(forName name: String?, object obj: AnyObject?, queue: OperationQueue?, using block: (Notification) -> Void) -> ObjectProtocol
+  func addObserver(forName name: String?, object obj: AnyObject?, queue: OperationQueue?, usingBlock block: (Notification) -> Void) -> ObjectProtocol
   init()
 }

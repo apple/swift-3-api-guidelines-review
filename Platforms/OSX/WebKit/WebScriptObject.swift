@@ -1,7 +1,7 @@
 
 extension Object {
   @available(OSX 10.4, *)
-  class func webScriptName(for selector: Selector) -> String!
+  class func webScriptName(forSelector selector: Selector) -> String!
   @available(OSX 10.4, *)
   class func isSelectorExcluded(fromWebScript selector: Selector) -> Bool
   @available(OSX 10.4, *)
@@ -40,8 +40,8 @@ class WebScriptObject : Object {
 class WebUndefined : Object, Coding, Copying {
   init()
   @available(OSX 10.4, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.4, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

@@ -29,7 +29,7 @@ typealias AUHostTransportStateBlock = (UnsafeMutablePointer<AUHostTransportState
 class AUAudioUnit : Object {
   init(componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = []) throws
   convenience init(componentDescription: AudioComponentDescription) throws
-  class func instantiate(with componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = [], completionHandler: (AUAudioUnit?, Error?) -> Void)
+  class func instantiate(withComponentDescription componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = [], completionHandler: (AUAudioUnit?, Error?) -> Void)
   var componentDescription: AudioComponentDescription { get }
   var component: AudioComponent { get }
   var componentName: String? { get }
@@ -115,6 +115,6 @@ class AUAudioUnitPreset : Object, SecureCoding {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

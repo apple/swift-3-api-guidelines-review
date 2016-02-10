@@ -16,13 +16,13 @@ extension DRTrack {
 protocol DRTrackDataProduction {
   func estimateLength(of track: DRTrack!) -> UInt64
   @available(OSX 10.0, *)
-  func prepare(track: DRTrack!, for burn: DRBurn!, toMedia mediaInfo: [Object : AnyObject]!) -> Bool
+  func prepare(track: DRTrack!, forBurn burn: DRBurn!, toMedia mediaInfo: [Object : AnyObject]!) -> Bool
   func cleanupTrackAfterBurn(track: DRTrack!)
-  func producePreGap(for track: DRTrack!, intoBuffer buffer: UnsafeMutablePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> UInt32
-  func produceData(for track: DRTrack!, intoBuffer buffer: UnsafeMutablePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> UInt32
+  func producePreGap(forTrack track: DRTrack!, intoBuffer buffer: UnsafeMutablePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> UInt32
+  func produceData(forTrack track: DRTrack!, intoBuffer buffer: UnsafeMutablePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> UInt32
   func prepareTrack(forVerification track: DRTrack!) -> Bool
-  func verifyPreGap(for track: DRTrack!, inBuffer buffer: UnsafePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> Bool
-  func verifyData(for track: DRTrack!, inBuffer buffer: UnsafePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> Bool
+  func verifyPreGap(forTrack track: DRTrack!, inBuffer buffer: UnsafePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> Bool
+  func verifyData(forTrack track: DRTrack!, inBuffer buffer: UnsafePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> Bool
   func cleanupTrack(afterVerification track: DRTrack!) -> Bool
 }
 @available(OSX 10.2, *)

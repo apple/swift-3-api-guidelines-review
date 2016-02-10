@@ -30,9 +30,9 @@ protocol UIContentContainer : ObjectProtocol {
   @available(tvOS 8.0, *)
   func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
   @available(tvOS 8.0, *)
-  func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator)
+  func viewWillTransition(to size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
   @available(tvOS 8.0, *)
-  func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator)
+  func willTransition(to newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
 }
 @available(tvOS 8.0, *)
 let UIViewControllerShowDetailTargetDidChangeNotification: String
@@ -58,7 +58,7 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   @available(tvOS 6.0, *)
   func shouldPerformSegue(withIdentifier identifier: String, sender: AnyObject?) -> Bool
   @available(tvOS 5.0, *)
-  func prepare(for segue: UIStoryboardSegue, sender: AnyObject?)
+  func prepare(forSegue segue: UIStoryboardSegue, sender: AnyObject?)
   @available(tvOS 6.0, *)
   func canPerformUnwindSegueAction(action: Selector, from fromViewController: UIViewController, withSender sender: AnyObject) -> Bool
   @available(tvOS 9.0, *)
@@ -68,7 +68,7 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   @available(tvOS, introduced=6.0, deprecated=9.0)
   func forUnwindSegueAction(action: Selector, from fromViewController: UIViewController, withSender sender: AnyObject?) -> UIViewController?
   @available(tvOS 9.0, *)
-  func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController)
+  func unwind(forSegue unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController)
   @available(tvOS, introduced=6.0, deprecated=9.0)
   func segueForUnwinding(to toViewController: UIViewController, from fromViewController: UIViewController, identifier: String?) -> UIStoryboardSegue?
   func viewWillAppear(animated: Bool)
@@ -124,7 +124,7 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   func showDetailViewController(vc: UIViewController, sender: AnyObject?)
   convenience init()
   @available(tvOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   @available(tvOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(tvOS 8.0, *)
@@ -136,9 +136,9 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   @available(tvOS 8.0, *)
   func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
   @available(tvOS 8.0, *)
-  func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator)
+  func viewWillTransition(to size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
   @available(tvOS 8.0, *)
-  func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator)
+  func willTransition(to newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
   @available(tvOS 9.0, *)
   weak var preferredFocusedView: @sil_weak UIView? { get }
   @available(tvOS 9.0, *)
@@ -148,7 +148,7 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   @available(tvOS 9.0, *)
   func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool
   @available(tvOS 9.0, *)
-  func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
+  func didUpdateFocus(in context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
 }
 extension UIViewController {
 }
@@ -193,9 +193,9 @@ extension UIViewController : UIStateRestoring {
   @available(tvOS 6.0, *)
   var restorationClass: AnyObject.Type?
   @available(tvOS 6.0, *)
-  func encodeRestorableState(with coder: Coder)
+  func encodeRestorableState(coder: Coder)
   @available(tvOS 6.0, *)
-  func decodeRestorableState(with coder: Coder)
+  func decodeRestorableState(coder: Coder)
   @available(tvOS 7.0, *)
   func applicationFinishedRestoringState()
   var restorationParent: UIStateRestoring? { get }
@@ -278,7 +278,7 @@ class UIPreviewAction : Object, Copying, UIPreviewActionItem {
   convenience init(title: String, style: UIPreviewActionStyle, handler: (UIPreviewAction, UIViewController) -> Void)
   init()
   @available(tvOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 9.0, *)
   var title: String { get }
 }
@@ -287,7 +287,7 @@ class UIPreviewActionGroup : Object, Copying, UIPreviewActionItem {
   convenience init(title: String, style: UIPreviewActionStyle, actions: [UIPreviewAction])
   init()
   @available(tvOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 9.0, *)
   var title: String { get }
 }

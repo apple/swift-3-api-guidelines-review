@@ -17,7 +17,7 @@ class NSEntityDescription : Object, Coding, Copying, FastEnumeration {
   var relationshipsByName: [String : NSRelationshipDescription] { get }
   func relationships(withDestinationEntity entity: NSEntityDescription) -> [NSRelationshipDescription]
   @available(OSX 10.5, *)
-  func isKindOfEntity(entity: NSEntityDescription) -> Bool
+  func isKind(ofEntity entity: NSEntityDescription) -> Bool
   @available(OSX 10.5, *)
   @NSCopying var versionHash: Data { get }
   @available(OSX 10.5, *)
@@ -30,10 +30,10 @@ class NSEntityDescription : Object, Coding, Copying, FastEnumeration {
   var uniquenessConstraints: [[AnyObject]]
   init()
   @available(OSX 10.4, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.4, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.4, *)
   func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

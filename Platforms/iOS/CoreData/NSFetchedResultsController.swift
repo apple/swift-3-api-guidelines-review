@@ -11,7 +11,7 @@ class NSFetchedResultsController : Object {
   class func deleteCache(name name: String?)
   var fetchedObjects: [AnyObject]? { get }
   func object(at indexPath: IndexPath) -> AnyObject
-  func indexPath(for object: AnyObject) -> IndexPath?
+  func indexPath(forObject object: AnyObject) -> IndexPath?
   func sectionIndexTitle(forSectionName sectionName: String) -> String?
   var sectionIndexTitles: [String] { get }
   var sections: [NSFetchedResultsSectionInfo]? { get }
@@ -42,9 +42,9 @@ protocol NSFetchedResultsSectionInfo {
 }
 protocol NSFetchedResultsControllerDelegate : ObjectProtocol {
   @available(iOS 3.0, *)
-  optional func controller(controller: NSFetchedResultsController, didChange anObject: AnyObject, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
+  optional func controller(controller: NSFetchedResultsController, didChange anObject: AnyObject, at indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
   @available(iOS 3.0, *)
-  optional func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, at sectionIndex: Int, for type: NSFetchedResultsChangeType)
+  optional func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, at sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType)
   @available(iOS 3.0, *)
   optional func controllerWillChangeContent(controller: NSFetchedResultsController)
   @available(iOS 3.0, *)

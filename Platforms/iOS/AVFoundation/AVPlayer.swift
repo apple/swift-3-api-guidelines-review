@@ -54,8 +54,8 @@ extension AVPlayer {
   var masterClock: CMClock?
 }
 extension AVPlayer {
-  func addPeriodicTimeObserver(forInterval interval: CMTime, queue: dispatch_queue_t?, using block: (CMTime) -> Void) -> AnyObject
-  func addBoundaryTimeObserver(forTimes times: [Value], queue: dispatch_queue_t?, using block: () -> Void) -> AnyObject
+  func addPeriodicTimeObserver(forInterval interval: CMTime, queue: dispatch_queue_t?, usingBlock block: (CMTime) -> Void) -> AnyObject
+  func addBoundaryTimeObserver(forTimes times: [Value], queue: dispatch_queue_t?, usingBlock block: () -> Void) -> AnyObject
   func removeTimeObserver(observer: AnyObject)
 }
 extension AVPlayer {

@@ -8,7 +8,7 @@ class NCWidgetListViewController : NSViewController {
   var editing: Bool
   var showsAddButtonWhenEditing: Bool
   func viewController(atRow row: Int, makeIfNecessary makeIfNecesary: Bool) -> NSViewController!
-  func row(for viewController: NSViewController!) -> Int
+  func row(forViewController viewController: NSViewController!) -> Int
   init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
   init?(coder: Coder)
   convenience init()

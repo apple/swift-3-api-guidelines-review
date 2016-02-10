@@ -8,5 +8,5 @@ class EKRecurrenceDayOfWeek : Object, Copying {
   var weekNumber: Int { get }
   init()
   @available(iOS 4.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

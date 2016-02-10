@@ -23,7 +23,7 @@ protocol UIFocusEnvironment : ObjectProtocol {
   func setNeedsFocusUpdate()
   func updateFocusIfNeeded()
   func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool
-  func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
+  func didUpdateFocus(in context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
 }
 @available(tvOS 9.0, *)
 class UIFocusGuide : UILayoutGuide {

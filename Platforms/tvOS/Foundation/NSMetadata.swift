@@ -24,7 +24,7 @@ class MetadataQuery : Object {
   @available(tvOS 7.0, *)
   func enumerateResults(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 7.0, *)
-  func enumerateResults(opts: EnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateResults(opts: EnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   var results: [AnyObject] { get }
   func index(ofResult result: AnyObject) -> Int
   var valueLists: [String : [MetadataQueryAttributeValueTuple]] { get }

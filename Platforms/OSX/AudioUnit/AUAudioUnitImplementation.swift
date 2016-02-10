@@ -85,5 +85,5 @@ class AUAudioUnitV2Bridge : AUAudioUnit {
 }
 protocol AUAudioUnitFactory : ExtensionRequestHandling {
   @available(OSX 10.11, *)
-  func createAudioUnit(with desc: AudioComponentDescription) throws -> AUAudioUnit
+  func createAudioUnit(withComponentDescription desc: AudioComponentDescription) throws -> AUAudioUnit
 }

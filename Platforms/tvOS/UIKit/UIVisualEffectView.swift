@@ -11,11 +11,11 @@ enum UIBlurEffectStyle : Int {
 class UIVisualEffect : Object, Copying, SecureCoding {
   init()
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(tvOS 8.0, *)
@@ -26,7 +26,7 @@ class UIBlurEffect : UIVisualEffect {
 }
 @available(tvOS 8.0, *)
 class UIVibrancyEffect : UIVisualEffect {
-  /*not inherited*/ init(for blurEffect: UIBlurEffect)
+  /*not inherited*/ init(forBlurEffect blurEffect: UIBlurEffect)
   init()
   init?(coder aDecoder: Coder)
 }

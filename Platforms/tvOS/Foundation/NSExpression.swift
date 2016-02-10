@@ -49,7 +49,7 @@ class Expression : Object, SecureCoding, Copying {
   @available(tvOS 7.0, *)
   class func forAnyKey() -> Expression
   @available(tvOS 4.0, *)
-  /*not inherited*/ init(for block: (AnyObject?, [AnyObject], MutableDictionary?) -> AnyObject, arguments: [Expression]?)
+  /*not inherited*/ init(forBlock block: (AnyObject?, [AnyObject], MutableDictionary?) -> AnyObject, arguments: [Expression]?)
   @available(tvOS 9.0, *)
   /*not inherited*/ init(forConditional predicate: Predicate, trueExpression: Expression, falseExpression: Expression)
   init(expressionType type: ExpressionType)
@@ -75,16 +75,16 @@ class Expression : Object, SecureCoding, Copying {
   @NSCopying var falseExpression: Expression { get }
   @available(tvOS 4.0, *)
   var expressionBlock: (AnyObject?, [AnyObject], MutableDictionary?) -> AnyObject { get }
-  func expressionValue(with object: AnyObject?, context: MutableDictionary?) -> AnyObject
+  func expressionValue(withObject object: AnyObject?, context: MutableDictionary?) -> AnyObject
   @available(tvOS 7.0, *)
   func allowEvaluation()
   convenience init()
   @available(tvOS 3.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 3.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   @available(tvOS 3.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 
 extension Expression {

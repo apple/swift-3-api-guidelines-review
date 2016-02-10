@@ -27,9 +27,9 @@ class NSAlert : Object {
   func layout()
   func runModal() -> NSModalResponse
   @available(OSX, introduced=10.3, deprecated=10.10, message="Use -beginSheetModalForWindow:completionHandler: instead")
-  func beginSheetModal(for window: NSWindow, modalDelegate delegate: AnyObject?, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func beginSheetModal(forWindow window: NSWindow, modalDelegate delegate: AnyObject?, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.9, *)
-  func beginSheetModal(for sheetWindow: NSWindow, completionHandler handler: ((NSModalResponse) -> Void)? = nil)
+  func beginSheetModal(forWindow sheetWindow: NSWindow, completionHandler handler: ((NSModalResponse) -> Void)? = nil)
   var window: NSWindow { get }
   init()
 }

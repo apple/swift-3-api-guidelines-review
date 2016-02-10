@@ -5,6 +5,6 @@ class EKSource : EKObject {
   var sourceType: EKSourceType { get }
   var title: String { get }
   @available(OSX 10.8, *)
-  func calendars(for entityType: EKEntityType) -> Set<EKCalendar>
+  func calendars(forEntityType entityType: EKEntityType) -> Set<EKCalendar>
   init()
 }

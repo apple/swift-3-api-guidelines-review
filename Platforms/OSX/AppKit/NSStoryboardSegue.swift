@@ -11,7 +11,7 @@ class NSStoryboardSegue : Object {
 }
 protocol NSSeguePerforming : ObjectProtocol {
   @available(OSX 10.10, *)
-  optional func prepare(for segue: NSStoryboardSegue, sender: AnyObject?)
+  optional func prepare(forSegue segue: NSStoryboardSegue, sender: AnyObject?)
   @available(OSX 10.10, *)
   optional func performSegue(identifier identifier: String, sender: AnyObject?)
   @available(OSX 10.10, *)

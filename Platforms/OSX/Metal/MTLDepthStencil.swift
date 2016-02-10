@@ -35,7 +35,7 @@ class MTLStencilDescriptor : Object, Copying {
   var writeMask: UInt32
   init()
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class MTLDepthStencilDescriptor : Object, Copying {
@@ -46,7 +46,7 @@ class MTLDepthStencilDescriptor : Object, Copying {
   var label: String?
   init()
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 protocol MTLDepthStencilState : ObjectProtocol {

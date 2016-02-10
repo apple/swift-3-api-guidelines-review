@@ -9,7 +9,7 @@ typealias EKEventSearchCallback = (EKEvent, UnsafeMutablePointer<ObjCBool>) -> V
 @available(iOS 4.0, *)
 class EKEventStore : Object {
   @available(iOS 6.0, *)
-  class func authorizationStatus(for entityType: EKEntityType) -> EKAuthorizationStatus
+  class func authorizationStatus(forEntityType entityType: EKEntityType) -> EKAuthorizationStatus
   @available(iOS 4.0, *)
   init()
   @available(iOS 6.0, *)
@@ -20,7 +20,7 @@ class EKEventStore : Object {
   @available(iOS 5.0, *)
   func source(withIdentifier identifier: String) -> EKSource
   @available(iOS 6.0, *)
-  func calendars(for entityType: EKEntityType) -> [EKCalendar]
+  func calendars(forEntityType entityType: EKEntityType) -> [EKCalendar]
   var defaultCalendarForNewEvents: EKCalendar { get }
   @available(iOS 6.0, *)
   func defaultCalendarForNewReminders() -> EKCalendar
@@ -44,7 +44,7 @@ class EKEventStore : Object {
   func remove(event: EKEvent, span: EKSpan, commit: Bool) throws
   func event(withIdentifier identifier: String) -> EKEvent?
   func events(matching predicate: Predicate) -> [EKEvent]
-  func enumerateEvents(matching predicate: Predicate, using block: EKEventSearchCallback)
+  func enumerateEvents(matching predicate: Predicate, usingBlock block: EKEventSearchCallback)
   func predicateForEventsWithStart(startDate: Date, end endDate: Date, calendars: [EKCalendar]?) -> Predicate
   @available(iOS 6.0, *)
   func save(reminder: EKReminder, commit: Bool) throws

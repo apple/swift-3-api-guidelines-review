@@ -26,7 +26,7 @@ class WKWebViewConfiguration : Object, Copying {
   var allowsPictureInPictureMediaPlayback: Bool
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 extension WKWebViewConfiguration {
   @available(iOS, introduced=8.0, deprecated=9.0, message="Please use requiresUserActionForMediaPlayback")

@@ -127,9 +127,9 @@ class TKSmartCard : Object {
   func transmitRequest(request: Data, reply: (Data?, Error?) -> Void)
   func endSession()
   @available(OSX 10.11, *)
-  func userInteractionForSecurePINVerification(with PINFormat: TKSmartCardPINFormat, apdu APDU: Data, pinByteOffset PINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINVerification?
+  func userInteractionForSecurePINVerification(withPINFormat PINFormat: TKSmartCardPINFormat, apdu APDU: Data, pinByteOffset PINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINVerification?
   @available(OSX 10.11, *)
-  func userInteractionForSecurePINChange(with PINFormat: TKSmartCardPINFormat, apdu APDU: Data, currentPINByteOffset: Int, newPINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINChange?
+  func userInteractionForSecurePINChange(withPINFormat PINFormat: TKSmartCardPINFormat, apdu APDU: Data, currentPINByteOffset: Int, newPINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINChange?
   init()
 }
 extension TKSmartCard {

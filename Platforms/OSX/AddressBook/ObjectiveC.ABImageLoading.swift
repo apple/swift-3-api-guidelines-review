@@ -5,6 +5,6 @@ protocol ABImageClient : ObjectProtocol {
 extension ABPerson {
   func setImageData(data: Data!) -> Bool
   func imageData() -> Data!
-  func beginLoadingImageData(for client: ABImageClient!) -> Int
+  func beginLoadingImageData(forClient client: ABImageClient!) -> Int
   class func cancelLoadingImageData(forTag tag: Int)
 }

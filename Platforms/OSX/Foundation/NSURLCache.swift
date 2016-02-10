@@ -15,16 +15,16 @@ class CachedURLResponse : Object, SecureCoding, Copying {
   var storagePolicy: URLCacheStoragePolicy { get }
   init()
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 class URLCache : Object {
   class func shared() -> URLCache
   class func setSharedURLCache(cache: URLCache)
   init(memoryCapacity: Int, diskCapacity: Int, diskPath path: String?)
   func cachedResponseFor(request: URLRequest) -> CachedURLResponse?
-  func storeCachedResponse(cachedResponse: CachedURLResponse, for request: URLRequest)
+  func storeCachedResponse(cachedResponse: CachedURLResponse, forRequest request: URLRequest)
   func removeCachedResponseFor(request: URLRequest)
   func removeAllCachedResponses()
   @available(OSX 10.10, *)
@@ -37,9 +37,9 @@ class URLCache : Object {
 }
 extension URLCache {
   @available(OSX 10.10, *)
-  func storeCachedResponse(cachedResponse: CachedURLResponse, for dataTask: URLSessionDataTask)
+  func storeCachedResponse(cachedResponse: CachedURLResponse, forDataTask dataTask: URLSessionDataTask)
   @available(OSX 10.10, *)
-  func getCachedResponse(for dataTask: URLSessionDataTask, completionHandler: (CachedURLResponse?) -> Void)
+  func getCachedResponse(forDataTask dataTask: URLSessionDataTask, completionHandler: (CachedURLResponse?) -> Void)
   @available(OSX 10.10, *)
-  func removeCachedResponse(for dataTask: URLSessionDataTask)
+  func removeCachedResponse(forDataTask dataTask: URLSessionDataTask)
 }

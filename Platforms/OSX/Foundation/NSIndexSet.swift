@@ -21,9 +21,9 @@ class IndexSet : Object, Copying, MutableCopying, SecureCoding {
   @available(OSX 10.6, *)
   func enumerate(block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.6, *)
-  func enumerate(opts: EnumerationOptions = [], using block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerate(opts: EnumerationOptions = [], usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.6, *)
-  func enumerate(in range: NSRange, options opts: EnumerationOptions = [], using block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerate(in range: NSRange, options opts: EnumerationOptions = [], usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.6, *)
   func indexPassingTest(predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(OSX 10.6, *)
@@ -39,14 +39,14 @@ class IndexSet : Object, Copying, MutableCopying, SecureCoding {
   @available(OSX 10.7, *)
   func enumerateRanges(block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.7, *)
-  func enumerateRanges(opts: EnumerationOptions = [], using block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateRanges(opts: EnumerationOptions = [], usingBlock block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.7, *)
-  func enumerateRanges(in range: NSRange, options opts: EnumerationOptions = [], using block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateRanges(in range: NSRange, options opts: EnumerationOptions = [], usingBlock block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   convenience init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 

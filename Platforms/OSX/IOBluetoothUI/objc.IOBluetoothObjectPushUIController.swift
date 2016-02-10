@@ -3,7 +3,7 @@ class IOBluetoothObjectPushUIController : NSWindowController {
   init!(objectPushWith inDevice: IOBluetoothDevice!, withFiles inFiles: [AnyObject]!, delegate inDelegate: AnyObject!)
   func runModal()
   func runPanel()
-  func beginSheetModal(for sheetWindow: NSWindow!, modalDelegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>) -> IOReturn
+  func beginSheetModal(forWindow sheetWindow: NSWindow!, modalDelegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>) -> IOReturn
   func stop()
   func setTitle(windowTitle: String!)
   func getTitle() -> String!

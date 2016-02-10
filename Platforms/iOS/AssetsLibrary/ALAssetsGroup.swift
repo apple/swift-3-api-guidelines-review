@@ -22,9 +22,9 @@ class ALAssetsGroup : Object {
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use the PHFetchResult returned by fetchAssetsInAssetCollection:options: on PHAsset to enumerate the assets in an asset collection from the Photos framework instead")
   func enumerateAssets(enumerationBlock: ALAssetsGroupEnumerationResultsBlock!)
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use the PHFetchResult returned by fetchAssetsInAssetCollection:options: on PHAsset to enumerate the assets in an asset collection from the Photos framework instead")
-  func enumerateAssets(options: EnumerationOptions = [], using enumerationBlock: ALAssetsGroupEnumerationResultsBlock!)
+  func enumerateAssets(options: EnumerationOptions = [], usingBlock enumerationBlock: ALAssetsGroupEnumerationResultsBlock!)
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use the PHFetchResult returned by fetchAssetsInAssetCollection:options: on PHAsset to enumerate the assets in an asset collection from the Photos framework instead")
-  func enumerateAssets(at indexSet: IndexSet!, options: EnumerationOptions = [], using enumerationBlock: ALAssetsGroupEnumerationResultsBlock!)
+  func enumerateAssets(at indexSet: IndexSet!, options: EnumerationOptions = [], usingBlock enumerationBlock: ALAssetsGroupEnumerationResultsBlock!)
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use canPerformEditOperation: on a PHAssetCollection from the Photos framework instead")
   var isEditable: Bool { get }
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use addAssets: on a PHAssetCollectionChangeRequest: created from a PHAssetCollection in the Photos framework instead")

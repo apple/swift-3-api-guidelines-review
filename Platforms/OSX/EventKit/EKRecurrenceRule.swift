@@ -16,5 +16,5 @@ class EKRecurrenceRule : EKObject, Copying {
   var setPositions: [Number]? { get }
   init()
   @available(OSX 10.8, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

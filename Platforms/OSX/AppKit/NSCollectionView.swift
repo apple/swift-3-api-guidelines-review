@@ -58,7 +58,7 @@ class NSCollectionViewItem : NSViewController, Copying, NSCollectionViewElement 
   init?(coder: Coder)
   convenience init()
   @available(OSX 10.5, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.11, *)
   func prepareForReuse()
   @available(OSX 10.11, *)
@@ -122,9 +122,9 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.11, *)
   func register(nib: NSNib?, forSupplementaryViewOfKind kind: String, withIdentifier identifier: String)
   @available(OSX 10.11, *)
-  func makeItem(identifier identifier: String, for indexPath: IndexPath) -> NSCollectionViewItem
+  func makeItem(identifier identifier: String, forIndexPath indexPath: IndexPath) -> NSCollectionViewItem
   @available(OSX 10.11, *)
-  func makeSupplementaryView(ofKind elementKind: String, withIdentifier identifier: String, for indexPath: IndexPath) -> NSView
+  func makeSupplementaryView(ofKind elementKind: String, withIdentifier identifier: String, forIndexPath indexPath: IndexPath) -> NSView
   func newItem(forRepresentedObject object: AnyObject) -> NSCollectionViewItem
   var itemPrototype: NSCollectionViewItem?
   @available(OSX 10.6, *)
@@ -136,7 +136,7 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.11, *)
   func indexPathsForVisibleItems() -> Set<IndexPath>
   @available(OSX 10.11, *)
-  func indexPath(for item: NSCollectionViewItem) -> IndexPath?
+  func indexPath(forItem item: NSCollectionViewItem) -> IndexPath?
   @available(OSX 10.11, *)
   func indexPathForItem(at point: Point) -> IndexPath?
   @available(OSX 10.11, *)
@@ -168,9 +168,9 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.6, *)
   func setDraggingSourceOperationMask(dragOperationMask: NSDragOperation, forLocal localDestination: Bool)
   @available(OSX 10.11, *)
-  func draggingImageForItems(at indexPaths: Set<IndexPath>, with event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
+  func draggingImageForItems(at indexPaths: Set<IndexPath>, withEvent event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
   @available(OSX 10.6, *)
-  func draggingImageForItems(at indexes: IndexSet, with event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
+  func draggingImageForItems(at indexes: IndexSet, withEvent event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
   init(frame frameRect: Rect)
   init?(coder: Coder)
   convenience init()
@@ -197,9 +197,9 @@ protocol NSCollectionViewDataSource : ObjectProtocol {
 }
 protocol NSCollectionViewDelegate : ObjectProtocol {
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, canDragItemsAt indexPaths: Set<IndexPath>, with event: NSEvent) -> Bool
+  optional func collectionView(collectionView: NSCollectionView, canDragItemsAt indexPaths: Set<IndexPath>, withEvent event: NSEvent) -> Bool
   @available(OSX 10.6, *)
-  optional func collectionView(collectionView: NSCollectionView, canDragItemsAt indexes: IndexSet, with event: NSEvent) -> Bool
+  optional func collectionView(collectionView: NSCollectionView, canDragItemsAt indexes: IndexSet, withEvent event: NSEvent) -> Bool
   @available(OSX 10.11, *)
   optional func collectionView(collectionView: NSCollectionView, writeItemsAt indexPaths: Set<IndexPath>, to pasteboard: NSPasteboard) -> Bool
   @available(OSX 10.6, *)
@@ -209,9 +209,9 @@ protocol NSCollectionViewDelegate : ObjectProtocol {
   @available(OSX 10.6, *)
   optional func collectionView(collectionView: NSCollectionView, namesOfPromisedFilesDroppedAtDestination dropURL: URL, forDraggedItemsAt indexes: IndexSet) -> [String]
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, draggingImageForItemsAt indexPaths: Set<IndexPath>, with event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
+  optional func collectionView(collectionView: NSCollectionView, draggingImageForItemsAt indexPaths: Set<IndexPath>, withEvent event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
   @available(OSX 10.6, *)
-  optional func collectionView(collectionView: NSCollectionView, draggingImageForItemsAt indexes: IndexSet, with event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
+  optional func collectionView(collectionView: NSCollectionView, draggingImageForItemsAt indexes: IndexSet, withEvent event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
   @available(OSX 10.11, *)
   optional func collectionView(collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer<IndexPath?>, dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionViewDropOperation>) -> NSDragOperation
   @available(OSX 10.6, *)
@@ -269,5 +269,5 @@ extension NSSet {
   @available(OSX 10.11, *)
   convenience init(collectionViewIndexPaths indexPaths: [IndexPath])
   @available(OSX 10.11, *)
-  func enumerateIndexPaths(opts: EnumerationOptions = [], using block: (IndexPath, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateIndexPaths(opts: EnumerationOptions = [], usingBlock block: (IndexPath, UnsafeMutablePointer<ObjCBool>) -> Void)
 }

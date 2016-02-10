@@ -90,9 +90,9 @@ protocol WebUIDelegate : ObjectProtocol {
   optional func webView(webView: WebView!, validate item: NSValidatedUserInterfaceItem!, defaultValidation: Bool) -> Bool
   optional func webView(webView: WebView!, shouldPerformAction action: Selector, fromSender sender: AnyObject!) -> Bool
   optional func webView(webView: WebView!, dragDestinationActionMaskFor draggingInfo: NSDraggingInfo!) -> Int
-  optional func webView(webView: WebView!, willPerform action: WebDragDestinationAction, for draggingInfo: NSDraggingInfo!)
+  optional func webView(webView: WebView!, willPerform action: WebDragDestinationAction, forDraggingInfo draggingInfo: NSDraggingInfo!)
   optional func webView(webView: WebView!, dragSourceActionMaskFor point: Point) -> Int
-  optional func webView(webView: WebView!, willPerform action: WebDragSourceAction, from point: Point, with pasteboard: NSPasteboard!)
+  optional func webView(webView: WebView!, willPerform action: WebDragSourceAction, from point: Point, withPasteboard pasteboard: NSPasteboard!)
   optional func webView(sender: WebView!, print frameView: WebFrameView!)
   optional func webViewHeaderHeight(sender: WebView!) -> Float
   optional func webViewFooterHeight(sender: WebView!) -> Float

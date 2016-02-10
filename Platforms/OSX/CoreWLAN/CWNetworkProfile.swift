@@ -14,13 +14,13 @@ class CWNetworkProfile : Object, Copying, MutableCopying, SecureCoding {
   @available(OSX 10.7, *)
   func isEqual(to networkProfile: CWNetworkProfile) -> Bool
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.7, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(OSX 10.7, *)

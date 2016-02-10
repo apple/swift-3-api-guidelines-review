@@ -15,12 +15,12 @@ class UIFieldBehavior : UIDynamicBehavior {
   class func dragField() -> Self
   class func vortexField() -> Self
   class func radialGravityField(withPosition position: CGPoint) -> Self
-  class func linearGravityField(with direction: CGVector) -> Self
-  class func velocityField(with direction: CGVector) -> Self
+  class func linearGravityField(withVector direction: CGVector) -> Self
+  class func velocityField(withVector direction: CGVector) -> Self
   class func noiseField(withSmoothness smoothness: CGFloat, animationSpeed speed: CGFloat) -> Self
   class func turbulenceField(withSmoothness smoothness: CGFloat, animationSpeed speed: CGFloat) -> Self
   class func springField() -> Self
   class func electricField() -> Self
   class func magneticField() -> Self
-  class func field(evaluationBlock block: (UIFieldBehavior, CGPoint, CGVector, CGFloat, CGFloat, TimeInterval) -> CGVector) -> Self
+  class func field(withEvaluationBlock block: (UIFieldBehavior, CGPoint, CGVector, CGFloat, CGFloat, TimeInterval) -> CGVector) -> Self
 }

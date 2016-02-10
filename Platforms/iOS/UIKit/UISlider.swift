@@ -14,12 +14,12 @@ class UISlider : UIControl, Coding {
   @available(iOS 5.0, *)
   var thumbTintColor: UIColor?
   func setValue(value: Float, animated: Bool)
-  func setThumbImage(image: UIImage?, for state: UIControlState)
-  func setMinimumTrackImage(image: UIImage?, for state: UIControlState)
-  func setMaximumTrackImage(image: UIImage?, for state: UIControlState)
-  func thumbImage(for state: UIControlState) -> UIImage?
-  func minimumTrackImage(for state: UIControlState) -> UIImage?
-  func maximumTrackImage(for state: UIControlState) -> UIImage?
+  func setThumbImage(image: UIImage?, forState state: UIControlState)
+  func setMinimumTrackImage(image: UIImage?, forState state: UIControlState)
+  func setMaximumTrackImage(image: UIImage?, forState state: UIControlState)
+  func thumbImage(forState state: UIControlState) -> UIImage?
+  func minimumTrackImage(forState state: UIControlState) -> UIImage?
+  func maximumTrackImage(forState state: UIControlState) -> UIImage?
   var currentThumbImage: UIImage? { get }
   var currentMinimumTrackImage: UIImage? { get }
   var currentMaximumTrackImage: UIImage? { get }

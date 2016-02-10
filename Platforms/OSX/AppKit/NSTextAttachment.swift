@@ -5,7 +5,7 @@ protocol NSTextAttachmentContainer : ObjectProtocol {
   @available(OSX 10.11, *)
   func image(forBounds imageBounds: Rect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> NSImage?
   @available(OSX 10.11, *)
-  func attachmentBounds(for textContainer: NSTextContainer?, proposedLineFragment lineFrag: Rect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> Rect
+  func attachmentBounds(forTextContainer textContainer: NSTextContainer?, proposedLineFragment lineFrag: Rect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> Rect
 }
 @available(OSX 10.0, *)
 class NSTextAttachment : Object, NSTextAttachmentContainer, Coding {
@@ -26,9 +26,9 @@ class NSTextAttachment : Object, NSTextAttachmentContainer, Coding {
   @available(OSX 10.11, *)
   func image(forBounds imageBounds: Rect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> NSImage?
   @available(OSX 10.11, *)
-  func attachmentBounds(for textContainer: NSTextContainer?, proposedLineFragment lineFrag: Rect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> Rect
+  func attachmentBounds(forTextContainer textContainer: NSTextContainer?, proposedLineFragment lineFrag: Rect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> Rect
   @available(OSX 10.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension AttributedString {
@@ -50,10 +50,10 @@ protocol NSTextAttachmentCellProtocol : ObjectProtocol {
   func draw(frame cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int)
   @available(OSX 10.0, *)
   func draw(frame cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int, layoutManager: NSLayoutManager)
-  func wantsToTrackMouse(for theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView?, atCharacterIndex charIndex: Int) -> Bool
+  func wantsToTrackMouse(forEvent theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView?, atCharacterIndex charIndex: Int) -> Bool
   func trackMouse(theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView?, atCharacterIndex charIndex: Int, untilMouseUp flag: Bool) -> Bool
   @available(OSX 10.0, *)
-  func cellFrame(for textContainer: NSTextContainer, proposedLineFragment lineFrag: Rect, glyphPosition position: Point, characterIndex charIndex: Int) -> Rect
+  func cellFrame(forTextContainer textContainer: NSTextContainer, proposedLineFragment lineFrag: Rect, glyphPosition position: Point, characterIndex charIndex: Int) -> Rect
 }
 class NSTextAttachmentCell : NSCell, NSTextAttachmentCellProtocol {
   init(textCell aString: String)
@@ -71,8 +71,8 @@ class NSTextAttachmentCell : NSCell, NSTextAttachmentCellProtocol {
   func draw(frame cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int)
   @available(OSX 10.0, *)
   func draw(frame cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int, layoutManager: NSLayoutManager)
-  func wantsToTrackMouse(for theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView?, atCharacterIndex charIndex: Int) -> Bool
+  func wantsToTrackMouse(forEvent theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView?, atCharacterIndex charIndex: Int) -> Bool
   func trackMouse(theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView?, atCharacterIndex charIndex: Int, untilMouseUp flag: Bool) -> Bool
   @available(OSX 10.0, *)
-  func cellFrame(for textContainer: NSTextContainer, proposedLineFragment lineFrag: Rect, glyphPosition position: Point, characterIndex charIndex: Int) -> Rect
+  func cellFrame(forTextContainer textContainer: NSTextContainer, proposedLineFragment lineFrag: Rect, glyphPosition position: Point, characterIndex charIndex: Int) -> Rect
 }

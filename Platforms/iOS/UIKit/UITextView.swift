@@ -95,15 +95,15 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 3.2, *)
   func characterRangeByExtending(position: UITextPosition, in direction: UITextLayoutDirection) -> UITextRange?
   @available(iOS 3.2, *)
-  func baseWritingDirection(for position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
+  func baseWritingDirection(forPosition position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
   @available(iOS 3.2, *)
-  func setBaseWritingDirection(writingDirection: UITextWritingDirection, for range: UITextRange)
+  func setBaseWritingDirection(writingDirection: UITextWritingDirection, forRange range: UITextRange)
   @available(iOS 3.2, *)
-  func firstRect(for range: UITextRange) -> CGRect
+  func firstRect(forRange range: UITextRange) -> CGRect
   @available(iOS 3.2, *)
-  func caretRect(for position: UITextPosition) -> CGRect
+  func caretRect(forPosition position: UITextPosition) -> CGRect
   @available(iOS 6.0, *)
-  func selectionRects(for range: UITextRange) -> [AnyObject]
+  func selectionRects(forRange range: UITextRange) -> [AnyObject]
   @available(iOS 3.2, *)
   func closestPosition(to point: CGPoint) -> UITextPosition?
   @available(iOS 3.2, *)

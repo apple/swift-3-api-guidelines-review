@@ -30,7 +30,7 @@ class UIPickerView : UIView, Coding, UITableViewDataSource {
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
   @available(iOS 2.0, *)
-  func sectionIndexTitles(for tableView: UITableView) -> [String]?
+  func sectionIndexTitles(forTableView tableView: UITableView) -> [String]?
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int
   @available(iOS 2.0, *)

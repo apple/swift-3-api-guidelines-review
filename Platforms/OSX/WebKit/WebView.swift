@@ -39,7 +39,7 @@ class WebView : NSView {
   var textSizeMultiplier: Float
   var applicationNameForUserAgent: String!
   var customUserAgent: String!
-  func userAgent(for URL: URL!) -> String!
+  func userAgent(forURL URL: URL!) -> String!
   var supportsTextEncoding: Bool { get }
   var customTextEncodingName: String!
   var mediaStyle: String!
@@ -95,10 +95,10 @@ let WebViewDidEndEditingNotification: String
 let WebViewDidChangeTypingStyleNotification: String
 let WebViewDidChangeSelectionNotification: String
 extension WebView {
-  func computedStyle(for element: DOMElement!, pseudoElement: String!) -> DOMCSSStyleDeclaration!
+  func computedStyle(forElement element: DOMElement!, pseudoElement: String!) -> DOMCSSStyleDeclaration!
 }
 extension WebView {
-  func editableDOMRange(for point: Point) -> DOMRange!
+  func editableDOMRange(forPoint point: Point) -> DOMRange!
   func setSelectedDOMRange(range: DOMRange!, affinity selectionAffinity: NSSelectionAffinity)
   var selectedDOMRange: DOMRange! { get }
   var selectionAffinity: NSSelectionAffinity { get }

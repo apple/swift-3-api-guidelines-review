@@ -18,11 +18,11 @@ class UITraitCollection : Object, Copying, SecureCoding {
   @available(iOS 9.0, *)
   var forceTouchCapability: UIForceTouchCapability { get }
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
 }
 protocol UITraitEnvironment : ObjectProtocol {
   @available(iOS 8.0, *)

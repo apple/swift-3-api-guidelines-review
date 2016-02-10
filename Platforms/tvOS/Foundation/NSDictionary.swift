@@ -1,15 +1,15 @@
 
 class NSDictionary : Object, Copying, MutableCopying, SecureCoding, FastEnumeration {
   var count: Int { get }
-  func object(for aKey: AnyObject) -> AnyObject?
+  func object(forKey aKey: AnyObject) -> AnyObject?
   func keyEnumerator() -> Enumerator
   init()
   init(objects: UnsafePointer<AnyObject?>, forKeys keys: UnsafePointer<Copying?>, count cnt: Int)
   init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
@@ -40,7 +40,7 @@ extension NSDictionary : CustomReflectable {
 }
 extension NSDictionary {
   var allKeys: [AnyObject] { get }
-  func allKeys(for anObject: AnyObject) -> [AnyObject]
+  func allKeys(forObject anObject: AnyObject) -> [AnyObject]
   var allValues: [AnyObject] { get }
   var description: String { get }
   var descriptionInStringsFileFormat: String { get }
@@ -48,10 +48,10 @@ extension NSDictionary {
   func description(withLocale locale: AnyObject?, indent level: Int) -> String
   func isEqual(to otherDictionary: [Object : AnyObject]) -> Bool
   func objectEnumerator() -> Enumerator
-  func objects(for keys: [AnyObject], notFoundMarker marker: AnyObject) -> [AnyObject]
+  func objects(forKeys keys: [AnyObject], notFoundMarker marker: AnyObject) -> [AnyObject]
   func write(toFile path: String, atomically useAuxiliaryFile: Bool) -> Bool
   func write(to url: URL, atomically: Bool) -> Bool
-  func keysSortedByValue(using comparator: Selector) -> [AnyObject]
+  func keysSortedByValue(usingSelector comparator: Selector) -> [AnyObject]
   @available(tvOS 5.0, *)
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, andKeys keys: AutoreleasingUnsafeMutablePointer<AnyObject?>, count: Int)
   @available(tvOS 6.0, *)
@@ -59,7 +59,7 @@ extension NSDictionary {
   @available(tvOS 4.0, *)
   func enumerateKeysAndObjects(block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
-  func enumerateKeysAndObjects(opts: EnumerationOptions = [], using block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateKeysAndObjects(opts: EnumerationOptions = [], usingBlock block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
   func keysSortedByValue(comparator cmptr: Comparator) -> [AnyObject]
   @available(tvOS 4.0, *)
@@ -81,7 +81,7 @@ extension NSDictionary {
   convenience init?(contentsOf url: URL)
 }
 class MutableDictionary : NSDictionary {
-  func removeObject(for aKey: AnyObject)
+  func removeObject(forKey aKey: AnyObject)
   func setObject(anObject: AnyObject, forKey aKey: Copying)
   init()
   init(capacity numItems: Int)
@@ -95,7 +95,7 @@ class MutableDictionary : NSDictionary {
 extension MutableDictionary {
   func addEntries(from otherDictionary: [Object : AnyObject])
   func removeAllObjects()
-  func removeObjects(for keyArray: [AnyObject])
+  func removeObjects(forKeys keyArray: [AnyObject])
   func setDictionary(otherDictionary: [Object : AnyObject])
   @available(tvOS 6.0, *)
   subscript (forKeyedSubscript key: Copying) -> AnyObject?

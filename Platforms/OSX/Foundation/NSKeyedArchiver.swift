@@ -10,10 +10,10 @@ class KeyedArchiver : Coder {
   unowned(unsafe) var delegate: @sil_unmanaged KeyedArchiverDelegate?
   var outputFormat: PropertyListFormat
   func finishEncoding()
-  class func setClassName(codedName: String?, for cls: AnyClass)
-  func setClassName(codedName: String?, for cls: AnyClass)
-  class func className(for cls: AnyClass) -> String?
-  func className(for cls: AnyClass) -> String?
+  class func setClassName(codedName: String?, forClass cls: AnyClass)
+  func setClassName(codedName: String?, forClass cls: AnyClass)
+  class func className(forClass cls: AnyClass) -> String?
+  func className(forClass cls: AnyClass) -> String?
   func encode(objv: AnyObject?, forKey key: String)
   func encodeConditionalObject(objv: AnyObject?, forKey key: String)
   func encode(boolv: Bool, forKey key: String)
@@ -28,7 +28,7 @@ class KeyedArchiver : Coder {
   init()
 }
 class KeyedUnarchiver : Coder {
-  class func unarchiveObject(with data: Data) -> AnyObject?
+  class func unarchiveObject(withData data: Data) -> AnyObject?
   class func unarchiveObject(withFile path: String) -> AnyObject?
   init(forReadingWith data: Data)
   unowned(unsafe) var delegate: @sil_unmanaged KeyedUnarchiverDelegate?
@@ -58,21 +58,21 @@ extension KeyedUnarchiver {
 protocol KeyedArchiverDelegate : ObjectProtocol {
   optional func archiver(archiver: KeyedArchiver, willEncode object: AnyObject) -> AnyObject?
   optional func archiver(archiver: KeyedArchiver, didEncode object: AnyObject?)
-  optional func archiver(archiver: KeyedArchiver, willReplace object: AnyObject?, with newObject: AnyObject?)
+  optional func archiver(archiver: KeyedArchiver, willReplace object: AnyObject?, withObject newObject: AnyObject?)
   optional func archiverWillFinish(archiver: KeyedArchiver)
   optional func archiverDidFinish(archiver: KeyedArchiver)
 }
 protocol KeyedUnarchiverDelegate : ObjectProtocol {
   optional func unarchiver(unarchiver: KeyedUnarchiver, cannotDecodeObjectOfClassName name: String, originalClasses classNames: [String]) -> AnyClass?
   optional func unarchiver(unarchiver: KeyedUnarchiver, didDecode object: AnyObject?) -> AnyObject?
-  optional func unarchiver(unarchiver: KeyedUnarchiver, willReplace object: AnyObject, with newObject: AnyObject)
+  optional func unarchiver(unarchiver: KeyedUnarchiver, willReplace object: AnyObject, withObject newObject: AnyObject)
   optional func unarchiverWillFinish(unarchiver: KeyedUnarchiver)
   optional func unarchiverDidFinish(unarchiver: KeyedUnarchiver)
 }
 extension Object {
   var classForKeyedArchiver: AnyClass? { get }
-  class func replacementObject(for archiver: KeyedArchiver) -> AnyObject?
-  func replacementObject(for archiver: KeyedArchiver) -> AnyObject?
+  class func replacementObject(forKeyedArchiver archiver: KeyedArchiver) -> AnyObject?
+  func replacementObject(forKeyedArchiver archiver: KeyedArchiver) -> AnyObject?
   class func classFallbacksForKeyedArchiver() -> [String]
   class func classForKeyedArchiver() -> AnyClass?
 }

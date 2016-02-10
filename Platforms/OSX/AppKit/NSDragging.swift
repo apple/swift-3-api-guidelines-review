@@ -65,7 +65,7 @@ protocol NSDraggingInfo : ObjectProtocol {
   @available(OSX 10.7, *)
   var numberOfValidItemsForDrop: Int { get set }
   @available(OSX 10.7, *)
-  func enumerateDraggingItems(enumOpts: NSDraggingItemEnumerationOptions = [], for view: NSView, classes classArray: [AnyClass], searchOptions: [String : AnyObject] = [:], using block: (NSDraggingItem, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateDraggingItems(enumOpts: NSDraggingItemEnumerationOptions = [], forView view: NSView, classes classArray: [AnyClass], searchOptions: [String : AnyObject] = [:], usingBlock block: (NSDraggingItem, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.11, *)
   var springLoadingHighlight: NSSpringLoadingHighlight { get }
   @available(OSX 10.11, *)

@@ -28,15 +28,15 @@ class UIAttachmentBehavior : UIDynamicBehavior {
   convenience init(item item1: UIDynamicItem, attachedTo item2: UIDynamicItem)
   init(item item1: UIDynamicItem, offsetFromCenter offset1: UIOffset, attachedTo item2: UIDynamicItem, offsetFromCenter offset2: UIOffset)
   @available(iOS 9.0, *)
-  class func slidingAttachment(with item1: UIDynamicItem, attachedTo item2: UIDynamicItem, attachmentAnchor point: CGPoint, axisOfTranslation axis: CGVector) -> Self
+  class func slidingAttachment(withItem item1: UIDynamicItem, attachedTo item2: UIDynamicItem, attachmentAnchor point: CGPoint, axisOfTranslation axis: CGVector) -> Self
   @available(iOS 9.0, *)
-  class func slidingAttachment(with item: UIDynamicItem, attachmentAnchor point: CGPoint, axisOfTranslation axis: CGVector) -> Self
+  class func slidingAttachment(withItem item: UIDynamicItem, attachmentAnchor point: CGPoint, axisOfTranslation axis: CGVector) -> Self
   @available(iOS 9.0, *)
-  class func limitAttachment(with item1: UIDynamicItem, offsetFromCenter offset1: UIOffset, attachedTo item2: UIDynamicItem, offsetFromCenter offset2: UIOffset) -> Self
+  class func limitAttachment(withItem item1: UIDynamicItem, offsetFromCenter offset1: UIOffset, attachedTo item2: UIDynamicItem, offsetFromCenter offset2: UIOffset) -> Self
   @available(iOS 9.0, *)
-  class func fixedAttachment(with item1: UIDynamicItem, attachedTo item2: UIDynamicItem, attachmentAnchor point: CGPoint) -> Self
+  class func fixedAttachment(withItem item1: UIDynamicItem, attachedTo item2: UIDynamicItem, attachmentAnchor point: CGPoint) -> Self
   @available(iOS 9.0, *)
-  class func pinAttachment(with item1: UIDynamicItem, attachedTo item2: UIDynamicItem, attachmentAnchor point: CGPoint) -> Self
+  class func pinAttachment(withItem item1: UIDynamicItem, attachedTo item2: UIDynamicItem, attachmentAnchor point: CGPoint) -> Self
   var items: [UIDynamicItem] { get }
   var attachedBehaviorType: UIAttachmentBehaviorType { get }
   var anchorPoint: CGPoint

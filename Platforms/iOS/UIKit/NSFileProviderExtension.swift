@@ -2,7 +2,7 @@
 @available(iOS 8.0, *)
 class NSFileProviderExtension : Object {
   class func writePlaceholder(at placeholderURL: URL, withMetadata metadata: [Object : AnyObject]) throws
-  class func placeholderURL(for url: URL) -> URL
+  class func placeholderURL(forURL url: URL) -> URL
   func providerIdentifier() -> String
   func documentStorageURL() -> URL
   func urlForItem(withPersistentIdentifier identifier: String) -> URL?

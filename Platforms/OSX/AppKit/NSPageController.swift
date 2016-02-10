@@ -61,7 +61,7 @@ protocol NSPageControllerDelegate : ObjectProtocol {
   @available(OSX 10.8, *)
   optional func pageController(pageController: NSPageController, frameFor object: AnyObject) -> Rect
   @available(OSX 10.8, *)
-  optional func pageController(pageController: NSPageController, prepare viewController: NSViewController, with object: AnyObject)
+  optional func pageController(pageController: NSPageController, prepare viewController: NSViewController, withObject object: AnyObject)
   @available(OSX 10.8, *)
   optional func pageController(pageController: NSPageController, didTransitionTo object: AnyObject)
   @available(OSX 10.8, *)

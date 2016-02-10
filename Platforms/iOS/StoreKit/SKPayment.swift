@@ -15,9 +15,9 @@ class SKPayment : Object, Copying, MutableCopying {
   var simulatesAskToBuyInSandbox: Bool { get }
   init()
   @available(iOS 3.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 3.0, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 3.0, *)
 class SKMutablePayment : SKPayment {

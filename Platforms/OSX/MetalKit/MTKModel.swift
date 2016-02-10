@@ -14,7 +14,7 @@ class MTKMeshBufferAllocator : Object, MDLMeshBufferAllocator {
   @available(OSX 10.11, *)
   func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(OSX 10.11, *)
-  func newBuffer(with data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(withData data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(OSX 10.11, *)
   func newBuffer(from zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
   @available(OSX 10.11, *)
@@ -33,7 +33,7 @@ class MTKMeshBuffer : Object, MDLMeshBuffer {
   @available(OSX 10.11, *)
   func map() -> MDLMeshBufferMap
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class MTKSubmesh : Object {

@@ -62,7 +62,7 @@ class NSSavePanel : NSPanel {
   @IBAction func ok(sender: AnyObject?)
   @IBAction func cancel(sender: AnyObject?)
   @available(OSX 10.6, *)
-  func beginSheetModal(for window: NSWindow, completionHandler handler: (Int) -> Void)
+  func beginSheetModal(forWindow window: NSWindow, completionHandler handler: (Int) -> Void)
   @available(OSX 10.6, *)
   func begin(completionHandler handler: (Int) -> Void)
   func runModal() -> Int

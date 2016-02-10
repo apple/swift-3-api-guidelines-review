@@ -10,5 +10,5 @@ class MKMapSnapshotOptions : Object, Copying {
   var size: Size
   init()
   @available(OSX 10.9, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

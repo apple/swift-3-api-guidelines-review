@@ -9,17 +9,17 @@ class UIBarItem : Object, Coding, UIAppearance {
   var imageInsets: UIEdgeInsets
   var tag: Int
   @available(tvOS 5.0, *)
-  func setTitleTextAttributes(attributes: [String : AnyObject]? = [:], for state: UIControlState)
+  func setTitleTextAttributes(attributes: [String : AnyObject]? = [:], forState state: UIControlState)
   @available(tvOS 5.0, *)
-  func titleTextAttributes(for state: UIControlState) -> [String : AnyObject]?
+  func titleTextAttributes(forState state: UIControlState) -> [String : AnyObject]?
   @available(tvOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   @available(tvOS 2.0, *)
   class func appearance() -> Self
   @available(tvOS 9.0, *)
   class func appearanceWhenContainedInInstances(ofClasses containerTypes: [AnyObject.Type]) -> Self
   @available(tvOS 8.0, *)
-  class func appearance(for trait: UITraitCollection) -> Self
+  class func appearance(forTraitCollection trait: UITraitCollection) -> Self
   @available(tvOS 9.0, *)
-  class func appearance(for trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
+  class func appearance(forTraitCollection trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
 }

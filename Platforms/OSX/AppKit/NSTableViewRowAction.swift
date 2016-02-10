@@ -14,5 +14,5 @@ class NSTableViewRowAction : Object, Copying {
   @NSCopying var backgroundColor: NSColor!
   init()
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

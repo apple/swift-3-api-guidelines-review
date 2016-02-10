@@ -87,7 +87,7 @@ protocol NSOutlineViewDataSource : ObjectProtocol {
   optional func outlineView(outlineView: NSOutlineView, child index: Int, ofItem item: AnyObject?) -> AnyObject
   optional func outlineView(outlineView: NSOutlineView, isItemExpandable item: AnyObject) -> Bool
   optional func outlineView(outlineView: NSOutlineView, objectValueFor tableColumn: NSTableColumn?, byItem item: AnyObject?) -> AnyObject?
-  optional func outlineView(outlineView: NSOutlineView, setObjectValue object: AnyObject?, for tableColumn: NSTableColumn?, byItem item: AnyObject?)
+  optional func outlineView(outlineView: NSOutlineView, setObjectValue object: AnyObject?, forTableColumn tableColumn: NSTableColumn?, byItem item: AnyObject?)
   optional func outlineView(outlineView: NSOutlineView, itemForPersistentObject object: AnyObject) -> AnyObject?
   optional func outlineView(outlineView: NSOutlineView, persistentObjectForItem item: AnyObject?) -> AnyObject?
   optional func outlineView(outlineView: NSOutlineView, sortDescriptorsDidChange oldDescriptors: [SortDescriptor])
@@ -113,7 +113,7 @@ protocol NSOutlineViewDelegate : NSControlTextEditingDelegate {
   optional func outlineView(outlineView: NSOutlineView, didAdd rowView: NSTableRowView, forRow row: Int)
   @available(OSX 10.7, *)
   optional func outlineView(outlineView: NSOutlineView, didRemove rowView: NSTableRowView, forRow row: Int)
-  optional func outlineView(outlineView: NSOutlineView, willDisplayCell cell: AnyObject, for tableColumn: NSTableColumn?, item: AnyObject)
+  optional func outlineView(outlineView: NSOutlineView, willDisplayCell cell: AnyObject, forTableColumn tableColumn: NSTableColumn?, item: AnyObject)
   optional func outlineView(outlineView: NSOutlineView, shouldEdit tableColumn: NSTableColumn?, item: AnyObject) -> Bool
   optional func selectionShouldChange(in outlineView: NSOutlineView) -> Bool
   optional func outlineView(outlineView: NSOutlineView, shouldSelectItem item: AnyObject) -> Bool
@@ -128,20 +128,20 @@ protocol NSOutlineViewDelegate : NSControlTextEditingDelegate {
   @available(OSX 10.5, *)
   optional func outlineView(outlineView: NSOutlineView, typeSelectStringFor tableColumn: NSTableColumn?, item: AnyObject) -> String?
   @available(OSX 10.5, *)
-  optional func outlineView(outlineView: NSOutlineView, nextTypeSelectMatchFromItem startItem: AnyObject, toItem endItem: AnyObject, for searchString: String) -> AnyObject?
+  optional func outlineView(outlineView: NSOutlineView, nextTypeSelectMatchFromItem startItem: AnyObject, toItem endItem: AnyObject, forString searchString: String) -> AnyObject?
   @available(OSX 10.5, *)
   optional func outlineView(outlineView: NSOutlineView, shouldTypeSelectFor event: NSEvent, withCurrentSearch searchString: String?) -> Bool
   @available(OSX 10.5, *)
   optional func outlineView(outlineView: NSOutlineView, shouldShowCellExpansionFor tableColumn: NSTableColumn?, item: AnyObject) -> Bool
   @available(OSX 10.5, *)
-  optional func outlineView(outlineView: NSOutlineView, shouldTrackCell cell: NSCell, for tableColumn: NSTableColumn?, item: AnyObject) -> Bool
+  optional func outlineView(outlineView: NSOutlineView, shouldTrackCell cell: NSCell, forTableColumn tableColumn: NSTableColumn?, item: AnyObject) -> Bool
   @available(OSX 10.5, *)
   optional func outlineView(outlineView: NSOutlineView, dataCellFor tableColumn: NSTableColumn?, item: AnyObject) -> NSCell?
   @available(OSX 10.5, *)
   optional func outlineView(outlineView: NSOutlineView, isGroupItem item: AnyObject) -> Bool
   optional func outlineView(outlineView: NSOutlineView, shouldExpandItem item: AnyObject) -> Bool
   optional func outlineView(outlineView: NSOutlineView, shouldCollapseItem item: AnyObject) -> Bool
-  optional func outlineView(outlineView: NSOutlineView, willDisplayOutlineCell cell: AnyObject, for tableColumn: NSTableColumn?, item: AnyObject)
+  optional func outlineView(outlineView: NSOutlineView, willDisplayOutlineCell cell: AnyObject, forTableColumn tableColumn: NSTableColumn?, item: AnyObject)
   @available(OSX 10.6, *)
   optional func outlineView(outlineView: NSOutlineView, sizeToFitWidthOfColumn column: Int) -> CGFloat
   @available(OSX 10.6, *)

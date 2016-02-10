@@ -154,7 +154,7 @@ let MPMediaItemPropertyBookmarkTime: String
 class MPMediaItemArtwork : Object {
   @available(iOS 5.0, *)
   init(image: UIImage)
-  func image(with size: CGSize) -> UIImage?
+  func image(withSize size: CGSize) -> UIImage?
   var bounds: CGRect { get }
   var imageCropRect: CGRect { get }
   convenience init()

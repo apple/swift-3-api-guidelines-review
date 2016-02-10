@@ -3,7 +3,7 @@ class CAValueFunction : Object, Coding {
   convenience init?(name: String)
   var name: String { get }
   init()
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(iOS 3.0, *)

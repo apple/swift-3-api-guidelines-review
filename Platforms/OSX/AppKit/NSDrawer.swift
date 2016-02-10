@@ -43,23 +43,23 @@ class NSDrawer : NSResponder, NSAccessibilityElementProtocol, NSAccessibility {
   @available(OSX 10.10, *)
   func accessibilityCell(forColumn column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
-  func accessibilityAttributedString(for range: NSRange) -> AttributedString?
+  func accessibilityAttributedString(forRange range: NSRange) -> AttributedString?
   @available(OSX 10.10, *)
   func accessibilityRange(forLine line: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityString(for range: NSRange) -> String?
+  func accessibilityString(forRange range: NSRange) -> String?
   @available(OSX 10.10, *)
   func accessibilityRange(forPosition point: Point) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityRange(for index: Int) -> NSRange
+  func accessibilityRange(forIndex index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityFrame(for range: NSRange) -> Rect
+  func accessibilityFrame(forRange range: NSRange) -> Rect
   @available(OSX 10.10, *)
-  func accessibilityRTF(for range: NSRange) -> Data?
+  func accessibilityRTF(forRange range: NSRange) -> Data?
   @available(OSX 10.10, *)
-  func accessibilityStyleRange(for index: Int) -> NSRange
+  func accessibilityStyleRange(forIndex index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityLine(for index: Int) -> Int
+  func accessibilityLine(forIndex index: Int) -> Int
   @available(OSX 10.10, *)
   func accessibilityPerformCancel() -> Bool
   @available(OSX 10.10, *)

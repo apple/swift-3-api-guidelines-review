@@ -49,7 +49,7 @@ class SLComposeServiceViewController : NSViewController, NSTextViewDelegate {
   @available(OSX 10.5, *)
   func textView(textView: NSTextView, shouldSetSpellingState value: Int, range affectedCharRange: NSRange) -> Int
   @available(OSX 10.5, *)
-  func textView(view: NSTextView, menu: NSMenu, for event: NSEvent, at charIndex: Int) -> NSMenu?
+  func textView(view: NSTextView, menu: NSMenu, forEvent event: NSEvent, at charIndex: Int) -> NSMenu?
   @available(OSX 10.6, *)
   func textView(view: NSTextView, willCheckTextIn range: NSRange, options: [String : AnyObject] = [:], types checkingTypes: UnsafeMutablePointer<TextCheckingTypes>) -> [String : AnyObject]
   @available(OSX 10.6, *)
@@ -59,7 +59,7 @@ class SLComposeServiceViewController : NSViewController, NSTextViewDelegate {
   @available(OSX 10.8, *)
   func textView(textView: NSTextView, willShow servicePicker: NSSharingServicePicker, forItems items: [AnyObject]) -> NSSharingServicePicker?
   @available(OSX 10.10, *)
-  func undoManager(for view: NSTextView) -> UndoManager?
+  func undoManager(forTextView view: NSTextView) -> UndoManager?
   @available(OSX 10.10, *)
   func textShouldBeginEditing(textObject: NSText) -> Bool
   @available(OSX 10.10, *)

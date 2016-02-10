@@ -37,6 +37,6 @@ extension Object {
   func webViewDidChangeTypingStyle(notification: Notification!)
   class func webViewDidChangeSelection(notification: Notification!)
   func webViewDidChangeSelection(notification: Notification!)
-  class func undoManager(for webView: WebView!) -> UndoManager!
-  func undoManager(for webView: WebView!) -> UndoManager!
+  class func undoManager(forWebView webView: WebView!) -> UndoManager!
+  func undoManager(forWebView webView: WebView!) -> UndoManager!
 }

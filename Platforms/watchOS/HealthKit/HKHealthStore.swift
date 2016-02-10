@@ -2,7 +2,7 @@
 @available(watchOS 2.0, *)
 class HKHealthStore : Object {
   class func isHealthDataAvailable() -> Bool
-  func authorizationStatus(for type: HKObjectType) -> HKAuthorizationStatus
+  func authorizationStatus(forType type: HKObjectType) -> HKAuthorizationStatus
   func requestAuthorizationToShare(typesToShare: Set<HKSampleType>?, read typesToRead: Set<HKObjectType>?, completion: (Bool, Error?) -> Void)
   @available(watchOS 2.0, *)
   func earliestPermittedSampleDate() -> Date
@@ -37,18 +37,18 @@ extension HKHealthStore {
 let HKUserPreferencesDidChangeNotification: String
 extension HKHealthStore {
   @available(watchOS 2.0, *)
-  func preferredUnits(for quantityTypes: Set<HKQuantityType>, completion: ([HKQuantityType : HKUnit], Error?) -> Void)
+  func preferredUnits(forQuantityTypes quantityTypes: Set<HKQuantityType>, completion: ([HKQuantityType : HKUnit], Error?) -> Void)
 }
 @available(watchOS 2.0, *)
 class HKBiologicalSexObject : Object, Copying, SecureCoding {
   var biologicalSex: HKBiologicalSex { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(watchOS 2.0, *)
@@ -56,11 +56,11 @@ class HKBloodTypeObject : Object, Copying, SecureCoding {
   var bloodType: HKBloodType { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(watchOS 2.0, *)
@@ -68,10 +68,10 @@ class HKFitzpatrickSkinTypeObject : Object, Copying, SecureCoding {
   var skinType: HKFitzpatrickSkinType { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

@@ -7,28 +7,28 @@ class UIResponder : Object {
   func canResignFirstResponder() -> Bool
   func resignFirstResponder() -> Bool
   func isFirstResponder() -> Bool
-  func touchesBegan(touches: Set<UITouch>, with event: UIEvent?)
-  func touchesMoved(touches: Set<UITouch>, with event: UIEvent?)
-  func touchesEnded(touches: Set<UITouch>, with event: UIEvent?)
-  func touchesCancelled(touches: Set<UITouch>?, with event: UIEvent?)
+  func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+  func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)
+  func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+  func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
   @available(tvOS 9.1, *)
   func touchesEstimatedPropertiesUpdated(touches: Set<Object>)
   @available(tvOS 9.0, *)
-  func pressesBegan(presses: Set<UIPress>, with event: UIPressesEvent?)
+  func pressesBegan(presses: Set<UIPress>, withEvent event: UIPressesEvent?)
   @available(tvOS 9.0, *)
-  func pressesChanged(presses: Set<UIPress>, with event: UIPressesEvent?)
+  func pressesChanged(presses: Set<UIPress>, withEvent event: UIPressesEvent?)
   @available(tvOS 9.0, *)
-  func pressesEnded(presses: Set<UIPress>, with event: UIPressesEvent?)
+  func pressesEnded(presses: Set<UIPress>, withEvent event: UIPressesEvent?)
   @available(tvOS 9.0, *)
-  func pressesCancelled(presses: Set<UIPress>, with event: UIPressesEvent?)
+  func pressesCancelled(presses: Set<UIPress>, withEvent event: UIPressesEvent?)
   @available(tvOS 3.0, *)
-  func motionBegan(motion: UIEventSubtype, with event: UIEvent?)
+  func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?)
   @available(tvOS 3.0, *)
-  func motionEnded(motion: UIEventSubtype, with event: UIEvent?)
+  func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?)
   @available(tvOS 3.0, *)
-  func motionCancelled(motion: UIEventSubtype, with event: UIEvent?)
+  func motionCancelled(motion: UIEventSubtype, withEvent event: UIEvent?)
   @available(tvOS 4.0, *)
-  func remoteControlReceived(with event: UIEvent?)
+  func remoteControlReceived(withEvent event: UIEvent?)
   @available(tvOS 3.0, *)
   func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool
   @available(tvOS 7.0, *)
@@ -60,11 +60,11 @@ class UIKeyCommand : Object, Copying, SecureCoding {
   @available(tvOS 9.0, *)
   /*not inherited*/ init(input: String, modifierFlags: UIKeyModifierFlags, action: Selector, discoverabilityTitle: String)
   @available(tvOS 7.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 7.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
 }
 extension UIResponder {
   @available(tvOS 7.0, *)

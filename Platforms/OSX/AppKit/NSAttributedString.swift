@@ -219,12 +219,12 @@ extension AttributedString : NSPasteboardReading, NSPasteboardWriting {
   @available(OSX 10.5, *)
   class func textUnfilteredTypes() -> [String]
   @available(OSX 10.0, *)
-  class func readableTypes(for pasteboard: NSPasteboard) -> [String]
+  class func readableTypes(forPasteboard pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
   class func readingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
   @available(OSX 10.0, *)
-  func writableTypes(for pasteboard: NSPasteboard) -> [String]
+  func writableTypes(forPasteboard pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
   func writingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
   @available(OSX 10.0, *)

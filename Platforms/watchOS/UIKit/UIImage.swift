@@ -47,7 +47,7 @@ class UIImage : Object, SecureCoding {
   @available(watchOS 2.0, *)
   class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode, duration: TimeInterval) -> UIImage?
   @available(watchOS 2.0, *)
-  class func animatedImage(with images: [UIImage], duration: TimeInterval) -> UIImage?
+  class func animatedImage(withImages images: [UIImage], duration: TimeInterval) -> UIImage?
   @available(watchOS 2.0, *)
   var images: [UIImage]? { get }
   @available(watchOS 2.0, *)
@@ -81,7 +81,7 @@ class UIImage : Object, SecureCoding {
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 

@@ -10,7 +10,7 @@ class SKTextureAtlas : Object, Coding {
   func preload(completionHandler completionHandler: () -> Void)
   var textureNames: [String] { get }
   init()
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 

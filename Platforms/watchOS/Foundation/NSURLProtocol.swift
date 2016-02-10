@@ -28,7 +28,7 @@ class URLProtocol : Object {
 }
 extension URLProtocol {
   @available(watchOS 2.0, *)
-  class func canInit(with task: URLSessionTask) -> Bool
+  class func canInit(withTask task: URLSessionTask) -> Bool
   @available(watchOS 2.0, *)
   convenience init(task: URLSessionTask, cachedResponse: CachedURLResponse?, client: URLProtocolClient?)
   @available(watchOS 2.0, *)

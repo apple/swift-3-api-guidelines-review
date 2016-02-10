@@ -27,29 +27,29 @@ class NSResponder : Object, Coding {
   @available(OSX 10.5, *)
   func cursorUpdate(event: NSEvent)
   @available(OSX 10.5, *)
-  func magnify(with event: NSEvent)
+  func magnify(withEvent event: NSEvent)
   @available(OSX 10.5, *)
-  func rotate(with event: NSEvent)
+  func rotate(withEvent event: NSEvent)
   @available(OSX 10.5, *)
-  func swipe(with event: NSEvent)
+  func swipe(withEvent event: NSEvent)
   @available(OSX 10.5, *)
   func beginGesture(event: NSEvent)
   @available(OSX 10.5, *)
   func endGesture(event: NSEvent)
   @available(OSX 10.8, *)
-  func smartMagnify(with event: NSEvent)
+  func smartMagnify(withEvent event: NSEvent)
   @available(OSX 10.6, *)
-  func touchesBegan(with event: NSEvent)
+  func touchesBegan(withEvent event: NSEvent)
   @available(OSX 10.6, *)
-  func touchesMoved(with event: NSEvent)
+  func touchesMoved(withEvent event: NSEvent)
   @available(OSX 10.6, *)
-  func touchesEnded(with event: NSEvent)
+  func touchesEnded(withEvent event: NSEvent)
   @available(OSX 10.6, *)
-  func touchesCancelled(with event: NSEvent)
+  func touchesCancelled(withEvent event: NSEvent)
   @available(OSX 10.8, *)
-  func quickLook(with event: NSEvent)
+  func quickLook(withEvent event: NSEvent)
   @available(OSX 10.10.3, *)
-  func pressureChange(with event: NSEvent)
+  func pressureChange(withEvent event: NSEvent)
   func noResponder(for eventSelector: Selector)
   var acceptsFirstResponder: Bool { get }
   func becomeFirstResponder() -> Bool
@@ -63,10 +63,10 @@ class NSResponder : Object, Coding {
   @available(OSX 10.7, *)
   func wantsScrollEventsForSwipeTracking(on axis: NSEventGestureAxis) -> Bool
   @available(OSX 10.7, *)
-  func wantsForwardedScrollEvents(for axis: NSEventGestureAxis) -> Bool
+  func wantsForwardedScrollEvents(forAxis axis: NSEventGestureAxis) -> Bool
   @available(OSX 10.7, *)
   func supplementalTarget(forAction action: Selector, sender: AnyObject?) -> AnyObject?
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
 }
 extension NSResponder {
   func insertText(insertString: AnyObject)
@@ -183,7 +183,7 @@ extension NSResponder {
 }
 extension NSResponder {
   @available(OSX 10.7, *)
-  func validateProposedFirstResponder(responder: NSResponder, for event: NSEvent?) -> Bool
+  func validateProposedFirstResponder(responder: NSResponder, forEvent event: NSEvent?) -> Bool
 }
 extension NSResponder {
   func presentError(error: Error, modalFor window: NSWindow, delegate: AnyObject?, didPresent didPresentSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)

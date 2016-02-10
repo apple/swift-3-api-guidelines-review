@@ -10,7 +10,7 @@ class XMLDTD : XMLNode {
   func removeChild(at index: Int)
   func setChildren(children: [XMLNode]?)
   func addChild(child: XMLNode)
-  func replaceChild(at index: Int, with node: XMLNode)
+  func replaceChild(at index: Int, withNode node: XMLNode)
   func entityDeclaration(forName name: String) -> XMLDTDNode?
   func notationDeclaration(forName name: String) -> XMLDTDNode?
   func elementDeclaration(forName name: String) -> XMLDTDNode?

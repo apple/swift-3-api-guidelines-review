@@ -34,9 +34,9 @@ class URLProtectionSpace : Object, SecureCoding, Copying {
   func isProxy() -> Bool
   init()
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 extension URLProtectionSpace {
   @available(OSX 10.6, *)

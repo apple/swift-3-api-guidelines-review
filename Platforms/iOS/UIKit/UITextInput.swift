@@ -83,15 +83,15 @@ protocol UITextInput : UIKeyInput {
   @available(iOS 3.2, *)
   func characterRangeByExtending(position: UITextPosition, in direction: UITextLayoutDirection) -> UITextRange?
   @available(iOS 3.2, *)
-  func baseWritingDirection(for position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
+  func baseWritingDirection(forPosition position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
   @available(iOS 3.2, *)
-  func setBaseWritingDirection(writingDirection: UITextWritingDirection, for range: UITextRange)
+  func setBaseWritingDirection(writingDirection: UITextWritingDirection, forRange range: UITextRange)
   @available(iOS 3.2, *)
-  func firstRect(for range: UITextRange) -> CGRect
+  func firstRect(forRange range: UITextRange) -> CGRect
   @available(iOS 3.2, *)
-  func caretRect(for position: UITextPosition) -> CGRect
+  func caretRect(forPosition position: UITextPosition) -> CGRect
   @available(iOS 6.0, *)
-  func selectionRects(for range: UITextRange) -> [AnyObject]
+  func selectionRects(forRange range: UITextRange) -> [AnyObject]
   @available(iOS 3.2, *)
   func closestPosition(to point: CGPoint) -> UITextPosition?
   @available(iOS 3.2, *)
@@ -157,7 +157,7 @@ protocol UITextInputDelegate : ObjectProtocol {
 }
 protocol UITextInputTokenizer : ObjectProtocol {
   @available(iOS 3.2, *)
-  func rangeEnclosingPosition(position: UITextPosition, with granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextRange?
+  func rangeEnclosingPosition(position: UITextPosition, withGranularity granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextRange?
   @available(iOS 3.2, *)
   func isPosition(position: UITextPosition, atBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
   @available(iOS 3.2, *)
@@ -170,7 +170,7 @@ class UITextInputStringTokenizer : Object, UITextInputTokenizer {
   init(textInput: UIResponder)
   init()
   @available(iOS 3.2, *)
-  func rangeEnclosingPosition(position: UITextPosition, with granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextRange?
+  func rangeEnclosingPosition(position: UITextPosition, withGranularity granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextRange?
   @available(iOS 3.2, *)
   func isPosition(position: UITextPosition, atBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
   @available(iOS 3.2, *)
@@ -186,7 +186,7 @@ class UITextInputMode : Object, SecureCoding {
   @available(iOS 4.2, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 4.2, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(iOS 4.2, *)

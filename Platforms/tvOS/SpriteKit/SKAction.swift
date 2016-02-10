@@ -17,16 +17,16 @@ class SKAction : Object, Copying, Coding {
   var speed: CGFloat
   func reversed() -> SKAction
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
+  func copyWith(zone: Zone = nil) -> AnyObject
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension SKAction {
   class func move(by delta: CGVector, duration sec: TimeInterval) -> SKAction
-  class func moveBy(x deltaX: CGFloat, y deltaY: CGFloat, duration sec: TimeInterval) -> SKAction
+  class func move(byx deltaX: CGFloat, y deltaY: CGFloat, duration sec: TimeInterval) -> SKAction
   class func move(to location: CGPoint, duration sec: TimeInterval) -> SKAction
-  class func moveTo(x x: CGFloat, duration sec: TimeInterval) -> SKAction
-  class func moveTo(y y: CGFloat, duration sec: TimeInterval) -> SKAction
+  class func move(tox x: CGFloat, duration sec: TimeInterval) -> SKAction
+  class func move(toy y: CGFloat, duration sec: TimeInterval) -> SKAction
   class func rotate(byAngle radians: CGFloat, duration sec: TimeInterval) -> SKAction
   class func rotate(toAngle radians: CGFloat, duration sec: TimeInterval) -> SKAction
   class func rotate(toAngle radians: CGFloat, duration sec: TimeInterval, shortestUnitArc: Bool) -> SKAction
@@ -67,7 +67,7 @@ extension SKAction {
   @available(tvOS 9.0, *)
   class func animate(normalTextures textures: [SKTexture], timePerFrame sec: TimeInterval, resize: Bool, restore: Bool) -> SKAction
   class func playSoundFileNamed(soundFile: String, waitForCompletion wait: Bool) -> SKAction
-  class func colorize(with color: UIColor, colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction
+  class func colorize(withColor color: UIColor, colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction
   class func colorize(withColorBlendFactor colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction
   @available(tvOS 8.0, *)
   class func falloff(to falloff: Float, duration sec: TimeInterval) -> SKAction

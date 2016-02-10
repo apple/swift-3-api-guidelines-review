@@ -42,7 +42,7 @@ class UserNotification : Object, Copying {
   @available(OSX 10.10, *)
   @NSCopying var additionalActivationAction: UserNotificationAction? { get }
   @available(OSX 10.8, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.10, *)
 class UserNotificationAction : Object, Copying {
@@ -51,7 +51,7 @@ class UserNotificationAction : Object, Copying {
   var title: String? { get }
   init()
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.8, *)
 let userNotificationDefaultSoundName: String

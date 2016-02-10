@@ -165,10 +165,10 @@ class Calendar : Object, Copying, SecureCoding {
   var pmSymbol: String { get }
   func minimumRange(of unit: CalendarUnit) -> NSRange
   func maximumRange(of unit: CalendarUnit) -> NSRange
-  func range(of smaller: CalendarUnit, in larger: CalendarUnit, for date: Date) -> NSRange
-  func ordinality(of smaller: CalendarUnit, in larger: CalendarUnit, for date: Date) -> Int
+  func range(of smaller: CalendarUnit, in larger: CalendarUnit, forDate date: Date) -> NSRange
+  func ordinality(of smaller: CalendarUnit, in larger: CalendarUnit, forDate date: Date) -> Int
   @available(OSX 10.5, *)
-  func range(of unit: CalendarUnit, start datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, for date: Date) -> Bool
+  func range(of unit: CalendarUnit, start datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, forDate date: Date) -> Bool
   func date(from comps: DateComponents) -> Date?
   func components(unitFlags: CalendarUnit, from date: Date) -> DateComponents
   func dateByAdding(comps: DateComponents, to date: Date, options opts: CalendarOptions = []) -> Date?
@@ -186,7 +186,7 @@ class Calendar : Object, Copying, SecureCoding {
   @available(OSX 10.9, *)
   func date(withEra eraValue: Int, yearForWeekOfYear yearValue: Int, weekOfYear weekValue: Int, weekday weekdayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
   @available(OSX 10.9, *)
-  func startOfDay(for date: Date) -> Date
+  func startOfDay(forDate date: Date) -> Date
   @available(OSX 10.9, *)
   func componentsIn(timezone: TimeZone, from date: Date) -> DateComponents
   @available(OSX 10.9, *)
@@ -212,7 +212,7 @@ class Calendar : Object, Copying, SecureCoding {
   @available(OSX 10.9, *)
   func dateByAdding(unit: CalendarUnit, value: Int, to date: Date, options: CalendarOptions = []) -> Date?
   @available(OSX 10.9, *)
-  func enumerateDatesStarting(after start: Date, matching comps: DateComponents, options opts: CalendarOptions = [], using block: (Date?, Bool, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateDatesStarting(after start: Date, matching comps: DateComponents, options opts: CalendarOptions = [], usingBlock block: (Date?, Bool, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.9, *)
   func nextDate(after date: Date, matching comps: DateComponents, options: CalendarOptions = []) -> Date?
   @available(OSX 10.9, *)
@@ -225,9 +225,9 @@ class Calendar : Object, Copying, SecureCoding {
   func date(bySettingHour h: Int, minute m: Int, second s: Int, of date: Date, options opts: CalendarOptions = []) -> Date?
   @available(OSX 10.9, *)
   func date(date: Date, matchesComponents components: DateComponents) -> Bool
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(OSX 10.9, *)
@@ -272,8 +272,8 @@ class DateComponents : Object, Copying, SecureCoding {
   @available(OSX 10.9, *)
   func isValidDate(in calendar: Calendar) -> Bool
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

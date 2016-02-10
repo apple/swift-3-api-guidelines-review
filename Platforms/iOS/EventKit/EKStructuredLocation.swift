@@ -7,5 +7,5 @@ class EKStructuredLocation : EKObject, Copying {
   var radius: Double
   init()
   @available(iOS 6.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

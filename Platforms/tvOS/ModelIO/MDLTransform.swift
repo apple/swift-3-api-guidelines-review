@@ -7,7 +7,7 @@ protocol MDLTransformComponent : MDLComponent {
   optional func setLocalTransform(transform: matrix_float4x4, forTime time: TimeInterval)
   optional func setLocalTransform(transform: matrix_float4x4)
   optional func localTransformAtTime(time: TimeInterval) -> matrix_float4x4
-  optional static func globalTransform(with object: MDLObject, atTime time: TimeInterval) -> matrix_float4x4
+  optional static func globalTransform(withObject object: MDLObject, atTime time: TimeInterval) -> matrix_float4x4
 }
 @available(tvOS 9.0, *)
 class MDLTransform : Object, MDLTransformComponent {
@@ -42,5 +42,5 @@ class MDLTransform : Object, MDLTransformComponent {
   @available(tvOS 9.0, *)
   func localTransformAtTime(time: TimeInterval) -> matrix_float4x4
   @available(tvOS 9.0, *)
-  class func globalTransform(with object: MDLObject, atTime time: TimeInterval) -> matrix_float4x4
+  class func globalTransform(withObject object: MDLObject, atTime time: TimeInterval) -> matrix_float4x4
 }

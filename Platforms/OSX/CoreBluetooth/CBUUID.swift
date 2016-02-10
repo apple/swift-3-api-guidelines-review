@@ -26,5 +26,5 @@ class CBUUID : Object, Copying {
   /*not inherited*/ init(nsuuid theUUID: UUID)
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

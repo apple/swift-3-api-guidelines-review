@@ -26,7 +26,7 @@ class UIApplication : UIResponder {
   func send(event: UIEvent)
   var keyWindow: UIWindow? { get }
   var windows: [UIWindow] { get }
-  func sendAction(action: Selector, to target: AnyObject?, from sender: AnyObject?, for event: UIEvent?) -> Bool
+  func sendAction(action: Selector, to target: AnyObject?, from sender: AnyObject?, forEvent event: UIEvent?) -> Bool
   @available(tvOS 4.0, *)
   var applicationState: UIApplicationState { get }
   @available(tvOS 4.0, *)

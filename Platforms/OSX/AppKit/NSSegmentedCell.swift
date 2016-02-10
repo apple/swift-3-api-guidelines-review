@@ -28,7 +28,7 @@ class NSSegmentedCell : NSActionCell {
   func tag(forSegment segment: Int) -> Int
   @available(OSX 10.5, *)
   var segmentStyle: NSSegmentStyle
-  func drawSegment(segment: Int, inFrame frame: Rect, with controlView: NSView)
+  func drawSegment(segment: Int, inFrame frame: Rect, withView controlView: NSView)
   init(textCell aString: String)
   init(imageCell image: NSImage?)
   convenience init()

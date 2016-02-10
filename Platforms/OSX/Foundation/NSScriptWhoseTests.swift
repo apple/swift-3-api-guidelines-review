@@ -15,7 +15,7 @@ class ScriptWhoseTest : Object, Coding {
   func isTrue() -> Bool
   init()
   init?(coder inCoder: Coder)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
 }
 class LogicalTest : ScriptWhoseTest {
   init(andTestWith subTests: [SpecifierTest])

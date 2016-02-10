@@ -5,7 +5,7 @@ class CLKComplicationServer : Object {
   var activeComplications: [CLKComplication]! { get }
   var earliestTimeTravelDate: Date! { get }
   var latestTimeTravelDate: Date! { get }
-  func reloadTimeline(for complication: CLKComplication!)
-  func extendTimeline(for complication: CLKComplication!)
+  func reloadTimeline(forComplication complication: CLKComplication!)
+  func extendTimeline(forComplication complication: CLKComplication!)
   init()
 }

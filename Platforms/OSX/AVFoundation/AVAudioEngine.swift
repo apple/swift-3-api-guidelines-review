@@ -18,9 +18,9 @@ class AVAudioEngine : Object {
   func reset()
   func stop()
   @available(OSX 10.11, *)
-  func inputConnectionPoint(for node: AVAudioNode, inputBus bus: AVAudioNodeBus) -> AVAudioConnectionPoint?
+  func inputConnectionPoint(forNode node: AVAudioNode, inputBus bus: AVAudioNodeBus) -> AVAudioConnectionPoint?
   @available(OSX 10.11, *)
-  func outputConnectionPoints(for node: AVAudioNode, outputBus bus: AVAudioNodeBus) -> [AVAudioConnectionPoint]
+  func outputConnectionPoints(forNode node: AVAudioNode, outputBus bus: AVAudioNodeBus) -> [AVAudioConnectionPoint]
   var musicSequence: MusicSequence
   var outputNode: AVAudioOutputNode { get }
   var inputNode: AVAudioInputNode? { get }

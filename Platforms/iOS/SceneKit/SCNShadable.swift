@@ -16,9 +16,9 @@ protocol SCNShadable : ObjectProtocol {
   @available(iOS 8.0, *)
   optional var program: SCNProgram? { get set }
   @available(iOS 8.0, *)
-  optional func handleBinding(ofSymbol symbol: String, using block: SCNBindingBlock? = nil)
+  optional func handleBinding(ofSymbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
   @available(iOS 8.0, *)
-  optional func handleUnbinding(ofSymbol symbol: String, using block: SCNBindingBlock? = nil)
+  optional func handleUnbinding(ofSymbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
   @available(iOS 8.0, *)
   optional var shaderModifiers: [String : String]? { get set }
 }
@@ -32,7 +32,7 @@ class SCNProgram : Object, Copying, SecureCoding {
   @available(iOS 9.0, *)
   var fragmentFunctionName: String?
   @available(iOS 9.0, *)
-  func handleBinding(ofBufferNamed name: String, frequency: SCNBufferFrequency, using block: SCNBufferBindingBlock)
+  func handleBinding(ofBufferNamed name: String, frequency: SCNBufferFrequency, usingBlock block: SCNBufferBindingBlock)
   @available(iOS 8.0, *)
   var isOpaque: Bool
   func setSemantic(semantic: String?, forSymbol symbol: String, options: [String : AnyObject]? = [:])
@@ -42,11 +42,11 @@ class SCNProgram : Object, Copying, SecureCoding {
   var library: MTLLibrary?
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 protocol SCNProgramDelegate : ObjectProtocol {

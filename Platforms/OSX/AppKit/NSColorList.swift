@@ -15,7 +15,7 @@ class NSColorList : Object, SecureCoding {
   func removeFile()
   init()
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct _colorListFlags {

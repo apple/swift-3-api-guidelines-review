@@ -17,7 +17,7 @@ class IOBluetoothPasskeyDisplay : NSView {
   @IBOutlet unowned(unsafe) var centeredView: @sil_unmanaged NSView!
   @IBOutlet unowned(unsafe) var backgroundImageConstraint: @sil_unmanaged NSLayoutConstraint!
   class func sharedDisplayView() -> IOBluetoothPasskeyDisplay!
-  func setPasskey(inString: String!, for device: IOBluetoothDevice!, usingSSP isSSP: Bool)
+  func setPasskey(inString: String!, forDevice device: IOBluetoothDevice!, usingSSP isSSP: Bool)
   func advancePasskeyIndicator()
   func retreatPasskeyIndicator()
   func resetPasskeyIndicator()

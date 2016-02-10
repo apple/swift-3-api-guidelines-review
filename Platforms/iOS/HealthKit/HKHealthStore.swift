@@ -2,7 +2,7 @@
 @available(iOS 8.0, *)
 class HKHealthStore : Object {
   class func isHealthDataAvailable() -> Bool
-  func authorizationStatus(for type: HKObjectType) -> HKAuthorizationStatus
+  func authorizationStatus(forType type: HKObjectType) -> HKAuthorizationStatus
   func requestAuthorizationToShare(typesToShare: Set<HKSampleType>?, read typesToRead: Set<HKObjectType>?, completion: (Bool, Error?) -> Void)
   @available(iOS 9.0, *)
   func handleAuthorizationForExtension(completion completion: (Bool, Error?) -> Void)
@@ -30,26 +30,26 @@ extension HKHealthStore {
   func add(samples: [HKSample], to workout: HKWorkout, completion: (Bool, Error?) -> Void)
 }
 extension HKHealthStore {
-  func enableBackgroundDelivery(for type: HKObjectType, frequency: HKUpdateFrequency, withCompletion completion: (Bool, Error?) -> Void)
-  func disableBackgroundDelivery(for type: HKObjectType, withCompletion completion: (Bool, Error?) -> Void)
-  func disableAllBackgroundDelivery(completion completion: (Bool, Error?) -> Void)
+  func enableBackgroundDelivery(forType type: HKObjectType, frequency: HKUpdateFrequency, withCompletion completion: (Bool, Error?) -> Void)
+  func disableBackgroundDelivery(forType type: HKObjectType, withCompletion completion: (Bool, Error?) -> Void)
+  func disableAllBackgroundDelivery(withCompletion completion: (Bool, Error?) -> Void)
 }
 @available(iOS 8.2, *)
 let HKUserPreferencesDidChangeNotification: String
 extension HKHealthStore {
   @available(iOS 8.2, *)
-  func preferredUnits(for quantityTypes: Set<HKQuantityType>, completion: ([HKQuantityType : HKUnit], Error?) -> Void)
+  func preferredUnits(forQuantityTypes quantityTypes: Set<HKQuantityType>, completion: ([HKQuantityType : HKUnit], Error?) -> Void)
 }
 @available(iOS 8.0, *)
 class HKBiologicalSexObject : Object, Copying, SecureCoding {
   var biologicalSex: HKBiologicalSex { get }
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(iOS 8.0, *)
@@ -57,11 +57,11 @@ class HKBloodTypeObject : Object, Copying, SecureCoding {
   var bloodType: HKBloodType { get }
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(iOS 9.0, *)
@@ -69,10 +69,10 @@ class HKFitzpatrickSkinTypeObject : Object, Copying, SecureCoding {
   var skinType: HKFitzpatrickSkinType { get }
   init()
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

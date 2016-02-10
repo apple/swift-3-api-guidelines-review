@@ -6,7 +6,7 @@ class CAEmitterBehavior : Object, Coding {
   var name: String?
   var isEnabled: Bool
   init()
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 let kCAEmitterBehaviorWave: String

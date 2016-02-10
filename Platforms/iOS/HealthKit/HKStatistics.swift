@@ -16,19 +16,19 @@ class HKStatistics : Object, SecureCoding, Copying {
   var startDate: Date { get }
   var endDate: Date { get }
   var sources: [HKSource]? { get }
-  func averageQuantity(for source: HKSource) -> HKQuantity?
+  func averageQuantity(forSource source: HKSource) -> HKQuantity?
   func averageQuantity() -> HKQuantity?
-  func minimumQuantity(for source: HKSource) -> HKQuantity?
+  func minimumQuantity(forSource source: HKSource) -> HKQuantity?
   func minimumQuantity() -> HKQuantity?
-  func maximumQuantity(for source: HKSource) -> HKQuantity?
+  func maximumQuantity(forSource source: HKSource) -> HKQuantity?
   func maximumQuantity() -> HKQuantity?
-  func sumQuantity(for source: HKSource) -> HKQuantity?
+  func sumQuantity(forSource source: HKSource) -> HKQuantity?
   func sumQuantity() -> HKQuantity?
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

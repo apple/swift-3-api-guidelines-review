@@ -90,11 +90,11 @@ class NSWorkspace : Object {
 }
 extension NSWorkspace {
   @available(OSX 10.6, *)
-  func setDesktopImageURL(url: URL, for screen: NSScreen, options: [String : AnyObject] = [:]) throws
+  func setDesktopImageURL(url: URL, forScreen screen: NSScreen, options: [String : AnyObject] = [:]) throws
   @available(OSX 10.6, *)
-  func desktopImageURL(for screen: NSScreen) -> URL?
+  func desktopImageURL(forScreen screen: NSScreen) -> URL?
   @available(OSX 10.6, *)
-  func desktopImageOptions(for screen: NSScreen) -> [String : AnyObject]?
+  func desktopImageOptions(forScreen screen: NSScreen) -> [String : AnyObject]?
 }
 @available(OSX 10.6, *)
 let NSWorkspaceDesktopImageScalingKey: String

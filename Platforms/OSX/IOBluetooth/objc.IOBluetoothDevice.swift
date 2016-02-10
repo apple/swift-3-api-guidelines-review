@@ -56,7 +56,7 @@ class IOBluetoothDevice : IOBluetoothObject, Coding, SecureCoding {
   func performSDPQuery(target: AnyObject!, uuids uuidArray: [AnyObject]!) -> IOReturn
   var services: [AnyObject]! { get }
   func getLastServicesUpdate() -> Date!
-  func getServiceRecord(for sdpUUID: IOBluetoothSDPUUID!) -> IOBluetoothSDPServiceRecord!
+  func getServiceRecord(forUUID sdpUUID: IOBluetoothSDPUUID!) -> IOBluetoothSDPServiceRecord!
   class func favoriteDevices() -> [AnyObject]!
   func isFavorite() -> Bool
   func addToFavorites() -> IOReturn
@@ -68,9 +68,9 @@ class IOBluetoothDevice : IOBluetoothObject, Coding, SecureCoding {
   func setSupervisionTimeout(timeout: UInt16) -> IOReturn
   func openL2CAPChannelSync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [Object : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
   func openL2CAPChannelAsync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [Object : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
-  func awakeAfter(coder: Coder!) -> AnyObject!
+  func awakeAfter(usingCoder coder: Coder!) -> AnyObject!
   init()
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   class func supportsSecureCoding() -> Bool
 }

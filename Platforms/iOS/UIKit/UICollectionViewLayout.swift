@@ -23,11 +23,11 @@ class UICollectionViewLayoutAttributes : Object, Copying, UIDynamicItem {
   var representedElementCategory: UICollectionElementCategory { get }
   var representedElementKind: String? { get }
   convenience init(forCellWith indexPath: IndexPath)
-  convenience init(forSupplementaryViewOfKind elementKind: String, with indexPath: IndexPath)
-  convenience init(forDecorationViewOfKind decorationViewKind: String, with indexPath: IndexPath)
+  convenience init(forSupplementaryViewOfKind elementKind: String, withIndexPath indexPath: IndexPath)
+  convenience init(forDecorationViewOfKind decorationViewKind: String, withIndexPath indexPath: IndexPath)
   init()
   @available(iOS 6.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   var collisionBoundsType: UIDynamicItemCollisionBoundsType { get }
   @available(iOS 9.0, *)
@@ -84,11 +84,11 @@ class UICollectionViewLayout : Object, Coding {
   var collectionView: UICollectionView? { get }
   func invalidateLayout()
   @available(iOS 7.0, *)
-  func invalidateLayout(with context: UICollectionViewLayoutInvalidationContext)
+  func invalidateLayout(withContext context: UICollectionViewLayoutInvalidationContext)
   func register(viewClass: AnyClass?, forDecorationViewOfKind elementKind: String)
   func register(nib: UINib?, forDecorationViewOfKind elementKind: String)
   @available(iOS 6.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
 }
 extension UICollectionViewLayout {
   class func layoutAttributesClass() -> AnyClass

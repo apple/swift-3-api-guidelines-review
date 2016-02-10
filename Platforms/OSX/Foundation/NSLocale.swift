@@ -4,9 +4,9 @@ class Locale : Object, Copying, SecureCoding {
   func displayName(forKey key: AnyObject, value: AnyObject) -> String?
   init(localeIdentifier string: String)
   init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
 }
 extension Locale {
   var localeIdentifier: String { get }

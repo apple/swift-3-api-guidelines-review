@@ -140,7 +140,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   unowned(unsafe) var delegate: @sil_unmanaged NSWindowDelegate?
   var windowNumber: Int { get }
   var styleMask: Int
-  func fieldEditor(createFlag: Bool, for anObject: AnyObject?) -> NSText?
+  func fieldEditor(createFlag: Bool, forObject anObject: AnyObject?) -> NSText?
   func endEditing(for anObject: AnyObject?)
   func constrainFrameRect(frameRect: Rect, to screen: NSScreen?) -> Rect
   func setFrame(frameRect: Rect, display flag: Bool)
@@ -184,13 +184,13 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   func validRequestorForSendType(sendType: String, returnType: String) -> AnyObject?
   @NSCopying var backgroundColor: NSColor!
   @available(OSX 10.5, *)
-  func setContentBorderThickness(thickness: CGFloat, for edge: RectEdge)
+  func setContentBorderThickness(thickness: CGFloat, forEdge edge: RectEdge)
   @available(OSX 10.5, *)
-  func contentBorderThickness(for edge: RectEdge) -> CGFloat
+  func contentBorderThickness(forEdge edge: RectEdge) -> CGFloat
   @available(OSX 10.5, *)
-  func setAutorecalculatesContentBorderThickness(flag: Bool, for edge: RectEdge)
+  func setAutorecalculatesContentBorderThickness(flag: Bool, forEdge edge: RectEdge)
   @available(OSX 10.5, *)
-  func autorecalculatesContentBorderThickness(for edge: RectEdge) -> Bool
+  func autorecalculatesContentBorderThickness(forEdge edge: RectEdge) -> Bool
   @available(OSX 10.6, *)
   var isMovable: Bool
   var isMovableByWindowBackground: Bool
@@ -246,7 +246,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   func enableCursorRects()
   func discardCursorRects()
   var areCursorRectsEnabled: Bool { get }
-  func invalidateCursorRects(for aView: NSView)
+  func invalidateCursorRects(forView aView: NSView)
   func resetCursorRects()
   var allowsToolTipsWhenApplicationIsInactive: Bool
   var backingType: NSBackingStoreType
@@ -282,12 +282,12 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   func toggleFullScreen(sender: AnyObject?)
   var stringWithSavedFrame: String { get }
   func setFrameFrom(string: String)
-  func saveFrame(name name: String)
+  func saveFrame(usingName name: String)
   func setFrameUsingName(name: String, force: Bool) -> Bool
   func setFrameUsingName(name: String) -> Bool
   func setFrameAutosaveName(name: String) -> Bool
   var frameAutosaveName: String { get }
-  class func removeFrame(name name: String)
+  class func removeFrame(usingName name: String)
   func cacheImage(in aRect: Rect)
   func restoreCachedImage()
   func discardCachedImage()
@@ -378,23 +378,23 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.10, *)
   func accessibilityCell(forColumn column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
-  func accessibilityAttributedString(for range: NSRange) -> AttributedString?
+  func accessibilityAttributedString(forRange range: NSRange) -> AttributedString?
   @available(OSX 10.10, *)
   func accessibilityRange(forLine line: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityString(for range: NSRange) -> String?
+  func accessibilityString(forRange range: NSRange) -> String?
   @available(OSX 10.10, *)
   func accessibilityRange(forPosition point: Point) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityRange(for index: Int) -> NSRange
+  func accessibilityRange(forIndex index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityFrame(for range: NSRange) -> Rect
+  func accessibilityFrame(forRange range: NSRange) -> Rect
   @available(OSX 10.10, *)
-  func accessibilityRTF(for range: NSRange) -> Data?
+  func accessibilityRTF(forRange range: NSRange) -> Data?
   @available(OSX 10.10, *)
-  func accessibilityStyleRange(for index: Int) -> NSRange
+  func accessibilityStyleRange(forIndex index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityLine(for index: Int) -> Int
+  func accessibilityLine(forIndex index: Int) -> Int
   @available(OSX 10.10, *)
   func accessibilityPerformCancel() -> Bool
   @available(OSX 10.10, *)
@@ -992,27 +992,27 @@ protocol NSWindowDelegate : ObjectProtocol {
   optional func windowShouldZoom(window: NSWindow, toFrame newFrame: Rect) -> Bool
   @available(OSX 10.0, *)
   optional func windowWillReturnUndoManager(window: NSWindow) -> UndoManager?
-  optional func window(window: NSWindow, willPositionSheet sheet: NSWindow, using rect: Rect) -> Rect
+  optional func window(window: NSWindow, willPositionSheet sheet: NSWindow, usingRect rect: Rect) -> Rect
   @available(OSX 10.5, *)
   optional func window(window: NSWindow, shouldPopUpDocumentPathMenu menu: NSMenu) -> Bool
   @available(OSX 10.5, *)
-  optional func window(window: NSWindow, shouldDragDocumentWith event: NSEvent, from dragImageLocation: Point, with pasteboard: NSPasteboard) -> Bool
+  optional func window(window: NSWindow, shouldDragDocumentWith event: NSEvent, from dragImageLocation: Point, withPasteboard pasteboard: NSPasteboard) -> Bool
   @available(OSX 10.7, *)
   optional func window(window: NSWindow, willUseFullScreenContentSize proposedSize: Size) -> Size
   @available(OSX 10.7, *)
   optional func window(window: NSWindow, willUseFullScreenPresentationOptions proposedOptions: NSApplicationPresentationOptions = []) -> NSApplicationPresentationOptions
   @available(OSX 10.7, *)
-  optional func customWindowsToEnterFullScreen(for window: NSWindow) -> [NSWindow]?
+  optional func customWindowsToEnterFullScreen(forWindow window: NSWindow) -> [NSWindow]?
   @available(OSX 10.7, *)
   optional func window(window: NSWindow, startCustomAnimationToEnterFullScreenWithDuration duration: TimeInterval)
   @available(OSX 10.7, *)
   optional func windowDidFailToEnterFullScreen(window: NSWindow)
   @available(OSX 10.7, *)
-  optional func customWindowsToExitFullScreen(for window: NSWindow) -> [NSWindow]?
+  optional func customWindowsToExitFullScreen(forWindow window: NSWindow) -> [NSWindow]?
   @available(OSX 10.7, *)
   optional func window(window: NSWindow, startCustomAnimationToExitFullScreenWithDuration duration: TimeInterval)
   @available(OSX 10.9, *)
-  optional func customWindowsToEnterFullScreen(for window: NSWindow, on screen: NSScreen) -> [NSWindow]?
+  optional func customWindowsToEnterFullScreen(forWindow window: NSWindow, on screen: NSScreen) -> [NSWindow]?
   @available(OSX 10.9, *)
   optional func window(window: NSWindow, startCustomAnimationToEnterFullScreenOn screen: NSScreen, withDuration duration: TimeInterval)
   @available(OSX 10.7, *)

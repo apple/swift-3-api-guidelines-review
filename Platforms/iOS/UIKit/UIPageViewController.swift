@@ -62,7 +62,7 @@ protocol UIPageViewControllerDataSource : ObjectProtocol {
   @available(iOS 5.0, *)
   func pageViewController(pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?
   @available(iOS 6.0, *)
-  optional func presentationCount(for pageViewController: UIPageViewController) -> Int
+  optional func presentationCount(forPageViewController pageViewController: UIPageViewController) -> Int
   @available(iOS 6.0, *)
-  optional func presentationIndex(for pageViewController: UIPageViewController) -> Int
+  optional func presentationIndex(forPageViewController pageViewController: UIPageViewController) -> Int
 }

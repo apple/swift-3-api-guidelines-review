@@ -9,7 +9,7 @@ enum NCUpdateResult : UInt {
 }
 protocol NCWidgetProviding : ExtensionRequestHandling {
   @available(OSX 10.10, *)
-  optional func widgetPerformUpdate(completionHandler completionHandler: ((NCUpdateResult) -> Void)!)
+  optional func widgetPerformUpdate(withCompletionHandler completionHandler: ((NCUpdateResult) -> Void)!)
   optional func widgetMarginInsets(forProposedMarginInsets defaultMarginInset: EdgeInsets) -> EdgeInsets
   optional var widgetAllowsEditing: Bool { get }
   optional func widgetDidBeginEditing()

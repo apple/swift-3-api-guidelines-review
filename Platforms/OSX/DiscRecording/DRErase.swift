@@ -1,6 +1,6 @@
 
 class DRErase : Object {
-  /*not inherited*/ init!(for device: DRDevice!)
+  /*not inherited*/ init!(forDevice device: DRDevice!)
   init!(device: DRDevice!)
   func start()
   func status() -> [Object : AnyObject]!

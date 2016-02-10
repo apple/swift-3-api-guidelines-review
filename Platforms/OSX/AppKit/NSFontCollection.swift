@@ -25,11 +25,11 @@ class NSFontCollection : Object, Copying, MutableCopying, Coding {
   func matchingDescriptors(forFamily family: String, options: [String : Number]? = [:]) -> [NSFontDescriptor]?
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(OSX 10.7, *)
@@ -41,8 +41,8 @@ class NSMutableFontCollection : NSFontCollection {
   /*not inherited*/ init?(name: String, visibility: NSFontCollectionVisibility)
   var queryDescriptors: [NSFontDescriptor]?
   var exclusionDescriptors: [NSFontDescriptor]?
-  func addQuery(for descriptors: [NSFontDescriptor])
-  func removeQuery(for descriptors: [NSFontDescriptor])
+  func addQuery(forDescriptors descriptors: [NSFontDescriptor])
+  func removeQuery(forDescriptors descriptors: [NSFontDescriptor])
   init()
   init?(coder aDecoder: Coder)
 }

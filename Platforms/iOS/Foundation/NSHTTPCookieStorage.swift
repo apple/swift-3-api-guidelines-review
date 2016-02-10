@@ -15,16 +15,16 @@ class HTTPCookieStorage : Object {
   func deleteCookie(cookie: HTTPCookie)
   @available(iOS 8.0, *)
   func removeCookies(since date: Date)
-  func cookies(for URL: URL) -> [HTTPCookie]?
-  func setCookies(cookies: [HTTPCookie], for URL: URL?, mainDocumentURL: URL?)
+  func cookies(forURL URL: URL) -> [HTTPCookie]?
+  func setCookies(cookies: [HTTPCookie], forURL URL: URL?, mainDocumentURL: URL?)
   var cookieAcceptPolicy: HTTPCookieAcceptPolicy
   @available(iOS 5.0, *)
-  func sortedCookies(using sortOrder: [SortDescriptor]) -> [HTTPCookie]
+  func sortedCookies(usingDescriptors sortOrder: [SortDescriptor]) -> [HTTPCookie]
   init()
 }
 extension HTTPCookieStorage {
   @available(iOS 8.0, *)
-  func storeCookies(cookies: [HTTPCookie], for task: URLSessionTask)
+  func storeCookies(cookies: [HTTPCookie], forTask task: URLSessionTask)
   @available(iOS 8.0, *)
   func getCookiesFor(task: URLSessionTask, completionHandler: ([HTTPCookie]?) -> Void)
 }

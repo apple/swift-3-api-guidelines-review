@@ -20,7 +20,7 @@ class NSToolbarItem : Object, Copying, NSValidatedUserInterfaceItem {
   var autovalidates: Bool
   var allowsDuplicatesInToolbar: Bool { get }
   convenience init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 struct __tbiFlags {
   var viewRespondsToIsEnabled: UInt32

@@ -21,8 +21,8 @@ struct FileCoordinatorWritingOptions : OptionSetType {
 }
 @available(watchOS 2.0, *)
 class FileAccessIntent : Object {
-  class func readingIntent(with url: URL, options: FileCoordinatorReadingOptions = []) -> Self
-  class func writingIntent(with url: URL, options: FileCoordinatorWritingOptions = []) -> Self
+  class func readingIntent(withURL url: URL, options: FileCoordinatorReadingOptions = []) -> Self
+  class func writingIntent(withURL url: URL, options: FileCoordinatorWritingOptions = []) -> Self
   @NSCopying var url: URL { get }
   init()
 }
@@ -35,7 +35,7 @@ class FileCoordinator : Object {
   @available(watchOS 2.0, *)
   var purposeIdentifier: String
   @available(watchOS 2.0, *)
-  func coordinateAccess(with intents: [FileAccessIntent], queue: OperationQueue, byAccessor accessor: (Error?) -> Void)
+  func coordinateAccess(withIntents intents: [FileAccessIntent], queue: OperationQueue, byAccessor accessor: (Error?) -> Void)
   func coordinateReadingItem(at url: URL, options: FileCoordinatorReadingOptions = [], error outError: ErrorPointer, byAccessor reader: (URL) -> Void)
   func coordinateWritingItem(at url: URL, options: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor writer: (URL) -> Void)
   func coordinateReadingItem(at readingURL: URL, options readingOptions: FileCoordinatorReadingOptions = [], writingItemAt writingURL: URL, options writingOptions: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor readerWriter: (URL, URL) -> Void)

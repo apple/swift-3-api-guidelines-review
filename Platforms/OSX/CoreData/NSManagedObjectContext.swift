@@ -49,10 +49,10 @@ class NSManagedObjectContext : Object, Coding, Locking {
   var userInfo: MutableDictionary { get }
   @available(OSX 10.7, *)
   var concurrencyType: NSManagedObjectContextConcurrencyType { get }
-  func objectRegistered(for objectID: NSManagedObjectID) -> NSManagedObject?
-  func object(with objectID: NSManagedObjectID) -> NSManagedObject
+  func objectRegistered(forID objectID: NSManagedObjectID) -> NSManagedObject?
+  func object(withID objectID: NSManagedObjectID) -> NSManagedObject
   @available(OSX 10.6, *)
-  func existingObject(with objectID: NSManagedObjectID) throws -> NSManagedObject
+  func existingObject(withID objectID: NSManagedObjectID) throws -> NSManagedObject
   func execute(request: NSFetchRequest) throws -> [AnyObject]
   @available(OSX 10.5, *)
   func countFor(request: NSFetchRequest, error: ErrorPointer) -> Int
@@ -61,7 +61,7 @@ class NSManagedObjectContext : Object, Coding, Locking {
   func insert(object: NSManagedObject)
   func delete(object: NSManagedObject)
   func refreshObject(object: NSManagedObject, mergeChanges flag: Bool)
-  func detectConflicts(for object: NSManagedObject)
+  func detectConflicts(forObject object: NSManagedObject)
   func observeValue(forKeyPath keyPath: String?, of object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
   func processPendingChanges()
   func assign(object: AnyObject, to store: NSPersistentStore)
@@ -87,17 +87,17 @@ class NSManagedObjectContext : Object, Coding, Locking {
   @available(OSX 10.11, *)
   var shouldDeleteInaccessibleFaults: Bool
   @available(OSX 10.11, *)
-  func shouldHandleInaccessibleFault(fault: NSManagedObject, for oid: NSManagedObjectID, triggeredByProperty property: NSPropertyDescription?) -> Bool
+  func shouldHandleInaccessibleFault(fault: NSManagedObject, forObjectID oid: NSManagedObjectID, triggeredByProperty property: NSPropertyDescription?) -> Bool
   var stalenessInterval: TimeInterval
   var mergePolicy: AnyObject
   @available(OSX 10.5, *)
-  func obtainPermanentIDs(for objects: [NSManagedObject]) throws
+  func obtainPermanentIDs(forObjects objects: [NSManagedObject]) throws
   @available(OSX 10.5, *)
   func mergeChangesFromContextDidSave(notification: Notification)
   @available(OSX 10.11, *)
   class func mergeChangesFromRemoteContextSave(changeNotificationData: [Object : AnyObject], into contexts: [NSManagedObjectContext])
   @available(OSX 10.4, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct _managedObjectContextFlags {

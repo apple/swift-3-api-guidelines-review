@@ -10,11 +10,11 @@ enum SKSceneScaleMode : Int {
 }
 @available(iOS 8.0, *)
 protocol SKSceneDelegate : ObjectProtocol {
-  optional func update(currentTime: TimeInterval, for scene: SKScene)
-  optional func didEvaluateActions(for scene: SKScene)
-  optional func didSimulatePhysics(for scene: SKScene)
-  optional func didApplyConstraints(for scene: SKScene)
-  optional func didFinishUpdate(for scene: SKScene)
+  optional func update(currentTime: TimeInterval, forScene scene: SKScene)
+  optional func didEvaluateActions(forScene scene: SKScene)
+  optional func didSimulatePhysics(forScene scene: SKScene)
+  optional func didApplyConstraints(forScene scene: SKScene)
+  optional func didFinishUpdate(forScene scene: SKScene)
 }
 class SKScene : SKEffectNode {
   init(size: CGSize)

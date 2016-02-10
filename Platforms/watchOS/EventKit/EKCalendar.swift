@@ -4,7 +4,7 @@ class EKCalendar : EKObject {
   @available(watchOS, introduced=2.0, deprecated=2.0)
   /*not inherited*/ init(eventStore: EKEventStore)
   @available(watchOS 2.0, *)
-  /*not inherited*/ init(for entityType: EKEntityType, eventStore: EKEventStore)
+  /*not inherited*/ init(forEntityType entityType: EKEntityType, eventStore: EKEventStore)
   var source: EKSource
   @available(watchOS 2.0, *)
   var calendarIdentifier: String { get }

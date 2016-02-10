@@ -7,14 +7,14 @@ class SKRegion : Object, Copying, Coding {
   init(size: CGSize)
   init(path: CGPath)
   func inverse() -> Self
-  func byUnion(with region: SKRegion) -> Self
+  func byUnion(withRegion region: SKRegion) -> Self
   func byDifference(from region: SKRegion) -> Self
-  func byIntersection(with region: SKRegion) -> Self
+  func byIntersection(withRegion region: SKRegion) -> Self
   func contains(point: CGPoint) -> Bool
   init()
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.10, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

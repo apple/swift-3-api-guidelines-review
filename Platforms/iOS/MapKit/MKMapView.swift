@@ -60,7 +60,7 @@ class MKMapView : UIView, Coding {
   var annotations: [MKAnnotation] { get }
   @available(iOS 4.2, *)
   func annotations(in mapRect: MKMapRect) -> Set<Object>
-  func view(for annotation: MKAnnotation) -> MKAnnotationView?
+  func view(forAnnotation annotation: MKAnnotation) -> MKAnnotationView?
   func dequeueReusableAnnotationView(withIdentifier identifier: String) -> MKAnnotationView?
   func selectAnnotation(annotation: MKAnnotation, animated: Bool)
   func deselectAnnotation(annotation: MKAnnotation?, animated: Bool)
@@ -95,13 +95,13 @@ extension MKMapView {
   @available(iOS 4.0, *)
   func insert(overlay: MKOverlay, below sibling: MKOverlay)
   @available(iOS 7.0, *)
-  func exchangeOverlay(overlay1: MKOverlay, with overlay2: MKOverlay)
+  func exchangeOverlay(overlay1: MKOverlay, withOverlay overlay2: MKOverlay)
   @available(iOS 4.0, *)
   var overlays: [MKOverlay] { get }
   @available(iOS 7.0, *)
   func overlaysIn(level: MKOverlayLevel) -> [MKOverlay]
   @available(iOS 7.0, *)
-  func renderer(for overlay: MKOverlay) -> MKOverlayRenderer?
+  func renderer(forOverlay overlay: MKOverlay) -> MKOverlayRenderer?
   @available(iOS 4.0, *)
   func add(overlay: MKOverlay)
   @available(iOS 4.0, *)

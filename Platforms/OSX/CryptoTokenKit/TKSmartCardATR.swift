@@ -24,7 +24,7 @@ class TKSmartCardATR : Object {
   var bytes: Data { get }
   var protocols: [Number] { get }
   func interfaceGroup(at index: Int) -> TKSmartCardATRInterfaceGroup?
-  func interfaceGroup(for protocol: TKSmartCardProtocol) -> TKSmartCardATRInterfaceGroup?
+  func interfaceGroup(forProtocol protocol: TKSmartCardProtocol) -> TKSmartCardATRInterfaceGroup?
   var historicalBytes: Data { get }
   init()
 }

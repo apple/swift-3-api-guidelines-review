@@ -2,13 +2,13 @@
 class SFAuthorization : Object, Coding {
   class func authorization() -> AnyObject!
   func authorizationRef() -> AuthorizationRef
-  class func authorization(with flags: AuthorizationFlags, rights: UnsafePointer<AuthorizationRights>, environment: UnsafePointer<AuthorizationEnvironment>) -> AnyObject!
+  class func authorization(withFlags flags: AuthorizationFlags, rights: UnsafePointer<AuthorizationRights>, environment: UnsafePointer<AuthorizationEnvironment>) -> AnyObject!
   init!(flags: AuthorizationFlags, rights: UnsafePointer<AuthorizationRights>, environment: UnsafePointer<AuthorizationEnvironment>)
   init!()
   func invalidateCredentials()
   func obtain(right rightName: AuthorizationString, flags: AuthorizationFlags) throws
   func obtain(rights rights: UnsafePointer<AuthorizationRights>, flags: AuthorizationFlags, environment: UnsafePointer<AuthorizationEnvironment>, authorizedRights: UnsafeMutablePointer<UnsafeMutablePointer<AuthorizationRights>>) throws
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension SFAuthorization {

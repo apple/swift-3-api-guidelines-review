@@ -71,12 +71,12 @@ class NSLayoutManager : Object, Coding {
   func invalidateDisplay(forCharacterRange charRange: NSRange)
   func invalidateDisplay(forGlyphRange glyphRange: NSRange)
   @available(OSX 10.11, *)
-  func processEditing(for textStorage: NSTextStorage, edited editMask: NSTextStorageEditActions, range newCharRange: NSRange, changeInLength delta: Int, invalidatedRange invalidatedCharRange: NSRange)
+  func processEditing(forTextStorage textStorage: NSTextStorage, edited editMask: NSTextStorageEditActions, range newCharRange: NSRange, changeInLength delta: Int, invalidatedRange invalidatedCharRange: NSRange)
   func ensureGlyphs(forCharacterRange charRange: NSRange)
   func ensureGlyphs(forGlyphRange glyphRange: NSRange)
   func ensureLayout(forCharacterRange charRange: NSRange)
   func ensureLayout(forGlyphRange glyphRange: NSRange)
-  func ensureLayout(for container: NSTextContainer)
+  func ensureLayout(forTextContainer container: NSTextContainer)
   func ensureLayout(forBoundingRect bounds: Rect, in container: NSTextContainer)
   @available(OSX 10.11, *)
   func setGlyphs(glyphs: UnsafePointer<CGGlyph>, properties props: UnsafePointer<NSGlyphProperty>, characterIndexes charIndexes: UnsafePointer<Int>, font aFont: NSFont, forGlyphRange glyphRange: NSRange)
@@ -103,7 +103,7 @@ class NSLayoutManager : Object, Coding {
   func textContainerForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer) -> NSTextContainer?
   @available(OSX 10.0, *)
   func textContainerForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer, withoutAdditionalLayout flag: Bool) -> NSTextContainer?
-  func usedRect(for container: NSTextContainer) -> Rect
+  func usedRect(forTextContainer container: NSTextContainer) -> Rect
   func lineFragmentRectForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer) -> Rect
   @available(OSX 10.0, *)
   func lineFragmentRectForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer, withoutAdditionalLayout flag: Bool) -> Rect
@@ -121,20 +121,20 @@ class NSLayoutManager : Object, Coding {
   func truncatedGlyphRangeInLineFragmentForGlyph(at glyphIndex: Int) -> NSRange
   func glyphRange(forCharacterRange charRange: NSRange, actualCharacterRange actualCharRange: RangePointer) -> NSRange
   func characterRange(forGlyphRange glyphRange: NSRange, actualGlyphRange: RangePointer) -> NSRange
-  func glyphRange(for container: NSTextContainer) -> NSRange
+  func glyphRange(forTextContainer container: NSTextContainer) -> NSRange
   func rangeOfNominallySpacedGlyphsContaining(glyphIndex: Int) -> NSRange
   func boundingRect(forGlyphRange glyphRange: NSRange, in container: NSTextContainer) -> Rect
   func glyphRange(forBoundingRect bounds: Rect, in container: NSTextContainer) -> NSRange
   func glyphRange(forBoundingRectWithoutAdditionalLayout bounds: Rect, in container: NSTextContainer) -> NSRange
-  func glyphIndex(for point: Point, in container: NSTextContainer, fractionOfDistanceThroughGlyph partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
-  func glyphIndex(for point: Point, in container: NSTextContainer) -> Int
-  func fractionOfDistanceThroughGlyph(for point: Point, in container: NSTextContainer) -> CGFloat
-  func characterIndex(for point: Point, in container: NSTextContainer, fractionOfDistanceBetweenInsertionPoints partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
+  func glyphIndex(forPoint point: Point, in container: NSTextContainer, fractionOfDistanceThroughGlyph partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
+  func glyphIndex(forPoint point: Point, in container: NSTextContainer) -> Int
+  func fractionOfDistanceThroughGlyph(forPoint point: Point, in container: NSTextContainer) -> CGFloat
+  func characterIndex(forPoint point: Point, in container: NSTextContainer, fractionOfDistanceBetweenInsertionPoints partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
   func getLineFragmentInsertionPointsForCharacter(at charIndex: Int, alternatePositions aFlag: Bool, inDisplayOrder dFlag: Bool, positions: UnsafeMutablePointer<CGFloat>, characterIndexes charIndexes: UnsafeMutablePointer<Int>) -> Int
   @available(OSX 10.11, *)
-  func enumerateLineFragments(forGlyphRange glyphRange: NSRange, using block: (Rect, Rect, NSTextContainer, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateLineFragments(forGlyphRange glyphRange: NSRange, usingBlock block: (Rect, Rect, NSTextContainer, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.11, *)
-  func enumerateEnclosingRects(forGlyphRange glyphRange: NSRange, withinSelectedGlyphRange selectedRange: NSRange, in textContainer: NSTextContainer, using block: (Rect, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateEnclosingRects(forGlyphRange glyphRange: NSRange, withinSelectedGlyphRange selectedRange: NSRange, in textContainer: NSTextContainer, usingBlock block: (Rect, UnsafeMutablePointer<ObjCBool>) -> Void)
   func drawBackground(forGlyphRange glyphsToShow: NSRange, at origin: Point)
   func drawGlyphs(forGlyphRange glyphsToShow: NSRange, at origin: Point)
   @available(OSX 10.7, *)
@@ -146,12 +146,12 @@ class NSLayoutManager : Object, Coding {
   func drawStrikethrough(forGlyphRange glyphRange: NSRange, strikethroughType strikethroughVal: NSUnderlineStyle, baselineOffset: CGFloat, lineFragmentRect lineRect: Rect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: Point)
   func strikethroughGlyphRange(glyphRange: NSRange, strikethroughType strikethroughVal: NSUnderlineStyle, lineFragmentRect lineRect: Rect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: Point)
   func showAttachmentCell(cell: NSCell, in rect: Rect, characterIndex attachmentIndex: Int)
-  func setLayoutRect(rect: Rect, for block: NSTextBlock, glyphRange: NSRange)
-  func setBoundsRect(rect: Rect, for block: NSTextBlock, glyphRange: NSRange)
-  func layoutRect(for block: NSTextBlock, glyphRange: NSRange) -> Rect
-  func boundsRect(for block: NSTextBlock, glyphRange: NSRange) -> Rect
-  func layoutRect(for block: NSTextBlock, at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer) -> Rect
-  func boundsRect(for block: NSTextBlock, at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer) -> Rect
+  func setLayoutRect(rect: Rect, forTextBlock block: NSTextBlock, glyphRange: NSRange)
+  func setBoundsRect(rect: Rect, forTextBlock block: NSTextBlock, glyphRange: NSRange)
+  func layoutRect(forTextBlock block: NSTextBlock, glyphRange: NSRange) -> Rect
+  func boundsRect(forTextBlock block: NSTextBlock, glyphRange: NSRange) -> Rect
+  func layoutRect(forTextBlock block: NSTextBlock, at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer) -> Rect
+  func boundsRect(forTextBlock block: NSTextBlock, at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer) -> Rect
   func temporaryAttributes(atCharacterIndex charIndex: Int, effectiveRange effectiveCharRange: RangePointer) -> [String : AnyObject]
   func setTemporaryAttributes(attrs: [String : AnyObject] = [:], forCharacterRange charRange: NSRange)
   func addTemporaryAttributes(attrs: [String : AnyObject] = [:], forCharacterRange charRange: NSRange)
@@ -164,10 +164,10 @@ class NSLayoutManager : Object, Coding {
   func temporaryAttributes(atCharacterIndex location: Int, longestEffectiveRange range: RangePointer, in rangeLimit: NSRange) -> [String : AnyObject]
   @available(OSX 10.5, *)
   func addTemporaryAttribute(attrName: String, value: AnyObject, forCharacterRange charRange: NSRange)
-  func defaultLineHeight(for theFont: NSFont) -> CGFloat
-  func defaultBaselineOffset(for theFont: NSFont) -> CGFloat
+  func defaultLineHeight(forFont theFont: NSFont) -> CGFloat
+  func defaultBaselineOffset(forFont theFont: NSFont) -> CGFloat
   @available(OSX 10.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
 }
 struct __lmFlags {
   var containersAreFull: UInt32
@@ -211,8 +211,8 @@ extension NSLayoutManager : NSGlyphStorage {
   func layoutOptions() -> Int
 }
 extension NSLayoutManager {
-  func rulerMarkers(for view: NSTextView, paragraphStyle style: NSParagraphStyle, ruler: NSRulerView) -> [NSRulerMarker]
-  func rulerAccessoryView(for view: NSTextView, paragraphStyle style: NSParagraphStyle, ruler: NSRulerView, enabled isEnabled: Bool) -> NSView?
+  func rulerMarkers(forTextView view: NSTextView, paragraphStyle style: NSParagraphStyle, ruler: NSRulerView) -> [NSRulerMarker]
+  func rulerAccessoryView(forTextView view: NSTextView, paragraphStyle style: NSParagraphStyle, ruler: NSRulerView, enabled isEnabled: Bool) -> NSView?
   func layoutManagerOwnsFirstResponder(in window: NSWindow) -> Bool
   unowned(unsafe) var firstTextView: @sil_unmanaged NSTextView? { get }
   unowned(unsafe) var textViewForBeginningOfSelection: @sil_unmanaged NSTextView? { get }
@@ -233,7 +233,7 @@ protocol NSLayoutManagerDelegate : ObjectProtocol {
   @available(OSX 10.11, *)
   optional func layoutManager(layoutManager: NSLayoutManager, shouldBreakLineByHyphenatingBeforeCharacterAt charIndex: Int) -> Bool
   @available(OSX 10.11, *)
-  optional func layoutManager(layoutManager: NSLayoutManager, boundingBoxForControlGlyphAt glyphIndex: Int, for textContainer: NSTextContainer, proposedLineFragment proposedRect: Rect, glyphPosition: Point, characterIndex charIndex: Int) -> Rect
+  optional func layoutManager(layoutManager: NSLayoutManager, boundingBoxForControlGlyphAt glyphIndex: Int, forTextContainer textContainer: NSTextContainer, proposedLineFragment proposedRect: Rect, glyphPosition: Point, characterIndex charIndex: Int) -> Rect
   @available(OSX 10.11, *)
   optional func layoutManager(layoutManager: NSLayoutManager, shouldSetLineFragmentRect lineFragmentRect: UnsafeMutablePointer<Rect>, lineFragmentUsedRect: UnsafeMutablePointer<Rect>, baselineOffset: UnsafeMutablePointer<CGFloat>, in textContainer: NSTextContainer, forGlyphRange glyphRange: NSRange) -> Bool
   @available(OSX 10.0, *)
@@ -267,7 +267,7 @@ extension NSLayoutManager {
   @available(OSX, introduced=10.0, deprecated=10.11)
   var usesScreenFonts: Bool
   @available(OSX, introduced=10.0, deprecated=10.11)
-  func substituteFont(for originalFont: NSFont) -> NSFont
+  func substituteFont(forFont originalFont: NSFont) -> NSFont
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -setGlyphs:properties:characterIndexes:font:forGlyphRange instead")
   func insertGlyphs(glyphs: UnsafePointer<NSGlyph>, length: Int, forStartingGlyphAt glyphIndex: Int, characterIndex charIndex: Int)
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -setGlyphs:properties:characterIndexes:font:forGlyphRange instead")

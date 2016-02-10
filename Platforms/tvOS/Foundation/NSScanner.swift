@@ -7,7 +7,7 @@ class Scanner : Object, Copying {
   var locale: AnyObject?
   init(string: String)
   convenience init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 extension Scanner {
   func scanInt(result: UnsafeMutablePointer<Int32>) -> Bool
@@ -30,5 +30,5 @@ extension Scanner {
   func scanUp(to string: String, into result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   func scanUpToCharacters(from set: CharacterSet, into result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   var isAtEnd: Bool { get }
-  class func localizedScanner(with string: String) -> AnyObject
+  class func localizedScanner(withString string: String) -> AnyObject
 }

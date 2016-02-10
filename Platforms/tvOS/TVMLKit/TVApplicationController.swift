@@ -6,7 +6,7 @@ class TVApplicationControllerContext : Object, Copying {
   var launchOptions: [String : AnyObject]
   init()
   @available(tvOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 protocol TVApplicationControllerDelegate : ObjectProtocol {
   @available(tvOS 9.0, *)

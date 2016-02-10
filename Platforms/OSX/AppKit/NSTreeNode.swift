@@ -9,7 +9,7 @@ class NSTreeNode : Object {
   var mutableChildNodes: MutableArray { get }
   func descendantNode(at indexPath: IndexPath) -> NSTreeNode?
   unowned(unsafe) var parent: @sil_unmanaged NSTreeNode? { get }
-  func sort(with sortDescriptors: [SortDescriptor], recursively: Bool)
+  func sort(withSortDescriptors sortDescriptors: [SortDescriptor], recursively: Bool)
   init()
 }
 struct __NSTreeNodeFlags {

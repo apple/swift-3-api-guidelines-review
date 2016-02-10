@@ -4,7 +4,7 @@ class Bundle : Object {
   init?(path: String)
   @available(watchOS 2.0, *)
   convenience init?(url: URL)
-  /*not inherited*/ init(for aClass: AnyClass)
+  /*not inherited*/ init(forClass aClass: AnyClass)
   /*not inherited*/ init?(identifier: String)
   class func allBundles() -> [Bundle]
   class func allFrameworks() -> [Bundle]
@@ -96,7 +96,7 @@ class BundleResourceRequest : Object, ProgressReporting {
   var tags: Set<String> { get }
   var bundle: Bundle { get }
   func beginAccessingResources(completionHandler completionHandler: (Error?) -> Void)
-  func conditionallyBeginAccessingResources(completionHandler completionHandler: (Bool) -> Void)
+  func conditionallyBeginAccessingResources(withCompletionHandler completionHandler: (Bool) -> Void)
   func endAccessingResources()
   var progress: Progress { get }
 }

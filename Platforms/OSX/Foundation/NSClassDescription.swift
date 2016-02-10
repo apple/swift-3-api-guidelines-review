@@ -1,8 +1,8 @@
 
 class ClassDescription : Object {
-  class func register(description: ClassDescription, for aClass: AnyClass)
+  class func register(description: ClassDescription, forClass aClass: AnyClass)
   class func invalidateClassDescriptionCache()
-  /*not inherited*/ init?(for aClass: AnyClass)
+  /*not inherited*/ init?(forClass aClass: AnyClass)
   var attributeKeys: [String] { get }
   var toOneRelationshipKeys: [String] { get }
   var toManyRelationshipKeys: [String] { get }

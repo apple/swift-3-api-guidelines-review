@@ -30,5 +30,5 @@ class UIFont : Object, Copying {
   func fontDescriptor() -> UIFontDescriptor
   init()
   @available(tvOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

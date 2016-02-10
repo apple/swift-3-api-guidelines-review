@@ -40,11 +40,11 @@ class FileWrapper : Object, Coding {
   func addRegularFile(contents data: Data, preferredFilename fileName: String) -> String
   func remove(child: FileWrapper)
   var fileWrappers: [String : FileWrapper]? { get }
-  func key(for child: FileWrapper) -> String?
+  func key(forFileWrapper child: FileWrapper) -> String?
   @NSCopying var regularFileContents: Data? { get }
   @available(iOS 4.0, *)
   @NSCopying var symbolicLinkDestinationURL: URL? { get }
   convenience init()
   @available(iOS 4.0, *)
-  func encode(with aCoder: Coder)
+  func encodeWith(aCoder: Coder)
 }

@@ -46,7 +46,7 @@ class UITableViewRowAction : Object, Copying {
   @NSCopying var backgroundEffect: UIVisualEffect?
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class UITableViewFocusUpdateContext : UIFocusUpdateContext {
@@ -126,7 +126,7 @@ protocol UITableViewDelegate : ObjectProtocol, UIScrollViewDelegate {
   @available(iOS 9.0, *)
   optional func tableView(tableView: UITableView, shouldUpdateFocusIn context: UITableViewFocusUpdateContext) -> Bool
   @available(iOS 9.0, *)
-  optional func tableView(tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
+  optional func tableView(tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
   @available(iOS 9.0, *)
   optional func indexPathForPreferredFocusedView(in tableView: UITableView) -> IndexPath?
 }
@@ -161,7 +161,7 @@ class UITableView : UIScrollView, Coding {
   func rectForFooter(inSection section: Int) -> CGRect
   func rectForRow(at indexPath: IndexPath) -> CGRect
   func indexPathForRow(at point: CGPoint) -> IndexPath?
-  func indexPath(for cell: UITableViewCell) -> IndexPath?
+  func indexPath(forCell cell: UITableViewCell) -> IndexPath?
   func indexPathsForRows(in rect: CGRect) -> [IndexPath]?
   func cellForRow(at indexPath: IndexPath) -> UITableViewCell?
   var visibleCells: [UITableViewCell] { get }
@@ -174,16 +174,16 @@ class UITableView : UIScrollView, Coding {
   func scrollToNearestSelectedRowAt(scrollPosition: UITableViewScrollPosition, animated: Bool)
   func beginUpdates()
   func endUpdates()
-  func insertSections(sections: IndexSet, with animation: UITableViewRowAnimation)
-  func deleteSections(sections: IndexSet, with animation: UITableViewRowAnimation)
+  func insertSections(sections: IndexSet, withRowAnimation animation: UITableViewRowAnimation)
+  func deleteSections(sections: IndexSet, withRowAnimation animation: UITableViewRowAnimation)
   @available(iOS 3.0, *)
-  func reloadSections(sections: IndexSet, with animation: UITableViewRowAnimation)
+  func reloadSections(sections: IndexSet, withRowAnimation animation: UITableViewRowAnimation)
   @available(iOS 5.0, *)
   func moveSection(section: Int, toSection newSection: Int)
-  func insertRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation)
-  func deleteRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation)
+  func insertRows(at indexPaths: [IndexPath], withRowAnimation animation: UITableViewRowAnimation)
+  func deleteRows(at indexPaths: [IndexPath], withRowAnimation animation: UITableViewRowAnimation)
   @available(iOS 3.0, *)
-  func reloadRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation)
+  func reloadRows(at indexPaths: [IndexPath], withRowAnimation animation: UITableViewRowAnimation)
   @available(iOS 5.0, *)
   func moveRow(at indexPath: IndexPath, to newIndexPath: IndexPath)
   var isEditing: Bool
@@ -217,7 +217,7 @@ class UITableView : UIScrollView, Coding {
   var tableFooterView: UIView?
   func dequeueReusableCell(withIdentifier identifier: String) -> UITableViewCell?
   @available(iOS 6.0, *)
-  func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell
+  func dequeueReusableCell(withIdentifier identifier: String, forIndexPath indexPath: IndexPath) -> UITableViewCell
   @available(iOS 6.0, *)
   func dequeueReusableHeaderFooterView(withIdentifier identifier: String) -> UITableViewHeaderFooterView?
   @available(iOS 5.0, *)
@@ -249,7 +249,7 @@ protocol UITableViewDataSource : ObjectProtocol {
   @available(iOS 2.0, *)
   optional func tableView(tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
   @available(iOS 2.0, *)
-  optional func sectionIndexTitles(for tableView: UITableView) -> [String]?
+  optional func sectionIndexTitles(forTableView tableView: UITableView) -> [String]?
   @available(iOS 2.0, *)
   optional func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int
   @available(iOS 2.0, *)

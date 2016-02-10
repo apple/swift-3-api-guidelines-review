@@ -6,8 +6,8 @@ class GKBehavior : Object, FastEnumeration {
   convenience init(goals: [GKGoal])
   convenience init(goals: [GKGoal], andWeights weights: [Number])
   convenience init(weightedGoals: [GKGoal : Number])
-  func setWeight(weight: Float, for goal: GKGoal)
-  func weight(for goal: GKGoal) -> Float
+  func setWeight(weight: Float, forGoal goal: GKGoal)
+  func weight(forGoal goal: GKGoal) -> Float
   func remove(goal: GKGoal)
   func removeAllGoals()
   subscript (atIndexedSubscript idx: Int) -> GKGoal { get }
