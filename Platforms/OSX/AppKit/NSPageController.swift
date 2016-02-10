@@ -14,7 +14,7 @@ class NSPageController : NSViewController, NSAnimatablePropertyContainer, Coding
   var transitionStyle: NSPageControllerTransitionStyle
   var arrangedObjects: [AnyObject]
   var selectedIndex: Int
-  func navigateForwardTo(object: AnyObject)
+  func navigateForward(to object: AnyObject)
   func completeTransition()
   @IBAction func navigateBack(sender: AnyObject?)
   @IBAction func navigateForward(sender: AnyObject?)
@@ -27,9 +27,9 @@ class NSPageController : NSViewController, NSAnimatablePropertyContainer, Coding
   @available(OSX 10.5, *)
   var animations: [String : AnyObject]
   @available(OSX 10.5, *)
-  func animationFor(key key: String) -> AnyObject?
+  func animation(forKey key: String) -> AnyObject?
   @available(OSX 10.5, *)
-  class func defaultAnimationFor(key key: String) -> AnyObject?
+  class func defaultAnimation(forKey key: String) -> AnyObject?
 }
 struct __pcDelegateFlags {
   var delegateRespondsToIdentifierForRepresentedObject: UInt32

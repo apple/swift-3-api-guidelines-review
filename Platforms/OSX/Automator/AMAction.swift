@@ -34,7 +34,7 @@ class AMAction : Object {
   var output: AnyObject?
   func stop()
   func reset()
-  func writeTo(dictionary: MutableDictionary)
+  func write(to dictionary: MutableDictionary)
   func opened()
   func activated()
   @available(OSX 10.5, *)

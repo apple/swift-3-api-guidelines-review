@@ -19,6 +19,6 @@ class ODSession : Object {
   @available(OSX 10.9, *)
   var mappingTemplateNames: [AnyObject]! { get }
   @available(OSX 10.9, *)
-  func configurationFor(nodename nodename: String!) -> ODConfiguration!
+  func configuration(forNodename nodename: String!) -> ODConfiguration!
   init()
 }

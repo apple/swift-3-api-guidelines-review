@@ -1,16 +1,16 @@
 
 @available(OSX 10.7, *)
 class SKPayment : Object, Copying, MutableCopying {
-  class func paymentWith(product: SKProduct) -> AnyObject
+  class func payment(withProduct product: SKProduct) -> AnyObject
   var productIdentifier: String { get }
   @NSCopying var requestData: Data? { get }
   var quantity: Int { get }
   var applicationUsername: String? { get }
   init()
   @available(OSX 10.7, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.7, *)
 class SKMutablePayment : SKPayment {

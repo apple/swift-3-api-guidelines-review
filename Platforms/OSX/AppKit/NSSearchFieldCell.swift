@@ -8,9 +8,9 @@ class NSSearchFieldCell : NSTextFieldCell {
   var cancelButtonCell: NSButtonCell?
   func resetSearchButtonCell()
   func resetCancelButtonCell()
-  func searchTextRectFor(bounds rect: Rect) -> Rect
-  func searchButtonRectFor(bounds rect: Rect) -> Rect
-  func cancelButtonRectFor(bounds rect: Rect) -> Rect
+  func searchTextRect(forBounds rect: Rect) -> Rect
+  func searchButtonRect(forBounds rect: Rect) -> Rect
+  func cancelButtonRect(forBounds rect: Rect) -> Rect
   var searchMenuTemplate: NSMenu?
   var sendsWholeSearchString: Bool
   var maximumRecents: Int

@@ -20,8 +20,8 @@ extension NSSlider {
   var numberOfTickMarks: Int
   var tickMarkPosition: NSTickMarkPosition
   var allowsTickMarkValuesOnly: Bool
-  func tickMarkValueAt(index: Int) -> Double
-  func rectOfTickMarkAt(index: Int) -> Rect
-  func indexOfTickMarkAt(point: Point) -> Int
-  func closestTickMarkValueTo(value value: Double) -> Double
+  func tickMarkValue(at index: Int) -> Double
+  func rectOfTickMark(at index: Int) -> Rect
+  func indexOfTickMark(at point: Point) -> Int
+  func closestTickMarkValue(toValue value: Double) -> Double
 }

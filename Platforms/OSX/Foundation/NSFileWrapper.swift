@@ -30,23 +30,23 @@ class FileWrapper : Object, Coding {
   var filename: String?
   var fileAttributes: [String : AnyObject]
   @available(OSX 10.6, *)
-  func matchesContentsOf(url: URL) -> Bool
+  func matchesContents(of url: URL) -> Bool
   @available(OSX 10.6, *)
-  func readFrom(url: URL, options: FileWrapperReadingOptions = []) throws
+  func read(from url: URL, options: FileWrapperReadingOptions = []) throws
   @available(OSX 10.6, *)
-  func writeTo(url: URL, options: FileWrapperWritingOptions = [], originalContentsURL: URL?) throws
+  func write(to url: URL, options: FileWrapperWritingOptions = [], originalContentsURL: URL?) throws
   @NSCopying var serializedRepresentation: Data? { get }
   func add(child: FileWrapper) -> String
   func addRegularFile(contents data: Data, preferredFilename fileName: String) -> String
   func remove(child: FileWrapper)
   var fileWrappers: [String : FileWrapper]? { get }
-  func keyFor(child: FileWrapper) -> String?
+  func key(forFileWrapper child: FileWrapper) -> String?
   @NSCopying var regularFileContents: Data? { get }
   @available(OSX 10.6, *)
   @NSCopying var symbolicLinkDestinationURL: URL? { get }
   convenience init()
   @available(OSX 10.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }
 extension FileWrapper {
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use -initWithURL:options:error: instead.")
@@ -54,11 +54,11 @@ extension FileWrapper {
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use -initSymbolicLinkWithDestinationURL: and -setPreferredFileName:, if necessary, instead.")
   convenience init(symbolicLinkWithDestination path: String)
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use -matchesContentsOfURL: instead.")
-  func needsToBeUpdatedFrom(path path: String) -> Bool
+  func needsToBeUpdated(fromPath path: String) -> Bool
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use -readFromURL:options:error: instead.")
-  func updateFrom(path path: String) -> Bool
+  func update(fromPath path: String) -> Bool
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use -writeToURL:options:originalContentsURL:error: instead.")
-  func writeTo(file path: String, atomically atomicFlag: Bool, updateFilenames updateFilenamesFlag: Bool) -> Bool
+  func write(toFile path: String, atomically atomicFlag: Bool, updateFilenames updateFilenamesFlag: Bool) -> Bool
   @available(OSX, introduced=10.0, deprecated=10.10, message="Instantiate a new NSFileWrapper with -initWithURL:options:error:, send it -setPreferredFileName: if necessary, then use -addFileWrapper: instead.")
   func addFile(path path: String) -> String
   @available(OSX, introduced=10.0, deprecated=10.10, message="Instantiate a new NSFileWrapper with -initWithSymbolicLinkDestinationURL:, send it -setPreferredFileName: if necessary, then use -addFileWrapper: instead.")

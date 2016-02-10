@@ -50,7 +50,7 @@ class NSScroller : NSControl {
   @available(OSX 10.7, *)
   class func isCompatibleWithOverlayScrollers() -> Bool
   @available(OSX 10.7, *)
-  class func scrollerWidthFor(controlSize: NSControlSize, scrollerStyle: NSScrollerStyle) -> CGFloat
+  class func scrollerWidth(forControlSize controlSize: NSControlSize, scrollerStyle: NSScrollerStyle) -> CGFloat
   @available(OSX 10.7, *)
   class func preferredScrollerStyle() -> NSScrollerStyle
   @available(OSX 10.7, *)
@@ -65,7 +65,7 @@ class NSScroller : NSControl {
   var controlSize: NSControlSize
   func draw(whichArrow: NSScrollerArrow, highlight flag: Bool)
   func drawKnob()
-  func drawKnobSlotIn(slotRect: Rect, highlight flag: Bool)
+  func drawKnobSlot(in slotRect: Rect, highlight flag: Bool)
   func highlight(flag: Bool)
   func testPart(thePoint: Point) -> NSScrollerPart
   func trackKnob(theEvent: NSEvent)

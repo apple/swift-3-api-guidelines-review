@@ -10,7 +10,7 @@ class NSClipView : NSView {
   func viewBoundsChanged(notification: Notification)
   var copiesOnScroll: Bool
   func autoscroll(theEvent: NSEvent) -> Bool
-  func scrollTo(newOrigin: Point)
+  func scroll(to newOrigin: Point)
   @available(OSX 10.9, *)
   func constrainBoundsRect(proposedBounds: Rect) -> Rect
   @available(OSX 10.10, *)

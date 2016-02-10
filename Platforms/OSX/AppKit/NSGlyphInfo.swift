@@ -17,8 +17,8 @@ class NSGlyphInfo : Object, Copying, SecureCoding {
   var characterIdentifier: Int { get }
   var characterCollection: NSCharacterCollection { get }
   init()
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

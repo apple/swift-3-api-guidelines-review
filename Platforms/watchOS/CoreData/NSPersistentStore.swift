@@ -1,7 +1,7 @@
 
 @available(watchOS 2.0, *)
 class NSPersistentStore : Object {
-  class func metadataForPersistentStoreWith(url: URL) throws -> [String : AnyObject]
+  class func metadataForPersistentStore(withURL url: URL) throws -> [String : AnyObject]
   class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreWith url: URL) throws
   @available(watchOS 2.0, *)
   class func migrationManagerClass() -> AnyClass

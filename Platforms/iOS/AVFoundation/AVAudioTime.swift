@@ -5,9 +5,9 @@ class AVAudioTime : Object {
   init(hostTime: UInt64)
   init(sampleTime: AVAudioFramePosition, atRate sampleRate: Double)
   init(hostTime: UInt64, sampleTime: AVAudioFramePosition, atRate sampleRate: Double)
-  class func hostTimeFor(seconds seconds: TimeInterval) -> UInt64
+  class func hostTime(forSeconds seconds: TimeInterval) -> UInt64
   class func secondsForHostTime(hostTime: UInt64) -> TimeInterval
-  func extrapolateTimeFrom(anchor anchorTime: AVAudioTime) -> AVAudioTime
+  func extrapolateTime(fromAnchor anchorTime: AVAudioTime) -> AVAudioTime
   var isHostTimeValid: Bool { get }
   var hostTime: UInt64 { get }
   var isSampleTimeValid: Bool { get }

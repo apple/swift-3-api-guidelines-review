@@ -1,12 +1,12 @@
 
 protocol Copying {
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 protocol MutableCopying {
-  func mutableCopyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
 }
 protocol Coding {
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 protocol SecureCoding : Coding {
@@ -16,10 +16,10 @@ extension Object {
   class func version() -> Int
   class func setVersion(aVersion: Int)
   var classForCoder: AnyClass { get }
-  class func replacementObjectFor(aCoder: Coder) -> AnyObject?
-  func replacementObjectFor(aCoder: Coder) -> AnyObject?
-  class func awakeAfterUsing(aDecoder: Coder) -> AnyObject?
-  func awakeAfterUsing(aDecoder: Coder) -> AnyObject?
+  class func replacementObject(forCoder aCoder: Coder) -> AnyObject?
+  func replacementObject(forCoder aCoder: Coder) -> AnyObject?
+  class func awakeAfter(aDecoder: Coder) -> AnyObject?
+  func awakeAfter(aDecoder: Coder) -> AnyObject?
   class func classForCoder() -> AnyClass
 }
 extension Object {

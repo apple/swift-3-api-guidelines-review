@@ -4,10 +4,10 @@ class NSImageRep : Object, Copying, Coding {
   init()
   init?(coder: Coder)
   func draw() -> Bool
-  func drawAt(point: Point) -> Bool
-  func drawIn(rect: Rect) -> Bool
+  func draw(at point: Point) -> Bool
+  func draw(in rect: Rect) -> Bool
   @available(OSX 10.6, *)
-  func drawIn(dstSpacePortionRect: Rect, from srcSpacePortionRect: Rect, operation op: NSCompositingOperation, fraction requestedAlpha: CGFloat, respectFlipped respectContextIsFlipped: Bool, hints: [String : AnyObject]?) -> Bool
+  func draw(in dstSpacePortionRect: Rect, from srcSpacePortionRect: Rect, operation op: NSCompositingOperation, fraction requestedAlpha: CGFloat, respectFlipped respectContextIsFlipped: Bool, hints: [String : AnyObject]?) -> Bool
   var size: Size
   var hasAlpha: Bool
   var isOpaque: Bool
@@ -19,13 +19,13 @@ class NSImageRep : Object, Copying, Coding {
   class func unregisterImageRepClass(imageRepClass: AnyClass)
   class func registeredImageRepClasses() -> [AnyClass]
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use +imageRepClassForType: instead")
-  class func imageRepClassFor(fileType type: String) -> AnyClass?
+  class func imageRepClass(forFileType type: String) -> AnyClass?
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use +imageRepClassForType: instead")
-  class func imageRepClassFor(pasteboardType type: String) -> AnyClass?
+  class func imageRepClass(forPasteboardType type: String) -> AnyClass?
   @available(OSX 10.5, *)
-  class func imageRepClassFor(type type: String) -> AnyClass?
-  class func imageRepClassFor(data: Data) -> AnyClass?
-  class func canInitWith(data: Data) -> Bool
+  class func imageRepClass(forType type: String) -> AnyClass?
+  class func imageRepClass(forData data: Data) -> AnyClass?
+  class func canInit(withData data: Data) -> Bool
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use +imageUnfilteredTypes instead")
   class func imageUnfilteredFileTypes() -> [String]
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use +imageUnfilteredTypes instead")
@@ -38,17 +38,17 @@ class NSImageRep : Object, Copying, Coding {
   class func imageUnfilteredTypes() -> [String]
   @available(OSX 10.5, *)
   class func imageTypes() -> [String]
-  class func canInitWith(pasteboard: NSPasteboard) -> Bool
-  class func imageRepsWithContentsOf(file filename: String) -> [NSImageRep]?
+  class func canInit(withPasteboard pasteboard: NSPasteboard) -> Bool
+  class func imageRepsWithContents(ofFile filename: String) -> [NSImageRep]?
   /*not inherited*/ init?(contentsOfFile filename: String)
-  class func imageRepsWithContentsOf(url: URL) -> [NSImageRep]?
+  class func imageRepsWithContents(of url: URL) -> [NSImageRep]?
   /*not inherited*/ init?(contentsOf url: URL)
-  class func imageRepsWith(pasteboard: NSPasteboard) -> [NSImageRep]?
+  class func imageReps(withPasteboard pasteboard: NSPasteboard) -> [NSImageRep]?
   /*not inherited*/ init?(pasteboard: NSPasteboard)
   @available(OSX 10.6, *)
-  func cgImageFor(proposedRect proposedDestRect: UnsafeMutablePointer<Rect>, context: NSGraphicsContext?, hints: [String : AnyObject]?) -> CGImage?
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func encodeWith(aCoder: Coder)
+  func cgImage(forProposedRect proposedDestRect: UnsafeMutablePointer<Rect>, context: NSGraphicsContext?, hints: [String : AnyObject]?) -> CGImage?
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func encode(withCoder aCoder: Coder)
 }
 struct __repFlags {
   var hasAlpha: UInt32

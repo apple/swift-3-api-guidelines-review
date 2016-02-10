@@ -6,6 +6,6 @@ class SKReachConstraints : Object, Coding {
   init(lowerAngleLimit: CGFloat, upperAngleLimit: CGFloat)
   convenience init()
   @available(tvOS 8.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

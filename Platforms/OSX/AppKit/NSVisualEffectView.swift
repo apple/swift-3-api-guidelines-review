@@ -41,7 +41,7 @@ class NSVisualEffectView : NSView {
   var state: NSVisualEffectState
   var maskImage: NSImage?
   func viewDidMoveToWindow()
-  func viewWillMoveTo(newWindow: NSWindow?)
+  func viewWillMove(to newWindow: NSWindow?)
   init(frame frameRect: Rect)
   init?(coder: Coder)
   convenience init()

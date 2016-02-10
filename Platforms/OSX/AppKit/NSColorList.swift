@@ -8,14 +8,14 @@ class NSColorList : Object, SecureCoding {
   func setColor(color: NSColor, forKey key: String)
   func insert(color: NSColor, key: String, at loc: Int)
   func removeColor(key key: String)
-  func colorWith(key key: String) -> NSColor?
+  func color(withKey key: String) -> NSColor?
   var allKeys: [String] { get }
   var isEditable: Bool { get }
-  func writeTo(file path: String?) -> Bool
+  func write(toFile path: String?) -> Bool
   func removeFile()
   init()
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct _colorListFlags {

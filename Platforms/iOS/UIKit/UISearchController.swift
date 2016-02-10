@@ -31,15 +31,15 @@ class UISearchController : UIViewController, UIViewControllerTransitioningDelega
   init?(coder aDecoder: Coder)
   convenience init()
   @available(iOS 8.0, *)
-  func animationControllerFor(presentedController presented: UIViewController, presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
+  func animationController(forPresentedController presented: UIViewController, presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
   @available(iOS 8.0, *)
-  func animationControllerFor(dismissedController dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning?
+  func animationController(forDismissedController dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning?
   @available(iOS 8.0, *)
-  func interactionControllerFor(presentation animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
+  func interactionController(forPresentation animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
   @available(iOS 8.0, *)
-  func interactionControllerFor(dismissal animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
+  func interactionController(forDismissal animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
   @available(iOS 8.0, *)
-  func presentationControllerFor(presentedViewController presented: UIViewController, presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController?
+  func presentationController(forPresentedViewController presented: UIViewController, presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController?
   @available(iOS 8.0, *)
   func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval
   @available(iOS 8.0, *)

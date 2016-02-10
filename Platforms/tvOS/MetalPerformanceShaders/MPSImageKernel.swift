@@ -6,7 +6,7 @@ class MPSUnaryImageKernel : MPSKernel {
   var edgeMode: MPSImageEdgeMode
   func encodeTo(commandBuffer: MTLCommandBuffer, inPlace texture: UnsafeMutablePointer<MTLTexture?>, fallbackCopyAllocator copyAllocator: MPSCopyAllocator? = nil) -> Bool
   func encodeTo(commandBuffer: MTLCommandBuffer, sourceTexture: MTLTexture, destinationTexture: MTLTexture)
-  func sourceRegionFor(destinationSize destinationSize: MTLSize) -> MPSRegion
+  func sourceRegion(forDestinationSize destinationSize: MTLSize) -> MPSRegion
   init(device: MTLDevice)
   convenience init()
 }
@@ -20,8 +20,8 @@ class MPSBinaryImageKernel : MPSKernel {
   func encodeTo(commandBuffer: MTLCommandBuffer, primaryTexture: MTLTexture, inPlaceSecondaryTexture: UnsafeMutablePointer<MTLTexture?>, fallbackCopyAllocator copyAllocator: MPSCopyAllocator? = nil) -> Bool
   func encodeTo(commandBuffer: MTLCommandBuffer, inPlacePrimaryTexture: UnsafeMutablePointer<MTLTexture?>, secondaryTexture: MTLTexture, fallbackCopyAllocator copyAllocator: MPSCopyAllocator? = nil) -> Bool
   func encodeTo(commandBuffer: MTLCommandBuffer, primaryTexture: MTLTexture, secondaryTexture: MTLTexture, destinationTexture: MTLTexture)
-  func primarySourceRegionFor(destinationSize destinationSize: MTLSize) -> MPSRegion
-  func secondarySourceRegionFor(destinationSize destinationSize: MTLSize) -> MPSRegion
+  func primarySourceRegion(forDestinationSize destinationSize: MTLSize) -> MPSRegion
+  func secondarySourceRegion(forDestinationSize destinationSize: MTLSize) -> MPSRegion
   init(device: MTLDevice)
   convenience init()
 }

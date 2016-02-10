@@ -2,18 +2,18 @@
 @available(iOS 8.0, *)
 class HKObjectType : Object, SecureCoding, Copying {
   var identifier: String { get }
-  class func quantityTypeFor(identifier identifier: String) -> HKQuantityType?
-  class func categoryTypeFor(identifier identifier: String) -> HKCategoryType?
-  class func characteristicTypeFor(identifier identifier: String) -> HKCharacteristicType?
-  class func correlationTypeFor(identifier identifier: String) -> HKCorrelationType?
+  class func quantityType(forIdentifier identifier: String) -> HKQuantityType?
+  class func categoryType(forIdentifier identifier: String) -> HKCategoryType?
+  class func characteristicType(forIdentifier identifier: String) -> HKCharacteristicType?
+  class func correlationType(forIdentifier identifier: String) -> HKCorrelationType?
   class func workoutType() -> HKWorkoutType
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 8.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class HKCharacteristicType : HKObjectType {

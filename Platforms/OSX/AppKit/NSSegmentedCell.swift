@@ -7,25 +7,25 @@ class NSSegmentedCell : NSActionCell {
   func makePreviousSegmentKey()
   var trackingMode: NSSegmentSwitchTracking
   func setWidth(width: CGFloat, forSegment segment: Int)
-  func widthFor(segment segment: Int) -> CGFloat
+  func width(forSegment segment: Int) -> CGFloat
   func setImage(image: NSImage?, forSegment segment: Int)
-  func imageFor(segment segment: Int) -> NSImage?
+  func image(forSegment segment: Int) -> NSImage?
   @available(OSX 10.5, *)
   func setImageScaling(scaling: NSImageScaling, forSegment segment: Int)
   @available(OSX 10.5, *)
-  func imageScalingFor(segment segment: Int) -> NSImageScaling
+  func imageScaling(forSegment segment: Int) -> NSImageScaling
   func setLabel(label: String, forSegment segment: Int)
-  func labelFor(segment segment: Int) -> String?
+  func label(forSegment segment: Int) -> String?
   func setSelected(selected: Bool, forSegment segment: Int)
-  func isSelectedFor(segment segment: Int) -> Bool
+  func isSelected(forSegment segment: Int) -> Bool
   func setEnabled(enabled: Bool, forSegment segment: Int)
-  func isEnabledFor(segment segment: Int) -> Bool
+  func isEnabled(forSegment segment: Int) -> Bool
   func setMenu(menu: NSMenu?, forSegment segment: Int)
-  func menuFor(segment segment: Int) -> NSMenu?
+  func menu(forSegment segment: Int) -> NSMenu?
   func setToolTip(toolTip: String?, forSegment segment: Int)
-  func toolTipFor(segment segment: Int) -> String?
+  func toolTip(forSegment segment: Int) -> String?
   func setTag(tag: Int, forSegment segment: Int)
-  func tagFor(segment segment: Int) -> Int
+  func tag(forSegment segment: Int) -> Int
   @available(OSX 10.5, *)
   var segmentStyle: NSSegmentStyle
   func drawSegment(segment: Int, inFrame frame: Rect, withView controlView: NSView)
@@ -36,5 +36,5 @@ class NSSegmentedCell : NSActionCell {
 }
 extension NSSegmentedCell {
   @available(OSX 10.5, *)
-  func interiorBackgroundStyleFor(segment segment: Int) -> NSBackgroundStyle
+  func interiorBackgroundStyle(forSegment segment: Int) -> NSBackgroundStyle
 }

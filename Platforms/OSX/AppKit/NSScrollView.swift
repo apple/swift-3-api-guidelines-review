@@ -42,9 +42,9 @@ class NSScrollView : NSView, NSTextFinderBarContainer {
   init(frame frameRect: Rect)
   init?(coder: Coder)
   @available(OSX 10.7, *)
-  class func frameSizeFor(contentSize cSize: Size, horizontalScrollerClass: AnyClass?, verticalScrollerClass: AnyClass?, borderType aType: NSBorderType, controlSize: NSControlSize, scrollerStyle: NSScrollerStyle) -> Size
+  class func frameSize(forContentSize cSize: Size, horizontalScrollerClass: AnyClass?, verticalScrollerClass: AnyClass?, borderType aType: NSBorderType, controlSize: NSControlSize, scrollerStyle: NSScrollerStyle) -> Size
   @available(OSX 10.7, *)
-  class func contentSizeFor(frameSize fSize: Size, horizontalScrollerClass: AnyClass?, verticalScrollerClass: AnyClass?, borderType aType: NSBorderType, controlSize: NSControlSize, scrollerStyle: NSScrollerStyle) -> Size
+  class func contentSize(forFrameSize fSize: Size, horizontalScrollerClass: AnyClass?, verticalScrollerClass: AnyClass?, borderType aType: NSBorderType, controlSize: NSControlSize, scrollerStyle: NSScrollerStyle) -> Size
   var documentVisibleRect: Rect { get }
   var contentSize: Size { get }
   unowned(unsafe) var documentView: @sil_unmanaged AnyObject?

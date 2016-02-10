@@ -4,19 +4,19 @@ class HKUnit : Object, SecureCoding, Copying {
   var unitString: String { get }
   convenience init(from string: String)
   convenience init(from massFormatterUnit: MassFormatterUnit)
-  class func massFormatterUnitFrom(unit: HKUnit) -> MassFormatterUnit
+  class func massFormatterUnit(from unit: HKUnit) -> MassFormatterUnit
   convenience init(from lengthFormatterUnit: LengthFormatterUnit)
-  class func lengthFormatterUnitFrom(unit: HKUnit) -> LengthFormatterUnit
+  class func lengthFormatterUnit(from unit: HKUnit) -> LengthFormatterUnit
   convenience init(from energyFormatterUnit: EnergyFormatterUnit)
-  class func energyFormatterUnitFrom(unit: HKUnit) -> EnergyFormatterUnit
+  class func energyFormatterUnit(from unit: HKUnit) -> EnergyFormatterUnit
   func isNull() -> Bool
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(watchOS 2.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(watchOS 2.0, *)
 enum HKMetricPrefix : Int {
@@ -37,16 +37,16 @@ enum HKMetricPrefix : Int {
   case tera
 }
 extension HKUnit {
-  class func gramUnitWith(prefix: HKMetricPrefix) -> Self
+  class func gramUnit(withMetricPrefix prefix: HKMetricPrefix) -> Self
   class func gram() -> Self
   class func ounce() -> Self
   class func pound() -> Self
   class func stone() -> Self
-  class func moleUnitWith(prefix: HKMetricPrefix, molarMass gramsPerMole: Double) -> Self
-  class func moleUnitWith(molarMass gramsPerMole: Double) -> Self
+  class func moleUnit(withMetricPrefix prefix: HKMetricPrefix, molarMass gramsPerMole: Double) -> Self
+  class func moleUnit(withMolarMass gramsPerMole: Double) -> Self
 }
 extension HKUnit {
-  class func meterUnitWith(prefix: HKMetricPrefix) -> Self
+  class func meterUnit(withMetricPrefix prefix: HKMetricPrefix) -> Self
   class func meter() -> Self
   class func inch() -> Self
   class func foot() -> Self
@@ -55,7 +55,7 @@ extension HKUnit {
   class func mile() -> Self
 }
 extension HKUnit {
-  class func literUnitWith(prefix: HKMetricPrefix) -> Self
+  class func literUnit(withMetricPrefix prefix: HKMetricPrefix) -> Self
   class func liter() -> Self
   class func fluidOunceUS() -> Self
   class func fluidOunceImperial() -> Self
@@ -67,21 +67,21 @@ extension HKUnit {
   class func cupImperial() -> Self
 }
 extension HKUnit {
-  class func pascalUnitWith(prefix: HKMetricPrefix) -> Self
+  class func pascalUnit(withMetricPrefix prefix: HKMetricPrefix) -> Self
   class func pascal() -> Self
   class func millimeterOfMercury() -> Self
   class func centimeterOfWater() -> Self
   class func atmosphere() -> Self
 }
 extension HKUnit {
-  class func secondUnitWith(prefix: HKMetricPrefix) -> Self
+  class func secondUnit(withMetricPrefix prefix: HKMetricPrefix) -> Self
   class func second() -> Self
   class func minute() -> Self
   class func hour() -> Self
   class func day() -> Self
 }
 extension HKUnit {
-  class func jouleUnitWith(prefix: HKMetricPrefix) -> Self
+  class func jouleUnit(withMetricPrefix prefix: HKMetricPrefix) -> Self
   class func joule() -> Self
   class func calorie() -> Self
   class func kilocalorie() -> Self
@@ -92,7 +92,7 @@ extension HKUnit {
   class func kelvin() -> Self
 }
 extension HKUnit {
-  class func siemenUnitWith(prefix: HKMetricPrefix) -> Self
+  class func siemenUnit(withMetricPrefix prefix: HKMetricPrefix) -> Self
   class func siemen() -> Self
 }
 extension HKUnit {
@@ -100,9 +100,9 @@ extension HKUnit {
   class func percent() -> Self
 }
 extension HKUnit {
-  func unitMultipliedBy(unit: HKUnit) -> HKUnit
-  func unitDividedBy(unit: HKUnit) -> HKUnit
-  func unitRaisedTo(power power: Int) -> HKUnit
+  func unitMultiplied(by unit: HKUnit) -> HKUnit
+  func unitDivided(by unit: HKUnit) -> HKUnit
+  func unitRaised(toPower power: Int) -> HKUnit
   func reciprocal() -> HKUnit
 }
 var HKUnitMolarMassBloodGlucose: Double { get }

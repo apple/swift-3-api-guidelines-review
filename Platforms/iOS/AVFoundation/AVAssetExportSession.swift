@@ -53,7 +53,7 @@ extension AVAssetExportSession {
 extension AVAssetExportSession {
   var supportedFileTypes: [String] { get }
   @available(iOS 6.0, *)
-  func determineCompatibleFileTypesWith(completionHandler handler: ([String]) -> Void)
+  func determineCompatibleFileTypes(completionHandler handler: ([String]) -> Void)
 }
 extension AVAssetExportSession {
   var timeRange: CMTimeRange

@@ -1,15 +1,15 @@
 
 class NSDictionary : Object, Copying, MutableCopying, SecureCoding, FastEnumeration {
   var count: Int { get }
-  func objectFor(aKey: AnyObject) -> AnyObject?
+  func object(forKey aKey: AnyObject) -> AnyObject?
   func keyEnumerator() -> Enumerator
   init()
   init(objects: UnsafePointer<AnyObject?>, forKeys keys: UnsafePointer<Copying?>, count cnt: Int)
   init?(coder aDecoder: Coder)
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func mutableCopyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
@@ -40,22 +40,22 @@ extension NSDictionary : CustomReflectable {
 }
 extension NSDictionary {
   var allKeys: [AnyObject] { get }
-  func allKeysFor(anObject: AnyObject) -> [AnyObject]
+  func allKeys(forObject anObject: AnyObject) -> [AnyObject]
   var allValues: [AnyObject] { get }
   var description: String { get }
   var descriptionInStringsFileFormat: String { get }
-  func descriptionWith(locale locale: AnyObject?) -> String
-  func descriptionWith(locale locale: AnyObject?, indent level: Int) -> String
-  func isEqualTo(otherDictionary: [Object : AnyObject]) -> Bool
+  func description(withLocale locale: AnyObject?) -> String
+  func description(withLocale locale: AnyObject?, indent level: Int) -> String
+  func isEqual(to otherDictionary: [Object : AnyObject]) -> Bool
   func objectEnumerator() -> Enumerator
-  func objectsFor(keys: [AnyObject], notFoundMarker marker: AnyObject) -> [AnyObject]
-  func writeTo(file path: String, atomically useAuxiliaryFile: Bool) -> Bool
-  func writeTo(url: URL, atomically: Bool) -> Bool
-  func keysSortedByValueUsing(comparator: Selector) -> [AnyObject]
+  func objects(forKeys keys: [AnyObject], notFoundMarker marker: AnyObject) -> [AnyObject]
+  func write(toFile path: String, atomically useAuxiliaryFile: Bool) -> Bool
+  func write(to url: URL, atomically: Bool) -> Bool
+  func keysSortedByValue(usingSelector comparator: Selector) -> [AnyObject]
   @available(iOS 5.0, *)
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, andKeys keys: AutoreleasingUnsafeMutablePointer<AnyObject?>, count: Int)
   @available(iOS 6.0, *)
-  subscript (keyedSubscript key: Copying) -> AnyObject? { get }
+  subscript (forKeyedSubscript key: Copying) -> AnyObject? { get }
   @available(iOS 4.0, *)
   func enumerateKeysAndObjects(block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(iOS 4.0, *)
@@ -81,7 +81,7 @@ extension NSDictionary {
   convenience init?(contentsOf url: URL)
 }
 class MutableDictionary : NSDictionary {
-  func removeObjectFor(aKey: AnyObject)
+  func removeObject(forKey aKey: AnyObject)
   func setObject(anObject: AnyObject, forKey aKey: Copying)
   init()
   init(capacity numItems: Int)
@@ -93,12 +93,12 @@ class MutableDictionary : NSDictionary {
   convenience init(objects: [AnyObject], forKeys keys: [Copying])
 }
 extension MutableDictionary {
-  func addEntriesFrom(otherDictionary: [Object : AnyObject])
+  func addEntries(from otherDictionary: [Object : AnyObject])
   func removeAllObjects()
-  func removeObjectsFor(keyArray: [AnyObject])
+  func removeObjects(forKeys keyArray: [AnyObject])
   func setDictionary(otherDictionary: [Object : AnyObject])
   @available(iOS 6.0, *)
-  subscript (keyedSubscript key: Copying) -> AnyObject?
+  subscript (forKeyedSubscript key: Copying) -> AnyObject?
 }
 extension MutableDictionary {
   convenience init?(contentsOfFile path: String)
@@ -106,7 +106,7 @@ extension MutableDictionary {
 }
 extension NSDictionary {
   @available(iOS 6.0, *)
-  class func sharedKeySetFor(keys keys: [Copying]) -> AnyObject
+  class func sharedKeySet(forKeys keys: [Copying]) -> AnyObject
 }
 extension MutableDictionary {
   @available(iOS 6.0, *)

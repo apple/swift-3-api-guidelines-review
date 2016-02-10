@@ -19,9 +19,9 @@ struct PersonNameComponentsFormatterOptions : OptionSetType {
 class PersonNameComponentsFormatter : Formatter {
   var style: PersonNameComponentsFormatterStyle
   var isPhonetic: Bool
-  class func localizedStringFrom(components: PersonNameComponents, style nameFormatStyle: PersonNameComponentsFormatterStyle, options nameOptions: PersonNameComponentsFormatterOptions = []) -> String
-  func stringFrom(components: PersonNameComponents) -> String
-  func annotatedStringFrom(components: PersonNameComponents) -> AttributedString
+  class func localizedString(from components: PersonNameComponents, style nameFormatStyle: PersonNameComponentsFormatterStyle, options nameOptions: PersonNameComponentsFormatterOptions = []) -> String
+  func string(from components: PersonNameComponents) -> String
+  func annotatedString(from components: PersonNameComponents) -> AttributedString
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   init()
   init?(coder aDecoder: Coder)

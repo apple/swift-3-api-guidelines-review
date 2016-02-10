@@ -19,16 +19,16 @@ class SKKeyframeSequence : Object, Coding, Copying {
   func count() -> Int
   func addKeyframeValue(value: AnyObject, time: CGFloat)
   func removeLastKeyframe()
-  func removeKeyframeAt(index: Int)
+  func removeKeyframe(at index: Int)
   func setKeyframeValue(value: AnyObject, forIndex index: Int)
   func setKeyframeTime(time: CGFloat, forIndex index: Int)
   func setKeyframeValue(value: AnyObject, time: CGFloat, forIndex index: Int)
-  func getKeyframeValueFor(index: Int) -> AnyObject
-  func getKeyframeTimeFor(index: Int) -> CGFloat
+  func getKeyframeValue(forIndex index: Int) -> AnyObject
+  func getKeyframeTime(forIndex index: Int) -> CGFloat
   func sampleAtTime(time: CGFloat) -> AnyObject?
   var interpolationMode: SKInterpolationMode
   var repeatMode: SKRepeatMode
   convenience init()
-  func encodeWith(aCoder: Coder)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func encode(withCoder aCoder: Coder)
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

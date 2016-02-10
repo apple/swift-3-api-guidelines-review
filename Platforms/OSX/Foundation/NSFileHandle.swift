@@ -2,19 +2,19 @@
 class FileHandle : Object, SecureCoding {
   @NSCopying var availableData: Data { get }
   func readDataToEndOfFile() -> Data
-  func readDataOf(length length: Int) -> Data
+  func readData(ofLength length: Int) -> Data
   func write(data: Data)
   var offsetInFile: UInt64 { get }
   func seekToEndOfFile() -> UInt64
-  func seekTo(fileOffset offset: UInt64)
-  func truncateFileAt(offset offset: UInt64)
+  func seek(toFileOffset offset: UInt64)
+  func truncateFile(atOffset offset: UInt64)
   func synchronizeFile()
   func closeFile()
   init(fileDescriptor fd: Int32, closeOnDealloc closeopt: Bool)
   init?(coder: Coder)
   convenience init()
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }
 extension FileHandle {
   class func withStandardInput() -> FileHandle
@@ -39,13 +39,13 @@ let fileHandleDataAvailableNotification: String
 let fileHandleNotificationDataItem: String
 let fileHandleNotificationFileHandleItem: String
 extension FileHandle {
-  func readInBackgroundAndNotifyFor(modes modes: [String]?)
+  func readInBackgroundAndNotify(forModes modes: [String]?)
   func readInBackgroundAndNotify()
-  func readToEndOfFileInBackgroundAndNotifyFor(modes modes: [String]?)
+  func readToEndOfFileInBackgroundAndNotify(forModes modes: [String]?)
   func readToEndOfFileInBackgroundAndNotify()
-  func acceptConnectionInBackgroundAndNotifyFor(modes modes: [String]?)
+  func acceptConnectionInBackgroundAndNotify(forModes modes: [String]?)
   func acceptConnectionInBackgroundAndNotify()
-  func waitForDataInBackgroundAndNotifyFor(modes modes: [String]?)
+  func waitForDataInBackgroundAndNotify(forModes modes: [String]?)
   func waitForDataInBackgroundAndNotify()
   @available(OSX 10.7, *)
   var readabilityHandler: ((FileHandle) -> Void)?

@@ -2,7 +2,7 @@
 class CLKTextProvider : Object, Copying {
   var tintColor: UIColor
   init()
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 class CLKSimpleTextProvider : CLKTextProvider {
   convenience init(text: String)

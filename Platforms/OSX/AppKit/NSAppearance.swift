@@ -11,7 +11,7 @@ class NSAppearance : Object, Coding {
   var allowsVibrancy: Bool { get }
   init()
   @available(OSX 10.9, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(OSX 10.9, *)

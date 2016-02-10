@@ -16,12 +16,12 @@ class RegularExpression : Object, Copying, Coding {
   var pattern: String { get }
   var options: RegularExpressionOptions { get }
   var numberOfCaptureGroups: Int { get }
-  class func escapedPatternFor(string: String) -> String
+  class func escapedPattern(forString string: String) -> String
   convenience init()
   @available(tvOS 4.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(tvOS 4.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct MatchingOptions : OptionSetType {
@@ -43,17 +43,17 @@ struct MatchingFlags : OptionSetType {
   static var internalError: MatchingFlags { get }
 }
 extension RegularExpression {
-  func enumerateMatchesIn(string: String, options: MatchingOptions = [], range: NSRange, usingBlock block: (TextCheckingResult?, MatchingFlags, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func matchesIn(string: String, options: MatchingOptions = [], range: NSRange) -> [TextCheckingResult]
-  func numberOfMatchesIn(string: String, options: MatchingOptions = [], range: NSRange) -> Int
-  func firstMatchIn(string: String, options: MatchingOptions = [], range: NSRange) -> TextCheckingResult?
-  func rangeOfFirstMatchIn(string: String, options: MatchingOptions = [], range: NSRange) -> NSRange
+  func enumerateMatches(in string: String, options: MatchingOptions = [], range: NSRange, usingBlock block: (TextCheckingResult?, MatchingFlags, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func matches(in string: String, options: MatchingOptions = [], range: NSRange) -> [TextCheckingResult]
+  func numberOfMatches(in string: String, options: MatchingOptions = [], range: NSRange) -> Int
+  func firstMatch(in string: String, options: MatchingOptions = [], range: NSRange) -> TextCheckingResult?
+  func rangeOfFirstMatch(in string: String, options: MatchingOptions = [], range: NSRange) -> NSRange
 }
 extension RegularExpression {
-  func stringByReplacingMatchesIn(string: String, options: MatchingOptions = [], range: NSRange, withTemplate templ: String) -> String
-  func replaceMatchesIn(string: MutableString, options: MatchingOptions = [], range: NSRange, withTemplate templ: String) -> Int
-  func replacementStringFor(result: TextCheckingResult, in string: String, offset: Int, template templ: String) -> String
-  class func escapedTemplateFor(string: String) -> String
+  func stringByReplacingMatches(in string: String, options: MatchingOptions = [], range: NSRange, withTemplate templ: String) -> String
+  func replaceMatches(in string: MutableString, options: MatchingOptions = [], range: NSRange, withTemplate templ: String) -> Int
+  func replacementString(forResult result: TextCheckingResult, in string: String, offset: Int, template templ: String) -> String
+  class func escapedTemplate(forString string: String) -> String
 }
 @available(tvOS 4.0, *)
 class DataDetector : RegularExpression {

@@ -15,5 +15,5 @@ class EKAlarm : EKObject, Copying {
   var soundName: String?
   init()
   @available(OSX 10.8, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

@@ -156,10 +156,10 @@ class CIFilter : Object, SecureCoding, Copying {
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.4, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 
 extension CIFilter {
@@ -171,22 +171,22 @@ extension CIFilter {
   /*not inherited*/ init?(name: String)
   @available(OSX 10.10, *)
   /*not inherited*/ init?(name: String, withInputParameters params: [String : AnyObject]?)
-  class func filterNamesIn(category category: String?) -> [String]
-  class func filterNamesIn(categories categories: [String]?) -> [String]
+  class func filterNames(inCategory category: String?) -> [String]
+  class func filterNames(inCategories categories: [String]?) -> [String]
   @available(OSX 10.4, *)
   class func registerName(name: String, constructor anObject: CIFilterConstructor, classAttributes attributes: [String : AnyObject] = [:])
   @available(OSX 10.4, *)
-  class func localizedNameFor(filterName filterName: String) -> String?
+  class func localizedName(forFilterName filterName: String) -> String?
   @available(OSX 10.4, *)
-  class func localizedNameFor(category category: String) -> String
+  class func localizedName(forCategory category: String) -> String
   @available(OSX 10.4, *)
-  class func localizedDescriptionFor(filterName filterName: String) -> String?
+  class func localizedDescription(forFilterName filterName: String) -> String?
   @available(OSX 10.4, *)
-  class func localizedReferenceDocumentationFor(filterName filterName: String) -> URL?
+  class func localizedReferenceDocumentation(forFilterName filterName: String) -> URL?
 }
 extension CIFilter {
   @available(OSX 10.9, *)
-  class func serializedXMPFrom(filters: [CIFilter], inputImageExtent extent: CGRect) -> Data
+  class func serializedXMP(from filters: [CIFilter], inputImageExtent extent: CGRect) -> Data
   @available(OSX 10.9, *)
-  class func filterArrayFrom(serializedXMP xmpData: Data, inputImageExtent extent: CGRect, error outError: ErrorPointer) -> [CIFilter]
+  class func filterArray(fromSerializedXMP xmpData: Data, inputImageExtent extent: CGRect, error outError: ErrorPointer) -> [CIFilter]
 }

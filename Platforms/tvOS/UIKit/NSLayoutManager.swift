@@ -38,7 +38,7 @@ class NSLayoutManager : Object, Coding {
   var textContainers: [NSTextContainer] { get }
   func addTextContainer(container: NSTextContainer)
   func insertTextContainer(container: NSTextContainer, at index: Int)
-  func removeTextContainerAt(index: Int)
+  func removeTextContainer(at index: Int)
   func textContainerChangedGeometry(container: NSTextContainer)
   unowned(unsafe) var delegate: @sil_unmanaged NSLayoutManagerDelegate?
   var showsInvisibleCharacters: Bool
@@ -49,29 +49,29 @@ class NSLayoutManager : Object, Coding {
   var allowsNonContiguousLayout: Bool
   @available(tvOS 7.0, *)
   var hasNonContiguousLayout: Bool { get }
-  func invalidateGlyphsFor(characterRange charRange: NSRange, changeInLength delta: Int, actualCharacterRange actualCharRange: RangePointer)
+  func invalidateGlyphs(forCharacterRange charRange: NSRange, changeInLength delta: Int, actualCharacterRange actualCharRange: RangePointer)
   @available(tvOS 7.0, *)
-  func invalidateLayoutFor(characterRange charRange: NSRange, actualCharacterRange actualCharRange: RangePointer)
-  func invalidateDisplayFor(characterRange charRange: NSRange)
-  func invalidateDisplayFor(glyphRange glyphRange: NSRange)
+  func invalidateLayout(forCharacterRange charRange: NSRange, actualCharacterRange actualCharRange: RangePointer)
+  func invalidateDisplay(forCharacterRange charRange: NSRange)
+  func invalidateDisplay(forGlyphRange glyphRange: NSRange)
   @available(tvOS 7.0, *)
-  func processEditingFor(textStorage: NSTextStorage, edited editMask: NSTextStorageEditActions, range newCharRange: NSRange, changeInLength delta: Int, invalidatedRange invalidatedCharRange: NSRange)
-  func ensureGlyphsFor(characterRange charRange: NSRange)
-  func ensureGlyphsFor(glyphRange glyphRange: NSRange)
-  func ensureLayoutFor(characterRange charRange: NSRange)
-  func ensureLayoutFor(glyphRange glyphRange: NSRange)
-  func ensureLayoutFor(container: NSTextContainer)
-  func ensureLayoutFor(boundingRect bounds: CGRect, in container: NSTextContainer)
+  func processEditing(forTextStorage textStorage: NSTextStorage, edited editMask: NSTextStorageEditActions, range newCharRange: NSRange, changeInLength delta: Int, invalidatedRange invalidatedCharRange: NSRange)
+  func ensureGlyphs(forCharacterRange charRange: NSRange)
+  func ensureGlyphs(forGlyphRange glyphRange: NSRange)
+  func ensureLayout(forCharacterRange charRange: NSRange)
+  func ensureLayout(forGlyphRange glyphRange: NSRange)
+  func ensureLayout(forTextContainer container: NSTextContainer)
+  func ensureLayout(forBoundingRect bounds: CGRect, in container: NSTextContainer)
   @available(tvOS 7.0, *)
   func setGlyphs(glyphs: UnsafePointer<CGGlyph>, properties props: UnsafePointer<NSGlyphProperty>, characterIndexes charIndexes: UnsafePointer<Int>, font aFont: UIFont, forGlyphRange glyphRange: NSRange)
   var numberOfGlyphs: Int { get }
-  func cgGlyphAt(glyphIndex: Int, isValidIndex: UnsafeMutablePointer<ObjCBool>) -> CGGlyph
-  func cgGlyphAt(glyphIndex: Int) -> CGGlyph
+  func cgGlyph(at glyphIndex: Int, isValidIndex: UnsafeMutablePointer<ObjCBool>) -> CGGlyph
+  func cgGlyph(at glyphIndex: Int) -> CGGlyph
   func isValidGlyphIndex(glyphIndex: Int) -> Bool
   @available(tvOS 7.0, *)
-  func propertyForGlyphAt(glyphIndex: Int) -> NSGlyphProperty
-  func characterIndexForGlyphAt(glyphIndex: Int) -> Int
-  func glyphIndexForCharacterAt(charIndex: Int) -> Int
+  func propertyForGlyph(at glyphIndex: Int) -> NSGlyphProperty
+  func characterIndexForGlyph(at glyphIndex: Int) -> Int
+  func glyphIndexForCharacter(at charIndex: Int) -> Int
   @available(tvOS 7.0, *)
   func getGlyphsIn(glyphRange: NSRange, glyphs glyphBuffer: UnsafeMutablePointer<CGGlyph>, properties props: UnsafeMutablePointer<NSGlyphProperty>, characterIndexes charIndexBuffer: UnsafeMutablePointer<Int>, bidiLevels bidiLevelBuffer: UnsafeMutablePointer<UInt8>) -> Int
   func setTextContainer(container: NSTextContainer, forGlyphRange glyphRange: NSRange)
@@ -84,53 +84,53 @@ class NSLayoutManager : Object, Coding {
   func getFirstUnlaidCharacterIndex(charIndex: UnsafeMutablePointer<Int>, glyphIndex: UnsafeMutablePointer<Int>)
   func firstUnlaidCharacterIndex() -> Int
   func firstUnlaidGlyphIndex() -> Int
-  func textContainerForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer) -> NSTextContainer?
+  func textContainerForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer) -> NSTextContainer?
   @available(tvOS 9.0, *)
-  func textContainerForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer, withoutAdditionalLayout flag: Bool) -> NSTextContainer?
-  func usedRectFor(container: NSTextContainer) -> CGRect
-  func lineFragmentRectForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer) -> CGRect
+  func textContainerForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer, withoutAdditionalLayout flag: Bool) -> NSTextContainer?
+  func usedRect(forTextContainer container: NSTextContainer) -> CGRect
+  func lineFragmentRectForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer) -> CGRect
   @available(tvOS 9.0, *)
-  func lineFragmentRectForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer, withoutAdditionalLayout flag: Bool) -> CGRect
-  func lineFragmentUsedRectForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer) -> CGRect
+  func lineFragmentRectForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer, withoutAdditionalLayout flag: Bool) -> CGRect
+  func lineFragmentUsedRectForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer) -> CGRect
   @available(tvOS 9.0, *)
-  func lineFragmentUsedRectForGlyphAt(glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer, withoutAdditionalLayout flag: Bool) -> CGRect
+  func lineFragmentUsedRectForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer, withoutAdditionalLayout flag: Bool) -> CGRect
   var extraLineFragmentRect: CGRect { get }
   var extraLineFragmentUsedRect: CGRect { get }
   var extraLineFragmentTextContainer: NSTextContainer? { get }
-  func locationForGlyphAt(glyphIndex: Int) -> CGPoint
-  func notShownAttributeForGlyphAt(glyphIndex: Int) -> Bool
-  func drawsOutsideLineFragmentForGlyphAt(glyphIndex: Int) -> Bool
-  func attachmentSizeForGlyphAt(glyphIndex: Int) -> CGSize
+  func locationForGlyph(at glyphIndex: Int) -> CGPoint
+  func notShownAttributeForGlyph(at glyphIndex: Int) -> Bool
+  func drawsOutsideLineFragmentForGlyph(at glyphIndex: Int) -> Bool
+  func attachmentSizeForGlyph(at glyphIndex: Int) -> CGSize
   @available(tvOS 7.0, *)
-  func truncatedGlyphRangeInLineFragmentForGlyphAt(glyphIndex: Int) -> NSRange
-  func glyphRangeFor(characterRange charRange: NSRange, actualCharacterRange actualCharRange: RangePointer) -> NSRange
-  func characterRangeFor(glyphRange glyphRange: NSRange, actualGlyphRange: RangePointer) -> NSRange
-  func glyphRangeFor(container: NSTextContainer) -> NSRange
+  func truncatedGlyphRangeInLineFragmentForGlyph(at glyphIndex: Int) -> NSRange
+  func glyphRange(forCharacterRange charRange: NSRange, actualCharacterRange actualCharRange: RangePointer) -> NSRange
+  func characterRange(forGlyphRange glyphRange: NSRange, actualGlyphRange: RangePointer) -> NSRange
+  func glyphRange(forTextContainer container: NSTextContainer) -> NSRange
   func rangeOfNominallySpacedGlyphsContaining(glyphIndex: Int) -> NSRange
-  func boundingRectFor(glyphRange glyphRange: NSRange, in container: NSTextContainer) -> CGRect
-  func glyphRangeFor(boundingRect bounds: CGRect, in container: NSTextContainer) -> NSRange
-  func glyphRangeFor(boundingRectWithoutAdditionalLayout bounds: CGRect, in container: NSTextContainer) -> NSRange
-  func glyphIndexFor(point: CGPoint, in container: NSTextContainer, fractionOfDistanceThroughGlyph partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
-  func glyphIndexFor(point: CGPoint, in container: NSTextContainer) -> Int
-  func fractionOfDistanceThroughGlyphFor(point: CGPoint, in container: NSTextContainer) -> CGFloat
-  func characterIndexFor(point: CGPoint, in container: NSTextContainer, fractionOfDistanceBetweenInsertionPoints partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
-  func getLineFragmentInsertionPointsForCharacterAt(charIndex: Int, alternatePositions aFlag: Bool, inDisplayOrder dFlag: Bool, positions: UnsafeMutablePointer<CGFloat>, characterIndexes charIndexes: UnsafeMutablePointer<Int>) -> Int
+  func boundingRect(forGlyphRange glyphRange: NSRange, in container: NSTextContainer) -> CGRect
+  func glyphRange(forBoundingRect bounds: CGRect, in container: NSTextContainer) -> NSRange
+  func glyphRange(forBoundingRectWithoutAdditionalLayout bounds: CGRect, in container: NSTextContainer) -> NSRange
+  func glyphIndex(forPoint point: CGPoint, in container: NSTextContainer, fractionOfDistanceThroughGlyph partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
+  func glyphIndex(forPoint point: CGPoint, in container: NSTextContainer) -> Int
+  func fractionOfDistanceThroughGlyph(forPoint point: CGPoint, in container: NSTextContainer) -> CGFloat
+  func characterIndex(forPoint point: CGPoint, in container: NSTextContainer, fractionOfDistanceBetweenInsertionPoints partialFraction: UnsafeMutablePointer<CGFloat>) -> Int
+  func getLineFragmentInsertionPointsForCharacter(at charIndex: Int, alternatePositions aFlag: Bool, inDisplayOrder dFlag: Bool, positions: UnsafeMutablePointer<CGFloat>, characterIndexes charIndexes: UnsafeMutablePointer<Int>) -> Int
   @available(tvOS 7.0, *)
-  func enumerateLineFragmentsFor(glyphRange glyphRange: NSRange, usingBlock block: (CGRect, CGRect, NSTextContainer, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateLineFragments(forGlyphRange glyphRange: NSRange, usingBlock block: (CGRect, CGRect, NSTextContainer, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 7.0, *)
-  func enumerateEnclosingRectsFor(glyphRange glyphRange: NSRange, withinSelectedGlyphRange selectedRange: NSRange, in textContainer: NSTextContainer, usingBlock block: (CGRect, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func drawBackgroundFor(glyphRange glyphsToShow: NSRange, at origin: CGPoint)
-  func drawGlyphsFor(glyphRange glyphsToShow: NSRange, at origin: CGPoint)
+  func enumerateEnclosingRects(forGlyphRange glyphRange: NSRange, withinSelectedGlyphRange selectedRange: NSRange, in textContainer: NSTextContainer, usingBlock block: (CGRect, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func drawBackground(forGlyphRange glyphsToShow: NSRange, at origin: CGPoint)
+  func drawGlyphs(forGlyphRange glyphsToShow: NSRange, at origin: CGPoint)
   @available(tvOS 7.0, *)
   func showCGGlyphs(glyphs: UnsafePointer<CGGlyph>, positions: UnsafePointer<CGPoint>, count glyphCount: Int, font: UIFont, matrix textMatrix: CGAffineTransform, attributes: [String : AnyObject] = [:], in graphicsContext: CGContext)
   @available(tvOS 7.0, *)
   func fillBackgroundRectArray(rectArray: UnsafePointer<CGRect>, count rectCount: Int, forCharacterRange charRange: NSRange, color: UIColor)
-  func drawUnderlineFor(glyphRange glyphRange: NSRange, underlineType underlineVal: NSUnderlineStyle, baselineOffset: CGFloat, lineFragmentRect lineRect: CGRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: CGPoint)
+  func drawUnderline(forGlyphRange glyphRange: NSRange, underlineType underlineVal: NSUnderlineStyle, baselineOffset: CGFloat, lineFragmentRect lineRect: CGRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: CGPoint)
   func underlineGlyphRange(glyphRange: NSRange, underlineType underlineVal: NSUnderlineStyle, lineFragmentRect lineRect: CGRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: CGPoint)
-  func drawStrikethroughFor(glyphRange glyphRange: NSRange, strikethroughType strikethroughVal: NSUnderlineStyle, baselineOffset: CGFloat, lineFragmentRect lineRect: CGRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: CGPoint)
+  func drawStrikethrough(forGlyphRange glyphRange: NSRange, strikethroughType strikethroughVal: NSUnderlineStyle, baselineOffset: CGFloat, lineFragmentRect lineRect: CGRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: CGPoint)
   func strikethroughGlyphRange(glyphRange: NSRange, strikethroughType strikethroughVal: NSUnderlineStyle, lineFragmentRect lineRect: CGRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: CGPoint)
   @available(tvOS 7.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }
 protocol NSLayoutManagerDelegate : ObjectProtocol {
   @available(tvOS 7.0, *)
@@ -171,6 +171,6 @@ var NSControlCharacterParagraphBreakAction: Int { get }
 @available(tvOS, introduced=7.0, deprecated=9.0, message="Use NSControlCharacterActionContainerBreak instead")
 var NSControlCharacterContainerBreakAction: Int { get }
 extension NSLayoutManager {
-  func glyphAt(glyphIndex: Int, isValidIndex: UnsafeMutablePointer<ObjCBool>) -> CGGlyph
-  func glyphAt(glyphIndex: Int) -> CGGlyph
+  func glyph(at glyphIndex: Int, isValidIndex: UnsafeMutablePointer<ObjCBool>) -> CGGlyph
+  func glyph(at glyphIndex: Int) -> CGGlyph
 }

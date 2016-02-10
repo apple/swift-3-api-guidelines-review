@@ -35,13 +35,13 @@ class CMAttitude : Object, Copying, SecureCoding {
   var yaw: Double { get }
   var rotationMatrix: CMRotationMatrix { get }
   var quaternion: CMQuaternion { get }
-  func multiplyByInverseOf(attitude: CMAttitude)
+  func multiplyByInverse(of attitude: CMAttitude)
   init()
   @available(iOS 4.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 4.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

@@ -5,10 +5,10 @@ class AVInterstitialTimeRange : Object, Copying, SecureCoding {
   var timeRange: CMTimeRange { get }
   convenience init()
   @available(tvOS 9.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

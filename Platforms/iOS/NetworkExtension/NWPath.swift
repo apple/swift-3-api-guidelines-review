@@ -15,6 +15,6 @@ class NWPath : Object {
   @available(iOS 9.0, *)
   var isExpensive: Bool { get }
   @available(iOS 9.0, *)
-  func isEqualTo(path: NWPath) -> Bool
+  func isEqual(to path: NWPath) -> Bool
   init()
 }

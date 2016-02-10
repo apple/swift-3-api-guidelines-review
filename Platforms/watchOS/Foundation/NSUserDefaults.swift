@@ -10,20 +10,20 @@ class UserDefaults : Object {
   init?(suiteName suitename: String?)
   @available(watchOS, introduced=2.0, deprecated=2.0)
   convenience init?(user username: String)
-  func objectFor(key defaultName: String) -> AnyObject?
+  func object(forKey defaultName: String) -> AnyObject?
   func setObject(value: AnyObject?, forKey defaultName: String)
-  func removeObjectFor(key defaultName: String)
-  func stringFor(key defaultName: String) -> String?
-  func arrayFor(key defaultName: String) -> [AnyObject]?
-  func dictionaryFor(key defaultName: String) -> [String : AnyObject]?
-  func dataFor(key defaultName: String) -> Data?
-  func stringArrayFor(key defaultName: String) -> [String]?
-  func integerFor(key defaultName: String) -> Int
-  func floatFor(key defaultName: String) -> Float
-  func doubleFor(key defaultName: String) -> Double
-  func boolFor(key defaultName: String) -> Bool
+  func removeObject(forKey defaultName: String)
+  func string(forKey defaultName: String) -> String?
+  func array(forKey defaultName: String) -> [AnyObject]?
+  func dictionary(forKey defaultName: String) -> [String : AnyObject]?
+  func data(forKey defaultName: String) -> Data?
+  func stringArray(forKey defaultName: String) -> [String]?
+  func integer(forKey defaultName: String) -> Int
+  func float(forKey defaultName: String) -> Float
+  func double(forKey defaultName: String) -> Double
+  func bool(forKey defaultName: String) -> Bool
   @available(watchOS 2.0, *)
-  func urlFor(key defaultName: String) -> URL?
+  func url(forKey defaultName: String) -> URL?
   func setInteger(value: Int, forKey defaultName: String)
   func setFloat(value: Float, forKey defaultName: String)
   func setDouble(value: Double, forKey defaultName: String)
@@ -35,16 +35,16 @@ class UserDefaults : Object {
   func removeSuiteNamed(suiteName: String)
   func dictionaryRepresentation() -> [String : AnyObject]
   var volatileDomainNames: [String] { get }
-  func volatileDomainFor(name domainName: String) -> [String : AnyObject]
+  func volatileDomain(forName domainName: String) -> [String : AnyObject]
   func setVolatileDomain(domain: [String : AnyObject], forName domainName: String)
-  func removeVolatileDomainFor(name domainName: String)
+  func removeVolatileDomain(forName domainName: String)
   @available(watchOS, introduced=2.0, deprecated=2.0)
   func persistentDomainNames() -> [AnyObject]
-  func persistentDomainFor(name domainName: String) -> [String : AnyObject]?
+  func persistentDomain(forName domainName: String) -> [String : AnyObject]?
   func setPersistentDomain(domain: [String : AnyObject], forName domainName: String)
-  func removePersistentDomainFor(name domainName: String)
+  func removePersistentDomain(forName domainName: String)
   func synchronize() -> Bool
-  func objectIsForcedFor(key key: String) -> Bool
-  func objectIsForcedFor(key key: String, inDomain domain: String) -> Bool
+  func objectIsForced(forKey key: String) -> Bool
+  func objectIsForced(forKey key: String, inDomain domain: String) -> Bool
 }
 let userDefaultsDidChangeNotification: String

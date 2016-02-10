@@ -242,7 +242,7 @@ class NSEvent : Object, Copying, Coding {
   var pointingDeviceType: NSPointingDeviceType { get }
   var isEnteringProximity: Bool { get }
   @available(OSX 10.6, *)
-  func touchesMatching(phase: NSTouchPhase, in view: NSView?) -> Set<NSTouch>
+  func touches(matching phase: NSTouchPhase, in view: NSView?) -> Set<NSTouch>
   @available(OSX 10.7, *)
   var phase: NSEventPhase { get }
   @available(OSX 10.10.3, *)
@@ -259,10 +259,10 @@ class NSEvent : Object, Copying, Coding {
   func trackSwipeEvent(options: NSEventSwipeTrackingOptions = [], dampenAmountThresholdMin minDampenThreshold: CGFloat, max maxDampenThreshold: CGFloat, usingHandler trackingHandler: (CGFloat, NSEventPhase, Bool, UnsafeMutablePointer<ObjCBool>) -> Void)
   class func startPeriodicEventsAfterDelay(delay: TimeInterval, withPeriod period: TimeInterval)
   class func stopPeriodicEvents()
-  class func mouseEventWith(type: NSEventType, location: Point, modifierFlags flags: NSEventModifierFlags, timestamp time: TimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, eventNumber eNum: Int, clickCount cNum: Int, pressure: Float) -> NSEvent?
-  class func keyEventWith(type: NSEventType, location: Point, modifierFlags flags: NSEventModifierFlags, timestamp time: TimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, characters keys: String, charactersIgnoringModifiers ukeys: String, isARepeat flag: Bool, keyCode code: UInt16) -> NSEvent?
+  class func mouseEvent(withType type: NSEventType, location: Point, modifierFlags flags: NSEventModifierFlags, timestamp time: TimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, eventNumber eNum: Int, clickCount cNum: Int, pressure: Float) -> NSEvent?
+  class func keyEvent(withType type: NSEventType, location: Point, modifierFlags flags: NSEventModifierFlags, timestamp time: TimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, characters keys: String, charactersIgnoringModifiers ukeys: String, isARepeat flag: Bool, keyCode code: UInt16) -> NSEvent?
   class func enterExitEvent(type: NSEventType, location: Point, modifierFlags flags: NSEventModifierFlags, timestamp time: TimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, eventNumber eNum: Int, trackingNumber tNum: Int, userData data: UnsafeMutablePointer<Void>) -> NSEvent?
-  class func otherEventWith(type: NSEventType, location: Point, modifierFlags flags: NSEventModifierFlags, timestamp time: TimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, subtype: Int16, data1 d1: Int, data2 d2: Int) -> NSEvent?
+  class func otherEvent(withType type: NSEventType, location: Point, modifierFlags flags: NSEventModifierFlags, timestamp time: TimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, subtype: Int16, data1 d1: Int, data2 d2: Int) -> NSEvent?
   class func mouseLocation() -> Point
   @available(OSX 10.6, *)
   class func modifierFlags() -> NSEventModifierFlags
@@ -275,14 +275,14 @@ class NSEvent : Object, Copying, Coding {
   @available(OSX 10.6, *)
   class func keyRepeatInterval() -> TimeInterval
   @available(OSX 10.6, *)
-  class func addGlobalMonitorForEventsMatching(mask: NSEventMask, handler block: (NSEvent) -> Void) -> AnyObject?
+  class func addGlobalMonitorForEvents(matching mask: NSEventMask, handler block: (NSEvent) -> Void) -> AnyObject?
   @available(OSX 10.6, *)
-  class func addLocalMonitorForEventsMatching(mask: NSEventMask, handler block: (NSEvent) -> NSEvent?) -> AnyObject?
+  class func addLocalMonitorForEvents(matching mask: NSEventMask, handler block: (NSEvent) -> NSEvent?) -> AnyObject?
   @available(OSX 10.6, *)
   class func removeMonitor(eventMonitor: AnyObject)
   init()
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func encodeWith(aCoder: Coder)
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 var NSUpArrowFunctionKey: Int { get }

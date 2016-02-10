@@ -125,10 +125,10 @@ class SCNParticlePropertyController : Object, SecureCoding, Copying {
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.10, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.10, *)
 class SCNParticleSystem : Object, Copying, SecureCoding, SCNAnimatable {
@@ -195,35 +195,35 @@ class SCNParticleSystem : Object, Copying, SecureCoding, SCNAnimatable {
   var propertyControllers: [String : SCNParticlePropertyController]?
   func reset()
   func handle(event: SCNParticleEvent, forProperties properties: [String], withBlock block: SCNParticleEventBlock)
-  func addModifierFor(properties properties: [String], at stage: SCNParticleModifierStage, withBlock block: SCNParticleModifierBlock)
-  func removeModifiersOf(stage: SCNParticleModifierStage)
+  func addModifier(forProperties properties: [String], at stage: SCNParticleModifierStage, withBlock block: SCNParticleModifierBlock)
+  func removeModifiers(of stage: SCNParticleModifierStage)
   func removeAllModifiers()
   init()
   @available(OSX 10.10, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.10, *)
   func add(animation: CAAnimation, forKey key: String?)
   @available(OSX 10.10, *)
   func removeAllAnimations()
   @available(OSX 10.10, *)
-  func removeAnimationFor(key key: String)
+  func removeAnimation(forKey key: String)
   @available(OSX 10.10, *)
   var animationKeys: [String] { get }
   @available(OSX 10.10, *)
-  func animationFor(key key: String) -> CAAnimation?
+  func animation(forKey key: String) -> CAAnimation?
   @available(OSX 10.9, *)
-  func pauseAnimationFor(key key: String)
+  func pauseAnimation(forKey key: String)
   @available(OSX 10.9, *)
-  func resumeAnimationFor(key key: String)
+  func resumeAnimation(forKey key: String)
   @available(OSX 10.9, *)
-  func isAnimationFor(keyPaused key: String) -> Bool
+  func isAnimation(forKeyPaused key: String) -> Bool
   @available(OSX 10.10, *)
-  func removeAnimationFor(key key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimation(forKey key: String, fadeOutDuration duration: CGFloat)
 }
 extension SCNNode {
   @available(OSX 10.10, *)

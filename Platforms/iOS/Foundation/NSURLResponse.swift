@@ -8,16 +8,16 @@ class URLResponse : Object, SecureCoding, Copying {
   var suggestedFilename: String? { get }
   convenience init()
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 class HTTPURLResponse : URLResponse {
   @available(iOS 5.0, *)
   init?(url: URL, statusCode: Int, httpVersion HTTPVersion: String?, headerFields: [String : String]?)
   var statusCode: Int { get }
   var allHeaderFields: [Object : AnyObject] { get }
-  class func localizedStringFor(statusCode statusCode: Int) -> String
+  class func localizedString(forStatusCode statusCode: Int) -> String
   init(url URL: URL, mimeType MIMEType: String?, expectedContentLength length: Int, textEncodingName name: String?)
   convenience init()
   init?(coder aDecoder: Coder)

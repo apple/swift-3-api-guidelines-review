@@ -38,7 +38,7 @@ class UIDynamicBehavior : Object {
   func removeChildBehavior(behavior: UIDynamicBehavior)
   var childBehaviors: [UIDynamicBehavior] { get }
   var action: (() -> Void)?
-  func willMoveTo(dynamicAnimator: UIDynamicAnimator?)
+  func willMove(to dynamicAnimator: UIDynamicAnimator?)
   var dynamicAnimator: UIDynamicAnimator? { get }
   init()
 }

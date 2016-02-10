@@ -1,7 +1,7 @@
 
 protocol UIPopoverPresentationControllerDelegate : UIAdaptivePresentationControllerDelegate {
   @available(iOS 8.0, *)
-  optional func prepareFor(popoverPresentation popoverPresentationController: UIPopoverPresentationController)
+  optional func prepare(forPopoverPresentation popoverPresentationController: UIPopoverPresentationController)
   @available(iOS 8.0, *)
   optional func popoverPresentationControllerShouldDismissPopover(popoverPresentationController: UIPopoverPresentationController) -> Bool
   @available(iOS 8.0, *)

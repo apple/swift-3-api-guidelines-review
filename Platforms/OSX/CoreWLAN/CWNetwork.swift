@@ -22,17 +22,17 @@ class CWNetwork : Object, Copying, SecureCoding {
   @available(OSX 10.7, *)
   var ibss: Bool { get }
   @available(OSX 10.6, *)
-  func isEqualTo(network: CWNetwork) -> Bool
+  func isEqual(to network: CWNetwork) -> Bool
   @available(OSX 10.7, *)
   func supportsSecurity(security: CWSecurity) -> Bool
   @available(OSX 10.8, *)
   func supportsPHYMode(phyMode: CWPHYMode) -> Bool
   init()
   @available(OSX 10.6, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(OSX 10.6, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.6, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

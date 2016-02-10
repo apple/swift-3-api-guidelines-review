@@ -15,9 +15,9 @@ class CachedURLResponse : Object, SecureCoding, Copying {
   var storagePolicy: URLCacheStoragePolicy { get }
   init()
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 class URLCache : Object {
   class func shared() -> URLCache
@@ -28,7 +28,7 @@ class URLCache : Object {
   func removeCachedResponseFor(request: URLRequest)
   func removeAllCachedResponses()
   @available(watchOS 2.0, *)
-  func removeCachedResponsesSince(date: Date)
+  func removeCachedResponses(since date: Date)
   var memoryCapacity: Int
   var diskCapacity: Int
   var currentMemoryUsage: Int { get }
@@ -39,7 +39,7 @@ extension URLCache {
   @available(watchOS 2.0, *)
   func storeCachedResponse(cachedResponse: CachedURLResponse, forDataTask dataTask: URLSessionDataTask)
   @available(watchOS 2.0, *)
-  func getCachedResponseFor(dataTask: URLSessionDataTask, completionHandler: (CachedURLResponse?) -> Void)
+  func getCachedResponse(forDataTask dataTask: URLSessionDataTask, completionHandler: (CachedURLResponse?) -> Void)
   @available(watchOS 2.0, *)
-  func removeCachedResponseFor(dataTask: URLSessionDataTask)
+  func removeCachedResponse(forDataTask dataTask: URLSessionDataTask)
 }

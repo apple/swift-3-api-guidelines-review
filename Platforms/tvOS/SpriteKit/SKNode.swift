@@ -38,36 +38,36 @@ class SKNode : UIResponder, Copying, Coding {
   func setScale(scale: CGFloat)
   func addChild(node: SKNode)
   func insertChild(node: SKNode, at index: Int)
-  func removeChildrenIn(nodes: [SKNode])
+  func removeChildren(in nodes: [SKNode])
   func removeAllChildren()
   func removeFromParent()
-  func moveTo(parent parent: SKNode)
-  func childNodeWith(name name: String) -> SKNode?
+  func move(toParent parent: SKNode)
+  func childNode(withName name: String) -> SKNode?
   func enumerateChildNodes(name name: String, usingBlock block: (SKNode, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 8.0, *)
-  subscript (keyedSubscript name: String) -> [SKNode] { get }
-  func `in`(parentHierarchy parent: SKNode) -> Bool
+  subscript (forKeyedSubscript name: String) -> [SKNode] { get }
+  func inParentHierarchy(parent: SKNode) -> Bool
   func run(action: SKAction)
   func run(action: SKAction, completion block: () -> Void)
   func run(action: SKAction, withKey key: String)
   func hasActions() -> Bool
-  func actionFor(key key: String) -> SKAction?
-  func removeActionFor(key key: String)
+  func action(forKey key: String) -> SKAction?
+  func removeAction(forKey key: String)
   func removeAllActions()
   func contains(p: CGPoint) -> Bool
-  func at(p: CGPoint) -> SKNode
-  func nodesAt(p: CGPoint) -> [SKNode]
+  func atPoint(p: CGPoint) -> SKNode
+  func nodes(at p: CGPoint) -> [SKNode]
   func convert(point: CGPoint, from node: SKNode) -> CGPoint
   func convert(point: CGPoint, to node: SKNode) -> CGPoint
   func intersectsNode(node: SKNode) -> Bool
-  func isEqualTo(node: SKNode) -> Bool
-  class func obstaclesFrom(spriteTextures sprites: [SKNode], accuracy: Float) -> [AnyObject]
-  class func obstaclesFrom(nodeBounds nodes: [SKNode]) -> [AnyObject]
-  class func obstaclesFrom(nodePhysicsBodies nodes: [SKNode]) -> [AnyObject]
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func encodeWith(aCoder: Coder)
+  func isEqual(to node: SKNode) -> Bool
+  class func obstacles(fromSpriteTextures sprites: [SKNode], accuracy: Float) -> [AnyObject]
+  class func obstacles(fromNodeBounds nodes: [SKNode]) -> [AnyObject]
+  class func obstacles(fromNodePhysicsBodies nodes: [SKNode]) -> [AnyObject]
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func encode(withCoder aCoder: Coder)
 }
 extension UITouch {
-  func locationIn(node: SKNode) -> CGPoint
-  func previousLocationIn(node: SKNode) -> CGPoint
+  func location(in node: SKNode) -> CGPoint
+  func previousLocation(in node: SKNode) -> CGPoint
 }

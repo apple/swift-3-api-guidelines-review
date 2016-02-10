@@ -3,11 +3,11 @@
 class AVCaptureOutput : Object {
   var connections: [AnyObject]! { get }
   @available(iOS 5.0, *)
-  func connectionWith(mediaType mediaType: String!) -> AVCaptureConnection!
+  func connection(withMediaType mediaType: String!) -> AVCaptureConnection!
   @available(iOS 6.0, *)
-  func transformedMetadataObjectFor(metadataObject: AVMetadataObject!, connection: AVCaptureConnection!) -> AVMetadataObject!
+  func transformedMetadataObject(forMetadataObject metadataObject: AVMetadataObject!, connection: AVCaptureConnection!) -> AVMetadataObject!
   @available(iOS 7.0, *)
-  func metadataOutputRectOfInterestFor(rectInOutputCoordinates: CGRect) -> CGRect
+  func metadataOutputRectOfInterest(forRect rectInOutputCoordinates: CGRect) -> CGRect
   @available(iOS 7.0, *)
   func rectForMetadataOutputRectOfInterest(rectInMetadataOutputCoordinates: CGRect) -> CGRect
   init()
@@ -19,7 +19,7 @@ class AVCaptureVideoDataOutput : AVCaptureOutput {
   var sampleBufferCallbackQueue: dispatch_queue_t! { get }
   var videoSettings: [Object : AnyObject]!
   @available(iOS 7.0, *)
-  func recommendedVideoSettingsForAssetWriterWith(outputFileType outputFileType: String!) -> [Object : AnyObject]!
+  func recommendedVideoSettingsForAssetWriter(withOutputFileType outputFileType: String!) -> [Object : AnyObject]!
   @available(iOS 5.0, *)
   var availableVideoCVPixelFormatTypes: [AnyObject]! { get }
   @available(iOS 5.0, *)
@@ -39,7 +39,7 @@ class AVCaptureAudioDataOutput : AVCaptureOutput {
   var sampleBufferDelegate: AVCaptureAudioDataOutputSampleBufferDelegate! { get }
   var sampleBufferCallbackQueue: dispatch_queue_t! { get }
   @available(iOS 7.0, *)
-  func recommendedAudioSettingsForAssetWriterWith(outputFileType outputFileType: String!) -> [Object : AnyObject]!
+  func recommendedAudioSettingsForAssetWriter(withOutputFileType outputFileType: String!) -> [Object : AnyObject]!
   init()
 }
 protocol AVCaptureAudioDataOutputSampleBufferDelegate : ObjectProtocol {
@@ -49,7 +49,7 @@ protocol AVCaptureAudioDataOutputSampleBufferDelegate : ObjectProtocol {
 @available(iOS 4.0, *)
 class AVCaptureFileOutput : AVCaptureOutput {
   var outputFileURL: URL! { get }
-  func startRecordingTo(outputFileURL outputFileURL: URL!, recordingDelegate delegate: AVCaptureFileOutputRecordingDelegate!)
+  func startRecording(toOutputFileURL outputFileURL: URL!, recordingDelegate delegate: AVCaptureFileOutputRecordingDelegate!)
   func stopRecording()
   var isRecording: Bool { get }
   var recordedDuration: CMTime { get }
@@ -70,7 +70,7 @@ class AVCaptureMovieFileOutput : AVCaptureFileOutput {
   var movieFragmentInterval: CMTime
   var metadata: [AnyObject]!
   @available(iOS 9.0, *)
-  func recordsVideoOrientationAndMirroringChangesAsMetadataTrackFor(connection: AVCaptureConnection!) -> Bool
+  func recordsVideoOrientationAndMirroringChangesAsMetadataTrack(forConnection connection: AVCaptureConnection!) -> Bool
   @available(iOS 9.0, *)
   func setRecordsVideoOrientationAndMirroringChanges(doRecordChanges: Bool, asMetadataTrackFor connection: AVCaptureConnection!)
   init()
@@ -90,7 +90,7 @@ class AVCaptureStillImageOutput : AVCaptureOutput {
   var isHighResolutionStillImageOutputEnabled: Bool
   @available(iOS 5.0, *)
   var isCapturingStillImage: Bool { get }
-  func captureStillImageAsynchronouslyFrom(connection: AVCaptureConnection!, completionHandler handler: ((CMSampleBuffer!, Error!) -> Void)!)
+  func captureStillImageAsynchronously(from connection: AVCaptureConnection!, completionHandler handler: ((CMSampleBuffer!, Error!) -> Void)!)
   class func jpegStillImageNSDataRepresentation(jpegSampleBuffer: CMSampleBuffer!) -> Data!
   init()
 }
@@ -100,14 +100,14 @@ class AVCaptureBracketedStillImageSettings : Object {
 }
 @available(iOS 8.0, *)
 class AVCaptureManualExposureBracketedStillImageSettings : AVCaptureBracketedStillImageSettings {
-  class func manualExposureSettingsWith(exposureDuration duration: CMTime, iso ISO: Float) -> Self!
+  class func manualExposureSettings(withExposureDuration duration: CMTime, iso ISO: Float) -> Self!
   var exposureDuration: CMTime { get }
   var iso: Float { get }
   init()
 }
 @available(iOS 8.0, *)
 class AVCaptureAutoExposureBracketedStillImageSettings : AVCaptureBracketedStillImageSettings {
-  class func autoExposureSettingsWith(exposureTargetBias exposureTargetBias: Float) -> Self!
+  class func autoExposureSettings(withExposureTargetBias exposureTargetBias: Float) -> Self!
   var exposureTargetBias: Float { get }
   init()
 }
@@ -119,9 +119,9 @@ extension AVCaptureStillImageOutput {
   @available(iOS 9.0, *)
   var isLensStabilizationDuringBracketedCaptureEnabled: Bool
   @available(iOS 8.0, *)
-  func prepareToCaptureStillImageBracketFrom(connection: AVCaptureConnection!, withSettingsArray settings: [AnyObject]!, completionHandler handler: ((Bool, Error!) -> Void)!)
+  func prepareToCaptureStillImageBracket(from connection: AVCaptureConnection!, withSettingsArray settings: [AnyObject]!, completionHandler handler: ((Bool, Error!) -> Void)!)
   @available(iOS 8.0, *)
-  func captureStillImageBracketAsynchronouslyFrom(connection: AVCaptureConnection!, withSettingsArray settings: [AnyObject]!, completionHandler handler: ((CMSampleBuffer!, AVCaptureBracketedStillImageSettings!, Error!) -> Void)!)
+  func captureStillImageBracketAsynchronously(from connection: AVCaptureConnection!, withSettingsArray settings: [AnyObject]!, completionHandler handler: ((CMSampleBuffer!, AVCaptureBracketedStillImageSettings!, Error!) -> Void)!)
 }
 @available(iOS 6.0, *)
 class AVCaptureMetadataOutput : AVCaptureOutput {

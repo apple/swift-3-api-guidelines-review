@@ -8,19 +8,19 @@ class Predicate : Object, SecureCoding, Copying {
   /*not inherited*/ init(block: (AnyObject, [String : AnyObject]?) -> Bool)
   var predicateFormat: String { get }
   func withSubstitutionVariables(variables: [String : AnyObject]) -> Self
-  func evaluateWith(object: AnyObject?) -> Bool
+  func evaluate(withObject object: AnyObject?) -> Bool
   @available(iOS 3.0, *)
-  func evaluateWith(object: AnyObject?, substitutionVariables bindings: [String : AnyObject]?) -> Bool
+  func evaluate(withObject object: AnyObject?, substitutionVariables bindings: [String : AnyObject]?) -> Bool
   @available(iOS 7.0, *)
   func allowEvaluation()
   init()
   @available(iOS 3.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 3.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 3.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 
 extension Predicate {
@@ -33,24 +33,24 @@ struct _predicateFlags {
   init(_evaluationBlocked: UInt32, _reservedPredicateFlags: UInt32)
 }
 extension NSArray {
-  func filteredArrayUsing(predicate: Predicate) -> [AnyObject]
+  func filteredArray(usingPredicate predicate: Predicate) -> [AnyObject]
 }
 extension MutableArray {
-  func filterUsing(predicate: Predicate)
+  func filter(usingPredicate predicate: Predicate)
 }
 extension NSSet {
   @available(iOS 3.0, *)
-  func filteredSetUsing(predicate: Predicate) -> Set<Object>
+  func filteredSet(usingPredicate predicate: Predicate) -> Set<Object>
 }
 extension MutableSet {
   @available(iOS 3.0, *)
-  func filterUsing(predicate: Predicate)
+  func filter(usingPredicate predicate: Predicate)
 }
 extension OrderedSet {
   @available(iOS 5.0, *)
-  func filteredOrderedSetUsing(p: Predicate) -> OrderedSet
+  func filteredOrderedSet(usingPredicate p: Predicate) -> OrderedSet
 }
 extension MutableOrderedSet {
   @available(iOS 5.0, *)
-  func filterUsing(p: Predicate)
+  func filter(usingPredicate p: Predicate)
 }

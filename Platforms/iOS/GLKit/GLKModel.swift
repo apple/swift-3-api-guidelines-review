@@ -9,15 +9,15 @@ class GLKMeshBufferAllocator : Object, MDLMeshBufferAllocator {
   @available(iOS 9.0, *)
   func newZone(capacity: Int) -> MDLMeshBufferZone
   @available(iOS 9.0, *)
-  func newZoneForBuffersWith(size sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
+  func newZoneForBuffers(withSize sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
   @available(iOS 9.0, *)
   func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(iOS 9.0, *)
-  func newBufferWith(data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(withData data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(iOS 9.0, *)
-  func newBufferFrom(zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBuffer(from zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
   @available(iOS 9.0, *)
-  func newBufferFrom(zone: MDLMeshBufferZone?, data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBuffer(from zone: MDLMeshBufferZone?, data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 @available(iOS 9.0, *)
 class GLKMeshBuffer : Object, MDLMeshBuffer {
@@ -33,7 +33,7 @@ class GLKMeshBuffer : Object, MDLMeshBuffer {
   @available(iOS 9.0, *)
   func map() -> MDLMeshBufferMap
   @available(iOS 9.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class GLKSubmesh : Object {
@@ -47,7 +47,7 @@ class GLKSubmesh : Object {
 @available(iOS 9.0, *)
 class GLKMesh : Object {
   init(mesh: MDLMesh) throws
-  class func newMeshesFrom(asset: MDLAsset, sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [GLKMesh]
+  class func newMeshes(from asset: MDLAsset, sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [GLKMesh]
   var vertexCount: Int { get }
   var vertexBuffers: [GLKMeshBuffer] { get }
   var vertexDescriptor: MDLVertexDescriptor { get }

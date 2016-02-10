@@ -11,7 +11,7 @@ class WKInterfaceGroup : WKInterfaceObject, WKImageAnimatable {
   @available(watchOS 2.0, *)
   func startAnimating()
   @available(watchOS 2.0, *)
-  func startAnimatingWithImagesIn(imageRange: NSRange, duration: TimeInterval, repeatCount: Int)
+  func startAnimatingWithImages(in imageRange: NSRange, duration: TimeInterval, repeatCount: Int)
   @available(watchOS 2.0, *)
   func stopAnimating()
 }

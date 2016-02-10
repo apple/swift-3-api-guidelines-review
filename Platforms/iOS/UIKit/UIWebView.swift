@@ -40,7 +40,7 @@ class UIWebView : UIView, Coding, UIScrollViewDelegate {
   var canGoBack: Bool { get }
   var canGoForward: Bool { get }
   var isLoading: Bool { get }
-  func stringByEvaluatingJavaScriptFrom(script: String) -> String?
+  func stringByEvaluatingJavaScript(from script: String) -> String?
   var scalesPageToFit: Bool
   @available(iOS 3.0, *)
   var dataDetectorTypes: UIDataDetectorTypes
@@ -94,9 +94,9 @@ class UIWebView : UIView, Coding, UIScrollViewDelegate {
   @available(iOS 2.0, *)
   func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
   @available(iOS 2.0, *)
-  func scrollViewShouldScrollTo(top scrollView: UIScrollView) -> Bool
+  func scrollViewShouldScroll(toTop scrollView: UIScrollView) -> Bool
   @available(iOS 2.0, *)
-  func scrollViewDidScrollTo(top scrollView: UIScrollView)
+  func scrollViewDidScroll(toTop scrollView: UIScrollView)
 }
 protocol UIWebViewDelegate : ObjectProtocol {
   @available(iOS 2.0, *)

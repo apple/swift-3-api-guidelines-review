@@ -24,7 +24,7 @@ class NEFilterDataVerdict : NEFilterVerdict, SecureCoding, Copying {
   @available(iOS 9.0, *)
   class func drop() -> NEFilterDataVerdict
   @available(iOS 9.0, *)
-  class func remediateVerdictWith(remediationURLMapKey remediationURLMapKey: String?, remediationButtonTextMapKey: String?) -> NEFilterDataVerdict
+  class func remediateVerdict(withRemediationURLMapKey remediationURLMapKey: String?, remediationButtonTextMapKey: String?) -> NEFilterDataVerdict
   @available(iOS 9.0, *)
   /*not inherited*/ init(passBytes: Int, peekBytes: Int)
   @available(iOS 9.0, *)

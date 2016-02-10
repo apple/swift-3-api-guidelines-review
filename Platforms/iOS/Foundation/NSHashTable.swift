@@ -27,17 +27,17 @@ class HashTable : Object, Copying, Coding, FastEnumeration {
   var anyObject: AnyObject? { get }
   func contains(anObject: AnyObject?) -> Bool
   func intersectsHashTable(other: HashTable) -> Bool
-  func isEqualTo(other: HashTable) -> Bool
-  func isSubsetOf(other: HashTable) -> Bool
+  func isEqual(to other: HashTable) -> Bool
+  func isSubset(of other: HashTable) -> Bool
   func intersectHashTable(other: HashTable)
   func unionHashTable(other: HashTable)
   func minusHashTable(other: HashTable)
   var setRepresentation: Set<Object> { get }
   convenience init()
   @available(iOS 6.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(iOS 6.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 6.0, *)
   func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int

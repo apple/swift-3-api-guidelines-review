@@ -44,8 +44,8 @@ class AVAudioConverter : Object {
   var sampleRateConverterAlgorithm: String
   var primeMethod: AVAudioConverterPrimeMethod
   var primeInfo: AVAudioConverterPrimeInfo
-  func convertTo(outputBuffer: AVAudioPCMBuffer, from inputBuffer: AVAudioPCMBuffer) throws
-  func convertTo(outputBuffer: AVAudioBuffer, error outError: ErrorPointer, withInputFrom inputBlock: AVAudioConverterInputBlock) -> AVAudioConverterOutputStatus
+  func convert(to outputBuffer: AVAudioPCMBuffer, from inputBuffer: AVAudioPCMBuffer) throws
+  func convert(to outputBuffer: AVAudioBuffer, error outError: ErrorPointer, withInputFrom inputBlock: AVAudioConverterInputBlock) -> AVAudioConverterOutputStatus
   init()
 }
 extension AVAudioConverter {

@@ -20,9 +20,9 @@ class GKMatch : Object {
   var expectedPlayerCount: Int { get }
   @available(tvOS 8.0, *)
   func send(data: Data, to players: [GKPlayer], dataMode mode: GKMatchSendDataMode) throws
-  func sendDataTo(allPlayers data: Data, withDataMode mode: GKMatchSendDataMode) throws
+  func sendData(toAllPlayers data: Data, withDataMode mode: GKMatchSendDataMode) throws
   func disconnect()
-  func voiceChatWith(name name: String) -> GKVoiceChat?
+  func voiceChat(withName name: String) -> GKVoiceChat?
   @available(tvOS 8.0, *)
   func chooseBestHostingPlayer(completionHandler completionHandler: (GKPlayer?) -> Void)
   @available(tvOS 6.0, *)

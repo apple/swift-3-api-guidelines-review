@@ -19,14 +19,14 @@ enum FormattingUnitStyle : Int {
   case long
 }
 class Formatter : Object, Copying, Coding {
-  func stringFor(objectValue obj: AnyObject) -> String?
-  func attributedStringFor(objectValue obj: AnyObject, withDefaultAttributes attrs: [String : AnyObject]? = [:]) -> AttributedString?
-  func editingStringFor(objectValue obj: AnyObject) -> String?
+  func string(forObjectValue obj: AnyObject) -> String?
+  func attributedString(forObjectValue obj: AnyObject, withDefaultAttributes attrs: [String : AnyObject]? = [:]) -> AttributedString?
+  func editingString(forObjectValue obj: AnyObject) -> String?
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   func isPartialStringValid(partialString: String, newEditing newString: AutoreleasingUnsafeMutablePointer<NSString?>, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   func isPartialStringValid(partialStringPtr: AutoreleasingUnsafeMutablePointer<NSString?>, proposedSelectedRange proposedSelRangePtr: RangePointer, originalString origString: String, originalSelectedRange origSelRange: NSRange, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   init()
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func encodeWith(aCoder: Coder)
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

@@ -15,12 +15,12 @@ let WebViewProgressEstimateChangedNotification: String
 let WebViewProgressFinishedNotification: String
 class WebView : NSView {
   class func canShowMIMEType(MIMEType: String!) -> Bool
-  class func canShowMIMETypeAs(html MIMEType: String!) -> Bool
+  class func canShowMIMEType(ashtml MIMEType: String!) -> Bool
   class func mimeTypesShownAsHTML() -> [AnyObject]!
   class func setMIMETypesShownAsHTML(MIMETypes: [AnyObject]!)
-  class func urlFrom(pasteboard: NSPasteboard!) -> URL!
-  class func urlTitleFrom(pasteboard: NSPasteboard!) -> String!
-  class func registerURLSchemeAs(local scheme: String!)
+  class func url(from pasteboard: NSPasteboard!) -> URL!
+  class func urlTitle(from pasteboard: NSPasteboard!) -> String!
+  class func registerURLScheme(asLocal scheme: String!)
   init!(frame: Rect, frameName: String!, groupName: String!)
   func close()
   var shouldCloseWithWindow: Bool
@@ -39,26 +39,26 @@ class WebView : NSView {
   var textSizeMultiplier: Float
   var applicationNameForUserAgent: String!
   var customUserAgent: String!
-  func userAgentFor(URL: URL!) -> String!
+  func userAgent(forURL URL: URL!) -> String!
   var supportsTextEncoding: Bool { get }
   var customTextEncodingName: String!
   var mediaStyle: String!
-  func stringByEvaluatingJavaScriptFrom(script: String!) -> String!
+  func stringByEvaluatingJavaScript(from script: String!) -> String!
   var windowScriptObject: WebScriptObject! { get }
   var preferences: WebPreferences!
   var preferencesIdentifier: String!
   var hostWindow: NSWindow!
-  func searchFor(string: String!, direction forward: Bool, caseSensitive caseFlag: Bool, wrap wrapFlag: Bool) -> Bool
+  func search(for string: String!, direction forward: Bool, caseSensitive caseFlag: Bool, wrap wrapFlag: Bool) -> Bool
   class func registerClass(viewClass: AnyClass!, representationClass: AnyClass!, forMIMEType MIMEType: String!)
   var groupName: String!
   var estimatedProgress: Double { get }
   var isLoading: Bool { get }
-  func elementAt(point: Point) -> [Object : AnyObject]!
+  func element(at point: Point) -> [Object : AnyObject]!
   var pasteboardTypesForSelection: [AnyObject]! { get }
   func writeSelection(pasteboardTypes types: [AnyObject]!, to pasteboard: NSPasteboard!)
-  func pasteboardTypesFor(element element: [Object : AnyObject]!) -> [AnyObject]!
+  func pasteboardTypes(forElement element: [Object : AnyObject]!) -> [AnyObject]!
   func writeElement(element: [Object : AnyObject]!, withPasteboardTypes types: [AnyObject]!, to pasteboard: NSPasteboard!)
-  func moveDragCaretTo(point: Point)
+  func moveDragCaret(to point: Point)
   func removeDragCaret()
   var drawsBackground: Bool
   var shouldUpdateWhileOffscreen: Bool
@@ -95,10 +95,10 @@ let WebViewDidEndEditingNotification: String
 let WebViewDidChangeTypingStyleNotification: String
 let WebViewDidChangeSelectionNotification: String
 extension WebView {
-  func computedStyleFor(element: DOMElement!, pseudoElement: String!) -> DOMCSSStyleDeclaration!
+  func computedStyle(forElement element: DOMElement!, pseudoElement: String!) -> DOMCSSStyleDeclaration!
 }
 extension WebView {
-  func editableDOMRangeFor(point: Point) -> DOMRange!
+  func editableDOMRange(forPoint point: Point) -> DOMRange!
   func setSelectedDOMRange(range: DOMRange!, affinity selectionAffinity: NSSelectionAffinity)
   var selectedDOMRange: DOMRange! { get }
   var selectionAffinity: NSSelectionAffinity { get }
@@ -110,7 +110,7 @@ extension WebView {
   var spellCheckerDocumentTag: Int { get }
   var undoManager: UndoManager! { get }
   var editingDelegate: AnyObject!
-  func styleDeclarationWith(text text: String!) -> DOMCSSStyleDeclaration!
+  func styleDeclaration(withText text: String!) -> DOMCSSStyleDeclaration!
 }
 extension WebView {
   func replaceSelection(node: DOMNode!)

@@ -13,7 +13,7 @@ protocol IOBluetoothDeviceAsyncCallbacks {
 }
 class IOBluetoothDevice : IOBluetoothObject, Coding, SecureCoding {
   class func registerForConnectNotifications(observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
-  func registerFor(disconnectNotification observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
+  func register(forDisconnectNotification observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
   convenience init!(address: UnsafePointer<BluetoothDeviceAddress>)
   convenience init!(addressString address: String!)
   func openL2CAPChannelSync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, delegate channelDelegate: AnyObject!) -> IOReturn
@@ -56,7 +56,7 @@ class IOBluetoothDevice : IOBluetoothObject, Coding, SecureCoding {
   func performSDPQuery(target: AnyObject!, uuids uuidArray: [AnyObject]!) -> IOReturn
   var services: [AnyObject]! { get }
   func getLastServicesUpdate() -> Date!
-  func getServiceRecordFor(sdpUUID: IOBluetoothSDPUUID!) -> IOBluetoothSDPServiceRecord!
+  func getServiceRecord(forUUID sdpUUID: IOBluetoothSDPUUID!) -> IOBluetoothSDPServiceRecord!
   class func favoriteDevices() -> [AnyObject]!
   func isFavorite() -> Bool
   func addToFavorites() -> IOReturn
@@ -68,9 +68,9 @@ class IOBluetoothDevice : IOBluetoothObject, Coding, SecureCoding {
   func setSupervisionTimeout(timeout: UInt16) -> IOReturn
   func openL2CAPChannelSync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [Object : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
   func openL2CAPChannelAsync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [Object : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
-  func awakeAfterUsing(coder: Coder!) -> AnyObject!
+  func awakeAfter(coder: Coder!) -> AnyObject!
   init()
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
   class func supportsSecureCoding() -> Bool
 }

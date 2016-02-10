@@ -4,8 +4,8 @@ class MDLAsset : Object, Copying, FastEnumeration {
   init(url URL: URL)
   init(url URL: URL, vertexDescriptor: MDLVertexDescriptor?, bufferAllocator: MDLMeshBufferAllocator?)
   init(url URL: URL, vertexDescriptor: MDLVertexDescriptor?, bufferAllocator: MDLMeshBufferAllocator?, preserveTopology: Bool, error: ErrorPointer)
-  func exportTo(URL: URL) -> Bool
-  func exportTo(URL: URL, error: ()) throws
+  func export(to URL: URL) -> Bool
+  func export(to URL: URL, error: ()) throws
   class func canImportFileExtension(extension: String) -> Bool
   class func canExportFileExtension(extension: String) -> Bool
   func boundingBoxAtTime(time: TimeInterval) -> MDLAxisAlignedBoundingBox
@@ -19,11 +19,11 @@ class MDLAsset : Object, Copying, FastEnumeration {
   func add(object: MDLObject)
   func remove(object: MDLObject)
   var count: Int { get }
-  subscript (indexedSubscript index: Int) -> MDLObject? { get }
-  func objectAt(index: Int) -> MDLObject
+  subscript (atIndexedSubscript index: Int) -> MDLObject? { get }
+  func object(at index: Int) -> MDLObject
   init()
   @available(OSX 10.11, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(OSX 10.11, *)
   func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

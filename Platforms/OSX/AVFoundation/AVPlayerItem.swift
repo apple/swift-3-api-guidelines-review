@@ -29,7 +29,7 @@ class AVPlayerItem : Object, Copying {
   var status: AVPlayerItemStatus { get }
   var error: Error? { get }
   @available(OSX 10.7, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 extension AVPlayerItem {
   var asset: AVAsset { get }
@@ -71,9 +71,9 @@ extension AVPlayerItem {
   @available(OSX 10.7, *)
   func cancelPendingSeeks()
   func currentDate() -> Date?
-  func seekTo(date: Date) -> Bool
+  func seek(to date: Date) -> Bool
   @available(OSX 10.9, *)
-  func seekTo(date: Date, completionHandler: (Bool) -> Void) -> Bool
+  func seek(to date: Date, completionHandler: (Bool) -> Void) -> Bool
   func stepByCount(stepCount: Int)
   @available(OSX 10.8, *)
   var timebase: CMTimebase? { get }
@@ -108,9 +108,9 @@ extension AVPlayerItem {
   @available(OSX 10.8, *)
   func selectMediaOption(mediaSelectionOption: AVMediaSelectionOption?, in mediaSelectionGroup: AVMediaSelectionGroup)
   @available(OSX 10.9, *)
-  func selectMediaOptionAutomaticallyIn(mediaSelectionGroup: AVMediaSelectionGroup)
+  func selectMediaOptionAutomatically(in mediaSelectionGroup: AVMediaSelectionGroup)
   @available(OSX 10.8, *)
-  func selectedMediaOptionIn(mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
+  func selectedMediaOption(in mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
   @available(OSX 10.11, *)
   var currentMediaSelection: AVMediaSelection { get }
 }
@@ -135,7 +135,7 @@ class AVPlayerItemAccessLog : Object, Copying {
   var events: [AVPlayerItemAccessLogEvent] { get }
   init()
   @available(OSX 10.7, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.7, *)
 class AVPlayerItemErrorLog : Object, Copying {
@@ -144,7 +144,7 @@ class AVPlayerItemErrorLog : Object, Copying {
   var events: [AVPlayerItemErrorLogEvent] { get }
   init()
   @available(OSX 10.7, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.7, *)
 class AVPlayerItemAccessLogEvent : Object, Copying {
@@ -183,7 +183,7 @@ class AVPlayerItemAccessLogEvent : Object, Copying {
   var switchBitrate: Double { get }
   init()
   @available(OSX 10.7, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.7, *)
 class AVPlayerItemErrorLogEvent : Object, Copying {
@@ -196,5 +196,5 @@ class AVPlayerItemErrorLogEvent : Object, Copying {
   var errorComment: String? { get }
   init()
   @available(OSX 10.7, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

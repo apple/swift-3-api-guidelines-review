@@ -14,11 +14,11 @@ let NSMigrationEntityPolicyKey: String
 @available(tvOS 3.0, *)
 class NSEntityMigrationPolicy : Object {
   func begin(mapping: NSEntityMapping, manager: NSMigrationManager) throws
-  func createDestinationInstancesFor(sourceInstance sInstance: NSManagedObject, entityMapping mapping: NSEntityMapping, manager: NSMigrationManager) throws
-  func endInstanceCreationFor(mapping: NSEntityMapping, manager: NSMigrationManager) throws
-  func createRelationshipsFor(destinationInstance dInstance: NSManagedObject, entityMapping mapping: NSEntityMapping, manager: NSMigrationManager) throws
-  func endRelationshipCreationFor(mapping: NSEntityMapping, manager: NSMigrationManager) throws
-  func performCustomValidationFor(mapping: NSEntityMapping, manager: NSMigrationManager) throws
+  func createDestinationInstances(forSourceInstance sInstance: NSManagedObject, entityMapping mapping: NSEntityMapping, manager: NSMigrationManager) throws
+  func endInstanceCreation(forEntityMapping mapping: NSEntityMapping, manager: NSMigrationManager) throws
+  func createRelationships(forDestinationInstance dInstance: NSManagedObject, entityMapping mapping: NSEntityMapping, manager: NSMigrationManager) throws
+  func endRelationshipCreation(forEntityMapping mapping: NSEntityMapping, manager: NSMigrationManager) throws
+  func performCustomValidation(forEntityMapping mapping: NSEntityMapping, manager: NSMigrationManager) throws
   func end(mapping: NSEntityMapping, manager: NSMigrationManager) throws
   init()
 }

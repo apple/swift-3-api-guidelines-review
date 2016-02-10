@@ -39,13 +39,13 @@ class NSText : NSView, NSChangeSpelling, NSIgnoreMisspelledWords {
   init(frame frameRect: Rect)
   init?(coder: Coder)
   var string: String?
-  func replaceCharactersIn(range: NSRange, withString aString: String)
-  func replaceCharactersIn(range: NSRange, withRTF rtfData: Data)
-  func replaceCharactersIn(range: NSRange, withRTFD rtfdData: Data)
-  func rtfFrom(range: NSRange) -> Data?
-  func rtfdFrom(range: NSRange) -> Data?
-  func writeRTFDTo(file path: String, atomically flag: Bool) -> Bool
-  func readRTFDFrom(file path: String) -> Bool
+  func replaceCharacters(in range: NSRange, withString aString: String)
+  func replaceCharacters(in range: NSRange, withRTF rtfData: Data)
+  func replaceCharacters(in range: NSRange, withRTFD rtfdData: Data)
+  func rtf(from range: NSRange) -> Data?
+  func rtfd(from range: NSRange) -> Data?
+  func writeRTFD(toFile path: String, atomically flag: Bool) -> Bool
+  func readRTFD(fromFile path: String) -> Bool
   unowned(unsafe) var delegate: @sil_unmanaged NSTextDelegate?
   var isEditable: Bool
   var isSelectable: Bool

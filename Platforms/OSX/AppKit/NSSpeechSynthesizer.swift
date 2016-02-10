@@ -28,9 +28,9 @@ class NSSpeechSynthesizer : Object {
   var isSpeaking: Bool { get }
   func stopSpeaking()
   @available(OSX 10.5, *)
-  func stopSpeakingAt(boundary: NSSpeechBoundary)
+  func stopSpeaking(at boundary: NSSpeechBoundary)
   @available(OSX 10.5, *)
-  func pauseSpeakingAt(boundary: NSSpeechBoundary)
+  func pauseSpeaking(at boundary: NSSpeechBoundary)
   @available(OSX 10.5, *)
   func continueSpeaking()
   unowned(unsafe) var delegate: @sil_unmanaged NSSpeechSynthesizerDelegate?
@@ -44,15 +44,15 @@ class NSSpeechSynthesizer : Object {
   @available(OSX 10.5, *)
   func addSpeechDictionary(speechDictionary: [String : AnyObject])
   @available(OSX 10.5, *)
-  func phonemesFrom(text text: String) -> String
+  func phonemes(fromText text: String) -> String
   @available(OSX 10.5, *)
-  func objectFor(property property: String) throws -> AnyObject
+  func object(forProperty property: String) throws -> AnyObject
   @available(OSX 10.5, *)
   func setObject(object: AnyObject?, forProperty property: String) throws
   class func isAnyApplicationSpeaking() -> Bool
   class func defaultVoice() -> String
   class func availableVoices() -> [String]
-  class func attributesFor(voice voice: String) -> [String : AnyObject]
+  class func attributes(forVoice voice: String) -> [String : AnyObject]
   init()
 }
 protocol NSSpeechSynthesizerDelegate : ObjectProtocol {

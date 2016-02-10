@@ -17,14 +17,14 @@ class NSTextContainer : Object, Coding, NSTextLayoutOrientationProvider {
   @available(tvOS 7.0, *)
   var maximumNumberOfLines: Int
   @available(tvOS 7.0, *)
-  func lineFragmentRectFor(proposedRect proposedRect: CGRect, at characterIndex: Int, writingDirection baseWritingDirection: NSWritingDirection, remaining remainingRect: UnsafeMutablePointer<CGRect>) -> CGRect
+  func lineFragmentRect(forProposedRect proposedRect: CGRect, at characterIndex: Int, writingDirection baseWritingDirection: NSWritingDirection, remaining remainingRect: UnsafeMutablePointer<CGRect>) -> CGRect
   @available(tvOS 9.0, *)
   var isSimpleRectangularTextContainer: Bool { get }
   var widthTracksTextView: Bool
   var heightTracksTextView: Bool
   convenience init()
   @available(tvOS 7.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   @available(tvOS 7.0, *)
   var layoutOrientation: NSTextLayoutOrientation { get }
 }

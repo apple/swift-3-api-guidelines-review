@@ -101,7 +101,7 @@ class NSPersistentStoreCoordinator : Object, Locking {
   var persistentStores: [NSPersistentStore] { get }
   @available(OSX 10.10, *)
   var name: String?
-  func persistentStoreFor(URL: URL) -> NSPersistentStore?
+  func persistentStore(forURL URL: URL) -> NSPersistentStore?
   func urlFor(store: NSPersistentStore) -> URL
   @available(OSX 10.5, *)
   func setURL(url: URL, forPersistentStore store: NSPersistentStore) -> Bool
@@ -109,7 +109,7 @@ class NSPersistentStoreCoordinator : Object, Locking {
   func removePersistentStore(store: NSPersistentStore) throws
   func setMetadata(metadata: [String : AnyObject]?, forPersistentStore store: NSPersistentStore)
   func metadataFor(store: NSPersistentStore) -> [String : AnyObject]
-  func managedObjectIDFor(uriRepresentation url: URL) -> NSManagedObjectID?
+  func managedObjectID(forURIRepresentation url: URL) -> NSManagedObjectID?
   @available(OSX 10.7, *)
   func execute(request: NSPersistentStoreRequest, withContext context: NSManagedObjectContext) throws -> AnyObject
   @available(OSX 10.5, *)
@@ -117,24 +117,24 @@ class NSPersistentStoreCoordinator : Object, Locking {
   @available(OSX 10.5, *)
   class func registerStoreClass(storeClass: AnyClass, forStoreType storeType: String)
   @available(OSX 10.9, *)
-  class func metadataForPersistentStoreOf(type storeType: String, url: URL, options: [Object : AnyObject]? = [:]) throws -> [String : AnyObject]
+  class func metadataForPersistentStore(ofType storeType: String, url: URL, options: [Object : AnyObject]? = [:]) throws -> [String : AnyObject]
   @available(OSX 10.9, *)
   class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String, url: URL, options: [Object : AnyObject]? = [:]) throws
   @available(OSX, introduced=10.5, deprecated=10.11, message="Use a -metadataForPersistentStoreOfType:URL:options:error: and pass in an options dictionary matching addPersistentStoreWithType")
-  class func metadataForPersistentStoreOf(type storeType: String?, url: URL) throws -> [String : AnyObject]
+  class func metadataForPersistentStore(ofType storeType: String?, url: URL) throws -> [String : AnyObject]
   @available(OSX, introduced=10.5, deprecated=10.11, message="Use a -setMetadata:forPersistentStoreOfType:URL:options:error: and pass in an options dictionary matching addPersistentStoreWithType")
   class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String?, url: URL) throws
   @available(OSX 10.6, *)
   class func elementsDerivedFromExternalRecord(fileURL: URL) -> [Object : AnyObject]
   @available(OSX 10.9, *)
-  class func removeUbiquitousContentAndPersistentStoreAt(storeURL: URL, options: [Object : AnyObject]? = [:]) throws
+  class func removeUbiquitousContentAndPersistentStore(at storeURL: URL, options: [Object : AnyObject]? = [:]) throws
   @available(OSX 10.6, *)
   func importStore(identifier storeIdentifier: String?, fromExternalRecordsDirectory externalRecordsURL: URL, to destinationURL: URL, options: [Object : AnyObject]? = [:], withType storeType: String) throws -> NSPersistentStore
   func migratePersistentStore(store: NSPersistentStore, to URL: URL, options: [Object : AnyObject]? = [:], withType storeType: String) throws -> NSPersistentStore
   @available(OSX 10.11, *)
-  func destroyPersistentStoreAt(url: URL, withType storeType: String, options: [Object : AnyObject]? = [:]) throws
+  func destroyPersistentStore(at url: URL, withType storeType: String, options: [Object : AnyObject]? = [:]) throws
   @available(OSX 10.11, *)
-  func replacePersistentStoreAt(destinationURL: URL, destinationOptions: [Object : AnyObject]? = [:], withPersistentStoreFrom sourceURL: URL, sourceOptions: [Object : AnyObject]? = [:], storeType: String) throws
+  func replacePersistentStore(at destinationURL: URL, destinationOptions: [Object : AnyObject]? = [:], withPersistentStoreFrom sourceURL: URL, sourceOptions: [Object : AnyObject]? = [:], storeType: String) throws
   @available(OSX 10.10, *)
   func perform(block: () -> Void)
   @available(OSX 10.10, *)

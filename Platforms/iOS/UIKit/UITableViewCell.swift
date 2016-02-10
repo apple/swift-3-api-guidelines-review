@@ -94,9 +94,9 @@ class UITableViewCell : UIView, Coding, UIGestureRecognizerDelegate {
   @available(iOS 9.0, *)
   var focusStyle: UITableViewCellFocusStyle
   @available(iOS 3.0, *)
-  func willTransitionTo(state state: UITableViewCellStateMask)
+  func willTransition(toState state: UITableViewCellStateMask)
   @available(iOS 3.0, *)
-  func didTransitionTo(state state: UITableViewCellStateMask)
+  func didTransition(toState state: UITableViewCellStateMask)
   convenience init(frame: CGRect)
   convenience init()
   @available(iOS 3.2, *)

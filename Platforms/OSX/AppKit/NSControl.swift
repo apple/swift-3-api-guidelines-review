@@ -24,7 +24,7 @@ class NSControl : NSView {
   init(frame frameRect: Rect)
   init?(coder: Coder)
   func sizeToFit()
-  func sendActionOn(mask: Int) -> Int
+  func sendAction(on mask: Int) -> Int
   func sendAction(theAction: Selector, to theTarget: AnyObject?) -> Bool
   func takeIntValueFrom(sender: AnyObject?)
   func takeFloatValueFrom(sender: AnyObject?)
@@ -65,7 +65,7 @@ extension NSControl {
   @available(OSX 10.8, *)
   var allowsExpansionToolTips: Bool
   @available(OSX 10.10, *)
-  func expansionFrameWith(frame contentFrame: Rect) -> Rect
+  func expansionFrame(frame contentFrame: Rect) -> Rect
   @available(OSX 10.10, *)
   func draw(expansionFrame contentFrame: Rect, in view: NSView)
 }
@@ -109,8 +109,8 @@ extension NSControl {
   func setNeedsDisplay()
   func calcSize()
   func updateCell(aCell: NSCell)
-  func updateCellInside(aCell: NSCell)
-  func drawCellInside(aCell: NSCell)
+  func updateCell(inside aCell: NSCell)
+  func drawCell(inside aCell: NSCell)
   func drawCell(aCell: NSCell)
   func selectCell(aCell: NSCell)
 }

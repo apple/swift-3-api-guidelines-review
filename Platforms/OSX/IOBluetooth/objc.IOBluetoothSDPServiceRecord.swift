@@ -1,6 +1,6 @@
 
 class IOBluetoothSDPServiceRecord : Object, Coding {
-  class func publishedServiceRecordWith(serviceDict: [Object : AnyObject]!) -> Self!
+  class func publishedServiceRecord(withDictionary serviceDict: [Object : AnyObject]!) -> Self!
   func remove() -> IOReturn
   class func withServiceDictionary(serviceDict: [Object : AnyObject]!, device: IOBluetoothDevice!) -> Self!
   init!(serviceDictionary serviceDict: [Object : AnyObject]!, device: IOBluetoothDevice!)
@@ -16,9 +16,9 @@ class IOBluetoothSDPServiceRecord : Object, Coding {
   func matchesUUID16(uuid16: BluetoothSDPUUID16) -> Bool
   func matchesUUIDArray(uuidArray: [AnyObject]!) -> Bool
   func matchesSearch(searchArray: [AnyObject]!) -> Bool
-  func hasServiceFrom(array: [AnyObject]!) -> Bool
+  func hasService(from array: [AnyObject]!) -> Bool
   var sortedAttributes: [AnyObject]! { get }
   init()
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

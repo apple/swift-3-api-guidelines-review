@@ -4,11 +4,11 @@ class CSSearchableItemAttributeSet : Object, Copying, SecureCoding {
   init(itemContentType: String)
   init()
   @available(iOS 9.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 class CSLocalizedString : NSString {
@@ -42,16 +42,16 @@ class CSCustomAttributeKey : Object, Copying, SecureCoding {
   var isMultiValued: Bool { get }
   convenience init()
   @available(iOS 9.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension CSSearchableItemAttributeSet {
   func setValue(value: SecureCoding?, forCustomKey key: CSCustomAttributeKey)
-  func valueFor(customKey key: CSCustomAttributeKey) -> SecureCoding?
+  func value(forCustomKey key: CSCustomAttributeKey) -> SecureCoding?
 }
 extension UserActivity {
   @available(iOS 9.0, *)

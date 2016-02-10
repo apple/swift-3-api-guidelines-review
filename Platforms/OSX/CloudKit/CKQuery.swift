@@ -9,7 +9,7 @@ class CKQuery : Object, SecureCoding, Copying {
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   @available(OSX 10.10, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

@@ -3,7 +3,7 @@
 class AVCaptureOutput : Object {
   var connections: [AnyObject]! { get }
   @available(OSX 10.7, *)
-  func connectionWith(mediaType mediaType: String!) -> AVCaptureConnection!
+  func connection(withMediaType mediaType: String!) -> AVCaptureConnection!
   init()
 }
 @available(OSX 10.7, *)
@@ -43,7 +43,7 @@ class AVCaptureFileOutput : AVCaptureOutput {
   @available(OSX 10.7, *)
   unowned(unsafe) var delegate: @sil_unmanaged AVCaptureFileOutputDelegate!
   var outputFileURL: URL! { get }
-  func startRecordingTo(outputFileURL outputFileURL: URL!, recordingDelegate delegate: AVCaptureFileOutputRecordingDelegate!)
+  func startRecording(toOutputFileURL outputFileURL: URL!, recordingDelegate delegate: AVCaptureFileOutputRecordingDelegate!)
   func stopRecording()
   var isRecording: Bool { get }
   @available(OSX 10.7, *)
@@ -82,7 +82,7 @@ class AVCaptureMovieFileOutput : AVCaptureFileOutput {
   var movieFragmentInterval: CMTime
   var metadata: [AnyObject]!
   @available(OSX 10.7, *)
-  func outputSettingsFor(connection: AVCaptureConnection!) -> [Object : AnyObject]!
+  func outputSettings(forConnection connection: AVCaptureConnection!) -> [Object : AnyObject]!
   @available(OSX 10.7, *)
   func setOutputSettings(outputSettings: [Object : AnyObject]!, forConnection connection: AVCaptureConnection!)
   init()
@@ -90,7 +90,7 @@ class AVCaptureMovieFileOutput : AVCaptureFileOutput {
 @available(OSX 10.7, *)
 class AVCaptureAudioFileOutput : AVCaptureFileOutput {
   class func availableOutputFileTypes() -> [AnyObject]!
-  func startRecordingTo(outputFileURL outputFileURL: URL!, outputFileType fileType: String!, recordingDelegate delegate: AVCaptureFileOutputRecordingDelegate!)
+  func startRecording(toOutputFileURL outputFileURL: URL!, outputFileType fileType: String!, recordingDelegate delegate: AVCaptureFileOutputRecordingDelegate!)
   var metadata: [AnyObject]!
   var audioSettings: [Object : AnyObject]!
   init()
@@ -102,7 +102,7 @@ class AVCaptureStillImageOutput : AVCaptureOutput {
   var availableImageDataCodecTypes: [AnyObject]! { get }
   @available(OSX 10.8, *)
   var isCapturingStillImage: Bool { get }
-  func captureStillImageAsynchronouslyFrom(connection: AVCaptureConnection!, completionHandler handler: ((CMSampleBuffer!, Error!) -> Void)!)
+  func captureStillImageAsynchronously(from connection: AVCaptureConnection!, completionHandler handler: ((CMSampleBuffer!, Error!) -> Void)!)
   class func jpegStillImageNSDataRepresentation(jpegSampleBuffer: CMSampleBuffer!) -> Data!
   init()
 }

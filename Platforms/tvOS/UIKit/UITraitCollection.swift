@@ -3,7 +3,7 @@
 class UITraitCollection : Object, Copying, SecureCoding {
   init()
   init?(coder aDecoder: Coder)
-  func containsTraitsIn(trait: UITraitCollection?) -> Bool
+  func containsTraits(in trait: UITraitCollection?) -> Bool
   /*not inherited*/ init(traitsFrom traitCollections: [UITraitCollection])
   /*not inherited*/ init(userInterfaceIdiom idiom: UIUserInterfaceIdiom)
   var userInterfaceIdiom: UIUserInterfaceIdiom { get }
@@ -18,11 +18,11 @@ class UITraitCollection : Object, Copying, SecureCoding {
   @available(tvOS 9.0, *)
   var forceTouchCapability: UIForceTouchCapability { get }
   @available(tvOS 8.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }
 protocol UITraitEnvironment : ObjectProtocol {
   @available(tvOS 8.0, *)

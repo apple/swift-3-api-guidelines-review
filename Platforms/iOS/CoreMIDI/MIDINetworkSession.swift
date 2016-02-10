@@ -17,7 +17,7 @@ class MIDINetworkHost : Object {
   convenience init(name: String, address: String, port: Int)
   convenience init(name: String, netService: NetService)
   convenience init(name: String, netServiceName: String, netServiceDomain: String)
-  func hasSameAddressAs(other: MIDINetworkHost) -> Bool
+  func hasSameAddress(as other: MIDINetworkHost) -> Bool
   var name: String { get }
   var address: String { get }
   var port: Int { get }

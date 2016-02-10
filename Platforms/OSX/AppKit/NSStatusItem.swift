@@ -18,8 +18,8 @@ extension NSStatusItem {
   var isEnabled: Bool
   var highlightMode: Bool
   var toolTip: String?
-  func sendActionOn(mask: Int) -> Int
+  func sendAction(on mask: Int) -> Int
   var view: NSView?
-  func drawStatusBarBackgroundIn(rect: Rect, withHighlight highlight: Bool)
+  func drawStatusBarBackground(in rect: Rect, withHighlight highlight: Bool)
   func popUpMenu(menu: NSMenu)
 }

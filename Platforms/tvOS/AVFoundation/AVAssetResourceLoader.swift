@@ -53,16 +53,16 @@ class AVAssetResourceLoadingDataRequest : Object {
   @available(tvOS 9.0, *)
   var requestsAllDataToEndOfResource: Bool { get }
   var currentOffset: Int64 { get }
-  func respondWith(data: Data)
+  func respond(withData data: Data)
 }
 extension AVAssetResourceLoader {
   @available(tvOS 9.0, *)
   var preloadsEligibleContentKeys: Bool
 }
 extension AVAssetResourceLoadingRequest {
-  func streamingContentKeyRequestDataFor(app appIdentifier: Data, contentIdentifier: Data, options: [String : AnyObject]? = [:]) throws -> Data
+  func streamingContentKeyRequestData(forApp appIdentifier: Data, contentIdentifier: Data, options: [String : AnyObject]? = [:]) throws -> Data
   @available(tvOS 9.0, *)
-  func persistentContentKeyFrom(keyVendorResponse keyVendorResponse: Data, options: [String : AnyObject]? = [:], error outError: ErrorPointer) -> Data
+  func persistentContentKey(fromKeyVendorResponse keyVendorResponse: Data, options: [String : AnyObject]? = [:], error outError: ErrorPointer) -> Data
 }
 @available(tvOS 9.0, *)
 let AVAssetResourceLoadingRequestStreamingContentKeyRequestRequiresPersistentKey: String

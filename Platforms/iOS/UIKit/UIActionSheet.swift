@@ -14,19 +14,19 @@ class UIActionSheet : UIView {
   var title: String
   var actionSheetStyle: UIActionSheetStyle
   func addButton(title title: String?) -> Int
-  func buttonTitleAt(buttonIndex: Int) -> String?
+  func buttonTitle(at buttonIndex: Int) -> String?
   var numberOfButtons: Int { get }
   var cancelButtonIndex: Int
   var destructiveButtonIndex: Int
   var firstOtherButtonIndex: Int { get }
   var isVisible: Bool { get }
-  func showFrom(view: UIToolbar)
-  func showFrom(view: UITabBar)
+  func show(from view: UIToolbar)
+  func show(from view: UITabBar)
   @available(iOS 3.2, *)
-  func showFrom(item: UIBarButtonItem, animated: Bool)
+  func show(from item: UIBarButtonItem, animated: Bool)
   @available(iOS 3.2, *)
-  func showFrom(rect: CGRect, in view: UIView, animated: Bool)
-  func showIn(view: UIView)
+  func show(from rect: CGRect, in view: UIView, animated: Bool)
+  func show(in view: UIView)
   func dismiss(clickedButtonIndex buttonIndex: Int, animated: Bool)
   init(frame: CGRect)
   init?(coder aDecoder: Coder)

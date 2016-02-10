@@ -6,15 +6,15 @@ class CNSocialProfile : Object, Copying, SecureCoding {
   var userIdentifier: String { get }
   var service: String { get }
   init(urlString: String?, username: String?, userIdentifier: String?, service: String?)
-  class func localizedStringFor(key key: String) -> String
-  class func localizedStringFor(service service: String) -> String
+  class func localizedString(forKey key: String) -> String
+  class func localizedString(forService service: String) -> String
   init()
   @available(iOS 9.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(iOS 9.0, *)

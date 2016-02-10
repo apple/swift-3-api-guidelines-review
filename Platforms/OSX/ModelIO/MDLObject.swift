@@ -2,7 +2,7 @@
 @available(OSX 10.11, *)
 class MDLObject : Object, MDLNamed {
   func setComponent(component: MDLComponent, forProtocol protocol: Protocol)
-  func componentConformingTo(protocol: Protocol) -> MDLComponent?
+  func componentConforming(to protocol: Protocol) -> MDLComponent?
   weak var parent: @sil_weak MDLObject?
   var transform: MDLTransformComponent?
   var children: MDLObjectContainerComponent

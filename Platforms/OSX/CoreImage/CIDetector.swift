@@ -4,9 +4,9 @@ class CIDetector : Object {
   @available(OSX 10.7, *)
   /*not inherited*/ init(ofType type: String, context: CIContext?, options: [String : AnyObject]? = [:])
   @available(OSX 10.7, *)
-  func featuresIn(image: CIImage) -> [CIFeature]
+  func features(in image: CIImage) -> [CIFeature]
   @available(OSX 10.8, *)
-  func featuresIn(image: CIImage, options: [String : AnyObject]? = [:]) -> [CIFeature]
+  func features(in image: CIImage, options: [String : AnyObject]? = [:]) -> [CIFeature]
   init()
 }
 @available(OSX 10.7, *)

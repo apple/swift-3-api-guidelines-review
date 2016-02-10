@@ -4,8 +4,8 @@ class UILocalizedIndexedCollation : Object {
   class func current() -> Self
   var sectionTitles: [String] { get }
   var sectionIndexTitles: [String] { get }
-  func sectionForSectionIndexTitleAt(indexTitleIndex: Int) -> Int
-  func sectionFor(object: AnyObject, collationStringSelector selector: Selector) -> Int
-  func sortedArrayFrom(array: [AnyObject], collationStringSelector selector: Selector) -> [AnyObject]
+  func sectionForSectionIndexTitle(at indexTitleIndex: Int) -> Int
+  func section(forObject object: AnyObject, collationStringSelector selector: Selector) -> Int
+  func sortedArray(from array: [AnyObject], collationStringSelector selector: Selector) -> [AnyObject]
   init()
 }

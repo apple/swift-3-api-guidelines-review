@@ -32,8 +32,8 @@ let keyValueChangeIndexesKey: String
 @available(OSX 10.5, *)
 let keyValueChangeNotificationIsPriorKey: String
 extension Object {
-  class func observeValueFor(keyPath keyPath: String?, of object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
-  func observeValueFor(keyPath keyPath: String?, of object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
+  class func observeValue(forKeyPath keyPath: String?, of object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
+  func observeValue(forKeyPath keyPath: String?, of object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
 }
 extension Object {
   class func addObserver(observer: Object, forKeyPath keyPath: String, options: KeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
@@ -68,23 +68,23 @@ extension NSSet {
   func removeObserver(observer: Object, forKeyPath keyPath: String)
 }
 extension Object {
-  class func willChangeValueFor(key key: String)
-  func willChangeValueFor(key key: String)
-  class func didChangeValueFor(key key: String)
-  func didChangeValueFor(key key: String)
+  class func willChangeValue(forKey key: String)
+  func willChangeValue(forKey key: String)
+  class func didChangeValue(forKey key: String)
+  func didChangeValue(forKey key: String)
   class func willChange(changeKind: KeyValueChange, valuesAt indexes: IndexSet, forKey key: String)
   func willChange(changeKind: KeyValueChange, valuesAt indexes: IndexSet, forKey key: String)
   class func didChange(changeKind: KeyValueChange, valuesAt indexes: IndexSet, forKey key: String)
   func didChange(changeKind: KeyValueChange, valuesAt indexes: IndexSet, forKey key: String)
-  class func willChangeValueFor(key key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
-  func willChangeValueFor(key key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
-  class func didChangeValueFor(key key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
-  func didChangeValueFor(key key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
+  class func willChangeValue(forKey key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
+  func willChangeValue(forKey key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
+  class func didChangeValue(forKey key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
+  func didChangeValue(forKey key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
 }
 extension Object {
   @available(OSX 10.5, *)
-  class func keyPathsForValuesAffectingValueFor(key key: String) -> Set<String>
-  class func automaticallyNotifiesObserversFor(key key: String) -> Bool
+  class func keyPathsForValuesAffectingValue(forKey key: String) -> Set<String>
+  class func automaticallyNotifiesObservers(forKey key: String) -> Bool
   var observationInfo: UnsafeMutablePointer<Void>
   class func observationInfo() -> UnsafeMutablePointer<Void>
   class func setObservationInfo(observationInfo: UnsafeMutablePointer<Void>)

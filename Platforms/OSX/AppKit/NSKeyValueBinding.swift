@@ -9,23 +9,23 @@ let NSOptionsKey: String
 extension Object {
   class func exposeBinding(binding: String)
   var exposedBindings: [String] { get }
-  class func valueClassFor(binding binding: String) -> AnyClass?
-  func valueClassFor(binding binding: String) -> AnyClass?
+  class func valueClass(forBinding binding: String) -> AnyClass?
+  func valueClass(forBinding binding: String) -> AnyClass?
   class func bind(binding: String, to observable: AnyObject, withKeyPath keyPath: String, options: [String : AnyObject]? = [:])
   func bind(binding: String, to observable: AnyObject, withKeyPath keyPath: String, options: [String : AnyObject]? = [:])
   class func unbind(binding: String)
   func unbind(binding: String)
-  class func infoFor(binding binding: String) -> [String : AnyObject]?
-  func infoFor(binding binding: String) -> [String : AnyObject]?
+  class func info(forBinding binding: String) -> [String : AnyObject]?
+  func info(forBinding binding: String) -> [String : AnyObject]?
   @available(OSX 10.5, *)
-  class func optionDescriptionsFor(binding aBinding: String) -> [NSAttributeDescription]
+  class func optionDescriptions(forBinding aBinding: String) -> [NSAttributeDescription]
   @available(OSX 10.5, *)
-  func optionDescriptionsFor(binding aBinding: String) -> [NSAttributeDescription]
+  func optionDescriptions(forBinding aBinding: String) -> [NSAttributeDescription]
   class func exposedBindings() -> [String]
 }
 extension Object {
   class func setDefaultPlaceholder(placeholder: AnyObject?, forMarker marker: AnyObject?, withBinding binding: String)
-  class func defaultPlaceholderFor(marker marker: AnyObject?, withBinding binding: String) -> AnyObject?
+  class func defaultPlaceholder(forMarker marker: AnyObject?, withBinding binding: String) -> AnyObject?
 }
 extension Object {
   class func objectDidBeginEditing(editor: AnyObject)

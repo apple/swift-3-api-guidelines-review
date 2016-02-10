@@ -22,7 +22,7 @@ class SKTexture : Object, Copying, Coding {
   @available(tvOS 8.0, *)
   func generatingNormalMap() -> Self
   @available(tvOS 8.0, *)
-  func generatingNormalMapWith(smoothness smoothness: CGFloat, contrast: CGFloat) -> Self
+  func generatingNormalMap(withSmoothness smoothness: CGFloat, contrast: CGFloat) -> Self
   func textureRect() -> CGRect
   func size() -> CGSize
   var filteringMode: SKTextureFilteringMode
@@ -32,8 +32,8 @@ class SKTexture : Object, Copying, Coding {
   class func preload(textures: [SKTexture], withCompletionHandler completionHandler: () -> Void)
   func preload(completionHandler completionHandler: () -> Void)
   init()
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func encodeWith(aCoder: Coder)
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 

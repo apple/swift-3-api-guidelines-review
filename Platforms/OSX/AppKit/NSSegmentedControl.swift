@@ -29,21 +29,21 @@ class NSSegmentedControl : NSControl {
   var selectedSegment: Int
   func selectSegment(tag tag: Int) -> Bool
   func setWidth(width: CGFloat, forSegment segment: Int)
-  func widthFor(segment segment: Int) -> CGFloat
+  func width(forSegment segment: Int) -> CGFloat
   func setImage(image: NSImage?, forSegment segment: Int)
-  func imageFor(segment segment: Int) -> NSImage?
+  func image(forSegment segment: Int) -> NSImage?
   @available(OSX 10.5, *)
   func setImageScaling(scaling: NSImageScaling, forSegment segment: Int)
   @available(OSX 10.5, *)
-  func imageScalingFor(segment segment: Int) -> NSImageScaling
+  func imageScaling(forSegment segment: Int) -> NSImageScaling
   func setLabel(label: String, forSegment segment: Int)
-  func labelFor(segment segment: Int) -> String?
+  func label(forSegment segment: Int) -> String?
   func setMenu(menu: NSMenu?, forSegment segment: Int)
-  func menuFor(segment segment: Int) -> NSMenu?
+  func menu(forSegment segment: Int) -> NSMenu?
   func setSelected(selected: Bool, forSegment segment: Int)
-  func isSelectedFor(segment segment: Int) -> Bool
+  func isSelected(forSegment segment: Int) -> Bool
   func setEnabled(enabled: Bool, forSegment segment: Int)
-  func isEnabledFor(segment segment: Int) -> Bool
+  func isEnabled(forSegment segment: Int) -> Bool
   @available(OSX 10.5, *)
   var segmentStyle: NSSegmentStyle
   @available(OSX 10.10.3, *)

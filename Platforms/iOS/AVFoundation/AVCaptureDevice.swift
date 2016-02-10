@@ -8,8 +8,8 @@ let AVCaptureDeviceSubjectAreaDidChangeNotification: String
 @available(iOS 4.0, *)
 class AVCaptureDevice : Object {
   class func devices() -> [AnyObject]!
-  class func devicesWith(mediaType mediaType: String!) -> [AnyObject]!
-  class func defaultDeviceWith(mediaType mediaType: String!) -> AVCaptureDevice!
+  class func devices(withMediaType mediaType: String!) -> [AnyObject]!
+  class func defaultDevice(withMediaType mediaType: String!) -> AVCaptureDevice!
   /*not inherited*/ init!(uniqueID deviceUniqueID: String!)
   var uniqueID: String! { get }
   var modelID: String! { get }
@@ -202,11 +202,11 @@ extension AVCaptureDevice {
   @available(iOS 8.0, *)
   func chromaticityValuesForDeviceWhiteBalanceGains(whiteBalanceGains: AVCaptureWhiteBalanceGains) -> AVCaptureWhiteBalanceChromaticityValues
   @available(iOS 8.0, *)
-  func deviceWhiteBalanceGainsFor(chromaticityValues: AVCaptureWhiteBalanceChromaticityValues) -> AVCaptureWhiteBalanceGains
+  func deviceWhiteBalanceGains(forChromaticityValues chromaticityValues: AVCaptureWhiteBalanceChromaticityValues) -> AVCaptureWhiteBalanceGains
   @available(iOS 8.0, *)
   func temperatureAndTintValuesForDeviceWhiteBalanceGains(whiteBalanceGains: AVCaptureWhiteBalanceGains) -> AVCaptureWhiteBalanceTemperatureAndTintValues
   @available(iOS 8.0, *)
-  func deviceWhiteBalanceGainsFor(tempAndTintValues: AVCaptureWhiteBalanceTemperatureAndTintValues) -> AVCaptureWhiteBalanceGains
+  func deviceWhiteBalanceGains(forTemperatureAndTintValues tempAndTintValues: AVCaptureWhiteBalanceTemperatureAndTintValues) -> AVCaptureWhiteBalanceGains
 }
 @available(iOS 8.0, *)
 let AVCaptureWhiteBalanceGainsCurrent: AVCaptureWhiteBalanceGains
@@ -243,9 +243,9 @@ enum AVAuthorizationStatus : Int {
 }
 extension AVCaptureDevice {
   @available(iOS 7.0, *)
-  class func authorizationStatusFor(mediaType mediaType: String!) -> AVAuthorizationStatus
+  class func authorizationStatus(forMediaType mediaType: String!) -> AVAuthorizationStatus
   @available(iOS 7.0, *)
-  class func requestAccessFor(mediaType mediaType: String!, completionHandler handler: ((Bool) -> Void)!)
+  class func requestAccess(forMediaType mediaType: String!, completionHandler handler: ((Bool) -> Void)!)
 }
 extension AVCaptureDevice {
   @available(iOS 8.0, *)

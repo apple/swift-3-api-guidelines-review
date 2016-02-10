@@ -24,19 +24,19 @@ class NSRuleEditor : NSControl {
   var canRemoveAllRows: Bool
   var predicate: Predicate? { get }
   func reloadPredicate()
-  func predicateFor(row row: Int) -> Predicate?
+  func predicate(forRow row: Int) -> Predicate?
   var numberOfRows: Int { get }
-  func subrowIndexesFor(row rowIndex: Int) -> IndexSet
-  func criteriaFor(row row: Int) -> [AnyObject]
-  func displayValuesFor(row row: Int) -> [AnyObject]
+  func subrowIndexes(forRow rowIndex: Int) -> IndexSet
+  func criteria(forRow row: Int) -> [AnyObject]
+  func displayValues(forRow row: Int) -> [AnyObject]
   func rowForDisplayValue(displayValue: AnyObject) -> Int
-  func rowTypeFor(row rowIndex: Int) -> NSRuleEditorRowType
-  func parentRowFor(row rowIndex: Int) -> Int
+  func rowType(forRow rowIndex: Int) -> NSRuleEditorRowType
+  func parentRow(forRow rowIndex: Int) -> Int
   func addRow(sender: AnyObject?)
-  func insertRowAt(rowIndex: Int, withType rowType: NSRuleEditorRowType, asSubrowOfRow parentRow: Int, animate shouldAnimate: Bool)
+  func insertRow(at rowIndex: Int, withType rowType: NSRuleEditorRowType, asSubrowOfRow parentRow: Int, animate shouldAnimate: Bool)
   func setCriteria(criteria: [AnyObject], andDisplayValues values: [AnyObject], forRowAt rowIndex: Int)
-  func removeRowAt(rowIndex: Int)
-  func removeRowsAt(rowIndexes: IndexSet, includeSubrows: Bool)
+  func removeRow(at rowIndex: Int)
+  func removeRows(at rowIndexes: IndexSet, includeSubrows: Bool)
   @NSCopying var selectedRowIndexes: IndexSet { get }
   func selectRowIndexes(indexes: IndexSet, byExtendingSelection extend: Bool)
   var rowClass: AnyClass

@@ -38,7 +38,7 @@ class WKInterfaceDevice : Object {
   @available(watchOS 2.1, *)
   var layoutDirection: WKInterfaceLayoutDirection { get }
   @available(watchOS 2.1, *)
-  class func interfaceLayoutDirectionFor(semanticContentAttribute: WKInterfaceSemanticContentAttribute) -> WKInterfaceLayoutDirection
+  class func interfaceLayoutDirection(forSemanticContentAttribute semanticContentAttribute: WKInterfaceSemanticContentAttribute) -> WKInterfaceLayoutDirection
   @available(watchOS 2.0, *)
   var systemVersion: String { get }
   @available(watchOS 2.0, *)

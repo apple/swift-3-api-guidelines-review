@@ -6,10 +6,10 @@ class NSSet : Object, Copying, MutableCopying, SecureCoding, FastEnumeration {
   init()
   init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
   init?(coder aDecoder: Coder)
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func mutableCopyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
@@ -40,16 +40,16 @@ extension NSSet {
   func anyObject() -> AnyObject?
   func contains(anObject: AnyObject) -> Bool
   var description: String { get }
-  func descriptionWith(locale locale: AnyObject?) -> String
+  func description(withLocale locale: AnyObject?) -> String
   func intersectsSet(otherSet: Set<Object>) -> Bool
-  func isEqualTo(otherSet: Set<Object>) -> Bool
-  func isSubsetOf(otherSet: Set<Object>) -> Bool
+  func isEqual(to otherSet: Set<Object>) -> Bool
+  func isSubset(of otherSet: Set<Object>) -> Bool
   @available(watchOS 2.0, *)
   func adding(anObject: AnyObject) -> Set<Object>
   @available(watchOS 2.0, *)
-  func addingObjectsFrom(other: Set<Object>) -> Set<Object>
+  func addingObjects(from other: Set<Object>) -> Set<Object>
   @available(watchOS 2.0, *)
-  func addingObjectsFrom(other: [AnyObject]) -> Set<Object>
+  func addingObjects(from other: [AnyObject]) -> Set<Object>
   @available(watchOS 2.0, *)
   func enumerateObjects(block: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
@@ -78,7 +78,7 @@ class MutableSet : NSSet {
   convenience init(array: [AnyObject])
 }
 extension MutableSet {
-  func addObjectsFrom(array: [AnyObject])
+  func addObjects(from array: [AnyObject])
   func intersectSet(otherSet: Set<Object>)
   func minusSet(otherSet: Set<Object>)
   func removeAllObjects()
@@ -91,7 +91,7 @@ class CountedSet : MutableSet {
   init(capacity numItems: Int)
   convenience init(array: [AnyObject])
   convenience init(set: Set<Object>)
-  func countFor(object: AnyObject) -> Int
+  func count(forObject object: AnyObject) -> Int
   func objectEnumerator() -> Enumerator
   func add(object: AnyObject)
   func remove(object: AnyObject)

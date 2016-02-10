@@ -53,9 +53,9 @@ class SCNSceneSource : Object {
   var data: Data? { get }
   func scene(options options: [String : AnyObject]? = [:], statusHandler: SCNSceneSourceStatusHandler? = nil) -> SCNScene?
   func scene(options options: [String : AnyObject]? = [:]) throws -> SCNScene
-  func propertyFor(key key: String) -> AnyObject?
-  func __entryWith(identifier uid: String, withClass entryClass: AnyClass) -> AnyObject?
-  func identifiersOfEntriesWith(entryClass: AnyClass) -> [String]
+  func property(forKey key: String) -> AnyObject?
+  func __entry(withIdentifier uid: String, withClass entryClass: AnyClass) -> AnyObject?
+  func identifiersOfEntries(withClass entryClass: AnyClass) -> [String]
   @available(tvOS 8.0, *)
   func entriesPassingTest(predicate: (AnyObject, String, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [AnyObject]
   init()

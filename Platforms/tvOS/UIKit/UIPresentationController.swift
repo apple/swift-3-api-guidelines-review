@@ -1,9 +1,9 @@
 
 protocol UIAdaptivePresentationControllerDelegate : ObjectProtocol {
   @available(tvOS 8.0, *)
-  optional func adaptivePresentationStyleFor(controller: UIPresentationController) -> UIModalPresentationStyle
+  optional func adaptivePresentationStyle(forPresentationController controller: UIPresentationController) -> UIModalPresentationStyle
   @available(tvOS 8.3, *)
-  optional func adaptivePresentationStyleFor(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle
+  optional func adaptivePresentationStyle(forPresentationController controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle
   @available(tvOS 8.0, *)
   optional func presentationController(controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController?
   @available(tvOS 8.3, *)
@@ -19,7 +19,7 @@ class UIPresentationController : Object, UIAppearanceContainer, UITraitEnvironme
   init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController)
   func adaptivePresentationStyle() -> UIModalPresentationStyle
   @available(tvOS 8.3, *)
-  func adaptivePresentationStyleFor(traitCollection: UITraitCollection) -> UIModalPresentationStyle
+  func adaptivePresentationStyle(forTraitCollection traitCollection: UITraitCollection) -> UIModalPresentationStyle
   func containerViewWillLayoutSubviews()
   func containerViewDidLayoutSubviews()
   func presentedView() -> UIView?
@@ -39,15 +39,15 @@ class UIPresentationController : Object, UIAppearanceContainer, UITraitEnvironme
   @available(tvOS 8.0, *)
   var preferredContentSize: CGSize { get }
   @available(tvOS 8.0, *)
-  func preferredContentSizeDidChangeFor(childContentContainer container: UIContentContainer)
+  func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer)
   @available(tvOS 8.0, *)
-  func systemLayoutFittingSizeDidChangeFor(childContentContainer container: UIContentContainer)
+  func systemLayoutFittingSizeDidChange(forChildContentContainer container: UIContentContainer)
   @available(tvOS 8.0, *)
-  func sizeFor(childContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
+  func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
   @available(tvOS 8.0, *)
-  func viewWillTransitionTo(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func viewWillTransition(to size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
   @available(tvOS 8.0, *)
-  func willTransitionTo(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func willTransition(to newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
   @available(tvOS 9.0, *)
   weak var preferredFocusedView: @sil_weak UIView? { get }
   @available(tvOS 9.0, *)
@@ -55,7 +55,7 @@ class UIPresentationController : Object, UIAppearanceContainer, UITraitEnvironme
   @available(tvOS 9.0, *)
   func updateFocusIfNeeded()
   @available(tvOS 9.0, *)
-  func shouldUpdateFocusIn(context: UIFocusUpdateContext) -> Bool
+  func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool
   @available(tvOS 9.0, *)
-  func didUpdateFocusIn(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+  func didUpdateFocus(in context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
 }

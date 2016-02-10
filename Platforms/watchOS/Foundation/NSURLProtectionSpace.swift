@@ -34,9 +34,9 @@ class URLProtectionSpace : Object, SecureCoding, Copying {
   func isProxy() -> Bool
   init()
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 extension URLProtectionSpace {
   @available(watchOS 2.0, *)

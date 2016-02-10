@@ -7,21 +7,21 @@ class NSGradient : Object, Copying, Coding {
   convenience init?(starting startingColor: NSColor, ending endingColor: NSColor)
   convenience init?(colors colorArray: [NSColor])
   init?(colors colorArray: [NSColor], atLocations locations: UnsafePointer<CGFloat>, colorSpace: NSColorSpace)
-  func drawFrom(startingPoint: Point, to endingPoint: Point, options: NSGradientDrawingOptions)
-  func drawIn(rect: Rect, angle: CGFloat)
-  func drawIn(path: NSBezierPath, angle: CGFloat)
+  func draw(from startingPoint: Point, to endingPoint: Point, options: NSGradientDrawingOptions)
+  func draw(in rect: Rect, angle: CGFloat)
+  func draw(in path: NSBezierPath, angle: CGFloat)
   func drawFromCenter(startCenter: Point, radius startRadius: CGFloat, toCenter endCenter: Point, radius endRadius: CGFloat, options: NSGradientDrawingOptions)
-  func drawIn(rect: Rect, relativeCenterPosition: Point)
-  func drawIn(path: NSBezierPath, relativeCenterPosition: Point)
+  func draw(in rect: Rect, relativeCenterPosition: Point)
+  func draw(in path: NSBezierPath, relativeCenterPosition: Point)
   var colorSpace: NSColorSpace { get }
   var numberOfColorStops: Int { get }
   func getColor(color: AutoreleasingUnsafeMutablePointer<NSColor?>, location: UnsafeMutablePointer<CGFloat>, at index: Int)
-  func interpolatedColorAt(location location: CGFloat) -> NSColor
+  func interpolatedColor(atLocation location: CGFloat) -> NSColor
   convenience init()
   @available(OSX 10.5, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(OSX 10.5, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 

@@ -59,7 +59,7 @@ class UITextView : UIScrollView, UITextInput {
   convenience init(frame: CGRect)
   convenience init()
   @available(iOS 3.2, *)
-  func textIn(range: UITextRange) -> String?
+  func text(in range: UITextRange) -> String?
   @available(iOS 3.2, *)
   func replace(range: UITextRange, withText text: String)
   @available(iOS 3.2, *)
@@ -77,47 +77,47 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 3.2, *)
   var endOfDocument: UITextPosition { get }
   @available(iOS 3.2, *)
-  func textRangeFrom(fromPosition: UITextPosition, to toPosition: UITextPosition) -> UITextRange?
+  func textRange(from fromPosition: UITextPosition, to toPosition: UITextPosition) -> UITextRange?
   @available(iOS 3.2, *)
-  func positionFrom(position: UITextPosition, offset: Int) -> UITextPosition?
+  func position(from position: UITextPosition, offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func positionFrom(position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
+  func position(from position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
   func compare(position: UITextPosition, to other: UITextPosition) -> ComparisonResult
   @available(iOS 3.2, *)
-  func offsetFrom(from: UITextPosition, to toPosition: UITextPosition) -> Int
+  func offset(from from: UITextPosition, to toPosition: UITextPosition) -> Int
   @available(iOS 2.0, *)
   weak var inputDelegate: @sil_weak UITextInputDelegate?
   @available(iOS 2.0, *)
   var tokenizer: UITextInputTokenizer { get }
   @available(iOS 3.2, *)
-  func positionWithin(range: UITextRange, farthestIn direction: UITextLayoutDirection) -> UITextPosition?
+  func position(within range: UITextRange, farthestIn direction: UITextLayoutDirection) -> UITextPosition?
   @available(iOS 3.2, *)
   func characterRangeByExtending(position: UITextPosition, in direction: UITextLayoutDirection) -> UITextRange?
   @available(iOS 3.2, *)
-  func baseWritingDirectionFor(position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
+  func baseWritingDirection(forPosition position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
   @available(iOS 3.2, *)
   func setBaseWritingDirection(writingDirection: UITextWritingDirection, forRange range: UITextRange)
   @available(iOS 3.2, *)
-  func firstRectFor(range: UITextRange) -> CGRect
+  func firstRect(forRange range: UITextRange) -> CGRect
   @available(iOS 3.2, *)
-  func caretRectFor(position: UITextPosition) -> CGRect
+  func caretRect(forPosition position: UITextPosition) -> CGRect
   @available(iOS 6.0, *)
-  func selectionRectsFor(range: UITextRange) -> [AnyObject]
+  func selectionRects(forRange range: UITextRange) -> [AnyObject]
   @available(iOS 3.2, *)
-  func closestPositionTo(point: CGPoint) -> UITextPosition?
+  func closestPosition(to point: CGPoint) -> UITextPosition?
   @available(iOS 3.2, *)
-  func closestPositionTo(point: CGPoint, within range: UITextRange) -> UITextPosition?
+  func closestPosition(to point: CGPoint, within range: UITextRange) -> UITextPosition?
   @available(iOS 3.2, *)
-  func characterRangeAt(point: CGPoint) -> UITextRange?
+  func characterRange(at point: CGPoint) -> UITextRange?
   @available(iOS 6.0, *)
-  func shouldChangeTextIn(range: UITextRange, replacementText text: String) -> Bool
+  func shouldChangeText(in range: UITextRange, replacementText text: String) -> Bool
   @available(iOS 3.2, *)
-  func textStylingAt(position: UITextPosition, in direction: UITextStorageDirection) -> [String : AnyObject]?
+  func textStyling(at position: UITextPosition, in direction: UITextStorageDirection) -> [String : AnyObject]?
   @available(iOS 3.2, *)
-  func positionWithin(range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
+  func position(within range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func characterOffsetOf(position: UITextPosition, within range: UITextRange) -> Int
+  func characterOffset(of position: UITextPosition, within range: UITextRange) -> Int
   @available(iOS 2.0, *)
   var textInputView: UIView { get }
   @available(iOS 2.0, *)
@@ -131,13 +131,13 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 2.0, *)
   func insertDictationResultPlaceholder() -> AnyObject
   @available(iOS 2.0, *)
-  func frameFor(dictationResultPlaceholder placeholder: AnyObject) -> CGRect
+  func frame(forDictationResultPlaceholder placeholder: AnyObject) -> CGRect
   @available(iOS 2.0, *)
   func removeDictationResultPlaceholder(placeholder: AnyObject, willInsertResult: Bool)
   @available(iOS 9.0, *)
-  func beginFloatingCursorAt(point: CGPoint)
+  func beginFloatingCursor(at point: CGPoint)
   @available(iOS 9.0, *)
-  func updateFloatingCursorAt(point: CGPoint)
+  func updateFloatingCursor(at point: CGPoint)
   @available(iOS 9.0, *)
   func endFloatingCursor()
   @available(iOS 2.0, *)

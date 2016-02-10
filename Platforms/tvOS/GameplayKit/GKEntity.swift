@@ -5,9 +5,9 @@ class GKEntity : Object, Copying {
   func updateWithDeltaTime(seconds: TimeInterval)
   var components: [GKComponent] { get }
   func addComponent(component: GKComponent)
-  func removeComponentFor(componentClass: AnyClass)
+  func removeComponent(forClass componentClass: AnyClass)
   @available(tvOS 9.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 
 @available(iOS 9.0, OSX 10.11, tvOS 9.0, *)

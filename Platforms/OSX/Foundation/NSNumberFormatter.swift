@@ -11,7 +11,7 @@ class NumberFormatter : Formatter {
   var formattingContext: FormattingContext
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, range rangep: UnsafeMutablePointer<NSRange>) throws
   func stringFrom(number: Number) -> String?
-  func numberFrom(string: String) -> Number?
+  func number(from string: String) -> Number?
   @available(OSX 10.6, *)
   class func localizedStringFrom(num: Number, number nstyle: NumberFormatterStyle) -> String
   class func defaultFormatterBehavior() -> NumberFormatterBehavior

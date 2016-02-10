@@ -35,92 +35,92 @@ let ubiquityIdentityDidChangeNotification: String
 class FileManager : Object {
   class func defaultManager() -> FileManager
   @available(tvOS 4.0, *)
-  func mountedVolumeURLsIncludingResourceValuesFor(keys propertyKeys: [String]?, options: VolumeEnumerationOptions = []) -> [URL]?
+  func mountedVolumeURLsIncludingResourceValues(forKeys propertyKeys: [String]?, options: VolumeEnumerationOptions = []) -> [URL]?
   @available(tvOS 4.0, *)
-  func contentsOfDirectoryAt(url: URL, includingPropertiesForKeys keys: [String]?, options mask: DirectoryEnumerationOptions = []) throws -> [URL]
+  func contentsOfDirectory(at url: URL, includingPropertiesForKeys keys: [String]?, options mask: DirectoryEnumerationOptions = []) throws -> [URL]
   @available(tvOS 4.0, *)
-  func urlsFor(directory: SearchPathDirectory, inDomains domainMask: SearchPathDomainMask) -> [URL]
+  func urls(forDirectory directory: SearchPathDirectory, inDomains domainMask: SearchPathDomainMask) -> [URL]
   @available(tvOS 4.0, *)
-  func urlFor(directory: SearchPathDirectory, inDomain domain: SearchPathDomainMask, appropriateFor url: URL?, create shouldCreate: Bool) throws -> URL
+  func url(forDirectory directory: SearchPathDirectory, inDomain domain: SearchPathDomainMask, appropriateFor url: URL?, create shouldCreate: Bool) throws -> URL
   @available(tvOS 8.0, *)
   func getRelationship(outRelationship: UnsafeMutablePointer<URLRelationship>, ofDirectoryAt directoryURL: URL, toItemAt otherURL: URL) throws
   @available(tvOS 8.0, *)
   func getRelationship(outRelationship: UnsafeMutablePointer<URLRelationship>, of directory: SearchPathDirectory, inDomain domainMask: SearchPathDomainMask, toItemAt url: URL) throws
   @available(tvOS 5.0, *)
-  func createDirectoryAt(url: URL, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]? = [:]) throws
+  func createDirectory(at url: URL, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]? = [:]) throws
   @available(tvOS 5.0, *)
-  func createSymbolicLinkAt(url: URL, withDestinationURL destURL: URL) throws
+  func createSymbolicLink(at url: URL, withDestinationURL destURL: URL) throws
   @available(tvOS 2.0, *)
   unowned(unsafe) var delegate: @sil_unmanaged FileManagerDelegate?
   @available(tvOS 2.0, *)
   func setAttributes(attributes: [String : AnyObject] = [:], ofItemAtPath path: String) throws
   @available(tvOS 2.0, *)
-  func createDirectoryAt(path path: String, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]? = [:]) throws
+  func createDirectory(atPath path: String, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]? = [:]) throws
   @available(tvOS 2.0, *)
-  func contentsOfDirectoryAt(path path: String) throws -> [String]
+  func contentsOfDirectory(atPath path: String) throws -> [String]
   @available(tvOS 2.0, *)
-  func subpathsOfDirectoryAt(path path: String) throws -> [String]
+  func subpathsOfDirectory(atPath path: String) throws -> [String]
   @available(tvOS 2.0, *)
-  func attributesOfItemAt(path path: String) throws -> [String : AnyObject]
+  func attributesOfItem(atPath path: String) throws -> [String : AnyObject]
   @available(tvOS 2.0, *)
-  func attributesOfFileSystemFor(path path: String) throws -> [String : AnyObject]
+  func attributesOfFileSystem(forPath path: String) throws -> [String : AnyObject]
   @available(tvOS 2.0, *)
-  func createSymbolicLinkAt(path path: String, withDestinationPath destPath: String) throws
+  func createSymbolicLink(atPath path: String, withDestinationPath destPath: String) throws
   @available(tvOS 2.0, *)
-  func destinationOfSymbolicLinkAt(path path: String) throws -> String
+  func destinationOfSymbolicLink(atPath path: String) throws -> String
   @available(tvOS 2.0, *)
-  func copyItemAt(path srcPath: String, toPath dstPath: String) throws
+  func copyItem(atPath srcPath: String, toPath dstPath: String) throws
   @available(tvOS 2.0, *)
-  func moveItemAt(path srcPath: String, toPath dstPath: String) throws
+  func moveItem(atPath srcPath: String, toPath dstPath: String) throws
   @available(tvOS 2.0, *)
-  func linkItemAt(path srcPath: String, toPath dstPath: String) throws
+  func linkItem(atPath srcPath: String, toPath dstPath: String) throws
   @available(tvOS 2.0, *)
-  func removeItemAt(path path: String) throws
+  func removeItem(atPath path: String) throws
   @available(tvOS 4.0, *)
-  func copyItemAt(srcURL: URL, to dstURL: URL) throws
+  func copyItem(at srcURL: URL, to dstURL: URL) throws
   @available(tvOS 4.0, *)
-  func moveItemAt(srcURL: URL, to dstURL: URL) throws
+  func moveItem(at srcURL: URL, to dstURL: URL) throws
   @available(tvOS 4.0, *)
-  func linkItemAt(srcURL: URL, to dstURL: URL) throws
+  func linkItem(at srcURL: URL, to dstURL: URL) throws
   @available(tvOS 4.0, *)
-  func removeItemAt(URL: URL) throws
+  func removeItem(at URL: URL) throws
   var currentDirectoryPath: String { get }
   func changeCurrentDirectoryPath(path: String) -> Bool
-  func fileExistsAt(path path: String) -> Bool
-  func fileExistsAt(path path: String, isDirectory: UnsafeMutablePointer<ObjCBool>) -> Bool
-  func isReadableFileAt(path path: String) -> Bool
-  func isWritableFileAt(path path: String) -> Bool
-  func isExecutableFileAt(path path: String) -> Bool
-  func isDeletableFileAt(path path: String) -> Bool
-  func contentsEqualAt(path path1: String, andPath path2: String) -> Bool
-  func displayNameAt(path path: String) -> String
-  func componentsToDisplayFor(path path: String) -> [String]?
-  func enumeratorAt(path path: String) -> DirectoryEnumerator?
+  func fileExists(atPath path: String) -> Bool
+  func fileExists(atPath path: String, isDirectory: UnsafeMutablePointer<ObjCBool>) -> Bool
+  func isReadableFile(atPath path: String) -> Bool
+  func isWritableFile(atPath path: String) -> Bool
+  func isExecutableFile(atPath path: String) -> Bool
+  func isDeletableFile(atPath path: String) -> Bool
+  func contentsEqual(atPath path1: String, andPath path2: String) -> Bool
+  func displayName(atPath path: String) -> String
+  func componentsToDisplay(forPath path: String) -> [String]?
+  func enumerator(atPath path: String) -> DirectoryEnumerator?
   @available(tvOS 4.0, *)
-  func enumeratorAt(url: URL, includingPropertiesForKeys keys: [String]?, options mask: DirectoryEnumerationOptions = [], errorHandler handler: ((URL, Error) -> Bool)? = nil) -> DirectoryEnumerator?
-  func subpathsAt(path path: String) -> [String]?
-  func contentsAt(path path: String) -> Data?
-  func createFileAt(path path: String, contents data: Data?, attributes attr: [String : AnyObject]? = [:]) -> Bool
-  func fileSystemRepresentationWith(path path: String) -> UnsafePointer<Int8>
-  func stringWith(fileSystemRepresentation str: UnsafePointer<Int8>, length len: Int) -> String
+  func enumerator(at url: URL, includingPropertiesForKeys keys: [String]?, options mask: DirectoryEnumerationOptions = [], errorHandler handler: ((URL, Error) -> Bool)? = nil) -> DirectoryEnumerator?
+  func subpaths(atPath path: String) -> [String]?
+  func contents(atPath path: String) -> Data?
+  func createFile(atPath path: String, contents data: Data?, attributes attr: [String : AnyObject]? = [:]) -> Bool
+  func fileSystemRepresentation(withPath path: String) -> UnsafePointer<Int8>
+  func string(withFileSystemRepresentation str: UnsafePointer<Int8>, length len: Int) -> String
   @available(tvOS 4.0, *)
-  func replaceItemAt(originalItemURL: URL, withItemAt newItemURL: URL, backupItemName: String?, options: FileManagerItemReplacementOptions = [], resultingItemURL resultingURL: AutoreleasingUnsafeMutablePointer<URL?>) throws
+  func replaceItem(at originalItemURL: URL, withItemAt newItemURL: URL, backupItemName: String?, options: FileManagerItemReplacementOptions = [], resultingItemURL resultingURL: AutoreleasingUnsafeMutablePointer<URL?>) throws
   @available(tvOS 5.0, *)
   func setUbiquitous(flag: Bool, itemAt url: URL, destinationURL: URL) throws
   @available(tvOS 5.0, *)
-  func isUbiquitousItemAt(url: URL) -> Bool
+  func isUbiquitousItem(at url: URL) -> Bool
   @available(tvOS 5.0, *)
-  func startDownloadingUbiquitousItemAt(url: URL) throws
+  func startDownloadingUbiquitousItem(at url: URL) throws
   @available(tvOS 5.0, *)
-  func evictUbiquitousItemAt(url: URL) throws
+  func evictUbiquitousItem(at url: URL) throws
   @available(tvOS 5.0, *)
-  func urlFor(ubiquityContainerIdentifier containerIdentifier: String?) -> URL?
+  func url(forUbiquityContainerIdentifier containerIdentifier: String?) -> URL?
   @available(tvOS 5.0, *)
-  func urlForPublishingUbiquitousItemAt(url: URL, expirationDate outDate: AutoreleasingUnsafeMutablePointer<Date?>) throws -> URL
+  func urlForPublishingUbiquitousItem(at url: URL, expirationDate outDate: AutoreleasingUnsafeMutablePointer<Date?>) throws -> URL
   @available(tvOS 6.0, *)
   @NSCopying var ubiquityIdentityToken: protocol<Coding, Copying, ObjectProtocol>? { get }
   @available(tvOS 7.0, *)
-  func containerURLFor(securityApplicationGroupIdentifier groupIdentifier: String) -> URL?
+  func containerURL(forSecurityApplicationGroupIdentifier groupIdentifier: String) -> URL?
   init()
 }
 extension Object {

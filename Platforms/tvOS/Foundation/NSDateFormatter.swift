@@ -3,12 +3,12 @@ class DateFormatter : Formatter {
   @available(tvOS 8.0, *)
   var formattingContext: FormattingContext
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, range rangep: UnsafeMutablePointer<NSRange>) throws
-  func stringFrom(date: Date) -> String
-  func dateFrom(string: String) -> Date?
+  func string(from date: Date) -> String
+  func date(from string: String) -> Date?
   @available(tvOS 4.0, *)
-  class func localizedStringFrom(date: Date, dateStyle dstyle: DateFormatterStyle, time tstyle: DateFormatterStyle) -> String
+  class func localizedString(from date: Date, dateStyle dstyle: DateFormatterStyle, time tstyle: DateFormatterStyle) -> String
   @available(tvOS 4.0, *)
-  class func dateFormatFrom(template tmplate: String, options opts: Int, locale: Locale?) -> String?
+  class func dateFormat(fromTemplate tmplate: String, options opts: Int, locale: Locale?) -> String?
   class func defaultFormatterBehavior() -> DateFormatterBehavior
   class func setDefaultFormatterBehavior(behavior: DateFormatterBehavior)
   @available(tvOS 8.0, *)

@@ -29,7 +29,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   init()
   convenience init(type typeName: String) throws
   @available(OSX 10.6, *)
-  class func canConcurrentlyReadDocumentsOf(type typeName: String) -> Bool
+  class func canConcurrentlyReadDocuments(ofType typeName: String) -> Bool
   convenience init(contentsOf url: URL, ofType typeName: String) throws
   convenience init(forURL urlOrNil: URL?, withContentsOf contentsURL: URL, ofType typeName: String) throws
   var fileType: String?
@@ -48,22 +48,22 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   @available(OSX 10.7, *)
   func performAsynchronousFileAccess(block: (() -> Void) -> Void)
   @IBAction func revertDocumentToSaved(sender: AnyObject?)
-  func revertToContentsOf(url: URL, ofType typeName: String) throws
-  func readFrom(url: URL, ofType typeName: String) throws
-  func readFrom(fileWrapper: FileWrapper, ofType typeName: String) throws
-  func readFrom(data: Data, ofType typeName: String) throws
+  func revertToContents(of url: URL, ofType typeName: String) throws
+  func read(from url: URL, ofType typeName: String) throws
+  func read(from fileWrapper: FileWrapper, ofType typeName: String) throws
+  func read(from data: Data, ofType typeName: String) throws
   @available(OSX 10.7, *)
   var isEntireFileLoaded: Bool { get }
-  func writeTo(url: URL, ofType typeName: String) throws
-  func fileWrapperOf(type typeName: String) throws -> FileWrapper
-  func dataOf(type typeName: String) throws -> Data
+  func write(to url: URL, ofType typeName: String) throws
+  func fileWrapper(ofType typeName: String) throws -> FileWrapper
+  func data(ofType typeName: String) throws -> Data
   @available(OSX 10.7, *)
   func unblockUserInteraction()
   @available(OSX 10.7, *)
   var autosavingIsImplicitlyCancellable: Bool { get }
-  func writeSafelyTo(url: URL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType) throws
-  func writeTo(url: URL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType, originalContentsURL absoluteOriginalContentsURL: URL?) throws
-  func fileAttributesToWriteTo(url: URL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType, originalContentsURL absoluteOriginalContentsURL: URL?) throws -> [String : AnyObject]
+  func writeSafely(to url: URL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType) throws
+  func write(to url: URL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType, originalContentsURL absoluteOriginalContentsURL: URL?) throws
+  func fileAttributesToWrite(to url: URL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType, originalContentsURL absoluteOriginalContentsURL: URL?) throws -> [String : AnyObject]
   var keepBackupFile: Bool { get }
   @available(OSX 10.8, *)
   @NSCopying var backupFileURL: URL? { get }
@@ -76,11 +76,11 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   func prepare(savePanel: NSSavePanel) -> Bool
   var fileNameExtensionWasHiddenInLastRunSavePanel: Bool { get }
   var fileTypeFromLastRunSavePanel: String? { get }
-  func saveTo(url: URL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType, delegate: AnyObject?, didSave didSaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func save(to url: URL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType, delegate: AnyObject?, didSave didSaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
-  func saveTo(url: URL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType, completionHandler: (Error?) -> Void)
+  func save(to url: URL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType, completionHandler: (Error?) -> Void)
   @available(OSX 10.7, *)
-  func canAsynchronouslyWriteTo(url: URL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType) -> Bool
+  func canAsynchronouslyWrite(to url: URL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType) -> Bool
   @available(OSX 10.7, *)
   func checkAutosavingSafety() throws
   @available(OSX 10.7, *)
@@ -99,7 +99,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   class func autosavesDrafts() -> Bool
   var autosavingFileType: String? { get }
   @NSCopying var autosavedContentsFileURL: URL?
-  func canCloseWith(delegate delegate: AnyObject, shouldClose shouldCloseSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func canClose(delegate delegate: AnyObject, shouldClose shouldCloseSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func close()
   @available(OSX 10.7, *)
   @IBAction func duplicate(sender: AnyObject?)
@@ -116,7 +116,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   @available(OSX 10.8, *)
   func move(completionHandler completionHandler: ((Bool) -> Void)? = nil)
   @available(OSX 10.8, *)
-  func moveTo(url: URL, completionHandler: ((Error?) -> Void)? = nil)
+  func move(to url: URL, completionHandler: ((Error?) -> Void)? = nil)
   @available(OSX 10.8, *)
   @IBAction func lock(sender: AnyObject?)
   @available(OSX 10.8, *)
@@ -152,7 +152,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   @available(OSX 10.7, *)
   func changeCountTokenFor(saveOperation: NSSaveOperationType) -> AnyObject
   @available(OSX 10.7, *)
-  func updateChangeCountWith(token changeCountToken: AnyObject, forSaveOperation saveOperation: NSSaveOperationType)
+  func updateChangeCount(withToken changeCountToken: AnyObject, forSaveOperation saveOperation: NSSaveOperationType)
   var undoManager: UndoManager?
   var hasUndoManager: Bool
   func presentError(error: Error, modalFor window: NSWindow, delegate: AnyObject?, didPresent didPresentSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
@@ -181,7 +181,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   class func isNativeType(type: String) -> Bool
   func writableTypesFor(saveOperation: NSSaveOperationType) -> [String]
   @available(OSX 10.5, *)
-  func fileNameExtensionFor(type typeName: String, saveOperation: NSSaveOperationType) -> String?
+  func fileNameExtension(forType typeName: String, saveOperation: NSSaveOperationType) -> String?
   func validate(anItem: NSValidatedUserInterfaceItem) -> Bool
   @available(OSX 10.8, *)
   class func usesUbiquitousStorage() -> Bool
@@ -190,11 +190,11 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   var presentedItemOperationQueue: OperationQueue { get }
   @available(OSX 10.8, *)
   @NSCopying var primaryPresentedItemURL: URL? { get }
-  func relinquishPresentedItemTo(reader reader: ((() -> Void)?) -> Void)
-  func relinquishPresentedItemTo(writer writer: ((() -> Void)?) -> Void)
+  func relinquishPresentedItem(toReader reader: ((() -> Void)?) -> Void)
+  func relinquishPresentedItem(toWriter writer: ((() -> Void)?) -> Void)
   func savePresentedItemChanges(completionHandler completionHandler: (Error?) -> Void)
-  func accommodatePresentedItemDeletionWith(completionHandler completionHandler: (Error?) -> Void)
-  func presentedItemDidMoveTo(newURL: URL)
+  func accommodatePresentedItemDeletion(completionHandler completionHandler: (Error?) -> Void)
+  func presentedItemDidMove(to newURL: URL)
   func presentedItemDidChange()
   @available(OSX 10.7, *)
   func presentedItemDidGainVersion(version: FileVersion)
@@ -202,16 +202,16 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   func presentedItemDidLose(version: FileVersion)
   @available(OSX 10.7, *)
   func presentedItemDidResolveConflictVersion(version: FileVersion)
-  func accommodatePresentedSubitemDeletionAt(url: URL, completionHandler: (Error?) -> Void)
-  func presentedSubitemDidAppearAt(url: URL)
-  func presentedSubitemAt(oldURL: URL, didMoveTo newURL: URL)
-  func presentedSubitemDidChangeAt(url: URL)
+  func accommodatePresentedSubitemDeletion(at url: URL, completionHandler: (Error?) -> Void)
+  func presentedSubitemDidAppear(at url: URL)
+  func presentedSubitem(at oldURL: URL, didMoveTo newURL: URL)
+  func presentedSubitemDidChange(at url: URL)
   @available(OSX 10.7, *)
-  func presentedSubitemAt(url: URL, didGainVersion version: FileVersion)
+  func presentedSubitem(at url: URL, didGainVersion version: FileVersion)
   @available(OSX 10.7, *)
-  func presentedSubitemAt(url: URL, didLose version: FileVersion)
+  func presentedSubitem(at url: URL, didLose version: FileVersion)
   @available(OSX 10.7, *)
-  func presentedSubitemAt(url: URL, didResolveConflictVersion version: FileVersion)
+  func presentedSubitem(at url: URL, didResolveConflictVersion version: FileVersion)
 }
 struct __docFlags {
   var inClose: UInt32

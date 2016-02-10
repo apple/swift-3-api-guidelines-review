@@ -25,7 +25,7 @@ class Stream : Object {
   func open()
   func close()
   unowned(unsafe) var delegate: @sil_unmanaged StreamDelegate?
-  func propertyFor(key key: String) -> AnyObject?
+  func property(forKey key: String) -> AnyObject?
   func setProperty(property: AnyObject?, forKey key: String) -> Bool
   func scheduleIn(aRunLoop: RunLoop, forMode mode: String)
   func removeFrom(aRunLoop: RunLoop, forMode mode: String)

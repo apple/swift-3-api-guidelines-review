@@ -62,7 +62,7 @@ class MTLRenderPipelineColorAttachmentDescriptor : Object, Copying {
   var writeMask: MTLColorWriteMask
   init()
   @available(OSX 10.11, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class MTLRenderPipelineReflection : Object {
@@ -88,7 +88,7 @@ class MTLRenderPipelineDescriptor : Object, Copying {
   func reset()
   init()
   @available(OSX 10.11, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 protocol MTLRenderPipelineState : ObjectProtocol {
@@ -97,6 +97,6 @@ protocol MTLRenderPipelineState : ObjectProtocol {
 }
 @available(OSX 10.11, *)
 class MTLRenderPipelineColorAttachmentDescriptorArray : Object {
-  subscript (indexedSubscript attachmentIndex: Int) -> MTLRenderPipelineColorAttachmentDescriptor!
+  subscript (atIndexedSubscript attachmentIndex: Int) -> MTLRenderPipelineColorAttachmentDescriptor!
   init()
 }

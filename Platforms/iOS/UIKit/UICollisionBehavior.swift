@@ -28,7 +28,7 @@ class UICollisionBehavior : UIDynamicBehavior {
   func setTranslatesReferenceBoundsIntoBoundaryWith(insets: UIEdgeInsets)
   func addBoundary(identifier identifier: Copying, forPath bezierPath: UIBezierPath)
   func addBoundary(identifier identifier: Copying, from p1: CGPoint, to p2: CGPoint)
-  func boundaryWith(identifier identifier: Copying) -> UIBezierPath?
+  func boundary(withIdentifier identifier: Copying) -> UIBezierPath?
   func removeBoundary(identifier identifier: Copying)
   var boundaryIdentifiers: [Copying]? { get }
   func removeAllBoundaries()

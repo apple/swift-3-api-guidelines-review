@@ -28,6 +28,6 @@ class CAConstraint : Object, Coding {
   var scale: CGFloat { get }
   var offset: CGFloat { get }
   init()
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

@@ -11,7 +11,7 @@ class GKSavedGame : Object, Copying {
   func loadData(completionHandler handler: ((Data?, Error?) -> Void)? = nil)
   init()
   @available(OSX 10.10, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 extension GKLocalPlayer : GKSavedGameListener {
   @available(OSX 10.10, *)

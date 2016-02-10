@@ -140,13 +140,13 @@ class MDLMaterial : Object, MDLNamed, FastEnumeration {
   func setProperty(property: MDLMaterialProperty)
   func remove(property: MDLMaterialProperty)
   func propertyNamed(name: String) -> MDLMaterialProperty?
-  func propertyWith(semantic: MDLMaterialSemantic) -> MDLMaterialProperty?
+  func property(withSemantic semantic: MDLMaterialSemantic) -> MDLMaterialProperty?
   func removeAllProperties()
   var scatteringFunction: MDLScatteringFunction { get }
   var name: String
   var base: MDLMaterial?
-  subscript (indexedSubscript idx: Int) -> MDLMaterialProperty? { get }
-  subscript (keyedSubscript name: String) -> MDLMaterialProperty? { get }
+  subscript (atIndexedSubscript idx: Int) -> MDLMaterialProperty? { get }
+  subscript (forKeyedSubscript name: String) -> MDLMaterialProperty? { get }
   var count: Int { get }
   init()
   @available(tvOS 9.0, *)

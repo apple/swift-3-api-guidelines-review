@@ -7,7 +7,7 @@ class ODRecord : Object {
   @available(OSX 10.6, *)
   func verifyPassword(inPassword: String!) throws
   @available(OSX 10.6, *)
-  func verifyExtendedWith(authenticationType inType: String!, authenticationItems inItems: [AnyObject]!, continueItems outItems: AutoreleasingUnsafeMutablePointer<NSArray?>, context outContext: AutoreleasingUnsafeMutablePointer<AnyObject?>) throws
+  func verifyExtended(withAuthenticationType inType: String!, authenticationItems inItems: [AnyObject]!, continueItems outItems: AutoreleasingUnsafeMutablePointer<NSArray?>, context outContext: AutoreleasingUnsafeMutablePointer<AnyObject?>) throws
   @available(OSX 10.6, *)
   func changePassword(oldPassword: String!, toPassword newPassword: String!) throws
   @available(OSX 10.6, *)
@@ -17,13 +17,13 @@ class ODRecord : Object {
   @available(OSX 10.6, *)
   var recordName: String! { get }
   @available(OSX 10.6, *)
-  func recordDetailsFor(attributes inAttributes: [AnyObject]!) throws -> [Object : AnyObject]
+  func recordDetails(forAttributes inAttributes: [AnyObject]!) throws -> [Object : AnyObject]
   @available(OSX 10.6, *)
-  func valuesFor(attribute inAttribute: String!) throws -> [AnyObject]
+  func values(forAttribute inAttribute: String!) throws -> [AnyObject]
   @available(OSX 10.6, *)
   func setValue(inValueOrValues: AnyObject!, forAttribute inAttribute: String!) throws
   @available(OSX 10.6, *)
-  func removeValuesFor(attribute inAttribute: String!) throws
+  func removeValues(forAttribute inAttribute: String!) throws
   @available(OSX 10.6, *)
   func addValue(inValue: AnyObject!, toAttribute inAttribute: String!) throws
   @available(OSX 10.6, *)

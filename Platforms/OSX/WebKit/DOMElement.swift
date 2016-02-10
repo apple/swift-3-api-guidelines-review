@@ -41,7 +41,7 @@ class DOMElement : DOMNode {
   func getAttributeNode(name: String!) -> DOMAttr!
   func setAttributeNode(newAttr: DOMAttr!) -> DOMAttr!
   func removeAttributeNode(oldAttr: DOMAttr!) -> DOMAttr!
-  func getElementsBy(tagName name: String!) -> DOMNodeList!
+  func getElementsByTagName(name: String!) -> DOMNodeList!
   @available(OSX 10.5, *)
   func getAttributeNS(namespaceURI: String!, localName: String!) -> String!
   @available(OSX 10.5, *)
@@ -49,7 +49,7 @@ class DOMElement : DOMNode {
   @available(OSX 10.5, *)
   func removeAttributeNS(namespaceURI: String!, localName: String!)
   @available(OSX 10.5, *)
-  func getElementsBy(tagNameNS namespaceURI: String!, localName: String!) -> DOMNodeList!
+  func getElementsByTagNameNS(namespaceURI: String!, localName: String!) -> DOMNodeList!
   @available(OSX 10.5, *)
   func getAttributeNodeNS(namespaceURI: String!, localName: String!) -> DOMAttr!
   func setAttributeNodeNS(newAttr: DOMAttr!) -> DOMAttr!
@@ -61,15 +61,15 @@ class DOMElement : DOMNode {
   @available(OSX 10.6, *)
   func blur()
   @available(OSX 10.5, *)
-  func scrollInto(view alignWithTop: Bool)
+  func scroll(intoView alignWithTop: Bool)
   @available(OSX 10.5, *)
-  func scrollInto(viewIfNeeded centerIfNeeded: Bool)
+  func scroll(intoViewIfNeeded centerIfNeeded: Bool)
   @available(OSX 10.5, *)
-  func scrollBy(lines lines: Int32)
+  func scroll(byLines lines: Int32)
   @available(OSX 10.5, *)
-  func scrollBy(pages pages: Int32)
+  func scroll(byPages pages: Int32)
   @available(OSX 10.6, *)
-  func getElementsBy(className name: String!) -> DOMNodeList!
+  func getElementsByClassName(name: String!) -> DOMNodeList!
   @available(OSX 10.6, *)
   func webkitRequestFullScreen(flags: UInt16)
   @available(OSX 10.6, *)

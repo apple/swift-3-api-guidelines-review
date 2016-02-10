@@ -87,7 +87,7 @@ class MDLVertexBufferLayout : Object, Copying {
   var stride: Int
   init()
   @available(OSX 10.11, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class MDLVertexAttribute : Object, Copying {
@@ -99,7 +99,7 @@ class MDLVertexAttribute : Object, Copying {
   var initializationValue: vector_float4
   init()
   @available(OSX 10.11, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class MDLVertexDescriptor : Object, Copying {
@@ -113,5 +113,5 @@ class MDLVertexDescriptor : Object, Copying {
   func setPackedOffsets()
   init()
   @available(OSX 10.11, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

@@ -30,7 +30,7 @@ struct OSAStorageOptions : OptionSetType {
 }
 class OSAScript : Object, Copying {
   @available(OSX 10.6, *)
-  class func scriptDataDescriptorWithContentsOf(url: URL) -> AppleEventDescriptor?
+  class func scriptDataDescriptorWithContents(of url: URL) -> AppleEventDescriptor?
   init(source: String)
   init(source: String, language: OSALanguage?)
   @available(OSX 10.6, *)
@@ -54,10 +54,10 @@ class OSAScript : Object, Copying {
   func executeAndReturnDisplayValue(displayValue: AutoreleasingUnsafeMutablePointer<AttributedString?>, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> AppleEventDescriptor?
   func executeHandler(name name: String, arguments: [AnyObject], error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> AppleEventDescriptor?
   @NSCopying var richTextSource: AttributedString? { get }
-  func richTextFrom(descriptor: AppleEventDescriptor) -> AttributedString?
-  func writeTo(url: URL, ofType type: String, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
-  func writeTo(url: URL, ofType type: String, usingStorageOptions storageOptions: OSAStorageOptions = [], error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
-  func compiledDataFor(type type: String, usingStorageOptions storageOptions: OSAStorageOptions = [], error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Data?
+  func richText(from descriptor: AppleEventDescriptor) -> AttributedString?
+  func write(to url: URL, ofType type: String, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
+  func write(to url: URL, ofType type: String, usingStorageOptions storageOptions: OSAStorageOptions = [], error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
+  func compiledData(forType type: String, usingStorageOptions storageOptions: OSAStorageOptions = [], error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Data?
   init()
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

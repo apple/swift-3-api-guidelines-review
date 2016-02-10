@@ -1,8 +1,8 @@
 
 @available(OSX 10.4, *)
 class NSEntityDescription : Object, Coding, Copying, FastEnumeration {
-  class func entityFor(name entityName: String, in context: NSManagedObjectContext) -> NSEntityDescription?
-  class func insertNewObjectForEntityFor(name entityName: String, in context: NSManagedObjectContext) -> NSManagedObject
+  class func entity(forName entityName: String, in context: NSManagedObjectContext) -> NSEntityDescription?
+  class func insertNewObjectForEntity(forName entityName: String, in context: NSManagedObjectContext) -> NSManagedObject
   unowned(unsafe) var managedObjectModel: @sil_unmanaged NSManagedObjectModel { get }
   var managedObjectClassName: String!
   var name: String?
@@ -15,9 +15,9 @@ class NSEntityDescription : Object, Coding, Copying, FastEnumeration {
   var userInfo: [Object : AnyObject]?
   var attributesByName: [String : NSAttributeDescription] { get }
   var relationshipsByName: [String : NSRelationshipDescription] { get }
-  func relationshipsWith(destinationEntity entity: NSEntityDescription) -> [NSRelationshipDescription]
+  func relationships(withDestinationEntity entity: NSEntityDescription) -> [NSRelationshipDescription]
   @available(OSX 10.5, *)
-  func isKindOf(entity entity: NSEntityDescription) -> Bool
+  func isKindOfEntity(entity: NSEntityDescription) -> Bool
   @available(OSX 10.5, *)
   @NSCopying var versionHash: Data { get }
   @available(OSX 10.5, *)
@@ -30,10 +30,10 @@ class NSEntityDescription : Object, Coding, Copying, FastEnumeration {
   var uniquenessConstraints: [[AnyObject]]
   init()
   @available(OSX 10.4, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.4, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(OSX 10.4, *)
   func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

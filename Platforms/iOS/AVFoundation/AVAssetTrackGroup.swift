@@ -4,5 +4,5 @@ class AVAssetTrackGroup : Object, Copying {
   var trackIDs: [Number] { get }
   init()
   @available(iOS 7.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

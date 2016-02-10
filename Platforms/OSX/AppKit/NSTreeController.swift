@@ -17,8 +17,8 @@ class NSTreeController : NSObjectController {
   var canAddChild: Bool { get }
   func insert(object: AnyObject?, atArrangedObjectIndexPath indexPath: IndexPath)
   func insert(objects: [AnyObject], atArrangedObjectIndexPaths indexPaths: [IndexPath])
-  func removeObjectAt(arrangedObjectIndexPath indexPath: IndexPath)
-  func removeObjectsAt(arrangedObjectIndexPaths indexPaths: [IndexPath])
+  func removeObject(atArrangedObjectIndexPath indexPath: IndexPath)
+  func removeObjects(atArrangedObjectIndexPaths indexPaths: [IndexPath])
   var avoidsEmptySelection: Bool
   var preservesSelection: Bool
   var selectsInsertedObjects: Bool
@@ -37,11 +37,11 @@ class NSTreeController : NSObjectController {
   @available(OSX 10.5, *)
   func move(nodes: [NSTreeNode], to startingIndexPath: IndexPath)
   @available(OSX 10.5, *)
-  func childrenKeyPathFor(node: NSTreeNode) -> String?
+  func childrenKeyPath(forNode node: NSTreeNode) -> String?
   @available(OSX 10.5, *)
-  func countKeyPathFor(node: NSTreeNode) -> String?
+  func countKeyPath(forNode node: NSTreeNode) -> String?
   @available(OSX 10.5, *)
-  func leafKeyPathFor(node: NSTreeNode) -> String?
+  func leafKeyPath(forNode node: NSTreeNode) -> String?
   init(content: AnyObject?)
   init?(coder: Coder)
   convenience init()

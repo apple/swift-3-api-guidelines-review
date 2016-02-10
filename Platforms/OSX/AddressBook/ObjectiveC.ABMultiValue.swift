@@ -1,25 +1,25 @@
 
 class ABMultiValue : Object, Copying, MutableCopying, FastEnumeration {
   func count() -> Int
-  func valueAt(index: Int) -> AnyObject!
-  func labelAt(index: Int) -> String!
-  func identifierAt(index: Int) -> String!
-  func indexFor(identifier identifier: String!) -> Int
+  func value(at index: Int) -> AnyObject!
+  func label(at index: Int) -> String!
+  func identifier(at index: Int) -> String!
+  func index(forIdentifier identifier: String!) -> Int
   func primaryIdentifier() -> String!
   func propertyType() -> ABPropertyType
-  func valueFor(identifier identifier: String!) -> AnyObject!
-  func labelFor(identifier identifier: String!) -> AnyObject!
+  func value(forIdentifier identifier: String!) -> AnyObject!
+  func label(forIdentifier identifier: String!) -> AnyObject!
   init()
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func mutableCopyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
   func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 class ABMutableMultiValue : ABMultiValue {
   func add(value: AnyObject!, withLabel label: String!) -> String!
   func insert(value: AnyObject!, withLabel label: String!, at index: Int) -> String!
-  func removeAndLabelAt(index: Int) -> Bool
-  func replaceAt(index: Int, withValue value: AnyObject!) -> Bool
-  func replaceLabelAt(index: Int, withLabel label: String!) -> Bool
+  func removeAndLabel(at index: Int) -> Bool
+  func replace(at index: Int, withValue value: AnyObject!) -> Bool
+  func replaceLabel(at index: Int, withLabel label: String!) -> Bool
   func setPrimaryIdentifier(identifier: String!) -> Bool
   init()
 }

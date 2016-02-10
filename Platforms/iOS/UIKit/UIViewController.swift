@@ -33,15 +33,15 @@ protocol UIContentContainer : ObjectProtocol {
   @available(iOS 8.0, *)
   var preferredContentSize: CGSize { get }
   @available(iOS 8.0, *)
-  func preferredContentSizeDidChangeFor(childContentContainer container: UIContentContainer)
+  func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer)
   @available(iOS 8.0, *)
-  func systemLayoutFittingSizeDidChangeFor(childContentContainer container: UIContentContainer)
+  func systemLayoutFittingSizeDidChange(forChildContentContainer container: UIContentContainer)
   @available(iOS 8.0, *)
-  func sizeFor(childContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
+  func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
   @available(iOS 8.0, *)
-  func viewWillTransitionTo(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func viewWillTransition(to size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
   @available(iOS 8.0, *)
-  func willTransitionTo(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func willTransition(to newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
 }
 @available(iOS 8.0, *)
 let UIViewControllerShowDetailTargetDidChangeNotification: String
@@ -65,21 +65,21 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   @available(iOS 5.0, *)
   func performSegue(identifier identifier: String, sender: AnyObject?)
   @available(iOS 6.0, *)
-  func shouldPerformSegueWith(identifier identifier: String, sender: AnyObject?) -> Bool
+  func shouldPerformSegue(withIdentifier identifier: String, sender: AnyObject?) -> Bool
   @available(iOS 5.0, *)
-  func prepareFor(segue: UIStoryboardSegue, sender: AnyObject?)
+  func prepare(forSegue segue: UIStoryboardSegue, sender: AnyObject?)
   @available(iOS 6.0, *)
   func canPerformUnwindSegueAction(action: Selector, from fromViewController: UIViewController, withSender sender: AnyObject) -> Bool
   @available(iOS 9.0, *)
-  func allowedChildViewControllersForUnwindingFrom(source: UIStoryboardUnwindSegueSource) -> [UIViewController]
+  func allowedChildViewControllersForUnwinding(from source: UIStoryboardUnwindSegueSource) -> [UIViewController]
   @available(iOS 9.0, *)
   func childViewControllerContaining(source: UIStoryboardUnwindSegueSource) -> UIViewController?
   @available(iOS, introduced=6.0, deprecated=9.0)
   func forUnwindSegueAction(action: Selector, from fromViewController: UIViewController, withSender sender: AnyObject?) -> UIViewController?
   @available(iOS 9.0, *)
-  func unwindFor(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController)
+  func unwind(forSegue unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController)
   @available(iOS, introduced=6.0, deprecated=9.0)
-  func segueForUnwindingTo(toViewController: UIViewController, from fromViewController: UIViewController, identifier: String?) -> UIStoryboardSegue?
+  func segueForUnwinding(to toViewController: UIViewController, from fromViewController: UIViewController, identifier: String?) -> UIStoryboardSegue?
   func viewWillAppear(animated: Bool)
   func viewDidAppear(animated: Bool)
   func viewWillDisappear(animated: Bool)
@@ -136,28 +136,28 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   @available(iOS 7.0, *)
   func setNeedsStatusBarAppearanceUpdate()
   @available(iOS 8.0, *)
-  func targetViewControllerFor(action action: Selector, sender: AnyObject?) -> UIViewController?
+  func targetViewController(forAction action: Selector, sender: AnyObject?) -> UIViewController?
   @available(iOS 8.0, *)
   func show(vc: UIViewController, sender: AnyObject?)
   @available(iOS 8.0, *)
   func showDetailViewController(vc: UIViewController, sender: AnyObject?)
   convenience init()
   @available(iOS 2.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   @available(iOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(iOS 8.0, *)
   func traitCollectionDidChange(previousTraitCollection: UITraitCollection?)
   @available(iOS 8.0, *)
-  func preferredContentSizeDidChangeFor(childContentContainer container: UIContentContainer)
+  func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer)
   @available(iOS 8.0, *)
-  func systemLayoutFittingSizeDidChangeFor(childContentContainer container: UIContentContainer)
+  func systemLayoutFittingSizeDidChange(forChildContentContainer container: UIContentContainer)
   @available(iOS 8.0, *)
-  func sizeFor(childContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
+  func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
   @available(iOS 8.0, *)
-  func viewWillTransitionTo(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func viewWillTransition(to size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
   @available(iOS 8.0, *)
-  func willTransitionTo(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func willTransition(to newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
   @available(iOS 9.0, *)
   weak var preferredFocusedView: @sil_weak UIView? { get }
   @available(iOS 9.0, *)
@@ -165,9 +165,9 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   @available(iOS 9.0, *)
   func updateFocusIfNeeded()
   @available(iOS 9.0, *)
-  func shouldUpdateFocusIn(context: UIFocusUpdateContext) -> Bool
+  func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool
   @available(iOS 9.0, *)
-  func didUpdateFocusIn(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+  func didUpdateFocus(in context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
 }
 extension UIViewController {
   @available(iOS 5.0, *)
@@ -185,11 +185,11 @@ extension UIViewController {
   @available(iOS, introduced=2.0, deprecated=8.0)
   var interfaceOrientation: UIInterfaceOrientation { get }
   @available(iOS, introduced=2.0, deprecated=8.0, message="Implement viewWillTransitionToSize:withTransitionCoordinator: instead")
-  func willRotateTo(toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval)
+  func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval)
   @available(iOS, introduced=2.0, deprecated=8.0)
-  func didRotateFrom(fromInterfaceOrientation: UIInterfaceOrientation)
+  func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation)
   @available(iOS, introduced=3.0, deprecated=8.0, message="Implement viewWillTransitionToSize:withTransitionCoordinator: instead")
-  func willAnimateRotationTo(toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval)
+  func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval)
 }
 extension UIViewController {
   var isEditing: Bool
@@ -210,7 +210,7 @@ extension UIViewController {
   @available(iOS 5.0, *)
   func removeFromParentViewController()
   @available(iOS 5.0, *)
-  func transitionFrom(fromViewController: UIViewController, to toViewController: UIViewController, duration: TimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
+  func transition(from fromViewController: UIViewController, to toViewController: UIViewController, duration: TimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
   @available(iOS 5.0, *)
   func beginAppearanceTransition(isAppearing: Bool, animated: Bool)
   @available(iOS 5.0, *)
@@ -222,7 +222,7 @@ extension UIViewController {
   @available(iOS 8.0, *)
   func setOverrideTraitCollection(collection: UITraitCollection?, forChildViewController childViewController: UIViewController)
   @available(iOS 8.0, *)
-  func overrideTraitCollectionFor(childViewController childViewController: UIViewController) -> UITraitCollection?
+  func overrideTraitCollection(forChildViewController childViewController: UIViewController) -> UITraitCollection?
 }
 extension UIViewController {
   @available(iOS, introduced=6.0, deprecated=8.0, message="Manually forward viewWillTransitionToSize:withTransitionCoordinator: if necessary")
@@ -230,9 +230,9 @@ extension UIViewController {
   @available(iOS 6.0, *)
   func shouldAutomaticallyForwardAppearanceMethods() -> Bool
   @available(iOS 5.0, *)
-  func willMoveTo(parentViewController parent: UIViewController?)
+  func willMove(toParentViewController parent: UIViewController?)
   @available(iOS 5.0, *)
-  func didMoveTo(parentViewController parent: UIViewController?)
+  func didMove(toParentViewController parent: UIViewController?)
 }
 extension UIViewController : UIStateRestoring {
   @available(iOS 6.0, *)
@@ -240,9 +240,9 @@ extension UIViewController : UIStateRestoring {
   @available(iOS 6.0, *)
   var restorationClass: AnyObject.Type?
   @available(iOS 6.0, *)
-  func encodeRestorableState(coder: Coder)
+  func encodeRestorableState(withCoder coder: Coder)
   @available(iOS 6.0, *)
-  func decodeRestorableState(coder: Coder)
+  func decodeRestorableState(withCoder coder: Coder)
   @available(iOS 7.0, *)
   func applicationFinishedRestoringState()
   var restorationParent: UIStateRestoring? { get }
@@ -301,7 +301,7 @@ extension UIViewController {
   @available(iOS 9.0, *)
   func registerForPreviewing(delegate: UIViewControllerPreviewingDelegate, sourceView: UIView) -> UIViewControllerPreviewing
   @available(iOS 9.0, *)
-  func unregisterForPreviewingWith(context previewing: UIViewControllerPreviewing)
+  func unregisterForPreviewing(withContext previewing: UIViewControllerPreviewing)
 }
 extension UIViewController {
   @available(iOS 9.0, *)
@@ -325,7 +325,7 @@ class UIPreviewAction : Object, Copying, UIPreviewActionItem {
   convenience init(title: String, style: UIPreviewActionStyle, handler: (UIPreviewAction, UIViewController) -> Void)
   init()
   @available(iOS 9.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   var title: String { get }
 }
@@ -334,7 +334,7 @@ class UIPreviewActionGroup : Object, Copying, UIPreviewActionItem {
   convenience init(title: String, style: UIPreviewActionStyle, actions: [UIPreviewAction])
   init()
   @available(iOS 9.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   var title: String { get }
 }

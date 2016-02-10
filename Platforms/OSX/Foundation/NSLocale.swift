@@ -1,12 +1,12 @@
 
 class Locale : Object, Copying, SecureCoding {
-  func objectFor(key key: AnyObject) -> AnyObject?
-  func displayNameFor(key key: AnyObject, value: AnyObject) -> String?
+  func object(forKey key: AnyObject) -> AnyObject?
+  func displayName(forKey key: AnyObject, value: AnyObject) -> String?
   init(localeIdentifier string: String)
   init?(coder aDecoder: Coder)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }
 extension Locale {
   var localeIdentifier: String { get }
@@ -26,18 +26,18 @@ extension Locale {
   class func commonISOCurrencyCodes() -> [String]
   @available(OSX 10.5, *)
   class func preferredLanguages() -> [String]
-  class func componentsFrom(localeIdentifier string: String) -> [String : String]
-  class func localeIdentifierFrom(components dict: [String : String]) -> String
-  class func canonicalLocaleIdentifierFrom(string: String) -> String
-  class func canonicalLanguageIdentifierFrom(string: String) -> String
+  class func components(fromLocaleIdentifier string: String) -> [String : String]
+  class func localeIdentifier(fromComponents dict: [String : String]) -> String
+  class func canonicalLocaleIdentifier(from string: String) -> String
+  class func canonicalLanguageIdentifier(from string: String) -> String
   @available(OSX 10.6, *)
-  class func localeIdentifierFrom(windowsLocaleCode lcid: UInt32) -> String?
+  class func localeIdentifier(fromWindowsLocaleCode lcid: UInt32) -> String?
   @available(OSX 10.6, *)
-  class func windowsLocaleCodeFrom(localeIdentifier localeIdentifier: String) -> UInt32
+  class func windowsLocaleCode(fromLocaleIdentifier localeIdentifier: String) -> UInt32
   @available(OSX 10.6, *)
-  class func characterDirectionFor(language isoLangCode: String) -> LocaleLanguageDirection
+  class func characterDirection(forLanguage isoLangCode: String) -> LocaleLanguageDirection
   @available(OSX 10.6, *)
-  class func lineDirectionFor(language isoLangCode: String) -> LocaleLanguageDirection
+  class func lineDirection(forLanguage isoLangCode: String) -> LocaleLanguageDirection
 }
 enum LocaleLanguageDirection : UInt {
   init?(rawValue: UInt)

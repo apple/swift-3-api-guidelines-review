@@ -13,27 +13,27 @@ class NSMenu : Object, Copying, Coding {
   func add(newItem: NSMenuItem)
   func insertItem(title aString: String, action aSelector: Selector, keyEquivalent charCode: String, at index: Int) -> NSMenuItem?
   func addItem(title aString: String, action aSelector: Selector, keyEquivalent charCode: String) -> NSMenuItem?
-  func removeItemAt(index: Int)
+  func removeItem(at index: Int)
   func remove(item: NSMenuItem)
   func setSubmenu(aMenu: NSMenu?, forItem anItem: NSMenuItem)
   @available(OSX 10.6, *)
   func removeAllItems()
   var itemArray: [NSMenuItem] { get }
   var numberOfItems: Int { get }
-  func itemAt(index: Int) -> NSMenuItem?
-  func indexOf(item: NSMenuItem) -> Int
-  func indexOfItemWith(title aTitle: String) -> Int
-  func indexOfItemWith(tag aTag: Int) -> Int
-  func indexOfItemWith(representedObject object: AnyObject) -> Int
-  func indexOfItemWith(submenu submenu: NSMenu?) -> Int
-  func indexOfItemWith(target target: AnyObject?, andAction actionSelector: Selector) -> Int
-  func itemWith(title aTitle: String) -> NSMenuItem?
-  func itemWith(tag tag: Int) -> NSMenuItem?
+  func item(at index: Int) -> NSMenuItem?
+  func index(of item: NSMenuItem) -> Int
+  func indexOfItem(withTitle aTitle: String) -> Int
+  func indexOfItem(withTag aTag: Int) -> Int
+  func indexOfItem(withRepresentedObject object: AnyObject) -> Int
+  func indexOfItem(withSubmenu submenu: NSMenu?) -> Int
+  func indexOfItem(withTarget target: AnyObject?, andAction actionSelector: Selector) -> Int
+  func item(withTitle aTitle: String) -> NSMenuItem?
+  func item(withTag tag: Int) -> NSMenuItem?
   var autoenablesItems: Bool
   func update()
   func performKeyEquivalent(theEvent: NSEvent) -> Bool
   func itemChanged(item: NSMenuItem)
-  func performActionForItemAt(index: Int)
+  func performActionForItem(at index: Int)
   unowned(unsafe) var delegate: @sil_unmanaged NSMenuDelegate?
   var menuBarHeight: CGFloat { get }
   @available(OSX 10.5, *)
@@ -55,8 +55,8 @@ class NSMenu : Object, Copying, Coding {
   @available(OSX 10.11, *)
   var userInterfaceLayoutDirection: NSUserInterfaceLayoutDirection
   convenience init()
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func encodeWith(aCoder: Coder)
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct __mFlags {
@@ -92,7 +92,7 @@ extension Object {
 }
 protocol NSMenuDelegate : ObjectProtocol {
   optional func menuNeedsUpdate(menu: NSMenu)
-  optional func numberOfItemsIn(menu: NSMenu) -> Int
+  optional func numberOfItems(in menu: NSMenu) -> Int
   optional func menu(menu: NSMenu, updateItem item: NSMenuItem, at index: Int, shouldCancel: Bool) -> Bool
   optional func menuHasKeyEquivalent(menu: NSMenu, forEvent event: NSEvent, target: AutoreleasingUnsafeMutablePointer<AnyObject?>, action: UnsafeMutablePointer<Selector>) -> Bool
   @available(OSX 10.5, *)
@@ -102,7 +102,7 @@ protocol NSMenuDelegate : ObjectProtocol {
   @available(OSX 10.5, *)
   optional func menu(menu: NSMenu, willHighlight item: NSMenuItem?)
   @available(OSX 10.6, *)
-  optional func confinementRectFor(menu: NSMenu, on screen: NSScreen?) -> Rect
+  optional func confinementRect(forMenu menu: NSMenu, on screen: NSScreen?) -> Rect
 }
 struct NSMenuProperties : OptionSetType {
   init(rawValue: UInt)

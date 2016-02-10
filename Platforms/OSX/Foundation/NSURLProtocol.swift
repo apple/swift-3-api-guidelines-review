@@ -19,16 +19,16 @@ class URLProtocol : Object {
   class func requestIsCacheEquivalent(a: URLRequest, to b: URLRequest) -> Bool
   func startLoading()
   func stopLoading()
-  class func propertyFor(key key: String, in request: URLRequest) -> AnyObject?
+  class func property(forKey key: String, in request: URLRequest) -> AnyObject?
   class func setProperty(value: AnyObject, forKey key: String, in request: MutableURLRequest)
-  class func removePropertyFor(key key: String, in request: MutableURLRequest)
+  class func removeProperty(forKey key: String, in request: MutableURLRequest)
   class func registerClass(protocolClass: AnyClass) -> Bool
   class func unregisterClass(protocolClass: AnyClass)
   convenience init()
 }
 extension URLProtocol {
   @available(OSX 10.10, *)
-  class func canInitWith(task: URLSessionTask) -> Bool
+  class func canInit(withTask task: URLSessionTask) -> Bool
   @available(OSX 10.10, *)
   convenience init(task: URLSessionTask, cachedResponse: CachedURLResponse?, client: URLProtocolClient?)
   @available(OSX 10.10, *)

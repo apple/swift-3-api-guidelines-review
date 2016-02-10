@@ -42,7 +42,7 @@ class DOMNode : DOMObject, DOMEventTarget {
   @available(OSX 10.5, *)
   var isContentEditable: Bool { get }
   @available(OSX 10.5, *)
-  func insertBefore(newChild: DOMNode!, refChild: DOMNode!) -> DOMNode!
+  func insert(before newChild: DOMNode!, refChild: DOMNode!) -> DOMNode!
   @available(OSX 10.5, *)
   func replaceChild(newChild: DOMNode!, oldChild: DOMNode!) -> DOMNode!
   func removeChild(oldChild: DOMNode!) -> DOMNode!

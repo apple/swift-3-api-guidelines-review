@@ -11,10 +11,10 @@ class SKRange : Object, Coding, Copying {
   var upperLimit: CGFloat
   convenience init()
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.10, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.10, *)
 class SKConstraint : Object, Coding, Copying {
@@ -27,13 +27,13 @@ class SKConstraint : Object, Coding, Copying {
   class func distance(range: SKRange, to point: CGPoint) -> Self
   class func distance(range: SKRange, to point: CGPoint, in node: SKNode) -> Self
   class func zRotation(zRange: SKRange) -> Self
-  class func orientTo(node: SKNode, offset radians: SKRange) -> Self
-  class func orientTo(point: CGPoint, offset radians: SKRange) -> Self
-  class func orientTo(point: CGPoint, in node: SKNode, offset radians: SKRange) -> Self
+  class func orient(to node: SKNode, offset radians: SKRange) -> Self
+  class func orient(to point: CGPoint, offset radians: SKRange) -> Self
+  class func orient(to point: CGPoint, in node: SKNode, offset radians: SKRange) -> Self
   init()
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.10, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

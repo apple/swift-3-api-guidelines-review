@@ -5,7 +5,7 @@ protocol Locking {
 }
 class Lock : Object, Locking {
   func tryLock() -> Bool
-  func lockBefore(limit: Date) -> Bool
+  func lock(before limit: Date) -> Bool
   @available(iOS 2.0, *)
   var name: String?
   init()
@@ -19,7 +19,7 @@ class ConditionLock : Object, Locking {
   func tryLock() -> Bool
   func tryWhenCondition(condition: Int) -> Bool
   func unlock(condition condition: Int)
-  func lockBefore(limit: Date) -> Bool
+  func lock(before limit: Date) -> Bool
   func lockWhenCondition(condition: Int, before limit: Date) -> Bool
   @available(iOS 2.0, *)
   var name: String?
@@ -29,7 +29,7 @@ class ConditionLock : Object, Locking {
 }
 class RecursiveLock : Object, Locking {
   func tryLock() -> Bool
-  func lockBefore(limit: Date) -> Bool
+  func lock(before limit: Date) -> Bool
   @available(iOS 2.0, *)
   var name: String?
   init()
@@ -39,7 +39,7 @@ class RecursiveLock : Object, Locking {
 @available(iOS 2.0, *)
 class Condition : Object, Locking {
   func wait()
-  func waitUntil(limit: Date) -> Bool
+  func wait(until limit: Date) -> Bool
   func signal()
   func broadcast()
   @available(iOS 2.0, *)

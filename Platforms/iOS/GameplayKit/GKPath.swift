@@ -6,6 +6,6 @@ class GKPath : Object {
   var numPoints: Int { get }
   init(points: UnsafeMutablePointer<vector_float2>, count: Int, radius: Float, cyclical: Bool)
   convenience init(graphNodes: [GKGraphNode2D], radius: Float)
-  func pointAt(index: Int) -> vector_float2
+  func point(at index: Int) -> vector_float2
   convenience init()
 }

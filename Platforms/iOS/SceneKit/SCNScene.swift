@@ -12,7 +12,7 @@ class SCNScene : Object, SecureCoding {
   var rootNode: SCNNode { get }
   @available(iOS 8.0, *)
   var physicsWorld: SCNPhysicsWorld { get }
-  func attributeFor(key key: String) -> AnyObject?
+  func attribute(forKey key: String) -> AnyObject?
   func setAttribute(attribute: AnyObject?, forKey key: String)
   @available(iOS 8.0, *)
   var background: SCNMaterialProperty { get }
@@ -35,6 +35,6 @@ class SCNScene : Object, SecureCoding {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

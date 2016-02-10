@@ -61,7 +61,7 @@ class UIApplicationShortcutIcon : Object, Copying {
   convenience init(templateImageName: String)
   init()
   @available(iOS 9.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class UIApplicationShortcutItem : Object, Copying, MutableCopying {
@@ -73,9 +73,9 @@ class UIApplicationShortcutItem : Object, Copying, MutableCopying {
   @NSCopying var icon: UIApplicationShortcutIcon? { get }
   var userInfo: [String : SecureCoding]? { get }
   @available(iOS 9.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
-  func mutableCopyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class UIMutableApplicationShortcutItem : UIApplicationShortcutItem {

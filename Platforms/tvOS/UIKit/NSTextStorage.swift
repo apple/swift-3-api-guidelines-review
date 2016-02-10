@@ -18,8 +18,8 @@ class NSTextStorage : MutableAttributedString {
   func edited(editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int)
   func processEditing()
   var fixesAttributesLazily: Bool { get }
-  func invalidateAttributesIn(range: NSRange)
-  func ensureAttributesAreFixedIn(range: NSRange)
+  func invalidateAttributes(in range: NSRange)
+  func ensureAttributesAreFixed(in range: NSRange)
   init()
   init?(coder aDecoder: Coder)
   @available(tvOS 9.0, *)

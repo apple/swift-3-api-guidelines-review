@@ -19,15 +19,15 @@ protocol UIViewControllerContextTransitioning : ObjectProtocol {
   func cancelInteractiveTransition()
   func completeTransition(didComplete: Bool)
   @available(iOS 2.0, *)
-  func viewControllerFor(key key: String) -> UIViewController?
+  func viewController(forKey key: String) -> UIViewController?
   @available(iOS 8.0, *)
-  func viewFor(key key: String) -> UIView?
+  func view(forKey key: String) -> UIView?
   @available(iOS 8.0, *)
   func targetTransform() -> CGAffineTransform
   @available(iOS 2.0, *)
-  func initialFrameFor(vc: UIViewController) -> CGRect
+  func initialFrame(forViewController vc: UIViewController) -> CGRect
   @available(iOS 2.0, *)
-  func finalFrameFor(vc: UIViewController) -> CGRect
+  func finalFrame(forViewController vc: UIViewController) -> CGRect
 }
 protocol UIViewControllerAnimatedTransitioning : ObjectProtocol {
   func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval
@@ -41,13 +41,13 @@ protocol UIViewControllerInteractiveTransitioning : ObjectProtocol {
 }
 protocol UIViewControllerTransitioningDelegate : ObjectProtocol {
   @available(iOS 2.0, *)
-  optional func animationControllerFor(presentedController presented: UIViewController, presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
+  optional func animationController(forPresentedController presented: UIViewController, presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
   @available(iOS 2.0, *)
-  optional func animationControllerFor(dismissedController dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning?
-  optional func interactionControllerFor(presentation animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
-  optional func interactionControllerFor(dismissal animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
+  optional func animationController(forDismissedController dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning?
+  optional func interactionController(forPresentation animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
+  optional func interactionController(forDismissal animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
   @available(iOS 8.0, *)
-  optional func presentationControllerFor(presentedViewController presented: UIViewController, presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController?
+  optional func presentationController(forPresentedViewController presented: UIViewController, presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController?
 }
 @available(iOS 7.0, *)
 class UIPercentDrivenInteractiveTransition : Object, UIViewControllerInteractiveTransitioning {

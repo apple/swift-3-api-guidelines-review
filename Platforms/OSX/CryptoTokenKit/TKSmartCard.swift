@@ -70,13 +70,13 @@ class TKSmartCardPINFormat : Object {
 }
 @available(OSX 10.11, *)
 protocol TKSmartCardUserInteractionDelegate {
-  optional func characterEnteredIn(interaction: TKSmartCardUserInteraction)
-  optional func correctionKeyPressedIn(interaction: TKSmartCardUserInteraction)
-  optional func validationKeyPressedIn(interaction: TKSmartCardUserInteraction)
-  optional func invalidCharacterEnteredIn(interaction: TKSmartCardUserInteraction)
-  optional func oldPINRequestedIn(interaction: TKSmartCardUserInteraction)
-  optional func newPINRequestedIn(interaction: TKSmartCardUserInteraction)
-  optional func newPINConfirmationRequestedIn(interaction: TKSmartCardUserInteraction)
+  optional func characterEntered(in interaction: TKSmartCardUserInteraction)
+  optional func correctionKeyPressed(in interaction: TKSmartCardUserInteraction)
+  optional func validationKeyPressed(in interaction: TKSmartCardUserInteraction)
+  optional func invalidCharacterEntered(in interaction: TKSmartCardUserInteraction)
+  optional func oldPINRequested(in interaction: TKSmartCardUserInteraction)
+  optional func newPINRequested(in interaction: TKSmartCardUserInteraction)
+  optional func newPINConfirmationRequested(in interaction: TKSmartCardUserInteraction)
 }
 @available(OSX 10.11, *)
 class TKSmartCardUserInteraction : Object {
@@ -127,9 +127,9 @@ class TKSmartCard : Object {
   func transmitRequest(request: Data, reply: (Data?, Error?) -> Void)
   func endSession()
   @available(OSX 10.11, *)
-  func userInteractionForSecurePINVerificationWith(PINFormat: TKSmartCardPINFormat, apdu APDU: Data, pinByteOffset PINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINVerification?
+  func userInteractionForSecurePINVerification(withPINFormat PINFormat: TKSmartCardPINFormat, apdu APDU: Data, pinByteOffset PINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINVerification?
   @available(OSX 10.11, *)
-  func userInteractionForSecurePINChangeWith(PINFormat: TKSmartCardPINFormat, apdu APDU: Data, currentPINByteOffset: Int, newPINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINChange?
+  func userInteractionForSecurePINChange(withPINFormat PINFormat: TKSmartCardPINFormat, apdu APDU: Data, currentPINByteOffset: Int, newPINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINChange?
   init()
 }
 extension TKSmartCard {

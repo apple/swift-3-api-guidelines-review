@@ -30,13 +30,13 @@ var DRCDTextGenreCodeSoundtrack: Int { get }
 var DRCDTextGenreCodeSpokenWord: Int { get }
 var DRCDTextGenreCodeWorldMusic: Int { get }
 class DRCDTextBlock : Object {
-  class func arrayOfCDTextBlocksFrom(packs packs: Data!) -> [AnyObject]!
+  class func arrayOfCDTextBlocks(fromPacks packs: Data!) -> [AnyObject]!
   init!(language lang: String!, encoding enc: UInt)
   func properties() -> [Object : AnyObject]!
   func setProperties(properties: [Object : AnyObject]!)
   func trackDictionaries() -> [AnyObject]!
   func setTrackDictionaries(tracks: [AnyObject]!)
-  func objectFor(key key: String!, ofTrack trackIndex: Int) -> AnyObject!
+  func object(forKey key: String!, ofTrack trackIndex: Int) -> AnyObject!
   func setObject(value: AnyObject!, forKey key: String!, ofTrack trackIndex: Int)
   func flatten() -> Int
   init()

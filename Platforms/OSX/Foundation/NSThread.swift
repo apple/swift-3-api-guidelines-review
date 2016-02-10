@@ -4,7 +4,7 @@ class Thread : Object {
   class func detachNewThreadSelector(selector: Selector, toTarget target: AnyObject, withObject argument: AnyObject?)
   class func isMultiThreaded() -> Bool
   var threadDictionary: MutableDictionary { get }
-  class func sleepUntil(date: Date)
+  class func sleep(until date: Date)
   class func sleepForTimeInterval(ti: TimeInterval)
   class func exit()
   class func threadPriority() -> Double
@@ -48,10 +48,10 @@ let willBecomeMultiThreadedNotification: String
 let didBecomeSingleThreadedNotification: String
 let threadWillExitNotification: String
 extension Object {
-  class func performSelectorOn(mainThread aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
-  func performSelectorOn(mainThread aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
-  class func performSelectorOn(mainThread aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool)
-  func performSelectorOn(mainThread aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool)
+  class func performSelector(onMainThread aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
+  func performSelector(onMainThread aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
+  class func performSelector(onMainThread aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool)
+  func performSelector(onMainThread aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool)
   @available(OSX 10.5, *)
   class func perform(aSelector: Selector, on thr: Thread, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
   @available(OSX 10.5, *)
@@ -61,7 +61,7 @@ extension Object {
   @available(OSX 10.5, *)
   func perform(aSelector: Selector, on thr: Thread, withObject arg: AnyObject?, waitUntilDone wait: Bool)
   @available(OSX 10.5, *)
-  class func performSelectorIn(background aSelector: Selector, withObject arg: AnyObject?)
+  class func performSelector(inBackground aSelector: Selector, withObject arg: AnyObject?)
   @available(OSX 10.5, *)
-  func performSelectorIn(background aSelector: Selector, withObject arg: AnyObject?)
+  func performSelector(inBackground aSelector: Selector, withObject arg: AnyObject?)
 }

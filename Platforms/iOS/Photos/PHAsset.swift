@@ -17,9 +17,9 @@ class PHAsset : PHObject {
   @available(iOS 9.0, *)
   var sourceType: PHAssetSourceType { get }
   func canPerform(editOperation: PHAssetEditOperation) -> Bool
-  class func fetchAssetsIn(assetCollection: PHAssetCollection, options: PHFetchOptions?) -> PHFetchResult
+  class func fetchAssets(in assetCollection: PHAssetCollection, options: PHFetchOptions?) -> PHFetchResult
   class func fetchAssets(localIdentifiers identifiers: [String], options: PHFetchOptions?) -> PHFetchResult
-  class func fetchKeyAssetsIn(assetCollection: PHAssetCollection, options: PHFetchOptions?) -> PHFetchResult?
+  class func fetchKeyAssets(in assetCollection: PHAssetCollection, options: PHFetchOptions?) -> PHFetchResult?
   class func fetchAssets(burstIdentifier burstIdentifier: String, options: PHFetchOptions?) -> PHFetchResult
   class func fetchAssets(options: PHFetchOptions?) -> PHFetchResult
   class func fetchAssets(mediaType: PHAssetMediaType, options: PHFetchOptions?) -> PHFetchResult

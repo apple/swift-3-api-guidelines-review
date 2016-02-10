@@ -15,15 +15,15 @@ class UIBarItem : Object, Coding, UIAppearance {
   @available(iOS 5.0, *)
   func setTitleTextAttributes(attributes: [String : AnyObject]? = [:], forState state: UIControlState)
   @available(iOS 5.0, *)
-  func titleTextAttributesFor(state: UIControlState) -> [String : AnyObject]?
+  func titleTextAttributes(forState state: UIControlState) -> [String : AnyObject]?
   @available(iOS 2.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   @available(iOS 2.0, *)
   class func appearance() -> Self
   @available(iOS 9.0, *)
-  class func appearanceWhenContainedInInstancesOf(classes containerTypes: [AnyObject.Type]) -> Self
+  class func appearanceWhenContainedInInstances(ofClasses containerTypes: [AnyObject.Type]) -> Self
   @available(iOS 8.0, *)
-  class func appearanceFor(trait: UITraitCollection) -> Self
+  class func appearance(forTraitCollection trait: UITraitCollection) -> Self
   @available(iOS 9.0, *)
-  class func appearanceFor(trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
+  class func appearance(forTraitCollection trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
 }

@@ -8,9 +8,9 @@ class Date : Object, Copying, SecureCoding {
   init()
   init(timeIntervalSinceReferenceDate ti: TimeInterval)
   init?(coder aDecoder: Coder)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }
 
 extension Date : CustomPlaygroundQuickLookable {
@@ -18,7 +18,7 @@ extension Date : CustomPlaygroundQuickLookable {
   func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 extension Date {
-  func timeIntervalSince(anotherDate: Date) -> TimeInterval
+  func timeInterval(since anotherDate: Date) -> TimeInterval
   var timeIntervalSinceNow: TimeInterval { get }
   var timeIntervalSince1970: TimeInterval { get }
   @available(iOS 2.0, *)
@@ -26,9 +26,9 @@ extension Date {
   func earlierDate(anotherDate: Date) -> Date
   func laterDate(anotherDate: Date) -> Date
   func compare(other: Date) -> ComparisonResult
-  func isEqualTo(otherDate: Date) -> Bool
+  func isEqual(to otherDate: Date) -> Bool
   var description: String { get }
-  func descriptionWith(locale locale: AnyObject?) -> String
+  func description(withLocale locale: AnyObject?) -> String
   class func timeIntervalSinceReferenceDate() -> TimeInterval
 }
 extension Date {

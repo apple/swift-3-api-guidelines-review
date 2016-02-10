@@ -22,7 +22,7 @@ protocol IMServicePlugInGroupListHandlePictureSupport : ObjectProtocol {
   func requestPictureForHandle(handle: String!, withIdentifier identifier: String!)
 }
 protocol IMServiceApplicationGroupListSupport : IMServiceApplication {
-  func plugIn(didUpdateGroupList groups: [AnyObject]!, error: Error!)
+  func plug(inDidUpdateGroupList groups: [AnyObject]!, error: Error!)
 }
 protocol IMServiceApplicationGroupListAuthorizationSupport : IMServiceApplicationGroupListSupport {
   func plugInDidReceiveAuthorizationRequestFromHandle(handle: String!)

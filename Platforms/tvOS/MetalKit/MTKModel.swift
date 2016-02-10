@@ -10,15 +10,15 @@ class MTKMeshBufferAllocator : Object, MDLMeshBufferAllocator {
   @available(tvOS 9.0, *)
   func newZone(capacity: Int) -> MDLMeshBufferZone
   @available(tvOS 9.0, *)
-  func newZoneForBuffersWith(size sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
+  func newZoneForBuffers(withSize sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
   @available(tvOS 9.0, *)
   func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(tvOS 9.0, *)
-  func newBufferWith(data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(withData data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(tvOS 9.0, *)
-  func newBufferFrom(zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBuffer(from zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
   @available(tvOS 9.0, *)
-  func newBufferFrom(zone: MDLMeshBufferZone?, data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBuffer(from zone: MDLMeshBufferZone?, data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 @available(tvOS 9.0, *)
 class MTKMeshBuffer : Object, MDLMeshBuffer {
@@ -33,7 +33,7 @@ class MTKMeshBuffer : Object, MDLMeshBuffer {
   @available(tvOS 9.0, *)
   func map() -> MDLMeshBufferMap
   @available(tvOS 9.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(tvOS 9.0, *)
 class MTKSubmesh : Object {
@@ -47,7 +47,7 @@ class MTKSubmesh : Object {
 @available(tvOS 9.0, *)
 class MTKMesh : Object {
   init(mesh: MDLMesh, device: MTLDevice) throws
-  class func newMeshesFrom(asset: MDLAsset, device: MTLDevice, sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [MTKMesh]
+  class func newMeshes(from asset: MDLAsset, device: MTLDevice, sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [MTKMesh]
   var vertexBuffers: [MTKMeshBuffer] { get }
   var vertexDescriptor: MDLVertexDescriptor { get }
   var submeshes: [MTKSubmesh] { get }

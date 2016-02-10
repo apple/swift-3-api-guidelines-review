@@ -5,7 +5,7 @@ class ADInterstitialAd : Object {
   var isLoaded: Bool { get }
   var isActionInProgress: Bool { get }
   func cancelAction()
-  func presentIn(containerView: UIView!) -> Bool
+  func present(in containerView: UIView!) -> Bool
   init()
 }
 protocol ADInterstitialAdDelegate : ObjectProtocol {

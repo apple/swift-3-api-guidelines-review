@@ -3,11 +3,11 @@
 class UIMotionEffect : Object, Copying, Coding {
   init()
   init?(coder aDecoder: Coder)
-  func keyPathsAndRelativeValuesFor(viewerOffset viewerOffset: UIOffset) -> [String : AnyObject]?
+  func keyPathsAndRelativeValues(forViewerOffset viewerOffset: UIOffset) -> [String : AnyObject]?
   @available(tvOS 7.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(tvOS 7.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }
 enum UIInterpolatingMotionEffectType : Int {
   init?(rawValue: Int)

@@ -87,20 +87,20 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   func unhideAllApplications(sender: AnyObject?)
   func finishLaunching()
   func run()
-  func runModalFor(theWindow: NSWindow) -> Int
+  func runModal(forWindow theWindow: NSWindow) -> Int
   func stop(sender: AnyObject?)
   func stopModal()
   func stopModal(code returnCode: Int)
   func abortModal()
   var modalWindow: NSWindow? { get }
-  func beginModalSessionFor(theWindow: NSWindow) -> NSModalSession
+  func beginModalSession(forWindow theWindow: NSWindow) -> NSModalSession
   func run(session: NSModalSession) -> Int
   func end(session: NSModalSession)
   func terminate(sender: AnyObject?)
   func requestUserAttention(requestType: NSRequestUserAttentionType) -> Int
   func cancelUserAttentionRequest(request: Int)
-  func nextEventMatching(mask mask: Int, until expiration: Date?, inMode mode: String, dequeue deqFlag: Bool) -> NSEvent?
-  func discardEventsMatching(mask mask: Int, before lastEvent: NSEvent?)
+  func nextEvent(matchingMask mask: Int, until expiration: Date?, inMode mode: String, dequeue deqFlag: Bool) -> NSEvent?
+  func discardEvents(matchingMask mask: Int, before lastEvent: NSEvent?)
   func post(event: NSEvent, atStart flag: Bool)
   var currentEvent: NSEvent? { get }
   func send(theEvent: NSEvent)
@@ -120,13 +120,13 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   @available(OSX 10.5, *)
   var dockTile: NSDockTile { get }
   func sendAction(theAction: Selector, to theTarget: AnyObject?, from sender: AnyObject?) -> Bool
-  func targetFor(action theAction: Selector) -> AnyObject?
-  func targetFor(action theAction: Selector, to theTarget: AnyObject?, from sender: AnyObject?) -> AnyObject?
+  func target(forAction theAction: Selector) -> AnyObject?
+  func target(forAction theAction: Selector, to theTarget: AnyObject?, from sender: AnyObject?) -> AnyObject?
   func tryToPerform(anAction: Selector, with anObject: AnyObject?) -> Bool
   func validRequestorForSendType(sendType: String, returnType: String) -> AnyObject?
   func report(theException: Exception)
   class func detachDrawingThread(selector: Selector, toTarget target: AnyObject, withObject argument: AnyObject?)
-  func replyTo(applicationShouldTerminate shouldTerminate: Bool)
+  func reply(toApplicationShouldTerminate shouldTerminate: Bool)
   func replyToOpenOrPrint(reply: NSApplicationDelegateReply)
   func orderFrontCharacterPalette(sender: AnyObject?)
   @available(OSX 10.6, *)
@@ -143,33 +143,33 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   func isAccessibilityFocused() -> Bool
   func accessibilityIdentifier() -> String
   @available(OSX 10.10, *)
-  func accessibilityLayoutPointFor(screenPoint point: Point) -> Point
+  func accessibilityLayoutPoint(forScreenPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityLayoutSizeFor(screenSize size: Size) -> Size
+  func accessibilityLayoutSize(forScreenSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityScreenPointFor(layoutPoint point: Point) -> Point
+  func accessibilityScreenPoint(forLayoutPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityScreenSizeFor(layoutSize size: Size) -> Size
+  func accessibilityScreenSize(forLayoutSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityCellFor(column column: Int, row: Int) -> AnyObject?
+  func accessibilityCell(forColumn column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
-  func accessibilityAttributedStringFor(range: NSRange) -> AttributedString?
+  func accessibilityAttributedString(forRange range: NSRange) -> AttributedString?
   @available(OSX 10.10, *)
-  func accessibilityRangeFor(line line: Int) -> NSRange
+  func accessibilityRange(forLine line: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityStringFor(range: NSRange) -> String?
+  func accessibilityString(forRange range: NSRange) -> String?
   @available(OSX 10.10, *)
-  func accessibilityRangeFor(position point: Point) -> NSRange
+  func accessibilityRange(forPosition point: Point) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityRangeFor(index: Int) -> NSRange
+  func accessibilityRange(forIndex index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityFrameFor(range: NSRange) -> Rect
+  func accessibilityFrame(forRange range: NSRange) -> Rect
   @available(OSX 10.10, *)
-  func accessibilityRTFFor(range: NSRange) -> Data?
+  func accessibilityRTF(forRange range: NSRange) -> Data?
   @available(OSX 10.10, *)
-  func accessibilityStyleRangeFor(index: Int) -> NSRange
+  func accessibilityStyleRange(forIndex index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityLineFor(index: Int) -> Int
+  func accessibilityLine(forIndex index: Int) -> Int
   @available(OSX 10.10, *)
   func accessibilityPerformCancel() -> Bool
   @available(OSX 10.10, *)
@@ -790,8 +790,8 @@ extension NSApplication {
   func registerServicesMenuSendTypes(sendTypes: [String], returnTypes: [String])
 }
 protocol NSServicesMenuRequestor : ObjectProtocol {
-  optional func writeSelectionTo(pboard: NSPasteboard, types: [String]) -> Bool
-  optional func readSelectionFrom(pboard: NSPasteboard) -> Bool
+  optional func writeSelection(to pboard: NSPasteboard, types: [String]) -> Bool
+  optional func readSelection(from pboard: NSPasteboard) -> Bool
 }
 extension NSApplication {
   var servicesProvider: AnyObject?
@@ -824,7 +824,7 @@ struct NSRemoteNotificationType : OptionSetType {
 }
 extension NSApplication {
   @available(OSX 10.7, *)
-  func registerFor(remoteNotificationTypes types: NSRemoteNotificationType)
+  func register(forRemoteNotificationTypes types: NSRemoteNotificationType)
   @available(OSX 10.7, *)
   func unregisterForRemoteNotifications()
   @available(OSX 10.7, *)

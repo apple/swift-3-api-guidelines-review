@@ -5,13 +5,13 @@ class GKComponent : Object, Copying {
   func updateWithDeltaTime(seconds: TimeInterval)
   init()
   @available(iOS 9.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class GKComponentSystem : Object, FastEnumeration {
   var componentClass: AnyClass { get }
   var components: [GKComponent] { get }
-  subscript (indexedSubscript idx: Int) -> GKComponent { get }
+  subscript (atIndexedSubscript idx: Int) -> GKComponent { get }
   init(componentClass cls: AnyClass)
   func addComponent(component: GKComponent)
   func addComponent(entity: GKEntity)

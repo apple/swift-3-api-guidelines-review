@@ -11,11 +11,11 @@ struct FileVersionReplacingOptions : OptionSetType {
 }
 @available(watchOS 2.0, *)
 class FileVersion : Object {
-  class func currentVersionOfItemAt(url: URL) -> FileVersion?
-  class func otherVersionsOfItemAt(url: URL) -> [FileVersion]?
-  class func unresolvedConflictVersionsOfItemAt(url: URL) -> [FileVersion]?
+  class func currentVersionOfItem(at url: URL) -> FileVersion?
+  class func otherVersionsOfItem(at url: URL) -> [FileVersion]?
+  class func unresolvedConflictVersionsOfItem(at url: URL) -> [FileVersion]?
   @available(watchOS 2.0, *)
-  class func getNonlocalVersionsOfItemAt(url: URL, completionHandler: ([FileVersion]?, Error?) -> Void)
+  class func getNonlocalVersionsOfItem(at url: URL, completionHandler: ([FileVersion]?, Error?) -> Void)
   /*not inherited*/ init?(ofItemAt url: URL, forPersistentIdentifier persistentIdentifier: AnyObject)
   @NSCopying var url: URL { get }
   var localizedName: String? { get }
@@ -28,8 +28,8 @@ class FileVersion : Object {
   var hasLocalContents: Bool { get }
   @available(watchOS 2.0, *)
   var hasThumbnail: Bool { get }
-  func replaceItemAt(url: URL, options: FileVersionReplacingOptions = []) throws -> URL
+  func replaceItem(at url: URL, options: FileVersionReplacingOptions = []) throws -> URL
   func remove() throws
-  class func removeOtherVersionsOfItemAt(url: URL) throws
+  class func removeOtherVersionsOfItem(at url: URL) throws
   init()
 }

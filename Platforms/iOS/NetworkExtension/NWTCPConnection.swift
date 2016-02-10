@@ -46,11 +46,11 @@ class NWTCPConnection : Object {
 }
 protocol NWTCPConnectionAuthenticationDelegate : ObjectProtocol {
   @available(iOS 9.0, *)
-  optional func shouldProvideIdentityFor(connection: NWTCPConnection) -> Bool
+  optional func shouldProvideIdentity(forConnection connection: NWTCPConnection) -> Bool
   @available(iOS 9.0, *)
-  optional func provideIdentityFor(connection: NWTCPConnection, completionHandler completion: (SecIdentity, [AnyObject]) -> Void)
+  optional func provideIdentity(forConnection connection: NWTCPConnection, completionHandler completion: (SecIdentity, [AnyObject]) -> Void)
   @available(iOS 9.0, *)
-  optional func shouldEvaluateTrustFor(connection: NWTCPConnection) -> Bool
+  optional func shouldEvaluateTrust(forConnection connection: NWTCPConnection) -> Bool
   @available(iOS 9.0, *)
-  optional func evaluateTrustFor(connection: NWTCPConnection, peerCertificateChain: [AnyObject], completionHandler completion: (SecTrust) -> Void)
+  optional func evaluateTrust(forConnection connection: NWTCPConnection, peerCertificateChain: [AnyObject], completionHandler completion: (SecTrust) -> Void)
 }

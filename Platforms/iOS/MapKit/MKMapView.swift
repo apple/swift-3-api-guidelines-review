@@ -19,7 +19,7 @@ class MKMapView : UIView, Coding {
   var visibleMapRect: MKMapRect
   func setVisibleMapRect(mapRect: MKMapRect, animated animate: Bool)
   func mapRectThatFits(mapRect: MKMapRect) -> MKMapRect
-  func _handleSelectionAt(locationInView: CGPoint)
+  func _handleSelection(at locationInView: CGPoint)
   func setVisibleMapRect(mapRect: MKMapRect, edgePadding insets: UIEdgeInsets, animated animate: Bool)
   func mapRectThatFits(mapRect: MKMapRect, edgePadding insets: UIEdgeInsets) -> MKMapRect
   @available(iOS 7.0, *)
@@ -59,9 +59,9 @@ class MKMapView : UIView, Coding {
   func removeAnnotations(annotations: [MKAnnotation])
   var annotations: [MKAnnotation] { get }
   @available(iOS 4.2, *)
-  func annotationsIn(mapRect: MKMapRect) -> Set<Object>
-  func viewFor(annotation: MKAnnotation) -> MKAnnotationView?
-  func dequeueReusableAnnotationViewWith(identifier identifier: String) -> MKAnnotationView?
+  func annotations(in mapRect: MKMapRect) -> Set<Object>
+  func view(forAnnotation annotation: MKAnnotation) -> MKAnnotationView?
+  func dequeueReusableAnnotationView(withIdentifier identifier: String) -> MKAnnotationView?
   func selectAnnotation(annotation: MKAnnotation, animated: Bool)
   func deselectAnnotation(annotation: MKAnnotation?, animated: Bool)
   var selectedAnnotations: [MKAnnotation]
@@ -101,7 +101,7 @@ extension MKMapView {
   @available(iOS 7.0, *)
   func overlaysIn(level: MKOverlayLevel) -> [MKOverlay]
   @available(iOS 7.0, *)
-  func rendererFor(overlay: MKOverlay) -> MKOverlayRenderer?
+  func renderer(forOverlay overlay: MKOverlay) -> MKOverlayRenderer?
   @available(iOS 4.0, *)
   func add(overlay: MKOverlay)
   @available(iOS 4.0, *)
@@ -109,7 +109,7 @@ extension MKMapView {
   @available(iOS 4.0, *)
   func insert(overlay: MKOverlay, at index: Int)
   @available(iOS 4.0, *)
-  func exchangeOverlayAt(index1: Int, withOverlayAt index2: Int)
+  func exchangeOverlay(at index1: Int, withOverlayAt index2: Int)
 }
 protocol MKMapViewDelegate : ObjectProtocol {
   @available(iOS 3.0, *)

@@ -75,16 +75,16 @@ class Expression : Object, SecureCoding, Copying {
   @NSCopying var falseExpression: Expression { get }
   @available(tvOS 4.0, *)
   var expressionBlock: (AnyObject?, [AnyObject], MutableDictionary?) -> AnyObject { get }
-  func expressionValueWith(object: AnyObject?, context: MutableDictionary?) -> AnyObject
+  func expressionValue(withObject object: AnyObject?, context: MutableDictionary?) -> AnyObject
   @available(tvOS 7.0, *)
   func allowEvaluation()
   convenience init()
   @available(tvOS 3.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 3.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   @available(tvOS 3.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 
 extension Expression {

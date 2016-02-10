@@ -1,6 +1,6 @@
 
 extension NSString {
-  class func pathWith(components components: [String]) -> String
+  class func path(withComponents components: [String]) -> String
   var pathComponents: [String] { get }
   var isAbsolutePath: Bool { get }
   var lastPathComponent: String { get }
@@ -14,12 +14,12 @@ extension NSString {
   var standardizingPath: String { get }
   var resolvingSymlinksInPath: String { get }
   func stringsByAppendingPaths(paths: [String]) -> [String]
-  func completePathInto(outputName: AutoreleasingUnsafeMutablePointer<NSString?>, caseSensitive flag: Bool, matchesInto outputArray: AutoreleasingUnsafeMutablePointer<NSArray?>, filterTypes: [String]?) -> Int
+  func completePath(into outputName: AutoreleasingUnsafeMutablePointer<NSString?>, caseSensitive flag: Bool, matchesInto outputArray: AutoreleasingUnsafeMutablePointer<NSArray?>, filterTypes: [String]?) -> Int
   var fileSystemRepresentation: UnsafePointer<Int8> { get }
   func getFileSystemRepresentation(cname: UnsafeMutablePointer<Int8>, maxLength max: Int) -> Bool
 }
 extension NSArray {
-  func pathsMatching(extensions filterTypes: [String]) -> [String]
+  func paths(matchingExtensions filterTypes: [String]) -> [String]
 }
 func userName() -> String
 func fullUserName() -> String

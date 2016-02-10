@@ -18,36 +18,36 @@ class UISegmentedControl : UIControl, Coding {
   var apportionsSegmentWidthsByContent: Bool
   func insertSegment(title title: String?, at segment: Int, animated: Bool)
   func insertSegment(image: UIImage?, at segment: Int, animated: Bool)
-  func removeSegmentAt(segment: Int, animated: Bool)
+  func removeSegment(at segment: Int, animated: Bool)
   func removeAllSegments()
   func setTitle(title: String?, forSegmentAt segment: Int)
-  func titleForSegmentAt(segment: Int) -> String?
+  func titleForSegment(at segment: Int) -> String?
   func setImage(image: UIImage?, forSegmentAt segment: Int)
-  func imageForSegmentAt(segment: Int) -> UIImage?
+  func imageForSegment(at segment: Int) -> UIImage?
   func setWidth(width: CGFloat, forSegmentAt segment: Int)
-  func widthForSegmentAt(segment: Int) -> CGFloat
+  func widthForSegment(at segment: Int) -> CGFloat
   func setContentOffset(offset: CGSize, forSegmentAt segment: Int)
-  func contentOffsetForSegmentAt(segment: Int) -> CGSize
+  func contentOffsetForSegment(at segment: Int) -> CGSize
   func setEnabled(enabled: Bool, forSegmentAt segment: Int)
-  func isEnabledForSegmentAt(segment: Int) -> Bool
+  func isEnabledForSegment(at segment: Int) -> Bool
   var selectedSegmentIndex: Int
   var tintColor: UIColor!
   @available(iOS 5.0, *)
   func setBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState, barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func backgroundImageFor(state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(forState state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 5.0, *)
   func setDividerImage(dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func dividerImageFor(leftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
+  func dividerImage(forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 5.0, *)
   func setTitleTextAttributes(attributes: [Object : AnyObject]? = [:], forState state: UIControlState)
   @available(iOS 5.0, *)
-  func titleTextAttributesFor(state: UIControlState) -> [Object : AnyObject]?
+  func titleTextAttributes(forState state: UIControlState) -> [Object : AnyObject]?
   @available(iOS 5.0, *)
   func setContentPositionAdjustment(adjustment: UIOffset, forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func contentPositionAdjustmentFor(segmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics) -> UIOffset
+  func contentPositionAdjustment(forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics) -> UIOffset
   init(frame: CGRect)
   init?(coder aDecoder: Coder)
   convenience init()

@@ -12,19 +12,19 @@ struct AffineTransformStruct {
 class AffineTransform : Object, Copying, SecureCoding {
   convenience init(transform: AffineTransform)
   init()
-  func translateXBy(deltaX: CGFloat, yBy deltaY: CGFloat)
-  func rotateBy(degrees angle: CGFloat)
-  func rotateBy(radians angle: CGFloat)
-  func scaleBy(scale: CGFloat)
-  func scaleXBy(scaleX: CGFloat, yBy scaleY: CGFloat)
+  func translateX(by deltaX: CGFloat, yBy deltaY: CGFloat)
+  func rotate(byDegrees angle: CGFloat)
+  func rotate(byRadians angle: CGFloat)
+  func scale(by scale: CGFloat)
+  func scaleX(by scaleX: CGFloat, yBy scaleY: CGFloat)
   func invert()
   func append(transform: AffineTransform)
   func prependTransform(transform: AffineTransform)
   func transform(aPoint: Point) -> Point
   func transform(aSize: Size) -> Size
   var transformStruct: AffineTransformStruct
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

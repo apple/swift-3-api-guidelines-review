@@ -75,7 +75,7 @@ enum NSWritingDirectionFormatType : Int {
 let NSTextEffectLetterpressStyle: String
 extension MutableAttributedString {
   @available(watchOS 2.0, *)
-  func fixAttributesIn(range: NSRange)
+  func fixAttributes(in range: NSRange)
 }
 @available(watchOS 2.0, *)
 let NSPlainTextDocumentType: String
@@ -121,19 +121,19 @@ extension AttributedString {
   @available(watchOS 2.0, *)
   init(data: Data, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(watchOS 2.0, *)
-  func dataFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> Data
+  func data(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> Data
   @available(watchOS 2.0, *)
-  func fileWrapperFrom(range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> FileWrapper
+  func fileWrapper(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> FileWrapper
 }
 extension MutableAttributedString {
   @available(watchOS 2.0, *)
-  func readFrom(url: URL, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func read(from url: URL, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(watchOS 2.0, *)
-  func readFrom(data: Data, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func read(from data: Data, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
 extension AttributedString {
   @available(watchOS 2.0, *)
-  func containsAttachmentsIn(range: NSRange) -> Bool
+  func containsAttachments(in range: NSRange) -> Bool
 }
 @available(watchOS, introduced=2.0, deprecated=2.0, message="Use NSWritingDirectionFormatType instead")
 enum NSTextWritingDirection : Int {
@@ -148,5 +148,5 @@ extension AttributedString {
 }
 extension MutableAttributedString {
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -readFromURL:options:documentAttributes:error: instead")
-  func readFrom(fileURL url: URL, options opts: [Object : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func read(fromFileURL url: URL, options opts: [Object : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }

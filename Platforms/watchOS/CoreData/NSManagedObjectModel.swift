@@ -1,21 +1,21 @@
 
 @available(watchOS 2.0, *)
 class NSManagedObjectModel : Object, Coding, Copying, FastEnumeration {
-  class func mergedModelFrom(bundles: [Bundle]?) -> NSManagedObjectModel?
+  class func mergedModel(from bundles: [Bundle]?) -> NSManagedObjectModel?
   /*not inherited*/ init?(byMerging models: [NSManagedObjectModel]?)
   init()
   convenience init?(contentsOf url: URL)
   var entitiesByName: [String : NSEntityDescription] { get }
   var entities: [NSEntityDescription]
   var configurations: [String] { get }
-  func entitiesFor(configuration configuration: String?) -> [NSEntityDescription]?
+  func entities(forConfiguration configuration: String?) -> [NSEntityDescription]?
   func setEntities(entities: [NSEntityDescription], forConfiguration configuration: String)
   func setFetchRequestTemplate(fetchRequestTemplate: NSFetchRequest?, forName name: String)
-  func fetchRequestTemplateFor(name name: String) -> NSFetchRequest?
+  func fetchRequestTemplate(forName name: String) -> NSFetchRequest?
   func fetchRequestFromTemplate(name name: String, substitutionVariables variables: [String : AnyObject]) -> NSFetchRequest?
   var localizationDictionary: [String : String]?
   @available(watchOS 2.0, *)
-  class func mergedModelFrom(bundles: [Bundle]?, forStoreMetadata metadata: [String : AnyObject]) -> NSManagedObjectModel?
+  class func mergedModel(from bundles: [Bundle]?, forStoreMetadata metadata: [String : AnyObject]) -> NSManagedObjectModel?
   @available(watchOS 2.0, *)
   /*not inherited*/ init?(byMerging models: [NSManagedObjectModel], forStoreMetadata metadata: [String : AnyObject])
   @available(watchOS 2.0, *)
@@ -27,10 +27,10 @@ class NSManagedObjectModel : Object, Coding, Copying, FastEnumeration {
   @available(watchOS 2.0, *)
   var entityVersionHashesByName: [String : Data] { get }
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(watchOS 2.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

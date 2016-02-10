@@ -25,17 +25,17 @@ class SCNGeometry : Object, SCNAnimatable, SCNBoundingVolume, SCNShadable, Copyi
   var materials: [SCNMaterial]
   var firstMaterial: SCNMaterial?
   func insertMaterial(material: SCNMaterial, at index: Int)
-  func removeMaterialAt(index: Int)
-  func replaceMaterialAt(index: Int, withMaterial material: SCNMaterial)
-  func materialWith(name name: String) -> SCNMaterial?
+  func removeMaterial(at index: Int)
+  func replaceMaterial(at index: Int, withMaterial material: SCNMaterial)
+  func material(withName name: String) -> SCNMaterial?
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   @available(iOS 8.0, *)
   var geometrySources: [SCNGeometrySource] { get }
-  func geometrySourcesFor(semantic semantic: String) -> [SCNGeometrySource]
+  func geometrySources(forSemantic semantic: String) -> [SCNGeometrySource]
   @available(iOS 8.0, *)
   var geometryElements: [SCNGeometryElement] { get }
   var geometryElementCount: Int { get }
-  func geometryElementAt(elementIndex: Int) -> SCNGeometryElement
+  func geometryElement(at elementIndex: Int) -> SCNGeometryElement
   @available(iOS 8.0, *)
   var levelsOfDetail: [SCNLevelOfDetail]?
   @available(iOS 8.0, *)
@@ -50,19 +50,19 @@ class SCNGeometry : Object, SCNAnimatable, SCNBoundingVolume, SCNShadable, Copyi
   @available(iOS 8.0, *)
   func removeAllAnimations()
   @available(iOS 8.0, *)
-  func removeAnimationFor(key key: String)
+  func removeAnimation(forKey key: String)
   @available(iOS 8.0, *)
   var animationKeys: [String] { get }
   @available(iOS 8.0, *)
-  func animationFor(key key: String) -> CAAnimation?
+  func animation(forKey key: String) -> CAAnimation?
   @available(iOS 8.0, *)
-  func pauseAnimationFor(key key: String)
+  func pauseAnimation(forKey key: String)
   @available(iOS 8.0, *)
-  func resumeAnimationFor(key key: String)
+  func resumeAnimation(forKey key: String)
   @available(iOS 8.0, *)
-  func isAnimationFor(keyPaused key: String) -> Bool
+  func isAnimation(forKeyPaused key: String) -> Bool
   @available(iOS 8.0, *)
-  func removeAnimationFor(key key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimation(forKey key: String, fadeOutDuration duration: CGFloat)
   @available(iOS 8.0, *)
   func getBoundingBoxMin(min: UnsafeMutablePointer<SCNVector3>, max: UnsafeMutablePointer<SCNVector3>) -> Bool
   @available(iOS 8.0, *)
@@ -72,17 +72,17 @@ class SCNGeometry : Object, SCNAnimatable, SCNBoundingVolume, SCNShadable, Copyi
   @available(iOS 8.0, *)
   var program: SCNProgram?
   @available(iOS 8.0, *)
-  func handleBindingOf(symbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  func handleBinding(ofSymbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
   @available(iOS 8.0, *)
-  func handleUnbindingOf(symbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  func handleUnbinding(ofSymbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
   @available(iOS 8.0, *)
   var shaderModifiers: [String : String]?
   @available(iOS 8.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(iOS 8.0, *)
@@ -105,7 +105,7 @@ class SCNGeometrySource : Object, SecureCoding {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(iOS 8.0, *)
@@ -119,7 +119,7 @@ class SCNGeometryElement : Object, SecureCoding {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 

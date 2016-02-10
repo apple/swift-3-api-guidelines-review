@@ -9,13 +9,13 @@ class HMHome : Object {
 }
 extension HMHome {
   var accessories: [HMAccessory] { get }
-  func servicesWith(types serviceTypes: [String]) -> [HMService]?
+  func services(withTypes serviceTypes: [String]) -> [HMService]?
 }
 extension HMHome {
   @available(watchOS 2.0, *)
   var currentUser: HMUser { get }
   @available(watchOS 2.0, *)
-  func homeAccessControlFor(user: HMUser) -> HMHomeAccessControl
+  func homeAccessControl(forUser user: HMUser) -> HMHomeAccessControl
 }
 extension HMHome {
   var rooms: [HMRoom] { get }
@@ -31,7 +31,7 @@ extension HMHome {
   var actionSets: [HMActionSet] { get }
   func executeActionSet(actionSet: HMActionSet, completionHandler completion: (Error?) -> Void)
   @available(watchOS 2.0, *)
-  func builtinActionSetOf(type actionSetType: String) -> HMActionSet?
+  func builtinActionSet(ofType actionSetType: String) -> HMActionSet?
 }
 extension HMHome {
   var triggers: [HMTrigger] { get }

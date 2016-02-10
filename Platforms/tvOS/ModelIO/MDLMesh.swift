@@ -11,7 +11,7 @@ class MDLVertexAttributeData : Object {
 class MDLMesh : MDLObject {
   init(vertexBuffer: MDLMeshBuffer, vertexCount: Int, descriptor: MDLVertexDescriptor, submeshes: [MDLSubmesh])
   init(vertexBuffers: [MDLMeshBuffer], vertexCount: Int, descriptor: MDLVertexDescriptor, submeshes: [MDLSubmesh])
-  func vertexAttributeDataFor(attributeNamed name: String) -> MDLVertexAttributeData?
+  func vertexAttributeData(forAttributeNamed name: String) -> MDLVertexAttributeData?
   var boundingBox: MDLAxisAlignedBoundingBox { get }
   @NSCopying var vertexDescriptor: MDLVertexDescriptor
   var vertexCount: Int { get }
@@ -21,16 +21,16 @@ class MDLMesh : MDLObject {
 }
 extension MDLMesh {
   func addAttribute(name name: String, format: MDLVertexFormat)
-  func addNormals(attributeNamed attributeName: String?, creaseThreshold: Float)
-  func addTangentBasisFor(textureCoordinateAttributeNamed textureCoordinateAttributeName: String, tangentAttributeNamed tangentAttributeName: String, bitangentAttributeNamed bitangentAttributeName: String?)
-  func addTangentBasisFor(textureCoordinateAttributeNamed textureCoordinateAttributeName: String, normalAttributeNamed normalAttributeName: String, tangentAttributeNamed tangentAttributeName: String)
+  func addNormals(withAttributeNamed attributeName: String?, creaseThreshold: Float)
+  func addTangentBasis(forTextureCoordinateAttributeNamed textureCoordinateAttributeName: String, tangentAttributeNamed tangentAttributeName: String, bitangentAttributeNamed bitangentAttributeName: String?)
+  func addTangentBasis(forTextureCoordinateAttributeNamed textureCoordinateAttributeName: String, normalAttributeNamed normalAttributeName: String, tangentAttributeNamed tangentAttributeName: String)
   func makeVerticesUnique()
 }
 extension MDLMesh {
-  class func newEllipsoidWith(radii radii: vector_float3, radialSegments: Int, verticalSegments: Int, geometryType: MDLGeometryType, inwardNormals: Bool, hemisphere: Bool, allocator: MDLMeshBufferAllocator?) -> Self
-  class func newCylinderWith(height height: Float, radii: vector_float2, radialSegments: Int, verticalSegments: Int, geometryType: MDLGeometryType, inwardNormals: Bool, allocator: MDLMeshBufferAllocator?) -> Self
-  class func newEllipticalConeWith(height height: Float, radii: vector_float2, radialSegments: Int, verticalSegments: Int, geometryType: MDLGeometryType, inwardNormals: Bool, allocator: MDLMeshBufferAllocator?) -> Self
-  class func newIcosahedronWith(radius radius: Float, inwardNormals: Bool, allocator: MDLMeshBufferAllocator?) -> Self
+  class func newEllipsoid(withRadii radii: vector_float3, radialSegments: Int, verticalSegments: Int, geometryType: MDLGeometryType, inwardNormals: Bool, hemisphere: Bool, allocator: MDLMeshBufferAllocator?) -> Self
+  class func newCylinder(withHeight height: Float, radii: vector_float2, radialSegments: Int, verticalSegments: Int, geometryType: MDLGeometryType, inwardNormals: Bool, allocator: MDLMeshBufferAllocator?) -> Self
+  class func newEllipticalCone(withHeight height: Float, radii: vector_float2, radialSegments: Int, verticalSegments: Int, geometryType: MDLGeometryType, inwardNormals: Bool, allocator: MDLMeshBufferAllocator?) -> Self
+  class func newIcosahedron(withRadius radius: Float, inwardNormals: Bool, allocator: MDLMeshBufferAllocator?) -> Self
   class func newSubdividedMesh(mesh: MDLMesh, submeshIndex: Int, subdivisionLevels: Int) -> Self?
 }
 extension MDLMesh {

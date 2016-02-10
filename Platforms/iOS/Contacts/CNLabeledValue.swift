@@ -6,16 +6,16 @@ class CNLabeledValue : Object, Copying, SecureCoding {
   @NSCopying var value: protocol<Copying, SecureCoding> { get }
   init(label: String?, value: protocol<Copying, SecureCoding>)
   func bySettingLabel(label: String?) -> Self
-  func by(settingValue value: protocol<Copying, SecureCoding>) -> Self
+  func bySettingValue(value: protocol<Copying, SecureCoding>) -> Self
   func bySettingLabel(label: String?, value: protocol<Copying, SecureCoding>) -> Self
   class func localizedStringForLabel(label: String) -> String
   init()
   @available(iOS 9.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(iOS 9.0, *)

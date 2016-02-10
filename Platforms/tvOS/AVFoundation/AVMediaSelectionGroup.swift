@@ -5,18 +5,18 @@ class AVMediaSelectionGroup : Object, Copying {
   @available(tvOS 8.0, *)
   var defaultOption: AVMediaSelectionOption? { get }
   var allowsEmptySelection: Bool { get }
-  func mediaSelectionOptionWith(propertyList plist: AnyObject) -> AVMediaSelectionOption?
+  func mediaSelectionOption(withPropertyList plist: AnyObject) -> AVMediaSelectionOption?
   init()
   @available(tvOS 5.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 extension AVMediaSelectionGroup {
-  class func playableMediaSelectionOptionsFrom(mediaSelectionOptions: [AVMediaSelectionOption]) -> [AVMediaSelectionOption]
+  class func playableMediaSelectionOptions(from mediaSelectionOptions: [AVMediaSelectionOption]) -> [AVMediaSelectionOption]
   @available(tvOS 6.0, *)
-  class func mediaSelectionOptionsFrom(mediaSelectionOptions: [AVMediaSelectionOption], filteredAndSortedAccordingToPreferredLanguages preferredLanguages: [String]) -> [AVMediaSelectionOption]
-  class func mediaSelectionOptionsFrom(mediaSelectionOptions: [AVMediaSelectionOption], withLocale locale: Locale) -> [AVMediaSelectionOption]
-  class func mediaSelectionOptionsFrom(mediaSelectionOptions: [AVMediaSelectionOption], withMediaCharacteristics mediaCharacteristics: [String]) -> [AVMediaSelectionOption]
-  class func mediaSelectionOptionsFrom(mediaSelectionOptions: [AVMediaSelectionOption], withoutMediaCharacteristics mediaCharacteristics: [String]) -> [AVMediaSelectionOption]
+  class func mediaSelectionOptions(from mediaSelectionOptions: [AVMediaSelectionOption], filteredAndSortedAccordingToPreferredLanguages preferredLanguages: [String]) -> [AVMediaSelectionOption]
+  class func mediaSelectionOptions(from mediaSelectionOptions: [AVMediaSelectionOption], withLocale locale: Locale) -> [AVMediaSelectionOption]
+  class func mediaSelectionOptions(from mediaSelectionOptions: [AVMediaSelectionOption], withMediaCharacteristics mediaCharacteristics: [String]) -> [AVMediaSelectionOption]
+  class func mediaSelectionOptions(from mediaSelectionOptions: [AVMediaSelectionOption], withoutMediaCharacteristics mediaCharacteristics: [String]) -> [AVMediaSelectionOption]
 }
 @available(tvOS 5.0, *)
 class AVMediaSelectionOption : Object, Copying {
@@ -29,8 +29,8 @@ class AVMediaSelectionOption : Object, Copying {
   var locale: Locale? { get }
   var commonMetadata: [AVMetadataItem] { get }
   var availableMetadataFormats: [String] { get }
-  func metadataFor(format format: String) -> [AVMetadataItem]
-  func associatedMediaSelectionOptionIn(mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
+  func metadata(forFormat format: String) -> [AVMetadataItem]
+  func associatedMediaSelectionOption(in mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
   func propertyList() -> AnyObject
   @available(tvOS 7.0, *)
   func displayName(locale: Locale) -> String
@@ -38,5 +38,5 @@ class AVMediaSelectionOption : Object, Copying {
   var displayName: String { get }
   init()
   @available(tvOS 5.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

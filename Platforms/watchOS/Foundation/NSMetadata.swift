@@ -20,16 +20,16 @@ class MetadataQuery : Object {
   func disableUpdates()
   func enableUpdates()
   var resultCount: Int { get }
-  func resultAt(idx: Int) -> AnyObject
+  func result(at idx: Int) -> AnyObject
   @available(watchOS 2.0, *)
   func enumerateResults(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
   func enumerateResults(opts: EnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   var results: [AnyObject] { get }
-  func indexOf(result result: AnyObject) -> Int
+  func index(ofResult result: AnyObject) -> Int
   var valueLists: [String : [MetadataQueryAttributeValueTuple]] { get }
   var groupedResults: [MetadataQueryResultGroup] { get }
-  func valueOf(attribute attrName: String, forResultAt idx: Int) -> AnyObject?
+  func value(ofAttribute attrName: String, forResultAt idx: Int) -> AnyObject?
   init()
 }
 protocol MetadataQueryDelegate : ObjectProtocol {
@@ -62,8 +62,8 @@ let metadataQueryUbiquitousDataScope: String
 let metadataQueryAccessibleUbiquitousExternalDocumentsScope: String
 @available(watchOS 2.0, *)
 class MetadataItem : Object {
-  func valueFor(attribute key: String) -> AnyObject?
-  func valuesFor(attributes keys: [String]) -> [String : AnyObject]?
+  func value(forAttribute key: String) -> AnyObject?
+  func values(forAttributes keys: [String]) -> [String : AnyObject]?
   var attributes: [String] { get }
   convenience init()
 }
@@ -80,7 +80,7 @@ class MetadataQueryResultGroup : Object {
   var value: AnyObject { get }
   var subgroups: [MetadataQueryResultGroup]? { get }
   var resultCount: Int { get }
-  func resultAt(idx: Int) -> AnyObject
+  func result(at idx: Int) -> AnyObject
   var results: [AnyObject] { get }
   init()
 }

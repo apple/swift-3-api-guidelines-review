@@ -32,10 +32,10 @@ class URLRequest : Object, SecureCoding, Copying, MutableCopying {
   @available(OSX 10.8, *)
   var allowsCellularAccess: Bool { get }
   convenience init()
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func mutableCopyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
 }
 class MutableURLRequest : URLRequest {
   @NSCopying var url: URL?
@@ -54,7 +54,7 @@ class MutableURLRequest : URLRequest {
 extension URLRequest {
   var httpMethod: String? { get }
   var allHTTPHeaderFields: [String : String]? { get }
-  func valueFor(httpHeaderField field: String) -> String?
+  func value(forHTTPHeaderField field: String) -> String?
   @NSCopying var httpBody: Data? { get }
   var httpBodyStream: InputStream? { get }
   var httpShouldHandleCookies: Bool { get }

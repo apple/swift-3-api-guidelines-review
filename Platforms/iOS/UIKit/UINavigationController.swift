@@ -14,7 +14,7 @@ class UINavigationController : UIViewController {
   init(rootViewController: UIViewController)
   func pushViewController(viewController: UIViewController, animated: Bool)
   func popViewController(animated animated: Bool) -> UIViewController?
-  func popTo(viewController: UIViewController, animated: Bool) -> [UIViewController]?
+  func pop(to viewController: UIViewController, animated: Bool) -> [UIViewController]?
   func popToRootViewController(animated animated: Bool) -> [UIViewController]?
   var topViewController: UIViewController? { get }
   var visibleViewController: UIViewController? { get }
@@ -59,7 +59,7 @@ protocol UINavigationControllerDelegate : ObjectProtocol {
   @available(iOS 7.0, *)
   optional func navigationControllerSupportedInterfaceOrientations(navigationController: UINavigationController) -> UIInterfaceOrientationMask
   @available(iOS 7.0, *)
-  optional func navigationControllerPreferredInterfaceOrientationFor(presentation navigationController: UINavigationController) -> UIInterfaceOrientation
+  optional func navigationControllerPreferredInterfaceOrientation(forPresentation navigationController: UINavigationController) -> UIInterfaceOrientation
   @available(iOS 7.0, *)
   optional func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
   @available(iOS 7.0, *)

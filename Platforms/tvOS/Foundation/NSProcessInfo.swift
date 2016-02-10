@@ -35,7 +35,7 @@ class ProcessInfo : Object {
   @available(tvOS 2.0, *)
   var physicalMemory: UInt64 { get }
   @available(tvOS 8.0, *)
-  func isOperatingSystemAt(leastVersion version: OperatingSystemVersion) -> Bool
+  func isOperatingSystem(atLeastVersion version: OperatingSystemVersion) -> Bool
   @available(tvOS 4.0, *)
   var systemUptime: TimeInterval { get }
   init()

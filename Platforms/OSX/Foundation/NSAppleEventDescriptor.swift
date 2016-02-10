@@ -28,7 +28,7 @@ class AppleEventDescriptor : Object, Copying, SecureCoding {
   /*not inherited*/ init(date: Date)
   @available(OSX 10.11, *)
   /*not inherited*/ init(fileURL: URL)
-  class func appleEventWith(eventClass eventClass: AEEventClass, eventID: AEEventID, targetDescriptor: AppleEventDescriptor?, returnID: AEReturnID, transactionID: AETransactionID) -> AppleEventDescriptor
+  class func appleEvent(withEventClass eventClass: AEEventClass, eventID: AEEventID, targetDescriptor: AppleEventDescriptor?, returnID: AEReturnID, transactionID: AETransactionID) -> AppleEventDescriptor
   class func list() -> AppleEventDescriptor
   class func record() -> AppleEventDescriptor
   @available(OSX 10.11, *)
@@ -64,26 +64,26 @@ class AppleEventDescriptor : Object, Copying, SecureCoding {
   var returnID: AEReturnID { get }
   var transactionID: AETransactionID { get }
   func setParamDescriptor(descriptor: AppleEventDescriptor, forKeyword keyword: AEKeyword)
-  func paramDescriptorFor(keyword keyword: AEKeyword) -> AppleEventDescriptor?
+  func paramDescriptor(forKeyword keyword: AEKeyword) -> AppleEventDescriptor?
   func removeParamDescriptor(keyword keyword: AEKeyword)
   func setAttributeDescriptor(descriptor: AppleEventDescriptor, forKeyword keyword: AEKeyword)
-  func attributeDescriptorFor(keyword keyword: AEKeyword) -> AppleEventDescriptor?
+  func attributeDescriptor(forKeyword keyword: AEKeyword) -> AppleEventDescriptor?
   @available(OSX 10.11, *)
   func sendEvent(sendOptions: AppleEventSendOptions = [], timeout timeoutInSeconds: TimeInterval) throws -> AppleEventDescriptor
   @available(OSX 10.11, *)
   var isRecordDescriptor: Bool { get }
   var numberOfItems: Int { get }
   func insert(descriptor: AppleEventDescriptor, at index: Int)
-  func at(index: Int) -> AppleEventDescriptor?
-  func removeAt(index: Int)
+  func atIndex(index: Int) -> AppleEventDescriptor?
+  func remove(at index: Int)
   func setDescriptor(descriptor: AppleEventDescriptor, forKeyword keyword: AEKeyword)
   func forKeyword(keyword: AEKeyword) -> AppleEventDescriptor?
   func remove(keyword keyword: AEKeyword)
-  func keywordForDescriptorAt(index: Int) -> AEKeyword
-  func coerceTo(descriptorType descriptorType: DescType) -> AppleEventDescriptor?
+  func keywordForDescriptor(at index: Int) -> AEKeyword
+  func coerce(toDescriptorType descriptorType: DescType) -> AppleEventDescriptor?
   convenience init()
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

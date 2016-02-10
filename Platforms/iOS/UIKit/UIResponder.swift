@@ -28,11 +28,11 @@ class UIResponder : Object {
   @available(iOS 3.0, *)
   func motionCancelled(motion: UIEventSubtype, withEvent event: UIEvent?)
   @available(iOS 4.0, *)
-  func remoteControlReceivedWith(event: UIEvent?)
+  func remoteControlReceived(withEvent event: UIEvent?)
   @available(iOS 3.0, *)
   func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool
   @available(iOS 7.0, *)
-  func targetFor(action action: Selector, withSender sender: AnyObject?) -> AnyObject?
+  func target(forAction action: Selector, withSender sender: AnyObject?) -> AnyObject?
   @available(iOS 3.0, *)
   var undoManager: UndoManager? { get }
   init()
@@ -60,11 +60,11 @@ class UIKeyCommand : Object, Copying, SecureCoding {
   @available(iOS 9.0, *)
   /*not inherited*/ init(input: String, modifierFlags: UIKeyModifierFlags, action: Selector, discoverabilityTitle: String)
   @available(iOS 7.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(iOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 7.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }
 extension UIResponder {
   @available(iOS 7.0, *)

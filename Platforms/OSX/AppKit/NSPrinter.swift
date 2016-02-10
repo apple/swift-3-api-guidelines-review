@@ -14,11 +14,11 @@ class NSPrinter : Object, Copying, Coding {
   var name: String { get }
   var type: String { get }
   var languageLevel: Int { get }
-  func pageSizeFor(paper paperName: String) -> Size
+  func pageSize(forPaper paperName: String) -> Size
   var deviceDescription: [String : AnyObject] { get }
   init()
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func encodeWith(aCoder: Coder)
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension NSPrinter {

@@ -8,8 +8,8 @@ extension Object {
   func webPlugInStop()
   class func webPlugInDestroy()
   func webPlugInDestroy()
-  class func webPlugIn(setIsSelected isSelected: Bool)
-  func webPlugIn(setIsSelected isSelected: Bool)
+  class func webPlug(inSetIsSelected isSelected: Bool)
+  func webPlug(inSetIsSelected isSelected: Bool)
   var objectForWebScript: AnyObject! { get }
   @available(OSX 10.6, *)
   class func webPlugInMainResourceDidReceive(response: URLResponse!)

@@ -44,8 +44,8 @@ class AVAudioUnitComponentManager : Object {
   var tagNames: [String] { get }
   var standardLocalizedTagNames: [String] { get }
   class func shared() -> Self
-  func componentsMatching(predicate: Predicate) -> [AVAudioUnitComponent]
+  func components(matching predicate: Predicate) -> [AVAudioUnitComponent]
   func componentsPassingTest(testHandler: (AVAudioUnitComponent, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [AVAudioUnitComponent]
-  func componentsMatching(desc: AudioComponentDescription) -> [AVAudioUnitComponent]
+  func components(matching desc: AudioComponentDescription) -> [AVAudioUnitComponent]
   init()
 }

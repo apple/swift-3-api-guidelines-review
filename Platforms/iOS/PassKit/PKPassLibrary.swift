@@ -35,7 +35,7 @@ class PKPassLibrary : Object {
   func passes() -> [PKPass]
   func passWithPassTypeIdentifier(identifier: String, serialNumber: String) -> PKPass?
   @available(iOS 8.0, *)
-  func passesOf(passType: PKPassType) -> [PKPass]
+  func passes(of passType: PKPassType) -> [PKPass]
   @available(iOS 9.0, *)
   func remotePaymentPasses() -> [PKPaymentPass]
   func removePass(pass: PKPass)
@@ -46,7 +46,7 @@ class PKPassLibrary : Object {
   @available(iOS 8.3, *)
   func openPaymentSetup()
   @available(iOS 9.0, *)
-  func canAddPaymentPassWith(primaryAccountIdentifier primaryAccountIdentifier: String) -> Bool
+  func canAddPaymentPass(withPrimaryAccountIdentifier primaryAccountIdentifier: String) -> Bool
   @available(iOS 8.0, *)
   func activatePaymentPass(paymentPass: PKPaymentPass, withActivationData activationData: Data, completion: ((Bool, Error) -> Void)? = nil)
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use activatePaymentPass:withActivationData:completion: instead")

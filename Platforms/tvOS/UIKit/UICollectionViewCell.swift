@@ -4,8 +4,8 @@ class UICollectionReusableView : UIView {
   var reuseIdentifier: String? { get }
   func prepareForReuse()
   func apply(layoutAttributes: UICollectionViewLayoutAttributes)
-  func willTransitionFrom(oldLayout: UICollectionViewLayout, to newLayout: UICollectionViewLayout)
-  func didTransitionFrom(oldLayout: UICollectionViewLayout, to newLayout: UICollectionViewLayout)
+  func willTransition(from oldLayout: UICollectionViewLayout, to newLayout: UICollectionViewLayout)
+  func didTransition(from oldLayout: UICollectionViewLayout, to newLayout: UICollectionViewLayout)
   @available(tvOS 8.0, *)
   func preferredLayoutAttributesFitting(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes
   init(frame: CGRect)

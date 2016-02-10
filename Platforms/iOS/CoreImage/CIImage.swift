@@ -26,10 +26,10 @@ class CIImage : Object, SecureCoding, Copying {
   @available(iOS 8.0, *)
   func applyingOrientation(orientation: Int32) -> CIImage
   @available(iOS 8.0, *)
-  func imageTransformFor(orientation orientation: Int32) -> CGAffineTransform
+  func imageTransform(forOrientation orientation: Int32) -> CGAffineTransform
   @available(iOS 8.0, *)
-  func by(compositingOverImage dest: CIImage) -> CIImage
-  func byCroppingTo(rect: CGRect) -> CIImage
+  func byCompositingOverImage(dest: CIImage) -> CIImage
+  func byCropping(to rect: CGRect) -> CIImage
   @available(iOS 8.0, *)
   func byClampingToExtent() -> CIImage
   @available(iOS 8.0, *)
@@ -42,15 +42,15 @@ class CIImage : Object, SecureCoding, Copying {
   @available(iOS 9.0, *)
   var colorSpace: CGColorSpace? { get }
   @available(iOS 6.0, *)
-  func regionOfInterestFor(image: CIImage, in rect: CGRect) -> CGRect
+  func regionOfInterest(forImage image: CIImage, in rect: CGRect) -> CGRect
   init()
   @available(iOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 5.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 5.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 typealias CIFormat = Int32
 @available(iOS 6.0, *)

@@ -3,7 +3,7 @@ class NSColorWell : NSControl {
   func deactivate()
   func activate(exclusive: Bool)
   var isActive: Bool { get }
-  func drawInside(insideRect: Rect)
+  func draw(inside insideRect: Rect)
   var isBordered: Bool
   func takeColorFrom(sender: AnyObject?)
   @NSCopying var color: NSColor

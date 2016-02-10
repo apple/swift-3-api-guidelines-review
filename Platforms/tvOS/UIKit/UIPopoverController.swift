@@ -10,8 +10,8 @@ class UIPopoverController : Object, UIAppearanceContainer {
   var isPopoverVisible: Bool { get }
   var popoverArrowDirection: UIPopoverArrowDirection { get }
   var passthroughViews: [UIView]?
-  func presentPopoverFrom(rect: CGRect, in view: UIView, permittedArrowDirections arrowDirections: UIPopoverArrowDirection, animated: Bool)
-  func presentPopoverFrom(item: UIBarButtonItem, permittedArrowDirections arrowDirections: UIPopoverArrowDirection, animated: Bool)
+  func presentPopover(from rect: CGRect, in view: UIView, permittedArrowDirections arrowDirections: UIPopoverArrowDirection, animated: Bool)
+  func presentPopover(from item: UIBarButtonItem, permittedArrowDirections arrowDirections: UIPopoverArrowDirection, animated: Bool)
   func dismissPopover(animated animated: Bool)
   @available(tvOS 7.0, *)
   @NSCopying var backgroundColor: UIColor?

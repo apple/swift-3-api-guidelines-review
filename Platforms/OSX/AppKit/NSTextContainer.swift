@@ -17,7 +17,7 @@ class NSTextContainer : Object, Coding, NSTextLayoutOrientationProvider {
   @available(OSX 10.11, *)
   var maximumNumberOfLines: Int
   @available(OSX 10.11, *)
-  func lineFragmentRectFor(proposedRect proposedRect: Rect, at characterIndex: Int, writingDirection baseWritingDirection: NSWritingDirection, remaining remainingRect: UnsafeMutablePointer<Rect>) -> Rect
+  func lineFragmentRect(forProposedRect proposedRect: Rect, at characterIndex: Int, writingDirection baseWritingDirection: NSWritingDirection, remaining remainingRect: UnsafeMutablePointer<Rect>) -> Rect
   @available(OSX 10.0, *)
   var isSimpleRectangularTextContainer: Bool { get }
   var widthTracksTextView: Bool
@@ -25,7 +25,7 @@ class NSTextContainer : Object, Coding, NSTextLayoutOrientationProvider {
   var textView: NSTextView?
   convenience init()
   @available(OSX 10.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   @available(OSX 10.7, *)
   var layoutOrientation: NSTextLayoutOrientation { get }
 }
@@ -59,7 +59,7 @@ enum NSLineMovementDirection : UInt {
 extension NSTextContainer {
   convenience init(containerSize aContainerSize: Size)
   var containerSize: Size
-  func lineFragmentRectFor(proposedRect proposedRect: Rect, sweepDirection: NSLineSweepDirection, movementDirection: NSLineMovementDirection, remaining remainingRect: RectPointer) -> Rect
+  func lineFragmentRect(forProposedRect proposedRect: Rect, sweepDirection: NSLineSweepDirection, movementDirection: NSLineMovementDirection, remaining remainingRect: RectPointer) -> Rect
   @available(OSX, introduced=10.0, deprecated=10.11)
   func contains(point: Point) -> Bool
 }

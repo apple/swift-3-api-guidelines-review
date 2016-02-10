@@ -12,16 +12,16 @@ class UIPasteboard : Object {
   var changeCount: Int { get }
   func pasteboardTypes() -> [String]
   func containsTypes(pasteboardTypes: [String]) -> Bool
-  func dataFor(pasteboardType pasteboardType: String) -> Data?
-  func valueFor(pasteboardType pasteboardType: String) -> AnyObject?
+  func data(forPasteboardType pasteboardType: String) -> Data?
+  func value(forPasteboardType pasteboardType: String) -> AnyObject?
   func setValue(value: AnyObject, forPasteboardType pasteboardType: String)
   func setData(data: Data, forPasteboardType pasteboardType: String)
   var numberOfItems: Int { get }
-  func pasteboardTypesFor(itemSet itemSet: IndexSet?) -> [AnyObject]?
+  func pasteboardTypes(forItemSet itemSet: IndexSet?) -> [AnyObject]?
   func containsTypes(pasteboardTypes: [String], inItemSet itemSet: IndexSet?) -> Bool
-  func itemSetWith(pasteboardTypes pasteboardTypes: [AnyObject]) -> IndexSet?
-  func valuesFor(pasteboardType pasteboardType: String, inItemSet itemSet: IndexSet?) -> [AnyObject]?
-  func dataFor(pasteboardType pasteboardType: String, inItemSet itemSet: IndexSet?) -> [AnyObject]?
+  func itemSet(withPasteboardTypes pasteboardTypes: [AnyObject]) -> IndexSet?
+  func values(forPasteboardType pasteboardType: String, inItemSet itemSet: IndexSet?) -> [AnyObject]?
+  func data(forPasteboardType pasteboardType: String, inItemSet itemSet: IndexSet?) -> [AnyObject]?
   var items: [AnyObject]
   func addItems(items: [[String : AnyObject]])
   init()

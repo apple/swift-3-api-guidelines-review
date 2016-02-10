@@ -17,13 +17,13 @@ extension Coder {
   @available(iOS 4.0, *)
   func encode(time: CMTime, forKey key: String)
   @available(iOS 4.0, *)
-  func decodeCMTimeFor(key key: String) -> CMTime
+  func decodeCMTime(forKey key: String) -> CMTime
   @available(iOS 4.0, *)
   func encode(timeRange: CMTimeRange, forKey key: String)
   @available(iOS 4.0, *)
-  func decodeCMTimeRangeFor(key key: String) -> CMTimeRange
+  func decodeCMTimeRange(forKey key: String) -> CMTimeRange
   @available(iOS 4.0, *)
   func encode(timeMapping: CMTimeMapping, forKey key: String)
   @available(iOS 4.0, *)
-  func decodeCMTimeMappingFor(key key: String) -> CMTimeMapping
+  func decodeCMTimeMapping(forKey key: String) -> CMTimeMapping
 }

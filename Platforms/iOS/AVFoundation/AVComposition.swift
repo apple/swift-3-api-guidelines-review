@@ -8,12 +8,12 @@ class AVComposition : AVAsset, MutableCopying {
   convenience init(url URL: URL)
   init()
   @available(iOS 4.0, *)
-  func mutableCopyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
 }
 extension AVComposition {
-  func trackWith(trackID trackID: CMPersistentTrackID) -> AVCompositionTrack?
-  func tracksWith(mediaType mediaType: String) -> [AVCompositionTrack]
-  func tracksWith(mediaCharacteristic mediaCharacteristic: String) -> [AVCompositionTrack]
+  func track(withTrackID trackID: CMPersistentTrackID) -> AVCompositionTrack?
+  func tracks(withMediaType mediaType: String) -> [AVCompositionTrack]
+  func tracks(withMediaCharacteristic mediaCharacteristic: String) -> [AVCompositionTrack]
 }
 @available(iOS 4.0, *)
 class AVMutableComposition : AVComposition {
@@ -36,7 +36,7 @@ extension AVMutableComposition {
   func mutableTrackCompatibleWith(track: AVAssetTrack) -> AVMutableCompositionTrack?
 }
 extension AVMutableComposition {
-  func trackWith(trackID trackID: CMPersistentTrackID) -> AVMutableCompositionTrack?
-  func tracksWith(mediaType mediaType: String) -> [AVMutableCompositionTrack]
-  func tracksWith(mediaCharacteristic mediaCharacteristic: String) -> [AVMutableCompositionTrack]
+  func track(withTrackID trackID: CMPersistentTrackID) -> AVMutableCompositionTrack?
+  func tracks(withMediaType mediaType: String) -> [AVMutableCompositionTrack]
+  func tracks(withMediaCharacteristic mediaCharacteristic: String) -> [AVMutableCompositionTrack]
 }

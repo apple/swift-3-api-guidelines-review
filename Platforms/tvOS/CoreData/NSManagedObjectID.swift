@@ -7,5 +7,5 @@ class NSManagedObjectID : Object, Copying {
   func uriRepresentation() -> URL
   init()
   @available(tvOS 3.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

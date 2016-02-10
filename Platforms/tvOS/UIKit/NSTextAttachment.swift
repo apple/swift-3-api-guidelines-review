@@ -3,9 +3,9 @@
 var NSAttachmentCharacter: Int { get }
 protocol NSTextAttachmentContainer : ObjectProtocol {
   @available(tvOS 7.0, *)
-  func imageFor(bounds imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
+  func image(forBounds imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
   @available(tvOS 7.0, *)
-  func attachmentBoundsFor(textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
+  func attachmentBounds(forTextContainer textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
 }
 @available(tvOS 7.0, *)
 class NSTextAttachment : Object, NSTextAttachmentContainer, Coding {
@@ -22,11 +22,11 @@ class NSTextAttachment : Object, NSTextAttachmentContainer, Coding {
   var fileWrapper: FileWrapper?
   convenience init()
   @available(tvOS 7.0, *)
-  func imageFor(bounds imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
+  func image(forBounds imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
   @available(tvOS 7.0, *)
-  func attachmentBoundsFor(textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
+  func attachmentBounds(forTextContainer textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
   @available(tvOS 7.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension AttributedString {

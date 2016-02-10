@@ -27,10 +27,10 @@ class Error : Object, Copying, SecureCoding {
   @available(iOS 9.0, *)
   class func setUserInfoValueProviderForDomain(errorDomain: String, provider: ((Error, String) -> AnyObject?)? = nil)
   @available(iOS 9.0, *)
-  class func userInfoValueProviderFor(domain errorDomain: String) -> ((Error, String) -> AnyObject?)?
-  func copyWith(zone: Zone = nil) -> AnyObject
+  class func userInfoValueProvider(forDomain errorDomain: String) -> ((Error, String) -> AnyObject?)?
+  func copy(withZone zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 
@@ -39,8 +39,8 @@ extension Error : ErrorType {
   var _code: Int { get }
 }
 extension Object {
-  class func attemptRecoveryFrom(error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func attemptRecoveryFrom(error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  class func attemptRecoveryFrom(error: Error, optionIndex recoveryOptionIndex: Int) -> Bool
-  func attemptRecoveryFrom(error: Error, optionIndex recoveryOptionIndex: Int) -> Bool
+  class func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  class func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int) -> Bool
+  func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int) -> Bool
 }

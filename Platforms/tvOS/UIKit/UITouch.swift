@@ -48,20 +48,20 @@ class UITouch : Object {
   var view: UIView? { get }
   @available(tvOS 3.2, *)
   var gestureRecognizers: [UIGestureRecognizer]? { get }
-  func locationIn(view: UIView?) -> CGPoint
-  func previousLocationIn(view: UIView?) -> CGPoint
+  func location(in view: UIView?) -> CGPoint
+  func previousLocation(in view: UIView?) -> CGPoint
   @available(tvOS 9.1, *)
-  func preciseLocationIn(view: UIView?) -> CGPoint
+  func preciseLocation(in view: UIView?) -> CGPoint
   @available(tvOS 9.1, *)
-  func precisePreviousLocationIn(view: UIView?) -> CGPoint
+  func precisePreviousLocation(in view: UIView?) -> CGPoint
   @available(tvOS 9.0, *)
   var force: CGFloat { get }
   @available(tvOS 9.0, *)
   var maximumPossibleForce: CGFloat { get }
   @available(tvOS 9.1, *)
-  func azimuthAngleIn(view: UIView?) -> CGFloat
+  func azimuthAngle(in view: UIView?) -> CGFloat
   @available(tvOS 9.1, *)
-  func azimuthUnitVectorIn(view: UIView?) -> CGVector
+  func azimuthUnitVector(in view: UIView?) -> CGVector
   @available(tvOS 9.1, *)
   var altitudeAngle: CGFloat { get }
   @available(tvOS 9.1, *)

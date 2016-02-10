@@ -14,7 +14,7 @@ class QLPreviewController : UIViewController {
 }
 protocol QLPreviewControllerDataSource {
   @available(iOS 4.0, *)
-  func numberOfPreviewItemsIn(controller: QLPreviewController) -> Int
+  func numberOfPreviewItems(in controller: QLPreviewController) -> Int
   @available(iOS 4.0, *)
   func previewController(controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem
 }

@@ -13,7 +13,7 @@ class CATransaction : Object {
   class func setDisableActions(flag: Bool)
   class func completionBlock() -> (() -> Void)?
   class func setCompletionBlock(block: (() -> Void)?)
-  class func valueFor(key key: String) -> AnyObject?
+  class func value(forKey key: String) -> AnyObject?
   class func setValue(anObject: AnyObject?, forKey key: String)
   init()
 }

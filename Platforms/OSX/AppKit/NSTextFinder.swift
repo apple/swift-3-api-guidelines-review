@@ -42,10 +42,10 @@ class NSTextFinder : Object, Coding {
   var isIncrementalSearchingEnabled: Bool
   var incrementalSearchingShouldDimContentView: Bool
   var incrementalMatchRanges: [Value] { get }
-  class func drawIncrementalMatchHighlightIn(rect: Rect)
+  class func drawIncrementalMatchHighlight(in rect: Rect)
   func noteClientStringWillChange()
   @available(OSX 10.7, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 protocol NSTextFinderClient : ObjectProtocol {
@@ -53,18 +53,18 @@ protocol NSTextFinderClient : ObjectProtocol {
   optional var allowsMultipleSelection: Bool { get }
   optional var isEditable: Bool { get }
   optional var string: String { get }
-  optional func stringAt(characterIndex: Int, effectiveRange outRange: RangePointer, endsWithSearchBoundary outFlag: UnsafeMutablePointer<ObjCBool>) -> String
+  optional func string(at characterIndex: Int, effectiveRange outRange: RangePointer, endsWithSearchBoundary outFlag: UnsafeMutablePointer<ObjCBool>) -> String
   optional func stringLength() -> Int
   optional var firstSelectedRange: NSRange { get }
   optional var selectedRanges: [Value] { get set }
   optional func scrollRangeToVisible(range: NSRange)
-  optional func shouldReplaceCharactersIn(ranges ranges: [Value], withStrings strings: [String]) -> Bool
-  optional func replaceCharactersIn(range: NSRange, withString string: String)
+  optional func shouldReplaceCharacters(inRanges ranges: [Value], withStrings strings: [String]) -> Bool
+  optional func replaceCharacters(in range: NSRange, withString string: String)
   optional func didReplaceCharacters()
-  optional func contentViewAt(index: Int, effectiveCharacterRange outRange: RangePointer) -> NSView
-  optional func rectsFor(characterRange range: NSRange) -> [Value]?
+  optional func contentView(at index: Int, effectiveCharacterRange outRange: RangePointer) -> NSView
+  optional func rects(forCharacterRange range: NSRange) -> [Value]?
   optional var visibleCharacterRanges: [Value] { get }
-  optional func drawCharactersIn(range: NSRange, forContentView view: NSView)
+  optional func drawCharacters(in range: NSRange, forContentView view: NSView)
 }
 protocol NSTextFinderBarContainer : ObjectProtocol {
   var findBarView: NSView? { get set }

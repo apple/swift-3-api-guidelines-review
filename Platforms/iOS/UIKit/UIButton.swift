@@ -31,13 +31,13 @@ class UIButton : UIControl, Coding {
   func setBackgroundImage(image: UIImage?, forState state: UIControlState)
   @available(iOS 6.0, *)
   func setAttributedTitle(title: AttributedString?, forState state: UIControlState)
-  func titleFor(state: UIControlState) -> String?
-  func titleColorFor(state: UIControlState) -> UIColor?
-  func titleShadowColorFor(state: UIControlState) -> UIColor?
-  func imageFor(state: UIControlState) -> UIImage?
-  func backgroundImageFor(state: UIControlState) -> UIImage?
+  func title(forState state: UIControlState) -> String?
+  func titleColor(forState state: UIControlState) -> UIColor?
+  func titleShadowColor(forState state: UIControlState) -> UIColor?
+  func image(forState state: UIControlState) -> UIImage?
+  func backgroundImage(forState state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
-  func attributedTitleFor(state: UIControlState) -> AttributedString?
+  func attributedTitle(forState state: UIControlState) -> AttributedString?
   var currentTitle: String? { get }
   var currentTitleColor: UIColor { get }
   var currentTitleShadowColor: UIColor? { get }
@@ -49,10 +49,10 @@ class UIButton : UIControl, Coding {
   var titleLabel: UILabel? { get }
   @available(iOS 3.0, *)
   var imageView: UIImageView? { get }
-  func backgroundRectFor(bounds bounds: CGRect) -> CGRect
-  func contentRectFor(bounds bounds: CGRect) -> CGRect
-  func titleRectFor(contentRect contentRect: CGRect) -> CGRect
-  func imageRectFor(contentRect contentRect: CGRect) -> CGRect
+  func backgroundRect(forBounds bounds: CGRect) -> CGRect
+  func contentRect(forBounds bounds: CGRect) -> CGRect
+  func titleRect(forContentRect contentRect: CGRect) -> CGRect
+  func imageRect(forContentRect contentRect: CGRect) -> CGRect
   init(frame: CGRect)
   init?(coder aDecoder: Coder)
   convenience init()

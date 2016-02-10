@@ -12,11 +12,11 @@ class UIToolbar : UIView, UIBarPositioning {
   @available(iOS 5.0, *)
   func setBackgroundImage(backgroundImage: UIImage?, forToolbarPosition topOrBottom: UIBarPosition, barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func backgroundImageFor(toolbarPosition topOrBottom: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(forToolbarPosition topOrBottom: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 6.0, *)
   func setShadowImage(shadowImage: UIImage?, forToolbarPosition topOrBottom: UIBarPosition)
   @available(iOS 6.0, *)
-  func shadowImageFor(toolbarPosition topOrBottom: UIBarPosition) -> UIImage?
+  func shadowImage(forToolbarPosition topOrBottom: UIBarPosition) -> UIImage?
   @available(iOS 7.0, *)
   unowned(unsafe) var delegate: @sil_unmanaged UIToolbarDelegate?
   init(frame: CGRect)

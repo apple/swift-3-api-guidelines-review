@@ -16,7 +16,7 @@ class UIAlertView : UIView {
   var title: String
   var message: String?
   func addButton(title title: String?) -> Int
-  func buttonTitleAt(buttonIndex: Int) -> String?
+  func buttonTitle(at buttonIndex: Int) -> String?
   var numberOfButtons: Int { get }
   var cancelButtonIndex: Int
   var firstOtherButtonIndex: Int { get }
@@ -26,7 +26,7 @@ class UIAlertView : UIView {
   @available(iOS 5.0, *)
   var alertViewStyle: UIAlertViewStyle
   @available(iOS 5.0, *)
-  func textFieldAt(textFieldIndex: Int) -> UITextField?
+  func textField(at textFieldIndex: Int) -> UITextField?
   convenience init()
 }
 

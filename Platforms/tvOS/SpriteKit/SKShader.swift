@@ -11,8 +11,8 @@ class SKShader : Object, Copying, Coding {
   func removeUniformNamed(name: String)
   init()
   @available(tvOS 8.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(tvOS 8.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

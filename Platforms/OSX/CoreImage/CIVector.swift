@@ -13,7 +13,7 @@ class CIVector : Object, Copying, SecureCoding {
   @available(OSX 10.9, *)
   convenience init(cgAffineTransform r: CGAffineTransform)
   convenience init(string representation: String)
-  func valueAt(index: Int) -> CGFloat
+  func value(at index: Int) -> CGFloat
   var count: Int { get }
   var x: CGFloat { get }
   var y: CGFloat { get }
@@ -28,10 +28,10 @@ class CIVector : Object, Copying, SecureCoding {
   var stringRepresentation: String { get }
   convenience init()
   @available(OSX 10.4, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

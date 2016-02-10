@@ -73,7 +73,7 @@ class UITableViewController : UIViewController, UITableViewDelegate, UITableView
   @available(tvOS 9.0, *)
   func tableView(tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
   @available(tvOS 9.0, *)
-  func indexPathForPreferredFocusedViewIn(tableView: UITableView) -> IndexPath?
+  func indexPathForPreferredFocusedView(in tableView: UITableView) -> IndexPath?
   @available(tvOS 2.0, *)
   func scrollViewDidScroll(scrollView: UIScrollView)
   @available(tvOS 3.2, *)
@@ -97,15 +97,15 @@ class UITableViewController : UIViewController, UITableViewDelegate, UITableView
   @available(tvOS 2.0, *)
   func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
   @available(tvOS 2.0, *)
-  func scrollViewShouldScrollTo(top scrollView: UIScrollView) -> Bool
+  func scrollViewShouldScroll(toTop scrollView: UIScrollView) -> Bool
   @available(tvOS 2.0, *)
-  func scrollViewDidScrollTo(top scrollView: UIScrollView)
+  func scrollViewDidScroll(toTop scrollView: UIScrollView)
   @available(tvOS 2.0, *)
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   @available(tvOS 2.0, *)
   func tableView(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
   @available(tvOS 2.0, *)
-  func numberOfSectionsIn(tableView: UITableView) -> Int
+  func numberOfSections(in tableView: UITableView) -> Int
   @available(tvOS 2.0, *)
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
   @available(tvOS 2.0, *)

@@ -25,8 +25,8 @@ struct MTLTextureUsage : OptionSetType {
 }
 @available(OSX 10.11, *)
 class MTLTextureDescriptor : Object, Copying {
-  class func texture2DDescriptorWith(pixelFormat: MTLPixelFormat, width: Int, height: Int, mipmapped: Bool) -> MTLTextureDescriptor
-  class func textureCubeDescriptorWith(pixelFormat: MTLPixelFormat, size: Int, mipmapped: Bool) -> MTLTextureDescriptor
+  class func texture2DDescriptor(withPixelFormat pixelFormat: MTLPixelFormat, width: Int, height: Int, mipmapped: Bool) -> MTLTextureDescriptor
+  class func textureCubeDescriptor(withPixelFormat pixelFormat: MTLPixelFormat, size: Int, mipmapped: Bool) -> MTLTextureDescriptor
   var textureType: MTLTextureType
   var pixelFormat: MTLPixelFormat
   var width: Int
@@ -44,7 +44,7 @@ class MTLTextureDescriptor : Object, Copying {
   var usage: MTLTextureUsage
   init()
   @available(OSX 10.11, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 protocol MTLTexture : MTLResource {
@@ -71,6 +71,6 @@ protocol MTLTexture : MTLResource {
   func replace(region: MTLRegion, mipmapLevel level: Int, slice: Int, withBytes pixelBytes: UnsafePointer<Void>, bytesPerRow: Int, bytesPerImage: Int)
   func getBytes(pixelBytes: UnsafeMutablePointer<Void>, bytesPerRow: Int, from region: MTLRegion, mipmapLevel level: Int)
   func replace(region: MTLRegion, mipmapLevel level: Int, withBytes pixelBytes: UnsafePointer<Void>, bytesPerRow: Int)
-  func newTextureViewWith(pixelFormat: MTLPixelFormat) -> MTLTexture
-  func newTextureViewWith(pixelFormat: MTLPixelFormat, textureType: MTLTextureType, levels levelRange: NSRange, slices sliceRange: NSRange) -> MTLTexture
+  func newTextureView(withPixelFormat pixelFormat: MTLPixelFormat) -> MTLTexture
+  func newTextureView(withPixelFormat pixelFormat: MTLPixelFormat, textureType: MTLTextureType, levels levelRange: NSRange, slices sliceRange: NSRange) -> MTLTexture
 }

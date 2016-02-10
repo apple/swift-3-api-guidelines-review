@@ -59,7 +59,7 @@ class SLComposeServiceViewController : NSViewController, NSTextViewDelegate {
   @available(OSX 10.8, *)
   func textView(textView: NSTextView, willShow servicePicker: NSSharingServicePicker, forItems items: [AnyObject]) -> NSSharingServicePicker?
   @available(OSX 10.10, *)
-  func undoManagerFor(view: NSTextView) -> UndoManager?
+  func undoManager(forTextView view: NSTextView) -> UndoManager?
   @available(OSX 10.10, *)
   func textShouldBeginEditing(textObject: NSText) -> Bool
   @available(OSX 10.10, *)

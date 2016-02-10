@@ -32,10 +32,10 @@ class UIEvent : Object {
   var subtype: UIEventSubtype { get }
   var timestamp: TimeInterval { get }
   func allTouches() -> Set<UITouch>?
-  func touchesFor(window: UIWindow) -> Set<UITouch>?
-  func touchesFor(view: UIView) -> Set<UITouch>?
+  func touches(forWindow window: UIWindow) -> Set<UITouch>?
+  func touches(forView view: UIView) -> Set<UITouch>?
   @available(tvOS 3.2, *)
-  func touchesFor(gesture: UIGestureRecognizer) -> Set<UITouch>?
+  func touches(forGestureRecognizer gesture: UIGestureRecognizer) -> Set<UITouch>?
   @available(tvOS 9.0, *)
   func coalescedTouchesFor(touch: UITouch) -> [UITouch]?
   @available(tvOS 9.0, *)

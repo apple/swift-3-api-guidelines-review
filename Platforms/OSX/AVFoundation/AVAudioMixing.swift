@@ -2,7 +2,7 @@
 @available(OSX 10.10, *)
 protocol AVAudioMixing : AVAudioStereoMixing, AVAudio3DMixing {
   @available(OSX 10.11, *)
-  func destinationFor(mixer mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
+  func destination(forMixer mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   var volume: Float { get set }
 }
 @available(OSX 10.10, *)
@@ -33,7 +33,7 @@ class AVAudioMixingDestination : Object, AVAudioMixing {
   var connectionPoint: AVAudioConnectionPoint { get }
   init()
   @available(OSX 10.11, *)
-  func destinationFor(mixer mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
+  func destination(forMixer mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(OSX 10.10, *)
   var volume: Float
   @available(OSX 10.10, *)

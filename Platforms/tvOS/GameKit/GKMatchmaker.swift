@@ -31,7 +31,7 @@ class GKMatchRequest : Object {
   @available(tvOS 8.0, *)
   var recipientResponseHandler: ((GKPlayer, GKInviteRecipientResponse) -> Void)?
   @available(tvOS 6.0, *)
-  class func maxPlayersAllowedForMatchOf(matchType: GKMatchType) -> Int
+  class func maxPlayersAllowedForMatch(of matchType: GKMatchType) -> Int
   init()
 }
 enum GKMatchType : UInt {
@@ -69,7 +69,7 @@ class GKMatchmaker : Object {
   func addPlayersTo(match: GKMatch, matchRequest: GKMatchRequest, completionHandler: ((Error?) -> Void)? = nil)
   func cancel()
   @available(tvOS 8.0, *)
-  func cancelPendingInviteTo(player: GKPlayer)
+  func cancelPendingInvite(to player: GKPlayer)
   @available(tvOS 6.0, *)
   func finishMatchmakingFor(match: GKMatch)
   func queryPlayerGroupActivity(playerGroup: Int, withCompletionHandler completionHandler: ((Int, Error?) -> Void)? = nil)

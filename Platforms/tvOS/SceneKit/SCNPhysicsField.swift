@@ -24,19 +24,19 @@ class SCNPhysicsField : Object, Copying, SecureCoding {
   class func vortex() -> SCNPhysicsField
   class func radialGravity() -> SCNPhysicsField
   class func linearGravity() -> SCNPhysicsField
-  class func noiseFieldWith(smoothness smoothness: CGFloat, animationSpeed speed: CGFloat) -> SCNPhysicsField
-  class func turbulenceFieldWith(smoothness smoothness: CGFloat, animationSpeed speed: CGFloat) -> SCNPhysicsField
+  class func noiseField(withSmoothness smoothness: CGFloat, animationSpeed speed: CGFloat) -> SCNPhysicsField
+  class func turbulenceField(withSmoothness smoothness: CGFloat, animationSpeed speed: CGFloat) -> SCNPhysicsField
   class func spring() -> SCNPhysicsField
   class func electric() -> SCNPhysicsField
   class func magnetic() -> SCNPhysicsField
-  class func customFieldWith(evaluationBlock block: SCNFieldForceEvaluator) -> SCNPhysicsField
+  class func customField(evaluationBlock block: SCNFieldForceEvaluator) -> SCNPhysicsField
   init()
   @available(tvOS 8.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 typealias SCNFieldForceEvaluator = (SCNVector3, SCNVector3, Float, Float, TimeInterval) -> SCNVector3

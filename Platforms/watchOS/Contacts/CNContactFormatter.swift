@@ -16,14 +16,14 @@ enum CNContactDisplayNameOrder : Int {
 }
 @available(watchOS 2.0, *)
 class CNContactFormatter : Formatter {
-  class func descriptorForRequiredKeysFor(style: CNContactFormatterStyle) -> CNKeyDescriptor
-  class func stringFrom(contact: CNContact, style: CNContactFormatterStyle) -> String?
-  class func attributedStringFrom(contact: CNContact, style: CNContactFormatterStyle, defaultAttributes attributes: [Object : AnyObject]? = [:]) -> AttributedString?
-  class func nameOrderFor(contact: CNContact) -> CNContactDisplayNameOrder
-  class func delimiterFor(contact: CNContact) -> String
+  class func descriptorForRequiredKeys(forStyle style: CNContactFormatterStyle) -> CNKeyDescriptor
+  class func string(from contact: CNContact, style: CNContactFormatterStyle) -> String?
+  class func attributedString(from contact: CNContact, style: CNContactFormatterStyle, defaultAttributes attributes: [Object : AnyObject]? = [:]) -> AttributedString?
+  class func nameOrder(forContact contact: CNContact) -> CNContactDisplayNameOrder
+  class func delimiter(forContact contact: CNContact) -> String
   var style: CNContactFormatterStyle
-  func stringFrom(contact: CNContact) -> String?
-  func attributedStringFrom(contact: CNContact, defaultAttributes attributes: [Object : AnyObject]? = [:]) -> AttributedString?
+  func string(from contact: CNContact) -> String?
+  func attributedString(from contact: CNContact, defaultAttributes attributes: [Object : AnyObject]? = [:]) -> AttributedString?
   init()
   init?(coder aDecoder: Coder)
 }

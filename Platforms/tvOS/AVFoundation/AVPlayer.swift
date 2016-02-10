@@ -33,9 +33,9 @@ enum AVPlayerActionAtItemEnd : Int {
 }
 extension AVPlayer {
   func currentTime() -> CMTime
-  func seekTo(date: Date)
+  func seek(to date: Date)
   @available(tvOS 5.0, *)
-  func seekTo(date: Date, completionHandler: (Bool) -> Void)
+  func seek(to date: Date, completionHandler: (Bool) -> Void)
   func seekTo(time: CMTime)
   func seekTo(time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime)
   @available(tvOS 5.0, *)
@@ -47,15 +47,15 @@ extension AVPlayer {
   @available(tvOS 6.0, *)
   func setRate(rate: Float, time itemTime: CMTime, atHostTime hostClockTime: CMTime)
   @available(tvOS 6.0, *)
-  func prerollAt(rate rate: Float, completionHandler: ((Bool) -> Void)? = nil)
+  func preroll(atRate rate: Float, completionHandler: ((Bool) -> Void)? = nil)
   @available(tvOS 6.0, *)
   func cancelPendingPrerolls()
   @available(tvOS 6.0, *)
   var masterClock: CMClock?
 }
 extension AVPlayer {
-  func addPeriodicTimeObserverFor(interval interval: CMTime, queue: dispatch_queue_t?, usingBlock block: (CMTime) -> Void) -> AnyObject
-  func addBoundaryTimeObserverFor(times times: [Value], queue: dispatch_queue_t?, usingBlock block: () -> Void) -> AnyObject
+  func addPeriodicTimeObserver(forInterval interval: CMTime, queue: dispatch_queue_t?, usingBlock block: (CMTime) -> Void) -> AnyObject
+  func addBoundaryTimeObserver(forTimes times: [Value], queue: dispatch_queue_t?, usingBlock block: () -> Void) -> AnyObject
   func removeTimeObserver(observer: AnyObject)
 }
 extension AVPlayer {
@@ -71,7 +71,7 @@ extension AVPlayer {
   @available(tvOS 7.0, *)
   func setMediaSelectionCriteria(criteria: AVPlayerMediaSelectionCriteria?, forMediaCharacteristic mediaCharacteristic: String)
   @available(tvOS 7.0, *)
-  func mediaSelectionCriteriaFor(mediaCharacteristic mediaCharacteristic: String) -> AVPlayerMediaSelectionCriteria?
+  func mediaSelectionCriteria(forMediaCharacteristic mediaCharacteristic: String) -> AVPlayerMediaSelectionCriteria?
 }
 extension AVPlayer {
 }

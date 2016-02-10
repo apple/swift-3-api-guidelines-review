@@ -6,7 +6,7 @@ class TVApplicationControllerContext : Object, Copying {
   var launchOptions: [String : AnyObject]
   init()
   @available(tvOS 9.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 protocol TVApplicationControllerDelegate : ObjectProtocol {
   @available(tvOS 9.0, *)
@@ -25,6 +25,6 @@ class TVApplicationController : Object {
   var context: TVApplicationControllerContext { get }
   weak var delegate: @sil_weak TVApplicationControllerDelegate? { get }
   var navigationController: UINavigationController { get }
-  func evaluateIn(javaScriptContext evaluation: (JSContext) -> Void, completion: ((Bool) -> Void)? = nil)
+  func evaluate(inJavaScriptContext evaluation: (JSContext) -> Void, completion: ((Bool) -> Void)? = nil)
   func stop()
 }

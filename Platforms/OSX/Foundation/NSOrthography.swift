@@ -8,15 +8,15 @@ class Orthography : Object, Copying, Coding {
   init?(coder aDecoder: Coder)
   convenience init()
   @available(OSX 10.6, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(OSX 10.6, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }
 extension Orthography {
   @available(OSX 10.6, *)
-  func languagesFor(script script: String) -> [String]?
+  func languages(forScript script: String) -> [String]?
   @available(OSX 10.6, *)
-  func dominantLanguageFor(script script: String) -> String?
+  func dominantLanguage(forScript script: String) -> String?
   @available(OSX 10.6, *)
   var dominantLanguage: String { get }
   @available(OSX 10.6, *)

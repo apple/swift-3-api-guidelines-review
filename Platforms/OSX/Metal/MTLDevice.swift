@@ -38,31 +38,31 @@ protocol MTLDevice : ObjectProtocol {
   var isDepth24Stencil8PixelFormatSupported: Bool { get }
   func newCommandQueue() -> MTLCommandQueue
   func newCommandQueueWithMaxCommandBufferCount(maxCommandBufferCount: Int) -> MTLCommandQueue
-  func newBufferWith(length length: Int, options: MTLResourceOptions = []) -> MTLBuffer
-  func newBufferWith(bytes pointer: UnsafePointer<Void>, length: Int, options: MTLResourceOptions = []) -> MTLBuffer
+  func newBuffer(withLength length: Int, options: MTLResourceOptions = []) -> MTLBuffer
+  func newBuffer(withBytes pointer: UnsafePointer<Void>, length: Int, options: MTLResourceOptions = []) -> MTLBuffer
   func newBufferWithBytesNoCopy(pointer: UnsafeMutablePointer<Void>, length: Int, options: MTLResourceOptions = [], deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)? = nil) -> MTLBuffer
-  func newDepthStencilStateWith(descriptor: MTLDepthStencilDescriptor) -> MTLDepthStencilState
-  func newTextureWith(descriptor: MTLTextureDescriptor) -> MTLTexture
+  func newDepthStencilState(withDescriptor descriptor: MTLDepthStencilDescriptor) -> MTLDepthStencilState
+  func newTexture(withDescriptor descriptor: MTLTextureDescriptor) -> MTLTexture
   @available(OSX 10.11, *)
-  func newTextureWith(descriptor: MTLTextureDescriptor, iosurface: IOSurface, plane: Int) -> MTLTexture
-  func newSamplerStateWith(descriptor: MTLSamplerDescriptor) -> MTLSamplerState
+  func newTexture(withDescriptor descriptor: MTLTextureDescriptor, iosurface: IOSurface, plane: Int) -> MTLTexture
+  func newSamplerState(withDescriptor descriptor: MTLSamplerDescriptor) -> MTLSamplerState
   func newDefaultLibrary() -> MTLLibrary?
-  func newLibraryWith(file filepath: String) throws -> MTLLibrary
-  func newLibraryWith(data: dispatch_data_t) throws -> MTLLibrary
-  func newLibraryWith(source source: String, options: MTLCompileOptions?) throws -> MTLLibrary
-  func newLibraryWith(source source: String, options: MTLCompileOptions?, completionHandler: MTLNewLibraryCompletionHandler)
-  func newRenderPipelineStateWith(descriptor: MTLRenderPipelineDescriptor) throws -> MTLRenderPipelineState
-  func newRenderPipelineStateWith(descriptor: MTLRenderPipelineDescriptor, options: MTLPipelineOption, reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedRenderPipelineReflection?>) throws -> MTLRenderPipelineState
-  func newRenderPipelineStateWith(descriptor: MTLRenderPipelineDescriptor, completionHandler: MTLNewRenderPipelineStateCompletionHandler)
-  func newRenderPipelineStateWith(descriptor: MTLRenderPipelineDescriptor, options: MTLPipelineOption, completionHandler: MTLNewRenderPipelineStateWithReflectionCompletionHandler)
-  func newComputePipelineStateWith(computeFunction: MTLFunction) throws -> MTLComputePipelineState
-  func newComputePipelineStateWith(computeFunction: MTLFunction, options: MTLPipelineOption, reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedComputePipelineReflection?>) throws -> MTLComputePipelineState
-  func newComputePipelineStateWith(computeFunction: MTLFunction, completionHandler: MTLNewComputePipelineStateCompletionHandler)
-  func newComputePipelineStateWith(computeFunction: MTLFunction, options: MTLPipelineOption, completionHandler: MTLNewComputePipelineStateWithReflectionCompletionHandler)
+  func newLibrary(withFile filepath: String) throws -> MTLLibrary
+  func newLibrary(withData data: dispatch_data_t) throws -> MTLLibrary
+  func newLibrary(withSource source: String, options: MTLCompileOptions?) throws -> MTLLibrary
+  func newLibrary(withSource source: String, options: MTLCompileOptions?, completionHandler: MTLNewLibraryCompletionHandler)
+  func newRenderPipelineState(withDescriptor descriptor: MTLRenderPipelineDescriptor) throws -> MTLRenderPipelineState
+  func newRenderPipelineState(withDescriptor descriptor: MTLRenderPipelineDescriptor, options: MTLPipelineOption, reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedRenderPipelineReflection?>) throws -> MTLRenderPipelineState
+  func newRenderPipelineState(withDescriptor descriptor: MTLRenderPipelineDescriptor, completionHandler: MTLNewRenderPipelineStateCompletionHandler)
+  func newRenderPipelineState(withDescriptor descriptor: MTLRenderPipelineDescriptor, options: MTLPipelineOption, completionHandler: MTLNewRenderPipelineStateWithReflectionCompletionHandler)
+  func newComputePipelineState(withFunction computeFunction: MTLFunction) throws -> MTLComputePipelineState
+  func newComputePipelineState(withFunction computeFunction: MTLFunction, options: MTLPipelineOption, reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedComputePipelineReflection?>) throws -> MTLComputePipelineState
+  func newComputePipelineState(withFunction computeFunction: MTLFunction, completionHandler: MTLNewComputePipelineStateCompletionHandler)
+  func newComputePipelineState(withFunction computeFunction: MTLFunction, options: MTLPipelineOption, completionHandler: MTLNewComputePipelineStateWithReflectionCompletionHandler)
   @available(OSX 10.11, *)
-  func newComputePipelineStateWith(descriptor: MTLComputePipelineDescriptor, options: MTLPipelineOption, reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedComputePipelineReflection?>) throws -> MTLComputePipelineState
+  func newComputePipelineState(withDescriptor descriptor: MTLComputePipelineDescriptor, options: MTLPipelineOption, reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedComputePipelineReflection?>) throws -> MTLComputePipelineState
   @available(OSX 10.11, *)
-  func newComputePipelineStateWith(descriptor: MTLComputePipelineDescriptor, options: MTLPipelineOption, completionHandler: MTLNewComputePipelineStateWithReflectionCompletionHandler)
+  func newComputePipelineState(withDescriptor descriptor: MTLComputePipelineDescriptor, options: MTLPipelineOption, completionHandler: MTLNewComputePipelineStateWithReflectionCompletionHandler)
   func supportsFeatureSet(featureSet: MTLFeatureSet) -> Bool
   @available(OSX 10.11, *)
   func supportsTextureSampleCount(sampleCount: Int) -> Bool

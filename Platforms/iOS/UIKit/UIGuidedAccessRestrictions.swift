@@ -8,9 +8,9 @@ enum UIGuidedAccessRestrictionState : Int {
 @available(iOS 7.0, *)
 protocol UIGuidedAccessRestrictionDelegate : ObjectProtocol {
   func guidedAccessRestrictionIdentifiers() -> [String]?
-  func guidedAccessRestrictionWith(identifier restrictionIdentifier: String, didChange newRestrictionState: UIGuidedAccessRestrictionState)
-  func textForGuidedAccessRestrictionWith(identifier restrictionIdentifier: String) -> String?
-  optional func detailTextForGuidedAccessRestrictionWith(identifier restrictionIdentifier: String) -> String?
+  func guidedAccessRestriction(withIdentifier restrictionIdentifier: String, didChange newRestrictionState: UIGuidedAccessRestrictionState)
+  func textForGuidedAccessRestriction(withIdentifier restrictionIdentifier: String) -> String?
+  optional func detailTextForGuidedAccessRestriction(withIdentifier restrictionIdentifier: String) -> String?
 }
 @available(iOS 7.0, *)
 func UIGuidedAccessRestrictionStateForIdentifier(restrictionIdentifier: String) -> UIGuidedAccessRestrictionState

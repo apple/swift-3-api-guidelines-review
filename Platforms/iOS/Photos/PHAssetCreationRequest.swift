@@ -6,7 +6,7 @@ class PHAssetResourceCreationOptions : Object, Copying {
   var shouldMoveFile: Bool
   init()
   @available(iOS 9.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class PHAssetCreationRequest : PHAssetChangeRequest {

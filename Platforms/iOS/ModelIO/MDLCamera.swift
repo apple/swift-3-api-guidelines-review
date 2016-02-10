@@ -3,9 +3,9 @@
 class MDLCamera : MDLObject {
   var projectionMatrix: matrix_float4x4 { get }
   func frameBoundingBox(boundingBox: MDLAxisAlignedBoundingBox, setNearAndFar: Bool)
-  func lookAt(focusPosition: vector_float3)
-  func lookAt(focusPosition: vector_float3, from cameraPosition: vector_float3)
-  func rayTo(pixel: vector_int2, forViewPort size: vector_int2) -> vector_float3
+  func look(at focusPosition: vector_float3)
+  func look(at focusPosition: vector_float3, from cameraPosition: vector_float3)
+  func ray(to pixel: vector_int2, forViewPort size: vector_int2) -> vector_float3
   var nearVisibilityDistance: Float
   var farVisibilityDistance: Float
   var worldToMetersConversionScale: Float
@@ -19,7 +19,7 @@ class MDLCamera : MDLObject {
   var fStop: Float
   var apertureBladeCount: Int
   var maximumCircleOfConfusion: Float
-  func bokehKernelWith(size size: vector_int2) -> MDLTexture
+  func bokehKernel(withSize size: vector_int2) -> MDLTexture
   var shutterOpenInterval: TimeInterval
   var sensorVerticalAperture: Float
   var sensorAspect: Float

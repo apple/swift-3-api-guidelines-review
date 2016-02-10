@@ -17,8 +17,8 @@ enum MDLLightType : UInt {
 }
 @available(OSX 10.11, *)
 class MDLLight : MDLObject {
-  func irradianceAt(point point: vector_float3) -> Unmanaged<CGColor>
-  func irradianceAt(point point: vector_float3, colorSpace: CGColorSpace) -> Unmanaged<CGColor>
+  func irradiance(atPoint point: vector_float3) -> Unmanaged<CGColor>
+  func irradiance(atPoint point: vector_float3, colorSpace: CGColorSpace) -> Unmanaged<CGColor>
   var lightType: MDLLightType
   init()
 }
@@ -43,8 +43,8 @@ class MDLAreaLight : MDLPhysicallyPlausibleLight {
 @available(OSX 10.11, *)
 class MDLPhotometricLight : MDLPhysicallyPlausibleLight {
   init?(iesProfile URL: URL)
-  func generateSphericalHarmonicsFrom(light sphericalHarmonicsLevel: Int)
-  func generateCubemapFrom(light textureSize: Int)
+  func generateSphericalHarmonics(fromLight sphericalHarmonicsLevel: Int)
+  func generateCubemap(fromLight textureSize: Int)
   var lightCubeMap: MDLTexture? { get }
   var sphericalHarmonicsLevel: Int { get }
   @NSCopying var sphericalHarmonicsCoefficients: Data? { get }
@@ -53,7 +53,7 @@ class MDLPhotometricLight : MDLPhysicallyPlausibleLight {
 @available(OSX 10.11, *)
 class MDLLightProbe : MDLLight {
   init(reflectiveTexture: MDLTexture?, irradianceTexture: MDLTexture?)
-  func generateSphericalHarmonicsFrom(irradiance sphericalHarmonicsLevel: Int)
+  func generateSphericalHarmonics(fromIrradiance sphericalHarmonicsLevel: Int)
   var reflectiveTexture: MDLTexture? { get }
   var irradianceTexture: MDLTexture? { get }
   var sphericalHarmonicsLevel: Int { get }

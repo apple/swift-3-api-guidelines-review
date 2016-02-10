@@ -6,9 +6,9 @@ class AVAudioBuffer : Object, Copying, MutableCopying {
   var mutableAudioBufferList: UnsafeMutablePointer<AudioBufferList> { get }
   init()
   @available(iOS 8.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
-  func mutableCopyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class AVAudioPCMBuffer : AVAudioBuffer {

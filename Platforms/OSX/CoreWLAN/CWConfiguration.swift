@@ -16,15 +16,15 @@ class CWConfiguration : Object, Copying, MutableCopying, SecureCoding {
   @available(OSX 10.7, *)
   init(configuration: CWConfiguration)
   @available(OSX 10.6, *)
-  func isEqualTo(configuration: CWConfiguration) -> Bool
+  func isEqual(to configuration: CWConfiguration) -> Bool
   @available(OSX 10.6, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(OSX 10.6, *)
-  func mutableCopyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
   @available(OSX 10.6, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.6, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(OSX 10.6, *)

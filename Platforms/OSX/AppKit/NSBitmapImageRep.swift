@@ -69,7 +69,7 @@ class NSBitmapImageRep : NSImageRep, SecureCoding {
   init(cgImage: CGImage)
   @available(OSX 10.5, *)
   init(ciImage: CIImage)
-  class func imageRepsWith(data: Data) -> [NSImageRep]
+  class func imageReps(withData data: Data) -> [NSImageRep]
   init?(data: Data)
   var bitmapData: UnsafeMutablePointer<UInt8> { get }
   func getBitmapDataPlanes(data: UnsafeMutablePointer<UnsafeMutablePointer<UInt8>>)
@@ -83,15 +83,15 @@ class NSBitmapImageRep : NSImageRep, SecureCoding {
   func getCompression(compression: UnsafeMutablePointer<NSTIFFCompression>, factor: UnsafeMutablePointer<Float>)
   func setCompression(compression: NSTIFFCompression, factor: Float)
   @NSCopying var tiffRepresentation: Data? { get }
-  func tiffRepresentationUsing(comp: NSTIFFCompression, factor: Float) -> Data?
-  class func tiffRepresentationOfImageRepsIn(array: [NSImageRep]) -> Data?
-  class func tiffRepresentationOfImageRepsIn(array: [NSImageRep], usingCompression comp: NSTIFFCompression, factor: Float) -> Data?
+  func tiffRepresentation(usingCompression comp: NSTIFFCompression, factor: Float) -> Data?
+  class func tiffRepresentationOfImageReps(in array: [NSImageRep]) -> Data?
+  class func tiffRepresentationOfImageReps(in array: [NSImageRep], usingCompression comp: NSTIFFCompression, factor: Float) -> Data?
   class func getTIFFCompressionTypes(list: UnsafeMutablePointer<UnsafePointer<NSTIFFCompression>>, count numTypes: UnsafeMutablePointer<Int>)
-  class func localizedNameFor(tiffCompressionType compression: NSTIFFCompression) -> String?
-  func canBeCompressedUsing(compression: NSTIFFCompression) -> Bool
-  func colorizeBy(mappingGray midPoint: CGFloat, to midPointColor: NSColor?, blackMapping shadowColor: NSColor?, whiteMapping lightColor: NSColor?)
+  class func localizedName(forTIFFCompressionType compression: NSTIFFCompression) -> String?
+  func canBeCompressed(using compression: NSTIFFCompression) -> Bool
+  func colorize(byMappingGray midPoint: CGFloat, to midPointColor: NSColor?, blackMapping shadowColor: NSColor?, whiteMapping lightColor: NSColor?)
   init(forIncrementalLoad: ())
-  func incrementalLoadFrom(data: Data, complete: Bool) -> Int
+  func incrementalLoad(from data: Data, complete: Bool) -> Int
   func setColor(color: NSColor, atX x: Int, y: Int)
   func colorAt(x x: Int, y: Int) -> NSColor?
   func getPixel(p: UnsafeMutablePointer<Int>, atX x: Int, y: Int)
@@ -101,9 +101,9 @@ class NSBitmapImageRep : NSImageRep, SecureCoding {
   @available(OSX 10.6, *)
   var colorSpace: NSColorSpace { get }
   @available(OSX 10.6, *)
-  func convertingTo(targetSpace: NSColorSpace, renderingIntent: NSColorRenderingIntent) -> NSBitmapImageRep?
+  func converting(to targetSpace: NSColorSpace, renderingIntent: NSColorRenderingIntent) -> NSBitmapImageRep?
   @available(OSX 10.6, *)
-  func byRetaggingWith(newSpace: NSColorSpace) -> NSBitmapImageRep?
+  func byRetagging(withColorSpace newSpace: NSColorSpace) -> NSBitmapImageRep?
   init()
   init?(coder: Coder)
   class func supportsSecureCoding() -> Bool
@@ -126,8 +126,8 @@ struct __bitmapRepFlags {
   init(bitsPerPixel: UInt32, isPlanar: UInt32, explicitPlanes: UInt32, imageSourceIsIndexed: UInt32, dataLoaded: UInt32, colorModel: UInt32, tierTwoInfoIsLoaded: UInt32, respectO: UInt32, compressionFactor: UInt32, imageNumber: UInt32, bitmapFormat: UInt32, cgImageIsPrimary: UInt32, compression: UInt32)
 }
 extension NSBitmapImageRep {
-  class func representationOfImageRepsIn(imageReps: [NSImageRep], usingType storageType: NSBitmapImageFileType, properties: [String : AnyObject]) -> Data?
-  func representationUsing(storageType: NSBitmapImageFileType, properties: [String : AnyObject]) -> Data?
+  class func representationOfImageReps(in imageReps: [NSImageRep], usingType storageType: NSBitmapImageFileType, properties: [String : AnyObject]) -> Data?
+  func representation(usingType storageType: NSBitmapImageFileType, properties: [String : AnyObject]) -> Data?
   func setProperty(property: String, withValue value: AnyObject?)
-  func valueFor(property property: String) -> AnyObject?
+  func value(forProperty property: String) -> AnyObject?
 }

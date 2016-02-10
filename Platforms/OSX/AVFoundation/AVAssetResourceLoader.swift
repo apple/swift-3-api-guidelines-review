@@ -53,14 +53,14 @@ class AVAssetResourceLoadingDataRequest : Object {
   @available(OSX 10.11, *)
   var requestsAllDataToEndOfResource: Bool { get }
   var currentOffset: Int64 { get }
-  func respondWith(data: Data)
+  func respond(withData data: Data)
 }
 extension AVAssetResourceLoader {
   @available(OSX 10.11, *)
   var preloadsEligibleContentKeys: Bool
 }
 extension AVAssetResourceLoadingRequest {
-  func streamingContentKeyRequestDataFor(app appIdentifier: Data, contentIdentifier: Data, options: [String : AnyObject]? = [:]) throws -> Data
+  func streamingContentKeyRequestData(forApp appIdentifier: Data, contentIdentifier: Data, options: [String : AnyObject]? = [:]) throws -> Data
 }
 extension AVAssetResourceLoadingRequest {
 }
