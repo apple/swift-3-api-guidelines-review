@@ -3,8 +3,8 @@
 enum TaskTerminationReason : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Exit
-  case UncaughtSignal
+  case exit
+  case uncaughtSignal
 }
 class Task : Object {
   init()

@@ -10,7 +10,7 @@ class PHAssetResourceRequestOptions : Object, Copying {
   var progressHandler: PHAssetResourceProgressHandler?
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class PHAssetResourceManager : Object {

@@ -3,12 +3,12 @@
 struct UIFocusHeading : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Up: UIFocusHeading { get }
-  static var Down: UIFocusHeading { get }
-  static var Left: UIFocusHeading { get }
-  static var Right: UIFocusHeading { get }
-  static var Next: UIFocusHeading { get }
-  static var Previous: UIFocusHeading { get }
+  static var up: UIFocusHeading { get }
+  static var down: UIFocusHeading { get }
+  static var left: UIFocusHeading { get }
+  static var right: UIFocusHeading { get }
+  static var next: UIFocusHeading { get }
+  static var previous: UIFocusHeading { get }
 }
 @available(tvOS 9.0, *)
 class UIFocusUpdateContext : Object {

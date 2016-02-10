@@ -3,10 +3,10 @@
 enum CNContainerType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unassigned
-  case Local
-  case Exchange
-  case CardDAV
+  case unassigned
+  case local
+  case exchange
+  case cardDAV
 }
 @available(OSX 10.11, *)
 class CNContainer : Object, Copying, SecureCoding {
@@ -15,7 +15,7 @@ class CNContainer : Object, Copying, SecureCoding {
   var type: CNContainerType { get }
   init()
   @available(OSX 10.11, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)

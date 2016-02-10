@@ -3,23 +3,23 @@
 enum MKMapType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Standard
-  case Satellite
-  case Hybrid
+  case standard
+  case satellite
+  case hybrid
   @available(iOS 9.0, *)
-  case SatelliteFlyover
+  case satelliteFlyover
   @available(iOS 9.0, *)
-  case HybridFlyover
+  case hybridFlyover
 }
 let MKErrorDomain: String
 @available(iOS 3.0, *)
 enum MKErrorCode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Unknown
-  case ServerFailure
-  case LoadingThrottled
-  case PlacemarkNotFound
+  case unknown
+  case serverFailure
+  case loadingThrottled
+  case placemarkNotFound
   @available(iOS 7.0, *)
-  case DirectionsNotFound
+  case directionsNotFound
 }

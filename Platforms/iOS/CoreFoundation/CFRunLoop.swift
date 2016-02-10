@@ -10,21 +10,21 @@ class CFRunLoopTimer {
 enum CFRunLoopRunResult : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Finished
-  case Stopped
-  case TimedOut
-  case HandledSource
+  case finished
+  case stopped
+  case timedOut
+  case handledSource
 }
 struct CFRunLoopActivity : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
-  static var Entry: CFRunLoopActivity { get }
-  static var BeforeTimers: CFRunLoopActivity { get }
-  static var BeforeSources: CFRunLoopActivity { get }
-  static var BeforeWaiting: CFRunLoopActivity { get }
-  static var AfterWaiting: CFRunLoopActivity { get }
-  static var Exit: CFRunLoopActivity { get }
-  static var AllActivities: CFRunLoopActivity { get }
+  static var entry: CFRunLoopActivity { get }
+  static var beforeTimers: CFRunLoopActivity { get }
+  static var beforeSources: CFRunLoopActivity { get }
+  static var beforeWaiting: CFRunLoopActivity { get }
+  static var afterWaiting: CFRunLoopActivity { get }
+  static var exit: CFRunLoopActivity { get }
+  static var allActivities: CFRunLoopActivity { get }
 }
 let kCFRunLoopDefaultMode: CFString!
 let kCFRunLoopCommonModes: CFString!

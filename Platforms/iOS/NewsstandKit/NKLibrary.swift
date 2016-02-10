@@ -5,8 +5,8 @@ class NKLibrary : Object {
   var downloadingAssets: [NKAssetDownload] { get }
   var currentlyReadingIssue: NKIssue?
   class func shared() -> NKLibrary?
-  func issueWithName(name: String) -> NKIssue?
-  func addIssueWithName(name: String, date: Date) -> NKIssue
+  func issueWith(name name: String) -> NKIssue?
+  func addIssue(name name: String, date: Date) -> NKIssue
   func removeIssue(issue: NKIssue)
   init()
 }

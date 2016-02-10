@@ -6,8 +6,8 @@ let UICollectionElementKindSectionFooter: String
 enum UICollectionViewScrollDirection : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Vertical
-  case Horizontal
+  case vertical
+  case horizontal
 }
 @available(iOS 7.0, *)
 class UICollectionViewFlowLayoutInvalidationContext : UICollectionViewLayoutInvalidationContext {

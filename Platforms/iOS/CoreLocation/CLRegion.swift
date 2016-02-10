@@ -3,18 +3,18 @@
 enum CLRegionState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Inside
-  case Outside
+  case unknown
+  case inside
+  case outside
 }
 @available(iOS 7.0, *)
 enum CLProximity : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Immediate
-  case Near
-  case Far
+  case unknown
+  case immediate
+  case near
+  case far
 }
 @available(iOS 4.0, *)
 class CLRegion : Object, Copying, SecureCoding {
@@ -26,7 +26,7 @@ class CLRegion : Object, Copying, SecureCoding {
   var notifyOnExit: Bool
   init()
   @available(iOS 4.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 4.0, *)

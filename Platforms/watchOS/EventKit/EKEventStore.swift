@@ -2,8 +2,8 @@
 enum EKSpan : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ThisEvent
-  case FutureEvents
+  case thisEvent
+  case futureEvents
 }
 typealias EKEventSearchCallback = (EKEvent, UnsafeMutablePointer<ObjCBool>) -> Void
 @available(watchOS 2.0, *)
@@ -18,7 +18,7 @@ class EKEventStore : Object {
   @available(watchOS 2.0, *)
   var sources: [EKSource] { get }
   @available(watchOS 2.0, *)
-  func sourceWithIdentifier(identifier: String) -> EKSource
+  func sourceWith(identifier identifier: String) -> EKSource
   @available(watchOS, introduced=2.0, deprecated=2.0)
   var calendars: [EKCalendar] { get }
   @available(watchOS 2.0, *)
@@ -27,12 +27,12 @@ class EKEventStore : Object {
   @available(watchOS 2.0, *)
   func defaultCalendarForNewReminders() -> EKCalendar
   @available(watchOS 2.0, *)
-  func calendarWithIdentifier(identifier: String) -> EKCalendar?
+  func calendarWith(identifier identifier: String) -> EKCalendar?
   @available(watchOS 2.0, *)
-  func calendarItemWithIdentifier(identifier: String) -> EKCalendarItem
+  func calendarItemWith(identifier identifier: String) -> EKCalendarItem
   @available(watchOS 2.0, *)
-  func calendarItemsWithExternalIdentifier(externalIdentifier: String) -> [EKCalendarItem]
-  func eventWithIdentifier(identifier: String) -> EKEvent?
+  func calendarItemsWith(externalIdentifier externalIdentifier: String) -> [EKCalendarItem]
+  func eventWith(identifier identifier: String) -> EKEvent?
   func eventsMatching(predicate: Predicate) -> [EKEvent]
   func enumerateEventsMatching(predicate: Predicate, usingBlock block: EKEventSearchCallback)
   func predicateForEventsWithStart(startDate: Date, end endDate: Date, calendars: [EKCalendar]?) -> Predicate

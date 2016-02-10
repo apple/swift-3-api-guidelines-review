@@ -2,9 +2,9 @@
 enum UINavigationControllerOperation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Push
-  case Pop
+  case none
+  case push
+  case pop
 }
 let UINavigationControllerHideShowBarDuration: CGFloat
 @available(tvOS 2.0, *)
@@ -13,9 +13,9 @@ class UINavigationController : UIViewController {
   init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
   init(rootViewController: UIViewController)
   func pushViewController(viewController: UIViewController, animated: Bool)
-  func popViewControllerAnimated(animated: Bool) -> UIViewController?
+  func popViewController(animated animated: Bool) -> UIViewController?
   func popTo(viewController: UIViewController, animated: Bool) -> [UIViewController]?
-  func popToRootViewControllerAnimated(animated: Bool) -> [UIViewController]?
+  func popToRootViewController(animated animated: Bool) -> [UIViewController]?
   var topViewController: UIViewController? { get }
   var visibleViewController: UIViewController? { get }
   var viewControllers: [UIViewController]

@@ -3,9 +3,9 @@
 enum WKAlertActionStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Cancel
-  case Destructive
+  case `default`
+  case cancel
+  case destructive
 }
 @available(watchOS 2.0, *)
 typealias WKAlertActionHandler = () -> Void

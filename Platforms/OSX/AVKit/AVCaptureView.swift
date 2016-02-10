@@ -12,10 +12,10 @@ class AVCaptureView : NSView {
 enum AVCaptureViewControlsStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Inline
-  case Floating
-  case InlineDeviceSelection
-  static var Default: AVCaptureViewControlsStyle { get }
+  case inline
+  case floating
+  case inlineDeviceSelection
+  static var `default`: AVCaptureViewControlsStyle { get }
 }
 protocol AVCaptureViewDelegate : ObjectProtocol {
 }

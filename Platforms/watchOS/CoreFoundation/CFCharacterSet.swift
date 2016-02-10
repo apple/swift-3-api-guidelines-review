@@ -6,22 +6,22 @@ class CFMutableCharacterSet {
 enum CFCharacterSetPredefinedSet : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case Control
-  case Whitespace
-  case WhitespaceAndNewline
-  case DecimalDigit
-  case Letter
-  case LowercaseLetter
-  case UppercaseLetter
-  case NonBase
-  case Decomposable
-  case AlphaNumeric
-  case Punctuation
-  case CapitalizedLetter
-  case Symbol
+  case control
+  case whitespace
+  case whitespaceAndNewline
+  case decimalDigit
+  case letter
+  case lowercaseLetter
+  case uppercaseLetter
+  case nonBase
+  case decomposable
+  case alphaNumeric
+  case punctuation
+  case capitalizedLetter
+  case symbol
   @available(watchOS 2.0, *)
-  case Newline
-  case Illegal
+  case newline
+  case illegal
 }
 func CFCharacterSetGetTypeID() -> CFTypeID
 func CFCharacterSetGetPredefined(theSetIdentifier: CFCharacterSetPredefinedSet) -> CFCharacterSet!

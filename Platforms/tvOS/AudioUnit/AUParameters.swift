@@ -16,7 +16,7 @@ class AUParameterNode : Object {
   var identifier: String { get }
   var keyPath: String { get }
   var displayName: String { get }
-  func displayNameWithLength(maximumLength: Int) -> String
+  func displayName(length maximumLength: Int) -> String
   func tokenByAddingParameterObserver(observer: AUParameterObserver) -> AUParameterObserverToken
   func tokenByAddingParameterRecordingObserver(observer: AUParameterRecordingObserver) -> AUParameterObserverToken
   func removeParameterObserver(token: AUParameterObserverToken)
@@ -35,8 +35,8 @@ class AUParameterGroup : AUParameterNode, SecureCoding {
 }
 @available(tvOS 9.0, *)
 class AUParameterTree : AUParameterGroup, SecureCoding {
-  func parameterWithAddress(address: AUParameterAddress) -> AUParameter?
-  func parameterWithID(paramID: AudioUnitParameterID, scope: AudioUnitScope, element: AudioUnitElement) -> AUParameter?
+  func parameterWith(address address: AUParameterAddress) -> AUParameter?
+  func parameterWith(id paramID: AudioUnitParameterID, scope: AudioUnitScope, element: AudioUnitElement) -> AUParameter?
   init()
   init?(coder aDecoder: Coder)
 }
@@ -53,7 +53,7 @@ class AUParameter : AUParameterNode, SecureCoding {
   var value: AUValue
   func setValue(value: AUValue, originator: AUParameterObserverToken)
   func setValue(value: AUValue, originator: AUParameterObserverToken, atHostTime hostTime: UInt64)
-  func stringFromValue(value: UnsafePointer<AUValue>) -> String
+  func stringFrom(value value: UnsafePointer<AUValue>) -> String
   func valueFrom(string: String) -> AUValue
   init()
   @available(tvOS 9.0, *)

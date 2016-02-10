@@ -2,9 +2,9 @@
 enum UIActivityIndicatorViewStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case WhiteLarge
-  case White
-  case Gray
+  case whiteLarge
+  case white
+  case gray
 }
 @available(iOS 2.0, *)
 class UIActivityIndicatorView : UIView, Coding {

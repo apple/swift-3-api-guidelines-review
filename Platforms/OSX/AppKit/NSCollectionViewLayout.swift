@@ -3,10 +3,10 @@
 enum NSCollectionElementCategory : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Item
-  case SupplementaryView
-  case DecorationView
-  case InterItemGap
+  case item
+  case supplementaryView
+  case decorationView
+  case interItemGap
 }
 @available(OSX 10.11, *)
 let NSCollectionElementKindInterItemGapIndicator: String
@@ -26,17 +26,17 @@ class NSCollectionViewLayoutAttributes : Object, Copying {
   convenience init(forDecorationViewOfKind decorationViewKind: String, withIndexPath indexPath: IndexPath)
   init()
   @available(OSX 10.11, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 enum NSCollectionUpdateAction : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Insert
-  case Delete
-  case Reload
-  case Move
-  case None
+  case insert
+  case delete
+  case reload
+  case move
+  case none
 }
 @available(OSX 10.11, *)
 class NSCollectionViewUpdateItem : Object {
@@ -50,8 +50,8 @@ class NSCollectionViewLayoutInvalidationContext : Object {
   var invalidateEverything: Bool { get }
   var invalidateDataSourceCounts: Bool { get }
   func invalidateItemsAt(indexPaths: Set<IndexPath>)
-  func invalidateSupplementaryElementsOfKind(elementKind: String, at indexPaths: Set<IndexPath>)
-  func invalidateDecorationElementsOfKind(elementKind: String, at indexPaths: Set<IndexPath>)
+  func invalidateSupplementaryElementsOf(kind elementKind: String, at indexPaths: Set<IndexPath>)
+  func invalidateDecorationElementsOf(kind elementKind: String, at indexPaths: Set<IndexPath>)
   var invalidatedItemIndexPaths: Set<IndexPath>? { get }
   var invalidatedSupplementaryIndexPaths: [String : Set<IndexPath>]? { get }
   var invalidatedDecorationIndexPaths: [String : Set<IndexPath>]? { get }
@@ -77,20 +77,20 @@ extension NSCollectionViewLayout {
   func prepare()
   func layoutAttributesForElementsIn(rect: Rect) -> [NSCollectionViewLayoutAttributes]
   func layoutAttributesForItemAt(indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
-  func layoutAttributesForSupplementaryViewOfKind(elementKind: String, at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
-  func layoutAttributesForDecorationViewOfKind(elementKind: String, at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryViewOf(kind elementKind: String, at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
+  func layoutAttributesForDecorationViewOf(kind elementKind: String, at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
   func layoutAttributesForDropTargetAt(pointInCollectionView: Point) -> NSCollectionViewLayoutAttributes?
   func layoutAttributesForInterItemGapBefore(indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
   func shouldInvalidateLayoutForBoundsChange(newBounds: Rect) -> Bool
   func invalidationContextForBoundsChange(newBounds: Rect) -> NSCollectionViewLayoutInvalidationContext
-  func shouldInvalidateLayoutForPreferredLayoutAttributes(preferredAttributes: NSCollectionViewLayoutAttributes, withOriginalAttributes originalAttributes: NSCollectionViewLayoutAttributes) -> Bool
-  func invalidationContextForPreferredLayoutAttributes(preferredAttributes: NSCollectionViewLayoutAttributes, withOriginalAttributes originalAttributes: NSCollectionViewLayoutAttributes) -> NSCollectionViewLayoutInvalidationContext
-  func targetContentOffsetForProposedContentOffset(proposedContentOffset: Point, withScrollingVelocity velocity: Point) -> Point
-  func targetContentOffsetForProposedContentOffset(proposedContentOffset: Point) -> Point
+  func shouldInvalidateLayoutFor(preferredLayoutAttributes preferredAttributes: NSCollectionViewLayoutAttributes, withOriginalAttributes originalAttributes: NSCollectionViewLayoutAttributes) -> Bool
+  func invalidationContextFor(preferredLayoutAttributes preferredAttributes: NSCollectionViewLayoutAttributes, withOriginalAttributes originalAttributes: NSCollectionViewLayoutAttributes) -> NSCollectionViewLayoutInvalidationContext
+  func targetContentOffsetFor(proposedContentOffset proposedContentOffset: Point, withScrollingVelocity velocity: Point) -> Point
+  func targetContentOffsetFor(proposedContentOffset proposedContentOffset: Point) -> Point
   var collectionViewContentSize: Size { get }
 }
 extension NSCollectionViewLayout {
-  func prepareForCollectionViewUpdates(updateItems: [NSCollectionViewUpdateItem])
+  func prepareFor(collectionViewUpdates updateItems: [NSCollectionViewUpdateItem])
   func finalizeCollectionViewUpdates()
   func prepareForAnimatedBoundsChange(oldBounds: Rect)
   func finalizeAnimatedBoundsChange()
@@ -99,12 +99,12 @@ extension NSCollectionViewLayout {
   func finalizeLayoutTransition()
   func initialLayoutAttributesForAppearingItemAt(itemIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
   func finalLayoutAttributesForDisappearingItemAt(itemIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
-  func initialLayoutAttributesForAppearingSupplementaryElementOfKind(elementKind: String, at elementIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
-  func finalLayoutAttributesForDisappearingSupplementaryElementOfKind(elementKind: String, at elementIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
-  func initialLayoutAttributesForAppearingDecorationElementOfKind(elementKind: String, at decorationIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
-  func finalLayoutAttributesForDisappearingDecorationElementOfKind(elementKind: String, at decorationIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
-  func indexPathsToDeleteForSupplementaryViewOfKind(elementKind: String) -> Set<IndexPath>
-  func indexPathsToDeleteForDecorationViewOfKind(elementKind: String) -> Set<IndexPath>
-  func indexPathsToInsertForSupplementaryViewOfKind(elementKind: String) -> Set<IndexPath>
-  func indexPathsToInsertForDecorationViewOfKind(elementKind: String) -> Set<IndexPath>
+  func initialLayoutAttributesForAppearingSupplementaryElementOf(kind elementKind: String, at elementIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
+  func finalLayoutAttributesForDisappearingSupplementaryElementOf(kind elementKind: String, at elementIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
+  func initialLayoutAttributesForAppearingDecorationElementOf(kind elementKind: String, at decorationIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
+  func finalLayoutAttributesForDisappearingDecorationElementOf(kind elementKind: String, at decorationIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
+  func indexPathsToDeleteForSupplementaryViewOf(kind elementKind: String) -> Set<IndexPath>
+  func indexPathsToDeleteForDecorationViewOf(kind elementKind: String) -> Set<IndexPath>
+  func indexPathsToInsertForSupplementaryViewOf(kind elementKind: String) -> Set<IndexPath>
+  func indexPathsToInsertForDecorationViewOf(kind elementKind: String) -> Set<IndexPath>
 }

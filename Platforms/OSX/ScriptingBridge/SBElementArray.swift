@@ -1,9 +1,9 @@
 
 @available(OSX 10.5, *)
 class SBElementArray : MutableArray {
-  func objectWithName(name: String) -> AnyObject
-  func objectWithID(identifier: AnyObject) -> AnyObject
-  func objectAtLocation(location: AnyObject) -> AnyObject
+  func objectWith(name name: String) -> AnyObject
+  func objectWith(id identifier: AnyObject) -> AnyObject
+  func objectAt(location location: AnyObject) -> AnyObject
   func arrayByApplying(selector: Selector) -> [AnyObject]
   func arrayByApplying(aSelector: Selector, withObject argument: AnyObject) -> [AnyObject]
   func get() -> [AnyObject]?

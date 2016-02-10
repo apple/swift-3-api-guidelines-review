@@ -2,10 +2,10 @@
 enum NSDeleteRule : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NoActionDeleteRule
-  case NullifyDeleteRule
-  case CascadeDeleteRule
-  case DenyDeleteRule
+  case noActionDeleteRule
+  case nullifyDeleteRule
+  case cascadeDeleteRule
+  case denyDeleteRule
 }
 @available(watchOS 2.0, *)
 class NSRelationshipDescription : NSPropertyDescription {

@@ -3,8 +3,8 @@ enum NSPrinterTableStatus : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case OK
-  case NotFound
-  case Error
+  case notFound
+  case error
 }
 class NSPrinter : Object, Copying, Coding {
   class func printerNames() -> [String]
@@ -14,10 +14,10 @@ class NSPrinter : Object, Copying, Coding {
   var name: String { get }
   var type: String { get }
   var languageLevel: Int { get }
-  func pageSizeForPaper(paperName: String) -> Size
+  func pageSizeFor(paper paperName: String) -> Size
   var deviceDescription: [String : AnyObject] { get }
   init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

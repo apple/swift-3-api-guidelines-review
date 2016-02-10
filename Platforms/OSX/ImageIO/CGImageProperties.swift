@@ -618,14 +618,14 @@ let kCGImagePropertyOpenEXRAspectRatio: CFString
 enum CGImagePropertyOrientation : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Up
-  case UpMirrored
-  case Down
-  case DownMirrored
-  case LeftMirrored
-  case Right
-  case RightMirrored
-  case Left
+  case up
+  case upMirrored
+  case down
+  case downMirrored
+  case leftMirrored
+  case right
+  case rightMirrored
+  case left
 }
 @available(OSX 10.11, *)
 let kCGImagePropertyPNGCompressionFilter: CFString

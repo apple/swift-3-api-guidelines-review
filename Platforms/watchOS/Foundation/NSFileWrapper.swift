@@ -3,15 +3,15 @@
 struct FileWrapperReadingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Immediate: FileWrapperReadingOptions { get }
-  static var WithoutMapping: FileWrapperReadingOptions { get }
+  static var immediate: FileWrapperReadingOptions { get }
+  static var withoutMapping: FileWrapperReadingOptions { get }
 }
 @available(watchOS 2.0, *)
 struct FileWrapperWritingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Atomic: FileWrapperWritingOptions { get }
-  static var WithNameUpdating: FileWrapperWritingOptions { get }
+  static var atomic: FileWrapperWritingOptions { get }
+  static var withNameUpdating: FileWrapperWritingOptions { get }
 }
 @available(watchOS 2.0, *)
 class FileWrapper : Object, Coding {
@@ -37,7 +37,7 @@ class FileWrapper : Object, Coding {
   func writeTo(url: URL, options: FileWrapperWritingOptions = [], originalContentsURL: URL?) throws
   @NSCopying var serializedRepresentation: Data? { get }
   func add(child: FileWrapper) -> String
-  func addRegularFileWithContents(data: Data, preferredFilename fileName: String) -> String
+  func addRegularFile(contents data: Data, preferredFilename fileName: String) -> String
   func remove(child: FileWrapper)
   var fileWrappers: [String : FileWrapper]? { get }
   func keyFor(child: FileWrapper) -> String?

@@ -13,7 +13,7 @@ class AVPlayerItemVideoOutput : AVPlayerItemOutput {
   func hasNewPixelBufferForItemTime(itemTime: CMTime) -> Bool
   func copyPixelBufferForItemTime(itemTime: CMTime, itemTimeForDisplay outItemTimeForDisplay: UnsafeMutablePointer<CMTime>) -> CVPixelBuffer?
   func setDelegate(delegate: AVPlayerItemOutputPullDelegate?, queue delegateQueue: dispatch_queue_t?)
-  func requestNotificationOfMediaDataChangeWithAdvanceInterval(interval: TimeInterval)
+  func requestNotificationOfMediaDataChange(advanceInterval interval: TimeInterval)
   unowned(unsafe) var delegate: @sil_unmanaged AVPlayerItemOutputPullDelegate? { get }
   var delegateQueue: dispatch_queue_t? { get }
   convenience init()

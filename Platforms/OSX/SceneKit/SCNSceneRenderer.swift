@@ -12,22 +12,22 @@ let SCNHitTestIgnoreHiddenNodesKey: String
 enum SCNRenderingAPI : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Metal
-  case OpenGLLegacy
-  case OpenGLCore32
-  case OpenGLCore41
+  case metal
+  case openGLLegacy
+  case openGLCore32
+  case openGLCore41
 }
 @available(OSX 10.11, *)
 struct SCNDebugOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: SCNDebugOptions { get }
-  static var ShowPhysicsShapes: SCNDebugOptions { get }
-  static var ShowBoundingBoxes: SCNDebugOptions { get }
-  static var ShowLightInfluences: SCNDebugOptions { get }
-  static var ShowLightExtents: SCNDebugOptions { get }
-  static var ShowPhysicsFields: SCNDebugOptions { get }
-  static var ShowWireframe: SCNDebugOptions { get }
+  static var none: SCNDebugOptions { get }
+  static var showPhysicsShapes: SCNDebugOptions { get }
+  static var showBoundingBoxes: SCNDebugOptions { get }
+  static var showLightInfluences: SCNDebugOptions { get }
+  static var showLightExtents: SCNDebugOptions { get }
+  static var showPhysicsFields: SCNDebugOptions { get }
+  static var showWireframe: SCNDebugOptions { get }
 }
 @available(OSX 10.8, *)
 class SCNHitTestResult : Object {
@@ -39,7 +39,7 @@ class SCNHitTestResult : Object {
   var localNormal: SCNVector3 { get }
   var worldNormal: SCNVector3 { get }
   var modelTransform: SCNMatrix4 { get }
-  func textureCoordinatesWithMappingChannel(channel: Int) -> CGPoint
+  func textureCoordinatesWith(mappingChannel channel: Int) -> CGPoint
   init()
 }
 protocol SCNSceneRenderer : ObjectProtocol {
@@ -51,9 +51,9 @@ protocol SCNSceneRenderer : ObjectProtocol {
   @available(OSX 10.8, *)
   func hitTest(point: CGPoint, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
   @available(OSX 10.9, *)
-  func isNodeInsideFrustum(node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
+  func isNodeInside(frustum node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
   @available(OSX 10.11, *)
-  func nodesInsideFrustumWithPointOfView(pointOfView: SCNNode) -> [SCNNode]
+  func nodesInsideFrustumWithPointOf(view pointOfView: SCNNode) -> [SCNNode]
   @available(OSX 10.9, *)
   func projectPoint(point: SCNVector3) -> SCNVector3
   @available(OSX 10.9, *)

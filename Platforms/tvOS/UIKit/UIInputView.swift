@@ -3,8 +3,8 @@
 enum UIInputViewStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Keyboard
+  case `default`
+  case keyboard
 }
 @available(tvOS 7.0, *)
 class UIInputView : UIView {

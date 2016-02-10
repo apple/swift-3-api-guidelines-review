@@ -3,10 +3,10 @@ typealias GKChallengeComposeCompletionBlock = (NSViewController, Bool, [String]?
 enum GKChallengeState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Invalid
-  case Pending
-  case Completed
-  case Declined
+  case invalid
+  case pending
+  case completed
+  case declined
 }
 @available(OSX 10.8, *)
 class GKChallenge : Object, Coding, SecureCoding {
@@ -45,17 +45,17 @@ class GKAchievementChallenge : GKChallenge {
 }
 extension GKScore {
   @available(OSX 10.10, *)
-  func challengeComposeControllerWithMessage(message: String?, players: [GKPlayer]?, completionHandler: GKChallengeComposeCompletionBlock? = nil) -> NSViewController
+  func challengeComposeController(message message: String?, players: [GKPlayer]?, completionHandler: GKChallengeComposeCompletionBlock? = nil) -> NSViewController
   @available(OSX, introduced=10.8, deprecated=10.10, message="pass GKPlayers to challengeComposeControllerWithMessage:players:completionHandler: and present the view controller instead")
-  func issueChallengeToPlayers(playerIDs: [String]?, message: String?)
+  func issueChallengeTo(players playerIDs: [String]?, message: String?)
   @available(OSX 10.10, *)
   class func report(scores: [GKScore], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
 }
 extension GKAchievement {
   @available(OSX 10.10, *)
-  func challengeComposeControllerWithMessage(message: String?, players: [GKPlayer], completionHandler: GKChallengeComposeCompletionBlock? = nil) -> NSViewController
+  func challengeComposeController(message message: String?, players: [GKPlayer], completionHandler: GKChallengeComposeCompletionBlock? = nil) -> NSViewController
   @available(OSX, introduced=10.8, deprecated=10.10, message="pass GKPlayers to challengeComposeControllerWithMessage:players:completionHandler: and present the view controller instead")
-  func issueChallengeToPlayers(playerIDs: [String]?, message: String?)
+  func issueChallengeTo(players playerIDs: [String]?, message: String?)
   @available(OSX 10.10, *)
   func selectChallengeablePlayers(players: [GKPlayer], withCompletionHandler completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
   @available(OSX 10.10, *)

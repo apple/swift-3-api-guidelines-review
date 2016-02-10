@@ -6,25 +6,25 @@ let SCNLightingModelConstant: String
 enum SCNCullMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Back
-  case Front
+  case back
+  case front
 }
 enum SCNTransparencyMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case AOne
-  case RGBZero
+  case aOne
+  case rgbZero
 }
 @available(OSX 10.11, *)
 enum SCNBlendMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Alpha
-  case Add
-  case Subtract
-  case Multiply
-  case Screen
-  case Replace
+  case alpha
+  case add
+  case subtract
+  case multiply
+  case screen
+  case replace
 }
 @available(OSX 10.8, *)
 class SCNMaterial : Object, SCNAnimatable, SCNShadable, Copying, SecureCoding {
@@ -62,29 +62,29 @@ class SCNMaterial : Object, SCNAnimatable, SCNShadable, Copying, SecureCoding {
   @available(OSX 10.8, *)
   func removeAllAnimations()
   @available(OSX 10.8, *)
-  func removeAnimationForKey(key: String)
+  func removeAnimationFor(key key: String)
   @available(OSX 10.8, *)
   var animationKeys: [String] { get }
   @available(OSX 10.8, *)
-  func animationForKey(key: String) -> CAAnimation?
+  func animationFor(key key: String) -> CAAnimation?
   @available(OSX 10.9, *)
-  func pauseAnimationForKey(key: String)
+  func pauseAnimationFor(key key: String)
   @available(OSX 10.9, *)
-  func resumeAnimationForKey(key: String)
+  func resumeAnimationFor(key key: String)
   @available(OSX 10.9, *)
-  func isAnimationForKeyPaused(key: String) -> Bool
+  func isAnimationFor(keyPaused key: String) -> Bool
   @available(OSX 10.10, *)
-  func removeAnimationForKey(key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimationFor(key key: String, fadeOutDuration duration: CGFloat)
   @available(OSX 10.8, *)
   var program: SCNProgram?
   @available(OSX 10.9, *)
-  func handleBindingOfSymbol(symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  func handleBindingOf(symbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
   @available(OSX 10.9, *)
-  func handleUnbindingOfSymbol(symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  func handleUnbindingOf(symbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
   @available(OSX 10.9, *)
   var shaderModifiers: [String : String]?
   @available(OSX 10.8, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)

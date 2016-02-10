@@ -2,8 +2,8 @@
 enum EKSpan : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ThisEvent
-  case FutureEvents
+  case thisEvent
+  case futureEvents
 }
 typealias EKEventSearchCallback = (EKEvent, UnsafeMutablePointer<ObjCBool>) -> Void
 @available(iOS 4.0, *)
@@ -18,22 +18,22 @@ class EKEventStore : Object {
   @available(iOS 5.0, *)
   var sources: [EKSource] { get }
   @available(iOS 5.0, *)
-  func sourceWithIdentifier(identifier: String) -> EKSource
+  func sourceWith(identifier identifier: String) -> EKSource
   @available(iOS 6.0, *)
   func calendarsFor(entityType: EKEntityType) -> [EKCalendar]
   var defaultCalendarForNewEvents: EKCalendar { get }
   @available(iOS 6.0, *)
   func defaultCalendarForNewReminders() -> EKCalendar
   @available(iOS 5.0, *)
-  func calendarWithIdentifier(identifier: String) -> EKCalendar?
+  func calendarWith(identifier identifier: String) -> EKCalendar?
   @available(iOS 5.0, *)
   func saveCalendar(calendar: EKCalendar, commit: Bool) throws
   @available(iOS 5.0, *)
   func removeCalendar(calendar: EKCalendar, commit: Bool) throws
   @available(iOS 6.0, *)
-  func calendarItemWithIdentifier(identifier: String) -> EKCalendarItem
+  func calendarItemWith(identifier identifier: String) -> EKCalendarItem
   @available(iOS 6.0, *)
-  func calendarItemsWithExternalIdentifier(externalIdentifier: String) -> [EKCalendarItem]
+  func calendarItemsWith(externalIdentifier externalIdentifier: String) -> [EKCalendarItem]
   @available(iOS 4.0, *)
   func save(event: EKEvent, span: EKSpan) throws
   @available(iOS 4.0, *)
@@ -42,7 +42,7 @@ class EKEventStore : Object {
   func save(event: EKEvent, span: EKSpan, commit: Bool) throws
   @available(iOS 5.0, *)
   func remove(event: EKEvent, span: EKSpan, commit: Bool) throws
-  func eventWithIdentifier(identifier: String) -> EKEvent?
+  func eventWith(identifier identifier: String) -> EKEvent?
   func eventsMatching(predicate: Predicate) -> [EKEvent]
   func enumerateEventsMatching(predicate: Predicate, usingBlock block: EKEventSearchCallback)
   func predicateForEventsWithStart(startDate: Date, end endDate: Date, calendars: [EKCalendar]?) -> Predicate

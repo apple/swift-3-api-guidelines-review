@@ -2,15 +2,15 @@
 enum UIMenuControllerArrowDirection : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
+  case `default`
   @available(iOS 3.2, *)
-  case Up
+  case up
   @available(iOS 3.2, *)
-  case Down
+  case down
   @available(iOS 3.2, *)
-  case Left
+  case left
   @available(iOS 3.2, *)
-  case Right
+  case right
 }
 @available(iOS 3.0, *)
 class UIMenuController : Object {

@@ -39,11 +39,11 @@ class UIPresentationController : Object, UIAppearanceContainer, UITraitEnvironme
   @available(tvOS 8.0, *)
   var preferredContentSize: CGSize { get }
   @available(tvOS 8.0, *)
-  func preferredContentSizeDidChangeForChildContentContainer(container: UIContentContainer)
+  func preferredContentSizeDidChangeFor(childContentContainer container: UIContentContainer)
   @available(tvOS 8.0, *)
-  func systemLayoutFittingSizeDidChangeForChildContentContainer(container: UIContentContainer)
+  func systemLayoutFittingSizeDidChangeFor(childContentContainer container: UIContentContainer)
   @available(tvOS 8.0, *)
-  func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
+  func sizeFor(childContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
   @available(tvOS 8.0, *)
   func viewWillTransitionTo(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
   @available(tvOS 8.0, *)

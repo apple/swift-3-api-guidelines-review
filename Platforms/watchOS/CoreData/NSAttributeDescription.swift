@@ -2,21 +2,21 @@
 enum NSAttributeType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case UndefinedAttributeType
-  case Integer16AttributeType
-  case Integer32AttributeType
-  case Integer64AttributeType
-  case DecimalAttributeType
-  case DoubleAttributeType
-  case FloatAttributeType
-  case StringAttributeType
-  case BooleanAttributeType
-  case DateAttributeType
-  case BinaryDataAttributeType
+  case undefinedAttributeType
+  case integer16AttributeType
+  case integer32AttributeType
+  case integer64AttributeType
+  case decimalAttributeType
+  case doubleAttributeType
+  case floatAttributeType
+  case stringAttributeType
+  case booleanAttributeType
+  case dateAttributeType
+  case binaryDataAttributeType
   @available(watchOS 2.0, *)
-  case TransformableAttributeType
+  case transformableAttributeType
   @available(watchOS 2.0, *)
-  case ObjectIDAttributeType
+  case objectIDAttributeType
 }
 @available(watchOS 2.0, *)
 class NSAttributeDescription : NSPropertyDescription {

@@ -2,10 +2,10 @@
 enum UIDatePickerMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Time
-  case Date
-  case DateAndTime
-  case CountDownTimer
+  case time
+  case date
+  case dateAndTime
+  case countDownTimer
 }
 @available(iOS 2.0, *)
 class UIDatePicker : UIControl, Coding {

@@ -8,7 +8,7 @@ class CNContactProperty : Object, Copying, SecureCoding {
   var label: String? { get }
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)

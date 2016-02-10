@@ -2,93 +2,93 @@
 enum CFStringEncodings : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case MacJapanese
-  case MacChineseTrad
-  case MacKorean
-  case MacArabic
-  case MacHebrew
-  case MacGreek
-  case MacCyrillic
-  case MacDevanagari
-  case MacGurmukhi
-  case MacGujarati
-  case MacOriya
-  case MacBengali
-  case MacTamil
-  case MacTelugu
-  case MacKannada
-  case MacMalayalam
-  case MacSinhalese
-  case MacBurmese
-  case MacKhmer
-  case MacThai
-  case MacLaotian
-  case MacGeorgian
-  case MacArmenian
-  case MacChineseSimp
-  case MacTibetan
-  case MacMongolian
-  case MacEthiopic
-  case MacCentralEurRoman
-  case MacVietnamese
-  case MacExtArabic
-  case MacSymbol
-  case MacDingbats
-  case MacTurkish
-  case MacCroatian
-  case MacIcelandic
-  case MacRomanian
-  case MacCeltic
-  case MacGaelic
-  case MacFarsi
-  case MacUkrainian
-  case MacInuit
-  case MacVT100
-  case MacHFS
-  case ISOLatin2
-  case ISOLatin3
-  case ISOLatin4
-  case ISOLatinCyrillic
-  case ISOLatinArabic
-  case ISOLatinGreek
-  case ISOLatinHebrew
-  case ISOLatin5
-  case ISOLatin6
-  case ISOLatinThai
-  case ISOLatin7
-  case ISOLatin8
-  case ISOLatin9
-  case ISOLatin10
-  case DOSLatinUS
-  case DOSGreek
-  case DOSBalticRim
-  case DOSLatin1
-  case DOSGreek1
-  case DOSLatin2
-  case DOSCyrillic
-  case DOSTurkish
-  case DOSPortuguese
-  case DOSIcelandic
-  case DOSHebrew
-  case DOSCanadianFrench
-  case DOSArabic
-  case DOSNordic
-  case DOSRussian
-  case DOSGreek2
-  case DOSThai
-  case DOSJapanese
-  case DOSChineseSimplif
-  case DOSKorean
-  case DOSChineseTrad
-  case WindowsLatin2
-  case WindowsCyrillic
-  case WindowsGreek
-  case WindowsLatin5
-  case WindowsHebrew
-  case WindowsArabic
-  case WindowsBalticRim
-  case WindowsVietnamese
-  case WindowsKoreanJohab
+  case macJapanese
+  case macChineseTrad
+  case macKorean
+  case macArabic
+  case macHebrew
+  case macGreek
+  case macCyrillic
+  case macDevanagari
+  case macGurmukhi
+  case macGujarati
+  case macOriya
+  case macBengali
+  case macTamil
+  case macTelugu
+  case macKannada
+  case macMalayalam
+  case macSinhalese
+  case macBurmese
+  case macKhmer
+  case macThai
+  case macLaotian
+  case macGeorgian
+  case macArmenian
+  case macChineseSimp
+  case macTibetan
+  case macMongolian
+  case macEthiopic
+  case macCentralEurRoman
+  case macVietnamese
+  case macExtArabic
+  case macSymbol
+  case macDingbats
+  case macTurkish
+  case macCroatian
+  case macIcelandic
+  case macRomanian
+  case macCeltic
+  case macGaelic
+  case macFarsi
+  case macUkrainian
+  case macInuit
+  case macVT100
+  case macHFS
+  case isoLatin2
+  case isoLatin3
+  case isoLatin4
+  case isoLatinCyrillic
+  case isoLatinArabic
+  case isoLatinGreek
+  case isoLatinHebrew
+  case isoLatin5
+  case isoLatin6
+  case isoLatinThai
+  case isoLatin7
+  case isoLatin8
+  case isoLatin9
+  case isoLatin10
+  case dosLatinUS
+  case dosGreek
+  case dosBalticRim
+  case dosLatin1
+  case dosGreek1
+  case dosLatin2
+  case dosCyrillic
+  case dosTurkish
+  case dosPortuguese
+  case dosIcelandic
+  case dosHebrew
+  case dosCanadianFrench
+  case dosArabic
+  case dosNordic
+  case dosRussian
+  case dosGreek2
+  case dosThai
+  case dosJapanese
+  case dosChineseSimplif
+  case dosKorean
+  case dosChineseTrad
+  case windowsLatin2
+  case windowsCyrillic
+  case windowsGreek
+  case windowsLatin5
+  case windowsHebrew
+  case windowsArabic
+  case windowsBalticRim
+  case windowsVietnamese
+  case windowsKoreanJohab
   case ANSEL
   case JIS_X0201_76
   case JIS_X0208_83
@@ -96,13 +96,13 @@ enum CFStringEncodings : CFIndex {
   case JIS_X0212_90
   case JIS_C6226_78
   @available(tvOS 2.0, *)
-  case ShiftJIS_X0213
-  case ShiftJIS_X0213_MenKuTen
+  case shiftJIS_X0213
+  case shiftJIS_X0213_MenKuTen
   case GB_2312_80
   case GBK_95
   case GB_18030_2000
   case KSC_5601_87
-  case KSC_5601_92_Johab
+  case ksc_5601_92_Johab
   case CNS_11643_92_P1
   case CNS_11643_92_P2
   case CNS_11643_92_P3
@@ -117,21 +117,21 @@ enum CFStringEncodings : CFIndex {
   case EUC_CN
   case EUC_TW
   case EUC_KR
-  case ShiftJIS
+  case shiftJIS
   case KOI8_R
-  case Big5
-  case MacRomanLatin1
+  case big5
+  case macRomanLatin1
   case HZ_GB_2312
-  case Big5_HKSCS_1999
+  case big5_HKSCS_1999
   case VISCII
   case KOI8_U
-  case Big5_E
-  case NextStepJapanese
+  case big5_E
+  case nextStepJapanese
   case EBCDIC_US
   case EBCDIC_CP037
   @available(tvOS 4.0, *)
   case UTF7
   @available(tvOS 4.0, *)
   case UTF7_IMAP
-  static var ShiftJIS_X0213_00: CFStringEncodings { get }
+  static var shiftJIS_X0213_00: CFStringEncodings { get }
 }

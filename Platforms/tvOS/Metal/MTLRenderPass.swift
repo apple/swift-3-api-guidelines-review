@@ -3,17 +3,17 @@
 enum MTLLoadAction : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case DontCare
-  case Load
-  case Clear
+  case dontCare
+  case load
+  case clear
 }
 @available(tvOS 8.0, *)
 enum MTLStoreAction : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case DontCare
-  case Store
-  case MultisampleResolve
+  case dontCare
+  case store
+  case multisampleResolve
 }
 struct MTLClearColor {
   var red: Double
@@ -37,7 +37,7 @@ class MTLRenderPassAttachmentDescriptor : Object, Copying {
   var storeAction: MTLStoreAction
   init()
   @available(tvOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 class MTLRenderPassColorAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {
@@ -48,9 +48,9 @@ class MTLRenderPassColorAttachmentDescriptor : MTLRenderPassAttachmentDescriptor
 enum MTLMultisampleDepthResolveFilter : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Sample0
-  case Min
-  case Max
+  case sample0
+  case min
+  case max
 }
 @available(tvOS 8.0, *)
 class MTLRenderPassDepthAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {
@@ -66,7 +66,7 @@ class MTLRenderPassStencilAttachmentDescriptor : MTLRenderPassAttachmentDescript
 }
 @available(tvOS 8.0, *)
 class MTLRenderPassColorAttachmentDescriptorArray : Object {
-  subscript (attachmentIndex: Int) -> MTLRenderPassColorAttachmentDescriptor!
+  subscript (indexedSubscript attachmentIndex: Int) -> MTLRenderPassColorAttachmentDescriptor!
   init()
 }
 @available(tvOS 8.0, *)
@@ -77,6 +77,6 @@ class MTLRenderPassDescriptor : Object, Copying {
   var visibilityResultBuffer: MTLBuffer?
   init()
   @available(tvOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 func MTLClearColorMake(red: Double, _ green: Double, _ blue: Double, _ alpha: Double) -> MTLClearColor

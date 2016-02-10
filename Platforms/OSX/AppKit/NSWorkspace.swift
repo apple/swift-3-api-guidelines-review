@@ -2,26 +2,26 @@
 struct NSWorkspaceLaunchOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var AndPrint: NSWorkspaceLaunchOptions { get }
-  static var WithErrorPresentation: NSWorkspaceLaunchOptions { get }
-  static var InhibitingBackgroundOnly: NSWorkspaceLaunchOptions { get }
-  static var WithoutAddingToRecents: NSWorkspaceLaunchOptions { get }
-  static var WithoutActivation: NSWorkspaceLaunchOptions { get }
-  static var Async: NSWorkspaceLaunchOptions { get }
-  static var NewInstance: NSWorkspaceLaunchOptions { get }
-  static var AndHide: NSWorkspaceLaunchOptions { get }
-  static var AndHideOthers: NSWorkspaceLaunchOptions { get }
-  static var Default: NSWorkspaceLaunchOptions { get }
+  static var andPrint: NSWorkspaceLaunchOptions { get }
+  static var withErrorPresentation: NSWorkspaceLaunchOptions { get }
+  static var inhibitingBackgroundOnly: NSWorkspaceLaunchOptions { get }
+  static var withoutAddingToRecents: NSWorkspaceLaunchOptions { get }
+  static var withoutActivation: NSWorkspaceLaunchOptions { get }
+  static var async: NSWorkspaceLaunchOptions { get }
+  static var newInstance: NSWorkspaceLaunchOptions { get }
+  static var andHide: NSWorkspaceLaunchOptions { get }
+  static var andHideOthers: NSWorkspaceLaunchOptions { get }
+  static var `default`: NSWorkspaceLaunchOptions { get }
   @available(OSX, introduced=10.3, deprecated=10.11, message="The Classic environment is no longer supported.")
-  static var AllowingClassicStartup: NSWorkspaceLaunchOptions { get }
+  static var allowingClassicStartup: NSWorkspaceLaunchOptions { get }
   @available(OSX, introduced=10.3, deprecated=10.11, message="The Classic environment is no longer supported.")
-  static var PreferringClassic: NSWorkspaceLaunchOptions { get }
+  static var preferringClassic: NSWorkspaceLaunchOptions { get }
 }
 struct NSWorkspaceIconCreationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ExcludeQuickDrawElementsIconCreationOption: NSWorkspaceIconCreationOptions { get }
-  static var Exclude10_4ElementsIconCreationOption: NSWorkspaceIconCreationOptions { get }
+  static var excludeQuickDrawElementsIconCreationOption: NSWorkspaceIconCreationOptions { get }
+  static var exclude10_4ElementsIconCreationOption: NSWorkspaceIconCreationOptions { get }
 }
 class NSWorkspace : Object {
   class func shared() -> NSWorkspace
@@ -36,52 +36,52 @@ class NSWorkspace : Object {
   @available(OSX 10.10, *)
   func open(url: URL, options: NSWorkspaceLaunchOptions = [], configuration: [String : AnyObject]) throws -> NSRunningApplication
   @available(OSX 10.10, *)
-  func openURLs(urls: [URL], withApplicationAt applicationURL: URL, options: NSWorkspaceLaunchOptions = [], configuration: [String : AnyObject]) throws -> NSRunningApplication
+  func open(urls: [URL], withApplicationAt applicationURL: URL, options: NSWorkspaceLaunchOptions = [], configuration: [String : AnyObject]) throws -> NSRunningApplication
   func launchApplication(appName: String, showIcon: Bool, autolaunch: Bool) -> Bool
-  func fullPathForApplication(appName: String) -> String?
+  func fullPathFor(application appName: String) -> String?
   func selectFile(fullPath: String?, inFileViewerRootedAtPath rootFullPath: String) -> Bool
   @available(OSX 10.6, *)
-  func activateFileViewerSelectingURLs(fileURLs: [URL])
+  func activateFileViewerSelecting(fileURLs: [URL])
   @available(OSX 10.6, *)
-  func showSearchResultsForQueryString(queryString: String) -> Bool
+  func showSearchResultsFor(queryString queryString: String) -> Bool
   func noteFileSystemChanged(path: String)
-  func getInfoForFile(fullPath: String, application appName: AutoreleasingUnsafeMutablePointer<NSString?>, type: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
-  func isFilePackageAtPath(fullPath: String) -> Bool
-  func iconForFile(fullPath: String) -> NSImage
-  func iconForFiles(fullPaths: [String]) -> NSImage?
-  func iconForFileType(fileType: String) -> NSImage
+  func getInfoFor(file fullPath: String, application appName: AutoreleasingUnsafeMutablePointer<NSString?>, type: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
+  func isFilePackageAt(path fullPath: String) -> Bool
+  func iconFor(file fullPath: String) -> NSImage
+  func iconFor(files fullPaths: [String]) -> NSImage?
+  func iconFor(fileType fileType: String) -> NSImage
   func setIcon(image: NSImage?, forFile fullPath: String, options: NSWorkspaceIconCreationOptions = []) -> Bool
   @available(OSX 10.6, *)
   var fileLabels: [String] { get }
   @available(OSX 10.6, *)
   var fileLabelColors: [NSColor] { get }
   @available(OSX 10.6, *)
-  func recycleURLs(URLs: [URL], completionHandler handler: (([URL : URL], Error?) -> Void)? = nil)
+  func recycle(URLs: [URL], completionHandler handler: (([URL : URL], Error?) -> Void)? = nil)
   @available(OSX 10.6, *)
-  func duplicateURLs(URLs: [URL], completionHandler handler: (([URL : URL], Error?) -> Void)? = nil)
-  func getFileSystemInfoForPath(fullPath: String, isRemovable removableFlag: UnsafeMutablePointer<ObjCBool>, isWritable writableFlag: UnsafeMutablePointer<ObjCBool>, isUnmountable unmountableFlag: UnsafeMutablePointer<ObjCBool>, description: AutoreleasingUnsafeMutablePointer<NSString?>, type fileSystemType: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
-  func unmountAndEjectDeviceAtPath(path: String) -> Bool
+  func duplicate(URLs: [URL], completionHandler handler: (([URL : URL], Error?) -> Void)? = nil)
+  func getFileSystemInfoFor(path fullPath: String, isRemovable removableFlag: UnsafeMutablePointer<ObjCBool>, isWritable writableFlag: UnsafeMutablePointer<ObjCBool>, isUnmountable unmountableFlag: UnsafeMutablePointer<ObjCBool>, description: AutoreleasingUnsafeMutablePointer<NSString?>, type fileSystemType: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
+  func unmountAndEjectDeviceAt(path path: String) -> Bool
   @available(OSX 10.6, *)
   func unmountAndEjectDeviceAt(url: URL) throws
   func extendPowerOffBy(requested: Int) -> Int
   func hideOtherApplications()
   @available(OSX 10.6, *)
-  func urlForApplicationWithBundleIdentifier(bundleIdentifier: String) -> URL?
+  func urlForApplicationWith(bundleIdentifier bundleIdentifier: String) -> URL?
   @available(OSX 10.6, *)
   func urlForApplicationToOpen(url: URL) -> URL?
-  func absolutePathForAppBundleWithIdentifier(bundleIdentifier: String) -> String?
-  func launchAppWithBundleIdentifier(bundleIdentifier: String, options: NSWorkspaceLaunchOptions = [], additionalEventParamDescriptor descriptor: AppleEventDescriptor?, launchIdentifier identifier: AutoreleasingUnsafeMutablePointer<Number?>) -> Bool
-  func openURLs(urls: [URL], withAppBundleIdentifier bundleIdentifier: String?, options: NSWorkspaceLaunchOptions = [], additionalEventParamDescriptor descriptor: AppleEventDescriptor?, launchIdentifiers identifiers: AutoreleasingUnsafeMutablePointer<NSArray?>) -> Bool
+  func absolutePathForAppBundleWith(identifier bundleIdentifier: String) -> String?
+  func launchApp(bundleIdentifier bundleIdentifier: String, options: NSWorkspaceLaunchOptions = [], additionalEventParamDescriptor descriptor: AppleEventDescriptor?, launchIdentifier identifier: AutoreleasingUnsafeMutablePointer<Number?>) -> Bool
+  func open(urls: [URL], withAppBundleIdentifier bundleIdentifier: String?, options: NSWorkspaceLaunchOptions = [], additionalEventParamDescriptor descriptor: AppleEventDescriptor?, launchIdentifiers identifiers: AutoreleasingUnsafeMutablePointer<NSArray?>) -> Bool
   @available(OSX 10.7, *)
   var frontmostApplication: NSRunningApplication? { get }
   @available(OSX 10.7, *)
   var menuBarOwningApplication: NSRunningApplication? { get }
   @available(OSX 10.5, *)
-  func typeOfFile(absoluteFilePath: String) throws -> String
+  func typeOf(file absoluteFilePath: String) throws -> String
   @available(OSX 10.5, *)
-  func localizedDescriptionForType(typeName: String) -> String?
+  func localizedDescriptionFor(type typeName: String) -> String?
   @available(OSX 10.5, *)
-  func preferredFilenameExtensionForType(typeName: String) -> String?
+  func preferredFilenameExtensionFor(type typeName: String) -> String?
   @available(OSX 10.5, *)
   func filenameExtension(filenameExtension: String, isValidForType typeName: String) -> Bool
   @available(OSX 10.5, *)

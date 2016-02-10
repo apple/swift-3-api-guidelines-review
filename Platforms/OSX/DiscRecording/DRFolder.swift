@@ -4,7 +4,7 @@ class DRFolder : DRFSObject {
   init()
 }
 extension DRFolder {
-  class func virtualFolderWithName(name: String!) -> DRFolder!
+  class func virtualFolderWith(name name: String!) -> DRFolder!
   init!(name: String!)
   func makeVirtual()
   func addChild(child: DRFSObject!)

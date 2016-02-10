@@ -2,16 +2,16 @@
 enum NSTickMarkPosition : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Below
-  case Above
-  static var Left: NSTickMarkPosition { get }
-  static var Right: NSTickMarkPosition { get }
+  case below
+  case above
+  static var left: NSTickMarkPosition { get }
+  static var right: NSTickMarkPosition { get }
 }
 enum NSSliderType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case LinearSlider
-  case CircularSlider
+  case linearSlider
+  case circularSlider
 }
 class NSSliderCell : NSActionCell {
   class func prefersTrackingUntilMouseUp() -> Bool
@@ -57,7 +57,7 @@ extension NSSliderCell {
   func tickMarkValueAt(index: Int) -> Double
   func rectOfTickMarkAt(index: Int) -> Rect
   func indexOfTickMarkAt(point: Point) -> Int
-  func closestTickMarkValueToValue(value: Double) -> Double
+  func closestTickMarkValueTo(value value: Double) -> Double
   @available(OSX 10.9, *)
   func drawTickMarks()
 }

@@ -4,7 +4,7 @@ class SSReadingList : Object {
   class func defaultReadingList() -> SSReadingList?
   class func supportsURL(URL: URL) -> Bool
   @available(iOS 7.0, *)
-  func addItemWith(URL: URL, title: String?, previewText: String?) throws
+  func addItem(URL: URL, title: String?, previewText: String?) throws
 }
 @available(iOS 7.0, *)
 let SSReadingListErrorDomain: String
@@ -12,5 +12,5 @@ let SSReadingListErrorDomain: String
 enum SSReadingListErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case URLSchemeNotAllowed
+  case urlSchemeNotAllowed
 }

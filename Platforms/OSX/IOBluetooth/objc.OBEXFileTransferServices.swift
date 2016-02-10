@@ -11,7 +11,7 @@ class OBEXFileTransferServices : Object {
   func disconnect() -> OBEXError
   func changeCurrentFolderToRoot() -> OBEXError
   func changeCurrentFolderBackward() -> OBEXError
-  func changeCurrentFolderForwardToPath(inDirName: String!) -> OBEXError
+  func changeCurrentFolderForwardTo(path inDirName: String!) -> OBEXError
   func createFolder(inDirName: String!) -> OBEXError
   func removeItem(inItemName: String!) -> OBEXError
   func retrieveFolderListing() -> OBEXError

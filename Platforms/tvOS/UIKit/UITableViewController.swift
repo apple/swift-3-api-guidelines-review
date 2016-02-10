@@ -97,9 +97,9 @@ class UITableViewController : UIViewController, UITableViewDelegate, UITableView
   @available(tvOS 2.0, *)
   func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
   @available(tvOS 2.0, *)
-  func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool
+  func scrollViewShouldScrollTo(top scrollView: UIScrollView) -> Bool
   @available(tvOS 2.0, *)
-  func scrollViewDidScrollToTop(scrollView: UIScrollView)
+  func scrollViewDidScrollTo(top scrollView: UIScrollView)
   @available(tvOS 2.0, *)
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   @available(tvOS 2.0, *)

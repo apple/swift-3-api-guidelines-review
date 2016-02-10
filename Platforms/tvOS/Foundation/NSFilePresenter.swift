@@ -3,10 +3,10 @@ protocol FilePresenter : ObjectProtocol {
   @NSCopying var presentedItemURL: URL? { get }
   @available(tvOS 2.0, *)
   var presentedItemOperationQueue: OperationQueue { get }
-  optional func relinquishPresentedItemToReader(reader: ((() -> Void)?) -> Void)
-  optional func relinquishPresentedItemToWriter(writer: ((() -> Void)?) -> Void)
-  optional func savePresentedItemChangesWithCompletionHandler(completionHandler: (Error?) -> Void)
-  optional func accommodatePresentedItemDeletionWithCompletionHandler(completionHandler: (Error?) -> Void)
+  optional func relinquishPresentedItemTo(reader reader: ((() -> Void)?) -> Void)
+  optional func relinquishPresentedItemTo(writer writer: ((() -> Void)?) -> Void)
+  optional func savePresentedItemChanges(completionHandler completionHandler: (Error?) -> Void)
+  optional func accommodatePresentedItemDeletionWith(completionHandler completionHandler: (Error?) -> Void)
   optional func presentedItemDidMoveTo(newURL: URL)
   optional func presentedItemDidChange()
   @available(tvOS 5.0, *)

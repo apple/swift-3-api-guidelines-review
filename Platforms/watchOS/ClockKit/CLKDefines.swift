@@ -2,48 +2,48 @@
 enum CLKComplicationFamily : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ModularSmall
-  case ModularLarge
-  case UtilitarianSmall
-  case UtilitarianLarge
-  case CircularSmall
+  case modularSmall
+  case modularLarge
+  case utilitarianSmall
+  case utilitarianLarge
+  case circularSmall
 }
 struct CLKComplicationTimeTravelDirections : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: CLKComplicationTimeTravelDirections { get }
-  static var Forward: CLKComplicationTimeTravelDirections { get }
-  static var Backward: CLKComplicationTimeTravelDirections { get }
+  static var none: CLKComplicationTimeTravelDirections { get }
+  static var forward: CLKComplicationTimeTravelDirections { get }
+  static var backward: CLKComplicationTimeTravelDirections { get }
 }
 enum CLKComplicationPrivacyBehavior : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ShowOnLockScreen
-  case HideOnLockScreen
+  case showOnLockScreen
+  case hideOnLockScreen
 }
 enum CLKComplicationTimelineAnimationBehavior : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Never
-  case Grouped
-  case Always
+  case never
+  case grouped
+  case always
 }
 enum CLKComplicationColumnAlignment : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Leading
-  case Trailing
+  case leading
+  case trailing
   @available(watchOS 2.0, *)
   @available(watchOS, deprecated=2.1, message="Use CLKComplicationColumnAlignmentLeading instead")
-  static var Left: CLKComplicationColumnAlignment { get }
+  static var left: CLKComplicationColumnAlignment { get }
   @available(watchOS 2.0, *)
   @available(watchOS, deprecated=2.1, message="Use CLKComplicationColumnAlignmentTrailing instead")
-  static var Right: CLKComplicationColumnAlignment { get }
+  static var right: CLKComplicationColumnAlignment { get }
 }
 enum CLKComplicationRingStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Closed
-  case Open
+  case closed
+  case open
 }
 let CLKLaunchedTimelineEntryDateKey: String

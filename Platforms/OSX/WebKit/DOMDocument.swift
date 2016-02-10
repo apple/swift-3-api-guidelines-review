@@ -52,7 +52,7 @@ class DOMDocument : DOMNode {
   func createProcessingInstruction(target: String!, data: String!) -> DOMProcessingInstruction!
   func createAttribute(name: String!) -> DOMAttr!
   func createEntityReference(name: String!) -> DOMEntityReference!
-  func getElementsByTagName(tagname: String!) -> DOMNodeList!
+  func getElementsBy(tagName tagname: String!) -> DOMNodeList!
   @available(OSX 10.5, *)
   func importNode(importedNode: DOMNode!, deep: Bool) -> DOMNode!
   @available(OSX 10.5, *)
@@ -60,7 +60,7 @@ class DOMDocument : DOMNode {
   @available(OSX 10.5, *)
   func createAttributeNS(namespaceURI: String!, qualifiedName: String!) -> DOMAttr!
   @available(OSX 10.5, *)
-  func getElementsByTagNameNS(namespaceURI: String!, localName: String!) -> DOMNodeList!
+  func getElementsBy(tagNameNS namespaceURI: String!, localName: String!) -> DOMNodeList!
   @available(OSX 10.5, *)
   func adoptNode(source: DOMNode!) -> DOMNode!
   func createEvent(eventType: String!) -> DOMEvent!
@@ -93,9 +93,9 @@ class DOMDocument : DOMNode {
   func queryCommandSupported(command: String!) -> Bool
   @available(OSX 10.5, *)
   func queryCommandValue(command: String!) -> String!
-  func getElementsByName(elementName: String!) -> DOMNodeList!
+  func getElementsBy(name elementName: String!) -> DOMNodeList!
   @available(OSX 10.5, *)
-  func elementFromPoint(x: Int32, y: Int32) -> DOMElement!
+  func elementFrom(point x: Int32, y: Int32) -> DOMElement!
   @available(OSX 10.5, *)
   func createCSSStyleDeclaration() -> DOMCSSStyleDeclaration!
   @available(OSX 10.5, *)
@@ -105,12 +105,12 @@ class DOMDocument : DOMNode {
   @available(OSX 10.5, *)
   func getMatchedCSSRules(element: DOMElement!, pseudoElement: String!, authorOnly: Bool) -> DOMCSSRuleList!
   @available(OSX 10.6, *)
-  func getElementsByClassName(classNames: String!) -> DOMNodeList!
+  func getElementsBy(className classNames: String!) -> DOMNodeList!
   @available(OSX 10.6, *)
   func hasFocus() -> Bool
   @available(OSX 10.6, *)
   func webkitCancelFullScreen()
-  func getElementById(elementId: String!) -> DOMElement!
+  func getElementBy(id elementId: String!) -> DOMElement!
   @available(OSX 10.6, *)
   func querySelector(selectors: String!) -> DOMElement!
   @available(OSX 10.6, *)

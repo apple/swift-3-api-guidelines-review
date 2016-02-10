@@ -8,7 +8,7 @@ class DateFormatter : Formatter {
   @available(OSX 10.6, *)
   class func localizedStringFrom(date: Date, dateStyle dstyle: DateFormatterStyle, time tstyle: DateFormatterStyle) -> String
   @available(OSX 10.6, *)
-  class func dateFormatFromTemplate(tmplate: String, options opts: Int, locale: Locale?) -> String?
+  class func dateFormatFrom(template tmplate: String, options opts: Int, locale: Locale?) -> String?
   class func defaultFormatterBehavior() -> DateFormatterBehavior
   class func setDefaultFormatterBehavior(behavior: DateFormatterBehavior)
   @available(OSX 10.10, *)
@@ -67,18 +67,18 @@ class DateFormatter : Formatter {
 enum DateFormatterStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NoStyle
-  case ShortStyle
-  case MediumStyle
-  case LongStyle
-  case FullStyle
+  case noStyle
+  case shortStyle
+  case mediumStyle
+  case longStyle
+  case fullStyle
 }
 enum DateFormatterBehavior : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case BehaviorDefault
-  case Behavior10_0
-  case Behavior10_4
+  case behaviorDefault
+  case behavior10_0
+  case behavior10_4
 }
 extension DateFormatter {
 }

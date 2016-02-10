@@ -10,10 +10,10 @@ class ScriptCommandDescription : Object, Coding {
   var returnType: String? { get }
   var appleEventCodeForReturnType: FourCharCode { get }
   var argumentNames: [String] { get }
-  func typeForArgumentWithName(argumentName: String) -> String?
-  func appleEventCodeForArgumentWithName(argumentName: String) -> FourCharCode
-  func isOptionalArgumentWithName(argumentName: String) -> Bool
+  func typeForArgumentWith(name argumentName: String) -> String?
+  func appleEventCodeForArgumentWith(name argumentName: String) -> FourCharCode
+  func isOptionalArgumentWith(name argumentName: String) -> Bool
   func createCommandInstance() -> ScriptCommand
-  func createCommandInstance(zone zone: Zone = nil) -> ScriptCommand
+  func createCommandInstance(zone: Zone = nil) -> ScriptCommand
   func encodeWith(aCoder: Coder)
 }

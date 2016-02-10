@@ -5,45 +5,45 @@ typealias SSLConnectionRef = UnsafePointer<Void>
 enum SSLProtocol : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case SSLProtocolUnknown
-  case SSLProtocol3
-  case TLSProtocol1
-  case TLSProtocol11
-  case TLSProtocol12
-  case DTLSProtocol1
-  case SSLProtocol2
-  case SSLProtocol3Only
-  case TLSProtocol1Only
-  case SSLProtocolAll
+  case sslProtocolUnknown
+  case sslProtocol3
+  case tlsProtocol1
+  case tlsProtocol11
+  case tlsProtocol12
+  case dtlsProtocol1
+  case sslProtocol2
+  case sslProtocol3Only
+  case tlsProtocol1Only
+  case sslProtocolAll
 }
 enum SSLSessionOption : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case BreakOnServerAuth
-  case BreakOnCertRequested
-  case BreakOnClientAuth
-  case FalseStart
-  case SendOneByteRecord
-  case AllowServerIdentityChange
-  case Fallback
-  case BreakOnClientHello
+  case breakOnServerAuth
+  case breakOnCertRequested
+  case breakOnClientAuth
+  case falseStart
+  case sendOneByteRecord
+  case allowServerIdentityChange
+  case fallback
+  case breakOnClientHello
 }
 enum SSLSessionState : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Idle
-  case Handshake
-  case Connected
-  case Closed
-  case Aborted
+  case idle
+  case handshake
+  case connected
+  case closed
+  case aborted
 }
 enum SSLClientCertificateState : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case CertNone
-  case CertRequested
-  case CertSent
-  case CertRejected
+  case certNone
+  case certRequested
+  case certSent
+  case certRejected
 }
 typealias SSLReadFunc = @convention(c) (SSLConnectionRef, UnsafeMutablePointer<Void>, UnsafeMutablePointer<Int>) -> OSStatus
 typealias SSLWriteFunc = @convention(c) (SSLConnectionRef, UnsafePointer<Void>, UnsafeMutablePointer<Int>) -> OSStatus
@@ -102,14 +102,14 @@ var errSSLClientHelloReceived: OSStatus { get }
 enum SSLProtocolSide : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case ServerSide
-  case ClientSide
+  case serverSide
+  case clientSide
 }
 enum SSLConnectionType : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case StreamType
-  case DatagramType
+  case streamType
+  case datagramType
 }
 @available(OSX 10.8, *)
 func SSLContextGetTypeID() -> CFTypeID
@@ -164,9 +164,9 @@ func SSLGetEnabledCiphers(context: SSLContext, _ ciphers: UnsafeMutablePointer<S
 enum SSLSessionStrengthPolicy : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Default
-  case ATSv1
-  case ATSv1_noPFS
+  case `default`
+  case atSv1
+  case atSv1_noPFS
 }
 func SSLSetSessionStrengthPolicy(context: SSLContext, _ policyStrength: SSLSessionStrengthPolicy) -> OSStatus
 @available(OSX 10.6, *)
@@ -182,9 +182,9 @@ func SSLSetEncryptionCertificate(context: SSLContext, _ certRefs: CFArray) -> OS
 enum SSLAuthenticate : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case NeverAuthenticate
-  case AlwaysAuthenticate
-  case TryAuthenticate
+  case neverAuthenticate
+  case alwaysAuthenticate
+  case tryAuthenticate
 }
 @available(OSX 10.2, *)
 func SSLSetClientSideAuthenticate(context: SSLContext, _ auth: SSLAuthenticate) -> OSStatus

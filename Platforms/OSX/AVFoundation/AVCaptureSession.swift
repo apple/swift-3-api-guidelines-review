@@ -11,10 +11,10 @@ let AVCaptureSessionDidStopRunningNotification: String
 enum AVCaptureVideoOrientation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Portrait
-  case PortraitUpsideDown
-  case LandscapeRight
-  case LandscapeLeft
+  case portrait
+  case portraitUpsideDown
+  case landscapeRight
+  case landscapeLeft
 }
 @available(OSX 10.7, *)
 let AVCaptureSessionPresetPhoto: String
@@ -73,10 +73,10 @@ class AVCaptureSession : Object {
 enum AVVideoFieldMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Both
-  case TopOnly
-  case BottomOnly
-  case Deinterlace
+  case both
+  case topOnly
+  case bottomOnly
+  case deinterlace
 }
 @available(OSX 10.7, *)
 class AVCaptureConnection : Object {

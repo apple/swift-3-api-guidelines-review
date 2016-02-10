@@ -17,8 +17,8 @@ class NSTreeController : NSObjectController {
   var canAddChild: Bool { get }
   func insert(object: AnyObject?, atArrangedObjectIndexPath indexPath: IndexPath)
   func insert(objects: [AnyObject], atArrangedObjectIndexPaths indexPaths: [IndexPath])
-  func removeObjectAtArrangedObjectIndexPath(indexPath: IndexPath)
-  func removeObjectsAtArrangedObjectIndexPaths(indexPaths: [IndexPath])
+  func removeObjectAt(arrangedObjectIndexPath indexPath: IndexPath)
+  func removeObjectsAt(arrangedObjectIndexPaths indexPaths: [IndexPath])
   var avoidsEmptySelection: Bool
   var preservesSelection: Bool
   var selectsInsertedObjects: Bool

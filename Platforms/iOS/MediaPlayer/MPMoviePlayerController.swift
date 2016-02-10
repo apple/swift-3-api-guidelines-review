@@ -3,70 +3,70 @@
 enum MPMovieScalingMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case AspectFit
-  case AspectFill
-  case Fill
+  case none
+  case aspectFit
+  case aspectFill
+  case fill
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 enum MPMoviePlaybackState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Stopped
-  case Playing
-  case Paused
-  case Interrupted
-  case SeekingForward
-  case SeekingBackward
+  case stopped
+  case playing
+  case paused
+  case interrupted
+  case seekingForward
+  case seekingBackward
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 struct MPMovieLoadState : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Unknown: MPMovieLoadState { get }
-  static var Playable: MPMovieLoadState { get }
-  static var PlaythroughOK: MPMovieLoadState { get }
-  static var Stalled: MPMovieLoadState { get }
+  static var unknown: MPMovieLoadState { get }
+  static var playable: MPMovieLoadState { get }
+  static var playthroughOK: MPMovieLoadState { get }
+  static var stalled: MPMovieLoadState { get }
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 enum MPMovieRepeatMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case One
+  case none
+  case one
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 enum MPMovieControlStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Embedded
-  case Fullscreen
-  static var Default: MPMovieControlStyle { get }
+  case none
+  case embedded
+  case fullscreen
+  static var `default`: MPMovieControlStyle { get }
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 enum MPMovieFinishReason : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case PlaybackEnded
-  case PlaybackError
-  case UserExited
+  case playbackEnded
+  case playbackError
+  case userExited
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 struct MPMovieMediaTypeMask : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: MPMovieMediaTypeMask { get }
-  static var Video: MPMovieMediaTypeMask { get }
-  static var Audio: MPMovieMediaTypeMask { get }
+  static var none: MPMovieMediaTypeMask { get }
+  static var video: MPMovieMediaTypeMask { get }
+  static var audio: MPMovieMediaTypeMask { get }
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 enum MPMovieSourceType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case File
-  case Streaming
+  case unknown
+  case file
+  case streaming
 }
 @available(iOS 2.0, *)
 @available(iOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
@@ -167,12 +167,12 @@ let MPMovieNaturalSizeAvailableNotification: String
 enum MPMovieTimeOption : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case NearestKeyFrame
-  case Exact
+  case nearestKeyFrame
+  case exact
 }
 extension MPMoviePlayerController {
   @available(iOS, introduced=3.2, deprecated=9.0)
-  func requestThumbnailImagesAtTimes(playbackTimes: [AnyObject]!, timeOption option: MPMovieTimeOption)
+  func requestThumbnailImagesAt(times playbackTimes: [AnyObject]!, timeOption option: MPMovieTimeOption)
   @available(iOS, introduced=3.2, deprecated=9.0)
   func cancelAllThumbnailImageRequests()
 }
@@ -226,7 +226,7 @@ class MPMovieAccessLog : Object, Copying {
   var events: [AnyObject]! { get }
   init()
   @available(iOS 4.3, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 4.3, *)
 @available(iOS, introduced=4.3, deprecated=9.0)
@@ -236,7 +236,7 @@ class MPMovieErrorLog : Object, Copying {
   var events: [AnyObject]! { get }
   init()
   @available(iOS 4.3, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 4.3, *)
 @available(iOS, introduced=4.3, deprecated=9.0)
@@ -257,7 +257,7 @@ class MPMovieAccessLogEvent : Object, Copying {
   var numberOfDroppedVideoFrames: Int { get }
   init()
   @available(iOS 4.3, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 4.3, *)
 @available(iOS, introduced=4.3, deprecated=9.0)
@@ -271,7 +271,7 @@ class MPMovieErrorLogEvent : Object, Copying {
   var errorComment: String! { get }
   init()
   @available(iOS 4.3, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 extension MPMoviePlayerController {
 }

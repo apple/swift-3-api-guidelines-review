@@ -3,17 +3,17 @@
 enum HKWorkoutSessionState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case NotStarted
-  case Running
-  case Ended
+  case notStarted
+  case running
+  case ended
 }
 @available(watchOS 2.0, *)
 enum HKWorkoutSessionLocationType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Indoor
-  case Outdoor
+  case unknown
+  case indoor
+  case outdoor
 }
 @available(watchOS 2.0, *)
 class HKWorkoutSession : Object, SecureCoding {

@@ -38,11 +38,11 @@ var SCNConsistencyXMLSchemaValidationError: Int { get }
 enum SCNSceneSourceStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Error
-  case Parsing
-  case Validating
-  case Processing
-  case Complete
+  case error
+  case parsing
+  case validating
+  case processing
+  case complete
 }
 typealias SCNSceneSourceStatusHandler = (Float, SCNSceneSourceStatus, Error?, UnsafeMutablePointer<ObjCBool>) -> Void
 @available(iOS 8.0, *)
@@ -53,8 +53,8 @@ class SCNSceneSource : Object {
   var data: Data? { get }
   func scene(options options: [String : AnyObject]? = [:], statusHandler: SCNSceneSourceStatusHandler? = nil) -> SCNScene?
   func scene(options options: [String : AnyObject]? = [:]) throws -> SCNScene
-  func propertyForKey(key: String) -> AnyObject?
-  func __entryWithIdentifier(uid: String, withClass entryClass: AnyClass) -> AnyObject?
+  func propertyFor(key key: String) -> AnyObject?
+  func __entryWith(identifier uid: String, withClass entryClass: AnyClass) -> AnyObject?
   func identifiersOfEntriesWith(entryClass: AnyClass) -> [String]
   @available(iOS 8.0, *)
   func entriesPassingTest(predicate: (AnyObject, String, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [AnyObject]

@@ -3,9 +3,9 @@
 enum GLKFogMode : GLint {
   init?(rawValue: GLint)
   var rawValue: GLint { get }
-  case Exp
-  case Exp2
-  case Linear
+  case exp
+  case exp2
+  case linear
 }
 @available(iOS 5.0, *)
 class GLKEffectPropertyFog : GLKEffectProperty {

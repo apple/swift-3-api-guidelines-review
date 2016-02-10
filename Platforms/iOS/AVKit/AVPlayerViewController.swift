@@ -16,15 +16,15 @@ class AVPlayerViewController : UIViewController {
 }
 protocol AVPlayerViewControllerDelegate : ObjectProtocol {
   @available(iOS 8.0, *)
-  optional func playerViewControllerWillStartPictureInPicture(playerViewController: AVPlayerViewController)
+  optional func playerViewControllerWillStartPictureIn(picture playerViewController: AVPlayerViewController)
   @available(iOS 8.0, *)
-  optional func playerViewControllerDidStartPictureInPicture(playerViewController: AVPlayerViewController)
+  optional func playerViewControllerDidStartPictureIn(picture playerViewController: AVPlayerViewController)
   @available(iOS 8.0, *)
   optional func playerViewController(playerViewController: AVPlayerViewController, failedToStartPictureInPictureWithError error: Error)
   @available(iOS 8.0, *)
-  optional func playerViewControllerWillStopPictureInPicture(playerViewController: AVPlayerViewController)
+  optional func playerViewControllerWillStopPictureIn(picture playerViewController: AVPlayerViewController)
   @available(iOS 8.0, *)
-  optional func playerViewControllerDidStopPictureInPicture(playerViewController: AVPlayerViewController)
+  optional func playerViewControllerDidStopPictureIn(picture playerViewController: AVPlayerViewController)
   @available(iOS 8.0, *)
   optional func playerViewControllerShouldAutomaticallyDismissAtPictureInPictureStart(playerViewController: AVPlayerViewController) -> Bool
   @available(iOS 8.0, *)

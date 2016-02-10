@@ -21,7 +21,7 @@ class UIBarItem : Object, Coding, UIAppearance {
   @available(iOS 2.0, *)
   class func appearance() -> Self
   @available(iOS 9.0, *)
-  class func appearanceWhenContainedInInstancesOfClasses(containerTypes: [AnyObject.Type]) -> Self
+  class func appearanceWhenContainedInInstancesOf(classes containerTypes: [AnyObject.Type]) -> Self
   @available(iOS 8.0, *)
   class func appearanceFor(trait: UITraitCollection) -> Self
   @available(iOS 9.0, *)

@@ -3,12 +3,12 @@
 enum NEVPNStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Invalid
-  case Disconnected
-  case Connecting
-  case Connected
-  case Reasserting
-  case Disconnecting
+  case invalid
+  case disconnected
+  case connecting
+  case connected
+  case reasserting
+  case disconnecting
 }
 @available(OSX 10.10, *)
 let NEVPNStatusDidChangeNotification: String

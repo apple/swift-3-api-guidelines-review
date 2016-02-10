@@ -3,12 +3,12 @@
 enum SKDownloadState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Waiting
-  case Active
-  case Paused
-  case Finished
-  case Failed
-  case Cancelled
+  case waiting
+  case active
+  case paused
+  case finished
+  case failed
+  case cancelled
 }
 @available(iOS 6.0, *)
 var SKDownloadTimeRemainingUnknown: TimeInterval

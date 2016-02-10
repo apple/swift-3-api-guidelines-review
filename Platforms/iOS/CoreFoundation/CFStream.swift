@@ -2,24 +2,24 @@
 enum CFStreamStatus : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case NotOpen
-  case Opening
-  case Open
-  case Reading
-  case Writing
-  case AtEnd
-  case Closed
-  case Error
+  case notOpen
+  case opening
+  case open
+  case reading
+  case writing
+  case atEnd
+  case closed
+  case error
 }
 struct CFStreamEventType : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
-  static var None: CFStreamEventType { get }
-  static var OpenCompleted: CFStreamEventType { get }
-  static var HasBytesAvailable: CFStreamEventType { get }
-  static var CanAcceptBytes: CFStreamEventType { get }
-  static var ErrorOccurred: CFStreamEventType { get }
-  static var EndEncountered: CFStreamEventType { get }
+  static var none: CFStreamEventType { get }
+  static var openCompleted: CFStreamEventType { get }
+  static var hasBytesAvailable: CFStreamEventType { get }
+  static var canAcceptBytes: CFStreamEventType { get }
+  static var errorOccurred: CFStreamEventType { get }
+  static var endEncountered: CFStreamEventType { get }
 }
 struct CFStreamClientContext {
   var version: CFIndex
@@ -89,9 +89,9 @@ func CFWriteStreamCopyDispatchQueue(stream: CFWriteStream!) -> dispatch_queue_t!
 enum CFStreamErrorDomain : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case Custom
+  case custom
   case POSIX
-  case MacOSStatus
+  case macOSStatus
 }
 struct CFStreamError {
   var domain: CFIndex

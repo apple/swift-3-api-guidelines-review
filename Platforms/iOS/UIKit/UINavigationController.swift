@@ -2,9 +2,9 @@
 enum UINavigationControllerOperation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Push
-  case Pop
+  case none
+  case push
+  case pop
 }
 let UINavigationControllerHideShowBarDuration: CGFloat
 @available(iOS 2.0, *)
@@ -13,9 +13,9 @@ class UINavigationController : UIViewController {
   init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
   init(rootViewController: UIViewController)
   func pushViewController(viewController: UIViewController, animated: Bool)
-  func popViewControllerAnimated(animated: Bool) -> UIViewController?
+  func popViewController(animated animated: Bool) -> UIViewController?
   func popTo(viewController: UIViewController, animated: Bool) -> [UIViewController]?
-  func popToRootViewControllerAnimated(animated: Bool) -> [UIViewController]?
+  func popToRootViewController(animated animated: Bool) -> [UIViewController]?
   var topViewController: UIViewController? { get }
   var visibleViewController: UIViewController? { get }
   var viewControllers: [UIViewController]
@@ -59,7 +59,7 @@ protocol UINavigationControllerDelegate : ObjectProtocol {
   @available(iOS 7.0, *)
   optional func navigationControllerSupportedInterfaceOrientations(navigationController: UINavigationController) -> UIInterfaceOrientationMask
   @available(iOS 7.0, *)
-  optional func navigationControllerPreferredInterfaceOrientationForPresentation(navigationController: UINavigationController) -> UIInterfaceOrientation
+  optional func navigationControllerPreferredInterfaceOrientationFor(presentation navigationController: UINavigationController) -> UIInterfaceOrientation
   @available(iOS 7.0, *)
   optional func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
   @available(iOS 7.0, *)

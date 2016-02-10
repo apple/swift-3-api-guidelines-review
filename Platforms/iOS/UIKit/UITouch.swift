@@ -2,36 +2,36 @@
 enum UITouchPhase : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Began
-  case Moved
-  case Stationary
-  case Ended
-  case Cancelled
+  case began
+  case moved
+  case stationary
+  case ended
+  case cancelled
 }
 enum UIForceTouchCapability : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Unavailable
-  case Available
+  case unknown
+  case unavailable
+  case available
 }
 @available(iOS 9.0, *)
 enum UITouchType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Direct
-  case Indirect
+  case direct
+  case indirect
   @available(iOS 9.1, *)
-  case Stylus
+  case stylus
 }
 @available(iOS 9.1, *)
 struct UITouchProperties : OptionSetType {
   init(rawValue: Int)
   let rawValue: Int
-  static var Force: UITouchProperties { get }
-  static var Azimuth: UITouchProperties { get }
-  static var Altitude: UITouchProperties { get }
-  static var Location: UITouchProperties { get }
+  static var force: UITouchProperties { get }
+  static var azimuth: UITouchProperties { get }
+  static var altitude: UITouchProperties { get }
+  static var location: UITouchProperties { get }
 }
 @available(iOS 2.0, *)
 class UITouch : Object {

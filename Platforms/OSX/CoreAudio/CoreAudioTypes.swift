@@ -137,25 +137,25 @@ struct AudioStreamPacketDescription {
 enum SMPTETimeType : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Type24
-  case Type25
-  case Type30Drop
-  case Type30
-  case Type2997
-  case Type2997Drop
-  case Type60
-  case Type5994
-  case Type60Drop
-  case Type5994Drop
-  case Type50
-  case Type2398
+  case type24
+  case type25
+  case type30Drop
+  case type30
+  case type2997
+  case type2997Drop
+  case type60
+  case type5994
+  case type60Drop
+  case type5994Drop
+  case type50
+  case type2398
 }
 struct SMPTETimeFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var Unknown: SMPTETimeFlags { get }
-  static var Valid: SMPTETimeFlags { get }
-  static var Running: SMPTETimeFlags { get }
+  static var unknown: SMPTETimeFlags { get }
+  static var valid: SMPTETimeFlags { get }
+  static var running: SMPTETimeFlags { get }
 }
 struct SMPTETime {
   var mSubframes: Int16
@@ -173,13 +173,13 @@ struct SMPTETime {
 struct AudioTimeStampFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var NothingValid: AudioTimeStampFlags { get }
-  static var SampleTimeValid: AudioTimeStampFlags { get }
-  static var HostTimeValid: AudioTimeStampFlags { get }
-  static var RateScalarValid: AudioTimeStampFlags { get }
-  static var WordClockTimeValid: AudioTimeStampFlags { get }
-  static var SMPTETimeValid: AudioTimeStampFlags { get }
-  static var SampleHostTimeValid: AudioTimeStampFlags { get }
+  static var nothingValid: AudioTimeStampFlags { get }
+  static var sampleTimeValid: AudioTimeStampFlags { get }
+  static var hostTimeValid: AudioTimeStampFlags { get }
+  static var rateScalarValid: AudioTimeStampFlags { get }
+  static var wordClockTimeValid: AudioTimeStampFlags { get }
+  static var smpteTimeValid: AudioTimeStampFlags { get }
+  static var sampleHostTimeValid: AudioTimeStampFlags { get }
 }
 struct AudioTimeStamp {
   var mSampleTime: Float64
@@ -268,42 +268,42 @@ var kAudioChannelLabel_Discrete_65535: AudioChannelLabel { get }
 struct AudioChannelBitmap : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var Bit_Left: AudioChannelBitmap { get }
-  static var Bit_Right: AudioChannelBitmap { get }
-  static var Bit_Center: AudioChannelBitmap { get }
-  static var Bit_LFEScreen: AudioChannelBitmap { get }
-  static var Bit_LeftSurround: AudioChannelBitmap { get }
-  static var Bit_RightSurround: AudioChannelBitmap { get }
-  static var Bit_LeftCenter: AudioChannelBitmap { get }
-  static var Bit_RightCenter: AudioChannelBitmap { get }
-  static var Bit_CenterSurround: AudioChannelBitmap { get }
-  static var Bit_LeftSurroundDirect: AudioChannelBitmap { get }
-  static var Bit_RightSurroundDirect: AudioChannelBitmap { get }
-  static var Bit_TopCenterSurround: AudioChannelBitmap { get }
-  static var Bit_VerticalHeightLeft: AudioChannelBitmap { get }
-  static var Bit_VerticalHeightCenter: AudioChannelBitmap { get }
-  static var Bit_VerticalHeightRight: AudioChannelBitmap { get }
-  static var Bit_TopBackLeft: AudioChannelBitmap { get }
-  static var Bit_TopBackCenter: AudioChannelBitmap { get }
-  static var Bit_TopBackRight: AudioChannelBitmap { get }
+  static var bit_Left: AudioChannelBitmap { get }
+  static var bit_Right: AudioChannelBitmap { get }
+  static var bit_Center: AudioChannelBitmap { get }
+  static var bit_LFEScreen: AudioChannelBitmap { get }
+  static var bit_LeftSurround: AudioChannelBitmap { get }
+  static var bit_RightSurround: AudioChannelBitmap { get }
+  static var bit_LeftCenter: AudioChannelBitmap { get }
+  static var bit_RightCenter: AudioChannelBitmap { get }
+  static var bit_CenterSurround: AudioChannelBitmap { get }
+  static var bit_LeftSurroundDirect: AudioChannelBitmap { get }
+  static var bit_RightSurroundDirect: AudioChannelBitmap { get }
+  static var bit_TopCenterSurround: AudioChannelBitmap { get }
+  static var bit_VerticalHeightLeft: AudioChannelBitmap { get }
+  static var bit_VerticalHeightCenter: AudioChannelBitmap { get }
+  static var bit_VerticalHeightRight: AudioChannelBitmap { get }
+  static var bit_TopBackLeft: AudioChannelBitmap { get }
+  static var bit_TopBackCenter: AudioChannelBitmap { get }
+  static var bit_TopBackRight: AudioChannelBitmap { get }
 }
 struct AudioChannelFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var AllOff: AudioChannelFlags { get }
-  static var RectangularCoordinates: AudioChannelFlags { get }
-  static var SphericalCoordinates: AudioChannelFlags { get }
-  static var Meters: AudioChannelFlags { get }
+  static var allOff: AudioChannelFlags { get }
+  static var rectangularCoordinates: AudioChannelFlags { get }
+  static var sphericalCoordinates: AudioChannelFlags { get }
+  static var meters: AudioChannelFlags { get }
 }
 enum AudioChannelCoordinateIndex : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Coordinates_LeftRight
-  case Coordinates_BackFront
-  case Coordinates_DownUp
-  static var Coordinates_Azimuth: AudioChannelCoordinateIndex { get }
-  static var Coordinates_Elevation: AudioChannelCoordinateIndex { get }
-  static var Coordinates_Distance: AudioChannelCoordinateIndex { get }
+  case coordinates_LeftRight
+  case coordinates_BackFront
+  case coordinates_DownUp
+  static var coordinates_Azimuth: AudioChannelCoordinateIndex { get }
+  static var coordinates_Elevation: AudioChannelCoordinateIndex { get }
+  static var coordinates_Distance: AudioChannelCoordinateIndex { get }
 }
 var kAudioChannelLayoutTag_UseChannelDescriptions: AudioChannelLayoutTag { get }
 var kAudioChannelLayoutTag_UseChannelBitmap: AudioChannelLayoutTag { get }
@@ -451,13 +451,13 @@ func AudioChannelLayoutTag_GetNumberOfChannels(inLayoutTag: AudioChannelLayoutTa
 enum MPEG4ObjectID : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case AAC_Main
+  case aac_Main
   case AAC_LC
   case AAC_SSR
   case AAC_LTP
   case AAC_SBR
-  case AAC_Scalable
-  case TwinVQ
+  case aac_Scalable
+  case twinVQ
   case CELP
   case HVXC
 }

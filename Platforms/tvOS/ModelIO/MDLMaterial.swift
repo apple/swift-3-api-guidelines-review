@@ -2,65 +2,65 @@
 enum MDLMaterialSemantic : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case BaseColor
-  case Subsurface
-  case Metallic
-  case Specular
-  case SpecularExponent
-  case SpecularTint
-  case Roughness
-  case Anisotropic
-  case AnisotropicRotation
-  case Sheen
-  case SheenTint
-  case Clearcoat
-  case ClearcoatGloss
-  case Emission
-  case Bump
-  case Opacity
-  case InterfaceIndexOfRefraction
-  case MaterialIndexOfRefraction
-  case ObjectSpaceNormal
-  case TangentSpaceNormal
-  case Displacement
-  case DisplacementScale
-  case AmbientOcclusion
-  case AmbientOcclusionScale
-  case None
-  case UserDefined
+  case baseColor
+  case subsurface
+  case metallic
+  case specular
+  case specularExponent
+  case specularTint
+  case roughness
+  case anisotropic
+  case anisotropicRotation
+  case sheen
+  case sheenTint
+  case clearcoat
+  case clearcoatGloss
+  case emission
+  case bump
+  case opacity
+  case interfaceIndexOfRefraction
+  case materialIndexOfRefraction
+  case objectSpaceNormal
+  case tangentSpaceNormal
+  case displacement
+  case displacementScale
+  case ambientOcclusion
+  case ambientOcclusionScale
+  case none
+  case userDefined
 }
 enum MDLMaterialPropertyType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
-  case String
+  case none
+  case string
   case URL
-  case Texture
-  case Color
-  case Float
-  case Float2
-  case Float3
-  case Float4
-  case Matrix44
+  case texture
+  case color
+  case float
+  case float2
+  case float3
+  case float4
+  case matrix44
 }
 enum MDLMaterialTextureWrapMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Clamp
-  case Repeat
-  case Mirror
+  case clamp
+  case `repeat`
+  case mirror
 }
 enum MDLMaterialTextureFilterMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Nearest
-  case Linear
+  case nearest
+  case linear
 }
 enum MDLMaterialMipMapFilterMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Nearest
-  case Linear
+  case nearest
+  case linear
 }
 @available(tvOS 9.0, *)
 class MDLTextureFilter : Object {
@@ -145,10 +145,10 @@ class MDLMaterial : Object, MDLNamed, FastEnumeration {
   var scatteringFunction: MDLScatteringFunction { get }
   var name: String
   var base: MDLMaterial?
-  subscript (idx: Int) -> MDLMaterialProperty? { get }
-  subscript (name: String) -> MDLMaterialProperty? { get }
+  subscript (indexedSubscript idx: Int) -> MDLMaterialProperty? { get }
+  subscript (keyedSubscript name: String) -> MDLMaterialProperty? { get }
   var count: Int { get }
   init()
   @available(tvOS 9.0, *)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

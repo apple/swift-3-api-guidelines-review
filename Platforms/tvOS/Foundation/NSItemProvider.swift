@@ -5,13 +5,13 @@ typealias ItemProviderLoadHandler = (ItemProviderCompletionHandler!, AnyClass!, 
 class ItemProvider : Object, Copying {
   init(item: SecureCoding?, typeIdentifier: String?)
   convenience init?(contentsOf fileURL: URL!)
-  func registerItemForTypeIdentifier(typeIdentifier: String, loadHandler: ItemProviderLoadHandler)
+  func registerItemFor(typeIdentifier typeIdentifier: String, loadHandler: ItemProviderLoadHandler)
   var registeredTypeIdentifiers: [AnyObject] { get }
-  func hasItemConformingToTypeIdentifier(typeIdentifier: String) -> Bool
-  func loadItemForTypeIdentifier(typeIdentifier: String, options: [Object : AnyObject]? = [:], completionHandler: ItemProviderCompletionHandler? = nil)
+  func hasItemConformingTo(typeIdentifier typeIdentifier: String) -> Bool
+  func loadItemFor(typeIdentifier typeIdentifier: String, options: [Object : AnyObject]? = [:], completionHandler: ItemProviderCompletionHandler? = nil)
   convenience init()
   @available(tvOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 let itemProviderPreferredImageSizeKey: String
@@ -31,9 +31,9 @@ let itemProviderErrorDomain: String
 enum ItemProviderErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case UnknownError
-  case ItemUnavailableError
-  case UnexpectedValueClassError
+  case unknownError
+  case itemUnavailableError
+  case unexpectedValueClassError
   @available(tvOS 9.0, *)
-  case UnavailableCoercionError
+  case unavailableCoercionError
 }

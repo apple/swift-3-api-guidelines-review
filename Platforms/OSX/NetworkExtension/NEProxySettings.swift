@@ -20,7 +20,7 @@ class NEProxyServer : Object, SecureCoding, Copying {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class NEProxySettings : Object, SecureCoding, Copying {
@@ -51,5 +51,5 @@ class NEProxySettings : Object, SecureCoding, Copying {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

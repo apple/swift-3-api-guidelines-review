@@ -8,8 +8,8 @@ let AVCaptureDeviceSubjectAreaDidChangeNotification: String
 @available(iOS 4.0, *)
 class AVCaptureDevice : Object {
   class func devices() -> [AnyObject]!
-  class func devicesWithMediaType(mediaType: String!) -> [AnyObject]!
-  class func defaultDeviceWithMediaType(mediaType: String!) -> AVCaptureDevice!
+  class func devicesWith(mediaType mediaType: String!) -> [AnyObject]!
+  class func defaultDeviceWith(mediaType mediaType: String!) -> AVCaptureDevice!
   /*not inherited*/ init!(uniqueID deviceUniqueID: String!)
   var uniqueID: String! { get }
   var modelID: String! { get }
@@ -33,9 +33,9 @@ class AVCaptureDevice : Object {
 enum AVCaptureDevicePosition : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unspecified
-  case Back
-  case Front
+  case unspecified
+  case back
+  case front
 }
 extension AVCaptureDevice {
   var position: AVCaptureDevicePosition { get }
@@ -44,9 +44,9 @@ extension AVCaptureDevice {
 enum AVCaptureFlashMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Off
-  case On
-  case Auto
+  case off
+  case on
+  case auto
 }
 extension AVCaptureDevice {
   var hasFlash: Bool { get }
@@ -61,9 +61,9 @@ extension AVCaptureDevice {
 enum AVCaptureTorchMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Off
-  case On
-  case Auto
+  case off
+  case on
+  case auto
 }
 let AVCaptureMaxAvailableTorchLevel: Float
 extension AVCaptureDevice {
@@ -83,17 +83,17 @@ extension AVCaptureDevice {
 enum AVCaptureFocusMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Locked
-  case AutoFocus
-  case ContinuousAutoFocus
+  case locked
+  case autoFocus
+  case continuousAutoFocus
 }
 @available(iOS 7.0, *)
 enum AVCaptureAutoFocusRangeRestriction : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Near
-  case Far
+  case none
+  case near
+  case far
 }
 extension AVCaptureDevice {
   func isFocusModeSupported(focusMode: AVCaptureFocusMode) -> Bool
@@ -120,11 +120,11 @@ let AVCaptureLensPositionCurrent: Float
 enum AVCaptureExposureMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Locked
-  case AutoExpose
-  case ContinuousAutoExposure
+  case locked
+  case autoExpose
+  case continuousAutoExposure
   @available(iOS 8.0, *)
-  case Custom
+  case custom
 }
 extension AVCaptureDevice {
   func isExposureModeSupported(exposureMode: AVCaptureExposureMode) -> Bool
@@ -161,9 +161,9 @@ let AVCaptureExposureTargetBiasCurrent: Float
 enum AVCaptureWhiteBalanceMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Locked
-  case AutoWhiteBalance
-  case ContinuousAutoWhiteBalance
+  case locked
+  case autoWhiteBalance
+  case continuousAutoWhiteBalance
 }
 @available(iOS 8.0, *)
 struct AVCaptureWhiteBalanceGains {
@@ -236,16 +236,16 @@ extension AVCaptureDevice {
 enum AVAuthorizationStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case NotDetermined
-  case Restricted
-  case Denied
-  case Authorized
+  case notDetermined
+  case restricted
+  case denied
+  case authorized
 }
 extension AVCaptureDevice {
   @available(iOS 7.0, *)
-  class func authorizationStatusForMediaType(mediaType: String!) -> AVAuthorizationStatus
+  class func authorizationStatusFor(mediaType mediaType: String!) -> AVAuthorizationStatus
   @available(iOS 7.0, *)
-  class func requestAccessForMediaType(mediaType: String!, completionHandler handler: ((Bool) -> Void)!)
+  class func requestAccessFor(mediaType mediaType: String!, completionHandler handler: ((Bool) -> Void)!)
 }
 extension AVCaptureDevice {
   @available(iOS 8.0, *)
@@ -265,18 +265,18 @@ class AVFrameRateRange : Object {
 enum AVCaptureVideoStabilizationMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Off
-  case Standard
-  case Cinematic
-  case Auto
+  case off
+  case standard
+  case cinematic
+  case auto
 }
 @available(iOS 8.0, *)
 enum AVCaptureAutoFocusSystem : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case ContrastDetection
-  case PhaseDetection
+  case none
+  case contrastDetection
+  case phaseDetection
 }
 @available(iOS 7.0, *)
 class AVCaptureDeviceFormat : Object {

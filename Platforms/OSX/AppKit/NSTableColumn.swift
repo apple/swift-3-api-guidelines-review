@@ -2,9 +2,9 @@
 struct NSTableColumnResizingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var NoResizing: NSTableColumnResizingOptions { get }
-  static var AutoresizingMask: NSTableColumnResizingOptions { get }
-  static var UserResizingMask: NSTableColumnResizingOptions { get }
+  static var noResizing: NSTableColumnResizingOptions { get }
+  static var autoresizingMask: NSTableColumnResizingOptions { get }
+  static var userResizingMask: NSTableColumnResizingOptions { get }
 }
 class NSTableColumn : Object, Coding, NSUserInterfaceItemIdentification {
   init(identifier: String)
@@ -41,5 +41,5 @@ struct __colFlags {
 }
 extension NSTableColumn {
   var dataCell: AnyObject
-  func dataCellForRow(row: Int) -> AnyObject
+  func dataCellFor(row row: Int) -> AnyObject
 }

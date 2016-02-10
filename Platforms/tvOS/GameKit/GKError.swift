@@ -3,33 +3,33 @@ let GKErrorDomain: String
 enum GKErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Cancelled
-  case CommunicationsFailure
-  case UserDenied
-  case InvalidCredentials
-  case NotAuthenticated
-  case AuthenticationInProgress
-  case InvalidPlayer
-  case ScoreNotSet
-  case ParentalControlsBlocked
-  case PlayerStatusExceedsMaximumLength
-  case PlayerStatusInvalid
-  case MatchRequestInvalid
-  case Underage
-  case GameUnrecognized
-  case NotSupported
-  case InvalidParameter
-  case UnexpectedConnection
-  case ChallengeInvalid
-  case TurnBasedMatchDataTooLarge
-  case TurnBasedTooManySessions
-  case TurnBasedInvalidParticipant
-  case TurnBasedInvalidTurn
-  case TurnBasedInvalidState
-  case InvitationsDisabled
-  case PlayerPhotoFailure
-  case UbiquityContainerUnavailable
+  case unknown
+  case cancelled
+  case communicationsFailure
+  case userDenied
+  case invalidCredentials
+  case notAuthenticated
+  case authenticationInProgress
+  case invalidPlayer
+  case scoreNotSet
+  case parentalControlsBlocked
+  case playerStatusExceedsMaximumLength
+  case playerStatusInvalid
+  case matchRequestInvalid
+  case underage
+  case gameUnrecognized
+  case notSupported
+  case invalidParameter
+  case unexpectedConnection
+  case challengeInvalid
+  case turnBasedMatchDataTooLarge
+  case turnBasedTooManySessions
+  case turnBasedInvalidParticipant
+  case turnBasedInvalidTurn
+  case turnBasedInvalidState
+  case invitationsDisabled
+  case playerPhotoFailure
+  case ubiquityContainerUnavailable
 }
 
 extension GKErrorCode : _BridgedNSError {

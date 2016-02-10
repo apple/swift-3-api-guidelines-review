@@ -12,7 +12,7 @@ class NSComboBox : NSTextField {
   func reloadData()
   func noteNumberOfItemsChanged()
   var usesDataSource: Bool
-  func scrollItemAtIndexToTop(index: Int)
+  func scrollItemAtIndexTo(top index: Int)
   func scrollItemAtIndexToVisible(index: Int)
   func selectItemAt(index: Int)
   func deselectItemAt(index: Int)
@@ -22,16 +22,16 @@ class NSComboBox : NSTextField {
   func delegate() -> NSComboBoxDelegate?
   func setDelegate(anObject: NSComboBoxDelegate?)
   unowned(unsafe) var dataSource: @sil_unmanaged NSComboBoxDataSource?
-  func addItemWithObjectValue(object: AnyObject)
-  func addItemsWithObjectValues(objects: [AnyObject])
-  func insertItemWithObjectValue(object: AnyObject, at index: Int)
-  func removeItemWithObjectValue(object: AnyObject)
+  func addItem(objectValue object: AnyObject)
+  func addItems(objectValues objects: [AnyObject])
+  func insertItem(objectValue object: AnyObject, at index: Int)
+  func removeItem(objectValue object: AnyObject)
   func removeItemAt(index: Int)
   func removeAllItems()
-  func selectItemWithObjectValue(object: AnyObject?)
+  func selectItem(objectValue object: AnyObject?)
   func itemObjectValueAt(index: Int) -> AnyObject
   var objectValueOfSelectedItem: AnyObject? { get }
-  func indexOfItemWithObjectValue(object: AnyObject) -> Int
+  func indexOfItemWith(objectValue object: AnyObject) -> Int
   var objectValues: [AnyObject] { get }
   init(frame frameRect: Rect)
   init?(coder: Coder)

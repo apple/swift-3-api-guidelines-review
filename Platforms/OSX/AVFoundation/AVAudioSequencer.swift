@@ -4,8 +4,8 @@ typealias AVMusicTimeStamp = Float64
 struct AVMusicSequenceLoadOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var SMF_PreserveTracks: AVMusicSequenceLoadOptions { get }
-  static var SMF_ChannelsToTracks: AVMusicSequenceLoadOptions { get }
+  static var smf_PreserveTracks: AVMusicSequenceLoadOptions { get }
+  static var smf_ChannelsToTracks: AVMusicSequenceLoadOptions { get }
 }
 struct _AVBeatRange {
   var start: AVMusicTimeStamp
@@ -22,9 +22,9 @@ class AVAudioSequencer : Object {
   func loadFrom(fileURL: URL, options: AVMusicSequenceLoadOptions = []) throws
   func loadFrom(data: Data, options: AVMusicSequenceLoadOptions = []) throws
   func writeTo(fileURL: URL, smpteResolution resolution: Int, replaceExisting replace: Bool) throws
-  func dataWithSMPTEResolution(SMPTEResolution: Int, error outError: ErrorPointer) -> Data
-  func secondsForBeats(beats: AVMusicTimeStamp) -> TimeInterval
-  func beatsForSeconds(seconds: TimeInterval) -> AVMusicTimeStamp
+  func dataWith(smpteResolution SMPTEResolution: Int, error outError: ErrorPointer) -> Data
+  func secondsFor(beats beats: AVMusicTimeStamp) -> TimeInterval
+  func beatsFor(seconds seconds: TimeInterval) -> AVMusicTimeStamp
   var tracks: [AVMusicTrack] { get }
   var tempoTrack: AVMusicTrack { get }
   var userInfo: [String : AnyObject] { get }
@@ -34,7 +34,7 @@ extension AVAudioSequencer {
   var currentPositionInBeats: TimeInterval
   var isPlaying: Bool { get }
   var rate: Float
-  func hostTimeForBeats(inBeats: AVMusicTimeStamp, error outError: ErrorPointer) -> UInt64
+  func hostTimeFor(beats inBeats: AVMusicTimeStamp, error outError: ErrorPointer) -> UInt64
   func beatsForHostTime(inHostTime: UInt64, error outError: ErrorPointer) -> AVMusicTimeStamp
   func prepareToPlay()
   func start() throws
@@ -59,5 +59,5 @@ class AVMusicTrack : Object {
 enum AVMusicTrackLoopCount : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Forever
+  case forever
 }

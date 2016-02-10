@@ -2,14 +2,14 @@
 enum NSTIFFCompression : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
+  case none
   case CCITTFAX3
   case CCITTFAX4
   case LZW
   case JPEG
   case NEXT
-  case PackBits
-  case OldJPEG
+  case packBits
+  case oldJPEG
 }
 enum NSBitmapImageFileType : UInt {
   init?(rawValue: UInt)
@@ -24,12 +24,12 @@ enum NSBitmapImageFileType : UInt {
 enum NSImageRepLoadStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case UnknownType
-  case ReadingHeader
-  case WillNeedAllData
-  case InvalidData
-  case UnexpectedEOF
-  case Completed
+  case unknownType
+  case readingHeader
+  case willNeedAllData
+  case invalidData
+  case unexpectedEOF
+  case completed
 }
 struct NSBitmapFormat : OptionSetType {
   init(rawValue: UInt)
@@ -87,13 +87,13 @@ class NSBitmapImageRep : NSImageRep, SecureCoding {
   class func tiffRepresentationOfImageRepsIn(array: [NSImageRep]) -> Data?
   class func tiffRepresentationOfImageRepsIn(array: [NSImageRep], usingCompression comp: NSTIFFCompression, factor: Float) -> Data?
   class func getTIFFCompressionTypes(list: UnsafeMutablePointer<UnsafePointer<NSTIFFCompression>>, count numTypes: UnsafeMutablePointer<Int>)
-  class func localizedNameForTIFFCompressionType(compression: NSTIFFCompression) -> String?
+  class func localizedNameFor(tiffCompressionType compression: NSTIFFCompression) -> String?
   func canBeCompressedUsing(compression: NSTIFFCompression) -> Bool
-  func colorizeByMappingGray(midPoint: CGFloat, to midPointColor: NSColor?, blackMapping shadowColor: NSColor?, whiteMapping lightColor: NSColor?)
+  func colorizeBy(mappingGray midPoint: CGFloat, to midPointColor: NSColor?, blackMapping shadowColor: NSColor?, whiteMapping lightColor: NSColor?)
   init(forIncrementalLoad: ())
   func incrementalLoadFrom(data: Data, complete: Bool) -> Int
   func setColor(color: NSColor, atX x: Int, y: Int)
-  func colorAtX(x: Int, y: Int) -> NSColor?
+  func colorAt(x x: Int, y: Int) -> NSColor?
   func getPixel(p: UnsafeMutablePointer<Int>, atX x: Int, y: Int)
   func setPixel(p: UnsafeMutablePointer<Int>, atX x: Int, y: Int)
   @available(OSX 10.5, *)
@@ -129,5 +129,5 @@ extension NSBitmapImageRep {
   class func representationOfImageRepsIn(imageReps: [NSImageRep], usingType storageType: NSBitmapImageFileType, properties: [String : AnyObject]) -> Data?
   func representationUsing(storageType: NSBitmapImageFileType, properties: [String : AnyObject]) -> Data?
   func setProperty(property: String, withValue value: AnyObject?)
-  func valueForProperty(property: String) -> AnyObject?
+  func valueFor(property property: String) -> AnyObject?
 }

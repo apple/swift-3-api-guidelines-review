@@ -7,11 +7,11 @@ func CFDateFormatterGetTypeID() -> CFTypeID
 enum CFDateFormatterStyle : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case NoStyle
-  case ShortStyle
-  case MediumStyle
-  case LongStyle
-  case FullStyle
+  case noStyle
+  case shortStyle
+  case mediumStyle
+  case longStyle
+  case fullStyle
 }
 func CFDateFormatterCreate(allocator: CFAllocator!, _ locale: CFLocale!, _ dateStyle: CFDateFormatterStyle, _ timeStyle: CFDateFormatterStyle) -> CFDateFormatter!
 func CFDateFormatterGetLocale(formatter: CFDateFormatter!) -> CFLocale!

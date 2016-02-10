@@ -38,12 +38,12 @@ let AVAssetExportPresetAppleProRes422LPCM: String
 enum AVAssetExportSessionStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Waiting
-  case Exporting
-  case Completed
-  case Failed
-  case Cancelled
+  case unknown
+  case waiting
+  case exporting
+  case completed
+  case failed
+  case cancelled
 }
 @available(OSX 10.7, *)
 class AVAssetExportSession : Object {
@@ -56,7 +56,7 @@ class AVAssetExportSession : Object {
   var shouldOptimizeForNetworkUse: Bool
   var status: AVAssetExportSessionStatus { get }
   var error: Error? { get }
-  func exportAsynchronouslyWithCompletionHandler(handler: () -> Void)
+  func exportAsynchronously(completionHandler handler: () -> Void)
   var progress: Float { get }
   func cancelExport()
 }
@@ -69,7 +69,7 @@ extension AVAssetExportSession {
 extension AVAssetExportSession {
   var supportedFileTypes: [String] { get }
   @available(OSX 10.9, *)
-  func determineCompatibleFileTypesWithCompletionHandler(handler: ([String]) -> Void)
+  func determineCompatibleFileTypesWith(completionHandler handler: ([String]) -> Void)
 }
 extension AVAssetExportSession {
   var timeRange: CMTimeRange

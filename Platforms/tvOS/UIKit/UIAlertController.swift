@@ -3,16 +3,16 @@
 enum UIAlertActionStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Cancel
-  case Destructive
+  case `default`
+  case cancel
+  case destructive
 }
 @available(tvOS 8.0, *)
 enum UIAlertControllerStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ActionSheet
-  case Alert
+  case actionSheet
+  case alert
 }
 @available(tvOS 8.0, *)
 class UIAlertAction : Object, Copying {
@@ -22,7 +22,7 @@ class UIAlertAction : Object, Copying {
   var isEnabled: Bool
   init()
   @available(tvOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 class UIAlertController : UIViewController {

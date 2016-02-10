@@ -7,8 +7,8 @@ typealias AUAudioChannelCount = UInt32
 enum AUAudioUnitBusType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Input
-  case Output
+  case input
+  case output
 }
 typealias AURenderPullInputBlock = (UnsafeMutablePointer<AudioUnitRenderActionFlags>, UnsafePointer<AudioTimeStamp>, AUAudioFrameCount, Int, UnsafeMutablePointer<AudioBufferList>) -> AUAudioUnitStatus
 typealias AURenderBlock = (UnsafeMutablePointer<AudioUnitRenderActionFlags>, UnsafePointer<AudioTimeStamp>, AUAudioFrameCount, Int, UnsafeMutablePointer<AudioBufferList>, AURenderPullInputBlock?) -> AUAudioUnitStatus
@@ -19,10 +19,10 @@ typealias AUHostMusicalContextBlock = (UnsafeMutablePointer<Double>, UnsafeMutab
 struct AUHostTransportStateFlags : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Changed: AUHostTransportStateFlags { get }
-  static var Moving: AUHostTransportStateFlags { get }
-  static var Recording: AUHostTransportStateFlags { get }
-  static var Cycling: AUHostTransportStateFlags { get }
+  static var changed: AUHostTransportStateFlags { get }
+  static var moving: AUHostTransportStateFlags { get }
+  static var recording: AUHostTransportStateFlags { get }
+  static var cycling: AUHostTransportStateFlags { get }
 }
 typealias AUHostTransportStateBlock = (UnsafeMutablePointer<AUHostTransportStateFlags>, UnsafeMutablePointer<Double>, UnsafeMutablePointer<Double>, UnsafeMutablePointer<Double>) -> Bool
 @available(iOS 9.0, *)
@@ -84,15 +84,15 @@ class AUAudioUnitBusArray : Object, FastEnumeration {
   init(audioUnit owner: AUAudioUnit, busType: AUAudioUnitBusType, busses busArray: [AUAudioUnitBus])
   convenience init(audioUnit owner: AUAudioUnit, busType: AUAudioUnitBusType)
   var count: Int { get }
-  subscript (index: Int) -> AUAudioUnitBus { get }
+  subscript (indexedSubscript index: Int) -> AUAudioUnitBus { get }
   var isCountChangeable: Bool { get }
   func setBusCount(count: Int) throws
-  func addObserverToAllBusses(observer: Object, forKeyPath keyPath: String, options: KeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
-  func removeObserverFromAllBusses(observer: Object, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
+  func addObserverTo(allBusses observer: Object, forKeyPath keyPath: String, options: KeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
+  func removeObserverFrom(allBusses observer: Object, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
   unowned(unsafe) var ownerAudioUnit: @sil_unmanaged AUAudioUnit { get }
   var busType: AUAudioUnitBusType { get }
   @available(iOS 9.0, *)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 @available(iOS 9.0, *)
 class AUAudioUnitBus : Object {

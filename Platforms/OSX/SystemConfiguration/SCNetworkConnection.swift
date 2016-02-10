@@ -13,29 +13,29 @@ struct SCNetworkConnectionContext {
 enum SCNetworkConnectionStatus : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Invalid
-  case Disconnected
-  case Connecting
-  case Connected
-  case Disconnecting
+  case invalid
+  case disconnected
+  case connecting
+  case connected
+  case disconnecting
 }
 enum SCNetworkConnectionPPPStatus : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Disconnected
-  case Initializing
-  case ConnectingLink
-  case DialOnTraffic
-  case NegotiatingLink
-  case Authenticating
-  case WaitingForCallBack
-  case NegotiatingNetwork
-  case Connected
-  case Terminating
-  case DisconnectingLink
-  case HoldingLinkOff
-  case Suspended
-  case WaitingForRedial
+  case disconnected
+  case initializing
+  case connectingLink
+  case dialOnTraffic
+  case negotiatingLink
+  case authenticating
+  case waitingForCallBack
+  case negotiatingNetwork
+  case connected
+  case terminating
+  case disconnectingLink
+  case holdingLinkOff
+  case suspended
+  case waitingForRedial
 }
 typealias SCNetworkConnectionCallBack = @convention(c) (SCNetworkConnection, SCNetworkConnectionStatus, UnsafeMutablePointer<Void>) -> Void
 var kSCNetworkConnectionBytesIn: String { get }

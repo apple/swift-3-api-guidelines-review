@@ -3,27 +3,27 @@
 enum MTLPrimitiveType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Point
-  case Line
-  case LineStrip
-  case Triangle
-  case TriangleStrip
+  case point
+  case line
+  case lineStrip
+  case triangle
+  case triangleStrip
 }
 @available(tvOS 8.0, *)
 enum MTLIndexType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case UInt16
-  case UInt32
+  case uInt16
+  case uInt32
 }
 @available(tvOS 8.0, *)
 enum MTLVisibilityResultMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Disabled
-  case Boolean
+  case disabled
+  case boolean
   @available(tvOS 9.0, *)
-  case Counting
+  case counting
 }
 struct MTLScissorRect {
   var x: Int
@@ -47,30 +47,30 @@ struct MTLViewport {
 enum MTLCullMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
-  case Front
-  case Back
+  case none
+  case front
+  case back
 }
 @available(tvOS 8.0, *)
 enum MTLWinding : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Clockwise
-  case CounterClockwise
+  case clockwise
+  case counterClockwise
 }
 @available(tvOS 9.0, *)
 enum MTLDepthClipMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Clip
-  case Clamp
+  case clip
+  case clamp
 }
 @available(tvOS 8.0, *)
 enum MTLTriangleFillMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Fill
-  case Lines
+  case fill
+  case lines
 }
 struct MTLDrawPrimitivesIndirectArguments {
   var vertexCount: UInt32

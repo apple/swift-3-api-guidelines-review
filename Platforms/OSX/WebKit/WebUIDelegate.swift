@@ -34,21 +34,21 @@ var WebMenuItemPDFPreviousPage: Int { get }
 struct WebDragDestinationAction : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: WebDragDestinationAction { get }
+  static var none: WebDragDestinationAction { get }
   static var DHTML: WebDragDestinationAction { get }
-  static var Edit: WebDragDestinationAction { get }
-  static var Load: WebDragDestinationAction { get }
-  static var Any: WebDragDestinationAction { get }
+  static var edit: WebDragDestinationAction { get }
+  static var load: WebDragDestinationAction { get }
+  static var any: WebDragDestinationAction { get }
 }
 struct WebDragSourceAction : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: WebDragSourceAction { get }
+  static var none: WebDragSourceAction { get }
   static var DHTML: WebDragSourceAction { get }
-  static var Image: WebDragSourceAction { get }
-  static var Link: WebDragSourceAction { get }
-  static var Selection: WebDragSourceAction { get }
-  static var Any: WebDragSourceAction { get }
+  static var image: WebDragSourceAction { get }
+  static var link: WebDragSourceAction { get }
+  static var selection: WebDragSourceAction { get }
+  static var any: WebDragSourceAction { get }
 }
 protocol WebOpenPanelResultListener : ObjectProtocol {
   func chooseFilename(fileName: String!)

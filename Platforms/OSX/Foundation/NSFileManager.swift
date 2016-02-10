@@ -4,38 +4,38 @@ var foundationVersionWithFileManagerResourceForkSupport: Int32 { get }
 struct VolumeEnumerationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var SkipHiddenVolumes: VolumeEnumerationOptions { get }
-  static var ProduceFileReferenceURLs: VolumeEnumerationOptions { get }
+  static var skipHiddenVolumes: VolumeEnumerationOptions { get }
+  static var produceFileReferenceURLs: VolumeEnumerationOptions { get }
 }
 @available(OSX 10.6, *)
 struct DirectoryEnumerationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var SkipsSubdirectoryDescendants: DirectoryEnumerationOptions { get }
-  static var SkipsPackageDescendants: DirectoryEnumerationOptions { get }
-  static var SkipsHiddenFiles: DirectoryEnumerationOptions { get }
+  static var skipsSubdirectoryDescendants: DirectoryEnumerationOptions { get }
+  static var skipsPackageDescendants: DirectoryEnumerationOptions { get }
+  static var skipsHiddenFiles: DirectoryEnumerationOptions { get }
 }
 @available(OSX 10.6, *)
 struct FileManagerItemReplacementOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var UsingNewMetadataOnly: FileManagerItemReplacementOptions { get }
-  static var WithoutDeletingBackupItem: FileManagerItemReplacementOptions { get }
+  static var usingNewMetadataOnly: FileManagerItemReplacementOptions { get }
+  static var withoutDeletingBackupItem: FileManagerItemReplacementOptions { get }
 }
 @available(OSX 10.10, *)
 enum URLRelationship : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Contains
-  case Same
-  case Other
+  case contains
+  case same
+  case other
 }
 @available(OSX 10.11, *)
 struct FileManagerUnmountOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var AllPartitionsAndEjectDisk: FileManagerUnmountOptions { get }
-  static var WithoutUI: FileManagerUnmountOptions { get }
+  static var allPartitionsAndEjectDisk: FileManagerUnmountOptions { get }
+  static var withoutUI: FileManagerUnmountOptions { get }
 }
 @available(OSX 10.11, *)
 let fileManagerUnmountDissentingProcessIdentifierErrorKey: String
@@ -44,7 +44,7 @@ let ubiquityIdentityDidChangeNotification: String
 class FileManager : Object {
   class func defaultManager() -> FileManager
   @available(OSX 10.6, *)
-  func mountedVolumeURLsIncludingResourceValuesForKeys(propertyKeys: [String]?, options: VolumeEnumerationOptions = []) -> [URL]?
+  func mountedVolumeURLsIncludingResourceValuesFor(keys propertyKeys: [String]?, options: VolumeEnumerationOptions = []) -> [URL]?
   @available(OSX 10.11, *)
   func unmountVolumeAt(url: URL, options mask: FileManagerUnmountOptions = [], completionHandler: (Error?) -> Void)
   @available(OSX 10.6, *)
@@ -66,27 +66,27 @@ class FileManager : Object {
   @available(OSX 10.5, *)
   func setAttributes(attributes: [String : AnyObject] = [:], ofItemAtPath path: String) throws
   @available(OSX 10.5, *)
-  func createDirectoryAtPath(path: String, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]? = [:]) throws
+  func createDirectoryAt(path path: String, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]? = [:]) throws
   @available(OSX 10.5, *)
-  func contentsOfDirectoryAtPath(path: String) throws -> [String]
+  func contentsOfDirectoryAt(path path: String) throws -> [String]
   @available(OSX 10.5, *)
-  func subpathsOfDirectoryAtPath(path: String) throws -> [String]
+  func subpathsOfDirectoryAt(path path: String) throws -> [String]
   @available(OSX 10.5, *)
-  func attributesOfItemAtPath(path: String) throws -> [String : AnyObject]
+  func attributesOfItemAt(path path: String) throws -> [String : AnyObject]
   @available(OSX 10.5, *)
-  func attributesOfFileSystemForPath(path: String) throws -> [String : AnyObject]
+  func attributesOfFileSystemFor(path path: String) throws -> [String : AnyObject]
   @available(OSX 10.5, *)
-  func createSymbolicLinkAtPath(path: String, withDestinationPath destPath: String) throws
+  func createSymbolicLinkAt(path path: String, withDestinationPath destPath: String) throws
   @available(OSX 10.5, *)
-  func destinationOfSymbolicLinkAtPath(path: String) throws -> String
+  func destinationOfSymbolicLinkAt(path path: String) throws -> String
   @available(OSX 10.5, *)
-  func copyItemAtPath(srcPath: String, toPath dstPath: String) throws
+  func copyItemAt(path srcPath: String, toPath dstPath: String) throws
   @available(OSX 10.5, *)
-  func moveItemAtPath(srcPath: String, toPath dstPath: String) throws
+  func moveItemAt(path srcPath: String, toPath dstPath: String) throws
   @available(OSX 10.5, *)
-  func linkItemAtPath(srcPath: String, toPath dstPath: String) throws
+  func linkItemAt(path srcPath: String, toPath dstPath: String) throws
   @available(OSX 10.5, *)
-  func removeItemAtPath(path: String) throws
+  func removeItemAt(path path: String) throws
   @available(OSX 10.6, *)
   func copyItemAt(srcURL: URL, to dstURL: URL) throws
   @available(OSX 10.6, *)
@@ -99,23 +99,23 @@ class FileManager : Object {
   func trashItemAt(url: URL, resultingItemURL outResultingURL: AutoreleasingUnsafeMutablePointer<URL?>) throws
   var currentDirectoryPath: String { get }
   func changeCurrentDirectoryPath(path: String) -> Bool
-  func fileExistsAtPath(path: String) -> Bool
-  func fileExistsAtPath(path: String, isDirectory: UnsafeMutablePointer<ObjCBool>) -> Bool
-  func isReadableFileAtPath(path: String) -> Bool
-  func isWritableFileAtPath(path: String) -> Bool
-  func isExecutableFileAtPath(path: String) -> Bool
-  func isDeletableFileAtPath(path: String) -> Bool
-  func contentsEqualAtPath(path1: String, andPath path2: String) -> Bool
-  func displayNameAtPath(path: String) -> String
-  func componentsToDisplayForPath(path: String) -> [String]?
-  func enumeratorAtPath(path: String) -> DirectoryEnumerator?
+  func fileExistsAt(path path: String) -> Bool
+  func fileExistsAt(path path: String, isDirectory: UnsafeMutablePointer<ObjCBool>) -> Bool
+  func isReadableFileAt(path path: String) -> Bool
+  func isWritableFileAt(path path: String) -> Bool
+  func isExecutableFileAt(path path: String) -> Bool
+  func isDeletableFileAt(path path: String) -> Bool
+  func contentsEqualAt(path path1: String, andPath path2: String) -> Bool
+  func displayNameAt(path path: String) -> String
+  func componentsToDisplayFor(path path: String) -> [String]?
+  func enumeratorAt(path path: String) -> DirectoryEnumerator?
   @available(OSX 10.6, *)
   func enumeratorAt(url: URL, includingPropertiesForKeys keys: [String]?, options mask: DirectoryEnumerationOptions = [], errorHandler handler: ((URL, Error) -> Bool)? = nil) -> DirectoryEnumerator?
-  func subpathsAtPath(path: String) -> [String]?
-  func contentsAtPath(path: String) -> Data?
-  func createFileAtPath(path: String, contents data: Data?, attributes attr: [String : AnyObject]? = [:]) -> Bool
-  func fileSystemRepresentationWithPath(path: String) -> UnsafePointer<Int8>
-  func stringWithFileSystemRepresentation(str: UnsafePointer<Int8>, length len: Int) -> String
+  func subpathsAt(path path: String) -> [String]?
+  func contentsAt(path path: String) -> Data?
+  func createFileAt(path path: String, contents data: Data?, attributes attr: [String : AnyObject]? = [:]) -> Bool
+  func fileSystemRepresentationWith(path path: String) -> UnsafePointer<Int8>
+  func stringWith(fileSystemRepresentation str: UnsafePointer<Int8>, length len: Int) -> String
   @available(OSX 10.6, *)
   func replaceItemAt(originalItemURL: URL, withItemAt newItemURL: URL, backupItemName: String?, options: FileManagerItemReplacementOptions = [], resultingItemURL resultingURL: AutoreleasingUnsafeMutablePointer<URL?>) throws
   @available(OSX 10.7, *)
@@ -127,13 +127,13 @@ class FileManager : Object {
   @available(OSX 10.7, *)
   func evictUbiquitousItemAt(url: URL) throws
   @available(OSX 10.7, *)
-  func urlForUbiquityContainerIdentifier(containerIdentifier: String?) -> URL?
+  func urlFor(ubiquityContainerIdentifier containerIdentifier: String?) -> URL?
   @available(OSX 10.7, *)
   func urlForPublishingUbiquitousItemAt(url: URL, expirationDate outDate: AutoreleasingUnsafeMutablePointer<Date?>) throws -> URL
   @available(OSX 10.8, *)
   @NSCopying var ubiquityIdentityToken: protocol<Coding, Copying, ObjectProtocol>? { get }
   @available(OSX 10.8, *)
-  func containerURLForSecurityApplicationGroupIdentifier(groupIdentifier: String) -> URL?
+  func containerURLFor(securityApplicationGroupIdentifier groupIdentifier: String) -> URL?
   init()
 }
 extension Object {

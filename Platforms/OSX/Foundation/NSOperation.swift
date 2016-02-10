@@ -30,11 +30,11 @@ class Operation : Object {
 enum OperationQueuePriority : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case VeryLow
-  case Low
-  case Normal
-  case High
-  case VeryHigh
+  case veryLow
+  case low
+  case normal
+  case high
+  case veryHigh
 }
 @available(OSX 10.6, *)
 class BlockOperation : Operation {
@@ -54,7 +54,7 @@ class OperationQueue : Object {
   @available(OSX 10.6, *)
   func addOperations(ops: [Operation], waitUntilFinished wait: Bool)
   @available(OSX 10.6, *)
-  func addOperationWith(block: () -> Void)
+  func addOperation(block: () -> Void)
   var operations: [Operation] { get }
   @available(OSX 10.6, *)
   var operationCount: Int { get }

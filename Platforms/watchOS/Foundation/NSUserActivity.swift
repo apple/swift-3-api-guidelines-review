@@ -21,7 +21,7 @@ class UserActivity : Object {
   @available(watchOS 2.0, *)
   func resignCurrent()
   func invalidate()
-  func getContinuationStreamsWithCompletionHandler(completionHandler: (InputStream?, OutputStream?, Error?) -> Void)
+  func getContinuationStreams(completionHandler completionHandler: (InputStream?, OutputStream?, Error?) -> Void)
   @available(watchOS 2.0, *)
   var isEligibleForHandoff: Bool
   @available(watchOS 2.0, *)

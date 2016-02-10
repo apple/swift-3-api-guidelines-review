@@ -2,21 +2,21 @@
 enum NSToolbarDisplayMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Default
-  case IconAndLabel
-  case IconOnly
-  case LabelOnly
+  case `default`
+  case iconAndLabel
+  case iconOnly
+  case labelOnly
 }
 enum NSToolbarSizeMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Default
-  case Regular
-  case Small
+  case `default`
+  case regular
+  case small
 }
 class NSToolbar : Object {
   init(identifier: String)
-  func insertItemWithItemIdentifier(itemIdentifier: String, at index: Int)
+  func insertItem(itemIdentifier itemIdentifier: String, at index: Int)
   func removeItemAt(index: Int)
   unowned(unsafe) var delegate: @sil_unmanaged NSToolbarDelegate?
   var isVisible: Bool

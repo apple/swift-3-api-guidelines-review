@@ -5,8 +5,8 @@ let ICScannerStatusRequestsOverviewScan: String
 enum ICScannerTransferMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case FileBased
-  case MemoryBased
+  case fileBased
+  case memoryBased
 }
 protocol ICScannerDeviceDelegate : ICDeviceDelegate {
   optional func scannerDeviceDidBecomeAvailable(scanner: ICScannerDevice)

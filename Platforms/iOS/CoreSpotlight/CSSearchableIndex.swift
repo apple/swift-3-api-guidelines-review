@@ -5,13 +5,13 @@ let CSIndexErrorDomain: String
 enum CSIndexErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case UnknownError
-  case IndexUnavailableError
-  case InvalidItemError
-  case InvalidClientStateError
-  case RemoteConnectionError
-  case QuotaExceeded
-  case IndexingUnsupported
+  case unknownError
+  case indexUnavailableError
+  case invalidItemError
+  case invalidClientStateError
+  case remoteConnectionError
+  case quotaExceeded
+  case indexingUnsupported
 }
 @available(iOS 9.0, *)
 class CSSearchableIndex : Object {
@@ -21,15 +21,15 @@ class CSSearchableIndex : Object {
   init(name: String)
   init(name: String, protectionClass: String?)
   func indexSearchableItems(items: [CSSearchableItem], completionHandler: ((Error?) -> Void)? = nil)
-  func deleteSearchableItemsWithIdentifiers(identifiers: [String], completionHandler: ((Error?) -> Void)? = nil)
-  func deleteSearchableItemsWithDomainIdentifiers(domainIdentifiers: [String], completionHandler: ((Error?) -> Void)? = nil)
+  func deleteSearchableItems(identifiers identifiers: [String], completionHandler: ((Error?) -> Void)? = nil)
+  func deleteSearchableItems(domainIdentifiers domainIdentifiers: [String], completionHandler: ((Error?) -> Void)? = nil)
   func deleteAllSearchableItems(completionHandler completionHandler: ((Error?) -> Void)? = nil)
   init()
 }
 extension CSSearchableIndex {
   func beginBatch()
-  func endBatchWithClientState(clientState: Data, completionHandler: ((Error?) -> Void)? = nil)
-  func fetchLastClientStateWithCompletionHandler(completionHandler: (Data?, Error?) -> Void)
+  func endBatch(clientState clientState: Data, completionHandler: ((Error?) -> Void)? = nil)
+  func fetchLastClientState(completionHandler completionHandler: (Data?, Error?) -> Void)
 }
 @available(iOS 9.0, *)
 protocol CSSearchableIndexDelegate : ObjectProtocol {

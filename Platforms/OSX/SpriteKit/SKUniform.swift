@@ -3,15 +3,15 @@
 enum SKUniformType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Float
-  case FloatVector2
-  case FloatVector3
-  case FloatVector4
-  case FloatMatrix2
-  case FloatMatrix3
-  case FloatMatrix4
-  case Texture
+  case none
+  case float
+  case floatVector2
+  case floatVector3
+  case floatVector4
+  case floatMatrix2
+  case floatMatrix3
+  case floatMatrix4
+  case texture
 }
 @available(OSX 10.10, *)
 class SKUniform : Object, Copying, Coding {
@@ -37,7 +37,7 @@ class SKUniform : Object, Copying, Coding {
   init(name: String, float value: GLKMatrix4)
   init()
   @available(OSX 10.10, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.10, *)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)

@@ -18,5 +18,5 @@ class NEAppRule : Object, SecureCoding, Copying {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

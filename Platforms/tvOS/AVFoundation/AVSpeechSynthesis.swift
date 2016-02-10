@@ -3,15 +3,15 @@
 enum AVSpeechBoundary : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Immediate
-  case Word
+  case immediate
+  case word
 }
 @available(tvOS 9.0, *)
 enum AVSpeechSynthesisVoiceQuality : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Enhanced
+  case `default`
+  case enhanced
 }
 @available(tvOS 7.0, *)
 let AVSpeechUtteranceMinimumSpeechRate: Float
@@ -54,7 +54,7 @@ class AVSpeechUtterance : Object, Copying, SecureCoding {
   var postUtteranceDelay: TimeInterval
   init()
   @available(tvOS 7.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 7.0, *)

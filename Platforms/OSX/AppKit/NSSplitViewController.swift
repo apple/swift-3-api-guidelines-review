@@ -43,18 +43,18 @@ extension NSSplitViewController {
 enum NSSplitViewItemBehavior : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Sidebar
-  case ContentList
+  case `default`
+  case sidebar
+  case contentList
 }
 @available(OSX 10.11, *)
 enum NSSplitViewItemCollapseBehavior : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case PreferResizingSplitViewWithFixedSiblings
-  case PreferResizingSiblingsWithFixedSplitView
-  case UseConstraints
+  case `default`
+  case preferResizingSplitViewWithFixedSiblings
+  case preferResizingSiblingsWithFixedSplitView
+  case useConstraints
 }
 @available(OSX 10.11, *)
 let NSSplitViewItemUnspecifiedDimension: CGFloat
@@ -89,9 +89,9 @@ class NSSplitViewItem : Object, NSAnimatablePropertyContainer, Coding {
   @available(OSX 10.5, *)
   var animations: [String : AnyObject]
   @available(OSX 10.5, *)
-  func animationForKey(key: String) -> AnyObject?
+  func animationFor(key key: String) -> AnyObject?
   @available(OSX 10.5, *)
-  class func defaultAnimationForKey(key: String) -> AnyObject?
+  class func defaultAnimationFor(key key: String) -> AnyObject?
   @available(OSX 10.10, *)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)

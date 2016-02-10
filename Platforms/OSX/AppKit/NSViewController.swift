@@ -3,15 +3,15 @@
 struct NSViewControllerTransitionOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: NSViewControllerTransitionOptions { get }
-  static var Crossfade: NSViewControllerTransitionOptions { get }
-  static var SlideUp: NSViewControllerTransitionOptions { get }
-  static var SlideDown: NSViewControllerTransitionOptions { get }
-  static var SlideLeft: NSViewControllerTransitionOptions { get }
-  static var SlideRight: NSViewControllerTransitionOptions { get }
-  static var SlideForward: NSViewControllerTransitionOptions { get }
-  static var SlideBackward: NSViewControllerTransitionOptions { get }
-  static var AllowUserInteraction: NSViewControllerTransitionOptions { get }
+  static var none: NSViewControllerTransitionOptions { get }
+  static var crossfade: NSViewControllerTransitionOptions { get }
+  static var slideUp: NSViewControllerTransitionOptions { get }
+  static var slideDown: NSViewControllerTransitionOptions { get }
+  static var slideLeft: NSViewControllerTransitionOptions { get }
+  static var slideRight: NSViewControllerTransitionOptions { get }
+  static var slideForward: NSViewControllerTransitionOptions { get }
+  static var slideBackward: NSViewControllerTransitionOptions { get }
+  static var allowUserInteraction: NSViewControllerTransitionOptions { get }
 }
 @available(OSX 10.5, *)
 class NSViewController : NSResponder, Coding, NSSeguePerforming, NSUserInterfaceItemIdentification {
@@ -23,7 +23,7 @@ class NSViewController : NSResponder, Coding, NSSeguePerforming, NSUserInterface
   var title: String?
   var view: NSView
   func loadView()
-  func commitEditingWithDelegate(delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func commitEditing(delegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func commitEditing() -> Bool
   func discardEditing()
   @available(OSX 10.10, *)
@@ -50,9 +50,9 @@ class NSViewController : NSResponder, Coding, NSSeguePerforming, NSUserInterface
   @available(OSX 10.10, *)
   func prepareFor(segue: NSStoryboardSegue, sender: AnyObject?)
   @available(OSX 10.10, *)
-  func performSegueWithIdentifier(identifier: String, sender: AnyObject?)
+  func performSegue(identifier identifier: String, sender: AnyObject?)
   @available(OSX 10.10, *)
-  func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool
+  func shouldPerformSegueWith(identifier identifier: String, sender: AnyObject?) -> Bool
   @available(OSX 10.5, *)
   var identifier: String?
 }
@@ -70,9 +70,9 @@ extension NSViewController {
 }
 extension NSViewController {
   @available(OSX 10.10, *)
-  func presentAsSheet(viewController: NSViewController)
+  func presentAs(sheet viewController: NSViewController)
   @available(OSX 10.10, *)
-  func presentAsModalWindow(viewController: NSViewController)
+  func presentAs(modalWindow viewController: NSViewController)
   @available(OSX 10.10, *)
   func present(viewController: NSViewController, asPopoverRelativeTo positioningRect: Rect, of positioningView: NSView, preferredEdge: RectEdge, behavior: NSPopoverBehavior)
   @available(OSX 10.10, *)
@@ -118,5 +118,5 @@ extension NSViewController : ExtensionRequestHandling {
   @available(OSX 10.10, *)
   var preferredMaximumSize: Size { get }
   @available(OSX 10.10, *)
-  func beginRequestWith(context: ExtensionContext)
+  func beginRequest(context: ExtensionContext)
 }

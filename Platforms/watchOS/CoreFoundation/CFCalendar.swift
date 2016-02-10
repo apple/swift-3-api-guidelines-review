@@ -16,25 +16,25 @@ func CFCalendarSetMinimumDaysInFirstWeek(calendar: CFCalendar!, _ mwd: CFIndex)
 struct CFCalendarUnit : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
-  static var Era: CFCalendarUnit { get }
-  static var Year: CFCalendarUnit { get }
-  static var Month: CFCalendarUnit { get }
-  static var Day: CFCalendarUnit { get }
-  static var Hour: CFCalendarUnit { get }
-  static var Minute: CFCalendarUnit { get }
-  static var Second: CFCalendarUnit { get }
+  static var era: CFCalendarUnit { get }
+  static var year: CFCalendarUnit { get }
+  static var month: CFCalendarUnit { get }
+  static var day: CFCalendarUnit { get }
+  static var hour: CFCalendarUnit { get }
+  static var minute: CFCalendarUnit { get }
+  static var second: CFCalendarUnit { get }
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  static var Week: CFCalendarUnit { get }
-  static var Weekday: CFCalendarUnit { get }
-  static var WeekdayOrdinal: CFCalendarUnit { get }
+  static var week: CFCalendarUnit { get }
+  static var weekday: CFCalendarUnit { get }
+  static var weekdayOrdinal: CFCalendarUnit { get }
   @available(watchOS 2.0, *)
-  static var Quarter: CFCalendarUnit { get }
+  static var quarter: CFCalendarUnit { get }
   @available(watchOS 2.0, *)
-  static var WeekOfMonth: CFCalendarUnit { get }
+  static var weekOfMonth: CFCalendarUnit { get }
   @available(watchOS 2.0, *)
-  static var WeekOfYear: CFCalendarUnit { get }
+  static var weekOfYear: CFCalendarUnit { get }
   @available(watchOS 2.0, *)
-  static var YearForWeekOfYear: CFCalendarUnit { get }
+  static var yearForWeekOfYear: CFCalendarUnit { get }
 }
 func CFCalendarGetMinimumRangeOfUnit(calendar: CFCalendar!, _ unit: CFCalendarUnit) -> CFRange
 func CFCalendarGetMaximumRangeOfUnit(calendar: CFCalendar!, _ unit: CFCalendarUnit) -> CFRange

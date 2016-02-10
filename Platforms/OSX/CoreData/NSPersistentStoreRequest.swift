@@ -2,12 +2,12 @@
 enum NSPersistentStoreRequestType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case FetchRequestType
-  case SaveRequestType
+  case fetchRequestType
+  case saveRequestType
   @available(OSX 10.10, *)
-  case BatchUpdateRequestType
+  case batchUpdateRequestType
   @available(OSX 10.11, *)
-  case BatchDeleteRequestType
+  case batchDeleteRequestType
 }
 @available(OSX 10.7, *)
 class NSPersistentStoreRequest : Object, Copying {
@@ -15,7 +15,7 @@ class NSPersistentStoreRequest : Object, Copying {
   var requestType: NSPersistentStoreRequestType { get }
   init()
   @available(OSX 10.7, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 typealias NSPersistentStoreAsynchronousFetchResultCompletionBlock = (NSAsynchronousFetchResult) -> Void
 @available(OSX 10.10, *)

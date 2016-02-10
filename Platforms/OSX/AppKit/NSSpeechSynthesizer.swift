@@ -17,9 +17,9 @@ let NSVoiceGenderFemale: String
 enum NSSpeechBoundary : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ImmediateBoundary
-  case WordBoundary
-  case SentenceBoundary
+  case immediateBoundary
+  case wordBoundary
+  case sentenceBoundary
 }
 class NSSpeechSynthesizer : Object {
   init?(voice: String?)
@@ -44,15 +44,15 @@ class NSSpeechSynthesizer : Object {
   @available(OSX 10.5, *)
   func addSpeechDictionary(speechDictionary: [String : AnyObject])
   @available(OSX 10.5, *)
-  func phonemesFromText(text: String) -> String
+  func phonemesFrom(text text: String) -> String
   @available(OSX 10.5, *)
-  func objectForProperty(property: String) throws -> AnyObject
+  func objectFor(property property: String) throws -> AnyObject
   @available(OSX 10.5, *)
   func setObject(object: AnyObject?, forProperty property: String) throws
   class func isAnyApplicationSpeaking() -> Bool
   class func defaultVoice() -> String
   class func availableVoices() -> [String]
-  class func attributesForVoice(voice: String) -> [String : AnyObject]
+  class func attributesFor(voice voice: String) -> [String : AnyObject]
   init()
 }
 protocol NSSpeechSynthesizerDelegate : ObjectProtocol {

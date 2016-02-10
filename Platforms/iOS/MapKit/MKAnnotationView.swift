@@ -4,11 +4,11 @@ let MKAnnotationCalloutInfoDidChangeNotification: String
 enum MKAnnotationViewDragState : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
-  case Starting
-  case Dragging
-  case Canceling
-  case Ending
+  case none
+  case starting
+  case dragging
+  case canceling
+  case ending
 }
 @available(iOS 3.0, *)
 class MKAnnotationView : UIView {

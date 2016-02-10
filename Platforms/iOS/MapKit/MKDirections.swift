@@ -4,8 +4,8 @@ typealias MKETAHandler = (MKETAResponse?, Error?) -> Void
 @available(iOS 7.0, *)
 class MKDirections : Object {
   init(request: MKDirectionsRequest)
-  func calculateWithCompletionHandler(completionHandler: MKDirectionsHandler)
-  func calculateETAWithCompletionHandler(completionHandler: MKETAHandler)
+  func calculate(completionHandler completionHandler: MKDirectionsHandler)
+  func calculateETA(completionHandler completionHandler: MKETAHandler)
   func cancel()
   var isCalculating: Bool { get }
   convenience init()

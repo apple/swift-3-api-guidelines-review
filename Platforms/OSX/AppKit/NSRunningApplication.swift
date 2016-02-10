@@ -2,15 +2,15 @@
 struct NSApplicationActivationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ActivateAllWindows: NSApplicationActivationOptions { get }
-  static var ActivateIgnoringOtherApps: NSApplicationActivationOptions { get }
+  static var activateAllWindows: NSApplicationActivationOptions { get }
+  static var activateIgnoringOtherApps: NSApplicationActivationOptions { get }
 }
 enum NSApplicationActivationPolicy : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Regular
-  case Accessory
-  case Prohibited
+  case regular
+  case accessory
+  case prohibited
 }
 @available(OSX 10.6, *)
 class NSRunningApplication : Object {
@@ -31,10 +31,10 @@ class NSRunningApplication : Object {
   var executableArchitecture: Int { get }
   func hide() -> Bool
   func unhide() -> Bool
-  func activate(options options: NSApplicationActivationOptions = []) -> Bool
+  func activate(options: NSApplicationActivationOptions = []) -> Bool
   func terminate() -> Bool
   func forceTerminate() -> Bool
-  class func runningApplicationsWithBundleIdentifier(bundleIdentifier: String) -> [NSRunningApplication]
+  class func runningApplicationsWith(bundleIdentifier bundleIdentifier: String) -> [NSRunningApplication]
   convenience init?(processIdentifier pid: pid_t)
   class func current() -> Self
   class func terminateAutomaticallyTerminableApplications()

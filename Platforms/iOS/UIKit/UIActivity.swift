@@ -33,8 +33,8 @@ let UIActivityTypeOpenInIBooks: String
 enum UIActivityCategory : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Action
-  case Share
+  case action
+  case share
 }
 @available(iOS 6.0, *)
 class UIActivity : Object {
@@ -43,8 +43,8 @@ class UIActivity : Object {
   func activityType() -> String?
   func activityTitle() -> String?
   func activityImage() -> UIImage?
-  func canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool
-  func prepareWithActivityItems(activityItems: [AnyObject])
+  func canPerformWith(activityItems activityItems: [AnyObject]) -> Bool
+  func prepare(activityItems activityItems: [AnyObject])
   func activityViewController() -> UIViewController?
   func perform()
   func activityDidFinish(completed: Bool)

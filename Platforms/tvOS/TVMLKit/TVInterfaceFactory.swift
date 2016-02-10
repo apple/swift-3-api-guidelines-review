@@ -5,7 +5,7 @@ protocol TVInterfaceCreating : ObjectProtocol {
   @available(tvOS 9.0, *)
   optional func viewControllerFor(element: TVViewElement, existing existingViewController: UIViewController?) -> UIViewController?
   @available(tvOS 9.0, *)
-  optional func urlForResource(resourceName: String) -> URL?
+  optional func urlFor(resource resourceName: String) -> URL?
 }
 @available(tvOS 9.0, *)
 class TVInterfaceFactory : Object, TVInterfaceCreating {
@@ -17,5 +17,5 @@ class TVInterfaceFactory : Object, TVInterfaceCreating {
   @available(tvOS 9.0, *)
   func viewControllerFor(element: TVViewElement, existing existingViewController: UIViewController?) -> UIViewController?
   @available(tvOS 9.0, *)
-  func urlForResource(resourceName: String) -> URL?
+  func urlFor(resource resourceName: String) -> URL?
 }

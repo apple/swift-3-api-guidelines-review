@@ -10,25 +10,25 @@ class TKSmartCardSlotManager : Object {
 enum TKSmartCardSlotState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Missing
-  case Empty
-  case Probing
-  case MuteCard
-  case ValidCard
+  case missing
+  case empty
+  case probing
+  case muteCard
+  case validCard
 }
 @available(OSX 10.11, *)
 enum TKSmartCardPINCharset : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Numeric
-  case Alphanumeric
-  case UpperAlphanumeric
+  case numeric
+  case alphanumeric
+  case upperAlphanumeric
 }
 @available(OSX 10.11, *)
 enum TKSmartCardPINEncoding : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Binary
+  case binary
   case ASCII
   case BCD
 }
@@ -36,24 +36,24 @@ enum TKSmartCardPINEncoding : Int {
 enum TKSmartCardPINJustification : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Left
-  case Right
+  case left
+  case right
 }
 @available(OSX 10.11, *)
 struct TKSmartCardPINCompletion : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var MaxLength: TKSmartCardPINCompletion { get }
-  static var Key: TKSmartCardPINCompletion { get }
-  static var Timeout: TKSmartCardPINCompletion { get }
+  static var maxLength: TKSmartCardPINCompletion { get }
+  static var key: TKSmartCardPINCompletion { get }
+  static var timeout: TKSmartCardPINCompletion { get }
 }
 @available(OSX 10.11, *)
 struct TKSmartCardPINConfirmation : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: TKSmartCardPINConfirmation { get }
-  static var New: TKSmartCardPINConfirmation { get }
-  static var Current: TKSmartCardPINConfirmation { get }
+  static var none: TKSmartCardPINConfirmation { get }
+  static var new: TKSmartCardPINConfirmation { get }
+  static var current: TKSmartCardPINConfirmation { get }
 }
 @available(OSX 10.11, *)
 class TKSmartCardPINFormat : Object {

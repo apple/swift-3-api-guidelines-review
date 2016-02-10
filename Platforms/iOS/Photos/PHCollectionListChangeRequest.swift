@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 class PHCollectionListChangeRequest : Object {
-  class func creationRequestForCollectionListWithTitle(title: String) -> Self
+  class func creationRequestForCollectionListWith(title title: String) -> Self
   var placeholderForCreatedCollectionList: PHObjectPlaceholder { get }
   class func deleteCollectionLists(collectionLists: FastEnumeration)
   convenience init?(forCollectionList collectionList: PHCollectionList)

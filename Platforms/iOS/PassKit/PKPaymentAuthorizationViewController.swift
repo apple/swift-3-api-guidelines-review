@@ -3,17 +3,17 @@
 enum PKPaymentAuthorizationStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Success
-  case Failure
-  case InvalidBillingPostalAddress
-  case InvalidShippingPostalAddress
-  case InvalidShippingContact
+  case success
+  case failure
+  case invalidBillingPostalAddress
+  case invalidShippingPostalAddress
+  case invalidShippingContact
   @available(iOS 9.2, *)
-  case PINRequired
+  case pinRequired
   @available(iOS 9.2, *)
-  case PINIncorrect
+  case pinIncorrect
   @available(iOS 9.2, *)
-  case PINLockout
+  case pinLockout
 }
 protocol PKPaymentAuthorizationViewControllerDelegate : ObjectProtocol {
   @available(iOS 8.0, *)
@@ -34,9 +34,9 @@ protocol PKPaymentAuthorizationViewControllerDelegate : ObjectProtocol {
 @available(iOS 8.0, *)
 class PKPaymentAuthorizationViewController : UIViewController {
   class func canMakePayments() -> Bool
-  class func canMakePaymentsUsingNetworks(supportedNetworks: [String]) -> Bool
+  class func canMakePaymentsUsing(networks supportedNetworks: [String]) -> Bool
   @available(iOS 9.0, *)
-  class func canMakePaymentsUsingNetworks(supportedNetworks: [String], capabilities capabilties: PKMerchantCapability) -> Bool
+  class func canMakePaymentsUsing(networks supportedNetworks: [String], capabilities capabilties: PKMerchantCapability) -> Bool
   unowned(unsafe) var delegate: @sil_unmanaged PKPaymentAuthorizationViewControllerDelegate?
   init(paymentRequest request: PKPaymentRequest)
   convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)

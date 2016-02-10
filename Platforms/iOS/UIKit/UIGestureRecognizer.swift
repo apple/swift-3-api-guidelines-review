@@ -2,13 +2,13 @@
 enum UIGestureRecognizerState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Possible
-  case Began
-  case Changed
-  case Ended
-  case Cancelled
-  case Failed
-  static var Recognized: UIGestureRecognizerState { get }
+  case possible
+  case began
+  case changed
+  case ended
+  case cancelled
+  case failed
+  static var recognized: UIGestureRecognizerState { get }
 }
 @available(iOS 3.2, *)
 class UIGestureRecognizer : Object {

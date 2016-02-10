@@ -2,15 +2,15 @@
 enum NSSelectionGranularity : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case SelectByCharacter
-  case SelectByWord
-  case SelectByParagraph
+  case selectByCharacter
+  case selectByWord
+  case selectByParagraph
 }
 enum NSSelectionAffinity : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Upstream
-  case Downstream
+  case upstream
+  case downstream
 }
 @available(OSX 10.5, *)
 let NSAllRomanInputSourcesLocaleIdentifier: String
@@ -67,8 +67,8 @@ class NSTextView : NSText, NSUserInterfaceValidations, NSTextInputClient, NSText
   func updateRuler()
   func updateFontPanel()
   func updateDragTypeRegistration()
-  func selectionRangeForProposedRange(proposedCharRange: NSRange, granularity: NSSelectionGranularity) -> NSRange
-  func clickedOnLink(link: AnyObject, at charIndex: Int)
+  func selectionRangeFor(proposedRange proposedCharRange: NSRange, granularity: NSSelectionGranularity) -> NSRange
+  func clickedOn(link link: AnyObject, at charIndex: Int)
   func startSpeaking(sender: AnyObject?)
   func stopSpeaking(sender: AnyObject?)
   @available(OSX 10.7, *)
@@ -87,9 +87,9 @@ class NSTextView : NSText, NSUserInterfaceValidations, NSTextInputClient, NSText
   func markedRange() -> NSRange
   func hasMarkedText() -> Bool
   @available(OSX 10.0, *)
-  func attributedSubstringForProposedRange(aRange: NSRange, actualRange: RangePointer) -> AttributedString?
+  func attributedSubstringFor(proposedRange aRange: NSRange, actualRange: RangePointer) -> AttributedString?
   func validAttributesForMarkedText() -> [String]
-  func firstRectForCharacterRange(aRange: NSRange, actualRange: RangePointer) -> Rect
+  func firstRectFor(characterRange aRange: NSRange, actualRange: RangePointer) -> Rect
   func characterIndexFor(aPoint: Point) -> Int
   @available(OSX 10.0, *)
   func attributedString() -> AttributedString
@@ -112,7 +112,7 @@ class NSTextView : NSText, NSUserInterfaceValidations, NSTextInputClient, NSText
   func ignoreModifierKeysFor(session: NSDraggingSession) -> Bool
   func accessibilityStringFor(range: NSRange) -> String?
   func accessibilityLineFor(index: Int) -> Int
-  func accessibilityRangeForLine(lineNumber: Int) -> NSRange
+  func accessibilityRangeFor(line lineNumber: Int) -> NSRange
   func accessibilityFrameFor(range: NSRange) -> Rect
   func accessibilityValue() -> String?
   @available(OSX 10.0, *)
@@ -122,7 +122,7 @@ class NSTextView : NSText, NSUserInterfaceValidations, NSTextInputClient, NSText
 extension NSTextView {
   func complete(sender: AnyObject?)
   var rangeForUserCompletion: NSRange { get }
-  func completionsForPartialWordRange(charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [String]?
+  func completionsFor(partialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [String]?
   func insertCompletion(word: String, forPartialWordRange charRange: NSRange, movement: Int, isFinal flag: Bool)
 }
 extension NSTextView {
@@ -139,8 +139,8 @@ extension NSTextView {
   func pasteAsRichText(sender: AnyObject?)
 }
 extension NSTextView {
-  func dragSelectionWith(event: NSEvent, offset mouseOffset: Size, slideBack: Bool) -> Bool
-  func dragImageForSelectionWith(event: NSEvent, origin: PointPointer) -> NSImage?
+  func dragSelection(event: NSEvent, offset mouseOffset: Size, slideBack: Bool) -> Bool
+  func dragImageForSelection(event: NSEvent, origin: PointPointer) -> NSImage?
   var acceptableDragTypes: [String] { get }
   func dragOperationFor(dragInfo: NSDraggingInfo, type: String) -> NSDragOperation
   func cleanUpAfterDragOperation()
@@ -172,7 +172,7 @@ extension NSTextView {
   @available(OSX 10.5, *)
   func setSpellingState(value: Int, range charRange: NSRange)
   var typingAttributes: [String : AnyObject]
-  func shouldChangeTextInRanges(affectedRanges: [Value], replacementStrings: [String]?) -> Bool
+  func shouldChangeTextIn(ranges affectedRanges: [Value], replacementStrings: [String]?) -> Bool
   var rangesForUserTextChange: [Value]? { get }
   var rangesForUserCharacterAttributeChange: [Value]? { get }
   var rangesForUserParagraphAttributeChange: [Value]? { get }
@@ -209,7 +209,7 @@ extension NSTextView {
 }
 extension NSTextView {
   var smartInsertDeleteEnabled: Bool
-  func smartDeleteRangeForProposedRange(proposedCharRange: NSRange) -> NSRange
+  func smartDeleteRangeFor(proposedRange proposedCharRange: NSRange) -> NSRange
   func toggleSmartInsertDelete(sender: AnyObject?)
   func smartInsertFor(pasteString: String, replacing charRangeToReplace: NSRange, before beforeString: AutoreleasingUnsafeMutablePointer<NSString?>, after afterString: AutoreleasingUnsafeMutablePointer<NSString?>)
   func smartInsertBeforeStringFor(pasteString: String, replacing charRangeToReplace: NSRange) -> String?
@@ -260,7 +260,7 @@ extension NSTextView {
   @available(OSX 10.7, *)
   @IBAction func toggleQuickLookPreviewPanel(sender: AnyObject?)
   @available(OSX 10.7, *)
-  func quickLookPreviewableItemsInRanges(ranges: [Value]) -> [AnyObject]?
+  func quickLookPreviewableItemsIn(ranges ranges: [Value]) -> [AnyObject]?
   @available(OSX 10.7, *)
   func updateQuickLookPreviewPanel()
 }
@@ -308,16 +308,16 @@ let NSTextViewDidChangeTypingAttributesNotification: String
 enum NSFindPanelAction : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ShowFindPanel
-  case Next
-  case Previous
-  case ReplaceAll
-  case Replace
-  case ReplaceAndFind
-  case SetFindString
-  case ReplaceAllInSelection
-  case SelectAll
-  case SelectAllInSelection
+  case showFindPanel
+  case next
+  case previous
+  case replaceAll
+  case replace
+  case replaceAndFind
+  case setFindString
+  case replaceAllInSelection
+  case selectAll
+  case selectAllInSelection
 }
 @available(OSX 10.5, *)
 let NSFindPanelSearchOptionsPboardType: String
@@ -328,8 +328,8 @@ let NSFindPanelSubstringMatch: String
 enum NSFindPanelSubstringMatchType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Contains
-  case StartsWith
-  case FullWord
-  case EndsWith
+  case contains
+  case startsWith
+  case fullWord
+  case endsWith
 }

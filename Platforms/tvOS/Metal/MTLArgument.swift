@@ -3,80 +3,80 @@
 enum MTLDataType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
-  case Struct
-  case Array
-  case Float
-  case Float2
-  case Float3
-  case Float4
-  case Float2x2
-  case Float2x3
-  case Float2x4
-  case Float3x2
-  case Float3x3
-  case Float3x4
-  case Float4x2
-  case Float4x3
-  case Float4x4
-  case Half
-  case Half2
-  case Half3
-  case Half4
-  case Half2x2
-  case Half2x3
-  case Half2x4
-  case Half3x2
-  case Half3x3
-  case Half3x4
-  case Half4x2
-  case Half4x3
-  case Half4x4
-  case Int
-  case Int2
-  case Int3
-  case Int4
-  case UInt
-  case UInt2
-  case UInt3
-  case UInt4
-  case Short
-  case Short2
-  case Short3
-  case Short4
-  case UShort
-  case UShort2
-  case UShort3
-  case UShort4
-  case Char
-  case Char2
-  case Char3
-  case Char4
-  case UChar
-  case UChar2
-  case UChar3
-  case UChar4
-  case Bool
-  case Bool2
-  case Bool3
-  case Bool4
+  case none
+  case `struct`
+  case array
+  case float
+  case float2
+  case float3
+  case float4
+  case float2x2
+  case float2x3
+  case float2x4
+  case float3x2
+  case float3x3
+  case float3x4
+  case float4x2
+  case float4x3
+  case float4x4
+  case half
+  case half2
+  case half3
+  case half4
+  case half2x2
+  case half2x3
+  case half2x4
+  case half3x2
+  case half3x3
+  case half3x4
+  case half4x2
+  case half4x3
+  case half4x4
+  case int
+  case int2
+  case int3
+  case int4
+  case uInt
+  case uInt2
+  case uInt3
+  case uInt4
+  case short
+  case short2
+  case short3
+  case short4
+  case uShort
+  case uShort2
+  case uShort3
+  case uShort4
+  case char
+  case char2
+  case char3
+  case char4
+  case uChar
+  case uChar2
+  case uChar3
+  case uChar4
+  case bool
+  case bool2
+  case bool3
+  case bool4
 }
 @available(tvOS 8.0, *)
 enum MTLArgumentType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Buffer
-  case ThreadgroupMemory
-  case Texture
-  case Sampler
+  case buffer
+  case threadgroupMemory
+  case texture
+  case sampler
 }
 @available(tvOS 8.0, *)
 enum MTLArgumentAccess : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ReadOnly
-  case ReadWrite
-  case WriteOnly
+  case readOnly
+  case readWrite
+  case writeOnly
 }
 @available(tvOS 8.0, *)
 class MTLStructMember : Object {
@@ -90,7 +90,7 @@ class MTLStructMember : Object {
 @available(tvOS 8.0, *)
 class MTLStructType : Object {
   var members: [MTLStructMember] { get }
-  func memberByName(name: String) -> MTLStructMember?
+  func memberBy(name name: String) -> MTLStructMember?
   init()
 }
 @available(tvOS 8.0, *)

@@ -3,27 +3,27 @@
 enum MTLCompareFunction : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Never
-  case Less
-  case Equal
-  case LessEqual
-  case Greater
-  case NotEqual
-  case GreaterEqual
-  case Always
+  case never
+  case less
+  case equal
+  case lessEqual
+  case greater
+  case notEqual
+  case greaterEqual
+  case always
 }
 @available(iOS 8.0, *)
 enum MTLStencilOperation : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Keep
-  case Zero
-  case Replace
-  case IncrementClamp
-  case DecrementClamp
-  case Invert
-  case IncrementWrap
-  case DecrementWrap
+  case keep
+  case zero
+  case replace
+  case incrementClamp
+  case decrementClamp
+  case invert
+  case incrementWrap
+  case decrementWrap
 }
 @available(iOS 8.0, *)
 class MTLStencilDescriptor : Object, Copying {
@@ -35,7 +35,7 @@ class MTLStencilDescriptor : Object, Copying {
   var writeMask: UInt32
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class MTLDepthStencilDescriptor : Object, Copying {
@@ -46,7 +46,7 @@ class MTLDepthStencilDescriptor : Object, Copying {
   var label: String?
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 protocol MTLDepthStencilState : ObjectProtocol {

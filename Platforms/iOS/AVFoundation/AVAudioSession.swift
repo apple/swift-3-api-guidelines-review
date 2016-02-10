@@ -3,85 +3,85 @@
 struct AVAudioSessionInterruptionOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ShouldResume: AVAudioSessionInterruptionOptions { get }
+  static var shouldResume: AVAudioSessionInterruptionOptions { get }
 }
 @available(iOS 6.0, *)
 struct AVAudioSessionSetActiveOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var NotifyOthersOnDeactivation: AVAudioSessionSetActiveOptions { get }
+  static var notifyOthersOnDeactivation: AVAudioSessionSetActiveOptions { get }
 }
 @available(iOS 6.0, *)
 enum AVAudioSessionPortOverride : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
-  case Speaker
+  case none
+  case speaker
 }
 @available(iOS 6.0, *)
 enum AVAudioSessionRouteChangeReason : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Unknown
-  case NewDeviceAvailable
-  case OldDeviceUnavailable
-  case CategoryChange
-  case Override
-  case WakeFromSleep
-  case NoSuitableRouteForCategory
+  case unknown
+  case newDeviceAvailable
+  case oldDeviceUnavailable
+  case categoryChange
+  case override
+  case wakeFromSleep
+  case noSuitableRouteForCategory
   @available(iOS 7.0, *)
-  case RouteConfigurationChange
+  case routeConfigurationChange
 }
 @available(iOS 6.0, *)
 struct AVAudioSessionCategoryOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var MixWithOthers: AVAudioSessionCategoryOptions { get }
-  static var DuckOthers: AVAudioSessionCategoryOptions { get }
-  static var AllowBluetooth: AVAudioSessionCategoryOptions { get }
-  static var DefaultToSpeaker: AVAudioSessionCategoryOptions { get }
+  static var mixWithOthers: AVAudioSessionCategoryOptions { get }
+  static var duckOthers: AVAudioSessionCategoryOptions { get }
+  static var allowBluetooth: AVAudioSessionCategoryOptions { get }
+  static var defaultToSpeaker: AVAudioSessionCategoryOptions { get }
   @available(iOS 9.0, *)
-  static var InterruptSpokenAudioAndMixWithOthers: AVAudioSessionCategoryOptions { get }
+  static var interruptSpokenAudioAndMixWithOthers: AVAudioSessionCategoryOptions { get }
 }
 @available(iOS 6.0, *)
 enum AVAudioSessionInterruptionType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Began
-  case Ended
+  case began
+  case ended
 }
 @available(iOS 8.0, *)
 enum AVAudioSessionSilenceSecondaryAudioHintType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Begin
-  case End
+  case begin
+  case end
 }
 @available(iOS 8.0, *)
 struct AVAudioSessionRecordPermission : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Undetermined: AVAudioSessionRecordPermission { get }
-  static var Denied: AVAudioSessionRecordPermission { get }
-  static var Granted: AVAudioSessionRecordPermission { get }
+  static var undetermined: AVAudioSessionRecordPermission { get }
+  static var denied: AVAudioSessionRecordPermission { get }
+  static var granted: AVAudioSessionRecordPermission { get }
 }
 @available(iOS 7.0, *)
 enum AVAudioSessionErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case CodeNone
-  case CodeMediaServicesFailed
-  case CodeIsBusy
-  case CodeIncompatibleCategory
-  case CodeCannotInterruptOthers
-  case CodeMissingEntitlement
-  case CodeSiriIsRecording
-  case CodeCannotStartPlaying
-  case CodeCannotStartRecording
-  case CodeBadParam
-  case InsufficientPriority
-  case CodeResourceNotAvailable
-  case CodeUnspecified
+  case codeNone
+  case codeMediaServicesFailed
+  case codeIsBusy
+  case codeIncompatibleCategory
+  case codeCannotInterruptOthers
+  case codeMissingEntitlement
+  case codeSiriIsRecording
+  case codeCannotStartPlaying
+  case codeCannotStartRecording
+  case codeBadParam
+  case insufficientPriority
+  case codeResourceNotAvailable
+  case codeUnspecified
 }
 @available(iOS 3.0, *)
 class AVAudioSession : Object {
@@ -325,7 +325,7 @@ class AVAudioSessionDataSourceDescription : Object {
 protocol AVAudioSessionDelegate : ObjectProtocol {
   optional func beginInterruption()
   @available(iOS 4.0, *)
-  optional func endInterruptionWithFlags(flags: Int)
+  optional func endInterruption(flags flags: Int)
   optional func endInterruption()
   optional func inputIsAvailableChanged(isInputAvailable: Bool)
 }

@@ -3,10 +3,10 @@
 struct MPMediaPlaylistAttribute : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: MPMediaPlaylistAttribute { get }
-  static var OnTheGo: MPMediaPlaylistAttribute { get }
-  static var Smart: MPMediaPlaylistAttribute { get }
-  static var Genius: MPMediaPlaylistAttribute { get }
+  static var none: MPMediaPlaylistAttribute { get }
+  static var onTheGo: MPMediaPlaylistAttribute { get }
+  static var smart: MPMediaPlaylistAttribute { get }
+  static var genius: MPMediaPlaylistAttribute { get }
 }
 @available(iOS 3.0, *)
 class MPMediaPlaylist : MPMediaItemCollection {

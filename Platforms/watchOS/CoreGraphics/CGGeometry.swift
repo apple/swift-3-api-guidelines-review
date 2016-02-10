@@ -127,10 +127,10 @@ extension CGRect : Equatable {
 enum CGRectEdge : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case MinXEdge
-  case MinYEdge
-  case MaxXEdge
-  case MaxYEdge
+  case minXEdge
+  case minYEdge
+  case maxXEdge
+  case maxYEdge
 }
 @available(watchOS 2.0, *)
 let CGPointZero: CGPoint

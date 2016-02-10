@@ -54,16 +54,16 @@ class CWInterface : Object {
   @available(OSX 10.6, *)
   func setWEPKey(key: Data?, flags: CWCipherKeyFlags, index: Int) throws
   @available(OSX 10.7, *)
-  func scanForNetworksWithSSID(ssid: Data?) throws -> Set<CWNetwork>
+  func scanForNetworksWith(ssid ssid: Data?) throws -> Set<CWNetwork>
   @available(OSX 10.7, *)
-  func scanForNetworksWithName(networkName: String?) throws -> Set<CWNetwork>
+  func scanForNetworksWith(name networkName: String?) throws -> Set<CWNetwork>
   @available(OSX 10.7, *)
   func associateTo(network: CWNetwork, password: String?) throws
   @available(OSX 10.6, *)
   func disassociate()
   @available(OSX 10.7, *)
-  func associateToEnterpriseNetwork(network: CWNetwork, identity: SecIdentity?, username: String?, password: String?) throws
+  func associateTo(enterpriseNetwork network: CWNetwork, identity: SecIdentity?, username: String?, password: String?) throws
   @available(OSX 10.7, *)
-  func startIBSSModeWithSSID(ssidData: Data, security: CWIBSSModeSecurity, channel: Int, password: String?) throws
+  func startIBSSMode(ssid ssidData: Data, security: CWIBSSModeSecurity, channel: Int, password: String?) throws
   init()
 }

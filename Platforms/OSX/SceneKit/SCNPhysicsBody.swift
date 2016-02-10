@@ -3,17 +3,17 @@
 enum SCNPhysicsBodyType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Static
-  case Dynamic
-  case Kinematic
+  case `static`
+  case dynamic
+  case kinematic
 }
 @available(OSX 10.10, *)
 struct SCNPhysicsCollisionCategory : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Default: SCNPhysicsCollisionCategory { get }
-  static var Static: SCNPhysicsCollisionCategory { get }
-  static var All: SCNPhysicsCollisionCategory { get }
+  static var `default`: SCNPhysicsCollisionCategory { get }
+  static var `static`: SCNPhysicsCollisionCategory { get }
+  static var all: SCNPhysicsCollisionCategory { get }
 }
 @available(OSX 10.10, *)
 class SCNPhysicsBody : Object, Copying, SecureCoding {
@@ -53,7 +53,7 @@ class SCNPhysicsBody : Object, Copying, SecureCoding {
   func resetTransform()
   init()
   @available(OSX 10.10, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)

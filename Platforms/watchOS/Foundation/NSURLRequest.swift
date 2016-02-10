@@ -2,22 +2,22 @@
 enum URLRequestCachePolicy : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case UseProtocolCachePolicy
-  case ReloadIgnoringLocalCacheData
-  case ReloadIgnoringLocalAndRemoteCacheData
-  static var ReloadIgnoringCacheData: URLRequestCachePolicy { get }
-  case ReturnCacheDataElseLoad
-  case ReturnCacheDataDontLoad
-  case ReloadRevalidatingCacheData
+  case useProtocolCachePolicy
+  case reloadIgnoringLocalCacheData
+  case reloadIgnoringLocalAndRemoteCacheData
+  static var reloadIgnoringCacheData: URLRequestCachePolicy { get }
+  case returnCacheDataElseLoad
+  case returnCacheDataDontLoad
+  case reloadRevalidatingCacheData
 }
 enum URLRequestNetworkServiceType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NetworkServiceTypeDefault
-  case NetworkServiceTypeVoIP
-  case NetworkServiceTypeVideo
-  case NetworkServiceTypeBackground
-  case NetworkServiceTypeVoice
+  case networkServiceTypeDefault
+  case networkServiceTypeVoIP
+  case networkServiceTypeVideo
+  case networkServiceTypeBackground
+  case networkServiceTypeVoice
 }
 class URLRequest : Object, SecureCoding, Copying, MutableCopying {
   class func supportsSecureCoding() -> Bool
@@ -34,8 +34,8 @@ class URLRequest : Object, SecureCoding, Copying, MutableCopying {
   convenience init()
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(zone zone: Zone = nil) -> AnyObject
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
 }
 class MutableURLRequest : URLRequest {
   @NSCopying var url: URL?
@@ -54,7 +54,7 @@ class MutableURLRequest : URLRequest {
 extension URLRequest {
   var httpMethod: String? { get }
   var allHTTPHeaderFields: [String : String]? { get }
-  func valueForHTTPHeaderField(field: String) -> String?
+  func valueFor(httpHeaderField field: String) -> String?
   @NSCopying var httpBody: Data? { get }
   var httpBodyStream: InputStream? { get }
   var httpShouldHandleCookies: Bool { get }

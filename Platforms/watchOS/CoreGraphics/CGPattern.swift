@@ -4,9 +4,9 @@ class CGPattern {
 enum CGPatternTiling : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case NoDistortion
-  case ConstantSpacingMinimalDistortion
-  case ConstantSpacing
+  case noDistortion
+  case constantSpacingMinimalDistortion
+  case constantSpacing
 }
 typealias CGPatternDrawPatternCallback = @convention(c) (UnsafeMutablePointer<Void>, CGContext?) -> Void
 typealias CGPatternReleaseInfoCallback = @convention(c) (UnsafeMutablePointer<Void>) -> Void

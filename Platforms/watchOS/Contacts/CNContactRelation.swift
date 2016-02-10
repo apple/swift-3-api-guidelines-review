@@ -5,7 +5,7 @@ class CNContactRelation : Object, Copying, SecureCoding {
   var name: String { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)

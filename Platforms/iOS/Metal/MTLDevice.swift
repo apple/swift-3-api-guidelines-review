@@ -20,9 +20,9 @@ enum MTLFeatureSet : UInt {
 struct MTLPipelineOption : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: MTLPipelineOption { get }
-  static var ArgumentInfo: MTLPipelineOption { get }
-  static var BufferTypeInfo: MTLPipelineOption { get }
+  static var none: MTLPipelineOption { get }
+  static var argumentInfo: MTLPipelineOption { get }
+  static var bufferTypeInfo: MTLPipelineOption { get }
 }
 typealias MTLAutoreleasedRenderPipelineReflection = MTLRenderPipelineReflection
 typealias MTLAutoreleasedComputePipelineReflection = MTLComputePipelineReflection
@@ -38,17 +38,17 @@ protocol MTLDevice : ObjectProtocol {
   var maxThreadsPerThreadgroup: MTLSize { get }
   func newCommandQueue() -> MTLCommandQueue
   func newCommandQueueWithMaxCommandBufferCount(maxCommandBufferCount: Int) -> MTLCommandQueue
-  func newBufferWithLength(length: Int, options: MTLResourceOptions = []) -> MTLBuffer
-  func newBufferWithBytes(pointer: UnsafePointer<Void>, length: Int, options: MTLResourceOptions = []) -> MTLBuffer
+  func newBufferWith(length length: Int, options: MTLResourceOptions = []) -> MTLBuffer
+  func newBufferWith(bytes pointer: UnsafePointer<Void>, length: Int, options: MTLResourceOptions = []) -> MTLBuffer
   func newBufferWithBytesNoCopy(pointer: UnsafeMutablePointer<Void>, length: Int, options: MTLResourceOptions = [], deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)? = nil) -> MTLBuffer
   func newDepthStencilStateWith(descriptor: MTLDepthStencilDescriptor) -> MTLDepthStencilState
   func newTextureWith(descriptor: MTLTextureDescriptor) -> MTLTexture
   func newSamplerStateWith(descriptor: MTLSamplerDescriptor) -> MTLSamplerState
   func newDefaultLibrary() -> MTLLibrary?
-  func newLibraryWithFile(filepath: String) throws -> MTLLibrary
+  func newLibraryWith(file filepath: String) throws -> MTLLibrary
   func newLibraryWith(data: dispatch_data_t) throws -> MTLLibrary
-  func newLibraryWithSource(source: String, options: MTLCompileOptions?) throws -> MTLLibrary
-  func newLibraryWithSource(source: String, options: MTLCompileOptions?, completionHandler: MTLNewLibraryCompletionHandler)
+  func newLibraryWith(source source: String, options: MTLCompileOptions?) throws -> MTLLibrary
+  func newLibraryWith(source source: String, options: MTLCompileOptions?, completionHandler: MTLNewLibraryCompletionHandler)
   func newRenderPipelineStateWith(descriptor: MTLRenderPipelineDescriptor) throws -> MTLRenderPipelineState
   func newRenderPipelineStateWith(descriptor: MTLRenderPipelineDescriptor, options: MTLPipelineOption, reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedRenderPipelineReflection?>) throws -> MTLRenderPipelineState
   func newRenderPipelineStateWith(descriptor: MTLRenderPipelineDescriptor, completionHandler: MTLNewRenderPipelineStateCompletionHandler)

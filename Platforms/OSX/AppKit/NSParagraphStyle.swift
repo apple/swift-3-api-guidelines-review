@@ -11,7 +11,7 @@ class NSTextTab : Object, Copying, Coding {
   var options: [String : AnyObject] { get }
   convenience init()
   @available(OSX 10.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.0, *)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
@@ -20,17 +20,17 @@ class NSTextTab : Object, Copying, Coding {
 enum NSLineBreakMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ByWordWrapping
-  case ByCharWrapping
-  case ByClipping
-  case ByTruncatingHead
-  case ByTruncatingTail
-  case ByTruncatingMiddle
+  case byWordWrapping
+  case byCharWrapping
+  case byClipping
+  case byTruncatingHead
+  case byTruncatingTail
+  case byTruncatingMiddle
 }
 @available(OSX 10.0, *)
 class NSParagraphStyle : Object, Copying, MutableCopying, SecureCoding {
   class func defaultParagraphStyle() -> NSParagraphStyle
-  class func defaultWritingDirectionForLanguage(languageName: String?) -> NSWritingDirection
+  class func defaultWritingDirectionFor(language languageName: String?) -> NSWritingDirection
   var lineSpacing: CGFloat { get }
   var paragraphSpacing: CGFloat { get }
   var alignment: NSTextAlignment { get }
@@ -56,9 +56,9 @@ class NSParagraphStyle : Object, Copying, MutableCopying, SecureCoding {
   var headerLevel: Int { get }
   init()
   @available(OSX 10.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.0, *)
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.0, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.0, *)
@@ -102,10 +102,10 @@ class NSMutableParagraphStyle : NSParagraphStyle {
 enum NSTextTabType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case LeftTabStopType
-  case RightTabStopType
-  case CenterTabStopType
-  case DecimalTabStopType
+  case leftTabStopType
+  case rightTabStopType
+  case centerTabStopType
+  case decimalTabStopType
 }
 extension NSTextTab {
   convenience init(type: NSTextTabType, location loc: CGFloat)

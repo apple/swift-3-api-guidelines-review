@@ -33,9 +33,9 @@ class NSResponder : Object, Coding {
   @available(OSX 10.5, *)
   func swipeWith(event: NSEvent)
   @available(OSX 10.5, *)
-  func beginGestureWith(event: NSEvent)
+  func beginGesture(event: NSEvent)
   @available(OSX 10.5, *)
-  func endGestureWith(event: NSEvent)
+  func endGesture(event: NSEvent)
   @available(OSX 10.8, *)
   func smartMagnifyWith(event: NSEvent)
   @available(OSX 10.6, *)
@@ -59,13 +59,13 @@ class NSResponder : Object, Coding {
   var menu: NSMenu?
   func showContextHelp(sender: AnyObject?)
   func helpRequested(eventPtr: NSEvent)
-  func shouldBeTreatedAsInkEvent(theEvent: NSEvent) -> Bool
+  func shouldBeTreatedAs(inkEvent theEvent: NSEvent) -> Bool
   @available(OSX 10.7, *)
   func wantsScrollEventsForSwipeTrackingOn(axis: NSEventGestureAxis) -> Bool
   @available(OSX 10.7, *)
   func wantsForwardedScrollEventsFor(axis: NSEventGestureAxis) -> Bool
   @available(OSX 10.7, *)
-  func supplementalTargetForAction(action: Selector, sender: AnyObject?) -> AnyObject?
+  func supplementalTargetFor(action action: Selector, sender: AnyObject?) -> AnyObject?
   func encodeWith(aCoder: Coder)
 }
 extension NSResponder {

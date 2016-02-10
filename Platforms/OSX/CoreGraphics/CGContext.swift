@@ -4,64 +4,64 @@ class CGContext {
 enum CGPathDrawingMode : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Fill
-  case EOFill
-  case Stroke
-  case FillStroke
-  case EOFillStroke
+  case fill
+  case eoFill
+  case stroke
+  case fillStroke
+  case eoFillStroke
 }
 enum CGTextDrawingMode : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Fill
-  case Stroke
-  case FillStroke
-  case Invisible
-  case FillClip
-  case StrokeClip
-  case FillStrokeClip
-  case Clip
+  case fill
+  case stroke
+  case fillStroke
+  case invisible
+  case fillClip
+  case strokeClip
+  case fillStrokeClip
+  case clip
 }
 enum CGInterpolationQuality : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Default
-  case None
-  case Low
-  case Medium
-  case High
+  case `default`
+  case none
+  case low
+  case medium
+  case high
 }
 enum CGBlendMode : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Normal
-  case Multiply
-  case Screen
-  case Overlay
-  case Darken
-  case Lighten
-  case ColorDodge
-  case ColorBurn
-  case SoftLight
-  case HardLight
-  case Difference
-  case Exclusion
-  case Hue
-  case Saturation
-  case Color
-  case Luminosity
-  case Clear
-  case Copy
-  case SourceIn
-  case SourceOut
-  case SourceAtop
-  case DestinationOver
-  case DestinationIn
-  case DestinationOut
-  case DestinationAtop
+  case normal
+  case multiply
+  case screen
+  case overlay
+  case darken
+  case lighten
+  case colorDodge
+  case colorBurn
+  case softLight
+  case hardLight
+  case difference
+  case exclusion
+  case hue
+  case saturation
+  case color
+  case luminosity
+  case clear
+  case copy
+  case sourceIn
+  case sourceOut
+  case sourceAtop
+  case destinationOver
+  case destinationIn
+  case destinationOut
+  case destinationAtop
   case XOR
-  case PlusDarker
-  case PlusLighter
+  case plusDarker
+  case plusLighter
 }
 @available(OSX 10.2, *)
 func CGContextGetTypeID() -> CFTypeID

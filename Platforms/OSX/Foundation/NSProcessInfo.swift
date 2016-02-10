@@ -35,7 +35,7 @@ class ProcessInfo : Object {
   @available(OSX 10.5, *)
   var physicalMemory: UInt64 { get }
   @available(OSX 10.10, *)
-  func isOperatingSystemAtLeastVersion(version: OperatingSystemVersion) -> Bool
+  func isOperatingSystemAt(leastVersion version: OperatingSystemVersion) -> Bool
   @available(OSX 10.6, *)
   var systemUptime: TimeInterval { get }
   @available(OSX 10.6, *)
@@ -54,31 +54,31 @@ class ProcessInfo : Object {
 struct ActivityOptions : OptionSetType {
   init(rawValue: UInt64)
   let rawValue: UInt64
-  static var IdleDisplaySleepDisabled: ActivityOptions { get }
-  static var IdleSystemSleepDisabled: ActivityOptions { get }
-  static var SuddenTerminationDisabled: ActivityOptions { get }
-  static var AutomaticTerminationDisabled: ActivityOptions { get }
-  static var UserInitiated: ActivityOptions { get }
-  static var UserInitiatedAllowingIdleSystemSleep: ActivityOptions { get }
-  static var Background: ActivityOptions { get }
-  static var LatencyCritical: ActivityOptions { get }
+  static var idleDisplaySleepDisabled: ActivityOptions { get }
+  static var idleSystemSleepDisabled: ActivityOptions { get }
+  static var suddenTerminationDisabled: ActivityOptions { get }
+  static var automaticTerminationDisabled: ActivityOptions { get }
+  static var userInitiated: ActivityOptions { get }
+  static var userInitiatedAllowingIdleSystemSleep: ActivityOptions { get }
+  static var background: ActivityOptions { get }
+  static var latencyCritical: ActivityOptions { get }
 }
 extension ProcessInfo {
   @available(OSX 10.9, *)
-  func beginActivity(options options: ActivityOptions = [], reason: String) -> ObjectProtocol
+  func beginActivity(options: ActivityOptions = [], reason: String) -> ObjectProtocol
   @available(OSX 10.9, *)
   func endActivity(activity: ObjectProtocol)
   @available(OSX 10.9, *)
-  func performActivity(options options: ActivityOptions = [], reason: String, usingBlock block: () -> Void)
+  func performActivity(options: ActivityOptions = [], reason: String, usingBlock block: () -> Void)
 }
 @available(OSX 10.10.3, *)
 enum ProcessInfoThermalState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Nominal
-  case Fair
-  case Serious
-  case Critical
+  case nominal
+  case fair
+  case serious
+  case critical
 }
 extension ProcessInfo {
   @available(OSX 10.10.3, *)

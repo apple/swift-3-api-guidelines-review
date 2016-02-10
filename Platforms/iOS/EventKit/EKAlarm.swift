@@ -9,5 +9,5 @@ class EKAlarm : EKObject, Copying {
   var proximity: EKAlarmProximity
   init()
   @available(iOS 4.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

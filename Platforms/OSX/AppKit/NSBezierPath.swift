@@ -2,30 +2,30 @@
 enum NSLineCapStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ButtLineCapStyle
-  case RoundLineCapStyle
-  case SquareLineCapStyle
+  case buttLineCapStyle
+  case roundLineCapStyle
+  case squareLineCapStyle
 }
 enum NSLineJoinStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case MiterLineJoinStyle
-  case RoundLineJoinStyle
-  case BevelLineJoinStyle
+  case miterLineJoinStyle
+  case roundLineJoinStyle
+  case bevelLineJoinStyle
 }
 enum NSWindingRule : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NonZeroWindingRule
-  case EvenOddWindingRule
+  case nonZeroWindingRule
+  case evenOddWindingRule
 }
 enum NSBezierPathElement : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case MoveToBezierPathElement
-  case LineToBezierPathElement
-  case CurveToBezierPathElement
-  case ClosePathBezierPathElement
+  case moveToBezierPathElement
+  case lineToBezierPathElement
+  case curveToBezierPathElement
+  case closePathBezierPathElement
 }
 class NSBezierPath : Object, Copying, Coding {
   /*not inherited*/ init(rect: Rect)
@@ -81,20 +81,20 @@ class NSBezierPath : Object, Copying, Coding {
   func elementAt(index: Int) -> NSBezierPathElement
   func setAssociatedPoints(points: PointArray, at index: Int)
   func append(path: NSBezierPath)
-  func appendWith(rect: Rect)
-  func appendWithPoints(points: PointArray, count: Int)
+  func append(rect: Rect)
+  func append(points points: PointArray, count: Int)
   func appendWithOvalIn(rect: Rect)
   func appendWithArcWithCenter(center: Point, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
   func appendWithArcWithCenter(center: Point, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat)
   func appendWithArcFrom(point1: Point, to point2: Point, radius: CGFloat)
-  func appendWithGlyph(glyph: NSGlyph, in font: NSFont)
-  func appendWithGlyphs(glyphs: UnsafeMutablePointer<NSGlyph>, count: Int, in font: NSFont)
-  func appendWithPackedGlyphs(packedGlyphs: UnsafePointer<Int8>)
+  func append(glyph glyph: NSGlyph, in font: NSFont)
+  func append(glyphs glyphs: UnsafeMutablePointer<NSGlyph>, count: Int, in font: NSFont)
+  func append(packedGlyphs packedGlyphs: UnsafePointer<Int8>)
   @available(OSX 10.5, *)
-  func appendWithRoundedRect(rect: Rect, xRadius: CGFloat, yRadius: CGFloat)
+  func append(roundedRect rect: Rect, xRadius: CGFloat, yRadius: CGFloat)
   func contains(point: Point) -> Bool
   init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

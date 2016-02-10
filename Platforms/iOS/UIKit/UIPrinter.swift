@@ -16,13 +16,13 @@ class UIPrinter : Object {
 struct UIPrinterJobTypes : OptionSetType {
   init(rawValue: Int)
   let rawValue: Int
-  static var Unknown: UIPrinterJobTypes { get }
-  static var Document: UIPrinterJobTypes { get }
-  static var Envelope: UIPrinterJobTypes { get }
-  static var Label: UIPrinterJobTypes { get }
-  static var Photo: UIPrinterJobTypes { get }
-  static var Receipt: UIPrinterJobTypes { get }
-  static var Roll: UIPrinterJobTypes { get }
-  static var LargeFormat: UIPrinterJobTypes { get }
-  static var Postcard: UIPrinterJobTypes { get }
+  static var unknown: UIPrinterJobTypes { get }
+  static var document: UIPrinterJobTypes { get }
+  static var envelope: UIPrinterJobTypes { get }
+  static var label: UIPrinterJobTypes { get }
+  static var photo: UIPrinterJobTypes { get }
+  static var receipt: UIPrinterJobTypes { get }
+  static var roll: UIPrinterJobTypes { get }
+  static var largeFormat: UIPrinterJobTypes { get }
+  static var postcard: UIPrinterJobTypes { get }
 }

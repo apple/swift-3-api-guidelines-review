@@ -2,17 +2,17 @@
 enum UIScrollViewIndicatorStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Black
-  case White
+  case `default`
+  case black
+  case white
 }
 @available(tvOS 7.0, *)
 enum UIScrollViewKeyboardDismissMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case OnDrag
-  case Interactive
+  case none
+  case onDrag
+  case interactive
 }
 @available(tvOS 3.0, *)
 let UIScrollViewDecelerationRateNormal: CGFloat
@@ -44,7 +44,7 @@ class UIScrollView : UIView, Coding {
   var delaysContentTouches: Bool
   var canCancelContentTouches: Bool
   func touchesShouldBegin(touches: Set<UITouch>, withEvent event: UIEvent?, inContentView view: UIView) -> Bool
-  func touchesShouldCancelInContentView(view: UIView) -> Bool
+  func touchesShouldCancelIn(contentView view: UIView) -> Bool
   var minimumZoomScale: CGFloat
   var maximumZoomScale: CGFloat
   @available(tvOS 3.0, *)
@@ -92,7 +92,7 @@ protocol UIScrollViewDelegate : ObjectProtocol {
   @available(tvOS 2.0, *)
   optional func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
   @available(tvOS 2.0, *)
-  optional func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool
+  optional func scrollViewShouldScrollTo(top scrollView: UIScrollView) -> Bool
   @available(tvOS 2.0, *)
-  optional func scrollViewDidScrollToTop(scrollView: UIScrollView)
+  optional func scrollViewDidScrollTo(top scrollView: UIScrollView)
 }

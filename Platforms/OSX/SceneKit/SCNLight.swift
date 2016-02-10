@@ -7,9 +7,9 @@ let SCNLightTypeSpot: String
 enum SCNShadowMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Forward
-  case Deferred
-  case Modulated
+  case forward
+  case deferred
+  case modulated
 }
 @available(OSX 10.8, *)
 class SCNLight : Object, SCNAnimatable, SCNTechniqueSupport, Copying, SecureCoding {
@@ -48,7 +48,7 @@ class SCNLight : Object, SCNAnimatable, SCNTechniqueSupport, Copying, SecureCodi
   @available(OSX 10.10, *)
   var categoryBitMask: Int
   @available(OSX, introduced=10.8, deprecated=10.10)
-  func attributeForKey(key: String) -> AnyObject?
+  func attributeFor(key key: String) -> AnyObject?
   @available(OSX, introduced=10.8, deprecated=10.10)
   func setAttribute(attribute: AnyObject?, forKey key: String)
   init()
@@ -57,23 +57,23 @@ class SCNLight : Object, SCNAnimatable, SCNTechniqueSupport, Copying, SecureCodi
   @available(OSX 10.8, *)
   func removeAllAnimations()
   @available(OSX 10.8, *)
-  func removeAnimationForKey(key: String)
+  func removeAnimationFor(key key: String)
   @available(OSX 10.8, *)
   var animationKeys: [String] { get }
   @available(OSX 10.8, *)
-  func animationForKey(key: String) -> CAAnimation?
+  func animationFor(key key: String) -> CAAnimation?
   @available(OSX 10.9, *)
-  func pauseAnimationForKey(key: String)
+  func pauseAnimationFor(key key: String)
   @available(OSX 10.9, *)
-  func resumeAnimationForKey(key: String)
+  func resumeAnimationFor(key key: String)
   @available(OSX 10.9, *)
-  func isAnimationForKeyPaused(key: String) -> Bool
+  func isAnimationFor(keyPaused key: String) -> Bool
   @available(OSX 10.10, *)
-  func removeAnimationForKey(key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimationFor(key key: String, fadeOutDuration duration: CGFloat)
   @available(OSX 10.10, *)
   @NSCopying var technique: SCNTechnique?
   @available(OSX 10.8, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)

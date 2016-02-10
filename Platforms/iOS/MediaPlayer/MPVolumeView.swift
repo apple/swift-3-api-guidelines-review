@@ -24,15 +24,15 @@ class MPVolumeView : UIView, Coding {
   @available(iOS 7.0, *)
   var volumeWarningSliderImage: UIImage?
   @available(iOS 6.0, *)
-  func volumeSliderRectForBounds(bounds: CGRect) -> CGRect
+  func volumeSliderRectFor(bounds bounds: CGRect) -> CGRect
   @available(iOS 6.0, *)
-  func volumeThumbRectForBounds(bounds: CGRect, volumeSliderRect rect: CGRect, value: Float) -> CGRect
+  func volumeThumbRectFor(bounds bounds: CGRect, volumeSliderRect rect: CGRect, value: Float) -> CGRect
   @available(iOS 6.0, *)
   func setRouteButtonImage(image: UIImage?, forState state: UIControlState)
   @available(iOS 6.0, *)
   func routeButtonImageFor(state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
-  func routeButtonRectForBounds(bounds: CGRect) -> CGRect
+  func routeButtonRectFor(bounds bounds: CGRect) -> CGRect
   init(frame: CGRect)
   init?(coder aDecoder: Coder)
   convenience init()

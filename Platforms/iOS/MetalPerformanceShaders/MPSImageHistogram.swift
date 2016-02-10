@@ -14,7 +14,7 @@ class MPSImageHistogram : MPSKernel {
   var histogramInfo: MPSImageHistogramInfo { get }
   init(device: MTLDevice, histogramInfo: UnsafePointer<MPSImageHistogramInfo>)
   func encodeTo(commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, histogram: MTLBuffer, histogramOffset: Int)
-  func histogramSizeForSourceFormat(sourceFormat: MTLPixelFormat) -> Int
+  func histogramSizeFor(sourceFormat sourceFormat: MTLPixelFormat) -> Int
   convenience init(device: MTLDevice)
   convenience init()
 }

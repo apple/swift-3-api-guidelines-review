@@ -2,9 +2,9 @@
 enum UIBaselineAdjustment : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case AlignBaselines
-  case AlignCenters
-  case None
+  case alignBaselines
+  case alignCenters
+  case none
 }
 extension NSString {
 }

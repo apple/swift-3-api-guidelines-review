@@ -36,7 +36,7 @@ class URLProtectionSpace : Object, SecureCoding, Copying {
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 extension URLProtectionSpace {
   @available(iOS 3.0, *)

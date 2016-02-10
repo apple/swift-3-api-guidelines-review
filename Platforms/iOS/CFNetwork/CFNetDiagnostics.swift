@@ -4,11 +4,11 @@ class CFNetDiagnostic {
 enum CFNetDiagnosticStatusValues : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case NoErr
-  case Err
-  case ConnectionUp
-  case ConnectionIndeterminate
-  case ConnectionDown
+  case noErr
+  case err
+  case connectionUp
+  case connectionIndeterminate
+  case connectionDown
 }
 typealias CFNetDiagnosticStatus = CFIndex
 @available(iOS 2.0, *)

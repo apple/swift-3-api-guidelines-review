@@ -3,17 +3,17 @@
 enum CKSubscriptionType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Query
-  case RecordZone
+  case query
+  case recordZone
 }
 @available(tvOS 8.0, *)
 struct CKSubscriptionOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var FiresOnRecordCreation: CKSubscriptionOptions { get }
-  static var FiresOnRecordUpdate: CKSubscriptionOptions { get }
-  static var FiresOnRecordDeletion: CKSubscriptionOptions { get }
-  static var FiresOnce: CKSubscriptionOptions { get }
+  static var firesOnRecordCreation: CKSubscriptionOptions { get }
+  static var firesOnRecordUpdate: CKSubscriptionOptions { get }
+  static var firesOnRecordDeletion: CKSubscriptionOptions { get }
+  static var firesOnce: CKSubscriptionOptions { get }
 }
 @available(tvOS 8.0, *)
 class CKSubscription : Object, SecureCoding, Copying {
@@ -34,7 +34,7 @@ class CKSubscription : Object, SecureCoding, Copying {
   @available(tvOS 8.0, *)
   func encodeWith(aCoder: Coder)
   @available(tvOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 class CKNotificationInfo : Object, SecureCoding, Copying {
@@ -46,5 +46,5 @@ class CKNotificationInfo : Object, SecureCoding, Copying {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(tvOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

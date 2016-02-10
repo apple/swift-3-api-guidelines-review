@@ -3,8 +3,8 @@
 enum SCNReferenceLoadingPolicy : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Immediate
-  case OnDemand
+  case immediate
+  case onDemand
 }
 @available(iOS 9.0, *)
 class SCNReferenceNode : SCNNode {

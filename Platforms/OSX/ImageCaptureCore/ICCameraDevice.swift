@@ -43,7 +43,7 @@ class ICCameraDevice : ICDevice {
   var isAccessRestrictedAppleDevice: Bool { get }
   var mountPoint: String? { get }
   var tetheredCaptureEnabled: Bool
-  func filesOfType(fileUTType: String) -> [String]
+  func filesOf(type fileUTType: String) -> [String]
   func requestSyncClock()
   func requestEnableTethering()
   func requestDisableTethering()

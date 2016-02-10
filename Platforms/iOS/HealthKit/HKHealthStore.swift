@@ -5,7 +5,7 @@ class HKHealthStore : Object {
   func authorizationStatusFor(type: HKObjectType) -> HKAuthorizationStatus
   func requestAuthorizationToShare(typesToShare: Set<HKSampleType>?, read typesToRead: Set<HKObjectType>?, completion: (Bool, Error?) -> Void)
   @available(iOS 9.0, *)
-  func handleAuthorizationForExtensionWithCompletion(completion: (Bool, Error?) -> Void)
+  func handleAuthorizationForExtension(completion completion: (Bool, Error?) -> Void)
   @available(iOS 9.0, *)
   func earliestPermittedSampleDate() -> Date
   func save(object: HKObject, withCompletion completion: (Bool, Error?) -> Void)
@@ -32,7 +32,7 @@ extension HKHealthStore {
 extension HKHealthStore {
   func enableBackgroundDeliveryFor(type: HKObjectType, frequency: HKUpdateFrequency, withCompletion completion: (Bool, Error?) -> Void)
   func disableBackgroundDeliveryFor(type: HKObjectType, withCompletion completion: (Bool, Error?) -> Void)
-  func disableAllBackgroundDeliveryWithCompletion(completion: (Bool, Error?) -> Void)
+  func disableAllBackgroundDeliveryWith(completion completion: (Bool, Error?) -> Void)
 }
 @available(iOS 8.2, *)
 let HKUserPreferencesDidChangeNotification: String
@@ -45,7 +45,7 @@ class HKBiologicalSexObject : Object, Copying, SecureCoding {
   var biologicalSex: HKBiologicalSex { get }
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
@@ -57,7 +57,7 @@ class HKBloodTypeObject : Object, Copying, SecureCoding {
   var bloodType: HKBloodType { get }
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
@@ -69,7 +69,7 @@ class HKFitzpatrickSkinTypeObject : Object, Copying, SecureCoding {
   var skinType: HKFitzpatrickSkinType { get }
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)

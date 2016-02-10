@@ -3,21 +3,21 @@
 enum MassFormatterUnit : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Gram
-  case Kilogram
-  case Ounce
-  case Pound
-  case Stone
+  case gram
+  case kilogram
+  case ounce
+  case pound
+  case stone
 }
 @available(tvOS 8.0, *)
 class MassFormatter : Formatter {
   @NSCopying var numberFormatter: NumberFormatter!
   var unitStyle: FormattingUnitStyle
   var isForPersonMassUse: Bool
-  func stringFromValue(value: Double, unit: MassFormatterUnit) -> String
-  func stringFromKilograms(numberInKilograms: Double) -> String
-  func unitStringFromValue(value: Double, unit: MassFormatterUnit) -> String
-  func unitStringFromKilograms(numberInKilograms: Double, usedUnit unitp: UnsafeMutablePointer<MassFormatterUnit>) -> String
+  func stringFrom(value value: Double, unit: MassFormatterUnit) -> String
+  func stringFrom(kilograms numberInKilograms: Double) -> String
+  func unitStringFrom(value value: Double, unit: MassFormatterUnit) -> String
+  func unitStringFrom(kilograms numberInKilograms: Double, usedUnit unitp: UnsafeMutablePointer<MassFormatterUnit>) -> String
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   init()
   init?(coder aDecoder: Coder)

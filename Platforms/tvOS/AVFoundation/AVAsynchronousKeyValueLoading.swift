@@ -2,13 +2,13 @@
 enum AVKeyValueStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Loading
-  case Loaded
-  case Failed
-  case Cancelled
+  case unknown
+  case loading
+  case loaded
+  case failed
+  case cancelled
 }
 protocol AVAsynchronousKeyValueLoading {
-  func statusOfValueForKey(key: String, error outError: ErrorPointer) -> AVKeyValueStatus
-  func loadValuesAsynchronouslyForKeys(keys: [String], completionHandler handler: (() -> Void)? = nil)
+  func statusOfValueFor(key key: String, error outError: ErrorPointer) -> AVKeyValueStatus
+  func loadValuesAsynchronouslyFor(keys keys: [String], completionHandler handler: (() -> Void)? = nil)
 }

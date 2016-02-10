@@ -3,8 +3,8 @@
 enum SCNPhysicsFieldScope : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case InsideExtent
-  case OutsideExtent
+  case insideExtent
+  case outsideExtent
 }
 @available(tvOS 8.0, *)
 class SCNPhysicsField : Object, Copying, SecureCoding {
@@ -24,15 +24,15 @@ class SCNPhysicsField : Object, Copying, SecureCoding {
   class func vortex() -> SCNPhysicsField
   class func radialGravity() -> SCNPhysicsField
   class func linearGravity() -> SCNPhysicsField
-  class func noiseFieldWithSmoothness(smoothness: CGFloat, animationSpeed speed: CGFloat) -> SCNPhysicsField
-  class func turbulenceFieldWithSmoothness(smoothness: CGFloat, animationSpeed speed: CGFloat) -> SCNPhysicsField
+  class func noiseFieldWith(smoothness smoothness: CGFloat, animationSpeed speed: CGFloat) -> SCNPhysicsField
+  class func turbulenceFieldWith(smoothness smoothness: CGFloat, animationSpeed speed: CGFloat) -> SCNPhysicsField
   class func spring() -> SCNPhysicsField
   class func electric() -> SCNPhysicsField
   class func magnetic() -> SCNPhysicsField
-  class func customFieldWithEvaluationBlock(block: SCNFieldForceEvaluator) -> SCNPhysicsField
+  class func customFieldWith(evaluationBlock block: SCNFieldForceEvaluator) -> SCNPhysicsField
   init()
   @available(tvOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)

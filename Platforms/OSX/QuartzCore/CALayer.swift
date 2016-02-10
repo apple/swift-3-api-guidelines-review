@@ -2,30 +2,30 @@
 struct CAAutoresizingMask : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var LayerNotSizable: CAAutoresizingMask { get }
-  static var LayerMinXMargin: CAAutoresizingMask { get }
-  static var LayerWidthSizable: CAAutoresizingMask { get }
-  static var LayerMaxXMargin: CAAutoresizingMask { get }
-  static var LayerMinYMargin: CAAutoresizingMask { get }
-  static var LayerHeightSizable: CAAutoresizingMask { get }
-  static var LayerMaxYMargin: CAAutoresizingMask { get }
+  static var layerNotSizable: CAAutoresizingMask { get }
+  static var layerMinXMargin: CAAutoresizingMask { get }
+  static var layerWidthSizable: CAAutoresizingMask { get }
+  static var layerMaxXMargin: CAAutoresizingMask { get }
+  static var layerMinYMargin: CAAutoresizingMask { get }
+  static var layerHeightSizable: CAAutoresizingMask { get }
+  static var layerMaxYMargin: CAAutoresizingMask { get }
 }
 struct CAEdgeAntialiasingMask : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var LayerLeftEdge: CAEdgeAntialiasingMask { get }
-  static var LayerRightEdge: CAEdgeAntialiasingMask { get }
-  static var LayerBottomEdge: CAEdgeAntialiasingMask { get }
-  static var LayerTopEdge: CAEdgeAntialiasingMask { get }
+  static var layerLeftEdge: CAEdgeAntialiasingMask { get }
+  static var layerRightEdge: CAEdgeAntialiasingMask { get }
+  static var layerBottomEdge: CAEdgeAntialiasingMask { get }
+  static var layerTopEdge: CAEdgeAntialiasingMask { get }
 }
 class CALayer : Object, Coding, CAMediaTiming {
   init()
   init(layer: AnyObject)
   func presentationLayer() -> AnyObject?
   func modelLayer() -> AnyObject
-  class func defaultValueForKey(key: String) -> AnyObject?
-  class func needsDisplayForKey(key: String) -> Bool
-  func shouldArchiveValueForKey(key: String) -> Bool
+  class func defaultValueFor(key key: String) -> AnyObject?
+  class func needsDisplayFor(key key: String) -> Bool
+  func shouldArchiveValueFor(key key: String) -> Bool
   var bounds: CGRect
   var position: CGPoint
   var zPosition: CGFloat
@@ -101,16 +101,16 @@ class CALayer : Object, Coding, CAMediaTiming {
   func needsLayout() -> Bool
   func layoutIfNeeded()
   func layoutSublayers()
-  func resizeSublayersWithOldSize(size: CGSize)
-  func resizeWithOldSuperlayerSize(size: CGSize)
-  class func defaultActionForKey(event: String) -> CAAction?
-  func actionForKey(event: String) -> CAAction?
+  func resizeSublayers(oldSize size: CGSize)
+  func resize(oldSuperlayerSize size: CGSize)
+  class func defaultActionFor(key event: String) -> CAAction?
+  func actionFor(key event: String) -> CAAction?
   var actions: [String : CAAction]?
   func add(anim: CAAnimation, forKey key: String?)
   func removeAllAnimations()
-  func removeAnimationForKey(key: String)
+  func removeAnimationFor(key key: String)
   func animationKeys() -> [String]?
-  func animationForKey(key: String) -> CAAnimation?
+  func animationFor(key key: String) -> CAAnimation?
   var name: String?
   weak var delegate: @sil_weak AnyObject?
   var style: [Object : AnyObject]?
@@ -140,11 +140,11 @@ extension Object {
 }
 protocol CAAction {
   @available(OSX 10.0, *)
-  func runActionForKey(event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
+  func runActionFor(key event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
 }
 extension Null : CAAction {
   @available(OSX 10.0, *)
-  func runActionForKey(event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
+  func runActionFor(key event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
 }
 extension Object {
   class func display(layer: CALayer)

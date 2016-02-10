@@ -124,9 +124,9 @@ extension AVCaptureDevice {
 }
 extension AVCaptureDevice {
   @available(tvOS 7.0, *)
-  class func authorizationStatusForMediaType(mediaType: String!) -> AVAuthorizationStatus
+  class func authorizationStatusFor(mediaType mediaType: String!) -> AVAuthorizationStatus
   @available(tvOS 7.0, *)
-  class func requestAccessForMediaType(mediaType: String!, completionHandler handler: ((Bool) -> Void)!)
+  class func requestAccessFor(mediaType mediaType: String!, completionHandler handler: ((Bool) -> Void)!)
 }
 extension AVCaptureDevice {
   @available(tvOS 8.0, *)

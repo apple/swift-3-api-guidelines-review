@@ -2,24 +2,24 @@
 enum CLError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case LocationUnknown
-  case Denied
-  case Network
-  case HeadingFailure
-  case RegionMonitoringDenied
-  case RegionMonitoringFailure
-  case RegionMonitoringSetupDelayed
-  case RegionMonitoringResponseDelayed
-  case GeocodeFoundNoResult
-  case GeocodeFoundPartialResult
-  case GeocodeCanceled
-  case DeferredFailed
-  case DeferredNotUpdatingLocation
-  case DeferredAccuracyTooLow
-  case DeferredDistanceFiltered
-  case DeferredCanceled
-  case RangingUnavailable
-  case RangingFailure
+  case locationUnknown
+  case denied
+  case network
+  case headingFailure
+  case regionMonitoringDenied
+  case regionMonitoringFailure
+  case regionMonitoringSetupDelayed
+  case regionMonitoringResponseDelayed
+  case geocodeFoundNoResult
+  case geocodeFoundPartialResult
+  case geocodeCanceled
+  case deferredFailed
+  case deferredNotUpdatingLocation
+  case deferredAccuracyTooLow
+  case deferredDistanceFiltered
+  case deferredCanceled
+  case rangingUnavailable
+  case rangingFailure
 }
 
 extension CLError : _BridgedNSError {

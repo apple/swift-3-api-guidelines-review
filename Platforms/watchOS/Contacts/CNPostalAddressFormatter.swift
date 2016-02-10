@@ -3,7 +3,7 @@
 enum CNPostalAddressFormatterStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case MailingAddress
+  case mailingAddress
 }
 @available(watchOS 2.0, *)
 class CNPostalAddressFormatter : Formatter {

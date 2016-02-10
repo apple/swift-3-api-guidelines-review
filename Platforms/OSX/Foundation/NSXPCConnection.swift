@@ -7,7 +7,7 @@ protocol XPCProxyCreating {
 struct XPCConnectionOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Privileged: XPCConnectionOptions { get }
+  static var privileged: XPCConnectionOptions { get }
 }
 @available(OSX 10.8, *)
 class XPCConnection : Object, XPCProxyCreating {

@@ -3,26 +3,26 @@
 enum MTLPurgeableState : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case KeepCurrent
-  case NonVolatile
-  case Volatile
-  case Empty
+  case keepCurrent
+  case nonVolatile
+  case volatile
+  case empty
 }
 @available(OSX 10.11, *)
 enum MTLCPUCacheMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case DefaultCache
-  case WriteCombined
+  case defaultCache
+  case writeCombined
 }
 @available(OSX 10.11, *)
 enum MTLStorageMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Shared
+  case shared
   @available(OSX 10.11, *)
-  case Managed
-  case Private
+  case managed
+  case `private`
 }
 var MTLResourceCPUCacheModeShift: Int32 { get }
 var MTLResourceStorageModeShift: Int32 { get }
@@ -30,16 +30,16 @@ var MTLResourceStorageModeShift: Int32 { get }
 struct MTLResourceOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var CPUCacheModeDefaultCache: MTLResourceOptions { get }
-  static var CPUCacheModeWriteCombined: MTLResourceOptions { get }
+  static var cpuCacheModeDefaultCache: MTLResourceOptions { get }
+  static var cpuCacheModeWriteCombined: MTLResourceOptions { get }
   @available(OSX 10.11, *)
-  static var StorageModeShared: MTLResourceOptions { get }
+  static var storageModeShared: MTLResourceOptions { get }
   @available(OSX 10.11, *)
-  static var StorageModeManaged: MTLResourceOptions { get }
+  static var storageModeManaged: MTLResourceOptions { get }
   @available(OSX 10.11, *)
-  static var StorageModePrivate: MTLResourceOptions { get }
-  static var OptionCPUCacheModeDefault: MTLResourceOptions { get }
-  static var OptionCPUCacheModeWriteCombined: MTLResourceOptions { get }
+  static var storageModePrivate: MTLResourceOptions { get }
+  static var optionCPUCacheModeDefault: MTLResourceOptions { get }
+  static var optionCPUCacheModeWriteCombined: MTLResourceOptions { get }
 }
 @available(OSX 10.11, *)
 protocol MTLResource : ObjectProtocol {

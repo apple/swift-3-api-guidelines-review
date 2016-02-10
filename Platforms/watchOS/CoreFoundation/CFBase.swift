@@ -109,9 +109,9 @@ typealias CFPropertyList = CFTypeRef
 enum CFComparisonResult : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case CompareLessThan
-  case CompareEqualTo
-  case CompareGreaterThan
+  case compareLessThan
+  case compareEqualTo
+  case compareGreaterThan
 }
 typealias CFComparatorFunction = @convention(c) (UnsafePointer<Void>, UnsafePointer<Void>, UnsafeMutablePointer<Void>) -> CFComparisonResult
 let kCFNotFound: CFIndex

@@ -3,17 +3,17 @@
 enum MTLLoadAction : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case DontCare
-  case Load
-  case Clear
+  case dontCare
+  case load
+  case clear
 }
 @available(OSX 10.11, *)
 enum MTLStoreAction : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case DontCare
-  case Store
-  case MultisampleResolve
+  case dontCare
+  case store
+  case multisampleResolve
 }
 struct MTLClearColor {
   var red: Double
@@ -37,7 +37,7 @@ class MTLRenderPassAttachmentDescriptor : Object, Copying {
   var storeAction: MTLStoreAction
   init()
   @available(OSX 10.11, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class MTLRenderPassColorAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {
@@ -56,7 +56,7 @@ class MTLRenderPassStencilAttachmentDescriptor : MTLRenderPassAttachmentDescript
 }
 @available(OSX 10.11, *)
 class MTLRenderPassColorAttachmentDescriptorArray : Object {
-  subscript (attachmentIndex: Int) -> MTLRenderPassColorAttachmentDescriptor!
+  subscript (indexedSubscript attachmentIndex: Int) -> MTLRenderPassColorAttachmentDescriptor!
   init()
 }
 @available(OSX 10.11, *)
@@ -69,6 +69,6 @@ class MTLRenderPassDescriptor : Object, Copying {
   var renderTargetArrayLength: Int
   init()
   @available(OSX 10.11, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 func MTLClearColorMake(red: Double, _ green: Double, _ blue: Double, _ alpha: Double) -> MTLClearColor

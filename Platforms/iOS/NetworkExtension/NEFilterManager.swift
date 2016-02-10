@@ -3,10 +3,10 @@
 enum NEFilterManagerError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ConfigurationInvalid
-  case ConfigurationDisabled
-  case ConfigurationStale
-  case ConfigurationCannotBeRemoved
+  case configurationInvalid
+  case configurationDisabled
+  case configurationStale
+  case configurationCannotBeRemoved
 }
 @available(iOS 8.0, *)
 let NEFilterErrorDomain: String
@@ -17,11 +17,11 @@ class NEFilterManager : Object {
   @available(iOS 8.0, *)
   class func shared() -> NEFilterManager
   @available(iOS 8.0, *)
-  func loadFromPreferencesWithCompletionHandler(completionHandler: (Error?) -> Void)
+  func loadFromPreferences(completionHandler completionHandler: (Error?) -> Void)
   @available(iOS 8.0, *)
-  func removeFromPreferencesWithCompletionHandler(completionHandler: (Error?) -> Void)
+  func removeFromPreferences(completionHandler completionHandler: (Error?) -> Void)
   @available(iOS 8.0, *)
-  func saveToPreferencesWithCompletionHandler(completionHandler: (Error?) -> Void)
+  func saveToPreferences(completionHandler completionHandler: (Error?) -> Void)
   @available(iOS 8.0, *)
   var localizedDescription: String?
   @available(iOS 9.0, *)

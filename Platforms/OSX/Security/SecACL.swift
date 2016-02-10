@@ -2,11 +2,11 @@
 struct SecKeychainPromptSelector : OptionSetType {
   init(rawValue: uint16)
   let rawValue: uint16
-  static var RequirePassphase: SecKeychainPromptSelector { get }
-  static var Unsigned: SecKeychainPromptSelector { get }
-  static var UnsignedAct: SecKeychainPromptSelector { get }
-  static var Invalid: SecKeychainPromptSelector { get }
-  static var InvalidAct: SecKeychainPromptSelector { get }
+  static var requirePassphase: SecKeychainPromptSelector { get }
+  static var unsigned: SecKeychainPromptSelector { get }
+  static var unsignedAct: SecKeychainPromptSelector { get }
+  static var invalid: SecKeychainPromptSelector { get }
+  static var invalidAct: SecKeychainPromptSelector { get }
 }
 @available(OSX 10.3, *)
 func SecACLGetTypeID() -> CFTypeID

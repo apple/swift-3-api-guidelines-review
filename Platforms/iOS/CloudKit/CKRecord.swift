@@ -15,20 +15,20 @@ class CKRecord : Object, SecureCoding, Copying {
   @NSCopying var creationDate: Date? { get }
   @NSCopying var lastModifiedUserRecordID: CKRecordID? { get }
   @NSCopying var modificationDate: Date? { get }
-  func objectForKey(key: String) -> CKRecordValue?
+  func objectFor(key key: String) -> CKRecordValue?
   func setObject(object: CKRecordValue?, forKey key: String)
   func allKeys() -> [String]
   func allTokens() -> [String]
-  subscript (key: String) -> CKRecordValue?
+  subscript (keyedSubscript key: String) -> CKRecordValue?
   func changedKeys() -> [String]
-  func encodeSystemFieldsWith(coder: Coder)
+  func encodeSystemFields(coder: Coder)
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 extension NSString : CKRecordValue {
 }

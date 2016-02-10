@@ -4,21 +4,21 @@ let netServicesErrorDomain: String
 enum NetServicesError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case UnknownError
-  case CollisionError
-  case NotFoundError
-  case ActivityInProgress
-  case BadArgumentError
-  case CancelledError
-  case InvalidError
-  case TimeoutError
+  case unknownError
+  case collisionError
+  case notFoundError
+  case activityInProgress
+  case badArgumentError
+  case cancelledError
+  case invalidError
+  case timeoutError
 }
 struct NetServiceOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var NoAutoRename: NetServiceOptions { get }
+  static var noAutoRename: NetServiceOptions { get }
   @available(tvOS 7.0, *)
-  static var ListenForConnections: NetServiceOptions { get }
+  static var listenForConnections: NetServiceOptions { get }
 }
 class NetService : Object {
   init(domain: String, type: String, name: String, port: Int32)
@@ -37,11 +37,11 @@ class NetService : Object {
   var port: Int { get }
   func publish()
   @available(tvOS 2.0, *)
-  func publish(options options: NetServiceOptions = [])
+  func publish(options: NetServiceOptions = [])
   func stop()
   class func dictionaryFromTXTRecord(txtData: Data) -> [String : Data]
   class func dataFromTXTRecord(txtDictionary: [String : Data]) -> Data
-  func resolveWithTimeout(timeout: TimeInterval)
+  func resolve(timeout timeout: TimeInterval)
   func getInputStream(inputStream: UnsafeMutablePointer<InputStream?>, outputStream: UnsafeMutablePointer<OutputStream?>) -> Bool
   func setTXTRecord(recordData: Data?) -> Bool
   func txtRecordData() -> Data?
@@ -58,7 +58,7 @@ class NetServiceBrowser : Object {
   func removeFrom(aRunLoop: RunLoop, forMode mode: String)
   func searchForBrowsableDomains()
   func searchForRegistrationDomains()
-  func searchForServicesOfType(type: String, inDomain domainString: String)
+  func searchForServicesOf(type type: String, inDomain domainString: String)
   func stop()
 }
 protocol NetServiceDelegate : ObjectProtocol {

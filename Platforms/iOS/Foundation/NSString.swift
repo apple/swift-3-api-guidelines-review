@@ -3,19 +3,19 @@ typealias unichar = UInt16
 struct StringCompareOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var CaseInsensitiveSearch: StringCompareOptions { get }
-  static var LiteralSearch: StringCompareOptions { get }
-  static var BackwardsSearch: StringCompareOptions { get }
-  static var AnchoredSearch: StringCompareOptions { get }
-  static var NumericSearch: StringCompareOptions { get }
+  static var caseInsensitiveSearch: StringCompareOptions { get }
+  static var literalSearch: StringCompareOptions { get }
+  static var backwardsSearch: StringCompareOptions { get }
+  static var anchoredSearch: StringCompareOptions { get }
+  static var numericSearch: StringCompareOptions { get }
   @available(iOS 2.0, *)
-  static var DiacriticInsensitiveSearch: StringCompareOptions { get }
+  static var diacriticInsensitiveSearch: StringCompareOptions { get }
   @available(iOS 2.0, *)
-  static var WidthInsensitiveSearch: StringCompareOptions { get }
+  static var widthInsensitiveSearch: StringCompareOptions { get }
   @available(iOS 2.0, *)
-  static var ForcedOrderingSearch: StringCompareOptions { get }
+  static var forcedOrderingSearch: StringCompareOptions { get }
   @available(iOS 3.2, *)
-  static var RegularExpressionSearch: StringCompareOptions { get }
+  static var regularExpressionSearch: StringCompareOptions { get }
 }
 var asciiStringEncoding: UInt { get }
 var nextstepStringEncoding: UInt { get }
@@ -43,16 +43,16 @@ var utf32LittleEndianStringEncoding: UInt { get }
 struct StringEncodingConversionOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var AllowLossy: StringEncodingConversionOptions { get }
-  static var ExternalRepresentation: StringEncodingConversionOptions { get }
+  static var allowLossy: StringEncodingConversionOptions { get }
+  static var externalRepresentation: StringEncodingConversionOptions { get }
 }
 class NSString : Object, Copying, MutableCopying, SecureCoding {
   var length: Int { get }
   func characterAt(index: Int) -> unichar
   init()
   init?(coder aDecoder: Coder)
-  func copy(zone zone: Zone = nil) -> AnyObject
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
 }
@@ -151,7 +151,7 @@ extension NSString {
   @available(iOS 4.0, *)
   func enumerateSubstringsIn(range: NSRange, options opts: StringEnumerationOptions = [], usingBlock block: (String?, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(iOS 4.0, *)
-  func enumerateLinesUsing(block: (String, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateLines(block: (String, UnsafeMutablePointer<ObjCBool>) -> Void)
   var utf8String: UnsafePointer<Int8> { get }
   var fastestEncoding: UInt { get }
   var smallestEncoding: UInt { get }
@@ -174,9 +174,9 @@ extension NSString {
   @available(iOS 2.0, *)
   func componentsSeparatedByCharactersIn(separator: CharacterSet) -> [String]
   func byTrimmingCharactersIn(set: CharacterSet) -> String
-  func byPaddingToLength(newLength: Int, withString padString: String, startingAt padIndex: Int) -> String
+  func byPaddingTo(length newLength: Int, withString padString: String, startingAt padIndex: Int) -> String
   @available(iOS 2.0, *)
-  func folding(options options: StringCompareOptions = [], locale: Locale?) -> String
+  func folding(options: StringCompareOptions = [], locale: Locale?) -> String
   @available(iOS 2.0, *)
   func replacingOccurrencesOf(target: String, withString replacement: String, options: StringCompareOptions = [], range searchRange: NSRange) -> String
   @available(iOS 2.0, *)
@@ -186,7 +186,7 @@ extension NSString {
   @available(iOS 9.0, *)
   func applyingTransform(transform: String, reverse: Bool) -> String?
   func writeTo(url: URL, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
-  func writeToFile(path: String, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
+  func writeTo(file path: String, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
   var description: String { get }
   var hash: Int { get }
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
@@ -207,14 +207,14 @@ extension NSString {
 struct StringEnumerationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ByLines: StringEnumerationOptions { get }
-  static var ByParagraphs: StringEnumerationOptions { get }
-  static var ByComposedCharacterSequences: StringEnumerationOptions { get }
-  static var ByWords: StringEnumerationOptions { get }
-  static var BySentences: StringEnumerationOptions { get }
-  static var Reverse: StringEnumerationOptions { get }
-  static var SubstringNotRequired: StringEnumerationOptions { get }
-  static var Localized: StringEnumerationOptions { get }
+  static var byLines: StringEnumerationOptions { get }
+  static var byParagraphs: StringEnumerationOptions { get }
+  static var byComposedCharacterSequences: StringEnumerationOptions { get }
+  static var byWords: StringEnumerationOptions { get }
+  static var bySentences: StringEnumerationOptions { get }
+  static var reverse: StringEnumerationOptions { get }
+  static var substringNotRequired: StringEnumerationOptions { get }
+  static var localized: StringEnumerationOptions { get }
 }
 @available(iOS 9.0, *)
 let stringTransformLatinToKatakana: String

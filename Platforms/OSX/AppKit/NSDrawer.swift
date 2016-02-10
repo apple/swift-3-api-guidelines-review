@@ -2,10 +2,10 @@
 enum NSDrawerState : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ClosedState
-  case OpeningState
-  case OpenState
-  case ClosingState
+  case closedState
+  case openingState
+  case openState
+  case closingState
 }
 class NSDrawer : NSResponder, NSAccessibilityElementProtocol, NSAccessibility {
   init(contentSize: Size, preferredEdge edge: RectEdge)
@@ -33,23 +33,23 @@ class NSDrawer : NSResponder, NSAccessibilityElementProtocol, NSAccessibility {
   func isAccessibilityFocused() -> Bool
   func accessibilityIdentifier() -> String
   @available(OSX 10.10, *)
-  func accessibilityLayoutPointForScreenPoint(point: Point) -> Point
+  func accessibilityLayoutPointFor(screenPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityLayoutSizeForScreenSize(size: Size) -> Size
+  func accessibilityLayoutSizeFor(screenSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityScreenPointForLayoutPoint(point: Point) -> Point
+  func accessibilityScreenPointFor(layoutPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityScreenSizeForLayoutSize(size: Size) -> Size
+  func accessibilityScreenSizeFor(layoutSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityCellForColumn(column: Int, row: Int) -> AnyObject?
+  func accessibilityCellFor(column column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
   func accessibilityAttributedStringFor(range: NSRange) -> AttributedString?
   @available(OSX 10.10, *)
-  func accessibilityRangeForLine(line: Int) -> NSRange
+  func accessibilityRangeFor(line line: Int) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityStringFor(range: NSRange) -> String?
   @available(OSX 10.10, *)
-  func accessibilityRangeForPosition(point: Point) -> NSRange
+  func accessibilityRangeFor(position point: Point) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityRangeFor(index: Int) -> NSRange
   @available(OSX 10.10, *)

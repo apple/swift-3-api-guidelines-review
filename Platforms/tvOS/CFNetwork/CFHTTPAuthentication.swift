@@ -4,9 +4,9 @@ class CFHTTPAuthentication {
 enum CFStreamErrorHTTPAuthentication : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case TypeUnsupported
-  case BadUserName
-  case BadPassword
+  case typeUnsupported
+  case badUserName
+  case badPassword
 }
 @available(tvOS 2.0, *)
 let kCFHTTPAuthenticationUsername: CFString

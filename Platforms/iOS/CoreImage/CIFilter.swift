@@ -147,7 +147,7 @@ class CIFilter : Object, SecureCoding, Copying {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 5.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 
 extension CIFilter {
@@ -158,22 +158,22 @@ extension CIFilter {
   /*not inherited*/ init?(name: String)
   @available(iOS 8.0, *)
   /*not inherited*/ init?(name: String, withInputParameters params: [String : AnyObject]?)
-  class func filterNamesInCategory(category: String?) -> [String]
-  class func filterNamesInCategories(categories: [String]?) -> [String]
+  class func filterNamesIn(category category: String?) -> [String]
+  class func filterNamesIn(categories categories: [String]?) -> [String]
   @available(iOS 9.0, *)
   class func registerName(name: String, constructor anObject: CIFilterConstructor, classAttributes attributes: [String : AnyObject] = [:])
   @available(iOS 9.0, *)
-  class func localizedNameForFilterName(filterName: String) -> String?
+  class func localizedNameFor(filterName filterName: String) -> String?
   @available(iOS 9.0, *)
-  class func localizedNameForCategory(category: String) -> String
+  class func localizedNameFor(category category: String) -> String
   @available(iOS 9.0, *)
-  class func localizedDescriptionForFilterName(filterName: String) -> String?
+  class func localizedDescriptionFor(filterName filterName: String) -> String?
   @available(iOS 9.0, *)
-  class func localizedReferenceDocumentationForFilterName(filterName: String) -> URL?
+  class func localizedReferenceDocumentationFor(filterName filterName: String) -> URL?
 }
 extension CIFilter {
   @available(iOS 6.0, *)
   class func serializedXMPFrom(filters: [CIFilter], inputImageExtent extent: CGRect) -> Data
   @available(iOS 6.0, *)
-  class func filterArrayFromSerializedXMP(xmpData: Data, inputImageExtent extent: CGRect, error outError: ErrorPointer) -> [CIFilter]
+  class func filterArrayFrom(serializedXMP xmpData: Data, inputImageExtent extent: CGRect, error outError: ErrorPointer) -> [CIFilter]
 }

@@ -3,13 +3,13 @@
 enum UserNotificationActivationType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case ContentsClicked
-  case ActionButtonClicked
+  case none
+  case contentsClicked
+  case actionButtonClicked
   @available(OSX 10.9, *)
-  case Replied
+  case replied
   @available(OSX 10.10, *)
-  case AdditionalActionClicked
+  case additionalActionClicked
 }
 @available(OSX 10.8, *)
 class UserNotification : Object, Copying {
@@ -42,7 +42,7 @@ class UserNotification : Object, Copying {
   @available(OSX 10.10, *)
   @NSCopying var additionalActivationAction: UserNotificationAction? { get }
   @available(OSX 10.8, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.10, *)
 class UserNotificationAction : Object, Copying {
@@ -51,7 +51,7 @@ class UserNotificationAction : Object, Copying {
   var title: String? { get }
   init()
   @available(OSX 10.10, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.8, *)
 let userNotificationDefaultSoundName: String

@@ -2,12 +2,12 @@
 struct NSFetchRequestResultType : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ManagedObjectResultType: NSFetchRequestResultType { get }
-  static var ManagedObjectIDResultType: NSFetchRequestResultType { get }
+  static var managedObjectResultType: NSFetchRequestResultType { get }
+  static var managedObjectIDResultType: NSFetchRequestResultType { get }
   @available(iOS 3.0, *)
-  static var DictionaryResultType: NSFetchRequestResultType { get }
+  static var dictionaryResultType: NSFetchRequestResultType { get }
   @available(iOS 3.0, *)
-  static var CountResultType: NSFetchRequestResultType { get }
+  static var countResultType: NSFetchRequestResultType { get }
 }
 @available(iOS 3.0, *)
 class NSFetchRequest : NSPersistentStoreRequest, Coding {

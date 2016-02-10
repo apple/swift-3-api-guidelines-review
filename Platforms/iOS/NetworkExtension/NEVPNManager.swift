@@ -3,12 +3,12 @@
 enum NEVPNError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ConfigurationInvalid
-  case ConfigurationDisabled
-  case ConnectionFailed
-  case ConfigurationStale
-  case ConfigurationReadWriteFailed
-  case ConfigurationUnknown
+  case configurationInvalid
+  case configurationDisabled
+  case connectionFailed
+  case configurationStale
+  case configurationReadWriteFailed
+  case configurationUnknown
 }
 @available(iOS 8.0, *)
 let NEVPNErrorDomain: String
@@ -19,7 +19,7 @@ class NEVPNManager : Object {
   @available(iOS 8.0, *)
   class func shared() -> NEVPNManager
   @available(iOS 8.0, *)
-  func loadFromPreferencesWithCompletionHandler(completionHandler: (Error?) -> Void)
+  func loadFromPreferences(completionHandler completionHandler: (Error?) -> Void)
   @available(iOS 8.0, *)
   func removeFromPreferences(completionHandler completionHandler: ((Error?) -> Void)? = nil)
   @available(iOS 8.0, *)

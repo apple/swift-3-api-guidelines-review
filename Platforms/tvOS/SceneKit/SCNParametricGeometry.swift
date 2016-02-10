@@ -165,9 +165,9 @@ class SCNText : SCNGeometry {
 enum SCNChamferMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Both
-  case Front
-  case Back
+  case both
+  case front
+  case back
 }
 @available(tvOS 8.0, *)
 class SCNShape : SCNGeometry {

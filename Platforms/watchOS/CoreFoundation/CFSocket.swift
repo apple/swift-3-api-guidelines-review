@@ -4,9 +4,9 @@ class CFSocket {
 enum CFSocketError : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case Success
-  case Error
-  case Timeout
+  case success
+  case error
+  case timeout
 }
 struct CFSocketSignature {
   var protocolFamily: Int32
@@ -19,12 +19,12 @@ struct CFSocketSignature {
 struct CFSocketCallBackType : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
-  static var NoCallBack: CFSocketCallBackType { get }
-  static var ReadCallBack: CFSocketCallBackType { get }
-  static var AcceptCallBack: CFSocketCallBackType { get }
-  static var DataCallBack: CFSocketCallBackType { get }
-  static var ConnectCallBack: CFSocketCallBackType { get }
-  static var WriteCallBack: CFSocketCallBackType { get }
+  static var noCallBack: CFSocketCallBackType { get }
+  static var readCallBack: CFSocketCallBackType { get }
+  static var acceptCallBack: CFSocketCallBackType { get }
+  static var dataCallBack: CFSocketCallBackType { get }
+  static var connectCallBack: CFSocketCallBackType { get }
+  static var writeCallBack: CFSocketCallBackType { get }
 }
 var kCFSocketAutomaticallyReenableReadCallBack: CFOptionFlags { get }
 var kCFSocketAutomaticallyReenableAcceptCallBack: CFOptionFlags { get }

@@ -3,11 +3,11 @@ var UISegmentedControlNoSegment: Int { get }
 enum UISegmentedControlSegment : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Any
-  case Left
-  case Center
-  case Right
-  case Alone
+  case any
+  case left
+  case center
+  case right
+  case alone
 }
 @available(tvOS 2.0, *)
 class UISegmentedControl : UIControl, Coding {
@@ -16,8 +16,8 @@ class UISegmentedControl : UIControl, Coding {
   var numberOfSegments: Int { get }
   @available(tvOS 5.0, *)
   var apportionsSegmentWidthsByContent: Bool
-  func insertSegmentWithTitle(title: String?, at segment: Int, animated: Bool)
-  func insertSegmentWith(image: UIImage?, at segment: Int, animated: Bool)
+  func insertSegment(title title: String?, at segment: Int, animated: Bool)
+  func insertSegment(image: UIImage?, at segment: Int, animated: Bool)
   func removeSegmentAt(segment: Int, animated: Bool)
   func removeAllSegments()
   func setTitle(title: String?, forSegmentAt segment: Int)
@@ -39,7 +39,7 @@ class UISegmentedControl : UIControl, Coding {
   @available(tvOS 5.0, *)
   func setDividerImage(dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
-  func dividerImageForLeftSegmentState(leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
+  func dividerImageFor(leftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
   @available(tvOS 5.0, *)
   func setTitleTextAttributes(attributes: [Object : AnyObject]? = [:], forState state: UIControlState)
   @available(tvOS 5.0, *)
@@ -47,7 +47,7 @@ class UISegmentedControl : UIControl, Coding {
   @available(tvOS 5.0, *)
   func setContentPositionAdjustment(adjustment: UIOffset, forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
-  func contentPositionAdjustmentForSegmentType(leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics) -> UIOffset
+  func contentPositionAdjustmentFor(segmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics) -> UIOffset
   init(frame: CGRect)
   init?(coder aDecoder: Coder)
   convenience init()

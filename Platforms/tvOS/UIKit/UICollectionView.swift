@@ -2,13 +2,13 @@
 struct UICollectionViewScrollPosition : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: UICollectionViewScrollPosition { get }
-  static var Top: UICollectionViewScrollPosition { get }
-  static var CenteredVertically: UICollectionViewScrollPosition { get }
-  static var Bottom: UICollectionViewScrollPosition { get }
-  static var Left: UICollectionViewScrollPosition { get }
-  static var CenteredHorizontally: UICollectionViewScrollPosition { get }
-  static var Right: UICollectionViewScrollPosition { get }
+  static var none: UICollectionViewScrollPosition { get }
+  static var top: UICollectionViewScrollPosition { get }
+  static var centeredVertically: UICollectionViewScrollPosition { get }
+  static var bottom: UICollectionViewScrollPosition { get }
+  static var left: UICollectionViewScrollPosition { get }
+  static var centeredHorizontally: UICollectionViewScrollPosition { get }
+  static var right: UICollectionViewScrollPosition { get }
 }
 typealias UICollectionViewLayoutInteractiveTransitionCompletion = (Bool, Bool) -> Void
 @available(tvOS 9.0, *)
@@ -88,7 +88,7 @@ class UICollectionView : UIScrollView {
   func register(viewClass: AnyClass?, forSupplementaryViewOfKind elementKind: String, withReuseIdentifier identifier: String)
   func register(nib: UINib?, forSupplementaryViewOfKind kind: String, withReuseIdentifier identifier: String)
   func dequeueReusableCellWithReuseIdentifier(identifier: String, forIndexPath indexPath: IndexPath) -> UICollectionViewCell
-  func dequeueReusableSupplementaryViewOfKind(elementKind: String, withReuseIdentifier identifier: String, forIndexPath indexPath: IndexPath) -> UICollectionReusableView
+  func dequeueReusableSupplementaryViewOf(kind elementKind: String, withReuseIdentifier identifier: String, forIndexPath indexPath: IndexPath) -> UICollectionReusableView
   var allowsSelection: Bool
   var allowsMultipleSelection: Bool
   func indexPathsForSelectedItems() -> [IndexPath]?
@@ -105,20 +105,20 @@ class UICollectionView : UIScrollView {
   @available(tvOS 7.0, *)
   func cancelInteractiveTransition()
   func numberOfSections() -> Int
-  func numberOfItemsInSection(section: Int) -> Int
+  func numberOfItemsIn(section section: Int) -> Int
   func layoutAttributesForItemAt(indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForSupplementaryElementOfKind(kind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryElementOf(kind kind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
   func indexPathForItemAt(point: CGPoint) -> IndexPath?
   func indexPathFor(cell: UICollectionViewCell) -> IndexPath?
   func cellForItemAt(indexPath: IndexPath) -> UICollectionViewCell?
   func visibleCells() -> [UICollectionViewCell]
   func indexPathsForVisibleItems() -> [IndexPath]
   @available(tvOS 9.0, *)
-  func supplementaryViewForElementKind(elementKind: String, at indexPath: IndexPath) -> UICollectionReusableView
+  func supplementaryViewFor(elementKind elementKind: String, at indexPath: IndexPath) -> UICollectionReusableView
   @available(tvOS 9.0, *)
-  func visibleSupplementaryViewsOfKind(elementKind: String) -> [UICollectionReusableView]
+  func visibleSupplementaryViewsOf(kind elementKind: String) -> [UICollectionReusableView]
   @available(tvOS 9.0, *)
-  func indexPathsForVisibleSupplementaryElementsOfKind(elementKind: String) -> [IndexPath]
+  func indexPathsForVisibleSupplementaryElementsOf(kind elementKind: String) -> [IndexPath]
   func scrollToItemAt(indexPath: IndexPath, at scrollPosition: UICollectionViewScrollPosition, animated: Bool)
   func insertSections(sections: IndexSet)
   func deleteSections(sections: IndexSet)

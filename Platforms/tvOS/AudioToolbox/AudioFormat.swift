@@ -3,8 +3,8 @@ typealias AudioFormatPropertyID = UInt32
 enum AudioPanningMode : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case PanningMode_SoundField
-  case PanningMode_VectorBasedPanning
+  case panningMode_SoundField
+  case panningMode_VectorBasedPanning
 }
 struct AudioPanningInfo {
   var mPanningMode: AudioPanningMode
@@ -16,8 +16,8 @@ struct AudioPanningInfo {
 enum AudioBalanceFadeType : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case MaxUnityGain
-  case EqualPower
+  case maxUnityGain
+  case equalPower
 }
 struct AudioBalanceFade {
   var mLeftRightBalance: Float32

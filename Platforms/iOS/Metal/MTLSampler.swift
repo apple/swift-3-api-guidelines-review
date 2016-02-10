@@ -3,25 +3,25 @@
 enum MTLSamplerMinMagFilter : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Nearest
-  case Linear
+  case nearest
+  case linear
 }
 @available(iOS 8.0, *)
 enum MTLSamplerMipFilter : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NotMipmapped
-  case Nearest
-  case Linear
+  case notMipmapped
+  case nearest
+  case linear
 }
 @available(iOS 8.0, *)
 enum MTLSamplerAddressMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ClampToEdge
-  case Repeat
-  case MirrorRepeat
-  case ClampToZero
+  case clampToEdge
+  case `repeat`
+  case mirrorRepeat
+  case clampToZero
 }
 @available(iOS 8.0, *)
 class MTLSamplerDescriptor : Object, Copying {
@@ -42,7 +42,7 @@ class MTLSamplerDescriptor : Object, Copying {
   var label: String?
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 protocol MTLSamplerState : ObjectProtocol {

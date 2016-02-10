@@ -23,10 +23,10 @@ class UISlider : UIControl, Coding {
   var currentThumbImage: UIImage? { get }
   var currentMinimumTrackImage: UIImage? { get }
   var currentMaximumTrackImage: UIImage? { get }
-  func minimumValueImageRectForBounds(bounds: CGRect) -> CGRect
-  func maximumValueImageRectForBounds(bounds: CGRect) -> CGRect
-  func trackRectForBounds(bounds: CGRect) -> CGRect
-  func thumbRectForBounds(bounds: CGRect, trackRect rect: CGRect, value: Float) -> CGRect
+  func minimumValueImageRectFor(bounds bounds: CGRect) -> CGRect
+  func maximumValueImageRectFor(bounds bounds: CGRect) -> CGRect
+  func trackRectFor(bounds bounds: CGRect) -> CGRect
+  func thumbRectFor(bounds bounds: CGRect, trackRect rect: CGRect, value: Float) -> CGRect
   init(frame: CGRect)
   init?(coder aDecoder: Coder)
   convenience init()

@@ -2,12 +2,12 @@
 struct UIDataDetectorTypes : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var PhoneNumber: UIDataDetectorTypes { get }
-  static var Link: UIDataDetectorTypes { get }
+  static var phoneNumber: UIDataDetectorTypes { get }
+  static var link: UIDataDetectorTypes { get }
   @available(iOS 4.0, *)
-  static var Address: UIDataDetectorTypes { get }
+  static var address: UIDataDetectorTypes { get }
   @available(iOS 4.0, *)
-  static var CalendarEvent: UIDataDetectorTypes { get }
-  static var None: UIDataDetectorTypes { get }
-  static var All: UIDataDetectorTypes { get }
+  static var calendarEvent: UIDataDetectorTypes { get }
+  static var none: UIDataDetectorTypes { get }
+  static var all: UIDataDetectorTypes { get }
 }

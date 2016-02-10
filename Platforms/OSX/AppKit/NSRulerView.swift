@@ -2,11 +2,11 @@
 enum NSRulerOrientation : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case HorizontalRuler
-  case VerticalRuler
+  case horizontalRuler
+  case verticalRuler
 }
 class NSRulerView : NSView {
-  class func registerUnitWithName(unitName: String, abbreviation: String, unitToPointsConversionFactor conversionFactor: CGFloat, stepUpCycle: [Number], stepDownCycle: [Number])
+  class func registerUnit(name unitName: String, abbreviation: String, unitToPointsConversionFactor conversionFactor: CGFloat, stepUpCycle: [Number], stepDownCycle: [Number])
   init(scrollView: NSScrollView?, orientation: NSRulerOrientation)
   unowned(unsafe) var scrollView: @sil_unmanaged NSScrollView?
   var orientation: NSRulerOrientation
@@ -23,7 +23,7 @@ class NSRulerView : NSView {
   var markers: [NSRulerMarker]?
   func trackMarker(marker: NSRulerMarker, withMouseEvent event: NSEvent) -> Bool
   var accessoryView: NSView?
-  func moveRulerlineFromLocation(oldLocation: CGFloat, toLocation newLocation: CGFloat)
+  func moveRulerlineFrom(location oldLocation: CGFloat, toLocation newLocation: CGFloat)
   func invalidateHashMarks()
   func drawHashMarksAndLabelsIn(rect: Rect)
   func drawMarkersIn(rect: Rect)

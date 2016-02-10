@@ -2,55 +2,55 @@
 enum NSLayoutRelation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case LessThanOrEqual
-  case Equal
-  case GreaterThanOrEqual
+  case lessThanOrEqual
+  case equal
+  case greaterThanOrEqual
 }
 enum NSLayoutAttribute : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Left
-  case Right
-  case Top
-  case Bottom
-  case Leading
-  case Trailing
-  case Width
-  case Height
-  case CenterX
-  case CenterY
-  case Baseline
-  static var LastBaseline: NSLayoutAttribute { get }
+  case left
+  case right
+  case top
+  case bottom
+  case leading
+  case trailing
+  case width
+  case height
+  case centerX
+  case centerY
+  case baseline
+  static var lastBaseline: NSLayoutAttribute { get }
   @available(OSX 10.11, *)
-  case FirstBaseline
-  case NotAnAttribute
+  case firstBaseline
+  case notAnAttribute
 }
 struct NSLayoutFormatOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var AlignAllLeft: NSLayoutFormatOptions { get }
-  static var AlignAllRight: NSLayoutFormatOptions { get }
-  static var AlignAllTop: NSLayoutFormatOptions { get }
-  static var AlignAllBottom: NSLayoutFormatOptions { get }
-  static var AlignAllLeading: NSLayoutFormatOptions { get }
-  static var AlignAllTrailing: NSLayoutFormatOptions { get }
-  static var AlignAllCenterX: NSLayoutFormatOptions { get }
-  static var AlignAllCenterY: NSLayoutFormatOptions { get }
-  static var AlignAllBaseline: NSLayoutFormatOptions { get }
-  static var AlignAllLastBaseline: NSLayoutFormatOptions { get }
+  static var alignAllLeft: NSLayoutFormatOptions { get }
+  static var alignAllRight: NSLayoutFormatOptions { get }
+  static var alignAllTop: NSLayoutFormatOptions { get }
+  static var alignAllBottom: NSLayoutFormatOptions { get }
+  static var alignAllLeading: NSLayoutFormatOptions { get }
+  static var alignAllTrailing: NSLayoutFormatOptions { get }
+  static var alignAllCenterX: NSLayoutFormatOptions { get }
+  static var alignAllCenterY: NSLayoutFormatOptions { get }
+  static var alignAllBaseline: NSLayoutFormatOptions { get }
+  static var alignAllLastBaseline: NSLayoutFormatOptions { get }
   @available(OSX 10.11, *)
-  static var AlignAllFirstBaseline: NSLayoutFormatOptions { get }
-  static var AlignmentMask: NSLayoutFormatOptions { get }
-  static var DirectionLeadingToTrailing: NSLayoutFormatOptions { get }
-  static var DirectionLeftToRight: NSLayoutFormatOptions { get }
-  static var DirectionRightToLeft: NSLayoutFormatOptions { get }
-  static var DirectionMask: NSLayoutFormatOptions { get }
+  static var alignAllFirstBaseline: NSLayoutFormatOptions { get }
+  static var alignmentMask: NSLayoutFormatOptions { get }
+  static var directionLeadingToTrailing: NSLayoutFormatOptions { get }
+  static var directionLeftToRight: NSLayoutFormatOptions { get }
+  static var directionRightToLeft: NSLayoutFormatOptions { get }
+  static var directionMask: NSLayoutFormatOptions { get }
 }
 enum NSLayoutConstraintOrientation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Horizontal
-  case Vertical
+  case horizontal
+  case vertical
 }
 @available(OSX 10.7, *)
 typealias NSLayoutPriority = Float
@@ -70,7 +70,7 @@ let NSLayoutPriorityDefaultLow: NSLayoutPriority
 let NSLayoutPriorityFittingSizeCompression: NSLayoutPriority
 @available(OSX 10.7, *)
 class NSLayoutConstraint : Object, NSAnimatablePropertyContainer {
-  class func constraintsWithVisualFormat(format: String, options opts: NSLayoutFormatOptions = [], metrics: [String : Number]?, views: [String : AnyObject]) -> [NSLayoutConstraint]
+  class func constraintsWith(visualFormat format: String, options opts: NSLayoutFormatOptions = [], metrics: [String : Number]?, views: [String : AnyObject]) -> [NSLayoutConstraint]
   convenience init(item view1: AnyObject, attribute attr1: NSLayoutAttribute, relatedBy relation: NSLayoutRelation, toItem view2: AnyObject?, attribute attr2: NSLayoutAttribute, multiplier: CGFloat, constant c: CGFloat)
   var priority: NSLayoutPriority
   var shouldBeArchived: Bool
@@ -93,9 +93,9 @@ class NSLayoutConstraint : Object, NSAnimatablePropertyContainer {
   @available(OSX 10.5, *)
   var animations: [String : AnyObject]
   @available(OSX 10.5, *)
-  func animationForKey(key: String) -> AnyObject?
+  func animationFor(key key: String) -> AnyObject?
   @available(OSX 10.5, *)
-  class func defaultAnimationForKey(key: String) -> AnyObject?
+  class func defaultAnimationFor(key key: String) -> AnyObject?
 }
 extension NSLayoutConstraint {
   var identifier: String?
@@ -164,9 +164,9 @@ extension NSView {
 }
 extension NSView {
   @available(OSX 10.7, *)
-  func alignmentRectForFrame(frame: Rect) -> Rect
+  func alignmentRectFor(frame frame: Rect) -> Rect
   @available(OSX 10.7, *)
-  func frameForAlignmentRect(alignmentRect: Rect) -> Rect
+  func frameFor(alignmentRect alignmentRect: Rect) -> Rect
   @available(OSX 10.7, *)
   var alignmentRectInsets: EdgeInsets { get }
   @available(OSX 10.11, *)

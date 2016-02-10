@@ -4,21 +4,21 @@ let ADErrorDomain: String
 enum ADError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case ServerFailure
-  case LoadingThrottled
-  case InventoryUnavailable
-  case ConfigurationError
-  case BannerVisibleWithoutContent
-  case ApplicationInactive
-  case AdUnloaded
+  case unknown
+  case serverFailure
+  case loadingThrottled
+  case inventoryUnavailable
+  case configurationError
+  case bannerVisibleWithoutContent
+  case applicationInactive
+  case adUnloaded
 }
 @available(iOS 6.0, *)
 enum ADAdType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Banner
-  case MediumRectangle
+  case banner
+  case mediumRectangle
 }
 @available(iOS 4.0, *)
 class ADBannerView : UIView {

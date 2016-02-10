@@ -2,7 +2,7 @@
 class CLKTextProvider : Object, Copying {
   var tintColor: UIColor
   init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 class CLKSimpleTextProvider : CLKTextProvider {
   convenience init(text: String)
@@ -39,9 +39,9 @@ class CLKTimeIntervalTextProvider : CLKTextProvider {
 enum CLKRelativeDateStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Natural
-  case Offset
-  case Timer
+  case natural
+  case offset
+  case timer
 }
 class CLKRelativeDateTextProvider : CLKTextProvider {
   convenience init(date: Date, style: CLKRelativeDateStyle, units calendarUnits: CalendarUnit)

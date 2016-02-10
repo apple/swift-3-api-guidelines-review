@@ -7,13 +7,13 @@ func CFURLEnumeratorGetTypeID() -> CFTypeID
 struct CFURLEnumeratorOptions : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
-  static var DefaultBehavior: CFURLEnumeratorOptions { get }
-  static var DescendRecursively: CFURLEnumeratorOptions { get }
-  static var SkipInvisibles: CFURLEnumeratorOptions { get }
-  static var GenerateFileReferenceURLs: CFURLEnumeratorOptions { get }
-  static var SkipPackageContents: CFURLEnumeratorOptions { get }
-  static var IncludeDirectoriesPreOrder: CFURLEnumeratorOptions { get }
-  static var IncludeDirectoriesPostOrder: CFURLEnumeratorOptions { get }
+  static var defaultBehavior: CFURLEnumeratorOptions { get }
+  static var descendRecursively: CFURLEnumeratorOptions { get }
+  static var skipInvisibles: CFURLEnumeratorOptions { get }
+  static var generateFileReferenceURLs: CFURLEnumeratorOptions { get }
+  static var skipPackageContents: CFURLEnumeratorOptions { get }
+  static var includeDirectoriesPreOrder: CFURLEnumeratorOptions { get }
+  static var includeDirectoriesPostOrder: CFURLEnumeratorOptions { get }
 }
 @available(OSX 10.6, *)
 func CFURLEnumeratorCreateForDirectoryURL(alloc: CFAllocator!, _ directoryURL: CFURL!, _ option: CFURLEnumeratorOptions, _ propertyKeys: CFArray!) -> CFURLEnumerator!
@@ -22,10 +22,10 @@ func CFURLEnumeratorCreateForMountedVolumes(alloc: CFAllocator!, _ option: CFURL
 enum CFURLEnumeratorResult : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case Success
-  case End
-  case Error
-  case DirectoryPostOrderSuccess
+  case success
+  case end
+  case error
+  case directoryPostOrderSuccess
 }
 @available(OSX 10.6, *)
 func CFURLEnumeratorGetNextURL(enumerator: CFURLEnumerator!, _ url: UnsafeMutablePointer<Unmanaged<CFURL>?>, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> CFURLEnumeratorResult

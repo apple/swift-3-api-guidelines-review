@@ -3,11 +3,11 @@
 enum AVAudioCommonFormat : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case OtherFormat
-  case PCMFormatFloat32
-  case PCMFormatFloat64
-  case PCMFormatInt16
-  case PCMFormatInt32
+  case otherFormat
+  case pcmFormatFloat32
+  case pcmFormatFloat64
+  case pcmFormatInt16
+  case pcmFormatInt32
 }
 @available(OSX 10.10, *)
 class AVAudioFormat : Object, SecureCoding {

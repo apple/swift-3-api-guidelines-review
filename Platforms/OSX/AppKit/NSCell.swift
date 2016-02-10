@@ -2,50 +2,50 @@
 enum NSCellType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NullCellType
-  case TextCellType
-  case ImageCellType
+  case nullCellType
+  case textCellType
+  case imageCellType
 }
 enum NSCellAttribute : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case CellDisabled
-  case CellState
-  case PushInCell
-  case CellEditable
-  case ChangeGrayCell
-  case CellHighlighted
-  case CellLightsByContents
-  case CellLightsByGray
-  case ChangeBackgroundCell
-  case CellLightsByBackground
-  case CellIsBordered
-  case CellHasOverlappingImage
-  case CellHasImageHorizontal
-  case CellHasImageOnLeftOrBottom
-  case CellChangesContents
-  case CellIsInsetButton
-  case CellAllowsMixedState
+  case cellDisabled
+  case cellState
+  case pushInCell
+  case cellEditable
+  case changeGrayCell
+  case cellHighlighted
+  case cellLightsByContents
+  case cellLightsByGray
+  case changeBackgroundCell
+  case cellLightsByBackground
+  case cellIsBordered
+  case cellHasOverlappingImage
+  case cellHasImageHorizontal
+  case cellHasImageOnLeftOrBottom
+  case cellChangesContents
+  case cellIsInsetButton
+  case cellAllowsMixedState
 }
 enum NSCellImagePosition : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NoImage
-  case ImageOnly
-  case ImageLeft
-  case ImageRight
-  case ImageBelow
-  case ImageAbove
-  case ImageOverlaps
+  case noImage
+  case imageOnly
+  case imageLeft
+  case imageRight
+  case imageBelow
+  case imageAbove
+  case imageOverlaps
 }
 @available(OSX 10.5, *)
 enum NSImageScaling : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ScaleProportionallyDown
-  case ScaleAxesIndependently
-  case ScaleNone
-  case ScaleProportionallyUpOrDown
+  case scaleProportionallyDown
+  case scaleAxesIndependently
+  case scaleNone
+  case scaleProportionallyUpOrDown
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use NSImageScaleProportionallyDown instead")
   static var NSScaleProportionally: NSImageScaling { get }
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use NSImageScaleAxesIndependently instead")
@@ -60,26 +60,26 @@ typealias NSCellStateValue = Int
 struct NSCellStyleMask : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var NoCellMask: NSCellStyleMask { get }
-  static var ContentsCellMask: NSCellStyleMask { get }
-  static var PushInCellMask: NSCellStyleMask { get }
-  static var ChangeGrayCellMask: NSCellStyleMask { get }
-  static var ChangeBackgroundCellMask: NSCellStyleMask { get }
+  static var noCellMask: NSCellStyleMask { get }
+  static var contentsCellMask: NSCellStyleMask { get }
+  static var pushInCellMask: NSCellStyleMask { get }
+  static var changeGrayCellMask: NSCellStyleMask { get }
+  static var changeBackgroundCellMask: NSCellStyleMask { get }
 }
 enum NSControlTint : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case DefaultControlTint
-  case BlueControlTint
-  case GraphiteControlTint
-  case ClearControlTint
+  case defaultControlTint
+  case blueControlTint
+  case graphiteControlTint
+  case clearControlTint
 }
 enum NSControlSize : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case RegularControlSize
-  case SmallControlSize
-  case MiniControlSize
+  case regularControlSize
+  case smallControlSize
+  case miniControlSize
 }
 struct __CFlags {
   var state: UInt32
@@ -180,16 +180,16 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   var representedObject: AnyObject?
   func cellAttribute(aParameter: NSCellAttribute) -> Int
   func setCellAttribute(aParameter: NSCellAttribute, to value: Int)
-  func imageRectForBounds(theRect: Rect) -> Rect
-  func titleRectForBounds(theRect: Rect) -> Rect
-  func drawingRectForBounds(theRect: Rect) -> Rect
+  func imageRectFor(bounds theRect: Rect) -> Rect
+  func titleRectFor(bounds theRect: Rect) -> Rect
+  func drawingRectFor(bounds theRect: Rect) -> Rect
   var cellSize: Size { get }
-  func cellSizeForBounds(aRect: Rect) -> Size
-  func highlightColorWithFrame(cellFrame: Rect, in controlView: NSView) -> NSColor
+  func cellSizeFor(bounds aRect: Rect) -> Size
+  func highlightColor(frame cellFrame: Rect, in controlView: NSView) -> NSColor
   func calcDrawInfo(aRect: Rect)
   func setUpFieldEditorAttributes(textObj: NSText) -> NSText
-  func drawInteriorWithFrame(cellFrame: Rect, in controlView: NSView)
-  func drawWithFrame(cellFrame: Rect, in controlView: NSView)
+  func drawInterior(frame cellFrame: Rect, in controlView: NSView)
+  func draw(frame cellFrame: Rect, in controlView: NSView)
   func highlight(flag: Bool, withFrame cellFrame: Rect, in controlView: NSView)
   var mouseDownFlags: Int { get }
   func getPeriodicDelay(delay: UnsafeMutablePointer<Float>, interval: UnsafeMutablePointer<Float>)
@@ -197,8 +197,8 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   func continueTracking(lastPoint: Point, at currentPoint: Point, in controlView: NSView) -> Bool
   func stopTracking(lastPoint: Point, at stopPoint: Point, in controlView: NSView, mouseIsUp flag: Bool)
   func trackMouse(theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView, untilMouseUp flag: Bool) -> Bool
-  func editWithFrame(aRect: Rect, in controlView: NSView, editor textObj: NSText, delegate anObject: AnyObject?, event theEvent: NSEvent)
-  func selectWithFrame(aRect: Rect, in controlView: NSView, editor textObj: NSText, delegate anObject: AnyObject?, start selStart: Int, length selLength: Int)
+  func edit(frame aRect: Rect, in controlView: NSView, editor textObj: NSText, delegate anObject: AnyObject?, event theEvent: NSEvent)
+  func select(frame aRect: Rect, in controlView: NSView, editor textObj: NSText, delegate anObject: AnyObject?, start selStart: Int, length selLength: Int)
   func endEditing(textObj: NSText)
   func resetCursorRect(cellFrame: Rect, in controlView: NSView)
   var menu: NSMenu?
@@ -221,9 +221,9 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   @available(OSX 10.6, *)
   var usesSingleLineMode: Bool
   @available(OSX 10.7, *)
-  func draggingImageComponentsWithFrame(frame: Rect, in view: NSView) -> [NSDraggingImageComponent]
+  func draggingImageComponentsWith(frame frame: Rect, in view: NSView) -> [NSDraggingImageComponent]
   convenience init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   var identifier: String?
@@ -232,23 +232,23 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   func isAccessibilityFocused() -> Bool
   func accessibilityIdentifier() -> String
   @available(OSX 10.10, *)
-  func accessibilityLayoutPointForScreenPoint(point: Point) -> Point
+  func accessibilityLayoutPointFor(screenPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityLayoutSizeForScreenSize(size: Size) -> Size
+  func accessibilityLayoutSizeFor(screenSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityScreenPointForLayoutPoint(point: Point) -> Point
+  func accessibilityScreenPointFor(layoutPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityScreenSizeForLayoutSize(size: Size) -> Size
+  func accessibilityScreenSizeFor(layoutSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityCellForColumn(column: Int, row: Int) -> AnyObject?
+  func accessibilityCellFor(column column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
   func accessibilityAttributedStringFor(range: NSRange) -> AttributedString?
   @available(OSX 10.10, *)
-  func accessibilityRangeForLine(line: Int) -> NSRange
+  func accessibilityRangeFor(line line: Int) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityStringFor(range: NSRange) -> String?
   @available(OSX 10.10, *)
-  func accessibilityRangeForPosition(point: Point) -> NSRange
+  func accessibilityRangeFor(position point: Point) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityRangeFor(index: Int) -> NSRange
   @available(OSX 10.10, *)
@@ -756,9 +756,9 @@ extension NSCell {
   var focusRingType: NSFocusRingType
   class func defaultFocusRingType() -> NSFocusRingType
   @available(OSX 10.7, *)
-  func drawFocusRingMaskWithFrame(cellFrame: Rect, in controlView: NSView)
+  func drawFocusRingMask(frame cellFrame: Rect, in controlView: NSView)
   @available(OSX 10.7, *)
-  func focusRingMaskBoundsForFrame(cellFrame: Rect, in controlView: NSView) -> Rect
+  func focusRingMaskBoundsFor(frame cellFrame: Rect, in controlView: NSView) -> Rect
   var wantsNotificationForMarkedText: Bool { get }
 }
 extension NSCell {
@@ -776,10 +776,10 @@ let NSControlTintDidChangeNotification: String
 struct NSCellHitResult : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: NSCellHitResult { get }
-  static var ContentArea: NSCellHitResult { get }
-  static var EditableTextArea: NSCellHitResult { get }
-  static var TrackableArea: NSCellHitResult { get }
+  static var none: NSCellHitResult { get }
+  static var contentArea: NSCellHitResult { get }
+  static var editableTextArea: NSCellHitResult { get }
+  static var trackableArea: NSCellHitResult { get }
 }
 extension NSCell {
   @available(OSX 10.5, *)
@@ -787,18 +787,18 @@ extension NSCell {
 }
 extension NSCell {
   @available(OSX 10.5, *)
-  func expansionFrameWithFrame(cellFrame: Rect, in view: NSView) -> Rect
+  func expansionFrameWith(frame cellFrame: Rect, in view: NSView) -> Rect
   @available(OSX 10.5, *)
-  func drawWithExpansionFrame(cellFrame: Rect, in view: NSView)
+  func draw(expansionFrame cellFrame: Rect, in view: NSView)
 }
 @available(OSX 10.5, *)
 enum NSBackgroundStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Light
-  case Dark
-  case Raised
-  case Lowered
+  case light
+  case dark
+  case raised
+  case lowered
 }
 extension NSCell {
   @available(OSX 10.5, *)

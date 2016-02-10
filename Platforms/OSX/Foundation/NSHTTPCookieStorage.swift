@@ -2,14 +2,14 @@
 enum HTTPCookieAcceptPolicy : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Always
-  case Never
-  case OnlyFromMainDocumentDomain
+  case always
+  case never
+  case onlyFromMainDocumentDomain
 }
 class HTTPCookieStorage : Object {
   class func shared() -> HTTPCookieStorage
   @available(OSX 10.11, *)
-  class func sharedCookieStorageForGroupContainerIdentifier(identifier: String) -> HTTPCookieStorage
+  class func sharedCookieStorageFor(groupContainerIdentifier identifier: String) -> HTTPCookieStorage
   var cookies: [HTTPCookie]? { get }
   func setCookie(cookie: HTTPCookie)
   func deleteCookie(cookie: HTTPCookie)

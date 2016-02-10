@@ -3,7 +3,7 @@
 var NSAttachmentCharacter: Int { get }
 protocol NSTextAttachmentContainer : ObjectProtocol {
   @available(iOS 7.0, *)
-  func imageForBounds(imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
+  func imageFor(bounds imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
   @available(iOS 7.0, *)
   func attachmentBoundsFor(textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
 }
@@ -22,7 +22,7 @@ class NSTextAttachment : Object, NSTextAttachmentContainer, Coding {
   var fileWrapper: FileWrapper?
   convenience init()
   @available(iOS 7.0, *)
-  func imageForBounds(imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
+  func imageFor(bounds imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
   @available(iOS 7.0, *)
   func attachmentBoundsFor(textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
   @available(iOS 7.0, *)

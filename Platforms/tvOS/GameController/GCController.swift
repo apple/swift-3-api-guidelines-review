@@ -11,11 +11,11 @@ class GCEventViewController : UIViewController {
 enum GCControllerPlayerIndex : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case IndexUnset
-  case Index1
-  case Index2
-  case Index3
-  case Index4
+  case indexUnset
+  case index1
+  case index2
+  case index3
+  case index4
 }
 @available(tvOS 7.0, *)
 class GCController : Object {

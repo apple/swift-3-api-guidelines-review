@@ -2,11 +2,11 @@
 enum GKVoiceChatPlayerState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Connected
-  case Disconnected
-  case Speaking
-  case Silent
-  case Connecting
+  case connected
+  case disconnected
+  case speaking
+  case silent
+  case connecting
 }
 @available(iOS 4.1, *)
 class GKVoiceChat : Object {

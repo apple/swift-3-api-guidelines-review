@@ -3,9 +3,9 @@
 enum MKUserTrackingMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Follow
-  case FollowWithHeading
+  case none
+  case follow
+  case followWithHeading
 }
 @available(iOS 3.0, *)
 class MKMapView : UIView, Coding {
@@ -61,7 +61,7 @@ class MKMapView : UIView, Coding {
   @available(iOS 4.2, *)
   func annotationsIn(mapRect: MKMapRect) -> Set<Object>
   func viewFor(annotation: MKAnnotation) -> MKAnnotationView?
-  func dequeueReusableAnnotationViewWithIdentifier(identifier: String) -> MKAnnotationView?
+  func dequeueReusableAnnotationViewWith(identifier identifier: String) -> MKAnnotationView?
   func selectAnnotation(annotation: MKAnnotation, animated: Bool)
   func deselectAnnotation(annotation: MKAnnotation?, animated: Bool)
   var selectedAnnotations: [MKAnnotation]
@@ -76,8 +76,8 @@ class MKMapView : UIView, Coding {
 enum MKOverlayLevel : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case AboveRoads
-  case AboveLabels
+  case aboveRoads
+  case aboveLabels
 }
 extension MKMapView {
   @available(iOS 7.0, *)

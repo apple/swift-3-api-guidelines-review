@@ -32,7 +32,7 @@ class UIResponder : Object {
   @available(tvOS 3.0, *)
   func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool
   @available(tvOS 7.0, *)
-  func targetForAction(action: Selector, withSender sender: AnyObject?) -> AnyObject?
+  func targetFor(action action: Selector, withSender sender: AnyObject?) -> AnyObject?
   @available(tvOS 3.0, *)
   var undoManager: UndoManager? { get }
   init()
@@ -41,12 +41,12 @@ class UIResponder : Object {
 struct UIKeyModifierFlags : OptionSetType {
   init(rawValue: Int)
   let rawValue: Int
-  static var AlphaShift: UIKeyModifierFlags { get }
-  static var Shift: UIKeyModifierFlags { get }
-  static var Control: UIKeyModifierFlags { get }
-  static var Alternate: UIKeyModifierFlags { get }
-  static var Command: UIKeyModifierFlags { get }
-  static var NumericPad: UIKeyModifierFlags { get }
+  static var alphaShift: UIKeyModifierFlags { get }
+  static var shift: UIKeyModifierFlags { get }
+  static var control: UIKeyModifierFlags { get }
+  static var alternate: UIKeyModifierFlags { get }
+  static var command: UIKeyModifierFlags { get }
+  static var numericPad: UIKeyModifierFlags { get }
 }
 @available(tvOS 7.0, *)
 class UIKeyCommand : Object, Copying, SecureCoding {
@@ -60,7 +60,7 @@ class UIKeyCommand : Object, Copying, SecureCoding {
   @available(tvOS 9.0, *)
   /*not inherited*/ init(input: String, modifierFlags: UIKeyModifierFlags, action: Selector, discoverabilityTitle: String)
   @available(tvOS 7.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 7.0, *)

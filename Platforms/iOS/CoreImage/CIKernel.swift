@@ -11,7 +11,7 @@ class CIKernel : Object {
   @available(iOS 9.0, *)
   func setROISelector(method: Selector)
   @available(iOS 8.0, *)
-  func applyWithExtent(extent: CGRect, roiCallback callback: CIKernelROICallback, arguments args: [AnyObject]?) -> CIImage?
+  func apply(extent extent: CGRect, roiCallback callback: CIKernelROICallback, arguments args: [AnyObject]?) -> CIImage?
   init()
 }
 @available(iOS 8.0, *)
@@ -19,7 +19,7 @@ class CIColorKernel : CIKernel {
   @available(iOS 8.0, *)
   convenience init?(string: String)
   @available(iOS 8.0, *)
-  func applyWithExtent(extent: CGRect, arguments args: [AnyObject]?) -> CIImage?
+  func apply(extent extent: CGRect, arguments args: [AnyObject]?) -> CIImage?
   init()
 }
 @available(iOS 8.0, *)
@@ -27,6 +27,6 @@ class CIWarpKernel : CIKernel {
   @available(iOS 8.0, *)
   convenience init?(string: String)
   @available(iOS 8.0, *)
-  func applyWithExtent(extent: CGRect, roiCallback callback: CIKernelROICallback, inputImage image: CIImage, arguments args: [AnyObject]?) -> CIImage?
+  func apply(extent extent: CGRect, roiCallback callback: CIKernelROICallback, inputImage image: CIImage, arguments args: [AnyObject]?) -> CIImage?
   init()
 }

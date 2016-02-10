@@ -2,11 +2,11 @@
 struct UIRectCorner : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var TopLeft: UIRectCorner { get }
-  static var TopRight: UIRectCorner { get }
-  static var BottomLeft: UIRectCorner { get }
-  static var BottomRight: UIRectCorner { get }
-  static var AllCorners: UIRectCorner { get }
+  static var topLeft: UIRectCorner { get }
+  static var topRight: UIRectCorner { get }
+  static var bottomLeft: UIRectCorner { get }
+  static var bottomRight: UIRectCorner { get }
+  static var allCorners: UIRectCorner { get }
 }
 @available(iOS 3.2, *)
 class UIBezierPath : Object, Copying, Coding {
@@ -45,11 +45,11 @@ class UIBezierPath : Object, Copying, Coding {
   func getLineDash(pattern: UnsafeMutablePointer<CGFloat>, count: UnsafeMutablePointer<Int>, phase: UnsafeMutablePointer<CGFloat>)
   func fill()
   func stroke()
-  func fillWith(blendMode: CGBlendMode, alpha: CGFloat)
-  func strokeWith(blendMode: CGBlendMode, alpha: CGFloat)
+  func fill(blendMode: CGBlendMode, alpha: CGFloat)
+  func stroke(blendMode: CGBlendMode, alpha: CGFloat)
   func addClip()
   @available(iOS 3.2, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 3.2, *)
   func encodeWith(aCoder: Coder)
 }

@@ -5,9 +5,9 @@ class AttributedString : Object, Copying, MutableCopying, SecureCoding {
   func attributesAt(location: Int, effectiveRange range: RangePointer) -> [String : AnyObject]
   init()
   @available(iOS 3.2, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 3.2, *)
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 3.2, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 3.2, *)
@@ -32,8 +32,8 @@ extension AttributedString {
 struct AttributedStringEnumerationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Reverse: AttributedStringEnumerationOptions { get }
-  static var LongestEffectiveRangeNotRequired: AttributedStringEnumerationOptions { get }
+  static var reverse: AttributedStringEnumerationOptions { get }
+  static var longestEffectiveRangeNotRequired: AttributedStringEnumerationOptions { get }
 }
 @available(iOS 3.2, *)
 class MutableAttributedString : AttributedString {

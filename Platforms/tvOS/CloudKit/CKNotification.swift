@@ -3,7 +3,7 @@
 class CKNotificationID : Object, Copying, SecureCoding {
   init()
   @available(tvOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
@@ -14,9 +14,9 @@ class CKNotificationID : Object, Copying, SecureCoding {
 enum CKNotificationType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Query
-  case RecordZone
-  case ReadNotification
+  case query
+  case recordZone
+  case readNotification
 }
 @available(tvOS 8.0, *)
 class CKNotification : Object {
@@ -32,9 +32,9 @@ class CKNotification : Object {
 enum CKQueryNotificationReason : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case RecordCreated
-  case RecordUpdated
-  case RecordDeleted
+  case recordCreated
+  case recordUpdated
+  case recordDeleted
 }
 @available(tvOS 8.0, *)
 class CKQueryNotification : CKNotification {

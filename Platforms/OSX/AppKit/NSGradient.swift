@@ -16,10 +16,10 @@ class NSGradient : Object, Copying, Coding {
   var colorSpace: NSColorSpace { get }
   var numberOfColorStops: Int { get }
   func getColor(color: AutoreleasingUnsafeMutablePointer<NSColor?>, location: UnsafeMutablePointer<CGFloat>, at index: Int)
-  func interpolatedColorAtLocation(location: CGFloat) -> NSColor
+  func interpolatedColorAt(location location: CGFloat) -> NSColor
   convenience init()
   @available(OSX 10.5, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.5, *)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)

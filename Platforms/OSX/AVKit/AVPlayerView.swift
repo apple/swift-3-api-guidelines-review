@@ -18,11 +18,11 @@ class AVPlayerView : NSView {
 enum AVPlayerViewControlsStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Inline
-  case Floating
-  case Minimal
-  static var Default: AVPlayerViewControlsStyle { get }
+  case none
+  case inline
+  case floating
+  case minimal
+  static var `default`: AVPlayerViewControlsStyle { get }
 }
 extension AVPlayerView {
   var showsFrameSteppingButtons: Bool
@@ -38,8 +38,8 @@ extension AVPlayerView {
 enum AVPlayerViewTrimResult : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case OKButton
-  case CancelButton
+  case okButton
+  case cancelButton
 }
 extension AVPlayerView {
   func flashChapterNumber(chapterNumber: Int, chapterTitle: String)

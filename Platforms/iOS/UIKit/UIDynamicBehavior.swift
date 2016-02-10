@@ -3,9 +3,9 @@
 enum UIDynamicItemCollisionBoundsType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Rectangle
-  case Ellipse
-  case Path
+  case rectangle
+  case ellipse
+  case path
 }
 protocol UIDynamicItem : ObjectProtocol {
   var center: CGPoint { get set }

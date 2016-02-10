@@ -2,10 +2,10 @@
 enum UIActionSheetStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Automatic
-  case Default
-  case BlackTranslucent
-  case BlackOpaque
+  case automatic
+  case `default`
+  case blackTranslucent
+  case blackOpaque
 }
 @available(iOS, introduced=2.0, deprecated=8.3, message="UIActionSheet is deprecated. Use UIAlertController with a preferredStyle of UIAlertControllerStyleActionSheet instead")
 class UIActionSheet : UIView {
@@ -13,7 +13,7 @@ class UIActionSheet : UIView {
   weak var delegate: @sil_weak UIActionSheetDelegate?
   var title: String
   var actionSheetStyle: UIActionSheetStyle
-  func addButtonWithTitle(title: String?) -> Int
+  func addButton(title title: String?) -> Int
   func buttonTitleAt(buttonIndex: Int) -> String?
   var numberOfButtons: Int { get }
   var cancelButtonIndex: Int
@@ -27,7 +27,7 @@ class UIActionSheet : UIView {
   @available(iOS 3.2, *)
   func showFrom(rect: CGRect, in view: UIView, animated: Bool)
   func showIn(view: UIView)
-  func dismissWithClickedButtonIndex(buttonIndex: Int, animated: Bool)
+  func dismiss(clickedButtonIndex buttonIndex: Int, animated: Bool)
   init(frame: CGRect)
   init?(coder aDecoder: Coder)
   convenience init()

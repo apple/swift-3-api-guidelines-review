@@ -3,17 +3,17 @@
 enum WKInterfaceObjectHorizontalAlignment : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Left
-  case Center
-  case Right
+  case left
+  case center
+  case right
 }
 @available(watchOS 2.0, *)
 enum WKInterfaceObjectVerticalAlignment : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Top
-  case Center
-  case Bottom
+  case top
+  case center
+  case bottom
 }
 @available(watchOS 2.0, *)
 class WKInterfaceObject : Object {

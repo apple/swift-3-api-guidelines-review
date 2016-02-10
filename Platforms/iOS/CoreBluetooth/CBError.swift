@@ -3,29 +3,29 @@ let CBErrorDomain: String
 enum CBError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
+  case unknown
   @available(iOS 6.0, *)
-  case InvalidParameters
+  case invalidParameters
   @available(iOS 6.0, *)
-  case InvalidHandle
+  case invalidHandle
   @available(iOS 6.0, *)
-  case NotConnected
+  case notConnected
   @available(iOS 6.0, *)
-  case OutOfSpace
+  case outOfSpace
   @available(iOS 6.0, *)
-  case OperationCancelled
+  case operationCancelled
   @available(iOS 6.0, *)
-  case ConnectionTimeout
+  case connectionTimeout
   @available(iOS 6.0, *)
-  case PeripheralDisconnected
+  case peripheralDisconnected
   @available(iOS 6.0, *)
-  case UUIDNotAllowed
+  case uuidNotAllowed
   @available(iOS 6.0, *)
-  case AlreadyAdvertising
+  case alreadyAdvertising
   @available(iOS 7.1, *)
-  case ConnectionFailed
+  case connectionFailed
   @available(iOS 9.0, *)
-  case ConnectionLimitReached
+  case connectionLimitReached
 }
 
 extension CBError : _BridgedNSError {
@@ -37,24 +37,24 @@ enum CBATTError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   @available(iOS 6.0, *)
-  case Success
-  case InvalidHandle
-  case ReadNotPermitted
-  case WriteNotPermitted
-  case InvalidPdu
-  case InsufficientAuthentication
-  case RequestNotSupported
-  case InvalidOffset
-  case InsufficientAuthorization
-  case PrepareQueueFull
-  case AttributeNotFound
-  case AttributeNotLong
-  case InsufficientEncryptionKeySize
-  case InvalidAttributeValueLength
-  case UnlikelyError
-  case InsufficientEncryption
-  case UnsupportedGroupType
-  case InsufficientResources
+  case success
+  case invalidHandle
+  case readNotPermitted
+  case writeNotPermitted
+  case invalidPdu
+  case insufficientAuthentication
+  case requestNotSupported
+  case invalidOffset
+  case insufficientAuthorization
+  case prepareQueueFull
+  case attributeNotFound
+  case attributeNotLong
+  case insufficientEncryptionKeySize
+  case invalidAttributeValueLength
+  case unlikelyError
+  case insufficientEncryption
+  case unsupportedGroupType
+  case insufficientResources
 }
 
 extension CBATTError : _BridgedNSError {

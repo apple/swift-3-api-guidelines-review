@@ -2,10 +2,10 @@
 enum AMLogLevel : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Debug
-  case Info
-  case Warn
-  case Error
+  case debug
+  case info
+  case warn
+  case error
 }
 @available(OSX 10.4, *)
 class AMAction : Object {
@@ -23,9 +23,9 @@ class AMAction : Object {
   @available(OSX 10.6, *)
   var progressValue: CGFloat
   @available(OSX 10.7, *)
-  func runWithInput(input: AnyObject?) throws -> AnyObject
+  func run(input input: AnyObject?) throws -> AnyObject
   @available(OSX 10.5, *)
-  func runAsynchronouslyWithInput(input: AnyObject?)
+  func runAsynchronously(input input: AnyObject?)
   @available(OSX 10.5, *)
   func willFinishRunning()
   @available(OSX 10.7, *)

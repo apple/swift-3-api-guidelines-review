@@ -2,13 +2,13 @@
 enum NSTokenStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Default
-  case None
-  case Rounded
+  case `default`
+  case none
+  case rounded
   @available(OSX 10.10, *)
-  case Squared
+  case squared
   @available(OSX 10.10, *)
-  case PlainSquared
+  case plainSquared
 }
 let NSDefaultTokenStyle: NSTokenStyle
 let NSPlainTextTokenStyle: NSTokenStyle

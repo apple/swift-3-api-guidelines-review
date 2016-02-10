@@ -3,19 +3,19 @@ extension Object {
   @available(OSX 10.4, *)
   class func webScriptNameFor(selector: Selector) -> String!
   @available(OSX 10.4, *)
-  class func isSelectorExcludedFromWebScript(selector: Selector) -> Bool
+  class func isSelectorExcludedFrom(webScript selector: Selector) -> Bool
   @available(OSX 10.4, *)
-  class func webScriptNameForKey(name: UnsafePointer<Int8>) -> String!
+  class func webScriptNameFor(key name: UnsafePointer<Int8>) -> String!
   @available(OSX 10.4, *)
-  class func isKeyExcludedFromWebScript(name: UnsafePointer<Int8>) -> Bool
+  class func isKeyExcludedFrom(webScript name: UnsafePointer<Int8>) -> Bool
   @available(OSX 10.4, *)
-  class func invokeUndefinedMethodFromWebScript(name: String!, withArguments arguments: [AnyObject]!) -> AnyObject!
+  class func invokeUndefinedMethodFrom(webScript name: String!, withArguments arguments: [AnyObject]!) -> AnyObject!
   @available(OSX 10.4, *)
-  func invokeUndefinedMethodFromWebScript(name: String!, withArguments arguments: [AnyObject]!) -> AnyObject!
+  func invokeUndefinedMethodFrom(webScript name: String!, withArguments arguments: [AnyObject]!) -> AnyObject!
   @available(OSX 10.4, *)
-  class func invokeDefaultMethodWithArguments(arguments: [AnyObject]!) -> AnyObject!
+  class func invokeDefaultMethodWith(arguments arguments: [AnyObject]!) -> AnyObject!
   @available(OSX 10.4, *)
-  func invokeDefaultMethodWithArguments(arguments: [AnyObject]!) -> AnyObject!
+  func invokeDefaultMethodWith(arguments arguments: [AnyObject]!) -> AnyObject!
   @available(OSX 10.4, *)
   class func finalizeForWebScript()
   @available(OSX 10.4, *)
@@ -43,5 +43,5 @@ class WebUndefined : Object, Coding, Copying {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.4, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

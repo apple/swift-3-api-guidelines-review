@@ -11,5 +11,5 @@ class CKQuery : Object, SecureCoding, Copying {
   @available(iOS 8.0, *)
   func encodeWith(aCoder: Coder)
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

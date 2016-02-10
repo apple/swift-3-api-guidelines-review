@@ -22,8 +22,8 @@ func CFDataDeleteBytes(theData: CFMutableData!, _ range: CFRange)
 struct CFDataSearchFlags : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
-  static var Backwards: CFDataSearchFlags { get }
-  static var Anchored: CFDataSearchFlags { get }
+  static var backwards: CFDataSearchFlags { get }
+  static var anchored: CFDataSearchFlags { get }
 }
 @available(watchOS 2.0, *)
 func CFDataFind(theData: CFData!, _ dataToFind: CFData!, _ searchRange: CFRange, _ compareOptions: CFDataSearchFlags) -> CFRange

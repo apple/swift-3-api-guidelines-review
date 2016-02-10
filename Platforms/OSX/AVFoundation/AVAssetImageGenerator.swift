@@ -8,9 +8,9 @@ let AVAssetImageGeneratorApertureModeEncodedPixels: String
 enum AVAssetImageGeneratorResult : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Succeeded
-  case Failed
-  case Cancelled
+  case succeeded
+  case failed
+  case cancelled
 }
 @available(OSX 10.7, *)
 class AVAssetImageGenerator : Object {
@@ -28,7 +28,7 @@ class AVAssetImageGenerator : Object {
   var requestedTimeToleranceAfter: CMTime
   init(asset: AVAsset)
   func copyCGImageAt(requestedTime: CMTime, actualTime: UnsafeMutablePointer<CMTime>) throws -> CGImage
-  func generateCGImagesAsynchronouslyForTimes(requestedTimes: [Value], completionHandler handler: AVAssetImageGeneratorCompletionHandler)
+  func generateCGImagesAsynchronouslyFor(times requestedTimes: [Value], completionHandler handler: AVAssetImageGeneratorCompletionHandler)
   func cancelAllCGImageGeneration()
 }
 typealias AVAssetImageGeneratorCompletionHandler = (CMTime, CGImage?, CMTime, AVAssetImageGeneratorResult, Error?) -> Void

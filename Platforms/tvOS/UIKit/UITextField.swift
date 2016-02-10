@@ -2,18 +2,18 @@
 enum UITextBorderStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Line
-  case Bezel
-  case RoundedRect
+  case none
+  case line
+  case bezel
+  case roundedRect
 }
 enum UITextFieldViewMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Never
-  case WhileEditing
-  case UnlessEditing
-  case Always
+  case never
+  case whileEditing
+  case unlessEditing
+  case always
 }
 @available(tvOS 2.0, *)
 class UITextField : UIControl, UITextInput, Coding {
@@ -45,13 +45,13 @@ class UITextField : UIControl, UITextInput, Coding {
   var leftViewMode: UITextFieldViewMode
   var rightView: UIView?
   var rightViewMode: UITextFieldViewMode
-  func borderRectForBounds(bounds: CGRect) -> CGRect
-  func textRectForBounds(bounds: CGRect) -> CGRect
-  func placeholderRectForBounds(bounds: CGRect) -> CGRect
-  func editingRectForBounds(bounds: CGRect) -> CGRect
-  func clearButtonRectForBounds(bounds: CGRect) -> CGRect
-  func leftViewRectForBounds(bounds: CGRect) -> CGRect
-  func rightViewRectForBounds(bounds: CGRect) -> CGRect
+  func borderRectFor(bounds bounds: CGRect) -> CGRect
+  func textRectFor(bounds bounds: CGRect) -> CGRect
+  func placeholderRectFor(bounds bounds: CGRect) -> CGRect
+  func editingRectFor(bounds bounds: CGRect) -> CGRect
+  func clearButtonRectFor(bounds bounds: CGRect) -> CGRect
+  func leftViewRectFor(bounds bounds: CGRect) -> CGRect
+  func rightViewRectFor(bounds bounds: CGRect) -> CGRect
   func drawTextIn(rect: CGRect)
   func drawPlaceholderIn(rect: CGRect)
   var inputView: UIView?
@@ -134,7 +134,7 @@ class UITextField : UIControl, UITextInput, Coding {
   @available(tvOS 2.0, *)
   func insertDictationResultPlaceholder() -> AnyObject
   @available(tvOS 2.0, *)
-  func frameForDictationResultPlaceholder(placeholder: AnyObject) -> CGRect
+  func frameFor(dictationResultPlaceholder placeholder: AnyObject) -> CGRect
   @available(tvOS 2.0, *)
   func removeDictationResultPlaceholder(placeholder: AnyObject, willInsertResult: Bool)
   @available(tvOS 9.0, *)

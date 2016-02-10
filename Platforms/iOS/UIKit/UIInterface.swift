@@ -2,18 +2,18 @@
 enum UIBarStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Black
-  static var BlackOpaque: UIBarStyle { get }
-  case BlackTranslucent
+  case `default`
+  case black
+  static var blackOpaque: UIBarStyle { get }
+  case blackTranslucent
 }
 @available(iOS 8.0, *)
 enum UIUserInterfaceSizeClass : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unspecified
-  case Compact
-  case Regular
+  case unspecified
+  case compact
+  case regular
 }
 extension UIColor {
   class func lightText() -> UIColor

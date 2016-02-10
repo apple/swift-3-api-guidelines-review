@@ -2,9 +2,9 @@
 enum AVPlayerStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case ReadyToPlay
-  case Failed
+  case unknown
+  case readyToPlay
+  case failed
 }
 @available(OSX 10.7, *)
 class AVPlayer : Object {
@@ -21,15 +21,15 @@ extension AVPlayer {
 }
 extension AVPlayer {
   var currentItem: AVPlayerItem? { get }
-  func replaceCurrentItemWith(item: AVPlayerItem?)
+  func replaceCurrentItem(item: AVPlayerItem?)
   var actionAtItemEnd: AVPlayerActionAtItemEnd
 }
 enum AVPlayerActionAtItemEnd : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Advance
-  case Pause
-  case None
+  case advance
+  case pause
+  case none
 }
 extension AVPlayer {
   func currentTime() -> CMTime
@@ -47,15 +47,15 @@ extension AVPlayer {
   @available(OSX 10.8, *)
   func setRate(rate: Float, time itemTime: CMTime, atHostTime hostClockTime: CMTime)
   @available(OSX 10.8, *)
-  func prerollAtRate(rate: Float, completionHandler: ((Bool) -> Void)? = nil)
+  func prerollAt(rate rate: Float, completionHandler: ((Bool) -> Void)? = nil)
   @available(OSX 10.8, *)
   func cancelPendingPrerolls()
   @available(OSX 10.8, *)
   var masterClock: CMClock?
 }
 extension AVPlayer {
-  func addPeriodicTimeObserverForInterval(interval: CMTime, queue: dispatch_queue_t?, usingBlock block: (CMTime) -> Void) -> AnyObject
-  func addBoundaryTimeObserverForTimes(times: [Value], queue: dispatch_queue_t?, usingBlock block: () -> Void) -> AnyObject
+  func addPeriodicTimeObserverFor(interval interval: CMTime, queue: dispatch_queue_t?, usingBlock block: (CMTime) -> Void) -> AnyObject
+  func addBoundaryTimeObserverFor(times times: [Value], queue: dispatch_queue_t?, usingBlock block: () -> Void) -> AnyObject
   func removeTimeObserver(observer: AnyObject)
 }
 extension AVPlayer {
@@ -71,7 +71,7 @@ extension AVPlayer {
   @available(OSX 10.9, *)
   func setMediaSelectionCriteria(criteria: AVPlayerMediaSelectionCriteria?, forMediaCharacteristic mediaCharacteristic: String)
   @available(OSX 10.9, *)
-  func mediaSelectionCriteriaForMediaCharacteristic(mediaCharacteristic: String) -> AVPlayerMediaSelectionCriteria?
+  func mediaSelectionCriteriaFor(mediaCharacteristic mediaCharacteristic: String) -> AVPlayerMediaSelectionCriteria?
 }
 extension AVPlayer {
   @available(OSX 10.9, *)

@@ -78,11 +78,11 @@ let linguisticTagOrganizationName: String
 struct LinguisticTaggerOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var OmitWords: LinguisticTaggerOptions { get }
-  static var OmitPunctuation: LinguisticTaggerOptions { get }
-  static var OmitWhitespace: LinguisticTaggerOptions { get }
-  static var OmitOther: LinguisticTaggerOptions { get }
-  static var JoinNames: LinguisticTaggerOptions { get }
+  static var omitWords: LinguisticTaggerOptions { get }
+  static var omitPunctuation: LinguisticTaggerOptions { get }
+  static var omitWhitespace: LinguisticTaggerOptions { get }
+  static var omitOther: LinguisticTaggerOptions { get }
+  static var joinNames: LinguisticTaggerOptions { get }
 }
 @available(watchOS 2.0, *)
 class LinguisticTagger : Object {
@@ -93,7 +93,7 @@ class LinguisticTagger : Object {
   @available(watchOS 2.0, *)
   var string: String?
   @available(watchOS 2.0, *)
-  class func availableTagSchemesForLanguage(language: String) -> [String]
+  class func availableTagSchemesFor(language language: String) -> [String]
   @available(watchOS 2.0, *)
   func setOrthography(orthography: Orthography?, range: NSRange)
   @available(watchOS 2.0, *)

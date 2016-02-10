@@ -3,10 +3,10 @@ var kAUParameterListener_AnyParameter: AudioUnitParameterID { get }
 enum AudioUnitEventType : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case ParameterValueChange
-  case BeginParameterChangeGesture
-  case EndParameterChangeGesture
-  case PropertyChange
+  case parameterValueChange
+  case beginParameterChangeGesture
+  case endParameterChangeGesture
+  case propertyChange
 }
 typealias AUParameterListenerRef = COpaquePointer
 typealias AUEventListenerRef = AUParameterListenerRef

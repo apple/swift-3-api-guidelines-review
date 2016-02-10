@@ -8,9 +8,9 @@ class SKPayment : Object, Copying, MutableCopying {
   var applicationUsername: String? { get }
   init()
   @available(OSX 10.7, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.7, *)
 class SKMutablePayment : SKPayment {

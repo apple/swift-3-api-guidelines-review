@@ -3,17 +3,17 @@
 enum AVAudioUnitEQFilterType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Parametric
-  case LowPass
-  case HighPass
-  case ResonantLowPass
-  case ResonantHighPass
-  case BandPass
-  case BandStop
-  case LowShelf
-  case HighShelf
-  case ResonantLowShelf
-  case ResonantHighShelf
+  case parametric
+  case lowPass
+  case highPass
+  case resonantLowPass
+  case resonantHighPass
+  case bandPass
+  case bandStop
+  case lowShelf
+  case highShelf
+  case resonantLowShelf
+  case resonantHighShelf
 }
 @available(iOS 8.0, *)
 class AVAudioUnitEQFilterParameters : Object {

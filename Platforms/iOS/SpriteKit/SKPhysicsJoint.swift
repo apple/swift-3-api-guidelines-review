@@ -9,7 +9,7 @@ class SKPhysicsJoint : Object, Coding {
   init?(coder aDecoder: Coder)
 }
 class SKPhysicsJointPin : SKPhysicsJoint {
-  class func jointWithBodyA(bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchor: CGPoint) -> SKPhysicsJointPin
+  class func jointWith(bodyA bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchor: CGPoint) -> SKPhysicsJointPin
   var shouldEnableLimits: Bool
   var lowerAngleLimit: CGFloat
   var upperAngleLimit: CGFloat
@@ -19,19 +19,19 @@ class SKPhysicsJointPin : SKPhysicsJoint {
   init?(coder aDecoder: Coder)
 }
 class SKPhysicsJointSpring : SKPhysicsJoint {
-  class func jointWithBodyA(bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchorA: CGPoint, anchorB: CGPoint) -> SKPhysicsJointSpring
+  class func jointWith(bodyA bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchorA: CGPoint, anchorB: CGPoint) -> SKPhysicsJointSpring
   var damping: CGFloat
   var frequency: CGFloat
   init()
   init?(coder aDecoder: Coder)
 }
 class SKPhysicsJointFixed : SKPhysicsJoint {
-  class func jointWithBodyA(bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchor: CGPoint) -> SKPhysicsJointFixed
+  class func jointWith(bodyA bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchor: CGPoint) -> SKPhysicsJointFixed
   init()
   init?(coder aDecoder: Coder)
 }
 class SKPhysicsJointSliding : SKPhysicsJoint {
-  class func jointWithBodyA(bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchor: CGPoint, axis: CGVector) -> SKPhysicsJointSliding
+  class func jointWith(bodyA bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchor: CGPoint, axis: CGVector) -> SKPhysicsJointSliding
   var shouldEnableLimits: Bool
   var lowerDistanceLimit: CGFloat
   var upperDistanceLimit: CGFloat
@@ -40,7 +40,7 @@ class SKPhysicsJointSliding : SKPhysicsJoint {
 }
 class SKPhysicsJointLimit : SKPhysicsJoint {
   var maxLength: CGFloat
-  class func jointWithBodyA(bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchorA: CGPoint, anchorB: CGPoint) -> SKPhysicsJointLimit
+  class func jointWith(bodyA bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchorA: CGPoint, anchorB: CGPoint) -> SKPhysicsJointLimit
   init()
   init?(coder aDecoder: Coder)
 }

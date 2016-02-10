@@ -2,8 +2,8 @@
 enum SCNMorpherCalculationMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Normalized
-  case Additive
+  case normalized
+  case additive
 }
 @available(OSX 10.9, *)
 class SCNMorpher : Object, SCNAnimatable, SecureCoding {
@@ -17,19 +17,19 @@ class SCNMorpher : Object, SCNAnimatable, SecureCoding {
   @available(OSX 10.9, *)
   func removeAllAnimations()
   @available(OSX 10.9, *)
-  func removeAnimationForKey(key: String)
+  func removeAnimationFor(key key: String)
   @available(OSX 10.9, *)
   var animationKeys: [String] { get }
   @available(OSX 10.9, *)
-  func animationForKey(key: String) -> CAAnimation?
+  func animationFor(key key: String) -> CAAnimation?
   @available(OSX 10.9, *)
-  func pauseAnimationForKey(key: String)
+  func pauseAnimationFor(key key: String)
   @available(OSX 10.9, *)
-  func resumeAnimationForKey(key: String)
+  func resumeAnimationFor(key key: String)
   @available(OSX 10.9, *)
-  func isAnimationForKeyPaused(key: String) -> Bool
+  func isAnimationFor(keyPaused key: String) -> Bool
   @available(OSX 10.10, *)
-  func removeAnimationForKey(key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimationFor(key key: String, fadeOutDuration duration: CGFloat)
   @available(OSX 10.9, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.9, *)

@@ -2,16 +2,16 @@
 @available(watchOS 2.0, *)
 class UbiquitousKeyValueStore : Object {
   class func defaultStore() -> UbiquitousKeyValueStore
-  func objectForKey(aKey: String) -> AnyObject?
+  func objectFor(key aKey: String) -> AnyObject?
   func setObject(anObject: AnyObject?, forKey aKey: String)
-  func removeObjectForKey(aKey: String)
-  func stringForKey(aKey: String) -> String?
-  func arrayForKey(aKey: String) -> [AnyObject]?
-  func dictionaryForKey(aKey: String) -> [String : AnyObject]?
-  func dataForKey(aKey: String) -> Data?
-  func longLongForKey(aKey: String) -> Int64
-  func doubleForKey(aKey: String) -> Double
-  func boolForKey(aKey: String) -> Bool
+  func removeObjectFor(key aKey: String)
+  func stringFor(key aKey: String) -> String?
+  func arrayFor(key aKey: String) -> [AnyObject]?
+  func dictionaryFor(key aKey: String) -> [String : AnyObject]?
+  func dataFor(key aKey: String) -> Data?
+  func longLongFor(key aKey: String) -> Int64
+  func doubleFor(key aKey: String) -> Double
+  func boolFor(key aKey: String) -> Bool
   func setString(aString: String?, forKey aKey: String)
   func setData(aData: Data?, forKey aKey: String)
   func setArray(anArray: [AnyObject]?, forKey aKey: String)

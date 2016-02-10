@@ -2,11 +2,11 @@
 enum URLCredentialPersistence : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
-  case ForSession
-  case Permanent
+  case none
+  case forSession
+  case permanent
   @available(tvOS 6.0, *)
-  case Synchronizable
+  case synchronizable
 }
 class URLCredential : Object, SecureCoding, Copying {
   var persistence: URLCredentialPersistence { get }
@@ -14,7 +14,7 @@ class URLCredential : Object, SecureCoding, Copying {
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 extension URLCredential {
   init(user: String, password: String, persistence: URLCredentialPersistence)

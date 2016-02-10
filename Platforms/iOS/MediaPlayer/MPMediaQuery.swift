@@ -3,14 +3,14 @@
 enum MPMediaGrouping : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Title
-  case Album
-  case Artist
-  case AlbumArtist
-  case Composer
-  case Genre
-  case Playlist
-  case PodcastTitle
+  case title
+  case album
+  case artist
+  case albumArtist
+  case composer
+  case genre
+  case playlist
+  case podcastTitle
 }
 @available(iOS 3.0, *)
 class MPMediaQuery : Object, SecureCoding, Copying {
@@ -41,7 +41,7 @@ class MPMediaQuery : Object, SecureCoding, Copying {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 3.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 3.0, *)
 class MPMediaPredicate : Object, SecureCoding {
@@ -56,8 +56,8 @@ class MPMediaPredicate : Object, SecureCoding {
 enum MPMediaPredicateComparison : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case EqualTo
-  case Contains
+  case equalTo
+  case contains
 }
 @available(iOS 3.0, *)
 class MPMediaPropertyPredicate : MPMediaPredicate {
@@ -71,7 +71,7 @@ class MPMediaPropertyPredicate : MPMediaPredicate {
 }
 extension MPMediaItem {
   @available(iOS 4.2, *)
-  class func persistentIDPropertyForGroupingType(groupingType: MPMediaGrouping) -> String
+  class func persistentIDPropertyFor(groupingType groupingType: MPMediaGrouping) -> String
   @available(iOS 4.2, *)
-  class func titlePropertyForGroupingType(groupingType: MPMediaGrouping) -> String
+  class func titlePropertyFor(groupingType groupingType: MPMediaGrouping) -> String
 }

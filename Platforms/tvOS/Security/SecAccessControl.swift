@@ -5,21 +5,21 @@ func SecAccessControlGetTypeID() -> CFTypeID
 struct SecAccessControlCreateFlags : OptionSetType {
   init(rawValue: CFIndex)
   let rawValue: CFIndex
-  static var UserPresence: SecAccessControlCreateFlags { get }
+  static var userPresence: SecAccessControlCreateFlags { get }
   @available(tvOS 9.0, *)
-  static var TouchIDAny: SecAccessControlCreateFlags { get }
+  static var touchIDAny: SecAccessControlCreateFlags { get }
   @available(tvOS 9.0, *)
-  static var TouchIDCurrentSet: SecAccessControlCreateFlags { get }
+  static var touchIDCurrentSet: SecAccessControlCreateFlags { get }
   @available(tvOS 9.0, *)
-  static var DevicePasscode: SecAccessControlCreateFlags { get }
+  static var devicePasscode: SecAccessControlCreateFlags { get }
   @available(tvOS 9.0, *)
-  static var Or: SecAccessControlCreateFlags { get }
+  static var or: SecAccessControlCreateFlags { get }
   @available(tvOS 9.0, *)
-  static var And: SecAccessControlCreateFlags { get }
+  static var and: SecAccessControlCreateFlags { get }
   @available(tvOS 9.0, *)
-  static var PrivateKeyUsage: SecAccessControlCreateFlags { get }
+  static var privateKeyUsage: SecAccessControlCreateFlags { get }
   @available(tvOS 9.0, *)
-  static var ApplicationPassword: SecAccessControlCreateFlags { get }
+  static var applicationPassword: SecAccessControlCreateFlags { get }
 }
 @available(tvOS 8.0, *)
 func SecAccessControlCreateWithFlags(allocator: CFAllocator?, _ protection: CFTypeRef, _ flags: SecAccessControlCreateFlags, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecAccessControl?

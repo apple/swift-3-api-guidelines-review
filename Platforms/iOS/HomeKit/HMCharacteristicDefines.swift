@@ -3,102 +3,102 @@
 enum HMCharacteristicValueDoorState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Open
-  case Closed
-  case Opening
-  case Closing
-  case Stopped
+  case open
+  case closed
+  case opening
+  case closing
+  case stopped
 }
 @available(iOS 8.0, *)
 enum HMCharacteristicValueHeatingCooling : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Off
-  case Heat
-  case Cool
-  case Auto
+  case off
+  case heat
+  case cool
+  case auto
 }
 @available(iOS 8.0, *)
 enum HMCharacteristicValueRotationDirection : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Clockwise
-  case CounterClockwise
+  case clockwise
+  case counterClockwise
 }
 @available(iOS 8.0, *)
 enum HMCharacteristicValueTemperatureUnit : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Celsius
-  case Fahrenheit
+  case celsius
+  case fahrenheit
 }
 @available(iOS 8.0, *)
 enum HMCharacteristicValueLockMechanismState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unsecured
-  case Secured
-  case Jammed
-  case Unknown
+  case unsecured
+  case secured
+  case jammed
+  case unknown
 }
 @available(iOS 8.0, *)
 enum HMCharacteristicValueLockMechanismLastKnownAction : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case SecuredUsingPhysicalMovementInterior
-  case UnsecuredUsingPhysicalMovementInterior
-  case SecuredUsingPhysicalMovementExterior
-  case UnsecuredUsingPhysicalMovementExterior
-  case SecuredWithKeypad
-  case UnsecuredWithKeypad
-  case SecuredRemotely
-  case UnsecuredRemotely
-  case SecuredWithAutomaticSecureTimeout
-  case SecuredUsingPhysicalMovement
-  case UnsecuredUsingPhysicalMovement
+  case securedUsingPhysicalMovementInterior
+  case unsecuredUsingPhysicalMovementInterior
+  case securedUsingPhysicalMovementExterior
+  case unsecuredUsingPhysicalMovementExterior
+  case securedWithKeypad
+  case unsecuredWithKeypad
+  case securedRemotely
+  case unsecuredRemotely
+  case securedWithAutomaticSecureTimeout
+  case securedUsingPhysicalMovement
+  case unsecuredUsingPhysicalMovement
 }
 @available(iOS 9.0, *)
 enum HMCharacteristicValueAirParticulateSize : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Size2_5
-  case Size10
+  case size2_5
+  case size10
 }
 @available(iOS 9.0, *)
 enum HMCharacteristicValueAirQuality : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Excellent
-  case Good
-  case Fair
-  case Inferior
-  case Poor
+  case unknown
+  case excellent
+  case good
+  case fair
+  case inferior
+  case poor
 }
 @available(iOS 9.0, *)
 enum HMCharacteristicValuePositionState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Closing
-  case Opening
-  case Stopped
+  case closing
+  case opening
+  case stopped
 }
 @available(iOS 9.0, *)
 enum HMCharacteristicValueCurrentSecuritySystemState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case StayArm
-  case AwayArm
-  case NightArm
-  case Disarmed
-  case Triggered
+  case stayArm
+  case awayArm
+  case nightArm
+  case disarmed
+  case triggered
 }
 @available(iOS 9.0, *)
 enum HMCharacteristicValueTargetSecuritySystemState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case StayArm
-  case AwayArm
-  case NightArm
-  case Disarm
+  case stayArm
+  case awayArm
+  case nightArm
+  case disarm
 }

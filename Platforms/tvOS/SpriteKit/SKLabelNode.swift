@@ -3,18 +3,18 @@
 enum SKLabelVerticalAlignmentMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Baseline
-  case Center
-  case Top
-  case Bottom
+  case baseline
+  case center
+  case top
+  case bottom
 }
 @available(tvOS 7.0, *)
 enum SKLabelHorizontalAlignmentMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Center
-  case Left
-  case Right
+  case center
+  case left
+  case right
 }
 class SKLabelNode : SKNode {
   convenience init(text: String?)

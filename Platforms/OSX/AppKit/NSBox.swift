@@ -2,23 +2,23 @@
 enum NSTitlePosition : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NoTitle
-  case AboveTop
-  case AtTop
-  case BelowTop
-  case AboveBottom
-  case AtBottom
-  case BelowBottom
+  case noTitle
+  case aboveTop
+  case atTop
+  case belowTop
+  case aboveBottom
+  case atBottom
+  case belowBottom
 }
 enum NSBoxType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Primary
-  case Secondary
-  case Separator
-  case OldStyle
+  case primary
+  case secondary
+  case separator
+  case oldStyle
   @available(OSX 10.5, *)
-  case Custom
+  case custom
 }
 class NSBox : NSView {
   var borderType: NSBorderType

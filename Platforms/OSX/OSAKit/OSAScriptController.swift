@@ -2,9 +2,9 @@
 enum OSAScriptState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Stopped
-  case Running
-  case Recording
+  case stopped
+  case running
+  case recording
 }
 class OSAScriptController : NSController {
   var scriptView: OSAScriptView?

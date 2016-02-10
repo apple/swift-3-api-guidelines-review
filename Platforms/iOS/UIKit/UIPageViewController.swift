@@ -2,28 +2,28 @@
 enum UIPageViewControllerNavigationOrientation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Horizontal
-  case Vertical
+  case horizontal
+  case vertical
 }
 enum UIPageViewControllerSpineLocation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Min
-  case Mid
-  case Max
+  case none
+  case min
+  case mid
+  case max
 }
 enum UIPageViewControllerNavigationDirection : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Forward
-  case Reverse
+  case forward
+  case reverse
 }
 enum UIPageViewControllerTransitionStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case PageCurl
-  case Scroll
+  case pageCurl
+  case scroll
 }
 let UIPageViewControllerOptionSpineLocationKey: String
 @available(iOS 6.0, *)
@@ -54,7 +54,7 @@ protocol UIPageViewControllerDelegate : ObjectProtocol {
   @available(iOS 7.0, *)
   optional func pageViewControllerSupportedInterfaceOrientations(pageViewController: UIPageViewController) -> UIInterfaceOrientationMask
   @available(iOS 7.0, *)
-  optional func pageViewControllerPreferredInterfaceOrientationForPresentation(pageViewController: UIPageViewController) -> UIInterfaceOrientation
+  optional func pageViewControllerPreferredInterfaceOrientationFor(presentation pageViewController: UIPageViewController) -> UIInterfaceOrientation
 }
 protocol UIPageViewControllerDataSource : ObjectProtocol {
   @available(iOS 5.0, *)

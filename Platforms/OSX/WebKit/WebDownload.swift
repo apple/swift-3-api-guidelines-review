@@ -7,5 +7,5 @@ class WebDownload : URLDownload {
   init()
 }
 protocol WebDownloadDelegate : URLDownloadDelegate {
-  optional func downloadWindowForAuthenticationSheet(download: WebDownload!) -> NSWindow!
+  optional func downloadWindowFor(authenticationSheet download: WebDownload!) -> NSWindow!
 }

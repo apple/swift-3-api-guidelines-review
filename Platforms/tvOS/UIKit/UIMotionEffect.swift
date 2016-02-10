@@ -3,17 +3,17 @@
 class UIMotionEffect : Object, Copying, Coding {
   init()
   init?(coder aDecoder: Coder)
-  func keyPathsAndRelativeValuesForViewerOffset(viewerOffset: UIOffset) -> [String : AnyObject]?
+  func keyPathsAndRelativeValuesFor(viewerOffset viewerOffset: UIOffset) -> [String : AnyObject]?
   @available(tvOS 7.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 7.0, *)
   func encodeWith(aCoder: Coder)
 }
 enum UIInterpolatingMotionEffectType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case TiltAlongHorizontalAxis
-  case TiltAlongVerticalAxis
+  case tiltAlongHorizontalAxis
+  case tiltAlongVerticalAxis
 }
 @available(tvOS 7.0, *)
 class UIInterpolatingMotionEffect : UIMotionEffect {

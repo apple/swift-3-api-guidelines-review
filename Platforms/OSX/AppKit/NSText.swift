@@ -12,18 +12,18 @@ var NSParagraphSeparatorCharacter: Int { get }
 enum NSTextAlignment : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Left
-  case Right
-  case Center
-  case Justified
-  case Natural
+  case left
+  case right
+  case center
+  case justified
+  case natural
 }
 enum NSWritingDirection : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Natural
-  case LeftToRight
-  case RightToLeft
+  case natural
+  case leftToRight
+  case rightToLeft
 }
 var NSIllegalTextMovement: Int { get }
 var NSReturnTextMovement: Int { get }
@@ -44,8 +44,8 @@ class NSText : NSView, NSChangeSpelling, NSIgnoreMisspelledWords {
   func replaceCharactersIn(range: NSRange, withRTFD rtfdData: Data)
   func rtfFrom(range: NSRange) -> Data?
   func rtfdFrom(range: NSRange) -> Data?
-  func writeRTFDToFile(path: String, atomically flag: Bool) -> Bool
-  func readRTFDFromFile(path: String) -> Bool
+  func writeRTFDTo(file path: String, atomically flag: Bool) -> Bool
+  func readRTFDFrom(file path: String) -> Bool
   unowned(unsafe) var delegate: @sil_unmanaged NSTextDelegate?
   var isEditable: Bool
   var isSelectable: Bool

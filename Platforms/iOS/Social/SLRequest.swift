@@ -16,6 +16,6 @@ class SLRequest : Object {
   var parameters: [Object : AnyObject]! { get }
   func addMultipartData(data: Data!, withName name: String!, type: String!, filename: String!)
   func preparedURLRequest() -> URLRequest!
-  func performWithHandler(handler: SLRequestHandler!)
+  func perform(handler handler: SLRequestHandler!)
   init()
 }

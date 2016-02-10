@@ -64,7 +64,7 @@ class NSSavePanel : NSPanel {
   @available(OSX 10.6, *)
   func beginSheetModalFor(window: NSWindow, completionHandler handler: (Int) -> Void)
   @available(OSX 10.6, *)
-  func beginWithCompletionHandler(handler: (Int) -> Void)
+  func begin(completionHandler handler: (Int) -> Void)
   func runModal() -> Int
   init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
   convenience init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)

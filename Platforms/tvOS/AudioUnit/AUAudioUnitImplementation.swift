@@ -2,10 +2,10 @@
 enum AURenderEventType : UInt8 {
   init?(rawValue: UInt8)
   var rawValue: UInt8 { get }
-  case Parameter
-  case ParameterRamp
+  case parameter
+  case parameterRamp
   case MIDI
-  case MIDISysEx
+  case midiSysEx
 }
 struct AURenderEventHeader {
   var next: UnsafeMutablePointer<AURenderEvent>
@@ -60,11 +60,11 @@ extension AUAudioUnitBusArray {
   func replaceBusses(busArray: [AUAudioUnitBus])
 }
 extension AUParameterTree {
-  class func createParameterWithIdentifier(identifier: String, name: String, address: AUParameterAddress, min: AUValue, max: AUValue, unit: AudioUnitParameterUnit, unitName: String?, flags: AudioUnitParameterOptions = [], valueStrings: [String]?, dependentParameters: [Number]?) -> AUParameter
-  class func createGroupWithIdentifier(identifier: String, name: String, children: [AUParameterNode]) -> AUParameterGroup
+  class func createParameterWith(identifier identifier: String, name: String, address: AUParameterAddress, min: AUValue, max: AUValue, unit: AudioUnitParameterUnit, unitName: String?, flags: AudioUnitParameterOptions = [], valueStrings: [String]?, dependentParameters: [Number]?) -> AUParameter
+  class func createGroupWith(identifier identifier: String, name: String, children: [AUParameterNode]) -> AUParameterGroup
   class func createGroupTemplate(children: [AUParameterNode]) -> AUParameterGroup
-  class func createGroupFromTemplate(templateGroup: AUParameterGroup, identifier: String, name: String, addressOffset: AUParameterAddress) -> AUParameterGroup
-  class func createTreeWithChildren(children: [AUParameterNode]) -> AUParameterTree
+  class func createGroupFrom(template templateGroup: AUParameterGroup, identifier: String, name: String, addressOffset: AUParameterAddress) -> AUParameterGroup
+  class func createTreeWith(children children: [AUParameterNode]) -> AUParameterTree
 }
 typealias AUImplementorValueObserver = (AUParameter, AUValue) -> Void
 typealias AUImplementorValueProvider = (AUParameter) -> AUValue

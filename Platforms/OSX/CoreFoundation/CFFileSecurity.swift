@@ -36,12 +36,12 @@ func CFFileSecuritySetMode(fileSec: CFFileSecurity!, _ mode: mode_t) -> Bool
 struct CFFileSecurityClearOptions : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
-  static var Owner: CFFileSecurityClearOptions { get }
-  static var Group: CFFileSecurityClearOptions { get }
-  static var Mode: CFFileSecurityClearOptions { get }
-  static var OwnerUUID: CFFileSecurityClearOptions { get }
-  static var GroupUUID: CFFileSecurityClearOptions { get }
-  static var AccessControlList: CFFileSecurityClearOptions { get }
+  static var owner: CFFileSecurityClearOptions { get }
+  static var group: CFFileSecurityClearOptions { get }
+  static var mode: CFFileSecurityClearOptions { get }
+  static var ownerUUID: CFFileSecurityClearOptions { get }
+  static var groupUUID: CFFileSecurityClearOptions { get }
+  static var accessControlList: CFFileSecurityClearOptions { get }
 }
 @available(OSX 10.8, *)
 func CFFileSecurityClearProperties(fileSec: CFFileSecurity!, _ clearPropertyMask: CFFileSecurityClearOptions) -> Bool

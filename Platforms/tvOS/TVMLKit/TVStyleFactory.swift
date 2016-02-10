@@ -3,14 +3,14 @@
 enum TVViewElementStyleType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Integer
-  case Double
-  case Point
-  case String
-  case Color
+  case integer
+  case double
+  case point
+  case string
+  case color
   case URL
-  case Transform
-  case EdgeInsets
+  case transform
+  case edgeInsets
 }
 @available(tvOS 9.0, *)
 class TVStyleFactory : Object {

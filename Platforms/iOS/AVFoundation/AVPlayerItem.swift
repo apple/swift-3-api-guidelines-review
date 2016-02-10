@@ -16,9 +16,9 @@ let AVPlayerItemFailedToPlayToEndTimeErrorKey: String
 enum AVPlayerItemStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case ReadyToPlay
-  case Failed
+  case unknown
+  case readyToPlay
+  case failed
 }
 @available(iOS 4.0, *)
 class AVPlayerItem : Object, Copying {
@@ -29,7 +29,7 @@ class AVPlayerItem : Object, Copying {
   var status: AVPlayerItemStatus { get }
   var error: Error? { get }
   @available(iOS 4.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 extension AVPlayerItem {
   var asset: AVAsset { get }
@@ -135,7 +135,7 @@ class AVPlayerItemAccessLog : Object, Copying {
   var events: [AVPlayerItemAccessLogEvent] { get }
   init()
   @available(iOS 4.3, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 4.3, *)
 class AVPlayerItemErrorLog : Object, Copying {
@@ -144,7 +144,7 @@ class AVPlayerItemErrorLog : Object, Copying {
   var events: [AVPlayerItemErrorLogEvent] { get }
   init()
   @available(iOS 4.3, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 4.3, *)
 class AVPlayerItemAccessLogEvent : Object, Copying {
@@ -183,7 +183,7 @@ class AVPlayerItemAccessLogEvent : Object, Copying {
   var switchBitrate: Double { get }
   init()
   @available(iOS 4.3, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 4.3, *)
 class AVPlayerItemErrorLogEvent : Object, Copying {
@@ -196,5 +196,5 @@ class AVPlayerItemErrorLogEvent : Object, Copying {
   var errorComment: String? { get }
   init()
   @available(iOS 4.3, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

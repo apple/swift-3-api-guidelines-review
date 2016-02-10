@@ -2,43 +2,43 @@
 enum SecExternalFormat : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case FormatUnknown
-  case FormatOpenSSL
-  case FormatSSH
-  case FormatBSAFE
-  case FormatRawKey
-  case FormatWrappedPKCS8
-  case FormatWrappedOpenSSL
-  case FormatWrappedSSH
-  case FormatWrappedLSH
-  case FormatX509Cert
-  case FormatPEMSequence
-  case FormatPKCS7
-  case FormatPKCS12
-  case FormatNetscapeCertSequence
-  case FormatSSHv2
+  case formatUnknown
+  case formatOpenSSL
+  case formatSSH
+  case formatBSAFE
+  case formatRawKey
+  case formatWrappedPKCS8
+  case formatWrappedOpenSSL
+  case formatWrappedSSH
+  case formatWrappedLSH
+  case formatX509Cert
+  case formatPEMSequence
+  case formatPKCS7
+  case formatPKCS12
+  case formatNetscapeCertSequence
+  case formatSSHv2
 }
 enum SecExternalItemType : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case ItemTypeUnknown
-  case ItemTypePrivateKey
-  case ItemTypePublicKey
-  case ItemTypeSessionKey
-  case ItemTypeCertificate
-  case ItemTypeAggregate
+  case itemTypeUnknown
+  case itemTypePrivateKey
+  case itemTypePublicKey
+  case itemTypeSessionKey
+  case itemTypeCertificate
+  case itemTypeAggregate
 }
 struct SecItemImportExportFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var PemArmour: SecItemImportExportFlags { get }
+  static var pemArmour: SecItemImportExportFlags { get }
 }
 struct SecKeyImportExportFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var ImportOnlyOne: SecKeyImportExportFlags { get }
-  static var SecurePassphrase: SecKeyImportExportFlags { get }
-  static var NoAccessControl: SecKeyImportExportFlags { get }
+  static var importOnlyOne: SecKeyImportExportFlags { get }
+  static var securePassphrase: SecKeyImportExportFlags { get }
+  static var noAccessControl: SecKeyImportExportFlags { get }
 }
 var SEC_KEY_IMPORT_EXPORT_PARAMS_VERSION: Int32 { get }
 struct SecKeyImportExportParameters {

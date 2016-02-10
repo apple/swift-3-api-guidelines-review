@@ -8,7 +8,7 @@ class DateFormatter : Formatter {
   @available(tvOS 4.0, *)
   class func localizedStringFrom(date: Date, dateStyle dstyle: DateFormatterStyle, time tstyle: DateFormatterStyle) -> String
   @available(tvOS 4.0, *)
-  class func dateFormatFromTemplate(tmplate: String, options opts: Int, locale: Locale?) -> String?
+  class func dateFormatFrom(template tmplate: String, options opts: Int, locale: Locale?) -> String?
   class func defaultFormatterBehavior() -> DateFormatterBehavior
   class func setDefaultFormatterBehavior(behavior: DateFormatterBehavior)
   @available(tvOS 8.0, *)
@@ -67,15 +67,15 @@ class DateFormatter : Formatter {
 enum DateFormatterStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NoStyle
-  case ShortStyle
-  case MediumStyle
-  case LongStyle
-  case FullStyle
+  case noStyle
+  case shortStyle
+  case mediumStyle
+  case longStyle
+  case fullStyle
 }
 enum DateFormatterBehavior : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case BehaviorDefault
-  case Behavior10_4
+  case behaviorDefault
+  case behavior10_4
 }

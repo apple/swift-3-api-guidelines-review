@@ -2,11 +2,11 @@
 enum UIUserInterfaceIdiom : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unspecified
+  case unspecified
   @available(tvOS 3.2, *)
-  case Phone
+  case phone
   @available(tvOS 3.2, *)
-  case Pad
+  case pad
   @available(tvOS 9.0, *)
   case TV
 }

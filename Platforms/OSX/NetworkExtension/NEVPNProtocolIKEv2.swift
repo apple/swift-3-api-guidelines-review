@@ -3,14 +3,14 @@
 enum NEVPNIKEv2EncryptionAlgorithm : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case AlgorithmDES
-  case Algorithm3DES
-  case AlgorithmAES128
-  case AlgorithmAES256
+  case algorithmDES
+  case algorithm3DES
+  case algorithmAES128
+  case algorithmAES256
   @available(OSX 10.11, *)
-  case AlgorithmAES128GCM
+  case algorithmAES128GCM
   @available(OSX 10.11, *)
-  case AlgorithmAES256GCM
+  case algorithmAES256GCM
 }
 @available(OSX 10.10, *)
 enum NEVPNIKEv2IntegrityAlgorithm : Int {
@@ -26,27 +26,27 @@ enum NEVPNIKEv2IntegrityAlgorithm : Int {
 enum NEVPNIKEv2DeadPeerDetectionRate : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Low
-  case Medium
-  case High
+  case none
+  case low
+  case medium
+  case high
 }
 @available(OSX 10.10, *)
 enum NEVPNIKEv2DiffieHellmanGroup : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Group0
-  case Group1
-  case Group2
-  case Group5
-  case Group14
-  case Group15
-  case Group16
-  case Group17
-  case Group18
-  case Group19
-  case Group20
-  case Group21
+  case group0
+  case group1
+  case group2
+  case group5
+  case group14
+  case group15
+  case group16
+  case group17
+  case group18
+  case group19
+  case group20
+  case group21
 }
 @available(OSX 10.11, *)
 enum NEVPNIKEv2CertificateType : Int {
@@ -74,7 +74,7 @@ class NEVPNIKEv2SecurityAssociationParameters : Object, SecureCoding, Copying {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.10, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.10, *)
 class NEVPNProtocolIKEv2 : NEVPNProtocolIPSec {

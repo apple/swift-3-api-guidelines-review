@@ -17,13 +17,13 @@ var errAuthorizationBadAddress: OSStatus { get }
 struct AuthorizationFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var Defaults: AuthorizationFlags { get }
-  static var InteractionAllowed: AuthorizationFlags { get }
-  static var ExtendRights: AuthorizationFlags { get }
-  static var PartialRights: AuthorizationFlags { get }
-  static var DestroyRights: AuthorizationFlags { get }
-  static var PreAuthorize: AuthorizationFlags { get }
-  static var NoData: AuthorizationFlags { get }
+  static var defaults: AuthorizationFlags { get }
+  static var interactionAllowed: AuthorizationFlags { get }
+  static var extendRights: AuthorizationFlags { get }
+  static var partialRights: AuthorizationFlags { get }
+  static var destroyRights: AuthorizationFlags { get }
+  static var preAuthorize: AuthorizationFlags { get }
+  static var noData: AuthorizationFlags { get }
 }
 var kAuthorizationFlagCanNotPreAuthorize: Int { get }
 typealias AuthorizationRef = COpaquePointer

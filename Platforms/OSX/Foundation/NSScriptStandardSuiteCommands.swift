@@ -2,9 +2,9 @@
 enum SaveOptions : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Yes
-  case No
-  case Ask
+  case yes
+  case no
+  case ask
 }
 class CloneCommand : ScriptCommand {
   func setReceiversSpecifier(receiversRef: ScriptObjectSpecifier?)

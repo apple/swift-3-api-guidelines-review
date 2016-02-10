@@ -2,28 +2,28 @@
 enum CGWindowLevelKey : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case BaseWindowLevelKey
-  case MinimumWindowLevelKey
-  case DesktopWindowLevelKey
-  case BackstopMenuLevelKey
-  case NormalWindowLevelKey
-  case FloatingWindowLevelKey
-  case TornOffMenuWindowLevelKey
-  case DockWindowLevelKey
-  case MainMenuWindowLevelKey
-  case StatusWindowLevelKey
-  case ModalPanelWindowLevelKey
-  case PopUpMenuWindowLevelKey
-  case DraggingWindowLevelKey
-  case ScreenSaverWindowLevelKey
-  case MaximumWindowLevelKey
-  case OverlayWindowLevelKey
-  case HelpWindowLevelKey
-  case UtilityWindowLevelKey
-  case DesktopIconWindowLevelKey
-  case CursorWindowLevelKey
-  case AssistiveTechHighWindowLevelKey
-  case NumberOfWindowLevelKeys
+  case baseWindowLevelKey
+  case minimumWindowLevelKey
+  case desktopWindowLevelKey
+  case backstopMenuLevelKey
+  case normalWindowLevelKey
+  case floatingWindowLevelKey
+  case tornOffMenuWindowLevelKey
+  case dockWindowLevelKey
+  case mainMenuWindowLevelKey
+  case statusWindowLevelKey
+  case modalPanelWindowLevelKey
+  case popUpMenuWindowLevelKey
+  case draggingWindowLevelKey
+  case screenSaverWindowLevelKey
+  case maximumWindowLevelKey
+  case overlayWindowLevelKey
+  case helpWindowLevelKey
+  case utilityWindowLevelKey
+  case desktopIconWindowLevelKey
+  case cursorWindowLevelKey
+  case assistiveTechHighWindowLevelKey
+  case numberOfWindowLevelKeys
 }
 typealias CGWindowLevel = Int32
 @available(OSX 10.0, *)

@@ -17,77 +17,77 @@ let MDLVertexAttributeTextureCoordinate: String
 enum MDLVertexFormat : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Invalid
-  case PackedBit
-  case UCharBits
-  case CharBits
-  case UCharNormalizedBits
-  case CharNormalizedBits
-  case UShortBits
-  case ShortBits
-  case UShortNormalizedBits
-  case ShortNormalizedBits
-  case UIntBits
-  case IntBits
-  case HalfBits
-  case FloatBits
-  case UChar
-  case UChar2
-  case UChar3
-  case UChar4
-  case Char
-  case Char2
-  case Char3
-  case Char4
-  case UCharNormalized
-  case UChar2Normalized
-  case UChar3Normalized
-  case UChar4Normalized
-  case CharNormalized
-  case Char2Normalized
-  case Char3Normalized
-  case Char4Normalized
-  case UShort
-  case UShort2
-  case UShort3
-  case UShort4
-  case Short
-  case Short2
-  case Short3
-  case Short4
-  case UShortNormalized
-  case UShort2Normalized
-  case UShort3Normalized
-  case UShort4Normalized
-  case ShortNormalized
-  case Short2Normalized
-  case Short3Normalized
-  case Short4Normalized
-  case UInt
-  case UInt2
-  case UInt3
-  case UInt4
-  case Int
-  case Int2
-  case Int3
-  case Int4
-  case Half
-  case Half2
-  case Half3
-  case Half4
-  case Float
-  case Float2
-  case Float3
-  case Float4
-  case Int1010102Normalized
-  case UInt1010102Normalized
+  case invalid
+  case packedBit
+  case uCharBits
+  case charBits
+  case uCharNormalizedBits
+  case charNormalizedBits
+  case uShortBits
+  case shortBits
+  case uShortNormalizedBits
+  case shortNormalizedBits
+  case uIntBits
+  case intBits
+  case halfBits
+  case floatBits
+  case uChar
+  case uChar2
+  case uChar3
+  case uChar4
+  case char
+  case char2
+  case char3
+  case char4
+  case uCharNormalized
+  case uChar2Normalized
+  case uChar3Normalized
+  case uChar4Normalized
+  case charNormalized
+  case char2Normalized
+  case char3Normalized
+  case char4Normalized
+  case uShort
+  case uShort2
+  case uShort3
+  case uShort4
+  case short
+  case short2
+  case short3
+  case short4
+  case uShortNormalized
+  case uShort2Normalized
+  case uShort3Normalized
+  case uShort4Normalized
+  case shortNormalized
+  case short2Normalized
+  case short3Normalized
+  case short4Normalized
+  case uInt
+  case uInt2
+  case uInt3
+  case uInt4
+  case int
+  case int2
+  case int3
+  case int4
+  case half
+  case half2
+  case half3
+  case half4
+  case float
+  case float2
+  case float3
+  case float4
+  case int1010102Normalized
+  case uInt1010102Normalized
 }
 @available(OSX 10.11, *)
 class MDLVertexBufferLayout : Object, Copying {
   var stride: Int
   init()
   @available(OSX 10.11, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class MDLVertexAttribute : Object, Copying {
@@ -99,7 +99,7 @@ class MDLVertexAttribute : Object, Copying {
   var initializationValue: vector_float4
   init()
   @available(OSX 10.11, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class MDLVertexDescriptor : Object, Copying {
@@ -113,5 +113,5 @@ class MDLVertexDescriptor : Object, Copying {
   func setPackedOffsets()
   init()
   @available(OSX 10.11, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

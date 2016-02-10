@@ -43,29 +43,29 @@ var NSUpdateWindowsRunLoopOrdering: Int { get }
 struct NSApplicationPresentationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Default: NSApplicationPresentationOptions { get }
-  static var AutoHideDock: NSApplicationPresentationOptions { get }
-  static var HideDock: NSApplicationPresentationOptions { get }
-  static var AutoHideMenuBar: NSApplicationPresentationOptions { get }
-  static var HideMenuBar: NSApplicationPresentationOptions { get }
-  static var DisableAppleMenu: NSApplicationPresentationOptions { get }
-  static var DisableProcessSwitching: NSApplicationPresentationOptions { get }
-  static var DisableForceQuit: NSApplicationPresentationOptions { get }
-  static var DisableSessionTermination: NSApplicationPresentationOptions { get }
-  static var DisableHideApplication: NSApplicationPresentationOptions { get }
-  static var DisableMenuBarTransparency: NSApplicationPresentationOptions { get }
+  static var `default`: NSApplicationPresentationOptions { get }
+  static var autoHideDock: NSApplicationPresentationOptions { get }
+  static var hideDock: NSApplicationPresentationOptions { get }
+  static var autoHideMenuBar: NSApplicationPresentationOptions { get }
+  static var hideMenuBar: NSApplicationPresentationOptions { get }
+  static var disableAppleMenu: NSApplicationPresentationOptions { get }
+  static var disableProcessSwitching: NSApplicationPresentationOptions { get }
+  static var disableForceQuit: NSApplicationPresentationOptions { get }
+  static var disableSessionTermination: NSApplicationPresentationOptions { get }
+  static var disableHideApplication: NSApplicationPresentationOptions { get }
+  static var disableMenuBarTransparency: NSApplicationPresentationOptions { get }
   @available(OSX 10.7, *)
-  static var FullScreen: NSApplicationPresentationOptions { get }
+  static var fullScreen: NSApplicationPresentationOptions { get }
   @available(OSX 10.7, *)
-  static var AutoHideToolbar: NSApplicationPresentationOptions { get }
+  static var autoHideToolbar: NSApplicationPresentationOptions { get }
   @available(OSX 10.11.2, *)
-  static var DisableCursorLocationAssistance: NSApplicationPresentationOptions { get }
+  static var disableCursorLocationAssistance: NSApplicationPresentationOptions { get }
 }
 @available(OSX 10.9, *)
 struct NSApplicationOcclusionState : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Visible: NSApplicationOcclusionState { get }
+  static var visible: NSApplicationOcclusionState { get }
 }
 typealias NSModalSession = COpaquePointer
 class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityElementProtocol, NSAccessibility {
@@ -90,7 +90,7 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   func runModalFor(theWindow: NSWindow) -> Int
   func stop(sender: AnyObject?)
   func stopModal()
-  func stopModalWithCode(returnCode: Int)
+  func stopModal(code returnCode: Int)
   func abortModal()
   var modalWindow: NSWindow? { get }
   func beginModalSessionFor(theWindow: NSWindow) -> NSModalSession
@@ -99,8 +99,8 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   func terminate(sender: AnyObject?)
   func requestUserAttention(requestType: NSRequestUserAttentionType) -> Int
   func cancelUserAttentionRequest(request: Int)
-  func nextEventMatchingMask(mask: Int, until expiration: Date?, inMode mode: String, dequeue deqFlag: Bool) -> NSEvent?
-  func discardEventsMatchingMask(mask: Int, before lastEvent: NSEvent?)
+  func nextEventMatching(mask mask: Int, until expiration: Date?, inMode mode: String, dequeue deqFlag: Bool) -> NSEvent?
+  func discardEventsMatching(mask mask: Int, before lastEvent: NSEvent?)
   func post(event: NSEvent, atStart flag: Bool)
   var currentEvent: NSEvent? { get }
   func send(theEvent: NSEvent)
@@ -120,13 +120,13 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   @available(OSX 10.5, *)
   var dockTile: NSDockTile { get }
   func sendAction(theAction: Selector, to theTarget: AnyObject?, from sender: AnyObject?) -> Bool
-  func targetForAction(theAction: Selector) -> AnyObject?
-  func targetForAction(theAction: Selector, to theTarget: AnyObject?, from sender: AnyObject?) -> AnyObject?
+  func targetFor(action theAction: Selector) -> AnyObject?
+  func targetFor(action theAction: Selector, to theTarget: AnyObject?, from sender: AnyObject?) -> AnyObject?
   func tryToPerform(anAction: Selector, with anObject: AnyObject?) -> Bool
   func validRequestorForSendType(sendType: String, returnType: String) -> AnyObject?
   func report(theException: Exception)
   class func detachDrawingThread(selector: Selector, toTarget target: AnyObject, withObject argument: AnyObject?)
-  func replyToApplicationShouldTerminate(shouldTerminate: Bool)
+  func replyTo(applicationShouldTerminate shouldTerminate: Bool)
   func replyToOpenOrPrint(reply: NSApplicationDelegateReply)
   func orderFrontCharacterPalette(sender: AnyObject?)
   @available(OSX 10.6, *)
@@ -143,23 +143,23 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   func isAccessibilityFocused() -> Bool
   func accessibilityIdentifier() -> String
   @available(OSX 10.10, *)
-  func accessibilityLayoutPointForScreenPoint(point: Point) -> Point
+  func accessibilityLayoutPointFor(screenPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityLayoutSizeForScreenSize(size: Size) -> Size
+  func accessibilityLayoutSizeFor(screenSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityScreenPointForLayoutPoint(point: Point) -> Point
+  func accessibilityScreenPointFor(layoutPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityScreenSizeForLayoutSize(size: Size) -> Size
+  func accessibilityScreenSizeFor(layoutSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityCellForColumn(column: Int, row: Int) -> AnyObject?
+  func accessibilityCellFor(column column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
   func accessibilityAttributedStringFor(range: NSRange) -> AttributedString?
   @available(OSX 10.10, *)
-  func accessibilityRangeForLine(line: Int) -> NSRange
+  func accessibilityRangeFor(line line: Int) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityStringFor(range: NSRange) -> String?
   @available(OSX 10.10, *)
-  func accessibilityRangeForPosition(point: Point) -> NSRange
+  func accessibilityRangeFor(position point: Point) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityRangeFor(index: Int) -> NSRange
   @available(OSX 10.10, *)
@@ -698,15 +698,15 @@ var NSApp: NSApplication!
 enum NSRequestUserAttentionType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case CriticalRequest
-  case InformationalRequest
+  case criticalRequest
+  case informationalRequest
 }
 enum NSApplicationDelegateReply : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Success
-  case Cancel
-  case Failure
+  case success
+  case cancel
+  case failure
 }
 extension NSApplication {
   var windowsMenu: NSMenu?
@@ -724,17 +724,17 @@ extension NSApplication {
 enum NSApplicationTerminateReply : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case TerminateCancel
-  case TerminateNow
-  case TerminateLater
+  case terminateCancel
+  case terminateNow
+  case terminateLater
 }
 enum NSApplicationPrintReply : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case PrintingCancelled
-  case PrintingSuccess
-  case PrintingFailure
-  case PrintingReplyLater
+  case printingCancelled
+  case printingSuccess
+  case printingFailure
+  case printingReplyLater
 }
 protocol NSApplicationDelegate : ObjectProtocol {
   optional func applicationShouldTerminate(sender: NSApplication) -> NSApplicationTerminateReply
@@ -814,17 +814,17 @@ struct NSRemoteNotificationType : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
   @available(OSX 10.7, *)
-  static var None: NSRemoteNotificationType { get }
+  static var none: NSRemoteNotificationType { get }
   @available(OSX 10.7, *)
-  static var Badge: NSRemoteNotificationType { get }
+  static var badge: NSRemoteNotificationType { get }
   @available(OSX 10.8, *)
-  static var Sound: NSRemoteNotificationType { get }
+  static var sound: NSRemoteNotificationType { get }
   @available(OSX 10.8, *)
-  static var Alert: NSRemoteNotificationType { get }
+  static var alert: NSRemoteNotificationType { get }
 }
 extension NSApplication {
   @available(OSX 10.7, *)
-  func registerForRemoteNotificationTypes(types: NSRemoteNotificationType)
+  func registerFor(remoteNotificationTypes types: NSRemoteNotificationType)
   @available(OSX 10.7, *)
   func unregisterForRemoteNotifications()
   @available(OSX 10.7, *)

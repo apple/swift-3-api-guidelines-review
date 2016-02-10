@@ -46,9 +46,9 @@ func CTFontCreateWithFontDescriptor(descriptor: CTFontDescriptor, _ size: CGFloa
 struct CTFontOptions : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
-  static var Default: CTFontOptions { get }
-  static var PreventAutoActivation: CTFontOptions { get }
-  static var PreferSystemFont: CTFontOptions { get }
+  static var `default`: CTFontOptions { get }
+  static var preventAutoActivation: CTFontOptions { get }
+  static var preferSystemFont: CTFontOptions { get }
 }
 @available(tvOS 3.2, *)
 func CTFontCreateWithNameAndOptions(name: CFString, _ size: CGFloat, _ matrix: UnsafePointer<CGAffineTransform>, _ options: CTFontOptions) -> CTFont
@@ -58,61 +58,61 @@ enum CTFontUIFontType : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
   @available(tvOS 6.0, *)
-  case None
+  case none
   @available(tvOS 6.0, *)
-  case User
+  case user
   @available(tvOS 6.0, *)
-  case UserFixedPitch
+  case userFixedPitch
   @available(tvOS 6.0, *)
-  case System
+  case system
   @available(tvOS 6.0, *)
-  case EmphasizedSystem
+  case emphasizedSystem
   @available(tvOS 6.0, *)
-  case SmallSystem
+  case smallSystem
   @available(tvOS 6.0, *)
-  case SmallEmphasizedSystem
+  case smallEmphasizedSystem
   @available(tvOS 6.0, *)
-  case MiniSystem
+  case miniSystem
   @available(tvOS 6.0, *)
-  case MiniEmphasizedSystem
+  case miniEmphasizedSystem
   @available(tvOS 6.0, *)
-  case Views
+  case views
   @available(tvOS 6.0, *)
-  case Application
+  case application
   @available(tvOS 6.0, *)
-  case Label
+  case label
   @available(tvOS 6.0, *)
-  case MenuTitle
+  case menuTitle
   @available(tvOS 6.0, *)
-  case MenuItem
+  case menuItem
   @available(tvOS 6.0, *)
-  case MenuItemMark
+  case menuItemMark
   @available(tvOS 6.0, *)
-  case MenuItemCmdKey
+  case menuItemCmdKey
   @available(tvOS 6.0, *)
-  case WindowTitle
+  case windowTitle
   @available(tvOS 6.0, *)
-  case PushButton
+  case pushButton
   @available(tvOS 6.0, *)
-  case UtilityWindowTitle
+  case utilityWindowTitle
   @available(tvOS 6.0, *)
-  case AlertHeader
+  case alertHeader
   @available(tvOS 6.0, *)
-  case SystemDetail
+  case systemDetail
   @available(tvOS 6.0, *)
-  case EmphasizedSystemDetail
+  case emphasizedSystemDetail
   @available(tvOS 6.0, *)
-  case Toolbar
+  case toolbar
   @available(tvOS 6.0, *)
-  case SmallToolbar
+  case smallToolbar
   @available(tvOS 6.0, *)
-  case Message
+  case message
   @available(tvOS 6.0, *)
-  case Palette
+  case palette
   @available(tvOS 6.0, *)
-  case ToolTip
+  case toolTip
   @available(tvOS 6.0, *)
-  case ControlContent
+  case controlContent
   @available(tvOS, introduced=3.2, deprecated=9.0)
   static var kCTFontNoFontType: CTFontUIFontType { get }
   @available(tvOS, introduced=3.2, deprecated=9.0)
@@ -354,7 +354,7 @@ struct CTFontTableOptions : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
   @available(tvOS 3.2, *)
-  static var NoOptions: CTFontTableOptions { get }
+  static var noOptions: CTFontTableOptions { get }
 }
 @available(tvOS 3.2, *)
 func CTFontCopyAvailableTables(font: CTFont, _ options: CTFontTableOptions) -> CFArray?

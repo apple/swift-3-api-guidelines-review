@@ -2,10 +2,10 @@
 struct SecPadding : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var None: SecPadding { get }
+  static var none: SecPadding { get }
   static var PKCS1: SecPadding { get }
   static var OAEP: SecPadding { get }
-  static var SigRaw: SecPadding { get }
+  static var sigRaw: SecPadding { get }
   static var PKCS1MD2: SecPadding { get }
   static var PKCS1MD5: SecPadding { get }
   static var PKCS1SHA1: SecPadding { get }

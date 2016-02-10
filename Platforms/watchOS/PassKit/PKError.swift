@@ -5,11 +5,11 @@ let PKPassKitErrorDomain: String
 enum PKPassKitErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case UnknownError
-  case InvalidDataError
-  case UnsupportedVersionError
-  case InvalidSignature
-  case NotEntitledError
+  case unknownError
+  case invalidDataError
+  case unsupportedVersionError
+  case invalidSignature
+  case notEntitledError
 }
 
 @available(iOS 6.0, *)

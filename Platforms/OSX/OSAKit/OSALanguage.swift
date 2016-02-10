@@ -2,14 +2,14 @@
 struct OSALanguageFeatures : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var SupportsCompiling: OSALanguageFeatures { get }
-  static var SupportsGetSource: OSALanguageFeatures { get }
-  static var SupportsAECoercion: OSALanguageFeatures { get }
-  static var SupportsAESending: OSALanguageFeatures { get }
-  static var SupportsRecording: OSALanguageFeatures { get }
-  static var SupportsConvenience: OSALanguageFeatures { get }
-  static var SupportsDialects: OSALanguageFeatures { get }
-  static var SupportsEventHandling: OSALanguageFeatures { get }
+  static var supportsCompiling: OSALanguageFeatures { get }
+  static var supportsGetSource: OSALanguageFeatures { get }
+  static var supportsAECoercion: OSALanguageFeatures { get }
+  static var supportsAESending: OSALanguageFeatures { get }
+  static var supportsRecording: OSALanguageFeatures { get }
+  static var supportsConvenience: OSALanguageFeatures { get }
+  static var supportsDialects: OSALanguageFeatures { get }
+  static var supportsEventHandling: OSALanguageFeatures { get }
 }
 class OSALanguage : Object {
   class func availableLanguages() -> [OSALanguage]

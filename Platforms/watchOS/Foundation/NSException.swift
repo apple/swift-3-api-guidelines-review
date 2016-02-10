@@ -24,7 +24,7 @@ class Exception : Object, Copying, Coding {
   var callStackSymbols: [String] { get }
   func raise()
   convenience init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

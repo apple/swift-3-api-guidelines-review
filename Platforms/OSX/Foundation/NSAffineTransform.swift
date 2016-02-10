@@ -13,8 +13,8 @@ class AffineTransform : Object, Copying, SecureCoding {
   convenience init(transform: AffineTransform)
   init()
   func translateXBy(deltaX: CGFloat, yBy deltaY: CGFloat)
-  func rotateByDegrees(angle: CGFloat)
-  func rotateByRadians(angle: CGFloat)
+  func rotateBy(degrees angle: CGFloat)
+  func rotateBy(radians angle: CGFloat)
   func scaleBy(scale: CGFloat)
   func scaleXBy(scaleX: CGFloat, yBy scaleY: CGFloat)
   func invert()
@@ -23,7 +23,7 @@ class AffineTransform : Object, Copying, SecureCoding {
   func transform(aPoint: Point) -> Point
   func transform(aSize: Size) -> Size
   var transformStruct: AffineTransformStruct
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)

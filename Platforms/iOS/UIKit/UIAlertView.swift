@@ -2,10 +2,10 @@
 enum UIAlertViewStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case SecureTextInput
-  case PlainTextInput
-  case LoginAndPasswordInput
+  case `default`
+  case secureTextInput
+  case plainTextInput
+  case loginAndPasswordInput
 }
 @available(iOS, introduced=2.0, deprecated=9.0, message="UIAlertView is deprecated. Use UIAlertController with a preferredStyle of UIAlertControllerStyleAlert instead")
 class UIAlertView : UIView {
@@ -15,14 +15,14 @@ class UIAlertView : UIView {
   weak var delegate: @sil_weak AnyObject?
   var title: String
   var message: String?
-  func addButtonWithTitle(title: String?) -> Int
+  func addButton(title title: String?) -> Int
   func buttonTitleAt(buttonIndex: Int) -> String?
   var numberOfButtons: Int { get }
   var cancelButtonIndex: Int
   var firstOtherButtonIndex: Int { get }
   var isVisible: Bool { get }
   func show()
-  func dismissWithClickedButtonIndex(buttonIndex: Int, animated: Bool)
+  func dismiss(clickedButtonIndex buttonIndex: Int, animated: Bool)
   @available(iOS 5.0, *)
   var alertViewStyle: UIAlertViewStyle
   @available(iOS 5.0, *)

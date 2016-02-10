@@ -23,12 +23,12 @@ func CFTimeZoneGetNextDaylightSavingTimeTransition(tz: CFTimeZone!, _ at: CFAbso
 enum CFTimeZoneNameStyle : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case Standard
-  case ShortStandard
-  case DaylightSaving
-  case ShortDaylightSaving
-  case Generic
-  case ShortGeneric
+  case standard
+  case shortStandard
+  case daylightSaving
+  case shortDaylightSaving
+  case generic
+  case shortGeneric
 }
 @available(OSX 10.5, *)
 func CFTimeZoneCopyLocalizedName(tz: CFTimeZone!, _ style: CFTimeZoneNameStyle, _ locale: CFLocale!) -> CFString!

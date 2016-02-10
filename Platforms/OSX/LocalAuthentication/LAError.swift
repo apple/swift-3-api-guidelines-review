@@ -3,19 +3,19 @@
 enum LAError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case AuthenticationFailed
-  case UserCancel
-  case UserFallback
-  case SystemCancel
-  case PasscodeNotSet
-  case TouchIDNotAvailable
-  case TouchIDNotEnrolled
+  case authenticationFailed
+  case userCancel
+  case userFallback
+  case systemCancel
+  case passcodeNotSet
+  case touchIDNotAvailable
+  case touchIDNotEnrolled
   @available(OSX 10.11, *)
-  case TouchIDLockout
+  case touchIDLockout
   @available(OSX 10.11, *)
-  case AppCancel
+  case appCancel
   @available(OSX 10.11, *)
-  case InvalidContext
+  case invalidContext
 }
 
 extension LAError : _BridgedNSError {

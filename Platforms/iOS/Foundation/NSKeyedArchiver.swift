@@ -4,7 +4,7 @@ let invalidUnarchiveOperationException: String
 @available(iOS 7.0, *)
 let keyedArchiveRootObjectKey: String
 class KeyedArchiver : Coder {
-  class func archivedDataWithRootObject(rootObject: AnyObject) -> Data
+  class func archivedDataWith(rootObject rootObject: AnyObject) -> Data
   class func archiveRootObject(rootObject: AnyObject, toFile path: String) -> Bool
   init(forWritingWith data: MutableData)
   unowned(unsafe) var delegate: @sil_unmanaged KeyedArchiverDelegate?
@@ -29,23 +29,23 @@ class KeyedArchiver : Coder {
 }
 class KeyedUnarchiver : Coder {
   class func unarchiveObjectWith(data: Data) -> AnyObject?
-  class func unarchiveObjectWithFile(path: String) -> AnyObject?
+  class func unarchiveObjectWith(file path: String) -> AnyObject?
   init(forReadingWith data: Data)
   unowned(unsafe) var delegate: @sil_unmanaged KeyedUnarchiverDelegate?
   func finishDecoding()
   class func setClass(cls: AnyClass?, forClassName codedName: String)
   func setClass(cls: AnyClass?, forClassName codedName: String)
-  class func classForClassName(codedName: String) -> AnyClass?
-  func classForClassName(codedName: String) -> AnyClass?
-  func containsValueForKey(key: String) -> Bool
-  func decodeObjectForKey(key: String) -> AnyObject?
-  func decodeBoolForKey(key: String) -> Bool
-  func decodeIntForKey(key: String) -> Int32
-  func decodeInt32ForKey(key: String) -> Int32
-  func decodeInt64ForKey(key: String) -> Int64
-  func decodeFloatForKey(key: String) -> Float
-  func decodeDoubleForKey(key: String) -> Double
-  func decodeBytesForKey(key: String, returnedLength lengthp: UnsafeMutablePointer<Int>) -> UnsafePointer<UInt8>
+  class func classFor(className codedName: String) -> AnyClass?
+  func classFor(className codedName: String) -> AnyClass?
+  func containsValueFor(key key: String) -> Bool
+  func decodeObjectFor(key key: String) -> AnyObject?
+  func decodeBoolFor(key key: String) -> Bool
+  func decodeIntFor(key key: String) -> Int32
+  func decodeInt32For(key key: String) -> Int32
+  func decodeInt64For(key key: String) -> Int64
+  func decodeFloatFor(key key: String) -> Float
+  func decodeDoubleFor(key key: String) -> Double
+  func decodeBytesFor(key key: String, returnedLength lengthp: UnsafeMutablePointer<Int>) -> UnsafePointer<UInt8>
   @available(iOS 6.0, *)
   var requiresSecureCoding: Bool
   init()

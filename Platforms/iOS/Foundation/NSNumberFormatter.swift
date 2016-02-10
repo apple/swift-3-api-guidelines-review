@@ -2,8 +2,8 @@
 enum NumberFormatterBehavior : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case BehaviorDefault
-  case Behavior10_4
+  case behaviorDefault
+  case behavior10_4
 }
 class NumberFormatter : Formatter {
   @available(iOS 8.0, *)
@@ -83,37 +83,37 @@ class NumberFormatter : Formatter {
 enum NumberFormatterStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NoStyle
-  case DecimalStyle
-  case CurrencyStyle
-  case PercentStyle
-  case ScientificStyle
-  case SpellOutStyle
+  case noStyle
+  case decimalStyle
+  case currencyStyle
+  case percentStyle
+  case scientificStyle
+  case spellOutStyle
   @available(iOS 9.0, *)
-  case OrdinalStyle
+  case ordinalStyle
   @available(iOS 9.0, *)
-  case CurrencyISOCodeStyle
+  case currencyISOCodeStyle
   @available(iOS 9.0, *)
-  case CurrencyPluralStyle
+  case currencyPluralStyle
   @available(iOS 9.0, *)
-  case CurrencyAccountingStyle
+  case currencyAccountingStyle
 }
 enum NumberFormatterPadPosition : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case BeforePrefix
-  case AfterPrefix
-  case BeforeSuffix
-  case AfterSuffix
+  case beforePrefix
+  case afterPrefix
+  case beforeSuffix
+  case afterSuffix
 }
 enum NumberFormatterRoundingMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case RoundCeiling
-  case RoundFloor
-  case RoundDown
-  case RoundUp
-  case RoundHalfEven
-  case RoundHalfDown
-  case RoundHalfUp
+  case roundCeiling
+  case roundFloor
+  case roundDown
+  case roundUp
+  case roundHalfEven
+  case roundHalfDown
+  case roundHalfUp
 }

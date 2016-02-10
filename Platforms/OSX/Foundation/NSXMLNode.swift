@@ -2,37 +2,37 @@
 enum XMLNodeKind : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case InvalidKind
-  case DocumentKind
-  case ElementKind
-  case AttributeKind
-  case NamespaceKind
-  case ProcessingInstructionKind
-  case CommentKind
-  case TextKind
+  case invalidKind
+  case documentKind
+  case elementKind
+  case attributeKind
+  case namespaceKind
+  case processingInstructionKind
+  case commentKind
+  case textKind
   case DTDKind
-  case EntityDeclarationKind
-  case AttributeDeclarationKind
-  case ElementDeclarationKind
-  case NotationDeclarationKind
+  case entityDeclarationKind
+  case attributeDeclarationKind
+  case elementDeclarationKind
+  case notationDeclarationKind
 }
 class XMLNode : Object, Copying {
   init()
   convenience init(kind: XMLNodeKind)
   init(kind: XMLNodeKind, options: Int)
   class func document() -> AnyObject
-  class func documentWithRootElement(element: XMLElement) -> AnyObject
-  class func elementWithName(name: String) -> AnyObject
-  class func elementWithName(name: String, uri URI: String) -> AnyObject
-  class func elementWithName(name: String, stringValue string: String) -> AnyObject
-  class func elementWithName(name: String, children: [XMLNode]?, attributes: [XMLNode]?) -> AnyObject
-  class func attributeWithName(name: String, stringValue: String) -> AnyObject
-  class func attributeWithName(name: String, uri URI: String, stringValue: String) -> AnyObject
-  class func namespaceWithName(name: String, stringValue: String) -> AnyObject
-  class func processingInstructionWithName(name: String, stringValue: String) -> AnyObject
-  class func commentWithStringValue(stringValue: String) -> AnyObject
-  class func textWithStringValue(stringValue: String) -> AnyObject
-  class func dtdNodeWithXMLString(string: String) -> AnyObject?
+  class func documentWith(rootElement element: XMLElement) -> AnyObject
+  class func elementWith(name name: String) -> AnyObject
+  class func elementWith(name name: String, uri URI: String) -> AnyObject
+  class func elementWith(name name: String, stringValue string: String) -> AnyObject
+  class func elementWith(name name: String, children: [XMLNode]?, attributes: [XMLNode]?) -> AnyObject
+  class func attributeWith(name name: String, stringValue: String) -> AnyObject
+  class func attributeWith(name name: String, uri URI: String, stringValue: String) -> AnyObject
+  class func namespaceWith(name name: String, stringValue: String) -> AnyObject
+  class func processingInstructionWith(name name: String, stringValue: String) -> AnyObject
+  class func commentWith(stringValue stringValue: String) -> AnyObject
+  class func textWith(stringValue stringValue: String) -> AnyObject
+  class func dtdNodeWith(xmlString string: String) -> AnyObject?
   var kind: XMLNodeKind { get }
   var name: String?
   var objectValue: AnyObject?
@@ -54,15 +54,15 @@ class XMLNode : Object, Copying {
   var localName: String? { get }
   var prefix: String? { get }
   var uri: String?
-  class func localNameForName(name: String) -> String
-  class func prefixForName(name: String) -> String?
-  class func predefinedNamespaceForPrefix(name: String) -> XMLNode?
+  class func localNameFor(name name: String) -> String
+  class func prefixFor(name name: String) -> String?
+  class func predefinedNamespaceFor(prefix name: String) -> XMLNode?
   var description: String { get }
   var xmlString: String { get }
-  func xmlStringWithOptions(options: Int) -> String
+  func xmlStringWith(options options: Int) -> String
   func canonicalXMLStringPreservingComments(comments: Bool) -> String
-  func nodesForXPath(xpath: String) throws -> [XMLNode]
-  func objectsForXQuery(xquery: String, constants: [String : AnyObject]?) throws -> [AnyObject]
-  func objectsForXQuery(xquery: String) throws -> [AnyObject]
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func nodesFor(xPath xpath: String) throws -> [XMLNode]
+  func objectsFor(xQuery xquery: String, constants: [String : AnyObject]?) throws -> [AnyObject]
+  func objectsFor(xQuery xquery: String) throws -> [AnyObject]
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

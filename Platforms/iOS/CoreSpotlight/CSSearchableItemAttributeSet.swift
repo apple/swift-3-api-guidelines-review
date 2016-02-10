@@ -4,7 +4,7 @@ class CSSearchableItemAttributeSet : Object, Copying, SecureCoding {
   init(itemContentType: String)
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
@@ -42,7 +42,7 @@ class CSCustomAttributeKey : Object, Copying, SecureCoding {
   var isMultiValued: Bool { get }
   convenience init()
   @available(iOS 9.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
@@ -51,7 +51,7 @@ class CSCustomAttributeKey : Object, Copying, SecureCoding {
 }
 extension CSSearchableItemAttributeSet {
   func setValue(value: SecureCoding?, forCustomKey key: CSCustomAttributeKey)
-  func valueForCustomKey(key: CSCustomAttributeKey) -> SecureCoding?
+  func valueFor(customKey key: CSCustomAttributeKey) -> SecureCoding?
 }
 extension UserActivity {
   @available(iOS 9.0, *)

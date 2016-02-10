@@ -2,25 +2,25 @@
 enum NSDatePickerStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case TextFieldAndStepperDatePickerStyle
-  case ClockAndCalendarDatePickerStyle
-  case TextFieldDatePickerStyle
+  case textFieldAndStepperDatePickerStyle
+  case clockAndCalendarDatePickerStyle
+  case textFieldDatePickerStyle
 }
 enum NSDatePickerMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case SingleDateMode
-  case RangeDateMode
+  case singleDateMode
+  case rangeDateMode
 }
 struct NSDatePickerElementFlags : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var HourMinuteDatePickerElementFlag: NSDatePickerElementFlags { get }
-  static var HourMinuteSecondDatePickerElementFlag: NSDatePickerElementFlags { get }
-  static var TimeZoneDatePickerElementFlag: NSDatePickerElementFlags { get }
-  static var YearMonthDatePickerElementFlag: NSDatePickerElementFlags { get }
-  static var YearMonthDayDatePickerElementFlag: NSDatePickerElementFlags { get }
-  static var EraDatePickerElementFlag: NSDatePickerElementFlags { get }
+  static var hourMinuteDatePickerElementFlag: NSDatePickerElementFlags { get }
+  static var hourMinuteSecondDatePickerElementFlag: NSDatePickerElementFlags { get }
+  static var timeZoneDatePickerElementFlag: NSDatePickerElementFlags { get }
+  static var yearMonthDatePickerElementFlag: NSDatePickerElementFlags { get }
+  static var yearMonthDayDatePickerElementFlag: NSDatePickerElementFlags { get }
+  static var eraDatePickerElementFlag: NSDatePickerElementFlags { get }
 }
 class NSDatePickerCell : NSActionCell {
   var datePickerStyle: NSDatePickerStyle

@@ -19,5 +19,5 @@ class ODQuery : Object, Copying {
   @available(OSX 10.6, *)
   var operationQueue: OperationQueue!
   init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

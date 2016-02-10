@@ -2,18 +2,18 @@
 enum GKInviteRecipientResponse : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case InviteRecipientResponseAccepted
-  case InviteRecipientResponseDeclined
-  case InviteRecipientResponseFailed
-  case InviteRecipientResponseIncompatible
-  case InviteRecipientResponseUnableToConnect
-  case InviteRecipientResponseNoAnswer
-  static var InviteeResponseAccepted: GKInviteRecipientResponse { get }
-  static var InviteeResponseDeclined: GKInviteRecipientResponse { get }
-  static var InviteeResponseFailed: GKInviteRecipientResponse { get }
-  static var InviteeResponseIncompatible: GKInviteRecipientResponse { get }
-  static var InviteeResponseUnableToConnect: GKInviteRecipientResponse { get }
-  static var InviteeResponseNoAnswer: GKInviteRecipientResponse { get }
+  case inviteRecipientResponseAccepted
+  case inviteRecipientResponseDeclined
+  case inviteRecipientResponseFailed
+  case inviteRecipientResponseIncompatible
+  case inviteRecipientResponseUnableToConnect
+  case inviteRecipientResponseNoAnswer
+  static var inviteeResponseAccepted: GKInviteRecipientResponse { get }
+  static var inviteeResponseDeclined: GKInviteRecipientResponse { get }
+  static var inviteeResponseFailed: GKInviteRecipientResponse { get }
+  static var inviteeResponseIncompatible: GKInviteRecipientResponse { get }
+  static var inviteeResponseUnableToConnect: GKInviteRecipientResponse { get }
+  static var inviteeResponseNoAnswer: GKInviteRecipientResponse { get }
 }
 typealias GKInviteeResponse = GKInviteRecipientResponse
 @available(OSX 10.8, *)
@@ -41,9 +41,9 @@ class GKMatchRequest : Object {
 enum GKMatchType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case PeerToPeer
-  case Hosted
-  case TurnBased
+  case peerToPeer
+  case hosted
+  case turnBased
 }
 @available(OSX 10.8, *)
 class GKInvite : Object {
@@ -92,7 +92,7 @@ extension GKMatchmaker {
   @available(OSX, introduced=10.9, deprecated=10.10)
   func startBrowsingForNearbyPlayers(reachableHandler reachableHandler: ((String, Bool) -> Void)? = nil)
   @available(OSX, introduced=10.9, deprecated=10.10, message="use cancelPendingInviteToPlayer:")
-  func cancelInviteToPlayer(playerID: String)
+  func cancelInviteTo(player playerID: String)
   @available(OSX, introduced=10.8, deprecated=10.10, message="use findPlayersForHostedRequest:")
   func findPlayersForHostedMatchRequest(request: GKMatchRequest, withCompletionHandler completionHandler: (([String]?, Error?) -> Void)? = nil)
 }

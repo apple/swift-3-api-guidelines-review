@@ -2,7 +2,7 @@
 @available(OSX 10.10, *)
 protocol AVAudioMixing : AVAudioStereoMixing, AVAudio3DMixing {
   @available(OSX 10.11, *)
-  func destinationForMixer(mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
+  func destinationFor(mixer mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   var volume: Float { get set }
 }
 @available(OSX 10.10, *)
@@ -13,11 +13,11 @@ protocol AVAudioStereoMixing : ObjectProtocol {
 enum AVAudio3DMixingRenderingAlgorithm : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case EqualPowerPanning
-  case SphericalHead
+  case equalPowerPanning
+  case sphericalHead
   case HRTF
-  case SoundField
-  case StereoPassThrough
+  case soundField
+  case stereoPassThrough
 }
 protocol AVAudio3DMixing : ObjectProtocol {
   @available(OSX 10.10, *)
@@ -33,7 +33,7 @@ class AVAudioMixingDestination : Object, AVAudioMixing {
   var connectionPoint: AVAudioConnectionPoint { get }
   init()
   @available(OSX 10.11, *)
-  func destinationForMixer(mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
+  func destinationFor(mixer mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(OSX 10.10, *)
   var volume: Float
   @available(OSX 10.10, *)

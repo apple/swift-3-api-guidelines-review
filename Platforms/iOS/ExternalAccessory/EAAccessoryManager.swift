@@ -2,10 +2,10 @@
 enum EABluetoothAccessoryPickerErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case AlreadyConnected
-  case ResultNotFound
-  case ResultCancelled
-  case ResultFailed
+  case alreadyConnected
+  case resultNotFound
+  case resultCancelled
+  case resultFailed
 }
 let EABluetoothAccessoryPickerErrorDomain: String
 typealias EABluetoothAccessoryPickerCompletion = (Error?) -> Void
@@ -22,7 +22,7 @@ class EAAccessoryManager : Object {
   @available(iOS 3.0, *)
   class func shared() -> EAAccessoryManager
   @available(iOS 6.0, *)
-  func showBluetoothAccessoryPickerWithNameFilter(predicate: Predicate?, completion: EABluetoothAccessoryPickerCompletion? = nil)
+  func showBluetoothAccessoryPicker(nameFilter predicate: Predicate?, completion: EABluetoothAccessoryPickerCompletion? = nil)
   @available(iOS 3.0, *)
   func registerForLocalNotifications()
   @available(iOS 3.0, *)

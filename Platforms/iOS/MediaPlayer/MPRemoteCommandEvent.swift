@@ -14,8 +14,8 @@ class MPSkipIntervalCommandEvent : MPRemoteCommandEvent {
 enum MPSeekCommandEventType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case BeginSeeking
-  case EndSeeking
+  case beginSeeking
+  case endSeeking
 }
 @available(iOS 7.1, *)
 class MPSeekCommandEvent : MPRemoteCommandEvent {

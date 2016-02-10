@@ -6,9 +6,9 @@ typealias CGGlyph = CGFontIndex
 enum CGFontPostScriptFormat : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case Type1
-  case Type3
-  case Type42
+  case type1
+  case type3
+  case type42
 }
 let kCGFontIndexMax: CGFontIndex
 let kCGFontIndexInvalid: CGFontIndex
@@ -79,7 +79,7 @@ enum CGGlypDeprecatedEnum : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
   @available(*, deprecated)
-  case GlyphMin
+  case glyphMin
   @available(*, deprecated)
-  case GlyphMax
+  case glyphMax
 }

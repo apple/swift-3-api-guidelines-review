@@ -3,23 +3,23 @@
 enum MTLTextureType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Type1D
-  case Type1DArray
-  case Type2D
-  case Type2DArray
-  case Type2DMultisample
-  case TypeCube
-  case Type3D
+  case type1D
+  case type1DArray
+  case type2D
+  case type2DArray
+  case type2DMultisample
+  case typeCube
+  case type3D
 }
 @available(tvOS 9.0, *)
 struct MTLTextureUsage : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Unknown: MTLTextureUsage { get }
-  static var ShaderRead: MTLTextureUsage { get }
-  static var ShaderWrite: MTLTextureUsage { get }
-  static var RenderTarget: MTLTextureUsage { get }
-  static var PixelFormatView: MTLTextureUsage { get }
+  static var unknown: MTLTextureUsage { get }
+  static var shaderRead: MTLTextureUsage { get }
+  static var shaderWrite: MTLTextureUsage { get }
+  static var renderTarget: MTLTextureUsage { get }
+  static var pixelFormatView: MTLTextureUsage { get }
 }
 @available(tvOS 8.0, *)
 class MTLTextureDescriptor : Object, Copying {
@@ -42,7 +42,7 @@ class MTLTextureDescriptor : Object, Copying {
   var usage: MTLTextureUsage
   init()
   @available(tvOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 protocol MTLTexture : MTLResource {

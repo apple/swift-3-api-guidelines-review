@@ -19,7 +19,7 @@ class JSContext : Object {
   var name: String!
 }
 extension JSContext {
-  func objectForKeyedSubscript(key: AnyObject!) -> JSValue!
+  func objectFor(keyedSubscript key: AnyObject!) -> JSValue!
   func setObject(object: AnyObject!, forKeyedSubscript key: protocol<Copying, ObjectProtocol>!)
 }
 extension JSContext {
@@ -56,7 +56,7 @@ class JSValue : Object {
   func deleteProperty(property: String!) -> Bool
   func hasProperty(property: String!) -> Bool
   func defineProperty(property: String!, descriptor: AnyObject!)
-  func atIndex(index: Int) -> JSValue!
+  func at(index: Int) -> JSValue!
   func setValue(value: AnyObject!, at index: Int)
   var isUndefined: Bool { get }
   var isNull: Bool { get }
@@ -71,8 +71,8 @@ class JSValue : Object {
   func isEqualTo(value: AnyObject!) -> Bool
   func isEqualWithTypeCoercionTo(value: AnyObject!) -> Bool
   func isInstanceOf(value: AnyObject!) -> Bool
-  func callWithArguments(arguments: [AnyObject]!) -> JSValue!
-  func constructWithArguments(arguments: [AnyObject]!) -> JSValue!
+  func call(arguments arguments: [AnyObject]!) -> JSValue!
+  func constructWith(arguments arguments: [AnyObject]!) -> JSValue!
   func invokeMethod(method: String!, withArguments arguments: [AnyObject]!) -> JSValue!
   init()
 }
@@ -87,8 +87,8 @@ extension JSValue {
   func toSize() -> CGSize
 }
 extension JSValue {
-  func objectForKeyedSubscript(key: AnyObject!) -> JSValue!
-  func objectAtIndexedSubscript(index: Int) -> JSValue!
+  func objectFor(keyedSubscript key: AnyObject!) -> JSValue!
+  func objectAt(indexedSubscript index: Int) -> JSValue!
   func setObject(object: AnyObject!, forKeyedSubscript key: protocol<Copying, ObjectProtocol>!)
   func setObject(object: AnyObject!, atIndexedSubscript index: Int)
 }

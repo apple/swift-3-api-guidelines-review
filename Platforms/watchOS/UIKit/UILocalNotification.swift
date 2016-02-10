@@ -21,7 +21,7 @@ class UILocalNotification : Object, Copying, Coding {
   @available(watchOS 2.0, *)
   var category: String?
   @available(watchOS 2.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   func encodeWith(aCoder: Coder)
 }

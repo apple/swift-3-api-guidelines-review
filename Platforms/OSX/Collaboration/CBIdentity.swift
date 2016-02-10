@@ -19,13 +19,13 @@ class CBIdentity : Object, Coding, Copying {
   var image: NSImage? { get }
   var persistentReference: Data? { get }
   var isHidden: Bool { get }
-  func isMemberOfGroup(group: CBGroupIdentity) -> Bool
+  func isMemberOf(group group: CBGroupIdentity) -> Bool
   init()
   @available(OSX 10.5, *)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.5, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.5, *)
 class CBUserIdentity : CBIdentity, Coding, Copying {
@@ -33,7 +33,7 @@ class CBUserIdentity : CBIdentity, Coding, Copying {
   var posixUID: uid_t { get }
   var certificate: SecCertificate? { get }
   var isEnabled: Bool { get }
-  func authenticateWithPassword(password: String) -> Bool
+  func authenticateWith(password password: String) -> Bool
   init()
   init?(coder aDecoder: Coder)
 }

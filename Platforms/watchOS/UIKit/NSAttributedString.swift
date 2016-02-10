@@ -45,31 +45,31 @@ let NSVerticalGlyphFormAttributeName: String
 enum NSUnderlineStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case StyleNone
-  case StyleSingle
+  case styleNone
+  case styleSingle
   @available(watchOS 2.0, *)
-  case StyleThick
+  case styleThick
   @available(watchOS 2.0, *)
-  case StyleDouble
+  case styleDouble
   @available(watchOS 2.0, *)
-  static var PatternSolid: NSUnderlineStyle { get }
+  static var patternSolid: NSUnderlineStyle { get }
   @available(watchOS 2.0, *)
-  case PatternDot
+  case patternDot
   @available(watchOS 2.0, *)
-  case PatternDash
+  case patternDash
   @available(watchOS 2.0, *)
-  case PatternDashDot
+  case patternDashDot
   @available(watchOS 2.0, *)
-  case PatternDashDotDot
+  case patternDashDotDot
   @available(watchOS 2.0, *)
-  case ByWord
+  case byWord
 }
 @available(watchOS 2.0, *)
 enum NSWritingDirectionFormatType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Embedding
-  case Override
+  case embedding
+  case override
 }
 @available(watchOS 2.0, *)
 let NSTextEffectLetterpressStyle: String
@@ -139,8 +139,8 @@ extension AttributedString {
 enum NSTextWritingDirection : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Embedding
-  case Override
+  case embedding
+  case override
 }
 extension AttributedString {
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -initWithURL:options:documentAttributes:error: instead")
@@ -148,5 +148,5 @@ extension AttributedString {
 }
 extension MutableAttributedString {
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -readFromURL:options:documentAttributes:error: instead")
-  func readFromFileURL(url: URL, options opts: [Object : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func readFrom(fileURL url: URL, options opts: [Object : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }

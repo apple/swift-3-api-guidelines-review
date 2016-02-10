@@ -23,12 +23,12 @@ extension UIOffset : Equatable {
 struct UIRectEdge : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: UIRectEdge { get }
-  static var Top: UIRectEdge { get }
-  static var Left: UIRectEdge { get }
-  static var Bottom: UIRectEdge { get }
-  static var Right: UIRectEdge { get }
-  static var All: UIRectEdge { get }
+  static var none: UIRectEdge { get }
+  static var top: UIRectEdge { get }
+  static var left: UIRectEdge { get }
+  static var bottom: UIRectEdge { get }
+  static var right: UIRectEdge { get }
+  static var all: UIRectEdge { get }
 }
 func UIEdgeInsetsMake(top: CGFloat, _ left: CGFloat, _ bottom: CGFloat, _ right: CGFloat) -> UIEdgeInsets
 func UIEdgeInsetsInsetRect(rect: CGRect, _ insets: UIEdgeInsets) -> CGRect
@@ -78,12 +78,12 @@ extension Coder {
   func encode(insets: UIEdgeInsets, forKey key: String)
   @available(iOS 5.0, *)
   func encode(offset: UIOffset, forKey key: String)
-  func decodeCGPointForKey(key: String) -> CGPoint
-  func decodeCGVectorForKey(key: String) -> CGVector
-  func decodeCGSizeForKey(key: String) -> CGSize
-  func decodeCGRectForKey(key: String) -> CGRect
-  func decodeCGAffineTransformForKey(key: String) -> CGAffineTransform
-  func decodeUIEdgeInsetsForKey(key: String) -> UIEdgeInsets
+  func decodeCGPointFor(key key: String) -> CGPoint
+  func decodeCGVectorFor(key key: String) -> CGVector
+  func decodeCGSizeFor(key key: String) -> CGSize
+  func decodeCGRectFor(key key: String) -> CGRect
+  func decodeCGAffineTransformFor(key key: String) -> CGAffineTransform
+  func decodeUIEdgeInsetsFor(key key: String) -> UIEdgeInsets
   @available(iOS 5.0, *)
-  func decodeUIOffsetForKey(key: String) -> UIOffset
+  func decodeUIOffsetFor(key key: String) -> UIOffset
 }

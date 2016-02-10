@@ -13,28 +13,28 @@ typealias MusicEventType = UInt32
 struct MusicSequenceLoadFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var SMF_PreserveTracks: MusicSequenceLoadFlags { get }
-  static var SMF_ChannelsToTracks: MusicSequenceLoadFlags { get }
+  static var smf_PreserveTracks: MusicSequenceLoadFlags { get }
+  static var smf_ChannelsToTracks: MusicSequenceLoadFlags { get }
 }
 enum MusicSequenceType : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Beats
-  case Seconds
-  case Samples
+  case beats
+  case seconds
+  case samples
 }
 enum MusicSequenceFileTypeID : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case AnyType
-  case MIDIType
+  case anyType
+  case midiType
   case iMelodyType
 }
 struct MusicSequenceFileFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var Default: MusicSequenceFileFlags { get }
-  static var EraseFile: MusicSequenceFileFlags { get }
+  static var `default`: MusicSequenceFileFlags { get }
+  static var eraseFile: MusicSequenceFileFlags { get }
 }
 typealias MusicTimeStamp = Float64
 var kMusicTimeStamp_EndOfTrack: Double { get }

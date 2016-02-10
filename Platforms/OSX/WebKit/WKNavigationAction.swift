@@ -3,12 +3,12 @@
 enum WKNavigationType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case LinkActivated
-  case FormSubmitted
-  case BackForward
-  case Reload
-  case FormResubmitted
-  case Other
+  case linkActivated
+  case formSubmitted
+  case backForward
+  case reload
+  case formResubmitted
+  case other
 }
 @available(OSX 10.10, *)
 class WKNavigationAction : Object {

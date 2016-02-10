@@ -3,32 +3,32 @@
 enum NSCollectionViewDropOperation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case On
-  case Before
+  case on
+  case before
 }
 @available(OSX 10.11, *)
 enum NSCollectionViewItemHighlightState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case ForSelection
-  case ForDeselection
-  case AsDropTarget
+  case none
+  case forSelection
+  case forDeselection
+  case asDropTarget
 }
 struct NSCollectionViewScrollPosition : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: NSCollectionViewScrollPosition { get }
-  static var Top: NSCollectionViewScrollPosition { get }
-  static var CenteredVertically: NSCollectionViewScrollPosition { get }
-  static var Bottom: NSCollectionViewScrollPosition { get }
-  static var NearestHorizontalEdge: NSCollectionViewScrollPosition { get }
-  static var Left: NSCollectionViewScrollPosition { get }
-  static var CenteredHorizontally: NSCollectionViewScrollPosition { get }
-  static var Right: NSCollectionViewScrollPosition { get }
-  static var LeadingEdge: NSCollectionViewScrollPosition { get }
-  static var TrailingEdge: NSCollectionViewScrollPosition { get }
-  static var NearestVerticalEdge: NSCollectionViewScrollPosition { get }
+  static var none: NSCollectionViewScrollPosition { get }
+  static var top: NSCollectionViewScrollPosition { get }
+  static var centeredVertically: NSCollectionViewScrollPosition { get }
+  static var bottom: NSCollectionViewScrollPosition { get }
+  static var nearestHorizontalEdge: NSCollectionViewScrollPosition { get }
+  static var left: NSCollectionViewScrollPosition { get }
+  static var centeredHorizontally: NSCollectionViewScrollPosition { get }
+  static var right: NSCollectionViewScrollPosition { get }
+  static var leadingEdge: NSCollectionViewScrollPosition { get }
+  static var trailingEdge: NSCollectionViewScrollPosition { get }
+  static var nearestVerticalEdge: NSCollectionViewScrollPosition { get }
 }
 protocol NSCollectionViewElement : ObjectProtocol, NSUserInterfaceItemIdentification {
   @available(OSX 10.11, *)
@@ -58,7 +58,7 @@ class NSCollectionViewItem : NSViewController, Copying, NSCollectionViewElement 
   init?(coder: Coder)
   convenience init()
   @available(OSX 10.5, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.11, *)
   func prepareForReuse()
   @available(OSX 10.11, *)
@@ -85,7 +85,7 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.11, *)
   func layoutAttributesForItemAt(indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
   @available(OSX 10.11, *)
-  func layoutAttributesForSupplementaryElementOfKind(kind: String, at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryElementOf(kind kind: String, at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
   @available(OSX 10.6, *)
   func frameForItemAt(index: Int) -> Rect
   @available(OSX 10.7, *)
@@ -98,7 +98,7 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.11, *)
   var numberOfSections: Int { get }
   @available(OSX 10.11, *)
-  func numberOfItemsInSection(section: Int) -> Int
+  func numberOfItemsIn(section section: Int) -> Int
   var isFirstResponder: Bool { get }
   var isSelectable: Bool
   @available(OSX 10.11, *)
@@ -122,10 +122,10 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.11, *)
   func register(nib: NSNib?, forSupplementaryViewOfKind kind: String, withIdentifier identifier: String)
   @available(OSX 10.11, *)
-  func makeItemWithIdentifier(identifier: String, forIndexPath indexPath: IndexPath) -> NSCollectionViewItem
+  func makeItem(identifier identifier: String, forIndexPath indexPath: IndexPath) -> NSCollectionViewItem
   @available(OSX 10.11, *)
-  func makeSupplementaryViewOfKind(elementKind: String, withIdentifier identifier: String, forIndexPath indexPath: IndexPath) -> NSView
-  func newItemForRepresentedObject(object: AnyObject) -> NSCollectionViewItem
+  func makeSupplementaryViewOf(kind elementKind: String, withIdentifier identifier: String, forIndexPath indexPath: IndexPath) -> NSView
+  func newItemFor(representedObject object: AnyObject) -> NSCollectionViewItem
   var itemPrototype: NSCollectionViewItem?
   @available(OSX 10.6, *)
   func itemAt(index: Int) -> NSCollectionViewItem?
@@ -140,11 +140,11 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.11, *)
   func indexPathForItemAt(point: Point) -> IndexPath?
   @available(OSX 10.11, *)
-  func supplementaryViewForElementKind(elementKind: String, at indexPath: IndexPath) -> NSView?
+  func supplementaryViewFor(elementKind elementKind: String, at indexPath: IndexPath) -> NSView?
   @available(OSX 10.11, *)
-  func visibleSupplementaryViewsOfKind(elementKind: String) -> [NSView]
+  func visibleSupplementaryViewsOf(kind elementKind: String) -> [NSView]
   @available(OSX 10.11, *)
-  func indexPathsForVisibleSupplementaryElementsOfKind(elementKind: String) -> Set<IndexPath>
+  func indexPathsForVisibleSupplementaryElementsOf(kind elementKind: String) -> Set<IndexPath>
   @available(OSX 10.11, *)
   func insertSections(sections: IndexSet)
   @available(OSX 10.11, *)
@@ -269,5 +269,5 @@ extension NSSet {
   @available(OSX 10.11, *)
   convenience init(collectionViewIndexPaths indexPaths: [IndexPath])
   @available(OSX 10.11, *)
-  func enumerateIndexPaths(options opts: EnumerationOptions = [], usingBlock block: (IndexPath, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateIndexPaths(opts: EnumerationOptions = [], usingBlock block: (IndexPath, UnsafeMutablePointer<ObjCBool>) -> Void)
 }

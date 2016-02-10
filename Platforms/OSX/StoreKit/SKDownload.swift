@@ -21,7 +21,7 @@ class SKDownload : Object {
   @NSCopying var contentLength: Number { get }
   var contentVersion: String? { get }
   var transaction: SKPaymentTransaction? { get }
-  class func contentURLForProductID(productID: String) -> URL?
-  class func deleteContentForProductID(productID: String)
+  class func contentURLFor(productID productID: String) -> URL?
+  class func deleteContentFor(productID productID: String)
   init()
 }

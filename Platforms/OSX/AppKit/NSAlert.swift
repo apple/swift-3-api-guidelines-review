@@ -2,16 +2,16 @@
 enum NSAlertStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case WarningAlertStyle
-  case InformationalAlertStyle
-  case CriticalAlertStyle
+  case warningAlertStyle
+  case informationalAlertStyle
+  case criticalAlertStyle
 }
 class NSAlert : Object {
   /*not inherited*/ init(error: Error)
   var messageText: String
   var informativeText: String
   var icon: NSImage!
-  func addButtonWithTitle(title: String) -> NSButton
+  func addButton(title title: String) -> NSButton
   var buttons: [NSButton] { get }
   var showsHelp: Bool
   var helpAnchor: String?

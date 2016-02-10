@@ -36,15 +36,15 @@ var kAudioFileFileNotFoundError: OSStatus { get }
 struct AudioFileFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var EraseFile: AudioFileFlags { get }
-  static var DontPageAlignAudioData: AudioFileFlags { get }
+  static var eraseFile: AudioFileFlags { get }
+  static var dontPageAlignAudioData: AudioFileFlags { get }
 }
 enum AudioFilePermissions : Int8 {
   init?(rawValue: Int8)
   var rawValue: Int8 { get }
-  case ReadPermission
-  case WritePermission
-  case ReadWritePermission
+  case readPermission
+  case writePermission
+  case readWritePermission
 }
 typealias AudioFileID = COpaquePointer
 typealias AudioFilePropertyID = UInt32
@@ -85,9 +85,9 @@ func NumAudioFileMarkersToNumBytes(inNumMarkers: Int) -> Int
 struct AudioFileRegionFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var LoopEnable: AudioFileRegionFlags { get }
-  static var PlayForward: AudioFileRegionFlags { get }
-  static var PlayBackward: AudioFileRegionFlags { get }
+  static var loopEnable: AudioFileRegionFlags { get }
+  static var playForward: AudioFileRegionFlags { get }
+  static var playBackward: AudioFileRegionFlags { get }
 }
 struct AudioFileRegion {
   var mRegionID: UInt32
@@ -114,7 +114,7 @@ struct AudioFramePacketTranslation {
 struct AudioBytePacketTranslationFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var BytePacketTranslationFlag_IsEstimate: AudioBytePacketTranslationFlags { get }
+  static var bytePacketTranslationFlag_IsEstimate: AudioBytePacketTranslationFlags { get }
 }
 struct AudioBytePacketTranslation {
   var mByte: Int64

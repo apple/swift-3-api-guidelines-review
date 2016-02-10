@@ -3,10 +3,10 @@
 enum SKSceneScaleMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Fill
-  case AspectFill
-  case AspectFit
-  case ResizeFill
+  case fill
+  case aspectFill
+  case aspectFit
+  case resizeFill
 }
 @available(iOS 8.0, *)
 protocol SKSceneDelegate : ObjectProtocol {
@@ -29,8 +29,8 @@ class SKScene : SKEffectNode {
   unowned(unsafe) var delegate: @sil_unmanaged SKSceneDelegate?
   var anchorPoint: CGPoint
   var physicsWorld: SKPhysicsWorld { get }
-  func convertPointFromView(point: CGPoint) -> CGPoint
-  func convertPointToView(point: CGPoint) -> CGPoint
+  func convertPointFrom(view point: CGPoint) -> CGPoint
+  func convertPointTo(view point: CGPoint) -> CGPoint
   weak var view: @sil_weak SKView? { get }
   func update(currentTime: TimeInterval)
   func didEvaluateActions()

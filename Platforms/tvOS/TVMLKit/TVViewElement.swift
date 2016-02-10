@@ -3,27 +3,27 @@
 enum TVElementEventType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Play
-  case Select
-  case HoldSelect
-  case Highlight
-  case Change
+  case play
+  case select
+  case holdSelect
+  case highlight
+  case change
 }
 @available(tvOS 9.0, *)
 enum TVElementUpdateType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Subtree
-  case Children
-  case `Self`
+  case none
+  case subtree
+  case children
+  case `self`
 }
 @available(tvOS 9.0, *)
 enum TVElementResettableProperty : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case UpdateType
-  case AutoHighlightIdentifier
+  case updateType
+  case autoHighlightIdentifier
 }
 @available(tvOS 9.0, *)
 class TVViewElement : Object, Copying {
@@ -39,8 +39,8 @@ class TVViewElement : Object, Copying {
   @available(tvOS 9.0, *)
   func resetProperty(resettableProperty: TVElementResettableProperty)
   func dispatchEventOf(type: TVElementEventType, canBubble: Bool, cancellable isCancellable: Bool, extraInfo: [String : AnyObject]?, completion: ((Bool, Bool) -> Void)? = nil)
-  func dispatchEventWithName(eventName: String, canBubble: Bool, cancellable isCancellable: Bool, extraInfo: [String : AnyObject]?, completion: ((Bool, Bool) -> Void)? = nil)
+  func dispatchEventWith(name eventName: String, canBubble: Bool, cancellable isCancellable: Bool, extraInfo: [String : AnyObject]?, completion: ((Bool, Bool) -> Void)? = nil)
   init()
   @available(tvOS 9.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

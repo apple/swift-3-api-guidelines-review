@@ -2,12 +2,12 @@
 struct FileVersionAddingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ByMoving: FileVersionAddingOptions { get }
+  static var byMoving: FileVersionAddingOptions { get }
 }
 struct FileVersionReplacingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ByMoving: FileVersionReplacingOptions { get }
+  static var byMoving: FileVersionReplacingOptions { get }
 }
 @available(tvOS 5.0, *)
 class FileVersion : Object {

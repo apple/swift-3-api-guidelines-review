@@ -8,25 +8,25 @@ func CFBooleanGetValue(boolean: CFBoolean!) -> Bool
 enum CFNumberType : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case SInt8Type
-  case SInt16Type
-  case SInt32Type
-  case SInt64Type
-  case Float32Type
-  case Float64Type
-  case CharType
-  case ShortType
-  case IntType
-  case LongType
-  case LongLongType
-  case FloatType
-  case DoubleType
-  case CFIndexType
+  case sInt8Type
+  case sInt16Type
+  case sInt32Type
+  case sInt64Type
+  case float32Type
+  case float64Type
+  case charType
+  case shortType
+  case intType
+  case longType
+  case longLongType
+  case floatType
+  case doubleType
+  case cfIndexType
   @available(iOS 2.0, *)
-  case NSIntegerType
+  case nsIntegerType
   @available(iOS 2.0, *)
-  case CGFloatType
-  static var MaxType: CFNumberType { get }
+  case cgFloatType
+  static var maxType: CFNumberType { get }
 }
 class CFNumber {
 }

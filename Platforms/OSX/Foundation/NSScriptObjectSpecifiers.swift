@@ -9,26 +9,26 @@ var operationNotSupportedForKeySpecifierError: Int { get }
 enum InsertionPosition : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case PositionAfter
-  case PositionBefore
-  case PositionBeginning
-  case PositionEnd
-  case PositionReplace
+  case positionAfter
+  case positionBefore
+  case positionBeginning
+  case positionEnd
+  case positionReplace
 }
 enum RelativePosition : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case After
-  case Before
+  case after
+  case before
 }
 enum WhoseSubelementIdentifier : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case IndexSubelement
-  case EverySubelement
-  case MiddleSubelement
-  case RandomSubelement
-  case NoSubelement
+  case indexSubelement
+  case everySubelement
+  case middleSubelement
+  case randomSubelement
+  case noSubelement
 }
 class ScriptObjectSpecifier : Object, Coding {
   @available(OSX 10.5, *)
@@ -43,8 +43,8 @@ class ScriptObjectSpecifier : Object, Coding {
   var key: String
   var containerClassDescription: ScriptClassDescription?
   var keyClassDescription: ScriptClassDescription? { get }
-  func indicesOfObjectsByEvaluatingWithContainer(container: AnyObject, count: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<Int>
-  func objectsByEvaluatingWithContainers(containers: AnyObject) -> AnyObject?
+  func indicesOfObjectsByEvaluatingWith(container container: AnyObject, count: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<Int>
+  func objectsByEvaluatingWith(containers containers: AnyObject) -> AnyObject?
   var objectsByEvaluatingSpecifier: AnyObject? { get }
   var evaluationErrorNumber: Int
   var evaluationError: ScriptObjectSpecifier? { get }
@@ -55,8 +55,8 @@ class ScriptObjectSpecifier : Object, Coding {
 }
 extension Object {
   var objectSpecifier: ScriptObjectSpecifier? { get }
-  class func indicesOfObjectsByEvaluatingObjectSpecifier(specifier: ScriptObjectSpecifier) -> [Number]?
-  func indicesOfObjectsByEvaluatingObjectSpecifier(specifier: ScriptObjectSpecifier) -> [Number]?
+  class func indicesOfObjectsBy(evaluatingObjectSpecifier specifier: ScriptObjectSpecifier) -> [Number]?
+  func indicesOfObjectsBy(evaluatingObjectSpecifier specifier: ScriptObjectSpecifier) -> [Number]?
   class func objectSpecifier() -> ScriptObjectSpecifier?
 }
 class IndexSpecifier : ScriptObjectSpecifier {

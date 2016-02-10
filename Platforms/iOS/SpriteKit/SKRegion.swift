@@ -13,7 +13,7 @@ class SKRegion : Object, Copying, Coding {
   func contains(point: CGPoint) -> Bool
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)

@@ -2,122 +2,122 @@
 enum UIViewAnimationCurve : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case EaseInOut
-  case EaseIn
-  case EaseOut
-  case Linear
+  case easeInOut
+  case easeIn
+  case easeOut
+  case linear
 }
 enum UIViewContentMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ScaleToFill
-  case ScaleAspectFit
-  case ScaleAspectFill
-  case Redraw
-  case Center
-  case Top
-  case Bottom
-  case Left
-  case Right
-  case TopLeft
-  case TopRight
-  case BottomLeft
-  case BottomRight
+  case scaleToFill
+  case scaleAspectFit
+  case scaleAspectFill
+  case redraw
+  case center
+  case top
+  case bottom
+  case left
+  case right
+  case topLeft
+  case topRight
+  case bottomLeft
+  case bottomRight
 }
 enum UIViewAnimationTransition : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case FlipFromLeft
-  case FlipFromRight
-  case CurlUp
-  case CurlDown
+  case none
+  case flipFromLeft
+  case flipFromRight
+  case curlUp
+  case curlDown
 }
 struct UIViewAutoresizing : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: UIViewAutoresizing { get }
-  static var FlexibleLeftMargin: UIViewAutoresizing { get }
-  static var FlexibleWidth: UIViewAutoresizing { get }
-  static var FlexibleRightMargin: UIViewAutoresizing { get }
-  static var FlexibleTopMargin: UIViewAutoresizing { get }
-  static var FlexibleHeight: UIViewAutoresizing { get }
-  static var FlexibleBottomMargin: UIViewAutoresizing { get }
+  static var none: UIViewAutoresizing { get }
+  static var flexibleLeftMargin: UIViewAutoresizing { get }
+  static var flexibleWidth: UIViewAutoresizing { get }
+  static var flexibleRightMargin: UIViewAutoresizing { get }
+  static var flexibleTopMargin: UIViewAutoresizing { get }
+  static var flexibleHeight: UIViewAutoresizing { get }
+  static var flexibleBottomMargin: UIViewAutoresizing { get }
 }
 @available(tvOS 4.0, *)
 struct UIViewAnimationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var LayoutSubviews: UIViewAnimationOptions { get }
-  static var AllowUserInteraction: UIViewAnimationOptions { get }
-  static var BeginFromCurrentState: UIViewAnimationOptions { get }
-  static var Repeat: UIViewAnimationOptions { get }
-  static var Autoreverse: UIViewAnimationOptions { get }
-  static var OverrideInheritedDuration: UIViewAnimationOptions { get }
-  static var OverrideInheritedCurve: UIViewAnimationOptions { get }
-  static var AllowAnimatedContent: UIViewAnimationOptions { get }
-  static var ShowHideTransitionViews: UIViewAnimationOptions { get }
-  static var OverrideInheritedOptions: UIViewAnimationOptions { get }
-  static var CurveEaseInOut: UIViewAnimationOptions { get }
-  static var CurveEaseIn: UIViewAnimationOptions { get }
-  static var CurveEaseOut: UIViewAnimationOptions { get }
-  static var CurveLinear: UIViewAnimationOptions { get }
-  static var TransitionNone: UIViewAnimationOptions { get }
-  static var TransitionFlipFromLeft: UIViewAnimationOptions { get }
-  static var TransitionFlipFromRight: UIViewAnimationOptions { get }
-  static var TransitionCurlUp: UIViewAnimationOptions { get }
-  static var TransitionCurlDown: UIViewAnimationOptions { get }
-  static var TransitionCrossDissolve: UIViewAnimationOptions { get }
-  static var TransitionFlipFromTop: UIViewAnimationOptions { get }
-  static var TransitionFlipFromBottom: UIViewAnimationOptions { get }
+  static var layoutSubviews: UIViewAnimationOptions { get }
+  static var allowUserInteraction: UIViewAnimationOptions { get }
+  static var beginFromCurrentState: UIViewAnimationOptions { get }
+  static var `repeat`: UIViewAnimationOptions { get }
+  static var autoreverse: UIViewAnimationOptions { get }
+  static var overrideInheritedDuration: UIViewAnimationOptions { get }
+  static var overrideInheritedCurve: UIViewAnimationOptions { get }
+  static var allowAnimatedContent: UIViewAnimationOptions { get }
+  static var showHideTransitionViews: UIViewAnimationOptions { get }
+  static var overrideInheritedOptions: UIViewAnimationOptions { get }
+  static var curveEaseInOut: UIViewAnimationOptions { get }
+  static var curveEaseIn: UIViewAnimationOptions { get }
+  static var curveEaseOut: UIViewAnimationOptions { get }
+  static var curveLinear: UIViewAnimationOptions { get }
+  static var transitionNone: UIViewAnimationOptions { get }
+  static var transitionFlipFromLeft: UIViewAnimationOptions { get }
+  static var transitionFlipFromRight: UIViewAnimationOptions { get }
+  static var transitionCurlUp: UIViewAnimationOptions { get }
+  static var transitionCurlDown: UIViewAnimationOptions { get }
+  static var transitionCrossDissolve: UIViewAnimationOptions { get }
+  static var transitionFlipFromTop: UIViewAnimationOptions { get }
+  static var transitionFlipFromBottom: UIViewAnimationOptions { get }
 }
 @available(tvOS 7.0, *)
 struct UIViewKeyframeAnimationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var LayoutSubviews: UIViewKeyframeAnimationOptions { get }
-  static var AllowUserInteraction: UIViewKeyframeAnimationOptions { get }
-  static var BeginFromCurrentState: UIViewKeyframeAnimationOptions { get }
-  static var Repeat: UIViewKeyframeAnimationOptions { get }
-  static var Autoreverse: UIViewKeyframeAnimationOptions { get }
-  static var OverrideInheritedDuration: UIViewKeyframeAnimationOptions { get }
-  static var OverrideInheritedOptions: UIViewKeyframeAnimationOptions { get }
-  static var CalculationModeLinear: UIViewKeyframeAnimationOptions { get }
-  static var CalculationModeDiscrete: UIViewKeyframeAnimationOptions { get }
-  static var CalculationModePaced: UIViewKeyframeAnimationOptions { get }
-  static var CalculationModeCubic: UIViewKeyframeAnimationOptions { get }
-  static var CalculationModeCubicPaced: UIViewKeyframeAnimationOptions { get }
+  static var layoutSubviews: UIViewKeyframeAnimationOptions { get }
+  static var allowUserInteraction: UIViewKeyframeAnimationOptions { get }
+  static var beginFromCurrentState: UIViewKeyframeAnimationOptions { get }
+  static var `repeat`: UIViewKeyframeAnimationOptions { get }
+  static var autoreverse: UIViewKeyframeAnimationOptions { get }
+  static var overrideInheritedDuration: UIViewKeyframeAnimationOptions { get }
+  static var overrideInheritedOptions: UIViewKeyframeAnimationOptions { get }
+  static var calculationModeLinear: UIViewKeyframeAnimationOptions { get }
+  static var calculationModeDiscrete: UIViewKeyframeAnimationOptions { get }
+  static var calculationModePaced: UIViewKeyframeAnimationOptions { get }
+  static var calculationModeCubic: UIViewKeyframeAnimationOptions { get }
+  static var calculationModeCubicPaced: UIViewKeyframeAnimationOptions { get }
 }
 @available(tvOS 7.0, *)
 enum UISystemAnimation : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Delete
+  case delete
 }
 @available(tvOS 7.0, *)
 enum UIViewTintAdjustmentMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Automatic
-  case Normal
-  case Dimmed
+  case automatic
+  case normal
+  case dimmed
 }
 @available(tvOS 9.0, *)
 enum UISemanticContentAttribute : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unspecified
-  case Playback
-  case Spatial
-  case ForceLeftToRight
-  case ForceRightToLeft
+  case unspecified
+  case playback
+  case spatial
+  case forceLeftToRight
+  case forceRightToLeft
 }
 @available(tvOS 5.0, *)
 enum UIUserInterfaceLayoutDirection : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case LeftToRight
-  case RightToLeft
+  case leftToRight
+  case rightToLeft
 }
 protocol UICoordinateSpace : ObjectProtocol {
   @available(tvOS 8.0, *)
@@ -153,7 +153,7 @@ class UIView : UIResponder, Coding, UIAppearance, UIAppearanceContainer, UIDynam
   @available(tvOS 2.0, *)
   class func appearance() -> Self
   @available(tvOS 9.0, *)
-  class func appearanceWhenContainedInInstancesOfClasses(containerTypes: [AnyObject.Type]) -> Self
+  class func appearanceWhenContainedInInstancesOf(classes containerTypes: [AnyObject.Type]) -> Self
   @available(tvOS 8.0, *)
   class func appearanceFor(trait: UITraitCollection) -> Self
   @available(tvOS 9.0, *)
@@ -217,11 +217,11 @@ extension UIView {
   func addSubview(view: UIView)
   func insertSubview(view: UIView, belowSubview siblingSubview: UIView)
   func insertSubview(view: UIView, aboveSubview siblingSubview: UIView)
-  func bringSubviewToFront(view: UIView)
+  func bringSubviewTo(front view: UIView)
   func sendSubviewToBack(view: UIView)
   func didAddSubview(subview: UIView)
   func willRemoveSubview(subview: UIView)
-  func willMoveToSuperview(newSuperview: UIView?)
+  func willMoveTo(superview newSuperview: UIView?)
   func didMoveToSuperview()
   func willMoveTo(newWindow: UIWindow?)
   func didMoveToWindow()
@@ -284,13 +284,13 @@ extension UIView {
 }
 extension UIView {
   @available(tvOS 4.0, *)
-  class func animateWithDuration(duration: TimeInterval, delay: TimeInterval, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animate(duration duration: TimeInterval, delay: TimeInterval, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 4.0, *)
-  class func animateWithDuration(duration: TimeInterval, animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animate(duration duration: TimeInterval, animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 4.0, *)
-  class func animateWithDuration(duration: TimeInterval, animations: () -> Void)
+  class func animate(duration duration: TimeInterval, animations: () -> Void)
   @available(tvOS 7.0, *)
-  class func animateWithDuration(duration: TimeInterval, delay: TimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animate(duration duration: TimeInterval, delay: TimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 4.0, *)
   class func transitionWith(view: UIView, duration: TimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 4.0, *)
@@ -300,7 +300,7 @@ extension UIView {
 }
 extension UIView {
   @available(tvOS 7.0, *)
-  class func animateKeyframesWithDuration(duration: TimeInterval, delay: TimeInterval, options: UIViewKeyframeAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animateKeyframes(duration duration: TimeInterval, delay: TimeInterval, options: UIViewKeyframeAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 7.0, *)
   class func addKeyframeWithRelativeStartTime(frameStartTime: Double, relativeDuration frameDuration: Double, animations: () -> Void)
 }
@@ -325,8 +325,8 @@ extension UIView {
 enum UILayoutConstraintAxis : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Horizontal
-  case Vertical
+  case horizontal
+  case vertical
 }
 extension UIView {
   @available(tvOS 6.0, *)
@@ -358,9 +358,9 @@ extension UIView {
 }
 extension UIView {
   @available(tvOS 6.0, *)
-  func alignmentRectForFrame(frame: CGRect) -> CGRect
+  func alignmentRectFor(frame frame: CGRect) -> CGRect
   @available(tvOS 6.0, *)
-  func frameForAlignmentRect(alignmentRect: CGRect) -> CGRect
+  func frameFor(alignmentRect alignmentRect: CGRect) -> CGRect
   @available(tvOS 6.0, *)
   func alignmentRectInsets() -> UIEdgeInsets
   @available(tvOS 9.0, *)
@@ -438,13 +438,13 @@ extension UIView {
   @available(tvOS 6.0, *)
   var restorationIdentifier: String?
   @available(tvOS 6.0, *)
-  func encodeRestorableStateWith(coder: Coder)
+  func encodeRestorableState(coder: Coder)
   @available(tvOS 6.0, *)
-  func decodeRestorableStateWith(coder: Coder)
+  func decodeRestorableState(coder: Coder)
 }
 extension UIView {
   @available(tvOS 7.0, *)
-  func snapshotViewAfterScreenUpdates(afterUpdates: Bool) -> UIView
+  func snapshotViewAfter(screenUpdates afterUpdates: Bool) -> UIView
   @available(tvOS 7.0, *)
   func resizableSnapshotViewFrom(rect: CGRect, afterScreenUpdates afterUpdates: Bool, withCapInsets capInsets: UIEdgeInsets) -> UIView
   @available(tvOS 7.0, *)

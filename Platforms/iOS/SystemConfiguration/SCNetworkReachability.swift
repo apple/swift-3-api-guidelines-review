@@ -13,16 +13,16 @@ struct SCNetworkReachabilityContext {
 struct SCNetworkReachabilityFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var TransientConnection: SCNetworkReachabilityFlags { get }
-  static var Reachable: SCNetworkReachabilityFlags { get }
-  static var ConnectionRequired: SCNetworkReachabilityFlags { get }
-  static var ConnectionOnTraffic: SCNetworkReachabilityFlags { get }
-  static var InterventionRequired: SCNetworkReachabilityFlags { get }
-  static var ConnectionOnDemand: SCNetworkReachabilityFlags { get }
-  static var IsLocalAddress: SCNetworkReachabilityFlags { get }
-  static var IsDirect: SCNetworkReachabilityFlags { get }
-  static var IsWWAN: SCNetworkReachabilityFlags { get }
-  static var ConnectionAutomatic: SCNetworkReachabilityFlags { get }
+  static var transientConnection: SCNetworkReachabilityFlags { get }
+  static var reachable: SCNetworkReachabilityFlags { get }
+  static var connectionRequired: SCNetworkReachabilityFlags { get }
+  static var connectionOnTraffic: SCNetworkReachabilityFlags { get }
+  static var interventionRequired: SCNetworkReachabilityFlags { get }
+  static var connectionOnDemand: SCNetworkReachabilityFlags { get }
+  static var isLocalAddress: SCNetworkReachabilityFlags { get }
+  static var isDirect: SCNetworkReachabilityFlags { get }
+  static var iswwan: SCNetworkReachabilityFlags { get }
+  static var connectionAutomatic: SCNetworkReachabilityFlags { get }
 }
 typealias SCNetworkReachabilityCallBack = @convention(c) (SCNetworkReachability, SCNetworkReachabilityFlags, UnsafeMutablePointer<Void>) -> Void
 @available(iOS 2.0, *)

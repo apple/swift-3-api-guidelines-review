@@ -34,29 +34,29 @@ let calendarIdentifierIslamicUmmAlQura: String
 struct CalendarUnit : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Era: CalendarUnit { get }
-  static var Year: CalendarUnit { get }
-  static var Month: CalendarUnit { get }
-  static var Day: CalendarUnit { get }
-  static var Hour: CalendarUnit { get }
-  static var Minute: CalendarUnit { get }
-  static var Second: CalendarUnit { get }
-  static var Weekday: CalendarUnit { get }
-  static var WeekdayOrdinal: CalendarUnit { get }
+  static var era: CalendarUnit { get }
+  static var year: CalendarUnit { get }
+  static var month: CalendarUnit { get }
+  static var day: CalendarUnit { get }
+  static var hour: CalendarUnit { get }
+  static var minute: CalendarUnit { get }
+  static var second: CalendarUnit { get }
+  static var weekday: CalendarUnit { get }
+  static var weekdayOrdinal: CalendarUnit { get }
   @available(OSX 10.6, *)
-  static var Quarter: CalendarUnit { get }
+  static var quarter: CalendarUnit { get }
   @available(OSX 10.7, *)
-  static var WeekOfMonth: CalendarUnit { get }
+  static var weekOfMonth: CalendarUnit { get }
   @available(OSX 10.7, *)
-  static var WeekOfYear: CalendarUnit { get }
+  static var weekOfYear: CalendarUnit { get }
   @available(OSX 10.7, *)
-  static var YearForWeekOfYear: CalendarUnit { get }
+  static var yearForWeekOfYear: CalendarUnit { get }
   @available(OSX 10.7, *)
-  static var Nanosecond: CalendarUnit { get }
+  static var nanosecond: CalendarUnit { get }
   @available(OSX 10.7, *)
-  static var Calendar: CalendarUnit { get }
+  static var calendar: CalendarUnit { get }
   @available(OSX 10.7, *)
-  static var TimeZone: CalendarUnit { get }
+  static var timeZone: CalendarUnit { get }
   @available(OSX, introduced=10.4, deprecated=10.10, message="Use NSCalendarUnitEra instead")
   static var eraCalendarUnit: CalendarUnit { get }
   @available(OSX, introduced=10.4, deprecated=10.10, message="Use NSCalendarUnitYear instead")
@@ -93,21 +93,21 @@ struct CalendarUnit : OptionSetType {
 struct CalendarOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var WrapComponents: CalendarOptions { get }
+  static var wrapComponents: CalendarOptions { get }
   @available(OSX 10.9, *)
-  static var MatchStrictly: CalendarOptions { get }
+  static var matchStrictly: CalendarOptions { get }
   @available(OSX 10.9, *)
-  static var SearchBackwards: CalendarOptions { get }
+  static var searchBackwards: CalendarOptions { get }
   @available(OSX 10.9, *)
-  static var MatchPreviousTimePreservingSmallerUnits: CalendarOptions { get }
+  static var matchPreviousTimePreservingSmallerUnits: CalendarOptions { get }
   @available(OSX 10.9, *)
-  static var MatchNextTimePreservingSmallerUnits: CalendarOptions { get }
+  static var matchNextTimePreservingSmallerUnits: CalendarOptions { get }
   @available(OSX 10.9, *)
-  static var MatchNextTime: CalendarOptions { get }
+  static var matchNextTime: CalendarOptions { get }
   @available(OSX 10.9, *)
-  static var MatchFirst: CalendarOptions { get }
+  static var matchFirst: CalendarOptions { get }
   @available(OSX 10.9, *)
-  static var MatchLast: CalendarOptions { get }
+  static var matchLast: CalendarOptions { get }
 }
 @available(OSX, introduced=10.4, deprecated=10.10, message="Use NSCalendarWrapComponents instead")
 var wrapCalendarComponents: Int { get }
@@ -182,9 +182,9 @@ class Calendar : Object, Copying, SecureCoding {
   @available(OSX 10.9, *)
   func component(unit: CalendarUnit, from date: Date) -> Int
   @available(OSX 10.9, *)
-  func dateWithEra(eraValue: Int, year yearValue: Int, month monthValue: Int, day dayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
+  func dateWith(era eraValue: Int, year yearValue: Int, month monthValue: Int, day dayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
   @available(OSX 10.9, *)
-  func dateWithEra(eraValue: Int, yearForWeekOfYear yearValue: Int, weekOfYear weekValue: Int, weekday weekdayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
+  func dateWith(era eraValue: Int, yearForWeekOfYear yearValue: Int, weekOfYear weekValue: Int, weekday weekdayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
   @available(OSX 10.9, *)
   func startOfDayFor(date: Date) -> Date
   @available(OSX 10.9, *)
@@ -196,13 +196,13 @@ class Calendar : Object, Copying, SecureCoding {
   @available(OSX 10.9, *)
   func isDate(date1: Date, inSameDayAs date2: Date) -> Bool
   @available(OSX 10.9, *)
-  func isDateInToday(date: Date) -> Bool
+  func isDateIn(today date: Date) -> Bool
   @available(OSX 10.9, *)
-  func isDateInYesterday(date: Date) -> Bool
+  func isDateIn(yesterday date: Date) -> Bool
   @available(OSX 10.9, *)
-  func isDateInTomorrow(date: Date) -> Bool
+  func isDateIn(tomorrow date: Date) -> Bool
   @available(OSX 10.9, *)
-  func isDateInWeekend(date: Date) -> Bool
+  func isDateIn(weekend date: Date) -> Bool
   @available(OSX 10.9, *)
   func rangeOfWeekendStart(datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, containing date: Date) -> Bool
   @available(OSX 10.9, *)
@@ -220,12 +220,12 @@ class Calendar : Object, Copying, SecureCoding {
   @available(OSX 10.9, *)
   func nextDateAfter(date: Date, matchingHour hourValue: Int, minute minuteValue: Int, second secondValue: Int, options: CalendarOptions = []) -> Date?
   @available(OSX 10.9, *)
-  func dateBySettingUnit(unit: CalendarUnit, value v: Int, of date: Date, options opts: CalendarOptions = []) -> Date?
+  func dateBy(settingUnit unit: CalendarUnit, value v: Int, of date: Date, options opts: CalendarOptions = []) -> Date?
   @available(OSX 10.9, *)
-  func dateBySettingHour(h: Int, minute m: Int, second s: Int, of date: Date, options opts: CalendarOptions = []) -> Date?
+  func dateBy(settingHour h: Int, minute m: Int, second s: Int, of date: Date, options opts: CalendarOptions = []) -> Date?
   @available(OSX 10.9, *)
   func date(date: Date, matchesComponents components: DateComponents) -> Bool
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
@@ -266,13 +266,13 @@ class DateComponents : Object, Copying, SecureCoding {
   @available(OSX 10.9, *)
   func setValue(value: Int, forComponent unit: CalendarUnit)
   @available(OSX 10.9, *)
-  func valueForComponent(unit: CalendarUnit) -> Int
+  func valueFor(component unit: CalendarUnit) -> Int
   @available(OSX 10.9, *)
   var isValidDate: Bool { get }
   @available(OSX 10.9, *)
   func isValidDateIn(calendar: Calendar) -> Bool
   init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)

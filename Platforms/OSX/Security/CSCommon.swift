@@ -91,40 +91,40 @@ var kSecNoGuest: SecGuestRef { get }
 struct SecCSFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var DefaultFlags: SecCSFlags { get }
-  static var ConsiderExpiration: SecCSFlags { get }
-  static var EnforceRevocationChecks: SecCSFlags { get }
-  static var NoNetworkAccess: SecCSFlags { get }
-  static var ReportProgress: SecCSFlags { get }
-  static var CheckTrustedAnchors: SecCSFlags { get }
+  static var defaultFlags: SecCSFlags { get }
+  static var considerExpiration: SecCSFlags { get }
+  static var enforceRevocationChecks: SecCSFlags { get }
+  static var noNetworkAccess: SecCSFlags { get }
+  static var reportProgress: SecCSFlags { get }
+  static var checkTrustedAnchors: SecCSFlags { get }
 }
 struct SecCodeSignatureFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var Host: SecCodeSignatureFlags { get }
-  static var Adhoc: SecCodeSignatureFlags { get }
-  static var ForceHard: SecCodeSignatureFlags { get }
-  static var ForceKill: SecCodeSignatureFlags { get }
-  static var ForceExpiration: SecCodeSignatureFlags { get }
-  static var Restrict: SecCodeSignatureFlags { get }
-  static var Enforcement: SecCodeSignatureFlags { get }
-  static var LibraryValidation: SecCodeSignatureFlags { get }
+  static var host: SecCodeSignatureFlags { get }
+  static var adhoc: SecCodeSignatureFlags { get }
+  static var forceHard: SecCodeSignatureFlags { get }
+  static var forceKill: SecCodeSignatureFlags { get }
+  static var forceExpiration: SecCodeSignatureFlags { get }
+  static var restrict: SecCodeSignatureFlags { get }
+  static var enforcement: SecCodeSignatureFlags { get }
+  static var libraryValidation: SecCodeSignatureFlags { get }
 }
 struct SecCodeStatus : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var Valid: SecCodeStatus { get }
-  static var Hard: SecCodeStatus { get }
-  static var Kill: SecCodeStatus { get }
+  static var valid: SecCodeStatus { get }
+  static var hard: SecCodeStatus { get }
+  static var kill: SecCodeStatus { get }
 }
 enum SecRequirementType : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case HostRequirementType
-  case GuestRequirementType
-  case DesignatedRequirementType
-  case LibraryRequirementType
-  case PluginRequirementType
-  case InvalidRequirementType
-  static var RequirementTypeCount: SecRequirementType { get }
+  case hostRequirementType
+  case guestRequirementType
+  case designatedRequirementType
+  case libraryRequirementType
+  case pluginRequirementType
+  case invalidRequirementType
+  static var requirementTypeCount: SecRequirementType { get }
 }

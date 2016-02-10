@@ -3,27 +3,27 @@
 struct MPMediaType : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Music: MPMediaType { get }
-  static var Podcast: MPMediaType { get }
-  static var AudioBook: MPMediaType { get }
+  static var music: MPMediaType { get }
+  static var podcast: MPMediaType { get }
+  static var audioBook: MPMediaType { get }
   @available(iOS 5.0, *)
-  static var AudioITunesU: MPMediaType { get }
-  static var AnyAudio: MPMediaType { get }
+  static var audioITunesU: MPMediaType { get }
+  static var anyAudio: MPMediaType { get }
   @available(iOS 5.0, *)
-  static var Movie: MPMediaType { get }
+  static var movie: MPMediaType { get }
   @available(iOS 5.0, *)
-  static var TVShow: MPMediaType { get }
+  static var tvShow: MPMediaType { get }
   @available(iOS 5.0, *)
-  static var VideoPodcast: MPMediaType { get }
+  static var videoPodcast: MPMediaType { get }
   @available(iOS 5.0, *)
-  static var MusicVideo: MPMediaType { get }
+  static var musicVideo: MPMediaType { get }
   @available(iOS 5.0, *)
-  static var VideoITunesU: MPMediaType { get }
+  static var videoITunesU: MPMediaType { get }
   @available(iOS 7.0, *)
-  static var HomeVideo: MPMediaType { get }
+  static var homeVideo: MPMediaType { get }
   @available(iOS 5.0, *)
-  static var AnyVideo: MPMediaType { get }
-  static var Any: MPMediaType { get }
+  static var anyVideo: MPMediaType { get }
+  static var any: MPMediaType { get }
 }
 @available(iOS 3.0, *)
 class MPMediaItem : MPMediaEntity {

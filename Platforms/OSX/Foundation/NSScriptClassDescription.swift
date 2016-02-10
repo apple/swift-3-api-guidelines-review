@@ -10,20 +10,20 @@ class ScriptClassDescription : ClassDescription {
   func matchesAppleEventCode(appleEventCode: FourCharCode) -> Bool
   func supportsCommand(commandDescription: ScriptCommandDescription) -> Bool
   func selectorForCommand(commandDescription: ScriptCommandDescription) -> Selector
-  func typeForKey(key: String) -> String?
+  func typeFor(key key: String) -> String?
   func forKey(key: String) -> ScriptClassDescription?
-  func appleEventCodeForKey(key: String) -> FourCharCode
-  func keyWithAppleEventCode(appleEventCode: FourCharCode) -> String?
+  func appleEventCodeFor(key key: String) -> FourCharCode
+  func keyWith(appleEventCode appleEventCode: FourCharCode) -> String?
   var defaultSubcontainerAttributeKey: String? { get }
-  func isLocationRequiredToCreateForKey(toManyRelationshipKey: String) -> Bool
+  func isLocationRequiredToCreateFor(key toManyRelationshipKey: String) -> Bool
   @available(OSX 10.5, *)
-  func hasPropertyForKey(key: String) -> Bool
+  func hasPropertyFor(key key: String) -> Bool
   @available(OSX 10.5, *)
-  func hasOrderedToManyRelationshipForKey(key: String) -> Bool
+  func hasOrderedToManyRelationshipFor(key key: String) -> Bool
   @available(OSX 10.5, *)
-  func hasReadablePropertyForKey(key: String) -> Bool
+  func hasReadablePropertyFor(key key: String) -> Bool
   @available(OSX 10.5, *)
-  func hasWritablePropertyForKey(key: String) -> Bool
+  func hasWritablePropertyFor(key key: String) -> Bool
   convenience init()
 }
 extension ScriptClassDescription {

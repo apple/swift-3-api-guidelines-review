@@ -19,11 +19,11 @@ class UndoManager : Object {
   var isUndoing: Bool { get }
   var isRedoing: Bool { get }
   func removeAllActions()
-  func removeAllActionsWithTarget(target: AnyObject)
-  func registerUndoWithTarget(target: AnyObject, selector: Selector, object anObject: AnyObject?)
-  func prepareWithInvocationTarget(target: AnyObject) -> AnyObject
+  func removeAllActions(target target: AnyObject)
+  func registerUndo(target target: AnyObject, selector: Selector, object anObject: AnyObject?)
+  func prepare(invocationTarget target: AnyObject) -> AnyObject
   @available(iOS 9.0, *)
-  func __registerUndoWithTarget(target: AnyObject, handler undoHandler: (AnyObject) -> Void)
+  func __registerUndo(target target: AnyObject, handler undoHandler: (AnyObject) -> Void)
   @available(iOS 5.0, *)
   func setActionIsDiscardable(discardable: Bool)
   @available(iOS 5.0, *)
@@ -35,8 +35,8 @@ class UndoManager : Object {
   func setActionName(actionName: String)
   var undoMenuItemTitle: String { get }
   var redoMenuItemTitle: String { get }
-  func undoMenuTitleForUndoActionName(actionName: String) -> String
-  func redoMenuTitleForUndoActionName(actionName: String) -> String
+  func undoMenuTitleFor(undoActionName actionName: String) -> String
+  func redoMenuTitleFor(undoActionName actionName: String) -> String
   init()
 }
 

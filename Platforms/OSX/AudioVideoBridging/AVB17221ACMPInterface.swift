@@ -13,7 +13,7 @@ class AVB17221ACMPInterface : AVB1722ControlInterface {
   @available(OSX 10.9, *)
   func setHandler(handler: AVB17221ACMPClient, forEntityID targetEntityID: UInt64) -> Bool
   @available(OSX 10.9, *)
-  func removeHandlerForEntityID(targetEntityID: UInt64)
+  func removeHandlerFor(entityID targetEntityID: UInt64)
   func sendACMPResponseMessage(message: AVB17221ACMPMessage) throws
   func sendACMPCommand(message: AVB17221ACMPMessage, completionHandler: AVB17221ACMPInterfaceCompletion) -> Bool
   @available(OSX 10.9, *)

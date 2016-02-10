@@ -2,15 +2,15 @@
 enum SKInterpolationMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Linear
-  case Spline
-  case Step
+  case linear
+  case spline
+  case step
 }
 enum SKRepeatMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Clamp
-  case Loop
+  case clamp
+  case loop
 }
 class SKKeyframeSequence : Object, Coding, Copying {
   init(keyframeValues values: [AnyObject], times: [Number])
@@ -30,5 +30,5 @@ class SKKeyframeSequence : Object, Coding, Copying {
   var repeatMode: SKRepeatMode
   convenience init()
   func encodeWith(aCoder: Coder)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

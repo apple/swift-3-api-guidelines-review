@@ -2,8 +2,8 @@
 enum CFURLPathStyle : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case CFURLPOSIXPathStyle
-  case CFURLWindowsPathStyle
+  case cfurlposixPathStyle
+  case cfurlWindowsPathStyle
 }
 class CFURL {
 }
@@ -45,18 +45,18 @@ func CFURLGetBytes(url: CFURL!, _ buffer: UnsafeMutablePointer<UInt8>, _ bufferL
 enum CFURLComponentType : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case Scheme
-  case NetLocation
-  case Path
-  case ResourceSpecifier
-  case User
-  case Password
-  case UserInfo
-  case Host
-  case Port
-  case ParameterString
-  case Query
-  case Fragment
+  case scheme
+  case netLocation
+  case path
+  case resourceSpecifier
+  case user
+  case password
+  case userInfo
+  case host
+  case port
+  case parameterString
+  case query
+  case fragment
 }
 func CFURLGetByteRangeForComponent(url: CFURL!, _ component: CFURLComponentType, _ rangeIncludingSeparators: UnsafeMutablePointer<CFRange>) -> CFRange
 func CFURLCreateStringByReplacingPercentEscapes(allocator: CFAllocator!, _ originalString: CFString!, _ charactersToLeaveEscaped: CFString!) -> CFString!
@@ -288,23 +288,23 @@ let kCFURLUbiquitousItemDownloadingStatusCurrent: CFString!
 struct CFURLBookmarkCreationOptions : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
-  static var MinimalBookmarkMask: CFURLBookmarkCreationOptions { get }
-  static var SuitableForBookmarkFile: CFURLBookmarkCreationOptions { get }
+  static var minimalBookmarkMask: CFURLBookmarkCreationOptions { get }
+  static var suitableForBookmarkFile: CFURLBookmarkCreationOptions { get }
   @available(OSX 10.7, *)
-  static var WithSecurityScope: CFURLBookmarkCreationOptions { get }
+  static var withSecurityScope: CFURLBookmarkCreationOptions { get }
   @available(OSX 10.7, *)
-  static var SecurityScopeAllowOnlyReadAccess: CFURLBookmarkCreationOptions { get }
+  static var securityScopeAllowOnlyReadAccess: CFURLBookmarkCreationOptions { get }
 }
 @available(OSX 10.6, *)
 struct CFURLBookmarkResolutionOptions : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
-  static var CFURLBookmarkResolutionWithoutUIMask: CFURLBookmarkResolutionOptions { get }
-  static var CFURLBookmarkResolutionWithoutMountingMask: CFURLBookmarkResolutionOptions { get }
+  static var cfurlBookmarkResolutionWithoutUIMask: CFURLBookmarkResolutionOptions { get }
+  static var cfurlBookmarkResolutionWithoutMountingMask: CFURLBookmarkResolutionOptions { get }
   @available(OSX 10.7, *)
-  static var CFURLBookmarkResolutionWithSecurityScope: CFURLBookmarkResolutionOptions { get }
-  static var CFBookmarkResolutionWithoutUIMask: CFURLBookmarkResolutionOptions { get }
-  static var CFBookmarkResolutionWithoutMountingMask: CFURLBookmarkResolutionOptions { get }
+  static var cfurlBookmarkResolutionWithSecurityScope: CFURLBookmarkResolutionOptions { get }
+  static var cfBookmarkResolutionWithoutUIMask: CFURLBookmarkResolutionOptions { get }
+  static var cfBookmarkResolutionWithoutMountingMask: CFURLBookmarkResolutionOptions { get }
 }
 typealias CFURLBookmarkFileCreationOptions = CFOptionFlags
 @available(OSX 10.6, *)

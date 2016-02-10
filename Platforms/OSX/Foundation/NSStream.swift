@@ -2,30 +2,30 @@
 enum StreamStatus : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NotOpen
-  case Opening
-  case Open
-  case Reading
-  case Writing
-  case AtEnd
-  case Closed
-  case Error
+  case notOpen
+  case opening
+  case open
+  case reading
+  case writing
+  case atEnd
+  case closed
+  case error
 }
 struct StreamEvent : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: StreamEvent { get }
-  static var OpenCompleted: StreamEvent { get }
-  static var HasBytesAvailable: StreamEvent { get }
-  static var HasSpaceAvailable: StreamEvent { get }
-  static var ErrorOccurred: StreamEvent { get }
-  static var EndEncountered: StreamEvent { get }
+  static var none: StreamEvent { get }
+  static var openCompleted: StreamEvent { get }
+  static var hasBytesAvailable: StreamEvent { get }
+  static var hasSpaceAvailable: StreamEvent { get }
+  static var errorOccurred: StreamEvent { get }
+  static var endEncountered: StreamEvent { get }
 }
 class Stream : Object {
   func open()
   func close()
   unowned(unsafe) var delegate: @sil_unmanaged StreamDelegate?
-  func propertyForKey(key: String) -> AnyObject?
+  func propertyFor(key key: String) -> AnyObject?
   func setProperty(property: AnyObject?, forKey key: String) -> Bool
   func scheduleIn(aRunLoop: RunLoop, forMode mode: String)
   func removeFrom(aRunLoop: RunLoop, forMode mode: String)
@@ -53,13 +53,13 @@ class OutputStream : Stream {
 }
 extension Stream {
   @available(OSX 10.10, *)
-  class func getStreamsToHostWithName(hostname: String, port: Int, inputStream: AutoreleasingUnsafeMutablePointer<InputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<OutputStream?>)
+  class func getStreamsToHost(name hostname: String, port: Int, inputStream: AutoreleasingUnsafeMutablePointer<InputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<OutputStream?>)
   @available(OSX, introduced=10.3, deprecated=10.10, message="Please use getStreamsToHostWithName:port:inputStream:outputStream: instead")
   class func getStreamsTo(host: Host, port: Int, inputStream: AutoreleasingUnsafeMutablePointer<InputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<OutputStream?>)
 }
 extension Stream {
   @available(OSX 10.10, *)
-  class func getBoundStreamsWithBufferSize(bufferSize: Int, inputStream: AutoreleasingUnsafeMutablePointer<InputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<OutputStream?>)
+  class func getBoundStreams(bufferSize bufferSize: Int, inputStream: AutoreleasingUnsafeMutablePointer<InputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<OutputStream?>)
 }
 extension InputStream {
   convenience init?(fileAtPath path: String)

@@ -3,23 +3,23 @@ enum SCNFilterMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   @available(OSX 10.9, *)
-  case None
+  case none
   @available(OSX 10.9, *)
-  case Nearest
+  case nearest
   @available(OSX 10.9, *)
-  case Linear
+  case linear
 }
 enum SCNWrapMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   @available(OSX 10.9, *)
-  case Clamp
+  case clamp
   @available(OSX 10.9, *)
-  case Repeat
+  case `repeat`
   @available(OSX 10.9, *)
-  case ClampToBorder
+  case clampToBorder
   @available(OSX 10.9, *)
-  case Mirror
+  case mirror
 }
 @available(OSX 10.8, *)
 class SCNMaterialProperty : Object, SCNAnimatable, SecureCoding {
@@ -44,19 +44,19 @@ class SCNMaterialProperty : Object, SCNAnimatable, SecureCoding {
   @available(OSX 10.8, *)
   func removeAllAnimations()
   @available(OSX 10.8, *)
-  func removeAnimationForKey(key: String)
+  func removeAnimationFor(key key: String)
   @available(OSX 10.8, *)
   var animationKeys: [String] { get }
   @available(OSX 10.8, *)
-  func animationForKey(key: String) -> CAAnimation?
+  func animationFor(key key: String) -> CAAnimation?
   @available(OSX 10.9, *)
-  func pauseAnimationForKey(key: String)
+  func pauseAnimationFor(key key: String)
   @available(OSX 10.9, *)
-  func resumeAnimationForKey(key: String)
+  func resumeAnimationFor(key key: String)
   @available(OSX 10.9, *)
-  func isAnimationForKeyPaused(key: String) -> Bool
+  func isAnimationFor(keyPaused key: String) -> Bool
   @available(OSX 10.10, *)
-  func removeAnimationForKey(key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimationFor(key key: String, fadeOutDuration duration: CGFloat)
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)

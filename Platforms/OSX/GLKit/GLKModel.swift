@@ -9,7 +9,7 @@ class GLKMeshBufferAllocator : Object, MDLMeshBufferAllocator {
   @available(OSX 10.11, *)
   func newZone(capacity: Int) -> MDLMeshBufferZone
   @available(OSX 10.11, *)
-  func newZoneForBuffersWithSize(sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
+  func newZoneForBuffersWith(size sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
   @available(OSX 10.11, *)
   func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(OSX 10.11, *)
@@ -33,7 +33,7 @@ class GLKMeshBuffer : Object, MDLMeshBuffer {
   @available(OSX 10.11, *)
   func map() -> MDLMeshBufferMap
   @available(OSX 10.11, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class GLKSubmesh : Object {

@@ -4,11 +4,11 @@ class CNInstantMessageAddress : Object, Copying, SecureCoding {
   var username: String { get }
   var service: String { get }
   init(username: String, service: String)
-  class func localizedStringForKey(key: String) -> String
-  class func localizedStringForService(service: String) -> String
+  class func localizedStringFor(key key: String) -> String
+  class func localizedStringFor(service service: String) -> String
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)

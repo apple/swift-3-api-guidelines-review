@@ -4,12 +4,12 @@ class CGImageSource {
 enum CGImageSourceStatus : Int32 {
   init?(rawValue: Int32)
   var rawValue: Int32 { get }
-  case StatusUnexpectedEOF
-  case StatusInvalidData
-  case StatusUnknownType
-  case StatusReadingHeader
-  case StatusIncomplete
-  case StatusComplete
+  case statusUnexpectedEOF
+  case statusInvalidData
+  case statusUnknownType
+  case statusReadingHeader
+  case statusIncomplete
+  case statusComplete
 }
 @available(tvOS 4.0, *)
 let kCGImageSourceTypeIdentifierHint: CFString

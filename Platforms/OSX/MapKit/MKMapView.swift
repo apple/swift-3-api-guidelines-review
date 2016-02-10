@@ -51,7 +51,7 @@ class MKMapView : NSView, Coding {
   @available(OSX 10.9, *)
   func annotationsIn(mapRect: MKMapRect) -> Set<Object>
   func viewFor(annotation: MKAnnotation) -> MKAnnotationView?
-  func dequeueReusableAnnotationViewWithIdentifier(identifier: String) -> MKAnnotationView?
+  func dequeueReusableAnnotationViewWith(identifier identifier: String) -> MKAnnotationView?
   func selectAnnotation(annotation: MKAnnotation, animated: Bool)
   func deselectAnnotation(annotation: MKAnnotation?, animated: Bool)
   var selectedAnnotations: [MKAnnotation]
@@ -66,8 +66,8 @@ class MKMapView : NSView, Coding {
 enum MKOverlayLevel : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case AboveRoads
-  case AboveLabels
+  case aboveRoads
+  case aboveLabels
 }
 extension MKMapView {
   @available(OSX 10.9, *)

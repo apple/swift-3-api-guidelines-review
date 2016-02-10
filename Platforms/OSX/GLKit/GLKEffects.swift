@@ -3,9 +3,9 @@
 enum GLKVertexAttrib : GLint {
   init?(rawValue: GLint)
   var rawValue: GLint { get }
-  case Position
-  case Normal
-  case Color
-  case TexCoord0
-  case TexCoord1
+  case position
+  case normal
+  case color
+  case texCoord0
+  case texCoord1
 }

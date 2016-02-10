@@ -5,12 +5,12 @@ func CMSDecoderGetTypeID() -> CFTypeID
 enum CMSSignerStatus : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case Unsigned
-  case Valid
-  case NeedsDetachedContent
-  case InvalidSignature
-  case InvalidCert
-  case InvalidIndex
+  case unsigned
+  case valid
+  case needsDetachedContent
+  case invalidSignature
+  case invalidCert
+  case invalidIndex
 }
 @available(OSX 10.5, *)
 func CMSDecoderCreate(cmsDecoderOut: UnsafeMutablePointer<CMSDecoder?>) -> OSStatus

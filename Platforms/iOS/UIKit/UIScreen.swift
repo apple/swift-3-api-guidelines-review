@@ -10,12 +10,12 @@ let UIScreenBrightnessDidChangeNotification: String
 enum UIScreenOverscanCompensation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Scale
-  case InsetBounds
+  case scale
+  case insetBounds
   @available(iOS 9.0, *)
-  case None
+  case none
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use UIScreenOverscanCompensationNone")
-  static var InsetApplicationFrame: UIScreenOverscanCompensation { get }
+  static var insetApplicationFrame: UIScreenOverscanCompensation { get }
 }
 @available(iOS 2.0, *)
 class UIScreen : Object, UITraitEnvironment {
@@ -50,7 +50,7 @@ class UIScreen : Object, UITraitEnvironment {
   @available(iOS 8.0, *)
   var nativeScale: CGFloat { get }
   @available(iOS 4.0, *)
-  func displayLinkWithTarget(target: AnyObject, selector sel: Selector) -> CADisplayLink?
+  func displayLink(target target: AnyObject, selector sel: Selector) -> CADisplayLink?
   @available(iOS 9.0, *)
   weak var focusedView: @sil_weak UIView? { get }
   @available(iOS 9.0, *)
@@ -65,5 +65,5 @@ class UIScreen : Object, UITraitEnvironment {
 }
 extension UIScreen {
   @available(iOS 7.0, *)
-  func snapshotViewAfterScreenUpdates(afterUpdates: Bool) -> UIView
+  func snapshotViewAfter(screenUpdates afterUpdates: Bool) -> UIView
 }

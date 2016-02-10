@@ -12,9 +12,9 @@ class MTLVertexAttribute : Object {
 enum MTLFunctionType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Vertex
-  case Fragment
-  case Kernel
+  case vertex
+  case fragment
+  case kernel
 }
 @available(iOS 8.0, *)
 protocol MTLFunction : ObjectProtocol {
@@ -28,8 +28,8 @@ enum MTLLanguageVersion : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   @available(iOS 9.0, *)
-  case Version1_0
-  case Version1_1
+  case version1_0
+  case version1_1
 }
 @available(iOS 8.0, *)
 class MTLCompileOptions : Object, Copying {
@@ -39,7 +39,7 @@ class MTLCompileOptions : Object, Copying {
   var languageVersion: MTLLanguageVersion
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 let MTLLibraryErrorDomain: String
@@ -47,24 +47,24 @@ let MTLLibraryErrorDomain: String
 enum MTLLibraryError : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Unsupported
-  case Internal
-  case CompileFailure
-  case CompileWarning
+  case unsupported
+  case `internal`
+  case compileFailure
+  case compileWarning
 }
 let MTLRenderPipelineErrorDomain: String
 @available(iOS 8.0, *)
 enum MTLRenderPipelineError : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Internal
-  case Unsupported
-  case InvalidInput
+  case `internal`
+  case unsupported
+  case invalidInput
 }
 @available(iOS 8.0, *)
 protocol MTLLibrary : ObjectProtocol {
   var label: String? { get set }
   var device: MTLDevice { get }
-  func newFunctionWithName(functionName: String) -> MTLFunction?
+  func newFunctionWith(name functionName: String) -> MTLFunction?
   var functionNames: [String] { get }
 }

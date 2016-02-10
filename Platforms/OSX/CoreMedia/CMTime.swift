@@ -6,12 +6,12 @@ typealias CMTimeEpoch = Int64
 struct CMTimeFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var Valid: CMTimeFlags { get }
-  static var HasBeenRounded: CMTimeFlags { get }
-  static var PositiveInfinity: CMTimeFlags { get }
-  static var NegativeInfinity: CMTimeFlags { get }
-  static var Indefinite: CMTimeFlags { get }
-  static var ImpliedValueFlagsMask: CMTimeFlags { get }
+  static var valid: CMTimeFlags { get }
+  static var hasBeenRounded: CMTimeFlags { get }
+  static var positiveInfinity: CMTimeFlags { get }
+  static var negativeInfinity: CMTimeFlags { get }
+  static var indefinite: CMTimeFlags { get }
+  static var impliedValueFlagsMask: CMTimeFlags { get }
 }
 struct CMTime {
   var value: CMTimeValue
@@ -61,13 +61,13 @@ func CMTimeGetSeconds(time: CMTime) -> Float64
 enum CMTimeRoundingMethod : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case RoundHalfAwayFromZero
-  case RoundTowardZero
-  case RoundAwayFromZero
-  case QuickTime
-  case RoundTowardPositiveInfinity
-  case RoundTowardNegativeInfinity
-  static var Default: CMTimeRoundingMethod { get }
+  case roundHalfAwayFromZero
+  case roundTowardZero
+  case roundAwayFromZero
+  case quickTime
+  case roundTowardPositiveInfinity
+  case roundTowardNegativeInfinity
+  static var `default`: CMTimeRoundingMethod { get }
 }
 @available(OSX 10.7, *)
 func CMTimeConvertScale(time: CMTime, _ newTimescale: Int32, _ method: CMTimeRoundingMethod) -> CMTime

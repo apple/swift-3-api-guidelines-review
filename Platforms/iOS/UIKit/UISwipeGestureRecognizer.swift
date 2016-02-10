@@ -2,10 +2,10 @@
 struct UISwipeGestureRecognizerDirection : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Right: UISwipeGestureRecognizerDirection { get }
-  static var Left: UISwipeGestureRecognizerDirection { get }
-  static var Up: UISwipeGestureRecognizerDirection { get }
-  static var Down: UISwipeGestureRecognizerDirection { get }
+  static var right: UISwipeGestureRecognizerDirection { get }
+  static var left: UISwipeGestureRecognizerDirection { get }
+  static var up: UISwipeGestureRecognizerDirection { get }
+  static var down: UISwipeGestureRecognizerDirection { get }
 }
 @available(iOS 3.2, *)
 class UISwipeGestureRecognizer : UIGestureRecognizer {

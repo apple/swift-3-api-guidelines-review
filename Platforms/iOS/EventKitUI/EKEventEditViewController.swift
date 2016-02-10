@@ -2,10 +2,10 @@
 enum EKEventEditViewAction : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Canceled
-  case Saved
-  case Deleted
-  static var Cancelled: EKEventEditViewAction { get }
+  case canceled
+  case saved
+  case deleted
+  static var cancelled: EKEventEditViewAction { get }
 }
 @available(iOS 4.0, *)
 class EKEventEditViewController : UINavigationController {
@@ -24,5 +24,5 @@ protocol EKEventEditViewDelegate : ObjectProtocol {
   @available(iOS 4.0, *)
   func eventEditViewController(controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction)
   @available(iOS 4.0, *)
-  optional func eventEditViewControllerDefaultCalendarForNewEvents(controller: EKEventEditViewController) -> EKCalendar
+  optional func eventEditViewControllerDefaultCalendarFor(newEvents controller: EKEventEditViewController) -> EKCalendar
 }

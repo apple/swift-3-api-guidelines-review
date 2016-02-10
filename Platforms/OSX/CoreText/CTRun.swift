@@ -4,10 +4,10 @@ class CTRun {
 struct CTRunStatus : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var NoStatus: CTRunStatus { get }
-  static var RightToLeft: CTRunStatus { get }
-  static var NonMonotonic: CTRunStatus { get }
-  static var HasNonIdentityMatrix: CTRunStatus { get }
+  static var noStatus: CTRunStatus { get }
+  static var rightToLeft: CTRunStatus { get }
+  static var nonMonotonic: CTRunStatus { get }
+  static var hasNonIdentityMatrix: CTRunStatus { get }
 }
 @available(OSX 10.5, *)
 func CTRunGetTypeID() -> CFTypeID

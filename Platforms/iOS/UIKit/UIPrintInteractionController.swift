@@ -4,11 +4,11 @@ typealias UIPrintInteractionCompletionHandler = (UIPrintInteractionController, B
 enum UIPrinterCutterBehavior : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case NoCut
-  case PrinterDefault
-  case CutAfterEachPage
-  case CutAfterEachCopy
-  case CutAfterEachJob
+  case noCut
+  case printerDefault
+  case cutAfterEachPage
+  case cutAfterEachCopy
+  case cutAfterEachJob
 }
 @available(iOS 4.2, *)
 class UIPrintInteractionController : Object {
@@ -29,11 +29,11 @@ class UIPrintInteractionController : Object {
   var printFormatter: UIPrintFormatter?
   @NSCopying var printingItem: AnyObject?
   var printingItems: [AnyObject]?
-  func presentAnimated(animated: Bool, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
+  func present(animated animated: Bool, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
   func presentFrom(rect: CGRect, in view: UIView, animated: Bool, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
   func presentFrom(item: UIBarButtonItem, animated: Bool, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
   func printTo(printer: UIPrinter, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
-  func dismissAnimated(animated: Bool)
+  func dismiss(animated animated: Bool)
   init()
 }
 protocol UIPrintInteractionControllerDelegate : ObjectProtocol {

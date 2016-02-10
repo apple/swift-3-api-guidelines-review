@@ -3,9 +3,9 @@
 enum PKPassType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Barcode
-  case Payment
-  case Any
+  case barcode
+  case payment
+  case any
 }
 class PKPass : PKObject {
   init(data: Data, error: ErrorPointer)
@@ -28,6 +28,6 @@ class PKPass : PKObject {
   var isRemotePass: Bool { get }
   @available(watchOS 2.0, *)
   var deviceName: String { get }
-  func localizedValueForFieldKey(key: String) -> AnyObject?
+  func localizedValueFor(fieldKey key: String) -> AnyObject?
   init()
 }

@@ -9,10 +9,10 @@ protocol UIDocumentPickerDelegate : ObjectProtocol {
 enum UIDocumentPickerMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Import
-  case Open
-  case ExportToService
-  case MoveToService
+  case `import`
+  case open
+  case exportToService
+  case moveToService
 }
 @available(iOS 8.0, *)
 class UIDocumentPickerViewController : UIViewController {

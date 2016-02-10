@@ -3,9 +3,9 @@
 enum MKPinAnnotationColor : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Red
-  case Green
-  case Purple
+  case red
+  case green
+  case purple
 }
 @available(iOS 3.0, *)
 class MKPinAnnotationView : MKAnnotationView {

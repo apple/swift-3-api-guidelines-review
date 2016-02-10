@@ -3,21 +3,21 @@
 enum NEOnDemandRuleAction : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Connect
-  case Disconnect
-  case EvaluateConnection
-  case Ignore
+  case connect
+  case disconnect
+  case evaluateConnection
+  case ignore
 }
 @available(iOS 8.0, *)
 enum NEOnDemandRuleInterfaceType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   @available(iOS 9.0, *)
-  case Any
+  case any
   @available(iOS 8.0, *)
-  case WiFi
+  case wiFi
   @available(iOS 8.0, *)
-  case Cellular
+  case cellular
 }
 @available(iOS 8.0, *)
 class NEOnDemandRule : Object, SecureCoding, Copying {
@@ -40,7 +40,7 @@ class NEOnDemandRule : Object, SecureCoding, Copying {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class NEOnDemandRuleConnect : NEOnDemandRule {
@@ -68,8 +68,8 @@ class NEOnDemandRuleEvaluateConnection : NEOnDemandRule {
 enum NEEvaluateConnectionRuleAction : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ConnectIfNeeded
-  case NeverConnect
+  case connectIfNeeded
+  case neverConnect
 }
 @available(iOS 8.0, *)
 class NEEvaluateConnectionRule : Object, SecureCoding, Copying {
@@ -90,5 +90,5 @@ class NEEvaluateConnectionRule : Object, SecureCoding, Copying {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

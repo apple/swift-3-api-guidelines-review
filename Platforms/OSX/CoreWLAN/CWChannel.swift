@@ -11,7 +11,7 @@ class CWChannel : Object, Copying, SecureCoding {
   func isEqualTo(channel: CWChannel) -> Bool
   init()
   @available(OSX 10.7, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.7, *)

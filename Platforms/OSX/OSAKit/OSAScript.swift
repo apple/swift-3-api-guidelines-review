@@ -21,12 +21,12 @@ let OSAStorageTextType: String
 struct OSAStorageOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Null: OSAStorageOptions { get }
-  static var PreventGetSource: OSAStorageOptions { get }
-  static var CompileIntoContext: OSAStorageOptions { get }
-  static var DontSetScriptLocation: OSAStorageOptions { get }
-  static var StayOpenApplet: OSAStorageOptions { get }
-  static var ShowStartupScreen: OSAStorageOptions { get }
+  static var null: OSAStorageOptions { get }
+  static var preventGetSource: OSAStorageOptions { get }
+  static var compileIntoContext: OSAStorageOptions { get }
+  static var dontSetScriptLocation: OSAStorageOptions { get }
+  static var stayOpenApplet: OSAStorageOptions { get }
+  static var showStartupScreen: OSAStorageOptions { get }
 }
 class OSAScript : Object, Copying {
   @available(OSX 10.6, *)
@@ -52,12 +52,12 @@ class OSAScript : Object, Copying {
   func executeAndReturnError(errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> AppleEventDescriptor?
   func executeAppleEvent(event: AppleEventDescriptor, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> AppleEventDescriptor?
   func executeAndReturnDisplayValue(displayValue: AutoreleasingUnsafeMutablePointer<AttributedString?>, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> AppleEventDescriptor?
-  func executeHandlerWithName(name: String, arguments: [AnyObject], error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> AppleEventDescriptor?
+  func executeHandler(name name: String, arguments: [AnyObject], error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> AppleEventDescriptor?
   @NSCopying var richTextSource: AttributedString? { get }
   func richTextFrom(descriptor: AppleEventDescriptor) -> AttributedString?
   func writeTo(url: URL, ofType type: String, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
   func writeTo(url: URL, ofType type: String, usingStorageOptions storageOptions: OSAStorageOptions = [], error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
-  func compiledDataForType(type: String, usingStorageOptions storageOptions: OSAStorageOptions = [], error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Data?
+  func compiledDataFor(type type: String, usingStorageOptions storageOptions: OSAStorageOptions = [], error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Data?
   init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

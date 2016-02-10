@@ -12,12 +12,12 @@ class NSDocumentController : Object, Coding, NSUserInterfaceValidations {
   func removeDocument(document: NSDocument)
   @IBAction func newDocument(sender: AnyObject?)
   func openUntitledDocumentAndDisplay(displayDocument: Bool) throws -> NSDocument
-  func makeUntitledDocumentOfType(typeName: String) throws -> NSDocument
+  func makeUntitledDocumentOf(type typeName: String) throws -> NSDocument
   @IBAction func openDocument(sender: AnyObject?)
   func urlsFromRunningOpenPanel() -> [URL]?
   func runModalOpenPanel(openPanel: NSOpenPanel, forTypes types: [String]?) -> Int
   @available(OSX 10.8, *)
-  func beginOpenPanelWithCompletionHandler(completionHandler: ([URL]?) -> Void)
+  func beginOpenPanel(completionHandler completionHandler: ([URL]?) -> Void)
   @available(OSX 10.8, *)
   func begin(openPanel: NSOpenPanel, forTypes inTypes: [String]?, completionHandler: (Int) -> Void)
   @available(OSX 10.7, *)
@@ -30,7 +30,7 @@ class NSDocumentController : Object, Coding, NSUserInterfaceValidations {
   @IBAction func saveAllDocuments(sender: AnyObject?)
   var hasEditedDocuments: Bool { get }
   func reviewUnsavedDocumentsWithAlertTitle(title: String?, cancellable: Bool, delegate: AnyObject?, didReviewAllSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func closeAllDocumentsWithDelegate(delegate: AnyObject?, didCloseAllSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func closeAllDocuments(delegate delegate: AnyObject?, didCloseAllSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
   func duplicateDocumentWithContentsOf(url: URL, copying duplicateByCopying: Bool, displayName displayNameOrNil: String?) throws -> NSDocument
   func presentError(error: Error, modalFor window: NSWindow, delegate: AnyObject?, didPresent didPresentSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
@@ -44,8 +44,8 @@ class NSDocumentController : Object, Coding, NSUserInterfaceValidations {
   var defaultType: String? { get }
   func typeForContentsOf(url: URL) throws -> String
   var documentClassNames: [String] { get }
-  func documentClassForType(typeName: String) -> AnyClass?
-  func displayNameForType(typeName: String) -> String?
+  func documentClassFor(type typeName: String) -> AnyClass?
+  func displayNameFor(type typeName: String) -> String?
   func validate(anItem: NSValidatedUserInterfaceItem) -> Bool
   func encodeWith(aCoder: Coder)
 }

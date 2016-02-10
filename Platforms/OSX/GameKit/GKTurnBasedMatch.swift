@@ -2,35 +2,35 @@
 enum GKTurnBasedMatchStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Open
-  case Ended
-  case Matching
+  case unknown
+  case open
+  case ended
+  case matching
 }
 enum GKTurnBasedParticipantStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Invited
-  case Declined
-  case Matching
-  case Active
-  case Done
+  case unknown
+  case invited
+  case declined
+  case matching
+  case active
+  case done
 }
 enum GKTurnBasedMatchOutcome : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Quit
-  case Won
-  case Lost
-  case Tied
-  case TimeExpired
-  case First
-  case Second
-  case Third
-  case Fourth
-  case CustomRange
+  case none
+  case quit
+  case won
+  case lost
+  case tied
+  case timeExpired
+  case first
+  case second
+  case third
+  case fourth
+  case customRange
 }
 @available(OSX 10.8, *)
 class GKTurnBasedParticipant : Object {
@@ -91,7 +91,7 @@ class GKTurnBasedMatch : Object {
   class func findFor(request: GKMatchRequest, withCompletionHandler completionHandler: (GKTurnBasedMatch?, Error?) -> Void)
   class func loadMatches(completionHandler completionHandler: (([GKTurnBasedMatch]?, Error?) -> Void)? = nil)
   @available(OSX 10.8, *)
-  class func loadWithID(matchID: String, withCompletionHandler completionHandler: ((GKTurnBasedMatch?, Error?) -> Void)? = nil)
+  class func load(id matchID: String, withCompletionHandler completionHandler: ((GKTurnBasedMatch?, Error?) -> Void)? = nil)
   @available(OSX 10.9, *)
   func rematch(completionHandler completionHandler: ((GKTurnBasedMatch?, Error?) -> Void)? = nil)
   @available(OSX 10.8, *)
@@ -101,7 +101,7 @@ class GKTurnBasedMatch : Object {
   func remove(completionHandler completionHandler: ((Error?) -> Void)? = nil)
   func loadData(completionHandler completionHandler: ((Data?, Error?) -> Void)? = nil)
   @available(OSX 10.9, *)
-  func endTurnWithNextParticipants(nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
+  func endTurn(nextParticipants nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
   @available(OSX 10.9, *)
   func participantQuitInTurnWith(matchOutcome: GKTurnBasedMatchOutcome, nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
   func participantQuitOutOfTurnWith(matchOutcome: GKTurnBasedMatchOutcome, withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
@@ -122,11 +122,11 @@ class GKTurnBasedMatch : Object {
 enum GKTurnBasedExchangeStatus : Int8 {
   init?(rawValue: Int8)
   var rawValue: Int8 { get }
-  case Unknown
-  case Active
-  case Complete
-  case Resolved
-  case Canceled
+  case unknown
+  case active
+  case complete
+  case resolved
+  case canceled
 }
 @available(OSX 10.10, *)
 var GKExchangeTimeoutDefault: TimeInterval
@@ -145,9 +145,9 @@ class GKTurnBasedExchange : Object {
   var completionDate: Date? { get }
   var replies: [GKTurnBasedExchangeReply]? { get }
   @available(OSX 10.10, *)
-  func cancelWithLocalizableMessageKey(key: String, arguments: [String], completionHandler: ((Error?) -> Void)? = nil)
+  func cancel(localizableMessageKey key: String, arguments: [String], completionHandler: ((Error?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func replyWithLocalizableMessageKey(key: String, arguments: [String], data: Data, completionHandler: ((Error?) -> Void)? = nil)
+  func reply(localizableMessageKey key: String, arguments: [String], data: Data, completionHandler: ((Error?) -> Void)? = nil)
   init()
 }
 @available(OSX 10.10, *)

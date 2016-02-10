@@ -3,9 +3,9 @@
 enum SCNAntialiasingMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
-  case Multisampling2X
-  case Multisampling4X
+  case none
+  case multisampling2X
+  case multisampling4X
 }
 @available(iOS 9.0, *)
 let SCNPreferredRenderingAPIKey: String
@@ -35,9 +35,9 @@ class SCNView : UIView, SCNSceneRenderer, SCNTechniqueSupport {
   @available(iOS 8.0, *)
   func hitTest(point: CGPoint, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
   @available(iOS 8.0, *)
-  func isNodeInsideFrustum(node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
+  func isNodeInside(frustum node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
   @available(iOS 9.0, *)
-  func nodesInsideFrustumWithPointOfView(pointOfView: SCNNode) -> [SCNNode]
+  func nodesInsideFrustumWithPointOf(view pointOfView: SCNNode) -> [SCNNode]
   @available(iOS 8.0, *)
   func projectPoint(point: SCNVector3) -> SCNVector3
   @available(iOS 8.0, *)

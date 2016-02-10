@@ -2,11 +2,11 @@
 enum AVAssetWriterStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Writing
-  case Completed
-  case Failed
-  case Cancelled
+  case unknown
+  case writing
+  case completed
+  case failed
+  case cancelled
 }
 @available(OSX 10.7, *)
 class AVAssetWriter : Object {
@@ -29,7 +29,7 @@ class AVAssetWriter : Object {
   func endSessionAtSourceTime(endTime: CMTime)
   func cancelWriting()
   @available(OSX 10.9, *)
-  func finishWritingWithCompletionHandler(handler: () -> Void)
+  func finishWriting(completionHandler handler: () -> Void)
 }
 extension AVAssetWriter {
   var movieFragmentInterval: CMTime

@@ -10,22 +10,22 @@ var kAudioLevelControlPropertyDecibelsToScalarTransferFunction: AudioObjectPrope
 enum AudioLevelControlTransferFunction : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case TranferFunctionLinear
-  case TranferFunction1Over3
-  case TranferFunction1Over2
-  case TranferFunction3Over4
-  case TranferFunction3Over2
-  case TranferFunction2Over1
-  case TranferFunction3Over1
-  case TranferFunction4Over1
-  case TranferFunction5Over1
-  case TranferFunction6Over1
-  case TranferFunction7Over1
-  case TranferFunction8Over1
-  case TranferFunction9Over1
-  case TranferFunction10Over1
-  case TranferFunction11Over1
-  case TranferFunction12Over1
+  case tranferFunctionLinear
+  case tranferFunction1Over3
+  case tranferFunction1Over2
+  case tranferFunction3Over4
+  case tranferFunction3Over2
+  case tranferFunction2Over1
+  case tranferFunction3Over1
+  case tranferFunction4Over1
+  case tranferFunction5Over1
+  case tranferFunction6Over1
+  case tranferFunction7Over1
+  case tranferFunction8Over1
+  case tranferFunction9Over1
+  case tranferFunction10Over1
+  case tranferFunction11Over1
+  case tranferFunction12Over1
 }
 typealias AudioHardwarePropertyID = AudioObjectPropertySelector
 typealias AudioHardwarePropertyListenerProc = @convention(c) (AudioHardwarePropertyID, UnsafeMutablePointer<Void>) -> OSStatus

@@ -8,11 +8,11 @@ class AVAsset : Object, Copying, AVAsynchronousKeyValueLoading {
   var preferredTransform: CGAffineTransform { get }
   init()
   @available(iOS 4.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
-  func statusOfValueForKey(key: String, error outError: ErrorPointer) -> AVKeyValueStatus
+  func statusOfValueFor(key key: String, error outError: ErrorPointer) -> AVKeyValueStatus
   @available(iOS 4.0, *)
-  func loadValuesAsynchronouslyForKeys(keys: [String], completionHandler handler: (() -> Void)? = nil)
+  func loadValuesAsynchronouslyFor(keys keys: [String], completionHandler handler: (() -> Void)? = nil)
 }
 extension AVAsset {
   var providesPreciseDurationAndTiming: Bool { get }
@@ -25,18 +25,18 @@ extension AVAsset {
 struct AVAssetReferenceRestrictions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ForbidNone: AVAssetReferenceRestrictions { get }
-  static var ForbidRemoteReferenceToLocal: AVAssetReferenceRestrictions { get }
-  static var ForbidLocalReferenceToRemote: AVAssetReferenceRestrictions { get }
-  static var ForbidCrossSiteReference: AVAssetReferenceRestrictions { get }
-  static var ForbidLocalReferenceToLocal: AVAssetReferenceRestrictions { get }
-  static var ForbidAll: AVAssetReferenceRestrictions { get }
+  static var forbidNone: AVAssetReferenceRestrictions { get }
+  static var forbidRemoteReferenceToLocal: AVAssetReferenceRestrictions { get }
+  static var forbidLocalReferenceToRemote: AVAssetReferenceRestrictions { get }
+  static var forbidCrossSiteReference: AVAssetReferenceRestrictions { get }
+  static var forbidLocalReferenceToLocal: AVAssetReferenceRestrictions { get }
+  static var forbidAll: AVAssetReferenceRestrictions { get }
 }
 extension AVAsset {
   var tracks: [AVAssetTrack] { get }
-  func trackWithTrackID(trackID: CMPersistentTrackID) -> AVAssetTrack?
-  func tracksWithMediaType(mediaType: String) -> [AVAssetTrack]
-  func tracksWithMediaCharacteristic(mediaCharacteristic: String) -> [AVAssetTrack]
+  func trackWith(trackID trackID: CMPersistentTrackID) -> AVAssetTrack?
+  func tracksWith(mediaType mediaType: String) -> [AVAssetTrack]
+  func tracksWith(mediaCharacteristic mediaCharacteristic: String) -> [AVAssetTrack]
   @available(iOS 7.0, *)
   var trackGroups: [AVAssetTrackGroup] { get }
 }
@@ -48,21 +48,21 @@ extension AVAsset {
   @available(iOS 8.0, *)
   var metadata: [AVMetadataItem] { get }
   var availableMetadataFormats: [String] { get }
-  func metadataForFormat(format: String) -> [AVMetadataItem]
+  func metadataFor(format format: String) -> [AVMetadataItem]
 }
 extension AVAsset {
   @available(iOS 4.3, *)
   var availableChapterLocales: [Locale] { get }
   @available(iOS 4.3, *)
-  func chapterMetadataGroupsWithTitleLocale(locale: Locale, containingItemsWithCommonKeys commonKeys: [String]?) -> [AVTimedMetadataGroup]
+  func chapterMetadataGroupsWith(titleLocale locale: Locale, containingItemsWithCommonKeys commonKeys: [String]?) -> [AVTimedMetadataGroup]
   @available(iOS 6.0, *)
-  func chapterMetadataGroupsBestMatchingPreferredLanguages(preferredLanguages: [String]) -> [AVTimedMetadataGroup]
+  func chapterMetadataGroupsBestMatching(preferredLanguages preferredLanguages: [String]) -> [AVTimedMetadataGroup]
 }
 extension AVAsset {
   @available(iOS 5.0, *)
   var availableMediaCharacteristicsWithMediaSelectionOptions: [String] { get }
   @available(iOS 5.0, *)
-  func mediaSelectionGroupForMediaCharacteristic(mediaCharacteristic: String) -> AVMediaSelectionGroup?
+  func mediaSelectionGroupFor(mediaCharacteristic mediaCharacteristic: String) -> AVMediaSelectionGroup?
   @available(iOS 9.0, *)
   var preferredMediaSelection: AVMediaSelection { get }
 }
@@ -124,7 +124,7 @@ let AVAssetMediaSelectionGroupsDidChangeNotification: String
 protocol AVFragmentMinding {
 }
 extension AVFragmentedAsset {
-  func trackWithTrackID(trackID: CMPersistentTrackID) -> AVFragmentedAssetTrack?
-  func tracksWithMediaType(mediaType: String) -> [AVFragmentedAssetTrack]
-  func tracksWithMediaCharacteristic(mediaCharacteristic: String) -> [AVFragmentedAssetTrack]
+  func trackWith(trackID trackID: CMPersistentTrackID) -> AVFragmentedAssetTrack?
+  func tracksWith(mediaType mediaType: String) -> [AVFragmentedAssetTrack]
+  func tracksWith(mediaCharacteristic mediaCharacteristic: String) -> [AVFragmentedAssetTrack]
 }

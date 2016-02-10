@@ -4,13 +4,13 @@ let MCErrorDomain: String
 enum MCErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case NotConnected
-  case InvalidParameter
-  case Unsupported
-  case TimedOut
-  case Cancelled
-  case Unavailable
+  case unknown
+  case notConnected
+  case invalidParameter
+  case unsupported
+  case timedOut
+  case cancelled
+  case unavailable
 }
 
 @available(OSX 10.10, iOS 7.0, *)

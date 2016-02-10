@@ -6,17 +6,17 @@ func CTFrameGetTypeID() -> CFTypeID
 enum CTFrameProgression : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case TopToBottom
-  case RightToLeft
-  case LeftToRight
+  case topToBottom
+  case rightToLeft
+  case leftToRight
 }
 @available(OSX 10.5, *)
 let kCTFrameProgressionAttributeName: CFString
 enum CTFramePathFillRule : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case EvenOdd
-  case WindingNumber
+  case evenOdd
+  case windingNumber
 }
 @available(OSX 10.7, *)
 let kCTFramePathFillRuleAttributeName: CFString

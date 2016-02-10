@@ -3,28 +3,28 @@
 enum AVAudioUnitDistortionPreset : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case DrumsBitBrush
-  case DrumsBufferBeats
-  case DrumsLoFi
-  case MultiBrokenSpeaker
-  case MultiCellphoneConcert
-  case MultiDecimated1
-  case MultiDecimated2
-  case MultiDecimated3
-  case MultiDecimated4
-  case MultiDistortedFunk
-  case MultiDistortedCubed
-  case MultiDistortedSquared
-  case MultiEcho1
-  case MultiEcho2
-  case MultiEchoTight1
-  case MultiEchoTight2
-  case MultiEverythingIsBroken
-  case SpeechAlienChatter
-  case SpeechCosmicInterference
-  case SpeechGoldenPi
-  case SpeechRadioTower
-  case SpeechWaves
+  case drumsBitBrush
+  case drumsBufferBeats
+  case drumsLoFi
+  case multiBrokenSpeaker
+  case multiCellphoneConcert
+  case multiDecimated1
+  case multiDecimated2
+  case multiDecimated3
+  case multiDecimated4
+  case multiDistortedFunk
+  case multiDistortedCubed
+  case multiDistortedSquared
+  case multiEcho1
+  case multiEcho2
+  case multiEchoTight1
+  case multiEchoTight2
+  case multiEverythingIsBroken
+  case speechAlienChatter
+  case speechCosmicInterference
+  case speechGoldenPi
+  case speechRadioTower
+  case speechWaves
 }
 @available(iOS 8.0, *)
 class AVAudioUnitDistortion : AVAudioUnitEffect {

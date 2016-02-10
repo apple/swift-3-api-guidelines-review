@@ -15,12 +15,12 @@ class NSSpellChecker : Object {
   @available(OSX 10.6, *)
   func menuFor(result: TextCheckingResult, string checkedString: String, options: [String : AnyObject]? = [:], atLocation location: Point, in view: NSView) -> NSMenu?
   @available(OSX 10.6, *)
-  func userQuotesArrayForLanguage(language: String) -> [String]
+  func userQuotesArrayFor(language language: String) -> [String]
   @available(OSX 10.6, *)
   var userReplacementsDictionary: [String : String] { get }
-  func updateSpellingPanelWithMisspelledWord(word: String)
+  func updateSpellingPanelWith(misspelledWord word: String)
   @available(OSX 10.5, *)
-  func updateSpellingPanelWithGrammarString(string: String, detail: [String : AnyObject])
+  func updateSpellingPanelWith(grammarString string: String, detail: [String : AnyObject])
   var spellingPanel: NSPanel { get }
   var accessoryView: NSView?
   @available(OSX 10.6, *)
@@ -30,16 +30,16 @@ class NSSpellChecker : Object {
   @available(OSX 10.6, *)
   func updatePanels()
   func ignoreWord(wordToIgnore: String, inSpellDocumentWithTag tag: Int)
-  func ignoredWordsInSpellDocumentWithTag(tag: Int) -> [String]?
+  func ignoredWordsInSpellDocumentWith(tag tag: Int) -> [String]?
   func setIgnoredWords(words: [String], inSpellDocumentWithTag tag: Int)
   @available(OSX 10.6, *)
-  func guessesForWordRange(range: NSRange, in string: String, language: String?, inSpellDocumentWithTag tag: Int) -> [String]?
+  func guessesFor(wordRange range: NSRange, in string: String, language: String?, inSpellDocumentWithTag tag: Int) -> [String]?
   @available(OSX 10.7, *)
-  func correctionForWordRange(range: NSRange, in string: String, language: String, inSpellDocumentWithTag tag: Int) -> String?
-  func completionsForPartialWordRange(range: NSRange, in string: String, language: String?, inSpellDocumentWithTag tag: Int) -> [String]?
+  func correctionFor(wordRange range: NSRange, in string: String, language: String, inSpellDocumentWithTag tag: Int) -> String?
+  func completionsFor(partialWordRange range: NSRange, in string: String, language: String?, inSpellDocumentWithTag tag: Int) -> [String]?
   @available(OSX 10.7, *)
-  func languageForWordRange(range: NSRange, in string: String, orthography: Orthography?) -> String?
-  func closeSpellDocumentWithTag(tag: Int)
+  func languageFor(wordRange range: NSRange, in string: String, orthography: Orthography?) -> String?
+  func closeSpellDocument(tag tag: Int)
   @available(OSX 10.7, *)
   func record(response: NSCorrectionResponse, toCorrection correction: String, forWord word: String, language: String?, inSpellDocumentWithTag tag: Int)
   @available(OSX 10.7, *)
@@ -107,19 +107,19 @@ let NSTextCheckingRegularExpressionsKey: String
 enum NSCorrectionResponse : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Accepted
-  case Rejected
-  case Ignored
-  case Edited
-  case Reverted
+  case none
+  case accepted
+  case rejected
+  case ignored
+  case edited
+  case reverted
 }
 enum NSCorrectionIndicatorType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Reversion
-  case Guesses
+  case `default`
+  case reversion
+  case guesses
 }
 @available(OSX 10.7, *)
 let NSSpellCheckerDidChangeAutomaticSpellingCorrectionNotification: String

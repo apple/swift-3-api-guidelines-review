@@ -1,29 +1,29 @@
 
 @available(OSX 10.10, *)
 class NSAccessibilityElement : Object, NSAccessibility {
-  class func accessibilityElementWithRole(role: String, frame: Rect, label: String?, parent: AnyObject?) -> AnyObject
+  class func accessibilityElementWith(role role: String, frame: Rect, label: String?, parent: AnyObject?) -> AnyObject
   func accessibilityAddChildElement(childElement: NSAccessibilityElement)
   func accessibilityFrameInParentSpace() -> Rect
   func setAccessibilityFrameInParentSpace(accessibilityFrameInParentSpace: Rect)
   init()
   @available(OSX 10.10, *)
-  func accessibilityLayoutPointForScreenPoint(point: Point) -> Point
+  func accessibilityLayoutPointFor(screenPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityLayoutSizeForScreenSize(size: Size) -> Size
+  func accessibilityLayoutSizeFor(screenSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityScreenPointForLayoutPoint(point: Point) -> Point
+  func accessibilityScreenPointFor(layoutPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityScreenSizeForLayoutSize(size: Size) -> Size
+  func accessibilityScreenSizeFor(layoutSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityCellForColumn(column: Int, row: Int) -> AnyObject?
+  func accessibilityCellFor(column column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
   func accessibilityAttributedStringFor(range: NSRange) -> AttributedString?
   @available(OSX 10.10, *)
-  func accessibilityRangeForLine(line: Int) -> NSRange
+  func accessibilityRangeFor(line line: Int) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityStringFor(range: NSRange) -> String?
   @available(OSX 10.10, *)
-  func accessibilityRangeForPosition(point: Point) -> NSRange
+  func accessibilityRangeFor(position point: Point) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityRangeFor(index: Int) -> NSRange
   @available(OSX 10.10, *)

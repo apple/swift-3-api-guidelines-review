@@ -29,17 +29,17 @@ class NSSound : Object, Copying, Coding, NSPasteboardReading, NSPasteboardWritin
   @available(OSX 10.5, *)
   var playbackDeviceIdentifier: String?
   init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   class func readableTypesFor(pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  class func readingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
+  class func readingOptionsFor(type type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
   func writableTypesFor(pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  func writingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
-  func pasteboardPropertyListForType(type: String) -> AnyObject?
+  func writingOptionsFor(type type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
+  func pasteboardPropertyListFor(type type: String) -> AnyObject?
 }
 extension NSSound {
 }

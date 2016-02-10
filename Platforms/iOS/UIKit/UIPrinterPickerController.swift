@@ -21,9 +21,9 @@ class UIPrinterPickerController : Object {
   /*not inherited*/ init(initiallySelectedPrinter printer: UIPrinter?)
   var selectedPrinter: UIPrinter? { get }
   weak var delegate: @sil_weak UIPrinterPickerControllerDelegate?
-  func presentAnimated(animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler? = nil) -> Bool
+  func present(animated animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler? = nil) -> Bool
   func presentFrom(rect: CGRect, in view: UIView, animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler? = nil) -> Bool
   func presentFrom(item: UIBarButtonItem, animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler? = nil) -> Bool
-  func dismissAnimated(animated: Bool)
+  func dismiss(animated animated: Bool)
   init()
 }

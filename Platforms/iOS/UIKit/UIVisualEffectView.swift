@@ -3,15 +3,15 @@
 enum UIBlurEffectStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ExtraLight
-  case Light
-  case Dark
+  case extraLight
+  case light
+  case dark
 }
 @available(iOS 8.0, *)
 class UIVisualEffect : Object, Copying, SecureCoding {
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)

@@ -3,9 +3,9 @@
 enum CKRecordSavePolicy : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case IfServerRecordUnchanged
-  case ChangedKeys
-  case AllKeys
+  case ifServerRecordUnchanged
+  case changedKeys
+  case allKeys
 }
 @available(OSX 10.10, *)
 class CKModifyRecordsOperation : CKDatabaseOperation {

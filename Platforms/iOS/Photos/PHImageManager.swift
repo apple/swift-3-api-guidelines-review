@@ -3,25 +3,25 @@
 enum PHImageRequestOptionsVersion : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Current
-  case Unadjusted
-  case Original
+  case current
+  case unadjusted
+  case original
 }
 @available(iOS 8.0, *)
 enum PHImageRequestOptionsDeliveryMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Opportunistic
-  case HighQualityFormat
-  case FastFormat
+  case opportunistic
+  case highQualityFormat
+  case fastFormat
 }
 @available(iOS 8.0, *)
 enum PHImageRequestOptionsResizeMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Fast
-  case Exact
+  case none
+  case fast
+  case exact
 }
 @available(iOS 8.0, *)
 typealias PHAssetImageProgressHandler = (Double, Error?, UnsafeMutablePointer<ObjCBool>, [Object : AnyObject]?) -> Void
@@ -36,7 +36,7 @@ class PHImageRequestOptions : Object, Copying {
   var progressHandler: PHAssetImageProgressHandler?
   init()
   @available(iOS 8.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.1, *)
 class PHLivePhotoRequestOptions : Object, Copying {
@@ -45,23 +45,23 @@ class PHLivePhotoRequestOptions : Object, Copying {
   var progressHandler: PHAssetImageProgressHandler?
   init()
   @available(iOS 9.1, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 enum PHVideoRequestOptionsVersion : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Current
-  case Original
+  case current
+  case original
 }
 @available(iOS 8.0, *)
 enum PHVideoRequestOptionsDeliveryMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Automatic
-  case HighQualityFormat
-  case MediumQualityFormat
-  case FastFormat
+  case automatic
+  case highQualityFormat
+  case mediumQualityFormat
+  case fastFormat
 }
 @available(iOS 8.0, *)
 typealias PHAssetVideoProgressHandler = (Double, Error?, UnsafeMutablePointer<ObjCBool>, [Object : AnyObject]?) -> Void
@@ -96,9 +96,9 @@ class PHImageManager : Object {
   func cancelImageRequest(requestID: PHImageRequestID)
   @available(iOS 9.1, *)
   func requestLivePhotoFor(asset: PHAsset, targetSize: CGSize, contentMode: PHImageContentMode, options: PHLivePhotoRequestOptions?, resultHandler: (PHLivePhoto?, [Object : AnyObject]?) -> Void) -> PHImageRequestID
-  func requestPlayerItemForVideo(asset: PHAsset, options: PHVideoRequestOptions?, resultHandler: (AVPlayerItem?, [Object : AnyObject]?) -> Void) -> PHImageRequestID
-  func requestExportSessionForVideo(asset: PHAsset, options: PHVideoRequestOptions?, exportPreset: String, resultHandler: (AVAssetExportSession?, [Object : AnyObject]?) -> Void) -> PHImageRequestID
-  func requestAVAssetForVideo(asset: PHAsset, options: PHVideoRequestOptions?, resultHandler: (AVAsset?, AVAudioMix?, [Object : AnyObject]?) -> Void) -> PHImageRequestID
+  func requestPlayerItemFor(video asset: PHAsset, options: PHVideoRequestOptions?, resultHandler: (AVPlayerItem?, [Object : AnyObject]?) -> Void) -> PHImageRequestID
+  func requestExportSessionFor(video asset: PHAsset, options: PHVideoRequestOptions?, exportPreset: String, resultHandler: (AVAssetExportSession?, [Object : AnyObject]?) -> Void) -> PHImageRequestID
+  func requestAVAssetFor(video asset: PHAsset, options: PHVideoRequestOptions?, resultHandler: (AVAsset?, AVAudioMix?, [Object : AnyObject]?) -> Void) -> PHImageRequestID
   init()
 }
 @available(iOS 8.0, *)

@@ -2,10 +2,10 @@
 enum XMLDocumentContentKind : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case XMLKind
-  case XHTMLKind
-  case HTMLKind
-  case TextKind
+  case xmlKind
+  case xhtmlKind
+  case htmlKind
+  case textKind
 }
 class XMLDocument : XMLNode {
   init()
@@ -29,7 +29,7 @@ class XMLDocument : XMLNode {
   func addChild(child: XMLNode)
   func replaceChildAt(index: Int, withNode node: XMLNode)
   @NSCopying var xmlData: Data { get }
-  func xmlDataWithOptions(options: Int) -> Data
+  func xmlDataWith(options options: Int) -> Data
   func objectByApplyingXSLT(xslt: Data, arguments: [String : String]?) throws -> AnyObject
   func objectByApplyingXSLTString(xslt: String, arguments: [String : String]?) throws -> AnyObject
   func objectByApplyingXSLTAt(xsltURL: URL, arguments argument: [String : String]?) throws -> AnyObject

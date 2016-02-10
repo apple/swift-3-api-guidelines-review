@@ -2,12 +2,12 @@
 enum WebNavigationType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case LinkClicked
-  case FormSubmitted
-  case BackForward
-  case Reload
-  case FormResubmitted
-  case Other
+  case linkClicked
+  case formSubmitted
+  case backForward
+  case reload
+  case formResubmitted
+  case other
 }
 let WebActionNavigationTypeKey: String
 let WebActionElementKey: String

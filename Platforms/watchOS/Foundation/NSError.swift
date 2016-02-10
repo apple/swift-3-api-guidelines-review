@@ -27,8 +27,8 @@ class Error : Object, Copying, SecureCoding {
   @available(watchOS 2.0, *)
   class func setUserInfoValueProviderForDomain(errorDomain: String, provider: ((Error, String) -> AnyObject?)? = nil)
   @available(watchOS 2.0, *)
-  class func userInfoValueProviderForDomain(errorDomain: String) -> ((Error, String) -> AnyObject?)?
-  func copy(zone zone: Zone = nil) -> AnyObject
+  class func userInfoValueProviderFor(domain errorDomain: String) -> ((Error, String) -> AnyObject?)?
+  func copyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
@@ -39,8 +39,8 @@ extension Error : ErrorType {
   var _code: Int { get }
 }
 extension Object {
-  class func attemptRecoveryFromError(error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func attemptRecoveryFromError(error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  class func attemptRecoveryFromError(error: Error, optionIndex recoveryOptionIndex: Int) -> Bool
-  func attemptRecoveryFromError(error: Error, optionIndex recoveryOptionIndex: Int) -> Bool
+  class func attemptRecoveryFrom(error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func attemptRecoveryFrom(error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  class func attemptRecoveryFrom(error: Error, optionIndex recoveryOptionIndex: Int) -> Bool
+  func attemptRecoveryFrom(error: Error, optionIndex recoveryOptionIndex: Int) -> Bool
 }

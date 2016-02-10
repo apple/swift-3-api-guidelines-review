@@ -12,7 +12,7 @@ class UIPopoverController : Object, UIAppearanceContainer {
   var passthroughViews: [UIView]?
   func presentPopoverFrom(rect: CGRect, in view: UIView, permittedArrowDirections arrowDirections: UIPopoverArrowDirection, animated: Bool)
   func presentPopoverFrom(item: UIBarButtonItem, permittedArrowDirections arrowDirections: UIPopoverArrowDirection, animated: Bool)
-  func dismissPopoverAnimated(animated: Bool)
+  func dismissPopover(animated animated: Bool)
   @available(iOS 7.0, *)
   @NSCopying var backgroundColor: UIColor?
   @available(iOS 5.0, *)

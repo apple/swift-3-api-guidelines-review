@@ -2,17 +2,17 @@
 @available(watchOS 2.0, *)
 class UIFont : Object, Copying {
   @available(watchOS 2.0, *)
-  class func preferredFontForTextStyle(style: String) -> UIFont
+  class func preferredFontFor(textStyle style: String) -> UIFont
   /*not inherited*/ init?(name fontName: String, size fontSize: CGFloat)
   class func familyNames() -> [String]
-  class func fontNamesForFamilyName(familyName: String) -> [String]
-  class func systemFontOfSize(fontSize: CGFloat) -> UIFont
-  class func boldSystemFontOfSize(fontSize: CGFloat) -> UIFont
-  class func italicSystemFontOfSize(fontSize: CGFloat) -> UIFont
+  class func fontNamesFor(familyName familyName: String) -> [String]
+  class func systemFontOf(size fontSize: CGFloat) -> UIFont
+  class func boldSystemFontOf(size fontSize: CGFloat) -> UIFont
+  class func italicSystemFontOf(size fontSize: CGFloat) -> UIFont
   @available(watchOS 2.0, *)
-  class func systemFontOfSize(fontSize: CGFloat, weight: CGFloat) -> UIFont
+  class func systemFontOf(size fontSize: CGFloat, weight: CGFloat) -> UIFont
   @available(watchOS 2.0, *)
-  class func monospacedDigitSystemFontOfSize(fontSize: CGFloat, weight: CGFloat) -> UIFont
+  class func monospacedDigitSystemFontOf(size fontSize: CGFloat, weight: CGFloat) -> UIFont
   var familyName: String { get }
   var fontName: String { get }
   var pointSize: CGFloat { get }
@@ -30,5 +30,5 @@ class UIFont : Object, Copying {
   func fontDescriptor() -> UIFontDescriptor
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

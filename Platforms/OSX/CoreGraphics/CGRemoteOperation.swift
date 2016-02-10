@@ -8,9 +8,9 @@ typealias CGScreenRefreshCallback = @convention(c) (UInt32, UnsafePointer<CGRect
 struct CGScreenUpdateOperation : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var Refresh: CGScreenUpdateOperation { get }
-  static var Move: CGScreenUpdateOperation { get }
-  static var ReducedDirtyRectangleCount: CGScreenUpdateOperation { get }
+  static var refresh: CGScreenUpdateOperation { get }
+  static var move: CGScreenUpdateOperation { get }
+  static var reducedDirtyRectangleCount: CGScreenUpdateOperation { get }
 }
 struct CGScreenUpdateMoveDelta {
   var dX: Int32
@@ -29,15 +29,15 @@ func CGWindowServerCreateServerPort() -> CFMachPort?
 struct CGEventFilterMask : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var PermitLocalMouseEvents: CGEventFilterMask { get }
-  static var PermitLocalKeyboardEvents: CGEventFilterMask { get }
-  static var PermitSystemDefinedEvents: CGEventFilterMask { get }
+  static var permitLocalMouseEvents: CGEventFilterMask { get }
+  static var permitLocalKeyboardEvents: CGEventFilterMask { get }
+  static var permitSystemDefinedEvents: CGEventFilterMask { get }
 }
 enum CGEventSuppressionState : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case EventSuppressionStateSuppressionInterval
-  case EventSuppressionStateRemoteMouseDrag
-  case NumberOfEventSuppressionStates
+  case eventSuppressionStateSuppressionInterval
+  case eventSuppressionStateRemoteMouseDrag
+  case numberOfEventSuppressionStates
 }
 typealias CGRectCount = UInt32

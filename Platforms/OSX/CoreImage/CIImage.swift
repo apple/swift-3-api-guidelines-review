@@ -38,9 +38,9 @@ class CIImage : Object, SecureCoding, Copying {
   @available(OSX 10.10, *)
   func applyingOrientation(orientation: Int32) -> CIImage
   @available(OSX 10.10, *)
-  func imageTransformForOrientation(orientation: Int32) -> CGAffineTransform
+  func imageTransformFor(orientation orientation: Int32) -> CGAffineTransform
   @available(OSX 10.4, *)
-  func byCompositingOverImage(dest: CIImage) -> CIImage
+  func by(compositingOverImage dest: CIImage) -> CIImage
   func byCroppingTo(rect: CGRect) -> CIImage
   @available(OSX 10.10, *)
   func byClampingToExtent() -> CIImage
@@ -64,7 +64,7 @@ class CIImage : Object, SecureCoding, Copying {
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.4, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 typealias CIFormat = Int32
 @available(OSX 10.4, *)

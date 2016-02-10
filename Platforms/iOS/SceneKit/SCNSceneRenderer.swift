@@ -12,20 +12,20 @@ let SCNHitTestIgnoreHiddenNodesKey: String
 enum SCNRenderingAPI : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Metal
-  case OpenGLES2
+  case metal
+  case openGLES2
 }
 @available(iOS 9.0, *)
 struct SCNDebugOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var None: SCNDebugOptions { get }
-  static var ShowPhysicsShapes: SCNDebugOptions { get }
-  static var ShowBoundingBoxes: SCNDebugOptions { get }
-  static var ShowLightInfluences: SCNDebugOptions { get }
-  static var ShowLightExtents: SCNDebugOptions { get }
-  static var ShowPhysicsFields: SCNDebugOptions { get }
-  static var ShowWireframe: SCNDebugOptions { get }
+  static var none: SCNDebugOptions { get }
+  static var showPhysicsShapes: SCNDebugOptions { get }
+  static var showBoundingBoxes: SCNDebugOptions { get }
+  static var showLightInfluences: SCNDebugOptions { get }
+  static var showLightExtents: SCNDebugOptions { get }
+  static var showPhysicsFields: SCNDebugOptions { get }
+  static var showWireframe: SCNDebugOptions { get }
 }
 @available(iOS 8.0, *)
 class SCNHitTestResult : Object {
@@ -37,7 +37,7 @@ class SCNHitTestResult : Object {
   var localNormal: SCNVector3 { get }
   var worldNormal: SCNVector3 { get }
   var modelTransform: SCNMatrix4 { get }
-  func textureCoordinatesWithMappingChannel(channel: Int) -> CGPoint
+  func textureCoordinatesWith(mappingChannel channel: Int) -> CGPoint
   init()
 }
 protocol SCNSceneRenderer : ObjectProtocol {
@@ -49,9 +49,9 @@ protocol SCNSceneRenderer : ObjectProtocol {
   @available(iOS 8.0, *)
   func hitTest(point: CGPoint, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
   @available(iOS 8.0, *)
-  func isNodeInsideFrustum(node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
+  func isNodeInside(frustum node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
   @available(iOS 9.0, *)
-  func nodesInsideFrustumWithPointOfView(pointOfView: SCNNode) -> [SCNNode]
+  func nodesInsideFrustumWithPointOf(view pointOfView: SCNNode) -> [SCNNode]
   @available(iOS 8.0, *)
   func projectPoint(point: SCNVector3) -> SCNVector3
   @available(iOS 8.0, *)

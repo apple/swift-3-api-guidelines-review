@@ -7,7 +7,7 @@ class SKTextureAtlas : Object, Coding {
   class func preloadTextureAtlases(textureAtlases: [SKTextureAtlas], withCompletionHandler completionHandler: () -> Void)
   @available(iOS 9.0, *)
   class func preloadTextureAtlasesNamed(atlasNames: [String], withCompletionHandler completionHandler: (Error?, [SKTextureAtlas]) -> Void)
-  func preloadWithCompletionHandler(completionHandler: () -> Void)
+  func preload(completionHandler completionHandler: () -> Void)
   var textureNames: [String] { get }
   init()
   func encodeWith(aCoder: Coder)

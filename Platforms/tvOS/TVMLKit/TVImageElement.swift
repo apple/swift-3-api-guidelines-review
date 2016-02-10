@@ -3,10 +3,10 @@
 enum TVImageType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Image
-  case Fullscreen
-  case Decoration
-  case Hero
+  case image
+  case fullscreen
+  case decoration
+  case hero
 }
 @available(tvOS 9.0, *)
 class TVImageElement : TVViewElement {

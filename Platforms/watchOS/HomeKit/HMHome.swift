@@ -9,7 +9,7 @@ class HMHome : Object {
 }
 extension HMHome {
   var accessories: [HMAccessory] { get }
-  func servicesWithTypes(serviceTypes: [String]) -> [HMService]?
+  func servicesWith(types serviceTypes: [String]) -> [HMService]?
 }
 extension HMHome {
   @available(watchOS 2.0, *)
@@ -31,7 +31,7 @@ extension HMHome {
   var actionSets: [HMActionSet] { get }
   func executeActionSet(actionSet: HMActionSet, completionHandler completion: (Error?) -> Void)
   @available(watchOS 2.0, *)
-  func builtinActionSetOfType(actionSetType: String) -> HMActionSet?
+  func builtinActionSetOf(type actionSetType: String) -> HMActionSet?
 }
 extension HMHome {
   var triggers: [HMTrigger] { get }

@@ -21,9 +21,9 @@ class SCNRenderer : Object, SCNSceneRenderer, SCNTechniqueSupport {
   @available(tvOS 8.0, *)
   func hitTest(point: CGPoint, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
   @available(tvOS 8.0, *)
-  func isNodeInsideFrustum(node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
+  func isNodeInside(frustum node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
   @available(tvOS 9.0, *)
-  func nodesInsideFrustumWithPointOfView(pointOfView: SCNNode) -> [SCNNode]
+  func nodesInsideFrustumWithPointOf(view pointOfView: SCNNode) -> [SCNNode]
   @available(tvOS 8.0, *)
   func projectPoint(point: SCNVector3) -> SCNVector3
   @available(tvOS 8.0, *)

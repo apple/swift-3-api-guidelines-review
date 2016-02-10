@@ -3,9 +3,9 @@
 enum NSScrollElasticity : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Automatic
-  case None
-  case Allowed
+  case automatic
+  case none
+  case allowed
 }
 struct __SFlags {
   var RESERVED: UInt32
@@ -42,9 +42,9 @@ class NSScrollView : NSView, NSTextFinderBarContainer {
   init(frame frameRect: Rect)
   init?(coder: Coder)
   @available(OSX 10.7, *)
-  class func frameSizeForContentSize(cSize: Size, horizontalScrollerClass: AnyClass?, verticalScrollerClass: AnyClass?, borderType aType: NSBorderType, controlSize: NSControlSize, scrollerStyle: NSScrollerStyle) -> Size
+  class func frameSizeFor(contentSize cSize: Size, horizontalScrollerClass: AnyClass?, verticalScrollerClass: AnyClass?, borderType aType: NSBorderType, controlSize: NSControlSize, scrollerStyle: NSScrollerStyle) -> Size
   @available(OSX 10.7, *)
-  class func contentSizeForFrameSize(fSize: Size, horizontalScrollerClass: AnyClass?, verticalScrollerClass: AnyClass?, borderType aType: NSBorderType, controlSize: NSControlSize, scrollerStyle: NSScrollerStyle) -> Size
+  class func contentSizeFor(frameSize fSize: Size, horizontalScrollerClass: AnyClass?, verticalScrollerClass: AnyClass?, borderType aType: NSBorderType, controlSize: NSControlSize, scrollerStyle: NSScrollerStyle) -> Size
   var documentVisibleRect: Rect { get }
   var contentSize: Size { get }
   unowned(unsafe) var documentView: @sil_unmanaged AnyObject?
@@ -128,9 +128,9 @@ extension NSScrollView {
 enum NSScrollViewFindBarPosition : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case AboveHorizontalRuler
-  case AboveContent
-  case BelowContent
+  case aboveHorizontalRuler
+  case aboveContent
+  case belowContent
 }
 extension NSScrollView {
   @available(OSX 10.7, *)

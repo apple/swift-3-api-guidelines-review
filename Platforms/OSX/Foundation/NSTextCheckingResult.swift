@@ -2,22 +2,22 @@
 struct TextCheckingType : OptionSetType {
   init(rawValue: UInt64)
   let rawValue: UInt64
-  static var Orthography: TextCheckingType { get }
-  static var Spelling: TextCheckingType { get }
-  static var Grammar: TextCheckingType { get }
-  static var Date: TextCheckingType { get }
-  static var Address: TextCheckingType { get }
-  static var Link: TextCheckingType { get }
-  static var Quote: TextCheckingType { get }
-  static var Dash: TextCheckingType { get }
-  static var Replacement: TextCheckingType { get }
-  static var Correction: TextCheckingType { get }
+  static var orthography: TextCheckingType { get }
+  static var spelling: TextCheckingType { get }
+  static var grammar: TextCheckingType { get }
+  static var date: TextCheckingType { get }
+  static var address: TextCheckingType { get }
+  static var link: TextCheckingType { get }
+  static var quote: TextCheckingType { get }
+  static var dash: TextCheckingType { get }
+  static var replacement: TextCheckingType { get }
+  static var correction: TextCheckingType { get }
   @available(OSX 10.7, *)
-  static var RegularExpression: TextCheckingType { get }
+  static var regularExpression: TextCheckingType { get }
   @available(OSX 10.7, *)
-  static var PhoneNumber: TextCheckingType { get }
+  static var phoneNumber: TextCheckingType { get }
   @available(OSX 10.7, *)
-  static var TransitInformation: TextCheckingType { get }
+  static var transitInformation: TextCheckingType { get }
 }
 typealias TextCheckingTypes = UInt64
 var textCheckingAllSystemTypes: TextCheckingTypes { get }
@@ -29,7 +29,7 @@ class TextCheckingResult : Object, Copying, Coding {
   var range: NSRange { get }
   init()
   @available(OSX 10.6, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.6, *)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
@@ -56,7 +56,7 @@ extension TextCheckingResult {
   @available(OSX 10.7, *)
   func rangeAt(idx: Int) -> NSRange
   @available(OSX 10.7, *)
-  func adjustingRangesWithOffset(offset: Int) -> TextCheckingResult
+  func adjustingRangesWith(offset offset: Int) -> TextCheckingResult
 }
 @available(OSX 10.6, *)
 let textCheckingNameKey: String
@@ -82,7 +82,7 @@ let textCheckingAirlineKey: String
 let textCheckingFlightKey: String
 extension TextCheckingResult {
   class func orthographyCheckingResultWith(range: NSRange, orthography: Orthography) -> TextCheckingResult
-  class func spellWith(range: NSRange) -> TextCheckingResult
+  class func spell(range: NSRange) -> TextCheckingResult
   class func grammarCheckingResultWith(range: NSRange, details: [String]) -> TextCheckingResult
   class func dateCheckingResultWith(range: NSRange, date: Date) -> TextCheckingResult
   class func dateCheckingResultWith(range: NSRange, date: Date, timeZone: TimeZone, duration: TimeInterval) -> TextCheckingResult
@@ -95,9 +95,9 @@ extension TextCheckingResult {
   @available(OSX 10.9, *)
   class func correctionCheckingResultWith(range: NSRange, replacementString: String, alternativeStrings: [String]) -> TextCheckingResult
   @available(OSX 10.7, *)
-  class func regularExpressionCheckingResultWithRanges(ranges: RangePointer, count: Int, regularExpression: RegularExpression) -> TextCheckingResult
+  class func regularExpressionCheckingResultWith(ranges ranges: RangePointer, count: Int, regularExpression: RegularExpression) -> TextCheckingResult
   @available(OSX 10.7, *)
-  class func phoneNumberWith(range: NSRange, phoneNumber: String) -> TextCheckingResult
+  class func phoneNumber(range: NSRange, phoneNumber: String) -> TextCheckingResult
   @available(OSX 10.7, *)
   class func transitInformationCheckingResultWith(range: NSRange, components: [String : String]) -> TextCheckingResult
 }

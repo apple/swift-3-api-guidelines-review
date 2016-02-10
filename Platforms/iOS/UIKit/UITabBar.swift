@@ -3,9 +3,9 @@
 enum UITabBarItemPositioning : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Automatic
-  case Fill
-  case Centered
+  case automatic
+  case fill
+  case centered
 }
 @available(iOS 2.0, *)
 class UITabBar : UIView {
@@ -14,7 +14,7 @@ class UITabBar : UIView {
   unowned(unsafe) var selectedItem: @sil_unmanaged UITabBarItem?
   func setItems(items: [UITabBarItem]?, animated: Bool)
   func beginCustomizingItems(items: [UITabBarItem])
-  func endCustomizingAnimated(animated: Bool) -> Bool
+  func endCustomizing(animated animated: Bool) -> Bool
   func isCustomizing() -> Bool
   @available(iOS 5.0, *)
   var tintColor: UIColor!

@@ -2,60 +2,60 @@
 struct DataReadingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var DataReadingMappedIfSafe: DataReadingOptions { get }
-  static var DataReadingUncached: DataReadingOptions { get }
+  static var dataReadingMappedIfSafe: DataReadingOptions { get }
+  static var dataReadingUncached: DataReadingOptions { get }
   @available(tvOS 5.0, *)
-  static var DataReadingMappedAlways: DataReadingOptions { get }
-  static var DataReadingMapped: DataReadingOptions { get }
-  static var MappedRead: DataReadingOptions { get }
-  static var UncachedRead: DataReadingOptions { get }
+  static var dataReadingMappedAlways: DataReadingOptions { get }
+  static var dataReadingMapped: DataReadingOptions { get }
+  static var mappedRead: DataReadingOptions { get }
+  static var uncachedRead: DataReadingOptions { get }
 }
 struct DataWritingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var DataWritingAtomic: DataWritingOptions { get }
+  static var dataWritingAtomic: DataWritingOptions { get }
   @available(tvOS 6.0, *)
-  static var DataWritingWithoutOverwriting: DataWritingOptions { get }
+  static var dataWritingWithoutOverwriting: DataWritingOptions { get }
   @available(tvOS 4.0, *)
-  static var DataWritingFileProtectionNone: DataWritingOptions { get }
+  static var dataWritingFileProtectionNone: DataWritingOptions { get }
   @available(tvOS 4.0, *)
-  static var DataWritingFileProtectionComplete: DataWritingOptions { get }
+  static var dataWritingFileProtectionComplete: DataWritingOptions { get }
   @available(tvOS 5.0, *)
-  static var DataWritingFileProtectionCompleteUnlessOpen: DataWritingOptions { get }
+  static var dataWritingFileProtectionCompleteUnlessOpen: DataWritingOptions { get }
   @available(tvOS 5.0, *)
-  static var DataWritingFileProtectionCompleteUntilFirstUserAuthentication: DataWritingOptions { get }
+  static var dataWritingFileProtectionCompleteUntilFirstUserAuthentication: DataWritingOptions { get }
   @available(tvOS 4.0, *)
-  static var DataWritingFileProtectionMask: DataWritingOptions { get }
-  static var AtomicWrite: DataWritingOptions { get }
+  static var dataWritingFileProtectionMask: DataWritingOptions { get }
+  static var atomicWrite: DataWritingOptions { get }
 }
 @available(tvOS 4.0, *)
 struct DataSearchOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Backwards: DataSearchOptions { get }
-  static var Anchored: DataSearchOptions { get }
+  static var backwards: DataSearchOptions { get }
+  static var anchored: DataSearchOptions { get }
 }
 @available(tvOS 7.0, *)
 struct DataBase64EncodingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Encoding64CharacterLineLength: DataBase64EncodingOptions { get }
-  static var Encoding76CharacterLineLength: DataBase64EncodingOptions { get }
-  static var EncodingEndLineWithCarriageReturn: DataBase64EncodingOptions { get }
-  static var EncodingEndLineWithLineFeed: DataBase64EncodingOptions { get }
+  static var encoding64CharacterLineLength: DataBase64EncodingOptions { get }
+  static var encoding76CharacterLineLength: DataBase64EncodingOptions { get }
+  static var encodingEndLineWithCarriageReturn: DataBase64EncodingOptions { get }
+  static var encodingEndLineWithLineFeed: DataBase64EncodingOptions { get }
 }
 @available(tvOS 7.0, *)
 struct DataBase64DecodingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var IgnoreUnknownCharacters: DataBase64DecodingOptions { get }
+  static var ignoreUnknownCharacters: DataBase64DecodingOptions { get }
 }
 class Data : Object, Copying, MutableCopying, SecureCoding {
   var length: Int { get }
   var bytes: UnsafePointer<Void> { get }
   init()
-  func copy(zone zone: Zone = nil) -> AnyObject
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
@@ -66,14 +66,14 @@ extension Data {
   func getBytes(buffer: UnsafeMutablePointer<Void>, range: NSRange)
   func isEqualTo(other: Data) -> Bool
   func subdataWith(range: NSRange) -> Data
-  func writeToFile(path: String, atomically useAuxiliaryFile: Bool) -> Bool
+  func writeTo(file path: String, atomically useAuxiliaryFile: Bool) -> Bool
   func writeTo(url: URL, atomically: Bool) -> Bool
-  func writeToFile(path: String, options writeOptionsMask: DataWritingOptions = []) throws
+  func writeTo(file path: String, options writeOptionsMask: DataWritingOptions = []) throws
   func writeTo(url: URL, options writeOptionsMask: DataWritingOptions = []) throws
   @available(tvOS 4.0, *)
   func rangeOf(dataToFind: Data, options mask: DataSearchOptions = [], range searchRange: NSRange) -> NSRange
   @available(tvOS 7.0, *)
-  func enumerateByteRangesUsing(block: (UnsafePointer<Void>, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateByteRanges(block: (UnsafePointer<Void>, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
 }
 extension Data {
   init(bytes: UnsafePointer<Void>, length: Int)
@@ -91,17 +91,17 @@ extension Data {
   @available(tvOS 7.0, *)
   init?(base64EncodedString base64String: String, options: DataBase64DecodingOptions = [])
   @available(tvOS 7.0, *)
-  func base64EncodedString(options options: DataBase64EncodingOptions = []) -> String
+  func base64EncodedString(options: DataBase64EncodingOptions = []) -> String
   @available(tvOS 7.0, *)
   init?(base64EncodedData base64Data: Data, options: DataBase64DecodingOptions = [])
   @available(tvOS 7.0, *)
-  func base64EncodedData(options options: DataBase64EncodingOptions = []) -> Data
+  func base64EncodedData(options: DataBase64EncodingOptions = []) -> Data
 }
 extension Data {
   @available(tvOS, introduced=2.0, deprecated=8.0, message="This method is unsafe because it could potentially cause buffer overruns. Use -getBytes:length: instead.")
   func getBytes(buffer: UnsafeMutablePointer<Void>)
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use +dataWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
-  class func dataWithContentsOfMappedFile(path: String) -> AnyObject?
+  class func dataWithContentsOf(mappedFile path: String) -> AnyObject?
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
   init?(contentsOfMappedFile path: String)
 }

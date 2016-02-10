@@ -3,29 +3,29 @@
 enum CBPeripheralManagerAuthorizationStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case NotDetermined
-  case Restricted
-  case Denied
-  case Authorized
+  case notDetermined
+  case restricted
+  case denied
+  case authorized
 }
 @available(iOS 6.0, *)
 enum CBPeripheralManagerState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Resetting
-  case Unsupported
-  case Unauthorized
-  case PoweredOff
-  case PoweredOn
+  case unknown
+  case resetting
+  case unsupported
+  case unauthorized
+  case poweredOff
+  case poweredOn
 }
 @available(iOS 6.0, *)
 enum CBPeripheralManagerConnectionLatency : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Low
-  case Medium
-  case High
+  case low
+  case medium
+  case high
 }
 @available(iOS 6.0, *)
 class CBPeripheralManager : Object {
@@ -65,5 +65,5 @@ protocol CBPeripheralManagerDelegate : ObjectProtocol {
   @available(iOS 6.0, *)
   optional func peripheralManager(peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest])
   @available(iOS 6.0, *)
-  optional func peripheralManagerIsReadyToUpdateSubscribers(peripheral: CBPeripheralManager)
+  optional func peripheralManagerIsReadyTo(updateSubscribers peripheral: CBPeripheralManager)
 }

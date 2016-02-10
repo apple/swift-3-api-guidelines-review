@@ -10,7 +10,7 @@ class PersonNameComponents : Object, Copying, SecureCoding {
   @NSCopying var phoneticRepresentation: PersonNameComponents?
   init()
   @available(OSX 10.11, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)

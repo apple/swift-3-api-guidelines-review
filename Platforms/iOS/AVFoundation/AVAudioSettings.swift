@@ -36,9 +36,9 @@ let AVSampleRateConverterAlgorithm_Mastering: String
 enum AVAudioQuality : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Min
-  case Low
-  case Medium
-  case High
-  case Max
+  case min
+  case low
+  case medium
+  case high
+  case max
 }

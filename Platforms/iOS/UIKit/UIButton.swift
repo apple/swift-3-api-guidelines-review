@@ -2,14 +2,14 @@
 enum UIButtonType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Custom
+  case custom
   @available(iOS 7.0, *)
-  case System
-  case DetailDisclosure
-  case InfoLight
-  case InfoDark
-  case ContactAdd
-  static var RoundedRect: UIButtonType { get }
+  case system
+  case detailDisclosure
+  case infoLight
+  case infoDark
+  case contactAdd
+  static var roundedRect: UIButtonType { get }
 }
 @available(iOS 2.0, *)
 class UIButton : UIControl, Coding {
@@ -49,10 +49,10 @@ class UIButton : UIControl, Coding {
   var titleLabel: UILabel? { get }
   @available(iOS 3.0, *)
   var imageView: UIImageView? { get }
-  func backgroundRectForBounds(bounds: CGRect) -> CGRect
-  func contentRectForBounds(bounds: CGRect) -> CGRect
-  func titleRectForContentRect(contentRect: CGRect) -> CGRect
-  func imageRectForContentRect(contentRect: CGRect) -> CGRect
+  func backgroundRectFor(bounds bounds: CGRect) -> CGRect
+  func contentRectFor(bounds bounds: CGRect) -> CGRect
+  func titleRectFor(contentRect contentRect: CGRect) -> CGRect
+  func imageRectFor(contentRect contentRect: CGRect) -> CGRect
   init(frame: CGRect)
   init?(coder aDecoder: Coder)
   convenience init()

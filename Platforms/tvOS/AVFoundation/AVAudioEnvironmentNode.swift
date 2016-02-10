@@ -3,9 +3,9 @@
 enum AVAudioEnvironmentDistanceAttenuationModel : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Exponential
-  case Inverse
-  case Linear
+  case exponential
+  case inverse
+  case linear
 }
 @available(tvOS 8.0, *)
 class AVAudioEnvironmentDistanceAttenuationParameters : Object {
@@ -35,7 +35,7 @@ class AVAudioEnvironmentNode : AVAudioNode, AVAudioMixing {
   var applicableRenderingAlgorithms: [Number] { get }
   init()
   @available(tvOS 9.0, *)
-  func destinationForMixer(mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
+  func destinationFor(mixer mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(tvOS 8.0, *)
   var volume: Float
   @available(tvOS 8.0, *)

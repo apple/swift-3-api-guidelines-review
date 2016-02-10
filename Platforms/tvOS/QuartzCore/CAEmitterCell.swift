@@ -1,7 +1,7 @@
 
 class CAEmitterCell : Object, Coding, CAMediaTiming {
-  class func defaultValueForKey(key: String) -> AnyObject?
-  func shouldArchiveValueForKey(key: String) -> Bool
+  class func defaultValueFor(key key: String) -> AnyObject?
+  func shouldArchiveValueFor(key key: String) -> Bool
   var name: String?
   var isEnabled: Bool
   var birthRate: Float

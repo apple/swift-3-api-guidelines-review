@@ -2,12 +2,12 @@
 enum CBCentralManagerState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Resetting
-  case Unsupported
-  case Unauthorized
-  case PoweredOff
-  case PoweredOn
+  case unknown
+  case resetting
+  case unsupported
+  case unauthorized
+  case poweredOff
+  case poweredOn
 }
 @available(iOS 5.0, *)
 class CBCentralManager : Object {
@@ -19,10 +19,10 @@ class CBCentralManager : Object {
   @available(iOS 7.0, *)
   init(delegate: CBCentralManagerDelegate?, queue: dispatch_queue_t?, options: [String : AnyObject]? = [:])
   @available(iOS 7.0, *)
-  func retrievePeripheralsWithIdentifiers(identifiers: [UUID]) -> [CBPeripheral]
+  func retrievePeripheralsWith(identifiers identifiers: [UUID]) -> [CBPeripheral]
   @available(iOS 7.0, *)
-  func retrieveConnectedPeripheralsWithServices(serviceUUIDs: [CBUUID]) -> [CBPeripheral]
-  func scanForPeripheralsWithServices(serviceUUIDs: [CBUUID]?, options: [String : AnyObject]? = [:])
+  func retrieveConnectedPeripheralsWith(services serviceUUIDs: [CBUUID]) -> [CBPeripheral]
+  func scanForPeripheralsWith(services serviceUUIDs: [CBUUID]?, options: [String : AnyObject]? = [:])
   func stopScan()
   func connect(peripheral: CBPeripheral, options: [String : AnyObject]? = [:])
   func cancelPeripheralConnection(peripheral: CBPeripheral)

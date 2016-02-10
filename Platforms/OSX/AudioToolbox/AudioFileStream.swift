@@ -2,18 +2,18 @@
 struct AudioFileStreamPropertyFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var PropertyIsCached: AudioFileStreamPropertyFlags { get }
-  static var CacheProperty: AudioFileStreamPropertyFlags { get }
+  static var propertyIsCached: AudioFileStreamPropertyFlags { get }
+  static var cacheProperty: AudioFileStreamPropertyFlags { get }
 }
 struct AudioFileStreamParseFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var Discontinuity: AudioFileStreamParseFlags { get }
+  static var discontinuity: AudioFileStreamParseFlags { get }
 }
 struct AudioFileStreamSeekFlags : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
-  static var OffsetIsEstimated: AudioFileStreamSeekFlags { get }
+  static var offsetIsEstimated: AudioFileStreamSeekFlags { get }
 }
 typealias AudioFileStreamPropertyID = UInt32
 typealias AudioFileStreamID = COpaquePointer

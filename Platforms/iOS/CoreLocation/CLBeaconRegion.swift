@@ -6,7 +6,7 @@ class CLBeaconRegion : CLRegion {
   init(proximityUUID: UUID, identifier: String)
   init(proximityUUID: UUID, major: CLBeaconMajorValue, identifier: String)
   init(proximityUUID: UUID, major: CLBeaconMajorValue, minor: CLBeaconMinorValue, identifier: String)
-  func peripheralDataWithMeasuredPower(measuredPower: Number?) -> MutableDictionary
+  func peripheralDataWith(measuredPower measuredPower: Number?) -> MutableDictionary
   var proximityUUID: UUID { get }
   var major: Number? { get }
   var minor: Number? { get }
@@ -24,7 +24,7 @@ class CLBeacon : Object, Copying, SecureCoding {
   var rssi: Int { get }
   init()
   @available(iOS 7.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 7.0, *)

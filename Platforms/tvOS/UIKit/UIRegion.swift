@@ -11,7 +11,7 @@ class UIRegion : Object, Copying, Coding {
   func contains(point: CGPoint) -> Bool
   init()
   @available(tvOS 9.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(tvOS 9.0, *)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)

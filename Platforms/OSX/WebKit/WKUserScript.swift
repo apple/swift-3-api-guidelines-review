@@ -3,8 +3,8 @@
 enum WKUserScriptInjectionTime : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case AtDocumentStart
-  case AtDocumentEnd
+  case atDocumentStart
+  case atDocumentEnd
 }
 @available(OSX 10.10, *)
 class WKUserScript : Object, Copying {
@@ -14,5 +14,5 @@ class WKUserScript : Object, Copying {
   init(source: String, injectionTime: WKUserScriptInjectionTime, forMainFrameOnly: Bool)
   init()
   @available(OSX 10.10, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

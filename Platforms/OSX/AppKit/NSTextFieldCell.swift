@@ -2,8 +2,8 @@
 enum NSTextFieldBezelStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case SquareBezel
-  case RoundedBezel
+  case squareBezel
+  case roundedBezel
 }
 class NSTextFieldCell : NSActionCell {
   @NSCopying var backgroundColor: NSColor?

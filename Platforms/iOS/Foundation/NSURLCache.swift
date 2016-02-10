@@ -2,9 +2,9 @@
 enum URLCacheStoragePolicy : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Allowed
-  case AllowedInMemoryOnly
-  case NotAllowed
+  case allowed
+  case allowedInMemoryOnly
+  case notAllowed
 }
 class CachedURLResponse : Object, SecureCoding, Copying {
   init(response: URLResponse, data: Data)
@@ -17,7 +17,7 @@ class CachedURLResponse : Object, SecureCoding, Copying {
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 class URLCache : Object {
   class func shared() -> URLCache

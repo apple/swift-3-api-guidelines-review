@@ -7,5 +7,5 @@ class EKRecurrenceEnd : Object, Copying {
   var occurrenceCount: Int { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }

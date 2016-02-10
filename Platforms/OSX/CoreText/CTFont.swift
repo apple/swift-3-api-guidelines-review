@@ -46,9 +46,9 @@ func CTFontCreateWithFontDescriptor(descriptor: CTFontDescriptor, _ size: CGFloa
 struct CTFontOptions : OptionSetType {
   init(rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
-  static var Default: CTFontOptions { get }
-  static var PreventAutoActivation: CTFontOptions { get }
-  static var PreferSystemFont: CTFontOptions { get }
+  static var `default`: CTFontOptions { get }
+  static var preventAutoActivation: CTFontOptions { get }
+  static var preferSystemFont: CTFontOptions { get }
 }
 @available(OSX 10.6, *)
 func CTFontCreateWithNameAndOptions(name: CFString, _ size: CGFloat, _ matrix: UnsafePointer<CGAffineTransform>, _ options: CTFontOptions) -> CTFont
@@ -58,61 +58,61 @@ enum CTFontUIFontType : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
   @available(OSX 10.8, *)
-  case None
+  case none
   @available(OSX 10.8, *)
-  case User
+  case user
   @available(OSX 10.8, *)
-  case UserFixedPitch
+  case userFixedPitch
   @available(OSX 10.8, *)
-  case System
+  case system
   @available(OSX 10.8, *)
-  case EmphasizedSystem
+  case emphasizedSystem
   @available(OSX 10.8, *)
-  case SmallSystem
+  case smallSystem
   @available(OSX 10.8, *)
-  case SmallEmphasizedSystem
+  case smallEmphasizedSystem
   @available(OSX 10.8, *)
-  case MiniSystem
+  case miniSystem
   @available(OSX 10.8, *)
-  case MiniEmphasizedSystem
+  case miniEmphasizedSystem
   @available(OSX 10.8, *)
-  case Views
+  case views
   @available(OSX 10.8, *)
-  case Application
+  case application
   @available(OSX 10.8, *)
-  case Label
+  case label
   @available(OSX 10.8, *)
-  case MenuTitle
+  case menuTitle
   @available(OSX 10.8, *)
-  case MenuItem
+  case menuItem
   @available(OSX 10.8, *)
-  case MenuItemMark
+  case menuItemMark
   @available(OSX 10.8, *)
-  case MenuItemCmdKey
+  case menuItemCmdKey
   @available(OSX 10.8, *)
-  case WindowTitle
+  case windowTitle
   @available(OSX 10.8, *)
-  case PushButton
+  case pushButton
   @available(OSX 10.8, *)
-  case UtilityWindowTitle
+  case utilityWindowTitle
   @available(OSX 10.8, *)
-  case AlertHeader
+  case alertHeader
   @available(OSX 10.8, *)
-  case SystemDetail
+  case systemDetail
   @available(OSX 10.8, *)
-  case EmphasizedSystemDetail
+  case emphasizedSystemDetail
   @available(OSX 10.8, *)
-  case Toolbar
+  case toolbar
   @available(OSX 10.8, *)
-  case SmallToolbar
+  case smallToolbar
   @available(OSX 10.8, *)
-  case Message
+  case message
   @available(OSX 10.8, *)
-  case Palette
+  case palette
   @available(OSX 10.8, *)
-  case ToolTip
+  case toolTip
   @available(OSX 10.8, *)
-  case ControlContent
+  case controlContent
   @available(OSX, introduced=10.5, deprecated=10.11)
   static var kCTFontNoFontType: CTFontUIFontType { get }
   @available(OSX, introduced=10.5, deprecated=10.11)
@@ -360,7 +360,7 @@ struct CTFontTableOptions : OptionSetType {
   init(rawValue: UInt32)
   let rawValue: UInt32
   @available(OSX 10.5, *)
-  static var NoOptions: CTFontTableOptions { get }
+  static var noOptions: CTFontTableOptions { get }
 }
 @available(OSX 10.5, *)
 func CTFontCopyAvailableTables(font: CTFont, _ options: CTFontTableOptions) -> CFArray?

@@ -3,19 +3,19 @@
 enum PKPassLibraryAddPassesStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case DidAddPasses
-  case ShouldReviewPasses
-  case DidCancelAddPasses
+  case didAddPasses
+  case shouldReviewPasses
+  case didCancelAddPasses
 }
 @available(iOS 9.0, *)
 enum PKAutomaticPassPresentationSuppressionResult : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case NotSupported
-  case AlreadyPresenting
-  case Denied
-  case Cancelled
-  case Success
+  case notSupported
+  case alreadyPresenting
+  case denied
+  case cancelled
+  case success
 }
 typealias PKSuppressionRequestToken = Int
 @available(iOS 6.0, *)
@@ -23,7 +23,7 @@ class PKPassLibrary : Object {
   @available(iOS 6.0, *)
   class func isPassLibraryAvailable() -> Bool
   @available(iOS 9.0, *)
-  class func requestAutomaticPassPresentationSuppressionWithResponseHandler(responseHandler: (PKAutomaticPassPresentationSuppressionResult) -> Void) -> PKSuppressionRequestToken
+  class func requestAutomaticPassPresentationSuppression(responseHandler responseHandler: (PKAutomaticPassPresentationSuppressionResult) -> Void) -> PKSuppressionRequestToken
   @available(iOS 9.0, *)
   class func endAutomaticPassPresentationSuppressionWithRequestToken(requestToken: PKSuppressionRequestToken)
   @available(iOS 9.0, *)
@@ -46,7 +46,7 @@ class PKPassLibrary : Object {
   @available(iOS 8.3, *)
   func openPaymentSetup()
   @available(iOS 9.0, *)
-  func canAddPaymentPassWithPrimaryAccountIdentifier(primaryAccountIdentifier: String) -> Bool
+  func canAddPaymentPassWith(primaryAccountIdentifier primaryAccountIdentifier: String) -> Bool
   @available(iOS 8.0, *)
   func activatePaymentPass(paymentPass: PKPaymentPass, withActivationData activationData: Data, completion: ((Bool, Error) -> Void)? = nil)
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use activatePaymentPass:withActivationData:completion: instead")

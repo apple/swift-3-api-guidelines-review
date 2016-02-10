@@ -11,10 +11,10 @@ class FIFinderSyncController : ExtensionContext {
 enum FIMenuKind : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case ContextualMenuForItems
-  case ContextualMenuForContainer
-  case ContextualMenuForSidebar
-  case ToolbarItemMenu
+  case contextualMenuForItems
+  case contextualMenuForContainer
+  case contextualMenuForSidebar
+  case toolbarItemMenu
 }
 protocol FIFinderSyncProtocol {
   optional func menuFor(menu: FIMenuKind) -> NSMenu?
@@ -35,5 +35,5 @@ class FIFinderSync : Object, FIFinderSyncProtocol, ExtensionRequestHandling {
   @NSCopying var toolbarItemImage: NSImage { get }
   var toolbarItemToolTip: String { get }
   @available(OSX 10.10, *)
-  func beginRequestWith(context: ExtensionContext)
+  func beginRequest(context: ExtensionContext)
 }

@@ -7,12 +7,12 @@ class CNPostalAddress : Object, Copying, MutableCopying, SecureCoding {
   var postalCode: String { get }
   var country: String { get }
   var isoCountryCode: String { get }
-  class func localizedStringForKey(key: String) -> String
+  class func localizedStringFor(key key: String) -> String
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)

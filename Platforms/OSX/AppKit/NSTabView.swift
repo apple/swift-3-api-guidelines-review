@@ -3,18 +3,18 @@ var NSAppKitVersionNumberWithDirectionalTabs: Double { get }
 enum NSTabViewType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case TopTabsBezelBorder
-  case LeftTabsBezelBorder
-  case BottomTabsBezelBorder
-  case RightTabsBezelBorder
-  case NoTabsBezelBorder
-  case NoTabsLineBorder
-  case NoTabsNoBorder
+  case topTabsBezelBorder
+  case leftTabsBezelBorder
+  case bottomTabsBezelBorder
+  case rightTabsBezelBorder
+  case noTabsBezelBorder
+  case noTabsLineBorder
+  case noTabsNoBorder
 }
 class NSTabView : NSView {
   func select(tabViewItem: NSTabViewItem?)
   func selectItemAt(index: Int)
-  func selectItemWithIdentifier(identifier: AnyObject)
+  func selectItem(identifier identifier: AnyObject)
   func takeSelectedTabViewItemFromSender(sender: AnyObject?)
   func selectFirstTabViewItem(sender: AnyObject?)
   func selectLastItem(sender: AnyObject?)
@@ -38,7 +38,7 @@ class NSTabView : NSView {
   var numberOfTabViewItems: Int { get }
   func indexOf(tabViewItem: NSTabViewItem) -> Int
   func tabViewItemAt(index: Int) -> NSTabViewItem
-  func indexOfTabViewItemWithIdentifier(identifier: AnyObject) -> Int
+  func indexOfTabViewItemWith(identifier identifier: AnyObject) -> Int
   init(frame frameRect: Rect)
   init?(coder: Coder)
   convenience init()
@@ -71,5 +71,5 @@ protocol NSTabViewDelegate : ObjectProtocol {
   optional func tabView(tabView: NSTabView, shouldSelect tabViewItem: NSTabViewItem?) -> Bool
   optional func tabView(tabView: NSTabView, willSelect tabViewItem: NSTabViewItem?)
   optional func tabView(tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?)
-  optional func tabViewDidChangeNumberOfTabViewItems(tabView: NSTabView)
+  optional func tabViewDidChangeNumberOf(tabViewItems tabView: NSTabView)
 }

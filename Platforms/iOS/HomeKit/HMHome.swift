@@ -13,7 +13,7 @@ extension HMHome {
   func addAccessory(accessory: HMAccessory, completionHandler completion: (Error?) -> Void)
   func removeAccessory(accessory: HMAccessory, completionHandler completion: (Error?) -> Void)
   func assignAccessory(accessory: HMAccessory, to room: HMRoom, completionHandler completion: (Error?) -> Void)
-  func servicesWithTypes(serviceTypes: [String]) -> [HMService]?
+  func servicesWith(types serviceTypes: [String]) -> [HMService]?
   func unblockAccessory(accessory: HMAccessory, completionHandler completion: (Error?) -> Void)
 }
 extension HMHome {
@@ -22,9 +22,9 @@ extension HMHome {
   @available(iOS, introduced=8.0, deprecated=9.0)
   var users: [HMUser] { get }
   @available(iOS 9.0, *)
-  func manageUsersWithCompletionHandler(completion: (Error?) -> Void)
+  func manageUsers(completionHandler completion: (Error?) -> Void)
   @available(iOS, introduced=8.0, deprecated=9.0)
-  func addUserWithCompletionHandler(completion: (HMUser?, Error?) -> Void)
+  func addUser(completionHandler completion: (HMUser?, Error?) -> Void)
   @available(iOS, introduced=8.0, deprecated=9.0)
   func removeUser(user: HMUser, completionHandler completion: (Error?) -> Void)
   @available(iOS 9.0, *)
@@ -32,27 +32,27 @@ extension HMHome {
 }
 extension HMHome {
   var rooms: [HMRoom] { get }
-  func addRoomWithName(roomName: String, completionHandler completion: (HMRoom?, Error?) -> Void)
+  func addRoom(name roomName: String, completionHandler completion: (HMRoom?, Error?) -> Void)
   func removeRoom(room: HMRoom, completionHandler completion: (Error?) -> Void)
   func roomForEntireHome() -> HMRoom
 }
 extension HMHome {
   var zones: [HMZone] { get }
-  func addZoneWithName(zoneName: String, completionHandler completion: (HMZone?, Error?) -> Void)
+  func addZone(name zoneName: String, completionHandler completion: (HMZone?, Error?) -> Void)
   func removeZone(zone: HMZone, completionHandler completion: (Error?) -> Void)
 }
 extension HMHome {
   var serviceGroups: [HMServiceGroup] { get }
-  func addServiceGroupWithName(serviceGroupName: String, completionHandler completion: (HMServiceGroup?, Error?) -> Void)
+  func addServiceGroup(name serviceGroupName: String, completionHandler completion: (HMServiceGroup?, Error?) -> Void)
   func removeServiceGroup(group: HMServiceGroup, completionHandler completion: (Error?) -> Void)
 }
 extension HMHome {
   var actionSets: [HMActionSet] { get }
-  func addActionSetWithName(actionSetName: String, completionHandler completion: (HMActionSet?, Error?) -> Void)
+  func addActionSet(name actionSetName: String, completionHandler completion: (HMActionSet?, Error?) -> Void)
   func removeActionSet(actionSet: HMActionSet, completionHandler completion: (Error?) -> Void)
   func executeActionSet(actionSet: HMActionSet, completionHandler completion: (Error?) -> Void)
   @available(iOS 9.0, *)
-  func builtinActionSetOfType(actionSetType: String) -> HMActionSet?
+  func builtinActionSetOf(type actionSetType: String) -> HMActionSet?
 }
 extension HMHome {
   var triggers: [HMTrigger] { get }

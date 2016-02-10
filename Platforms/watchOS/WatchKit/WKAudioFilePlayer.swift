@@ -3,16 +3,16 @@
 enum WKAudioFilePlayerStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case ReadyToPlay
-  case Failed
+  case unknown
+  case readyToPlay
+  case failed
 }
 @available(watchOS 2.0, *)
 class WKAudioFilePlayer : Object {
   convenience init(playerItem item: WKAudioFilePlayerItem)
   func play()
   func pause()
-  func replaceCurrentItemWith(item: WKAudioFilePlayerItem?)
+  func replaceCurrentItem(item: WKAudioFilePlayerItem?)
   var currentItem: WKAudioFilePlayerItem? { get }
   var status: WKAudioFilePlayerStatus { get }
   var error: Error? { get }

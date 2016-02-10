@@ -7,18 +7,18 @@ let HKMetadataKeyBodyTemperatureSensorLocation: String
 enum HKBodyTemperatureSensorLocation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Other
-  case Armpit
-  case Body
-  case Ear
-  case Finger
-  case GastroIntestinal
-  case Mouth
-  case Rectum
-  case Toe
-  case EarDrum
-  case TemporalArtery
-  case Forehead
+  case other
+  case armpit
+  case body
+  case ear
+  case finger
+  case gastroIntestinal
+  case mouth
+  case rectum
+  case toe
+  case earDrum
+  case temporalArtery
+  case forehead
 }
 @available(watchOS 2.0, *)
 let HKMetadataKeyHeartRateSensorLocation: String
@@ -26,13 +26,13 @@ let HKMetadataKeyHeartRateSensorLocation: String
 enum HKHeartRateSensorLocation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Other
-  case Chest
-  case Wrist
-  case Finger
-  case Hand
-  case EarLobe
-  case Foot
+  case other
+  case chest
+  case wrist
+  case finger
+  case hand
+  case earLobe
+  case foot
 }
 @available(watchOS 2.0, *)
 let HKMetadataKeyFoodType: String

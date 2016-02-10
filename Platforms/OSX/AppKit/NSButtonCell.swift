@@ -2,38 +2,38 @@
 enum NSButtonType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case MomentaryLightButton
-  case PushOnPushOffButton
-  case ToggleButton
-  case SwitchButton
-  case RadioButton
-  case MomentaryChangeButton
-  case OnOffButton
-  case MomentaryPushInButton
+  case momentaryLightButton
+  case pushOnPushOffButton
+  case toggleButton
+  case switchButton
+  case radioButton
+  case momentaryChangeButton
+  case onOffButton
+  case momentaryPushInButton
   @available(OSX 10.10.3, *)
-  case AcceleratorButton
+  case acceleratorButton
   @available(OSX 10.10.3, *)
-  case MultiLevelAcceleratorButton
+  case multiLevelAcceleratorButton
 }
 enum NSBezelStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case RoundedBezelStyle
-  case RegularSquareBezelStyle
-  case ThickSquareBezelStyle
-  case ThickerSquareBezelStyle
-  case DisclosureBezelStyle
-  case ShadowlessSquareBezelStyle
-  case CircularBezelStyle
-  case TexturedSquareBezelStyle
-  case HelpButtonBezelStyle
-  case SmallSquareBezelStyle
-  case TexturedRoundedBezelStyle
-  case RoundRectBezelStyle
-  case RecessedBezelStyle
-  case RoundedDisclosureBezelStyle
+  case roundedBezelStyle
+  case regularSquareBezelStyle
+  case thickSquareBezelStyle
+  case thickerSquareBezelStyle
+  case disclosureBezelStyle
+  case shadowlessSquareBezelStyle
+  case circularBezelStyle
+  case texturedSquareBezelStyle
+  case helpButtonBezelStyle
+  case smallSquareBezelStyle
+  case texturedRoundedBezelStyle
+  case roundRectBezelStyle
+  case recessedBezelStyle
+  case roundedDisclosureBezelStyle
   @available(OSX 10.7, *)
-  case InlineBezelStyle
+  case inlineBezelStyle
 }
 struct __BCFlags {
   var __reserved: UInt32
@@ -98,7 +98,7 @@ class NSButtonCell : NSActionCell {
   func performClick(sender: AnyObject?)
   func drawImage(image: NSImage, withFrame frame: Rect, in controlView: NSView)
   func drawTitle(title: AttributedString, withFrame frame: Rect, in controlView: NSView) -> Rect
-  func drawBezelWithFrame(frame: Rect, in controlView: NSView)
+  func drawBezel(frame frame: Rect, in controlView: NSView)
   init(textCell aString: String)
   init(imageCell image: NSImage?)
   convenience init()
@@ -107,11 +107,11 @@ class NSButtonCell : NSActionCell {
 enum NSGradientType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
-  case ConcaveWeak
-  case ConcaveStrong
-  case ConvexWeak
-  case ConvexStrong
+  case none
+  case concaveWeak
+  case concaveStrong
+  case convexWeak
+  case convexStrong
 }
 extension NSButtonCell {
   var gradientType: NSGradientType

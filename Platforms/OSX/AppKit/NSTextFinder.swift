@@ -3,19 +3,19 @@
 enum NSTextFinderAction : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case ShowFindInterface
-  case NextMatch
-  case PreviousMatch
-  case ReplaceAll
-  case Replace
-  case ReplaceAndFind
-  case SetSearchString
-  case ReplaceAllInSelection
-  case SelectAll
-  case SelectAllInSelection
-  case HideFindInterface
-  case ShowReplaceInterface
-  case HideReplaceInterface
+  case showFindInterface
+  case nextMatch
+  case previousMatch
+  case replaceAll
+  case replace
+  case replaceAndFind
+  case setSearchString
+  case replaceAllInSelection
+  case selectAll
+  case selectAllInSelection
+  case hideFindInterface
+  case showReplaceInterface
+  case hideReplaceInterface
 }
 @available(OSX 10.7, *)
 let NSTextFinderCaseInsensitiveKey: String
@@ -25,10 +25,10 @@ let NSTextFinderMatchingTypeKey: String
 enum NSTextFinderMatchingType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Contains
-  case StartsWith
-  case FullWord
-  case EndsWith
+  case contains
+  case startsWith
+  case fullWord
+  case endsWith
 }
 @available(OSX 10.7, *)
 class NSTextFinder : Object, Coding {
@@ -58,11 +58,11 @@ protocol NSTextFinderClient : ObjectProtocol {
   optional var firstSelectedRange: NSRange { get }
   optional var selectedRanges: [Value] { get set }
   optional func scrollRangeToVisible(range: NSRange)
-  optional func shouldReplaceCharactersInRanges(ranges: [Value], withStrings strings: [String]) -> Bool
+  optional func shouldReplaceCharactersIn(ranges ranges: [Value], withStrings strings: [String]) -> Bool
   optional func replaceCharactersIn(range: NSRange, withString string: String)
   optional func didReplaceCharacters()
   optional func contentViewAt(index: Int, effectiveCharacterRange outRange: RangePointer) -> NSView
-  optional func rectsForCharacterRange(range: NSRange) -> [Value]?
+  optional func rectsFor(characterRange range: NSRange) -> [Value]?
   optional var visibleCharacterRanges: [Value] { get }
   optional func drawCharactersIn(range: NSRange, forContentView view: NSView)
 }

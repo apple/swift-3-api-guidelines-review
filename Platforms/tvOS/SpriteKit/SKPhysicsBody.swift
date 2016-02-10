@@ -47,7 +47,7 @@ class SKPhysicsBody : Object, Copying, Coding {
   func applyAngularImpulse(impulse: CGFloat)
   func allContactedBodies() -> [SKPhysicsBody]
   init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

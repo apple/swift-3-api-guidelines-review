@@ -11,7 +11,7 @@ class ODNode : Object {
   @available(OSX 10.6, *)
   var nodeName: String! { get }
   @available(OSX 10.6, *)
-  func nodeDetailsForKeys(inKeys: [AnyObject]!) throws -> [Object : AnyObject]
+  func nodeDetailsFor(keys inKeys: [AnyObject]!) throws -> [Object : AnyObject]
   @available(OSX 10.6, *)
   func supportedRecordTypes() throws -> [AnyObject]
   @available(OSX 10.6, *)

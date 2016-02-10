@@ -2,22 +2,22 @@
 struct FileCoordinatorReadingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var WithoutChanges: FileCoordinatorReadingOptions { get }
-  static var ResolvesSymbolicLink: FileCoordinatorReadingOptions { get }
+  static var withoutChanges: FileCoordinatorReadingOptions { get }
+  static var resolvesSymbolicLink: FileCoordinatorReadingOptions { get }
   @available(OSX 10.10, *)
-  static var ImmediatelyAvailableMetadataOnly: FileCoordinatorReadingOptions { get }
+  static var immediatelyAvailableMetadataOnly: FileCoordinatorReadingOptions { get }
   @available(OSX 10.10, *)
-  static var ForUploading: FileCoordinatorReadingOptions { get }
+  static var forUploading: FileCoordinatorReadingOptions { get }
 }
 struct FileCoordinatorWritingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ForDeleting: FileCoordinatorWritingOptions { get }
-  static var ForMoving: FileCoordinatorWritingOptions { get }
-  static var ForMerging: FileCoordinatorWritingOptions { get }
-  static var ForReplacing: FileCoordinatorWritingOptions { get }
+  static var forDeleting: FileCoordinatorWritingOptions { get }
+  static var forMoving: FileCoordinatorWritingOptions { get }
+  static var forMerging: FileCoordinatorWritingOptions { get }
+  static var forReplacing: FileCoordinatorWritingOptions { get }
   @available(OSX 10.10, *)
-  static var ContentIndependentMetadataOnly: FileCoordinatorWritingOptions { get }
+  static var contentIndependentMetadataOnly: FileCoordinatorWritingOptions { get }
 }
 @available(OSX 10.10, *)
 class FileAccessIntent : Object {
@@ -40,7 +40,7 @@ class FileCoordinator : Object {
   func coordinateWritingItemAt(url: URL, options: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor writer: (URL) -> Void)
   func coordinateReadingItemAt(readingURL: URL, options readingOptions: FileCoordinatorReadingOptions = [], writingItemAt writingURL: URL, options writingOptions: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor readerWriter: (URL, URL) -> Void)
   func coordinateWritingItemAt(url1: URL, options options1: FileCoordinatorWritingOptions = [], writingItemAt url2: URL, options options2: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor writer: (URL, URL) -> Void)
-  func prepareForReadingItemsAtURLs(readingURLs: [URL], options readingOptions: FileCoordinatorReadingOptions = [], writingItemsAtURLs writingURLs: [URL], options writingOptions: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor batchAccessor: (() -> Void) -> Void)
+  func prepareForReadingItemsAt(readingURLs: [URL], options readingOptions: FileCoordinatorReadingOptions = [], writingItemsAt writingURLs: [URL], options writingOptions: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor batchAccessor: (() -> Void) -> Void)
   @available(OSX 10.8, *)
   func itemAt(oldURL: URL, willMoveTo newURL: URL)
   func itemAt(oldURL: URL, didMoveTo newURL: URL)

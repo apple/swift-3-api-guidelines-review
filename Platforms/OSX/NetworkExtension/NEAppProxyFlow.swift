@@ -3,21 +3,21 @@
 enum NEAppProxyFlowError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case NotConnected
-  case PeerReset
-  case HostUnreachable
-  case InvalidArgument
-  case Aborted
-  case Refused
-  case TimedOut
-  case Internal
+  case notConnected
+  case peerReset
+  case hostUnreachable
+  case invalidArgument
+  case aborted
+  case refused
+  case timedOut
+  case `internal`
 }
 @available(OSX 10.11, *)
 let NEAppProxyErrorDomain: String
 @available(OSX 10.11, *)
 class NEAppProxyFlow : Object {
   @available(OSX 10.11, *)
-  func openWithLocalEndpoint(localEndpoint: NWHostEndpoint?, completionHandler: (Error?) -> Void)
+  func open(localEndpoint localEndpoint: NWHostEndpoint?, completionHandler: (Error?) -> Void)
   @available(OSX 10.11, *)
   func closeReadWithError(error: Error?)
   @available(OSX 10.11, *)

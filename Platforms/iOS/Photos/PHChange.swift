@@ -24,7 +24,7 @@ class PHFetchResultChangeDetails : Object {
   var insertedObjects: [PHObject] { get }
   var changedIndexes: IndexSet? { get }
   var changedObjects: [PHObject] { get }
-  func enumerateMovesWith(handler: (Int, Int) -> Void)
+  func enumerateMoves(handler: (Int, Int) -> Void)
   var hasMoves: Bool { get }
   convenience init(from fromResult: PHFetchResult, to toResult: PHFetchResult, changedObjects: [PHObject])
   init()

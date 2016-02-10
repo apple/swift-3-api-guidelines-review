@@ -2,13 +2,13 @@
 struct RegularExpressionOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var CaseInsensitive: RegularExpressionOptions { get }
-  static var AllowCommentsAndWhitespace: RegularExpressionOptions { get }
-  static var IgnoreMetacharacters: RegularExpressionOptions { get }
-  static var DotMatchesLineSeparators: RegularExpressionOptions { get }
-  static var AnchorsMatchLines: RegularExpressionOptions { get }
-  static var UseUnixLineSeparators: RegularExpressionOptions { get }
-  static var UseUnicodeWordBoundaries: RegularExpressionOptions { get }
+  static var caseInsensitive: RegularExpressionOptions { get }
+  static var allowCommentsAndWhitespace: RegularExpressionOptions { get }
+  static var ignoreMetacharacters: RegularExpressionOptions { get }
+  static var dotMatchesLineSeparators: RegularExpressionOptions { get }
+  static var anchorsMatchLines: RegularExpressionOptions { get }
+  static var useUnixLineSeparators: RegularExpressionOptions { get }
+  static var useUnicodeWordBoundaries: RegularExpressionOptions { get }
 }
 @available(OSX 10.7, *)
 class RegularExpression : Object, Copying, Coding {
@@ -19,7 +19,7 @@ class RegularExpression : Object, Copying, Coding {
   class func escapedPatternFor(string: String) -> String
   convenience init()
   @available(OSX 10.7, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
@@ -27,20 +27,20 @@ class RegularExpression : Object, Copying, Coding {
 struct MatchingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var ReportProgress: MatchingOptions { get }
-  static var ReportCompletion: MatchingOptions { get }
-  static var Anchored: MatchingOptions { get }
-  static var WithTransparentBounds: MatchingOptions { get }
-  static var WithoutAnchoringBounds: MatchingOptions { get }
+  static var reportProgress: MatchingOptions { get }
+  static var reportCompletion: MatchingOptions { get }
+  static var anchored: MatchingOptions { get }
+  static var withTransparentBounds: MatchingOptions { get }
+  static var withoutAnchoringBounds: MatchingOptions { get }
 }
 struct MatchingFlags : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Progress: MatchingFlags { get }
-  static var Completed: MatchingFlags { get }
-  static var HitEnd: MatchingFlags { get }
-  static var RequiredEnd: MatchingFlags { get }
-  static var InternalError: MatchingFlags { get }
+  static var progress: MatchingFlags { get }
+  static var completed: MatchingFlags { get }
+  static var hitEnd: MatchingFlags { get }
+  static var requiredEnd: MatchingFlags { get }
+  static var internalError: MatchingFlags { get }
 }
 extension RegularExpression {
   func enumerateMatchesIn(string: String, options: MatchingOptions = [], range: NSRange, usingBlock block: (TextCheckingResult?, MatchingFlags, UnsafeMutablePointer<ObjCBool>) -> Void)

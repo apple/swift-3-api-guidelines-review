@@ -1,10 +1,10 @@
 
 class Locale : Object, Copying, SecureCoding {
-  func objectForKey(key: AnyObject) -> AnyObject?
-  func displayNameForKey(key: AnyObject, value: AnyObject) -> String?
+  func objectFor(key key: AnyObject) -> AnyObject?
+  func displayNameFor(key key: AnyObject, value: AnyObject) -> String?
   init(localeIdentifier string: String)
   init?(coder aDecoder: Coder)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
 }
@@ -26,27 +26,27 @@ extension Locale {
   class func commonISOCurrencyCodes() -> [String]
   @available(iOS 2.0, *)
   class func preferredLanguages() -> [String]
-  class func componentsFromLocaleIdentifier(string: String) -> [String : String]
-  class func localeIdentifierFromComponents(dict: [String : String]) -> String
+  class func componentsFrom(localeIdentifier string: String) -> [String : String]
+  class func localeIdentifierFrom(components dict: [String : String]) -> String
   class func canonicalLocaleIdentifierFrom(string: String) -> String
   class func canonicalLanguageIdentifierFrom(string: String) -> String
   @available(iOS 4.0, *)
-  class func localeIdentifierFromWindowsLocaleCode(lcid: UInt32) -> String?
+  class func localeIdentifierFrom(windowsLocaleCode lcid: UInt32) -> String?
   @available(iOS 4.0, *)
-  class func windowsLocaleCodeFromLocaleIdentifier(localeIdentifier: String) -> UInt32
+  class func windowsLocaleCodeFrom(localeIdentifier localeIdentifier: String) -> UInt32
   @available(iOS 4.0, *)
-  class func characterDirectionForLanguage(isoLangCode: String) -> LocaleLanguageDirection
+  class func characterDirectionFor(language isoLangCode: String) -> LocaleLanguageDirection
   @available(iOS 4.0, *)
-  class func lineDirectionForLanguage(isoLangCode: String) -> LocaleLanguageDirection
+  class func lineDirectionFor(language isoLangCode: String) -> LocaleLanguageDirection
 }
 enum LocaleLanguageDirection : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Unknown
-  case LeftToRight
-  case RightToLeft
-  case TopToBottom
-  case BottomToTop
+  case unknown
+  case leftToRight
+  case rightToLeft
+  case topToBottom
+  case bottomToTop
 }
 @available(iOS 2.0, *)
 let currentLocaleDidChangeNotification: String

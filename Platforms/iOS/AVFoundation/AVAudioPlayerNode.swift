@@ -3,9 +3,9 @@
 struct AVAudioPlayerNodeBufferOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Loops: AVAudioPlayerNodeBufferOptions { get }
-  static var Interrupts: AVAudioPlayerNodeBufferOptions { get }
-  static var InterruptsAtLoop: AVAudioPlayerNodeBufferOptions { get }
+  static var loops: AVAudioPlayerNodeBufferOptions { get }
+  static var interrupts: AVAudioPlayerNodeBufferOptions { get }
+  static var interruptsAtLoop: AVAudioPlayerNodeBufferOptions { get }
 }
 @available(iOS 8.0, *)
 class AVAudioPlayerNode : AVAudioNode, AVAudioMixing {
@@ -23,7 +23,7 @@ class AVAudioPlayerNode : AVAudioNode, AVAudioMixing {
   var isPlaying: Bool { get }
   init()
   @available(iOS 9.0, *)
-  func destinationForMixer(mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
+  func destinationFor(mixer mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(iOS 8.0, *)
   var volume: Float
   @available(iOS 8.0, *)

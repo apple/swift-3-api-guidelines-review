@@ -25,14 +25,14 @@ class NSFontDescriptor : Object, Copying, SecureCoding {
   var pointSize: CGFloat { get }
   @NSCopying var matrix: AffineTransform? { get }
   var symbolicTraits: NSFontSymbolicTraits { get }
-  func objectForKey(anAttribute: String) -> AnyObject?
+  func objectFor(key anAttribute: String) -> AnyObject?
   var fontAttributes: [String : AnyObject] { get }
   /*not inherited*/ init(name fontName: String, size: CGFloat)
   /*not inherited*/ init(name fontName: String, matrix: AffineTransform)
   init(fontAttributes attributes: [String : AnyObject]? = [:])
-  func matchingFontDescriptorsWithMandatoryKeys(mandatoryKeys: Set<String>?) -> [NSFontDescriptor]
+  func matchingFontDescriptorsWith(mandatoryKeys mandatoryKeys: Set<String>?) -> [NSFontDescriptor]
   @available(OSX 10.5, *)
-  func matchingFontDescriptorWithMandatoryKeys(mandatoryKeys: Set<String>?) -> NSFontDescriptor?
+  func matchingFontDescriptorWith(mandatoryKeys mandatoryKeys: Set<String>?) -> NSFontDescriptor?
   func addingAttributes(attributes: [String : AnyObject] = [:]) -> NSFontDescriptor
   func withSymbolicTraits(symbolicTraits: NSFontSymbolicTraits) -> NSFontDescriptor
   func withSize(newPointSize: CGFloat) -> NSFontDescriptor
@@ -40,7 +40,7 @@ class NSFontDescriptor : Object, Copying, SecureCoding {
   func withFace(newFace: String) -> NSFontDescriptor
   func withFamily(newFamily: String) -> NSFontDescriptor
   init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)

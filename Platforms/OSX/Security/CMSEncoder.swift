@@ -34,21 +34,21 @@ func CMSEncoderCopySupportingCerts(cmsEncoder: CMSEncoder, _ certsOut: UnsafeMut
 enum CMSSignedAttributes : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case AttrNone
-  case AttrSmimeCapabilities
-  case AttrSmimeEncryptionKeyPrefs
-  case AttrSmimeMSEncryptionKeyPrefs
-  case AttrSigningTime
+  case attrNone
+  case attrSmimeCapabilities
+  case attrSmimeEncryptionKeyPrefs
+  case attrSmimeMSEncryptionKeyPrefs
+  case attrSigningTime
 }
 @available(OSX 10.5, *)
 func CMSEncoderAddSignedAttributes(cmsEncoder: CMSEncoder, _ signedAttributes: CMSSignedAttributes) -> OSStatus
 enum CMSCertificateChainMode : UInt32 {
   init?(rawValue: UInt32)
   var rawValue: UInt32 { get }
-  case None
-  case SignerOnly
-  case Chain
-  case ChainWithRoot
+  case none
+  case signerOnly
+  case chain
+  case chainWithRoot
 }
 @available(OSX 10.5, *)
 func CMSEncoderSetCertificateChainMode(cmsEncoder: CMSEncoder, _ chainMode: CMSCertificateChainMode) -> OSStatus

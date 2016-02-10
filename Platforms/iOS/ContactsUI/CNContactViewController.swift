@@ -16,7 +16,7 @@ class CNContactViewController : UIViewController {
   var allowsEditing: Bool
   var allowsActions: Bool
   var shouldShowLinkedContacts: Bool
-  func highlightPropertyWithKey(key: String, identifier: String?)
+  func highlightProperty(key key: String, identifier: String?)
   init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
   init?(coder aDecoder: Coder)
   convenience init()

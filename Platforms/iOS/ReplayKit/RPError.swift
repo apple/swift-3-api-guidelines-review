@@ -4,12 +4,12 @@ let RPRecordingErrorDomain: String
 enum RPRecordingErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case UserDeclined
-  case Disabled
-  case FailedToStart
-  case Failed
-  case InsufficientStorage
-  case Interrupted
-  case ContentResize
+  case unknown
+  case userDeclined
+  case disabled
+  case failedToStart
+  case failed
+  case insufficientStorage
+  case interrupted
+  case contentResize
 }

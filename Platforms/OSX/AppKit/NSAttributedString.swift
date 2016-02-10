@@ -53,31 +53,31 @@ let NSGlyphInfoAttributeName: String
 enum NSUnderlineStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case StyleNone
-  case StyleSingle
+  case styleNone
+  case styleSingle
   @available(OSX 10.0, *)
-  case StyleThick
+  case styleThick
   @available(OSX 10.0, *)
-  case StyleDouble
+  case styleDouble
   @available(OSX 10.0, *)
-  static var PatternSolid: NSUnderlineStyle { get }
+  static var patternSolid: NSUnderlineStyle { get }
   @available(OSX 10.0, *)
-  case PatternDot
+  case patternDot
   @available(OSX 10.0, *)
-  case PatternDash
+  case patternDash
   @available(OSX 10.0, *)
-  case PatternDashDot
+  case patternDashDot
   @available(OSX 10.0, *)
-  case PatternDashDotDot
+  case patternDashDotDot
   @available(OSX 10.0, *)
-  case ByWord
+  case byWord
 }
 @available(OSX 10.11, *)
 enum NSWritingDirectionFormatType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Embedding
-  case Override
+  case embedding
+  case override
 }
 @available(OSX 10.10, *)
 let NSTextEffectLetterpressStyle: String
@@ -221,14 +221,14 @@ extension AttributedString : NSPasteboardReading, NSPasteboardWriting {
   @available(OSX 10.0, *)
   class func readableTypesFor(pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  class func readingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
+  class func readingOptionsFor(type type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
   @available(OSX 10.0, *)
   func writableTypesFor(pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  func writingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
+  func writingOptionsFor(type type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
   @available(OSX 10.0, *)
-  func pasteboardPropertyListForType(type: String) -> AnyObject?
+  func pasteboardPropertyListFor(type type: String) -> AnyObject?
 }
 extension MutableAttributedString {
   func superscriptRange(range: NSRange)

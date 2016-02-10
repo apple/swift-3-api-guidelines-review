@@ -2,28 +2,28 @@
 enum UIImageOrientation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Up
-  case Down
-  case Left
-  case Right
-  case UpMirrored
-  case DownMirrored
-  case LeftMirrored
-  case RightMirrored
+  case up
+  case down
+  case left
+  case right
+  case upMirrored
+  case downMirrored
+  case leftMirrored
+  case rightMirrored
 }
 enum UIImageResizingMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Tile
-  case Stretch
+  case tile
+  case stretch
 }
 @available(iOS 7.0, *)
 enum UIImageRenderingMode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Automatic
-  case AlwaysOriginal
-  case AlwaysTemplate
+  case automatic
+  case alwaysOriginal
+  case alwaysTemplate
 }
 @available(iOS 2.0, *)
 class UIImage : Object, SecureCoding {
@@ -66,9 +66,9 @@ class UIImage : Object, SecureCoding {
   func drawIn(rect: CGRect, blendMode: CGBlendMode, alpha: CGFloat)
   func drawAsPatternIn(rect: CGRect)
   @available(iOS 5.0, *)
-  func resizableImageWithCapInsets(capInsets: UIEdgeInsets) -> UIImage
+  func resizableImageWith(capInsets capInsets: UIEdgeInsets) -> UIImage
   @available(iOS 6.0, *)
-  func resizableImageWithCapInsets(capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode) -> UIImage
+  func resizableImageWith(capInsets capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode) -> UIImage
   @available(iOS 5.0, *)
   var capInsets: UIEdgeInsets { get }
   @available(iOS 6.0, *)
@@ -102,7 +102,7 @@ extension UIImage : _ImageLiteralConvertible {
   required convenience init(imageLiteral name: String)
 }
 extension UIImage {
-  func stretchableImageWithLeftCapWidth(leftCapWidth: Int, topCapHeight: Int) -> UIImage
+  func stretchableImageWith(leftCapWidth leftCapWidth: Int, topCapHeight: Int) -> UIImage
   var leftCapWidth: Int { get }
   var topCapHeight: Int { get }
 }

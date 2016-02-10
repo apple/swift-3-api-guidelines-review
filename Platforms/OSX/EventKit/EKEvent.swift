@@ -2,19 +2,19 @@
 enum EKEventAvailability : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case NotSupported
-  case Busy
-  case Free
-  case Tentative
-  case Unavailable
+  case notSupported
+  case busy
+  case free
+  case tentative
+  case unavailable
 }
 enum EKEventStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Confirmed
-  case Tentative
-  case Canceled
+  case none
+  case confirmed
+  case tentative
+  case canceled
 }
 @available(OSX 10.8, *)
 class EKEvent : EKCalendarItem {
@@ -25,7 +25,7 @@ class EKEvent : EKCalendarItem {
   @NSCopying var endDate: Date
   @available(OSX 10.11, *)
   @NSCopying var structuredLocation: EKStructuredLocation?
-  func compareStartDateWith(other: EKEvent) -> ComparisonResult
+  func compareStartDate(other: EKEvent) -> ComparisonResult
   var organizer: EKParticipant? { get }
   var availability: EKEventAvailability
   var status: EKEventStatus { get }

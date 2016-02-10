@@ -20,53 +20,53 @@ var NSResetCursorRectsRunLoopOrdering: Int { get }
 enum NSWindowSharingType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
-  case ReadOnly
-  case ReadWrite
+  case none
+  case readOnly
+  case readWrite
 }
 @available(OSX 10.5, *)
 enum NSWindowBackingLocation : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Default
-  case VideoMemory
-  case MainMemory
+  case `default`
+  case videoMemory
+  case mainMemory
 }
 @available(OSX 10.5, *)
 struct NSWindowCollectionBehavior : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Default: NSWindowCollectionBehavior { get }
-  static var CanJoinAllSpaces: NSWindowCollectionBehavior { get }
-  static var MoveToActiveSpace: NSWindowCollectionBehavior { get }
+  static var `default`: NSWindowCollectionBehavior { get }
+  static var canJoinAllSpaces: NSWindowCollectionBehavior { get }
+  static var moveToActiveSpace: NSWindowCollectionBehavior { get }
   @available(OSX 10.6, *)
-  static var Managed: NSWindowCollectionBehavior { get }
+  static var managed: NSWindowCollectionBehavior { get }
   @available(OSX 10.6, *)
-  static var Transient: NSWindowCollectionBehavior { get }
+  static var transient: NSWindowCollectionBehavior { get }
   @available(OSX 10.6, *)
-  static var Stationary: NSWindowCollectionBehavior { get }
+  static var stationary: NSWindowCollectionBehavior { get }
   @available(OSX 10.6, *)
-  static var ParticipatesInCycle: NSWindowCollectionBehavior { get }
+  static var participatesInCycle: NSWindowCollectionBehavior { get }
   @available(OSX 10.6, *)
-  static var IgnoresCycle: NSWindowCollectionBehavior { get }
+  static var ignoresCycle: NSWindowCollectionBehavior { get }
   @available(OSX 10.7, *)
-  static var FullScreenPrimary: NSWindowCollectionBehavior { get }
+  static var fullScreenPrimary: NSWindowCollectionBehavior { get }
   @available(OSX 10.7, *)
-  static var FullScreenAuxiliary: NSWindowCollectionBehavior { get }
+  static var fullScreenAuxiliary: NSWindowCollectionBehavior { get }
   @available(OSX 10.11, *)
-  static var FullScreenAllowsTiling: NSWindowCollectionBehavior { get }
+  static var fullScreenAllowsTiling: NSWindowCollectionBehavior { get }
   @available(OSX 10.11, *)
-  static var FullScreenDisallowsTiling: NSWindowCollectionBehavior { get }
+  static var fullScreenDisallowsTiling: NSWindowCollectionBehavior { get }
 }
 @available(OSX 10.7, *)
 enum NSWindowAnimationBehavior : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case None
-  case DocumentWindow
-  case UtilityWindow
-  case AlertPanel
+  case `default`
+  case none
+  case documentWindow
+  case utilityWindow
+  case alertPanel
 }
 var NSWindowNumberListAllApplications: Int { get }
 var NSWindowNumberListAllSpaces: Int { get }
@@ -74,44 +74,44 @@ var NSWindowNumberListAllSpaces: Int { get }
 struct NSWindowOcclusionState : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Visible: NSWindowOcclusionState { get }
+  static var visible: NSWindowOcclusionState { get }
 }
 typealias NSWindowNumberListOptions = Int
 enum NSSelectionDirection : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case DirectSelection
-  case SelectingNext
-  case SelectingPrevious
+  case directSelection
+  case selectingNext
+  case selectingPrevious
 }
 enum NSWindowButton : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case CloseButton
-  case MiniaturizeButton
-  case ZoomButton
-  case ToolbarButton
-  case DocumentIconButton
+  case closeButton
+  case miniaturizeButton
+  case zoomButton
+  case toolbarButton
+  case documentIconButton
   @available(OSX 10.7, *)
-  case DocumentVersionsButton
+  case documentVersionsButton
   @available(OSX 10.7, *)
-  case FullScreenButton
+  case fullScreenButton
 }
 @available(OSX 10.10, *)
 enum NSWindowTitleVisibility : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Visible
-  case Hidden
+  case visible
+  case hidden
 }
 var NSEventDurationForever: Double { get }
 class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceValidations, NSUserInterfaceItemIdentification, NSAppearanceCustomization, NSAccessibilityElementProtocol, NSAccessibility {
-  class func frameRectForContentRect(cRect: Rect, styleMask aStyle: Int) -> Rect
-  class func contentRectForFrameRect(fRect: Rect, styleMask aStyle: Int) -> Rect
-  class func minFrameWidthWithTitle(aTitle: String, styleMask aStyle: Int) -> CGFloat
+  class func frameRectFor(contentRect cRect: Rect, styleMask aStyle: Int) -> Rect
+  class func contentRectFor(frameRect fRect: Rect, styleMask aStyle: Int) -> Rect
+  class func minFrameWidthWith(title aTitle: String, styleMask aStyle: Int) -> CGFloat
   class func defaultDepthLimit() -> NSWindowDepth
-  func frameRectForContentRect(contentRect: Rect) -> Rect
-  func contentRectForFrameRect(frameRect: Rect) -> Rect
+  func frameRectFor(contentRect contentRect: Rect) -> Rect
+  func contentRectFor(frameRect frameRect: Rect) -> Rect
   init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
   convenience init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   var title: String
@@ -223,9 +223,9 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.6, *)
   var preventsApplicationTerminationWhenModal: Bool
   @available(OSX 10.7, *)
-  func convertRectToScreen(aRect: Rect) -> Rect
+  func convertRectTo(screen aRect: Rect) -> Rect
   @available(OSX 10.7, *)
-  func convertRectFromScreen(aRect: Rect) -> Rect
+  func convertRectFrom(screen aRect: Rect) -> Rect
   @available(OSX 10.7, *)
   func convertRectToBacking(aRect: Rect) -> Rect
   @available(OSX 10.7, *)
@@ -282,12 +282,12 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   func toggleFullScreen(sender: AnyObject?)
   var stringWithSavedFrame: String { get }
   func setFrameFrom(string: String)
-  func saveFrameUsingName(name: String)
+  func saveFrameUsing(name name: String)
   func setFrameUsingName(name: String, force: Bool) -> Bool
   func setFrameUsingName(name: String) -> Bool
   func setFrameAutosaveName(name: String) -> Bool
   var frameAutosaveName: String { get }
-  class func removeFrameUsingName(name: String)
+  class func removeFrameUsing(name name: String)
   func cacheImageIn(aRect: Rect)
   func restoreCachedImage()
   func discardCachedImage()
@@ -301,9 +301,9 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   var maxFullScreenContentSize: Size
   @available(OSX 10.10, *)
   func trackEventsMatching(mask: NSEventMask, timeout: TimeInterval, mode: String, handler trackingHandler: (NSEvent, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func nextEventMatchingMask(mask: Int) -> NSEvent?
-  func nextEventMatchingMask(mask: Int, until expiration: Date?, inMode mode: String, dequeue deqFlag: Bool) -> NSEvent?
-  func discardEventsMatchingMask(mask: Int, before lastEvent: NSEvent?)
+  func nextEventMatching(mask mask: Int) -> NSEvent?
+  func nextEventMatching(mask mask: Int, until expiration: Date?, inMode mode: String, dequeue deqFlag: Bool) -> NSEvent?
+  func discardEventsMatching(mask mask: Int, before lastEvent: NSEvent?)
   func post(event: NSEvent, atStart flag: Bool)
   var currentEvent: NSEvent? { get }
   var acceptsMouseMovedEvents: Bool
@@ -336,7 +336,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.6, *)
   var colorSpace: NSColorSpace?
   @available(OSX 10.6, *)
-  class func windowNumbersWithOptions(options: NSWindowNumberListOptions) -> [Number]?
+  class func windowNumbersWith(options options: NSWindowNumberListOptions) -> [Number]?
   @available(OSX 10.6, *)
   class func windowNumberAt(point: Point, belowWindowWithWindowNumber windowNumber: Int) -> Int
   @available(OSX 10.9, *)
@@ -346,7 +346,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   @available(OSX 10.11, *)
-  func performDragWith(event: NSEvent)
+  func performDrag(event: NSEvent)
   convenience init()
   init?(coder: Coder)
   @available(OSX 10.5, *)
@@ -354,9 +354,9 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.5, *)
   var animations: [String : AnyObject]
   @available(OSX 10.5, *)
-  func animationForKey(key: String) -> AnyObject?
+  func animationFor(key key: String) -> AnyObject?
   @available(OSX 10.5, *)
-  class func defaultAnimationForKey(key: String) -> AnyObject?
+  class func defaultAnimationFor(key key: String) -> AnyObject?
   func validate(anItem: NSValidatedUserInterfaceItem) -> Bool
   var identifier: String?
   @available(OSX 10.9, *)
@@ -368,23 +368,23 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   func isAccessibilityFocused() -> Bool
   func accessibilityIdentifier() -> String
   @available(OSX 10.10, *)
-  func accessibilityLayoutPointForScreenPoint(point: Point) -> Point
+  func accessibilityLayoutPointFor(screenPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityLayoutSizeForScreenSize(size: Size) -> Size
+  func accessibilityLayoutSizeFor(screenSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityScreenPointForLayoutPoint(point: Point) -> Point
+  func accessibilityScreenPointFor(layoutPoint point: Point) -> Point
   @available(OSX 10.10, *)
-  func accessibilityScreenSizeForLayoutSize(size: Size) -> Size
+  func accessibilityScreenSizeFor(layoutSize size: Size) -> Size
   @available(OSX 10.10, *)
-  func accessibilityCellForColumn(column: Int, row: Int) -> AnyObject?
+  func accessibilityCellFor(column column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
   func accessibilityAttributedStringFor(range: NSRange) -> AttributedString?
   @available(OSX 10.10, *)
-  func accessibilityRangeForLine(line: Int) -> NSRange
+  func accessibilityRangeFor(line line: Int) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityStringFor(range: NSRange) -> String?
   @available(OSX 10.10, *)
-  func accessibilityRangeForPosition(point: Point) -> NSRange
+  func accessibilityRangeFor(position point: Point) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityRangeFor(index: Int) -> NSRange
   @available(OSX 10.10, *)
@@ -967,7 +967,7 @@ extension NSWindow {
 }
 extension NSWindow {
   func drag(anImage: NSImage, at baseLocation: Point, offset initialOffset: Size, event: NSEvent, pasteboard pboard: NSPasteboard, source sourceObj: AnyObject, slideBack slideFlag: Bool)
-  func registerForDraggedTypes(newTypes: [String])
+  func registerFor(draggedTypes newTypes: [String])
   func unregisterDraggedTypes()
 }
 extension NSWindow {
@@ -1016,7 +1016,7 @@ protocol NSWindowDelegate : ObjectProtocol {
   @available(OSX 10.9, *)
   optional func window(window: NSWindow, startCustomAnimationToEnterFullScreenOn screen: NSScreen, withDuration duration: TimeInterval)
   @available(OSX 10.7, *)
-  optional func windowDidFailToExitFullScreen(window: NSWindow)
+  optional func windowDidFailTo(exitFullScreen window: NSWindow)
   @available(OSX 10.7, *)
   optional func window(window: NSWindow, willResizeForVersionBrowserWithMaxPreferredSize maxPreferredFrameSize: Size, maxAllowedSize maxAllowedFrameSize: Size) -> Size
   @available(OSX 10.7, *)

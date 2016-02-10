@@ -3,10 +3,10 @@
 enum NSSplitViewDividerStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Thick
-  case Thin
+  case thick
+  case thin
   @available(OSX 10.6, *)
-  case PaneSplitter
+  case paneSplitter
 }
 class NSSplitView : NSView {
   var isVertical: Bool

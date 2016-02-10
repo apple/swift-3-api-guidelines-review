@@ -3,10 +3,10 @@ typealias GKChallengeComposeCompletionBlock = (UIViewController, Bool, [String]?
 enum GKChallengeState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Invalid
-  case Pending
-  case Completed
-  case Declined
+  case invalid
+  case pending
+  case completed
+  case declined
 }
 @available(tvOS 6.0, *)
 class GKChallenge : Object, Coding, SecureCoding {
@@ -41,13 +41,13 @@ class GKAchievementChallenge : GKChallenge {
 }
 extension GKScore {
   @available(tvOS 8.0, *)
-  func challengeComposeControllerWithMessage(message: String?, players: [GKPlayer]?, completionHandler: GKChallengeComposeCompletionBlock? = nil) -> UIViewController
+  func challengeComposeController(message message: String?, players: [GKPlayer]?, completionHandler: GKChallengeComposeCompletionBlock? = nil) -> UIViewController
   @available(tvOS 7.0, *)
   class func report(scores: [GKScore], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
 }
 extension GKAchievement {
   @available(tvOS 8.0, *)
-  func challengeComposeControllerWithMessage(message: String?, players: [GKPlayer], completionHandler: GKChallengeComposeCompletionBlock? = nil) -> UIViewController
+  func challengeComposeController(message message: String?, players: [GKPlayer], completionHandler: GKChallengeComposeCompletionBlock? = nil) -> UIViewController
   @available(tvOS 8.0, *)
   func selectChallengeablePlayers(players: [GKPlayer], withCompletionHandler completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
   @available(tvOS 7.0, *)

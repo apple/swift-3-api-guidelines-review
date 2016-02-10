@@ -6,9 +6,9 @@ class AVMediaSelection : Object, Copying, MutableCopying {
   func mediaSelectionCriteriaCanBeAppliedAutomaticallyTo(mediaSelectionGroup: AVMediaSelectionGroup) -> Bool
   init()
   @available(iOS 9.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class AVMutableMediaSelection : AVMediaSelection {

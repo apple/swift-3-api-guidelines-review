@@ -2,13 +2,13 @@
 enum UIDeviceOrientation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Portrait
-  case PortraitUpsideDown
-  case LandscapeLeft
-  case LandscapeRight
-  case FaceUp
-  case FaceDown
+  case unknown
+  case portrait
+  case portraitUpsideDown
+  case landscapeLeft
+  case landscapeRight
+  case faceUp
+  case faceDown
 }
 
 extension UIDeviceOrientation {
@@ -20,19 +20,19 @@ extension UIDeviceOrientation {
 enum UIDeviceBatteryState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unknown
-  case Unplugged
-  case Charging
-  case Full
+  case unknown
+  case unplugged
+  case charging
+  case full
 }
 enum UIUserInterfaceIdiom : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Unspecified
+  case unspecified
   @available(iOS 3.2, *)
-  case Phone
+  case phone
   @available(iOS 3.2, *)
-  case Pad
+  case pad
   @available(iOS 9.0, *)
   case TV
 }

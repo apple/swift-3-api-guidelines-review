@@ -3,15 +3,15 @@
 enum CBPeripheralState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Disconnected
-  case Connecting
-  case Connected
+  case disconnected
+  case connecting
+  case connected
 }
 enum CBCharacteristicWriteType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case WithResponse
-  case WithoutResponse
+  case withResponse
+  case withoutResponse
 }
 @available(OSX 10.7, *)
 class CBPeripheral : Object, Copying {
@@ -33,7 +33,7 @@ class CBPeripheral : Object, Copying {
   func writeValue(data: Data, forDescriptor descriptor: CBDescriptor)
   init()
   @available(OSX 10.7, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
 }
 protocol CBPeripheralDelegate : ObjectProtocol {
   @available(OSX 10.9, *)

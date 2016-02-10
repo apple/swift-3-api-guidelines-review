@@ -13,7 +13,7 @@ class DecimalNumber : Number {
   init(decimal dcm: Decimal)
   convenience init(string numberValue: String?)
   convenience init(string numberValue: String?, locale: AnyObject?)
-  func descriptionWithLocale(locale: AnyObject?) -> String
+  func descriptionWith(locale locale: AnyObject?) -> String
   var decimalValue: Decimal { get }
   class func zero() -> DecimalNumber
   class func one() -> DecimalNumber
@@ -28,11 +28,11 @@ class DecimalNumber : Number {
   func multiplyingBy(decimalNumber: DecimalNumber, withBehavior behavior: DecimalNumberBehaviors?) -> DecimalNumber
   func dividingBy(decimalNumber: DecimalNumber) -> DecimalNumber
   func dividingBy(decimalNumber: DecimalNumber, withBehavior behavior: DecimalNumberBehaviors?) -> DecimalNumber
-  func raisingToPower(power: Int) -> DecimalNumber
-  func raisingToPower(power: Int, withBehavior behavior: DecimalNumberBehaviors?) -> DecimalNumber
-  func multiplyingByPowerOf10(power: Int16) -> DecimalNumber
-  func multiplyingByPowerOf10(power: Int16, withBehavior behavior: DecimalNumberBehaviors?) -> DecimalNumber
-  func byRoundingAccordingToBehavior(behavior: DecimalNumberBehaviors?) -> DecimalNumber
+  func raisingTo(power power: Int) -> DecimalNumber
+  func raisingTo(power power: Int, withBehavior behavior: DecimalNumberBehaviors?) -> DecimalNumber
+  func multiplyingBy(powerOf10 power: Int16) -> DecimalNumber
+  func multiplyingBy(powerOf10 power: Int16, withBehavior behavior: DecimalNumberBehaviors?) -> DecimalNumber
+  func byRoundingAccordingTo(behavior behavior: DecimalNumberBehaviors?) -> DecimalNumber
   func compare(decimalNumber: Number) -> ComparisonResult
   class func setDefaultBehavior(behavior: DecimalNumberBehaviors)
   class func defaultBehavior() -> DecimalNumberBehaviors

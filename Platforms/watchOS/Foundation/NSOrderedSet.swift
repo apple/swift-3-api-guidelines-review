@@ -8,15 +8,15 @@ class OrderedSet : Object, Copying, MutableCopying, SecureCoding, FastEnumeratio
   init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
   init?(coder aDecoder: Coder)
   @available(watchOS 2.0, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
-  func mutableCopy(zone zone: Zone = nil) -> AnyObject
+  func mutableCopyWith(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
   func encodeWith(aCoder: Coder)
   @available(watchOS 2.0, *)
-  func countByEnumeratingWith(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension OrderedSet : SequenceType {
@@ -45,27 +45,27 @@ extension OrderedSet {
   func isSubsetOf(other: OrderedSet) -> Bool
   func isSubsetOf(set: Set<Object>) -> Bool
   @available(watchOS 2.0, *)
-  subscript (idx: Int) -> AnyObject { get }
+  subscript (indexedSubscript idx: Int) -> AnyObject { get }
   func objectEnumerator() -> Enumerator
   func reverseObjectEnumerator() -> Enumerator
   @NSCopying var reversed: OrderedSet { get }
   var array: [AnyObject] { get }
   var set: Set<Object> { get }
-  func enumerateObjectsUsing(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func enumerateObjects(options opts: EnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(opts: EnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   func enumerateObjectsAt(s: IndexSet, options opts: EnumerationOptions = [], usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   func indexOfObjectPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
-  func indexOfObject(options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexOfObject(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   func indexOfObjectAt(s: IndexSet, options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   func indexesOfObjectsPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
-  func indexesOfObjects(options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
+  func indexesOfObjects(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
   func indexesOfObjectsAt(s: IndexSet, options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
   func indexOf(object: AnyObject, inSortedRange range: NSRange, options opts: BinarySearchingOptions = [], usingComparator cmp: Comparator) -> Int
-  func sortedArrayUsingComparator(cmptr: Comparator) -> [AnyObject]
-  func sortedArray(options opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
+  func sortedArray(comparator cmptr: Comparator) -> [AnyObject]
+  func sortedArray(opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
   var description: String { get }
-  func descriptionWithLocale(locale: AnyObject?) -> String
-  func descriptionWithLocale(locale: AnyObject?, indent level: Int) -> String
+  func descriptionWith(locale locale: AnyObject?) -> String
+  func descriptionWith(locale locale: AnyObject?, indent level: Int) -> String
 }
 extension OrderedSet {
   convenience init(object: AnyObject)
@@ -106,7 +106,7 @@ extension MutableOrderedSet {
   func insert(objects: [AnyObject], at indexes: IndexSet)
   func setObject(obj: AnyObject, at idx: Int)
   @available(watchOS 2.0, *)
-  subscript (idx: Int) -> AnyObject
+  subscript (indexedSubscript idx: Int) -> AnyObject
   func replaceObjectsIn(range: NSRange, withObjects objects: UnsafePointer<AnyObject?>, count: Int)
   func replaceObjectsAt(indexes: IndexSet, withObjects objects: [AnyObject])
   func removeObjectsIn(range: NSRange)
@@ -120,8 +120,8 @@ extension MutableOrderedSet {
   func intersectSet(other: Set<Object>)
   func minusSet(other: Set<Object>)
   func unionSet(other: Set<Object>)
-  func sortUsingComparator(cmptr: Comparator)
-  func sort(options opts: SortOptions = [], usingComparator cmptr: Comparator)
+  func sort(comparator cmptr: Comparator)
+  func sort(opts: SortOptions = [], usingComparator cmptr: Comparator)
   func sortRange(range: NSRange, options opts: SortOptions = [], usingComparator cmptr: Comparator)
 }
 extension MutableOrderedSet {

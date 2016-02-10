@@ -107,31 +107,31 @@ func logv(format: String, _ args: CVaListPointer)
 enum ComparisonResult : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case OrderedAscending
-  case OrderedSame
-  case OrderedDescending
+  case orderedAscending
+  case orderedSame
+  case orderedDescending
 }
 typealias Comparator = (AnyObject, AnyObject) -> ComparisonResult
 struct EnumerationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Concurrent: EnumerationOptions { get }
-  static var Reverse: EnumerationOptions { get }
+  static var concurrent: EnumerationOptions { get }
+  static var reverse: EnumerationOptions { get }
 }
 struct SortOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var Concurrent: SortOptions { get }
-  static var Stable: SortOptions { get }
+  static var concurrent: SortOptions { get }
+  static var stable: SortOptions { get }
 }
 @available(tvOS 8.0, *)
 enum QualityOfService : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case UserInteractive
-  case UserInitiated
-  case Utility
-  case Background
-  case Default
+  case userInteractive
+  case userInitiated
+  case utility
+  case background
+  case `default`
 }
 let notFound: Int

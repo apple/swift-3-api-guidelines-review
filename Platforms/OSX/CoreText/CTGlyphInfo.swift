@@ -7,17 +7,17 @@ enum CTCharacterCollection : UInt16 {
   init?(rawValue: UInt16)
   var rawValue: UInt16 { get }
   @available(OSX 10.8, *)
-  case IdentityMapping
+  case identityMapping
   @available(OSX 10.8, *)
-  case AdobeCNS1
+  case adobeCNS1
   @available(OSX 10.8, *)
-  case AdobeGB1
+  case adobeGB1
   @available(OSX 10.8, *)
-  case AdobeJapan1
+  case adobeJapan1
   @available(OSX 10.8, *)
-  case AdobeJapan2
+  case adobeJapan2
   @available(OSX 10.8, *)
-  case AdobeKorea1
+  case adobeKorea1
   @available(OSX, introduced=10.5, deprecated=10.11)
   static var kCTIdentityMappingCharacterCollection: CTCharacterCollection { get }
   @available(OSX, introduced=10.5, deprecated=10.11)

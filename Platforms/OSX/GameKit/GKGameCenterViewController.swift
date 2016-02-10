@@ -2,10 +2,10 @@
 enum GKGameCenterViewControllerState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Default
-  case Leaderboards
-  case Achievements
-  case Challenges
+  case `default`
+  case leaderboards
+  case achievements
+  case challenges
 }
 @available(OSX 10.9, *)
 class GKGameCenterViewController : NSViewController, GKViewController {

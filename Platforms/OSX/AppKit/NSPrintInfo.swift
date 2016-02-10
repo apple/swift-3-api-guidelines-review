@@ -3,15 +3,15 @@
 enum NSPaperOrientation : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Portrait
-  case Landscape
+  case portrait
+  case landscape
 }
 enum NSPrintingPaginationMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case AutoPagination
-  case FitPagination
-  case ClipPagination
+  case autoPagination
+  case fitPagination
+  case clipPagination
 }
 let NSPrintSpoolJob: String
 let NSPrintPreviewJob: String
@@ -91,7 +91,7 @@ class NSPrintInfo : Object, Copying, Coding {
   @available(OSX 10.9, *)
   func takeSettingsFrom(inPDFInfo: NSPDFInfo)
   convenience init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
@@ -100,6 +100,6 @@ extension NSPrintInfo {
 enum NSPrintingOrientation : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case PortraitOrientation
-  case LandscapeOrientation
+  case portraitOrientation
+  case landscapeOrientation
 }

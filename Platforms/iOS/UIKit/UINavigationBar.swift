@@ -6,7 +6,7 @@ class UINavigationBar : UIView, Coding, UIBarPositioning {
   @available(iOS 3.0, *)
   var isTranslucent: Bool
   func push(item: UINavigationItem, animated: Bool)
-  func popNavigationItemAnimated(animated: Bool) -> UINavigationItem?
+  func popNavigationItem(animated animated: Bool) -> UINavigationItem?
   var topItem: UINavigationItem? { get }
   var backItem: UINavigationItem? { get }
   var items: [UINavigationItem]?

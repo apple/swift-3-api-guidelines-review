@@ -64,21 +64,21 @@ class NSOpenGLPixelFormat : Object, Coding {
 enum NSOpenGLContextParameter : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case GLCPSwapInterval
-  case GLCPSurfaceOrder
-  case GLCPSurfaceOpacity
-  case GLCPSurfaceBackingSize
-  case GLCPReclaimResources
-  case GLCPCurrentRendererID
-  case GLCPGPUVertexProcessing
-  case GLCPGPUFragmentProcessing
-  case GLCPHasDrawable
-  case GLCPMPSwapsInFlight
-  case GLCPSwapRectangle
-  case GLCPSwapRectangleEnable
-  case GLCPRasterizationEnable
-  case GLCPStateValidation
-  case GLCPSurfaceSurfaceVolatile
+  case glcpSwapInterval
+  case glcpSurfaceOrder
+  case glcpSurfaceOpacity
+  case glcpSurfaceBackingSize
+  case glcpReclaimResources
+  case glcpCurrentRendererID
+  case glcpgpuVertexProcessing
+  case glcpgpuFragmentProcessing
+  case glcpHasDrawable
+  case glcpmpSwapsInFlight
+  case glcpSwapRectangle
+  case glcpSwapRectangleEnable
+  case glcpRasterizationEnable
+  case glcpStateValidation
+  case glcpSurfaceSurfaceVolatile
 }
 typealias NSOpenGLContextAuxiliary = _CGLContextObject
 class NSOpenGLContext : Object, Locking {

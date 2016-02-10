@@ -2,10 +2,10 @@
 enum NSLevelIndicatorStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case RelevancyLevelIndicatorStyle
-  case ContinuousCapacityLevelIndicatorStyle
-  case DiscreteCapacityLevelIndicatorStyle
-  case RatingLevelIndicatorStyle
+  case relevancyLevelIndicatorStyle
+  case continuousCapacityLevelIndicatorStyle
+  case discreteCapacityLevelIndicatorStyle
+  case ratingLevelIndicatorStyle
 }
 class NSLevelIndicatorCell : NSActionCell {
   init(levelIndicatorStyle: NSLevelIndicatorStyle)

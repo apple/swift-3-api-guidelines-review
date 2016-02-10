@@ -5,10 +5,10 @@ typealias CFNotificationCallback = @convention(c) (CFNotificationCenter!, Unsafe
 enum CFNotificationSuspensionBehavior : CFIndex {
   init?(rawValue: CFIndex)
   var rawValue: CFIndex { get }
-  case Drop
-  case Coalesce
-  case Hold
-  case DeliverImmediately
+  case drop
+  case coalesce
+  case hold
+  case deliverImmediately
 }
 func CFNotificationCenterGetTypeID() -> CFTypeID
 func CFNotificationCenterGetLocalCenter() -> CFNotificationCenter!

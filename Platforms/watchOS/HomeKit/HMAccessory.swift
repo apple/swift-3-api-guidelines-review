@@ -14,7 +14,7 @@ class HMAccessory : Object {
   weak var room: @sil_weak HMRoom? { get }
   var services: [HMService] { get }
   var isBlocked: Bool { get }
-  func identifyWithCompletionHandler(completion: (Error?) -> Void)
+  func identify(completionHandler completion: (Error?) -> Void)
   init()
 }
 @available(watchOS 20000, *)

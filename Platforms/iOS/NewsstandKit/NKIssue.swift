@@ -5,9 +5,9 @@ let NKIssueDownloadCompletedNotification: String
 enum NKIssueContentStatus : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case None
-  case Downloading
-  case Available
+  case none
+  case downloading
+  case available
 }
 @available(iOS 5.0, *)
 class NKIssue : Object {

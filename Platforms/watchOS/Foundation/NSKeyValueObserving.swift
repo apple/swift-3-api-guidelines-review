@@ -2,28 +2,28 @@
 struct KeyValueObservingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var New: KeyValueObservingOptions { get }
-  static var Old: KeyValueObservingOptions { get }
+  static var new: KeyValueObservingOptions { get }
+  static var old: KeyValueObservingOptions { get }
   @available(watchOS 2.0, *)
-  static var Initial: KeyValueObservingOptions { get }
+  static var initial: KeyValueObservingOptions { get }
   @available(watchOS 2.0, *)
-  static var Prior: KeyValueObservingOptions { get }
+  static var prior: KeyValueObservingOptions { get }
 }
 enum KeyValueChange : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Setting
-  case Insertion
-  case Removal
-  case Replacement
+  case setting
+  case insertion
+  case removal
+  case replacement
 }
 enum KeyValueSetMutationKind : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case UnionSetMutation
-  case MinusSetMutation
-  case IntersectSetMutation
-  case SetSetMutation
+  case unionSetMutation
+  case minusSetMutation
+  case intersectSetMutation
+  case setSetMutation
 }
 let keyValueChangeKindKey: String
 let keyValueChangeNewKey: String
@@ -32,8 +32,8 @@ let keyValueChangeIndexesKey: String
 @available(watchOS 2.0, *)
 let keyValueChangeNotificationIsPriorKey: String
 extension Object {
-  class func observeValueForKeyPath(keyPath: String?, of object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
-  func observeValueForKeyPath(keyPath: String?, of object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
+  class func observeValueFor(keyPath keyPath: String?, of object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
+  func observeValueFor(keyPath keyPath: String?, of object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
 }
 extension Object {
   class func addObserver(observer: Object, forKeyPath keyPath: String, options: KeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
@@ -68,23 +68,23 @@ extension NSSet {
   func removeObserver(observer: Object, forKeyPath keyPath: String)
 }
 extension Object {
-  class func willChangeValueForKey(key: String)
-  func willChangeValueForKey(key: String)
-  class func didChangeValueForKey(key: String)
-  func didChangeValueForKey(key: String)
+  class func willChangeValueFor(key key: String)
+  func willChangeValueFor(key key: String)
+  class func didChangeValueFor(key key: String)
+  func didChangeValueFor(key key: String)
   class func willChange(changeKind: KeyValueChange, valuesAt indexes: IndexSet, forKey key: String)
   func willChange(changeKind: KeyValueChange, valuesAt indexes: IndexSet, forKey key: String)
   class func didChange(changeKind: KeyValueChange, valuesAt indexes: IndexSet, forKey key: String)
   func didChange(changeKind: KeyValueChange, valuesAt indexes: IndexSet, forKey key: String)
-  class func willChangeValueForKey(key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
-  func willChangeValueForKey(key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
-  class func didChangeValueForKey(key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
-  func didChangeValueForKey(key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
+  class func willChangeValueFor(key key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
+  func willChangeValueFor(key key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
+  class func didChangeValueFor(key key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
+  func didChangeValueFor(key key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
 }
 extension Object {
   @available(watchOS 2.0, *)
-  class func keyPathsForValuesAffectingValueForKey(key: String) -> Set<String>
-  class func automaticallyNotifiesObserversForKey(key: String) -> Bool
+  class func keyPathsForValuesAffectingValueFor(key key: String) -> Set<String>
+  class func automaticallyNotifiesObserversFor(key key: String) -> Bool
   var observationInfo: UnsafeMutablePointer<Void>
   class func observationInfo() -> UnsafeMutablePointer<Void>
   class func setObservationInfo(observationInfo: UnsafeMutablePointer<Void>)

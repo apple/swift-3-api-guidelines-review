@@ -2,16 +2,16 @@
 struct NSTrackingAreaOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var MouseEnteredAndExited: NSTrackingAreaOptions { get }
-  static var MouseMoved: NSTrackingAreaOptions { get }
-  static var CursorUpdate: NSTrackingAreaOptions { get }
-  static var ActiveWhenFirstResponder: NSTrackingAreaOptions { get }
-  static var ActiveInKeyWindow: NSTrackingAreaOptions { get }
-  static var ActiveInActiveApp: NSTrackingAreaOptions { get }
-  static var ActiveAlways: NSTrackingAreaOptions { get }
-  static var AssumeInside: NSTrackingAreaOptions { get }
-  static var InVisibleRect: NSTrackingAreaOptions { get }
-  static var EnabledDuringMouseDrag: NSTrackingAreaOptions { get }
+  static var mouseEnteredAndExited: NSTrackingAreaOptions { get }
+  static var mouseMoved: NSTrackingAreaOptions { get }
+  static var cursorUpdate: NSTrackingAreaOptions { get }
+  static var activeWhenFirstResponder: NSTrackingAreaOptions { get }
+  static var activeInKeyWindow: NSTrackingAreaOptions { get }
+  static var activeInActiveApp: NSTrackingAreaOptions { get }
+  static var activeAlways: NSTrackingAreaOptions { get }
+  static var assumeInside: NSTrackingAreaOptions { get }
+  static var inVisibleRect: NSTrackingAreaOptions { get }
+  static var enabledDuringMouseDrag: NSTrackingAreaOptions { get }
 }
 @available(OSX 10.5, *)
 class NSTrackingArea : Object, Copying, Coding {
@@ -22,7 +22,7 @@ class NSTrackingArea : Object, Copying, Coding {
   var userInfo: [Object : AnyObject]? { get }
   init()
   @available(OSX 10.5, *)
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   @available(OSX 10.5, *)
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)

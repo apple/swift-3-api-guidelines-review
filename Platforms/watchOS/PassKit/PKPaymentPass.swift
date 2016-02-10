@@ -3,11 +3,11 @@
 enum PKPaymentPassActivationState : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case Activated
-  case RequiresActivation
-  case Activating
-  case Suspended
-  case Deactivated
+  case activated
+  case requiresActivation
+  case activating
+  case suspended
+  case deactivated
 }
 @available(watchOS 2.0, *)
 class PKPaymentPass : PKPass {

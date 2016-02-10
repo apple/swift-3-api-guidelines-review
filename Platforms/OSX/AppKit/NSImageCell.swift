@@ -2,24 +2,24 @@
 enum NSImageAlignment : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case AlignCenter
-  case AlignTop
-  case AlignTopLeft
-  case AlignTopRight
-  case AlignLeft
-  case AlignBottom
-  case AlignBottomLeft
-  case AlignBottomRight
-  case AlignRight
+  case alignCenter
+  case alignTop
+  case alignTopLeft
+  case alignTopRight
+  case alignLeft
+  case alignBottom
+  case alignBottomLeft
+  case alignBottomRight
+  case alignRight
 }
 enum NSImageFrameStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case None
-  case Photo
-  case GrayBezel
-  case Groove
-  case Button
+  case none
+  case photo
+  case grayBezel
+  case groove
+  case button
 }
 class NSImageCell : NSCell, Copying, Coding {
   var imageAlignment: NSImageAlignment

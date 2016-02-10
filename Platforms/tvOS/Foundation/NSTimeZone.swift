@@ -10,7 +10,7 @@ class TimeZone : Object, Copying, SecureCoding {
   @available(tvOS 2.0, *)
   func nextDaylightSavingTimeTransitionAfter(aDate: Date) -> Date?
   init()
-  func copy(zone zone: Zone = nil) -> AnyObject
+  func copyWith(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encodeWith(aCoder: Coder)
   init?(coder aDecoder: Coder)
@@ -42,12 +42,12 @@ extension TimeZone {
 enum TimeZoneNameStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
-  case Standard
-  case ShortStandard
-  case DaylightSaving
-  case ShortDaylightSaving
-  case Generic
-  case ShortGeneric
+  case standard
+  case shortStandard
+  case daylightSaving
+  case shortDaylightSaving
+  case generic
+  case shortGeneric
 }
 extension TimeZone {
   init?(name tzName: String)

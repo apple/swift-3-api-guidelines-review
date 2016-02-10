@@ -2,9 +2,9 @@
 enum NSPreferencePaneUnselectReply : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case UnselectCancel
-  case UnselectNow
-  case UnselectLater
+  case unselectCancel
+  case unselectNow
+  case unselectLater
 }
 let NSPreferencePaneDoUnselectNotification: String
 let NSPreferencePaneCancelUnselectNotification: String
@@ -21,7 +21,7 @@ class NSPreferencePane : Object {
   func willSelect()
   func didSelect()
   var shouldUnselect: NSPreferencePaneUnselectReply { get }
-  func replyToShouldUnselect(shouldUnselect: Bool)
+  func replyTo(shouldUnselect shouldUnselect: Bool)
   func willUnselect()
   func didUnselect()
   var mainView: NSView
