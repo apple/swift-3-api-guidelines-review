@@ -3,7 +3,7 @@
 class SCNTechnique : Object, SCNAnimatable, Copying, SecureCoding {
   /*not inherited*/ init?(dictionary: [String : AnyObject])
   /*not inherited*/ init?(bySequencingTechniques techniques: [SCNTechnique])
-  func handleBinding(ofSymbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  func handleBinding(ofSymbol symbol: String, using block: SCNBindingBlock? = nil)
   var dictionaryRepresentation: [String : AnyObject] { get }
   @available(OSX 10.11, *)
   subscript (forKeyedSubscript key: AnyObject) -> AnyObject? { get }
@@ -29,11 +29,11 @@ class SCNTechnique : Object, SCNAnimatable, Copying, SecureCoding {
   @available(OSX 10.10, *)
   func removeAnimation(forKey key: String, fadeOutDuration duration: CGFloat)
   @available(OSX 10.10, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 protocol SCNTechniqueSupport : ObjectProtocol {

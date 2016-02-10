@@ -11,10 +11,10 @@ class CWChannel : Object, Copying, SecureCoding {
   func isEqual(to channel: CWChannel) -> Bool
   init()
   @available(OSX 10.7, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.7, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

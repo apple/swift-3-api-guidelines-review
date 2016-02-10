@@ -7,5 +7,5 @@ class WKFrameInfo : Object, Copying {
   var securityOrigin: WKSecurityOrigin { get }
   init()
   @available(OSX 10.10, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }

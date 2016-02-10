@@ -33,17 +33,17 @@ class UISegmentedControl : UIControl, Coding {
   var selectedSegmentIndex: Int
   var tintColor: UIColor!
   @available(tvOS 5.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState, barMetrics: UIBarMetrics)
+  func setBackgroundImage(backgroundImage: UIImage?, for state: UIControlState, barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
-  func backgroundImage(forState state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(for state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
   @available(tvOS 5.0, *)
   func setDividerImage(dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
   func dividerImage(forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
   @available(tvOS 5.0, *)
-  func setTitleTextAttributes(attributes: [Object : AnyObject]? = [:], forState state: UIControlState)
+  func setTitleTextAttributes(attributes: [Object : AnyObject]? = [:], for state: UIControlState)
   @available(tvOS 5.0, *)
-  func titleTextAttributes(forState state: UIControlState) -> [Object : AnyObject]?
+  func titleTextAttributes(for state: UIControlState) -> [Object : AnyObject]?
   @available(tvOS 5.0, *)
   func setContentPositionAdjustment(adjustment: UIOffset, forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)

@@ -35,7 +35,7 @@ class CLLocationManager : Object {
   @available(OSX 10.7, *)
   class func significantLocationChangeMonitoringAvailable() -> Bool
   @available(OSX 10.10, *)
-  class func isMonitoringAvailable(forClass regionClass: AnyClass) -> Bool
+  class func isMonitoringAvailable(for regionClass: AnyClass) -> Bool
   @available(OSX, introduced=10.8, deprecated=10.10)
   class func regionMonitoringAvailable() -> Bool
   @available(OSX, introduced=10.8, deprecated=10.10)
@@ -59,11 +59,11 @@ class CLLocationManager : Object {
   @available(OSX 10.7, *)
   func stopMonitoringSignificantLocationChanges()
   @available(OSX 10.8, *)
-  func stopMonitoring(forRegion region: CLRegion)
+  func stopMonitoring(for region: CLRegion)
   @available(OSX 10.8, *)
-  func startMonitoring(forRegion region: CLRegion)
+  func startMonitoring(for region: CLRegion)
   @available(OSX 10.10, *)
-  func requestState(forRegion region: CLRegion)
+  func requestState(for region: CLRegion)
   @available(OSX 10.9, *)
   class func deferredLocationUpdatesAvailable() -> Bool
   init()

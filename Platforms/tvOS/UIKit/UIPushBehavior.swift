@@ -12,8 +12,8 @@ class UIPushBehavior : UIDynamicBehavior {
   func addItem(item: UIDynamicItem)
   func removeItem(item: UIDynamicItem)
   var items: [UIDynamicItem] { get }
-  func targetOffsetFromCenter(forItem item: UIDynamicItem) -> UIOffset
-  func setTargetOffsetFromCenter(o: UIOffset, forItem item: UIDynamicItem)
+  func targetOffsetFromCenter(for item: UIDynamicItem) -> UIOffset
+  func setTargetOffsetFromCenter(o: UIOffset, for item: UIDynamicItem)
   var mode: UIPushBehaviorMode { get }
   var active: Bool
   var angle: CGFloat

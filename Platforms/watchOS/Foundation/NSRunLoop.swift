@@ -21,10 +21,10 @@ extension RunLoop {
   func runMode(mode: String, before limitDate: Date) -> Bool
 }
 extension Object {
-  class func perform(aSelector: Selector, withObject anArgument: AnyObject?, afterDelay delay: TimeInterval, inModes modes: [String])
-  func perform(aSelector: Selector, withObject anArgument: AnyObject?, afterDelay delay: TimeInterval, inModes modes: [String])
-  class func perform(aSelector: Selector, withObject anArgument: AnyObject?, afterDelay delay: TimeInterval)
-  func perform(aSelector: Selector, withObject anArgument: AnyObject?, afterDelay delay: TimeInterval)
+  class func perform(aSelector: Selector, with anArgument: AnyObject?, afterDelay delay: TimeInterval, inModes modes: [String])
+  func perform(aSelector: Selector, with anArgument: AnyObject?, afterDelay delay: TimeInterval, inModes modes: [String])
+  class func perform(aSelector: Selector, with anArgument: AnyObject?, afterDelay delay: TimeInterval)
+  func perform(aSelector: Selector, with anArgument: AnyObject?, afterDelay delay: TimeInterval)
   class func cancelPreviousPerformRequests(target aTarget: AnyObject, selector aSelector: Selector, object anArgument: AnyObject?)
   class func cancelPreviousPerformRequests(target aTarget: AnyObject)
 }

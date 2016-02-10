@@ -8,7 +8,7 @@ class AVComposition : AVAsset, MutableCopying {
   convenience init(url URL: URL)
   init()
   @available(tvOS 4.0, *)
-  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: Zone = nil) -> AnyObject
 }
 extension AVComposition {
   func track(withTrackID trackID: CMPersistentTrackID) -> AVCompositionTrack?

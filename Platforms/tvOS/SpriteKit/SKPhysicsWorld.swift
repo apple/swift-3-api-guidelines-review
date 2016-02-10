@@ -15,10 +15,10 @@ class SKPhysicsWorld : Object, Coding {
   func body(at point: CGPoint) -> SKPhysicsBody?
   func body(in rect: CGRect) -> SKPhysicsBody?
   func bodyAlongRayStart(start: CGPoint, end: CGPoint) -> SKPhysicsBody?
-  func enumerateBodies(at point: CGPoint, usingBlock block: (SKPhysicsBody, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func enumerateBodies(in rect: CGRect, usingBlock block: (SKPhysicsBody, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func enumerateBodiesAlongRayStart(start: CGPoint, end: CGPoint, usingBlock block: (SKPhysicsBody, CGPoint, CGVector, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateBodies(at point: CGPoint, using block: (SKPhysicsBody, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateBodies(in rect: CGRect, using block: (SKPhysicsBody, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateBodiesAlongRayStart(start: CGPoint, end: CGPoint, using block: (SKPhysicsBody, CGPoint, CGVector, UnsafeMutablePointer<ObjCBool>) -> Void)
   init()
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

@@ -2,7 +2,7 @@
 @available(OSX 10.8, *)
 class EKCalendar : EKObject {
   @available(OSX 10.8, *)
-  /*not inherited*/ init(forEntityType entityType: EKEntityType, eventStore: EKEventStore)
+  /*not inherited*/ init(for entityType: EKEntityType, eventStore: EKEventStore)
   var source: EKSource
   @available(OSX 10.8, *)
   var calendarIdentifier: String { get }

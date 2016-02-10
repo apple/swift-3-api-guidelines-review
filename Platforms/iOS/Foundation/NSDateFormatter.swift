@@ -2,7 +2,7 @@
 class DateFormatter : Formatter {
   @available(iOS 8.0, *)
   var formattingContext: FormattingContext
-  func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, range rangep: UnsafeMutablePointer<NSRange>) throws
+  func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, range rangep: UnsafeMutablePointer<NSRange>) throws
   func string(from date: Date) -> String
   func date(from string: String) -> Date?
   @available(iOS 4.0, *)

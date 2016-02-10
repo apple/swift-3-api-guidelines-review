@@ -14,7 +14,7 @@ class NSTypesetter : Object {
   var typesetterBehavior: NSTypesetterBehavior
   var hyphenationFactor: Float
   var lineFragmentPadding: CGFloat
-  func substituteFont(forFont originalFont: NSFont) -> NSFont
+  func substituteFont(for originalFont: NSFont) -> NSFont
   func textTab(forGlyphLocation glyphLocation: CGFloat, writingDirection direction: NSWritingDirection, maxLocation: CGFloat) -> NSTextTab?
   var bidiProcessingEnabled: Bool
   unowned(unsafe) var attributedString: @sil_unmanaged AttributedString?
@@ -41,11 +41,11 @@ class NSTypesetter : Object {
   func setHardInvalidation(flag: Bool, forGlyphRange glyphRange: NSRange)
   func layoutGlyphs(in layoutManager: NSLayoutManager, startingAtGlyphIndex startGlyphIndex: Int, maxNumberOfLineFragments maxNumLines: Int, nextGlyphIndex nextGlyph: UnsafeMutablePointer<Int>)
   @available(OSX 10.5, *)
-  func layoutCharacters(in characterRange: NSRange, forLayoutManager layoutManager: NSLayoutManager, maximumNumberOfLineFragments maxNumLines: Int) -> NSRange
+  func layoutCharacters(in characterRange: NSRange, for layoutManager: NSLayoutManager, maximumNumberOfLineFragments maxNumLines: Int) -> NSRange
   class func printingAdjustment(in layoutMgr: NSLayoutManager, forNominallySpacedGlyphRange nominallySpacedGlyphsRange: NSRange, packedGlyphs: UnsafePointer<UInt8>, count packedGlyphsCount: Int) -> Size
   func baselineOffset(in layoutMgr: NSLayoutManager, glyphIndex: Int) -> CGFloat
   class func sharedSystemTypesetter() -> AnyObject
-  class func sharedSystemTypesetter(forBehavior theBehavior: NSTypesetterBehavior) -> AnyObject
+  class func sharedSystemTypesetter(for theBehavior: NSTypesetterBehavior) -> AnyObject
   class func defaultTypesetterBehavior() -> NSTypesetterBehavior
   init()
 }
@@ -55,7 +55,7 @@ extension NSTypesetter {
   func shouldBreakLineByHyphenatingBeforeCharacter(at charIndex: Int) -> Bool
   func hyphenationFactorForGlyph(at glyphIndex: Int) -> Float
   func hyphenCharacterForGlyph(at glyphIndex: Int) -> UTF32Char
-  func boundingBoxForControlGlyph(at glyphIndex: Int, forTextContainer textContainer: NSTextContainer, proposedLineFragment proposedRect: Rect, glyphPosition: Point, characterIndex charIndex: Int) -> Rect
+  func boundingBoxForControlGlyph(at glyphIndex: Int, for textContainer: NSTextContainer, proposedLineFragment proposedRect: Rect, glyphPosition: Point, characterIndex charIndex: Int) -> Rect
 }
 extension NSTypesetter {
   func characterRange(forGlyphRange glyphRange: NSRange, actualGlyphRange: RangePointer) -> NSRange

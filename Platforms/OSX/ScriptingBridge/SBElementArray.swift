@@ -5,7 +5,7 @@ class SBElementArray : MutableArray {
   func object(withID identifier: AnyObject) -> AnyObject
   func object(atLocation location: AnyObject) -> AnyObject
   func arrayByApplying(selector: Selector) -> [AnyObject]
-  func arrayByApplying(aSelector: Selector, withObject argument: AnyObject) -> [AnyObject]
+  func arrayByApplying(aSelector: Selector, with argument: AnyObject) -> [AnyObject]
   func get() -> [AnyObject]?
   init()
   init(capacity numItems: Int)

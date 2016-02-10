@@ -20,10 +20,10 @@ class Proxy : ObjectProtocol {
   func `self`() -> Self
   func perform(aSelector: Selector) -> Unmanaged<AnyObject>!
   class func perform(aSelector: Selector) -> Unmanaged<AnyObject>!
-  func perform(aSelector: Selector, withObject object: AnyObject!) -> Unmanaged<AnyObject>!
-  class func perform(aSelector: Selector, withObject object: AnyObject!) -> Unmanaged<AnyObject>!
-  func perform(aSelector: Selector, withObject object1: AnyObject!, withObject object2: AnyObject!) -> Unmanaged<AnyObject>!
-  class func perform(aSelector: Selector, withObject object1: AnyObject!, withObject object2: AnyObject!) -> Unmanaged<AnyObject>!
+  func perform(aSelector: Selector, with object: AnyObject!) -> Unmanaged<AnyObject>!
+  class func perform(aSelector: Selector, with object: AnyObject!) -> Unmanaged<AnyObject>!
+  func perform(aSelector: Selector, with object1: AnyObject!, with object2: AnyObject!) -> Unmanaged<AnyObject>!
+  class func perform(aSelector: Selector, with object1: AnyObject!, with object2: AnyObject!) -> Unmanaged<AnyObject>!
   func isProxy() -> Bool
   class func isProxy() -> Bool
   func isKindOf(aClass: AnyClass) -> Bool

@@ -50,7 +50,7 @@ class NSScroller : NSControl {
   @available(OSX 10.7, *)
   class func isCompatibleWithOverlayScrollers() -> Bool
   @available(OSX 10.7, *)
-  class func scrollerWidth(forControlSize controlSize: NSControlSize, scrollerStyle: NSScrollerStyle) -> CGFloat
+  class func scrollerWidth(for controlSize: NSControlSize, scrollerStyle: NSScrollerStyle) -> CGFloat
   @available(OSX 10.7, *)
   class func preferredScrollerStyle() -> NSScrollerStyle
   @available(OSX 10.7, *)

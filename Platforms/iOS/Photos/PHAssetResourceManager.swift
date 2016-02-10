@@ -10,13 +10,13 @@ class PHAssetResourceRequestOptions : Object, Copying {
   var progressHandler: PHAssetResourceProgressHandler?
   init()
   @available(iOS 9.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class PHAssetResourceManager : Object {
   class func defaultManager() -> PHAssetResourceManager
-  func requestData(forAssetResource resource: PHAssetResource, options: PHAssetResourceRequestOptions?, dataReceivedHandler handler: (Data) -> Void, completionHandler: (Error?) -> Void) -> PHAssetResourceDataRequestID
-  func writeData(forAssetResource resource: PHAssetResource, toFile fileURL: URL, options: PHAssetResourceRequestOptions?, completionHandler: (Error?) -> Void)
+  func requestData(for resource: PHAssetResource, options: PHAssetResourceRequestOptions?, dataReceivedHandler handler: (Data) -> Void, completionHandler: (Error?) -> Void) -> PHAssetResourceDataRequestID
+  func writeData(for resource: PHAssetResource, toFile fileURL: URL, options: PHAssetResourceRequestOptions?, completionHandler: (Error?) -> Void)
   func cancelDataRequest(requestID: PHAssetResourceDataRequestID)
   init()
 }

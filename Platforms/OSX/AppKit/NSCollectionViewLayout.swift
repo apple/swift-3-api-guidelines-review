@@ -22,11 +22,11 @@ class NSCollectionViewLayoutAttributes : Object, Copying {
   var representedElementKind: String? { get }
   convenience init(forItemWith indexPath: IndexPath)
   convenience init(forInterItemGapBefore indexPath: IndexPath)
-  convenience init(forSupplementaryViewOfKind elementKind: String, withIndexPath indexPath: IndexPath)
-  convenience init(forDecorationViewOfKind decorationViewKind: String, withIndexPath indexPath: IndexPath)
+  convenience init(forSupplementaryViewOfKind elementKind: String, with indexPath: IndexPath)
+  convenience init(forDecorationViewOfKind decorationViewKind: String, with indexPath: IndexPath)
   init()
   @available(OSX 10.11, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 enum NSCollectionUpdateAction : Int {
@@ -63,12 +63,12 @@ class NSCollectionViewLayoutInvalidationContext : Object {
 class NSCollectionViewLayout : Object, Coding {
   weak var collectionView: @sil_weak NSCollectionView? { get }
   func invalidateLayout()
-  func invalidateLayout(withContext context: NSCollectionViewLayoutInvalidationContext)
+  func invalidateLayout(with context: NSCollectionViewLayoutInvalidationContext)
   func register(viewClass: AnyClass?, forDecorationViewOfKind elementKind: String)
   func register(nib: NSNib?, forDecorationViewOfKind elementKind: String)
   init()
   @available(OSX 10.11, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension NSCollectionViewLayout {

@@ -54,10 +54,10 @@ class Data : Object, Copying, MutableCopying, SecureCoding {
   var length: Int { get }
   var bytes: UnsafePointer<Void> { get }
   init()
-  func copy(withZone zone: Zone = nil) -> AnyObject
-  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension Data {
@@ -65,7 +65,7 @@ extension Data {
   func getBytes(buffer: UnsafeMutablePointer<Void>, length: Int)
   func getBytes(buffer: UnsafeMutablePointer<Void>, range: NSRange)
   func isEqual(to other: Data) -> Bool
-  func subdata(withRange range: NSRange) -> Data
+  func subdata(with range: NSRange) -> Data
   func write(toFile path: String, atomically useAuxiliaryFile: Bool) -> Bool
   func write(to url: URL, atomically: Bool) -> Bool
   func write(toFile path: String, options writeOptionsMask: DataWritingOptions = []) throws

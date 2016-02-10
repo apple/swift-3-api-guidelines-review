@@ -39,7 +39,7 @@ class AVSpeechSynthesisVoice : Object, SecureCoding {
   @available(iOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 7.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(iOS 7.0, *)
@@ -54,11 +54,11 @@ class AVSpeechUtterance : Object, Copying, SecureCoding {
   var postUtteranceDelay: TimeInterval
   init()
   @available(iOS 7.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(iOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 7.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(iOS 7.0, *)

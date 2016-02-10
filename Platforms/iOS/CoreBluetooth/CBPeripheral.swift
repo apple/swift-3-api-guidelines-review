@@ -25,16 +25,16 @@ class CBPeripheral : CBPeer {
   var services: [CBService]? { get }
   func readRSSI()
   func discoverServices(serviceUUIDs: [CBUUID]?)
-  func discoverIncludedServices(includedServiceUUIDs: [CBUUID]?, forService service: CBService)
-  func discoverCharacteristics(characteristicUUIDs: [CBUUID]?, forService service: CBService)
-  func readValue(forCharacteristic characteristic: CBCharacteristic)
+  func discoverIncludedServices(includedServiceUUIDs: [CBUUID]?, for service: CBService)
+  func discoverCharacteristics(characteristicUUIDs: [CBUUID]?, for service: CBService)
+  func readValue(for characteristic: CBCharacteristic)
   @available(iOS 9.0, *)
-  func maximumWriteValueLength(forType type: CBCharacteristicWriteType) -> Int
-  func writeValue(data: Data, forCharacteristic characteristic: CBCharacteristic, type: CBCharacteristicWriteType)
-  func setNotifyValue(enabled: Bool, forCharacteristic characteristic: CBCharacteristic)
-  func discoverDescriptors(forCharacteristic characteristic: CBCharacteristic)
-  func readValue(forDescriptor descriptor: CBDescriptor)
-  func writeValue(data: Data, forDescriptor descriptor: CBDescriptor)
+  func maximumWriteValueLength(for type: CBCharacteristicWriteType) -> Int
+  func writeValue(data: Data, for characteristic: CBCharacteristic, type: CBCharacteristicWriteType)
+  func setNotifyValue(enabled: Bool, for characteristic: CBCharacteristic)
+  func discoverDescriptors(for characteristic: CBCharacteristic)
+  func readValue(for descriptor: CBDescriptor)
+  func writeValue(data: Data, for descriptor: CBDescriptor)
 }
 protocol CBPeripheralDelegate : ObjectProtocol {
   @available(iOS 6.0, *)

@@ -82,9 +82,9 @@ class AVCaptureMovieFileOutput : AVCaptureFileOutput {
   var movieFragmentInterval: CMTime
   var metadata: [AnyObject]!
   @available(OSX 10.7, *)
-  func outputSettings(forConnection connection: AVCaptureConnection!) -> [Object : AnyObject]!
+  func outputSettings(for connection: AVCaptureConnection!) -> [Object : AnyObject]!
   @available(OSX 10.7, *)
-  func setOutputSettings(outputSettings: [Object : AnyObject]!, forConnection connection: AVCaptureConnection!)
+  func setOutputSettings(outputSettings: [Object : AnyObject]!, for connection: AVCaptureConnection!)
   init()
 }
 @available(OSX 10.7, *)

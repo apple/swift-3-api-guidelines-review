@@ -24,9 +24,9 @@ class MapTable : Object, Copying, Coding, FastEnumeration {
   class func weakToWeakObjects() -> MapTable
   @NSCopying var keyPointerFunctions: PointerFunctions { get }
   @NSCopying var valuePointerFunctions: PointerFunctions { get }
-  func object(forKey aKey: AnyObject?) -> AnyObject?
-  func removeObject(forKey aKey: AnyObject?)
-  func setObject(anObject: AnyObject?, forKey aKey: AnyObject?)
+  func object(for aKey: AnyObject?) -> AnyObject?
+  func removeObject(for aKey: AnyObject?)
+  func setObject(anObject: AnyObject?, for aKey: AnyObject?)
   var count: Int { get }
   func keyEnumerator() -> Enumerator
   func objectEnumerator() -> Enumerator?
@@ -34,9 +34,9 @@ class MapTable : Object, Copying, Coding, FastEnumeration {
   func dictionaryRepresentation() -> [Object : AnyObject]
   convenience init()
   @available(iOS 6.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(iOS 6.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 6.0, *)
   func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int

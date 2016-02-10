@@ -202,11 +202,11 @@ extension AVCaptureDevice {
   @available(iOS 8.0, *)
   func chromaticityValuesForDeviceWhiteBalanceGains(whiteBalanceGains: AVCaptureWhiteBalanceGains) -> AVCaptureWhiteBalanceChromaticityValues
   @available(iOS 8.0, *)
-  func deviceWhiteBalanceGains(forChromaticityValues chromaticityValues: AVCaptureWhiteBalanceChromaticityValues) -> AVCaptureWhiteBalanceGains
+  func deviceWhiteBalanceGains(for chromaticityValues: AVCaptureWhiteBalanceChromaticityValues) -> AVCaptureWhiteBalanceGains
   @available(iOS 8.0, *)
   func temperatureAndTintValuesForDeviceWhiteBalanceGains(whiteBalanceGains: AVCaptureWhiteBalanceGains) -> AVCaptureWhiteBalanceTemperatureAndTintValues
   @available(iOS 8.0, *)
-  func deviceWhiteBalanceGains(forTemperatureAndTintValues tempAndTintValues: AVCaptureWhiteBalanceTemperatureAndTintValues) -> AVCaptureWhiteBalanceGains
+  func deviceWhiteBalanceGains(for tempAndTintValues: AVCaptureWhiteBalanceTemperatureAndTintValues) -> AVCaptureWhiteBalanceGains
 }
 @available(iOS 8.0, *)
 let AVCaptureWhiteBalanceGainsCurrent: AVCaptureWhiteBalanceGains

@@ -77,7 +77,7 @@ class WKInterfaceController : Object {
   func pickerDidSettle(picker: WKInterfacePicker)
   func table(table: WKInterfaceTable, didSelectRowAt rowIndex: Int)
   func handleAction(identifier identifier: String?, forRemoteNotification remoteNotification: [Object : AnyObject])
-  func handleAction(identifier identifier: String?, forLocalNotification localNotification: UILocalNotification)
+  func handleAction(identifier identifier: String?, for localNotification: UILocalNotification)
   func handleUserActivity(userInfo: [Object : AnyObject]?)
   func setTitle(title: String?)
   func push(name name: String, context: AnyObject?)
@@ -154,5 +154,5 @@ class WKUserNotificationInterfaceController : WKInterfaceController {
   @available(watchOS 2.0, *)
   func suggestionsForResponseToAction(withIdentifier identifier: String, forRemoteNotification remoteNotification: [Object : AnyObject], inputLanguage: String) -> [String]
   @available(watchOS 2.0, *)
-  func suggestionsForResponseToAction(withIdentifier identifier: String, forLocalNotification localNotification: UILocalNotification, inputLanguage: String) -> [String]
+  func suggestionsForResponseToAction(withIdentifier identifier: String, for localNotification: UILocalNotification, inputLanguage: String) -> [String]
 }

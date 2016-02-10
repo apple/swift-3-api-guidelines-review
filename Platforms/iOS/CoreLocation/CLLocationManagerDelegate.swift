@@ -7,7 +7,7 @@ protocol CLLocationManagerDelegate : ObjectProtocol {
   @available(iOS 3.0, *)
   optional func locationManagerShouldDisplayHeadingCalibration(manager: CLLocationManager) -> Bool
   @available(iOS 7.0, *)
-  optional func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion)
+  optional func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion)
   @available(iOS 7.0, *)
   optional func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion)
   @available(iOS 7.0, *)

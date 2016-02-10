@@ -10,15 +10,15 @@ enum NSCharacterCollection : UInt {
   case adobeKorea1CharacterCollection
 }
 class NSGlyphInfo : Object, Copying, SecureCoding {
-  /*not inherited*/ init?(glyphName: String, forFont font: NSFont, baseString theString: String)
-  /*not inherited*/ init?(glyph: NSGlyph, forFont font: NSFont, baseString theString: String)
+  /*not inherited*/ init?(glyphName: String, for font: NSFont, baseString theString: String)
+  /*not inherited*/ init?(glyph: NSGlyph, for font: NSFont, baseString theString: String)
   /*not inherited*/ init?(characterIdentifier cid: Int, collection characterCollection: NSCharacterCollection, baseString theString: String)
   var glyphName: String? { get }
   var characterIdentifier: Int { get }
   var characterCollection: NSCharacterCollection { get }
   init()
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

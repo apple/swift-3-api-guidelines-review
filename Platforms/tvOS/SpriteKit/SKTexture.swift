@@ -32,8 +32,8 @@ class SKTexture : Object, Copying, Coding {
   class func preload(textures: [SKTexture], withCompletionHandler completionHandler: () -> Void)
   func preload(completionHandler completionHandler: () -> Void)
   init()
-  func copy(withZone zone: Zone = nil) -> AnyObject
-  func encode(withCoder aCoder: Coder)
+  func copy(with zone: Zone = nil) -> AnyObject
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 

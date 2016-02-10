@@ -5,6 +5,6 @@ class NSIncrementalStoreNode : Object {
   func update(withValues values: [String : AnyObject], version: UInt64)
   var objectID: NSManagedObjectID { get }
   var version: UInt64 { get }
-  func value(forPropertyDescription prop: NSPropertyDescription) -> AnyObject?
+  func value(for prop: NSPropertyDescription) -> AnyObject?
   init()
 }

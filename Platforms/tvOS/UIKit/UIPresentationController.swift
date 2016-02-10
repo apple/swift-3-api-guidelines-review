@@ -1,9 +1,9 @@
 
 protocol UIAdaptivePresentationControllerDelegate : ObjectProtocol {
   @available(tvOS 8.0, *)
-  optional func adaptivePresentationStyle(forPresentationController controller: UIPresentationController) -> UIModalPresentationStyle
+  optional func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle
   @available(tvOS 8.3, *)
-  optional func adaptivePresentationStyle(forPresentationController controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle
+  optional func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle
   @available(tvOS 8.0, *)
   optional func presentationController(controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController?
   @available(tvOS 8.3, *)
@@ -19,7 +19,7 @@ class UIPresentationController : Object, UIAppearanceContainer, UITraitEnvironme
   init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController)
   func adaptivePresentationStyle() -> UIModalPresentationStyle
   @available(tvOS 8.3, *)
-  func adaptivePresentationStyle(forTraitCollection traitCollection: UITraitCollection) -> UIModalPresentationStyle
+  func adaptivePresentationStyle(for traitCollection: UITraitCollection) -> UIModalPresentationStyle
   func containerViewWillLayoutSubviews()
   func containerViewDidLayoutSubviews()
   func presentedView() -> UIView?
@@ -45,9 +45,9 @@ class UIPresentationController : Object, UIAppearanceContainer, UITraitEnvironme
   @available(tvOS 8.0, *)
   func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
   @available(tvOS 8.0, *)
-  func viewWillTransition(to size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator)
   @available(tvOS 8.0, *)
-  func willTransition(to newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator)
   @available(tvOS 9.0, *)
   weak var preferredFocusedView: @sil_weak UIView? { get }
   @available(tvOS 9.0, *)
@@ -57,5 +57,5 @@ class UIPresentationController : Object, UIAppearanceContainer, UITraitEnvironme
   @available(tvOS 9.0, *)
   func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool
   @available(tvOS 9.0, *)
-  func didUpdateFocus(in context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+  func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
 }

@@ -20,7 +20,7 @@ class GKScore : Object, Coding, SecureCoding {
   class func report(scores: [GKScore], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
   init()
   @available(iOS 4.1, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 4.1, *)
   class func supportsSecureCoding() -> Bool

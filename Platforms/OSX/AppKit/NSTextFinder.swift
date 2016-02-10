@@ -45,7 +45,7 @@ class NSTextFinder : Object, Coding {
   class func drawIncrementalMatchHighlight(in rect: Rect)
   func noteClientStringWillChange()
   @available(OSX 10.7, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 protocol NSTextFinderClient : ObjectProtocol {
@@ -58,8 +58,8 @@ protocol NSTextFinderClient : ObjectProtocol {
   optional var firstSelectedRange: NSRange { get }
   optional var selectedRanges: [Value] { get set }
   optional func scrollRangeToVisible(range: NSRange)
-  optional func shouldReplaceCharacters(inRanges ranges: [Value], withStrings strings: [String]) -> Bool
-  optional func replaceCharacters(in range: NSRange, withString string: String)
+  optional func shouldReplaceCharacters(inRanges ranges: [Value], with strings: [String]) -> Bool
+  optional func replaceCharacters(in range: NSRange, with string: String)
   optional func didReplaceCharacters()
   optional func contentView(at index: Int, effectiveCharacterRange outRange: RangePointer) -> NSView
   optional func rects(forCharacterRange range: NSRange) -> [Value]?

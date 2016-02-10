@@ -11,8 +11,8 @@ enum WKInterfaceMapPinColor : Int {
 class WKInterfaceMap : WKInterfaceObject {
   func setVisibleMapRect(mapRect: MKMapRect)
   func setRegion(coordinateRegion: MKCoordinateRegion)
-  func addAnnotation(location: CLLocationCoordinate2D, withImage image: UIImage?, centerOffset offset: CGPoint)
+  func addAnnotation(location: CLLocationCoordinate2D, with image: UIImage?, centerOffset offset: CGPoint)
   func addAnnotation(location: CLLocationCoordinate2D, withImageNamed name: String?, centerOffset offset: CGPoint)
-  func addAnnotation(location: CLLocationCoordinate2D, withPinColor pinColor: WKInterfaceMapPinColor)
+  func addAnnotation(location: CLLocationCoordinate2D, with pinColor: WKInterfaceMapPinColor)
   func removeAllAnnotations()
 }

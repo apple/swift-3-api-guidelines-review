@@ -36,13 +36,13 @@ extension NSString {
   @available(tvOS 7.0, *)
   func draw(rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?)
   @available(tvOS 7.0, *)
-  func boundingRect(withSize size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?) -> CGRect
+  func boundingRect(with size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?) -> CGRect
 }
 extension AttributedString {
   @available(tvOS 6.0, *)
   func draw(rect: CGRect, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?)
   @available(tvOS 6.0, *)
-  func boundingRect(withSize size: CGSize, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?) -> CGRect
+  func boundingRect(with size: CGSize, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?) -> CGRect
 }
 extension NSStringDrawingContext {
 }

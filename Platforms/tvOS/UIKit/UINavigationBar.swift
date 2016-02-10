@@ -14,21 +14,21 @@ class UINavigationBar : UIView, Coding, UIBarPositioning {
   @available(tvOS 7.0, *)
   var barTintColor: UIColor?
   @available(tvOS 7.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, forBarPosition barPosition: UIBarPosition, barMetrics: UIBarMetrics)
+  func setBackgroundImage(backgroundImage: UIImage?, for barPosition: UIBarPosition, barMetrics: UIBarMetrics)
   @available(tvOS 7.0, *)
-  func backgroundImage(forBarPosition barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(for barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
   @available(tvOS 5.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, forBarMetrics barMetrics: UIBarMetrics)
+  func setBackgroundImage(backgroundImage: UIImage?, for barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
-  func backgroundImage(forBarMetrics barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(for barMetrics: UIBarMetrics) -> UIImage?
   @available(tvOS 6.0, *)
   var shadowImage: UIImage?
   @available(tvOS 5.0, *)
   var titleTextAttributes: [String : AnyObject]?
   @available(tvOS 5.0, *)
-  func setTitleVerticalPositionAdjustment(adjustment: CGFloat, forBarMetrics barMetrics: UIBarMetrics)
+  func setTitleVerticalPositionAdjustment(adjustment: CGFloat, for barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
-  func titleVerticalPositionAdjustment(forBarMetrics barMetrics: UIBarMetrics) -> CGFloat
+  func titleVerticalPositionAdjustment(for barMetrics: UIBarMetrics) -> CGFloat
   init(frame: CGRect)
   init?(coder aDecoder: Coder)
   convenience init()
@@ -65,5 +65,5 @@ class UINavigationItem : Object, Coding {
   func setRightBarButtonItem(item: UIBarButtonItem?, animated: Bool)
   convenience init()
   @available(tvOS 2.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
 }

@@ -87,13 +87,13 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   func unhideAllApplications(sender: AnyObject?)
   func finishLaunching()
   func run()
-  func runModal(forWindow theWindow: NSWindow) -> Int
+  func runModal(for theWindow: NSWindow) -> Int
   func stop(sender: AnyObject?)
   func stopModal()
   func stopModal(code returnCode: Int)
   func abortModal()
   var modalWindow: NSWindow? { get }
-  func beginModalSession(forWindow theWindow: NSWindow) -> NSModalSession
+  func beginModalSession(for theWindow: NSWindow) -> NSModalSession
   func run(session: NSModalSession) -> Int
   func end(session: NSModalSession)
   func terminate(sender: AnyObject?)
@@ -125,7 +125,7 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   func tryToPerform(anAction: Selector, with anObject: AnyObject?) -> Bool
   func validRequestorForSendType(sendType: String, returnType: String) -> AnyObject?
   func report(theException: Exception)
-  class func detachDrawingThread(selector: Selector, toTarget target: AnyObject, withObject argument: AnyObject?)
+  class func detachDrawingThread(selector: Selector, toTarget target: AnyObject, with argument: AnyObject?)
   func reply(toApplicationShouldTerminate shouldTerminate: Bool)
   func replyToOpenOrPrint(reply: NSApplicationDelegateReply)
   func orderFrontCharacterPalette(sender: AnyObject?)
@@ -153,23 +153,23 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   @available(OSX 10.10, *)
   func accessibilityCell(forColumn column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
-  func accessibilityAttributedString(forRange range: NSRange) -> AttributedString?
+  func accessibilityAttributedString(for range: NSRange) -> AttributedString?
   @available(OSX 10.10, *)
   func accessibilityRange(forLine line: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityString(forRange range: NSRange) -> String?
+  func accessibilityString(for range: NSRange) -> String?
   @available(OSX 10.10, *)
   func accessibilityRange(forPosition point: Point) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityRange(forIndex index: Int) -> NSRange
+  func accessibilityRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityFrame(forRange range: NSRange) -> Rect
+  func accessibilityFrame(for range: NSRange) -> Rect
   @available(OSX 10.10, *)
-  func accessibilityRTF(forRange range: NSRange) -> Data?
+  func accessibilityRTF(for range: NSRange) -> Data?
   @available(OSX 10.10, *)
-  func accessibilityStyleRange(forIndex index: Int) -> NSRange
+  func accessibilityStyleRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityLine(forIndex index: Int) -> Int
+  func accessibilityLine(for index: Int) -> Int
   @available(OSX 10.10, *)
   func accessibilityPerformCancel() -> Bool
   @available(OSX 10.10, *)

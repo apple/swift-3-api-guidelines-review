@@ -54,35 +54,35 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(iOS 5.0, *)
   var scopeBarBackgroundImage: UIImage?
   @available(iOS 7.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, forBarPosition barPosition: UIBarPosition, barMetrics: UIBarMetrics)
+  func setBackgroundImage(backgroundImage: UIImage?, for barPosition: UIBarPosition, barMetrics: UIBarMetrics)
   @available(iOS 7.0, *)
-  func backgroundImage(forBarPosition barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(for barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 5.0, *)
-  func setSearchFieldBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState)
+  func setSearchFieldBackgroundImage(backgroundImage: UIImage?, for state: UIControlState)
   @available(iOS 5.0, *)
-  func searchFieldBackgroundImage(forState state: UIControlState) -> UIImage?
+  func searchFieldBackgroundImage(for state: UIControlState) -> UIImage?
   @available(iOS 5.0, *)
-  func setImage(iconImage: UIImage?, forSearchBarIcon icon: UISearchBarIcon, state: UIControlState)
+  func setImage(iconImage: UIImage?, for icon: UISearchBarIcon, state: UIControlState)
   @available(iOS 5.0, *)
   func imageFor(icon: UISearchBarIcon, state: UIControlState) -> UIImage?
   @available(iOS 5.0, *)
-  func setScopeBarButtonBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState)
+  func setScopeBarButtonBackgroundImage(backgroundImage: UIImage?, for state: UIControlState)
   @available(iOS 5.0, *)
-  func scopeBarButtonBackgroundImage(forState state: UIControlState) -> UIImage?
+  func scopeBarButtonBackgroundImage(for state: UIControlState) -> UIImage?
   @available(iOS 5.0, *)
   func setScopeBarButtonDividerImage(dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState)
   @available(iOS 5.0, *)
   func scopeBarButtonDividerImage(forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState) -> UIImage?
   @available(iOS 5.0, *)
-  func setScopeBarButtonTitleTextAttributes(attributes: [String : AnyObject]? = [:], forState state: UIControlState)
+  func setScopeBarButtonTitleTextAttributes(attributes: [String : AnyObject]? = [:], for state: UIControlState)
   @available(iOS 5.0, *)
-  func scopeBarButtonTitleTextAttributes(forState state: UIControlState) -> [String : AnyObject]?
+  func scopeBarButtonTitleTextAttributes(for state: UIControlState) -> [String : AnyObject]?
   @available(iOS 5.0, *)
   var searchFieldBackgroundPositionAdjustment: UIOffset
   @available(iOS 5.0, *)
   var searchTextPositionAdjustment: UIOffset
   @available(iOS 5.0, *)
-  func setPositionAdjustment(adjustment: UIOffset, forSearchBarIcon icon: UISearchBarIcon)
+  func setPositionAdjustment(adjustment: UIOffset, for icon: UISearchBarIcon)
   @available(iOS 5.0, *)
   func positionAdjustmentFor(icon: UISearchBarIcon) -> UIOffset
   @available(iOS 7.0, *)

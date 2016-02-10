@@ -76,10 +76,10 @@ extension Object {
   func willChange(changeKind: KeyValueChange, valuesAt indexes: IndexSet, forKey key: String)
   class func didChange(changeKind: KeyValueChange, valuesAt indexes: IndexSet, forKey key: String)
   func didChange(changeKind: KeyValueChange, valuesAt indexes: IndexSet, forKey key: String)
-  class func willChangeValue(forKey key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
-  func willChangeValue(forKey key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
-  class func didChangeValue(forKey key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
-  func didChangeValue(forKey key: String, withSetMutation mutationKind: KeyValueSetMutationKind, usingObjects objects: Set<Object>)
+  class func willChangeValue(forKey key: String, withSetMutation mutationKind: KeyValueSetMutationKind, using objects: Set<Object>)
+  func willChangeValue(forKey key: String, withSetMutation mutationKind: KeyValueSetMutationKind, using objects: Set<Object>)
+  class func didChangeValue(forKey key: String, withSetMutation mutationKind: KeyValueSetMutationKind, using objects: Set<Object>)
+  func didChangeValue(forKey key: String, withSetMutation mutationKind: KeyValueSetMutationKind, using objects: Set<Object>)
 }
 extension Object {
   @available(OSX 10.5, *)

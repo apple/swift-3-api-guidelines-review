@@ -13,17 +13,17 @@ class UIBarItem : Object, Coding, UIAppearance {
   var landscapeImagePhoneInsets: UIEdgeInsets
   var tag: Int
   @available(iOS 5.0, *)
-  func setTitleTextAttributes(attributes: [String : AnyObject]? = [:], forState state: UIControlState)
+  func setTitleTextAttributes(attributes: [String : AnyObject]? = [:], for state: UIControlState)
   @available(iOS 5.0, *)
-  func titleTextAttributes(forState state: UIControlState) -> [String : AnyObject]?
+  func titleTextAttributes(for state: UIControlState) -> [String : AnyObject]?
   @available(iOS 2.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   @available(iOS 2.0, *)
   class func appearance() -> Self
   @available(iOS 9.0, *)
   class func appearanceWhenContainedInInstances(ofClasses containerTypes: [AnyObject.Type]) -> Self
   @available(iOS 8.0, *)
-  class func appearance(forTraitCollection trait: UITraitCollection) -> Self
+  class func appearance(for trait: UITraitCollection) -> Self
   @available(iOS 9.0, *)
-  class func appearance(forTraitCollection trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
+  class func appearance(for trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
 }

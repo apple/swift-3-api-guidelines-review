@@ -92,11 +92,11 @@ extension AVCaptureDevice {
   @available(tvOS 8.0, *)
   func chromaticityValuesForDeviceWhiteBalanceGains(whiteBalanceGains: AVCaptureWhiteBalanceGains) -> AVCaptureWhiteBalanceChromaticityValues
   @available(tvOS 8.0, *)
-  func deviceWhiteBalanceGains(forChromaticityValues chromaticityValues: AVCaptureWhiteBalanceChromaticityValues) -> AVCaptureWhiteBalanceGains
+  func deviceWhiteBalanceGains(for chromaticityValues: AVCaptureWhiteBalanceChromaticityValues) -> AVCaptureWhiteBalanceGains
   @available(tvOS 8.0, *)
   func temperatureAndTintValuesForDeviceWhiteBalanceGains(whiteBalanceGains: AVCaptureWhiteBalanceGains) -> AVCaptureWhiteBalanceTemperatureAndTintValues
   @available(tvOS 8.0, *)
-  func deviceWhiteBalanceGains(forTemperatureAndTintValues tempAndTintValues: AVCaptureWhiteBalanceTemperatureAndTintValues) -> AVCaptureWhiteBalanceGains
+  func deviceWhiteBalanceGains(for tempAndTintValues: AVCaptureWhiteBalanceTemperatureAndTintValues) -> AVCaptureWhiteBalanceGains
 }
 @available(tvOS 8.0, *)
 let AVCaptureWhiteBalanceGainsCurrent: AVCaptureWhiteBalanceGains

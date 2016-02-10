@@ -9,7 +9,7 @@ class CAEmitterBehavior : Object, Coding {
   class func attributes(forKey key: String) -> [Object : AnyObject]
   func attributes(forKeyPath keyPath: String) -> [Object : AnyObject]
   init()
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 let kCAEmitterBehaviorWave: String

@@ -13,10 +13,10 @@ class HKUnit : Object, SecureCoding, Copying {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 8.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 enum HKMetricPrefix : Int {
@@ -37,16 +37,16 @@ enum HKMetricPrefix : Int {
   case tera
 }
 extension HKUnit {
-  class func gramUnit(withMetricPrefix prefix: HKMetricPrefix) -> Self
+  class func gramUnit(with prefix: HKMetricPrefix) -> Self
   class func gram() -> Self
   class func ounce() -> Self
   class func pound() -> Self
   class func stone() -> Self
-  class func moleUnit(withMetricPrefix prefix: HKMetricPrefix, molarMass gramsPerMole: Double) -> Self
+  class func moleUnit(with prefix: HKMetricPrefix, molarMass gramsPerMole: Double) -> Self
   class func moleUnit(withMolarMass gramsPerMole: Double) -> Self
 }
 extension HKUnit {
-  class func meterUnit(withMetricPrefix prefix: HKMetricPrefix) -> Self
+  class func meterUnit(with prefix: HKMetricPrefix) -> Self
   class func meter() -> Self
   class func inch() -> Self
   class func foot() -> Self
@@ -55,7 +55,7 @@ extension HKUnit {
   class func mile() -> Self
 }
 extension HKUnit {
-  class func literUnit(withMetricPrefix prefix: HKMetricPrefix) -> Self
+  class func literUnit(with prefix: HKMetricPrefix) -> Self
   class func liter() -> Self
   class func fluidOunceUS() -> Self
   class func fluidOunceImperial() -> Self
@@ -67,21 +67,21 @@ extension HKUnit {
   class func cupImperial() -> Self
 }
 extension HKUnit {
-  class func pascalUnit(withMetricPrefix prefix: HKMetricPrefix) -> Self
+  class func pascalUnit(with prefix: HKMetricPrefix) -> Self
   class func pascal() -> Self
   class func millimeterOfMercury() -> Self
   class func centimeterOfWater() -> Self
   class func atmosphere() -> Self
 }
 extension HKUnit {
-  class func secondUnit(withMetricPrefix prefix: HKMetricPrefix) -> Self
+  class func secondUnit(with prefix: HKMetricPrefix) -> Self
   class func second() -> Self
   class func minute() -> Self
   class func hour() -> Self
   class func day() -> Self
 }
 extension HKUnit {
-  class func jouleUnit(withMetricPrefix prefix: HKMetricPrefix) -> Self
+  class func jouleUnit(with prefix: HKMetricPrefix) -> Self
   class func joule() -> Self
   class func calorie() -> Self
   class func kilocalorie() -> Self
@@ -92,7 +92,7 @@ extension HKUnit {
   class func kelvin() -> Self
 }
 extension HKUnit {
-  class func siemenUnit(withMetricPrefix prefix: HKMetricPrefix) -> Self
+  class func siemenUnit(with prefix: HKMetricPrefix) -> Self
   class func siemen() -> Self
 }
 extension HKUnit {

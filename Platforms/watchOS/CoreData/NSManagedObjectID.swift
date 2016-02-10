@@ -7,5 +7,5 @@ class NSManagedObjectID : Object, Copying {
   func uriRepresentation() -> URL
   init()
   @available(watchOS 2.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }

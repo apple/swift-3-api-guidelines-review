@@ -82,8 +82,8 @@ class AppleEventDescriptor : Object, Copying, SecureCoding {
   func keywordForDescriptor(at index: Int) -> AEKeyword
   func coerce(toDescriptorType descriptorType: DescType) -> AppleEventDescriptor?
   convenience init()
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

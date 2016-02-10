@@ -21,9 +21,9 @@ class IndexSet : Object, Copying, MutableCopying, SecureCoding {
   @available(tvOS 4.0, *)
   func enumerate(block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
-  func enumerate(opts: EnumerationOptions = [], usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerate(opts: EnumerationOptions = [], using block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
-  func enumerate(in range: NSRange, options opts: EnumerationOptions = [], usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerate(in range: NSRange, options opts: EnumerationOptions = [], using block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
   func indexPassingTest(predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(tvOS 4.0, *)
@@ -39,14 +39,14 @@ class IndexSet : Object, Copying, MutableCopying, SecureCoding {
   @available(tvOS 5.0, *)
   func enumerateRanges(block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 5.0, *)
-  func enumerateRanges(opts: EnumerationOptions = [], usingBlock block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateRanges(opts: EnumerationOptions = [], using block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 5.0, *)
-  func enumerateRanges(in range: NSRange, options opts: EnumerationOptions = [], usingBlock block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateRanges(in range: NSRange, options opts: EnumerationOptions = [], using block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   convenience init()
-  func copy(withZone zone: Zone = nil) -> AnyObject
-  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 

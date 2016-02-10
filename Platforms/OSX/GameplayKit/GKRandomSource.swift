@@ -22,9 +22,9 @@ class GKRandomSource : Object, GKRandom, SecureCoding, Copying {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   @available(OSX 10.11, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class GKARC4RandomSource : GKRandomSource {

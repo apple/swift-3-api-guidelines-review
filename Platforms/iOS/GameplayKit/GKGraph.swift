@@ -20,7 +20,7 @@ class GKObstacleGraph : GKGraph {
   func addObstacles(obstacles: [GKPolygonObstacle])
   func removeObstacles(obstacles: [GKPolygonObstacle])
   func removeAllObstacles()
-  func nodes(forObstacle obstacle: GKPolygonObstacle) -> [GKGraphNode2D]
+  func nodes(for obstacle: GKPolygonObstacle) -> [GKGraphNode2D]
   func lockConnection(from startNode: GKGraphNode2D, to endNode: GKGraphNode2D)
   func unlockConnection(from startNode: GKGraphNode2D, to endNode: GKGraphNode2D)
   func isConnectionLocked(from startNode: GKGraphNode2D, to endNode: GKGraphNode2D) -> Bool

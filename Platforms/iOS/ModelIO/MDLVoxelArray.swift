@@ -11,7 +11,7 @@ class MDLVoxelArray : Object {
   init(asset: MDLAsset, divisions: Int32, interiorShells: Int32, exteriorShells: Int32, patchRadius: Float)
   init(asset: MDLAsset, divisions: Int32, interiorNBWidth: Float, exteriorNBWidth: Float, patchRadius: Float)
   init(data voxelData: Data, boundingBox: MDLAxisAlignedBoundingBox, voxelExtent: Float)
-  func mesh(usingAllocator allocator: MDLMeshBufferAllocator?) -> MDLMesh?
+  func mesh(using allocator: MDLMeshBufferAllocator?) -> MDLMesh?
   func voxelExists(atIndex index: MDLVoxelIndex, allowAnyX: Bool, allowAnyY: Bool, allowAnyZ: Bool, allowAnyShell: Bool) -> Bool
   func setVoxelAtIndex(index: MDLVoxelIndex)
   func setVoxelsFor(mesh: MDLMesh, divisions: Int32, interiorShells: Int32, exteriorShells: Int32, patchRadius: Float)

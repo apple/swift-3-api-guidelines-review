@@ -29,9 +29,9 @@ class CharacterSet : Object, Copying, MutableCopying, Coding {
   func isSuperset(of theOtherSet: CharacterSet) -> Bool
   func hasMember(inPlane thePlane: UInt8) -> Bool
   convenience init()
-  func copy(withZone zone: Zone = nil) -> AnyObject
-  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
-  func encode(withCoder aCoder: Coder)
+  func copy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func encode(with aCoder: Coder)
 }
 class MutableCharacterSet : CharacterSet, Copying, MutableCopying {
   func addCharacters(in aRange: NSRange)

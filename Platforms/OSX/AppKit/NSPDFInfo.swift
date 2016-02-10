@@ -9,8 +9,8 @@ class NSPDFInfo : Object, Copying, Coding {
   var attributes: MutableDictionary { get }
   init()
   @available(OSX 10.9, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(OSX 10.9, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

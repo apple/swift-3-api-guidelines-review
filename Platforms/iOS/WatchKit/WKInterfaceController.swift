@@ -43,7 +43,7 @@ class WKInterfaceController : Object {
   func didDeactivate()
   func table(table: WKInterfaceTable, didSelectRowAt rowIndex: Int)
   func handleAction(identifier identifier: String?, forRemoteNotification remoteNotification: [Object : AnyObject])
-  func handleAction(identifier identifier: String?, forLocalNotification localNotification: UILocalNotification)
+  func handleAction(identifier identifier: String?, for localNotification: UILocalNotification)
   func handleUserActivity(userInfo: [Object : AnyObject]?)
   func setTitle(title: String?)
   func push(name name: String, context: AnyObject?)

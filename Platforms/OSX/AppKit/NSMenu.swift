@@ -2,8 +2,8 @@
 class NSMenu : Object, Copying, Coding {
   init(title aTitle: String)
   var title: String
-  class func popUpContextMenu(menu: NSMenu, withEvent event: NSEvent, forView view: NSView)
-  class func popUpContextMenu(menu: NSMenu, withEvent event: NSEvent, forView view: NSView, withFont font: NSFont?)
+  class func popUpContextMenu(menu: NSMenu, with event: NSEvent, for view: NSView)
+  class func popUpContextMenu(menu: NSMenu, with event: NSEvent, for view: NSView, with font: NSFont?)
   @available(OSX 10.6, *)
   func popUpPositioningItem(item: NSMenuItem?, atLocation location: Point, in view: NSView?) -> Bool
   class func setMenuBarVisible(visible: Bool)
@@ -15,7 +15,7 @@ class NSMenu : Object, Copying, Coding {
   func addItem(title aString: String, action aSelector: Selector, keyEquivalent charCode: String) -> NSMenuItem?
   func removeItem(at index: Int)
   func remove(item: NSMenuItem)
-  func setSubmenu(aMenu: NSMenu?, forItem anItem: NSMenuItem)
+  func setSubmenu(aMenu: NSMenu?, for anItem: NSMenuItem)
   @available(OSX 10.6, *)
   func removeAllItems()
   var itemArray: [NSMenuItem] { get }
@@ -55,8 +55,8 @@ class NSMenu : Object, Copying, Coding {
   @available(OSX 10.11, *)
   var userInterfaceLayoutDirection: NSUserInterfaceLayoutDirection
   convenience init()
-  func copy(withZone zone: Zone = nil) -> AnyObject
-  func encode(withCoder aCoder: Coder)
+  func copy(with zone: Zone = nil) -> AnyObject
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct __mFlags {
@@ -94,7 +94,7 @@ protocol NSMenuDelegate : ObjectProtocol {
   optional func menuNeedsUpdate(menu: NSMenu)
   optional func numberOfItems(in menu: NSMenu) -> Int
   optional func menu(menu: NSMenu, updateItem item: NSMenuItem, at index: Int, shouldCancel: Bool) -> Bool
-  optional func menuHasKeyEquivalent(menu: NSMenu, forEvent event: NSEvent, target: AutoreleasingUnsafeMutablePointer<AnyObject?>, action: UnsafeMutablePointer<Selector>) -> Bool
+  optional func menuHasKeyEquivalent(menu: NSMenu, for event: NSEvent, target: AutoreleasingUnsafeMutablePointer<AnyObject?>, action: UnsafeMutablePointer<Selector>) -> Bool
   @available(OSX 10.5, *)
   optional func menuWillOpen(menu: NSMenu)
   @available(OSX 10.5, *)
@@ -102,7 +102,7 @@ protocol NSMenuDelegate : ObjectProtocol {
   @available(OSX 10.5, *)
   optional func menu(menu: NSMenu, willHighlight item: NSMenuItem?)
   @available(OSX 10.6, *)
-  optional func confinementRect(forMenu menu: NSMenu, on screen: NSScreen?) -> Rect
+  optional func confinementRect(for menu: NSMenu, on screen: NSScreen?) -> Rect
 }
 struct NSMenuProperties : OptionSetType {
   init(rawValue: UInt)

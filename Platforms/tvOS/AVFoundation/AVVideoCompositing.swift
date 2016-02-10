@@ -45,7 +45,7 @@ class AVAsynchronousVideoCompositionRequest : Object, Copying {
   func finishCancelledRequest()
   init()
   @available(tvOS 7.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 @available(tvOS 9.0, *)
 class AVAsynchronousCIImageFilteringRequest : Object, Copying {
@@ -54,7 +54,7 @@ class AVAsynchronousCIImageFilteringRequest : Object, Copying {
   func finishWithError(error: Error)
   init()
   @available(tvOS 9.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 @available(tvOS 7.0, *)
 protocol AVVideoCompositionInstructionProtocol : ObjectProtocol {

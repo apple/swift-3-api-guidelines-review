@@ -202,7 +202,7 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   func endEditing(textObj: NSText)
   func resetCursorRect(cellFrame: Rect, in controlView: NSView)
   var menu: NSMenu?
-  func menu(forEvent event: NSEvent, in cellFrame: Rect, of view: NSView) -> NSMenu?
+  func menu(for event: NSEvent, in cellFrame: Rect, of view: NSView) -> NSMenu?
   class func defaultMenu() -> NSMenu?
   var sendsActionOnEndEditing: Bool
   var baseWritingDirection: NSWritingDirection
@@ -217,14 +217,14 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   @available(OSX 10.6, *)
   var userInterfaceLayoutDirection: NSUserInterfaceLayoutDirection
   @available(OSX 10.6, *)
-  func fieldEditor(forView aControlView: NSView) -> NSTextView?
+  func fieldEditor(for aControlView: NSView) -> NSTextView?
   @available(OSX 10.6, *)
   var usesSingleLineMode: Bool
   @available(OSX 10.7, *)
   func draggingImageComponents(frame frame: Rect, in view: NSView) -> [NSDraggingImageComponent]
   convenience init()
-  func copy(withZone zone: Zone = nil) -> AnyObject
-  func encode(withCoder aCoder: Coder)
+  func copy(with zone: Zone = nil) -> AnyObject
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   var identifier: String?
   func accessibilityFrame() -> Rect
@@ -242,23 +242,23 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   @available(OSX 10.10, *)
   func accessibilityCell(forColumn column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
-  func accessibilityAttributedString(forRange range: NSRange) -> AttributedString?
+  func accessibilityAttributedString(for range: NSRange) -> AttributedString?
   @available(OSX 10.10, *)
   func accessibilityRange(forLine line: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityString(forRange range: NSRange) -> String?
+  func accessibilityString(for range: NSRange) -> String?
   @available(OSX 10.10, *)
   func accessibilityRange(forPosition point: Point) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityRange(forIndex index: Int) -> NSRange
+  func accessibilityRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityFrame(forRange range: NSRange) -> Rect
+  func accessibilityFrame(for range: NSRange) -> Rect
   @available(OSX 10.10, *)
-  func accessibilityRTF(forRange range: NSRange) -> Data?
+  func accessibilityRTF(for range: NSRange) -> Data?
   @available(OSX 10.10, *)
-  func accessibilityStyleRange(forIndex index: Int) -> NSRange
+  func accessibilityStyleRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityLine(forIndex index: Int) -> Int
+  func accessibilityLine(for index: Int) -> Int
   @available(OSX 10.10, *)
   func accessibilityPerformCancel() -> Bool
   @available(OSX 10.10, *)
@@ -783,7 +783,7 @@ struct NSCellHitResult : OptionSetType {
 }
 extension NSCell {
   @available(OSX 10.5, *)
-  func hitTest(forEvent event: NSEvent, in cellFrame: Rect, of controlView: NSView) -> NSCellHitResult
+  func hitTest(for event: NSEvent, in cellFrame: Rect, of controlView: NSView) -> NSCellHitResult
 }
 extension NSCell {
   @available(OSX 10.5, *)

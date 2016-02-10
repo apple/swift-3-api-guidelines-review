@@ -27,10 +27,10 @@ class NSManagedObjectModel : Object, Coding, Copying, FastEnumeration {
   @available(iOS 3.0, *)
   var entityVersionHashesByName: [String : Data] { get }
   @available(iOS 3.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 3.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(iOS 3.0, *)
   func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

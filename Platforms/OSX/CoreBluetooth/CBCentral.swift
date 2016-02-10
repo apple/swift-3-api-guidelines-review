@@ -5,5 +5,5 @@ class CBCentral : Object, Copying {
   var maximumUpdateValueLength: Int { get }
   init()
   @available(OSX 10.9, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }

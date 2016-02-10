@@ -2,7 +2,7 @@
 class IOBluetoothDeviceSelectorController : NSWindowController {
   class func deviceSelector() -> IOBluetoothDeviceSelectorController!
   func runModal() -> Int32
-  func beginSheetModal(forWindow sheetWindow: NSWindow!, modalDelegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>) -> IOReturn
+  func beginSheetModal(for sheetWindow: NSWindow!, modalDelegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>) -> IOReturn
   func getResults() -> [AnyObject]!
   func setOptions(options: IOBluetoothServiceBrowserControllerOptions)
   func getOptions() -> IOBluetoothServiceBrowserControllerOptions

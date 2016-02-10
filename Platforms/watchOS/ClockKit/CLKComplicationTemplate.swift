@@ -2,7 +2,7 @@
 class CLKComplicationTemplate : Object, Copying {
   @NSCopying var tintColor: UIColor?
   init()
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 class CLKComplicationTemplateModularSmallSimpleText : CLKComplicationTemplate {
   @NSCopying var textProvider: CLKTextProvider

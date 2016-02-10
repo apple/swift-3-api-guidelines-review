@@ -38,8 +38,8 @@ class NSMenuItem : Object, Copying, Coding, NSValidatedUserInterfaceItem {
   var isHiddenOrHasHiddenAncestor: Bool { get }
   var toolTip: String?
   init()
-  func copy(withZone zone: Zone = nil) -> AnyObject
-  func encode(withCoder aCoder: Coder)
+  func copy(with zone: Zone = nil) -> AnyObject
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct __miFlags {

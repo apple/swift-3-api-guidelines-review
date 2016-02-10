@@ -50,9 +50,9 @@ class FileManager : Object {
   @available(OSX 10.6, *)
   func contentsOfDirectory(at url: URL, includingPropertiesForKeys keys: [String]?, options mask: DirectoryEnumerationOptions = []) throws -> [URL]
   @available(OSX 10.6, *)
-  func urls(forDirectory directory: SearchPathDirectory, inDomains domainMask: SearchPathDomainMask) -> [URL]
+  func urls(for directory: SearchPathDirectory, inDomains domainMask: SearchPathDomainMask) -> [URL]
   @available(OSX 10.6, *)
-  func url(forDirectory directory: SearchPathDirectory, inDomain domain: SearchPathDomainMask, appropriateFor url: URL?, create shouldCreate: Bool) throws -> URL
+  func url(for directory: SearchPathDirectory, inDomain domain: SearchPathDomainMask, appropriateFor url: URL?, create shouldCreate: Bool) throws -> URL
   @available(OSX 10.10, *)
   func getRelationship(outRelationship: UnsafeMutablePointer<URLRelationship>, ofDirectoryAt directoryURL: URL, toItemAt otherURL: URL) throws
   @available(OSX 10.10, *)

@@ -15,9 +15,9 @@ class UIDynamicItemBehavior : UIDynamicBehavior {
   @available(tvOS 9.0, *)
   var isAnchored: Bool
   var allowsRotation: Bool
-  func addLinearVelocity(velocity: CGPoint, forItem item: UIDynamicItem)
-  func linearVelocity(forItem item: UIDynamicItem) -> CGPoint
-  func addAngularVelocity(velocity: CGFloat, forItem item: UIDynamicItem)
-  func angularVelocity(forItem item: UIDynamicItem) -> CGFloat
+  func addLinearVelocity(velocity: CGPoint, for item: UIDynamicItem)
+  func linearVelocity(for item: UIDynamicItem) -> CGPoint
+  func addAngularVelocity(velocity: CGFloat, for item: UIDynamicItem)
+  func angularVelocity(for item: UIDynamicItem) -> CGFloat
   convenience init()
 }

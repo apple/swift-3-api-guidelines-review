@@ -5,14 +5,14 @@ class UIRegion : Object, Copying, Coding {
   init(radius: CGFloat)
   init(size: CGSize)
   func inverse() -> Self
-  func byUnion(withRegion region: UIRegion) -> Self
+  func byUnion(with region: UIRegion) -> Self
   func byDifference(from region: UIRegion) -> Self
-  func byIntersection(withRegion region: UIRegion) -> Self
+  func byIntersection(with region: UIRegion) -> Self
   func contains(point: CGPoint) -> Bool
   init()
   @available(tvOS 9.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(tvOS 9.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

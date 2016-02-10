@@ -39,9 +39,9 @@ protocol UIContentContainer : ObjectProtocol {
   @available(iOS 8.0, *)
   func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
   @available(iOS 8.0, *)
-  func viewWillTransition(to size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator)
   @available(iOS 8.0, *)
-  func willTransition(to newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator)
 }
 @available(iOS 8.0, *)
 let UIViewControllerShowDetailTargetDidChangeNotification: String
@@ -67,7 +67,7 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   @available(iOS 6.0, *)
   func shouldPerformSegue(withIdentifier identifier: String, sender: AnyObject?) -> Bool
   @available(iOS 5.0, *)
-  func prepare(forSegue segue: UIStoryboardSegue, sender: AnyObject?)
+  func prepare(for segue: UIStoryboardSegue, sender: AnyObject?)
   @available(iOS 6.0, *)
   func canPerformUnwindSegueAction(action: Selector, from fromViewController: UIViewController, withSender sender: AnyObject) -> Bool
   @available(iOS 9.0, *)
@@ -77,7 +77,7 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   @available(iOS, introduced=6.0, deprecated=9.0)
   func forUnwindSegueAction(action: Selector, from fromViewController: UIViewController, withSender sender: AnyObject?) -> UIViewController?
   @available(iOS 9.0, *)
-  func unwind(forSegue unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController)
+  func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController)
   @available(iOS, introduced=6.0, deprecated=9.0)
   func segueForUnwinding(to toViewController: UIViewController, from fromViewController: UIViewController, identifier: String?) -> UIStoryboardSegue?
   func viewWillAppear(animated: Bool)
@@ -143,7 +143,7 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   func showDetailViewController(vc: UIViewController, sender: AnyObject?)
   convenience init()
   @available(iOS 2.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   @available(iOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(iOS 8.0, *)
@@ -155,9 +155,9 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   @available(iOS 8.0, *)
   func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
   @available(iOS 8.0, *)
-  func viewWillTransition(to size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator)
   @available(iOS 8.0, *)
-  func willTransition(to newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator)
   @available(iOS 9.0, *)
   weak var preferredFocusedView: @sil_weak UIView? { get }
   @available(iOS 9.0, *)
@@ -167,7 +167,7 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   @available(iOS 9.0, *)
   func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool
   @available(iOS 9.0, *)
-  func didUpdateFocus(in context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+  func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
 }
 extension UIViewController {
   @available(iOS 5.0, *)
@@ -240,9 +240,9 @@ extension UIViewController : UIStateRestoring {
   @available(iOS 6.0, *)
   var restorationClass: AnyObject.Type?
   @available(iOS 6.0, *)
-  func encodeRestorableState(withCoder coder: Coder)
+  func encodeRestorableState(with coder: Coder)
   @available(iOS 6.0, *)
-  func decodeRestorableState(withCoder coder: Coder)
+  func decodeRestorableState(with coder: Coder)
   @available(iOS 7.0, *)
   func applicationFinishedRestoringState()
   var restorationParent: UIStateRestoring? { get }
@@ -325,7 +325,7 @@ class UIPreviewAction : Object, Copying, UIPreviewActionItem {
   convenience init(title: String, style: UIPreviewActionStyle, handler: (UIPreviewAction, UIViewController) -> Void)
   init()
   @available(iOS 9.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   var title: String { get }
 }
@@ -334,7 +334,7 @@ class UIPreviewActionGroup : Object, Copying, UIPreviewActionItem {
   convenience init(title: String, style: UIPreviewActionStyle, actions: [UIPreviewAction])
   init()
   @available(iOS 9.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   var title: String { get }
 }

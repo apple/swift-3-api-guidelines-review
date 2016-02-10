@@ -15,9 +15,9 @@ class AVMetadataItem : Object, AVAsynchronousKeyValueLoading, Copying, MutableCo
   var extraAttributes: [String : AnyObject]? { get }
   init()
   @available(OSX 10.7, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: Zone = nil) -> AnyObject
 }
 extension AVMetadataItem {
   @available(OSX 10.11, *)
@@ -95,6 +95,6 @@ class AVMetadataItemFilter : Object {
   init()
 }
 extension AVMetadataItem {
-  class func metadataItems(from metadataItems: [AVMetadataItem], withLocale locale: Locale) -> [AVMetadataItem]
+  class func metadataItems(from metadataItems: [AVMetadataItem], with locale: Locale) -> [AVMetadataItem]
   class func metadataItems(from metadataItems: [AVMetadataItem], withKey key: AnyObject?, keySpace: String?) -> [AVMetadataItem]
 }

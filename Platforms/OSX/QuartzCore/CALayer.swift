@@ -114,7 +114,7 @@ class CALayer : Object, Coding, CAMediaTiming {
   var name: String?
   weak var delegate: @sil_weak AnyObject?
   var style: [Object : AnyObject]?
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   var beginTime: CFTimeInterval
   var duration: CFTimeInterval
@@ -151,8 +151,8 @@ extension Object {
   func display(layer: CALayer)
   class func draw(layer: CALayer, in ctx: CGContext)
   func draw(layer: CALayer, in ctx: CGContext)
-  class func action(forLayer layer: CALayer, forKey event: String) -> CAAction?
-  func action(forLayer layer: CALayer, forKey event: String) -> CAAction?
+  class func action(for layer: CALayer, forKey event: String) -> CAAction?
+  func action(for layer: CALayer, forKey event: String) -> CAAction?
 }
 @available(OSX 10.5, *)
 let kCAGravityCenter: String

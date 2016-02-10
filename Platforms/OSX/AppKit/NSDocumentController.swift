@@ -6,8 +6,8 @@ class NSDocumentController : Object, Coding, NSUserInterfaceValidations {
   var documents: [NSDocument] { get }
   var currentDocument: NSDocument? { get }
   var currentDirectory: String? { get }
-  func document(forURL url: URL) -> NSDocument?
-  func document(forWindow window: NSWindow) -> NSDocument?
+  func document(for url: URL) -> NSDocument?
+  func document(for window: NSWindow) -> NSDocument?
   func addDocument(document: NSDocument)
   func removeDocument(document: NSDocument)
   @IBAction func newDocument(sender: AnyObject?)
@@ -24,8 +24,8 @@ class NSDocumentController : Object, Coding, NSUserInterfaceValidations {
   func openDocumentWithContents(of url: URL, display displayDocument: Bool, completionHandler: (NSDocument?, Bool, Error?) -> Void)
   func makeDocumentWithContents(of url: URL, ofType typeName: String) throws -> NSDocument
   @available(OSX 10.7, *)
-  func reopenDocument(forURL urlOrNil: URL?, withContentsOf contentsURL: URL, display displayDocument: Bool, completionHandler: (NSDocument?, Bool, Error?) -> Void)
-  func makeDocument(forURL urlOrNil: URL?, withContentsOf contentsURL: URL, ofType typeName: String) throws -> NSDocument
+  func reopenDocument(for urlOrNil: URL?, withContentsOf contentsURL: URL, display displayDocument: Bool, completionHandler: (NSDocument?, Bool, Error?) -> Void)
+  func makeDocument(for urlOrNil: URL?, withContentsOf contentsURL: URL, ofType typeName: String) throws -> NSDocument
   var autosavingDelay: TimeInterval
   @IBAction func saveAllDocuments(sender: AnyObject?)
   var hasEditedDocuments: Bool { get }
@@ -47,7 +47,7 @@ class NSDocumentController : Object, Coding, NSUserInterfaceValidations {
   func documentClass(forType typeName: String) -> AnyClass?
   func displayName(forType typeName: String) -> String?
   func validate(anItem: NSValidatedUserInterfaceItem) -> Bool
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
 }
 extension NSDocumentController {
 }

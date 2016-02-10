@@ -61,7 +61,7 @@ protocol UISplitViewControllerDelegate {
 extension UIViewController {
   var splitViewController: UISplitViewController? { get }
   @available(tvOS 8.0, *)
-  func collapseSecondaryViewController(secondaryViewController: UIViewController, forSplitViewController splitViewController: UISplitViewController)
+  func collapseSecondaryViewController(secondaryViewController: UIViewController, for splitViewController: UISplitViewController)
   @available(tvOS 8.0, *)
-  func separateSecondaryViewController(forSplitViewController splitViewController: UISplitViewController) -> UIViewController?
+  func separateSecondaryViewController(for splitViewController: UISplitViewController) -> UIViewController?
 }

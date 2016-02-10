@@ -51,10 +51,10 @@ class NSString : Object, Copying, MutableCopying, SecureCoding {
   func character(at index: Int) -> unichar
   init()
   init?(coder aDecoder: Coder)
-  func copy(withZone zone: Zone = nil) -> AnyObject
-  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
 }
 
 extension NSString : StringLiteralConvertible {
@@ -85,7 +85,7 @@ extension NSString : CustomPlaygroundQuickLookable {
 extension NSString {
   func substring(from from: Int) -> String
   func substring(to to: Int) -> String
-  func substring(withRange range: NSRange) -> String
+  func substring(with range: NSRange) -> String
   func getCharacters(buffer: UnsafeMutablePointer<unichar>, range: NSRange)
   func compare(string: String) -> ComparisonResult
   func compare(string: String, options mask: StringCompareOptions = []) -> ComparisonResult
@@ -99,7 +99,7 @@ extension NSString {
   func isEqual(to aString: String) -> Bool
   func hasPrefix(str: String) -> Bool
   func hasSuffix(str: String) -> Bool
-  func commonPrefix(withString str: String, options mask: StringCompareOptions = []) -> String
+  func commonPrefix(with str: String, options mask: StringCompareOptions = []) -> String
   @available(OSX 10.10, *)
   func contains(str: String) -> Bool
   @available(OSX 10.10, *)
@@ -118,7 +118,7 @@ extension NSString {
   func rangeOfCharacter(from searchSet: CharacterSet, options mask: StringCompareOptions = [], range searchRange: NSRange) -> NSRange
   func rangeOfComposedCharacterSequence(at index: Int) -> NSRange
   @available(OSX 10.5, *)
-  func rangeOfComposedCharacterSequences(forRange range: NSRange) -> NSRange
+  func rangeOfComposedCharacterSequences(for range: NSRange) -> NSRange
   func appending(aString: String) -> String
   var doubleValue: Double { get }
   var floatValue: Float { get }
@@ -139,17 +139,17 @@ extension NSString {
   @available(OSX 10.11, *)
   var localizedCapitalized: String { get }
   @available(OSX 10.8, *)
-  func uppercaseString(withLocale locale: Locale?) -> String
+  func uppercaseString(with locale: Locale?) -> String
   @available(OSX 10.8, *)
-  func lowercaseString(withLocale locale: Locale?) -> String
+  func lowercaseString(with locale: Locale?) -> String
   @available(OSX 10.8, *)
-  func capitalizedString(withLocale locale: Locale?) -> String
-  func getLineStart(startPtr: UnsafeMutablePointer<Int>, end lineEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, forRange range: NSRange)
-  func lineRange(forRange range: NSRange) -> NSRange
-  func getParagraphStart(startPtr: UnsafeMutablePointer<Int>, end parEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, forRange range: NSRange)
-  func paragraphRange(forRange range: NSRange) -> NSRange
+  func capitalizedString(with locale: Locale?) -> String
+  func getLineStart(startPtr: UnsafeMutablePointer<Int>, end lineEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, for range: NSRange)
+  func lineRange(for range: NSRange) -> NSRange
+  func getParagraphStart(startPtr: UnsafeMutablePointer<Int>, end parEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, for range: NSRange)
+  func paragraphRange(for range: NSRange) -> NSRange
   @available(OSX 10.6, *)
-  func enumerateSubstrings(in range: NSRange, options opts: StringEnumerationOptions = [], usingBlock block: (String?, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateSubstrings(in range: NSRange, options opts: StringEnumerationOptions = [], using block: (String?, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.6, *)
   func enumerateLines(block: (String, UnsafeMutablePointer<ObjCBool>) -> Void)
   var utf8String: UnsafePointer<Int8> { get }
@@ -174,15 +174,15 @@ extension NSString {
   @available(OSX 10.5, *)
   func componentsSeparatedByCharacters(in separator: CharacterSet) -> [String]
   func byTrimmingCharacters(in set: CharacterSet) -> String
-  func byPadding(toLength newLength: Int, withString padString: String, startingAt padIndex: Int) -> String
+  func byPadding(toLength newLength: Int, with padString: String, startingAt padIndex: Int) -> String
   @available(OSX 10.5, *)
   func folding(options: StringCompareOptions = [], locale: Locale?) -> String
   @available(OSX 10.5, *)
-  func replacingOccurrences(of target: String, withString replacement: String, options: StringCompareOptions = [], range searchRange: NSRange) -> String
+  func replacingOccurrences(of target: String, with replacement: String, options: StringCompareOptions = [], range searchRange: NSRange) -> String
   @available(OSX 10.5, *)
-  func replacingOccurrences(of target: String, withString replacement: String) -> String
+  func replacingOccurrences(of target: String, with replacement: String) -> String
   @available(OSX 10.5, *)
-  func replacingCharacters(in range: NSRange, withString replacement: String) -> String
+  func replacingCharacters(in range: NSRange, with replacement: String) -> String
   @available(OSX 10.11, *)
   func applyingTransform(transform: String, reverse: Bool) -> String?
   func write(to url: URL, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
@@ -250,7 +250,7 @@ let stringTransformStripCombiningMarks: String
 let stringTransformStripDiacritics: String
 extension NSString {
   @available(OSX 10.10, *)
-  class func stringEncoding(forData data: Data, encodingOptions opts: [String : AnyObject]? = [:], convertedString string: AutoreleasingUnsafeMutablePointer<NSString?>, usedLossyConversion: UnsafeMutablePointer<ObjCBool>) -> UInt
+  class func stringEncoding(for data: Data, encodingOptions opts: [String : AnyObject]? = [:], convertedString string: AutoreleasingUnsafeMutablePointer<NSString?>, usedLossyConversion: UnsafeMutablePointer<ObjCBool>) -> UInt
 }
 @available(OSX 10.10, *)
 let stringEncodingDetectionSuggestedEncodingsKey: String
@@ -267,7 +267,7 @@ let stringEncodingDetectionLossySubstitutionKey: String
 @available(OSX 10.10, *)
 let stringEncodingDetectionLikelyLanguageKey: String
 class MutableString : NSString {
-  func replaceCharacters(in range: NSRange, withString aString: String)
+  func replaceCharacters(in range: NSRange, with aString: String)
   init()
   init?(coder aDecoder: Coder)
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
@@ -294,7 +294,7 @@ extension MutableString {
   func deleteCharacters(in range: NSRange)
   func append(aString: String)
   func setString(aString: String)
-  func replaceOccurrences(of target: String, withString replacement: String, options: StringCompareOptions = [], range searchRange: NSRange) -> Int
+  func replaceOccurrences(of target: String, with replacement: String, options: StringCompareOptions = [], range searchRange: NSRange) -> Int
   @available(OSX 10.11, *)
   func applyTransform(transform: String, reverse: Bool, range: NSRange, updatedRange resultingRange: RangePointer) -> Bool
   init(capacity: Int)

@@ -5,7 +5,7 @@ protocol NSTextAttachmentContainer : ObjectProtocol {
   @available(tvOS 7.0, *)
   func image(forBounds imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
   @available(tvOS 7.0, *)
-  func attachmentBounds(forTextContainer textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
+  func attachmentBounds(for textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
 }
 @available(tvOS 7.0, *)
 class NSTextAttachment : Object, NSTextAttachmentContainer, Coding {
@@ -24,9 +24,9 @@ class NSTextAttachment : Object, NSTextAttachmentContainer, Coding {
   @available(tvOS 7.0, *)
   func image(forBounds imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
   @available(tvOS 7.0, *)
-  func attachmentBounds(forTextContainer textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
+  func attachmentBounds(for textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
   @available(tvOS 7.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension AttributedString {

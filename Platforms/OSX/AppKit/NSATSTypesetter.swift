@@ -10,7 +10,7 @@ extension NSATSTypesetter {
   var typesetterBehavior: NSTypesetterBehavior
   var hyphenationFactor: Float
   var lineFragmentPadding: CGFloat
-  func substituteFont(forFont originalFont: NSFont) -> NSFont
+  func substituteFont(for originalFont: NSFont) -> NSFont
   func textTab(forGlyphLocation glyphLocation: CGFloat, writingDirection direction: NSWritingDirection, maxLocation: CGFloat) -> NSTextTab?
   var bidiProcessingEnabled: Bool
   unowned(unsafe) var attributedString: @sil_unmanaged AttributedString?
@@ -32,7 +32,7 @@ extension NSATSTypesetter {
   func shouldBreakLineByHyphenatingBeforeCharacter(at charIndex: Int) -> Bool
   func hyphenationFactorForGlyph(at glyphIndex: Int) -> Float
   func hyphenCharacterForGlyph(at glyphIndex: Int) -> UTF32Char
-  func boundingBoxForControlGlyph(at glyphIndex: Int, forTextContainer textContainer: NSTextContainer, proposedLineFragment proposedRect: Rect, glyphPosition: Point, characterIndex charIndex: Int) -> Rect
+  func boundingBoxForControlGlyph(at glyphIndex: Int, for textContainer: NSTextContainer, proposedLineFragment proposedRect: Rect, glyphPosition: Point, characterIndex charIndex: Int) -> Rect
 }
 extension NSATSTypesetter {
   func characterRange(forGlyphRange glyphRange: NSRange, actualGlyphRange: RangePointer) -> NSRange

@@ -39,7 +39,7 @@ class MTLCompileOptions : Object, Copying {
   var languageVersion: MTLLanguageVersion
   init()
   @available(tvOS 8.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 let MTLLibraryErrorDomain: String

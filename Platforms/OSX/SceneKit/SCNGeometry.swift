@@ -26,7 +26,7 @@ class SCNGeometry : Object, SCNAnimatable, SCNBoundingVolume, SCNShadable, Copyi
   var firstMaterial: SCNMaterial?
   func insertMaterial(material: SCNMaterial, at index: Int)
   func removeMaterial(at index: Int)
-  func replaceMaterial(at index: Int, withMaterial material: SCNMaterial)
+  func replaceMaterial(at index: Int, with material: SCNMaterial)
   func material(withName name: String) -> SCNMaterial?
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   @available(OSX 10.10, *)
@@ -72,17 +72,17 @@ class SCNGeometry : Object, SCNAnimatable, SCNBoundingVolume, SCNShadable, Copyi
   @available(OSX 10.8, *)
   var program: SCNProgram?
   @available(OSX 10.9, *)
-  func handleBinding(ofSymbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  func handleBinding(ofSymbol symbol: String, using block: SCNBindingBlock? = nil)
   @available(OSX 10.9, *)
-  func handleUnbinding(ofSymbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  func handleUnbinding(ofSymbol symbol: String, using block: SCNBindingBlock? = nil)
   @available(OSX 10.9, *)
   var shaderModifiers: [String : String]?
   @available(OSX 10.8, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(OSX 10.8, *)
@@ -105,7 +105,7 @@ class SCNGeometrySource : Object, SecureCoding {
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(OSX 10.8, *)
@@ -119,7 +119,7 @@ class SCNGeometryElement : Object, SecureCoding {
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 

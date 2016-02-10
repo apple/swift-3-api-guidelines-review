@@ -4,8 +4,8 @@ class PHCollectionListChangeRequest : Object {
   class func creationRequestForCollectionList(withTitle title: String) -> Self
   var placeholderForCreatedCollectionList: PHObjectPlaceholder { get }
   class func deleteCollectionLists(collectionLists: FastEnumeration)
-  convenience init?(forCollectionList collectionList: PHCollectionList)
-  convenience init?(forCollectionList collectionList: PHCollectionList, childCollections: PHFetchResult)
+  convenience init?(for collectionList: PHCollectionList)
+  convenience init?(for collectionList: PHCollectionList, childCollections: PHFetchResult)
   var title: String
   func addChildCollections(collections: FastEnumeration)
   func insertChildCollections(collections: FastEnumeration, at indexes: IndexSet)

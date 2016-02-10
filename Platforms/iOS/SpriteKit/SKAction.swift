@@ -17,8 +17,8 @@ class SKAction : Object, Copying, Coding {
   var speed: CGFloat
   func reversed() -> SKAction
   init()
-  func copy(withZone zone: Zone = nil) -> AnyObject
-  func encode(withCoder aCoder: Coder)
+  func copy(with zone: Zone = nil) -> AnyObject
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension SKAction {
@@ -67,7 +67,7 @@ extension SKAction {
   @available(iOS 9.0, *)
   class func animate(normalTextures textures: [SKTexture], timePerFrame sec: TimeInterval, resize: Bool, restore: Bool) -> SKAction
   class func playSoundFileNamed(soundFile: String, waitForCompletion wait: Bool) -> SKAction
-  class func colorize(withColor color: UIColor, colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction
+  class func colorize(with color: UIColor, colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction
   class func colorize(withColorBlendFactor colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction
   @available(iOS 8.0, *)
   class func falloff(to falloff: Float, duration sec: TimeInterval) -> SKAction

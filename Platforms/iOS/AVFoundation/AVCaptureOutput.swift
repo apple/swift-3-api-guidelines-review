@@ -5,9 +5,9 @@ class AVCaptureOutput : Object {
   @available(iOS 5.0, *)
   func connection(withMediaType mediaType: String!) -> AVCaptureConnection!
   @available(iOS 6.0, *)
-  func transformedMetadataObject(forMetadataObject metadataObject: AVMetadataObject!, connection: AVCaptureConnection!) -> AVMetadataObject!
+  func transformedMetadataObject(for metadataObject: AVMetadataObject!, connection: AVCaptureConnection!) -> AVMetadataObject!
   @available(iOS 7.0, *)
-  func metadataOutputRectOfInterest(forRect rectInOutputCoordinates: CGRect) -> CGRect
+  func metadataOutputRectOfInterest(for rectInOutputCoordinates: CGRect) -> CGRect
   @available(iOS 7.0, *)
   func rectForMetadataOutputRectOfInterest(rectInMetadataOutputCoordinates: CGRect) -> CGRect
   init()
@@ -70,7 +70,7 @@ class AVCaptureMovieFileOutput : AVCaptureFileOutput {
   var movieFragmentInterval: CMTime
   var metadata: [AnyObject]!
   @available(iOS 9.0, *)
-  func recordsVideoOrientationAndMirroringChangesAsMetadataTrack(forConnection connection: AVCaptureConnection!) -> Bool
+  func recordsVideoOrientationAndMirroringChangesAsMetadataTrack(for connection: AVCaptureConnection!) -> Bool
   @available(iOS 9.0, *)
   func setRecordsVideoOrientationAndMirroringChanges(doRecordChanges: Bool, asMetadataTrackFor connection: AVCaptureConnection!)
   init()

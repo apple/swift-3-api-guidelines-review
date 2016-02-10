@@ -20,7 +20,7 @@ protocol MTLBlitCommandEncoder : MTLCommandEncoder {
   func copy(from sourceTexture: MTLTexture, sourceSlice: Int, sourceLevel: Int, sourceOrigin: MTLOrigin, sourceSize: MTLSize, to destinationBuffer: MTLBuffer, destinationOffset: Int, destinationBytesPerRow: Int, destinationBytesPerImage: Int)
   @available(OSX 10.11, *)
   func copy(from sourceTexture: MTLTexture, sourceSlice: Int, sourceLevel: Int, sourceOrigin: MTLOrigin, sourceSize: MTLSize, to destinationBuffer: MTLBuffer, destinationOffset: Int, destinationBytesPerRow: Int, destinationBytesPerImage: Int, options: MTLBlitOption)
-  func generateMipmaps(forTexture texture: MTLTexture)
+  func generateMipmaps(for texture: MTLTexture)
   func fill(buffer: MTLBuffer, range: NSRange, value: UInt8)
   func copy(from sourceBuffer: MTLBuffer, sourceOffset: Int, to destinationBuffer: MTLBuffer, destinationOffset: Int, size: Int)
 }

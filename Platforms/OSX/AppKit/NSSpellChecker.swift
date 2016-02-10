@@ -13,7 +13,7 @@ class NSSpellChecker : Object {
   @available(OSX 10.6, *)
   func requestChecking(of stringToCheck: String, range: NSRange, types checkingTypes: TextCheckingTypes, options: [String : AnyObject]? = [:], inSpellDocumentWithTag tag: Int, completionHandler: ((Int, [TextCheckingResult], Orthography, Int) -> Void)? = nil) -> Int
   @available(OSX 10.6, *)
-  func menu(forResult result: TextCheckingResult, string checkedString: String, options: [String : AnyObject]? = [:], atLocation location: Point, in view: NSView) -> NSMenu?
+  func menu(for result: TextCheckingResult, string checkedString: String, options: [String : AnyObject]? = [:], atLocation location: Point, in view: NSView) -> NSMenu?
   @available(OSX 10.6, *)
   func userQuotesArray(forLanguage language: String) -> [String]
   @available(OSX 10.6, *)
@@ -45,7 +45,7 @@ class NSSpellChecker : Object {
   @available(OSX 10.7, *)
   func showCorrectionIndicator(of type: NSCorrectionIndicatorType, primaryString: String, alternativeStrings: [String], forStringIn rectOfTypedString: Rect, view: NSView, completionHandler completionBlock: ((String!) -> Void)? = nil)
   @available(OSX 10.7, *)
-  func dismissCorrectionIndicator(forView view: NSView)
+  func dismissCorrectionIndicator(for view: NSView)
   @available(OSX 10.5, *)
   var availableLanguages: [String] { get }
   @available(OSX 10.6, *)

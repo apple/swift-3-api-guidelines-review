@@ -10,17 +10,17 @@ class MPVolumeView : UIView, Coding {
   @available(iOS 7.0, *)
   var isWirelessRouteActive: Bool { get }
   @available(iOS 6.0, *)
-  func setMinimumVolumeSliderImage(image: UIImage?, forState state: UIControlState)
+  func setMinimumVolumeSliderImage(image: UIImage?, for state: UIControlState)
   @available(iOS 6.0, *)
-  func setMaximumVolumeSliderImage(image: UIImage?, forState state: UIControlState)
+  func setMaximumVolumeSliderImage(image: UIImage?, for state: UIControlState)
   @available(iOS 6.0, *)
-  func setVolumeThumbImage(image: UIImage?, forState state: UIControlState)
+  func setVolumeThumbImage(image: UIImage?, for state: UIControlState)
   @available(iOS 6.0, *)
-  func minimumVolumeSliderImage(forState state: UIControlState) -> UIImage?
+  func minimumVolumeSliderImage(for state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
-  func maximumVolumeSliderImage(forState state: UIControlState) -> UIImage?
+  func maximumVolumeSliderImage(for state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
-  func volumeThumbImage(forState state: UIControlState) -> UIImage?
+  func volumeThumbImage(for state: UIControlState) -> UIImage?
   @available(iOS 7.0, *)
   var volumeWarningSliderImage: UIImage?
   @available(iOS 6.0, *)
@@ -28,9 +28,9 @@ class MPVolumeView : UIView, Coding {
   @available(iOS 6.0, *)
   func volumeThumbRect(forBounds bounds: CGRect, volumeSliderRect rect: CGRect, value: Float) -> CGRect
   @available(iOS 6.0, *)
-  func setRouteButtonImage(image: UIImage?, forState state: UIControlState)
+  func setRouteButtonImage(image: UIImage?, for state: UIControlState)
   @available(iOS 6.0, *)
-  func routeButtonImage(forState state: UIControlState) -> UIImage?
+  func routeButtonImage(for state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
   func routeButtonRect(forBounds bounds: CGRect) -> CGRect
   init(frame: CGRect)

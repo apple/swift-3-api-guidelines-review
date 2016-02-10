@@ -30,13 +30,13 @@ class NSTextField : NSControl, NSUserInterfaceValidations, NSAccessibilityNaviga
   init?(coder: Coder)
   convenience init()
   func validate(anItem: NSValidatedUserInterfaceItem) -> Bool
-  func accessibilityString(forRange range: NSRange) -> String?
-  func accessibilityLine(forIndex index: Int) -> Int
+  func accessibilityString(for range: NSRange) -> String?
+  func accessibilityLine(for index: Int) -> Int
   func accessibilityRange(forLine lineNumber: Int) -> NSRange
-  func accessibilityFrame(forRange range: NSRange) -> Rect
+  func accessibilityFrame(for range: NSRange) -> Rect
   func accessibilityValue() -> String?
   @available(OSX 10.0, *)
-  func accessibilityAttributedString(forRange range: NSRange) -> AttributedString?
+  func accessibilityAttributedString(for range: NSRange) -> AttributedString?
   func accessibilityVisibleCharacterRange() -> NSRange
 }
 extension NSTextField {

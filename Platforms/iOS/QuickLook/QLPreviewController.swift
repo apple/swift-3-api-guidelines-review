@@ -24,7 +24,7 @@ protocol QLPreviewControllerDelegate : ObjectProtocol {
   @available(iOS 4.0, *)
   optional func previewControllerDidDismiss(controller: QLPreviewController)
   @available(iOS 4.0, *)
-  optional func previewController(controller: QLPreviewController, shouldOpen url: URL, forPreviewItem item: QLPreviewItem) -> Bool
+  optional func previewController(controller: QLPreviewController, shouldOpen url: URL, for item: QLPreviewItem) -> Bool
   @available(iOS 4.0, *)
   optional func previewController(controller: QLPreviewController, frameFor item: QLPreviewItem, inSourceView view: AutoreleasingUnsafeMutablePointer<UIView?>) -> CGRect
   @available(iOS 4.0, *)

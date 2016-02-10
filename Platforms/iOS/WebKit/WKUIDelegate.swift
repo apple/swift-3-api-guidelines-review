@@ -1,7 +1,7 @@
 
 protocol WKUIDelegate : ObjectProtocol {
   @available(iOS 8.0, *)
-  optional func webView(webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, forNavigationAction navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView?
+  optional func webView(webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView?
   @available(iOS 9.0, *)
   optional func webViewDidClose(webView: WKWebView)
   @available(iOS 8.0, *)

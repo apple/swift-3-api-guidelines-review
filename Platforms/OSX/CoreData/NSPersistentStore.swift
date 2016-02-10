@@ -1,7 +1,7 @@
 
 @available(OSX 10.5, *)
 class NSPersistentStore : Object {
-  class func metadataForPersistentStore(withURL url: URL) throws -> [String : AnyObject]
+  class func metadataForPersistentStore(with url: URL) throws -> [String : AnyObject]
   class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreWith url: URL) throws
   @available(OSX 10.6, *)
   class func migrationManagerClass() -> AnyClass

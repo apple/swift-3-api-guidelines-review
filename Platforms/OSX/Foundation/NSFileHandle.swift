@@ -14,7 +14,7 @@ class FileHandle : Object, SecureCoding {
   init?(coder: Coder)
   convenience init()
   class func supportsSecureCoding() -> Bool
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
 }
 extension FileHandle {
   class func withStandardInput() -> FileHandle

@@ -81,7 +81,7 @@ class UITableViewController : UIViewController, UITableViewDelegate, UITableView
   @available(iOS 9.0, *)
   func tableView(tableView: UITableView, shouldUpdateFocusIn context: UITableViewFocusUpdateContext) -> Bool
   @available(iOS 9.0, *)
-  func tableView(tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+  func tableView(tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
   @available(iOS 9.0, *)
   func indexPathForPreferredFocusedView(in tableView: UITableView) -> IndexPath?
   @available(iOS 2.0, *)
@@ -103,9 +103,9 @@ class UITableViewController : UIViewController, UITableViewDelegate, UITableView
   @available(iOS 2.0, *)
   func viewForZoomingIn(scrollView: UIScrollView) -> UIView?
   @available(iOS 3.2, *)
-  func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView?)
+  func scrollViewWillBeginZooming(scrollView: UIScrollView, with view: UIView?)
   @available(iOS 2.0, *)
-  func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
+  func scrollViewDidEndZooming(scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat)
   @available(iOS 2.0, *)
   func scrollViewShouldScroll(toTop scrollView: UIScrollView) -> Bool
   @available(iOS 2.0, *)
@@ -125,7 +125,7 @@ class UITableViewController : UIViewController, UITableViewDelegate, UITableView
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
   @available(iOS 2.0, *)
-  func sectionIndexTitles(forTableView tableView: UITableView) -> [String]?
+  func sectionIndexTitles(for tableView: UITableView) -> [String]?
   @available(iOS 2.0, *)
   func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int
   @available(iOS 2.0, *)

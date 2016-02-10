@@ -53,7 +53,7 @@ class AVAssetResourceLoadingDataRequest : Object {
   @available(OSX 10.11, *)
   var requestsAllDataToEndOfResource: Bool { get }
   var currentOffset: Int64 { get }
-  func respond(withData data: Data)
+  func respond(with data: Data)
 }
 extension AVAssetResourceLoader {
   @available(OSX 10.11, *)

@@ -42,7 +42,7 @@ class MTLSamplerDescriptor : Object, Copying {
   var label: String?
   init()
   @available(tvOS 8.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 protocol MTLSamplerState : ObjectProtocol {

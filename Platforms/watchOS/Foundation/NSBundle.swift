@@ -4,7 +4,7 @@ class Bundle : Object {
   init?(path: String)
   @available(watchOS 2.0, *)
   convenience init?(url: URL)
-  /*not inherited*/ init(forClass aClass: AnyClass)
+  /*not inherited*/ init(for aClass: AnyClass)
   /*not inherited*/ init?(identifier: String)
   class func allBundles() -> [Bundle]
   class func allFrameworks() -> [Bundle]

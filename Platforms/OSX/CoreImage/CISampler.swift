@@ -7,7 +7,7 @@ class CISampler : Object, Copying {
   var extent: CGRect { get }
   convenience init()
   @available(OSX 10.4, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 
 extension CISampler {

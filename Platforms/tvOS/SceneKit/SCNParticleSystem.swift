@@ -125,10 +125,10 @@ class SCNParticlePropertyController : Object, SecureCoding, Copying {
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(tvOS 8.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 class SCNParticleSystem : Object, Copying, SecureCoding, SCNAnimatable {
@@ -194,17 +194,17 @@ class SCNParticleSystem : Object, Copying, SecureCoding, SCNAnimatable {
   var fresnelExponent: CGFloat
   var propertyControllers: [String : SCNParticlePropertyController]?
   func reset()
-  func handle(event: SCNParticleEvent, forProperties properties: [String], withBlock block: SCNParticleEventBlock)
-  func addModifier(forProperties properties: [String], at stage: SCNParticleModifierStage, withBlock block: SCNParticleModifierBlock)
+  func handle(event: SCNParticleEvent, forProperties properties: [String], with block: SCNParticleEventBlock)
+  func addModifier(forProperties properties: [String], at stage: SCNParticleModifierStage, with block: SCNParticleModifierBlock)
   func removeModifiers(of stage: SCNParticleModifierStage)
   func removeAllModifiers()
   init()
   @available(tvOS 8.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(tvOS 8.0, *)
   func add(animation: CAAnimation, forKey key: String?)

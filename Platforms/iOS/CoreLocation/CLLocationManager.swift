@@ -40,7 +40,7 @@ class CLLocationManager : Object {
   @available(iOS 4.0, *)
   class func significantLocationChangeMonitoringAvailable() -> Bool
   @available(iOS 7.0, *)
-  class func isMonitoringAvailable(forClass regionClass: AnyClass) -> Bool
+  class func isMonitoringAvailable(for regionClass: AnyClass) -> Bool
   @available(iOS 7.0, *)
   class func isRangingAvailable() -> Bool
   @available(iOS 4.2, *)
@@ -86,11 +86,11 @@ class CLLocationManager : Object {
   @available(iOS 4.0, *)
   func stopMonitoringSignificantLocationChanges()
   @available(iOS 4.0, *)
-  func stopMonitoring(forRegion region: CLRegion)
+  func stopMonitoring(for region: CLRegion)
   @available(iOS 5.0, *)
-  func startMonitoring(forRegion region: CLRegion)
+  func startMonitoring(for region: CLRegion)
   @available(iOS 7.0, *)
-  func requestState(forRegion region: CLRegion)
+  func requestState(for region: CLRegion)
   @available(iOS 7.0, *)
   func startRangingBeacons(in region: CLBeaconRegion)
   @available(iOS 7.0, *)

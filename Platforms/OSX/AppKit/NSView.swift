@@ -82,7 +82,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   unowned(unsafe) var superview: @sil_unmanaged NSView? { get }
   var subviews: [NSView]
   func isDescendant(of aView: NSView) -> Bool
-  func ancestorShared(withView aView: NSView) -> NSView?
+  func ancestorShared(with aView: NSView) -> NSView?
   unowned(unsafe) var opaqueAncestor: @sil_unmanaged NSView? { get }
   var isHidden: Bool
   var isHiddenOrHasHiddenAncestor: Bool { get }
@@ -199,7 +199,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   var tag: Int { get }
   func performKeyEquivalent(theEvent: NSEvent) -> Bool
   func acceptsFirstMouse(theEvent: NSEvent?) -> Bool
-  func shouldDelayWindowOrdering(forEvent theEvent: NSEvent) -> Bool
+  func shouldDelayWindowOrdering(for theEvent: NSEvent) -> Bool
   var needsPanelToBecomeKey: Bool { get }
   var mouseDownCanMoveWindow: Bool { get }
   @available(OSX 10.6, *)
@@ -250,12 +250,12 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   func updateTrackingAreas()
   var postsBoundsChangedNotifications: Bool
   var enclosingScrollView: NSScrollView? { get }
-  func menu(forEvent event: NSEvent) -> NSMenu?
+  func menu(for event: NSEvent) -> NSMenu?
   class func defaultMenu() -> NSMenu?
   @available(OSX 10.11, *)
-  func willOpenMenu(menu: NSMenu, withEvent event: NSEvent)
+  func willOpenMenu(menu: NSMenu, with event: NSEvent)
   @available(OSX 10.11, *)
-  func didCloseMenu(menu: NSMenu, withEvent event: NSEvent?)
+  func didCloseMenu(menu: NSMenu, with event: NSEvent?)
   var toolTip: String?
   func addToolTip(aRect: Rect, owner anObject: AnyObject, userData data: UnsafeMutablePointer<Void>) -> NSToolTipTag
   func removeToolTip(tag: NSToolTipTag)
@@ -321,23 +321,23 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.10, *)
   func accessibilityCell(forColumn column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
-  func accessibilityAttributedString(forRange range: NSRange) -> AttributedString?
+  func accessibilityAttributedString(for range: NSRange) -> AttributedString?
   @available(OSX 10.10, *)
   func accessibilityRange(forLine line: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityString(forRange range: NSRange) -> String?
+  func accessibilityString(for range: NSRange) -> String?
   @available(OSX 10.10, *)
   func accessibilityRange(forPosition point: Point) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityRange(forIndex index: Int) -> NSRange
+  func accessibilityRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityFrame(forRange range: NSRange) -> Rect
+  func accessibilityFrame(for range: NSRange) -> Rect
   @available(OSX 10.10, *)
-  func accessibilityRTF(forRange range: NSRange) -> Data?
+  func accessibilityRTF(for range: NSRange) -> Data?
   @available(OSX 10.10, *)
-  func accessibilityStyleRange(forIndex index: Int) -> NSRange
+  func accessibilityStyleRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityLine(forIndex index: Int) -> Int
+  func accessibilityLine(for index: Int) -> Int
   @available(OSX 10.10, *)
   func accessibilityPerformCancel() -> Bool
   @available(OSX 10.10, *)
@@ -918,9 +918,9 @@ let NSFullScreenModeWindowLevel: String
 let NSFullScreenModeApplicationPresentationOptions: String
 extension NSView {
   @available(OSX 10.6, *)
-  func showDefinition(forAttributedString attrString: AttributedString?, at textBaselineOrigin: Point)
+  func showDefinition(for attrString: AttributedString?, at textBaselineOrigin: Point)
   @available(OSX 10.6, *)
-  func showDefinition(forAttributedString attrString: AttributedString?, range targetRange: NSRange, options: [String : AnyObject]? = [:], baselineOriginProvider originProvider: ((NSRange) -> Point)? = nil)
+  func showDefinition(for attrString: AttributedString?, range targetRange: NSRange, options: [String : AnyObject]? = [:], baselineOriginProvider originProvider: ((NSRange) -> Point)? = nil)
 }
 @available(OSX 10.6, *)
 let NSDefinitionPresentationTypeKey: String
