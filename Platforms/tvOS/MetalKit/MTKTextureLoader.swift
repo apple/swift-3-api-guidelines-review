@@ -17,9 +17,9 @@ class MTKTextureLoader : Object {
   var device: MTLDevice { get }
   init(device: MTLDevice)
   func newTextureWithContents(of URL: URL, options: [String : Number]? = [:], completionHandler: MTKTextureLoaderCallback)
-  func newTexture(withData data: Data, options: [String : Number]? = [:], completionHandler: MTKTextureLoaderCallback)
-  func newTexture(withCGImage cgImage: CGImage, options: [String : Number]? = [:], completionHandler: MTKTextureLoaderCallback)
+  func newTexture(with data: Data, options: [String : Number]? = [:], completionHandler: MTKTextureLoaderCallback)
+  func newTexture(with cgImage: CGImage, options: [String : Number]? = [:], completionHandler: MTKTextureLoaderCallback)
   func newTextureWithContents(of URL: URL, options: [String : Number]? = [:]) throws -> MTLTexture
-  func newTexture(withData data: Data, options: [String : Number]? = [:]) throws -> MTLTexture
-  func newTexture(withCGImage cgImage: CGImage, options: [String : Number]? = [:]) throws -> MTLTexture
+  func newTexture(with data: Data, options: [String : Number]? = [:]) throws -> MTLTexture
+  func newTexture(with cgImage: CGImage, options: [String : Number]? = [:]) throws -> MTLTexture
 }

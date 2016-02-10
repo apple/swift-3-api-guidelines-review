@@ -5,9 +5,9 @@ class UIMotionEffect : Object, Copying, Coding {
   init?(coder aDecoder: Coder)
   func keyPathsAndRelativeValues(forViewerOffset viewerOffset: UIOffset) -> [String : AnyObject]?
   @available(tvOS 7.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(tvOS 7.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
 }
 enum UIInterpolatingMotionEffectType : Int {
   init?(rawValue: Int)

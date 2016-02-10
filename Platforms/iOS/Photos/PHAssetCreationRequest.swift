@@ -6,7 +6,7 @@ class PHAssetResourceCreationOptions : Object, Copying {
   var shouldMoveFile: Bool
   init()
   @available(iOS 9.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class PHAssetCreationRequest : PHAssetChangeRequest {
@@ -14,6 +14,6 @@ class PHAssetCreationRequest : PHAssetChangeRequest {
   class func supportsAssetResourceTypes(types: [Number]) -> Bool
   func addResource(type: PHAssetResourceType, fileURL: URL, options: PHAssetResourceCreationOptions?)
   func addResource(type: PHAssetResourceType, data: Data, options: PHAssetResourceCreationOptions?)
-  convenience init(forAsset asset: PHAsset)
+  convenience init(for asset: PHAsset)
   init()
 }

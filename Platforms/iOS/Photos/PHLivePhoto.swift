@@ -15,10 +15,10 @@ class PHLivePhoto : Object, Copying, SecureCoding {
   class func cancelRequestWithRequestID(requestID: PHLivePhotoRequestID)
   init()
   @available(iOS 9.1, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(iOS 9.1, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.1, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

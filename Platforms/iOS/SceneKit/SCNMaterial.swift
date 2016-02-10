@@ -78,16 +78,16 @@ class SCNMaterial : Object, SCNAnimatable, SCNShadable, Copying, SecureCoding {
   @available(iOS 8.0, *)
   var program: SCNProgram?
   @available(iOS 8.0, *)
-  func handleBinding(ofSymbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  func handleBinding(ofSymbol symbol: String, using block: SCNBindingBlock? = nil)
   @available(iOS 8.0, *)
-  func handleUnbinding(ofSymbol symbol: String, usingBlock block: SCNBindingBlock? = nil)
+  func handleUnbinding(ofSymbol symbol: String, using block: SCNBindingBlock? = nil)
   @available(iOS 8.0, *)
   var shaderModifiers: [String : String]?
   @available(iOS 8.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

@@ -31,14 +31,14 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   @available(OSX 10.6, *)
   class func canConcurrentlyReadDocuments(ofType typeName: String) -> Bool
   convenience init(contentsOf url: URL, ofType typeName: String) throws
-  convenience init(forURL urlOrNil: URL?, withContentsOf contentsURL: URL, ofType typeName: String) throws
+  convenience init(for urlOrNil: URL?, withContentsOf contentsURL: URL, ofType typeName: String) throws
   var fileType: String?
   @NSCopying var fileURL: URL?
   @NSCopying var fileModificationDate: Date?
   @available(OSX 10.8, *)
   var isDraft: Bool
   @available(OSX 10.7, *)
-  func performActivityWithSynchronousWaiting(waitSynchronously: Bool, usingBlock block: (() -> Void) -> Void)
+  func performActivityWithSynchronousWaiting(waitSynchronously: Bool, using block: (() -> Void) -> Void)
   @available(OSX 10.7, *)
   func continueActivity(block: () -> Void)
   @available(OSX 10.7, *)
@@ -61,9 +61,9 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   func unblockUserInteraction()
   @available(OSX 10.7, *)
   var autosavingIsImplicitlyCancellable: Bool { get }
-  func writeSafely(to url: URL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType) throws
-  func write(to url: URL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType, originalContentsURL absoluteOriginalContentsURL: URL?) throws
-  func fileAttributesToWrite(to url: URL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType, originalContentsURL absoluteOriginalContentsURL: URL?) throws -> [String : AnyObject]
+  func writeSafely(to url: URL, ofType typeName: String, for saveOperation: NSSaveOperationType) throws
+  func write(to url: URL, ofType typeName: String, for saveOperation: NSSaveOperationType, originalContentsURL absoluteOriginalContentsURL: URL?) throws
+  func fileAttributesToWrite(to url: URL, ofType typeName: String, for saveOperation: NSSaveOperationType, originalContentsURL absoluteOriginalContentsURL: URL?) throws -> [String : AnyObject]
   var keepBackupFile: Bool { get }
   @available(OSX 10.8, *)
   @NSCopying var backupFileURL: URL? { get }
@@ -76,11 +76,11 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   func prepare(savePanel: NSSavePanel) -> Bool
   var fileNameExtensionWasHiddenInLastRunSavePanel: Bool { get }
   var fileTypeFromLastRunSavePanel: String? { get }
-  func save(to url: URL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType, delegate: AnyObject?, didSave didSaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func save(to url: URL, ofType typeName: String, for saveOperation: NSSaveOperationType, delegate: AnyObject?, didSave didSaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
-  func save(to url: URL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType, completionHandler: (Error?) -> Void)
+  func save(to url: URL, ofType typeName: String, for saveOperation: NSSaveOperationType, completionHandler: (Error?) -> Void)
   @available(OSX 10.7, *)
-  func canAsynchronouslyWrite(to url: URL, ofType typeName: String, forSaveOperation saveOperation: NSSaveOperationType) -> Bool
+  func canAsynchronouslyWrite(to url: URL, ofType typeName: String, for saveOperation: NSSaveOperationType) -> Bool
   @available(OSX 10.7, *)
   func checkAutosavingSafety() throws
   @available(OSX 10.7, *)
@@ -152,7 +152,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   @available(OSX 10.7, *)
   func changeCountTokenFor(saveOperation: NSSaveOperationType) -> AnyObject
   @available(OSX 10.7, *)
-  func updateChangeCount(withToken changeCountToken: AnyObject, forSaveOperation saveOperation: NSSaveOperationType)
+  func updateChangeCount(withToken changeCountToken: AnyObject, for saveOperation: NSSaveOperationType)
   var undoManager: UndoManager?
   var hasUndoManager: Bool
   func presentError(error: Error, modalFor window: NSWindow, delegate: AnyObject?, didPresent didPresentSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)

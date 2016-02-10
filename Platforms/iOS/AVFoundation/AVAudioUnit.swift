@@ -2,7 +2,7 @@
 @available(iOS 8.0, *)
 class AVAudioUnit : AVAudioNode {
   @available(iOS 9.0, *)
-  class func instantiate(withComponentDescription audioComponentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = [], completionHandler: (AVAudioUnit?, Error?) -> Void)
+  class func instantiate(with audioComponentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = [], completionHandler: (AVAudioUnit?, Error?) -> Void)
   func loadPreset(at url: URL) throws
   var audioComponentDescription: AudioComponentDescription { get }
   var audioUnit: AudioUnit { get }

@@ -125,10 +125,10 @@ class SCNParticlePropertyController : Object, SecureCoding, Copying {
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.10, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.10, *)
 class SCNParticleSystem : Object, Copying, SecureCoding, SCNAnimatable {
@@ -194,17 +194,17 @@ class SCNParticleSystem : Object, Copying, SecureCoding, SCNAnimatable {
   var fresnelExponent: CGFloat
   var propertyControllers: [String : SCNParticlePropertyController]?
   func reset()
-  func handle(event: SCNParticleEvent, forProperties properties: [String], withBlock block: SCNParticleEventBlock)
-  func addModifier(forProperties properties: [String], at stage: SCNParticleModifierStage, withBlock block: SCNParticleModifierBlock)
+  func handle(event: SCNParticleEvent, forProperties properties: [String], with block: SCNParticleEventBlock)
+  func addModifier(forProperties properties: [String], at stage: SCNParticleModifierStage, with block: SCNParticleModifierBlock)
   func removeModifiers(of stage: SCNParticleModifierStage)
   func removeAllModifiers()
   init()
   @available(OSX 10.10, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.10, *)
   func add(animation: CAAnimation, forKey key: String?)
@@ -237,7 +237,7 @@ extension SCNNode {
 }
 extension SCNScene {
   @available(OSX 10.10, *)
-  func addParticleSystem(system: SCNParticleSystem, withTransform transform: SCNMatrix4)
+  func addParticleSystem(system: SCNParticleSystem, with transform: SCNMatrix4)
   @available(OSX 10.10, *)
   func removeAllParticleSystems()
   @available(OSX 10.10, *)

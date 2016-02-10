@@ -42,7 +42,7 @@ class NSFont : Object, Copying, SecureCoding {
   class func systemFontSize() -> CGFloat
   class func smallSystemFontSize() -> CGFloat
   class func labelSize() -> CGFloat
-  class func systemFontSize(forControlSize controlSize: NSControlSize) -> CGFloat
+  class func systemFontSize(for controlSize: NSControlSize) -> CGFloat
   var fontName: String { get }
   var pointSize: CGFloat { get }
   var matrix: UnsafePointer<CGFloat> { get }
@@ -74,16 +74,16 @@ class NSFont : Object, Copying, SecureCoding {
   func setIn(graphicsContext: NSGraphicsContext)
   @NSCopying var printer: NSFont { get }
   @NSCopying var screen: NSFont { get }
-  func screenFont(withRenderingMode renderingMode: NSFontRenderingMode) -> NSFont
+  func screenFont(with renderingMode: NSFontRenderingMode) -> NSFont
   var renderingMode: NSFontRenderingMode { get }
   @available(OSX 10.7, *)
   @NSCopying var vertical: NSFont { get }
   @available(OSX 10.7, *)
   var isVertical: Bool { get }
   init()
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct __fFlags {

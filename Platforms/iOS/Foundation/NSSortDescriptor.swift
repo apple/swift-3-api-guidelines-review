@@ -16,24 +16,24 @@ class SortDescriptor : Object, SecureCoding, Copying {
   var reversedSortDescriptor: AnyObject { get }
   init()
   class func supportsSecureCoding() -> Bool
-  func encode(withCoder aCoder: Coder)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func encode(with aCoder: Coder)
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 extension NSSet {
   @available(iOS 4.0, *)
-  func sortedArray(usingDescriptors sortDescriptors: [SortDescriptor]) -> [AnyObject]
+  func sortedArray(using sortDescriptors: [SortDescriptor]) -> [AnyObject]
 }
 extension NSArray {
-  func sortedArray(usingDescriptors sortDescriptors: [SortDescriptor]) -> [AnyObject]
+  func sortedArray(using sortDescriptors: [SortDescriptor]) -> [AnyObject]
 }
 extension MutableArray {
-  func sort(usingDescriptors sortDescriptors: [SortDescriptor])
+  func sort(using sortDescriptors: [SortDescriptor])
 }
 extension OrderedSet {
   @available(iOS 5.0, *)
-  func sortedArray(usingDescriptors sortDescriptors: [SortDescriptor]) -> [AnyObject]
+  func sortedArray(using sortDescriptors: [SortDescriptor]) -> [AnyObject]
 }
 extension MutableOrderedSet {
   @available(iOS 5.0, *)
-  func sort(usingDescriptors sortDescriptors: [SortDescriptor])
+  func sort(using sortDescriptors: [SortDescriptor])
 }

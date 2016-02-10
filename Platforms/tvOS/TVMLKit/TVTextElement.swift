@@ -13,7 +13,7 @@ enum TVTextElementStyle : Int {
 class TVTextElement : TVViewElement {
   var attributedText: AttributedString? { get }
   var textStyle: TVTextElementStyle { get }
-  func attributedString(withFont font: UIFont) -> AttributedString
-  func attributedString(withFont font: UIFont, foregroundColor: UIColor?, textAlignment alignment: NSTextAlignment) -> AttributedString
+  func attributedString(with font: UIFont) -> AttributedString
+  func attributedString(with font: UIFont, foregroundColor: UIColor?, textAlignment alignment: NSTextAlignment) -> AttributedString
   init()
 }

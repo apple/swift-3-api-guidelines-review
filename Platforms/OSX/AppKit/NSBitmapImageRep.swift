@@ -69,7 +69,7 @@ class NSBitmapImageRep : NSImageRep, SecureCoding {
   init(cgImage: CGImage)
   @available(OSX 10.5, *)
   init(ciImage: CIImage)
-  class func imageReps(withData data: Data) -> [NSImageRep]
+  class func imageReps(with data: Data) -> [NSImageRep]
   init?(data: Data)
   var bitmapData: UnsafeMutablePointer<UInt8> { get }
   func getBitmapDataPlanes(data: UnsafeMutablePointer<UnsafeMutablePointer<UInt8>>)
@@ -83,9 +83,9 @@ class NSBitmapImageRep : NSImageRep, SecureCoding {
   func getCompression(compression: UnsafeMutablePointer<NSTIFFCompression>, factor: UnsafeMutablePointer<Float>)
   func setCompression(compression: NSTIFFCompression, factor: Float)
   @NSCopying var tiffRepresentation: Data? { get }
-  func tiffRepresentation(usingCompression comp: NSTIFFCompression, factor: Float) -> Data?
+  func tiffRepresentation(using comp: NSTIFFCompression, factor: Float) -> Data?
   class func tiffRepresentationOfImageReps(in array: [NSImageRep]) -> Data?
-  class func tiffRepresentationOfImageReps(in array: [NSImageRep], usingCompression comp: NSTIFFCompression, factor: Float) -> Data?
+  class func tiffRepresentationOfImageReps(in array: [NSImageRep], using comp: NSTIFFCompression, factor: Float) -> Data?
   class func getTIFFCompressionTypes(list: UnsafeMutablePointer<UnsafePointer<NSTIFFCompression>>, count numTypes: UnsafeMutablePointer<Int>)
   class func localizedName(forTIFFCompressionType compression: NSTIFFCompression) -> String?
   func canBeCompressed(using compression: NSTIFFCompression) -> Bool
@@ -103,7 +103,7 @@ class NSBitmapImageRep : NSImageRep, SecureCoding {
   @available(OSX 10.6, *)
   func converting(to targetSpace: NSColorSpace, renderingIntent: NSColorRenderingIntent) -> NSBitmapImageRep?
   @available(OSX 10.6, *)
-  func byRetagging(withColorSpace newSpace: NSColorSpace) -> NSBitmapImageRep?
+  func byRetagging(with newSpace: NSColorSpace) -> NSBitmapImageRep?
   init()
   init?(coder: Coder)
   class func supportsSecureCoding() -> Bool
@@ -126,8 +126,8 @@ struct __bitmapRepFlags {
   init(bitsPerPixel: UInt32, isPlanar: UInt32, explicitPlanes: UInt32, imageSourceIsIndexed: UInt32, dataLoaded: UInt32, colorModel: UInt32, tierTwoInfoIsLoaded: UInt32, respectO: UInt32, compressionFactor: UInt32, imageNumber: UInt32, bitmapFormat: UInt32, cgImageIsPrimary: UInt32, compression: UInt32)
 }
 extension NSBitmapImageRep {
-  class func representationOfImageReps(in imageReps: [NSImageRep], usingType storageType: NSBitmapImageFileType, properties: [String : AnyObject]) -> Data?
-  func representation(usingType storageType: NSBitmapImageFileType, properties: [String : AnyObject]) -> Data?
+  class func representationOfImageReps(in imageReps: [NSImageRep], using storageType: NSBitmapImageFileType, properties: [String : AnyObject]) -> Data?
+  func representation(using storageType: NSBitmapImageFileType, properties: [String : AnyObject]) -> Data?
   func setProperty(property: String, withValue value: AnyObject?)
   func value(forProperty property: String) -> AnyObject?
 }

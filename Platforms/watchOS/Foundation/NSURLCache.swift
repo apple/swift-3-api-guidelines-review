@@ -15,16 +15,16 @@ class CachedURLResponse : Object, SecureCoding, Copying {
   var storagePolicy: URLCacheStoragePolicy { get }
   init()
   class func supportsSecureCoding() -> Bool
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 class URLCache : Object {
   class func shared() -> URLCache
   class func setSharedURLCache(cache: URLCache)
   init(memoryCapacity: Int, diskCapacity: Int, diskPath path: String?)
   func cachedResponseFor(request: URLRequest) -> CachedURLResponse?
-  func storeCachedResponse(cachedResponse: CachedURLResponse, forRequest request: URLRequest)
+  func storeCachedResponse(cachedResponse: CachedURLResponse, for request: URLRequest)
   func removeCachedResponseFor(request: URLRequest)
   func removeAllCachedResponses()
   @available(watchOS 2.0, *)
@@ -37,9 +37,9 @@ class URLCache : Object {
 }
 extension URLCache {
   @available(watchOS 2.0, *)
-  func storeCachedResponse(cachedResponse: CachedURLResponse, forDataTask dataTask: URLSessionDataTask)
+  func storeCachedResponse(cachedResponse: CachedURLResponse, for dataTask: URLSessionDataTask)
   @available(watchOS 2.0, *)
-  func getCachedResponse(forDataTask dataTask: URLSessionDataTask, completionHandler: (CachedURLResponse?) -> Void)
+  func getCachedResponse(for dataTask: URLSessionDataTask, completionHandler: (CachedURLResponse?) -> Void)
   @available(watchOS 2.0, *)
-  func removeCachedResponse(forDataTask dataTask: URLSessionDataTask)
+  func removeCachedResponse(for dataTask: URLSessionDataTask)
 }

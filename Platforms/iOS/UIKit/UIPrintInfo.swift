@@ -34,7 +34,7 @@ class UIPrintInfo : Object, Copying, Coding {
   var duplex: UIPrintInfoDuplex
   convenience init()
   @available(iOS 4.2, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(iOS 4.2, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
 }

@@ -13,11 +13,11 @@ class SCNAudioSource : Object, Copying, SecureCoding {
   func load()
   convenience init()
   @available(OSX 10.11, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(OSX 10.11, *)

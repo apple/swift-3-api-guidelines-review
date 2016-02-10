@@ -11,5 +11,5 @@ class MKMapSnapshotOptions : Object, Copying {
   var scale: CGFloat
   init()
   @available(iOS 7.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }

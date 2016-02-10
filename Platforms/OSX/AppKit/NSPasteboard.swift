@@ -88,7 +88,7 @@ struct NSPasteboardWritingOptions : OptionSetType {
   static var promised: NSPasteboardWritingOptions { get }
 }
 protocol NSPasteboardWriting : ObjectProtocol {
-  func writableTypes(forPasteboard pasteboard: NSPasteboard) -> [String]
+  func writableTypes(for pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
   optional func writingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
   func pasteboardPropertyList(forType type: String) -> AnyObject?
@@ -103,7 +103,7 @@ struct NSPasteboardReadingOptions : OptionSetType {
   static var asKeyedArchive: NSPasteboardReadingOptions { get }
 }
 protocol NSPasteboardReading : ObjectProtocol {
-  static func readableTypes(forPasteboard pasteboard: NSPasteboard) -> [String]
+  static func readableTypes(for pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
   optional static func readingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
@@ -111,21 +111,21 @@ protocol NSPasteboardReading : ObjectProtocol {
 extension URL : NSPasteboardWriting, NSPasteboardReading {
   /*not inherited*/ init?(from pasteBoard: NSPasteboard)
   func write(to pasteBoard: NSPasteboard)
-  func writableTypes(forPasteboard pasteboard: NSPasteboard) -> [String]
+  func writableTypes(for pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
   func writingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
   func pasteboardPropertyList(forType type: String) -> AnyObject?
-  class func readableTypes(forPasteboard pasteboard: NSPasteboard) -> [String]
+  class func readableTypes(for pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
   class func readingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
 }
 extension NSString : NSPasteboardWriting, NSPasteboardReading {
-  func writableTypes(forPasteboard pasteboard: NSPasteboard) -> [String]
+  func writableTypes(for pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
   func writingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
   func pasteboardPropertyList(forType type: String) -> AnyObject?
-  class func readableTypes(forPasteboard pasteboard: NSPasteboard) -> [String]
+  class func readableTypes(for pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
   class func readingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)

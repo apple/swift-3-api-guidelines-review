@@ -19,7 +19,7 @@ class NSTabViewController : NSViewController, NSTabViewDelegate, NSToolbarDelega
   func addTabViewItem(tabViewItem: NSTabViewItem)
   func insertTabViewItem(tabViewItem: NSTabViewItem, at index: Int)
   func removeTabViewItem(tabViewItem: NSTabViewItem)
-  func tabViewItem(forViewController viewController: NSViewController) -> NSTabViewItem?
+  func tabViewItem(for viewController: NSViewController) -> NSTabViewItem?
   func viewDidLoad()
   func tabView(tabView: NSTabView, willSelect tabViewItem: NSTabViewItem?)
   func tabView(tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?)

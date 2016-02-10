@@ -31,7 +31,7 @@ protocol ICCameraDeviceDelegate : ICDeviceDelegate {
 }
 protocol ICCameraDeviceDownloadDelegate : ObjectProtocol {
   optional func didDownloadFile(file: ICCameraFile, error: Error?, options: [String : AnyObject]? = [:], contextInfo: UnsafeMutablePointer<Void>)
-  optional func didReceiveDownloadProgress(forFile file: ICCameraFile, downloadedBytes: off_t, maxBytes: off_t)
+  optional func didReceiveDownloadProgress(for file: ICCameraFile, downloadedBytes: off_t, maxBytes: off_t)
 }
 class ICCameraDevice : ICDevice {
   var batteryLevelAvailable: Bool { get }

@@ -40,13 +40,13 @@ class FileWrapper : Object, Coding {
   func addRegularFile(contents data: Data, preferredFilename fileName: String) -> String
   func remove(child: FileWrapper)
   var fileWrappers: [String : FileWrapper]? { get }
-  func key(forFileWrapper child: FileWrapper) -> String?
+  func key(for child: FileWrapper) -> String?
   @NSCopying var regularFileContents: Data? { get }
   @available(OSX 10.6, *)
   @NSCopying var symbolicLinkDestinationURL: URL? { get }
   convenience init()
   @available(OSX 10.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
 }
 extension FileWrapper {
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use -initWithURL:options:error: instead.")

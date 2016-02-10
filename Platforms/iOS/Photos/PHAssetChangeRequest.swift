@@ -6,7 +6,7 @@ class PHAssetChangeRequest : Object {
   class func creationRequestForAssetFromVideo(atFileURL fileURL: URL) -> Self?
   var placeholderForCreatedAsset: PHObjectPlaceholder? { get }
   class func deleteAssets(assets: FastEnumeration)
-  convenience init(forAsset asset: PHAsset)
+  convenience init(for asset: PHAsset)
   var creationDate: Date?
   var location: CLLocation?
   var isFavorite: Bool

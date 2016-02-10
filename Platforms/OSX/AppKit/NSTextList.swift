@@ -12,7 +12,7 @@ class NSTextList : Object, Coding, Copying {
   @available(OSX 10.6, *)
   var startingItemNumber: Int
   init()
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }

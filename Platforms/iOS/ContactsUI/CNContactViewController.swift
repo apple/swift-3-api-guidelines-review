@@ -2,7 +2,7 @@
 @available(iOS 9.0, *)
 class CNContactViewController : UIViewController {
   class func descriptorForRequiredKeys() -> CNKeyDescriptor
-  convenience init(forContact contact: CNContact)
+  convenience init(for contact: CNContact)
   convenience init(forUnknownContact contact: CNContact)
   convenience init(forNewContact contact: CNContact?)
   var contact: CNContact { get }

@@ -54,17 +54,17 @@ class NSPersistentStoreCoordinator : Object {
   var persistentStores: [NSPersistentStore] { get }
   @available(tvOS 8.0, *)
   var name: String?
-  func persistentStore(forURL URL: URL) -> NSPersistentStore?
+  func persistentStore(for URL: URL) -> NSPersistentStore?
   func urlFor(store: NSPersistentStore) -> URL
   @available(tvOS 3.0, *)
-  func setURL(url: URL, forPersistentStore store: NSPersistentStore) -> Bool
+  func setURL(url: URL, for store: NSPersistentStore) -> Bool
   func addPersistentStore(type storeType: String, configuration: String?, url storeURL: URL?, options: [Object : AnyObject]? = [:]) throws -> NSPersistentStore
   func removePersistentStore(store: NSPersistentStore) throws
-  func setMetadata(metadata: [String : AnyObject]?, forPersistentStore store: NSPersistentStore)
+  func setMetadata(metadata: [String : AnyObject]?, for store: NSPersistentStore)
   func metadataFor(store: NSPersistentStore) -> [String : AnyObject]
   func managedObjectID(forURIRepresentation url: URL) -> NSManagedObjectID?
   @available(tvOS 5.0, *)
-  func execute(request: NSPersistentStoreRequest, withContext context: NSManagedObjectContext) throws -> AnyObject
+  func execute(request: NSPersistentStoreRequest, with context: NSManagedObjectContext) throws -> AnyObject
   @available(tvOS 3.0, *)
   class func registeredStoreTypes() -> [String : Value]
   @available(tvOS 3.0, *)

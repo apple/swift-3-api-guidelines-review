@@ -1,9 +1,9 @@
 
 protocol TVInterfaceCreating : ObjectProtocol {
   @available(tvOS 9.0, *)
-  optional func view(forElement element: TVViewElement, existing existingView: UIView?) -> UIView?
+  optional func view(for element: TVViewElement, existing existingView: UIView?) -> UIView?
   @available(tvOS 9.0, *)
-  optional func viewController(forElement element: TVViewElement, existing existingViewController: UIViewController?) -> UIViewController?
+  optional func viewController(for element: TVViewElement, existing existingViewController: UIViewController?) -> UIViewController?
   @available(tvOS 9.0, *)
   optional func url(forResource resourceName: String) -> URL?
 }
@@ -13,9 +13,9 @@ class TVInterfaceFactory : Object, TVInterfaceCreating {
   var extendedInterfaceCreator: TVInterfaceCreating?
   init()
   @available(tvOS 9.0, *)
-  func view(forElement element: TVViewElement, existing existingView: UIView?) -> UIView?
+  func view(for element: TVViewElement, existing existingView: UIView?) -> UIView?
   @available(tvOS 9.0, *)
-  func viewController(forElement element: TVViewElement, existing existingViewController: UIViewController?) -> UIViewController?
+  func viewController(for element: TVViewElement, existing existingViewController: UIViewController?) -> UIViewController?
   @available(tvOS 9.0, *)
   func url(forResource resourceName: String) -> URL?
 }

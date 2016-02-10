@@ -1,6 +1,6 @@
 
 class DRBurn : Object {
-  /*not inherited*/ init!(forDevice device: DRDevice!)
+  /*not inherited*/ init!(for device: DRDevice!)
   init!(device: DRDevice!)
   func writeLayout(layout: AnyObject!)
   func status() -> [Object : AnyObject]!

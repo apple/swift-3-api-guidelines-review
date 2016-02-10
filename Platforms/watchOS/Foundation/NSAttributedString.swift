@@ -5,13 +5,13 @@ class AttributedString : Object, Copying, MutableCopying, SecureCoding {
   func attributes(at location: Int, effectiveRange range: RangePointer) -> [String : AnyObject]
   init()
   @available(watchOS 2.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
-  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension AttributedString {
@@ -25,9 +25,9 @@ extension AttributedString {
   init(string str: String, attributes attrs: [String : AnyObject]? = [:])
   init(attributedString attrStr: AttributedString)
   @available(watchOS 2.0, *)
-  func enumerateAttributes(in enumerationRange: NSRange, options opts: AttributedStringEnumerationOptions = [], usingBlock block: ([String : AnyObject], NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateAttributes(in enumerationRange: NSRange, options opts: AttributedStringEnumerationOptions = [], using block: ([String : AnyObject], NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
-  func enumerateAttribute(attrName: String, in enumerationRange: NSRange, options opts: AttributedStringEnumerationOptions = [], usingBlock block: (AnyObject?, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateAttribute(attrName: String, in enumerationRange: NSRange, options opts: AttributedStringEnumerationOptions = [], using block: (AnyObject?, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
 }
 struct AttributedStringEnumerationOptions : OptionSetType {
   init(rawValue: UInt)
@@ -37,7 +37,7 @@ struct AttributedStringEnumerationOptions : OptionSetType {
 }
 @available(watchOS 2.0, *)
 class MutableAttributedString : AttributedString {
-  func replaceCharacters(in range: NSRange, withString str: String)
+  func replaceCharacters(in range: NSRange, with str: String)
   func setAttributes(attrs: [String : AnyObject]? = [:], range: NSRange)
   init()
   init?(coder aDecoder: Coder)
@@ -50,7 +50,7 @@ extension MutableAttributedString {
   func addAttribute(name: String, value: AnyObject, range: NSRange)
   func addAttributes(attrs: [String : AnyObject] = [:], range: NSRange)
   func removeAttribute(name: String, range: NSRange)
-  func replaceCharacters(in range: NSRange, withAttributedString attrString: AttributedString)
+  func replaceCharacters(in range: NSRange, with attrString: AttributedString)
   func insert(attrString: AttributedString, at loc: Int)
   func append(attrString: AttributedString)
   func deleteCharacters(in range: NSRange)

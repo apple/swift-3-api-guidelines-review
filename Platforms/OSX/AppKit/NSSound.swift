@@ -7,7 +7,7 @@ class NSSound : Object, Copying, Coding, NSPasteboardReading, NSPasteboardWritin
   init?(data: Data)
   func setName(string: String?) -> Bool
   var name: String? { get }
-  class func canInit(withPasteboard pasteboard: NSPasteboard) -> Bool
+  class func canInit(with pasteboard: NSPasteboard) -> Bool
   @available(OSX 10.5, *)
   class func soundUnfilteredTypes() -> [String]
   init?(pasteboard: NSPasteboard)
@@ -29,14 +29,14 @@ class NSSound : Object, Copying, Coding, NSPasteboardReading, NSPasteboardWritin
   @available(OSX 10.5, *)
   var playbackDeviceIdentifier: String?
   init()
-  func copy(withZone zone: Zone = nil) -> AnyObject
-  func encode(withCoder aCoder: Coder)
+  func copy(with zone: Zone = nil) -> AnyObject
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
-  class func readableTypes(forPasteboard pasteboard: NSPasteboard) -> [String]
+  class func readableTypes(for pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
   class func readingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
-  func writableTypes(forPasteboard pasteboard: NSPasteboard) -> [String]
+  func writableTypes(for pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
   func writingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
   func pasteboardPropertyList(forType type: String) -> AnyObject?

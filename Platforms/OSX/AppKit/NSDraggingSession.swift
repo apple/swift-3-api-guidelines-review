@@ -7,6 +7,6 @@ class NSDraggingSession : Object {
   var draggingPasteboard: NSPasteboard { get }
   var draggingSequenceNumber: Int { get }
   var draggingLocation: Point { get }
-  func enumerateDraggingItems(enumOpts: NSDraggingItemEnumerationOptions = [], forView view: NSView?, classes classArray: [AnyClass], searchOptions: [String : AnyObject] = [:], usingBlock block: (NSDraggingItem, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateDraggingItems(enumOpts: NSDraggingItemEnumerationOptions = [], for view: NSView?, classes classArray: [AnyClass], searchOptions: [String : AnyObject] = [:], using block: (NSDraggingItem, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   init()
 }

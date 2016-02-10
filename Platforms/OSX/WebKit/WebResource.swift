@@ -7,7 +7,7 @@ class WebResource : Object, Coding, Copying {
   var textEncodingName: String! { get }
   var frameName: String! { get }
   init()
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }

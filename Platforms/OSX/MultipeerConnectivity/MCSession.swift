@@ -30,7 +30,7 @@ let kMCSessionMaximumNumberOfPeers: Int
 class MCSession : Object {
   convenience init(peer myPeerID: MCPeerID)
   init(peer myPeerID: MCPeerID, securityIdentity identity: [AnyObject]?, encryptionPreference: MCEncryptionPreference)
-  func send(data: Data, toPeers peerIDs: [MCPeerID], withMode mode: MCSessionSendDataMode) throws
+  func send(data: Data, toPeers peerIDs: [MCPeerID], with mode: MCSessionSendDataMode) throws
   func disconnect()
   func sendResource(at resourceURL: URL, withName resourceName: String, toPeer peerID: MCPeerID, withCompletionHandler completionHandler: ((Error?) -> Void)? = nil) -> Progress?
   func startStream(name streamName: String, toPeer peerID: MCPeerID) throws -> OutputStream
@@ -49,7 +49,7 @@ protocol MCSessionDelegate : ObjectProtocol {
   @available(OSX 10.10, *)
   func session(session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID)
   @available(OSX 10.10, *)
-  func session(session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, withProgress progress: Progress)
+  func session(session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress)
   @available(OSX 10.10, *)
   func session(session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?)
   @available(OSX 10.10, *)

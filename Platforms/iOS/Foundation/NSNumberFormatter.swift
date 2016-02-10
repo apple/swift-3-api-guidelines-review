@@ -8,7 +8,7 @@ enum NumberFormatterBehavior : UInt {
 class NumberFormatter : Formatter {
   @available(iOS 8.0, *)
   var formattingContext: FormattingContext
-  func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, range rangep: UnsafeMutablePointer<NSRange>) throws
+  func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, range rangep: UnsafeMutablePointer<NSRange>) throws
   func stringFrom(number: Number) -> String?
   func number(from string: String) -> Number?
   @available(iOS 4.0, *)

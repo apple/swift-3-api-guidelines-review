@@ -11,10 +11,10 @@ protocol NSTextInputClient {
   func attributedSubstring(forProposedRange aRange: NSRange, actualRange: RangePointer) -> AttributedString?
   func validAttributesForMarkedText() -> [String]
   func firstRect(forCharacterRange aRange: NSRange, actualRange: RangePointer) -> Rect
-  func characterIndex(forPoint aPoint: Point) -> Int
+  func characterIndex(for aPoint: Point) -> Int
   @available(OSX 10.0, *)
   optional func attributedString() -> AttributedString
-  optional func fractionOfDistanceThroughGlyph(forPoint aPoint: Point) -> CGFloat
+  optional func fractionOfDistanceThroughGlyph(for aPoint: Point) -> CGFloat
   optional func baselineDeltaForCharacter(at anIndex: Int) -> CGFloat
   optional func windowLevel() -> Int
   @available(OSX 10.6, *)

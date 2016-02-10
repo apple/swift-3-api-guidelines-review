@@ -25,10 +25,10 @@ class CLRegion : Object, Copying, SecureCoding {
   func contains(coordinate: CLLocationCoordinate2D) -> Bool
   init()
   @available(OSX 10.7, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.7, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

@@ -20,11 +20,11 @@ class PHAssetCollection : PHCollection {
   var localizedLocationNames: [String] { get }
   class func fetchAssetCollections(localIdentifiers identifiers: [String], options: PHFetchOptions?) -> PHFetchResult
   class func fetchAssetCollections(type: PHAssetCollectionType, subtype: PHAssetCollectionSubtype, options: PHFetchOptions?) -> PHFetchResult
-  class func fetchAssetCollectionsContaining(asset: PHAsset, withType type: PHAssetCollectionType, options: PHFetchOptions?) -> PHFetchResult
+  class func fetchAssetCollectionsContaining(asset: PHAsset, with type: PHAssetCollectionType, options: PHFetchOptions?) -> PHFetchResult
   class func fetchAssetCollections(alAssetGroupURLs assetGroupURLs: [URL], options: PHFetchOptions?) -> PHFetchResult
   class func fetchMoments(inMomentList momentList: PHCollectionList, options: PHFetchOptions?) -> PHFetchResult
   class func fetchMoments(options: PHFetchOptions?) -> PHFetchResult
-  class func transientAssetCollection(withAssets assets: [PHAsset], title: String?) -> PHAssetCollection
+  class func transientAssetCollection(with assets: [PHAsset], title: String?) -> PHAssetCollection
   class func transientAssetCollectionWithAssetFetchResult(fetchResult: PHFetchResult, title: String?) -> PHAssetCollection
   init()
 }
@@ -40,7 +40,7 @@ class PHCollectionList : PHCollection {
   class func fetchCollectionLists(collectionListType: PHCollectionListType, subtype: PHCollectionListSubtype, options: PHFetchOptions?) -> PHFetchResult
   class func fetchMomentLists(momentListSubtype: PHCollectionListSubtype, containingMoment moment: PHAssetCollection, options: PHFetchOptions?) -> PHFetchResult
   class func fetchMomentLists(momentListSubtype: PHCollectionListSubtype, options: PHFetchOptions?) -> PHFetchResult
-  class func transientCollectionList(withCollections collections: [PHCollection], title: String?) -> PHCollectionList
+  class func transientCollectionList(with collections: [PHCollection], title: String?) -> PHCollectionList
   class func transientCollectionListWithCollectionsFetchResult(fetchResult: PHFetchResult, title: String?) -> PHCollectionList
   init()
 }

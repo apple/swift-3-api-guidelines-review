@@ -26,9 +26,9 @@ class NSPathControl : NSControl {
 }
 protocol NSPathControlDelegate : ObjectProtocol {
   @available(OSX 10.10, *)
-  optional func pathControl(pathControl: NSPathControl, shouldDrag pathItem: NSPathControlItem, withPasteboard pasteboard: NSPasteboard) -> Bool
+  optional func pathControl(pathControl: NSPathControl, shouldDrag pathItem: NSPathControlItem, with pasteboard: NSPasteboard) -> Bool
   @available(OSX 10.5, *)
-  optional func pathControl(pathControl: NSPathControl, shouldDrag pathComponentCell: NSPathComponentCell, withPasteboard pasteboard: NSPasteboard) -> Bool
+  optional func pathControl(pathControl: NSPathControl, shouldDrag pathComponentCell: NSPathComponentCell, with pasteboard: NSPasteboard) -> Bool
   @available(OSX 10.5, *)
   optional func pathControl(pathControl: NSPathControl, validateDrop info: NSDraggingInfo) -> NSDragOperation
   @available(OSX 10.5, *)

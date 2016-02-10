@@ -32,10 +32,10 @@ class URLRequest : Object, SecureCoding, Copying, MutableCopying {
   @available(watchOS 2.0, *)
   var allowsCellularAccess: Bool { get }
   convenience init()
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(withZone zone: Zone = nil) -> AnyObject
-  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: Zone = nil) -> AnyObject
 }
 class MutableURLRequest : URLRequest {
   @NSCopying var url: URL?

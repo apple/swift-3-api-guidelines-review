@@ -49,7 +49,7 @@ class UIBezierPath : Object, Copying, Coding {
   func stroke(blendMode: CGBlendMode, alpha: CGFloat)
   func addClip()
   @available(watchOS 2.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
 }

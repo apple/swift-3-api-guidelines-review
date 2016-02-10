@@ -43,14 +43,14 @@ class UIDocument : Object, FilePresenter, ProgressReporting {
   func hasUnsavedChanges() -> Bool
   func updateChangeCount(change: UIDocumentChangeKind)
   func changeCountTokenFor(saveOperation: UIDocumentSaveOperation) -> AnyObject
-  func updateChangeCount(withToken changeCountToken: AnyObject, forSaveOperation saveOperation: UIDocumentSaveOperation)
-  func save(to url: URL, forSaveOperation saveOperation: UIDocumentSaveOperation, completionHandler: ((Bool) -> Void)? = nil)
+  func updateChangeCount(withToken changeCountToken: AnyObject, for saveOperation: UIDocumentSaveOperation)
+  func save(to url: URL, for saveOperation: UIDocumentSaveOperation, completionHandler: ((Bool) -> Void)? = nil)
   func autosave(completionHandler completionHandler: ((Bool) -> Void)? = nil)
   func savingFileType() -> String?
   func fileNameExtension(forType typeName: String?, saveOperation: UIDocumentSaveOperation) -> String
-  func writeContents(contents: AnyObject, andAttributes additionalFileAttributes: [Object : AnyObject]? = [:], safelyTo url: URL, forSaveOperation saveOperation: UIDocumentSaveOperation) throws
-  func writeContents(contents: AnyObject, to url: URL, forSaveOperation saveOperation: UIDocumentSaveOperation, originalContentsURL: URL?) throws
-  func fileAttributesToWrite(to url: URL, forSaveOperation saveOperation: UIDocumentSaveOperation) throws -> [Object : AnyObject]
+  func writeContents(contents: AnyObject, andAttributes additionalFileAttributes: [Object : AnyObject]? = [:], safelyTo url: URL, for saveOperation: UIDocumentSaveOperation) throws
+  func writeContents(contents: AnyObject, to url: URL, for saveOperation: UIDocumentSaveOperation, originalContentsURL: URL?) throws
+  func fileAttributesToWrite(to url: URL, for saveOperation: UIDocumentSaveOperation) throws -> [Object : AnyObject]
   func read(from url: URL) throws
   func performAsynchronousFileAccess(block: () -> Void)
   func handleError(error: Error, userInteractionPermitted: Bool)

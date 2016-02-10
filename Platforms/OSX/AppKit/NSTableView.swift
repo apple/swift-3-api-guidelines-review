@@ -133,7 +133,7 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   func indicatorImage(in tableColumn: NSTableColumn) -> NSImage?
   unowned(unsafe) var highlightedTableColumn: @sil_unmanaged NSTableColumn?
   var verticalMotionCanBeginDrag: Bool
-  func canDragRows(withIndexes rowIndexes: IndexSet, at mouseDownPoint: Point) -> Bool
+  func canDragRows(with rowIndexes: IndexSet, at mouseDownPoint: Point) -> Bool
   func dragImageForRows(dragRows: IndexSet, tableColumns: [NSTableColumn], event dragEvent: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
   func setDraggingSourceOperationMask(mask: NSDragOperation, forLocal isLocal: Bool)
   func setDropRow(row: Int, dropOperation: NSTableViewDropOperation)
@@ -170,7 +170,7 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   func frameOfCell(atColumn column: Int, row: Int) -> Rect
   var autosaveName: String?
   var autosaveTableColumns: Bool
-  func editColumn(column: Int, row: Int, withEvent theEvent: NSEvent?, select: Bool)
+  func editColumn(column: Int, row: Int, with theEvent: NSEvent?, select: Bool)
   func drawRow(row: Int, clip clipRect: Rect)
   func highlightSelectionInClip(clipRect: Rect)
   func drawGridInClip(clipRect: Rect)
@@ -180,9 +180,9 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   @available(OSX 10.7, *)
   func rowView(atRow row: Int, makeIfNecessary: Bool) -> NSTableRowView?
   @available(OSX 10.7, *)
-  func row(forView view: NSView) -> Int
+  func row(for view: NSView) -> Int
   @available(OSX 10.7, *)
-  func column(forView view: NSView) -> Int
+  func column(for view: NSView) -> Int
   @available(OSX 10.7, *)
   func make(identifier identifier: String, owner: AnyObject?) -> NSView?
   @available(OSX 10.7, *)
@@ -238,7 +238,7 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   @available(OSX 10.5, *)
   func textView(textView: NSTextView, shouldSetSpellingState value: Int, range affectedCharRange: NSRange) -> Int
   @available(OSX 10.5, *)
-  func textView(view: NSTextView, menu: NSMenu, forEvent event: NSEvent, at charIndex: Int) -> NSMenu?
+  func textView(view: NSTextView, menu: NSMenu, for event: NSEvent, at charIndex: Int) -> NSMenu?
   @available(OSX 10.6, *)
   func textView(view: NSTextView, willCheckTextIn range: NSRange, options: [String : AnyObject] = [:], types checkingTypes: UnsafeMutablePointer<TextCheckingTypes>) -> [String : AnyObject]
   @available(OSX 10.6, *)
@@ -248,7 +248,7 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   @available(OSX 10.8, *)
   func textView(textView: NSTextView, willShow servicePicker: NSSharingServicePicker, forItems items: [AnyObject]) -> NSSharingServicePicker?
   @available(OSX 10.0, *)
-  func undoManager(forTextView view: NSTextView) -> UndoManager?
+  func undoManager(for view: NSTextView) -> UndoManager?
   @available(OSX 10.7, *)
   func draggingSession(session: NSDraggingSession, sourceOperationMaskFor context: NSDraggingContext) -> NSDragOperation
   @available(OSX 10.7, *)
@@ -294,13 +294,13 @@ protocol NSTableViewDelegate : NSControlTextEditingDelegate {
   optional func tableView(tableView: NSTableView, didAdd rowView: NSTableRowView, forRow row: Int)
   @available(OSX 10.7, *)
   optional func tableView(tableView: NSTableView, didRemove rowView: NSTableRowView, forRow row: Int)
-  optional func tableView(tableView: NSTableView, willDisplayCell cell: AnyObject, forTableColumn tableColumn: NSTableColumn?, row: Int)
+  optional func tableView(tableView: NSTableView, willDisplayCell cell: AnyObject, for tableColumn: NSTableColumn?, row: Int)
   optional func tableView(tableView: NSTableView, shouldEdit tableColumn: NSTableColumn?, row: Int) -> Bool
   optional func tableView(tableView: NSTableView, toolTipFor cell: NSCell, rect: RectPointer, tableColumn: NSTableColumn?, row: Int, mouseLocation: Point) -> String
   @available(OSX 10.5, *)
   optional func tableView(tableView: NSTableView, shouldShowCellExpansionFor tableColumn: NSTableColumn?, row: Int) -> Bool
   @available(OSX 10.5, *)
-  optional func tableView(tableView: NSTableView, shouldTrackCell cell: NSCell, forTableColumn tableColumn: NSTableColumn?, row: Int) -> Bool
+  optional func tableView(tableView: NSTableView, shouldTrackCell cell: NSCell, for tableColumn: NSTableColumn?, row: Int) -> Bool
   @available(OSX 10.5, *)
   optional func tableView(tableView: NSTableView, dataCellFor tableColumn: NSTableColumn?, row: Int) -> NSCell?
   optional func selectionShouldChange(in tableView: NSTableView) -> Bool
@@ -315,7 +315,7 @@ protocol NSTableViewDelegate : NSControlTextEditingDelegate {
   @available(OSX 10.5, *)
   optional func tableView(tableView: NSTableView, typeSelectStringFor tableColumn: NSTableColumn?, row: Int) -> String?
   @available(OSX 10.5, *)
-  optional func tableView(tableView: NSTableView, nextTypeSelectMatchFromRow startRow: Int, toRow endRow: Int, forString searchString: String) -> Int
+  optional func tableView(tableView: NSTableView, nextTypeSelectMatchFromRow startRow: Int, toRow endRow: Int, for searchString: String) -> Int
   @available(OSX 10.5, *)
   optional func tableView(tableView: NSTableView, shouldTypeSelectFor event: NSEvent, withCurrentSearch searchString: String?) -> Bool
   @available(OSX 10.5, *)
@@ -340,7 +340,7 @@ let NSTableViewRowViewKey: String
 protocol NSTableViewDataSource : ObjectProtocol {
   optional func numberOfRows(in tableView: NSTableView) -> Int
   optional func tableView(tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> AnyObject?
-  optional func tableView(tableView: NSTableView, setObjectValue object: AnyObject?, forTableColumn tableColumn: NSTableColumn?, row: Int)
+  optional func tableView(tableView: NSTableView, setObjectValue object: AnyObject?, for tableColumn: NSTableColumn?, row: Int)
   optional func tableView(tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [SortDescriptor])
   @available(OSX 10.7, *)
   optional func tableView(tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting?

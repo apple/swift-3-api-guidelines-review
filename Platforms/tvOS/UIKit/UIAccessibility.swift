@@ -130,7 +130,7 @@ enum UIAccessibilityScrollDirection : Int {
 }
 protocol UIAccessibilityReadingContent {
   @available(tvOS 5.0, *)
-  func accessibilityLineNumber(forPoint point: CGPoint) -> Int
+  func accessibilityLineNumber(for point: CGPoint) -> Int
   @available(tvOS 5.0, *)
   func accessibilityContentForLineNumber(lineNumber: Int) -> String?
   @available(tvOS 5.0, *)

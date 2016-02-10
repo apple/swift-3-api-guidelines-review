@@ -8,9 +8,9 @@ class URLResponse : Object, SecureCoding, Copying {
   var suggestedFilename: String? { get }
   convenience init()
   class func supportsSecureCoding() -> Bool
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 class HTTPURLResponse : URLResponse {
   @available(tvOS 5.0, *)

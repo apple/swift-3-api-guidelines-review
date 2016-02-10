@@ -62,7 +62,7 @@ protocol UISplitViewControllerDelegate {
   @available(iOS 7.0, *)
   optional func splitViewControllerPreferredInterfaceOrientation(forPresentation splitViewController: UISplitViewController) -> UIInterfaceOrientation
   @available(iOS, introduced=2.0, deprecated=8.0, message="Use splitViewController:willChangeToDisplayMode: and displayModeButtonItem instead")
-  optional func splitViewController(svc: UISplitViewController, willHide aViewController: UIViewController, withBarButtonItem barButtonItem: UIBarButtonItem, forPopoverController pc: UIPopoverController)
+  optional func splitViewController(svc: UISplitViewController, willHide aViewController: UIViewController, with barButtonItem: UIBarButtonItem, for pc: UIPopoverController)
   @available(iOS, introduced=2.0, deprecated=8.0, message="Use splitViewController:willChangeToDisplayMode: and displayModeButtonItem instead")
   optional func splitViewController(svc: UISplitViewController, willShow aViewController: UIViewController, invalidatingBarButtonItem barButtonItem: UIBarButtonItem)
   @available(iOS, introduced=2.0, deprecated=8.0, message="Use splitViewController:willChangeToDisplayMode: instead")
@@ -73,7 +73,7 @@ protocol UISplitViewControllerDelegate {
 extension UIViewController {
   var splitViewController: UISplitViewController? { get }
   @available(iOS 8.0, *)
-  func collapseSecondaryViewController(secondaryViewController: UIViewController, forSplitViewController splitViewController: UISplitViewController)
+  func collapseSecondaryViewController(secondaryViewController: UIViewController, for splitViewController: UISplitViewController)
   @available(iOS 8.0, *)
-  func separateSecondaryViewController(forSplitViewController splitViewController: UISplitViewController) -> UIViewController?
+  func separateSecondaryViewController(for splitViewController: UISplitViewController) -> UIViewController?
 }

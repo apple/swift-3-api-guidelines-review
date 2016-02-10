@@ -5,7 +5,7 @@ class SKPhysicsJoint : Object, Coding {
   var reactionForce: CGVector { get }
   var reactionTorque: CGFloat { get }
   init()
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 class SKPhysicsJointPin : SKPhysicsJoint {

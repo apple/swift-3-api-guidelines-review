@@ -38,7 +38,7 @@ class DateComponentsFormatter : Formatter {
   var includesApproximationPhrase: Bool
   var includesTimeRemainingPhrase: Bool
   var formattingContext: FormattingContext
-  func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
+  func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   init()
   init?(coder aDecoder: Coder)
 }

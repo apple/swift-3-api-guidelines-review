@@ -8,7 +8,7 @@ class AVAsset : Object, Copying, AVAsynchronousKeyValueLoading {
   var preferredTransform: CGAffineTransform { get }
   init()
   @available(OSX 10.7, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
   func statusOfValue(forKey key: String, error outError: ErrorPointer) -> AVKeyValueStatus
   @available(OSX 10.7, *)
@@ -109,7 +109,7 @@ extension AVURLAsset {
   var resourceLoader: AVAssetResourceLoader { get }
 }
 extension AVURLAsset {
-  func compatibleTrack(forCompositionTrack compositionTrack: AVCompositionTrack) -> AVAssetTrack?
+  func compatibleTrack(for compositionTrack: AVCompositionTrack) -> AVAssetTrack?
 }
 @available(OSX 10.11, *)
 let AVAssetDurationDidChangeNotification: String

@@ -140,7 +140,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   unowned(unsafe) var delegate: @sil_unmanaged NSWindowDelegate?
   var windowNumber: Int { get }
   var styleMask: Int
-  func fieldEditor(createFlag: Bool, forObject anObject: AnyObject?) -> NSText?
+  func fieldEditor(createFlag: Bool, for anObject: AnyObject?) -> NSText?
   func endEditing(for anObject: AnyObject?)
   func constrainFrameRect(frameRect: Rect, to screen: NSScreen?) -> Rect
   func setFrame(frameRect: Rect, display flag: Bool)
@@ -184,13 +184,13 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   func validRequestorForSendType(sendType: String, returnType: String) -> AnyObject?
   @NSCopying var backgroundColor: NSColor!
   @available(OSX 10.5, *)
-  func setContentBorderThickness(thickness: CGFloat, forEdge edge: RectEdge)
+  func setContentBorderThickness(thickness: CGFloat, for edge: RectEdge)
   @available(OSX 10.5, *)
-  func contentBorderThickness(forEdge edge: RectEdge) -> CGFloat
+  func contentBorderThickness(for edge: RectEdge) -> CGFloat
   @available(OSX 10.5, *)
-  func setAutorecalculatesContentBorderThickness(flag: Bool, forEdge edge: RectEdge)
+  func setAutorecalculatesContentBorderThickness(flag: Bool, for edge: RectEdge)
   @available(OSX 10.5, *)
-  func autorecalculatesContentBorderThickness(forEdge edge: RectEdge) -> Bool
+  func autorecalculatesContentBorderThickness(for edge: RectEdge) -> Bool
   @available(OSX 10.6, *)
   var isMovable: Bool
   var isMovableByWindowBackground: Bool
@@ -246,7 +246,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   func enableCursorRects()
   func discardCursorRects()
   var areCursorRectsEnabled: Bool { get }
-  func invalidateCursorRects(forView aView: NSView)
+  func invalidateCursorRects(for aView: NSView)
   func resetCursorRects()
   var allowsToolTipsWhenApplicationIsInactive: Bool
   var backingType: NSBackingStoreType
@@ -378,23 +378,23 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.10, *)
   func accessibilityCell(forColumn column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
-  func accessibilityAttributedString(forRange range: NSRange) -> AttributedString?
+  func accessibilityAttributedString(for range: NSRange) -> AttributedString?
   @available(OSX 10.10, *)
   func accessibilityRange(forLine line: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityString(forRange range: NSRange) -> String?
+  func accessibilityString(for range: NSRange) -> String?
   @available(OSX 10.10, *)
   func accessibilityRange(forPosition point: Point) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityRange(forIndex index: Int) -> NSRange
+  func accessibilityRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityFrame(forRange range: NSRange) -> Rect
+  func accessibilityFrame(for range: NSRange) -> Rect
   @available(OSX 10.10, *)
-  func accessibilityRTF(forRange range: NSRange) -> Data?
+  func accessibilityRTF(for range: NSRange) -> Data?
   @available(OSX 10.10, *)
-  func accessibilityStyleRange(forIndex index: Int) -> NSRange
+  func accessibilityStyleRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityLine(forIndex index: Int) -> Int
+  func accessibilityLine(for index: Int) -> Int
   @available(OSX 10.10, *)
   func accessibilityPerformCancel() -> Bool
   @available(OSX 10.10, *)
@@ -992,27 +992,27 @@ protocol NSWindowDelegate : ObjectProtocol {
   optional func windowShouldZoom(window: NSWindow, toFrame newFrame: Rect) -> Bool
   @available(OSX 10.0, *)
   optional func windowWillReturnUndoManager(window: NSWindow) -> UndoManager?
-  optional func window(window: NSWindow, willPositionSheet sheet: NSWindow, usingRect rect: Rect) -> Rect
+  optional func window(window: NSWindow, willPositionSheet sheet: NSWindow, using rect: Rect) -> Rect
   @available(OSX 10.5, *)
   optional func window(window: NSWindow, shouldPopUpDocumentPathMenu menu: NSMenu) -> Bool
   @available(OSX 10.5, *)
-  optional func window(window: NSWindow, shouldDragDocumentWith event: NSEvent, from dragImageLocation: Point, withPasteboard pasteboard: NSPasteboard) -> Bool
+  optional func window(window: NSWindow, shouldDragDocumentWith event: NSEvent, from dragImageLocation: Point, with pasteboard: NSPasteboard) -> Bool
   @available(OSX 10.7, *)
   optional func window(window: NSWindow, willUseFullScreenContentSize proposedSize: Size) -> Size
   @available(OSX 10.7, *)
   optional func window(window: NSWindow, willUseFullScreenPresentationOptions proposedOptions: NSApplicationPresentationOptions = []) -> NSApplicationPresentationOptions
   @available(OSX 10.7, *)
-  optional func customWindowsToEnterFullScreen(forWindow window: NSWindow) -> [NSWindow]?
+  optional func customWindowsToEnterFullScreen(for window: NSWindow) -> [NSWindow]?
   @available(OSX 10.7, *)
   optional func window(window: NSWindow, startCustomAnimationToEnterFullScreenWithDuration duration: TimeInterval)
   @available(OSX 10.7, *)
   optional func windowDidFailToEnterFullScreen(window: NSWindow)
   @available(OSX 10.7, *)
-  optional func customWindowsToExitFullScreen(forWindow window: NSWindow) -> [NSWindow]?
+  optional func customWindowsToExitFullScreen(for window: NSWindow) -> [NSWindow]?
   @available(OSX 10.7, *)
   optional func window(window: NSWindow, startCustomAnimationToExitFullScreenWithDuration duration: TimeInterval)
   @available(OSX 10.9, *)
-  optional func customWindowsToEnterFullScreen(forWindow window: NSWindow, on screen: NSScreen) -> [NSWindow]?
+  optional func customWindowsToEnterFullScreen(for window: NSWindow, on screen: NSScreen) -> [NSWindow]?
   @available(OSX 10.9, *)
   optional func window(window: NSWindow, startCustomAnimationToEnterFullScreenOn screen: NSScreen, withDuration duration: TimeInterval)
   @available(OSX 10.7, *)

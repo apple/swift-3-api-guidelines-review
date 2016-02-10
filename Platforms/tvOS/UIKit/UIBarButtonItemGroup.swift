@@ -8,7 +8,7 @@ class UIBarButtonItemGroup : Object, Coding {
   var isDisplayingRepresentativeItem: Bool { get }
   convenience init()
   @available(tvOS 9.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
 }
 extension UIBarButtonItem {
   @available(tvOS 9.0, *)

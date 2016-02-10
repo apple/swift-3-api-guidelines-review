@@ -49,7 +49,7 @@ class Expression : Object, SecureCoding, Copying {
   @available(iOS 7.0, *)
   class func forAnyKey() -> Expression
   @available(iOS 4.0, *)
-  /*not inherited*/ init(forBlock block: (AnyObject?, [AnyObject], MutableDictionary?) -> AnyObject, arguments: [Expression]?)
+  /*not inherited*/ init(for block: (AnyObject?, [AnyObject], MutableDictionary?) -> AnyObject, arguments: [Expression]?)
   @available(iOS 9.0, *)
   /*not inherited*/ init(forConditional predicate: Predicate, trueExpression: Expression, falseExpression: Expression)
   init(expressionType type: ExpressionType)
@@ -75,16 +75,16 @@ class Expression : Object, SecureCoding, Copying {
   @NSCopying var falseExpression: Expression { get }
   @available(iOS 4.0, *)
   var expressionBlock: (AnyObject?, [AnyObject], MutableDictionary?) -> AnyObject { get }
-  func expressionValue(withObject object: AnyObject?, context: MutableDictionary?) -> AnyObject
+  func expressionValue(with object: AnyObject?, context: MutableDictionary?) -> AnyObject
   @available(iOS 7.0, *)
   func allowEvaluation()
   convenience init()
   @available(iOS 3.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 3.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   @available(iOS 3.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 
 extension Expression {

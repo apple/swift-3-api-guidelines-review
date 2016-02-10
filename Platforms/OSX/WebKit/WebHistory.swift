@@ -15,7 +15,7 @@ class WebHistory : Object {
   func removeAllItems()
   var orderedLastVisitedDays: [AnyObject]! { get }
   func orderedItemsLastVisited(onDay calendarDate: CalendarDate!) -> [AnyObject]!
-  func item(forURL URL: URL!) -> WebHistoryItem!
+  func item(for URL: URL!) -> WebHistoryItem!
   var historyItemLimit: Int32
   var historyAgeInDaysLimit: Int32
   init()

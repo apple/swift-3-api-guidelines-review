@@ -29,7 +29,7 @@ struct NSColorPanelOptions : OptionSetType {
 class NSColorPanel : NSPanel {
   class func shared() -> NSColorPanel
   class func sharedColorPanelExists() -> Bool
-  class func drag(color: NSColor, withEvent theEvent: NSEvent, from sourceView: NSView) -> Bool
+  class func drag(color: NSColor, with theEvent: NSEvent, from sourceView: NSView) -> Bool
   class func setPickerMask(mask: NSColorPanelOptions)
   class func setPickerMode(mode: NSColorPanelMode)
   var accessoryView: NSView?

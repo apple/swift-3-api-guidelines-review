@@ -54,23 +54,23 @@ class NSPopover : NSResponder, NSAppearanceCustomization, NSAccessibilityElement
   @available(OSX 10.10, *)
   func accessibilityCell(forColumn column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
-  func accessibilityAttributedString(forRange range: NSRange) -> AttributedString?
+  func accessibilityAttributedString(for range: NSRange) -> AttributedString?
   @available(OSX 10.10, *)
   func accessibilityRange(forLine line: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityString(forRange range: NSRange) -> String?
+  func accessibilityString(for range: NSRange) -> String?
   @available(OSX 10.10, *)
   func accessibilityRange(forPosition point: Point) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityRange(forIndex index: Int) -> NSRange
+  func accessibilityRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityFrame(forRange range: NSRange) -> Rect
+  func accessibilityFrame(for range: NSRange) -> Rect
   @available(OSX 10.10, *)
-  func accessibilityRTF(forRange range: NSRange) -> Data?
+  func accessibilityRTF(for range: NSRange) -> Data?
   @available(OSX 10.10, *)
-  func accessibilityStyleRange(forIndex index: Int) -> NSRange
+  func accessibilityStyleRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityLine(forIndex index: Int) -> Int
+  func accessibilityLine(for index: Int) -> Int
   @available(OSX 10.10, *)
   func accessibilityPerformCancel() -> Bool
   @available(OSX 10.10, *)
@@ -582,7 +582,7 @@ protocol NSPopoverDelegate : ObjectProtocol {
   @available(OSX 10.10, *)
   optional func popoverDidDetach(popover: NSPopover)
   @available(OSX 10.7, *)
-  optional func detachableWindow(forPopover popover: NSPopover) -> NSWindow?
+  optional func detachableWindow(for popover: NSPopover) -> NSWindow?
   optional func popoverWillShow(notification: Notification)
   optional func popoverDidShow(notification: Notification)
   optional func popoverWillClose(notification: Notification)

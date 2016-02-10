@@ -34,14 +34,14 @@ class OSAScript : Object, Copying {
   init(source: String)
   init(source: String, language: OSALanguage?)
   @available(OSX 10.6, *)
-  init(source: String, from url: URL?, languageInstance instance: OSALanguageInstance?, usingStorageOptions storageOptions: OSAStorageOptions = [])
+  init(source: String, from url: URL?, languageInstance instance: OSALanguageInstance?, using storageOptions: OSAStorageOptions = [])
   init?(contentsOf url: URL, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   @available(OSX 10.6, *)
-  init(contentsOf url: URL, languageInstance instance: OSALanguageInstance?, usingStorageOptions storageOptions: OSAStorageOptions = []) throws
+  init(contentsOf url: URL, languageInstance instance: OSALanguageInstance?, using storageOptions: OSAStorageOptions = []) throws
   @available(OSX 10.6, *)
-  init(compiledData data: Data, from url: URL?, usingStorageOptions storageOptions: OSAStorageOptions = []) throws
+  init(compiledData data: Data, from url: URL?, using storageOptions: OSAStorageOptions = []) throws
   @available(OSX 10.6, *)
-  init(scriptDataDescriptor data: AppleEventDescriptor, from url: URL?, languageInstance instance: OSALanguageInstance?, usingStorageOptions storageOptions: OSAStorageOptions = []) throws
+  init(scriptDataDescriptor data: AppleEventDescriptor, from url: URL?, languageInstance instance: OSALanguageInstance?, using storageOptions: OSAStorageOptions = []) throws
   var source: String { get }
   @NSCopying var url: URL? { get }
   var language: OSALanguage
@@ -56,8 +56,8 @@ class OSAScript : Object, Copying {
   @NSCopying var richTextSource: AttributedString? { get }
   func richText(from descriptor: AppleEventDescriptor) -> AttributedString?
   func write(to url: URL, ofType type: String, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
-  func write(to url: URL, ofType type: String, usingStorageOptions storageOptions: OSAStorageOptions = [], error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
-  func compiledData(forType type: String, usingStorageOptions storageOptions: OSAStorageOptions = [], error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Data?
+  func write(to url: URL, ofType type: String, using storageOptions: OSAStorageOptions = [], error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
+  func compiledData(forType type: String, using storageOptions: OSAStorageOptions = [], error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Data?
   init()
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }

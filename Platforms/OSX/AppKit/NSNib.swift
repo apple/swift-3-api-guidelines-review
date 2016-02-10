@@ -6,7 +6,7 @@ class NSNib : Object, Coding {
   @available(OSX 10.8, *)
   func instantiate(withOwner owner: AnyObject?, topLevel topLevelObjects: AutoreleasingUnsafeMutablePointer<NSArray?>) -> Bool
   init()
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct _NSNibFlags {

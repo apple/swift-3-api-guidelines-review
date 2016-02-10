@@ -24,7 +24,7 @@ class XMLElement : XMLNode {
   func removeChild(at index: Int)
   func setChildren(children: [XMLNode]?)
   func addChild(child: XMLNode)
-  func replaceChild(at index: Int, withNode node: XMLNode)
+  func replaceChild(at index: Int, with node: XMLNode)
   func normalizeAdjacentTextNodesPreservingCDATA(preserve: Bool)
   convenience init()
   convenience init(kind: XMLNodeKind)

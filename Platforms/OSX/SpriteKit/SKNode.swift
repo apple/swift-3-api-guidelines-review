@@ -43,7 +43,7 @@ class SKNode : NSResponder, Copying, Coding {
   func removeFromParent()
   func move(toParent parent: SKNode)
   func childNode(withName name: String) -> SKNode?
-  func enumerateChildNodes(name name: String, usingBlock block: (SKNode, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateChildNodes(name name: String, using block: (SKNode, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.10, *)
   subscript (forKeyedSubscript name: String) -> [SKNode] { get }
   func inParentHierarchy(parent: SKNode) -> Bool
@@ -64,7 +64,7 @@ class SKNode : NSResponder, Copying, Coding {
   class func obstacles(fromSpriteTextures sprites: [SKNode], accuracy: Float) -> [AnyObject]
   class func obstacles(fromNodeBounds nodes: [SKNode]) -> [AnyObject]
   class func obstacles(fromNodePhysicsBodies nodes: [SKNode]) -> [AnyObject]
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 extension NSEvent {
   func location(in node: SKNode) -> CGPoint

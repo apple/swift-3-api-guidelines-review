@@ -14,7 +14,7 @@ class WebDataSource : Object {
   var webArchive: WebArchive! { get }
   var mainResource: WebResource! { get }
   var subresources: [AnyObject]! { get }
-  func subresource(forURL URL: URL!) -> WebResource!
+  func subresource(for URL: URL!) -> WebResource!
   func addSubresource(subresource: WebResource!)
   init()
 }

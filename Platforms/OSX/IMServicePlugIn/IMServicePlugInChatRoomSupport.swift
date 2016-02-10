@@ -2,7 +2,7 @@
 protocol IMServicePlugInChatRoomSupport {
   func joinChatRoom(roomName: String!)
   func leaveChatRoom(roomName: String!)
-  func inviteHandles(handles: [AnyObject]!, toChatRoom roomName: String!, withMessage message: IMServicePlugInMessage!)
+  func inviteHandles(handles: [AnyObject]!, toChatRoom roomName: String!, with message: IMServicePlugInMessage!)
   func send(message: IMServicePlugInMessage!, toChatRoom roomName: String!)
   func declineChatRoomInvitation(roomName: String!)
 }

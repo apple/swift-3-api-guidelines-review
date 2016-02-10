@@ -23,7 +23,7 @@ class GKRuleSystem : Object {
 @available(iOS 9.0, *)
 class GKRule : Object {
   var salience: Int
-  func evaluatePredicate(withSystem system: GKRuleSystem) -> Bool
+  func evaluatePredicate(with system: GKRuleSystem) -> Bool
   func performAction(system: GKRuleSystem)
   convenience init(predicate: Predicate, assertingFact fact: ObjectProtocol, grade: Float)
   convenience init(predicate: Predicate, retractingFact fact: ObjectProtocol, grade: Float)
@@ -34,7 +34,7 @@ class GKRule : Object {
 class GKNSPredicateRule : GKRule {
   var predicate: Predicate { get }
   init(predicate: Predicate)
-  func evaluatePredicate(withSystem system: GKRuleSystem) -> Bool
+  func evaluatePredicate(with system: GKRuleSystem) -> Bool
   convenience init(predicate: Predicate, assertingFact fact: ObjectProtocol, grade: Float)
   convenience init(predicate: Predicate, retractingFact fact: ObjectProtocol, grade: Float)
   convenience init(blockPredicate predicate: (GKRuleSystem) -> Bool, action: (GKRuleSystem) -> Void)

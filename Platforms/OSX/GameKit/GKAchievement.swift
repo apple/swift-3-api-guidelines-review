@@ -18,7 +18,7 @@ class GKAchievement : Object, Coding, SecureCoding {
   var player: GKPlayer { get }
   init()
   @available(OSX 10.8, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool

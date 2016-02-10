@@ -101,10 +101,10 @@ class UIApplication : UIResponder {
   func send(event: UIEvent)
   var keyWindow: UIWindow? { get }
   var windows: [UIWindow] { get }
-  func sendAction(action: Selector, to target: AnyObject?, from sender: AnyObject?, forEvent event: UIEvent?) -> Bool
+  func sendAction(action: Selector, to target: AnyObject?, from sender: AnyObject?, for event: UIEvent?) -> Bool
   var isNetworkActivityIndicatorVisible: Bool
   @available(iOS 6.0, *)
-  func supportedInterfaceOrientations(forWindow window: UIWindow?) -> UIInterfaceOrientationMask
+  func supportedInterfaceOrientations(for window: UIWindow?) -> UIInterfaceOrientationMask
   var statusBarOrientationAnimationDuration: TimeInterval { get }
   var statusBarFrame: CGRect { get }
   var applicationIconBadgeNumber: Int
@@ -228,13 +228,13 @@ protocol UIApplicationDelegate : ObjectProtocol {
   @available(iOS 4.0, *)
   optional func application(application: UIApplication, didReceive notification: UILocalNotification)
   @available(iOS 8.0, *)
-  optional func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void)
+  optional func application(application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, completionHandler: () -> Void)
   @available(iOS 9.0, *)
   optional func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [Object : AnyObject], withResponseInfo responseInfo: [Object : AnyObject], completionHandler: () -> Void)
   @available(iOS 8.0, *)
   optional func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [Object : AnyObject], completionHandler: () -> Void)
   @available(iOS 9.0, *)
-  optional func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, withResponseInfo responseInfo: [Object : AnyObject], completionHandler: () -> Void)
+  optional func application(application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, withResponseInfo responseInfo: [Object : AnyObject], completionHandler: () -> Void)
   @available(iOS 7.0, *)
   optional func application(application: UIApplication, didReceiveRemoteNotification userInfo: [Object : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
   @available(iOS 7.0, *)
@@ -292,7 +292,7 @@ extension UIApplication {
   @available(iOS, introduced=2.0, deprecated=9.0, message="Use -[UIViewController prefersStatusBarHidden]")
   var isStatusBarHidden: Bool
   @available(iOS, introduced=3.2, deprecated=9.0, message="Use -[UIViewController prefersStatusBarHidden]")
-  func setStatusBarHidden(hidden: Bool, withAnimation animation: UIStatusBarAnimation)
+  func setStatusBarHidden(hidden: Bool, with animation: UIStatusBarAnimation)
   @available(iOS, introduced=4.0, deprecated=9.0, message="Please use UIRemoteNotificationTypeVoIP remote notifications for VoIP applications")
   func setKeepAliveTimeout(timeout: TimeInterval, handler keepAliveHandler: (() -> Void)? = nil) -> Bool
   @available(iOS, introduced=4.0, deprecated=9.0, message="Please use UIRemoteNotificationTypeVoIP remote notifications for VoIP applications")

@@ -37,11 +37,11 @@ class NSTreeController : NSObjectController {
   @available(OSX 10.5, *)
   func move(nodes: [NSTreeNode], to startingIndexPath: IndexPath)
   @available(OSX 10.5, *)
-  func childrenKeyPath(forNode node: NSTreeNode) -> String?
+  func childrenKeyPath(for node: NSTreeNode) -> String?
   @available(OSX 10.5, *)
-  func countKeyPath(forNode node: NSTreeNode) -> String?
+  func countKeyPath(for node: NSTreeNode) -> String?
   @available(OSX 10.5, *)
-  func leafKeyPath(forNode node: NSTreeNode) -> String?
+  func leafKeyPath(for node: NSTreeNode) -> String?
   init(content: AnyObject?)
   init?(coder: Coder)
   convenience init()

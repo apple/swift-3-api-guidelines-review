@@ -52,13 +52,13 @@ let UIImagePickerControllerLivePhoto: String
 @available(iOS 2.0, *)
 class UIImagePickerController : UINavigationController, Coding {
   class func isSourceTypeAvailable(sourceType: UIImagePickerControllerSourceType) -> Bool
-  class func availableMediaTypes(forSourceType sourceType: UIImagePickerControllerSourceType) -> [String]?
+  class func availableMediaTypes(for sourceType: UIImagePickerControllerSourceType) -> [String]?
   @available(iOS 4.0, *)
   class func isCameraDeviceAvailable(cameraDevice: UIImagePickerControllerCameraDevice) -> Bool
   @available(iOS 4.0, *)
-  class func isFlashAvailable(forCameraDevice cameraDevice: UIImagePickerControllerCameraDevice) -> Bool
+  class func isFlashAvailable(for cameraDevice: UIImagePickerControllerCameraDevice) -> Bool
   @available(iOS 4.0, *)
-  class func availableCaptureModes(forCameraDevice cameraDevice: UIImagePickerControllerCameraDevice) -> [Number]?
+  class func availableCaptureModes(for cameraDevice: UIImagePickerControllerCameraDevice) -> [Number]?
   weak var delegate: @sil_weak protocol<UIImagePickerControllerDelegate, UINavigationControllerDelegate>?
   var sourceType: UIImagePickerControllerSourceType
   var mediaTypes: [String]

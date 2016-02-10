@@ -12,13 +12,13 @@ class NSPasteboardItem : Object, NSPasteboardWriting, NSPasteboardReading {
   func propertyList(forType type: String) -> AnyObject?
   init()
   @available(OSX 10.6, *)
-  func writableTypes(forPasteboard pasteboard: NSPasteboard) -> [String]
+  func writableTypes(for pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
   func writingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
   @available(OSX 10.6, *)
   func pasteboardPropertyList(forType type: String) -> AnyObject?
   @available(OSX 10.6, *)
-  class func readableTypes(forPasteboard pasteboard: NSPasteboard) -> [String]
+  class func readableTypes(for pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
   class func readingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)

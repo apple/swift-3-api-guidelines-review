@@ -39,7 +39,7 @@ class NSText : NSView, NSChangeSpelling, NSIgnoreMisspelledWords {
   init(frame frameRect: Rect)
   init?(coder: Coder)
   var string: String?
-  func replaceCharacters(in range: NSRange, withString aString: String)
+  func replaceCharacters(in range: NSRange, with aString: String)
   func replaceCharacters(in range: NSRange, withRTF rtfData: Data)
   func replaceCharacters(in range: NSRange, withRTFD rtfdData: Data)
   func rtf(from range: NSRange) -> Data?

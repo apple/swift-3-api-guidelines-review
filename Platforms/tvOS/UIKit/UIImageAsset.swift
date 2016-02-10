@@ -3,11 +3,11 @@
 class UIImageAsset : Object, SecureCoding {
   init()
   init?(coder aDecoder: Coder)
-  func image(withTraitCollection traitCollection: UITraitCollection) -> UIImage
-  func register(image: UIImage, withTraitCollection traitCollection: UITraitCollection)
-  func unregisterImage(withTraitCollection traitCollection: UITraitCollection)
+  func image(with traitCollection: UITraitCollection) -> UIImage
+  func register(image: UIImage, with traitCollection: UITraitCollection)
+  func unregisterImage(with traitCollection: UITraitCollection)
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
 }

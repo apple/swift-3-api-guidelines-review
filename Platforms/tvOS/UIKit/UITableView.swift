@@ -97,7 +97,7 @@ protocol UITableViewDelegate : ObjectProtocol, UIScrollViewDelegate {
   @available(tvOS 9.0, *)
   optional func tableView(tableView: UITableView, shouldUpdateFocusIn context: UITableViewFocusUpdateContext) -> Bool
   @available(tvOS 9.0, *)
-  optional func tableView(tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+  optional func tableView(tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
   @available(tvOS 9.0, *)
   optional func indexPathForPreferredFocusedView(in tableView: UITableView) -> IndexPath?
 }
@@ -132,7 +132,7 @@ class UITableView : UIScrollView, Coding {
   func rectForFooter(inSection section: Int) -> CGRect
   func rectForRow(at indexPath: IndexPath) -> CGRect
   func indexPathForRow(at point: CGPoint) -> IndexPath?
-  func indexPath(forCell cell: UITableViewCell) -> IndexPath?
+  func indexPath(for cell: UITableViewCell) -> IndexPath?
   func indexPathsForRows(in rect: CGRect) -> [IndexPath]?
   func cellForRow(at indexPath: IndexPath) -> UITableViewCell?
   var visibleCells: [UITableViewCell] { get }
@@ -145,16 +145,16 @@ class UITableView : UIScrollView, Coding {
   func scrollToNearestSelectedRowAt(scrollPosition: UITableViewScrollPosition, animated: Bool)
   func beginUpdates()
   func endUpdates()
-  func insertSections(sections: IndexSet, withRowAnimation animation: UITableViewRowAnimation)
-  func deleteSections(sections: IndexSet, withRowAnimation animation: UITableViewRowAnimation)
+  func insertSections(sections: IndexSet, with animation: UITableViewRowAnimation)
+  func deleteSections(sections: IndexSet, with animation: UITableViewRowAnimation)
   @available(tvOS 3.0, *)
-  func reloadSections(sections: IndexSet, withRowAnimation animation: UITableViewRowAnimation)
+  func reloadSections(sections: IndexSet, with animation: UITableViewRowAnimation)
   @available(tvOS 5.0, *)
   func moveSection(section: Int, toSection newSection: Int)
-  func insertRows(at indexPaths: [IndexPath], withRowAnimation animation: UITableViewRowAnimation)
-  func deleteRows(at indexPaths: [IndexPath], withRowAnimation animation: UITableViewRowAnimation)
+  func insertRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation)
+  func deleteRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation)
   @available(tvOS 3.0, *)
-  func reloadRows(at indexPaths: [IndexPath], withRowAnimation animation: UITableViewRowAnimation)
+  func reloadRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation)
   @available(tvOS 5.0, *)
   func moveRow(at indexPath: IndexPath, to newIndexPath: IndexPath)
   var isEditing: Bool
@@ -184,7 +184,7 @@ class UITableView : UIScrollView, Coding {
   var tableFooterView: UIView?
   func dequeueReusableCell(withIdentifier identifier: String) -> UITableViewCell?
   @available(tvOS 6.0, *)
-  func dequeueReusableCell(withIdentifier identifier: String, forIndexPath indexPath: IndexPath) -> UITableViewCell
+  func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell
   @available(tvOS 6.0, *)
   func dequeueReusableHeaderFooterView(withIdentifier identifier: String) -> UITableViewHeaderFooterView?
   @available(tvOS 5.0, *)

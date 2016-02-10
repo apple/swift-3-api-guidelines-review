@@ -28,7 +28,7 @@ extension HMHome {
   @available(iOS, introduced=8.0, deprecated=9.0)
   func removeUser(user: HMUser, completionHandler completion: (Error?) -> Void)
   @available(iOS 9.0, *)
-  func homeAccessControl(forUser user: HMUser) -> HMHomeAccessControl
+  func homeAccessControl(for user: HMUser) -> HMHomeAccessControl
 }
 extension HMHome {
   var rooms: [HMRoom] { get }
@@ -66,7 +66,7 @@ protocol HMHomeDelegate : ObjectProtocol {
   optional func home(home: HMHome, didRemove accessory: HMAccessory)
   optional func home(home: HMHome, didAdd user: HMUser)
   optional func home(home: HMHome, didRemove user: HMUser)
-  optional func home(home: HMHome, didUpdateRoom room: HMRoom, forAccessory accessory: HMAccessory)
+  optional func home(home: HMHome, didUpdateRoom room: HMRoom, for accessory: HMAccessory)
   optional func home(home: HMHome, didAdd room: HMRoom)
   optional func home(home: HMHome, didRemove room: HMRoom)
   optional func home(home: HMHome, didUpdateNameFor room: HMRoom)
@@ -89,7 +89,7 @@ protocol HMHomeDelegate : ObjectProtocol {
   optional func home(home: HMHome, didUpdateNameFor trigger: HMTrigger)
   optional func home(home: HMHome, didUpdateTrigger trigger: HMTrigger)
   optional func home(home: HMHome, didUnblockAccessory accessory: HMAccessory)
-  optional func home(home: HMHome, didEncounterError error: Error, forAccessory accessory: HMAccessory)
+  optional func home(home: HMHome, didEncounterError error: Error, for accessory: HMAccessory)
 }
 @available(iOS 8.0, *)
 let HMUserFailedAccessoriesKey: String

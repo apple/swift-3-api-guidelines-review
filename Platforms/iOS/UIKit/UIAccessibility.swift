@@ -128,7 +128,7 @@ enum UIAccessibilityScrollDirection : Int {
 }
 protocol UIAccessibilityReadingContent {
   @available(iOS 5.0, *)
-  func accessibilityLineNumber(forPoint point: CGPoint) -> Int
+  func accessibilityLineNumber(for point: CGPoint) -> Int
   @available(iOS 5.0, *)
   func accessibilityContentForLineNumber(lineNumber: Int) -> String?
   @available(iOS 5.0, *)

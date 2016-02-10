@@ -20,6 +20,6 @@ protocol AVAssetDownloadDelegate : URLSessionTaskDelegate {
 @available(tvOS 9.0, *)
 class AVAssetDownloadURLSession : URLSession {
   /*not inherited*/ init(configuration: URLSessionConfiguration, assetDownloadDelegate delegate: AVAssetDownloadDelegate?, delegateQueue: OperationQueue?)
-  func assetDownloadTask(withURLAsset URLAsset: AVURLAsset, destinationURL: URL, options: [String : AnyObject]? = [:]) -> AVAssetDownloadTask?
+  func assetDownloadTask(with URLAsset: AVURLAsset, destinationURL: URL, options: [String : AnyObject]? = [:]) -> AVAssetDownloadTask?
   init()
 }

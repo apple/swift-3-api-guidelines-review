@@ -43,7 +43,7 @@ protocol MTLCommandBuffer : ObjectProtocol {
   var status: MTLCommandBufferStatus { get }
   var error: Error? { get }
   func blitCommandEncoder() -> MTLBlitCommandEncoder
-  func renderCommandEncoder(withDescriptor renderPassDescriptor: MTLRenderPassDescriptor) -> MTLRenderCommandEncoder
+  func renderCommandEncoder(with renderPassDescriptor: MTLRenderPassDescriptor) -> MTLRenderCommandEncoder
   func computeCommandEncoder() -> MTLComputeCommandEncoder
-  func parallelRenderCommandEncoder(withDescriptor renderPassDescriptor: MTLRenderPassDescriptor) -> MTLParallelRenderCommandEncoder
+  func parallelRenderCommandEncoder(with renderPassDescriptor: MTLRenderPassDescriptor) -> MTLParallelRenderCommandEncoder
 }

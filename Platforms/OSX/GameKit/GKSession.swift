@@ -13,9 +13,9 @@ class GKSession : Object {
   var disconnectTimeout: TimeInterval
   func displayName(forPeer peerID: String!) -> String!
   @available(OSX, introduced=10.8, deprecated=10.10)
-  func send(data: Data!, toPeers peers: [AnyObject]!, withDataMode mode: GKSendDataMode) throws
+  func send(data: Data!, toPeers peers: [AnyObject]!, with mode: GKSendDataMode) throws
   @available(OSX, introduced=10.8, deprecated=10.10)
-  func sendData(toAllPeers data: Data!, withDataMode mode: GKSendDataMode) throws
+  func sendData(toAllPeers data: Data!, with mode: GKSendDataMode) throws
   func setDataReceiveHandler(handler: AnyObject!, withContext context: UnsafeMutablePointer<Void>)
   func connect(toPeer peerID: String!, withTimeout timeout: TimeInterval)
   func cancelConnect(toPeer peerID: String!)
@@ -24,6 +24,6 @@ class GKSession : Object {
   func disconnectPeer(fromAllPeers peerID: String!)
   func disconnectFromAllPeers()
   @available(OSX, introduced=10.8, deprecated=10.10)
-  func peers(withConnectionState state: GKPeerConnectionState) -> [AnyObject]!
+  func peers(with state: GKPeerConnectionState) -> [AnyObject]!
   init()
 }

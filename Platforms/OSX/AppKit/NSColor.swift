@@ -81,7 +81,7 @@ class NSColor : Object, Copying, SecureCoding, NSPasteboardReading, NSPasteboard
   class func controlAlternatingRowBackgroundColors() -> [NSColor]
   func highlightWithLevel(val: CGFloat) -> NSColor?
   func shadowWithLevel(val: CGFloat) -> NSColor?
-  /*not inherited*/ init(forControlTint controlTint: NSControlTint)
+  /*not inherited*/ init(for controlTint: NSControlTint)
   class func currentControlTint() -> NSControlTint
   func set()
   func setFill()
@@ -126,14 +126,14 @@ class NSColor : Object, Copying, SecureCoding, NSPasteboardReading, NSPasteboard
   var cgColor: CGColor { get }
   class func setIgnoresAlpha(flag: Bool)
   class func ignoresAlpha() -> Bool
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(withCoder aCoder: Coder)
-  class func readableTypes(forPasteboard pasteboard: NSPasteboard) -> [String]
+  func encode(with aCoder: Coder)
+  class func readableTypes(for pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
   class func readingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
-  func writableTypes(forPasteboard pasteboard: NSPasteboard) -> [String]
+  func writableTypes(for pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
   func writingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
   func pasteboardPropertyList(forType type: String) -> AnyObject?

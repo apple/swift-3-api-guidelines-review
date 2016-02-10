@@ -5,11 +5,11 @@ class SCNConstraint : Object, Copying, SecureCoding, SCNAnimatable {
   var influenceFactor: CGFloat
   init()
   @available(OSX 10.9, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
   @available(OSX 10.9, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.9, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.9, *)
   func add(animation: CAAnimation, forKey key: String?)
@@ -54,7 +54,7 @@ class SCNBillboardConstraint : SCNConstraint {
 }
 @available(OSX 10.9, *)
 class SCNTransformConstraint : SCNConstraint {
-  convenience init(inWorldSpace world: Bool, withBlock block: (SCNNode, SCNMatrix4) -> SCNMatrix4)
+  convenience init(inWorldSpace world: Bool, with block: (SCNNode, SCNMatrix4) -> SCNMatrix4)
   init()
   init?(coder aDecoder: Coder)
 }

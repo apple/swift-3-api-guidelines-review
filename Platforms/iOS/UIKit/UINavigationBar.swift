@@ -15,21 +15,21 @@ class UINavigationBar : UIView, Coding, UIBarPositioning {
   @available(iOS 7.0, *)
   var barTintColor: UIColor?
   @available(iOS 7.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, forBarPosition barPosition: UIBarPosition, barMetrics: UIBarMetrics)
+  func setBackgroundImage(backgroundImage: UIImage?, for barPosition: UIBarPosition, barMetrics: UIBarMetrics)
   @available(iOS 7.0, *)
-  func backgroundImage(forBarPosition barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(for barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 5.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, forBarMetrics barMetrics: UIBarMetrics)
+  func setBackgroundImage(backgroundImage: UIImage?, for barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func backgroundImage(forBarMetrics barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(for barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 6.0, *)
   var shadowImage: UIImage?
   @available(iOS 5.0, *)
   var titleTextAttributes: [String : AnyObject]?
   @available(iOS 5.0, *)
-  func setTitleVerticalPositionAdjustment(adjustment: CGFloat, forBarMetrics barMetrics: UIBarMetrics)
+  func setTitleVerticalPositionAdjustment(adjustment: CGFloat, for barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func titleVerticalPositionAdjustment(forBarMetrics barMetrics: UIBarMetrics) -> CGFloat
+  func titleVerticalPositionAdjustment(for barMetrics: UIBarMetrics) -> CGFloat
   @available(iOS 7.0, *)
   var backIndicatorImage: UIImage?
   @available(iOS 7.0, *)
@@ -76,5 +76,5 @@ class UINavigationItem : Object, Coding {
   func setRightBarButtonItem(item: UIBarButtonItem?, animated: Bool)
   convenience init()
   @available(iOS 2.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
 }

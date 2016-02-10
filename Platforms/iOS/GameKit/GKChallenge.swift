@@ -26,7 +26,7 @@ class GKChallenge : Object, Coding, SecureCoding {
   var message: String? { get }
   init()
   @available(iOS 6.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 6.0, *)
   class func supportsSecureCoding() -> Bool

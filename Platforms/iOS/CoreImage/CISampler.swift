@@ -7,7 +7,7 @@ class CISampler : Object, Copying {
   var extent: CGRect { get }
   convenience init()
   @available(iOS 9.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 let kCISamplerAffineMatrix: String

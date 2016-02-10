@@ -21,14 +21,14 @@ class CKRecord : Object, SecureCoding, Copying {
   func allTokens() -> [String]
   subscript (forKeyedSubscript key: String) -> CKRecordValue?
   func changedKeys() -> [String]
-  func encodeSystemFields(withCoder coder: Coder)
+  func encodeSystemFields(with coder: Coder)
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(withCoder aCoder: Coder)
+  func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(tvOS 8.0, *)
-  func copy(withZone zone: Zone = nil) -> AnyObject
+  func copy(with zone: Zone = nil) -> AnyObject
 }
 extension NSString : CKRecordValue {
 }
