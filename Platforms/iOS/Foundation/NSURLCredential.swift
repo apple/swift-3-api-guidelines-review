@@ -12,9 +12,9 @@ class URLCredential : Object, SecureCoding, Copying {
   var persistence: URLCredentialPersistence { get }
   init()
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 extension URLCredential {
   init(user: String, password: String, persistence: URLCredentialPersistence)

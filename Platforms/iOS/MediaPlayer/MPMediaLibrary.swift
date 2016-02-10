@@ -9,7 +9,7 @@ class MPMediaLibrary : Object, SecureCoding {
   @available(iOS 3.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 3.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 let MPMediaLibraryDidChangeNotification: String

@@ -139,7 +139,7 @@ class NSBrowser : NSControl {
   @available(OSX 10.6, *)
   var rowHeight: CGFloat
   @available(OSX 10.6, *)
-  func noteHeightOfRows(indexesChanged indexSet: IndexSet, inColumn columnIndex: Int)
+  func noteHeightOfRows(withIndexesChanged indexSet: IndexSet, inColumn columnIndex: Int)
   @available(OSX 10.6, *)
   func setDefaultColumnWidth(columnWidth: CGFloat)
   @available(OSX 10.6, *)

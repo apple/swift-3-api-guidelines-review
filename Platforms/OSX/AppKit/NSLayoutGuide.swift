@@ -16,7 +16,7 @@ class NSLayoutGuide : Object, Coding, NSUserInterfaceItemIdentification {
   var centerYAnchor: NSLayoutYAxisAnchor { get }
   init()
   @available(OSX 10.11, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension NSView {

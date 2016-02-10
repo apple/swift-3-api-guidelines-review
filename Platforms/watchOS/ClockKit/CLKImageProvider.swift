@@ -8,5 +8,5 @@ class CLKImageProvider : Object, Copying {
   var twoPieceImageForeground: UIImage?
   var accessibilityLabel: String?
   init()
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

@@ -46,5 +46,5 @@ class FileWrapper : Object, Coding {
   @NSCopying var symbolicLinkDestinationURL: URL? { get }
   convenience init()
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }

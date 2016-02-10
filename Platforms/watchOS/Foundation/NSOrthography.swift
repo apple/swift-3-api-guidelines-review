@@ -8,9 +8,9 @@ class Orthography : Object, Copying, Coding {
   init?(coder aDecoder: Coder)
   convenience init()
   @available(watchOS 2.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }
 extension Orthography {
   @available(watchOS 2.0, *)

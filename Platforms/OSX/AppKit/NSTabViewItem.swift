@@ -26,7 +26,7 @@ class NSTabViewItem : Object, Coding {
   func drawLabel(shouldTruncateLabel: Bool, in labelRect: Rect)
   func sizeOfLabel(computeMin: Bool) -> Size
   init()
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct __tviFlags {

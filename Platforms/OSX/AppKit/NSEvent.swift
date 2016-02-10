@@ -281,8 +281,8 @@ class NSEvent : Object, Copying, Coding {
   @available(OSX 10.6, *)
   class func removeMonitor(eventMonitor: AnyObject)
   init()
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func encodeWith(aCoder: Coder)
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 var NSUpArrowFunctionKey: Int { get }

@@ -7,7 +7,7 @@ class GKEntity : Object, Copying {
   func addComponent(component: GKComponent)
   func removeComponent(forClass componentClass: AnyClass)
   @available(OSX 10.11, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 
 @available(iOS 9.0, OSX 10.11, tvOS 9.0, *)

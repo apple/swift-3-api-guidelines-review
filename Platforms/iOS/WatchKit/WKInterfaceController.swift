@@ -62,7 +62,7 @@ class WKInterfaceController : Object {
   func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> AnyObject?
   func contextsForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> [AnyObject]?
   func addMenuItem(image: UIImage, title: String, action: Selector)
-  func addMenuItem(imageNamed imageName: String, title: String, action: Selector)
+  func addMenuItem(withImageNamed imageName: String, title: String, action: Selector)
   func addMenuItem(itemIcon: WKMenuItemIcon, title: String, action: Selector)
   func clearAllMenuItems()
   func updateUserActivity(type: String, userInfo: [Object : AnyObject]? = [:], webpageURL: URL?)

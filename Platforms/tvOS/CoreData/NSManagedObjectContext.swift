@@ -91,7 +91,7 @@ class NSManagedObjectContext : Object, Coding {
   @available(tvOS 9.0, *)
   class func mergeChangesFromRemoteContextSave(changeNotificationData: [Object : AnyObject], into contexts: [NSManagedObjectContext])
   @available(tvOS 3.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct _managedObjectContextFlags {

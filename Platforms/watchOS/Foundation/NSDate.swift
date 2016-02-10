@@ -8,9 +8,9 @@ class Date : Object, Copying, SecureCoding {
   init()
   init(timeIntervalSinceReferenceDate ti: TimeInterval)
   init?(coder aDecoder: Coder)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }
 
 extension Date : CustomPlaygroundQuickLookable {

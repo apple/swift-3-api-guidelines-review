@@ -28,7 +28,7 @@ class NSTextAttachment : Object, NSTextAttachmentContainer, Coding {
   @available(OSX 10.11, *)
   func attachmentBounds(forTextContainer textContainer: NSTextContainer?, proposedLineFragment lineFrag: Rect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> Rect
   @available(OSX 10.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension AttributedString {

@@ -226,7 +226,7 @@ class MPMovieAccessLog : Object, Copying {
   var events: [AnyObject]! { get }
   init()
   @available(iOS 4.3, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 4.3, *)
 @available(iOS, introduced=4.3, deprecated=9.0)
@@ -236,7 +236,7 @@ class MPMovieErrorLog : Object, Copying {
   var events: [AnyObject]! { get }
   init()
   @available(iOS 4.3, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 4.3, *)
 @available(iOS, introduced=4.3, deprecated=9.0)
@@ -257,7 +257,7 @@ class MPMovieAccessLogEvent : Object, Copying {
   var numberOfDroppedVideoFrames: Int { get }
   init()
   @available(iOS 4.3, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 4.3, *)
 @available(iOS, introduced=4.3, deprecated=9.0)
@@ -271,7 +271,7 @@ class MPMovieErrorLogEvent : Object, Copying {
   var errorComment: String! { get }
   init()
   @available(iOS 4.3, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 extension MPMoviePlayerController {
 }

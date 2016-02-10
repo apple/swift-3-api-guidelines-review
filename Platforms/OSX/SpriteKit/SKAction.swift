@@ -17,16 +17,16 @@ class SKAction : Object, Copying, Coding {
   var speed: CGFloat
   func reversed() -> SKAction
   init()
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func encodeWith(aCoder: Coder)
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension SKAction {
   class func move(by delta: CGVector, duration sec: TimeInterval) -> SKAction
-  class func move(byx deltaX: CGFloat, y deltaY: CGFloat, duration sec: TimeInterval) -> SKAction
+  class func moveBy(x deltaX: CGFloat, y deltaY: CGFloat, duration sec: TimeInterval) -> SKAction
   class func move(to location: CGPoint, duration sec: TimeInterval) -> SKAction
-  class func move(tox x: CGFloat, duration sec: TimeInterval) -> SKAction
-  class func move(toy y: CGFloat, duration sec: TimeInterval) -> SKAction
+  class func moveTo(x x: CGFloat, duration sec: TimeInterval) -> SKAction
+  class func moveTo(y y: CGFloat, duration sec: TimeInterval) -> SKAction
   class func rotate(byAngle radians: CGFloat, duration sec: TimeInterval) -> SKAction
   class func rotate(toAngle radians: CGFloat, duration sec: TimeInterval) -> SKAction
   class func rotate(toAngle radians: CGFloat, duration sec: TimeInterval, shortestUnitArc: Bool) -> SKAction

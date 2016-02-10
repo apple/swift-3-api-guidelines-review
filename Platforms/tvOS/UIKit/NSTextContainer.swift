@@ -24,7 +24,7 @@ class NSTextContainer : Object, Coding, NSTextLayoutOrientationProvider {
   var heightTracksTextView: Bool
   convenience init()
   @available(tvOS 7.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   @available(tvOS 7.0, *)
   var layoutOrientation: NSTextLayoutOrientation { get }
 }

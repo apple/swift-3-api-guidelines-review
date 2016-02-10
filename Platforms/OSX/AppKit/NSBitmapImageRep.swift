@@ -93,7 +93,7 @@ class NSBitmapImageRep : NSImageRep, SecureCoding {
   init(forIncrementalLoad: ())
   func incrementalLoad(from data: Data, complete: Bool) -> Int
   func setColor(color: NSColor, atX x: Int, y: Int)
-  func color(atx x: Int, y: Int) -> NSColor?
+  func colorAt(x x: Int, y: Int) -> NSColor?
   func getPixel(p: UnsafeMutablePointer<Int>, atX x: Int, y: Int)
   func setPixel(p: UnsafeMutablePointer<Int>, atX x: Int, y: Int)
   @available(OSX 10.5, *)

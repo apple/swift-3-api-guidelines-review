@@ -45,7 +45,7 @@ class NSCursor : Object, Coding {
   func mouseEntered(theEvent: NSEvent)
   func mouseExited(theEvent: NSEvent)
   convenience init()
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 

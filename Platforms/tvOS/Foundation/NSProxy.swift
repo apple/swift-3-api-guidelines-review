@@ -26,8 +26,8 @@ class Proxy : ObjectProtocol {
   class func perform(aSelector: Selector, withObject object1: AnyObject!, withObject object2: AnyObject!) -> Unmanaged<AnyObject>!
   func isProxy() -> Bool
   class func isProxy() -> Bool
-  func isKind(of aClass: AnyClass) -> Bool
-  class func isKind(of aClass: AnyClass) -> Bool
+  func isKindOf(aClass: AnyClass) -> Bool
+  class func isKindOf(aClass: AnyClass) -> Bool
   func isMember(of aClass: AnyClass) -> Bool
   class func isMember(of aClass: AnyClass) -> Bool
   func conforms(to aProtocol: Protocol) -> Bool

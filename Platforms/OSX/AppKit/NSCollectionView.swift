@@ -58,7 +58,7 @@ class NSCollectionViewItem : NSViewController, Copying, NSCollectionViewElement 
   init?(coder: Coder)
   convenience init()
   @available(OSX 10.5, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(OSX 10.11, *)
   func prepareForReuse()
   @available(OSX 10.11, *)

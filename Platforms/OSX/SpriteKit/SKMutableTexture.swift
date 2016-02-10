@@ -3,7 +3,7 @@
 class SKMutableTexture : SKTexture {
   init(size: CGSize)
   init(size: CGSize, pixelFormat format: Int32)
-  func modifyPixelData(withBlock block: (UnsafeMutablePointer<Void>, Int) -> Void)
+  func modifyPixelData(block: (UnsafeMutablePointer<Void>, Int) -> Void)
   convenience init(imageNamed name: String)
   convenience init(rect: CGRect, in texture: SKTexture)
   @available(OSX 10.10, *)

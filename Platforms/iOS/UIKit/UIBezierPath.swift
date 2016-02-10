@@ -49,7 +49,7 @@ class UIBezierPath : Object, Copying, Coding {
   func stroke(blendMode: CGBlendMode, alpha: CGFloat)
   func addClip()
   @available(iOS 3.2, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(iOS 3.2, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }

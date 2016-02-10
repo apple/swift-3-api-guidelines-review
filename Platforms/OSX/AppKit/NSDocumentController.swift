@@ -47,7 +47,7 @@ class NSDocumentController : Object, Coding, NSUserInterfaceValidations {
   func documentClass(forType typeName: String) -> AnyClass?
   func displayName(forType typeName: String) -> String?
   func validate(anItem: NSValidatedUserInterfaceItem) -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }
 extension NSDocumentController {
 }

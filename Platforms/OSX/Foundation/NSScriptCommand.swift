@@ -33,5 +33,5 @@ class ScriptCommand : Object, Coding {
   func suspendExecution()
   func resumeExecution(withResult result: AnyObject?)
   convenience init()
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }

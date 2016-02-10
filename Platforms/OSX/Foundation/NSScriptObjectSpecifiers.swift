@@ -51,7 +51,7 @@ class ScriptObjectSpecifier : Object, Coding {
   @available(OSX 10.5, *)
   @NSCopying var descriptor: AppleEventDescriptor? { get }
   convenience init()
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }
 extension Object {
   var objectSpecifier: ScriptObjectSpecifier? { get }

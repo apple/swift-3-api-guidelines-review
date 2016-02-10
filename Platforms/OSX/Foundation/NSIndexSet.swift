@@ -43,10 +43,10 @@ class IndexSet : Object, Copying, MutableCopying, SecureCoding {
   @available(OSX 10.7, *)
   func enumerateRanges(in range: NSRange, options opts: EnumerationOptions = [], usingBlock block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   convenience init()
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func mutableCopyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 

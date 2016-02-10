@@ -37,7 +37,7 @@ class MTLCompileOptions : Object, Copying {
   var languageVersion: MTLLanguageVersion
   init()
   @available(OSX 10.11, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 let MTLLibraryErrorDomain: String

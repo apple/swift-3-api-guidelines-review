@@ -69,7 +69,7 @@ class UIDocument : Object, FilePresenter, ProgressReporting {
   @available(iOS 5.0, *)
   func savePresentedItemChanges(completionHandler completionHandler: (Error?) -> Void)
   @available(iOS 5.0, *)
-  func accommodatePresentedItemDeletion(withCompletionHandler completionHandler: (Error?) -> Void)
+  func accommodatePresentedItemDeletion(completionHandler completionHandler: (Error?) -> Void)
   @available(iOS 5.0, *)
   func presentedItemDidMove(to newURL: URL)
   @available(iOS 5.0, *)

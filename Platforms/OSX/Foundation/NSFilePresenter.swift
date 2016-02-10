@@ -8,7 +8,7 @@ protocol FilePresenter : ObjectProtocol {
   optional func relinquishPresentedItem(toReader reader: ((() -> Void)?) -> Void)
   optional func relinquishPresentedItem(toWriter writer: ((() -> Void)?) -> Void)
   optional func savePresentedItemChanges(completionHandler completionHandler: (Error?) -> Void)
-  optional func accommodatePresentedItemDeletion(withCompletionHandler completionHandler: (Error?) -> Void)
+  optional func accommodatePresentedItemDeletion(completionHandler completionHandler: (Error?) -> Void)
   optional func presentedItemDidMove(to newURL: URL)
   optional func presentedItemDidChange()
   @available(OSX 10.7, *)

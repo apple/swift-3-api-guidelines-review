@@ -7,7 +7,7 @@ class Scanner : Object, Copying {
   var locale: AnyObject?
   init(string: String)
   convenience init()
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 extension Scanner {
   func scanInt(result: UnsafeMutablePointer<Int32>) -> Bool

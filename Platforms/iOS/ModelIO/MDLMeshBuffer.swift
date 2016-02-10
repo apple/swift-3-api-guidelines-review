@@ -36,7 +36,7 @@ class MDLMeshBufferData : Object, MDLMeshBuffer {
   @available(iOS 9.0, *)
   var type: MDLMeshBufferType { get }
   @available(iOS 9.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 protocol MDLMeshBufferZone : ObjectProtocol {

@@ -8,10 +8,10 @@ class SCNLevelOfDetail : Object, Copying, SecureCoding {
   var worldSpaceDistance: CGFloat { get }
   init()
   @available(OSX 10.9, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(OSX 10.9, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.9, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

@@ -32,7 +32,7 @@ extension HKHealthStore {
 extension HKHealthStore {
   func enableBackgroundDelivery(forType type: HKObjectType, frequency: HKUpdateFrequency, withCompletion completion: (Bool, Error?) -> Void)
   func disableBackgroundDelivery(forType type: HKObjectType, withCompletion completion: (Bool, Error?) -> Void)
-  func disableAllBackgroundDelivery(withCompletion completion: (Bool, Error?) -> Void)
+  func disableAllBackgroundDelivery(completion completion: (Bool, Error?) -> Void)
 }
 @available(iOS 8.2, *)
 let HKUserPreferencesDidChangeNotification: String
@@ -45,11 +45,11 @@ class HKBiologicalSexObject : Object, Copying, SecureCoding {
   var biologicalSex: HKBiologicalSex { get }
   init()
   @available(iOS 8.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(iOS 8.0, *)
@@ -57,11 +57,11 @@ class HKBloodTypeObject : Object, Copying, SecureCoding {
   var bloodType: HKBloodType { get }
   init()
   @available(iOS 8.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(iOS 9.0, *)
@@ -69,10 +69,10 @@ class HKFitzpatrickSkinTypeObject : Object, Copying, SecureCoding {
   var skinType: HKFitzpatrickSkinType { get }
   init()
   @available(iOS 9.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

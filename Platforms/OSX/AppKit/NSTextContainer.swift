@@ -25,7 +25,7 @@ class NSTextContainer : Object, Coding, NSTextLayoutOrientationProvider {
   var textView: NSTextView?
   convenience init()
   @available(OSX 10.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   @available(OSX 10.7, *)
   var layoutOrientation: NSTextLayoutOrientation { get }
 }

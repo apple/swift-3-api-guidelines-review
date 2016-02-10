@@ -46,7 +46,7 @@ class FileWrapper : Object, Coding {
   @NSCopying var symbolicLinkDestinationURL: URL? { get }
   convenience init()
   @available(OSX 10.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }
 extension FileWrapper {
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use -initWithURL:options:error: instead.")

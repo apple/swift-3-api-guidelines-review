@@ -19,9 +19,9 @@ class RegularExpression : Object, Copying, Coding {
   class func escapedPattern(forString string: String) -> String
   convenience init()
   @available(tvOS 4.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(tvOS 4.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct MatchingOptions : OptionSetType {

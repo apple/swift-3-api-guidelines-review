@@ -10,9 +10,9 @@ class TimeZone : Object, Copying, SecureCoding {
   @available(iOS 2.0, *)
   func nextDaylightSavingTimeTransition(after aDate: Date) -> Date?
   init()
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension TimeZone {

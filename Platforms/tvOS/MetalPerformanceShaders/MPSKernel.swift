@@ -6,8 +6,8 @@ class MPSKernel : Object, Copying {
   var device: MTLDevice { get }
   var label: String?
   init(device: MTLDevice)
-  func copyWith(zone: Zone = nil, device: MTLDevice?) -> Self
+  func copy(withZone zone: Zone = nil, device: MTLDevice?) -> Self
   convenience init()
   @available(tvOS 9.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

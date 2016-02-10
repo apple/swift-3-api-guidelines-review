@@ -8,6 +8,6 @@ class IOBluetoothSDPServiceAttribute : Object, Coding {
   func getDataElement() -> IOBluetoothSDPDataElement!
   func getIDDataElement() -> IOBluetoothSDPDataElement!
   init()
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

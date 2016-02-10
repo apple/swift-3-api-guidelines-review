@@ -22,8 +22,8 @@ protocol UIDataSourceModelAssociation {
 protocol UIStateRestoring : ObjectProtocol {
   optional var restorationParent: UIStateRestoring? { get }
   optional var objectRestorationClass: AnyObject.Type? { get }
-  optional func encodeRestorableState(coder: Coder)
-  optional func decodeRestorableState(coder: Coder)
+  optional func encodeRestorableState(withCoder coder: Coder)
+  optional func decodeRestorableState(withCoder coder: Coder)
   optional func applicationFinishedRestoringState()
 }
 protocol UIObjectRestoration {

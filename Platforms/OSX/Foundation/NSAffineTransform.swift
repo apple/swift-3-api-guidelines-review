@@ -23,8 +23,8 @@ class AffineTransform : Object, Copying, SecureCoding {
   func transform(aPoint: Point) -> Point
   func transform(aSize: Size) -> Size
   var transformStruct: AffineTransformStruct
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

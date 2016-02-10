@@ -18,6 +18,6 @@ class IOBluetoothSDPDataElement : Object, Coding {
   func contains(dataElement: IOBluetoothSDPDataElement!) -> Bool
   func containsValue(cmpValue: Object!) -> Bool
   init()
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

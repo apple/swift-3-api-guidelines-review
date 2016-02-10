@@ -64,5 +64,5 @@ class TVViewElementStyle : Object, Copying {
   var tintColor: TVColor? { get }
   init()
   @available(tvOS 9.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

@@ -126,9 +126,9 @@ class NSColor : Object, Copying, SecureCoding, NSPasteboardReading, NSPasteboard
   var cgColor: CGColor { get }
   class func setIgnoresAlpha(flag: Bool)
   class func ignoresAlpha() -> Bool
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   class func readableTypes(forPasteboard pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
   class func readingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions

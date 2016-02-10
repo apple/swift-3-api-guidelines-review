@@ -8,7 +8,7 @@ class SBObject : Object, Coding {
   @available(OSX 10.6, *)
   func lastError() -> Error?
   @available(OSX 10.5, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension SBObject {

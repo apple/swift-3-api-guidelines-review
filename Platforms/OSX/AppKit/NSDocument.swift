@@ -99,7 +99,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   class func autosavesDrafts() -> Bool
   var autosavingFileType: String? { get }
   @NSCopying var autosavedContentsFileURL: URL?
-  func canClose(withDelegate delegate: AnyObject, shouldClose shouldCloseSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func canClose(delegate delegate: AnyObject, shouldClose shouldCloseSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func close()
   @available(OSX 10.7, *)
   @IBAction func duplicate(sender: AnyObject?)
@@ -193,7 +193,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   func relinquishPresentedItem(toReader reader: ((() -> Void)?) -> Void)
   func relinquishPresentedItem(toWriter writer: ((() -> Void)?) -> Void)
   func savePresentedItemChanges(completionHandler completionHandler: (Error?) -> Void)
-  func accommodatePresentedItemDeletion(withCompletionHandler completionHandler: (Error?) -> Void)
+  func accommodatePresentedItemDeletion(completionHandler completionHandler: (Error?) -> Void)
   func presentedItemDidMove(to newURL: URL)
   func presentedItemDidChange()
   @available(OSX 10.7, *)

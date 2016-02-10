@@ -97,7 +97,7 @@ class NSManagedObjectContext : Object, Coding, Locking {
   @available(OSX 10.11, *)
   class func mergeChangesFromRemoteContextSave(changeNotificationData: [Object : AnyObject], into contexts: [NSManagedObjectContext])
   @available(OSX 10.4, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct _managedObjectContextFlags {

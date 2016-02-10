@@ -10,9 +10,9 @@ class IndexPath : Object, Copying, SecureCoding {
   func getIndexes(indexes: UnsafeMutablePointer<Int>, range positionRange: NSRange)
   func compare(otherObject: IndexPath) -> ComparisonResult
   convenience init()
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension IndexPath {

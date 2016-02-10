@@ -29,14 +29,14 @@ class SCNPhysicsField : Object, Copying, SecureCoding {
   class func spring() -> SCNPhysicsField
   class func electric() -> SCNPhysicsField
   class func magnetic() -> SCNPhysicsField
-  class func customField(withEvaluationBlock block: SCNFieldForceEvaluator) -> SCNPhysicsField
+  class func customField(evaluationBlock block: SCNFieldForceEvaluator) -> SCNPhysicsField
   init()
   @available(OSX 10.10, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 typealias SCNFieldForceEvaluator = (SCNVector3, SCNVector3, Float, Float, TimeInterval) -> SCNVector3

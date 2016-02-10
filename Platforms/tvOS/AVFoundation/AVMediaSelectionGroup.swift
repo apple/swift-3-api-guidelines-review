@@ -8,7 +8,7 @@ class AVMediaSelectionGroup : Object, Copying {
   func mediaSelectionOption(withPropertyList plist: AnyObject) -> AVMediaSelectionOption?
   init()
   @available(tvOS 5.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 extension AVMediaSelectionGroup {
   class func playableMediaSelectionOptions(from mediaSelectionOptions: [AVMediaSelectionOption]) -> [AVMediaSelectionOption]
@@ -38,5 +38,5 @@ class AVMediaSelectionOption : Object, Copying {
   var displayName: String { get }
   init()
   @available(tvOS 5.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

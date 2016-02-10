@@ -51,10 +51,10 @@ class NSString : Object, Copying, MutableCopying, SecureCoding {
   func character(at index: Int) -> unichar
   init()
   init?(coder aDecoder: Coder)
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func mutableCopyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }
 
 extension NSString : StringLiteralConvertible {

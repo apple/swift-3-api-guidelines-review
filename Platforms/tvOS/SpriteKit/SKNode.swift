@@ -64,8 +64,8 @@ class SKNode : UIResponder, Copying, Coding {
   class func obstacles(fromSpriteTextures sprites: [SKNode], accuracy: Float) -> [AnyObject]
   class func obstacles(fromNodeBounds nodes: [SKNode]) -> [AnyObject]
   class func obstacles(fromNodePhysicsBodies nodes: [SKNode]) -> [AnyObject]
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func encodeWith(aCoder: Coder)
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func encode(withCoder aCoder: Coder)
 }
 extension UITouch {
   func location(in node: SKNode) -> CGPoint

@@ -8,7 +8,7 @@ class AVAsset : Object, Copying, AVAsynchronousKeyValueLoading {
   var preferredTransform: CGAffineTransform { get }
   init()
   @available(tvOS 4.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(tvOS 4.0, *)
   func statusOfValue(forKey key: String, error outError: ErrorPointer) -> AVKeyValueStatus
   @available(tvOS 4.0, *)

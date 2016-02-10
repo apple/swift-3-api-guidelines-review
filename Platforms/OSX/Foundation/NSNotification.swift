@@ -6,8 +6,8 @@ class Notification : Object, Copying, Coding {
   @available(OSX 10.6, *)
   init(name: String, object: AnyObject?, userInfo: [Object : AnyObject]? = [:])
   init?(coder aDecoder: Coder)
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func encodeWith(aCoder: Coder)
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func encode(withCoder aCoder: Coder)
 }
 extension Notification {
   convenience init(name aName: String, object anObject: AnyObject?)

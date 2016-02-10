@@ -8,5 +8,5 @@ class AVTextStyleRule : Object, Copying {
   var textMarkupAttributes: [String : AnyObject] { get }
   var textSelector: String? { get }
   @available(tvOS 6.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

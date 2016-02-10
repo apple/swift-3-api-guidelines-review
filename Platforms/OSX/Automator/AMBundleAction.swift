@@ -11,8 +11,8 @@ class AMBundleAction : AMAction, Coding, Copying {
   init(contentsOf fileURL: URL) throws
   init()
   @available(OSX 10.4, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.4, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

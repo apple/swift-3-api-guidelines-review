@@ -112,7 +112,7 @@ class WKInterfaceController : Object {
   @available(watchOS 2.0, *)
   func dismissAddPassesController()
   func addMenuItem(image: UIImage, title: String, action: Selector)
-  func addMenuItem(imageNamed imageName: String, title: String, action: Selector)
+  func addMenuItem(withImageNamed imageName: String, title: String, action: Selector)
   func addMenuItem(itemIcon: WKMenuItemIcon, title: String, action: Selector)
   func clearAllMenuItems()
   func updateUserActivity(type: String, userInfo: [Object : AnyObject]? = [:], webpageURL: URL?)

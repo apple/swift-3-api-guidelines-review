@@ -15,9 +15,9 @@ class CachedURLResponse : Object, SecureCoding, Copying {
   var storagePolicy: URLCacheStoragePolicy { get }
   init()
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 class URLCache : Object {
   class func shared() -> URLCache

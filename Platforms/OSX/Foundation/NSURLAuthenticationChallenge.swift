@@ -17,6 +17,6 @@ class URLAuthenticationChallenge : Object, SecureCoding {
   var sender: URLAuthenticationChallengeSender? { get }
   init()
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

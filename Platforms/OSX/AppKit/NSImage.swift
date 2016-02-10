@@ -104,8 +104,8 @@ class NSImage : Object, Copying, Coding, SecureCoding, NSPasteboardReading, NSPa
   @available(OSX 10.10, *)
   var resizingMode: NSImageResizingMode
   init()
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func encodeWith(aCoder: Coder)
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
   class func supportsSecureCoding() -> Bool
   class func readableTypes(forPasteboard pasteboard: NSPasteboard) -> [String]

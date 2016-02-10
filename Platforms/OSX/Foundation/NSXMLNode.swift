@@ -64,5 +64,5 @@ class XMLNode : Object, Copying {
   func nodes(forXPath xpath: String) throws -> [XMLNode]
   func objects(forXQuery xquery: String, constants: [String : AnyObject]?) throws -> [AnyObject]
   func objects(forXQuery xquery: String) throws -> [AnyObject]
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

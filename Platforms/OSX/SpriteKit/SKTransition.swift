@@ -26,5 +26,5 @@ class SKTransition : Object, Copying {
   var pausesIncomingScene: Bool
   var pausesOutgoingScene: Bool
   init()
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

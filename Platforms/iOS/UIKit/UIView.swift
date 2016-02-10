@@ -149,7 +149,7 @@ class UIView : UIResponder, Coding, UIAppearance, UIAppearanceContainer, UIDynam
   var semanticContentAttribute: UISemanticContentAttribute
   convenience init()
   @available(iOS 2.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   @available(iOS 2.0, *)
   class func appearance() -> Self
   @available(iOS 9.0, *)
@@ -442,9 +442,9 @@ extension UIView {
   @available(iOS 6.0, *)
   var restorationIdentifier: String?
   @available(iOS 6.0, *)
-  func encodeRestorableState(coder: Coder)
+  func encodeRestorableState(withCoder coder: Coder)
   @available(iOS 6.0, *)
-  func decodeRestorableState(coder: Coder)
+  func decodeRestorableState(withCoder coder: Coder)
 }
 extension UIView {
   @available(iOS 7.0, *)

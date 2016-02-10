@@ -65,7 +65,7 @@ extension NSControl {
   @available(OSX 10.8, *)
   var allowsExpansionToolTips: Bool
   @available(OSX 10.10, *)
-  func expansionFrame(withFrame contentFrame: Rect) -> Rect
+  func expansionFrame(frame contentFrame: Rect) -> Rect
   @available(OSX 10.10, *)
   func draw(expansionFrame contentFrame: Rect, in view: NSView)
 }

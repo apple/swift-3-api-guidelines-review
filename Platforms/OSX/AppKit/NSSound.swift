@@ -29,8 +29,8 @@ class NSSound : Object, Copying, Coding, NSPasteboardReading, NSPasteboardWritin
   @available(OSX 10.5, *)
   var playbackDeviceIdentifier: String?
   init()
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func encodeWith(aCoder: Coder)
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
   class func readableTypes(forPasteboard pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)

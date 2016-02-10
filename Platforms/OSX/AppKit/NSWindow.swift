@@ -282,12 +282,12 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   func toggleFullScreen(sender: AnyObject?)
   var stringWithSavedFrame: String { get }
   func setFrameFrom(string: String)
-  func saveFrame(usingName name: String)
+  func saveFrame(name name: String)
   func setFrameUsingName(name: String, force: Bool) -> Bool
   func setFrameUsingName(name: String) -> Bool
   func setFrameAutosaveName(name: String) -> Bool
   var frameAutosaveName: String { get }
-  class func removeFrame(usingName name: String)
+  class func removeFrame(name name: String)
   func cacheImage(in aRect: Rect)
   func restoreCachedImage()
   func discardCachedImage()

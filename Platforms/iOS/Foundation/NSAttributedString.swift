@@ -5,13 +5,13 @@ class AttributedString : Object, Copying, MutableCopying, SecureCoding {
   func attributes(at location: Int, effectiveRange range: RangePointer) -> [String : AnyObject]
   init()
   @available(iOS 3.2, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(iOS 3.2, *)
-  func mutableCopyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
   @available(iOS 3.2, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 3.2, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension AttributedString {

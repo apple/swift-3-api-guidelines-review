@@ -36,12 +36,12 @@ class SCNAction : Object, Copying, SecureCoding {
   var timingFunction: SCNActionTimingFunction?
   var speed: CGFloat
   func reversed() -> SCNAction
-  class func move(byx deltaX: CGFloat, y deltaY: CGFloat, z deltaZ: CGFloat, duration: TimeInterval) -> SCNAction
+  class func moveBy(x deltaX: CGFloat, y deltaY: CGFloat, z deltaZ: CGFloat, duration: TimeInterval) -> SCNAction
   class func move(by delta: SCNVector3, duration: TimeInterval) -> SCNAction
   class func move(to location: SCNVector3, duration: TimeInterval) -> SCNAction
-  class func rotate(byx xAngle: CGFloat, y yAngle: CGFloat, z zAngle: CGFloat, duration: TimeInterval) -> SCNAction
-  class func rotate(tox xAngle: CGFloat, y yAngle: CGFloat, z zAngle: CGFloat, duration: TimeInterval) -> SCNAction
-  class func rotate(tox xAngle: CGFloat, y yAngle: CGFloat, z zAngle: CGFloat, duration: TimeInterval, shortestUnitArc: Bool) -> SCNAction
+  class func rotateBy(x xAngle: CGFloat, y yAngle: CGFloat, z zAngle: CGFloat, duration: TimeInterval) -> SCNAction
+  class func rotateTo(x xAngle: CGFloat, y yAngle: CGFloat, z zAngle: CGFloat, duration: TimeInterval) -> SCNAction
+  class func rotateTo(x xAngle: CGFloat, y yAngle: CGFloat, z zAngle: CGFloat, duration: TimeInterval, shortestUnitArc: Bool) -> SCNAction
   class func rotate(byAngle angle: CGFloat, aroundAxis axis: SCNVector3, duration: TimeInterval) -> SCNAction
   class func rotate(toAxisAngle axisAngle: SCNVector4, duration: TimeInterval) -> SCNAction
   class func scale(by scale: CGFloat, duration sec: TimeInterval) -> SCNAction
@@ -69,10 +69,10 @@ class SCNAction : Object, Copying, SecureCoding {
   class func play(source: SCNAudioSource, waitForCompletion wait: Bool) -> SCNAction
   init()
   @available(OSX 10.10, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

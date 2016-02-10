@@ -66,7 +66,7 @@ class DecimalNumberHandler : Object, DecimalNumberBehaviors, Coding {
   func roundingMode() -> RoundingMode
   func scale() -> Int16
   func exceptionDuringOperation(operation: Selector, error: CalculationError, leftOperand: DecimalNumber, rightOperand: DecimalNumber?) -> DecimalNumber?
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension Number {

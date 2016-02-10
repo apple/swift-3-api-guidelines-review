@@ -16,6 +16,6 @@ class UILayoutGuide : Object, Coding {
   var centerYAnchor: NSLayoutYAxisAnchor { get }
   init()
   @available(iOS 9.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

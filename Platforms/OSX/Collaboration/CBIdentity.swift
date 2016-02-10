@@ -22,10 +22,10 @@ class CBIdentity : Object, Coding, Copying {
   func isMember(ofGroup group: CBGroupIdentity) -> Bool
   init()
   @available(OSX 10.5, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.5, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.5, *)
 class CBUserIdentity : CBIdentity, Coding, Copying {

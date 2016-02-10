@@ -1,6 +1,6 @@
 
 class IOBluetoothObject : Object, Copying {
   init()
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 var kBluetoothTargetDoesNotRespondToCallbackExceptionName: String { get }

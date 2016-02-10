@@ -24,7 +24,7 @@ enum CKAccountStatus : Int {
 @available(OSX 10.11, *)
 let CKAccountChangedNotification: String
 extension CKContainer {
-  func accountStatus(withCompletionHandler completionHandler: (CKAccountStatus, Error?) -> Void)
+  func accountStatus(completionHandler completionHandler: (CKAccountStatus, Error?) -> Void)
 }
 @available(OSX 10.10, *)
 struct CKApplicationPermissions : OptionSetType {

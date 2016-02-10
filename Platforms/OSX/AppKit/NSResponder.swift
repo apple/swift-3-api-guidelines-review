@@ -66,7 +66,7 @@ class NSResponder : Object, Coding {
   func wantsForwardedScrollEvents(forAxis axis: NSEventGestureAxis) -> Bool
   @available(OSX 10.7, *)
   func supplementalTarget(forAction action: Selector, sender: AnyObject?) -> AnyObject?
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }
 extension NSResponder {
   func insertText(insertString: AnyObject)

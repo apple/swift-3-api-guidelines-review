@@ -94,8 +94,8 @@ class NSBezierPath : Object, Copying, Coding {
   func append(roundedRect rect: Rect, xRadius: CGFloat, yRadius: CGFloat)
   func contains(point: Point) -> Bool
   init()
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func encodeWith(aCoder: Coder)
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension NSBezierPath {

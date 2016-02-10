@@ -62,14 +62,14 @@ class AVAssetExportSession : Object {
 }
 extension AVAssetExportSession {
   class func allExportPresets() -> [String]
-  class func exportPresetsCompatible(withAsset asset: AVAsset) -> [String]
+  class func exportPresetsCompatibleWith(asset: AVAsset) -> [String]
   @available(OSX 10.9, *)
   class func determineCompatibilityOfExportPreset(presetName: String, withAsset asset: AVAsset, outputFileType: String?, completionHandler handler: (Bool) -> Void)
 }
 extension AVAssetExportSession {
   var supportedFileTypes: [String] { get }
   @available(OSX 10.9, *)
-  func determineCompatibleFileTypes(withCompletionHandler handler: ([String]) -> Void)
+  func determineCompatibleFileTypes(completionHandler handler: ([String]) -> Void)
 }
 extension AVAssetExportSession {
   var timeRange: CMTimeRange

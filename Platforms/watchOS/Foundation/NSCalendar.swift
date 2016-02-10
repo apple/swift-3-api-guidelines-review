@@ -225,9 +225,9 @@ class Calendar : Object, Copying, SecureCoding {
   func date(bySettingHour h: Int, minute m: Int, second s: Int, of date: Date, options opts: CalendarOptions = []) -> Date?
   @available(watchOS 2.0, *)
   func date(date: Date, matchesComponents components: DateComponents) -> Bool
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(watchOS 2.0, *)
@@ -276,8 +276,8 @@ class DateComponents : Object, Copying, SecureCoding {
   @available(watchOS 2.0, *)
   func isValidDate(in calendar: Calendar) -> Bool
   init()
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

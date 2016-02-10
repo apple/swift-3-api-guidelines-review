@@ -17,7 +17,7 @@ class NSEntityDescription : Object, Coding, Copying, FastEnumeration {
   var relationshipsByName: [String : NSRelationshipDescription] { get }
   func relationships(withDestinationEntity entity: NSEntityDescription) -> [NSRelationshipDescription]
   @available(watchOS 2.0, *)
-  func isKind(ofEntity entity: NSEntityDescription) -> Bool
+  func isKindOfEntity(entity: NSEntityDescription) -> Bool
   @available(watchOS 2.0, *)
   @NSCopying var versionHash: Data { get }
   @available(watchOS 2.0, *)
@@ -30,10 +30,10 @@ class NSEntityDescription : Object, Coding, Copying, FastEnumeration {
   var uniquenessConstraints: [[AnyObject]]
   init()
   @available(watchOS 2.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(watchOS 2.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

@@ -221,10 +221,10 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   @available(OSX 10.6, *)
   var usesSingleLineMode: Bool
   @available(OSX 10.7, *)
-  func draggingImageComponents(withFrame frame: Rect, in view: NSView) -> [NSDraggingImageComponent]
+  func draggingImageComponents(frame frame: Rect, in view: NSView) -> [NSDraggingImageComponent]
   convenience init()
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func encodeWith(aCoder: Coder)
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
   var identifier: String?
   func accessibilityFrame() -> Rect
@@ -787,7 +787,7 @@ extension NSCell {
 }
 extension NSCell {
   @available(OSX 10.5, *)
-  func expansionFrame(withFrame cellFrame: Rect, in view: NSView) -> Rect
+  func expansionFrame(frame cellFrame: Rect, in view: NSView) -> Rect
   @available(OSX 10.5, *)
   func draw(expansionFrame cellFrame: Rect, in view: NSView)
 }

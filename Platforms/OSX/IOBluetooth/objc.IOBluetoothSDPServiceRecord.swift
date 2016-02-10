@@ -19,6 +19,6 @@ class IOBluetoothSDPServiceRecord : Object, Coding {
   func hasService(from array: [AnyObject]!) -> Bool
   var sortedAttributes: [AnyObject]! { get }
   init()
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

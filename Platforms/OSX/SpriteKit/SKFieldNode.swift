@@ -23,7 +23,7 @@ class SKFieldNode : SKNode {
   class func springField() -> SKFieldNode
   class func electricField() -> SKFieldNode
   class func magneticField() -> SKFieldNode
-  class func customField(withEvaluationBlock block: SKFieldForceEvaluator) -> SKFieldNode
+  class func customField(evaluationBlock block: SKFieldForceEvaluator) -> SKFieldNode
   init()
   init?(coder aDecoder: Coder)
   convenience init?(fileNamed filename: String)

@@ -46,5 +46,5 @@ class FileWrapper : Object, Coding {
   @NSCopying var symbolicLinkDestinationURL: URL? { get }
   convenience init()
   @available(tvOS 4.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
 }

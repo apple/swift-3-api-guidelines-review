@@ -26,7 +26,7 @@ class NSCollectionViewLayoutAttributes : Object, Copying {
   convenience init(forDecorationViewOfKind decorationViewKind: String, withIndexPath indexPath: IndexPath)
   init()
   @available(OSX 10.11, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 enum NSCollectionUpdateAction : Int {
@@ -68,7 +68,7 @@ class NSCollectionViewLayout : Object, Coding {
   func register(nib: NSNib?, forDecorationViewOfKind elementKind: String)
   init()
   @available(OSX 10.11, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension NSCollectionViewLayout {

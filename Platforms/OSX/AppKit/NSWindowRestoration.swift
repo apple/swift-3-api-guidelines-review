@@ -23,9 +23,9 @@ extension NSWindow {
 }
 extension NSResponder {
   @available(OSX 10.7, *)
-  func encodeRestorableState(coder: Coder)
+  func encodeRestorableState(withCoder coder: Coder)
   @available(OSX 10.7, *)
-  func restoreState(coder: Coder)
+  func restoreState(withCoder coder: Coder)
   @available(OSX 10.7, *)
   func invalidateRestorableState()
   @available(OSX 10.7, *)
@@ -41,9 +41,9 @@ extension NSDocument {
   @available(OSX 10.7, *)
   func restoreWindow(identifier identifier: String, state: Coder, completionHandler: (NSWindow?, Error?) -> Void)
   @available(OSX 10.7, *)
-  func encodeRestorableState(coder: Coder)
+  func encodeRestorableState(withCoder coder: Coder)
   @available(OSX 10.7, *)
-  func restoreState(coder: Coder)
+  func restoreState(withCoder coder: Coder)
   @available(OSX 10.7, *)
   func invalidateRestorableState()
   @available(OSX 10.7, *)

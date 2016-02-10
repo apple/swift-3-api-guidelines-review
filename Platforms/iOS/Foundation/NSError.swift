@@ -28,9 +28,9 @@ class Error : Object, Copying, SecureCoding {
   class func setUserInfoValueProviderForDomain(errorDomain: String, provider: ((Error, String) -> AnyObject?)? = nil)
   @available(iOS 9.0, *)
   class func userInfoValueProvider(forDomain errorDomain: String) -> ((Error, String) -> AnyObject?)?
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 

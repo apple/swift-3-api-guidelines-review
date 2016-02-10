@@ -149,7 +149,7 @@ class UIView : UIResponder, Coding, UIAppearance, UIAppearanceContainer, UIDynam
   var semanticContentAttribute: UISemanticContentAttribute
   convenience init()
   @available(tvOS 2.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   @available(tvOS 2.0, *)
   class func appearance() -> Self
   @available(tvOS 9.0, *)
@@ -438,9 +438,9 @@ extension UIView {
   @available(tvOS 6.0, *)
   var restorationIdentifier: String?
   @available(tvOS 6.0, *)
-  func encodeRestorableState(coder: Coder)
+  func encodeRestorableState(withCoder coder: Coder)
   @available(tvOS 6.0, *)
-  func decodeRestorableState(coder: Coder)
+  func decodeRestorableState(withCoder coder: Coder)
 }
 extension UIView {
   @available(tvOS 7.0, *)

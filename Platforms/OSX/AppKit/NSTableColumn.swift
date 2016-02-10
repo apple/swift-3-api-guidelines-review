@@ -24,7 +24,7 @@ class NSTableColumn : Object, Coding, NSUserInterfaceItemIdentification {
   @available(OSX 10.5, *)
   var isHidden: Bool
   convenience init()
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct __colFlags {

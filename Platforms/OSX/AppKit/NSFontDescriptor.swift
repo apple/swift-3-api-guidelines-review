@@ -40,9 +40,9 @@ class NSFontDescriptor : Object, Copying, SecureCoding {
   func withFace(newFace: String) -> NSFontDescriptor
   func withFamily(newFamily: String) -> NSFontDescriptor
   init()
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 let NSFontFamilyAttribute: String

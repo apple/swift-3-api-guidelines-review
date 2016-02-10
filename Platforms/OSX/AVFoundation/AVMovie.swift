@@ -19,7 +19,7 @@ class AVMovie : AVAsset, Copying, MutableCopying {
   convenience init(url URL: URL)
   convenience init()
   @available(OSX 10.10, *)
-  func mutableCopyWith(zone: Zone = nil) -> AnyObject
+  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 struct AVMovieWritingOptions : OptionSetType {
@@ -34,7 +34,7 @@ extension AVMovie {
   @available(OSX 10.11, *)
   func writeHeader(to URL: URL, fileType: String, options: AVMovieWritingOptions = []) throws
   @available(OSX 10.11, *)
-  func isCompatible(withFileType fileType: String) -> Bool
+  func isCompatibleWithFileType(fileType: String) -> Bool
 }
 extension AVMovie {
   func track(withTrackID trackID: CMPersistentTrackID) -> AVMovieTrack?
@@ -67,7 +67,7 @@ extension AVMutableMovie {
   func scaleTimeRange(timeRange: CMTimeRange, toDuration duration: CMTime)
 }
 extension AVMutableMovie {
-  func mutableTrackCompatible(withTrack track: AVAssetTrack) -> AVMutableMovieTrack?
+  func mutableTrackCompatibleWith(track: AVAssetTrack) -> AVMutableMovieTrack?
   func addMutableTrack(mediaType mediaType: String, copySettingsFrom track: AVAssetTrack?, options: [String : AnyObject]? = [:]) -> AVMutableMovieTrack
   func addMutableTracksCopyingSettings(from existingTracks: [AVAssetTrack], options: [String : AnyObject]? = [:]) -> [AVMutableMovieTrack]
   func removeTrack(track: AVMovieTrack)

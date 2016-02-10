@@ -46,10 +46,10 @@ class SCNCamera : Object, SCNAnimatable, SCNTechniqueSupport, Copying, SecureCod
   @available(iOS 8.0, *)
   @NSCopying var technique: SCNTechnique?
   @available(iOS 8.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

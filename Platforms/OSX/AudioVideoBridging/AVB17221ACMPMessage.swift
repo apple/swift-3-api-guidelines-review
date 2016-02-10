@@ -20,5 +20,5 @@ class AVB17221ACMPMessage : Object, Copying {
   @NSCopying var sourceMAC: AVBMACAddress?
   init()
   @available(OSX 10.8, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

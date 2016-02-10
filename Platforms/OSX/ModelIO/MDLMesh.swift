@@ -21,7 +21,7 @@ class MDLMesh : MDLObject {
 }
 extension MDLMesh {
   func addAttribute(name name: String, format: MDLVertexFormat)
-  func addNormals(attributeNamed attributeName: String?, creaseThreshold: Float)
+  func addNormals(withAttributeNamed attributeName: String?, creaseThreshold: Float)
   func addTangentBasis(forTextureCoordinateAttributeNamed textureCoordinateAttributeName: String, tangentAttributeNamed tangentAttributeName: String, bitangentAttributeNamed bitangentAttributeName: String?)
   func addTangentBasis(forTextureCoordinateAttributeNamed textureCoordinateAttributeName: String, normalAttributeNamed normalAttributeName: String, tangentAttributeNamed tangentAttributeName: String)
   func makeVerticesUnique()

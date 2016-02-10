@@ -15,5 +15,5 @@ class AMWorkflow : Object, Copying {
   var input: AnyObject?
   @available(OSX 10.6, *)
   var output: AnyObject? { get }
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }

@@ -5,7 +5,7 @@ class GKComponent : Object, Copying {
   func updateWithDeltaTime(seconds: TimeInterval)
   init()
   @available(OSX 10.11, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class GKComponentSystem : Object, FastEnumeration {

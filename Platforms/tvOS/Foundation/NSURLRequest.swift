@@ -32,10 +32,10 @@ class URLRequest : Object, SecureCoding, Copying, MutableCopying {
   @available(tvOS 6.0, *)
   var allowsCellularAccess: Bool { get }
   convenience init()
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copyWith(zone: Zone = nil) -> AnyObject
-  func mutableCopyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
+  func mutableCopy(withZone zone: Zone = nil) -> AnyObject
 }
 class MutableURLRequest : URLRequest {
   @NSCopying var url: URL?

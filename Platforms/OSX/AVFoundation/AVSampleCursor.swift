@@ -6,7 +6,7 @@ class AVSampleCursor : Object, Copying {
   func stepByDecode(deltaDecodeTime: CMTime, wasPinned outWasPinned: UnsafeMutablePointer<ObjCBool>) -> CMTime
   func stepByPresentationTime(deltaPresentationTime: CMTime, wasPinned outWasPinned: UnsafeMutablePointer<ObjCBool>) -> CMTime
   @available(OSX 10.10, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 extension AVSampleCursor {
   var presentationTimeStamp: CMTime { get }

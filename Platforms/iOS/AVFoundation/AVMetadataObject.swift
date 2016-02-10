@@ -18,7 +18,7 @@ class AVMetadataFaceObject : AVMetadataObject, Copying {
   var yawAngle: CGFloat { get }
   init()
   @available(iOS 6.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
 @available(iOS 7.0, *)
 let AVMetadataObjectTypeUPCECode: String

@@ -19,9 +19,9 @@ class NSGradient : Object, Copying, Coding {
   func interpolatedColor(atLocation location: CGFloat) -> NSColor
   convenience init()
   @available(OSX 10.5, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
   @available(OSX 10.5, *)
-  func encodeWith(aCoder: Coder)
+  func encode(withCoder aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 

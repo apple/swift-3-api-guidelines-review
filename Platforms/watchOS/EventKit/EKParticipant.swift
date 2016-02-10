@@ -12,5 +12,5 @@ class EKParticipant : EKObject, Copying {
   var contactPredicate: Predicate { get }
   init()
   @available(watchOS 2.0, *)
-  func copyWith(zone: Zone = nil) -> AnyObject
+  func copy(withZone zone: Zone = nil) -> AnyObject
 }
