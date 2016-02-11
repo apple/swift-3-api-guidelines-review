@@ -163,12 +163,12 @@ class Calendar : Object, Copying, SecureCoding {
   var amSymbol: String { get }
   @available(OSX 10.7, *)
   var pmSymbol: String { get }
-  func minimumRange(of unit: CalendarUnit) -> NSRange
-  func maximumRange(of unit: CalendarUnit) -> NSRange
-  func range(of smaller: CalendarUnit, in larger: CalendarUnit, for date: Date) -> NSRange
-  func ordinality(of smaller: CalendarUnit, in larger: CalendarUnit, for date: Date) -> Int
+  func minimumRangeOf(unit: CalendarUnit) -> NSRange
+  func maximumRangeOf(unit: CalendarUnit) -> NSRange
+  func rangeOf(smaller: CalendarUnit, in larger: CalendarUnit, for date: Date) -> NSRange
+  func ordinalityOf(smaller: CalendarUnit, in larger: CalendarUnit, for date: Date) -> Int
   @available(OSX 10.5, *)
-  func range(of unit: CalendarUnit, start datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, for date: Date) -> Bool
+  func rangeOf(unit: CalendarUnit, start datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, for date: Date) -> Bool
   func date(from comps: DateComponents) -> Date?
   func components(unitFlags: CalendarUnit, from date: Date) -> DateComponents
   func date(byAdding comps: DateComponents, to date: Date, options opts: CalendarOptions = []) -> Date?
@@ -204,7 +204,7 @@ class Calendar : Object, Copying, SecureCoding {
   @available(OSX 10.9, *)
   func isDate(inWeekend date: Date) -> Bool
   @available(OSX 10.9, *)
-  func range(ofWeekendStart datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, containing date: Date) -> Bool
+  func rangeOf(weekendStart datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, containing date: Date) -> Bool
   @available(OSX 10.9, *)
   func nextWeekendStart(datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, options: CalendarOptions = [], after date: Date) -> Bool
   @available(OSX 10.9, *)

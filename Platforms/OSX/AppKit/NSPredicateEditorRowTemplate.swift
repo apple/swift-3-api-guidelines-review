@@ -5,7 +5,7 @@ class NSPredicateEditorRowTemplate : Object, Coding, Copying {
   var templateViews: [NSView] { get }
   func setPredicate(predicate: Predicate)
   func predicate(withSubpredicates subpredicates: [Predicate]?) -> Predicate
-  func displayableSubpredicates(of predicate: Predicate) -> [Predicate]?
+  func displayableSubpredicatesOf(predicate: Predicate) -> [Predicate]?
   init(leftExpressions: [Expression], rightExpressions: [Expression], modifier: ComparisonPredicateModifier, operators: [Number], options: Int)
   init(leftExpressions: [Expression], rightExpressionAttributeType attributeType: NSAttributeType, modifier: ComparisonPredicateModifier, operators: [Number], options: Int)
   init(compoundTypes: [Number])

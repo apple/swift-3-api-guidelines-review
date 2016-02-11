@@ -77,7 +77,7 @@ class NSWorkspace : Object {
   @available(OSX 10.7, *)
   var menuBarOwningApplication: NSRunningApplication? { get }
   @available(OSX 10.5, *)
-  func type(ofFile absoluteFilePath: String) throws -> String
+  func typeOf(file absoluteFilePath: String) throws -> String
   @available(OSX 10.5, *)
   func localizedDescription(forType typeName: String) -> String?
   @available(OSX 10.5, *)

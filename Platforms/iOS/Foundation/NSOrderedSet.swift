@@ -3,7 +3,7 @@
 class OrderedSet : Object, Copying, MutableCopying, SecureCoding, FastEnumeration {
   var count: Int { get }
   func object(at idx: Int) -> AnyObject
-  func index(of object: AnyObject) -> Int
+  func indexOf(object: AnyObject) -> Int
   init()
   init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
   init?(coder aDecoder: Coder)
@@ -42,8 +42,8 @@ extension OrderedSet {
   func contains(object: AnyObject) -> Bool
   func intersectsOrderedSet(other: OrderedSet) -> Bool
   func intersectsSet(set: Set<Object>) -> Bool
-  func isSubset(of other: OrderedSet) -> Bool
-  func isSubset(of set: Set<Object>) -> Bool
+  func isSubsetOf(other: OrderedSet) -> Bool
+  func isSubsetOf(set: Set<Object>) -> Bool
   @available(iOS 6.0, *)
   subscript (atIndexedSubscript idx: Int) -> AnyObject { get }
   func objectEnumerator() -> Enumerator
@@ -54,13 +54,13 @@ extension OrderedSet {
   func enumerateObjects(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   func enumerateObjects(opts: EnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   func enumerateObjects(at s: IndexSet, options opts: EnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func index(ofObjectPassingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexOf(objectPassingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   func indexOfObject(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   func indexOfObject(at s: IndexSet, options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
-  func indexes(ofObjectsPassingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
+  func indexesOf(objectsPassingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
   func indexesOfObjects(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
   func indexesOfObjects(at s: IndexSet, options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
-  func index(of object: AnyObject, inSortedRange range: NSRange, options opts: BinarySearchingOptions = [], usingComparator cmp: Comparator) -> Int
+  func indexOf(object: AnyObject, inSortedRange range: NSRange, options opts: BinarySearchingOptions = [], usingComparator cmp: Comparator) -> Int
   func sortedArray(comparator cmptr: Comparator) -> [AnyObject]
   func sortedArray(opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
   var description: String { get }

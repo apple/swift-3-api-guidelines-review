@@ -6,13 +6,13 @@ class UIFont : Object, Copying {
   /*not inherited*/ init?(name fontName: String, size fontSize: CGFloat)
   class func familyNames() -> [String]
   class func fontNames(forFamilyName familyName: String) -> [String]
-  class func systemFont(ofSize fontSize: CGFloat) -> UIFont
-  class func boldSystemFont(ofSize fontSize: CGFloat) -> UIFont
-  class func italicSystemFont(ofSize fontSize: CGFloat) -> UIFont
+  class func systemFontOf(size fontSize: CGFloat) -> UIFont
+  class func boldSystemFontOf(size fontSize: CGFloat) -> UIFont
+  class func italicSystemFontOf(size fontSize: CGFloat) -> UIFont
   @available(tvOS 8.2, *)
-  class func systemFont(ofSize fontSize: CGFloat, weight: CGFloat) -> UIFont
+  class func systemFontOf(size fontSize: CGFloat, weight: CGFloat) -> UIFont
   @available(tvOS 9.0, *)
-  class func monospacedDigitSystemFont(ofSize fontSize: CGFloat, weight: CGFloat) -> UIFont
+  class func monospacedDigitSystemFontOf(size fontSize: CGFloat, weight: CGFloat) -> UIFont
   var familyName: String { get }
   var fontName: String { get }
   var pointSize: CGFloat { get }

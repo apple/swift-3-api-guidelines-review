@@ -85,7 +85,7 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.11, *)
   func layoutAttributesForItem(at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
   @available(OSX 10.11, *)
-  func layoutAttributesForSupplementaryElement(ofKind kind: String, at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryElementOf(kind kind: String, at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
   @available(OSX 10.6, *)
   func frameForItem(at index: Int) -> Rect
   @available(OSX 10.7, *)
@@ -124,7 +124,7 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.11, *)
   func makeItem(identifier identifier: String, for indexPath: IndexPath) -> NSCollectionViewItem
   @available(OSX 10.11, *)
-  func makeSupplementaryView(ofKind elementKind: String, withIdentifier identifier: String, for indexPath: IndexPath) -> NSView
+  func makeSupplementaryViewOf(kind elementKind: String, withIdentifier identifier: String, for indexPath: IndexPath) -> NSView
   func newItem(forRepresentedObject object: AnyObject) -> NSCollectionViewItem
   var itemPrototype: NSCollectionViewItem?
   @available(OSX 10.6, *)
@@ -142,9 +142,9 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.11, *)
   func supplementaryView(forElementKind elementKind: String, at indexPath: IndexPath) -> NSView?
   @available(OSX 10.11, *)
-  func visibleSupplementaryViews(ofKind elementKind: String) -> [NSView]
+  func visibleSupplementaryViewsOf(kind elementKind: String) -> [NSView]
   @available(OSX 10.11, *)
-  func indexPathsForVisibleSupplementaryElements(ofKind elementKind: String) -> Set<IndexPath>
+  func indexPathsForVisibleSupplementaryElementsOf(kind elementKind: String) -> Set<IndexPath>
   @available(OSX 10.11, *)
   func insertSections(sections: IndexSet)
   @available(OSX 10.11, *)

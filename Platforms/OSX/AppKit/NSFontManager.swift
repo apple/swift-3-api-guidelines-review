@@ -43,11 +43,11 @@ class NSFontManager : Object {
   func fontMenu(create: Bool) -> NSMenu?
   func fontPanel(create: Bool) -> NSFontPanel?
   func font(withFamily family: String, traits: NSFontTraitMask, weight: Int, size: CGFloat) -> NSFont?
-  func traits(of fontObj: NSFont) -> NSFontTraitMask
-  func weight(of fontObj: NSFont) -> Int
+  func traitsOf(fontObj: NSFont) -> NSFontTraitMask
+  func weightOf(fontObj: NSFont) -> Int
   var availableFonts: [String] { get }
   var availableFontFamilies: [String] { get }
-  func availableMembers(ofFontFamily fam: String) -> [[AnyObject]]?
+  func availableMembersOf(fontFamily fam: String) -> [[AnyObject]]?
   func convert(fontObj: NSFont) -> NSFont
   func convert(fontObj: NSFont, toSize size: CGFloat) -> NSFont
   func convert(fontObj: NSFont, toFace typeface: String) -> NSFont?

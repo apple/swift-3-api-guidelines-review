@@ -31,7 +31,7 @@ class GKMatchRequest : Object {
   @available(tvOS 8.0, *)
   var recipientResponseHandler: ((GKPlayer, GKInviteRecipientResponse) -> Void)?
   @available(tvOS 6.0, *)
-  class func maxPlayersAllowedForMatch(of matchType: GKMatchType) -> Int
+  class func maxPlayersAllowedForMatchOf(matchType: GKMatchType) -> Int
   init()
 }
 enum GKMatchType : UInt {

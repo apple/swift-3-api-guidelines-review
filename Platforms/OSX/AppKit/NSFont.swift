@@ -21,24 +21,24 @@ class NSFont : Object, Copying, SecureCoding {
   /*not inherited*/ init?(name fontName: String, matrix fontMatrix: UnsafePointer<CGFloat>)
   /*not inherited*/ init?(descriptor fontDescriptor: NSFontDescriptor, size fontSize: CGFloat)
   /*not inherited*/ init?(descriptor fontDescriptor: NSFontDescriptor, textTransform: AffineTransform?)
-  class func userFont(ofSize fontSize: CGFloat) -> NSFont?
-  class func userFixedPitchFont(ofSize fontSize: CGFloat) -> NSFont?
+  class func userFontOf(size fontSize: CGFloat) -> NSFont?
+  class func userFixedPitchFontOf(size fontSize: CGFloat) -> NSFont?
   class func setUserFont(aFont: NSFont?)
   class func setUserFixedPitchFont(aFont: NSFont?)
-  class func systemFont(ofSize fontSize: CGFloat) -> NSFont
-  class func boldSystemFont(ofSize fontSize: CGFloat) -> NSFont
-  class func label(ofSize fontSize: CGFloat) -> NSFont
-  class func titleBarFont(ofSize fontSize: CGFloat) -> NSFont
-  class func menuFont(ofSize fontSize: CGFloat) -> NSFont
-  class func menuBarFont(ofSize fontSize: CGFloat) -> NSFont
-  class func messageFont(ofSize fontSize: CGFloat) -> NSFont
-  class func paletteFont(ofSize fontSize: CGFloat) -> NSFont
-  class func toolTipsFont(ofSize fontSize: CGFloat) -> NSFont
-  class func controlContentFont(ofSize fontSize: CGFloat) -> NSFont
+  class func systemFontOf(size fontSize: CGFloat) -> NSFont
+  class func boldSystemFontOf(size fontSize: CGFloat) -> NSFont
+  class func labelOf(size fontSize: CGFloat) -> NSFont
+  class func titleBarFontOf(size fontSize: CGFloat) -> NSFont
+  class func menuFontOf(size fontSize: CGFloat) -> NSFont
+  class func menuBarFontOf(size fontSize: CGFloat) -> NSFont
+  class func messageFontOf(size fontSize: CGFloat) -> NSFont
+  class func paletteFontOf(size fontSize: CGFloat) -> NSFont
+  class func toolTipsFontOf(size fontSize: CGFloat) -> NSFont
+  class func controlContentFontOf(size fontSize: CGFloat) -> NSFont
   @available(OSX 10.11, *)
-  class func systemFont(ofSize fontSize: CGFloat, weight: CGFloat) -> NSFont
+  class func systemFontOf(size fontSize: CGFloat, weight: CGFloat) -> NSFont
   @available(OSX 10.11, *)
-  class func monospacedDigitSystemFont(ofSize fontSize: CGFloat, weight: CGFloat) -> NSFont
+  class func monospacedDigitSystemFontOf(size fontSize: CGFloat, weight: CGFloat) -> NSFont
   class func systemFontSize() -> CGFloat
   class func smallSystemFontSize() -> CGFloat
   class func labelSize() -> CGFloat

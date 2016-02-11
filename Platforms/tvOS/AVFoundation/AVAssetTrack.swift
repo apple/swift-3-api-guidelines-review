@@ -59,7 +59,7 @@ extension AVAssetTrack {
   @available(tvOS 7.0, *)
   var availableTrackAssociationTypes: [String] { get }
   @available(tvOS 7.0, *)
-  func associatedTracks(ofType trackAssociationType: String) -> [AVAssetTrack]
+  func associatedTracksOf(type trackAssociationType: String) -> [AVAssetTrack]
 }
 @available(tvOS 7.0, *)
 let AVTrackAssociationTypeAudioFallback: String

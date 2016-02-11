@@ -30,7 +30,7 @@ class FileWrapper : Object, Coding {
   var filename: String?
   var fileAttributes: [String : AnyObject]
   @available(watchOS 2.0, *)
-  func matchesContents(of url: URL) -> Bool
+  func matchesContentsOf(url: URL) -> Bool
   @available(watchOS 2.0, *)
   func read(from url: URL, options: FileWrapperReadingOptions = []) throws
   @available(watchOS 2.0, *)

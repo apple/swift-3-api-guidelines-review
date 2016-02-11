@@ -44,8 +44,8 @@ extension NSArray {
   func description(withLocale locale: AnyObject?, indent level: Int) -> String
   func firstObjectCommon(with otherArray: [AnyObject]) -> AnyObject?
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, range: NSRange)
-  func index(of anObject: AnyObject) -> Int
-  func index(of anObject: AnyObject, in range: NSRange) -> Int
+  func indexOf(anObject: AnyObject) -> Int
+  func indexOf(anObject: AnyObject, in range: NSRange) -> Int
   func indexOfObjectIdentical(to anObject: AnyObject) -> Int
   func indexOfObjectIdentical(to anObject: AnyObject, in range: NSRange) -> Int
   func isEqual(to otherArray: [AnyObject]) -> Bool
@@ -71,13 +71,13 @@ extension NSArray {
   @available(OSX 10.6, *)
   func enumerateObjects(at s: IndexSet, options opts: EnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.6, *)
-  func index(ofObjectPassingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexOf(objectPassingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(OSX 10.6, *)
   func indexOfObject(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(OSX 10.6, *)
   func indexOfObject(at s: IndexSet, options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(OSX 10.6, *)
-  func indexes(ofObjectsPassingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
+  func indexesOf(objectsPassingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
   @available(OSX 10.6, *)
   func indexesOfObjects(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
   @available(OSX 10.6, *)
@@ -87,7 +87,7 @@ extension NSArray {
   @available(OSX 10.6, *)
   func sortedArray(opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
   @available(OSX 10.6, *)
-  func index(of obj: AnyObject, inSortedRange r: NSRange, options opts: BinarySearchingOptions = [], usingComparator cmp: Comparator) -> Int
+  func indexOf(obj: AnyObject, inSortedRange r: NSRange, options opts: BinarySearchingOptions = [], usingComparator cmp: Comparator) -> Int
 }
 struct BinarySearchingOptions : OptionSetType {
   init(rawValue: UInt)

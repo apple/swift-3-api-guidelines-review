@@ -22,7 +22,7 @@ class NSPopUpButtonCell : NSMenuItemCell {
   func removeAllItems()
   var itemArray: [NSMenuItem] { get }
   var numberOfItems: Int { get }
-  func index(of item: NSMenuItem) -> Int
+  func indexOf(item: NSMenuItem) -> Int
   func indexOfItem(withTitle title: String) -> Int
   func indexOfItem(withTag tag: Int) -> Int
   func indexOfItem(withRepresentedObject obj: AnyObject?) -> Int

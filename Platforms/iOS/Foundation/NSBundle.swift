@@ -56,12 +56,12 @@ class Bundle : Object {
   @available(iOS 4.0, *)
   func urlsForResources(withExtension ext: String?, subdirectory subpath: String?, localization localizationName: String?) -> [URL]?
   class func path(forResource name: String?, ofType ext: String?, inDirectory bundlePath: String) -> String?
-  class func pathsForResources(ofType ext: String?, inDirectory bundlePath: String) -> [String]
+  class func pathsForResourcesOf(type ext: String?, inDirectory bundlePath: String) -> [String]
   func path(forResource name: String?, ofType ext: String?) -> String?
   func path(forResource name: String?, ofType ext: String?, inDirectory subpath: String?) -> String?
   func path(forResource name: String?, ofType ext: String?, inDirectory subpath: String?, forLocalization localizationName: String?) -> String?
-  func pathsForResources(ofType ext: String?, inDirectory subpath: String?) -> [String]
-  func pathsForResources(ofType ext: String?, inDirectory subpath: String?, forLocalization localizationName: String?) -> [String]
+  func pathsForResourcesOf(type ext: String?, inDirectory subpath: String?) -> [String]
+  func pathsForResourcesOf(type ext: String?, inDirectory subpath: String?, forLocalization localizationName: String?) -> [String]
   func localizedString(forKey key: String, value: String?, table tableName: String?) -> String
   var bundleIdentifier: String? { get }
   var infoDictionary: [String : AnyObject]? { get }

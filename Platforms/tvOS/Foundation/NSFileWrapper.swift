@@ -30,7 +30,7 @@ class FileWrapper : Object, Coding {
   var filename: String?
   var fileAttributes: [String : AnyObject]
   @available(tvOS 4.0, *)
-  func matchesContents(of url: URL) -> Bool
+  func matchesContentsOf(url: URL) -> Bool
   @available(tvOS 4.0, *)
   func read(from url: URL, options: FileWrapperReadingOptions = []) throws
   @available(tvOS 4.0, *)

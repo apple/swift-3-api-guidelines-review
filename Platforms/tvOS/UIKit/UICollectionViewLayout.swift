@@ -56,9 +56,9 @@ class UICollectionViewLayoutInvalidationContext : Object {
   @available(tvOS 8.0, *)
   func invalidateItems(at indexPaths: [IndexPath])
   @available(tvOS 8.0, *)
-  func invalidateSupplementaryElements(ofKind elementKind: String, at indexPaths: [IndexPath])
+  func invalidateSupplementaryElementsOf(kind elementKind: String, at indexPaths: [IndexPath])
   @available(tvOS 8.0, *)
-  func invalidateDecorationElements(ofKind elementKind: String, at indexPaths: [IndexPath])
+  func invalidateDecorationElementsOf(kind elementKind: String, at indexPaths: [IndexPath])
   @available(tvOS 8.0, *)
   var invalidatedItemIndexPaths: [IndexPath]? { get }
   @available(tvOS 8.0, *)
@@ -97,8 +97,8 @@ extension UICollectionViewLayout {
   func prepare()
   func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]?
   func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForDecorationView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryViewOf(kind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForDecorationViewOf(kind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
   func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool
   @available(tvOS 7.0, *)
   func invalidationContext(forBoundsChange newBounds: CGRect) -> UICollectionViewLayoutInvalidationContext
@@ -124,18 +124,18 @@ extension UICollectionViewLayout {
   func finalizeLayoutTransition()
   func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
   func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func initialLayoutAttributesForAppearingSupplementaryElement(ofKind elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func finalLayoutAttributesForDisappearingSupplementaryElement(ofKind elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func initialLayoutAttributesForAppearingDecorationElement(ofKind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func finalLayoutAttributesForDisappearingDecorationElement(ofKind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func initialLayoutAttributesForAppearingSupplementaryElementOf(kind elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func finalLayoutAttributesForDisappearingSupplementaryElementOf(kind elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func initialLayoutAttributesForAppearingDecorationElementOf(kind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func finalLayoutAttributesForDisappearingDecorationElementOf(kind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
   @available(tvOS 7.0, *)
-  func indexPathsToDeleteForSupplementaryView(ofKind elementKind: String) -> [IndexPath]
+  func indexPathsToDeleteForSupplementaryViewOf(kind elementKind: String) -> [IndexPath]
   @available(tvOS 7.0, *)
-  func indexPathsToDeleteForDecorationView(ofKind elementKind: String) -> [IndexPath]
+  func indexPathsToDeleteForDecorationViewOf(kind elementKind: String) -> [IndexPath]
   @available(tvOS 7.0, *)
-  func indexPathsToInsertForSupplementaryView(ofKind elementKind: String) -> [IndexPath]
+  func indexPathsToInsertForSupplementaryViewOf(kind elementKind: String) -> [IndexPath]
   @available(tvOS 7.0, *)
-  func indexPathsToInsertForDecorationView(ofKind elementKind: String) -> [IndexPath]
+  func indexPathsToInsertForDecorationViewOf(kind elementKind: String) -> [IndexPath]
 }
 extension UICollectionViewLayout {
   @available(tvOS 9.0, *)

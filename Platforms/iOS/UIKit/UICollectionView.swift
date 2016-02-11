@@ -88,7 +88,7 @@ class UICollectionView : UIScrollView {
   func register(viewClass: AnyClass?, forSupplementaryViewOfKind elementKind: String, withReuseIdentifier identifier: String)
   func register(nib: UINib?, forSupplementaryViewOfKind kind: String, withReuseIdentifier identifier: String)
   func dequeueReusableCell(withReuseIdentifier identifier: String, for indexPath: IndexPath) -> UICollectionViewCell
-  func dequeueReusableSupplementaryView(ofKind elementKind: String, withReuseIdentifier identifier: String, for indexPath: IndexPath) -> UICollectionReusableView
+  func dequeueReusableSupplementaryViewOf(kind elementKind: String, withReuseIdentifier identifier: String, for indexPath: IndexPath) -> UICollectionReusableView
   var allowsSelection: Bool
   var allowsMultipleSelection: Bool
   func indexPathsForSelectedItems() -> [IndexPath]?
@@ -107,7 +107,7 @@ class UICollectionView : UIScrollView {
   func numberOfSections() -> Int
   func numberOfItems(inSection section: Int) -> Int
   func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForSupplementaryElement(ofKind kind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryElementOf(kind kind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
   func indexPathForItem(at point: CGPoint) -> IndexPath?
   func indexPath(for cell: UICollectionViewCell) -> IndexPath?
   func cellForItem(at indexPath: IndexPath) -> UICollectionViewCell?
@@ -116,9 +116,9 @@ class UICollectionView : UIScrollView {
   @available(iOS 9.0, *)
   func supplementaryView(forElementKind elementKind: String, at indexPath: IndexPath) -> UICollectionReusableView
   @available(iOS 9.0, *)
-  func visibleSupplementaryViews(ofKind elementKind: String) -> [UICollectionReusableView]
+  func visibleSupplementaryViewsOf(kind elementKind: String) -> [UICollectionReusableView]
   @available(iOS 9.0, *)
-  func indexPathsForVisibleSupplementaryElements(ofKind elementKind: String) -> [IndexPath]
+  func indexPathsForVisibleSupplementaryElementsOf(kind elementKind: String) -> [IndexPath]
   func scrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionViewScrollPosition, animated: Bool)
   func insertSections(sections: IndexSet)
   func deleteSections(sections: IndexSet)

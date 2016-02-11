@@ -17,7 +17,7 @@ extension ABGroup {
   class func addPropertiesAndTypes(properties: [Object : AnyObject]!) -> Int
   class func removeProperties(properties: [AnyObject]!) -> Int
   class func properties() -> [AnyObject]!
-  class func type(ofProperty property: String!) -> ABPropertyType
+  class func typeOf(property property: String!) -> ABPropertyType
 }
 extension ABGroup {
   class func searchElement(forProperty property: String!, label: String!, key: String!, value: AnyObject!, comparison: ABSearchComparison) -> ABSearchElement!

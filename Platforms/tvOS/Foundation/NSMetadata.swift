@@ -26,10 +26,10 @@ class MetadataQuery : Object {
   @available(tvOS 7.0, *)
   func enumerateResults(opts: EnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   var results: [AnyObject] { get }
-  func index(ofResult result: AnyObject) -> Int
+  func indexOf(result result: AnyObject) -> Int
   var valueLists: [String : [MetadataQueryAttributeValueTuple]] { get }
   var groupedResults: [MetadataQueryResultGroup] { get }
-  func value(ofAttribute attrName: String, forResultAt idx: Int) -> AnyObject?
+  func valueOf(attribute attrName: String, forResultAt idx: Int) -> AnyObject?
   init()
 }
 protocol MetadataQueryDelegate : ObjectProtocol {

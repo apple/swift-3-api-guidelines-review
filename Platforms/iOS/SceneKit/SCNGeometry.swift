@@ -72,9 +72,9 @@ class SCNGeometry : Object, SCNAnimatable, SCNBoundingVolume, SCNShadable, Copyi
   @available(iOS 8.0, *)
   var program: SCNProgram?
   @available(iOS 8.0, *)
-  func handleBinding(ofSymbol symbol: String, using block: SCNBindingBlock? = nil)
+  func handleBindingOf(symbol symbol: String, using block: SCNBindingBlock? = nil)
   @available(iOS 8.0, *)
-  func handleUnbinding(ofSymbol symbol: String, using block: SCNBindingBlock? = nil)
+  func handleUnbindingOf(symbol symbol: String, using block: SCNBindingBlock? = nil)
   @available(iOS 8.0, *)
   var shaderModifiers: [String : String]?
   @available(iOS 8.0, *)

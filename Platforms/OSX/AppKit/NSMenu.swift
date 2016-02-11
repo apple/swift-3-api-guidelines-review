@@ -21,7 +21,7 @@ class NSMenu : Object, Copying, Coding {
   var itemArray: [NSMenuItem] { get }
   var numberOfItems: Int { get }
   func item(at index: Int) -> NSMenuItem?
-  func index(of item: NSMenuItem) -> Int
+  func indexOf(item: NSMenuItem) -> Int
   func indexOfItem(withTitle aTitle: String) -> Int
   func indexOfItem(withTag aTag: Int) -> Int
   func indexOfItem(withRepresentedObject object: AnyObject) -> Int

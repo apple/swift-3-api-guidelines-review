@@ -17,7 +17,7 @@ class NSEntityDescription : Object, Coding, Copying, FastEnumeration {
   var relationshipsByName: [String : NSRelationshipDescription] { get }
   func relationships(withDestinationEntity entity: NSEntityDescription) -> [NSRelationshipDescription]
   @available(iOS 3.0, *)
-  func isKindOfEntity(entity: NSEntityDescription) -> Bool
+  func isKindOf(entity entity: NSEntityDescription) -> Bool
   @available(iOS 3.0, *)
   @NSCopying var versionHash: Data { get }
   @available(iOS 3.0, *)

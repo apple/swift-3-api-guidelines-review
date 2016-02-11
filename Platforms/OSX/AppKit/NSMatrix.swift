@@ -74,7 +74,7 @@ class NSMatrix : NSControl, NSUserInterfaceValidations {
   var drawsCellBackground: Bool
   var drawsBackground: Bool
   func setState(value: Int, atRow row: Int, column col: Int)
-  func getNumberOfRows(rowCount: UnsafeMutablePointer<Int>, columns colCount: UnsafeMutablePointer<Int>)
+  func getNumberOf(rows rowCount: UnsafeMutablePointer<Int>, columns colCount: UnsafeMutablePointer<Int>)
   var numberOfRows: Int { get }
   var numberOfColumns: Int { get }
   func cell(atRow row: Int, column col: Int) -> NSCell?
