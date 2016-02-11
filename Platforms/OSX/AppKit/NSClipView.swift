@@ -54,6 +54,6 @@ extension NSClipView {
   func constrainScroll(newOrigin: Point) -> Point
 }
 extension NSView {
-  func reflectScrolledClip(aClipView: NSClipView)
-  func scrollClip(aClipView: NSClipView, to aPoint: Point)
+  func reflectScrolledClipView(aClipView: NSClipView)
+  func scroll(aClipView: NSClipView, to aPoint: Point)
 }

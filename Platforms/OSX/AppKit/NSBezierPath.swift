@@ -34,7 +34,7 @@ class NSBezierPath : Object, Copying, Coding {
   /*not inherited*/ init(roundedRect rect: Rect, xRadius: CGFloat, yRadius: CGFloat)
   class func fill(rect: Rect)
   class func stroke(rect: Rect)
-  class func clip(rect: Rect)
+  class func clipRect(rect: Rect)
   class func strokeLine(from point1: Point, to point2: Point)
   class func drawPackedGlyphs(packedGlyphs: UnsafePointer<Int8>, at point: Point)
   class func setDefaultMiterLimit(limit: CGFloat)

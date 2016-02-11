@@ -171,10 +171,10 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   var autosaveName: String?
   var autosaveTableColumns: Bool
   func editColumn(column: Int, row: Int, with theEvent: NSEvent?, select: Bool)
-  func drawRow(row: Int, clip clipRect: Rect)
-  func highlightSelectionInClip(clipRect: Rect)
-  func drawGridInClip(clipRect: Rect)
-  func drawBackgroundInClip(clipRect: Rect)
+  func drawRow(row: Int, clipRect: Rect)
+  func highlightSelection(inClipRect clipRect: Rect)
+  func drawGrid(inClipRect clipRect: Rect)
+  func drawBackground(inClipRect clipRect: Rect)
   @available(OSX 10.7, *)
   func view(atColumn column: Int, row: Int, makeIfNecessary: Bool) -> NSView?
   @available(OSX 10.7, *)

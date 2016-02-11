@@ -66,7 +66,7 @@ class NSScrollView : NSView, NSTextFinderBarContainer {
   var pageScroll: CGFloat
   var scrollsDynamically: Bool
   func tile()
-  func reflectScrolledClip(cView: NSClipView)
+  func reflectScrolledClipView(cView: NSClipView)
   func scrollWheel(theEvent: NSEvent)
   @available(OSX 10.7, *)
   var scrollerStyle: NSScrollerStyle
