@@ -43,7 +43,7 @@ class UIDocument : Object, FilePresenter, ProgressReporting {
   func hasUnsavedChanges() -> Bool
   func updateChangeCount(change: UIDocumentChangeKind)
   func changeCountToken(for saveOperation: UIDocumentSaveOperation) -> AnyObject
-  func updateChangeCount(withToken changeCountToken: AnyObject, for saveOperation: UIDocumentSaveOperation)
+  func updateChangeCount(token changeCountToken: AnyObject, for saveOperation: UIDocumentSaveOperation)
   func save(to url: URL, for saveOperation: UIDocumentSaveOperation, completionHandler: ((Bool) -> Void)? = nil)
   func autosave(completionHandler completionHandler: ((Bool) -> Void)? = nil)
   func savingFileType() -> String?

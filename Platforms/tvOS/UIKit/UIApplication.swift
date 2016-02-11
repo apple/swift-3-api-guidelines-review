@@ -137,7 +137,7 @@ protocol UIApplicationDelegate : ObjectProtocol {
   @available(tvOS 8.0, *)
   optional func application(application: UIApplication, didFailToContinueUserActivityWithType userActivityType: String, error: Error)
   @available(tvOS 8.0, *)
-  optional func application(application: UIApplication, didUpdateUserActivity userActivity: UserActivity)
+  optional func application(application: UIApplication, didUpdate userActivity: UserActivity)
 }
 extension UIApplication {
 }

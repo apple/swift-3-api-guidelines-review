@@ -66,7 +66,7 @@ class MDLCheckerboardTexture : MDLTexture {
 @available(OSX 10.11, *)
 class MDLSkyCubeTexture : MDLTexture {
   init(name: String?, channelEncoding: MDLTextureChannelEncoding, textureDimensions: vector_int2, turbidity: Float, sunElevation: Float, upperAtmosphereScattering: Float, groundAlbedo: Float)
-  func updateTexture()
+  func update()
   var turbidity: Float
   var sunElevation: Float
   var upperAtmosphereScattering: Float

@@ -55,7 +55,7 @@ class UIPercentDrivenInteractiveTransition : Object, UIViewControllerInteractive
   var percentComplete: CGFloat { get }
   var completionSpeed: CGFloat
   var completionCurve: UIViewAnimationCurve
-  func updateInteractiveTransition(percentComplete: CGFloat)
+  func update(percentComplete: CGFloat)
   func cancel()
   func finish()
   init()

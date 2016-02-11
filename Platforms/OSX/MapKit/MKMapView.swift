@@ -129,7 +129,7 @@ protocol MKMapViewDelegate : ObjectProtocol {
   @available(OSX 10.9, *)
   optional func mapViewDidStopLocatingUser(mapView: MKMapView)
   @available(OSX 10.9, *)
-  optional func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
+  optional func mapView(mapView: MKMapView, didUpdate userLocation: MKUserLocation)
   @available(OSX 10.9, *)
   optional func mapView(mapView: MKMapView, didFailToLocateUserWithError error: Error)
   @available(OSX 10.9, *)

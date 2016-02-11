@@ -5,6 +5,6 @@ class GKState : Object {
   init()
   func isValidNextState(stateClass: AnyClass) -> Bool
   func didEnter(withPreviousState previousState: GKState?)
-  func update(withDeltaTime seconds: TimeInterval)
+  func update(deltaTime seconds: TimeInterval)
   func willExit(withNextState nextState: GKState)
 }

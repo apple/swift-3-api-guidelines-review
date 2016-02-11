@@ -43,7 +43,7 @@ protocol HMHomeDelegate : ObjectProtocol {
   optional func home(home: HMHome, didRemove accessory: HMAccessory)
   optional func home(home: HMHome, didAdd user: HMUser)
   optional func home(home: HMHome, didRemove user: HMUser)
-  optional func home(home: HMHome, didUpdateRoom room: HMRoom, for accessory: HMAccessory)
+  optional func home(home: HMHome, didUpdate room: HMRoom, for accessory: HMAccessory)
   optional func home(home: HMHome, didAdd room: HMRoom)
   optional func home(home: HMHome, didRemove room: HMRoom)
   optional func home(home: HMHome, didUpdateNameFor room: HMRoom)
@@ -64,7 +64,7 @@ protocol HMHomeDelegate : ObjectProtocol {
   optional func home(home: HMHome, didAdd trigger: HMTrigger)
   optional func home(home: HMHome, didRemove trigger: HMTrigger)
   optional func home(home: HMHome, didUpdateNameFor trigger: HMTrigger)
-  optional func home(home: HMHome, didUpdateTrigger trigger: HMTrigger)
+  optional func home(home: HMHome, didUpdate trigger: HMTrigger)
   optional func home(home: HMHome, didUnblockAccessory accessory: HMAccessory)
   optional func home(home: HMHome, didEncounterError error: Error, for accessory: HMAccessory)
 }

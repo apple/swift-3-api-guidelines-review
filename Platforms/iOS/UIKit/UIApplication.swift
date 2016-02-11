@@ -278,7 +278,7 @@ protocol UIApplicationDelegate : ObjectProtocol {
   @available(iOS 8.0, *)
   optional func application(application: UIApplication, didFailToContinueUserActivityWithType userActivityType: String, error: Error)
   @available(iOS 8.0, *)
-  optional func application(application: UIApplication, didUpdateUserActivity userActivity: UserActivity)
+  optional func application(application: UIApplication, didUpdate userActivity: UserActivity)
 }
 extension UIApplication {
   @available(iOS, introduced=2.0, deprecated=9.0, message="Explicit setting of the status bar orientation is more limited in iOS 6.0 and later")

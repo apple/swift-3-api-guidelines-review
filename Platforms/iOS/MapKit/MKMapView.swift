@@ -141,7 +141,7 @@ protocol MKMapViewDelegate : ObjectProtocol {
   @available(iOS 4.0, *)
   optional func mapViewDidStopLocatingUser(mapView: MKMapView)
   @available(iOS 4.0, *)
-  optional func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
+  optional func mapView(mapView: MKMapView, didUpdate userLocation: MKUserLocation)
   @available(iOS 4.0, *)
   optional func mapView(mapView: MKMapView, didFailToLocateUserWithError error: Error)
   @available(iOS 4.0, *)

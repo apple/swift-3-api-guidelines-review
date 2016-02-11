@@ -29,7 +29,7 @@ extension FileHandle {
   @available(watchOS 2.0, *)
   convenience init(forWritingTo url: URL) throws
   @available(watchOS 2.0, *)
-  convenience init(forUpdatingURL url: URL) throws
+  convenience init(forUpdating url: URL) throws
 }
 let fileHandleOperationException: String
 let fileHandleReadCompletionNotification: String

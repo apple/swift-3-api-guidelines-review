@@ -5,5 +5,5 @@ protocol MPPlayableContentDelegate : ObjectProtocol {
   @available(iOS 9.0, *)
   optional func playableContentManager(contentManager: MPPlayableContentManager, initializePlaybackQueueWithCompletionHandler completionHandler: (Error?) -> Void)
   @available(iOS 8.4, *)
-  optional func playableContentManager(contentManager: MPPlayableContentManager, didUpdateContext context: MPPlayableContentManagerContext)
+  optional func playableContentManager(contentManager: MPPlayableContentManager, didUpdate context: MPPlayableContentManagerContext)
 }

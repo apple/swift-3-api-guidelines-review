@@ -28,7 +28,7 @@ class EAWiFiUnconfiguredAccessoryBrowser : Object {
 }
 protocol EAWiFiUnconfiguredAccessoryBrowserDelegate : ObjectProtocol {
   @available(iOS 8.0, *)
-  func accessoryBrowser(browser: EAWiFiUnconfiguredAccessoryBrowser, didUpdateState state: EAWiFiUnconfiguredAccessoryBrowserState)
+  func accessoryBrowser(browser: EAWiFiUnconfiguredAccessoryBrowser, didUpdate state: EAWiFiUnconfiguredAccessoryBrowserState)
   @available(iOS 8.0, *)
   func accessoryBrowser(browser: EAWiFiUnconfiguredAccessoryBrowser, didFindUnconfiguredAccessories accessories: Set<EAWiFiUnconfiguredAccessory>)
   @available(iOS 8.0, *)

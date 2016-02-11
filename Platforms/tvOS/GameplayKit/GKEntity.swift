@@ -2,7 +2,7 @@
 @available(tvOS 9.0, *)
 class GKEntity : Object, Copying {
   init()
-  func update(withDeltaTime seconds: TimeInterval)
+  func update(deltaTime seconds: TimeInterval)
   var components: [GKComponent] { get }
   func addComponent(component: GKComponent)
   func removeComponent(for componentClass: AnyClass)

@@ -18,9 +18,9 @@ class NSSpellChecker : Object {
   func userQuotesArray(forLanguage language: String) -> [String]
   @available(OSX 10.6, *)
   var userReplacementsDictionary: [String : String] { get }
-  func updateSpellingPanel(withMisspelledWord word: String)
+  func updateSpellingPanel(misspelledWord word: String)
   @available(OSX 10.5, *)
-  func updateSpellingPanel(withGrammarString string: String, detail: [String : AnyObject])
+  func updateSpellingPanel(grammarString string: String, detail: [String : AnyObject])
   var spellingPanel: NSPanel { get }
   var accessoryView: NSView?
   @available(OSX 10.6, *)

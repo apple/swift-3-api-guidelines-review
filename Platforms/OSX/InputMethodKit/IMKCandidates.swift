@@ -22,7 +22,7 @@ class IMKCandidates : NSResponder {
   func show(locationHint: IMKCandidatesLocationHint)
   func hide()
   func isVisible() -> Bool
-  func updateCandidates()
+  func update()
   func showAnnotation(annotationString: AttributedString!)
   func showSublist(candidates: [AnyObject]!, subListDelegate delegate: AnyObject!)
   func selectedCandidateString() -> AttributedString!

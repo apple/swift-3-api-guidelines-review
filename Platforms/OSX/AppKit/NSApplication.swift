@@ -767,7 +767,7 @@ protocol NSApplicationDelegate : ObjectProtocol {
   @available(OSX 10.10, *)
   optional func application(application: NSApplication, didFailToContinueUserActivityWithType userActivityType: String, error: Error)
   @available(OSX 10.10, *)
-  optional func application(application: NSApplication, didUpdateUserActivity userActivity: UserActivity)
+  optional func application(application: NSApplication, didUpdate userActivity: UserActivity)
   optional func applicationWillFinishLaunching(notification: Notification)
   optional func applicationDidFinishLaunching(notification: Notification)
   optional func applicationWillHide(notification: Notification)

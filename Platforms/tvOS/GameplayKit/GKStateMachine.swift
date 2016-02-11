@@ -3,7 +3,7 @@
 class GKStateMachine : Object {
   var currentState: GKState? { get }
   init(states: [GKState])
-  func update(withDeltaTime sec: TimeInterval)
+  func update(deltaTime sec: TimeInterval)
   func canEnterState(stateClass: AnyClass) -> Bool
   func enterState(stateClass: AnyClass) -> Bool
   convenience init()

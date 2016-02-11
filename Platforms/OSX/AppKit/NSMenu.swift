@@ -93,7 +93,7 @@ extension Object {
 protocol NSMenuDelegate : ObjectProtocol {
   optional func menuNeedsUpdate(menu: NSMenu)
   optional func numberOfItems(in menu: NSMenu) -> Int
-  optional func menu(menu: NSMenu, updateItem item: NSMenuItem, at index: Int, shouldCancel: Bool) -> Bool
+  optional func menu(menu: NSMenu, update item: NSMenuItem, at index: Int, shouldCancel: Bool) -> Bool
   optional func menuHasKeyEquivalent(menu: NSMenu, for event: NSEvent, target: AutoreleasingUnsafeMutablePointer<AnyObject?>, action: UnsafeMutablePointer<Selector>) -> Bool
   @available(OSX 10.5, *)
   optional func menuWillOpen(menu: NSMenu)

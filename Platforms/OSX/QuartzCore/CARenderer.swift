@@ -5,7 +5,7 @@ class CARenderer : Object {
   var bounds: CGRect
   func beginFrame(atTime t: CFTimeInterval, timeStamp ts: UnsafeMutablePointer<CVTimeStamp>)
   func updateBounds() -> CGRect
-  func addUpdateRect(r: CGRect)
+  func addUpdate(r: CGRect)
   func render()
   func nextFrameTime() -> CFTimeInterval
   func endFrame()

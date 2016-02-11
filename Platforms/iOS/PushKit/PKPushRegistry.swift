@@ -13,7 +13,7 @@ class PKPushRegistry : Object {
 }
 protocol PKPushRegistryDelegate : ObjectProtocol {
   @available(iOS 8.0, *)
-  func pushRegistry(registry: PKPushRegistry!, didUpdatePushCredentials credentials: PKPushCredentials!, forType type: String!)
+  func pushRegistry(registry: PKPushRegistry!, didUpdate credentials: PKPushCredentials!, forType type: String!)
   @available(iOS 8.0, *)
   func pushRegistry(registry: PKPushRegistry!, didReceiveIncomingPushWith payload: PKPushPayload!, forType type: String!)
   @available(iOS 8.0, *)

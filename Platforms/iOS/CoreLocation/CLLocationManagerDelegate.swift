@@ -1,9 +1,9 @@
 
 protocol CLLocationManagerDelegate : ObjectProtocol {
   @available(iOS 6.0, *)
-  optional func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+  optional func locationManager(manager: CLLocationManager, didUpdate locations: [CLLocation])
   @available(iOS 3.0, *)
-  optional func locationManager(manager: CLLocationManager, didUpdateHeading newHeading: CLHeading)
+  optional func locationManager(manager: CLLocationManager, didUpdate newHeading: CLHeading)
   @available(iOS 3.0, *)
   optional func locationManagerShouldDisplayHeadingCalibration(manager: CLLocationManager) -> Bool
   @available(iOS 7.0, *)

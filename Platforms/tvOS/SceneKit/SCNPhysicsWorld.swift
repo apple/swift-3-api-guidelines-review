@@ -14,7 +14,7 @@ let SCNPhysicsTestSearchModeAll: String
 @available(tvOS 8.0, *)
 protocol SCNPhysicsContactDelegate : ObjectProtocol {
   optional func physicsWorld(world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact)
-  optional func physicsWorld(world: SCNPhysicsWorld, didUpdateContact contact: SCNPhysicsContact)
+  optional func physicsWorld(world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact)
   optional func physicsWorld(world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact)
 }
 @available(tvOS 8.0, *)
