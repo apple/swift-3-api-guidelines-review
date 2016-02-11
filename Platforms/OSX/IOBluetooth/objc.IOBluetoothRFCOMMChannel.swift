@@ -1,7 +1,7 @@
 
 class IOBluetoothRFCOMMChannel : IOBluetoothObject, PortDelegate {
-  class func registerForChannelOpenNotifications(object: AnyObject!, selector: Selector) -> IOBluetoothUserNotification!
-  class func registerForChannelOpenNotifications(object: AnyObject!, selector: Selector, withChannelID channelID: BluetoothRFCOMMChannelID, direction inDirection: IOBluetoothUserNotificationChannelDirection) -> IOBluetoothUserNotification!
+  class func register(forChannelOpenNotifications object: AnyObject!, selector: Selector) -> IOBluetoothUserNotification!
+  class func register(forChannelOpenNotifications object: AnyObject!, selector: Selector, withChannelID channelID: BluetoothRFCOMMChannelID, direction inDirection: IOBluetoothUserNotificationChannelDirection) -> IOBluetoothUserNotification!
   class func withRFCOMMChannelRef(rfcommChannelRef: IOBluetoothRFCOMMChannelRef!) -> Self!
   class func withObjectID(objectID: IOBluetoothObjectID) -> Self!
   func getRef() -> Unmanaged<IOBluetoothRFCOMMChannelRef>!
@@ -19,7 +19,7 @@ class IOBluetoothRFCOMMChannel : IOBluetoothObject, PortDelegate {
   func isIncoming() -> Bool
   func getDevice() -> IOBluetoothDevice!
   func getObjectID() -> IOBluetoothObjectID
-  func registerForChannelCloseNotification(observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
+  func register(forChannelCloseNotification observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
   init()
   func handle(message: PortMessage)
 }

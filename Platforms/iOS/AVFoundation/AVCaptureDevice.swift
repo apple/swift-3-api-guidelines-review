@@ -200,11 +200,11 @@ extension AVCaptureDevice {
   @available(iOS 8.0, *)
   func setWhiteBalanceModeLockedWithDeviceWhiteBalanceGains(whiteBalanceGains: AVCaptureWhiteBalanceGains, completionHandler handler: ((CMTime) -> Void)!)
   @available(iOS 8.0, *)
-  func chromaticityValuesForDeviceWhiteBalanceGains(whiteBalanceGains: AVCaptureWhiteBalanceGains) -> AVCaptureWhiteBalanceChromaticityValues
+  func chromaticityValues(forDeviceWhiteBalanceGains whiteBalanceGains: AVCaptureWhiteBalanceGains) -> AVCaptureWhiteBalanceChromaticityValues
   @available(iOS 8.0, *)
   func deviceWhiteBalanceGains(for chromaticityValues: AVCaptureWhiteBalanceChromaticityValues) -> AVCaptureWhiteBalanceGains
   @available(iOS 8.0, *)
-  func temperatureAndTintValuesForDeviceWhiteBalanceGains(whiteBalanceGains: AVCaptureWhiteBalanceGains) -> AVCaptureWhiteBalanceTemperatureAndTintValues
+  func temperatureAndTintValues(forDeviceWhiteBalanceGains whiteBalanceGains: AVCaptureWhiteBalanceGains) -> AVCaptureWhiteBalanceTemperatureAndTintValues
   @available(iOS 8.0, *)
   func deviceWhiteBalanceGains(for tempAndTintValues: AVCaptureWhiteBalanceTemperatureAndTintValues) -> AVCaptureWhiteBalanceGains
 }
@@ -226,7 +226,7 @@ extension AVCaptureDevice {
   @available(iOS 7.0, *)
   var videoZoomFactor: CGFloat
   @available(iOS 7.0, *)
-  func rampToVideoZoomFactor(factor: CGFloat, withRate rate: Float)
+  func ramp(toVideoZoomFactor factor: CGFloat, withRate rate: Float)
   @available(iOS 7.0, *)
   var isRampingVideoZoom: Bool { get }
   @available(iOS 7.0, *)

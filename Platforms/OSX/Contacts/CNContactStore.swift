@@ -21,8 +21,8 @@ class CNContactStore : Object {
   func unifiedContacts(matching predicate: Predicate, keysToFetch keys: [CNKeyDescriptor]) throws -> [CNContact]
   func unifiedContact(withIdentifier identifier: String, keysToFetch keys: [CNKeyDescriptor]) throws -> CNContact
   @available(OSX 10.11, *)
-  func unifiedMeContactWithKeysToFetch(keys: [CNKeyDescriptor]) throws -> CNContact
-  func enumerateContactsWith(fetchRequest: CNContactFetchRequest, usingBlock block: (CNContact, UnsafeMutablePointer<ObjCBool>) -> Void) throws
+  func unifiedMeContactWithKeys(toFetch keys: [CNKeyDescriptor]) throws -> CNContact
+  func enumerateContacts(fetchRequest: CNContactFetchRequest, usingBlock block: (CNContact, UnsafeMutablePointer<ObjCBool>) -> Void) throws
   func groups(matching predicate: Predicate?) throws -> [CNGroup]
   func containers(matching predicate: Predicate?) throws -> [CNContainer]
   func execute(saveRequest: CNSaveRequest) throws

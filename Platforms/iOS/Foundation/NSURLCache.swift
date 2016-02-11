@@ -23,9 +23,9 @@ class URLCache : Object {
   class func shared() -> URLCache
   class func setSharedURLCache(cache: URLCache)
   init(memoryCapacity: Int, diskCapacity: Int, diskPath path: String?)
-  func cachedResponseFor(request: URLRequest) -> CachedURLResponse?
+  func cachedResponse(for request: URLRequest) -> CachedURLResponse?
   func storeCachedResponse(cachedResponse: CachedURLResponse, for request: URLRequest)
-  func removeCachedResponseFor(request: URLRequest)
+  func removeCachedResponse(for request: URLRequest)
   func removeAllCachedResponses()
   @available(iOS 8.0, *)
   func removeCachedResponses(since date: Date)

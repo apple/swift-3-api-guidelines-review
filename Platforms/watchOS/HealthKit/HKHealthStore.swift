@@ -3,7 +3,7 @@
 class HKHealthStore : Object {
   class func isHealthDataAvailable() -> Bool
   func authorizationStatus(for type: HKObjectType) -> HKAuthorizationStatus
-  func requestAuthorizationToShare(typesToShare: Set<HKSampleType>?, read typesToRead: Set<HKObjectType>?, completion: (Bool, Error?) -> Void)
+  func requestAuthorization(toShare typesToShare: Set<HKSampleType>?, read typesToRead: Set<HKObjectType>?, completion: (Bool, Error?) -> Void)
   @available(watchOS 2.0, *)
   func earliestPermittedSampleDate() -> Date
   func save(object: HKObject, withCompletion completion: (Bool, Error?) -> Void)

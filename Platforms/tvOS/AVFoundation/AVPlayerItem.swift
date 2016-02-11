@@ -62,19 +62,19 @@ extension AVPlayerItem {
   var forwardPlaybackEndTime: CMTime
   var reversePlaybackEndTime: CMTime
   var seekableTimeRanges: [Value] { get }
-  func seekTo(time: CMTime)
+  func seek(to time: CMTime)
   @available(tvOS 5.0, *)
-  func seekTo(time: CMTime, completionHandler: (Bool) -> Void)
-  func seekTo(time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime)
+  func seek(to time: CMTime, completionHandler: (Bool) -> Void)
+  func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime)
   @available(tvOS 5.0, *)
-  func seekTo(time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: (Bool) -> Void)
+  func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: (Bool) -> Void)
   @available(tvOS 5.0, *)
   func cancelPendingSeeks()
   func currentDate() -> Date?
   func seek(to date: Date) -> Bool
   @available(tvOS 6.0, *)
   func seek(to date: Date, completionHandler: (Bool) -> Void) -> Bool
-  func stepByCount(stepCount: Int)
+  func step(byCount stepCount: Int)
   @available(tvOS 6.0, *)
   var timebase: CMTimebase? { get }
 }

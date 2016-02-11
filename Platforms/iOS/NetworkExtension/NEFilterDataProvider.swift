@@ -4,15 +4,15 @@ class NEFilterDataProvider : NEFilterProvider {
   @available(iOS 9.0, *)
   func handleNewFlow(flow: NEFilterFlow) -> NEFilterNewFlowVerdict
   @available(iOS 9.0, *)
-  func handleInboundDataFrom(flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes: Data) -> NEFilterDataVerdict
+  func handleInboundData(from flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes: Data) -> NEFilterDataVerdict
   @available(iOS 9.0, *)
-  func handleOutboundDataFrom(flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes: Data) -> NEFilterDataVerdict
+  func handleOutboundData(from flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes: Data) -> NEFilterDataVerdict
   @available(iOS 9.0, *)
-  func handleInboundDataCompleteFor(flow: NEFilterFlow) -> NEFilterDataVerdict
+  func handleInboundDataComplete(for flow: NEFilterFlow) -> NEFilterDataVerdict
   @available(iOS 9.0, *)
-  func handleOutboundDataCompleteFor(flow: NEFilterFlow) -> NEFilterDataVerdict
+  func handleOutboundDataComplete(for flow: NEFilterFlow) -> NEFilterDataVerdict
   @available(iOS 9.0, *)
-  func handleRemediationFor(flow: NEFilterFlow) -> NEFilterRemediationVerdict
+  func handleRemediation(for flow: NEFilterFlow) -> NEFilterRemediationVerdict
   @available(iOS 9.0, *)
   func handleRulesChanged()
   init()

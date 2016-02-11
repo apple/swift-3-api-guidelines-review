@@ -2,7 +2,7 @@
 @available(OSX 10.10, *)
 class AVSampleBufferGenerator : Object {
   init(asset: AVAsset, timebase: CMTimebase?)
-  func createSampleBufferFor(request: AVSampleBufferRequest) -> CMSampleBuffer
+  func createSampleBuffer(for request: AVSampleBufferRequest) -> CMSampleBuffer
   class func notifyOfDataReady(for sbuf: CMSampleBuffer, completionHandler: (Bool, Error) -> Void)
 }
 enum AVSampleBufferRequestDirection : Int {

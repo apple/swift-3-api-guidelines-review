@@ -38,7 +38,7 @@ class NSComboBox : NSTextField {
   convenience init()
 }
 protocol NSComboBoxDataSource : ObjectProtocol {
-  optional func numberOfItemsIn(aComboBox: NSComboBox) -> Int
+  optional func numberOfItems(in aComboBox: NSComboBox) -> Int
   optional func comboBox(aComboBox: NSComboBox, objectValueForItemAt index: Int) -> AnyObject
   optional func comboBox(aComboBox: NSComboBox, indexOfItemWithStringValue string: String) -> Int
   optional func comboBox(aComboBox: NSComboBox, completedString string: String) -> String?

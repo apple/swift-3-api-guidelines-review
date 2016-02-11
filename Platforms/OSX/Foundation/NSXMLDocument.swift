@@ -30,8 +30,8 @@ class XMLDocument : XMLNode {
   func replaceChild(at index: Int, with node: XMLNode)
   @NSCopying var xmlData: Data { get }
   func xmlData(withOptions options: Int) -> Data
-  func objectByApplyingXSLT(xslt: Data, arguments: [String : String]?) throws -> AnyObject
-  func objectByApplyingXSLTString(xslt: String, arguments: [String : String]?) throws -> AnyObject
+  func object(byApplyingXSLT xslt: Data, arguments: [String : String]?) throws -> AnyObject
+  func object(byApplyingXSLTString xslt: String, arguments: [String : String]?) throws -> AnyObject
   func objectByApplyingXSLT(at xsltURL: URL, arguments argument: [String : String]?) throws -> AnyObject
   func validate() throws
   convenience init(kind: XMLNodeKind)

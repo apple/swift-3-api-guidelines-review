@@ -15,12 +15,12 @@ class Lock : Object, Locking {
 class ConditionLock : Object, Locking {
   init(condition: Int)
   var condition: Int { get }
-  func lockWhenCondition(condition: Int)
+  func lock(whenCondition condition: Int)
   func tryLock() -> Bool
-  func tryWhenCondition(condition: Int) -> Bool
+  func `try`(whenCondition condition: Int) -> Bool
   func unlock(condition condition: Int)
   func lock(before limit: Date) -> Bool
-  func lockWhenCondition(condition: Int, before limit: Date) -> Bool
+  func lock(whenCondition condition: Int, before limit: Date) -> Bool
   @available(tvOS 2.0, *)
   var name: String?
   convenience init()

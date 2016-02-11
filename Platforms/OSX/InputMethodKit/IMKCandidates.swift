@@ -56,7 +56,7 @@ class IMKCandidates : NSResponder {
   @available(OSX 10.7, *)
   func candidateStringIdentifier(candidateString: AnyObject!) -> Int
   @available(OSX 10.7, *)
-  func candidateIdentifierAtLineNumber(lineNumber: Int) -> Int
+  func candidateIdentifier(atLineNumber lineNumber: Int) -> Int
   @available(OSX 10.7, *)
   func lineNumberForCandidate(withIdentifier candidateIdentifier: Int) -> Int
   @available(OSX 10.7, *)

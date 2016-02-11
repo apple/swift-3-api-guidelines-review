@@ -45,8 +45,8 @@ extension AVAssetTrack {
 }
 extension AVAssetTrack {
   var segments: [AVAssetTrackSegment] { get }
-  func segmentForTrackTime(trackTime: CMTime) -> AVAssetTrackSegment?
-  func samplePresentationTimeForTrackTime(trackTime: CMTime) -> CMTime
+  func segment(forTrackTime trackTime: CMTime) -> AVAssetTrackSegment?
+  func samplePresentationTime(forTrackTime trackTime: CMTime) -> CMTime
 }
 extension AVAssetTrack {
   var commonMetadata: [AVMetadataItem] { get }

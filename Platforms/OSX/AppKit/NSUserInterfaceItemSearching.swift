@@ -1,9 +1,9 @@
 
 protocol NSUserInterfaceItemSearching : ObjectProtocol {
-  func searchForItemsWithSearch(searchString: String, resultLimit: Int, matchedItemHandler handleMatchedItems: ([AnyObject]) -> Void)
+  func searchForItems(search searchString: String, resultLimit: Int, matchedItemHandler handleMatchedItems: ([AnyObject]) -> Void)
   func localizedTitles(forItem item: AnyObject) -> [String]
   optional func performAction(forItem item: AnyObject)
-  optional func showAllHelpTopicsForSearch(searchString: String)
+  optional func showAllHelpTopics(forSearch searchString: String)
 }
 extension NSApplication {
   @available(OSX 10.6, *)

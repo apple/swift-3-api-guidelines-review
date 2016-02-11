@@ -9,10 +9,10 @@ class NumberFormatter : Formatter {
   @available(tvOS 8.0, *)
   var formattingContext: FormattingContext
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, range rangep: UnsafeMutablePointer<NSRange>) throws
-  func stringFrom(number: Number) -> String?
+  func string(from number: Number) -> String?
   func number(from string: String) -> Number?
   @available(tvOS 4.0, *)
-  class func localizedStringFrom(num: Number, number nstyle: NumberFormatterStyle) -> String
+  class func localizedString(from num: Number, number nstyle: NumberFormatterStyle) -> String
   class func defaultFormatterBehavior() -> NumberFormatterBehavior
   class func setDefaultFormatterBehavior(behavior: NumberFormatterBehavior)
   var numberStyle: NumberFormatterStyle

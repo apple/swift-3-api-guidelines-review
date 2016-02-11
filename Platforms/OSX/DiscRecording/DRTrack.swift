@@ -17,7 +17,7 @@ protocol DRTrackDataProduction {
   func estimateLength(of track: DRTrack!) -> UInt64
   @available(OSX 10.0, *)
   func prepare(track: DRTrack!, for burn: DRBurn!, toMedia mediaInfo: [Object : AnyObject]!) -> Bool
-  func cleanupTrackAfterBurn(track: DRTrack!)
+  func cleanupTrack(afterBurn track: DRTrack!)
   func producePreGap(for track: DRTrack!, intoBuffer buffer: UnsafeMutablePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> UInt32
   func produceData(for track: DRTrack!, intoBuffer buffer: UnsafeMutablePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> UInt32
   func prepareTrack(forVerification track: DRTrack!) -> Bool

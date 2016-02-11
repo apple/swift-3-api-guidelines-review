@@ -23,8 +23,8 @@ struct NetServiceOptions : OptionSetType {
 class NetService : Object {
   init(domain: String, type: String, name: String, port: Int32)
   convenience init(domain: String, type: String, name: String)
-  func scheduleIn(aRunLoop: RunLoop, forMode mode: String)
-  func removeFrom(aRunLoop: RunLoop, forMode mode: String)
+  func schedule(in aRunLoop: RunLoop, forMode mode: String)
+  func remove(from aRunLoop: RunLoop, forMode mode: String)
   unowned(unsafe) var delegate: @sil_unmanaged NetServiceDelegate?
   @available(tvOS 7.0, *)
   var includesPeerToPeer: Bool
@@ -39,8 +39,8 @@ class NetService : Object {
   @available(tvOS 2.0, *)
   func publish(options: NetServiceOptions = [])
   func stop()
-  class func dictionaryFromTXTRecord(txtData: Data) -> [String : Data]
-  class func dataFromTXTRecord(txtDictionary: [String : Data]) -> Data
+  class func dictionary(fromTXTRecord txtData: Data) -> [String : Data]
+  class func data(fromTXTRecord txtDictionary: [String : Data]) -> Data
   func resolve(timeout timeout: TimeInterval)
   func getInputStream(inputStream: UnsafeMutablePointer<InputStream?>, outputStream: UnsafeMutablePointer<OutputStream?>) -> Bool
   func setTXTRecord(recordData: Data?) -> Bool
@@ -54,8 +54,8 @@ class NetServiceBrowser : Object {
   unowned(unsafe) var delegate: @sil_unmanaged NetServiceBrowserDelegate?
   @available(tvOS 7.0, *)
   var includesPeerToPeer: Bool
-  func scheduleIn(aRunLoop: RunLoop, forMode mode: String)
-  func removeFrom(aRunLoop: RunLoop, forMode mode: String)
+  func schedule(in aRunLoop: RunLoop, forMode mode: String)
+  func remove(from aRunLoop: RunLoop, forMode mode: String)
   func searchForBrowsableDomains()
   func searchForRegistrationDomains()
   func searchForServices(ofType type: String, inDomain domainString: String)

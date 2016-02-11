@@ -91,7 +91,7 @@ class UITableViewController : UIViewController, UITableViewDelegate, UITableView
   @available(tvOS 2.0, *)
   func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)
   @available(tvOS 2.0, *)
-  func viewForZoomingIn(scrollView: UIScrollView) -> UIView?
+  func viewForZooming(in scrollView: UIScrollView) -> UIView?
   @available(tvOS 3.2, *)
   func scrollViewWillBeginZooming(scrollView: UIScrollView, with view: UIView?)
   @available(tvOS 2.0, *)

@@ -55,7 +55,7 @@ class NSManagedObjectContext : Object, Coding {
   func existingObject(with objectID: NSManagedObjectID) throws -> NSManagedObject
   func execute(request: NSFetchRequest) throws -> [AnyObject]
   @available(watchOS 2.0, *)
-  func countFor(request: NSFetchRequest, error: ErrorPointer) -> Int
+  func count(for request: NSFetchRequest, error: ErrorPointer) -> Int
   @available(watchOS 2.0, *)
   func execute(request: NSPersistentStoreRequest) throws -> NSPersistentStoreResult
   func insert(object: NSManagedObject)
@@ -87,9 +87,9 @@ class NSManagedObjectContext : Object, Coding {
   @available(watchOS 2.0, *)
   func obtainPermanentIDs(for objects: [NSManagedObject]) throws
   @available(watchOS 2.0, *)
-  func mergeChangesFromContextDidSave(notification: Notification)
+  func mergeChanges(fromContextDidSave notification: Notification)
   @available(watchOS 2.0, *)
-  class func mergeChangesFromRemoteContextSave(changeNotificationData: [Object : AnyObject], into contexts: [NSManagedObjectContext])
+  class func mergeChanges(fromRemoteContextSave changeNotificationData: [Object : AnyObject], into contexts: [NSManagedObjectContext])
   @available(watchOS 2.0, *)
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)

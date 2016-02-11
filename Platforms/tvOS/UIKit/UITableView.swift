@@ -142,7 +142,7 @@ class UITableView : UIScrollView, Coding {
   @available(tvOS 6.0, *)
   func footerView(forSection section: Int) -> UITableViewHeaderFooterView?
   func scrollToRow(at indexPath: IndexPath, at scrollPosition: UITableViewScrollPosition, animated: Bool)
-  func scrollToNearestSelectedRowAt(scrollPosition: UITableViewScrollPosition, animated: Bool)
+  func scrollToNearestSelectedRow(at scrollPosition: UITableViewScrollPosition, animated: Bool)
   func beginUpdates()
   func endUpdates()
   func insertSections(sections: IndexSet, with animation: UITableViewRowAnimation)

@@ -55,7 +55,7 @@ class SLComposeServiceViewController : UIViewController, UITextViewDelegate {
   @available(iOS 8.0, *)
   func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)
   @available(iOS 8.0, *)
-  func viewForZoomingIn(scrollView: UIScrollView) -> UIView?
+  func viewForZooming(in scrollView: UIScrollView) -> UIView?
   @available(iOS 3.2, *)
   func scrollViewWillBeginZooming(scrollView: UIScrollView, with view: UIView?)
   @available(iOS 8.0, *)

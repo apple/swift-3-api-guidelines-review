@@ -11,7 +11,7 @@ class EKParticipant : EKObject, Copying {
   @available(OSX 10.11, *)
   var contactPredicate: Predicate { get }
   @available(OSX, introduced=10.8, deprecated=10.11, message="Use contactPredicate instead")
-  func abPersonIn(addressBook: ABAddressBook) -> ABPerson?
+  func abPerson(in addressBook: ABAddressBook) -> ABPerson?
   init()
   @available(OSX 10.8, *)
   func copy(with zone: Zone = nil) -> AnyObject

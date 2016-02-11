@@ -6,7 +6,7 @@ class IOBluetoothHandsFreeAudioGateway : IOBluetoothHandsFree {
   @available(OSX 10.7, *)
   func createIndicator(indicatorName: String!, min minValue: Int32, max maxValue: Int32, currentValue: Int32)
   @available(OSX 10.7, *)
-  func processATCommand(atCommand: String!)
+  func process(atCommand atCommand: String!)
   @available(OSX 10.7, *)
   func sendOKResponse()
   @available(OSX 10.7, *)

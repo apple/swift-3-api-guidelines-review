@@ -12,7 +12,7 @@ let PHLivePhotoInfoCancelledKey: String
 class PHLivePhoto : Object, Copying, SecureCoding {
   var size: CGSize { get }
   class func request(resourceFileURLs fileURLs: [URL], placeholderImage image: UIImage?, targetSize: CGSize, contentMode: PHImageContentMode, resultHandler: (PHLivePhoto?, [Object : AnyObject]) -> Void) -> PHLivePhotoRequestID
-  class func cancelRequestWithRequestID(requestID: PHLivePhotoRequestID)
+  class func cancelRequest(requestID requestID: PHLivePhotoRequestID)
   init()
   @available(iOS 9.1, *)
   func copy(with zone: Zone = nil) -> AnyObject

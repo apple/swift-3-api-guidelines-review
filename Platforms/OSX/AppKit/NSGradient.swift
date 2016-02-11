@@ -10,7 +10,7 @@ class NSGradient : Object, Copying, Coding {
   func draw(from startingPoint: Point, to endingPoint: Point, options: NSGradientDrawingOptions)
   func draw(in rect: Rect, angle: CGFloat)
   func draw(in path: NSBezierPath, angle: CGFloat)
-  func drawFromCenter(startCenter: Point, radius startRadius: CGFloat, toCenter endCenter: Point, radius endRadius: CGFloat, options: NSGradientDrawingOptions)
+  func draw(fromCenter startCenter: Point, radius startRadius: CGFloat, toCenter endCenter: Point, radius endRadius: CGFloat, options: NSGradientDrawingOptions)
   func draw(in rect: Rect, relativeCenterPosition: Point)
   func draw(in path: NSBezierPath, relativeCenterPosition: Point)
   var colorSpace: NSColorSpace { get }

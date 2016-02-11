@@ -74,7 +74,7 @@ protocol UITextInput : UIKeyInput {
   @available(tvOS 3.2, *)
   func position(within range: UITextRange, farthestIn direction: UITextLayoutDirection) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func characterRangeByExtending(position: UITextPosition, in direction: UITextLayoutDirection) -> UITextRange?
+  func characterRange(byExtending position: UITextPosition, in direction: UITextLayoutDirection) -> UITextRange?
   @available(tvOS 3.2, *)
   func baseWritingDirection(for position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
   @available(tvOS 3.2, *)

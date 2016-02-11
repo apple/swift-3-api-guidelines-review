@@ -55,13 +55,13 @@ class NSPersistentStoreCoordinator : Object {
   @available(watchOS 2.0, *)
   var name: String?
   func persistentStore(for URL: URL) -> NSPersistentStore?
-  func urlFor(store: NSPersistentStore) -> URL
+  func url(for store: NSPersistentStore) -> URL
   @available(watchOS 2.0, *)
   func setURL(url: URL, for store: NSPersistentStore) -> Bool
   func addPersistentStore(type storeType: String, configuration: String?, url storeURL: URL?, options: [Object : AnyObject]? = [:]) throws -> NSPersistentStore
   func removePersistentStore(store: NSPersistentStore) throws
   func setMetadata(metadata: [String : AnyObject]?, for store: NSPersistentStore)
-  func metadataFor(store: NSPersistentStore) -> [String : AnyObject]
+  func metadata(for store: NSPersistentStore) -> [String : AnyObject]
   func managedObjectID(forURIRepresentation url: URL) -> NSManagedObjectID?
   @available(watchOS 2.0, *)
   func execute(request: NSPersistentStoreRequest, with context: NSManagedObjectContext) throws -> AnyObject

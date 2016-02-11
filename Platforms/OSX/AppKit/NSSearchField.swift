@@ -7,11 +7,11 @@ protocol NSSearchFieldDelegate : NSTextFieldDelegate {
 }
 class NSSearchField : NSTextField {
   @available(OSX 10.11, *)
-  func rectForSearchTextWhenCentered(isCentered: Bool) -> Rect
+  func rectForSearchText(whenCentered isCentered: Bool) -> Rect
   @available(OSX 10.11, *)
-  func rectForSearchButtonWhenCentered(isCentered: Bool) -> Rect
+  func rectForSearchButton(whenCentered isCentered: Bool) -> Rect
   @available(OSX 10.11, *)
-  func rectForCancelButtonWhenCentered(isCentered: Bool) -> Rect
+  func rectForCancelButton(whenCentered isCentered: Bool) -> Rect
   var recentSearches: [String]
   var recentsAutosaveName: String?
   @available(OSX 10.10, *)

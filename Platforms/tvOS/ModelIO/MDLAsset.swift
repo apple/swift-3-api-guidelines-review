@@ -8,7 +8,7 @@ class MDLAsset : Object, Copying, FastEnumeration {
   func export(to URL: URL, error: ()) throws
   class func canImportFileExtension(extension: String) -> Bool
   class func canExportFileExtension(extension: String) -> Bool
-  func boundingBoxAtTime(time: TimeInterval) -> MDLAxisAlignedBoundingBox
+  func boundingBox(atTime time: TimeInterval) -> MDLAxisAlignedBoundingBox
   var boundingBox: MDLAxisAlignedBoundingBox { get }
   var frameInterval: TimeInterval
   var startTime: TimeInterval

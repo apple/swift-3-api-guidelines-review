@@ -25,7 +25,7 @@ class PHAssetCollection : PHCollection {
   class func fetchMoments(inMomentList momentList: PHCollectionList, options: PHFetchOptions?) -> PHFetchResult
   class func fetchMoments(options: PHFetchOptions?) -> PHFetchResult
   class func transientAssetCollection(with assets: [PHAsset], title: String?) -> PHAssetCollection
-  class func transientAssetCollectionWithAssetFetchResult(fetchResult: PHFetchResult, title: String?) -> PHAssetCollection
+  class func transientAssetCollection(withAssetFetchResult fetchResult: PHFetchResult, title: String?) -> PHAssetCollection
   init()
 }
 @available(iOS 8.0, *)
@@ -41,6 +41,6 @@ class PHCollectionList : PHCollection {
   class func fetchMomentLists(momentListSubtype: PHCollectionListSubtype, containingMoment moment: PHAssetCollection, options: PHFetchOptions?) -> PHFetchResult
   class func fetchMomentLists(momentListSubtype: PHCollectionListSubtype, options: PHFetchOptions?) -> PHFetchResult
   class func transientCollectionList(with collections: [PHCollection], title: String?) -> PHCollectionList
-  class func transientCollectionListWithCollectionsFetchResult(fetchResult: PHFetchResult, title: String?) -> PHCollectionList
+  class func transientCollectionList(withCollectionsFetchResult fetchResult: PHFetchResult, title: String?) -> PHCollectionList
   init()
 }

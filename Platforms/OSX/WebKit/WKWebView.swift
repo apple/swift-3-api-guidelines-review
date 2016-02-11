@@ -12,7 +12,7 @@ class WKWebView : NSView {
   func loadHTMLString(string: String, baseURL: URL?) -> WKNavigation?
   @available(OSX 10.11, *)
   func load(data: Data, mimeType MIMEType: String, characterEncodingName: String, baseURL: URL) -> WKNavigation?
-  func goTo(item: WKBackForwardListItem) -> WKNavigation?
+  func go(to item: WKBackForwardListItem) -> WKNavigation?
   var title: String? { get }
   @NSCopying var url: URL? { get }
   var isLoading: Bool { get }

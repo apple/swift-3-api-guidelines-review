@@ -155,16 +155,16 @@ extension NSString {
   var utf8String: UnsafePointer<Int8> { get }
   var fastestEncoding: UInt { get }
   var smallestEncoding: UInt { get }
-  func dataUsingEncoding(encoding: UInt, allowLossyConversion lossy: Bool) -> Data?
-  func dataUsingEncoding(encoding: UInt) -> Data?
-  func canBeConvertedToEncoding(encoding: UInt) -> Bool
-  func cStringUsingEncoding(encoding: UInt) -> UnsafePointer<Int8>
+  func data(usingEncoding encoding: UInt, allowLossyConversion lossy: Bool) -> Data?
+  func data(usingEncoding encoding: UInt) -> Data?
+  func canBeConverted(toEncoding encoding: UInt) -> Bool
+  func cString(usingEncoding encoding: UInt) -> UnsafePointer<Int8>
   func getCString(buffer: UnsafeMutablePointer<Int8>, maxLength maxBufferCount: Int, encoding: UInt) -> Bool
   func getBytes(buffer: UnsafeMutablePointer<Void>, maxLength maxBufferCount: Int, usedLength usedBufferCount: UnsafeMutablePointer<Int>, encoding: UInt, options: StringEncodingConversionOptions = [], range: NSRange, remaining leftover: RangePointer) -> Bool
-  func maximumLengthOfBytesUsingEncoding(enc: UInt) -> Int
-  func lengthOfBytesUsingEncoding(enc: UInt) -> Int
+  func maximumLengthOfBytes(usingEncoding enc: UInt) -> Int
+  func lengthOfBytes(usingEncoding enc: UInt) -> Int
   class func availableStringEncodings() -> UnsafePointer<UInt>
-  class func localizedNameOfStringEncoding(encoding: UInt) -> String
+  class func localizedName(ofStringEncoding encoding: UInt) -> String
   class func defaultCStringEncoding() -> UInt
   var decomposedStringWithCanonicalMapping: String { get }
   var precomposedStringWithCanonicalMapping: String { get }

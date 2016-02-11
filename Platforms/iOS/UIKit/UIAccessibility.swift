@@ -130,9 +130,9 @@ protocol UIAccessibilityReadingContent {
   @available(iOS 5.0, *)
   func accessibilityLineNumber(for point: CGPoint) -> Int
   @available(iOS 5.0, *)
-  func accessibilityContentForLineNumber(lineNumber: Int) -> String?
+  func accessibilityContent(forLineNumber lineNumber: Int) -> String?
   @available(iOS 5.0, *)
-  func accessibilityFrameForLineNumber(lineNumber: Int) -> CGRect
+  func accessibilityFrame(forLineNumber lineNumber: Int) -> CGRect
   @available(iOS 5.0, *)
   func accessibilityPageContent() -> String?
 }

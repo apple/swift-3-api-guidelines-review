@@ -89,7 +89,7 @@ class NSScrollView : NSView, NSTextFinderBarContainer {
   @available(OSX 10.8, *)
   var minMagnification: CGFloat
   @available(OSX 10.8, *)
-  func magnifyToFit(rect: Rect)
+  func magnify(toFit rect: Rect)
   @available(OSX 10.8, *)
   func setMagnification(magnification: CGFloat, centeredAt point: Point)
   @available(OSX 10.9, *)

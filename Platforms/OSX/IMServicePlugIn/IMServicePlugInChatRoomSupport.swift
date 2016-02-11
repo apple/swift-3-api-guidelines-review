@@ -7,12 +7,12 @@ protocol IMServicePlugInChatRoomSupport {
   func declineChatRoomInvitation(roomName: String!)
 }
 protocol IMServiceApplicationChatRoomSupport : IMServiceApplication {
-  func plugInDidReceiveInvitation(invitation: IMServicePlugInMessage!, forChatRoom roomName: String!, fromHandle handle: String!)
-  func plugInDidReceive(message: IMServicePlugInMessage!, forChatRoom roomName: String!, fromHandle handle: String!)
-  func plugInDidReceiveNotice(notice: String!, forChatRoom roomName: String!)
-  func plugInDidSend(message: IMServicePlugInMessage!, toChatRoom roomName: String!, error: Error!)
-  func plugInDidJoinChatRoom(roomName: String!)
-  func plugInDidLeaveChatRoom(roomName: String!, error: Error!)
+  func plug(inDidReceiveInvitation invitation: IMServicePlugInMessage!, forChatRoom roomName: String!, fromHandle handle: String!)
+  func plug(inDidReceive message: IMServicePlugInMessage!, forChatRoom roomName: String!, fromHandle handle: String!)
+  func plug(inDidReceiveNotice notice: String!, forChatRoom roomName: String!)
+  func plug(inDidSend message: IMServicePlugInMessage!, toChatRoom roomName: String!, error: Error!)
+  func plug(inDidJoinChatRoom roomName: String!)
+  func plug(inDidLeaveChatRoom roomName: String!, error: Error!)
   func handles(handles: [AnyObject]!, didJoinChatRoom roomName: String!)
   func handles(handles: [AnyObject]!, didLeaveChatRoom roomName: String!)
 }

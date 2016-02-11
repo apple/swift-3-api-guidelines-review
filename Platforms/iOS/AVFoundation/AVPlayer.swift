@@ -36,12 +36,12 @@ extension AVPlayer {
   func seek(to date: Date)
   @available(iOS 5.0, *)
   func seek(to date: Date, completionHandler: (Bool) -> Void)
-  func seekTo(time: CMTime)
-  func seekTo(time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime)
+  func seek(to time: CMTime)
+  func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime)
   @available(iOS 5.0, *)
-  func seekTo(time: CMTime, completionHandler: (Bool) -> Void)
+  func seek(to time: CMTime, completionHandler: (Bool) -> Void)
   @available(iOS 5.0, *)
-  func seekTo(time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: (Bool) -> Void)
+  func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: (Bool) -> Void)
 }
 extension AVPlayer {
   @available(iOS 6.0, *)

@@ -258,7 +258,7 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   @available(OSX 10.7, *)
   func draggingSession(session: NSDraggingSession, endedAt screenPoint: Point, operation: NSDragOperation)
   @available(OSX 10.7, *)
-  func ignoreModifierKeysFor(session: NSDraggingSession) -> Bool
+  func ignoreModifierKeys(for session: NSDraggingSession) -> Bool
   func accessibilityLabel() -> String?
   func accessibilityRows() -> [NSAccessibilityRow]?
   func accessibilitySelectedRows() -> [NSAccessibilityRow]?

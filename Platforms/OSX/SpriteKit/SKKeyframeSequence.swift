@@ -25,7 +25,7 @@ class SKKeyframeSequence : Object, Coding, Copying {
   func setKeyframeValue(value: AnyObject, time: CGFloat, for index: Int)
   func getKeyframeValue(for index: Int) -> AnyObject
   func getKeyframeTime(for index: Int) -> CGFloat
-  func sampleAtTime(time: CGFloat) -> AnyObject?
+  func sample(atTime time: CGFloat) -> AnyObject?
   var interpolationMode: SKInterpolationMode
   var repeatMode: SKRepeatMode
   convenience init()

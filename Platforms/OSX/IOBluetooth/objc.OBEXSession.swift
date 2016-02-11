@@ -22,7 +22,7 @@ class OBEXSession : Object {
   func setEventSelector(inEventSelector: Selector, target inEventSelectorTarget: AnyObject!, refCon inUserRefCon: AnyObject!)
   func serverHandleIncomingData(event: UnsafeMutablePointer<OBEXTransportEvent>)
   func clientHandleIncomingData(event: UnsafeMutablePointer<OBEXTransportEvent>)
-  func sendDataToTransport(inDataToSend: UnsafeMutablePointer<Void>, dataLength inDataLength: Int) -> OBEXError
+  func sendData(toTransport inDataToSend: UnsafeMutablePointer<Void>, dataLength inDataLength: Int) -> OBEXError
   func openTransportConnection(inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
   func hasOpenTransportConnection() -> Bool
   func closeTransportConnection() -> OBEXError

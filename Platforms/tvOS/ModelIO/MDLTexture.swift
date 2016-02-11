@@ -27,8 +27,8 @@ class MDLTexture : Object, MDLNamed {
   func imageFromTexture() -> Unmanaged<CGImage>?
   func texelDataWithTopLeftOrigin() -> Data?
   func texelDataWithBottomLeftOrigin() -> Data?
-  func texelDataWithTopLeftOriginAtMipLevel(level: Int, create: Bool) -> Data?
-  func texelDataWithBottomLeftOriginAtMipLevel(level: Int, create: Bool) -> Data?
+  func texelDataWithTopLeftOrigin(atMipLevel level: Int, create: Bool) -> Data?
+  func texelDataWithBottomLeftOrigin(atMipLevel level: Int, create: Bool) -> Data?
   var dimensions: vector_int2 { get }
   var rowStride: Int { get }
   var channelCount: Int { get }

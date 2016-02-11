@@ -8,7 +8,7 @@ class CNLabeledValue : Object, Copying, SecureCoding {
   func bySettingLabel(label: String?) -> Self
   func bySettingValue(value: protocol<Copying, SecureCoding>) -> Self
   func bySettingLabel(label: String?, value: protocol<Copying, SecureCoding>) -> Self
-  class func localizedStringForLabel(label: String) -> String
+  class func localizedString(forLabel label: String) -> String
   init()
   @available(OSX 10.11, *)
   func copy(with zone: Zone = nil) -> AnyObject

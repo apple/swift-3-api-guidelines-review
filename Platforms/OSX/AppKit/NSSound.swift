@@ -47,5 +47,5 @@ protocol NSSoundDelegate : ObjectProtocol {
   optional func sound(sound: NSSound, didFinishPlaying aBool: Bool)
 }
 extension Bundle {
-  func pathForSoundResource(name: String) -> String?
+  func path(forSoundResource name: String) -> String?
 }

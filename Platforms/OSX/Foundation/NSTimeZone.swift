@@ -35,7 +35,7 @@ extension TimeZone {
   @available(OSX 10.5, *)
   @NSCopying var nextDaylightSavingTimeTransition: Date? { get }
   var description: String { get }
-  func isEqualTo(aTimeZone: TimeZone) -> Bool
+  func isEqual(to aTimeZone: TimeZone) -> Bool
   @available(OSX 10.5, *)
   func localizedName(style: TimeZoneNameStyle, locale: Locale?) -> String?
 }

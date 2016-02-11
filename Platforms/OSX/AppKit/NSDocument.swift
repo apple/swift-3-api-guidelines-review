@@ -38,7 +38,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   @available(OSX 10.8, *)
   var isDraft: Bool
   @available(OSX 10.7, *)
-  func performActivityWithSynchronousWaiting(waitSynchronously: Bool, using block: (() -> Void) -> Void)
+  func performActivity(synchronousWaiting waitSynchronously: Bool, using block: (() -> Void) -> Void)
   @available(OSX 10.7, *)
   func continueActivity(block: () -> Void)
   @available(OSX 10.7, *)
@@ -71,7 +71,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   @IBAction func saveAs(sender: AnyObject?)
   @IBAction func saveTo(sender: AnyObject?)
   func save(delegate delegate: AnyObject?, didSave didSaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func runModalSavePanelFor(saveOperation: NSSaveOperationType, delegate: AnyObject?, didSave didSaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func runModalSavePanel(for saveOperation: NSSaveOperationType, delegate: AnyObject?, didSave didSaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   var shouldRunSavePanelWithAccessoryView: Bool { get }
   func prepare(savePanel: NSSavePanel) -> Bool
   var fileNameExtensionWasHiddenInLastRunSavePanel: Bool { get }
@@ -132,7 +132,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   @available(OSX 10.8, *)
   var isLocked: Bool { get }
   @IBAction func runPageLayout(sender: AnyObject?)
-  func runModalPageLayoutWith(printInfo: NSPrintInfo, delegate: AnyObject?, didRun didRunSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func runModalPageLayout(printInfo: NSPrintInfo, delegate: AnyObject?, didRun didRunSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func prepare(pageLayout: NSPageLayout) -> Bool
   func shouldChangePrintInfo(newPrintInfo: NSPrintInfo) -> Bool
   @NSCopying var printInfo: NSPrintInfo
@@ -150,7 +150,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   var isInViewingMode: Bool { get }
   func updateChangeCount(change: NSDocumentChangeType)
   @available(OSX 10.7, *)
-  func changeCountTokenFor(saveOperation: NSSaveOperationType) -> AnyObject
+  func changeCountToken(for saveOperation: NSSaveOperationType) -> AnyObject
   @available(OSX 10.7, *)
   func updateChangeCount(withToken changeCountToken: AnyObject, for saveOperation: NSSaveOperationType)
   var undoManager: UndoManager?
@@ -179,7 +179,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   class func readableTypes() -> [String]
   class func writableTypes() -> [String]
   class func isNativeType(type: String) -> Bool
-  func writableTypesFor(saveOperation: NSSaveOperationType) -> [String]
+  func writableTypes(for saveOperation: NSSaveOperationType) -> [String]
   @available(OSX 10.5, *)
   func fileNameExtension(forType typeName: String, saveOperation: NSSaveOperationType) -> String?
   func validate(anItem: NSValidatedUserInterfaceItem) -> Bool

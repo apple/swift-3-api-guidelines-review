@@ -180,8 +180,8 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   var isZoomed: Bool { get }
   func zoom(sender: AnyObject?)
   var isMiniaturized: Bool { get }
-  func tryToPerform(anAction: Selector, with anObject: AnyObject?) -> Bool
-  func validRequestorForSendType(sendType: String, returnType: String) -> AnyObject?
+  func `try`(toPerform anAction: Selector, with anObject: AnyObject?) -> Bool
+  func validRequestor(forSendType sendType: String, returnType: String) -> AnyObject?
   @NSCopying var backgroundColor: NSColor!
   @available(OSX 10.5, *)
   func setContentBorderThickness(thickness: CGFloat, for edge: RectEdge)
@@ -229,7 +229,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.7, *)
   func convertRectToBacking(aRect: Rect) -> Rect
   @available(OSX 10.7, *)
-  func convertRectFromBacking(aRect: Rect) -> Rect
+  func convertRect(fromBacking aRect: Rect) -> Rect
   @available(OSX 10.7, *)
   func backingAlignedRect(aRect: Rect, options: AlignmentOptions = []) -> Rect
   @available(OSX 10.7, *)
@@ -1006,7 +1006,7 @@ protocol NSWindowDelegate : ObjectProtocol {
   @available(OSX 10.7, *)
   optional func window(window: NSWindow, startCustomAnimationToEnterFullScreenWithDuration duration: TimeInterval)
   @available(OSX 10.7, *)
-  optional func windowDidFailToEnterFullScreen(window: NSWindow)
+  optional func windowDidFail(toEnterFullScreen window: NSWindow)
   @available(OSX 10.7, *)
   optional func customWindowsToExitFullScreen(for window: NSWindow) -> [NSWindow]?
   @available(OSX 10.7, *)

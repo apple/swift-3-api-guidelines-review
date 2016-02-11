@@ -24,7 +24,7 @@ class NSTabViewItem : Object, Coding {
   @available(OSX 10.6, *)
   var toolTip: String?
   func drawLabel(shouldTruncateLabel: Bool, in labelRect: Rect)
-  func sizeOfLabel(computeMin: Bool) -> Size
+  func size(ofLabel computeMin: Bool) -> Size
   init()
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)

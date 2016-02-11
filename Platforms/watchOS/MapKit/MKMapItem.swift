@@ -10,7 +10,7 @@ class MKMapItem : Object {
   @NSCopying var timeZone: TimeZone?
   class func forCurrentLocation() -> MKMapItem
   init(placemark: MKPlacemark)
-  func openInMapsWithLaunchOptions(launchOptions: [String : AnyObject]? = [:]) -> Bool
+  func openInMaps(launchOptions launchOptions: [String : AnyObject]? = [:]) -> Bool
   class func openMaps(mapItems: [MKMapItem], launchOptions: [String : AnyObject]? = [:]) -> Bool
   init()
 }

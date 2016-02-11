@@ -9,7 +9,7 @@ class ScriptClassDescription : ClassDescription {
   var appleEventCode: FourCharCode { get }
   func matchesAppleEventCode(appleEventCode: FourCharCode) -> Bool
   func supportsCommand(commandDescription: ScriptCommandDescription) -> Bool
-  func selectorForCommand(commandDescription: ScriptCommandDescription) -> Selector
+  func selector(forCommand commandDescription: ScriptCommandDescription) -> Selector
   func type(forKey key: String) -> String?
   func forKey(key: String) -> ScriptClassDescription?
   func appleEventCode(forKey key: String) -> FourCharCode

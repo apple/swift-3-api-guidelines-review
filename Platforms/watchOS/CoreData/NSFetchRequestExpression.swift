@@ -2,7 +2,7 @@
 let NSFetchRequestExpressionType: ExpressionType
 @available(watchOS 2.0, *)
 class NSFetchRequestExpression : Expression {
-  class func expressionForFetch(fetch: Expression, context: Expression, countOnly countFlag: Bool) -> Expression
+  class func expression(forFetch fetch: Expression, context: Expression, countOnly countFlag: Bool) -> Expression
   var requestExpression: Expression { get }
   var contextExpression: Expression { get }
   var isCountOnlyRequest: Bool { get }

@@ -7,5 +7,5 @@ protocol UIPickerViewAccessibilityDelegate : UIPickerViewDelegate {
 }
 protocol UIScrollViewAccessibilityDelegate : UIScrollViewDelegate {
   @available(iOS 2.0, *)
-  optional func accessibilityScrollStatusFor(scrollView: UIScrollView) -> String?
+  optional func accessibilityScrollStatus(for scrollView: UIScrollView) -> String?
 }

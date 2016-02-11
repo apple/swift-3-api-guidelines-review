@@ -26,7 +26,7 @@ class DateComponentsFormatter : Formatter {
   func string(forObjectValue obj: AnyObject) -> String?
   func string(from components: DateComponents) -> String?
   func string(from startDate: Date, to endDate: Date) -> String?
-  func stringFromTimeInterval(ti: TimeInterval) -> String?
+  func string(fromTimeInterval ti: TimeInterval) -> String?
   class func localizedString(from components: DateComponents, unitsStyle: DateComponentsFormatterUnitsStyle) -> String?
   var unitsStyle: DateComponentsFormatterUnitsStyle
   var allowedUnits: CalendarUnit

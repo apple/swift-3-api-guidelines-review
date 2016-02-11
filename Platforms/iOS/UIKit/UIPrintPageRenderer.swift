@@ -9,7 +9,7 @@ class UIPrintPageRenderer : Object {
   func printFormattersForPage(at pageIndex: Int) -> [UIPrintFormatter]?
   func addPrintFormatter(formatter: UIPrintFormatter, startingAtPageAt pageIndex: Int)
   func numberOfPages() -> Int
-  func prepareForDrawingPages(range: NSRange)
+  func prepare(forDrawingPages range: NSRange)
   func drawPage(at pageIndex: Int, in printableRect: CGRect)
   func drawPrintFormatter(printFormatter: UIPrintFormatter, forPageAt pageIndex: Int)
   func drawHeaderForPage(at pageIndex: Int, in headerRect: CGRect)

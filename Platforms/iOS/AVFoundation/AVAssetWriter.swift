@@ -25,8 +25,8 @@ class AVAssetWriter : Object {
   func canAddInput(input: AVAssetWriterInput) -> Bool
   func addInput(input: AVAssetWriterInput)
   func startWriting() -> Bool
-  func startSessionAtSourceTime(startTime: CMTime)
-  func endSessionAtSourceTime(endTime: CMTime)
+  func startSession(atSourceTime startTime: CMTime)
+  func endSession(atSourceTime endTime: CMTime)
   func cancelWriting()
   @available(iOS 6.0, *)
   func finishWriting(completionHandler handler: () -> Void)

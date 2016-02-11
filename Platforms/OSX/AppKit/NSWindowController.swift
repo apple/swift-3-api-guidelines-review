@@ -14,7 +14,7 @@ class NSWindowController : NSResponder, Coding, NSSeguePerforming {
   func setDocumentEdited(dirtyFlag: Bool)
   var shouldCloseDocument: Bool
   func synchronizeWindowTitleWithDocumentName()
-  func windowTitleForDocumentDisplayName(displayName: String) -> String
+  func windowTitle(forDocumentDisplayName displayName: String) -> String
   @available(OSX 10.10, *)
   var contentViewController: NSViewController?
   var window: NSWindow?

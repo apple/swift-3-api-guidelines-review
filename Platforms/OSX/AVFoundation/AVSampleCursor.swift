@@ -1,10 +1,10 @@
 
 @available(OSX 10.10, *)
 class AVSampleCursor : Object, Copying {
-  func stepInDecodeOrderByCount(stepCount: Int64) -> Int64
-  func stepInPresentationOrderByCount(stepCount: Int64) -> Int64
-  func stepByDecode(deltaDecodeTime: CMTime, wasPinned outWasPinned: UnsafeMutablePointer<ObjCBool>) -> CMTime
-  func stepByPresentationTime(deltaPresentationTime: CMTime, wasPinned outWasPinned: UnsafeMutablePointer<ObjCBool>) -> CMTime
+  func stepInDecodeOrder(byCount stepCount: Int64) -> Int64
+  func stepInPresentationOrder(byCount stepCount: Int64) -> Int64
+  func step(byDecode deltaDecodeTime: CMTime, wasPinned outWasPinned: UnsafeMutablePointer<ObjCBool>) -> CMTime
+  func step(byPresentationTime deltaPresentationTime: CMTime, wasPinned outWasPinned: UnsafeMutablePointer<ObjCBool>) -> CMTime
   @available(OSX 10.10, *)
   func copy(with zone: Zone = nil) -> AnyObject
 }
@@ -12,8 +12,8 @@ extension AVSampleCursor {
   var presentationTimeStamp: CMTime { get }
   var decodeTimeStamp: CMTime { get }
   func comparePositionInDecodeOrderWithPosition(of cursor: AVSampleCursor) -> ComparisonResult
-  func samplesWithEarlierDecodeTimeStampsMayHaveLaterPresentationTimeStampsThanCursor(cursor: AVSampleCursor) -> Bool
-  func samplesWithLaterDecodeTimeStampsMayHaveEarlierPresentationTimeStampsThanCursor(cursor: AVSampleCursor) -> Bool
+  func samples(withEarlierDecodeTimeStampsMayHaveLaterPresentationTimeStampsThanCursor cursor: AVSampleCursor) -> Bool
+  func samples(withLaterDecodeTimeStampsMayHaveEarlierPresentationTimeStampsThanCursor cursor: AVSampleCursor) -> Bool
 }
 extension AVSampleCursor {
   var currentSampleDuration: CMTime { get }

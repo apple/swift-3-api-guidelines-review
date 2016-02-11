@@ -5,7 +5,7 @@ typealias CMStepUpdateHandler = (Int, Date, Error?) -> Void
 class CMStepCounter : Object {
   class func isStepCountingAvailable() -> Bool
   func queryStepCountStarting(from start: Date, to end: Date, to queue: OperationQueue, withHandler handler: CMStepQueryHandler)
-  func startStepCountingUpdatesTo(queue: OperationQueue, updateOn stepCounts: Int, withHandler handler: CMStepUpdateHandler)
+  func startStepCountingUpdates(to queue: OperationQueue, updateOn stepCounts: Int, withHandler handler: CMStepUpdateHandler)
   func stopStepCountingUpdates()
   init()
 }

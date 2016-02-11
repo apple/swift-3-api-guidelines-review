@@ -87,7 +87,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   var isHidden: Bool
   var isHiddenOrHasHiddenAncestor: Bool { get }
   func getRectsBeingDrawn(rects: UnsafeMutablePointer<UnsafePointer<Rect>>, count: UnsafeMutablePointer<Int>)
-  func needsToDraw(aRect: Rect) -> Bool
+  func needs(toDraw aRect: Rect) -> Bool
   var wantsDefaultClipping: Bool { get }
   @available(OSX 10.5, *)
   func viewDidHide()
@@ -141,15 +141,15 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.7, *)
   func convertPointToBacking(aPoint: Point) -> Point
   @available(OSX 10.7, *)
-  func convertPointFromBacking(aPoint: Point) -> Point
+  func convertPoint(fromBacking aPoint: Point) -> Point
   @available(OSX 10.7, *)
   func convertSizeToBacking(aSize: Size) -> Size
   @available(OSX 10.7, *)
-  func convertSizeFromBacking(aSize: Size) -> Size
+  func convertSize(fromBacking aSize: Size) -> Size
   @available(OSX 10.7, *)
   func convertRectToBacking(aRect: Rect) -> Rect
   @available(OSX 10.7, *)
-  func convertRectFromBacking(aRect: Rect) -> Rect
+  func convertRect(fromBacking aRect: Rect) -> Rect
   @available(OSX 10.7, *)
   func convertPoint(toLayer aPoint: Point) -> Point
   @available(OSX 10.7, *)
@@ -179,7 +179,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   func display(rect: Rect)
   func displayIfNeeded(in rect: Rect)
   func displayRectIgnoringOpacity(rect: Rect)
-  func displayIfNeededInRectIgnoringOpacity(rect: Rect)
+  func displayIfNeeded(inRectIgnoringOpacity rect: Rect)
   func draw(dirtyRect: Rect)
   func displayRectIgnoringOpacity(aRect: Rect, in context: NSGraphicsContext)
   func bitmapImageRepForCachingDisplay(in rect: Rect) -> NSBitmapImageRep?
@@ -295,13 +295,13 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation
   func draggingUpdated(sender: NSDraggingInfo) -> NSDragOperation
   func draggingExited(sender: NSDraggingInfo?)
-  func prepareForDragOperation(sender: NSDraggingInfo) -> Bool
+  func prepare(forDragOperation sender: NSDraggingInfo) -> Bool
   func performDragOperation(sender: NSDraggingInfo) -> Bool
   func concludeDragOperation(sender: NSDraggingInfo?)
   func draggingEnded(sender: NSDraggingInfo?)
   func wantsPeriodicDraggingUpdates() -> Bool
   @available(OSX 10.7, *)
-  func updateDraggingItemsForDrag(sender: NSDraggingInfo?)
+  func updateDraggingItems(forDrag sender: NSDraggingInfo?)
   @available(OSX 10.9, *)
   var appearance: NSAppearance?
   @available(OSX 10.9, *)
@@ -880,7 +880,7 @@ extension NSView {
   func adjustPageWidthNew(newRight: UnsafeMutablePointer<CGFloat>, left oldLeft: CGFloat, right oldRight: CGFloat, limit rightLimit: CGFloat)
   func adjustPageHeightNew(newBottom: UnsafeMutablePointer<CGFloat>, top oldTop: CGFloat, bottom oldBottom: CGFloat, limit bottomLimit: CGFloat)
   func rect(forPage page: Int) -> Rect
-  func locationOfPrint(aRect: Rect) -> Point
+  func location(ofPrint aRect: Rect) -> Point
   func drawPageBorder(borderSize: Size)
   @NSCopying var pageHeader: AttributedString { get }
   @NSCopying var pageFooter: AttributedString { get }

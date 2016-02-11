@@ -11,9 +11,9 @@ class ODQuery : Object, Copying {
   @available(OSX 10.6, *)
   unowned(unsafe) var delegate: @sil_unmanaged ODQueryDelegate!
   @available(OSX 10.6, *)
-  func scheduleIn(inRunLoop: RunLoop!, forMode inMode: String!)
+  func schedule(in inRunLoop: RunLoop!, forMode inMode: String!)
   @available(OSX 10.6, *)
-  func removeFrom(inRunLoop: RunLoop!, forMode inMode: String!)
+  func remove(from inRunLoop: RunLoop!, forMode inMode: String!)
   @available(OSX 10.6, *)
   func synchronize()
   @available(OSX 10.6, *)

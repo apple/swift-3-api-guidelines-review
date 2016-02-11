@@ -7,7 +7,7 @@ typealias CMMotionActivityQueryHandler = ([CMMotionActivity]?, Error?) -> Void
 class CMMotionActivityManager : Object {
   class func isActivityAvailable() -> Bool
   func queryActivityStarting(from start: Date, to end: Date, to queue: OperationQueue, withHandler handler: CMMotionActivityQueryHandler)
-  func startActivityUpdatesTo(queue: OperationQueue, withHandler handler: CMMotionActivityHandler)
+  func startActivityUpdates(to queue: OperationQueue, withHandler handler: CMMotionActivityHandler)
   func stopActivityUpdates()
   init()
 }

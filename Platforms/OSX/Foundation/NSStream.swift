@@ -27,8 +27,8 @@ class Stream : Object {
   unowned(unsafe) var delegate: @sil_unmanaged StreamDelegate?
   func property(forKey key: String) -> AnyObject?
   func setProperty(property: AnyObject?, forKey key: String) -> Bool
-  func scheduleIn(aRunLoop: RunLoop, forMode mode: String)
-  func removeFrom(aRunLoop: RunLoop, forMode mode: String)
+  func schedule(in aRunLoop: RunLoop, forMode mode: String)
+  func remove(from aRunLoop: RunLoop, forMode mode: String)
   var streamStatus: StreamStatus { get }
   @NSCopying var streamError: Error? { get }
   init()

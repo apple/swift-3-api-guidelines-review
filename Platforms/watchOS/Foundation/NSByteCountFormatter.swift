@@ -24,8 +24,8 @@ enum ByteCountFormatterCountStyle : Int {
 }
 @available(watchOS 2.0, *)
 class ByteCountFormatter : Formatter {
-  class func stringFromByteCount(byteCount: Int64, countStyle: ByteCountFormatterCountStyle) -> String
-  func stringFromByteCount(byteCount: Int64) -> String
+  class func string(fromByteCount byteCount: Int64, countStyle: ByteCountFormatterCountStyle) -> String
+  func string(fromByteCount byteCount: Int64) -> String
   var allowedUnits: ByteCountFormatterUnits
   var countStyle: ByteCountFormatterCountStyle
   var allowsNonnumericFormatting: Bool

@@ -35,7 +35,7 @@ class WebView : NSView {
   func setMaintainsBackForwardList(flag: Bool)
   func goBack() -> Bool
   func goForward() -> Bool
-  func goToBackForwardItem(item: WebHistoryItem!) -> Bool
+  func go(toBackForwardItem item: WebHistoryItem!) -> Bool
   var textSizeMultiplier: Float
   var applicationNameForUserAgent: String!
   var customUserAgent: String!

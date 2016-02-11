@@ -4,8 +4,8 @@ let DRBurnProgressPanelWillBeginNotification: String
 @available(OSX 10.2, *)
 let DRBurnProgressPanelDidFinishNotification: String
 class DRBurnProgressPanel : NSPanel {
-  func beginProgressSheetFor(burn: DRBurn!, layout: AnyObject!, modalFor docWindow: NSWindow!)
-  func beginFor(burn: DRBurn!, layout: AnyObject!)
+  func beginProgressSheet(for burn: DRBurn!, layout: AnyObject!, modalFor docWindow: NSWindow!)
+  func begin(for burn: DRBurn!, layout: AnyObject!)
   func setDescription(description: String!)
   func description() -> String!
   func setVerboseProgressStatus(verbose: Bool)

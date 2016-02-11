@@ -47,7 +47,7 @@ struct __cbcFlags {
   init(usesDataSource: UInt32, completes: UInt32, buttonBordered: UInt32, popUpIsUp: UInt32, filteringEvents: UInt32, drawing: UInt32, synchronizingSelection: UInt32, reserved: UInt32, visibleItems: UInt32)
 }
 protocol NSComboBoxCellDataSource : ObjectProtocol {
-  optional func numberOfItemsIn(comboBoxCell: NSComboBoxCell) -> Int
+  optional func numberOfItems(in comboBoxCell: NSComboBoxCell) -> Int
   optional func comboBoxCell(aComboBoxCell: NSComboBoxCell, objectValueForItemAt index: Int) -> AnyObject
   optional func comboBoxCell(aComboBoxCell: NSComboBoxCell, indexOfItemWithStringValue string: String) -> Int
   optional func comboBoxCell(aComboBoxCell: NSComboBoxCell, completedString uncompletedString: String) -> String?

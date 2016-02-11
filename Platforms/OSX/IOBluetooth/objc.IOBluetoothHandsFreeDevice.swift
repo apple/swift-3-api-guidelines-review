@@ -30,7 +30,7 @@ class IOBluetoothHandsFreeDevice : IOBluetoothHandsFree {
   @available(OSX 10.7, *)
   func holdCall()
   @available(OSX 10.7, *)
-  func placeAllOthersOnHold(index: Int32)
+  func placeAllOthers(onHold index: Int32)
   @available(OSX 10.7, *)
   func addHeldCall()
   @available(OSX 10.7, *)
@@ -42,9 +42,9 @@ class IOBluetoothHandsFreeDevice : IOBluetoothHandsFree {
   @available(OSX 10.7, *)
   func sendSMS(aNumber: String!, message aMessage: String!)
   @available(OSX 10.7, *)
-  func sendATCommand(atCommand: String!)
+  func send(atCommand atCommand: String!)
   @available(OSX 10.7, *)
-  func sendATCommand(atCommand: String!, timeout: Float, selector: Selector, target: AnyObject!)
+  func send(atCommand atCommand: String!, timeout: Float, selector: Selector, target: AnyObject!)
   init()
 }
 protocol IOBluetoothHandsFreeDeviceDelegate : IOBluetoothHandsFreeDelegate {

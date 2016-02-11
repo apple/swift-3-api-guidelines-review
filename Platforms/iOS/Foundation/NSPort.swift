@@ -6,8 +6,8 @@ class Port : Object, Copying, Coding {
   var isValid: Bool { get }
   func setDelegate(anObject: PortDelegate?)
   func delegate() -> PortDelegate?
-  func scheduleIn(runLoop: RunLoop, forMode mode: String)
-  func removeFrom(runLoop: RunLoop, forMode mode: String)
+  func schedule(in runLoop: RunLoop, forMode mode: String)
+  func remove(from runLoop: RunLoop, forMode mode: String)
   var reservedSpaceLength: Int { get }
   func send(before limitDate: Date, components: MutableArray?, from receivePort: Port?, reserved headerSpaceReserved: Int) -> Bool
   func send(before limitDate: Date, msgid msgID: Int, components: MutableArray?, from receivePort: Port?, reserved headerSpaceReserved: Int) -> Bool
@@ -28,8 +28,8 @@ class MachPort : Port {
   @available(iOS 2.0, *)
   init(machPort: UInt32, options f: MachPortOptions = [])
   var machPort: UInt32 { get }
-  func scheduleIn(runLoop: RunLoop, forMode mode: String)
-  func removeFrom(runLoop: RunLoop, forMode mode: String)
+  func schedule(in runLoop: RunLoop, forMode mode: String)
+  func remove(from runLoop: RunLoop, forMode mode: String)
   convenience init()
   init?(coder aDecoder: Coder)
 }

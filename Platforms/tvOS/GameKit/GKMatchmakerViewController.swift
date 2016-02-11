@@ -7,7 +7,7 @@ class GKMatchmakerViewController : UINavigationController {
   init?(matchRequest request: GKMatchRequest)
   init?(invite: GKInvite)
   @available(tvOS 5.0, *)
-  func addPlayersTo(match: GKMatch)
+  func addPlayers(to match: GKMatch)
   @available(tvOS 8.0, *)
   func setHostedPlayer(player: GKPlayer, didConnect connected: Bool)
   @available(tvOS 5.0, *)

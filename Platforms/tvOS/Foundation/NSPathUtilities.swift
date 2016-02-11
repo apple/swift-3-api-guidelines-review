@@ -13,7 +13,7 @@ extension NSString {
   var expandingTildeInPath: String { get }
   var standardizingPath: String { get }
   var resolvingSymlinksInPath: String { get }
-  func stringsByAppendingPaths(paths: [String]) -> [String]
+  func strings(byAppendingPaths paths: [String]) -> [String]
   func completePath(into outputName: AutoreleasingUnsafeMutablePointer<NSString?>, caseSensitive flag: Bool, matchesInto outputArray: AutoreleasingUnsafeMutablePointer<NSArray?>, filterTypes: [String]?) -> Int
   var fileSystemRepresentation: UnsafePointer<Int8> { get }
   func getFileSystemRepresentation(cname: UnsafeMutablePointer<Int8>, maxLength max: Int) -> Bool

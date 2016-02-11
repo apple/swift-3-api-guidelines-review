@@ -2,7 +2,7 @@
 @available(iOS 8.0, *)
 class PHChange : Object {
   func changeDetails(for object: PHObject) -> PHObjectChangeDetails?
-  func changeDetailsFor(object: PHFetchResult) -> PHFetchResultChangeDetails?
+  func changeDetails(for object: PHFetchResult) -> PHFetchResultChangeDetails?
   init()
 }
 @available(iOS 8.0, *)

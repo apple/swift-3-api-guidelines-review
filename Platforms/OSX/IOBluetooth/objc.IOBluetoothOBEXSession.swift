@@ -14,7 +14,7 @@ class IOBluetoothOBEXSession : OBEXSession, IOBluetoothRFCOMMChannelDelegate {
   func openTransportConnection(inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
   func hasOpenTransportConnection() -> Bool
   func closeTransportConnection() -> OBEXError
-  func sendDataToTransport(inDataToSend: UnsafeMutablePointer<Void>, dataLength inDataLength: Int) -> OBEXError
+  func sendData(toTransport inDataToSend: UnsafeMutablePointer<Void>, dataLength inDataLength: Int) -> OBEXError
   func setOpenTransportConnectionAsyncSelector(inSelector: Selector, target inSelectorTarget: AnyObject!, refCon inUserRefCon: AnyObject!)
   func setOBEXSessionOpenConnectionCallback(inCallback: IOBluetoothOBEXSessionOpenConnectionCallback!, refCon inUserRefCon: UnsafeMutablePointer<Void>)
   init()

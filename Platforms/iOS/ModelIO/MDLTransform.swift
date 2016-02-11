@@ -6,7 +6,7 @@ protocol MDLTransformComponent : MDLComponent {
   var maximumTime: TimeInterval { get }
   optional func setLocalTransform(transform: matrix_float4x4, forTime time: TimeInterval)
   optional func setLocalTransform(transform: matrix_float4x4)
-  optional func localTransformAtTime(time: TimeInterval) -> matrix_float4x4
+  optional func localTransform(atTime time: TimeInterval) -> matrix_float4x4
   optional static func globalTransform(with object: MDLObject, atTime time: TimeInterval) -> matrix_float4x4
 }
 @available(iOS 9.0, *)
@@ -15,15 +15,15 @@ class MDLTransform : Object, MDLTransformComponent {
   convenience init(transformComponent component: MDLTransformComponent)
   convenience init(matrix: matrix_float4x4)
   func setIdentity()
-  func translationAtTime(time: TimeInterval) -> vector_float3
-  func rotationAtTime(time: TimeInterval) -> vector_float3
-  func shearAtTime(time: TimeInterval) -> vector_float3
-  func scaleAtTime(time: TimeInterval) -> vector_float3
+  func translation(atTime time: TimeInterval) -> vector_float3
+  func rotation(atTime time: TimeInterval) -> vector_float3
+  func shear(atTime time: TimeInterval) -> vector_float3
+  func scale(atTime time: TimeInterval) -> vector_float3
   func setTranslation(translation: vector_float3, forTime time: TimeInterval)
   func setRotation(rotation: vector_float3, forTime time: TimeInterval)
   func setShear(shear: vector_float3, forTime time: TimeInterval)
   func setScale(scale: vector_float3, forTime time: TimeInterval)
-  func rotationMatrixAtTime(time: TimeInterval) -> matrix_float4x4
+  func rotationMatrix(atTime time: TimeInterval) -> matrix_float4x4
   var translation: vector_float3
   var rotation: vector_float3
   var shear: vector_float3
@@ -40,7 +40,7 @@ class MDLTransform : Object, MDLTransformComponent {
   @available(iOS 9.0, *)
   func setLocalTransform(transform: matrix_float4x4)
   @available(iOS 9.0, *)
-  func localTransformAtTime(time: TimeInterval) -> matrix_float4x4
+  func localTransform(atTime time: TimeInterval) -> matrix_float4x4
   @available(iOS 9.0, *)
   class func globalTransform(with object: MDLObject, atTime time: TimeInterval) -> matrix_float4x4
 }

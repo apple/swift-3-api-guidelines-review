@@ -88,7 +88,7 @@ class GKTurnBasedMatch : Object {
   var exchangeDataMaximumSize: Int { get }
   @available(OSX 10.10, *)
   var exchangeMaxInitiatedExchangesPerPlayer: Int { get }
-  class func findFor(request: GKMatchRequest, withCompletionHandler completionHandler: (GKTurnBasedMatch?, Error?) -> Void)
+  class func find(for request: GKMatchRequest, withCompletionHandler completionHandler: (GKTurnBasedMatch?, Error?) -> Void)
   class func loadMatches(completionHandler completionHandler: (([GKTurnBasedMatch]?, Error?) -> Void)? = nil)
   @available(OSX 10.8, *)
   class func load(id matchID: String, withCompletionHandler completionHandler: ((GKTurnBasedMatch?, Error?) -> Void)? = nil)
@@ -105,11 +105,11 @@ class GKTurnBasedMatch : Object {
   @available(OSX 10.9, *)
   func participantQuitInTurn(with matchOutcome: GKTurnBasedMatchOutcome, nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
   func participantQuitOutOfTurn(with matchOutcome: GKTurnBasedMatchOutcome, withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
-  func endMatchInTurnWithMatch(matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
+  func endMatchInTurn(match matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func endMatchInTurnWithMatch(matchData: Data, scores: [GKScore]?, achievements: [GKAchievement]?, completionHandler: ((Error?) -> Void)? = nil)
+  func endMatchInTurn(match matchData: Data, scores: [GKScore]?, achievements: [GKAchievement]?, completionHandler: ((Error?) -> Void)? = nil)
   @available(OSX 10.8, *)
-  func saveCurrentTurnWithMatch(matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
+  func saveCurrentTurn(match matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
   @available(OSX 10.10, *)
   func saveMergedMatch(matchData: Data, withResolvedExchanges exchanges: [GKTurnBasedExchange], completionHandler: ((Error?) -> Void)? = nil)
   @available(OSX 10.10, *)
@@ -162,9 +162,9 @@ class GKTurnBasedExchangeReply : Object {
 @available(OSX, introduced=10.8, deprecated=10.10, message="Use registerListener on GKLocalPlayer with an object that implements the GKTurnBasedEventListener protocol")
 protocol GKTurnBasedEventHandlerDelegate {
   @available(OSX, introduced=10.8, deprecated=10.10)
-  func handleInviteFromGameCenter(playersToInvite: [GKPlayer])
+  func handleInvite(fromGameCenter playersToInvite: [GKPlayer])
   @available(OSX, introduced=10.9, deprecated=10.10)
-  func handleTurnEventFor(match: GKTurnBasedMatch, didBecomeActive: Bool)
+  func handleTurnEvent(for match: GKTurnBasedMatch, didBecomeActive: Bool)
   @available(OSX, introduced=10.8, deprecated=10.10)
   optional func handleMatchEnded(match: GKTurnBasedMatch)
 }

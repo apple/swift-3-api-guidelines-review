@@ -40,7 +40,7 @@ class CBPeripheralManager : Object {
   func add(service: CBMutableService)
   func remove(service: CBMutableService)
   func removeAllServices()
-  func respondTo(request: CBATTRequest, withResult result: CBATTError)
+  func respond(to request: CBATTRequest, withResult result: CBATTError)
   func updateValue(value: Data, for characteristic: CBMutableCharacteristic, onSubscribedCentrals centrals: [CBCentral]?) -> Bool
   convenience init()
 }

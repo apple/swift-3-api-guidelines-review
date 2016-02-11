@@ -86,7 +86,7 @@ protocol UIScrollViewDelegate : ObjectProtocol {
   @available(iOS 2.0, *)
   optional func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  optional func viewForZoomingIn(scrollView: UIScrollView) -> UIView?
+  optional func viewForZooming(in scrollView: UIScrollView) -> UIView?
   @available(iOS 3.2, *)
   optional func scrollViewWillBeginZooming(scrollView: UIScrollView, with view: UIView?)
   @available(iOS 2.0, *)

@@ -81,8 +81,8 @@ extension NSCollectionViewLayout {
   func layoutAttributesForDecorationView(ofKind elementKind: String, at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
   func layoutAttributesForDropTarget(at pointInCollectionView: Point) -> NSCollectionViewLayoutAttributes?
   func layoutAttributesForInterItemGap(before indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
-  func shouldInvalidateLayoutForBoundsChange(newBounds: Rect) -> Bool
-  func invalidationContextForBoundsChange(newBounds: Rect) -> NSCollectionViewLayoutInvalidationContext
+  func shouldInvalidateLayout(forBoundsChange newBounds: Rect) -> Bool
+  func invalidationContext(forBoundsChange newBounds: Rect) -> NSCollectionViewLayoutInvalidationContext
   func shouldInvalidateLayout(forPreferredLayoutAttributes preferredAttributes: NSCollectionViewLayoutAttributes, withOriginalAttributes originalAttributes: NSCollectionViewLayoutAttributes) -> Bool
   func invalidationContext(forPreferredLayoutAttributes preferredAttributes: NSCollectionViewLayoutAttributes, withOriginalAttributes originalAttributes: NSCollectionViewLayoutAttributes) -> NSCollectionViewLayoutInvalidationContext
   func targetContentOffset(forProposedContentOffset proposedContentOffset: Point, withScrollingVelocity velocity: Point) -> Point
@@ -92,7 +92,7 @@ extension NSCollectionViewLayout {
 extension NSCollectionViewLayout {
   func prepare(forCollectionViewUpdates updateItems: [NSCollectionViewUpdateItem])
   func finalizeCollectionViewUpdates()
-  func prepareForAnimatedBoundsChange(oldBounds: Rect)
+  func prepare(forAnimatedBoundsChange oldBounds: Rect)
   func finalizeAnimatedBoundsChange()
   func prepareForTransition(to newLayout: NSCollectionViewLayout)
   func prepareForTransition(from oldLayout: NSCollectionViewLayout)

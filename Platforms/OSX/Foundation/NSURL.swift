@@ -422,9 +422,9 @@ extension NSString {
   @available(OSX 10.9, *)
   var removingPercentEncoding: String? { get }
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -stringByAddingPercentEncodingWithAllowedCharacters: instead, which always uses the recommended UTF-8 encoding, and which encodes for a specific URL component or subcomponent since each URL component or subcomponent has different rules for what characters are valid.")
-  func addingPercentEscapesUsingEncoding(enc: UInt) -> String?
+  func addingPercentEscapes(usingEncoding enc: UInt) -> String?
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -stringByRemovingPercentEncoding instead, which always uses the recommended UTF-8 encoding.")
-  func replacingPercentEscapesUsingEncoding(enc: UInt) -> String?
+  func replacingPercentEscapes(usingEncoding enc: UInt) -> String?
 }
 extension URL {
   @available(OSX 10.6, *)

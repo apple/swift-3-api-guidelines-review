@@ -1,10 +1,10 @@
 
 @available(OSX 10.8, *)
 class AVPlayerItemOutput : Object {
-  func itemTimeForHostTime(hostTimeInSeconds: CFTimeInterval) -> CMTime
-  func itemTimeForMachAbsoluteTime(machAbsoluteTime: Int64) -> CMTime
+  func itemTime(forHostTime hostTimeInSeconds: CFTimeInterval) -> CMTime
+  func itemTime(forMachAbsoluteTime machAbsoluteTime: Int64) -> CMTime
   @available(OSX 10.8, *)
-  func itemTimeFor(timestamp: CVTimeStamp) -> CMTime
+  func itemTime(for timestamp: CVTimeStamp) -> CMTime
   @available(OSX 10.8, *)
   var suppressesPlayerRendering: Bool
   init()
@@ -12,8 +12,8 @@ class AVPlayerItemOutput : Object {
 @available(OSX 10.8, *)
 class AVPlayerItemVideoOutput : AVPlayerItemOutput {
   init(pixelBufferAttributes: [String : AnyObject]? = [:])
-  func hasNewPixelBufferForItemTime(itemTime: CMTime) -> Bool
-  func copyPixelBufferForItemTime(itemTime: CMTime, itemTimeForDisplay outItemTimeForDisplay: UnsafeMutablePointer<CMTime>) -> CVPixelBuffer?
+  func hasNewPixelBuffer(forItemTime itemTime: CMTime) -> Bool
+  func copyPixelBuffer(forItemTime itemTime: CMTime, itemTimeForDisplay outItemTimeForDisplay: UnsafeMutablePointer<CMTime>) -> CVPixelBuffer?
   func setDelegate(delegate: AVPlayerItemOutputPullDelegate?, queue delegateQueue: dispatch_queue_t?)
   func requestNotificationOfMediaDataChange(advanceInterval interval: TimeInterval)
   unowned(unsafe) var delegate: @sil_unmanaged AVPlayerItemOutputPullDelegate? { get }

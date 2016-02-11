@@ -31,7 +31,7 @@ class Task : Object {
   var qualityOfService: QualityOfService
 }
 extension Task {
-  class func launchedTaskWithLaunchPath(path: String, arguments: [String]) -> Task
+  class func launchedTask(withLaunchPath path: String, arguments: [String]) -> Task
   func waitUntilExit()
 }
 let taskDidTerminateNotification: String

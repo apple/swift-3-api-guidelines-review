@@ -3,7 +3,7 @@
 class HKHealthStore : Object {
   class func isHealthDataAvailable() -> Bool
   func authorizationStatus(for type: HKObjectType) -> HKAuthorizationStatus
-  func requestAuthorizationToShare(typesToShare: Set<HKSampleType>?, read typesToRead: Set<HKObjectType>?, completion: (Bool, Error?) -> Void)
+  func requestAuthorization(toShare typesToShare: Set<HKSampleType>?, read typesToRead: Set<HKObjectType>?, completion: (Bool, Error?) -> Void)
   @available(iOS 9.0, *)
   func handleAuthorizationForExtension(completion completion: (Bool, Error?) -> Void)
   @available(iOS 9.0, *)

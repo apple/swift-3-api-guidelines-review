@@ -7,6 +7,6 @@ class PHAssetResource : Object {
   var originalFilename: String { get }
   class func assetResources(for asset: PHAsset) -> [PHAssetResource]
   @available(iOS 9.1, *)
-  class func assetResourcesFor(livePhoto: PHLivePhoto) -> [PHAssetResource]
+  class func assetResources(for livePhoto: PHLivePhoto) -> [PHAssetResource]
   init()
 }

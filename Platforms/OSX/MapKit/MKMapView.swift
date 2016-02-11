@@ -89,7 +89,7 @@ extension MKMapView {
   @available(OSX 10.9, *)
   var overlays: [MKOverlay] { get }
   @available(OSX 10.9, *)
-  func overlaysIn(level: MKOverlayLevel) -> [MKOverlay]
+  func overlays(in level: MKOverlayLevel) -> [MKOverlay]
   @available(OSX 10.9, *)
   func renderer(for overlay: MKOverlay) -> MKOverlayRenderer?
   @available(OSX 10.9, *)

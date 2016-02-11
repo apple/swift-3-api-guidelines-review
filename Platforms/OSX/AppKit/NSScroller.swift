@@ -57,7 +57,7 @@ class NSScroller : NSControl {
   var scrollerStyle: NSScrollerStyle
   @available(OSX 10.7, *)
   var knobStyle: NSScrollerKnobStyle
-  func rectFor(partCode: NSScrollerPart) -> Rect
+  func rect(for partCode: NSScrollerPart) -> Rect
   func checkSpaceForParts()
   var usableParts: NSUsableScrollerParts { get }
   var arrowsPosition: NSScrollArrowPosition

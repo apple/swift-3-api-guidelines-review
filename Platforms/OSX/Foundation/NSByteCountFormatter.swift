@@ -24,8 +24,8 @@ enum ByteCountFormatterCountStyle : Int {
 }
 @available(OSX 10.8, *)
 class ByteCountFormatter : Formatter {
-  class func stringFromByteCount(byteCount: Int64, countStyle: ByteCountFormatterCountStyle) -> String
-  func stringFromByteCount(byteCount: Int64) -> String
+  class func string(fromByteCount byteCount: Int64, countStyle: ByteCountFormatterCountStyle) -> String
+  func string(fromByteCount byteCount: Int64) -> String
   var allowedUnits: ByteCountFormatterUnits
   var countStyle: ByteCountFormatterCountStyle
   var allowsNonnumericFormatting: Bool

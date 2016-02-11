@@ -45,7 +45,7 @@ class EKEventStore : Object {
   func event(withIdentifier identifier: String) -> EKEvent?
   func events(matching predicate: Predicate) -> [EKEvent]
   func enumerateEvents(matching predicate: Predicate, using block: EKEventSearchCallback)
-  func predicateForEventsWithStart(startDate: Date, end endDate: Date, calendars: [EKCalendar]?) -> Predicate
+  func predicateForEvents(withStart startDate: Date, end endDate: Date, calendars: [EKCalendar]?) -> Predicate
   @available(iOS 6.0, *)
   func save(reminder: EKReminder, commit: Bool) throws
   @available(iOS 6.0, *)
@@ -57,9 +57,9 @@ class EKEventStore : Object {
   @available(iOS 6.0, *)
   func predicateForReminders(in calendars: [EKCalendar]?) -> Predicate
   @available(iOS 6.0, *)
-  func predicateForIncompleteRemindersWithDueDateStarting(startDate: Date?, ending endDate: Date?, calendars: [EKCalendar]?) -> Predicate
+  func predicateForIncompleteReminders(withDueDateStarting startDate: Date?, ending endDate: Date?, calendars: [EKCalendar]?) -> Predicate
   @available(iOS 6.0, *)
-  func predicateForCompletedRemindersWithCompletionDateStarting(startDate: Date?, ending endDate: Date?, calendars: [EKCalendar]?) -> Predicate
+  func predicateForCompletedReminders(withCompletionDateStarting startDate: Date?, ending endDate: Date?, calendars: [EKCalendar]?) -> Predicate
   @available(iOS 5.0, *)
   func commit() throws
   @available(iOS 5.0, *)

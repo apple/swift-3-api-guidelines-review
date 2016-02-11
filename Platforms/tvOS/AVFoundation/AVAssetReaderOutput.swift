@@ -11,7 +11,7 @@ extension AVAssetReaderOutput {
   @available(tvOS 8.0, *)
   var supportsRandomAccess: Bool
   @available(tvOS 8.0, *)
-  func resetForReadingTimeRanges(timeRanges: [Value])
+  func reset(forReadingTimeRanges timeRanges: [Value])
   @available(tvOS 8.0, *)
   func markConfigurationAsFinal()
 }

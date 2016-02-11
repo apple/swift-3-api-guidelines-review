@@ -30,7 +30,7 @@ extension HKQuery {
   class func predicateForObjects(from workout: HKWorkout) -> Predicate
 }
 extension HKQuery {
-  class func predicateForSamplesWithStart(startDate: Date?, end endDate: Date?, options: HKQueryOptions = []) -> Predicate
+  class func predicateForSamples(withStart startDate: Date?, end endDate: Date?, options: HKQueryOptions = []) -> Predicate
 }
 extension HKQuery {
   class func predicateForQuantitySamples(with operatorType: PredicateOperatorType, quantity: HKQuantity) -> Predicate

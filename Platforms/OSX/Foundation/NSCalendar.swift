@@ -171,7 +171,7 @@ class Calendar : Object, Copying, SecureCoding {
   func range(of unit: CalendarUnit, start datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, for date: Date) -> Bool
   func date(from comps: DateComponents) -> Date?
   func components(unitFlags: CalendarUnit, from date: Date) -> DateComponents
-  func dateByAdding(comps: DateComponents, to date: Date, options opts: CalendarOptions = []) -> Date?
+  func date(byAdding comps: DateComponents, to date: Date, options opts: CalendarOptions = []) -> Date?
   func components(unitFlags: CalendarUnit, from startingDate: Date, to resultDate: Date, options opts: CalendarOptions = []) -> DateComponents
   @available(OSX 10.9, *)
   func getEra(eraValuePointer: UnsafeMutablePointer<Int>, year yearValuePointer: UnsafeMutablePointer<Int>, month monthValuePointer: UnsafeMutablePointer<Int>, day dayValuePointer: UnsafeMutablePointer<Int>, from date: Date)
@@ -188,7 +188,7 @@ class Calendar : Object, Copying, SecureCoding {
   @available(OSX 10.9, *)
   func startOfDay(for date: Date) -> Date
   @available(OSX 10.9, *)
-  func componentsIn(timezone: TimeZone, from date: Date) -> DateComponents
+  func components(in timezone: TimeZone, from date: Date) -> DateComponents
   @available(OSX 10.9, *)
   func compare(date1: Date, to date2: Date, toUnitGranularity unit: CalendarUnit) -> ComparisonResult
   @available(OSX 10.9, *)
@@ -204,13 +204,13 @@ class Calendar : Object, Copying, SecureCoding {
   @available(OSX 10.9, *)
   func isDate(inWeekend date: Date) -> Bool
   @available(OSX 10.9, *)
-  func rangeOfWeekendStart(datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, containing date: Date) -> Bool
+  func range(ofWeekendStart datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, containing date: Date) -> Bool
   @available(OSX 10.9, *)
   func nextWeekendStart(datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, options: CalendarOptions = [], after date: Date) -> Bool
   @available(OSX 10.9, *)
   func components(unitFlags: CalendarUnit, from startingDateComp: DateComponents, to resultDateComp: DateComponents, options: CalendarOptions = []) -> DateComponents
   @available(OSX 10.9, *)
-  func dateByAdding(unit: CalendarUnit, value: Int, to date: Date, options: CalendarOptions = []) -> Date?
+  func date(byAdding unit: CalendarUnit, value: Int, to date: Date, options: CalendarOptions = []) -> Date?
   @available(OSX 10.9, *)
   func enumerateDatesStarting(after start: Date, matching comps: DateComponents, options opts: CalendarOptions = [], using block: (Date?, Bool, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.9, *)

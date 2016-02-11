@@ -3,7 +3,7 @@
 class GKGraph : Object {
   var nodes: [GKGraphNode]? { get }
   init(nodes: [GKGraphNode])
-  func connectNodeToLowestCostNode(node: GKGraphNode, bidirectional: Bool)
+  func connectNode(toLowestCost node: GKGraphNode, bidirectional: Bool)
   func removeNodes(nodes: [GKGraphNode])
   func addNodes(nodes: [GKGraphNode])
   func findPath(from startNode: GKGraphNode, to endNode: GKGraphNode) -> [GKGraphNode]

@@ -95,5 +95,5 @@ class NEHotspotHelper : Object {
 }
 extension MutableURLRequest {
   @available(iOS 9.0, *)
-  func bindTo(command: NEHotspotHelperCommand)
+  func bind(to command: NEHotspotHelperCommand)
 }

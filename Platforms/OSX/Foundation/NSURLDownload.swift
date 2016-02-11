@@ -1,6 +1,6 @@
 
 class URLDownload : Object {
-  class func canResumeDownloadDecodedWithEncodingMIMEType(MIMEType: String) -> Bool
+  class func canResumeDownloadDecoded(withEncodingMIMEType MIMEType: String) -> Bool
   @available(OSX, introduced=10.3, deprecated=10.11, message="Use NSURLSession downloadTask (see NSURLSession.h)")
   init(request: URLRequest, delegate: URLDownloadDelegate?)
   @available(OSX, introduced=10.3, deprecated=10.11, message="Use NSURLSession downloadTask (see NSURLSession.h)")

@@ -35,8 +35,8 @@ struct IOBluetoothL2CAPChannelEvent {
 typealias IOBluetoothL2CAPChannelIncomingDataListener = @convention(c) (IOBluetoothL2CAPChannelRef!, UnsafeMutablePointer<Void>, UInt16, UnsafeMutablePointer<Void>) -> Void
 typealias IOBluetoothL2CAPChannelIncomingEventListener = @convention(c) (IOBluetoothL2CAPChannelRef!, UnsafeMutablePointer<Void>, UnsafeMutablePointer<IOBluetoothL2CAPChannelEvent>) -> Void
 class IOBluetoothL2CAPChannel : IOBluetoothObject, PortDelegate {
-  class func registerForChannelOpenNotifications(object: AnyObject!, selector: Selector) -> IOBluetoothUserNotification!
-  class func registerForChannelOpenNotifications(object: AnyObject!, selector: Selector, withPSM psm: BluetoothL2CAPPSM, direction inDirection: IOBluetoothUserNotificationChannelDirection) -> IOBluetoothUserNotification!
+  class func register(forChannelOpenNotifications object: AnyObject!, selector: Selector) -> IOBluetoothUserNotification!
+  class func register(forChannelOpenNotifications object: AnyObject!, selector: Selector, withPSM psm: BluetoothL2CAPPSM, direction inDirection: IOBluetoothUserNotificationChannelDirection) -> IOBluetoothUserNotification!
   class func withObjectID(objectID: IOBluetoothObjectID) -> Self!
   func close() -> IOReturn
   var outgoingMTU: BluetoothL2CAPMTU { get }
@@ -53,7 +53,7 @@ class IOBluetoothL2CAPChannel : IOBluetoothObject, PortDelegate {
   var localChannelID: BluetoothL2CAPChannelID { get }
   var remoteChannelID: BluetoothL2CAPChannelID { get }
   func isIncoming() -> Bool
-  func registerForChannelCloseNotification(observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
+  func register(forChannelCloseNotification observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
   init()
   func handle(message: PortMessage)
 }

@@ -37,8 +37,8 @@ class UIEvent : Object {
   @available(iOS 3.2, *)
   func touches(for gesture: UIGestureRecognizer) -> Set<UITouch>?
   @available(iOS 9.0, *)
-  func coalescedTouchesFor(touch: UITouch) -> [UITouch]?
+  func coalescedTouches(for touch: UITouch) -> [UITouch]?
   @available(iOS 9.0, *)
-  func predictedTouchesFor(touch: UITouch) -> [UITouch]?
+  func predictedTouches(for touch: UITouch) -> [UITouch]?
   init()
 }

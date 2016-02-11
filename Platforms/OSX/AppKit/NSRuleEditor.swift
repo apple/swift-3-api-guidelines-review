@@ -29,7 +29,7 @@ class NSRuleEditor : NSControl {
   func subrowIndexes(forRow rowIndex: Int) -> IndexSet
   func criteria(forRow row: Int) -> [AnyObject]
   func displayValues(forRow row: Int) -> [AnyObject]
-  func rowForDisplayValue(displayValue: AnyObject) -> Int
+  func row(forDisplayValue displayValue: AnyObject) -> Int
   func rowType(forRow rowIndex: Int) -> NSRuleEditorRowType
   func parentRow(forRow rowIndex: Int) -> Int
   func addRow(sender: AnyObject?)

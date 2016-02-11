@@ -7,7 +7,7 @@ class GKMatchmakerViewController : UINavigationController {
   init?(matchRequest request: GKMatchRequest)
   init?(invite: GKInvite)
   @available(iOS 5.0, *)
-  func addPlayersTo(match: GKMatch)
+  func addPlayers(to match: GKMatch)
   @available(iOS, introduced=5.0, deprecated=8.0, message="use setHostedPlayer:didConnect:")
   func setHostedPlayer(playerID: String, connected: Bool)
   @available(iOS 8.0, *)

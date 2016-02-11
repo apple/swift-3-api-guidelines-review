@@ -20,7 +20,7 @@ class AVAudioMixInputParameters : Object, Copying, MutableCopying {
   var audioTimePitchAlgorithm: String? { get }
   @available(iOS 6.0, *)
   var audioTapProcessor: MTAudioProcessingTap? { get }
-  func getVolumeRampFor(time: CMTime, startVolume: UnsafeMutablePointer<Float>, endVolume: UnsafeMutablePointer<Float>, timeRange: UnsafeMutablePointer<CMTimeRange>) -> Bool
+  func getVolumeRamp(for time: CMTime, startVolume: UnsafeMutablePointer<Float>, endVolume: UnsafeMutablePointer<Float>, timeRange: UnsafeMutablePointer<CMTimeRange>) -> Bool
   init()
   @available(iOS 4.0, *)
   func copy(with zone: Zone = nil) -> AnyObject

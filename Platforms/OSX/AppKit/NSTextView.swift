@@ -109,7 +109,7 @@ class NSTextView : NSText, NSUserInterfaceValidations, NSTextInputClient, NSText
   @available(OSX 10.7, *)
   func draggingSession(session: NSDraggingSession, endedAt screenPoint: Point, operation: NSDragOperation)
   @available(OSX 10.7, *)
-  func ignoreModifierKeysFor(session: NSDraggingSession) -> Bool
+  func ignoreModifierKeys(for session: NSDraggingSession) -> Bool
   func accessibilityString(for range: NSRange) -> String?
   func accessibilityLine(for index: Int) -> Int
   func accessibilityRange(forLine lineNumber: Int) -> NSRange
@@ -134,7 +134,7 @@ extension NSTextView {
   func readSelection(from pboard: NSPasteboard, type: String) -> Bool
   func readSelection(from pboard: NSPasteboard) -> Bool
   class func registerForServices()
-  func validRequestorForSendType(sendType: String, returnType: String) -> AnyObject?
+  func validRequestor(forSendType sendType: String, returnType: String) -> AnyObject?
   func pasteAsPlainText(sender: AnyObject?)
   func pasteAsRichText(sender: AnyObject?)
 }
@@ -142,7 +142,7 @@ extension NSTextView {
   func dragSelection(event: NSEvent, offset mouseOffset: Size, slideBack: Bool) -> Bool
   func dragImageForSelection(event: NSEvent, origin: PointPointer) -> NSImage?
   var acceptableDragTypes: [String] { get }
-  func dragOperationFor(dragInfo: NSDraggingInfo, type: String) -> NSDragOperation
+  func dragOperation(for dragInfo: NSDraggingInfo, type: String) -> NSDragOperation
   func cleanUpAfterDragOperation()
 }
 extension NSTextView {

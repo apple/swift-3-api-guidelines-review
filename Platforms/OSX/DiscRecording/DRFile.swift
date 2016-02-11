@@ -26,8 +26,8 @@ var DRFileForkData: Int { get }
 var DRFileForkResource: Int { get }
 protocol DRFileDataProduction {
   func calculateSize(of file: DRFile!, fork: DRFileFork, estimating estimate: Bool) -> UInt64
-  func prepareFileForBurn(file: DRFile!) -> Bool
+  func prepareFile(forBurn file: DRFile!) -> Bool
   func produce(file: DRFile!, fork: DRFileFork, intoBuffer buffer: UnsafeMutablePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32) -> UInt32
   func prepareFile(forVerification file: DRFile!) -> Bool
-  func cleanupFileAfterBurn(file: DRFile!)
+  func cleanupFile(afterBurn file: DRFile!)
 }

@@ -132,9 +132,9 @@ protocol UIAccessibilityReadingContent {
   @available(tvOS 5.0, *)
   func accessibilityLineNumber(for point: CGPoint) -> Int
   @available(tvOS 5.0, *)
-  func accessibilityContentForLineNumber(lineNumber: Int) -> String?
+  func accessibilityContent(forLineNumber lineNumber: Int) -> String?
   @available(tvOS 5.0, *)
-  func accessibilityFrameForLineNumber(lineNumber: Int) -> CGRect
+  func accessibilityFrame(forLineNumber lineNumber: Int) -> CGRect
   @available(tvOS 5.0, *)
   func accessibilityPageContent() -> String?
 }

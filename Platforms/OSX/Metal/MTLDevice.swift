@@ -37,10 +37,10 @@ protocol MTLDevice : ObjectProtocol {
   @available(OSX 10.11, *)
   var isDepth24Stencil8PixelFormatSupported: Bool { get }
   func newCommandQueue() -> MTLCommandQueue
-  func newCommandQueueWithMaxCommandBufferCount(maxCommandBufferCount: Int) -> MTLCommandQueue
+  func newCommandQueue(withMaxCommandBufferCount maxCommandBufferCount: Int) -> MTLCommandQueue
   func newBuffer(withLength length: Int, options: MTLResourceOptions = []) -> MTLBuffer
   func newBuffer(withBytes pointer: UnsafePointer<Void>, length: Int, options: MTLResourceOptions = []) -> MTLBuffer
-  func newBufferWithBytesNoCopy(pointer: UnsafeMutablePointer<Void>, length: Int, options: MTLResourceOptions = [], deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)? = nil) -> MTLBuffer
+  func newBuffer(withBytesNoCopy pointer: UnsafeMutablePointer<Void>, length: Int, options: MTLResourceOptions = [], deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)? = nil) -> MTLBuffer
   func newDepthStencilState(with descriptor: MTLDepthStencilDescriptor) -> MTLDepthStencilState
   func newTexture(with descriptor: MTLTextureDescriptor) -> MTLTexture
   @available(OSX 10.11, *)

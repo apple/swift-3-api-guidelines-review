@@ -75,7 +75,7 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   func hide(sender: AnyObject?)
   func unhide(sender: AnyObject?)
   func unhideWithoutActivation()
-  func windowWithWindowNumber(windowNum: Int) -> NSWindow?
+  func window(withWindowNumber windowNum: Int) -> NSWindow?
   unowned(unsafe) var mainWindow: @sil_unmanaged NSWindow? { get }
   unowned(unsafe) var keyWindow: @sil_unmanaged NSWindow? { get }
   var isActive: Bool { get }
@@ -122,12 +122,12 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   func sendAction(theAction: Selector, to theTarget: AnyObject?, from sender: AnyObject?) -> Bool
   func target(forAction theAction: Selector) -> AnyObject?
   func target(forAction theAction: Selector, to theTarget: AnyObject?, from sender: AnyObject?) -> AnyObject?
-  func tryToPerform(anAction: Selector, with anObject: AnyObject?) -> Bool
-  func validRequestorForSendType(sendType: String, returnType: String) -> AnyObject?
+  func `try`(toPerform anAction: Selector, with anObject: AnyObject?) -> Bool
+  func validRequestor(forSendType sendType: String, returnType: String) -> AnyObject?
   func report(theException: Exception)
   class func detachDrawingThread(selector: Selector, toTarget target: AnyObject, with argument: AnyObject?)
   func reply(toApplicationShouldTerminate shouldTerminate: Bool)
-  func replyToOpenOrPrint(reply: NSApplicationDelegateReply)
+  func reply(toOpenOrPrint reply: NSApplicationDelegateReply)
   func orderFrontCharacterPalette(sender: AnyObject?)
   @available(OSX 10.6, *)
   var presentationOptions: NSApplicationPresentationOptions
@@ -746,7 +746,7 @@ protocol NSApplicationDelegate : ObjectProtocol {
   optional func application(sender: AnyObject, openFileWithoutUI filename: String) -> Bool
   optional func application(sender: NSApplication, printFile filename: String) -> Bool
   optional func application(application: NSApplication, printFiles fileNames: [String], withSettings printSettings: [String : AnyObject], showPrintPanels: Bool) -> NSApplicationPrintReply
-  optional func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool
+  optional func applicationShouldTerminate(afterLastWindowClosed sender: NSApplication) -> Bool
   optional func applicationShouldHandleReopen(sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool
   optional func applicationDockMenu(sender: NSApplication) -> NSMenu?
   optional func application(application: NSApplication, willPresentError error: Error) -> Error

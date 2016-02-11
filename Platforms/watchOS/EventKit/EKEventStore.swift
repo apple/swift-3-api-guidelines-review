@@ -35,7 +35,7 @@ class EKEventStore : Object {
   func event(withIdentifier identifier: String) -> EKEvent?
   func events(matching predicate: Predicate) -> [EKEvent]
   func enumerateEvents(matching predicate: Predicate, using block: EKEventSearchCallback)
-  func predicateForEventsWithStart(startDate: Date, end endDate: Date, calendars: [EKCalendar]?) -> Predicate
+  func predicateForEvents(withStart startDate: Date, end endDate: Date, calendars: [EKCalendar]?) -> Predicate
   @available(watchOS 2.0, *)
   func fetchReminders(matching predicate: Predicate, completion: ([EKReminder]?) -> Void) -> AnyObject
   @available(watchOS 2.0, *)
@@ -43,9 +43,9 @@ class EKEventStore : Object {
   @available(watchOS 2.0, *)
   func predicateForReminders(in calendars: [EKCalendar]?) -> Predicate
   @available(watchOS 2.0, *)
-  func predicateForIncompleteRemindersWithDueDateStarting(startDate: Date?, ending endDate: Date?, calendars: [EKCalendar]?) -> Predicate
+  func predicateForIncompleteReminders(withDueDateStarting startDate: Date?, ending endDate: Date?, calendars: [EKCalendar]?) -> Predicate
   @available(watchOS 2.0, *)
-  func predicateForCompletedRemindersWithCompletionDateStarting(startDate: Date?, ending endDate: Date?, calendars: [EKCalendar]?) -> Predicate
+  func predicateForCompletedReminders(withCompletionDateStarting startDate: Date?, ending endDate: Date?, calendars: [EKCalendar]?) -> Predicate
   @available(watchOS 2.0, *)
   func reset()
 }

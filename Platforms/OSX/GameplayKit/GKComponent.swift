@@ -2,7 +2,7 @@
 @available(OSX 10.11, *)
 class GKComponent : Object, Copying {
   weak var entity: @sil_weak GKEntity? { get }
-  func updateWithDeltaTime(seconds: TimeInterval)
+  func update(withDeltaTime seconds: TimeInterval)
   init()
   @available(OSX 10.11, *)
   func copy(with zone: Zone = nil) -> AnyObject
@@ -17,7 +17,7 @@ class GKComponentSystem : Object, FastEnumeration {
   func addComponent(entity: GKEntity)
   func removeComponent(entity: GKEntity)
   func removeComponent(component: GKComponent)
-  func updateWithDeltaTime(seconds: TimeInterval)
+  func update(withDeltaTime seconds: TimeInterval)
   init()
   @available(OSX 10.11, *)
   func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int

@@ -3,9 +3,9 @@ class NSResponder : Object, Coding {
   init()
   init?(coder: Coder)
   unowned(unsafe) var next: @sil_unmanaged NSResponder?
-  func tryToPerform(anAction: Selector, with anObject: AnyObject?) -> Bool
+  func `try`(toPerform anAction: Selector, with anObject: AnyObject?) -> Bool
   func performKeyEquivalent(theEvent: NSEvent) -> Bool
-  func validRequestorForSendType(sendType: String, returnType: String) -> AnyObject?
+  func validRequestor(forSendType sendType: String, returnType: String) -> AnyObject?
   func mouseDown(theEvent: NSEvent)
   func rightMouseDown(theEvent: NSEvent)
   func otherMouseDown(theEvent: NSEvent)

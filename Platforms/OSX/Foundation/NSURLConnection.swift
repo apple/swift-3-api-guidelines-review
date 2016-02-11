@@ -12,9 +12,9 @@ class URLConnection : Object {
   func start()
   func cancel()
   @available(OSX 10.5, *)
-  func scheduleIn(aRunLoop: RunLoop, forMode mode: String)
+  func schedule(in aRunLoop: RunLoop, forMode mode: String)
   @available(OSX 10.5, *)
-  func unscheduleFrom(aRunLoop: RunLoop, forMode mode: String)
+  func unschedule(from aRunLoop: RunLoop, forMode mode: String)
   @available(OSX 10.7, *)
   func setDelegateQueue(queue: OperationQueue?)
   class func canHandle(request: URLRequest) -> Bool

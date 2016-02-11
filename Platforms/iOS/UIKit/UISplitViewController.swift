@@ -50,9 +50,9 @@ protocol UISplitViewControllerDelegate {
   @available(iOS 8.0, *)
   optional func splitViewController(splitViewController: UISplitViewController, showDetailViewController vc: UIViewController, sender: AnyObject?) -> Bool
   @available(iOS 8.0, *)
-  optional func primaryViewControllerForCollapsing(splitViewController: UISplitViewController) -> UIViewController?
+  optional func primaryViewController(forCollapsing splitViewController: UISplitViewController) -> UIViewController?
   @available(iOS 8.0, *)
-  optional func primaryViewControllerForExpanding(splitViewController: UISplitViewController) -> UIViewController?
+  optional func primaryViewController(forExpanding splitViewController: UISplitViewController) -> UIViewController?
   @available(iOS 8.0, *)
   optional func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool
   @available(iOS 8.0, *)

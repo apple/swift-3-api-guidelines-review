@@ -10,7 +10,7 @@ let ABAddressBookErrorDomain: String
 let ABMultiValueIdentifiersErrorKey: String
 class ABAddressBook : Object {
   class func shared() -> ABAddressBook!
-  func recordsMatching(search: ABSearchElement!) -> [AnyObject]!
+  func records(matching search: ABSearchElement!) -> [AnyObject]!
   func save() -> Bool
   @available(OSX 10.5, *)
   func saveAndReturnError() throws

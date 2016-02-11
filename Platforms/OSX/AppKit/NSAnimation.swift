@@ -32,8 +32,8 @@ class NSAnimation : Object, Copying, Coding {
   var progressMarks: [Number]
   func addProgressMark(progressMark: NSAnimationProgress)
   func removeProgressMark(progressMark: NSAnimationProgress)
-  func startWhenAnimation(animation: NSAnimation, reachesProgress startProgress: NSAnimationProgress)
-  func stopWhenAnimation(animation: NSAnimation, reachesProgress stopProgress: NSAnimationProgress)
+  func start(when animation: NSAnimation, reachesProgress startProgress: NSAnimationProgress)
+  func stop(when animation: NSAnimation, reachesProgress stopProgress: NSAnimationProgress)
   func clearStart()
   func clearStop()
   var runLoopModesForAnimating: [String]? { get }

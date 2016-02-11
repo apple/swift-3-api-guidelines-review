@@ -14,12 +14,12 @@ class AVAudioPlayerNode : AVAudioNode, AVAudioMixing {
   func scheduleFile(file: AVAudioFile, at when: AVAudioTime?, completionHandler: AVAudioNodeCompletionHandler? = nil)
   func scheduleSegment(file: AVAudioFile, startingFrame startFrame: AVAudioFramePosition, frameCount numberFrames: AVAudioFrameCount, at when: AVAudioTime?, completionHandler: AVAudioNodeCompletionHandler? = nil)
   func stop()
-  func prepareWithFrameCount(frameCount: AVAudioFrameCount)
+  func prepare(frameCount frameCount: AVAudioFrameCount)
   func play()
-  func playAt(when: AVAudioTime?)
+  func play(at when: AVAudioTime?)
   func pause()
-  func nodeTimeForPlayerTime(playerTime: AVAudioTime) -> AVAudioTime?
-  func playerTimeForNodeTime(nodeTime: AVAudioTime) -> AVAudioTime?
+  func nodeTime(forPlayerTime playerTime: AVAudioTime) -> AVAudioTime?
+  func playerTime(forNodeTime nodeTime: AVAudioTime) -> AVAudioTime?
   var isPlaying: Bool { get }
   init()
   @available(tvOS 9.0, *)

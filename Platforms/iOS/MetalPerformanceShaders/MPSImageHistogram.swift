@@ -13,7 +13,7 @@ class MPSImageHistogram : MPSKernel {
   var zeroHistogram: Bool
   var histogramInfo: MPSImageHistogramInfo { get }
   init(device: MTLDevice, histogramInfo: UnsafePointer<MPSImageHistogramInfo>)
-  func encodeTo(commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, histogram: MTLBuffer, histogramOffset: Int)
+  func encode(to commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, histogram: MTLBuffer, histogramOffset: Int)
   func histogramSize(forSourceFormat sourceFormat: MTLPixelFormat) -> Int
   convenience init(device: MTLDevice)
   convenience init()
@@ -22,7 +22,7 @@ class MPSImageHistogram : MPSKernel {
 class MPSImageHistogramEqualization : MPSUnaryImageKernel {
   var histogramInfo: MPSImageHistogramInfo { get }
   init(device: MTLDevice, histogramInfo: UnsafePointer<MPSImageHistogramInfo>)
-  func encodeTransformTo(commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, histogram: MTLBuffer, histogramOffset: Int)
+  func encodeTransform(to commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, histogram: MTLBuffer, histogramOffset: Int)
   convenience init(device: MTLDevice)
   convenience init()
 }
@@ -30,7 +30,7 @@ class MPSImageHistogramEqualization : MPSUnaryImageKernel {
 class MPSImageHistogramSpecification : MPSUnaryImageKernel {
   var histogramInfo: MPSImageHistogramInfo { get }
   init(device: MTLDevice, histogramInfo: UnsafePointer<MPSImageHistogramInfo>)
-  func encodeTransformTo(commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, sourceHistogram: MTLBuffer, sourceHistogramOffset: Int, desiredHistogram: MTLBuffer, desiredHistogramOffset: Int)
+  func encodeTransform(to commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, sourceHistogram: MTLBuffer, sourceHistogramOffset: Int, desiredHistogram: MTLBuffer, desiredHistogramOffset: Int)
   convenience init(device: MTLDevice)
   convenience init()
 }

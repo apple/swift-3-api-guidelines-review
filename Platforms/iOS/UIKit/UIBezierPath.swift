@@ -24,7 +24,7 @@ class UIBezierPath : Object, Copying, Coding {
   func addCurve(to endPoint: CGPoint, controlPoint1: CGPoint, controlPoint2: CGPoint)
   func addQuadCurve(to endPoint: CGPoint, controlPoint: CGPoint)
   @available(iOS 4.0, *)
-  func addArcWithCenter(center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
+  func addArc(center center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
   func close()
   func removeAllPoints()
   func append(bezierPath: UIBezierPath)

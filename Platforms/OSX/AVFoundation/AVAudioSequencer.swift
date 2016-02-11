@@ -35,7 +35,7 @@ extension AVAudioSequencer {
   var isPlaying: Bool { get }
   var rate: Float
   func hostTime(forBeats inBeats: AVMusicTimeStamp, error outError: ErrorPointer) -> UInt64
-  func beatsForHostTime(inHostTime: UInt64, error outError: ErrorPointer) -> AVMusicTimeStamp
+  func beats(forHostTime inHostTime: UInt64, error outError: ErrorPointer) -> AVMusicTimeStamp
   func prepareToPlay()
   func start() throws
   func stop()

@@ -68,7 +68,7 @@ class NSWorkspace : Object {
   @available(OSX 10.6, *)
   func urlForApplication(withBundleIdentifier bundleIdentifier: String) -> URL?
   @available(OSX 10.6, *)
-  func urlForApplicationToOpen(url: URL) -> URL?
+  func urlForApplication(toOpen url: URL) -> URL?
   func absolutePathForAppBundle(withIdentifier bundleIdentifier: String) -> String?
   func launchApp(bundleIdentifier bundleIdentifier: String, options: NSWorkspaceLaunchOptions = [], additionalEventParamDescriptor descriptor: AppleEventDescriptor?, launchIdentifier identifier: AutoreleasingUnsafeMutablePointer<Number?>) -> Bool
   func open(urls: [URL], withAppBundleIdentifier bundleIdentifier: String?, options: NSWorkspaceLaunchOptions = [], additionalEventParamDescriptor descriptor: AppleEventDescriptor?, launchIdentifiers identifiers: AutoreleasingUnsafeMutablePointer<NSArray?>) -> Bool

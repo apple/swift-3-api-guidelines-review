@@ -11,7 +11,7 @@ class AVAssetWriterInput : Object {
   var metadata: [AVMetadataItem]
   var isReadyForMoreMediaData: Bool { get }
   var expectsMediaDataInRealTime: Bool
-  func requestMediaDataWhenReadyOn(queue: dispatch_queue_t, using block: () -> Void)
+  func requestMediaDataWhenReady(on queue: dispatch_queue_t, using block: () -> Void)
   func append(sampleBuffer: CMSampleBuffer) -> Bool
   func markAsFinished()
 }
@@ -56,7 +56,7 @@ extension AVAssetWriterInput {
   @available(tvOS 8.0, *)
   var currentPassDescription: AVAssetWriterInputPassDescription? { get }
   @available(tvOS 8.0, *)
-  func respondToEachPassDescriptionOn(queue: dispatch_queue_t, using block: dispatch_block_t)
+  func respondToEachPassDescription(on queue: dispatch_queue_t, using block: dispatch_block_t)
   @available(tvOS 8.0, *)
   func markCurrentPassAsFinished()
 }

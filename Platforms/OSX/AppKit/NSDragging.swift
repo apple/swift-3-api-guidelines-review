@@ -75,13 +75,13 @@ protocol NSDraggingDestination : ObjectProtocol {
   optional func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation
   optional func draggingUpdated(sender: NSDraggingInfo) -> NSDragOperation
   optional func draggingExited(sender: NSDraggingInfo?)
-  optional func prepareForDragOperation(sender: NSDraggingInfo) -> Bool
+  optional func prepare(forDragOperation sender: NSDraggingInfo) -> Bool
   optional func performDragOperation(sender: NSDraggingInfo) -> Bool
   optional func concludeDragOperation(sender: NSDraggingInfo?)
   optional func draggingEnded(sender: NSDraggingInfo?)
   optional func wantsPeriodicDraggingUpdates() -> Bool
   @available(OSX 10.7, *)
-  optional func updateDraggingItemsForDrag(sender: NSDraggingInfo?)
+  optional func updateDraggingItems(forDrag sender: NSDraggingInfo?)
 }
 protocol NSDraggingSource : ObjectProtocol {
   @available(OSX 10.7, *)
@@ -93,7 +93,7 @@ protocol NSDraggingSource : ObjectProtocol {
   @available(OSX 10.7, *)
   optional func draggingSession(session: NSDraggingSession, endedAt screenPoint: Point, operation: NSDragOperation)
   @available(OSX 10.7, *)
-  optional func ignoreModifierKeysFor(session: NSDraggingSession) -> Bool
+  optional func ignoreModifierKeys(for session: NSDraggingSession) -> Bool
 }
 @available(OSX 10.11, *)
 struct NSSpringLoadingOptions : OptionSetType {

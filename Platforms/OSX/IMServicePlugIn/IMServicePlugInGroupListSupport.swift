@@ -14,16 +14,16 @@ protocol IMServicePlugInGroupListOrderingSupport : IMServicePlugInGroupListSuppo
   func reorderHandles(handles: [AnyObject]!, inGroup groupName: String!)
 }
 protocol IMServicePlugInGroupListAuthorizationSupport : IMServicePlugInGroupListSupport {
-  func sendAuthorizationRequestToHandle(handle: String!)
-  func acceptAuthorizationRequestFromHandle(handle: String!)
-  func declineAuthorizationRequestFromHandle(handle: String!)
+  func sendAuthorizationRequest(toHandle handle: String!)
+  func acceptAuthorizationRequest(fromHandle handle: String!)
+  func declineAuthorizationRequest(fromHandle handle: String!)
 }
 protocol IMServicePlugInGroupListHandlePictureSupport : ObjectProtocol {
-  func requestPictureForHandle(handle: String!, withIdentifier identifier: String!)
+  func requestPicture(forHandle handle: String!, withIdentifier identifier: String!)
 }
 protocol IMServiceApplicationGroupListSupport : IMServiceApplication {
   func plug(inDidUpdateGroupList groups: [AnyObject]!, error: Error!)
 }
 protocol IMServiceApplicationGroupListAuthorizationSupport : IMServiceApplicationGroupListSupport {
-  func plugInDidReceiveAuthorizationRequestFromHandle(handle: String!)
+  func plugInDidReceiveAuthorizationRequest(fromHandle handle: String!)
 }

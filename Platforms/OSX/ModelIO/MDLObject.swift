@@ -7,7 +7,7 @@ class MDLObject : Object, MDLNamed {
   var transform: MDLTransformComponent?
   var children: MDLObjectContainerComponent
   func addChild(child: MDLObject)
-  func boundingBoxAtTime(time: TimeInterval) -> MDLAxisAlignedBoundingBox
+  func boundingBox(atTime time: TimeInterval) -> MDLAxisAlignedBoundingBox
   init()
   @available(OSX 10.11, *)
   var name: String

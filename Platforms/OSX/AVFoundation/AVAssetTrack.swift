@@ -45,8 +45,8 @@ extension AVAssetTrack {
 }
 extension AVAssetTrack {
   var segments: [AVAssetTrackSegment] { get }
-  func segmentForTrackTime(trackTime: CMTime) -> AVAssetTrackSegment?
-  func samplePresentationTimeForTrackTime(trackTime: CMTime) -> CMTime
+  func segment(forTrackTime trackTime: CMTime) -> AVAssetTrackSegment?
+  func samplePresentationTime(forTrackTime trackTime: CMTime) -> CMTime
 }
 extension AVAssetTrack {
   var commonMetadata: [AVMetadataItem] { get }
@@ -77,7 +77,7 @@ extension AVAssetTrack {
   @available(OSX 10.10, *)
   var canProvideSampleCursors: Bool { get }
   @available(OSX 10.10, *)
-  func makeSampleCursorWithPresentationTimeStamp(presentationTimeStamp: CMTime) -> AVSampleCursor?
+  func makeSampleCursor(presentationTimeStamp presentationTimeStamp: CMTime) -> AVSampleCursor?
   @available(OSX 10.10, *)
   func makeSampleCursorAtFirstSampleInDecodeOrder() -> AVSampleCursor?
   @available(OSX 10.10, *)

@@ -13,7 +13,7 @@ protocol UISearchControllerDelegate : ObjectProtocol {
 }
 protocol UISearchResultsUpdating : ObjectProtocol {
   @available(tvOS 8.0, *)
-  func updateSearchResultsFor(searchController: UISearchController)
+  func updateSearchResults(for searchController: UISearchController)
 }
 @available(tvOS 8.0, *)
 class UISearchController : UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {

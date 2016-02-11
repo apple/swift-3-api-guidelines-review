@@ -12,9 +12,9 @@ class URLConnection : Object {
   func start()
   func cancel()
   @available(tvOS 2.0, *)
-  func scheduleIn(aRunLoop: RunLoop, forMode mode: String)
+  func schedule(in aRunLoop: RunLoop, forMode mode: String)
   @available(tvOS 2.0, *)
-  func unscheduleFrom(aRunLoop: RunLoop, forMode mode: String)
+  func unschedule(from aRunLoop: RunLoop, forMode mode: String)
   @available(tvOS 5.0, *)
   func setDelegateQueue(queue: OperationQueue?)
   class func canHandle(request: URLRequest) -> Bool

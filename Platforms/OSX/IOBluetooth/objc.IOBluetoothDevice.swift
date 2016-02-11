@@ -12,7 +12,7 @@ protocol IOBluetoothDeviceAsyncCallbacks {
   func sdpQueryComplete(device: IOBluetoothDevice!, status: IOReturn)
 }
 class IOBluetoothDevice : IOBluetoothObject, Coding, SecureCoding {
-  class func registerForConnectNotifications(observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
+  class func register(forConnectNotifications observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
   func register(forDisconnectNotification observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
   convenience init!(address: UnsafePointer<BluetoothDeviceAddress>)
   convenience init!(addressString address: String!)

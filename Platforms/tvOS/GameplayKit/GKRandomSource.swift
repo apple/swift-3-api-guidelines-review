@@ -31,7 +31,7 @@ class GKARC4RandomSource : GKRandomSource {
   @NSCopying var seed: Data
   convenience init()
   init(seed: Data)
-  func dropValuesWithCount(count: Int)
+  func dropValues(count count: Int)
   init(coder aDecoder: Coder)
 }
 @available(tvOS 9.0, *)

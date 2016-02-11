@@ -5,10 +5,10 @@ class AVAudioRecorder : Object {
   func prepareToRecord() -> Bool
   func record() -> Bool
   @available(iOS 6.0, *)
-  func recordAtTime(time: TimeInterval) -> Bool
+  func record(atTime time: TimeInterval) -> Bool
   func record(forDuration duration: TimeInterval) -> Bool
   @available(iOS 6.0, *)
-  func recordAtTime(time: TimeInterval, forDuration duration: TimeInterval) -> Bool
+  func record(atTime time: TimeInterval, forDuration duration: TimeInterval) -> Bool
   func pause()
   func stop()
   func deleteRecording() -> Bool

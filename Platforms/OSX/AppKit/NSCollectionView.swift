@@ -183,7 +183,7 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.7, *)
   func draggingSession(session: NSDraggingSession, endedAt screenPoint: Point, operation: NSDragOperation)
   @available(OSX 10.7, *)
-  func ignoreModifierKeysFor(session: NSDraggingSession) -> Bool
+  func ignoreModifierKeys(for session: NSDraggingSession) -> Bool
 }
 protocol NSCollectionViewDataSource : ObjectProtocol {
   @available(OSX 10.11, *)

@@ -71,7 +71,7 @@ class NSBezierPath : Object, Copying, Coding {
   func setClip()
   @NSCopying var flattening: NSBezierPath { get }
   @NSCopying var reversing: NSBezierPath { get }
-  func transformUsing(transform: AffineTransform)
+  func transform(transform: AffineTransform)
   var isEmpty: Bool { get }
   var currentPoint: Point { get }
   var controlPointBounds: Rect { get }
@@ -84,8 +84,8 @@ class NSBezierPath : Object, Copying, Coding {
   func append(rect: Rect)
   func append(points points: PointArray, count: Int)
   func appendWithOval(in rect: Rect)
-  func appendWithArcWithCenter(center: Point, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
-  func appendWithArcWithCenter(center: Point, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat)
+  func appendWithArc(center center: Point, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
+  func appendWithArc(center center: Point, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat)
   func appendWithArc(from point1: Point, to point2: Point, radius: CGFloat)
   func append(glyph glyph: NSGlyph, in font: NSFont)
   func append(glyphs glyphs: UnsafeMutablePointer<NSGlyph>, count: Int, in font: NSFont)

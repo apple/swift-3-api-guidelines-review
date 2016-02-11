@@ -6,9 +6,9 @@ class SCNRenderer : Object, SCNSceneRenderer, SCNTechniqueSupport {
   convenience init(device: MTLDevice?, options: [Object : AnyObject]? = [:])
   var scene: SCNScene?
   @available(iOS 8.0, *)
-  func renderAtTime(time: CFTimeInterval)
+  func render(atTime time: CFTimeInterval)
   @available(iOS 9.0, *)
-  func renderAtTime(time: CFTimeInterval, viewport: CGRect, commandBuffer: MTLCommandBuffer, passDescriptor renderPassDescriptor: MTLRenderPassDescriptor)
+  func render(atTime time: CFTimeInterval, viewport: CGRect, commandBuffer: MTLCommandBuffer, passDescriptor renderPassDescriptor: MTLRenderPassDescriptor)
   @available(iOS 8.0, *)
   var nextFrameTime: CFTimeInterval { get }
   @available(iOS, introduced=8.0, deprecated=9.0)

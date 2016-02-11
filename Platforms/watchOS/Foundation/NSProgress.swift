@@ -4,11 +4,11 @@ class Progress : Object {
   class func current() -> Progress?
   /*not inherited*/ init(totalUnitCount unitCount: Int64)
   @available(watchOS 2.0, *)
-  class func discreteProgressWithTotalUnitCount(unitCount: Int64) -> Progress
+  class func discreteProgress(withTotalUnitCount unitCount: Int64) -> Progress
   @available(watchOS 2.0, *)
   /*not inherited*/ init(totalUnitCount unitCount: Int64, parent: Progress, pendingUnitCount portionOfParentTotalUnitCount: Int64)
   init(parent parentProgressOrNil: Progress?, userInfo userInfoOrNil: [Object : AnyObject]? = [:])
-  func becomeCurrentWithPendingUnitCount(unitCount: Int64)
+  func becomeCurrent(pendingUnitCount unitCount: Int64)
   func resignCurrent()
   @available(watchOS 2.0, *)
   func addChild(child: Progress, withPendingUnitCount inUnitCount: Int64)

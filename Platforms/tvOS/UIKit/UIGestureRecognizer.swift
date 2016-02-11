@@ -25,10 +25,10 @@ class UIGestureRecognizer : Object {
   var allowedTouchTypes: [Number]
   @available(tvOS 9.0, *)
   var allowedPressTypes: [Number]
-  func requireToFail(otherGestureRecognizer: UIGestureRecognizer)
+  func require(toFail otherGestureRecognizer: UIGestureRecognizer)
   func location(in view: UIView?) -> CGPoint
   func numberOfTouches() -> Int
-  func locationOfTouch(touchIndex: Int, in view: UIView?) -> CGPoint
+  func location(ofTouch touchIndex: Int, in view: UIView?) -> CGPoint
   convenience init()
 }
 protocol UIGestureRecognizerDelegate : ObjectProtocol {

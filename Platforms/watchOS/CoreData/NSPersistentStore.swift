@@ -15,8 +15,8 @@ class NSPersistentStore : Object {
   var type: String { get }
   var isReadOnly: Bool
   var metadata: [String : AnyObject]!
-  func didAddTo(coordinator: NSPersistentStoreCoordinator)
-  func willRemoveFrom(coordinator: NSPersistentStoreCoordinator?)
+  func didAdd(to coordinator: NSPersistentStoreCoordinator)
+  func willRemove(from coordinator: NSPersistentStoreCoordinator?)
 }
 struct _objectStoreFlags {
   var isReadOnly: UInt32

@@ -5,7 +5,7 @@ class Thread : Object {
   class func isMultiThreaded() -> Bool
   var threadDictionary: MutableDictionary { get }
   class func sleep(until date: Date)
-  class func sleepForTimeInterval(ti: TimeInterval)
+  class func sleep(forTimeInterval ti: TimeInterval)
   class func exit()
   class func threadPriority() -> Double
   class func setThreadPriority(p: Double) -> Bool

@@ -27,7 +27,7 @@ class AVAssetImageGenerator : Object {
   @available(tvOS 5.0, *)
   var requestedTimeToleranceAfter: CMTime
   init(asset: AVAsset)
-  func copyCGImageAt(requestedTime: CMTime, actualTime: UnsafeMutablePointer<CMTime>) throws -> CGImage
+  func copyCGImage(at requestedTime: CMTime, actualTime: UnsafeMutablePointer<CMTime>) throws -> CGImage
   func generateCGImagesAsynchronously(forTimes requestedTimes: [Value], completionHandler handler: AVAssetImageGeneratorCompletionHandler)
   func cancelAllCGImageGeneration()
 }

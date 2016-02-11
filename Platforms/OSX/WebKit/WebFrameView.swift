@@ -4,7 +4,7 @@ class WebFrameView : NSView {
   var documentView: NSView! { get }
   var allowsScrolling: Bool
   var canPrintHeadersAndFooters: Bool { get }
-  func printOperationWith(printInfo: NSPrintInfo!) -> NSPrintOperation!
+  func printOperation(printInfo: NSPrintInfo!) -> NSPrintOperation!
   var documentViewShouldHandlePrint: Bool { get }
   func printDocumentView()
   init(frame frameRect: Rect)

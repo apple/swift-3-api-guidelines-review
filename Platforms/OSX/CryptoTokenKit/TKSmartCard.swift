@@ -83,7 +83,7 @@ class TKSmartCardUserInteraction : Object {
   weak var delegate: @sil_weak TKSmartCardUserInteractionDelegate?
   var initialTimeout: TimeInterval
   var interactionTimeout: TimeInterval
-  func runWithReply(reply: (Bool, Error?) -> Void)
+  func run(reply reply: (Bool, Error?) -> Void)
   func cancel() -> Bool
   init()
 }
@@ -123,7 +123,7 @@ class TKSmartCard : Object {
   var currentProtocol: TKSmartCardProtocol { get }
   var sensitive: Bool
   var context: AnyObject?
-  func beginSessionWithReply(reply: (Bool, Error?) -> Void)
+  func beginSession(reply reply: (Bool, Error?) -> Void)
   func transmitRequest(request: Data, reply: (Data?, Error?) -> Void)
   func endSession()
   @available(OSX 10.11, *)

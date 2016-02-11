@@ -47,7 +47,7 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(tvOS 5.0, *)
   func setImage(iconImage: UIImage?, for icon: UISearchBarIcon, state: UIControlState)
   @available(tvOS 5.0, *)
-  func imageFor(icon: UISearchBarIcon, state: UIControlState) -> UIImage?
+  func image(for icon: UISearchBarIcon, state: UIControlState) -> UIImage?
   @available(tvOS 5.0, *)
   func setScopeBarButtonBackgroundImage(backgroundImage: UIImage?, for state: UIControlState)
   @available(tvOS 5.0, *)
@@ -67,7 +67,7 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(tvOS 5.0, *)
   func setPositionAdjustment(adjustment: UIOffset, for icon: UISearchBarIcon)
   @available(tvOS 5.0, *)
-  func positionAdjustmentFor(icon: UISearchBarIcon) -> UIOffset
+  func positionAdjustment(for icon: UISearchBarIcon) -> UIOffset
   @available(tvOS 7.0, *)
   var barPosition: UIBarPosition { get }
   @available(tvOS 2.0, *)

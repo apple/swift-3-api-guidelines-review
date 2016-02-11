@@ -102,13 +102,13 @@ class NSPersistentStoreCoordinator : Object, Locking {
   @available(OSX 10.10, *)
   var name: String?
   func persistentStore(for URL: URL) -> NSPersistentStore?
-  func urlFor(store: NSPersistentStore) -> URL
+  func url(for store: NSPersistentStore) -> URL
   @available(OSX 10.5, *)
   func setURL(url: URL, for store: NSPersistentStore) -> Bool
   func addPersistentStore(type storeType: String, configuration: String?, url storeURL: URL?, options: [Object : AnyObject]? = [:]) throws -> NSPersistentStore
   func removePersistentStore(store: NSPersistentStore) throws
   func setMetadata(metadata: [String : AnyObject]?, for store: NSPersistentStore)
-  func metadataFor(store: NSPersistentStore) -> [String : AnyObject]
+  func metadata(for store: NSPersistentStore) -> [String : AnyObject]
   func managedObjectID(forURIRepresentation url: URL) -> NSManagedObjectID?
   @available(OSX 10.7, *)
   func execute(request: NSPersistentStoreRequest, with context: NSManagedObjectContext) throws -> AnyObject
@@ -125,7 +125,7 @@ class NSPersistentStoreCoordinator : Object, Locking {
   @available(OSX, introduced=10.5, deprecated=10.11, message="Use a -setMetadata:forPersistentStoreOfType:URL:options:error: and pass in an options dictionary matching addPersistentStoreWithType")
   class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String?, url: URL) throws
   @available(OSX 10.6, *)
-  class func elementsDerivedFromExternalRecord(fileURL: URL) -> [Object : AnyObject]
+  class func elementsDerived(fromExternalRecord fileURL: URL) -> [Object : AnyObject]
   @available(OSX 10.9, *)
   class func removeUbiquitousContentAndPersistentStore(at storeURL: URL, options: [Object : AnyObject]? = [:]) throws
   @available(OSX 10.6, *)

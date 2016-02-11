@@ -90,11 +90,11 @@ extension AVCaptureDevice {
   @available(tvOS 8.0, *)
   func setWhiteBalanceModeLockedWithDeviceWhiteBalanceGains(whiteBalanceGains: AVCaptureWhiteBalanceGains, completionHandler handler: ((CMTime) -> Void)!)
   @available(tvOS 8.0, *)
-  func chromaticityValuesForDeviceWhiteBalanceGains(whiteBalanceGains: AVCaptureWhiteBalanceGains) -> AVCaptureWhiteBalanceChromaticityValues
+  func chromaticityValues(forDeviceWhiteBalanceGains whiteBalanceGains: AVCaptureWhiteBalanceGains) -> AVCaptureWhiteBalanceChromaticityValues
   @available(tvOS 8.0, *)
   func deviceWhiteBalanceGains(for chromaticityValues: AVCaptureWhiteBalanceChromaticityValues) -> AVCaptureWhiteBalanceGains
   @available(tvOS 8.0, *)
-  func temperatureAndTintValuesForDeviceWhiteBalanceGains(whiteBalanceGains: AVCaptureWhiteBalanceGains) -> AVCaptureWhiteBalanceTemperatureAndTintValues
+  func temperatureAndTintValues(forDeviceWhiteBalanceGains whiteBalanceGains: AVCaptureWhiteBalanceGains) -> AVCaptureWhiteBalanceTemperatureAndTintValues
   @available(tvOS 8.0, *)
   func deviceWhiteBalanceGains(for tempAndTintValues: AVCaptureWhiteBalanceTemperatureAndTintValues) -> AVCaptureWhiteBalanceGains
 }
@@ -116,7 +116,7 @@ extension AVCaptureDevice {
   @available(tvOS 7.0, *)
   var videoZoomFactor: CGFloat
   @available(tvOS 7.0, *)
-  func rampToVideoZoomFactor(factor: CGFloat, withRate rate: Float)
+  func ramp(toVideoZoomFactor factor: CGFloat, withRate rate: Float)
   @available(tvOS 7.0, *)
   var isRampingVideoZoom: Bool { get }
   @available(tvOS 7.0, *)

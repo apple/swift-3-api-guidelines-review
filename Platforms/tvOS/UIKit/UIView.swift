@@ -218,7 +218,7 @@ extension UIView {
   func insertSubview(view: UIView, belowSubview siblingSubview: UIView)
   func insertSubview(view: UIView, aboveSubview siblingSubview: UIView)
   func bringSubview(toFront view: UIView)
-  func sendSubviewToBack(view: UIView)
+  func sendSubview(toBack view: UIView)
   func didAddSubview(subview: UIView)
   func willRemoveSubview(subview: UIView)
   func willMove(toSuperview newSuperview: UIView?)
@@ -302,7 +302,7 @@ extension UIView {
   @available(tvOS 7.0, *)
   class func animateKeyframes(duration duration: TimeInterval, delay: TimeInterval, options: UIViewKeyframeAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 7.0, *)
-  class func addKeyframeWithRelativeStartTime(frameStartTime: Double, relativeDuration frameDuration: Double, animations: () -> Void)
+  class func addKeyframe(relativeStartTime frameStartTime: Double, relativeDuration frameDuration: Double, animations: () -> Void)
 }
 extension UIView {
   @available(tvOS 3.2, *)

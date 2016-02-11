@@ -68,16 +68,16 @@ protocol GKInviteEventListener {
 class GKMatchmaker : Object {
   class func shared() -> GKMatchmaker
   @available(OSX 10.9, *)
-  func matchFor(invite: GKInvite, completionHandler: ((GKMatch?, Error?) -> Void)? = nil)
-  func findMatchFor(request: GKMatchRequest, withCompletionHandler completionHandler: ((GKMatch?, Error?) -> Void)? = nil)
+  func match(for invite: GKInvite, completionHandler: ((GKMatch?, Error?) -> Void)? = nil)
+  func findMatch(for request: GKMatchRequest, withCompletionHandler completionHandler: ((GKMatch?, Error?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func findPlayersForHostedRequest(request: GKMatchRequest, withCompletionHandler completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
-  func addPlayersTo(match: GKMatch, matchRequest: GKMatchRequest, completionHandler: ((Error?) -> Void)? = nil)
+  func findPlayers(forHostedRequest request: GKMatchRequest, withCompletionHandler completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
+  func addPlayers(to match: GKMatch, matchRequest: GKMatchRequest, completionHandler: ((Error?) -> Void)? = nil)
   func cancel()
   @available(OSX 10.10, *)
   func cancelPendingInvite(to player: GKPlayer)
   @available(OSX 10.9, *)
-  func finishMatchmakingFor(match: GKMatch)
+  func finishMatchmaking(for match: GKMatch)
   func queryPlayerGroupActivity(playerGroup: Int, withCompletionHandler completionHandler: ((Int, Error?) -> Void)? = nil)
   func queryActivity(completionHandler completionHandler: ((Int, Error?) -> Void)? = nil)
   @available(OSX 10.10, *)
@@ -94,5 +94,5 @@ extension GKMatchmaker {
   @available(OSX, introduced=10.9, deprecated=10.10, message="use cancelPendingInviteToPlayer:")
   func cancelInvite(toPlayer playerID: String)
   @available(OSX, introduced=10.8, deprecated=10.10, message="use findPlayersForHostedRequest:")
-  func findPlayersForHostedMatchRequest(request: GKMatchRequest, withCompletionHandler completionHandler: (([String]?, Error?) -> Void)? = nil)
+  func findPlayers(forHostedMatchRequest request: GKMatchRequest, withCompletionHandler completionHandler: (([String]?, Error?) -> Void)? = nil)
 }

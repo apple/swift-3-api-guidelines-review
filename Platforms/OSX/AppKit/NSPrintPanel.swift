@@ -42,9 +42,9 @@ class NSPrintPanel : Object {
   @available(OSX 10.5, *)
   var helpAnchor: String?
   var jobStyleHint: String?
-  func beginSheetWith(printInfo: NSPrintInfo, modalFor docWindow: NSWindow, delegate: AnyObject?, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func beginSheet(printInfo: NSPrintInfo, modalFor docWindow: NSWindow, delegate: AnyObject?, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.5, *)
-  func runModalWith(printInfo: NSPrintInfo) -> Int
+  func runModal(printInfo: NSPrintInfo) -> Int
   func runModal() -> Int
   @available(OSX 10.5, *)
   var printInfo: NSPrintInfo { get }

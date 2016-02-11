@@ -44,11 +44,11 @@ class AUAudioUnit : Object {
   var outputBusses: AUAudioUnitBusArray { get }
   var renderBlock: AURenderBlock { get }
   var scheduleParameterBlock: AUScheduleParameterBlock { get }
-  func tokenByAddingRenderObserver(observer: AURenderObserver) -> Int
+  func token(byAddingRenderObserver observer: AURenderObserver) -> Int
   func removeRenderObserver(token: Int)
   var maximumFramesToRender: AUAudioFrameCount
   var parameterTree: AUParameterTree? { get }
-  func parametersForOverviewWithCount(count: Int) -> [Number]
+  func parametersForOverview(withCount count: Int) -> [Number]
   var allParameterValues: Bool { get }
   var isMusicDeviceOrEffect: Bool { get }
   var virtualMIDICableCount: Int { get }

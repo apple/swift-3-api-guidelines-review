@@ -55,7 +55,7 @@ class NSManagedObjectContext : Object, Coding, Locking {
   func existingObject(with objectID: NSManagedObjectID) throws -> NSManagedObject
   func execute(request: NSFetchRequest) throws -> [AnyObject]
   @available(OSX 10.5, *)
-  func countFor(request: NSFetchRequest, error: ErrorPointer) -> Int
+  func count(for request: NSFetchRequest, error: ErrorPointer) -> Int
   @available(OSX 10.10, *)
   func execute(request: NSPersistentStoreRequest) throws -> NSPersistentStoreResult
   func insert(object: NSManagedObject)
@@ -93,9 +93,9 @@ class NSManagedObjectContext : Object, Coding, Locking {
   @available(OSX 10.5, *)
   func obtainPermanentIDs(for objects: [NSManagedObject]) throws
   @available(OSX 10.5, *)
-  func mergeChangesFromContextDidSave(notification: Notification)
+  func mergeChanges(fromContextDidSave notification: Notification)
   @available(OSX 10.11, *)
-  class func mergeChangesFromRemoteContextSave(changeNotificationData: [Object : AnyObject], into contexts: [NSManagedObjectContext])
+  class func mergeChanges(fromRemoteContextSave changeNotificationData: [Object : AnyObject], into contexts: [NSManagedObjectContext])
   @available(OSX 10.4, *)
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)

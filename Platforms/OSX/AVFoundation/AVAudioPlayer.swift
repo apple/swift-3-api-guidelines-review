@@ -10,7 +10,7 @@ class AVAudioPlayer : Object {
   func prepareToPlay() -> Bool
   func play() -> Bool
   @available(OSX 10.7, *)
-  func playAtTime(time: TimeInterval) -> Bool
+  func play(atTime time: TimeInterval) -> Bool
   func pause()
   func stop()
   var isPlaying: Bool { get }
