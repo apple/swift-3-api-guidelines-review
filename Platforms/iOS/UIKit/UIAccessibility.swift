@@ -57,8 +57,8 @@ extension Object {
   func accessibilityElementCount() -> Int
   class func accessibilityElement(at index: Int) -> AnyObject?
   func accessibilityElement(at index: Int) -> AnyObject?
-  class func indexOf(accessibilityElement element: AnyObject) -> Int
-  func indexOf(accessibilityElement element: AnyObject) -> Int
+  class func index(ofAccessibilityElement element: AnyObject) -> Int
+  func index(ofAccessibilityElement element: AnyObject) -> Int
   @available(iOS 8.0, *)
   var accessibilityElements: [AnyObject]?
   class func accessibilityElements() -> [AnyObject]?

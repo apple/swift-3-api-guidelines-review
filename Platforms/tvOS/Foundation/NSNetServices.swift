@@ -58,7 +58,7 @@ class NetServiceBrowser : Object {
   func remove(from aRunLoop: RunLoop, forMode mode: String)
   func searchForBrowsableDomains()
   func searchForRegistrationDomains()
-  func searchForServicesOf(type type: String, inDomain domainString: String)
+  func searchForServices(ofType type: String, inDomain domainString: String)
   func stop()
 }
 protocol NetServiceDelegate : ObjectProtocol {

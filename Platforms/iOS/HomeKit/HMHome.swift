@@ -52,7 +52,7 @@ extension HMHome {
   func removeActionSet(actionSet: HMActionSet, completionHandler completion: (Error?) -> Void)
   func executeActionSet(actionSet: HMActionSet, completionHandler completion: (Error?) -> Void)
   @available(iOS 9.0, *)
-  func builtinActionSetOf(type actionSetType: String) -> HMActionSet?
+  func builtinActionSet(ofType actionSetType: String) -> HMActionSet?
 }
 extension HMHome {
   var triggers: [HMTrigger] { get }

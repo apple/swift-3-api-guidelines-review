@@ -71,5 +71,5 @@ protocol NSTabViewDelegate : ObjectProtocol {
   optional func tabView(tabView: NSTabView, shouldSelect tabViewItem: NSTabViewItem?) -> Bool
   optional func tabView(tabView: NSTabView, willSelect tabViewItem: NSTabViewItem?)
   optional func tabView(tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?)
-  optional func tabViewDidChangeNumberOf(tabViewItems tabView: NSTabView)
+  optional func tabViewDidChangeNumber(ofTabViewItems tabView: NSTabView)
 }

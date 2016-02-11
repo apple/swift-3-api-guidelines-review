@@ -2,7 +2,7 @@
 class FileHandle : Object, SecureCoding {
   @NSCopying var availableData: Data { get }
   func readDataToEndOfFile() -> Data
-  func readDataOf(length length: Int) -> Data
+  func readData(ofLength length: Int) -> Data
   func write(data: Data)
   var offsetInFile: UInt64 { get }
   func seekToEndOfFile() -> UInt64

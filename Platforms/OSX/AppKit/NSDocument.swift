@@ -29,7 +29,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   init()
   convenience init(type typeName: String) throws
   @available(OSX 10.6, *)
-  class func canConcurrentlyReadDocumentsOf(type typeName: String) -> Bool
+  class func canConcurrentlyReadDocuments(ofType typeName: String) -> Bool
   convenience init(contentsOf url: URL, ofType typeName: String) throws
   convenience init(for urlOrNil: URL?, withContentsOf contentsURL: URL, ofType typeName: String) throws
   var fileType: String?
@@ -55,8 +55,8 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   @available(OSX 10.7, *)
   var isEntireFileLoaded: Bool { get }
   func write(to url: URL, ofType typeName: String) throws
-  func fileWrapperOf(type typeName: String) throws -> FileWrapper
-  func dataOf(type typeName: String) throws -> Data
+  func fileWrapper(ofType typeName: String) throws -> FileWrapper
+  func data(ofType typeName: String) throws -> Data
   @available(OSX 10.7, *)
   func unblockUserInteraction()
   @available(OSX 10.7, *)

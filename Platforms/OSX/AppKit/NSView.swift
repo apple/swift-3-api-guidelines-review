@@ -880,7 +880,7 @@ extension NSView {
   func adjustPageWidthNew(newRight: UnsafeMutablePointer<CGFloat>, left oldLeft: CGFloat, right oldRight: CGFloat, limit rightLimit: CGFloat)
   func adjustPageHeightNew(newBottom: UnsafeMutablePointer<CGFloat>, top oldTop: CGFloat, bottom oldBottom: CGFloat, limit bottomLimit: CGFloat)
   func rect(forPage page: Int) -> Rect
-  func locationOf(print aRect: Rect) -> Point
+  func location(ofPrint aRect: Rect) -> Point
   func drawPageBorder(borderSize: Size)
   @NSCopying var pageHeader: AttributedString { get }
   @NSCopying var pageFooter: AttributedString { get }
@@ -898,7 +898,7 @@ extension NSView {
   func register(forDraggedTypes newTypes: [String])
   func unregisterDraggedTypes()
   func dragFile(filename: String, from rect: Rect, slideBack aFlag: Bool, event: NSEvent) -> Bool
-  func dragPromisedFilesOf(types typeArray: [String], from rect: Rect, source sourceObject: AnyObject, slideBack aFlag: Bool, event: NSEvent) -> Bool
+  func dragPromisedFiles(ofTypes typeArray: [String], from rect: Rect, source sourceObject: AnyObject, slideBack aFlag: Bool, event: NSEvent) -> Bool
 }
 extension NSView {
   @available(OSX 10.5, *)

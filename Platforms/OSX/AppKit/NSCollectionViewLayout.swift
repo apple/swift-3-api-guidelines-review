@@ -50,8 +50,8 @@ class NSCollectionViewLayoutInvalidationContext : Object {
   var invalidateEverything: Bool { get }
   var invalidateDataSourceCounts: Bool { get }
   func invalidateItems(at indexPaths: Set<IndexPath>)
-  func invalidateSupplementaryElementsOf(kind elementKind: String, at indexPaths: Set<IndexPath>)
-  func invalidateDecorationElementsOf(kind elementKind: String, at indexPaths: Set<IndexPath>)
+  func invalidateSupplementaryElements(ofKind elementKind: String, at indexPaths: Set<IndexPath>)
+  func invalidateDecorationElements(ofKind elementKind: String, at indexPaths: Set<IndexPath>)
   var invalidatedItemIndexPaths: Set<IndexPath>? { get }
   var invalidatedSupplementaryIndexPaths: [String : Set<IndexPath>]? { get }
   var invalidatedDecorationIndexPaths: [String : Set<IndexPath>]? { get }
@@ -77,8 +77,8 @@ extension NSCollectionViewLayout {
   func prepare()
   func layoutAttributesForElements(in rect: Rect) -> [NSCollectionViewLayoutAttributes]
   func layoutAttributesForItem(at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
-  func layoutAttributesForSupplementaryViewOf(kind elementKind: String, at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
-  func layoutAttributesForDecorationViewOf(kind elementKind: String, at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
+  func layoutAttributesForDecorationView(ofKind elementKind: String, at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
   func layoutAttributesForDropTarget(at pointInCollectionView: Point) -> NSCollectionViewLayoutAttributes?
   func layoutAttributesForInterItemGap(before indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
   func shouldInvalidateLayout(forBoundsChange newBounds: Rect) -> Bool
@@ -99,12 +99,12 @@ extension NSCollectionViewLayout {
   func finalizeLayoutTransition()
   func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
   func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
-  func initialLayoutAttributesForAppearingSupplementaryElementOf(kind elementKind: String, at elementIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
-  func finalLayoutAttributesForDisappearingSupplementaryElementOf(kind elementKind: String, at elementIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
-  func initialLayoutAttributesForAppearingDecorationElementOf(kind elementKind: String, at decorationIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
-  func finalLayoutAttributesForDisappearingDecorationElementOf(kind elementKind: String, at decorationIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
-  func indexPathsToDeleteForSupplementaryViewOf(kind elementKind: String) -> Set<IndexPath>
-  func indexPathsToDeleteForDecorationViewOf(kind elementKind: String) -> Set<IndexPath>
-  func indexPathsToInsertForSupplementaryViewOf(kind elementKind: String) -> Set<IndexPath>
-  func indexPathsToInsertForDecorationViewOf(kind elementKind: String) -> Set<IndexPath>
+  func initialLayoutAttributesForAppearingSupplementaryElement(ofKind elementKind: String, at elementIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
+  func finalLayoutAttributesForDisappearingSupplementaryElement(ofKind elementKind: String, at elementIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
+  func initialLayoutAttributesForAppearingDecorationElement(ofKind elementKind: String, at decorationIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
+  func finalLayoutAttributesForDisappearingDecorationElement(ofKind elementKind: String, at decorationIndexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
+  func indexPathsToDeleteForSupplementaryView(ofKind elementKind: String) -> Set<IndexPath>
+  func indexPathsToDeleteForDecorationView(ofKind elementKind: String) -> Set<IndexPath>
+  func indexPathsToInsertForSupplementaryView(ofKind elementKind: String) -> Set<IndexPath>
+  func indexPathsToInsertForDecorationView(ofKind elementKind: String) -> Set<IndexPath>
 }

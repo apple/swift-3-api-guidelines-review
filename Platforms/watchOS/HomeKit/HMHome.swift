@@ -31,7 +31,7 @@ extension HMHome {
   var actionSets: [HMActionSet] { get }
   func executeActionSet(actionSet: HMActionSet, completionHandler completion: (Error?) -> Void)
   @available(watchOS 2.0, *)
-  func builtinActionSetOf(type actionSetType: String) -> HMActionSet?
+  func builtinActionSet(ofType actionSetType: String) -> HMActionSet?
 }
 extension HMHome {
   var triggers: [HMTrigger] { get }

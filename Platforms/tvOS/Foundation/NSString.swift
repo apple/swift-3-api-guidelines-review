@@ -164,7 +164,7 @@ extension NSString {
   func maximumLengthOfBytes(usingEncoding enc: UInt) -> Int
   func lengthOfBytes(usingEncoding enc: UInt) -> Int
   class func availableStringEncodings() -> UnsafePointer<UInt>
-  class func localizedNameOf(stringEncoding encoding: UInt) -> String
+  class func localizedName(ofStringEncoding encoding: UInt) -> String
   class func defaultCStringEncoding() -> UInt
   var decomposedStringWithCanonicalMapping: String { get }
   var precomposedStringWithCanonicalMapping: String { get }

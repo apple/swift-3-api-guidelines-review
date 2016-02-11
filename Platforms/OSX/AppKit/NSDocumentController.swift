@@ -12,7 +12,7 @@ class NSDocumentController : Object, Coding, NSUserInterfaceValidations {
   func removeDocument(document: NSDocument)
   @IBAction func newDocument(sender: AnyObject?)
   func openUntitledDocumentAndDisplay(displayDocument: Bool) throws -> NSDocument
-  func makeUntitledDocumentOf(type typeName: String) throws -> NSDocument
+  func makeUntitledDocument(ofType typeName: String) throws -> NSDocument
   @IBAction func openDocument(sender: AnyObject?)
   func urlsFromRunningOpenPanel() -> [URL]?
   func runModalOpenPanel(openPanel: NSOpenPanel, forTypes types: [String]?) -> Int

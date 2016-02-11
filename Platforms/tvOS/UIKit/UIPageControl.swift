@@ -6,7 +6,7 @@ class UIPageControl : UIControl {
   var hidesForSinglePage: Bool
   var defersCurrentPageDisplay: Bool
   func updateCurrentPageDisplay()
-  func sizeForNumberOf(pages pageCount: Int) -> CGSize
+  func sizeForNumber(ofPages pageCount: Int) -> CGSize
   @available(tvOS 6.0, *)
   var pageIndicatorTintColor: UIColor?
   @available(tvOS 6.0, *)
