@@ -84,7 +84,7 @@ class URL : Object, SecureCoding, Copying, URLHandleClient {
   @available(OSX 10.6, *)
   class func writeBookmarkData(bookmarkData: Data, to bookmarkFileURL: URL, options: URLBookmarkFileCreationOptions) throws
   @available(OSX 10.6, *)
-  class func bookmarkDataWithContents(of bookmarkFileURL: URL) throws -> Data
+  class func bookmarkData(withContentsOf bookmarkFileURL: URL) throws -> Data
   @available(OSX 10.10, *)
   convenience init(byResolvingAliasFileAt url: URL, options: URLBookmarkResolutionOptions = []) throws
   @available(OSX 10.7, *)

@@ -125,7 +125,7 @@ class NSBrowser : NSControl {
   func drawTitle(ofColumn column: Int, in aRect: Rect)
   var titleHeight: CGFloat { get }
   func frame(ofColumn column: Int) -> Rect
-  func frameOfInside(ofColumn column: Int) -> Rect
+  func frameOf(insideOfColumn column: Int) -> Rect
   @available(OSX 10.6, *)
   func frame(ofRow row: Int, inColumn column: Int) -> Rect
   @available(OSX 10.6, *)

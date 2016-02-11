@@ -41,7 +41,7 @@ class JSValue : Object {
   /*not inherited*/ init!(nullIn context: JSContext!)
   /*not inherited*/ init!(undefinedIn context: JSContext!)
   func toObject() -> AnyObject!
-  func toObject(of expectedClass: AnyClass!) -> AnyObject!
+  func toObjectOf(expectedClass: AnyClass!) -> AnyObject!
   func toBool() -> Bool
   func toDouble() -> Double
   func toInt32() -> Int32

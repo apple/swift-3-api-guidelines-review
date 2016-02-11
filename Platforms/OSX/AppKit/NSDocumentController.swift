@@ -21,8 +21,8 @@ class NSDocumentController : Object, Coding, NSUserInterfaceValidations {
   @available(OSX 10.8, *)
   func begin(openPanel: NSOpenPanel, forTypes inTypes: [String]?, completionHandler: (Int) -> Void)
   @available(OSX 10.7, *)
-  func openDocumentWithContents(of url: URL, display displayDocument: Bool, completionHandler: (NSDocument?, Bool, Error?) -> Void)
-  func makeDocumentWithContents(of url: URL, ofType typeName: String) throws -> NSDocument
+  func openDocument(contentsOf url: URL, display displayDocument: Bool, completionHandler: (NSDocument?, Bool, Error?) -> Void)
+  func makeDocument(contentsOf url: URL, ofType typeName: String) throws -> NSDocument
   @available(OSX 10.7, *)
   func reopenDocument(for urlOrNil: URL?, withContentsOf contentsURL: URL, display displayDocument: Bool, completionHandler: (NSDocument?, Bool, Error?) -> Void)
   func makeDocument(for urlOrNil: URL?, withContentsOf contentsURL: URL, ofType typeName: String) throws -> NSDocument
@@ -32,7 +32,7 @@ class NSDocumentController : Object, Coding, NSUserInterfaceValidations {
   func reviewUnsavedDocuments(alertTitle title: String?, cancellable: Bool, delegate: AnyObject?, didReviewAllSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func closeAllDocuments(delegate delegate: AnyObject?, didCloseAllSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
-  func duplicateDocumentWithContents(of url: URL, copying duplicateByCopying: Bool, displayName displayNameOrNil: String?) throws -> NSDocument
+  func duplicateDocument(contentsOf url: URL, copying duplicateByCopying: Bool, displayName displayNameOrNil: String?) throws -> NSDocument
   func presentError(error: Error, modalFor window: NSWindow, delegate: AnyObject?, didPresent didPresentSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func presentError(error: Error) -> Bool
   func willPresentError(error: Error) -> Error

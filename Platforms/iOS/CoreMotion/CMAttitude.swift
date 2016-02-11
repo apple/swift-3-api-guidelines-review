@@ -35,7 +35,7 @@ class CMAttitude : Object, Copying, SecureCoding {
   var yaw: Double { get }
   var rotationMatrix: CMRotationMatrix { get }
   var quaternion: CMQuaternion { get }
-  func multiplyByInverse(of attitude: CMAttitude)
+  func multiply(byInverseOf attitude: CMAttitude)
   init()
   @available(iOS 4.0, *)
   func copy(with zone: Zone = nil) -> AnyObject

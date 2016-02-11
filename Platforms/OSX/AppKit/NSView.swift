@@ -141,15 +141,15 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.7, *)
   func convertPointToBacking(aPoint: Point) -> Point
   @available(OSX 10.7, *)
-  func convertPoint(fromBacking aPoint: Point) -> Point
+  func convertPointFromBacking(aPoint: Point) -> Point
   @available(OSX 10.7, *)
   func convertSizeToBacking(aSize: Size) -> Size
   @available(OSX 10.7, *)
-  func convertSize(fromBacking aSize: Size) -> Size
+  func convertSizeFromBacking(aSize: Size) -> Size
   @available(OSX 10.7, *)
   func convertRectToBacking(aRect: Rect) -> Rect
   @available(OSX 10.7, *)
-  func convertRect(fromBacking aRect: Rect) -> Rect
+  func convertRectFromBacking(aRect: Rect) -> Rect
   @available(OSX 10.7, *)
   func convertPoint(toLayer aPoint: Point) -> Point
   @available(OSX 10.7, *)

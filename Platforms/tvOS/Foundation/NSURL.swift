@@ -84,7 +84,7 @@ class URL : Object, SecureCoding, Copying {
   @available(tvOS 4.0, *)
   class func writeBookmarkData(bookmarkData: Data, to bookmarkFileURL: URL, options: URLBookmarkFileCreationOptions) throws
   @available(tvOS 4.0, *)
-  class func bookmarkDataWithContents(of bookmarkFileURL: URL) throws -> Data
+  class func bookmarkData(withContentsOf bookmarkFileURL: URL) throws -> Data
   @available(tvOS 8.0, *)
   convenience init(byResolvingAliasFileAt url: URL, options: URLBookmarkResolutionOptions = []) throws
   @available(tvOS 8.0, *)

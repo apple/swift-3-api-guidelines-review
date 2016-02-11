@@ -30,7 +30,7 @@ struct OSAStorageOptions : OptionSetType {
 }
 class OSAScript : Object, Copying {
   @available(OSX 10.6, *)
-  class func scriptDataDescriptorWithContents(of url: URL) -> AppleEventDescriptor?
+  class func scriptDataDescriptor(withContentsOf url: URL) -> AppleEventDescriptor?
   init(source: String)
   init(source: String, language: OSALanguage?)
   @available(OSX 10.6, *)

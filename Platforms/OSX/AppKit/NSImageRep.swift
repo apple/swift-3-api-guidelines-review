@@ -39,9 +39,9 @@ class NSImageRep : Object, Copying, Coding {
   @available(OSX 10.5, *)
   class func imageTypes() -> [String]
   class func canInit(with pasteboard: NSPasteboard) -> Bool
-  class func imageRepsWithContents(ofFile filename: String) -> [NSImageRep]?
+  class func imageReps(withContentsOfFile filename: String) -> [NSImageRep]?
   /*not inherited*/ init?(contentsOfFile filename: String)
-  class func imageRepsWithContents(of url: URL) -> [NSImageRep]?
+  class func imageReps(withContentsOf url: URL) -> [NSImageRep]?
   /*not inherited*/ init?(contentsOf url: URL)
   class func imageReps(with pasteboard: NSPasteboard) -> [NSImageRep]?
   /*not inherited*/ init?(pasteboard: NSPasteboard)

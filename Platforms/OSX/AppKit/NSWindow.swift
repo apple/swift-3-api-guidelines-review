@@ -229,7 +229,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.7, *)
   func convertRectToBacking(aRect: Rect) -> Rect
   @available(OSX 10.7, *)
-  func convertRect(fromBacking aRect: Rect) -> Rect
+  func convertRectFromBacking(aRect: Rect) -> Rect
   @available(OSX 10.7, *)
   func backingAlignedRect(aRect: Rect, options: AlignmentOptions = []) -> Rect
   @available(OSX 10.7, *)

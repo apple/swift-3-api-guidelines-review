@@ -48,7 +48,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   @available(OSX 10.7, *)
   func performAsynchronousFileAccess(block: (() -> Void) -> Void)
   @IBAction func revertDocumentToSaved(sender: AnyObject?)
-  func revertToContents(of url: URL, ofType typeName: String) throws
+  func revert(toContentsOf url: URL, ofType typeName: String) throws
   func read(from url: URL, ofType typeName: String) throws
   func read(from fileWrapper: FileWrapper, ofType typeName: String) throws
   func read(from data: Data, ofType typeName: String) throws

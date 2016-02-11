@@ -84,7 +84,7 @@ class URL : Object, SecureCoding, Copying {
   @available(watchOS 2.0, *)
   class func writeBookmarkData(bookmarkData: Data, to bookmarkFileURL: URL, options: URLBookmarkFileCreationOptions) throws
   @available(watchOS 2.0, *)
-  class func bookmarkDataWithContents(of bookmarkFileURL: URL) throws -> Data
+  class func bookmarkData(withContentsOf bookmarkFileURL: URL) throws -> Data
   @available(watchOS 2.0, *)
   convenience init(byResolvingAliasFileAt url: URL, options: URLBookmarkResolutionOptions = []) throws
   @available(watchOS 2.0, *)

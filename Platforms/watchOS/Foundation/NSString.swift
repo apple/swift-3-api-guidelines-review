@@ -337,9 +337,9 @@ extension NSString {
   @available(watchOS, introduced=2.0, deprecated=2.0)
   convenience init?(contentsOf url: URL)
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func stringWithContents(ofFile path: String) -> AnyObject?
+  class func string(withContentsOfFile path: String) -> AnyObject?
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func stringWithContents(of url: URL) -> AnyObject?
+  class func string(withContentsOf url: URL) -> AnyObject?
   @available(watchOS, introduced=2.0, deprecated=2.0)
   convenience init?(cStringNoCopy bytes: UnsafeMutablePointer<Int8>, length: Int, freeWhenDone freeBuffer: Bool)
   @available(watchOS, introduced=2.0, deprecated=2.0)
