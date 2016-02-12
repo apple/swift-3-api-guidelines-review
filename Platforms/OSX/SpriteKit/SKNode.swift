@@ -59,7 +59,7 @@ class SKNode : NSResponder, Copying, Coding {
   func nodes(at p: CGPoint) -> [SKNode]
   func convert(point: CGPoint, from node: SKNode) -> CGPoint
   func convert(point: CGPoint, to node: SKNode) -> CGPoint
-  func intersectsNode(node: SKNode) -> Bool
+  func intersects(node: SKNode) -> Bool
   func isEqual(to node: SKNode) -> Bool
   class func obstacles(fromSpriteTextures sprites: [SKNode], accuracy: Float) -> [AnyObject]
   class func obstacles(fromNodeBounds nodes: [SKNode]) -> [AnyObject]

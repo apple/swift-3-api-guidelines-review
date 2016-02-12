@@ -8,7 +8,7 @@ class MKCircle : MKShape, MKOverlay {
   var boundingMapRect: MKMapRect { get }
   init()
   @available(OSX 10.9, *)
-  func intersectsMapRect(mapRect: MKMapRect) -> Bool
+  func intersects(mapRect: MKMapRect) -> Bool
   @available(OSX 10.9, *)
   func canReplaceMapContent() -> Bool
 }

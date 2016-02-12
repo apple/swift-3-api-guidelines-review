@@ -17,7 +17,7 @@ class IndexSet : Object, Copying, MutableCopying, SecureCoding {
   func contains(value: Int) -> Bool
   func contains(in range: NSRange) -> Bool
   func contains(indexSet: IndexSet) -> Bool
-  func intersectsIndexes(in range: NSRange) -> Bool
+  func intersects(in range: NSRange) -> Bool
   @available(OSX 10.6, *)
   func enumerate(block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.6, *)

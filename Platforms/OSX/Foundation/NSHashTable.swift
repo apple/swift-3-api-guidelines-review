@@ -26,12 +26,12 @@ class HashTable : Object, Copying, Coding, FastEnumeration {
   var allObjects: [AnyObject] { get }
   var anyObject: AnyObject? { get }
   func contains(anObject: AnyObject?) -> Bool
-  func intersectsHashTable(other: HashTable) -> Bool
+  func intersects(other: HashTable) -> Bool
   func isEqual(to other: HashTable) -> Bool
   func isSubsetOf(other: HashTable) -> Bool
-  func intersectHashTable(other: HashTable)
-  func unionHashTable(other: HashTable)
-  func minusHashTable(other: HashTable)
+  func intersect(other: HashTable)
+  func union(other: HashTable)
+  func minus(other: HashTable)
   var setRepresentation: Set<Object> { get }
   convenience init()
   @available(OSX 10.5, *)

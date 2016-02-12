@@ -41,7 +41,7 @@ class DOMRange : DOMObject {
   @available(OSX 10.5, *)
   func createContextualFragment(html: String!) -> DOMDocumentFragment!
   @available(OSX 10.5, *)
-  func intersectsNode(refNode: DOMNode!) -> Bool
+  func intersects(refNode: DOMNode!) -> Bool
   @available(OSX 10.5, *)
   func compare(refNode: DOMNode!) -> Int16
   @available(OSX 10.5, *)

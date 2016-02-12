@@ -40,8 +40,8 @@ extension OrderedSet {
   var lastObject: AnyObject? { get }
   func isEqual(to other: OrderedSet) -> Bool
   func contains(object: AnyObject) -> Bool
-  func intersectsOrderedSet(other: OrderedSet) -> Bool
-  func intersectsSet(set: Set<Object>) -> Bool
+  func intersects(other: OrderedSet) -> Bool
+  func intersects(set: Set<Object>) -> Bool
   func isSubsetOf(other: OrderedSet) -> Bool
   func isSubsetOf(set: Set<Object>) -> Bool
   @available(watchOS 2.0, *)
@@ -114,12 +114,12 @@ extension MutableOrderedSet {
   func removeAllObjects()
   func remove(object: AnyObject)
   func removeObjects(in array: [AnyObject])
-  func intersectOrderedSet(other: OrderedSet)
-  func minusOrderedSet(other: OrderedSet)
-  func unionOrderedSet(other: OrderedSet)
-  func intersectSet(other: Set<Object>)
-  func minusSet(other: Set<Object>)
-  func unionSet(other: Set<Object>)
+  func intersect(other: OrderedSet)
+  func minus(other: OrderedSet)
+  func union(other: OrderedSet)
+  func intersect(other: Set<Object>)
+  func minus(other: Set<Object>)
+  func union(other: Set<Object>)
   func sort(comparator cmptr: Comparator)
   func sort(opts: SortOptions = [], usingComparator cmptr: Comparator)
   func sortRange(range: NSRange, options opts: SortOptions = [], usingComparator cmptr: Comparator)

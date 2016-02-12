@@ -12,7 +12,7 @@ class MKPolygon : MKMultiPoint, MKOverlay {
   @available(OSX 10.9, *)
   var boundingMapRect: MKMapRect { get }
   @available(OSX 10.9, *)
-  func intersectsMapRect(mapRect: MKMapRect) -> Bool
+  func intersects(mapRect: MKMapRect) -> Bool
   @available(OSX 10.9, *)
   func canReplaceMapContent() -> Bool
 }

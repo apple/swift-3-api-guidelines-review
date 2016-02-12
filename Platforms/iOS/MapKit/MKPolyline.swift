@@ -9,7 +9,7 @@ class MKPolyline : MKMultiPoint, MKOverlay {
   @available(iOS 4.0, *)
   var boundingMapRect: MKMapRect { get }
   @available(iOS 4.0, *)
-  func intersectsMapRect(mapRect: MKMapRect) -> Bool
+  func intersects(mapRect: MKMapRect) -> Bool
   @available(iOS 7.0, *)
   func canReplaceMapContent() -> Bool
 }

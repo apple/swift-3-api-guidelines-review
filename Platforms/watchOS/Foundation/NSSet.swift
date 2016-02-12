@@ -41,7 +41,7 @@ extension NSSet {
   func contains(anObject: AnyObject) -> Bool
   var description: String { get }
   func description(withLocale locale: AnyObject?) -> String
-  func intersectsSet(otherSet: Set<Object>) -> Bool
+  func intersects(otherSet: Set<Object>) -> Bool
   func isEqual(to otherSet: Set<Object>) -> Bool
   func isSubsetOf(otherSet: Set<Object>) -> Bool
   @available(watchOS 2.0, *)
@@ -79,10 +79,10 @@ class MutableSet : NSSet {
 }
 extension MutableSet {
   func addObjects(from array: [AnyObject])
-  func intersectSet(otherSet: Set<Object>)
-  func minusSet(otherSet: Set<Object>)
+  func intersect(otherSet: Set<Object>)
+  func minus(otherSet: Set<Object>)
   func removeAllObjects()
-  func unionSet(otherSet: Set<Object>)
+  func union(otherSet: Set<Object>)
   func setSet(otherSet: Set<Object>)
 }
 extension MutableSet {
