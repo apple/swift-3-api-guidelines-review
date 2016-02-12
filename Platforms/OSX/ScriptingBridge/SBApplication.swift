@@ -4,7 +4,7 @@ class SBApplication : SBObject, Coding {
   init?(bundleIdentifier ident: String)
   init?(url: URL)
   init?(processIdentifier pid: pid_t)
-  func `class`(forScriptingClass className: String) -> AnyClass?
+  func classForScriptingClass(className: String) -> AnyClass?
   var isRunning: Bool { get }
   func activate()
   var delegate: SBApplicationDelegate?

@@ -56,7 +56,7 @@ extension AVAsset {
   @available(tvOS 4.3, *)
   func chapterMetadataGroups(withTitleLocale locale: Locale, containingItemsWithCommonKeys commonKeys: [String]?) -> [AVTimedMetadataGroup]
   @available(tvOS 6.0, *)
-  func chapterMetadataGroupsBest(matchingPreferredLanguages preferredLanguages: [String]) -> [AVTimedMetadataGroup]
+  func chapterMetadataGroups(bestMatchingPreferredLanguages preferredLanguages: [String]) -> [AVTimedMetadataGroup]
 }
 extension AVAsset {
   @available(tvOS 5.0, *)

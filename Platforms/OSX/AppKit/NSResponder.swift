@@ -3,7 +3,7 @@ class NSResponder : Object, Coding {
   init()
   init?(coder: Coder)
   unowned(unsafe) var next: @sil_unmanaged NSResponder?
-  func `try`(toPerform anAction: Selector, with anObject: AnyObject?) -> Bool
+  func tryToPerform(anAction: Selector, with anObject: AnyObject?) -> Bool
   func performKeyEquivalent(theEvent: NSEvent) -> Bool
   func validRequestor(forSendType sendType: String, returnType: String) -> AnyObject?
   func mouseDown(theEvent: NSEvent)

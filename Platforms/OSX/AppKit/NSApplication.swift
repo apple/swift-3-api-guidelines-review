@@ -122,7 +122,7 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   func sendAction(theAction: Selector, to theTarget: AnyObject?, from sender: AnyObject?) -> Bool
   func target(forAction theAction: Selector) -> AnyObject?
   func target(forAction theAction: Selector, to theTarget: AnyObject?, from sender: AnyObject?) -> AnyObject?
-  func `try`(toPerform anAction: Selector, with anObject: AnyObject?) -> Bool
+  func tryToPerform(anAction: Selector, with anObject: AnyObject?) -> Bool
   func validRequestor(forSendType sendType: String, returnType: String) -> AnyObject?
   func report(theException: Exception)
   class func detachDrawingThread(selector: Selector, toTarget target: AnyObject, with argument: AnyObject?)

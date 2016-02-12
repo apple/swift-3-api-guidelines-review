@@ -46,7 +46,7 @@ class AVAssetExportSession : Object {
 }
 extension AVAssetExportSession {
   class func allExportPresets() -> [String]
-  class func exportPresetsCompatibleWith(asset: AVAsset) -> [String]
+  class func exportPresets(compatibleWith asset: AVAsset) -> [String]
   @available(tvOS 6.0, *)
   class func determineCompatibilityOf(exportPreset presetName: String, with asset: AVAsset, outputFileType: String?, completionHandler handler: (Bool) -> Void)
 }

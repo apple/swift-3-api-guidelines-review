@@ -80,7 +80,7 @@ class ALAssetsLibrary : Object {
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use creationRequestForAssetFromVideoAtFilePath: on PHAssetChangeRequest from the Photos framework to create a new asset instead")
   func writeVideoAtPath(toSavedPhotosAlbum videoPathURL: URL!, completionBlock: ALAssetsLibraryWriteVideoCompletionBlock!)
   @available(iOS, introduced=5.0, deprecated=9.0)
-  func videoAtPathIsCompatibleWithSavedPhotosAlbum(videoPathURL: URL!) -> Bool
+  func videoAtPathIs(compatibleWithSavedPhotosAlbum videoPathURL: URL!) -> Bool
   @available(iOS, introduced=6.0, deprecated=9.0, message="Use authorizationStatus on the shared PHPhotoLibrary from the Photos framework instead")
   class func authorizationStatus() -> ALAuthorizationStatus
   @available(iOS, introduced=6.0, deprecated=9.0, message="Use the Photos framework instead")

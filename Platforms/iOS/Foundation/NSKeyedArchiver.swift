@@ -35,8 +35,8 @@ class KeyedUnarchiver : Coder {
   func finishDecoding()
   class func setClass(cls: AnyClass?, forClassName codedName: String)
   func setClass(cls: AnyClass?, forClassName codedName: String)
-  class func `class`(forClassName codedName: String) -> AnyClass?
-  func `class`(forClassName codedName: String) -> AnyClass?
+  class func classForClassName(codedName: String) -> AnyClass?
+  func classForClassName(codedName: String) -> AnyClass?
   func containsValue(forKey key: String) -> Bool
   func decodeObject(forKey key: String) -> AnyObject?
   func decodeBool(forKey key: String) -> Bool

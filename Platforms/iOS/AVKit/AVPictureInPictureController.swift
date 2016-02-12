@@ -2,8 +2,8 @@
 @available(iOS 9.0, *)
 class AVPictureInPictureController : Object {
   class func isPictureInPictureSupported() -> Bool
-  class func pictureInPictureButtonStartImageCompatibleWith(traitCollection: UITraitCollection?) -> UIImage
-  class func pictureInPictureButtonStopImageCompatibleWith(traitCollection: UITraitCollection?) -> UIImage
+  class func pictureInPictureButtonStartImage(compatibleWith traitCollection: UITraitCollection?) -> UIImage
+  class func pictureInPictureButtonStopImage(compatibleWith traitCollection: UITraitCollection?) -> UIImage
   weak var delegate: @sil_weak AVPictureInPictureControllerDelegate?
   func startPictureInPicture()
   func stopPictureInPicture()

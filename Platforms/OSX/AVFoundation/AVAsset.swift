@@ -56,7 +56,7 @@ extension AVAsset {
   @available(OSX 10.7, *)
   func chapterMetadataGroups(withTitleLocale locale: Locale, containingItemsWithCommonKeys commonKeys: [String]?) -> [AVTimedMetadataGroup]
   @available(OSX 10.8, *)
-  func chapterMetadataGroupsBest(matchingPreferredLanguages preferredLanguages: [String]) -> [AVTimedMetadataGroup]
+  func chapterMetadataGroups(bestMatchingPreferredLanguages preferredLanguages: [String]) -> [AVTimedMetadataGroup]
 }
 extension AVAsset {
   @available(OSX 10.8, *)

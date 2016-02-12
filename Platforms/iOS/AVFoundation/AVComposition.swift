@@ -33,7 +33,7 @@ extension AVMutableComposition {
 extension AVMutableComposition {
   func addMutableTrack(mediaType mediaType: String, preferredTrackID: CMPersistentTrackID) -> AVMutableCompositionTrack
   func removeTrack(track: AVCompositionTrack)
-  func mutableTrackCompatibleWith(track: AVAssetTrack) -> AVMutableCompositionTrack?
+  func mutableTrack(compatibleWith track: AVAssetTrack) -> AVMutableCompositionTrack?
 }
 extension AVMutableComposition {
   func track(withTrackID trackID: CMPersistentTrackID) -> AVMutableCompositionTrack?

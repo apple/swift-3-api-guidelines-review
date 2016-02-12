@@ -67,7 +67,7 @@ extension AVMutableMovie {
   func scaleTimeRange(timeRange: CMTimeRange, toDuration duration: CMTime)
 }
 extension AVMutableMovie {
-  func mutableTrackCompatibleWith(track: AVAssetTrack) -> AVMutableMovieTrack?
+  func mutableTrack(compatibleWith track: AVAssetTrack) -> AVMutableMovieTrack?
   func addMutableTrack(mediaType mediaType: String, copySettingsFrom track: AVAssetTrack?, options: [String : AnyObject]? = [:]) -> AVMutableMovieTrack
   func addMutableTracksCopyingSettings(from existingTracks: [AVAssetTrack], options: [String : AnyObject]? = [:]) -> [AVMutableMovieTrack]
   func removeTrack(track: AVMovieTrack)

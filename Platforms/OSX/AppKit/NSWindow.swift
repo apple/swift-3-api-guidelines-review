@@ -180,7 +180,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   var isZoomed: Bool { get }
   func zoom(sender: AnyObject?)
   var isMiniaturized: Bool { get }
-  func `try`(toPerform anAction: Selector, with anObject: AnyObject?) -> Bool
+  func tryToPerform(anAction: Selector, with anObject: AnyObject?) -> Bool
   func validRequestor(forSendType sendType: String, returnType: String) -> AnyObject?
   @NSCopying var backgroundColor: NSColor!
   @available(OSX 10.5, *)
