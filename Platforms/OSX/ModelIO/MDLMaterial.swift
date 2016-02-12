@@ -145,8 +145,8 @@ class MDLMaterial : Object, MDLNamed, FastEnumeration {
   var scatteringFunction: MDLScatteringFunction { get }
   var name: String
   var base: MDLMaterial?
-  subscript (atIndexedSubscript idx: Int) -> MDLMaterialProperty? { get }
-  subscript (forKeyedSubscript name: String) -> MDLMaterialProperty? { get }
+  subscript (idx: Int) -> MDLMaterialProperty? { get }
+  subscript (name: String) -> MDLMaterialProperty? { get }
   var count: Int { get }
   init()
   @available(OSX 10.11, *)

@@ -19,7 +19,7 @@ class CKRecord : Object, SecureCoding, Copying {
   func setObject(object: CKRecordValue?, forKey key: String)
   func allKeys() -> [String]
   func allTokens() -> [String]
-  subscript (forKeyedSubscript key: String) -> CKRecordValue?
+  subscript (key: String) -> CKRecordValue?
   func changedKeys() -> [String]
   func encodeSystemFields(with coder: Coder)
   @available(tvOS 8.0, *)

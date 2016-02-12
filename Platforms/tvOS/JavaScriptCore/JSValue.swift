@@ -60,8 +60,8 @@ extension JSValue {
   func toSize() -> CGSize
 }
 extension JSValue {
-  func object(forKeyedSubscript key: AnyObject!) -> JSValue!
-  func object(atIndexedSubscript index: Int) -> JSValue!
+  func objectForKeyedSubscript(key: AnyObject!) -> JSValue!
+  func objectAtIndexedSubscript(index: Int) -> JSValue!
   func setObject(object: AnyObject!, forKeyedSubscript key: protocol<Copying, ObjectProtocol>!)
   func setObject(object: AnyObject!, atIndexedSubscript index: Int)
 }

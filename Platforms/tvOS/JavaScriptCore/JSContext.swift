@@ -19,7 +19,7 @@ class JSContext : Object {
   var name: String!
 }
 extension JSContext {
-  func object(forKeyedSubscript key: AnyObject!) -> JSValue!
+  func objectForKeyedSubscript(key: AnyObject!) -> JSValue!
   func setObject(object: AnyObject!, forKeyedSubscript key: protocol<Copying, ObjectProtocol>!)
 }
 extension JSContext {

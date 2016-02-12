@@ -97,6 +97,6 @@ protocol MTLRenderPipelineState : ObjectProtocol {
 }
 @available(OSX 10.11, *)
 class MTLRenderPipelineColorAttachmentDescriptorArray : Object {
-  subscript (atIndexedSubscript attachmentIndex: Int) -> MTLRenderPipelineColorAttachmentDescriptor!
+  subscript (attachmentIndex: Int) -> MTLRenderPipelineColorAttachmentDescriptor!
   init()
 }

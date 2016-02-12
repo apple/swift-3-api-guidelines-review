@@ -45,7 +45,7 @@ class SKNode : NSResponder, Copying, Coding {
   func childNode(withName name: String) -> SKNode?
   func enumerateChildNodes(name name: String, using block: (SKNode, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.10, *)
-  subscript (forKeyedSubscript name: String) -> [SKNode] { get }
+  subscript (name: String) -> [SKNode] { get }
   func inParentHierarchy(parent: SKNode) -> Bool
   func run(action: SKAction)
   func run(action: SKAction, completion block: () -> Void)
