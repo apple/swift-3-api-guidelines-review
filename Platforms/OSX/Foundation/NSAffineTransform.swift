@@ -19,7 +19,7 @@ class AffineTransform : Object, Copying, SecureCoding {
   func scaleX(by scaleX: CGFloat, yBy scaleY: CGFloat)
   func invert()
   func append(transform: AffineTransform)
-  func prependTransform(transform: AffineTransform)
+  func prepend(transform: AffineTransform)
   func transform(aPoint: Point) -> Point
   func transform(aSize: Size) -> Size
   var transformStruct: AffineTransformStruct
