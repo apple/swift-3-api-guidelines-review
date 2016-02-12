@@ -17,16 +17,16 @@ class NSComboBoxCell : NSTextFieldCell {
   var completes: Bool
   func completedString(string: String) -> String?
   unowned(unsafe) var dataSource: @sil_unmanaged NSComboBoxCellDataSource?
-  func addItem(objectValue object: AnyObject)
-  func addItems(objectValues objects: [AnyObject])
-  func insertItem(objectValue object: AnyObject, at index: Int)
-  func removeItem(objectValue object: AnyObject)
+  func addItem(object: AnyObject)
+  func addItems(objects: [AnyObject])
+  func insertItem(object: AnyObject, at index: Int)
+  func removeItem(object: AnyObject)
   func removeItem(at index: Int)
   func removeAllItems()
-  func selectItem(objectValue object: AnyObject?)
+  func selectItem(object: AnyObject?)
   func itemObjectValue(at index: Int) -> AnyObject
   var objectValueOfSelectedItem: AnyObject? { get }
-  func indexOfItem(withObjectValue object: AnyObject) -> Int
+  func indexOfItem(with object: AnyObject) -> Int
   var objectValues: [AnyObject] { get }
   init(textCell aString: String)
   init(imageCell image: NSImage?)
