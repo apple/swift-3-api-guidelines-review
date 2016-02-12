@@ -71,13 +71,13 @@ extension NSArray {
   @available(tvOS 4.0, *)
   func enumerateObjects(at s: IndexSet, options opts: EnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
-  func index(ofObjectPassingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexOf(objectPassingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(tvOS 4.0, *)
   func indexOfObject(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(tvOS 4.0, *)
   func indexOfObject(at s: IndexSet, options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(tvOS 4.0, *)
-  func indexes(ofObjectsPassingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
+  func indexesOf(objectsPassingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
   @available(tvOS 4.0, *)
   func indexesOfObjects(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
   @available(tvOS 4.0, *)

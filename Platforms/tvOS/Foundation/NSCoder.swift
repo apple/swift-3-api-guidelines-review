@@ -1,8 +1,8 @@
 
 class Coder : Object {
-  func encodeValue(ofObjCType type: UnsafePointer<Int8>, at addr: UnsafePointer<Void>)
+  func encodeValueOf(objCType type: UnsafePointer<Int8>, at addr: UnsafePointer<Void>)
   func encodeDataObject(data: Data)
-  func decodeValue(ofObjCType type: UnsafePointer<Int8>, at data: UnsafeMutablePointer<Void>)
+  func decodeValueOf(objCType type: UnsafePointer<Int8>, at data: UnsafeMutablePointer<Void>)
   func decodeDataObject() -> Data?
   func version(forClassName className: String) -> Int
   init()
@@ -28,10 +28,10 @@ extension Coder {
   func encodeBycopyObject(anObject: AnyObject?)
   func encodeByrefObject(anObject: AnyObject?)
   func encodeConditionalObject(object: AnyObject?)
-  func encodeArray(ofObjCType type: UnsafePointer<Int8>, count: Int, at array: UnsafePointer<Void>)
+  func encodeArrayOf(objCType type: UnsafePointer<Int8>, count: Int, at array: UnsafePointer<Void>)
   func encodeBytes(byteaddr: UnsafePointer<Void>, length: Int)
   func decodeObject() -> AnyObject?
-  func decodeArray(ofObjCType itemType: UnsafePointer<Int8>, count: Int, at array: UnsafeMutablePointer<Void>)
+  func decodeArrayOf(objCType itemType: UnsafePointer<Int8>, count: Int, at array: UnsafeMutablePointer<Void>)
   func decodeBytes(returnedLength lengthp: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<Void>
   var systemVersion: UInt32 { get }
   var allowsKeyedCoding: Bool { get }
@@ -60,7 +60,7 @@ extension Coder {
   @available(tvOS 6.0, *)
   var requiresSecureCoding: Bool { get }
   @available(tvOS 6.0, *)
-  func __decodeObject(ofClasses classes: Set<Object>?, forKey key: String) -> AnyObject?
+  func __decodeObjectOf(classes classes: Set<Object>?, forKey key: String) -> AnyObject?
   @available(tvOS 6.0, *)
   func decodePropertyList(forKey key: String) -> AnyObject?
   @available(tvOS 6.0, *)

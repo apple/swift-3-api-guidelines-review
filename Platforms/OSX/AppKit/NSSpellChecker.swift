@@ -43,7 +43,7 @@ class NSSpellChecker : Object {
   @available(OSX 10.7, *)
   func record(response: NSCorrectionResponse, toCorrection correction: String, forWord word: String, language: String?, inSpellDocumentWithTag tag: Int)
   @available(OSX 10.7, *)
-  func showCorrectionIndicatorOf(type: NSCorrectionIndicatorType, primaryString: String, alternativeStrings: [String], forStringIn rectOfTypedString: Rect, view: NSView, completionHandler completionBlock: ((String!) -> Void)? = nil)
+  func showCorrectionIndicator(of type: NSCorrectionIndicatorType, primaryString: String, alternativeStrings: [String], forStringIn rectOfTypedString: Rect, view: NSView, completionHandler completionBlock: ((String!) -> Void)? = nil)
   @available(OSX 10.7, *)
   func dismissCorrectionIndicator(for view: NSView)
   @available(OSX 10.5, *)

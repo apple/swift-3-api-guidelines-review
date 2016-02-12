@@ -12,7 +12,7 @@ class HKHealthStore : Object {
   @available(watchOS 2.0, *)
   func delete(objects: [HKObject], withCompletion completion: (Bool, Error?) -> Void)
   @available(watchOS 2.0, *)
-  func deleteObjectsOf(objectType: HKObjectType, predicate: Predicate, withCompletion completion: (Bool, Int, Error?) -> Void)
+  func deleteObjects(of objectType: HKObjectType, predicate: Predicate, withCompletion completion: (Bool, Int, Error?) -> Void)
   func execute(query: HKQuery)
   func stop(query: HKQuery)
   @available(watchOS 2.0, *)

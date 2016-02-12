@@ -19,7 +19,7 @@ class PKPassLibrary : Object {
   func passes() -> [PKPass]
   func pass(passTypeIdentifier identifier: String, serialNumber: String) -> PKPass?
   @available(watchOS 2.0, *)
-  func passesOf(passType: PKPassType) -> [PKPass]
+  func passes(of passType: PKPassType) -> [PKPass]
   @available(watchOS 2.0, *)
   func remotePaymentPasses() -> [PKPaymentPass]
   func removePass(pass: PKPass)

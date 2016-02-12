@@ -204,7 +204,7 @@ class Calendar : Object, Copying, SecureCoding {
   @available(tvOS 8.0, *)
   func isDate(inWeekend date: Date) -> Bool
   @available(tvOS 8.0, *)
-  func range(ofWeekendStart datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, containing date: Date) -> Bool
+  func rangeOf(weekendStart datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, containing date: Date) -> Bool
   @available(tvOS 8.0, *)
   func nextWeekendStart(datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, options: CalendarOptions = [], after date: Date) -> Bool
   @available(tvOS 8.0, *)

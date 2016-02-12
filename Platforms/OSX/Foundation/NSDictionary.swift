@@ -65,7 +65,7 @@ extension NSDictionary {
   @available(OSX 10.6, *)
   func keysSortedByValue(opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
   @available(OSX 10.6, *)
-  func keys(ofEntriesPassingTest predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
+  func keysOf(entriesPassingTest predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
   @available(OSX 10.6, *)
   func keysOfEntries(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
 }

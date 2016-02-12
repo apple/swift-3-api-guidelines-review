@@ -83,7 +83,7 @@ class NSBrowser : NSControl {
   @available(OSX 10.6, *)
   func scrollRowToVisible(row: Int, inColumn column: Int)
   func setTitle(aString: String, ofColumn column: Int)
-  func title(ofColumn column: Int) -> String?
+  func titleOf(column column: Int) -> String?
   var pathSeparator: String
   func setPath(path: String) -> Bool
   func path() -> String
@@ -121,13 +121,13 @@ class NSBrowser : NSControl {
   func doClick(sender: AnyObject?)
   func doDoubleClick(sender: AnyObject?)
   func sendAction() -> Bool
-  func titleFrame(ofColumn column: Int) -> Rect
-  func drawTitle(ofColumn column: Int, in aRect: Rect)
+  func titleFrameOf(column column: Int) -> Rect
+  func drawTitleOf(column column: Int, in aRect: Rect)
   var titleHeight: CGFloat { get }
-  func frame(ofColumn column: Int) -> Rect
+  func frameOf(column column: Int) -> Rect
   func frameOf(insideOfColumn column: Int) -> Rect
   @available(OSX 10.6, *)
-  func frame(ofRow row: Int, inColumn column: Int) -> Rect
+  func frameOf(row row: Int, inColumn column: Int) -> Rect
   @available(OSX 10.6, *)
   func getRow(row: UnsafeMutablePointer<Int>, column: UnsafeMutablePointer<Int>, for point: Point) -> Bool
   func columnWidth(forColumnContentWidth columnContentWidth: CGFloat) -> CGFloat
@@ -135,7 +135,7 @@ class NSBrowser : NSControl {
   var columnResizingType: NSBrowserColumnResizingType
   var prefersAllColumnUserResizing: Bool
   func setWidth(columnWidth: CGFloat, ofColumn columnIndex: Int)
-  func width(ofColumn column: Int) -> CGFloat
+  func widthOf(column column: Int) -> CGFloat
   @available(OSX 10.6, *)
   var rowHeight: CGFloat
   @available(OSX 10.6, *)

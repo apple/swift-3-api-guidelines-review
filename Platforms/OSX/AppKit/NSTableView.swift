@@ -160,8 +160,8 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   var selectionHighlightStyle: NSTableViewSelectionHighlightStyle
   @available(OSX 10.6, *)
   var draggingDestinationFeedbackStyle: NSTableViewDraggingDestinationFeedbackStyle
-  func rect(ofColumn column: Int) -> Rect
-  func rect(ofRow row: Int) -> Rect
+  func rectOf(column column: Int) -> Rect
+  func rectOf(row row: Int) -> Rect
   @available(OSX 10.5, *)
   func columnIndexes(in rect: Rect) -> IndexSet
   func rows(in rect: Rect) -> NSRange

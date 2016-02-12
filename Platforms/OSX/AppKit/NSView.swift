@@ -880,7 +880,7 @@ extension NSView {
   func adjustPageWidthNew(newRight: UnsafeMutablePointer<CGFloat>, left oldLeft: CGFloat, right oldRight: CGFloat, limit rightLimit: CGFloat)
   func adjustPageHeightNew(newBottom: UnsafeMutablePointer<CGFloat>, top oldTop: CGFloat, bottom oldBottom: CGFloat, limit bottomLimit: CGFloat)
   func rect(forPage page: Int) -> Rect
-  func location(ofPrint aRect: Rect) -> Point
+  func locationOf(print aRect: Rect) -> Point
   func drawPageBorder(borderSize: Size)
   @NSCopying var pageHeader: AttributedString { get }
   @NSCopying var pageFooter: AttributedString { get }

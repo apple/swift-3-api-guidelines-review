@@ -47,7 +47,7 @@ class NSFontManager : Object {
   func weightOf(fontObj: NSFont) -> Int
   var availableFonts: [String] { get }
   var availableFontFamilies: [String] { get }
-  func availableMembers(ofFontFamily fam: String) -> [[AnyObject]]?
+  func availableMembersOf(fontFamily fam: String) -> [[AnyObject]]?
   func convert(fontObj: NSFont) -> NSFont
   func convert(fontObj: NSFont, toSize size: CGFloat) -> NSFont
   func convert(fontObj: NSFont, toFace typeface: String) -> NSFont?

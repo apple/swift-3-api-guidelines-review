@@ -38,7 +38,7 @@ class TVViewElement : Object, Copying {
   var updateType: TVElementUpdateType { get }
   @available(tvOS 9.0, *)
   func resetProperty(resettableProperty: TVElementResettableProperty)
-  func dispatchEventOf(type: TVElementEventType, canBubble: Bool, cancellable isCancellable: Bool, extraInfo: [String : AnyObject]?, completion: ((Bool, Bool) -> Void)? = nil)
+  func dispatchEvent(of type: TVElementEventType, canBubble: Bool, cancellable isCancellable: Bool, extraInfo: [String : AnyObject]?, completion: ((Bool, Bool) -> Void)? = nil)
   func dispatchEvent(withName eventName: String, canBubble: Bool, cancellable isCancellable: Bool, extraInfo: [String : AnyObject]?, completion: ((Bool, Bool) -> Void)? = nil)
   init()
   @available(tvOS 9.0, *)

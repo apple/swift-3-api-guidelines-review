@@ -35,7 +35,7 @@ class GKMatchRequest : Object {
   @available(OSX, introduced=10.9, deprecated=10.10, message="use recipientResponseHandler")
   var inviteeResponseHandler: ((String, GKInviteeResponse) -> Void)?
   @available(OSX 10.9, *)
-  class func maxPlayersAllowedForMatchOf(matchType: GKMatchType) -> Int
+  class func maxPlayersAllowedForMatch(of matchType: GKMatchType) -> Int
   init()
 }
 enum GKMatchType : UInt {
