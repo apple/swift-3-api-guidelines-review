@@ -57,7 +57,7 @@ class SCNSceneSource : Object {
   func __entry(withIdentifier uid: String, with entryClass: AnyClass) -> AnyObject?
   func identifiersOfEntries(with entryClass: AnyClass) -> [String]
   @available(tvOS 8.0, *)
-  func entriesPassingTest(predicate: (AnyObject, String, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [AnyObject]
+  func entries(passingTest predicate: (AnyObject, String, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [AnyObject]
   init()
 }
 
