@@ -79,7 +79,7 @@ class NSColor : Object, Copying, SecureCoding, NSPasteboardReading, NSPasteboard
   class func alternateSelectedControl() -> NSColor
   class func alternateSelectedControlText() -> NSColor
   class func controlAlternatingRowBackgroundColors() -> [NSColor]
-  func highlight(level val: CGFloat) -> NSColor?
+  func highlight(withLevel val: CGFloat) -> NSColor?
   func shadow(withLevel val: CGFloat) -> NSColor?
   /*not inherited*/ init(for controlTint: NSControlTint)
   class func currentControlTint() -> NSControlTint
@@ -126,7 +126,7 @@ class NSColor : Object, Copying, SecureCoding, NSPasteboardReading, NSPasteboard
   var cgColor: CGColor { get }
   class func setIgnoresAlpha(flag: Bool)
   class func ignoresAlpha() -> Bool
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: Coder)
   class func readableTypes(for pasteboard: NSPasteboard) -> [String]

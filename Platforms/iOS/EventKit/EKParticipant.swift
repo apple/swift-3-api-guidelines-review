@@ -14,5 +14,5 @@ class EKParticipant : EKObject, Copying {
   func abRecord(with addressBook: ABAddressBook) -> ABRecord?
   init()
   @available(iOS 4.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }

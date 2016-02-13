@@ -26,7 +26,7 @@ class Formatter : Object, Copying, Coding {
   func isPartialStringValid(partialString: String, newEditing newString: AutoreleasingUnsafeMutablePointer<NSString?>, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   func isPartialStringValid(partialStringPtr: AutoreleasingUnsafeMutablePointer<NSString?>, proposedSelectedRange proposedSelRangePtr: RangePointer, originalString origString: String, originalSelectedRange origSelRange: NSRange, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

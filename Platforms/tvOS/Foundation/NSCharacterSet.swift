@@ -29,8 +29,8 @@ class CharacterSet : Object, Copying, MutableCopying, Coding {
   func isSupersetOf(theOtherSet: CharacterSet) -> Bool
   func hasMember(inPlane thePlane: UInt8) -> Bool
   convenience init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
   func encode(with aCoder: Coder)
 }
 class MutableCharacterSet : CharacterSet, Copying, MutableCopying {
@@ -38,8 +38,8 @@ class MutableCharacterSet : CharacterSet, Copying, MutableCopying {
   func removeCharacters(in aRange: NSRange)
   func addCharacters(in aString: String)
   func removeCharacters(in aString: String)
-  func formUnion(otherSet: CharacterSet)
-  func formIntersection(otherSet: CharacterSet)
+  func formUnion(with otherSet: CharacterSet)
+  func formIntersection(with otherSet: CharacterSet)
   func invert()
   class func control() -> MutableCharacterSet
   class func whitespace() -> MutableCharacterSet

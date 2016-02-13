@@ -53,7 +53,7 @@ class SCNPhysicsBody : Object, Copying, SecureCoding {
   func resetTransform()
   init()
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)

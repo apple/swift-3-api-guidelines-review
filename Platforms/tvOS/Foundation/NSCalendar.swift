@@ -225,7 +225,7 @@ class Calendar : Object, Copying, SecureCoding {
   func date(bySettingHour h: Int, minute m: Int, second s: Int, of date: Date, options opts: CalendarOptions = []) -> Date?
   @available(tvOS 8.0, *)
   func date(date: Date, matchesComponents components: DateComponents) -> Bool
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
@@ -272,7 +272,7 @@ class DateComponents : Object, Copying, SecureCoding {
   @available(tvOS 8.0, *)
   func isValidDate(in calendar: Calendar) -> Bool
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)

@@ -60,7 +60,7 @@ class UIKeyCommand : Object, Copying, SecureCoding {
   @available(tvOS 9.0, *)
   /*not inherited*/ init(input: String, modifierFlags: UIKeyModifierFlags, action: Selector, discoverabilityTitle: String)
   @available(tvOS 7.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(tvOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 7.0, *)

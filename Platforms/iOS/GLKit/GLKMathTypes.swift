@@ -14,7 +14,7 @@ extension GLKMatrix2 {
   var m01: Float { get }
   var m10: Float { get }
   var m11: Float { get }
-  subscript (i: Int) -> Float { get }
+  subscript(i: Int) -> Float { get }
 }
 typealias GLKMatrix2 = _GLKMatrix2
 struct _GLKMatrix3 {
@@ -35,7 +35,7 @@ extension GLKMatrix3 {
   var m20: Float { get }
   var m21: Float { get }
   var m22: Float { get }
-  subscript (i: Int) -> Float { get }
+  subscript(i: Int) -> Float { get }
 }
 typealias GLKMatrix3 = _GLKMatrix3
 struct _GLKMatrix4 {
@@ -63,7 +63,7 @@ extension GLKMatrix4 {
   var m31: Float { get }
   var m32: Float { get }
   var m33: Float { get }
-  subscript (i: Int) -> Float { get }
+  subscript(i: Int) -> Float { get }
 }
 typealias GLKMatrix4 = _GLKMatrix4
 struct _GLKVector2 {
@@ -79,7 +79,7 @@ extension GLKVector2 {
   var y: Float { get }
   var s: Float { get }
   var t: Float { get }
-  subscript (i: Int) -> Float { get }
+  subscript(i: Int) -> Float { get }
 }
 typealias GLKVector2 = _GLKVector2
 struct _GLKVector3 {
@@ -100,7 +100,7 @@ extension GLKVector3 {
   var r: Float { get }
   var g: Float { get }
   var b: Float { get }
-  subscript (i: Int) -> Float { get }
+  subscript(i: Int) -> Float { get }
 }
 typealias GLKVector3 = _GLKVector3
 struct _GLKVector4 {
@@ -124,7 +124,7 @@ extension GLKVector4 {
   var g: Float { get }
   var b: Float { get }
   var a: Float { get }
-  subscript (i: Int) -> Float { get }
+  subscript(i: Int) -> Float { get }
 }
 typealias GLKVector4 = _GLKVector4
 struct _GLKQuaternion {
@@ -142,6 +142,6 @@ extension GLKQuaternion {
   var y: Float { get }
   var z: Float { get }
   var w: Float { get }
-  subscript (i: Int) -> Float { get }
+  subscript(i: Int) -> Float { get }
 }
 typealias GLKQuaternion = _GLKQuaternion

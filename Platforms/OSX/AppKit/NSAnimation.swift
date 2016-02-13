@@ -38,7 +38,7 @@ class NSAnimation : Object, Copying, Coding {
   func clearStop()
   var runLoopModesForAnimating: [String]? { get }
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

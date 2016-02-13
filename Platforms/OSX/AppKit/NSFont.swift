@@ -81,7 +81,7 @@ class NSFont : Object, Copying, SecureCoding {
   @available(OSX 10.7, *)
   var isVertical: Bool { get }
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)

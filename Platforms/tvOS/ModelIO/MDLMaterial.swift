@@ -145,10 +145,10 @@ class MDLMaterial : Object, MDLNamed, FastEnumeration {
   var scatteringFunction: MDLScatteringFunction { get }
   var name: String
   var base: MDLMaterial?
-  subscript (idx: Int) -> MDLMaterialProperty? { get }
-  subscript (name: String) -> MDLMaterialProperty? { get }
+  subscript(idx: Int) -> MDLMaterialProperty? { get }
+  subscript(name: String) -> MDLMaterialProperty? { get }
   var count: Int { get }
   init()
   @available(tvOS 9.0, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(with state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

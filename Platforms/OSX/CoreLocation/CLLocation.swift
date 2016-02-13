@@ -44,7 +44,7 @@ class CLLocation : Object, Copying, SecureCoding {
   func distance(from location: CLLocation) -> CLLocationDistance
   init()
   @available(OSX 10.6, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.6, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.6, *)

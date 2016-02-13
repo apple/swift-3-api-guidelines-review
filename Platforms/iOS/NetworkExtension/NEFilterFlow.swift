@@ -11,7 +11,7 @@ class NEFilterFlow : Object, SecureCoding, Copying {
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class NEFilterBrowserFlow : NEFilterFlow, SecureCoding, Copying {

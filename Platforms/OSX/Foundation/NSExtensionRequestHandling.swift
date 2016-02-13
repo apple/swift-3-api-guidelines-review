@@ -1,5 +1,5 @@
 
 protocol ExtensionRequestHandling : ObjectProtocol {
   @available(OSX 10.10, *)
-  func beginRequest(context: ExtensionContext)
+  func beginRequest(with context: ExtensionContext)
 }

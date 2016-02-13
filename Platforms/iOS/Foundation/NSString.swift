@@ -51,8 +51,8 @@ class NSString : Object, Copying, MutableCopying, SecureCoding {
   func character(at index: Int) -> unichar
   init()
   init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: Coder)
 }

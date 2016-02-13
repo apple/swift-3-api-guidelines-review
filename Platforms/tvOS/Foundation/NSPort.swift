@@ -12,7 +12,7 @@ class Port : Object, Copying, Coding {
   func send(before limitDate: Date, components: MutableArray?, from receivePort: Port?, reserved headerSpaceReserved: Int) -> Bool
   func send(before limitDate: Date, msgid msgID: Int, components: MutableArray?, from receivePort: Port?, reserved headerSpaceReserved: Int) -> Bool
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

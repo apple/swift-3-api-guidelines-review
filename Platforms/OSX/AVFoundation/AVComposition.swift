@@ -8,7 +8,7 @@ class AVComposition : AVAsset, MutableCopying {
   convenience init(url URL: URL)
   init()
   @available(OSX 10.7, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
 }
 extension AVComposition {
   func track(withTrackID trackID: CMPersistentTrackID) -> AVCompositionTrack?
@@ -31,7 +31,7 @@ extension AVMutableComposition {
   func scaleTimeRange(timeRange: CMTimeRange, toDuration duration: CMTime)
 }
 extension AVMutableComposition {
-  func addMutableTrack(mediaType mediaType: String, preferredTrackID: CMPersistentTrackID) -> AVMutableCompositionTrack
+  func addMutableTrack(withMediaType mediaType: String, preferredTrackID: CMPersistentTrackID) -> AVMutableCompositionTrack
   func removeTrack(track: AVCompositionTrack)
   func mutableTrack(compatibleWith track: AVAssetTrack) -> AVMutableCompositionTrack?
 }

@@ -46,7 +46,7 @@ class UITableViewRowAction : Object, Copying {
   @NSCopying var backgroundEffect: UIVisualEffect?
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class UITableViewFocusUpdateContext : UIFocusUpdateContext {

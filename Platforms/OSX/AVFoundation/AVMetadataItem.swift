@@ -15,9 +15,9 @@ class AVMetadataItem : Object, AVAsynchronousKeyValueLoading, Copying, MutableCo
   var extraAttributes: [String : AnyObject]? { get }
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
 }
 extension AVMetadataItem {
   @available(OSX 10.11, *)

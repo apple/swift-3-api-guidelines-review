@@ -45,9 +45,9 @@ class CMMotionManager : Object {
   func startDeviceMotionUpdates()
   func startDeviceMotionUpdates(to queue: OperationQueue, withHandler handler: CMDeviceMotionHandler)
   @available(watchOS 2.0, *)
-  func startDeviceMotionUpdates(referenceFrame: CMAttitudeReferenceFrame)
+  func startDeviceMotionUpdates(using referenceFrame: CMAttitudeReferenceFrame)
   @available(watchOS 2.0, *)
-  func startDeviceMotionUpdates(referenceFrame: CMAttitudeReferenceFrame, to queue: OperationQueue, withHandler handler: CMDeviceMotionHandler)
+  func startDeviceMotionUpdates(using referenceFrame: CMAttitudeReferenceFrame, to queue: OperationQueue, withHandler handler: CMDeviceMotionHandler)
   func stopDeviceMotionUpdates()
   @available(watchOS 2.0, *)
   var showsDeviceMovementDisplay: Bool

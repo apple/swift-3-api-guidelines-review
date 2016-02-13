@@ -4,7 +4,7 @@ class AVAssetTrack : Object, Copying, AVAsynchronousKeyValueLoading {
   weak var asset: @sil_weak AVAsset? { get }
   var trackID: CMPersistentTrackID { get }
   @available(tvOS 4.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(tvOS 4.0, *)
   func statusOfValue(forKey key: String, error outError: ErrorPointer) -> AVKeyValueStatus
   @available(tvOS 4.0, *)

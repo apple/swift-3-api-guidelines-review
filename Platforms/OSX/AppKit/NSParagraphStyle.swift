@@ -11,7 +11,7 @@ class NSTextTab : Object, Copying, Coding {
   var options: [String : AnyObject] { get }
   convenience init()
   @available(OSX 10.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.0, *)
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
@@ -56,9 +56,9 @@ class NSParagraphStyle : Object, Copying, MutableCopying, SecureCoding {
   var headerLevel: Int { get }
   init()
   @available(OSX 10.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.0, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.0, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.0, *)

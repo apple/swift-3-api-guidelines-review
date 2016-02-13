@@ -6,11 +6,11 @@ class NSDictionary : Object, Copying, MutableCopying, SecureCoding, FastEnumerat
   init()
   init(objects: UnsafePointer<AnyObject?>, forKeys keys: UnsafePointer<Copying?>, count cnt: Int)
   init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: Coder)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(with state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSDictionary : DictionaryLiteralConvertible {
@@ -55,7 +55,7 @@ extension NSDictionary {
   @available(watchOS 2.0, *)
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, andKeys keys: AutoreleasingUnsafeMutablePointer<AnyObject?>, count: Int)
   @available(watchOS 2.0, *)
-  subscript (key: Copying) -> AnyObject? { get }
+  subscript(key: Copying) -> AnyObject? { get }
   @available(watchOS 2.0, *)
   func enumerateKeysAndObjects(block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
@@ -98,7 +98,7 @@ extension MutableDictionary {
   func removeObjects(for keyArray: [AnyObject])
   func setDictionary(otherDictionary: [Object : AnyObject])
   @available(watchOS 2.0, *)
-  subscript (key: Copying) -> AnyObject?
+  subscript(key: Copying) -> AnyObject?
 }
 extension MutableDictionary {
   convenience init?(contentsOfFile path: String)

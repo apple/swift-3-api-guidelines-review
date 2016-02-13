@@ -18,7 +18,7 @@ class NEIPv4Settings : Object, SecureCoding, Copying {
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class NEIPv4Route : Object, SecureCoding, Copying {
@@ -39,5 +39,5 @@ class NEIPv4Route : Object, SecureCoding, Copying {
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }

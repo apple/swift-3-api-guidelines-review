@@ -13,9 +13,9 @@ class PointerArray : Object, FastEnumeration, Copying, Coding {
   var count: Int
   convenience init()
   @available(OSX 10.5, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(with state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
   @available(OSX 10.5, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.5, *)
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)

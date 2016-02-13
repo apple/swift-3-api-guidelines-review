@@ -78,7 +78,7 @@ class SCNGeometry : Object, SCNAnimatable, SCNBoundingVolume, SCNShadable, Copyi
   @available(tvOS 8.0, *)
   var shaderModifiers: [String : String]?
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)

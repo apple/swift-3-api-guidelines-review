@@ -27,7 +27,7 @@ class UICollectionViewLayoutAttributes : Object, Copying, UIDynamicItem {
   convenience init(forDecorationViewOfKind decorationViewKind: String, with indexPath: IndexPath)
   init()
   @available(iOS 6.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   var collisionBoundsType: UIDynamicItemCollisionBoundsType { get }
   @available(iOS 9.0, *)

@@ -30,5 +30,5 @@ class SKKeyframeSequence : Object, Coding, Copying {
   var repeatMode: SKRepeatMode
   convenience init()
   func encode(with aCoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }

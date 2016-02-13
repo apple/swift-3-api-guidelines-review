@@ -42,7 +42,7 @@ class MTLTextureDescriptor : Object, Copying {
   var usage: MTLTextureUsage
   init()
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 protocol MTLTexture : MTLResource {

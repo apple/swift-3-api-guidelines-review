@@ -24,7 +24,7 @@ class UIBezierPath : Object, Copying, Coding {
   func addCurve(to endPoint: CGPoint, controlPoint1: CGPoint, controlPoint2: CGPoint)
   func addQuadCurve(to endPoint: CGPoint, controlPoint: CGPoint)
   @available(tvOS 4.0, *)
-  func addArc(center center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
+  func addArc(withCenter center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
   func close()
   func removeAllPoints()
   func append(bezierPath: UIBezierPath)
@@ -45,11 +45,11 @@ class UIBezierPath : Object, Copying, Coding {
   func getLineDash(pattern: UnsafeMutablePointer<CGFloat>, count: UnsafeMutablePointer<Int>, phase: UnsafeMutablePointer<CGFloat>)
   func fill()
   func stroke()
-  func fill(blendMode: CGBlendMode, alpha: CGFloat)
-  func stroke(blendMode: CGBlendMode, alpha: CGFloat)
+  func fill(with blendMode: CGBlendMode, alpha: CGFloat)
+  func stroke(with blendMode: CGBlendMode, alpha: CGFloat)
   func addClip()
   @available(tvOS 3.2, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(tvOS 3.2, *)
   func encode(with aCoder: Coder)
 }

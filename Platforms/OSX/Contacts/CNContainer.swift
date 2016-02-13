@@ -15,7 +15,7 @@ class CNContainer : Object, Copying, SecureCoding {
   var type: CNContainerType { get }
   init()
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)

@@ -41,5 +41,5 @@ class PointerFunctions : Object, Copying {
   var usesWeakReadAndWriteBarriers: Bool
   convenience init()
   @available(OSX 10.5, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }

@@ -65,7 +65,7 @@ class AppleEventDescriptor : Object, Copying, SecureCoding {
   var transactionID: AETransactionID { get }
   func setParamDescriptor(descriptor: AppleEventDescriptor, forKeyword keyword: AEKeyword)
   func paramDescriptor(forKeyword keyword: AEKeyword) -> AppleEventDescriptor?
-  func removeParamDescriptor(keyword keyword: AEKeyword)
+  func removeParamDescriptor(withKeyword keyword: AEKeyword)
   func setAttributeDescriptor(descriptor: AppleEventDescriptor, forKeyword keyword: AEKeyword)
   func attributeDescriptor(forKeyword keyword: AEKeyword) -> AppleEventDescriptor?
   @available(OSX 10.11, *)
@@ -78,11 +78,11 @@ class AppleEventDescriptor : Object, Copying, SecureCoding {
   func remove(at index: Int)
   func setDescriptor(descriptor: AppleEventDescriptor, forKeyword keyword: AEKeyword)
   func forKeyword(keyword: AEKeyword) -> AppleEventDescriptor?
-  func remove(keyword keyword: AEKeyword)
+  func remove(withKeyword keyword: AEKeyword)
   func keywordForDescriptor(at index: Int) -> AEKeyword
   func coerce(toDescriptorType descriptorType: DescType) -> AppleEventDescriptor?
   convenience init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)

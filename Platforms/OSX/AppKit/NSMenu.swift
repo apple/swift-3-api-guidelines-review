@@ -11,8 +11,8 @@ class NSMenu : Object, Copying, Coding {
   unowned(unsafe) var supermenu: @sil_unmanaged NSMenu?
   func insert(newItem: NSMenuItem, at index: Int)
   func add(newItem: NSMenuItem)
-  func insertItem(title aString: String, action aSelector: Selector, keyEquivalent charCode: String, at index: Int) -> NSMenuItem?
-  func addItem(title aString: String, action aSelector: Selector, keyEquivalent charCode: String) -> NSMenuItem?
+  func insertItem(withTitle aString: String, action aSelector: Selector, keyEquivalent charCode: String, at index: Int) -> NSMenuItem?
+  func addItem(withTitle aString: String, action aSelector: Selector, keyEquivalent charCode: String) -> NSMenuItem?
   func removeItem(at index: Int)
   func remove(item: NSMenuItem)
   func setSubmenu(aMenu: NSMenu?, for anItem: NSMenuItem)
@@ -55,7 +55,7 @@ class NSMenu : Object, Copying, Coding {
   @available(OSX 10.11, *)
   var userInterfaceLayoutDirection: NSUserInterfaceLayoutDirection
   convenience init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

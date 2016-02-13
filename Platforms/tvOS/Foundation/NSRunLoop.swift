@@ -25,11 +25,11 @@ extension Object {
   func perform(aSelector: Selector, with anArgument: AnyObject?, afterDelay delay: TimeInterval, inModes modes: [String])
   class func perform(aSelector: Selector, with anArgument: AnyObject?, afterDelay delay: TimeInterval)
   func perform(aSelector: Selector, with anArgument: AnyObject?, afterDelay delay: TimeInterval)
-  class func cancelPreviousPerformRequests(target aTarget: AnyObject, selector aSelector: Selector, object anArgument: AnyObject?)
-  class func cancelPreviousPerformRequests(target aTarget: AnyObject)
+  class func cancelPreviousPerformRequests(withTarget aTarget: AnyObject, selector aSelector: Selector, object anArgument: AnyObject?)
+  class func cancelPreviousPerformRequests(withTarget aTarget: AnyObject)
 }
 extension RunLoop {
   func perform(aSelector: Selector, target: AnyObject, argument arg: AnyObject?, order: Int, modes: [String])
   func cancelPerform(aSelector: Selector, target: AnyObject, argument arg: AnyObject?)
-  func cancelPerformSelectors(target target: AnyObject)
+  func cancelPerformSelectors(withTarget target: AnyObject)
 }

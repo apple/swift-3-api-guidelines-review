@@ -22,7 +22,7 @@ class Predicate : Object, SecureCoding, Copying {
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.4, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 
 extension Predicate {

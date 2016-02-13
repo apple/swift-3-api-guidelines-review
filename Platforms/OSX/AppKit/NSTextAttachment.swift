@@ -39,7 +39,7 @@ extension MutableAttributedString {
   func updateAttachments(fromPath path: String)
 }
 protocol NSTextAttachmentCellProtocol : ObjectProtocol {
-  func draw(frame cellFrame: Rect, in controlView: NSView?)
+  func draw(withFrame cellFrame: Rect, in controlView: NSView?)
   func wantsToTrackMouse() -> Bool
   func highlight(flag: Bool, withFrame cellFrame: Rect, in controlView: NSView?)
   func trackMouse(theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView?, untilMouseUp flag: Bool) -> Bool
@@ -47,9 +47,9 @@ protocol NSTextAttachmentCellProtocol : ObjectProtocol {
   func cellBaselineOffset() -> Point
   @available(OSX 10.0, *)
   unowned(unsafe) var attachment: @sil_unmanaged NSTextAttachment? { get set }
-  func draw(frame cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int)
+  func draw(withFrame cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int)
   @available(OSX 10.0, *)
-  func draw(frame cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int, layoutManager: NSLayoutManager)
+  func draw(withFrame cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int, layoutManager: NSLayoutManager)
   func wantsToTrackMouse(for theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView?, atCharacterIndex charIndex: Int) -> Bool
   func trackMouse(theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView?, atCharacterIndex charIndex: Int, untilMouseUp flag: Bool) -> Bool
   @available(OSX 10.0, *)
@@ -60,7 +60,7 @@ class NSTextAttachmentCell : NSCell, NSTextAttachmentCellProtocol {
   init(imageCell image: NSImage?)
   convenience init()
   init?(coder aDecoder: Coder)
-  func draw(frame cellFrame: Rect, in controlView: NSView?)
+  func draw(withFrame cellFrame: Rect, in controlView: NSView?)
   func wantsToTrackMouse() -> Bool
   func highlight(flag: Bool, withFrame cellFrame: Rect, in controlView: NSView?)
   func trackMouse(theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView?, untilMouseUp flag: Bool) -> Bool
@@ -68,9 +68,9 @@ class NSTextAttachmentCell : NSCell, NSTextAttachmentCellProtocol {
   func cellBaselineOffset() -> Point
   @available(OSX 10.0, *)
   unowned(unsafe) var attachment: @sil_unmanaged NSTextAttachment?
-  func draw(frame cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int)
+  func draw(withFrame cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int)
   @available(OSX 10.0, *)
-  func draw(frame cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int, layoutManager: NSLayoutManager)
+  func draw(withFrame cellFrame: Rect, in controlView: NSView?, characterIndex charIndex: Int, layoutManager: NSLayoutManager)
   func wantsToTrackMouse(for theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView?, atCharacterIndex charIndex: Int) -> Bool
   func trackMouse(theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView?, atCharacterIndex charIndex: Int, untilMouseUp flag: Bool) -> Bool
   @available(OSX 10.0, *)

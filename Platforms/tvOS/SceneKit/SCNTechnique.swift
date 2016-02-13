@@ -6,7 +6,7 @@ class SCNTechnique : Object, SCNAnimatable, Copying, SecureCoding {
   func handleBindingOf(symbol symbol: String, using block: SCNBindingBlock? = nil)
   var dictionaryRepresentation: [String : AnyObject] { get }
   @available(tvOS 9.0, *)
-  subscript (key: AnyObject) -> AnyObject? { get }
+  subscript(key: AnyObject) -> AnyObject? { get }
   @available(tvOS 9.0, *)
   func setObject(obj: AnyObject?, forKeyedSubscript key: Copying)
   init()
@@ -29,7 +29,7 @@ class SCNTechnique : Object, SCNAnimatable, Copying, SecureCoding {
   @available(tvOS 8.0, *)
   func removeAnimation(forKey key: String, fadeOutDuration duration: CGFloat)
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)

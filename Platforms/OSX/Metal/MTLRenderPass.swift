@@ -37,7 +37,7 @@ class MTLRenderPassAttachmentDescriptor : Object, Copying {
   var storeAction: MTLStoreAction
   init()
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class MTLRenderPassColorAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {
@@ -56,7 +56,7 @@ class MTLRenderPassStencilAttachmentDescriptor : MTLRenderPassAttachmentDescript
 }
 @available(OSX 10.11, *)
 class MTLRenderPassColorAttachmentDescriptorArray : Object {
-  subscript (attachmentIndex: Int) -> MTLRenderPassColorAttachmentDescriptor!
+  subscript(attachmentIndex: Int) -> MTLRenderPassColorAttachmentDescriptor!
   init()
 }
 @available(OSX 10.11, *)
@@ -69,6 +69,6 @@ class MTLRenderPassDescriptor : Object, Copying {
   var renderTargetArrayLength: Int
   init()
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 func MTLClearColorMake(red: Double, _ green: Double, _ blue: Double, _ alpha: Double) -> MTLClearColor

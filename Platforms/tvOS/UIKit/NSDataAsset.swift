@@ -7,5 +7,5 @@ class NSDataAsset : Object, Copying {
   @NSCopying var data: Data { get }
   var typeIdentifier: String { get }
   @available(tvOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }

@@ -34,8 +34,8 @@ class URLRequest : Object, SecureCoding, Copying, MutableCopying {
   convenience init()
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
 }
 class MutableURLRequest : URLRequest {
   @NSCopying var url: URL?

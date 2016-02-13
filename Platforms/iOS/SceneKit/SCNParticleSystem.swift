@@ -128,7 +128,7 @@ class SCNParticlePropertyController : Object, SecureCoding, Copying {
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class SCNParticleSystem : Object, Copying, SecureCoding, SCNAnimatable {
@@ -200,7 +200,7 @@ class SCNParticleSystem : Object, Copying, SecureCoding, SCNAnimatable {
   func removeAllModifiers()
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)

@@ -61,7 +61,7 @@ class NSSharingService : Object {
   /*not inherited*/ init?(named serviceName: String)
   init(title: String, image: NSImage, alternateImage: NSImage?, handler block: () -> Void)
   func canPerform(withItems items: [AnyObject]?) -> Bool
-  func perform(items items: [AnyObject])
+  func perform(withItems items: [AnyObject])
 }
 @available(OSX 10.8, *)
 enum NSSharingContentScope : Int {

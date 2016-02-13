@@ -32,7 +32,7 @@ class SCNPhysicsField : Object, Copying, SecureCoding {
   class func customField(evaluationBlock block: SCNFieldForceEvaluator) -> SCNPhysicsField
   init()
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)

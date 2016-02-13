@@ -11,7 +11,7 @@ class ItemProvider : Object, Copying {
   func loadItem(forTypeIdentifier typeIdentifier: String, options: [Object : AnyObject]? = [:], completionHandler: ItemProviderCompletionHandler? = nil)
   convenience init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 @available(watchOS 2.0, *)
 let itemProviderPreferredImageSizeKey: String

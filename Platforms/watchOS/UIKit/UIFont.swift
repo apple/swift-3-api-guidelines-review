@@ -30,5 +30,5 @@ class UIFont : Object, Copying {
   func fontDescriptor() -> UIFontDescriptor
   init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }

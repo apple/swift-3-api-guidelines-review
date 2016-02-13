@@ -5,7 +5,7 @@ class Value : Object, Copying, SecureCoding {
   init(bytes value: UnsafePointer<Void>, objCType type: UnsafePointer<Int8>)
   init?(coder aDecoder: Coder)
   convenience init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: Coder)
 }

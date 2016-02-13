@@ -12,14 +12,14 @@ class UserUnixTask : UserScriptTask {
   var standardInput: FileHandle?
   var standardOutput: FileHandle?
   var standardError: FileHandle?
-  func execute(arguments arguments: [String]?, completionHandler handler: UserUnixTaskCompletionHandler? = nil)
+  func execute(withArguments arguments: [String]?, completionHandler handler: UserUnixTaskCompletionHandler? = nil)
   init(url: URL) throws
   convenience init()
 }
 typealias UserUnixTaskCompletionHandler = (Error?) -> Void
 @available(OSX 10.8, *)
 class UserAppleScriptTask : UserScriptTask {
-  func execute(appleEvent event: AppleEventDescriptor?, completionHandler handler: UserAppleScriptTaskCompletionHandler? = nil)
+  func execute(withAppleEvent event: AppleEventDescriptor?, completionHandler handler: UserAppleScriptTaskCompletionHandler? = nil)
   init(url: URL) throws
   convenience init()
 }
@@ -27,7 +27,7 @@ typealias UserAppleScriptTaskCompletionHandler = (AppleEventDescriptor?, Error?)
 @available(OSX 10.8, *)
 class UserAutomatorTask : UserScriptTask {
   var variables: [String : AnyObject]?
-  func execute(input input: SecureCoding?, completionHandler handler: UserAutomatorTaskCompletionHandler? = nil)
+  func execute(withInput input: SecureCoding?, completionHandler handler: UserAutomatorTaskCompletionHandler? = nil)
   init(url: URL) throws
   convenience init()
 }

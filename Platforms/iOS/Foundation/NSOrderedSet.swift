@@ -8,15 +8,15 @@ class OrderedSet : Object, Copying, MutableCopying, SecureCoding, FastEnumeratio
   init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
   init?(coder aDecoder: Coder)
   @available(iOS 5.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 5.0, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
   @available(iOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 5.0, *)
   func encode(with aCoder: Coder)
   @available(iOS 5.0, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(with state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension OrderedSet : SequenceType {
@@ -45,7 +45,7 @@ extension OrderedSet {
   func isSubsetOf(other: OrderedSet) -> Bool
   func isSubsetOf(set: Set<Object>) -> Bool
   @available(iOS 6.0, *)
-  subscript (idx: Int) -> AnyObject { get }
+  subscript(idx: Int) -> AnyObject { get }
   func objectEnumerator() -> Enumerator
   func reverseObjectEnumerator() -> Enumerator
   @NSCopying var reversed: OrderedSet { get }
@@ -106,7 +106,7 @@ extension MutableOrderedSet {
   func insert(objects: [AnyObject], at indexes: IndexSet)
   func setObject(obj: AnyObject, at idx: Int)
   @available(iOS 6.0, *)
-  subscript (idx: Int) -> AnyObject
+  subscript(idx: Int) -> AnyObject
   func replaceObjects(in range: NSRange, withObjects objects: UnsafePointer<AnyObject?>, count: Int)
   func replaceObjects(at indexes: IndexSet, with objects: [AnyObject])
   func removeObjects(in range: NSRange)

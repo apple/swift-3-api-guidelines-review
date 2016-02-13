@@ -26,7 +26,7 @@ class NSCollectionViewLayoutAttributes : Object, Copying {
   convenience init(forDecorationViewOfKind decorationViewKind: String, with indexPath: IndexPath)
   init()
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 enum NSCollectionUpdateAction : Int {

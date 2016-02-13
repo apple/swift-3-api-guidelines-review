@@ -33,7 +33,7 @@ class GLKMeshBuffer : Object, MDLMeshBuffer {
   @available(iOS 9.0, *)
   func map() -> MDLMeshBufferMap
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class GLKSubmesh : Object {

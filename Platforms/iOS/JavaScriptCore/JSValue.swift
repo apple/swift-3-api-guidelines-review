@@ -44,7 +44,7 @@ class JSValue : Object {
   func isEqual(to value: AnyObject!) -> Bool
   func isEqualWithTypeCoercion(to value: AnyObject!) -> Bool
   func isInstanceOf(value: AnyObject!) -> Bool
-  func call(arguments arguments: [AnyObject]!) -> JSValue!
+  func call(withArguments arguments: [AnyObject]!) -> JSValue!
   func construct(withArguments arguments: [AnyObject]!) -> JSValue!
   func invokeMethod(method: String!, withArguments arguments: [AnyObject]!) -> JSValue!
   init()

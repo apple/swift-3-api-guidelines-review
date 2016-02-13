@@ -36,7 +36,7 @@ class PHImageRequestOptions : Object, Copying {
   var progressHandler: PHAssetImageProgressHandler?
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.1, *)
 class PHLivePhotoRequestOptions : Object, Copying {
@@ -45,7 +45,7 @@ class PHLivePhotoRequestOptions : Object, Copying {
   var progressHandler: PHAssetImageProgressHandler?
   init()
   @available(iOS 9.1, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 enum PHVideoRequestOptionsVersion : Int {

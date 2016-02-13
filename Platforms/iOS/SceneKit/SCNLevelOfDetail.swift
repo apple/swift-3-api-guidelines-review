@@ -8,7 +8,7 @@ class SCNLevelOfDetail : Object, Copying, SecureCoding {
   var worldSpaceDistance: CGFloat { get }
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)

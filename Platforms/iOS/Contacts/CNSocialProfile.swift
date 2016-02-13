@@ -10,7 +10,7 @@ class CNSocialProfile : Object, Copying, SecureCoding {
   class func localizedString(forService service: String) -> String
   init()
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)

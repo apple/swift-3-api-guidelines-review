@@ -10,7 +10,7 @@ class CMRecordedAccelerometerData : CMAccelerometerData {
 class CMSensorDataList : Object, FastEnumeration {
   init()
   @available(watchOS 2.0, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(with state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 @available(watchOS 2.0, *)
 class CMSensorRecorder : Object {

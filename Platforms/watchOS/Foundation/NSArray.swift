@@ -5,11 +5,11 @@ class NSArray : Object, Copying, MutableCopying, SecureCoding, FastEnumeration {
   init()
   init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
   init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: Coder)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(with state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSArray : ArrayLiteralConvertible {
@@ -63,7 +63,7 @@ extension NSArray {
   func write(to url: URL, atomically: Bool) -> Bool
   func objects(at indexes: IndexSet) -> [AnyObject]
   @available(watchOS 2.0, *)
-  subscript (idx: Int) -> AnyObject { get }
+  subscript(idx: Int) -> AnyObject { get }
   @available(watchOS 2.0, *)
   func enumerateObjects(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
@@ -141,7 +141,7 @@ extension MutableArray {
   func removeObjects(at indexes: IndexSet)
   func replaceObjects(at indexes: IndexSet, with objects: [AnyObject])
   @available(watchOS 2.0, *)
-  subscript (idx: Int) -> AnyObject
+  subscript(idx: Int) -> AnyObject
   @available(watchOS 2.0, *)
   func sort(comparator cmptr: Comparator)
   @available(watchOS 2.0, *)

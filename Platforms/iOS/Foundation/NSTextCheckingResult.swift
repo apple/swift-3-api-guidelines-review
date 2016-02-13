@@ -29,7 +29,7 @@ class TextCheckingResult : Object, Copying, Coding {
   var range: NSRange { get }
   init()
   @available(iOS 4.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
@@ -82,7 +82,7 @@ let textCheckingAirlineKey: String
 let textCheckingFlightKey: String
 extension TextCheckingResult {
   class func orthographyCheckingResult(with range: NSRange, orthography: Orthography) -> TextCheckingResult
-  class func spell(range: NSRange) -> TextCheckingResult
+  class func spell(with range: NSRange) -> TextCheckingResult
   class func grammarCheckingResult(with range: NSRange, details: [String]) -> TextCheckingResult
   class func dateCheckingResult(with range: NSRange, date: Date) -> TextCheckingResult
   class func dateCheckingResult(with range: NSRange, date: Date, timeZone: TimeZone, duration: TimeInterval) -> TextCheckingResult
@@ -97,7 +97,7 @@ extension TextCheckingResult {
   @available(iOS 4.0, *)
   class func regularExpressionCheckingResult(withRanges ranges: RangePointer, count: Int, regularExpression: RegularExpression) -> TextCheckingResult
   @available(iOS 4.0, *)
-  class func phoneNumber(range: NSRange, phoneNumber: String) -> TextCheckingResult
+  class func phoneNumber(with range: NSRange, phoneNumber: String) -> TextCheckingResult
   @available(iOS 4.0, *)
   class func transitInformationCheckingResult(with range: NSRange, components: [String : String]) -> TextCheckingResult
 }

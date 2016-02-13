@@ -40,7 +40,7 @@ class NEOnDemandRule : Object, SecureCoding, Copying {
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.10, *)
 class NEOnDemandRuleConnect : NEOnDemandRule {
@@ -90,5 +90,5 @@ class NEEvaluateConnectionRule : Object, SecureCoding, Copying {
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }

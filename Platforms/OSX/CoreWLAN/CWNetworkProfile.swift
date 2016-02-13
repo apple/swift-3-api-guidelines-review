@@ -14,9 +14,9 @@ class CWNetworkProfile : Object, Copying, MutableCopying, SecureCoding {
   @available(OSX 10.7, *)
   func isEqual(to networkProfile: CWNetworkProfile) -> Bool
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.7, *)

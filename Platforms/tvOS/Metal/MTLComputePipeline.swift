@@ -12,7 +12,7 @@ class MTLComputePipelineDescriptor : Object, Copying {
   func reset()
   init()
   @available(tvOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 protocol MTLComputePipelineState : ObjectProtocol {

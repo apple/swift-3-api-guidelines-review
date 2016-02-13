@@ -95,7 +95,7 @@ class URL : Object, SecureCoding, Copying {
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 
 extension URL : _FileReferenceLiteralConvertible {
@@ -360,7 +360,7 @@ class URLQueryItem : Object, SecureCoding, Copying {
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 @available(watchOS 2.0, *)
 class URLComponents : Object, Copying {
@@ -404,7 +404,7 @@ class URLComponents : Object, Copying {
   @available(watchOS 2.0, *)
   var queryItems: [URLQueryItem]?
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 extension CharacterSet {
   @available(watchOS 2.0, *)
@@ -459,7 +459,7 @@ class FileSecurity : Object, Copying, Coding {
   init?(coder aDecoder: Coder)
   convenience init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   func encode(with aCoder: Coder)
 }

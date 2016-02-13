@@ -17,7 +17,7 @@ class SKAction : Object, Copying, Coding {
   var speed: CGFloat
   func reversed() -> SKAction
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
@@ -44,8 +44,8 @@ extension SKAction {
   class func group(actions: [SKAction]) -> SKAction
   class func repeatAction(action: SKAction, count: Int) -> SKAction
   class func repeatForever(action: SKAction) -> SKAction
-  class func fadeIn(duration sec: TimeInterval) -> SKAction
-  class func fadeOut(duration sec: TimeInterval) -> SKAction
+  class func fadeIn(withDuration sec: TimeInterval) -> SKAction
+  class func fadeOut(withDuration sec: TimeInterval) -> SKAction
   class func fadeAlpha(by factor: CGFloat, duration sec: TimeInterval) -> SKAction
   class func fadeAlpha(to alpha: CGFloat, duration sec: TimeInterval) -> SKAction
   @available(OSX 10.10, *)
@@ -60,12 +60,12 @@ extension SKAction {
   class func setTexture(texture: SKTexture, resize: Bool) -> SKAction
   @available(OSX 10.11, *)
   class func setNormalTexture(texture: SKTexture, resize: Bool) -> SKAction
-  class func animate(textures: [SKTexture], timePerFrame sec: TimeInterval) -> SKAction
+  class func animate(with textures: [SKTexture], timePerFrame sec: TimeInterval) -> SKAction
   @available(OSX 10.11, *)
-  class func animate(normalTextures textures: [SKTexture], timePerFrame sec: TimeInterval) -> SKAction
-  class func animate(textures: [SKTexture], timePerFrame sec: TimeInterval, resize: Bool, restore: Bool) -> SKAction
+  class func animate(withNormalTextures textures: [SKTexture], timePerFrame sec: TimeInterval) -> SKAction
+  class func animate(with textures: [SKTexture], timePerFrame sec: TimeInterval, resize: Bool, restore: Bool) -> SKAction
   @available(OSX 10.11, *)
-  class func animate(normalTextures textures: [SKTexture], timePerFrame sec: TimeInterval, resize: Bool, restore: Bool) -> SKAction
+  class func animate(withNormalTextures textures: [SKTexture], timePerFrame sec: TimeInterval, resize: Bool, restore: Bool) -> SKAction
   class func playSoundFileNamed(soundFile: String, waitForCompletion wait: Bool) -> SKAction
   class func colorize(with color: NSColor, colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction
   class func colorize(withColorBlendFactor colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction

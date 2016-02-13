@@ -33,7 +33,7 @@ class CBPeripheral : Object, Copying {
   func writeValue(data: Data, for descriptor: CBDescriptor)
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 protocol CBPeripheralDelegate : ObjectProtocol {
   @available(OSX 10.9, *)

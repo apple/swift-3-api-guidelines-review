@@ -38,7 +38,7 @@ class CMAttitude : Object, Copying, SecureCoding {
   func multiply(byInverseOf attitude: CMAttitude)
   init()
   @available(iOS 4.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 4.0, *)

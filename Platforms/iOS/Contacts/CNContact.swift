@@ -59,9 +59,9 @@ class CNContact : Object, Copying, MutableCopying, SecureCoding {
   func isUnifiedWithContact(withIdentifier contactIdentifier: String) -> Bool
   init()
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
