@@ -63,9 +63,9 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   @available(iOS 5.0, *)
   var storyboard: UIStoryboard? { get }
   @available(iOS 5.0, *)
-  func performSegue(withIdentifier identifier: String, sender: AnyObject?)
+  func performSegue(identifier identifier: String, sender: AnyObject?)
   @available(iOS 6.0, *)
-  func shouldPerformSegue(withIdentifier identifier: String, sender: AnyObject?) -> Bool
+  func shouldPerformSegue(identifier identifier: String, sender: AnyObject?) -> Bool
   @available(iOS 5.0, *)
   func prepare(for segue: UIStoryboardSegue, sender: AnyObject?)
   @available(iOS 6.0, *)
@@ -143,7 +143,7 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   func showDetailViewController(vc: UIViewController, sender: AnyObject?)
   convenience init()
   @available(iOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   @available(iOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(iOS 8.0, *)
@@ -240,9 +240,9 @@ extension UIViewController : UIStateRestoring {
   @available(iOS 6.0, *)
   var restorationClass: AnyObject.Type?
   @available(iOS 6.0, *)
-  func encodeRestorableState(with coder: Coder)
+  func encodeRestorableState(coder: Coder)
   @available(iOS 6.0, *)
-  func decodeRestorableState(with coder: Coder)
+  func decodeRestorableState(coder: Coder)
   @available(iOS 7.0, *)
   func applicationFinishedRestoringState()
   var restorationParent: UIStateRestoring? { get }
@@ -272,7 +272,7 @@ extension UIViewController : ExtensionRequestHandling {
   @available(iOS 8.0, *)
   var extensionContext: ExtensionContext? { get }
   @available(iOS 8.0, *)
-  func beginRequest(with context: ExtensionContext)
+  func beginRequest(context: ExtensionContext)
 }
 extension UIViewController {
   @available(iOS 8.0, *)
@@ -299,9 +299,9 @@ protocol UIViewControllerPreviewingDelegate : ObjectProtocol {
 }
 extension UIViewController {
   @available(iOS 9.0, *)
-  func registerForPreviewing(with delegate: UIViewControllerPreviewingDelegate, sourceView: UIView) -> UIViewControllerPreviewing
+  func registerForPreviewing(delegate: UIViewControllerPreviewingDelegate, sourceView: UIView) -> UIViewControllerPreviewing
   @available(iOS 9.0, *)
-  func unregisterForPreviewing(withContext previewing: UIViewControllerPreviewing)
+  func unregisterForPreviewing(context previewing: UIViewControllerPreviewing)
 }
 extension UIViewController {
   @available(iOS 9.0, *)

@@ -36,10 +36,10 @@ class UIFontDescriptor : Object, Copying, SecureCoding {
   var symbolicTraits: UIFontDescriptorSymbolicTraits { get }
   func object(forKey anAttribute: String) -> AnyObject?
   func fontAttributes() -> [String : AnyObject]
-  func matchingFontDescriptors(withMandatoryKeys mandatoryKeys: Set<String>?) -> [UIFontDescriptor]
+  func matchingFontDescriptors(mandatoryKeys mandatoryKeys: Set<String>?) -> [UIFontDescriptor]
   /*not inherited*/ init(name fontName: String, size: CGFloat)
   /*not inherited*/ init(name fontName: String, matrix: CGAffineTransform)
-  class func preferredFontDescriptor(withTextStyle style: String) -> UIFontDescriptor
+  class func preferredFontDescriptor(textStyle style: String) -> UIFontDescriptor
   init(fontAttributes attributes: [String : AnyObject] = [:])
   func addingAttributes(attributes: [String : AnyObject] = [:]) -> UIFontDescriptor
   func withSymbolicTraits(symbolicTraits: UIFontDescriptorSymbolicTraits) -> UIFontDescriptor
@@ -52,7 +52,7 @@ class UIFontDescriptor : Object, Copying, SecureCoding {
   @available(iOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 7.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 @available(iOS 7.0, *)
 let UIFontDescriptorFamilyAttribute: String

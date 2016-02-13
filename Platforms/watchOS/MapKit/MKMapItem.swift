@@ -11,7 +11,7 @@ class MKMapItem : Object {
   class func forCurrentLocation() -> MKMapItem
   init(placemark: MKPlacemark)
   func openInMaps(launchOptions launchOptions: [String : AnyObject]? = [:]) -> Bool
-  class func openMaps(with mapItems: [MKMapItem], launchOptions: [String : AnyObject]? = [:]) -> Bool
+  class func openMaps(mapItems: [MKMapItem], launchOptions: [String : AnyObject]? = [:]) -> Bool
   init()
 }
 @available(watchOS 2.0, *)

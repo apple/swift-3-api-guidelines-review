@@ -32,7 +32,7 @@ extension Coder {
   func encodeBytes(byteaddr: UnsafePointer<Void>, length: Int)
   func decodeObject() -> AnyObject?
   func decodeArrayOf(objCType itemType: UnsafePointer<Int8>, count: Int, at array: UnsafeMutablePointer<Void>)
-  func decodeBytes(withReturnedLength lengthp: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<Void>
+  func decodeBytes(returnedLength lengthp: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<Void>
   var systemVersion: UInt32 { get }
   var allowsKeyedCoding: Bool { get }
   func encode(objv: AnyObject?, forKey key: String)

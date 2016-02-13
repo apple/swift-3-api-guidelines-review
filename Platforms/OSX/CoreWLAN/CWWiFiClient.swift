@@ -2,14 +2,14 @@
 protocol CWEventDelegate {
   optional func clientConnectionInterrupted()
   optional func clientConnectionInvalidated()
-  optional func powerStateDidChangeForWiFiInterface(withName interfaceName: String)
-  optional func ssidDidChangeForWiFiInterface(withName interfaceName: String)
-  optional func bssidDidChangeForWiFiInterface(withName interfaceName: String)
-  optional func countryCodeDidChangeForWiFiInterface(withName interfaceName: String)
-  optional func linkDidChangeForWiFiInterface(withName interfaceName: String)
-  optional func linkQualityDidChangeForWiFiInterface(withName interfaceName: String, rssi: Int, transmitRate: Double)
-  optional func modeDidChangeForWiFiInterface(withName interfaceName: String)
-  optional func scanCacheUpdatedForWiFiInterface(withName interfaceName: String)
+  optional func powerStateDidChangeForWiFiInterface(name interfaceName: String)
+  optional func ssidDidChangeForWiFiInterface(name interfaceName: String)
+  optional func bssidDidChangeForWiFiInterface(name interfaceName: String)
+  optional func countryCodeDidChangeForWiFiInterface(name interfaceName: String)
+  optional func linkDidChangeForWiFiInterface(name interfaceName: String)
+  optional func linkQualityDidChangeForWiFiInterface(name interfaceName: String, rssi: Int, transmitRate: Double)
+  optional func modeDidChangeForWiFiInterface(name interfaceName: String)
+  optional func scanCacheUpdatedForWiFiInterface(name interfaceName: String)
 }
 @available(OSX 10.10, *)
 class CWWiFiClient : Object {
@@ -24,13 +24,13 @@ class CWWiFiClient : Object {
   @available(OSX 10.10, *)
   class func interfaceNames() -> [String]?
   @available(OSX 10.10, *)
-  func interface(withName interfaceName: String?) -> CWInterface?
+  func interface(name interfaceName: String?) -> CWInterface?
   @available(OSX 10.10, *)
   func interfaces() -> [CWInterface]?
   @available(OSX 10.10, *)
-  func startMonitoringEvent(with type: CWEventType) throws
+  func startMonitoringEvent(type: CWEventType) throws
   @available(OSX 10.10, *)
-  func stopMonitoringEvent(with type: CWEventType) throws
+  func stopMonitoringEvent(type: CWEventType) throws
   @available(OSX 10.10, *)
   func stopMonitoringAllEvents() throws
 }

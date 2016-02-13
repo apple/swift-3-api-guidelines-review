@@ -29,6 +29,6 @@ class SKKeyframeSequence : Object, Coding, Copying {
   var interpolationMode: SKInterpolationMode
   var repeatMode: SKRepeatMode
   convenience init()
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   func copy(zone: Zone = nil) -> AnyObject
 }

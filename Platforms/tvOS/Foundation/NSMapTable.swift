@@ -36,8 +36,8 @@ class MapTable : Object, Copying, Coding, FastEnumeration {
   @available(tvOS 6.0, *)
   func copy(zone: Zone = nil) -> AnyObject
   @available(tvOS 6.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(tvOS 6.0, *)
-  func countByEnumerating(with state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

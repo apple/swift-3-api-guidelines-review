@@ -13,8 +13,8 @@ class HMEventTrigger : HMTrigger {
   @NSCopying var predicate: Predicate? { get }
   class func predicateForEvaluatingTriggerOccurring(beforeSignificantEvent significantEvent: String, applyingOffset offset: DateComponents?) -> Predicate
   class func predicateForEvaluatingTriggerOccurring(afterSignificantEvent significantEvent: String, applyingOffset offset: DateComponents?) -> Predicate
-  class func predicateForEvaluatingTriggerOccurringBeforeDate(with dateComponents: DateComponents) -> Predicate
-  class func predicateForEvaluatingTriggerOccurringOnDate(with dateComponents: DateComponents) -> Predicate
-  class func predicateForEvaluatingTriggerOccurringAfterDate(with dateComponents: DateComponents) -> Predicate
-  class func predicateForEvaluatingTrigger(with characteristic: HMCharacteristic, relatedBy operatorType: PredicateOperatorType, toValue value: AnyObject) -> Predicate
+  class func predicateForEvaluatingTriggerOccurringBeforeDate(dateComponents: DateComponents) -> Predicate
+  class func predicateForEvaluatingTriggerOccurringOnDate(dateComponents: DateComponents) -> Predicate
+  class func predicateForEvaluatingTriggerOccurringAfterDate(dateComponents: DateComponents) -> Predicate
+  class func predicateForEvaluatingTrigger(characteristic: HMCharacteristic, relatedBy operatorType: PredicateOperatorType, toValue value: AnyObject) -> Predicate
 }

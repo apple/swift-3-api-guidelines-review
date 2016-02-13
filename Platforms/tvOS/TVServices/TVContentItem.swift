@@ -22,7 +22,7 @@ class TVContentItem : Object, Copying, SecureCoding {
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 @available(tvOS 9.0, *)
 enum TVContentItemImageShape : Int {

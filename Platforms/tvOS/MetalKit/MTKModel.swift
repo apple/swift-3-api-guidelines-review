@@ -10,11 +10,11 @@ class MTKMeshBufferAllocator : Object, MDLMeshBufferAllocator {
   @available(tvOS 9.0, *)
   func newZone(capacity: Int) -> MDLMeshBufferZone
   @available(tvOS 9.0, *)
-  func newZoneForBuffers(withSize sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
+  func newZoneForBuffers(size sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
   @available(tvOS 9.0, *)
   func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(tvOS 9.0, *)
-  func newBuffer(with data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(tvOS 9.0, *)
   func newBuffer(from zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
   @available(tvOS 9.0, *)

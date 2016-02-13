@@ -93,6 +93,6 @@ class NSSplitViewItem : Object, NSAnimatablePropertyContainer, Coding {
   @available(OSX 10.5, *)
   class func defaultAnimation(forKey key: String) -> AnyObject?
   @available(OSX 10.10, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

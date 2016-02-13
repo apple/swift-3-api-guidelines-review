@@ -31,15 +31,15 @@ class CharacterSet : Object, Copying, MutableCopying, Coding {
   convenience init()
   func copy(zone: Zone = nil) -> AnyObject
   func mutableCopy(zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 class MutableCharacterSet : CharacterSet, Copying, MutableCopying {
   func addCharacters(in aRange: NSRange)
   func removeCharacters(in aRange: NSRange)
   func addCharacters(in aString: String)
   func removeCharacters(in aString: String)
-  func formUnion(with otherSet: CharacterSet)
-  func formIntersection(with otherSet: CharacterSet)
+  func formUnion(otherSet: CharacterSet)
+  func formIntersection(otherSet: CharacterSet)
   func invert()
   class func control() -> MutableCharacterSet
   class func whitespace() -> MutableCharacterSet

@@ -79,7 +79,7 @@ class NSImage : Object, Copying, Coding, SecureCoding, NSPasteboardReading, NSPa
   class func imageTypes() -> [String]
   @available(OSX 10.5, *)
   class func imageUnfilteredTypes() -> [String]
-  class func canInit(with pasteboard: NSPasteboard) -> Bool
+  class func canInit(pasteboard: NSPasteboard) -> Bool
   func cancelIncrementalLoad()
   var cacheMode: NSImageCacheMode
   @available(OSX 10.5, *)
@@ -105,7 +105,7 @@ class NSImage : Object, Copying, Coding, SecureCoding, NSPasteboardReading, NSPa
   var resizingMode: NSImageResizingMode
   init()
   func copy(zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   class func supportsSecureCoding() -> Bool
   class func readableTypes(for pasteboard: NSPasteboard) -> [String]

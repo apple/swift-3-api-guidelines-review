@@ -25,5 +25,5 @@ class MDLAsset : Object, Copying, FastEnumeration {
   @available(tvOS 9.0, *)
   func copy(zone: Zone = nil) -> AnyObject
   @available(tvOS 9.0, *)
-  func countByEnumerating(with state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

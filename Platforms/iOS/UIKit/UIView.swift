@@ -149,7 +149,7 @@ class UIView : UIResponder, Coding, UIAppearance, UIAppearanceContainer, UIDynam
   var semanticContentAttribute: UISemanticContentAttribute
   convenience init()
   @available(iOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   @available(iOS 2.0, *)
   class func appearance() -> Self
   @available(iOS 9.0, *)
@@ -286,15 +286,15 @@ extension UIView {
 }
 extension UIView {
   @available(iOS 4.0, *)
-  class func animate(withDuration duration: TimeInterval, delay: TimeInterval, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animate(duration duration: TimeInterval, delay: TimeInterval, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(iOS 4.0, *)
-  class func animate(withDuration duration: TimeInterval, animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animate(duration duration: TimeInterval, animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(iOS 4.0, *)
-  class func animate(withDuration duration: TimeInterval, animations: () -> Void)
+  class func animate(duration duration: TimeInterval, animations: () -> Void)
   @available(iOS 7.0, *)
-  class func animate(withDuration duration: TimeInterval, delay: TimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animate(duration duration: TimeInterval, delay: TimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(iOS 4.0, *)
-  class func transition(with view: UIView, duration: TimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
+  class func transition(view: UIView, duration: TimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
   @available(iOS 4.0, *)
   class func transition(from fromView: UIView, to toView: UIView, duration: TimeInterval, options: UIViewAnimationOptions = [], completion: ((Bool) -> Void)? = nil)
   @available(iOS 7.0, *)
@@ -302,9 +302,9 @@ extension UIView {
 }
 extension UIView {
   @available(iOS 7.0, *)
-  class func animateKeyframes(withDuration duration: TimeInterval, delay: TimeInterval, options: UIViewKeyframeAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animateKeyframes(duration duration: TimeInterval, delay: TimeInterval, options: UIViewKeyframeAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(iOS 7.0, *)
-  class func addKeyframe(withRelativeStartTime frameStartTime: Double, relativeDuration frameDuration: Double, animations: () -> Void)
+  class func addKeyframe(relativeStartTime frameStartTime: Double, relativeDuration frameDuration: Double, animations: () -> Void)
 }
 extension UIView {
   @available(iOS 3.2, *)
@@ -442,9 +442,9 @@ extension UIView {
   @available(iOS 6.0, *)
   var restorationIdentifier: String?
   @available(iOS 6.0, *)
-  func encodeRestorableState(with coder: Coder)
+  func encodeRestorableState(coder: Coder)
   @available(iOS 6.0, *)
-  func decodeRestorableState(with coder: Coder)
+  func decodeRestorableState(coder: Coder)
 }
 extension UIView {
   @available(iOS 7.0, *)

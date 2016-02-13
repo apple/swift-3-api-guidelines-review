@@ -46,9 +46,9 @@ protocol MDLMeshBufferZone : ObjectProtocol {
 @available(OSX 10.11, *)
 protocol MDLMeshBufferAllocator : ObjectProtocol {
   func newZone(capacity: Int) -> MDLMeshBufferZone
-  func newZoneForBuffers(withSize sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
+  func newZoneForBuffers(size sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
   func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
-  func newBuffer(with data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
   func newBuffer(from zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
   func newBuffer(from zone: MDLMeshBufferZone?, data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
@@ -57,11 +57,11 @@ class MDLMeshBufferDataAllocator : Object, MDLMeshBufferAllocator {
   @available(OSX 10.11, *)
   func newZone(capacity: Int) -> MDLMeshBufferZone
   @available(OSX 10.11, *)
-  func newZoneForBuffers(withSize sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
+  func newZoneForBuffers(size sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
   @available(OSX 10.11, *)
   func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(OSX 10.11, *)
-  func newBuffer(with data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(OSX 10.11, *)
   func newBuffer(from zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
   @available(OSX 10.11, *)

@@ -30,9 +30,9 @@ class NSFontDescriptor : Object, Copying, SecureCoding {
   /*not inherited*/ init(name fontName: String, size: CGFloat)
   /*not inherited*/ init(name fontName: String, matrix: AffineTransform)
   init(fontAttributes attributes: [String : AnyObject]? = [:])
-  func matchingFontDescriptors(withMandatoryKeys mandatoryKeys: Set<String>?) -> [NSFontDescriptor]
+  func matchingFontDescriptors(mandatoryKeys mandatoryKeys: Set<String>?) -> [NSFontDescriptor]
   @available(OSX 10.5, *)
-  func matchingFontDescriptor(withMandatoryKeys mandatoryKeys: Set<String>?) -> NSFontDescriptor?
+  func matchingFontDescriptor(mandatoryKeys mandatoryKeys: Set<String>?) -> NSFontDescriptor?
   func addingAttributes(attributes: [String : AnyObject] = [:]) -> NSFontDescriptor
   func withSymbolicTraits(symbolicTraits: NSFontSymbolicTraits) -> NSFontDescriptor
   func withSize(newPointSize: CGFloat) -> NSFontDescriptor
@@ -42,7 +42,7 @@ class NSFontDescriptor : Object, Copying, SecureCoding {
   init()
   func copy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 let NSFontFamilyAttribute: String

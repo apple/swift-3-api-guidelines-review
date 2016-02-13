@@ -10,7 +10,7 @@ class Date : Object, Copying, SecureCoding {
   init?(coder aDecoder: Coder)
   func copy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 
 extension Date : CustomPlaygroundQuickLookable {
@@ -28,7 +28,7 @@ extension Date {
   func compare(other: Date) -> ComparisonResult
   func isEqual(to otherDate: Date) -> Bool
   var description: String { get }
-  func description(withLocale locale: AnyObject?) -> String
+  func description(locale locale: AnyObject?) -> String
   class func timeIntervalSinceReferenceDate() -> TimeInterval
 }
 extension Date {

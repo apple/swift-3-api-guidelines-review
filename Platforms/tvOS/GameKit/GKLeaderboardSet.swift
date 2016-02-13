@@ -10,7 +10,7 @@ class GKLeaderboardSet : Object, Coding, SecureCoding {
   func loadLeaderboards(completionHandler completionHandler: (([GKLeaderboard]?, Error?) -> Void)? = nil)
   init()
   @available(tvOS 7.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(tvOS 7.0, *)
   class func supportsSecureCoding() -> Bool

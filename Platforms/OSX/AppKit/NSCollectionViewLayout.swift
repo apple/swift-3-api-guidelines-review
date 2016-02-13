@@ -63,12 +63,12 @@ class NSCollectionViewLayoutInvalidationContext : Object {
 class NSCollectionViewLayout : Object, Coding {
   weak var collectionView: @sil_weak NSCollectionView? { get }
   func invalidateLayout()
-  func invalidateLayout(with context: NSCollectionViewLayoutInvalidationContext)
+  func invalidateLayout(context: NSCollectionViewLayoutInvalidationContext)
   func register(viewClass: AnyClass?, forDecorationViewOfKind elementKind: String)
   func register(nib: NSNib?, forDecorationViewOfKind elementKind: String)
   init()
   @available(OSX 10.11, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension NSCollectionViewLayout {

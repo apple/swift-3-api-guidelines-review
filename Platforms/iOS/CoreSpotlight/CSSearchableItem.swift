@@ -14,7 +14,7 @@ class CSSearchableItem : Object, SecureCoding, Copying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 9.0, *)
   func copy(zone: Zone = nil) -> AnyObject

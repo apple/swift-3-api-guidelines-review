@@ -7,7 +7,7 @@ class UIMotionEffect : Object, Copying, Coding {
   @available(tvOS 7.0, *)
   func copy(zone: Zone = nil) -> AnyObject
   @available(tvOS 7.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 enum UIInterpolatingMotionEffectType : Int {
   init?(rawValue: Int)

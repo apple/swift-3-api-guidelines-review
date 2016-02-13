@@ -13,7 +13,7 @@ class UIBarItem : Object, Coding, UIAppearance {
   @available(tvOS 5.0, *)
   func titleTextAttributes(for state: UIControlState) -> [String : AnyObject]?
   @available(tvOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   @available(tvOS 2.0, *)
   class func appearance() -> Self
   @available(tvOS 9.0, *)

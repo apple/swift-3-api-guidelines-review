@@ -11,7 +11,7 @@ class AttributedString : Object, Copying, MutableCopying, SecureCoding {
   @available(iOS 3.2, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 3.2, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension AttributedString {

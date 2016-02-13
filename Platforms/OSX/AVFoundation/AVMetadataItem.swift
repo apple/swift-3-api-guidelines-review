@@ -85,7 +85,7 @@ extension AVMetadataItem {
 @available(OSX 10.11, *)
 class AVMetadataItemValueRequest : Object {
   weak var metadataItem: @sil_weak AVMetadataItem? { get }
-  func respond(withValue value: protocol<Copying, ObjectProtocol>)
+  func respond(value value: protocol<Copying, ObjectProtocol>)
   func respondWithError(error: Error)
   init()
 }

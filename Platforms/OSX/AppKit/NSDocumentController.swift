@@ -21,18 +21,18 @@ class NSDocumentController : Object, Coding, NSUserInterfaceValidations {
   @available(OSX 10.8, *)
   func begin(openPanel: NSOpenPanel, forTypes inTypes: [String]?, completionHandler: (Int) -> Void)
   @available(OSX 10.7, *)
-  func openDocument(withContentsOf url: URL, display displayDocument: Bool, completionHandler: (NSDocument?, Bool, Error?) -> Void)
-  func makeDocument(withContentsOf url: URL, ofType typeName: String) throws -> NSDocument
+  func openDocument(contentsOf url: URL, display displayDocument: Bool, completionHandler: (NSDocument?, Bool, Error?) -> Void)
+  func makeDocument(contentsOf url: URL, ofType typeName: String) throws -> NSDocument
   @available(OSX 10.7, *)
   func reopenDocument(for urlOrNil: URL?, withContentsOf contentsURL: URL, display displayDocument: Bool, completionHandler: (NSDocument?, Bool, Error?) -> Void)
   func makeDocument(for urlOrNil: URL?, withContentsOf contentsURL: URL, ofType typeName: String) throws -> NSDocument
   var autosavingDelay: TimeInterval
   @IBAction func saveAllDocuments(sender: AnyObject?)
   var hasEditedDocuments: Bool { get }
-  func reviewUnsavedDocuments(withAlertTitle title: String?, cancellable: Bool, delegate: AnyObject?, didReviewAllSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func closeAllDocuments(withDelegate delegate: AnyObject?, didCloseAllSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func reviewUnsavedDocuments(alertTitle title: String?, cancellable: Bool, delegate: AnyObject?, didReviewAllSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func closeAllDocuments(delegate delegate: AnyObject?, didCloseAllSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
-  func duplicateDocument(withContentsOf url: URL, copying duplicateByCopying: Bool, displayName displayNameOrNil: String?) throws -> NSDocument
+  func duplicateDocument(contentsOf url: URL, copying duplicateByCopying: Bool, displayName displayNameOrNil: String?) throws -> NSDocument
   func presentError(error: Error, modalFor window: NSWindow, delegate: AnyObject?, didPresent didPresentSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func presentError(error: Error) -> Bool
   func willPresentError(error: Error) -> Error
@@ -47,7 +47,7 @@ class NSDocumentController : Object, Coding, NSUserInterfaceValidations {
   func documentClass(forType typeName: String) -> AnyClass?
   func displayName(forType typeName: String) -> String?
   func validate(anItem: NSValidatedUserInterfaceItem) -> Bool
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 extension NSDocumentController {
 }

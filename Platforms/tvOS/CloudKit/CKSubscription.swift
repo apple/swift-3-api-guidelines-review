@@ -32,7 +32,7 @@ class CKSubscription : Object, SecureCoding, Copying {
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   @available(tvOS 8.0, *)
   func copy(zone: Zone = nil) -> AnyObject
 }
@@ -43,7 +43,7 @@ class CKNotificationInfo : Object, SecureCoding, Copying {
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(tvOS 8.0, *)
   func copy(zone: Zone = nil) -> AnyObject

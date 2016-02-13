@@ -1,6 +1,6 @@
 
 extension NSString {
-  class func path(withComponents components: [String]) -> String
+  class func path(components components: [String]) -> String
   var pathComponents: [String] { get }
   var isAbsolutePath: Bool { get }
   var lastPathComponent: String { get }

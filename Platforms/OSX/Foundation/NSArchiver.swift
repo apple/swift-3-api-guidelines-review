@@ -4,7 +4,7 @@ class Archiver : Coder {
   var archiverData: MutableData { get }
   func encodeRootObject(rootObject: AnyObject)
   func encodeConditionalObject(object: AnyObject?)
-  class func archivedData(withRootObject rootObject: AnyObject) -> Data
+  class func archivedData(rootObject rootObject: AnyObject) -> Data
   class func archiveRootObject(rootObject: AnyObject, toFile path: String) -> Bool
   func encodeClassName(trueName: String, intoClassName inArchiveName: String)
   func classNameEncoded(forTrueClassName trueName: String) -> String?
@@ -15,8 +15,8 @@ class Unarchiver : Coder {
   init?(forReadingWith data: Data)
   var isAtEnd: Bool { get }
   var systemVersion: UInt32 { get }
-  class func unarchiveObject(with data: Data) -> AnyObject?
-  class func unarchiveObject(withFile path: String) -> AnyObject?
+  class func unarchiveObject(data: Data) -> AnyObject?
+  class func unarchiveObject(file path: String) -> AnyObject?
   class func decodeClassName(inArchiveName: String, asClassName trueName: String)
   func decodeClassName(inArchiveName: String, asClassName trueName: String)
   class func classNameDecoded(forArchiveClassName inArchiveName: String) -> String

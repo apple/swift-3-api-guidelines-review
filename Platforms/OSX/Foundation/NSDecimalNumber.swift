@@ -13,7 +13,7 @@ class DecimalNumber : Number {
   init(decimal dcm: Decimal)
   convenience init(string numberValue: String?)
   convenience init(string numberValue: String?, locale: AnyObject?)
-  func description(withLocale locale: AnyObject?) -> String
+  func description(locale locale: AnyObject?) -> String
   var decimalValue: Decimal { get }
   class func zero() -> DecimalNumber
   class func one() -> DecimalNumber
@@ -66,7 +66,7 @@ class DecimalNumberHandler : Object, DecimalNumberBehaviors, Coding {
   func roundingMode() -> RoundingMode
   func scale() -> Int16
   func exceptionDuringOperation(operation: Selector, error: CalculationError, leftOperand: DecimalNumber, rightOperand: DecimalNumber?) -> DecimalNumber?
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension Number {

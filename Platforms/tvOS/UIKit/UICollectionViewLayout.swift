@@ -84,11 +84,11 @@ class UICollectionViewLayout : Object, Coding {
   var collectionView: UICollectionView? { get }
   func invalidateLayout()
   @available(tvOS 7.0, *)
-  func invalidateLayout(with context: UICollectionViewLayoutInvalidationContext)
+  func invalidateLayout(context: UICollectionViewLayoutInvalidationContext)
   func register(viewClass: AnyClass?, forDecorationViewOfKind elementKind: String)
   func register(nib: UINib?, forDecorationViewOfKind elementKind: String)
   @available(tvOS 6.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 extension UICollectionViewLayout {
   class func layoutAttributesClass() -> AnyClass

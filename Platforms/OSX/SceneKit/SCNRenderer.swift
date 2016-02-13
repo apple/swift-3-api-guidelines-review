@@ -23,7 +23,7 @@ class SCNRenderer : Object, SCNSceneRenderer, SCNTechniqueSupport {
   @available(OSX 10.9, *)
   func isNode(insideFrustum node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
   @available(OSX 10.11, *)
-  func nodesInsideFrustum(withPointOfView pointOfView: SCNNode) -> [SCNNode]
+  func nodesInsideFrustum(pointOfView pointOfView: SCNNode) -> [SCNNode]
   @available(OSX 10.9, *)
   func projectPoint(point: SCNVector3) -> SCNVector3
   @available(OSX 10.9, *)

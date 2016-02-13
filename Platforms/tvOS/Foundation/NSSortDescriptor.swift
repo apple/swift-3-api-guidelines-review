@@ -16,7 +16,7 @@ class SortDescriptor : Object, SecureCoding, Copying {
   var reversedSortDescriptor: AnyObject { get }
   init()
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   func copy(zone: Zone = nil) -> AnyObject
 }
 extension NSSet {

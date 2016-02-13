@@ -1,6 +1,6 @@
 
 extension CNContainer {
-  class func predicateForContainers(withIdentifiers identifiers: [String]) -> Predicate
-  class func predicateForContainerOfContact(withIdentifier contactIdentifier: String) -> Predicate
-  class func predicateForContainerOfGroup(withIdentifier groupIdentifier: String) -> Predicate
+  class func predicateForContainers(identifiers identifiers: [String]) -> Predicate
+  class func predicateForContainerOfContact(identifier contactIdentifier: String) -> Predicate
+  class func predicateForContainerOfGroup(identifier groupIdentifier: String) -> Predicate
 }

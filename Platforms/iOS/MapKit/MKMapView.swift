@@ -61,7 +61,7 @@ class MKMapView : UIView, Coding {
   @available(iOS 4.2, *)
   func annotations(in mapRect: MKMapRect) -> Set<Object>
   func view(for annotation: MKAnnotation) -> MKAnnotationView?
-  func dequeueReusableAnnotationView(withIdentifier identifier: String) -> MKAnnotationView?
+  func dequeueReusableAnnotationView(identifier identifier: String) -> MKAnnotationView?
   func selectAnnotation(annotation: MKAnnotation, animated: Bool)
   func deselectAnnotation(annotation: MKAnnotation?, animated: Bool)
   var selectedAnnotations: [MKAnnotation]

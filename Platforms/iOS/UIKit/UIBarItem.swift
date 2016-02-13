@@ -17,7 +17,7 @@ class UIBarItem : Object, Coding, UIAppearance {
   @available(iOS 5.0, *)
   func titleTextAttributes(for state: UIControlState) -> [String : AnyObject]?
   @available(iOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   @available(iOS 2.0, *)
   class func appearance() -> Self
   @available(iOS 9.0, *)

@@ -42,7 +42,7 @@ class UIScreen : Object, UITraitEnvironment {
   @available(tvOS 8.0, *)
   var nativeScale: CGFloat { get }
   @available(tvOS 4.0, *)
-  func displayLink(withTarget target: AnyObject, selector sel: Selector) -> CADisplayLink?
+  func displayLink(target target: AnyObject, selector sel: Selector) -> CADisplayLink?
   @available(tvOS 9.0, *)
   weak var focusedView: @sil_weak UIView? { get }
   @available(tvOS 9.0, *)

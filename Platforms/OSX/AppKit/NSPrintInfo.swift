@@ -92,7 +92,7 @@ class NSPrintInfo : Object, Copying, Coding {
   func takeSettings(from inPDFInfo: NSPDFInfo)
   convenience init()
   func copy(zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension NSPrintInfo {

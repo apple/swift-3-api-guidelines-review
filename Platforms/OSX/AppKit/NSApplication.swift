@@ -75,7 +75,7 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   func hide(sender: AnyObject?)
   func unhide(sender: AnyObject?)
   func unhideWithoutActivation()
-  func window(withWindowNumber windowNum: Int) -> NSWindow?
+  func window(windowNumber windowNum: Int) -> NSWindow?
   unowned(unsafe) var mainWindow: @sil_unmanaged NSWindow? { get }
   unowned(unsafe) var keyWindow: @sil_unmanaged NSWindow? { get }
   var isActive: Bool { get }
@@ -90,7 +90,7 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   func runModal(for theWindow: NSWindow) -> Int
   func stop(sender: AnyObject?)
   func stopModal()
-  func stopModal(withCode returnCode: Int)
+  func stopModal(code returnCode: Int)
   func abortModal()
   var modalWindow: NSWindow? { get }
   func beginModalSession(for theWindow: NSWindow) -> NSModalSession

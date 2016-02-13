@@ -54,7 +54,7 @@ class NSString : Object, Copying, MutableCopying, SecureCoding {
   func copy(zone: Zone = nil) -> AnyObject
   func mutableCopy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 
 extension NSString : StringLiteralConvertible {
@@ -85,7 +85,7 @@ extension NSString : CustomPlaygroundQuickLookable {
 extension NSString {
   func substring(from from: Int) -> String
   func substring(to to: Int) -> String
-  func substring(with range: NSRange) -> String
+  func substring(range: NSRange) -> String
   func getCharacters(buffer: UnsafeMutablePointer<unichar>, range: NSRange)
   func compare(string: String) -> ComparisonResult
   func compare(string: String, options mask: StringCompareOptions = []) -> ComparisonResult
@@ -99,7 +99,7 @@ extension NSString {
   func isEqual(to aString: String) -> Bool
   func hasPrefix(str: String) -> Bool
   func hasSuffix(str: String) -> Bool
-  func commonPrefix(with str: String, options mask: StringCompareOptions = []) -> String
+  func commonPrefix(str: String, options mask: StringCompareOptions = []) -> String
   @available(watchOS 2.0, *)
   func contains(str: String) -> Bool
   @available(watchOS 2.0, *)
@@ -139,11 +139,11 @@ extension NSString {
   @available(watchOS 2.0, *)
   var localizedCapitalized: String { get }
   @available(watchOS 2.0, *)
-  func uppercaseString(with locale: Locale?) -> String
+  func uppercaseString(locale: Locale?) -> String
   @available(watchOS 2.0, *)
-  func lowercaseString(with locale: Locale?) -> String
+  func lowercaseString(locale: Locale?) -> String
   @available(watchOS 2.0, *)
-  func capitalizedString(with locale: Locale?) -> String
+  func capitalizedString(locale: Locale?) -> String
   func getLineStart(startPtr: UnsafeMutablePointer<Int>, end lineEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, for range: NSRange)
   func lineRange(for range: NSRange) -> NSRange
   func getParagraphStart(startPtr: UnsafeMutablePointer<Int>, end parEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, for range: NSRange)
@@ -337,9 +337,9 @@ extension NSString {
   @available(watchOS, introduced=2.0, deprecated=2.0)
   convenience init?(contentsOf url: URL)
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func string(withContentsOfFile path: String) -> AnyObject?
+  class func string(contentsOfFile path: String) -> AnyObject?
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func string(withContentsOf url: URL) -> AnyObject?
+  class func string(contentsOf url: URL) -> AnyObject?
   @available(watchOS, introduced=2.0, deprecated=2.0)
   convenience init?(cStringNoCopy bytes: UnsafeMutablePointer<Int8>, length: Int, freeWhenDone freeBuffer: Bool)
   @available(watchOS, introduced=2.0, deprecated=2.0)
@@ -347,9 +347,9 @@ extension NSString {
   @available(watchOS, introduced=2.0, deprecated=2.0)
   convenience init?(cString bytes: UnsafePointer<Int8>)
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func string(withCString bytes: UnsafePointer<Int8>, length: Int) -> AnyObject?
+  class func string(cString bytes: UnsafePointer<Int8>, length: Int) -> AnyObject?
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func string(withCString bytes: UnsafePointer<Int8>) -> AnyObject?
+  class func string(cString bytes: UnsafePointer<Int8>) -> AnyObject?
   func getCharacters(buffer: UnsafeMutablePointer<unichar>)
 }
 var proprietaryStringEncoding: UInt { get }

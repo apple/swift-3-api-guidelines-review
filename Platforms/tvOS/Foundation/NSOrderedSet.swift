@@ -14,9 +14,9 @@ class OrderedSet : Object, Copying, MutableCopying, SecureCoding, FastEnumeratio
   @available(tvOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 5.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   @available(tvOS 5.0, *)
-  func countByEnumerating(with state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension OrderedSet : SequenceType {
@@ -64,8 +64,8 @@ extension OrderedSet {
   func sortedArray(comparator cmptr: Comparator) -> [AnyObject]
   func sortedArray(opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
   var description: String { get }
-  func description(withLocale locale: AnyObject?) -> String
-  func description(withLocale locale: AnyObject?, indent level: Int) -> String
+  func description(locale locale: AnyObject?) -> String
+  func description(locale locale: AnyObject?, indent level: Int) -> String
 }
 extension OrderedSet {
   convenience init(object: AnyObject)

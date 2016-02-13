@@ -42,8 +42,8 @@ class SKNode : NSResponder, Copying, Coding {
   func removeAllChildren()
   func removeFromParent()
   func move(toParent parent: SKNode)
-  func childNode(withName name: String) -> SKNode?
-  func enumerateChildNodes(withName name: String, using block: (SKNode, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func childNode(name name: String) -> SKNode?
+  func enumerateChildNodes(name name: String, using block: (SKNode, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.10, *)
   subscript(name: String) -> [SKNode] { get }
   func inParentHierarchy(parent: SKNode) -> Bool

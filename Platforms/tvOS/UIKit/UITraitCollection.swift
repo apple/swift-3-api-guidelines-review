@@ -22,7 +22,7 @@ class UITraitCollection : Object, Copying, SecureCoding {
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 protocol UITraitEnvironment : ObjectProtocol {
   @available(tvOS 8.0, *)

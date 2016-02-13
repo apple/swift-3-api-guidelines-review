@@ -7,8 +7,8 @@ class WebBackForwardList : Object {
   var backItem: WebHistoryItem! { get }
   var currentItem: WebHistoryItem! { get }
   var forwardItem: WebHistoryItem! { get }
-  func back(withLimit limit: Int32) -> [AnyObject]!
-  func forwardList(withLimit limit: Int32) -> [AnyObject]!
+  func back(limit limit: Int32) -> [AnyObject]!
+  func forwardList(limit limit: Int32) -> [AnyObject]!
   var capacity: Int32
   var backListCount: Int32 { get }
   var forwardListCount: Int32 { get }

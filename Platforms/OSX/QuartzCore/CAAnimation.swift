@@ -6,7 +6,7 @@ class CAAnimation : Object, Coding, Copying, CAMediaTiming, CAAction {
   var delegate: AnyObject?
   var isRemovedOnCompletion: Bool
   init()
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   func copy(zone: Zone = nil) -> AnyObject
   var beginTime: CFTimeInterval

@@ -15,11 +15,11 @@ class SKFieldNode : SKNode {
   class func dragField() -> SKFieldNode
   class func vortexField() -> SKFieldNode
   class func radialGravityField() -> SKFieldNode
-  class func linearGravityField(withVector direction: vector_float3) -> SKFieldNode
-  class func velocityField(withVector direction: vector_float3) -> SKFieldNode
-  class func velocityField(with velocityTexture: SKTexture) -> SKFieldNode
-  class func noiseField(withSmoothness smoothness: CGFloat, animationSpeed speed: CGFloat) -> SKFieldNode
-  class func turbulenceField(withSmoothness smoothness: CGFloat, animationSpeed speed: CGFloat) -> SKFieldNode
+  class func linearGravityField(vector direction: vector_float3) -> SKFieldNode
+  class func velocityField(vector direction: vector_float3) -> SKFieldNode
+  class func velocityField(velocityTexture: SKTexture) -> SKFieldNode
+  class func noiseField(smoothness smoothness: CGFloat, animationSpeed speed: CGFloat) -> SKFieldNode
+  class func turbulenceField(smoothness smoothness: CGFloat, animationSpeed speed: CGFloat) -> SKFieldNode
   class func springField() -> SKFieldNode
   class func electricField() -> SKFieldNode
   class func magneticField() -> SKFieldNode

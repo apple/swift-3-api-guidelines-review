@@ -25,7 +25,7 @@ protocol ICCameraDeviceDelegate : ICDeviceDelegate {
   optional func cameraDevice(camera: ICCameraDevice, didReceiveThumbnailFor item: ICCameraItem)
   optional func cameraDevice(camera: ICCameraDevice, didReceiveMetadataFor item: ICCameraItem)
   optional func cameraDevice(camera: ICCameraDevice, didReceivePTPEvent eventData: Data)
-  optional func deviceDidBecomeReady(withCompleteContentCatalog device: ICDevice)
+  optional func deviceDidBecomeReady(completeContentCatalog device: ICDevice)
   optional func cameraDevice(cameraDevice: ICCameraDevice, shouldGetThumbnailOf item: ICCameraItem) -> Bool
   optional func cameraDevice(cameraDevice: ICCameraDevice, shouldGetMetadataOf item: ICCameraItem) -> Bool
 }

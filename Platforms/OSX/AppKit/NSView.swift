@@ -82,7 +82,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   unowned(unsafe) var superview: @sil_unmanaged NSView? { get }
   var subviews: [NSView]
   func isDescendantOf(aView: NSView) -> Bool
-  func ancestorShared(with aView: NSView) -> NSView?
+  func ancestorShared(aView: NSView) -> NSView?
   unowned(unsafe) var opaqueAncestor: @sil_unmanaged NSView? { get }
   var isHidden: Bool
   var isHiddenOrHasHiddenAncestor: Bool { get }
@@ -108,8 +108,8 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.7, *)
   func viewDidChangeBackingProperties()
   var postsFrameChangedNotifications: Bool
-  func resizeSubviews(withOldSize oldSize: Size)
-  func resize(withOldSuperviewSize oldSize: Size)
+  func resizeSubviews(oldSize oldSize: Size)
+  func resize(oldSuperviewSize oldSize: Size)
   var autoresizesSubviews: Bool
   var autoresizingMask: NSAutoresizingMaskOptions
   func setFrameOrigin(newOrigin: Point)
@@ -881,10 +881,10 @@ extension NSView {
   func adjustPageHeightNew(newBottom: UnsafeMutablePointer<CGFloat>, top oldTop: CGFloat, bottom oldBottom: CGFloat, limit bottomLimit: CGFloat)
   func rect(forPage page: Int) -> Rect
   func locationOf(print aRect: Rect) -> Point
-  func drawPageBorder(with borderSize: Size)
+  func drawPageBorder(borderSize: Size)
   @NSCopying var pageHeader: AttributedString { get }
   @NSCopying var pageFooter: AttributedString { get }
-  func drawSheetBorder(with borderSize: Size)
+  func drawSheetBorder(borderSize: Size)
   var printJobTitle: String { get }
   func beginDocument()
   func endDocument()
@@ -893,7 +893,7 @@ extension NSView {
 }
 extension NSView {
   @available(OSX 10.7, *)
-  func beginDraggingSession(with items: [NSDraggingItem], event: NSEvent, source: NSDraggingSource) -> NSDraggingSession
+  func beginDraggingSession(items: [NSDraggingItem], event: NSEvent, source: NSDraggingSource) -> NSDraggingSession
   var registeredDraggedTypes: [String] { get }
   func register(forDraggedTypes newTypes: [String])
   func unregisterDraggedTypes()

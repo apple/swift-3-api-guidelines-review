@@ -182,9 +182,9 @@ class Calendar : Object, Copying, SecureCoding {
   @available(watchOS 2.0, *)
   func component(unit: CalendarUnit, from date: Date) -> Int
   @available(watchOS 2.0, *)
-  func date(withEra eraValue: Int, year yearValue: Int, month monthValue: Int, day dayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
+  func date(era eraValue: Int, year yearValue: Int, month monthValue: Int, day dayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
   @available(watchOS 2.0, *)
-  func date(withEra eraValue: Int, yearForWeekOfYear yearValue: Int, weekOfYear weekValue: Int, weekday weekdayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
+  func date(era eraValue: Int, yearForWeekOfYear yearValue: Int, weekOfYear weekValue: Int, weekday weekdayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
   @available(watchOS 2.0, *)
   func startOfDay(for date: Date) -> Date
   @available(watchOS 2.0, *)
@@ -227,7 +227,7 @@ class Calendar : Object, Copying, SecureCoding {
   func date(date: Date, matchesComponents components: DateComponents) -> Bool
   func copy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(watchOS 2.0, *)
@@ -278,6 +278,6 @@ class DateComponents : Object, Copying, SecureCoding {
   init()
   func copy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

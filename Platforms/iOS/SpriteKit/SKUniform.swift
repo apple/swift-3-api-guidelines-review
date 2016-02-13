@@ -39,6 +39,6 @@ class SKUniform : Object, Copying, Coding {
   @available(iOS 8.0, *)
   func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

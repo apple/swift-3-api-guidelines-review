@@ -9,8 +9,8 @@ class NSSet : Object, Copying, MutableCopying, SecureCoding, FastEnumeration {
   func copy(zone: Zone = nil) -> AnyObject
   func mutableCopy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
-  func countByEnumerating(with state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func encode(aCoder: Coder)
+  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSSet : SequenceType {
@@ -40,7 +40,7 @@ extension NSSet {
   func anyObject() -> AnyObject?
   func contains(anObject: AnyObject) -> Bool
   var description: String { get }
-  func description(withLocale locale: AnyObject?) -> String
+  func description(locale locale: AnyObject?) -> String
   func intersects(otherSet: Set<Object>) -> Bool
   func isEqual(to otherSet: Set<Object>) -> Bool
   func isSubsetOf(otherSet: Set<Object>) -> Bool

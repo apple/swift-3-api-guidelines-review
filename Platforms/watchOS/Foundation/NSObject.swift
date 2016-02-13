@@ -6,7 +6,7 @@ protocol MutableCopying {
   func mutableCopy(zone: Zone = nil) -> AnyObject
 }
 protocol Coding {
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 protocol SecureCoding : Coding {

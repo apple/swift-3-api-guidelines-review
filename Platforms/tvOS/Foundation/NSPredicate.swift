@@ -8,16 +8,16 @@ class Predicate : Object, SecureCoding, Copying {
   /*not inherited*/ init(block: (AnyObject, [String : AnyObject]?) -> Bool)
   var predicateFormat: String { get }
   func withSubstitutionVariables(variables: [String : AnyObject]) -> Self
-  func evaluate(with object: AnyObject?) -> Bool
+  func evaluate(object: AnyObject?) -> Bool
   @available(tvOS 3.0, *)
-  func evaluate(with object: AnyObject?, substitutionVariables bindings: [String : AnyObject]?) -> Bool
+  func evaluate(object: AnyObject?, substitutionVariables bindings: [String : AnyObject]?) -> Bool
   @available(tvOS 7.0, *)
   func allowEvaluation()
   init()
   @available(tvOS 3.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 3.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(tvOS 3.0, *)
   func copy(zone: Zone = nil) -> AnyObject

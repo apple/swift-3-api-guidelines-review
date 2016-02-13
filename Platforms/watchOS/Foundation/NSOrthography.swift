@@ -10,7 +10,7 @@ class Orthography : Object, Copying, Coding {
   @available(watchOS 2.0, *)
   func copy(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 extension Orthography {
   @available(watchOS 2.0, *)

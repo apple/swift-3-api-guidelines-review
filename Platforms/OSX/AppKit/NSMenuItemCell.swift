@@ -11,12 +11,12 @@ class NSMenuItemCell : NSButtonCell {
   func stateImageRect(forBounds cellFrame: Rect) -> Rect
   func titleRect(forBounds cellFrame: Rect) -> Rect
   func keyEquivalentRect(forBounds cellFrame: Rect) -> Rect
-  func drawSeparatorItem(withFrame cellFrame: Rect, in controlView: NSView)
-  func drawStateImage(withFrame cellFrame: Rect, in controlView: NSView)
-  func drawImage(withFrame cellFrame: Rect, in controlView: NSView)
-  func drawTitle(withFrame cellFrame: Rect, in controlView: NSView)
-  func drawKeyEquivalent(withFrame cellFrame: Rect, in controlView: NSView)
-  func drawBorderAndBackground(withFrame cellFrame: Rect, in controlView: NSView)
+  func drawSeparatorItem(frame cellFrame: Rect, in controlView: NSView)
+  func drawStateImage(frame cellFrame: Rect, in controlView: NSView)
+  func drawImage(frame cellFrame: Rect, in controlView: NSView)
+  func drawTitle(frame cellFrame: Rect, in controlView: NSView)
+  func drawKeyEquivalent(frame cellFrame: Rect, in controlView: NSView)
+  func drawBorderAndBackground(frame cellFrame: Rect, in controlView: NSView)
   var tag: Int
   init(textCell aString: String)
   init(imageCell image: NSImage?)

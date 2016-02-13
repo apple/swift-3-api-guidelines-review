@@ -7,7 +7,7 @@ class Value : Object, Copying, SecureCoding {
   convenience init()
   func copy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 extension Value {
   /*not inherited*/ init(_ value: UnsafePointer<Void>, withObjCType type: UnsafePointer<Int8>)
@@ -58,7 +58,7 @@ class Number : Value {
   var stringValue: String { get }
   func compare(otherNumber: Number) -> ComparisonResult
   func isEqual(to number: Number) -> Bool
-  func description(withLocale locale: AnyObject?) -> String
+  func description(locale locale: AnyObject?) -> String
   convenience init(bytes value: UnsafePointer<Void>, objCType type: UnsafePointer<Int8>)
   convenience init()
 }

@@ -9,7 +9,7 @@ class SCNConstraint : Object, Copying, SecureCoding, SCNAnimatable {
   @available(OSX 10.9, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.9, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.9, *)
   func add(animation: CAAnimation, forKey key: String?)
@@ -62,7 +62,7 @@ class SCNTransformConstraint : SCNConstraint {
 class SCNIKConstraint : SCNConstraint {
   @available(OSX 10.11, *)
   init(chainRootNode: SCNNode)
-  class func inverseKinematicsConstraint(withChainRootNode chainRootNode: SCNNode) -> Self
+  class func inverseKinematicsConstraint(chainRootNode chainRootNode: SCNNode) -> Self
   var chainRootNode: SCNNode { get }
   var targetPosition: SCNVector3
   func setMaxAllowedRotationAngle(angle: CGFloat, forJoint node: SCNNode)

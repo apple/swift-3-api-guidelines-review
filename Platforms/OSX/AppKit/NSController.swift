@@ -6,9 +6,9 @@ class NSController : Object, Coding {
   func objectDidEndEditing(editor: AnyObject)
   func discardEditing()
   func commitEditing() -> Bool
-  func commitEditing(withDelegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func commitEditing(delegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   var isEditing: Bool { get }
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 struct __bindingsControllerFlags {
   var _alwaysPresentsApplicationModalAlerts: UInt32

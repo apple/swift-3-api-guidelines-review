@@ -5,7 +5,7 @@ class AMWorkflow : Object, Copying {
   convenience init(contentsOf fileURL: URL) throws
   func write(to fileURL: URL) throws
   func setValue(value: AnyObject?, forVariableWithName variableName: String) -> Bool
-  func valueForVariable(withName variableName: String) -> AnyObject
+  func valueForVariable(name variableName: String) -> AnyObject
   func addAction(action: AMAction)
   func removeAction(action: AMAction)
   func insertAction(action: AMAction, at index: Int)

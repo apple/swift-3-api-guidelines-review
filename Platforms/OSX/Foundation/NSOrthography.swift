@@ -10,7 +10,7 @@ class Orthography : Object, Copying, Coding {
   @available(OSX 10.6, *)
   func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.6, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 extension Orthography {
   @available(OSX 10.6, *)

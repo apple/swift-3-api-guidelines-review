@@ -140,7 +140,7 @@ class MDLMaterial : Object, MDLNamed, FastEnumeration {
   func setProperty(property: MDLMaterialProperty)
   func remove(property: MDLMaterialProperty)
   func propertyNamed(name: String) -> MDLMaterialProperty?
-  func property(with semantic: MDLMaterialSemantic) -> MDLMaterialProperty?
+  func property(semantic: MDLMaterialSemantic) -> MDLMaterialProperty?
   func removeAllProperties()
   var scatteringFunction: MDLScatteringFunction { get }
   var name: String
@@ -150,5 +150,5 @@ class MDLMaterial : Object, MDLNamed, FastEnumeration {
   var count: Int { get }
   init()
   @available(OSX 10.11, *)
-  func countByEnumerating(with state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

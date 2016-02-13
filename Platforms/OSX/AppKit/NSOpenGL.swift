@@ -58,7 +58,7 @@ class NSOpenGLPixelFormat : Object, Coding {
   var numberOfVirtualScreens: GLint { get }
   var cglPixelFormatObj: COpaquePointer { get }
   init()
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 enum NSOpenGLContextParameter : Int {

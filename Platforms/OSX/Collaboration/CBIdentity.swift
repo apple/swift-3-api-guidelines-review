@@ -22,7 +22,7 @@ class CBIdentity : Object, Coding, Copying {
   func isMemberOf(group group: CBGroupIdentity) -> Bool
   init()
   @available(OSX 10.5, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.5, *)
   func copy(zone: Zone = nil) -> AnyObject
@@ -33,7 +33,7 @@ class CBUserIdentity : CBIdentity, Coding, Copying {
   var posixUID: uid_t { get }
   var certificate: SecCertificate? { get }
   var isEnabled: Bool { get }
-  func authenticate(withPassword password: String) -> Bool
+  func authenticate(password password: String) -> Bool
   init()
   init?(coder aDecoder: Coder)
 }

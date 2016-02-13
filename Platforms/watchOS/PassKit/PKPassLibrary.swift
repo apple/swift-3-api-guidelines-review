@@ -17,18 +17,18 @@ class PKPassLibrary : Object {
   @available(watchOS 2.0, *)
   func isPaymentPassActivationAvailable() -> Bool
   func passes() -> [PKPass]
-  func pass(withPassTypeIdentifier identifier: String, serialNumber: String) -> PKPass?
+  func pass(passTypeIdentifier identifier: String, serialNumber: String) -> PKPass?
   @available(watchOS 2.0, *)
   func passes(of passType: PKPassType) -> [PKPass]
   @available(watchOS 2.0, *)
   func remotePaymentPasses() -> [PKPaymentPass]
   func removePass(pass: PKPass)
   func containsPass(pass: PKPass) -> Bool
-  func replacePass(with pass: PKPass) -> Bool
+  func replacePass(pass: PKPass) -> Bool
   @available(watchOS 2.0, *)
   func addPasses(passes: [PKPass], withCompletionHandler completion: ((PKPassLibraryAddPassesStatus) -> Void)? = nil)
   @available(watchOS 2.0, *)
-  func canAddPaymentPass(withPrimaryAccountIdentifier primaryAccountIdentifier: String) -> Bool
+  func canAddPaymentPass(primaryAccountIdentifier primaryAccountIdentifier: String) -> Bool
   init()
 }
 @available(watchOS 2.0, *)

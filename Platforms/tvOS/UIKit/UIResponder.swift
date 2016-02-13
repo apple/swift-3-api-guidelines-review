@@ -28,7 +28,7 @@ class UIResponder : Object {
   @available(tvOS 3.0, *)
   func motionCancelled(motion: UIEventSubtype, with event: UIEvent?)
   @available(tvOS 4.0, *)
-  func remoteControlReceived(with event: UIEvent?)
+  func remoteControlReceived(event: UIEvent?)
   @available(tvOS 3.0, *)
   func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool
   @available(tvOS 7.0, *)
@@ -64,7 +64,7 @@ class UIKeyCommand : Object, Copying, SecureCoding {
   @available(tvOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 7.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 extension UIResponder {
   @available(tvOS 7.0, *)

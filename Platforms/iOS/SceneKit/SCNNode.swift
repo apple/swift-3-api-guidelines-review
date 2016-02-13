@@ -40,7 +40,7 @@ class SCNNode : Object, Copying, SecureCoding, SCNAnimatable, SCNActionable, SCN
   func insertChildNode(child: SCNNode, at index: Int)
   func removeFromParentNode()
   func replaceChildNode(oldChild: SCNNode, with newChild: SCNNode)
-  func childNode(withName name: String, recursively: Bool) -> SCNNode?
+  func childNode(name name: String, recursively: Bool) -> SCNNode?
   func childNodes(passingTest predicate: (SCNNode, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [SCNNode]
   @available(iOS 8.0, *)
   func enumerateChildNodes(block: (SCNNode, UnsafeMutablePointer<ObjCBool>) -> Void)
@@ -74,7 +74,7 @@ class SCNNode : Object, Copying, SecureCoding, SCNAnimatable, SCNActionable, SCN
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 8.0, *)
   func add(animation: CAAnimation, forKey key: String?)

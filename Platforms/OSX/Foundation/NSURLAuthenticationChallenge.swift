@@ -4,7 +4,7 @@ protocol URLAuthenticationChallengeSender : ObjectProtocol {
   func continueWithoutCredential(for challenge: URLAuthenticationChallenge)
   func cancel(challenge: URLAuthenticationChallenge)
   optional func performDefaultHandling(for challenge: URLAuthenticationChallenge)
-  optional func rejectProtectionSpaceAndContinue(with challenge: URLAuthenticationChallenge)
+  optional func rejectProtectionSpaceAndContinue(challenge: URLAuthenticationChallenge)
 }
 class URLAuthenticationChallenge : Object, SecureCoding {
   init(protectionSpace space: URLProtectionSpace, proposedCredential credential: URLCredential?, previousFailureCount: Int, failureResponse response: URLResponse?, error: Error?, sender: URLAuthenticationChallengeSender)
@@ -17,6 +17,6 @@ class URLAuthenticationChallenge : Object, SecureCoding {
   var sender: URLAuthenticationChallengeSender? { get }
   init()
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

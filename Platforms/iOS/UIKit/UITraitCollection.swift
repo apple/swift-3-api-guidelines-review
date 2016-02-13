@@ -22,7 +22,7 @@ class UITraitCollection : Object, Copying, SecureCoding {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 protocol UITraitEnvironment : ObjectProtocol {
   @available(iOS 8.0, *)

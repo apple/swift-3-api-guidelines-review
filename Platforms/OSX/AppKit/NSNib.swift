@@ -4,9 +4,9 @@ class NSNib : Object, Coding {
   @available(OSX 10.8, *)
   init(nibData: Data, bundle: Bundle?)
   @available(OSX 10.8, *)
-  func instantiate(withOwner owner: AnyObject?, topLevel topLevelObjects: AutoreleasingUnsafeMutablePointer<NSArray?>) -> Bool
+  func instantiate(owner owner: AnyObject?, topLevel topLevelObjects: AutoreleasingUnsafeMutablePointer<NSArray?>) -> Bool
   init()
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct _NSNibFlags {

@@ -7,7 +7,7 @@ class Notification : Object, Copying, Coding {
   init(name: String, object: AnyObject?, userInfo: [Object : AnyObject]? = [:])
   init?(coder aDecoder: Coder)
   func copy(zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 extension Notification {
   convenience init(name aName: String, object anObject: AnyObject?)

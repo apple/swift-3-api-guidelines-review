@@ -37,7 +37,7 @@ class SCNHitTestResult : Object {
   var localNormal: SCNVector3 { get }
   var worldNormal: SCNVector3 { get }
   var modelTransform: SCNMatrix4 { get }
-  func textureCoordinates(withMappingChannel channel: Int) -> CGPoint
+  func textureCoordinates(mappingChannel channel: Int) -> CGPoint
   init()
 }
 protocol SCNSceneRenderer : ObjectProtocol {
@@ -51,7 +51,7 @@ protocol SCNSceneRenderer : ObjectProtocol {
   @available(tvOS 8.0, *)
   func isNode(insideFrustum node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
   @available(tvOS 9.0, *)
-  func nodesInsideFrustum(withPointOfView pointOfView: SCNNode) -> [SCNNode]
+  func nodesInsideFrustum(pointOfView pointOfView: SCNNode) -> [SCNNode]
   @available(tvOS 8.0, *)
   func projectPoint(point: SCNVector3) -> SCNVector3
   @available(tvOS 8.0, *)

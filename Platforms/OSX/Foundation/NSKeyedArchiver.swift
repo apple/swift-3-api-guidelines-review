@@ -4,7 +4,7 @@ let invalidUnarchiveOperationException: String
 @available(OSX 10.9, *)
 let keyedArchiveRootObjectKey: String
 class KeyedArchiver : Coder {
-  class func archivedData(withRootObject rootObject: AnyObject) -> Data
+  class func archivedData(rootObject rootObject: AnyObject) -> Data
   class func archiveRootObject(rootObject: AnyObject, toFile path: String) -> Bool
   init(forWritingWith data: MutableData)
   unowned(unsafe) var delegate: @sil_unmanaged KeyedArchiverDelegate?
@@ -28,8 +28,8 @@ class KeyedArchiver : Coder {
   init()
 }
 class KeyedUnarchiver : Coder {
-  class func unarchiveObject(with data: Data) -> AnyObject?
-  class func unarchiveObject(withFile path: String) -> AnyObject?
+  class func unarchiveObject(data: Data) -> AnyObject?
+  class func unarchiveObject(file path: String) -> AnyObject?
   init(forReadingWith data: Data)
   unowned(unsafe) var delegate: @sil_unmanaged KeyedUnarchiverDelegate?
   func finishDecoding()

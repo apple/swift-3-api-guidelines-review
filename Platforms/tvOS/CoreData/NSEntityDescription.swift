@@ -15,7 +15,7 @@ class NSEntityDescription : Object, Coding, Copying, FastEnumeration {
   var userInfo: [Object : AnyObject]?
   var attributesByName: [String : NSAttributeDescription] { get }
   var relationshipsByName: [String : NSRelationshipDescription] { get }
-  func relationships(withDestinationEntity entity: NSEntityDescription) -> [NSRelationshipDescription]
+  func relationships(destinationEntity entity: NSEntityDescription) -> [NSRelationshipDescription]
   @available(tvOS 3.0, *)
   func isKindOf(entity entity: NSEntityDescription) -> Bool
   @available(tvOS 3.0, *)
@@ -30,12 +30,12 @@ class NSEntityDescription : Object, Coding, Copying, FastEnumeration {
   var uniquenessConstraints: [[AnyObject]]
   init()
   @available(tvOS 3.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(tvOS 3.0, *)
   func copy(zone: Zone = nil) -> AnyObject
   @available(tvOS 3.0, *)
-  func countByEnumerating(with state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 struct __entityDescriptionFlags {
   var _isAbstract: UInt32

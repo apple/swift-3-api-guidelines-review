@@ -29,13 +29,13 @@ class SCNPhysicsWorld : Object, SecureCoding {
   var allBehaviors: [SCNPhysicsBehavior] { get }
   func rayTestWithSegment(fromPoint origin: SCNVector3, toPoint dest: SCNVector3, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
   func contactTestBetweenBody(bodyA: SCNPhysicsBody, andBody bodyB: SCNPhysicsBody, options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
-  func contactTest(with body: SCNPhysicsBody, options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
-  func convexSweepTest(with shape: SCNPhysicsShape, from: SCNMatrix4, to: SCNMatrix4, options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
+  func contactTest(body: SCNPhysicsBody, options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
+  func convexSweepTest(shape: SCNPhysicsShape, from: SCNMatrix4, to: SCNMatrix4, options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
   func updateCollisionPairs()
   init()
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

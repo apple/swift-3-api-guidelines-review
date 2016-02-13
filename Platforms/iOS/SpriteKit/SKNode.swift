@@ -42,8 +42,8 @@ class SKNode : UIResponder, Copying, Coding {
   func removeAllChildren()
   func removeFromParent()
   func move(toParent parent: SKNode)
-  func childNode(withName name: String) -> SKNode?
-  func enumerateChildNodes(withName name: String, using block: (SKNode, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func childNode(name name: String) -> SKNode?
+  func enumerateChildNodes(name name: String, using block: (SKNode, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(iOS 8.0, *)
   subscript(name: String) -> [SKNode] { get }
   func inParentHierarchy(parent: SKNode) -> Bool
@@ -65,7 +65,7 @@ class SKNode : UIResponder, Copying, Coding {
   class func obstacles(fromNodeBounds nodes: [SKNode]) -> [AnyObject]
   class func obstacles(fromNodePhysicsBodies nodes: [SKNode]) -> [AnyObject]
   func copy(zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 extension UITouch {
   func location(in node: SKNode) -> CGPoint

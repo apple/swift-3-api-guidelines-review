@@ -39,7 +39,7 @@ class NSAnimation : Object, Copying, Coding {
   var runLoopModesForAnimating: [String]? { get }
   init()
   func copy(zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct __aFlags {

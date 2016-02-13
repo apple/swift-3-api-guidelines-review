@@ -23,7 +23,7 @@ class NSPropertyDescription : Object, Coding, Copying {
   var renamingIdentifier: String?
   init()
   @available(tvOS 3.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(tvOS 3.0, *)
   func copy(zone: Zone = nil) -> AnyObject

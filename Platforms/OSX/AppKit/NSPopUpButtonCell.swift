@@ -14,26 +14,26 @@ class NSPopUpButtonCell : NSMenuItemCell {
   var preferredEdge: RectEdge
   var usesItemFromMenu: Bool
   var altersStateOfSelectedItem: Bool
-  func addItem(withTitle title: String)
-  func addItems(withTitles itemTitles: [String])
-  func insertItem(withTitle title: String, at index: Int)
-  func removeItem(withTitle title: String)
+  func addItem(title title: String)
+  func addItems(titles itemTitles: [String])
+  func insertItem(title title: String, at index: Int)
+  func removeItem(title title: String)
   func removeItem(at index: Int)
   func removeAllItems()
   var itemArray: [NSMenuItem] { get }
   var numberOfItems: Int { get }
   func indexOf(item: NSMenuItem) -> Int
-  func indexOfItem(withTitle title: String) -> Int
-  func indexOfItem(withTag tag: Int) -> Int
-  func indexOfItem(withRepresentedObject obj: AnyObject?) -> Int
-  func indexOfItem(withTarget target: AnyObject?, andAction actionSelector: Selector) -> Int
+  func indexOfItem(title title: String) -> Int
+  func indexOfItem(tag tag: Int) -> Int
+  func indexOfItem(representedObject obj: AnyObject?) -> Int
+  func indexOfItem(target target: AnyObject?, andAction actionSelector: Selector) -> Int
   func item(at index: Int) -> NSMenuItem?
-  func item(withTitle title: String) -> NSMenuItem?
+  func item(title title: String) -> NSMenuItem?
   var lastItem: NSMenuItem? { get }
   func select(item: NSMenuItem?)
   func selectItem(at index: Int)
-  func selectItem(withTitle title: String)
-  func selectItem(withTag tag: Int) -> Bool
+  func selectItem(title title: String)
+  func selectItem(tag tag: Int) -> Bool
   func setTitle(aString: String?)
   var selectedItem: NSMenuItem? { get }
   var indexOfSelectedItem: Int { get }
@@ -41,9 +41,9 @@ class NSPopUpButtonCell : NSMenuItemCell {
   func itemTitle(at index: Int) -> String
   var itemTitles: [String] { get }
   var titleOfSelectedItem: String? { get }
-  func attachPopUp(withFrame cellFrame: Rect, in controlView: NSView)
+  func attachPopUp(frame cellFrame: Rect, in controlView: NSView)
   func dismissPopUp()
-  func performClick(withFrame frame: Rect, in controlView: NSView)
+  func performClick(frame frame: Rect, in controlView: NSView)
   var arrowPosition: NSPopUpArrowPosition
   convenience init(textCell aString: String)
   convenience init(imageCell image: NSImage?)

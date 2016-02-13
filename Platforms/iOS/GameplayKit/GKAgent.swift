@@ -21,6 +21,6 @@ class GKAgent2D : GKAgent {
   var position: vector_float2
   var velocity: vector_float2 { get }
   var rotation: Float
-  func update(withDeltaTime seconds: TimeInterval)
+  func update(deltaTime seconds: TimeInterval)
   init()
 }

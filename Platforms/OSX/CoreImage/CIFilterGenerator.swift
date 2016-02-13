@@ -19,10 +19,10 @@ class CIFilterGenerator : Object, SecureCoding, Copying, CIFilterConstructor {
   @available(OSX 10.5, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.5, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.5, *)
   func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.5, *)
-  func filter(withName name: String) -> CIFilter?
+  func filter(name name: String) -> CIFilter?
 }

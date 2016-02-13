@@ -19,11 +19,11 @@ class UndoManager : Object {
   var isUndoing: Bool { get }
   var isRedoing: Bool { get }
   func removeAllActions()
-  func removeAllActions(withTarget target: AnyObject)
-  func registerUndo(withTarget target: AnyObject, selector: Selector, object anObject: AnyObject?)
-  func prepare(withInvocationTarget target: AnyObject) -> AnyObject
+  func removeAllActions(target target: AnyObject)
+  func registerUndo(target target: AnyObject, selector: Selector, object anObject: AnyObject?)
+  func prepare(invocationTarget target: AnyObject) -> AnyObject
   @available(tvOS 9.0, *)
-  func __registerUndo(withTarget target: AnyObject, handler undoHandler: (AnyObject) -> Void)
+  func __registerUndo(target target: AnyObject, handler undoHandler: (AnyObject) -> Void)
   @available(tvOS 5.0, *)
   func setActionIsDiscardable(discardable: Bool)
   @available(tvOS 5.0, *)

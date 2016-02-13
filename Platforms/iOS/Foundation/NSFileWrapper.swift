@@ -37,7 +37,7 @@ class FileWrapper : Object, Coding {
   func write(to url: URL, options: FileWrapperWritingOptions = [], originalContentsURL: URL?) throws
   @NSCopying var serializedRepresentation: Data? { get }
   func add(child: FileWrapper) -> String
-  func addRegularFile(withContents data: Data, preferredFilename fileName: String) -> String
+  func addRegularFile(contents data: Data, preferredFilename fileName: String) -> String
   func remove(child: FileWrapper)
   var fileWrappers: [String : FileWrapper]? { get }
   func key(for child: FileWrapper) -> String?
@@ -46,5 +46,5 @@ class FileWrapper : Object, Coding {
   @NSCopying var symbolicLinkDestinationURL: URL? { get }
   convenience init()
   @available(iOS 4.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }

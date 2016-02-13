@@ -81,21 +81,21 @@ class NSBezierPath : Object, Copying, Coding {
   func element(at index: Int) -> NSBezierPathElement
   func setAssociatedPoints(points: PointArray, at index: Int)
   func append(path: NSBezierPath)
-  func append(with rect: Rect)
-  func append(withPoints points: PointArray, count: Int)
+  func append(rect: Rect)
+  func append(points points: PointArray, count: Int)
   func appendWithOval(in rect: Rect)
-  func appendWithArc(withCenter center: Point, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
-  func appendWithArc(withCenter center: Point, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat)
+  func appendWithArc(center center: Point, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
+  func appendWithArc(center center: Point, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat)
   func appendWithArc(from point1: Point, to point2: Point, radius: CGFloat)
-  func append(withGlyph glyph: NSGlyph, in font: NSFont)
-  func append(withGlyphs glyphs: UnsafeMutablePointer<NSGlyph>, count: Int, in font: NSFont)
-  func append(withPackedGlyphs packedGlyphs: UnsafePointer<Int8>)
+  func append(glyph glyph: NSGlyph, in font: NSFont)
+  func append(glyphs glyphs: UnsafeMutablePointer<NSGlyph>, count: Int, in font: NSFont)
+  func append(packedGlyphs packedGlyphs: UnsafePointer<Int8>)
   @available(OSX 10.5, *)
-  func append(withRoundedRect rect: Rect, xRadius: CGFloat, yRadius: CGFloat)
+  func append(roundedRect rect: Rect, xRadius: CGFloat, yRadius: CGFloat)
   func contains(point: Point) -> Bool
   init()
   func copy(zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension NSBezierPath {

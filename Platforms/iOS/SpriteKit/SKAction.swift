@@ -18,7 +18,7 @@ class SKAction : Object, Copying, Coding {
   func reversed() -> SKAction
   init()
   func copy(zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension SKAction {
@@ -44,8 +44,8 @@ extension SKAction {
   class func group(actions: [SKAction]) -> SKAction
   class func repeatAction(action: SKAction, count: Int) -> SKAction
   class func repeatForever(action: SKAction) -> SKAction
-  class func fadeIn(withDuration sec: TimeInterval) -> SKAction
-  class func fadeOut(withDuration sec: TimeInterval) -> SKAction
+  class func fadeIn(duration sec: TimeInterval) -> SKAction
+  class func fadeOut(duration sec: TimeInterval) -> SKAction
   class func fadeAlpha(by factor: CGFloat, duration sec: TimeInterval) -> SKAction
   class func fadeAlpha(to alpha: CGFloat, duration sec: TimeInterval) -> SKAction
   @available(iOS 8.0, *)
@@ -60,15 +60,15 @@ extension SKAction {
   class func setTexture(texture: SKTexture, resize: Bool) -> SKAction
   @available(iOS 9.0, *)
   class func setNormalTexture(texture: SKTexture, resize: Bool) -> SKAction
-  class func animate(with textures: [SKTexture], timePerFrame sec: TimeInterval) -> SKAction
+  class func animate(textures: [SKTexture], timePerFrame sec: TimeInterval) -> SKAction
   @available(iOS 9.0, *)
-  class func animate(withNormalTextures textures: [SKTexture], timePerFrame sec: TimeInterval) -> SKAction
-  class func animate(with textures: [SKTexture], timePerFrame sec: TimeInterval, resize: Bool, restore: Bool) -> SKAction
+  class func animate(normalTextures textures: [SKTexture], timePerFrame sec: TimeInterval) -> SKAction
+  class func animate(textures: [SKTexture], timePerFrame sec: TimeInterval, resize: Bool, restore: Bool) -> SKAction
   @available(iOS 9.0, *)
-  class func animate(withNormalTextures textures: [SKTexture], timePerFrame sec: TimeInterval, resize: Bool, restore: Bool) -> SKAction
+  class func animate(normalTextures textures: [SKTexture], timePerFrame sec: TimeInterval, resize: Bool, restore: Bool) -> SKAction
   class func playSoundFileNamed(soundFile: String, waitForCompletion wait: Bool) -> SKAction
-  class func colorize(with color: UIColor, colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction
-  class func colorize(withColorBlendFactor colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction
+  class func colorize(color: UIColor, colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction
+  class func colorize(colorBlendFactor colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction
   @available(iOS 8.0, *)
   class func falloff(to falloff: Float, duration sec: TimeInterval) -> SKAction
   @available(iOS 8.0, *)
@@ -98,7 +98,7 @@ extension SKAction {
   class func run(block: dispatch_block_t) -> SKAction
   class func run(block: dispatch_block_t, queue: dispatch_queue_t) -> SKAction
   class func run(action: SKAction, onChildWithName name: String) -> SKAction
-  class func customAction(withDuration seconds: TimeInterval, actionBlock block: (SKNode, CGFloat) -> Void) -> SKAction
+  class func customAction(duration seconds: TimeInterval, actionBlock block: (SKNode, CGFloat) -> Void) -> SKAction
   @available(iOS 9.0, *)
   /*not inherited*/ init?(named name: String)
   @available(iOS 9.0, *)

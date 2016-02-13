@@ -173,7 +173,7 @@ class UITextInputMode : Object, SecureCoding {
   @available(tvOS 4.2, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 4.2, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(tvOS 4.2, *)

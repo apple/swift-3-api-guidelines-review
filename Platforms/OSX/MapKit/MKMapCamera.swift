@@ -12,7 +12,7 @@ class MKMapCamera : Object, SecureCoding, Copying {
   @available(OSX 10.9, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.9, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.9, *)
   func copy(zone: Zone = nil) -> AnyObject

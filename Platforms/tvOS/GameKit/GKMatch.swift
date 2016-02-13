@@ -22,7 +22,7 @@ class GKMatch : Object {
   func send(data: Data, to players: [GKPlayer], dataMode mode: GKMatchSendDataMode) throws
   func sendData(toAllPlayers data: Data, with mode: GKMatchSendDataMode) throws
   func disconnect()
-  func voiceChat(withName name: String) -> GKVoiceChat?
+  func voiceChat(name name: String) -> GKVoiceChat?
   @available(tvOS 8.0, *)
   func chooseBestHostingPlayer(completionHandler completionHandler: (GKPlayer?) -> Void)
   @available(tvOS 6.0, *)

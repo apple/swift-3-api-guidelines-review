@@ -76,5 +76,5 @@ class UINavigationItem : Object, Coding {
   func setRightBarButtonItem(item: UIBarButtonItem?, animated: Bool)
   convenience init()
   @available(iOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }

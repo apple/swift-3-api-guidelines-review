@@ -13,7 +13,7 @@ class NSTextTab : Object, Copying, Coding {
   @available(tvOS 7.0, *)
   func copy(zone: Zone = nil) -> AnyObject
   @available(tvOS 7.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(tvOS 6.0, *)
@@ -58,7 +58,7 @@ class NSParagraphStyle : Object, Copying, MutableCopying, SecureCoding {
   @available(tvOS 6.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 6.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(tvOS 6.0, *)

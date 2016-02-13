@@ -16,7 +16,7 @@ class AUParameterNode : Object {
   var identifier: String { get }
   var keyPath: String { get }
   var displayName: String { get }
-  func displayName(withLength maximumLength: Int) -> String
+  func displayName(length maximumLength: Int) -> String
   func token(byAddingParameterObserver observer: AUParameterObserver) -> AUParameterObserverToken
   func token(byAddingParameterRecordingObserver observer: AUParameterRecordingObserver) -> AUParameterObserverToken
   func removeParameterObserver(token: AUParameterObserverToken)
@@ -30,13 +30,13 @@ class AUParameterGroup : AUParameterNode, SecureCoding {
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(tvOS 9.0, *)
 class AUParameterTree : AUParameterGroup, SecureCoding {
-  func parameter(withAddress address: AUParameterAddress) -> AUParameter?
-  func parameter(withID paramID: AudioUnitParameterID, scope: AudioUnitScope, element: AudioUnitElement) -> AUParameter?
+  func parameter(address address: AUParameterAddress) -> AUParameter?
+  func parameter(id paramID: AudioUnitParameterID, scope: AudioUnitScope, element: AudioUnitElement) -> AUParameter?
   init()
   init?(coder aDecoder: Coder)
 }
@@ -59,6 +59,6 @@ class AUParameter : AUParameterNode, SecureCoding {
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

@@ -9,5 +9,5 @@ class NSShadow : Object, Copying, Coding {
   @available(tvOS 6.0, *)
   func copy(zone: Zone = nil) -> AnyObject
   @available(tvOS 6.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }

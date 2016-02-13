@@ -21,7 +21,7 @@ class RegularExpression : Object, Copying, Coding {
   @available(OSX 10.7, *)
   func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct MatchingOptions : OptionSetType {

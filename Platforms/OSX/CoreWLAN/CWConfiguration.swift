@@ -24,7 +24,7 @@ class CWConfiguration : Object, Copying, MutableCopying, SecureCoding {
   @available(OSX 10.6, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.6, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(OSX 10.6, *)

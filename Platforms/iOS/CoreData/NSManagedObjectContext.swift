@@ -50,9 +50,9 @@ class NSManagedObjectContext : Object, Coding, Locking {
   @available(iOS 5.0, *)
   var concurrencyType: NSManagedObjectContextConcurrencyType { get }
   func objectRegistered(for objectID: NSManagedObjectID) -> NSManagedObject?
-  func object(with objectID: NSManagedObjectID) -> NSManagedObject
+  func object(objectID: NSManagedObjectID) -> NSManagedObject
   @available(iOS 3.0, *)
-  func existingObject(with objectID: NSManagedObjectID) throws -> NSManagedObject
+  func existingObject(objectID: NSManagedObjectID) throws -> NSManagedObject
   func execute(request: NSFetchRequest) throws -> [AnyObject]
   @available(iOS 3.0, *)
   func count(for request: NSFetchRequest, error: ErrorPointer) -> Int
@@ -97,7 +97,7 @@ class NSManagedObjectContext : Object, Coding, Locking {
   @available(iOS 9.0, *)
   class func mergeChanges(fromRemoteContextSave changeNotificationData: [Object : AnyObject], into contexts: [NSManagedObjectContext])
   @available(iOS 3.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct _managedObjectContextFlags {

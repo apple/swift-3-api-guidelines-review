@@ -30,16 +30,16 @@ struct AVMovieWritingOptions : OptionSetType {
 }
 extension AVMovie {
   @available(OSX 10.11, *)
-  func movieHeader(withFileType fileType: String) throws -> Data
+  func movieHeader(fileType fileType: String) throws -> Data
   @available(OSX 10.11, *)
   func writeHeader(to URL: URL, fileType: String, options: AVMovieWritingOptions = []) throws
   @available(OSX 10.11, *)
   func isCompatibleWithFileType(fileType: String) -> Bool
 }
 extension AVMovie {
-  func track(withTrackID trackID: CMPersistentTrackID) -> AVMovieTrack?
-  func tracks(withMediaType mediaType: String) -> [AVMovieTrack]
-  func tracks(withMediaCharacteristic mediaCharacteristic: String) -> [AVMovieTrack]
+  func track(trackID trackID: CMPersistentTrackID) -> AVMovieTrack?
+  func tracks(mediaType mediaType: String) -> [AVMovieTrack]
+  func tracks(mediaCharacteristic mediaCharacteristic: String) -> [AVMovieTrack]
 }
 @available(OSX 10.11, *)
 class AVMutableMovie : AVMovie {
@@ -68,7 +68,7 @@ extension AVMutableMovie {
 }
 extension AVMutableMovie {
   func mutableTrack(compatibleWith track: AVAssetTrack) -> AVMutableMovieTrack?
-  func addMutableTrack(withMediaType mediaType: String, copySettingsFrom track: AVAssetTrack?, options: [String : AnyObject]? = [:]) -> AVMutableMovieTrack
+  func addMutableTrack(mediaType mediaType: String, copySettingsFrom track: AVAssetTrack?, options: [String : AnyObject]? = [:]) -> AVMutableMovieTrack
   func addMutableTracksCopyingSettings(from existingTracks: [AVAssetTrack], options: [String : AnyObject]? = [:]) -> [AVMutableMovieTrack]
   func removeTrack(track: AVMovieTrack)
 }
@@ -76,9 +76,9 @@ extension AVMutableMovie {
   var metadata: [AVMetadataItem]
 }
 extension AVMutableMovie {
-  func track(withTrackID trackID: CMPersistentTrackID) -> AVMutableMovieTrack?
-  func tracks(withMediaType mediaType: String) -> [AVMutableMovieTrack]
-  func tracks(withMediaCharacteristic mediaCharacteristic: String) -> [AVMutableMovieTrack]
+  func track(trackID trackID: CMPersistentTrackID) -> AVMutableMovieTrack?
+  func tracks(mediaType mediaType: String) -> [AVMutableMovieTrack]
+  func tracks(mediaCharacteristic mediaCharacteristic: String) -> [AVMutableMovieTrack]
 }
 @available(OSX 10.11, *)
 class AVMediaDataStorage : Object {
@@ -103,9 +103,9 @@ class AVFragmentedMovie : AVMovie, AVFragmentMinding {
   var isAssociatedWithFragmentMinder: Bool { get }
 }
 extension AVFragmentedMovie {
-  func track(withTrackID trackID: CMPersistentTrackID) -> AVFragmentedMovieTrack?
-  func tracks(withMediaType mediaType: String) -> [AVFragmentedMovieTrack]
-  func tracks(withMediaCharacteristic mediaCharacteristic: String) -> [AVFragmentedMovieTrack]
+  func track(trackID trackID: CMPersistentTrackID) -> AVFragmentedMovieTrack?
+  func tracks(mediaType mediaType: String) -> [AVFragmentedMovieTrack]
+  func tracks(mediaCharacteristic mediaCharacteristic: String) -> [AVFragmentedMovieTrack]
 }
 @available(OSX 10.10, *)
 class AVFragmentedMovieMinder : AVFragmentedAssetMinder {

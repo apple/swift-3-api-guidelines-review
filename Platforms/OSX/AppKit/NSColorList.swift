@@ -7,15 +7,15 @@ class NSColorList : Object, SecureCoding {
   var name: String? { get }
   func setColor(color: NSColor, forKey key: String)
   func insert(color: NSColor, key: String, at loc: Int)
-  func removeColor(withKey key: String)
-  func color(withKey key: String) -> NSColor?
+  func removeColor(key key: String)
+  func color(key key: String) -> NSColor?
   var allKeys: [String] { get }
   var isEditable: Bool { get }
   func write(toFile path: String?) -> Bool
   func removeFile()
   init()
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct _colorListFlags {

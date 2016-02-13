@@ -9,8 +9,8 @@ class NSDictionary : Object, Copying, MutableCopying, SecureCoding, FastEnumerat
   func copy(zone: Zone = nil) -> AnyObject
   func mutableCopy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
-  func countByEnumerating(with state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func encode(aCoder: Coder)
+  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSDictionary : DictionaryLiteralConvertible {
@@ -44,8 +44,8 @@ extension NSDictionary {
   var allValues: [AnyObject] { get }
   var description: String { get }
   var descriptionInStringsFileFormat: String { get }
-  func description(withLocale locale: AnyObject?) -> String
-  func description(withLocale locale: AnyObject?, indent level: Int) -> String
+  func description(locale locale: AnyObject?) -> String
+  func description(locale locale: AnyObject?, indent level: Int) -> String
   func isEqual(to otherDictionary: [Object : AnyObject]) -> Bool
   func objectEnumerator() -> Enumerator
   func objects(for keys: [AnyObject], notFoundMarker marker: AnyObject) -> [AnyObject]

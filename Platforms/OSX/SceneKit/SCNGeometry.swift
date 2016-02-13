@@ -27,7 +27,7 @@ class SCNGeometry : Object, SCNAnimatable, SCNBoundingVolume, SCNShadable, Copyi
   func insertMaterial(material: SCNMaterial, at index: Int)
   func removeMaterial(at index: Int)
   func replaceMaterial(at index: Int, with material: SCNMaterial)
-  func material(withName name: String) -> SCNMaterial?
+  func material(name name: String) -> SCNMaterial?
   convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
   @available(OSX 10.10, *)
   var geometrySources: [SCNGeometrySource] { get }
@@ -82,7 +82,7 @@ class SCNGeometry : Object, SCNAnimatable, SCNBoundingVolume, SCNShadable, Copyi
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(OSX 10.8, *)
@@ -105,7 +105,7 @@ class SCNGeometrySource : Object, SecureCoding {
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(OSX 10.8, *)
@@ -119,7 +119,7 @@ class SCNGeometryElement : Object, SecureCoding {
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 

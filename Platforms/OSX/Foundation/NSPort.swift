@@ -13,19 +13,19 @@ class Port : Object, Copying, Coding {
   func send(before limitDate: Date, msgid msgID: Int, components: MutableArray?, from receivePort: Port?, reserved headerSpaceReserved: Int) -> Bool
   init()
   func copy(zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 protocol PortDelegate : ObjectProtocol {
   optional func handle(message: PortMessage)
 }
 class MachPort : Port {
-  class func port(withMachPort machPort: UInt32) -> Port
+  class func port(machPort machPort: UInt32) -> Port
   init(machPort: UInt32)
   func setDelegate(anObject: MachPortDelegate?)
   func delegate() -> MachPortDelegate?
   @available(OSX 10.5, *)
-  class func port(withMachPort machPort: UInt32, options f: MachPortOptions = []) -> Port
+  class func port(machPort machPort: UInt32, options f: MachPortOptions = []) -> Port
   @available(OSX 10.5, *)
   init(machPort: UInt32, options f: MachPortOptions = [])
   var machPort: UInt32 { get }

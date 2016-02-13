@@ -26,7 +26,7 @@ class NSTextAttachment : Object, NSTextAttachmentContainer, Coding {
   @available(tvOS 7.0, *)
   func attachmentBounds(for textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
   @available(tvOS 7.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension AttributedString {

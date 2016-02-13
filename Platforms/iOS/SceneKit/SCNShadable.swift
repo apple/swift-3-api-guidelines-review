@@ -46,7 +46,7 @@ class SCNProgram : Object, Copying, SecureCoding {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 protocol SCNProgramDelegate : ObjectProtocol {

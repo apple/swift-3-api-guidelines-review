@@ -167,7 +167,7 @@ class NSLayoutManager : Object, Coding {
   func defaultLineHeight(for theFont: NSFont) -> CGFloat
   func defaultBaselineOffset(for theFont: NSFont) -> CGFloat
   @available(OSX 10.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 struct __lmFlags {
   var containersAreFull: UInt32

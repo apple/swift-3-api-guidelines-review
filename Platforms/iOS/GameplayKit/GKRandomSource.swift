@@ -1,7 +1,7 @@
 
 protocol GKRandom {
   func nextInt() -> Int
-  func nextInt(withUpperBound upperBound: Int) -> Int
+  func nextInt(upperBound upperBound: Int) -> Int
   func nextUniform() -> Float
   func nextBool() -> Bool
 }
@@ -14,7 +14,7 @@ class GKRandomSource : Object, GKRandom, SecureCoding, Copying {
   @available(iOS 9.0, *)
   func nextInt() -> Int
   @available(iOS 9.0, *)
-  func nextInt(withUpperBound upperBound: Int) -> Int
+  func nextInt(upperBound upperBound: Int) -> Int
   @available(iOS 9.0, *)
   func nextUniform() -> Float
   @available(iOS 9.0, *)
@@ -22,7 +22,7 @@ class GKRandomSource : Object, GKRandom, SecureCoding, Copying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   @available(iOS 9.0, *)
   func copy(zone: Zone = nil) -> AnyObject
 }
@@ -31,7 +31,7 @@ class GKARC4RandomSource : GKRandomSource {
   @NSCopying var seed: Data
   convenience init()
   init(seed: Data)
-  func dropValues(withCount count: Int)
+  func dropValues(count count: Int)
   init(coder aDecoder: Coder)
 }
 @available(iOS 9.0, *)

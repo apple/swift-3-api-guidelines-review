@@ -48,6 +48,6 @@ class SKPhysicsBody : Object, Copying, Coding {
   func allContactedBodies() -> [SKPhysicsBody]
   init()
   func copy(zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

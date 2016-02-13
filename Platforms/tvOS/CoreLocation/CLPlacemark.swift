@@ -26,6 +26,6 @@ class CLPlacemark : Object, Copying, SecureCoding {
   @available(tvOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 5.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

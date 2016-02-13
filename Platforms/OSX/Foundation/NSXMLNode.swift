@@ -21,18 +21,18 @@ class XMLNode : Object, Copying {
   convenience init(kind: XMLNodeKind)
   init(kind: XMLNodeKind, options: Int)
   class func document() -> AnyObject
-  class func document(withRootElement element: XMLElement) -> AnyObject
-  class func element(withName name: String) -> AnyObject
-  class func element(withName name: String, uri URI: String) -> AnyObject
-  class func element(withName name: String, stringValue string: String) -> AnyObject
-  class func element(withName name: String, children: [XMLNode]?, attributes: [XMLNode]?) -> AnyObject
-  class func attribute(withName name: String, stringValue: String) -> AnyObject
-  class func attribute(withName name: String, uri URI: String, stringValue: String) -> AnyObject
-  class func namespace(withName name: String, stringValue: String) -> AnyObject
-  class func processingInstruction(withName name: String, stringValue: String) -> AnyObject
-  class func comment(withStringValue stringValue: String) -> AnyObject
-  class func text(withStringValue stringValue: String) -> AnyObject
-  class func dtdNode(withXMLString string: String) -> AnyObject?
+  class func document(rootElement element: XMLElement) -> AnyObject
+  class func element(name name: String) -> AnyObject
+  class func element(name name: String, uri URI: String) -> AnyObject
+  class func element(name name: String, stringValue string: String) -> AnyObject
+  class func element(name name: String, children: [XMLNode]?, attributes: [XMLNode]?) -> AnyObject
+  class func attribute(name name: String, stringValue: String) -> AnyObject
+  class func attribute(name name: String, uri URI: String, stringValue: String) -> AnyObject
+  class func namespace(name name: String, stringValue: String) -> AnyObject
+  class func processingInstruction(name name: String, stringValue: String) -> AnyObject
+  class func comment(stringValue stringValue: String) -> AnyObject
+  class func text(stringValue stringValue: String) -> AnyObject
+  class func dtdNode(xmlString string: String) -> AnyObject?
   var kind: XMLNodeKind { get }
   var name: String?
   var objectValue: AnyObject?
@@ -59,7 +59,7 @@ class XMLNode : Object, Copying {
   class func predefinedNamespace(forPrefix name: String) -> XMLNode?
   var description: String { get }
   var xmlString: String { get }
-  func xmlString(withOptions options: Int) -> String
+  func xmlString(options options: Int) -> String
   func canonicalXMLStringPreservingComments(comments: Bool) -> String
   func nodes(forXPath xpath: String) throws -> [XMLNode]
   func objects(forXQuery xquery: String, constants: [String : AnyObject]?) throws -> [AnyObject]

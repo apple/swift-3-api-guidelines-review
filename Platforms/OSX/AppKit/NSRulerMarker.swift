@@ -15,7 +15,7 @@ class NSRulerMarker : Object, Copying, Coding {
   func trackMouse(mouseDownEvent: NSEvent, adding isAdding: Bool) -> Bool
   convenience init()
   func copy(zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct __rFlags {

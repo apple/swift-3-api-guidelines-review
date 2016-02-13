@@ -39,7 +39,7 @@ class AVSpeechSynthesisVoice : Object, SecureCoding {
   @available(tvOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 7.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(tvOS 7.0, *)
@@ -58,7 +58,7 @@ class AVSpeechUtterance : Object, Copying, SecureCoding {
   @available(tvOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 7.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(tvOS 7.0, *)

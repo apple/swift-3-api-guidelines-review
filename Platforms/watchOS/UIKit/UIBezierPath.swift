@@ -24,7 +24,7 @@ class UIBezierPath : Object, Copying, Coding {
   func addCurve(to endPoint: CGPoint, controlPoint1: CGPoint, controlPoint2: CGPoint)
   func addQuadCurve(to endPoint: CGPoint, controlPoint: CGPoint)
   @available(watchOS 2.0, *)
-  func addArc(withCenter center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
+  func addArc(center center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
   func close()
   func removeAllPoints()
   func append(bezierPath: UIBezierPath)
@@ -45,11 +45,11 @@ class UIBezierPath : Object, Copying, Coding {
   func getLineDash(pattern: UnsafeMutablePointer<CGFloat>, count: UnsafeMutablePointer<Int>, phase: UnsafeMutablePointer<CGFloat>)
   func fill()
   func stroke()
-  func fill(with blendMode: CGBlendMode, alpha: CGFloat)
-  func stroke(with blendMode: CGBlendMode, alpha: CGFloat)
+  func fill(blendMode: CGBlendMode, alpha: CGFloat)
+  func stroke(blendMode: CGBlendMode, alpha: CGFloat)
   func addClip()
   @available(watchOS 2.0, *)
   func copy(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }

@@ -55,7 +55,7 @@ class UIImage : Object, SecureCoding {
   @available(tvOS 6.0, *)
   class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode, duration: TimeInterval) -> UIImage?
   @available(tvOS 5.0, *)
-  class func animatedImage(with images: [UIImage], duration: TimeInterval) -> UIImage?
+  class func animatedImage(images: [UIImage], duration: TimeInterval) -> UIImage?
   @available(tvOS 5.0, *)
   var images: [UIImage]? { get }
   @available(tvOS 5.0, *)
@@ -66,9 +66,9 @@ class UIImage : Object, SecureCoding {
   func draw(in rect: CGRect, blendMode: CGBlendMode, alpha: CGFloat)
   func drawAsPattern(in rect: CGRect)
   @available(tvOS 5.0, *)
-  func resizableImage(withCapInsets capInsets: UIEdgeInsets) -> UIImage
+  func resizableImage(capInsets capInsets: UIEdgeInsets) -> UIImage
   @available(tvOS 6.0, *)
-  func resizableImage(withCapInsets capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode) -> UIImage
+  func resizableImage(capInsets capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode) -> UIImage
   @available(tvOS 5.0, *)
   var capInsets: UIEdgeInsets { get }
   @available(tvOS 6.0, *)
@@ -93,7 +93,7 @@ class UIImage : Object, SecureCoding {
   @available(tvOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 

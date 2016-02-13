@@ -40,6 +40,6 @@ class WebPreferences : Object, Coding {
   var suppressesIncrementalRendering: Bool
   var allowsAirPlayForMediaPlayback: Bool
   init()
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

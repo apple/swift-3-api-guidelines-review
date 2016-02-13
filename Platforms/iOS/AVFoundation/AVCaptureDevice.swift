@@ -8,8 +8,8 @@ let AVCaptureDeviceSubjectAreaDidChangeNotification: String
 @available(iOS 4.0, *)
 class AVCaptureDevice : Object {
   class func devices() -> [AnyObject]!
-  class func devices(withMediaType mediaType: String!) -> [AnyObject]!
-  class func defaultDevice(withMediaType mediaType: String!) -> AVCaptureDevice!
+  class func devices(mediaType mediaType: String!) -> [AnyObject]!
+  class func defaultDevice(mediaType mediaType: String!) -> AVCaptureDevice!
   /*not inherited*/ init!(uniqueID deviceUniqueID: String!)
   var uniqueID: String! { get }
   var modelID: String! { get }

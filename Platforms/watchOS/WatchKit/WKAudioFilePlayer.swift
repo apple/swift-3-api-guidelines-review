@@ -12,7 +12,7 @@ class WKAudioFilePlayer : Object {
   convenience init(playerItem item: WKAudioFilePlayerItem)
   func play()
   func pause()
-  func replaceCurrentItem(with item: WKAudioFilePlayerItem?)
+  func replaceCurrentItem(item: WKAudioFilePlayerItem?)
   var currentItem: WKAudioFilePlayerItem? { get }
   var status: WKAudioFilePlayerStatus { get }
   var error: Error? { get }

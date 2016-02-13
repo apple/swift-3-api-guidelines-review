@@ -17,7 +17,7 @@ class CIColor : Object, SecureCoding, Copying {
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.4, *)
   func copy(zone: Zone = nil) -> AnyObject

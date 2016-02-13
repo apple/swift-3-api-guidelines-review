@@ -14,7 +14,7 @@ class GKAchievementDescription : Object, Coding, SecureCoding {
   var isReplayable: Bool { get }
   init()
   @available(OSX 10.8, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool

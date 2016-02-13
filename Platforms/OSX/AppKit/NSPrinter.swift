@@ -18,7 +18,7 @@ class NSPrinter : Object, Copying, Coding {
   var deviceDescription: [String : AnyObject] { get }
   init()
   func copy(zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension NSPrinter {

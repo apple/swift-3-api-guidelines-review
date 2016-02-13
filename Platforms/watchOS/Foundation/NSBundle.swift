@@ -44,7 +44,7 @@ class Bundle : Object {
   @available(watchOS 2.0, *)
   class func url(forResource name: String?, withExtension ext: String?, subdirectory subpath: String?, inBundleWith bundleURL: URL) -> URL?
   @available(watchOS 2.0, *)
-  class func urlsForResources(withExtension ext: String?, subdirectory subpath: String?, inBundleWith bundleURL: URL) -> [URL]?
+  class func urlsForResources(extension ext: String?, subdirectory subpath: String?, inBundleWith bundleURL: URL) -> [URL]?
   @available(watchOS 2.0, *)
   func url(forResource name: String?, withExtension ext: String?) -> URL?
   @available(watchOS 2.0, *)
@@ -52,9 +52,9 @@ class Bundle : Object {
   @available(watchOS 2.0, *)
   func url(forResource name: String?, withExtension ext: String?, subdirectory subpath: String?, localization localizationName: String?) -> URL?
   @available(watchOS 2.0, *)
-  func urlsForResources(withExtension ext: String?, subdirectory subpath: String?) -> [URL]?
+  func urlsForResources(extension ext: String?, subdirectory subpath: String?) -> [URL]?
   @available(watchOS 2.0, *)
-  func urlsForResources(withExtension ext: String?, subdirectory subpath: String?, localization localizationName: String?) -> [URL]?
+  func urlsForResources(extension ext: String?, subdirectory subpath: String?, localization localizationName: String?) -> [URL]?
   class func path(forResource name: String?, ofType ext: String?, inDirectory bundlePath: String) -> String?
   class func pathsForResources(ofType ext: String?, inDirectory bundlePath: String) -> [String]
   func path(forResource name: String?, ofType ext: String?) -> String?

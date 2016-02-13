@@ -7,7 +7,7 @@ class UIMotionEffect : Object, Copying, Coding {
   @available(iOS 7.0, *)
   func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 7.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 enum UIInterpolatingMotionEffectType : Int {
   init?(rawValue: Int)

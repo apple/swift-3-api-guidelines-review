@@ -45,7 +45,7 @@ class NSTextFinder : Object, Coding {
   class func drawIncrementalMatchHighlight(in rect: Rect)
   func noteClientStringWillChange()
   @available(OSX 10.7, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 protocol NSTextFinderClient : ObjectProtocol {

@@ -4,7 +4,7 @@ class CAMediaTimingFunction : Object, Coding {
   init(controlPoints c1x: Float, _ c1y: Float, _ c2x: Float, _ c2y: Float)
   func getControlPoint(at idx: Int, values ptr: UnsafeMutablePointer<Float>)
   init()
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 @available(OSX 10.5, *)

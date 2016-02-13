@@ -6,6 +6,6 @@ class NSShadow : Object, Copying, Coding {
   @NSCopying var shadowColor: NSColor?
   func set()
   func copy(zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

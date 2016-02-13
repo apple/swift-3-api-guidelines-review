@@ -105,15 +105,15 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   @available(OSX 10.7, *)
   var effectiveRowSizeStyle: NSTableViewRowSizeStyle { get }
   var rowHeight: CGFloat
-  func noteHeightOfRows(withIndexesChanged indexSet: IndexSet)
+  func noteHeightOfRows(indexesChanged indexSet: IndexSet)
   var tableColumns: [NSTableColumn] { get }
   var numberOfColumns: Int { get }
   var numberOfRows: Int { get }
   func addTableColumn(tableColumn: NSTableColumn)
   func removeTableColumn(tableColumn: NSTableColumn)
   func moveColumn(oldIndex: Int, toColumn newIndex: Int)
-  func column(withIdentifier identifier: String) -> Int
-  func tableColumn(withIdentifier identifier: String) -> NSTableColumn?
+  func column(identifier identifier: String) -> Int
+  func tableColumn(identifier identifier: String) -> NSTableColumn?
   func tile()
   func sizeToFit()
   func sizeLastColumnToFit()
@@ -133,8 +133,8 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   func indicatorImage(in tableColumn: NSTableColumn) -> NSImage?
   unowned(unsafe) var highlightedTableColumn: @sil_unmanaged NSTableColumn?
   var verticalMotionCanBeginDrag: Bool
-  func canDragRows(with rowIndexes: IndexSet, at mouseDownPoint: Point) -> Bool
-  func dragImageForRows(with dragRows: IndexSet, tableColumns: [NSTableColumn], event dragEvent: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
+  func canDragRows(rowIndexes: IndexSet, at mouseDownPoint: Point) -> Bool
+  func dragImageForRows(dragRows: IndexSet, tableColumns: [NSTableColumn], event dragEvent: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
   func setDraggingSourceOperationMask(mask: NSDragOperation, forLocal isLocal: Bool)
   func setDropRow(row: Int, dropOperation: NSTableViewDropOperation)
   var allowsMultipleSelection: Bool
@@ -184,7 +184,7 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   @available(OSX 10.7, *)
   func column(for view: NSView) -> Int
   @available(OSX 10.7, *)
-  func make(withIdentifier identifier: String, owner: AnyObject?) -> NSView?
+  func make(identifier identifier: String, owner: AnyObject?) -> NSView?
   @available(OSX 10.7, *)
   func enumerateAvailableRowViews(handler: (NSTableRowView, Int) -> Void)
   @available(OSX 10.7, *)

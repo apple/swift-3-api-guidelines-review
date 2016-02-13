@@ -12,6 +12,6 @@ class CNContactProperty : Object, Copying, SecureCoding {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

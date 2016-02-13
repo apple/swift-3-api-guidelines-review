@@ -17,7 +17,7 @@ let NEAppProxyErrorDomain: String
 @available(OSX 10.11, *)
 class NEAppProxyFlow : Object {
   @available(OSX 10.11, *)
-  func open(withLocalEndpoint localEndpoint: NWHostEndpoint?, completionHandler: (Error?) -> Void)
+  func open(localEndpoint localEndpoint: NWHostEndpoint?, completionHandler: (Error?) -> Void)
   @available(OSX 10.11, *)
   func closeReadWithError(error: Error?)
   @available(OSX 10.11, *)

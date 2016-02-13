@@ -64,6 +64,6 @@ class XPCListenerEndpoint : Object, SecureCoding {
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

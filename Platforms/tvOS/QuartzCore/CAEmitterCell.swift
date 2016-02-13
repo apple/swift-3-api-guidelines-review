@@ -38,7 +38,7 @@ class CAEmitterCell : Object, Coding, CAMediaTiming {
   var emitterCells: [CAEmitterCell]?
   var style: [Object : AnyObject]?
   init()
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   var beginTime: CFTimeInterval
   var duration: CFTimeInterval

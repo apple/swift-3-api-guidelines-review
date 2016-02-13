@@ -32,7 +32,7 @@ class URLRequest : Object, SecureCoding, Copying, MutableCopying {
   @available(OSX 10.8, *)
   var allowsCellularAccess: Bool { get }
   convenience init()
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   func copy(zone: Zone = nil) -> AnyObject
   func mutableCopy(zone: Zone = nil) -> AnyObject

@@ -15,7 +15,7 @@ class NSForm : NSMatrix {
   func addEntry(title: String) -> NSFormCell
   func insertEntry(title: String, at index: Int) -> NSFormCell!
   func removeEntry(at index: Int)
-  func indexOfCell(withTag aTag: Int) -> Int
+  func indexOfCell(tag aTag: Int) -> Int
   func selectText(at index: Int)
   func setFrameSize(newSize: Size)
   func setTitleBaseWritingDirection(writingDirection: NSWritingDirection)

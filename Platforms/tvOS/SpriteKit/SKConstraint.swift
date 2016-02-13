@@ -11,7 +11,7 @@ class SKRange : Object, Coding, Copying {
   var upperLimit: CGFloat
   convenience init()
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(tvOS 8.0, *)
   func copy(zone: Zone = nil) -> AnyObject
@@ -32,7 +32,7 @@ class SKConstraint : Object, Coding, Copying {
   class func orient(to point: CGPoint, in node: SKNode, offset radians: SKRange) -> Self
   init()
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(tvOS 8.0, *)
   func copy(zone: Zone = nil) -> AnyObject

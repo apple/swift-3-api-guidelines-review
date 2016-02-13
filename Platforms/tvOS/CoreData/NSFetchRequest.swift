@@ -48,7 +48,7 @@ class NSFetchRequest : NSPersistentStoreRequest, Coding {
   @available(tvOS 5.0, *)
   var havingPredicate: Predicate?
   @available(tvOS 3.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct _fetchRequestFlags {

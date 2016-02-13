@@ -79,8 +79,8 @@ class NSColor : Object, Copying, SecureCoding, NSPasteboardReading, NSPasteboard
   class func alternateSelectedControl() -> NSColor
   class func alternateSelectedControlText() -> NSColor
   class func controlAlternatingRowBackgroundColors() -> [NSColor]
-  func highlight(withLevel val: CGFloat) -> NSColor?
-  func shadow(withLevel val: CGFloat) -> NSColor?
+  func highlight(level val: CGFloat) -> NSColor?
+  func shadow(level val: CGFloat) -> NSColor?
   /*not inherited*/ init(for controlTint: NSControlTint)
   class func currentControlTint() -> NSControlTint
   func set()
@@ -90,7 +90,7 @@ class NSColor : Object, Copying, SecureCoding, NSPasteboardReading, NSPasteboard
   func usingColorSpaceName(colorSpace: String) -> NSColor?
   func usingColorSpaceName(colorSpace: String?, device deviceDescription: [String : AnyObject]?) -> NSColor?
   func usingColorSpace(space: NSColorSpace) -> NSColor?
-  func blendedColor(withFraction fraction: CGFloat, of color: NSColor) -> NSColor?
+  func blendedColor(fraction fraction: CGFloat, of color: NSColor) -> NSColor?
   func withAlphaComponent(alpha: CGFloat) -> NSColor
   var catalogNameComponent: String { get }
   var colorNameComponent: String { get }
@@ -128,7 +128,7 @@ class NSColor : Object, Copying, SecureCoding, NSPasteboardReading, NSPasteboard
   class func ignoresAlpha() -> Bool
   func copy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   class func readableTypes(for pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
   class func readingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions

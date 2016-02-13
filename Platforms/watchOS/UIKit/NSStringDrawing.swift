@@ -34,15 +34,15 @@ struct NSStringDrawingOptions : OptionSetType {
 }
 extension NSString {
   @available(watchOS 2.0, *)
-  func draw(with rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?)
+  func draw(rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?)
   @available(watchOS 2.0, *)
-  func boundingRect(with size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?) -> CGRect
+  func boundingRect(size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?) -> CGRect
 }
 extension AttributedString {
   @available(watchOS 2.0, *)
-  func draw(with rect: CGRect, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?)
+  func draw(rect: CGRect, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?)
   @available(watchOS 2.0, *)
-  func boundingRect(with size: CGSize, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?) -> CGRect
+  func boundingRect(size: CGSize, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?) -> CGRect
 }
 extension NSStringDrawingContext {
   @available(watchOS, introduced=2.0, deprecated=2.0)

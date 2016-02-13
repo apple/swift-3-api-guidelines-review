@@ -9,7 +9,7 @@ class HMHome : Object {
 }
 extension HMHome {
   var accessories: [HMAccessory] { get }
-  func services(withTypes serviceTypes: [String]) -> [HMService]?
+  func services(types serviceTypes: [String]) -> [HMService]?
 }
 extension HMHome {
   @available(watchOS 2.0, *)

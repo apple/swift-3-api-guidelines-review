@@ -70,7 +70,7 @@ class IOBluetoothDevice : IOBluetoothObject, Coding, SecureCoding {
   func openL2CAPChannelAsync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [Object : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
   func awakeAfter(using coder: Coder!) -> AnyObject!
   init()
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   class func supportsSecureCoding() -> Bool
 }

@@ -36,5 +36,5 @@ class UIPrintInfo : Object, Copying, Coding {
   @available(iOS 4.2, *)
   func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 4.2, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }

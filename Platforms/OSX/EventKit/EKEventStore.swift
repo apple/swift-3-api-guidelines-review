@@ -22,30 +22,30 @@ class EKEventStore : Object {
   @available(OSX 10.8, *)
   var sources: [EKSource] { get }
   @available(OSX 10.8, *)
-  func source(withIdentifier identifier: String) -> EKSource
+  func source(identifier identifier: String) -> EKSource
   @available(OSX 10.8, *)
   func calendars(for entityType: EKEntityType) -> [EKCalendar]
   var defaultCalendarForNewEvents: EKCalendar { get }
   @available(OSX 10.8, *)
   func defaultCalendarForNewReminders() -> EKCalendar
   @available(OSX 10.8, *)
-  func calendar(withIdentifier identifier: String) -> EKCalendar?
+  func calendar(identifier identifier: String) -> EKCalendar?
   @available(OSX 10.8, *)
   func saveCalendar(calendar: EKCalendar, commit: Bool) throws
   @available(OSX 10.8, *)
   func removeCalendar(calendar: EKCalendar, commit: Bool) throws
   @available(OSX 10.8, *)
-  func calendarItem(withIdentifier identifier: String) -> EKCalendarItem
+  func calendarItem(identifier identifier: String) -> EKCalendarItem
   @available(OSX 10.8, *)
-  func calendarItems(withExternalIdentifier externalIdentifier: String) -> [EKCalendarItem]
+  func calendarItems(externalIdentifier externalIdentifier: String) -> [EKCalendarItem]
   @available(OSX 10.8, *)
   func save(event: EKEvent, span: EKSpan, commit: Bool) throws
   @available(OSX 10.8, *)
   func remove(event: EKEvent, span: EKSpan, commit: Bool) throws
-  func event(withIdentifier identifier: String) -> EKEvent?
+  func event(identifier identifier: String) -> EKEvent?
   func events(matching predicate: Predicate) -> [EKEvent]
   func enumerateEvents(matching predicate: Predicate, using block: EKEventSearchCallback)
-  func predicateForEvents(withStart startDate: Date, end endDate: Date, calendars: [EKCalendar]?) -> Predicate
+  func predicateForEvents(start startDate: Date, end endDate: Date, calendars: [EKCalendar]?) -> Predicate
   @available(OSX 10.8, *)
   func save(reminder: EKReminder, commit: Bool) throws
   @available(OSX 10.8, *)
@@ -57,9 +57,9 @@ class EKEventStore : Object {
   @available(OSX 10.8, *)
   func predicateForReminders(in calendars: [EKCalendar]?) -> Predicate
   @available(OSX 10.8, *)
-  func predicateForIncompleteReminders(withDueDateStarting startDate: Date?, ending endDate: Date?, calendars: [EKCalendar]?) -> Predicate
+  func predicateForIncompleteReminders(dueDateStarting startDate: Date?, ending endDate: Date?, calendars: [EKCalendar]?) -> Predicate
   @available(OSX 10.8, *)
-  func predicateForCompletedReminders(withCompletionDateStarting startDate: Date?, ending endDate: Date?, calendars: [EKCalendar]?) -> Predicate
+  func predicateForCompletedReminders(completionDateStarting startDate: Date?, ending endDate: Date?, calendars: [EKCalendar]?) -> Predicate
   @available(OSX 10.8, *)
   func commit() throws
   @available(OSX 10.8, *)

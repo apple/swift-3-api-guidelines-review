@@ -34,9 +34,9 @@ struct AVAssetReferenceRestrictions : OptionSetType {
 }
 extension AVAsset {
   var tracks: [AVAssetTrack] { get }
-  func track(withTrackID trackID: CMPersistentTrackID) -> AVAssetTrack?
-  func tracks(withMediaType mediaType: String) -> [AVAssetTrack]
-  func tracks(withMediaCharacteristic mediaCharacteristic: String) -> [AVAssetTrack]
+  func track(trackID trackID: CMPersistentTrackID) -> AVAssetTrack?
+  func tracks(mediaType mediaType: String) -> [AVAssetTrack]
+  func tracks(mediaCharacteristic mediaCharacteristic: String) -> [AVAssetTrack]
   @available(OSX 10.9, *)
   var trackGroups: [AVAssetTrackGroup] { get }
 }
@@ -54,7 +54,7 @@ extension AVAsset {
   @available(OSX 10.7, *)
   var availableChapterLocales: [Locale] { get }
   @available(OSX 10.7, *)
-  func chapterMetadataGroups(withTitleLocale locale: Locale, containingItemsWithCommonKeys commonKeys: [String]?) -> [AVTimedMetadataGroup]
+  func chapterMetadataGroups(titleLocale locale: Locale, containingItemsWithCommonKeys commonKeys: [String]?) -> [AVTimedMetadataGroup]
   @available(OSX 10.8, *)
   func chapterMetadataGroups(bestMatchingPreferredLanguages preferredLanguages: [String]) -> [AVTimedMetadataGroup]
 }
@@ -134,9 +134,9 @@ class AVFragmentedAsset : AVURLAsset, AVFragmentMinding {
   var isAssociatedWithFragmentMinder: Bool { get }
 }
 extension AVFragmentedAsset {
-  func track(withTrackID trackID: CMPersistentTrackID) -> AVFragmentedAssetTrack?
-  func tracks(withMediaType mediaType: String) -> [AVFragmentedAssetTrack]
-  func tracks(withMediaCharacteristic mediaCharacteristic: String) -> [AVFragmentedAssetTrack]
+  func track(trackID trackID: CMPersistentTrackID) -> AVFragmentedAssetTrack?
+  func tracks(mediaType mediaType: String) -> [AVFragmentedAssetTrack]
+  func tracks(mediaCharacteristic mediaCharacteristic: String) -> [AVFragmentedAssetTrack]
 }
 @available(OSX 10.11, *)
 class AVFragmentedAssetMinder : Object {

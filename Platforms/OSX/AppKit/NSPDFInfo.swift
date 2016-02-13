@@ -11,6 +11,6 @@ class NSPDFInfo : Object, Copying, Coding {
   @available(OSX 10.9, *)
   func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.9, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

@@ -3,7 +3,7 @@
 class CSIndexExtensionRequestHandler : Object, ExtensionRequestHandling, CSSearchableIndexDelegate {
   init()
   @available(iOS 9.0, *)
-  func beginRequest(with context: ExtensionContext)
+  func beginRequest(context: ExtensionContext)
   @available(iOS 9.0, *)
   func searchableIndex(searchableIndex: CSSearchableIndex, reindexAllSearchableItemsWithAcknowledgementHandler acknowledgementHandler: () -> Void)
   @available(iOS 9.0, *)

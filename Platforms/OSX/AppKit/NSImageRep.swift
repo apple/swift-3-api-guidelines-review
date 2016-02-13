@@ -25,7 +25,7 @@ class NSImageRep : Object, Copying, Coding {
   @available(OSX 10.5, *)
   class func imageRepClass(forType type: String) -> AnyClass?
   class func imageRepClass(for data: Data) -> AnyClass?
-  class func canInit(with data: Data) -> Bool
+  class func canInit(data: Data) -> Bool
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use +imageUnfilteredTypes instead")
   class func imageUnfilteredFileTypes() -> [String]
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use +imageUnfilteredTypes instead")
@@ -38,17 +38,17 @@ class NSImageRep : Object, Copying, Coding {
   class func imageUnfilteredTypes() -> [String]
   @available(OSX 10.5, *)
   class func imageTypes() -> [String]
-  class func canInit(with pasteboard: NSPasteboard) -> Bool
-  class func imageReps(withContentsOfFile filename: String) -> [NSImageRep]?
+  class func canInit(pasteboard: NSPasteboard) -> Bool
+  class func imageReps(contentsOfFile filename: String) -> [NSImageRep]?
   /*not inherited*/ init?(contentsOfFile filename: String)
-  class func imageReps(withContentsOf url: URL) -> [NSImageRep]?
+  class func imageReps(contentsOf url: URL) -> [NSImageRep]?
   /*not inherited*/ init?(contentsOf url: URL)
-  class func imageReps(with pasteboard: NSPasteboard) -> [NSImageRep]?
+  class func imageReps(pasteboard: NSPasteboard) -> [NSImageRep]?
   /*not inherited*/ init?(pasteboard: NSPasteboard)
   @available(OSX 10.6, *)
   func cgImage(forProposedRect proposedDestRect: UnsafeMutablePointer<Rect>, context: NSGraphicsContext?, hints: [String : AnyObject]?) -> CGImage?
   func copy(zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 struct __repFlags {
   var hasAlpha: UInt32

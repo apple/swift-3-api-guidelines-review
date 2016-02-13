@@ -75,14 +75,14 @@ class Expression : Object, SecureCoding, Copying {
   @NSCopying var falseExpression: Expression { get }
   @available(watchOS 2.0, *)
   var expressionBlock: (AnyObject?, [AnyObject], MutableDictionary?) -> AnyObject { get }
-  func expressionValue(with object: AnyObject?, context: MutableDictionary?) -> AnyObject
+  func expressionValue(object: AnyObject?, context: MutableDictionary?) -> AnyObject
   @available(watchOS 2.0, *)
   func allowEvaluation()
   convenience init()
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   @available(watchOS 2.0, *)
   func copy(zone: Zone = nil) -> AnyObject
 }

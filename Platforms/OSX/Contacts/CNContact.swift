@@ -54,7 +54,7 @@ class CNContact : Object, Copying, MutableCopying, SecureCoding {
   class func localizedString(forKey key: String) -> String
   class func comparator(forNameSortOrder sortOrder: CNContactSortOrder) -> Comparator
   class func descriptorForAllComparatorKeys() -> CNKeyDescriptor
-  func isUnifiedWithContact(withIdentifier contactIdentifier: String) -> Bool
+  func isUnifiedWithContact(identifier contactIdentifier: String) -> Bool
   init()
   @available(OSX 10.11, *)
   func copy(zone: Zone = nil) -> AnyObject
@@ -63,7 +63,7 @@ class CNContact : Object, Copying, MutableCopying, SecureCoding {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 let CNContactPropertyNotFetchedExceptionName: String

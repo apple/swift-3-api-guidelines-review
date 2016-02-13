@@ -8,7 +8,7 @@ class URLResponse : Object, SecureCoding, Copying {
   var suggestedFilename: String? { get }
   convenience init()
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
   func copy(zone: Zone = nil) -> AnyObject
 }

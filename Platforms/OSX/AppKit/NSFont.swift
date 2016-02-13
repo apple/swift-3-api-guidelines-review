@@ -52,7 +52,7 @@ class NSFont : Object, Copying, SecureCoding {
   @NSCopying var textTransform: AffineTransform { get }
   var numberOfGlyphs: Int { get }
   var mostCompatibleStringEncoding: UInt { get }
-  func glyph(withName aName: String) -> NSGlyph
+  func glyph(name aName: String) -> NSGlyph
   var coveredCharacterSet: CharacterSet { get }
   var boundingRectForFont: Rect { get }
   var maximumAdvancement: Size { get }
@@ -74,7 +74,7 @@ class NSFont : Object, Copying, SecureCoding {
   func setIn(graphicsContext: NSGraphicsContext)
   @NSCopying var printer: NSFont { get }
   @NSCopying var screen: NSFont { get }
-  func screenFont(with renderingMode: NSFontRenderingMode) -> NSFont
+  func screenFont(renderingMode: NSFontRenderingMode) -> NSFont
   var renderingMode: NSFontRenderingMode { get }
   @available(OSX 10.7, *)
   @NSCopying var vertical: NSFont { get }
@@ -83,7 +83,7 @@ class NSFont : Object, Copying, SecureCoding {
   init()
   func copy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 struct __fFlags {

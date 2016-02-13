@@ -21,7 +21,7 @@ class NSGradient : Object, Copying, Coding {
   @available(OSX 10.5, *)
   func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.5, *)
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 

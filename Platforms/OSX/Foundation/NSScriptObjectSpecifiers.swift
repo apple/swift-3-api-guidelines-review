@@ -43,15 +43,15 @@ class ScriptObjectSpecifier : Object, Coding {
   var key: String
   var containerClassDescription: ScriptClassDescription?
   var keyClassDescription: ScriptClassDescription? { get }
-  func indicesOfObjectsByEvaluating(withContainer container: AnyObject, count: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<Int>
-  func objectsByEvaluating(withContainers containers: AnyObject) -> AnyObject?
+  func indicesOfObjectsByEvaluating(container container: AnyObject, count: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<Int>
+  func objectsByEvaluating(containers containers: AnyObject) -> AnyObject?
   var objectsByEvaluatingSpecifier: AnyObject? { get }
   var evaluationErrorNumber: Int
   var evaluationError: ScriptObjectSpecifier? { get }
   @available(OSX 10.5, *)
   @NSCopying var descriptor: AppleEventDescriptor? { get }
   convenience init()
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 extension Object {
   var objectSpecifier: ScriptObjectSpecifier? { get }

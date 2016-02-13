@@ -54,7 +54,7 @@ class NSString : Object, Copying, MutableCopying, SecureCoding {
   func copy(zone: Zone = nil) -> AnyObject
   func mutableCopy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
 }
 
 extension NSString : StringLiteralConvertible {
@@ -85,7 +85,7 @@ extension NSString : CustomPlaygroundQuickLookable {
 extension NSString {
   func substring(from from: Int) -> String
   func substring(to to: Int) -> String
-  func substring(with range: NSRange) -> String
+  func substring(range: NSRange) -> String
   func getCharacters(buffer: UnsafeMutablePointer<unichar>, range: NSRange)
   func compare(string: String) -> ComparisonResult
   func compare(string: String, options mask: StringCompareOptions = []) -> ComparisonResult
@@ -99,7 +99,7 @@ extension NSString {
   func isEqual(to aString: String) -> Bool
   func hasPrefix(str: String) -> Bool
   func hasSuffix(str: String) -> Bool
-  func commonPrefix(with str: String, options mask: StringCompareOptions = []) -> String
+  func commonPrefix(str: String, options mask: StringCompareOptions = []) -> String
   @available(OSX 10.10, *)
   func contains(str: String) -> Bool
   @available(OSX 10.10, *)
@@ -139,11 +139,11 @@ extension NSString {
   @available(OSX 10.11, *)
   var localizedCapitalized: String { get }
   @available(OSX 10.8, *)
-  func uppercaseString(with locale: Locale?) -> String
+  func uppercaseString(locale: Locale?) -> String
   @available(OSX 10.8, *)
-  func lowercaseString(with locale: Locale?) -> String
+  func lowercaseString(locale: Locale?) -> String
   @available(OSX 10.8, *)
-  func capitalizedString(with locale: Locale?) -> String
+  func capitalizedString(locale: Locale?) -> String
   func getLineStart(startPtr: UnsafeMutablePointer<Int>, end lineEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, for range: NSRange)
   func lineRange(for range: NSRange) -> NSRange
   func getParagraphStart(startPtr: UnsafeMutablePointer<Int>, end parEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, for range: NSRange)

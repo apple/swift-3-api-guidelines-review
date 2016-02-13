@@ -41,7 +41,7 @@ class NetService : Object {
   func stop()
   class func dictionary(fromTXTRecord txtData: Data) -> [String : Data]
   class func data(fromTXTRecord txtDictionary: [String : Data]) -> Data
-  func resolve(withTimeout timeout: TimeInterval)
+  func resolve(timeout timeout: TimeInterval)
   func getInputStream(inputStream: UnsafeMutablePointer<InputStream?>, outputStream: UnsafeMutablePointer<OutputStream?>) -> Bool
   func setTXTRecord(recordData: Data?) -> Bool
   func txtRecordData() -> Data?

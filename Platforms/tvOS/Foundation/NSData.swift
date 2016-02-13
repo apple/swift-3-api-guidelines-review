@@ -57,7 +57,7 @@ class Data : Object, Copying, MutableCopying, SecureCoding {
   func copy(zone: Zone = nil) -> AnyObject
   func mutableCopy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encode(aCoder: Coder)
   init?(coder aDecoder: Coder)
 }
 extension Data {
@@ -65,7 +65,7 @@ extension Data {
   func getBytes(buffer: UnsafeMutablePointer<Void>, length: Int)
   func getBytes(buffer: UnsafeMutablePointer<Void>, range: NSRange)
   func isEqual(to other: Data) -> Bool
-  func subdata(with range: NSRange) -> Data
+  func subdata(range: NSRange) -> Data
   func write(toFile path: String, atomically useAuxiliaryFile: Bool) -> Bool
   func write(to url: URL, atomically: Bool) -> Bool
   func write(toFile path: String, options writeOptionsMask: DataWritingOptions = []) throws
@@ -101,7 +101,7 @@ extension Data {
   @available(tvOS, introduced=2.0, deprecated=8.0, message="This method is unsafe because it could potentially cause buffer overruns. Use -getBytes:length: instead.")
   func getBytes(buffer: UnsafeMutablePointer<Void>)
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use +dataWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
-  class func data(withContentsOfMappedFile path: String) -> AnyObject?
+  class func data(contentsOfMappedFile path: String) -> AnyObject?
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
   init?(contentsOfMappedFile path: String)
 }
