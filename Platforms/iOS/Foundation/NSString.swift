@@ -173,8 +173,8 @@ extension NSString {
   func componentsSeparated(by separator: String) -> [String]
   @available(iOS 2.0, *)
   func componentsSeparatedByCharacters(in separator: CharacterSet) -> [String]
-  func byTrimmingCharacters(in set: CharacterSet) -> String
-  func byPadding(toLength newLength: Int, with padString: String, startingAt padIndex: Int) -> String
+  func trimmingCharacters(in set: CharacterSet) -> String
+  func padding(toLength newLength: Int, with padString: String, startingAt padIndex: Int) -> String
   @available(iOS 2.0, *)
   func folding(options: StringCompareOptions = [], locale: Locale?) -> String
   @available(iOS 2.0, *)

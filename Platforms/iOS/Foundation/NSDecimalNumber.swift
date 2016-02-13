@@ -32,7 +32,7 @@ class DecimalNumber : Number {
   func raising(toPower power: Int, withBehavior behavior: DecimalNumberBehaviors?) -> DecimalNumber
   func multiplying(byPowerOf10 power: Int16) -> DecimalNumber
   func multiplying(byPowerOf10 power: Int16, withBehavior behavior: DecimalNumberBehaviors?) -> DecimalNumber
-  func byRoundingAccording(toBehavior behavior: DecimalNumberBehaviors?) -> DecimalNumber
+  func rounding(accordingToBehavior behavior: DecimalNumberBehaviors?) -> DecimalNumber
   func compare(decimalNumber: Number) -> ComparisonResult
   class func setDefaultBehavior(behavior: DecimalNumberBehaviors)
   class func defaultBehavior() -> DecimalNumberBehaviors

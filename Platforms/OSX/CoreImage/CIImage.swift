@@ -40,10 +40,10 @@ class CIImage : Object, SecureCoding, Copying {
   @available(OSX 10.10, *)
   func imageTransform(forOrientation orientation: Int32) -> CGAffineTransform
   @available(OSX 10.4, *)
-  func byCompositingOverImage(dest: CIImage) -> CIImage
-  func byCropping(to rect: CGRect) -> CIImage
+  func compositingOverImage(dest: CIImage) -> CIImage
+  func cropping(to rect: CGRect) -> CIImage
   @available(OSX 10.10, *)
-  func byClampingToExtent() -> CIImage
+  func clampingToExtent() -> CIImage
   @available(OSX 10.10, *)
   func applyingFilter(filterName: String, withInputParameters params: [String : AnyObject]?) -> CIImage
   var extent: CGRect { get }

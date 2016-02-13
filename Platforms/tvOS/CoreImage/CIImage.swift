@@ -28,10 +28,10 @@ class CIImage : Object, SecureCoding, Copying {
   @available(tvOS 8.0, *)
   func imageTransform(forOrientation orientation: Int32) -> CGAffineTransform
   @available(tvOS 8.0, *)
-  func byCompositingOverImage(dest: CIImage) -> CIImage
-  func byCropping(to rect: CGRect) -> CIImage
+  func compositingOverImage(dest: CIImage) -> CIImage
+  func cropping(to rect: CGRect) -> CIImage
   @available(tvOS 8.0, *)
-  func byClampingToExtent() -> CIImage
+  func clampingToExtent() -> CIImage
   @available(tvOS 8.0, *)
   func applyingFilter(filterName: String, withInputParameters params: [String : AnyObject]?) -> CIImage
   var extent: CGRect { get }
