@@ -19,7 +19,7 @@ class MDLAsset : Object, Copying, FastEnumeration {
   func add(object: MDLObject)
   func remove(object: MDLObject)
   var count: Int { get }
-  subscript (index: Int) -> MDLObject? { get }
+  subscript(index: Int) -> MDLObject? { get }
   func object(at index: Int) -> MDLObject
   init()
   @available(tvOS 9.0, *)

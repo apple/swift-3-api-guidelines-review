@@ -10,8 +10,8 @@ class GKBehavior : Object, FastEnumeration {
   func weight(for goal: GKGoal) -> Float
   func remove(goal: GKGoal)
   func removeAllGoals()
-  subscript (idx: Int) -> GKGoal { get }
-  subscript (goal: GKGoal) -> Number
+  subscript(idx: Int) -> GKGoal { get }
+  subscript(goal: GKGoal) -> Number
   init()
   @available(iOS 9.0, *)
   func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int

@@ -55,7 +55,7 @@ extension NSDictionary {
   @available(OSX 10.7, *)
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, andKeys keys: AutoreleasingUnsafeMutablePointer<AnyObject?>, count: Int)
   @available(OSX 10.8, *)
-  subscript (key: Copying) -> AnyObject? { get }
+  subscript(key: Copying) -> AnyObject? { get }
   @available(OSX 10.6, *)
   func enumerateKeysAndObjects(block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.6, *)
@@ -98,7 +98,7 @@ extension MutableDictionary {
   func removeObjects(for keyArray: [AnyObject])
   func setDictionary(otherDictionary: [Object : AnyObject])
   @available(OSX 10.8, *)
-  subscript (key: Copying) -> AnyObject?
+  subscript(key: Copying) -> AnyObject?
 }
 extension MutableDictionary {
   convenience init?(contentsOfFile path: String)

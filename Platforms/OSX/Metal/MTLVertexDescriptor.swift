@@ -65,7 +65,7 @@ class MTLVertexBufferLayoutDescriptor : Object, Copying {
 }
 @available(OSX 10.11, *)
 class MTLVertexBufferLayoutDescriptorArray : Object {
-  subscript (index: Int) -> MTLVertexBufferLayoutDescriptor!
+  subscript(index: Int) -> MTLVertexBufferLayoutDescriptor!
   init()
 }
 @available(OSX 10.11, *)
@@ -79,7 +79,7 @@ class MTLVertexAttributeDescriptor : Object, Copying {
 }
 @available(OSX 10.11, *)
 class MTLVertexAttributeDescriptorArray : Object {
-  subscript (index: Int) -> MTLVertexAttributeDescriptor!
+  subscript(index: Int) -> MTLVertexAttributeDescriptor!
   init()
 }
 @available(OSX 10.11, *)

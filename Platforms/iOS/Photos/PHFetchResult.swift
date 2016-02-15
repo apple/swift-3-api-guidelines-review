@@ -3,7 +3,7 @@
 class PHFetchResult : Object, Copying, FastEnumeration {
   var count: Int { get }
   func object(at index: Int) -> AnyObject
-  subscript (idx: Int) -> AnyObject { get }
+  subscript(idx: Int) -> AnyObject { get }
   func contains(anObject: AnyObject) -> Bool
   func indexOf(anObject: AnyObject) -> Int
   func indexOf(anObject: AnyObject, in range: NSRange) -> Int

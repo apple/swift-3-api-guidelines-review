@@ -11,7 +11,7 @@ class GKComponent : Object, Copying {
 class GKComponentSystem : Object, FastEnumeration {
   var componentClass: AnyClass { get }
   var components: [GKComponent] { get }
-  subscript (idx: Int) -> GKComponent { get }
+  subscript(idx: Int) -> GKComponent { get }
   init(componentClass cls: AnyClass)
   func addComponent(component: GKComponent)
   func addComponent(entity: GKEntity)

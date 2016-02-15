@@ -6,7 +6,7 @@ class SCNTechnique : Object, SCNAnimatable, Copying, SecureCoding {
   func handleBindingOf(symbol symbol: String, using block: SCNBindingBlock? = nil)
   var dictionaryRepresentation: [String : AnyObject] { get }
   @available(tvOS 9.0, *)
-  subscript (key: AnyObject) -> AnyObject? { get }
+  subscript(key: AnyObject) -> AnyObject? { get }
   @available(tvOS 9.0, *)
   func setObject(obj: AnyObject?, forKeyedSubscript key: Copying)
   init()

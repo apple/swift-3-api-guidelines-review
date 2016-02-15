@@ -86,7 +86,7 @@ class AUAudioUnitBusArray : Object, FastEnumeration {
   init(audioUnit owner: AUAudioUnit, busType: AUAudioUnitBusType, busses busArray: [AUAudioUnitBus])
   convenience init(audioUnit owner: AUAudioUnit, busType: AUAudioUnitBusType)
   var count: Int { get }
-  subscript (index: Int) -> AUAudioUnitBus { get }
+  subscript(index: Int) -> AUAudioUnitBus { get }
   var isCountChangeable: Bool { get }
   func setBusCount(count: Int) throws
   func addObserver(toAllBusses observer: Object, forKeyPath keyPath: String, options: KeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)

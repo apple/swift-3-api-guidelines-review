@@ -63,7 +63,7 @@ extension NSArray {
   func write(to url: URL, atomically: Bool) -> Bool
   func objects(at indexes: IndexSet) -> [AnyObject]
   @available(OSX 10.8, *)
-  subscript (idx: Int) -> AnyObject { get }
+  subscript(idx: Int) -> AnyObject { get }
   @available(OSX 10.6, *)
   func enumerateObjects(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.6, *)
@@ -139,7 +139,7 @@ extension MutableArray {
   func removeObjects(at indexes: IndexSet)
   func replaceObjects(at indexes: IndexSet, with objects: [AnyObject])
   @available(OSX 10.8, *)
-  subscript (idx: Int) -> AnyObject
+  subscript(idx: Int) -> AnyObject
   @available(OSX 10.6, *)
   func sort(comparator cmptr: Comparator)
   @available(OSX 10.6, *)

@@ -45,7 +45,7 @@ extension OrderedSet {
   func isSubsetOf(other: OrderedSet) -> Bool
   func isSubsetOf(set: Set<Object>) -> Bool
   @available(tvOS 6.0, *)
-  subscript (idx: Int) -> AnyObject { get }
+  subscript(idx: Int) -> AnyObject { get }
   func objectEnumerator() -> Enumerator
   func reverseObjectEnumerator() -> Enumerator
   @NSCopying var reversed: OrderedSet { get }
@@ -106,7 +106,7 @@ extension MutableOrderedSet {
   func insert(objects: [AnyObject], at indexes: IndexSet)
   func setObject(obj: AnyObject, at idx: Int)
   @available(tvOS 6.0, *)
-  subscript (idx: Int) -> AnyObject
+  subscript(idx: Int) -> AnyObject
   func replaceObjects(in range: NSRange, withObjects objects: UnsafePointer<AnyObject?>, count: Int)
   func replaceObjects(at indexes: IndexSet, with objects: [AnyObject])
   func removeObjects(in range: NSRange)
