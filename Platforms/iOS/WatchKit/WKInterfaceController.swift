@@ -37,7 +37,7 @@ enum WKTextInputMode : Int {
 @available(iOS 8.2, *)
 class WKInterfaceController : Object {
   init()
-  func awake(withContext context: AnyObject?)
+  func awake(context context: AnyObject?)
   var contentFrame: CGRect { get }
   func willActivate()
   func didDeactivate()

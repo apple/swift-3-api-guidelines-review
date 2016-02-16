@@ -5,9 +5,9 @@ class UIRegion : Object, Copying, Coding {
   init(radius: CGFloat)
   init(size: CGSize)
   func inverse() -> Self
-  func byUnion(with region: UIRegion) -> Self
+  func byUnion(region: UIRegion) -> Self
   func byDifference(from region: UIRegion) -> Self
-  func byIntersection(with region: UIRegion) -> Self
+  func byIntersection(region: UIRegion) -> Self
   func contains(point: CGPoint) -> Bool
   init()
   @available(iOS 9.0, *)

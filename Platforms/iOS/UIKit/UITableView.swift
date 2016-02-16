@@ -215,11 +215,11 @@ class UITableView : UIScrollView, Coding {
   var cellLayoutMarginsFollowReadableWidth: Bool
   var tableHeaderView: UIView?
   var tableFooterView: UIView?
-  func dequeueReusableCell(withIdentifier identifier: String) -> UITableViewCell?
+  func dequeueReusableCell(identifier identifier: String) -> UITableViewCell?
   @available(iOS 6.0, *)
-  func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell
+  func dequeueReusableCell(identifier identifier: String, for indexPath: IndexPath) -> UITableViewCell
   @available(iOS 6.0, *)
-  func dequeueReusableHeaderFooterView(withIdentifier identifier: String) -> UITableViewHeaderFooterView?
+  func dequeueReusableHeaderFooterView(identifier identifier: String) -> UITableViewHeaderFooterView?
   @available(iOS 5.0, *)
   func register(nib: UINib?, forCellReuseIdentifier identifier: String)
   @available(iOS 6.0, *)

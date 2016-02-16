@@ -37,16 +37,16 @@ enum HKMetricPrefix : Int {
   case tera
 }
 extension HKUnit {
-  class func gramUnit(with prefix: HKMetricPrefix) -> Self
+  class func gramUnit(prefix: HKMetricPrefix) -> Self
   class func gram() -> Self
   class func ounce() -> Self
   class func pound() -> Self
   class func stone() -> Self
-  class func moleUnit(with prefix: HKMetricPrefix, molarMass gramsPerMole: Double) -> Self
-  class func moleUnit(withMolarMass gramsPerMole: Double) -> Self
+  class func moleUnit(prefix: HKMetricPrefix, molarMass gramsPerMole: Double) -> Self
+  class func moleUnit(molarMass gramsPerMole: Double) -> Self
 }
 extension HKUnit {
-  class func meterUnit(with prefix: HKMetricPrefix) -> Self
+  class func meterUnit(prefix: HKMetricPrefix) -> Self
   class func meter() -> Self
   class func inch() -> Self
   class func foot() -> Self
@@ -55,7 +55,7 @@ extension HKUnit {
   class func mile() -> Self
 }
 extension HKUnit {
-  class func literUnit(with prefix: HKMetricPrefix) -> Self
+  class func literUnit(prefix: HKMetricPrefix) -> Self
   class func liter() -> Self
   class func fluidOunceUS() -> Self
   class func fluidOunceImperial() -> Self
@@ -67,21 +67,21 @@ extension HKUnit {
   class func cupImperial() -> Self
 }
 extension HKUnit {
-  class func pascalUnit(with prefix: HKMetricPrefix) -> Self
+  class func pascalUnit(prefix: HKMetricPrefix) -> Self
   class func pascal() -> Self
   class func millimeterOfMercury() -> Self
   class func centimeterOfWater() -> Self
   class func atmosphere() -> Self
 }
 extension HKUnit {
-  class func secondUnit(with prefix: HKMetricPrefix) -> Self
+  class func secondUnit(prefix: HKMetricPrefix) -> Self
   class func second() -> Self
   class func minute() -> Self
   class func hour() -> Self
   class func day() -> Self
 }
 extension HKUnit {
-  class func jouleUnit(with prefix: HKMetricPrefix) -> Self
+  class func jouleUnit(prefix: HKMetricPrefix) -> Self
   class func joule() -> Self
   class func calorie() -> Self
   class func kilocalorie() -> Self
@@ -92,7 +92,7 @@ extension HKUnit {
   class func kelvin() -> Self
 }
 extension HKUnit {
-  class func siemenUnit(with prefix: HKMetricPrefix) -> Self
+  class func siemenUnit(prefix: HKMetricPrefix) -> Self
   class func siemen() -> Self
 }
 extension HKUnit {

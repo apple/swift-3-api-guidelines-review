@@ -84,7 +84,7 @@ class UICollectionViewLayout : Object, Coding {
   var collectionView: UICollectionView? { get }
   func invalidateLayout()
   @available(iOS 7.0, *)
-  func invalidateLayout(with context: UICollectionViewLayoutInvalidationContext)
+  func invalidateLayout(context: UICollectionViewLayoutInvalidationContext)
   func register(viewClass: AnyClass?, forDecorationViewOfKind elementKind: String)
   func register(nib: UINib?, forDecorationViewOfKind elementKind: String)
   @available(iOS 6.0, *)

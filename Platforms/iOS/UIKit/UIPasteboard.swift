@@ -7,7 +7,7 @@ class UIPasteboard : Object {
   /*not inherited*/ init?(name pasteboardName: String, create: Bool)
   class func withUniqueName() -> UIPasteboard
   var name: String { get }
-  class func remove(withName pasteboardName: String)
+  class func remove(name pasteboardName: String)
   var isPersistent: Bool
   var changeCount: Int { get }
   func pasteboardTypes() -> [String]
@@ -19,7 +19,7 @@ class UIPasteboard : Object {
   var numberOfItems: Int { get }
   func pasteboardTypes(forItemSet itemSet: IndexSet?) -> [AnyObject]?
   func containsTypes(pasteboardTypes: [String], inItemSet itemSet: IndexSet?) -> Bool
-  func itemSet(withPasteboardTypes pasteboardTypes: [AnyObject]) -> IndexSet?
+  func itemSet(pasteboardTypes pasteboardTypes: [AnyObject]) -> IndexSet?
   func values(forPasteboardType pasteboardType: String, inItemSet itemSet: IndexSet?) -> [AnyObject]?
   func data(forPasteboardType pasteboardType: String, inItemSet itemSet: IndexSet?) -> [AnyObject]?
   var items: [AnyObject]

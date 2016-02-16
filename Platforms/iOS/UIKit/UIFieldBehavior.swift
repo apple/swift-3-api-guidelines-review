@@ -14,9 +14,9 @@ class UIFieldBehavior : UIDynamicBehavior {
   var animationSpeed: CGFloat
   class func dragField() -> Self
   class func vortexField() -> Self
-  class func radialGravityField(withPosition position: CGPoint) -> Self
-  class func linearGravityField(with direction: CGVector) -> Self
-  class func velocityField(with direction: CGVector) -> Self
+  class func radialGravityField(position position: CGPoint) -> Self
+  class func linearGravityField(direction: CGVector) -> Self
+  class func velocityField(direction: CGVector) -> Self
   class func noiseField(withSmoothness smoothness: CGFloat, animationSpeed speed: CGFloat) -> Self
   class func turbulenceField(withSmoothness smoothness: CGFloat, animationSpeed speed: CGFloat) -> Self
   class func springField() -> Self

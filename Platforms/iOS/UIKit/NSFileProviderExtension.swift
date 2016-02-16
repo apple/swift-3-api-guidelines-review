@@ -5,7 +5,7 @@ class NSFileProviderExtension : Object {
   class func placeholderURL(for url: URL) -> URL
   func providerIdentifier() -> String
   func documentStorageURL() -> URL
-  func urlForItem(withPersistentIdentifier identifier: String) -> URL?
+  func urlForItem(persistentIdentifier identifier: String) -> URL?
   func persistentIdentifierForItem(at url: URL) -> String?
   func providePlaceholder(at url: URL, completionHandler: (Error?) -> Void)
   func startProvidingItem(at url: URL, completionHandler: (Error?) -> Void)

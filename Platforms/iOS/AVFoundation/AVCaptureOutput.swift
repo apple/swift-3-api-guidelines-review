@@ -19,7 +19,7 @@ class AVCaptureVideoDataOutput : AVCaptureOutput {
   var sampleBufferCallbackQueue: dispatch_queue_t! { get }
   var videoSettings: [Object : AnyObject]!
   @available(iOS 7.0, *)
-  func recommendedVideoSettingsForAssetWriter(withOutputFileType outputFileType: String!) -> [Object : AnyObject]!
+  func recommendedVideoSettingsForAssetWriter(outputFileType outputFileType: String!) -> [Object : AnyObject]!
   @available(iOS 5.0, *)
   var availableVideoCVPixelFormatTypes: [AnyObject]! { get }
   @available(iOS 5.0, *)
@@ -39,7 +39,7 @@ class AVCaptureAudioDataOutput : AVCaptureOutput {
   var sampleBufferDelegate: AVCaptureAudioDataOutputSampleBufferDelegate! { get }
   var sampleBufferCallbackQueue: dispatch_queue_t! { get }
   @available(iOS 7.0, *)
-  func recommendedAudioSettingsForAssetWriter(withOutputFileType outputFileType: String!) -> [Object : AnyObject]!
+  func recommendedAudioSettingsForAssetWriter(outputFileType outputFileType: String!) -> [Object : AnyObject]!
   init()
 }
 protocol AVCaptureAudioDataOutputSampleBufferDelegate : ObjectProtocol {
@@ -100,14 +100,14 @@ class AVCaptureBracketedStillImageSettings : Object {
 }
 @available(iOS 8.0, *)
 class AVCaptureManualExposureBracketedStillImageSettings : AVCaptureBracketedStillImageSettings {
-  class func manualExposureSettings(withExposureDuration duration: CMTime, iso ISO: Float) -> Self!
+  class func manualExposureSettings(exposureDuration duration: CMTime, iso ISO: Float) -> Self!
   var exposureDuration: CMTime { get }
   var iso: Float { get }
   init()
 }
 @available(iOS 8.0, *)
 class AVCaptureAutoExposureBracketedStillImageSettings : AVCaptureBracketedStillImageSettings {
-  class func autoExposureSettings(withExposureTargetBias exposureTargetBias: Float) -> Self!
+  class func autoExposureSettings(exposureTargetBias exposureTargetBias: Float) -> Self!
   var exposureTargetBias: Float { get }
   init()
 }

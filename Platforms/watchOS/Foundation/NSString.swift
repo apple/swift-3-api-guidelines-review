@@ -337,9 +337,9 @@ extension NSString {
   @available(watchOS, introduced=2.0, deprecated=2.0)
   convenience init?(contentsOf url: URL)
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func string(withContentsOfFile path: String) -> AnyObject?
+  class func string(contentsOfFile path: String) -> AnyObject?
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func string(withContentsOf url: URL) -> AnyObject?
+  class func string(contentsOf url: URL) -> AnyObject?
   @available(watchOS, introduced=2.0, deprecated=2.0)
   convenience init?(cStringNoCopy bytes: UnsafeMutablePointer<Int8>, length: Int, freeWhenDone freeBuffer: Bool)
   @available(watchOS, introduced=2.0, deprecated=2.0)
@@ -347,9 +347,9 @@ extension NSString {
   @available(watchOS, introduced=2.0, deprecated=2.0)
   convenience init?(cString bytes: UnsafePointer<Int8>)
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func string(withCString bytes: UnsafePointer<Int8>, length: Int) -> AnyObject?
+  class func string(cString bytes: UnsafePointer<Int8>, length: Int) -> AnyObject?
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  class func string(withCString bytes: UnsafePointer<Int8>) -> AnyObject?
+  class func string(cString bytes: UnsafePointer<Int8>) -> AnyObject?
   func getCharacters(buffer: UnsafeMutablePointer<unichar>)
 }
 var proprietaryStringEncoding: UInt { get }

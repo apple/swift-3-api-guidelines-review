@@ -76,44 +76,44 @@ class WKInterfaceController : Object {
   @available(watchOS 2.0, *)
   func pickerDidSettle(picker: WKInterfacePicker)
   func table(table: WKInterfaceTable, didSelectRowAt rowIndex: Int)
-  func handleAction(withIdentifier identifier: String?, forRemoteNotification remoteNotification: [Object : AnyObject])
-  func handleAction(withIdentifier identifier: String?, for localNotification: UILocalNotification)
+  func handleAction(identifier identifier: String?, forRemoteNotification remoteNotification: [Object : AnyObject])
+  func handleAction(identifier identifier: String?, for localNotification: UILocalNotification)
   func handleUserActivity(userInfo: [Object : AnyObject]?)
   func setTitle(title: String?)
-  func push(withName name: String, context: AnyObject?)
+  func push(name name: String, context: AnyObject?)
   func pop()
   func popToRootController()
-  class func reloadRootControllers(withNames names: [String], contexts: [AnyObject]?)
+  class func reloadRootControllers(names names: [String], contexts: [AnyObject]?)
   func becomeCurrentPage()
-  func present(withName name: String, context: AnyObject?)
-  func present(withNames names: [String], contexts: [AnyObject]?)
+  func present(name name: String, context: AnyObject?)
+  func present(names names: [String], contexts: [AnyObject]?)
   func dismiss()
-  func presentTextInputController(withSuggestions suggestions: [String]?, allowedInputMode inputMode: WKTextInputMode, completion: ([AnyObject]?) -> Void)
+  func presentTextInputController(suggestions suggestions: [String]?, allowedInputMode inputMode: WKTextInputMode, completion: ([AnyObject]?) -> Void)
   func presentTextInputControllerWithSuggestions(forLanguage suggestionsHandler: ((String) -> [AnyObject]?)?, allowedInputMode inputMode: WKTextInputMode, completion: ([AnyObject]?) -> Void)
   func dismissTextInputController()
   @available(watchOS 2.0, *)
-  func presentMediaPlayerController(with URL: URL, options: [Object : AnyObject]? = [:], completion: (Bool, TimeInterval, Error?) -> Void)
+  func presentMediaPlayerController(URL: URL, options: [Object : AnyObject]? = [:], completion: (Bool, TimeInterval, Error?) -> Void)
   @available(watchOS 2.0, *)
   func dismissMediaPlayerController()
   @available(watchOS 2.0, *)
-  func presentAudioRecorderController(withOutputURL URL: URL, preset: WKAudioRecorderPreset, options: [Object : AnyObject]? = [:], completion: (Bool, Error?) -> Void)
+  func presentAudioRecorderController(outputURL URL: URL, preset: WKAudioRecorderPreset, options: [Object : AnyObject]? = [:], completion: (Bool, Error?) -> Void)
   @available(watchOS 2.0, *)
   func dismissAudioRecorderController()
-  func contextForSegue(withIdentifier segueIdentifier: String) -> AnyObject?
-  func contextsForSegue(withIdentifier segueIdentifier: String) -> [AnyObject]?
-  func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> AnyObject?
-  func contextsForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> [AnyObject]?
+  func contextForSegue(identifier segueIdentifier: String) -> AnyObject?
+  func contextsForSegue(identifier segueIdentifier: String) -> [AnyObject]?
+  func contextForSegue(identifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> AnyObject?
+  func contextsForSegue(identifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> [AnyObject]?
   @available(watchOS 2.0, *)
-  func animate(withDuration duration: TimeInterval, animations: () -> Void)
+  func animate(duration duration: TimeInterval, animations: () -> Void)
   @available(watchOS 2.0, *)
-  func presentAlert(withTitle title: String?, message: String?, preferredStyle: WKAlertControllerStyle, actions: [WKAlertAction])
+  func presentAlert(title title: String?, message: String?, preferredStyle: WKAlertControllerStyle, actions: [WKAlertAction])
   @available(watchOS 2.0, *)
-  func presentAddPassesController(withPasses passes: [AnyObject], completion: () -> Void)
+  func presentAddPassesController(passes passes: [AnyObject], completion: () -> Void)
   @available(watchOS 2.0, *)
   func dismissAddPassesController()
-  func addMenuItem(with image: UIImage, title: String, action: Selector)
-  func addMenuItem(withImageNamed imageName: String, title: String, action: Selector)
-  func addMenuItem(with itemIcon: WKMenuItemIcon, title: String, action: Selector)
+  func addMenuItem(image: UIImage, title: String, action: Selector)
+  func addMenuItem(imageNamed imageName: String, title: String, action: Selector)
+  func addMenuItem(itemIcon: WKMenuItemIcon, title: String, action: Selector)
   func clearAllMenuItems()
   func updateUserActivity(type: String, userInfo: [Object : AnyObject]? = [:], webpageURL: URL?)
   func invalidateUserActivity()
@@ -152,7 +152,7 @@ class WKUserNotificationInterfaceController : WKInterfaceController {
   func didReceiveRemoteNotification(remoteNotification: [Object : AnyObject], withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
   func didReceive(localNotification: UILocalNotification, withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
   @available(watchOS 2.0, *)
-  func suggestionsForResponseToAction(withIdentifier identifier: String, forRemoteNotification remoteNotification: [Object : AnyObject], inputLanguage: String) -> [String]
+  func suggestionsForResponseToAction(identifier identifier: String, forRemoteNotification remoteNotification: [Object : AnyObject], inputLanguage: String) -> [String]
   @available(watchOS 2.0, *)
-  func suggestionsForResponseToAction(withIdentifier identifier: String, for localNotification: UILocalNotification, inputLanguage: String) -> [String]
+  func suggestionsForResponseToAction(identifier identifier: String, for localNotification: UILocalNotification, inputLanguage: String) -> [String]
 }

@@ -13,7 +13,7 @@ extension HMHome {
   func addAccessory(accessory: HMAccessory, completionHandler completion: (Error?) -> Void)
   func removeAccessory(accessory: HMAccessory, completionHandler completion: (Error?) -> Void)
   func assignAccessory(accessory: HMAccessory, to room: HMRoom, completionHandler completion: (Error?) -> Void)
-  func services(withTypes serviceTypes: [String]) -> [HMService]?
+  func services(types serviceTypes: [String]) -> [HMService]?
   func unblockAccessory(accessory: HMAccessory, completionHandler completion: (Error?) -> Void)
 }
 extension HMHome {
@@ -32,23 +32,23 @@ extension HMHome {
 }
 extension HMHome {
   var rooms: [HMRoom] { get }
-  func addRoom(withName roomName: String, completionHandler completion: (HMRoom?, Error?) -> Void)
+  func addRoom(name roomName: String, completionHandler completion: (HMRoom?, Error?) -> Void)
   func removeRoom(room: HMRoom, completionHandler completion: (Error?) -> Void)
   func roomForEntireHome() -> HMRoom
 }
 extension HMHome {
   var zones: [HMZone] { get }
-  func addZone(withName zoneName: String, completionHandler completion: (HMZone?, Error?) -> Void)
+  func addZone(name zoneName: String, completionHandler completion: (HMZone?, Error?) -> Void)
   func removeZone(zone: HMZone, completionHandler completion: (Error?) -> Void)
 }
 extension HMHome {
   var serviceGroups: [HMServiceGroup] { get }
-  func addServiceGroup(withName serviceGroupName: String, completionHandler completion: (HMServiceGroup?, Error?) -> Void)
+  func addServiceGroup(name serviceGroupName: String, completionHandler completion: (HMServiceGroup?, Error?) -> Void)
   func removeServiceGroup(group: HMServiceGroup, completionHandler completion: (Error?) -> Void)
 }
 extension HMHome {
   var actionSets: [HMActionSet] { get }
-  func addActionSet(withName actionSetName: String, completionHandler completion: (HMActionSet?, Error?) -> Void)
+  func addActionSet(name actionSetName: String, completionHandler completion: (HMActionSet?, Error?) -> Void)
   func removeActionSet(actionSet: HMActionSet, completionHandler completion: (Error?) -> Void)
   func executeActionSet(actionSet: HMActionSet, completionHandler completion: (Error?) -> Void)
   @available(iOS 9.0, *)

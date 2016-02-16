@@ -299,9 +299,9 @@ protocol UIViewControllerPreviewingDelegate : ObjectProtocol {
 }
 extension UIViewController {
   @available(iOS 9.0, *)
-  func registerForPreviewing(with delegate: UIViewControllerPreviewingDelegate, sourceView: UIView) -> UIViewControllerPreviewing
+  func registerForPreviewing(delegate: UIViewControllerPreviewingDelegate, sourceView: UIView) -> UIViewControllerPreviewing
   @available(iOS 9.0, *)
-  func unregisterForPreviewing(withContext previewing: UIViewControllerPreviewing)
+  func unregisterForPreviewing(context previewing: UIViewControllerPreviewing)
 }
 extension UIViewController {
   @available(iOS 9.0, *)
