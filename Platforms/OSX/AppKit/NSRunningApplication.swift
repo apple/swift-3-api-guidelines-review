@@ -34,7 +34,7 @@ class NSRunningApplication : Object {
   func activate(options: NSApplicationActivationOptions = []) -> Bool
   func terminate() -> Bool
   func forceTerminate() -> Bool
-  class func runningApplications(withBundleIdentifier bundleIdentifier: String) -> [NSRunningApplication]
+  class func runningApplications(bundleIdentifier bundleIdentifier: String) -> [NSRunningApplication]
   convenience init?(processIdentifier pid: pid_t)
   class func current() -> Self
   class func terminateAutomaticallyTerminableApplications()

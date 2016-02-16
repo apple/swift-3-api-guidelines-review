@@ -65,7 +65,7 @@ class NSMatrix : NSControl, NSUserInterfaceValidations {
   func deselectAllCells()
   func selectCell(atRow row: Int, column col: Int)
   func selectAll(sender: AnyObject?)
-  func selectCell(withTag anInt: Int) -> Bool
+  func selectCell(tag anInt: Int) -> Bool
   var cellSize: Size
   var intercellSpacing: Size
   func setScrollable(flag: Bool)
@@ -84,16 +84,16 @@ class NSMatrix : NSControl, NSUserInterfaceValidations {
   func renewRows(newRows: Int, columns newCols: Int)
   func putCell(newCell: NSCell, atRow row: Int, column col: Int)
   func addRow()
-  func addRow(with newCells: [NSCell])
+  func addRow(newCells: [NSCell])
   func insertRow(row: Int)
   func insertRow(row: Int, with newCells: [NSCell])
   func removeRow(row: Int)
   func addColumn()
-  func addColumn(with newCells: [NSCell])
+  func addColumn(newCells: [NSCell])
   func insertColumn(column: Int)
   func insertColumn(column: Int, with newCells: [NSCell])
   func removeColumn(col: Int)
-  func cell(withTag anInt: Int) -> NSCell?
+  func cell(tag anInt: Int) -> NSCell?
   var doubleAction: Selector
   var autosizesCells: Bool
   func sizeToCells()

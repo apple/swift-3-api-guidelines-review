@@ -7,7 +7,7 @@ class ODRecord : Object {
   @available(OSX 10.6, *)
   func verifyPassword(inPassword: String!) throws
   @available(OSX 10.6, *)
-  func verifyExtended(withAuthenticationType inType: String!, authenticationItems inItems: [AnyObject]!, continueItems outItems: AutoreleasingUnsafeMutablePointer<NSArray?>, context outContext: AutoreleasingUnsafeMutablePointer<AnyObject?>) throws
+  func verifyExtended(authenticationType inType: String!, authenticationItems inItems: [AnyObject]!, continueItems outItems: AutoreleasingUnsafeMutablePointer<NSArray?>, context outContext: AutoreleasingUnsafeMutablePointer<AnyObject?>) throws
   @available(OSX 10.6, *)
   func changePassword(oldPassword: String!, toPassword newPassword: String!) throws
   @available(OSX 10.6, *)

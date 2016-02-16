@@ -38,7 +38,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   @available(OSX 10.8, *)
   var isDraft: Bool
   @available(OSX 10.7, *)
-  func performActivity(withSynchronousWaiting waitSynchronously: Bool, using block: (() -> Void) -> Void)
+  func performActivity(synchronousWaiting waitSynchronously: Bool, using block: (() -> Void) -> Void)
   @available(OSX 10.7, *)
   func continueActivity(block: () -> Void)
   @available(OSX 10.7, *)
@@ -70,7 +70,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   @IBAction func save(sender: AnyObject?)
   @IBAction func saveAs(sender: AnyObject?)
   @IBAction func saveTo(sender: AnyObject?)
-  func save(withDelegate delegate: AnyObject?, didSave didSaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func save(delegate delegate: AnyObject?, didSave didSaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func runModalSavePanel(for saveOperation: NSSaveOperationType, delegate: AnyObject?, didSave didSaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   var shouldRunSavePanelWithAccessoryView: Bool { get }
   func prepare(savePanel: NSSavePanel) -> Bool
@@ -86,9 +86,9 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   @available(OSX 10.7, *)
   func scheduleAutosaving()
   var hasUnautosavedChanges: Bool { get }
-  func autosave(withDelegate delegate: AnyObject?, didAutosaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func autosave(delegate delegate: AnyObject?, didAutosaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
-  func autosave(withImplicitCancellability autosavingIsImplicitlyCancellable: Bool, completionHandler: (Error?) -> Void)
+  func autosave(implicitCancellability autosavingIsImplicitlyCancellable: Bool, completionHandler: (Error?) -> Void)
   @available(OSX 10.7, *)
   class func autosavesInPlace() -> Bool
   @available(OSX 10.7, *)
@@ -99,12 +99,12 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   class func autosavesDrafts() -> Bool
   var autosavingFileType: String? { get }
   @NSCopying var autosavedContentsFileURL: URL?
-  func canClose(withDelegate delegate: AnyObject, shouldClose shouldCloseSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func canClose(delegate delegate: AnyObject, shouldClose shouldCloseSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func close()
   @available(OSX 10.7, *)
   @IBAction func duplicate(sender: AnyObject?)
   @available(OSX 10.7, *)
-  func duplicate(withDelegate delegate: AnyObject?, didDuplicate didDuplicateSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func duplicate(delegate delegate: AnyObject?, didDuplicate didDuplicateSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
   func duplicate() throws -> NSDocument
   @available(OSX 10.8, *)
@@ -132,14 +132,14 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   @available(OSX 10.8, *)
   var isLocked: Bool { get }
   @IBAction func runPageLayout(sender: AnyObject?)
-  func runModalPageLayout(with printInfo: NSPrintInfo, delegate: AnyObject?, didRun didRunSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func runModalPageLayout(printInfo: NSPrintInfo, delegate: AnyObject?, didRun didRunSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func prepare(pageLayout: NSPageLayout) -> Bool
   func shouldChangePrintInfo(newPrintInfo: NSPrintInfo) -> Bool
   @NSCopying var printInfo: NSPrintInfo
   @warn_unqualified_access
   @IBAction func print(sender: AnyObject?)
-  func print(withSettings printSettings: [String : AnyObject], showPrintPanel: Bool, delegate: AnyObject?, didPrint didPrintSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func printOperation(withSettings printSettings: [String : AnyObject]) throws -> NSPrintOperation
+  func print(settings printSettings: [String : AnyObject], showPrintPanel: Bool, delegate: AnyObject?, didPrint didPrintSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func printOperation(settings printSettings: [String : AnyObject]) throws -> NSPrintOperation
   func runModalPrintOperation(printOperation: NSPrintOperation, delegate: AnyObject?, didRun didRunSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.9, *)
   @IBAction func saveToPDF(sender: AnyObject?)
@@ -152,7 +152,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   @available(OSX 10.7, *)
   func changeCountToken(for saveOperation: NSSaveOperationType) -> AnyObject
   @available(OSX 10.7, *)
-  func updateChangeCount(withToken changeCountToken: AnyObject, for saveOperation: NSSaveOperationType)
+  func updateChangeCount(token changeCountToken: AnyObject, for saveOperation: NSSaveOperationType)
   var undoManager: UndoManager?
   var hasUndoManager: Bool
   func presentError(error: Error, modalFor window: NSWindow, delegate: AnyObject?, didPresent didPresentSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)

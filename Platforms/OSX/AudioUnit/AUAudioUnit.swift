@@ -29,7 +29,7 @@ typealias AUHostTransportStateBlock = (UnsafeMutablePointer<AUHostTransportState
 class AUAudioUnit : Object {
   init(componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = []) throws
   convenience init(componentDescription: AudioComponentDescription) throws
-  class func instantiate(with componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = [], completionHandler: (AUAudioUnit?, Error?) -> Void)
+  class func instantiate(componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = [], completionHandler: (AUAudioUnit?, Error?) -> Void)
   var componentDescription: AudioComponentDescription { get }
   var component: AudioComponent { get }
   var componentName: String? { get }
@@ -48,7 +48,7 @@ class AUAudioUnit : Object {
   func removeRenderObserver(token: Int)
   var maximumFramesToRender: AUAudioFrameCount
   var parameterTree: AUParameterTree? { get }
-  func parametersForOverview(withCount count: Int) -> [Number]
+  func parametersForOverview(count count: Int) -> [Number]
   var allParameterValues: Bool { get }
   var isMusicDeviceOrEffect: Bool { get }
   var virtualMIDICableCount: Int { get }

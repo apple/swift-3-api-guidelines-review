@@ -19,19 +19,19 @@ class SKPhysicsJointPin : SKPhysicsJoint {
   init?(coder aDecoder: Coder)
 }
 class SKPhysicsJointSpring : SKPhysicsJoint {
-  class func joint(withBodyA bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchorA: CGPoint, anchorB: CGPoint) -> SKPhysicsJointSpring
+  class func joint(bodyA bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchorA: CGPoint, anchorB: CGPoint) -> SKPhysicsJointSpring
   var damping: CGFloat
   var frequency: CGFloat
   init()
   init?(coder aDecoder: Coder)
 }
 class SKPhysicsJointFixed : SKPhysicsJoint {
-  class func joint(withBodyA bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchor: CGPoint) -> SKPhysicsJointFixed
+  class func joint(bodyA bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchor: CGPoint) -> SKPhysicsJointFixed
   init()
   init?(coder aDecoder: Coder)
 }
 class SKPhysicsJointSliding : SKPhysicsJoint {
-  class func joint(withBodyA bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchor: CGPoint, axis: CGVector) -> SKPhysicsJointSliding
+  class func joint(bodyA bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchor: CGPoint, axis: CGVector) -> SKPhysicsJointSliding
   var shouldEnableLimits: Bool
   var lowerDistanceLimit: CGFloat
   var upperDistanceLimit: CGFloat

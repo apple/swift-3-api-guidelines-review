@@ -14,7 +14,7 @@ class URLProtocol : Object {
   var client: URLProtocolClient? { get }
   @NSCopying var request: URLRequest { get }
   @NSCopying var cachedResponse: CachedURLResponse? { get }
-  class func canInit(with request: URLRequest) -> Bool
+  class func canInit(request: URLRequest) -> Bool
   class func canonicalRequest(for request: URLRequest) -> URLRequest
   class func requestIsCacheEquivalent(a: URLRequest, to b: URLRequest) -> Bool
   func startLoading()
@@ -28,7 +28,7 @@ class URLProtocol : Object {
 }
 extension URLProtocol {
   @available(OSX 10.10, *)
-  class func canInit(with task: URLSessionTask) -> Bool
+  class func canInit(task: URLSessionTask) -> Bool
   @available(OSX 10.10, *)
   convenience init(task: URLSessionTask, cachedResponse: CachedURLResponse?, client: URLProtocolClient?)
   @available(OSX 10.10, *)

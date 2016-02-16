@@ -38,8 +38,8 @@ class MutableCharacterSet : CharacterSet, Copying, MutableCopying {
   func removeCharacters(in aRange: NSRange)
   func addCharacters(in aString: String)
   func removeCharacters(in aString: String)
-  func formUnion(with otherSet: CharacterSet)
-  func formIntersection(with otherSet: CharacterSet)
+  func formUnion(otherSet: CharacterSet)
+  func formIntersection(otherSet: CharacterSet)
   func invert()
   class func control() -> MutableCharacterSet
   class func whitespace() -> MutableCharacterSet

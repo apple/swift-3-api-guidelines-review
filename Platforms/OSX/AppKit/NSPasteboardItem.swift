@@ -26,5 +26,5 @@ class NSPasteboardItem : Object, NSPasteboardWriting, NSPasteboardReading {
 protocol NSPasteboardItemDataProvider : ObjectProtocol {
   @available(OSX 10.6, *)
   func pasteboard(pasteboard: NSPasteboard?, item: NSPasteboardItem, provideDataForType type: String)
-  optional func pasteboardFinished(withDataProvider pasteboard: NSPasteboard)
+  optional func pasteboardFinished(dataProvider pasteboard: NSPasteboard)
 }

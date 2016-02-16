@@ -13,7 +13,7 @@ class GKGraphNode : Object {
 @available(OSX 10.11, *)
 class GKGraphNode2D : GKGraphNode {
   var position: vector_float2
-  class func node(withPoint point: vector_float2) -> Self
+  class func node(point point: vector_float2) -> Self
   init(point: vector_float2)
   convenience init()
 }

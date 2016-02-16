@@ -108,7 +108,7 @@ var NSEventDurationForever: Double { get }
 class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceValidations, NSUserInterfaceItemIdentification, NSAppearanceCustomization, NSAccessibilityElementProtocol, NSAccessibility {
   class func frameRect(forContentRect cRect: Rect, styleMask aStyle: Int) -> Rect
   class func contentRect(forFrameRect fRect: Rect, styleMask aStyle: Int) -> Rect
-  class func minFrameWidth(withTitle aTitle: String, styleMask aStyle: Int) -> CGFloat
+  class func minFrameWidth(title aTitle: String, styleMask aStyle: Int) -> CGFloat
   class func defaultDepthLimit() -> NSWindowDepth
   func frameRect(forContentRect contentRect: Rect) -> Rect
   func contentRect(forFrameRect frameRect: Rect) -> Rect
@@ -336,7 +336,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.6, *)
   var colorSpace: NSColorSpace?
   @available(OSX 10.6, *)
-  class func windowNumbers(withOptions options: NSWindowNumberListOptions) -> [Number]?
+  class func windowNumbers(options options: NSWindowNumberListOptions) -> [Number]?
   @available(OSX 10.6, *)
   class func windowNumber(at point: Point, belowWindowWithWindowNumber windowNumber: Int) -> Int
   @available(OSX 10.9, *)
@@ -346,7 +346,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   @available(OSX 10.11, *)
-  func performDrag(with event: NSEvent)
+  func performDrag(event: NSEvent)
   convenience init()
   init?(coder: Coder)
   @available(OSX 10.5, *)

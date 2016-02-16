@@ -59,10 +59,10 @@ extension Object {
   func scriptingIsGreaterThanOrEqual(to object: AnyObject) -> Bool
   class func scriptingIsGreaterThan(object: AnyObject) -> Bool
   func scriptingIsGreaterThan(object: AnyObject) -> Bool
-  class func scriptingBegins(with object: AnyObject) -> Bool
-  func scriptingBegins(with object: AnyObject) -> Bool
-  class func scriptingEnds(with object: AnyObject) -> Bool
-  func scriptingEnds(with object: AnyObject) -> Bool
+  class func scriptingBegins(object: AnyObject) -> Bool
+  func scriptingBegins(object: AnyObject) -> Bool
+  class func scriptingEnds(object: AnyObject) -> Bool
+  func scriptingEnds(object: AnyObject) -> Bool
   class func scriptingContains(object: AnyObject) -> Bool
   func scriptingContains(object: AnyObject) -> Bool
 }

@@ -27,7 +27,7 @@ class NSTypesetter : Object {
   func beginParagraph()
   func endParagraph()
   func beginLineWithGlyph(at glyphIndex: Int)
-  func endLine(withGlyphRange lineGlyphRange: NSRange)
+  func endLine(glyphRange lineGlyphRange: NSRange)
   func lineSpacingAfterGlyph(at glyphIndex: Int, withProposedLineFragmentRect rect: Rect) -> CGFloat
   func paragraphSpacingBeforeGlyph(at glyphIndex: Int, withProposedLineFragmentRect rect: Rect) -> CGFloat
   func paragraphSpacingAfterGlyph(at glyphIndex: Int, withProposedLineFragmentRect rect: Rect) -> CGFloat

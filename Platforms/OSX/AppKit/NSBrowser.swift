@@ -139,17 +139,17 @@ class NSBrowser : NSControl {
   @available(OSX 10.6, *)
   var rowHeight: CGFloat
   @available(OSX 10.6, *)
-  func noteHeightOfRows(withIndexesChanged indexSet: IndexSet, inColumn columnIndex: Int)
+  func noteHeightOfRows(indexesChanged indexSet: IndexSet, inColumn columnIndex: Int)
   @available(OSX 10.6, *)
   func setDefaultColumnWidth(columnWidth: CGFloat)
   @available(OSX 10.6, *)
   func defaultColumnWidth() -> CGFloat
   var columnsAutosaveName: String
-  class func removeSavedColumns(withAutosaveName name: String)
+  class func removeSavedColumns(autosaveName name: String)
   @available(OSX 10.5, *)
-  func canDragRows(with rowIndexes: IndexSet, inColumn column: Int, with event: NSEvent) -> Bool
+  func canDragRows(rowIndexes: IndexSet, inColumn column: Int, with event: NSEvent) -> Bool
   @available(OSX 10.5, *)
-  func draggingImageForRows(with rowIndexes: IndexSet, inColumn column: Int, with event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage?
+  func draggingImageForRows(rowIndexes: IndexSet, inColumn column: Int, with event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage?
   @available(OSX 10.5, *)
   func setDraggingSourceOperationMask(mask: NSDragOperation, forLocal isLocal: Bool)
   @available(OSX 10.5, *)

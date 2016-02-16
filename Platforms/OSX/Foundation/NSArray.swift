@@ -40,9 +40,9 @@ extension NSArray {
   func componentsJoined(by separator: String) -> String
   func contains(anObject: AnyObject) -> Bool
   var description: String { get }
-  func description(withLocale locale: AnyObject?) -> String
-  func description(withLocale locale: AnyObject?, indent level: Int) -> String
-  func firstObjectCommon(with otherArray: [AnyObject]) -> AnyObject?
+  func description(locale locale: AnyObject?) -> String
+  func description(locale locale: AnyObject?, indent level: Int) -> String
+  func firstObjectCommon(otherArray: [AnyObject]) -> AnyObject?
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, range: NSRange)
   func indexOf(anObject: AnyObject) -> Int
   func indexOf(anObject: AnyObject, in range: NSRange) -> Int
@@ -58,7 +58,7 @@ extension NSArray {
   func sortedArray(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>) -> [AnyObject]
   func sortedArray(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>, hint: Data?) -> [AnyObject]
   func sortedArray(using comparator: Selector) -> [AnyObject]
-  func subarray(with range: NSRange) -> [AnyObject]
+  func subarray(range: NSRange) -> [AnyObject]
   func write(toFile path: String, atomically useAuxiliaryFile: Bool) -> Bool
   func write(to url: URL, atomically: Bool) -> Bool
   func objects(at indexes: IndexSet) -> [AnyObject]

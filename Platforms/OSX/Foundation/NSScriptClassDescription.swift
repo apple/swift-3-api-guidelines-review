@@ -13,7 +13,7 @@ class ScriptClassDescription : ClassDescription {
   func type(forKey key: String) -> String?
   func forKey(key: String) -> ScriptClassDescription?
   func appleEventCode(forKey key: String) -> FourCharCode
-  func key(withAppleEventCode appleEventCode: FourCharCode) -> String?
+  func key(appleEventCode appleEventCode: FourCharCode) -> String?
   var defaultSubcontainerAttributeKey: String? { get }
   func isLocationRequiredToCreate(forKey toManyRelationshipKey: String) -> Bool
   @available(OSX 10.5, *)

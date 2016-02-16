@@ -33,7 +33,7 @@ class CBUserIdentity : CBIdentity, Coding, Copying {
   var posixUID: uid_t { get }
   var certificate: SecCertificate? { get }
   var isEnabled: Bool { get }
-  func authenticate(withPassword password: String) -> Bool
+  func authenticate(password password: String) -> Bool
   init()
   init?(coder aDecoder: Coder)
 }

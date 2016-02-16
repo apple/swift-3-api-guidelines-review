@@ -40,7 +40,7 @@ class AVAsynchronousVideoCompositionRequest : Object, Copying {
   var sourceTrackIDs: [Number] { get }
   var videoCompositionInstruction: AVVideoCompositionInstructionProtocol { get }
   func sourceFrame(byTrackID trackID: CMPersistentTrackID) -> CVPixelBuffer?
-  func finish(withComposedVideoFrame composedVideoFrame: CVPixelBuffer)
+  func finish(composedVideoFrame composedVideoFrame: CVPixelBuffer)
   func finishWithError(error: Error)
   func finishCancelledRequest()
   init()
@@ -52,7 +52,7 @@ class AVAsynchronousCIImageFilteringRequest : Object, Copying {
   var renderSize: CGSize { get }
   var compositionTime: CMTime { get }
   var sourceImage: CIImage { get }
-  func finish(with filteredImage: CIImage, context: CIContext?)
+  func finish(filteredImage: CIImage, context: CIContext?)
   func finishWithError(error: Error)
   init()
   @available(OSX 10.11, *)

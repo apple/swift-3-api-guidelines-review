@@ -3,7 +3,7 @@
 class NSStoryboard : Object {
   convenience init(name: String, bundle storyboardBundleOrNil: Bundle?)
   func instantiateInitialController() -> AnyObject?
-  func instantiateController(withIdentifier identifier: String) -> AnyObject
+  func instantiateController(identifier identifier: String) -> AnyObject
   init()
 }
 struct _storyboardFlags {

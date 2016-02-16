@@ -28,7 +28,7 @@ class AppleEventDescriptor : Object, Copying, SecureCoding {
   /*not inherited*/ init(date: Date)
   @available(OSX 10.11, *)
   /*not inherited*/ init(fileURL: URL)
-  class func appleEvent(withEventClass eventClass: AEEventClass, eventID: AEEventID, targetDescriptor: AppleEventDescriptor?, returnID: AEReturnID, transactionID: AETransactionID) -> AppleEventDescriptor
+  class func appleEvent(eventClass eventClass: AEEventClass, eventID: AEEventID, targetDescriptor: AppleEventDescriptor?, returnID: AEReturnID, transactionID: AETransactionID) -> AppleEventDescriptor
   class func list() -> AppleEventDescriptor
   class func record() -> AppleEventDescriptor
   @available(OSX 10.11, *)
@@ -65,7 +65,7 @@ class AppleEventDescriptor : Object, Copying, SecureCoding {
   var transactionID: AETransactionID { get }
   func setParamDescriptor(descriptor: AppleEventDescriptor, forKeyword keyword: AEKeyword)
   func paramDescriptor(forKeyword keyword: AEKeyword) -> AppleEventDescriptor?
-  func removeParamDescriptor(withKeyword keyword: AEKeyword)
+  func removeParamDescriptor(keyword keyword: AEKeyword)
   func setAttributeDescriptor(descriptor: AppleEventDescriptor, forKeyword keyword: AEKeyword)
   func attributeDescriptor(forKeyword keyword: AEKeyword) -> AppleEventDescriptor?
   @available(OSX 10.11, *)
@@ -78,7 +78,7 @@ class AppleEventDescriptor : Object, Copying, SecureCoding {
   func remove(at index: Int)
   func setDescriptor(descriptor: AppleEventDescriptor, forKeyword keyword: AEKeyword)
   func forKeyword(keyword: AEKeyword) -> AppleEventDescriptor?
-  func remove(withKeyword keyword: AEKeyword)
+  func remove(keyword keyword: AEKeyword)
   func keywordForDescriptor(at index: Int) -> AEKeyword
   func coerce(toDescriptorType descriptorType: DescType) -> AppleEventDescriptor?
   convenience init()

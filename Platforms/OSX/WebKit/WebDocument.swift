@@ -25,7 +25,7 @@ protocol WebDocumentRepresentation : ObjectProtocol {
   func setDataSource(dataSource: WebDataSource!)
   func receivedData(data: Data!, with dataSource: WebDataSource!)
   func receivedError(error: Error!, with dataSource: WebDataSource!)
-  func finishedLoading(with dataSource: WebDataSource!)
+  func finishedLoading(dataSource: WebDataSource!)
   func canProvideDocumentSource() -> Bool
   func documentSource() -> String!
   func title() -> String!

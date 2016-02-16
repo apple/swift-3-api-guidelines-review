@@ -13,9 +13,9 @@ extension Object {
   @available(OSX 10.4, *)
   func invokeUndefinedMethod(fromWebScript name: String!, withArguments arguments: [AnyObject]!) -> AnyObject!
   @available(OSX 10.4, *)
-  class func invokeDefaultMethod(withArguments arguments: [AnyObject]!) -> AnyObject!
+  class func invokeDefaultMethod(arguments arguments: [AnyObject]!) -> AnyObject!
   @available(OSX 10.4, *)
-  func invokeDefaultMethod(withArguments arguments: [AnyObject]!) -> AnyObject!
+  func invokeDefaultMethod(arguments arguments: [AnyObject]!) -> AnyObject!
   @available(OSX 10.4, *)
   class func finalizeForWebScript()
   @available(OSX 10.4, *)

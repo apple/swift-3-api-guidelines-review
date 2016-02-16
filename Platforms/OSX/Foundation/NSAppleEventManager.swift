@@ -14,6 +14,6 @@ class AppleEventManager : Object {
   func appleEvent(forSuspensionID suspensionID: AppleEventManagerSuspensionID) -> AppleEventDescriptor
   func replyAppleEvent(forSuspensionID suspensionID: AppleEventManagerSuspensionID) -> AppleEventDescriptor
   func setCurrentAppleEventAndReplyEventWithSuspensionID(suspensionID: AppleEventManagerSuspensionID)
-  func resume(withSuspensionID suspensionID: AppleEventManagerSuspensionID)
+  func resume(suspensionID suspensionID: AppleEventManagerSuspensionID)
   init()
 }

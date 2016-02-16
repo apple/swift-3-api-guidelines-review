@@ -39,7 +39,7 @@ class SCNHitTestResult : Object {
   var localNormal: SCNVector3 { get }
   var worldNormal: SCNVector3 { get }
   var modelTransform: SCNMatrix4 { get }
-  func textureCoordinates(withMappingChannel channel: Int) -> CGPoint
+  func textureCoordinates(mappingChannel channel: Int) -> CGPoint
   init()
 }
 protocol SCNSceneRenderer : ObjectProtocol {

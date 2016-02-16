@@ -66,11 +66,11 @@ class NSWorkspace : Object {
   func extendPowerOff(by requested: Int) -> Int
   func hideOtherApplications()
   @available(OSX 10.6, *)
-  func urlForApplication(withBundleIdentifier bundleIdentifier: String) -> URL?
+  func urlForApplication(bundleIdentifier bundleIdentifier: String) -> URL?
   @available(OSX 10.6, *)
   func urlForApplication(toOpen url: URL) -> URL?
-  func absolutePathForAppBundle(withIdentifier bundleIdentifier: String) -> String?
-  func launchApp(withBundleIdentifier bundleIdentifier: String, options: NSWorkspaceLaunchOptions = [], additionalEventParamDescriptor descriptor: AppleEventDescriptor?, launchIdentifier identifier: AutoreleasingUnsafeMutablePointer<Number?>) -> Bool
+  func absolutePathForAppBundle(identifier bundleIdentifier: String) -> String?
+  func launchApp(bundleIdentifier bundleIdentifier: String, options: NSWorkspaceLaunchOptions = [], additionalEventParamDescriptor descriptor: AppleEventDescriptor?, launchIdentifier identifier: AutoreleasingUnsafeMutablePointer<Number?>) -> Bool
   func open(urls: [URL], withAppBundleIdentifier bundleIdentifier: String?, options: NSWorkspaceLaunchOptions = [], additionalEventParamDescriptor descriptor: AppleEventDescriptor?, launchIdentifiers identifiers: AutoreleasingUnsafeMutablePointer<NSArray?>) -> Bool
   @available(OSX 10.7, *)
   var frontmostApplication: NSRunningApplication? { get }

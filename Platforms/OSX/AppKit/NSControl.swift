@@ -65,18 +65,18 @@ extension NSControl {
   @available(OSX 10.8, *)
   var allowsExpansionToolTips: Bool
   @available(OSX 10.10, *)
-  func expansionFrame(withFrame contentFrame: Rect) -> Rect
+  func expansionFrame(frame contentFrame: Rect) -> Rect
   @available(OSX 10.10, *)
-  func draw(withExpansionFrame contentFrame: Rect, in view: NSView)
+  func draw(expansionFrame contentFrame: Rect, in view: NSView)
 }
 extension NSControl {
   func currentEditor() -> NSText?
   func abortEditing() -> Bool
   func validateEditing()
   @available(OSX 10.10, *)
-  func edit(withFrame aRect: Rect, editor textObj: NSText, delegate anObject: AnyObject?, event theEvent: NSEvent)
+  func edit(frame aRect: Rect, editor textObj: NSText, delegate anObject: AnyObject?, event theEvent: NSEvent)
   @available(OSX 10.10, *)
-  func select(withFrame aRect: Rect, editor textObj: NSText, delegate anObject: AnyObject?, start selStart: Int, length selLength: Int)
+  func select(frame aRect: Rect, editor textObj: NSText, delegate anObject: AnyObject?, start selStart: Int, length selLength: Int)
   @available(OSX 10.10, *)
   func endEditing(textObj: NSText)
 }

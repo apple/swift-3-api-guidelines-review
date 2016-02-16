@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 class NSAccessibilityElement : Object, NSAccessibility {
-  class func accessibilityElement(withRole role: String, frame: Rect, label: String?, parent: AnyObject?) -> AnyObject
+  class func accessibilityElement(role role: String, frame: Rect, label: String?, parent: AnyObject?) -> AnyObject
   func accessibilityAddChildElement(childElement: NSAccessibilityElement)
   func accessibilityFrameInParentSpace() -> Rect
   func setAccessibilityFrameInParentSpace(accessibilityFrameInParentSpace: Rect)

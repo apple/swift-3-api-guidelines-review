@@ -185,11 +185,11 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   func drawingRect(forBounds theRect: Rect) -> Rect
   var cellSize: Size { get }
   func cellSize(forBounds aRect: Rect) -> Size
-  func highlightColor(withFrame cellFrame: Rect, in controlView: NSView) -> NSColor
+  func highlightColor(frame cellFrame: Rect, in controlView: NSView) -> NSColor
   func calcDrawInfo(aRect: Rect)
   func setUpFieldEditorAttributes(textObj: NSText) -> NSText
-  func drawInterior(withFrame cellFrame: Rect, in controlView: NSView)
-  func draw(withFrame cellFrame: Rect, in controlView: NSView)
+  func drawInterior(frame cellFrame: Rect, in controlView: NSView)
+  func draw(frame cellFrame: Rect, in controlView: NSView)
   func highlight(flag: Bool, withFrame cellFrame: Rect, in controlView: NSView)
   var mouseDownFlags: Int { get }
   func getPeriodicDelay(delay: UnsafeMutablePointer<Float>, interval: UnsafeMutablePointer<Float>)
@@ -197,8 +197,8 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   func continueTracking(lastPoint: Point, at currentPoint: Point, in controlView: NSView) -> Bool
   func stopTracking(lastPoint: Point, at stopPoint: Point, in controlView: NSView, mouseIsUp flag: Bool)
   func trackMouse(theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView, untilMouseUp flag: Bool) -> Bool
-  func edit(withFrame aRect: Rect, in controlView: NSView, editor textObj: NSText, delegate anObject: AnyObject?, event theEvent: NSEvent)
-  func select(withFrame aRect: Rect, in controlView: NSView, editor textObj: NSText, delegate anObject: AnyObject?, start selStart: Int, length selLength: Int)
+  func edit(frame aRect: Rect, in controlView: NSView, editor textObj: NSText, delegate anObject: AnyObject?, event theEvent: NSEvent)
+  func select(frame aRect: Rect, in controlView: NSView, editor textObj: NSText, delegate anObject: AnyObject?, start selStart: Int, length selLength: Int)
   func endEditing(textObj: NSText)
   func resetCursorRect(cellFrame: Rect, in controlView: NSView)
   var menu: NSMenu?
@@ -221,7 +221,7 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   @available(OSX 10.6, *)
   var usesSingleLineMode: Bool
   @available(OSX 10.7, *)
-  func draggingImageComponents(withFrame frame: Rect, in view: NSView) -> [NSDraggingImageComponent]
+  func draggingImageComponents(frame frame: Rect, in view: NSView) -> [NSDraggingImageComponent]
   convenience init()
   func copy(zone: Zone = nil) -> AnyObject
   func encode(with aCoder: Coder)
@@ -756,7 +756,7 @@ extension NSCell {
   var focusRingType: NSFocusRingType
   class func defaultFocusRingType() -> NSFocusRingType
   @available(OSX 10.7, *)
-  func drawFocusRingMask(withFrame cellFrame: Rect, in controlView: NSView)
+  func drawFocusRingMask(frame cellFrame: Rect, in controlView: NSView)
   @available(OSX 10.7, *)
   func focusRingMaskBounds(forFrame cellFrame: Rect, in controlView: NSView) -> Rect
   var wantsNotificationForMarkedText: Bool { get }
@@ -787,9 +787,9 @@ extension NSCell {
 }
 extension NSCell {
   @available(OSX 10.5, *)
-  func expansionFrame(withFrame cellFrame: Rect, in view: NSView) -> Rect
+  func expansionFrame(frame cellFrame: Rect, in view: NSView) -> Rect
   @available(OSX 10.5, *)
-  func draw(withExpansionFrame cellFrame: Rect, in view: NSView)
+  func draw(expansionFrame cellFrame: Rect, in view: NSView)
 }
 @available(OSX 10.5, *)
 enum NSBackgroundStyle : Int {

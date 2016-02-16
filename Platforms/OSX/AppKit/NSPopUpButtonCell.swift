@@ -41,9 +41,9 @@ class NSPopUpButtonCell : NSMenuItemCell {
   func itemTitle(at index: Int) -> String
   var itemTitles: [String] { get }
   var titleOfSelectedItem: String? { get }
-  func attachPopUp(withFrame cellFrame: Rect, in controlView: NSView)
+  func attachPopUp(frame cellFrame: Rect, in controlView: NSView)
   func dismissPopUp()
-  func performClick(withFrame frame: Rect, in controlView: NSView)
+  func performClick(frame frame: Rect, in controlView: NSView)
   var arrowPosition: NSPopUpArrowPosition
   convenience init(textCell aString: String)
   convenience init(imageCell image: NSImage?)

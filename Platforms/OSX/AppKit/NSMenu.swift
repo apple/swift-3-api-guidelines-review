@@ -11,8 +11,8 @@ class NSMenu : Object, Copying, Coding {
   unowned(unsafe) var supermenu: @sil_unmanaged NSMenu?
   func insert(newItem: NSMenuItem, at index: Int)
   func add(newItem: NSMenuItem)
-  func insertItem(withTitle aString: String, action aSelector: Selector, keyEquivalent charCode: String, at index: Int) -> NSMenuItem?
-  func addItem(withTitle aString: String, action aSelector: Selector, keyEquivalent charCode: String) -> NSMenuItem?
+  func insertItem(title aString: String, action aSelector: Selector, keyEquivalent charCode: String, at index: Int) -> NSMenuItem?
+  func addItem(title aString: String, action aSelector: Selector, keyEquivalent charCode: String) -> NSMenuItem?
   func removeItem(at index: Int)
   func remove(item: NSMenuItem)
   func setSubmenu(aMenu: NSMenu?, for anItem: NSMenuItem)
@@ -22,13 +22,13 @@ class NSMenu : Object, Copying, Coding {
   var numberOfItems: Int { get }
   func item(at index: Int) -> NSMenuItem?
   func indexOf(item: NSMenuItem) -> Int
-  func indexOfItem(withTitle aTitle: String) -> Int
-  func indexOfItem(withTag aTag: Int) -> Int
-  func indexOfItem(withRepresentedObject object: AnyObject) -> Int
-  func indexOfItem(withSubmenu submenu: NSMenu?) -> Int
+  func indexOfItem(title aTitle: String) -> Int
+  func indexOfItem(tag aTag: Int) -> Int
+  func indexOfItem(representedObject object: AnyObject) -> Int
+  func indexOfItem(submenu submenu: NSMenu?) -> Int
   func indexOfItem(withTarget target: AnyObject?, andAction actionSelector: Selector) -> Int
-  func item(withTitle aTitle: String) -> NSMenuItem?
-  func item(withTag tag: Int) -> NSMenuItem?
+  func item(title aTitle: String) -> NSMenuItem?
+  func item(tag tag: Int) -> NSMenuItem?
   var autoenablesItems: Bool
   func update()
   func performKeyEquivalent(theEvent: NSEvent) -> Bool

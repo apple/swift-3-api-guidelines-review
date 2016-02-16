@@ -1,8 +1,8 @@
 
 class IMServicePlugInMessage : Object, Coding, Copying {
-  class func servicePlugInMessage(withContent content: AttributedString!) -> AnyObject!
+  class func servicePlugInMessage(content content: AttributedString!) -> AnyObject!
   init!(content: AttributedString!)
-  class func servicePlugInMessage(withContent content: AttributedString!, date: Date!) -> AnyObject!
+  class func servicePlugInMessage(content content: AttributedString!, date: Date!) -> AnyObject!
   init!(content: AttributedString!, date: Date!)
   var guid: String! { get }
   @NSCopying var content: AttributedString!

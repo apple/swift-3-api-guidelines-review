@@ -1,5 +1,5 @@
 
 protocol CIFilterConstructor {
   @available(OSX 10.4, *)
-  func filter(withName name: String) -> CIFilter?
+  func filter(name name: String) -> CIFilter?
 }

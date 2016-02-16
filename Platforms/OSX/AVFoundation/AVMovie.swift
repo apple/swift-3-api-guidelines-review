@@ -30,7 +30,7 @@ struct AVMovieWritingOptions : OptionSetType {
 }
 extension AVMovie {
   @available(OSX 10.11, *)
-  func movieHeader(withFileType fileType: String) throws -> Data
+  func movieHeader(fileType fileType: String) throws -> Data
   @available(OSX 10.11, *)
   func writeHeader(to URL: URL, fileType: String, options: AVMovieWritingOptions = []) throws
   @available(OSX 10.11, *)
@@ -68,7 +68,7 @@ extension AVMutableMovie {
 }
 extension AVMutableMovie {
   func mutableTrack(compatibleWith track: AVAssetTrack) -> AVMutableMovieTrack?
-  func addMutableTrack(withMediaType mediaType: String, copySettingsFrom track: AVAssetTrack?, options: [String : AnyObject]? = [:]) -> AVMutableMovieTrack
+  func addMutableTrack(mediaType mediaType: String, copySettingsFrom track: AVAssetTrack?, options: [String : AnyObject]? = [:]) -> AVMutableMovieTrack
   func addMutableTracksCopyingSettings(from existingTracks: [AVAssetTrack], options: [String : AnyObject]? = [:]) -> [AVMutableMovieTrack]
   func removeTrack(track: AVMovieTrack)
 }

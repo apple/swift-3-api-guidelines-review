@@ -50,8 +50,8 @@ class SCNAction : Object, Copying, SecureCoding {
   class func group(actions: [SCNAction]) -> SCNAction
   class func repeatAction(action: SCNAction, count: Int) -> SCNAction
   class func repeatForever(action: SCNAction) -> SCNAction
-  class func fadeIn(withDuration sec: TimeInterval) -> SCNAction
-  class func fadeOut(withDuration sec: TimeInterval) -> SCNAction
+  class func fadeIn(duration sec: TimeInterval) -> SCNAction
+  class func fadeOut(duration sec: TimeInterval) -> SCNAction
   class func fadeOpacity(by factor: CGFloat, duration sec: TimeInterval) -> SCNAction
   class func fadeOpacity(to opacity: CGFloat, duration sec: TimeInterval) -> SCNAction
   @available(OSX 10.11, *)
@@ -63,8 +63,8 @@ class SCNAction : Object, Copying, SecureCoding {
   class func removeFromParentNode() -> SCNAction
   class func run(block: (SCNNode) -> Void) -> SCNAction
   class func run(block: (SCNNode) -> Void, queue: dispatch_queue_t) -> SCNAction
-  class func javaScriptAction(withScript script: String, duration seconds: TimeInterval) -> SCNAction
-  class func customAction(withDuration seconds: TimeInterval, actionBlock block: (SCNNode, CGFloat) -> Void) -> SCNAction
+  class func javaScriptAction(script script: String, duration seconds: TimeInterval) -> SCNAction
+  class func customAction(duration seconds: TimeInterval, actionBlock block: (SCNNode, CGFloat) -> Void) -> SCNAction
   @available(OSX 10.11, *)
   class func play(source: SCNAudioSource, waitForCompletion wait: Bool) -> SCNAction
   init()

@@ -2,7 +2,7 @@
 class NSSegmentedCell : NSActionCell {
   var segmentCount: Int
   var selectedSegment: Int
-  func selectSegment(withTag tag: Int) -> Bool
+  func selectSegment(tag tag: Int) -> Bool
   func makeNextSegmentKey()
   func makePreviousSegmentKey()
   var trackingMode: NSSegmentSwitchTracking

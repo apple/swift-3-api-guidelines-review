@@ -4,8 +4,8 @@ class DRFile : DRFSObject {
   init()
 }
 extension DRFile {
-  class func virtualFile(withName name: String!, data: Data!) -> DRFile!
-  class func virtualFile(withName name: String!, dataProducer producer: AnyObject!) -> DRFile!
+  class func virtualFile(name name: String!, data: Data!) -> DRFile!
+  class func virtualFile(name name: String!, dataProducer producer: AnyObject!) -> DRFile!
   init!(name: String!, data: Data!)
   init!(name: String!, dataProducer producer: AnyObject!)
 }

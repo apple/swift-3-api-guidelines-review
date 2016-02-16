@@ -49,7 +49,7 @@ class IMKCandidates : NSResponder {
   @available(OSX 10.7, *)
   func setCandidateData(candidatesArray: [AnyObject]!)
   @available(OSX 10.7, *)
-  func selectCandidate(withIdentifier candidateIdentifier: Int) -> Bool
+  func selectCandidate(identifier candidateIdentifier: Int) -> Bool
   func selectCandidate(candidateIdentifier: Int)
   @available(OSX 10.7, *)
   func show()
@@ -58,7 +58,7 @@ class IMKCandidates : NSResponder {
   @available(OSX 10.7, *)
   func candidateIdentifier(atLineNumber lineNumber: Int) -> Int
   @available(OSX 10.7, *)
-  func lineNumberForCandidate(withIdentifier candidateIdentifier: Int) -> Int
+  func lineNumberForCandidate(identifier candidateIdentifier: Int) -> Int
   @available(OSX 10.7, *)
   func clearSelection()
   init()

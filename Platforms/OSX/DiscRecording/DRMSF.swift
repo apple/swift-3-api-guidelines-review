@@ -9,7 +9,7 @@ class DRMSF : Number {
   func adding(msf: DRMSF!) -> DRMSF!
   func subtracting(msf: DRMSF!) -> DRMSF!
   func description() -> String!
-  func description(withFormat format: String!) -> String!
+  func description(format format: String!) -> String!
   func isEqual(to otherDRMSF: DRMSF!) -> Bool
   init?(coder aDecoder: Coder)
   init(char value: Int8)

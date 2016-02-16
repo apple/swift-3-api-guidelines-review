@@ -69,7 +69,7 @@ class NSBitmapImageRep : NSImageRep, SecureCoding {
   init(cgImage: CGImage)
   @available(OSX 10.5, *)
   init(ciImage: CIImage)
-  class func imageReps(with data: Data) -> [NSImageRep]
+  class func imageReps(data: Data) -> [NSImageRep]
   init?(data: Data)
   var bitmapData: UnsafeMutablePointer<UInt8> { get }
   func getBitmapDataPlanes(data: UnsafeMutablePointer<UnsafeMutablePointer<UInt8>>)
@@ -103,7 +103,7 @@ class NSBitmapImageRep : NSImageRep, SecureCoding {
   @available(OSX 10.6, *)
   func converting(to targetSpace: NSColorSpace, renderingIntent: NSColorRenderingIntent) -> NSBitmapImageRep?
   @available(OSX 10.6, *)
-  func retagging(with newSpace: NSColorSpace) -> NSBitmapImageRep?
+  func retagging(newSpace: NSColorSpace) -> NSBitmapImageRep?
   init()
   init?(coder: Coder)
   class func supportsSecureCoding() -> Bool

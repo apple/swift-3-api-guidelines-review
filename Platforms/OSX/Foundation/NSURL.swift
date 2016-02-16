@@ -10,16 +10,16 @@ class URL : Object, SecureCoding, Copying, URLHandleClient {
   init(fileURLWithPath path: String, isDirectory isDir: Bool)
   init(fileURLWithPath path: String)
   @available(OSX 10.11, *)
-  class func fileURL(withPath path: String, isDirectory isDir: Bool, relativeTo baseURL: URL?) -> URL
+  class func fileURL(path path: String, isDirectory isDir: Bool, relativeTo baseURL: URL?) -> URL
   @available(OSX 10.11, *)
-  class func fileURL(withPath path: String, relativeTo baseURL: URL?) -> URL
+  class func fileURL(path path: String, relativeTo baseURL: URL?) -> URL
   @available(OSX 10.5, *)
-  class func fileURL(withPath path: String, isDirectory isDir: Bool) -> URL
-  class func fileURL(withPath path: String) -> URL
+  class func fileURL(path path: String, isDirectory isDir: Bool) -> URL
+  class func fileURL(path path: String) -> URL
   @available(OSX 10.9, *)
   init(fileURLWithFileSystemRepresentation path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeTo baseURL: URL?)
   @available(OSX 10.9, *)
-  class func fileURL(withFileSystemRepresentation path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeTo baseURL: URL?) -> URL
+  class func fileURL(fileSystemRepresentation path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeTo baseURL: URL?) -> URL
   convenience init?(string URLString: String)
   init?(string URLString: String, relativeTo baseURL: URL?)
   @available(OSX 10.11, *)
@@ -27,7 +27,7 @@ class URL : Object, SecureCoding, Copying, URLHandleClient {
   @available(OSX 10.11, *)
   init(absoluteURLWithDataRepresentation data: Data, relativeTo baseURL: URL?)
   @available(OSX 10.11, *)
-  class func absoluteURL(withDataRepresentation data: Data, relativeTo baseURL: URL?) -> URL
+  class func absoluteURL(dataRepresentation data: Data, relativeTo baseURL: URL?) -> URL
   @available(OSX 10.11, *)
   @NSCopying var dataRepresentation: Data { get }
   var absoluteString: String { get }
@@ -84,7 +84,7 @@ class URL : Object, SecureCoding, Copying, URLHandleClient {
   @available(OSX 10.6, *)
   class func writeBookmarkData(bookmarkData: Data, to bookmarkFileURL: URL, options: URLBookmarkFileCreationOptions) throws
   @available(OSX 10.6, *)
-  class func bookmarkData(withContentsOf bookmarkFileURL: URL) throws -> Data
+  class func bookmarkData(contentsOf bookmarkFileURL: URL) throws -> Data
   @available(OSX 10.10, *)
   convenience init(byResolvingAliasFileAt url: URL, options: URLBookmarkResolutionOptions = []) throws
   @available(OSX 10.7, *)
@@ -418,7 +418,7 @@ extension CharacterSet {
 }
 extension NSString {
   @available(OSX 10.9, *)
-  func addingPercentEncoding(withAllowedCharacters allowedCharacters: CharacterSet) -> String?
+  func addingPercentEncoding(allowedCharacters allowedCharacters: CharacterSet) -> String?
   @available(OSX 10.9, *)
   var removingPercentEncoding: String? { get }
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -stringByAddingPercentEncodingWithAllowedCharacters: instead, which always uses the recommended UTF-8 encoding, and which encodes for a specific URL component or subcomponent since each URL component or subcomponent has different rules for what characters are valid.")
@@ -428,7 +428,7 @@ extension NSString {
 }
 extension URL {
   @available(OSX 10.6, *)
-  class func fileURL(withPathComponents components: [String]) -> URL?
+  class func fileURL(pathComponents components: [String]) -> URL?
   @available(OSX 10.6, *)
   var pathComponents: [String]? { get }
   @available(OSX 10.6, *)

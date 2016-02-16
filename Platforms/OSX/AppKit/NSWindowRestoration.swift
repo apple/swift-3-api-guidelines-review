@@ -1,15 +1,15 @@
 
 protocol NSWindowRestoration : ObjectProtocol {
   @available(OSX 10.7, *)
-  static func restoreWindow(withIdentifier identifier: String, state: Coder, completionHandler: (NSWindow?, Error?) -> Void)
+  static func restoreWindow(identifier identifier: String, state: Coder, completionHandler: (NSWindow?, Error?) -> Void)
 }
 extension NSDocumentController : NSWindowRestoration {
   @available(OSX 10.7, *)
-  class func restoreWindow(withIdentifier identifier: String, state: Coder, completionHandler: (NSWindow?, Error?) -> Void)
+  class func restoreWindow(identifier identifier: String, state: Coder, completionHandler: (NSWindow?, Error?) -> Void)
 }
 extension NSApplication {
   @available(OSX 10.7, *)
-  func restoreWindow(withIdentifier identifier: String, state: Coder, completionHandler: (NSWindow?, Error?) -> Void) -> Bool
+  func restoreWindow(identifier identifier: String, state: Coder, completionHandler: (NSWindow?, Error?) -> Void) -> Bool
 }
 @available(OSX 10.7, *)
 let NSApplicationDidFinishRestoringWindowsNotification: String
@@ -39,11 +39,11 @@ extension NSApplication {
 }
 extension NSDocument {
   @available(OSX 10.7, *)
-  func restoreWindow(withIdentifier identifier: String, state: Coder, completionHandler: (NSWindow?, Error?) -> Void)
+  func restoreWindow(identifier identifier: String, state: Coder, completionHandler: (NSWindow?, Error?) -> Void)
   @available(OSX 10.7, *)
-  func encodeRestorableState(with coder: Coder)
+  func encodeRestorableState(coder: Coder)
   @available(OSX 10.7, *)
-  func restoreState(with coder: Coder)
+  func restoreState(coder: Coder)
   @available(OSX 10.7, *)
   func invalidateRestorableState()
   @available(OSX 10.7, *)

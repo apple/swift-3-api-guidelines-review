@@ -22,7 +22,7 @@ class SKTexture : Object, Copying, Coding {
   @available(OSX 10.10, *)
   func generatingNormalMap() -> Self
   @available(OSX 10.10, *)
-  func generatingNormalMap(withSmoothness smoothness: CGFloat, contrast: CGFloat) -> Self
+  func generatingNormalMap(smoothness smoothness: CGFloat, contrast: CGFloat) -> Self
   func textureRect() -> CGRect
   func size() -> CGSize
   var filteringMode: SKTextureFilteringMode

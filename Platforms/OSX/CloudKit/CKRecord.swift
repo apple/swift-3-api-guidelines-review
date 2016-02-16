@@ -21,7 +21,7 @@ class CKRecord : Object, SecureCoding, Copying {
   func allTokens() -> [String]
   subscript(key: String) -> CKRecordValue?
   func changedKeys() -> [String]
-  func encodeSystemFields(with coder: Coder)
+  func encodeSystemFields(coder: Coder)
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)

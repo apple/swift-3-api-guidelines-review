@@ -14,7 +14,7 @@ enum NSTabViewType : UInt {
 class NSTabView : NSView {
   func select(tabViewItem: NSTabViewItem?)
   func selectItem(at index: Int)
-  func selectItem(withIdentifier identifier: AnyObject)
+  func selectItem(identifier identifier: AnyObject)
   func takeSelectedTabViewItemFromSender(sender: AnyObject?)
   func selectFirstTabViewItem(sender: AnyObject?)
   func selectLastItem(sender: AnyObject?)
@@ -38,7 +38,7 @@ class NSTabView : NSView {
   var numberOfTabViewItems: Int { get }
   func indexOf(tabViewItem: NSTabViewItem) -> Int
   func tabViewItem(at index: Int) -> NSTabViewItem
-  func indexOfTabViewItem(withIdentifier identifier: AnyObject) -> Int
+  func indexOfTabViewItem(identifier identifier: AnyObject) -> Int
   init(frame frameRect: Rect)
   init?(coder: Coder)
   convenience init()

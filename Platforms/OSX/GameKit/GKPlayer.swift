@@ -7,7 +7,7 @@ class GKPlayer : Object {
   var displayName: String? { get }
   var alias: String? { get }
   @available(OSX 10.11, *)
-  class func anonymousGuestPlayer(withIdentifier guestIdentifier: String) -> Self
+  class func anonymousGuestPlayer(identifier guestIdentifier: String) -> Self
   @available(OSX 10.11, *)
   var guestIdentifier: String? { get }
   init()

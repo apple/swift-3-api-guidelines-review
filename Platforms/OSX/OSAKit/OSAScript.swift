@@ -30,7 +30,7 @@ struct OSAStorageOptions : OptionSetType {
 }
 class OSAScript : Object, Copying {
   @available(OSX 10.6, *)
-  class func scriptDataDescriptor(withContentsOf url: URL) -> AppleEventDescriptor?
+  class func scriptDataDescriptor(contentsOf url: URL) -> AppleEventDescriptor?
   init(source: String)
   init(source: String, language: OSALanguage?)
   @available(OSX 10.6, *)
@@ -52,7 +52,7 @@ class OSAScript : Object, Copying {
   func executeAndReturnError(errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> AppleEventDescriptor?
   func executeAppleEvent(event: AppleEventDescriptor, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> AppleEventDescriptor?
   func executeAndReturnDisplayValue(displayValue: AutoreleasingUnsafeMutablePointer<AttributedString?>, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> AppleEventDescriptor?
-  func executeHandler(withName name: String, arguments: [AnyObject], error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> AppleEventDescriptor?
+  func executeHandler(name name: String, arguments: [AnyObject], error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> AppleEventDescriptor?
   @NSCopying var richTextSource: AttributedString? { get }
   func richText(from descriptor: AppleEventDescriptor) -> AttributedString?
   func write(to url: URL, ofType type: String, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool

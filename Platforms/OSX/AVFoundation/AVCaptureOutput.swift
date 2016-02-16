@@ -3,7 +3,7 @@
 class AVCaptureOutput : Object {
   var connections: [AnyObject]! { get }
   @available(OSX 10.7, *)
-  func connection(withMediaType mediaType: String!) -> AVCaptureConnection!
+  func connection(mediaType mediaType: String!) -> AVCaptureConnection!
   init()
 }
 @available(OSX 10.7, *)

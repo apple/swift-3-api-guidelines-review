@@ -17,10 +17,10 @@ class CBCentralManager : Object {
   @available(OSX 10.9, *)
   init(delegate: CBCentralManagerDelegate?, queue: dispatch_queue_t?, options: [String : AnyObject]? = [:])
   @available(OSX 10.9, *)
-  func retrievePeripherals(withIdentifiers identifiers: [UUID]) -> [CBPeripheral]
+  func retrievePeripherals(identifiers identifiers: [UUID]) -> [CBPeripheral]
   @available(OSX 10.9, *)
-  func retrieveConnectedPeripherals(withServices serviceUUIDs: [CBUUID]) -> [CBPeripheral]
-  func scanForPeripherals(withServices serviceUUIDs: [CBUUID]?, options: [String : AnyObject]? = [:])
+  func retrieveConnectedPeripherals(services serviceUUIDs: [CBUUID]) -> [CBPeripheral]
+  func scanForPeripherals(services serviceUUIDs: [CBUUID]?, options: [String : AnyObject]? = [:])
   func stopScan()
   func connect(peripheral: CBPeripheral, options: [String : AnyObject]? = [:])
   func cancelPeripheralConnection(peripheral: CBPeripheral)

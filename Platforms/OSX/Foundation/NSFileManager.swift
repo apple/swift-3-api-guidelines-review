@@ -114,8 +114,8 @@ class FileManager : Object {
   func subpaths(atPath path: String) -> [String]?
   func contents(atPath path: String) -> Data?
   func createFile(atPath path: String, contents data: Data?, attributes attr: [String : AnyObject]? = [:]) -> Bool
-  func fileSystemRepresentation(withPath path: String) -> UnsafePointer<Int8>
-  func string(withFileSystemRepresentation str: UnsafePointer<Int8>, length len: Int) -> String
+  func fileSystemRepresentation(path path: String) -> UnsafePointer<Int8>
+  func string(fileSystemRepresentation str: UnsafePointer<Int8>, length len: Int) -> String
   @available(OSX 10.6, *)
   func replaceItem(at originalItemURL: URL, withItemAt newItemURL: URL, backupItemName: String?, options: FileManagerItemReplacementOptions = [], resultingItemURL resultingURL: AutoreleasingUnsafeMutablePointer<URL?>) throws
   @available(OSX 10.7, *)

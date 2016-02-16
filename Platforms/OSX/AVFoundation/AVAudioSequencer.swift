@@ -22,7 +22,7 @@ class AVAudioSequencer : Object {
   func load(from fileURL: URL, options: AVMusicSequenceLoadOptions = []) throws
   func load(from data: Data, options: AVMusicSequenceLoadOptions = []) throws
   func write(to fileURL: URL, smpteResolution resolution: Int, replaceExisting replace: Bool) throws
-  func data(withSMPTEResolution SMPTEResolution: Int, error outError: ErrorPointer) -> Data
+  func data(smpteResolution SMPTEResolution: Int, error outError: ErrorPointer) -> Data
   func seconds(forBeats beats: AVMusicTimeStamp) -> TimeInterval
   func beats(forSeconds seconds: TimeInterval) -> AVMusicTimeStamp
   var tracks: [AVMusicTrack] { get }
