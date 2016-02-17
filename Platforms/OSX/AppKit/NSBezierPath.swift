@@ -82,7 +82,7 @@ class NSBezierPath : Object, Copying, Coding {
   func setAssociatedPoints(points: PointArray, at index: Int)
   func append(path: NSBezierPath)
   func append(rect: Rect)
-  func append(points points: PointArray, count: Int)
+  func append(points: PointArray, count: Int)
   func appendWithOval(in rect: Rect)
   func appendWithArc(center center: Point, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
   func appendWithArc(center center: Point, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat)

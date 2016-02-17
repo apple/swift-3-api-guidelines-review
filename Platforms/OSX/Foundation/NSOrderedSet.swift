@@ -99,7 +99,7 @@ class MutableOrderedSet : OrderedSet {
 }
 extension MutableOrderedSet {
   func add(object: AnyObject)
-  func addObjects(objects: UnsafePointer<AnyObject?>, count: Int)
+  func add(objects: UnsafePointer<AnyObject?>, count: Int)
   func addObjects(from array: [AnyObject])
   func exchangeObject(at idx1: Int, withObjectAt idx2: Int)
   func moveObjects(at indexes: IndexSet, to idx: Int)
@@ -107,7 +107,7 @@ extension MutableOrderedSet {
   func setObject(obj: AnyObject, at idx: Int)
   @available(OSX 10.8, *)
   subscript(idx: Int) -> AnyObject
-  func replaceObjects(in range: NSRange, withObjects objects: UnsafePointer<AnyObject?>, count: Int)
+  func replaceObjects(in range: NSRange, with objects: UnsafePointer<AnyObject?>, count: Int)
   func replaceObjects(at indexes: IndexSet, with objects: [AnyObject])
   func removeObjects(in range: NSRange)
   func removeObjects(at indexes: IndexSet)
