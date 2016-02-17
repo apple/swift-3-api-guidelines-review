@@ -24,7 +24,7 @@ class AVSampleBufferDisplayLayer : CALayer {
   init?(coder aDecoder: Coder)
 }
 extension AVSampleBufferDisplayLayer {
-  func enqueueSampleBuffer(sampleBuffer: CMSampleBuffer)
+  func enqueue(sampleBuffer: CMSampleBuffer)
   func flush()
   func flushAndRemoveImage()
   var isReadyForMoreMediaData: Bool { get }

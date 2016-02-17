@@ -16,8 +16,8 @@ struct NotificationCoalescing : OptionSetType {
 class NotificationQueue : Object {
   class func defaultQueue() -> NotificationQueue
   init(notificationCenter: NotificationCenter)
-  func enqueueNotification(notification: Notification, postingStyle: PostingStyle)
-  func enqueueNotification(notification: Notification, postingStyle: PostingStyle, coalesceMask: NotificationCoalescing, forModes modes: [String]?)
+  func enqueue(notification: Notification, postingStyle: PostingStyle)
+  func enqueue(notification: Notification, postingStyle: PostingStyle, coalesceMask: NotificationCoalescing, forModes modes: [String]?)
   func dequeueNotifications(matching notification: Notification, coalesceMask: Int)
   convenience init()
 }
