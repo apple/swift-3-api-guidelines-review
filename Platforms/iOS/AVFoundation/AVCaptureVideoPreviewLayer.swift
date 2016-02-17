@@ -13,11 +13,11 @@ class AVCaptureVideoPreviewLayer : CALayer {
   @available(iOS 6.0, *)
   func captureDevicePointOfInterest(for pointInLayer: CGPoint) -> CGPoint
   @available(iOS 6.0, *)
-  func pointForCaptureDevicePoint(ofInterest captureDevicePointOfInterest: CGPoint) -> CGPoint
+  func pointForCaptureDevicePointOf(interest captureDevicePointOfInterest: CGPoint) -> CGPoint
   @available(iOS 7.0, *)
   func metadataOutputRectOfInterest(for rectInLayerCoordinates: CGRect) -> CGRect
   @available(iOS 7.0, *)
-  func rectForMetadataOutputRect(ofInterest rectInMetadataOutputCoordinates: CGRect) -> CGRect
+  func rectForMetadataOutputRectOf(interest rectInMetadataOutputCoordinates: CGRect) -> CGRect
   @available(iOS 6.0, *)
   func transformedMetadataObject(for metadataObject: AVMetadataObject!) -> AVMetadataObject!
   init()

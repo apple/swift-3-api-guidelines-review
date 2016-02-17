@@ -16,9 +16,9 @@ protocol SCNShadable : ObjectProtocol {
   @available(iOS 8.0, *)
   optional var program: SCNProgram? { get set }
   @available(iOS 8.0, *)
-  optional func handleBinding(ofSymbol symbol: String, using block: SCNBindingBlock? = nil)
+  optional func handleBindingOf(symbol symbol: String, using block: SCNBindingBlock? = nil)
   @available(iOS 8.0, *)
-  optional func handleUnbinding(ofSymbol symbol: String, using block: SCNBindingBlock? = nil)
+  optional func handleUnbindingOf(symbol symbol: String, using block: SCNBindingBlock? = nil)
   @available(iOS 8.0, *)
   optional var shaderModifiers: [String : String]? { get set }
 }
@@ -32,7 +32,7 @@ class SCNProgram : Object, Copying, SecureCoding {
   @available(iOS 9.0, *)
   var fragmentFunctionName: String?
   @available(iOS 9.0, *)
-  func handleBinding(ofBufferNamed name: String, frequency: SCNBufferFrequency, using block: SCNBufferBindingBlock)
+  func handleBindingOf(bufferNamed name: String, frequency: SCNBufferFrequency, using block: SCNBufferBindingBlock)
   @available(iOS 8.0, *)
   var isOpaque: Bool
   func setSemantic(semantic: String?, forSymbol symbol: String, options: [String : AnyObject]? = [:])

@@ -44,8 +44,8 @@ extension NSArray {
   func description(withLocale locale: AnyObject?, indent level: Int) -> String
   func firstObjectCommon(with otherArray: [AnyObject]) -> AnyObject?
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, range: NSRange)
-  func index(of anObject: AnyObject) -> Int
-  func index(of anObject: AnyObject, in range: NSRange) -> Int
+  func indexOf(anObject: AnyObject) -> Int
+  func indexOf(anObject: AnyObject, in range: NSRange) -> Int
   func indexOfObjectIdentical(to anObject: AnyObject) -> Int
   func indexOfObjectIdentical(to anObject: AnyObject, in range: NSRange) -> Int
   func isEqual(to otherArray: [AnyObject]) -> Bool
@@ -87,7 +87,7 @@ extension NSArray {
   @available(iOS 4.0, *)
   func sortedArray(opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
   @available(iOS 4.0, *)
-  func index(of obj: AnyObject, inSortedRange r: NSRange, options opts: BinarySearchingOptions = [], usingComparator cmp: Comparator) -> Int
+  func indexOf(obj: AnyObject, inSortedRange r: NSRange, options opts: BinarySearchingOptions = [], usingComparator cmp: Comparator) -> Int
 }
 struct BinarySearchingOptions : OptionSetType {
   init(rawValue: UInt)

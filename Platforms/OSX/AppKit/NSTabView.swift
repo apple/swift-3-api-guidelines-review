@@ -36,7 +36,7 @@ class NSTabView : NSView {
   func tabViewItem(at point: Point) -> NSTabViewItem?
   var contentRect: Rect { get }
   var numberOfTabViewItems: Int { get }
-  func index(of tabViewItem: NSTabViewItem) -> Int
+  func indexOf(tabViewItem: NSTabViewItem) -> Int
   func tabViewItem(at index: Int) -> NSTabViewItem
   func indexOfTabViewItem(withIdentifier identifier: AnyObject) -> Int
   init(frame frameRect: Rect)
@@ -71,5 +71,5 @@ protocol NSTabViewDelegate : ObjectProtocol {
   optional func tabView(tabView: NSTabView, shouldSelect tabViewItem: NSTabViewItem?) -> Bool
   optional func tabView(tabView: NSTabView, willSelect tabViewItem: NSTabViewItem?)
   optional func tabView(tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?)
-  optional func tabViewDidChangeNumber(ofTabViewItems tabView: NSTabView)
+  optional func tabViewDidChangeNumberOf(tabViewItems tabView: NSTabView)
 }

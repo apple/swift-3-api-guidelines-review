@@ -98,9 +98,9 @@ extension NSViewController {
 }
 protocol NSViewControllerPresentationAnimator : ObjectProtocol {
   @available(OSX 10.10, *)
-  func animatePresentation(of viewController: NSViewController, from fromViewController: NSViewController)
+  func animatePresentationOf(viewController: NSViewController, from fromViewController: NSViewController)
   @available(OSX 10.10, *)
-  func animateDismissal(of viewController: NSViewController, from fromViewController: NSViewController)
+  func animateDismissalOf(viewController: NSViewController, from fromViewController: NSViewController)
 }
 extension NSViewController {
   @available(OSX 10.10, *)

@@ -81,7 +81,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   unowned(unsafe) var window: @sil_unmanaged NSWindow? { get }
   unowned(unsafe) var superview: @sil_unmanaged NSView? { get }
   var subviews: [NSView]
-  func isDescendant(of aView: NSView) -> Bool
+  func isDescendantOf(aView: NSView) -> Bool
   func ancestorShared(with aView: NSView) -> NSView?
   unowned(unsafe) var opaqueAncestor: @sil_unmanaged NSView? { get }
   var isHidden: Bool
@@ -880,7 +880,7 @@ extension NSView {
   func adjustPageWidthNew(newRight: UnsafeMutablePointer<CGFloat>, left oldLeft: CGFloat, right oldRight: CGFloat, limit rightLimit: CGFloat)
   func adjustPageHeightNew(newBottom: UnsafeMutablePointer<CGFloat>, top oldTop: CGFloat, bottom oldBottom: CGFloat, limit bottomLimit: CGFloat)
   func rect(forPage page: Int) -> Rect
-  func location(ofPrint aRect: Rect) -> Point
+  func locationOf(print aRect: Rect) -> Point
   func drawPageBorder(borderSize: Size)
   @NSCopying var pageHeader: AttributedString { get }
   @NSCopying var pageFooter: AttributedString { get }

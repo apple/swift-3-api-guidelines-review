@@ -21,8 +21,8 @@ class MDLVoxelArray : Object {
   func union(voxels voxels: MDLVoxelArray)
   func difference(withVoxels voxels: MDLVoxelArray)
   func intersect(voxels voxels: MDLVoxelArray)
-  func index(ofSpatialLocation location: vector_float3) -> MDLVoxelIndex
-  func spatialLocation(ofIndex index: MDLVoxelIndex) -> vector_float3
+  func indexOf(spatialLocation location: vector_float3) -> MDLVoxelIndex
+  func spatialLocationOf(index index: MDLVoxelIndex) -> vector_float3
   func voxelBoundingBox(atIndex index: MDLVoxelIndex) -> MDLAxisAlignedBoundingBox
   var count: Int { get }
   var voxelIndexExtent: MDLVoxelIndexExtent { get }

@@ -26,7 +26,7 @@ class CharacterSet : Object, Copying, MutableCopying, Coding {
   @NSCopying var bitmapRepresentation: Data { get }
   @NSCopying var inverted: CharacterSet { get }
   func longCharacterIsMember(theLongChar: UTF32Char) -> Bool
-  func isSuperset(of theOtherSet: CharacterSet) -> Bool
+  func isSupersetOf(theOtherSet: CharacterSet) -> Bool
   func hasMember(inPlane thePlane: UInt8) -> Bool
   convenience init()
   func copy(with zone: Zone = nil) -> AnyObject

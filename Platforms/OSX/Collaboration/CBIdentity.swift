@@ -19,7 +19,7 @@ class CBIdentity : Object, Coding, Copying {
   var image: NSImage? { get }
   var persistentReference: Data? { get }
   var isHidden: Bool { get }
-  func isMember(ofGroup group: CBGroupIdentity) -> Bool
+  func isMemberOf(group group: CBGroupIdentity) -> Bool
   init()
   @available(OSX 10.5, *)
   func encode(with aCoder: Coder)
