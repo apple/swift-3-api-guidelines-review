@@ -5,8 +5,8 @@ class PHFetchResult : Object, Copying, FastEnumeration {
   func object(at index: Int) -> AnyObject
   subscript(idx: Int) -> AnyObject { get }
   func contains(anObject: AnyObject) -> Bool
-  func indexOf(anObject: AnyObject) -> Int
-  func indexOf(anObject: AnyObject, in range: NSRange) -> Int
+  func index(of anObject: AnyObject) -> Int
+  func index(of anObject: AnyObject, in range: NSRange) -> Int
   var firstObject: AnyObject? { get }
   var lastObject: AnyObject? { get }
   func objects(at indexes: IndexSet) -> [AnyObject]

@@ -28,7 +28,7 @@ class HashTable : Object, Copying, Coding, FastEnumeration {
   func contains(anObject: AnyObject?) -> Bool
   func intersects(other: HashTable) -> Bool
   func isEqual(to other: HashTable) -> Bool
-  func isSubsetOf(other: HashTable) -> Bool
+  func isSubset(of other: HashTable) -> Bool
   func intersect(other: HashTable)
   func union(other: HashTable)
   func minus(other: HashTable)

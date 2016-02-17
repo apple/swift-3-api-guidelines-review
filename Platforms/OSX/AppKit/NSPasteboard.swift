@@ -48,7 +48,7 @@ class NSPasteboard : Object {
   @available(OSX 10.6, *)
   var pasteboardItems: [NSPasteboardItem]? { get }
   @available(OSX 10.6, *)
-  func indexOf(pasteboardItem: NSPasteboardItem) -> Int
+  func index(of pasteboardItem: NSPasteboardItem) -> Int
   @available(OSX 10.6, *)
   func canReadItemWithDataConforming(toTypes types: [String]) -> Bool
   @available(OSX 10.6, *)

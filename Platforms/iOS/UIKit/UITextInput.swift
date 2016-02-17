@@ -105,7 +105,7 @@ protocol UITextInput : UIKeyInput {
   @available(iOS 3.2, *)
   optional func position(within range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  optional func characterOffsetOf(position: UITextPosition, within range: UITextRange) -> Int
+  optional func characterOffset(of position: UITextPosition, within range: UITextRange) -> Int
   @available(iOS 2.0, *)
   optional var textInputView: UIView { get }
   optional var selectionAffinity: UITextStorageDirection { get set }

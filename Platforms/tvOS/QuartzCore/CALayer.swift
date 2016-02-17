@@ -130,8 +130,8 @@ extension Object {
   func display(layer: CALayer)
   class func draw(layer: CALayer, in ctx: CGContext)
   func draw(layer: CALayer, in ctx: CGContext)
-  class func layoutSublayersOf(layer: CALayer)
-  func layoutSublayersOf(layer: CALayer)
+  class func layoutSublayers(of layer: CALayer)
+  func layoutSublayers(of layer: CALayer)
   class func action(for layer: CALayer, forKey event: String) -> CAAction?
   func action(for layer: CALayer, forKey event: String) -> CAAction?
 }

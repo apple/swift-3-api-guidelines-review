@@ -43,7 +43,7 @@ extension NSSet {
   func description(withLocale locale: AnyObject?) -> String
   func intersects(otherSet: Set<Object>) -> Bool
   func isEqual(to otherSet: Set<Object>) -> Bool
-  func isSubsetOf(otherSet: Set<Object>) -> Bool
+  func isSubset(of otherSet: Set<Object>) -> Bool
   @available(OSX 10.5, *)
   func adding(anObject: AnyObject) -> Set<Object>
   @available(OSX 10.5, *)

@@ -120,7 +120,7 @@ class UITextField : UIControl, UITextInput, Coding {
   @available(iOS 3.2, *)
   func position(within range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func characterOffsetOf(position: UITextPosition, within range: UITextRange) -> Int
+  func characterOffset(of position: UITextPosition, within range: UITextRange) -> Int
   @available(iOS 2.0, *)
   var textInputView: UIView { get }
   @available(iOS 2.0, *)
