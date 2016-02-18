@@ -10,5 +10,5 @@ class IMServicePlugInMessage : Object, Coding, Copying {
   init()
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }

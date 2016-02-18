@@ -24,14 +24,14 @@ class GKRandomSource : Object, GKRandom, SecureCoding, Copying {
   @available(iOS 9.0, *)
   func encode(with aCoder: Coder)
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class GKARC4RandomSource : GKRandomSource {
   @NSCopying var seed: Data
   convenience init()
   init(seed: Data)
-  func dropValues(count count: Int)
+  func dropValues(withCount count: Int)
   init(coder aDecoder: Coder)
 }
 @available(iOS 9.0, *)

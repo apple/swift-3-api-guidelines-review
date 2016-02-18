@@ -4,7 +4,7 @@ class NEPacketTunnelProvider : NETunnelProvider {
   @available(iOS 9.0, *)
   func startTunnel(options options: [String : Object]? = [:], completionHandler: (Error?) -> Void)
   @available(iOS 9.0, *)
-  func stopTunnel(reason: NEProviderStopReason, completionHandler: () -> Void)
+  func stopTunnel(with reason: NEProviderStopReason, completionHandler: () -> Void)
   @available(iOS 9.0, *)
   func cancelTunnelWithError(error: Error?)
   @available(iOS 9.0, *)

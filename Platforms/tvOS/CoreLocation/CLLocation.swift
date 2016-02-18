@@ -33,7 +33,7 @@ class CLFloor : Object, Copying, SecureCoding {
   var level: Int { get }
   init()
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
@@ -58,7 +58,7 @@ class CLLocation : Object, Copying, SecureCoding {
   func distance(from location: CLLocation) -> CLLocationDistance
   init()
   @available(tvOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(tvOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 2.0, *)

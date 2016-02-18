@@ -11,7 +11,7 @@ class CNLabeledValue : Object, Copying, SecureCoding {
   class func localizedString(forLabel label: String) -> String
   init()
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)

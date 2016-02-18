@@ -48,6 +48,6 @@ extension CKContainer {
 }
 extension CKContainer {
   func fetchUserRecordID(completionHandler completionHandler: (CKRecordID?, Error?) -> Void)
-  func discoverUserInfo(emailAddress email: String, completionHandler: (CKDiscoveredUserInfo?, Error?) -> Void)
-  func discoverUserInfo(userRecordID userRecordID: CKRecordID, completionHandler: (CKDiscoveredUserInfo?, Error?) -> Void)
+  func discoverUserInfo(withEmailAddress email: String, completionHandler: (CKDiscoveredUserInfo?, Error?) -> Void)
+  func discoverUserInfo(withUserRecordID userRecordID: CKRecordID, completionHandler: (CKDiscoveredUserInfo?, Error?) -> Void)
 }

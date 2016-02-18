@@ -4,7 +4,7 @@ class AVAssetTrack : Object, Copying, AVAsynchronousKeyValueLoading {
   weak var asset: @sil_weak AVAsset? { get }
   var trackID: CMPersistentTrackID { get }
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
   func statusOfValue(forKey key: String, error outError: ErrorPointer) -> AVKeyValueStatus
   @available(OSX 10.7, *)
@@ -77,7 +77,7 @@ extension AVAssetTrack {
   @available(OSX 10.10, *)
   var canProvideSampleCursors: Bool { get }
   @available(OSX 10.10, *)
-  func makeSampleCursor(presentationTimeStamp presentationTimeStamp: CMTime) -> AVSampleCursor?
+  func makeSampleCursor(withPresentationTimeStamp presentationTimeStamp: CMTime) -> AVSampleCursor?
   @available(OSX 10.10, *)
   func makeSampleCursorAtFirstSampleInDecodeOrder() -> AVSampleCursor?
   @available(OSX 10.10, *)

@@ -13,9 +13,9 @@ class AVTimedMetadataGroup : AVMetadataGroup, Copying, MutableCopying {
   var items: [AVMetadataItem] { get }
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
 }
 extension AVTimedMetadataGroup {
   @available(OSX 10.10, *)
@@ -38,9 +38,9 @@ class AVDateRangeMetadataGroup : AVMetadataGroup, Copying, MutableCopying {
   var items: [AVMetadataItem] { get }
   init()
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.11, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class AVMutableDateRangeMetadataGroup : AVDateRangeMetadataGroup {

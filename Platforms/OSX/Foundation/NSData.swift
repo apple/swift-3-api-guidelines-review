@@ -44,8 +44,8 @@ class Data : Object, Copying, MutableCopying, SecureCoding {
   var length: Int { get }
   var bytes: UnsafePointer<Void> { get }
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)

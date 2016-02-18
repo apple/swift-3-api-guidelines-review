@@ -66,7 +66,7 @@ class GLKTextureInfo : Object, Copying {
   var containsMipmaps: Bool { get }
   init()
   @available(tvOS 5.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 typealias GLKTextureLoaderCallback = (GLKTextureInfo?, Error?) -> Void
 @available(tvOS 5.0, *)

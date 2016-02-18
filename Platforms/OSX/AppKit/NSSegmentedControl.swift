@@ -27,7 +27,7 @@ enum NSSegmentStyle : Int {
 class NSSegmentedControl : NSControl {
   var segmentCount: Int
   var selectedSegment: Int
-  func selectSegment(tag tag: Int) -> Bool
+  func selectSegment(withTag tag: Int) -> Bool
   func setWidth(width: CGFloat, forSegment segment: Int)
   func width(forSegment segment: Int) -> CGFloat
   func setImage(image: NSImage?, forSegment segment: Int)

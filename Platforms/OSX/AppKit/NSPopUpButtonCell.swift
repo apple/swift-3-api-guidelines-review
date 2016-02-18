@@ -14,10 +14,10 @@ class NSPopUpButtonCell : NSMenuItemCell {
   var preferredEdge: RectEdge
   var usesItemFromMenu: Bool
   var altersStateOfSelectedItem: Bool
-  func addItem(title title: String)
-  func addItems(titles itemTitles: [String])
-  func insertItem(title title: String, at index: Int)
-  func removeItem(title title: String)
+  func addItem(withTitle title: String)
+  func addItems(withTitles itemTitles: [String])
+  func insertItem(withTitle title: String, at index: Int)
+  func removeItem(withTitle title: String)
   func removeItem(at index: Int)
   func removeAllItems()
   var itemArray: [NSMenuItem] { get }
@@ -32,8 +32,8 @@ class NSPopUpButtonCell : NSMenuItemCell {
   var lastItem: NSMenuItem? { get }
   func select(item: NSMenuItem?)
   func selectItem(at index: Int)
-  func selectItem(title title: String)
-  func selectItem(tag tag: Int) -> Bool
+  func selectItem(withTitle title: String)
+  func selectItem(withTag tag: Int) -> Bool
   func setTitle(aString: String?)
   var selectedItem: NSMenuItem? { get }
   var indexOfSelectedItem: Int { get }
@@ -41,9 +41,9 @@ class NSPopUpButtonCell : NSMenuItemCell {
   func itemTitle(at index: Int) -> String
   var itemTitles: [String] { get }
   var titleOfSelectedItem: String? { get }
-  func attachPopUp(frame cellFrame: Rect, in controlView: NSView)
+  func attachPopUp(withFrame cellFrame: Rect, in controlView: NSView)
   func dismissPopUp()
-  func performClick(frame frame: Rect, in controlView: NSView)
+  func performClick(withFrame frame: Rect, in controlView: NSView)
   var arrowPosition: NSPopUpArrowPosition
   convenience init(textCell aString: String)
   convenience init(imageCell image: NSImage?)

@@ -91,7 +91,7 @@ class NSPrintInfo : Object, Copying, Coding {
   @available(OSX 10.9, *)
   func takeSettings(from inPDFInfo: NSPDFInfo)
   convenience init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
 }

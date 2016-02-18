@@ -25,7 +25,7 @@ class ODNode : Object {
   @available(OSX 10.6, *)
   func createRecord(withRecordType inRecordType: String!, name inRecordName: String!, attributes inAttributes: [Object : AnyObject]! = [:]) throws -> ODRecord
   @available(OSX 10.6, *)
-  func record(recordType inRecordType: String!, name inRecordName: String!, attributes inAttributes: AnyObject!) throws -> ODRecord
+  func record(withRecordType inRecordType: String!, name inRecordName: String!, attributes inAttributes: AnyObject!) throws -> ODRecord
   @available(OSX 10.6, *)
   func customCall(inCustomCode: Int, send inSendData: Data!) throws -> Data
   @available(OSX 10.9, *)

@@ -54,7 +54,7 @@ class AVSpeechUtterance : Object, Copying, SecureCoding {
   var postUtteranceDelay: TimeInterval
   init()
   @available(tvOS 7.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(tvOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 7.0, *)

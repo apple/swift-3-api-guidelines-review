@@ -11,7 +11,7 @@ class NSAlert : Object {
   var messageText: String
   var informativeText: String
   var icon: NSImage!
-  func addButton(title title: String) -> NSButton
+  func addButton(withTitle title: String) -> NSButton
   var buttons: [NSButton] { get }
   var showsHelp: Bool
   var helpAnchor: String?

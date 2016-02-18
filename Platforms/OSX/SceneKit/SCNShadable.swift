@@ -48,7 +48,7 @@ class SCNProgram : Object, Copying, SecureCoding {
   var library: MTLLibrary?
   init()
   @available(OSX 10.8, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)

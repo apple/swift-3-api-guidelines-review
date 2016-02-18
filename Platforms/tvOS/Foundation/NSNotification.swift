@@ -6,7 +6,7 @@ class Notification : Object, Copying, Coding {
   @available(tvOS 4.0, *)
   init(name: String, object: AnyObject?, userInfo: [Object : AnyObject]? = [:])
   init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   func encode(with aCoder: Coder)
 }
 extension Notification {

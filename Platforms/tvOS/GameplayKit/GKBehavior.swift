@@ -14,5 +14,5 @@ class GKBehavior : Object, FastEnumeration {
   subscript(goal: GKGoal) -> Number
   init()
   @available(tvOS 9.0, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(with state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

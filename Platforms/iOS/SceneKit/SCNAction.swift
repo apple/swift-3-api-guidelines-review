@@ -50,8 +50,8 @@ class SCNAction : Object, Copying, SecureCoding {
   class func group(actions: [SCNAction]) -> SCNAction
   class func repeatAction(action: SCNAction, count: Int) -> SCNAction
   class func repeatForever(action: SCNAction) -> SCNAction
-  class func fadeIn(duration sec: TimeInterval) -> SCNAction
-  class func fadeOut(duration sec: TimeInterval) -> SCNAction
+  class func fadeIn(withDuration sec: TimeInterval) -> SCNAction
+  class func fadeOut(withDuration sec: TimeInterval) -> SCNAction
   class func fadeOpacity(by factor: CGFloat, duration sec: TimeInterval) -> SCNAction
   class func fadeOpacity(to opacity: CGFloat, duration sec: TimeInterval) -> SCNAction
   @available(iOS 9.0, *)
@@ -69,7 +69,7 @@ class SCNAction : Object, Copying, SecureCoding {
   class func play(source: SCNAudioSource, waitForCompletion wait: Bool) -> SCNAction
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)

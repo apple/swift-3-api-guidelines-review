@@ -8,7 +8,7 @@ class AVMediaSelectionGroup : Object, Copying {
   func mediaSelectionOption(withPropertyList plist: AnyObject) -> AVMediaSelectionOption?
   init()
   @available(OSX 10.8, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 extension AVMediaSelectionGroup {
   class func playableMediaSelectionOptions(from mediaSelectionOptions: [AVMediaSelectionOption]) -> [AVMediaSelectionOption]
@@ -33,10 +33,10 @@ class AVMediaSelectionOption : Object, Copying {
   func associatedMediaSelectionOption(in mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
   func propertyList() -> AnyObject
   @available(OSX 10.9, *)
-  func displayName(locale: Locale) -> String
+  func displayName(with locale: Locale) -> String
   @available(OSX 10.9, *)
   var displayName: String { get }
   init()
   @available(OSX 10.8, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }

@@ -29,7 +29,7 @@ class SCNTechnique : Object, SCNAnimatable, Copying, SecureCoding {
   @available(iOS 8.0, *)
   func removeAnimation(forKey key: String, fadeOutDuration duration: CGFloat)
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)

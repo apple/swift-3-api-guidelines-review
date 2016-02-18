@@ -14,8 +14,8 @@ extension GKFriendRequestComposeViewController {
   @available(iOS 8.0, *)
   func addRecipientPlayers(players: [GKPlayer])
   @available(iOS, introduced=4.2, deprecated=8.0, message="use addRecipientPlayers:")
-  func addRecipients(playerIDs playerIDs: [String])
-  func addRecipients(emailAddresses emailAddresses: [String])
+  func addRecipients(withPlayerIDs playerIDs: [String])
+  func addRecipients(withEmailAddresses emailAddresses: [String])
   unowned(unsafe) var composeViewDelegate: @sil_unmanaged GKFriendRequestComposeViewControllerDelegate?
 }
 protocol GKFriendRequestComposeViewControllerDelegate {

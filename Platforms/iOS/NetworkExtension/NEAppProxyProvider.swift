@@ -4,7 +4,7 @@ class NEAppProxyProvider : NETunnelProvider {
   @available(iOS 9.0, *)
   func startProxy(options options: [String : AnyObject]? = [:], completionHandler: (Error?) -> Void)
   @available(iOS 9.0, *)
-  func stopProxy(reason: NEProviderStopReason, completionHandler: () -> Void)
+  func stopProxy(with reason: NEProviderStopReason, completionHandler: () -> Void)
   @available(iOS 9.0, *)
   func cancelProxyWithError(error: Error?)
   @available(iOS 9.0, *)

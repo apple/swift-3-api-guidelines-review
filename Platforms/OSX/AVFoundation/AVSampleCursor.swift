@@ -6,12 +6,12 @@ class AVSampleCursor : Object, Copying {
   func step(byDecode deltaDecodeTime: CMTime, wasPinned outWasPinned: UnsafeMutablePointer<ObjCBool>) -> CMTime
   func step(byPresentationTime deltaPresentationTime: CMTime, wasPinned outWasPinned: UnsafeMutablePointer<ObjCBool>) -> CMTime
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 extension AVSampleCursor {
   var presentationTimeStamp: CMTime { get }
   var decodeTimeStamp: CMTime { get }
-  func comparePositionInDecodeOrder(positionOf cursor: AVSampleCursor) -> ComparisonResult
+  func comparePositionInDecodeOrder(withPositionOf cursor: AVSampleCursor) -> ComparisonResult
   func samples(withEarlierDecodeTimeStampsMayHaveLaterPresentationTimeStampsThanCursor cursor: AVSampleCursor) -> Bool
   func samples(withLaterDecodeTimeStampsMayHaveEarlierPresentationTimeStampsThanCursor cursor: AVSampleCursor) -> Bool
 }

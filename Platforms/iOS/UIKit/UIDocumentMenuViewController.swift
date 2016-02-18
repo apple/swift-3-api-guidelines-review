@@ -17,7 +17,7 @@ class UIDocumentMenuViewController : UIViewController {
   init(documentTypes allowedUTIs: [String], in mode: UIDocumentPickerMode)
   init(url: URL, in mode: UIDocumentPickerMode)
   init?(coder aDecoder: Coder)
-  func addOption(title title: String, image: UIImage?, order: UIDocumentMenuOrder, handler: () -> Void)
+  func addOption(withTitle title: String, image: UIImage?, order: UIDocumentMenuOrder, handler: () -> Void)
   weak var delegate: @sil_weak UIDocumentMenuDelegate?
   convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
   convenience init()

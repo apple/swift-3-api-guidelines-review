@@ -13,7 +13,7 @@ class UIPrintFormatter : Object, Copying {
   func draw(in rect: CGRect, forPageAt pageIndex: Int)
   init()
   @available(iOS 4.2, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 4.2, *)
 class UISimpleTextPrintFormatter : UIPrintFormatter {

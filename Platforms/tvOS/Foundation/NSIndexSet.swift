@@ -43,8 +43,8 @@ class IndexSet : Object, Copying, MutableCopying, SecureCoding {
   @available(tvOS 5.0, *)
   func enumerateRanges(in range: NSRange, options opts: EnumerationOptions = [], using block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   convenience init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)

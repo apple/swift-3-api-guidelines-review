@@ -9,5 +9,5 @@ class WebHistoryItem : Object, Copying {
   var alternateTitle: String!
   var icon: NSImage! { get }
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }

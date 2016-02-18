@@ -8,5 +8,5 @@ class AVBMACAddress : Object, Copying {
   var isMulticast: Bool
   init()
   @available(OSX 10.8, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }

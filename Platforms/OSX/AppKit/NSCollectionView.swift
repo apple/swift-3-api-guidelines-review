@@ -58,7 +58,7 @@ class NSCollectionViewItem : NSViewController, Copying, NSCollectionViewElement 
   init?(coder: Coder)
   convenience init()
   @available(OSX 10.5, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.11, *)
   func prepareForReuse()
   @available(OSX 10.11, *)
@@ -122,7 +122,7 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.11, *)
   func register(nib: NSNib?, forSupplementaryViewOfKind kind: String, withIdentifier identifier: String)
   @available(OSX 10.11, *)
-  func makeItem(identifier identifier: String, for indexPath: IndexPath) -> NSCollectionViewItem
+  func makeItem(withIdentifier identifier: String, for indexPath: IndexPath) -> NSCollectionViewItem
   @available(OSX 10.11, *)
   func makeSupplementaryView(ofKind elementKind: String, withIdentifier identifier: String, for indexPath: IndexPath) -> NSView
   func newItem(forRepresentedObject object: AnyObject) -> NSCollectionViewItem

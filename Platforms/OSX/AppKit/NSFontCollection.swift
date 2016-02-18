@@ -12,7 +12,7 @@ class NSFontCollection : Object, Copying, MutableCopying, Coding {
   class func withAllAvailableDescriptors() -> NSFontCollection
   /*not inherited*/ init?(locale: Locale)
   class func show(collection: NSFontCollection, withName name: String, visibility: NSFontCollectionVisibility) throws
-  class func hide(name name: String, visibility: NSFontCollectionVisibility) throws
+  class func hide(withName name: String, visibility: NSFontCollectionVisibility) throws
   class func renameFontCollection(withName name: String, visibility: NSFontCollectionVisibility, toName name: String) throws
   class func allFontCollectionNames() -> [String]
   /*not inherited*/ init?(name: String)
@@ -25,9 +25,9 @@ class NSFontCollection : Object, Copying, MutableCopying, Coding {
   func matchingDescriptors(forFamily family: String, options: [String : Number]? = [:]) -> [NSFontDescriptor]?
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)

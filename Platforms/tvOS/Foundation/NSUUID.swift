@@ -7,7 +7,7 @@ class UUID : Object, Copying, SecureCoding {
   func getBytes(uuid: UnsafeMutablePointer<UInt8>)
   var uuidString: String { get }
   @available(tvOS 6.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(tvOS 6.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 6.0, *)

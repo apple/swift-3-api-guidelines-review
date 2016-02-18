@@ -50,7 +50,7 @@ class CIImage : Object, SecureCoding, Copying {
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 5.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 typealias CIFormat = Int32
 @available(iOS 6.0, *)

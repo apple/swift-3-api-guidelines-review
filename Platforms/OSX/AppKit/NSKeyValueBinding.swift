@@ -38,8 +38,8 @@ extension Object {
   func discardEditing()
   class func commitEditing() -> Bool
   func commitEditing() -> Bool
-  class func commitEditing(delegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func commitEditing(delegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  class func commitEditing(withDelegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func commitEditing(withDelegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
   class func commitEditingAndReturnError() throws
   @available(OSX 10.7, *)

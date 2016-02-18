@@ -19,7 +19,7 @@ class RegularExpression : Object, Copying, Coding {
   class func escapedPattern(for string: String) -> String
   convenience init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)

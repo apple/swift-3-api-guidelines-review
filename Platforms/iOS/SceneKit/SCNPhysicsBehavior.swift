@@ -70,7 +70,7 @@ class SCNPhysicsVehicleWheel : Object, Copying, SecureCoding {
   var suspensionRestLength: CGFloat
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)

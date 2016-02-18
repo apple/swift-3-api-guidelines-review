@@ -63,7 +63,7 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   @available(iOS 5.0, *)
   var storyboard: UIStoryboard? { get }
   @available(iOS 5.0, *)
-  func performSegue(identifier identifier: String, sender: AnyObject?)
+  func performSegue(withIdentifier identifier: String, sender: AnyObject?)
   @available(iOS 6.0, *)
   func shouldPerformSegue(withIdentifier identifier: String, sender: AnyObject?) -> Bool
   @available(iOS 5.0, *)
@@ -272,7 +272,7 @@ extension UIViewController : ExtensionRequestHandling {
   @available(iOS 8.0, *)
   var extensionContext: ExtensionContext? { get }
   @available(iOS 8.0, *)
-  func beginRequest(context: ExtensionContext)
+  func beginRequest(with context: ExtensionContext)
 }
 extension UIViewController {
   @available(iOS 8.0, *)
@@ -299,7 +299,7 @@ protocol UIViewControllerPreviewingDelegate : ObjectProtocol {
 }
 extension UIViewController {
   @available(iOS 9.0, *)
-  func registerForPreviewing(delegate: UIViewControllerPreviewingDelegate, sourceView: UIView) -> UIViewControllerPreviewing
+  func registerForPreviewing(with delegate: UIViewControllerPreviewingDelegate, sourceView: UIView) -> UIViewControllerPreviewing
   @available(iOS 9.0, *)
   func unregisterForPreviewing(withContext previewing: UIViewControllerPreviewing)
 }
@@ -325,7 +325,7 @@ class UIPreviewAction : Object, Copying, UIPreviewActionItem {
   convenience init(title: String, style: UIPreviewActionStyle, handler: (UIPreviewAction, UIViewController) -> Void)
   init()
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   var title: String { get }
 }
@@ -334,7 +334,7 @@ class UIPreviewActionGroup : Object, Copying, UIPreviewActionItem {
   convenience init(title: String, style: UIPreviewActionStyle, actions: [UIPreviewAction])
   init()
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   var title: String { get }
 }

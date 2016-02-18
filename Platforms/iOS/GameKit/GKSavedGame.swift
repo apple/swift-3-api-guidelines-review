@@ -11,7 +11,7 @@ class GKSavedGame : Object, Copying {
   func loadData(completionHandler handler: ((Data?, Error?) -> Void)? = nil)
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 extension GKLocalPlayer : GKSavedGameListener {
   @available(iOS 8.0, *)
@@ -19,7 +19,7 @@ extension GKLocalPlayer : GKSavedGameListener {
   @available(iOS 8.0, *)
   func saveGameData(data: Data, withName name: String, completionHandler handler: ((GKSavedGame?, Error?) -> Void)? = nil)
   @available(iOS 8.0, *)
-  func deleteSavedGames(name name: String, completionHandler handler: ((Error?) -> Void)? = nil)
+  func deleteSavedGames(withName name: String, completionHandler handler: ((Error?) -> Void)? = nil)
   @available(iOS 8.0, *)
   func resolveConflictingSavedGames(conflictingSavedGames: [GKSavedGame], with data: Data, completionHandler handler: (([GKSavedGame]?, Error?) -> Void)? = nil)
   @available(iOS 8.0, *)

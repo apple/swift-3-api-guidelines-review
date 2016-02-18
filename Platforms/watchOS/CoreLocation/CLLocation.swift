@@ -33,7 +33,7 @@ class CLFloor : Object, Copying, SecureCoding {
   var level: Int { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
@@ -58,7 +58,7 @@ class CLLocation : Object, Copying, SecureCoding {
   func distance(from location: CLLocation) -> CLLocationDistance
   init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)

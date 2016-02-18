@@ -5,9 +5,9 @@ class AttributedString : Object, Copying, MutableCopying, SecureCoding {
   func attributes(at location: Int, effectiveRange range: RangePointer) -> [String : AnyObject]
   init()
   @available(iOS 3.2, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 3.2, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
   @available(iOS 3.2, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 3.2, *)

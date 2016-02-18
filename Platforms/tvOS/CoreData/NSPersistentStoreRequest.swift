@@ -15,7 +15,7 @@ class NSPersistentStoreRequest : Object, Copying {
   var requestType: NSPersistentStoreRequestType { get }
   init()
   @available(tvOS 5.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 typealias NSPersistentStoreAsynchronousFetchResultCompletionBlock = (NSAsynchronousFetchResult) -> Void
 @available(tvOS 8.0, *)

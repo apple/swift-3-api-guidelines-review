@@ -21,7 +21,7 @@ class PHLivePhotoView : UIView {
   var livePhoto: PHLivePhoto?
   var isMuted: Bool
   var playbackGestureRecognizer: UIGestureRecognizer { get }
-  func startPlayback(playbackStyle: PHLivePhotoViewPlaybackStyle)
+  func startPlayback(with playbackStyle: PHLivePhotoViewPlaybackStyle)
   func stopPlayback()
   init(frame: CGRect)
   init?(coder aDecoder: Coder)

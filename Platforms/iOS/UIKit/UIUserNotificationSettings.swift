@@ -47,9 +47,9 @@ class UIUserNotificationCategory : Object, Copying, MutableCopying, SecureCoding
   var identifier: String? { get }
   func actions(for context: UIUserNotificationActionContext) -> [UIUserNotificationAction]?
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
@@ -76,9 +76,9 @@ class UIUserNotificationAction : Object, Copying, MutableCopying, SecureCoding {
   var isAuthenticationRequired: Bool { get }
   var isDestructive: Bool { get }
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)

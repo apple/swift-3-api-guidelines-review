@@ -8,7 +8,7 @@ class CAAnimation : Object, Coding, Copying, CAMediaTiming, CAAction {
   init()
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   var beginTime: CFTimeInterval
   var duration: CFTimeInterval
   var speed: Float

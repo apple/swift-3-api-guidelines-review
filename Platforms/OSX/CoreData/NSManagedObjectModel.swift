@@ -12,7 +12,7 @@ class NSManagedObjectModel : Object, Coding, Copying, FastEnumeration {
   func setEntities(entities: [NSEntityDescription], forConfiguration configuration: String)
   func setFetchRequestTemplate(fetchRequestTemplate: NSFetchRequest?, forName name: String)
   func fetchRequestTemplate(forName name: String) -> NSFetchRequest?
-  func fetchRequestFromTemplate(name name: String, substitutionVariables variables: [String : AnyObject]) -> NSFetchRequest?
+  func fetchRequestFromTemplate(withName name: String, substitutionVariables variables: [String : AnyObject]) -> NSFetchRequest?
   var localizationDictionary: [String : String]?
   @available(OSX 10.5, *)
   class func mergedModel(from bundles: [Bundle]?, forStoreMetadata metadata: [String : AnyObject]) -> NSManagedObjectModel?
@@ -30,9 +30,9 @@ class NSManagedObjectModel : Object, Coding, Copying, FastEnumeration {
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.4, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.4, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(with state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 struct __managedObjectModelFlags {
   var _isInUse: UInt32

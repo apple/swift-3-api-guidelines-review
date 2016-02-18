@@ -4,9 +4,9 @@ class AVAudioMix : Object, Copying, MutableCopying {
   var inputParameters: [AVAudioMixInputParameters] { get }
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.7, *)
 class AVMutableAudioMix : AVAudioMix {
@@ -23,9 +23,9 @@ class AVAudioMixInputParameters : Object, Copying, MutableCopying {
   func getVolumeRamp(for time: CMTime, startVolume: UnsafeMutablePointer<Float>, endVolume: UnsafeMutablePointer<Float>, timeRange: UnsafeMutablePointer<CMTimeRange>) -> Bool
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.7, *)
 class AVMutableAudioMixInputParameters : AVAudioMixInputParameters {

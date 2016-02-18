@@ -117,7 +117,7 @@ class UIApplication : UIResponder {
   @available(iOS 4.0, *)
   func beginBackgroundTask(expirationHandler handler: (() -> Void)? = nil) -> UIBackgroundTaskIdentifier
   @available(iOS 7.0, *)
-  func beginBackgroundTask(name taskName: String?, expirationHandler handler: (() -> Void)? = nil) -> UIBackgroundTaskIdentifier
+  func beginBackgroundTask(withName taskName: String?, expirationHandler handler: (() -> Void)? = nil) -> UIBackgroundTaskIdentifier
   @available(iOS 4.0, *)
   func endBackgroundTask(identifier: UIBackgroundTaskIdentifier)
   @available(iOS 7.0, *)

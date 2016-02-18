@@ -13,7 +13,7 @@ class UIActionSheet : UIView {
   weak var delegate: @sil_weak UIActionSheetDelegate?
   var title: String
   var actionSheetStyle: UIActionSheetStyle
-  func addButton(title title: String?) -> Int
+  func addButton(withTitle title: String?) -> Int
   func buttonTitle(at buttonIndex: Int) -> String?
   var numberOfButtons: Int { get }
   var cancelButtonIndex: Int
@@ -27,7 +27,7 @@ class UIActionSheet : UIView {
   @available(iOS 3.2, *)
   func show(from rect: CGRect, in view: UIView, animated: Bool)
   func show(in view: UIView)
-  func dismiss(clickedButtonIndex buttonIndex: Int, animated: Bool)
+  func dismiss(withClickedButtonIndex buttonIndex: Int, animated: Bool)
   init(frame: CGRect)
   init?(coder aDecoder: Coder)
   convenience init()

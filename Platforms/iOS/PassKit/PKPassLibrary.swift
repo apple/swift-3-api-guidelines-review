@@ -25,7 +25,7 @@ class PKPassLibrary : Object {
   @available(iOS 9.0, *)
   class func requestAutomaticPassPresentationSuppression(responseHandler responseHandler: (PKAutomaticPassPresentationSuppressionResult) -> Void) -> PKSuppressionRequestToken
   @available(iOS 9.0, *)
-  class func endAutomaticPassPresentationSuppression(requestToken requestToken: PKSuppressionRequestToken)
+  class func endAutomaticPassPresentationSuppression(withRequestToken requestToken: PKSuppressionRequestToken)
   @available(iOS 9.0, *)
   class func isSuppressingAutomaticPassPresentation() -> Bool
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use -[PKPassLibrary isPaymentPassActivationAvailable] instead")
@@ -33,14 +33,14 @@ class PKPassLibrary : Object {
   @available(iOS 9.0, *)
   func isPaymentPassActivationAvailable() -> Bool
   func passes() -> [PKPass]
-  func pass(passTypeIdentifier identifier: String, serialNumber: String) -> PKPass?
+  func pass(withPassTypeIdentifier identifier: String, serialNumber: String) -> PKPass?
   @available(iOS 8.0, *)
   func passes(of passType: PKPassType) -> [PKPass]
   @available(iOS 9.0, *)
   func remotePaymentPasses() -> [PKPaymentPass]
   func removePass(pass: PKPass)
   func containsPass(pass: PKPass) -> Bool
-  func replacePass(pass: PKPass) -> Bool
+  func replacePass(with pass: PKPass) -> Bool
   @available(iOS 7.0, *)
   func addPasses(passes: [PKPass], withCompletionHandler completion: ((PKPassLibraryAddPassesStatus) -> Void)? = nil)
   @available(iOS 8.3, *)

@@ -8,7 +8,7 @@ class Progress : Object {
   @available(OSX 10.11, *)
   /*not inherited*/ init(totalUnitCount unitCount: Int64, parent: Progress, pendingUnitCount portionOfParentTotalUnitCount: Int64)
   init(parent parentProgressOrNil: Progress?, userInfo userInfoOrNil: [Object : AnyObject]? = [:])
-  func becomeCurrent(pendingUnitCount unitCount: Int64)
+  func becomeCurrent(withPendingUnitCount unitCount: Int64)
   func resignCurrent()
   @available(OSX 10.11, *)
   func addChild(child: Progress, withPendingUnitCount inUnitCount: Int64)

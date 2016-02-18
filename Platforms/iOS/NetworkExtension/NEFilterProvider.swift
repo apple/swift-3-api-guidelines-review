@@ -12,7 +12,7 @@ class NEFilterProvider : NEProvider {
   @available(iOS 9.0, *)
   func startFilter(completionHandler completionHandler: (Error?) -> Void)
   @available(iOS 9.0, *)
-  func stopFilter(reason: NEProviderStopReason, completionHandler: () -> Void)
+  func stopFilter(with reason: NEProviderStopReason, completionHandler: () -> Void)
   @available(iOS 9.0, *)
   var filterConfiguration: NEFilterProviderConfiguration { get }
   init()
@@ -26,7 +26,7 @@ class NEFilterVerdict : Object, SecureCoding, Copying {
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class NEFilterNewFlowVerdict : NEFilterVerdict, SecureCoding, Copying {
@@ -48,9 +48,9 @@ class NEFilterNewFlowVerdict : NEFilterVerdict, SecureCoding, Copying {
 @available(iOS 9.0, *)
 class NEFilterControlVerdict : NEFilterNewFlowVerdict, SecureCoding, Copying {
   @available(iOS 9.0, *)
-  class func allow(updateRules updateRules: Bool) -> NEFilterControlVerdict
+  class func allow(withUpdateRules updateRules: Bool) -> NEFilterControlVerdict
   @available(iOS 9.0, *)
-  class func drop(updateRules updateRules: Bool) -> NEFilterControlVerdict
+  class func drop(withUpdateRules updateRules: Bool) -> NEFilterControlVerdict
   @available(iOS 9.0, *)
   class func updateRules() -> NEFilterControlVerdict
   init()

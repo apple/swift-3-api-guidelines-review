@@ -8,7 +8,7 @@ class Orthography : Object, Copying, Coding {
   init?(coder aDecoder: Coder)
   convenience init()
   @available(iOS 4.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 4.0, *)
   func encode(with aCoder: Coder)
 }

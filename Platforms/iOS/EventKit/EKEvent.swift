@@ -25,7 +25,7 @@ class EKEvent : EKCalendarItem {
   @NSCopying var endDate: Date
   @available(iOS 9.0, *)
   @NSCopying var structuredLocation: EKStructuredLocation?
-  func compareStartDate(other: EKEvent) -> ComparisonResult
+  func compareStartDate(with other: EKEvent) -> ComparisonResult
   var organizer: EKParticipant? { get }
   var availability: EKEventAvailability
   var status: EKEventStatus { get }

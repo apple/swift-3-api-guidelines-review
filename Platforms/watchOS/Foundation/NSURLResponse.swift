@@ -10,7 +10,7 @@ class URLResponse : Object, SecureCoding, Copying {
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 class HTTPURLResponse : URLResponse {
   @available(watchOS 2.0, *)

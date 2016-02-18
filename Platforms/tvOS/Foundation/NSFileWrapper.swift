@@ -37,7 +37,7 @@ class FileWrapper : Object, Coding {
   func write(to url: URL, options: FileWrapperWritingOptions = [], originalContentsURL: URL?) throws
   @NSCopying var serializedRepresentation: Data? { get }
   func add(child: FileWrapper) -> String
-  func addRegularFile(contents data: Data, preferredFilename fileName: String) -> String
+  func addRegularFile(withContents data: Data, preferredFilename fileName: String) -> String
   func remove(child: FileWrapper)
   var fileWrappers: [String : FileWrapper]? { get }
   func key(for child: FileWrapper) -> String?

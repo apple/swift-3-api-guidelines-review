@@ -47,7 +47,7 @@ class NSImageRep : Object, Copying, Coding {
   /*not inherited*/ init?(pasteboard: NSPasteboard)
   @available(OSX 10.6, *)
   func cgImage(forProposedRect proposedDestRect: UnsafeMutablePointer<Rect>, context: NSGraphicsContext?, hints: [String : AnyObject]?) -> CGImage?
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   func encode(with aCoder: Coder)
 }
 struct __repFlags {

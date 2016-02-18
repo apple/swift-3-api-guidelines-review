@@ -23,9 +23,9 @@ class AMAction : Object {
   @available(OSX 10.6, *)
   var progressValue: CGFloat
   @available(OSX 10.7, *)
-  func run(input input: AnyObject?) throws -> AnyObject
+  func run(withInput input: AnyObject?) throws -> AnyObject
   @available(OSX 10.5, *)
-  func runAsynchronously(input input: AnyObject?)
+  func runAsynchronously(withInput input: AnyObject?)
   @available(OSX 10.5, *)
   func willFinishRunning()
   @available(OSX 10.7, *)

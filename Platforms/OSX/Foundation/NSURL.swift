@@ -95,7 +95,7 @@ class URL : Object, SecureCoding, Copying, URLHandleClient {
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 
 extension URL : _FileReferenceLiteralConvertible {
@@ -356,7 +356,7 @@ class URLQueryItem : Object, SecureCoding, Copying {
   func encode(with aCoder: Coder)
   init?(coder aDecoder: Coder)
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 @available(OSX 10.9, *)
 class URLComponents : Object, Copying {
@@ -400,7 +400,7 @@ class URLComponents : Object, Copying {
   @available(OSX 10.10, *)
   var queryItems: [URLQueryItem]?
   @available(OSX 10.9, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 extension CharacterSet {
   @available(OSX 10.9, *)
@@ -455,7 +455,7 @@ class FileSecurity : Object, Copying, Coding {
   init?(coder aDecoder: Coder)
   convenience init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(OSX 10.7, *)
   func encode(with aCoder: Coder)
 }

@@ -18,7 +18,7 @@ class ConditionLock : Object, Locking {
   func lock(whenCondition condition: Int)
   func tryLock() -> Bool
   func tryWhenCondition(condition: Int) -> Bool
-  func unlock(condition condition: Int)
+  func unlock(withCondition condition: Int)
   func lock(before limit: Date) -> Bool
   func lock(whenCondition condition: Int, before limit: Date) -> Bool
   @available(OSX 10.5, *)

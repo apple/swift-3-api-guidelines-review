@@ -282,12 +282,12 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   func toggleFullScreen(sender: AnyObject?)
   var stringWithSavedFrame: String { get }
   func setFrameFrom(string: String)
-  func saveFrame(name name: String)
+  func saveFrame(usingName name: String)
   func setFrameUsingName(name: String, force: Bool) -> Bool
   func setFrameUsingName(name: String) -> Bool
   func setFrameAutosaveName(name: String) -> Bool
   var frameAutosaveName: String { get }
-  class func removeFrame(name name: String)
+  class func removeFrame(usingName name: String)
   func cacheImage(in aRect: Rect)
   func restoreCachedImage()
   func discardCachedImage()
@@ -346,7 +346,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   @available(OSX 10.11, *)
-  func performDrag(event: NSEvent)
+  func performDrag(with event: NSEvent)
   convenience init()
   init?(coder: Coder)
   @available(OSX 10.5, *)

@@ -46,7 +46,7 @@ class UITableViewRowAction : Object, Copying {
   @NSCopying var backgroundEffect: UIVisualEffect?
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class UITableViewFocusUpdateContext : UIFocusUpdateContext {
@@ -215,11 +215,11 @@ class UITableView : UIScrollView, Coding {
   var cellLayoutMarginsFollowReadableWidth: Bool
   var tableHeaderView: UIView?
   var tableFooterView: UIView?
-  func dequeueReusableCell(identifier identifier: String) -> UITableViewCell?
+  func dequeueReusableCell(withIdentifier identifier: String) -> UITableViewCell?
   @available(iOS 6.0, *)
-  func dequeueReusableCell(identifier identifier: String, for indexPath: IndexPath) -> UITableViewCell
+  func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell
   @available(iOS 6.0, *)
-  func dequeueReusableHeaderFooterView(identifier identifier: String) -> UITableViewHeaderFooterView?
+  func dequeueReusableHeaderFooterView(withIdentifier identifier: String) -> UITableViewHeaderFooterView?
   @available(iOS 5.0, *)
   func register(nib: UINib?, forCellReuseIdentifier identifier: String)
   @available(iOS 6.0, *)

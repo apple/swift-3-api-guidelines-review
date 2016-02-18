@@ -33,7 +33,7 @@ class MCSession : Object {
   func send(data: Data, toPeers peerIDs: [MCPeerID], with mode: MCSessionSendDataMode) throws
   func disconnect()
   func sendResource(at resourceURL: URL, withName resourceName: String, toPeer peerID: MCPeerID, withCompletionHandler completionHandler: ((Error?) -> Void)? = nil) -> Progress?
-  func startStream(name streamName: String, toPeer peerID: MCPeerID) throws -> OutputStream
+  func startStream(withName streamName: String, toPeer peerID: MCPeerID) throws -> OutputStream
   weak var delegate: @sil_weak MCSessionDelegate?
   var myPeerID: MCPeerID { get }
   var securityIdentity: [AnyObject]? { get }

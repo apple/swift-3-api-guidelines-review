@@ -84,7 +84,7 @@ class SCNMaterial : Object, SCNAnimatable, SCNShadable, Copying, SecureCoding {
   @available(iOS 8.0, *)
   var shaderModifiers: [String : String]?
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)

@@ -45,7 +45,7 @@ class HKBiologicalSexObject : Object, Copying, SecureCoding {
   var biologicalSex: HKBiologicalSex { get }
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
@@ -57,7 +57,7 @@ class HKBloodTypeObject : Object, Copying, SecureCoding {
   var bloodType: HKBloodType { get }
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
@@ -69,7 +69,7 @@ class HKFitzpatrickSkinTypeObject : Object, Copying, SecureCoding {
   var skinType: HKFitzpatrickSkinType { get }
   init()
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(zone: Zone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
