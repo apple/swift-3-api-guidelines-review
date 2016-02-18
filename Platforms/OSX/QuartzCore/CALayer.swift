@@ -140,11 +140,11 @@ extension Object {
 }
 protocol CAAction {
   @available(OSX 10.0, *)
-  func runAction(forKey event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
+  func run(forKey event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
 }
 extension Null : CAAction {
   @available(OSX 10.0, *)
-  func runAction(forKey event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
+  func run(forKey event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
 }
 extension Object {
   class func display(layer: CALayer)

@@ -50,7 +50,7 @@ class MTLTextureDescriptor : Object, Copying {
 protocol MTLTexture : MTLResource {
   var rootResource: MTLResource? { get }
   @available(OSX 10.11, *)
-  var parentTexture: MTLTexture? { get }
+  var parent: MTLTexture? { get }
   @available(OSX 10.11, *)
   var parentRelativeLevel: Int { get }
   @available(OSX 10.11, *)

@@ -25,8 +25,8 @@ extension Object {
 extension Object {
 }
 protocol DiscardableContent {
-  func beginContentAccess() -> Bool
-  func endContentAccess()
+  func beginAccess() -> Bool
+  func endAccess()
   func discardContentIfPossible()
   func isContentDiscarded() -> Bool
 }

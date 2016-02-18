@@ -18,7 +18,7 @@ class CAAnimation : Object, Coding, Copying, CAMediaTiming, CAAction {
   var autoreverses: Bool
   var fillMode: String
   @available(iOS 2.0, *)
-  func runAction(forKey event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
+  func run(forKey event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
 }
 extension Object {
   class func animationDidStart(anim: CAAnimation)

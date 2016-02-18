@@ -119,11 +119,11 @@ struct _CALayerIvars {
 }
 protocol CAAction {
   @available(tvOS 2.0, *)
-  func runAction(forKey event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
+  func run(forKey event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
 }
 extension Null : CAAction {
   @available(tvOS 2.0, *)
-  func runAction(forKey event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
+  func run(forKey event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
 }
 extension Object {
   class func display(layer: CALayer)

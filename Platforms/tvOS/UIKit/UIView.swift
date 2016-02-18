@@ -153,11 +153,11 @@ class UIView : UIResponder, Coding, UIAppearance, UIAppearanceContainer, UIDynam
   @available(tvOS 2.0, *)
   class func appearance() -> Self
   @available(tvOS 9.0, *)
-  class func appearanceWhenContained(inInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
+  class func whenContained(inInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
   @available(tvOS 8.0, *)
-  class func appearance(for trait: UITraitCollection) -> Self
+  class func forTraitCollection(trait: UITraitCollection) -> Self
   @available(tvOS 9.0, *)
-  class func appearance(for trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
+  class func forTraitCollection(trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
   @available(tvOS 9.0, *)
   var collisionBoundsType: UIDynamicItemCollisionBoundsType { get }
   @available(tvOS 9.0, *)

@@ -163,9 +163,9 @@ class PurgeableData : MutableData, DiscardableContent {
   init?(capacity: Int)
   init?(length: Int)
   @available(iOS 4.0, *)
-  func beginContentAccess() -> Bool
+  func beginAccess() -> Bool
   @available(iOS 4.0, *)
-  func endContentAccess()
+  func endAccess()
   @available(iOS 4.0, *)
   func discardContentIfPossible()
   @available(iOS 4.0, *)

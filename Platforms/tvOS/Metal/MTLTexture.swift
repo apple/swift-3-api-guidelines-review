@@ -48,7 +48,7 @@ class MTLTextureDescriptor : Object, Copying {
 protocol MTLTexture : MTLResource {
   var rootResource: MTLResource? { get }
   @available(tvOS 9.0, *)
-  var parentTexture: MTLTexture? { get }
+  var parent: MTLTexture? { get }
   @available(tvOS 9.0, *)
   var parentRelativeLevel: Int { get }
   @available(tvOS 9.0, *)

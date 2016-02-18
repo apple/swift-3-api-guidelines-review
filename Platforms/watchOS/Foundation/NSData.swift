@@ -171,9 +171,9 @@ class PurgeableData : MutableData, DiscardableContent {
   init?(capacity: Int)
   init?(length: Int)
   @available(watchOS 2.0, *)
-  func beginContentAccess() -> Bool
+  func beginAccess() -> Bool
   @available(watchOS 2.0, *)
-  func endContentAccess()
+  func endAccess()
   @available(watchOS 2.0, *)
   func discardContentIfPossible()
   @available(watchOS 2.0, *)
