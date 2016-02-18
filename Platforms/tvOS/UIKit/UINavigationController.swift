@@ -26,7 +26,7 @@ class UINavigationController : UIViewController {
   var navigationBar: UINavigationBar { get }
   weak var delegate: @sil_weak UINavigationControllerDelegate?
   @available(tvOS 8.0, *)
-  func showViewController(vc: UIViewController, sender: AnyObject?)
+  func show(vc: UIViewController, sender: AnyObject?)
   init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
   init?(coder aDecoder: Coder)
   convenience init()

@@ -34,7 +34,7 @@ class UINavigationController : UIViewController {
   @available(iOS 7.0, *)
   var interactivePopGestureRecognizer: UIGestureRecognizer? { get }
   @available(iOS 8.0, *)
-  func showViewController(vc: UIViewController, sender: AnyObject?)
+  func show(vc: UIViewController, sender: AnyObject?)
   @available(iOS 8.0, *)
   var hidesBarsWhenKeyboardAppears: Bool
   @available(iOS 8.0, *)
