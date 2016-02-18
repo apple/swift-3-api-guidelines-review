@@ -10,9 +10,9 @@ class Predicate : Object, SecureCoding, Copying {
   /*not inherited*/ init(block: (AnyObject, [String : AnyObject]?) -> Bool)
   var predicateFormat: String { get }
   func withSubstitutionVariables(variables: [String : AnyObject]) -> Self
-  func evaluate(with object: AnyObject?) -> Bool
+  func evaluate(object: AnyObject?) -> Bool
   @available(OSX 10.5, *)
-  func evaluate(with object: AnyObject?, substitutionVariables bindings: [String : AnyObject]?) -> Bool
+  func evaluate(object: AnyObject?, substitutionVariables bindings: [String : AnyObject]?) -> Bool
   @available(OSX 10.9, *)
   func allowEvaluation()
   init()

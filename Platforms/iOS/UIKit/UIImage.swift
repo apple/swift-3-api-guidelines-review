@@ -55,7 +55,7 @@ class UIImage : Object, SecureCoding {
   @available(iOS 6.0, *)
   class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode, duration: TimeInterval) -> UIImage?
   @available(iOS 5.0, *)
-  class func animatedImage(with images: [UIImage], duration: TimeInterval) -> UIImage?
+  class func animatedImage(images: [UIImage], duration: TimeInterval) -> UIImage?
   @available(iOS 5.0, *)
   var images: [UIImage]? { get }
   @available(iOS 5.0, *)

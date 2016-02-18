@@ -113,10 +113,10 @@ extension WebView {
   func styleDeclaration(withText text: String!) -> DOMCSSStyleDeclaration!
 }
 extension WebView {
-  func replaceSelection(with node: DOMNode!)
+  func replaceSelection(node: DOMNode!)
   func replaceSelection(withText text: String!)
   func replaceSelection(withMarkupString markupString: String!)
-  func replaceSelection(with archive: WebArchive!)
+  func replaceSelection(archive: WebArchive!)
   func deleteSelection()
   func applyStyle(style: DOMCSSStyleDeclaration!)
 }

@@ -45,8 +45,8 @@ class UIBezierPath : Object, Copying, Coding {
   func getLineDash(pattern: UnsafeMutablePointer<CGFloat>, count: UnsafeMutablePointer<Int>, phase: UnsafeMutablePointer<CGFloat>)
   func fill()
   func stroke()
-  func fill(with blendMode: CGBlendMode, alpha: CGFloat)
-  func stroke(with blendMode: CGBlendMode, alpha: CGFloat)
+  func fill(blendMode: CGBlendMode, alpha: CGFloat)
+  func stroke(blendMode: CGBlendMode, alpha: CGFloat)
   func addClip()
   @available(iOS 3.2, *)
   func copy(zone: Zone = nil) -> AnyObject

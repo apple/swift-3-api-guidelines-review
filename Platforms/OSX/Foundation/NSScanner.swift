@@ -30,5 +30,5 @@ extension Scanner {
   func scanUp(to string: String, into result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   func scanUpToCharacters(from set: CharacterSet, into result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   var isAtEnd: Bool { get }
-  class func localizedScanner(with string: String) -> AnyObject
+  class func localizedScanner(string: String) -> AnyObject
 }

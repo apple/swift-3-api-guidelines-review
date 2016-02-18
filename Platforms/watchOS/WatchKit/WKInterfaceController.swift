@@ -92,7 +92,7 @@ class WKInterfaceController : Object {
   func presentTextInputControllerWithSuggestions(forLanguage suggestionsHandler: ((String) -> [AnyObject]?)?, allowedInputMode inputMode: WKTextInputMode, completion: ([AnyObject]?) -> Void)
   func dismissTextInputController()
   @available(watchOS 2.0, *)
-  func presentMediaPlayerController(with URL: URL, options: [Object : AnyObject]? = [:], completion: (Bool, TimeInterval, Error?) -> Void)
+  func presentMediaPlayerController(URL: URL, options: [Object : AnyObject]? = [:], completion: (Bool, TimeInterval, Error?) -> Void)
   @available(watchOS 2.0, *)
   func dismissMediaPlayerController()
   @available(watchOS 2.0, *)

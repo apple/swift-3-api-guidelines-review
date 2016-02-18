@@ -133,8 +133,8 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   func indicatorImage(in tableColumn: NSTableColumn) -> NSImage?
   unowned(unsafe) var highlightedTableColumn: @sil_unmanaged NSTableColumn?
   var verticalMotionCanBeginDrag: Bool
-  func canDragRows(with rowIndexes: IndexSet, at mouseDownPoint: Point) -> Bool
-  func dragImageForRows(with dragRows: IndexSet, tableColumns: [NSTableColumn], event dragEvent: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
+  func canDragRows(rowIndexes: IndexSet, at mouseDownPoint: Point) -> Bool
+  func dragImageForRows(dragRows: IndexSet, tableColumns: [NSTableColumn], event dragEvent: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
   func setDraggingSourceOperationMask(mask: NSDragOperation, forLocal isLocal: Bool)
   func setDropRow(row: Int, dropOperation: NSTableViewDropOperation)
   var allowsMultipleSelection: Bool

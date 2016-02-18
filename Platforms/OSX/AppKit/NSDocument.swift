@@ -132,7 +132,7 @@ class NSDocument : Object, FilePresenter, NSUserInterfaceValidations {
   @available(OSX 10.8, *)
   var isLocked: Bool { get }
   @IBAction func runPageLayout(sender: AnyObject?)
-  func runModalPageLayout(with printInfo: NSPrintInfo, delegate: AnyObject?, didRun didRunSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func runModalPageLayout(printInfo: NSPrintInfo, delegate: AnyObject?, didRun didRunSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func prepare(pageLayout: NSPageLayout) -> Bool
   func shouldChangePrintInfo(newPrintInfo: NSPrintInfo) -> Bool
   @NSCopying var printInfo: NSPrintInfo

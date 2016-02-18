@@ -52,7 +52,7 @@ class AVAsynchronousCIImageFilteringRequest : Object, Copying {
   var renderSize: CGSize { get }
   var compositionTime: CMTime { get }
   var sourceImage: CIImage { get }
-  func finish(with filteredImage: CIImage, context: CIContext?)
+  func finish(filteredImage: CIImage, context: CIContext?)
   func finishWithError(error: Error)
   init()
   @available(OSX 10.11, *)

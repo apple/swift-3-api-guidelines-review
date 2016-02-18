@@ -81,23 +81,23 @@ let textCheckingAirlineKey: String
 @available(watchOS 2.0, *)
 let textCheckingFlightKey: String
 extension TextCheckingResult {
-  class func orthographyCheckingResult(with range: NSRange, orthography: Orthography) -> TextCheckingResult
-  class func spell(with range: NSRange) -> TextCheckingResult
-  class func grammarCheckingResult(with range: NSRange, details: [String]) -> TextCheckingResult
-  class func dateCheckingResult(with range: NSRange, date: Date) -> TextCheckingResult
-  class func dateCheckingResult(with range: NSRange, date: Date, timeZone: TimeZone, duration: TimeInterval) -> TextCheckingResult
-  class func addressCheckingResult(with range: NSRange, components: [String : String]) -> TextCheckingResult
-  class func linkCheckingResult(with range: NSRange, url: URL) -> TextCheckingResult
-  class func quoteCheckingResult(with range: NSRange, replacementString: String) -> TextCheckingResult
-  class func dashCheckingResult(with range: NSRange, replacementString: String) -> TextCheckingResult
-  class func replacementCheckingResult(with range: NSRange, replacementString: String) -> TextCheckingResult
-  class func correctionCheckingResult(with range: NSRange, replacementString: String) -> TextCheckingResult
+  class func orthographyCheckingResult(range: NSRange, orthography: Orthography) -> TextCheckingResult
+  class func spell(range: NSRange) -> TextCheckingResult
+  class func grammarCheckingResult(range: NSRange, details: [String]) -> TextCheckingResult
+  class func dateCheckingResult(range: NSRange, date: Date) -> TextCheckingResult
+  class func dateCheckingResult(range: NSRange, date: Date, timeZone: TimeZone, duration: TimeInterval) -> TextCheckingResult
+  class func addressCheckingResult(range: NSRange, components: [String : String]) -> TextCheckingResult
+  class func linkCheckingResult(range: NSRange, url: URL) -> TextCheckingResult
+  class func quoteCheckingResult(range: NSRange, replacementString: String) -> TextCheckingResult
+  class func dashCheckingResult(range: NSRange, replacementString: String) -> TextCheckingResult
+  class func replacementCheckingResult(range: NSRange, replacementString: String) -> TextCheckingResult
+  class func correctionCheckingResult(range: NSRange, replacementString: String) -> TextCheckingResult
   @available(watchOS 2.0, *)
-  class func correctionCheckingResult(with range: NSRange, replacementString: String, alternativeStrings: [String]) -> TextCheckingResult
+  class func correctionCheckingResult(range: NSRange, replacementString: String, alternativeStrings: [String]) -> TextCheckingResult
   @available(watchOS 2.0, *)
   class func regularExpressionCheckingResult(withRanges ranges: RangePointer, count: Int, regularExpression: RegularExpression) -> TextCheckingResult
   @available(watchOS 2.0, *)
-  class func phoneNumber(with range: NSRange, phoneNumber: String) -> TextCheckingResult
+  class func phoneNumber(range: NSRange, phoneNumber: String) -> TextCheckingResult
   @available(watchOS 2.0, *)
-  class func transitInformationCheckingResult(with range: NSRange, components: [String : String]) -> TextCheckingResult
+  class func transitInformationCheckingResult(range: NSRange, components: [String : String]) -> TextCheckingResult
 }

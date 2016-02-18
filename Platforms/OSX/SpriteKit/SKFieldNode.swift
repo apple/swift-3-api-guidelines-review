@@ -17,7 +17,7 @@ class SKFieldNode : SKNode {
   class func radialGravityField() -> SKFieldNode
   class func linearGravityField(withVector direction: vector_float3) -> SKFieldNode
   class func velocityField(withVector direction: vector_float3) -> SKFieldNode
-  class func velocityField(with velocityTexture: SKTexture) -> SKFieldNode
+  class func velocityField(velocityTexture: SKTexture) -> SKFieldNode
   class func noiseField(withSmoothness smoothness: CGFloat, animationSpeed speed: CGFloat) -> SKFieldNode
   class func turbulenceField(withSmoothness smoothness: CGFloat, animationSpeed speed: CGFloat) -> SKFieldNode
   class func springField() -> SKFieldNode

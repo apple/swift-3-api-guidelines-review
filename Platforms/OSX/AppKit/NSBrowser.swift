@@ -147,9 +147,9 @@ class NSBrowser : NSControl {
   var columnsAutosaveName: String
   class func removeSavedColumns(withAutosaveName name: String)
   @available(OSX 10.5, *)
-  func canDragRows(with rowIndexes: IndexSet, inColumn column: Int, with event: NSEvent) -> Bool
+  func canDragRows(rowIndexes: IndexSet, inColumn column: Int, with event: NSEvent) -> Bool
   @available(OSX 10.5, *)
-  func draggingImageForRows(with rowIndexes: IndexSet, inColumn column: Int, with event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage?
+  func draggingImageForRows(rowIndexes: IndexSet, inColumn column: Int, with event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage?
   @available(OSX 10.5, *)
   func setDraggingSourceOperationMask(mask: NSDragOperation, forLocal isLocal: Bool)
   @available(OSX 10.5, *)

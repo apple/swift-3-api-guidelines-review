@@ -346,7 +346,7 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   @available(OSX 10.11, *)
-  func performDrag(with event: NSEvent)
+  func performDrag(event: NSEvent)
   convenience init()
   init?(coder: Coder)
   @available(OSX 10.5, *)

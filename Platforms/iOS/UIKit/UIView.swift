@@ -294,7 +294,7 @@ extension UIView {
   @available(iOS 7.0, *)
   class func animate(withDuration duration: TimeInterval, delay: TimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(iOS 4.0, *)
-  class func transition(with view: UIView, duration: TimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
+  class func transition(view: UIView, duration: TimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
   @available(iOS 4.0, *)
   class func transition(from fromView: UIView, to toView: UIView, duration: TimeInterval, options: UIViewAnimationOptions = [], completion: ((Bool) -> Void)? = nil)
   @available(iOS 7.0, *)
@@ -444,7 +444,7 @@ extension UIView {
   @available(iOS 6.0, *)
   func encodeRestorableState(with coder: Coder)
   @available(iOS 6.0, *)
-  func decodeRestorableState(with coder: Coder)
+  func decodeRestorableState(coder: Coder)
 }
 extension UIView {
   @available(iOS 7.0, *)

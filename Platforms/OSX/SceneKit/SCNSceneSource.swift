@@ -59,7 +59,7 @@ class SCNSceneSource : Object {
   func scene(options options: [String : AnyObject]? = [:]) throws -> SCNScene
   func property(forKey key: String) -> AnyObject?
   func __entry(withIdentifier uid: String, with entryClass: AnyClass) -> AnyObject?
-  func identifiersOfEntries(with entryClass: AnyClass) -> [String]
+  func identifiersOfEntries(entryClass: AnyClass) -> [String]
   @available(OSX 10.9, *)
   func entries(passingTest predicate: (AnyObject, String, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [AnyObject]
   init()

@@ -14,7 +14,7 @@ class SBObject : Object, Coding {
 extension SBObject {
   init(elementCode code: DescType, properties: [String : AnyObject]?, data: AnyObject?)
   func property(withCode code: AEKeyword) -> SBObject
-  func property(with cls: AnyClass, code: AEKeyword) -> SBObject
+  func property(cls: AnyClass, code: AEKeyword) -> SBObject
   func elementArray(withCode code: DescType) -> SBElementArray
   func setTo(value: AnyObject?)
 }

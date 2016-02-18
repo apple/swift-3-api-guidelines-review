@@ -11,7 +11,7 @@ enum SKTransitionDirection : Int {
 class SKTransition : Object, Copying {
   class func crossFade(withDuration sec: TimeInterval) -> SKTransition
   class func fade(withDuration sec: TimeInterval) -> SKTransition
-  class func fade(with color: UIColor, duration sec: TimeInterval) -> SKTransition
+  class func fade(color: UIColor, duration sec: TimeInterval) -> SKTransition
   class func flipHorizontal(withDuration sec: TimeInterval) -> SKTransition
   class func flipVertical(withDuration sec: TimeInterval) -> SKTransition
   class func reveal(with direction: SKTransitionDirection, duration sec: TimeInterval) -> SKTransition

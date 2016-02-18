@@ -67,7 +67,7 @@ extension SKAction {
   @available(iOS 9.0, *)
   class func animate(withNormalTextures textures: [SKTexture], timePerFrame sec: TimeInterval, resize: Bool, restore: Bool) -> SKAction
   class func playSoundFileNamed(soundFile: String, waitForCompletion wait: Bool) -> SKAction
-  class func colorize(with color: UIColor, colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction
+  class func colorize(color: UIColor, colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction
   class func colorize(withColorBlendFactor colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction
   @available(iOS 8.0, *)
   class func falloff(to falloff: Float, duration sec: TimeInterval) -> SKAction

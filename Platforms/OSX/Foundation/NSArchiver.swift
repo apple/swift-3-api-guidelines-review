@@ -15,7 +15,7 @@ class Unarchiver : Coder {
   init?(forReadingWith data: Data)
   var isAtEnd: Bool { get }
   var systemVersion: UInt32 { get }
-  class func unarchiveObject(with data: Data) -> AnyObject?
+  class func unarchiveObject(data: Data) -> AnyObject?
   class func unarchiveObject(withFile path: String) -> AnyObject?
   class func decodeClassName(inArchiveName: String, asClassName trueName: String)
   func decodeClassName(inArchiveName: String, asClassName trueName: String)

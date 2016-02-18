@@ -40,7 +40,7 @@ class PKPassLibrary : Object {
   func remotePaymentPasses() -> [PKPaymentPass]
   func removePass(pass: PKPass)
   func containsPass(pass: PKPass) -> Bool
-  func replacePass(with pass: PKPass) -> Bool
+  func replacePass(pass: PKPass) -> Bool
   @available(iOS 7.0, *)
   func addPasses(passes: [PKPass], withCompletionHandler completion: ((PKPassLibraryAddPassesStatus) -> Void)? = nil)
   @available(iOS 8.3, *)

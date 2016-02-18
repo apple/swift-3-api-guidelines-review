@@ -3,7 +3,7 @@ class ScriptSuiteRegistry : Object {
   class func shared() -> ScriptSuiteRegistry
   class func setSharedScriptSuiteRegistry(registry: ScriptSuiteRegistry)
   func loadSuites(from bundle: Bundle)
-  func loadSuite(with suiteDeclaration: [Object : AnyObject], from bundle: Bundle)
+  func loadSuite(suiteDeclaration: [Object : AnyObject], from bundle: Bundle)
   func register(classDescription: ScriptClassDescription)
   func register(commandDescription: ScriptCommandDescription)
   var suiteNames: [String] { get }

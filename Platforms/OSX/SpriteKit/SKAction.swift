@@ -60,14 +60,14 @@ extension SKAction {
   class func setTexture(texture: SKTexture, resize: Bool) -> SKAction
   @available(OSX 10.11, *)
   class func setNormalTexture(texture: SKTexture, resize: Bool) -> SKAction
-  class func animate(with textures: [SKTexture], timePerFrame sec: TimeInterval) -> SKAction
+  class func animate(textures: [SKTexture], timePerFrame sec: TimeInterval) -> SKAction
   @available(OSX 10.11, *)
   class func animate(withNormalTextures textures: [SKTexture], timePerFrame sec: TimeInterval) -> SKAction
-  class func animate(with textures: [SKTexture], timePerFrame sec: TimeInterval, resize: Bool, restore: Bool) -> SKAction
+  class func animate(textures: [SKTexture], timePerFrame sec: TimeInterval, resize: Bool, restore: Bool) -> SKAction
   @available(OSX 10.11, *)
   class func animate(withNormalTextures textures: [SKTexture], timePerFrame sec: TimeInterval, resize: Bool, restore: Bool) -> SKAction
   class func playSoundFileNamed(soundFile: String, waitForCompletion wait: Bool) -> SKAction
-  class func colorize(with color: NSColor, colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction
+  class func colorize(color: NSColor, colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction
   class func colorize(withColorBlendFactor colorBlendFactor: CGFloat, duration sec: TimeInterval) -> SKAction
   @available(OSX 10.10, *)
   class func falloff(to falloff: Float, duration sec: TimeInterval) -> SKAction

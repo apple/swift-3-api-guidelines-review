@@ -28,7 +28,7 @@ class UIResponder : Object {
   @available(iOS 3.0, *)
   func motionCancelled(motion: UIEventSubtype, with event: UIEvent?)
   @available(iOS 4.0, *)
-  func remoteControlReceived(with event: UIEvent?)
+  func remoteControlReceived(event: UIEvent?)
   @available(iOS 3.0, *)
   func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool
   @available(iOS 7.0, *)

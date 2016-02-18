@@ -74,7 +74,7 @@ class NSFont : Object, Copying, SecureCoding {
   func setIn(graphicsContext: NSGraphicsContext)
   @NSCopying var printer: NSFont { get }
   @NSCopying var screen: NSFont { get }
-  func screenFont(with renderingMode: NSFontRenderingMode) -> NSFont
+  func screenFont(renderingMode: NSFontRenderingMode) -> NSFont
   var renderingMode: NSFontRenderingMode { get }
   @available(OSX 10.7, *)
   @NSCopying var vertical: NSFont { get }

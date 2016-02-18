@@ -21,8 +21,8 @@ class PHAsset : PHObject {
   class func fetchAssets(withLocalIdentifiers identifiers: [String], options: PHFetchOptions?) -> PHFetchResult
   class func fetchKeyAssets(in assetCollection: PHAssetCollection, options: PHFetchOptions?) -> PHFetchResult?
   class func fetchAssets(withBurstIdentifier burstIdentifier: String, options: PHFetchOptions?) -> PHFetchResult
-  class func fetchAssets(with options: PHFetchOptions?) -> PHFetchResult
-  class func fetchAssets(with mediaType: PHAssetMediaType, options: PHFetchOptions?) -> PHFetchResult
+  class func fetchAssets(options: PHFetchOptions?) -> PHFetchResult
+  class func fetchAssets(mediaType: PHAssetMediaType, options: PHFetchOptions?) -> PHFetchResult
   class func fetchAssets(withALAssetURLs assetURLs: [URL], options: PHFetchOptions?) -> PHFetchResult
   init()
 }

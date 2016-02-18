@@ -28,9 +28,9 @@ class CWWiFiClient : Object {
   @available(OSX 10.10, *)
   func interfaces() -> [CWInterface]?
   @available(OSX 10.10, *)
-  func startMonitoringEvent(with type: CWEventType) throws
+  func startMonitoringEvent(type: CWEventType) throws
   @available(OSX 10.10, *)
-  func stopMonitoringEvent(with type: CWEventType) throws
+  func stopMonitoringEvent(type: CWEventType) throws
   @available(OSX 10.10, *)
   func stopMonitoringAllEvents() throws
 }

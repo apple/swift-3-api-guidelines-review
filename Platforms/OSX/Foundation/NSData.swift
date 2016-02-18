@@ -55,7 +55,7 @@ extension Data {
   func getBytes(buffer: UnsafeMutablePointer<Void>, length: Int)
   func getBytes(buffer: UnsafeMutablePointer<Void>, range: NSRange)
   func isEqual(to other: Data) -> Bool
-  func subdata(with range: NSRange) -> Data
+  func subdata(range: NSRange) -> Data
   func write(toFile path: String, atomically useAuxiliaryFile: Bool) -> Bool
   func write(to url: URL, atomically: Bool) -> Bool
   func write(toFile path: String, options writeOptionsMask: DataWritingOptions = []) throws

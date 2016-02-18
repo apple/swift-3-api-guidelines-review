@@ -50,7 +50,7 @@ protocol XPCListenerDelegate : ObjectProtocol {
 }
 @available(OSX 10.8, *)
 class XPCInterface : Object {
-  /*not inherited*/ init(with protocol: Protocol)
+  /*not inherited*/ init(_ protocol: Protocol)
   unowned(unsafe) var `protocol`: @sil_unmanaged Protocol
   func setClasses(classes: Set<Object>, for sel: Selector, argumentIndex arg: Int, ofReply: Bool)
   func classes(for sel: Selector, argumentIndex arg: Int, ofReply: Bool) -> Set<Object>

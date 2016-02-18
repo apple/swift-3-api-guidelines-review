@@ -50,9 +50,9 @@ class NSManagedObjectContext : Object, Coding, Locking {
   @available(OSX 10.7, *)
   var concurrencyType: NSManagedObjectContextConcurrencyType { get }
   func objectRegistered(for objectID: NSManagedObjectID) -> NSManagedObject?
-  func object(with objectID: NSManagedObjectID) -> NSManagedObject
+  func object(objectID: NSManagedObjectID) -> NSManagedObject
   @available(OSX 10.6, *)
-  func existingObject(with objectID: NSManagedObjectID) throws -> NSManagedObject
+  func existingObject(objectID: NSManagedObjectID) throws -> NSManagedObject
   func execute(request: NSFetchRequest) throws -> [AnyObject]
   @available(OSX 10.5, *)
   func count(for request: NSFetchRequest, error: ErrorPointer) -> Int

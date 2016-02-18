@@ -12,7 +12,7 @@ class NEFilterProvider : NEProvider {
   @available(iOS 9.0, *)
   func startFilter(completionHandler completionHandler: (Error?) -> Void)
   @available(iOS 9.0, *)
-  func stopFilter(with reason: NEProviderStopReason, completionHandler: () -> Void)
+  func stopFilter(reason: NEProviderStopReason, completionHandler: () -> Void)
   @available(iOS 9.0, *)
   var filterConfiguration: NEFilterProviderConfiguration { get }
   init()

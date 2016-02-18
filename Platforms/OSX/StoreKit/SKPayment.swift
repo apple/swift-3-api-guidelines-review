@@ -1,7 +1,7 @@
 
 @available(OSX 10.7, *)
 class SKPayment : Object, Copying, MutableCopying {
-  class func payment(with product: SKProduct) -> AnyObject
+  class func payment(product: SKProduct) -> AnyObject
   var productIdentifier: String { get }
   @NSCopying var requestData: Data? { get }
   var quantity: Int { get }

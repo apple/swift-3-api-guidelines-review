@@ -118,5 +118,5 @@ extension NSViewController : ExtensionRequestHandling {
   @available(OSX 10.10, *)
   var preferredMaximumSize: Size { get }
   @available(OSX 10.10, *)
-  func beginRequest(with context: ExtensionContext)
+  func beginRequest(context: ExtensionContext)
 }

@@ -24,6 +24,6 @@ class GKSession : Object {
   func disconnectPeer(fromAllPeers peerID: String!)
   func disconnectFromAllPeers()
   @available(OSX, introduced=10.8, deprecated=10.10)
-  func peers(with state: GKPeerConnectionState) -> [AnyObject]!
+  func peers(state: GKPeerConnectionState) -> [AnyObject]!
   init()
 }

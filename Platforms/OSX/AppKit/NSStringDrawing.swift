@@ -38,21 +38,21 @@ struct NSStringDrawingOptions : OptionSetType {
 }
 extension NSString {
   @available(OSX 10.11, *)
-  func draw(with rect: Rect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?)
+  func draw(rect: Rect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?)
   @available(OSX 10.11, *)
-  func boundingRect(with size: Size, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?) -> Rect
+  func boundingRect(size: Size, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?) -> Rect
 }
 extension AttributedString {
   @available(OSX 10.11, *)
-  func draw(with rect: Rect, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?)
+  func draw(rect: Rect, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?)
   @available(OSX 10.11, *)
-  func boundingRect(with size: Size, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?) -> Rect
+  func boundingRect(size: Size, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?) -> Rect
 }
 extension NSString {
-  func draw(with rect: Rect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:])
-  func boundingRect(with size: Size, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:]) -> Rect
+  func draw(rect: Rect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:])
+  func boundingRect(size: Size, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:]) -> Rect
 }
 extension AttributedString {
-  func draw(with rect: Rect, options: NSStringDrawingOptions = [])
-  func boundingRect(with size: Size, options: NSStringDrawingOptions = []) -> Rect
+  func draw(rect: Rect, options: NSStringDrawingOptions = [])
+  func boundingRect(size: Size, options: NSStringDrawingOptions = []) -> Rect
 }

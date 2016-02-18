@@ -72,7 +72,7 @@ class GLKTextureLoader : Object {
   class func texture(withContentsOfFile path: String, options: [String : Number]? = [:]) throws -> GLKTextureInfo
   class func texture(withContentsOf url: URL, options: [String : Number]? = [:]) throws -> GLKTextureInfo
   class func texture(withContentsOf data: Data, options: [String : Number]? = [:]) throws -> GLKTextureInfo
-  class func texture(with cgImage: CGImage, options: [String : Number]? = [:]) throws -> GLKTextureInfo
+  class func texture(cgImage: CGImage, options: [String : Number]? = [:]) throws -> GLKTextureInfo
   class func cubeMap(withContentsOfFiles paths: [AnyObject], options: [String : Number]? = [:]) throws -> GLKTextureInfo
   class func cubeMap(withContentsOfFile path: String, options: [String : Number]? = [:]) throws -> GLKTextureInfo
   class func cubeMap(withContentsOf url: URL, options: [String : Number]? = [:]) throws -> GLKTextureInfo
@@ -80,7 +80,7 @@ class GLKTextureLoader : Object {
   func texture(withContentsOfFile path: String, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   func texture(withContentsOf url: URL, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   func texture(withContentsOf data: Data, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  func texture(with cgImage: CGImage, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
+  func texture(cgImage: CGImage, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   func cubeMap(withContentsOfFiles paths: [AnyObject], options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   func cubeMap(withContentsOfFile path: String, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   func cubeMap(withContentsOf url: URL, options: [String : Number]? = [:], queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)

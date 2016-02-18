@@ -16,6 +16,6 @@ class NKIssue : Object {
   var status: NKIssueContentStatus { get }
   var name: String { get }
   @NSCopying var date: Date { get }
-  func addAsset(with request: URLRequest) -> NKAssetDownload
+  func addAsset(request: URLRequest) -> NKAssetDownload
   init()
 }
