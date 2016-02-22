@@ -1,5 +1,5 @@
 
-class ABMultiValue : Object, Copying, MutableCopying, FastEnumeration {
+class ABMultiValue : NSObject, NSCopying, NSMutableCopying, NSFastEnumeration {
   func count() -> Int
   func value(at index: Int) -> AnyObject!
   func label(at index: Int) -> String!
@@ -10,9 +10,9 @@ class ABMultiValue : Object, Copying, MutableCopying, FastEnumeration {
   func value(forIdentifier identifier: String!) -> AnyObject!
   func label(forIdentifier identifier: String!) -> AnyObject!
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
+  func countByEnumerating(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 class ABMutableMultiValue : ABMultiValue {
   func add(value: AnyObject!, withLabel label: String!) -> String!

@@ -9,7 +9,7 @@ enum SCNActionTimingMode : Int {
   case easeInEaseOut
 }
 typealias SCNActionTimingFunction = (Float) -> Float
-protocol SCNActionable : ObjectProtocol {
+protocol SCNActionable : NSObjectProtocol {
   @available(iOS 8.0, *)
   func run(action: SCNAction)
   @available(iOS 8.0, *)
@@ -30,49 +30,49 @@ protocol SCNActionable : ObjectProtocol {
   var actionKeys: [String] { get }
 }
 @available(iOS 8.0, *)
-class SCNAction : Object, Copying, SecureCoding {
-  var duration: TimeInterval
+class SCNAction : NSObject, NSCopying, NSSecureCoding {
+  var duration: NSTimeInterval
   var timingMode: SCNActionTimingMode
   var timingFunction: SCNActionTimingFunction?
   var speed: CGFloat
   func reversed() -> SCNAction
-  class func moveBy(x deltaX: CGFloat, y deltaY: CGFloat, z deltaZ: CGFloat, duration: TimeInterval) -> SCNAction
-  class func move(by delta: SCNVector3, duration: TimeInterval) -> SCNAction
-  class func move(to location: SCNVector3, duration: TimeInterval) -> SCNAction
-  class func rotateBy(x xAngle: CGFloat, y yAngle: CGFloat, z zAngle: CGFloat, duration: TimeInterval) -> SCNAction
-  class func rotateTo(x xAngle: CGFloat, y yAngle: CGFloat, z zAngle: CGFloat, duration: TimeInterval) -> SCNAction
-  class func rotateTo(x xAngle: CGFloat, y yAngle: CGFloat, z zAngle: CGFloat, duration: TimeInterval, shortestUnitArc: Bool) -> SCNAction
-  class func rotate(byAngle angle: CGFloat, aroundAxis axis: SCNVector3, duration: TimeInterval) -> SCNAction
-  class func rotate(toAxisAngle axisAngle: SCNVector4, duration: TimeInterval) -> SCNAction
-  class func scale(by scale: CGFloat, duration sec: TimeInterval) -> SCNAction
-  class func scale(to scale: CGFloat, duration sec: TimeInterval) -> SCNAction
+  class func moveBy(x deltaX: CGFloat, y deltaY: CGFloat, z deltaZ: CGFloat, duration: NSTimeInterval) -> SCNAction
+  class func move(by delta: SCNVector3, duration: NSTimeInterval) -> SCNAction
+  class func move(to location: SCNVector3, duration: NSTimeInterval) -> SCNAction
+  class func rotateBy(x xAngle: CGFloat, y yAngle: CGFloat, z zAngle: CGFloat, duration: NSTimeInterval) -> SCNAction
+  class func rotateTo(x xAngle: CGFloat, y yAngle: CGFloat, z zAngle: CGFloat, duration: NSTimeInterval) -> SCNAction
+  class func rotateTo(x xAngle: CGFloat, y yAngle: CGFloat, z zAngle: CGFloat, duration: NSTimeInterval, shortestUnitArc: Bool) -> SCNAction
+  class func rotate(byAngle angle: CGFloat, aroundAxis axis: SCNVector3, duration: NSTimeInterval) -> SCNAction
+  class func rotate(toAxisAngle axisAngle: SCNVector4, duration: NSTimeInterval) -> SCNAction
+  class func scale(by scale: CGFloat, duration sec: NSTimeInterval) -> SCNAction
+  class func scale(to scale: CGFloat, duration sec: NSTimeInterval) -> SCNAction
   class func sequence(actions: [SCNAction]) -> SCNAction
   class func group(actions: [SCNAction]) -> SCNAction
   class func repeatAction(action: SCNAction, count: Int) -> SCNAction
   class func repeatForever(action: SCNAction) -> SCNAction
-  class func fadeIn(duration sec: TimeInterval) -> SCNAction
-  class func fadeOut(duration sec: TimeInterval) -> SCNAction
-  class func fadeOpacity(by factor: CGFloat, duration sec: TimeInterval) -> SCNAction
-  class func fadeOpacity(to opacity: CGFloat, duration sec: TimeInterval) -> SCNAction
+  class func fadeIn(duration sec: NSTimeInterval) -> SCNAction
+  class func fadeOut(duration sec: NSTimeInterval) -> SCNAction
+  class func fadeOpacity(by factor: CGFloat, duration sec: NSTimeInterval) -> SCNAction
+  class func fadeOpacity(to opacity: CGFloat, duration sec: NSTimeInterval) -> SCNAction
   @available(iOS 9.0, *)
   class func hide() -> SCNAction
   @available(iOS 9.0, *)
   class func unhide() -> SCNAction
-  class func wait(forDuration sec: TimeInterval) -> SCNAction
-  class func wait(forDuration sec: TimeInterval, withRange durationRange: TimeInterval) -> SCNAction
+  class func wait(forDuration sec: NSTimeInterval) -> SCNAction
+  class func wait(forDuration sec: NSTimeInterval, withRange durationRange: NSTimeInterval) -> SCNAction
   class func removeFromParentNode() -> SCNAction
   class func run(block: (SCNNode) -> Void) -> SCNAction
   class func run(block: (SCNNode) -> Void, queue: dispatch_queue_t) -> SCNAction
-  class func javaScriptAction(withScript script: String, duration seconds: TimeInterval) -> SCNAction
-  class func customAction(withDuration seconds: TimeInterval, actionBlock block: (SCNNode, CGFloat) -> Void) -> SCNAction
+  class func javaScriptAction(withScript script: String, duration seconds: NSTimeInterval) -> SCNAction
+  class func customAction(withDuration seconds: NSTimeInterval, actionBlock block: (SCNNode, CGFloat) -> Void) -> SCNAction
   @available(iOS 9.0, *)
   class func play(source: SCNAudioSource, waitForCompletion wait: Bool) -> SCNAction
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

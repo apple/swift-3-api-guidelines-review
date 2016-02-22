@@ -1,6 +1,6 @@
 
 @available(tvOS 4.1, *)
-class AVAssetReaderOutput : Object {
+class AVAssetReaderOutput : NSObject {
   var mediaType: String { get }
   @available(tvOS 5.0, *)
   var alwaysCopiesSampleData: Bool
@@ -11,7 +11,7 @@ extension AVAssetReaderOutput {
   @available(tvOS 8.0, *)
   var supportsRandomAccess: Bool
   @available(tvOS 8.0, *)
-  func reset(forReadingTimeRanges timeRanges: [Value])
+  func reset(forReadingTimeRanges timeRanges: [NSValue])
   @available(tvOS 8.0, *)
   func markConfigurationAsFinal()
 }
@@ -42,7 +42,7 @@ class AVAssetReaderVideoCompositionOutput : AVAssetReaderOutput {
   var customVideoCompositor: AVVideoCompositing? { get }
 }
 @available(tvOS 8.0, *)
-class AVAssetReaderOutputMetadataAdaptor : Object {
+class AVAssetReaderOutputMetadataAdaptor : NSObject {
   init(assetReaderTrackOutput trackOutput: AVAssetReaderTrackOutput)
   var assetReaderTrackOutput: AVAssetReaderTrackOutput { get }
   func nextTimedMetadataGroup() -> AVTimedMetadataGroup?

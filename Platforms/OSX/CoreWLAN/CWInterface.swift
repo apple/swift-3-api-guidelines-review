@@ -1,6 +1,6 @@
 
 @available(OSX 10.6, *)
-class CWInterface : Object {
+class CWInterface : NSObject {
   @available(OSX 10.7, *)
   var interfaceName: String? { get }
   @available(OSX 10.7, *)
@@ -14,7 +14,7 @@ class CWInterface : Object {
   @available(OSX 10.6, *)
   func ssid() -> String?
   @available(OSX 10.7, *)
-  func ssidData() -> Data?
+  func ssidData() -> NSData?
   @available(OSX 10.6, *)
   func bssid() -> String?
   @available(OSX 10.7, *)
@@ -50,11 +50,11 @@ class CWInterface : Object {
   @available(OSX 10.7, *)
   func setWLANChannel(channel: CWChannel) throws
   @available(OSX 10.6, *)
-  func setPairwiseMasterKey(key: Data?) throws
+  func setPairwiseMasterKey(key: NSData?) throws
   @available(OSX 10.6, *)
-  func setWEPKey(key: Data?, flags: CWCipherKeyFlags, index: Int) throws
+  func setWEPKey(key: NSData?, flags: CWCipherKeyFlags, index: Int) throws
   @available(OSX 10.7, *)
-  func scanForNetworks(withSSID ssid: Data?) throws -> Set<CWNetwork>
+  func scanForNetworks(withSSID ssid: NSData?) throws -> Set<CWNetwork>
   @available(OSX 10.7, *)
   func scanForNetworks(withName networkName: String?) throws -> Set<CWNetwork>
   @available(OSX 10.7, *)
@@ -64,6 +64,6 @@ class CWInterface : Object {
   @available(OSX 10.7, *)
   func associate(toEnterpriseNetwork network: CWNetwork, identity: SecIdentity?, username: String?, password: String?) throws
   @available(OSX 10.7, *)
-  func startIBSSMode(ssid ssidData: Data, security: CWIBSSModeSecurity, channel: Int, password: String?) throws
+  func startIBSSMode(ssid ssidData: NSData, security: CWIBSSModeSecurity, channel: Int, password: String?) throws
   init()
 }

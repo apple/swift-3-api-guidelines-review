@@ -1,6 +1,6 @@
 
 @available(iOS 7.1, *)
-class MPRemoteCommandCenter : Object {
+class MPRemoteCommandCenter : NSObject {
   var pauseCommand: MPRemoteCommand { get }
   var playCommand: MPRemoteCommand { get }
   var stopCommand: MPRemoteCommand { get }

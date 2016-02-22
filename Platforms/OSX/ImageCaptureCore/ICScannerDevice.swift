@@ -10,18 +10,18 @@ enum ICScannerTransferMode : UInt {
 }
 protocol ICScannerDeviceDelegate : ICDeviceDelegate {
   optional func scannerDeviceDidBecomeAvailable(scanner: ICScannerDevice)
-  optional func scannerDevice(scanner: ICScannerDevice, didSelect functionalUnit: ICScannerFunctionalUnit, error: Error?)
-  optional func scannerDevice(scanner: ICScannerDevice, didScanTo url: URL)
+  optional func scannerDevice(scanner: ICScannerDevice, didSelect functionalUnit: ICScannerFunctionalUnit, error: NSError?)
+  optional func scannerDevice(scanner: ICScannerDevice, didScanTo url: NSURL)
   optional func scannerDevice(scanner: ICScannerDevice, didScanTo data: ICScannerBandData)
-  optional func scannerDevice(scanner: ICScannerDevice, didCompleteOverviewScanWithError error: Error?)
-  optional func scannerDevice(scanner: ICScannerDevice, didCompleteScanWithError error: Error?)
+  optional func scannerDevice(scanner: ICScannerDevice, didCompleteOverviewScanWithError error: NSError?)
+  optional func scannerDevice(scanner: ICScannerDevice, didCompleteScanWithError error: NSError?)
 }
 class ICScannerDevice : ICDevice {
-  var availableFunctionalUnitTypes: [Number] { get }
+  var availableFunctionalUnitTypes: [NSNumber] { get }
   var selectedFunctionalUnit: ICScannerFunctionalUnit { get }
   var transferMode: ICScannerTransferMode
   var maxMemoryBandSize: UInt32
-  var downloadsDirectory: URL
+  var downloadsDirectory: NSURL
   var documentName: String
   var documentUTI: String
   func requestSelect(type: ICScannerFunctionalUnitType)

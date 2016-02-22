@@ -1,5 +1,5 @@
 
-typealias UIPrintInteractionCompletionHandler = (UIPrintInteractionController, Bool, Error?) -> Void
+typealias UIPrintInteractionCompletionHandler = (UIPrintInteractionController, Bool, NSError?) -> Void
 @available(iOS 9.0, *)
 enum UIPrinterCutterBehavior : Int {
   init?(rawValue: Int)
@@ -11,11 +11,11 @@ enum UIPrinterCutterBehavior : Int {
   case cutAfterEachJob
 }
 @available(iOS 4.2, *)
-class UIPrintInteractionController : Object {
+class UIPrintInteractionController : NSObject {
   class func isPrintingAvailable() -> Bool
   class func printableUTIs() -> Set<String>
-  class func canPrint(url: URL) -> Bool
-  class func canPrint(data: Data) -> Bool
+  class func canPrint(url: NSURL) -> Bool
+  class func canPrint(data: NSData) -> Bool
   class func sharedPrint() -> UIPrintInteractionController
   var printInfo: UIPrintInfo?
   weak var delegate: @sil_weak UIPrintInteractionControllerDelegate?
@@ -36,7 +36,7 @@ class UIPrintInteractionController : Object {
   func dismiss(animated animated: Bool)
   init()
 }
-protocol UIPrintInteractionControllerDelegate : ObjectProtocol {
+protocol UIPrintInteractionControllerDelegate : NSObjectProtocol {
   @available(iOS 4.2, *)
   optional func printInteractionControllerParentViewController(printInteractionController: UIPrintInteractionController) -> UIViewController
   @available(iOS 4.2, *)

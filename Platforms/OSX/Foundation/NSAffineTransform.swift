@@ -1,5 +1,5 @@
 
-struct AffineTransformStruct {
+struct NSAffineTransformStruct {
   var m11: CGFloat
   var m12: CGFloat
   var m21: CGFloat
@@ -9,8 +9,8 @@ struct AffineTransformStruct {
   init()
   init(m11: CGFloat, m12: CGFloat, m21: CGFloat, m22: CGFloat, tX: CGFloat, tY: CGFloat)
 }
-class AffineTransform : Object, Copying, SecureCoding {
-  convenience init(transform: AffineTransform)
+class NSAffineTransform : NSObject, NSCopying, NSSecureCoding {
+  convenience init(transform: NSAffineTransform)
   init()
   func translateX(by deltaX: CGFloat, yBy deltaY: CGFloat)
   func rotate(byDegrees angle: CGFloat)
@@ -18,13 +18,13 @@ class AffineTransform : Object, Copying, SecureCoding {
   func scale(by scale: CGFloat)
   func scaleX(by scaleX: CGFloat, yBy scaleY: CGFloat)
   func invert()
-  func append(transform: AffineTransform)
-  func prepend(transform: AffineTransform)
-  func transform(aPoint: Point) -> Point
-  func transform(aSize: Size) -> Size
-  var transformStruct: AffineTransformStruct
-  func copy(with zone: Zone = nil) -> AnyObject
+  func append(transform: NSAffineTransform)
+  func prepend(transform: NSAffineTransform)
+  func transform(aPoint: NSPoint) -> NSPoint
+  func transform(aSize: NSSize) -> NSSize
+  var transformStruct: NSAffineTransformStruct
+  func copy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

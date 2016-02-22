@@ -30,7 +30,7 @@ struct SCNDebugOptions : OptionSetType {
   static var showWireframe: SCNDebugOptions { get }
 }
 @available(OSX 10.8, *)
-class SCNHitTestResult : Object {
+class SCNHitTestResult : NSObject {
   var node: SCNNode { get }
   var geometryIndex: Int { get }
   var faceIndex: Int { get }
@@ -42,11 +42,11 @@ class SCNHitTestResult : Object {
   func textureCoordinates(withMappingChannel channel: Int) -> CGPoint
   init()
 }
-protocol SCNSceneRenderer : ObjectProtocol {
+protocol SCNSceneRenderer : NSObjectProtocol {
   @available(OSX 10.8, *)
   var scene: SCNScene? { get set }
   @available(OSX 10.10, *)
-  var sceneTime: TimeInterval { get set }
+  var sceneTime: NSTimeInterval { get set }
   unowned(unsafe) var delegate: @sil_unmanaged SCNSceneRendererDelegate? { get set }
   @available(OSX 10.8, *)
   func hitTest(point: CGPoint, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
@@ -90,17 +90,17 @@ protocol SCNSceneRenderer : ObjectProtocol {
   @available(OSX 10.11, *)
   var audioListener: SCNNode? { get set }
   @available(OSX, introduced=10.8, deprecated=10.10)
-  var currentTime: TimeInterval { get set }
+  var currentTime: NSTimeInterval { get set }
 }
-protocol SCNSceneRendererDelegate : ObjectProtocol {
+protocol SCNSceneRendererDelegate : NSObjectProtocol {
   @available(OSX 10.10, *)
-  optional func renderer(renderer: SCNSceneRenderer, updateAtTime time: TimeInterval)
+  optional func renderer(renderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval)
   @available(OSX 10.10, *)
-  optional func renderer(renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: TimeInterval)
+  optional func renderer(renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: NSTimeInterval)
   @available(OSX 10.10, *)
-  optional func renderer(renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: TimeInterval)
+  optional func renderer(renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: NSTimeInterval)
   @available(OSX 10.8, *)
-  optional func renderer(renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval)
+  optional func renderer(renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: NSTimeInterval)
   @available(OSX 10.8, *)
-  optional func renderer(renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: TimeInterval)
+  optional func renderer(renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: NSTimeInterval)
 }

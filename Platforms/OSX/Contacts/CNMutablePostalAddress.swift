@@ -8,5 +8,5 @@ class CNMutablePostalAddress : CNPostalAddress {
   var country: String
   var isoCountryCode: String
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

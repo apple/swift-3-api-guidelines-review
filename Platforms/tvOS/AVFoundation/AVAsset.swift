@@ -1,16 +1,16 @@
 
 @available(tvOS 4.0, *)
-class AVAsset : Object, Copying, AVAsynchronousKeyValueLoading {
-  convenience init(url URL: URL)
+class AVAsset : NSObject, NSCopying, AVAsynchronousKeyValueLoading {
+  convenience init(url URL: NSURL)
   var duration: CMTime { get }
   var preferredRate: Float { get }
   var preferredVolume: Float { get }
   var preferredTransform: CGAffineTransform { get }
   init()
   @available(tvOS 4.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 4.0, *)
-  func statusOfValue(forKey key: String, error outError: ErrorPointer) -> AVKeyValueStatus
+  func statusOfValue(forKey key: String, error outError: NSErrorPointer) -> AVKeyValueStatus
   @available(tvOS 4.0, *)
   func loadValuesAsynchronously(forKeys keys: [String], completionHandler handler: (() -> Void)? = nil)
 }
@@ -52,9 +52,9 @@ extension AVAsset {
 }
 extension AVAsset {
   @available(tvOS 4.3, *)
-  var availableChapterLocales: [Locale] { get }
+  var availableChapterLocales: [NSLocale] { get }
   @available(tvOS 4.3, *)
-  func chapterMetadataGroups(withTitleLocale locale: Locale, containingItemsWithCommonKeys commonKeys: [String]?) -> [AVTimedMetadataGroup]
+  func chapterMetadataGroups(withTitleLocale locale: NSLocale, containingItemsWithCommonKeys commonKeys: [String]?) -> [AVTimedMetadataGroup]
   @available(tvOS 6.0, *)
   func chapterMetadataGroups(bestMatchingPreferredLanguages preferredLanguages: [String]) -> [AVTimedMetadataGroup]
 }
@@ -104,9 +104,9 @@ class AVURLAsset : AVAsset {
   class func audiovisualMIMETypes() -> [String]
   @available(tvOS 5.0, *)
   class func isPlayableExtendedMIMEType(extendedMIMEType: String) -> Bool
-  init(url URL: URL, options: [String : AnyObject]? = [:])
-  @NSCopying var url: URL { get }
-  convenience init(url URL: URL)
+  init(url URL: NSURL, options: [String : AnyObject]? = [:])
+  @NSCopying var url: NSURL { get }
+  convenience init(url URL: NSURL)
 }
 extension AVURLAsset {
   @available(tvOS 6.0, *)

@@ -3,22 +3,22 @@ class NSClipView : NSView {
   @NSCopying var backgroundColor: NSColor
   var drawsBackground: Bool
   unowned(unsafe) var documentView: @sil_unmanaged AnyObject?
-  var documentRect: Rect { get }
+  var documentRect: NSRect { get }
   var documentCursor: NSCursor?
-  var documentVisibleRect: Rect { get }
-  func viewFrameChanged(notification: Notification)
-  func viewBoundsChanged(notification: Notification)
+  var documentVisibleRect: NSRect { get }
+  func viewFrameChanged(notification: NSNotification)
+  func viewBoundsChanged(notification: NSNotification)
   var copiesOnScroll: Bool
   func autoscroll(theEvent: NSEvent) -> Bool
-  func scroll(to newOrigin: Point)
+  func scroll(to newOrigin: NSPoint)
   @available(OSX 10.9, *)
-  func constrainBoundsRect(proposedBounds: Rect) -> Rect
+  func constrainBoundsRect(proposedBounds: NSRect) -> NSRect
   @available(OSX 10.10, *)
-  var contentInsets: EdgeInsets
+  var contentInsets: NSEdgeInsets
   @available(OSX 10.10, *)
   var automaticallyAdjustsContentInsets: Bool
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }
 struct __cvFlags {
@@ -51,9 +51,9 @@ struct __cvFlags {
 }
 extension NSClipView {
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use -constrainBoundsRect: instead")
-  func constrainScroll(newOrigin: Point) -> Point
+  func constrainScroll(newOrigin: NSPoint) -> NSPoint
 }
 extension NSView {
   func reflectScrolledClipView(aClipView: NSClipView)
-  func scroll(aClipView: NSClipView, to aPoint: Point)
+  func scroll(aClipView: NSClipView, to aPoint: NSPoint)
 }

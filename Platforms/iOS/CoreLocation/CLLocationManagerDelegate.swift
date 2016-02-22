@@ -1,5 +1,5 @@
 
-protocol CLLocationManagerDelegate : ObjectProtocol {
+protocol CLLocationManagerDelegate : NSObjectProtocol {
   @available(iOS 6.0, *)
   optional func locationManager(manager: CLLocationManager, didUpdate locations: [CLLocation])
   @available(iOS 3.0, *)
@@ -11,15 +11,15 @@ protocol CLLocationManagerDelegate : ObjectProtocol {
   @available(iOS 7.0, *)
   optional func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion)
   @available(iOS 7.0, *)
-  optional func locationManager(manager: CLLocationManager, rangingBeaconsDidFailFor region: CLBeaconRegion, withError error: Error)
+  optional func locationManager(manager: CLLocationManager, rangingBeaconsDidFailFor region: CLBeaconRegion, withError error: NSError)
   @available(iOS 4.0, *)
   optional func locationManager(manager: CLLocationManager, didEnter region: CLRegion)
   @available(iOS 4.0, *)
   optional func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion)
   @available(iOS 2.0, *)
-  optional func locationManager(manager: CLLocationManager, didFailWithError error: Error)
+  optional func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
   @available(iOS 4.0, *)
-  optional func locationManager(manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error)
+  optional func locationManager(manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: NSError)
   @available(iOS 4.2, *)
   optional func locationManager(manager: CLLocationManager, didChange status: CLAuthorizationStatus)
   @available(iOS 5.0, *)
@@ -29,7 +29,7 @@ protocol CLLocationManagerDelegate : ObjectProtocol {
   @available(iOS 6.0, *)
   optional func locationManagerDidResumeLocationUpdates(manager: CLLocationManager)
   @available(iOS 6.0, *)
-  optional func locationManager(manager: CLLocationManager, didFinishDeferredUpdatesWithError error: Error?)
+  optional func locationManager(manager: CLLocationManager, didFinishDeferredUpdatesWithError error: NSError?)
   @available(iOS 8.0, *)
   optional func locationManager(manager: CLLocationManager, didVisit visit: CLVisit)
 }

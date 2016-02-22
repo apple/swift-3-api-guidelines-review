@@ -1,34 +1,34 @@
 
-typealias ItemProviderCompletionHandler = (SecureCoding?, Error!) -> Void
-typealias ItemProviderLoadHandler = (ItemProviderCompletionHandler!, AnyClass!, [Object : AnyObject]!) -> Void
+typealias NSItemProviderCompletionHandler = (NSSecureCoding?, NSError!) -> Void
+typealias NSItemProviderLoadHandler = (NSItemProviderCompletionHandler!, AnyClass!, [NSObject : AnyObject]!) -> Void
 @available(iOS 8.0, *)
-class ItemProvider : Object, Copying {
-  init(item: SecureCoding?, typeIdentifier: String?)
-  convenience init?(contentsOf fileURL: URL!)
-  func registerItem(forTypeIdentifier typeIdentifier: String, loadHandler: ItemProviderLoadHandler)
+class NSItemProvider : NSObject, NSCopying {
+  init(item: NSSecureCoding?, typeIdentifier: String?)
+  convenience init?(contentsOf fileURL: NSURL!)
+  func registerItem(forTypeIdentifier typeIdentifier: String, loadHandler: NSItemProviderLoadHandler)
   var registeredTypeIdentifiers: [AnyObject] { get }
   func hasItemConforming(toTypeIdentifier typeIdentifier: String) -> Bool
-  func loadItem(forTypeIdentifier typeIdentifier: String, options: [Object : AnyObject]? = [:], completionHandler: ItemProviderCompletionHandler? = nil)
+  func loadItem(forTypeIdentifier typeIdentifier: String, options: [NSObject : AnyObject]? = [:], completionHandler: NSItemProviderCompletionHandler? = nil)
   convenience init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
-let itemProviderPreferredImageSizeKey: String
-extension ItemProvider {
+let NSItemProviderPreferredImageSizeKey: String
+extension NSItemProvider {
   @available(iOS 8.0, *)
-  var previewImageHandler: ItemProviderLoadHandler?
+  var previewImageHandler: NSItemProviderLoadHandler?
   @available(iOS 8.0, *)
-  func loadPreviewImage(options options: [Object : AnyObject]! = [:], completionHandler: ItemProviderCompletionHandler!)
+  func loadPreviewImage(options options: [NSObject : AnyObject]! = [:], completionHandler: NSItemProviderCompletionHandler!)
 }
 @available(iOS 8.0, *)
-let extensionJavaScriptPreprocessingResultsKey: String
+let NSExtensionJavaScriptPreprocessingResultsKey: String
 @available(iOS 8.0, *)
-let extensionJavaScriptFinalizeArgumentKey: String
+let NSExtensionJavaScriptFinalizeArgumentKey: String
 @available(iOS 8.0, *)
-let itemProviderErrorDomain: String
+let NSItemProviderErrorDomain: String
 @available(iOS 8.0, *)
-enum ItemProviderErrorCode : Int {
+enum NSItemProviderErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   case unknownError

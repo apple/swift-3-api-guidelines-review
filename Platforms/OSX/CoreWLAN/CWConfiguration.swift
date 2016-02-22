@@ -1,8 +1,8 @@
 
 @available(OSX 10.6, *)
-class CWConfiguration : Object, Copying, MutableCopying, SecureCoding {
+class CWConfiguration : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   @available(OSX 10.7, *)
-  @NSCopying var networkProfiles: OrderedSet { get }
+  @NSCopying var networkProfiles: NSOrderedSet { get }
   @available(OSX 10.7, *)
   var requireAdministratorForAssociation: Bool { get }
   @available(OSX 10.7, *)
@@ -18,19 +18,19 @@ class CWConfiguration : Object, Copying, MutableCopying, SecureCoding {
   @available(OSX 10.6, *)
   func isEqual(to configuration: CWConfiguration) -> Bool
   @available(OSX 10.6, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.6, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.6, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.6, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.6, *)
 class CWMutableConfiguration : CWConfiguration {
   @available(OSX 10.7, *)
-  @NSCopying var networkProfiles: OrderedSet
+  @NSCopying var networkProfiles: NSOrderedSet
   @available(OSX 10.7, *)
   var requireAdministratorForAssociation: Bool
   @available(OSX 10.7, *)
@@ -43,5 +43,5 @@ class CWMutableConfiguration : CWConfiguration {
   init()
   @available(OSX 10.7, *)
   init(configuration: CWConfiguration)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

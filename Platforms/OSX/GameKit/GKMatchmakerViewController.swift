@@ -14,15 +14,15 @@ class GKMatchmakerViewController : NSViewController, GKViewController {
   func setHostedPlayer(player: GKPlayer, didConnect connected: Bool)
   @available(OSX, introduced=10.8, deprecated=10.10)
   var defaultInvitationMessage: String?
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder: Coder)
+  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder: NSCoder)
   convenience init()
 }
-protocol GKMatchmakerViewControllerDelegate : ObjectProtocol {
+protocol GKMatchmakerViewControllerDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
   func matchmakerViewControllerWasCancelled(viewController: GKMatchmakerViewController)
   @available(OSX 10.8, *)
-  func matchmakerViewController(viewController: GKMatchmakerViewController, didFailWithError error: Error)
+  func matchmakerViewController(viewController: GKMatchmakerViewController, didFailWithError error: NSError)
   @available(OSX 10.8, *)
   optional func matchmakerViewController(viewController: GKMatchmakerViewController, didFind match: GKMatch)
   @available(OSX 10.10, *)

@@ -4,22 +4,22 @@ let AVAssetDownloadTaskMinimumRequiredMediaBitrateKey: String
 @available(iOS 9.0, *)
 let AVAssetDownloadTaskMediaSelectionKey: String
 @available(iOS 9.0, *)
-class AVAssetDownloadTask : URLSessionTask {
+class AVAssetDownloadTask : NSURLSessionTask {
   var urlAsset: AVURLAsset { get }
-  var destinationURL: URL { get }
+  var destinationURL: NSURL { get }
   var options: [String : AnyObject]? { get }
-  var loadedTimeRanges: [Value] { get }
+  var loadedTimeRanges: [NSValue] { get }
   init()
 }
-protocol AVAssetDownloadDelegate : URLSessionTaskDelegate {
+protocol AVAssetDownloadDelegate : NSURLSessionTaskDelegate {
   @available(iOS 9.0, *)
-  optional func urlSession(session: URLSession, assetDownloadTask: AVAssetDownloadTask, didLoad timeRange: CMTimeRange, totalTimeRangesLoaded loadedTimeRanges: [Value], timeRangeExpectedToLoad: CMTimeRange)
+  optional func urlSession(session: NSURLSession, assetDownloadTask: AVAssetDownloadTask, didLoad timeRange: CMTimeRange, totalTimeRangesLoaded loadedTimeRanges: [NSValue], timeRangeExpectedToLoad: CMTimeRange)
   @available(iOS 9.0, *)
-  optional func urlSession(session: URLSession, assetDownloadTask: AVAssetDownloadTask, didResolve resolvedMediaSelection: AVMediaSelection)
+  optional func urlSession(session: NSURLSession, assetDownloadTask: AVAssetDownloadTask, didResolve resolvedMediaSelection: AVMediaSelection)
 }
 @available(iOS 9.0, *)
-class AVAssetDownloadURLSession : URLSession {
-  /*not inherited*/ init(configuration: URLSessionConfiguration, assetDownloadDelegate delegate: AVAssetDownloadDelegate?, delegateQueue: OperationQueue?)
-  func assetDownloadTask(with URLAsset: AVURLAsset, destinationURL: URL, options: [String : AnyObject]? = [:]) -> AVAssetDownloadTask?
+class AVAssetDownloadURLSession : NSURLSession {
+  /*not inherited*/ init(configuration: NSURLSessionConfiguration, assetDownloadDelegate delegate: AVAssetDownloadDelegate?, delegateQueue: NSOperationQueue?)
+  func assetDownloadTask(with URLAsset: AVURLAsset, destinationURL: NSURL, options: [String : AnyObject]? = [:]) -> AVAssetDownloadTask?
   init()
 }

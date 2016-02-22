@@ -1,20 +1,20 @@
 
-struct ComparisonPredicateOptions : OptionSetType {
+struct NSComparisonPredicateOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var caseInsensitivePredicateOption: ComparisonPredicateOptions { get }
-  static var diacriticInsensitivePredicateOption: ComparisonPredicateOptions { get }
+  static var caseInsensitivePredicateOption: NSComparisonPredicateOptions { get }
+  static var diacriticInsensitivePredicateOption: NSComparisonPredicateOptions { get }
   @available(OSX 10.6, *)
-  static var normalizedPredicateOption: ComparisonPredicateOptions { get }
+  static var normalizedPredicateOption: NSComparisonPredicateOptions { get }
 }
-enum ComparisonPredicateModifier : UInt {
+enum NSComparisonPredicateModifier : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case directPredicateModifier
   case allPredicateModifier
   case anyPredicateModifier
 }
-enum PredicateOperatorType : UInt {
+enum NSPredicateOperatorType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case lessThanPredicateOperatorType
@@ -35,15 +35,15 @@ enum PredicateOperatorType : UInt {
   case betweenPredicateOperatorType
 }
 @available(OSX 10.4, *)
-class ComparisonPredicate : Predicate {
-  init(leftExpression lhs: Expression, rightExpression rhs: Expression, modifier: ComparisonPredicateModifier, type: PredicateOperatorType, options: ComparisonPredicateOptions = [])
-  init(leftExpression lhs: Expression, rightExpression rhs: Expression, customSelector selector: Selector)
-  init?(coder: Coder)
-  var predicateOperatorType: PredicateOperatorType { get }
-  var comparisonPredicateModifier: ComparisonPredicateModifier { get }
-  var leftExpression: Expression { get }
-  var rightExpression: Expression { get }
+class NSComparisonPredicate : NSPredicate {
+  init(leftExpression lhs: NSExpression, rightExpression rhs: NSExpression, modifier: NSComparisonPredicateModifier, type: NSPredicateOperatorType, options: NSComparisonPredicateOptions = [])
+  init(leftExpression lhs: NSExpression, rightExpression rhs: NSExpression, customSelector selector: Selector)
+  init?(coder: NSCoder)
+  var predicateOperatorType: NSPredicateOperatorType { get }
+  var comparisonPredicateModifier: NSComparisonPredicateModifier { get }
+  var leftExpression: NSExpression { get }
+  var rightExpression: NSExpression { get }
   var customSelector: Selector { get }
-  var options: ComparisonPredicateOptions { get }
+  var options: NSComparisonPredicateOptions { get }
   convenience init()
 }

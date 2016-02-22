@@ -1,9 +1,9 @@
 
 @available(iOS 8.0, *)
-class PHAdjustmentData : Object {
-  init(formatIdentifier: String, formatVersion: String, data: Data)
+class PHAdjustmentData : NSObject {
+  init(formatIdentifier: String, formatVersion: String, data: NSData)
   var formatIdentifier: String { get }
   var formatVersion: String { get }
-  var data: Data { get }
+  var data: NSData { get }
   init()
 }

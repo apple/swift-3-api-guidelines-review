@@ -1,14 +1,14 @@
 
 @available(OSX 10.0, *)
-class NSTextContainer : Object, Coding, NSTextLayoutOrientationProvider {
+class NSTextContainer : NSObject, NSCoding, NSTextLayoutOrientationProvider {
   @available(OSX 10.11, *)
-  init(size: Size)
-  init(coder: Coder)
+  init(size: NSSize)
+  init(coder: NSCoder)
   unowned(unsafe) var layoutManager: @sil_unmanaged NSLayoutManager?
   @available(OSX 10.0, *)
   func replaceLayoutManager(newLayoutManager: NSLayoutManager)
   @available(OSX 10.11, *)
-  var size: Size
+  var size: NSSize
   @available(OSX 10.11, *)
   var exclusionPaths: [NSBezierPath]
   @available(OSX 10.11, *)
@@ -17,7 +17,7 @@ class NSTextContainer : Object, Coding, NSTextLayoutOrientationProvider {
   @available(OSX 10.11, *)
   var maximumNumberOfLines: Int
   @available(OSX 10.11, *)
-  func lineFragmentRect(forProposedRect proposedRect: Rect, at characterIndex: Int, writingDirection baseWritingDirection: NSWritingDirection, remaining remainingRect: UnsafeMutablePointer<Rect>) -> Rect
+  func lineFragmentRect(forProposedRect proposedRect: NSRect, at characterIndex: Int, writingDirection baseWritingDirection: NSWritingDirection, remaining remainingRect: UnsafeMutablePointer<NSRect>) -> NSRect
   @available(OSX 10.0, *)
   var isSimpleRectangularTextContainer: Bool { get }
   var widthTracksTextView: Bool
@@ -25,7 +25,7 @@ class NSTextContainer : Object, Coding, NSTextLayoutOrientationProvider {
   var textView: NSTextView?
   convenience init()
   @available(OSX 10.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
   @available(OSX 10.7, *)
   var layoutOrientation: NSTextLayoutOrientation { get }
 }
@@ -57,9 +57,9 @@ enum NSLineMovementDirection : UInt {
   case movesUp
 }
 extension NSTextContainer {
-  convenience init(containerSize aContainerSize: Size)
-  var containerSize: Size
-  func lineFragmentRect(forProposedRect proposedRect: Rect, sweepDirection: NSLineSweepDirection, movementDirection: NSLineMovementDirection, remaining remainingRect: RectPointer) -> Rect
+  convenience init(containerSize aContainerSize: NSSize)
+  var containerSize: NSSize
+  func lineFragmentRect(forProposedRect proposedRect: NSRect, sweepDirection: NSLineSweepDirection, movementDirection: NSLineMovementDirection, remaining remainingRect: NSRectPointer) -> NSRect
   @available(OSX, introduced=10.0, deprecated=10.11)
-  func contains(point: Point) -> Bool
+  func contains(point: NSPoint) -> Bool
 }

@@ -26,10 +26,10 @@ struct AUHostTransportStateFlags : OptionSetType {
 }
 typealias AUHostTransportStateBlock = (UnsafeMutablePointer<AUHostTransportStateFlags>, UnsafeMutablePointer<Double>, UnsafeMutablePointer<Double>, UnsafeMutablePointer<Double>) -> Bool
 @available(tvOS 9.0, *)
-class AUAudioUnit : Object {
+class AUAudioUnit : NSObject {
   init(componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = []) throws
   convenience init(componentDescription: AudioComponentDescription) throws
-  class func instantiate(with componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = [], completionHandler: (AUAudioUnit?, Error?) -> Void)
+  class func instantiate(with componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = [], completionHandler: (AUAudioUnit?, NSError?) -> Void)
   var componentDescription: AudioComponentDescription { get }
   var component: AudioComponent { get }
   var componentName: String? { get }
@@ -48,7 +48,7 @@ class AUAudioUnit : Object {
   func removeRenderObserver(token: Int)
   var maximumFramesToRender: AUAudioFrameCount
   var parameterTree: AUParameterTree? { get }
-  func parametersForOverview(withCount count: Int) -> [Number]
+  func parametersForOverview(withCount count: Int) -> [NSNumber]
   var allParameterValues: Bool { get }
   var isMusicDeviceOrEffect: Bool { get }
   var virtualMIDICableCount: Int { get }
@@ -57,13 +57,13 @@ class AUAudioUnit : Object {
   var fullStateForDocument: [String : AnyObject]?
   var factoryPresets: [AUAudioUnitPreset]? { get }
   var currentPreset: AUAudioUnitPreset?
-  var latency: TimeInterval { get }
-  var tailTime: TimeInterval { get }
+  var latency: NSTimeInterval { get }
+  var tailTime: NSTimeInterval { get }
   var renderQuality: Int
   var shouldBypassEffect: Bool
   var canProcessInPlace: Bool { get }
   var isRenderingOffline: Bool
-  var channelCapabilities: [Number]? { get }
+  var channelCapabilities: [NSNumber]? { get }
   var musicalContextBlock: AUHostMusicalContextBlock?
   var transportStateBlock: AUHostTransportStateBlock?
   var contextName: String?
@@ -80,39 +80,39 @@ extension AUAudioUnit {
   func stopHardware()
 }
 @available(tvOS 9.0, *)
-class AUAudioUnitBusArray : Object, FastEnumeration {
+class AUAudioUnitBusArray : NSObject, NSFastEnumeration {
   init(audioUnit owner: AUAudioUnit, busType: AUAudioUnitBusType, busses busArray: [AUAudioUnitBus])
   convenience init(audioUnit owner: AUAudioUnit, busType: AUAudioUnitBusType)
   var count: Int { get }
   subscript(index: Int) -> AUAudioUnitBus { get }
   var isCountChangeable: Bool { get }
   func setBusCount(count: Int) throws
-  func addObserver(toAllBusses observer: Object, forKeyPath keyPath: String, options: KeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
-  func removeObserver(fromAllBusses observer: Object, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
+  func addObserver(toAllBusses observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutablePointer<Void>)
+  func removeObserver(fromAllBusses observer: NSObject, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
   unowned(unsafe) var ownerAudioUnit: @sil_unmanaged AUAudioUnit { get }
   var busType: AUAudioUnitBusType { get }
   @available(tvOS 9.0, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 @available(tvOS 9.0, *)
-class AUAudioUnitBus : Object {
+class AUAudioUnitBus : NSObject {
   var isEnabled: Bool
   var name: String?
   var index: Int { get }
   var busType: AUAudioUnitBusType { get }
   unowned(unsafe) var ownerAudioUnit: @sil_unmanaged AUAudioUnit { get }
-  var supportedChannelLayoutTags: [Number]? { get }
-  var contextPresentationLatency: TimeInterval
+  var supportedChannelLayoutTags: [NSNumber]? { get }
+  var contextPresentationLatency: NSTimeInterval
   init()
 }
 @available(tvOS 9.0, *)
-class AUAudioUnitPreset : Object, SecureCoding {
+class AUAudioUnitPreset : NSObject, NSSecureCoding {
   var number: Int
   var name: String
   init()
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

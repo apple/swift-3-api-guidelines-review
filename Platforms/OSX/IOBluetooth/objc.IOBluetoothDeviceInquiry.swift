@@ -1,5 +1,5 @@
 
-class IOBluetoothDeviceInquiry : Object {
+class IOBluetoothDeviceInquiry : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged AnyObject!
   init!(delegate: AnyObject!)
   func start() -> IOReturn

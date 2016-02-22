@@ -1,10 +1,10 @@
 
 class NSPDFImageRep : NSImageRep {
-  init?(data pdfData: Data)
-  var pdfRepresentation: Data { get }
-  var bounds: Rect { get }
+  init?(data pdfData: NSData)
+  var pdfRepresentation: NSData { get }
+  var bounds: NSRect { get }
   var currentPage: Int
   var pageCount: Int { get }
   init()
-  init?(coder: Coder)
+  init?(coder: NSCoder)
 }

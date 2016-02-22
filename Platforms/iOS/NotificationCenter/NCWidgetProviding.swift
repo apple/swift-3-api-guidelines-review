@@ -7,7 +7,7 @@ enum NCUpdateResult : UInt {
   case noData
   case failed
 }
-protocol NCWidgetProviding : ObjectProtocol {
+protocol NCWidgetProviding : NSObjectProtocol {
   @available(iOS 8.0, *)
   optional func widgetPerformUpdate(completionHandler completionHandler: (NCUpdateResult) -> Void)
   optional func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets

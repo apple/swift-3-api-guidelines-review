@@ -4,7 +4,7 @@ extension DOMNode {
 }
 extension DOMDocument {
   var webFrame: WebFrame! { get }
-  func url(withAttributeString string: String!) -> URL!
+  func url(withAttributeString string: String!) -> NSURL!
 }
 extension DOMRange {
   var webArchive: WebArchive! { get }

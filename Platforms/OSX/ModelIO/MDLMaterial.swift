@@ -63,7 +63,7 @@ enum MDLMaterialMipMapFilterMode : UInt {
   case linear
 }
 @available(OSX 10.11, *)
-class MDLTextureFilter : Object {
+class MDLTextureFilter : NSObject {
   var sWrapMode: MDLMaterialTextureWrapMode
   var tWrapMode: MDLMaterialTextureWrapMode
   var rWrapMode: MDLMaterialTextureWrapMode
@@ -73,21 +73,21 @@ class MDLTextureFilter : Object {
   init()
 }
 @available(OSX 10.11, *)
-class MDLTextureSampler : Object {
+class MDLTextureSampler : NSObject {
   var texture: MDLTexture?
   var hardwareFilter: MDLTextureFilter?
   var transform: MDLTransform?
   init()
 }
 @available(OSX 10.11, *)
-class MDLMaterialProperty : Object, MDLNamed {
+class MDLMaterialProperty : NSObject, MDLNamed {
   init(name: String, semantic: MDLMaterialSemantic)
   convenience init(name: String, semantic: MDLMaterialSemantic, float value: Float)
   convenience init(name: String, semantic: MDLMaterialSemantic, float2 value: vector_float2)
   convenience init(name: String, semantic: MDLMaterialSemantic, float3 value: vector_float3)
   convenience init(name: String, semantic: MDLMaterialSemantic, float4 value: vector_float4)
   convenience init(name: String, semantic: MDLMaterialSemantic, matrix4x4 value: matrix_float4x4)
-  convenience init(name: String, semantic: MDLMaterialSemantic, url URL: URL?)
+  convenience init(name: String, semantic: MDLMaterialSemantic, url URL: NSURL?)
   convenience init(name: String, semantic: MDLMaterialSemantic, string: String?)
   convenience init(name: String, semantic: MDLMaterialSemantic, textureSampler: MDLTextureSampler?)
   convenience init(name: String, semantic: MDLMaterialSemantic, color: CGColor)
@@ -96,7 +96,7 @@ class MDLMaterialProperty : Object, MDLNamed {
   var type: MDLMaterialPropertyType { get }
   var name: String
   var stringValue: String?
-  @NSCopying var urlValue: URL?
+  @NSCopying var urlValue: NSURL?
   var textureSamplerValue: MDLTextureSampler?
   var color: CGColor?
   var floatValue: Float
@@ -106,7 +106,7 @@ class MDLMaterialProperty : Object, MDLNamed {
   var matrix4x4: matrix_float4x4
 }
 @available(OSX 10.11, *)
-class MDLScatteringFunction : Object, MDLNamed {
+class MDLScatteringFunction : NSObject, MDLNamed {
   var name: String
   var baseColor: MDLMaterialProperty { get }
   var emission: MDLMaterialProperty { get }
@@ -135,7 +135,7 @@ class MDLPhysicallyPlausibleScatteringFunction : MDLScatteringFunction {
   init()
 }
 @available(OSX 10.11, *)
-class MDLMaterial : Object, MDLNamed, FastEnumeration {
+class MDLMaterial : NSObject, MDLNamed, NSFastEnumeration {
   init(name: String, scatteringFunction: MDLScatteringFunction)
   func setProperty(property: MDLMaterialProperty)
   func remove(property: MDLMaterialProperty)
@@ -150,5 +150,5 @@ class MDLMaterial : Object, MDLNamed, FastEnumeration {
   var count: Int { get }
   init()
   @available(OSX 10.11, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

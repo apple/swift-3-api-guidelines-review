@@ -1,36 +1,36 @@
 
-protocol URLProtocolClient : ObjectProtocol {
-  func urlProtocol(protocol: URLProtocol, wasRedirectedTo request: URLRequest, redirectResponse: URLResponse)
-  func urlProtocol(protocol: URLProtocol, cachedResponseIsValid cachedResponse: CachedURLResponse)
-  func urlProtocol(protocol: URLProtocol, didReceive response: URLResponse, cacheStoragePolicy policy: URLCacheStoragePolicy)
-  func urlProtocol(protocol: URLProtocol, didLoad data: Data)
-  func urlProtocolDidFinishLoading(protocol: URLProtocol)
-  func urlProtocol(protocol: URLProtocol, didFailWithError error: Error)
-  func urlProtocol(protocol: URLProtocol, didReceive challenge: URLAuthenticationChallenge)
-  func urlProtocol(protocol: URLProtocol, didCancel challenge: URLAuthenticationChallenge)
+protocol NSURLProtocolClient : NSObjectProtocol {
+  func urlProtocol(protocol: NSURLProtocol, wasRedirectedTo request: NSURLRequest, redirectResponse: NSURLResponse)
+  func urlProtocol(protocol: NSURLProtocol, cachedResponseIsValid cachedResponse: NSCachedURLResponse)
+  func urlProtocol(protocol: NSURLProtocol, didReceive response: NSURLResponse, cacheStoragePolicy policy: NSURLCacheStoragePolicy)
+  func urlProtocol(protocol: NSURLProtocol, didLoad data: NSData)
+  func urlProtocolDidFinishLoading(protocol: NSURLProtocol)
+  func urlProtocol(protocol: NSURLProtocol, didFailWithError error: NSError)
+  func urlProtocol(protocol: NSURLProtocol, didReceive challenge: NSURLAuthenticationChallenge)
+  func urlProtocol(protocol: NSURLProtocol, didCancel challenge: NSURLAuthenticationChallenge)
 }
-class URLProtocol : Object {
-  init(request: URLRequest, cachedResponse: CachedURLResponse?, client: URLProtocolClient?)
-  var client: URLProtocolClient? { get }
-  @NSCopying var request: URLRequest { get }
-  @NSCopying var cachedResponse: CachedURLResponse? { get }
-  class func canInit(with request: URLRequest) -> Bool
-  class func canonicalRequest(for request: URLRequest) -> URLRequest
-  class func requestIsCacheEquivalent(a: URLRequest, to b: URLRequest) -> Bool
+class NSURLProtocol : NSObject {
+  init(request: NSURLRequest, cachedResponse: NSCachedURLResponse?, client: NSURLProtocolClient?)
+  var client: NSURLProtocolClient? { get }
+  @NSCopying var request: NSURLRequest { get }
+  @NSCopying var cachedResponse: NSCachedURLResponse? { get }
+  class func canInit(with request: NSURLRequest) -> Bool
+  class func canonicalRequest(for request: NSURLRequest) -> NSURLRequest
+  class func requestIsCacheEquivalent(a: NSURLRequest, to b: NSURLRequest) -> Bool
   func startLoading()
   func stopLoading()
-  class func property(forKey key: String, in request: URLRequest) -> AnyObject?
-  class func setProperty(value: AnyObject, forKey key: String, in request: MutableURLRequest)
-  class func removeProperty(forKey key: String, in request: MutableURLRequest)
+  class func property(forKey key: String, in request: NSURLRequest) -> AnyObject?
+  class func setProperty(value: AnyObject, forKey key: String, in request: NSMutableURLRequest)
+  class func removeProperty(forKey key: String, in request: NSMutableURLRequest)
   class func registerClass(protocolClass: AnyClass) -> Bool
   class func unregisterClass(protocolClass: AnyClass)
   convenience init()
 }
-extension URLProtocol {
+extension NSURLProtocol {
   @available(iOS 8.0, *)
-  class func canInit(with task: URLSessionTask) -> Bool
+  class func canInit(with task: NSURLSessionTask) -> Bool
   @available(iOS 8.0, *)
-  convenience init(task: URLSessionTask, cachedResponse: CachedURLResponse?, client: URLProtocolClient?)
+  convenience init(task: NSURLSessionTask, cachedResponse: NSCachedURLResponse?, client: NSURLProtocolClient?)
   @available(iOS 8.0, *)
-  @NSCopying var task: URLSessionTask? { get }
+  @NSCopying var task: NSURLSessionTask? { get }
 }

@@ -3,5 +3,5 @@
 class CNMutableGroup : CNGroup {
   var name: String
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

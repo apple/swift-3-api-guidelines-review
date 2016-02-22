@@ -1,9 +1,9 @@
 
 @available(iOS 9.0, *)
-class CSIndexExtensionRequestHandler : Object, ExtensionRequestHandling, CSSearchableIndexDelegate {
+class CSIndexExtensionRequestHandler : NSObject, NSExtensionRequestHandling, CSSearchableIndexDelegate {
   init()
   @available(iOS 9.0, *)
-  func beginRequest(context: ExtensionContext)
+  func beginRequest(context: NSExtensionContext)
   @available(iOS 9.0, *)
   func searchableIndex(searchableIndex: CSSearchableIndex, reindexAllSearchableItemsWithAcknowledgementHandler acknowledgementHandler: () -> Void)
   @available(iOS 9.0, *)

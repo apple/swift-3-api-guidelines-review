@@ -3,12 +3,12 @@ class NSColorWell : NSControl {
   func deactivate()
   func activate(exclusive: Bool)
   var isActive: Bool { get }
-  func draw(inside insideRect: Rect)
+  func draw(inside insideRect: NSRect)
   var isBordered: Bool
   func takeColorFrom(sender: AnyObject?)
   @NSCopying var color: NSColor
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }
 struct __cwFlags {

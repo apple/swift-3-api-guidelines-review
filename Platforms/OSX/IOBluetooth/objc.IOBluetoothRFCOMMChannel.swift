@@ -1,5 +1,5 @@
 
-class IOBluetoothRFCOMMChannel : IOBluetoothObject, PortDelegate {
+class IOBluetoothRFCOMMChannel : IOBluetoothObject, NSPortDelegate {
   class func register(forChannelOpenNotifications object: AnyObject!, selector: Selector) -> IOBluetoothUserNotification!
   class func register(forChannelOpenNotifications object: AnyObject!, selector: Selector, withChannelID channelID: BluetoothRFCOMMChannelID, direction inDirection: IOBluetoothUserNotificationChannelDirection) -> IOBluetoothUserNotification!
   class func withRFCOMMChannelRef(rfcommChannelRef: IOBluetoothRFCOMMChannelRef!) -> Self!
@@ -21,7 +21,7 @@ class IOBluetoothRFCOMMChannel : IOBluetoothObject, PortDelegate {
   func getObjectID() -> IOBluetoothObjectID
   func register(forChannelCloseNotification observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
   init()
-  func handle(message: PortMessage)
+  func handle(message: NSPortMessage)
 }
 protocol IOBluetoothRFCOMMChannelDelegate {
   optional func rfcommChannelData(rfcommChannel: IOBluetoothRFCOMMChannel!, data dataPointer: UnsafeMutablePointer<Void>, length dataLength: Int)

@@ -1,15 +1,15 @@
 
 @available(iOS 8.0, *)
-class NSFileProviderExtension : Object {
-  class func writePlaceholder(at placeholderURL: URL, withMetadata metadata: [Object : AnyObject]) throws
-  class func placeholderURL(for url: URL) -> URL
+class NSFileProviderExtension : NSObject {
+  class func writePlaceholder(at placeholderURL: NSURL, withMetadata metadata: [NSObject : AnyObject]) throws
+  class func placeholderURL(for url: NSURL) -> NSURL
   func providerIdentifier() -> String
-  func documentStorageURL() -> URL
-  func urlForItem(withPersistentIdentifier identifier: String) -> URL?
-  func persistentIdentifierForItem(at url: URL) -> String?
-  func providePlaceholder(at url: URL, completionHandler: (Error?) -> Void)
-  func startProvidingItem(at url: URL, completionHandler: (Error?) -> Void)
-  func itemChanged(at url: URL)
-  func stopProvidingItem(at url: URL)
+  func documentStorageURL() -> NSURL
+  func urlForItem(withPersistentIdentifier identifier: String) -> NSURL?
+  func persistentIdentifierForItem(at url: NSURL) -> String?
+  func providePlaceholder(at url: NSURL, completionHandler: (NSError?) -> Void)
+  func startProvidingItem(at url: NSURL, completionHandler: (NSError?) -> Void)
+  func itemChanged(at url: NSURL)
+  func stopProvidingItem(at url: NSURL)
   init()
 }

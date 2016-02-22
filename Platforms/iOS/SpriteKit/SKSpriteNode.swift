@@ -7,7 +7,7 @@ class SKSpriteNode : SKNode {
   convenience init(texture: SKTexture?)
   convenience init(imageNamed name: String)
   convenience init(color: UIColor, size: CGSize)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   var texture: SKTexture?
   @available(iOS 8.0, *)
   var normalTexture: SKTexture?

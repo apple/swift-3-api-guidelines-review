@@ -95,46 +95,46 @@ let NSPersistentStoreRebuildFromUbiquitousContentOption: String
 @available(OSX 10.8, *)
 let NSPersistentStoreForceDestroyOption: String
 @available(OSX 10.4, *)
-class NSPersistentStoreCoordinator : Object, Locking {
+class NSPersistentStoreCoordinator : NSObject, NSLocking {
   init(managedObjectModel model: NSManagedObjectModel)
   var managedObjectModel: NSManagedObjectModel { get }
   var persistentStores: [NSPersistentStore] { get }
   @available(OSX 10.10, *)
   var name: String?
-  func persistentStore(for URL: URL) -> NSPersistentStore?
-  func url(for store: NSPersistentStore) -> URL
+  func persistentStore(for URL: NSURL) -> NSPersistentStore?
+  func url(for store: NSPersistentStore) -> NSURL
   @available(OSX 10.5, *)
-  func setURL(url: URL, for store: NSPersistentStore) -> Bool
-  func addPersistentStore(type storeType: String, configuration: String?, url storeURL: URL?, options: [Object : AnyObject]? = [:]) throws -> NSPersistentStore
+  func setURL(url: NSURL, for store: NSPersistentStore) -> Bool
+  func addPersistentStore(type storeType: String, configuration: String?, url storeURL: NSURL?, options: [NSObject : AnyObject]? = [:]) throws -> NSPersistentStore
   func removePersistentStore(store: NSPersistentStore) throws
   func setMetadata(metadata: [String : AnyObject]?, for store: NSPersistentStore)
   func metadata(for store: NSPersistentStore) -> [String : AnyObject]
-  func managedObjectID(forURIRepresentation url: URL) -> NSManagedObjectID?
+  func managedObjectID(forURIRepresentation url: NSURL) -> NSManagedObjectID?
   @available(OSX 10.7, *)
   func execute(request: NSPersistentStoreRequest, with context: NSManagedObjectContext) throws -> AnyObject
   @available(OSX 10.5, *)
-  class func registeredStoreTypes() -> [String : Value]
+  class func registeredStoreTypes() -> [String : NSValue]
   @available(OSX 10.5, *)
   class func registerStoreClass(storeClass: AnyClass, forStoreType storeType: String)
   @available(OSX 10.9, *)
-  class func metadataForPersistentStore(ofType storeType: String, url: URL, options: [Object : AnyObject]? = [:]) throws -> [String : AnyObject]
+  class func metadataForPersistentStore(ofType storeType: String, url: NSURL, options: [NSObject : AnyObject]? = [:]) throws -> [String : AnyObject]
   @available(OSX 10.9, *)
-  class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String, url: URL, options: [Object : AnyObject]? = [:]) throws
+  class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String, url: NSURL, options: [NSObject : AnyObject]? = [:]) throws
   @available(OSX, introduced=10.5, deprecated=10.11, message="Use a -metadataForPersistentStoreOfType:URL:options:error: and pass in an options dictionary matching addPersistentStoreWithType")
-  class func metadataForPersistentStore(ofType storeType: String?, url: URL) throws -> [String : AnyObject]
+  class func metadataForPersistentStore(ofType storeType: String?, url: NSURL) throws -> [String : AnyObject]
   @available(OSX, introduced=10.5, deprecated=10.11, message="Use a -setMetadata:forPersistentStoreOfType:URL:options:error: and pass in an options dictionary matching addPersistentStoreWithType")
-  class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String?, url: URL) throws
+  class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String?, url: NSURL) throws
   @available(OSX 10.6, *)
-  class func elementsDerived(fromExternalRecord fileURL: URL) -> [Object : AnyObject]
+  class func elementsDerived(fromExternalRecord fileURL: NSURL) -> [NSObject : AnyObject]
   @available(OSX 10.9, *)
-  class func removeUbiquitousContentAndPersistentStore(at storeURL: URL, options: [Object : AnyObject]? = [:]) throws
+  class func removeUbiquitousContentAndPersistentStore(at storeURL: NSURL, options: [NSObject : AnyObject]? = [:]) throws
   @available(OSX 10.6, *)
-  func importStore(identifier storeIdentifier: String?, fromExternalRecordsDirectory externalRecordsURL: URL, to destinationURL: URL, options: [Object : AnyObject]? = [:], withType storeType: String) throws -> NSPersistentStore
-  func migratePersistentStore(store: NSPersistentStore, to URL: URL, options: [Object : AnyObject]? = [:], withType storeType: String) throws -> NSPersistentStore
+  func importStore(identifier storeIdentifier: String?, fromExternalRecordsDirectory externalRecordsURL: NSURL, to destinationURL: NSURL, options: [NSObject : AnyObject]? = [:], withType storeType: String) throws -> NSPersistentStore
+  func migratePersistentStore(store: NSPersistentStore, to URL: NSURL, options: [NSObject : AnyObject]? = [:], withType storeType: String) throws -> NSPersistentStore
   @available(OSX 10.11, *)
-  func destroyPersistentStore(at url: URL, withType storeType: String, options: [Object : AnyObject]? = [:]) throws
+  func destroyPersistentStore(at url: NSURL, withType storeType: String, options: [NSObject : AnyObject]? = [:]) throws
   @available(OSX 10.11, *)
-  func replacePersistentStore(at destinationURL: URL, destinationOptions: [Object : AnyObject]? = [:], withPersistentStoreFrom sourceURL: URL, sourceOptions: [Object : AnyObject]? = [:], storeType: String) throws
+  func replacePersistentStore(at destinationURL: NSURL, destinationOptions: [NSObject : AnyObject]? = [:], withPersistentStoreFrom sourceURL: NSURL, sourceOptions: [NSObject : AnyObject]? = [:], storeType: String) throws
   @available(OSX 10.10, *)
   func perform(block: () -> Void)
   @available(OSX 10.10, *)

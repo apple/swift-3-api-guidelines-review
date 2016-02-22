@@ -1,6 +1,6 @@
 
 @available(watchOS 2.0, *)
-class Operation : Object {
+class NSOperation : NSObject {
   func start()
   func main()
   var isCancelled: Bool { get }
@@ -11,10 +11,10 @@ class Operation : Object {
   @available(watchOS 2.0, *)
   var isAsynchronous: Bool { get }
   var isReady: Bool { get }
-  func addDependency(op: Operation)
-  func removeDependency(op: Operation)
-  var dependencies: [Operation] { get }
-  var queuePriority: OperationQueuePriority
+  func addDependency(op: NSOperation)
+  func removeDependency(op: NSOperation)
+  var dependencies: [NSOperation] { get }
+  var queuePriority: NSOperationQueuePriority
   @available(watchOS 2.0, *)
   var completionBlock: (() -> Void)?
   @available(watchOS 2.0, *)
@@ -22,12 +22,12 @@ class Operation : Object {
   @available(watchOS, introduced=2.0, deprecated=2.0)
   var threadPriority: Double
   @available(watchOS 2.0, *)
-  var qualityOfService: QualityOfService
+  var qualityOfService: NSQualityOfService
   @available(watchOS 2.0, *)
   var name: String?
   init()
 }
-enum OperationQueuePriority : Int {
+enum NSOperationQueuePriority : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   case veryLow
@@ -37,25 +37,25 @@ enum OperationQueuePriority : Int {
   case veryHigh
 }
 @available(watchOS 2.0, *)
-class BlockOperation : Operation {
+class NSBlockOperation : NSOperation {
   convenience init(block: () -> Void)
   func addExecutionBlock(block: () -> Void)
   var executionBlocks: [() -> Void] { get }
   init()
 }
 @available(watchOS 2.0, *)
-let invocationOperationVoidResultException: String
+let NSInvocationOperationVoidResultException: String
 @available(watchOS 2.0, *)
-let invocationOperationCancelledException: String
-let operationQueueDefaultMaxConcurrentOperationCount: Int
+let NSInvocationOperationCancelledException: String
+let NSOperationQueueDefaultMaxConcurrentOperationCount: Int
 @available(watchOS 2.0, *)
-class OperationQueue : Object {
-  func addOperation(op: Operation)
+class NSOperationQueue : NSObject {
+  func addOperation(op: NSOperation)
   @available(watchOS 2.0, *)
-  func addOperations(ops: [Operation], waitUntilFinished wait: Bool)
+  func addOperations(ops: [NSOperation], waitUntilFinished wait: Bool)
   @available(watchOS 2.0, *)
   func addOperation(block: () -> Void)
-  var operations: [Operation] { get }
+  var operations: [NSOperation] { get }
   @available(watchOS 2.0, *)
   var operationCount: Int { get }
   var maxConcurrentOperationCount: Int
@@ -63,14 +63,14 @@ class OperationQueue : Object {
   @available(watchOS 2.0, *)
   var name: String?
   @available(watchOS 2.0, *)
-  var qualityOfService: QualityOfService
+  var qualityOfService: NSQualityOfService
   @available(watchOS 2.0, *)
   unowned(unsafe) var underlyingQueue: @sil_unmanaged dispatch_queue_t?
   func cancelAllOperations()
   func waitUntilAllOperationsAreFinished()
   @available(watchOS 2.0, *)
-  class func current() -> OperationQueue?
+  class func current() -> NSOperationQueue?
   @available(watchOS 2.0, *)
-  class func main() -> OperationQueue
+  class func main() -> NSOperationQueue
   init()
 }

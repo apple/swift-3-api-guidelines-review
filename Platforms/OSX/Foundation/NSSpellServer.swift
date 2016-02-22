@@ -1,6 +1,6 @@
 
-class SpellServer : Object {
-  unowned(unsafe) var delegate: @sil_unmanaged SpellServerDelegate?
+class NSSpellServer : NSObject {
+  unowned(unsafe) var delegate: @sil_unmanaged NSSpellServerDelegate?
   func registerLanguage(language: String?, byVendor vendor: String?) -> Bool
   func isWord(inUserDictionaries word: String, caseSensitive flag: Bool) -> Bool
   func run()
@@ -14,22 +14,22 @@ struct __ssFlags {
   init()
   init(delegateLearnsWords: UInt32, delegateForgetsWords: UInt32, busy: UInt32, _reserved: UInt32)
 }
-protocol SpellServerDelegate : ObjectProtocol {
-  optional func spellServer(sender: SpellServer, findMisspelledWordIn stringToCheck: String, language: String, wordCount: UnsafeMutablePointer<Int>, countOnly: Bool) -> NSRange
-  optional func spellServer(sender: SpellServer, suggestGuessesForWord word: String, inLanguage language: String) -> [String]?
-  optional func spellServer(sender: SpellServer, didLearnWord word: String, inLanguage language: String)
-  optional func spellServer(sender: SpellServer, didForgetWord word: String, inLanguage language: String)
-  optional func spellServer(sender: SpellServer, suggestCompletionsForPartialWordRange range: NSRange, in string: String, language: String) -> [String]?
+protocol NSSpellServerDelegate : NSObjectProtocol {
+  optional func spellServer(sender: NSSpellServer, findMisspelledWordIn stringToCheck: String, language: String, wordCount: UnsafeMutablePointer<Int>, countOnly: Bool) -> NSRange
+  optional func spellServer(sender: NSSpellServer, suggestGuessesForWord word: String, inLanguage language: String) -> [String]?
+  optional func spellServer(sender: NSSpellServer, didLearnWord word: String, inLanguage language: String)
+  optional func spellServer(sender: NSSpellServer, didForgetWord word: String, inLanguage language: String)
+  optional func spellServer(sender: NSSpellServer, suggestCompletionsForPartialWordRange range: NSRange, in string: String, language: String) -> [String]?
   @available(OSX 10.5, *)
-  optional func spellServer(sender: SpellServer, checkGrammarIn stringToCheck: String, language: String?, details: AutoreleasingUnsafeMutablePointer<NSArray?>) -> NSRange
+  optional func spellServer(sender: NSSpellServer, checkGrammarIn stringToCheck: String, language: String?, details: AutoreleasingUnsafeMutablePointer<NSArray?>) -> NSRange
   @available(OSX 10.6, *)
-  optional func spellServer(sender: SpellServer, check stringToCheck: String, offset: Int, types checkingTypes: TextCheckingTypes, options: [String : AnyObject]? = [:], orthography: Orthography?, wordCount: UnsafeMutablePointer<Int>) -> [TextCheckingResult]?
+  optional func spellServer(sender: NSSpellServer, check stringToCheck: String, offset: Int, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject]? = [:], orthography: NSOrthography?, wordCount: UnsafeMutablePointer<Int>) -> [NSTextCheckingResult]?
   @available(OSX 10.7, *)
-  optional func spellServer(sender: SpellServer, recordResponse response: Int, toCorrection correction: String, forWord word: String, language: String)
+  optional func spellServer(sender: NSSpellServer, recordResponse response: Int, toCorrection correction: String, forWord word: String, language: String)
 }
 @available(OSX 10.5, *)
-let grammarRange: String
+let NSGrammarRange: String
 @available(OSX 10.5, *)
-let grammarUserDescription: String
+let NSGrammarUserDescription: String
 @available(OSX 10.5, *)
-let grammarCorrections: String
+let NSGrammarCorrections: String

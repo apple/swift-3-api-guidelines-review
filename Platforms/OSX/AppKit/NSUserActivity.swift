@@ -2,19 +2,19 @@
 var NS_USER_ACTIVITY_SUPPORTED: Int32 { get }
 extension NSResponder {
   @available(OSX 10.10, *)
-  var userActivity: UserActivity?
+  var userActivity: NSUserActivity?
   @available(OSX 10.10, *)
-  func updateUserActivityState(userActivity: UserActivity)
+  func updateUserActivityState(userActivity: NSUserActivity)
   @available(OSX 10.10, *)
-  func restoreUserActivityState(userActivity: UserActivity)
+  func restoreUserActivityState(userActivity: NSUserActivity)
 }
 extension NSDocument {
   @available(OSX 10.10, *)
-  var userActivity: UserActivity?
+  var userActivity: NSUserActivity?
   @available(OSX 10.10, *)
-  func updateUserActivityState(activity: UserActivity)
+  func updateUserActivityState(activity: NSUserActivity)
   @available(OSX 10.10, *)
-  func restoreUserActivityState(activity: UserActivity)
+  func restoreUserActivityState(activity: NSUserActivity)
 }
 @available(OSX 10.10, *)
 let NSUserActivityDocumentURLKey: String

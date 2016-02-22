@@ -9,12 +9,12 @@ enum TVColorType : Int {
   case linearGradientLeftToRight
 }
 @available(tvOS 9.0, *)
-class TVColor : Object, Copying {
+class TVColor : NSObject, NSCopying {
   var colorType: TVColorType { get }
   var color: UIColor? { get }
   var gradientColors: [UIColor]? { get }
-  var gradientPoints: [Number]? { get }
+  var gradientPoints: [NSNumber]? { get }
   init()
   @available(tvOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

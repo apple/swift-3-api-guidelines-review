@@ -73,7 +73,7 @@ enum NSWritingDirectionFormatType : Int {
 }
 @available(watchOS 2.0, *)
 let NSTextEffectLetterpressStyle: String
-extension MutableAttributedString {
+extension NSMutableAttributedString {
   @available(watchOS 2.0, *)
   func fixAttributes(in range: NSRange)
 }
@@ -115,23 +115,23 @@ let NSHyphenationFactorDocumentAttribute: String
 let NSDefaultTabIntervalDocumentAttribute: String
 @available(watchOS 2.0, *)
 let NSTextLayoutSectionsAttribute: String
-extension AttributedString {
+extension NSAttributedString {
   @available(watchOS 2.0, *)
-  init(url: URL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(url: NSURL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(watchOS 2.0, *)
-  init(data: Data, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(data: NSData, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(watchOS 2.0, *)
-  func data(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> Data
+  func data(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> NSData
   @available(watchOS 2.0, *)
-  func fileWrapper(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> FileWrapper
+  func fileWrapper(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> NSFileWrapper
 }
-extension MutableAttributedString {
+extension NSMutableAttributedString {
   @available(watchOS 2.0, *)
-  func read(from url: URL, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func read(from url: NSURL, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(watchOS 2.0, *)
-  func read(from data: Data, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func read(from data: NSData, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
-extension AttributedString {
+extension NSAttributedString {
   @available(watchOS 2.0, *)
   func containsAttachments(in range: NSRange) -> Bool
 }
@@ -142,11 +142,11 @@ enum NSTextWritingDirection : Int {
   case embedding
   case override
 }
-extension AttributedString {
+extension NSAttributedString {
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init(fileURL url: URL, options: [Object : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(fileURL url: NSURL, options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
-extension MutableAttributedString {
+extension NSMutableAttributedString {
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -readFromURL:options:documentAttributes:error: instead")
-  func read(fromFileURL url: URL, options opts: [Object : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func read(fromFileURL url: NSURL, options opts: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }

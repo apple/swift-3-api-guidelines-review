@@ -1,23 +1,23 @@
 
-enum PostingStyle : UInt {
+enum NSPostingStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case postWhenIdle
   case postASAP
   case postNow
 }
-struct NotificationCoalescing : OptionSetType {
+struct NSNotificationCoalescing : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var noCoalescing: NotificationCoalescing { get }
-  static var coalescingOnName: NotificationCoalescing { get }
-  static var coalescingOnSender: NotificationCoalescing { get }
+  static var noCoalescing: NSNotificationCoalescing { get }
+  static var coalescingOnName: NSNotificationCoalescing { get }
+  static var coalescingOnSender: NSNotificationCoalescing { get }
 }
-class NotificationQueue : Object {
-  class func defaultQueue() -> NotificationQueue
-  init(notificationCenter: NotificationCenter)
-  func enqueue(notification: Notification, postingStyle: PostingStyle)
-  func enqueue(notification: Notification, postingStyle: PostingStyle, coalesceMask: NotificationCoalescing, forModes modes: [String]?)
-  func dequeueNotifications(matching notification: Notification, coalesceMask: Int)
+class NSNotificationQueue : NSObject {
+  class func defaultQueue() -> NSNotificationQueue
+  init(notificationCenter: NSNotificationCenter)
+  func enqueue(notification: NSNotification, postingStyle: NSPostingStyle)
+  func enqueue(notification: NSNotification, postingStyle: NSPostingStyle, coalesceMask: NSNotificationCoalescing, forModes modes: [String]?)
+  func dequeueNotifications(matching notification: NSNotification, coalesceMask: Int)
   convenience init()
 }

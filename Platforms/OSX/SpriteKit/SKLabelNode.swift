@@ -29,6 +29,6 @@ class SKLabelNode : SKNode {
   var color: NSColor?
   var blendMode: SKBlendMode
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init?(fileNamed filename: String)
 }

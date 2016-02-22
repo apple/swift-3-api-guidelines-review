@@ -7,10 +7,10 @@ enum UIActivityIndicatorViewStyle : Int {
   case gray
 }
 @available(iOS 2.0, *)
-class UIActivityIndicatorView : UIView, Coding {
+class UIActivityIndicatorView : UIView, NSCoding {
   init(activityIndicatorStyle style: UIActivityIndicatorViewStyle)
   init(frame: CGRect)
-  init(coder: Coder)
+  init(coder: NSCoder)
   var activityIndicatorViewStyle: UIActivityIndicatorViewStyle
   var hidesWhenStopped: Bool
   @available(iOS 5.0, *)

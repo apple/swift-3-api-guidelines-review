@@ -20,17 +20,17 @@ protocol ICCameraDeviceDelegate : ICDeviceDelegate {
   optional func cameraDevice(camera: ICCameraDevice, didRemove item: ICCameraItem)
   optional func cameraDevice(camera: ICCameraDevice, didRemove items: [ICCameraItem])
   optional func cameraDevice(camera: ICCameraDevice, didRenameItems items: [ICCameraItem])
-  optional func cameraDevice(scanner: ICCameraDevice, didCompleteDeleteFilesWithError error: Error?)
+  optional func cameraDevice(scanner: ICCameraDevice, didCompleteDeleteFilesWithError error: NSError?)
   optional func cameraDeviceDidChangeCapability(camera: ICCameraDevice)
   optional func cameraDevice(camera: ICCameraDevice, didReceiveThumbnailFor item: ICCameraItem)
   optional func cameraDevice(camera: ICCameraDevice, didReceiveMetadataFor item: ICCameraItem)
-  optional func cameraDevice(camera: ICCameraDevice, didReceivePTPEvent eventData: Data)
+  optional func cameraDevice(camera: ICCameraDevice, didReceivePTPEvent eventData: NSData)
   optional func deviceDidBecomeReady(withCompleteContentCatalog device: ICDevice)
   optional func cameraDevice(cameraDevice: ICCameraDevice, shouldGetThumbnailOf item: ICCameraItem) -> Bool
   optional func cameraDevice(cameraDevice: ICCameraDevice, shouldGetMetadataOf item: ICCameraItem) -> Bool
 }
-protocol ICCameraDeviceDownloadDelegate : ObjectProtocol {
-  optional func didDownloadFile(file: ICCameraFile, error: Error?, options: [String : AnyObject]? = [:], contextInfo: UnsafeMutablePointer<Void>)
+protocol ICCameraDeviceDownloadDelegate : NSObjectProtocol {
+  optional func didDownloadFile(file: ICCameraFile, error: NSError?, options: [String : AnyObject]? = [:], contextInfo: UnsafeMutablePointer<Void>)
   optional func didReceiveDownloadProgress(for file: ICCameraFile, downloadedBytes: off_t, maxBytes: off_t)
 }
 class ICCameraDevice : ICDevice {
@@ -39,7 +39,7 @@ class ICCameraDevice : ICDevice {
   var contentCatalogPercentCompleted: Int { get }
   var contents: [ICCameraItem]? { get }
   var mediaFiles: [ICCameraItem]? { get }
-  var timeOffset: TimeInterval { get }
+  var timeOffset: NSTimeInterval { get }
   var isAccessRestrictedAppleDevice: Bool { get }
   var mountPoint: String? { get }
   var tetheredCaptureEnabled: Bool
@@ -52,8 +52,8 @@ class ICCameraDevice : ICDevice {
   func cancelDelete()
   func requestDownloadFile(file: ICCameraFile, options: [String : AnyObject]? = [:], downloadDelegate: ICCameraDeviceDownloadDelegate, didDownloadSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func cancelDownload()
-  func requestUploadFile(fileURL: URL, options: [String : AnyObject]? = [:], uploadDelegate: AnyObject, didUploadSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func requestUploadFile(fileURL: NSURL, options: [String : AnyObject]? = [:], uploadDelegate: AnyObject, didUploadSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func requestReadData(from file: ICCameraFile, atOffset offset: off_t, length: off_t, readDelegate: AnyObject, didReadDataSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func requestSendPTPCommand(command: Data, outData data: Data, sendCommandDelegate: AnyObject, didSendCommand selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func requestSendPTPCommand(command: NSData, outData data: NSData, sendCommandDelegate: AnyObject, didSendCommand selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   init()
 }

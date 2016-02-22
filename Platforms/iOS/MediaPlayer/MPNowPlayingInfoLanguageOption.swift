@@ -27,7 +27,7 @@ enum MPNowPlayingInfoLanguageOptionType : UInt {
   case legible
 }
 @available(iOS 9.0, *)
-class MPNowPlayingInfoLanguageOption : Object {
+class MPNowPlayingInfoLanguageOption : NSObject {
   init(type languageOptionType: MPNowPlayingInfoLanguageOptionType, languageTag: String, characteristics languageOptionCharacteristics: [String]?, displayName: String, identifier: String)
   func isAutomaticLegibleLanguageOption() -> Bool
   func isAutomaticAudibleLanguageOption() -> Bool
@@ -39,7 +39,7 @@ class MPNowPlayingInfoLanguageOption : Object {
   init()
 }
 @available(iOS 9.0, *)
-class MPNowPlayingInfoLanguageOptionGroup : Object {
+class MPNowPlayingInfoLanguageOptionGroup : NSObject {
   init(languageOptions: [MPNowPlayingInfoLanguageOption], defaultLanguageOption: MPNowPlayingInfoLanguageOption?, allowEmptySelection: Bool)
   var languageOptions: [MPNowPlayingInfoLanguageOption] { get }
   var defaultLanguageOption: MPNowPlayingInfoLanguageOption? { get }

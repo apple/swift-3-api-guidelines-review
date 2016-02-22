@@ -1,5 +1,5 @@
 
-class SKPhysicsBody : Object, Copying, Coding {
+class SKPhysicsBody : NSObject, NSCopying, NSCoding {
   /*not inherited*/ init(circleOfRadius r: CGFloat)
   /*not inherited*/ init(circleOfRadius r: CGFloat, center: CGPoint)
   /*not inherited*/ init(rectangleOf s: CGSize)
@@ -47,7 +47,7 @@ class SKPhysicsBody : Object, Copying, Coding {
   func applyAngularImpulse(impulse: CGFloat)
   func allContactedBodies() -> [SKPhysicsBody]
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

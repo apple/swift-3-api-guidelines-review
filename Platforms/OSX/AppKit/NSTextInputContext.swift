@@ -1,6 +1,6 @@
 
 @available(OSX 10.6, *)
-class NSTextInputContext : Object {
+class NSTextInputContext : NSObject {
   class func current() -> NSTextInputContext?
   init(client theClient: NSTextInputClient)
   var client: NSTextInputClient { get }

@@ -7,17 +7,17 @@ struct MDLVoxelIndexExtent {
   init(minimumExtent: MDLVoxelIndex, maximumExtent: MDLVoxelIndex)
 }
 @available(tvOS 9.0, *)
-class MDLVoxelArray : Object {
+class MDLVoxelArray : NSObject {
   init(asset: MDLAsset, divisions: Int32, interiorShells: Int32, exteriorShells: Int32, patchRadius: Float)
   init(asset: MDLAsset, divisions: Int32, interiorNBWidth: Float, exteriorNBWidth: Float, patchRadius: Float)
-  init(data voxelData: Data, boundingBox: MDLAxisAlignedBoundingBox, voxelExtent: Float)
+  init(data voxelData: NSData, boundingBox: MDLAxisAlignedBoundingBox, voxelExtent: Float)
   func mesh(using allocator: MDLMeshBufferAllocator?) -> MDLMesh?
   func voxelExists(atIndex index: MDLVoxelIndex, allowAnyX: Bool, allowAnyY: Bool, allowAnyZ: Bool, allowAnyShell: Bool) -> Bool
   func setVoxelAtIndex(index: MDLVoxelIndex)
   func setVoxelsFor(mesh: MDLMesh, divisions: Int32, interiorShells: Int32, exteriorShells: Int32, patchRadius: Float)
   func setVoxelsFor(mesh: MDLMesh, divisions: Int32, interiorNBWidth: Float, exteriorNBWidth: Float, patchRadius: Float)
-  func voxels(within extent: MDLVoxelIndexExtent) -> Data?
-  func voxelIndices() -> Data?
+  func voxels(within extent: MDLVoxelIndexExtent) -> NSData?
+  func voxelIndices() -> NSData?
   func union(voxels: MDLVoxelArray)
   func difference(with voxels: MDLVoxelArray)
   func intersect(voxels: MDLVoxelArray)

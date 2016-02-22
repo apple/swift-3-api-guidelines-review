@@ -6,8 +6,8 @@ enum NSAlertStyle : UInt {
   case informationalAlertStyle
   case criticalAlertStyle
 }
-class NSAlert : Object {
-  /*not inherited*/ init(error: Error)
+class NSAlert : NSObject {
+  /*not inherited*/ init(error: NSError)
   var messageText: String
   var informativeText: String
   var icon: NSImage!
@@ -36,6 +36,6 @@ class NSAlert : Object {
 var NSAlertFirstButtonReturn: Int { get }
 var NSAlertSecondButtonReturn: Int { get }
 var NSAlertThirdButtonReturn: Int { get }
-protocol NSAlertDelegate : ObjectProtocol {
+protocol NSAlertDelegate : NSObjectProtocol {
   optional func alertShowHelp(alert: NSAlert) -> Bool
 }

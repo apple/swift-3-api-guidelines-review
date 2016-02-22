@@ -1,6 +1,6 @@
 
 @available(tvOS 4.0, *)
-class CLRegion : Object, Copying, SecureCoding {
+class CLRegion : NSObject, NSCopying, NSSecureCoding {
   @available(tvOS 4.0, *)
   var identifier: String { get }
   @available(tvOS 7.0, *)
@@ -9,10 +9,10 @@ class CLRegion : Object, Copying, SecureCoding {
   var notifyOnExit: Bool
   init()
   @available(tvOS 4.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 4.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 4.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

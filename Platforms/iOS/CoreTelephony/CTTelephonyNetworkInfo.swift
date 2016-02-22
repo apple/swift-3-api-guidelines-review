@@ -24,7 +24,7 @@ let CTRadioAccessTechnologyeHRPD: String
 @available(iOS 7.0, *)
 let CTRadioAccessTechnologyLTE: String
 @available(iOS 4.0, *)
-class CTTelephonyNetworkInfo : Object {
+class CTTelephonyNetworkInfo : NSObject {
   @available(iOS 4.0, *)
   var subscriberCellularProvider: CTCarrier? { get }
   @available(iOS 4.0, *)

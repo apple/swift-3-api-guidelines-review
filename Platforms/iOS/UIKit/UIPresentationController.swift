@@ -1,5 +1,5 @@
 
-protocol UIAdaptivePresentationControllerDelegate : ObjectProtocol {
+protocol UIAdaptivePresentationControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
   optional func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle
   @available(iOS 8.3, *)
@@ -10,7 +10,7 @@ protocol UIAdaptivePresentationControllerDelegate : ObjectProtocol {
   optional func presentationController(presentationController: UIPresentationController, willPresentWithAdaptiveStyle style: UIModalPresentationStyle, transitionCoordinator: UIViewControllerTransitionCoordinator?)
 }
 @available(iOS 8.0, *)
-class UIPresentationController : Object, UIAppearanceContainer, UITraitEnvironment, UIContentContainer, UIFocusEnvironment {
+class UIPresentationController : NSObject, UIAppearanceContainer, UITraitEnvironment, UIContentContainer, UIFocusEnvironment {
   var presentingViewController: UIViewController { get }
   var presentedViewController: UIViewController { get }
   var presentationStyle: UIModalPresentationStyle { get }

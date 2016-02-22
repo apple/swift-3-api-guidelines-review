@@ -1,10 +1,10 @@
 
 class NSPopUpButton : NSButton {
-  init(frame buttonFrame: Rect, pullsDown flag: Bool)
+  init(frame buttonFrame: NSRect, pullsDown flag: Bool)
   var menu: NSMenu?
   var pullsDown: Bool
   var autoenablesItems: Bool
-  var preferredEdge: RectEdge
+  var preferredEdge: NSRectEdge
   func addItem(title title: String)
   func addItems(titles itemTitles: [String])
   func insertItem(title title: String, at index: Int)
@@ -33,8 +33,8 @@ class NSPopUpButton : NSButton {
   var itemTitles: [String] { get }
   var titleOfSelectedItem: String? { get }
   func selectedTag() -> Int
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }
 struct __pbFlags {

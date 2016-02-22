@@ -29,19 +29,19 @@ class MFMessageComposeViewController : UINavigationController {
   var recipients: [String]?
   var body: String?
   var subject: String?
-  var attachments: [[Object : AnyObject]]? { get }
+  var attachments: [[NSObject : AnyObject]]? { get }
   @available(iOS 7.0, *)
-  func addAttachmentURL(attachmentURL: URL, withAlternateFilename alternateFilename: String?) -> Bool
+  func addAttachmentURL(attachmentURL: NSURL, withAlternateFilename alternateFilename: String?) -> Bool
   @available(iOS 7.0, *)
-  func addAttachmentData(attachmentData: Data, typeIdentifier uti: String, filename: String) -> Bool
+  func addAttachmentData(attachmentData: NSData, typeIdentifier uti: String, filename: String) -> Bool
   @available(iOS 5.0, *)
   init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
   init(rootViewController: UIViewController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
-protocol MFMessageComposeViewControllerDelegate : ObjectProtocol {
+protocol MFMessageComposeViewControllerDelegate : NSObjectProtocol {
   @available(iOS 4.0, *)
   func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult)
 }

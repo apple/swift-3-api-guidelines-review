@@ -3,5 +3,5 @@
 class WKInterfaceLabel : WKInterfaceObject {
   func setText(text: String?)
   func setTextColor(color: UIColor?)
-  func setAttributedText(attributedText: AttributedString?)
+  func setAttributedText(attributedText: NSAttributedString?)
 }

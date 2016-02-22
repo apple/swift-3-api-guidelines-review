@@ -9,11 +9,11 @@ class NCWidgetListViewController : NSViewController {
   var showsAddButtonWhenEditing: Bool
   func viewController(atRow row: Int, makeIfNecessary makeIfNecesary: Bool) -> NSViewController!
   func row(for viewController: NSViewController!) -> Int
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder: Coder)
+  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder: NSCoder)
   convenience init()
 }
-protocol NCWidgetListViewDelegate : ObjectProtocol {
+protocol NCWidgetListViewDelegate : NSObjectProtocol {
   @available(OSX 10.10, *)
   func widgetList(list: NCWidgetListViewController!, viewControllerForRow row: Int) -> NSViewController!
   @available(OSX 10.10, *)

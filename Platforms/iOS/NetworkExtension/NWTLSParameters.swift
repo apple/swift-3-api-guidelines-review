@@ -1,9 +1,9 @@
 
-class NWTLSParameters : Object {
+class NWTLSParameters : NSObject {
   @available(iOS 9.0, *)
-  @NSCopying var tlsSessionID: Data?
+  @NSCopying var tlsSessionID: NSData?
   @available(iOS 9.0, *)
-  var sslCipherSuites: Set<Number>?
+  var sslCipherSuites: Set<NSNumber>?
   @available(iOS 9.0, *)
   var minimumSSLProtocolVersion: Int
   @available(iOS 9.0, *)

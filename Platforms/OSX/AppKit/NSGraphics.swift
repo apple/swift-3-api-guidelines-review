@@ -113,33 +113,33 @@ let NSDeviceBitsPerSample: String
 let NSDeviceIsScreen: String
 let NSDeviceIsPrinter: String
 let NSDeviceSize: String
-func NSRectFill(aRect: Rect)
-func NSRectFillList(rects: UnsafePointer<Rect>, _ count: Int)
-func NSRectFillListWithGrays(rects: UnsafePointer<Rect>, _ grays: UnsafePointer<CGFloat>, _ num: Int)
-func NSRectFillListWithColors(rects: UnsafePointer<Rect>, _ colors: UnsafePointer<NSColor?>, _ num: Int)
-func NSRectFillUsingOperation(aRect: Rect, _ op: NSCompositingOperation)
-func NSRectFillListUsingOperation(rects: UnsafePointer<Rect>, _ count: Int, _ op: NSCompositingOperation)
-func NSRectFillListWithColorsUsingOperation(rects: UnsafePointer<Rect>, _ colors: UnsafePointer<NSColor?>, _ num: Int, _ op: NSCompositingOperation)
-func NSFrameRect(aRect: Rect)
-func NSFrameRectWithWidth(aRect: Rect, _ frameWidth: CGFloat)
-func NSFrameRectWithWidthUsingOperation(aRect: Rect, _ frameWidth: CGFloat, _ op: NSCompositingOperation)
-func NSRectClip(aRect: Rect)
-func NSRectClipList(rects: UnsafePointer<Rect>, _ count: Int)
-func NSDrawTiledRects(boundsRect: Rect, _ clipRect: Rect, _ sides: UnsafePointer<RectEdge>, _ grays: UnsafePointer<CGFloat>, _ count: Int) -> Rect
-func NSDrawGrayBezel(aRect: Rect, _ clipRect: Rect)
-func NSDrawGroove(aRect: Rect, _ clipRect: Rect)
-func NSDrawWhiteBezel(aRect: Rect, _ clipRect: Rect)
-func NSDrawButton(aRect: Rect, _ clipRect: Rect)
-func NSEraseRect(aRect: Rect)
-func NSReadPixel(passedPoint: Point) -> NSColor?
-func NSDrawBitmap(rect: Rect, _ width: Int, _ height: Int, _ bps: Int, _ spp: Int, _ bpp: Int, _ bpr: Int, _ isPlanar: Bool, _ hasAlpha: Bool, _ colorSpaceName: String, _ data: UnsafePointer<UnsafePointer<UInt8>>)
+func NSRectFill(aRect: NSRect)
+func NSRectFillList(rects: UnsafePointer<NSRect>, _ count: Int)
+func NSRectFillListWithGrays(rects: UnsafePointer<NSRect>, _ grays: UnsafePointer<CGFloat>, _ num: Int)
+func NSRectFillListWithColors(rects: UnsafePointer<NSRect>, _ colors: UnsafePointer<NSColor?>, _ num: Int)
+func NSRectFillUsingOperation(aRect: NSRect, _ op: NSCompositingOperation)
+func NSRectFillListUsingOperation(rects: UnsafePointer<NSRect>, _ count: Int, _ op: NSCompositingOperation)
+func NSRectFillListWithColorsUsingOperation(rects: UnsafePointer<NSRect>, _ colors: UnsafePointer<NSColor?>, _ num: Int, _ op: NSCompositingOperation)
+func NSFrameRect(aRect: NSRect)
+func NSFrameRectWithWidth(aRect: NSRect, _ frameWidth: CGFloat)
+func NSFrameRectWithWidthUsingOperation(aRect: NSRect, _ frameWidth: CGFloat, _ op: NSCompositingOperation)
+func NSRectClip(aRect: NSRect)
+func NSRectClipList(rects: UnsafePointer<NSRect>, _ count: Int)
+func NSDrawTiledRects(boundsRect: NSRect, _ clipRect: NSRect, _ sides: UnsafePointer<NSRectEdge>, _ grays: UnsafePointer<CGFloat>, _ count: Int) -> NSRect
+func NSDrawGrayBezel(aRect: NSRect, _ clipRect: NSRect)
+func NSDrawGroove(aRect: NSRect, _ clipRect: NSRect)
+func NSDrawWhiteBezel(aRect: NSRect, _ clipRect: NSRect)
+func NSDrawButton(aRect: NSRect, _ clipRect: NSRect)
+func NSEraseRect(aRect: NSRect)
+func NSReadPixel(passedPoint: NSPoint) -> NSColor?
+func NSDrawBitmap(rect: NSRect, _ width: Int, _ height: Int, _ bps: Int, _ spp: Int, _ bpp: Int, _ bpr: Int, _ isPlanar: Bool, _ hasAlpha: Bool, _ colorSpaceName: String, _ data: UnsafePointer<UnsafePointer<UInt8>>)
 func NSBeep()
 func NSGetWindowServerMemory(context: Int, _ virtualMemory: UnsafeMutablePointer<Int>, _ windowBackingMemory: UnsafeMutablePointer<Int>, _ windowDumpString: AutoreleasingUnsafeMutablePointer<NSString?>) -> Int
-func NSDrawColorTiledRects(boundsRect: Rect, _ clipRect: Rect, _ sides: UnsafePointer<RectEdge>, _ colors: AutoreleasingUnsafeMutablePointer<NSColor?>, _ count: Int) -> Rect
-func NSDrawDarkBezel(aRect: Rect, _ clipRect: Rect)
-func NSDrawLightBezel(aRect: Rect, _ clipRect: Rect)
-func NSDottedFrameRect(aRect: Rect)
-func NSDrawWindowBackground(aRect: Rect)
+func NSDrawColorTiledRects(boundsRect: NSRect, _ clipRect: NSRect, _ sides: UnsafePointer<NSRectEdge>, _ colors: AutoreleasingUnsafeMutablePointer<NSColor?>, _ count: Int) -> NSRect
+func NSDrawDarkBezel(aRect: NSRect, _ clipRect: NSRect)
+func NSDrawLightBezel(aRect: NSRect, _ clipRect: NSRect)
+func NSDottedFrameRect(aRect: NSRect)
+func NSDrawWindowBackground(aRect: NSRect)
 func NSSetFocusRingStyle(placement: NSFocusRingPlacement)
 func NSDisableScreenUpdates()
 func NSEnableScreenUpdates()
@@ -149,6 +149,6 @@ enum NSAnimationEffect : UInt {
   case disappearingItemDefault
   case poof
 }
-func NSShowAnimationEffect(animationEffect: NSAnimationEffect, _ centerLocation: Point, _ size: Size, _ animationDelegate: AnyObject?, _ didEndSelector: Selector, _ contextInfo: UnsafeMutablePointer<Void>)
+func NSShowAnimationEffect(animationEffect: NSAnimationEffect, _ centerLocation: NSPoint, _ size: NSSize, _ animationDelegate: AnyObject?, _ didEndSelector: Selector, _ contextInfo: UnsafeMutablePointer<Void>)
 @available(OSX, introduced=10.0, deprecated=10.10)
-func NSCopyBits(srcGState: Int, _ srcRect: Rect, _ destPoint: Point)
+func NSCopyBits(srcGState: Int, _ srcRect: NSRect, _ destPoint: NSPoint)

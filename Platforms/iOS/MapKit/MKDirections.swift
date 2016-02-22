@@ -1,8 +1,8 @@
 
-typealias MKDirectionsHandler = (MKDirectionsResponse?, Error?) -> Void
-typealias MKETAHandler = (MKETAResponse?, Error?) -> Void
+typealias MKDirectionsHandler = (MKDirectionsResponse?, NSError?) -> Void
+typealias MKETAHandler = (MKETAResponse?, NSError?) -> Void
 @available(iOS 7.0, *)
-class MKDirections : Object {
+class MKDirections : NSObject {
   init(request: MKDirectionsRequest)
   func calculate(completionHandler completionHandler: MKDirectionsHandler)
   func calculateETA(completionHandler completionHandler: MKETAHandler)

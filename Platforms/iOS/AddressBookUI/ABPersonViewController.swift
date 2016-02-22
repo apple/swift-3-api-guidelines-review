@@ -4,20 +4,20 @@ class ABPersonViewController : UIViewController, UIViewControllerRestoration {
   unowned(unsafe) var personViewDelegate: @sil_unmanaged ABPersonViewControllerDelegate?
   var addressBook: ABAddressBook?
   var displayedPerson: ABRecord
-  var displayedProperties: [Number]?
+  var displayedProperties: [NSNumber]?
   var allowsEditing: Bool
   @available(iOS 4.0, *)
   var allowsActions: Bool
   @available(iOS 4.0, *)
   var shouldShowLinkedPeople: Bool
   func setHighlightedItemForProperty(property: ABPropertyID, withIdentifier identifier: ABMultiValueIdentifier)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
   @available(iOS 2.0, *)
-  class func viewController(withRestorationIdentifierPath identifierComponents: [AnyObject], coder: Coder) -> UIViewController?
+  class func viewController(withRestorationIdentifierPath identifierComponents: [AnyObject], coder: NSCoder) -> UIViewController?
 }
-protocol ABPersonViewControllerDelegate : ObjectProtocol {
+protocol ABPersonViewControllerDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
   func personViewController(personViewController: ABPersonViewController, shouldPerformDefaultActionForPerson person: ABRecord, property: ABPropertyID, identifier: ABMultiValueIdentifier) -> Bool
 }

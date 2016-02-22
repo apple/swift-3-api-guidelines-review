@@ -1,6 +1,6 @@
 
 @available(iOS 8.0, *)
-class HKObjectType : Object, SecureCoding, Copying {
+class HKObjectType : NSObject, NSSecureCoding, NSCopying {
   var identifier: String { get }
   class func quantityType(forIdentifier identifier: String) -> HKQuantityType?
   class func categoryType(forIdentifier identifier: String) -> HKCategoryType?
@@ -10,26 +10,26 @@ class HKObjectType : Object, SecureCoding, Copying {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class HKCharacteristicType : HKObjectType {
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class HKSampleType : HKObjectType {
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class HKCategoryType : HKSampleType {
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class HKCorrelationType : HKSampleType {
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 enum HKQuantityAggregationStyle : Int {
@@ -42,9 +42,9 @@ enum HKQuantityAggregationStyle : Int {
 class HKQuantityType : HKSampleType {
   var aggregationStyle: HKQuantityAggregationStyle { get }
   func isCompatibleWith(unit: HKUnit) -> Bool
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class HKWorkoutType : HKSampleType {
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

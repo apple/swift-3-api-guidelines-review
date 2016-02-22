@@ -8,13 +8,13 @@ protocol NSTextInputClient {
   func markedRange() -> NSRange
   func hasMarkedText() -> Bool
   @available(OSX 10.0, *)
-  func attributedSubstring(forProposedRange aRange: NSRange, actualRange: RangePointer) -> AttributedString?
+  func attributedSubstring(forProposedRange aRange: NSRange, actualRange: NSRangePointer) -> NSAttributedString?
   func validAttributesForMarkedText() -> [String]
-  func firstRect(forCharacterRange aRange: NSRange, actualRange: RangePointer) -> Rect
-  func characterIndex(for aPoint: Point) -> Int
+  func firstRect(forCharacterRange aRange: NSRange, actualRange: NSRangePointer) -> NSRect
+  func characterIndex(for aPoint: NSPoint) -> Int
   @available(OSX 10.0, *)
-  optional func attributedString() -> AttributedString
-  optional func fractionOfDistanceThroughGlyph(for aPoint: Point) -> CGFloat
+  optional func attributedString() -> NSAttributedString
+  optional func fractionOfDistanceThroughGlyph(for aPoint: NSPoint) -> CGFloat
   optional func baselineDeltaForCharacter(at anIndex: Int) -> CGFloat
   optional func windowLevel() -> Int
   @available(OSX 10.6, *)

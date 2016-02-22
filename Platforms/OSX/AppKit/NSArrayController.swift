@@ -7,8 +7,8 @@ class NSArrayController : NSObjectController {
   var automaticRearrangementKeyPaths: [String]? { get }
   @available(OSX 10.5, *)
   func didChangeArrangementCriteria()
-  var sortDescriptors: [SortDescriptor]
-  var filterPredicate: Predicate?
+  var sortDescriptors: [NSSortDescriptor]
+  var filterPredicate: NSPredicate?
   var clearsFilterPredicateOnInsertion: Bool
   func arrange(objects: [AnyObject]) -> [AnyObject]
   var arrangedObjects: AnyObject { get }
@@ -16,12 +16,12 @@ class NSArrayController : NSObjectController {
   var preservesSelection: Bool
   var selectsInsertedObjects: Bool
   var alwaysUsesMultipleValuesMarker: Bool
-  func setSelectionIndexes(indexes: IndexSet) -> Bool
-  @NSCopying var selectionIndexes: IndexSet { get }
+  func setSelectionIndexes(indexes: NSIndexSet) -> Bool
+  @NSCopying var selectionIndexes: NSIndexSet { get }
   func setSelectionIndex(index: Int) -> Bool
   var selectionIndex: Int { get }
-  func addSelectionIndexes(indexes: IndexSet) -> Bool
-  func removeSelectionIndexes(indexes: IndexSet) -> Bool
+  func addSelectionIndexes(indexes: NSIndexSet) -> Bool
+  func removeSelectionIndexes(indexes: NSIndexSet) -> Bool
   func setSelectedObjects(objects: [AnyObject]) -> Bool
   var selectedObjects: [AnyObject]! { get }
   func addSelectedObjects(objects: [AnyObject]) -> Bool
@@ -37,13 +37,13 @@ class NSArrayController : NSObjectController {
   func add(object: AnyObject)
   func add(objects: [AnyObject])
   func insert(object: AnyObject, atArrangedObjectIndex index: Int)
-  func insert(objects: [AnyObject], atArrangedObjectIndexes indexes: IndexSet)
+  func insert(objects: [AnyObject], atArrangedObjectIndexes indexes: NSIndexSet)
   func removeObject(atArrangedObjectIndex index: Int)
-  func removeObjects(atArrangedObjectIndexes indexes: IndexSet)
+  func removeObjects(atArrangedObjectIndexes indexes: NSIndexSet)
   func remove(object: AnyObject)
   func remove(objects: [AnyObject])
   init(content: AnyObject?)
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   convenience init()
 }
 struct __arrayControllerFlags {

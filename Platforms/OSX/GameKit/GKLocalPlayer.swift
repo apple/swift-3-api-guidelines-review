@@ -5,15 +5,15 @@ class GKLocalPlayer : GKPlayer {
   var isAuthenticated: Bool { get }
   var isUnderage: Bool { get }
   @available(OSX 10.9, *)
-  var authenticateHandler: ((NSViewController?, Error?) -> Void)?
+  var authenticateHandler: ((NSViewController?, NSError?) -> Void)?
   @available(OSX 10.10, *)
-  func loadFriendPlayers(completionHandler completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
+  func loadFriendPlayers(completionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func setDefaultLeaderboardIdentifier(leaderboardIdentifier: String, completionHandler: ((Error?) -> Void)? = nil)
+  func setDefaultLeaderboardIdentifier(leaderboardIdentifier: String, completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func loadDefaultLeaderboardIdentifier(completionHandler completionHandler: ((String?, Error?) -> Void)? = nil)
+  func loadDefaultLeaderboardIdentifier(completionHandler completionHandler: ((String?, NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func generateIdentityVerificationSignature(completionHandler completionHandler: ((URL?, Data?, Data?, UInt64, Error?) -> Void)? = nil)
+  func generateIdentityVerificationSignature(completionHandler completionHandler: ((NSURL?, NSData?, NSData?, UInt64, NSError?) -> Void)? = nil)
   init()
 }
 protocol GKLocalPlayerListener : GKChallengeListener, GKInviteEventListener, GKTurnBasedEventListener, GKSavedGameListener {
@@ -30,11 +30,11 @@ extension GKLocalPlayer {
 let GKPlayerAuthenticationDidChangeNotificationName: String
 extension GKLocalPlayer {
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use setDefaultLeaderboardIdentifier:completionHandler: instead")
-  func setDefaultLeaderboardCategoryID(categoryID: String?, completionHandler: ((Error?) -> Void)? = nil)
+  func setDefaultLeaderboardCategoryID(categoryID: String?, completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use loadDefaultLeaderboardIdentifierWithCompletionHandler: instead")
-  func loadDefaultLeaderboardCategoryID(completionHandler completionHandler: ((String?, Error?) -> Void)? = nil)
+  func loadDefaultLeaderboardCategoryID(completionHandler completionHandler: ((String?, NSError?) -> Void)? = nil)
   @available(OSX, introduced=10.8, deprecated=10.10, message="use loadFriendPlayersWithCompletionHandler: instead")
-  func loadFriends(completionHandler completionHandler: (([String]?, Error?) -> Void)? = nil)
+  func loadFriends(completionHandler completionHandler: (([String]?, NSError?) -> Void)? = nil)
   @available(OSX, introduced=10.8, deprecated=10.10, message="use loadFriendPlayersWithCompletionHandler: instead")
   var friends: [String]? { get }
 }

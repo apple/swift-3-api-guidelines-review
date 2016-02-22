@@ -1,7 +1,7 @@
 
 extension DOMNode {
   @available(OSX 10.5, *)
-  func boundingBox() -> Rect
+  func boundingBox() -> NSRect
   @available(OSX 10.5, *)
   func lineBoxRects() -> [AnyObject]!
 }
@@ -11,7 +11,7 @@ extension DOMElement {
 }
 extension DOMHTMLDocument {
   @available(OSX 10.5, *)
-  func createDocumentFragment(withMarkupString markupString: String!, baseURL: URL!) -> DOMDocumentFragment!
+  func createDocumentFragment(withMarkupString markupString: String!, baseURL: NSURL!) -> DOMDocumentFragment!
   @available(OSX 10.5, *)
   func createDocumentFragment(withText text: String!) -> DOMDocumentFragment!
 }

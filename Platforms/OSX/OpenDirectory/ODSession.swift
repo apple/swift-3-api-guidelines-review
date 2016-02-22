@@ -7,11 +7,11 @@ let ODSessionProxyPort: String
 let ODSessionProxyUsername: String
 @available(OSX 10.6, *)
 let ODSessionProxyPassword: String
-class ODSession : Object {
+class ODSession : NSObject {
   @available(OSX 10.6, *)
   class func defaultSession() -> ODSession!
   @available(OSX 10.6, *)
-  init(options inOptions: [Object : AnyObject]! = [:]) throws
+  init(options inOptions: [NSObject : AnyObject]! = [:]) throws
   @available(OSX 10.6, *)
   func nodeNames() throws -> [AnyObject]
   @available(OSX 10.9, *)

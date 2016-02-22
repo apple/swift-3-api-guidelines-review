@@ -39,14 +39,14 @@ struct __SFlags {
 }
 typealias _SFlags = __SFlags
 class NSScrollView : NSView, NSTextFinderBarContainer {
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   @available(OSX 10.7, *)
-  class func frameSize(forContentSize cSize: Size, horizontalScrollerClass: AnyClass?, verticalScrollerClass: AnyClass?, borderType aType: NSBorderType, controlSize: NSControlSize, scrollerStyle: NSScrollerStyle) -> Size
+  class func frameSize(forContentSize cSize: NSSize, horizontalScrollerClass: AnyClass?, verticalScrollerClass: AnyClass?, borderType aType: NSBorderType, controlSize: NSControlSize, scrollerStyle: NSScrollerStyle) -> NSSize
   @available(OSX 10.7, *)
-  class func contentSize(forFrameSize fSize: Size, horizontalScrollerClass: AnyClass?, verticalScrollerClass: AnyClass?, borderType aType: NSBorderType, controlSize: NSControlSize, scrollerStyle: NSScrollerStyle) -> Size
-  var documentVisibleRect: Rect { get }
-  var contentSize: Size { get }
+  class func contentSize(forFrameSize fSize: NSSize, horizontalScrollerClass: AnyClass?, verticalScrollerClass: AnyClass?, borderType aType: NSBorderType, controlSize: NSControlSize, scrollerStyle: NSScrollerStyle) -> NSSize
+  var documentVisibleRect: NSRect { get }
+  var contentSize: NSSize { get }
   unowned(unsafe) var documentView: @sil_unmanaged AnyObject?
   var contentView: NSClipView
   var documentCursor: NSCursor?
@@ -89,17 +89,17 @@ class NSScrollView : NSView, NSTextFinderBarContainer {
   @available(OSX 10.8, *)
   var minMagnification: CGFloat
   @available(OSX 10.8, *)
-  func magnify(toFit rect: Rect)
+  func magnify(toFit rect: NSRect)
   @available(OSX 10.8, *)
-  func setMagnification(magnification: CGFloat, centeredAt point: Point)
+  func setMagnification(magnification: CGFloat, centeredAt point: NSPoint)
   @available(OSX 10.9, *)
   func addFloatingSubview(view: NSView, for axis: NSEventGestureAxis)
   @available(OSX 10.10, *)
   var automaticallyAdjustsContentInsets: Bool
   @available(OSX 10.10, *)
-  var contentInsets: EdgeInsets
+  var contentInsets: NSEdgeInsets
   @available(OSX 10.10, *)
-  var scrollerInsets: EdgeInsets
+  var scrollerInsets: NSEdgeInsets
   convenience init()
   var findBarView: NSView?
   var isFindBarVisible: Bool

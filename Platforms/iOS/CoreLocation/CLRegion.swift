@@ -17,7 +17,7 @@ enum CLProximity : Int {
   case far
 }
 @available(iOS 4.0, *)
-class CLRegion : Object, Copying, SecureCoding {
+class CLRegion : NSObject, NSCopying, NSSecureCoding {
   @available(iOS 4.0, *)
   var identifier: String { get }
   @available(iOS 7.0, *)
@@ -26,10 +26,10 @@ class CLRegion : Object, Copying, SecureCoding {
   var notifyOnExit: Bool
   init()
   @available(iOS 4.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 4.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 4.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

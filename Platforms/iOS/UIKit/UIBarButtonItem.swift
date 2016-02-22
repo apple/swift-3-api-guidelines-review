@@ -39,9 +39,9 @@ enum UIBarButtonSystemItem : Int {
   case pageCurl
 }
 @available(iOS 2.0, *)
-class UIBarButtonItem : UIBarItem, Coding {
+class UIBarButtonItem : UIBarItem, NSCoding {
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init(image: UIImage?, style: UIBarButtonItemStyle, target: AnyObject?, action: Selector)
   @available(iOS 5.0, *)
   convenience init(image: UIImage?, landscapeImagePhone: UIImage?, style: UIBarButtonItemStyle, target: AnyObject?, action: Selector)

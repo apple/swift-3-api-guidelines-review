@@ -1,6 +1,6 @@
 
 @available(tvOS 9.0, *)
-class GCMicroGamepad : Object {
+class GCMicroGamepad : NSObject {
   weak var controller: @sil_weak GCController? { get }
   var valueChangedHandler: GCMicroGamepadValueChangedHandler?
   func saveSnapshot() -> GCMicroGamepadSnapshot

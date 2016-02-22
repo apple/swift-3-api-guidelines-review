@@ -1,7 +1,7 @@
 
 @available(OSX 10.11, *)
-class NSLayoutGuide : Object, Coding, NSUserInterfaceItemIdentification {
-  var frame: Rect { get }
+class NSLayoutGuide : NSObject, NSCoding, NSUserInterfaceItemIdentification {
+  var frame: NSRect { get }
   weak var owningView: @sil_weak NSView?
   var identifier: String
   var leadingAnchor: NSLayoutXAxisAnchor { get }
@@ -16,8 +16,8 @@ class NSLayoutGuide : Object, Coding, NSUserInterfaceItemIdentification {
   var centerYAnchor: NSLayoutYAxisAnchor { get }
   init()
   @available(OSX 10.11, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 extension NSView {
   @available(OSX 10.11, *)

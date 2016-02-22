@@ -15,15 +15,15 @@ enum NSPrintRenderingQuality : Int {
   case responsive
 }
 let NSPrintOperationExistsException: String
-class NSPrintOperation : Object {
+class NSPrintOperation : NSObject {
   /*not inherited*/ init(view: NSView, printInfo: NSPrintInfo)
-  class func pdfOperation(with view: NSView, inside rect: Rect, to data: MutableData, printInfo: NSPrintInfo) -> NSPrintOperation
-  class func pdfOperation(with view: NSView, inside rect: Rect, toPath path: String, printInfo: NSPrintInfo) -> NSPrintOperation
-  class func epsOperation(with view: NSView, inside rect: Rect, to data: MutableData, printInfo: NSPrintInfo) -> NSPrintOperation
-  class func epsOperation(with view: NSView, inside rect: Rect, toPath path: String, printInfo: NSPrintInfo) -> NSPrintOperation
+  class func pdfOperation(with view: NSView, inside rect: NSRect, to data: NSMutableData, printInfo: NSPrintInfo) -> NSPrintOperation
+  class func pdfOperation(with view: NSView, inside rect: NSRect, toPath path: String, printInfo: NSPrintInfo) -> NSPrintOperation
+  class func epsOperation(with view: NSView, inside rect: NSRect, to data: NSMutableData, printInfo: NSPrintInfo) -> NSPrintOperation
+  class func epsOperation(with view: NSView, inside rect: NSRect, toPath path: String, printInfo: NSPrintInfo) -> NSPrintOperation
   /*not inherited*/ init(view: NSView)
-  class func pdfOperation(with view: NSView, inside rect: Rect, to data: MutableData) -> NSPrintOperation
-  class func epsOperation(with view: NSView, inside rect: Rect, to data: MutableData?) -> NSPrintOperation
+  class func pdfOperation(with view: NSView, inside rect: NSRect, to data: NSMutableData) -> NSPrintOperation
+  class func epsOperation(with view: NSView, inside rect: NSRect, to data: NSMutableData?) -> NSPrintOperation
   class func current() -> NSPrintOperation?
   class func setCurrentOperation(operation: NSPrintOperation?)
   var isCopyingOperation: Bool { get }

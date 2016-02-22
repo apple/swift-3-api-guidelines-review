@@ -1,5 +1,5 @@
 
-class MLMediaSource : Object {
+class MLMediaSource : NSObject {
   unowned(unsafe) var mediaLibrary: @sil_unmanaged MLMediaLibrary? { get }
   var mediaSourceIdentifier: String { get }
   var attributes: [String : AnyObject] { get }

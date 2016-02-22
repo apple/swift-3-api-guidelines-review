@@ -1,8 +1,8 @@
 
 class NSPICTImageRep : NSImageRep {
-  init?(data pictData: Data)
-  @NSCopying var pictRepresentation: Data { get }
-  var boundingBox: Rect { get }
+  init?(data pictData: NSData)
+  @NSCopying var pictRepresentation: NSData { get }
+  var boundingBox: NSRect { get }
   init()
-  init?(coder: Coder)
+  init?(coder: NSCoder)
 }

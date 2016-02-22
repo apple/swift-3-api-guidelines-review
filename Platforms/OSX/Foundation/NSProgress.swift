@@ -1,17 +1,17 @@
 
 @available(OSX 10.9, *)
-class Progress : Object {
-  class func current() -> Progress?
+class NSProgress : NSObject {
+  class func current() -> NSProgress?
   /*not inherited*/ init(totalUnitCount unitCount: Int64)
   @available(OSX 10.11, *)
-  class func discreteProgress(withTotalUnitCount unitCount: Int64) -> Progress
+  class func discreteProgress(withTotalUnitCount unitCount: Int64) -> NSProgress
   @available(OSX 10.11, *)
-  /*not inherited*/ init(totalUnitCount unitCount: Int64, parent: Progress, pendingUnitCount portionOfParentTotalUnitCount: Int64)
-  init(parent parentProgressOrNil: Progress?, userInfo userInfoOrNil: [Object : AnyObject]? = [:])
+  /*not inherited*/ init(totalUnitCount unitCount: Int64, parent: NSProgress, pendingUnitCount portionOfParentTotalUnitCount: Int64)
+  init(parent parentProgressOrNil: NSProgress?, userInfo userInfoOrNil: [NSObject : AnyObject]? = [:])
   func becomeCurrent(pendingUnitCount unitCount: Int64)
   func resignCurrent()
   @available(OSX 10.11, *)
-  func addChild(child: Progress, withPendingUnitCount inUnitCount: Int64)
+  func addChild(child: NSProgress, withPendingUnitCount inUnitCount: Int64)
   var totalUnitCount: Int64
   var completedUnitCount: Int64
   var localizedDescription: String!
@@ -31,51 +31,51 @@ class Progress : Object {
   func pause()
   @available(OSX 10.11, *)
   func resume()
-  var userInfo: [Object : AnyObject] { get }
+  var userInfo: [NSObject : AnyObject] { get }
   var kind: String?
   @available(OSX 10.9, *)
   func publish()
   @available(OSX 10.9, *)
   func unpublish()
   @available(OSX 10.9, *)
-  class func addSubscriber(forFileURL url: URL, withPublishingHandler publishingHandler: ProgressPublishingHandler) -> AnyObject
+  class func addSubscriber(forFileURL url: NSURL, withPublishingHandler publishingHandler: NSProgressPublishingHandler) -> AnyObject
   @available(OSX 10.9, *)
   class func removeSubscriber(subscriber: AnyObject)
   @available(OSX 10.9, *)
   var isOld: Bool { get }
   convenience init()
 }
-typealias ProgressUnpublishingHandler = () -> Void
-typealias ProgressPublishingHandler = (Progress) -> ProgressUnpublishingHandler?
-protocol ProgressReporting : ObjectProtocol {
+typealias NSProgressUnpublishingHandler = () -> Void
+typealias NSProgressPublishingHandler = (NSProgress) -> NSProgressUnpublishingHandler?
+protocol NSProgressReporting : NSObjectProtocol {
   @available(OSX 10.9, *)
-  var progress: Progress { get }
+  var progress: NSProgress { get }
 }
 @available(OSX 10.9, *)
-let progressEstimatedTimeRemainingKey: String
+let NSProgressEstimatedTimeRemainingKey: String
 @available(OSX 10.9, *)
-let progressThroughputKey: String
+let NSProgressThroughputKey: String
 @available(OSX 10.9, *)
-let progressKindFile: String
+let NSProgressKindFile: String
 @available(OSX 10.9, *)
-let progressFileOperationKindKey: String
+let NSProgressFileOperationKindKey: String
 @available(OSX 10.9, *)
-let progressFileOperationKindDownloading: String
+let NSProgressFileOperationKindDownloading: String
 @available(OSX 10.9, *)
-let progressFileOperationKindDecompressingAfterDownloading: String
+let NSProgressFileOperationKindDecompressingAfterDownloading: String
 @available(OSX 10.9, *)
-let progressFileOperationKindReceiving: String
+let NSProgressFileOperationKindReceiving: String
 @available(OSX 10.9, *)
-let progressFileOperationKindCopying: String
+let NSProgressFileOperationKindCopying: String
 @available(OSX 10.9, *)
-let progressFileURLKey: String
+let NSProgressFileURLKey: String
 @available(OSX 10.9, *)
-let progressFileTotalCountKey: String
+let NSProgressFileTotalCountKey: String
 @available(OSX 10.9, *)
-let progressFileCompletedCountKey: String
+let NSProgressFileCompletedCountKey: String
 @available(OSX 10.9, *)
-let progressFileAnimationImageKey: String
+let NSProgressFileAnimationImageKey: String
 @available(OSX 10.9, *)
-let progressFileAnimationImageOriginalRectKey: String
+let NSProgressFileAnimationImageOriginalRectKey: String
 @available(OSX 10.9, *)
-let progressFileIconKey: String
+let NSProgressFileIconKey: String

@@ -1,5 +1,5 @@
 
-protocol GKChallengeListener : ObjectProtocol {
+protocol GKChallengeListener : NSObjectProtocol {
   @available(OSX 10.10, *)
   optional func player(player: GKPlayer, wantsToPlay challenge: GKChallenge)
   @available(OSX 10.10, *)

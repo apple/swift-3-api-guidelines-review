@@ -17,7 +17,7 @@ enum GKInviteRecipientResponse : Int {
 }
 typealias GKInviteeResponse = GKInviteRecipientResponse
 @available(OSX 10.8, *)
-class GKMatchRequest : Object {
+class GKMatchRequest : NSObject {
   var minPlayers: Int
   var maxPlayers: Int
   var playerGroup: Int
@@ -46,7 +46,7 @@ enum GKMatchType : UInt {
   case turnBased
 }
 @available(OSX 10.8, *)
-class GKInvite : Object {
+class GKInvite : NSObject {
   @available(OSX 10.10, *)
   var sender: GKPlayer { get }
   @available(OSX, introduced=10.8, deprecated=10.10, message="use sender")
@@ -65,21 +65,21 @@ protocol GKInviteEventListener {
   optional func player(player: GKPlayer, didRequestMatchWithRecipients recipientPlayers: [GKPlayer])
 }
 @available(OSX 10.8, *)
-class GKMatchmaker : Object {
+class GKMatchmaker : NSObject {
   class func shared() -> GKMatchmaker
   @available(OSX 10.9, *)
-  func match(for invite: GKInvite, completionHandler: ((GKMatch?, Error?) -> Void)? = nil)
-  func findMatch(for request: GKMatchRequest, withCompletionHandler completionHandler: ((GKMatch?, Error?) -> Void)? = nil)
+  func match(for invite: GKInvite, completionHandler: ((GKMatch?, NSError?) -> Void)? = nil)
+  func findMatch(for request: GKMatchRequest, withCompletionHandler completionHandler: ((GKMatch?, NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func findPlayers(forHostedRequest request: GKMatchRequest, withCompletionHandler completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
-  func addPlayers(to match: GKMatch, matchRequest: GKMatchRequest, completionHandler: ((Error?) -> Void)? = nil)
+  func findPlayers(forHostedRequest request: GKMatchRequest, withCompletionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)? = nil)
+  func addPlayers(to match: GKMatch, matchRequest: GKMatchRequest, completionHandler: ((NSError?) -> Void)? = nil)
   func cancel()
   @available(OSX 10.10, *)
   func cancelPendingInvite(to player: GKPlayer)
   @available(OSX 10.9, *)
   func finishMatchmaking(for match: GKMatch)
-  func queryPlayerGroupActivity(playerGroup: Int, withCompletionHandler completionHandler: ((Int, Error?) -> Void)? = nil)
-  func queryActivity(completionHandler completionHandler: ((Int, Error?) -> Void)? = nil)
+  func queryPlayerGroupActivity(playerGroup: Int, withCompletionHandler completionHandler: ((Int, NSError?) -> Void)? = nil)
+  func queryActivity(completionHandler completionHandler: ((Int, NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
   func startBrowsingForNearbyPlayers(handler reachableHandler: ((GKPlayer, Bool) -> Void)? = nil)
   @available(OSX 10.9, *)
@@ -94,5 +94,5 @@ extension GKMatchmaker {
   @available(OSX, introduced=10.9, deprecated=10.10, message="use cancelPendingInviteToPlayer:")
   func cancelInvite(toPlayer playerID: String)
   @available(OSX, introduced=10.8, deprecated=10.10, message="use findPlayersForHostedRequest:")
-  func findPlayers(forHostedMatchRequest request: GKMatchRequest, withCompletionHandler completionHandler: (([String]?, Error?) -> Void)? = nil)
+  func findPlayers(forHostedMatchRequest request: GKMatchRequest, withCompletionHandler completionHandler: (([String]?, NSError?) -> Void)? = nil)
 }

@@ -1,9 +1,9 @@
 
 @available(OSX 10.10, *)
 class AVAudioUnitSampler : AVAudioUnitMIDIInstrument {
-  func loadSoundBankInstrument(at bankURL: URL, program: UInt8, bankMSB: UInt8, bankLSB: UInt8) throws
-  func loadInstrument(at instrumentURL: URL) throws
-  func loadAudioFiles(at audioFiles: [URL]) throws
+  func loadSoundBankInstrument(at bankURL: NSURL, program: UInt8, bankMSB: UInt8, bankLSB: UInt8) throws
+  func loadInstrument(at instrumentURL: NSURL) throws
+  func loadAudioFiles(at audioFiles: [NSURL]) throws
   var stereoPan: Float
   var masterGain: Float
   var globalTuning: Float

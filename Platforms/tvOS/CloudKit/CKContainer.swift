@@ -2,7 +2,7 @@
 @available(tvOS 8.0, *)
 let CKOwnerDefaultName: String
 @available(tvOS 8.0, *)
-class CKContainer : Object {
+class CKContainer : NSObject {
   class func defaultContainer() -> CKContainer
   /*not inherited*/ init(identifier containerIdentifier: String)
   var containerIdentifier: String? { get }
@@ -24,7 +24,7 @@ enum CKAccountStatus : Int {
 @available(tvOS 9.0, *)
 let CKAccountChangedNotification: String
 extension CKContainer {
-  func accountStatus(completionHandler completionHandler: (CKAccountStatus, Error?) -> Void)
+  func accountStatus(completionHandler completionHandler: (CKAccountStatus, NSError?) -> Void)
 }
 @available(tvOS 8.0, *)
 struct CKApplicationPermissions : OptionSetType {
@@ -41,13 +41,13 @@ enum CKApplicationPermissionStatus : Int {
   case denied
   case granted
 }
-typealias CKApplicationPermissionBlock = (CKApplicationPermissionStatus, Error?) -> Void
+typealias CKApplicationPermissionBlock = (CKApplicationPermissionStatus, NSError?) -> Void
 extension CKContainer {
   func status(forApplicationPermission applicationPermission: CKApplicationPermissions, completionHandler: CKApplicationPermissionBlock)
   func requestApplicationPermission(applicationPermission: CKApplicationPermissions, completionHandler: CKApplicationPermissionBlock)
 }
 extension CKContainer {
-  func fetchUserRecordID(completionHandler completionHandler: (CKRecordID?, Error?) -> Void)
-  func discoverUserInfo(emailAddress email: String, completionHandler: (CKDiscoveredUserInfo?, Error?) -> Void)
-  func discoverUserInfo(userRecordID userRecordID: CKRecordID, completionHandler: (CKDiscoveredUserInfo?, Error?) -> Void)
+  func fetchUserRecordID(completionHandler completionHandler: (CKRecordID?, NSError?) -> Void)
+  func discoverUserInfo(emailAddress email: String, completionHandler: (CKDiscoveredUserInfo?, NSError?) -> Void)
+  func discoverUserInfo(userRecordID userRecordID: CKRecordID, completionHandler: (CKDiscoveredUserInfo?, NSError?) -> Void)
 }

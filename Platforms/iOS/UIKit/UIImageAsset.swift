@@ -1,13 +1,13 @@
 
 @available(iOS 8.0, *)
-class UIImageAsset : Object, SecureCoding {
+class UIImageAsset : NSObject, NSSecureCoding {
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   func image(with traitCollection: UITraitCollection) -> UIImage
   func register(image: UIImage, with traitCollection: UITraitCollection)
   func unregisterImage(with traitCollection: UITraitCollection)
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }

@@ -1,6 +1,6 @@
 
 @available(tvOS 3.2, *)
-class UITextChecker : Object {
+class UITextChecker : NSObject {
   func rangeOfMisspelledWord(in stringToCheck: String, range: NSRange, startingAt startingOffset: Int, wrap wrapFlag: Bool, language: String) -> NSRange
   func guesses(forWordRange range: NSRange, in string: String, language: String) -> [AnyObject]?
   func completions(forPartialWordRange range: NSRange, in string: String?, language: String) -> [AnyObject]?

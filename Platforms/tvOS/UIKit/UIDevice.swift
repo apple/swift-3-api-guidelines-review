@@ -11,7 +11,7 @@ enum UIUserInterfaceIdiom : Int {
   case TV
 }
 @available(tvOS 2.0, *)
-class UIDevice : Object {
+class UIDevice : NSObject {
   class func current() -> UIDevice
   var name: String { get }
   var model: String { get }
@@ -19,7 +19,7 @@ class UIDevice : Object {
   var systemName: String { get }
   var systemVersion: String { get }
   @available(tvOS 6.0, *)
-  var identifierForVendor: UUID? { get }
+  var identifierForVendor: NSUUID? { get }
   @available(tvOS 3.0, *)
   var isProximityMonitoringEnabled: Bool
   @available(tvOS 3.0, *)
@@ -32,7 +32,7 @@ class UIDevice : Object {
   func playInputClick()
   init()
 }
-protocol UIInputViewAudioFeedback : ObjectProtocol {
+protocol UIInputViewAudioFeedback : NSObjectProtocol {
   optional var enableInputClicksWhenVisible: Bool { get }
 }
 func UI_USER_INTERFACE_IDIOM() -> UIUserInterfaceIdiom

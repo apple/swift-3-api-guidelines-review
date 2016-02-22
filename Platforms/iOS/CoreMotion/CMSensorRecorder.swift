@@ -2,22 +2,22 @@
 @available(iOS 9.0, *)
 class CMRecordedAccelerometerData : CMAccelerometerData {
   var identifier: UInt64 { get }
-  var startDate: Date { get }
+  var startDate: NSDate { get }
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 9.0, *)
-class CMSensorDataList : Object, FastEnumeration {
+class CMSensorDataList : NSObject, NSFastEnumeration {
   init()
   @available(iOS 9.0, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 @available(iOS 9.0, *)
-class CMSensorRecorder : Object {
+class CMSensorRecorder : NSObject {
   class func isAccelerometerRecordingAvailable() -> Bool
   class func isAuthorizedForRecording() -> Bool
   func accelerometerData(since identifier: UInt64) -> CMSensorDataList?
-  func accelerometerData(from fromDate: Date, to toDate: Date) -> CMSensorDataList?
-  func recordAccelerometer(for duration: TimeInterval)
+  func accelerometerData(from fromDate: NSDate, to toDate: NSDate) -> CMSensorDataList?
+  func recordAccelerometer(for duration: NSTimeInterval)
   init()
 }

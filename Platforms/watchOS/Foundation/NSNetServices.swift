@@ -1,7 +1,7 @@
 
-let netServicesErrorCode: String
-let netServicesErrorDomain: String
-enum NetServicesError : Int {
+let NSNetServicesErrorCode: String
+let NSNetServicesErrorDomain: String
+enum NSNetServicesError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   case unknownError
@@ -13,10 +13,10 @@ enum NetServicesError : Int {
   case invalidError
   case timeoutError
 }
-struct NetServiceOptions : OptionSetType {
+struct NSNetServiceOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var noAutoRename: NetServiceOptions { get }
+  static var noAutoRename: NSNetServiceOptions { get }
   @available(watchOS 2.0, *)
-  static var listenForConnections: NetServiceOptions { get }
+  static var listenForConnections: NSNetServiceOptions { get }
 }

@@ -1,6 +1,6 @@
 
 @available(tvOS 5.0, *)
-class NSIncrementalStoreNode : Object {
+class NSIncrementalStoreNode : NSObject {
   init(objectID: NSManagedObjectID, withValues values: [String : AnyObject], version: UInt64)
   func update(values values: [String : AnyObject], version: UInt64)
   var objectID: NSManagedObjectID { get }

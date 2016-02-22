@@ -11,7 +11,7 @@ class NSPopUpButtonCell : NSMenuItemCell {
   var menu: NSMenu?
   var pullsDown: Bool
   var autoenablesItems: Bool
-  var preferredEdge: RectEdge
+  var preferredEdge: NSRectEdge
   var usesItemFromMenu: Bool
   var altersStateOfSelectedItem: Bool
   func addItem(title title: String)
@@ -41,14 +41,14 @@ class NSPopUpButtonCell : NSMenuItemCell {
   func itemTitle(at index: Int) -> String
   var itemTitles: [String] { get }
   var titleOfSelectedItem: String? { get }
-  func attachPopUp(frame cellFrame: Rect, in controlView: NSView)
+  func attachPopUp(frame cellFrame: NSRect, in controlView: NSView)
   func dismissPopUp()
-  func performClick(frame frame: Rect, in controlView: NSView)
+  func performClick(frame frame: NSRect, in controlView: NSView)
   var arrowPosition: NSPopUpArrowPosition
   convenience init(textCell aString: String)
   convenience init(imageCell image: NSImage?)
   convenience init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 struct __pbcFlags {
   var pullsDown: UInt32

@@ -17,11 +17,11 @@ class NSLevelIndicatorCell : NSActionCell {
   var tickMarkPosition: NSTickMarkPosition
   var numberOfTickMarks: Int
   var numberOfMajorTickMarks: Int
-  func rectOfTickMark(at index: Int) -> Rect
+  func rectOfTickMark(at index: Int) -> NSRect
   func tickMarkValue(at index: Int) -> Double
   func setImage(image: NSImage?)
   init(textCell aString: String)
   init(imageCell image: NSImage?)
   convenience init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

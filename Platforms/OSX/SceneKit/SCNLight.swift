@@ -12,7 +12,7 @@ enum SCNShadowMode : Int {
   case modulated
 }
 @available(OSX 10.8, *)
-class SCNLight : Object, SCNAnimatable, SCNTechniqueSupport, Copying, SecureCoding {
+class SCNLight : NSObject, SCNAnimatable, SCNTechniqueSupport, NSCopying, NSSecureCoding {
   var type: String
   var color: AnyObject
   var name: String?
@@ -73,12 +73,12 @@ class SCNLight : Object, SCNAnimatable, SCNTechniqueSupport, Copying, SecureCodi
   @available(OSX 10.10, *)
   @NSCopying var technique: SCNTechnique?
   @available(OSX 10.8, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX, introduced=10.8, deprecated=10.10)
 let SCNLightAttenuationStartKey: String

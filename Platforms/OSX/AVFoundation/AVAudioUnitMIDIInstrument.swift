@@ -12,7 +12,7 @@ class AVAudioUnitMIDIInstrument : AVAudioUnit, AVAudioMixing {
   func sendProgramChange(program: UInt8, bankMSB: UInt8, bankLSB: UInt8, onChannel channel: UInt8)
   func sendMIDIEvent(midiStatus: UInt8, data1: UInt8, data2: UInt8)
   func sendMIDIEvent(midiStatus: UInt8, data1: UInt8)
-  func sendMIDISysExEvent(midiData: Data)
+  func sendMIDISysExEvent(midiData: NSData)
   init()
   @available(OSX 10.11, *)
   func destination(forMixer mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?

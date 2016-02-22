@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
-class PKPushCredentials : Object {
+class PKPushCredentials : NSObject {
   var type: String! { get }
-  @NSCopying var token: Data! { get }
+  @NSCopying var token: NSData! { get }
   init()
 }

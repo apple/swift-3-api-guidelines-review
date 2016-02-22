@@ -8,7 +8,7 @@ class MKOverlayPathRenderer : MKOverlayRenderer {
   var lineCap: CGLineCap
   var miterLimit: CGFloat
   var lineDashPhase: CGFloat
-  var lineDashPattern: [Number]?
+  var lineDashPattern: [NSNumber]?
   func createPath()
   var path: CGPath!
   func invalidatePath()

@@ -1,9 +1,9 @@
 
 class NSUserDefaultsController : NSController {
   class func shared() -> NSUserDefaultsController
-  init(defaults: UserDefaults?, initialValues: [String : AnyObject]?)
-  init?(coder: Coder)
-  var defaults: UserDefaults { get }
+  init(defaults: NSUserDefaults?, initialValues: [String : AnyObject]?)
+  init?(coder: NSCoder)
+  var defaults: NSUserDefaults { get }
   var initialValues: [String : AnyObject]?
   var appliesImmediately: Bool
   var hasUnappliedChanges: Bool { get }

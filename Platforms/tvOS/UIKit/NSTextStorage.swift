@@ -7,7 +7,7 @@ struct NSTextStorageEditActions : OptionSetType {
   static var editedCharacters: NSTextStorageEditActions { get }
 }
 @available(tvOS 7.0, *)
-class NSTextStorage : MutableAttributedString {
+class NSTextStorage : NSMutableAttributedString {
   var layoutManagers: [NSLayoutManager] { get }
   func addLayoutManager(aLayoutManager: NSLayoutManager)
   func removeLayoutManager(aLayoutManager: NSLayoutManager)
@@ -21,16 +21,16 @@ class NSTextStorage : MutableAttributedString {
   func invalidateAttributes(in range: NSRange)
   func ensureAttributesAreFixed(in range: NSRange)
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   @available(tvOS 9.0, *)
-  init(url: URL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(url: NSURL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(tvOS 7.0, *)
-  init(data: Data, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(data: NSData, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   init(string str: String)
   init(string str: String, attributes attrs: [String : AnyObject]? = [:])
-  init(attributedString attrStr: AttributedString)
+  init(attributedString attrStr: NSAttributedString)
 }
-protocol NSTextStorageDelegate : ObjectProtocol {
+protocol NSTextStorageDelegate : NSObjectProtocol {
   @available(tvOS 7.0, *)
   optional func textStorage(textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int)
   @available(tvOS 7.0, *)

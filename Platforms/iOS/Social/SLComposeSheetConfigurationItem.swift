@@ -1,7 +1,7 @@
 
 typealias SLComposeSheetConfigurationItemTapHandler = () -> Void
 @available(iOS 8.0, *)
-class SLComposeSheetConfigurationItem : Object {
+class SLComposeSheetConfigurationItem : NSObject {
   init!()
   var title: String!
   var value: String!

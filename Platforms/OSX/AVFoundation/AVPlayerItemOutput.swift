@@ -1,6 +1,6 @@
 
 @available(OSX 10.8, *)
-class AVPlayerItemOutput : Object {
+class AVPlayerItemOutput : NSObject {
   func itemTime(forHostTime hostTimeInSeconds: CFTimeInterval) -> CMTime
   func itemTime(forMachAbsoluteTime machAbsoluteTime: Int64) -> CMTime
   @available(OSX 10.8, *)
@@ -15,12 +15,12 @@ class AVPlayerItemVideoOutput : AVPlayerItemOutput {
   func hasNewPixelBuffer(forItemTime itemTime: CMTime) -> Bool
   func copyPixelBuffer(forItemTime itemTime: CMTime, itemTimeForDisplay outItemTimeForDisplay: UnsafeMutablePointer<CMTime>) -> CVPixelBuffer?
   func setDelegate(delegate: AVPlayerItemOutputPullDelegate?, queue delegateQueue: dispatch_queue_t?)
-  func requestNotificationOfMediaDataChange(advanceInterval interval: TimeInterval)
+  func requestNotificationOfMediaDataChange(advanceInterval interval: NSTimeInterval)
   unowned(unsafe) var delegate: @sil_unmanaged AVPlayerItemOutputPullDelegate? { get }
   var delegateQueue: dispatch_queue_t? { get }
   convenience init()
 }
-protocol AVPlayerItemOutputPullDelegate : ObjectProtocol {
+protocol AVPlayerItemOutputPullDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
   optional func outputMediaDataWillChange(sender: AVPlayerItemOutput)
   @available(OSX 10.8, *)
@@ -31,11 +31,11 @@ class AVPlayerItemLegibleOutput : AVPlayerItemOutput {
   func setDelegate(delegate: AVPlayerItemLegibleOutputPushDelegate?, queue delegateQueue: dispatch_queue_t?)
   weak var delegate: @sil_weak AVPlayerItemLegibleOutputPushDelegate? { get }
   var delegateQueue: dispatch_queue_t? { get }
-  var advanceIntervalForDelegateInvocation: TimeInterval
+  var advanceIntervalForDelegateInvocation: NSTimeInterval
   init()
 }
 extension AVPlayerItemLegibleOutput {
-  init(mediaSubtypesForNativeRepresentation subtypes: [Number])
+  init(mediaSubtypesForNativeRepresentation subtypes: [NSNumber])
 }
 extension AVPlayerItemLegibleOutput {
   var textStylingResolution: String
@@ -46,9 +46,9 @@ let AVPlayerItemLegibleOutputTextStylingResolutionDefault: String
 let AVPlayerItemLegibleOutputTextStylingResolutionSourceAndRulesOnly: String
 protocol AVPlayerItemLegibleOutputPushDelegate : AVPlayerItemOutputPushDelegate {
   @available(OSX 10.9, *)
-  optional func legibleOutput(output: AVPlayerItemLegibleOutput, didOutputAttributedStrings strings: [AttributedString], nativeSampleBuffers nativeSamples: [AnyObject], forItemTime itemTime: CMTime)
+  optional func legibleOutput(output: AVPlayerItemLegibleOutput, didOutputAttributedStrings strings: [NSAttributedString], nativeSampleBuffers nativeSamples: [AnyObject], forItemTime itemTime: CMTime)
 }
-protocol AVPlayerItemOutputPushDelegate : ObjectProtocol {
+protocol AVPlayerItemOutputPushDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
   optional func outputSequenceWasFlushed(output: AVPlayerItemOutput)
 }
@@ -58,7 +58,7 @@ class AVPlayerItemMetadataOutput : AVPlayerItemOutput {
   func setDelegate(delegate: AVPlayerItemMetadataOutputPushDelegate?, queue delegateQueue: dispatch_queue_t?)
   weak var delegate: @sil_weak AVPlayerItemMetadataOutputPushDelegate? { get }
   var delegateQueue: dispatch_queue_t? { get }
-  var advanceIntervalForDelegateInvocation: TimeInterval
+  var advanceIntervalForDelegateInvocation: NSTimeInterval
   convenience init()
 }
 protocol AVPlayerItemMetadataOutputPushDelegate : AVPlayerItemOutputPushDelegate {

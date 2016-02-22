@@ -6,5 +6,5 @@ class CLCircularRegion : CLRegion {
   var radius: CLLocationDistance { get }
   func contains(coordinate: CLLocationCoordinate2D) -> Bool
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

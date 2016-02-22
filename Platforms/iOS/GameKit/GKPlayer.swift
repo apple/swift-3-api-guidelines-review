@@ -1,7 +1,7 @@
 
 @available(iOS 4.1, *)
-class GKPlayer : Object {
-  class func loadPlayers(forIdentifiers identifiers: [String], withCompletionHandler completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
+class GKPlayer : NSObject {
+  class func loadPlayers(forIdentifiers identifiers: [String], withCompletionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)? = nil)
   var playerID: String? { get }
   @available(iOS 6.0, *)
   var displayName: String? { get }
@@ -14,7 +14,7 @@ class GKPlayer : Object {
 }
 extension GKPlayer {
   @available(iOS 5.0, *)
-  func loadPhoto(forSize size: GKPhotoSize, withCompletionHandler completionHandler: ((UIImage?, Error?) -> Void)? = nil)
+  func loadPhoto(forSize size: GKPhotoSize, withCompletionHandler completionHandler: ((UIImage?, NSError?) -> Void)? = nil)
 }
 var GKPhotoSizeSmall: Int { get }
 var GKPhotoSizeNormal: Int { get }

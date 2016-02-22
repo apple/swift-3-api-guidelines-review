@@ -1,6 +1,6 @@
 
 @available(iOS 9.0, *)
-class UIRegion : Object, Copying, Coding {
+class UIRegion : NSObject, NSCopying, NSCoding {
   class func infinite() -> Self
   init(radius: CGFloat)
   init(size: CGSize)
@@ -11,8 +11,8 @@ class UIRegion : Object, Copying, Coding {
   func contains(point: CGPoint) -> Bool
   init()
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 9.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

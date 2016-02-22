@@ -1,17 +1,17 @@
 
 @available(OSX 10.10, *)
-class AVSampleCursor : Object, Copying {
+class AVSampleCursor : NSObject, NSCopying {
   func stepInDecodeOrder(byCount stepCount: Int64) -> Int64
   func stepInPresentationOrder(byCount stepCount: Int64) -> Int64
   func step(byDecode deltaDecodeTime: CMTime, wasPinned outWasPinned: UnsafeMutablePointer<ObjCBool>) -> CMTime
   func step(byPresentationTime deltaPresentationTime: CMTime, wasPinned outWasPinned: UnsafeMutablePointer<ObjCBool>) -> CMTime
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 extension AVSampleCursor {
   var presentationTimeStamp: CMTime { get }
   var decodeTimeStamp: CMTime { get }
-  func comparePositionInDecodeOrder(positionOf cursor: AVSampleCursor) -> ComparisonResult
+  func comparePositionInDecodeOrder(positionOf cursor: AVSampleCursor) -> NSComparisonResult
   func samples(withEarlierDecodeTimeStampsMayHaveLaterPresentationTimeStampsThanCursor cursor: AVSampleCursor) -> Bool
   func samples(withLaterDecodeTimeStampsMayHaveEarlierPresentationTimeStampsThanCursor cursor: AVSampleCursor) -> Bool
 }
@@ -41,7 +41,7 @@ struct AVSampleCursorDependencyInfo {
   init(sampleIndicatesWhetherItHasDependentSamples: ObjCBool, sampleHasDependentSamples: ObjCBool, sampleIndicatesWhetherItDependsOnOthers: ObjCBool, sampleDependsOnOthers: ObjCBool, sampleIndicatesWhetherItHasRedundantCoding: ObjCBool, sampleHasRedundantCoding: ObjCBool)
 }
 extension AVSampleCursor {
-  var currentChunkStorageURL: URL { get }
+  var currentChunkStorageURL: NSURL { get }
   var currentChunkStorageRange: AVSampleCursorStorageRange { get }
   var currentChunkInfo: AVSampleCursorChunkInfo { get }
   var currentSampleIndexInChunk: Int64 { get }

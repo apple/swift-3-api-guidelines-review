@@ -1,7 +1,7 @@
 
-class NSWindowController : NSResponder, Coding, NSSeguePerforming {
+class NSWindowController : NSResponder, NSCoding, NSSeguePerforming {
   init(window: NSWindow?)
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   convenience init(windowNibName: String)
   convenience init(windowNibName: String, owner: AnyObject)
   convenience init(windowNibPath: String, owner: AnyObject)

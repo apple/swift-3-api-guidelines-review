@@ -15,14 +15,14 @@ enum UIAlertControllerStyle : Int {
   case alert
 }
 @available(tvOS 8.0, *)
-class UIAlertAction : Object, Copying {
+class UIAlertAction : NSObject, NSCopying {
   convenience init(title: String?, style: UIAlertActionStyle, handler: ((UIAlertAction) -> Void)? = nil)
   var title: String? { get }
   var style: UIAlertActionStyle { get }
   var isEnabled: Bool
   init()
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 class UIAlertController : UIViewController {
@@ -36,7 +36,7 @@ class UIAlertController : UIViewController {
   var title: String?
   var message: String?
   var preferredStyle: UIAlertControllerStyle { get }
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }

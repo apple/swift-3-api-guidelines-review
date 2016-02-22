@@ -1,13 +1,13 @@
 
-class NSNib : Object, Coding {
-  init?(nibNamed nibName: String, bundle: Bundle?)
+class NSNib : NSObject, NSCoding {
+  init?(nibNamed nibName: String, bundle: NSBundle?)
   @available(OSX 10.8, *)
-  init(nibData: Data, bundle: Bundle?)
+  init(nibData: NSData, bundle: NSBundle?)
   @available(OSX 10.8, *)
   func instantiate(withOwner owner: AnyObject?, topLevel topLevelObjects: AutoreleasingUnsafeMutablePointer<NSArray?>) -> Bool
   init()
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 struct _NSNibFlags {
   var _isKeyed: UInt32

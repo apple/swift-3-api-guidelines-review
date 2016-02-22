@@ -13,7 +13,7 @@ enum AVAssetImageGeneratorResult : Int {
   case cancelled
 }
 @available(OSX 10.7, *)
-class AVAssetImageGenerator : Object {
+class AVAssetImageGenerator : NSObject {
   @available(OSX 10.9, *)
   var asset: AVAsset { get }
   var appliesPreferredTrackTransform: Bool
@@ -28,7 +28,7 @@ class AVAssetImageGenerator : Object {
   var requestedTimeToleranceAfter: CMTime
   init(asset: AVAsset)
   func copyCGImage(at requestedTime: CMTime, actualTime: UnsafeMutablePointer<CMTime>) throws -> CGImage
-  func generateCGImagesAsynchronously(forTimes requestedTimes: [Value], completionHandler handler: AVAssetImageGeneratorCompletionHandler)
+  func generateCGImagesAsynchronously(forTimes requestedTimes: [NSValue], completionHandler handler: AVAssetImageGeneratorCompletionHandler)
   func cancelAllCGImageGeneration()
 }
-typealias AVAssetImageGeneratorCompletionHandler = (CMTime, CGImage?, CMTime, AVAssetImageGeneratorResult, Error?) -> Void
+typealias AVAssetImageGeneratorCompletionHandler = (CMTime, CGImage?, CMTime, AVAssetImageGeneratorResult, NSError?) -> Void

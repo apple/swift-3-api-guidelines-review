@@ -1,6 +1,6 @@
 
 @available(OSX 10.4, *)
-class Predicate : Object, SecureCoding, Copying {
+class NSPredicate : NSObject, NSSecureCoding, NSCopying {
   /*not inherited*/ init(format predicateFormat: String, argumentArray arguments: [AnyObject]?)
   /*not inherited*/ init(format predicateFormat: String, arguments argList: CVaListPointer)
   @available(OSX 10.9, *)
@@ -19,13 +19,13 @@ class Predicate : Object, SecureCoding, Copying {
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.4, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 
-extension Predicate {
+extension NSPredicate {
   convenience init(format predicateFormat: String, _ args: CVarArgType...)
 }
 struct _predicateFlags {
@@ -35,24 +35,24 @@ struct _predicateFlags {
   init(_evaluationBlocked: UInt32, _reservedPredicateFlags: UInt32)
 }
 extension NSArray {
-  func filteredArray(using predicate: Predicate) -> [AnyObject]
+  func filteredArray(using predicate: NSPredicate) -> [AnyObject]
 }
-extension MutableArray {
-  func filter(using predicate: Predicate)
+extension NSMutableArray {
+  func filter(using predicate: NSPredicate)
 }
 extension NSSet {
   @available(OSX 10.5, *)
-  func filteredSet(using predicate: Predicate) -> Set<Object>
+  func filteredSet(using predicate: NSPredicate) -> Set<NSObject>
 }
-extension MutableSet {
+extension NSMutableSet {
   @available(OSX 10.5, *)
-  func filter(using predicate: Predicate)
+  func filter(using predicate: NSPredicate)
 }
-extension OrderedSet {
+extension NSOrderedSet {
   @available(OSX 10.7, *)
-  func filteredOrderedSet(using p: Predicate) -> OrderedSet
+  func filteredOrderedSet(using p: NSPredicate) -> NSOrderedSet
 }
-extension MutableOrderedSet {
+extension NSMutableOrderedSet {
   @available(OSX 10.7, *)
-  func filter(using p: Predicate)
+  func filter(using p: NSPredicate)
 }

@@ -13,7 +13,7 @@ enum TVViewElementStyleType : Int {
   case edgeInsets
 }
 @available(tvOS 9.0, *)
-class TVStyleFactory : Object {
+class TVStyleFactory : NSObject {
   class func registerStyle(styleName: String, with type: TVViewElementStyleType, inherited: Bool)
   init()
 }

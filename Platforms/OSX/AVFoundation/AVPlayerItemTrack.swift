@@ -1,6 +1,6 @@
 
 @available(OSX 10.7, *)
-class AVPlayerItemTrack : Object {
+class AVPlayerItemTrack : NSObject {
   var assetTrack: AVAssetTrack { get }
   var isEnabled: Bool
   @available(OSX 10.9, *)

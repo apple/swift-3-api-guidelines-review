@@ -32,7 +32,7 @@ enum NSFontAction : UInt {
   case lighterFontAction
   case removeTraitFontAction
 }
-class NSFontManager : Object {
+class NSFontManager : NSObject {
   class func setFontPanelFactory(factoryId: AnyClass?)
   class func setFontManagerFactory(factoryId: AnyClass?)
   class func shared() -> NSFontManager
@@ -103,13 +103,13 @@ extension NSFontManager {
   func orderFrontFontPanel(sender: AnyObject?)
   func orderFrontStylesPanel(sender: AnyObject?)
 }
-extension Object {
+extension NSObject {
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use NSFontCollection for providing filtered font lists")
   class func fontManager(sender: AnyObject, willIncludeFont fontName: String) -> Bool
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use NSFontCollection for providing filtered font lists")
   func fontManager(sender: AnyObject, willIncludeFont fontName: String) -> Bool
 }
-extension Object {
+extension NSObject {
   class func changeFont(sender: AnyObject?)
   func changeFont(sender: AnyObject?)
 }

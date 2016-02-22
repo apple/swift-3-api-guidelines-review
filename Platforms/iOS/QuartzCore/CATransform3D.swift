@@ -47,7 +47,7 @@ func CATransform3DMakeAffineTransform(m: CGAffineTransform) -> CATransform3D
 func CATransform3DIsAffine(t: CATransform3D) -> Bool
 @available(iOS 2.0, *)
 func CATransform3DGetAffineTransform(t: CATransform3D) -> CGAffineTransform
-extension Value {
+extension NSValue {
   /*not inherited*/ init(caTransform3D t: CATransform3D)
   var caTransform3DValue: CATransform3D { get }
 }

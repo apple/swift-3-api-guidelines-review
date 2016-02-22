@@ -5,10 +5,10 @@ class NSBatchUpdateRequest : NSPersistentStoreRequest {
   init(entity: NSEntityDescription)
   var entityName: String { get }
   var entity: NSEntityDescription { get }
-  var predicate: Predicate?
+  var predicate: NSPredicate?
   var includesSubentities: Bool
   var resultType: NSBatchUpdateRequestResultType
-  var propertiesToUpdate: [Object : AnyObject]?
+  var propertiesToUpdate: [NSObject : AnyObject]?
   init()
 }
 struct _requestFlags {

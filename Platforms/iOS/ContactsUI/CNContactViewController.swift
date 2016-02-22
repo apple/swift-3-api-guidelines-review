@@ -17,12 +17,12 @@ class CNContactViewController : UIViewController {
   var allowsActions: Bool
   var shouldShowLinkedContacts: Bool
   func highlightProperty(key key: String, identifier: String?)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
 @available(iOS 9.0, *)
-protocol CNContactViewControllerDelegate : ObjectProtocol {
+protocol CNContactViewControllerDelegate : NSObjectProtocol {
   optional func contactViewController(viewController: CNContactViewController, shouldPerformDefaultActionFor property: CNContactProperty) -> Bool
   optional func contactViewController(viewController: CNContactViewController, didCompleteWith contact: CNContact?)
 }

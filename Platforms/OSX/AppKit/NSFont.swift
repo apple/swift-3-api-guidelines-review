@@ -16,11 +16,11 @@ enum NSFontRenderingMode : UInt {
   case integerAdvancementsRenderingMode
   case antialiasedIntegerAdvancementsRenderingMode
 }
-class NSFont : Object, Copying, SecureCoding {
+class NSFont : NSObject, NSCopying, NSSecureCoding {
   /*not inherited*/ init?(name fontName: String, size fontSize: CGFloat)
   /*not inherited*/ init?(name fontName: String, matrix fontMatrix: UnsafePointer<CGFloat>)
   /*not inherited*/ init?(descriptor fontDescriptor: NSFontDescriptor, size fontSize: CGFloat)
-  /*not inherited*/ init?(descriptor fontDescriptor: NSFontDescriptor, textTransform: AffineTransform?)
+  /*not inherited*/ init?(descriptor fontDescriptor: NSFontDescriptor, textTransform: NSAffineTransform?)
   class func userFont(ofSize fontSize: CGFloat) -> NSFont?
   class func userFixedPitchFont(ofSize fontSize: CGFloat) -> NSFont?
   class func setUserFont(aFont: NSFont?)
@@ -49,13 +49,13 @@ class NSFont : Object, Copying, SecureCoding {
   var familyName: String? { get }
   var displayName: String? { get }
   var fontDescriptor: NSFontDescriptor { get }
-  @NSCopying var textTransform: AffineTransform { get }
+  @NSCopying var textTransform: NSAffineTransform { get }
   var numberOfGlyphs: Int { get }
   var mostCompatibleStringEncoding: UInt { get }
   func glyph(withName aName: String) -> NSGlyph
-  var coveredCharacterSet: CharacterSet { get }
-  var boundingRectForFont: Rect { get }
-  var maximumAdvancement: Size { get }
+  var coveredCharacterSet: NSCharacterSet { get }
+  var boundingRectForFont: NSRect { get }
+  var maximumAdvancement: NSSize { get }
   var ascender: CGFloat { get }
   var descender: CGFloat { get }
   var leading: CGFloat { get }
@@ -65,11 +65,11 @@ class NSFont : Object, Copying, SecureCoding {
   var capHeight: CGFloat { get }
   var xHeight: CGFloat { get }
   var isFixedPitch: Bool { get }
-  func boundingRect(forGlyph aGlyph: NSGlyph) -> Rect
-  func advancement(forGlyph ag: NSGlyph) -> Size
-  func getBoundingRects(bounds: RectArray, forGlyphs glyphs: UnsafePointer<NSGlyph>, count glyphCount: Int)
-  func getAdvancements(advancements: SizeArray, forGlyphs glyphs: UnsafePointer<NSGlyph>, count glyphCount: Int)
-  func getAdvancements(advancements: SizeArray, forPackedGlyphs packedGlyphs: UnsafePointer<Void>, length: Int)
+  func boundingRect(forGlyph aGlyph: NSGlyph) -> NSRect
+  func advancement(forGlyph ag: NSGlyph) -> NSSize
+  func getBoundingRects(bounds: NSRectArray, forGlyphs glyphs: UnsafePointer<NSGlyph>, count glyphCount: Int)
+  func getAdvancements(advancements: NSSizeArray, forGlyphs glyphs: UnsafePointer<NSGlyph>, count glyphCount: Int)
+  func getAdvancements(advancements: NSSizeArray, forPackedGlyphs packedGlyphs: UnsafePointer<Void>, length: Int)
   func set()
   func setIn(graphicsContext: NSGraphicsContext)
   @NSCopying var printer: NSFont { get }
@@ -81,10 +81,10 @@ class NSFont : Object, Copying, SecureCoding {
   @available(OSX 10.7, *)
   var isVertical: Bool { get }
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 struct __fFlags {
   var _isScreenFont: UInt32

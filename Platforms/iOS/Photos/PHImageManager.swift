@@ -24,9 +24,9 @@ enum PHImageRequestOptionsResizeMode : Int {
   case exact
 }
 @available(iOS 8.0, *)
-typealias PHAssetImageProgressHandler = (Double, Error?, UnsafeMutablePointer<ObjCBool>, [Object : AnyObject]?) -> Void
+typealias PHAssetImageProgressHandler = (Double, NSError?, UnsafeMutablePointer<ObjCBool>, [NSObject : AnyObject]?) -> Void
 @available(iOS 8.0, *)
-class PHImageRequestOptions : Object, Copying {
+class PHImageRequestOptions : NSObject, NSCopying {
   var version: PHImageRequestOptionsVersion
   var deliveryMode: PHImageRequestOptionsDeliveryMode
   var resizeMode: PHImageRequestOptionsResizeMode
@@ -36,16 +36,16 @@ class PHImageRequestOptions : Object, Copying {
   var progressHandler: PHAssetImageProgressHandler?
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 9.1, *)
-class PHLivePhotoRequestOptions : Object, Copying {
+class PHLivePhotoRequestOptions : NSObject, NSCopying {
   var deliveryMode: PHImageRequestOptionsDeliveryMode
   var isNetworkAccessAllowed: Bool
   var progressHandler: PHAssetImageProgressHandler?
   init()
   @available(iOS 9.1, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 enum PHVideoRequestOptionsVersion : Int {
@@ -64,9 +64,9 @@ enum PHVideoRequestOptionsDeliveryMode : Int {
   case fastFormat
 }
 @available(iOS 8.0, *)
-typealias PHAssetVideoProgressHandler = (Double, Error?, UnsafeMutablePointer<ObjCBool>, [Object : AnyObject]?) -> Void
+typealias PHAssetVideoProgressHandler = (Double, NSError?, UnsafeMutablePointer<ObjCBool>, [NSObject : AnyObject]?) -> Void
 @available(iOS 8.0, *)
-class PHVideoRequestOptions : Object {
+class PHVideoRequestOptions : NSObject {
   var isNetworkAccessAllowed: Bool
   var version: PHVideoRequestOptionsVersion
   var deliveryMode: PHVideoRequestOptionsDeliveryMode
@@ -89,16 +89,16 @@ let PHImageCancelledKey: String
 @available(iOS 8.0, *)
 let PHImageErrorKey: String
 @available(iOS 8.0, *)
-class PHImageManager : Object {
+class PHImageManager : NSObject {
   class func defaultManager() -> PHImageManager
-  func requestImage(for asset: PHAsset, targetSize: CGSize, contentMode: PHImageContentMode, options: PHImageRequestOptions?, resultHandler: (UIImage?, [Object : AnyObject]?) -> Void) -> PHImageRequestID
-  func requestImageData(for asset: PHAsset, options: PHImageRequestOptions?, resultHandler: (Data?, String?, UIImageOrientation, [Object : AnyObject]?) -> Void) -> PHImageRequestID
+  func requestImage(for asset: PHAsset, targetSize: CGSize, contentMode: PHImageContentMode, options: PHImageRequestOptions?, resultHandler: (UIImage?, [NSObject : AnyObject]?) -> Void) -> PHImageRequestID
+  func requestImageData(for asset: PHAsset, options: PHImageRequestOptions?, resultHandler: (NSData?, String?, UIImageOrientation, [NSObject : AnyObject]?) -> Void) -> PHImageRequestID
   func cancelImageRequest(requestID: PHImageRequestID)
   @available(iOS 9.1, *)
-  func requestLivePhoto(for asset: PHAsset, targetSize: CGSize, contentMode: PHImageContentMode, options: PHLivePhotoRequestOptions?, resultHandler: (PHLivePhoto?, [Object : AnyObject]?) -> Void) -> PHImageRequestID
-  func requestPlayerItem(forVideo asset: PHAsset, options: PHVideoRequestOptions?, resultHandler: (AVPlayerItem?, [Object : AnyObject]?) -> Void) -> PHImageRequestID
-  func requestExportSession(forVideo asset: PHAsset, options: PHVideoRequestOptions?, exportPreset: String, resultHandler: (AVAssetExportSession?, [Object : AnyObject]?) -> Void) -> PHImageRequestID
-  func requestAVAsset(forVideo asset: PHAsset, options: PHVideoRequestOptions?, resultHandler: (AVAsset?, AVAudioMix?, [Object : AnyObject]?) -> Void) -> PHImageRequestID
+  func requestLivePhoto(for asset: PHAsset, targetSize: CGSize, contentMode: PHImageContentMode, options: PHLivePhotoRequestOptions?, resultHandler: (PHLivePhoto?, [NSObject : AnyObject]?) -> Void) -> PHImageRequestID
+  func requestPlayerItem(forVideo asset: PHAsset, options: PHVideoRequestOptions?, resultHandler: (AVPlayerItem?, [NSObject : AnyObject]?) -> Void) -> PHImageRequestID
+  func requestExportSession(forVideo asset: PHAsset, options: PHVideoRequestOptions?, exportPreset: String, resultHandler: (AVAssetExportSession?, [NSObject : AnyObject]?) -> Void) -> PHImageRequestID
+  func requestAVAsset(forVideo asset: PHAsset, options: PHVideoRequestOptions?, resultHandler: (AVAsset?, AVAudioMix?, [NSObject : AnyObject]?) -> Void) -> PHImageRequestID
   init()
 }
 @available(iOS 8.0, *)

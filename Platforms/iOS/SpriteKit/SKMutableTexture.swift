@@ -12,9 +12,9 @@ class SKMutableTexture : SKTexture {
   convenience init(noiseWithSmoothness smoothness: CGFloat, size: CGSize, grayscale: Bool)
   convenience init(cgImage image: CGImage)
   convenience init(image: UIImage)
-  convenience init(data pixelData: Data, size: CGSize)
-  convenience init(data pixelData: Data, size: CGSize, flipped: Bool)
-  convenience init(data pixelData: Data, size: CGSize, rowLength: UInt32, alignment: UInt32)
+  convenience init(data pixelData: NSData, size: CGSize)
+  convenience init(data pixelData: NSData, size: CGSize, flipped: Bool)
+  convenience init(data pixelData: NSData, size: CGSize, rowLength: UInt32, alignment: UInt32)
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

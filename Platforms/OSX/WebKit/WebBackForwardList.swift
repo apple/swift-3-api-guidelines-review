@@ -1,5 +1,5 @@
 
-class WebBackForwardList : Object {
+class WebBackForwardList : NSObject {
   func add(item: WebHistoryItem!)
   func goBack()
   func goForward()

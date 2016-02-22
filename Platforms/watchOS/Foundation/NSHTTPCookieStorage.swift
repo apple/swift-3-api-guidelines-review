@@ -1,32 +1,32 @@
 
-enum HTTPCookieAcceptPolicy : UInt {
+enum NSHTTPCookieAcceptPolicy : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case always
   case never
   case onlyFromMainDocumentDomain
 }
-class HTTPCookieStorage : Object {
-  class func shared() -> HTTPCookieStorage
+class NSHTTPCookieStorage : NSObject {
+  class func shared() -> NSHTTPCookieStorage
   @available(watchOS 2.0, *)
-  class func sharedCookieStorage(forGroupContainerIdentifier identifier: String) -> HTTPCookieStorage
-  var cookies: [HTTPCookie]? { get }
-  func setCookie(cookie: HTTPCookie)
-  func deleteCookie(cookie: HTTPCookie)
+  class func sharedCookieStorage(forGroupContainerIdentifier identifier: String) -> NSHTTPCookieStorage
+  var cookies: [NSHTTPCookie]? { get }
+  func setCookie(cookie: NSHTTPCookie)
+  func deleteCookie(cookie: NSHTTPCookie)
   @available(watchOS 2.0, *)
-  func removeCookies(since date: Date)
-  func cookies(for URL: URL) -> [HTTPCookie]?
-  func setCookies(cookies: [HTTPCookie], for URL: URL?, mainDocumentURL: URL?)
-  var cookieAcceptPolicy: HTTPCookieAcceptPolicy
+  func removeCookies(since date: NSDate)
+  func cookies(for URL: NSURL) -> [NSHTTPCookie]?
+  func setCookies(cookies: [NSHTTPCookie], for URL: NSURL?, mainDocumentURL: NSURL?)
+  var cookieAcceptPolicy: NSHTTPCookieAcceptPolicy
   @available(watchOS 2.0, *)
-  func sortedCookies(using sortOrder: [SortDescriptor]) -> [HTTPCookie]
+  func sortedCookies(using sortOrder: [NSSortDescriptor]) -> [NSHTTPCookie]
   init()
 }
-extension HTTPCookieStorage {
+extension NSHTTPCookieStorage {
   @available(watchOS 2.0, *)
-  func storeCookies(cookies: [HTTPCookie], for task: URLSessionTask)
+  func storeCookies(cookies: [NSHTTPCookie], for task: NSURLSessionTask)
   @available(watchOS 2.0, *)
-  func getCookiesFor(task: URLSessionTask, completionHandler: ([HTTPCookie]?) -> Void)
+  func getCookiesFor(task: NSURLSessionTask, completionHandler: ([NSHTTPCookie]?) -> Void)
 }
-let httpCookieManagerAcceptPolicyChangedNotification: String
-let httpCookieManagerCookiesChangedNotification: String
+let NSHTTPCookieManagerAcceptPolicyChangedNotification: String
+let NSHTTPCookieManagerCookiesChangedNotification: String

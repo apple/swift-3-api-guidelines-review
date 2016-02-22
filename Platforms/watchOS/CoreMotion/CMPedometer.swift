@@ -1,28 +1,28 @@
 
 @available(watchOS 2.0, *)
-class CMPedometerData : Object, SecureCoding, Copying {
-  var startDate: Date { get }
-  var endDate: Date { get }
-  var numberOfSteps: Number { get }
-  var distance: Number? { get }
-  var floorsAscended: Number? { get }
-  var floorsDescended: Number? { get }
+class CMPedometerData : NSObject, NSSecureCoding, NSCopying {
+  var startDate: NSDate { get }
+  var endDate: NSDate { get }
+  var numberOfSteps: NSNumber { get }
+  var distance: NSNumber? { get }
+  var floorsAscended: NSNumber? { get }
+  var floorsDescended: NSNumber? { get }
   @available(watchOS 2.0, *)
-  var currentPace: Number? { get }
+  var currentPace: NSNumber? { get }
   @available(watchOS 2.0, *)
-  var currentCadence: Number? { get }
+  var currentCadence: NSNumber? { get }
   init()
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
-typealias CMPedometerHandler = (CMPedometerData?, Error?) -> Void
+typealias CMPedometerHandler = (CMPedometerData?, NSError?) -> Void
 @available(watchOS 2.0, *)
-class CMPedometer : Object {
+class CMPedometer : NSObject {
   class func isStepCountingAvailable() -> Bool
   class func isDistanceAvailable() -> Bool
   class func isFloorCountingAvailable() -> Bool
@@ -30,8 +30,8 @@ class CMPedometer : Object {
   class func isPaceAvailable() -> Bool
   @available(watchOS 2.0, *)
   class func isCadenceAvailable() -> Bool
-  func queryPedometerData(from start: Date, to end: Date, withHandler handler: CMPedometerHandler)
-  func startUpdates(from start: Date, withHandler handler: CMPedometerHandler)
+  func queryPedometerData(from start: NSDate, to end: NSDate, withHandler handler: CMPedometerHandler)
+  func startUpdates(from start: NSDate, withHandler handler: CMPedometerHandler)
   func stopUpdates()
   init()
 }

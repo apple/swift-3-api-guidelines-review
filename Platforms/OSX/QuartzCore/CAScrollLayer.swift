@@ -5,7 +5,7 @@ class CAScrollLayer : CALayer {
   var scrollMode: String
   init()
   init(layer: AnyObject)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 extension CALayer {
   func scroll(p: CGPoint)

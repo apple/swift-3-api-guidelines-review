@@ -4,8 +4,8 @@ let GCControllerDidDisconnectNotification: String
 @available(tvOS 9.0, *)
 class GCEventViewController : UIViewController {
   var controllerUserInteractionEnabled: Bool
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
 enum GCControllerPlayerIndex : Int {
@@ -18,7 +18,7 @@ enum GCControllerPlayerIndex : Int {
   case index4
 }
 @available(tvOS 7.0, *)
-class GCController : Object {
+class GCController : NSObject {
   var controllerPausedHandler: ((GCController) -> Void)?
   var handlerQueue: dispatch_queue_t
   var vendorName: String? { get }

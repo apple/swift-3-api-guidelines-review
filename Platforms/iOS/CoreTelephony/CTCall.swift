@@ -8,7 +8,7 @@ let CTCallStateConnected: String
 @available(iOS 4.0, *)
 let CTCallStateDisconnected: String
 @available(iOS 4.0, *)
-class CTCall : Object {
+class CTCall : NSObject {
   @available(iOS 4.0, *)
   var callState: String { get }
   @available(iOS 4.0, *)

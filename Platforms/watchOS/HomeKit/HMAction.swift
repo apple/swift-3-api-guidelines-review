@@ -1,7 +1,7 @@
 
 @available(watchOS 20000, *)
-class HMAction : Object {
+class HMAction : NSObject {
   @available(watchOS 2.0, *)
-  @NSCopying var uniqueIdentifier: UUID { get }
+  @NSCopying var uniqueIdentifier: NSUUID { get }
   init()
 }

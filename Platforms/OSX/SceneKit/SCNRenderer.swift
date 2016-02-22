@@ -1,9 +1,9 @@
 
 @available(OSX 10.8, *)
-class SCNRenderer : Object, SCNSceneRenderer, SCNTechniqueSupport {
-  convenience init(context: CGLContextObj, options: [Object : AnyObject]? = [:])
+class SCNRenderer : NSObject, SCNSceneRenderer, SCNTechniqueSupport {
+  convenience init(context: CGLContextObj, options: [NSObject : AnyObject]? = [:])
   @available(OSX 10.11, *)
-  convenience init(device: MTLDevice?, options: [Object : AnyObject]? = [:])
+  convenience init(device: MTLDevice?, options: [NSObject : AnyObject]? = [:])
   var scene: SCNScene?
   @available(OSX 10.10, *)
   func render(atTime time: CFTimeInterval)
@@ -15,7 +15,7 @@ class SCNRenderer : Object, SCNSceneRenderer, SCNTechniqueSupport {
   func render()
   init()
   @available(OSX 10.10, *)
-  var sceneTime: TimeInterval
+  var sceneTime: NSTimeInterval
   @available(OSX 10.8, *)
   unowned(unsafe) var delegate: @sil_unmanaged SCNSceneRendererDelegate?
   @available(OSX 10.8, *)
@@ -65,7 +65,7 @@ class SCNRenderer : Object, SCNSceneRenderer, SCNTechniqueSupport {
   @available(OSX 10.11, *)
   var audioListener: SCNNode?
   @available(OSX, introduced=10.8, deprecated=10.10)
-  var currentTime: TimeInterval
+  var currentTime: NSTimeInterval
   @available(OSX 10.10, *)
   @NSCopying var technique: SCNTechnique?
 }

@@ -13,15 +13,15 @@ class GKMatchmakerViewController : UINavigationController {
   @available(tvOS 5.0, *)
   init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
   init(rootViewController: UIViewController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
-protocol GKMatchmakerViewControllerDelegate : ObjectProtocol {
+protocol GKMatchmakerViewControllerDelegate : NSObjectProtocol {
   @available(tvOS 4.1, *)
   func matchmakerViewControllerWasCancelled(viewController: GKMatchmakerViewController)
   @available(tvOS 4.1, *)
-  func matchmakerViewController(viewController: GKMatchmakerViewController, didFailWithError error: Error)
+  func matchmakerViewController(viewController: GKMatchmakerViewController, didFailWithError error: NSError)
   @available(tvOS 4.1, *)
   optional func matchmakerViewController(viewController: GKMatchmakerViewController, didFind match: GKMatch)
   @available(tvOS 8.0, *)

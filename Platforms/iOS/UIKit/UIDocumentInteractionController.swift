@@ -1,9 +1,9 @@
 
 @available(iOS 3.2, *)
-class UIDocumentInteractionController : Object, UIActionSheetDelegate {
-  /*not inherited*/ init(url: URL)
+class UIDocumentInteractionController : NSObject, UIActionSheetDelegate {
+  /*not inherited*/ init(url: NSURL)
   weak var delegate: @sil_weak UIDocumentInteractionControllerDelegate?
-  var url: URL?
+  var url: NSURL?
   var uti: String?
   var name: String?
   var icons: [UIImage] { get }
@@ -30,7 +30,7 @@ class UIDocumentInteractionController : Object, UIActionSheetDelegate {
   @available(iOS, introduced=2.0, deprecated=8.3)
   func actionSheet(actionSheet: UIActionSheet, didDismissWithButtonIndex buttonIndex: Int)
 }
-protocol UIDocumentInteractionControllerDelegate : ObjectProtocol {
+protocol UIDocumentInteractionControllerDelegate : NSObjectProtocol {
   @available(iOS 3.2, *)
   optional func documentInteractionControllerViewController(forPreview controller: UIDocumentInteractionController) -> UIViewController
   @available(iOS 3.2, *)

@@ -1,7 +1,7 @@
 
-class ScriptCommandDescription : Object, Coding {
-  init?(suiteName: String, commandName: String, dictionary commandDeclaration: [Object : AnyObject]?)
-  init?(coder inCoder: Coder)
+class NSScriptCommandDescription : NSObject, NSCoding {
+  init?(suiteName: String, commandName: String, dictionary commandDeclaration: [NSObject : AnyObject]?)
+  init?(coder inCoder: NSCoder)
   var suiteName: String { get }
   var commandName: String { get }
   var appleEventClassCode: FourCharCode { get }
@@ -13,7 +13,7 @@ class ScriptCommandDescription : Object, Coding {
   func typeForArgument(withName argumentName: String) -> String?
   func appleEventCodeForArgument(withName argumentName: String) -> FourCharCode
   func isOptionalArgument(withName argumentName: String) -> Bool
-  func createCommandInstance() -> ScriptCommand
-  func createCommandInstance(with zone: Zone = nil) -> ScriptCommand
-  func encode(with aCoder: Coder)
+  func createCommandInstance() -> NSScriptCommand
+  func createCommandInstance(with zone: NSZone = nil) -> NSScriptCommand
+  func encode(with aCoder: NSCoder)
 }

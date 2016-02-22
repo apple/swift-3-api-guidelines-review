@@ -1,26 +1,26 @@
 
 @available(OSX 10.11, *)
-class NSStringDrawingContext : Object {
+class NSStringDrawingContext : NSObject {
   var minimumScaleFactor: CGFloat
   var actualScaleFactor: CGFloat { get }
-  var totalBounds: Rect { get }
+  var totalBounds: NSRect { get }
   init()
 }
 extension NSString {
   @available(OSX 10.0, *)
-  func size(attributes attrs: [String : AnyObject]? = [:]) -> Size
+  func size(attributes attrs: [String : AnyObject]? = [:]) -> NSSize
   @available(OSX 10.0, *)
-  func draw(at point: Point, withAttributes attrs: [String : AnyObject]? = [:])
+  func draw(at point: NSPoint, withAttributes attrs: [String : AnyObject]? = [:])
   @available(OSX 10.0, *)
-  func draw(in rect: Rect, withAttributes attrs: [String : AnyObject]? = [:])
+  func draw(in rect: NSRect, withAttributes attrs: [String : AnyObject]? = [:])
 }
-extension AttributedString {
+extension NSAttributedString {
   @available(OSX 10.0, *)
-  func size() -> Size
+  func size() -> NSSize
   @available(OSX 10.0, *)
-  func draw(at point: Point)
+  func draw(at point: NSPoint)
   @available(OSX 10.0, *)
-  func draw(in rect: Rect)
+  func draw(in rect: NSRect)
 }
 @available(OSX 10.0, *)
 struct NSStringDrawingOptions : OptionSetType {
@@ -38,21 +38,21 @@ struct NSStringDrawingOptions : OptionSetType {
 }
 extension NSString {
   @available(OSX 10.11, *)
-  func draw(rect: Rect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?)
+  func draw(rect: NSRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?)
   @available(OSX 10.11, *)
-  func boundingRect(with size: Size, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?) -> Rect
+  func boundingRect(with size: NSSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?) -> NSRect
 }
-extension AttributedString {
+extension NSAttributedString {
   @available(OSX 10.11, *)
-  func draw(rect: Rect, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?)
+  func draw(rect: NSRect, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?)
   @available(OSX 10.11, *)
-  func boundingRect(with size: Size, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?) -> Rect
+  func boundingRect(with size: NSSize, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?) -> NSRect
 }
 extension NSString {
-  func draw(rect: Rect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:])
-  func boundingRect(with size: Size, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:]) -> Rect
+  func draw(rect: NSRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:])
+  func boundingRect(with size: NSSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:]) -> NSRect
 }
-extension AttributedString {
-  func draw(rect: Rect, options: NSStringDrawingOptions = [])
-  func boundingRect(with size: Size, options: NSStringDrawingOptions = []) -> Rect
+extension NSAttributedString {
+  func draw(rect: NSRect, options: NSStringDrawingOptions = [])
+  func boundingRect(with size: NSSize, options: NSStringDrawingOptions = []) -> NSRect
 }

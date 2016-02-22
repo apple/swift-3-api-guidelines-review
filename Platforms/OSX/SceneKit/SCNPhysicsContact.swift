@@ -1,6 +1,6 @@
 
 @available(OSX 10.10, *)
-class SCNPhysicsContact : Object {
+class SCNPhysicsContact : NSObject {
   var nodeA: SCNNode { get }
   var nodeB: SCNNode { get }
   var contactPoint: SCNVector3 { get }

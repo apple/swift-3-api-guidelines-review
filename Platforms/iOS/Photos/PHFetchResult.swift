@@ -1,6 +1,6 @@
 
 @available(iOS 8.0, *)
-class PHFetchResult : Object, Copying, FastEnumeration {
+class PHFetchResult : NSObject, NSCopying, NSFastEnumeration {
   var count: Int { get }
   func object(at index: Int) -> AnyObject
   subscript(idx: Int) -> AnyObject { get }
@@ -9,14 +9,14 @@ class PHFetchResult : Object, Copying, FastEnumeration {
   func indexOf(anObject: AnyObject, in range: NSRange) -> Int
   var firstObject: AnyObject? { get }
   var lastObject: AnyObject? { get }
-  func objects(at indexes: IndexSet) -> [AnyObject]
+  func objects(at indexes: NSIndexSet) -> [AnyObject]
   func enumerateObjects(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func enumerateObjects(opts: EnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func enumerateObjects(at s: IndexSet, options opts: EnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(opts: NSEnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(at s: NSIndexSet, options opts: NSEnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   func countOfAssets(mediaType: PHAssetMediaType) -> Int
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

@@ -1,6 +1,6 @@
 
 @available(OSX 10.8, *)
-class GKScore : Object, Coding, SecureCoding {
+class GKScore : NSObject, NSCoding, NSSecureCoding {
   init(leaderboardIdentifier identifier: String)
   @available(OSX 10.10, *)
   init(leaderboardIdentifier identifier: String, player: GKPlayer)
@@ -10,24 +10,24 @@ class GKScore : Object, Coding, SecureCoding {
   var leaderboardIdentifier: String
   @available(OSX 10.8, *)
   var context: UInt64
-  var date: Date { get }
+  var date: NSDate { get }
   @available(OSX 10.10, *)
   var player: GKPlayer { get }
   var rank: Int { get }
   @available(OSX 10.8, *)
   var shouldSetDefaultLeaderboard: Bool
   @available(OSX 10.8, *)
-  class func report(scores: [GKScore], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
+  class func report(scores: [GKScore], withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
   init()
   @available(OSX 10.8, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
 }
 extension GKScore {
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use +reportScores:withCompletionhandler: instead")
-  func report(completionHandler completionHandler: ((Error?) -> Void)? = nil)
+  func report(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use initWithLeaderboardIdentifier: instead")
   init(category: String?)
   @available(OSX, introduced=10.8, deprecated=10.10, message="use player")

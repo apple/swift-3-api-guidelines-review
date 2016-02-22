@@ -99,7 +99,7 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   func terminate(sender: AnyObject?)
   func requestUserAttention(requestType: NSRequestUserAttentionType) -> Int
   func cancelUserAttentionRequest(request: Int)
-  func nextEvent(matchingMask mask: Int, until expiration: Date?, inMode mode: String, dequeue deqFlag: Bool) -> NSEvent?
+  func nextEvent(matchingMask mask: Int, until expiration: NSDate?, inMode mode: String, dequeue deqFlag: Bool) -> NSEvent?
   func discardEvents(matchingMask mask: Int, before lastEvent: NSEvent?)
   func post(event: NSEvent, atStart flag: Bool)
   var currentEvent: NSEvent? { get }
@@ -124,7 +124,7 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   func target(forAction theAction: Selector, to theTarget: AnyObject?, from sender: AnyObject?) -> AnyObject?
   func tryToPerform(anAction: Selector, with anObject: AnyObject?) -> Bool
   func validRequestor(forSendType sendType: String, returnType: String) -> AnyObject?
-  func report(theException: Exception)
+  func report(theException: NSException)
   class func detachDrawingThread(selector: Selector, toTarget target: AnyObject, with argument: AnyObject?)
   func reply(toApplicationShouldTerminate shouldTerminate: Bool)
   func reply(toOpenOrPrint reply: NSApplicationDelegateReply)
@@ -136,36 +136,36 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   @available(OSX 10.9, *)
   var occlusionState: NSApplicationOcclusionState { get }
   init()
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   func validate(anItem: NSValidatedUserInterfaceItem) -> Bool
-  func accessibilityFrame() -> Rect
+  func accessibilityFrame() -> NSRect
   func accessibilityParent() -> AnyObject?
   func isAccessibilityFocused() -> Bool
   func accessibilityIdentifier() -> String
   @available(OSX 10.10, *)
-  func accessibilityLayoutPoint(forScreenPoint point: Point) -> Point
+  func accessibilityLayoutPoint(forScreenPoint point: NSPoint) -> NSPoint
   @available(OSX 10.10, *)
-  func accessibilityLayoutSize(forScreenSize size: Size) -> Size
+  func accessibilityLayoutSize(forScreenSize size: NSSize) -> NSSize
   @available(OSX 10.10, *)
-  func accessibilityScreenPoint(forLayoutPoint point: Point) -> Point
+  func accessibilityScreenPoint(forLayoutPoint point: NSPoint) -> NSPoint
   @available(OSX 10.10, *)
-  func accessibilityScreenSize(forLayoutSize size: Size) -> Size
+  func accessibilityScreenSize(forLayoutSize size: NSSize) -> NSSize
   @available(OSX 10.10, *)
   func accessibilityCell(forColumn column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
-  func accessibilityAttributedString(for range: NSRange) -> AttributedString?
+  func accessibilityAttributedString(for range: NSRange) -> NSAttributedString?
   @available(OSX 10.10, *)
   func accessibilityRange(forLine line: Int) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityString(for range: NSRange) -> String?
   @available(OSX 10.10, *)
-  func accessibilityRange(forPosition point: Point) -> NSRange
+  func accessibilityRange(forPosition point: NSPoint) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityFrame(for range: NSRange) -> Rect
+  func accessibilityFrame(for range: NSRange) -> NSRect
   @available(OSX 10.10, *)
-  func accessibilityRTF(for range: NSRange) -> Data?
+  func accessibilityRTF(for range: NSRange) -> NSData?
   @available(OSX 10.10, *)
   func accessibilityStyleRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
@@ -199,21 +199,21 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   @available(OSX 10.10, *)
   func setAccessibilityElement(accessibilityElement: Bool)
   @available(OSX 10.10, *)
-  func setAccessibilityFrame(accessibilityFrame: Rect)
+  func setAccessibilityFrame(accessibilityFrame: NSRect)
   @available(OSX 10.10, *)
   func setAccessibilityFocused(accessibilityFocused: Bool)
   @available(OSX 10.10, *)
-  func accessibilityActivationPoint() -> Point
+  func accessibilityActivationPoint() -> NSPoint
   @available(OSX 10.10, *)
-  func setAccessibilityActivationPoint(accessibilityActivationPoint: Point)
+  func setAccessibilityActivationPoint(accessibilityActivationPoint: NSPoint)
   @available(OSX 10.10, *)
   func accessibilityTopLevelUIElement() -> AnyObject?
   @available(OSX 10.10, *)
   func setAccessibilityTopLevelUIElement(accessibilityTopLevelUIElement: AnyObject?)
   @available(OSX 10.10, *)
-  func accessibilityURL() -> URL?
+  func accessibilityURL() -> NSURL?
   @available(OSX 10.10, *)
-  func setAccessibilityURL(accessibilityURL: URL?)
+  func setAccessibilityURL(accessibilityURL: NSURL?)
   @available(OSX 10.10, *)
   func accessibilityValue() -> AnyObject?
   @available(OSX 10.10, *)
@@ -483,9 +483,9 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   @available(OSX 10.10, *)
   func setAccessibilityVerticalScrollBar(accessibilityVerticalScrollBar: AnyObject?)
   @available(OSX 10.10, *)
-  func accessibilityAllowedValues() -> [Number]?
+  func accessibilityAllowedValues() -> [NSNumber]?
   @available(OSX 10.10, *)
-  func setAccessibilityAllowedValues(accessibilityAllowedValues: [Number]?)
+  func setAccessibilityAllowedValues(accessibilityAllowedValues: [NSNumber]?)
   @available(OSX 10.10, *)
   func accessibilityLabelUIElements() -> [AnyObject]?
   @available(OSX 10.10, *)
@@ -607,9 +607,9 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   @available(OSX 10.10, *)
   func setAccessibilitySelectedTextRange(accessibilitySelectedTextRange: NSRange)
   @available(OSX 10.10, *)
-  func accessibilitySelectedTextRanges() -> [Value]?
+  func accessibilitySelectedTextRanges() -> [NSValue]?
   @available(OSX 10.10, *)
-  func setAccessibilitySelectedTextRanges(accessibilitySelectedTextRanges: [Value]?)
+  func setAccessibilitySelectedTextRanges(accessibilitySelectedTextRanges: [NSValue]?)
   @available(OSX 10.10, *)
   func accessibilityToolbarButton() -> AnyObject?
   @available(OSX 10.10, *)
@@ -736,7 +736,7 @@ enum NSApplicationPrintReply : UInt {
   case printingFailure
   case printingReplyLater
 }
-protocol NSApplicationDelegate : ObjectProtocol {
+protocol NSApplicationDelegate : NSObjectProtocol {
   optional func applicationShouldTerminate(sender: NSApplication) -> NSApplicationTerminateReply
   optional func application(sender: NSApplication, openFile filename: String) -> Bool
   optional func application(sender: NSApplication, openFiles filenames: [String])
@@ -749,47 +749,47 @@ protocol NSApplicationDelegate : ObjectProtocol {
   optional func applicationShouldTerminate(afterLastWindowClosed sender: NSApplication) -> Bool
   optional func applicationShouldHandleReopen(sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool
   optional func applicationDockMenu(sender: NSApplication) -> NSMenu?
-  optional func application(application: NSApplication, willPresentError error: Error) -> Error
+  optional func application(application: NSApplication, willPresentError error: NSError) -> NSError
   @available(OSX 10.7, *)
-  optional func application(application: NSApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
+  optional func application(application: NSApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
   @available(OSX 10.7, *)
-  optional func application(application: NSApplication, didFailToRegisterForRemoteNotificationsWithError error: Error)
+  optional func application(application: NSApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError)
   @available(OSX 10.7, *)
   optional func application(application: NSApplication, didReceiveRemoteNotification userInfo: [String : AnyObject])
   @available(OSX 10.7, *)
-  optional func application(app: NSApplication, willEncodeRestorableState coder: Coder)
+  optional func application(app: NSApplication, willEncodeRestorableState coder: NSCoder)
   @available(OSX 10.7, *)
-  optional func application(app: NSApplication, didDecodeRestorableState coder: Coder)
+  optional func application(app: NSApplication, didDecodeRestorableState coder: NSCoder)
   @available(OSX 10.10, *)
   optional func application(application: NSApplication, willContinueUserActivityWithType userActivityType: String) -> Bool
   @available(OSX 10.10, *)
-  optional func application(application: NSApplication, continue userActivity: UserActivity, restorationHandler: ([AnyObject]) -> Void) -> Bool
+  optional func application(application: NSApplication, continue userActivity: NSUserActivity, restorationHandler: ([AnyObject]) -> Void) -> Bool
   @available(OSX 10.10, *)
-  optional func application(application: NSApplication, didFailToContinueUserActivityWithType userActivityType: String, error: Error)
+  optional func application(application: NSApplication, didFailToContinueUserActivityWithType userActivityType: String, error: NSError)
   @available(OSX 10.10, *)
-  optional func application(application: NSApplication, didUpdate userActivity: UserActivity)
-  optional func applicationWillFinishLaunching(notification: Notification)
-  optional func applicationDidFinishLaunching(notification: Notification)
-  optional func applicationWillHide(notification: Notification)
-  optional func applicationDidHide(notification: Notification)
-  optional func applicationWillUnhide(notification: Notification)
-  optional func applicationDidUnhide(notification: Notification)
-  optional func applicationWillBecomeActive(notification: Notification)
-  optional func applicationDidBecomeActive(notification: Notification)
-  optional func applicationWillResignActive(notification: Notification)
-  optional func applicationDidResignActive(notification: Notification)
-  optional func applicationWillUpdate(notification: Notification)
-  optional func applicationDidUpdate(notification: Notification)
-  optional func applicationWillTerminate(notification: Notification)
-  optional func applicationDidChangeScreenParameters(notification: Notification)
+  optional func application(application: NSApplication, didUpdate userActivity: NSUserActivity)
+  optional func applicationWillFinishLaunching(notification: NSNotification)
+  optional func applicationDidFinishLaunching(notification: NSNotification)
+  optional func applicationWillHide(notification: NSNotification)
+  optional func applicationDidHide(notification: NSNotification)
+  optional func applicationWillUnhide(notification: NSNotification)
+  optional func applicationDidUnhide(notification: NSNotification)
+  optional func applicationWillBecomeActive(notification: NSNotification)
+  optional func applicationDidBecomeActive(notification: NSNotification)
+  optional func applicationWillResignActive(notification: NSNotification)
+  optional func applicationDidResignActive(notification: NSNotification)
+  optional func applicationWillUpdate(notification: NSNotification)
+  optional func applicationDidUpdate(notification: NSNotification)
+  optional func applicationWillTerminate(notification: NSNotification)
+  optional func applicationDidChangeScreenParameters(notification: NSNotification)
   @available(OSX 10.9, *)
-  optional func applicationDidChangeOcclusionState(notification: Notification)
+  optional func applicationDidChangeOcclusionState(notification: NSNotification)
 }
 extension NSApplication {
   var servicesMenu: NSMenu?
   func registerServicesMenuSendTypes(sendTypes: [String], returnTypes: [String])
 }
-protocol NSServicesMenuRequestor : ObjectProtocol {
+protocol NSServicesMenuRequestor : NSObjectProtocol {
   optional func writeSelection(to pboard: NSPasteboard, types: [String]) -> Bool
   optional func readSelection(from pboard: NSPasteboard) -> Bool
 }

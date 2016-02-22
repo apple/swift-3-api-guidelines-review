@@ -1,18 +1,18 @@
 
 @available(OSX 10.9, *)
-class NSAppearance : Object, Coding {
+class NSAppearance : NSObject, NSCoding {
   @available(OSX 10.9, *)
   var name: String { get }
   class func current() -> NSAppearance
   class func setCurrentAppearance(appearance: NSAppearance?)
   /*not inherited*/ init?(named name: String)
-  init?(appearanceNamed name: String, bundle: Bundle?)
+  init?(appearanceNamed name: String, bundle: NSBundle?)
   @available(OSX 10.10, *)
   var allowsVibrancy: Bool { get }
   init()
   @available(OSX 10.9, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.9, *)
 let NSAppearanceNameAqua: String
@@ -22,7 +22,7 @@ let NSAppearanceNameLightContent: String
 let NSAppearanceNameVibrantDark: String
 @available(OSX 10.10, *)
 let NSAppearanceNameVibrantLight: String
-protocol NSAppearanceCustomization : ObjectProtocol {
+protocol NSAppearanceCustomization : NSObjectProtocol {
   @available(OSX 10.9, *)
   var appearance: NSAppearance? { get set }
   @available(OSX 10.9, *)

@@ -6,5 +6,5 @@ class NSActionCell : NSCell {
   init(textCell aString: String)
   init(imageCell image: NSImage?)
   convenience init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

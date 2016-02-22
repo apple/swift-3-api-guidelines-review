@@ -1,6 +1,6 @@
 
 @available(OSX 10.7, *)
-class CIDetector : Object {
+class CIDetector : NSObject {
   @available(OSX 10.7, *)
   /*not inherited*/ init(ofType type: String, context: CIContext?, options: [String : AnyObject]? = [:])
   @available(OSX 10.7, *)

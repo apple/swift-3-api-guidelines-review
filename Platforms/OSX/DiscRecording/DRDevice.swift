@@ -1,11 +1,11 @@
 
-class DRDevice : Object {
+class DRDevice : NSObject {
   class func devices() -> [AnyObject]!
   /*not inherited*/ init!(forBSDName bsdName: String!)
   /*not inherited*/ init!(forIORegistryEntryPath path: String!)
   func isValid() -> Bool
-  func info() -> [Object : AnyObject]!
-  func status() -> [Object : AnyObject]!
+  func info() -> [NSObject : AnyObject]!
+  func status() -> [NSObject : AnyObject]!
   func openTray() -> Bool
   func closeTray() -> Bool
   func ejectMedia() -> Bool

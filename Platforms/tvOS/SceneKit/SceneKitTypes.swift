@@ -93,7 +93,7 @@ func SCNVector4ToGLKVector4(vector: SCNVector4) -> GLKVector4
 func SCNMatrix4ToGLKMatrix4(mat: SCNMatrix4) -> GLKMatrix4
 @available(tvOS 8.0, *)
 func SCNMatrix4FromGLKMatrix4(mat: GLKMatrix4) -> SCNMatrix4
-extension Value {
+extension NSValue {
   /*not inherited*/ init(scnVector3 v: SCNVector3)
   /*not inherited*/ init(scnVector4 v: SCNVector4)
   @available(tvOS 8.0, *)

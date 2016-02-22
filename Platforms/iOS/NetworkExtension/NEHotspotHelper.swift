@@ -32,7 +32,7 @@ enum NEHotspotHelperConfidence : Int {
   case high
 }
 @available(iOS 9.0, *)
-class NEHotspotNetwork : Object {
+class NEHotspotNetwork : NSObject {
   @available(iOS 9.0, *)
   var ssid: String { get }
   @available(iOS 9.0, *)
@@ -54,7 +54,7 @@ class NEHotspotNetwork : Object {
   init()
 }
 @available(iOS 9.0, *)
-class NEHotspotHelperCommand : Object {
+class NEHotspotHelperCommand : NSObject {
   @available(iOS 9.0, *)
   var commandType: NEHotspotHelperCommandType { get }
   @available(iOS 9.0, *)
@@ -70,7 +70,7 @@ class NEHotspotHelperCommand : Object {
   init()
 }
 @available(iOS 9.0, *)
-class NEHotspotHelperResponse : Object {
+class NEHotspotHelperResponse : NSObject {
   @available(iOS 9.0, *)
   func setNetwork(network: NEHotspotNetwork)
   @available(iOS 9.0, *)
@@ -84,16 +84,16 @@ typealias NEHotspotHelperHandler = (NEHotspotHelperCommand) -> Void
 @available(iOS 9.0, *)
 let kNEHotspotHelperOptionDisplayName: String
 @available(iOS 9.0, *)
-class NEHotspotHelper : Object {
+class NEHotspotHelper : NSObject {
   @available(iOS 9.0, *)
-  class func register(options options: [String : Object]? = [:], queue: dispatch_queue_t, handler: NEHotspotHelperHandler) -> Bool
+  class func register(options options: [String : NSObject]? = [:], queue: dispatch_queue_t, handler: NEHotspotHelperHandler) -> Bool
   @available(iOS 9.0, *)
   class func logoff(network: NEHotspotNetwork) -> Bool
   @available(iOS 9.0, *)
   class func supportedNetworkInterfaces() -> [AnyObject]
   init()
 }
-extension MutableURLRequest {
+extension NSMutableURLRequest {
   @available(iOS 9.0, *)
   func bind(to command: NEHotspotHelperCommand)
 }

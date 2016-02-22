@@ -1,7 +1,7 @@
 
 @available(OSX 10.8, *)
-class EKParticipant : EKObject, Copying {
-  var url: URL { get }
+class EKParticipant : EKObject, NSCopying {
+  var url: NSURL { get }
   var name: String? { get }
   var participantStatus: EKParticipantStatus { get }
   var participantRole: EKParticipantRole { get }
@@ -9,10 +9,10 @@ class EKParticipant : EKObject, Copying {
   @available(OSX 10.9, *)
   var isCurrentUser: Bool { get }
   @available(OSX 10.11, *)
-  var contactPredicate: Predicate { get }
+  var contactPredicate: NSPredicate { get }
   @available(OSX, introduced=10.8, deprecated=10.11, message="Use contactPredicate instead")
   func abPerson(in addressBook: ABAddressBook) -> ABPerson?
   init()
   @available(OSX 10.8, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

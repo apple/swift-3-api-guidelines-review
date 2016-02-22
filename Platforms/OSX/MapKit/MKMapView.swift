@@ -1,6 +1,6 @@
 
 @available(OSX 10.9, *)
-class MKMapView : NSView, Coding {
+class MKMapView : NSView, NSCoding {
   weak var delegate: @sil_weak MKMapViewDelegate?
   var mapType: MKMapType
   var region: MKCoordinateRegion
@@ -12,8 +12,8 @@ class MKMapView : NSView, Coding {
   func setVisibleMapRect(mapRect: MKMapRect, animated animate: Bool)
   func mapRectThatFits(mapRect: MKMapRect) -> MKMapRect
   func _handleSelection(at locationInView: CGPoint)
-  func setVisibleMapRect(mapRect: MKMapRect, edgePadding insets: EdgeInsets, animated animate: Bool)
-  func mapRectThatFits(mapRect: MKMapRect, edgePadding insets: EdgeInsets) -> MKMapRect
+  func setVisibleMapRect(mapRect: MKMapRect, edgePadding insets: NSEdgeInsets, animated animate: Bool)
+  func mapRectThatFits(mapRect: MKMapRect, edgePadding insets: NSEdgeInsets) -> MKMapRect
   @available(OSX 10.9, *)
   @NSCopying var camera: MKMapCamera
   @available(OSX 10.9, *)
@@ -49,7 +49,7 @@ class MKMapView : NSView, Coding {
   func removeAnnotations(annotations: [MKAnnotation])
   var annotations: [MKAnnotation] { get }
   @available(OSX 10.9, *)
-  func annotations(in mapRect: MKMapRect) -> Set<Object>
+  func annotations(in mapRect: MKMapRect) -> Set<NSObject>
   func view(for annotation: MKAnnotation) -> MKAnnotationView?
   func dequeueReusableAnnotationView(identifier identifier: String) -> MKAnnotationView?
   func selectAnnotation(annotation: MKAnnotation, animated: Bool)
@@ -58,8 +58,8 @@ class MKMapView : NSView, Coding {
   var annotationVisibleRect: CGRect { get }
   @available(OSX 10.9, *)
   func showAnnotations(annotations: [MKAnnotation], animated: Bool)
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }
 @available(OSX 10.9, *)
@@ -101,7 +101,7 @@ extension MKMapView {
   @available(OSX 10.9, *)
   func exchangeOverlay(at index1: Int, withOverlayAt index2: Int)
 }
-protocol MKMapViewDelegate : ObjectProtocol {
+protocol MKMapViewDelegate : NSObjectProtocol {
   @available(OSX 10.9, *)
   optional func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool)
   @available(OSX 10.9, *)
@@ -111,7 +111,7 @@ protocol MKMapViewDelegate : ObjectProtocol {
   @available(OSX 10.9, *)
   optional func mapViewDidFinishLoadingMap(mapView: MKMapView)
   @available(OSX 10.9, *)
-  optional func mapViewDidFailLoadingMap(mapView: MKMapView, withError error: Error)
+  optional func mapViewDidFailLoadingMap(mapView: MKMapView, withError error: NSError)
   @available(OSX 10.9, *)
   optional func mapViewWillStartRenderingMap(mapView: MKMapView)
   @available(OSX 10.9, *)
@@ -131,7 +131,7 @@ protocol MKMapViewDelegate : ObjectProtocol {
   @available(OSX 10.9, *)
   optional func mapView(mapView: MKMapView, didUpdate userLocation: MKUserLocation)
   @available(OSX 10.9, *)
-  optional func mapView(mapView: MKMapView, didFailToLocateUserWithError error: Error)
+  optional func mapView(mapView: MKMapView, didFailToLocateUserWithError error: NSError)
   @available(OSX 10.9, *)
   optional func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState)
   @available(OSX 10.9, *)

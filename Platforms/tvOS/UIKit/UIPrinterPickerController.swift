@@ -1,2 +1,2 @@
 
-typealias UIPrinterPickerCompletionHandler = (UIPrinterPickerController, Bool, Error?) -> Void
+typealias UIPrinterPickerCompletionHandler = (UIPrinterPickerController, Bool, NSError?) -> Void

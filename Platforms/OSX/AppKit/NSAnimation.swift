@@ -17,19 +17,19 @@ enum NSAnimationBlockingMode : UInt {
 typealias NSAnimationProgress = Float
 let NSAnimationProgressMarkNotification: String
 let NSAnimationProgressMark: String
-class NSAnimation : Object, Copying, Coding {
-  init(duration: TimeInterval, animationCurve: NSAnimationCurve)
+class NSAnimation : NSObject, NSCopying, NSCoding {
+  init(duration: NSTimeInterval, animationCurve: NSAnimationCurve)
   func start()
   func stop()
   var isAnimating: Bool { get }
   var currentProgress: NSAnimationProgress
-  var duration: TimeInterval
+  var duration: NSTimeInterval
   var animationBlockingMode: NSAnimationBlockingMode
   var frameRate: Float
   var animationCurve: NSAnimationCurve
   var currentValue: Float { get }
   unowned(unsafe) var delegate: @sil_unmanaged NSAnimationDelegate?
-  var progressMarks: [Number]
+  var progressMarks: [NSNumber]
   func addProgressMark(progressMark: NSAnimationProgress)
   func removeProgressMark(progressMark: NSAnimationProgress)
   func start(when animation: NSAnimation, reachesProgress startProgress: NSAnimationProgress)
@@ -38,9 +38,9 @@ class NSAnimation : Object, Copying, Coding {
   func clearStop()
   var runLoopModesForAnimating: [String]? { get }
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 struct __aFlags {
   var delegateAnimationShouldStart: UInt32
@@ -62,7 +62,7 @@ struct __aSettings {
   init()
   init(animationCurve: UInt32, animationBlockingMode: UInt32, reserved: UInt32)
 }
-protocol NSAnimationDelegate : ObjectProtocol {
+protocol NSAnimationDelegate : NSObjectProtocol {
   optional func animationShouldStart(animation: NSAnimation) -> Bool
   optional func animationDidStop(animation: NSAnimation)
   optional func animationDidEnd(animation: NSAnimation)
@@ -78,9 +78,9 @@ let NSViewAnimationFadeOutEffect: String
 class NSViewAnimation : NSAnimation {
   init(viewAnimations: [[String : AnyObject]])
   var viewAnimations: [[String : AnyObject]]
-  init(duration: TimeInterval, animationCurve: NSAnimationCurve)
+  init(duration: NSTimeInterval, animationCurve: NSAnimationCurve)
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 struct __vaFlags {
   var reserved: UInt32

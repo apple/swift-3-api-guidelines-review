@@ -11,9 +11,9 @@ enum TVTextElementStyle : Int {
 }
 @available(tvOS 9.0, *)
 class TVTextElement : TVViewElement {
-  var attributedText: AttributedString? { get }
+  var attributedText: NSAttributedString? { get }
   var textStyle: TVTextElementStyle { get }
-  func attributedString(with font: UIFont) -> AttributedString
-  func attributedString(with font: UIFont, foregroundColor: UIColor?, textAlignment alignment: NSTextAlignment) -> AttributedString
+  func attributedString(with font: UIFont) -> NSAttributedString
+  func attributedString(with font: UIFont, foregroundColor: UIColor?, textAlignment alignment: NSTextAlignment) -> NSAttributedString
   init()
 }

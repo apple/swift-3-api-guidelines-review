@@ -1,11 +1,11 @@
 
 @available(OSX 10.11, *)
-class AVMetadataGroup : Object {
+class AVMetadataGroup : NSObject {
   var items: [AVMetadataItem] { get }
   init()
 }
 @available(OSX 10.7, *)
-class AVTimedMetadataGroup : AVMetadataGroup, Copying, MutableCopying {
+class AVTimedMetadataGroup : AVMetadataGroup, NSCopying, NSMutableCopying {
   init(items: [AVMetadataItem], timeRange: CMTimeRange)
   @available(OSX 10.10, *)
   init?(sampleBuffer: CMSampleBuffer)
@@ -13,9 +13,9 @@ class AVTimedMetadataGroup : AVMetadataGroup, Copying, MutableCopying {
   var items: [AVMetadataItem] { get }
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
 }
 extension AVTimedMetadataGroup {
   @available(OSX 10.10, *)
@@ -31,22 +31,22 @@ class AVMutableTimedMetadataGroup : AVTimedMetadataGroup {
   init()
 }
 @available(OSX 10.11, *)
-class AVDateRangeMetadataGroup : AVMetadataGroup, Copying, MutableCopying {
-  init(items: [AVMetadataItem], start startDate: Date, end endDate: Date?)
-  @NSCopying var startDate: Date { get }
-  @NSCopying var endDate: Date? { get }
+class AVDateRangeMetadataGroup : AVMetadataGroup, NSCopying, NSMutableCopying {
+  init(items: [AVMetadataItem], start startDate: NSDate, end endDate: NSDate?)
+  @NSCopying var startDate: NSDate { get }
+  @NSCopying var endDate: NSDate? { get }
   var items: [AVMetadataItem] { get }
   init()
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.11, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class AVMutableDateRangeMetadataGroup : AVDateRangeMetadataGroup {
-  @NSCopying var startDate: Date
-  @NSCopying var endDate: Date?
+  @NSCopying var startDate: NSDate
+  @NSCopying var endDate: NSDate?
   var items: [AVMetadataItem]
-  init(items: [AVMetadataItem], start startDate: Date, end endDate: Date?)
+  init(items: [AVMetadataItem], start startDate: NSDate, end endDate: NSDate?)
   init()
 }

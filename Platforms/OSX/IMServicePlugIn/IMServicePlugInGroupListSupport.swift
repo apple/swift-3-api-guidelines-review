@@ -18,11 +18,11 @@ protocol IMServicePlugInGroupListAuthorizationSupport : IMServicePlugInGroupList
   func acceptAuthorizationRequest(fromHandle handle: String!)
   func declineAuthorizationRequest(fromHandle handle: String!)
 }
-protocol IMServicePlugInGroupListHandlePictureSupport : ObjectProtocol {
+protocol IMServicePlugInGroupListHandlePictureSupport : NSObjectProtocol {
   func requestPicture(forHandle handle: String!, withIdentifier identifier: String!)
 }
 protocol IMServiceApplicationGroupListSupport : IMServiceApplication {
-  func plug(inDidUpdateGroupList groups: [AnyObject]!, error: Error!)
+  func plug(inDidUpdateGroupList groups: [AnyObject]!, error: NSError!)
 }
 protocol IMServiceApplicationGroupListAuthorizationSupport : IMServiceApplicationGroupListSupport {
   func plugInDidReceiveAuthorizationRequest(fromHandle handle: String!)

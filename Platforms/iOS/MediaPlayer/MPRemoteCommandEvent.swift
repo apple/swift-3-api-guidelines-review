@@ -1,13 +1,13 @@
 
 @available(iOS 7.1, *)
-class MPRemoteCommandEvent : Object {
+class MPRemoteCommandEvent : NSObject {
   var command: MPRemoteCommand { get }
-  var timestamp: TimeInterval { get }
+  var timestamp: NSTimeInterval { get }
   init()
 }
 @available(iOS 7.1, *)
 class MPSkipIntervalCommandEvent : MPRemoteCommandEvent {
-  var interval: TimeInterval { get }
+  var interval: NSTimeInterval { get }
   init()
 }
 @available(iOS 7.1, *)
@@ -44,6 +44,6 @@ class MPChangeLanguageOptionCommandEvent : MPRemoteCommandEvent {
 }
 @available(iOS 8.0, *)
 class MPChangePlaybackPositionCommandEvent : MPRemoteCommandEvent {
-  var positionTime: TimeInterval { get }
+  var positionTime: NSTimeInterval { get }
   init()
 }

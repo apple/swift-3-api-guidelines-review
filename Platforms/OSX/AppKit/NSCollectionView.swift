@@ -30,7 +30,7 @@ struct NSCollectionViewScrollPosition : OptionSetType {
   static var trailingEdge: NSCollectionViewScrollPosition { get }
   static var nearestVerticalEdge: NSCollectionViewScrollPosition { get }
 }
-protocol NSCollectionViewElement : ObjectProtocol, NSUserInterfaceItemIdentification {
+protocol NSCollectionViewElement : NSObjectProtocol, NSUserInterfaceItemIdentification {
   @available(OSX 10.11, *)
   optional func prepareForReuse()
   @available(OSX 10.11, *)
@@ -43,7 +43,7 @@ protocol NSCollectionViewElement : ObjectProtocol, NSUserInterfaceItemIdentifica
   optional func preferredLayoutAttributesFitting(layoutAttributes: NSCollectionViewLayoutAttributes) -> NSCollectionViewLayoutAttributes
 }
 @available(OSX 10.5, *)
-class NSCollectionViewItem : NSViewController, Copying, NSCollectionViewElement {
+class NSCollectionViewItem : NSViewController, NSCopying, NSCollectionViewElement {
   var collectionView: NSCollectionView { get }
   var isSelected: Bool
   @available(OSX 10.11, *)
@@ -54,11 +54,11 @@ class NSCollectionViewItem : NSViewController, Copying, NSCollectionViewElement 
   @IBOutlet unowned(unsafe) var textField: @sil_unmanaged NSTextField?
   @available(OSX 10.7, *)
   var draggingImageComponents: [NSDraggingImageComponent] { get }
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder: Coder)
+  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder: NSCoder)
   convenience init()
   @available(OSX 10.5, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.11, *)
   func prepareForReuse()
   @available(OSX 10.11, *)
@@ -83,17 +83,17 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.11, *)
   var collectionViewLayout: NSCollectionViewLayout?
   @available(OSX 10.11, *)
-  func layoutAttributesForItem(at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
+  func layoutAttributesForItem(at indexPath: NSIndexPath) -> NSCollectionViewLayoutAttributes?
   @available(OSX 10.11, *)
-  func layoutAttributesForSupplementaryElement(ofKind kind: String, at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryElement(ofKind kind: String, at indexPath: NSIndexPath) -> NSCollectionViewLayoutAttributes?
   @available(OSX 10.6, *)
-  func frameForItem(at index: Int) -> Rect
+  func frameForItem(at index: Int) -> NSRect
   @available(OSX 10.7, *)
-  func frameForItem(at index: Int, withNumberOfItems numberOfItems: Int) -> Rect
+  func frameForItem(at index: Int, withNumberOfItems numberOfItems: Int) -> NSRect
   var maxNumberOfRows: Int
   var maxNumberOfColumns: Int
-  var minItemSize: Size
-  var maxItemSize: Size
+  var minItemSize: NSSize
+  var maxItemSize: NSSize
   var backgroundColors: [NSColor]!
   @available(OSX 10.11, *)
   var numberOfSections: Int { get }
@@ -104,13 +104,13 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.11, *)
   var allowsEmptySelection: Bool
   var allowsMultipleSelection: Bool
-  @NSCopying var selectionIndexes: IndexSet
+  @NSCopying var selectionIndexes: NSIndexSet
   @available(OSX 10.11, *)
-  var selectionIndexPaths: Set<IndexPath>
+  var selectionIndexPaths: Set<NSIndexPath>
   @available(OSX 10.11, *)
-  func selectItems(at indexPaths: Set<IndexPath>, scrollPosition: NSCollectionViewScrollPosition)
+  func selectItems(at indexPaths: Set<NSIndexPath>, scrollPosition: NSCollectionViewScrollPosition)
   @available(OSX 10.11, *)
-  func deselectItems(at indexPaths: Set<IndexPath>)
+  func deselectItems(at indexPaths: Set<NSIndexPath>)
   @IBAction func selectAll(sender: AnyObject?)
   @IBAction func deselectAll(sender: AnyObject?)
   @available(OSX 10.11, *)
@@ -122,140 +122,140 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.11, *)
   func register(nib: NSNib?, forSupplementaryViewOfKind kind: String, withIdentifier identifier: String)
   @available(OSX 10.11, *)
-  func makeItem(identifier identifier: String, for indexPath: IndexPath) -> NSCollectionViewItem
+  func makeItem(identifier identifier: String, for indexPath: NSIndexPath) -> NSCollectionViewItem
   @available(OSX 10.11, *)
-  func makeSupplementaryView(ofKind elementKind: String, withIdentifier identifier: String, for indexPath: IndexPath) -> NSView
+  func makeSupplementaryView(ofKind elementKind: String, withIdentifier identifier: String, for indexPath: NSIndexPath) -> NSView
   func newItem(forRepresentedObject object: AnyObject) -> NSCollectionViewItem
   var itemPrototype: NSCollectionViewItem?
   @available(OSX 10.6, *)
   func item(at index: Int) -> NSCollectionViewItem?
   @available(OSX 10.11, *)
-  func item(at indexPath: IndexPath) -> NSCollectionViewItem?
+  func item(at indexPath: NSIndexPath) -> NSCollectionViewItem?
   @available(OSX 10.11, *)
   func visibleItems() -> [NSCollectionViewItem]
   @available(OSX 10.11, *)
-  func indexPathsForVisibleItems() -> Set<IndexPath>
+  func indexPathsForVisibleItems() -> Set<NSIndexPath>
   @available(OSX 10.11, *)
-  func indexPath(for item: NSCollectionViewItem) -> IndexPath?
+  func indexPath(for item: NSCollectionViewItem) -> NSIndexPath?
   @available(OSX 10.11, *)
-  func indexPathForItem(at point: Point) -> IndexPath?
+  func indexPathForItem(at point: NSPoint) -> NSIndexPath?
   @available(OSX 10.11, *)
-  func supplementaryView(forElementKind elementKind: String, at indexPath: IndexPath) -> NSView?
+  func supplementaryView(forElementKind elementKind: String, at indexPath: NSIndexPath) -> NSView?
   @available(OSX 10.11, *)
   func visibleSupplementaryViews(ofKind elementKind: String) -> [NSView]
   @available(OSX 10.11, *)
-  func indexPathsForVisibleSupplementaryElements(ofKind elementKind: String) -> Set<IndexPath>
+  func indexPathsForVisibleSupplementaryElements(ofKind elementKind: String) -> Set<NSIndexPath>
   @available(OSX 10.11, *)
-  func insertSections(sections: IndexSet)
+  func insertSections(sections: NSIndexSet)
   @available(OSX 10.11, *)
-  func deleteSections(sections: IndexSet)
+  func deleteSections(sections: NSIndexSet)
   @available(OSX 10.11, *)
-  func reloadSections(sections: IndexSet)
+  func reloadSections(sections: NSIndexSet)
   @available(OSX 10.11, *)
   func moveSection(section: Int, toSection newSection: Int)
   @available(OSX 10.11, *)
-  func insertItems(at indexPaths: Set<IndexPath>)
+  func insertItems(at indexPaths: Set<NSIndexPath>)
   @available(OSX 10.11, *)
-  func deleteItems(at indexPaths: Set<IndexPath>)
+  func deleteItems(at indexPaths: Set<NSIndexPath>)
   @available(OSX 10.11, *)
-  func reloadItems(at indexPaths: Set<IndexPath>)
+  func reloadItems(at indexPaths: Set<NSIndexPath>)
   @available(OSX 10.11, *)
-  func moveItem(at indexPath: IndexPath, to newIndexPath: IndexPath)
+  func moveItem(at indexPath: NSIndexPath, to newIndexPath: NSIndexPath)
   @available(OSX 10.11, *)
   func performBatchUpdates(updates: (() -> Void)?, completionHandler: ((Bool) -> Void)? = nil)
   @available(OSX 10.11, *)
-  func scrollToItems(at indexPaths: Set<IndexPath>, scrollPosition: NSCollectionViewScrollPosition)
+  func scrollToItems(at indexPaths: Set<NSIndexPath>, scrollPosition: NSCollectionViewScrollPosition)
   @available(OSX 10.6, *)
   func setDraggingSourceOperationMask(dragOperationMask: NSDragOperation, forLocal localDestination: Bool)
   @available(OSX 10.11, *)
-  func draggingImageForItems(at indexPaths: Set<IndexPath>, with event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
+  func draggingImageForItems(at indexPaths: Set<NSIndexPath>, with event: NSEvent, offset dragImageOffset: NSPointPointer) -> NSImage
   @available(OSX 10.6, *)
-  func draggingImageForItems(at indexes: IndexSet, with event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  func draggingImageForItems(at indexes: NSIndexSet, with event: NSEvent, offset dragImageOffset: NSPointPointer) -> NSImage
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
   @available(OSX 10.7, *)
   func draggingSession(session: NSDraggingSession, sourceOperationMaskFor context: NSDraggingContext) -> NSDragOperation
   @available(OSX 10.7, *)
-  func draggingSession(session: NSDraggingSession, willBeginAt screenPoint: Point)
+  func draggingSession(session: NSDraggingSession, willBeginAt screenPoint: NSPoint)
   @available(OSX 10.7, *)
-  func draggingSession(session: NSDraggingSession, movedTo screenPoint: Point)
+  func draggingSession(session: NSDraggingSession, movedTo screenPoint: NSPoint)
   @available(OSX 10.7, *)
-  func draggingSession(session: NSDraggingSession, endedAt screenPoint: Point, operation: NSDragOperation)
+  func draggingSession(session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation)
   @available(OSX 10.7, *)
   func ignoreModifierKeys(for session: NSDraggingSession) -> Bool
 }
-protocol NSCollectionViewDataSource : ObjectProtocol {
+protocol NSCollectionViewDataSource : NSObjectProtocol {
   @available(OSX 10.11, *)
   func collectionView(collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int
   @available(OSX 10.11, *)
-  func collectionView(collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem
+  func collectionView(collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: NSIndexPath) -> NSCollectionViewItem
   @available(OSX 10.11, *)
   optional func numberOfSections(in collectionView: NSCollectionView) -> Int
   @available(OSX 10.5, *)
-  optional func collectionView(collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> NSView
+  optional func collectionView(collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: NSIndexPath) -> NSView
 }
-protocol NSCollectionViewDelegate : ObjectProtocol {
+protocol NSCollectionViewDelegate : NSObjectProtocol {
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, canDragItemsAt indexPaths: Set<IndexPath>, with event: NSEvent) -> Bool
+  optional func collectionView(collectionView: NSCollectionView, canDragItemsAt indexPaths: Set<NSIndexPath>, with event: NSEvent) -> Bool
   @available(OSX 10.6, *)
-  optional func collectionView(collectionView: NSCollectionView, canDragItemsAt indexes: IndexSet, with event: NSEvent) -> Bool
+  optional func collectionView(collectionView: NSCollectionView, canDragItemsAt indexes: NSIndexSet, with event: NSEvent) -> Bool
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, writeItemsAt indexPaths: Set<IndexPath>, to pasteboard: NSPasteboard) -> Bool
+  optional func collectionView(collectionView: NSCollectionView, writeItemsAt indexPaths: Set<NSIndexPath>, to pasteboard: NSPasteboard) -> Bool
   @available(OSX 10.6, *)
-  optional func collectionView(collectionView: NSCollectionView, writeItemsAt indexes: IndexSet, to pasteboard: NSPasteboard) -> Bool
+  optional func collectionView(collectionView: NSCollectionView, writeItemsAt indexes: NSIndexSet, to pasteboard: NSPasteboard) -> Bool
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, namesOfPromisedFilesDroppedAtDestination dropURL: URL, forDraggedItemsAt indexPaths: Set<IndexPath>) -> [String]
+  optional func collectionView(collectionView: NSCollectionView, namesOfPromisedFilesDroppedAtDestination dropURL: NSURL, forDraggedItemsAt indexPaths: Set<NSIndexPath>) -> [String]
   @available(OSX 10.6, *)
-  optional func collectionView(collectionView: NSCollectionView, namesOfPromisedFilesDroppedAtDestination dropURL: URL, forDraggedItemsAt indexes: IndexSet) -> [String]
+  optional func collectionView(collectionView: NSCollectionView, namesOfPromisedFilesDroppedAtDestination dropURL: NSURL, forDraggedItemsAt indexes: NSIndexSet) -> [String]
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, draggingImageForItemsAt indexPaths: Set<IndexPath>, with event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
+  optional func collectionView(collectionView: NSCollectionView, draggingImageForItemsAt indexPaths: Set<NSIndexPath>, with event: NSEvent, offset dragImageOffset: NSPointPointer) -> NSImage
   @available(OSX 10.6, *)
-  optional func collectionView(collectionView: NSCollectionView, draggingImageForItemsAt indexes: IndexSet, with event: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
+  optional func collectionView(collectionView: NSCollectionView, draggingImageForItemsAt indexes: NSIndexSet, with event: NSEvent, offset dragImageOffset: NSPointPointer) -> NSImage
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer<IndexPath?>, dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionViewDropOperation>) -> NSDragOperation
+  optional func collectionView(collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer<NSIndexPath?>, dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionViewDropOperation>) -> NSDragOperation
   @available(OSX 10.6, *)
   optional func collectionView(collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndex proposedDropIndex: UnsafeMutablePointer<Int>, dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionViewDropOperation>) -> NSDragOperation
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, acceptDrop draggingInfo: NSDraggingInfo, indexPath: IndexPath, dropOperation: NSCollectionViewDropOperation) -> Bool
+  optional func collectionView(collectionView: NSCollectionView, acceptDrop draggingInfo: NSDraggingInfo, indexPath: NSIndexPath, dropOperation: NSCollectionViewDropOperation) -> Bool
   @available(OSX 10.6, *)
   optional func collectionView(collectionView: NSCollectionView, acceptDrop draggingInfo: NSDraggingInfo, index: Int, dropOperation: NSCollectionViewDropOperation) -> Bool
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, pasteboardWriterForItemAt indexPath: IndexPath) -> NSPasteboardWriting?
+  optional func collectionView(collectionView: NSCollectionView, pasteboardWriterForItemAt indexPath: NSIndexPath) -> NSPasteboardWriting?
   @available(OSX 10.5, *)
   optional func collectionView(collectionView: NSCollectionView, pasteboardWriterForItemAt index: Int) -> NSPasteboardWriting?
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: Point, forItemsAt indexPaths: Set<IndexPath>)
+  optional func collectionView(collectionView: NSCollectionView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItemsAt indexPaths: Set<NSIndexPath>)
   @available(OSX 10.7, *)
-  optional func collectionView(collectionView: NSCollectionView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: Point, forItemsAt indexes: IndexSet)
+  optional func collectionView(collectionView: NSCollectionView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItemsAt indexes: NSIndexSet)
   @available(OSX 10.7, *)
-  optional func collectionView(collectionView: NSCollectionView, draggingSession session: NSDraggingSession, endedAt screenPoint: Point, dragOperation operation: NSDragOperation)
+  optional func collectionView(collectionView: NSCollectionView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, dragOperation operation: NSDragOperation)
   @available(OSX 10.5, *)
   optional func collectionView(collectionView: NSCollectionView, updateDraggingItemsForDrag draggingInfo: NSDraggingInfo)
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, shouldChangeItemsAt indexPaths: Set<IndexPath>, to highlightState: NSCollectionViewItemHighlightState) -> Set<IndexPath>
+  optional func collectionView(collectionView: NSCollectionView, shouldChangeItemsAt indexPaths: Set<NSIndexPath>, to highlightState: NSCollectionViewItemHighlightState) -> Set<NSIndexPath>
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, didChangeItemsAt indexPaths: Set<IndexPath>, to highlightState: NSCollectionViewItemHighlightState)
+  optional func collectionView(collectionView: NSCollectionView, didChangeItemsAt indexPaths: Set<NSIndexPath>, to highlightState: NSCollectionViewItemHighlightState)
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, shouldSelectItemsAt indexPaths: Set<IndexPath>) -> Set<IndexPath>
+  optional func collectionView(collectionView: NSCollectionView, shouldSelectItemsAt indexPaths: Set<NSIndexPath>) -> Set<NSIndexPath>
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, shouldDeselectItemsAt indexPaths: Set<IndexPath>) -> Set<IndexPath>
+  optional func collectionView(collectionView: NSCollectionView, shouldDeselectItemsAt indexPaths: Set<NSIndexPath>) -> Set<NSIndexPath>
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>)
+  optional func collectionView(collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<NSIndexPath>)
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, didDeselectItemsAt indexPaths: Set<IndexPath>)
+  optional func collectionView(collectionView: NSCollectionView, didDeselectItemsAt indexPaths: Set<NSIndexPath>)
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, willDisplay item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath)
+  optional func collectionView(collectionView: NSCollectionView, willDisplay item: NSCollectionViewItem, forRepresentedObjectAt indexPath: NSIndexPath)
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, willDisplaySupplementaryView view: NSView, forElementKind elementKind: String, at indexPath: IndexPath)
+  optional func collectionView(collectionView: NSCollectionView, willDisplaySupplementaryView view: NSView, forElementKind elementKind: String, at indexPath: NSIndexPath)
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, didEndDisplaying item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath)
+  optional func collectionView(collectionView: NSCollectionView, didEndDisplaying item: NSCollectionViewItem, forRepresentedObjectAt indexPath: NSIndexPath)
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, didEndDisplayingSupplementaryView view: NSView, forElementOfKind elementKind: String, at indexPath: IndexPath)
+  optional func collectionView(collectionView: NSCollectionView, didEndDisplayingSupplementaryView view: NSView, forElementOfKind elementKind: String, at indexPath: NSIndexPath)
   @available(OSX 10.11, *)
   optional func collectionView(collectionView: NSCollectionView, transitionLayoutForOldLayout fromLayout: NSCollectionViewLayout, newLayout toLayout: NSCollectionViewLayout) -> NSCollectionViewTransitionLayout
 }
-extension IndexPath {
+extension NSIndexPath {
   @available(OSX 10.11, *)
   /*not inherited*/ init(forItem item: Int, inSection section: Int)
   @available(OSX 10.11, *)
@@ -265,9 +265,9 @@ extension IndexPath {
 }
 extension NSSet {
   @available(OSX 10.11, *)
-  convenience init(collectionViewIndexPath indexPath: IndexPath)
+  convenience init(collectionViewIndexPath indexPath: NSIndexPath)
   @available(OSX 10.11, *)
-  convenience init(collectionViewIndexPaths indexPaths: [IndexPath])
+  convenience init(collectionViewIndexPaths indexPaths: [NSIndexPath])
   @available(OSX 10.11, *)
-  func enumerateIndexPaths(opts: EnumerationOptions = [], using block: (IndexPath, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateIndexPaths(opts: NSEnumerationOptions = [], using block: (NSIndexPath, UnsafeMutablePointer<ObjCBool>) -> Void)
 }

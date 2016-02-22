@@ -1,12 +1,12 @@
 
 @available(tvOS 8.0, *)
-class SCNPhysicsBehavior : Object, SecureCoding {
+class SCNPhysicsBehavior : NSObject, NSSecureCoding {
   init()
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 8.0, *)
 class SCNPhysicsHingeJoint : SCNPhysicsBehavior {
@@ -19,7 +19,7 @@ class SCNPhysicsHingeJoint : SCNPhysicsBehavior {
   var axisB: SCNVector3
   var anchorB: SCNVector3
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 8.0, *)
 class SCNPhysicsBallSocketJoint : SCNPhysicsBehavior {
@@ -30,7 +30,7 @@ class SCNPhysicsBallSocketJoint : SCNPhysicsBehavior {
   var bodyB: SCNPhysicsBody? { get }
   var anchorB: SCNVector3
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 8.0, *)
 class SCNPhysicsSliderJoint : SCNPhysicsBehavior {
@@ -51,10 +51,10 @@ class SCNPhysicsSliderJoint : SCNPhysicsBehavior {
   var motorTargetAngularVelocity: CGFloat
   var motorMaximumTorque: CGFloat
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 8.0, *)
-class SCNPhysicsVehicleWheel : Object, Copying, SecureCoding {
+class SCNPhysicsVehicleWheel : NSObject, NSCopying, NSSecureCoding {
   convenience init(node: SCNNode)
   var node: SCNNode { get }
   var suspensionStiffness: CGFloat
@@ -70,12 +70,12 @@ class SCNPhysicsVehicleWheel : Object, Copying, SecureCoding {
   var suspensionRestLength: CGFloat
   init()
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 8.0, *)
 class SCNPhysicsVehicle : SCNPhysicsBehavior {
@@ -87,5 +87,5 @@ class SCNPhysicsVehicle : SCNPhysicsBehavior {
   func setSteeringAngle(value: CGFloat, forWheelAt index: Int)
   func applyBrakingForce(value: CGFloat, forWheelAt index: Int)
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

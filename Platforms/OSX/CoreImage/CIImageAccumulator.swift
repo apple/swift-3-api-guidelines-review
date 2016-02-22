@@ -1,6 +1,6 @@
 
 @available(OSX 10.4, *)
-class CIImageAccumulator : Object {
+class CIImageAccumulator : NSObject {
   init(extent: CGRect, format: CIFormat)
   @available(OSX 10.7, *)
   init(extent: CGRect, format: CIFormat, colorSpace: CGColorSpace)

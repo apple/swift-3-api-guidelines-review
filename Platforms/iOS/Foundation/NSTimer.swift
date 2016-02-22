@@ -1,15 +1,15 @@
 
-class Timer : Object {
-  /*not inherited*/ init(timeInterval ti: TimeInterval, invocation: Invocation, repeats yesOrNo: Bool)
-  class func scheduledTimer(withTimeInterval ti: TimeInterval, invocation: Invocation, repeats yesOrNo: Bool) -> Timer
-  /*not inherited*/ init(timeInterval ti: TimeInterval, target aTarget: AnyObject, selector aSelector: Selector, userInfo: AnyObject?, repeats yesOrNo: Bool)
-  class func scheduledTimer(withTimeInterval ti: TimeInterval, target aTarget: AnyObject, selector aSelector: Selector, userInfo: AnyObject?, repeats yesOrNo: Bool) -> Timer
-  init(fire date: Date, interval ti: TimeInterval, target t: AnyObject, selector s: Selector, userInfo ui: AnyObject?, repeats rep: Bool)
+class NSTimer : NSObject {
+  /*not inherited*/ init(timeInterval ti: NSTimeInterval, invocation: NSInvocation, repeats yesOrNo: Bool)
+  class func scheduledTimer(withTimeInterval ti: NSTimeInterval, invocation: NSInvocation, repeats yesOrNo: Bool) -> NSTimer
+  /*not inherited*/ init(timeInterval ti: NSTimeInterval, target aTarget: AnyObject, selector aSelector: Selector, userInfo: AnyObject?, repeats yesOrNo: Bool)
+  class func scheduledTimer(withTimeInterval ti: NSTimeInterval, target aTarget: AnyObject, selector aSelector: Selector, userInfo: AnyObject?, repeats yesOrNo: Bool) -> NSTimer
+  init(fire date: NSDate, interval ti: NSTimeInterval, target t: AnyObject, selector s: Selector, userInfo ui: AnyObject?, repeats rep: Bool)
   func fire()
-  @NSCopying var fireDate: Date
-  var timeInterval: TimeInterval { get }
+  @NSCopying var fireDate: NSDate
+  var timeInterval: NSTimeInterval { get }
   @available(iOS 7.0, *)
-  var tolerance: TimeInterval
+  var tolerance: NSTimeInterval
   func invalidate()
   var isValid: Bool { get }
   var userInfo: AnyObject? { get }

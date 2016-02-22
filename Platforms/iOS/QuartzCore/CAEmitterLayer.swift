@@ -17,7 +17,7 @@ class CAEmitterLayer : CALayer {
   var seed: UInt32
   init()
   init(layer: AnyObject)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 5.0, *)
 let kCAEmitterLayerPoint: String

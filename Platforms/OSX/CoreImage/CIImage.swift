@@ -1,6 +1,6 @@
 
 @available(OSX 10.4, *)
-class CIImage : Object, SecureCoding, Copying {
+class CIImage : NSObject, NSSecureCoding, NSCopying {
   class func empty() -> CIImage
   init(cgImage image: CGImage)
   init(cgImage image: CGImage, options: [String : AnyObject]? = [:])
@@ -8,17 +8,17 @@ class CIImage : Object, SecureCoding, Copying {
   init(cgLayer layer: CGLayer)
   @available(OSX, introduced=10.4, deprecated=10.11, message="Use initWithCGImage:options instead.")
   init(cgLayer layer: CGLayer, options: [String : AnyObject]? = [:])
-  init?(data: Data)
-  init?(data: Data, options: [String : AnyObject]? = [:])
-  init(bitmapData data: Data, bytesPerRow: Int, size: CGSize, format: CIFormat, colorSpace: CGColorSpace?)
+  init?(data: NSData)
+  init?(data: NSData, options: [String : AnyObject]? = [:])
+  init(bitmapData data: NSData, bytesPerRow: Int, size: CGSize, format: CIFormat, colorSpace: CGColorSpace?)
   @available(OSX 10.4, *)
   init(texture name: UInt32, size: CGSize, flipped: Bool, colorSpace: CGColorSpace?)
   @available(OSX 10.9, *)
   init(texture name: UInt32, size: CGSize, flipped: Bool, options: [String : AnyObject]? = [:])
   @available(OSX 10.11, *)
   init(mtlTexture texture: MTLTexture, options: [String : AnyObject]? = [:])
-  init?(contentsOf url: URL)
-  init?(contentsOf url: URL, options: [String : AnyObject]? = [:])
+  init?(contentsOf url: NSURL)
+  init?(contentsOf url: NSURL, options: [String : AnyObject]? = [:])
   @available(OSX 10.6, *)
   init(ioSurface surface: IOSurface)
   @available(OSX 10.6, *)
@@ -52,7 +52,7 @@ class CIImage : Object, SecureCoding, Copying {
   @available(OSX 10.4, *)
   var definition: CIFilterShape { get }
   @available(OSX 10.4, *)
-  var url: URL? { get }
+  var url: NSURL? { get }
   @available(OSX 10.4, *)
   var colorSpace: CGColorSpace? { get }
   @available(OSX 10.11, *)
@@ -61,10 +61,10 @@ class CIImage : Object, SecureCoding, Copying {
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.4, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 typealias CIFormat = Int32
 @available(OSX 10.4, *)

@@ -1,6 +1,6 @@
 
 @available(iOS 4.0, *)
-class CTCarrier : Object {
+class CTCarrier : NSObject {
   @available(iOS 4.0, *)
   var carrierName: String? { get }
   @available(iOS 4.0, *)

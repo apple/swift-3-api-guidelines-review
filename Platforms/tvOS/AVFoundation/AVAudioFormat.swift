@@ -10,7 +10,7 @@ enum AVAudioCommonFormat : UInt {
   case pcmFormatInt32
 }
 @available(tvOS 8.0, *)
-class AVAudioFormat : Object, SecureCoding {
+class AVAudioFormat : NSObject, NSSecureCoding {
   init(streamDescription asbd: UnsafePointer<AudioStreamBasicDescription>)
   init(streamDescription asbd: UnsafePointer<AudioStreamBasicDescription>, channelLayout layout: AVAudioChannelLayout?)
   init(standardFormatWithSampleRate sampleRate: Double, channels: AVAudioChannelCount)
@@ -35,6 +35,6 @@ class AVAudioFormat : Object, SecureCoding {
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

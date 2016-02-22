@@ -76,8 +76,8 @@ typealias _VFlags = __VFlags
 typealias NSTrackingRectTag = Int
 typealias NSToolTipTag = Int
 class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemIdentification, NSDraggingDestination, NSAppearanceCustomization, NSAccessibilityElementProtocol, NSAccessibility {
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   unowned(unsafe) var window: @sil_unmanaged NSWindow? { get }
   unowned(unsafe) var superview: @sil_unmanaged NSView? { get }
   var subviews: [NSView]
@@ -86,8 +86,8 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   unowned(unsafe) var opaqueAncestor: @sil_unmanaged NSView? { get }
   var isHidden: Bool
   var isHiddenOrHasHiddenAncestor: Bool { get }
-  func getRectsBeingDrawn(rects: UnsafeMutablePointer<UnsafePointer<Rect>>, count: UnsafeMutablePointer<Int>)
-  func needs(toDraw aRect: Rect) -> Bool
+  func getRectsBeingDrawn(rects: UnsafeMutablePointer<UnsafePointer<NSRect>>, count: UnsafeMutablePointer<Int>)
+  func needs(toDraw aRect: NSRect) -> Bool
   var wantsDefaultClipping: Bool { get }
   @available(OSX 10.5, *)
   func viewDidHide()
@@ -95,7 +95,7 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   func viewDidUnhide()
   func addSubview(aView: NSView)
   func addSubview(aView: NSView, positioned place: NSWindowOrderingMode, relativeTo otherView: NSView?)
-  func sortSubviews(compare: @convention(c) (NSView, NSView, UnsafeMutablePointer<Void>) -> ComparisonResult, context: UnsafeMutablePointer<Void>)
+  func sortSubviews(compare: @convention(c) (NSView, NSView, UnsafeMutablePointer<Void>) -> NSComparisonResult, context: UnsafeMutablePointer<Void>)
   func viewWillMove(to newWindow: NSWindow?)
   func viewDidMoveToWindow()
   func viewWillMove(toSuperview newSuperview: NSView?)
@@ -108,93 +108,93 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.7, *)
   func viewDidChangeBackingProperties()
   var postsFrameChangedNotifications: Bool
-  func resizeSubviews(oldSize oldSize: Size)
-  func resize(oldSuperviewSize oldSize: Size)
+  func resizeSubviews(oldSize oldSize: NSSize)
+  func resize(oldSuperviewSize oldSize: NSSize)
   var autoresizesSubviews: Bool
   var autoresizingMask: NSAutoresizingMaskOptions
-  func setFrameOrigin(newOrigin: Point)
-  func setFrameSize(newSize: Size)
-  var frame: Rect
+  func setFrameOrigin(newOrigin: NSPoint)
+  func setFrameSize(newSize: NSSize)
+  var frame: NSRect
   var frameRotation: CGFloat
   @available(OSX 10.5, *)
   var frameCenterRotation: CGFloat
-  func setBoundsOrigin(newOrigin: Point)
-  func setBoundsSize(newSize: Size)
+  func setBoundsOrigin(newOrigin: NSPoint)
+  func setBoundsSize(newSize: NSSize)
   var boundsRotation: CGFloat
-  func translateOrigin(to translation: Point)
-  func scaleUnitSquare(to newUnitSize: Size)
+  func translateOrigin(to translation: NSPoint)
+  func scaleUnitSquare(to newUnitSize: NSSize)
   func rotate(byAngle angle: CGFloat)
-  var bounds: Rect
+  var bounds: NSRect
   var isFlipped: Bool { get }
   var isRotatedFromBase: Bool { get }
   var isRotatedOrScaledFromBase: Bool { get }
   var isOpaque: Bool { get }
-  func convert(aPoint: Point, from aView: NSView?) -> Point
-  func convert(aPoint: Point, to aView: NSView?) -> Point
-  func convert(aSize: Size, from aView: NSView?) -> Size
-  func convert(aSize: Size, to aView: NSView?) -> Size
-  func convert(aRect: Rect, from aView: NSView?) -> Rect
-  func convert(aRect: Rect, to aView: NSView?) -> Rect
+  func convert(aPoint: NSPoint, from aView: NSView?) -> NSPoint
+  func convert(aPoint: NSPoint, to aView: NSView?) -> NSPoint
+  func convert(aSize: NSSize, from aView: NSView?) -> NSSize
+  func convert(aSize: NSSize, to aView: NSView?) -> NSSize
+  func convert(aRect: NSRect, from aView: NSView?) -> NSRect
+  func convert(aRect: NSRect, to aView: NSView?) -> NSRect
   @available(OSX 10.7, *)
-  func backingAlignedRect(aRect: Rect, options: AlignmentOptions = []) -> Rect
-  func centerScanRect(aRect: Rect) -> Rect
+  func backingAlignedRect(aRect: NSRect, options: NSAlignmentOptions = []) -> NSRect
+  func centerScanRect(aRect: NSRect) -> NSRect
   @available(OSX 10.7, *)
-  func convertPointToBacking(aPoint: Point) -> Point
+  func convertPointToBacking(aPoint: NSPoint) -> NSPoint
   @available(OSX 10.7, *)
-  func convertPointFromBacking(aPoint: Point) -> Point
+  func convertPointFromBacking(aPoint: NSPoint) -> NSPoint
   @available(OSX 10.7, *)
-  func convertSizeToBacking(aSize: Size) -> Size
+  func convertSizeToBacking(aSize: NSSize) -> NSSize
   @available(OSX 10.7, *)
-  func convertSizeFromBacking(aSize: Size) -> Size
+  func convertSizeFromBacking(aSize: NSSize) -> NSSize
   @available(OSX 10.7, *)
-  func convertRectToBacking(aRect: Rect) -> Rect
+  func convertRectToBacking(aRect: NSRect) -> NSRect
   @available(OSX 10.7, *)
-  func convertRectFromBacking(aRect: Rect) -> Rect
+  func convertRectFromBacking(aRect: NSRect) -> NSRect
   @available(OSX 10.7, *)
-  func convertPoint(toLayer aPoint: Point) -> Point
+  func convertPoint(toLayer aPoint: NSPoint) -> NSPoint
   @available(OSX 10.7, *)
-  func convertPoint(fromLayer aPoint: Point) -> Point
+  func convertPoint(fromLayer aPoint: NSPoint) -> NSPoint
   @available(OSX 10.7, *)
-  func convertSize(toLayer aSize: Size) -> Size
+  func convertSize(toLayer aSize: NSSize) -> NSSize
   @available(OSX 10.7, *)
-  func convertSize(fromLayer aSize: Size) -> Size
+  func convertSize(fromLayer aSize: NSSize) -> NSSize
   @available(OSX 10.7, *)
-  func convertRect(toLayer aRect: Rect) -> Rect
+  func convertRect(toLayer aRect: NSRect) -> NSRect
   @available(OSX 10.7, *)
-  func convertRect(fromLayer aRect: Rect) -> Rect
+  func convertRect(fromLayer aRect: NSRect) -> NSRect
   @available(OSX 10.6, *)
   var canDrawConcurrently: Bool
   var canDraw: Bool { get }
-  func setNeedsDisplayIn(invalidRect: Rect)
+  func setNeedsDisplayIn(invalidRect: NSRect)
   var needsDisplay: Bool
   func lockFocus()
   func unlockFocus()
   func lockFocusIfCanDraw() -> Bool
   func lockFocusIfCanDraw(in context: NSGraphicsContext) -> Bool
   class func focus() -> NSView?
-  var visibleRect: Rect { get }
+  var visibleRect: NSRect { get }
   func display()
   func displayIfNeeded()
   func displayIfNeededIgnoringOpacity()
-  func display(rect: Rect)
-  func displayIfNeeded(in rect: Rect)
-  func displayRectIgnoringOpacity(rect: Rect)
-  func displayIfNeeded(inRectIgnoringOpacity rect: Rect)
-  func draw(dirtyRect: Rect)
-  func displayRectIgnoringOpacity(aRect: Rect, in context: NSGraphicsContext)
-  func bitmapImageRepForCachingDisplay(in rect: Rect) -> NSBitmapImageRep?
-  func cacheDisplay(in rect: Rect, to bitmapImageRep: NSBitmapImageRep)
+  func display(rect: NSRect)
+  func displayIfNeeded(in rect: NSRect)
+  func displayRectIgnoringOpacity(rect: NSRect)
+  func displayIfNeeded(inRectIgnoringOpacity rect: NSRect)
+  func draw(dirtyRect: NSRect)
+  func displayRectIgnoringOpacity(aRect: NSRect, in context: NSGraphicsContext)
+  func bitmapImageRepForCachingDisplay(in rect: NSRect) -> NSBitmapImageRep?
+  func cacheDisplay(in rect: NSRect, to bitmapImageRep: NSBitmapImageRep)
   @available(OSX 10.5, *)
   func viewWillDraw()
-  func scroll(aPoint: Point)
-  func scrollRectToVisible(aRect: Rect) -> Bool
+  func scroll(aPoint: NSPoint)
+  func scrollRectToVisible(aRect: NSRect) -> Bool
   func autoscroll(theEvent: NSEvent) -> Bool
-  func adjustScroll(newVisible: Rect) -> Rect
-  func scroll(aRect: Rect, by delta: Size)
+  func adjustScroll(newVisible: NSRect) -> NSRect
+  func scroll(aRect: NSRect, by delta: NSSize)
   @available(OSX 10.5, *)
-  func translateRectsNeedingDisplay(in clipRect: Rect, by delta: Size)
-  func hitTest(aPoint: Point) -> NSView?
-  func mouse(aPoint: Point, in aRect: Rect) -> Bool
+  func translateRectsNeedingDisplay(in clipRect: NSRect, by delta: NSSize)
+  func hitTest(aPoint: NSPoint) -> NSView?
+  func mouse(aPoint: NSPoint, in aRect: NSRect) -> Bool
   func withTag(aTag: Int) -> NSView?
   var tag: Int { get }
   func performKeyEquivalent(theEvent: NSEvent) -> Bool
@@ -206,11 +206,11 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   var acceptsTouchEvents: Bool
   @available(OSX 10.6, *)
   var wantsRestingTouches: Bool
-  func addCursorRect(aRect: Rect, cursor anObj: NSCursor)
-  func removeCursorRect(aRect: Rect, cursor anObj: NSCursor)
+  func addCursorRect(aRect: NSRect, cursor anObj: NSCursor)
+  func removeCursorRect(aRect: NSRect, cursor anObj: NSCursor)
   func discardCursorRects()
   func resetCursorRects()
-  func addTrackingRect(aRect: Rect, owner anObject: AnyObject, userData data: UnsafeMutablePointer<Void>, assumeInside flag: Bool) -> NSTrackingRectTag
+  func addTrackingRect(aRect: NSRect, owner anObject: AnyObject, userData data: UnsafeMutablePointer<Void>, assumeInside flag: Bool) -> NSTrackingRectTag
   func removeTrackingRect(tag: NSTrackingRectTag)
   @available(OSX 10.6, *)
   func makeBackingLayer() -> CALayer
@@ -257,19 +257,19 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.11, *)
   func didCloseMenu(menu: NSMenu, with event: NSEvent?)
   var toolTip: String?
-  func addToolTip(aRect: Rect, owner anObject: AnyObject, userData data: UnsafeMutablePointer<Void>) -> NSToolTipTag
+  func addToolTip(aRect: NSRect, owner anObject: AnyObject, userData data: UnsafeMutablePointer<Void>) -> NSToolTipTag
   func removeToolTip(tag: NSToolTipTag)
   func removeAllToolTips()
   func viewWillStartLiveResize()
   func viewDidEndLiveResize()
   var inLiveResize: Bool { get }
   var preservesContentDuringLiveResize: Bool { get }
-  var rectPreservedDuringLiveResize: Rect { get }
-  func getRectsExposedDuringLiveResize(exposedRects: UnsafeMutablePointer<Rect>, count: UnsafeMutablePointer<Int>)
+  var rectPreservedDuringLiveResize: NSRect { get }
+  func getRectsExposedDuringLiveResize(exposedRects: UnsafeMutablePointer<NSRect>, count: UnsafeMutablePointer<Int>)
   @available(OSX 10.6, *)
   var inputContext: NSTextInputContext? { get }
   @available(OSX 10.8, *)
-  func rectForSmartMagnification(at location: Point, in visibleRect: Rect) -> Rect
+  func rectForSmartMagnification(at location: NSPoint, in visibleRect: NSRect) -> NSRect
   @available(OSX 10.8, *)
   var userInterfaceLayoutDirection: NSUserInterfaceLayoutDirection
   @available(OSX 10.7, *)
@@ -277,9 +277,9 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.9, *)
   class func isCompatibleWithResponsiveScrolling() -> Bool
   @available(OSX 10.9, *)
-  func prepareContent(in rect: Rect)
+  func prepareContent(in rect: NSRect)
   @available(OSX 10.9, *)
-  var preparedContentRect: Rect
+  var preparedContentRect: NSRect
   @available(OSX 10.10, *)
   var allowsVibrancy: Bool { get }
   convenience init()
@@ -306,34 +306,34 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   var appearance: NSAppearance?
   @available(OSX 10.9, *)
   var effectiveAppearance: NSAppearance { get }
-  func accessibilityFrame() -> Rect
+  func accessibilityFrame() -> NSRect
   func accessibilityParent() -> AnyObject?
   func isAccessibilityFocused() -> Bool
   func accessibilityIdentifier() -> String
   @available(OSX 10.10, *)
-  func accessibilityLayoutPoint(forScreenPoint point: Point) -> Point
+  func accessibilityLayoutPoint(forScreenPoint point: NSPoint) -> NSPoint
   @available(OSX 10.10, *)
-  func accessibilityLayoutSize(forScreenSize size: Size) -> Size
+  func accessibilityLayoutSize(forScreenSize size: NSSize) -> NSSize
   @available(OSX 10.10, *)
-  func accessibilityScreenPoint(forLayoutPoint point: Point) -> Point
+  func accessibilityScreenPoint(forLayoutPoint point: NSPoint) -> NSPoint
   @available(OSX 10.10, *)
-  func accessibilityScreenSize(forLayoutSize size: Size) -> Size
+  func accessibilityScreenSize(forLayoutSize size: NSSize) -> NSSize
   @available(OSX 10.10, *)
   func accessibilityCell(forColumn column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
-  func accessibilityAttributedString(for range: NSRange) -> AttributedString?
+  func accessibilityAttributedString(for range: NSRange) -> NSAttributedString?
   @available(OSX 10.10, *)
   func accessibilityRange(forLine line: Int) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityString(for range: NSRange) -> String?
   @available(OSX 10.10, *)
-  func accessibilityRange(forPosition point: Point) -> NSRange
+  func accessibilityRange(forPosition point: NSPoint) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityFrame(for range: NSRange) -> Rect
+  func accessibilityFrame(for range: NSRange) -> NSRect
   @available(OSX 10.10, *)
-  func accessibilityRTF(for range: NSRange) -> Data?
+  func accessibilityRTF(for range: NSRange) -> NSData?
   @available(OSX 10.10, *)
   func accessibilityStyleRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
@@ -367,21 +367,21 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.10, *)
   func setAccessibilityElement(accessibilityElement: Bool)
   @available(OSX 10.10, *)
-  func setAccessibilityFrame(accessibilityFrame: Rect)
+  func setAccessibilityFrame(accessibilityFrame: NSRect)
   @available(OSX 10.10, *)
   func setAccessibilityFocused(accessibilityFocused: Bool)
   @available(OSX 10.10, *)
-  func accessibilityActivationPoint() -> Point
+  func accessibilityActivationPoint() -> NSPoint
   @available(OSX 10.10, *)
-  func setAccessibilityActivationPoint(accessibilityActivationPoint: Point)
+  func setAccessibilityActivationPoint(accessibilityActivationPoint: NSPoint)
   @available(OSX 10.10, *)
   func accessibilityTopLevelUIElement() -> AnyObject?
   @available(OSX 10.10, *)
   func setAccessibilityTopLevelUIElement(accessibilityTopLevelUIElement: AnyObject?)
   @available(OSX 10.10, *)
-  func accessibilityURL() -> URL?
+  func accessibilityURL() -> NSURL?
   @available(OSX 10.10, *)
-  func setAccessibilityURL(accessibilityURL: URL?)
+  func setAccessibilityURL(accessibilityURL: NSURL?)
   @available(OSX 10.10, *)
   func accessibilityValue() -> AnyObject?
   @available(OSX 10.10, *)
@@ -651,9 +651,9 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.10, *)
   func setAccessibilityVerticalScrollBar(accessibilityVerticalScrollBar: AnyObject?)
   @available(OSX 10.10, *)
-  func accessibilityAllowedValues() -> [Number]?
+  func accessibilityAllowedValues() -> [NSNumber]?
   @available(OSX 10.10, *)
-  func setAccessibilityAllowedValues(accessibilityAllowedValues: [Number]?)
+  func setAccessibilityAllowedValues(accessibilityAllowedValues: [NSNumber]?)
   @available(OSX 10.10, *)
   func accessibilityLabelUIElements() -> [AnyObject]?
   @available(OSX 10.10, *)
@@ -775,9 +775,9 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.10, *)
   func setAccessibilitySelectedTextRange(accessibilitySelectedTextRange: NSRange)
   @available(OSX 10.10, *)
-  func accessibilitySelectedTextRanges() -> [Value]?
+  func accessibilitySelectedTextRanges() -> [NSValue]?
   @available(OSX 10.10, *)
-  func setAccessibilitySelectedTextRanges(accessibilitySelectedTextRanges: [Value]?)
+  func setAccessibilitySelectedTextRanges(accessibilitySelectedTextRanges: [NSValue]?)
   @available(OSX 10.10, *)
   func accessibilityToolbarButton() -> AnyObject?
   @available(OSX 10.10, *)
@@ -841,15 +841,15 @@ struct __VFlags2 {
   init()
   init(nextKeyViewRefCount: UInt32, previousKeyViewRefCount: UInt32, isVisibleRect: UInt32, hasToolTip: UInt32, cachedIsFlipped: UInt32, menuWasSet: UInt32)
 }
-extension Object {
+extension NSObject {
   @available(OSX 10.7, *)
   class func layer(layer: CALayer, shouldInheritContentsScale newScale: CGFloat, from window: NSWindow) -> Bool
   @available(OSX 10.7, *)
   func layer(layer: CALayer, shouldInheritContentsScale newScale: CGFloat, from window: NSWindow) -> Bool
 }
-extension Object {
-  class func view(view: NSView, stringForToolTip tag: NSToolTipTag, point: Point, userData data: UnsafeMutablePointer<Void>) -> String
-  func view(view: NSView, stringForToolTip tag: NSToolTipTag, point: Point, userData data: UnsafeMutablePointer<Void>) -> String
+extension NSObject {
+  class func view(view: NSView, stringForToolTip tag: NSToolTipTag, point: NSPoint, userData data: UnsafeMutablePointer<Void>) -> String
+  func view(view: NSView, stringForToolTip tag: NSToolTipTag, point: NSPoint, userData data: UnsafeMutablePointer<Void>) -> String
 }
 extension NSView {
   unowned(unsafe) var nextKey: @sil_unmanaged NSView?
@@ -857,38 +857,38 @@ extension NSView {
   unowned(unsafe) var nextValidKey: @sil_unmanaged NSView? { get }
   unowned(unsafe) var previousValidKey: @sil_unmanaged NSView? { get }
   var canBecomeKeyView: Bool { get }
-  func setKeyboardFocusRingNeedsDisplayIn(rect: Rect)
+  func setKeyboardFocusRingNeedsDisplayIn(rect: NSRect)
   var focusRingType: NSFocusRingType
   class func defaultFocusRingType() -> NSFocusRingType
   @available(OSX 10.7, *)
   func drawFocusRingMask()
   @available(OSX 10.7, *)
-  var focusRingMaskBounds: Rect { get }
+  var focusRingMaskBounds: NSRect { get }
   @available(OSX 10.7, *)
   func noteFocusRingMaskChanged()
 }
 extension NSView {
-  func writeEPS(inside rect: Rect, to pasteboard: NSPasteboard)
-  func dataWithEPS(inside rect: Rect) -> Data
-  func writePDF(inside rect: Rect, to pasteboard: NSPasteboard)
-  func dataWithPDF(inside rect: Rect) -> Data
+  func writeEPS(inside rect: NSRect, to pasteboard: NSPasteboard)
+  func dataWithEPS(inside rect: NSRect) -> NSData
+  func writePDF(inside rect: NSRect, to pasteboard: NSPasteboard)
+  func dataWithPDF(inside rect: NSRect) -> NSData
   @warn_unqualified_access
   func print(sender: AnyObject?)
-  func knowsPageRange(range: RangePointer) -> Bool
+  func knowsPageRange(range: NSRangePointer) -> Bool
   var heightAdjustLimit: CGFloat { get }
   var widthAdjustLimit: CGFloat { get }
   func adjustPageWidthNew(newRight: UnsafeMutablePointer<CGFloat>, left oldLeft: CGFloat, right oldRight: CGFloat, limit rightLimit: CGFloat)
   func adjustPageHeightNew(newBottom: UnsafeMutablePointer<CGFloat>, top oldTop: CGFloat, bottom oldBottom: CGFloat, limit bottomLimit: CGFloat)
-  func rect(forPage page: Int) -> Rect
-  func locationOf(print aRect: Rect) -> Point
-  func drawPageBorder(borderSize: Size)
-  @NSCopying var pageHeader: AttributedString { get }
-  @NSCopying var pageFooter: AttributedString { get }
-  func drawSheetBorder(borderSize: Size)
+  func rect(forPage page: Int) -> NSRect
+  func locationOf(print aRect: NSRect) -> NSPoint
+  func drawPageBorder(borderSize: NSSize)
+  @NSCopying var pageHeader: NSAttributedString { get }
+  @NSCopying var pageFooter: NSAttributedString { get }
+  func drawSheetBorder(borderSize: NSSize)
   var printJobTitle: String { get }
   func beginDocument()
   func endDocument()
-  func beginPage(in aRect: Rect, atPlacement location: Point)
+  func beginPage(in aRect: NSRect, atPlacement location: NSPoint)
   func endPage()
 }
 extension NSView {
@@ -897,8 +897,8 @@ extension NSView {
   var registeredDraggedTypes: [String] { get }
   func register(forDraggedTypes newTypes: [String])
   func unregisterDraggedTypes()
-  func dragFile(filename: String, from rect: Rect, slideBack aFlag: Bool, event: NSEvent) -> Bool
-  func dragPromisedFiles(ofTypes typeArray: [String], from rect: Rect, source sourceObject: AnyObject, slideBack aFlag: Bool, event: NSEvent) -> Bool
+  func dragFile(filename: String, from rect: NSRect, slideBack aFlag: Bool, event: NSEvent) -> Bool
+  func dragPromisedFiles(ofTypes typeArray: [String], from rect: NSRect, source sourceObject: AnyObject, slideBack aFlag: Bool, event: NSEvent) -> Bool
 }
 extension NSView {
   @available(OSX 10.5, *)
@@ -918,9 +918,9 @@ let NSFullScreenModeWindowLevel: String
 let NSFullScreenModeApplicationPresentationOptions: String
 extension NSView {
   @available(OSX 10.6, *)
-  func showDefinition(for attrString: AttributedString?, at textBaselineOrigin: Point)
+  func showDefinition(for attrString: NSAttributedString?, at textBaselineOrigin: NSPoint)
   @available(OSX 10.6, *)
-  func showDefinition(for attrString: AttributedString?, range targetRange: NSRange, options: [String : AnyObject]? = [:], baselineOriginProvider originProvider: ((NSRange) -> Point)? = nil)
+  func showDefinition(for attrString: NSAttributedString?, range targetRange: NSRange, options: [String : AnyObject]? = [:], baselineOriginProvider originProvider: ((NSRange) -> NSPoint)? = nil)
 }
 @available(OSX 10.6, *)
 let NSDefinitionPresentationTypeKey: String

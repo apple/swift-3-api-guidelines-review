@@ -34,55 +34,55 @@ let UIUserNotificationTextInputActionButtonTitleKey: String
 @available(iOS 9.0, *)
 let UIUserNotificationActionResponseTypedTextKey: String
 @available(iOS 8.0, *)
-class UIUserNotificationSettings : Object {
+class UIUserNotificationSettings : NSObject {
   convenience init(forTypes types: UIUserNotificationType, categories: Set<UIUserNotificationCategory>?)
   var types: UIUserNotificationType { get }
   var categories: Set<UIUserNotificationCategory>? { get }
   init()
 }
 @available(iOS 8.0, *)
-class UIUserNotificationCategory : Object, Copying, MutableCopying, SecureCoding {
+class UIUserNotificationCategory : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   var identifier: String? { get }
   func actions(for context: UIUserNotificationActionContext) -> [UIUserNotificationAction]?
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class UIMutableUserNotificationCategory : UIUserNotificationCategory {
   var identifier: String?
   func setActions(actions: [UIUserNotificationAction]?, for context: UIUserNotificationActionContext)
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
-class UIUserNotificationAction : Object, Copying, MutableCopying, SecureCoding {
+class UIUserNotificationAction : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   var identifier: String? { get }
   var title: String? { get }
   @available(iOS 9.0, *)
   var behavior: UIUserNotificationActionBehavior { get }
   @available(iOS 9.0, *)
-  var parameters: [Object : AnyObject] { get }
+  var parameters: [NSObject : AnyObject] { get }
   var activationMode: UIUserNotificationActivationMode { get }
   var isAuthenticationRequired: Bool { get }
   var isDestructive: Bool { get }
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class UIMutableUserNotificationAction : UIUserNotificationAction {
@@ -91,10 +91,10 @@ class UIMutableUserNotificationAction : UIUserNotificationAction {
   @available(iOS 9.0, *)
   var behavior: UIUserNotificationActionBehavior
   @available(iOS 9.0, *)
-  var parameters: [Object : AnyObject]
+  var parameters: [NSObject : AnyObject]
   var activationMode: UIUserNotificationActivationMode
   var isAuthenticationRequired: Bool
   var isDestructive: Bool
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

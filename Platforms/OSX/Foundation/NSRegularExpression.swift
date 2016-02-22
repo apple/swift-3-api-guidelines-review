@@ -1,65 +1,65 @@
 
-struct RegularExpressionOptions : OptionSetType {
+struct NSRegularExpressionOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var caseInsensitive: RegularExpressionOptions { get }
-  static var allowCommentsAndWhitespace: RegularExpressionOptions { get }
-  static var ignoreMetacharacters: RegularExpressionOptions { get }
-  static var dotMatchesLineSeparators: RegularExpressionOptions { get }
-  static var anchorsMatchLines: RegularExpressionOptions { get }
-  static var useUnixLineSeparators: RegularExpressionOptions { get }
-  static var useUnicodeWordBoundaries: RegularExpressionOptions { get }
+  static var caseInsensitive: NSRegularExpressionOptions { get }
+  static var allowCommentsAndWhitespace: NSRegularExpressionOptions { get }
+  static var ignoreMetacharacters: NSRegularExpressionOptions { get }
+  static var dotMatchesLineSeparators: NSRegularExpressionOptions { get }
+  static var anchorsMatchLines: NSRegularExpressionOptions { get }
+  static var useUnixLineSeparators: NSRegularExpressionOptions { get }
+  static var useUnicodeWordBoundaries: NSRegularExpressionOptions { get }
 }
 @available(OSX 10.7, *)
-class RegularExpression : Object, Copying, Coding {
-  init(pattern: String, options: RegularExpressionOptions = []) throws
+class NSRegularExpression : NSObject, NSCopying, NSCoding {
+  init(pattern: String, options: NSRegularExpressionOptions = []) throws
   var pattern: String { get }
-  var options: RegularExpressionOptions { get }
+  var options: NSRegularExpressionOptions { get }
   var numberOfCaptureGroups: Int { get }
   class func escapedPattern(for string: String) -> String
   convenience init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
-struct MatchingOptions : OptionSetType {
+struct NSMatchingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var reportProgress: MatchingOptions { get }
-  static var reportCompletion: MatchingOptions { get }
-  static var anchored: MatchingOptions { get }
-  static var withTransparentBounds: MatchingOptions { get }
-  static var withoutAnchoringBounds: MatchingOptions { get }
+  static var reportProgress: NSMatchingOptions { get }
+  static var reportCompletion: NSMatchingOptions { get }
+  static var anchored: NSMatchingOptions { get }
+  static var withTransparentBounds: NSMatchingOptions { get }
+  static var withoutAnchoringBounds: NSMatchingOptions { get }
 }
-struct MatchingFlags : OptionSetType {
+struct NSMatchingFlags : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var progress: MatchingFlags { get }
-  static var completed: MatchingFlags { get }
-  static var hitEnd: MatchingFlags { get }
-  static var requiredEnd: MatchingFlags { get }
-  static var internalError: MatchingFlags { get }
+  static var progress: NSMatchingFlags { get }
+  static var completed: NSMatchingFlags { get }
+  static var hitEnd: NSMatchingFlags { get }
+  static var requiredEnd: NSMatchingFlags { get }
+  static var internalError: NSMatchingFlags { get }
 }
-extension RegularExpression {
-  func enumerateMatches(in string: String, options: MatchingOptions = [], range: NSRange, using block: (TextCheckingResult?, MatchingFlags, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func matches(in string: String, options: MatchingOptions = [], range: NSRange) -> [TextCheckingResult]
-  func numberOfMatches(in string: String, options: MatchingOptions = [], range: NSRange) -> Int
-  func firstMatch(in string: String, options: MatchingOptions = [], range: NSRange) -> TextCheckingResult?
-  func rangeOfFirstMatch(in string: String, options: MatchingOptions = [], range: NSRange) -> NSRange
+extension NSRegularExpression {
+  func enumerateMatches(in string: String, options: NSMatchingOptions = [], range: NSRange, using block: (NSTextCheckingResult?, NSMatchingFlags, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func matches(in string: String, options: NSMatchingOptions = [], range: NSRange) -> [NSTextCheckingResult]
+  func numberOfMatches(in string: String, options: NSMatchingOptions = [], range: NSRange) -> Int
+  func firstMatch(in string: String, options: NSMatchingOptions = [], range: NSRange) -> NSTextCheckingResult?
+  func rangeOfFirstMatch(in string: String, options: NSMatchingOptions = [], range: NSRange) -> NSRange
 }
-extension RegularExpression {
-  func stringByReplacingMatches(in string: String, options: MatchingOptions = [], range: NSRange, withTemplate templ: String) -> String
-  func replaceMatches(in string: MutableString, options: MatchingOptions = [], range: NSRange, withTemplate templ: String) -> Int
-  func replacementString(for result: TextCheckingResult, in string: String, offset: Int, template templ: String) -> String
+extension NSRegularExpression {
+  func stringByReplacingMatches(in string: String, options: NSMatchingOptions = [], range: NSRange, withTemplate templ: String) -> String
+  func replaceMatches(in string: NSMutableString, options: NSMatchingOptions = [], range: NSRange, withTemplate templ: String) -> Int
+  func replacementString(for result: NSTextCheckingResult, in string: String, offset: Int, template templ: String) -> String
   class func escapedTemplate(for string: String) -> String
 }
 @available(OSX 10.7, *)
-class DataDetector : RegularExpression {
-  init(types checkingTypes: TextCheckingTypes) throws
-  var checkingTypes: TextCheckingTypes { get }
-  convenience init(pattern: String, options: RegularExpressionOptions = []) throws
+class NSDataDetector : NSRegularExpression {
+  init(types checkingTypes: NSTextCheckingTypes) throws
+  var checkingTypes: NSTextCheckingTypes { get }
+  convenience init(pattern: String, options: NSRegularExpressionOptions = []) throws
   convenience init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

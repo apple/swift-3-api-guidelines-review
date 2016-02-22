@@ -1,5 +1,5 @@
 
-class NSMenuItem : Object, Copying, Coding, NSValidatedUserInterfaceItem {
+class NSMenuItem : NSObject, NSCopying, NSCoding, NSValidatedUserInterfaceItem {
   class func setUsesUserKeyEquivalents(flag: Bool)
   class func usesUserKeyEquivalents() -> Bool
   class func separator() -> NSMenuItem
@@ -10,7 +10,7 @@ class NSMenuItem : Object, Copying, Coding, NSValidatedUserInterfaceItem {
   @available(OSX 10.6, *)
   unowned(unsafe) var parent: @sil_unmanaged NSMenuItem? { get }
   var title: String
-  @NSCopying var attributedTitle: AttributedString?
+  @NSCopying var attributedTitle: NSAttributedString?
   var isSeparatorItem: Bool { get }
   var keyEquivalent: String
   var keyEquivalentModifierMask: Int
@@ -38,9 +38,9 @@ class NSMenuItem : Object, Copying, Coding, NSValidatedUserInterfaceItem {
   var isHiddenOrHasHiddenAncestor: Bool { get }
   var toolTip: String?
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 struct __miFlags {
   var keGenerationCount: UInt32

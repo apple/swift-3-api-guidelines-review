@@ -16,7 +16,7 @@ enum WKInterfaceObjectVerticalAlignment : Int {
   case bottom
 }
 @available(watchOS 2.0, *)
-class WKInterfaceObject : Object {
+class WKInterfaceObject : NSObject {
   func setHidden(hidden: Bool)
   func setAlpha(alpha: CGFloat)
   @available(watchOS 2.1, *)
@@ -48,7 +48,7 @@ extension WKInterfaceObject {
   func setAccessibilityImageRegions(accessibilityImageRegions: [WKAccessibilityImageRegion])
 }
 @available(watchOS 2.0, *)
-class WKAccessibilityImageRegion : Object {
+class WKAccessibilityImageRegion : NSObject {
   var frame: CGRect
   var label: String
   init()

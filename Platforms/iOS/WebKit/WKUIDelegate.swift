@@ -1,5 +1,5 @@
 
-protocol WKUIDelegate : ObjectProtocol {
+protocol WKUIDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
   optional func webView(webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView?
   @available(iOS 9.0, *)

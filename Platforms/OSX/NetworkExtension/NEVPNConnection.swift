@@ -17,16 +17,16 @@ let NEVPNConnectionStartOptionUsername: String
 @available(OSX 10.11, *)
 let NEVPNConnectionStartOptionPassword: String
 @available(OSX 10.10, *)
-class NEVPNConnection : Object {
+class NEVPNConnection : NSObject {
   @available(OSX 10.10, *)
   func startVPNTunnel() throws
   @available(OSX 10.11, *)
-  func startVPNTunnel(options options: [String : Object]? = [:]) throws
+  func startVPNTunnel(options options: [String : NSObject]? = [:]) throws
   @available(OSX 10.10, *)
   func stopVPNTunnel()
   @available(OSX 10.10, *)
   var status: NEVPNStatus { get }
   @available(OSX 10.11, *)
-  var connectedDate: Date? { get }
+  var connectedDate: NSDate? { get }
   init()
 }

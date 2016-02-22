@@ -1,6 +1,6 @@
 
 @available(OSX 10.9, *)
-class ODAttributeMap : Object {
+class ODAttributeMap : NSObject {
   @available(OSX 10.9, *)
   var customQueryFunction: String!
   @available(OSX 10.9, *)

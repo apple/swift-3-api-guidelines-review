@@ -1,9 +1,9 @@
 
 @available(iOS 9.0, *)
-class GKRuleSystem : Object {
+class GKRuleSystem : NSObject {
   init()
   func evaluate()
-  var state: MutableDictionary { get }
+  var state: NSMutableDictionary { get }
   var rules: [GKRule] { get }
   func addRule(rule: GKRule)
   func addRules(from rules: [GKRule])
@@ -11,32 +11,32 @@ class GKRuleSystem : Object {
   var agenda: [GKRule] { get }
   var executed: [GKRule] { get }
   var facts: [AnyObject] { get }
-  func grade(forFact fact: ObjectProtocol) -> Float
+  func grade(forFact fact: NSObjectProtocol) -> Float
   func minimumGrade(forFacts facts: [AnyObject]) -> Float
   func maximumGrade(forFacts facts: [AnyObject]) -> Float
-  func assertFact(fact: ObjectProtocol)
-  func assertFact(fact: ObjectProtocol, grade: Float)
-  func retractFact(fact: ObjectProtocol)
-  func retractFact(fact: ObjectProtocol, grade: Float)
+  func assertFact(fact: NSObjectProtocol)
+  func assertFact(fact: NSObjectProtocol, grade: Float)
+  func retractFact(fact: NSObjectProtocol)
+  func retractFact(fact: NSObjectProtocol, grade: Float)
   func reset()
 }
 @available(iOS 9.0, *)
-class GKRule : Object {
+class GKRule : NSObject {
   var salience: Int
   func evaluatePredicate(with system: GKRuleSystem) -> Bool
   func performAction(system: GKRuleSystem)
-  convenience init(predicate: Predicate, assertingFact fact: ObjectProtocol, grade: Float)
-  convenience init(predicate: Predicate, retractingFact fact: ObjectProtocol, grade: Float)
+  convenience init(predicate: NSPredicate, assertingFact fact: NSObjectProtocol, grade: Float)
+  convenience init(predicate: NSPredicate, retractingFact fact: NSObjectProtocol, grade: Float)
   convenience init(blockPredicate predicate: (GKRuleSystem) -> Bool, action: (GKRuleSystem) -> Void)
   init()
 }
 @available(iOS 9.0, *)
 class GKNSPredicateRule : GKRule {
-  var predicate: Predicate { get }
-  init(predicate: Predicate)
+  var predicate: NSPredicate { get }
+  init(predicate: NSPredicate)
   func evaluatePredicate(with system: GKRuleSystem) -> Bool
-  convenience init(predicate: Predicate, assertingFact fact: ObjectProtocol, grade: Float)
-  convenience init(predicate: Predicate, retractingFact fact: ObjectProtocol, grade: Float)
+  convenience init(predicate: NSPredicate, assertingFact fact: NSObjectProtocol, grade: Float)
+  convenience init(predicate: NSPredicate, retractingFact fact: NSObjectProtocol, grade: Float)
   convenience init(blockPredicate predicate: (GKRuleSystem) -> Bool, action: (GKRuleSystem) -> Void)
   init()
 }

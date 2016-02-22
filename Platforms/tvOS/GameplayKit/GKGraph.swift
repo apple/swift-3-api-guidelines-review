@@ -1,6 +1,6 @@
 
 @available(tvOS 9.0, *)
-class GKGraph : Object {
+class GKGraph : NSObject {
   var nodes: [GKGraphNode]? { get }
   init(nodes: [GKGraphNode])
   func connectNode(toLowestCost node: GKGraphNode, bidirectional: Bool)

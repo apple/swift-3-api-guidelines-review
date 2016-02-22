@@ -31,9 +31,9 @@ protocol NSTextLayoutOrientationProvider {
   var layoutOrientation: NSTextLayoutOrientation { get }
 }
 @available(tvOS 7.0, *)
-class NSLayoutManager : Object, Coding {
+class NSLayoutManager : NSObject, NSCoding {
   init()
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   unowned(unsafe) var textStorage: @sil_unmanaged NSTextStorage?
   var textContainers: [NSTextContainer] { get }
   func addTextContainer(container: NSTextContainer)
@@ -49,9 +49,9 @@ class NSLayoutManager : Object, Coding {
   var allowsNonContiguousLayout: Bool
   @available(tvOS 7.0, *)
   var hasNonContiguousLayout: Bool { get }
-  func invalidateGlyphs(forCharacterRange charRange: NSRange, changeInLength delta: Int, actualCharacterRange actualCharRange: RangePointer)
+  func invalidateGlyphs(forCharacterRange charRange: NSRange, changeInLength delta: Int, actualCharacterRange actualCharRange: NSRangePointer)
   @available(tvOS 7.0, *)
-  func invalidateLayout(forCharacterRange charRange: NSRange, actualCharacterRange actualCharRange: RangePointer)
+  func invalidateLayout(forCharacterRange charRange: NSRange, actualCharacterRange actualCharRange: NSRangePointer)
   func invalidateDisplay(forCharacterRange charRange: NSRange)
   func invalidateDisplay(forGlyphRange glyphRange: NSRange)
   @available(tvOS 7.0, *)
@@ -84,16 +84,16 @@ class NSLayoutManager : Object, Coding {
   func getFirstUnlaidCharacterIndex(charIndex: UnsafeMutablePointer<Int>, glyphIndex: UnsafeMutablePointer<Int>)
   func firstUnlaidCharacterIndex() -> Int
   func firstUnlaidGlyphIndex() -> Int
-  func textContainerForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer) -> NSTextContainer?
+  func textContainerForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer) -> NSTextContainer?
   @available(tvOS 9.0, *)
-  func textContainerForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer, withoutAdditionalLayout flag: Bool) -> NSTextContainer?
+  func textContainerForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer, withoutAdditionalLayout flag: Bool) -> NSTextContainer?
   func usedRect(for container: NSTextContainer) -> CGRect
-  func lineFragmentRectForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer) -> CGRect
+  func lineFragmentRectForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer) -> CGRect
   @available(tvOS 9.0, *)
-  func lineFragmentRectForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer, withoutAdditionalLayout flag: Bool) -> CGRect
-  func lineFragmentUsedRectForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer) -> CGRect
+  func lineFragmentRectForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer, withoutAdditionalLayout flag: Bool) -> CGRect
+  func lineFragmentUsedRectForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer) -> CGRect
   @available(tvOS 9.0, *)
-  func lineFragmentUsedRectForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: RangePointer, withoutAdditionalLayout flag: Bool) -> CGRect
+  func lineFragmentUsedRectForGlyph(at glyphIndex: Int, effectiveRange effectiveGlyphRange: NSRangePointer, withoutAdditionalLayout flag: Bool) -> CGRect
   var extraLineFragmentRect: CGRect { get }
   var extraLineFragmentUsedRect: CGRect { get }
   var extraLineFragmentTextContainer: NSTextContainer? { get }
@@ -103,8 +103,8 @@ class NSLayoutManager : Object, Coding {
   func attachmentSizeForGlyph(at glyphIndex: Int) -> CGSize
   @available(tvOS 7.0, *)
   func truncatedGlyphRangeInLineFragmentForGlyph(at glyphIndex: Int) -> NSRange
-  func glyphRange(forCharacterRange charRange: NSRange, actualCharacterRange actualCharRange: RangePointer) -> NSRange
-  func characterRange(forGlyphRange glyphRange: NSRange, actualGlyphRange: RangePointer) -> NSRange
+  func glyphRange(forCharacterRange charRange: NSRange, actualCharacterRange actualCharRange: NSRangePointer) -> NSRange
+  func characterRange(forGlyphRange glyphRange: NSRange, actualGlyphRange: NSRangePointer) -> NSRange
   func glyphRange(for container: NSTextContainer) -> NSRange
   func rangeOf(nominallySpacedGlyphsContaining glyphIndex: Int) -> NSRange
   func boundingRect(forGlyphRange glyphRange: NSRange, in container: NSTextContainer) -> CGRect
@@ -130,9 +130,9 @@ class NSLayoutManager : Object, Coding {
   func drawStrikethrough(forGlyphRange glyphRange: NSRange, strikethroughType strikethroughVal: NSUnderlineStyle, baselineOffset: CGFloat, lineFragmentRect lineRect: CGRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: CGPoint)
   func strikethroughGlyphRange(glyphRange: NSRange, strikethroughType strikethroughVal: NSUnderlineStyle, lineFragmentRect lineRect: CGRect, lineFragmentGlyphRange lineGlyphRange: NSRange, containerOrigin: CGPoint)
   @available(tvOS 7.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }
-protocol NSLayoutManagerDelegate : ObjectProtocol {
+protocol NSLayoutManagerDelegate : NSObjectProtocol {
   @available(tvOS 7.0, *)
   optional func layoutManager(layoutManager: NSLayoutManager, shouldGenerateGlyphs glyphs: UnsafePointer<CGGlyph>, properties props: UnsafePointer<NSGlyphProperty>, characterIndexes charIndexes: UnsafePointer<Int>, font aFont: UIFont, forGlyphRange glyphRange: NSRange) -> Int
   @available(tvOS 7.0, *)

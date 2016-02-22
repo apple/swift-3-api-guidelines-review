@@ -18,7 +18,7 @@ enum UIScreenOverscanCompensation : Int {
   static var insetApplicationFrame: UIScreenOverscanCompensation { get }
 }
 @available(iOS 2.0, *)
-class UIScreen : Object, UITraitEnvironment {
+class UIScreen : NSObject, UITraitEnvironment {
   @available(iOS 3.2, *)
   class func screens() -> [UIScreen]
   class func main() -> UIScreen

@@ -12,16 +12,16 @@ let SCNPhysicsTestSearchModeClosest: String
 @available(tvOS 8.0, *)
 let SCNPhysicsTestSearchModeAll: String
 @available(tvOS 8.0, *)
-protocol SCNPhysicsContactDelegate : ObjectProtocol {
+protocol SCNPhysicsContactDelegate : NSObjectProtocol {
   optional func physicsWorld(world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact)
   optional func physicsWorld(world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact)
   optional func physicsWorld(world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact)
 }
 @available(tvOS 8.0, *)
-class SCNPhysicsWorld : Object, SecureCoding {
+class SCNPhysicsWorld : NSObject, NSSecureCoding {
   var gravity: SCNVector3
   var speed: CGFloat
-  var timeStep: TimeInterval
+  var timeStep: NSTimeInterval
   unowned(unsafe) var contactDelegate: @sil_unmanaged SCNPhysicsContactDelegate?
   func add(behavior: SCNPhysicsBehavior)
   func remove(behavior: SCNPhysicsBehavior)
@@ -36,6 +36,6 @@ class SCNPhysicsWorld : Object, SecureCoding {
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

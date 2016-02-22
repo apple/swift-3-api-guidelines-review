@@ -6,7 +6,7 @@ class AMShellScriptAction : AMBundleAction {
   var outputFieldSeparator: String { get }
   init?(definition dict: [String : AnyObject], fromArchive archived: Bool)
   @available(OSX 10.5, *)
-  init(contentsOf fileURL: URL) throws
+  init(contentsOf fileURL: NSURL) throws
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

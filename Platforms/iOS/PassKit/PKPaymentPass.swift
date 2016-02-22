@@ -16,6 +16,6 @@ class PKPaymentPass : PKPass {
   var deviceAccountIdentifier: String { get }
   var deviceAccountNumberSuffix: String { get }
   var activationState: PKPaymentPassActivationState { get }
-  init(data: Data, error: ErrorPointer)
+  init(data: NSData, error: NSErrorPointer)
   init()
 }

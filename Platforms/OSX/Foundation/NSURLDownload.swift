@@ -1,30 +1,30 @@
 
-class URLDownload : Object {
+class NSURLDownload : NSObject {
   class func canResumeDownloadDecoded(withEncodingMIMEType MIMEType: String) -> Bool
   @available(OSX, introduced=10.3, deprecated=10.11, message="Use NSURLSession downloadTask (see NSURLSession.h)")
-  init(request: URLRequest, delegate: URLDownloadDelegate?)
+  init(request: NSURLRequest, delegate: NSURLDownloadDelegate?)
   @available(OSX, introduced=10.3, deprecated=10.11, message="Use NSURLSession downloadTask (see NSURLSession.h)")
-  init(resumeData: Data, delegate: URLDownloadDelegate?, path: String)
+  init(resumeData: NSData, delegate: NSURLDownloadDelegate?, path: String)
   func cancel()
   func setDestination(path: String, allowOverwrite: Bool)
-  @NSCopying var request: URLRequest { get }
-  @NSCopying var resumeData: Data? { get }
+  @NSCopying var request: NSURLRequest { get }
+  @NSCopying var resumeData: NSData? { get }
   var deletesFileUponFailure: Bool
   init()
 }
-protocol URLDownloadDelegate : ObjectProtocol {
-  optional func downloadDidBegin(download: URLDownload)
-  optional func download(download: URLDownload, willSend request: URLRequest, redirectResponse: URLResponse?) -> URLRequest?
-  optional func download(connection: URLDownload, canAuthenticateAgainstProtectionSpace protectionSpace: URLProtectionSpace) -> Bool
-  optional func download(download: URLDownload, didReceive challenge: URLAuthenticationChallenge)
-  optional func download(download: URLDownload, didCancel challenge: URLAuthenticationChallenge)
-  optional func downloadShouldUseCredentialStorage(download: URLDownload) -> Bool
-  optional func download(download: URLDownload, didReceive response: URLResponse)
-  optional func download(download: URLDownload, willResumeWith response: URLResponse, fromByte startingByte: Int64)
-  optional func download(download: URLDownload, didReceiveDataOfLength length: Int)
-  optional func download(download: URLDownload, shouldDecodeSourceDataOfMIMEType encodingType: String) -> Bool
-  optional func download(download: URLDownload, decideDestinationWithSuggestedFilename filename: String)
-  optional func download(download: URLDownload, didCreateDestination path: String)
-  optional func downloadDidFinish(download: URLDownload)
-  optional func download(download: URLDownload, didFailWithError error: Error)
+protocol NSURLDownloadDelegate : NSObjectProtocol {
+  optional func downloadDidBegin(download: NSURLDownload)
+  optional func download(download: NSURLDownload, willSend request: NSURLRequest, redirectResponse: NSURLResponse?) -> NSURLRequest?
+  optional func download(connection: NSURLDownload, canAuthenticateAgainstProtectionSpace protectionSpace: NSURLProtectionSpace) -> Bool
+  optional func download(download: NSURLDownload, didReceive challenge: NSURLAuthenticationChallenge)
+  optional func download(download: NSURLDownload, didCancel challenge: NSURLAuthenticationChallenge)
+  optional func downloadShouldUseCredentialStorage(download: NSURLDownload) -> Bool
+  optional func download(download: NSURLDownload, didReceive response: NSURLResponse)
+  optional func download(download: NSURLDownload, willResumeWith response: NSURLResponse, fromByte startingByte: Int64)
+  optional func download(download: NSURLDownload, didReceiveDataOfLength length: Int)
+  optional func download(download: NSURLDownload, shouldDecodeSourceDataOfMIMEType encodingType: String) -> Bool
+  optional func download(download: NSURLDownload, decideDestinationWithSuggestedFilename filename: String)
+  optional func download(download: NSURLDownload, didCreateDestination path: String)
+  optional func downloadDidFinish(download: NSURLDownload)
+  optional func download(download: NSURLDownload, didFailWithError error: NSError)
 }

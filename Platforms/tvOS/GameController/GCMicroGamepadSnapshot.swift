@@ -1,9 +1,9 @@
 
 @available(tvOS 7.0, *)
 class GCMicroGamepadSnapshot : GCMicroGamepad {
-  @NSCopying var snapshotData: Data
-  init(snapshotData data: Data)
-  init(controller: GCController, snapshotData data: Data)
+  @NSCopying var snapshotData: NSData
+  init(snapshotData data: NSData)
+  init(controller: GCController, snapshotData data: NSData)
   init()
 }
 struct GCMicroGamepadSnapShotDataV100 {
@@ -17,6 +17,6 @@ struct GCMicroGamepadSnapShotDataV100 {
   init(version: UInt16, size: UInt16, dpadX: Float, dpadY: Float, buttonA: Float, buttonX: Float)
 }
 @available(tvOS 7.0, *)
-func GCMicroGamepadSnapShotDataV100FromNSData(snapshotData: UnsafeMutablePointer<GCMicroGamepadSnapShotDataV100>, _ data: Data?) -> Bool
+func GCMicroGamepadSnapShotDataV100FromNSData(snapshotData: UnsafeMutablePointer<GCMicroGamepadSnapShotDataV100>, _ data: NSData?) -> Bool
 @available(tvOS 7.0, *)
-func NSDataFromGCMicroGamepadSnapShotDataV100(snapshotData: UnsafeMutablePointer<GCMicroGamepadSnapShotDataV100>) -> Data?
+func NSDataFromGCMicroGamepadSnapShotDataV100(snapshotData: UnsafeMutablePointer<GCMicroGamepadSnapShotDataV100>) -> NSData?

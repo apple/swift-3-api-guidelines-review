@@ -1,6 +1,6 @@
 
 @available(iOS 2.0, *)
-class UISwitch : UIControl, Coding {
+class UISwitch : UIControl, NSCoding {
   @available(iOS 5.0, *)
   var onTintColor: UIColor?
   @available(iOS 6.0, *)
@@ -13,7 +13,7 @@ class UISwitch : UIControl, Coding {
   var offImage: UIImage?
   var isOn: Bool
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   func setOn(on: Bool, animated: Bool)
   convenience init()
 }

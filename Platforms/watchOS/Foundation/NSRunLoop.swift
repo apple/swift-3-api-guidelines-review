@@ -1,34 +1,34 @@
 
-let defaultRunLoopMode: String
+let NSDefaultRunLoopMode: String
 @available(watchOS 2.0, *)
-let runLoopCommonModes: String
-class RunLoop : Object {
-  class func current() -> RunLoop
+let NSRunLoopCommonModes: String
+class NSRunLoop : NSObject {
+  class func current() -> NSRunLoop
   @available(watchOS 2.0, *)
-  class func main() -> RunLoop
+  class func main() -> NSRunLoop
   var currentMode: String? { get }
   func getCFRunLoop() -> CFRunLoop
-  func add(timer: Timer, forMode mode: String)
-  func add(aPort: Port, forMode mode: String)
-  func remove(aPort: Port, forMode mode: String)
-  func limitDate(forMode mode: String) -> Date?
-  func acceptInput(forMode mode: String, before limitDate: Date)
+  func add(timer: NSTimer, forMode mode: String)
+  func add(aPort: NSPort, forMode mode: String)
+  func remove(aPort: NSPort, forMode mode: String)
+  func limitDate(forMode mode: String) -> NSDate?
+  func acceptInput(forMode mode: String, before limitDate: NSDate)
   init()
 }
-extension RunLoop {
+extension NSRunLoop {
   func run()
-  func run(until limitDate: Date)
-  func runMode(mode: String, before limitDate: Date) -> Bool
+  func run(until limitDate: NSDate)
+  func runMode(mode: String, before limitDate: NSDate) -> Bool
 }
-extension Object {
-  class func perform(aSelector: Selector, with anArgument: AnyObject?, afterDelay delay: TimeInterval, inModes modes: [String])
-  func perform(aSelector: Selector, with anArgument: AnyObject?, afterDelay delay: TimeInterval, inModes modes: [String])
-  class func perform(aSelector: Selector, with anArgument: AnyObject?, afterDelay delay: TimeInterval)
-  func perform(aSelector: Selector, with anArgument: AnyObject?, afterDelay delay: TimeInterval)
+extension NSObject {
+  class func perform(aSelector: Selector, with anArgument: AnyObject?, afterDelay delay: NSTimeInterval, inModes modes: [String])
+  func perform(aSelector: Selector, with anArgument: AnyObject?, afterDelay delay: NSTimeInterval, inModes modes: [String])
+  class func perform(aSelector: Selector, with anArgument: AnyObject?, afterDelay delay: NSTimeInterval)
+  func perform(aSelector: Selector, with anArgument: AnyObject?, afterDelay delay: NSTimeInterval)
   class func cancelPreviousPerformRequests(target aTarget: AnyObject, selector aSelector: Selector, object anArgument: AnyObject?)
   class func cancelPreviousPerformRequests(target aTarget: AnyObject)
 }
-extension RunLoop {
+extension NSRunLoop {
   func perform(aSelector: Selector, target: AnyObject, argument arg: AnyObject?, order: Int, modes: [String])
   func cancelPerform(aSelector: Selector, target: AnyObject, argument arg: AnyObject?)
   func cancelPerformSelectors(target target: AnyObject)

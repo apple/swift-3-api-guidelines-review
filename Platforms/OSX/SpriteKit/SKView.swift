@@ -24,7 +24,7 @@ class SKView : NSView {
   func texture(from node: SKNode, crop: CGRect) -> SKTexture?
   func convert(point: CGPoint, to scene: SKScene) -> CGPoint
   func convert(point: CGPoint, from scene: SKScene) -> CGPoint
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }

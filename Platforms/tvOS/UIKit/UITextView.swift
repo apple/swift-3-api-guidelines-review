@@ -1,5 +1,5 @@
 
-protocol UITextViewDelegate : ObjectProtocol, UIScrollViewDelegate {
+protocol UITextViewDelegate : NSObjectProtocol, UIScrollViewDelegate {
   @available(tvOS 2.0, *)
   optional func textViewShouldBeginEditing(textView: UITextView) -> Bool
   @available(tvOS 2.0, *)
@@ -15,7 +15,7 @@ protocol UITextViewDelegate : ObjectProtocol, UIScrollViewDelegate {
   @available(tvOS 2.0, *)
   optional func textViewDidChangeSelection(textView: UITextView)
   @available(tvOS 7.0, *)
-  optional func textView(textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool
+  optional func textView(textView: UITextView, shouldInteractWith URL: NSURL, in characterRange: NSRange) -> Bool
   @available(tvOS 7.0, *)
   optional func textView(textView: UITextView, shouldInteractWith textAttachment: NSTextAttachment, in characterRange: NSRange) -> Bool
 }
@@ -32,7 +32,7 @@ class UITextView : UIScrollView, UITextInput {
   @available(tvOS 6.0, *)
   var allowsEditingTextAttributes: Bool
   @available(tvOS 6.0, *)
-  @NSCopying var attributedText: AttributedString!
+  @NSCopying var attributedText: NSAttributedString!
   @available(tvOS 6.0, *)
   var typingAttributes: [String : AnyObject]
   func scrollRangeToVisible(range: NSRange)
@@ -42,7 +42,7 @@ class UITextView : UIScrollView, UITextInput {
   var clearsOnInsertion: Bool
   @available(tvOS 7.0, *)
   init(frame: CGRect, textContainer: NSTextContainer?)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   @available(tvOS 7.0, *)
   var textContainer: NSTextContainer { get }
   @available(tvOS 7.0, *)
@@ -64,7 +64,7 @@ class UITextView : UIScrollView, UITextInput {
   @available(tvOS 3.2, *)
   var markedTextRange: UITextRange? { get }
   @available(tvOS 2.0, *)
-  var markedTextStyle: [Object : AnyObject]?
+  var markedTextStyle: [NSObject : AnyObject]?
   @available(tvOS 2.0, *)
   func setMarkedText(markedText: String?, selectedRange: NSRange)
   @available(tvOS 2.0, *)
@@ -80,7 +80,7 @@ class UITextView : UIScrollView, UITextInput {
   @available(tvOS 3.2, *)
   func position(from position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func compare(position: UITextPosition, to other: UITextPosition) -> ComparisonResult
+  func compare(position: UITextPosition, to other: UITextPosition) -> NSComparisonResult
   @available(tvOS 3.2, *)
   func offset(from from: UITextPosition, to toPosition: UITextPosition) -> Int
   @available(tvOS 2.0, *)

@@ -1,10 +1,10 @@
 
 @available(OSX 10.6, *)
-class CWNetwork : Object, Copying, SecureCoding {
+class CWNetwork : NSObject, NSCopying, NSSecureCoding {
   @available(OSX 10.6, *)
   var ssid: String? { get }
   @available(OSX 10.7, *)
-  var ssidData: Data? { get }
+  var ssidData: NSData? { get }
   @available(OSX 10.6, *)
   var bssid: String? { get }
   @available(OSX 10.7, *)
@@ -14,7 +14,7 @@ class CWNetwork : Object, Copying, SecureCoding {
   @available(OSX 10.7, *)
   var noiseMeasurement: Int { get }
   @available(OSX 10.7, *)
-  var informationElementData: Data? { get }
+  var informationElementData: NSData? { get }
   @available(OSX 10.7, *)
   var countryCode: String? { get }
   @available(OSX 10.7, *)
@@ -29,10 +29,10 @@ class CWNetwork : Object, Copying, SecureCoding {
   func supportsPHYMode(phyMode: CWPHYMode) -> Bool
   init()
   @available(OSX 10.6, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.6, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.6, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

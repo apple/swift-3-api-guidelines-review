@@ -57,7 +57,7 @@ class NSScroller : NSControl {
   var scrollerStyle: NSScrollerStyle
   @available(OSX 10.7, *)
   var knobStyle: NSScrollerKnobStyle
-  func rect(for partCode: NSScrollerPart) -> Rect
+  func rect(for partCode: NSScrollerPart) -> NSRect
   func checkSpaceForParts()
   var usableParts: NSUsableScrollerParts { get }
   var arrowsPosition: NSScrollArrowPosition
@@ -65,15 +65,15 @@ class NSScroller : NSControl {
   var controlSize: NSControlSize
   func draw(whichArrow: NSScrollerArrow, highlight flag: Bool)
   func drawKnob()
-  func drawKnobSlot(in slotRect: Rect, highlight flag: Bool)
+  func drawKnobSlot(in slotRect: NSRect, highlight flag: Bool)
   func highlight(flag: Bool)
-  func testPart(thePoint: Point) -> NSScrollerPart
+  func testPart(thePoint: NSPoint) -> NSScrollerPart
   func trackKnob(theEvent: NSEvent)
   func trackScrollButtons(theEvent: NSEvent)
   var hitPart: NSScrollerPart { get }
   var knobProportion: CGFloat
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }
 struct __sFlags2 {

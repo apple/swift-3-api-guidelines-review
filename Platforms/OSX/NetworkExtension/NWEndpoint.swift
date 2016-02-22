@@ -1,5 +1,5 @@
 
 @available(OSX 10.11, *)
-class NWEndpoint : Object {
+class NWEndpoint : NSObject {
   init()
 }

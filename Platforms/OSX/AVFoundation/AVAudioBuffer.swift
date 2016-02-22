@@ -1,14 +1,14 @@
 
 @available(OSX 10.10, *)
-class AVAudioBuffer : Object, Copying, MutableCopying {
+class AVAudioBuffer : NSObject, NSCopying, NSMutableCopying {
   var format: AVAudioFormat { get }
   var audioBufferList: UnsafePointer<AudioBufferList> { get }
   var mutableAudioBufferList: UnsafeMutablePointer<AudioBufferList> { get }
   init()
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.10, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.10, *)
 class AVAudioPCMBuffer : AVAudioBuffer {

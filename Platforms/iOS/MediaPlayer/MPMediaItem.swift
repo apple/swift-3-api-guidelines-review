@@ -54,7 +54,7 @@ class MPMediaItem : MPMediaEntity {
   @available(iOS 8.0, *)
   var composerPersistentID: MPMediaEntityPersistentID { get }
   @available(iOS 7.0, *)
-  var playbackDuration: TimeInterval { get }
+  var playbackDuration: NSTimeInterval { get }
   @available(iOS 7.0, *)
   var albumTrackNumber: Int { get }
   @available(iOS 8.0, *)
@@ -70,13 +70,13 @@ class MPMediaItem : MPMediaEntity {
   @available(iOS 8.0, *)
   var isCompilation: Bool { get }
   @available(iOS 7.0, *)
-  var releaseDate: Date? { get }
+  var releaseDate: NSDate? { get }
   @available(iOS 8.0, *)
   var beatsPerMinute: Int { get }
   @available(iOS 8.0, *)
   var comments: String? { get }
   @available(iOS 8.0, *)
-  var assetURL: URL? { get }
+  var assetURL: NSURL? { get }
   @available(iOS 8.0, *)
   var isCloudItem: Bool { get }
   @available(iOS 9.2, *)
@@ -92,13 +92,13 @@ class MPMediaItem : MPMediaEntity {
   @available(iOS 7.0, *)
   var rating: Int { get }
   @available(iOS 7.0, *)
-  var lastPlayedDate: Date? { get }
+  var lastPlayedDate: NSDate? { get }
   @available(iOS 8.0, *)
   var userGrouping: String? { get }
   @available(iOS 7.0, *)
-  var bookmarkTime: TimeInterval { get }
+  var bookmarkTime: NSTimeInterval { get }
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 4.2, *)
 let MPMediaItemPropertyPersistentID: String
@@ -151,7 +151,7 @@ let MPMediaItemPropertyUserGrouping: String
 @available(iOS 6.0, *)
 let MPMediaItemPropertyBookmarkTime: String
 @available(iOS 3.0, *)
-class MPMediaItemArtwork : Object {
+class MPMediaItemArtwork : NSObject {
   @available(iOS 5.0, *)
   init(image: UIImage)
   func image(with size: CGSize) -> UIImage?

@@ -1,19 +1,19 @@
 
 @available(iOS 8.0, *)
-class CKDatabase : Object {
+class CKDatabase : NSObject {
   func add(operation: CKDatabaseOperation)
 }
 extension CKDatabase {
-  func fetchRecord(recordID: CKRecordID, completionHandler: (CKRecord?, Error?) -> Void)
-  func save(record: CKRecord, completionHandler: (CKRecord?, Error?) -> Void)
-  func deleteRecord(recordID: CKRecordID, completionHandler: (CKRecordID?, Error?) -> Void)
-  func perform(query: CKQuery, inZoneWith zoneID: CKRecordZoneID?, completionHandler: ([CKRecord]?, Error?) -> Void)
-  func fetchAllRecordZones(completionHandler completionHandler: ([CKRecordZone]?, Error?) -> Void)
-  func fetchRecordZone(zoneID: CKRecordZoneID, completionHandler: (CKRecordZone?, Error?) -> Void)
-  func save(zone: CKRecordZone, completionHandler: (CKRecordZone?, Error?) -> Void)
-  func deleteRecordZone(zoneID: CKRecordZoneID, completionHandler: (CKRecordZoneID?, Error?) -> Void)
-  func fetchSubscription(id subscriptionID: String, completionHandler: (CKSubscription?, Error?) -> Void)
-  func fetchAllSubscriptions(completionHandler completionHandler: ([CKSubscription]?, Error?) -> Void)
-  func save(subscription: CKSubscription, completionHandler: (CKSubscription?, Error?) -> Void)
-  func deleteSubscription(id subscriptionID: String, completionHandler: (String?, Error?) -> Void)
+  func fetchRecord(recordID: CKRecordID, completionHandler: (CKRecord?, NSError?) -> Void)
+  func save(record: CKRecord, completionHandler: (CKRecord?, NSError?) -> Void)
+  func deleteRecord(recordID: CKRecordID, completionHandler: (CKRecordID?, NSError?) -> Void)
+  func perform(query: CKQuery, inZoneWith zoneID: CKRecordZoneID?, completionHandler: ([CKRecord]?, NSError?) -> Void)
+  func fetchAllRecordZones(completionHandler completionHandler: ([CKRecordZone]?, NSError?) -> Void)
+  func fetchRecordZone(zoneID: CKRecordZoneID, completionHandler: (CKRecordZone?, NSError?) -> Void)
+  func save(zone: CKRecordZone, completionHandler: (CKRecordZone?, NSError?) -> Void)
+  func deleteRecordZone(zoneID: CKRecordZoneID, completionHandler: (CKRecordZoneID?, NSError?) -> Void)
+  func fetchSubscription(id subscriptionID: String, completionHandler: (CKSubscription?, NSError?) -> Void)
+  func fetchAllSubscriptions(completionHandler completionHandler: ([CKSubscription]?, NSError?) -> Void)
+  func save(subscription: CKSubscription, completionHandler: (CKSubscription?, NSError?) -> Void)
+  func deleteSubscription(id subscriptionID: String, completionHandler: (String?, NSError?) -> Void)
 }

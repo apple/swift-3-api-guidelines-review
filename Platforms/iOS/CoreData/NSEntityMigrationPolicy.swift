@@ -12,7 +12,7 @@ let NSMigrationPropertyMappingKey: String
 @available(iOS 3.0, *)
 let NSMigrationEntityPolicyKey: String
 @available(iOS 3.0, *)
-class NSEntityMigrationPolicy : Object {
+class NSEntityMigrationPolicy : NSObject {
   func begin(mapping: NSEntityMapping, manager: NSMigrationManager) throws
   func createDestinationInstances(forSourceInstance sInstance: NSManagedObject, entityMapping mapping: NSEntityMapping, manager: NSMigrationManager) throws
   func endInstanceCreation(for mapping: NSEntityMapping, manager: NSMigrationManager) throws

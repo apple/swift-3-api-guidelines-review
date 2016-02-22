@@ -9,7 +9,7 @@ enum GKVoiceChatPlayerState : Int {
   case connecting
 }
 @available(iOS 4.1, *)
-class GKVoiceChat : Object {
+class GKVoiceChat : NSObject {
   func start()
   func stop()
   @available(iOS 8.0, *)

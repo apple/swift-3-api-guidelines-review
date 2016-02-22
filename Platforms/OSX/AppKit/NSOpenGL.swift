@@ -50,7 +50,7 @@ var NSOpenGLProfileVersionLegacy: Int { get }
 var NSOpenGLProfileVersion3_2Core: Int { get }
 @available(OSX 10.10, *)
 var NSOpenGLProfileVersion4_1Core: Int { get }
-class NSOpenGLPixelFormat : Object, Coding {
+class NSOpenGLPixelFormat : NSObject, NSCoding {
   init?(attributes attribs: UnsafePointer<NSOpenGLPixelFormatAttribute>)
   @available(OSX 10.6, *)
   init?(cglPixelFormatObj format: COpaquePointer)
@@ -58,8 +58,8 @@ class NSOpenGLPixelFormat : Object, Coding {
   var numberOfVirtualScreens: GLint { get }
   var cglPixelFormatObj: COpaquePointer { get }
   init()
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 enum NSOpenGLContextParameter : Int {
   init?(rawValue: Int)
@@ -81,7 +81,7 @@ enum NSOpenGLContextParameter : Int {
   case glcpSurfaceSurfaceVolatile
 }
 typealias NSOpenGLContextAuxiliary = _CGLContextObject
-class NSOpenGLContext : Object, Locking {
+class NSOpenGLContext : NSObject, NSLocking {
   init?(format: NSOpenGLPixelFormat, share: NSOpenGLContext?)
   @available(OSX 10.6, *)
   init?(cglContextObj context: UnsafeMutablePointer<_CGLContextObject>)

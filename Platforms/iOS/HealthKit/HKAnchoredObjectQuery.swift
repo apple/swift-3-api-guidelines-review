@@ -1,22 +1,22 @@
 
 var HKAnchoredObjectQueryNoAnchor: Int32 { get }
 @available(iOS 9.0, *)
-class HKQueryAnchor : Object, SecureCoding, Copying {
+class HKQueryAnchor : NSObject, NSSecureCoding, NSCopying {
   convenience init(fromValue value: Int)
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class HKAnchoredObjectQuery : HKQuery {
   @available(iOS 9.0, *)
-  var updateHandler: ((HKAnchoredObjectQuery, [HKSample]?, [HKDeletedObject]?, HKQueryAnchor?, Error?) -> Void)?
+  var updateHandler: ((HKAnchoredObjectQuery, [HKSample]?, [HKDeletedObject]?, HKQueryAnchor?, NSError?) -> Void)?
   @available(iOS, introduced=8.0, deprecated=9.0)
-  init(type: HKSampleType, predicate: Predicate?, anchor: Int, limit: Int, completionHandler handler: (HKAnchoredObjectQuery, [HKSample]?, Int, Error?) -> Void)
+  init(type: HKSampleType, predicate: NSPredicate?, anchor: Int, limit: Int, completionHandler handler: (HKAnchoredObjectQuery, [HKSample]?, Int, NSError?) -> Void)
   @available(iOS 9.0, *)
-  init(type: HKSampleType, predicate: Predicate?, anchor: HKQueryAnchor?, limit: Int, resultsHandler handler: (HKAnchoredObjectQuery, [HKSample]?, [HKDeletedObject]?, HKQueryAnchor?, Error?) -> Void)
+  init(type: HKSampleType, predicate: NSPredicate?, anchor: HKQueryAnchor?, limit: Int, resultsHandler handler: (HKAnchoredObjectQuery, [HKSample]?, [HKDeletedObject]?, HKQueryAnchor?, NSError?) -> Void)
 }

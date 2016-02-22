@@ -20,7 +20,7 @@ enum NEOnDemandRuleInterfaceType : Int {
   case cellular
 }
 @available(iOS 8.0, *)
-class NEOnDemandRule : Object, SecureCoding, Copying {
+class NEOnDemandRule : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 8.0, *)
   var action: NEOnDemandRuleAction { get }
   @available(iOS 8.0, *)
@@ -32,37 +32,37 @@ class NEOnDemandRule : Object, SecureCoding, Copying {
   @available(iOS 8.0, *)
   var ssidMatch: [String]?
   @available(iOS 8.0, *)
-  @NSCopying var probeURL: URL?
+  @NSCopying var probeURL: NSURL?
   init()
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class NEOnDemandRuleConnect : NEOnDemandRule {
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class NEOnDemandRuleDisconnect : NEOnDemandRule {
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class NEOnDemandRuleIgnore : NEOnDemandRule {
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class NEOnDemandRuleEvaluateConnection : NEOnDemandRule {
   @available(iOS 8.0, *)
   var connectionRules: [NEEvaluateConnectionRule]?
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 enum NEEvaluateConnectionRuleAction : Int {
@@ -72,7 +72,7 @@ enum NEEvaluateConnectionRuleAction : Int {
   case neverConnect
 }
 @available(iOS 8.0, *)
-class NEEvaluateConnectionRule : Object, SecureCoding, Copying {
+class NEEvaluateConnectionRule : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 8.0, *)
   init(matchDomains domains: [String], andAction action: NEEvaluateConnectionRuleAction)
   @available(iOS 8.0, *)
@@ -82,13 +82,13 @@ class NEEvaluateConnectionRule : Object, SecureCoding, Copying {
   @available(iOS 8.0, *)
   var useDNSServers: [String]?
   @available(iOS 8.0, *)
-  @NSCopying var probeURL: URL?
+  @NSCopying var probeURL: NSURL?
   init()
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

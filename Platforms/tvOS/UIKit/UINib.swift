@@ -1,8 +1,8 @@
 
 @available(tvOS 4.0, *)
-class UINib : Object {
-  /*not inherited*/ init(nibName name: String, bundle bundleOrNil: Bundle?)
-  /*not inherited*/ init(data: Data, bundle bundleOrNil: Bundle?)
-  func instantiate(withOwner ownerOrNil: AnyObject?, options optionsOrNil: [Object : AnyObject]? = [:]) -> [AnyObject]
+class UINib : NSObject {
+  /*not inherited*/ init(nibName name: String, bundle bundleOrNil: NSBundle?)
+  /*not inherited*/ init(data: NSData, bundle bundleOrNil: NSBundle?)
+  func instantiate(withOwner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = [:]) -> [AnyObject]
   init()
 }

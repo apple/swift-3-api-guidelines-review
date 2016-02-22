@@ -1,9 +1,9 @@
 
-class DRTrack : Object {
+class DRTrack : NSObject {
   init!(producer: AnyObject!)
-  func properties() -> [Object : AnyObject]!
-  func setProperties(properties: [Object : AnyObject]!)
-  func testProductionSpeed(forInterval interval: TimeInterval) -> Float
+  func properties() -> [NSObject : AnyObject]!
+  func setProperties(properties: [NSObject : AnyObject]!)
+  func testProductionSpeed(forInterval interval: NSTimeInterval) -> Float
   func testProductionSpeed(forLength length: UInt32) -> Float
   func estimateLength() -> UInt64
   init()
@@ -16,7 +16,7 @@ extension DRTrack {
 protocol DRTrackDataProduction {
   func estimateLengthOf(track: DRTrack!) -> UInt64
   @available(OSX 10.0, *)
-  func prepare(track: DRTrack!, for burn: DRBurn!, toMedia mediaInfo: [Object : AnyObject]!) -> Bool
+  func prepare(track: DRTrack!, for burn: DRBurn!, toMedia mediaInfo: [NSObject : AnyObject]!) -> Bool
   func cleanupTrack(afterBurn track: DRTrack!)
   func producePreGap(for track: DRTrack!, intoBuffer buffer: UnsafeMutablePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> UInt32
   func produceData(for track: DRTrack!, intoBuffer buffer: UnsafeMutablePointer<Int8>, length bufferLength: UInt32, atAddress address: UInt64, blockSize: UInt32, ioFlags flags: UnsafeMutablePointer<UInt32>) -> UInt32

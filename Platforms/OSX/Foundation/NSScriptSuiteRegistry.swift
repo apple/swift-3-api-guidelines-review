@@ -1,19 +1,19 @@
 
-class ScriptSuiteRegistry : Object {
-  class func shared() -> ScriptSuiteRegistry
-  class func setSharedScriptSuiteRegistry(registry: ScriptSuiteRegistry)
-  func loadSuites(from bundle: Bundle)
-  func loadSuite(suiteDeclaration: [Object : AnyObject], from bundle: Bundle)
-  func register(classDescription: ScriptClassDescription)
-  func register(commandDescription: ScriptCommandDescription)
+class NSScriptSuiteRegistry : NSObject {
+  class func shared() -> NSScriptSuiteRegistry
+  class func setSharedScriptSuiteRegistry(registry: NSScriptSuiteRegistry)
+  func loadSuites(from bundle: NSBundle)
+  func loadSuite(suiteDeclaration: [NSObject : AnyObject], from bundle: NSBundle)
+  func register(classDescription: NSScriptClassDescription)
+  func register(commandDescription: NSScriptCommandDescription)
   var suiteNames: [String] { get }
   func appleEventCode(forSuite suiteName: String) -> FourCharCode
-  func bundle(forSuite suiteName: String) -> Bundle?
-  func classDescriptions(inSuite suiteName: String) -> [String : ScriptClassDescription]?
-  func commandDescriptions(inSuite suiteName: String) -> [String : ScriptCommandDescription]?
+  func bundle(forSuite suiteName: String) -> NSBundle?
+  func classDescriptions(inSuite suiteName: String) -> [String : NSScriptClassDescription]?
+  func commandDescriptions(inSuite suiteName: String) -> [String : NSScriptCommandDescription]?
   func suite(forAppleEventCode appleEventCode: FourCharCode) -> String?
-  func classDescription(withAppleEventCode appleEventCode: FourCharCode) -> ScriptClassDescription?
-  func commandDescription(appleEventClass appleEventClassCode: FourCharCode, andAppleEventCode appleEventIDCode: FourCharCode) -> ScriptCommandDescription?
-  func aeteResource(languageName: String) -> Data?
+  func classDescription(withAppleEventCode appleEventCode: FourCharCode) -> NSScriptClassDescription?
+  func commandDescription(appleEventClass appleEventClassCode: FourCharCode, andAppleEventCode appleEventIDCode: FourCharCode) -> NSScriptCommandDescription?
+  func aeteResource(languageName: String) -> NSData?
   init()
 }

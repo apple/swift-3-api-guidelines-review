@@ -4,9 +4,9 @@ class NEFilterDataProvider : NEFilterProvider {
   @available(iOS 9.0, *)
   func handleNewFlow(flow: NEFilterFlow) -> NEFilterNewFlowVerdict
   @available(iOS 9.0, *)
-  func handleInboundData(from flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes: Data) -> NEFilterDataVerdict
+  func handleInboundData(from flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes: NSData) -> NEFilterDataVerdict
   @available(iOS 9.0, *)
-  func handleOutboundData(from flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes: Data) -> NEFilterDataVerdict
+  func handleOutboundData(from flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes: NSData) -> NEFilterDataVerdict
   @available(iOS 9.0, *)
   func handleInboundDataComplete(for flow: NEFilterFlow) -> NEFilterDataVerdict
   @available(iOS 9.0, *)
@@ -18,7 +18,7 @@ class NEFilterDataProvider : NEFilterProvider {
   init()
 }
 @available(iOS 9.0, *)
-class NEFilterDataVerdict : NEFilterVerdict, SecureCoding, Copying {
+class NEFilterDataVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func allow() -> NEFilterDataVerdict
   @available(iOS 9.0, *)
@@ -30,10 +30,10 @@ class NEFilterDataVerdict : NEFilterVerdict, SecureCoding, Copying {
   @available(iOS 9.0, *)
   class func needRules() -> NEFilterDataVerdict
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 9.0, *)
-class NEFilterRemediationVerdict : NEFilterVerdict, SecureCoding, Copying {
+class NEFilterRemediationVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func allow() -> NEFilterRemediationVerdict
   @available(iOS 9.0, *)
@@ -41,5 +41,5 @@ class NEFilterRemediationVerdict : NEFilterVerdict, SecureCoding, Copying {
   @available(iOS 9.0, *)
   class func needRules() -> NEFilterRemediationVerdict
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

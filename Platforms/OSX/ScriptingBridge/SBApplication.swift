@@ -1,8 +1,8 @@
 
 @available(OSX 10.5, *)
-class SBApplication : SBObject, Coding {
+class SBApplication : SBObject, NSCoding {
   init?(bundleIdentifier ident: String)
-  init?(url: URL)
+  init?(url: NSURL)
   init?(processIdentifier pid: pid_t)
   func classForScriptingClass(className: String) -> AnyClass?
   var isRunning: Bool { get }
@@ -12,11 +12,11 @@ class SBApplication : SBObject, Coding {
   var sendMode: AESendMode
   var timeout: Int
   init()
-  init(properties: [Object : AnyObject])
+  init(properties: [NSObject : AnyObject])
   init(data: AnyObject)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   init(elementCode code: DescType, properties: [String : AnyObject]?, data: AnyObject?)
 }
 protocol SBApplicationDelegate {
-  func eventDidFail(event: UnsafePointer<AppleEvent>, withError error: Error) -> AnyObject
+  func eventDidFail(event: UnsafePointer<AppleEvent>, withError error: NSError) -> AnyObject
 }

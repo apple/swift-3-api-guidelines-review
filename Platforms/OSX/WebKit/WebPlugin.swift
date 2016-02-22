@@ -1,5 +1,5 @@
 
-extension Object {
+extension NSObject {
   class func webPlugInInitialize()
   func webPlugInInitialize()
   class func webPlugInStart()
@@ -12,17 +12,17 @@ extension Object {
   func webPlug(inSetIsSelected isSelected: Bool)
   var objectForWebScript: AnyObject! { get }
   @available(OSX 10.6, *)
-  class func webPlug(inMainResourceDidReceive response: URLResponse!)
+  class func webPlug(inMainResourceDidReceive response: NSURLResponse!)
   @available(OSX 10.6, *)
-  func webPlug(inMainResourceDidReceive response: URLResponse!)
+  func webPlug(inMainResourceDidReceive response: NSURLResponse!)
   @available(OSX 10.6, *)
-  class func webPlug(inMainResourceDidReceive data: Data!)
+  class func webPlug(inMainResourceDidReceive data: NSData!)
   @available(OSX 10.6, *)
-  func webPlug(inMainResourceDidReceive data: Data!)
+  func webPlug(inMainResourceDidReceive data: NSData!)
   @available(OSX 10.6, *)
-  class func webPlugInMainResourceDidFailWithError(error: Error!)
+  class func webPlugInMainResourceDidFailWithError(error: NSError!)
   @available(OSX 10.6, *)
-  func webPlugInMainResourceDidFailWithError(error: Error!)
+  func webPlugInMainResourceDidFailWithError(error: NSError!)
   @available(OSX 10.6, *)
   class func webPlugInMainResourceDidFinishLoading()
   @available(OSX 10.6, *)

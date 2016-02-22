@@ -1,6 +1,6 @@
 
 @available(iOS 2.0, *)
-class UIResponder : Object {
+class UIResponder : NSObject {
   func next() -> UIResponder?
   func canBecomeFirstResponder() -> Bool
   func becomeFirstResponder() -> Bool
@@ -12,7 +12,7 @@ class UIResponder : Object {
   func touchesEnded(touches: Set<UITouch>, with event: UIEvent?)
   func touchesCancelled(touches: Set<UITouch>?, with event: UIEvent?)
   @available(iOS 9.1, *)
-  func touchesEstimatedPropertiesUpdated(touches: Set<Object>)
+  func touchesEstimatedPropertiesUpdated(touches: Set<NSObject>)
   @available(iOS 9.0, *)
   func pressesBegan(presses: Set<UIPress>, with event: UIPressesEvent?)
   @available(iOS 9.0, *)
@@ -34,7 +34,7 @@ class UIResponder : Object {
   @available(iOS 7.0, *)
   func target(forAction action: Selector, withSender sender: AnyObject?) -> AnyObject?
   @available(iOS 3.0, *)
-  var undoManager: UndoManager? { get }
+  var undoManager: NSUndoManager? { get }
   init()
 }
 @available(iOS 7.0, *)
@@ -49,9 +49,9 @@ struct UIKeyModifierFlags : OptionSetType {
   static var numericPad: UIKeyModifierFlags { get }
 }
 @available(iOS 7.0, *)
-class UIKeyCommand : Object, Copying, SecureCoding {
+class UIKeyCommand : NSObject, NSCopying, NSSecureCoding {
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   var input: String { get }
   var modifierFlags: UIKeyModifierFlags { get }
   @available(iOS 9.0, *)
@@ -60,17 +60,17 @@ class UIKeyCommand : Object, Copying, SecureCoding {
   @available(iOS 9.0, *)
   /*not inherited*/ init(input: String, modifierFlags: UIKeyModifierFlags, action: Selector, discoverabilityTitle: String)
   @available(iOS 7.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 7.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }
 extension UIResponder {
   @available(iOS 7.0, *)
   var keyCommands: [UIKeyCommand]? { get }
 }
-extension Object {
+extension NSObject {
   @available(iOS 3.0, *)
   class func cut(sender: AnyObject?)
   @available(iOS 3.0, *)
@@ -156,9 +156,9 @@ let UIKeyInputRightArrow: String
 let UIKeyInputEscape: String
 extension UIResponder {
   @available(iOS 8.0, *)
-  var userActivity: UserActivity?
+  var userActivity: NSUserActivity?
   @available(iOS 8.0, *)
-  func updateUserActivityState(activity: UserActivity)
+  func updateUserActivityState(activity: NSUserActivity)
   @available(iOS 8.0, *)
-  func restoreUserActivityState(activity: UserActivity)
+  func restoreUserActivityState(activity: NSUserActivity)
 }

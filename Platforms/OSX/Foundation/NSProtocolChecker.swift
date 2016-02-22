@@ -1,8 +1,8 @@
 
-class ProtocolChecker : Proxy {
+class NSProtocolChecker : NSProxy {
   var `protocol`: Protocol { get }
-  var target: Object? { get }
+  var target: NSObject? { get }
 }
-extension ProtocolChecker {
-  init(target anObject: Object, protocol aProtocol: Protocol)
+extension NSProtocolChecker {
+  init(target anObject: NSObject, protocol aProtocol: Protocol)
 }

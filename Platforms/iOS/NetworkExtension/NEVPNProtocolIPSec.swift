@@ -14,11 +14,11 @@ class NEVPNProtocolIPSec : NEVPNProtocol {
   @available(iOS 8.0, *)
   var useExtendedAuthentication: Bool
   @available(iOS 8.0, *)
-  @NSCopying var sharedSecretReference: Data?
+  @NSCopying var sharedSecretReference: NSData?
   @available(iOS 8.0, *)
   var localIdentifier: String?
   @available(iOS 8.0, *)
   var remoteIdentifier: String?
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

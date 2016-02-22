@@ -8,7 +8,7 @@ var ABPropertyReadOnlyError: Int { get }
 let ABAddressBookErrorDomain: String
 @available(OSX 10.7, *)
 let ABMultiValueIdentifiersErrorKey: String
-class ABAddressBook : Object {
+class ABAddressBook : NSObject {
   class func shared() -> ABAddressBook!
   func records(matching search: ABSearchElement!) -> [AnyObject]!
   func save() -> Bool
@@ -29,7 +29,7 @@ class ABAddressBook : Object {
   @available(OSX 10.3, *)
   func recordClass(fromUniqueId uniqueId: String!) -> String!
   @available(OSX 10.3, *)
-  func formattedAddress(from address: [Object : AnyObject]!) -> AttributedString!
+  func formattedAddress(from address: [NSObject : AnyObject]!) -> NSAttributedString!
   @available(OSX 10.3, *)
   func defaultCountryCode() -> String!
   @available(OSX 10.3, *)

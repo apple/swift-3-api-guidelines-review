@@ -6,7 +6,7 @@ struct NSTableColumnResizingOptions : OptionSetType {
   static var autoresizingMask: NSTableColumnResizingOptions { get }
   static var userResizingMask: NSTableColumnResizingOptions { get }
 }
-class NSTableColumn : Object, Coding, NSUserInterfaceItemIdentification {
+class NSTableColumn : NSObject, NSCoding, NSUserInterfaceItemIdentification {
   init(identifier: String)
   var identifier: String
   unowned(unsafe) var tableView: @sil_unmanaged NSTableView?
@@ -17,15 +17,15 @@ class NSTableColumn : Object, Coding, NSUserInterfaceItemIdentification {
   var headerCell: NSTableHeaderCell
   var isEditable: Bool
   func sizeToFit()
-  @NSCopying var sortDescriptorPrototype: SortDescriptor?
+  @NSCopying var sortDescriptorPrototype: NSSortDescriptor?
   var resizingMask: NSTableColumnResizingOptions
   @available(OSX 10.5, *)
   var headerToolTip: String?
   @available(OSX 10.5, *)
   var isHidden: Bool
   convenience init()
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 struct __colFlags {
   var oldIsResizable: UInt32

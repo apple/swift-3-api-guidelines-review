@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
-class HKObject : Object, SecureCoding {
-  var uuid: UUID { get }
+class HKObject : NSObject, NSSecureCoding {
+  var uuid: NSUUID { get }
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use sourceRevision")
   var source: HKSource { get }
   @available(iOS 9.0, *)
@@ -12,8 +12,8 @@ class HKObject : Object, SecureCoding {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 let HKPredicateKeyPathUUID: String

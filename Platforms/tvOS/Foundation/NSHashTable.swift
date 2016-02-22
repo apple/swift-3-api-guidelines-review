@@ -1,44 +1,44 @@
 
 var __FOUNDATION_NSHASHTABLE__: Int32 { get }
 @available(tvOS 6.0, *)
-let hashTableStrongMemory: PointerFunctionsOptions
+let NSHashTableStrongMemory: NSPointerFunctionsOptions
 @available(tvOS 6.0, *)
-let hashTableCopyIn: PointerFunctionsOptions
+let NSHashTableCopyIn: NSPointerFunctionsOptions
 @available(tvOS 6.0, *)
-let hashTableObjectPointerPersonality: PointerFunctionsOptions
+let NSHashTableObjectPointerPersonality: NSPointerFunctionsOptions
 @available(tvOS 6.0, *)
-let hashTableWeakMemory: PointerFunctionsOptions
-typealias HashTableOptions = Int
+let NSHashTableWeakMemory: NSPointerFunctionsOptions
+typealias NSHashTableOptions = Int
 @available(tvOS 6.0, *)
-class HashTable : Object, Copying, Coding, FastEnumeration {
-  init(options: PointerFunctionsOptions = [], capacity initialCapacity: Int)
-  init(pointerFunctions functions: PointerFunctions, capacity initialCapacity: Int)
-  /*not inherited*/ init(options: PointerFunctionsOptions = [])
+class NSHashTable : NSObject, NSCopying, NSCoding, NSFastEnumeration {
+  init(options: NSPointerFunctionsOptions = [], capacity initialCapacity: Int)
+  init(pointerFunctions functions: NSPointerFunctions, capacity initialCapacity: Int)
+  /*not inherited*/ init(options: NSPointerFunctionsOptions = [])
   @available(tvOS 6.0, *)
-  class func weakObjects() -> HashTable
-  @NSCopying var pointerFunctions: PointerFunctions { get }
+  class func weakObjects() -> NSHashTable
+  @NSCopying var pointerFunctions: NSPointerFunctions { get }
   var count: Int { get }
   func member(object: AnyObject?) -> AnyObject?
-  func objectEnumerator() -> Enumerator
+  func objectEnumerator() -> NSEnumerator
   func add(object: AnyObject?)
   func remove(object: AnyObject?)
   func removeAllObjects()
   var allObjects: [AnyObject] { get }
   var anyObject: AnyObject? { get }
   func contains(anObject: AnyObject?) -> Bool
-  func intersects(other: HashTable) -> Bool
-  func isEqual(to other: HashTable) -> Bool
-  func isSubsetOf(other: HashTable) -> Bool
-  func intersect(other: HashTable)
-  func union(other: HashTable)
-  func minus(other: HashTable)
-  var setRepresentation: Set<Object> { get }
+  func intersects(other: NSHashTable) -> Bool
+  func isEqual(to other: NSHashTable) -> Bool
+  func isSubsetOf(other: NSHashTable) -> Bool
+  func intersect(other: NSHashTable)
+  func union(other: NSHashTable)
+  func minus(other: NSHashTable)
+  var setRepresentation: Set<NSObject> { get }
   convenience init()
   @available(tvOS 6.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 6.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(tvOS 6.0, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

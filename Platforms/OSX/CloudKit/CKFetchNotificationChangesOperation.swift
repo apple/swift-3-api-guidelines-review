@@ -6,6 +6,6 @@ class CKFetchNotificationChangesOperation : CKOperation {
   var resultsLimit: Int
   var moreComing: Bool { get }
   var notificationChangedBlock: ((CKNotification) -> Void)?
-  var fetchNotificationChangesCompletionBlock: ((CKServerChangeToken?, Error?) -> Void)?
+  var fetchNotificationChangesCompletionBlock: ((CKServerChangeToken?, NSError?) -> Void)?
   init()
 }

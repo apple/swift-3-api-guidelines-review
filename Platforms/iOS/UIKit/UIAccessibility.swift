@@ -1,5 +1,5 @@
 
-extension Object {
+extension NSObject {
   var isAccessibilityElement: Bool
   var accessibilityLabel: String?
   var accessibilityHint: String?
@@ -52,7 +52,7 @@ extension Object {
 func UIAccessibilityConvertFrameToScreenCoordinates(rect: CGRect, _ view: UIView) -> CGRect
 @available(iOS 7.0, *)
 func UIAccessibilityConvertPathToScreenCoordinates(path: UIBezierPath, _ view: UIView) -> UIBezierPath
-extension Object {
+extension NSObject {
   class func accessibilityElementCount() -> Int
   func accessibilityElementCount() -> Int
   class func accessibilityElement(at index: Int) -> AnyObject?
@@ -64,7 +64,7 @@ extension Object {
   class func accessibilityElements() -> [AnyObject]?
   class func setAccessibilityElements(accessibilityElements: [AnyObject]?)
 }
-extension Object {
+extension NSObject {
   @available(iOS 4.0, *)
   class func accessibilityElementDidBecomeFocused()
   @available(iOS 4.0, *)
@@ -84,7 +84,7 @@ extension Object {
 }
 @available(iOS 9.0, *)
 func UIAccessibilityFocusedElement(assistiveTechnologyIdentifier: String?) -> AnyObject?
-extension Object {
+extension NSObject {
   @available(iOS 7.0, *)
   class func accessibilityActivate() -> Bool
   @available(iOS 7.0, *)

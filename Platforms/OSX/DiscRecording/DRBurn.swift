@@ -1,12 +1,12 @@
 
-class DRBurn : Object {
+class DRBurn : NSObject {
   /*not inherited*/ init!(for device: DRDevice!)
   init!(device: DRDevice!)
   func writeLayout(layout: AnyObject!)
-  func status() -> [Object : AnyObject]!
+  func status() -> [NSObject : AnyObject]!
   func abort()
-  func properties() -> [Object : AnyObject]!
-  func setProperties(properties: [Object : AnyObject]!)
+  func properties() -> [NSObject : AnyObject]!
+  func setProperties(properties: [NSObject : AnyObject]!)
   func device() -> DRDevice!
   init()
 }

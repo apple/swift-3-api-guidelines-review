@@ -1,6 +1,6 @@
 
 @available(iOS 3.0, *)
-class UILocalizedIndexedCollation : Object {
+class UILocalizedIndexedCollation : NSObject {
   class func current() -> Self
   var sectionTitles: [String] { get }
   var sectionIndexTitles: [String] { get }

@@ -1,14 +1,14 @@
 
 @available(iOS 9.0, *)
-class AVMediaSelection : Object, Copying, MutableCopying {
+class AVMediaSelection : NSObject, NSCopying, NSMutableCopying {
   weak var asset: @sil_weak AVAsset? { get }
   func selectedMediaOption(in mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
   func mediaSelectionCriteriaCanBeAppliedAutomatically(to mediaSelectionGroup: AVMediaSelectionGroup) -> Bool
   init()
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 9.0, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class AVMutableMediaSelection : AVMediaSelection {

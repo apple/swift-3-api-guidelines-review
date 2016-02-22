@@ -13,7 +13,7 @@ enum UIMenuControllerArrowDirection : Int {
   case right
 }
 @available(iOS 3.0, *)
-class UIMenuController : Object {
+class UIMenuController : NSObject {
   class func shared() -> UIMenuController
   var isMenuVisible: Bool
   func setMenuVisible(menuVisible: Bool, animated: Bool)
@@ -32,7 +32,7 @@ let UIMenuControllerWillHideMenuNotification: String
 let UIMenuControllerDidHideMenuNotification: String
 let UIMenuControllerMenuFrameDidChangeNotification: String
 @available(iOS 3.2, *)
-class UIMenuItem : Object {
+class UIMenuItem : NSObject {
   init(title: String, action: Selector)
   var title: String
   var action: Selector

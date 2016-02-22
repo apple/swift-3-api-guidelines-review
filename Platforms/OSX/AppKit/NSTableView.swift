@@ -84,8 +84,8 @@ enum NSTableRowActionEdge : Int {
   case trailing
 }
 class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, NSDraggingSource, NSAccessibilityTable {
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   func setDataSource(aSource: NSTableViewDataSource?)
   func dataSource() -> NSTableViewDataSource?
   func setDelegate(delegate: NSTableViewDelegate?)
@@ -96,7 +96,7 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   var allowsColumnResizing: Bool
   var columnAutoresizingStyle: NSTableViewColumnAutoresizingStyle
   var gridStyleMask: NSTableViewGridLineStyle
-  var intercellSpacing: Size
+  var intercellSpacing: NSSize
   var usesAlternatingRowBackgroundColors: Bool
   @NSCopying var backgroundColor: NSColor
   @NSCopying var gridColor: NSColor
@@ -105,7 +105,7 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   @available(OSX 10.7, *)
   var effectiveRowSizeStyle: NSTableViewRowSizeStyle { get }
   var rowHeight: CGFloat
-  func noteHeightOfRows(withIndexesChanged indexSet: IndexSet)
+  func noteHeightOfRows(withIndexesChanged indexSet: NSIndexSet)
   var tableColumns: [NSTableColumn] { get }
   var numberOfColumns: Int { get }
   var numberOfRows: Int { get }
@@ -122,19 +122,19 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   func reloadData()
   func noteNumberOfRowsChanged()
   @available(OSX 10.6, *)
-  func reloadData(forRowIndexes rowIndexes: IndexSet, columnIndexes: IndexSet)
+  func reloadData(forRowIndexes rowIndexes: NSIndexSet, columnIndexes: NSIndexSet)
   var editedColumn: Int { get }
   var editedRow: Int { get }
   var clickedColumn: Int { get }
   var clickedRow: Int { get }
   var doubleAction: Selector
-  var sortDescriptors: [SortDescriptor]
+  var sortDescriptors: [NSSortDescriptor]
   func setIndicatorImage(anImage: NSImage?, in tableColumn: NSTableColumn)
   func indicatorImage(in tableColumn: NSTableColumn) -> NSImage?
   unowned(unsafe) var highlightedTableColumn: @sil_unmanaged NSTableColumn?
   var verticalMotionCanBeginDrag: Bool
-  func canDragRows(with rowIndexes: IndexSet, at mouseDownPoint: Point) -> Bool
-  func dragImageForRows(dragRows: IndexSet, tableColumns: [NSTableColumn], event dragEvent: NSEvent, offset dragImageOffset: PointPointer) -> NSImage
+  func canDragRows(with rowIndexes: NSIndexSet, at mouseDownPoint: NSPoint) -> Bool
+  func dragImageForRows(dragRows: NSIndexSet, tableColumns: [NSTableColumn], event dragEvent: NSEvent, offset dragImageOffset: NSPointPointer) -> NSImage
   func setDraggingSourceOperationMask(mask: NSDragOperation, forLocal isLocal: Bool)
   func setDropRow(row: Int, dropOperation: NSTableViewDropOperation)
   var allowsMultipleSelection: Bool
@@ -142,10 +142,10 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   var allowsColumnSelection: Bool
   func selectAll(sender: AnyObject?)
   func deselectAll(sender: AnyObject?)
-  func selectColumnIndexes(indexes: IndexSet, byExtendingSelection extend: Bool)
-  func selectRowIndexes(indexes: IndexSet, byExtendingSelection extend: Bool)
-  @NSCopying var selectedColumnIndexes: IndexSet { get }
-  @NSCopying var selectedRowIndexes: IndexSet { get }
+  func selectColumnIndexes(indexes: NSIndexSet, byExtendingSelection extend: Bool)
+  func selectRowIndexes(indexes: NSIndexSet, byExtendingSelection extend: Bool)
+  @NSCopying var selectedColumnIndexes: NSIndexSet { get }
+  @NSCopying var selectedRowIndexes: NSIndexSet { get }
   func deselectColumn(column: Int)
   func deselectRow(row: Int)
   var selectedColumn: Int { get }
@@ -160,21 +160,21 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   var selectionHighlightStyle: NSTableViewSelectionHighlightStyle
   @available(OSX 10.6, *)
   var draggingDestinationFeedbackStyle: NSTableViewDraggingDestinationFeedbackStyle
-  func rectOf(column column: Int) -> Rect
-  func rectOf(row row: Int) -> Rect
+  func rectOf(column column: Int) -> NSRect
+  func rectOf(row row: Int) -> NSRect
   @available(OSX 10.5, *)
-  func columnIndexes(in rect: Rect) -> IndexSet
-  func rows(in rect: Rect) -> NSRange
-  func column(at point: Point) -> Int
-  func row(at point: Point) -> Int
-  func frameOfCell(atColumn column: Int, row: Int) -> Rect
+  func columnIndexes(in rect: NSRect) -> NSIndexSet
+  func rows(in rect: NSRect) -> NSRange
+  func column(at point: NSPoint) -> Int
+  func row(at point: NSPoint) -> Int
+  func frameOfCell(atColumn column: Int, row: Int) -> NSRect
   var autosaveName: String?
   var autosaveTableColumns: Bool
   func editColumn(column: Int, row: Int, with theEvent: NSEvent?, select: Bool)
-  func drawRow(row: Int, clipRect: Rect)
-  func highlightSelection(inClipRect clipRect: Rect)
-  func drawGrid(inClipRect clipRect: Rect)
-  func drawBackground(inClipRect clipRect: Rect)
+  func drawRow(row: Int, clipRect: NSRect)
+  func highlightSelection(inClipRect clipRect: NSRect)
+  func drawGrid(inClipRect clipRect: NSRect)
+  func drawBackground(inClipRect clipRect: NSRect)
   @available(OSX 10.7, *)
   func view(atColumn column: Int, row: Int, makeIfNecessary: Bool) -> NSView?
   @available(OSX 10.7, *)
@@ -196,17 +196,17 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   @available(OSX 10.7, *)
   func endUpdates()
   @available(OSX 10.7, *)
-  func insertRows(at indexes: IndexSet, withAnimation animationOptions: NSTableViewAnimationOptions = [])
+  func insertRows(at indexes: NSIndexSet, withAnimation animationOptions: NSTableViewAnimationOptions = [])
   @available(OSX 10.7, *)
-  func removeRows(at indexes: IndexSet, withAnimation animationOptions: NSTableViewAnimationOptions = [])
+  func removeRows(at indexes: NSIndexSet, withAnimation animationOptions: NSTableViewAnimationOptions = [])
   @available(OSX 10.7, *)
   func moveRow(at oldIndex: Int, to newIndex: Int)
   @available(OSX 10.11, *)
-  func hideRows(at indexes: IndexSet, withAnimation rowAnimation: NSTableViewAnimationOptions = [])
+  func hideRows(at indexes: NSIndexSet, withAnimation rowAnimation: NSTableViewAnimationOptions = [])
   @available(OSX 10.11, *)
-  func unhideRows(at indexes: IndexSet, withAnimation rowAnimation: NSTableViewAnimationOptions = [])
+  func unhideRows(at indexes: NSIndexSet, withAnimation rowAnimation: NSTableViewAnimationOptions = [])
   @available(OSX 10.11, *)
-  @NSCopying var hiddenRowIndexes: IndexSet { get }
+  @NSCopying var hiddenRowIndexes: NSIndexSet { get }
   @available(OSX 10.8, *)
   func register(nib: NSNib?, forIdentifier identifier: String)
   @available(OSX 10.8, *)
@@ -220,17 +220,17 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   convenience init()
   func validate(anItem: NSValidatedUserInterfaceItem) -> Bool
   func textView(textView: NSTextView, clickedOnLink link: AnyObject, at charIndex: Int) -> Bool
-  func textView(textView: NSTextView, clickedOn cell: NSTextAttachmentCellProtocol, in cellFrame: Rect, at charIndex: Int)
-  func textView(textView: NSTextView, doubleClickedOn cell: NSTextAttachmentCellProtocol, in cellFrame: Rect, at charIndex: Int)
-  func textView(view: NSTextView, draggedCell cell: NSTextAttachmentCellProtocol, in rect: Rect, event: NSEvent, at charIndex: Int)
+  func textView(textView: NSTextView, clickedOn cell: NSTextAttachmentCellProtocol, in cellFrame: NSRect, at charIndex: Int)
+  func textView(textView: NSTextView, doubleClickedOn cell: NSTextAttachmentCellProtocol, in cellFrame: NSRect, at charIndex: Int)
+  func textView(view: NSTextView, draggedCell cell: NSTextAttachmentCellProtocol, in rect: NSRect, event: NSEvent, at charIndex: Int)
   func textView(view: NSTextView, writablePasteboardTypesFor cell: NSTextAttachmentCellProtocol, at charIndex: Int) -> [String]
   func textView(view: NSTextView, write cell: NSTextAttachmentCellProtocol, at charIndex: Int, to pboard: NSPasteboard, type: String) -> Bool
   func textView(textView: NSTextView, willChangeSelectionFromCharacterRange oldSelectedCharRange: NSRange, toCharacterRange newSelectedCharRange: NSRange) -> NSRange
-  func textView(textView: NSTextView, willChangeSelectionFromCharacterRanges oldSelectedCharRanges: [Value], toCharacterRanges newSelectedCharRanges: [Value]) -> [Value]
-  func textView(textView: NSTextView, shouldChangeTextInRanges affectedRanges: [Value], replacementStrings: [String]?) -> Bool
+  func textView(textView: NSTextView, willChangeSelectionFromCharacterRanges oldSelectedCharRanges: [NSValue], toCharacterRanges newSelectedCharRanges: [NSValue]) -> [NSValue]
+  func textView(textView: NSTextView, shouldChangeTextInRanges affectedRanges: [NSValue], replacementStrings: [String]?) -> Bool
   func textView(textView: NSTextView, shouldChangeTypingAttributes oldTypingAttributes: [String : AnyObject] = [:], toAttributes newTypingAttributes: [String : AnyObject] = [:]) -> [String : AnyObject]
-  func textViewDidChangeSelection(notification: Notification)
-  func textViewDidChangeTypingAttributes(notification: Notification)
+  func textViewDidChangeSelection(notification: NSNotification)
+  func textViewDidChangeTypingAttributes(notification: NSNotification)
   func textView(textView: NSTextView, willDisplayToolTip tooltip: String, forCharacterAt characterIndex: Int) -> String?
   func textView(textView: NSTextView, completions words: [String], forPartialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [String]
   func textView(textView: NSTextView, shouldChangeTextIn affectedCharRange: NSRange, replacementString: String?) -> Bool
@@ -240,23 +240,23 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   @available(OSX 10.5, *)
   func textView(view: NSTextView, menu: NSMenu, for event: NSEvent, at charIndex: Int) -> NSMenu?
   @available(OSX 10.6, *)
-  func textView(view: NSTextView, willCheckTextIn range: NSRange, options: [String : AnyObject] = [:], types checkingTypes: UnsafeMutablePointer<TextCheckingTypes>) -> [String : AnyObject]
+  func textView(view: NSTextView, willCheckTextIn range: NSRange, options: [String : AnyObject] = [:], types checkingTypes: UnsafeMutablePointer<NSTextCheckingTypes>) -> [String : AnyObject]
   @available(OSX 10.6, *)
-  func textView(view: NSTextView, didCheckTextIn range: NSRange, types checkingTypes: TextCheckingTypes, options: [String : AnyObject] = [:], results: [TextCheckingResult], orthography: Orthography, wordCount: Int) -> [TextCheckingResult]
+  func textView(view: NSTextView, didCheckTextIn range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject] = [:], results: [NSTextCheckingResult], orthography: NSOrthography, wordCount: Int) -> [NSTextCheckingResult]
   @available(OSX 10.7, *)
-  func textView(textView: NSTextView, urlForContentsOf textAttachment: NSTextAttachment, at charIndex: Int) -> URL?
+  func textView(textView: NSTextView, urlForContentsOf textAttachment: NSTextAttachment, at charIndex: Int) -> NSURL?
   @available(OSX 10.8, *)
   func textView(textView: NSTextView, willShow servicePicker: NSSharingServicePicker, forItems items: [AnyObject]) -> NSSharingServicePicker?
   @available(OSX 10.0, *)
-  func undoManager(for view: NSTextView) -> UndoManager?
+  func undoManager(for view: NSTextView) -> NSUndoManager?
   @available(OSX 10.7, *)
   func draggingSession(session: NSDraggingSession, sourceOperationMaskFor context: NSDraggingContext) -> NSDragOperation
   @available(OSX 10.7, *)
-  func draggingSession(session: NSDraggingSession, willBeginAt screenPoint: Point)
+  func draggingSession(session: NSDraggingSession, willBeginAt screenPoint: NSPoint)
   @available(OSX 10.7, *)
-  func draggingSession(session: NSDraggingSession, movedTo screenPoint: Point)
+  func draggingSession(session: NSDraggingSession, movedTo screenPoint: NSPoint)
   @available(OSX 10.7, *)
-  func draggingSession(session: NSDraggingSession, endedAt screenPoint: Point, operation: NSDragOperation)
+  func draggingSession(session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation)
   @available(OSX 10.7, *)
   func ignoreModifierKeys(for session: NSDraggingSession) -> Bool
   func accessibilityLabel() -> String?
@@ -296,7 +296,7 @@ protocol NSTableViewDelegate : NSControlTextEditingDelegate {
   optional func tableView(tableView: NSTableView, didRemove rowView: NSTableRowView, forRow row: Int)
   optional func tableView(tableView: NSTableView, willDisplayCell cell: AnyObject, for tableColumn: NSTableColumn?, row: Int)
   optional func tableView(tableView: NSTableView, shouldEdit tableColumn: NSTableColumn?, row: Int) -> Bool
-  optional func tableView(tableView: NSTableView, toolTipFor cell: NSCell, rect: RectPointer, tableColumn: NSTableColumn?, row: Int, mouseLocation: Point) -> String
+  optional func tableView(tableView: NSTableView, toolTipFor cell: NSCell, rect: NSRectPointer, tableColumn: NSTableColumn?, row: Int, mouseLocation: NSPoint) -> String
   @available(OSX 10.5, *)
   optional func tableView(tableView: NSTableView, shouldShowCellExpansionFor tableColumn: NSTableColumn?, row: Int) -> Bool
   @available(OSX 10.5, *)
@@ -306,7 +306,7 @@ protocol NSTableViewDelegate : NSControlTextEditingDelegate {
   optional func selectionShouldChange(in tableView: NSTableView) -> Bool
   optional func tableView(tableView: NSTableView, shouldSelectRow row: Int) -> Bool
   @available(OSX 10.5, *)
-  optional func tableView(tableView: NSTableView, selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet) -> IndexSet
+  optional func tableView(tableView: NSTableView, selectionIndexesForProposedSelection proposedSelectionIndexes: NSIndexSet) -> NSIndexSet
   optional func tableView(tableView: NSTableView, shouldSelect tableColumn: NSTableColumn?) -> Bool
   optional func tableView(tableView: NSTableView, mouseDownInHeaderOf tableColumn: NSTableColumn)
   optional func tableView(tableView: NSTableView, didClick tableColumn: NSTableColumn)
@@ -326,10 +326,10 @@ protocol NSTableViewDelegate : NSControlTextEditingDelegate {
   optional func tableView(tableView: NSTableView, shouldReorderColumn columnIndex: Int, toColumn newColumnIndex: Int) -> Bool
   @available(OSX 10.11, *)
   optional func tableView(tableView: NSTableView, rowActionsForRow row: Int, edge: NSTableRowActionEdge) -> [NSTableViewRowAction]
-  optional func tableViewSelectionDidChange(notification: Notification)
-  optional func tableViewColumnDidMove(notification: Notification)
-  optional func tableViewColumnDidResize(notification: Notification)
-  optional func tableViewSelectionIsChanging(notification: Notification)
+  optional func tableViewSelectionDidChange(notification: NSNotification)
+  optional func tableViewColumnDidMove(notification: NSNotification)
+  optional func tableViewColumnDidResize(notification: NSNotification)
+  optional func tableViewSelectionIsChanging(notification: NSNotification)
 }
 let NSTableViewSelectionDidChangeNotification: String
 let NSTableViewColumnDidMoveNotification: String
@@ -337,25 +337,25 @@ let NSTableViewColumnDidResizeNotification: String
 let NSTableViewSelectionIsChangingNotification: String
 @available(OSX 10.7, *)
 let NSTableViewRowViewKey: String
-protocol NSTableViewDataSource : ObjectProtocol {
+protocol NSTableViewDataSource : NSObjectProtocol {
   optional func numberOfRows(in tableView: NSTableView) -> Int
   optional func tableView(tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> AnyObject?
   optional func tableView(tableView: NSTableView, setObjectValue object: AnyObject?, for tableColumn: NSTableColumn?, row: Int)
-  optional func tableView(tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [SortDescriptor])
+  optional func tableView(tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor])
   @available(OSX 10.7, *)
   optional func tableView(tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting?
   @available(OSX 10.7, *)
-  optional func tableView(tableView: NSTableView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: Point, forRowIndexes rowIndexes: IndexSet)
+  optional func tableView(tableView: NSTableView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forRowIndexes rowIndexes: NSIndexSet)
   @available(OSX 10.7, *)
-  optional func tableView(tableView: NSTableView, draggingSession session: NSDraggingSession, endedAt screenPoint: Point, operation: NSDragOperation)
+  optional func tableView(tableView: NSTableView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation)
   @available(OSX 10.7, *)
   optional func tableView(tableView: NSTableView, updateDraggingItemsForDrag draggingInfo: NSDraggingInfo)
-  optional func tableView(tableView: NSTableView, writeRowsWith rowIndexes: IndexSet, to pboard: NSPasteboard) -> Bool
+  optional func tableView(tableView: NSTableView, writeRowsWith rowIndexes: NSIndexSet, to pboard: NSPasteboard) -> Bool
   optional func tableView(tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableViewDropOperation) -> NSDragOperation
   optional func tableView(tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableViewDropOperation) -> Bool
-  optional func tableView(tableView: NSTableView, namesOfPromisedFilesDroppedAtDestination dropDestination: URL, forDraggedRowsWith indexSet: IndexSet) -> [String]
+  optional func tableView(tableView: NSTableView, namesOfPromisedFilesDroppedAtDestination dropDestination: NSURL, forDraggedRowsWith indexSet: NSIndexSet) -> [String]
 }
-extension Object {
+extension NSObject {
 }
 extension NSTableView {
   @available(OSX, introduced=10.5, deprecated=10.10, message="Use View Based TableView and -viewAtColumn:row:")
@@ -365,11 +365,11 @@ extension NSTableView {
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use a View Based TableView with an NSTextField")
   func textShouldEndEditing(textObject: NSText) -> Bool
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use a View Based TableView with an NSTextField")
-  func textDidBeginEditing(notification: Notification)
+  func textDidBeginEditing(notification: NSNotification)
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use a View Based TableView with an NSTextField")
-  func textDidEndEditing(notification: Notification)
+  func textDidEndEditing(notification: NSNotification)
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use a View Based TableView with an NSTextField")
-  func textDidChange(notification: Notification)
+  func textDidChange(notification: NSNotification)
   @available(OSX, introduced=10.6, deprecated=10.10, message="Use a View Based TableView; observe the window’s firstResponder for focus change notifications")
   func shouldFocusCell(cell: NSCell, atColumn column: Int, row: Int) -> Bool
   @available(OSX, introduced=10.5, deprecated=10.10, message="Use a View Based TableView and observe the window.firstResponder")

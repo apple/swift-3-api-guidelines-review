@@ -7,7 +7,7 @@ let UITransitionContextToViewControllerKey: String
 let UITransitionContextFromViewKey: String
 @available(tvOS 8.0, *)
 let UITransitionContextToViewKey: String
-protocol UIViewControllerContextTransitioning : ObjectProtocol {
+protocol UIViewControllerContextTransitioning : NSObjectProtocol {
   @available(tvOS 2.0, *)
   func containerView() -> UIView?
   func isAnimated() -> Bool
@@ -29,17 +29,17 @@ protocol UIViewControllerContextTransitioning : ObjectProtocol {
   @available(tvOS 2.0, *)
   func finalFrame(for vc: UIViewController) -> CGRect
 }
-protocol UIViewControllerAnimatedTransitioning : ObjectProtocol {
-  func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval
+protocol UIViewControllerAnimatedTransitioning : NSObjectProtocol {
+  func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
   func animateTransition(transitionContext: UIViewControllerContextTransitioning)
   optional func animationEnded(transitionCompleted: Bool)
 }
-protocol UIViewControllerInteractiveTransitioning : ObjectProtocol {
+protocol UIViewControllerInteractiveTransitioning : NSObjectProtocol {
   func startInteractiveTransition(transitionContext: UIViewControllerContextTransitioning)
   optional func completionSpeed() -> CGFloat
   optional func completionCurve() -> UIViewAnimationCurve
 }
-protocol UIViewControllerTransitioningDelegate : ObjectProtocol {
+protocol UIViewControllerTransitioningDelegate : NSObjectProtocol {
   @available(tvOS 2.0, *)
   optional func animationController(forPresentedController presented: UIViewController, presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
   @available(tvOS 2.0, *)
@@ -50,7 +50,7 @@ protocol UIViewControllerTransitioningDelegate : ObjectProtocol {
   optional func presentationController(forPresentedViewController presented: UIViewController, presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController?
 }
 @available(tvOS 7.0, *)
-class UIPercentDrivenInteractiveTransition : Object, UIViewControllerInteractiveTransitioning {
+class UIPercentDrivenInteractiveTransition : NSObject, UIViewControllerInteractiveTransitioning {
   var duration: CGFloat { get }
   var percentComplete: CGFloat { get }
   var completionSpeed: CGFloat

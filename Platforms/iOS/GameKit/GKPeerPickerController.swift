@@ -1,5 +1,5 @@
 
-protocol GKPeerPickerControllerDelegate : ObjectProtocol {
+protocol GKPeerPickerControllerDelegate : NSObjectProtocol {
   @available(iOS 3.0, *)
   optional func peerPickerController(picker: GKPeerPickerController, didSelect type: GKPeerPickerConnectionType)
   @available(iOS 3.0, *)

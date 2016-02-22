@@ -9,17 +9,17 @@ enum AVAssetWriterStatus : Int {
   case cancelled
 }
 @available(iOS 4.1, *)
-class AVAssetWriter : Object {
-  init(url outputURL: URL, fileType outputFileType: String) throws
-  @NSCopying var outputURL: URL { get }
+class AVAssetWriter : NSObject {
+  init(url outputURL: NSURL, fileType outputFileType: String) throws
+  @NSCopying var outputURL: NSURL { get }
   var outputFileType: String { get }
   var availableMediaTypes: [String] { get }
   var status: AVAssetWriterStatus { get }
-  var error: Error? { get }
+  var error: NSError? { get }
   var metadata: [AVMetadataItem]
   var shouldOptimizeForNetworkUse: Bool
   @available(iOS 8.0, *)
-  @NSCopying var directoryForTemporaryFiles: URL?
+  @NSCopying var directoryForTemporaryFiles: NSURL?
   var inputs: [AVAssetWriterInput] { get }
   func canApplyOutputSettings(outputSettings: [String : AnyObject]?, forMediaType mediaType: String) -> Bool
   func canAddInput(input: AVAssetWriterInput) -> Bool

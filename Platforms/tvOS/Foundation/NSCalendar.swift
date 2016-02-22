@@ -1,126 +1,126 @@
 
 @available(tvOS 4.0, *)
-let calendarIdentifierGregorian: String
+let NSCalendarIdentifierGregorian: String
 @available(tvOS 4.0, *)
-let calendarIdentifierBuddhist: String
+let NSCalendarIdentifierBuddhist: String
 @available(tvOS 4.0, *)
-let calendarIdentifierChinese: String
+let NSCalendarIdentifierChinese: String
 @available(tvOS 4.0, *)
-let calendarIdentifierCoptic: String
+let NSCalendarIdentifierCoptic: String
 @available(tvOS 4.0, *)
-let calendarIdentifierEthiopicAmeteMihret: String
+let NSCalendarIdentifierEthiopicAmeteMihret: String
 @available(tvOS 4.0, *)
-let calendarIdentifierEthiopicAmeteAlem: String
+let NSCalendarIdentifierEthiopicAmeteAlem: String
 @available(tvOS 4.0, *)
-let calendarIdentifierHebrew: String
+let NSCalendarIdentifierHebrew: String
 @available(tvOS 4.0, *)
-let calendarIdentifierISO8601: String
+let NSCalendarIdentifierISO8601: String
 @available(tvOS 4.0, *)
-let calendarIdentifierIndian: String
+let NSCalendarIdentifierIndian: String
 @available(tvOS 4.0, *)
-let calendarIdentifierIslamic: String
+let NSCalendarIdentifierIslamic: String
 @available(tvOS 4.0, *)
-let calendarIdentifierIslamicCivil: String
+let NSCalendarIdentifierIslamicCivil: String
 @available(tvOS 4.0, *)
-let calendarIdentifierJapanese: String
+let NSCalendarIdentifierJapanese: String
 @available(tvOS 4.0, *)
-let calendarIdentifierPersian: String
+let NSCalendarIdentifierPersian: String
 @available(tvOS 4.0, *)
-let calendarIdentifierRepublicOfChina: String
+let NSCalendarIdentifierRepublicOfChina: String
 @available(tvOS 8.0, *)
-let calendarIdentifierIslamicTabular: String
+let NSCalendarIdentifierIslamicTabular: String
 @available(tvOS 8.0, *)
-let calendarIdentifierIslamicUmmAlQura: String
-struct CalendarUnit : OptionSetType {
+let NSCalendarIdentifierIslamicUmmAlQura: String
+struct NSCalendarUnit : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var era: CalendarUnit { get }
-  static var year: CalendarUnit { get }
-  static var month: CalendarUnit { get }
-  static var day: CalendarUnit { get }
-  static var hour: CalendarUnit { get }
-  static var minute: CalendarUnit { get }
-  static var second: CalendarUnit { get }
-  static var weekday: CalendarUnit { get }
-  static var weekdayOrdinal: CalendarUnit { get }
+  static var era: NSCalendarUnit { get }
+  static var year: NSCalendarUnit { get }
+  static var month: NSCalendarUnit { get }
+  static var day: NSCalendarUnit { get }
+  static var hour: NSCalendarUnit { get }
+  static var minute: NSCalendarUnit { get }
+  static var second: NSCalendarUnit { get }
+  static var weekday: NSCalendarUnit { get }
+  static var weekdayOrdinal: NSCalendarUnit { get }
   @available(tvOS 4.0, *)
-  static var quarter: CalendarUnit { get }
+  static var quarter: NSCalendarUnit { get }
   @available(tvOS 5.0, *)
-  static var weekOfMonth: CalendarUnit { get }
+  static var weekOfMonth: NSCalendarUnit { get }
   @available(tvOS 5.0, *)
-  static var weekOfYear: CalendarUnit { get }
+  static var weekOfYear: NSCalendarUnit { get }
   @available(tvOS 5.0, *)
-  static var yearForWeekOfYear: CalendarUnit { get }
+  static var yearForWeekOfYear: NSCalendarUnit { get }
   @available(tvOS 5.0, *)
-  static var nanosecond: CalendarUnit { get }
+  static var nanosecond: NSCalendarUnit { get }
   @available(tvOS 4.0, *)
-  static var calendar: CalendarUnit { get }
+  static var calendar: NSCalendarUnit { get }
   @available(tvOS 4.0, *)
-  static var timeZone: CalendarUnit { get }
+  static var timeZone: NSCalendarUnit { get }
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use NSCalendarUnitEra instead")
-  static var eraCalendarUnit: CalendarUnit { get }
+  static var NSEraCalendarUnit: NSCalendarUnit { get }
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use NSCalendarUnitYear instead")
-  static var yearCalendarUnit: CalendarUnit { get }
+  static var NSYearCalendarUnit: NSCalendarUnit { get }
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use NSCalendarUnitMonth instead")
-  static var monthCalendarUnit: CalendarUnit { get }
+  static var NSMonthCalendarUnit: NSCalendarUnit { get }
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use NSCalendarUnitDay instead")
-  static var dayCalendarUnit: CalendarUnit { get }
+  static var NSDayCalendarUnit: NSCalendarUnit { get }
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use NSCalendarUnitHour instead")
-  static var hourCalendarUnit: CalendarUnit { get }
+  static var NSHourCalendarUnit: NSCalendarUnit { get }
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use NSCalendarUnitMinute instead")
-  static var minuteCalendarUnit: CalendarUnit { get }
+  static var NSMinuteCalendarUnit: NSCalendarUnit { get }
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use NSCalendarUnitSecond instead")
-  static var secondCalendarUnit: CalendarUnit { get }
+  static var NSSecondCalendarUnit: NSCalendarUnit { get }
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use NSCalendarUnitWeekOfMonth or NSCalendarUnitWeekOfYear, depending on which you mean")
-  static var weekCalendarUnit: CalendarUnit { get }
+  static var NSWeekCalendarUnit: NSCalendarUnit { get }
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use NSCalendarUnitWeekday instead")
-  static var weekdayCalendarUnit: CalendarUnit { get }
+  static var NSWeekdayCalendarUnit: NSCalendarUnit { get }
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use NSCalendarUnitWeekdayOrdinal instead")
-  static var weekdayOrdinalCalendarUnit: CalendarUnit { get }
+  static var NSWeekdayOrdinalCalendarUnit: NSCalendarUnit { get }
   @available(tvOS, introduced=4.0, deprecated=8.0, message="Use NSCalendarUnitQuarter instead")
-  static var quarterCalendarUnit: CalendarUnit { get }
+  static var NSQuarterCalendarUnit: NSCalendarUnit { get }
   @available(tvOS, introduced=5.0, deprecated=8.0, message="Use NSCalendarUnitWeekOfMonth instead")
-  static var weekOfMonthCalendarUnit: CalendarUnit { get }
+  static var NSWeekOfMonthCalendarUnit: NSCalendarUnit { get }
   @available(tvOS, introduced=5.0, deprecated=8.0, message="Use NSCalendarUnitWeekOfYear instead")
-  static var weekOfYearCalendarUnit: CalendarUnit { get }
+  static var NSWeekOfYearCalendarUnit: NSCalendarUnit { get }
   @available(tvOS, introduced=5.0, deprecated=8.0, message="Use NSCalendarUnitYearForWeekOfYear instead")
-  static var yearForWeekOfYearCalendarUnit: CalendarUnit { get }
+  static var NSYearForWeekOfYearCalendarUnit: NSCalendarUnit { get }
   @available(tvOS, introduced=4.0, deprecated=8.0, message="Use NSCalendarUnitCalendar instead")
-  static var calendarCalendarUnit: CalendarUnit { get }
+  static var NSCalendarCalendarUnit: NSCalendarUnit { get }
   @available(tvOS, introduced=4.0, deprecated=8.0, message="Use NSCalendarUnitTimeZone instead")
-  static var timeZoneCalendarUnit: CalendarUnit { get }
+  static var NSTimeZoneCalendarUnit: NSCalendarUnit { get }
 }
-struct CalendarOptions : OptionSetType {
+struct NSCalendarOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var wrapComponents: CalendarOptions { get }
+  static var wrapComponents: NSCalendarOptions { get }
   @available(tvOS 7.0, *)
-  static var matchStrictly: CalendarOptions { get }
+  static var matchStrictly: NSCalendarOptions { get }
   @available(tvOS 7.0, *)
-  static var searchBackwards: CalendarOptions { get }
+  static var searchBackwards: NSCalendarOptions { get }
   @available(tvOS 7.0, *)
-  static var matchPreviousTimePreservingSmallerUnits: CalendarOptions { get }
+  static var matchPreviousTimePreservingSmallerUnits: NSCalendarOptions { get }
   @available(tvOS 7.0, *)
-  static var matchNextTimePreservingSmallerUnits: CalendarOptions { get }
+  static var matchNextTimePreservingSmallerUnits: NSCalendarOptions { get }
   @available(tvOS 7.0, *)
-  static var matchNextTime: CalendarOptions { get }
+  static var matchNextTime: NSCalendarOptions { get }
   @available(tvOS 7.0, *)
-  static var matchFirst: CalendarOptions { get }
+  static var matchFirst: NSCalendarOptions { get }
   @available(tvOS 7.0, *)
-  static var matchLast: CalendarOptions { get }
+  static var matchLast: NSCalendarOptions { get }
 }
 @available(tvOS, introduced=2.0, deprecated=8.0, message="Use NSCalendarWrapComponents instead")
-var wrapCalendarComponents: Int { get }
-class Calendar : Object, Copying, SecureCoding {
-  class func current() -> Calendar
+var NSWrapCalendarComponents: Int { get }
+class NSCalendar : NSObject, NSCopying, NSSecureCoding {
+  class func current() -> NSCalendar
   @available(tvOS 2.0, *)
-  class func autoupdatingCurrent() -> Calendar
+  class func autoupdatingCurrent() -> NSCalendar
   @available(tvOS 8.0, *)
   /*not inherited*/ init?(identifier calendarIdentifierConstant: String)
   init?(calendarIdentifier ident: String)
   var calendarIdentifier: String { get }
-  @NSCopying var locale: Locale?
-  @NSCopying var timeZone: TimeZone
+  @NSCopying var locale: NSLocale?
+  @NSCopying var timeZone: NSTimeZone
   var firstWeekday: Int
   var minimumDaysInFirstWeek: Int
   @available(tvOS 5.0, *)
@@ -163,83 +163,83 @@ class Calendar : Object, Copying, SecureCoding {
   var amSymbol: String { get }
   @available(tvOS 5.0, *)
   var pmSymbol: String { get }
-  func minimumRangeOf(unit: CalendarUnit) -> NSRange
-  func maximumRangeOf(unit: CalendarUnit) -> NSRange
-  func rangeOf(smaller: CalendarUnit, in larger: CalendarUnit, for date: Date) -> NSRange
-  func ordinalityOf(smaller: CalendarUnit, in larger: CalendarUnit, for date: Date) -> Int
+  func minimumRangeOf(unit: NSCalendarUnit) -> NSRange
+  func maximumRangeOf(unit: NSCalendarUnit) -> NSRange
+  func rangeOf(smaller: NSCalendarUnit, in larger: NSCalendarUnit, for date: NSDate) -> NSRange
+  func ordinalityOf(smaller: NSCalendarUnit, in larger: NSCalendarUnit, for date: NSDate) -> Int
   @available(tvOS 2.0, *)
-  func rangeOf(unit: CalendarUnit, start datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, for date: Date) -> Bool
-  func date(from comps: DateComponents) -> Date?
-  func components(unitFlags: CalendarUnit, from date: Date) -> DateComponents
-  func date(byAdding comps: DateComponents, to date: Date, options opts: CalendarOptions = []) -> Date?
-  func components(unitFlags: CalendarUnit, from startingDate: Date, to resultDate: Date, options opts: CalendarOptions = []) -> DateComponents
+  func rangeOf(unit: NSCalendarUnit, start datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, for date: NSDate) -> Bool
+  func date(from comps: NSDateComponents) -> NSDate?
+  func components(unitFlags: NSCalendarUnit, from date: NSDate) -> NSDateComponents
+  func date(byAdding comps: NSDateComponents, to date: NSDate, options opts: NSCalendarOptions = []) -> NSDate?
+  func components(unitFlags: NSCalendarUnit, from startingDate: NSDate, to resultDate: NSDate, options opts: NSCalendarOptions = []) -> NSDateComponents
   @available(tvOS 8.0, *)
-  func getEra(eraValuePointer: UnsafeMutablePointer<Int>, year yearValuePointer: UnsafeMutablePointer<Int>, month monthValuePointer: UnsafeMutablePointer<Int>, day dayValuePointer: UnsafeMutablePointer<Int>, from date: Date)
+  func getEra(eraValuePointer: UnsafeMutablePointer<Int>, year yearValuePointer: UnsafeMutablePointer<Int>, month monthValuePointer: UnsafeMutablePointer<Int>, day dayValuePointer: UnsafeMutablePointer<Int>, from date: NSDate)
   @available(tvOS 8.0, *)
-  func getEra(eraValuePointer: UnsafeMutablePointer<Int>, yearForWeekOfYear yearValuePointer: UnsafeMutablePointer<Int>, weekOfYear weekValuePointer: UnsafeMutablePointer<Int>, weekday weekdayValuePointer: UnsafeMutablePointer<Int>, from date: Date)
+  func getEra(eraValuePointer: UnsafeMutablePointer<Int>, yearForWeekOfYear yearValuePointer: UnsafeMutablePointer<Int>, weekOfYear weekValuePointer: UnsafeMutablePointer<Int>, weekday weekdayValuePointer: UnsafeMutablePointer<Int>, from date: NSDate)
   @available(tvOS 8.0, *)
-  func getHour(hourValuePointer: UnsafeMutablePointer<Int>, minute minuteValuePointer: UnsafeMutablePointer<Int>, second secondValuePointer: UnsafeMutablePointer<Int>, nanosecond nanosecondValuePointer: UnsafeMutablePointer<Int>, from date: Date)
+  func getHour(hourValuePointer: UnsafeMutablePointer<Int>, minute minuteValuePointer: UnsafeMutablePointer<Int>, second secondValuePointer: UnsafeMutablePointer<Int>, nanosecond nanosecondValuePointer: UnsafeMutablePointer<Int>, from date: NSDate)
   @available(tvOS 8.0, *)
-  func component(unit: CalendarUnit, from date: Date) -> Int
+  func component(unit: NSCalendarUnit, from date: NSDate) -> Int
   @available(tvOS 8.0, *)
-  func date(withEra eraValue: Int, year yearValue: Int, month monthValue: Int, day dayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
+  func date(withEra eraValue: Int, year yearValue: Int, month monthValue: Int, day dayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> NSDate?
   @available(tvOS 8.0, *)
-  func date(withEra eraValue: Int, yearForWeekOfYear yearValue: Int, weekOfYear weekValue: Int, weekday weekdayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> Date?
+  func date(withEra eraValue: Int, yearForWeekOfYear yearValue: Int, weekOfYear weekValue: Int, weekday weekdayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> NSDate?
   @available(tvOS 8.0, *)
-  func startOfDay(for date: Date) -> Date
+  func startOfDay(for date: NSDate) -> NSDate
   @available(tvOS 8.0, *)
-  func components(in timezone: TimeZone, from date: Date) -> DateComponents
+  func components(in timezone: NSTimeZone, from date: NSDate) -> NSDateComponents
   @available(tvOS 8.0, *)
-  func compare(date1: Date, to date2: Date, toUnitGranularity unit: CalendarUnit) -> ComparisonResult
+  func compare(date1: NSDate, to date2: NSDate, toUnitGranularity unit: NSCalendarUnit) -> NSComparisonResult
   @available(tvOS 8.0, *)
-  func isDate(date1: Date, equalTo date2: Date, toUnitGranularity unit: CalendarUnit) -> Bool
+  func isDate(date1: NSDate, equalTo date2: NSDate, toUnitGranularity unit: NSCalendarUnit) -> Bool
   @available(tvOS 8.0, *)
-  func isDate(date1: Date, inSameDayAs date2: Date) -> Bool
+  func isDate(date1: NSDate, inSameDayAs date2: NSDate) -> Bool
   @available(tvOS 8.0, *)
-  func isDate(inToday date: Date) -> Bool
+  func isDate(inToday date: NSDate) -> Bool
   @available(tvOS 8.0, *)
-  func isDate(inYesterday date: Date) -> Bool
+  func isDate(inYesterday date: NSDate) -> Bool
   @available(tvOS 8.0, *)
-  func isDate(inTomorrow date: Date) -> Bool
+  func isDate(inTomorrow date: NSDate) -> Bool
   @available(tvOS 8.0, *)
-  func isDate(inWeekend date: Date) -> Bool
+  func isDate(inWeekend date: NSDate) -> Bool
   @available(tvOS 8.0, *)
-  func rangeOf(weekendStart datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, containing date: Date) -> Bool
+  func rangeOf(weekendStart datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, containing date: NSDate) -> Bool
   @available(tvOS 8.0, *)
-  func nextWeekendStart(datep: AutoreleasingUnsafeMutablePointer<Date?>, interval tip: UnsafeMutablePointer<TimeInterval>, options: CalendarOptions = [], after date: Date) -> Bool
+  func nextWeekendStart(datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, options: NSCalendarOptions = [], after date: NSDate) -> Bool
   @available(tvOS 8.0, *)
-  func components(unitFlags: CalendarUnit, from startingDateComp: DateComponents, to resultDateComp: DateComponents, options: CalendarOptions = []) -> DateComponents
+  func components(unitFlags: NSCalendarUnit, from startingDateComp: NSDateComponents, to resultDateComp: NSDateComponents, options: NSCalendarOptions = []) -> NSDateComponents
   @available(tvOS 8.0, *)
-  func date(byAdding unit: CalendarUnit, value: Int, to date: Date, options: CalendarOptions = []) -> Date?
+  func date(byAdding unit: NSCalendarUnit, value: Int, to date: NSDate, options: NSCalendarOptions = []) -> NSDate?
   @available(tvOS 8.0, *)
-  func enumerateDatesStarting(after start: Date, matching comps: DateComponents, options opts: CalendarOptions = [], using block: (Date?, Bool, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateDatesStarting(after start: NSDate, matching comps: NSDateComponents, options opts: NSCalendarOptions = [], using block: (NSDate?, Bool, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 8.0, *)
-  func nextDate(after date: Date, matching comps: DateComponents, options: CalendarOptions = []) -> Date?
+  func nextDate(after date: NSDate, matching comps: NSDateComponents, options: NSCalendarOptions = []) -> NSDate?
   @available(tvOS 8.0, *)
-  func nextDate(after date: Date, matching unit: CalendarUnit, value: Int, options: CalendarOptions = []) -> Date?
+  func nextDate(after date: NSDate, matching unit: NSCalendarUnit, value: Int, options: NSCalendarOptions = []) -> NSDate?
   @available(tvOS 8.0, *)
-  func nextDate(after date: Date, matchingHour hourValue: Int, minute minuteValue: Int, second secondValue: Int, options: CalendarOptions = []) -> Date?
+  func nextDate(after date: NSDate, matchingHour hourValue: Int, minute minuteValue: Int, second secondValue: Int, options: NSCalendarOptions = []) -> NSDate?
   @available(tvOS 8.0, *)
-  func date(bySettingUnit unit: CalendarUnit, value v: Int, of date: Date, options opts: CalendarOptions = []) -> Date?
+  func date(bySettingUnit unit: NSCalendarUnit, value v: Int, of date: NSDate, options opts: NSCalendarOptions = []) -> NSDate?
   @available(tvOS 8.0, *)
-  func date(bySettingHour h: Int, minute m: Int, second s: Int, of date: Date, options opts: CalendarOptions = []) -> Date?
+  func date(bySettingHour h: Int, minute m: Int, second s: Int, of date: NSDate, options opts: NSCalendarOptions = []) -> NSDate?
   @available(tvOS 8.0, *)
-  func date(date: Date, matchesComponents components: DateComponents) -> Bool
-  func copy(with zone: Zone = nil) -> AnyObject
+  func date(date: NSDate, matchesComponents components: NSDateComponents) -> Bool
+  func copy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 8.0, *)
-let calendarDayChangedNotification: String
-var dateComponentUndefined: Int { get }
+let NSCalendarDayChangedNotification: String
+var NSDateComponentUndefined: Int { get }
 @available(tvOS, introduced=2.0, deprecated=8.0, message="Use NSDateComponentUndefined instead")
-var undefinedDateComponent: Int { get }
-class DateComponents : Object, Copying, SecureCoding {
+var NSUndefinedDateComponent: Int { get }
+class NSDateComponents : NSObject, NSCopying, NSSecureCoding {
   @available(tvOS 4.0, *)
-  @NSCopying var calendar: Calendar?
+  @NSCopying var calendar: NSCalendar?
   @available(tvOS 4.0, *)
-  @NSCopying var timeZone: TimeZone?
+  @NSCopying var timeZone: NSTimeZone?
   var era: Int
   var year: Int
   var month: Int
@@ -262,18 +262,18 @@ class DateComponents : Object, Copying, SecureCoding {
   @available(tvOS 6.0, *)
   var isLeapMonth: Bool
   @available(tvOS 4.0, *)
-  @NSCopying var date: Date? { get }
+  @NSCopying var date: NSDate? { get }
   @available(tvOS 8.0, *)
-  func setValue(value: Int, forComponent unit: CalendarUnit)
+  func setValue(value: Int, forComponent unit: NSCalendarUnit)
   @available(tvOS 8.0, *)
-  func value(forComponent unit: CalendarUnit) -> Int
+  func value(forComponent unit: NSCalendarUnit) -> Int
   @available(tvOS 8.0, *)
   var isValidDate: Bool { get }
   @available(tvOS 8.0, *)
-  func isValidDate(in calendar: Calendar) -> Bool
+  func isValidDate(in calendar: NSCalendar) -> Bool
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

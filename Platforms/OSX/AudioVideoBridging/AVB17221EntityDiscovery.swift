@@ -1,6 +1,6 @@
 
 @available(OSX 10.8, *)
-class AVB17221EntityDiscovery : Object {
+class AVB17221EntityDiscovery : NSObject {
   var interfaceName: String
   unowned(unsafe) var interface: @sil_unmanaged AVBInterface? { get }
   unowned(unsafe) var discoveryDelegate: @sil_unmanaged AVB17221EntityDiscoveryDelegate?

@@ -119,7 +119,7 @@ enum UIUserInterfaceLayoutDirection : Int {
   case leftToRight
   case rightToLeft
 }
-protocol UICoordinateSpace : ObjectProtocol {
+protocol UICoordinateSpace : NSObjectProtocol {
   @available(iOS 8.0, *)
   func convert(point: CGPoint, to coordinateSpace: UICoordinateSpace) -> CGPoint
   @available(iOS 8.0, *)
@@ -132,10 +132,10 @@ protocol UICoordinateSpace : ObjectProtocol {
   var bounds: CGRect { get }
 }
 @available(iOS 2.0, *)
-class UIView : UIResponder, Coding, UIAppearance, UIAppearanceContainer, UIDynamicItem, UITraitEnvironment, UICoordinateSpace, UIFocusEnvironment {
+class UIView : UIResponder, NSCoding, UIAppearance, UIAppearanceContainer, UIDynamicItem, UITraitEnvironment, UICoordinateSpace, UIFocusEnvironment {
   class func layerClass() -> AnyClass
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   var isUserInteractionEnabled: Bool
   var tag: Int
   var layer: CALayer { get }
@@ -149,7 +149,7 @@ class UIView : UIResponder, Coding, UIAppearance, UIAppearanceContainer, UIDynam
   var semanticContentAttribute: UISemanticContentAttribute
   convenience init()
   @available(iOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
   @available(iOS 2.0, *)
   class func appearance() -> Self
   @available(iOS 9.0, *)
@@ -269,9 +269,9 @@ extension UIView {
   class func setAnimationDelegate(delegate: AnyObject?)
   class func setAnimationWillStart(selector: Selector)
   class func setAnimationDidStop(selector: Selector)
-  class func setAnimationDuration(duration: TimeInterval)
-  class func setAnimationDelay(delay: TimeInterval)
-  class func setAnimationStart(startDate: Date)
+  class func setAnimationDuration(duration: NSTimeInterval)
+  class func setAnimationDelay(delay: NSTimeInterval)
+  class func setAnimationStart(startDate: NSDate)
   class func setAnimationCurve(curve: UIViewAnimationCurve)
   class func setAnimationRepeatCount(repeatCount: Float)
   class func setAnimationRepeatAutoreverses(repeatAutoreverses: Bool)
@@ -282,27 +282,27 @@ extension UIView {
   @available(iOS 7.0, *)
   class func performWithoutAnimation(actionsWithoutAnimation: () -> Void)
   @available(iOS 9.0, *)
-  class func inheritedAnimationDuration() -> TimeInterval
+  class func inheritedAnimationDuration() -> NSTimeInterval
 }
 extension UIView {
   @available(iOS 4.0, *)
-  class func animate(duration duration: TimeInterval, delay: TimeInterval, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animate(duration duration: NSTimeInterval, delay: NSTimeInterval, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(iOS 4.0, *)
-  class func animate(duration duration: TimeInterval, animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animate(duration duration: NSTimeInterval, animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(iOS 4.0, *)
-  class func animate(duration duration: TimeInterval, animations: () -> Void)
+  class func animate(duration duration: NSTimeInterval, animations: () -> Void)
   @available(iOS 7.0, *)
-  class func animate(duration duration: TimeInterval, delay: TimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animate(duration duration: NSTimeInterval, delay: NSTimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(iOS 4.0, *)
-  class func transition(with view: UIView, duration: TimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
+  class func transition(with view: UIView, duration: NSTimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
   @available(iOS 4.0, *)
-  class func transition(from fromView: UIView, to toView: UIView, duration: TimeInterval, options: UIViewAnimationOptions = [], completion: ((Bool) -> Void)? = nil)
+  class func transition(from fromView: UIView, to toView: UIView, duration: NSTimeInterval, options: UIViewAnimationOptions = [], completion: ((Bool) -> Void)? = nil)
   @available(iOS 7.0, *)
   class func perform(animation: UISystemAnimation, on views: [UIView], options: UIViewAnimationOptions = [], animations parallelAnimations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
 }
 extension UIView {
   @available(iOS 7.0, *)
-  class func animateKeyframes(duration duration: TimeInterval, delay: TimeInterval, options: UIViewKeyframeAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animateKeyframes(duration duration: NSTimeInterval, delay: NSTimeInterval, options: UIViewKeyframeAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(iOS 7.0, *)
   class func addKeyframe(relativeStartTime frameStartTime: Double, relativeDuration frameDuration: Double, animations: () -> Void)
 }
@@ -442,9 +442,9 @@ extension UIView {
   @available(iOS 6.0, *)
   var restorationIdentifier: String?
   @available(iOS 6.0, *)
-  func encodeRestorableState(with coder: Coder)
+  func encodeRestorableState(with coder: NSCoder)
   @available(iOS 6.0, *)
-  func decodeRestorableState(with coder: Coder)
+  func decodeRestorableState(with coder: NSCoder)
 }
 extension UIView {
   @available(iOS 7.0, *)

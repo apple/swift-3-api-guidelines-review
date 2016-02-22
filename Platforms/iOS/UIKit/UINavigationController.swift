@@ -47,11 +47,11 @@ class UINavigationController : UIViewController {
   var hidesBarsOnTap: Bool
   @available(iOS 8.0, *)
   unowned(unsafe) var barHideOnTapGestureRecognizer: @sil_unmanaged UITapGestureRecognizer { get }
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
-protocol UINavigationControllerDelegate : ObjectProtocol {
+protocol UINavigationControllerDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
   optional func navigationController(navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool)
   @available(iOS 2.0, *)

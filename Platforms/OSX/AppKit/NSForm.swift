@@ -17,16 +17,16 @@ class NSForm : NSMatrix {
   func removeEntry(at index: Int)
   func indexOfCell(withTag aTag: Int) -> Int
   func selectText(at index: Int)
-  func setFrameSize(newSize: Size)
+  func setFrameSize(newSize: NSSize)
   func setTitleBaseWritingDirection(writingDirection: NSWritingDirection)
   func setTextBaseWritingDirection(writingDirection: NSWritingDirection)
   @available(OSX 10.8, *)
   func setPreferredTextFieldWidth(preferredWidth: CGFloat)
   @available(OSX 10.8, *)
   func preferredTextFieldWidth() -> CGFloat
-  convenience init(frame frameRect: Rect)
-  init(frame frameRect: Rect, mode aMode: NSMatrixMode, prototype aCell: NSCell, numberOfRows rowsHigh: Int, numberOfColumns colsWide: Int)
-  init(frame frameRect: Rect, mode aMode: NSMatrixMode, cellClass factoryId: AnyClass?, numberOfRows rowsHigh: Int, numberOfColumns colsWide: Int)
-  init?(coder: Coder)
+  convenience init(frame frameRect: NSRect)
+  init(frame frameRect: NSRect, mode aMode: NSMatrixMode, prototype aCell: NSCell, numberOfRows rowsHigh: Int, numberOfColumns colsWide: Int)
+  init(frame frameRect: NSRect, mode aMode: NSMatrixMode, cellClass factoryId: AnyClass?, numberOfRows rowsHigh: Int, numberOfColumns colsWide: Int)
+  init?(coder: NSCoder)
   convenience init()
 }

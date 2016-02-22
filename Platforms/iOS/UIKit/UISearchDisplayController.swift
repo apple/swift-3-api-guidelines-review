@@ -1,6 +1,6 @@
 
 @available(iOS, introduced=3.0, deprecated=8.0, message="UISearchDisplayController has been replaced with UISearchController")
-class UISearchDisplayController : Object {
+class UISearchDisplayController : NSObject {
   init(searchBar: UISearchBar, contentsController viewController: UIViewController)
   unowned(unsafe) var delegate: @sil_unmanaged UISearchDisplayDelegate?
   var isActive: Bool
@@ -18,7 +18,7 @@ class UISearchDisplayController : Object {
   var navigationItem: UINavigationItem? { get }
   init()
 }
-protocol UISearchDisplayDelegate : ObjectProtocol {
+protocol UISearchDisplayDelegate : NSObjectProtocol {
   @available(iOS, introduced=3.0, deprecated=8.0)
   optional func searchDisplayControllerWillBeginSearch(controller: UISearchDisplayController)
   @available(iOS, introduced=3.0, deprecated=8.0)

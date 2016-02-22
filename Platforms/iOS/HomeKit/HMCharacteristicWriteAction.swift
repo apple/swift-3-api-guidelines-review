@@ -1,8 +1,8 @@
 
 @available(iOS 8.0, *)
 class HMCharacteristicWriteAction : HMAction {
-  init(characteristic: HMCharacteristic, targetValue: Copying)
+  init(characteristic: HMCharacteristic, targetValue: NSCopying)
   var characteristic: HMCharacteristic { get }
-  @NSCopying var targetValue: Copying { get }
-  func updateTargetValue(targetValue: Copying, completionHandler completion: (Error?) -> Void)
+  @NSCopying var targetValue: NSCopying { get }
+  func updateTargetValue(targetValue: NSCopying, completionHandler completion: (NSError?) -> Void)
 }

@@ -1,6 +1,6 @@
 
 @available(iOS 5.0, *)
-class CIContext : Object {
+class CIContext : NSObject {
   @available(iOS 9.0, *)
   /*not inherited*/ init(cgContext cgctx: CGContext, options: [String : AnyObject]? = [:])
   @available(iOS 5.0, *)

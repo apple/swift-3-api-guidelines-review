@@ -1,6 +1,6 @@
 
 @available(iOS 3.0, *)
-class MKUserLocation : Object, MKAnnotation {
+class MKUserLocation : NSObject, MKAnnotation {
   var isUpdating: Bool { get }
   var location: CLLocation? { get }
   @available(iOS 5.0, *)

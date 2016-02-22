@@ -1,6 +1,6 @@
 
 @available(OSX 10.4, *)
-class CIVector : Object, Copying, SecureCoding {
+class CIVector : NSObject, NSCopying, NSSecureCoding {
   init(values: UnsafePointer<CGFloat>, count: Int)
   convenience init(x: CGFloat)
   convenience init(x: CGFloat, y: CGFloat)
@@ -28,10 +28,10 @@ class CIVector : Object, Copying, SecureCoding {
   var stringRepresentation: String { get }
   convenience init()
   @available(OSX 10.4, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

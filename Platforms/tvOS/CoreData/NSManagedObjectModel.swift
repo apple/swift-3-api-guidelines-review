@@ -1,10 +1,10 @@
 
 @available(tvOS 3.0, *)
-class NSManagedObjectModel : Object, Coding, Copying, FastEnumeration {
-  class func mergedModel(from bundles: [Bundle]?) -> NSManagedObjectModel?
+class NSManagedObjectModel : NSObject, NSCoding, NSCopying, NSFastEnumeration {
+  class func mergedModel(from bundles: [NSBundle]?) -> NSManagedObjectModel?
   /*not inherited*/ init?(byMerging models: [NSManagedObjectModel]?)
   init()
-  convenience init?(contentsOf url: URL)
+  convenience init?(contentsOf url: NSURL)
   var entitiesByName: [String : NSEntityDescription] { get }
   var entities: [NSEntityDescription]
   var configurations: [String] { get }
@@ -15,24 +15,24 @@ class NSManagedObjectModel : Object, Coding, Copying, FastEnumeration {
   func fetchRequestFromTemplate(name name: String, substitutionVariables variables: [String : AnyObject]) -> NSFetchRequest?
   var localizationDictionary: [String : String]?
   @available(tvOS 3.0, *)
-  class func mergedModel(from bundles: [Bundle]?, forStoreMetadata metadata: [String : AnyObject]) -> NSManagedObjectModel?
+  class func mergedModel(from bundles: [NSBundle]?, forStoreMetadata metadata: [String : AnyObject]) -> NSManagedObjectModel?
   @available(tvOS 3.0, *)
   /*not inherited*/ init?(byMerging models: [NSManagedObjectModel], forStoreMetadata metadata: [String : AnyObject])
   @available(tvOS 3.0, *)
   var fetchRequestTemplatesByName: [String : NSFetchRequest] { get }
   @available(tvOS 3.0, *)
-  var versionIdentifiers: Set<Object>
+  var versionIdentifiers: Set<NSObject>
   @available(tvOS 3.0, *)
   func isConfiguration(configuration: String?, compatibleWithStoreMetadata metadata: [String : AnyObject]) -> Bool
   @available(tvOS 3.0, *)
-  var entityVersionHashesByName: [String : Data] { get }
+  var entityVersionHashesByName: [String : NSData] { get }
   @available(tvOS 3.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(tvOS 3.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 3.0, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 struct __managedObjectModelFlags {
   var _isInUse: UInt32

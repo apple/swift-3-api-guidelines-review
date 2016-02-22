@@ -1,5 +1,5 @@
 
-class MLMediaLibrary : Object {
+class MLMediaLibrary : NSObject {
   init(options: [String : AnyObject] = [:])
   var mediaSources: [String : MLMediaSource]? { get }
   convenience init()

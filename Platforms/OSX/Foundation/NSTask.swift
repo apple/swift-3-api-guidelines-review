@@ -1,12 +1,12 @@
 
 @available(OSX 10.6, *)
-enum TaskTerminationReason : Int {
+enum NSTaskTerminationReason : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   case exit
   case uncaughtSignal
 }
-class Task : Object {
+class NSTask : NSObject {
   init()
   var launchPath: String?
   var arguments: [String]?
@@ -24,14 +24,14 @@ class Task : Object {
   var isRunning: Bool { get }
   var terminationStatus: Int32 { get }
   @available(OSX 10.6, *)
-  var terminationReason: TaskTerminationReason { get }
+  var terminationReason: NSTaskTerminationReason { get }
   @available(OSX 10.7, *)
-  var terminationHandler: ((Task) -> Void)?
+  var terminationHandler: ((NSTask) -> Void)?
   @available(OSX 10.10, *)
-  var qualityOfService: QualityOfService
+  var qualityOfService: NSQualityOfService
 }
-extension Task {
-  class func launchedTask(withLaunchPath path: String, arguments: [String]) -> Task
+extension NSTask {
+  class func launchedTask(withLaunchPath path: String, arguments: [String]) -> NSTask
   func waitUntilExit()
 }
-let taskDidTerminateNotification: String
+let NSTaskDidTerminateNotification: String

@@ -1,17 +1,17 @@
 
 @available(OSX 10.3, *)
-let negateBooleanTransformerName: String
+let NSNegateBooleanTransformerName: String
 @available(OSX 10.3, *)
-let isNilTransformerName: String
+let NSIsNilTransformerName: String
 @available(OSX 10.3, *)
-let isNotNilTransformerName: String
+let NSIsNotNilTransformerName: String
 @available(OSX 10.3, *)
-let unarchiveFromDataTransformerName: String
+let NSUnarchiveFromDataTransformerName: String
 @available(OSX 10.5, *)
-let keyedUnarchiveFromDataTransformerName: String
+let NSKeyedUnarchiveFromDataTransformerName: String
 @available(OSX 10.3, *)
-class ValueTransformer : Object {
-  class func setValueTransformer(transformer: ValueTransformer?, forName name: String)
+class NSValueTransformer : NSObject {
+  class func setValueTransformer(transformer: NSValueTransformer?, forName name: String)
   /*not inherited*/ init?(forName name: String)
   class func valueTransformerNames() -> [String]
   class func transformedValueClass() -> AnyClass

@@ -2,24 +2,24 @@
 @available(OSX 10.10, *)
 let AVMovieReferenceRestrictionsKey: String
 @available(OSX 10.10, *)
-class AVMovie : AVAsset, Copying, MutableCopying {
+class AVMovie : AVAsset, NSCopying, NSMutableCopying {
   class func movieTypes() -> [String]
-  init(url URL: URL, options: [String : AnyObject]? = [:])
+  init(url URL: NSURL, options: [String : AnyObject]? = [:])
   @available(OSX 10.11, *)
-  init(data: Data, options: [String : AnyObject]? = [:])
-  var url: URL? { get }
+  init(data: NSData, options: [String : AnyObject]? = [:])
+  var url: NSURL? { get }
   @available(OSX 10.11, *)
-  var data: Data? { get }
+  var data: NSData? { get }
   @available(OSX 10.11, *)
   var defaultMediaDataStorage: AVMediaDataStorage? { get }
   var tracks: [AVMovieTrack] { get }
   var canContainMovieFragments: Bool { get }
   @available(OSX 10.11, *)
   var containsMovieFragments: Bool { get }
-  convenience init(url URL: URL)
+  convenience init(url URL: NSURL)
   convenience init()
   @available(OSX 10.10, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 struct AVMovieWritingOptions : OptionSetType {
@@ -30,9 +30,9 @@ struct AVMovieWritingOptions : OptionSetType {
 }
 extension AVMovie {
   @available(OSX 10.11, *)
-  func movieHeader(withFileType fileType: String) throws -> Data
+  func movieHeader(withFileType fileType: String) throws -> NSData
   @available(OSX 10.11, *)
-  func writeHeader(to URL: URL, fileType: String, options: AVMovieWritingOptions = []) throws
+  func writeHeader(to URL: NSURL, fileType: String, options: AVMovieWritingOptions = []) throws
   @available(OSX 10.11, *)
   func isCompatibleWithFileType(fileType: String) -> Bool
 }
@@ -43,18 +43,18 @@ extension AVMovie {
 }
 @available(OSX 10.11, *)
 class AVMutableMovie : AVMovie {
-  init(url URL: URL, options: [String : AnyObject]? = [:], error: ()) throws
-  init(data: Data, options: [String : AnyObject]? = [:], error: ()) throws
+  init(url URL: NSURL, options: [String : AnyObject]? = [:], error: ()) throws
+  init(data: NSData, options: [String : AnyObject]? = [:], error: ()) throws
   init(settingsFrom movie: AVMovie?, options: [String : AnyObject]? = [:]) throws
   var preferredRate: Float
   var preferredVolume: Float
   var preferredTransform: CGAffineTransform
   var timescale: CMTimeScale
   var tracks: [AVMutableMovieTrack] { get }
-  convenience init(url URL: URL, options: [String : AnyObject]? = [:])
+  convenience init(url URL: NSURL, options: [String : AnyObject]? = [:])
   @available(OSX 10.11, *)
-  convenience init(data: Data, options: [String : AnyObject]? = [:])
-  convenience init(url URL: URL)
+  convenience init(data: NSData, options: [String : AnyObject]? = [:])
+  convenience init(url URL: NSURL)
   convenience init()
 }
 extension AVMutableMovie {
@@ -81,9 +81,9 @@ extension AVMutableMovie {
   func tracks(withMediaCharacteristic mediaCharacteristic: String) -> [AVMutableMovieTrack]
 }
 @available(OSX 10.11, *)
-class AVMediaDataStorage : Object {
-  init(url URL: URL, options: [String : AnyObject]? = [:])
-  func url() -> URL?
+class AVMediaDataStorage : NSObject {
+  init(url URL: NSURL, options: [String : AnyObject]? = [:])
+  func url() -> NSURL?
 }
 @available(OSX 10.10, *)
 let AVFragmentedMovieContainsMovieFragmentsDidChangeNotification: String
@@ -94,10 +94,10 @@ let AVFragmentedMovieWasDefragmentedNotification: String
 @available(OSX 10.10, *)
 class AVFragmentedMovie : AVMovie, AVFragmentMinding {
   var tracks: [AVFragmentedMovieTrack] { get }
-  init(url URL: URL, options: [String : AnyObject]? = [:])
+  init(url URL: NSURL, options: [String : AnyObject]? = [:])
   @available(OSX 10.11, *)
-  init(data: Data, options: [String : AnyObject]? = [:])
-  convenience init(url URL: URL)
+  init(data: NSData, options: [String : AnyObject]? = [:])
+  convenience init(url URL: NSURL)
   convenience init()
   @available(OSX 10.11, *)
   var isAssociatedWithFragmentMinder: Bool { get }
@@ -109,11 +109,11 @@ extension AVFragmentedMovie {
 }
 @available(OSX 10.10, *)
 class AVFragmentedMovieMinder : AVFragmentedAssetMinder {
-  init(movie: AVFragmentedMovie, mindingInterval: TimeInterval)
-  var mindingInterval: TimeInterval
+  init(movie: AVFragmentedMovie, mindingInterval: NSTimeInterval)
+  var mindingInterval: NSTimeInterval
   var movies: [AVFragmentedMovie] { get }
   func add(movie: AVFragmentedMovie)
   func remove(movie: AVFragmentedMovie)
-  convenience init(asset: AVAsset, mindingInterval: TimeInterval)
+  convenience init(asset: AVAsset, mindingInterval: NSTimeInterval)
   convenience init()
 }

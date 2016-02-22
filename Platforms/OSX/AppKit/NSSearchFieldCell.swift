@@ -8,9 +8,9 @@ class NSSearchFieldCell : NSTextFieldCell {
   var cancelButtonCell: NSButtonCell?
   func resetSearchButtonCell()
   func resetCancelButtonCell()
-  func searchTextRect(forBounds rect: Rect) -> Rect
-  func searchButtonRect(forBounds rect: Rect) -> Rect
-  func cancelButtonRect(forBounds rect: Rect) -> Rect
+  func searchTextRect(forBounds rect: NSRect) -> NSRect
+  func searchButtonRect(forBounds rect: NSRect) -> NSRect
+  func cancelButtonRect(forBounds rect: NSRect) -> NSRect
   var searchMenuTemplate: NSMenu?
   var sendsWholeSearchString: Bool
   var maximumRecents: Int
@@ -20,7 +20,7 @@ class NSSearchFieldCell : NSTextFieldCell {
   init(textCell aString: String)
   init(imageCell image: NSImage?)
   convenience init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 struct __sfFlags {
   var sendsWholeSearchString: UInt32

@@ -1,99 +1,99 @@
 
 var __FOUNDATION_NSMAPTABLE__: Int32 { get }
 @available(OSX 10.5, *)
-let mapTableStrongMemory: PointerFunctionsOptions
+let NSMapTableStrongMemory: NSPointerFunctionsOptions
 @available(OSX 10.5, *)
-let mapTableCopyIn: PointerFunctionsOptions
+let NSMapTableCopyIn: NSPointerFunctionsOptions
 @available(OSX 10.5, *)
-let mapTableObjectPointerPersonality: PointerFunctionsOptions
+let NSMapTableObjectPointerPersonality: NSPointerFunctionsOptions
 @available(OSX 10.8, *)
-let mapTableWeakMemory: PointerFunctionsOptions
-typealias MapTableOptions = Int
+let NSMapTableWeakMemory: NSPointerFunctionsOptions
+typealias NSMapTableOptions = Int
 @available(OSX 10.5, *)
-class MapTable : Object, Copying, Coding, FastEnumeration {
-  init(keyOptions: PointerFunctionsOptions = [], valueOptions: PointerFunctionsOptions = [], capacity initialCapacity: Int)
-  init(keyPointerFunctions keyFunctions: PointerFunctions, valuePointerFunctions valueFunctions: PointerFunctions, capacity initialCapacity: Int)
-  /*not inherited*/ init(keyOptions: PointerFunctionsOptions = [], valueOptions: PointerFunctionsOptions = [])
+class NSMapTable : NSObject, NSCopying, NSCoding, NSFastEnumeration {
+  init(keyOptions: NSPointerFunctionsOptions = [], valueOptions: NSPointerFunctionsOptions = [], capacity initialCapacity: Int)
+  init(keyPointerFunctions keyFunctions: NSPointerFunctions, valuePointerFunctions valueFunctions: NSPointerFunctions, capacity initialCapacity: Int)
+  /*not inherited*/ init(keyOptions: NSPointerFunctionsOptions = [], valueOptions: NSPointerFunctionsOptions = [])
   @available(OSX 10.8, *)
-  class func strongToStrongObjects() -> MapTable
+  class func strongToStrongObjects() -> NSMapTable
   @available(OSX 10.8, *)
-  class func weakToStrongObjects() -> MapTable
+  class func weakToStrongObjects() -> NSMapTable
   @available(OSX 10.8, *)
-  class func strongToWeakObjects() -> MapTable
+  class func strongToWeakObjects() -> NSMapTable
   @available(OSX 10.8, *)
-  class func weakToWeakObjects() -> MapTable
-  @NSCopying var keyPointerFunctions: PointerFunctions { get }
-  @NSCopying var valuePointerFunctions: PointerFunctions { get }
+  class func weakToWeakObjects() -> NSMapTable
+  @NSCopying var keyPointerFunctions: NSPointerFunctions { get }
+  @NSCopying var valuePointerFunctions: NSPointerFunctions { get }
   func object(for aKey: AnyObject?) -> AnyObject?
   func removeObject(for aKey: AnyObject?)
   func setObject(anObject: AnyObject?, for aKey: AnyObject?)
   var count: Int { get }
-  func keyEnumerator() -> Enumerator
-  func objectEnumerator() -> Enumerator?
+  func keyEnumerator() -> NSEnumerator
+  func objectEnumerator() -> NSEnumerator?
   func removeAllObjects()
-  func dictionaryRepresentation() -> [Object : AnyObject]
+  func dictionaryRepresentation() -> [NSObject : AnyObject]
   convenience init()
   @available(OSX 10.5, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.5, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.5, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
-struct MapEnumerator {
+struct NSMapEnumerator {
   var _pi: Int
   var _si: Int
   var _bs: UnsafeMutablePointer<Void>
   init()
   init(_pi: Int, _si: Int, _bs: UnsafeMutablePointer<Void>)
 }
-func freeMapTable(table: MapTable)
-func resetMapTable(table: MapTable)
-func compareMapTables(table1: MapTable, _ table2: MapTable) -> Bool
-func copyMapTableWithZone(table: MapTable, _ zone: Zone) -> MapTable
-func mapMember(table: MapTable, _ key: UnsafePointer<Void>, _ originalKey: UnsafeMutablePointer<UnsafeMutablePointer<Void>>, _ value: UnsafeMutablePointer<UnsafeMutablePointer<Void>>) -> Bool
-func mapGet(table: MapTable, _ key: UnsafePointer<Void>) -> UnsafeMutablePointer<Void>
-func mapInsert(table: MapTable, _ key: UnsafePointer<Void>, _ value: UnsafePointer<Void>)
-func mapInsertKnownAbsent(table: MapTable, _ key: UnsafePointer<Void>, _ value: UnsafePointer<Void>)
-func mapInsertIfAbsent(table: MapTable, _ key: UnsafePointer<Void>, _ value: UnsafePointer<Void>) -> UnsafeMutablePointer<Void>
-func mapRemove(table: MapTable, _ key: UnsafePointer<Void>)
-func enumerateMapTable(table: MapTable) -> MapEnumerator
-func nextMapEnumeratorPair(enumerator: UnsafeMutablePointer<MapEnumerator>, _ key: UnsafeMutablePointer<UnsafeMutablePointer<Void>>, _ value: UnsafeMutablePointer<UnsafeMutablePointer<Void>>) -> Bool
-func endMapTableEnumeration(enumerator: UnsafeMutablePointer<MapEnumerator>)
-func countMapTable(table: MapTable) -> Int
-func stringFromMapTable(table: MapTable) -> String
-func allMapTableKeys(table: MapTable) -> [AnyObject]
-func allMapTableValues(table: MapTable) -> [AnyObject]
-struct MapTableKeyCallBacks {
-  var hash: (@convention(c) (MapTable, UnsafePointer<Void>) -> Int)?
-  var isEqual: (@convention(c) (MapTable, UnsafePointer<Void>, UnsafePointer<Void>) -> ObjCBool)?
-  var retain: (@convention(c) (MapTable, UnsafePointer<Void>) -> Void)?
-  var release: (@convention(c) (MapTable, UnsafeMutablePointer<Void>) -> Void)?
-  var describe: (@convention(c) (MapTable, UnsafePointer<Void>) -> String?)?
+func NSFreeMapTable(table: NSMapTable)
+func NSResetMapTable(table: NSMapTable)
+func NSCompareMapTables(table1: NSMapTable, _ table2: NSMapTable) -> Bool
+func NSCopyMapTableWithZone(table: NSMapTable, _ zone: NSZone) -> NSMapTable
+func NSMapMember(table: NSMapTable, _ key: UnsafePointer<Void>, _ originalKey: UnsafeMutablePointer<UnsafeMutablePointer<Void>>, _ value: UnsafeMutablePointer<UnsafeMutablePointer<Void>>) -> Bool
+func NSMapGet(table: NSMapTable, _ key: UnsafePointer<Void>) -> UnsafeMutablePointer<Void>
+func NSMapInsert(table: NSMapTable, _ key: UnsafePointer<Void>, _ value: UnsafePointer<Void>)
+func NSMapInsertKnownAbsent(table: NSMapTable, _ key: UnsafePointer<Void>, _ value: UnsafePointer<Void>)
+func NSMapInsertIfAbsent(table: NSMapTable, _ key: UnsafePointer<Void>, _ value: UnsafePointer<Void>) -> UnsafeMutablePointer<Void>
+func NSMapRemove(table: NSMapTable, _ key: UnsafePointer<Void>)
+func NSEnumerateMapTable(table: NSMapTable) -> NSMapEnumerator
+func NSNextMapEnumeratorPair(enumerator: UnsafeMutablePointer<NSMapEnumerator>, _ key: UnsafeMutablePointer<UnsafeMutablePointer<Void>>, _ value: UnsafeMutablePointer<UnsafeMutablePointer<Void>>) -> Bool
+func NSEndMapTableEnumeration(enumerator: UnsafeMutablePointer<NSMapEnumerator>)
+func NSCountMapTable(table: NSMapTable) -> Int
+func NSStringFromMapTable(table: NSMapTable) -> String
+func NSAllMapTableKeys(table: NSMapTable) -> [AnyObject]
+func NSAllMapTableValues(table: NSMapTable) -> [AnyObject]
+struct NSMapTableKeyCallBacks {
+  var hash: (@convention(c) (NSMapTable, UnsafePointer<Void>) -> Int)?
+  var isEqual: (@convention(c) (NSMapTable, UnsafePointer<Void>, UnsafePointer<Void>) -> ObjCBool)?
+  var retain: (@convention(c) (NSMapTable, UnsafePointer<Void>) -> Void)?
+  var release: (@convention(c) (NSMapTable, UnsafeMutablePointer<Void>) -> Void)?
+  var describe: (@convention(c) (NSMapTable, UnsafePointer<Void>) -> String?)?
   var notAKeyMarker: UnsafePointer<Void>
   init()
-  init(hash: (@convention(c) (MapTable, UnsafePointer<Void>) -> Int)?, isEqual: (@convention(c) (MapTable, UnsafePointer<Void>, UnsafePointer<Void>) -> ObjCBool)?, retain: (@convention(c) (MapTable, UnsafePointer<Void>) -> Void)?, release: (@convention(c) (MapTable, UnsafeMutablePointer<Void>) -> Void)?, describe: (@convention(c) (MapTable, UnsafePointer<Void>) -> String?)?, notAKeyMarker: UnsafePointer<Void>)
+  init(hash: (@convention(c) (NSMapTable, UnsafePointer<Void>) -> Int)?, isEqual: (@convention(c) (NSMapTable, UnsafePointer<Void>, UnsafePointer<Void>) -> ObjCBool)?, retain: (@convention(c) (NSMapTable, UnsafePointer<Void>) -> Void)?, release: (@convention(c) (NSMapTable, UnsafeMutablePointer<Void>) -> Void)?, describe: (@convention(c) (NSMapTable, UnsafePointer<Void>) -> String?)?, notAKeyMarker: UnsafePointer<Void>)
 }
-struct MapTableValueCallBacks {
-  var retain: (@convention(c) (MapTable, UnsafePointer<Void>) -> Void)?
-  var release: (@convention(c) (MapTable, UnsafeMutablePointer<Void>) -> Void)?
-  var describe: (@convention(c) (MapTable, UnsafePointer<Void>) -> String?)?
+struct NSMapTableValueCallBacks {
+  var retain: (@convention(c) (NSMapTable, UnsafePointer<Void>) -> Void)?
+  var release: (@convention(c) (NSMapTable, UnsafeMutablePointer<Void>) -> Void)?
+  var describe: (@convention(c) (NSMapTable, UnsafePointer<Void>) -> String?)?
   init()
-  init(retain: (@convention(c) (MapTable, UnsafePointer<Void>) -> Void)?, release: (@convention(c) (MapTable, UnsafeMutablePointer<Void>) -> Void)?, describe: (@convention(c) (MapTable, UnsafePointer<Void>) -> String?)?)
+  init(retain: (@convention(c) (NSMapTable, UnsafePointer<Void>) -> Void)?, release: (@convention(c) (NSMapTable, UnsafeMutablePointer<Void>) -> Void)?, describe: (@convention(c) (NSMapTable, UnsafePointer<Void>) -> String?)?)
 }
-func createMapTableWithZone(keyCallBacks: MapTableKeyCallBacks, _ valueCallBacks: MapTableValueCallBacks, _ capacity: Int, _ zone: Zone) -> MapTable
-func createMapTable(keyCallBacks: MapTableKeyCallBacks, _ valueCallBacks: MapTableValueCallBacks, _ capacity: Int) -> MapTable
+func NSCreateMapTableWithZone(keyCallBacks: NSMapTableKeyCallBacks, _ valueCallBacks: NSMapTableValueCallBacks, _ capacity: Int, _ zone: NSZone) -> NSMapTable
+func NSCreateMapTable(keyCallBacks: NSMapTableKeyCallBacks, _ valueCallBacks: NSMapTableValueCallBacks, _ capacity: Int) -> NSMapTable
 @available(OSX 10.5, *)
-let integerMapKeyCallBacks: MapTableKeyCallBacks
-let nonOwnedPointerMapKeyCallBacks: MapTableKeyCallBacks
-let nonOwnedPointerOrNullMapKeyCallBacks: MapTableKeyCallBacks
-let nonRetainedObjectMapKeyCallBacks: MapTableKeyCallBacks
-let objectMapKeyCallBacks: MapTableKeyCallBacks
-let ownedPointerMapKeyCallBacks: MapTableKeyCallBacks
+let NSIntegerMapKeyCallBacks: NSMapTableKeyCallBacks
+let NSNonOwnedPointerMapKeyCallBacks: NSMapTableKeyCallBacks
+let NSNonOwnedPointerOrNullMapKeyCallBacks: NSMapTableKeyCallBacks
+let NSNonRetainedObjectMapKeyCallBacks: NSMapTableKeyCallBacks
+let NSObjectMapKeyCallBacks: NSMapTableKeyCallBacks
+let NSOwnedPointerMapKeyCallBacks: NSMapTableKeyCallBacks
 @available(OSX 10.5, *)
-let integerMapValueCallBacks: MapTableValueCallBacks
-let nonOwnedPointerMapValueCallBacks: MapTableValueCallBacks
-let objectMapValueCallBacks: MapTableValueCallBacks
-let nonRetainedObjectMapValueCallBacks: MapTableValueCallBacks
-let ownedPointerMapValueCallBacks: MapTableValueCallBacks
+let NSIntegerMapValueCallBacks: NSMapTableValueCallBacks
+let NSNonOwnedPointerMapValueCallBacks: NSMapTableValueCallBacks
+let NSObjectMapValueCallBacks: NSMapTableValueCallBacks
+let NSNonRetainedObjectMapValueCallBacks: NSMapTableValueCallBacks
+let NSOwnedPointerMapValueCallBacks: NSMapTableValueCallBacks

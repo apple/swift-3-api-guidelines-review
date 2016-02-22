@@ -1,13 +1,13 @@
 
 @available(OSX 10.7, *)
-class AVCaptureInput : Object {
+class AVCaptureInput : NSObject {
   var ports: [AnyObject]! { get }
   init()
 }
 @available(OSX 10.7, *)
 let AVCaptureInputPortFormatDescriptionDidChangeNotification: String
 @available(OSX 10.7, *)
-class AVCaptureInputPort : Object {
+class AVCaptureInputPort : NSObject {
   var input: AVCaptureInput! { get }
   var mediaType: String! { get }
   var formatDescription: CMFormatDescription! { get }

@@ -404,7 +404,7 @@ let NSAccessibilitySwitchSubrole: String
 @available(OSX 10.9, *)
 let NSAccessibilityDescriptionListSubrole: String
 @available(OSX 10.7, *)
-func NSAccessibilityPostNotificationWithUserInfo(element: AnyObject, _ notification: String, _ userInfo: [Object : AnyObject])
+func NSAccessibilityPostNotificationWithUserInfo(element: AnyObject, _ notification: String, _ userInfo: [NSObject : AnyObject])
 @available(OSX 10.9, *)
 let NSAccessibilityUIElementsKey: String
 @available(OSX 10.9, *)

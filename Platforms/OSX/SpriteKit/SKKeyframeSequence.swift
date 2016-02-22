@@ -12,10 +12,10 @@ enum SKRepeatMode : Int {
   case clamp
   case loop
 }
-class SKKeyframeSequence : Object, Coding, Copying {
-  init(keyframeValues values: [AnyObject], times: [Number])
+class SKKeyframeSequence : NSObject, NSCoding, NSCopying {
+  init(keyframeValues values: [AnyObject], times: [NSNumber])
   convenience init(capacity numItems: Int)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   func count() -> Int
   func addKeyframeValue(value: AnyObject, time: CGFloat)
   func removeLastKeyframe()
@@ -29,6 +29,6 @@ class SKKeyframeSequence : Object, Coding, Copying {
   var interpolationMode: SKInterpolationMode
   var repeatMode: SKRepeatMode
   convenience init()
-  func encode(with aCoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

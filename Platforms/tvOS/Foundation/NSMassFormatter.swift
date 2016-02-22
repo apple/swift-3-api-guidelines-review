@@ -1,6 +1,6 @@
 
 @available(tvOS 8.0, *)
-enum MassFormatterUnit : Int {
+enum NSMassFormatterUnit : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   case gram
@@ -10,15 +10,15 @@ enum MassFormatterUnit : Int {
   case stone
 }
 @available(tvOS 8.0, *)
-class MassFormatter : Formatter {
-  @NSCopying var numberFormatter: NumberFormatter!
-  var unitStyle: FormattingUnitStyle
+class NSMassFormatter : NSFormatter {
+  @NSCopying var numberFormatter: NSNumberFormatter!
+  var unitStyle: NSFormattingUnitStyle
   var isForPersonMassUse: Bool
-  func string(fromValue value: Double, unit: MassFormatterUnit) -> String
+  func string(fromValue value: Double, unit: NSMassFormatterUnit) -> String
   func string(fromKilograms numberInKilograms: Double) -> String
-  func unitString(fromValue value: Double, unit: MassFormatterUnit) -> String
-  func unitString(fromKilograms numberInKilograms: Double, usedUnit unitp: UnsafeMutablePointer<MassFormatterUnit>) -> String
+  func unitString(fromValue value: Double, unit: NSMassFormatterUnit) -> String
+  func unitString(fromKilograms numberInKilograms: Double, usedUnit unitp: UnsafeMutablePointer<NSMassFormatterUnit>) -> String
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

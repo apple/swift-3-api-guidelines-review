@@ -16,9 +16,9 @@ class NSRelationshipDescription : NSPropertyDescription {
   var deleteRule: NSDeleteRule
   var isToMany: Bool { get }
   @available(OSX 10.5, *)
-  @NSCopying var versionHash: Data { get }
+  @NSCopying var versionHash: NSData { get }
   @available(OSX 10.7, *)
   var isOrdered: Bool
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

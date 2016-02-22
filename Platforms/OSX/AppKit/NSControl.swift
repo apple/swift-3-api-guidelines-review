@@ -11,18 +11,18 @@ class NSControl : NSView {
   var isHighlighted: Bool
   @available(OSX 10.10, *)
   var controlSize: NSControlSize
-  var formatter: Formatter?
+  var formatter: NSFormatter?
   var stringValue: String
-  @NSCopying var attributedStringValue: AttributedString
+  @NSCopying var attributedStringValue: NSAttributedString
   @NSCopying var objectValue: AnyObject?
   var intValue: Int32
   var integerValue: Int
   var floatValue: Float
   var doubleValue: Double
   @available(OSX 10.10, *)
-  func sizeThatFits(size: Size) -> Size
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  func sizeThatFits(size: NSSize) -> NSSize
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   func sizeToFit()
   func sendAction(on mask: Int) -> Int
   func sendAction(theAction: Selector, to theTarget: AnyObject?) -> Bool
@@ -65,30 +65,30 @@ extension NSControl {
   @available(OSX 10.8, *)
   var allowsExpansionToolTips: Bool
   @available(OSX 10.10, *)
-  func expansionFrame(frame contentFrame: Rect) -> Rect
+  func expansionFrame(frame contentFrame: NSRect) -> NSRect
   @available(OSX 10.10, *)
-  func draw(expansionFrame contentFrame: Rect, in view: NSView)
+  func draw(expansionFrame contentFrame: NSRect, in view: NSView)
 }
 extension NSControl {
   func currentEditor() -> NSText?
   func abortEditing() -> Bool
   func validateEditing()
   @available(OSX 10.10, *)
-  func edit(frame aRect: Rect, editor textObj: NSText, delegate anObject: AnyObject?, event theEvent: NSEvent)
+  func edit(frame aRect: NSRect, editor textObj: NSText, delegate anObject: AnyObject?, event theEvent: NSEvent)
   @available(OSX 10.10, *)
-  func select(frame aRect: Rect, editor textObj: NSText, delegate anObject: AnyObject?, start selStart: Int, length selLength: Int)
+  func select(frame aRect: NSRect, editor textObj: NSText, delegate anObject: AnyObject?, start selStart: Int, length selLength: Int)
   @available(OSX 10.10, *)
   func endEditing(textObj: NSText)
 }
-extension Object {
-  class func controlTextDidBeginEditing(obj: Notification)
-  func controlTextDidBeginEditing(obj: Notification)
-  class func controlTextDidEndEditing(obj: Notification)
-  func controlTextDidEndEditing(obj: Notification)
-  class func controlTextDidChange(obj: Notification)
-  func controlTextDidChange(obj: Notification)
+extension NSObject {
+  class func controlTextDidBeginEditing(obj: NSNotification)
+  func controlTextDidBeginEditing(obj: NSNotification)
+  class func controlTextDidEndEditing(obj: NSNotification)
+  func controlTextDidEndEditing(obj: NSNotification)
+  class func controlTextDidChange(obj: NSNotification)
+  func controlTextDidChange(obj: NSNotification)
 }
-protocol NSControlTextEditingDelegate : ObjectProtocol {
+protocol NSControlTextEditingDelegate : NSObjectProtocol {
   optional func control(control: NSControl, textShouldBeginEditing fieldEditor: NSText) -> Bool
   optional func control(control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool
   optional func control(control: NSControl, didFailToFormatString string: String, errorDescription error: String?) -> Bool

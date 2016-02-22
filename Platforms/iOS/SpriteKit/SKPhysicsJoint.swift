@@ -1,12 +1,12 @@
 
-class SKPhysicsJoint : Object, Coding {
+class SKPhysicsJoint : NSObject, NSCoding {
   var bodyA: SKPhysicsBody
   var bodyB: SKPhysicsBody
   var reactionForce: CGVector { get }
   var reactionTorque: CGFloat { get }
   init()
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 class SKPhysicsJointPin : SKPhysicsJoint {
   class func joint(withBodyA bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchor: CGPoint) -> SKPhysicsJointPin
@@ -16,19 +16,19 @@ class SKPhysicsJointPin : SKPhysicsJoint {
   var frictionTorque: CGFloat
   var rotationSpeed: CGFloat
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 class SKPhysicsJointSpring : SKPhysicsJoint {
   class func joint(withBodyA bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchorA: CGPoint, anchorB: CGPoint) -> SKPhysicsJointSpring
   var damping: CGFloat
   var frequency: CGFloat
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 class SKPhysicsJointFixed : SKPhysicsJoint {
   class func joint(withBodyA bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchor: CGPoint) -> SKPhysicsJointFixed
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 class SKPhysicsJointSliding : SKPhysicsJoint {
   class func joint(withBodyA bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchor: CGPoint, axis: CGVector) -> SKPhysicsJointSliding
@@ -36,11 +36,11 @@ class SKPhysicsJointSliding : SKPhysicsJoint {
   var lowerDistanceLimit: CGFloat
   var upperDistanceLimit: CGFloat
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 class SKPhysicsJointLimit : SKPhysicsJoint {
   var maxLength: CGFloat
   class func joint(withBodyA bodyA: SKPhysicsBody, bodyB: SKPhysicsBody, anchorA: CGPoint, anchorB: CGPoint) -> SKPhysicsJointLimit
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

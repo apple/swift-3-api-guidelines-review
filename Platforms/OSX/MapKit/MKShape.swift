@@ -1,6 +1,6 @@
 
 @available(OSX 10.9, *)
-class MKShape : Object, MKAnnotation {
+class MKShape : NSObject, MKAnnotation {
   var title: String?
   var subtitle: String?
   init()

@@ -17,7 +17,7 @@ let SCNPreferredDeviceKey: String
 let SCNPreferLowPowerDeviceKey: String
 @available(OSX 10.8, *)
 class SCNView : NSView, SCNSceneRenderer, SCNTechniqueSupport {
-  init(frame: Rect, options: [String : AnyObject]? = [:])
+  init(frame: NSRect, options: [String : AnyObject]? = [:])
   var scene: SCNScene?
   @NSCopying var backgroundColor: NSColor
   var allowsCameraControl: Bool
@@ -30,11 +30,11 @@ class SCNView : NSView, SCNSceneRenderer, SCNTechniqueSupport {
   @available(OSX 10.10, *)
   var antialiasingMode: SCNAntialiasingMode
   var pixelFormat: NSOpenGLPixelFormat?
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
   @available(OSX 10.10, *)
-  var sceneTime: TimeInterval
+  var sceneTime: NSTimeInterval
   @available(OSX 10.8, *)
   unowned(unsafe) var delegate: @sil_unmanaged SCNSceneRendererDelegate?
   @available(OSX 10.8, *)
@@ -84,7 +84,7 @@ class SCNView : NSView, SCNSceneRenderer, SCNTechniqueSupport {
   @available(OSX 10.11, *)
   var audioListener: SCNNode?
   @available(OSX, introduced=10.8, deprecated=10.10)
-  var currentTime: TimeInterval
+  var currentTime: NSTimeInterval
   @available(OSX 10.10, *)
   @NSCopying var technique: SCNTechnique?
 }

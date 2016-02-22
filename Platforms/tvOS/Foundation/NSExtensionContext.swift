@@ -1,19 +1,19 @@
 
 @available(tvOS 8.0, *)
-class ExtensionContext : Object {
+class NSExtensionContext : NSObject {
   var inputItems: [AnyObject] { get }
   func completeRequestReturningItems(items: [AnyObject]?, completionHandler: ((Bool) -> Void)? = nil)
-  func cancelRequestWithError(error: Error)
-  func open(URL: URL, completionHandler: ((Bool) -> Void)? = nil)
+  func cancelRequestWithError(error: NSError)
+  func open(URL: NSURL, completionHandler: ((Bool) -> Void)? = nil)
   init()
 }
 @available(tvOS 8.0, *)
-let extensionItemsAndErrorsKey: String
+let NSExtensionItemsAndErrorsKey: String
 @available(tvOS 8.2, *)
-let extensionHostWillEnterForegroundNotification: String
+let NSExtensionHostWillEnterForegroundNotification: String
 @available(tvOS 8.2, *)
-let extensionHostDidEnterBackgroundNotification: String
+let NSExtensionHostDidEnterBackgroundNotification: String
 @available(tvOS 8.2, *)
-let extensionHostWillResignActiveNotification: String
+let NSExtensionHostWillResignActiveNotification: String
 @available(tvOS 8.2, *)
-let extensionHostDidBecomeActiveNotification: String
+let NSExtensionHostDidBecomeActiveNotification: String

@@ -22,11 +22,11 @@ enum UIPrintInfoDuplex : Int {
   case shortEdge
 }
 @available(iOS 4.2, *)
-class UIPrintInfo : Object, Copying, Coding {
-  init?(coder aDecoder: Coder)
+class UIPrintInfo : NSObject, NSCopying, NSCoding {
+  init?(coder aDecoder: NSCoder)
   class func printInfo() -> UIPrintInfo
-  /*not inherited*/ init(dictionary: [Object : AnyObject]?)
-  func dictionaryRepresentation() -> [Object : AnyObject]
+  /*not inherited*/ init(dictionary: [NSObject : AnyObject]?)
+  func dictionaryRepresentation() -> [NSObject : AnyObject]
   var printerID: String?
   var jobName: String
   var outputType: UIPrintInfoOutputType
@@ -34,7 +34,7 @@ class UIPrintInfo : Object, Copying, Coding {
   var duplex: UIPrintInfoDuplex
   convenience init()
   @available(iOS 4.2, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 4.2, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }

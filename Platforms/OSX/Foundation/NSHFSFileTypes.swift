@@ -1,4 +1,4 @@
 
-func fileTypeForHFSTypeCode(hfsFileTypeCode: OSType) -> String!
-func hfsTypeCodeFromFileType(fileTypeString: String!) -> OSType
-func hfsTypeOfFile(fullFilePath: String!) -> String!
+func NSFileTypeForHFSTypeCode(hfsFileTypeCode: OSType) -> String!
+func NSHFSTypeCodeFromFileType(fileTypeString: String!) -> OSType
+func NSHFSTypeOfFile(fullFilePath: String!) -> String!

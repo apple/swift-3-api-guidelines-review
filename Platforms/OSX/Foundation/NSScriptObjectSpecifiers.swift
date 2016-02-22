@@ -1,12 +1,12 @@
 
-var noSpecifierError: Int { get }
-var noTopLevelContainersSpecifierError: Int { get }
-var containerSpecifierError: Int { get }
-var unknownKeySpecifierError: Int { get }
-var invalidIndexSpecifierError: Int { get }
-var internalSpecifierError: Int { get }
-var operationNotSupportedForKeySpecifierError: Int { get }
-enum InsertionPosition : UInt {
+var NSNoSpecifierError: Int { get }
+var NSNoTopLevelContainersSpecifierError: Int { get }
+var NSContainerSpecifierError: Int { get }
+var NSUnknownKeySpecifierError: Int { get }
+var NSInvalidIndexSpecifierError: Int { get }
+var NSInternalSpecifierError: Int { get }
+var NSOperationNotSupportedForKeySpecifierError: Int { get }
+enum NSInsertionPosition : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case positionAfter
@@ -15,13 +15,13 @@ enum InsertionPosition : UInt {
   case positionEnd
   case positionReplace
 }
-enum RelativePosition : UInt {
+enum NSRelativePosition : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case after
   case before
 }
-enum WhoseSubelementIdentifier : UInt {
+enum NSWhoseSubelementIdentifier : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case indexSubelement
@@ -30,64 +30,64 @@ enum WhoseSubelementIdentifier : UInt {
   case randomSubelement
   case noSubelement
 }
-class ScriptObjectSpecifier : Object, Coding {
+class NSScriptObjectSpecifier : NSObject, NSCoding {
   @available(OSX 10.5, *)
-  /*not inherited*/ init?(descriptor: AppleEventDescriptor)
-  convenience init(containerSpecifier container: ScriptObjectSpecifier, key property: String)
-  init(containerClassDescription classDesc: ScriptClassDescription, containerSpecifier container: ScriptObjectSpecifier?, key property: String)
-  init?(coder inCoder: Coder)
-  unowned(unsafe) var child: @sil_unmanaged ScriptObjectSpecifier?
-  var container: ScriptObjectSpecifier?
+  /*not inherited*/ init?(descriptor: NSAppleEventDescriptor)
+  convenience init(containerSpecifier container: NSScriptObjectSpecifier, key property: String)
+  init(containerClassDescription classDesc: NSScriptClassDescription, containerSpecifier container: NSScriptObjectSpecifier?, key property: String)
+  init?(coder inCoder: NSCoder)
+  unowned(unsafe) var child: @sil_unmanaged NSScriptObjectSpecifier?
+  var container: NSScriptObjectSpecifier?
   var containerIsObjectBeingTested: Bool
   var containerIsRangeContainerObject: Bool
   var key: String
-  var containerClassDescription: ScriptClassDescription?
-  var keyClassDescription: ScriptClassDescription? { get }
+  var containerClassDescription: NSScriptClassDescription?
+  var keyClassDescription: NSScriptClassDescription? { get }
   func indicesOfObjectsByEvaluating(withContainer container: AnyObject, count: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<Int>
   func objectsByEvaluating(withContainers containers: AnyObject) -> AnyObject?
   var objectsByEvaluatingSpecifier: AnyObject? { get }
   var evaluationErrorNumber: Int
-  var evaluationError: ScriptObjectSpecifier? { get }
+  var evaluationError: NSScriptObjectSpecifier? { get }
   @available(OSX 10.5, *)
-  @NSCopying var descriptor: AppleEventDescriptor? { get }
+  @NSCopying var descriptor: NSAppleEventDescriptor? { get }
   convenience init()
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }
-extension Object {
-  var objectSpecifier: ScriptObjectSpecifier? { get }
-  class func indicesOfObjects(byEvaluatingObjectSpecifier specifier: ScriptObjectSpecifier) -> [Number]?
-  func indicesOfObjects(byEvaluatingObjectSpecifier specifier: ScriptObjectSpecifier) -> [Number]?
-  class func objectSpecifier() -> ScriptObjectSpecifier?
+extension NSObject {
+  var objectSpecifier: NSScriptObjectSpecifier? { get }
+  class func indicesOfObjects(byEvaluatingObjectSpecifier specifier: NSScriptObjectSpecifier) -> [NSNumber]?
+  func indicesOfObjects(byEvaluatingObjectSpecifier specifier: NSScriptObjectSpecifier) -> [NSNumber]?
+  class func objectSpecifier() -> NSScriptObjectSpecifier?
 }
-class IndexSpecifier : ScriptObjectSpecifier {
-  init(containerClassDescription classDesc: ScriptClassDescription, containerSpecifier container: ScriptObjectSpecifier?, key property: String, index: Int)
+class NSIndexSpecifier : NSScriptObjectSpecifier {
+  init(containerClassDescription classDesc: NSScriptClassDescription, containerSpecifier container: NSScriptObjectSpecifier?, key property: String, index: Int)
   var index: Int
-  convenience init(containerSpecifier container: ScriptObjectSpecifier, key property: String)
-  convenience init(containerClassDescription classDesc: ScriptClassDescription, containerSpecifier container: ScriptObjectSpecifier?, key property: String)
-  init?(coder inCoder: Coder)
+  convenience init(containerSpecifier container: NSScriptObjectSpecifier, key property: String)
+  convenience init(containerClassDescription classDesc: NSScriptClassDescription, containerSpecifier container: NSScriptObjectSpecifier?, key property: String)
+  init?(coder inCoder: NSCoder)
   convenience init()
 }
-class MiddleSpecifier : ScriptObjectSpecifier {
-  convenience init(containerSpecifier container: ScriptObjectSpecifier, key property: String)
-  init(containerClassDescription classDesc: ScriptClassDescription, containerSpecifier container: ScriptObjectSpecifier?, key property: String)
-  init?(coder inCoder: Coder)
+class NSMiddleSpecifier : NSScriptObjectSpecifier {
+  convenience init(containerSpecifier container: NSScriptObjectSpecifier, key property: String)
+  init(containerClassDescription classDesc: NSScriptClassDescription, containerSpecifier container: NSScriptObjectSpecifier?, key property: String)
+  init?(coder inCoder: NSCoder)
   convenience init()
 }
-class NameSpecifier : ScriptObjectSpecifier {
-  init?(coder inCoder: Coder)
-  init(containerClassDescription classDesc: ScriptClassDescription, containerSpecifier container: ScriptObjectSpecifier?, key property: String, name: String)
+class NSNameSpecifier : NSScriptObjectSpecifier {
+  init?(coder inCoder: NSCoder)
+  init(containerClassDescription classDesc: NSScriptClassDescription, containerSpecifier container: NSScriptObjectSpecifier?, key property: String, name: String)
   var name: String
-  convenience init(containerSpecifier container: ScriptObjectSpecifier, key property: String)
-  convenience init(containerClassDescription classDesc: ScriptClassDescription, containerSpecifier container: ScriptObjectSpecifier?, key property: String)
+  convenience init(containerSpecifier container: NSScriptObjectSpecifier, key property: String)
+  convenience init(containerClassDescription classDesc: NSScriptClassDescription, containerSpecifier container: NSScriptObjectSpecifier?, key property: String)
   convenience init()
 }
-class PositionalSpecifier : Object {
-  init(position: InsertionPosition, objectSpecifier specifier: ScriptObjectSpecifier)
+class NSPositionalSpecifier : NSObject {
+  init(position: NSInsertionPosition, objectSpecifier specifier: NSScriptObjectSpecifier)
   @available(OSX 10.5, *)
-  var position: InsertionPosition { get }
+  var position: NSInsertionPosition { get }
   @available(OSX 10.5, *)
-  var objectSpecifier: ScriptObjectSpecifier { get }
-  func setInsertionClassDescription(classDescription: ScriptClassDescription)
+  var objectSpecifier: NSScriptObjectSpecifier { get }
+  func setInsertionClassDescription(classDescription: NSScriptClassDescription)
   func evaluate()
   var insertionContainer: AnyObject? { get }
   var insertionKey: String? { get }
@@ -95,53 +95,53 @@ class PositionalSpecifier : Object {
   var insertionReplaces: Bool { get }
   convenience init()
 }
-class PropertySpecifier : ScriptObjectSpecifier {
-  convenience init(containerSpecifier container: ScriptObjectSpecifier, key property: String)
-  init(containerClassDescription classDesc: ScriptClassDescription, containerSpecifier container: ScriptObjectSpecifier?, key property: String)
-  init?(coder inCoder: Coder)
+class NSPropertySpecifier : NSScriptObjectSpecifier {
+  convenience init(containerSpecifier container: NSScriptObjectSpecifier, key property: String)
+  init(containerClassDescription classDesc: NSScriptClassDescription, containerSpecifier container: NSScriptObjectSpecifier?, key property: String)
+  init?(coder inCoder: NSCoder)
   convenience init()
 }
-class RandomSpecifier : ScriptObjectSpecifier {
-  convenience init(containerSpecifier container: ScriptObjectSpecifier, key property: String)
-  init(containerClassDescription classDesc: ScriptClassDescription, containerSpecifier container: ScriptObjectSpecifier?, key property: String)
-  init?(coder inCoder: Coder)
+class NSRandomSpecifier : NSScriptObjectSpecifier {
+  convenience init(containerSpecifier container: NSScriptObjectSpecifier, key property: String)
+  init(containerClassDescription classDesc: NSScriptClassDescription, containerSpecifier container: NSScriptObjectSpecifier?, key property: String)
+  init?(coder inCoder: NSCoder)
   convenience init()
 }
-class RangeSpecifier : ScriptObjectSpecifier {
-  init?(coder inCoder: Coder)
-  init(containerClassDescription classDesc: ScriptClassDescription, containerSpecifier container: ScriptObjectSpecifier?, key property: String, start startSpec: ScriptObjectSpecifier?, end endSpec: ScriptObjectSpecifier?)
-  var startSpecifier: ScriptObjectSpecifier?
-  var endSpecifier: ScriptObjectSpecifier?
-  convenience init(containerSpecifier container: ScriptObjectSpecifier, key property: String)
-  convenience init(containerClassDescription classDesc: ScriptClassDescription, containerSpecifier container: ScriptObjectSpecifier?, key property: String)
+class NSRangeSpecifier : NSScriptObjectSpecifier {
+  init?(coder inCoder: NSCoder)
+  init(containerClassDescription classDesc: NSScriptClassDescription, containerSpecifier container: NSScriptObjectSpecifier?, key property: String, start startSpec: NSScriptObjectSpecifier?, end endSpec: NSScriptObjectSpecifier?)
+  var startSpecifier: NSScriptObjectSpecifier?
+  var endSpecifier: NSScriptObjectSpecifier?
+  convenience init(containerSpecifier container: NSScriptObjectSpecifier, key property: String)
+  convenience init(containerClassDescription classDesc: NSScriptClassDescription, containerSpecifier container: NSScriptObjectSpecifier?, key property: String)
   convenience init()
 }
-class RelativeSpecifier : ScriptObjectSpecifier {
-  init?(coder inCoder: Coder)
-  init(containerClassDescription classDesc: ScriptClassDescription, containerSpecifier container: ScriptObjectSpecifier?, key property: String, relativePosition relPos: RelativePosition, baseSpecifier: ScriptObjectSpecifier?)
-  var relativePosition: RelativePosition
-  var baseSpecifier: ScriptObjectSpecifier?
-  convenience init(containerSpecifier container: ScriptObjectSpecifier, key property: String)
-  convenience init(containerClassDescription classDesc: ScriptClassDescription, containerSpecifier container: ScriptObjectSpecifier?, key property: String)
+class NSRelativeSpecifier : NSScriptObjectSpecifier {
+  init?(coder inCoder: NSCoder)
+  init(containerClassDescription classDesc: NSScriptClassDescription, containerSpecifier container: NSScriptObjectSpecifier?, key property: String, relativePosition relPos: NSRelativePosition, baseSpecifier: NSScriptObjectSpecifier?)
+  var relativePosition: NSRelativePosition
+  var baseSpecifier: NSScriptObjectSpecifier?
+  convenience init(containerSpecifier container: NSScriptObjectSpecifier, key property: String)
+  convenience init(containerClassDescription classDesc: NSScriptClassDescription, containerSpecifier container: NSScriptObjectSpecifier?, key property: String)
   convenience init()
 }
-class UniqueIDSpecifier : ScriptObjectSpecifier {
-  init?(coder inCoder: Coder)
-  init(containerClassDescription classDesc: ScriptClassDescription, containerSpecifier container: ScriptObjectSpecifier?, key property: String, uniqueID: AnyObject)
+class NSUniqueIDSpecifier : NSScriptObjectSpecifier {
+  init?(coder inCoder: NSCoder)
+  init(containerClassDescription classDesc: NSScriptClassDescription, containerSpecifier container: NSScriptObjectSpecifier?, key property: String, uniqueID: AnyObject)
   @NSCopying var uniqueID: AnyObject
-  convenience init(containerSpecifier container: ScriptObjectSpecifier, key property: String)
-  convenience init(containerClassDescription classDesc: ScriptClassDescription, containerSpecifier container: ScriptObjectSpecifier?, key property: String)
+  convenience init(containerSpecifier container: NSScriptObjectSpecifier, key property: String)
+  convenience init(containerClassDescription classDesc: NSScriptClassDescription, containerSpecifier container: NSScriptObjectSpecifier?, key property: String)
   convenience init()
 }
-class WhoseSpecifier : ScriptObjectSpecifier {
-  init?(coder inCoder: Coder)
-  init(containerClassDescription classDesc: ScriptClassDescription, containerSpecifier container: ScriptObjectSpecifier?, key property: String, test: ScriptWhoseTest)
-  var test: ScriptWhoseTest
-  var startSubelementIdentifier: WhoseSubelementIdentifier
+class NSWhoseSpecifier : NSScriptObjectSpecifier {
+  init?(coder inCoder: NSCoder)
+  init(containerClassDescription classDesc: NSScriptClassDescription, containerSpecifier container: NSScriptObjectSpecifier?, key property: String, test: NSScriptWhoseTest)
+  var test: NSScriptWhoseTest
+  var startSubelementIdentifier: NSWhoseSubelementIdentifier
   var startSubelementIndex: Int
-  var endSubelementIdentifier: WhoseSubelementIdentifier
+  var endSubelementIdentifier: NSWhoseSubelementIdentifier
   var endSubelementIndex: Int
-  convenience init(containerSpecifier container: ScriptObjectSpecifier, key property: String)
-  convenience init(containerClassDescription classDesc: ScriptClassDescription, containerSpecifier container: ScriptObjectSpecifier?, key property: String)
+  convenience init(containerSpecifier container: NSScriptObjectSpecifier, key property: String)
+  convenience init(containerClassDescription classDesc: NSScriptClassDescription, containerSpecifier container: NSScriptObjectSpecifier?, key property: String)
   convenience init()
 }

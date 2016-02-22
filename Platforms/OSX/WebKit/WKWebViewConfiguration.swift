@@ -1,6 +1,6 @@
 
 @available(OSX 10.10, *)
-class WKWebViewConfiguration : Object, Copying {
+class WKWebViewConfiguration : NSObject, NSCopying {
   var processPool: WKProcessPool
   var preferences: WKPreferences
   var userContentController: WKUserContentController
@@ -13,7 +13,7 @@ class WKWebViewConfiguration : Object, Copying {
   var allowsAirPlayForMediaPlayback: Bool
   init()
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 extension WKWebViewConfiguration {
 }

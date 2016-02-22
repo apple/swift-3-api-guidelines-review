@@ -8,15 +8,15 @@ class AVPlayerViewController : UIViewController {
   var isReadyForDisplay: Bool { get }
   var contentOverlayView: UIView? { get }
   weak var delegate: @sil_weak AVPlayerViewControllerDelegate?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
 extension AVPlayerViewController {
   var allowedSubtitleOptionLanguages: [String]?
   var requiresFullSubtitles: Bool
 }
-protocol AVPlayerViewControllerDelegate : ObjectProtocol {
+protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   @available(tvOS 9.0, *)
   optional func playerViewController(playerViewController: AVPlayerViewController, willPresent interstitial: AVInterstitialTimeRange)
   @available(tvOS 9.0, *)

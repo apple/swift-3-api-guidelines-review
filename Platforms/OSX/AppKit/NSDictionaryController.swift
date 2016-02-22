@@ -1,6 +1,6 @@
 
 @available(OSX 10.11, *)
-class NSDictionaryControllerKeyValuePair : Object {
+class NSDictionaryControllerKeyValuePair : NSObject {
   var key: String?
   var value: AnyObject?
   var localizedKey: String?
@@ -16,7 +16,7 @@ class NSDictionaryController : NSArrayController {
   var localizedKeyDictionary: [String : String]
   var localizedKeyTable: String?
   init(content: AnyObject?)
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   convenience init()
 }
 struct __dictionaryControllerFlags {

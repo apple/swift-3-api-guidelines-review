@@ -8,7 +8,7 @@ enum CTCellularDataRestrictedState : UInt {
 }
 typealias CellularDataRestrictionDidUpdateNotifier = (CTCellularDataRestrictedState) -> Void
 @available(iOS 9.0, *)
-class CTCellularData : Object {
+class CTCellularData : NSObject {
   @available(iOS 9.0, *)
   var cellularDataRestrictionDidUpdateNotifier: CellularDataRestrictionDidUpdateNotifier?
   @available(iOS 9.0, *)

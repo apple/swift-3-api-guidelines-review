@@ -16,14 +16,14 @@ enum NSBatchDeleteRequestResultType : UInt {
   case resultTypeCount
 }
 @available(watchOS 2.0, *)
-class NSPersistentStoreResult : Object {
+class NSPersistentStoreResult : NSObject {
   init()
 }
 @available(watchOS 2.0, *)
 class NSPersistentStoreAsynchronousResult : NSPersistentStoreResult {
   var managedObjectContext: NSManagedObjectContext { get }
-  var operationError: Error? { get }
-  var progress: Progress? { get }
+  var operationError: NSError? { get }
+  var progress: NSProgress? { get }
   func cancel()
   init()
 }

@@ -5,7 +5,7 @@ protocol MPMediaPlayback {
   func play()
   func pause()
   func stop()
-  var currentPlaybackTime: TimeInterval { get set }
+  var currentPlaybackTime: NSTimeInterval { get set }
   var currentPlaybackRate: Float { get set }
   func beginSeekingForward()
   func beginSeekingBackward()

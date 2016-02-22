@@ -7,7 +7,7 @@ enum WebCacheModel : UInt {
   case primaryWebBrowser
 }
 let WebPreferencesChangedNotification: String
-class WebPreferences : Object, Coding {
+class WebPreferences : NSObject, NSCoding {
   class func standard() -> WebPreferences!
   init!(identifier anIdentifier: String!)
   var identifier: String! { get }
@@ -23,7 +23,7 @@ class WebPreferences : Object, Coding {
   var minimumLogicalFontSize: Int32
   var defaultTextEncodingName: String!
   var userStyleSheetEnabled: Bool
-  var userStyleSheetLocation: URL!
+  var userStyleSheetLocation: NSURL!
   var isJavaEnabled: Bool
   var isJavaScriptEnabled: Bool
   var javaScriptCanOpenWindowsAutomatically: Bool
@@ -40,6 +40,6 @@ class WebPreferences : Object, Coding {
   var suppressesIncrementalRendering: Bool
   var allowsAirPlayForMediaPlayback: Bool
   init()
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

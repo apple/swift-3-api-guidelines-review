@@ -8,6 +8,6 @@ class SKLightNode : SKNode {
   var falloff: CGFloat
   var categoryBitMask: UInt32
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init?(fileNamed filename: String)
 }

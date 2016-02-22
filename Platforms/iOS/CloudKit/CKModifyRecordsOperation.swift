@@ -14,9 +14,9 @@ class CKModifyRecordsOperation : CKDatabaseOperation {
   var recordsToSave: [CKRecord]?
   var recordIDsToDelete: [CKRecordID]?
   var savePolicy: CKRecordSavePolicy
-  @NSCopying var clientChangeTokenData: Data?
+  @NSCopying var clientChangeTokenData: NSData?
   var atomic: Bool
   var perRecordProgressBlock: ((CKRecord, Double) -> Void)?
-  var perRecordCompletionBlock: ((CKRecord?, Error?) -> Void)?
-  var modifyRecordsCompletionBlock: (([CKRecord]?, [CKRecordID]?, Error?) -> Void)?
+  var perRecordCompletionBlock: ((CKRecord?, NSError?) -> Void)?
+  var modifyRecordsCompletionBlock: (([CKRecord]?, [CKRecordID]?, NSError?) -> Void)?
 }

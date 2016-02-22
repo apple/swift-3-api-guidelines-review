@@ -10,5 +10,5 @@ struct CMMagneticField {
 class CMMagnetometerData : CMLogItem {
   var magneticField: CMMagneticField { get }
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

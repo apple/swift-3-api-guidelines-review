@@ -4,12 +4,12 @@ class SKStoreProductViewController : UIViewController {
   @available(iOS 6.0, *)
   unowned(unsafe) var delegate: @sil_unmanaged SKStoreProductViewControllerDelegate?
   @available(iOS 6.0, *)
-  func loadProduct(parameters parameters: [String : AnyObject], completionBlock block: ((Bool, Error?) -> Void)? = nil)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  func loadProduct(parameters parameters: [String : AnyObject], completionBlock block: ((Bool, NSError?) -> Void)? = nil)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
-protocol SKStoreProductViewControllerDelegate : ObjectProtocol {
+protocol SKStoreProductViewControllerDelegate : NSObjectProtocol {
   @available(iOS 6.0, *)
   optional func productViewControllerDidFinish(viewController: SKStoreProductViewController)
 }

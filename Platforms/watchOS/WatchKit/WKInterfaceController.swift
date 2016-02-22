@@ -59,7 +59,7 @@ enum WKAudioRecorderPreset : Int {
   case highQualityAudio
 }
 @available(watchOS 2.0, *)
-class WKInterfaceController : Object {
+class WKInterfaceController : NSObject {
   init()
   func awake(context context: AnyObject?)
   var contentFrame: CGRect { get }
@@ -76,9 +76,9 @@ class WKInterfaceController : Object {
   @available(watchOS 2.0, *)
   func pickerDidSettle(picker: WKInterfacePicker)
   func table(table: WKInterfaceTable, didSelectRowAt rowIndex: Int)
-  func handleAction(identifier identifier: String?, forRemoteNotification remoteNotification: [Object : AnyObject])
+  func handleAction(identifier identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject])
   func handleAction(identifier identifier: String?, for localNotification: UILocalNotification)
-  func handleUserActivity(userInfo: [Object : AnyObject]?)
+  func handleUserActivity(userInfo: [NSObject : AnyObject]?)
   func setTitle(title: String?)
   func push(name name: String, context: AnyObject?)
   func pop()
@@ -92,11 +92,11 @@ class WKInterfaceController : Object {
   func presentTextInputControllerWithSuggestions(forLanguage suggestionsHandler: ((String) -> [AnyObject]?)?, allowedInputMode inputMode: WKTextInputMode, completion: ([AnyObject]?) -> Void)
   func dismissTextInputController()
   @available(watchOS 2.0, *)
-  func presentMediaPlayerController(URL: URL, options: [Object : AnyObject]? = [:], completion: (Bool, TimeInterval, Error?) -> Void)
+  func presentMediaPlayerController(URL: NSURL, options: [NSObject : AnyObject]? = [:], completion: (Bool, NSTimeInterval, NSError?) -> Void)
   @available(watchOS 2.0, *)
   func dismissMediaPlayerController()
   @available(watchOS 2.0, *)
-  func presentAudioRecorderController(outputURL URL: URL, preset: WKAudioRecorderPreset, options: [Object : AnyObject]? = [:], completion: (Bool, Error?) -> Void)
+  func presentAudioRecorderController(outputURL URL: NSURL, preset: WKAudioRecorderPreset, options: [NSObject : AnyObject]? = [:], completion: (Bool, NSError?) -> Void)
   @available(watchOS 2.0, *)
   func dismissAudioRecorderController()
   func contextForSegue(withIdentifier segueIdentifier: String) -> AnyObject?
@@ -104,7 +104,7 @@ class WKInterfaceController : Object {
   func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> AnyObject?
   func contextsForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> [AnyObject]?
   @available(watchOS 2.0, *)
-  func animate(duration duration: TimeInterval, animations: () -> Void)
+  func animate(duration duration: NSTimeInterval, animations: () -> Void)
   @available(watchOS 2.0, *)
   func presentAlert(title title: String?, message: String?, preferredStyle: WKAlertControllerStyle, actions: [WKAlertAction])
   @available(watchOS 2.0, *)
@@ -115,7 +115,7 @@ class WKInterfaceController : Object {
   func addMenuItem(withImageNamed imageName: String, title: String, action: Selector)
   func addMenuItem(itemIcon: WKMenuItemIcon, title: String, action: Selector)
   func clearAllMenuItems()
-  func updateUserActivity(type: String, userInfo: [Object : AnyObject]? = [:], webpageURL: URL?)
+  func updateUserActivity(type: String, userInfo: [NSObject : AnyObject]? = [:], webpageURL: NSURL?)
   func invalidateUserActivity()
   @available(watchOS 2.0, *)
   func beginGlanceUpdates()
@@ -149,10 +149,10 @@ let WKAudioRecorderControllerOptionsMaximumDurationKey: String
 @available(watchOS 2.0, *)
 class WKUserNotificationInterfaceController : WKInterfaceController {
   init()
-  func didReceiveRemoteNotification(remoteNotification: [Object : AnyObject], withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
+  func didReceiveRemoteNotification(remoteNotification: [NSObject : AnyObject], withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
   func didReceive(localNotification: UILocalNotification, withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
   @available(watchOS 2.0, *)
-  func suggestionsForResponseToAction(withIdentifier identifier: String, forRemoteNotification remoteNotification: [Object : AnyObject], inputLanguage: String) -> [String]
+  func suggestionsForResponseToAction(withIdentifier identifier: String, forRemoteNotification remoteNotification: [NSObject : AnyObject], inputLanguage: String) -> [String]
   @available(watchOS 2.0, *)
   func suggestionsForResponseToAction(withIdentifier identifier: String, for localNotification: UILocalNotification, inputLanguage: String) -> [String]
 }

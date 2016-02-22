@@ -1,17 +1,17 @@
 
 @available(watchOS 2.0, *)
-class WKImage : Object, Copying, SecureCoding {
+class WKImage : NSObject, NSCopying, NSSecureCoding {
   convenience init(image: UIImage)
-  convenience init(imageData: Data)
+  convenience init(imageData: NSData)
   convenience init(imageName: String)
   var image: UIImage? { get }
-  var imageData: Data? { get }
+  var imageData: NSData? { get }
   var imageName: String? { get }
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

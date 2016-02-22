@@ -85,7 +85,7 @@ let NSTextEffectLetterpressStyle: String
 var NSSpellingStateSpellingFlag: Int { get }
 @available(OSX 10.5, *)
 var NSSpellingStateGrammarFlag: Int { get }
-extension MutableAttributedString {
+extension NSMutableAttributedString {
   @available(OSX 10.0, *)
   func fixAttributes(in range: NSRange)
   func fixFontAttribute(in range: NSRange)
@@ -172,34 +172,34 @@ let NSWebResourceLoadDelegateDocumentOption: String
 let NSTextSizeMultiplierDocumentOption: String
 @available(OSX 10.6, *)
 let NSFileTypeDocumentOption: String
-extension AttributedString {
+extension NSAttributedString {
   @available(OSX 10.11, *)
-  init(url: URL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(url: NSURL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(OSX 10.0, *)
-  init(data: Data, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(data: NSData, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(OSX 10.0, *)
-  func data(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> Data
+  func data(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> NSData
   @available(OSX 10.0, *)
-  func fileWrapper(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> FileWrapper
-  init?(rtf data: Data, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init?(rtfd data: Data, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init?(html data: Data, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init?(html data: Data, baseURL base: URL, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init?(docFormat data: Data, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init?(html data: Data, options: [Object : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init?(rtfdFileWrapper wrapper: FileWrapper, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  func rtf(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) -> Data?
-  func rtfd(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) -> Data?
-  func rtfdFileWrapper(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) -> FileWrapper?
-  func docFormat(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) -> Data?
+  func fileWrapper(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> NSFileWrapper
+  init?(rtf data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
+  init?(rtfd data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
+  init?(html data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
+  init?(html data: NSData, baseURL base: NSURL, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
+  init?(docFormat data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
+  init?(html data: NSData, options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
+  init?(rtfdFileWrapper wrapper: NSFileWrapper, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
+  func rtf(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) -> NSData?
+  func rtfd(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) -> NSData?
+  func rtfdFileWrapper(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) -> NSFileWrapper?
+  func docFormat(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) -> NSData?
 }
-extension MutableAttributedString {
+extension NSMutableAttributedString {
   @available(OSX 10.11, *)
-  func read(from url: URL, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>, error: ()) throws
+  func read(from url: NSURL, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>, error: ()) throws
   @available(OSX 10.0, *)
-  func read(from data: Data, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>, error: ()) throws
+  func read(from data: NSData, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>, error: ()) throws
 }
-extension AttributedString {
+extension NSAttributedString {
   func fontAttributes(in range: NSRange) -> [String : AnyObject]
   func rulerAttributes(in range: NSRange) -> [String : AnyObject]
   @available(OSX 10.11, *)
@@ -213,7 +213,7 @@ extension AttributedString {
   func rangeOf(list: NSTextList, at location: Int) -> NSRange
   func itemNumber(in list: NSTextList, at location: Int) -> Int
 }
-extension AttributedString : NSPasteboardReading, NSPasteboardWriting {
+extension NSAttributedString : NSPasteboardReading, NSPasteboardWriting {
   @available(OSX 10.5, *)
   class func textTypes() -> [String]
   @available(OSX 10.5, *)
@@ -230,7 +230,7 @@ extension AttributedString : NSPasteboardReading, NSPasteboardWriting {
   @available(OSX 10.0, *)
   func pasteboardPropertyList(forType type: String) -> AnyObject?
 }
-extension MutableAttributedString {
+extension NSMutableAttributedString {
   func superscriptRange(range: NSRange)
   func subscriptRange(range: NSRange)
   func unscriptRange(range: NSRange)
@@ -244,18 +244,18 @@ let NSCharacterShapeAttributeName: String
 let NSUsesScreenFontsDocumentAttribute: String
 @available(OSX, introduced=10.0, deprecated=10.11, message="Use NSUnderlineByWord instead")
 var NSUnderlineByWordMask: Int
-extension AttributedString {
+extension NSAttributedString {
   var containsAttachments: Bool { get }
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init?(url: URL, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
+  init?(url: NSURL, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -initWithURL:options:documentAttributes:error: instead")
   init?(path: String, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   @available(OSX, introduced=10.5, deprecated=10.11, message="Use NSDataDetector instead")
-  func url(at location: Int, effectiveRange: RangePointer) -> URL?
+  func url(at location: Int, effectiveRange: NSRangePointer) -> NSURL?
 }
-extension MutableAttributedString {
+extension NSMutableAttributedString {
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -readFromURL:options:documentAttributes:error: instead")
-  func read(from url: URL, options: [Object : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
+  func read(from url: NSURL, options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -readFromData:options:documentAttributes:error: instead")
-  func read(from data: Data, options: [Object : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
+  func read(from data: NSData, options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
 }

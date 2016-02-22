@@ -1,6 +1,6 @@
 
 @available(OSX 10.10, *)
-class NSStoryboardSegue : Object {
+class NSStoryboardSegue : NSObject {
   convenience init(identifier: String, source sourceController: AnyObject, destination destinationController: AnyObject, performHandler: () -> Void)
   init(identifier: String, source sourceController: AnyObject, destination destinationController: AnyObject)
   var identifier: String? { get }
@@ -9,7 +9,7 @@ class NSStoryboardSegue : Object {
   func perform()
   convenience init()
 }
-protocol NSSeguePerforming : ObjectProtocol {
+protocol NSSeguePerforming : NSObjectProtocol {
   @available(OSX 10.10, *)
   optional func prepare(for segue: NSStoryboardSegue, sender: AnyObject?)
   @available(OSX 10.10, *)

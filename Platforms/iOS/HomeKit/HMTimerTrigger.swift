@@ -1,12 +1,12 @@
 
 @available(iOS 8.0, *)
 class HMTimerTrigger : HMTrigger {
-  init(name: String, fire fireDate: Date, timeZone: TimeZone?, recurrence: DateComponents?, recurrenceCalendar: Calendar?)
-  @NSCopying var fireDate: Date { get }
-  @NSCopying var timeZone: TimeZone? { get }
-  @NSCopying var recurrence: DateComponents? { get }
-  @NSCopying var recurrenceCalendar: Calendar? { get }
-  func updateFire(fireDate: Date, completionHandler completion: (Error?) -> Void)
-  func updateTimeZone(timeZone: TimeZone?, completionHandler completion: (Error?) -> Void)
-  func updateRecurrence(recurrence: DateComponents?, completionHandler completion: (Error?) -> Void)
+  init(name: String, fire fireDate: NSDate, timeZone: NSTimeZone?, recurrence: NSDateComponents?, recurrenceCalendar: NSCalendar?)
+  @NSCopying var fireDate: NSDate { get }
+  @NSCopying var timeZone: NSTimeZone? { get }
+  @NSCopying var recurrence: NSDateComponents? { get }
+  @NSCopying var recurrenceCalendar: NSCalendar? { get }
+  func updateFire(fireDate: NSDate, completionHandler completion: (NSError?) -> Void)
+  func updateTimeZone(timeZone: NSTimeZone?, completionHandler completion: (NSError?) -> Void)
+  func updateRecurrence(recurrence: NSDateComponents?, completionHandler completion: (NSError?) -> Void)
 }

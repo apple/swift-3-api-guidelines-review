@@ -1,6 +1,6 @@
 
-typealias UIPrinterPickerCompletionHandler = (UIPrinterPickerController, Bool, Error?) -> Void
-protocol UIPrinterPickerControllerDelegate : ObjectProtocol {
+typealias UIPrinterPickerCompletionHandler = (UIPrinterPickerController, Bool, NSError?) -> Void
+protocol UIPrinterPickerControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
   optional func printerPickerControllerParentViewController(printerPickerController: UIPrinterPickerController) -> UIViewController?
   @available(iOS 8.0, *)
@@ -17,7 +17,7 @@ protocol UIPrinterPickerControllerDelegate : ObjectProtocol {
   optional func printerPickerControllerDidSelectPrinter(printerPickerController: UIPrinterPickerController)
 }
 @available(iOS 8.0, *)
-class UIPrinterPickerController : Object {
+class UIPrinterPickerController : NSObject {
   /*not inherited*/ init(initiallySelectedPrinter printer: UIPrinter?)
   var selectedPrinter: UIPrinter? { get }
   weak var delegate: @sil_weak UIPrinterPickerControllerDelegate?

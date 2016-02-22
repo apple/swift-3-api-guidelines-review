@@ -1,8 +1,8 @@
 
 @available(iOS 9.0, *)
-class AUViewController : UIViewController, ExtensionRequestHandling {
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+class AUViewController : UIViewController, NSExtensionRequestHandling {
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
 extension AUAudioUnit {

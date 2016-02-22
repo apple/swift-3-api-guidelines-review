@@ -1,24 +1,24 @@
 
-class URLResponse : Object, SecureCoding, Copying {
-  init(url URL: URL, mimeType MIMEType: String?, expectedContentLength length: Int, textEncodingName name: String?)
-  @NSCopying var url: URL? { get }
+class NSURLResponse : NSObject, NSSecureCoding, NSCopying {
+  init(url URL: NSURL, mimeType MIMEType: String?, expectedContentLength length: Int, textEncodingName name: String?)
+  @NSCopying var url: NSURL? { get }
   var mimeType: String? { get }
   var expectedContentLength: Int64 { get }
   var textEncodingName: String? { get }
   var suggestedFilename: String? { get }
   convenience init()
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
-class HTTPURLResponse : URLResponse {
+class NSHTTPURLResponse : NSURLResponse {
   @available(tvOS 5.0, *)
-  init?(url: URL, statusCode: Int, httpVersion HTTPVersion: String?, headerFields: [String : String]?)
+  init?(url: NSURL, statusCode: Int, httpVersion HTTPVersion: String?, headerFields: [String : String]?)
   var statusCode: Int { get }
-  var allHeaderFields: [Object : AnyObject] { get }
+  var allHeaderFields: [NSObject : AnyObject] { get }
   class func localizedString(forStatusCode statusCode: Int) -> String
-  init(url URL: URL, mimeType MIMEType: String?, expectedContentLength length: Int, textEncodingName name: String?)
+  init(url URL: NSURL, mimeType MIMEType: String?, expectedContentLength length: Int, textEncodingName name: String?)
   convenience init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

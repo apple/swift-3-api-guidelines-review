@@ -1,14 +1,14 @@
 
-typealias Point = CGPoint
-typealias PointPointer = UnsafeMutablePointer<Point>
-typealias PointArray = UnsafeMutablePointer<Point>
-typealias Size = CGSize
-typealias SizePointer = UnsafeMutablePointer<Size>
-typealias SizeArray = UnsafeMutablePointer<Size>
-typealias Rect = CGRect
-typealias RectPointer = UnsafeMutablePointer<Rect>
-typealias RectArray = UnsafeMutablePointer<Rect>
-enum RectEdge : UInt {
+typealias NSPoint = CGPoint
+typealias NSPointPointer = UnsafeMutablePointer<NSPoint>
+typealias NSPointArray = UnsafeMutablePointer<NSPoint>
+typealias NSSize = CGSize
+typealias NSSizePointer = UnsafeMutablePointer<NSSize>
+typealias NSSizeArray = UnsafeMutablePointer<NSSize>
+typealias NSRect = CGRect
+typealias NSRectPointer = UnsafeMutablePointer<NSRect>
+typealias NSRectArray = UnsafeMutablePointer<NSRect>
+enum NSRectEdge : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case minX
@@ -17,10 +17,10 @@ enum RectEdge : UInt {
   case maxY
 }
 
-extension RectEdge {
+extension NSRectEdge {
   init(rectEdge: CGRectEdge)
 }
-struct EdgeInsets {
+struct NSEdgeInsets {
   var top: CGFloat
   var left: CGFloat
   var bottom: CGFloat
@@ -28,104 +28,104 @@ struct EdgeInsets {
   init()
   init(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat)
 }
-struct AlignmentOptions : OptionSetType {
+struct NSAlignmentOptions : OptionSetType {
   init(rawValue: UInt64)
   let rawValue: UInt64
-  static var alignMinXInward: AlignmentOptions { get }
-  static var alignMinYInward: AlignmentOptions { get }
-  static var alignMaxXInward: AlignmentOptions { get }
-  static var alignMaxYInward: AlignmentOptions { get }
-  static var alignWidthInward: AlignmentOptions { get }
-  static var alignHeightInward: AlignmentOptions { get }
-  static var alignMinXOutward: AlignmentOptions { get }
-  static var alignMinYOutward: AlignmentOptions { get }
-  static var alignMaxXOutward: AlignmentOptions { get }
-  static var alignMaxYOutward: AlignmentOptions { get }
-  static var alignWidthOutward: AlignmentOptions { get }
-  static var alignHeightOutward: AlignmentOptions { get }
-  static var alignMinXNearest: AlignmentOptions { get }
-  static var alignMinYNearest: AlignmentOptions { get }
-  static var alignMaxXNearest: AlignmentOptions { get }
-  static var alignMaxYNearest: AlignmentOptions { get }
-  static var alignWidthNearest: AlignmentOptions { get }
-  static var alignHeightNearest: AlignmentOptions { get }
-  static var alignRectFlipped: AlignmentOptions { get }
-  static var alignAllEdgesInward: AlignmentOptions { get }
-  static var alignAllEdgesOutward: AlignmentOptions { get }
-  static var alignAllEdgesNearest: AlignmentOptions { get }
+  static var alignMinXInward: NSAlignmentOptions { get }
+  static var alignMinYInward: NSAlignmentOptions { get }
+  static var alignMaxXInward: NSAlignmentOptions { get }
+  static var alignMaxYInward: NSAlignmentOptions { get }
+  static var alignWidthInward: NSAlignmentOptions { get }
+  static var alignHeightInward: NSAlignmentOptions { get }
+  static var alignMinXOutward: NSAlignmentOptions { get }
+  static var alignMinYOutward: NSAlignmentOptions { get }
+  static var alignMaxXOutward: NSAlignmentOptions { get }
+  static var alignMaxYOutward: NSAlignmentOptions { get }
+  static var alignWidthOutward: NSAlignmentOptions { get }
+  static var alignHeightOutward: NSAlignmentOptions { get }
+  static var alignMinXNearest: NSAlignmentOptions { get }
+  static var alignMinYNearest: NSAlignmentOptions { get }
+  static var alignMaxXNearest: NSAlignmentOptions { get }
+  static var alignMaxYNearest: NSAlignmentOptions { get }
+  static var alignWidthNearest: NSAlignmentOptions { get }
+  static var alignHeightNearest: NSAlignmentOptions { get }
+  static var alignRectFlipped: NSAlignmentOptions { get }
+  static var alignAllEdgesInward: NSAlignmentOptions { get }
+  static var alignAllEdgesOutward: NSAlignmentOptions { get }
+  static var alignAllEdgesNearest: NSAlignmentOptions { get }
 }
-let zeroPoint: Point
-let zeroSize: Size
-let zeroRect: Rect
+let NSZeroPoint: NSPoint
+let NSZeroSize: NSSize
+let NSZeroRect: NSRect
 @available(OSX 10.10, *)
-let edgeInsetsZero: EdgeInsets
-func makePoint(x: CGFloat, _ y: CGFloat) -> Point
-func makeSize(w: CGFloat, _ h: CGFloat) -> Size
-func makeRect(x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat) -> Rect
-func maxX(aRect: Rect) -> CGFloat
-func maxY(aRect: Rect) -> CGFloat
-func midX(aRect: Rect) -> CGFloat
-func midY(aRect: Rect) -> CGFloat
-func minX(aRect: Rect) -> CGFloat
-func minY(aRect: Rect) -> CGFloat
-func width(aRect: Rect) -> CGFloat
-func height(aRect: Rect) -> CGFloat
-func rectFromCGRect(cgrect: CGRect) -> Rect
-func rectToCGRect(nsrect: Rect) -> CGRect
-func pointFromCGPoint(cgpoint: CGPoint) -> Point
-func pointToCGPoint(nspoint: Point) -> CGPoint
-func sizeFromCGSize(cgsize: CGSize) -> Size
-func sizeToCGSize(nssize: Size) -> CGSize
-func edgeInsetsMake(top: CGFloat, _ left: CGFloat, _ bottom: CGFloat, _ right: CGFloat) -> EdgeInsets
-func equalPoints(aPoint: Point, _ bPoint: Point) -> Bool
-func equalSizes(aSize: Size, _ bSize: Size) -> Bool
-func equalRects(aRect: Rect, _ bRect: Rect) -> Bool
-func isEmptyRect(aRect: Rect) -> Bool
+let NSEdgeInsetsZero: NSEdgeInsets
+func NSMakePoint(x: CGFloat, _ y: CGFloat) -> NSPoint
+func NSMakeSize(w: CGFloat, _ h: CGFloat) -> NSSize
+func NSMakeRect(x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat) -> NSRect
+func NSMaxX(aRect: NSRect) -> CGFloat
+func NSMaxY(aRect: NSRect) -> CGFloat
+func NSMidX(aRect: NSRect) -> CGFloat
+func NSMidY(aRect: NSRect) -> CGFloat
+func NSMinX(aRect: NSRect) -> CGFloat
+func NSMinY(aRect: NSRect) -> CGFloat
+func NSWidth(aRect: NSRect) -> CGFloat
+func NSHeight(aRect: NSRect) -> CGFloat
+func NSRectFromCGRect(cgrect: CGRect) -> NSRect
+func NSRectToCGRect(nsrect: NSRect) -> CGRect
+func NSPointFromCGPoint(cgpoint: CGPoint) -> NSPoint
+func NSPointToCGPoint(nspoint: NSPoint) -> CGPoint
+func NSSizeFromCGSize(cgsize: CGSize) -> NSSize
+func NSSizeToCGSize(nssize: NSSize) -> CGSize
+func NSEdgeInsetsMake(top: CGFloat, _ left: CGFloat, _ bottom: CGFloat, _ right: CGFloat) -> NSEdgeInsets
+func NSEqualPoints(aPoint: NSPoint, _ bPoint: NSPoint) -> Bool
+func NSEqualSizes(aSize: NSSize, _ bSize: NSSize) -> Bool
+func NSEqualRects(aRect: NSRect, _ bRect: NSRect) -> Bool
+func NSIsEmptyRect(aRect: NSRect) -> Bool
 @available(OSX 10.10, *)
-func edgeInsetsEqual(aInsets: EdgeInsets, _ bInsets: EdgeInsets) -> Bool
-func insetRect(aRect: Rect, _ dX: CGFloat, _ dY: CGFloat) -> Rect
-func integralRect(aRect: Rect) -> Rect
+func NSEdgeInsetsEqual(aInsets: NSEdgeInsets, _ bInsets: NSEdgeInsets) -> Bool
+func NSInsetRect(aRect: NSRect, _ dX: CGFloat, _ dY: CGFloat) -> NSRect
+func NSIntegralRect(aRect: NSRect) -> NSRect
 @available(OSX 10.7, *)
-func integralRectWithOptions(aRect: Rect, _ opts: AlignmentOptions) -> Rect
-func unionRect(aRect: Rect, _ bRect: Rect) -> Rect
-func intersectionRect(aRect: Rect, _ bRect: Rect) -> Rect
-func offsetRect(aRect: Rect, _ dX: CGFloat, _ dY: CGFloat) -> Rect
-func divideRect(inRect: Rect, _ slice: UnsafeMutablePointer<Rect>, _ rem: UnsafeMutablePointer<Rect>, _ amount: CGFloat, _ edge: RectEdge)
-func pointInRect(aPoint: Point, _ aRect: Rect) -> Bool
-func mouseInRect(aPoint: Point, _ aRect: Rect, _ flipped: Bool) -> Bool
-func containsRect(aRect: Rect, _ bRect: Rect) -> Bool
-func intersectsRect(aRect: Rect, _ bRect: Rect) -> Bool
-func stringFromPoint(aPoint: Point) -> String
-func stringFromSize(aSize: Size) -> String
-func stringFromRect(aRect: Rect) -> String
-func pointFromString(aString: String) -> Point
-func sizeFromString(aString: String) -> Size
-func rectFromString(aString: String) -> Rect
-extension Value {
-  /*not inherited*/ init(point: Point)
-  /*not inherited*/ init(size: Size)
-  /*not inherited*/ init(rect: Rect)
+func NSIntegralRectWithOptions(aRect: NSRect, _ opts: NSAlignmentOptions) -> NSRect
+func NSUnionRect(aRect: NSRect, _ bRect: NSRect) -> NSRect
+func NSIntersectionRect(aRect: NSRect, _ bRect: NSRect) -> NSRect
+func NSOffsetRect(aRect: NSRect, _ dX: CGFloat, _ dY: CGFloat) -> NSRect
+func NSDivideRect(inRect: NSRect, _ slice: UnsafeMutablePointer<NSRect>, _ rem: UnsafeMutablePointer<NSRect>, _ amount: CGFloat, _ edge: NSRectEdge)
+func NSPointInRect(aPoint: NSPoint, _ aRect: NSRect) -> Bool
+func NSMouseInRect(aPoint: NSPoint, _ aRect: NSRect, _ flipped: Bool) -> Bool
+func NSContainsRect(aRect: NSRect, _ bRect: NSRect) -> Bool
+func NSIntersectsRect(aRect: NSRect, _ bRect: NSRect) -> Bool
+func NSStringFromPoint(aPoint: NSPoint) -> String
+func NSStringFromSize(aSize: NSSize) -> String
+func NSStringFromRect(aRect: NSRect) -> String
+func NSPointFromString(aString: String) -> NSPoint
+func NSSizeFromString(aString: String) -> NSSize
+func NSRectFromString(aString: String) -> NSRect
+extension NSValue {
+  /*not inherited*/ init(point: NSPoint)
+  /*not inherited*/ init(size: NSSize)
+  /*not inherited*/ init(rect: NSRect)
   @available(OSX 10.10, *)
-  /*not inherited*/ init(edgeInsets insets: EdgeInsets)
-  var pointValue: Point { get }
-  var sizeValue: Size { get }
-  var rectValue: Rect { get }
+  /*not inherited*/ init(edgeInsets insets: NSEdgeInsets)
+  var pointValue: NSPoint { get }
+  var sizeValue: NSSize { get }
+  var rectValue: NSRect { get }
   @available(OSX 10.10, *)
-  var edgeInsetsValue: EdgeInsets { get }
+  var edgeInsetsValue: NSEdgeInsets { get }
 }
-extension Coder {
-  func encode(point: Point)
-  func decodePoint() -> Point
-  func encode(size: Size)
-  func decodeSize() -> Size
-  func encode(rect: Rect)
-  func decodeRect() -> Rect
+extension NSCoder {
+  func encode(point: NSPoint)
+  func decodePoint() -> NSPoint
+  func encode(size: NSSize)
+  func decodeSize() -> NSSize
+  func encode(rect: NSRect)
+  func decodeRect() -> NSRect
 }
-extension Coder {
-  func encode(point: Point, forKey key: String)
-  func encode(size: Size, forKey key: String)
-  func encode(rect: Rect, forKey key: String)
-  func decodePoint(forKey key: String) -> Point
-  func decodeSize(forKey key: String) -> Size
-  func decodeRect(forKey key: String) -> Rect
+extension NSCoder {
+  func encode(point: NSPoint, forKey key: String)
+  func encode(size: NSSize, forKey key: String)
+  func encode(rect: NSRect, forKey key: String)
+  func decodePoint(forKey key: String) -> NSPoint
+  func decodeSize(forKey key: String) -> NSSize
+  func decodeRect(forKey key: String) -> NSRect
 }

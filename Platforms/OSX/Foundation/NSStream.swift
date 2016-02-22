@@ -1,5 +1,5 @@
 
-enum StreamStatus : UInt {
+enum NSStreamStatus : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case notOpen
@@ -11,109 +11,109 @@ enum StreamStatus : UInt {
   case closed
   case error
 }
-struct StreamEvent : OptionSetType {
+struct NSStreamEvent : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var none: StreamEvent { get }
-  static var openCompleted: StreamEvent { get }
-  static var hasBytesAvailable: StreamEvent { get }
-  static var hasSpaceAvailable: StreamEvent { get }
-  static var errorOccurred: StreamEvent { get }
-  static var endEncountered: StreamEvent { get }
+  static var none: NSStreamEvent { get }
+  static var openCompleted: NSStreamEvent { get }
+  static var hasBytesAvailable: NSStreamEvent { get }
+  static var hasSpaceAvailable: NSStreamEvent { get }
+  static var errorOccurred: NSStreamEvent { get }
+  static var endEncountered: NSStreamEvent { get }
 }
-class Stream : Object {
+class NSStream : NSObject {
   func open()
   func close()
-  unowned(unsafe) var delegate: @sil_unmanaged StreamDelegate?
+  unowned(unsafe) var delegate: @sil_unmanaged NSStreamDelegate?
   func property(forKey key: String) -> AnyObject?
   func setProperty(property: AnyObject?, forKey key: String) -> Bool
-  func schedule(in aRunLoop: RunLoop, forMode mode: String)
-  func remove(from aRunLoop: RunLoop, forMode mode: String)
-  var streamStatus: StreamStatus { get }
-  @NSCopying var streamError: Error? { get }
+  func schedule(in aRunLoop: NSRunLoop, forMode mode: String)
+  func remove(from aRunLoop: NSRunLoop, forMode mode: String)
+  var streamStatus: NSStreamStatus { get }
+  @NSCopying var streamError: NSError? { get }
   init()
 }
-class InputStream : Stream {
+class NSInputStream : NSStream {
   func read(buffer: UnsafeMutablePointer<UInt8>, maxLength len: Int) -> Int
   func getBuffer(buffer: UnsafeMutablePointer<UnsafeMutablePointer<UInt8>>, length len: UnsafeMutablePointer<Int>) -> Bool
   var hasBytesAvailable: Bool { get }
-  init(data: Data)
+  init(data: NSData)
   @available(OSX 10.6, *)
-  init?(url: URL)
+  init?(url: NSURL)
   convenience init()
 }
-class OutputStream : Stream {
+class NSOutputStream : NSStream {
   func write(buffer: UnsafePointer<UInt8>, maxLength len: Int) -> Int
   var hasSpaceAvailable: Bool { get }
   init(toMemory: ())
   init(toBuffer buffer: UnsafeMutablePointer<UInt8>, capacity: Int)
   @available(OSX 10.6, *)
-  init?(url: URL, append shouldAppend: Bool)
+  init?(url: NSURL, append shouldAppend: Bool)
   convenience init()
 }
-extension Stream {
+extension NSStream {
   @available(OSX 10.10, *)
-  class func getStreamsToHost(name hostname: String, port: Int, inputStream: AutoreleasingUnsafeMutablePointer<InputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<OutputStream?>)
+  class func getStreamsToHost(name hostname: String, port: Int, inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
   @available(OSX, introduced=10.3, deprecated=10.10, message="Please use getStreamsToHostWithName:port:inputStream:outputStream: instead")
-  class func getStreamsTo(host: Host, port: Int, inputStream: AutoreleasingUnsafeMutablePointer<InputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<OutputStream?>)
+  class func getStreamsTo(host: NSHost, port: Int, inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
 }
-extension Stream {
+extension NSStream {
   @available(OSX 10.10, *)
-  class func getBoundStreams(bufferSize bufferSize: Int, inputStream: AutoreleasingUnsafeMutablePointer<InputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<OutputStream?>)
+  class func getBoundStreams(bufferSize bufferSize: Int, inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
 }
-extension InputStream {
+extension NSInputStream {
   convenience init?(fileAtPath path: String)
 }
-extension OutputStream {
+extension NSOutputStream {
   convenience init?(toFileAtPath path: String, append shouldAppend: Bool)
   class func toMemory() -> Self
 }
-protocol StreamDelegate : ObjectProtocol {
-  optional func stream(aStream: Stream, handle eventCode: StreamEvent)
+protocol NSStreamDelegate : NSObjectProtocol {
+  optional func stream(aStream: NSStream, handle eventCode: NSStreamEvent)
 }
 @available(OSX 10.3, *)
-let streamSocketSecurityLevelKey: String
+let NSStreamSocketSecurityLevelKey: String
 @available(OSX 10.3, *)
-let streamSocketSecurityLevelNone: String
+let NSStreamSocketSecurityLevelNone: String
 @available(OSX 10.3, *)
-let streamSocketSecurityLevelSSLv2: String
+let NSStreamSocketSecurityLevelSSLv2: String
 @available(OSX 10.3, *)
-let streamSocketSecurityLevelSSLv3: String
+let NSStreamSocketSecurityLevelSSLv3: String
 @available(OSX 10.3, *)
-let streamSocketSecurityLevelTLSv1: String
+let NSStreamSocketSecurityLevelTLSv1: String
 @available(OSX 10.3, *)
-let streamSocketSecurityLevelNegotiatedSSL: String
+let NSStreamSocketSecurityLevelNegotiatedSSL: String
 @available(OSX 10.3, *)
-let streamSOCKSProxyConfigurationKey: String
+let NSStreamSOCKSProxyConfigurationKey: String
 @available(OSX 10.3, *)
-let streamSOCKSProxyHostKey: String
+let NSStreamSOCKSProxyHostKey: String
 @available(OSX 10.3, *)
-let streamSOCKSProxyPortKey: String
+let NSStreamSOCKSProxyPortKey: String
 @available(OSX 10.3, *)
-let streamSOCKSProxyVersionKey: String
+let NSStreamSOCKSProxyVersionKey: String
 @available(OSX 10.3, *)
-let streamSOCKSProxyUserKey: String
+let NSStreamSOCKSProxyUserKey: String
 @available(OSX 10.3, *)
-let streamSOCKSProxyPasswordKey: String
+let NSStreamSOCKSProxyPasswordKey: String
 @available(OSX 10.3, *)
-let streamSOCKSProxyVersion4: String
+let NSStreamSOCKSProxyVersion4: String
 @available(OSX 10.3, *)
-let streamSOCKSProxyVersion5: String
+let NSStreamSOCKSProxyVersion5: String
 @available(OSX 10.3, *)
-let streamDataWrittenToMemoryStreamKey: String
+let NSStreamDataWrittenToMemoryStreamKey: String
 @available(OSX 10.3, *)
-let streamFileCurrentOffsetKey: String
+let NSStreamFileCurrentOffsetKey: String
 @available(OSX 10.3, *)
-let streamSocketSSLErrorDomain: String
+let NSStreamSocketSSLErrorDomain: String
 @available(OSX 10.3, *)
-let streamSOCKSErrorDomain: String
+let NSStreamSOCKSErrorDomain: String
 @available(OSX 10.7, *)
-let streamNetworkServiceType: String
+let NSStreamNetworkServiceType: String
 @available(OSX 10.7, *)
-let streamNetworkServiceTypeVoIP: String
+let NSStreamNetworkServiceTypeVoIP: String
 @available(OSX 10.7, *)
-let streamNetworkServiceTypeVideo: String
+let NSStreamNetworkServiceTypeVideo: String
 @available(OSX 10.7, *)
-let streamNetworkServiceTypeBackground: String
+let NSStreamNetworkServiceTypeBackground: String
 @available(OSX 10.7, *)
-let streamNetworkServiceTypeVoice: String
+let NSStreamNetworkServiceTypeVoice: String

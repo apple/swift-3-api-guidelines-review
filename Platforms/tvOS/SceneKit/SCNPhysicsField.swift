@@ -7,7 +7,7 @@ enum SCNPhysicsFieldScope : Int {
   case outsideExtent
 }
 @available(tvOS 8.0, *)
-class SCNPhysicsField : Object, Copying, SecureCoding {
+class SCNPhysicsField : NSObject, NSCopying, NSSecureCoding {
   var strength: CGFloat
   var falloffExponent: CGFloat
   var minimumDistance: CGFloat
@@ -32,11 +32,11 @@ class SCNPhysicsField : Object, Copying, SecureCoding {
   class func customField(evaluationBlock block: SCNFieldForceEvaluator) -> SCNPhysicsField
   init()
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
-typealias SCNFieldForceEvaluator = (SCNVector3, SCNVector3, Float, Float, TimeInterval) -> SCNVector3
+typealias SCNFieldForceEvaluator = (SCNVector3, SCNVector3, Float, Float, NSTimeInterval) -> SCNVector3

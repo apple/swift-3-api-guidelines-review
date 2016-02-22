@@ -1,6 +1,6 @@
 
 @available(tvOS 8.0, *)
-class SKRange : Object, Coding, Copying {
+class SKRange : NSObject, NSCoding, NSCopying {
   init(lowerLimit lower: CGFloat, upperLimit upper: CGFloat)
   convenience init(lowerLimit lower: CGFloat)
   convenience init(upperLimit upper: CGFloat)
@@ -11,13 +11,13 @@ class SKRange : Object, Coding, Copying {
   var upperLimit: CGFloat
   convenience init()
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
-class SKConstraint : Object, Coding, Copying {
+class SKConstraint : NSObject, NSCoding, NSCopying {
   var enabled: Bool
   var referenceNode: SKNode?
   class func positionX(range: SKRange) -> Self
@@ -32,8 +32,8 @@ class SKConstraint : Object, Coding, Copying {
   class func orient(to point: CGPoint, in node: SKNode, offset radians: SKRange) -> Self
   init()
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

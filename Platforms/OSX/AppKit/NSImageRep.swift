@@ -1,14 +1,14 @@
 
 var NSImageRepMatchesDevice: Int { get }
-class NSImageRep : Object, Copying, Coding {
+class NSImageRep : NSObject, NSCopying, NSCoding {
   init()
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   func draw() -> Bool
-  func draw(at point: Point) -> Bool
-  func draw(in rect: Rect) -> Bool
+  func draw(at point: NSPoint) -> Bool
+  func draw(in rect: NSRect) -> Bool
   @available(OSX 10.6, *)
-  func draw(in dstSpacePortionRect: Rect, from srcSpacePortionRect: Rect, operation op: NSCompositingOperation, fraction requestedAlpha: CGFloat, respectFlipped respectContextIsFlipped: Bool, hints: [String : AnyObject]?) -> Bool
-  var size: Size
+  func draw(in dstSpacePortionRect: NSRect, from srcSpacePortionRect: NSRect, operation op: NSCompositingOperation, fraction requestedAlpha: CGFloat, respectFlipped respectContextIsFlipped: Bool, hints: [String : AnyObject]?) -> Bool
+  var size: NSSize
   var hasAlpha: Bool
   var isOpaque: Bool
   var colorSpaceName: String
@@ -24,8 +24,8 @@ class NSImageRep : Object, Copying, Coding {
   class func imageRepClass(forPasteboardType type: String) -> AnyClass?
   @available(OSX 10.5, *)
   class func imageRepClass(forType type: String) -> AnyClass?
-  class func imageRepClass(for data: Data) -> AnyClass?
-  class func canInit(with data: Data) -> Bool
+  class func imageRepClass(for data: NSData) -> AnyClass?
+  class func canInit(with data: NSData) -> Bool
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use +imageUnfilteredTypes instead")
   class func imageUnfilteredFileTypes() -> [String]
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use +imageUnfilteredTypes instead")
@@ -41,14 +41,14 @@ class NSImageRep : Object, Copying, Coding {
   class func canInit(with pasteboard: NSPasteboard) -> Bool
   class func imageReps(withContentsOfFile filename: String) -> [NSImageRep]?
   /*not inherited*/ init?(contentsOfFile filename: String)
-  class func imageReps(withContentsOf url: URL) -> [NSImageRep]?
-  /*not inherited*/ init?(contentsOf url: URL)
+  class func imageReps(withContentsOf url: NSURL) -> [NSImageRep]?
+  /*not inherited*/ init?(contentsOf url: NSURL)
   class func imageReps(with pasteboard: NSPasteboard) -> [NSImageRep]?
   /*not inherited*/ init?(pasteboard: NSPasteboard)
   @available(OSX 10.6, *)
-  func cgImage(forProposedRect proposedDestRect: UnsafeMutablePointer<Rect>, context: NSGraphicsContext?, hints: [String : AnyObject]?) -> CGImage?
-  func copy(with zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
+  func cgImage(forProposedRect proposedDestRect: UnsafeMutablePointer<NSRect>, context: NSGraphicsContext?, hints: [String : AnyObject]?) -> CGImage?
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
 }
 struct __repFlags {
   var hasAlpha: UInt32

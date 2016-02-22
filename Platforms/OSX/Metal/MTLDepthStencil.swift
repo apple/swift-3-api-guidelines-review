@@ -26,7 +26,7 @@ enum MTLStencilOperation : UInt {
   case decrementWrap
 }
 @available(OSX 10.11, *)
-class MTLStencilDescriptor : Object, Copying {
+class MTLStencilDescriptor : NSObject, NSCopying {
   var stencilCompareFunction: MTLCompareFunction
   var stencilFailureOperation: MTLStencilOperation
   var depthFailureOperation: MTLStencilOperation
@@ -35,10 +35,10 @@ class MTLStencilDescriptor : Object, Copying {
   var writeMask: UInt32
   init()
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
-class MTLDepthStencilDescriptor : Object, Copying {
+class MTLDepthStencilDescriptor : NSObject, NSCopying {
   var depthCompareFunction: MTLCompareFunction
   var isDepthWriteEnabled: Bool
   @NSCopying var frontFaceStencil: MTLStencilDescriptor!
@@ -46,10 +46,10 @@ class MTLDepthStencilDescriptor : Object, Copying {
   var label: String?
   init()
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
-protocol MTLDepthStencilState : ObjectProtocol {
+protocol MTLDepthStencilState : NSObjectProtocol {
   var label: String? { get }
   var device: MTLDevice { get }
 }

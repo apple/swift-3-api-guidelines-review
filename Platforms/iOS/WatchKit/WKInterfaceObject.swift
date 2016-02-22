@@ -1,6 +1,6 @@
 
 @available(iOS 8.2, *)
-class WKInterfaceObject : Object {
+class WKInterfaceObject : NSObject {
   func setHidden(hidden: Bool)
   func setAlpha(alpha: CGFloat)
   func setWidth(width: CGFloat)
@@ -18,7 +18,7 @@ extension WKInterfaceObject {
   func setAccessibilityImageRegions(accessibilityImageRegions: [WKAccessibilityImageRegion])
 }
 @available(iOS 8.2, *)
-class WKAccessibilityImageRegion : Object {
+class WKAccessibilityImageRegion : NSObject {
   var frame: CGRect
   var label: String
   init()

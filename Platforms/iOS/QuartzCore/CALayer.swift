@@ -7,7 +7,7 @@ struct CAEdgeAntialiasingMask : OptionSetType {
   static var layerBottomEdge: CAEdgeAntialiasingMask { get }
   static var layerTopEdge: CAEdgeAntialiasingMask { get }
 }
-class CALayer : Object, Coding, CAMediaTiming {
+class CALayer : NSObject, NSCoding, CAMediaTiming {
   init()
   init(layer: AnyObject)
   func presentationLayer() -> AnyObject?
@@ -100,9 +100,9 @@ class CALayer : Object, Coding, CAMediaTiming {
   func animation(forKey key: String) -> CAAnimation?
   var name: String?
   weak var delegate: @sil_weak AnyObject?
-  var style: [Object : AnyObject]?
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  var style: [NSObject : AnyObject]?
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   var beginTime: CFTimeInterval
   var duration: CFTimeInterval
   var speed: Float
@@ -119,13 +119,13 @@ struct _CALayerIvars {
 }
 protocol CAAction {
   @available(iOS 2.0, *)
-  func run(forKey event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
+  func run(forKey event: String, object anObject: AnyObject, arguments dict: [NSObject : AnyObject]?)
 }
-extension Null : CAAction {
+extension NSNull : CAAction {
   @available(iOS 2.0, *)
-  func run(forKey event: String, object anObject: AnyObject, arguments dict: [Object : AnyObject]?)
+  func run(forKey event: String, object anObject: AnyObject, arguments dict: [NSObject : AnyObject]?)
 }
-extension Object {
+extension NSObject {
   class func display(layer: CALayer)
   func display(layer: CALayer)
   class func draw(layer: CALayer, in ctx: CGContext)

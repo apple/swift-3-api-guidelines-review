@@ -39,10 +39,10 @@ class UITabBar : UIView {
   @available(iOS 7.0, *)
   var isTranslucent: Bool
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
-protocol UITabBarDelegate : ObjectProtocol {
+protocol UITabBarDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
   optional func tabBar(tabBar: UITabBar, didSelect item: UITabBarItem)
   @available(iOS 2.0, *)

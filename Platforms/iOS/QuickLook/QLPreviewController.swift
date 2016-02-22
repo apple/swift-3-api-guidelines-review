@@ -8,8 +8,8 @@ class QLPreviewController : UIViewController {
   var currentPreviewItemIndex: Int
   var currentPreviewItem: QLPreviewItem? { get }
   weak var delegate: @sil_weak QLPreviewControllerDelegate?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
 protocol QLPreviewControllerDataSource {
@@ -18,13 +18,13 @@ protocol QLPreviewControllerDataSource {
   @available(iOS 4.0, *)
   func previewController(controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem
 }
-protocol QLPreviewControllerDelegate : ObjectProtocol {
+protocol QLPreviewControllerDelegate : NSObjectProtocol {
   @available(iOS 4.0, *)
   optional func previewControllerWillDismiss(controller: QLPreviewController)
   @available(iOS 4.0, *)
   optional func previewControllerDidDismiss(controller: QLPreviewController)
   @available(iOS 4.0, *)
-  optional func previewController(controller: QLPreviewController, shouldOpen url: URL, for item: QLPreviewItem) -> Bool
+  optional func previewController(controller: QLPreviewController, shouldOpen url: NSURL, for item: QLPreviewItem) -> Bool
   @available(iOS 4.0, *)
   optional func previewController(controller: QLPreviewController, frameFor item: QLPreviewItem, inSourceView view: AutoreleasingUnsafeMutablePointer<UIView?>) -> CGRect
   @available(iOS 4.0, *)

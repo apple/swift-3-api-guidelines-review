@@ -36,8 +36,8 @@ class UISplitViewController : UIViewController {
   func show(vc: UIViewController, sender: AnyObject?)
   @available(iOS 8.0, *)
   func showDetailViewController(vc: UIViewController, sender: AnyObject?)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
 protocol UISplitViewControllerDelegate {

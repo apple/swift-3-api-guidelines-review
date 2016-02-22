@@ -1,43 +1,43 @@
 
-class URL : Object, SecureCoding, Copying, URLHandleClient {
+class NSURL : NSObject, NSSecureCoding, NSCopying, NSURLHandleClient {
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use NSURLComponents instead, which lets you create a valid URL with any valid combination of URL components and subcomponents (not just scheme, host and path), and lets you set components and subcomponents with either percent-encoded or un-percent-encoded strings.")
   convenience init?(scheme: String, host: String?, path: String)
   @available(OSX 10.11, *)
-  init(fileURLWithPath path: String, isDirectory isDir: Bool, relativeTo baseURL: URL?)
+  init(fileURLWithPath path: String, isDirectory isDir: Bool, relativeTo baseURL: NSURL?)
   @available(OSX 10.11, *)
-  init(fileURLWithPath path: String, relativeTo baseURL: URL?)
+  init(fileURLWithPath path: String, relativeTo baseURL: NSURL?)
   @available(OSX 10.5, *)
   init(fileURLWithPath path: String, isDirectory isDir: Bool)
   init(fileURLWithPath path: String)
   @available(OSX 10.11, *)
-  class func fileURL(withPath path: String, isDirectory isDir: Bool, relativeTo baseURL: URL?) -> URL
+  class func fileURL(withPath path: String, isDirectory isDir: Bool, relativeTo baseURL: NSURL?) -> NSURL
   @available(OSX 10.11, *)
-  class func fileURL(withPath path: String, relativeTo baseURL: URL?) -> URL
+  class func fileURL(withPath path: String, relativeTo baseURL: NSURL?) -> NSURL
   @available(OSX 10.5, *)
-  class func fileURL(withPath path: String, isDirectory isDir: Bool) -> URL
-  class func fileURL(withPath path: String) -> URL
+  class func fileURL(withPath path: String, isDirectory isDir: Bool) -> NSURL
+  class func fileURL(withPath path: String) -> NSURL
   @available(OSX 10.9, *)
-  init(fileURLWithFileSystemRepresentation path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeTo baseURL: URL?)
+  init(fileURLWithFileSystemRepresentation path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeTo baseURL: NSURL?)
   @available(OSX 10.9, *)
-  class func fileURL(withFileSystemRepresentation path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeTo baseURL: URL?) -> URL
+  class func fileURL(withFileSystemRepresentation path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeTo baseURL: NSURL?) -> NSURL
   convenience init?(string URLString: String)
-  init?(string URLString: String, relativeTo baseURL: URL?)
+  init?(string URLString: String, relativeTo baseURL: NSURL?)
   @available(OSX 10.11, *)
-  init(dataRepresentation data: Data, relativeTo baseURL: URL?)
+  init(dataRepresentation data: NSData, relativeTo baseURL: NSURL?)
   @available(OSX 10.11, *)
-  init(absoluteURLWithDataRepresentation data: Data, relativeTo baseURL: URL?)
+  init(absoluteURLWithDataRepresentation data: NSData, relativeTo baseURL: NSURL?)
   @available(OSX 10.11, *)
-  class func absoluteURL(withDataRepresentation data: Data, relativeTo baseURL: URL?) -> URL
+  class func absoluteURL(withDataRepresentation data: NSData, relativeTo baseURL: NSURL?) -> NSURL
   @available(OSX 10.11, *)
-  @NSCopying var dataRepresentation: Data { get }
+  @NSCopying var dataRepresentation: NSData { get }
   var absoluteString: String { get }
   var relativeString: String? { get }
-  @NSCopying var base: URL? { get }
-  @NSCopying var absolute: URL { get }
+  @NSCopying var base: NSURL? { get }
+  @NSCopying var absolute: NSURL { get }
   var scheme: String { get }
   var resourceSpecifier: String { get }
   var host: String? { get }
-  @NSCopying var port: Number? { get }
+  @NSCopying var port: NSNumber? { get }
   var user: String? { get }
   var password: String? { get }
   var path: String? { get }
@@ -52,15 +52,15 @@ class URL : Object, SecureCoding, Copying, URLHandleClient {
   @available(OSX 10.9, *)
   var fileSystemRepresentation: UnsafePointer<Int8> { get }
   var isFileURL: Bool { get }
-  @NSCopying var standardized: URL? { get }
+  @NSCopying var standardized: NSURL? { get }
   @available(OSX 10.6, *)
-  func checkResourceIsReachableAndReturnError(error: ErrorPointer) -> Bool
+  func checkResourceIsReachableAndReturnError(error: NSErrorPointer) -> Bool
   @available(OSX 10.6, *)
   func isFileReferenceURL() -> Bool
   @available(OSX 10.6, *)
-  func fileReference() -> URL?
+  func fileReference() -> NSURL?
   @available(OSX 10.6, *)
-  @NSCopying var filePath: URL? { get }
+  @NSCopying var filePath: NSURL? { get }
   @available(OSX 10.6, *)
   func getResourceValue(value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
   @available(OSX 10.6, *)
@@ -76,276 +76,276 @@ class URL : Object, SecureCoding, Copying, URLHandleClient {
   @available(OSX 10.9, *)
   func setTemporaryResourceValue(value: AnyObject?, forKey key: String)
   @available(OSX 10.6, *)
-  func bookmarkData(options: URLBookmarkCreationOptions = [], includingResourceValuesForKeys keys: [String]?, relativeTo relativeURL: URL?) throws -> Data
+  func bookmarkData(options: NSURLBookmarkCreationOptions = [], includingResourceValuesForKeys keys: [String]?, relativeTo relativeURL: NSURL?) throws -> NSData
   @available(OSX 10.6, *)
-  convenience init(byResolvingBookmarkData bookmarkData: Data, options: URLBookmarkResolutionOptions = [], relativeTo relativeURL: URL?, bookmarkDataIsStale isStale: UnsafeMutablePointer<ObjCBool>) throws
+  convenience init(byResolvingBookmarkData bookmarkData: NSData, options: NSURLBookmarkResolutionOptions = [], relativeTo relativeURL: NSURL?, bookmarkDataIsStale isStale: UnsafeMutablePointer<ObjCBool>) throws
   @available(OSX 10.6, *)
-  class func resourceValues(forKeys keys: [String], fromBookmarkData bookmarkData: Data) -> [String : AnyObject]?
+  class func resourceValues(forKeys keys: [String], fromBookmarkData bookmarkData: NSData) -> [String : AnyObject]?
   @available(OSX 10.6, *)
-  class func writeBookmarkData(bookmarkData: Data, to bookmarkFileURL: URL, options: URLBookmarkFileCreationOptions) throws
+  class func writeBookmarkData(bookmarkData: NSData, to bookmarkFileURL: NSURL, options: NSURLBookmarkFileCreationOptions) throws
   @available(OSX 10.6, *)
-  class func bookmarkData(withContentsOf bookmarkFileURL: URL) throws -> Data
+  class func bookmarkData(withContentsOf bookmarkFileURL: NSURL) throws -> NSData
   @available(OSX 10.10, *)
-  convenience init(byResolvingAliasFileAt url: URL, options: URLBookmarkResolutionOptions = []) throws
+  convenience init(byResolvingAliasFileAt url: NSURL, options: NSURLBookmarkResolutionOptions = []) throws
   @available(OSX 10.7, *)
   func startAccessingSecurityScopedResource() -> Bool
   @available(OSX 10.7, *)
   func stopAccessingSecurityScopedResource()
   convenience init()
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 
-extension URL : _FileReferenceLiteralConvertible {
+extension NSURL : _FileReferenceLiteralConvertible {
   convenience init(failableFileReferenceLiteral path: String)
   required convenience init(fileReferenceLiteral path: String)
 }
 
-extension URL : CustomPlaygroundQuickLookable {
+extension NSURL : CustomPlaygroundQuickLookable {
   func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
-let urlFileScheme: String
+let NSURLFileScheme: String
 @available(OSX 10.7, *)
-let urlKeysOfUnsetValuesKey: String
+let NSURLKeysOfUnsetValuesKey: String
 @available(OSX 10.6, *)
-let urlNameKey: String
+let NSURLNameKey: String
 @available(OSX 10.6, *)
-let urlLocalizedNameKey: String
+let NSURLLocalizedNameKey: String
 @available(OSX 10.6, *)
-let urlisRegularFileKey: String
+let NSURLIsRegularFileKey: String
 @available(OSX 10.6, *)
-let urlisDirectoryKey: String
+let NSURLIsDirectoryKey: String
 @available(OSX 10.6, *)
-let urlisSymbolicLinkKey: String
+let NSURLIsSymbolicLinkKey: String
 @available(OSX 10.6, *)
-let urlisVolumeKey: String
+let NSURLIsVolumeKey: String
 @available(OSX 10.6, *)
-let urlisPackageKey: String
+let NSURLIsPackageKey: String
 @available(OSX 10.11, *)
-let urlisApplicationKey: String
+let NSURLIsApplicationKey: String
 @available(OSX 10.11, *)
-let urlApplicationIsScriptableKey: String
+let NSURLApplicationIsScriptableKey: String
 @available(OSX 10.6, *)
-let urlisSystemImmutableKey: String
+let NSURLIsSystemImmutableKey: String
 @available(OSX 10.6, *)
-let urlisUserImmutableKey: String
+let NSURLIsUserImmutableKey: String
 @available(OSX 10.6, *)
-let urlisHiddenKey: String
+let NSURLIsHiddenKey: String
 @available(OSX 10.6, *)
-let urlHasHiddenExtensionKey: String
+let NSURLHasHiddenExtensionKey: String
 @available(OSX 10.6, *)
-let urlCreationDateKey: String
+let NSURLCreationDateKey: String
 @available(OSX 10.6, *)
-let urlContentAccessDateKey: String
+let NSURLContentAccessDateKey: String
 @available(OSX 10.6, *)
-let urlContentModificationDateKey: String
+let NSURLContentModificationDateKey: String
 @available(OSX 10.6, *)
-let urlAttributeModificationDateKey: String
+let NSURLAttributeModificationDateKey: String
 @available(OSX 10.6, *)
-let urlLinkCountKey: String
+let NSURLLinkCountKey: String
 @available(OSX 10.6, *)
-let urlParentDirectoryURLKey: String
+let NSURLParentDirectoryURLKey: String
 @available(OSX 10.6, *)
-let urlVolumeURLKey: String
+let NSURLVolumeURLKey: String
 @available(OSX 10.6, *)
-let urlTypeIdentifierKey: String
+let NSURLTypeIdentifierKey: String
 @available(OSX 10.6, *)
-let urlLocalizedTypeDescriptionKey: String
+let NSURLLocalizedTypeDescriptionKey: String
 @available(OSX 10.6, *)
-let urlLabelNumberKey: String
+let NSURLLabelNumberKey: String
 @available(OSX 10.6, *)
-let urlLabelColorKey: String
+let NSURLLabelColorKey: String
 @available(OSX 10.6, *)
-let urlLocalizedLabelKey: String
+let NSURLLocalizedLabelKey: String
 @available(OSX 10.6, *)
-let urlEffectiveIconKey: String
+let NSURLEffectiveIconKey: String
 @available(OSX 10.6, *)
-let urlCustomIconKey: String
+let NSURLCustomIconKey: String
 @available(OSX 10.7, *)
-let urlFileResourceIdentifierKey: String
+let NSURLFileResourceIdentifierKey: String
 @available(OSX 10.7, *)
-let urlVolumeIdentifierKey: String
+let NSURLVolumeIdentifierKey: String
 @available(OSX 10.7, *)
-let urlPreferredIOBlockSizeKey: String
+let NSURLPreferredIOBlockSizeKey: String
 @available(OSX 10.7, *)
-let urlisReadableKey: String
+let NSURLIsReadableKey: String
 @available(OSX 10.7, *)
-let urlisWritableKey: String
+let NSURLIsWritableKey: String
 @available(OSX 10.7, *)
-let urlisExecutableKey: String
+let NSURLIsExecutableKey: String
 @available(OSX 10.7, *)
-let urlFileSecurityKey: String
+let NSURLFileSecurityKey: String
 @available(OSX 10.8, *)
-let urlisExcludedFromBackupKey: String
+let NSURLIsExcludedFromBackupKey: String
 @available(OSX 10.9, *)
-let urlTagNamesKey: String
+let NSURLTagNamesKey: String
 @available(OSX 10.8, *)
-let urlPathKey: String
+let NSURLPathKey: String
 @available(OSX 10.7, *)
-let urlisMountTriggerKey: String
+let NSURLIsMountTriggerKey: String
 @available(OSX 10.10, *)
-let urlGenerationIdentifierKey: String
+let NSURLGenerationIdentifierKey: String
 @available(OSX 10.10, *)
-let urlDocumentIdentifierKey: String
+let NSURLDocumentIdentifierKey: String
 @available(OSX 10.10, *)
-let urlAddedToDirectoryDateKey: String
+let NSURLAddedToDirectoryDateKey: String
 @available(OSX 10.10, *)
-let urlQuarantinePropertiesKey: String
+let NSURLQuarantinePropertiesKey: String
 @available(OSX 10.7, *)
-let urlFileResourceTypeKey: String
+let NSURLFileResourceTypeKey: String
 @available(OSX 10.7, *)
-let urlFileResourceTypeNamedPipe: String
+let NSURLFileResourceTypeNamedPipe: String
 @available(OSX 10.7, *)
-let urlFileResourceTypeCharacterSpecial: String
+let NSURLFileResourceTypeCharacterSpecial: String
 @available(OSX 10.7, *)
-let urlFileResourceTypeDirectory: String
+let NSURLFileResourceTypeDirectory: String
 @available(OSX 10.7, *)
-let urlFileResourceTypeBlockSpecial: String
+let NSURLFileResourceTypeBlockSpecial: String
 @available(OSX 10.7, *)
-let urlFileResourceTypeRegular: String
+let NSURLFileResourceTypeRegular: String
 @available(OSX 10.7, *)
-let urlFileResourceTypeSymbolicLink: String
+let NSURLFileResourceTypeSymbolicLink: String
 @available(OSX 10.7, *)
-let urlFileResourceTypeSocket: String
+let NSURLFileResourceTypeSocket: String
 @available(OSX 10.7, *)
-let urlFileResourceTypeUnknown: String
+let NSURLFileResourceTypeUnknown: String
 @available(OSX 10.10, *)
-let urlThumbnailDictionaryKey: String
+let NSURLThumbnailDictionaryKey: String
 @available(OSX 10.10, *)
-let urlThumbnailKey: String
+let NSURLThumbnailKey: String
 @available(OSX 10.10, *)
-let thumbnail1024x1024SizeKey: String
+let NSThumbnail1024x1024SizeKey: String
 @available(OSX 10.6, *)
-let urlFileSizeKey: String
+let NSURLFileSizeKey: String
 @available(OSX 10.6, *)
-let urlFileAllocatedSizeKey: String
+let NSURLFileAllocatedSizeKey: String
 @available(OSX 10.7, *)
-let urlTotalFileSizeKey: String
+let NSURLTotalFileSizeKey: String
 @available(OSX 10.7, *)
-let urlTotalFileAllocatedSizeKey: String
+let NSURLTotalFileAllocatedSizeKey: String
 @available(OSX 10.6, *)
-let urlisAliasFileKey: String
+let NSURLIsAliasFileKey: String
 @available(OSX 10.6, *)
-let urlVolumeLocalizedFormatDescriptionKey: String
+let NSURLVolumeLocalizedFormatDescriptionKey: String
 @available(OSX 10.6, *)
-let urlVolumeTotalCapacityKey: String
+let NSURLVolumeTotalCapacityKey: String
 @available(OSX 10.6, *)
-let urlVolumeAvailableCapacityKey: String
+let NSURLVolumeAvailableCapacityKey: String
 @available(OSX 10.6, *)
-let urlVolumeResourceCountKey: String
+let NSURLVolumeResourceCountKey: String
 @available(OSX 10.6, *)
-let urlVolumeSupportsPersistentIDsKey: String
+let NSURLVolumeSupportsPersistentIDsKey: String
 @available(OSX 10.6, *)
-let urlVolumeSupportsSymbolicLinksKey: String
+let NSURLVolumeSupportsSymbolicLinksKey: String
 @available(OSX 10.6, *)
-let urlVolumeSupportsHardLinksKey: String
+let NSURLVolumeSupportsHardLinksKey: String
 @available(OSX 10.6, *)
-let urlVolumeSupportsJournalingKey: String
+let NSURLVolumeSupportsJournalingKey: String
 @available(OSX 10.6, *)
-let urlVolumeIsJournalingKey: String
+let NSURLVolumeIsJournalingKey: String
 @available(OSX 10.6, *)
-let urlVolumeSupportsSparseFilesKey: String
+let NSURLVolumeSupportsSparseFilesKey: String
 @available(OSX 10.6, *)
-let urlVolumeSupportsZeroRunsKey: String
+let NSURLVolumeSupportsZeroRunsKey: String
 @available(OSX 10.6, *)
-let urlVolumeSupportsCaseSensitiveNamesKey: String
+let NSURLVolumeSupportsCaseSensitiveNamesKey: String
 @available(OSX 10.6, *)
-let urlVolumeSupportsCasePreservedNamesKey: String
+let NSURLVolumeSupportsCasePreservedNamesKey: String
 @available(OSX 10.7, *)
-let urlVolumeSupportsRootDirectoryDatesKey: String
+let NSURLVolumeSupportsRootDirectoryDatesKey: String
 @available(OSX 10.7, *)
-let urlVolumeSupportsVolumeSizesKey: String
+let NSURLVolumeSupportsVolumeSizesKey: String
 @available(OSX 10.7, *)
-let urlVolumeSupportsRenamingKey: String
+let NSURLVolumeSupportsRenamingKey: String
 @available(OSX 10.7, *)
-let urlVolumeSupportsAdvisoryFileLockingKey: String
+let NSURLVolumeSupportsAdvisoryFileLockingKey: String
 @available(OSX 10.7, *)
-let urlVolumeSupportsExtendedSecurityKey: String
+let NSURLVolumeSupportsExtendedSecurityKey: String
 @available(OSX 10.7, *)
-let urlVolumeIsBrowsableKey: String
+let NSURLVolumeIsBrowsableKey: String
 @available(OSX 10.7, *)
-let urlVolumeMaximumFileSizeKey: String
+let NSURLVolumeMaximumFileSizeKey: String
 @available(OSX 10.7, *)
-let urlVolumeIsEjectableKey: String
+let NSURLVolumeIsEjectableKey: String
 @available(OSX 10.7, *)
-let urlVolumeIsRemovableKey: String
+let NSURLVolumeIsRemovableKey: String
 @available(OSX 10.7, *)
-let urlVolumeIsInternalKey: String
+let NSURLVolumeIsInternalKey: String
 @available(OSX 10.7, *)
-let urlVolumeIsAutomountedKey: String
+let NSURLVolumeIsAutomountedKey: String
 @available(OSX 10.7, *)
-let urlVolumeIsLocalKey: String
+let NSURLVolumeIsLocalKey: String
 @available(OSX 10.7, *)
-let urlVolumeIsReadOnlyKey: String
+let NSURLVolumeIsReadOnlyKey: String
 @available(OSX 10.7, *)
-let urlVolumeCreationDateKey: String
+let NSURLVolumeCreationDateKey: String
 @available(OSX 10.7, *)
-let urlVolumeURLForRemountingKey: String
+let NSURLVolumeURLForRemountingKey: String
 @available(OSX 10.7, *)
-let urlVolumeUUIDStringKey: String
+let NSURLVolumeUUIDStringKey: String
 @available(OSX 10.7, *)
-let urlVolumeNameKey: String
+let NSURLVolumeNameKey: String
 @available(OSX 10.7, *)
-let urlVolumeLocalizedNameKey: String
+let NSURLVolumeLocalizedNameKey: String
 @available(OSX 10.7, *)
-let urlisUbiquitousItemKey: String
+let NSURLIsUbiquitousItemKey: String
 @available(OSX 10.7, *)
-let urlUbiquitousItemHasUnresolvedConflictsKey: String
+let NSURLUbiquitousItemHasUnresolvedConflictsKey: String
 @available(OSX 10.7, *)
-let urlUbiquitousItemIsDownloadingKey: String
+let NSURLUbiquitousItemIsDownloadingKey: String
 @available(OSX 10.7, *)
-let urlUbiquitousItemIsUploadedKey: String
+let NSURLUbiquitousItemIsUploadedKey: String
 @available(OSX 10.7, *)
-let urlUbiquitousItemIsUploadingKey: String
+let NSURLUbiquitousItemIsUploadingKey: String
 @available(OSX 10.9, *)
-let urlUbiquitousItemDownloadingStatusKey: String
+let NSURLUbiquitousItemDownloadingStatusKey: String
 @available(OSX 10.9, *)
-let urlUbiquitousItemDownloadingErrorKey: String
+let NSURLUbiquitousItemDownloadingErrorKey: String
 @available(OSX 10.9, *)
-let urlUbiquitousItemUploadingErrorKey: String
+let NSURLUbiquitousItemUploadingErrorKey: String
 @available(OSX 10.10, *)
-let urlUbiquitousItemDownloadRequestedKey: String
+let NSURLUbiquitousItemDownloadRequestedKey: String
 @available(OSX 10.10, *)
-let urlUbiquitousItemContainerDisplayNameKey: String
+let NSURLUbiquitousItemContainerDisplayNameKey: String
 @available(OSX 10.9, *)
-let urlUbiquitousItemDownloadingStatusNotDownloaded: String
+let NSURLUbiquitousItemDownloadingStatusNotDownloaded: String
 @available(OSX 10.9, *)
-let urlUbiquitousItemDownloadingStatusDownloaded: String
+let NSURLUbiquitousItemDownloadingStatusDownloaded: String
 @available(OSX 10.9, *)
-let urlUbiquitousItemDownloadingStatusCurrent: String
+let NSURLUbiquitousItemDownloadingStatusCurrent: String
 @available(OSX 10.6, *)
-struct URLBookmarkCreationOptions : OptionSetType {
+struct NSURLBookmarkCreationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var minimalBookmark: URLBookmarkCreationOptions { get }
-  static var suitableForBookmarkFile: URLBookmarkCreationOptions { get }
+  static var minimalBookmark: NSURLBookmarkCreationOptions { get }
+  static var suitableForBookmarkFile: NSURLBookmarkCreationOptions { get }
   @available(OSX 10.7, *)
-  static var withSecurityScope: URLBookmarkCreationOptions { get }
+  static var withSecurityScope: NSURLBookmarkCreationOptions { get }
   @available(OSX 10.7, *)
-  static var securityScopeAllowOnlyReadAccess: URLBookmarkCreationOptions { get }
+  static var securityScopeAllowOnlyReadAccess: NSURLBookmarkCreationOptions { get }
 }
 @available(OSX 10.6, *)
-struct URLBookmarkResolutionOptions : OptionSetType {
+struct NSURLBookmarkResolutionOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var withoutUI: URLBookmarkResolutionOptions { get }
-  static var withoutMounting: URLBookmarkResolutionOptions { get }
+  static var withoutUI: NSURLBookmarkResolutionOptions { get }
+  static var withoutMounting: NSURLBookmarkResolutionOptions { get }
   @available(OSX 10.7, *)
-  static var withSecurityScope: URLBookmarkResolutionOptions { get }
+  static var withSecurityScope: NSURLBookmarkResolutionOptions { get }
 }
-typealias URLBookmarkFileCreationOptions = Int
-extension URL {
+typealias NSURLBookmarkFileCreationOptions = Int
+extension NSURL {
   @available(OSX 10.10, *)
   func getPromisedItemResourceValue(value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
   @available(OSX 10.10, *)
   func promisedItemResourceValues(forKeys keys: [String]) throws -> [String : AnyObject]
   @available(OSX 10.10, *)
-  func checkPromisedItemIsReachableAndReturnError(error: ErrorPointer) -> Bool
+  func checkPromisedItemIsReachableAndReturnError(error: NSErrorPointer) -> Bool
 }
 @available(OSX 10.10, *)
-class URLQueryItem : Object, SecureCoding, Copying {
+class NSURLQueryItem : NSObject, NSSecureCoding, NSCopying {
   init(name: String, value: String?)
   var name: String { get }
   var value: String? { get }
@@ -353,25 +353,25 @@ class URLQueryItem : Object, SecureCoding, Copying {
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.9, *)
-class URLComponents : Object, Copying {
+class NSURLComponents : NSObject, NSCopying {
   init()
-  init?(url: URL, resolvingAgainstBaseURL resolve: Bool)
+  init?(url: NSURL, resolvingAgainstBaseURL resolve: Bool)
   init?(string URLString: String)
-  @NSCopying var url: URL? { get }
-  func urlRelative(to baseURL: URL?) -> URL?
+  @NSCopying var url: NSURL? { get }
+  func urlRelative(to baseURL: NSURL?) -> NSURL?
   @available(OSX 10.10, *)
   var string: String? { get }
   var scheme: String?
   var user: String?
   var password: String?
   var host: String?
-  @NSCopying var port: Number?
+  @NSCopying var port: NSNumber?
   var path: String?
   var query: String?
   var fragment: String?
@@ -398,27 +398,27 @@ class URLComponents : Object, Copying {
   @available(OSX 10.11, *)
   var rangeOfFragment: NSRange { get }
   @available(OSX 10.10, *)
-  var queryItems: [URLQueryItem]?
+  var queryItems: [NSURLQueryItem]?
   @available(OSX 10.9, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
-extension CharacterSet {
+extension NSCharacterSet {
   @available(OSX 10.9, *)
-  class func urlUserAllowed() -> CharacterSet
+  class func urlUserAllowed() -> NSCharacterSet
   @available(OSX 10.9, *)
-  class func urlPasswordAllowed() -> CharacterSet
+  class func urlPasswordAllowed() -> NSCharacterSet
   @available(OSX 10.9, *)
-  class func urlHostAllowed() -> CharacterSet
+  class func urlHostAllowed() -> NSCharacterSet
   @available(OSX 10.9, *)
-  class func urlPathAllowed() -> CharacterSet
+  class func urlPathAllowed() -> NSCharacterSet
   @available(OSX 10.9, *)
-  class func urlQueryAllowed() -> CharacterSet
+  class func urlQueryAllowed() -> NSCharacterSet
   @available(OSX 10.9, *)
-  class func urlFragmentAllowed() -> CharacterSet
+  class func urlFragmentAllowed() -> NSCharacterSet
 }
 extension NSString {
   @available(OSX 10.9, *)
-  func addingPercentEncoding(withAllowedCharacters allowedCharacters: CharacterSet) -> String?
+  func addingPercentEncoding(withAllowedCharacters allowedCharacters: NSCharacterSet) -> String?
   @available(OSX 10.9, *)
   var removingPercentEncoding: String? { get }
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -stringByAddingPercentEncodingWithAllowedCharacters: instead, which always uses the recommended UTF-8 encoding, and which encodes for a specific URL component or subcomponent since each URL component or subcomponent has different rules for what characters are valid.")
@@ -426,9 +426,9 @@ extension NSString {
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -stringByRemovingPercentEncoding instead, which always uses the recommended UTF-8 encoding.")
   func replacingPercentEscapes(usingEncoding enc: UInt) -> String?
 }
-extension URL {
+extension NSURL {
   @available(OSX 10.6, *)
-  class func fileURL(withPathComponents components: [String]) -> URL?
+  class func fileURL(withPathComponents components: [String]) -> NSURL?
   @available(OSX 10.6, *)
   var pathComponents: [String]? { get }
   @available(OSX 10.6, *)
@@ -436,30 +436,30 @@ extension URL {
   @available(OSX 10.6, *)
   var pathExtension: String? { get }
   @available(OSX 10.6, *)
-  func appendingPathComponent(pathComponent: String) -> URL
+  func appendingPathComponent(pathComponent: String) -> NSURL
   @available(OSX 10.7, *)
-  func appendingPathComponent(pathComponent: String, isDirectory: Bool) -> URL
+  func appendingPathComponent(pathComponent: String, isDirectory: Bool) -> NSURL
   @available(OSX 10.6, *)
-  @NSCopying var deletingLastPathComponent: URL? { get }
+  @NSCopying var deletingLastPathComponent: NSURL? { get }
   @available(OSX 10.6, *)
-  func appendingPathExtension(pathExtension: String) -> URL
+  func appendingPathExtension(pathExtension: String) -> NSURL
   @available(OSX 10.6, *)
-  @NSCopying var deletingPathExtension: URL? { get }
+  @NSCopying var deletingPathExtension: NSURL? { get }
   @available(OSX 10.6, *)
-  @NSCopying var standardizingPath: URL? { get }
+  @NSCopying var standardizingPath: NSURL? { get }
   @available(OSX 10.6, *)
-  @NSCopying var resolvingSymlinksInPath: URL? { get }
+  @NSCopying var resolvingSymlinksInPath: NSURL? { get }
 }
 @available(OSX 10.7, *)
-class FileSecurity : Object, Copying, Coding {
-  init?(coder aDecoder: Coder)
+class NSFileSecurity : NSObject, NSCopying, NSCoding {
+  init?(coder aDecoder: NSCoder)
   convenience init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }
-extension Object {
+extension NSObject {
 }
-extension URL {
+extension NSURL {
 }

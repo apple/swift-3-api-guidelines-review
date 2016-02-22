@@ -1,13 +1,13 @@
 
 @available(watchOS 2.0, *)
-class CMLogItem : Object, SecureCoding, Copying {
-  var timestamp: TimeInterval { get }
+class CMLogItem : NSObject, NSSecureCoding, NSCopying {
+  var timestamp: NSTimeInterval { get }
   init()
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

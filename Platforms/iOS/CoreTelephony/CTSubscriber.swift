@@ -2,8 +2,8 @@
 @available(iOS 7.0, *)
 let CTSubscriberTokenRefreshed: String
 @available(iOS 7.0, *)
-class CTSubscriber : Object {
+class CTSubscriber : NSObject {
   @available(iOS 7.0, *)
-  var carrierToken: Data? { get }
+  var carrierToken: NSData? { get }
   init()
 }

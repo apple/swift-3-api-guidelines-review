@@ -1,5 +1,5 @@
 
-typealias SCNSceneExportProgressHandler = (Float, Error?, UnsafeMutablePointer<ObjCBool>) -> Void
+typealias SCNSceneExportProgressHandler = (Float, NSError?, UnsafeMutablePointer<ObjCBool>) -> Void
 @available(OSX 10.9, *)
 let SCNSceneExportDestinationURL: String
 let SCNSceneStartTimeAttributeKey: String
@@ -8,7 +8,7 @@ let SCNSceneFrameRateAttributeKey: String
 @available(OSX 10.10, *)
 let SCNSceneUpAxisAttributeKey: String
 @available(OSX 10.8, *)
-class SCNScene : Object, SecureCoding {
+class SCNScene : NSObject, NSSecureCoding {
   var rootNode: SCNNode { get }
   @available(OSX 10.10, *)
   var physicsWorld: SCNPhysicsWorld { get }
@@ -20,9 +20,9 @@ class SCNScene : Object, SecureCoding {
   convenience init?(named name: String)
   @available(OSX 10.10, *)
   convenience init?(named name: String, inDirectory directory: String?, options: [String : AnyObject]? = [:])
-  convenience init(url: URL, options: [String : AnyObject]? = [:]) throws
+  convenience init(url: NSURL, options: [String : AnyObject]? = [:]) throws
   @available(OSX 10.9, *)
-  func write(to url: URL, options: [String : AnyObject]? = [:], delegate: SCNSceneExportDelegate?, progressHandler: SCNSceneExportProgressHandler? = nil) -> Bool
+  func write(to url: NSURL, options: [String : AnyObject]? = [:], delegate: SCNSceneExportDelegate?, progressHandler: SCNSceneExportProgressHandler? = nil) -> Bool
   @available(OSX 10.10, *)
   var fogStartDistance: CGFloat
   @available(OSX 10.10, *)
@@ -37,10 +37,10 @@ class SCNScene : Object, SecureCoding {
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
-protocol SCNSceneExportDelegate : ObjectProtocol {
+protocol SCNSceneExportDelegate : NSObjectProtocol {
   @available(OSX 10.9, *)
-  optional func write(image: NSImage, withSceneDocumentURL documentURL: URL, originalImageURL: URL?) -> URL?
+  optional func write(image: NSImage, withSceneDocumentURL documentURL: NSURL, originalImageURL: NSURL?) -> NSURL?
 }

@@ -79,7 +79,7 @@ enum MTLArgumentAccess : UInt {
   case writeOnly
 }
 @available(OSX 10.11, *)
-class MTLStructMember : Object {
+class MTLStructMember : NSObject {
   var name: String { get }
   var offset: Int { get }
   var dataType: MTLDataType { get }
@@ -88,13 +88,13 @@ class MTLStructMember : Object {
   init()
 }
 @available(OSX 10.11, *)
-class MTLStructType : Object {
+class MTLStructType : NSObject {
   var members: [MTLStructMember] { get }
   func member(byName name: String) -> MTLStructMember?
   init()
 }
 @available(OSX 10.11, *)
-class MTLArrayType : Object {
+class MTLArrayType : NSObject {
   var arrayLength: Int { get }
   var elementType: MTLDataType { get }
   var stride: Int { get }
@@ -103,7 +103,7 @@ class MTLArrayType : Object {
   init()
 }
 @available(OSX 10.11, *)
-class MTLArgument : Object {
+class MTLArgument : NSObject {
   var name: String { get }
   var type: MTLArgumentType { get }
   var access: MTLArgumentAccess { get }

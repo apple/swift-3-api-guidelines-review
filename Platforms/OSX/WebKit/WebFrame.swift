@@ -1,15 +1,15 @@
 
-class WebFrame : Object {
+class WebFrame : NSObject {
   init!(name: String!, webFrameView view: WebFrameView!, webView: WebView!)
   var name: String! { get }
   var webView: WebView! { get }
   var frameView: WebFrameView! { get }
   var domDocument: DOMDocument! { get }
   var frameElement: DOMHTMLElement! { get }
-  func load(request: URLRequest!)
-  func load(data: Data!, mimeType MIMEType: String!, textEncodingName encodingName: String!, baseURL URL: URL!)
-  func loadHTMLString(string: String!, baseURL URL: URL!)
-  func loadAlternateHTMLString(string: String!, baseURL: URL!, forUnreachableURL unreachableURL: URL!)
+  func load(request: NSURLRequest!)
+  func load(data: NSData!, mimeType MIMEType: String!, textEncodingName encodingName: String!, baseURL URL: NSURL!)
+  func loadHTMLString(string: String!, baseURL URL: NSURL!)
+  func loadAlternateHTMLString(string: String!, baseURL: NSURL!, forUnreachableURL unreachableURL: NSURL!)
   func load(archive: WebArchive!)
   var dataSource: WebDataSource? { get }
   var provisionalDataSource: WebDataSource! { get }

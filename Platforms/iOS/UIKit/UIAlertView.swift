@@ -11,7 +11,7 @@ enum UIAlertViewStyle : Int {
 class UIAlertView : UIView {
   convenience init(title: String?, message: String?, delegate: AnyObject?, cancelButtonTitle: String?)
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   weak var delegate: @sil_weak AnyObject?
   var title: String
   var message: String?
@@ -33,7 +33,7 @@ class UIAlertView : UIView {
 extension UIAlertView {
   convenience init(title: String, message: String, delegate: UIAlertViewDelegate?, cancelButtonTitle: String?, otherButtonTitles firstButtonTitle: String, _ moreButtonTitles: String...)
 }
-protocol UIAlertViewDelegate : ObjectProtocol {
+protocol UIAlertViewDelegate : NSObjectProtocol {
   @available(iOS, introduced=2.0, deprecated=9.0)
   optional func alertView(alertView: UIAlertView, clickedButtonAt buttonIndex: Int)
   @available(iOS, introduced=2.0, deprecated=9.0)

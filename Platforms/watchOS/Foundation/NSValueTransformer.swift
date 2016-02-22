@@ -1,17 +1,17 @@
 
 @available(watchOS 2.0, *)
-let negateBooleanTransformerName: String
+let NSNegateBooleanTransformerName: String
 @available(watchOS 2.0, *)
-let isNilTransformerName: String
+let NSIsNilTransformerName: String
 @available(watchOS 2.0, *)
-let isNotNilTransformerName: String
+let NSIsNotNilTransformerName: String
 @available(watchOS 2.0, *)
-let unarchiveFromDataTransformerName: String
+let NSUnarchiveFromDataTransformerName: String
 @available(watchOS 2.0, *)
-let keyedUnarchiveFromDataTransformerName: String
+let NSKeyedUnarchiveFromDataTransformerName: String
 @available(watchOS 2.0, *)
-class ValueTransformer : Object {
-  class func setValueTransformer(transformer: ValueTransformer?, forName name: String)
+class NSValueTransformer : NSObject {
+  class func setValueTransformer(transformer: NSValueTransformer?, forName name: String)
   /*not inherited*/ init?(forName name: String)
   class func valueTransformerNames() -> [String]
   class func transformedValueClass() -> AnyClass

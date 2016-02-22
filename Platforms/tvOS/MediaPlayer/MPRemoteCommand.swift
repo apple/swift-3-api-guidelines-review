@@ -10,7 +10,7 @@ enum MPRemoteCommandHandlerStatus : Int {
   case commandFailed
 }
 @available(tvOS 7.1, *)
-class MPRemoteCommand : Object {
+class MPRemoteCommand : NSObject {
   var isEnabled: Bool
   func addTarget(target: AnyObject, action: Selector)
   func removeTarget(target: AnyObject, action: Selector)
@@ -39,7 +39,7 @@ class MPRatingCommand : MPRemoteCommand {
 }
 @available(tvOS 7.1, *)
 class MPChangePlaybackRateCommand : MPRemoteCommand {
-  var supportedPlaybackRates: [Number]
+  var supportedPlaybackRates: [NSNumber]
   init()
 }
 @available(tvOS 9.0, *)

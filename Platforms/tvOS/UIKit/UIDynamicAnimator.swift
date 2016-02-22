@@ -1,12 +1,12 @@
 
-protocol UIDynamicAnimatorDelegate : ObjectProtocol {
+protocol UIDynamicAnimatorDelegate : NSObjectProtocol {
   @available(tvOS 7.0, *)
   optional func dynamicAnimatorWillResume(animator: UIDynamicAnimator)
   @available(tvOS 7.0, *)
   optional func dynamicAnimatorDidPause(animator: UIDynamicAnimator)
 }
 @available(tvOS 7.0, *)
-class UIDynamicAnimator : Object {
+class UIDynamicAnimator : NSObject {
   init(referenceView view: UIView)
   func addBehavior(behavior: UIDynamicBehavior)
   func removeBehavior(behavior: UIDynamicBehavior)
@@ -16,13 +16,13 @@ class UIDynamicAnimator : Object {
   func items(in rect: CGRect) -> [UIDynamicItem]
   func updateItem(currentState item: UIDynamicItem)
   var isRunning: Bool { get }
-  func elapsedTime() -> TimeInterval
+  func elapsedTime() -> NSTimeInterval
   weak var delegate: @sil_weak UIDynamicAnimatorDelegate?
   convenience init()
 }
 extension UIDynamicAnimator {
   convenience init(collectionViewLayout layout: UICollectionViewLayout)
-  func layoutAttributesForCell(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForSupplementaryView(ofKind kind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForDecorationView(ofKind decorationViewKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForCell(at indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryView(ofKind kind: String, at indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForDecorationView(ofKind decorationViewKind: String, at indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
 }

@@ -13,7 +13,7 @@ class AVMutableCompositionTrack : AVCompositionTrack {
   var segments: [AVCompositionTrackSegment]!
   func insertTimeRange(timeRange: CMTimeRange, of track: AVAssetTrack, at startTime: CMTime) throws
   @available(tvOS 5.0, *)
-  func insertTimeRanges(timeRanges: [Value], of tracks: [AVAssetTrack], at startTime: CMTime) throws
+  func insertTimeRanges(timeRanges: [NSValue], of tracks: [AVAssetTrack], at startTime: CMTime) throws
   func insertEmptyTimeRange(timeRange: CMTimeRange)
   func removeTimeRange(timeRange: CMTimeRange)
   func scaleTimeRange(timeRange: CMTimeRange, toDuration duration: CMTime)

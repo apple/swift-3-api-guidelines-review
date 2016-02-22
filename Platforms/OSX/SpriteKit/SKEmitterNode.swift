@@ -8,7 +8,7 @@ enum SKParticleRenderOrder : UInt {
   case dontCare
 }
 class SKEmitterNode : SKNode {
-  func advanceSimulationTime(sec: TimeInterval)
+  func advanceSimulationTime(sec: NSTimeInterval)
   func resetSimulation()
   var particleTexture: SKTexture?
   var particleBlendMode: SKBlendMode
@@ -62,6 +62,6 @@ class SKEmitterNode : SKNode {
   @available(OSX, introduced=10.8, deprecated=10.10)
   var particleZPositionSpeed: CGFloat
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init?(fileNamed filename: String)
 }

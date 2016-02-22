@@ -47,19 +47,19 @@ let ICStatusNotificationKey: String
 let ICStatusCodeKey: String
 let ICLocalizedStatusNotificationKey: String
 let ICDeviceCanEjectOrDisconnect: String
-protocol ICDeviceDelegate : ObjectProtocol {
+protocol ICDeviceDelegate : NSObjectProtocol {
   func didRemove(device: ICDevice)
-  optional func device(device: ICDevice, didOpenSessionWithError error: Error?)
+  optional func device(device: ICDevice, didOpenSessionWithError error: NSError?)
   optional func deviceDidBecomeReady(device: ICDevice)
-  optional func device(device: ICDevice, didCloseSessionWithError error: Error?)
+  optional func device(device: ICDevice, didCloseSessionWithError error: NSError?)
   optional func deviceDidChangeName(device: ICDevice)
   optional func deviceDidChangeSharingState(device: ICDevice)
   optional func device(device: ICDevice, didReceiveStatusInformation status: [String : AnyObject])
-  optional func device(device: ICDevice, didEncounterError error: Error?)
+  optional func device(device: ICDevice, didEncounterError error: NSError?)
   optional func device(device: ICDevice, didReceiveButtonPress buttonType: String)
-  optional func device(device: ICDevice, didReceiveCustomNotification notification: [String : AnyObject], data: Data)
+  optional func device(device: ICDevice, didReceiveCustomNotification notification: [String : AnyObject], data: NSData)
 }
-class ICDevice : Object {
+class ICDevice : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged ICDeviceDelegate?
   var type: ICDeviceType { get }
   var name: String? { get }
@@ -83,11 +83,11 @@ class ICDevice : Object {
   var persistentIDString: String? { get }
   var buttonPressed: String { get }
   var autolaunchApplicationPath: String?
-  var userData: MutableDictionary? { get }
+  var userData: NSMutableDictionary? { get }
   func requestOpenSession()
   func requestCloseSession()
   func requestYield()
-  func requestSendMessage(messageCode: UInt32, outData data: Data, maxReturnedDataSize: UInt32, sendMessageDelegate: AnyObject, didSendMessageSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func requestSendMessage(messageCode: UInt32, outData data: NSData, maxReturnedDataSize: UInt32, sendMessageDelegate: AnyObject, didSendMessageSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   func requestEjectOrDisconnect()
   init()
 }

@@ -2,19 +2,19 @@
 @available(OSX 10.0, *)
 let NSTabColumnTerminatorsAttributeName: String
 @available(OSX 10.0, *)
-class NSTextTab : Object, Copying, Coding {
+class NSTextTab : NSObject, NSCopying, NSCoding {
   @available(OSX 10.11, *)
-  class func columnTerminators(for aLocale: Locale?) -> CharacterSet
+  class func columnTerminators(for aLocale: NSLocale?) -> NSCharacterSet
   init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options: [String : AnyObject] = [:])
   var alignment: NSTextAlignment { get }
   var location: CGFloat { get }
   var options: [String : AnyObject] { get }
   convenience init()
   @available(OSX 10.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.0, *)
 enum NSLineBreakMode : UInt {
@@ -28,7 +28,7 @@ enum NSLineBreakMode : UInt {
   case byTruncatingMiddle
 }
 @available(OSX 10.0, *)
-class NSParagraphStyle : Object, Copying, MutableCopying, SecureCoding {
+class NSParagraphStyle : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   class func defaultParagraphStyle() -> NSParagraphStyle
   class func defaultWritingDirection(forLanguage languageName: String?) -> NSWritingDirection
   var lineSpacing: CGFloat { get }
@@ -56,14 +56,14 @@ class NSParagraphStyle : Object, Copying, MutableCopying, SecureCoding {
   var headerLevel: Int { get }
   init()
   @available(OSX 10.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.0, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.0, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.0, *)
 class NSMutableParagraphStyle : NSParagraphStyle {
@@ -97,7 +97,7 @@ class NSMutableParagraphStyle : NSParagraphStyle {
   var textLists: [NSTextList]
   var headerLevel: Int
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 enum NSTextTabType : UInt {
   init?(rawValue: UInt)

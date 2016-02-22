@@ -19,7 +19,7 @@ let UIScrollViewDecelerationRateNormal: CGFloat
 @available(iOS 3.0, *)
 let UIScrollViewDecelerationRateFast: CGFloat
 @available(iOS 2.0, *)
-class UIScrollView : UIView, Coding {
+class UIScrollView : UIView, NSCoding {
   var contentOffset: CGPoint
   var contentSize: CGSize
   var contentInset: UIEdgeInsets
@@ -65,10 +65,10 @@ class UIScrollView : UIView, Coding {
   @available(iOS 7.0, *)
   var keyboardDismissMode: UIScrollViewKeyboardDismissMode
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
-protocol UIScrollViewDelegate : ObjectProtocol {
+protocol UIScrollViewDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
   optional func scrollViewDidScroll(scrollView: UIScrollView)
   @available(iOS 3.2, *)

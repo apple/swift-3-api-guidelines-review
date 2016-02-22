@@ -34,8 +34,8 @@ struct UITouchProperties : OptionSetType {
   static var location: UITouchProperties { get }
 }
 @available(tvOS 2.0, *)
-class UITouch : Object {
-  var timestamp: TimeInterval { get }
+class UITouch : NSObject {
+  var timestamp: NSTimeInterval { get }
   var phase: UITouchPhase { get }
   var tapCount: Int { get }
   @available(tvOS 9.0, *)
@@ -65,7 +65,7 @@ class UITouch : Object {
   @available(tvOS 9.1, *)
   var altitudeAngle: CGFloat { get }
   @available(tvOS 9.1, *)
-  var estimationUpdateIndex: Number? { get }
+  var estimationUpdateIndex: NSNumber? { get }
   @available(tvOS 9.1, *)
   var estimatedProperties: UITouchProperties { get }
   @available(tvOS 9.1, *)

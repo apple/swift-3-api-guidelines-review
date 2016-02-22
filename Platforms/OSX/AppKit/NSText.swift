@@ -36,14 +36,14 @@ var NSDownTextMovement: Int { get }
 var NSCancelTextMovement: Int { get }
 var NSOtherTextMovement: Int { get }
 class NSText : NSView, NSChangeSpelling, NSIgnoreMisspelledWords {
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   var string: String?
   func replaceCharacters(in range: NSRange, with aString: String)
-  func replaceCharacters(in range: NSRange, withRTF rtfData: Data)
-  func replaceCharacters(in range: NSRange, withRTFD rtfdData: Data)
-  func rtf(from range: NSRange) -> Data?
-  func rtfd(from range: NSRange) -> Data?
+  func replaceCharacters(in range: NSRange, withRTF rtfData: NSData)
+  func replaceCharacters(in range: NSRange, withRTFD rtfdData: NSData)
+  func rtf(from range: NSRange) -> NSData?
+  func rtfd(from range: NSRange) -> NSData?
   func writeRTFD(toFile path: String, atomically flag: Bool) -> Bool
   func readRTFD(fromFile path: String) -> Bool
   unowned(unsafe) var delegate: @sil_unmanaged NSTextDelegate?
@@ -64,8 +64,8 @@ class NSText : NSView, NSChangeSpelling, NSIgnoreMisspelledWords {
   var baseWritingDirection: NSWritingDirection
   func setTextColor(color: NSColor?, range: NSRange)
   func setFont(font: NSFont, range: NSRange)
-  var maxSize: Size
-  var minSize: Size
+  var maxSize: NSSize
+  var minSize: NSSize
   var isHorizontallyResizable: Bool
   var isVerticallyResizable: Bool
   func sizeToFit()
@@ -93,12 +93,12 @@ class NSText : NSView, NSChangeSpelling, NSIgnoreMisspelledWords {
   func changeSpelling(sender: AnyObject?)
   func ignoreSpelling(sender: AnyObject?)
 }
-protocol NSTextDelegate : ObjectProtocol {
+protocol NSTextDelegate : NSObjectProtocol {
   optional func textShouldBeginEditing(textObject: NSText) -> Bool
   optional func textShouldEndEditing(textObject: NSText) -> Bool
-  optional func textDidBeginEditing(notification: Notification)
-  optional func textDidEndEditing(notification: Notification)
-  optional func textDidChange(notification: Notification)
+  optional func textDidBeginEditing(notification: NSNotification)
+  optional func textDidEndEditing(notification: NSNotification)
+  optional func textDidChange(notification: NSNotification)
 }
 let NSTextDidBeginEditingNotification: String
 let NSTextDidEndEditingNotification: String

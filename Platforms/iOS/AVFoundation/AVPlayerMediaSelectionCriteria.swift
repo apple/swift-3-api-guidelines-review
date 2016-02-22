@@ -1,6 +1,6 @@
 
 @available(iOS 7.0, *)
-class AVPlayerMediaSelectionCriteria : Object {
+class AVPlayerMediaSelectionCriteria : NSObject {
   var preferredLanguages: [String]? { get }
   var preferredMediaCharacteristics: [String]? { get }
   init(preferredLanguages: [String]?, preferredMediaCharacteristics: [String]?)

@@ -1,6 +1,6 @@
 
 @available(OSX 10.8, *)
-class GLKBaseEffect : Object, GLKNamedEffect {
+class GLKBaseEffect : NSObject, GLKNamedEffect {
   func prepareToDraw()
   var colorMaterialEnabled: GLboolean
   var lightModelTwoSided: GLboolean

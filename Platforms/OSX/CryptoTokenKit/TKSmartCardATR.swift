@@ -10,21 +10,21 @@ struct TKSmartCardProtocol : OptionSetType {
   static var any: TKSmartCardProtocol { get }
 }
 @available(OSX 10.10, *)
-class TKSmartCardATRInterfaceGroup : Object {
-  var ta: Number? { get }
-  var tb: Number? { get }
-  var tc: Number? { get }
-  var `protocol`: Number? { get }
+class TKSmartCardATRInterfaceGroup : NSObject {
+  var ta: NSNumber? { get }
+  var tb: NSNumber? { get }
+  var tc: NSNumber? { get }
+  var `protocol`: NSNumber? { get }
   init()
 }
 @available(OSX 10.10, *)
-class TKSmartCardATR : Object {
-  init?(bytes: Data)
+class TKSmartCardATR : NSObject {
+  init?(bytes: NSData)
   init?(source: () -> Int32)
-  var bytes: Data { get }
-  var protocols: [Number] { get }
+  var bytes: NSData { get }
+  var protocols: [NSNumber] { get }
   func interfaceGroup(at index: Int) -> TKSmartCardATRInterfaceGroup?
   func interfaceGroup(for protocol: TKSmartCardProtocol) -> TKSmartCardATRInterfaceGroup?
-  var historicalBytes: Data { get }
+  var historicalBytes: NSData { get }
   init()
 }

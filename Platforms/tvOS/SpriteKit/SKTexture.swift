@@ -6,7 +6,7 @@ enum SKTextureFilteringMode : Int {
   case nearest
   case linear
 }
-class SKTexture : Object, Copying, Coding {
+class SKTexture : NSObject, NSCopying, NSCoding {
   convenience init(imageNamed name: String)
   convenience init(rect: CGRect, in texture: SKTexture)
   @available(tvOS 8.0, *)
@@ -15,9 +15,9 @@ class SKTexture : Object, Copying, Coding {
   convenience init(noiseWithSmoothness smoothness: CGFloat, size: CGSize, grayscale: Bool)
   convenience init(cgImage image: CGImage)
   convenience init(image: UIImage)
-  convenience init(data pixelData: Data, size: CGSize)
-  convenience init(data pixelData: Data, size: CGSize, flipped: Bool)
-  convenience init(data pixelData: Data, size: CGSize, rowLength: UInt32, alignment: UInt32)
+  convenience init(data pixelData: NSData, size: CGSize)
+  convenience init(data pixelData: NSData, size: CGSize, flipped: Bool)
+  convenience init(data pixelData: NSData, size: CGSize, rowLength: UInt32, alignment: UInt32)
   func applying(filter: CIFilter) -> Self
   @available(tvOS 8.0, *)
   func generatingNormalMap() -> Self
@@ -32,9 +32,9 @@ class SKTexture : Object, Copying, Coding {
   class func preload(textures: [SKTexture], withCompletionHandler completionHandler: () -> Void)
   func preload(completionHandler completionHandler: () -> Void)
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 
 extension SKTexture : CustomPlaygroundQuickLookable {

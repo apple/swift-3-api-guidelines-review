@@ -1,27 +1,27 @@
 
 @available(OSX 10.5, *)
-let urlProtectionSpaceHTTP: String
+let NSURLProtectionSpaceHTTP: String
 @available(OSX 10.5, *)
-let urlProtectionSpaceHTTPS: String
+let NSURLProtectionSpaceHTTPS: String
 @available(OSX 10.5, *)
-let urlProtectionSpaceFTP: String
-let urlProtectionSpaceHTTPProxy: String
-let urlProtectionSpaceHTTPSProxy: String
-let urlProtectionSpaceFTPProxy: String
-let urlProtectionSpaceSOCKSProxy: String
-let urlAuthenticationMethodDefault: String
-let urlAuthenticationMethodHTTPBasic: String
-let urlAuthenticationMethodHTTPDigest: String
-let urlAuthenticationMethodHTMLForm: String
+let NSURLProtectionSpaceFTP: String
+let NSURLProtectionSpaceHTTPProxy: String
+let NSURLProtectionSpaceHTTPSProxy: String
+let NSURLProtectionSpaceFTPProxy: String
+let NSURLProtectionSpaceSOCKSProxy: String
+let NSURLAuthenticationMethodDefault: String
+let NSURLAuthenticationMethodHTTPBasic: String
+let NSURLAuthenticationMethodHTTPDigest: String
+let NSURLAuthenticationMethodHTMLForm: String
 @available(OSX 10.5, *)
-let urlAuthenticationMethodNTLM: String
+let NSURLAuthenticationMethodNTLM: String
 @available(OSX 10.5, *)
-let urlAuthenticationMethodNegotiate: String
+let NSURLAuthenticationMethodNegotiate: String
 @available(OSX 10.6, *)
-let urlAuthenticationMethodClientCertificate: String
+let NSURLAuthenticationMethodClientCertificate: String
 @available(OSX 10.6, *)
-let urlAuthenticationMethodServerTrust: String
-class URLProtectionSpace : Object, SecureCoding, Copying {
+let NSURLAuthenticationMethodServerTrust: String
+class NSURLProtectionSpace : NSObject, NSSecureCoding, NSCopying {
   init(host: String, port: Int, protocol: String?, realm: String?, authenticationMethod: String?)
   init(proxyHost host: String, port: Int, type: String?, realm: String?, authenticationMethod: String?)
   var realm: String? { get }
@@ -34,15 +34,15 @@ class URLProtectionSpace : Object, SecureCoding, Copying {
   func isProxy() -> Bool
   init()
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
-extension URLProtectionSpace {
+extension NSURLProtectionSpace {
   @available(OSX 10.6, *)
-  var distinguishedNames: [Data]? { get }
+  var distinguishedNames: [NSData]? { get }
 }
-extension URLProtectionSpace {
+extension NSURLProtectionSpace {
   @available(OSX 10.6, *)
   var serverTrust: SecTrust? { get }
 }

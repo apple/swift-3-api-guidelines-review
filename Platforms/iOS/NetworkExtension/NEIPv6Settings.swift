@@ -1,12 +1,12 @@
 
 @available(iOS 9.0, *)
-class NEIPv6Settings : Object, SecureCoding, Copying {
+class NEIPv6Settings : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
-  init(addresses: [String], networkPrefixLengths: [Number])
+  init(addresses: [String], networkPrefixLengths: [NSNumber])
   @available(iOS 9.0, *)
   var addresses: [String] { get }
   @available(iOS 9.0, *)
-  var networkPrefixLengths: [Number] { get }
+  var networkPrefixLengths: [NSNumber] { get }
   @available(iOS 9.0, *)
   var includedRoutes: [NEIPv6Route]?
   @available(iOS 9.0, *)
@@ -15,19 +15,19 @@ class NEIPv6Settings : Object, SecureCoding, Copying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
-class NEIPv6Route : Object, SecureCoding, Copying {
+class NEIPv6Route : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
-  init(destinationAddress address: String, networkPrefixLength: Number)
+  init(destinationAddress address: String, networkPrefixLength: NSNumber)
   @available(iOS 9.0, *)
   var destinationAddress: String { get }
   @available(iOS 9.0, *)
-  var destinationNetworkPrefixLength: Number { get }
+  var destinationNetworkPrefixLength: NSNumber { get }
   @available(iOS 9.0, *)
   var gatewayAddress: String?
   @available(iOS 9.0, *)
@@ -36,8 +36,8 @@ class NEIPv6Route : Object, SecureCoding, Copying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

@@ -1,20 +1,20 @@
 
 @available(iOS 8.0, *)
-class HMHome : Object {
+class HMHome : NSObject {
   weak var delegate: @sil_weak HMHomeDelegate?
   var name: String { get }
   var isPrimary: Bool { get }
   @available(iOS 9.0, *)
-  @NSCopying var uniqueIdentifier: UUID { get }
-  func updateName(name: String, completionHandler completion: (Error?) -> Void)
+  @NSCopying var uniqueIdentifier: NSUUID { get }
+  func updateName(name: String, completionHandler completion: (NSError?) -> Void)
 }
 extension HMHome {
   var accessories: [HMAccessory] { get }
-  func addAccessory(accessory: HMAccessory, completionHandler completion: (Error?) -> Void)
-  func removeAccessory(accessory: HMAccessory, completionHandler completion: (Error?) -> Void)
-  func assignAccessory(accessory: HMAccessory, to room: HMRoom, completionHandler completion: (Error?) -> Void)
+  func addAccessory(accessory: HMAccessory, completionHandler completion: (NSError?) -> Void)
+  func removeAccessory(accessory: HMAccessory, completionHandler completion: (NSError?) -> Void)
+  func assignAccessory(accessory: HMAccessory, to room: HMRoom, completionHandler completion: (NSError?) -> Void)
   func services(withTypes serviceTypes: [String]) -> [HMService]?
-  func unblockAccessory(accessory: HMAccessory, completionHandler completion: (Error?) -> Void)
+  func unblockAccessory(accessory: HMAccessory, completionHandler completion: (NSError?) -> Void)
 }
 extension HMHome {
   @available(iOS 9.0, *)
@@ -22,45 +22,45 @@ extension HMHome {
   @available(iOS, introduced=8.0, deprecated=9.0)
   var users: [HMUser] { get }
   @available(iOS 9.0, *)
-  func manageUsers(completionHandler completion: (Error?) -> Void)
+  func manageUsers(completionHandler completion: (NSError?) -> Void)
   @available(iOS, introduced=8.0, deprecated=9.0)
-  func addUser(completionHandler completion: (HMUser?, Error?) -> Void)
+  func addUser(completionHandler completion: (HMUser?, NSError?) -> Void)
   @available(iOS, introduced=8.0, deprecated=9.0)
-  func removeUser(user: HMUser, completionHandler completion: (Error?) -> Void)
+  func removeUser(user: HMUser, completionHandler completion: (NSError?) -> Void)
   @available(iOS 9.0, *)
   func homeAccessControl(for user: HMUser) -> HMHomeAccessControl
 }
 extension HMHome {
   var rooms: [HMRoom] { get }
-  func addRoom(name roomName: String, completionHandler completion: (HMRoom?, Error?) -> Void)
-  func removeRoom(room: HMRoom, completionHandler completion: (Error?) -> Void)
+  func addRoom(name roomName: String, completionHandler completion: (HMRoom?, NSError?) -> Void)
+  func removeRoom(room: HMRoom, completionHandler completion: (NSError?) -> Void)
   func roomForEntireHome() -> HMRoom
 }
 extension HMHome {
   var zones: [HMZone] { get }
-  func addZone(name zoneName: String, completionHandler completion: (HMZone?, Error?) -> Void)
-  func removeZone(zone: HMZone, completionHandler completion: (Error?) -> Void)
+  func addZone(name zoneName: String, completionHandler completion: (HMZone?, NSError?) -> Void)
+  func removeZone(zone: HMZone, completionHandler completion: (NSError?) -> Void)
 }
 extension HMHome {
   var serviceGroups: [HMServiceGroup] { get }
-  func addServiceGroup(name serviceGroupName: String, completionHandler completion: (HMServiceGroup?, Error?) -> Void)
-  func removeServiceGroup(group: HMServiceGroup, completionHandler completion: (Error?) -> Void)
+  func addServiceGroup(name serviceGroupName: String, completionHandler completion: (HMServiceGroup?, NSError?) -> Void)
+  func removeServiceGroup(group: HMServiceGroup, completionHandler completion: (NSError?) -> Void)
 }
 extension HMHome {
   var actionSets: [HMActionSet] { get }
-  func addActionSet(name actionSetName: String, completionHandler completion: (HMActionSet?, Error?) -> Void)
-  func removeActionSet(actionSet: HMActionSet, completionHandler completion: (Error?) -> Void)
-  func executeActionSet(actionSet: HMActionSet, completionHandler completion: (Error?) -> Void)
+  func addActionSet(name actionSetName: String, completionHandler completion: (HMActionSet?, NSError?) -> Void)
+  func removeActionSet(actionSet: HMActionSet, completionHandler completion: (NSError?) -> Void)
+  func executeActionSet(actionSet: HMActionSet, completionHandler completion: (NSError?) -> Void)
   @available(iOS 9.0, *)
   func builtinActionSet(ofType actionSetType: String) -> HMActionSet?
 }
 extension HMHome {
   var triggers: [HMTrigger] { get }
-  func addTrigger(trigger: HMTrigger, completionHandler completion: (Error?) -> Void)
-  func removeTrigger(trigger: HMTrigger, completionHandler completion: (Error?) -> Void)
+  func addTrigger(trigger: HMTrigger, completionHandler completion: (NSError?) -> Void)
+  func removeTrigger(trigger: HMTrigger, completionHandler completion: (NSError?) -> Void)
 }
 @available(iOS 8.0, *)
-protocol HMHomeDelegate : ObjectProtocol {
+protocol HMHomeDelegate : NSObjectProtocol {
   optional func homeDidUpdateName(home: HMHome)
   optional func home(home: HMHome, didAdd accessory: HMAccessory)
   optional func home(home: HMHome, didRemove accessory: HMAccessory)
@@ -89,7 +89,7 @@ protocol HMHomeDelegate : ObjectProtocol {
   optional func home(home: HMHome, didUpdateNameFor trigger: HMTrigger)
   optional func home(home: HMHome, didUpdate trigger: HMTrigger)
   optional func home(home: HMHome, didUnblockAccessory accessory: HMAccessory)
-  optional func home(home: HMHome, didEncounterError error: Error, for accessory: HMAccessory)
+  optional func home(home: HMHome, didEncounterError error: NSError, for accessory: HMAccessory)
 }
 @available(iOS 8.0, *)
 let HMUserFailedAccessoriesKey: String

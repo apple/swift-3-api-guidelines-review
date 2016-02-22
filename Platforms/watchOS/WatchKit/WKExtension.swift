@@ -1,22 +1,22 @@
 
 @available(watchOS 2.0, *)
-class WKExtension : Object {
+class WKExtension : NSObject {
   class func shared() -> WKExtension
-  func openSystemURL(url: URL)
+  func openSystemURL(url: NSURL)
   weak var delegate: @sil_weak WKExtensionDelegate?
   var rootInterfaceController: WKInterfaceController? { get }
   init()
 }
 @available(watchOS 2.0, *)
-protocol WKExtensionDelegate : ObjectProtocol {
+protocol WKExtensionDelegate : NSObjectProtocol {
   optional func applicationDidFinishLaunching()
   optional func applicationDidBecomeActive()
   optional func applicationWillResignActive()
-  optional func handleAction(identifier identifier: String?, forRemoteNotification remoteNotification: [Object : AnyObject])
+  optional func handleAction(identifier identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject])
   optional func handleAction(identifier identifier: String?, for localNotification: UILocalNotification)
-  optional func handleAction(identifier identifier: String?, forRemoteNotification remoteNotification: [Object : AnyObject], withResponseInfo responseInfo: [Object : AnyObject])
-  optional func handleAction(identifier identifier: String?, for localNotification: UILocalNotification, withResponseInfo responseInfo: [Object : AnyObject])
-  optional func handleUserActivity(userInfo: [Object : AnyObject]?)
-  optional func didReceiveRemoteNotification(userInfo: [Object : AnyObject])
+  optional func handleAction(identifier identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject], withResponseInfo responseInfo: [NSObject : AnyObject])
+  optional func handleAction(identifier identifier: String?, for localNotification: UILocalNotification, withResponseInfo responseInfo: [NSObject : AnyObject])
+  optional func handleUserActivity(userInfo: [NSObject : AnyObject]?)
+  optional func didReceiveRemoteNotification(userInfo: [NSObject : AnyObject])
   optional func didReceive(notification: UILocalNotification)
 }

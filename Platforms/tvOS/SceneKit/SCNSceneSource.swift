@@ -44,13 +44,13 @@ enum SCNSceneSourceStatus : Int {
   case processing
   case complete
 }
-typealias SCNSceneSourceStatusHandler = (Float, SCNSceneSourceStatus, Error?, UnsafeMutablePointer<ObjCBool>) -> Void
+typealias SCNSceneSourceStatusHandler = (Float, SCNSceneSourceStatus, NSError?, UnsafeMutablePointer<ObjCBool>) -> Void
 @available(tvOS 8.0, *)
-class SCNSceneSource : Object {
-  init?(url: URL, options: [String : AnyObject]? = [:])
-  init?(data: Data, options: [String : AnyObject]? = [:])
-  var url: URL? { get }
-  var data: Data? { get }
+class SCNSceneSource : NSObject {
+  init?(url: NSURL, options: [String : AnyObject]? = [:])
+  init?(data: NSData, options: [String : AnyObject]? = [:])
+  var url: NSURL? { get }
+  var data: NSData? { get }
   func scene(options options: [String : AnyObject]? = [:], statusHandler: SCNSceneSourceStatusHandler? = nil) -> SCNScene?
   func scene(options options: [String : AnyObject]? = [:]) throws -> SCNScene
   func property(forKey key: String) -> AnyObject?

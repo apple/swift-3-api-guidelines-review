@@ -19,7 +19,7 @@ enum NSMergePolicyType : UInt {
   case rollbackMergePolicyType
 }
 @available(tvOS 5.0, *)
-class NSMergeConflict : Object {
+class NSMergeConflict : NSObject {
   var sourceObject: NSManagedObject { get }
   var objectSnapshot: [String : AnyObject]? { get }
   var cachedSnapshot: [String : AnyObject]? { get }
@@ -29,18 +29,18 @@ class NSMergeConflict : Object {
   init(source srcObject: NSManagedObject, newVersion newvers: Int, oldVersion oldvers: Int, cachedSnapshot cachesnap: [String : AnyObject]?, persistedSnapshot persnap: [String : AnyObject]?)
 }
 @available(tvOS 9.0, *)
-class NSConstraintConflict : Object {
+class NSConstraintConflict : NSObject {
   var constraint: [String] { get }
   var constraintValues: [String : AnyObject] { get }
   var databaseObject: NSManagedObject? { get }
   var databaseSnapshot: [String : AnyObject]? { get }
   var conflictingObjects: [NSManagedObject] { get }
-  var conflictingSnapshots: [[Object : AnyObject]] { get }
-  init(constraint contraint: [String], databaseObject: NSManagedObject?, databaseSnapshot: [Object : AnyObject]?, conflictingObjects: [NSManagedObject], conflictingSnapshots: [AnyObject])
+  var conflictingSnapshots: [[NSObject : AnyObject]] { get }
+  init(constraint contraint: [String], databaseObject: NSManagedObject?, databaseSnapshot: [NSObject : AnyObject]?, conflictingObjects: [NSManagedObject], conflictingSnapshots: [AnyObject])
   convenience init()
 }
 @available(tvOS 5.0, *)
-class NSMergePolicy : Object {
+class NSMergePolicy : NSObject {
   var mergeType: NSMergePolicyType { get }
   init(merge ty: NSMergePolicyType)
   func resolveConflicts(list: [AnyObject]) throws

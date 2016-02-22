@@ -29,7 +29,7 @@ enum UIModalPresentationStyle : Int {
   @available(iOS 7.0, *)
   case none
 }
-protocol UIContentContainer : ObjectProtocol {
+protocol UIContentContainer : NSObjectProtocol {
   @available(iOS 8.0, *)
   var preferredContentSize: CGSize { get }
   @available(iOS 8.0, *)
@@ -46,9 +46,9 @@ protocol UIContentContainer : ObjectProtocol {
 @available(iOS 8.0, *)
 let UIViewControllerShowDetailTargetDidChangeNotification: String
 @available(iOS 2.0, *)
-class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvironment, UIContentContainer, UIFocusEnvironment {
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEnvironment, UIContentContainer, UIFocusEnvironment {
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   var view: UIView!
   func loadView()
   @available(iOS 9.0, *)
@@ -59,7 +59,7 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   @available(iOS 3.0, *)
   func isViewLoaded() -> Bool
   var nibName: String? { get }
-  var nibBundle: Bundle? { get }
+  var nibBundle: NSBundle? { get }
   @available(iOS 5.0, *)
   var storyboard: UIStoryboard? { get }
   @available(iOS 5.0, *)
@@ -143,7 +143,7 @@ class UIViewController : UIResponder, Coding, UIAppearanceContainer, UITraitEnvi
   func showDetailViewController(vc: UIViewController, sender: AnyObject?)
   convenience init()
   @available(iOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
   @available(iOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(iOS 8.0, *)
@@ -185,11 +185,11 @@ extension UIViewController {
   @available(iOS, introduced=2.0, deprecated=8.0)
   var interfaceOrientation: UIInterfaceOrientation { get }
   @available(iOS, introduced=2.0, deprecated=8.0, message="Implement viewWillTransitionToSize:withTransitionCoordinator: instead")
-  func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval)
+  func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval)
   @available(iOS, introduced=2.0, deprecated=8.0)
   func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation)
   @available(iOS, introduced=3.0, deprecated=8.0, message="Implement viewWillTransitionToSize:withTransitionCoordinator: instead")
-  func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval)
+  func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval)
 }
 extension UIViewController {
   var isEditing: Bool
@@ -210,7 +210,7 @@ extension UIViewController {
   @available(iOS 5.0, *)
   func removeFromParentViewController()
   @available(iOS 5.0, *)
-  func transition(from fromViewController: UIViewController, to toViewController: UIViewController, duration: TimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
+  func transition(from fromViewController: UIViewController, to toViewController: UIViewController, duration: NSTimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
   @available(iOS 5.0, *)
   func beginAppearanceTransition(isAppearing: Bool, animated: Bool)
   @available(iOS 5.0, *)
@@ -240,9 +240,9 @@ extension UIViewController : UIStateRestoring {
   @available(iOS 6.0, *)
   var restorationClass: AnyObject.Type?
   @available(iOS 6.0, *)
-  func encodeRestorableState(with coder: Coder)
+  func encodeRestorableState(with coder: NSCoder)
   @available(iOS 6.0, *)
-  func decodeRestorableState(with coder: Coder)
+  func decodeRestorableState(with coder: NSCoder)
   @available(iOS 7.0, *)
   func applicationFinishedRestoringState()
   var restorationParent: UIStateRestoring? { get }
@@ -268,11 +268,11 @@ extension UIViewController {
   @available(iOS 9.0, *)
   func removeKeyCommand(keyCommand: UIKeyCommand)
 }
-extension UIViewController : ExtensionRequestHandling {
+extension UIViewController : NSExtensionRequestHandling {
   @available(iOS 8.0, *)
-  var extensionContext: ExtensionContext? { get }
+  var extensionContext: NSExtensionContext? { get }
   @available(iOS 8.0, *)
-  func beginRequest(context: ExtensionContext)
+  func beginRequest(context: NSExtensionContext)
 }
 extension UIViewController {
   @available(iOS 8.0, *)
@@ -280,7 +280,7 @@ extension UIViewController {
   @available(iOS 8.0, *)
   var popoverPresentationController: UIPopoverPresentationController? { get }
 }
-protocol UIViewControllerPreviewing : ObjectProtocol {
+protocol UIViewControllerPreviewing : NSObjectProtocol {
   @available(iOS 9.0, *)
   var previewingGestureRecognizerForFailureRelationship: UIGestureRecognizer { get }
   @available(iOS 9.0, *)
@@ -291,7 +291,7 @@ protocol UIViewControllerPreviewing : ObjectProtocol {
   var sourceRect: CGRect { get set }
 }
 @available(iOS 9.0, *)
-protocol UIViewControllerPreviewingDelegate : ObjectProtocol {
+protocol UIViewControllerPreviewingDelegate : NSObjectProtocol {
   @available(iOS 9.0, *)
   func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController?
   @available(iOS 9.0, *)
@@ -308,7 +308,7 @@ extension UIViewController {
   func previewActionItems() -> [UIPreviewActionItem]
 }
 @available(iOS 9.0, *)
-protocol UIPreviewActionItem : ObjectProtocol {
+protocol UIPreviewActionItem : NSObjectProtocol {
   var title: String { get }
 }
 @available(iOS 9.0, *)
@@ -320,21 +320,21 @@ enum UIPreviewActionStyle : Int {
   case destructive
 }
 @available(iOS 9.0, *)
-class UIPreviewAction : Object, Copying, UIPreviewActionItem {
+class UIPreviewAction : NSObject, NSCopying, UIPreviewActionItem {
   var handler: (UIPreviewActionItem, UIViewController) -> Void { get }
   convenience init(title: String, style: UIPreviewActionStyle, handler: (UIPreviewAction, UIViewController) -> Void)
   init()
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 9.0, *)
   var title: String { get }
 }
 @available(iOS 9.0, *)
-class UIPreviewActionGroup : Object, Copying, UIPreviewActionItem {
+class UIPreviewActionGroup : NSObject, NSCopying, UIPreviewActionItem {
   convenience init(title: String, style: UIPreviewActionStyle, actions: [UIPreviewAction])
   init()
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 9.0, *)
   var title: String { get }
 }

@@ -5,7 +5,7 @@ class MKPlacemark : CLPlacemark, MKAnnotation {
   var countryCode: String? { get }
   init(placemark: CLPlacemark)
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 3.0, *)
   var coordinate: CLLocationCoordinate2D { get }
   @available(iOS 3.0, *)

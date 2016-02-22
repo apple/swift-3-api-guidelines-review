@@ -1,9 +1,9 @@
 
 @available(OSX 10.11, *)
-class GKStateMachine : Object {
+class GKStateMachine : NSObject {
   var currentState: GKState? { get }
   init(states: [GKState])
-  func update(deltaTime sec: TimeInterval)
+  func update(deltaTime sec: NSTimeInterval)
   func canEnterState(stateClass: AnyClass) -> Bool
   func enterState(stateClass: AnyClass) -> Bool
   convenience init()

@@ -1,6 +1,6 @@
 
 @available(iOS 5.0, *)
-class GLKSkyboxEffect : Object, GLKNamedEffect {
+class GLKSkyboxEffect : NSObject, GLKNamedEffect {
   func prepareToDraw()
   func draw()
   var center: GLKVector3

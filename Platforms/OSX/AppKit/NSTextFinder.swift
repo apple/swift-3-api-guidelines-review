@@ -31,7 +31,7 @@ enum NSTextFinderMatchingType : Int {
   case endsWith
 }
 @available(OSX 10.7, *)
-class NSTextFinder : Object, Coding {
+class NSTextFinder : NSObject, NSCoding {
   init()
   @IBOutlet unowned(unsafe) var client: @sil_unmanaged NSTextFinderClient?
   func perform(op: NSTextFinderAction)
@@ -41,32 +41,32 @@ class NSTextFinder : Object, Coding {
   var findIndicatorNeedsUpdate: Bool
   var isIncrementalSearchingEnabled: Bool
   var incrementalSearchingShouldDimContentView: Bool
-  var incrementalMatchRanges: [Value] { get }
-  class func drawIncrementalMatchHighlight(in rect: Rect)
+  var incrementalMatchRanges: [NSValue] { get }
+  class func drawIncrementalMatchHighlight(in rect: NSRect)
   func noteClientStringWillChange()
   @available(OSX 10.7, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
-protocol NSTextFinderClient : ObjectProtocol {
+protocol NSTextFinderClient : NSObjectProtocol {
   optional var isSelectable: Bool { get }
   optional var allowsMultipleSelection: Bool { get }
   optional var isEditable: Bool { get }
   optional var string: String { get }
-  optional func string(at characterIndex: Int, effectiveRange outRange: RangePointer, endsWithSearchBoundary outFlag: UnsafeMutablePointer<ObjCBool>) -> String
+  optional func string(at characterIndex: Int, effectiveRange outRange: NSRangePointer, endsWithSearchBoundary outFlag: UnsafeMutablePointer<ObjCBool>) -> String
   optional func stringLength() -> Int
   optional var firstSelectedRange: NSRange { get }
-  optional var selectedRanges: [Value] { get set }
+  optional var selectedRanges: [NSValue] { get set }
   optional func scrollRangeToVisible(range: NSRange)
-  optional func shouldReplaceCharacters(inRanges ranges: [Value], with strings: [String]) -> Bool
+  optional func shouldReplaceCharacters(inRanges ranges: [NSValue], with strings: [String]) -> Bool
   optional func replaceCharacters(in range: NSRange, with string: String)
   optional func didReplaceCharacters()
-  optional func contentView(at index: Int, effectiveCharacterRange outRange: RangePointer) -> NSView
-  optional func rects(forCharacterRange range: NSRange) -> [Value]?
-  optional var visibleCharacterRanges: [Value] { get }
+  optional func contentView(at index: Int, effectiveCharacterRange outRange: NSRangePointer) -> NSView
+  optional func rects(forCharacterRange range: NSRange) -> [NSValue]?
+  optional var visibleCharacterRanges: [NSValue] { get }
   optional func drawCharacters(in range: NSRange, forContentView view: NSView)
 }
-protocol NSTextFinderBarContainer : ObjectProtocol {
+protocol NSTextFinderBarContainer : NSObjectProtocol {
   var findBarView: NSView? { get set }
   var isFindBarVisible: Bool { get set }
   func findBarViewDidChangeHeight()

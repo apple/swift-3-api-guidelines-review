@@ -1,6 +1,6 @@
 
 @available(tvOS 8.0, *)
-enum FormattingContext : Int {
+enum NSFormattingContext : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   case unknown
@@ -11,22 +11,22 @@ enum FormattingContext : Int {
   case middleOfSentence
 }
 @available(tvOS 8.0, *)
-enum FormattingUnitStyle : Int {
+enum NSFormattingUnitStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   case short
   case medium
   case long
 }
-class Formatter : Object, Copying, Coding {
+class NSFormatter : NSObject, NSCopying, NSCoding {
   func string(for obj: AnyObject) -> String?
-  func attributedString(for obj: AnyObject, withDefaultAttributes attrs: [String : AnyObject]? = [:]) -> AttributedString?
+  func attributedString(for obj: AnyObject, withDefaultAttributes attrs: [String : AnyObject]? = [:]) -> NSAttributedString?
   func editingString(for obj: AnyObject) -> String?
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   func isPartialStringValid(partialString: String, newEditing newString: AutoreleasingUnsafeMutablePointer<NSString?>, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
-  func isPartialStringValid(partialStringPtr: AutoreleasingUnsafeMutablePointer<NSString?>, proposedSelectedRange proposedSelRangePtr: RangePointer, originalString origString: String, originalSelectedRange origSelRange: NSRange, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
+  func isPartialStringValid(partialStringPtr: AutoreleasingUnsafeMutablePointer<NSString?>, proposedSelectedRange proposedSelRangePtr: NSRangePointer, originalString origString: String, originalSelectedRange origSelRange: NSRange, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

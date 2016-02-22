@@ -1,6 +1,6 @@
 
 @available(iOS 9.0, *)
-class NSLayoutAnchor : Object {
+class NSLayoutAnchor : NSObject {
   func constraintEqual(to anchor: NSLayoutAnchor!) -> NSLayoutConstraint!
   func constraintGreaterThanOrEqual(to anchor: NSLayoutAnchor!) -> NSLayoutConstraint!
   func constraintLessThanOrEqual(to anchor: NSLayoutAnchor!) -> NSLayoutConstraint!

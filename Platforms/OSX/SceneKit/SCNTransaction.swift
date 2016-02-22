@@ -1,6 +1,6 @@
 
 @available(OSX 10.8, *)
-class SCNTransaction : Object {
+class SCNTransaction : NSObject {
   class func begin()
   class func commit()
   class func flush()

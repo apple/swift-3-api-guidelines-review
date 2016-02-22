@@ -1,6 +1,6 @@
 
 @available(tvOS 2.0, *)
-class UINavigationBar : UIView, Coding, UIBarPositioning {
+class UINavigationBar : UIView, NSCoding, UIBarPositioning {
   weak var delegate: @sil_weak UINavigationBarDelegate?
   @available(tvOS 3.0, *)
   var isTranslucent: Bool
@@ -30,7 +30,7 @@ class UINavigationBar : UIView, Coding, UIBarPositioning {
   @available(tvOS 5.0, *)
   func titleVerticalPositionAdjustment(for barMetrics: UIBarMetrics) -> CGFloat
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
   @available(tvOS 7.0, *)
   var barPosition: UIBarPosition { get }
@@ -46,9 +46,9 @@ protocol UINavigationBarDelegate : UIBarPositioningDelegate {
   optional func navigationBar(navigationBar: UINavigationBar, didPop item: UINavigationItem)
 }
 @available(tvOS 2.0, *)
-class UINavigationItem : Object, Coding {
+class UINavigationItem : NSObject, NSCoding {
   init(title: String)
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   var title: String?
   var titleView: UIView?
   @available(tvOS 5.0, *)
@@ -65,5 +65,5 @@ class UINavigationItem : Object, Coding {
   func setRightBarButtonItem(item: UIBarButtonItem?, animated: Bool)
   convenience init()
   @available(tvOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }

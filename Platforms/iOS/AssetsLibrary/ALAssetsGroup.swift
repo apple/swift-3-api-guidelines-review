@@ -10,7 +10,7 @@ let ALAssetsGroupPropertyPersistentID: String
 @available(iOS, introduced=5.0, deprecated=9.0, message="Use the localIdentifier property on a PHAssetCollection from the Photos framework, or to lookup PHAssetCollections by a previously known ALAssetsGroupPropertyURL use fetchAssetCollectionsWithALAssetGroupURLs:options: instead")
 let ALAssetsGroupPropertyURL: String
 @available(iOS, introduced=4.0, deprecated=9.0, message="Use PHAssetCollection from the Photos framework instead")
-class ALAssetsGroup : Object {
+class ALAssetsGroup : NSObject {
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use the class properties on a PHAssetCollection in the Photos framework instead")
   func value(forProperty property: String!) -> AnyObject!
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use fetchKeyAssetsInAssetCollection:options: on PHAsset, then use the PHImageManager to request image data for key assets in the asset collection from the Photos framework instead")
@@ -22,9 +22,9 @@ class ALAssetsGroup : Object {
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use the PHFetchResult returned by fetchAssetsInAssetCollection:options: on PHAsset to enumerate the assets in an asset collection from the Photos framework instead")
   func enumerateAssets(enumerationBlock: ALAssetsGroupEnumerationResultsBlock!)
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use the PHFetchResult returned by fetchAssetsInAssetCollection:options: on PHAsset to enumerate the assets in an asset collection from the Photos framework instead")
-  func enumerateAssets(options: EnumerationOptions = [], using enumerationBlock: ALAssetsGroupEnumerationResultsBlock!)
+  func enumerateAssets(options: NSEnumerationOptions = [], using enumerationBlock: ALAssetsGroupEnumerationResultsBlock!)
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use the PHFetchResult returned by fetchAssetsInAssetCollection:options: on PHAsset to enumerate the assets in an asset collection from the Photos framework instead")
-  func enumerateAssets(at indexSet: IndexSet!, options: EnumerationOptions = [], using enumerationBlock: ALAssetsGroupEnumerationResultsBlock!)
+  func enumerateAssets(at indexSet: NSIndexSet!, options: NSEnumerationOptions = [], using enumerationBlock: ALAssetsGroupEnumerationResultsBlock!)
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use canPerformEditOperation: on a PHAssetCollection from the Photos framework instead")
   var isEditable: Bool { get }
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use addAssets: on a PHAssetCollectionChangeRequest: created from a PHAssetCollection in the Photos framework instead")

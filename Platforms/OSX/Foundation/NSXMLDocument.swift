@@ -1,5 +1,5 @@
 
-enum XMLDocumentContentKind : UInt {
+enum NSXMLDocumentContentKind : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case xmlKind
@@ -7,33 +7,33 @@ enum XMLDocumentContentKind : UInt {
   case htmlKind
   case textKind
 }
-class XMLDocument : XMLNode {
+class NSXMLDocument : NSXMLNode {
   init()
   convenience init(xmlString string: String, options mask: Int) throws
-  convenience init(contentsOf url: URL, options mask: Int) throws
-  init(data: Data, options mask: Int) throws
-  init(rootElement element: XMLElement?)
+  convenience init(contentsOf url: NSURL, options mask: Int) throws
+  init(data: NSData, options mask: Int) throws
+  init(rootElement element: NSXMLElement?)
   class func replacementClass(for cls: AnyClass) -> AnyClass
   var characterEncoding: String?
   var version: String?
   var isStandalone: Bool
-  var documentContentKind: XMLDocumentContentKind
+  var documentContentKind: NSXMLDocumentContentKind
   var mimeType: String?
-  @NSCopying var dtd: XMLDTD?
-  func setRootElement(root: XMLElement)
-  func rootElement() -> XMLElement?
-  func insertChild(child: XMLNode, at index: Int)
-  func insertChildren(children: [XMLNode], at index: Int)
+  @NSCopying var dtd: NSXMLDTD?
+  func setRootElement(root: NSXMLElement)
+  func rootElement() -> NSXMLElement?
+  func insertChild(child: NSXMLNode, at index: Int)
+  func insertChildren(children: [NSXMLNode], at index: Int)
   func removeChild(at index: Int)
-  func setChildren(children: [XMLNode]?)
-  func addChild(child: XMLNode)
-  func replaceChild(at index: Int, with node: XMLNode)
-  @NSCopying var xmlData: Data { get }
-  func xmlData(withOptions options: Int) -> Data
-  func object(byApplyingXSLT xslt: Data, arguments: [String : String]?) throws -> AnyObject
+  func setChildren(children: [NSXMLNode]?)
+  func addChild(child: NSXMLNode)
+  func replaceChild(at index: Int, with node: NSXMLNode)
+  @NSCopying var xmlData: NSData { get }
+  func xmlData(withOptions options: Int) -> NSData
+  func object(byApplyingXSLT xslt: NSData, arguments: [String : String]?) throws -> AnyObject
   func object(byApplyingXSLTString xslt: String, arguments: [String : String]?) throws -> AnyObject
-  func objectByApplyingXSLT(at xsltURL: URL, arguments argument: [String : String]?) throws -> AnyObject
+  func objectByApplyingXSLT(at xsltURL: NSURL, arguments argument: [String : String]?) throws -> AnyObject
   func validate() throws
-  convenience init(kind: XMLNodeKind)
-  convenience init(kind: XMLNodeKind, options: Int)
+  convenience init(kind: NSXMLNodeKind)
+  convenience init(kind: NSXMLNodeKind, options: Int)
 }

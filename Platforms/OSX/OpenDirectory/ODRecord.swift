@@ -1,5 +1,5 @@
 
-class ODRecord : Object {
+class ODRecord : NSObject {
   @available(OSX 10.6, *)
   func setNodeCredentials(inUsername: String!, password inPassword: String!) throws
   @available(OSX 10.6, *)
@@ -17,7 +17,7 @@ class ODRecord : Object {
   @available(OSX 10.6, *)
   var recordName: String! { get }
   @available(OSX 10.6, *)
-  func recordDetails(forAttributes inAttributes: [AnyObject]!) throws -> [Object : AnyObject]
+  func recordDetails(forAttributes inAttributes: [AnyObject]!) throws -> [NSObject : AnyObject]
   @available(OSX 10.6, *)
   func values(forAttribute inAttribute: String!) throws -> [AnyObject]
   @available(OSX 10.6, *)
@@ -31,25 +31,25 @@ class ODRecord : Object {
   @available(OSX 10.6, *)
   func delete() throws
   @available(OSX, introduced=10.9, deprecated=10.10, message="use accountPoliciesAndReturnError:")
-  func policies() throws -> [Object : AnyObject]
+  func policies() throws -> [NSObject : AnyObject]
   @available(OSX, introduced=10.9, deprecated=10.10, message="use authenticationAllowedAndReturnError: and similar methods")
-  func effectivePolicies() throws -> [Object : AnyObject]
+  func effectivePolicies() throws -> [NSObject : AnyObject]
   @available(OSX, introduced=10.9, deprecated=10.10)
-  func supportedPolicies() throws -> [Object : AnyObject]
+  func supportedPolicies() throws -> [NSObject : AnyObject]
   @available(OSX, introduced=10.9, deprecated=10.10, message="use setAccountPolicies:error:")
-  func setPolicies(policies: [Object : AnyObject]!) throws
+  func setPolicies(policies: [NSObject : AnyObject]!) throws
   @available(OSX, introduced=10.9, deprecated=10.10, message="use addAccountPolicy:toCategory:error:")
   func setPolicy(policy: ODPolicyType!, value: AnyObject!) throws
   @available(OSX, introduced=10.9, deprecated=10.10, message="use removeAccountPolicy:fromCategory:error:")
   func remove(policy: ODPolicyType!) throws
   @available(OSX 10.10, *)
-  func addAccountPolicy(policy: [Object : AnyObject]!, toCategory category: String!) throws
+  func addAccountPolicy(policy: [NSObject : AnyObject]!, toCategory category: String!) throws
   @available(OSX 10.10, *)
-  func removeAccountPolicy(policy: [Object : AnyObject]!, fromCategory category: String!) throws
+  func removeAccountPolicy(policy: [NSObject : AnyObject]!, fromCategory category: String!) throws
   @available(OSX 10.10, *)
-  func setAccountPolicies(policies: [Object : AnyObject]!) throws
+  func setAccountPolicies(policies: [NSObject : AnyObject]!) throws
   @available(OSX 10.10, *)
-  func accountPolicies() throws -> [Object : AnyObject]
+  func accountPolicies() throws -> [NSObject : AnyObject]
   @available(OSX 10.10, *)
   func authenticationAllowed() throws
   @available(OSX 10.10, *)

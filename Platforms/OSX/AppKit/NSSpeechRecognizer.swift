@@ -1,5 +1,5 @@
 
-class NSSpeechRecognizer : Object {
+class NSSpeechRecognizer : NSObject {
   init?()
   func startListening()
   func stopListening()
@@ -9,6 +9,6 @@ class NSSpeechRecognizer : Object {
   var listensInForegroundOnly: Bool
   var blocksOtherRecognizers: Bool
 }
-protocol NSSpeechRecognizerDelegate : ObjectProtocol {
+protocol NSSpeechRecognizerDelegate : NSObjectProtocol {
   optional func speechRecognizer(sender: NSSpeechRecognizer, didRecognizeCommand command: String)
 }

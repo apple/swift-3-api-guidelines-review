@@ -73,7 +73,7 @@ enum AVAudioSessionErrorCode : Int {
   case codeUnspecified
 }
 @available(tvOS 3.0, *)
-class AVAudioSession : Object {
+class AVAudioSession : NSObject {
   class func sharedInstance() -> AVAudioSession
   func setActive(active: Bool) throws
   @available(tvOS 6.0, *)
@@ -114,8 +114,8 @@ extension AVAudioSession {
   func setPreferredSampleRate(sampleRate: Double) throws
   @available(tvOS 6.0, *)
   var preferredSampleRate: Double { get }
-  func setPreferredIOBufferDuration(duration: TimeInterval) throws
-  var preferredIOBufferDuration: TimeInterval { get }
+  func setPreferredIOBufferDuration(duration: NSTimeInterval) throws
+  var preferredIOBufferDuration: NSTimeInterval { get }
   @available(tvOS 7.0, *)
   func setPreferredInputNumberOfChannels(count: Int) throws
   @available(tvOS 7.0, *)
@@ -157,11 +157,11 @@ extension AVAudioSession {
   @available(tvOS 6.0, *)
   var outputVolume: Float { get }
   @available(tvOS 6.0, *)
-  var inputLatency: TimeInterval { get }
+  var inputLatency: NSTimeInterval { get }
   @available(tvOS 6.0, *)
-  var outputLatency: TimeInterval { get }
+  var outputLatency: NSTimeInterval { get }
   @available(tvOS 6.0, *)
-  var ioBufferDuration: TimeInterval { get }
+  var ioBufferDuration: NSTimeInterval { get }
 }
 extension AVAudioSession {
 }
@@ -259,7 +259,7 @@ let AVAudioSessionPolarPatternCardioid: String
 @available(tvOS 7.0, *)
 let AVAudioSessionPolarPatternSubcardioid: String
 @available(tvOS 6.0, *)
-class AVAudioSessionChannelDescription : Object {
+class AVAudioSessionChannelDescription : NSObject {
   var channelName: String { get }
   var owningPortUID: String { get }
   var channelNumber: Int { get }
@@ -267,7 +267,7 @@ class AVAudioSessionChannelDescription : Object {
   init()
 }
 @available(tvOS 6.0, *)
-class AVAudioSessionPortDescription : Object {
+class AVAudioSessionPortDescription : NSObject {
   var portType: String { get }
   var portName: String { get }
   var uid: String { get }
@@ -283,14 +283,14 @@ class AVAudioSessionPortDescription : Object {
   init()
 }
 @available(tvOS 6.0, *)
-class AVAudioSessionRouteDescription : Object {
+class AVAudioSessionRouteDescription : NSObject {
   var inputs: [AVAudioSessionPortDescription] { get }
   var outputs: [AVAudioSessionPortDescription] { get }
   init()
 }
 @available(tvOS 6.0, *)
-class AVAudioSessionDataSourceDescription : Object {
-  var dataSourceID: Number { get }
+class AVAudioSessionDataSourceDescription : NSObject {
+  var dataSourceID: NSNumber { get }
   var dataSourceName: String { get }
   @available(tvOS 7.0, *)
   var location: String? { get }

@@ -1,10 +1,10 @@
 
-class CAValueFunction : Object, Coding {
+class CAValueFunction : NSObject, NSCoding {
   convenience init?(name: String)
   var name: String { get }
   init()
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 3.0, *)
 let kCAValueFunctionRotateX: String

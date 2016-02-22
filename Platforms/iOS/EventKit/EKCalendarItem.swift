@@ -10,12 +10,12 @@ class EKCalendarItem : EKObject {
   var location: String?
   var notes: String?
   @available(iOS 5.0, *)
-  @NSCopying var url: URL?
-  var lastModifiedDate: Date? { get }
+  @NSCopying var url: NSURL?
+  var lastModifiedDate: NSDate? { get }
   @available(iOS 5.0, *)
-  var creationDate: Date? { get }
+  var creationDate: NSDate? { get }
   @available(iOS 5.0, *)
-  @NSCopying var timeZone: TimeZone?
+  @NSCopying var timeZone: NSTimeZone?
   @available(iOS 5.0, *)
   var hasAlarms: Bool { get }
   @available(iOS 5.0, *)

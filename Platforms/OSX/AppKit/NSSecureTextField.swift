@@ -1,7 +1,7 @@
 
 class NSSecureTextField : NSTextField {
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }
 class NSSecureTextFieldCell : NSTextFieldCell {
@@ -9,5 +9,5 @@ class NSSecureTextFieldCell : NSTextFieldCell {
   init(textCell aString: String)
   init(imageCell image: NSImage?)
   convenience init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

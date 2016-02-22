@@ -1,8 +1,8 @@
 
 @available(OSX 10.8, *)
 class GKFriendRequestComposeViewController : NSViewController, GKViewController {
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder: Coder)
+  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder: NSCoder)
   convenience init()
 }
 extension GKFriendRequestComposeViewController {

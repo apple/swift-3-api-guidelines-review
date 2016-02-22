@@ -6,9 +6,9 @@ enum WebViewInsertAction : Int {
   case pasted
   case dropped
 }
-protocol WebEditingDelegate : ObjectProtocol {
+protocol WebEditingDelegate : NSObjectProtocol {
 }
-extension Object {
+extension NSObject {
   class func webView(webView: WebView!, shouldBeginEditingIn range: DOMRange!) -> Bool
   func webView(webView: WebView!, shouldBeginEditingIn range: DOMRange!) -> Bool
   class func webView(webView: WebView!, shouldEndEditingIn range: DOMRange!) -> Bool
@@ -27,16 +27,16 @@ extension Object {
   func webView(webView: WebView!, shouldChangeTypingStyle currentStyle: DOMCSSStyleDeclaration!, toStyle proposedStyle: DOMCSSStyleDeclaration!) -> Bool
   class func webView(webView: WebView!, doCommandBy selector: Selector) -> Bool
   func webView(webView: WebView!, doCommandBy selector: Selector) -> Bool
-  class func webViewDidBeginEditing(notification: Notification!)
-  func webViewDidBeginEditing(notification: Notification!)
-  class func webViewDidChange(notification: Notification!)
-  func webViewDidChange(notification: Notification!)
-  class func webViewDidEndEditing(notification: Notification!)
-  func webViewDidEndEditing(notification: Notification!)
-  class func webViewDidChangeTypingStyle(notification: Notification!)
-  func webViewDidChangeTypingStyle(notification: Notification!)
-  class func webViewDidChangeSelection(notification: Notification!)
-  func webViewDidChangeSelection(notification: Notification!)
-  class func undoManager(for webView: WebView!) -> UndoManager!
-  func undoManager(for webView: WebView!) -> UndoManager!
+  class func webViewDidBeginEditing(notification: NSNotification!)
+  func webViewDidBeginEditing(notification: NSNotification!)
+  class func webViewDidChange(notification: NSNotification!)
+  func webViewDidChange(notification: NSNotification!)
+  class func webViewDidEndEditing(notification: NSNotification!)
+  func webViewDidEndEditing(notification: NSNotification!)
+  class func webViewDidChangeTypingStyle(notification: NSNotification!)
+  func webViewDidChangeTypingStyle(notification: NSNotification!)
+  class func webViewDidChangeSelection(notification: NSNotification!)
+  func webViewDidChangeSelection(notification: NSNotification!)
+  class func undoManager(for webView: WebView!) -> NSUndoManager!
+  func undoManager(for webView: WebView!) -> NSUndoManager!
 }

@@ -1,6 +1,6 @@
 
 @available(tvOS 8.0, *)
-class CKOperation : Operation {
+class CKOperation : NSOperation {
   init()
   func activityStart() -> os_activity_t
   var container: CKContainer?

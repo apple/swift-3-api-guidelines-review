@@ -1,6 +1,6 @@
 
 @available(OSX 10.8, *)
-class NSTextAlternatives : Object {
+class NSTextAlternatives : NSObject {
   init(primaryString: String, alternativeStrings: [String])
   var primaryString: String { get }
   var alternativeStrings: [String] { get }

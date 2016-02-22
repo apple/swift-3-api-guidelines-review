@@ -1,6 +1,6 @@
 
 @available(iOS 8.0, *)
-class HMCharacteristic : Object {
+class HMCharacteristic : NSObject {
   var characteristicType: String { get }
   @available(iOS 9.0, *)
   var localizedDescription: String { get }
@@ -10,10 +10,10 @@ class HMCharacteristic : Object {
   @NSCopying var value: AnyObject? { get }
   var isNotificationEnabled: Bool { get }
   @available(iOS 9.0, *)
-  @NSCopying var uniqueIdentifier: UUID { get }
-  func writeValue(value: AnyObject?, completionHandler completion: (Error?) -> Void)
-  func readValue(completionHandler completion: (Error?) -> Void)
-  func enableNotification(enable: Bool, completionHandler completion: (Error?) -> Void)
-  func updateAuthorizationData(data: Data?, completionHandler completion: (Error?) -> Void)
+  @NSCopying var uniqueIdentifier: NSUUID { get }
+  func writeValue(value: AnyObject?, completionHandler completion: (NSError?) -> Void)
+  func readValue(completionHandler completion: (NSError?) -> Void)
+  func enableNotification(enable: Bool, completionHandler completion: (NSError?) -> Void)
+  func updateAuthorizationData(data: NSData?, completionHandler completion: (NSError?) -> Void)
   init()
 }

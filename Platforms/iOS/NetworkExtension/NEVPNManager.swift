@@ -15,15 +15,15 @@ let NEVPNErrorDomain: String
 @available(iOS 8.0, *)
 let NEVPNConfigurationChangeNotification: String
 @available(iOS 8.0, *)
-class NEVPNManager : Object {
+class NEVPNManager : NSObject {
   @available(iOS 8.0, *)
   class func shared() -> NEVPNManager
   @available(iOS 8.0, *)
-  func loadFromPreferences(completionHandler completionHandler: (Error?) -> Void)
+  func loadFromPreferences(completionHandler completionHandler: (NSError?) -> Void)
   @available(iOS 8.0, *)
-  func removeFromPreferences(completionHandler completionHandler: ((Error?) -> Void)? = nil)
+  func removeFromPreferences(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(iOS 8.0, *)
-  func saveToPreferences(completionHandler completionHandler: ((Error?) -> Void)? = nil)
+  func saveToPreferences(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(iOS 8.0, *)
   var onDemandRules: [NEOnDemandRule]?
   @available(iOS 8.0, *)

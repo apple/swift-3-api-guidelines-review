@@ -1,11 +1,11 @@
 
-class FIFinderSyncController : ExtensionContext {
+class FIFinderSyncController : NSExtensionContext {
   class func defaultController() -> Self
-  var directoryURLs: Set<URL>!
+  var directoryURLs: Set<NSURL>!
   func setBadgeImage(image: NSImage, label: String?, forBadgeIdentifier badgeID: String)
-  func setBadgeIdentifier(badgeID: String, for url: URL)
-  func targetedURL() -> URL?
-  func selectedItemURLs() -> [URL]?
+  func setBadgeIdentifier(badgeID: String, for url: NSURL)
+  func targetedURL() -> NSURL?
+  func selectedItemURLs() -> [NSURL]?
   init()
 }
 enum FIMenuKind : UInt {
@@ -18,22 +18,22 @@ enum FIMenuKind : UInt {
 }
 protocol FIFinderSyncProtocol {
   optional func menu(for menu: FIMenuKind) -> NSMenu?
-  optional func beginObservingDirectory(at url: URL)
-  optional func endObservingDirectory(at url: URL)
-  optional func requestBadgeIdentifier(for url: URL)
+  optional func beginObservingDirectory(at url: NSURL)
+  optional func endObservingDirectory(at url: NSURL)
+  optional func requestBadgeIdentifier(for url: NSURL)
   optional var toolbarItemName: String { get }
   @NSCopying optional var toolbarItemImage: NSImage { get }
   optional var toolbarItemToolTip: String { get }
 }
-class FIFinderSync : Object, FIFinderSyncProtocol, ExtensionRequestHandling {
+class FIFinderSync : NSObject, FIFinderSyncProtocol, NSExtensionRequestHandling {
   init()
   func menu(for menu: FIMenuKind) -> NSMenu?
-  func beginObservingDirectory(at url: URL)
-  func endObservingDirectory(at url: URL)
-  func requestBadgeIdentifier(for url: URL)
+  func beginObservingDirectory(at url: NSURL)
+  func endObservingDirectory(at url: NSURL)
+  func requestBadgeIdentifier(for url: NSURL)
   var toolbarItemName: String { get }
   @NSCopying var toolbarItemImage: NSImage { get }
   var toolbarItemToolTip: String { get }
   @available(OSX 10.10, *)
-  func beginRequest(context: ExtensionContext)
+  func beginRequest(context: NSExtensionContext)
 }

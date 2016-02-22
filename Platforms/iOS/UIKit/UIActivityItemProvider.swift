@@ -1,5 +1,5 @@
 
-protocol UIActivityItemSource : ObjectProtocol {
+protocol UIActivityItemSource : NSObjectProtocol {
   @available(iOS 6.0, *)
   func activityViewControllerPlaceholderItem(activityViewController: UIActivityViewController) -> AnyObject
   @available(iOS 6.0, *)
@@ -12,7 +12,7 @@ protocol UIActivityItemSource : ObjectProtocol {
   optional func activityViewController(activityViewController: UIActivityViewController, thumbnailImageForActivityType activityType: String?, suggestedSize size: CGSize) -> UIImage?
 }
 @available(iOS 6.0, *)
-class UIActivityItemProvider : Operation, UIActivityItemSource {
+class UIActivityItemProvider : NSOperation, UIActivityItemSource {
   init(placeholderItem: AnyObject)
   var placeholderItem: AnyObject? { get }
   var activityType: String? { get }

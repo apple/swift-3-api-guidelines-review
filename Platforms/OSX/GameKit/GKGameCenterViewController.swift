@@ -9,8 +9,8 @@ enum GKGameCenterViewControllerState : Int {
 }
 @available(OSX 10.9, *)
 class GKGameCenterViewController : NSViewController, GKViewController {
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder: Coder)
+  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder: NSCoder)
   convenience init()
 }
 extension GKGameCenterViewController {
@@ -25,7 +25,7 @@ extension GKGameCenterViewController {
   @available(OSX, introduced=10.8, deprecated=10.10, message="GKGameCenterViewController's leaderboardCategory property is deprecated. Use leaderboardIdentifier instead.")
   var leaderboardCategory: String?
 }
-protocol GKGameCenterControllerDelegate : ObjectProtocol {
+protocol GKGameCenterControllerDelegate : NSObjectProtocol {
   @available(OSX 10.9, *)
   func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController)
 }

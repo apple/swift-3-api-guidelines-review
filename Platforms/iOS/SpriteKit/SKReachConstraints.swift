@@ -1,11 +1,11 @@
 
 @available(iOS 8.0, *)
-class SKReachConstraints : Object, Coding {
+class SKReachConstraints : NSObject, NSCoding {
   var lowerAngleLimit: CGFloat
   var upperAngleLimit: CGFloat
   init(lowerAngleLimit: CGFloat, upperAngleLimit: CGFloat)
   convenience init()
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

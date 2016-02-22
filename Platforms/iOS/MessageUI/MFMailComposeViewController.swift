@@ -32,15 +32,15 @@ class MFMailComposeViewController : UINavigationController {
   @available(iOS 3.0, *)
   func setMessageBody(body: String, isHTML: Bool)
   @available(iOS 3.0, *)
-  func addAttachmentData(attachment: Data, mimeType: String, fileName filename: String)
+  func addAttachmentData(attachment: NSData, mimeType: String, fileName filename: String)
   @available(iOS 5.0, *)
   init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
   init(rootViewController: UIViewController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
-protocol MFMailComposeViewControllerDelegate : ObjectProtocol {
+protocol MFMailComposeViewControllerDelegate : NSObjectProtocol {
   @available(iOS 3.0, *)
-  optional func mailComposeController(controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?)
+  optional func mailComposeController(controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: NSError?)
 }

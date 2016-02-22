@@ -66,23 +66,23 @@ class NSOutlineView : NSTableView, NSAccessibilityOutline {
   var indentationMarkerFollowsCell: Bool
   var autoresizesOutlineColumn: Bool
   @available(OSX 10.5, *)
-  func frameOfOutlineCell(atRow row: Int) -> Rect
+  func frameOfOutlineCell(atRow row: Int) -> NSRect
   func setDropItem(item: AnyObject?, dropChildIndex index: Int)
   func shouldCollapseAutoExpandedItems(forDeposited deposited: Bool) -> Bool
   var autosaveExpandedItems: Bool
   @available(OSX 10.7, *)
-  func insertItems(at indexes: IndexSet, inParent parent: AnyObject?, withAnimation animationOptions: NSTableViewAnimationOptions = [])
+  func insertItems(at indexes: NSIndexSet, inParent parent: AnyObject?, withAnimation animationOptions: NSTableViewAnimationOptions = [])
   @available(OSX 10.7, *)
-  func removeItems(at indexes: IndexSet, inParent parent: AnyObject?, withAnimation animationOptions: NSTableViewAnimationOptions = [])
+  func removeItems(at indexes: NSIndexSet, inParent parent: AnyObject?, withAnimation animationOptions: NSTableViewAnimationOptions = [])
   @available(OSX 10.7, *)
   func moveItem(at fromIndex: Int, inParent oldParent: AnyObject?, to toIndex: Int, inParent newParent: AnyObject?)
   @available(OSX 10.7, *)
   var userInterfaceLayoutDirection: NSUserInterfaceLayoutDirection
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }
-protocol NSOutlineViewDataSource : ObjectProtocol {
+protocol NSOutlineViewDataSource : NSObjectProtocol {
   optional func outlineView(outlineView: NSOutlineView, numberOfChildrenOfItem item: AnyObject?) -> Int
   optional func outlineView(outlineView: NSOutlineView, child index: Int, ofItem item: AnyObject?) -> AnyObject
   optional func outlineView(outlineView: NSOutlineView, isItemExpandable item: AnyObject) -> Bool
@@ -90,19 +90,19 @@ protocol NSOutlineViewDataSource : ObjectProtocol {
   optional func outlineView(outlineView: NSOutlineView, setObjectValue object: AnyObject?, for tableColumn: NSTableColumn?, byItem item: AnyObject?)
   optional func outlineView(outlineView: NSOutlineView, itemForPersistentObject object: AnyObject) -> AnyObject?
   optional func outlineView(outlineView: NSOutlineView, persistentObjectForItem item: AnyObject?) -> AnyObject?
-  optional func outlineView(outlineView: NSOutlineView, sortDescriptorsDidChange oldDescriptors: [SortDescriptor])
+  optional func outlineView(outlineView: NSOutlineView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor])
   @available(OSX 10.7, *)
   optional func outlineView(outlineView: NSOutlineView, pasteboardWriterForItem item: AnyObject) -> NSPasteboardWriting?
   @available(OSX 10.7, *)
-  optional func outlineView(outlineView: NSOutlineView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: Point, forItems draggedItems: [AnyObject])
+  optional func outlineView(outlineView: NSOutlineView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItems draggedItems: [AnyObject])
   @available(OSX 10.7, *)
-  optional func outlineView(outlineView: NSOutlineView, draggingSession session: NSDraggingSession, endedAt screenPoint: Point, operation: NSDragOperation)
+  optional func outlineView(outlineView: NSOutlineView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation)
   optional func outlineView(outlineView: NSOutlineView, writeItems items: [AnyObject], to pasteboard: NSPasteboard) -> Bool
   @available(OSX 10.7, *)
   optional func outlineView(outlineView: NSOutlineView, updateDraggingItemsForDrag draggingInfo: NSDraggingInfo)
   optional func outlineView(outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: AnyObject?, proposedChildIndex index: Int) -> NSDragOperation
   optional func outlineView(outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: AnyObject?, childIndex index: Int) -> Bool
-  optional func outlineView(outlineView: NSOutlineView, namesOfPromisedFilesDroppedAtDestination dropDestination: URL, forDraggedItems items: [AnyObject]) -> [String]
+  optional func outlineView(outlineView: NSOutlineView, namesOfPromisedFilesDroppedAtDestination dropDestination: NSURL, forDraggedItems items: [AnyObject]) -> [String]
 }
 protocol NSOutlineViewDelegate : NSControlTextEditingDelegate {
   @available(OSX 10.7, *)
@@ -118,12 +118,12 @@ protocol NSOutlineViewDelegate : NSControlTextEditingDelegate {
   optional func selectionShouldChange(in outlineView: NSOutlineView) -> Bool
   optional func outlineView(outlineView: NSOutlineView, shouldSelectItem item: AnyObject) -> Bool
   @available(OSX 10.5, *)
-  optional func outlineView(outlineView: NSOutlineView, selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet) -> IndexSet
+  optional func outlineView(outlineView: NSOutlineView, selectionIndexesForProposedSelection proposedSelectionIndexes: NSIndexSet) -> NSIndexSet
   optional func outlineView(outlineView: NSOutlineView, shouldSelect tableColumn: NSTableColumn?) -> Bool
   optional func outlineView(outlineView: NSOutlineView, mouseDownInHeaderOf tableColumn: NSTableColumn)
   optional func outlineView(outlineView: NSOutlineView, didClick tableColumn: NSTableColumn)
   optional func outlineView(outlineView: NSOutlineView, didDrag tableColumn: NSTableColumn)
-  optional func outlineView(outlineView: NSOutlineView, toolTipFor cell: NSCell, rect: RectPointer, tableColumn: NSTableColumn?, item: AnyObject, mouseLocation: Point) -> String
+  optional func outlineView(outlineView: NSOutlineView, toolTipFor cell: NSCell, rect: NSRectPointer, tableColumn: NSTableColumn?, item: AnyObject, mouseLocation: NSPoint) -> String
   optional func outlineView(outlineView: NSOutlineView, heightOfRowByItem item: AnyObject) -> CGFloat
   @available(OSX 10.5, *)
   optional func outlineView(outlineView: NSOutlineView, typeSelectStringFor tableColumn: NSTableColumn?, item: AnyObject) -> String?
@@ -148,14 +148,14 @@ protocol NSOutlineViewDelegate : NSControlTextEditingDelegate {
   optional func outlineView(outlineView: NSOutlineView, shouldReorderColumn columnIndex: Int, toColumn newColumnIndex: Int) -> Bool
   @available(OSX 10.6, *)
   optional func outlineView(outlineView: NSOutlineView, shouldShowOutlineCellForItem item: AnyObject) -> Bool
-  optional func outlineViewSelectionDidChange(notification: Notification)
-  optional func outlineViewColumnDidMove(notification: Notification)
-  optional func outlineViewColumnDidResize(notification: Notification)
-  optional func outlineViewSelectionIsChanging(notification: Notification)
-  optional func outlineViewItemWillExpand(notification: Notification)
-  optional func outlineViewItemDidExpand(notification: Notification)
-  optional func outlineViewItemWillCollapse(notification: Notification)
-  optional func outlineViewItemDidCollapse(notification: Notification)
+  optional func outlineViewSelectionDidChange(notification: NSNotification)
+  optional func outlineViewColumnDidMove(notification: NSNotification)
+  optional func outlineViewColumnDidResize(notification: NSNotification)
+  optional func outlineViewSelectionIsChanging(notification: NSNotification)
+  optional func outlineViewItemWillExpand(notification: NSNotification)
+  optional func outlineViewItemDidExpand(notification: NSNotification)
+  optional func outlineViewItemWillCollapse(notification: NSNotification)
+  optional func outlineViewItemDidCollapse(notification: NSNotification)
 }
 @available(OSX 10.9, *)
 let NSOutlineViewDisclosureButtonKey: String

@@ -1,11 +1,11 @@
 
 @available(iOS 7.0, *)
-class JSContext : Object {
+class JSContext : NSObject {
   init!()
   init!(virtualMachine: JSVirtualMachine!)
   func evaluateScript(script: String!) -> JSValue!
   @available(iOS 8.0, *)
-  func evaluateScript(script: String!, withSourceURL sourceURL: URL!) -> JSValue!
+  func evaluateScript(script: String!, withSourceURL sourceURL: NSURL!) -> JSValue!
   class func current() -> JSContext!
   @available(iOS 8.0, *)
   class func currentCallee() -> JSValue!
@@ -20,7 +20,7 @@ class JSContext : Object {
 }
 extension JSContext {
   func objectForKeyedSubscript(key: AnyObject!) -> JSValue!
-  func setObject(object: AnyObject!, forKeyedSubscript key: protocol<Copying, ObjectProtocol>!)
+  func setObject(object: AnyObject!, forKeyedSubscript key: protocol<NSCopying, NSObjectProtocol>!)
 }
 extension JSContext {
   /*not inherited*/ init!(jsGlobalContextRef: JSGlobalContextRef)

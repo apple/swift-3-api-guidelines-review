@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
-class NSStoryboard : Object {
-  convenience init(name: String, bundle storyboardBundleOrNil: Bundle?)
+class NSStoryboard : NSObject {
+  convenience init(name: String, bundle storyboardBundleOrNil: NSBundle?)
   func instantiateInitialController() -> AnyObject?
   func instantiateController(withIdentifier identifier: String) -> AnyObject
   init()

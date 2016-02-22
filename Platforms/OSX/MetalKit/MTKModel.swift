@@ -4,24 +4,24 @@ let MTKModelErrorDomain: String
 @available(OSX 10.11, *)
 let MTKModelErrorKey: String
 @available(OSX 10.11, *)
-class MTKMeshBufferAllocator : Object, MDLMeshBufferAllocator {
+class MTKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
   init(device: MTLDevice)
   var device: MTLDevice { get }
   @available(OSX 10.11, *)
   func newZone(capacity: Int) -> MDLMeshBufferZone
   @available(OSX 10.11, *)
-  func newZoneForBuffers(withSize sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
+  func newZoneForBuffers(withSize sizes: [NSNumber], andType types: [NSNumber]) -> MDLMeshBufferZone
   @available(OSX 10.11, *)
   func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(OSX 10.11, *)
-  func newBuffer(with data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(with data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(OSX 10.11, *)
   func newBuffer(from zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
   @available(OSX 10.11, *)
-  func newBuffer(from zone: MDLMeshBufferZone?, data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBuffer(from zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 @available(OSX 10.11, *)
-class MTKMeshBuffer : Object, MDLMeshBuffer {
+class MTKMeshBuffer : NSObject, MDLMeshBuffer {
   var length: Int { get }
   var allocator: MTKMeshBufferAllocator { get }
   var buffer: MTLBuffer { get }
@@ -29,14 +29,14 @@ class MTKMeshBuffer : Object, MDLMeshBuffer {
   var type: MDLMeshBufferType { get }
   func zone() -> MDLMeshBufferZone?
   @available(OSX 10.11, *)
-  func fill(data: Data, offset: Int)
+  func fill(data: NSData, offset: Int)
   @available(OSX 10.11, *)
   func map() -> MDLMeshBufferMap
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
-class MTKSubmesh : Object {
+class MTKSubmesh : NSObject {
   var primitiveType: MTLPrimitiveType { get }
   var indexType: MTLIndexType { get }
   var indexBuffer: MTKMeshBuffer { get }
@@ -45,7 +45,7 @@ class MTKSubmesh : Object {
   var name: String
 }
 @available(OSX 10.11, *)
-class MTKMesh : Object {
+class MTKMesh : NSObject {
   init(mesh: MDLMesh, device: MTLDevice) throws
   class func newMeshes(from asset: MDLAsset, device: MTLDevice, sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [MTKMesh]
   var vertexBuffers: [MTKMeshBuffer] { get }

@@ -1,6 +1,6 @@
 
 @available(tvOS 5.0, *)
-class UIStoryboardSegue : Object {
+class UIStoryboardSegue : NSObject {
   @available(tvOS 6.0, *)
   convenience init(identifier: String?, source: UIViewController, destination: UIViewController, performHandler: () -> Void)
   init(identifier: String?, source: UIViewController, destination: UIViewController)
@@ -10,7 +10,7 @@ class UIStoryboardSegue : Object {
   func perform()
 }
 @available(tvOS 9.0, *)
-class UIStoryboardUnwindSegueSource : Object {
+class UIStoryboardUnwindSegueSource : NSObject {
   var sourceViewController: UIViewController { get }
   var unwindAction: Selector { get }
   var sender: AnyObject? { get }

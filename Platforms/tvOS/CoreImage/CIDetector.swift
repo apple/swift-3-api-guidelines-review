@@ -1,6 +1,6 @@
 
 @available(tvOS 5.0, *)
-class CIDetector : Object {
+class CIDetector : NSObject {
   @available(tvOS 5.0, *)
   /*not inherited*/ init(ofType type: String, context: CIContext?, options: [String : AnyObject]? = [:])
   @available(tvOS 5.0, *)

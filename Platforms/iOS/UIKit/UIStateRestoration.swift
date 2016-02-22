@@ -11,21 +11,21 @@ let UIApplicationStateRestorationTimestampKey: String
 let UIApplicationStateRestorationSystemVersionKey: String
 protocol UIViewControllerRestoration {
   @available(iOS 2.0, *)
-  static func viewController(withRestorationIdentifierPath identifierComponents: [AnyObject], coder: Coder) -> UIViewController?
+  static func viewController(withRestorationIdentifierPath identifierComponents: [AnyObject], coder: NSCoder) -> UIViewController?
 }
 protocol UIDataSourceModelAssociation {
   @available(iOS 2.0, *)
-  func modelIdentifierForElement(at idx: IndexPath, in view: UIView) -> String?
+  func modelIdentifierForElement(at idx: NSIndexPath, in view: UIView) -> String?
   @available(iOS 2.0, *)
-  func indexPathForElement(withModelIdentifier identifier: String, in view: UIView) -> IndexPath?
+  func indexPathForElement(withModelIdentifier identifier: String, in view: UIView) -> NSIndexPath?
 }
-protocol UIStateRestoring : ObjectProtocol {
+protocol UIStateRestoring : NSObjectProtocol {
   optional var restorationParent: UIStateRestoring? { get }
   optional var objectRestorationClass: AnyObject.Type? { get }
-  optional func encodeRestorableState(with coder: Coder)
-  optional func decodeRestorableState(with coder: Coder)
+  optional func encodeRestorableState(with coder: NSCoder)
+  optional func decodeRestorableState(with coder: NSCoder)
   optional func applicationFinishedRestoringState()
 }
 protocol UIObjectRestoration {
-  static func object(withRestorationIdentifierPath identifierComponents: [String], coder: Coder) -> UIStateRestoring?
+  static func object(withRestorationIdentifierPath identifierComponents: [String], coder: NSCoder) -> UIStateRestoring?
 }

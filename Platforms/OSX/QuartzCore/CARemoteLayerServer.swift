@@ -1,5 +1,5 @@
 
-class CARemoteLayerServer : Object {
+class CARemoteLayerServer : NSObject {
   class func shared() -> CARemoteLayerServer
   var serverPort: mach_port_t { get }
   init()

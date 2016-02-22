@@ -7,7 +7,7 @@ enum UICollectionElementCategory : UInt {
   case decorationView
 }
 @available(tvOS 6.0, *)
-class UICollectionViewLayoutAttributes : Object, Copying, UIDynamicItem {
+class UICollectionViewLayoutAttributes : NSObject, NSCopying, UIDynamicItem {
   var frame: CGRect
   var center: CGPoint
   var size: CGSize
@@ -19,15 +19,15 @@ class UICollectionViewLayoutAttributes : Object, Copying, UIDynamicItem {
   var alpha: CGFloat
   var zIndex: Int
   var isHidden: Bool
-  var indexPath: IndexPath
+  var indexPath: NSIndexPath
   var representedElementCategory: UICollectionElementCategory { get }
   var representedElementKind: String? { get }
-  convenience init(forCellWith indexPath: IndexPath)
-  convenience init(forSupplementaryViewOfKind elementKind: String, with indexPath: IndexPath)
-  convenience init(forDecorationViewOfKind decorationViewKind: String, with indexPath: IndexPath)
+  convenience init(forCellWith indexPath: NSIndexPath)
+  convenience init(forSupplementaryViewOfKind elementKind: String, with indexPath: NSIndexPath)
+  convenience init(forDecorationViewOfKind decorationViewKind: String, with indexPath: NSIndexPath)
   init()
   @available(tvOS 6.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 9.0, *)
   var collisionBoundsType: UIDynamicItemCollisionBoundsType { get }
   @available(tvOS 9.0, *)
@@ -43,44 +43,44 @@ enum UICollectionUpdateAction : Int {
   case none
 }
 @available(tvOS 6.0, *)
-class UICollectionViewUpdateItem : Object {
-  var indexPathBeforeUpdate: IndexPath? { get }
-  var indexPathAfterUpdate: IndexPath? { get }
+class UICollectionViewUpdateItem : NSObject {
+  var indexPathBeforeUpdate: NSIndexPath? { get }
+  var indexPathAfterUpdate: NSIndexPath? { get }
   var updateAction: UICollectionUpdateAction { get }
   init()
 }
 @available(tvOS 7.0, *)
-class UICollectionViewLayoutInvalidationContext : Object {
+class UICollectionViewLayoutInvalidationContext : NSObject {
   var invalidateEverything: Bool { get }
   var invalidateDataSourceCounts: Bool { get }
   @available(tvOS 8.0, *)
-  func invalidateItems(at indexPaths: [IndexPath])
+  func invalidateItems(at indexPaths: [NSIndexPath])
   @available(tvOS 8.0, *)
-  func invalidateSupplementaryElements(ofKind elementKind: String, at indexPaths: [IndexPath])
+  func invalidateSupplementaryElements(ofKind elementKind: String, at indexPaths: [NSIndexPath])
   @available(tvOS 8.0, *)
-  func invalidateDecorationElements(ofKind elementKind: String, at indexPaths: [IndexPath])
+  func invalidateDecorationElements(ofKind elementKind: String, at indexPaths: [NSIndexPath])
   @available(tvOS 8.0, *)
-  var invalidatedItemIndexPaths: [IndexPath]? { get }
+  var invalidatedItemIndexPaths: [NSIndexPath]? { get }
   @available(tvOS 8.0, *)
-  var invalidatedSupplementaryIndexPaths: [String : [IndexPath]]? { get }
+  var invalidatedSupplementaryIndexPaths: [String : [NSIndexPath]]? { get }
   @available(tvOS 8.0, *)
-  var invalidatedDecorationIndexPaths: [String : [IndexPath]]? { get }
+  var invalidatedDecorationIndexPaths: [String : [NSIndexPath]]? { get }
   @available(tvOS 8.0, *)
   var contentOffsetAdjustment: CGPoint
   @available(tvOS 8.0, *)
   var contentSizeAdjustment: CGSize
   @available(tvOS 9.0, *)
-  var previousIndexPathsForInteractivelyMovingItems: [IndexPath]? { get }
+  var previousIndexPathsForInteractivelyMovingItems: [NSIndexPath]? { get }
   @available(tvOS 9.0, *)
-  var targetIndexPathsForInteractivelyMovingItems: [IndexPath]? { get }
+  var targetIndexPathsForInteractivelyMovingItems: [NSIndexPath]? { get }
   @available(tvOS 9.0, *)
   var interactiveMovementTarget: CGPoint { get }
   init()
 }
 @available(tvOS 6.0, *)
-class UICollectionViewLayout : Object, Coding {
+class UICollectionViewLayout : NSObject, NSCoding {
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   var collectionView: UICollectionView? { get }
   func invalidateLayout()
   @available(tvOS 7.0, *)
@@ -88,7 +88,7 @@ class UICollectionViewLayout : Object, Coding {
   func register(viewClass: AnyClass?, forDecorationViewOfKind elementKind: String)
   func register(nib: UINib?, forDecorationViewOfKind elementKind: String)
   @available(tvOS 6.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }
 extension UICollectionViewLayout {
   class func layoutAttributesClass() -> AnyClass
@@ -96,9 +96,9 @@ extension UICollectionViewLayout {
   class func invalidationContextClass() -> AnyClass
   func prepare()
   func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]?
-  func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func layoutAttributesForDecorationView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForItem(at indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func layoutAttributesForDecorationView(ofKind elementKind: String, at indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
   func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool
   @available(tvOS 7.0, *)
   func invalidationContext(forBoundsChange newBounds: CGRect) -> UICollectionViewLayoutInvalidationContext
@@ -122,28 +122,28 @@ extension UICollectionViewLayout {
   func prepareForTransition(from oldLayout: UICollectionViewLayout)
   @available(tvOS 7.0, *)
   func finalizeLayoutTransition()
-  func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func initialLayoutAttributesForAppearingSupplementaryElement(ofKind elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func finalLayoutAttributesForDisappearingSupplementaryElement(ofKind elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func initialLayoutAttributesForAppearingDecorationElement(ofKind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
-  func finalLayoutAttributesForDisappearingDecorationElement(ofKind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes?
+  func initialLayoutAttributesForAppearingItem(at itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func finalLayoutAttributesForDisappearingItem(at itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func initialLayoutAttributesForAppearingSupplementaryElement(ofKind elementKind: String, at elementIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func finalLayoutAttributesForDisappearingSupplementaryElement(ofKind elementKind: String, at elementIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func initialLayoutAttributesForAppearingDecorationElement(ofKind elementKind: String, at decorationIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
+  func finalLayoutAttributesForDisappearingDecorationElement(ofKind elementKind: String, at decorationIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
   @available(tvOS 7.0, *)
-  func indexPathsToDeleteForSupplementaryView(ofKind elementKind: String) -> [IndexPath]
+  func indexPathsToDeleteForSupplementaryView(ofKind elementKind: String) -> [NSIndexPath]
   @available(tvOS 7.0, *)
-  func indexPathsToDeleteForDecorationView(ofKind elementKind: String) -> [IndexPath]
+  func indexPathsToDeleteForDecorationView(ofKind elementKind: String) -> [NSIndexPath]
   @available(tvOS 7.0, *)
-  func indexPathsToInsertForSupplementaryView(ofKind elementKind: String) -> [IndexPath]
+  func indexPathsToInsertForSupplementaryView(ofKind elementKind: String) -> [NSIndexPath]
   @available(tvOS 7.0, *)
-  func indexPathsToInsertForDecorationView(ofKind elementKind: String) -> [IndexPath]
+  func indexPathsToInsertForDecorationView(ofKind elementKind: String) -> [NSIndexPath]
 }
 extension UICollectionViewLayout {
   @available(tvOS 9.0, *)
-  func targetIndexPath(forInteractivelyMovingItem previousIndexPath: IndexPath, withPosition position: CGPoint) -> IndexPath
+  func targetIndexPath(forInteractivelyMovingItem previousIndexPath: NSIndexPath, withPosition position: CGPoint) -> NSIndexPath
   @available(tvOS 9.0, *)
-  func layoutAttributesForInteractivelyMovingItem(at indexPath: IndexPath, withTargetPosition position: CGPoint) -> UICollectionViewLayoutAttributes
+  func layoutAttributesForInteractivelyMovingItem(at indexPath: NSIndexPath, withTargetPosition position: CGPoint) -> UICollectionViewLayoutAttributes
   @available(tvOS 9.0, *)
-  func invalidationContext(forInteractivelyMovingItems targetIndexPaths: [IndexPath], withTargetPosition targetPosition: CGPoint, previousIndexPaths: [IndexPath], previousPosition: CGPoint) -> UICollectionViewLayoutInvalidationContext
+  func invalidationContext(forInteractivelyMovingItems targetIndexPaths: [NSIndexPath], withTargetPosition targetPosition: CGPoint, previousIndexPaths: [NSIndexPath], previousPosition: CGPoint) -> UICollectionViewLayoutInvalidationContext
   @available(tvOS 9.0, *)
-  func invalidationContextForEndingInteractiveMovementOfItems(toFinalIndexPaths indexPaths: [IndexPath], previousIndexPaths: [IndexPath], movementCancelled: Bool) -> UICollectionViewLayoutInvalidationContext
+  func invalidationContextForEndingInteractiveMovementOfItems(toFinalIndexPaths indexPaths: [NSIndexPath], previousIndexPaths: [NSIndexPath], movementCancelled: Bool) -> UICollectionViewLayoutInvalidationContext
 }

@@ -1,6 +1,6 @@
 
 @available(iOS 9.0, *)
-class UILayoutGuide : Object, Coding {
+class UILayoutGuide : NSObject, NSCoding {
   var layoutFrame: CGRect { get }
   weak var owningView: @sil_weak UIView?
   var identifier: String
@@ -16,6 +16,6 @@ class UILayoutGuide : Object, Coding {
   var centerYAnchor: NSLayoutYAxisAnchor { get }
   init()
   @available(iOS 9.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

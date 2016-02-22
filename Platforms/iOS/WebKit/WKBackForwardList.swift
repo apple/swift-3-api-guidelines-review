@@ -1,6 +1,6 @@
 
 @available(iOS 8.0, *)
-class WKBackForwardList : Object {
+class WKBackForwardList : NSObject {
   var currentItem: WKBackForwardListItem? { get }
   var backItem: WKBackForwardListItem? { get }
   var forwardItem: WKBackForwardListItem? { get }

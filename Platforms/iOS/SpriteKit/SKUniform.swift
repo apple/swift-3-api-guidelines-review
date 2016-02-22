@@ -14,7 +14,7 @@ enum SKUniformType : Int {
   case texture
 }
 @available(iOS 8.0, *)
-class SKUniform : Object, Copying, Coding {
+class SKUniform : NSObject, NSCopying, NSCoding {
   convenience init(name: String, texture: SKTexture)
   var name: String { get }
   var uniformType: SKUniformType { get }
@@ -37,8 +37,8 @@ class SKUniform : Object, Copying, Coding {
   init(name: String, float value: GLKMatrix4)
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

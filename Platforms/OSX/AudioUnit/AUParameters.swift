@@ -12,7 +12,7 @@ typealias AUParameterObserver = (AUParameterAddress, AUValue) -> Void
 typealias AUParameterRecordingObserver = (Int, UnsafePointer<AURecordedParameterEvent>) -> Void
 typealias AUParameterObserverToken = UnsafeMutablePointer<Void>
 @available(OSX 10.11, *)
-class AUParameterNode : Object {
+class AUParameterNode : NSObject {
   var identifier: String { get }
   var keyPath: String { get }
   var displayName: String { get }
@@ -23,25 +23,25 @@ class AUParameterNode : Object {
   init()
 }
 @available(OSX 10.11, *)
-class AUParameterGroup : AUParameterNode, SecureCoding {
+class AUParameterGroup : AUParameterNode, NSSecureCoding {
   var children: [AUParameterNode] { get }
   var allParameters: [AUParameter] { get }
   init()
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.11, *)
-class AUParameterTree : AUParameterGroup, SecureCoding {
+class AUParameterTree : AUParameterGroup, NSSecureCoding {
   func parameter(withAddress address: AUParameterAddress) -> AUParameter?
   func parameter(withID paramID: AudioUnitParameterID, scope: AudioUnitScope, element: AudioUnitElement) -> AUParameter?
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.11, *)
-class AUParameter : AUParameterNode, SecureCoding {
+class AUParameter : AUParameterNode, NSSecureCoding {
   var minValue: AUValue { get }
   var maxValue: AUValue { get }
   var unit: AudioUnitParameterUnit { get }
@@ -49,7 +49,7 @@ class AUParameter : AUParameterNode, SecureCoding {
   var flags: AudioUnitParameterOptions { get }
   var address: AUParameterAddress { get }
   var valueStrings: [String]? { get }
-  var dependentParameters: [Number]? { get }
+  var dependentParameters: [NSNumber]? { get }
   var value: AUValue
   func setValue(value: AUValue, originator: AUParameterObserverToken)
   func setValue(value: AUValue, originator: AUParameterObserverToken, atHostTime hostTime: UInt64)
@@ -59,6 +59,6 @@ class AUParameter : AUParameterNode, SecureCoding {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

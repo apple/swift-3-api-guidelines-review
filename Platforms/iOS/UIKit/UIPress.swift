@@ -22,8 +22,8 @@ enum UIPressType : Int {
   case playPause
 }
 @available(iOS 9.0, *)
-class UIPress : Object {
-  var timestamp: TimeInterval { get }
+class UIPress : NSObject {
+  var timestamp: NSTimeInterval { get }
   var phase: UIPressPhase { get }
   var type: UIPressType { get }
   var window: UIWindow? { get }

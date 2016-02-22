@@ -1,6 +1,6 @@
 
 @available(OSX 10.11, *)
-class CNSaveRequest : Object {
+class CNSaveRequest : NSObject {
   func add(contact: CNMutableContact, toContainerWithIdentifier identifier: String?)
   func update(contact: CNMutableContact)
   func delete(contact: CNMutableContact)

@@ -11,7 +11,7 @@ class UIPopoverBackgroundView : UIView, UIPopoverBackgroundViewMethods {
   @available(tvOS 6.0, *)
   class func wantsDefaultContentAppearance() -> Bool
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
   @available(tvOS 5.0, *)
   class func arrowBase() -> CGFloat

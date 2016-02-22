@@ -1,128 +1,128 @@
 
 @available(OSX 10.7, *)
-class OrderedSet : Object, Copying, MutableCopying, SecureCoding, FastEnumeration {
+class NSOrderedSet : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration {
   var count: Int { get }
   func object(at idx: Int) -> AnyObject
   func indexOf(object: AnyObject) -> Int
   init()
   init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.7, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
   @available(OSX 10.7, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
-extension OrderedSet : SequenceType {
+extension NSOrderedSet : SequenceType {
   func generate() -> NSFastGenerator
   typealias Generator = NSFastGenerator
   typealias SubSequence = AnySequence<AnyObject>
 }
 
-extension OrderedSet {
+extension NSOrderedSet {
   convenience init(objects elements: AnyObject...)
 }
 
-extension OrderedSet : ArrayLiteralConvertible {
+extension NSOrderedSet : ArrayLiteralConvertible {
   required convenience init(arrayLiteral elements: AnyObject...)
   typealias Element = AnyObject
 }
-extension OrderedSet {
+extension NSOrderedSet {
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, range: NSRange)
-  func objects(at indexes: IndexSet) -> [AnyObject]
+  func objects(at indexes: NSIndexSet) -> [AnyObject]
   var firstObject: AnyObject? { get }
   var lastObject: AnyObject? { get }
-  func isEqual(to other: OrderedSet) -> Bool
+  func isEqual(to other: NSOrderedSet) -> Bool
   func contains(object: AnyObject) -> Bool
-  func intersects(other: OrderedSet) -> Bool
-  func intersects(set: Set<Object>) -> Bool
-  func isSubsetOf(other: OrderedSet) -> Bool
-  func isSubsetOf(set: Set<Object>) -> Bool
+  func intersects(other: NSOrderedSet) -> Bool
+  func intersects(set: Set<NSObject>) -> Bool
+  func isSubsetOf(other: NSOrderedSet) -> Bool
+  func isSubsetOf(set: Set<NSObject>) -> Bool
   @available(OSX 10.8, *)
   subscript(idx: Int) -> AnyObject { get }
-  func objectEnumerator() -> Enumerator
-  func reverseObjectEnumerator() -> Enumerator
-  @NSCopying var reversed: OrderedSet { get }
+  func objectEnumerator() -> NSEnumerator
+  func reverseObjectEnumerator() -> NSEnumerator
+  @NSCopying var reversed: NSOrderedSet { get }
   var array: [AnyObject] { get }
-  var set: Set<Object> { get }
+  var set: Set<NSObject> { get }
   func enumerateObjects(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func enumerateObjects(opts: EnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func enumerateObjects(at s: IndexSet, options opts: EnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(opts: NSEnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(at s: NSIndexSet, options opts: NSEnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   func indexOfObject(passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
-  func indexOfObject(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
-  func indexOfObject(at s: IndexSet, options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
-  func indexesOfObjects(passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
-  func indexesOfObjects(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
-  func indexesOfObjects(at s: IndexSet, options opts: EnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> IndexSet
-  func indexOf(object: AnyObject, inSortedRange range: NSRange, options opts: BinarySearchingOptions = [], usingComparator cmp: Comparator) -> Int
-  func sortedArray(comparator cmptr: Comparator) -> [AnyObject]
-  func sortedArray(opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
+  func indexOfObject(opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexOfObject(at s: NSIndexSet, options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexesOfObjects(passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
+  func indexesOfObjects(opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
+  func indexesOfObjects(at s: NSIndexSet, options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
+  func indexOf(object: AnyObject, inSortedRange range: NSRange, options opts: NSBinarySearchingOptions = [], usingComparator cmp: NSComparator) -> Int
+  func sortedArray(comparator cmptr: NSComparator) -> [AnyObject]
+  func sortedArray(opts: NSSortOptions = [], usingComparator cmptr: NSComparator) -> [AnyObject]
   var description: String { get }
   func description(withLocale locale: AnyObject?) -> String
   func description(withLocale locale: AnyObject?, indent level: Int) -> String
 }
-extension OrderedSet {
+extension NSOrderedSet {
   convenience init(object: AnyObject)
-  convenience init(orderedSet set: OrderedSet)
-  convenience init(orderedSet set: OrderedSet, copyItems flag: Bool)
-  convenience init(orderedSet set: OrderedSet, range: NSRange, copyItems flag: Bool)
+  convenience init(orderedSet set: NSOrderedSet)
+  convenience init(orderedSet set: NSOrderedSet, copyItems flag: Bool)
+  convenience init(orderedSet set: NSOrderedSet, range: NSRange, copyItems flag: Bool)
   convenience init(array: [AnyObject])
   convenience init(array set: [AnyObject], copyItems flag: Bool)
   convenience init(array set: [AnyObject], range: NSRange, copyItems flag: Bool)
-  convenience init(set: Set<Object>)
-  convenience init(set: Set<Object>, copyItems flag: Bool)
+  convenience init(set: Set<NSObject>)
+  convenience init(set: Set<NSObject>, copyItems flag: Bool)
 }
 @available(OSX 10.7, *)
-class MutableOrderedSet : OrderedSet {
+class NSMutableOrderedSet : NSOrderedSet {
   func insert(object: AnyObject, at idx: Int)
   func removeObject(at idx: Int)
   func replaceObject(at idx: Int, with object: AnyObject)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   init()
   init(capacity numItems: Int)
   convenience init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
   convenience init(object: AnyObject)
-  convenience init(orderedSet set: OrderedSet)
-  convenience init(orderedSet set: OrderedSet, copyItems flag: Bool)
-  convenience init(orderedSet set: OrderedSet, range: NSRange, copyItems flag: Bool)
+  convenience init(orderedSet set: NSOrderedSet)
+  convenience init(orderedSet set: NSOrderedSet, copyItems flag: Bool)
+  convenience init(orderedSet set: NSOrderedSet, range: NSRange, copyItems flag: Bool)
   convenience init(array: [AnyObject])
   convenience init(array set: [AnyObject], copyItems flag: Bool)
   convenience init(array set: [AnyObject], range: NSRange, copyItems flag: Bool)
-  convenience init(set: Set<Object>)
-  convenience init(set: Set<Object>, copyItems flag: Bool)
+  convenience init(set: Set<NSObject>)
+  convenience init(set: Set<NSObject>, copyItems flag: Bool)
 }
-extension MutableOrderedSet {
+extension NSMutableOrderedSet {
   func add(object: AnyObject)
   func add(objects: UnsafePointer<AnyObject?>, count: Int)
   func addObjects(from array: [AnyObject])
   func exchangeObject(at idx1: Int, withObjectAt idx2: Int)
-  func moveObjects(at indexes: IndexSet, to idx: Int)
-  func insert(objects: [AnyObject], at indexes: IndexSet)
+  func moveObjects(at indexes: NSIndexSet, to idx: Int)
+  func insert(objects: [AnyObject], at indexes: NSIndexSet)
   func setObject(obj: AnyObject, at idx: Int)
   @available(OSX 10.8, *)
   subscript(idx: Int) -> AnyObject
   func replaceObjects(in range: NSRange, with objects: UnsafePointer<AnyObject?>, count: Int)
-  func replaceObjects(at indexes: IndexSet, with objects: [AnyObject])
+  func replaceObjects(at indexes: NSIndexSet, with objects: [AnyObject])
   func removeObjects(in range: NSRange)
-  func removeObjects(at indexes: IndexSet)
+  func removeObjects(at indexes: NSIndexSet)
   func removeAllObjects()
   func remove(object: AnyObject)
   func removeObjects(in array: [AnyObject])
-  func intersect(other: OrderedSet)
-  func minus(other: OrderedSet)
-  func union(other: OrderedSet)
-  func intersect(other: Set<Object>)
-  func minus(other: Set<Object>)
-  func union(other: Set<Object>)
-  func sort(comparator cmptr: Comparator)
-  func sort(opts: SortOptions = [], usingComparator cmptr: Comparator)
-  func sortRange(range: NSRange, options opts: SortOptions = [], usingComparator cmptr: Comparator)
+  func intersect(other: NSOrderedSet)
+  func minus(other: NSOrderedSet)
+  func union(other: NSOrderedSet)
+  func intersect(other: Set<NSObject>)
+  func minus(other: Set<NSObject>)
+  func union(other: Set<NSObject>)
+  func sort(comparator cmptr: NSComparator)
+  func sort(opts: NSSortOptions = [], usingComparator cmptr: NSComparator)
+  func sortRange(range: NSRange, options opts: NSSortOptions = [], usingComparator cmptr: NSComparator)
 }
-extension MutableOrderedSet {
+extension NSMutableOrderedSet {
 }

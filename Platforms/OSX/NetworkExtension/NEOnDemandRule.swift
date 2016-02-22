@@ -20,7 +20,7 @@ enum NEOnDemandRuleInterfaceType : Int {
   case wiFi
 }
 @available(OSX 10.10, *)
-class NEOnDemandRule : Object, SecureCoding, Copying {
+class NEOnDemandRule : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.10, *)
   var action: NEOnDemandRuleAction { get }
   @available(OSX 10.10, *)
@@ -32,37 +32,37 @@ class NEOnDemandRule : Object, SecureCoding, Copying {
   @available(OSX 10.10, *)
   var ssidMatch: [String]?
   @available(OSX 10.10, *)
-  @NSCopying var probeURL: URL?
+  @NSCopying var probeURL: NSURL?
   init()
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.10, *)
 class NEOnDemandRuleConnect : NEOnDemandRule {
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
 class NEOnDemandRuleDisconnect : NEOnDemandRule {
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
 class NEOnDemandRuleIgnore : NEOnDemandRule {
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
 class NEOnDemandRuleEvaluateConnection : NEOnDemandRule {
   @available(OSX 10.10, *)
   var connectionRules: [NEEvaluateConnectionRule]?
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
 enum NEEvaluateConnectionRuleAction : Int {
@@ -72,7 +72,7 @@ enum NEEvaluateConnectionRuleAction : Int {
   case neverConnect
 }
 @available(OSX 10.10, *)
-class NEEvaluateConnectionRule : Object, SecureCoding, Copying {
+class NEEvaluateConnectionRule : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.10, *)
   init(matchDomains domains: [String], andAction action: NEEvaluateConnectionRuleAction)
   @available(OSX 10.10, *)
@@ -82,13 +82,13 @@ class NEEvaluateConnectionRule : Object, SecureCoding, Copying {
   @available(OSX 10.10, *)
   var useDNSServers: [String]?
   @available(OSX 10.10, *)
-  @NSCopying var probeURL: URL?
+  @NSCopying var probeURL: NSURL?
   init()
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

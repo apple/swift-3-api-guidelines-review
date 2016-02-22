@@ -1,15 +1,15 @@
 
 @available(OSX 10.5, *)
-class NSTreeNode : Object {
+class NSTreeNode : NSObject {
   init(representedObject modelObject: AnyObject?)
   var representedObject: AnyObject? { get }
-  var indexPath: IndexPath { get }
+  var indexPath: NSIndexPath { get }
   var isLeaf: Bool { get }
   var childNodes: [NSTreeNode]? { get }
-  var mutableChildNodes: MutableArray { get }
-  func descendantNode(at indexPath: IndexPath) -> NSTreeNode?
+  var mutableChildNodes: NSMutableArray { get }
+  func descendantNode(at indexPath: NSIndexPath) -> NSTreeNode?
   unowned(unsafe) var parent: @sil_unmanaged NSTreeNode? { get }
-  func sort(with sortDescriptors: [SortDescriptor], recursively: Bool)
+  func sort(with sortDescriptors: [NSSortDescriptor], recursively: Bool)
   init()
 }
 struct __NSTreeNodeFlags {

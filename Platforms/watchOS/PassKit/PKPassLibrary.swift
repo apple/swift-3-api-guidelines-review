@@ -9,7 +9,7 @@ enum PKPassLibraryAddPassesStatus : Int {
 }
 typealias PKSuppressionRequestToken = Int
 @available(watchOS 2.0, *)
-class PKPassLibrary : Object {
+class PKPassLibrary : NSObject {
   @available(watchOS 2.0, *)
   class func isPassLibraryAvailable() -> Bool
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -[PKPassLibrary isPaymentPassActivationAvailable] instead")

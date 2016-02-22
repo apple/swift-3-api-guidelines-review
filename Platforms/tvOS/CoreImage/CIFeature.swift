@@ -1,6 +1,6 @@
 
 @available(tvOS 5.0, *)
-class CIFeature : Object {
+class CIFeature : NSObject {
   var type: String { get }
   var bounds: CGRect { get }
   init()

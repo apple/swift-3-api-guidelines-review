@@ -1,6 +1,6 @@
 
 @available(OSX 10.11, *)
-class NEProxyServer : Object, SecureCoding, Copying {
+class NEProxyServer : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.11, *)
   init(address: String, port: Int)
   @available(OSX 10.11, *)
@@ -17,17 +17,17 @@ class NEProxyServer : Object, SecureCoding, Copying {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
-class NEProxySettings : Object, SecureCoding, Copying {
+class NEProxySettings : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.11, *)
   var autoProxyConfigurationEnabled: Bool
   @available(OSX 10.11, *)
-  @NSCopying var proxyAutoConfigurationURL: URL?
+  @NSCopying var proxyAutoConfigurationURL: NSURL?
   @available(OSX 10.11, *)
   var proxyAutoConfigurationJavaScript: String?
   @available(OSX 10.11, *)
@@ -48,8 +48,8 @@ class NEProxySettings : Object, SecureCoding, Copying {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

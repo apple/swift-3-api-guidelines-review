@@ -1,13 +1,13 @@
 
-let NSFetchRequestExpressionType: ExpressionType
+let NSFetchRequestExpressionType: NSExpressionType
 @available(watchOS 2.0, *)
-class NSFetchRequestExpression : Expression {
-  class func expression(forFetch fetch: Expression, context: Expression, countOnly countFlag: Bool) -> Expression
-  var requestExpression: Expression { get }
-  var contextExpression: Expression { get }
+class NSFetchRequestExpression : NSExpression {
+  class func expression(forFetch fetch: NSExpression, context: NSExpression, countOnly countFlag: Bool) -> NSExpression
+  var requestExpression: NSExpression { get }
+  var contextExpression: NSExpression { get }
   var isCountOnlyRequest: Bool { get }
-  init(expressionType type: ExpressionType)
-  init?(coder: Coder)
+  init(expressionType type: NSExpressionType)
+  init?(coder: NSCoder)
   convenience init()
 }
 struct _fetchExpressionFlags {

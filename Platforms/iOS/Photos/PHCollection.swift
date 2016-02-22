@@ -14,14 +14,14 @@ class PHAssetCollection : PHCollection {
   var assetCollectionType: PHAssetCollectionType { get }
   var assetCollectionSubtype: PHAssetCollectionSubtype { get }
   var estimatedAssetCount: Int { get }
-  var startDate: Date? { get }
-  var endDate: Date? { get }
+  var startDate: NSDate? { get }
+  var endDate: NSDate? { get }
   var approximateLocation: CLLocation? { get }
   var localizedLocationNames: [String] { get }
   class func fetchAssetCollections(localIdentifiers identifiers: [String], options: PHFetchOptions?) -> PHFetchResult
   class func fetchAssetCollections(type: PHAssetCollectionType, subtype: PHAssetCollectionSubtype, options: PHFetchOptions?) -> PHFetchResult
   class func fetchAssetCollectionsContaining(asset: PHAsset, with type: PHAssetCollectionType, options: PHFetchOptions?) -> PHFetchResult
-  class func fetchAssetCollections(alAssetGroupURLs assetGroupURLs: [URL], options: PHFetchOptions?) -> PHFetchResult
+  class func fetchAssetCollections(alAssetGroupURLs assetGroupURLs: [NSURL], options: PHFetchOptions?) -> PHFetchResult
   class func fetchMoments(inMomentList momentList: PHCollectionList, options: PHFetchOptions?) -> PHFetchResult
   class func fetchMoments(options: PHFetchOptions?) -> PHFetchResult
   class func transientAssetCollection(with assets: [PHAsset], title: String?) -> PHAssetCollection
@@ -32,8 +32,8 @@ class PHAssetCollection : PHCollection {
 class PHCollectionList : PHCollection {
   var collectionListType: PHCollectionListType { get }
   var collectionListSubtype: PHCollectionListSubtype { get }
-  var startDate: Date? { get }
-  var endDate: Date? { get }
+  var startDate: NSDate? { get }
+  var endDate: NSDate? { get }
   var localizedLocationNames: [String] { get }
   class func fetchCollectionListsContaining(collection: PHCollection, options: PHFetchOptions?) -> PHFetchResult
   class func fetchCollectionLists(localIdentifiers identifiers: [String], options: PHFetchOptions?) -> PHFetchResult

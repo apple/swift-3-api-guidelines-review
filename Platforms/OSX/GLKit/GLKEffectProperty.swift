@@ -1,6 +1,6 @@
 
 typealias GLKEffectPropertyPrvPtr = COpaquePointer
 @available(OSX 10.8, *)
-class GLKEffectProperty : Object {
+class GLKEffectProperty : NSObject {
   init()
 }

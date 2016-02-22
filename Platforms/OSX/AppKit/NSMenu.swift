@@ -1,11 +1,11 @@
 
-class NSMenu : Object, Copying, Coding {
+class NSMenu : NSObject, NSCopying, NSCoding {
   init(title aTitle: String)
   var title: String
   class func popUpContextMenu(menu: NSMenu, with event: NSEvent, for view: NSView)
   class func popUpContextMenu(menu: NSMenu, with event: NSEvent, for view: NSView, with font: NSFont?)
   @available(OSX 10.6, *)
-  func popUpPositioningItem(item: NSMenuItem?, atLocation location: Point, in view: NSView?) -> Bool
+  func popUpPositioningItem(item: NSMenuItem?, atLocation location: NSPoint, in view: NSView?) -> Bool
   class func setMenuBarVisible(visible: Bool)
   class func menuBarVisible() -> Bool
   unowned(unsafe) var supermenu: @sil_unmanaged NSMenu?
@@ -45,7 +45,7 @@ class NSMenu : Object, Copying, Coding {
   @available(OSX 10.6, *)
   var minimumWidth: CGFloat
   @available(OSX 10.6, *)
-  var size: Size { get }
+  var size: NSSize { get }
   @available(OSX 10.6, *)
   var font: NSFont!
   @available(OSX 10.6, *)
@@ -55,9 +55,9 @@ class NSMenu : Object, Copying, Coding {
   @available(OSX 10.11, *)
   var userInterfaceLayoutDirection: NSUserInterfaceLayoutDirection
   convenience init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 struct __mFlags {
   var noAutoenable: UInt32
@@ -86,11 +86,11 @@ struct __mFlags {
 extension NSMenu {
   func submenuAction(sender: AnyObject?)
 }
-extension Object {
+extension NSObject {
   class func validate(menuItem: NSMenuItem) -> Bool
   func validate(menuItem: NSMenuItem) -> Bool
 }
-protocol NSMenuDelegate : ObjectProtocol {
+protocol NSMenuDelegate : NSObjectProtocol {
   optional func menuNeedsUpdate(menu: NSMenu)
   optional func numberOfItems(in menu: NSMenu) -> Int
   optional func menu(menu: NSMenu, update item: NSMenuItem, at index: Int, shouldCancel: Bool) -> Bool
@@ -102,7 +102,7 @@ protocol NSMenuDelegate : ObjectProtocol {
   @available(OSX 10.5, *)
   optional func menu(menu: NSMenu, willHighlight item: NSMenuItem?)
   @available(OSX 10.6, *)
-  optional func confinementRect(for menu: NSMenu, on screen: NSScreen?) -> Rect
+  optional func confinementRect(for menu: NSMenu, on screen: NSScreen?) -> NSRect
 }
 struct NSMenuProperties : OptionSetType {
   init(rawValue: UInt)
@@ -127,7 +127,7 @@ let NSMenuDidBeginTrackingNotification: String
 let NSMenuDidEndTrackingNotification: String
 extension NSMenu {
   @available(OSX, introduced=10.0, deprecated=10.11)
-  class func menuZone() -> Zone
+  class func menuZone() -> NSZone
   @available(OSX, introduced=10.0, deprecated=10.11)
   var menuChangedMessagesEnabled: Bool
   @available(OSX, introduced=10.0, deprecated=10.11)

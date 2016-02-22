@@ -9,15 +9,15 @@ enum PHAuthorizationStatus : Int {
   case authorized
 }
 @available(iOS 8.0, *)
-protocol PHPhotoLibraryChangeObserver : ObjectProtocol {
+protocol PHPhotoLibraryChangeObserver : NSObjectProtocol {
   func photoLibraryDidChange(changeInstance: PHChange)
 }
 @available(iOS 8.0, *)
-class PHPhotoLibrary : Object {
+class PHPhotoLibrary : NSObject {
   class func shared() -> PHPhotoLibrary
   class func authorizationStatus() -> PHAuthorizationStatus
   class func requestAuthorization(handler: (PHAuthorizationStatus) -> Void)
-  func performChanges(changeBlock: dispatch_block_t, completionHandler: ((Bool, Error?) -> Void)? = nil)
+  func performChanges(changeBlock: dispatch_block_t, completionHandler: ((Bool, NSError?) -> Void)? = nil)
   func performChangesAndWait(changeBlock: dispatch_block_t) throws
   func register(observer: PHPhotoLibraryChangeObserver)
   func unregisterChangeObserver(observer: PHPhotoLibraryChangeObserver)

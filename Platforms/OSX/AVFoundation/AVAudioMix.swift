@@ -1,12 +1,12 @@
 
 @available(OSX 10.7, *)
-class AVAudioMix : Object, Copying, MutableCopying {
+class AVAudioMix : NSObject, NSCopying, NSMutableCopying {
   var inputParameters: [AVAudioMixInputParameters] { get }
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.7, *)
 class AVMutableAudioMix : AVAudioMix {
@@ -14,7 +14,7 @@ class AVMutableAudioMix : AVAudioMix {
   init()
 }
 @available(OSX 10.7, *)
-class AVAudioMixInputParameters : Object, Copying, MutableCopying {
+class AVAudioMixInputParameters : NSObject, NSCopying, NSMutableCopying {
   var trackID: CMPersistentTrackID { get }
   @available(OSX 10.10, *)
   var audioTimePitchAlgorithm: String? { get }
@@ -23,9 +23,9 @@ class AVAudioMixInputParameters : Object, Copying, MutableCopying {
   func getVolumeRamp(for time: CMTime, startVolume: UnsafeMutablePointer<Float>, endVolume: UnsafeMutablePointer<Float>, timeRange: UnsafeMutablePointer<CMTimeRange>) -> Bool
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.7, *)
 class AVMutableAudioMixInputParameters : AVAudioMixInputParameters {

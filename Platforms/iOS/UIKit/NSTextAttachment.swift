@@ -1,35 +1,35 @@
 
 @available(iOS 7.0, *)
 var NSAttachmentCharacter: Int { get }
-protocol NSTextAttachmentContainer : ObjectProtocol {
+protocol NSTextAttachmentContainer : NSObjectProtocol {
   @available(iOS 7.0, *)
   func image(forBounds imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
   @available(iOS 7.0, *)
   func attachmentBounds(for textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
 }
 @available(iOS 7.0, *)
-class NSTextAttachment : Object, NSTextAttachmentContainer, Coding {
+class NSTextAttachment : NSObject, NSTextAttachmentContainer, NSCoding {
   @available(iOS 7.0, *)
-  init(data contentData: Data?, ofType uti: String?)
+  init(data contentData: NSData?, ofType uti: String?)
   @available(iOS 7.0, *)
-  @NSCopying var contents: Data?
+  @NSCopying var contents: NSData?
   @available(iOS 7.0, *)
   var fileType: String?
   @available(iOS 7.0, *)
   var image: UIImage?
   @available(iOS 7.0, *)
   var bounds: CGRect
-  var fileWrapper: FileWrapper?
+  var fileWrapper: NSFileWrapper?
   convenience init()
   @available(iOS 7.0, *)
   func image(forBounds imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
   @available(iOS 7.0, *)
   func attachmentBounds(for textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
   @available(iOS 7.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
-extension AttributedString {
+extension NSAttributedString {
   @available(iOS 7.0, *)
   /*not inherited*/ init(attachment: NSTextAttachment)
 }

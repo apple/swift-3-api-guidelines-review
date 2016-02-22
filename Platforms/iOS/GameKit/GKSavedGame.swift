@@ -1,27 +1,27 @@
 
 @available(iOS 8.0, *)
-class GKSavedGame : Object, Copying {
+class GKSavedGame : NSObject, NSCopying {
   @available(iOS 8.0, *)
   var name: String? { get }
   @available(iOS 8.0, *)
   var deviceName: String? { get }
   @available(iOS 8.0, *)
-  var modificationDate: Date? { get }
+  var modificationDate: NSDate? { get }
   @available(iOS 8.0, *)
-  func loadData(completionHandler handler: ((Data?, Error?) -> Void)? = nil)
+  func loadData(completionHandler handler: ((NSData?, NSError?) -> Void)? = nil)
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 extension GKLocalPlayer : GKSavedGameListener {
   @available(iOS 8.0, *)
-  func fetchSavedGames(completionHandler handler: (([GKSavedGame]?, Error?) -> Void)? = nil)
+  func fetchSavedGames(completionHandler handler: (([GKSavedGame]?, NSError?) -> Void)? = nil)
   @available(iOS 8.0, *)
-  func saveGameData(data: Data, withName name: String, completionHandler handler: ((GKSavedGame?, Error?) -> Void)? = nil)
+  func saveGameData(data: NSData, withName name: String, completionHandler handler: ((GKSavedGame?, NSError?) -> Void)? = nil)
   @available(iOS 8.0, *)
-  func deleteSavedGames(name name: String, completionHandler handler: ((Error?) -> Void)? = nil)
+  func deleteSavedGames(name name: String, completionHandler handler: ((NSError?) -> Void)? = nil)
   @available(iOS 8.0, *)
-  func resolveConflictingSavedGames(conflictingSavedGames: [GKSavedGame], with data: Data, completionHandler handler: (([GKSavedGame]?, Error?) -> Void)? = nil)
+  func resolveConflictingSavedGames(conflictingSavedGames: [GKSavedGame], with data: NSData, completionHandler handler: (([GKSavedGame]?, NSError?) -> Void)? = nil)
   @available(iOS 8.0, *)
   func player(player: GKPlayer, didModifySavedGame savedGame: GKSavedGame)
   @available(iOS 8.0, *)

@@ -11,5 +11,5 @@ class CAReplicatorLayer : CALayer {
   var instanceAlphaOffset: Float
   init()
   init(layer: AnyObject)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

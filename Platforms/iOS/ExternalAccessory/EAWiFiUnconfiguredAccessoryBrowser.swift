@@ -15,18 +15,18 @@ enum EAWiFiUnconfiguredAccessoryConfigurationStatus : Int {
   case failed
 }
 @available(iOS 8.0, *)
-class EAWiFiUnconfiguredAccessoryBrowser : Object {
+class EAWiFiUnconfiguredAccessoryBrowser : NSObject {
   weak var delegate: @sil_weak EAWiFiUnconfiguredAccessoryBrowserDelegate?
   var unconfiguredAccessories: Set<EAWiFiUnconfiguredAccessory> { get }
   @available(iOS 8.0, *)
   init(delegate: EAWiFiUnconfiguredAccessoryBrowserDelegate?, queue: dispatch_queue_t?)
   @available(iOS 8.0, *)
-  func startSearchingForUnconfiguredAccessories(matching predicate: Predicate?)
+  func startSearchingForUnconfiguredAccessories(matching predicate: NSPredicate?)
   @available(iOS 8.0, *)
   func stopSearchingForUnconfiguredAccessories()
   convenience init()
 }
-protocol EAWiFiUnconfiguredAccessoryBrowserDelegate : ObjectProtocol {
+protocol EAWiFiUnconfiguredAccessoryBrowserDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
   func accessoryBrowser(browser: EAWiFiUnconfiguredAccessoryBrowser, didUpdate state: EAWiFiUnconfiguredAccessoryBrowserState)
   @available(iOS 8.0, *)

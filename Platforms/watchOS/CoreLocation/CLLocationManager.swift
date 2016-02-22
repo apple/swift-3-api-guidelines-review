@@ -30,7 +30,7 @@ enum CLActivityType : Int {
   case otherNavigation
 }
 @available(watchOS 2.0, *)
-class CLLocationManager : Object {
+class CLLocationManager : NSObject {
   @available(watchOS 2.0, *)
   class func locationServicesEnabled() -> Bool
   @available(watchOS 2.0, *)

@@ -1,13 +1,13 @@
 
 let WebHistoryItemChangedNotification: String
-class WebHistoryItem : Object, Copying {
-  init!(urlString URLString: String!, title: String!, lastVisitedTimeInterval time: TimeInterval)
+class WebHistoryItem : NSObject, NSCopying {
+  init!(urlString URLString: String!, title: String!, lastVisitedTimeInterval time: NSTimeInterval)
   var originalURLString: String! { get }
   var urlString: String! { get }
   var title: String! { get }
-  var lastVisitedTimeInterval: TimeInterval { get }
+  var lastVisitedTimeInterval: NSTimeInterval { get }
   var alternateTitle: String!
   var icon: NSImage! { get }
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

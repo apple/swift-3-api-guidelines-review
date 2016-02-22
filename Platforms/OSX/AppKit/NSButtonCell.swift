@@ -96,13 +96,13 @@ class NSButtonCell : NSActionCell {
   var keyEquivalentFont: NSFont?
   func setKeyEquivalentFont(fontName: String, size fontSize: CGFloat)
   func performClick(sender: AnyObject?)
-  func drawImage(image: NSImage, withFrame frame: Rect, in controlView: NSView)
-  func drawTitle(title: AttributedString, withFrame frame: Rect, in controlView: NSView) -> Rect
-  func drawBezel(frame frame: Rect, in controlView: NSView)
+  func drawImage(image: NSImage, withFrame frame: NSRect, in controlView: NSView)
+  func drawTitle(title: NSAttributedString, withFrame frame: NSRect, in controlView: NSView) -> NSRect
+  func drawBezel(frame frame: NSRect, in controlView: NSView)
   init(textCell aString: String)
   init(imageCell image: NSImage?)
   convenience init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 enum NSGradientType : UInt {
   init?(rawValue: UInt)
@@ -122,8 +122,8 @@ extension NSButtonCell {
   @NSCopying var backgroundColor: NSColor?
 }
 extension NSButtonCell {
-  @NSCopying var attributedTitle: AttributedString
-  @NSCopying var attributedAlternateTitle: AttributedString
+  @NSCopying var attributedTitle: NSAttributedString
+  @NSCopying var attributedAlternateTitle: NSAttributedString
 }
 extension NSButtonCell {
   var bezelStyle: NSBezelStyle

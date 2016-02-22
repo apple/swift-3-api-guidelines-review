@@ -1,6 +1,6 @@
 
 @available(iOS 7.0, *)
-class MKMapCamera : Object, SecureCoding, Copying {
+class MKMapCamera : NSObject, NSSecureCoding, NSCopying {
   var centerCoordinate: CLLocationCoordinate2D
   var heading: CLLocationDirection
   var pitch: CGFloat
@@ -12,8 +12,8 @@ class MKMapCamera : Object, SecureCoding, Copying {
   @available(iOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 7.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 7.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

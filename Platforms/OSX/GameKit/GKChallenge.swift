@@ -9,8 +9,8 @@ enum GKChallengeState : Int {
   case declined
 }
 @available(OSX 10.8, *)
-class GKChallenge : Object, Coding, SecureCoding {
-  class func loadReceivedChallenges(completionHandler completionHandler: (([GKChallenge]?, Error?) -> Void)? = nil)
+class GKChallenge : NSObject, NSCoding, NSSecureCoding {
+  class func loadReceivedChallenges(completionHandler completionHandler: (([GKChallenge]?, NSError?) -> Void)? = nil)
   func decline()
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use issuingPlayer instead")
   var issuingPlayerID: String? { get }
@@ -21,13 +21,13 @@ class GKChallenge : Object, Coding, SecureCoding {
   @available(OSX 10.10, *)
   @NSCopying var receivingPlayer: GKPlayer? { get }
   var state: GKChallengeState { get }
-  var issueDate: Date { get }
-  var completionDate: Date? { get }
+  var issueDate: NSDate { get }
+  var completionDate: NSDate? { get }
   var message: String? { get }
   init()
   @available(OSX 10.8, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
 }
@@ -35,13 +35,13 @@ class GKChallenge : Object, Coding, SecureCoding {
 class GKScoreChallenge : GKChallenge {
   var score: GKScore? { get }
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.8, *)
 class GKAchievementChallenge : GKChallenge {
   var achievement: GKAchievement? { get }
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 extension GKScore {
   @available(OSX 10.10, *)
@@ -49,7 +49,7 @@ extension GKScore {
   @available(OSX, introduced=10.8, deprecated=10.10, message="pass GKPlayers to challengeComposeControllerWithMessage:players:completionHandler: and present the view controller instead")
   func issueChallenge(toPlayers playerIDs: [String]?, message: String?)
   @available(OSX 10.10, *)
-  class func report(scores: [GKScore], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
+  class func report(scores: [GKScore], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
 }
 extension GKAchievement {
   @available(OSX 10.10, *)
@@ -57,13 +57,13 @@ extension GKAchievement {
   @available(OSX, introduced=10.8, deprecated=10.10, message="pass GKPlayers to challengeComposeControllerWithMessage:players:completionHandler: and present the view controller instead")
   func issueChallenge(toPlayers playerIDs: [String]?, message: String?)
   @available(OSX 10.10, *)
-  func selectChallengeablePlayers(players: [GKPlayer], withCompletionHandler completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
+  func selectChallengeablePlayers(players: [GKPlayer], withCompletionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  class func report(achievements: [GKAchievement], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
+  class func report(achievements: [GKAchievement], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
 }
 extension GKScore {
 }
 extension GKAchievement {
   @available(OSX, introduced=10.8, deprecated=10.10, message="pass GKPlayers to selectChallengeablePlayers:")
-  func selectChallengeablePlayerIDs(playerIDs: [String]?, withCompletionHandler completionHandler: (([String]?, Error?) -> Void)? = nil)
+  func selectChallengeablePlayerIDs(playerIDs: [String]?, withCompletionHandler completionHandler: (([String]?, NSError?) -> Void)? = nil)
 }

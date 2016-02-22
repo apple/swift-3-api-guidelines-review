@@ -3,5 +3,5 @@
 class NSFetchedPropertyDescription : NSPropertyDescription {
   var fetchRequest: NSFetchRequest?
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

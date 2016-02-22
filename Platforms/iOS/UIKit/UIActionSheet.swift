@@ -29,14 +29,14 @@ class UIActionSheet : UIView {
   func show(in view: UIView)
   func dismiss(clickedButtonIndex buttonIndex: Int, animated: Bool)
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
 
 extension UIActionSheet {
   convenience init(title: String?, delegate: UIActionSheetDelegate?, cancelButtonTitle: String?, destructiveButtonTitle: String?, otherButtonTitles firstButtonTitle: String, _ moreButtonTitles: String...)
 }
-protocol UIActionSheetDelegate : ObjectProtocol {
+protocol UIActionSheetDelegate : NSObjectProtocol {
   @available(iOS, introduced=2.0, deprecated=8.3)
   optional func actionSheet(actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int)
   @available(iOS, introduced=2.0, deprecated=8.3)

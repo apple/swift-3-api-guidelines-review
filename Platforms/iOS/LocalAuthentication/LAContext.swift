@@ -9,26 +9,26 @@ enum LAPolicy : Int {
   case deviceOwnerAuthentication
 }
 @available(iOS 9.0, *)
-let LATouchIDAuthenticationMaximumAllowableReuseDuration: TimeInterval
+let LATouchIDAuthenticationMaximumAllowableReuseDuration: NSTimeInterval
 @available(iOS 8.0, *)
-class LAContext : Object {
-  func canEvaluatePolicy(policy: LAPolicy, error: ErrorPointer) -> Bool
-  func evaluatePolicy(policy: LAPolicy, localizedReason: String, reply: (Bool, Error?) -> Void)
+class LAContext : NSObject {
+  func canEvaluatePolicy(policy: LAPolicy, error: NSErrorPointer) -> Bool
+  func evaluatePolicy(policy: LAPolicy, localizedReason: String, reply: (Bool, NSError?) -> Void)
   @available(iOS 9.0, *)
   func invalidate()
   @available(iOS 9.0, *)
-  func setCredential(credential: Data?, type: LACredentialType) -> Bool
+  func setCredential(credential: NSData?, type: LACredentialType) -> Bool
   @available(iOS 9.0, *)
   func isCredentialSet(type: LACredentialType) -> Bool
   @available(iOS 9.0, *)
-  func evaluateAccessControl(accessControl: SecAccessControl, operation: LAAccessControlOperation, localizedReason: String, reply: (Bool, Error?) -> Void)
+  func evaluateAccessControl(accessControl: SecAccessControl, operation: LAAccessControlOperation, localizedReason: String, reply: (Bool, NSError?) -> Void)
   var localizedFallbackTitle: String?
   @available(iOS, introduced=8.3, deprecated=9.0)
-  var maxBiometryFailures: Number?
+  var maxBiometryFailures: NSNumber?
   @available(iOS 9.0, *)
-  var evaluatedPolicyDomainState: Data? { get }
+  var evaluatedPolicyDomainState: NSData? { get }
   @available(iOS 9.0, *)
-  var touchIDAuthenticationAllowableReuseDuration: TimeInterval
+  var touchIDAuthenticationAllowableReuseDuration: NSTimeInterval
   init()
 }
 @available(iOS 9.0, *)

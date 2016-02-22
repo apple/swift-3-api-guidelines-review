@@ -6,7 +6,7 @@ func NSIsControllerMarker(object: AnyObject?) -> Bool
 let NSObservedObjectKey: String
 let NSObservedKeyPathKey: String
 let NSOptionsKey: String
-extension Object {
+extension NSObject {
   class func exposeBinding(binding: String)
   var exposedBindings: [String] { get }
   class func valueClass(forBinding binding: String) -> AnyClass?
@@ -23,17 +23,17 @@ extension Object {
   func optionDescriptions(forBinding aBinding: String) -> [NSAttributeDescription]
   class func exposedBindings() -> [String]
 }
-extension Object {
+extension NSObject {
   class func setDefaultPlaceholder(placeholder: AnyObject?, forMarker marker: AnyObject?, withBinding binding: String)
   class func defaultPlaceholder(forMarker marker: AnyObject?, withBinding binding: String) -> AnyObject?
 }
-extension Object {
+extension NSObject {
   class func objectDidBeginEditing(editor: AnyObject)
   func objectDidBeginEditing(editor: AnyObject)
   class func objectDidEndEditing(editor: AnyObject)
   func objectDidEndEditing(editor: AnyObject)
 }
-extension Object {
+extension NSObject {
   class func discardEditing()
   func discardEditing()
   class func commitEditing() -> Bool

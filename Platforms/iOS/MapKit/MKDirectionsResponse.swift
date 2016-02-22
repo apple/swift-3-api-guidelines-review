@@ -1,24 +1,24 @@
 
 @available(iOS 7.0, *)
-class MKDirectionsResponse : Object {
+class MKDirectionsResponse : NSObject {
   var source: MKMapItem { get }
   var destination: MKMapItem { get }
   var routes: [MKRoute] { get }
   init()
 }
 @available(iOS 7.0, *)
-class MKRoute : Object {
+class MKRoute : NSObject {
   var name: String { get }
   var advisoryNotices: [String] { get }
   var distance: CLLocationDistance { get }
-  var expectedTravelTime: TimeInterval { get }
+  var expectedTravelTime: NSTimeInterval { get }
   var transportType: MKDirectionsTransportType { get }
   var polyline: MKPolyline { get }
   var steps: [MKRouteStep] { get }
   init()
 }
 @available(iOS 7.0, *)
-class MKRouteStep : Object {
+class MKRouteStep : NSObject {
   var instructions: String { get }
   var notice: String? { get }
   var polyline: MKPolyline { get }
@@ -27,16 +27,16 @@ class MKRouteStep : Object {
   init()
 }
 @available(iOS 7.0, *)
-class MKETAResponse : Object {
+class MKETAResponse : NSObject {
   var source: MKMapItem { get }
   var destination: MKMapItem { get }
-  var expectedTravelTime: TimeInterval { get }
+  var expectedTravelTime: NSTimeInterval { get }
   @available(iOS 9.0, *)
   var distance: CLLocationDistance { get }
   @available(iOS 9.0, *)
-  var expectedArrivalDate: Date { get }
+  var expectedArrivalDate: NSDate { get }
   @available(iOS 9.0, *)
-  var expectedDepartureDate: Date { get }
+  var expectedDepartureDate: NSDate { get }
   @available(iOS 9.0, *)
   var transportType: MKDirectionsTransportType { get }
   init()

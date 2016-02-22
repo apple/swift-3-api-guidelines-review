@@ -23,6 +23,6 @@ class PKPaymentButton : UIButton {
   init(paymentButtonType type: PKPaymentButtonType, paymentButtonStyle style: PKPaymentButtonStyle)
   convenience init(type buttonType: UIButtonType)
   convenience init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }

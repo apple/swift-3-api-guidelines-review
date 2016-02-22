@@ -1,6 +1,6 @@
 
 @available(iOS 7.1, *)
-class MPContentItem : Object {
+class MPContentItem : NSObject {
   var identifier: String { get }
   var title: String?
   var subtitle: String?

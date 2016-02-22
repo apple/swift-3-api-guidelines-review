@@ -1,14 +1,14 @@
 
 @available(tvOS 8.0, *)
-class AVAudioBuffer : Object, Copying, MutableCopying {
+class AVAudioBuffer : NSObject, NSCopying, NSMutableCopying {
   var format: AVAudioFormat { get }
   var audioBufferList: UnsafePointer<AudioBufferList> { get }
   var mutableAudioBufferList: UnsafeMutablePointer<AudioBufferList> { get }
   init()
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 8.0, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 class AVAudioPCMBuffer : AVAudioBuffer {

@@ -1,6 +1,6 @@
 
 @available(iOS 8.0, *)
-class MTLVertexAttribute : Object {
+class MTLVertexAttribute : NSObject {
   var name: String? { get }
   var attributeIndex: Int { get }
   @available(iOS 8.3, *)
@@ -17,7 +17,7 @@ enum MTLFunctionType : UInt {
   case kernel
 }
 @available(iOS 8.0, *)
-protocol MTLFunction : ObjectProtocol {
+protocol MTLFunction : NSObjectProtocol {
   var device: MTLDevice { get }
   var functionType: MTLFunctionType { get }
   var vertexAttributes: [MTLVertexAttribute]? { get }
@@ -32,14 +32,14 @@ enum MTLLanguageVersion : UInt {
   case version1_1
 }
 @available(iOS 8.0, *)
-class MTLCompileOptions : Object, Copying {
-  var preprocessorMacros: [String : Object]?
+class MTLCompileOptions : NSObject, NSCopying {
+  var preprocessorMacros: [String : NSObject]?
   var fastMathEnabled: Bool
   @available(iOS 9.0, *)
   var languageVersion: MTLLanguageVersion
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 let MTLLibraryErrorDomain: String
@@ -62,7 +62,7 @@ enum MTLRenderPipelineError : UInt {
   case invalidInput
 }
 @available(iOS 8.0, *)
-protocol MTLLibrary : ObjectProtocol {
+protocol MTLLibrary : NSObjectProtocol {
   var label: String? { get set }
   var device: MTLDevice { get }
   func newFunction(withName functionName: String) -> MTLFunction?

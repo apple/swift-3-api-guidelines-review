@@ -22,7 +22,7 @@ let AVAudioUnitTypeMIDIProcessor: String
 @available(iOS 9.0, *)
 let AVAudioUnitManufacturerNameApple: String
 @available(iOS 9.0, *)
-class AVAudioUnitComponent : Object {
+class AVAudioUnitComponent : NSObject {
   var name: String { get }
   var typeName: String { get }
   var localizedTypeName: String { get }
@@ -40,11 +40,11 @@ class AVAudioUnitComponent : Object {
 @available(iOS 9.0, *)
 let AVAudioUnitComponentTagsDidChangeNotification: String
 @available(iOS 9.0, *)
-class AVAudioUnitComponentManager : Object {
+class AVAudioUnitComponentManager : NSObject {
   var tagNames: [String] { get }
   var standardLocalizedTagNames: [String] { get }
   class func shared() -> Self
-  func components(matching predicate: Predicate) -> [AVAudioUnitComponent]
+  func components(matching predicate: NSPredicate) -> [AVAudioUnitComponent]
   func components(passingTest testHandler: (AVAudioUnitComponent, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [AVAudioUnitComponent]
   func components(matching desc: AudioComponentDescription) -> [AVAudioUnitComponent]
   init()

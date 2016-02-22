@@ -1,10 +1,10 @@
 
 @available(iOS 8.0, *)
-class HMCharacteristicMetadata : Object {
-  var minimumValue: Number? { get }
-  var maximumValue: Number? { get }
-  var stepValue: Number? { get }
-  var maxLength: Number? { get }
+class HMCharacteristicMetadata : NSObject {
+  var minimumValue: NSNumber? { get }
+  var maximumValue: NSNumber? { get }
+  var stepValue: NSNumber? { get }
+  var maxLength: NSNumber? { get }
   var format: String? { get }
   var units: String? { get }
   var manufacturerDescription: String? { get }

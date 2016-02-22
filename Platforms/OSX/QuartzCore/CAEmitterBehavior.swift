@@ -1,16 +1,16 @@
 
-class CAEmitterBehavior : Object, Coding {
+class CAEmitterBehavior : NSObject, NSCoding {
   class func behaviorTypes() -> [String]
   init(type: String)
   var type: String { get }
   var name: String?
   var isEnabled: Bool
   func inputKeys() -> [AnyObject]
-  class func attributes(forKey key: String) -> [Object : AnyObject]
-  func attributes(forKeyPath keyPath: String) -> [Object : AnyObject]
+  class func attributes(forKey key: String) -> [NSObject : AnyObject]
+  func attributes(forKeyPath keyPath: String) -> [NSObject : AnyObject]
   init()
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 let kCAEmitterBehaviorWave: String
 let kCAEmitterBehaviorDrag: String

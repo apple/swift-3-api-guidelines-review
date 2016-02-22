@@ -1,6 +1,6 @@
 
 @available(iOS 9.0, *)
-class NEIPv4Settings : Object, SecureCoding, Copying {
+class NEIPv4Settings : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   init(addresses: [String], subnetMasks: [String])
   @available(iOS 9.0, *)
@@ -15,13 +15,13 @@ class NEIPv4Settings : Object, SecureCoding, Copying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
-class NEIPv4Route : Object, SecureCoding, Copying {
+class NEIPv4Route : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   init(destinationAddress address: String, subnetMask: String)
   @available(iOS 9.0, *)
@@ -36,8 +36,8 @@ class NEIPv4Route : Object, SecureCoding, Copying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

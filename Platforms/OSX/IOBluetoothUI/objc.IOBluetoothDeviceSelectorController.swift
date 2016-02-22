@@ -22,7 +22,7 @@ class IOBluetoothDeviceSelectorController : NSWindowController {
   func setCancel(prompt: String!)
   func getCancel() -> String!
   init(window: NSWindow?)
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   convenience init(windowNibName: String)
   convenience init(windowNibName: String, owner: AnyObject)
   convenience init(windowNibPath: String, owner: AnyObject)

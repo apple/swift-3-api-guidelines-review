@@ -1,8 +1,8 @@
 
 @available(tvOS 8.0, *)
-class CBPeer : Object, Copying {
+class CBPeer : NSObject, NSCopying {
   @available(tvOS 7.0, *)
-  var identifier: UUID { get }
+  var identifier: NSUUID { get }
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

@@ -1,6 +1,6 @@
 
 @available(tvOS 3.0, *)
-class NSFetchedResultsController : Object {
+class NSFetchedResultsController : NSObject {
   init(fetchRequest: NSFetchRequest, managedObjectContext context: NSManagedObjectContext, sectionNameKeyPath: String?, cacheName name: String?)
   func performFetch() throws
   var fetchRequest: NSFetchRequest { get }
@@ -10,8 +10,8 @@ class NSFetchedResultsController : Object {
   unowned(unsafe) var delegate: @sil_unmanaged NSFetchedResultsControllerDelegate?
   class func deleteCache(name name: String?)
   var fetchedObjects: [AnyObject]? { get }
-  func object(at indexPath: IndexPath) -> AnyObject
-  func indexPath(for object: AnyObject) -> IndexPath?
+  func object(at indexPath: NSIndexPath) -> AnyObject
+  func indexPath(for object: AnyObject) -> NSIndexPath?
   func sectionIndexTitle(forSectionName sectionName: String) -> String?
   var sectionIndexTitles: [String] { get }
   var sections: [NSFetchedResultsSectionInfo]? { get }
@@ -40,9 +40,9 @@ protocol NSFetchedResultsSectionInfo {
   var numberOfObjects: Int { get }
   var objects: [AnyObject]? { get }
 }
-protocol NSFetchedResultsControllerDelegate : ObjectProtocol {
+protocol NSFetchedResultsControllerDelegate : NSObjectProtocol {
   @available(tvOS 3.0, *)
-  optional func controller(controller: NSFetchedResultsController, didChange anObject: AnyObject, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
+  optional func controller(controller: NSFetchedResultsController, didChange anObject: AnyObject, at indexPath: NSIndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?)
   @available(tvOS 3.0, *)
   optional func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, at sectionIndex: Int, for type: NSFetchedResultsChangeType)
   @available(tvOS 3.0, *)

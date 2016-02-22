@@ -1,49 +1,49 @@
 
-var unknownByteOrder: Int { get }
-var littleEndian: Int { get }
-var bigEndian: Int { get }
-func hostByteOrder() -> Int
-func swapShort(inv: UInt16) -> UInt16
-func swapInt(inv: UInt32) -> UInt32
-func swapLong(inv: UInt) -> UInt
-func swapLongLong(inv: UInt64) -> UInt64
-func swapBigShortToHost(x: UInt16) -> UInt16
-func swapBigIntToHost(x: UInt32) -> UInt32
-func swapBigLongToHost(x: UInt) -> UInt
-func swapBigLongLongToHost(x: UInt64) -> UInt64
-func swapHostShortToBig(x: UInt16) -> UInt16
-func swapHostIntToBig(x: UInt32) -> UInt32
-func swapHostLongToBig(x: UInt) -> UInt
-func swapHostLongLongToBig(x: UInt64) -> UInt64
-func swapLittleShortToHost(x: UInt16) -> UInt16
-func swapLittleIntToHost(x: UInt32) -> UInt32
-func swapLittleLongToHost(x: UInt) -> UInt
-func swapLittleLongLongToHost(x: UInt64) -> UInt64
-func swapHostShortToLittle(x: UInt16) -> UInt16
-func swapHostIntToLittle(x: UInt32) -> UInt32
-func swapHostLongToLittle(x: UInt) -> UInt
-func swapHostLongLongToLittle(x: UInt64) -> UInt64
-struct SwappedFloat {
+var NS_UnknownByteOrder: Int { get }
+var NS_LittleEndian: Int { get }
+var NS_BigEndian: Int { get }
+func NSHostByteOrder() -> Int
+func NSSwapShort(inv: UInt16) -> UInt16
+func NSSwapInt(inv: UInt32) -> UInt32
+func NSSwapLong(inv: UInt) -> UInt
+func NSSwapLongLong(inv: UInt64) -> UInt64
+func NSSwapBigShortToHost(x: UInt16) -> UInt16
+func NSSwapBigIntToHost(x: UInt32) -> UInt32
+func NSSwapBigLongToHost(x: UInt) -> UInt
+func NSSwapBigLongLongToHost(x: UInt64) -> UInt64
+func NSSwapHostShortToBig(x: UInt16) -> UInt16
+func NSSwapHostIntToBig(x: UInt32) -> UInt32
+func NSSwapHostLongToBig(x: UInt) -> UInt
+func NSSwapHostLongLongToBig(x: UInt64) -> UInt64
+func NSSwapLittleShortToHost(x: UInt16) -> UInt16
+func NSSwapLittleIntToHost(x: UInt32) -> UInt32
+func NSSwapLittleLongToHost(x: UInt) -> UInt
+func NSSwapLittleLongLongToHost(x: UInt64) -> UInt64
+func NSSwapHostShortToLittle(x: UInt16) -> UInt16
+func NSSwapHostIntToLittle(x: UInt32) -> UInt32
+func NSSwapHostLongToLittle(x: UInt) -> UInt
+func NSSwapHostLongLongToLittle(x: UInt64) -> UInt64
+struct NSSwappedFloat {
   var v: UInt32
   init()
   init(v: UInt32)
 }
-struct SwappedDouble {
+struct NSSwappedDouble {
   var v: UInt64
   init()
   init(v: UInt64)
 }
-func convertHostFloatToSwapped(x: Float) -> SwappedFloat
-func convertSwappedFloatToHost(x: SwappedFloat) -> Float
-func convertHostDoubleToSwapped(x: Double) -> SwappedDouble
-func convertSwappedDoubleToHost(x: SwappedDouble) -> Double
-func swapFloat(x: SwappedFloat) -> SwappedFloat
-func swapDouble(x: SwappedDouble) -> SwappedDouble
-func swapBigDoubleToHost(x: SwappedDouble) -> Double
-func swapBigFloatToHost(x: SwappedFloat) -> Float
-func swapHostDoubleToBig(x: Double) -> SwappedDouble
-func swapHostFloatToBig(x: Float) -> SwappedFloat
-func swapLittleDoubleToHost(x: SwappedDouble) -> Double
-func swapLittleFloatToHost(x: SwappedFloat) -> Float
-func swapHostDoubleToLittle(x: Double) -> SwappedDouble
-func swapHostFloatToLittle(x: Float) -> SwappedFloat
+func NSConvertHostFloatToSwapped(x: Float) -> NSSwappedFloat
+func NSConvertSwappedFloatToHost(x: NSSwappedFloat) -> Float
+func NSConvertHostDoubleToSwapped(x: Double) -> NSSwappedDouble
+func NSConvertSwappedDoubleToHost(x: NSSwappedDouble) -> Double
+func NSSwapFloat(x: NSSwappedFloat) -> NSSwappedFloat
+func NSSwapDouble(x: NSSwappedDouble) -> NSSwappedDouble
+func NSSwapBigDoubleToHost(x: NSSwappedDouble) -> Double
+func NSSwapBigFloatToHost(x: NSSwappedFloat) -> Float
+func NSSwapHostDoubleToBig(x: Double) -> NSSwappedDouble
+func NSSwapHostFloatToBig(x: Float) -> NSSwappedFloat
+func NSSwapLittleDoubleToHost(x: NSSwappedDouble) -> Double
+func NSSwapLittleFloatToHost(x: NSSwappedFloat) -> Float
+func NSSwapHostDoubleToLittle(x: Double) -> NSSwappedDouble
+func NSSwapHostFloatToLittle(x: Float) -> NSSwappedFloat

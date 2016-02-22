@@ -7,11 +7,11 @@ class AVPlayerView : NSView {
   @available(OSX 10.10, *)
   var isReadyForDisplay: Bool { get }
   @available(OSX 10.10, *)
-  var videoBounds: Rect { get }
+  var videoBounds: NSRect { get }
   @available(OSX 10.10, *)
   var contentOverlayView: NSView? { get }
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }
 @available(OSX 10.9, *)

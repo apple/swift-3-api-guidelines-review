@@ -12,7 +12,7 @@ class AMWorkflowController : NSController {
   @IBAction func step(sender: AnyObject)
   @IBAction func reset(sender: AnyObject)
   init()
-  init?(coder: Coder)
+  init?(coder: NSCoder)
 }
 struct __AMWorkflowControllerFlags {
   var shouldRunLocally: Int
@@ -44,7 +44,7 @@ struct __AMWorkflowControllerDelegateRespondTo {
   init()
   init(workflowControllerDidAddWorkflow: Int, workflowControllerDidRemoveWorkflow: Int, workflowControllerWillRun: Int, workflowControllerWillStep: Int, workflowControllerWillStop: Int, workflowControllerWillPause: Int, workflowControllerDidRun: Int, workflowControllerDidStep: Int, workflowControllerDidStop: Int, workflowControllerDidPause: Int, workflowControllerWillRunAction: Int, workflowControllerDidRunAction: Int, workflowControllerDidError: Int, workflowControllerDidLogMessageOfTypeFromAction: Int, workflowControllerWillRunConversion: Int, workflowControllerDidRunConversion: Int, workflowControllerDidResumeWithAction: Int, reserved: Int)
 }
-extension Object {
+extension NSObject {
   class func workflowControllerWillRun(controller: AMWorkflowController)
   func workflowControllerWillRun(controller: AMWorkflowController)
   class func workflowControllerWillStop(controller: AMWorkflowController)
@@ -57,6 +57,6 @@ extension Object {
   func workflowController(controller: AMWorkflowController, willRun action: AMAction)
   class func workflowController(controller: AMWorkflowController, didRun action: AMAction)
   func workflowController(controller: AMWorkflowController, didRun action: AMAction)
-  class func workflowController(controller: AMWorkflowController, didError error: Error)
-  func workflowController(controller: AMWorkflowController, didError error: Error)
+  class func workflowController(controller: AMWorkflowController, didError error: NSError)
+  func workflowController(controller: AMWorkflowController, didError error: NSError)
 }

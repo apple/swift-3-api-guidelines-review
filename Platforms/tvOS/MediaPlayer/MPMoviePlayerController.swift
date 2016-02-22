@@ -5,15 +5,15 @@ extension MPMoviePlayerController {
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
   var movieSourceType: MPMovieSourceType
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
-  var duration: TimeInterval { get }
+  var duration: NSTimeInterval { get }
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
-  var playableDuration: TimeInterval { get }
+  var playableDuration: NSTimeInterval { get }
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
   var naturalSize: CGSize { get }
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
-  var initialPlaybackTime: TimeInterval
+  var initialPlaybackTime: NSTimeInterval
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
-  var endPlaybackTime: TimeInterval
+  var endPlaybackTime: NSTimeInterval
   @available(tvOS, introduced=4.3, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
   var allowsAirPlay: Bool
   @available(tvOS, introduced=5.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")

@@ -8,7 +8,7 @@ enum CLRegionState : Int {
   case outside
 }
 @available(OSX 10.7, *)
-class CLRegion : Object, Copying, SecureCoding {
+class CLRegion : NSObject, NSCopying, NSSecureCoding {
   @available(OSX, introduced=10.7, deprecated=10.10)
   init(circularRegionWithCenter center: CLLocationCoordinate2D, radius: CLLocationDistance, identifier: String)
   @available(OSX, introduced=10.7, deprecated=10.10)
@@ -25,10 +25,10 @@ class CLRegion : Object, Copying, SecureCoding {
   func contains(coordinate: CLLocationCoordinate2D) -> Bool
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.7, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

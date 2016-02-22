@@ -1,6 +1,6 @@
 
 @available(iOS 7.0, *)
-class MCAdvertiserAssistant : Object {
+class MCAdvertiserAssistant : NSObject {
   init(serviceType: String, discoveryInfo info: [String : String]?, session: MCSession)
   func start()
   func stop()
@@ -10,7 +10,7 @@ class MCAdvertiserAssistant : Object {
   var serviceType: String { get }
   convenience init()
 }
-protocol MCAdvertiserAssistantDelegate : ObjectProtocol {
+protocol MCAdvertiserAssistantDelegate : NSObjectProtocol {
   @available(iOS 7.0, *)
   optional func advertiserAssistantWillPresentInvitation(advertiserAssistant: MCAdvertiserAssistant)
   @available(iOS 7.0, *)

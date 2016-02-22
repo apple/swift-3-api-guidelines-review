@@ -10,7 +10,7 @@ struct NSSnapshotEventType : OptionSetType {
   static var mergePolicy: NSSnapshotEventType { get }
 }
 @available(iOS 3.0, *)
-class NSManagedObject : Object {
+class NSManagedObject : NSObject {
   @available(iOS 3.0, *)
   class func contextShouldIgnoreUnmodeledPropertyChanges() -> Bool
   init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?)
@@ -35,8 +35,8 @@ class NSManagedObject : Object {
   func didAccessValue(forKey key: String?)
   func willChangeValue(forKey key: String)
   func didChangeValue(forKey key: String)
-  func willChangeValue(forKey inKey: String, withSetMutation inMutationKind: KeyValueSetMutationKind, using inObjects: Set<Object>)
-  func didChangeValue(forKey inKey: String, withSetMutation inMutationKind: KeyValueSetMutationKind, using inObjects: Set<Object>)
+  func willChangeValue(forKey inKey: String, withSetMutation inMutationKind: NSKeyValueSetMutationKind, using inObjects: Set<NSObject>)
+  func didChangeValue(forKey inKey: String, withSetMutation inMutationKind: NSKeyValueSetMutationKind, using inObjects: Set<NSObject>)
   func awakeFromFetch()
   func awakeFromInsert()
   @available(iOS 3.0, *)

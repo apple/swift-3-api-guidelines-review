@@ -1,10 +1,10 @@
 
 @available(iOS 7.0, *)
-class SSReadingList : Object {
+class SSReadingList : NSObject {
   class func defaultReadingList() -> SSReadingList?
-  class func supportsURL(URL: URL) -> Bool
+  class func supportsURL(URL: NSURL) -> Bool
   @available(iOS 7.0, *)
-  func addItem(URL: URL, title: String?, previewText: String?) throws
+  func addItem(URL: NSURL, title: String?, previewText: String?) throws
 }
 @available(iOS 7.0, *)
 let SSReadingListErrorDomain: String

@@ -8,5 +8,5 @@ class NSCollectionViewTransitionLayout : NSCollectionViewLayout {
   func updateValue(value: CGFloat, forAnimatedKey key: String)
   func value(forAnimatedKey key: String) -> CGFloat
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

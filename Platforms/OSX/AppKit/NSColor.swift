@@ -1,8 +1,8 @@
 
 var NSAppKitVersionNumberWithPatternColorLeakFix: Double { get }
-class NSColor : Object, Copying, SecureCoding, NSPasteboardReading, NSPasteboardWriting {
+class NSColor : NSObject, NSCopying, NSSecureCoding, NSPasteboardReading, NSPasteboardWriting {
   init()
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   /*not inherited*/ init(calibratedWhite white: CGFloat, alpha: CGFloat)
   /*not inherited*/ init(calibratedHue hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat)
   /*not inherited*/ init(calibratedRed red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
@@ -119,16 +119,16 @@ class NSColor : Object, Copying, SecureCoding, NSPasteboardReading, NSPasteboard
   func write(to pasteBoard: NSPasteboard)
   /*not inherited*/ init(patternImage image: NSImage)
   var patternImage: NSImage { get }
-  func drawSwatch(in rect: Rect)
+  func drawSwatch(in rect: NSRect)
   @available(OSX 10.8, *)
   /*not inherited*/ init?(cgColor: CGColor)
   @available(OSX 10.8, *)
   var cgColor: CGColor { get }
   class func setIgnoresAlpha(flag: Bool)
   class func ignoresAlpha() -> Bool
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
   class func readableTypes(for pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
   class func readingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
@@ -148,6 +148,6 @@ extension NSColor {
 extension CIColor {
   convenience init?(color: NSColor)
 }
-extension Coder {
+extension NSCoder {
 }
 let NSSystemColorsDidChangeNotification: String

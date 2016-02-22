@@ -8,34 +8,34 @@ enum UIBlurEffectStyle : Int {
   case dark
 }
 @available(tvOS 8.0, *)
-class UIVisualEffect : Object, Copying, SecureCoding {
+class UIVisualEffect : NSObject, NSCopying, NSSecureCoding {
   init()
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 8.0, *)
 class UIBlurEffect : UIVisualEffect {
   /*not inherited*/ init(style: UIBlurEffectStyle)
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 8.0, *)
 class UIVibrancyEffect : UIVisualEffect {
   /*not inherited*/ init(for blurEffect: UIBlurEffect)
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 8.0, *)
-class UIVisualEffectView : UIView, SecureCoding {
+class UIVisualEffectView : UIView, NSSecureCoding {
   var contentView: UIView { get }
   @NSCopying var effect: UIVisualEffect?
   init(effect: UIVisualEffect?)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init(frame: CGRect)
   convenience init()
   @available(tvOS 8.0, *)

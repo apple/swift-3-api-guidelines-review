@@ -1,8 +1,8 @@
 
-class DistributedLock : Object {
+class NSDistributedLock : NSObject {
   init?(path: String)
   func tryLock() -> Bool
   func unlock()
   func breakLock()
-  @NSCopying var lockDate: Date { get }
+  @NSCopying var lockDate: NSDate { get }
 }

@@ -22,7 +22,7 @@ let AVSpeechUtteranceDefaultSpeechRate: Float
 @available(tvOS 9.0, *)
 let AVSpeechSynthesisVoiceIdentifierAlex: String
 @available(tvOS 7.0, *)
-class AVSpeechSynthesisVoice : Object, SecureCoding {
+class AVSpeechSynthesisVoice : NSObject, NSSecureCoding {
   class func speechVoices() -> [AVSpeechSynthesisVoice]
   class func currentLanguageCode() -> String
   /*not inherited*/ init?(language languageCode: String?)
@@ -39,30 +39,30 @@ class AVSpeechSynthesisVoice : Object, SecureCoding {
   @available(tvOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 7.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 7.0, *)
-class AVSpeechUtterance : Object, Copying, SecureCoding {
+class AVSpeechUtterance : NSObject, NSCopying, NSSecureCoding {
   init(string: String)
   var voice: AVSpeechSynthesisVoice?
   var speechString: String { get }
   var rate: Float
   var pitchMultiplier: Float
   var volume: Float
-  var preUtteranceDelay: TimeInterval
-  var postUtteranceDelay: TimeInterval
+  var preUtteranceDelay: NSTimeInterval
+  var postUtteranceDelay: NSTimeInterval
   init()
   @available(tvOS 7.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 7.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 7.0, *)
-class AVSpeechSynthesizer : Object {
+class AVSpeechSynthesizer : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged AVSpeechSynthesizerDelegate?
   var isSpeaking: Bool { get }
   var isPaused: Bool { get }
@@ -72,7 +72,7 @@ class AVSpeechSynthesizer : Object {
   func continueSpeaking() -> Bool
   init()
 }
-protocol AVSpeechSynthesizerDelegate : ObjectProtocol {
+protocol AVSpeechSynthesizerDelegate : NSObjectProtocol {
   @available(tvOS 7.0, *)
   optional func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance)
   @available(tvOS 7.0, *)

@@ -8,9 +8,9 @@ struct NSMediaLibrary : OptionSetType {
   static var movie: NSMediaLibrary { get }
 }
 @available(OSX 10.9, *)
-class NSMediaLibraryBrowserController : Object {
+class NSMediaLibraryBrowserController : NSObject {
   var isVisible: Bool
-  var frame: Rect
+  var frame: NSRect
   var mediaLibraries: NSMediaLibrary
   class func shared() -> NSMediaLibraryBrowserController
   @IBAction func togglePanel(sender: AnyObject?)

@@ -22,7 +22,7 @@ struct MTLTextureUsage : OptionSetType {
   static var pixelFormatView: MTLTextureUsage { get }
 }
 @available(iOS 8.0, *)
-class MTLTextureDescriptor : Object, Copying {
+class MTLTextureDescriptor : NSObject, NSCopying {
   class func texture2DDescriptor(with pixelFormat: MTLPixelFormat, width: Int, height: Int, mipmapped: Bool) -> MTLTextureDescriptor
   class func textureCubeDescriptor(with pixelFormat: MTLPixelFormat, size: Int, mipmapped: Bool) -> MTLTextureDescriptor
   var textureType: MTLTextureType
@@ -42,7 +42,7 @@ class MTLTextureDescriptor : Object, Copying {
   var usage: MTLTextureUsage
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 protocol MTLTexture : MTLResource {

@@ -1,6 +1,6 @@
 
 @available(iOS 6.0, *)
-class AVMetadataObject : Object {
+class AVMetadataObject : NSObject {
   var time: CMTime { get }
   var duration: CMTime { get }
   var bounds: CGRect { get }
@@ -10,7 +10,7 @@ class AVMetadataObject : Object {
 @available(iOS 6.0, *)
 let AVMetadataObjectTypeFace: String
 @available(iOS 6.0, *)
-class AVMetadataFaceObject : AVMetadataObject, Copying {
+class AVMetadataFaceObject : AVMetadataObject, NSCopying {
   var faceID: Int { get }
   var hasRollAngle: Bool { get }
   var rollAngle: CGFloat { get }
@@ -18,7 +18,7 @@ class AVMetadataFaceObject : AVMetadataObject, Copying {
   var yawAngle: CGFloat { get }
   init()
   @available(iOS 6.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 7.0, *)
 let AVMetadataObjectTypeUPCECode: String

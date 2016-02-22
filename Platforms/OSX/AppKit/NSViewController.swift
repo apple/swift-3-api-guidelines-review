@@ -14,11 +14,11 @@ struct NSViewControllerTransitionOptions : OptionSetType {
   static var allowUserInteraction: NSViewControllerTransitionOptions { get }
 }
 @available(OSX 10.5, *)
-class NSViewController : NSResponder, Coding, NSSeguePerforming, NSUserInterfaceItemIdentification {
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder: Coder)
+class NSViewController : NSResponder, NSCoding, NSSeguePerforming, NSUserInterfaceItemIdentification {
+  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder: NSCoder)
   var nibName: String? { get }
-  var nibBundle: Bundle? { get }
+  var nibBundle: NSBundle? { get }
   var representedObject: AnyObject?
   var title: String?
   var view: NSView
@@ -39,7 +39,7 @@ class NSViewController : NSResponder, Coding, NSSeguePerforming, NSUserInterface
   @available(OSX 10.10, *)
   func viewDidDisappear()
   @available(OSX 10.10, *)
-  var preferredContentSize: Size
+  var preferredContentSize: NSSize
   @available(OSX 10.10, *)
   func updateViewConstraints()
   @available(OSX 10.10, *)
@@ -74,7 +74,7 @@ extension NSViewController {
   @available(OSX 10.10, *)
   func present(asModalWindow viewController: NSViewController)
   @available(OSX 10.10, *)
-  func present(viewController: NSViewController, asPopoverRelativeTo positioningRect: Rect, of positioningView: NSView, preferredEdge: RectEdge, behavior: NSPopoverBehavior)
+  func present(viewController: NSViewController, asPopoverRelativeTo positioningRect: NSRect, of positioningView: NSView, preferredEdge: NSRectEdge, behavior: NSPopoverBehavior)
   @available(OSX 10.10, *)
   func transition(from fromViewController: NSViewController, to toViewController: NSViewController, options: NSViewControllerTransitionOptions = [], completionHandler completion: (() -> Void)? = nil)
 }
@@ -94,9 +94,9 @@ extension NSViewController {
   @available(OSX 10.10, *)
   func preferredContentSizeDidChange(for viewController: NSViewController)
   @available(OSX 10.10, *)
-  func viewWillTransition(to newSize: Size)
+  func viewWillTransition(to newSize: NSSize)
 }
-protocol NSViewControllerPresentationAnimator : ObjectProtocol {
+protocol NSViewControllerPresentationAnimator : NSObjectProtocol {
   @available(OSX 10.10, *)
   func animatePresentationOf(viewController: NSViewController, from fromViewController: NSViewController)
   @available(OSX 10.10, *)
@@ -106,17 +106,17 @@ extension NSViewController {
   @available(OSX 10.10, *)
   var storyboard: NSStoryboard? { get }
 }
-extension NSViewController : ExtensionRequestHandling {
+extension NSViewController : NSExtensionRequestHandling {
   @available(OSX 10.10, *)
-  var extensionContext: ExtensionContext? { get }
+  var extensionContext: NSExtensionContext? { get }
   @available(OSX 10.10, *)
   @IBOutlet var sourceItemView: NSView?
   @available(OSX 10.10, *)
-  var preferredScreenOrigin: Point
+  var preferredScreenOrigin: NSPoint
   @available(OSX 10.10, *)
-  var preferredMinimumSize: Size { get }
+  var preferredMinimumSize: NSSize { get }
   @available(OSX 10.10, *)
-  var preferredMaximumSize: Size { get }
+  var preferredMaximumSize: NSSize { get }
   @available(OSX 10.10, *)
-  func beginRequest(context: ExtensionContext)
+  func beginRequest(context: NSExtensionContext)
 }

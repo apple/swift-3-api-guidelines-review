@@ -5,7 +5,7 @@ class UICollectionViewTransitionLayout : UICollectionViewLayout {
   var currentLayout: UICollectionViewLayout { get }
   var nextLayout: UICollectionViewLayout { get }
   init(currentLayout: UICollectionViewLayout, nextLayout newLayout: UICollectionViewLayout)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   func updateValue(value: CGFloat, forAnimatedKey key: String)
   func value(forAnimatedKey key: String) -> CGFloat
 }

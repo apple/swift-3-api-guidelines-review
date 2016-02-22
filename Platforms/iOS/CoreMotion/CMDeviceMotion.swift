@@ -23,5 +23,5 @@ class CMDeviceMotion : CMLogItem {
   @available(iOS 5.0, *)
   var magneticField: CMCalibratedMagneticField { get }
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

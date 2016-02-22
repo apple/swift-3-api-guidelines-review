@@ -1,5 +1,5 @@
 
-enum URLHandleStatus : UInt {
+enum NSURLHandleStatus : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case notLoaded
@@ -7,8 +7,8 @@ enum URLHandleStatus : UInt {
   case loadInProgress
   case loadFailed
 }
-protocol URLHandleClient {
+protocol NSURLHandleClient {
 }
-class URLHandle : Object {
+class NSURLHandle : NSObject {
   init()
 }

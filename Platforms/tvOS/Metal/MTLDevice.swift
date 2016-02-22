@@ -18,13 +18,13 @@ struct MTLPipelineOption : OptionSetType {
 }
 typealias MTLAutoreleasedRenderPipelineReflection = MTLRenderPipelineReflection
 typealias MTLAutoreleasedComputePipelineReflection = MTLComputePipelineReflection
-typealias MTLNewLibraryCompletionHandler = (MTLLibrary?, Error?) -> Void
-typealias MTLNewRenderPipelineStateCompletionHandler = (MTLRenderPipelineState?, Error?) -> Void
-typealias MTLNewRenderPipelineStateWithReflectionCompletionHandler = (MTLRenderPipelineState?, MTLRenderPipelineReflection?, Error?) -> Void
-typealias MTLNewComputePipelineStateCompletionHandler = (MTLComputePipelineState?, Error?) -> Void
-typealias MTLNewComputePipelineStateWithReflectionCompletionHandler = (MTLComputePipelineState?, MTLComputePipelineReflection?, Error?) -> Void
+typealias MTLNewLibraryCompletionHandler = (MTLLibrary?, NSError?) -> Void
+typealias MTLNewRenderPipelineStateCompletionHandler = (MTLRenderPipelineState?, NSError?) -> Void
+typealias MTLNewRenderPipelineStateWithReflectionCompletionHandler = (MTLRenderPipelineState?, MTLRenderPipelineReflection?, NSError?) -> Void
+typealias MTLNewComputePipelineStateCompletionHandler = (MTLComputePipelineState?, NSError?) -> Void
+typealias MTLNewComputePipelineStateWithReflectionCompletionHandler = (MTLComputePipelineState?, MTLComputePipelineReflection?, NSError?) -> Void
 @available(tvOS 8.0, *)
-protocol MTLDevice : ObjectProtocol {
+protocol MTLDevice : NSObjectProtocol {
   var name: String? { get }
   @available(tvOS 9.0, *)
   var maxThreadsPerThreadgroup: MTLSize { get }

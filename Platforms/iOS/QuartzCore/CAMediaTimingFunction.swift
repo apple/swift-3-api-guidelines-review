@@ -1,11 +1,11 @@
 
-class CAMediaTimingFunction : Object, Coding {
+class CAMediaTimingFunction : NSObject, NSCoding {
   convenience init(name: String)
   init(controlPoints c1x: Float, _ c1y: Float, _ c2x: Float, _ c2y: Float)
   func getControlPoint(at idx: Int, values ptr: UnsafeMutablePointer<Float>)
   init()
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 2.0, *)
 let kCAMediaTimingFunctionLinear: String

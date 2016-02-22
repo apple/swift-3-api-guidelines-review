@@ -1,31 +1,31 @@
 
 @available(OSX 10.8, *)
-class GKAchievement : Object, Coding, SecureCoding {
-  class func loadAchievements(completionHandler completionHandler: (([GKAchievement]?, Error?) -> Void)? = nil)
-  class func resetAchievements(completionHandler completionHandler: ((Error?) -> Void)? = nil)
+class GKAchievement : NSObject, NSCoding, NSSecureCoding {
+  class func loadAchievements(completionHandler completionHandler: (([GKAchievement]?, NSError?) -> Void)? = nil)
+  class func resetAchievements(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   init(identifier: String?)
   @available(OSX 10.10, *)
   init(identifier: String?, player: GKPlayer)
   @available(OSX 10.8, *)
-  class func report(achievements: [GKAchievement], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
+  class func report(achievements: [GKAchievement], withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
   var identifier: String?
   var percentComplete: Double
   var isCompleted: Bool { get }
-  @NSCopying var lastReportedDate: Date { get }
+  @NSCopying var lastReportedDate: NSDate { get }
   @available(OSX 10.8, *)
   var showsCompletionBanner: Bool
   @available(OSX 10.10, *)
   var player: GKPlayer { get }
   init()
   @available(OSX 10.8, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
 }
 extension GKAchievement {
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use +reportAchievements:withCompletionHandler:")
-  func report(completionHandler completionHandler: ((Error?) -> Void)? = nil)
+  func report(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use isHidden on the GKAchievementDescription class instead")
   var isHidden: Bool { get }
 }

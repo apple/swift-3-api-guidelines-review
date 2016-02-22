@@ -8,17 +8,17 @@ class MCBrowserViewController : NSViewController, MCNearbyServiceBrowserDelegate
   var session: MCSession { get }
   var minimumNumberOfPeers: Int
   var maximumNumberOfPeers: Int
-  convenience init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder: Coder)
+  convenience init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder: NSCoder)
   convenience init()
   @available(OSX 10.10, *)
   func browser(browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?)
   @available(OSX 10.10, *)
   func browser(browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID)
   @available(OSX 10.10, *)
-  func browser(browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error)
+  func browser(browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: NSError)
 }
-protocol MCBrowserViewControllerDelegate : ObjectProtocol {
+protocol MCBrowserViewControllerDelegate : NSObjectProtocol {
   @available(OSX 10.10, *)
   func browserViewControllerDidFinish(browserViewController: MCBrowserViewController)
   @available(OSX 10.10, *)

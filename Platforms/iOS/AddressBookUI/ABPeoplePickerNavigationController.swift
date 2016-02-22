@@ -2,19 +2,19 @@
 @available(iOS, introduced=2.0, deprecated=9.0, message="Use CNContactPickerViewController from ContactsUI.framework instead")
 class ABPeoplePickerNavigationController : UINavigationController {
   unowned(unsafe) var peoplePickerDelegate: @sil_unmanaged ABPeoplePickerNavigationControllerDelegate?
-  var displayedProperties: [Number]?
+  var displayedProperties: [NSNumber]?
   var addressBook: ABAddressBook?
   @available(iOS 8.0, *)
-  @NSCopying var predicateForEnablingPerson: Predicate?
+  @NSCopying var predicateForEnablingPerson: NSPredicate?
   @available(iOS 8.0, *)
-  @NSCopying var predicateForSelectionOfPerson: Predicate?
+  @NSCopying var predicateForSelectionOfPerson: NSPredicate?
   @available(iOS 8.0, *)
-  @NSCopying var predicateForSelectionOfProperty: Predicate?
+  @NSCopying var predicateForSelectionOfProperty: NSPredicate?
   @available(iOS 5.0, *)
   init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
   init(rootViewController: UIViewController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
 @available(iOS 8.0, *)
@@ -63,7 +63,7 @@ let ABPersonRelatedNamesProperty: String
 let ABPersonSocialProfilesProperty: String
 @available(iOS 8.0, *)
 let ABPersonPostalAddressesProperty: String
-protocol ABPeoplePickerNavigationControllerDelegate : ObjectProtocol {
+protocol ABPeoplePickerNavigationControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
   optional func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord)
   @available(iOS 8.0, *)

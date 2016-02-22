@@ -9,7 +9,7 @@ enum NWPathStatus : Int {
   case satisfiable
 }
 @available(OSX 10.11, *)
-class NWPath : Object {
+class NWPath : NSObject {
   @available(OSX 10.11, *)
   var status: NWPathStatus { get }
   @available(OSX 10.11, *)

@@ -1,7 +1,7 @@
 
 @available(watchOS 2.0, *)
-class HKObject : Object, SecureCoding {
-  var uuid: UUID { get }
+class HKObject : NSObject, NSSecureCoding {
+  var uuid: NSUUID { get }
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use sourceRevision")
   var source: HKSource { get }
   @available(watchOS 2.0, *)
@@ -12,8 +12,8 @@ class HKObject : Object, SecureCoding {
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
 let HKPredicateKeyPathUUID: String

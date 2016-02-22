@@ -1,5 +1,5 @@
 
-extension Object {
+extension NSObject {
   @available(OSX 10.4, *)
   class func webScriptName(for selector: Selector) -> String!
   @available(OSX 10.4, *)
@@ -22,7 +22,7 @@ extension Object {
   func finalizeForWebScript()
 }
 @available(OSX 10.4, *)
-class WebScriptObject : Object {
+class WebScriptObject : NSObject {
   class func throwException(exceptionMessage: String!) -> Bool
   @available(OSX 10.5, *)
   func jsObject() -> JSObjectRef
@@ -37,11 +37,11 @@ class WebScriptObject : Object {
   init()
 }
 @available(OSX 10.4, *)
-class WebUndefined : Object, Coding, Copying {
+class WebUndefined : NSObject, NSCoding, NSCopying {
   init()
   @available(OSX 10.4, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.4, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

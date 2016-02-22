@@ -1,44 +1,44 @@
 
-let decimalNumberExactnessException: String
-let decimalNumberOverflowException: String
-let decimalNumberUnderflowException: String
-let decimalNumberDivideByZeroException: String
-protocol DecimalNumberBehaviors {
-  func roundingMode() -> RoundingMode
+let NSDecimalNumberExactnessException: String
+let NSDecimalNumberOverflowException: String
+let NSDecimalNumberUnderflowException: String
+let NSDecimalNumberDivideByZeroException: String
+protocol NSDecimalNumberBehaviors {
+  func roundingMode() -> NSRoundingMode
   func scale() -> Int16
-  func exceptionDuringOperation(operation: Selector, error: CalculationError, leftOperand: DecimalNumber, rightOperand: DecimalNumber?) -> DecimalNumber?
+  func exceptionDuringOperation(operation: Selector, error: NSCalculationError, leftOperand: NSDecimalNumber, rightOperand: NSDecimalNumber?) -> NSDecimalNumber?
 }
-class DecimalNumber : Number {
+class NSDecimalNumber : NSNumber {
   convenience init(mantissa: UInt64, exponent: Int16, isNegative flag: Bool)
-  init(decimal dcm: Decimal)
+  init(decimal dcm: NSDecimal)
   convenience init(string numberValue: String?)
   convenience init(string numberValue: String?, locale: AnyObject?)
   func description(withLocale locale: AnyObject?) -> String
-  var decimalValue: Decimal { get }
-  class func zero() -> DecimalNumber
-  class func one() -> DecimalNumber
-  class func minimum() -> DecimalNumber
-  class func maximum() -> DecimalNumber
-  class func notA() -> DecimalNumber
-  func adding(decimalNumber: DecimalNumber) -> DecimalNumber
-  func adding(decimalNumber: DecimalNumber, withBehavior behavior: DecimalNumberBehaviors?) -> DecimalNumber
-  func subtracting(decimalNumber: DecimalNumber) -> DecimalNumber
-  func subtracting(decimalNumber: DecimalNumber, withBehavior behavior: DecimalNumberBehaviors?) -> DecimalNumber
-  func multiplying(by decimalNumber: DecimalNumber) -> DecimalNumber
-  func multiplying(by decimalNumber: DecimalNumber, withBehavior behavior: DecimalNumberBehaviors?) -> DecimalNumber
-  func dividing(by decimalNumber: DecimalNumber) -> DecimalNumber
-  func dividing(by decimalNumber: DecimalNumber, withBehavior behavior: DecimalNumberBehaviors?) -> DecimalNumber
-  func raising(toPower power: Int) -> DecimalNumber
-  func raising(toPower power: Int, withBehavior behavior: DecimalNumberBehaviors?) -> DecimalNumber
-  func multiplying(byPowerOf10 power: Int16) -> DecimalNumber
-  func multiplying(byPowerOf10 power: Int16, withBehavior behavior: DecimalNumberBehaviors?) -> DecimalNumber
-  func rounding(accordingToBehavior behavior: DecimalNumberBehaviors?) -> DecimalNumber
-  func compare(decimalNumber: Number) -> ComparisonResult
-  class func setDefaultBehavior(behavior: DecimalNumberBehaviors)
-  class func defaultBehavior() -> DecimalNumberBehaviors
+  var decimalValue: NSDecimal { get }
+  class func zero() -> NSDecimalNumber
+  class func one() -> NSDecimalNumber
+  class func minimum() -> NSDecimalNumber
+  class func maximum() -> NSDecimalNumber
+  class func notA() -> NSDecimalNumber
+  func adding(decimalNumber: NSDecimalNumber) -> NSDecimalNumber
+  func adding(decimalNumber: NSDecimalNumber, withBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
+  func subtracting(decimalNumber: NSDecimalNumber) -> NSDecimalNumber
+  func subtracting(decimalNumber: NSDecimalNumber, withBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
+  func multiplying(by decimalNumber: NSDecimalNumber) -> NSDecimalNumber
+  func multiplying(by decimalNumber: NSDecimalNumber, withBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
+  func dividing(by decimalNumber: NSDecimalNumber) -> NSDecimalNumber
+  func dividing(by decimalNumber: NSDecimalNumber, withBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
+  func raising(toPower power: Int) -> NSDecimalNumber
+  func raising(toPower power: Int, withBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
+  func multiplying(byPowerOf10 power: Int16) -> NSDecimalNumber
+  func multiplying(byPowerOf10 power: Int16, withBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
+  func rounding(accordingToBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
+  func compare(decimalNumber: NSNumber) -> NSComparisonResult
+  class func setDefaultBehavior(behavior: NSDecimalNumberBehaviors)
+  class func defaultBehavior() -> NSDecimalNumberBehaviors
   var objCType: UnsafePointer<Int8> { get }
   var doubleValue: Double { get }
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init(char value: Int8)
   convenience init(unsignedChar value: UInt8)
   convenience init(short value: Int16)
@@ -59,19 +59,19 @@ class DecimalNumber : Number {
   convenience init(bytes value: UnsafePointer<Void>, objCType type: UnsafePointer<Int8>)
   convenience init()
 }
-class DecimalNumberHandler : Object, DecimalNumberBehaviors, Coding {
-  class func defaultDecimalNumberHandler() -> DecimalNumberHandler
-  init(roundingMode: RoundingMode, scale: Int16, raiseOnExactness exact: Bool, raiseOnOverflow overflow: Bool, raiseOnUnderflow underflow: Bool, raiseOnDivideByZero divideByZero: Bool)
+class NSDecimalNumberHandler : NSObject, NSDecimalNumberBehaviors, NSCoding {
+  class func defaultDecimalNumberHandler() -> NSDecimalNumberHandler
+  init(roundingMode: NSRoundingMode, scale: Int16, raiseOnExactness exact: Bool, raiseOnOverflow overflow: Bool, raiseOnUnderflow underflow: Bool, raiseOnDivideByZero divideByZero: Bool)
   convenience init()
-  func roundingMode() -> RoundingMode
+  func roundingMode() -> NSRoundingMode
   func scale() -> Int16
-  func exceptionDuringOperation(operation: Selector, error: CalculationError, leftOperand: DecimalNumber, rightOperand: DecimalNumber?) -> DecimalNumber?
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func exceptionDuringOperation(operation: Selector, error: NSCalculationError, leftOperand: NSDecimalNumber, rightOperand: NSDecimalNumber?) -> NSDecimalNumber?
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
-extension Number {
-  var decimalValue: Decimal { get }
+extension NSNumber {
+  var decimalValue: NSDecimal { get }
 }
-extension Scanner {
-  func scanDecimal(dcm: UnsafeMutablePointer<Decimal>) -> Bool
+extension NSScanner {
+  func scanDecimal(dcm: UnsafeMutablePointer<NSDecimal>) -> Bool
 }

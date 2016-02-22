@@ -12,12 +12,12 @@ class EKCalendarItem : EKObject {
   var location: String?
   var notes: String?
   @available(watchOS 2.0, *)
-  @NSCopying var url: URL?
-  var lastModifiedDate: Date? { get }
+  @NSCopying var url: NSURL?
+  var lastModifiedDate: NSDate? { get }
   @available(watchOS 2.0, *)
-  var creationDate: Date? { get }
+  var creationDate: NSDate? { get }
   @available(watchOS 2.0, *)
-  @NSCopying var timeZone: TimeZone?
+  @NSCopying var timeZone: NSTimeZone?
   @available(watchOS 2.0, *)
   var hasAlarms: Bool { get }
   @available(watchOS 2.0, *)

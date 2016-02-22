@@ -1,33 +1,33 @@
 
-let httpCookieName: String
-let httpCookieValue: String
-let httpCookieOriginURL: String
-let httpCookieVersion: String
-let httpCookieDomain: String
-let httpCookiePath: String
-let httpCookieSecure: String
-let httpCookieExpires: String
-let httpCookieComment: String
-let httpCookieCommentURL: String
-let httpCookieDiscard: String
-let httpCookieMaximumAge: String
-let httpCookiePort: String
-class HTTPCookie : Object {
+let NSHTTPCookieName: String
+let NSHTTPCookieValue: String
+let NSHTTPCookieOriginURL: String
+let NSHTTPCookieVersion: String
+let NSHTTPCookieDomain: String
+let NSHTTPCookiePath: String
+let NSHTTPCookieSecure: String
+let NSHTTPCookieExpires: String
+let NSHTTPCookieComment: String
+let NSHTTPCookieCommentURL: String
+let NSHTTPCookieDiscard: String
+let NSHTTPCookieMaximumAge: String
+let NSHTTPCookiePort: String
+class NSHTTPCookie : NSObject {
   init?(properties: [String : AnyObject])
-  class func requestHeaderFields(cookies: [HTTPCookie]) -> [String : String]
-  class func cookies(withResponseHeaderFields headerFields: [String : String], for URL: URL) -> [HTTPCookie]
+  class func requestHeaderFields(cookies: [NSHTTPCookie]) -> [String : String]
+  class func cookies(withResponseHeaderFields headerFields: [String : String], for URL: NSURL) -> [NSHTTPCookie]
   var properties: [String : AnyObject]? { get }
   var version: Int { get }
   var name: String { get }
   var value: String { get }
-  @NSCopying var expiresDate: Date? { get }
+  @NSCopying var expiresDate: NSDate? { get }
   var isSessionOnly: Bool { get }
   var domain: String { get }
   var path: String { get }
   var isSecure: Bool { get }
   var isHTTPOnly: Bool { get }
   var comment: String? { get }
-  @NSCopying var commentURL: URL? { get }
-  var portList: [Number]? { get }
+  @NSCopying var commentURL: NSURL? { get }
+  var portList: [NSNumber]? { get }
   init()
 }

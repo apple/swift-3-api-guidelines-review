@@ -20,11 +20,11 @@ enum UIBarPosition : Int {
   case top
   case topAttached
 }
-protocol UIBarPositioning : ObjectProtocol {
+protocol UIBarPositioning : NSObjectProtocol {
   @available(tvOS 7.0, *)
   var barPosition: UIBarPosition { get }
 }
-protocol UIBarPositioningDelegate : ObjectProtocol {
+protocol UIBarPositioningDelegate : NSObjectProtocol {
   @available(tvOS 7.0, *)
   optional func position(forBar bar: UIBarPositioning) -> UIBarPosition
 }

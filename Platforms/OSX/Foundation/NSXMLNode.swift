@@ -1,5 +1,5 @@
 
-enum XMLNodeKind : UInt {
+enum NSXMLNodeKind : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case invalidKind
@@ -16,16 +16,16 @@ enum XMLNodeKind : UInt {
   case elementDeclarationKind
   case notationDeclarationKind
 }
-class XMLNode : Object, Copying {
+class NSXMLNode : NSObject, NSCopying {
   init()
-  convenience init(kind: XMLNodeKind)
-  init(kind: XMLNodeKind, options: Int)
+  convenience init(kind: NSXMLNodeKind)
+  init(kind: NSXMLNodeKind, options: Int)
   class func document() -> AnyObject
-  class func document(withRootElement element: XMLElement) -> AnyObject
+  class func document(withRootElement element: NSXMLElement) -> AnyObject
   class func element(withName name: String) -> AnyObject
   class func element(withName name: String, uri URI: String) -> AnyObject
   class func element(withName name: String, stringValue string: String) -> AnyObject
-  class func element(withName name: String, children: [XMLNode]?, attributes: [XMLNode]?) -> AnyObject
+  class func element(withName name: String, children: [NSXMLNode]?, attributes: [NSXMLNode]?) -> AnyObject
   class func attribute(withName name: String, stringValue: String) -> AnyObject
   class func attribute(withName name: String, uri URI: String, stringValue: String) -> AnyObject
   class func namespace(withName name: String, stringValue: String) -> AnyObject
@@ -33,22 +33,22 @@ class XMLNode : Object, Copying {
   class func comment(withStringValue stringValue: String) -> AnyObject
   class func text(withStringValue stringValue: String) -> AnyObject
   class func dtdNode(withXMLString string: String) -> AnyObject?
-  var kind: XMLNodeKind { get }
+  var kind: NSXMLNodeKind { get }
   var name: String?
   var objectValue: AnyObject?
   var stringValue: String?
   func setStringValue(string: String, resolvingEntities resolve: Bool)
   var index: Int { get }
   var level: Int { get }
-  var rootDocument: XMLDocument? { get }
-  @NSCopying var parent: XMLNode? { get }
+  var rootDocument: NSXMLDocument? { get }
+  @NSCopying var parent: NSXMLNode? { get }
   var childCount: Int { get }
-  var children: [XMLNode]? { get }
-  func child(at index: Int) -> XMLNode?
-  @NSCopying var previousSibling: XMLNode? { get }
-  @NSCopying var nextSibling: XMLNode? { get }
-  @NSCopying var previous: XMLNode? { get }
-  @NSCopying var next: XMLNode? { get }
+  var children: [NSXMLNode]? { get }
+  func child(at index: Int) -> NSXMLNode?
+  @NSCopying var previousSibling: NSXMLNode? { get }
+  @NSCopying var nextSibling: NSXMLNode? { get }
+  @NSCopying var previous: NSXMLNode? { get }
+  @NSCopying var next: NSXMLNode? { get }
   func detach()
   var xPath: String? { get }
   var localName: String? { get }
@@ -56,13 +56,13 @@ class XMLNode : Object, Copying {
   var uri: String?
   class func localName(forName name: String) -> String
   class func prefix(forName name: String) -> String?
-  class func predefinedNamespace(forPrefix name: String) -> XMLNode?
+  class func predefinedNamespace(forPrefix name: String) -> NSXMLNode?
   var description: String { get }
   var xmlString: String { get }
   func xmlString(withOptions options: Int) -> String
   func canonicalXMLStringPreservingComments(comments: Bool) -> String
-  func nodes(forXPath xpath: String) throws -> [XMLNode]
+  func nodes(forXPath xpath: String) throws -> [NSXMLNode]
   func objects(forXQuery xquery: String, constants: [String : AnyObject]?) throws -> [AnyObject]
   func objects(forXQuery xquery: String) throws -> [AnyObject]
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

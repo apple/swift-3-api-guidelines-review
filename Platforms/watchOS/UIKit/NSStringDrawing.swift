@@ -1,6 +1,6 @@
 
 @available(watchOS 2.0, *)
-class NSStringDrawingContext : Object {
+class NSStringDrawingContext : NSObject {
   var minimumScaleFactor: CGFloat
   var actualScaleFactor: CGFloat { get }
   var totalBounds: CGRect { get }
@@ -14,7 +14,7 @@ extension NSString {
   @available(watchOS 2.0, *)
   func draw(in rect: CGRect, withAttributes attrs: [String : AnyObject]? = [:])
 }
-extension AttributedString {
+extension NSAttributedString {
   @available(watchOS 2.0, *)
   func size() -> CGSize
   @available(watchOS 2.0, *)
@@ -38,7 +38,7 @@ extension NSString {
   @available(watchOS 2.0, *)
   func boundingRect(with size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?) -> CGRect
 }
-extension AttributedString {
+extension NSAttributedString {
   @available(watchOS 2.0, *)
   func draw(rect: CGRect, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?)
   @available(watchOS 2.0, *)

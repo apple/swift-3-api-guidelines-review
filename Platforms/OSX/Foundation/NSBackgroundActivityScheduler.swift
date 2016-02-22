@@ -1,21 +1,21 @@
 
 @available(OSX 10.10, *)
-enum BackgroundActivityResult : Int {
+enum NSBackgroundActivityResult : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   case finished
   case deferred
 }
-typealias BackgroundActivityCompletionHandler = (BackgroundActivityResult) -> Void
+typealias NSBackgroundActivityCompletionHandler = (NSBackgroundActivityResult) -> Void
 @available(OSX 10.10, *)
-class BackgroundActivityScheduler : Object {
+class NSBackgroundActivityScheduler : NSObject {
   init(identifier: String)
   var identifier: String { get }
-  var qualityOfService: QualityOfService
+  var qualityOfService: NSQualityOfService
   var repeats: Bool
-  var interval: TimeInterval
-  var tolerance: TimeInterval
-  func schedule(block: (BackgroundActivityCompletionHandler) -> Void)
+  var interval: NSTimeInterval
+  var tolerance: NSTimeInterval
+  func schedule(block: (NSBackgroundActivityCompletionHandler) -> Void)
   func invalidate()
   var shouldDefer: Bool { get }
   convenience init()

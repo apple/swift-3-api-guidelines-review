@@ -13,7 +13,7 @@ enum GKLeaderboardPlayerScope : Int {
   case friendsOnly
 }
 @available(tvOS 4.1, *)
-class GKLeaderboard : Object {
+class GKLeaderboard : NSObject {
   var timeScope: GKLeaderboardTimeScope
   var playerScope: GKLeaderboardPlayerScope
   @available(tvOS 7.0, *)
@@ -29,9 +29,9 @@ class GKLeaderboard : Object {
   init()
   @available(tvOS 8.0, *)
   init(players: [GKPlayer])
-  func loadScores(completionHandler completionHandler: (([GKScore]?, Error?) -> Void)? = nil)
+  func loadScores(completionHandler completionHandler: (([GKScore]?, NSError?) -> Void)? = nil)
   @available(tvOS 6.0, *)
-  class func loadLeaderboards(completionHandler completionHandler: (([GKLeaderboard]?, Error?) -> Void)? = nil)
+  class func loadLeaderboards(completionHandler completionHandler: (([GKLeaderboard]?, NSError?) -> Void)? = nil)
 }
 extension GKLeaderboard {
 }

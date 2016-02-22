@@ -1,11 +1,11 @@
 
-class NSShadow : Object, Copying, Coding {
+class NSShadow : NSObject, NSCopying, NSCoding {
   init()
-  var shadowOffset: Size
+  var shadowOffset: NSSize
   var shadowBlurRadius: CGFloat
   @NSCopying var shadowColor: NSColor?
   func set()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

@@ -1,29 +1,29 @@
 
 @available(iOS 8.0, *)
-class HMAccessory : Object {
+class HMAccessory : NSObject {
   var name: String { get }
   @available(iOS, introduced=8.0, deprecated=9.0)
-  @NSCopying var identifier: UUID { get }
+  @NSCopying var identifier: NSUUID { get }
   @available(iOS 9.0, *)
-  @NSCopying var uniqueIdentifier: UUID { get }
+  @NSCopying var uniqueIdentifier: NSUUID { get }
   weak var delegate: @sil_weak HMAccessoryDelegate?
   var isReachable: Bool { get }
   var isBridged: Bool { get }
   @available(iOS, introduced=8.0, deprecated=9.0)
-  var identifiersForBridgedAccessories: [UUID]? { get }
+  var identifiersForBridgedAccessories: [NSUUID]? { get }
   @available(iOS 9.0, *)
-  var uniqueIdentifiersForBridgedAccessories: [UUID]? { get }
+  var uniqueIdentifiersForBridgedAccessories: [NSUUID]? { get }
   @available(iOS 9.0, *)
   var category: HMAccessoryCategory { get }
   weak var room: @sil_weak HMRoom? { get }
   var services: [HMService] { get }
   var isBlocked: Bool { get }
-  func updateName(name: String, completionHandler completion: (Error?) -> Void)
-  func identify(completionHandler completion: (Error?) -> Void)
+  func updateName(name: String, completionHandler completion: (NSError?) -> Void)
+  func identify(completionHandler completion: (NSError?) -> Void)
   init()
 }
 @available(iOS 8.0, *)
-protocol HMAccessoryDelegate : ObjectProtocol {
+protocol HMAccessoryDelegate : NSObjectProtocol {
   optional func accessoryDidUpdateName(accessory: HMAccessory)
   optional func accessory(accessory: HMAccessory, didUpdateNameFor service: HMService)
   optional func accessory(accessory: HMAccessory, didUpdateAssociatedServiceTypeFor service: HMService)

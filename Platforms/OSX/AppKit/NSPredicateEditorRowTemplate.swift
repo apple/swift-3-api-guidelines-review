@@ -1,26 +1,26 @@
 
 @available(OSX 10.5, *)
-class NSPredicateEditorRowTemplate : Object, Coding, Copying {
-  func match(for predicate: Predicate) -> Double
+class NSPredicateEditorRowTemplate : NSObject, NSCoding, NSCopying {
+  func match(for predicate: NSPredicate) -> Double
   var templateViews: [NSView] { get }
-  func setPredicate(predicate: Predicate)
-  func predicate(withSubpredicates subpredicates: [Predicate]?) -> Predicate
-  func displayableSubpredicatesOf(predicate: Predicate) -> [Predicate]?
-  init(leftExpressions: [Expression], rightExpressions: [Expression], modifier: ComparisonPredicateModifier, operators: [Number], options: Int)
-  init(leftExpressions: [Expression], rightExpressionAttributeType attributeType: NSAttributeType, modifier: ComparisonPredicateModifier, operators: [Number], options: Int)
-  init(compoundTypes: [Number])
-  var leftExpressions: [Expression]? { get }
-  var rightExpressions: [Expression]? { get }
+  func setPredicate(predicate: NSPredicate)
+  func predicate(withSubpredicates subpredicates: [NSPredicate]?) -> NSPredicate
+  func displayableSubpredicatesOf(predicate: NSPredicate) -> [NSPredicate]?
+  init(leftExpressions: [NSExpression], rightExpressions: [NSExpression], modifier: NSComparisonPredicateModifier, operators: [NSNumber], options: Int)
+  init(leftExpressions: [NSExpression], rightExpressionAttributeType attributeType: NSAttributeType, modifier: NSComparisonPredicateModifier, operators: [NSNumber], options: Int)
+  init(compoundTypes: [NSNumber])
+  var leftExpressions: [NSExpression]? { get }
+  var rightExpressions: [NSExpression]? { get }
   var rightExpressionAttributeType: NSAttributeType { get }
-  var modifier: ComparisonPredicateModifier { get }
-  var operators: [Number]? { get }
+  var modifier: NSComparisonPredicateModifier { get }
+  var operators: [NSNumber]? { get }
   var options: Int { get }
-  var compoundTypes: [Number]? { get }
+  var compoundTypes: [NSNumber]? { get }
   class func templates(withAttributeKeyPaths keyPaths: [String], in entityDescription: NSEntityDescription) -> [NSPredicateEditorRowTemplate]
   init()
   @available(OSX 10.5, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.5, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

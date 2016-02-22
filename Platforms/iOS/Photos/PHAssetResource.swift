@@ -1,6 +1,6 @@
 
 @available(iOS 9.0, *)
-class PHAssetResource : Object {
+class PHAssetResource : NSObject {
   var type: PHAssetResourceType { get }
   var assetLocalIdentifier: String { get }
   var uniformTypeIdentifier: String { get }

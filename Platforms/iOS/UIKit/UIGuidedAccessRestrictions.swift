@@ -6,7 +6,7 @@ enum UIGuidedAccessRestrictionState : Int {
   case deny
 }
 @available(iOS 7.0, *)
-protocol UIGuidedAccessRestrictionDelegate : ObjectProtocol {
+protocol UIGuidedAccessRestrictionDelegate : NSObjectProtocol {
   func guidedAccessRestrictionIdentifiers() -> [String]?
   func guidedAccessRestriction(withIdentifier restrictionIdentifier: String, didChange newRestrictionState: UIGuidedAccessRestrictionState)
   func textForGuidedAccessRestriction(withIdentifier restrictionIdentifier: String) -> String?

@@ -3,23 +3,23 @@ extension CSSearchableItemAttributeSet {
   var displayName: String?
   var alternateNames: [String]?
   var path: String?
-  var contentURL: URL?
-  var thumbnailURL: URL?
-  @NSCopying var thumbnailData: Data?
+  var contentURL: NSURL?
+  var thumbnailURL: NSURL?
+  @NSCopying var thumbnailData: NSData?
   var relatedUniqueIdentifier: String?
-  var metadataModificationDate: Date?
+  var metadataModificationDate: NSDate?
   var contentType: String?
   var contentTypeTree: [String]?
   var keywords: [String]?
   var title: String?
 }
 extension CSSearchableItemAttributeSet {
-  @NSCopying var supportsPhoneCall: Number?
-  @NSCopying var supportsNavigation: Number?
+  @NSCopying var supportsPhoneCall: NSNumber?
+  @NSCopying var supportsNavigation: NSNumber?
 }
 extension CSSearchableItemAttributeSet {
   var containerTitle: String?
   var containerDisplayName: String?
   var containerIdentifier: String?
-  @NSCopying var containerOrder: Number?
+  @NSCopying var containerOrder: NSNumber?
 }

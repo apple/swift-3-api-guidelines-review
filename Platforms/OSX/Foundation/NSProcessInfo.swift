@@ -1,20 +1,20 @@
 
-var windowsNTOperatingSystem: Int { get }
-var windows95OperatingSystem: Int { get }
-var solarisOperatingSystem: Int { get }
-var hpuxOperatingSystem: Int { get }
-var machOperatingSystem: Int { get }
-var sunOSOperatingSystem: Int { get }
-var osf1OperatingSystem: Int { get }
-struct OperatingSystemVersion {
+var NSWindowsNTOperatingSystem: Int { get }
+var NSWindows95OperatingSystem: Int { get }
+var NSSolarisOperatingSystem: Int { get }
+var NSHPUXOperatingSystem: Int { get }
+var NSMACHOperatingSystem: Int { get }
+var NSSunOSOperatingSystem: Int { get }
+var NSOSF1OperatingSystem: Int { get }
+struct NSOperatingSystemVersion {
   var majorVersion: Int
   var minorVersion: Int
   var patchVersion: Int
   init()
   init(majorVersion: Int, minorVersion: Int, patchVersion: Int)
 }
-class ProcessInfo : Object {
-  class func processInfo() -> ProcessInfo
+class NSProcessInfo : NSObject {
+  class func processInfo() -> NSProcessInfo
   var environment: [String : String] { get }
   var arguments: [String] { get }
   var hostName: String { get }
@@ -27,7 +27,7 @@ class ProcessInfo : Object {
   func operatingSystemName() -> String
   var operatingSystemVersionString: String { get }
   @available(OSX 10.10, *)
-  var operatingSystemVersion: OperatingSystemVersion { get }
+  var operatingSystemVersion: NSOperatingSystemVersion { get }
   @available(OSX 10.5, *)
   var processorCount: Int { get }
   @available(OSX 10.5, *)
@@ -35,9 +35,9 @@ class ProcessInfo : Object {
   @available(OSX 10.5, *)
   var physicalMemory: UInt64 { get }
   @available(OSX 10.10, *)
-  func isOperatingSystem(atLeastVersion version: OperatingSystemVersion) -> Bool
+  func isOperatingSystem(atLeastVersion version: NSOperatingSystemVersion) -> Bool
   @available(OSX 10.6, *)
-  var systemUptime: TimeInterval { get }
+  var systemUptime: NSTimeInterval { get }
   @available(OSX 10.6, *)
   func disableSuddenTermination()
   @available(OSX 10.6, *)
@@ -51,28 +51,28 @@ class ProcessInfo : Object {
   init()
 }
 @available(OSX 10.9, *)
-struct ActivityOptions : OptionSetType {
+struct NSActivityOptions : OptionSetType {
   init(rawValue: UInt64)
   let rawValue: UInt64
-  static var idleDisplaySleepDisabled: ActivityOptions { get }
-  static var idleSystemSleepDisabled: ActivityOptions { get }
-  static var suddenTerminationDisabled: ActivityOptions { get }
-  static var automaticTerminationDisabled: ActivityOptions { get }
-  static var userInitiated: ActivityOptions { get }
-  static var userInitiatedAllowingIdleSystemSleep: ActivityOptions { get }
-  static var background: ActivityOptions { get }
-  static var latencyCritical: ActivityOptions { get }
+  static var idleDisplaySleepDisabled: NSActivityOptions { get }
+  static var idleSystemSleepDisabled: NSActivityOptions { get }
+  static var suddenTerminationDisabled: NSActivityOptions { get }
+  static var automaticTerminationDisabled: NSActivityOptions { get }
+  static var userInitiated: NSActivityOptions { get }
+  static var userInitiatedAllowingIdleSystemSleep: NSActivityOptions { get }
+  static var background: NSActivityOptions { get }
+  static var latencyCritical: NSActivityOptions { get }
 }
-extension ProcessInfo {
+extension NSProcessInfo {
   @available(OSX 10.9, *)
-  func beginActivity(options: ActivityOptions = [], reason: String) -> ObjectProtocol
+  func beginActivity(options: NSActivityOptions = [], reason: String) -> NSObjectProtocol
   @available(OSX 10.9, *)
-  func endActivity(activity: ObjectProtocol)
+  func endActivity(activity: NSObjectProtocol)
   @available(OSX 10.9, *)
-  func performActivity(options: ActivityOptions = [], reason: String, using block: () -> Void)
+  func performActivity(options: NSActivityOptions = [], reason: String, using block: () -> Void)
 }
 @available(OSX 10.10.3, *)
-enum ProcessInfoThermalState : Int {
+enum NSProcessInfoThermalState : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   case nominal
@@ -80,11 +80,11 @@ enum ProcessInfoThermalState : Int {
   case serious
   case critical
 }
-extension ProcessInfo {
+extension NSProcessInfo {
   @available(OSX 10.10.3, *)
-  var thermalState: ProcessInfoThermalState { get }
+  var thermalState: NSProcessInfoThermalState { get }
 }
-extension ProcessInfo {
+extension NSProcessInfo {
 }
 @available(OSX 10.10.3, *)
-let processInfoThermalStateDidChangeNotification: String
+let NSProcessInfoThermalStateDidChangeNotification: String

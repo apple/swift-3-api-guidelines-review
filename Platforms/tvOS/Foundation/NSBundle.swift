@@ -1,13 +1,13 @@
 
-class Bundle : Object {
-  class func main() -> Bundle
+class NSBundle : NSObject {
+  class func main() -> NSBundle
   init?(path: String)
   @available(tvOS 4.0, *)
-  convenience init?(url: URL)
+  convenience init?(url: NSURL)
   /*not inherited*/ init(for aClass: AnyClass)
   /*not inherited*/ init?(identifier: String)
-  class func allBundles() -> [Bundle]
-  class func allFrameworks() -> [Bundle]
+  class func allBundles() -> [NSBundle]
+  class func allFrameworks() -> [NSBundle]
   func load() -> Bool
   var isLoaded: Bool { get }
   func unload() -> Bool
@@ -16,23 +16,23 @@ class Bundle : Object {
   @available(tvOS 2.0, *)
   func loadAndReturnError() throws
   @available(tvOS 4.0, *)
-  @NSCopying var bundleURL: URL { get }
+  @NSCopying var bundleURL: NSURL { get }
   @available(tvOS 4.0, *)
-  @NSCopying var resourceURL: URL? { get }
+  @NSCopying var resourceURL: NSURL? { get }
   @available(tvOS 4.0, *)
-  @NSCopying var executableURL: URL? { get }
+  @NSCopying var executableURL: NSURL? { get }
   @available(tvOS 4.0, *)
-  func url(forAuxiliaryExecutable executableName: String) -> URL?
+  func url(forAuxiliaryExecutable executableName: String) -> NSURL?
   @available(tvOS 4.0, *)
-  @NSCopying var privateFrameworksURL: URL? { get }
+  @NSCopying var privateFrameworksURL: NSURL? { get }
   @available(tvOS 4.0, *)
-  @NSCopying var sharedFrameworksURL: URL? { get }
+  @NSCopying var sharedFrameworksURL: NSURL? { get }
   @available(tvOS 4.0, *)
-  @NSCopying var sharedSupportURL: URL? { get }
+  @NSCopying var sharedSupportURL: NSURL? { get }
   @available(tvOS 4.0, *)
-  @NSCopying var builtInPlugInsURL: URL? { get }
+  @NSCopying var builtInPlugInsURL: NSURL? { get }
   @available(tvOS 7.0, *)
-  @NSCopying var appStoreReceiptURL: URL? { get }
+  @NSCopying var appStoreReceiptURL: NSURL? { get }
   var bundlePath: String { get }
   var resourcePath: String? { get }
   var executablePath: String? { get }
@@ -42,19 +42,19 @@ class Bundle : Object {
   var sharedSupportPath: String? { get }
   var builtInPlugInsPath: String? { get }
   @available(tvOS 4.0, *)
-  class func url(forResource name: String?, withExtension ext: String?, subdirectory subpath: String?, inBundleWith bundleURL: URL) -> URL?
+  class func url(forResource name: String?, withExtension ext: String?, subdirectory subpath: String?, inBundleWith bundleURL: NSURL) -> NSURL?
   @available(tvOS 4.0, *)
-  class func urlsForResources(withExtension ext: String?, subdirectory subpath: String?, inBundleWith bundleURL: URL) -> [URL]?
+  class func urlsForResources(withExtension ext: String?, subdirectory subpath: String?, inBundleWith bundleURL: NSURL) -> [NSURL]?
   @available(tvOS 4.0, *)
-  func url(forResource name: String?, withExtension ext: String?) -> URL?
+  func url(forResource name: String?, withExtension ext: String?) -> NSURL?
   @available(tvOS 4.0, *)
-  func url(forResource name: String?, withExtension ext: String?, subdirectory subpath: String?) -> URL?
+  func url(forResource name: String?, withExtension ext: String?, subdirectory subpath: String?) -> NSURL?
   @available(tvOS 4.0, *)
-  func url(forResource name: String?, withExtension ext: String?, subdirectory subpath: String?, localization localizationName: String?) -> URL?
+  func url(forResource name: String?, withExtension ext: String?, subdirectory subpath: String?, localization localizationName: String?) -> NSURL?
   @available(tvOS 4.0, *)
-  func urlsForResources(withExtension ext: String?, subdirectory subpath: String?) -> [URL]?
+  func urlsForResources(withExtension ext: String?, subdirectory subpath: String?) -> [NSURL]?
   @available(tvOS 4.0, *)
-  func urlsForResources(withExtension ext: String?, subdirectory subpath: String?, localization localizationName: String?) -> [URL]?
+  func urlsForResources(withExtension ext: String?, subdirectory subpath: String?, localization localizationName: String?) -> [NSURL]?
   class func path(forResource name: String?, ofType ext: String?, inDirectory bundlePath: String) -> String?
   class func pathsForResources(ofType ext: String?, inDirectory bundlePath: String) -> [String]
   func path(forResource name: String?, ofType ext: String?) -> String?
@@ -75,38 +75,38 @@ class Bundle : Object {
   class func preferredLocalizations(from localizationsArray: [String]) -> [String]
   class func preferredLocalizations(from localizationsArray: [String], forPreferences preferencesArray: [String]?) -> [String]
   @available(tvOS 2.0, *)
-  var executableArchitectures: [Number]? { get }
+  var executableArchitectures: [NSNumber]? { get }
   convenience init()
 }
-var bundleExecutableArchitectureI386: Int { get }
-var bundleExecutableArchitecturePPC: Int { get }
-var bundleExecutableArchitectureX86_64: Int { get }
-var bundleExecutableArchitecturePPC64: Int { get }
+var NSBundleExecutableArchitectureI386: Int { get }
+var NSBundleExecutableArchitecturePPC: Int { get }
+var NSBundleExecutableArchitectureX86_64: Int { get }
+var NSBundleExecutableArchitecturePPC64: Int { get }
 extension NSString {
   @available(tvOS 9.0, *)
   func variantFittingPresentationWidth(width: Int) -> String
 }
-let bundleDidLoadNotification: String
-let loadedClasses: String
+let NSBundleDidLoadNotification: String
+let NSLoadedClasses: String
 @available(tvOS 9.0, *)
-class BundleResourceRequest : Object, ProgressReporting {
+class NSBundleResourceRequest : NSObject, NSProgressReporting {
   convenience init(tags: Set<String>)
-  init(tags: Set<String>, bundle: Bundle)
+  init(tags: Set<String>, bundle: NSBundle)
   var loadingPriority: Double
   var tags: Set<String> { get }
-  var bundle: Bundle { get }
-  func beginAccessingResources(completionHandler completionHandler: (Error?) -> Void)
+  var bundle: NSBundle { get }
+  func beginAccessingResources(completionHandler completionHandler: (NSError?) -> Void)
   func conditionallyBeginAccessingResources(completionHandler completionHandler: (Bool) -> Void)
   func endAccessingResources()
-  var progress: Progress { get }
+  var progress: NSProgress { get }
 }
-extension Bundle {
+extension NSBundle {
   @available(tvOS 9.0, *)
   func setPreservationPriority(priority: Double, forTags tags: Set<String>)
   @available(tvOS 9.0, *)
   func preservationPriority(forTag tag: String) -> Double
 }
 @available(tvOS 9.0, *)
-let bundleResourceRequestLowDiskSpaceNotification: String
+let NSBundleResourceRequestLowDiskSpaceNotification: String
 @available(tvOS 9.0, *)
-let bundleResourceRequestLoadingPriorityUrgent: Double
+let NSBundleResourceRequestLoadingPriorityUrgent: Double

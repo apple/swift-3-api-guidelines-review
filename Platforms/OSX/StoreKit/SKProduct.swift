@@ -1,13 +1,13 @@
 
 @available(OSX 10.7, *)
-class SKProduct : Object {
+class SKProduct : NSObject {
   var localizedDescription: String? { get }
   var localizedTitle: String? { get }
-  var price: DecimalNumber? { get }
-  var priceLocale: Locale? { get }
+  var price: NSDecimalNumber? { get }
+  var priceLocale: NSLocale? { get }
   var productIdentifier: String? { get }
   var downloadable: Bool { get }
   var contentVersion: String? { get }
-  var contentLengths: [Number]? { get }
+  var contentLengths: [NSNumber]? { get }
   init()
 }

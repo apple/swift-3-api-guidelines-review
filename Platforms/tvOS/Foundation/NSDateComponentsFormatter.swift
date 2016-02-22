@@ -1,6 +1,6 @@
 
 @available(tvOS 8.0, *)
-enum DateComponentsFormatterUnitsStyle : Int {
+enum NSDateComponentsFormatterUnitsStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   case positional
@@ -10,35 +10,35 @@ enum DateComponentsFormatterUnitsStyle : Int {
   case spellOut
 }
 @available(tvOS 8.0, *)
-struct DateComponentsFormatterZeroFormattingBehavior : OptionSetType {
+struct NSDateComponentsFormatterZeroFormattingBehavior : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var none: DateComponentsFormatterZeroFormattingBehavior { get }
-  static var `default`: DateComponentsFormatterZeroFormattingBehavior { get }
-  static var dropLeading: DateComponentsFormatterZeroFormattingBehavior { get }
-  static var dropMiddle: DateComponentsFormatterZeroFormattingBehavior { get }
-  static var dropTrailing: DateComponentsFormatterZeroFormattingBehavior { get }
-  static var dropAll: DateComponentsFormatterZeroFormattingBehavior { get }
-  static var pad: DateComponentsFormatterZeroFormattingBehavior { get }
+  static var none: NSDateComponentsFormatterZeroFormattingBehavior { get }
+  static var `default`: NSDateComponentsFormatterZeroFormattingBehavior { get }
+  static var dropLeading: NSDateComponentsFormatterZeroFormattingBehavior { get }
+  static var dropMiddle: NSDateComponentsFormatterZeroFormattingBehavior { get }
+  static var dropTrailing: NSDateComponentsFormatterZeroFormattingBehavior { get }
+  static var dropAll: NSDateComponentsFormatterZeroFormattingBehavior { get }
+  static var pad: NSDateComponentsFormatterZeroFormattingBehavior { get }
 }
 @available(tvOS 8.0, *)
-class DateComponentsFormatter : Formatter {
+class NSDateComponentsFormatter : NSFormatter {
   func string(for obj: AnyObject) -> String?
-  func string(from components: DateComponents) -> String?
-  func string(from startDate: Date, to endDate: Date) -> String?
-  func string(fromTimeInterval ti: TimeInterval) -> String?
-  class func localizedString(from components: DateComponents, unitsStyle: DateComponentsFormatterUnitsStyle) -> String?
-  var unitsStyle: DateComponentsFormatterUnitsStyle
-  var allowedUnits: CalendarUnit
-  var zeroFormattingBehavior: DateComponentsFormatterZeroFormattingBehavior
-  @NSCopying var calendar: Calendar?
+  func string(from components: NSDateComponents) -> String?
+  func string(from startDate: NSDate, to endDate: NSDate) -> String?
+  func string(fromTimeInterval ti: NSTimeInterval) -> String?
+  class func localizedString(from components: NSDateComponents, unitsStyle: NSDateComponentsFormatterUnitsStyle) -> String?
+  var unitsStyle: NSDateComponentsFormatterUnitsStyle
+  var allowedUnits: NSCalendarUnit
+  var zeroFormattingBehavior: NSDateComponentsFormatterZeroFormattingBehavior
+  @NSCopying var calendar: NSCalendar?
   var allowsFractionalUnits: Bool
   var maximumUnitCount: Int
   var collapsesLargestUnit: Bool
   var includesApproximationPhrase: Bool
   var includesTimeRemainingPhrase: Bool
-  var formattingContext: FormattingContext
+  var formattingContext: NSFormattingContext
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

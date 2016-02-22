@@ -11,7 +11,7 @@ enum NWUDPSessionState : Int {
   case cancelled
 }
 @available(OSX 10.11, *)
-class NWUDPSession : Object {
+class NWUDPSession : NSObject {
   @available(OSX 10.11, *)
   init(upgradeFor session: NWUDPSession)
   @available(OSX 10.11, *)
@@ -31,11 +31,11 @@ class NWUDPSession : Object {
   @available(OSX 10.11, *)
   var maximumDatagramLength: Int { get }
   @available(OSX 10.11, *)
-  func setReadHandler(handler: ([Data]?, Error?) -> Void, maxDatagrams: Int)
+  func setReadHandler(handler: ([NSData]?, NSError?) -> Void, maxDatagrams: Int)
   @available(OSX 10.11, *)
-  func writeMultipleDatagrams(datagramArray: [Data], completionHandler: (Error?) -> Void)
+  func writeMultipleDatagrams(datagramArray: [NSData], completionHandler: (NSError?) -> Void)
   @available(OSX 10.11, *)
-  func writeDatagram(datagram: Data, completionHandler: (Error?) -> Void)
+  func writeDatagram(datagram: NSData, completionHandler: (NSError?) -> Void)
   @available(OSX 10.11, *)
   func cancel()
   init()

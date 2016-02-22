@@ -1,9 +1,9 @@
 
 @available(OSX 10.5, *)
-class PointerArray : Object, FastEnumeration, Copying, Coding {
-  init(options: PointerFunctionsOptions = [])
-  init(pointerFunctions functions: PointerFunctions)
-  @NSCopying var pointerFunctions: PointerFunctions { get }
+class NSPointerArray : NSObject, NSFastEnumeration, NSCopying, NSCoding {
+  init(options: NSPointerFunctionsOptions = [])
+  init(pointerFunctions functions: NSPointerFunctions)
+  @NSCopying var pointerFunctions: NSPointerFunctions { get }
   func pointer(at index: Int) -> UnsafeMutablePointer<Void>
   func addPointer(pointer: UnsafeMutablePointer<Void>)
   func removePointer(at index: Int)
@@ -13,17 +13,17 @@ class PointerArray : Object, FastEnumeration, Copying, Coding {
   var count: Int
   convenience init()
   @available(OSX 10.5, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
   @available(OSX 10.5, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.5, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
-extension PointerArray {
+extension NSPointerArray {
   @available(OSX 10.8, *)
-  class func strongObjects() -> PointerArray
+  class func strongObjects() -> NSPointerArray
   @available(OSX 10.8, *)
-  class func weakObjects() -> PointerArray
+  class func weakObjects() -> NSPointerArray
   var allObjects: [AnyObject] { get }
 }

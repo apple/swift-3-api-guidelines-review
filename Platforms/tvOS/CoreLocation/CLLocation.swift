@@ -21,7 +21,7 @@ let kCLLocationAccuracyThreeKilometers: CLLocationAccuracy
 @available(tvOS 6.0, *)
 let CLLocationDistanceMax: CLLocationDistance
 @available(tvOS 6.0, *)
-let CLTimeIntervalMax: TimeInterval
+let CLTimeIntervalMax: NSTimeInterval
 @available(tvOS 4.0, *)
 let kCLLocationCoordinate2DInvalid: CLLocationCoordinate2D
 @available(tvOS 4.0, *)
@@ -29,28 +29,28 @@ func CLLocationCoordinate2DIsValid(coord: CLLocationCoordinate2D) -> Bool
 @available(tvOS 4.0, *)
 func CLLocationCoordinate2DMake(latitude: CLLocationDegrees, _ longitude: CLLocationDegrees) -> CLLocationCoordinate2D
 @available(tvOS 8.0, *)
-class CLFloor : Object, Copying, SecureCoding {
+class CLFloor : NSObject, NSCopying, NSSecureCoding {
   var level: Int { get }
   init()
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 2.0, *)
-class CLLocation : Object, Copying, SecureCoding {
+class CLLocation : NSObject, NSCopying, NSSecureCoding {
   init(latitude: CLLocationDegrees, longitude: CLLocationDegrees)
-  init(coordinate: CLLocationCoordinate2D, altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, timestamp: Date)
+  init(coordinate: CLLocationCoordinate2D, altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, timestamp: NSDate)
   @available(tvOS 4.2, *)
-  init(coordinate: CLLocationCoordinate2D, altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, course: CLLocationDirection, speed: CLLocationSpeed, timestamp: Date)
+  init(coordinate: CLLocationCoordinate2D, altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, course: CLLocationDirection, speed: CLLocationSpeed, timestamp: NSDate)
   var coordinate: CLLocationCoordinate2D { get }
   var altitude: CLLocationDistance { get }
   var horizontalAccuracy: CLLocationAccuracy { get }
   var verticalAccuracy: CLLocationAccuracy { get }
-  @NSCopying var timestamp: Date { get }
+  @NSCopying var timestamp: NSDate { get }
   @available(tvOS 8.0, *)
   @NSCopying var floor: CLFloor? { get }
   var description: String { get }
@@ -58,10 +58,10 @@ class CLLocation : Object, Copying, SecureCoding {
   func distance(from location: CLLocation) -> CLLocationDistance
   init()
   @available(tvOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

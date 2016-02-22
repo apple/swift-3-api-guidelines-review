@@ -58,7 +58,7 @@ enum NEVPNIKEv2CertificateType : Int {
   case ECDSA521
 }
 @available(iOS 8.0, *)
-class NEVPNIKEv2SecurityAssociationParameters : Object, SecureCoding, Copying {
+class NEVPNIKEv2SecurityAssociationParameters : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 8.0, *)
   var encryptionAlgorithm: NEVPNIKEv2EncryptionAlgorithm
   @available(iOS 8.0, *)
@@ -71,10 +71,10 @@ class NEVPNIKEv2SecurityAssociationParameters : Object, SecureCoding, Copying {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class NEVPNProtocolIKEv2 : NEVPNProtocolIPSec {
@@ -103,5 +103,5 @@ class NEVPNProtocolIKEv2 : NEVPNProtocolIPSec {
   @available(iOS 9.0, *)
   var strictRevocationCheck: Bool
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

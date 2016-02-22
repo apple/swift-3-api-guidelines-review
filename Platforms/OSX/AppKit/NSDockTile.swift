@@ -1,8 +1,8 @@
 
 var NSAppKitVersionNumberWithDockTilePlugInSupport: Double { get }
 @available(OSX 10.5, *)
-class NSDockTile : Object {
-  var size: Size { get }
+class NSDockTile : NSObject {
+  var size: NSSize { get }
   var contentView: NSView?
   func display()
   var showsApplicationBadge: Bool
@@ -10,7 +10,7 @@ class NSDockTile : Object {
   unowned(unsafe) var owner: @sil_unmanaged AnyObject { get }
   init()
 }
-protocol NSDockTilePlugIn : ObjectProtocol {
+protocol NSDockTilePlugIn : NSObjectProtocol {
   @available(OSX 10.5, *)
   func setDockTile(dockTile: NSDockTile?)
   optional func dockMenu() -> NSMenu?

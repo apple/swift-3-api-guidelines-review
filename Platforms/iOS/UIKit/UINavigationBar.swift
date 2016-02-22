@@ -1,6 +1,6 @@
 
 @available(iOS 2.0, *)
-class UINavigationBar : UIView, Coding, UIBarPositioning {
+class UINavigationBar : UIView, NSCoding, UIBarPositioning {
   var barStyle: UIBarStyle
   weak var delegate: @sil_weak UINavigationBarDelegate?
   @available(iOS 3.0, *)
@@ -35,7 +35,7 @@ class UINavigationBar : UIView, Coding, UIBarPositioning {
   @available(iOS 7.0, *)
   var backIndicatorTransitionMaskImage: UIImage?
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
   @available(iOS 7.0, *)
   var barPosition: UIBarPosition { get }
@@ -51,9 +51,9 @@ protocol UINavigationBarDelegate : UIBarPositioningDelegate {
   optional func navigationBar(navigationBar: UINavigationBar, didPop item: UINavigationItem)
 }
 @available(iOS 2.0, *)
-class UINavigationItem : Object, Coding {
+class UINavigationItem : NSObject, NSCoding {
   init(title: String)
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   var title: String?
   var titleView: UIView?
   var prompt: String?
@@ -76,5 +76,5 @@ class UINavigationItem : Object, Coding {
   func setRightBarButtonItem(item: UIBarButtonItem?, animated: Bool)
   convenience init()
   @available(iOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }

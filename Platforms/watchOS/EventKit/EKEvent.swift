@@ -21,17 +21,17 @@ class EKEvent : EKCalendarItem {
   /*not inherited*/ init(eventStore: EKEventStore)
   var eventIdentifier: String { get }
   var isAllDay: Bool
-  @NSCopying var startDate: Date
-  @NSCopying var endDate: Date
+  @NSCopying var startDate: NSDate
+  @NSCopying var endDate: NSDate
   @available(watchOS 2.0, *)
   @NSCopying var structuredLocation: EKStructuredLocation?
-  func compareStartDate(other: EKEvent) -> ComparisonResult
+  func compareStartDate(other: EKEvent) -> NSComparisonResult
   var organizer: EKParticipant? { get }
   var availability: EKEventAvailability
   var status: EKEventStatus { get }
   var isDetached: Bool { get }
   @available(watchOS 2.0, *)
-  var occurrenceDate: Date { get }
+  var occurrenceDate: NSDate { get }
   func refresh() -> Bool
   @available(watchOS 2.0, *)
   var birthdayContactIdentifier: String? { get }

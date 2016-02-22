@@ -1,9 +1,9 @@
 
-let globalDomain: String
-let argumentDomain: String
-let registrationDomain: String
-class UserDefaults : Object {
-  class func standard() -> UserDefaults
+let NSGlobalDomain: String
+let NSArgumentDomain: String
+let NSRegistrationDomain: String
+class NSUserDefaults : NSObject {
+  class func standard() -> NSUserDefaults
   class func resetStandardUserDefaults()
   convenience init()
   @available(watchOS 2.0, *)
@@ -16,20 +16,20 @@ class UserDefaults : Object {
   func string(forKey defaultName: String) -> String?
   func array(forKey defaultName: String) -> [AnyObject]?
   func dictionary(forKey defaultName: String) -> [String : AnyObject]?
-  func data(forKey defaultName: String) -> Data?
+  func data(forKey defaultName: String) -> NSData?
   func stringArray(forKey defaultName: String) -> [String]?
   func integer(forKey defaultName: String) -> Int
   func float(forKey defaultName: String) -> Float
   func double(forKey defaultName: String) -> Double
   func bool(forKey defaultName: String) -> Bool
   @available(watchOS 2.0, *)
-  func url(forKey defaultName: String) -> URL?
+  func url(forKey defaultName: String) -> NSURL?
   func setInteger(value: Int, forKey defaultName: String)
   func setFloat(value: Float, forKey defaultName: String)
   func setDouble(value: Double, forKey defaultName: String)
   func setBool(value: Bool, forKey defaultName: String)
   @available(watchOS 2.0, *)
-  func setURL(url: URL?, forKey defaultName: String)
+  func setURL(url: NSURL?, forKey defaultName: String)
   func register(registrationDictionary: [String : AnyObject])
   func addSuiteNamed(suiteName: String)
   func removeSuiteNamed(suiteName: String)
@@ -47,4 +47,4 @@ class UserDefaults : Object {
   func objectIsForced(forKey key: String) -> Bool
   func objectIsForced(forKey key: String, inDomain domain: String) -> Bool
 }
-let userDefaultsDidChangeNotification: String
+let NSUserDefaultsDidChangeNotification: String

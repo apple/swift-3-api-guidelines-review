@@ -1,24 +1,24 @@
 
 @available(tvOS 5.0, *)
-class GLKViewController : UIViewController, Coding, GLKViewDelegate {
+class GLKViewController : UIViewController, NSCoding, GLKViewDelegate {
   @IBOutlet unowned(unsafe) var delegate: @sil_unmanaged GLKViewControllerDelegate?
   var preferredFramesPerSecond: Int
   var framesPerSecond: Int { get }
   var isPaused: Bool
   var framesDisplayed: Int { get }
-  var timeSinceFirstResume: TimeInterval { get }
-  var timeSinceLastResume: TimeInterval { get }
-  var timeSinceLastUpdate: TimeInterval { get }
-  var timeSinceLastDraw: TimeInterval { get }
+  var timeSinceFirstResume: NSTimeInterval { get }
+  var timeSinceLastResume: NSTimeInterval { get }
+  var timeSinceLastUpdate: NSTimeInterval { get }
+  var timeSinceLastDraw: NSTimeInterval { get }
   var pauseOnWillResignActive: Bool
   var resumeOnDidBecomeActive: Bool
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
   @available(tvOS 5.0, *)
   func glkView(view: GLKView, drawIn rect: CGRect)
 }
-protocol GLKViewControllerDelegate : ObjectProtocol {
+protocol GLKViewControllerDelegate : NSObjectProtocol {
   @available(tvOS 5.0, *)
   func glkViewControllerUpdate(controller: GLKViewController)
   @available(tvOS 5.0, *)

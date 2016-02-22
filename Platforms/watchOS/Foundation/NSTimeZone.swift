@@ -1,26 +1,26 @@
 
-class TimeZone : Object, Copying, SecureCoding {
+class NSTimeZone : NSObject, NSCopying, NSSecureCoding {
   var name: String { get }
-  @NSCopying var data: Data { get }
-  func secondsFromGMT(for aDate: Date) -> Int
-  func abbreviation(for aDate: Date) -> String?
-  func isDaylightSavingTime(for aDate: Date) -> Bool
+  @NSCopying var data: NSData { get }
+  func secondsFromGMT(for aDate: NSDate) -> Int
+  func abbreviation(for aDate: NSDate) -> String?
+  func isDaylightSavingTime(for aDate: NSDate) -> Bool
   @available(watchOS 2.0, *)
-  func daylightSavingTimeOffset(for aDate: Date) -> TimeInterval
+  func daylightSavingTimeOffset(for aDate: NSDate) -> NSTimeInterval
   @available(watchOS 2.0, *)
-  func nextDaylightSavingTimeTransition(after aDate: Date) -> Date?
+  func nextDaylightSavingTimeTransition(after aDate: NSDate) -> NSDate?
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
-extension TimeZone {
-  class func system() -> TimeZone
+extension NSTimeZone {
+  class func system() -> NSTimeZone
   class func resetSystemTimeZone()
-  class func defaultTimeZone() -> TimeZone
-  class func setDefaultTimeZone(aTimeZone: TimeZone)
-  class func local() -> TimeZone
+  class func defaultTimeZone() -> NSTimeZone
+  class func setDefaultTimeZone(aTimeZone: NSTimeZone)
+  class func local() -> NSTimeZone
   class func knownTimeZoneNames() -> [String]
   class func abbreviationDictionary() -> [String : String]
   @available(watchOS 2.0, *)
@@ -31,15 +31,15 @@ extension TimeZone {
   var abbreviation: String? { get }
   var isDaylightSavingTime: Bool { get }
   @available(watchOS 2.0, *)
-  var daylightSavingTimeOffset: TimeInterval { get }
+  var daylightSavingTimeOffset: NSTimeInterval { get }
   @available(watchOS 2.0, *)
-  @NSCopying var nextDaylightSavingTimeTransition: Date? { get }
+  @NSCopying var nextDaylightSavingTimeTransition: NSDate? { get }
   var description: String { get }
-  func isEqual(to aTimeZone: TimeZone) -> Bool
+  func isEqual(to aTimeZone: NSTimeZone) -> Bool
   @available(watchOS 2.0, *)
-  func localizedName(style: TimeZoneNameStyle, locale: Locale?) -> String?
+  func localizedName(style: NSTimeZoneNameStyle, locale: NSLocale?) -> String?
 }
-enum TimeZoneNameStyle : Int {
+enum NSTimeZoneNameStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   case standard
@@ -49,11 +49,11 @@ enum TimeZoneNameStyle : Int {
   case generic
   case shortGeneric
 }
-extension TimeZone {
+extension NSTimeZone {
   init?(name tzName: String)
-  init?(name tzName: String, data aData: Data?)
+  init?(name tzName: String, data aData: NSData?)
   convenience init(forSecondsFromGMT seconds: Int)
   convenience init?(abbreviation: String)
 }
 @available(watchOS 2.0, *)
-let systemTimeZoneDidChangeNotification: String
+let NSSystemTimeZoneDidChangeNotification: String

@@ -21,10 +21,10 @@ enum NSSpeechBoundary : UInt {
   case wordBoundary
   case sentenceBoundary
 }
-class NSSpeechSynthesizer : Object {
+class NSSpeechSynthesizer : NSObject {
   init?(voice: String?)
   func startSpeaking(string: String) -> Bool
-  func startSpeaking(string: String, to url: URL) -> Bool
+  func startSpeaking(string: String, to url: NSURL) -> Bool
   var isSpeaking: Bool { get }
   func stopSpeaking()
   @available(OSX 10.5, *)
@@ -55,7 +55,7 @@ class NSSpeechSynthesizer : Object {
   class func attributes(forVoice voice: String) -> [String : AnyObject]
   init()
 }
-protocol NSSpeechSynthesizerDelegate : ObjectProtocol {
+protocol NSSpeechSynthesizerDelegate : NSObjectProtocol {
   optional func speechSynthesizer(sender: NSSpeechSynthesizer, didFinishSpeaking finishedSpeaking: Bool)
   optional func speechSynthesizer(sender: NSSpeechSynthesizer, willSpeakWord characterRange: NSRange, of string: String)
   optional func speechSynthesizer(sender: NSSpeechSynthesizer, willSpeakPhoneme phonemeOpcode: Int16)

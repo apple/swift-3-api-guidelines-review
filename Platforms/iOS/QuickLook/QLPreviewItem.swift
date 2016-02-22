@@ -1,9 +1,9 @@
 
-protocol QLPreviewItem : ObjectProtocol {
-  var previewItemURL: URL { get }
+protocol QLPreviewItem : NSObjectProtocol {
+  var previewItemURL: NSURL { get }
   optional var previewItemTitle: String? { get }
 }
-extension URL : QLPreviewItem {
-  var previewItemURL: URL { get }
+extension NSURL : QLPreviewItem {
+  var previewItemURL: NSURL { get }
   var previewItemTitle: String? { get }
 }

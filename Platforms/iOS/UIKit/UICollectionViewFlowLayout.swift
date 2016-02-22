@@ -17,7 +17,7 @@ class UICollectionViewFlowLayoutInvalidationContext : UICollectionViewLayoutInva
 }
 protocol UICollectionViewDelegateFlowLayout : UICollectionViewDelegate {
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: NSIndexPath) -> CGSize
   @available(iOS 6.0, *)
   optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
   @available(iOS 6.0, *)
@@ -45,5 +45,5 @@ class UICollectionViewFlowLayout : UICollectionViewLayout {
   @available(iOS 9.0, *)
   var sectionFootersPinToVisibleBounds: Bool
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

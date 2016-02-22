@@ -1,9 +1,9 @@
 
 @available(OSX 10.7, *)
 class AVCompositionTrackSegment : AVAssetTrackSegment {
-  init(url URL: URL, trackID: CMPersistentTrackID, sourceTimeRange: CMTimeRange, targetTimeRange: CMTimeRange)
+  init(url URL: NSURL, trackID: CMPersistentTrackID, sourceTimeRange: CMTimeRange, targetTimeRange: CMTimeRange)
   init(timeRange: CMTimeRange)
   var isEmpty: Bool { get }
-  var sourceURL: URL? { get }
+  var sourceURL: NSURL? { get }
   var sourceTrackID: CMPersistentTrackID { get }
 }

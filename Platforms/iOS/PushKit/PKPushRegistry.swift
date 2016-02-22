@@ -4,14 +4,14 @@ let PKPushTypeVoIP: String
 @available(iOS 9.0, *)
 let PKPushTypeComplication: String
 @available(iOS 8.0, *)
-class PKPushRegistry : Object {
+class PKPushRegistry : NSObject {
   weak var delegate: @sil_weak PKPushRegistryDelegate!
-  var desiredPushTypes: Set<Object>!
-  func pushToken(forType type: String!) -> Data!
+  var desiredPushTypes: Set<NSObject>!
+  func pushToken(forType type: String!) -> NSData!
   init!(queue: dispatch_queue_t!)
   init()
 }
-protocol PKPushRegistryDelegate : ObjectProtocol {
+protocol PKPushRegistryDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
   func pushRegistry(registry: PKPushRegistry!, didUpdate credentials: PKPushCredentials!, forType type: String!)
   @available(iOS 8.0, *)

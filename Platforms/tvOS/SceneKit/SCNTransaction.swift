@@ -1,6 +1,6 @@
 
 @available(tvOS 8.0, *)
-class SCNTransaction : Object {
+class SCNTransaction : NSObject {
   class func begin()
   class func commit()
   class func flush()

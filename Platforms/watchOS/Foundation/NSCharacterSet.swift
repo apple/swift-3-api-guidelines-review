@@ -1,66 +1,66 @@
 
-var openStepUnicodeReservedBase: Int { get }
-class CharacterSet : Object, Copying, MutableCopying, Coding {
-  class func control() -> CharacterSet
-  class func whitespace() -> CharacterSet
-  class func whitespaceAndNewline() -> CharacterSet
-  class func decimalDigit() -> CharacterSet
-  class func letter() -> CharacterSet
-  class func lowercaseLetter() -> CharacterSet
-  class func uppercaseLetter() -> CharacterSet
-  class func nonBase() -> CharacterSet
-  class func alphanumeric() -> CharacterSet
-  class func decomposable() -> CharacterSet
-  class func illegal() -> CharacterSet
-  class func punctuation() -> CharacterSet
-  class func capitalizedLetter() -> CharacterSet
-  class func symbol() -> CharacterSet
+var NSOpenStepUnicodeReservedBase: Int { get }
+class NSCharacterSet : NSObject, NSCopying, NSMutableCopying, NSCoding {
+  class func control() -> NSCharacterSet
+  class func whitespace() -> NSCharacterSet
+  class func whitespaceAndNewline() -> NSCharacterSet
+  class func decimalDigit() -> NSCharacterSet
+  class func letter() -> NSCharacterSet
+  class func lowercaseLetter() -> NSCharacterSet
+  class func uppercaseLetter() -> NSCharacterSet
+  class func nonBase() -> NSCharacterSet
+  class func alphanumeric() -> NSCharacterSet
+  class func decomposable() -> NSCharacterSet
+  class func illegal() -> NSCharacterSet
+  class func punctuation() -> NSCharacterSet
+  class func capitalizedLetter() -> NSCharacterSet
+  class func symbol() -> NSCharacterSet
   @available(watchOS 2.0, *)
-  class func newline() -> CharacterSet
+  class func newline() -> NSCharacterSet
   /*not inherited*/ init(range aRange: NSRange)
   /*not inherited*/ init(charactersIn aString: String)
-  /*not inherited*/ init(bitmapRepresentation data: Data)
+  /*not inherited*/ init(bitmapRepresentation data: NSData)
   /*not inherited*/ init?(contentsOfFile fName: String)
-  init(coder aDecoder: Coder)
+  init(coder aDecoder: NSCoder)
   func characterIsMember(aCharacter: unichar) -> Bool
-  @NSCopying var bitmapRepresentation: Data { get }
-  @NSCopying var inverted: CharacterSet { get }
+  @NSCopying var bitmapRepresentation: NSData { get }
+  @NSCopying var inverted: NSCharacterSet { get }
   func longCharacterIsMember(theLongChar: UTF32Char) -> Bool
-  func isSupersetOf(theOtherSet: CharacterSet) -> Bool
+  func isSupersetOf(theOtherSet: NSCharacterSet) -> Bool
   func hasMember(inPlane thePlane: UInt8) -> Bool
   convenience init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
 }
-class MutableCharacterSet : CharacterSet, Copying, MutableCopying {
+class NSMutableCharacterSet : NSCharacterSet, NSCopying, NSMutableCopying {
   func addCharacters(in aRange: NSRange)
   func removeCharacters(in aRange: NSRange)
   func addCharacters(in aString: String)
   func removeCharacters(in aString: String)
-  func formUnion(otherSet: CharacterSet)
-  func formIntersection(otherSet: CharacterSet)
+  func formUnion(otherSet: NSCharacterSet)
+  func formIntersection(otherSet: NSCharacterSet)
   func invert()
-  class func control() -> MutableCharacterSet
-  class func whitespace() -> MutableCharacterSet
-  class func whitespaceAndNewline() -> MutableCharacterSet
-  class func decimalDigit() -> MutableCharacterSet
-  class func letter() -> MutableCharacterSet
-  class func lowercaseLetter() -> MutableCharacterSet
-  class func uppercaseLetter() -> MutableCharacterSet
-  class func nonBase() -> MutableCharacterSet
-  class func alphanumeric() -> MutableCharacterSet
-  class func decomposable() -> MutableCharacterSet
-  class func illegal() -> MutableCharacterSet
-  class func punctuation() -> MutableCharacterSet
-  class func capitalizedLetter() -> MutableCharacterSet
-  class func symbol() -> MutableCharacterSet
+  class func control() -> NSMutableCharacterSet
+  class func whitespace() -> NSMutableCharacterSet
+  class func whitespaceAndNewline() -> NSMutableCharacterSet
+  class func decimalDigit() -> NSMutableCharacterSet
+  class func letter() -> NSMutableCharacterSet
+  class func lowercaseLetter() -> NSMutableCharacterSet
+  class func uppercaseLetter() -> NSMutableCharacterSet
+  class func nonBase() -> NSMutableCharacterSet
+  class func alphanumeric() -> NSMutableCharacterSet
+  class func decomposable() -> NSMutableCharacterSet
+  class func illegal() -> NSMutableCharacterSet
+  class func punctuation() -> NSMutableCharacterSet
+  class func capitalizedLetter() -> NSMutableCharacterSet
+  class func symbol() -> NSMutableCharacterSet
   @available(watchOS 2.0, *)
-  class func newline() -> MutableCharacterSet
+  class func newline() -> NSMutableCharacterSet
   /*not inherited*/ init(range aRange: NSRange)
   /*not inherited*/ init(charactersIn aString: String)
-  /*not inherited*/ init(bitmapRepresentation data: Data)
+  /*not inherited*/ init(bitmapRepresentation data: NSData)
   /*not inherited*/ init?(contentsOfFile fName: String)
-  init(coder aDecoder: Coder)
+  init(coder aDecoder: NSCoder)
   convenience init()
 }

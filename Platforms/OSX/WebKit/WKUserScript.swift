@@ -7,12 +7,12 @@ enum WKUserScriptInjectionTime : Int {
   case atDocumentEnd
 }
 @available(OSX 10.10, *)
-class WKUserScript : Object, Copying {
+class WKUserScript : NSObject, NSCopying {
   var source: String { get }
   var injectionTime: WKUserScriptInjectionTime { get }
   var isForMainFrameOnly: Bool { get }
   init(source: String, injectionTime: WKUserScriptInjectionTime, forMainFrameOnly: Bool)
   init()
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

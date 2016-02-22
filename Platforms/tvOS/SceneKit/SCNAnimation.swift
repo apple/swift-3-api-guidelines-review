@@ -1,11 +1,11 @@
 
 typealias SCNAnimationEventBlock = (CAAnimation, AnyObject, Bool) -> Void
 @available(tvOS 8.0, *)
-class SCNAnimationEvent : Object {
+class SCNAnimationEvent : NSObject {
   convenience init(keyTime time: CGFloat, block eventBlock: SCNAnimationEventBlock)
   init()
 }
-protocol SCNAnimatable : ObjectProtocol {
+protocol SCNAnimatable : NSObjectProtocol {
   func add(animation: CAAnimation, forKey key: String?)
   func removeAllAnimations()
   func removeAnimation(forKey key: String)

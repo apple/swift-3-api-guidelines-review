@@ -1,10 +1,10 @@
 
 let NSSoundPboardType: String
-class NSSound : Object, Copying, Coding, NSPasteboardReading, NSPasteboardWriting {
+class NSSound : NSObject, NSCopying, NSCoding, NSPasteboardReading, NSPasteboardWriting {
   /*not inherited*/ init?(named name: String)
-  init?(contentsOf url: URL, byReference byRef: Bool)
+  init?(contentsOf url: NSURL, byReference byRef: Bool)
   init?(contentsOfFile path: String, byReference byRef: Bool)
-  init?(data: Data)
+  init?(data: NSData)
   func setName(string: String?) -> Bool
   var name: String? { get }
   class func canInit(with pasteboard: NSPasteboard) -> Bool
@@ -19,19 +19,19 @@ class NSSound : Object, Copying, Coding, NSPasteboardReading, NSPasteboardWritin
   var isPlaying: Bool { get }
   unowned(unsafe) var delegate: @sil_unmanaged NSSoundDelegate?
   @available(OSX 10.5, *)
-  var duration: TimeInterval { get }
+  var duration: NSTimeInterval { get }
   @available(OSX 10.5, *)
   var volume: Float
   @available(OSX 10.5, *)
-  var currentTime: TimeInterval
+  var currentTime: NSTimeInterval
   @available(OSX 10.5, *)
   var loops: Bool
   @available(OSX 10.5, *)
   var playbackDeviceIdentifier: String?
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   class func readableTypes(for pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
   class func readingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
@@ -43,9 +43,9 @@ class NSSound : Object, Copying, Coding, NSPasteboardReading, NSPasteboardWritin
 }
 extension NSSound {
 }
-protocol NSSoundDelegate : ObjectProtocol {
+protocol NSSoundDelegate : NSObjectProtocol {
   optional func sound(sound: NSSound, didFinishPlaying aBool: Bool)
 }
-extension Bundle {
+extension NSBundle {
   func path(forSoundResource name: String) -> String?
 }

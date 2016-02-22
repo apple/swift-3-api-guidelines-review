@@ -39,7 +39,7 @@ enum UIUserInterfaceIdiom : Int {
 func UIDeviceOrientationIsPortrait(orientation: UIDeviceOrientation) -> Bool
 func UIDeviceOrientationIsLandscape(orientation: UIDeviceOrientation) -> Bool
 @available(iOS 2.0, *)
-class UIDevice : Object {
+class UIDevice : NSObject {
   class func current() -> UIDevice
   var name: String { get }
   var model: String { get }
@@ -48,7 +48,7 @@ class UIDevice : Object {
   var systemVersion: String { get }
   var orientation: UIDeviceOrientation { get }
   @available(iOS 6.0, *)
-  var identifierForVendor: UUID? { get }
+  var identifierForVendor: NSUUID? { get }
   var isGeneratingDeviceOrientationNotifications: Bool { get }
   func beginGeneratingDeviceOrientationNotifications()
   func endGeneratingDeviceOrientationNotifications()
@@ -70,7 +70,7 @@ class UIDevice : Object {
   func playInputClick()
   init()
 }
-protocol UIInputViewAudioFeedback : ObjectProtocol {
+protocol UIInputViewAudioFeedback : NSObjectProtocol {
   optional var enableInputClicksWhenVisible: Bool { get }
 }
 func UI_USER_INTERFACE_IDIOM() -> UIUserInterfaceIdiom

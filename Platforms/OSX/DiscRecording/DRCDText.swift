@@ -29,11 +29,11 @@ var DRCDTextGenreCodeSoundEffects: Int { get }
 var DRCDTextGenreCodeSoundtrack: Int { get }
 var DRCDTextGenreCodeSpokenWord: Int { get }
 var DRCDTextGenreCodeWorldMusic: Int { get }
-class DRCDTextBlock : Object {
-  class func arrayOfCDTextBlocks(fromPacks packs: Data!) -> [AnyObject]!
+class DRCDTextBlock : NSObject {
+  class func arrayOfCDTextBlocks(fromPacks packs: NSData!) -> [AnyObject]!
   init!(language lang: String!, encoding enc: UInt)
-  func properties() -> [Object : AnyObject]!
-  func setProperties(properties: [Object : AnyObject]!)
+  func properties() -> [NSObject : AnyObject]!
+  func setProperties(properties: [NSObject : AnyObject]!)
   func trackDictionaries() -> [AnyObject]!
   func setTrackDictionaries(tracks: [AnyObject]!)
   func object(forKey key: String!, ofTrack trackIndex: Int) -> AnyObject!

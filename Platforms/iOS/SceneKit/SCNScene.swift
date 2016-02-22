@@ -1,5 +1,5 @@
 
-typealias SCNSceneExportProgressHandler = (Float, Error?, UnsafeMutablePointer<ObjCBool>) -> Void
+typealias SCNSceneExportProgressHandler = (Float, NSError?, UnsafeMutablePointer<ObjCBool>) -> Void
 @available(iOS 8.0, *)
 let SCNSceneExportDestinationURL: String
 let SCNSceneStartTimeAttributeKey: String
@@ -8,7 +8,7 @@ let SCNSceneFrameRateAttributeKey: String
 @available(iOS 8.0, *)
 let SCNSceneUpAxisAttributeKey: String
 @available(iOS 8.0, *)
-class SCNScene : Object, SecureCoding {
+class SCNScene : NSObject, NSSecureCoding {
   var rootNode: SCNNode { get }
   @available(iOS 8.0, *)
   var physicsWorld: SCNPhysicsWorld { get }
@@ -20,7 +20,7 @@ class SCNScene : Object, SecureCoding {
   convenience init?(named name: String)
   @available(iOS 8.0, *)
   convenience init?(named name: String, inDirectory directory: String?, options: [String : AnyObject]? = [:])
-  convenience init(url: URL, options: [String : AnyObject]? = [:]) throws
+  convenience init(url: NSURL, options: [String : AnyObject]? = [:]) throws
   @available(iOS 8.0, *)
   var fogStartDistance: CGFloat
   @available(iOS 8.0, *)
@@ -35,6 +35,6 @@ class SCNScene : Object, SecureCoding {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

@@ -1,50 +1,50 @@
 
-typealias SocketNativeHandle = Int32
-let portDidBecomeInvalidNotification: String
-class Port : Object, Copying, Coding {
+typealias NSSocketNativeHandle = Int32
+let NSPortDidBecomeInvalidNotification: String
+class NSPort : NSObject, NSCopying, NSCoding {
   func invalidate()
   var isValid: Bool { get }
-  func setDelegate(anObject: PortDelegate?)
-  func delegate() -> PortDelegate?
-  func schedule(in runLoop: RunLoop, forMode mode: String)
-  func remove(from runLoop: RunLoop, forMode mode: String)
+  func setDelegate(anObject: NSPortDelegate?)
+  func delegate() -> NSPortDelegate?
+  func schedule(in runLoop: NSRunLoop, forMode mode: String)
+  func remove(from runLoop: NSRunLoop, forMode mode: String)
   var reservedSpaceLength: Int { get }
-  func send(before limitDate: Date, components: MutableArray?, from receivePort: Port?, reserved headerSpaceReserved: Int) -> Bool
-  func send(before limitDate: Date, msgid msgID: Int, components: MutableArray?, from receivePort: Port?, reserved headerSpaceReserved: Int) -> Bool
+  func send(before limitDate: NSDate, components: NSMutableArray?, from receivePort: NSPort?, reserved headerSpaceReserved: Int) -> Bool
+  func send(before limitDate: NSDate, msgid msgID: Int, components: NSMutableArray?, from receivePort: NSPort?, reserved headerSpaceReserved: Int) -> Bool
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
-protocol PortDelegate : ObjectProtocol {
+protocol NSPortDelegate : NSObjectProtocol {
 }
-class MachPort : Port {
-  class func port(withMachPort machPort: UInt32) -> Port
+class NSMachPort : NSPort {
+  class func port(withMachPort machPort: UInt32) -> NSPort
   init(machPort: UInt32)
-  func setDelegate(anObject: MachPortDelegate?)
-  func delegate() -> MachPortDelegate?
+  func setDelegate(anObject: NSMachPortDelegate?)
+  func delegate() -> NSMachPortDelegate?
   @available(tvOS 2.0, *)
-  class func port(withMachPort machPort: UInt32, options f: MachPortOptions = []) -> Port
+  class func port(withMachPort machPort: UInt32, options f: NSMachPortOptions = []) -> NSPort
   @available(tvOS 2.0, *)
-  init(machPort: UInt32, options f: MachPortOptions = [])
+  init(machPort: UInt32, options f: NSMachPortOptions = [])
   var machPort: UInt32 { get }
-  func schedule(in runLoop: RunLoop, forMode mode: String)
-  func remove(from runLoop: RunLoop, forMode mode: String)
+  func schedule(in runLoop: NSRunLoop, forMode mode: String)
+  func remove(from runLoop: NSRunLoop, forMode mode: String)
   convenience init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 2.0, *)
-struct MachPortOptions : OptionSetType {
+struct NSMachPortOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var deallocateNone: MachPortOptions { get }
-  static var deallocateSendRight: MachPortOptions { get }
-  static var deallocateReceiveRight: MachPortOptions { get }
+  static var deallocateNone: NSMachPortOptions { get }
+  static var deallocateSendRight: NSMachPortOptions { get }
+  static var deallocateReceiveRight: NSMachPortOptions { get }
 }
-protocol MachPortDelegate : PortDelegate {
+protocol NSMachPortDelegate : NSPortDelegate {
   optional func handleMachMessage(msg: UnsafeMutablePointer<Void>)
 }
-class MessagePort : Port {
+class NSMessagePort : NSPort {
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

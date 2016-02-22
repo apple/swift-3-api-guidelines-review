@@ -29,18 +29,18 @@ class NSDatePickerCell : NSActionCell {
   @NSCopying var textColor: NSColor
   var datePickerMode: NSDatePickerMode
   var datePickerElements: NSDatePickerElementFlags
-  @NSCopying var calendar: Calendar?
-  @NSCopying var locale: Locale?
-  @NSCopying var timeZone: TimeZone?
-  @NSCopying var dateValue: Date
-  var timeInterval: TimeInterval
-  @NSCopying var minDate: Date?
-  @NSCopying var maxDate: Date?
+  @NSCopying var calendar: NSCalendar?
+  @NSCopying var locale: NSLocale?
+  @NSCopying var timeZone: NSTimeZone?
+  @NSCopying var dateValue: NSDate
+  var timeInterval: NSTimeInterval
+  @NSCopying var minDate: NSDate?
+  @NSCopying var maxDate: NSDate?
   unowned(unsafe) var delegate: @sil_unmanaged NSDatePickerCellDelegate?
   init(textCell aString: String)
   init(imageCell image: NSImage?)
   convenience init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 struct __dateCellFlags {
   var elements: UInt32
@@ -55,6 +55,6 @@ struct __dateCellFlags {
   init()
   init(elements: UInt32, controlStyle: UInt32, controlMode: UInt32, trackingHand: UInt32, reserved2: UInt32, drawsBackground: UInt32, digitsEntered: UInt32, forcesLeadingZeroes: UInt32, wrapsDateComponentArithmetic: UInt32)
 }
-protocol NSDatePickerCellDelegate : ObjectProtocol {
-  optional func datePickerCell(aDatePickerCell: NSDatePickerCell, validateProposedDateValue proposedDateValue: AutoreleasingUnsafeMutablePointer<Date?>, timeInterval proposedTimeInterval: UnsafeMutablePointer<TimeInterval>)
+protocol NSDatePickerCellDelegate : NSObjectProtocol {
+  optional func datePickerCell(aDatePickerCell: NSDatePickerCell, validateProposedDateValue proposedDateValue: AutoreleasingUnsafeMutablePointer<NSDate?>, timeInterval proposedTimeInterval: UnsafeMutablePointer<NSTimeInterval>)
 }

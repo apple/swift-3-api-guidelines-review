@@ -18,7 +18,7 @@ enum UITabBarSystemItem : Int {
 @available(iOS 2.0, *)
 class UITabBarItem : UIBarItem {
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init(title: String?, image: UIImage?, tag: Int)
   @available(iOS 7.0, *)
   convenience init(title: String?, image: UIImage?, selectedImage: UIImage?)

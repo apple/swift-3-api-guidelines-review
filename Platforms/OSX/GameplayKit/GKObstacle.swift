@@ -1,6 +1,6 @@
 
 @available(OSX 10.11, *)
-class GKObstacle : Object {
+class GKObstacle : NSObject {
   init()
 }
 @available(OSX 10.11, *)

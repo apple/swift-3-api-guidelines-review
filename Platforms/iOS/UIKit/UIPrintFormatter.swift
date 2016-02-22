@@ -1,6 +1,6 @@
 
 @available(iOS 4.2, *)
-class UIPrintFormatter : Object, Copying {
+class UIPrintFormatter : NSObject, NSCopying {
   weak var printPageRenderer: @sil_weak UIPrintPageRenderer? { get }
   func removeFromPrintPageRenderer()
   var maximumContentHeight: CGFloat
@@ -13,16 +13,16 @@ class UIPrintFormatter : Object, Copying {
   func draw(in rect: CGRect, forPageAt pageIndex: Int)
   init()
   @available(iOS 4.2, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 4.2, *)
 class UISimpleTextPrintFormatter : UIPrintFormatter {
   init(text: String)
   @available(iOS 7.0, *)
-  init(attributedText: AttributedString)
+  init(attributedText: NSAttributedString)
   var text: String?
   @available(iOS 7.0, *)
-  @NSCopying var attributedText: AttributedString?
+  @NSCopying var attributedText: NSAttributedString?
   var font: UIFont?
   var color: UIColor?
   var textAlignment: NSTextAlignment

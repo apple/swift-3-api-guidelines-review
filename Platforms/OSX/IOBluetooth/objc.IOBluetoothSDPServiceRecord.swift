@@ -1,13 +1,13 @@
 
-class IOBluetoothSDPServiceRecord : Object, Coding {
-  class func publishedServiceRecord(with serviceDict: [Object : AnyObject]!) -> Self!
+class IOBluetoothSDPServiceRecord : NSObject, NSCoding {
+  class func publishedServiceRecord(with serviceDict: [NSObject : AnyObject]!) -> Self!
   func remove() -> IOReturn
-  class func withServiceDictionary(serviceDict: [Object : AnyObject]!, device: IOBluetoothDevice!) -> Self!
-  init!(serviceDictionary serviceDict: [Object : AnyObject]!, device: IOBluetoothDevice!)
+  class func withServiceDictionary(serviceDict: [NSObject : AnyObject]!, device: IOBluetoothDevice!) -> Self!
+  init!(serviceDictionary serviceDict: [NSObject : AnyObject]!, device: IOBluetoothDevice!)
   class func withSDPServiceRecordRef(sdpServiceRecordRef: IOBluetoothSDPServiceRecordRef!) -> Self!
   func getRef() -> Unmanaged<IOBluetoothSDPServiceRecordRef>!
   var device: IOBluetoothDevice! { get }
-  var attributes: [Object : AnyObject]! { get }
+  var attributes: [NSObject : AnyObject]! { get }
   func getAttributeDataElement(attributeID: BluetoothSDPServiceAttributeID) -> IOBluetoothSDPDataElement!
   func getServiceName() -> String!
   func getRFCOMMChannelID(rfcommChannelID: UnsafeMutablePointer<BluetoothRFCOMMChannelID>) -> IOReturn
@@ -19,6 +19,6 @@ class IOBluetoothSDPServiceRecord : Object, Coding {
   func hasService(from array: [AnyObject]!) -> Bool
   var sortedAttributes: [AnyObject]! { get }
   init()
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

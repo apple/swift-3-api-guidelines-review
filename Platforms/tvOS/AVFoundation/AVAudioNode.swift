@@ -1,7 +1,7 @@
 
 typealias AVAudioNodeTapBlock = (AVAudioPCMBuffer, AVAudioTime) -> Void
 @available(tvOS 8.0, *)
-class AVAudioNode : Object {
+class AVAudioNode : NSObject {
   func reset()
   func inputFormat(forBus bus: AVAudioNodeBus) -> AVAudioFormat
   func outputFormat(forBus bus: AVAudioNodeBus) -> AVAudioFormat

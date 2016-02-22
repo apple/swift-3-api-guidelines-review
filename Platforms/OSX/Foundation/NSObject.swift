@@ -1,36 +1,36 @@
 
-protocol Copying {
-  func copy(with zone: Zone = nil) -> AnyObject
+protocol NSCopying {
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
-protocol MutableCopying {
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+protocol NSMutableCopying {
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
 }
-protocol Coding {
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+protocol NSCoding {
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
-protocol SecureCoding : Coding {
+protocol NSSecureCoding : NSCoding {
   static func supportsSecureCoding() -> Bool
 }
-extension Object {
+extension NSObject {
   class func version() -> Int
   class func setVersion(aVersion: Int)
   var classForCoder: AnyClass { get }
-  class func replacementObject(for aCoder: Coder) -> AnyObject?
-  func replacementObject(for aCoder: Coder) -> AnyObject?
-  class func awakeAfter(aDecoder: Coder) -> AnyObject?
-  func awakeAfter(aDecoder: Coder) -> AnyObject?
+  class func replacementObject(for aCoder: NSCoder) -> AnyObject?
+  func replacementObject(for aCoder: NSCoder) -> AnyObject?
+  class func awakeAfter(aDecoder: NSCoder) -> AnyObject?
+  func awakeAfter(aDecoder: NSCoder) -> AnyObject?
   class func classForCoder() -> AnyClass
 }
-extension Object {
+extension NSObject {
 }
-protocol DiscardableContent {
+protocol NSDiscardableContent {
   func beginAccess() -> Bool
   func endAccess()
   func discardContentIfPossible()
   func isContentDiscarded() -> Bool
 }
-extension Object {
+extension NSObject {
   @available(OSX 10.6, *)
   var autoContentAccessingProxy: AnyObject { get }
   class func autoContentAccessingProxy() -> AnyObject

@@ -1,19 +1,19 @@
 
 @available(watchOS 2.0, *)
-class PersonNameComponents : Object, Copying, SecureCoding {
+class NSPersonNameComponents : NSObject, NSCopying, NSSecureCoding {
   var namePrefix: String?
   var givenName: String?
   var middleName: String?
   var familyName: String?
   var nameSuffix: String?
   var nickname: String?
-  @NSCopying var phoneticRepresentation: PersonNameComponents?
+  @NSCopying var phoneticRepresentation: NSPersonNameComponents?
   init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

@@ -1,4 +1,4 @@
 
-class PKObject : Object {
+class PKObject : NSObject {
   init()
 }

@@ -1,8 +1,8 @@
 
 @available(OSX 10.5, *)
-class NSMigrationManager : Object {
+class NSMigrationManager : NSObject {
   init(sourceModel: NSManagedObjectModel, destinationModel: NSManagedObjectModel)
-  func migrateStore(from sourceURL: URL, type sStoreType: String, options sOptions: [Object : AnyObject]? = [:], with mappings: NSMappingModel?, toDestinationURL dURL: URL, destinationType dStoreType: String, destinationOptions dOptions: [Object : AnyObject]? = [:]) throws
+  func migrateStore(from sourceURL: NSURL, type sStoreType: String, options sOptions: [NSObject : AnyObject]? = [:], with mappings: NSMappingModel?, toDestinationURL dURL: NSURL, destinationType dStoreType: String, destinationOptions dOptions: [NSObject : AnyObject]? = [:]) throws
   @available(OSX 10.7, *)
   var usesStoreSpecificMigrationManager: Bool
   func reset()
@@ -18,8 +18,8 @@ class NSMigrationManager : Object {
   func sourceInstances(forEntityMappingNamed mappingName: String, destinationInstances: [NSManagedObject]?) -> [NSManagedObject]
   var currentEntityMapping: NSEntityMapping { get }
   var migrationProgress: Float { get }
-  var userInfo: [Object : AnyObject]?
-  func cancelMigrationWithError(error: Error)
+  var userInfo: [NSObject : AnyObject]?
+  func cancelMigrationWithError(error: NSError)
   init()
 }
 struct _migrationManagerFlags {

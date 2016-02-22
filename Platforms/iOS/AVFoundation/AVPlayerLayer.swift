@@ -11,5 +11,5 @@ class AVPlayerLayer : CALayer {
   var pixelBufferAttributes: [String : AnyObject]?
   init()
   init(layer: AnyObject)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

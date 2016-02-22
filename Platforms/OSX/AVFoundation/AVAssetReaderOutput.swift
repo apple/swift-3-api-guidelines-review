@@ -1,6 +1,6 @@
 
 @available(OSX 10.7, *)
-class AVAssetReaderOutput : Object {
+class AVAssetReaderOutput : NSObject {
   var mediaType: String { get }
   @available(OSX 10.8, *)
   var alwaysCopiesSampleData: Bool
@@ -11,7 +11,7 @@ extension AVAssetReaderOutput {
   @available(OSX 10.10, *)
   var supportsRandomAccess: Bool
   @available(OSX 10.10, *)
-  func reset(forReadingTimeRanges timeRanges: [Value])
+  func reset(forReadingTimeRanges timeRanges: [NSValue])
   @available(OSX 10.10, *)
   func markConfigurationAsFinal()
 }
@@ -42,7 +42,7 @@ class AVAssetReaderVideoCompositionOutput : AVAssetReaderOutput {
   var customVideoCompositor: AVVideoCompositing? { get }
 }
 @available(OSX 10.10, *)
-class AVAssetReaderOutputMetadataAdaptor : Object {
+class AVAssetReaderOutputMetadataAdaptor : NSObject {
   init(assetReaderTrackOutput trackOutput: AVAssetReaderTrackOutput)
   var assetReaderTrackOutput: AVAssetReaderTrackOutput { get }
   func nextTimedMetadataGroup() -> AVTimedMetadataGroup?

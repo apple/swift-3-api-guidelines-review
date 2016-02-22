@@ -1,10 +1,10 @@
 
 @available(iOS 9.0, *)
-class HKDeletedObject : Object, SecureCoding {
-  var uuid: UUID { get }
+class HKDeletedObject : NSObject, NSSecureCoding {
+  var uuid: NSUUID { get }
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

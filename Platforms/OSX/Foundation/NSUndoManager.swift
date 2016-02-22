@@ -1,7 +1,7 @@
 
-let undoCloseGroupingRunLoopOrdering: Int
+let NSUndoCloseGroupingRunLoopOrdering: Int
 @available(OSX 10.0, *)
-class UndoManager : Object {
+class NSUndoManager : NSObject {
   func beginUndoGrouping()
   func endUndoGrouping()
   var groupingLevel: Int { get }
@@ -40,24 +40,24 @@ class UndoManager : Object {
   init()
 }
 
-extension UndoManager {
+extension NSUndoManager {
   func registerUndoWithTarget<TargetType : AnyObject>(target: TargetType, handler: (TargetType) -> Void)
 }
 @available(OSX 10.7, *)
-let undoManagerGroupIsDiscardableKey: String
+let NSUndoManagerGroupIsDiscardableKey: String
 @available(OSX 10.0, *)
-let undoManagerCheckpointNotification: String
+let NSUndoManagerCheckpointNotification: String
 @available(OSX 10.0, *)
-let undoManagerWillUndoChangeNotification: String
+let NSUndoManagerWillUndoChangeNotification: String
 @available(OSX 10.0, *)
-let undoManagerWillRedoChangeNotification: String
+let NSUndoManagerWillRedoChangeNotification: String
 @available(OSX 10.0, *)
-let undoManagerDidUndoChangeNotification: String
+let NSUndoManagerDidUndoChangeNotification: String
 @available(OSX 10.0, *)
-let undoManagerDidRedoChangeNotification: String
+let NSUndoManagerDidRedoChangeNotification: String
 @available(OSX 10.0, *)
-let undoManagerDidOpenUndoGroupNotification: String
+let NSUndoManagerDidOpenUndoGroupNotification: String
 @available(OSX 10.0, *)
-let undoManagerWillCloseUndoGroupNotification: String
+let NSUndoManagerWillCloseUndoGroupNotification: String
 @available(OSX 10.7, *)
-let undoManagerDidCloseUndoGroupNotification: String
+let NSUndoManagerDidCloseUndoGroupNotification: String

@@ -1,14 +1,14 @@
 
 @available(tvOS 4.0, *)
-class AVComposition : AVAsset, MutableCopying {
+class AVComposition : AVAsset, NSMutableCopying {
   var tracks: [AVCompositionTrack] { get }
   var naturalSize: CGSize { get }
   @available(tvOS 9.0, *)
   var urlAssetInitializationOptions: [String : AnyObject] { get }
-  convenience init(url URL: URL)
+  convenience init(url URL: NSURL)
   init()
   @available(tvOS 4.0, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
 }
 extension AVComposition {
   func track(withTrackID trackID: CMPersistentTrackID) -> AVCompositionTrack?
@@ -21,7 +21,7 @@ class AVMutableComposition : AVComposition {
   var naturalSize: CGSize
   @available(tvOS 9.0, *)
   convenience init(urlAssetInitializationOptions URLAssetInitializationOptions: [String : AnyObject]? = [:])
-  convenience init(url URL: URL)
+  convenience init(url URL: NSURL)
   init()
 }
 extension AVMutableComposition {

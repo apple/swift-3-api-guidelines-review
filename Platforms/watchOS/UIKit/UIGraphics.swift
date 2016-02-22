@@ -13,19 +13,19 @@ func UIGraphicsBeginImageContextWithOptions(size: CGSize, _ opaque: Bool, _ scal
 func UIGraphicsGetImageFromCurrentImageContext() -> UIImage!
 func UIGraphicsEndImageContext()
 @available(watchOS 2.0, *)
-func UIGraphicsBeginPDFContextToFile(path: String, _ bounds: CGRect, _ documentInfo: [Object : AnyObject]?) -> Bool
+func UIGraphicsBeginPDFContextToFile(path: String, _ bounds: CGRect, _ documentInfo: [NSObject : AnyObject]?) -> Bool
 @available(watchOS 2.0, *)
-func UIGraphicsBeginPDFContextToData(data: MutableData, _ bounds: CGRect, _ documentInfo: [Object : AnyObject]?)
+func UIGraphicsBeginPDFContextToData(data: NSMutableData, _ bounds: CGRect, _ documentInfo: [NSObject : AnyObject]?)
 @available(watchOS 2.0, *)
 func UIGraphicsEndPDFContext()
 @available(watchOS 2.0, *)
 func UIGraphicsBeginPDFPage()
 @available(watchOS 2.0, *)
-func UIGraphicsBeginPDFPageWithInfo(bounds: CGRect, _ pageInfo: [Object : AnyObject]?)
+func UIGraphicsBeginPDFPageWithInfo(bounds: CGRect, _ pageInfo: [NSObject : AnyObject]?)
 @available(watchOS 2.0, *)
 func UIGraphicsGetPDFContextBounds() -> CGRect
 @available(watchOS 2.0, *)
-func UIGraphicsSetPDFContextURLForRect(url: URL, _ rect: CGRect)
+func UIGraphicsSetPDFContextURLForRect(url: NSURL, _ rect: CGRect)
 @available(watchOS 2.0, *)
 func UIGraphicsAddPDFContextDestinationAtPoint(name: String, _ point: CGPoint)
 @available(watchOS 2.0, *)

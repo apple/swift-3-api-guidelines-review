@@ -18,7 +18,7 @@ var NSHangOnUncaughtSystemExceptionMask: Int { get }
 var NSHangOnUncaughtRuntimeErrorMask: Int { get }
 var NSHangOnTopLevelExceptionMask: Int { get }
 var NSHangOnOtherExceptionMask: Int { get }
-class NSExceptionHandler : Object {
+class NSExceptionHandler : NSObject {
   class func defaultExceptionHandler() -> NSExceptionHandler!
   func setExceptionHandlingMask(aMask: Int)
   func exceptionHandlingMask() -> Int
@@ -28,9 +28,9 @@ class NSExceptionHandler : Object {
   func delegate() -> AnyObject!
   init()
 }
-extension Object {
-  class func exceptionHandler(sender: NSExceptionHandler!, shouldLogException exception: Exception!, mask aMask: Int) -> Bool
-  func exceptionHandler(sender: NSExceptionHandler!, shouldLogException exception: Exception!, mask aMask: Int) -> Bool
-  class func exceptionHandler(sender: NSExceptionHandler!, shouldHandle exception: Exception!, mask aMask: Int) -> Bool
-  func exceptionHandler(sender: NSExceptionHandler!, shouldHandle exception: Exception!, mask aMask: Int) -> Bool
+extension NSObject {
+  class func exceptionHandler(sender: NSExceptionHandler!, shouldLogException exception: NSException!, mask aMask: Int) -> Bool
+  func exceptionHandler(sender: NSExceptionHandler!, shouldLogException exception: NSException!, mask aMask: Int) -> Bool
+  class func exceptionHandler(sender: NSExceptionHandler!, shouldHandle exception: NSException!, mask aMask: Int) -> Bool
+  func exceptionHandler(sender: NSExceptionHandler!, shouldHandle exception: NSException!, mask aMask: Int) -> Bool
 }

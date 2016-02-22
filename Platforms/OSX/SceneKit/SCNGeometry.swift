@@ -20,7 +20,7 @@ let SCNGeometrySourceSemanticBoneWeights: String
 @available(OSX 10.10, *)
 let SCNGeometrySourceSemanticBoneIndices: String
 @available(OSX 10.8, *)
-class SCNGeometry : Object, SCNAnimatable, SCNBoundingVolume, SCNShadable, Copying, SecureCoding {
+class SCNGeometry : NSObject, SCNAnimatable, SCNBoundingVolume, SCNShadable, NSCopying, NSSecureCoding {
   var name: String?
   var materials: [SCNMaterial]
   var firstMaterial: SCNMaterial?
@@ -78,22 +78,22 @@ class SCNGeometry : Object, SCNAnimatable, SCNBoundingVolume, SCNShadable, Copyi
   @available(OSX 10.9, *)
   var shaderModifiers: [String : String]?
   @available(OSX 10.8, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.8, *)
-class SCNGeometrySource : Object, SecureCoding {
-  convenience init(data: Data, semantic: String, vectorCount: Int, floatComponents: Bool, componentsPerVector: Int, bytesPerComponent: Int, dataOffset offset: Int, dataStride stride: Int)
+class SCNGeometrySource : NSObject, NSSecureCoding {
+  convenience init(data: NSData, semantic: String, vectorCount: Int, floatComponents: Bool, componentsPerVector: Int, bytesPerComponent: Int, dataOffset offset: Int, dataStride stride: Int)
   convenience init(vertices: UnsafePointer<SCNVector3>, count: Int)
   convenience init(normals: UnsafePointer<SCNVector3>, count: Int)
   convenience init(textureCoordinates texcoord: UnsafePointer<CGPoint>, count: Int)
   @available(OSX 10.11, *)
   convenience init(buffer mtlBuffer: MTLBuffer, vertexFormat: MTLVertexFormat, semantic: String, vertexCount: Int, dataOffset offset: Int, dataStride stride: Int)
-  var data: Data { get }
+  var data: NSData { get }
   var semantic: String { get }
   var vectorCount: Int { get }
   var floatComponents: Bool { get }
@@ -105,13 +105,13 @@ class SCNGeometrySource : Object, SecureCoding {
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.8, *)
-class SCNGeometryElement : Object, SecureCoding {
-  convenience init(data: Data?, primitiveType: SCNGeometryPrimitiveType, primitiveCount: Int, bytesPerIndex: Int)
-  var data: Data { get }
+class SCNGeometryElement : NSObject, NSSecureCoding {
+  convenience init(data: NSData?, primitiveType: SCNGeometryPrimitiveType, primitiveCount: Int, bytesPerIndex: Int)
+  var data: NSData { get }
   var primitiveType: SCNGeometryPrimitiveType { get }
   var primitiveCount: Int { get }
   var bytesPerIndex: Int { get }
@@ -119,8 +119,8 @@ class SCNGeometryElement : Object, SecureCoding {
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 
 @available(iOS 8.0, OSX 10.8, *)

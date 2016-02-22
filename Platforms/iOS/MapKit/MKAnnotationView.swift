@@ -35,6 +35,6 @@ class MKAnnotationView : UIView {
   @available(iOS 4.2, *)
   func setDragState(newDragState: MKAnnotationViewDragState, animated: Bool)
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }

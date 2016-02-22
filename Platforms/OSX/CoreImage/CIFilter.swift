@@ -139,7 +139,7 @@ let kCIInputExtentKey: String
 @available(OSX 10.11, *)
 let kCIInputVersionKey: String
 @available(OSX 10.4, *)
-class CIFilter : Object, SecureCoding, Copying {
+class CIFilter : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.10, *)
   var outputImage: CIImage? { get }
   @available(OSX 10.5, *)
@@ -156,10 +156,10 @@ class CIFilter : Object, SecureCoding, Copying {
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.4, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 
 extension CIFilter {
@@ -182,11 +182,11 @@ extension CIFilter {
   @available(OSX 10.4, *)
   class func localizedDescription(forFilterName filterName: String) -> String?
   @available(OSX 10.4, *)
-  class func localizedReferenceDocumentation(forFilterName filterName: String) -> URL?
+  class func localizedReferenceDocumentation(forFilterName filterName: String) -> NSURL?
 }
 extension CIFilter {
   @available(OSX 10.9, *)
-  class func serializedXMP(from filters: [CIFilter], inputImageExtent extent: CGRect) -> Data
+  class func serializedXMP(from filters: [CIFilter], inputImageExtent extent: CGRect) -> NSData
   @available(OSX 10.9, *)
-  class func filterArray(fromSerializedXMP xmpData: Data, inputImageExtent extent: CGRect, error outError: ErrorPointer) -> [CIFilter]
+  class func filterArray(fromSerializedXMP xmpData: NSData, inputImageExtent extent: CGRect, error outError: NSErrorPointer) -> [CIFilter]
 }

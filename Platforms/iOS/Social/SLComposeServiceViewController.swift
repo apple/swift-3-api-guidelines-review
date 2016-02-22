@@ -10,15 +10,15 @@ class SLComposeServiceViewController : UIViewController, UITextViewDelegate {
   func cancel()
   func isContentValid() -> Bool
   func validateContent()
-  var charactersRemaining: Number!
+  var charactersRemaining: NSNumber!
   func configurationItems() -> [AnyObject]!
   func reloadConfigurationItems()
   func pushConfigurationViewController(viewController: UIViewController!)
   func popConfigurationViewController()
   func loadPreviewView() -> UIView!
   var autoCompletionViewController: UIViewController!
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
   @available(iOS 8.0, *)
   func textViewShouldBeginEditing(textView: UITextView) -> Bool
@@ -35,7 +35,7 @@ class SLComposeServiceViewController : UIViewController, UITextViewDelegate {
   @available(iOS 8.0, *)
   func textViewDidChangeSelection(textView: UITextView)
   @available(iOS 7.0, *)
-  func textView(textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool
+  func textView(textView: UITextView, shouldInteractWith URL: NSURL, in characterRange: NSRange) -> Bool
   @available(iOS 7.0, *)
   func textView(textView: UITextView, shouldInteractWith textAttachment: NSTextAttachment, in characterRange: NSRange) -> Bool
   @available(iOS 8.0, *)

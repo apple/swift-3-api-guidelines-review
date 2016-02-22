@@ -7,15 +7,15 @@ enum SLRequestMethod : Int {
   case DELETE
   case PUT
 }
-typealias SLRequestHandler = (Data!, HTTPURLResponse!, Error!) -> Void
+typealias SLRequestHandler = (NSData!, NSHTTPURLResponse!, NSError!) -> Void
 @available(iOS 6.0, *)
-class SLRequest : Object {
-  /*not inherited*/ init!(forServiceType serviceType: String!, requestMethod: SLRequestMethod, url: URL!, parameters: [Object : AnyObject]!)
+class SLRequest : NSObject {
+  /*not inherited*/ init!(forServiceType serviceType: String!, requestMethod: SLRequestMethod, url: NSURL!, parameters: [NSObject : AnyObject]!)
   var requestMethod: SLRequestMethod { get }
-  var url: URL! { get }
-  var parameters: [Object : AnyObject]! { get }
-  func addMultipartData(data: Data!, withName name: String!, type: String!, filename: String!)
-  func preparedURLRequest() -> URLRequest!
+  var url: NSURL! { get }
+  var parameters: [NSObject : AnyObject]! { get }
+  func addMultipartData(data: NSData!, withName name: String!, type: String!, filename: String!)
+  func preparedURLRequest() -> NSURLRequest!
   func perform(handler handler: SLRequestHandler!)
   init()
 }

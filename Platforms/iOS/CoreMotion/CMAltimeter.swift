@@ -1,10 +1,10 @@
 
 @available(iOS 8.0, *)
-typealias CMAltitudeHandler = (CMAltitudeData?, Error?) -> Void
+typealias CMAltitudeHandler = (CMAltitudeData?, NSError?) -> Void
 @available(iOS 8.0, *)
-class CMAltimeter : Object {
+class CMAltimeter : NSObject {
   class func isRelativeAltitudeAvailable() -> Bool
-  func startRelativeAltitudeUpdates(to queue: OperationQueue, withHandler handler: CMAltitudeHandler)
+  func startRelativeAltitudeUpdates(to queue: NSOperationQueue, withHandler handler: CMAltitudeHandler)
   func stopRelativeAltitudeUpdates()
   init()
 }

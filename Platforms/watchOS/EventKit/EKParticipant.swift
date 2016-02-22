@@ -1,7 +1,7 @@
 
 @available(watchOS 2.0, *)
-class EKParticipant : EKObject, Copying {
-  var url: URL { get }
+class EKParticipant : EKObject, NSCopying {
+  var url: NSURL { get }
   var name: String? { get }
   var participantStatus: EKParticipantStatus { get }
   var participantRole: EKParticipantRole { get }
@@ -9,8 +9,8 @@ class EKParticipant : EKObject, Copying {
   @available(watchOS 2.0, *)
   var isCurrentUser: Bool { get }
   @available(watchOS 2.0, *)
-  var contactPredicate: Predicate { get }
+  var contactPredicate: NSPredicate { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

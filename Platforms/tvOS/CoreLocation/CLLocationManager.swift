@@ -30,7 +30,7 @@ enum CLActivityType : Int {
   case otherNavigation
 }
 @available(tvOS 2.0, *)
-class CLLocationManager : Object {
+class CLLocationManager : NSObject {
   @available(tvOS 4.0, *)
   class func locationServicesEnabled() -> Bool
   @available(tvOS 4.2, *)

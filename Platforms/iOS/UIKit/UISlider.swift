@@ -1,6 +1,6 @@
 
 @available(iOS 2.0, *)
-class UISlider : UIControl, Coding {
+class UISlider : UIControl, NSCoding {
   var value: Float
   var minimumValue: Float
   var maximumValue: Float
@@ -28,6 +28,6 @@ class UISlider : UIControl, Coding {
   func trackRect(forBounds bounds: CGRect) -> CGRect
   func thumbRect(forBounds bounds: CGRect, trackRect rect: CGRect, value: Float) -> CGRect
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }

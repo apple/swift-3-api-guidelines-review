@@ -1,9 +1,9 @@
 
 @available(watchOS 2.0, *)
-class NSPropertyMapping : Object {
+class NSPropertyMapping : NSObject {
   var name: String?
-  var valueExpression: Expression?
-  var userInfo: [Object : AnyObject]?
+  var valueExpression: NSExpression?
+  var userInfo: [NSObject : AnyObject]?
   init()
 }
 struct __propertyMappingFlags {

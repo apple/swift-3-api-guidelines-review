@@ -23,17 +23,17 @@ class IMKCandidates : NSResponder {
   func hide()
   func isVisible() -> Bool
   func update()
-  func showAnnotation(annotationString: AttributedString!)
+  func showAnnotation(annotationString: NSAttributedString!)
   func showSublist(candidates: [AnyObject]!, subListDelegate delegate: AnyObject!)
-  func selectedCandidateString() -> AttributedString!
-  func setCandidateFrameTopLeft(point: Point)
-  func candidateFrame() -> Rect
+  func selectedCandidateString() -> NSAttributedString!
+  func setCandidateFrameTopLeft(point: NSPoint)
+  func candidateFrame() -> NSRect
   func setSelectionKeys(keyCodes: [AnyObject]!)
   func selectionKeys() -> [AnyObject]!
   func setSelectionKeysKeylayout(layout: TISInputSource!)
   func selectionKeysKeylayout() -> Unmanaged<TISInputSource>!
-  func setAttributes(attributes: [Object : AnyObject]!)
-  func attributes() -> [Object : AnyObject]!
+  func setAttributes(attributes: [NSObject : AnyObject]!)
+  func attributes() -> [NSObject : AnyObject]!
   func setDismissesAutomatically(flag: Bool)
   func dismissesAutomatically() -> Bool
   @available(OSX 10.7, *)
@@ -62,5 +62,5 @@ class IMKCandidates : NSResponder {
   @available(OSX 10.7, *)
   func clearSelection()
   init()
-  init?(coder: Coder)
+  init?(coder: NSCoder)
 }

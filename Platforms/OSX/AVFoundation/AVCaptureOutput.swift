@@ -1,6 +1,6 @@
 
 @available(OSX 10.7, *)
-class AVCaptureOutput : Object {
+class AVCaptureOutput : NSObject {
   var connections: [AnyObject]! { get }
   @available(OSX 10.7, *)
   func connection(withMediaType mediaType: String!) -> AVCaptureConnection!
@@ -11,7 +11,7 @@ class AVCaptureVideoDataOutput : AVCaptureOutput {
   func setSampleBufferDelegate(sampleBufferDelegate: AVCaptureVideoDataOutputSampleBufferDelegate!, queue sampleBufferCallbackQueue: dispatch_queue_t!)
   var sampleBufferDelegate: AVCaptureVideoDataOutputSampleBufferDelegate! { get }
   var sampleBufferCallbackQueue: dispatch_queue_t! { get }
-  var videoSettings: [Object : AnyObject]!
+  var videoSettings: [NSObject : AnyObject]!
   @available(OSX 10.7, *)
   var availableVideoCVPixelFormatTypes: [AnyObject]! { get }
   @available(OSX 10.7, *)
@@ -19,7 +19,7 @@ class AVCaptureVideoDataOutput : AVCaptureOutput {
   var alwaysDiscardsLateVideoFrames: Bool
   init()
 }
-protocol AVCaptureVideoDataOutputSampleBufferDelegate : ObjectProtocol {
+protocol AVCaptureVideoDataOutputSampleBufferDelegate : NSObjectProtocol {
   @available(OSX 10.7, *)
   optional func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!)
   @available(OSX 10.7, *)
@@ -31,10 +31,10 @@ class AVCaptureAudioDataOutput : AVCaptureOutput {
   var sampleBufferDelegate: AVCaptureAudioDataOutputSampleBufferDelegate! { get }
   var sampleBufferCallbackQueue: dispatch_queue_t! { get }
   @available(OSX 10.7, *)
-  var audioSettings: [Object : AnyObject]!
+  var audioSettings: [NSObject : AnyObject]!
   init()
 }
-protocol AVCaptureAudioDataOutputSampleBufferDelegate : ObjectProtocol {
+protocol AVCaptureAudioDataOutputSampleBufferDelegate : NSObjectProtocol {
   @available(OSX 10.7, *)
   optional func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!)
 }
@@ -42,8 +42,8 @@ protocol AVCaptureAudioDataOutputSampleBufferDelegate : ObjectProtocol {
 class AVCaptureFileOutput : AVCaptureOutput {
   @available(OSX 10.7, *)
   unowned(unsafe) var delegate: @sil_unmanaged AVCaptureFileOutputDelegate!
-  var outputFileURL: URL! { get }
-  func startRecording(toOutputFileURL outputFileURL: URL!, recordingDelegate delegate: AVCaptureFileOutputRecordingDelegate!)
+  var outputFileURL: NSURL! { get }
+  func startRecording(toOutputFileURL outputFileURL: NSURL!, recordingDelegate delegate: AVCaptureFileOutputRecordingDelegate!)
   func stopRecording()
   var isRecording: Bool { get }
   @available(OSX 10.7, *)
@@ -59,19 +59,19 @@ class AVCaptureFileOutput : AVCaptureOutput {
   var minFreeDiskSpaceLimit: Int64
   init()
 }
-protocol AVCaptureFileOutputRecordingDelegate : ObjectProtocol {
+protocol AVCaptureFileOutputRecordingDelegate : NSObjectProtocol {
   @available(OSX 10.7, *)
-  optional func capture(captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [AnyObject]!)
+  optional func capture(captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: NSURL!, fromConnections connections: [AnyObject]!)
   @available(OSX 10.7, *)
-  optional func capture(captureOutput: AVCaptureFileOutput!, didPauseRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [AnyObject]!)
+  optional func capture(captureOutput: AVCaptureFileOutput!, didPauseRecordingToOutputFileAt fileURL: NSURL!, fromConnections connections: [AnyObject]!)
   @available(OSX 10.7, *)
-  optional func capture(captureOutput: AVCaptureFileOutput!, didResumeRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [AnyObject]!)
+  optional func capture(captureOutput: AVCaptureFileOutput!, didResumeRecordingToOutputFileAt fileURL: NSURL!, fromConnections connections: [AnyObject]!)
   @available(OSX 10.7, *)
-  optional func capture(captureOutput: AVCaptureFileOutput!, willFinishRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [AnyObject]!, error: Error!)
+  optional func capture(captureOutput: AVCaptureFileOutput!, willFinishRecordingToOutputFileAt fileURL: NSURL!, fromConnections connections: [AnyObject]!, error: NSError!)
   @available(OSX 10.7, *)
-  func capture(captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [AnyObject]!, error: Error!)
+  func capture(captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: NSURL!, fromConnections connections: [AnyObject]!, error: NSError!)
 }
-protocol AVCaptureFileOutputDelegate : ObjectProtocol {
+protocol AVCaptureFileOutputDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
   func captureOutputShouldProvideSampleAccurateRecordingStart(captureOutput: AVCaptureOutput!) -> Bool
   @available(OSX 10.7, *)
@@ -82,28 +82,28 @@ class AVCaptureMovieFileOutput : AVCaptureFileOutput {
   var movieFragmentInterval: CMTime
   var metadata: [AnyObject]!
   @available(OSX 10.7, *)
-  func outputSettings(for connection: AVCaptureConnection!) -> [Object : AnyObject]!
+  func outputSettings(for connection: AVCaptureConnection!) -> [NSObject : AnyObject]!
   @available(OSX 10.7, *)
-  func setOutputSettings(outputSettings: [Object : AnyObject]!, for connection: AVCaptureConnection!)
+  func setOutputSettings(outputSettings: [NSObject : AnyObject]!, for connection: AVCaptureConnection!)
   init()
 }
 @available(OSX 10.7, *)
 class AVCaptureAudioFileOutput : AVCaptureFileOutput {
   class func availableOutputFileTypes() -> [AnyObject]!
-  func startRecording(toOutputFileURL outputFileURL: URL!, outputFileType fileType: String!, recordingDelegate delegate: AVCaptureFileOutputRecordingDelegate!)
+  func startRecording(toOutputFileURL outputFileURL: NSURL!, outputFileType fileType: String!, recordingDelegate delegate: AVCaptureFileOutputRecordingDelegate!)
   var metadata: [AnyObject]!
-  var audioSettings: [Object : AnyObject]!
+  var audioSettings: [NSObject : AnyObject]!
   init()
 }
 @available(OSX 10.7, *)
 class AVCaptureStillImageOutput : AVCaptureOutput {
-  var outputSettings: [Object : AnyObject]!
+  var outputSettings: [NSObject : AnyObject]!
   var availableImageDataCVPixelFormatTypes: [AnyObject]! { get }
   var availableImageDataCodecTypes: [AnyObject]! { get }
   @available(OSX 10.8, *)
   var isCapturingStillImage: Bool { get }
-  func captureStillImageAsynchronously(from connection: AVCaptureConnection!, completionHandler handler: ((CMSampleBuffer!, Error!) -> Void)!)
-  class func jpegStillImageNSDataRepresentation(jpegSampleBuffer: CMSampleBuffer!) -> Data!
+  func captureStillImageAsynchronously(from connection: AVCaptureConnection!, completionHandler handler: ((CMSampleBuffer!, NSError!) -> Void)!)
+  class func jpegStillImageNSDataRepresentation(jpegSampleBuffer: CMSampleBuffer!) -> NSData!
   init()
 }
 @available(OSX 10.7, *)
@@ -112,7 +112,7 @@ class AVCaptureAudioPreviewOutput : AVCaptureOutput {
   var volume: Float
   init()
 }
-protocol AVCaptureMetadataOutputObjectsDelegate : ObjectProtocol {
+protocol AVCaptureMetadataOutputObjectsDelegate : NSObjectProtocol {
   @available(OSX 10.7, *)
   optional func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, from connection: AVCaptureConnection!)
 }

@@ -19,16 +19,16 @@ class NSButton : NSControl, NSUserInterfaceValidations, NSAccessibilityButton {
   var isSpringLoaded: Bool
   @available(OSX 10.10.3, *)
   var maxAcceleratorLevel: Int
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
   func validate(anItem: NSValidatedUserInterfaceItem) -> Bool
   func accessibilityLabel() -> String?
   func accessibilityPerformPress() -> Bool
 }
 extension NSButton {
-  @NSCopying var attributedTitle: AttributedString
-  @NSCopying var attributedAlternateTitle: AttributedString
+  @NSCopying var attributedTitle: NSAttributedString
+  @NSCopying var attributedAlternateTitle: NSAttributedString
 }
 extension NSButton {
   var bezelStyle: NSBezelStyle

@@ -10,7 +10,7 @@ enum UISegmentedControlSegment : Int {
   case alone
 }
 @available(iOS 2.0, *)
-class UISegmentedControl : UIControl, Coding {
+class UISegmentedControl : UIControl, NSCoding {
   init(items: [AnyObject]?)
   var isMomentary: Bool
   var numberOfSegments: Int { get }
@@ -41,14 +41,14 @@ class UISegmentedControl : UIControl, Coding {
   @available(iOS 5.0, *)
   func dividerImage(forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 5.0, *)
-  func setTitleTextAttributes(attributes: [Object : AnyObject]?, for state: UIControlState)
+  func setTitleTextAttributes(attributes: [NSObject : AnyObject]?, for state: UIControlState)
   @available(iOS 5.0, *)
-  func titleTextAttributes(for state: UIControlState) -> [Object : AnyObject]?
+  func titleTextAttributes(for state: UIControlState) -> [NSObject : AnyObject]?
   @available(iOS 5.0, *)
   func setContentPositionAdjustment(adjustment: UIOffset, forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
   func contentPositionAdjustment(forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics) -> UIOffset
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }

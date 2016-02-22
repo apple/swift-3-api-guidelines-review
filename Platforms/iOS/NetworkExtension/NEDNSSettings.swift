@@ -1,6 +1,6 @@
 
 @available(iOS 9.0, *)
-class NEDNSSettings : Object, SecureCoding, Copying {
+class NEDNSSettings : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   init(servers: [String])
   @available(iOS 9.0, *)
@@ -17,8 +17,8 @@ class NEDNSSettings : Object, SecureCoding, Copying {
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

@@ -8,7 +8,7 @@ enum NSPageControllerTransitionStyle : Int {
   case horizontalStrip
 }
 @available(OSX 10.8, *)
-class NSPageController : NSViewController, NSAnimatablePropertyContainer, Coding {
+class NSPageController : NSViewController, NSAnimatablePropertyContainer, NSCoding {
   @IBOutlet unowned(unsafe) var delegate: @sil_unmanaged NSPageControllerDelegate?
   var selectedViewController: NSViewController? { get }
   var transitionStyle: NSPageControllerTransitionStyle
@@ -19,8 +19,8 @@ class NSPageController : NSViewController, NSAnimatablePropertyContainer, Coding
   @IBAction func navigateBack(sender: AnyObject?)
   @IBAction func navigateForward(sender: AnyObject?)
   @IBAction func takeSelectedIndexFrom(sender: AnyObject?)
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder: Coder)
+  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder: NSCoder)
   convenience init()
   @available(OSX 10.5, *)
   func animator() -> Self
@@ -53,13 +53,13 @@ struct __pcFlags {
   init()
   init(templateCacheIsInvalid: UInt32, private1: UInt32, private2: UInt32, inSwipeGesture: UInt32, reserved: UInt32)
 }
-protocol NSPageControllerDelegate : ObjectProtocol {
+protocol NSPageControllerDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
   optional func pageController(pageController: NSPageController, identifierFor object: AnyObject) -> String
   @available(OSX 10.8, *)
   optional func pageController(pageController: NSPageController, viewControllerForIdentifier identifier: String) -> NSViewController
   @available(OSX 10.8, *)
-  optional func pageController(pageController: NSPageController, frameFor object: AnyObject) -> Rect
+  optional func pageController(pageController: NSPageController, frameFor object: AnyObject) -> NSRect
   @available(OSX 10.8, *)
   optional func pageController(pageController: NSPageController, prepare viewController: NSViewController, with object: AnyObject)
   @available(OSX 10.8, *)

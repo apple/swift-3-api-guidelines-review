@@ -1,6 +1,6 @@
 
 @available(tvOS 8.0, *)
-class SCNTechnique : Object, SCNAnimatable, Copying, SecureCoding {
+class SCNTechnique : NSObject, SCNAnimatable, NSCopying, NSSecureCoding {
   /*not inherited*/ init?(dictionary: [String : AnyObject])
   /*not inherited*/ init?(bySequencingTechniques techniques: [SCNTechnique])
   func handleBindingOf(symbol symbol: String, using block: SCNBindingBlock? = nil)
@@ -8,7 +8,7 @@ class SCNTechnique : Object, SCNAnimatable, Copying, SecureCoding {
   @available(tvOS 9.0, *)
   subscript(key: AnyObject) -> AnyObject? { get }
   @available(tvOS 9.0, *)
-  func setObject(obj: AnyObject?, forKeyedSubscript key: Copying)
+  func setObject(obj: AnyObject?, forKeyedSubscript key: NSCopying)
   init()
   @available(tvOS 8.0, *)
   func add(animation: CAAnimation, forKey key: String?)
@@ -29,14 +29,14 @@ class SCNTechnique : Object, SCNAnimatable, Copying, SecureCoding {
   @available(tvOS 8.0, *)
   func removeAnimation(forKey key: String, fadeOutDuration duration: CGFloat)
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
-protocol SCNTechniqueSupport : ObjectProtocol {
+protocol SCNTechniqueSupport : NSObjectProtocol {
   @available(tvOS 8.0, *)
   @NSCopying var technique: SCNTechnique? { get set }
 }

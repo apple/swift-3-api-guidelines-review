@@ -134,7 +134,7 @@ enum ICScannerFeatureType : UInt {
   case boolean
   case template
 }
-class ICScannerFeature : Object {
+class ICScannerFeature : NSObject {
   var type: ICScannerFeatureType { get }
   var internalName: String? { get }
   var humanReadableName: String? { get }
@@ -144,7 +144,7 @@ class ICScannerFeature : Object {
 class ICScannerFeatureEnumeration : ICScannerFeature {
   unowned(unsafe) var currentValue: @sil_unmanaged AnyObject
   var defaultValue: AnyObject { get }
-  var values: [Number] { get }
+  var values: [NSNumber] { get }
   var menuItemLabels: [String] { get }
   var menuItemLabelsTooltips: [String] { get }
   init()
@@ -162,28 +162,28 @@ class ICScannerFeatureBoolean : ICScannerFeature {
   init()
 }
 class ICScannerFeatureTemplate : ICScannerFeature {
-  var targets: [MutableArray] { get }
+  var targets: [NSMutableArray] { get }
   init()
 }
-class ICScannerFunctionalUnit : Object {
+class ICScannerFunctionalUnit : NSObject {
   var type: ICScannerFunctionalUnitType { get }
   var pixelDataType: ICScannerPixelDataType
-  var supportedBitDepths: IndexSet { get }
+  var supportedBitDepths: NSIndexSet { get }
   var bitDepth: ICScannerBitDepth
-  var supportedMeasurementUnits: IndexSet { get }
+  var supportedMeasurementUnits: NSIndexSet { get }
   var measurementUnit: ICScannerMeasurementUnit
-  var supportedResolutions: IndexSet { get }
-  var preferredResolutions: IndexSet { get }
+  var supportedResolutions: NSIndexSet { get }
+  var preferredResolutions: NSIndexSet { get }
   var resolution: Int
   var nativeXResolution: Int { get }
   var nativeYResolution: Int { get }
-  var supportedScaleFactors: IndexSet { get }
-  var preferredScaleFactors: IndexSet { get }
+  var supportedScaleFactors: NSIndexSet { get }
+  var preferredScaleFactors: NSIndexSet { get }
   var scaleFactor: Int
   var templates: [ICScannerFeatureTemplate] { get }
   var vendorFeatures: [ICScannerFeature]? { get }
-  var physicalSize: Size { get }
-  var scanArea: Rect
+  var physicalSize: NSSize { get }
+  var scanArea: NSRect
   var scanAreaOrientation: ICEXIFOrientationType
   var acceptsThresholdForBlackAndWhiteScanning: Bool { get }
   var usesThresholdForBlackAndWhiteScanning: Bool
@@ -199,27 +199,27 @@ class ICScannerFunctionalUnit : Object {
   init()
 }
 class ICScannerFunctionalUnitFlatbed : ICScannerFunctionalUnit {
-  var supportedDocumentTypes: IndexSet { get }
+  var supportedDocumentTypes: NSIndexSet { get }
   var documentType: ICScannerDocumentType
-  var documentSize: Size { get }
+  var documentSize: NSSize { get }
   init()
 }
 class ICScannerFunctionalUnitPositiveTransparency : ICScannerFunctionalUnit {
-  var supportedDocumentTypes: IndexSet { get }
+  var supportedDocumentTypes: NSIndexSet { get }
   var documentType: ICScannerDocumentType
-  var documentSize: Size { get }
+  var documentSize: NSSize { get }
   init()
 }
 class ICScannerFunctionalUnitNegativeTransparency : ICScannerFunctionalUnit {
-  var supportedDocumentTypes: IndexSet { get }
+  var supportedDocumentTypes: NSIndexSet { get }
   var documentType: ICScannerDocumentType
-  var documentSize: Size { get }
+  var documentSize: NSSize { get }
   init()
 }
 class ICScannerFunctionalUnitDocumentFeeder : ICScannerFunctionalUnit {
-  var supportedDocumentTypes: IndexSet { get }
+  var supportedDocumentTypes: NSIndexSet { get }
   var documentType: ICScannerDocumentType
-  var documentSize: Size { get }
+  var documentSize: NSSize { get }
   var supportsDuplexScanning: Bool { get }
   var duplexScanningEnabled: Bool
   var documentLoaded: Bool { get }

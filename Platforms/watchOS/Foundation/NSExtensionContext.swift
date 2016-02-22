@@ -1,19 +1,19 @@
 
 @available(watchOS 2.0, *)
-class ExtensionContext : Object {
+class NSExtensionContext : NSObject {
   var inputItems: [AnyObject] { get }
   func completeRequestReturningItems(items: [AnyObject]?, completionHandler: ((Bool) -> Void)? = nil)
-  func cancelRequestWithError(error: Error)
-  func open(URL: URL, completionHandler: ((Bool) -> Void)? = nil)
+  func cancelRequestWithError(error: NSError)
+  func open(URL: NSURL, completionHandler: ((Bool) -> Void)? = nil)
   init()
 }
 @available(watchOS 2.0, *)
-let extensionItemsAndErrorsKey: String
+let NSExtensionItemsAndErrorsKey: String
 @available(watchOS 2.0, *)
-let extensionHostWillEnterForegroundNotification: String
+let NSExtensionHostWillEnterForegroundNotification: String
 @available(watchOS 2.0, *)
-let extensionHostDidEnterBackgroundNotification: String
+let NSExtensionHostDidEnterBackgroundNotification: String
 @available(watchOS 2.0, *)
-let extensionHostWillResignActiveNotification: String
+let NSExtensionHostWillResignActiveNotification: String
 @available(watchOS 2.0, *)
-let extensionHostDidBecomeActiveNotification: String
+let NSExtensionHostDidBecomeActiveNotification: String

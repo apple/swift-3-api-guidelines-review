@@ -1,6 +1,6 @@
 
 @available(OSX 10.8, *)
-enum UserNotificationActivationType : Int {
+enum NSUserNotificationActivationType : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   case none
@@ -12,22 +12,22 @@ enum UserNotificationActivationType : Int {
   case additionalActionClicked
 }
 @available(OSX 10.8, *)
-class UserNotification : Object, Copying {
+class NSUserNotification : NSObject, NSCopying {
   init()
   var title: String?
   var subtitle: String?
   var informativeText: String?
   var actionButtonTitle: String
   var userInfo: [String : AnyObject]?
-  @NSCopying var deliveryDate: Date?
-  @NSCopying var deliveryTimeZone: TimeZone?
-  @NSCopying var deliveryRepeatInterval: DateComponents?
-  @NSCopying var actualDeliveryDate: Date? { get }
+  @NSCopying var deliveryDate: NSDate?
+  @NSCopying var deliveryTimeZone: NSTimeZone?
+  @NSCopying var deliveryRepeatInterval: NSDateComponents?
+  @NSCopying var actualDeliveryDate: NSDate? { get }
   var isPresented: Bool { get }
   var isRemote: Bool { get }
   var soundName: String?
   var hasActionButton: Bool
-  var activationType: UserNotificationActivationType { get }
+  var activationType: NSUserNotificationActivationType { get }
   var otherButtonTitle: String
   @available(OSX 10.9, *)
   var identifier: String?
@@ -36,43 +36,43 @@ class UserNotification : Object, Copying {
   @available(OSX 10.9, *)
   var responsePlaceholder: String?
   @available(OSX 10.9, *)
-  @NSCopying var response: AttributedString? { get }
+  @NSCopying var response: NSAttributedString? { get }
   @available(OSX 10.10, *)
-  var additionalActions: [UserNotificationAction]?
+  var additionalActions: [NSUserNotificationAction]?
   @available(OSX 10.10, *)
-  @NSCopying var additionalActivationAction: UserNotificationAction? { get }
+  @NSCopying var additionalActivationAction: NSUserNotificationAction? { get }
   @available(OSX 10.8, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.10, *)
-class UserNotificationAction : Object, Copying {
+class NSUserNotificationAction : NSObject, NSCopying {
   convenience init(identifier: String?, title: String?)
   var identifier: String? { get }
   var title: String? { get }
   init()
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.8, *)
-let userNotificationDefaultSoundName: String
+let NSUserNotificationDefaultSoundName: String
 @available(OSX 10.8, *)
-class UserNotificationCenter : Object {
-  class func defaultUserNotificationCenter() -> UserNotificationCenter
-  unowned(unsafe) var delegate: @sil_unmanaged UserNotificationCenterDelegate?
-  var scheduledNotifications: [UserNotification]
-  func scheduleNotification(notification: UserNotification)
-  func removeScheduledNotification(notification: UserNotification)
-  var deliveredNotifications: [UserNotification] { get }
-  func deliver(notification: UserNotification)
-  func removeDeliveredNotification(notification: UserNotification)
+class NSUserNotificationCenter : NSObject {
+  class func defaultUserNotificationCenter() -> NSUserNotificationCenter
+  unowned(unsafe) var delegate: @sil_unmanaged NSUserNotificationCenterDelegate?
+  var scheduledNotifications: [NSUserNotification]
+  func scheduleNotification(notification: NSUserNotification)
+  func removeScheduledNotification(notification: NSUserNotification)
+  var deliveredNotifications: [NSUserNotification] { get }
+  func deliver(notification: NSUserNotification)
+  func removeDeliveredNotification(notification: NSUserNotification)
   func removeAllDeliveredNotifications()
   init()
 }
-protocol UserNotificationCenterDelegate : ObjectProtocol {
+protocol NSUserNotificationCenterDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
-  optional func userNotificationCenter(center: UserNotificationCenter, didDeliver notification: UserNotification)
+  optional func userNotificationCenter(center: NSUserNotificationCenter, didDeliver notification: NSUserNotification)
   @available(OSX 10.8, *)
-  optional func userNotificationCenter(center: UserNotificationCenter, didActivate notification: UserNotification)
+  optional func userNotificationCenter(center: NSUserNotificationCenter, didActivate notification: NSUserNotification)
   @available(OSX 10.8, *)
-  optional func userNotificationCenter(center: UserNotificationCenter, shouldPresent notification: UserNotification) -> Bool
+  optional func userNotificationCenter(center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool
 }

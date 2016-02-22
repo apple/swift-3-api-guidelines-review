@@ -6,7 +6,7 @@ enum NSTabState : UInt {
   case backgroundTab
   case pressedTab
 }
-class NSTabViewItem : Object, Coding {
+class NSTabViewItem : NSObject, NSCoding {
   @available(OSX 10.10, *)
   convenience init(viewController: NSViewController)
   init(identifier: AnyObject)
@@ -23,11 +23,11 @@ class NSTabViewItem : Object, Coding {
   unowned(unsafe) var initialFirstResponder: @sil_unmanaged NSView?
   @available(OSX 10.6, *)
   var toolTip: String?
-  func drawLabel(shouldTruncateLabel: Bool, in labelRect: Rect)
-  func sizeOf(label computeMin: Bool) -> Size
+  func drawLabel(shouldTruncateLabel: Bool, in labelRect: NSRect)
+  func sizeOf(label computeMin: Bool) -> NSSize
   init()
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 struct __tviFlags {
   var hasCustomColor: UInt32

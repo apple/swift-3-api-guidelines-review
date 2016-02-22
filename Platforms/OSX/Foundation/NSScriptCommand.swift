@@ -1,21 +1,21 @@
 
-var noScriptError: Int { get }
-var receiverEvaluationScriptError: Int { get }
-var keySpecifierEvaluationScriptError: Int { get }
-var argumentEvaluationScriptError: Int { get }
-var receiversCantHandleCommandScriptError: Int { get }
-var requiredArgumentsMissingScriptError: Int { get }
-var argumentsWrongScriptError: Int { get }
-var unknownKeyScriptError: Int { get }
-var internalScriptError: Int { get }
-var operationNotSupportedForKeyScriptError: Int { get }
-var cannotCreateScriptCommandError: Int { get }
-class ScriptCommand : Object, Coding {
-  init(commandDescription commandDef: ScriptCommandDescription)
-  convenience init?(coder inCoder: Coder)
-  var commandDescription: ScriptCommandDescription { get }
+var NSNoScriptError: Int { get }
+var NSReceiverEvaluationScriptError: Int { get }
+var NSKeySpecifierEvaluationScriptError: Int { get }
+var NSArgumentEvaluationScriptError: Int { get }
+var NSReceiversCantHandleCommandScriptError: Int { get }
+var NSRequiredArgumentsMissingScriptError: Int { get }
+var NSArgumentsWrongScriptError: Int { get }
+var NSUnknownKeyScriptError: Int { get }
+var NSInternalScriptError: Int { get }
+var NSOperationNotSupportedForKeyScriptError: Int { get }
+var NSCannotCreateScriptCommandError: Int { get }
+class NSScriptCommand : NSObject, NSCoding {
+  init(commandDescription commandDef: NSScriptCommandDescription)
+  convenience init?(coder inCoder: NSCoder)
+  var commandDescription: NSScriptCommandDescription { get }
   var directParameter: AnyObject?
-  var receiversSpecifier: ScriptObjectSpecifier?
+  var receiversSpecifier: NSScriptObjectSpecifier?
   var evaluatedReceivers: AnyObject? { get }
   var arguments: [String : AnyObject]?
   var evaluatedArguments: [String : AnyObject]? { get }
@@ -24,14 +24,14 @@ class ScriptCommand : Object, Coding {
   func execute() -> AnyObject?
   var scriptErrorNumber: Int
   @available(OSX 10.5, *)
-  var scriptErrorOffendingObjectDescriptor: AppleEventDescriptor?
+  var scriptErrorOffendingObjectDescriptor: NSAppleEventDescriptor?
   @available(OSX 10.5, *)
-  var scriptErrorExpectedTypeDescriptor: AppleEventDescriptor?
+  var scriptErrorExpectedTypeDescriptor: NSAppleEventDescriptor?
   var scriptErrorString: String?
-  class func current() -> ScriptCommand?
-  @NSCopying var appleEvent: AppleEventDescriptor? { get }
+  class func current() -> NSScriptCommand?
+  @NSCopying var appleEvent: NSAppleEventDescriptor? { get }
   func suspendExecution()
   func resumeExecution(withResult result: AnyObject?)
   convenience init()
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }

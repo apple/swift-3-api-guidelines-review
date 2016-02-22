@@ -1,60 +1,60 @@
 
 @available(tvOS 3.2, *)
-class AttributedString : Object, Copying, MutableCopying, SecureCoding {
+class NSAttributedString : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var string: String { get }
-  func attributes(at location: Int, effectiveRange range: RangePointer) -> [String : AnyObject]
+  func attributes(at location: Int, effectiveRange range: NSRangePointer) -> [String : AnyObject]
   init()
   @available(tvOS 3.2, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 3.2, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 3.2, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 3.2, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
-extension AttributedString {
+extension NSAttributedString {
   var length: Int { get }
-  func attribute(attrName: String, at location: Int, effectiveRange range: RangePointer) -> AnyObject?
-  func attributedSubstring(from range: NSRange) -> AttributedString
-  func attributes(at location: Int, longestEffectiveRange range: RangePointer, in rangeLimit: NSRange) -> [String : AnyObject]
-  func attribute(attrName: String, at location: Int, longestEffectiveRange range: RangePointer, in rangeLimit: NSRange) -> AnyObject?
-  func isEqual(to other: AttributedString) -> Bool
+  func attribute(attrName: String, at location: Int, effectiveRange range: NSRangePointer) -> AnyObject?
+  func attributedSubstring(from range: NSRange) -> NSAttributedString
+  func attributes(at location: Int, longestEffectiveRange range: NSRangePointer, in rangeLimit: NSRange) -> [String : AnyObject]
+  func attribute(attrName: String, at location: Int, longestEffectiveRange range: NSRangePointer, in rangeLimit: NSRange) -> AnyObject?
+  func isEqual(to other: NSAttributedString) -> Bool
   init(string str: String)
   init(string str: String, attributes attrs: [String : AnyObject]? = [:])
-  init(attributedString attrStr: AttributedString)
+  init(attributedString attrStr: NSAttributedString)
   @available(tvOS 4.0, *)
-  func enumerateAttributes(in enumerationRange: NSRange, options opts: AttributedStringEnumerationOptions = [], using block: ([String : AnyObject], NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateAttributes(in enumerationRange: NSRange, options opts: NSAttributedStringEnumerationOptions = [], using block: ([String : AnyObject], NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 4.0, *)
-  func enumerateAttribute(attrName: String, in enumerationRange: NSRange, options opts: AttributedStringEnumerationOptions = [], using block: (AnyObject?, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateAttribute(attrName: String, in enumerationRange: NSRange, options opts: NSAttributedStringEnumerationOptions = [], using block: (AnyObject?, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
 }
-struct AttributedStringEnumerationOptions : OptionSetType {
+struct NSAttributedStringEnumerationOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var reverse: AttributedStringEnumerationOptions { get }
-  static var longestEffectiveRangeNotRequired: AttributedStringEnumerationOptions { get }
+  static var reverse: NSAttributedStringEnumerationOptions { get }
+  static var longestEffectiveRangeNotRequired: NSAttributedStringEnumerationOptions { get }
 }
 @available(tvOS 3.2, *)
-class MutableAttributedString : AttributedString {
+class NSMutableAttributedString : NSAttributedString {
   func replaceCharacters(in range: NSRange, with str: String)
   func setAttributes(attrs: [String : AnyObject]?, range: NSRange)
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   init(string str: String)
   init(string str: String, attributes attrs: [String : AnyObject]? = [:])
-  init(attributedString attrStr: AttributedString)
+  init(attributedString attrStr: NSAttributedString)
 }
-extension MutableAttributedString {
-  var mutableString: MutableString { get }
+extension NSMutableAttributedString {
+  var mutableString: NSMutableString { get }
   func addAttribute(name: String, value: AnyObject, range: NSRange)
   func addAttributes(attrs: [String : AnyObject] = [:], range: NSRange)
   func removeAttribute(name: String, range: NSRange)
-  func replaceCharacters(in range: NSRange, with attrString: AttributedString)
-  func insert(attrString: AttributedString, at loc: Int)
-  func append(attrString: AttributedString)
+  func replaceCharacters(in range: NSRange, with attrString: NSAttributedString)
+  func insert(attrString: NSAttributedString, at loc: Int)
+  func append(attrString: NSAttributedString)
   func deleteCharacters(in range: NSRange)
-  func setAttributedString(attrString: AttributedString)
+  func setAttributedString(attrString: NSAttributedString)
   func beginEditing()
   func endEditing()
 }

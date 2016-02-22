@@ -21,15 +21,15 @@ enum AVPlayerItemStatus : Int {
   case failed
 }
 @available(iOS 4.0, *)
-class AVPlayerItem : Object, Copying {
-  convenience init(url URL: URL)
+class AVPlayerItem : NSObject, NSCopying {
+  convenience init(url URL: NSURL)
   convenience init(asset: AVAsset)
   @available(iOS 7.0, *)
   init(asset: AVAsset, automaticallyLoadedAssetKeys: [String]?)
   var status: AVPlayerItemStatus { get }
-  var error: Error? { get }
+  var error: NSError? { get }
   @available(iOS 4.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 extension AVPlayerItem {
   var asset: AVAsset { get }
@@ -61,7 +61,7 @@ extension AVPlayerItem {
   func currentTime() -> CMTime
   var forwardPlaybackEndTime: CMTime
   var reversePlaybackEndTime: CMTime
-  var seekableTimeRanges: [Value] { get }
+  var seekableTimeRanges: [NSValue] { get }
   func seek(to time: CMTime)
   @available(iOS 5.0, *)
   func seek(to time: CMTime, completionHandler: (Bool) -> Void)
@@ -70,10 +70,10 @@ extension AVPlayerItem {
   func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: (Bool) -> Void)
   @available(iOS 5.0, *)
   func cancelPendingSeeks()
-  func currentDate() -> Date?
-  func seek(to date: Date) -> Bool
+  func currentDate() -> NSDate?
+  func seek(to date: NSDate) -> Bool
   @available(iOS 6.0, *)
-  func seek(to date: Date, completionHandler: (Bool) -> Void) -> Bool
+  func seek(to date: NSDate, completionHandler: (Bool) -> Void) -> Bool
   func step(byCount stepCount: Int)
   @available(iOS 6.0, *)
   var timebase: CMTimebase? { get }
@@ -93,7 +93,7 @@ extension AVPlayerItem {
   @NSCopying var audioMix: AVAudioMix?
 }
 extension AVPlayerItem {
-  var loadedTimeRanges: [Value] { get }
+  var loadedTimeRanges: [NSValue] { get }
   var isPlaybackLikelyToKeepUp: Bool { get }
   var isPlaybackBufferFull: Bool { get }
   var isPlaybackBufferEmpty: Bool { get }
@@ -129,44 +129,44 @@ extension AVPlayerItem {
   var outputs: [AVPlayerItemOutput] { get }
 }
 @available(iOS 4.3, *)
-class AVPlayerItemAccessLog : Object, Copying {
-  func extendedLogData() -> Data?
+class AVPlayerItemAccessLog : NSObject, NSCopying {
+  func extendedLogData() -> NSData?
   var extendedLogDataStringEncoding: UInt { get }
   var events: [AVPlayerItemAccessLogEvent] { get }
   init()
   @available(iOS 4.3, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 4.3, *)
-class AVPlayerItemErrorLog : Object, Copying {
-  func extendedLogData() -> Data?
+class AVPlayerItemErrorLog : NSObject, NSCopying {
+  func extendedLogData() -> NSData?
   var extendedLogDataStringEncoding: UInt { get }
   var events: [AVPlayerItemErrorLogEvent] { get }
   init()
   @available(iOS 4.3, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 4.3, *)
-class AVPlayerItemAccessLogEvent : Object, Copying {
+class AVPlayerItemAccessLogEvent : NSObject, NSCopying {
   @available(iOS 6.0, *)
   var numberOfMediaRequests: Int { get }
-  var playbackStartDate: Date? { get }
+  var playbackStartDate: NSDate? { get }
   var uri: String? { get }
   var serverAddress: String? { get }
   var numberOfServerAddressChanges: Int { get }
   var playbackSessionID: String? { get }
-  var playbackStartOffset: TimeInterval { get }
-  var segmentsDownloadedDuration: TimeInterval { get }
-  var durationWatched: TimeInterval { get }
+  var playbackStartOffset: NSTimeInterval { get }
+  var segmentsDownloadedDuration: NSTimeInterval { get }
+  var durationWatched: NSTimeInterval { get }
   var numberOfStalls: Int { get }
   var numberOfBytesTransferred: Int64 { get }
   @available(iOS 7.0, *)
-  var transferDuration: TimeInterval { get }
+  var transferDuration: NSTimeInterval { get }
   var observedBitrate: Double { get }
   var indicatedBitrate: Double { get }
   var numberOfDroppedVideoFrames: Int { get }
   @available(iOS 7.0, *)
-  var startupTime: TimeInterval { get }
+  var startupTime: NSTimeInterval { get }
   @available(iOS 7.0, *)
   var downloadOverdue: Int { get }
   @available(iOS 7.0, *)
@@ -183,11 +183,11 @@ class AVPlayerItemAccessLogEvent : Object, Copying {
   var switchBitrate: Double { get }
   init()
   @available(iOS 4.3, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 4.3, *)
-class AVPlayerItemErrorLogEvent : Object, Copying {
-  var date: Date? { get }
+class AVPlayerItemErrorLogEvent : NSObject, NSCopying {
+  var date: NSDate? { get }
   var uri: String? { get }
   var serverAddress: String? { get }
   var playbackSessionID: String? { get }
@@ -196,5 +196,5 @@ class AVPlayerItemErrorLogEvent : Object, Copying {
   var errorComment: String? { get }
   init()
   @available(iOS 4.3, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

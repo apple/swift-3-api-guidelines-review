@@ -21,13 +21,13 @@ extension NSString {
 extension NSArray {
   func paths(matchingExtensions filterTypes: [String]) -> [String]
 }
-func userName() -> String
-func fullUserName() -> String
-func homeDirectory() -> String
-func homeDirectoryForUser(userName: String?) -> String?
-func temporaryDirectory() -> String
-func openStepRootDirectory() -> String
-enum SearchPathDirectory : UInt {
+func NSUserName() -> String
+func NSFullUserName() -> String
+func NSHomeDirectory() -> String
+func NSHomeDirectoryForUser(userName: String?) -> String?
+func NSTemporaryDirectory() -> String
+func NSOpenStepRootDirectory() -> String
+enum NSSearchPathDirectory : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case applicationDirectory
@@ -66,13 +66,13 @@ enum SearchPathDirectory : UInt {
   case allApplicationsDirectory
   case allLibrariesDirectory
 }
-struct SearchPathDomainMask : OptionSetType {
+struct NSSearchPathDomainMask : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var userDomainMask: SearchPathDomainMask { get }
-  static var localDomainMask: SearchPathDomainMask { get }
-  static var networkDomainMask: SearchPathDomainMask { get }
-  static var systemDomainMask: SearchPathDomainMask { get }
-  static var allDomainsMask: SearchPathDomainMask { get }
+  static var userDomainMask: NSSearchPathDomainMask { get }
+  static var localDomainMask: NSSearchPathDomainMask { get }
+  static var networkDomainMask: NSSearchPathDomainMask { get }
+  static var systemDomainMask: NSSearchPathDomainMask { get }
+  static var allDomainsMask: NSSearchPathDomainMask { get }
 }
-func searchPathForDirectoriesInDomains(directory: SearchPathDirectory, _ domainMask: SearchPathDomainMask, _ expandTilde: Bool) -> [String]
+func NSSearchPathForDirectoriesInDomains(directory: NSSearchPathDirectory, _ domainMask: NSSearchPathDomainMask, _ expandTilde: Bool) -> [String]

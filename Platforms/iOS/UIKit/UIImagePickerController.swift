@@ -50,7 +50,7 @@ let UIImagePickerControllerMediaMetadata: String
 @available(iOS 9.1, *)
 let UIImagePickerControllerLivePhoto: String
 @available(iOS 2.0, *)
-class UIImagePickerController : UINavigationController, Coding {
+class UIImagePickerController : UINavigationController, NSCoding {
   class func isSourceTypeAvailable(sourceType: UIImagePickerControllerSourceType) -> Bool
   class func availableMediaTypes(for sourceType: UIImagePickerControllerSourceType) -> [String]?
   @available(iOS 4.0, *)
@@ -58,14 +58,14 @@ class UIImagePickerController : UINavigationController, Coding {
   @available(iOS 4.0, *)
   class func isFlashAvailable(for cameraDevice: UIImagePickerControllerCameraDevice) -> Bool
   @available(iOS 4.0, *)
-  class func availableCaptureModes(for cameraDevice: UIImagePickerControllerCameraDevice) -> [Number]?
+  class func availableCaptureModes(for cameraDevice: UIImagePickerControllerCameraDevice) -> [NSNumber]?
   weak var delegate: @sil_weak protocol<UIImagePickerControllerDelegate, UINavigationControllerDelegate>?
   var sourceType: UIImagePickerControllerSourceType
   var mediaTypes: [String]
   @available(iOS 3.1, *)
   var allowsEditing: Bool
   @available(iOS 3.1, *)
-  var videoMaximumDuration: TimeInterval
+  var videoMaximumDuration: NSTimeInterval
   @available(iOS 3.1, *)
   var videoQuality: UIImagePickerControllerQualityType
   @available(iOS 3.1, *)
@@ -89,11 +89,11 @@ class UIImagePickerController : UINavigationController, Coding {
   @available(iOS 5.0, *)
   init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
   init(rootViewController: UIViewController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
-protocol UIImagePickerControllerDelegate : ObjectProtocol {
+protocol UIImagePickerControllerDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
   optional func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
   @available(iOS 2.0, *)

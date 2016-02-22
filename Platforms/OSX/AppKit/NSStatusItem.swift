@@ -1,5 +1,5 @@
 
-class NSStatusItem : Object {
+class NSStatusItem : NSObject {
   unowned(unsafe) var statusBar: @sil_unmanaged NSStatusBar { get }
   var length: CGFloat
   var menu: NSMenu?
@@ -12,7 +12,7 @@ extension NSStatusItem {
   var doubleAction: Selector
   weak var target: @sil_weak AnyObject?
   var title: String?
-  @NSCopying var attributedTitle: AttributedString?
+  @NSCopying var attributedTitle: NSAttributedString?
   var image: NSImage?
   var alternateImage: NSImage?
   var isEnabled: Bool
@@ -20,6 +20,6 @@ extension NSStatusItem {
   var toolTip: String?
   func sendAction(on mask: Int) -> Int
   var view: NSView?
-  func drawStatusBarBackground(in rect: Rect, withHighlight highlight: Bool)
+  func drawStatusBarBackground(in rect: NSRect, withHighlight highlight: Bool)
   func popUpMenu(menu: NSMenu)
 }

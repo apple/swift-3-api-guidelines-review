@@ -1,26 +1,26 @@
 
-protocol XPCProxyCreating {
+protocol NSXPCProxyCreating {
   func remoteObjectProxy() -> AnyObject
-  func remoteObjectProxyWithErrorHandler(handler: (Error) -> Void) -> AnyObject
+  func remoteObjectProxyWithErrorHandler(handler: (NSError) -> Void) -> AnyObject
 }
 @available(OSX 10.8, *)
-struct XPCConnectionOptions : OptionSetType {
+struct NSXPCConnectionOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var privileged: XPCConnectionOptions { get }
+  static var privileged: NSXPCConnectionOptions { get }
 }
 @available(OSX 10.8, *)
-class XPCConnection : Object, XPCProxyCreating {
+class NSXPCConnection : NSObject, NSXPCProxyCreating {
   init(serviceName: String)
   var serviceName: String? { get }
-  init(machServiceName name: String, options: XPCConnectionOptions = [])
-  init(listenerEndpoint endpoint: XPCListenerEndpoint)
-  var endpoint: XPCListenerEndpoint { get }
-  var exportedInterface: XPCInterface?
+  init(machServiceName name: String, options: NSXPCConnectionOptions = [])
+  init(listenerEndpoint endpoint: NSXPCListenerEndpoint)
+  var endpoint: NSXPCListenerEndpoint { get }
+  var exportedInterface: NSXPCInterface?
   var exportedObject: AnyObject?
-  var remoteObjectInterface: XPCInterface?
+  var remoteObjectInterface: NSXPCInterface?
   var remoteObjectProxy: AnyObject { get }
-  func remoteObjectProxyWithErrorHandler(handler: (Error) -> Void) -> AnyObject
+  func remoteObjectProxyWithErrorHandler(handler: (NSError) -> Void) -> AnyObject
   var interruptionHandler: (() -> Void)?
   var invalidationHandler: (() -> Void)?
   func resume()
@@ -33,37 +33,37 @@ class XPCConnection : Object, XPCProxyCreating {
   init()
 }
 @available(OSX 10.8, *)
-class XPCListener : Object {
-  class func service() -> XPCListener
-  class func anonymous() -> XPCListener
+class NSXPCListener : NSObject {
+  class func service() -> NSXPCListener
+  class func anonymous() -> NSXPCListener
   init(machServiceName name: String)
-  unowned(unsafe) var delegate: @sil_unmanaged XPCListenerDelegate?
-  var endpoint: XPCListenerEndpoint { get }
+  unowned(unsafe) var delegate: @sil_unmanaged NSXPCListenerDelegate?
+  var endpoint: NSXPCListenerEndpoint { get }
   func resume()
   func suspend()
   func invalidate()
   convenience init()
 }
-protocol XPCListenerDelegate : ObjectProtocol {
+protocol NSXPCListenerDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
-  optional func listener(listener: XPCListener, shouldAcceptNewConnection newConnection: XPCConnection) -> Bool
+  optional func listener(listener: NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool
 }
 @available(OSX 10.8, *)
-class XPCInterface : Object {
+class NSXPCInterface : NSObject {
   /*not inherited*/ init(with protocol: Protocol)
   unowned(unsafe) var `protocol`: @sil_unmanaged Protocol
-  func setClasses(classes: Set<Object>, for sel: Selector, argumentIndex arg: Int, ofReply: Bool)
-  func classes(for sel: Selector, argumentIndex arg: Int, ofReply: Bool) -> Set<Object>
-  func setInterface(ifc: XPCInterface, for sel: Selector, argumentIndex arg: Int, ofReply: Bool)
-  func forSelector(sel: Selector, argumentIndex arg: Int, ofReply: Bool) -> XPCInterface?
+  func setClasses(classes: Set<NSObject>, for sel: Selector, argumentIndex arg: Int, ofReply: Bool)
+  func classes(for sel: Selector, argumentIndex arg: Int, ofReply: Bool) -> Set<NSObject>
+  func setInterface(ifc: NSXPCInterface, for sel: Selector, argumentIndex arg: Int, ofReply: Bool)
+  func forSelector(sel: Selector, argumentIndex arg: Int, ofReply: Bool) -> NSXPCInterface?
   init()
 }
 @available(OSX 10.8, *)
-class XPCListenerEndpoint : Object, SecureCoding {
+class NSXPCListenerEndpoint : NSObject, NSSecureCoding {
   init()
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

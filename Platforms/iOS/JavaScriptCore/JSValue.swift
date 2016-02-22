@@ -1,6 +1,6 @@
 
 @available(iOS 7.0, *)
-class JSValue : Object {
+class JSValue : NSObject {
   var context: JSContext! { get }
   /*not inherited*/ init!(object value: AnyObject!, in context: JSContext!)
   /*not inherited*/ init!(bool value: Bool, in context: JSContext!)
@@ -19,11 +19,11 @@ class JSValue : Object {
   func toDouble() -> Double
   func toInt32() -> Int32
   func toUInt32() -> UInt32
-  func toNumber() -> Number!
+  func toNumber() -> NSNumber!
   func toString() -> String!
-  func toDate() -> Date!
+  func toDate() -> NSDate!
   func toArray() -> [AnyObject]!
-  func toDictionary() -> [Object : AnyObject]!
+  func toDictionary() -> [NSObject : AnyObject]!
   func forProperty(property: String!) -> JSValue!
   func setValue(value: AnyObject!, forProperty property: String!)
   func deleteProperty(property: String!) -> Bool
@@ -62,7 +62,7 @@ extension JSValue {
 extension JSValue {
   func objectForKeyedSubscript(key: AnyObject!) -> JSValue!
   func objectAtIndexedSubscript(index: Int) -> JSValue!
-  func setObject(object: AnyObject!, forKeyedSubscript key: protocol<Copying, ObjectProtocol>!)
+  func setObject(object: AnyObject!, forKeyedSubscript key: protocol<NSCopying, NSObjectProtocol>!)
   func setObject(object: AnyObject!, atIndexedSubscript index: Int)
 }
 extension JSValue {

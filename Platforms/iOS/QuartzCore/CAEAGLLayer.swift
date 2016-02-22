@@ -4,7 +4,7 @@ class CAEAGLLayer : CALayer, EAGLDrawable {
   var presentsWithTransaction: Bool
   init()
   init(layer: AnyObject)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 2.0, *)
-  var drawableProperties: [Object : AnyObject]!
+  var drawableProperties: [NSObject : AnyObject]!
 }

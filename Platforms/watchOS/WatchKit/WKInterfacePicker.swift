@@ -9,7 +9,7 @@ class WKInterfacePicker : WKInterfaceObject {
   func setEnabled(enabled: Bool)
 }
 @available(watchOS 2.0, *)
-class WKPickerItem : Object, SecureCoding {
+class WKPickerItem : NSObject, NSSecureCoding {
   var title: String?
   var caption: String?
   @NSCopying var accessoryImage: WKImage?
@@ -18,6 +18,6 @@ class WKPickerItem : Object, SecureCoding {
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

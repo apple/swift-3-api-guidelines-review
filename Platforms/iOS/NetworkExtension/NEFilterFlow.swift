@@ -1,31 +1,31 @@
 
 var NEFilterFlowBytesMax: UInt64 { get }
 @available(iOS 9.0, *)
-class NEFilterFlow : Object, SecureCoding, Copying {
+class NEFilterFlow : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
-  var url: URL? { get }
+  var url: NSURL? { get }
   init()
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
-class NEFilterBrowserFlow : NEFilterFlow, SecureCoding, Copying {
+class NEFilterBrowserFlow : NEFilterFlow, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
-  var request: URLRequest { get }
+  var request: NSURLRequest { get }
   @available(iOS 9.0, *)
-  var response: URLResponse? { get }
+  var response: NSURLResponse? { get }
   @available(iOS 9.0, *)
-  var parentURL: URL? { get }
+  var parentURL: NSURL? { get }
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 9.0, *)
-class NEFilterSocketFlow : NEFilterFlow, SecureCoding, Copying {
+class NEFilterSocketFlow : NEFilterFlow, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   var remoteEndpoint: NWEndpoint { get }
   @available(iOS 9.0, *)
@@ -37,5 +37,5 @@ class NEFilterSocketFlow : NEFilterFlow, SecureCoding, Copying {
   @available(iOS 9.0, *)
   var socketProtocol: Int32
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

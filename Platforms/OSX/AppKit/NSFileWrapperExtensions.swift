@@ -1,4 +1,4 @@
 
-extension FileWrapper {
+extension NSFileWrapper {
   var icon: NSImage?
 }

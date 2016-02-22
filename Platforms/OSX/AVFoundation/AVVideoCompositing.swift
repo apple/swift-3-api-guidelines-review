@@ -14,7 +14,7 @@ struct AVEdgeWidths {
   init(left: CGFloat, top: CGFloat, right: CGFloat, bottom: CGFloat)
 }
 @available(OSX 10.9, *)
-class AVVideoCompositionRenderContext : Object {
+class AVVideoCompositionRenderContext : NSObject {
   var size: CGSize { get }
   var renderTransform: CGAffineTransform { get }
   var renderScale: Float { get }
@@ -26,7 +26,7 @@ class AVVideoCompositionRenderContext : Object {
   init()
 }
 @available(OSX 10.9, *)
-protocol AVVideoCompositing : ObjectProtocol {
+protocol AVVideoCompositing : NSObjectProtocol {
   var sourcePixelBufferAttributes: [String : AnyObject]? { get }
   var requiredPixelBufferAttributesForRenderContext: [String : AnyObject] { get }
   func renderContextChanged(newRenderContext: AVVideoCompositionRenderContext)
@@ -34,35 +34,35 @@ protocol AVVideoCompositing : ObjectProtocol {
   optional func cancelAllPendingVideoCompositionRequests()
 }
 @available(OSX 10.9, *)
-class AVAsynchronousVideoCompositionRequest : Object, Copying {
+class AVAsynchronousVideoCompositionRequest : NSObject, NSCopying {
   var renderContext: AVVideoCompositionRenderContext { get }
   var compositionTime: CMTime { get }
-  var sourceTrackIDs: [Number] { get }
+  var sourceTrackIDs: [NSNumber] { get }
   var videoCompositionInstruction: AVVideoCompositionInstructionProtocol { get }
   func sourceFrame(byTrackID trackID: CMPersistentTrackID) -> CVPixelBuffer?
   func finish(composedVideoFrame composedVideoFrame: CVPixelBuffer)
-  func finishWithError(error: Error)
+  func finishWithError(error: NSError)
   func finishCancelledRequest()
   init()
   @available(OSX 10.9, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
-class AVAsynchronousCIImageFilteringRequest : Object, Copying {
+class AVAsynchronousCIImageFilteringRequest : NSObject, NSCopying {
   var renderSize: CGSize { get }
   var compositionTime: CMTime { get }
   var sourceImage: CIImage { get }
   func finish(filteredImage: CIImage, context: CIContext?)
-  func finishWithError(error: Error)
+  func finishWithError(error: NSError)
   init()
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.9, *)
-protocol AVVideoCompositionInstructionProtocol : ObjectProtocol {
+protocol AVVideoCompositionInstructionProtocol : NSObjectProtocol {
   var timeRange: CMTimeRange { get }
   var enablePostProcessing: Bool { get }
   var containsTweening: Bool { get }
-  var requiredSourceTrackIDs: [Value]? { get }
+  var requiredSourceTrackIDs: [NSValue]? { get }
   var passthroughTrackID: CMPersistentTrackID { get }
 }

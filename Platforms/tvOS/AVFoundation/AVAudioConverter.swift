@@ -31,13 +31,13 @@ enum AVAudioConverterOutputStatus : Int {
 }
 typealias AVAudioConverterInputBlock = (AVAudioPacketCount, UnsafeMutablePointer<AVAudioConverterInputStatus>) -> AVAudioBuffer?
 @available(tvOS 9.0, *)
-class AVAudioConverter : Object {
+class AVAudioConverter : NSObject {
   init(from fromFormat: AVAudioFormat, to toFormat: AVAudioFormat)
   func reset()
   var inputFormat: AVAudioFormat { get }
   var outputFormat: AVAudioFormat { get }
-  var channelMap: [Number]
-  var magicCookie: Data?
+  var channelMap: [NSNumber]
+  var magicCookie: NSData?
   var downmix: Bool
   var dither: Bool
   var sampleRateConverterQuality: Int
@@ -45,16 +45,16 @@ class AVAudioConverter : Object {
   var primeMethod: AVAudioConverterPrimeMethod
   var primeInfo: AVAudioConverterPrimeInfo
   func convert(to outputBuffer: AVAudioPCMBuffer, from inputBuffer: AVAudioPCMBuffer) throws
-  func convert(to outputBuffer: AVAudioBuffer, error outError: ErrorPointer, withInputFrom inputBlock: AVAudioConverterInputBlock) -> AVAudioConverterOutputStatus
+  func convert(to outputBuffer: AVAudioBuffer, error outError: NSErrorPointer, withInputFrom inputBlock: AVAudioConverterInputBlock) -> AVAudioConverterOutputStatus
   init()
 }
 extension AVAudioConverter {
   var bitRate: Int
   var bitRateStrategy: String?
   var maximumOutputPacketSize: Int { get }
-  var availableEncodeBitRates: [Number]? { get }
-  var applicableEncodeBitRates: [Number]? { get }
-  var availableEncodeSampleRates: [Number]? { get }
-  var applicableEncodeSampleRates: [Number]? { get }
-  var availableEncodeChannelLayoutTags: [Number]? { get }
+  var availableEncodeBitRates: [NSNumber]? { get }
+  var applicableEncodeBitRates: [NSNumber]? { get }
+  var availableEncodeSampleRates: [NSNumber]? { get }
+  var applicableEncodeSampleRates: [NSNumber]? { get }
+  var availableEncodeChannelLayoutTags: [NSNumber]? { get }
 }

@@ -21,7 +21,7 @@ class MKPinAnnotationView : MKAnnotationView {
   @available(OSX, introduced=10.9, deprecated=10.11, message="Use pinTintColor instead")
   var pinColor: MKPinAnnotationColor
   init(annotation: MKAnnotation?, reuseIdentifier: String?)
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }

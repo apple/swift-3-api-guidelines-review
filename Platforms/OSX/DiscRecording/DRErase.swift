@@ -1,11 +1,11 @@
 
-class DRErase : Object {
+class DRErase : NSObject {
   /*not inherited*/ init!(for device: DRDevice!)
   init!(device: DRDevice!)
   func start()
-  func status() -> [Object : AnyObject]!
-  func properties() -> [Object : AnyObject]!
-  func setProperties(properties: [Object : AnyObject]!)
+  func status() -> [NSObject : AnyObject]!
+  func properties() -> [NSObject : AnyObject]!
+  func setProperties(properties: [NSObject : AnyObject]!)
   func device() -> DRDevice!
   init()
 }

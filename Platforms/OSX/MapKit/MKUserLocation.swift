@@ -1,6 +1,6 @@
 
 @available(OSX 10.9, *)
-class MKUserLocation : Object, MKAnnotation {
+class MKUserLocation : NSObject, MKAnnotation {
   var isUpdating: Bool { get }
   var location: CLLocation? { get }
   @available(OSX 10.9, *)

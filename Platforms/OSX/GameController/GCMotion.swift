@@ -29,7 +29,7 @@ struct GCQuaternion {
   init(x: Double, y: Double, z: Double, w: Double)
 }
 @available(OSX 10.10, *)
-class GCMotion : Object {
+class GCMotion : NSObject {
   weak var controller: @sil_weak GCController? { get }
   var valueChangedHandler: GCMotionValueChangedHandler?
   var gravity: GCAcceleration { get }

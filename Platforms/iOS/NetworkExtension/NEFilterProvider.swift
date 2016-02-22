@@ -10,7 +10,7 @@ var NEFilterProviderRemediationURLUsername: String { get }
 @available(iOS 9.0, *)
 class NEFilterProvider : NEProvider {
   @available(iOS 9.0, *)
-  func startFilter(completionHandler completionHandler: (Error?) -> Void)
+  func startFilter(completionHandler completionHandler: (NSError?) -> Void)
   @available(iOS 9.0, *)
   func stopFilter(reason: NEProviderStopReason, completionHandler: () -> Void)
   @available(iOS 9.0, *)
@@ -18,18 +18,18 @@ class NEFilterProvider : NEProvider {
   init()
 }
 @available(iOS 9.0, *)
-class NEFilterVerdict : Object, SecureCoding, Copying {
+class NEFilterVerdict : NSObject, NSSecureCoding, NSCopying {
   init()
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
-class NEFilterNewFlowVerdict : NEFilterVerdict, SecureCoding, Copying {
+class NEFilterNewFlowVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func needRules() -> NEFilterNewFlowVerdict
   @available(iOS 9.0, *)
@@ -43,10 +43,10 @@ class NEFilterNewFlowVerdict : NEFilterVerdict, SecureCoding, Copying {
   @available(iOS 9.0, *)
   class func filterDataVerdict(withFilterInbound filterInbound: Bool, peekInboundBytes: Int, filterOutbound: Bool, peekOutboundBytes: Int) -> NEFilterNewFlowVerdict
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 9.0, *)
-class NEFilterControlVerdict : NEFilterNewFlowVerdict, SecureCoding, Copying {
+class NEFilterControlVerdict : NEFilterNewFlowVerdict, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func allow(updateRules updateRules: Bool) -> NEFilterControlVerdict
   @available(iOS 9.0, *)
@@ -54,5 +54,5 @@ class NEFilterControlVerdict : NEFilterNewFlowVerdict, SecureCoding, Copying {
   @available(iOS 9.0, *)
   class func updateRules() -> NEFilterControlVerdict
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

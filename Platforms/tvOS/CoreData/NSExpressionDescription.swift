@@ -1,8 +1,8 @@
 
 @available(tvOS 3.0, *)
 class NSExpressionDescription : NSPropertyDescription {
-  var expression: Expression?
+  var expression: NSExpression?
   var expressionResultType: NSAttributeType
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

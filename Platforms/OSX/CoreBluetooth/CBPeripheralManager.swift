@@ -28,7 +28,7 @@ enum CBPeripheralManagerConnectionLatency : Int {
   case high
 }
 @available(OSX 10.9, *)
-class CBPeripheralManager : Object {
+class CBPeripheralManager : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged CBPeripheralManagerDelegate?
   var state: CBPeripheralManagerState { get }
   var isAdvertising: Bool { get }
@@ -42,18 +42,18 @@ class CBPeripheralManager : Object {
   func remove(service: CBMutableService)
   func removeAllServices()
   func respond(to request: CBATTRequest, withResult result: CBATTError)
-  func updateValue(value: Data, for characteristic: CBMutableCharacteristic, onSubscribedCentrals centrals: [CBCentral]?) -> Bool
+  func updateValue(value: NSData, for characteristic: CBMutableCharacteristic, onSubscribedCentrals centrals: [CBCentral]?) -> Bool
   init()
 }
-protocol CBPeripheralManagerDelegate : ObjectProtocol {
+protocol CBPeripheralManagerDelegate : NSObjectProtocol {
   @available(OSX 10.9, *)
   func peripheralManagerDidUpdateState(peripheral: CBPeripheralManager)
   @available(OSX 10.9, *)
   optional func peripheralManager(peripheral: CBPeripheralManager, willRestoreState dict: [String : AnyObject])
   @available(OSX 10.9, *)
-  optional func peripheralManagerDidStartAdvertising(peripheral: CBPeripheralManager, error: Error?)
+  optional func peripheralManagerDidStartAdvertising(peripheral: CBPeripheralManager, error: NSError?)
   @available(OSX 10.9, *)
-  optional func peripheralManager(peripheral: CBPeripheralManager, didAdd service: CBService, error: Error?)
+  optional func peripheralManager(peripheral: CBPeripheralManager, didAdd service: CBService, error: NSError?)
   @available(OSX 10.9, *)
   optional func peripheralManager(peripheral: CBPeripheralManager, central: CBCentral, didSubscribeTo characteristic: CBCharacteristic)
   @available(OSX 10.9, *)

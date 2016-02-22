@@ -9,6 +9,6 @@ class CKFetchRecordChangesOperation : CKDatabaseOperation {
   var recordChangedBlock: ((CKRecord) -> Void)?
   var recordWithIDWasDeletedBlock: ((CKRecordID) -> Void)?
   var moreComing: Bool { get }
-  var fetchRecordChangesCompletionBlock: ((CKServerChangeToken?, Data?, Error?) -> Void)?
+  var fetchRecordChangesCompletionBlock: ((CKServerChangeToken?, NSData?, NSError?) -> Void)?
   init()
 }

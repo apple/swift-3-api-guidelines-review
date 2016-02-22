@@ -42,18 +42,18 @@ class NSColorPanel : NSPanel {
   func setTarget(anObject: AnyObject?)
   func attach(colorList: NSColorList)
   func detach(colorList: NSColorList)
-  init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
-  convenience init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   convenience init?(windowRef: UnsafeMutablePointer<Void>)
 }
 extension NSApplication {
   func orderFrontColorPanel(sender: AnyObject?)
 }
-extension Object {
+extension NSObject {
   class func changeColor(sender: AnyObject?)
   func changeColor(sender: AnyObject?)
 }

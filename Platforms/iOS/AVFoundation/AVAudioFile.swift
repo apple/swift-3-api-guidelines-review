@@ -1,14 +1,14 @@
 
 @available(iOS 8.0, *)
-class AVAudioFile : Object {
-  init(forReading fileURL: URL) throws
-  init(forReading fileURL: URL, commonFormat format: AVAudioCommonFormat, interleaved: Bool) throws
-  init(forWriting fileURL: URL, settings: [String : AnyObject]) throws
-  init(forWriting fileURL: URL, settings: [String : AnyObject], commonFormat format: AVAudioCommonFormat, interleaved: Bool) throws
+class AVAudioFile : NSObject {
+  init(forReading fileURL: NSURL) throws
+  init(forReading fileURL: NSURL, commonFormat format: AVAudioCommonFormat, interleaved: Bool) throws
+  init(forWriting fileURL: NSURL, settings: [String : AnyObject]) throws
+  init(forWriting fileURL: NSURL, settings: [String : AnyObject], commonFormat format: AVAudioCommonFormat, interleaved: Bool) throws
   func read(into buffer: AVAudioPCMBuffer) throws
   func read(into buffer: AVAudioPCMBuffer, frameCount frames: AVAudioFrameCount) throws
   func write(from buffer: AVAudioPCMBuffer) throws
-  var url: URL { get }
+  var url: NSURL { get }
   var fileFormat: AVAudioFormat { get }
   var processingFormat: AVAudioFormat { get }
   var length: AVAudioFramePosition { get }

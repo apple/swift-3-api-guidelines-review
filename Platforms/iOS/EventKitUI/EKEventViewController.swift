@@ -13,11 +13,11 @@ class EKEventViewController : UIViewController {
   var event: EKEvent
   var allowsEditing: Bool
   var allowsCalendarPreview: Bool
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
-protocol EKEventViewDelegate : ObjectProtocol {
+protocol EKEventViewDelegate : NSObjectProtocol {
   @available(iOS 4.2, *)
   func eventViewController(controller: EKEventViewController, didCompleteWith action: EKEventViewAction)
 }

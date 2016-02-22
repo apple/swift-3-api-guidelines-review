@@ -3,24 +3,24 @@ extension CSSearchableItemAttributeSet {
   var editors: [String]?
   var participants: [String]?
   var projects: [String]?
-  var downloadedDate: Date?
+  var downloadedDate: NSDate?
   var contentSources: [String]?
   var comment: String?
   var copyright: String?
-  var lastUsedDate: Date?
-  var contentCreationDate: Date?
-  var contentModificationDate: Date?
-  var addedDate: Date?
-  var duration: Number?
+  var lastUsedDate: NSDate?
+  var contentCreationDate: NSDate?
+  var contentModificationDate: NSDate?
+  var addedDate: NSDate?
+  var duration: NSNumber?
   var contactKeywords: [String]?
   var version: String?
   var codecs: [String]?
   var mediaTypes: [String]?
-  var streamable: Number?
-  var totalBitRate: Number?
-  var videoBitRate: Number?
-  var audioBitRate: Number?
-  var deliveryType: Number?
+  var streamable: NSNumber?
+  var totalBitRate: NSNumber?
+  var videoBitRate: NSNumber?
+  var audioBitRate: NSNumber?
+  var deliveryType: NSNumber?
   var organizations: [String]?
   var role: String?
   var languages: [String]?
@@ -28,9 +28,9 @@ extension CSSearchableItemAttributeSet {
   var publishers: [String]?
   var contributors: [String]?
   var coverage: [String]?
-  var rating: Number?
+  var rating: NSNumber?
   var ratingDescription: String?
-  var playCount: Number?
+  var playCount: NSNumber?
   var information: String?
   var director: String?
   var producer: String?
@@ -38,14 +38,14 @@ extension CSSearchableItemAttributeSet {
   var performers: [String]?
   var originalFormat: String?
   var originalSource: String?
-  var local: Number?
-  var contentRating: Number?
-  var url: URL?
+  var local: NSNumber?
+  var contentRating: NSNumber?
+  var url: NSURL?
 }
 extension CSSearchableItemAttributeSet {
-  var audioSampleRate: Number?
-  var audioChannelCount: Number?
-  var tempo: Number?
+  var audioSampleRate: NSNumber?
+  var audioChannelCount: NSNumber?
+  var tempo: NSNumber?
   var keySignature: String?
   var timeSignature: String?
   var audioEncodingApplication: String?
@@ -53,10 +53,10 @@ extension CSSearchableItemAttributeSet {
   var lyricist: String?
   var album: String?
   var artist: String?
-  var audioTrackNumber: Number?
-  var recordingDate: Date?
+  var audioTrackNumber: NSNumber?
+  var recordingDate: NSDate?
   var musicalGenre: String?
-  var generalMIDISequence: Number?
+  var generalMIDISequence: NSNumber?
   var musicalInstrumentCategory: String?
   var musicalInstrumentName: String?
 }

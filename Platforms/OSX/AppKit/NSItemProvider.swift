@@ -1,11 +1,11 @@
 
-extension ItemProvider {
+extension NSItemProvider {
   @available(OSX 10.10, *)
-  var sourceFrame: Rect { get }
+  var sourceFrame: NSRect { get }
   @available(OSX 10.10, *)
-  var containerFrame: Rect { get }
+  var containerFrame: NSRect { get }
   @available(OSX 10.10, *)
-  var preferredPresentationSize: Size { get }
+  var preferredPresentationSize: NSSize { get }
 }
 @available(OSX 10.10, *)
 let NSTypeIdentifierDateText: String

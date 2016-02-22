@@ -26,7 +26,7 @@ enum MPMusicShuffleMode : Int {
   case albums
 }
 @available(iOS 3.0, *)
-class MPMusicPlayerController : Object, MPMediaPlayback {
+class MPMusicPlayerController : NSObject, MPMediaPlayback {
   class func applicationMusicPlayer() -> MPMusicPlayerController
   class func systemMusicPlayer() -> MPMusicPlayerController
   @available(iOS, introduced=3.0, deprecated=8.0, message="Use +systemMusicPlayer instead.")
@@ -43,7 +43,7 @@ class MPMusicPlayerController : Object, MPMediaPlayback {
   @available(iOS 3.0, *)
   func stop()
   @available(iOS 3.0, *)
-  var currentPlaybackTime: TimeInterval
+  var currentPlaybackTime: NSTimeInterval
   @available(iOS 3.0, *)
   var currentPlaybackRate: Float
   @available(iOS 3.0, *)

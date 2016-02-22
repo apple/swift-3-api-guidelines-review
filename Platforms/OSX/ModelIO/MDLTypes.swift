@@ -38,10 +38,10 @@ protocol MDLNamed {
   var name: String { get set }
 }
 @available(OSX 10.11, *)
-protocol MDLComponent : ObjectProtocol {
+protocol MDLComponent : NSObjectProtocol {
 }
 @available(OSX 10.11, *)
-protocol MDLObjectContainerComponent : MDLComponent, FastEnumeration {
+protocol MDLObjectContainerComponent : MDLComponent, NSFastEnumeration {
   func add(object: MDLObject)
   func remove(object: MDLObject)
   var objects: [MDLObject] { get }

@@ -12,7 +12,7 @@ protocol CWEventDelegate {
   optional func scanCacheUpdatedForWiFiInterface(withName interfaceName: String)
 }
 @available(OSX 10.10, *)
-class CWWiFiClient : Object {
+class CWWiFiClient : NSObject {
   @available(OSX 10.10, *)
   weak var delegate: @sil_weak AnyObject?
   @available(OSX 10.10, *)

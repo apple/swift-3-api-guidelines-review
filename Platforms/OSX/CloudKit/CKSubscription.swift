@@ -16,28 +16,28 @@ struct CKSubscriptionOptions : OptionSetType {
   static var firesOnce: CKSubscriptionOptions { get }
 }
 @available(OSX 10.10, *)
-class CKSubscription : Object, SecureCoding, Copying {
-  init(coder aDecoder: Coder)
-  convenience init(recordType: String, predicate: Predicate, options subscriptionOptions: CKSubscriptionOptions = [])
-  init(recordType: String, predicate: Predicate, subscriptionID: String, options subscriptionOptions: CKSubscriptionOptions = [])
+class CKSubscription : NSObject, NSSecureCoding, NSCopying {
+  init(coder aDecoder: NSCoder)
+  convenience init(recordType: String, predicate: NSPredicate, options subscriptionOptions: CKSubscriptionOptions = [])
+  init(recordType: String, predicate: NSPredicate, subscriptionID: String, options subscriptionOptions: CKSubscriptionOptions = [])
   convenience init(zoneID: CKRecordZoneID, options subscriptionOptions: CKSubscriptionOptions = [])
   init(zoneID: CKRecordZoneID, subscriptionID: String, options subscriptionOptions: CKSubscriptionOptions = [])
   var subscriptionID: String { get }
   var subscriptionType: CKSubscriptionType { get }
   var recordType: String? { get }
-  @NSCopying var predicate: Predicate? { get }
+  @NSCopying var predicate: NSPredicate? { get }
   var subscriptionOptions: CKSubscriptionOptions { get }
   @NSCopying var notificationInfo: CKNotificationInfo?
   @NSCopying var zoneID: CKRecordZoneID?
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.10, *)
-class CKNotificationInfo : Object, SecureCoding, Copying {
+class CKNotificationInfo : NSObject, NSSecureCoding, NSCopying {
   var alertBody: String?
   var alertLocalizationKey: String?
   var alertLocalizationArgs: [String]?
@@ -53,8 +53,8 @@ class CKNotificationInfo : Object, SecureCoding, Copying {
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

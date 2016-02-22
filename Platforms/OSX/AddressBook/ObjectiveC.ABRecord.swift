@@ -1,5 +1,5 @@
 
-class ABRecord : Object {
+class ABRecord : NSObject {
   init!()
   @available(OSX 10.5, *)
   init!(addressBook: ABAddressBook!)

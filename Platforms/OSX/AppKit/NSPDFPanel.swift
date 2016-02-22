@@ -8,7 +8,7 @@ struct NSPDFPanelOptions : OptionSetType {
   static var requestsParentDirectory: NSPDFPanelOptions { get }
 }
 @available(OSX 10.9, *)
-class NSPDFPanel : Object {
+class NSPDFPanel : NSObject {
   var accessoryController: NSViewController?
   var options: NSPDFPanelOptions
   var defaultFileName: String

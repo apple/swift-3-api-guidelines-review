@@ -1,10 +1,10 @@
 
 @available(watchOS 20000, *)
-class HMTrigger : Object {
+class HMTrigger : NSObject {
   var name: String { get }
   var isEnabled: Bool { get }
   var actionSets: [HMActionSet] { get }
-  @NSCopying var lastFireDate: Date? { get }
+  @NSCopying var lastFireDate: NSDate? { get }
   @available(watchOS 2.0, *)
-  @NSCopying var uniqueIdentifier: UUID { get }
+  @NSCopying var uniqueIdentifier: NSUUID { get }
 }

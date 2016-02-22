@@ -6,7 +6,7 @@ let SCNNormalTransform: String
 let SCNModelViewTransform: String
 let SCNModelViewProjectionTransform: String
 @available(OSX 10.8, *)
-class SCNNode : Object, Copying, SecureCoding, SCNAnimatable, SCNActionable, SCNBoundingVolume {
+class SCNNode : NSObject, NSCopying, NSSecureCoding, SCNAnimatable, SCNActionable, SCNBoundingVolume {
   /*not inherited*/ init(geometry: SCNGeometry?)
   func clone() -> Self
   @available(OSX 10.9, *)
@@ -70,12 +70,12 @@ class SCNNode : Object, Copying, SecureCoding, SCNAnimatable, SCNActionable, SCN
   var categoryBitMask: Int
   init()
   @available(OSX 10.8, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.8, *)
   func add(animation: CAAnimation, forKey key: String?)
   @available(OSX 10.8, *)
@@ -119,7 +119,7 @@ class SCNNode : Object, Copying, SecureCoding, SCNAnimatable, SCNActionable, SCN
   @available(OSX 10.9, *)
   func setBoundingBoxMin(min: UnsafeMutablePointer<SCNVector3>, max: UnsafeMutablePointer<SCNVector3>)
 }
-protocol SCNNodeRendererDelegate : ObjectProtocol {
+protocol SCNNodeRendererDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
-  optional func renderNode(node: SCNNode, renderer: SCNRenderer, arguments: [String : Value])
+  optional func renderNode(node: SCNNode, renderer: SCNRenderer, arguments: [String : NSValue])
 }

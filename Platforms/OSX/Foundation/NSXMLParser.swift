@@ -1,6 +1,6 @@
 
 @available(OSX 10.9, *)
-enum XMLParserExternalEntityResolvingPolicy : UInt {
+enum NSXMLParserExternalEntityResolvingPolicy : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case resolveExternalEntitiesNever
@@ -8,55 +8,55 @@ enum XMLParserExternalEntityResolvingPolicy : UInt {
   case resolveExternalEntitiesSameOriginOnly
   case resolveExternalEntitiesAlways
 }
-class XMLParser : Object {
-  convenience init?(contentsOf url: URL)
-  init(data: Data)
+class NSXMLParser : NSObject {
+  convenience init?(contentsOf url: NSURL)
+  init(data: NSData)
   @available(OSX 10.7, *)
-  convenience init(stream: InputStream)
-  unowned(unsafe) var delegate: @sil_unmanaged XMLParserDelegate?
+  convenience init(stream: NSInputStream)
+  unowned(unsafe) var delegate: @sil_unmanaged NSXMLParserDelegate?
   var shouldProcessNamespaces: Bool
   var shouldReportNamespacePrefixes: Bool
   @available(OSX 10.9, *)
-  var externalEntityResolvingPolicy: XMLParserExternalEntityResolvingPolicy
+  var externalEntityResolvingPolicy: NSXMLParserExternalEntityResolvingPolicy
   @available(OSX 10.9, *)
-  var allowedExternalEntityURLs: Set<URL>?
+  var allowedExternalEntityURLs: Set<NSURL>?
   func parse() -> Bool
   func abortParsing()
-  @NSCopying var parserError: Error? { get }
+  @NSCopying var parserError: NSError? { get }
   var shouldResolveExternalEntities: Bool
   convenience init()
 }
-extension XMLParser {
+extension NSXMLParser {
   var publicID: String? { get }
   var systemID: String? { get }
   var lineNumber: Int { get }
   var columnNumber: Int { get }
 }
-protocol XMLParserDelegate : ObjectProtocol {
-  optional func parserDidStartDocument(parser: XMLParser)
-  optional func parserDidEndDocument(parser: XMLParser)
-  optional func parser(parser: XMLParser, foundNotationDeclarationWithName name: String, publicID: String?, systemID: String?)
-  optional func parser(parser: XMLParser, foundUnparsedEntityDeclarationWithName name: String, publicID: String?, systemID: String?, notationName: String?)
-  optional func parser(parser: XMLParser, foundAttributeDeclarationWithName attributeName: String, forElement elementName: String, type: String?, defaultValue: String?)
-  optional func parser(parser: XMLParser, foundElementDeclarationWithName elementName: String, model: String)
-  optional func parser(parser: XMLParser, foundInternalEntityDeclarationWithName name: String, value: String?)
-  optional func parser(parser: XMLParser, foundExternalEntityDeclarationWithName name: String, publicID: String?, systemID: String?)
-  optional func parser(parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:])
-  optional func parser(parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?)
-  optional func parser(parser: XMLParser, didStartMappingPrefix prefix: String, toURI namespaceURI: String)
-  optional func parser(parser: XMLParser, didEndMappingPrefix prefix: String)
-  optional func parser(parser: XMLParser, foundCharacters string: String)
-  optional func parser(parser: XMLParser, foundIgnorableWhitespace whitespaceString: String)
-  optional func parser(parser: XMLParser, foundProcessingInstructionWithTarget target: String, data: String?)
-  optional func parser(parser: XMLParser, foundComment comment: String)
-  optional func parser(parser: XMLParser, foundCDATA CDATABlock: Data)
-  optional func parser(parser: XMLParser, resolveExternalEntityName name: String, systemID: String?) -> Data?
-  optional func parser(parser: XMLParser, parseErrorOccurred parseError: Error)
-  optional func parser(parser: XMLParser, validationErrorOccurred validationError: Error)
+protocol NSXMLParserDelegate : NSObjectProtocol {
+  optional func parserDidStartDocument(parser: NSXMLParser)
+  optional func parserDidEndDocument(parser: NSXMLParser)
+  optional func parser(parser: NSXMLParser, foundNotationDeclarationWithName name: String, publicID: String?, systemID: String?)
+  optional func parser(parser: NSXMLParser, foundUnparsedEntityDeclarationWithName name: String, publicID: String?, systemID: String?, notationName: String?)
+  optional func parser(parser: NSXMLParser, foundAttributeDeclarationWithName attributeName: String, forElement elementName: String, type: String?, defaultValue: String?)
+  optional func parser(parser: NSXMLParser, foundElementDeclarationWithName elementName: String, model: String)
+  optional func parser(parser: NSXMLParser, foundInternalEntityDeclarationWithName name: String, value: String?)
+  optional func parser(parser: NSXMLParser, foundExternalEntityDeclarationWithName name: String, publicID: String?, systemID: String?)
+  optional func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:])
+  optional func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?)
+  optional func parser(parser: NSXMLParser, didStartMappingPrefix prefix: String, toURI namespaceURI: String)
+  optional func parser(parser: NSXMLParser, didEndMappingPrefix prefix: String)
+  optional func parser(parser: NSXMLParser, foundCharacters string: String)
+  optional func parser(parser: NSXMLParser, foundIgnorableWhitespace whitespaceString: String)
+  optional func parser(parser: NSXMLParser, foundProcessingInstructionWithTarget target: String, data: String?)
+  optional func parser(parser: NSXMLParser, foundComment comment: String)
+  optional func parser(parser: NSXMLParser, foundCDATA CDATABlock: NSData)
+  optional func parser(parser: NSXMLParser, resolveExternalEntityName name: String, systemID: String?) -> NSData?
+  optional func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError)
+  optional func parser(parser: NSXMLParser, validationErrorOccurred validationError: NSError)
 }
 @available(OSX 10.3, *)
-let xmlParserErrorDomain: String
-enum XMLParserError : Int {
+let NSXMLParserErrorDomain: String
+enum NSXMLParserError : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   case internalError

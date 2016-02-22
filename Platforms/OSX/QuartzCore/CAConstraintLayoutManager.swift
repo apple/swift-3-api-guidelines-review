@@ -15,10 +15,10 @@ extension CALayer {
   var constraints: [CAConstraint]?
   func addConstraint(c: CAConstraint)
 }
-class CAConstraintLayoutManager : Object {
+class CAConstraintLayoutManager : NSObject {
   init()
 }
-class CAConstraint : Object, Coding {
+class CAConstraint : NSObject, NSCoding {
   convenience init(attribute attr: CAConstraintAttribute, relativeTo srcId: String, attribute srcAttr: CAConstraintAttribute, offset c: CGFloat)
   convenience init(attribute attr: CAConstraintAttribute, relativeTo srcId: String, attribute srcAttr: CAConstraintAttribute)
   init(attribute attr: CAConstraintAttribute, relativeTo srcId: String, attribute srcAttr: CAConstraintAttribute, scale m: CGFloat, offset c: CGFloat)
@@ -28,6 +28,6 @@ class CAConstraint : Object, Coding {
   var scale: CGFloat { get }
   var offset: CGFloat { get }
   init()
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

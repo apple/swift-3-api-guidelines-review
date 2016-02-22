@@ -1,5 +1,5 @@
 
-protocol SKStoreProductViewControllerDelegate : ObjectProtocol {
+protocol SKStoreProductViewControllerDelegate : NSObjectProtocol {
 }
 @available(tvOS 6.0, *)
 let SKStoreProductParameterITunesItemIdentifier: String

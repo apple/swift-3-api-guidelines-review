@@ -1,30 +1,30 @@
 
-protocol FilePresenter : ObjectProtocol {
-  @NSCopying var presentedItemURL: URL? { get }
+protocol NSFilePresenter : NSObjectProtocol {
+  @NSCopying var presentedItemURL: NSURL? { get }
   @available(OSX 10.5, *)
-  var presentedItemOperationQueue: OperationQueue { get }
+  var presentedItemOperationQueue: NSOperationQueue { get }
   @available(OSX 10.8, *)
-  @NSCopying optional var primaryPresentedItemURL: URL? { get }
+  @NSCopying optional var primaryPresentedItemURL: NSURL? { get }
   optional func relinquishPresentedItem(toReader reader: ((() -> Void)?) -> Void)
   optional func relinquishPresentedItem(toWriter writer: ((() -> Void)?) -> Void)
-  optional func savePresentedItemChanges(completionHandler completionHandler: (Error?) -> Void)
-  optional func accommodatePresentedItemDeletion(completionHandler completionHandler: (Error?) -> Void)
-  optional func presentedItemDidMove(to newURL: URL)
+  optional func savePresentedItemChanges(completionHandler completionHandler: (NSError?) -> Void)
+  optional func accommodatePresentedItemDeletion(completionHandler completionHandler: (NSError?) -> Void)
+  optional func presentedItemDidMove(to newURL: NSURL)
   optional func presentedItemDidChange()
   @available(OSX 10.7, *)
-  optional func presentedItemDidGainVersion(version: FileVersion)
+  optional func presentedItemDidGainVersion(version: NSFileVersion)
   @available(OSX 10.7, *)
-  optional func presentedItemDidLose(version: FileVersion)
+  optional func presentedItemDidLose(version: NSFileVersion)
   @available(OSX 10.7, *)
-  optional func presentedItemDidResolveConflictVersion(version: FileVersion)
-  optional func accommodatePresentedSubitemDeletion(at url: URL, completionHandler: (Error?) -> Void)
-  optional func presentedSubitemDidAppear(at url: URL)
-  optional func presentedSubitem(at oldURL: URL, didMoveTo newURL: URL)
-  optional func presentedSubitemDidChange(at url: URL)
+  optional func presentedItemDidResolveConflictVersion(version: NSFileVersion)
+  optional func accommodatePresentedSubitemDeletion(at url: NSURL, completionHandler: (NSError?) -> Void)
+  optional func presentedSubitemDidAppear(at url: NSURL)
+  optional func presentedSubitem(at oldURL: NSURL, didMoveTo newURL: NSURL)
+  optional func presentedSubitemDidChange(at url: NSURL)
   @available(OSX 10.7, *)
-  optional func presentedSubitem(at url: URL, didGainVersion version: FileVersion)
+  optional func presentedSubitem(at url: NSURL, didGainVersion version: NSFileVersion)
   @available(OSX 10.7, *)
-  optional func presentedSubitem(at url: URL, didLose version: FileVersion)
+  optional func presentedSubitem(at url: NSURL, didLose version: NSFileVersion)
   @available(OSX 10.7, *)
-  optional func presentedSubitem(at url: URL, didResolveConflictVersion version: FileVersion)
+  optional func presentedSubitem(at url: NSURL, didResolveConflictVersion version: NSFileVersion)
 }

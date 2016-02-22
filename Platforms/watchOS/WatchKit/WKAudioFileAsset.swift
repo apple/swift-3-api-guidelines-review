@@ -1,10 +1,10 @@
 
 @available(watchOS 2.0, *)
-class WKAudioFileAsset : Object {
-  convenience init(url URL: URL)
-  convenience init(url URL: URL, title: String?, albumTitle: String?, artist: String?)
-  var url: URL { get }
-  var duration: TimeInterval { get }
+class WKAudioFileAsset : NSObject {
+  convenience init(url URL: NSURL)
+  convenience init(url URL: NSURL, title: String?, albumTitle: String?, artist: String?)
+  var url: NSURL { get }
+  var duration: NSTimeInterval { get }
   var title: String? { get }
   var albumTitle: String? { get }
   var artist: String? { get }

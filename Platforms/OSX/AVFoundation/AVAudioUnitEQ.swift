@@ -16,7 +16,7 @@ enum AVAudioUnitEQFilterType : Int {
   case resonantHighShelf
 }
 @available(OSX 10.10, *)
-class AVAudioUnitEQFilterParameters : Object {
+class AVAudioUnitEQFilterParameters : NSObject {
   var filterType: AVAudioUnitEQFilterType
   var frequency: Float
   var bandwidth: Float

@@ -5,7 +5,7 @@ let NSComboBoxSelectionDidChangeNotification: String
 let NSComboBoxSelectionIsChangingNotification: String
 class NSComboBox : NSTextField {
   var hasVerticalScroller: Bool
-  var intercellSpacing: Size
+  var intercellSpacing: NSSize
   var itemHeight: CGFloat
   var numberOfVisibleItems: Int
   var isButtonBordered: Bool
@@ -33,19 +33,19 @@ class NSComboBox : NSTextField {
   var objectValueOfSelectedItem: AnyObject? { get }
   func indexOfItem(with object: AnyObject) -> Int
   var objectValues: [AnyObject] { get }
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }
-protocol NSComboBoxDataSource : ObjectProtocol {
+protocol NSComboBoxDataSource : NSObjectProtocol {
   optional func numberOfItems(in aComboBox: NSComboBox) -> Int
   optional func comboBox(aComboBox: NSComboBox, objectValueForItemAt index: Int) -> AnyObject
   optional func comboBox(aComboBox: NSComboBox, indexOfItemWithStringValue string: String) -> Int
   optional func comboBox(aComboBox: NSComboBox, completedString string: String) -> String?
 }
 protocol NSComboBoxDelegate : NSTextFieldDelegate {
-  optional func comboBoxWillPopUp(notification: Notification)
-  optional func comboBoxWillDismiss(notification: Notification)
-  optional func comboBoxSelectionDidChange(notification: Notification)
-  optional func comboBoxSelectionIsChanging(notification: Notification)
+  optional func comboBoxWillPopUp(notification: NSNotification)
+  optional func comboBoxWillDismiss(notification: NSNotification)
+  optional func comboBoxSelectionDidChange(notification: NSNotification)
+  optional func comboBoxSelectionIsChanging(notification: NSNotification)
 }

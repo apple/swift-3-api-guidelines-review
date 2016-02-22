@@ -1,6 +1,6 @@
 
 @available(OSX 10.9, *)
-class SCNLevelOfDetail : Object, Copying, SecureCoding {
+class SCNLevelOfDetail : NSObject, NSCopying, NSSecureCoding {
   convenience init(geometry: SCNGeometry?, screenSpaceRadius radius: CGFloat)
   convenience init(geometry: SCNGeometry?, worldSpaceDistance distance: CGFloat)
   var geometry: SCNGeometry? { get }
@@ -8,10 +8,10 @@ class SCNLevelOfDetail : Object, Copying, SecureCoding {
   var worldSpaceDistance: CGFloat { get }
   init()
   @available(OSX 10.9, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.9, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.9, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

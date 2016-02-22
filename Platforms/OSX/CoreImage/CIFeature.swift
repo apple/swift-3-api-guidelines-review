@@ -1,6 +1,6 @@
 
 @available(OSX 10.7, *)
-class CIFeature : Object {
+class CIFeature : NSObject {
   var type: String { get }
   var bounds: CGRect { get }
   init()

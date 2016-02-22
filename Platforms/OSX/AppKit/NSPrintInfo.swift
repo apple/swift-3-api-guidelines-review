@@ -50,13 +50,13 @@ let NSPrintJobSavingURL: String
 @available(OSX 10.6, *)
 let NSPrintJobSavingFileNameExtensionHidden: String
 let NSPrintHeaderAndFooter: String
-class NSPrintInfo : Object, Copying, Coding {
+class NSPrintInfo : NSObject, NSCopying, NSCoding {
   class func setSharedPrintInfo(printInfo: NSPrintInfo)
   class func shared() -> NSPrintInfo
   init(dictionary attributes: [String : AnyObject])
-  func dictionary() -> MutableDictionary
+  func dictionary() -> NSMutableDictionary
   var paperName: String?
-  var paperSize: Size
+  var paperSize: NSSize
   var orientation: NSPaperOrientation
   @available(OSX 10.6, *)
   var scalingFactor: CGFloat
@@ -71,11 +71,11 @@ class NSPrintInfo : Object, Copying, Coding {
   var jobDisposition: String
   @NSCopying var printer: NSPrinter
   func setUpPrintOperationDefaultValues()
-  var imageablePageBounds: Rect { get }
+  var imageablePageBounds: NSRect { get }
   var localizedPaperName: String? { get }
   class func defaultPrinter() -> NSPrinter?
   @available(OSX 10.5, *)
-  var printSettings: MutableDictionary { get }
+  var printSettings: NSMutableDictionary { get }
   @available(OSX 10.5, *)
   func pmPrintSession() -> UnsafeMutablePointer<Void>
   @available(OSX 10.5, *)
@@ -91,9 +91,9 @@ class NSPrintInfo : Object, Copying, Coding {
   @available(OSX 10.9, *)
   func takeSettings(from inPDFInfo: NSPDFInfo)
   convenience init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 extension NSPrintInfo {
 }

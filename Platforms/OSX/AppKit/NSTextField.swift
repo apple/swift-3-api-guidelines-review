@@ -3,7 +3,7 @@ class NSTextField : NSControl, NSUserInterfaceValidations, NSAccessibilityNaviga
   @available(OSX 10.10, *)
   var placeholderString: String?
   @available(OSX 10.10, *)
-  @NSCopying var placeholderAttributedString: AttributedString?
+  @NSCopying var placeholderAttributedString: NSAttributedString?
   @NSCopying var backgroundColor: NSColor?
   var drawsBackground: Bool
   @NSCopying var textColor: NSColor?
@@ -15,9 +15,9 @@ class NSTextField : NSControl, NSUserInterfaceValidations, NSAccessibilityNaviga
   unowned(unsafe) var delegate: @sil_unmanaged NSTextFieldDelegate?
   func textShouldBeginEditing(textObject: NSText) -> Bool
   func textShouldEndEditing(textObject: NSText) -> Bool
-  func textDidBeginEditing(notification: Notification)
-  func textDidEndEditing(notification: Notification)
-  func textDidChange(notification: Notification)
+  func textDidBeginEditing(notification: NSNotification)
+  func textDidEndEditing(notification: NSNotification)
+  func textDidChange(notification: NSNotification)
   var acceptsFirstResponder: Bool { get }
   var bezelStyle: NSTextFieldBezelStyle
   @available(OSX 10.8, *)
@@ -26,17 +26,17 @@ class NSTextField : NSControl, NSUserInterfaceValidations, NSAccessibilityNaviga
   var maximumNumberOfLines: Int
   @available(OSX 10.11, *)
   var allowsDefaultTighteningForTruncation: Bool
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
   func validate(anItem: NSValidatedUserInterfaceItem) -> Bool
   func accessibilityString(for range: NSRange) -> String?
   func accessibilityLine(for index: Int) -> Int
   func accessibilityRange(forLine lineNumber: Int) -> NSRange
-  func accessibilityFrame(for range: NSRange) -> Rect
+  func accessibilityFrame(for range: NSRange) -> NSRect
   func accessibilityValue() -> String?
   @available(OSX 10.0, *)
-  func accessibilityAttributedString(for range: NSRange) -> AttributedString?
+  func accessibilityAttributedString(for range: NSRange) -> NSAttributedString?
   func accessibilityVisibleCharacterRange() -> NSRange
 }
 extension NSTextField {

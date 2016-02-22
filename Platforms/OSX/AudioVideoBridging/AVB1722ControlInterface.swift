@@ -1,6 +1,6 @@
 
 @available(OSX 10.8, *)
-class AVB1722ControlInterface : Object {
+class AVB1722ControlInterface : NSObject {
   var interfaceName: String { get }
   unowned(unsafe) var interface: @sil_unmanaged AVBInterface? { get }
   @available(OSX 10.9, *)

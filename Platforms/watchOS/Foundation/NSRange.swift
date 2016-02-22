@@ -23,22 +23,22 @@ extension NSRange : CustomPlaygroundQuickLookable {
 extension NSRange : _ObjectiveCBridgeable {
   static func _isBridgedToObjectiveC() -> Bool
   static func _getObjectiveCType() -> Any.Type
-  func _bridgeToObjectiveC() -> Value
-  static func _forceBridgeFromObjectiveC(x: Value, inout result: NSRange?)
-  static func _conditionallyBridgeFromObjectiveC(x: Value, inout result: NSRange?) -> Bool
-  typealias _ObjectiveCType = Value
+  func _bridgeToObjectiveC() -> NSValue
+  static func _forceBridgeFromObjectiveC(x: NSValue, inout result: NSRange?)
+  static func _conditionallyBridgeFromObjectiveC(x: NSValue, inout result: NSRange?) -> Bool
+  typealias _ObjectiveCType = NSValue
 }
 typealias NSRange = _NSRange
-typealias RangePointer = UnsafeMutablePointer<NSRange>
-func makeRange(loc: Int, _ len: Int) -> NSRange
-func maxRange(range: NSRange) -> Int
-func locationInRange(loc: Int, _ range: NSRange) -> Bool
-func equalRanges(range1: NSRange, _ range2: NSRange) -> Bool
-func unionRange(range1: NSRange, _ range2: NSRange) -> NSRange
-func intersectionRange(range1: NSRange, _ range2: NSRange) -> NSRange
-func stringFromRange(range: NSRange) -> String
-func rangeFromString(aString: String) -> NSRange
-extension Value {
+typealias NSRangePointer = UnsafeMutablePointer<NSRange>
+func NSMakeRange(loc: Int, _ len: Int) -> NSRange
+func NSMaxRange(range: NSRange) -> Int
+func NSLocationInRange(loc: Int, _ range: NSRange) -> Bool
+func NSEqualRanges(range1: NSRange, _ range2: NSRange) -> Bool
+func NSUnionRange(range1: NSRange, _ range2: NSRange) -> NSRange
+func NSIntersectionRange(range1: NSRange, _ range2: NSRange) -> NSRange
+func NSStringFromRange(range: NSRange) -> String
+func NSRangeFromString(aString: String) -> NSRange
+extension NSValue {
   /*not inherited*/ init(range: NSRange)
   var rangeValue: NSRange { get }
 }

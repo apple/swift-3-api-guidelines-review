@@ -10,12 +10,12 @@ enum NSPersistentStoreRequestType : UInt {
   case batchDeleteRequestType
 }
 @available(watchOS 2.0, *)
-class NSPersistentStoreRequest : Object, Copying {
+class NSPersistentStoreRequest : NSObject, NSCopying {
   var affectedStores: [NSPersistentStore]?
   var requestType: NSPersistentStoreRequestType { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 typealias NSPersistentStoreAsynchronousFetchResultCompletionBlock = (NSAsynchronousFetchResult) -> Void
 @available(watchOS 2.0, *)

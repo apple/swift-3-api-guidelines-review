@@ -1,16 +1,16 @@
 
 @available(iOS 6.0, *)
-class UUID : Object, Copying, SecureCoding {
+class NSUUID : NSObject, NSCopying, NSSecureCoding {
   init()
   convenience init?(uuidString string: String)
   convenience init(uuidBytes bytes: UnsafePointer<UInt8>)
   func getBytes(uuid: UnsafeMutablePointer<UInt8>)
   var uuidString: String { get }
   @available(iOS 6.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 6.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 6.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

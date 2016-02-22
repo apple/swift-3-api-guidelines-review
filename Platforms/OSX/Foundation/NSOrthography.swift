@@ -1,18 +1,18 @@
 
 @available(OSX 10.6, *)
-class Orthography : Object, Copying, Coding {
+class NSOrthography : NSObject, NSCopying, NSCoding {
   var dominantScript: String { get }
   var languageMap: [String : [String]] { get }
   @available(OSX 10.6, *)
   init(dominantScript script: String, languageMap map: [String : [String]])
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
   @available(OSX 10.6, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.6, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }
-extension Orthography {
+extension NSOrthography {
   @available(OSX 10.6, *)
   func languages(forScript script: String) -> [String]?
   @available(OSX 10.6, *)
@@ -24,5 +24,5 @@ extension Orthography {
   @available(OSX 10.6, *)
   var allLanguages: [String] { get }
 }
-extension Orthography {
+extension NSOrthography {
 }

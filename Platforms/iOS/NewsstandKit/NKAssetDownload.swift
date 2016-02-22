@@ -1,10 +1,10 @@
 
 @available(iOS 5.0, *)
-class NKAssetDownload : Object {
+class NKAssetDownload : NSObject {
   weak var issue: @sil_weak NKIssue? { get }
   var identifier: String { get }
-  var userInfo: [Object : AnyObject]?
-  @NSCopying var urlRequest: URLRequest { get }
-  func download(delegate: URLConnectionDownloadDelegate) -> URLConnection
+  var userInfo: [NSObject : AnyObject]?
+  @NSCopying var urlRequest: NSURLRequest { get }
+  func download(delegate: NSURLConnectionDownloadDelegate) -> NSURLConnection
   init()
 }

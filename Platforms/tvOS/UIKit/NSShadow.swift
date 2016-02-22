@@ -1,13 +1,13 @@
 
 @available(tvOS 6.0, *)
-class NSShadow : Object, Copying, Coding {
+class NSShadow : NSObject, NSCopying, NSCoding {
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   var shadowOffset: CGSize
   var shadowBlurRadius: CGFloat
   var shadowColor: AnyObject?
   @available(tvOS 6.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 6.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }

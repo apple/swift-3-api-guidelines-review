@@ -1,14 +1,14 @@
 
-class IMServicePlugInMessage : Object, Coding, Copying {
-  class func servicePlugInMessage(withContent content: AttributedString!) -> AnyObject!
-  init!(content: AttributedString!)
-  class func servicePlugInMessage(withContent content: AttributedString!, date: Date!) -> AnyObject!
-  init!(content: AttributedString!, date: Date!)
+class IMServicePlugInMessage : NSObject, NSCoding, NSCopying {
+  class func servicePlugInMessage(withContent content: NSAttributedString!) -> AnyObject!
+  init!(content: NSAttributedString!)
+  class func servicePlugInMessage(withContent content: NSAttributedString!, date: NSDate!) -> AnyObject!
+  init!(content: NSAttributedString!, date: NSDate!)
   var guid: String! { get }
-  @NSCopying var content: AttributedString!
-  @NSCopying var date: Date!
+  @NSCopying var content: NSAttributedString!
+  @NSCopying var date: NSDate!
   init()
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

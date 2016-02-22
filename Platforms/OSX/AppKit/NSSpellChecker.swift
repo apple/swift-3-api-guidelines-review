@@ -1,5 +1,5 @@
 
-class NSSpellChecker : Object {
+class NSSpellChecker : NSObject {
   class func shared() -> NSSpellChecker
   class func sharedSpellCheckerExists() -> Bool
   class func uniqueSpellDocumentTag() -> Int
@@ -9,11 +9,11 @@ class NSSpellChecker : Object {
   @available(OSX 10.5, *)
   func checkGrammarOf(stringToCheck: String, startingAt startingOffset: Int, language: String?, wrap wrapFlag: Bool, inSpellDocumentWithTag tag: Int, details: AutoreleasingUnsafeMutablePointer<NSArray?>) -> NSRange
   @available(OSX 10.6, *)
-  func check(stringToCheck: String, range: NSRange, types checkingTypes: TextCheckingTypes, options: [String : AnyObject]? = [:], inSpellDocumentWithTag tag: Int, orthography: AutoreleasingUnsafeMutablePointer<Orthography?>, wordCount: UnsafeMutablePointer<Int>) -> [TextCheckingResult]
+  func check(stringToCheck: String, range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject]? = [:], inSpellDocumentWithTag tag: Int, orthography: AutoreleasingUnsafeMutablePointer<NSOrthography?>, wordCount: UnsafeMutablePointer<Int>) -> [NSTextCheckingResult]
   @available(OSX 10.6, *)
-  func requestCheckingOf(stringToCheck: String, range: NSRange, types checkingTypes: TextCheckingTypes, options: [String : AnyObject]? = [:], inSpellDocumentWithTag tag: Int, completionHandler: ((Int, [TextCheckingResult], Orthography, Int) -> Void)? = nil) -> Int
+  func requestCheckingOf(stringToCheck: String, range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject]? = [:], inSpellDocumentWithTag tag: Int, completionHandler: ((Int, [NSTextCheckingResult], NSOrthography, Int) -> Void)? = nil) -> Int
   @available(OSX 10.6, *)
-  func menu(for result: TextCheckingResult, string checkedString: String, options: [String : AnyObject]? = [:], atLocation location: Point, in view: NSView) -> NSMenu?
+  func menu(for result: NSTextCheckingResult, string checkedString: String, options: [String : AnyObject]? = [:], atLocation location: NSPoint, in view: NSView) -> NSMenu?
   @available(OSX 10.6, *)
   func userQuotesArray(forLanguage language: String) -> [String]
   @available(OSX 10.6, *)
@@ -38,12 +38,12 @@ class NSSpellChecker : Object {
   func correction(forWordRange range: NSRange, in string: String, language: String, inSpellDocumentWithTag tag: Int) -> String?
   func completions(forPartialWordRange range: NSRange, in string: String, language: String?, inSpellDocumentWithTag tag: Int) -> [String]?
   @available(OSX 10.7, *)
-  func language(forWordRange range: NSRange, in string: String, orthography: Orthography?) -> String?
+  func language(forWordRange range: NSRange, in string: String, orthography: NSOrthography?) -> String?
   func closeSpellDocument(tag tag: Int)
   @available(OSX 10.7, *)
   func record(response: NSCorrectionResponse, toCorrection correction: String, forWord word: String, language: String?, inSpellDocumentWithTag tag: Int)
   @available(OSX 10.7, *)
-  func showCorrectionIndicator(of type: NSCorrectionIndicatorType, primaryString: String, alternativeStrings: [String], forStringIn rectOfTypedString: Rect, view: NSView, completionHandler completionBlock: ((String!) -> Void)? = nil)
+  func showCorrectionIndicator(of type: NSCorrectionIndicatorType, primaryString: String, alternativeStrings: [String], forStringIn rectOfTypedString: NSRect, view: NSView, completionHandler completionBlock: ((String!) -> Void)? = nil)
   @available(OSX 10.7, *)
   func dismissCorrectionIndicator(for view: NSView)
   @available(OSX 10.5, *)

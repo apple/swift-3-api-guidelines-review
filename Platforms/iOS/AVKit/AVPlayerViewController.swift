@@ -10,17 +10,17 @@ class AVPlayerViewController : UIViewController {
   var allowsPictureInPicturePlayback: Bool
   @available(iOS 9.0, *)
   weak var delegate: @sil_weak AVPlayerViewControllerDelegate?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
-protocol AVPlayerViewControllerDelegate : ObjectProtocol {
+protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
   optional func playerViewControllerWillStartPicture(inPicture playerViewController: AVPlayerViewController)
   @available(iOS 8.0, *)
   optional func playerViewControllerDidStartPicture(inPicture playerViewController: AVPlayerViewController)
   @available(iOS 8.0, *)
-  optional func playerViewController(playerViewController: AVPlayerViewController, failedToStartPictureInPictureWithError error: Error)
+  optional func playerViewController(playerViewController: AVPlayerViewController, failedToStartPictureInPictureWithError error: NSError)
   @available(iOS 8.0, *)
   optional func playerViewControllerWillStopPicture(inPicture playerViewController: AVPlayerViewController)
   @available(iOS 8.0, *)

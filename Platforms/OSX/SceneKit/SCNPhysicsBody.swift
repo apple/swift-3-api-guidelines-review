@@ -16,7 +16,7 @@ struct SCNPhysicsCollisionCategory : OptionSetType {
   static var all: SCNPhysicsCollisionCategory { get }
 }
 @available(OSX 10.10, *)
-class SCNPhysicsBody : Object, Copying, SecureCoding {
+class SCNPhysicsBody : NSObject, NSCopying, NSSecureCoding {
   class func staticBody() -> Self
   class func dynamic() -> Self
   class func kinematic() -> Self
@@ -53,10 +53,10 @@ class SCNPhysicsBody : Object, Copying, SecureCoding {
   func resetTransform()
   init()
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

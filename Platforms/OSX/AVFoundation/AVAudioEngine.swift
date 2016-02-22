@@ -1,6 +1,6 @@
 
 @available(OSX 10.10, *)
-class AVAudioEngine : Object {
+class AVAudioEngine : NSObject {
   init()
   func attach(node: AVAudioNode)
   func detach(node: AVAudioNode)

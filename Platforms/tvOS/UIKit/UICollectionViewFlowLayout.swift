@@ -17,7 +17,7 @@ class UICollectionViewFlowLayoutInvalidationContext : UICollectionViewLayoutInva
 }
 protocol UICollectionViewDelegateFlowLayout : UICollectionViewDelegate {
   @available(tvOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: NSIndexPath) -> CGSize
   @available(tvOS 6.0, *)
   optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
   @available(tvOS 6.0, *)
@@ -45,5 +45,5 @@ class UICollectionViewFlowLayout : UICollectionViewLayout {
   @available(tvOS 9.0, *)
   var sectionFootersPinToVisibleBounds: Bool
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

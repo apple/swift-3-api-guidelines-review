@@ -1,6 +1,6 @@
 
 @available(watchOS 2.0, *)
-enum LengthFormatterUnit : Int {
+enum NSLengthFormatterUnit : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   case millimeter
@@ -13,15 +13,15 @@ enum LengthFormatterUnit : Int {
   case mile
 }
 @available(watchOS 2.0, *)
-class LengthFormatter : Formatter {
-  @NSCopying var numberFormatter: NumberFormatter!
-  var unitStyle: FormattingUnitStyle
+class NSLengthFormatter : NSFormatter {
+  @NSCopying var numberFormatter: NSNumberFormatter!
+  var unitStyle: NSFormattingUnitStyle
   var isForPersonHeightUse: Bool
-  func string(fromValue value: Double, unit: LengthFormatterUnit) -> String
+  func string(fromValue value: Double, unit: NSLengthFormatterUnit) -> String
   func string(fromMeters numberInMeters: Double) -> String
-  func unitString(fromValue value: Double, unit: LengthFormatterUnit) -> String
-  func unitString(fromMeters numberInMeters: Double, usedUnit unitp: UnsafeMutablePointer<LengthFormatterUnit>) -> String
+  func unitString(fromValue value: Double, unit: NSLengthFormatterUnit) -> String
+  func unitString(fromMeters numberInMeters: Double, usedUnit unitp: UnsafeMutablePointer<NSLengthFormatterUnit>) -> String
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

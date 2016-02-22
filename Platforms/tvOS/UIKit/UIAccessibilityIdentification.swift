@@ -1,5 +1,5 @@
 
-protocol UIAccessibilityIdentification : ObjectProtocol {
+protocol UIAccessibilityIdentification : NSObjectProtocol {
   @available(tvOS 5.0, *)
   var accessibilityIdentifier: String? { get set }
 }

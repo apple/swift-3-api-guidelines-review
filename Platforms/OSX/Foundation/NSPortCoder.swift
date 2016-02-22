@@ -1,4 +1,4 @@
 
-extension Object {
+extension NSObject {
   class func classForPortCoder() -> AnyClass
 }

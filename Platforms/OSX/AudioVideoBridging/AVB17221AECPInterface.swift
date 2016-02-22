@@ -5,7 +5,7 @@ protocol AVB17221AECPClient {
   @available(OSX 10.8, *)
   func aecpDidReceiveResponse(message: AVB17221AECPMessage, on anInterface: AVB17221AECPInterface) -> Bool
 }
-typealias AVB17221AECPInterfaceCompletion = (Error?, AVB17221AECPMessage) -> Void
+typealias AVB17221AECPInterfaceCompletion = (NSError?, AVB17221AECPMessage) -> Void
 @available(OSX 10.8, *)
 class AVB17221AECPInterface : AVB1722ControlInterface {
   /*not inherited*/ init?(interfaceNamed anInterfaceName: String)

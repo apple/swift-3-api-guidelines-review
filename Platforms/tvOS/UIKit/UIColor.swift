@@ -1,6 +1,6 @@
 
 @available(tvOS 2.0, *)
-class UIColor : Object, SecureCoding, Copying {
+class UIColor : NSObject, NSSecureCoding, NSCopying {
   init(white: CGFloat, alpha: CGFloat)
   init(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat)
   init(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
@@ -40,10 +40,10 @@ class UIColor : Object, SecureCoding, Copying {
   @available(tvOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(tvOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 
 extension UIColor : _ColorLiteralConvertible {

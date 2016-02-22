@@ -5,15 +5,15 @@ class GKLocalPlayer : GKPlayer {
   var isAuthenticated: Bool { get }
   var isUnderage: Bool { get }
   @available(tvOS 6.0, *)
-  var authenticateHandler: ((UIViewController?, Error?) -> Void)?
+  var authenticateHandler: ((UIViewController?, NSError?) -> Void)?
   @available(tvOS 8.0, *)
-  func loadFriendPlayers(completionHandler completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
+  func loadFriendPlayers(completionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)? = nil)
   @available(tvOS 7.0, *)
-  func setDefaultLeaderboardIdentifier(leaderboardIdentifier: String, completionHandler: ((Error?) -> Void)? = nil)
+  func setDefaultLeaderboardIdentifier(leaderboardIdentifier: String, completionHandler: ((NSError?) -> Void)? = nil)
   @available(tvOS 7.0, *)
-  func loadDefaultLeaderboardIdentifier(completionHandler completionHandler: ((String?, Error?) -> Void)? = nil)
+  func loadDefaultLeaderboardIdentifier(completionHandler completionHandler: ((String?, NSError?) -> Void)? = nil)
   @available(tvOS 7.0, *)
-  func generateIdentityVerificationSignature(completionHandler completionHandler: ((URL?, Data?, Data?, UInt64, Error?) -> Void)? = nil)
+  func generateIdentityVerificationSignature(completionHandler completionHandler: ((NSURL?, NSData?, NSData?, UInt64, NSError?) -> Void)? = nil)
   init()
 }
 protocol GKLocalPlayerListener : GKChallengeListener, GKInviteEventListener, GKTurnBasedEventListener, GKSavedGameListener {

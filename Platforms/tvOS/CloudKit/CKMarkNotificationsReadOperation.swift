@@ -3,5 +3,5 @@
 class CKMarkNotificationsReadOperation : CKOperation {
   init(notificationIDsToMarkRead notificationIDs: [CKNotificationID])
   var notificationIDs: [CKNotificationID]
-  var markNotificationsReadCompletionBlock: (([CKNotificationID]?, Error?) -> Void)?
+  var markNotificationsReadCompletionBlock: (([CKNotificationID]?, NSError?) -> Void)?
 }

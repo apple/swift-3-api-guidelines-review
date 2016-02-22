@@ -58,7 +58,7 @@ enum NEVPNIKEv2CertificateType : Int {
   case ECDSA521
 }
 @available(OSX 10.10, *)
-class NEVPNIKEv2SecurityAssociationParameters : Object, SecureCoding, Copying {
+class NEVPNIKEv2SecurityAssociationParameters : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.10, *)
   var encryptionAlgorithm: NEVPNIKEv2EncryptionAlgorithm
   @available(OSX 10.10, *)
@@ -71,10 +71,10 @@ class NEVPNIKEv2SecurityAssociationParameters : Object, SecureCoding, Copying {
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.10, *)
 class NEVPNProtocolIKEv2 : NEVPNProtocolIPSec {
@@ -103,5 +103,5 @@ class NEVPNProtocolIKEv2 : NEVPNProtocolIPSec {
   @available(OSX 10.11, *)
   var strictRevocationCheck: Bool
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

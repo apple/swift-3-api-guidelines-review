@@ -13,19 +13,19 @@ func UIGraphicsBeginImageContextWithOptions(size: CGSize, _ opaque: Bool, _ scal
 func UIGraphicsGetImageFromCurrentImageContext() -> UIImage!
 func UIGraphicsEndImageContext()
 @available(iOS 3.2, *)
-func UIGraphicsBeginPDFContextToFile(path: String, _ bounds: CGRect, _ documentInfo: [Object : AnyObject]?) -> Bool
+func UIGraphicsBeginPDFContextToFile(path: String, _ bounds: CGRect, _ documentInfo: [NSObject : AnyObject]?) -> Bool
 @available(iOS 3.2, *)
-func UIGraphicsBeginPDFContextToData(data: MutableData, _ bounds: CGRect, _ documentInfo: [Object : AnyObject]?)
+func UIGraphicsBeginPDFContextToData(data: NSMutableData, _ bounds: CGRect, _ documentInfo: [NSObject : AnyObject]?)
 @available(iOS 3.2, *)
 func UIGraphicsEndPDFContext()
 @available(iOS 3.2, *)
 func UIGraphicsBeginPDFPage()
 @available(iOS 3.2, *)
-func UIGraphicsBeginPDFPageWithInfo(bounds: CGRect, _ pageInfo: [Object : AnyObject]?)
+func UIGraphicsBeginPDFPageWithInfo(bounds: CGRect, _ pageInfo: [NSObject : AnyObject]?)
 @available(iOS 3.2, *)
 func UIGraphicsGetPDFContextBounds() -> CGRect
 @available(iOS 3.2, *)
-func UIGraphicsSetPDFContextURLForRect(url: URL, _ rect: CGRect)
+func UIGraphicsSetPDFContextURLForRect(url: NSURL, _ rect: CGRect)
 @available(iOS 3.2, *)
 func UIGraphicsAddPDFContextDestinationAtPoint(name: String, _ point: CGPoint)
 @available(iOS 3.2, *)

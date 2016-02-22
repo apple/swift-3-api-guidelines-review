@@ -1,11 +1,11 @@
 
-class OSALanguageInstance : Object {
+class OSALanguageInstance : NSObject {
   init(language: OSALanguage)
   var language: OSALanguage { get }
   var componentInstance: ComponentInstance { get }
   @available(OSX 10.10, *)
-  var defaultTarget: AppleEventDescriptor?
+  var defaultTarget: NSAppleEventDescriptor?
   @available(OSX 10.10, *)
-  func richText(from descriptor: AppleEventDescriptor) -> AttributedString?
+  func richText(from descriptor: NSAppleEventDescriptor) -> NSAttributedString?
   init()
 }

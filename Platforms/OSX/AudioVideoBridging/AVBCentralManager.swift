@@ -1,7 +1,7 @@
 
 let AVBNullEUI64: UInt64
 @available(OSX 10.10, *)
-class AVBCentralManager : Object {
+class AVBCentralManager : NSObject {
   func startControllerMatching()
   func didAdd(interface: AVBInterface)
   func didRemove(interface: AVBInterface)

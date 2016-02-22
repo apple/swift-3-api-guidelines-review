@@ -11,10 +11,10 @@ enum WKNavigationType : Int {
   case other
 }
 @available(iOS 8.0, *)
-class WKNavigationAction : Object {
+class WKNavigationAction : NSObject {
   @NSCopying var sourceFrame: WKFrameInfo { get }
   @NSCopying var targetFrame: WKFrameInfo? { get }
   var navigationType: WKNavigationType { get }
-  @NSCopying var request: URLRequest { get }
+  @NSCopying var request: NSURLRequest { get }
   init()
 }

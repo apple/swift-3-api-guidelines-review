@@ -27,7 +27,7 @@ enum NSManagedObjectContextConcurrencyType : UInt {
   case mainQueueConcurrencyType
 }
 @available(tvOS 3.0, *)
-class NSManagedObjectContext : Object, Coding {
+class NSManagedObjectContext : NSObject, NSCoding {
   @available(tvOS, introduced=3.0, deprecated=9.0, message="Use -initWithConcurrencyType: instead")
   class func new() -> Self
   @available(tvOS, introduced=3.0, deprecated=9.0, message="Use -initWithConcurrencyType: instead")
@@ -43,10 +43,10 @@ class NSManagedObjectContext : Object, Coding {
   var parent: NSManagedObjectContext?
   @available(tvOS 8.0, *)
   var name: String?
-  var undoManager: UndoManager?
+  var undoManager: NSUndoManager?
   var hasChanges: Bool { get }
   @available(tvOS 5.0, *)
-  var userInfo: MutableDictionary { get }
+  var userInfo: NSMutableDictionary { get }
   @available(tvOS 5.0, *)
   var concurrencyType: NSManagedObjectContextConcurrencyType { get }
   func objectRegistered(for objectID: NSManagedObjectID) -> NSManagedObject?
@@ -55,7 +55,7 @@ class NSManagedObjectContext : Object, Coding {
   func existingObject(with objectID: NSManagedObjectID) throws -> NSManagedObject
   func execute(request: NSFetchRequest) throws -> [AnyObject]
   @available(tvOS 3.0, *)
-  func count(for request: NSFetchRequest, error: ErrorPointer) -> Int
+  func count(for request: NSFetchRequest, error: NSErrorPointer) -> Int
   @available(tvOS 8.0, *)
   func execute(request: NSPersistentStoreRequest) throws -> NSPersistentStoreResult
   func insert(object: NSManagedObject)
@@ -82,17 +82,17 @@ class NSManagedObjectContext : Object, Coding {
   var shouldDeleteInaccessibleFaults: Bool
   @available(tvOS 9.0, *)
   func shouldHandleInaccessibleFault(fault: NSManagedObject, for oid: NSManagedObjectID, triggeredByProperty property: NSPropertyDescription?) -> Bool
-  var stalenessInterval: TimeInterval
+  var stalenessInterval: NSTimeInterval
   var mergePolicy: AnyObject
   @available(tvOS 3.0, *)
   func obtainPermanentIDs(for objects: [NSManagedObject]) throws
   @available(tvOS 3.0, *)
-  func mergeChanges(fromContextDidSave notification: Notification)
+  func mergeChanges(fromContextDidSave notification: NSNotification)
   @available(tvOS 9.0, *)
-  class func mergeChanges(fromRemoteContextSave changeNotificationData: [Object : AnyObject], into contexts: [NSManagedObjectContext])
+  class func mergeChanges(fromRemoteContextSave changeNotificationData: [NSObject : AnyObject], into contexts: [NSManagedObjectContext])
   @available(tvOS 3.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 struct _managedObjectContextFlags {
   var _registeredForCallback: UInt32

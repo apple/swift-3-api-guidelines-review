@@ -1,16 +1,16 @@
 
-enum URLRequestCachePolicy : UInt {
+enum NSURLRequestCachePolicy : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case useProtocolCachePolicy
   case reloadIgnoringLocalCacheData
   case reloadIgnoringLocalAndRemoteCacheData
-  static var reloadIgnoringCacheData: URLRequestCachePolicy { get }
+  static var reloadIgnoringCacheData: NSURLRequestCachePolicy { get }
   case returnCacheDataElseLoad
   case returnCacheDataDontLoad
   case reloadRevalidatingCacheData
 }
-enum URLRequestNetworkServiceType : UInt {
+enum NSURLRequestNetworkServiceType : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case networkServiceTypeDefault
@@ -19,55 +19,55 @@ enum URLRequestNetworkServiceType : UInt {
   case networkServiceTypeBackground
   case networkServiceTypeVoice
 }
-class URLRequest : Object, SecureCoding, Copying, MutableCopying {
+class NSURLRequest : NSObject, NSSecureCoding, NSCopying, NSMutableCopying {
   class func supportsSecureCoding() -> Bool
-  convenience init(url URL: URL)
-  init(url URL: URL, cachePolicy: URLRequestCachePolicy, timeoutInterval: TimeInterval)
-  @NSCopying var url: URL? { get }
-  var cachePolicy: URLRequestCachePolicy { get }
-  var timeoutInterval: TimeInterval { get }
-  @NSCopying var mainDocumentURL: URL? { get }
+  convenience init(url URL: NSURL)
+  init(url URL: NSURL, cachePolicy: NSURLRequestCachePolicy, timeoutInterval: NSTimeInterval)
+  @NSCopying var url: NSURL? { get }
+  var cachePolicy: NSURLRequestCachePolicy { get }
+  var timeoutInterval: NSTimeInterval { get }
+  @NSCopying var mainDocumentURL: NSURL? { get }
   @available(iOS 4.0, *)
-  var networkServiceType: URLRequestNetworkServiceType { get }
+  var networkServiceType: NSURLRequestNetworkServiceType { get }
   @available(iOS 6.0, *)
   var allowsCellularAccess: Bool { get }
   convenience init()
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
 }
-class MutableURLRequest : URLRequest {
-  @NSCopying var url: URL?
-  var cachePolicy: URLRequestCachePolicy
-  var timeoutInterval: TimeInterval
-  @NSCopying var mainDocumentURL: URL?
+class NSMutableURLRequest : NSURLRequest {
+  @NSCopying var url: NSURL?
+  var cachePolicy: NSURLRequestCachePolicy
+  var timeoutInterval: NSTimeInterval
+  @NSCopying var mainDocumentURL: NSURL?
   @available(iOS 4.0, *)
-  var networkServiceType: URLRequestNetworkServiceType
+  var networkServiceType: NSURLRequestNetworkServiceType
   @available(iOS 6.0, *)
   var allowsCellularAccess: Bool
-  convenience init(url URL: URL)
-  init(url URL: URL, cachePolicy: URLRequestCachePolicy, timeoutInterval: TimeInterval)
+  convenience init(url URL: NSURL)
+  init(url URL: NSURL, cachePolicy: NSURLRequestCachePolicy, timeoutInterval: NSTimeInterval)
   convenience init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
-extension URLRequest {
+extension NSURLRequest {
   var httpMethod: String? { get }
   var allHTTPHeaderFields: [String : String]? { get }
   func value(forHTTPHeaderField field: String) -> String?
-  @NSCopying var httpBody: Data? { get }
-  var httpBodyStream: InputStream? { get }
+  @NSCopying var httpBody: NSData? { get }
+  var httpBodyStream: NSInputStream? { get }
   var httpShouldHandleCookies: Bool { get }
   @available(iOS 4.0, *)
   var httpShouldUsePipelining: Bool { get }
 }
-extension MutableURLRequest {
+extension NSMutableURLRequest {
   var httpMethod: String
   var allHTTPHeaderFields: [String : String]?
   func setValue(value: String?, forHTTPHeaderField field: String)
   func addValue(value: String, forHTTPHeaderField field: String)
-  @NSCopying var httpBody: Data?
-  var httpBodyStream: InputStream?
+  @NSCopying var httpBody: NSData?
+  var httpBodyStream: NSInputStream?
   var httpShouldHandleCookies: Bool
   @available(iOS 4.0, *)
   var httpShouldUsePipelining: Bool

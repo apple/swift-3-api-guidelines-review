@@ -1,7 +1,7 @@
 
 class NSComboBoxCell : NSTextFieldCell {
   var hasVerticalScroller: Bool
-  var intercellSpacing: Size
+  var intercellSpacing: NSSize
   var itemHeight: CGFloat
   var numberOfVisibleItems: Int
   var isButtonBordered: Bool
@@ -31,7 +31,7 @@ class NSComboBoxCell : NSTextFieldCell {
   init(textCell aString: String)
   init(imageCell image: NSImage?)
   convenience init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 struct __cbcFlags {
   var usesDataSource: UInt32
@@ -46,7 +46,7 @@ struct __cbcFlags {
   init()
   init(usesDataSource: UInt32, completes: UInt32, buttonBordered: UInt32, popUpIsUp: UInt32, filteringEvents: UInt32, drawing: UInt32, synchronizingSelection: UInt32, reserved: UInt32, visibleItems: UInt32)
 }
-protocol NSComboBoxCellDataSource : ObjectProtocol {
+protocol NSComboBoxCellDataSource : NSObjectProtocol {
   optional func numberOfItems(in comboBoxCell: NSComboBoxCell) -> Int
   optional func comboBoxCell(aComboBoxCell: NSComboBoxCell, objectValueForItemAt index: Int) -> AnyObject
   optional func comboBoxCell(aComboBoxCell: NSComboBoxCell, indexOfItemWithStringValue string: String) -> Int

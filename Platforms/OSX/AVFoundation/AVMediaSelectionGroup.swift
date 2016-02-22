@@ -1,6 +1,6 @@
 
 @available(OSX 10.8, *)
-class AVMediaSelectionGroup : Object, Copying {
+class AVMediaSelectionGroup : NSObject, NSCopying {
   var options: [AVMediaSelectionOption] { get }
   @available(OSX 10.10, *)
   var defaultOption: AVMediaSelectionOption? { get }
@@ -8,35 +8,35 @@ class AVMediaSelectionGroup : Object, Copying {
   func mediaSelectionOption(withPropertyList plist: AnyObject) -> AVMediaSelectionOption?
   init()
   @available(OSX 10.8, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 extension AVMediaSelectionGroup {
   class func playableMediaSelectionOptions(from mediaSelectionOptions: [AVMediaSelectionOption]) -> [AVMediaSelectionOption]
   @available(OSX 10.8, *)
   class func mediaSelectionOptions(from mediaSelectionOptions: [AVMediaSelectionOption], filteredAndSortedAccordingToPreferredLanguages preferredLanguages: [String]) -> [AVMediaSelectionOption]
-  class func mediaSelectionOptions(from mediaSelectionOptions: [AVMediaSelectionOption], with locale: Locale) -> [AVMediaSelectionOption]
+  class func mediaSelectionOptions(from mediaSelectionOptions: [AVMediaSelectionOption], with locale: NSLocale) -> [AVMediaSelectionOption]
   class func mediaSelectionOptions(from mediaSelectionOptions: [AVMediaSelectionOption], withMediaCharacteristics mediaCharacteristics: [String]) -> [AVMediaSelectionOption]
   class func mediaSelectionOptions(from mediaSelectionOptions: [AVMediaSelectionOption], withoutMediaCharacteristics mediaCharacteristics: [String]) -> [AVMediaSelectionOption]
 }
 @available(OSX 10.8, *)
-class AVMediaSelectionOption : Object, Copying {
+class AVMediaSelectionOption : NSObject, NSCopying {
   var mediaType: String { get }
-  var mediaSubTypes: [Number] { get }
+  var mediaSubTypes: [NSNumber] { get }
   func hasMediaCharacteristic(mediaCharacteristic: String) -> Bool
   var isPlayable: Bool { get }
   @available(OSX 10.9, *)
   var extendedLanguageTag: String? { get }
-  var locale: Locale? { get }
+  var locale: NSLocale? { get }
   var commonMetadata: [AVMetadataItem] { get }
   var availableMetadataFormats: [String] { get }
   func metadata(forFormat format: String) -> [AVMetadataItem]
   func associatedMediaSelectionOption(in mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
   func propertyList() -> AnyObject
   @available(OSX 10.9, *)
-  func displayName(locale: Locale) -> String
+  func displayName(locale: NSLocale) -> String
   @available(OSX 10.9, *)
   var displayName: String { get }
   init()
   @available(OSX 10.8, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

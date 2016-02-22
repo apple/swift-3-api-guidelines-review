@@ -1,71 +1,71 @@
 
-let urlErrorDomain: String
+let NSURLErrorDomain: String
 @available(OSX 10.6, *)
-let urlErrorFailingURLErrorKey: String
+let NSURLErrorFailingURLErrorKey: String
 @available(OSX 10.6, *)
-let urlErrorFailingURLStringErrorKey: String
+let NSURLErrorFailingURLStringErrorKey: String
 @available(OSX 10.6, *)
-let urlErrorFailingURLPeerTrustErrorKey: String
+let NSURLErrorFailingURLPeerTrustErrorKey: String
 @available(OSX 10.10, *)
-let urlErrorBackgroundTaskCancelledReasonKey: String
-var urlErrorCancelledReasonUserForceQuitApplication: Int { get }
-var urlErrorCancelledReasonBackgroundUpdatesDisabled: Int { get }
+let NSURLErrorBackgroundTaskCancelledReasonKey: String
+var NSURLErrorCancelledReasonUserForceQuitApplication: Int { get }
+var NSURLErrorCancelledReasonBackgroundUpdatesDisabled: Int { get }
 @available(OSX 10.10, *)
-var urlErrorCancelledReasonInsufficientSystemResources: Int { get }
-var urlErrorUnknown: Int { get }
-var urlErrorCancelled: Int { get }
-var urlErrorBadURL: Int { get }
-var urlErrorTimedOut: Int { get }
-var urlErrorUnsupportedURL: Int { get }
-var urlErrorCannotFindHost: Int { get }
-var urlErrorCannotConnectToHost: Int { get }
-var urlErrorNetworkConnectionLost: Int { get }
-var urlErrorDNSLookupFailed: Int { get }
-var urlErrorHTTPTooManyRedirects: Int { get }
-var urlErrorResourceUnavailable: Int { get }
-var urlErrorNotConnectedToInternet: Int { get }
-var urlErrorRedirectToNonExistentLocation: Int { get }
-var urlErrorBadServerResponse: Int { get }
-var urlErrorUserCancelledAuthentication: Int { get }
-var urlErrorUserAuthenticationRequired: Int { get }
-var urlErrorZeroByteResource: Int { get }
-var urlErrorCannotDecodeRawData: Int { get }
-var urlErrorCannotDecodeContentData: Int { get }
-var urlErrorCannotParseResponse: Int { get }
+var NSURLErrorCancelledReasonInsufficientSystemResources: Int { get }
+var NSURLErrorUnknown: Int { get }
+var NSURLErrorCancelled: Int { get }
+var NSURLErrorBadURL: Int { get }
+var NSURLErrorTimedOut: Int { get }
+var NSURLErrorUnsupportedURL: Int { get }
+var NSURLErrorCannotFindHost: Int { get }
+var NSURLErrorCannotConnectToHost: Int { get }
+var NSURLErrorNetworkConnectionLost: Int { get }
+var NSURLErrorDNSLookupFailed: Int { get }
+var NSURLErrorHTTPTooManyRedirects: Int { get }
+var NSURLErrorResourceUnavailable: Int { get }
+var NSURLErrorNotConnectedToInternet: Int { get }
+var NSURLErrorRedirectToNonExistentLocation: Int { get }
+var NSURLErrorBadServerResponse: Int { get }
+var NSURLErrorUserCancelledAuthentication: Int { get }
+var NSURLErrorUserAuthenticationRequired: Int { get }
+var NSURLErrorZeroByteResource: Int { get }
+var NSURLErrorCannotDecodeRawData: Int { get }
+var NSURLErrorCannotDecodeContentData: Int { get }
+var NSURLErrorCannotParseResponse: Int { get }
 @available(OSX 10.11, *)
-var urlErrorAppTransportSecurityRequiresSecureConnection: Int { get }
-var urlErrorFileDoesNotExist: Int { get }
-var urlErrorFileIsDirectory: Int { get }
-var urlErrorNoPermissionsToReadFile: Int { get }
+var NSURLErrorAppTransportSecurityRequiresSecureConnection: Int { get }
+var NSURLErrorFileDoesNotExist: Int { get }
+var NSURLErrorFileIsDirectory: Int { get }
+var NSURLErrorNoPermissionsToReadFile: Int { get }
 @available(OSX 10.5, *)
-var urlErrorDataLengthExceedsMaximum: Int { get }
-var urlErrorSecureConnectionFailed: Int { get }
-var urlErrorServerCertificateHasBadDate: Int { get }
-var urlErrorServerCertificateUntrusted: Int { get }
-var urlErrorServerCertificateHasUnknownRoot: Int { get }
-var urlErrorServerCertificateNotYetValid: Int { get }
-var urlErrorClientCertificateRejected: Int { get }
-var urlErrorClientCertificateRequired: Int { get }
-var urlErrorCannotLoadFromNetwork: Int { get }
-var urlErrorCannotCreateFile: Int { get }
-var urlErrorCannotOpenFile: Int { get }
-var urlErrorCannotCloseFile: Int { get }
-var urlErrorCannotWriteToFile: Int { get }
-var urlErrorCannotRemoveFile: Int { get }
-var urlErrorCannotMoveFile: Int { get }
-var urlErrorDownloadDecodingFailedMidStream: Int { get }
-var urlErrorDownloadDecodingFailedToComplete: Int { get }
+var NSURLErrorDataLengthExceedsMaximum: Int { get }
+var NSURLErrorSecureConnectionFailed: Int { get }
+var NSURLErrorServerCertificateHasBadDate: Int { get }
+var NSURLErrorServerCertificateUntrusted: Int { get }
+var NSURLErrorServerCertificateHasUnknownRoot: Int { get }
+var NSURLErrorServerCertificateNotYetValid: Int { get }
+var NSURLErrorClientCertificateRejected: Int { get }
+var NSURLErrorClientCertificateRequired: Int { get }
+var NSURLErrorCannotLoadFromNetwork: Int { get }
+var NSURLErrorCannotCreateFile: Int { get }
+var NSURLErrorCannotOpenFile: Int { get }
+var NSURLErrorCannotCloseFile: Int { get }
+var NSURLErrorCannotWriteToFile: Int { get }
+var NSURLErrorCannotRemoveFile: Int { get }
+var NSURLErrorCannotMoveFile: Int { get }
+var NSURLErrorDownloadDecodingFailedMidStream: Int { get }
+var NSURLErrorDownloadDecodingFailedToComplete: Int { get }
 @available(OSX 10.7, *)
-var urlErrorInternationalRoamingOff: Int { get }
+var NSURLErrorInternationalRoamingOff: Int { get }
 @available(OSX 10.7, *)
-var urlErrorCallIsActive: Int { get }
+var NSURLErrorCallIsActive: Int { get }
 @available(OSX 10.7, *)
-var urlErrorDataNotAllowed: Int { get }
+var NSURLErrorDataNotAllowed: Int { get }
 @available(OSX 10.7, *)
-var urlErrorRequestBodyStreamExhausted: Int { get }
+var NSURLErrorRequestBodyStreamExhausted: Int { get }
 @available(OSX 10.10, *)
-var urlErrorBackgroundSessionRequiresSharedContainer: Int { get }
+var NSURLErrorBackgroundSessionRequiresSharedContainer: Int { get }
 @available(OSX 10.10, *)
-var urlErrorBackgroundSessionInUseByAnotherProcess: Int { get }
+var NSURLErrorBackgroundSessionInUseByAnotherProcess: Int { get }
 @available(OSX 10.10, *)
-var urlErrorBackgroundSessionWasDisconnected: Int { get }
+var NSURLErrorBackgroundSessionWasDisconnected: Int { get }

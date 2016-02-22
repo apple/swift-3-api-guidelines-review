@@ -1,8 +1,8 @@
 
-protocol MPPlayableContentDataSource : ObjectProtocol {
-  optional func beginLoadingChildItems(at indexPath: IndexPath, completionHandler: (Error?) -> Void)
-  optional func childItemsDisplayPlaybackProgress(at indexPath: IndexPath) -> Bool
-  func numberOfChildItems(at indexPath: IndexPath) -> Int
+protocol MPPlayableContentDataSource : NSObjectProtocol {
+  optional func beginLoadingChildItems(at indexPath: NSIndexPath, completionHandler: (NSError?) -> Void)
+  optional func childItemsDisplayPlaybackProgress(at indexPath: NSIndexPath) -> Bool
+  func numberOfChildItems(at indexPath: NSIndexPath) -> Int
   @available(iOS 7.1, *)
-  func contentItem(at indexPath: IndexPath) -> MPContentItem?
+  func contentItem(at indexPath: NSIndexPath) -> MPContentItem?
 }

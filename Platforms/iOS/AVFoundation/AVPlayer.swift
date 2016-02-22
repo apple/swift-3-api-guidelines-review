@@ -7,11 +7,11 @@ enum AVPlayerStatus : Int {
   case failed
 }
 @available(iOS 4.0, *)
-class AVPlayer : Object {
-  init(url URL: URL)
+class AVPlayer : NSObject {
+  init(url URL: NSURL)
   init(playerItem item: AVPlayerItem)
   var status: AVPlayerStatus { get }
-  var error: Error? { get }
+  var error: NSError? { get }
   init()
 }
 extension AVPlayer {
@@ -33,9 +33,9 @@ enum AVPlayerActionAtItemEnd : Int {
 }
 extension AVPlayer {
   func currentTime() -> CMTime
-  func seek(to date: Date)
+  func seek(to date: NSDate)
   @available(iOS 5.0, *)
-  func seek(to date: Date, completionHandler: (Bool) -> Void)
+  func seek(to date: NSDate, completionHandler: (Bool) -> Void)
   func seek(to time: CMTime)
   func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime)
   @available(iOS 5.0, *)
@@ -55,7 +55,7 @@ extension AVPlayer {
 }
 extension AVPlayer {
   func addPeriodicTimeObserver(forInterval interval: CMTime, queue: dispatch_queue_t?, using block: (CMTime) -> Void) -> AnyObject
-  func addBoundaryTimeObserver(forTimes times: [Value], queue: dispatch_queue_t?, using block: () -> Void) -> AnyObject
+  func addBoundaryTimeObserver(forTimes times: [NSValue], queue: dispatch_queue_t?, using block: () -> Void) -> AnyObject
   func removeTimeObserver(observer: AnyObject)
 }
 extension AVPlayer {
@@ -100,7 +100,7 @@ class AVQueuePlayer : AVPlayer {
   func insertItem(item: AVPlayerItem, after afterItem: AVPlayerItem?)
   func removeItem(item: AVPlayerItem)
   func removeAllItems()
-  init(url URL: URL)
+  init(url URL: NSURL)
   init(playerItem item: AVPlayerItem)
   init()
 }

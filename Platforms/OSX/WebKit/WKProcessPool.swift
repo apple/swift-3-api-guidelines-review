@@ -1,5 +1,5 @@
 
 @available(OSX 10.10, *)
-class WKProcessPool : Object {
+class WKProcessPool : NSObject {
   init()
 }

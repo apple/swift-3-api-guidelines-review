@@ -51,7 +51,7 @@ func CGRectFromString(string: String) -> CGRect
 func CGAffineTransformFromString(string: String) -> CGAffineTransform
 func UIEdgeInsetsFromString(string: String) -> UIEdgeInsets
 func UIOffsetFromString(string: String) -> UIOffset
-extension Value {
+extension NSValue {
   /*not inherited*/ init(cgPoint point: CGPoint)
   /*not inherited*/ init(cgVector vector: CGVector)
   /*not inherited*/ init(cgSize size: CGSize)
@@ -69,7 +69,7 @@ extension Value {
   @available(iOS 5.0, *)
   func uiOffsetValue() -> UIOffset
 }
-extension Coder {
+extension NSCoder {
   func encode(point: CGPoint, forKey key: String)
   func encode(vector: CGVector, forKey key: String)
   func encode(size: CGSize, forKey key: String)

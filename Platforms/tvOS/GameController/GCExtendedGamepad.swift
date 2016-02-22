@@ -1,6 +1,6 @@
 
 @available(tvOS 7.0, *)
-class GCExtendedGamepad : Object {
+class GCExtendedGamepad : NSObject {
   weak var controller: @sil_weak GCController? { get }
   var valueChangedHandler: GCExtendedGamepadValueChangedHandler?
   func saveSnapshot() -> GCExtendedGamepadSnapshot

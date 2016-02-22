@@ -14,10 +14,10 @@ enum WKAudioFilePlayerItemStatus : Int {
   case failed
 }
 @available(watchOS 2.0, *)
-class WKAudioFilePlayerItem : Object {
+class WKAudioFilePlayerItem : NSObject {
   /*not inherited*/ init(asset: WKAudioFileAsset)
   var asset: WKAudioFileAsset { get }
   var status: WKAudioFilePlayerItemStatus { get }
-  var error: Error? { get }
-  var currentTime: TimeInterval { get }
+  var error: NSError? { get }
+  var currentTime: NSTimeInterval { get }
 }

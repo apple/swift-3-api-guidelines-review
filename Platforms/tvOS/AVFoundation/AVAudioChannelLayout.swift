@@ -1,6 +1,6 @@
 
 @available(tvOS 8.0, *)
-class AVAudioChannelLayout : Object, SecureCoding {
+class AVAudioChannelLayout : NSObject, NSSecureCoding {
   convenience init(layoutTag: AudioChannelLayoutTag)
   init(layout: UnsafePointer<AudioChannelLayout>)
   func isEqual(object: AnyObject) -> Bool
@@ -11,6 +11,6 @@ class AVAudioChannelLayout : Object, SecureCoding {
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

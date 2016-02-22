@@ -20,7 +20,7 @@ class MPMediaPlaylist : MPMediaItemCollection {
   var seedItems: [MPMediaItem]? { get }
   init(items: [MPMediaItem])
   convenience init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 let MPMediaPlaylistPropertyPersistentID: String
 let MPMediaPlaylistPropertyName: String

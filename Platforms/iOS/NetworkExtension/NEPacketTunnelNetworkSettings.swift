@@ -6,11 +6,11 @@ class NEPacketTunnelNetworkSettings : NETunnelNetworkSettings {
   @available(iOS 9.0, *)
   @NSCopying var iPv6Settings: NEIPv6Settings?
   @available(iOS 9.0, *)
-  @NSCopying var tunnelOverheadBytes: Number?
+  @NSCopying var tunnelOverheadBytes: NSNumber?
   @available(iOS 9.0, *)
-  @NSCopying var mtu: Number?
+  @NSCopying var mtu: NSNumber?
   @available(iOS 9.0, *)
   init(tunnelRemoteAddress address: String)
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

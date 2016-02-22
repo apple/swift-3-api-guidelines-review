@@ -1,5 +1,5 @@
 
-class ICScannerBandData : Object {
+class ICScannerBandData : NSObject {
   var fullImageWidth: Int { get }
   var fullImageHeight: Int { get }
   var bitsPerPixel: Int { get }
@@ -12,6 +12,6 @@ class ICScannerBandData : Object {
   var dataStartRow: Int { get }
   var dataNumRows: Int { get }
   var dataSize: Int { get }
-  var dataBuffer: Data? { get }
+  var dataBuffer: NSData? { get }
   init()
 }

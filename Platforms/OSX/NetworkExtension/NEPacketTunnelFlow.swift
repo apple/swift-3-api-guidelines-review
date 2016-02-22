@@ -1,9 +1,9 @@
 
 @available(OSX 10.11, *)
-class NEPacketTunnelFlow : Object {
+class NEPacketTunnelFlow : NSObject {
   @available(OSX 10.11, *)
-  func readPackets(completionHandler completionHandler: ([Data], [Number]) -> Void)
+  func readPackets(completionHandler completionHandler: ([NSData], [NSNumber]) -> Void)
   @available(OSX 10.11, *)
-  func writePackets(packets: [Data], withProtocols protocols: [Number]) -> Bool
+  func writePackets(packets: [NSData], withProtocols protocols: [NSNumber]) -> Bool
   init()
 }

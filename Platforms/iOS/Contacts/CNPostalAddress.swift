@@ -1,6 +1,6 @@
 
 @available(iOS 9.0, *)
-class CNPostalAddress : Object, Copying, MutableCopying, SecureCoding {
+class CNPostalAddress : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var street: String { get }
   var city: String { get }
   var state: String { get }
@@ -10,14 +10,14 @@ class CNPostalAddress : Object, Copying, MutableCopying, SecureCoding {
   class func localizedString(forKey key: String) -> String
   init()
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 9.0, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 9.0, *)
 let CNPostalAddressStreetKey: String

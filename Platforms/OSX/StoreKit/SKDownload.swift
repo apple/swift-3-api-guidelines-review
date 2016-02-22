@@ -11,17 +11,17 @@ var SKDownloadStateFinished: SKDownloadState { get }
 var SKDownloadStateFailed: SKDownloadState { get }
 var SKDownloadStateCancelled: SKDownloadState { get }
 @available(OSX 10.8, *)
-class SKDownload : Object {
+class SKDownload : NSObject {
   var contentIdentifier: String { get }
   var state: SKDownloadState { get }
-  @NSCopying var contentURL: URL? { get }
+  @NSCopying var contentURL: NSURL? { get }
   var progress: Float { get }
-  @NSCopying var error: Error? { get }
-  var timeRemaining: TimeInterval { get }
-  @NSCopying var contentLength: Number { get }
+  @NSCopying var error: NSError? { get }
+  var timeRemaining: NSTimeInterval { get }
+  @NSCopying var contentLength: NSNumber { get }
   var contentVersion: String? { get }
   var transaction: SKPaymentTransaction? { get }
-  class func contentURL(forProductID productID: String) -> URL?
+  class func contentURL(forProductID productID: String) -> NSURL?
   class func deleteContent(forProductID productID: String)
   init()
 }

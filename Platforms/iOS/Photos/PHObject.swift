@@ -1,10 +1,10 @@
 
 @available(iOS 8.0, *)
-class PHObject : Object, Copying {
+class PHObject : NSObject, NSCopying {
   var localIdentifier: String { get }
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class PHObjectPlaceholder : PHObject {

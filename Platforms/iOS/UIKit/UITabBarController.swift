@@ -1,6 +1,6 @@
 
 @available(iOS 2.0, *)
-class UITabBarController : UIViewController, UITabBarDelegate, Coding {
+class UITabBarController : UIViewController, UITabBarDelegate, NSCoding {
   var viewControllers: [UIViewController]?
   func setViewControllers(viewControllers: [UIViewController]?, animated: Bool)
   unowned(unsafe) var selectedViewController: @sil_unmanaged UIViewController?
@@ -10,8 +10,8 @@ class UITabBarController : UIViewController, UITabBarDelegate, Coding {
   @available(iOS 3.0, *)
   var tabBar: UITabBar { get }
   weak var delegate: @sil_weak UITabBarControllerDelegate?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
   @available(iOS 2.0, *)
   func tabBar(tabBar: UITabBar, didSelect item: UITabBarItem)
@@ -24,7 +24,7 @@ class UITabBarController : UIViewController, UITabBarDelegate, Coding {
   @available(iOS 2.0, *)
   func tabBar(tabBar: UITabBar, didEndCustomizing items: [UITabBarItem], changed: Bool)
 }
-protocol UITabBarControllerDelegate : ObjectProtocol {
+protocol UITabBarControllerDelegate : NSObjectProtocol {
   @available(iOS 3.0, *)
   optional func tabBarController(tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool
   @available(iOS 2.0, *)

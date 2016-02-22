@@ -5,10 +5,10 @@ class PHAsset : PHObject {
   var mediaSubtypes: PHAssetMediaSubtype { get }
   var pixelWidth: Int { get }
   var pixelHeight: Int { get }
-  var creationDate: Date? { get }
-  var modificationDate: Date? { get }
+  var creationDate: NSDate? { get }
+  var modificationDate: NSDate? { get }
   var location: CLLocation? { get }
-  var duration: TimeInterval { get }
+  var duration: NSTimeInterval { get }
   var isHidden: Bool { get }
   var isFavorite: Bool { get }
   var burstIdentifier: String? { get }
@@ -23,6 +23,6 @@ class PHAsset : PHObject {
   class func fetchAssets(burstIdentifier burstIdentifier: String, options: PHFetchOptions?) -> PHFetchResult
   class func fetchAssets(options: PHFetchOptions?) -> PHFetchResult
   class func fetchAssets(mediaType: PHAssetMediaType, options: PHFetchOptions?) -> PHFetchResult
-  class func fetchAssets(alAssetURLs assetURLs: [URL], options: PHFetchOptions?) -> PHFetchResult
+  class func fetchAssets(alAssetURLs assetURLs: [NSURL], options: PHFetchOptions?) -> PHFetchResult
   init()
 }

@@ -13,7 +13,7 @@ enum WKNavigationResponsePolicy : Int {
   case cancel
   case allow
 }
-protocol WKNavigationDelegate : ObjectProtocol {
+protocol WKNavigationDelegate : NSObjectProtocol {
   @available(OSX 10.10, *)
   optional func webView(webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: (WKNavigationActionPolicy) -> Void)
   @available(OSX 10.10, *)
@@ -23,15 +23,15 @@ protocol WKNavigationDelegate : ObjectProtocol {
   @available(OSX 10.10, *)
   optional func webView(webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!)
   @available(OSX 10.10, *)
-  optional func webView(webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error)
+  optional func webView(webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: NSError)
   @available(OSX 10.10, *)
   optional func webView(webView: WKWebView, didCommit navigation: WKNavigation!)
   @available(OSX 10.10, *)
   optional func webView(webView: WKWebView, didFinish navigation: WKNavigation!)
   @available(OSX 10.10, *)
-  optional func webView(webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error)
+  optional func webView(webView: WKWebView, didFail navigation: WKNavigation!, withError error: NSError)
   @available(OSX 10.10, *)
-  optional func webView(webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: (URLSessionAuthChallengeDisposition, URLCredential?) -> Void)
+  optional func webView(webView: WKWebView, didReceive challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void)
   @available(OSX 10.11, *)
   optional func webViewWebContentProcessDidTerminate(webView: WKWebView)
 }

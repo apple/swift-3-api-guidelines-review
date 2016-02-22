@@ -11,10 +11,10 @@ class CAShapeLayer : CALayer {
   var lineCap: String
   var lineJoin: String
   var lineDashPhase: CGFloat
-  var lineDashPattern: [Number]?
+  var lineDashPattern: [NSNumber]?
   init()
   init(layer: AnyObject)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 3.0, *)
 let kCAFillRuleNonZero: String

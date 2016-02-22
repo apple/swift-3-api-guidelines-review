@@ -69,8 +69,8 @@ let NSLayoutPriorityDefaultLow: NSLayoutPriority
 @available(OSX 10.7, *)
 let NSLayoutPriorityFittingSizeCompression: NSLayoutPriority
 @available(OSX 10.7, *)
-class NSLayoutConstraint : Object, NSAnimatablePropertyContainer {
-  class func constraints(withVisualFormat format: String, options opts: NSLayoutFormatOptions = [], metrics: [String : Number]?, views: [String : AnyObject]) -> [NSLayoutConstraint]
+class NSLayoutConstraint : NSObject, NSAnimatablePropertyContainer {
+  class func constraints(withVisualFormat format: String, options opts: NSLayoutFormatOptions = [], metrics: [String : NSNumber]?, views: [String : AnyObject]) -> [NSLayoutConstraint]
   convenience init(item view1: AnyObject, attribute attr1: NSLayoutAttribute, relatedBy relation: NSLayoutRelation, toItem view2: AnyObject?, attribute attr2: NSLayoutAttribute, multiplier: CGFloat, constant c: CGFloat)
   var priority: NSLayoutPriority
   var shouldBeArchived: Bool
@@ -164,11 +164,11 @@ extension NSView {
 }
 extension NSView {
   @available(OSX 10.7, *)
-  func alignmentRect(forFrame frame: Rect) -> Rect
+  func alignmentRect(forFrame frame: NSRect) -> NSRect
   @available(OSX 10.7, *)
-  func frame(forAlignmentRect alignmentRect: Rect) -> Rect
+  func frame(forAlignmentRect alignmentRect: NSRect) -> NSRect
   @available(OSX 10.7, *)
-  var alignmentRectInsets: EdgeInsets { get }
+  var alignmentRectInsets: NSEdgeInsets { get }
   @available(OSX 10.11, *)
   var firstBaselineOffsetFromTop: CGFloat { get }
   @available(OSX 10.11, *)
@@ -176,7 +176,7 @@ extension NSView {
   @available(OSX 10.7, *)
   var baselineOffsetFromBottom: CGFloat { get }
   @available(OSX 10.7, *)
-  var intrinsicContentSize: Size { get }
+  var intrinsicContentSize: NSSize { get }
   @available(OSX 10.7, *)
   func invalidateIntrinsicContentSize()
   @available(OSX 10.7, *)
@@ -201,7 +201,7 @@ extension NSWindow {
 }
 extension NSView {
   @available(OSX 10.7, *)
-  var fittingSize: Size { get }
+  var fittingSize: NSSize { get }
 }
 extension NSView {
   @available(OSX 10.7, *)

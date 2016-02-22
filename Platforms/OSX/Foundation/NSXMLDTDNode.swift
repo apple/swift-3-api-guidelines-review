@@ -1,36 +1,36 @@
 
-enum XMLDTDNodeKind : UInt {
+enum NSXMLDTDNodeKind : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
-  case xmlEntityGeneralKind
-  case xmlEntityParsedKind
-  case xmlEntityUnparsedKind
-  case xmlEntityParameterKind
-  case xmlEntityPredefined
-  case xmlAttributeCDATAKind
-  case xmlAttributeIDKind
-  case xmlAttributeIDRefKind
-  case xmlAttributeIDRefsKind
-  case xmlAttributeEntityKind
-  case xmlAttributeEntitiesKind
-  case xmlAttributeNMTokenKind
-  case xmlAttributeNMTokensKind
-  case xmlAttributeEnumerationKind
-  case xmlAttributeNotationKind
-  case xmlElementDeclarationUndefinedKind
-  case xmlElementDeclarationEmptyKind
-  case xmlElementDeclarationAnyKind
-  case xmlElementDeclarationMixedKind
-  case xmlElementDeclarationElementKind
+  case NSXMLEntityGeneralKind
+  case NSXMLEntityParsedKind
+  case NSXMLEntityUnparsedKind
+  case NSXMLEntityParameterKind
+  case NSXMLEntityPredefined
+  case NSXMLAttributeCDATAKind
+  case NSXMLAttributeIDKind
+  case NSXMLAttributeIDRefKind
+  case NSXMLAttributeIDRefsKind
+  case NSXMLAttributeEntityKind
+  case NSXMLAttributeEntitiesKind
+  case NSXMLAttributeNMTokenKind
+  case NSXMLAttributeNMTokensKind
+  case NSXMLAttributeEnumerationKind
+  case NSXMLAttributeNotationKind
+  case NSXMLElementDeclarationUndefinedKind
+  case NSXMLElementDeclarationEmptyKind
+  case NSXMLElementDeclarationAnyKind
+  case NSXMLElementDeclarationMixedKind
+  case NSXMLElementDeclarationElementKind
 }
-class XMLDTDNode : XMLNode {
+class NSXMLDTDNode : NSXMLNode {
   init?(xmlString string: String)
-  init(kind: XMLNodeKind, options: Int)
+  init(kind: NSXMLNodeKind, options: Int)
   init()
-  var dtdKind: XMLDTDNodeKind
+  var dtdKind: NSXMLDTDNodeKind
   var isExternal: Bool { get }
   var publicID: String?
   var systemID: String?
   var notationName: String?
-  convenience init(kind: XMLNodeKind)
+  convenience init(kind: NSXMLNodeKind)
 }

@@ -22,7 +22,7 @@ let AVAudioUnitTypeMIDIProcessor: String
 @available(OSX 10.10, *)
 let AVAudioUnitManufacturerNameApple: String
 @available(OSX 10.10, *)
-class AVAudioUnitComponent : Object {
+class AVAudioUnitComponent : NSObject {
   var name: String { get }
   var typeName: String { get }
   var localizedTypeName: String { get }
@@ -30,9 +30,9 @@ class AVAudioUnitComponent : Object {
   var version: Int { get }
   var versionString: String { get }
   @available(OSX, introduced=10.10, deprecated=10.11)
-  var componentURL: URL? { get }
+  var componentURL: NSURL? { get }
   @available(OSX 10.10, *)
-  var availableArchitectures: [Number] { get }
+  var availableArchitectures: [NSNumber] { get }
   var isSandboxSafe: Bool { get }
   var hasMIDIInput: Bool { get }
   var hasMIDIOutput: Bool { get }
@@ -42,7 +42,7 @@ class AVAudioUnitComponent : Object {
   var allTagNames: [String] { get }
   var audioComponentDescription: AudioComponentDescription { get }
   @available(OSX 10.10, *)
-  var iconURL: URL? { get }
+  var iconURL: NSURL? { get }
   @available(OSX 10.11, *)
   var icon: NSImage? { get }
   @available(OSX 10.10, *)
@@ -58,11 +58,11 @@ class AVAudioUnitComponent : Object {
 @available(OSX 10.10, *)
 let AVAudioUnitComponentTagsDidChangeNotification: String
 @available(OSX 10.10, *)
-class AVAudioUnitComponentManager : Object {
+class AVAudioUnitComponentManager : NSObject {
   var tagNames: [String] { get }
   var standardLocalizedTagNames: [String] { get }
   class func shared() -> Self
-  func components(matching predicate: Predicate) -> [AVAudioUnitComponent]
+  func components(matching predicate: NSPredicate) -> [AVAudioUnitComponent]
   func components(passingTest testHandler: (AVAudioUnitComponent, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [AVAudioUnitComponent]
   func components(matching desc: AudioComponentDescription) -> [AVAudioUnitComponent]
   init()

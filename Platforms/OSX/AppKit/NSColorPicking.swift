@@ -11,7 +11,7 @@ protocol NSColorPickingDefault {
   @available(OSX 10.5, *)
   func buttonToolTip() -> String
   @available(OSX 10.5, *)
-  func minContentSize() -> Size
+  func minContentSize() -> NSSize
 }
 protocol NSColorPickingCustom : NSColorPickingDefault {
   func supportsMode(mode: NSColorPanelMode) -> Bool

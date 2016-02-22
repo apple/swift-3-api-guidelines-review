@@ -14,16 +14,16 @@ struct NSTrackingAreaOptions : OptionSetType {
   static var enabledDuringMouseDrag: NSTrackingAreaOptions { get }
 }
 @available(OSX 10.5, *)
-class NSTrackingArea : Object, Copying, Coding {
-  init(rect: Rect, options: NSTrackingAreaOptions = [], owner: AnyObject?, userInfo: [Object : AnyObject]? = [:])
-  var rect: Rect { get }
+class NSTrackingArea : NSObject, NSCopying, NSCoding {
+  init(rect: NSRect, options: NSTrackingAreaOptions = [], owner: AnyObject?, userInfo: [NSObject : AnyObject]? = [:])
+  var rect: NSRect { get }
   var options: NSTrackingAreaOptions { get }
   unowned(unsafe) var owner: @sil_unmanaged AnyObject? { get }
-  var userInfo: [Object : AnyObject]? { get }
+  var userInfo: [NSObject : AnyObject]? { get }
   init()
   @available(OSX 10.5, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.5, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

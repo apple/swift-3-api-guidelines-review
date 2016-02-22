@@ -24,7 +24,7 @@ enum MTLSamplerAddressMode : UInt {
   case clampToZero
 }
 @available(tvOS 8.0, *)
-class MTLSamplerDescriptor : Object, Copying {
+class MTLSamplerDescriptor : NSObject, NSCopying {
   var minFilter: MTLSamplerMinMagFilter
   var magFilter: MTLSamplerMinMagFilter
   var mipFilter: MTLSamplerMipFilter
@@ -42,10 +42,10 @@ class MTLSamplerDescriptor : Object, Copying {
   var label: String?
   init()
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
-protocol MTLSamplerState : ObjectProtocol {
+protocol MTLSamplerState : NSObjectProtocol {
   var label: String? { get }
   var device: MTLDevice { get }
 }

@@ -19,9 +19,9 @@ let NETunnelProviderErrorDomain: String
 @available(iOS 9.0, *)
 class NETunnelProvider : NEProvider {
   @available(iOS 9.0, *)
-  func handleAppMessage(messageData: Data, completionHandler: ((Data?) -> Void)? = nil)
+  func handleAppMessage(messageData: NSData, completionHandler: ((NSData?) -> Void)? = nil)
   @available(iOS 9.0, *)
-  func setTunnelNetworkSettings(tunnelNetworkSettings: NETunnelNetworkSettings?, completionHandler: ((Error?) -> Void)? = nil)
+  func setTunnelNetworkSettings(tunnelNetworkSettings: NETunnelNetworkSettings?, completionHandler: ((NSError?) -> Void)? = nil)
   @available(iOS 9.0, *)
   var protocolConfiguration: NEVPNProtocol { get }
   @available(iOS 9.0, *)

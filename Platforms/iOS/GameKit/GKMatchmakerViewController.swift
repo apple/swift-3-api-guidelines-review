@@ -15,15 +15,15 @@ class GKMatchmakerViewController : UINavigationController {
   @available(iOS 5.0, *)
   init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
   init(rootViewController: UIViewController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
-protocol GKMatchmakerViewControllerDelegate : ObjectProtocol {
+protocol GKMatchmakerViewControllerDelegate : NSObjectProtocol {
   @available(iOS 4.1, *)
   func matchmakerViewControllerWasCancelled(viewController: GKMatchmakerViewController)
   @available(iOS 4.1, *)
-  func matchmakerViewController(viewController: GKMatchmakerViewController, didFailWithError error: Error)
+  func matchmakerViewController(viewController: GKMatchmakerViewController, didFailWithError error: NSError)
   @available(iOS 4.1, *)
   optional func matchmakerViewController(viewController: GKMatchmakerViewController, didFind match: GKMatch)
   @available(iOS 8.0, *)

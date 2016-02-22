@@ -2,7 +2,7 @@
 @available(OSX 10.10, *)
 let CKOwnerDefaultName: String
 @available(OSX 10.10, *)
-class CKContainer : Object {
+class CKContainer : NSObject {
   class func defaultContainer() -> CKContainer
   /*not inherited*/ init(identifier containerIdentifier: String)
   var containerIdentifier: String? { get }
@@ -24,7 +24,7 @@ enum CKAccountStatus : Int {
 @available(OSX 10.11, *)
 let CKAccountChangedNotification: String
 extension CKContainer {
-  func accountStatus(completionHandler completionHandler: (CKAccountStatus, Error?) -> Void)
+  func accountStatus(completionHandler completionHandler: (CKAccountStatus, NSError?) -> Void)
 }
 @available(OSX 10.10, *)
 struct CKApplicationPermissions : OptionSetType {
@@ -41,14 +41,14 @@ enum CKApplicationPermissionStatus : Int {
   case denied
   case granted
 }
-typealias CKApplicationPermissionBlock = (CKApplicationPermissionStatus, Error?) -> Void
+typealias CKApplicationPermissionBlock = (CKApplicationPermissionStatus, NSError?) -> Void
 extension CKContainer {
   func status(forApplicationPermission applicationPermission: CKApplicationPermissions, completionHandler: CKApplicationPermissionBlock)
   func requestApplicationPermission(applicationPermission: CKApplicationPermissions, completionHandler: CKApplicationPermissionBlock)
 }
 extension CKContainer {
-  func fetchUserRecordID(completionHandler completionHandler: (CKRecordID?, Error?) -> Void)
-  func discoverAllContactUserInfos(completionHandler completionHandler: ([CKDiscoveredUserInfo]?, Error?) -> Void)
-  func discoverUserInfo(emailAddress email: String, completionHandler: (CKDiscoveredUserInfo?, Error?) -> Void)
-  func discoverUserInfo(userRecordID userRecordID: CKRecordID, completionHandler: (CKDiscoveredUserInfo?, Error?) -> Void)
+  func fetchUserRecordID(completionHandler completionHandler: (CKRecordID?, NSError?) -> Void)
+  func discoverAllContactUserInfos(completionHandler completionHandler: ([CKDiscoveredUserInfo]?, NSError?) -> Void)
+  func discoverUserInfo(emailAddress email: String, completionHandler: (CKDiscoveredUserInfo?, NSError?) -> Void)
+  func discoverUserInfo(userRecordID userRecordID: CKRecordID, completionHandler: (CKDiscoveredUserInfo?, NSError?) -> Void)
 }

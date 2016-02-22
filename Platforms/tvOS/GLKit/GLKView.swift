@@ -30,7 +30,7 @@ enum GLKViewDrawableMultisample : GLint {
   case multisample4X
 }
 @available(tvOS 5.0, *)
-class GLKView : UIView, Coding {
+class GLKView : UIView, NSCoding {
   init(frame: CGRect, context: EAGLContext)
   @IBOutlet unowned(unsafe) var delegate: @sil_unmanaged GLKViewDelegate?
   var context: EAGLContext
@@ -46,10 +46,10 @@ class GLKView : UIView, Coding {
   var enableSetNeedsDisplay: Bool
   func display()
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
-protocol GLKViewDelegate : ObjectProtocol {
+protocol GLKViewDelegate : NSObjectProtocol {
   @available(tvOS 5.0, *)
   func glkView(view: GLKView, drawIn rect: CGRect)
 }

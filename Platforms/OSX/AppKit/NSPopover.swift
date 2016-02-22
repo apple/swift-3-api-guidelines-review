@@ -18,7 +18,7 @@ enum NSPopoverBehavior : Int {
 @available(OSX 10.7, *)
 class NSPopover : NSResponder, NSAppearanceCustomization, NSAccessibilityElementProtocol, NSAccessibility {
   init()
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   @IBOutlet unowned(unsafe) var delegate: @sil_unmanaged NSPopoverDelegate?
   @available(OSX 10.10, *)
   var appearance: NSAppearance?
@@ -27,16 +27,16 @@ class NSPopover : NSResponder, NSAppearanceCustomization, NSAccessibilityElement
   var behavior: NSPopoverBehavior
   var animates: Bool
   @IBOutlet var contentViewController: NSViewController?
-  var contentSize: Size
+  var contentSize: NSSize
   var isShown: Bool { get }
   @available(OSX 10.10, *)
   var isDetached: Bool { get }
-  var positioningRect: Rect
-  func showRelative(to positioningRect: Rect, of positioningView: NSView, preferredEdge: RectEdge)
+  var positioningRect: NSRect
+  func showRelative(to positioningRect: NSRect, of positioningView: NSView, preferredEdge: NSRectEdge)
   @IBAction func performClose(sender: AnyObject?)
   func close()
   @available(OSX 10.7, *)
-  func accessibilityFrame() -> Rect
+  func accessibilityFrame() -> NSRect
   @available(OSX 10.7, *)
   func accessibilityParent() -> AnyObject?
   @available(OSX 10.7, *)
@@ -44,29 +44,29 @@ class NSPopover : NSResponder, NSAppearanceCustomization, NSAccessibilityElement
   @available(OSX 10.7, *)
   func accessibilityIdentifier() -> String
   @available(OSX 10.10, *)
-  func accessibilityLayoutPoint(forScreenPoint point: Point) -> Point
+  func accessibilityLayoutPoint(forScreenPoint point: NSPoint) -> NSPoint
   @available(OSX 10.10, *)
-  func accessibilityLayoutSize(forScreenSize size: Size) -> Size
+  func accessibilityLayoutSize(forScreenSize size: NSSize) -> NSSize
   @available(OSX 10.10, *)
-  func accessibilityScreenPoint(forLayoutPoint point: Point) -> Point
+  func accessibilityScreenPoint(forLayoutPoint point: NSPoint) -> NSPoint
   @available(OSX 10.10, *)
-  func accessibilityScreenSize(forLayoutSize size: Size) -> Size
+  func accessibilityScreenSize(forLayoutSize size: NSSize) -> NSSize
   @available(OSX 10.10, *)
   func accessibilityCell(forColumn column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
-  func accessibilityAttributedString(for range: NSRange) -> AttributedString?
+  func accessibilityAttributedString(for range: NSRange) -> NSAttributedString?
   @available(OSX 10.10, *)
   func accessibilityRange(forLine line: Int) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityString(for range: NSRange) -> String?
   @available(OSX 10.10, *)
-  func accessibilityRange(forPosition point: Point) -> NSRange
+  func accessibilityRange(forPosition point: NSPoint) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityFrame(for range: NSRange) -> Rect
+  func accessibilityFrame(for range: NSRange) -> NSRect
   @available(OSX 10.10, *)
-  func accessibilityRTF(for range: NSRange) -> Data?
+  func accessibilityRTF(for range: NSRange) -> NSData?
   @available(OSX 10.10, *)
   func accessibilityStyleRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
@@ -100,21 +100,21 @@ class NSPopover : NSResponder, NSAppearanceCustomization, NSAccessibilityElement
   @available(OSX 10.10, *)
   func setAccessibilityElement(accessibilityElement: Bool)
   @available(OSX 10.10, *)
-  func setAccessibilityFrame(accessibilityFrame: Rect)
+  func setAccessibilityFrame(accessibilityFrame: NSRect)
   @available(OSX 10.10, *)
   func setAccessibilityFocused(accessibilityFocused: Bool)
   @available(OSX 10.10, *)
-  func accessibilityActivationPoint() -> Point
+  func accessibilityActivationPoint() -> NSPoint
   @available(OSX 10.10, *)
-  func setAccessibilityActivationPoint(accessibilityActivationPoint: Point)
+  func setAccessibilityActivationPoint(accessibilityActivationPoint: NSPoint)
   @available(OSX 10.10, *)
   func accessibilityTopLevelUIElement() -> AnyObject?
   @available(OSX 10.10, *)
   func setAccessibilityTopLevelUIElement(accessibilityTopLevelUIElement: AnyObject?)
   @available(OSX 10.10, *)
-  func accessibilityURL() -> URL?
+  func accessibilityURL() -> NSURL?
   @available(OSX 10.10, *)
-  func setAccessibilityURL(accessibilityURL: URL?)
+  func setAccessibilityURL(accessibilityURL: NSURL?)
   @available(OSX 10.10, *)
   func accessibilityValue() -> AnyObject?
   @available(OSX 10.10, *)
@@ -384,9 +384,9 @@ class NSPopover : NSResponder, NSAppearanceCustomization, NSAccessibilityElement
   @available(OSX 10.10, *)
   func setAccessibilityVerticalScrollBar(accessibilityVerticalScrollBar: AnyObject?)
   @available(OSX 10.10, *)
-  func accessibilityAllowedValues() -> [Number]?
+  func accessibilityAllowedValues() -> [NSNumber]?
   @available(OSX 10.10, *)
-  func setAccessibilityAllowedValues(accessibilityAllowedValues: [Number]?)
+  func setAccessibilityAllowedValues(accessibilityAllowedValues: [NSNumber]?)
   @available(OSX 10.10, *)
   func accessibilityLabelUIElements() -> [AnyObject]?
   @available(OSX 10.10, *)
@@ -508,9 +508,9 @@ class NSPopover : NSResponder, NSAppearanceCustomization, NSAccessibilityElement
   @available(OSX 10.10, *)
   func setAccessibilitySelectedTextRange(accessibilitySelectedTextRange: NSRange)
   @available(OSX 10.10, *)
-  func accessibilitySelectedTextRanges() -> [Value]?
+  func accessibilitySelectedTextRanges() -> [NSValue]?
   @available(OSX 10.10, *)
-  func setAccessibilitySelectedTextRanges(accessibilitySelectedTextRanges: [Value]?)
+  func setAccessibilitySelectedTextRanges(accessibilitySelectedTextRanges: [NSValue]?)
   @available(OSX 10.10, *)
   func accessibilityToolbarButton() -> AnyObject?
   @available(OSX 10.10, *)
@@ -574,7 +574,7 @@ let NSPopoverDidShowNotification: String
 let NSPopoverWillCloseNotification: String
 @available(OSX 10.7, *)
 let NSPopoverDidCloseNotification: String
-protocol NSPopoverDelegate : ObjectProtocol {
+protocol NSPopoverDelegate : NSObjectProtocol {
   @available(OSX 10.7, *)
   optional func popoverShouldClose(popover: NSPopover) -> Bool
   @available(OSX 10.10, *)
@@ -583,8 +583,8 @@ protocol NSPopoverDelegate : ObjectProtocol {
   optional func popoverDidDetach(popover: NSPopover)
   @available(OSX 10.7, *)
   optional func detachableWindow(for popover: NSPopover) -> NSWindow?
-  optional func popoverWillShow(notification: Notification)
-  optional func popoverDidShow(notification: Notification)
-  optional func popoverWillClose(notification: Notification)
-  optional func popoverDidClose(notification: Notification)
+  optional func popoverWillShow(notification: NSNotification)
+  optional func popoverDidShow(notification: NSNotification)
+  optional func popoverWillClose(notification: NSNotification)
+  optional func popoverDidClose(notification: NSNotification)
 }

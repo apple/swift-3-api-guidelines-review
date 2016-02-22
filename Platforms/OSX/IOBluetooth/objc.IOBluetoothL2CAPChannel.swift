@@ -34,7 +34,7 @@ struct IOBluetoothL2CAPChannelEvent {
 }
 typealias IOBluetoothL2CAPChannelIncomingDataListener = @convention(c) (IOBluetoothL2CAPChannelRef!, UnsafeMutablePointer<Void>, UInt16, UnsafeMutablePointer<Void>) -> Void
 typealias IOBluetoothL2CAPChannelIncomingEventListener = @convention(c) (IOBluetoothL2CAPChannelRef!, UnsafeMutablePointer<Void>, UnsafeMutablePointer<IOBluetoothL2CAPChannelEvent>) -> Void
-class IOBluetoothL2CAPChannel : IOBluetoothObject, PortDelegate {
+class IOBluetoothL2CAPChannel : IOBluetoothObject, NSPortDelegate {
   class func register(forChannelOpenNotifications object: AnyObject!, selector: Selector) -> IOBluetoothUserNotification!
   class func register(forChannelOpenNotifications object: AnyObject!, selector: Selector, withPSM psm: BluetoothL2CAPPSM, direction inDirection: IOBluetoothUserNotificationChannelDirection) -> IOBluetoothUserNotification!
   class func withObjectID(objectID: IOBluetoothObjectID) -> Self!
@@ -45,7 +45,7 @@ class IOBluetoothL2CAPChannel : IOBluetoothObject, PortDelegate {
   func writeAsync(data: UnsafeMutablePointer<Void>, length: UInt16, refcon: UnsafeMutablePointer<Void>) -> IOReturn
   func writeSync(data: UnsafeMutablePointer<Void>, length: UInt16) -> IOReturn
   func setDelegate(channelDelegate: AnyObject!) -> IOReturn
-  func setDelegate(channelDelegate: AnyObject!, withConfiguration channelConfiguration: [Object : AnyObject]!) -> IOReturn
+  func setDelegate(channelDelegate: AnyObject!, withConfiguration channelConfiguration: [NSObject : AnyObject]!) -> IOReturn
   func delegate() -> AnyObject!
   var device: IOBluetoothDevice! { get }
   var objectID: IOBluetoothObjectID { get }
@@ -55,7 +55,7 @@ class IOBluetoothL2CAPChannel : IOBluetoothObject, PortDelegate {
   func isIncoming() -> Bool
   func register(forChannelCloseNotification observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
   init()
-  func handle(message: PortMessage)
+  func handle(message: NSPortMessage)
 }
 protocol IOBluetoothL2CAPChannelDelegate {
   optional func l2capChannelData(l2capChannel: IOBluetoothL2CAPChannel!, data dataPointer: UnsafeMutablePointer<Void>, length dataLength: Int)
@@ -67,5 +67,5 @@ protocol IOBluetoothL2CAPChannelDelegate {
 }
 let IOBluetoothL2CAPChannelPublishedNotification: String
 let IOBluetoothL2CAPChannelTerminatedNotification: String
-extension Object {
+extension NSObject {
 }

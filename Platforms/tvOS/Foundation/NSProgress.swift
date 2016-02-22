@@ -1,17 +1,17 @@
 
 @available(tvOS 7.0, *)
-class Progress : Object {
-  class func current() -> Progress?
+class NSProgress : NSObject {
+  class func current() -> NSProgress?
   /*not inherited*/ init(totalUnitCount unitCount: Int64)
   @available(tvOS 9.0, *)
-  class func discreteProgress(withTotalUnitCount unitCount: Int64) -> Progress
+  class func discreteProgress(withTotalUnitCount unitCount: Int64) -> NSProgress
   @available(tvOS 9.0, *)
-  /*not inherited*/ init(totalUnitCount unitCount: Int64, parent: Progress, pendingUnitCount portionOfParentTotalUnitCount: Int64)
-  init(parent parentProgressOrNil: Progress?, userInfo userInfoOrNil: [Object : AnyObject]? = [:])
+  /*not inherited*/ init(totalUnitCount unitCount: Int64, parent: NSProgress, pendingUnitCount portionOfParentTotalUnitCount: Int64)
+  init(parent parentProgressOrNil: NSProgress?, userInfo userInfoOrNil: [NSObject : AnyObject]? = [:])
   func becomeCurrent(pendingUnitCount unitCount: Int64)
   func resignCurrent()
   @available(tvOS 9.0, *)
-  func addChild(child: Progress, withPendingUnitCount inUnitCount: Int64)
+  func addChild(child: NSProgress, withPendingUnitCount inUnitCount: Int64)
   var totalUnitCount: Int64
   var completedUnitCount: Int64
   var localizedDescription: String!
@@ -31,35 +31,35 @@ class Progress : Object {
   func pause()
   @available(tvOS 9.0, *)
   func resume()
-  var userInfo: [Object : AnyObject] { get }
+  var userInfo: [NSObject : AnyObject] { get }
   var kind: String?
   convenience init()
 }
-typealias ProgressUnpublishingHandler = () -> Void
-typealias ProgressPublishingHandler = (Progress) -> ProgressUnpublishingHandler?
-protocol ProgressReporting : ObjectProtocol {
+typealias NSProgressUnpublishingHandler = () -> Void
+typealias NSProgressPublishingHandler = (NSProgress) -> NSProgressUnpublishingHandler?
+protocol NSProgressReporting : NSObjectProtocol {
   @available(tvOS 7.0, *)
-  var progress: Progress { get }
+  var progress: NSProgress { get }
 }
 @available(tvOS 7.0, *)
-let progressEstimatedTimeRemainingKey: String
+let NSProgressEstimatedTimeRemainingKey: String
 @available(tvOS 7.0, *)
-let progressThroughputKey: String
+let NSProgressThroughputKey: String
 @available(tvOS 7.0, *)
-let progressKindFile: String
+let NSProgressKindFile: String
 @available(tvOS 7.0, *)
-let progressFileOperationKindKey: String
+let NSProgressFileOperationKindKey: String
 @available(tvOS 7.0, *)
-let progressFileOperationKindDownloading: String
+let NSProgressFileOperationKindDownloading: String
 @available(tvOS 7.0, *)
-let progressFileOperationKindDecompressingAfterDownloading: String
+let NSProgressFileOperationKindDecompressingAfterDownloading: String
 @available(tvOS 7.0, *)
-let progressFileOperationKindReceiving: String
+let NSProgressFileOperationKindReceiving: String
 @available(tvOS 7.0, *)
-let progressFileOperationKindCopying: String
+let NSProgressFileOperationKindCopying: String
 @available(tvOS 7.0, *)
-let progressFileURLKey: String
+let NSProgressFileURLKey: String
 @available(tvOS 7.0, *)
-let progressFileTotalCountKey: String
+let NSProgressFileTotalCountKey: String
 @available(tvOS 7.0, *)
-let progressFileCompletedCountKey: String
+let NSProgressFileCompletedCountKey: String

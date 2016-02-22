@@ -1,6 +1,6 @@
 
 @available(watchOS 2.0, *)
-class WCSessionUserInfoTransfer : Object, SecureCoding {
+class WCSessionUserInfoTransfer : NSObject, NSSecureCoding {
   var userInfo: [String : AnyObject] { get }
   var isTransferring: Bool { get }
   func cancel()
@@ -8,6 +8,6 @@ class WCSessionUserInfoTransfer : Object, SecureCoding {
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

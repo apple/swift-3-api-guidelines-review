@@ -1,6 +1,6 @@
 
 @available(OSX 10.5, *)
-class SBElementArray : MutableArray {
+class SBElementArray : NSMutableArray {
   func object(withName name: String) -> AnyObject
   func object(withID identifier: AnyObject) -> AnyObject
   func object(atLocation location: AnyObject) -> AnyObject
@@ -9,11 +9,11 @@ class SBElementArray : MutableArray {
   func get() -> [AnyObject]?
   init()
   init(capacity numItems: Int)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
   convenience init(object anObject: AnyObject)
   convenience init(array: [AnyObject])
   convenience init(array: [AnyObject], copyItems flag: Bool)
   convenience init?(contentsOfFile path: String)
-  convenience init?(contentsOf url: URL)
+  convenience init?(contentsOf url: NSURL)
 }

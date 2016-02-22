@@ -13,7 +13,7 @@ enum NSApplicationActivationPolicy : Int {
   case prohibited
 }
 @available(OSX 10.6, *)
-class NSRunningApplication : Object {
+class NSRunningApplication : NSObject {
   var isTerminated: Bool { get }
   var isFinishedLaunching: Bool { get }
   var isHidden: Bool { get }
@@ -23,10 +23,10 @@ class NSRunningApplication : Object {
   var activationPolicy: NSApplicationActivationPolicy { get }
   var localizedName: String? { get }
   var bundleIdentifier: String? { get }
-  @NSCopying var bundleURL: URL? { get }
-  @NSCopying var executableURL: URL? { get }
+  @NSCopying var bundleURL: NSURL? { get }
+  @NSCopying var executableURL: NSURL? { get }
   var processIdentifier: pid_t { get }
-  @NSCopying var launchDate: Date? { get }
+  @NSCopying var launchDate: NSDate? { get }
   var icon: NSImage? { get }
   var executableArchitecture: Int { get }
   func hide() -> Bool

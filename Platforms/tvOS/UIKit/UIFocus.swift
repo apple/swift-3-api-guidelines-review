@@ -11,14 +11,14 @@ struct UIFocusHeading : OptionSetType {
   static var previous: UIFocusHeading { get }
 }
 @available(tvOS 9.0, *)
-class UIFocusUpdateContext : Object {
+class UIFocusUpdateContext : NSObject {
   weak var previouslyFocusedView: @sil_weak UIView? { get }
   weak var nextFocusedView: @sil_weak UIView? { get }
   var focusHeading: UIFocusHeading { get }
   init()
 }
 @available(tvOS 9.0, *)
-protocol UIFocusEnvironment : ObjectProtocol {
+protocol UIFocusEnvironment : NSObjectProtocol {
   weak var preferredFocusedView: @sil_weak UIView? { get }
   func setNeedsFocusUpdate()
   func updateFocusIfNeeded()
@@ -30,5 +30,5 @@ class UIFocusGuide : UILayoutGuide {
   var isEnabled: Bool
   weak var preferredFocusedView: @sil_weak UIView?
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

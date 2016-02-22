@@ -7,11 +7,11 @@ protocol NSSearchFieldDelegate : NSTextFieldDelegate {
 }
 class NSSearchField : NSTextField {
   @available(OSX 10.11, *)
-  func rectForSearchText(whenCentered isCentered: Bool) -> Rect
+  func rectForSearchText(whenCentered isCentered: Bool) -> NSRect
   @available(OSX 10.11, *)
-  func rectForSearchButton(whenCentered isCentered: Bool) -> Rect
+  func rectForSearchButton(whenCentered isCentered: Bool) -> NSRect
   @available(OSX 10.11, *)
-  func rectForCancelButton(whenCentered isCentered: Bool) -> Rect
+  func rectForCancelButton(whenCentered isCentered: Bool) -> NSRect
   var recentSearches: [String]
   var recentsAutosaveName: String?
   @available(OSX 10.10, *)
@@ -26,7 +26,7 @@ class NSSearchField : NSTextField {
   unowned(unsafe) var delegate: @sil_unmanaged NSSearchFieldDelegate?
   @available(OSX 10.11, *)
   var centersPlaceholder: Bool
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }

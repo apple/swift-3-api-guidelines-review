@@ -1,12 +1,12 @@
 
 @available(OSX 10.9, *)
-class ODRecordMap : Object {
+class ODRecordMap : NSObject {
   @available(OSX 10.9, *)
   var native: String!
   @available(OSX 10.9, *)
-  var odPredicate: [Object : AnyObject]!
+  var odPredicate: [NSObject : AnyObject]!
   @available(OSX 10.9, *)
-  var attributes: [Object : AnyObject]! { get }
+  var attributes: [NSObject : AnyObject]! { get }
   @available(OSX 10.9, *)
   var standardAttributeTypes: [AnyObject]! { get }
   @available(OSX 10.9, *)

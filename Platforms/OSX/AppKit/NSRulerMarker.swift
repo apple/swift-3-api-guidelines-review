@@ -1,22 +1,22 @@
 
-class NSRulerMarker : Object, Copying, Coding {
-  init(rulerView ruler: NSRulerView, markerLocation location: CGFloat, image: NSImage, imageOrigin: Point)
+class NSRulerMarker : NSObject, NSCopying, NSCoding {
+  init(rulerView ruler: NSRulerView, markerLocation location: CGFloat, image: NSImage, imageOrigin: NSPoint)
   unowned(unsafe) var ruler: @sil_unmanaged NSRulerView { get }
   var markerLocation: CGFloat
   var image: NSImage
-  var imageOrigin: Point
+  var imageOrigin: NSPoint
   var isMovable: Bool
   var isRemovable: Bool
   var isDragging: Bool { get }
-  var representedObject: Copying?
-  var imageRectInRuler: Rect { get }
+  var representedObject: NSCopying?
+  var imageRectInRuler: NSRect { get }
   var thicknessRequiredInRuler: CGFloat { get }
-  func draw(rect: Rect)
+  func draw(rect: NSRect)
   func trackMouse(mouseDownEvent: NSEvent, adding isAdding: Bool) -> Bool
   convenience init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 struct __rFlags {
   var movable: UInt32

@@ -8,8 +8,8 @@ class NSSlider : NSControl, NSAccessibilitySlider {
   var knobThickness: CGFloat { get }
   var vertical: Int { get }
   func acceptsFirstMouse(theEvent: NSEvent?) -> Bool
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
   func accessibilityLabel() -> String?
   func accessibilityValue() -> AnyObject?
@@ -21,7 +21,7 @@ extension NSSlider {
   var tickMarkPosition: NSTickMarkPosition
   var allowsTickMarkValuesOnly: Bool
   func tickMarkValue(at index: Int) -> Double
-  func rectOfTickMark(at index: Int) -> Rect
-  func indexOfTickMark(at point: Point) -> Int
+  func rectOfTickMark(at index: Int) -> NSRect
+  func indexOfTickMark(at point: NSPoint) -> Int
   func closestTickMarkValue(toValue value: Double) -> Double
 }

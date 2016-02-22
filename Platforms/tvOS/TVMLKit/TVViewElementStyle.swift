@@ -35,7 +35,7 @@ enum TVElementPosition : Int {
   case footer
 }
 @available(tvOS 9.0, *)
-class TVViewElementStyle : Object, Copying {
+class TVViewElementStyle : NSObject, NSCopying {
   func value(forStyleProperty name: String) -> AnyObject?
   var backgroundColor: TVColor? { get }
   var color: TVColor? { get }
@@ -64,5 +64,5 @@ class TVViewElementStyle : Object, Copying {
   var tintColor: TVColor? { get }
   init()
   @available(tvOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

@@ -1,10 +1,10 @@
 
 @available(tvOS 3.0, *)
 let UINibExternalObjects: String
-extension Bundle {
-  func loadNibNamed(name: String!, owner: AnyObject!, options: [Object : AnyObject]! = [:]) -> [AnyObject]!
+extension NSBundle {
+  func loadNibNamed(name: String!, owner: AnyObject!, options: [NSObject : AnyObject]! = [:]) -> [AnyObject]!
 }
-extension Object {
+extension NSObject {
   class func awakeFromNib()
   func awakeFromNib()
   @available(tvOS 8.0, *)

@@ -14,7 +14,7 @@ class ABGroup : ABRecord {
   init!(addressBook: ABAddressBook!)
 }
 extension ABGroup {
-  class func addPropertiesAndTypes(properties: [Object : AnyObject]!) -> Int
+  class func addPropertiesAndTypes(properties: [NSObject : AnyObject]!) -> Int
   class func removeProperties(properties: [AnyObject]!) -> Int
   class func properties() -> [AnyObject]!
   class func typeOf(property property: String!) -> ABPropertyType

@@ -15,12 +15,12 @@ enum CNContactSortOrder : Int {
   case givenName
   case familyName
 }
-protocol CNKeyDescriptor : ObjectProtocol, SecureCoding, Copying {
+protocol CNKeyDescriptor : NSObjectProtocol, NSSecureCoding, NSCopying {
 }
 extension NSString : CNKeyDescriptor {
 }
 @available(OSX 10.11, *)
-class CNContact : Object, Copying, MutableCopying, SecureCoding {
+class CNContact : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var identifier: String { get }
   var contactType: CNContactType { get }
   var namePrefix: String { get }
@@ -37,8 +37,8 @@ class CNContact : Object, Copying, MutableCopying, SecureCoding {
   var departmentName: String { get }
   var jobTitle: String { get }
   var note: String { get }
-  @NSCopying var imageData: Data? { get }
-  @NSCopying var thumbnailImageData: Data? { get }
+  @NSCopying var imageData: NSData? { get }
+  @NSCopying var thumbnailImageData: NSData? { get }
   var phoneNumbers: [CNLabeledValue] { get }
   var emailAddresses: [CNLabeledValue] { get }
   var postalAddresses: [CNLabeledValue] { get }
@@ -46,25 +46,25 @@ class CNContact : Object, Copying, MutableCopying, SecureCoding {
   var contactRelations: [CNLabeledValue] { get }
   var socialProfiles: [CNLabeledValue] { get }
   var instantMessageAddresses: [CNLabeledValue] { get }
-  @NSCopying var birthday: DateComponents? { get }
-  @NSCopying var nonGregorianBirthday: DateComponents? { get }
+  @NSCopying var birthday: NSDateComponents? { get }
+  @NSCopying var nonGregorianBirthday: NSDateComponents? { get }
   var dates: [CNLabeledValue] { get }
   func isKeyAvailable(key: String) -> Bool
   func areKeysAvailable(keyDescriptors: [CNKeyDescriptor]) -> Bool
   class func localizedString(forKey key: String) -> String
-  class func comparator(forNameSortOrder sortOrder: CNContactSortOrder) -> Comparator
+  class func comparator(forNameSortOrder sortOrder: CNContactSortOrder) -> NSComparator
   class func descriptorForAllComparatorKeys() -> CNKeyDescriptor
   func isUnifiedWithContact(withIdentifier contactIdentifier: String) -> Bool
   init()
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.11, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 let CNContactPropertyNotFetchedExceptionName: String
 @available(OSX 10.11, *)

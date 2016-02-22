@@ -1,5 +1,5 @@
 
-protocol ICDeviceBrowserDelegate : ObjectProtocol {
+protocol ICDeviceBrowserDelegate : NSObjectProtocol {
   func deviceBrowser(browser: ICDeviceBrowser, didAdd device: ICDevice, moreComing: Bool)
   func deviceBrowser(browser: ICDeviceBrowser, didRemove device: ICDevice, moreGoing: Bool)
   optional func deviceBrowser(browser: ICDeviceBrowser, deviceDidChangeName device: ICDevice)
@@ -7,7 +7,7 @@ protocol ICDeviceBrowserDelegate : ObjectProtocol {
   optional func deviceBrowser(browser: ICDeviceBrowser, requestsSelect device: ICDevice)
   optional func deviceBrowserDidEnumerateLocalDevices(browser: ICDeviceBrowser)
 }
-class ICDeviceBrowser : Object {
+class ICDeviceBrowser : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged ICDeviceBrowserDelegate?
   var isBrowsing: Bool { get }
   var browsedDeviceTypeMask: ICDeviceTypeMask

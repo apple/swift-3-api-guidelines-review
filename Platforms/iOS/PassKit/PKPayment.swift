@@ -1,6 +1,6 @@
 
 @available(iOS 8.0, *)
-class PKPayment : Object {
+class PKPayment : NSObject {
   var token: PKPaymentToken { get }
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use billingContact instead")
   var billingAddress: ABRecord? { get }

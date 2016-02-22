@@ -1,23 +1,23 @@
 
-let cocoaErrorDomain: String
-let posixErrorDomain: String
-let osStatusErrorDomain: String
-let machErrorDomain: String
-let underlyingErrorKey: String
-let localizedDescriptionKey: String
-let localizedFailureReasonErrorKey: String
-let localizedRecoverySuggestionErrorKey: String
-let localizedRecoveryOptionsErrorKey: String
-let recoveryAttempterErrorKey: String
-let helpAnchorErrorKey: String
-let stringEncodingErrorKey: String
-let urlErrorKey: String
-let filePathErrorKey: String
-class Error : Object, Copying, SecureCoding {
-  init(domain: String, code: Int, userInfo dict: [Object : AnyObject]? = [:])
+let NSCocoaErrorDomain: String
+let NSPOSIXErrorDomain: String
+let NSOSStatusErrorDomain: String
+let NSMachErrorDomain: String
+let NSUnderlyingErrorKey: String
+let NSLocalizedDescriptionKey: String
+let NSLocalizedFailureReasonErrorKey: String
+let NSLocalizedRecoverySuggestionErrorKey: String
+let NSLocalizedRecoveryOptionsErrorKey: String
+let NSRecoveryAttempterErrorKey: String
+let NSHelpAnchorErrorKey: String
+let NSStringEncodingErrorKey: String
+let NSURLErrorKey: String
+let NSFilePathErrorKey: String
+class NSError : NSObject, NSCopying, NSSecureCoding {
+  init(domain: String, code: Int, userInfo dict: [NSObject : AnyObject]? = [:])
   var domain: String { get }
   var code: Int { get }
-  var userInfo: [Object : AnyObject] { get }
+  var userInfo: [NSObject : AnyObject] { get }
   var localizedDescription: String { get }
   var localizedFailureReason: String? { get }
   var localizedRecoverySuggestion: String? { get }
@@ -25,23 +25,23 @@ class Error : Object, Copying, SecureCoding {
   var recoveryAttempter: AnyObject? { get }
   var helpAnchor: String? { get }
   @available(watchOS 2.0, *)
-  class func setUserInfoValueProviderForDomain(errorDomain: String, provider: ((Error, String) -> AnyObject?)? = nil)
+  class func setUserInfoValueProviderForDomain(errorDomain: String, provider: ((NSError, String) -> AnyObject?)? = nil)
   @available(watchOS 2.0, *)
-  class func userInfoValueProvider(forDomain errorDomain: String) -> ((Error, String) -> AnyObject?)?
+  class func userInfoValueProvider(forDomain errorDomain: String) -> ((NSError, String) -> AnyObject?)?
   convenience init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 
-extension Error : ErrorType {
+extension NSError : ErrorType {
   var _domain: String { get }
   var _code: Int { get }
 }
-extension Object {
-  class func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecover didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecover didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  class func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int) -> Bool
-  func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int) -> Bool
+extension NSObject {
+  class func attemptRecovery(fromError error: NSError, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecover didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func attemptRecovery(fromError error: NSError, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecover didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  class func attemptRecovery(fromError error: NSError, optionIndex recoveryOptionIndex: Int) -> Bool
+  func attemptRecovery(fromError error: NSError, optionIndex recoveryOptionIndex: Int) -> Bool
 }

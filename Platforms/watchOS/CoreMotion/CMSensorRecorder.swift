@@ -2,21 +2,21 @@
 @available(watchOS 2.0, *)
 class CMRecordedAccelerometerData : CMAccelerometerData {
   var identifier: UInt64 { get }
-  var startDate: Date { get }
+  var startDate: NSDate { get }
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
-class CMSensorDataList : Object, FastEnumeration {
+class CMSensorDataList : NSObject, NSFastEnumeration {
   init()
   @available(watchOS 2.0, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 @available(watchOS 2.0, *)
-class CMSensorRecorder : Object {
+class CMSensorRecorder : NSObject {
   class func isAccelerometerRecordingAvailable() -> Bool
   class func isAuthorizedForRecording() -> Bool
-  func accelerometerData(from fromDate: Date, to toDate: Date) -> CMSensorDataList?
-  func recordAccelerometer(forDuration duration: TimeInterval)
+  func accelerometerData(from fromDate: NSDate, to toDate: NSDate) -> CMSensorDataList?
+  func recordAccelerometer(forDuration duration: NSTimeInterval)
   init()
 }

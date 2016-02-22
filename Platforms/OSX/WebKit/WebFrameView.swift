@@ -7,7 +7,7 @@ class WebFrameView : NSView {
   func printOperation(printInfo: NSPrintInfo!) -> NSPrintOperation!
   var documentViewShouldHandlePrint: Bool { get }
   func printDocumentView()
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }

@@ -28,7 +28,7 @@ let ACLinkedInPermissionsKey: String
 @available(OSX 10.9, *)
 let ACTencentWeiboAppIdKey: String
 @available(OSX 10.8, *)
-class ACAccountType : Object {
+class ACAccountType : NSObject {
   var accountTypeDescription: String! { get }
   var identifier: String! { get }
   var accessGranted: Bool { get }

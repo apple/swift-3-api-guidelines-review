@@ -1,9 +1,9 @@
 
 @available(tvOS 3.0, *)
-class NSAtomicStoreCacheNode : Object {
+class NSAtomicStoreCacheNode : NSObject {
   init(objectID moid: NSManagedObjectID)
   var objectID: NSManagedObjectID { get }
-  var propertyCache: MutableDictionary?
+  var propertyCache: NSMutableDictionary?
   func value(forKey key: String) -> AnyObject?
   func setValue(value: AnyObject?, forKey key: String)
   init()

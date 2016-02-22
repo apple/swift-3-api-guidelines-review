@@ -11,7 +11,7 @@ enum NWTCPConnectionState : Int {
   case cancelled
 }
 @available(OSX 10.11, *)
-class NWTCPConnection : Object {
+class NWTCPConnection : NSObject {
   @available(OSX 10.11, *)
   init(upgradeFor connection: NWTCPConnection)
   @available(OSX 10.11, *)
@@ -29,22 +29,22 @@ class NWTCPConnection : Object {
   @available(OSX 10.11, *)
   var remoteAddress: NWEndpoint? { get }
   @available(OSX 10.11, *)
-  var txtRecord: Data? { get }
+  var txtRecord: NSData? { get }
   @available(OSX 10.11, *)
-  var error: Error? { get }
+  var error: NSError? { get }
   @available(OSX 10.11, *)
   func cancel()
   @available(OSX 10.11, *)
-  func readLength(length: Int, completionHandler completion: (Data?, Error?) -> Void)
+  func readLength(length: Int, completionHandler completion: (NSData?, NSError?) -> Void)
   @available(OSX 10.11, *)
-  func readMinimumLength(minimum: Int, maximumLength maximum: Int, completionHandler completion: (Data?, Error?) -> Void)
+  func readMinimumLength(minimum: Int, maximumLength maximum: Int, completionHandler completion: (NSData?, NSError?) -> Void)
   @available(OSX 10.11, *)
-  func write(data: Data, completionHandler completion: (Error?) -> Void)
+  func write(data: NSData, completionHandler completion: (NSError?) -> Void)
   @available(OSX 10.11, *)
   func writeClose()
   init()
 }
-protocol NWTCPConnectionAuthenticationDelegate : ObjectProtocol {
+protocol NWTCPConnectionAuthenticationDelegate : NSObjectProtocol {
   @available(OSX 10.11, *)
   optional func shouldProvideIdentity(for connection: NWTCPConnection) -> Bool
   @available(OSX 10.11, *)

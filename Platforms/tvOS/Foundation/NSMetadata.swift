@@ -1,17 +1,17 @@
 
 @available(tvOS 5.0, *)
-class MetadataQuery : Object {
-  unowned(unsafe) var delegate: @sil_unmanaged MetadataQueryDelegate?
-  @NSCopying var predicate: Predicate?
-  var sortDescriptors: [SortDescriptor]
+class NSMetadataQuery : NSObject {
+  unowned(unsafe) var delegate: @sil_unmanaged NSMetadataQueryDelegate?
+  @NSCopying var predicate: NSPredicate?
+  var sortDescriptors: [NSSortDescriptor]
   var valueListAttributes: [String]
   var groupingAttributes: [String]?
-  var notificationBatchingInterval: TimeInterval
+  var notificationBatchingInterval: NSTimeInterval
   var searchScopes: [AnyObject]
   @available(tvOS 7.0, *)
   var searchItems: [AnyObject]?
   @available(tvOS 7.0, *)
-  var operationQueue: OperationQueue?
+  var operationQueue: NSOperationQueue?
   func start() -> Bool
   func stop()
   var isStarted: Bool { get }
@@ -24,61 +24,61 @@ class MetadataQuery : Object {
   @available(tvOS 7.0, *)
   func enumerateResults(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 7.0, *)
-  func enumerateResults(opts: EnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateResults(opts: NSEnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   var results: [AnyObject] { get }
   func indexOf(result result: AnyObject) -> Int
-  var valueLists: [String : [MetadataQueryAttributeValueTuple]] { get }
-  var groupedResults: [MetadataQueryResultGroup] { get }
+  var valueLists: [String : [NSMetadataQueryAttributeValueTuple]] { get }
+  var groupedResults: [NSMetadataQueryResultGroup] { get }
   func valueOf(attribute attrName: String, forResultAt idx: Int) -> AnyObject?
   init()
 }
-protocol MetadataQueryDelegate : ObjectProtocol {
+protocol NSMetadataQueryDelegate : NSObjectProtocol {
   @available(tvOS 5.0, *)
-  optional func metadataQuery(query: MetadataQuery, replacementObjectForResultObject result: MetadataItem) -> AnyObject
+  optional func metadataQuery(query: NSMetadataQuery, replacementObjectForResultObject result: NSMetadataItem) -> AnyObject
   @available(tvOS 5.0, *)
-  optional func metadataQuery(query: MetadataQuery, replacementValueForAttribute attrName: String, value attrValue: AnyObject) -> AnyObject
+  optional func metadataQuery(query: NSMetadataQuery, replacementValueForAttribute attrName: String, value attrValue: AnyObject) -> AnyObject
 }
 @available(tvOS 5.0, *)
-let metadataQueryDidStartGatheringNotification: String
+let NSMetadataQueryDidStartGatheringNotification: String
 @available(tvOS 5.0, *)
-let metadataQueryGatheringProgressNotification: String
+let NSMetadataQueryGatheringProgressNotification: String
 @available(tvOS 5.0, *)
-let metadataQueryDidFinishGatheringNotification: String
+let NSMetadataQueryDidFinishGatheringNotification: String
 @available(tvOS 5.0, *)
-let metadataQueryDidUpdateNotification: String
+let NSMetadataQueryDidUpdateNotification: String
 @available(tvOS 8.0, *)
-let metadataQueryUpdateAddedItemsKey: String
+let NSMetadataQueryUpdateAddedItemsKey: String
 @available(tvOS 8.0, *)
-let metadataQueryUpdateChangedItemsKey: String
+let NSMetadataQueryUpdateChangedItemsKey: String
 @available(tvOS 8.0, *)
-let metadataQueryUpdateRemovedItemsKey: String
+let NSMetadataQueryUpdateRemovedItemsKey: String
 @available(tvOS 5.0, *)
-let metadataQueryResultContentRelevanceAttribute: String
+let NSMetadataQueryResultContentRelevanceAttribute: String
 @available(tvOS 5.0, *)
-let metadataQueryUbiquitousDocumentsScope: String
+let NSMetadataQueryUbiquitousDocumentsScope: String
 @available(tvOS 5.0, *)
-let metadataQueryUbiquitousDataScope: String
+let NSMetadataQueryUbiquitousDataScope: String
 @available(tvOS 8.0, *)
-let metadataQueryAccessibleUbiquitousExternalDocumentsScope: String
+let NSMetadataQueryAccessibleUbiquitousExternalDocumentsScope: String
 @available(tvOS 5.0, *)
-class MetadataItem : Object {
+class NSMetadataItem : NSObject {
   func value(forAttribute key: String) -> AnyObject?
   func values(forAttributes keys: [String]) -> [String : AnyObject]?
   var attributes: [String] { get }
   convenience init()
 }
 @available(tvOS 5.0, *)
-class MetadataQueryAttributeValueTuple : Object {
+class NSMetadataQueryAttributeValueTuple : NSObject {
   var attribute: String { get }
   var value: AnyObject? { get }
   var count: Int { get }
   init()
 }
 @available(tvOS 5.0, *)
-class MetadataQueryResultGroup : Object {
+class NSMetadataQueryResultGroup : NSObject {
   var attribute: String { get }
   var value: AnyObject { get }
-  var subgroups: [MetadataQueryResultGroup]? { get }
+  var subgroups: [NSMetadataQueryResultGroup]? { get }
   var resultCount: Int { get }
   func result(at idx: Int) -> AnyObject
   var results: [AnyObject] { get }

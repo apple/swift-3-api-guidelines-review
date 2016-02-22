@@ -1,26 +1,26 @@
 
-class Value : Object, Copying, SecureCoding {
+class NSValue : NSObject, NSCopying, NSSecureCoding {
   func getValue(value: UnsafeMutablePointer<Void>)
   var objCType: UnsafePointer<Int8> { get }
   init(bytes value: UnsafePointer<Void>, objCType type: UnsafePointer<Int8>)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }
-extension Value {
+extension NSValue {
   /*not inherited*/ init(_ value: UnsafePointer<Void>, withObjCType type: UnsafePointer<Int8>)
 }
-extension Value {
+extension NSValue {
   /*not inherited*/ init(nonretainedObject anObject: AnyObject?)
   var nonretainedObjectValue: AnyObject? { get }
   /*not inherited*/ init(pointer: UnsafePointer<Void>)
   var pointerValue: UnsafeMutablePointer<Void> { get }
-  func isEqual(to value: Value) -> Bool
+  func isEqual(to value: NSValue) -> Bool
 }
-class Number : Value {
-  init?(coder aDecoder: Coder)
+class NSNumber : NSValue {
+  init?(coder aDecoder: NSCoder)
   init(char value: Int8)
   init(unsignedChar value: UInt8)
   init(short value: Int16)
@@ -56,14 +56,14 @@ class Number : Value {
   @available(tvOS 2.0, *)
   var unsignedIntegerValue: UInt { get }
   var stringValue: String { get }
-  func compare(otherNumber: Number) -> ComparisonResult
-  func isEqual(to number: Number) -> Bool
+  func compare(otherNumber: NSNumber) -> NSComparisonResult
+  func isEqual(to number: NSNumber) -> Bool
   func description(withLocale locale: AnyObject?) -> String
   convenience init(bytes value: UnsafePointer<Void>, objCType type: UnsafePointer<Int8>)
   convenience init()
 }
 
-extension Number : FloatLiteralConvertible, IntegerLiteralConvertible, BooleanLiteralConvertible {
+extension NSNumber : FloatLiteralConvertible, IntegerLiteralConvertible, BooleanLiteralConvertible {
   required convenience init(integerLiteral value: Int)
   required convenience init(floatLiteral value: Double)
   required convenience init(booleanLiteral value: Bool)
@@ -71,5 +71,5 @@ extension Number : FloatLiteralConvertible, IntegerLiteralConvertible, BooleanLi
   typealias IntegerLiteralType = Int
   typealias BooleanLiteralType = Bool
 }
-extension Number {
+extension NSNumber {
 }

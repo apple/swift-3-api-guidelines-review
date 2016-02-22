@@ -1,14 +1,14 @@
 
 @available(iOS 4.2, *)
-class MPMediaQuerySection : Object, SecureCoding, Copying {
+class MPMediaQuerySection : NSObject, NSSecureCoding, NSCopying {
   var title: String { get }
   var range: NSRange { get }
   init()
   @available(iOS 4.2, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 4.2, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 4.2, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

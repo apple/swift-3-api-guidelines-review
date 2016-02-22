@@ -32,16 +32,16 @@ class ADBannerView : UIView {
   func cancelAction()
   var advertisingSection: String!
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
-protocol ADBannerViewDelegate : ObjectProtocol {
+protocol ADBannerViewDelegate : NSObjectProtocol {
   @available(iOS 5.0, *)
   optional func bannerViewWillLoadAd(banner: ADBannerView!)
   @available(iOS 4.0, *)
   optional func bannerViewDidLoadAd(banner: ADBannerView!)
   @available(iOS 4.0, *)
-  optional func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: Error!)
+  optional func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!)
   @available(iOS 4.0, *)
   optional func bannerViewActionShouldBegin(banner: ADBannerView!, willLeaveApplication willLeave: Bool) -> Bool
   @available(iOS 4.0, *)

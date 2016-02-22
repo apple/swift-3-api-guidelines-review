@@ -20,7 +20,7 @@ class CBPeripheral : CBPeer {
   unowned(unsafe) var delegate: @sil_unmanaged CBPeripheralDelegate?
   var name: String? { get }
   @available(iOS, introduced=5.0, deprecated=8.0)
-  var rssi: Number? { get }
+  var rssi: NSNumber? { get }
   var state: CBPeripheralState { get }
   var services: [CBService]? { get }
   func readRSSI()
@@ -30,37 +30,37 @@ class CBPeripheral : CBPeer {
   func readValue(for characteristic: CBCharacteristic)
   @available(iOS 9.0, *)
   func maximumWriteValueLength(for type: CBCharacteristicWriteType) -> Int
-  func writeValue(data: Data, for characteristic: CBCharacteristic, type: CBCharacteristicWriteType)
+  func writeValue(data: NSData, for characteristic: CBCharacteristic, type: CBCharacteristicWriteType)
   func setNotifyValue(enabled: Bool, for characteristic: CBCharacteristic)
   func discoverDescriptors(for characteristic: CBCharacteristic)
   func readValue(for descriptor: CBDescriptor)
-  func writeValue(data: Data, for descriptor: CBDescriptor)
+  func writeValue(data: NSData, for descriptor: CBDescriptor)
 }
-protocol CBPeripheralDelegate : ObjectProtocol {
+protocol CBPeripheralDelegate : NSObjectProtocol {
   @available(iOS 6.0, *)
   optional func peripheralDidUpdateName(peripheral: CBPeripheral)
   @available(iOS 7.0, *)
   optional func peripheral(peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService])
   @available(iOS, introduced=5.0, deprecated=8.0)
-  optional func peripheralDidUpdateRSSI(peripheral: CBPeripheral, error: Error?)
+  optional func peripheralDidUpdateRSSI(peripheral: CBPeripheral, error: NSError?)
   @available(iOS 8.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didReadRSSI RSSI: Number, error: Error?)
+  optional func peripheral(peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: NSError?)
   @available(iOS 5.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didDiscoverServices error: Error?)
+  optional func peripheral(peripheral: CBPeripheral, didDiscoverServices error: NSError?)
   @available(iOS 5.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didDiscoverIncludedServicesFor service: CBService, error: Error?)
+  optional func peripheral(peripheral: CBPeripheral, didDiscoverIncludedServicesFor service: CBService, error: NSError?)
   @available(iOS 5.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?)
+  optional func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: NSError?)
   @available(iOS 5.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?)
+  optional func peripheral(peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: NSError?)
   @available(iOS 5.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?)
+  optional func peripheral(peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: NSError?)
   @available(iOS 5.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?)
+  optional func peripheral(peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: NSError?)
   @available(iOS 5.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didDiscoverDescriptorsFor characteristic: CBCharacteristic, error: Error?)
+  optional func peripheral(peripheral: CBPeripheral, didDiscoverDescriptorsFor characteristic: CBCharacteristic, error: NSError?)
   @available(iOS 5.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didUpdateValueFor descriptor: CBDescriptor, error: Error?)
+  optional func peripheral(peripheral: CBPeripheral, didUpdateValueFor descriptor: CBDescriptor, error: NSError?)
   @available(iOS 5.0, *)
-  optional func peripheral(peripheral: CBPeripheral, didWriteValueFor descriptor: CBDescriptor, error: Error?)
+  optional func peripheral(peripheral: CBPeripheral, didWriteValueFor descriptor: CBDescriptor, error: NSError?)
 }

@@ -1,6 +1,6 @@
 
 var NSAppKitVersionNumberWithCursorSizeSupport: Double { get }
-class NSCursor : Object, Coding {
+class NSCursor : NSObject, NSCoding {
   class func current() -> NSCursor
   @available(OSX 10.6, *)
   class func currentSystem() -> NSCursor?
@@ -27,14 +27,14 @@ class NSCursor : Object, Coding {
   class func contextualMenu() -> NSCursor
   @available(OSX 10.7, *)
   class func iBeamCursorForVerticalLayout() -> NSCursor
-  init(image newImage: NSImage, hotSpot aPoint: Point)
-  convenience init(image newImage: NSImage, foregroundColorHint fg: NSColor?, backgroundColorHint bg: NSColor?, hotSpot: Point)
+  init(image newImage: NSImage, hotSpot aPoint: NSPoint)
+  convenience init(image newImage: NSImage, foregroundColorHint fg: NSColor?, backgroundColorHint bg: NSColor?, hotSpot: NSPoint)
   class func hide()
   class func unhide()
   class func setHiddenUntilMouseMoves(flag: Bool)
   class func pop()
   var image: NSImage { get }
-  var hotSpot: Point { get }
+  var hotSpot: NSPoint { get }
   func push()
   func pop()
   func set()
@@ -45,8 +45,8 @@ class NSCursor : Object, Coding {
   func mouseEntered(theEvent: NSEvent)
   func mouseExited(theEvent: NSEvent)
   convenience init()
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 
 extension NSCursor : CustomPlaygroundQuickLookable {

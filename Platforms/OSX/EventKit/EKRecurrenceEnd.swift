@@ -1,11 +1,11 @@
 
 @available(OSX 10.8, *)
-class EKRecurrenceEnd : Object, Copying {
-  convenience init(end endDate: Date)
+class EKRecurrenceEnd : NSObject, NSCopying {
+  convenience init(end endDate: NSDate)
   convenience init(occurrenceCount: Int)
-  var endDate: Date? { get }
+  var endDate: NSDate? { get }
   var occurrenceCount: Int { get }
   init()
   @available(OSX 10.8, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

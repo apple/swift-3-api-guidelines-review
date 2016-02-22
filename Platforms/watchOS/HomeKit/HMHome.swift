@@ -1,11 +1,11 @@
 
 @available(watchOS 20000, *)
-class HMHome : Object {
+class HMHome : NSObject {
   weak var delegate: @sil_weak HMHomeDelegate?
   var name: String { get }
   var isPrimary: Bool { get }
   @available(watchOS 2.0, *)
-  @NSCopying var uniqueIdentifier: UUID { get }
+  @NSCopying var uniqueIdentifier: NSUUID { get }
 }
 extension HMHome {
   var accessories: [HMAccessory] { get }
@@ -29,7 +29,7 @@ extension HMHome {
 }
 extension HMHome {
   var actionSets: [HMActionSet] { get }
-  func executeActionSet(actionSet: HMActionSet, completionHandler completion: (Error?) -> Void)
+  func executeActionSet(actionSet: HMActionSet, completionHandler completion: (NSError?) -> Void)
   @available(watchOS 2.0, *)
   func builtinActionSet(ofType actionSetType: String) -> HMActionSet?
 }
@@ -37,7 +37,7 @@ extension HMHome {
   var triggers: [HMTrigger] { get }
 }
 @available(watchOS 20000, *)
-protocol HMHomeDelegate : ObjectProtocol {
+protocol HMHomeDelegate : NSObjectProtocol {
   optional func homeDidUpdateName(home: HMHome)
   optional func home(home: HMHome, didAdd accessory: HMAccessory)
   optional func home(home: HMHome, didRemove accessory: HMAccessory)
@@ -66,7 +66,7 @@ protocol HMHomeDelegate : ObjectProtocol {
   optional func home(home: HMHome, didUpdateNameFor trigger: HMTrigger)
   optional func home(home: HMHome, didUpdate trigger: HMTrigger)
   optional func home(home: HMHome, didUnblockAccessory accessory: HMAccessory)
-  optional func home(home: HMHome, didEncounterError error: Error, for accessory: HMAccessory)
+  optional func home(home: HMHome, didEncounterError error: NSError, for accessory: HMAccessory)
 }
 @available(watchOS 20000, *)
 let HMUserFailedAccessoriesKey: String

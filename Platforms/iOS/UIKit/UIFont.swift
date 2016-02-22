@@ -1,6 +1,6 @@
 
 @available(iOS 2.0, *)
-class UIFont : Object, Copying {
+class UIFont : NSObject, NSCopying {
   @available(iOS 7.0, *)
   class func preferredFont(forTextStyle style: String) -> UIFont
   /*not inherited*/ init?(name fontName: String, size fontSize: CGFloat)
@@ -30,5 +30,5 @@ class UIFont : Object, Copying {
   func fontDescriptor() -> UIFontDescriptor
   init()
   @available(iOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

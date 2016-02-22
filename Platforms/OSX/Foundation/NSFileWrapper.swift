@@ -1,28 +1,28 @@
 
 @available(OSX 10.6, *)
-struct FileWrapperReadingOptions : OptionSetType {
+struct NSFileWrapperReadingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var immediate: FileWrapperReadingOptions { get }
-  static var withoutMapping: FileWrapperReadingOptions { get }
+  static var immediate: NSFileWrapperReadingOptions { get }
+  static var withoutMapping: NSFileWrapperReadingOptions { get }
 }
 @available(OSX 10.6, *)
-struct FileWrapperWritingOptions : OptionSetType {
+struct NSFileWrapperWritingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var atomic: FileWrapperWritingOptions { get }
-  static var withNameUpdating: FileWrapperWritingOptions { get }
+  static var atomic: NSFileWrapperWritingOptions { get }
+  static var withNameUpdating: NSFileWrapperWritingOptions { get }
 }
 @available(OSX 10.0, *)
-class FileWrapper : Object, Coding {
+class NSFileWrapper : NSObject, NSCoding {
   @available(OSX 10.6, *)
-  init(url: URL, options: FileWrapperReadingOptions = []) throws
-  init(directoryWithFileWrappers childrenByPreferredName: [String : FileWrapper])
-  init(regularFileWithContents contents: Data)
+  init(url: NSURL, options: NSFileWrapperReadingOptions = []) throws
+  init(directoryWithFileWrappers childrenByPreferredName: [String : NSFileWrapper])
+  init(regularFileWithContents contents: NSData)
   @available(OSX 10.6, *)
-  init(symbolicLinkWithDestinationURL url: URL)
-  init?(serializedRepresentation serializeRepresentation: Data)
-  init?(coder inCoder: Coder)
+  init(symbolicLinkWithDestinationURL url: NSURL)
+  init?(serializedRepresentation serializeRepresentation: NSData)
+  init?(coder inCoder: NSCoder)
   var isDirectory: Bool { get }
   var isRegularFile: Bool { get }
   var isSymbolicLink: Bool { get }
@@ -30,25 +30,25 @@ class FileWrapper : Object, Coding {
   var filename: String?
   var fileAttributes: [String : AnyObject]
   @available(OSX 10.6, *)
-  func matchesContentsOf(url: URL) -> Bool
+  func matchesContentsOf(url: NSURL) -> Bool
   @available(OSX 10.6, *)
-  func read(from url: URL, options: FileWrapperReadingOptions = []) throws
+  func read(from url: NSURL, options: NSFileWrapperReadingOptions = []) throws
   @available(OSX 10.6, *)
-  func write(to url: URL, options: FileWrapperWritingOptions = [], originalContentsURL: URL?) throws
-  @NSCopying var serializedRepresentation: Data? { get }
-  func add(child: FileWrapper) -> String
-  func addRegularFile(contents data: Data, preferredFilename fileName: String) -> String
-  func remove(child: FileWrapper)
-  var fileWrappers: [String : FileWrapper]? { get }
-  func key(for child: FileWrapper) -> String?
-  @NSCopying var regularFileContents: Data? { get }
+  func write(to url: NSURL, options: NSFileWrapperWritingOptions = [], originalContentsURL: NSURL?) throws
+  @NSCopying var serializedRepresentation: NSData? { get }
+  func add(child: NSFileWrapper) -> String
+  func addRegularFile(contents data: NSData, preferredFilename fileName: String) -> String
+  func remove(child: NSFileWrapper)
+  var fileWrappers: [String : NSFileWrapper]? { get }
+  func key(for child: NSFileWrapper) -> String?
+  @NSCopying var regularFileContents: NSData? { get }
   @available(OSX 10.6, *)
-  @NSCopying var symbolicLinkDestinationURL: URL? { get }
+  @NSCopying var symbolicLinkDestinationURL: NSURL? { get }
   convenience init()
   @available(OSX 10.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }
-extension FileWrapper {
+extension NSFileWrapper {
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use -initWithURL:options:error: instead.")
   convenience init?(path: String)
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use -initSymbolicLinkWithDestinationURL: and -setPreferredFileName:, if necessary, instead.")

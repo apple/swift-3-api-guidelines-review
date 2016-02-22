@@ -1,10 +1,10 @@
 
 @available(OSX 10.5, *)
-class NSMappingModel : Object {
-  /*not inherited*/ init?(from bundles: [Bundle]?, forSourceModel sourceModel: NSManagedObjectModel?, destinationModel: NSManagedObjectModel?)
+class NSMappingModel : NSObject {
+  /*not inherited*/ init?(from bundles: [NSBundle]?, forSourceModel sourceModel: NSManagedObjectModel?, destinationModel: NSManagedObjectModel?)
   @available(OSX 10.6, *)
   class func inferredMappingModel(forSourceModel sourceModel: NSManagedObjectModel, destinationModel: NSManagedObjectModel) throws -> NSMappingModel
-  init?(contentsOf url: URL?)
+  init?(contentsOf url: NSURL?)
   var entityMappings: [NSEntityMapping]!
   var entityMappingsByName: [String : NSEntityMapping] { get }
   init()

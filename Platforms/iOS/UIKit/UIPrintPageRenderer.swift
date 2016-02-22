@@ -1,6 +1,6 @@
 
 @available(iOS 4.2, *)
-class UIPrintPageRenderer : Object {
+class UIPrintPageRenderer : NSObject {
   var headerHeight: CGFloat
   var footerHeight: CGFloat
   var paperRect: CGRect { get }

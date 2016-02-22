@@ -11,9 +11,9 @@ enum SKBlendMode : Int {
   case screen
   case replace
 }
-class SKNode : NSResponder, Copying, Coding {
+class SKNode : NSResponder, NSCopying, NSCoding {
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init?(fileNamed filename: String)
   var frame: CGRect { get }
   func calculateAccumulatedFrame() -> CGRect
@@ -32,7 +32,7 @@ class SKNode : NSResponder, Copying, Coding {
   var name: String?
   var scene: SKScene? { get }
   var physicsBody: SKPhysicsBody?
-  var userData: MutableDictionary?
+  var userData: NSMutableDictionary?
   @NSCopying var reachConstraints: SKReachConstraints?
   var constraints: [SKConstraint]?
   func setScale(scale: CGFloat)
@@ -64,7 +64,7 @@ class SKNode : NSResponder, Copying, Coding {
   class func obstacles(fromSpriteTextures sprites: [SKNode], accuracy: Float) -> [AnyObject]
   class func obstacles(fromNodeBounds nodes: [SKNode]) -> [AnyObject]
   class func obstacles(fromNodePhysicsBodies nodes: [SKNode]) -> [AnyObject]
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 extension NSEvent {
   func location(in node: SKNode) -> CGPoint

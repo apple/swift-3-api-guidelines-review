@@ -9,7 +9,7 @@ struct CKRecordZoneCapabilities : OptionSetType {
 @available(tvOS 8.0, *)
 let CKRecordZoneDefaultName: String
 @available(tvOS 8.0, *)
-class CKRecordZone : Object, SecureCoding, Copying {
+class CKRecordZone : NSObject, NSSecureCoding, NSCopying {
   class func defaultRecordZone() -> CKRecordZone
   init(zoneName: String)
   init(zoneID: CKRecordZoneID)
@@ -18,8 +18,8 @@ class CKRecordZone : Object, SecureCoding, Copying {
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

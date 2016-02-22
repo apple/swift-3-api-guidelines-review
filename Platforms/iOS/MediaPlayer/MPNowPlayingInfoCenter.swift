@@ -1,6 +1,6 @@
 
 @available(iOS 5.0, *)
-class MPNowPlayingInfoCenter : Object {
+class MPNowPlayingInfoCenter : NSObject {
   class func defaultCenter() -> MPNowPlayingInfoCenter
   var nowPlayingInfo: [String : AnyObject]?
   init()

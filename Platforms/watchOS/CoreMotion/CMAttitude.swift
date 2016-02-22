@@ -29,7 +29,7 @@ struct CMAttitudeReferenceFrame : OptionSetType {
   static var xTrueNorthZVertical: CMAttitudeReferenceFrame { get }
 }
 @available(watchOS 2.0, *)
-class CMAttitude : Object, Copying, SecureCoding {
+class CMAttitude : NSObject, NSCopying, NSSecureCoding {
   var roll: Double { get }
   var pitch: Double { get }
   var yaw: Double { get }
@@ -38,10 +38,10 @@ class CMAttitude : Object, Copying, SecureCoding {
   func multiply(byInverseOf attitude: CMAttitude)
   init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

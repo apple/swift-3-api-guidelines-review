@@ -1,22 +1,22 @@
 
 @available(OSX 10.10, *)
-class ExtensionItem : Object, Copying, SecureCoding {
-  @NSCopying var attributedTitle: AttributedString?
-  @NSCopying var attributedContentText: AttributedString?
+class NSExtensionItem : NSObject, NSCopying, NSSecureCoding {
+  @NSCopying var attributedTitle: NSAttributedString?
+  @NSCopying var attributedContentText: NSAttributedString?
   var attachments: [AnyObject]?
-  var userInfo: [Object : AnyObject]?
+  var userInfo: [NSObject : AnyObject]?
   init()
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
-let extensionItemAttributedTitleKey: String
+let NSExtensionItemAttributedTitleKey: String
 @available(OSX 10.10, *)
-let extensionItemAttributedContentTextKey: String
+let NSExtensionItemAttributedContentTextKey: String
 @available(OSX 10.10, *)
-let extensionItemAttachmentsKey: String
+let NSExtensionItemAttachmentsKey: String

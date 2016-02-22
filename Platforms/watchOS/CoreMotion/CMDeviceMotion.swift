@@ -23,5 +23,5 @@ class CMDeviceMotion : CMLogItem {
   @available(watchOS 2.0, *)
   var magneticField: CMCalibratedMagneticField { get }
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

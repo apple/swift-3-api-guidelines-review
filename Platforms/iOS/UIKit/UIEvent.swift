@@ -25,12 +25,12 @@ enum UIEventSubtype : Int {
   case remoteControlEndSeekingForward
 }
 @available(iOS 2.0, *)
-class UIEvent : Object {
+class UIEvent : NSObject {
   @available(iOS 3.0, *)
   var type: UIEventType { get }
   @available(iOS 3.0, *)
   var subtype: UIEventSubtype { get }
-  var timestamp: TimeInterval { get }
+  var timestamp: NSTimeInterval { get }
   func allTouches() -> Set<UITouch>?
   func touches(for window: UIWindow) -> Set<UITouch>?
   func touches(for view: UIView) -> Set<UITouch>?

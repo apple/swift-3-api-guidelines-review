@@ -17,5 +17,5 @@ class CAMetalLayer : CALayer {
   var wantsExtendedDynamicRangeContent: Bool
   init()
   init(layer: AnyObject)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

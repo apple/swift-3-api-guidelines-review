@@ -5,10 +5,10 @@ class SKVideoNode : SKNode {
   @available(OSX 10.10, *)
   init(fileNamed videoFile: String)
   @available(OSX, introduced=10.8, deprecated=10.10)
-  init(videoURL url: URL)
+  init(videoURL url: NSURL)
   @available(OSX 10.10, *)
-  init(url: URL)
-  init?(coder aDecoder: Coder)
+  init(url: NSURL)
+  init?(coder aDecoder: NSCoder)
   func play()
   func pause()
   var size: CGSize

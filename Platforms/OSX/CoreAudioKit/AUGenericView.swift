@@ -11,8 +11,8 @@ class AUGenericView : NSView, AUCustomViewPersistentData {
   var showsExpertParameters: Bool
   init(audioUnit au: AudioUnit)
   init(audioUnit inAudioUnit: AudioUnit, displayFlags inFlags: AUGenericViewDisplayFlags)
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
   var customViewPersistentData: [String : AnyObject]?
 }

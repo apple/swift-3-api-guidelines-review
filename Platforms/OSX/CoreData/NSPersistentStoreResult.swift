@@ -16,14 +16,14 @@ enum NSBatchDeleteRequestResultType : UInt {
   case resultTypeCount
 }
 @available(OSX 10.10, *)
-class NSPersistentStoreResult : Object {
+class NSPersistentStoreResult : NSObject {
   init()
 }
 @available(OSX 10.10, *)
 class NSPersistentStoreAsynchronousResult : NSPersistentStoreResult {
   var managedObjectContext: NSManagedObjectContext { get }
-  var operationError: Error? { get }
-  var progress: Progress? { get }
+  var operationError: NSError? { get }
+  var progress: NSProgress? { get }
   func cancel()
   init()
 }

@@ -10,15 +10,15 @@ struct NSFetchRequestResultType : OptionSetType {
   static var countResultType: NSFetchRequestResultType { get }
 }
 @available(OSX 10.4, *)
-class NSFetchRequest : NSPersistentStoreRequest, Coding {
+class NSFetchRequest : NSPersistentStoreRequest, NSCoding {
   init()
   @available(OSX 10.7, *)
   convenience init(entityName: String)
   var entity: NSEntityDescription?
   @available(OSX 10.7, *)
   var entityName: String? { get }
-  var predicate: Predicate?
-  var sortDescriptors: [SortDescriptor]?
+  var predicate: NSPredicate?
+  var sortDescriptors: [NSSortDescriptor]?
   var fetchLimit: Int
   var affectedStores: [NSPersistentStore]?
   @available(OSX 10.5, *)
@@ -46,10 +46,10 @@ class NSFetchRequest : NSPersistentStoreRequest, Coding {
   @available(OSX 10.7, *)
   var propertiesToGroupBy: [AnyObject]?
   @available(OSX 10.7, *)
-  var havingPredicate: Predicate?
+  var havingPredicate: NSPredicate?
   @available(OSX 10.4, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 struct _fetchRequestFlags {
   var distinctValuesOnly: UInt32

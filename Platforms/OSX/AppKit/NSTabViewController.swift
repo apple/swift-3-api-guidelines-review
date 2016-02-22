@@ -28,13 +28,13 @@ class NSTabViewController : NSViewController, NSTabViewDelegate, NSToolbarDelega
   func toolbarDefaultItemIdentifiers(toolbar: NSToolbar) -> [String]
   func toolbarAllowedItemIdentifiers(toolbar: NSToolbar) -> [String]
   func toolbarSelectableItemIdentifiers(toolbar: NSToolbar) -> [String]
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder: Coder)
+  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder: NSCoder)
   convenience init()
   @available(OSX 10.10, *)
   func tabViewDidChangeNumberOf(tabViewItems tabView: NSTabView)
   @available(OSX 10.10, *)
-  func toolbarWillAddItem(notification: Notification)
+  func toolbarWillAddItem(notification: NSNotification)
   @available(OSX 10.10, *)
-  func toolbarDidRemoveItem(notification: Notification)
+  func toolbarDidRemoveItem(notification: NSNotification)
 }

@@ -1,4 +1,4 @@
 
 typealias UIAccelerationValue = Double
-protocol UIAccelerometerDelegate : ObjectProtocol {
+protocol UIAccelerometerDelegate : NSObjectProtocol {
 }

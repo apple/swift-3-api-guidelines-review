@@ -1,18 +1,18 @@
 
 @available(OSX 10.4, *)
-class NSPropertyDescription : Object, Coding, Copying {
+class NSPropertyDescription : NSObject, NSCoding, NSCopying {
   unowned(unsafe) var entity: @sil_unmanaged NSEntityDescription { get }
   var name: String
   var isOptional: Bool
   var isTransient: Bool
-  var validationPredicates: [Predicate] { get }
+  var validationPredicates: [NSPredicate] { get }
   var validationWarnings: [AnyObject] { get }
-  func setValidationPredicates(validationPredicates: [Predicate]?, withValidationWarnings validationWarnings: [String]?)
-  var userInfo: [Object : AnyObject]?
+  func setValidationPredicates(validationPredicates: [NSPredicate]?, withValidationWarnings validationWarnings: [String]?)
+  var userInfo: [NSObject : AnyObject]?
   @available(OSX 10.5, *)
   var isIndexed: Bool
   @available(OSX 10.5, *)
-  @NSCopying var versionHash: Data { get }
+  @NSCopying var versionHash: NSData { get }
   @available(OSX 10.5, *)
   var versionHashModifier: String?
   @available(OSX 10.6, *)
@@ -23,10 +23,10 @@ class NSPropertyDescription : Object, Coding, Copying {
   var renamingIdentifier: String?
   init()
   @available(OSX 10.4, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.4, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 struct __propertyDescriptionFlags {
   var _isReadOnly: UInt32

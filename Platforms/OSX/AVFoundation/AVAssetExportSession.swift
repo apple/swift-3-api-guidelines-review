@@ -46,16 +46,16 @@ enum AVAssetExportSessionStatus : Int {
   case cancelled
 }
 @available(OSX 10.7, *)
-class AVAssetExportSession : Object {
+class AVAssetExportSession : NSObject {
   init?(asset: AVAsset, presetName: String)
   var presetName: String { get }
   @available(OSX 10.8, *)
   var asset: AVAsset { get }
   var outputFileType: String?
-  @NSCopying var outputURL: URL?
+  @NSCopying var outputURL: NSURL?
   var shouldOptimizeForNetworkUse: Bool
   var status: AVAssetExportSessionStatus { get }
-  var error: Error? { get }
+  var error: NSError? { get }
   func exportAsynchronously(completionHandler handler: () -> Void)
   var progress: Float { get }
   func cancelExport()
@@ -93,5 +93,5 @@ extension AVAssetExportSession {
   @available(OSX 10.10, *)
   var canPerformMultiplePassesOverSourceMediaData: Bool
   @available(OSX 10.10, *)
-  @NSCopying var directoryForTemporaryFiles: URL?
+  @NSCopying var directoryForTemporaryFiles: NSURL?
 }

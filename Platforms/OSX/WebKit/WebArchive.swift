@@ -1,14 +1,14 @@
 
 let WebArchivePboardType: String
-class WebArchive : Object, Coding, Copying {
+class WebArchive : NSObject, NSCoding, NSCopying {
   init!(mainResource: WebResource!, subresources: [AnyObject]!, subframeArchives: [AnyObject]!)
-  init!(data: Data!)
+  init!(data: NSData!)
   var mainResource: WebResource! { get }
   var subresources: [AnyObject]! { get }
   var subframeArchives: [AnyObject]! { get }
-  @NSCopying var data: Data! { get }
+  @NSCopying var data: NSData! { get }
   init()
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

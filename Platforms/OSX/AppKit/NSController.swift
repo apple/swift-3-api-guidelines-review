@@ -1,14 +1,14 @@
 
-class NSController : Object, Coding {
+class NSController : NSObject, NSCoding {
   init()
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   func objectDidBeginEditing(editor: AnyObject)
   func objectDidEndEditing(editor: AnyObject)
   func discardEditing()
   func commitEditing() -> Bool
   func commitEditing(delegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   var isEditing: Bool { get }
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }
 struct __bindingsControllerFlags {
   var _alwaysPresentsApplicationModalAlerts: UInt32

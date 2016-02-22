@@ -13,7 +13,7 @@ enum GKLeaderboardPlayerScope : Int {
   case friendsOnly
 }
 @available(iOS 4.1, *)
-class GKLeaderboard : Object {
+class GKLeaderboard : NSObject {
   var timeScope: GKLeaderboardTimeScope
   var playerScope: GKLeaderboardPlayerScope
   @available(iOS 7.0, *)
@@ -29,9 +29,9 @@ class GKLeaderboard : Object {
   init()
   @available(iOS 8.0, *)
   init(players: [GKPlayer])
-  func loadScores(completionHandler completionHandler: (([GKScore]?, Error?) -> Void)? = nil)
+  func loadScores(completionHandler completionHandler: (([GKScore]?, NSError?) -> Void)? = nil)
   @available(iOS 6.0, *)
-  class func loadLeaderboards(completionHandler completionHandler: (([GKLeaderboard]?, Error?) -> Void)? = nil)
+  class func loadLeaderboards(completionHandler completionHandler: (([GKLeaderboard]?, NSError?) -> Void)? = nil)
 }
 extension GKLeaderboard {
   @available(iOS, introduced=4.1, deprecated=8.0, message="Use initWithPlayers: instead")
@@ -39,5 +39,5 @@ extension GKLeaderboard {
 }
 extension GKLeaderboard {
   @available(iOS 7.0, *)
-  func loadImage(completionHandler completionHandler: ((UIImage?, Error?) -> Void)? = nil)
+  func loadImage(completionHandler completionHandler: ((UIImage?, NSError?) -> Void)? = nil)
 }

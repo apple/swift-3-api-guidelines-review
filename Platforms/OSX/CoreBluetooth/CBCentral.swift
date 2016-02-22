@@ -1,9 +1,9 @@
 
 @available(OSX 10.9, *)
-class CBCentral : Object, Copying {
-  var identifier: UUID { get }
+class CBCentral : NSObject, NSCopying {
+  var identifier: NSUUID { get }
   var maximumUpdateValueLength: Int { get }
   init()
   @available(OSX 10.9, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

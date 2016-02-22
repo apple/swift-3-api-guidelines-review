@@ -1,16 +1,16 @@
 
-class NSSet : Object, Copying, MutableCopying, SecureCoding, FastEnumeration {
+class NSSet : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration {
   var count: Int { get }
   func member(object: AnyObject) -> AnyObject?
-  func objectEnumerator() -> Enumerator
+  func objectEnumerator() -> NSEnumerator
   init()
   init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
-  init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  init?(coder aDecoder: NSCoder)
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func encode(with aCoder: NSCoder)
+  func countByEnumerating(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSSet : SequenceType {
@@ -41,63 +41,63 @@ extension NSSet {
   func contains(anObject: AnyObject) -> Bool
   var description: String { get }
   func description(withLocale locale: AnyObject?) -> String
-  func intersects(otherSet: Set<Object>) -> Bool
-  func isEqual(to otherSet: Set<Object>) -> Bool
-  func isSubsetOf(otherSet: Set<Object>) -> Bool
+  func intersects(otherSet: Set<NSObject>) -> Bool
+  func isEqual(to otherSet: Set<NSObject>) -> Bool
+  func isSubsetOf(otherSet: Set<NSObject>) -> Bool
   @available(iOS 2.0, *)
-  func adding(anObject: AnyObject) -> Set<Object>
+  func adding(anObject: AnyObject) -> Set<NSObject>
   @available(iOS 2.0, *)
-  func addingObjects(from other: Set<Object>) -> Set<Object>
+  func addingObjects(from other: Set<NSObject>) -> Set<NSObject>
   @available(iOS 2.0, *)
-  func addingObjects(from other: [AnyObject]) -> Set<Object>
+  func addingObjects(from other: [AnyObject]) -> Set<NSObject>
   @available(iOS 4.0, *)
   func enumerateObjects(block: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(iOS 4.0, *)
-  func enumerateObjects(opts: EnumerationOptions = [], using block: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjects(opts: NSEnumerationOptions = [], using block: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(iOS 4.0, *)
-  func objects(passingTest predicate: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
+  func objects(passingTest predicate: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<NSObject>
   @available(iOS 4.0, *)
-  func objects(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
+  func objects(opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<NSObject>
 }
 extension NSSet {
   convenience init(object: AnyObject)
-  convenience init(set: Set<Object>)
-  convenience init(set: Set<Object>, copyItems flag: Bool)
+  convenience init(set: Set<NSObject>)
+  convenience init(set: Set<NSObject>, copyItems flag: Bool)
   convenience init(array: [AnyObject])
 }
-class MutableSet : NSSet {
+class NSMutableSet : NSSet {
   func add(object: AnyObject)
   func remove(object: AnyObject)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   init()
   init(capacity numItems: Int)
   convenience init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
   convenience init(object: AnyObject)
-  convenience init(set: Set<Object>)
-  convenience init(set: Set<Object>, copyItems flag: Bool)
+  convenience init(set: Set<NSObject>)
+  convenience init(set: Set<NSObject>, copyItems flag: Bool)
   convenience init(array: [AnyObject])
 }
-extension MutableSet {
+extension NSMutableSet {
   func addObjects(from array: [AnyObject])
-  func intersect(otherSet: Set<Object>)
-  func minus(otherSet: Set<Object>)
+  func intersect(otherSet: Set<NSObject>)
+  func minus(otherSet: Set<NSObject>)
   func removeAllObjects()
-  func union(otherSet: Set<Object>)
-  func setSet(otherSet: Set<Object>)
+  func union(otherSet: Set<NSObject>)
+  func setSet(otherSet: Set<NSObject>)
 }
-extension MutableSet {
+extension NSMutableSet {
 }
-class CountedSet : MutableSet {
+class NSCountedSet : NSMutableSet {
   init(capacity numItems: Int)
   convenience init(array: [AnyObject])
-  convenience init(set: Set<Object>)
+  convenience init(set: Set<NSObject>)
   func count(for object: AnyObject) -> Int
-  func objectEnumerator() -> Enumerator
+  func objectEnumerator() -> NSEnumerator
   func add(object: AnyObject)
   func remove(object: AnyObject)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
   convenience init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
   convenience init(object: AnyObject)
-  convenience init(set: Set<Object>, copyItems flag: Bool)
+  convenience init(set: Set<NSObject>, copyItems flag: Bool)
 }

@@ -1,5 +1,5 @@
 
-protocol UITextViewDelegate : ObjectProtocol, UIScrollViewDelegate {
+protocol UITextViewDelegate : NSObjectProtocol, UIScrollViewDelegate {
   @available(iOS 2.0, *)
   optional func textViewShouldBeginEditing(textView: UITextView) -> Bool
   @available(iOS 2.0, *)
@@ -15,7 +15,7 @@ protocol UITextViewDelegate : ObjectProtocol, UIScrollViewDelegate {
   @available(iOS 2.0, *)
   optional func textViewDidChangeSelection(textView: UITextView)
   @available(iOS 7.0, *)
-  optional func textView(textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool
+  optional func textView(textView: UITextView, shouldInteractWith URL: NSURL, in characterRange: NSRange) -> Bool
   @available(iOS 7.0, *)
   optional func textView(textView: UITextView, shouldInteractWith textAttachment: NSTextAttachment, in characterRange: NSRange) -> Bool
 }
@@ -35,7 +35,7 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 6.0, *)
   var allowsEditingTextAttributes: Bool
   @available(iOS 6.0, *)
-  @NSCopying var attributedText: AttributedString!
+  @NSCopying var attributedText: NSAttributedString!
   @available(iOS 6.0, *)
   var typingAttributes: [String : AnyObject]
   func scrollRangeToVisible(range: NSRange)
@@ -45,7 +45,7 @@ class UITextView : UIScrollView, UITextInput {
   var clearsOnInsertion: Bool
   @available(iOS 7.0, *)
   init(frame: CGRect, textContainer: NSTextContainer?)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 7.0, *)
   var textContainer: NSTextContainer { get }
   @available(iOS 7.0, *)
@@ -67,7 +67,7 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 3.2, *)
   var markedTextRange: UITextRange? { get }
   @available(iOS 2.0, *)
-  var markedTextStyle: [Object : AnyObject]?
+  var markedTextStyle: [NSObject : AnyObject]?
   @available(iOS 2.0, *)
   func setMarkedText(markedText: String?, selectedRange: NSRange)
   @available(iOS 2.0, *)
@@ -83,7 +83,7 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 3.2, *)
   func position(from position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func compare(position: UITextPosition, to other: UITextPosition) -> ComparisonResult
+  func compare(position: UITextPosition, to other: UITextPosition) -> NSComparisonResult
   @available(iOS 3.2, *)
   func offset(from from: UITextPosition, to toPosition: UITextPosition) -> Int
   @available(iOS 2.0, *)

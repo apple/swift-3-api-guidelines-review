@@ -14,10 +14,10 @@ class SLComposeViewController : UIViewController {
   func setInitialText(text: String!) -> Bool
   func add(image: UIImage!) -> Bool
   func removeAllImages() -> Bool
-  func add(url: URL!) -> Bool
+  func add(url: NSURL!) -> Bool
   func removeAllURLs() -> Bool
   var completionHandler: SLComposeViewControllerCompletionHandler!
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }

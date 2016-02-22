@@ -7,12 +7,12 @@ enum SCNBufferFrequency : Int {
   case perNode
   case perShadable
 }
-protocol SCNBufferStream : ObjectProtocol {
+protocol SCNBufferStream : NSObjectProtocol {
   func writeBytes(bytes: UnsafeMutablePointer<Void>, length: Int)
 }
 typealias SCNBufferBindingBlock = (SCNBufferStream, SCNNode, SCNShadable, SCNRenderer) -> Void
 typealias SCNBindingBlock = (UInt32, UInt32, SCNNode, SCNRenderer) -> Void
-protocol SCNShadable : ObjectProtocol {
+protocol SCNShadable : NSObjectProtocol {
   @available(OSX 10.8, *)
   optional var program: SCNProgram? { get set }
   @available(OSX 10.9, *)
@@ -24,7 +24,7 @@ protocol SCNShadable : ObjectProtocol {
 }
 let SCNProgramMappingChannelKey: String
 @available(OSX 10.8, *)
-class SCNProgram : Object, Copying, SecureCoding {
+class SCNProgram : NSObject, NSCopying, NSSecureCoding {
   var vertexShader: String?
   var fragmentShader: String?
   @available(OSX 10.10, *)
@@ -48,20 +48,20 @@ class SCNProgram : Object, Copying, SecureCoding {
   var library: MTLLibrary?
   init()
   @available(OSX 10.8, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
-protocol SCNProgramDelegate : ObjectProtocol {
+protocol SCNProgramDelegate : NSObjectProtocol {
   @available(OSX, introduced=10.8, deprecated=10.10)
   optional func program(program: SCNProgram, bindValueForSymbol symbol: String, atLocation location: UInt32, programID: UInt32, renderer: SCNRenderer) -> Bool
   @available(OSX, introduced=10.8, deprecated=10.10)
   optional func program(program: SCNProgram, unbindValueForSymbol symbol: String, atLocation location: UInt32, programID: UInt32, renderer: SCNRenderer)
   @available(OSX 10.8, *)
-  optional func program(program: SCNProgram, handleError error: Error)
+  optional func program(program: SCNProgram, handleError error: NSError)
   @available(OSX, introduced=10.8, deprecated=10.10)
   optional func programIsOpaque(program: SCNProgram) -> Bool
 }

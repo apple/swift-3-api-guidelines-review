@@ -32,7 +32,7 @@ enum CLActivityType : Int {
   case otherNavigation
 }
 @available(iOS 2.0, *)
-class CLLocationManager : Object {
+class CLLocationManager : NSObject {
   @available(iOS 4.0, *)
   class func locationServicesEnabled() -> Bool
   @available(iOS 4.0, *)
@@ -96,7 +96,7 @@ class CLLocationManager : Object {
   @available(iOS 7.0, *)
   func stopRangingBeacons(in region: CLBeaconRegion)
   @available(iOS 6.0, *)
-  func allowDeferredLocationUpdates(untilTraveled distance: CLLocationDistance, timeout: TimeInterval)
+  func allowDeferredLocationUpdates(untilTraveled distance: CLLocationDistance, timeout: NSTimeInterval)
   @available(iOS 6.0, *)
   func disallowDeferredLocationUpdates()
   @available(iOS 6.0, *)

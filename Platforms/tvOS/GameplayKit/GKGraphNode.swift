@@ -1,6 +1,6 @@
 
 @available(tvOS 9.0, *)
-class GKGraphNode : Object {
+class GKGraphNode : NSObject {
   var connectedNodes: [GKGraphNode] { get }
   func addConnections(to nodes: [GKGraphNode], bidirectional: Bool)
   func removeConnections(to nodes: [GKGraphNode], bidirectional: Bool)

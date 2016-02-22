@@ -8,19 +8,19 @@ class DREraseProgressPanel : NSPanel {
   func begin(for erase: DRErase!)
   func setDescription(description: String!)
   func description() -> String!
-  init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
-  convenience init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   convenience init?(windowRef: UnsafeMutablePointer<Void>)
 }
-extension Object {
-  class func eraseProgressPanelWillBegin(aNotification: Notification!)
-  func eraseProgressPanelWillBegin(aNotification: Notification!)
-  class func eraseProgressPanelDidFinish(aNotification: Notification!)
-  func eraseProgressPanelDidFinish(aNotification: Notification!)
+extension NSObject {
+  class func eraseProgressPanelWillBegin(aNotification: NSNotification!)
+  func eraseProgressPanelWillBegin(aNotification: NSNotification!)
+  class func eraseProgressPanelDidFinish(aNotification: NSNotification!)
+  func eraseProgressPanelDidFinish(aNotification: NSNotification!)
   class func eraseProgressPanel(theErasePanel: DREraseProgressPanel!, eraseDidFinish erase: DRErase!) -> Bool
   func eraseProgressPanel(theErasePanel: DREraseProgressPanel!, eraseDidFinish erase: DRErase!) -> Bool
 }

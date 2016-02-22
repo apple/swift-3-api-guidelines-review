@@ -10,5 +10,5 @@ struct CMRotationRate {
 class CMGyroData : CMLogItem {
   var rotationRate: CMRotationRate { get }
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

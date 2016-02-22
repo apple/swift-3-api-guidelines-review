@@ -1,70 +1,70 @@
 
-enum SaveOptions : UInt {
+enum NSSaveOptions : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case yes
   case no
   case ask
 }
-class CloneCommand : ScriptCommand {
-  func setReceiversSpecifier(receiversRef: ScriptObjectSpecifier?)
-  var keySpecifier: ScriptObjectSpecifier { get }
-  init(commandDescription commandDef: ScriptCommandDescription)
-  init?(coder inCoder: Coder)
+class NSCloneCommand : NSScriptCommand {
+  func setReceiversSpecifier(receiversRef: NSScriptObjectSpecifier?)
+  var keySpecifier: NSScriptObjectSpecifier { get }
+  init(commandDescription commandDef: NSScriptCommandDescription)
+  init?(coder inCoder: NSCoder)
   convenience init()
 }
-class CloseCommand : ScriptCommand {
-  var saveOptions: SaveOptions { get }
-  init(commandDescription commandDef: ScriptCommandDescription)
-  init?(coder inCoder: Coder)
+class NSCloseCommand : NSScriptCommand {
+  var saveOptions: NSSaveOptions { get }
+  init(commandDescription commandDef: NSScriptCommandDescription)
+  init?(coder inCoder: NSCoder)
   convenience init()
 }
-class CountCommand : ScriptCommand {
-  init(commandDescription commandDef: ScriptCommandDescription)
-  init?(coder inCoder: Coder)
+class NSCountCommand : NSScriptCommand {
+  init(commandDescription commandDef: NSScriptCommandDescription)
+  init?(coder inCoder: NSCoder)
   convenience init()
 }
-class CreateCommand : ScriptCommand {
-  var createClassDescription: ScriptClassDescription { get }
+class NSCreateCommand : NSScriptCommand {
+  var createClassDescription: NSScriptClassDescription { get }
   var resolvedKeyDictionary: [String : AnyObject] { get }
-  init(commandDescription commandDef: ScriptCommandDescription)
-  init?(coder inCoder: Coder)
+  init(commandDescription commandDef: NSScriptCommandDescription)
+  init?(coder inCoder: NSCoder)
   convenience init()
 }
-class DeleteCommand : ScriptCommand {
-  func setReceiversSpecifier(receiversRef: ScriptObjectSpecifier?)
-  var keySpecifier: ScriptObjectSpecifier { get }
-  init(commandDescription commandDef: ScriptCommandDescription)
-  init?(coder inCoder: Coder)
+class NSDeleteCommand : NSScriptCommand {
+  func setReceiversSpecifier(receiversRef: NSScriptObjectSpecifier?)
+  var keySpecifier: NSScriptObjectSpecifier { get }
+  init(commandDescription commandDef: NSScriptCommandDescription)
+  init?(coder inCoder: NSCoder)
   convenience init()
 }
-class ExistsCommand : ScriptCommand {
-  init(commandDescription commandDef: ScriptCommandDescription)
-  init?(coder inCoder: Coder)
+class NSExistsCommand : NSScriptCommand {
+  init(commandDescription commandDef: NSScriptCommandDescription)
+  init?(coder inCoder: NSCoder)
   convenience init()
 }
-class GetCommand : ScriptCommand {
-  init(commandDescription commandDef: ScriptCommandDescription)
-  init?(coder inCoder: Coder)
+class NSGetCommand : NSScriptCommand {
+  init(commandDescription commandDef: NSScriptCommandDescription)
+  init?(coder inCoder: NSCoder)
   convenience init()
 }
-class MoveCommand : ScriptCommand {
-  func setReceiversSpecifier(receiversRef: ScriptObjectSpecifier?)
-  var keySpecifier: ScriptObjectSpecifier { get }
-  init(commandDescription commandDef: ScriptCommandDescription)
-  init?(coder inCoder: Coder)
+class NSMoveCommand : NSScriptCommand {
+  func setReceiversSpecifier(receiversRef: NSScriptObjectSpecifier?)
+  var keySpecifier: NSScriptObjectSpecifier { get }
+  init(commandDescription commandDef: NSScriptCommandDescription)
+  init?(coder inCoder: NSCoder)
   convenience init()
 }
-class QuitCommand : ScriptCommand {
-  var saveOptions: SaveOptions { get }
-  init(commandDescription commandDef: ScriptCommandDescription)
-  init?(coder inCoder: Coder)
+class NSQuitCommand : NSScriptCommand {
+  var saveOptions: NSSaveOptions { get }
+  init(commandDescription commandDef: NSScriptCommandDescription)
+  init?(coder inCoder: NSCoder)
   convenience init()
 }
-class SetCommand : ScriptCommand {
-  func setReceiversSpecifier(receiversRef: ScriptObjectSpecifier?)
-  var keySpecifier: ScriptObjectSpecifier { get }
-  init(commandDescription commandDef: ScriptCommandDescription)
-  init?(coder inCoder: Coder)
+class NSSetCommand : NSScriptCommand {
+  func setReceiversSpecifier(receiversRef: NSScriptObjectSpecifier?)
+  var keySpecifier: NSScriptObjectSpecifier { get }
+  init(commandDescription commandDef: NSScriptCommandDescription)
+  init?(coder inCoder: NSCoder)
   convenience init()
 }

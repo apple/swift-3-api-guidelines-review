@@ -1,6 +1,6 @@
 
 @available(tvOS 5.0, *)
-class GLKBaseEffect : Object, GLKNamedEffect {
+class GLKBaseEffect : NSObject, GLKNamedEffect {
   func prepareToDraw()
   var colorMaterialEnabled: GLboolean
   var lightModelTwoSided: GLboolean

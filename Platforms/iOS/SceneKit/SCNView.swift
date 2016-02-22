@@ -27,10 +27,10 @@ class SCNView : UIView, SCNSceneRenderer, SCNTechniqueSupport {
   @available(iOS 8.0, *)
   var antialiasingMode: SCNAntialiasingMode
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
   @available(iOS 8.0, *)
-  var sceneTime: TimeInterval
+  var sceneTime: NSTimeInterval
   unowned(unsafe) var delegate: @sil_unmanaged SCNSceneRendererDelegate?
   @available(iOS 8.0, *)
   func hitTest(point: CGPoint, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]

@@ -1,6 +1,6 @@
 
 @available(OSX 10.8, *)
-class AVB17221ACMPMessage : Object, Copying {
+class AVB17221ACMPMessage : NSObject, NSCopying {
   var messageType: AVB17221ACMPMessageType
   var status: AVB17221ACMPStatusCode
   var streamID: UInt64
@@ -20,5 +20,5 @@ class AVB17221ACMPMessage : Object, Copying {
   @NSCopying var sourceMAC: AVBMACAddress?
   init()
   @available(OSX 10.8, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

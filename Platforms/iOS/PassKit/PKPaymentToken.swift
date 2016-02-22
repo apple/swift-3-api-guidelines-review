@@ -1,6 +1,6 @@
 
 @available(iOS 8.0, *)
-class PKPaymentToken : Object {
+class PKPaymentToken : NSObject {
   @available(iOS 9.0, *)
   var paymentMethod: PKPaymentMethod { get }
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use paymentMethod instead")
@@ -8,6 +8,6 @@ class PKPaymentToken : Object {
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use paymentMethod instead")
   var paymentNetwork: String { get }
   var transactionIdentifier: String { get }
-  var paymentData: Data { get }
+  var paymentData: NSData { get }
   init()
 }

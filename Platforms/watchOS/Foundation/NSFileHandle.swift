@@ -1,9 +1,9 @@
 
-class FileHandle : Object, SecureCoding {
-  @NSCopying var availableData: Data { get }
-  func readDataToEndOfFile() -> Data
-  func readData(ofLength length: Int) -> Data
-  func write(data: Data)
+class NSFileHandle : NSObject, NSSecureCoding {
+  @NSCopying var availableData: NSData { get }
+  func readDataToEndOfFile() -> NSData
+  func readData(ofLength length: Int) -> NSData
+  func write(data: NSData)
   var offsetInFile: UInt64 { get }
   func seekToEndOfFile() -> UInt64
   func seek(toFileOffset offset: UInt64)
@@ -11,36 +11,36 @@ class FileHandle : Object, SecureCoding {
   func synchronizeFile()
   func closeFile()
   init(fileDescriptor fd: Int32, closeOnDealloc closeopt: Bool)
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   convenience init()
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }
-extension FileHandle {
-  class func withStandardInput() -> FileHandle
-  class func withStandardOutput() -> FileHandle
-  class func withStandardError() -> FileHandle
-  class func withNullDevice() -> FileHandle
+extension NSFileHandle {
+  class func withStandardInput() -> NSFileHandle
+  class func withStandardOutput() -> NSFileHandle
+  class func withStandardError() -> NSFileHandle
+  class func withNullDevice() -> NSFileHandle
   convenience init?(forReadingAtPath path: String)
   convenience init?(forWritingAtPath path: String)
   convenience init?(forUpdatingAtPath path: String)
   @available(watchOS 2.0, *)
-  convenience init(forReadingFrom url: URL) throws
+  convenience init(forReadingFrom url: NSURL) throws
   @available(watchOS 2.0, *)
-  convenience init(forWritingTo url: URL) throws
+  convenience init(forWritingTo url: NSURL) throws
   @available(watchOS 2.0, *)
-  convenience init(forUpdating url: URL) throws
+  convenience init(forUpdating url: NSURL) throws
 }
-let fileHandleOperationException: String
-let fileHandleReadCompletionNotification: String
-let fileHandleReadToEndOfFileCompletionNotification: String
-let fileHandleConnectionAcceptedNotification: String
-let fileHandleDataAvailableNotification: String
-let fileHandleNotificationDataItem: String
-let fileHandleNotificationFileHandleItem: String
+let NSFileHandleOperationException: String
+let NSFileHandleReadCompletionNotification: String
+let NSFileHandleReadToEndOfFileCompletionNotification: String
+let NSFileHandleConnectionAcceptedNotification: String
+let NSFileHandleDataAvailableNotification: String
+let NSFileHandleNotificationDataItem: String
+let NSFileHandleNotificationFileHandleItem: String
 @available(watchOS, introduced=2.0, deprecated=2.0)
-let fileHandleNotificationMonitorModes: String
-extension FileHandle {
+let NSFileHandleNotificationMonitorModes: String
+extension NSFileHandle {
   func readInBackgroundAndNotify(forModes modes: [String]?)
   func readInBackgroundAndNotify()
   func readToEndOfFileInBackgroundAndNotify(forModes modes: [String]?)
@@ -50,16 +50,16 @@ extension FileHandle {
   func waitForDataInBackgroundAndNotify(forModes modes: [String]?)
   func waitForDataInBackgroundAndNotify()
   @available(watchOS 2.0, *)
-  var readabilityHandler: ((FileHandle) -> Void)?
+  var readabilityHandler: ((NSFileHandle) -> Void)?
   @available(watchOS 2.0, *)
-  var writeabilityHandler: ((FileHandle) -> Void)?
+  var writeabilityHandler: ((NSFileHandle) -> Void)?
 }
-extension FileHandle {
+extension NSFileHandle {
   convenience init(fileDescriptor fd: Int32)
   var fileDescriptor: Int32 { get }
 }
-class Pipe : Object {
-  var fileHandleForReading: FileHandle { get }
-  var fileHandleForWriting: FileHandle { get }
+class NSPipe : NSObject {
+  var fileHandleForReading: NSFileHandle { get }
+  var fileHandleForWriting: NSFileHandle { get }
   init()
 }

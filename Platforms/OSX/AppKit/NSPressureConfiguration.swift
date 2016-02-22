@@ -1,6 +1,6 @@
 
 @available(OSX 10.10.3, *)
-class NSPressureConfiguration : Object {
+class NSPressureConfiguration : NSObject {
   var pressureBehavior: NSPressureBehavior { get }
   init(pressureBehavior: NSPressureBehavior)
   func set()

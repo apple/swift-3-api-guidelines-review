@@ -1,8 +1,8 @@
 
-class RPScreenRecorder : Object {
+class RPScreenRecorder : NSObject {
   class func shared() -> RPScreenRecorder
-  func startRecording(withMicrophoneEnabled microphoneEnabled: Bool, handler: ((Error?) -> Void)? = nil)
-  func stopRecording(handler handler: ((RPPreviewViewController?, Error?) -> Void)? = nil)
+  func startRecording(withMicrophoneEnabled microphoneEnabled: Bool, handler: ((NSError?) -> Void)? = nil)
+  func stopRecording(handler handler: ((RPPreviewViewController?, NSError?) -> Void)? = nil)
   func discardRecording(handler handler: () -> Void)
   weak var delegate: @sil_weak RPScreenRecorderDelegate?
   var isRecording: Bool { get }
@@ -10,7 +10,7 @@ class RPScreenRecorder : Object {
   var isAvailable: Bool { get }
 }
 @available(iOS 9.0, *)
-protocol RPScreenRecorderDelegate : ObjectProtocol {
-  optional func screenRecorder(screenRecorder: RPScreenRecorder, didStopRecordingWithError error: Error, previewViewController: RPPreviewViewController?)
+protocol RPScreenRecorderDelegate : NSObjectProtocol {
+  optional func screenRecorder(screenRecorder: RPScreenRecorder, didStopRecordingWithError error: NSError, previewViewController: RPPreviewViewController?)
   optional func screenRecorderDidChangeAvailability(screenRecorder: RPScreenRecorder)
 }

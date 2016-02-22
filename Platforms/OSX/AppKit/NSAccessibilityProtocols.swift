@@ -1,6 +1,6 @@
 
-protocol NSAccessibilityElementProtocol : ObjectProtocol {
-  func accessibilityFrame() -> Rect
+protocol NSAccessibilityElementProtocol : NSObjectProtocol {
+  func accessibilityFrame() -> NSRect
   func accessibilityParent() -> AnyObject?
   optional func isAccessibilityFocused() -> Bool
   optional func accessibilityIdentifier() -> String
@@ -17,25 +17,25 @@ protocol NSAccessibilitySwitch : NSAccessibilityButton {
   optional func accessibilityPerformDecrement() -> Bool
 }
 protocol NSAccessibilityRadioButton : NSAccessibilityButton {
-  func accessibilityValue() -> Number?
+  func accessibilityValue() -> NSNumber?
 }
 protocol NSAccessibilityCheckBox : NSAccessibilityButton {
-  func accessibilityValue() -> Number?
+  func accessibilityValue() -> NSNumber?
 }
 protocol NSAccessibilityStaticText : NSAccessibilityElementProtocol {
   func accessibilityValue() -> String?
   @available(OSX 10.0, *)
-  optional func accessibilityAttributedString(for range: NSRange) -> AttributedString?
+  optional func accessibilityAttributedString(for range: NSRange) -> NSAttributedString?
   optional func accessibilityVisibleCharacterRange() -> NSRange
 }
 protocol NSAccessibilityNavigableStaticText : NSAccessibilityStaticText {
   func accessibilityString(for range: NSRange) -> String?
   func accessibilityLine(for index: Int) -> Int
   func accessibilityRange(forLine lineNumber: Int) -> NSRange
-  func accessibilityFrame(for range: NSRange) -> Rect
+  func accessibilityFrame(for range: NSRange) -> NSRect
 }
 protocol NSAccessibilityProgressIndicator : NSAccessibilityGroup {
-  func accessibilityValue() -> Number?
+  func accessibilityValue() -> NSNumber?
 }
 protocol NSAccessibilityStepper : NSAccessibilityElementProtocol {
   func accessibilityLabel() -> String?
@@ -87,33 +87,33 @@ protocol NSAccessibilityLayoutArea : NSAccessibilityGroup {
   func accessibilityFocusedUIElement() -> AnyObject
 }
 protocol NSAccessibilityLayoutItem : NSAccessibilityGroup {
-  optional func setAccessibilityFrame(frame: Rect)
+  optional func setAccessibilityFrame(frame: NSRect)
 }
-protocol NSAccessibility : ObjectProtocol {
+protocol NSAccessibility : NSObjectProtocol {
   @available(OSX 10.10, *)
-  func accessibilityLayoutPoint(forScreenPoint point: Point) -> Point
+  func accessibilityLayoutPoint(forScreenPoint point: NSPoint) -> NSPoint
   @available(OSX 10.10, *)
-  func accessibilityLayoutSize(forScreenSize size: Size) -> Size
+  func accessibilityLayoutSize(forScreenSize size: NSSize) -> NSSize
   @available(OSX 10.10, *)
-  func accessibilityScreenPoint(forLayoutPoint point: Point) -> Point
+  func accessibilityScreenPoint(forLayoutPoint point: NSPoint) -> NSPoint
   @available(OSX 10.10, *)
-  func accessibilityScreenSize(forLayoutSize size: Size) -> Size
+  func accessibilityScreenSize(forLayoutSize size: NSSize) -> NSSize
   @available(OSX 10.10, *)
   func accessibilityCell(forColumn column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
-  func accessibilityAttributedString(for range: NSRange) -> AttributedString?
+  func accessibilityAttributedString(for range: NSRange) -> NSAttributedString?
   @available(OSX 10.10, *)
   func accessibilityRange(forLine line: Int) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityString(for range: NSRange) -> String?
   @available(OSX 10.10, *)
-  func accessibilityRange(forPosition point: Point) -> NSRange
+  func accessibilityRange(forPosition point: NSPoint) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityFrame(for range: NSRange) -> Rect
+  func accessibilityFrame(for range: NSRange) -> NSRect
   @available(OSX 10.10, *)
-  func accessibilityRTF(for range: NSRange) -> Data?
+  func accessibilityRTF(for range: NSRange) -> NSData?
   @available(OSX 10.10, *)
   func accessibilityStyleRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
@@ -147,25 +147,25 @@ protocol NSAccessibility : ObjectProtocol {
   @available(OSX 10.10, *)
   func setAccessibilityElement(accessibilityElement: Bool)
   @available(OSX 10.10, *)
-  func accessibilityFrame() -> Rect
+  func accessibilityFrame() -> NSRect
   @available(OSX 10.10, *)
-  func setAccessibilityFrame(accessibilityFrame: Rect)
+  func setAccessibilityFrame(accessibilityFrame: NSRect)
   @available(OSX 10.10, *)
   func isAccessibilityFocused() -> Bool
   @available(OSX 10.10, *)
   func setAccessibilityFocused(accessibilityFocused: Bool)
   @available(OSX 10.10, *)
-  func accessibilityActivationPoint() -> Point
+  func accessibilityActivationPoint() -> NSPoint
   @available(OSX 10.10, *)
-  func setAccessibilityActivationPoint(accessibilityActivationPoint: Point)
+  func setAccessibilityActivationPoint(accessibilityActivationPoint: NSPoint)
   @available(OSX 10.10, *)
   func accessibilityTopLevelUIElement() -> AnyObject?
   @available(OSX 10.10, *)
   func setAccessibilityTopLevelUIElement(accessibilityTopLevelUIElement: AnyObject?)
   @available(OSX 10.10, *)
-  func accessibilityURL() -> URL?
+  func accessibilityURL() -> NSURL?
   @available(OSX 10.10, *)
-  func setAccessibilityURL(accessibilityURL: URL?)
+  func setAccessibilityURL(accessibilityURL: NSURL?)
   @available(OSX 10.10, *)
   func accessibilityValue() -> AnyObject?
   @available(OSX 10.10, *)
@@ -439,9 +439,9 @@ protocol NSAccessibility : ObjectProtocol {
   @available(OSX 10.10, *)
   func setAccessibilityVerticalScrollBar(accessibilityVerticalScrollBar: AnyObject?)
   @available(OSX 10.10, *)
-  func accessibilityAllowedValues() -> [Number]?
+  func accessibilityAllowedValues() -> [NSNumber]?
   @available(OSX 10.10, *)
-  func setAccessibilityAllowedValues(accessibilityAllowedValues: [Number]?)
+  func setAccessibilityAllowedValues(accessibilityAllowedValues: [NSNumber]?)
   @available(OSX 10.10, *)
   func accessibilityLabelUIElements() -> [AnyObject]?
   @available(OSX 10.10, *)
@@ -563,9 +563,9 @@ protocol NSAccessibility : ObjectProtocol {
   @available(OSX 10.10, *)
   func setAccessibilitySelectedTextRange(accessibilitySelectedTextRange: NSRange)
   @available(OSX 10.10, *)
-  func accessibilitySelectedTextRanges() -> [Value]?
+  func accessibilitySelectedTextRanges() -> [NSValue]?
   @available(OSX 10.10, *)
-  func setAccessibilitySelectedTextRanges(accessibilitySelectedTextRanges: [Value]?)
+  func setAccessibilitySelectedTextRanges(accessibilitySelectedTextRanges: [NSValue]?)
   @available(OSX 10.10, *)
   func accessibilityToolbarButton() -> AnyObject?
   @available(OSX 10.10, *)

@@ -11,7 +11,7 @@ extension NSWindow {
   func setIsMiniaturized(flag: Bool)
   func setIsVisible(flag: Bool)
   func setIsZoomed(flag: Bool)
-  func handleCloseScriptCommand(command: CloseCommand) -> AnyObject?
-  func handlePrint(command: ScriptCommand) -> AnyObject?
-  func handleSave(command: ScriptCommand) -> AnyObject?
+  func handleCloseScriptCommand(command: NSCloseCommand) -> AnyObject?
+  func handlePrint(command: NSScriptCommand) -> AnyObject?
+  func handleSave(command: NSScriptCommand) -> AnyObject?
 }

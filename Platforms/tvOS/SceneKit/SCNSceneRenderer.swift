@@ -28,7 +28,7 @@ struct SCNDebugOptions : OptionSetType {
   static var showWireframe: SCNDebugOptions { get }
 }
 @available(tvOS 8.0, *)
-class SCNHitTestResult : Object {
+class SCNHitTestResult : NSObject {
   var node: SCNNode { get }
   var geometryIndex: Int { get }
   var faceIndex: Int { get }
@@ -40,11 +40,11 @@ class SCNHitTestResult : Object {
   func textureCoordinates(withMappingChannel channel: Int) -> CGPoint
   init()
 }
-protocol SCNSceneRenderer : ObjectProtocol {
+protocol SCNSceneRenderer : NSObjectProtocol {
   @available(tvOS 8.0, *)
   var scene: SCNScene? { get set }
   @available(tvOS 8.0, *)
-  var sceneTime: TimeInterval { get set }
+  var sceneTime: NSTimeInterval { get set }
   unowned(unsafe) var delegate: @sil_unmanaged SCNSceneRendererDelegate? { get set }
   @available(tvOS 8.0, *)
   func hitTest(point: CGPoint, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
@@ -88,15 +88,15 @@ protocol SCNSceneRenderer : ObjectProtocol {
   @available(tvOS 9.0, *)
   var audioListener: SCNNode? { get set }
 }
-protocol SCNSceneRendererDelegate : ObjectProtocol {
+protocol SCNSceneRendererDelegate : NSObjectProtocol {
   @available(tvOS 8.0, *)
-  optional func renderer(renderer: SCNSceneRenderer, updateAtTime time: TimeInterval)
+  optional func renderer(renderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval)
   @available(tvOS 8.0, *)
-  optional func renderer(renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: TimeInterval)
+  optional func renderer(renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: NSTimeInterval)
   @available(tvOS 8.0, *)
-  optional func renderer(renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: TimeInterval)
+  optional func renderer(renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: NSTimeInterval)
   @available(tvOS 8.0, *)
-  optional func renderer(renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval)
+  optional func renderer(renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: NSTimeInterval)
   @available(tvOS 8.0, *)
-  optional func renderer(renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: TimeInterval)
+  optional func renderer(renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: NSTimeInterval)
 }

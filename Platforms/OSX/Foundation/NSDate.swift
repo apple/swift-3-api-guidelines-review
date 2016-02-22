@@ -1,40 +1,40 @@
 
 @available(OSX 10.6, *)
-let systemClockDidChangeNotification: String
-typealias TimeInterval = Double
-var timeIntervalSince1970: Double { get }
-class Date : Object, Copying, SecureCoding {
-  var timeIntervalSinceReferenceDate: TimeInterval { get }
+let NSSystemClockDidChangeNotification: String
+typealias NSTimeInterval = Double
+var NSTimeIntervalSince1970: Double { get }
+class NSDate : NSObject, NSCopying, NSSecureCoding {
+  var timeIntervalSinceReferenceDate: NSTimeInterval { get }
   init()
-  init(timeIntervalSinceReferenceDate ti: TimeInterval)
-  init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
+  init(timeIntervalSinceReferenceDate ti: NSTimeInterval)
+  init?(coder aDecoder: NSCoder)
+  func copy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }
 
-extension Date : CustomPlaygroundQuickLookable {
+extension NSDate : CustomPlaygroundQuickLookable {
   var summary: String { get }
   func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
-extension Date {
-  func timeInterval(since anotherDate: Date) -> TimeInterval
-  var timeIntervalSinceNow: TimeInterval { get }
-  var timeIntervalSince1970: TimeInterval { get }
+extension NSDate {
+  func timeInterval(since anotherDate: NSDate) -> NSTimeInterval
+  var timeIntervalSinceNow: NSTimeInterval { get }
+  var timeIntervalSince1970: NSTimeInterval { get }
   @available(OSX 10.6, *)
-  func addingTimeInterval(ti: TimeInterval) -> Self
-  func earlierDate(anotherDate: Date) -> Date
-  func laterDate(anotherDate: Date) -> Date
-  func compare(other: Date) -> ComparisonResult
-  func isEqual(to otherDate: Date) -> Bool
+  func addingTimeInterval(ti: NSTimeInterval) -> Self
+  func earlierDate(anotherDate: NSDate) -> NSDate
+  func laterDate(anotherDate: NSDate) -> NSDate
+  func compare(other: NSDate) -> NSComparisonResult
+  func isEqual(to otherDate: NSDate) -> Bool
   var description: String { get }
   func description(withLocale locale: AnyObject?) -> String
-  class func timeIntervalSinceReferenceDate() -> TimeInterval
+  class func timeIntervalSinceReferenceDate() -> NSTimeInterval
 }
-extension Date {
-  class func distantFuture() -> Date
-  class func distantPast() -> Date
-  convenience init(timeIntervalSinceNow secs: TimeInterval)
-  convenience init(timeIntervalSince1970 secs: TimeInterval)
-  convenience init(timeInterval secsToBeAdded: TimeInterval, since date: Date)
+extension NSDate {
+  class func distantFuture() -> NSDate
+  class func distantPast() -> NSDate
+  convenience init(timeIntervalSinceNow secs: NSTimeInterval)
+  convenience init(timeIntervalSince1970 secs: NSTimeInterval)
+  convenience init(timeInterval secsToBeAdded: NSTimeInterval, since date: NSDate)
 }

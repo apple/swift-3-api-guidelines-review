@@ -8,5 +8,5 @@ protocol IMServiceApplicationInstantMessagingSupport {
   func handleDidStartTyping(handle: String!)
   func handleDidStopTyping(handle: String!)
   func plug(inDidReceive message: IMServicePlugInMessage!, fromHandle handle: String!)
-  func plug(inDidSend message: IMServicePlugInMessage!, toHandle handle: String!, error: Error!)
+  func plug(inDidSend message: IMServicePlugInMessage!, toHandle handle: String!, error: NSError!)
 }

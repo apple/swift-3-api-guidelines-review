@@ -8,10 +8,10 @@ enum AMLogLevel : UInt {
   case error
 }
 @available(OSX 10.4, *)
-class AMAction : Object {
+class AMAction : NSObject {
   init?(definition dict: [String : AnyObject], fromArchive archived: Bool)
   @available(OSX 10.5, *)
-  init(contentsOf fileURL: URL) throws
+  init(contentsOf fileURL: NSURL) throws
   @available(OSX 10.5, *)
   var name: String { get }
   @available(OSX 10.5, *)
@@ -29,12 +29,12 @@ class AMAction : Object {
   @available(OSX 10.5, *)
   func willFinishRunning()
   @available(OSX 10.7, *)
-  func finishRunningWithError(error: Error?)
+  func finishRunningWithError(error: NSError?)
   @available(OSX 10.5, *)
   var output: AnyObject?
   func stop()
   func reset()
-  func write(to dictionary: MutableDictionary)
+  func write(to dictionary: NSMutableDictionary)
   func opened()
   func activated()
   @available(OSX 10.5, *)

@@ -9,6 +9,6 @@ enum AVKeyValueStatus : Int {
   case cancelled
 }
 protocol AVAsynchronousKeyValueLoading {
-  func statusOfValue(forKey key: String, error outError: ErrorPointer) -> AVKeyValueStatus
+  func statusOfValue(forKey key: String, error outError: NSErrorPointer) -> AVKeyValueStatus
   func loadValuesAsynchronously(forKeys keys: [String], completionHandler handler: (() -> Void)? = nil)
 }

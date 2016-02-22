@@ -27,7 +27,7 @@ enum MTLCommandBufferError : UInt {
 }
 typealias MTLCommandBufferHandler = (MTLCommandBuffer) -> Void
 @available(tvOS 8.0, *)
-protocol MTLCommandBuffer : ObjectProtocol {
+protocol MTLCommandBuffer : NSObjectProtocol {
   var device: MTLDevice { get }
   var commandQueue: MTLCommandQueue { get }
   var retainedReferences: Bool { get }
@@ -41,7 +41,7 @@ protocol MTLCommandBuffer : ObjectProtocol {
   func addCompletedHandler(block: MTLCommandBufferHandler)
   func waitUntilCompleted()
   var status: MTLCommandBufferStatus { get }
-  var error: Error? { get }
+  var error: NSError? { get }
   func blitCommandEncoder() -> MTLBlitCommandEncoder
   func renderCommandEncoder(with renderPassDescriptor: MTLRenderPassDescriptor) -> MTLRenderCommandEncoder
   func computeCommandEncoder() -> MTLComputeCommandEncoder

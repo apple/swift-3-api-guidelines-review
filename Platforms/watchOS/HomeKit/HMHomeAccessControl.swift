@@ -1,5 +1,5 @@
 
 @available(watchOS 20000, *)
-class HMHomeAccessControl : Object {
+class HMHomeAccessControl : NSObject {
   var isAdministrator: Bool { get }
 }

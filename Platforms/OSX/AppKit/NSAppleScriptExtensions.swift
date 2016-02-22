@@ -1,4 +1,4 @@
 
-extension AppleScript {
-  var richTextSource: AttributedString? { get }
+extension NSAppleScript {
+  var richTextSource: NSAttributedString? { get }
 }

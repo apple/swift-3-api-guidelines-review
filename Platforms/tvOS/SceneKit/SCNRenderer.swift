@@ -1,9 +1,9 @@
 
 @available(tvOS 8.0, *)
-class SCNRenderer : Object, SCNSceneRenderer, SCNTechniqueSupport {
-  convenience init(context: EAGLContext, options: [Object : AnyObject]? = [:])
+class SCNRenderer : NSObject, SCNSceneRenderer, SCNTechniqueSupport {
+  convenience init(context: EAGLContext, options: [NSObject : AnyObject]? = [:])
   @available(tvOS 9.0, *)
-  convenience init(device: MTLDevice?, options: [Object : AnyObject]? = [:])
+  convenience init(device: MTLDevice?, options: [NSObject : AnyObject]? = [:])
   var scene: SCNScene?
   @available(tvOS 8.0, *)
   func render(atTime time: CFTimeInterval)
@@ -15,7 +15,7 @@ class SCNRenderer : Object, SCNSceneRenderer, SCNTechniqueSupport {
   func render()
   init()
   @available(tvOS 8.0, *)
-  var sceneTime: TimeInterval
+  var sceneTime: NSTimeInterval
   @available(tvOS 8.0, *)
   unowned(unsafe) var delegate: @sil_unmanaged SCNSceneRendererDelegate?
   @available(tvOS 8.0, *)

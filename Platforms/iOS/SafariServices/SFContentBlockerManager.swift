@@ -10,7 +10,7 @@ enum SFContentBlockerErrorCode : Int {
   case loadingInterrupted
 }
 @available(iOS 9.0, *)
-class SFContentBlockerManager : Object {
-  class func reloadContentBlocker(identifier identifier: String, completionHandler: ((Error?) -> Void)? = nil)
+class SFContentBlockerManager : NSObject {
+  class func reloadContentBlocker(identifier identifier: String, completionHandler: ((NSError?) -> Void)? = nil)
   init()
 }

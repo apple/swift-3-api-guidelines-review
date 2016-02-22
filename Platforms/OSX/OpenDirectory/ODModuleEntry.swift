@@ -1,6 +1,6 @@
 
 @available(OSX 10.9, *)
-class ODModuleEntry : Object {
+class ODModuleEntry : NSObject {
   @available(OSX 10.9, *)
   var mappings: ODMappings!
   @available(OSX 10.9, *)

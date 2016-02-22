@@ -1,49 +1,49 @@
 
-struct FileCoordinatorReadingOptions : OptionSetType {
+struct NSFileCoordinatorReadingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var withoutChanges: FileCoordinatorReadingOptions { get }
-  static var resolvesSymbolicLink: FileCoordinatorReadingOptions { get }
+  static var withoutChanges: NSFileCoordinatorReadingOptions { get }
+  static var resolvesSymbolicLink: NSFileCoordinatorReadingOptions { get }
   @available(watchOS 2.0, *)
-  static var immediatelyAvailableMetadataOnly: FileCoordinatorReadingOptions { get }
+  static var immediatelyAvailableMetadataOnly: NSFileCoordinatorReadingOptions { get }
   @available(watchOS 2.0, *)
-  static var forUploading: FileCoordinatorReadingOptions { get }
+  static var forUploading: NSFileCoordinatorReadingOptions { get }
 }
-struct FileCoordinatorWritingOptions : OptionSetType {
+struct NSFileCoordinatorWritingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var forDeleting: FileCoordinatorWritingOptions { get }
-  static var forMoving: FileCoordinatorWritingOptions { get }
-  static var forMerging: FileCoordinatorWritingOptions { get }
-  static var forReplacing: FileCoordinatorWritingOptions { get }
+  static var forDeleting: NSFileCoordinatorWritingOptions { get }
+  static var forMoving: NSFileCoordinatorWritingOptions { get }
+  static var forMerging: NSFileCoordinatorWritingOptions { get }
+  static var forReplacing: NSFileCoordinatorWritingOptions { get }
   @available(watchOS 2.0, *)
-  static var contentIndependentMetadataOnly: FileCoordinatorWritingOptions { get }
+  static var contentIndependentMetadataOnly: NSFileCoordinatorWritingOptions { get }
 }
 @available(watchOS 2.0, *)
-class FileAccessIntent : Object {
-  class func readingIntent(with url: URL, options: FileCoordinatorReadingOptions = []) -> Self
-  class func writingIntent(with url: URL, options: FileCoordinatorWritingOptions = []) -> Self
-  @NSCopying var url: URL { get }
+class NSFileAccessIntent : NSObject {
+  class func readingIntent(with url: NSURL, options: NSFileCoordinatorReadingOptions = []) -> Self
+  class func writingIntent(with url: NSURL, options: NSFileCoordinatorWritingOptions = []) -> Self
+  @NSCopying var url: NSURL { get }
   init()
 }
 @available(watchOS 2.0, *)
-class FileCoordinator : Object {
-  class func addFilePresenter(filePresenter: FilePresenter)
-  class func removeFilePresenter(filePresenter: FilePresenter)
-  class func filePresenters() -> [FilePresenter]
-  init(filePresenter filePresenterOrNil: FilePresenter?)
+class NSFileCoordinator : NSObject {
+  class func addFilePresenter(filePresenter: NSFilePresenter)
+  class func removeFilePresenter(filePresenter: NSFilePresenter)
+  class func filePresenters() -> [NSFilePresenter]
+  init(filePresenter filePresenterOrNil: NSFilePresenter?)
   @available(watchOS 2.0, *)
   var purposeIdentifier: String
   @available(watchOS 2.0, *)
-  func coordinateAccess(with intents: [FileAccessIntent], queue: OperationQueue, byAccessor accessor: (Error?) -> Void)
-  func coordinateReadingItem(at url: URL, options: FileCoordinatorReadingOptions = [], error outError: ErrorPointer, byAccessor reader: (URL) -> Void)
-  func coordinateWritingItem(at url: URL, options: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor writer: (URL) -> Void)
-  func coordinateReadingItem(at readingURL: URL, options readingOptions: FileCoordinatorReadingOptions = [], writingItemAt writingURL: URL, options writingOptions: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor readerWriter: (URL, URL) -> Void)
-  func coordinateWritingItem(at url1: URL, options options1: FileCoordinatorWritingOptions = [], writingItemAt url2: URL, options options2: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor writer: (URL, URL) -> Void)
-  func prepareForReadingItems(at readingURLs: [URL], options readingOptions: FileCoordinatorReadingOptions = [], writingItemsAt writingURLs: [URL], options writingOptions: FileCoordinatorWritingOptions = [], error outError: ErrorPointer, byAccessor batchAccessor: (() -> Void) -> Void)
+  func coordinateAccess(with intents: [NSFileAccessIntent], queue: NSOperationQueue, byAccessor accessor: (NSError?) -> Void)
+  func coordinateReadingItem(at url: NSURL, options: NSFileCoordinatorReadingOptions = [], error outError: NSErrorPointer, byAccessor reader: (NSURL) -> Void)
+  func coordinateWritingItem(at url: NSURL, options: NSFileCoordinatorWritingOptions = [], error outError: NSErrorPointer, byAccessor writer: (NSURL) -> Void)
+  func coordinateReadingItem(at readingURL: NSURL, options readingOptions: NSFileCoordinatorReadingOptions = [], writingItemAt writingURL: NSURL, options writingOptions: NSFileCoordinatorWritingOptions = [], error outError: NSErrorPointer, byAccessor readerWriter: (NSURL, NSURL) -> Void)
+  func coordinateWritingItem(at url1: NSURL, options options1: NSFileCoordinatorWritingOptions = [], writingItemAt url2: NSURL, options options2: NSFileCoordinatorWritingOptions = [], error outError: NSErrorPointer, byAccessor writer: (NSURL, NSURL) -> Void)
+  func prepareForReadingItems(at readingURLs: [NSURL], options readingOptions: NSFileCoordinatorReadingOptions = [], writingItemsAt writingURLs: [NSURL], options writingOptions: NSFileCoordinatorWritingOptions = [], error outError: NSErrorPointer, byAccessor batchAccessor: (() -> Void) -> Void)
   @available(watchOS 2.0, *)
-  func item(at oldURL: URL, willMoveTo newURL: URL)
-  func item(at oldURL: URL, didMoveTo newURL: URL)
+  func item(at oldURL: NSURL, willMoveTo newURL: NSURL)
+  func item(at oldURL: NSURL, didMoveTo newURL: NSURL)
   func cancel()
   convenience init()
 }

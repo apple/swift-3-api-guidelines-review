@@ -13,7 +13,7 @@ let ODTrustTypeUsingCredentials: String
 @available(OSX 10.9, *)
 let ODTrustTypeAnonymous: String
 @available(OSX 10.9, *)
-class ODConfiguration : Object {
+class ODConfiguration : NSObject {
   @available(OSX 10.9, *)
   var nodeName: String!
   @available(OSX 10.9, *)

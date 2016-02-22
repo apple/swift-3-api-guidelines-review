@@ -26,12 +26,12 @@ enum UIImageRenderingMode : Int {
   case alwaysTemplate
 }
 @available(watchOS 2.0, *)
-class UIImage : Object, SecureCoding {
+class UIImage : NSObject, NSSecureCoding {
   /*not inherited*/ init?(named name: String)
   init?(contentsOfFile path: String)
-  init?(data: Data)
+  init?(data: NSData)
   @available(watchOS 2.0, *)
-  init?(data: Data, scale: CGFloat)
+  init?(data: NSData, scale: CGFloat)
   init(cgImage: CGImage)
   @available(watchOS 2.0, *)
   init(cgImage: CGImage, scale: CGFloat, orientation: UIImageOrientation)
@@ -41,17 +41,17 @@ class UIImage : Object, SecureCoding {
   @available(watchOS 2.0, *)
   var scale: CGFloat { get }
   @available(watchOS 2.0, *)
-  class func animatedImageNamed(name: String, duration: TimeInterval) -> UIImage?
+  class func animatedImageNamed(name: String, duration: NSTimeInterval) -> UIImage?
   @available(watchOS 2.0, *)
-  class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, duration: TimeInterval) -> UIImage?
+  class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, duration: NSTimeInterval) -> UIImage?
   @available(watchOS 2.0, *)
-  class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode, duration: TimeInterval) -> UIImage?
+  class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode, duration: NSTimeInterval) -> UIImage?
   @available(watchOS 2.0, *)
-  class func animatedImage(with images: [UIImage], duration: TimeInterval) -> UIImage?
+  class func animatedImage(with images: [UIImage], duration: NSTimeInterval) -> UIImage?
   @available(watchOS 2.0, *)
   var images: [UIImage]? { get }
   @available(watchOS 2.0, *)
-  var duration: TimeInterval { get }
+  var duration: NSTimeInterval { get }
   func draw(at point: CGPoint)
   func draw(at point: CGPoint, blendMode: CGBlendMode, alpha: CGFloat)
   func draw(in rect: CGRect)
@@ -81,8 +81,8 @@ class UIImage : Object, SecureCoding {
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 
 extension UIImage : _ImageLiteralConvertible {
@@ -94,5 +94,5 @@ extension UIImage {
   var leftCapWidth: Int { get }
   var topCapHeight: Int { get }
 }
-func UIImagePNGRepresentation(image: UIImage) -> Data?
-func UIImageJPEGRepresentation(image: UIImage, _ compressionQuality: CGFloat) -> Data?
+func UIImagePNGRepresentation(image: UIImage) -> NSData?
+func UIImageJPEGRepresentation(image: UIImage, _ compressionQuality: CGFloat) -> NSData?

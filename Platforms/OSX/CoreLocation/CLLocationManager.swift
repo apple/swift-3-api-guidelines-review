@@ -27,7 +27,7 @@ enum CLActivityType : Int {
   case otherNavigation
 }
 @available(OSX 10.6, *)
-class CLLocationManager : Object {
+class CLLocationManager : NSObject {
   @available(OSX 10.7, *)
   class func locationServicesEnabled() -> Bool
   @available(OSX 10.7, *)

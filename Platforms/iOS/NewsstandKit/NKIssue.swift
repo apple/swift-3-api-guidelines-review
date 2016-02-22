@@ -10,12 +10,12 @@ enum NKIssueContentStatus : Int {
   case available
 }
 @available(iOS 5.0, *)
-class NKIssue : Object {
+class NKIssue : NSObject {
   var downloadingAssets: [NKAssetDownload] { get }
-  @NSCopying var contentURL: URL { get }
+  @NSCopying var contentURL: NSURL { get }
   var status: NKIssueContentStatus { get }
   var name: String { get }
-  @NSCopying var date: Date { get }
-  func addAsset(request: URLRequest) -> NKAssetDownload
+  @NSCopying var date: NSDate { get }
+  func addAsset(request: NSURLRequest) -> NKAssetDownload
   init()
 }

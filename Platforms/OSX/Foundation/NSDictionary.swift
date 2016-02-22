@@ -1,21 +1,21 @@
 
-class NSDictionary : Object, Copying, MutableCopying, SecureCoding, FastEnumeration {
+class NSDictionary : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration {
   var count: Int { get }
   func object(for aKey: AnyObject) -> AnyObject?
-  func keyEnumerator() -> Enumerator
+  func keyEnumerator() -> NSEnumerator
   init()
-  init(objects: UnsafePointer<AnyObject?>, forKeys keys: UnsafePointer<Copying?>, count cnt: Int)
-  init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  init(objects: UnsafePointer<AnyObject?>, forKeys keys: UnsafePointer<NSCopying?>, count cnt: Int)
+  init?(coder aDecoder: NSCoder)
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func encode(with aCoder: NSCoder)
+  func countByEnumerating(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSDictionary : DictionaryLiteralConvertible {
-  required convenience init(dictionaryLiteral elements: (Copying, AnyObject)...)
-  typealias Key = Copying
+  required convenience init(dictionaryLiteral elements: (NSCopying, AnyObject)...)
+  typealias Key = NSCopying
   typealias Value = AnyObject
 }
 
@@ -46,69 +46,69 @@ extension NSDictionary {
   var descriptionInStringsFileFormat: String { get }
   func description(withLocale locale: AnyObject?) -> String
   func description(withLocale locale: AnyObject?, indent level: Int) -> String
-  func isEqual(to otherDictionary: [Object : AnyObject]) -> Bool
-  func objectEnumerator() -> Enumerator
+  func isEqual(to otherDictionary: [NSObject : AnyObject]) -> Bool
+  func objectEnumerator() -> NSEnumerator
   func objects(for keys: [AnyObject], notFoundMarker marker: AnyObject) -> [AnyObject]
   func write(toFile path: String, atomically useAuxiliaryFile: Bool) -> Bool
-  func write(to url: URL, atomically: Bool) -> Bool
+  func write(to url: NSURL, atomically: Bool) -> Bool
   func keysSortedByValue(using comparator: Selector) -> [AnyObject]
   @available(OSX 10.7, *)
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, andKeys keys: AutoreleasingUnsafeMutablePointer<AnyObject?>, count: Int)
   @available(OSX 10.8, *)
-  subscript(key: Copying) -> AnyObject? { get }
+  subscript(key: NSCopying) -> AnyObject? { get }
   @available(OSX 10.6, *)
   func enumerateKeysAndObjects(block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.6, *)
-  func enumerateKeysAndObjects(opts: EnumerationOptions = [], using block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateKeysAndObjects(opts: NSEnumerationOptions = [], using block: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.6, *)
-  func keysSortedByValue(comparator cmptr: Comparator) -> [AnyObject]
+  func keysSortedByValue(comparator cmptr: NSComparator) -> [AnyObject]
   @available(OSX 10.6, *)
-  func keysSortedByValue(opts: SortOptions = [], usingComparator cmptr: Comparator) -> [AnyObject]
+  func keysSortedByValue(opts: NSSortOptions = [], usingComparator cmptr: NSComparator) -> [AnyObject]
   @available(OSX 10.6, *)
-  func keysOfEntries(passingTest predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
+  func keysOfEntries(passingTest predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<NSObject>
   @available(OSX 10.6, *)
-  func keysOfEntries(opts: EnumerationOptions = [], passingTest predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<Object>
+  func keysOfEntries(opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Set<NSObject>
 }
 extension NSDictionary {
   func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, andKeys keys: AutoreleasingUnsafeMutablePointer<AnyObject?>)
 }
 extension NSDictionary {
-  convenience init(object: AnyObject, forKey key: Copying)
-  convenience init(dictionary otherDictionary: [Object : AnyObject])
-  convenience init(dictionary otherDictionary: [Object : AnyObject], copyItems flag: Bool)
-  convenience init(objects: [AnyObject], forKeys keys: [Copying])
+  convenience init(object: AnyObject, forKey key: NSCopying)
+  convenience init(dictionary otherDictionary: [NSObject : AnyObject])
+  convenience init(dictionary otherDictionary: [NSObject : AnyObject], copyItems flag: Bool)
+  convenience init(objects: [AnyObject], forKeys keys: [NSCopying])
   convenience init?(contentsOfFile path: String)
-  convenience init?(contentsOf url: URL)
+  convenience init?(contentsOf url: NSURL)
 }
-class MutableDictionary : NSDictionary {
+class NSMutableDictionary : NSDictionary {
   func removeObject(for aKey: AnyObject)
-  func setObject(anObject: AnyObject, forKey aKey: Copying)
+  func setObject(anObject: AnyObject, forKey aKey: NSCopying)
   init()
   init(capacity numItems: Int)
-  init?(coder aDecoder: Coder)
-  convenience init(objects: UnsafePointer<AnyObject?>, forKeys keys: UnsafePointer<Copying?>, count cnt: Int)
-  convenience init(object: AnyObject, forKey key: Copying)
-  convenience init(dictionary otherDictionary: [Object : AnyObject])
-  convenience init(dictionary otherDictionary: [Object : AnyObject], copyItems flag: Bool)
-  convenience init(objects: [AnyObject], forKeys keys: [Copying])
+  init?(coder aDecoder: NSCoder)
+  convenience init(objects: UnsafePointer<AnyObject?>, forKeys keys: UnsafePointer<NSCopying?>, count cnt: Int)
+  convenience init(object: AnyObject, forKey key: NSCopying)
+  convenience init(dictionary otherDictionary: [NSObject : AnyObject])
+  convenience init(dictionary otherDictionary: [NSObject : AnyObject], copyItems flag: Bool)
+  convenience init(objects: [AnyObject], forKeys keys: [NSCopying])
 }
-extension MutableDictionary {
-  func addEntries(from otherDictionary: [Object : AnyObject])
+extension NSMutableDictionary {
+  func addEntries(from otherDictionary: [NSObject : AnyObject])
   func removeAllObjects()
   func removeObjects(for keyArray: [AnyObject])
-  func setDictionary(otherDictionary: [Object : AnyObject])
+  func setDictionary(otherDictionary: [NSObject : AnyObject])
   @available(OSX 10.8, *)
-  subscript(key: Copying) -> AnyObject?
+  subscript(key: NSCopying) -> AnyObject?
 }
-extension MutableDictionary {
+extension NSMutableDictionary {
   convenience init?(contentsOfFile path: String)
-  convenience init?(contentsOf url: URL)
+  convenience init?(contentsOf url: NSURL)
 }
 extension NSDictionary {
   @available(OSX 10.8, *)
-  class func sharedKeySet(forKeys keys: [Copying]) -> AnyObject
+  class func sharedKeySet(forKeys keys: [NSCopying]) -> AnyObject
 }
-extension MutableDictionary {
+extension NSMutableDictionary {
   @available(OSX 10.8, *)
   /*not inherited*/ init(sharedKeySet keyset: AnyObject)
 }

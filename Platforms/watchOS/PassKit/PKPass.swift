@@ -8,22 +8,22 @@ enum PKPassType : UInt {
   case any
 }
 class PKPass : PKObject {
-  init(data: Data, error: ErrorPointer)
+  init(data: NSData, error: NSErrorPointer)
   @available(watchOS 2.0, *)
   var passType: PKPassType { get }
   @available(watchOS 2.0, *)
   unowned(unsafe) var paymentPass: @sil_unmanaged PKPaymentPass? { get }
   var serialNumber: String { get }
   var passTypeIdentifier: String { get }
-  @NSCopying var webServiceURL: URL? { get }
+  @NSCopying var webServiceURL: NSURL? { get }
   var authenticationToken: String? { get }
   var localizedName: String { get }
   var localizedDescription: String { get }
   var organizationName: String { get }
-  @NSCopying var relevantDate: Date? { get }
+  @NSCopying var relevantDate: NSDate? { get }
   @available(watchOS 2.0, *)
-  var userInfo: [Object : AnyObject]? { get }
-  @NSCopying var passURL: URL { get }
+  var userInfo: [NSObject : AnyObject]? { get }
+  @NSCopying var passURL: NSURL { get }
   @available(watchOS 2.0, *)
   var isRemotePass: Bool { get }
   @available(watchOS 2.0, *)

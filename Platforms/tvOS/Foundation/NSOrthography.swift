@@ -1,18 +1,18 @@
 
 @available(tvOS 4.0, *)
-class Orthography : Object, Copying, Coding {
+class NSOrthography : NSObject, NSCopying, NSCoding {
   var dominantScript: String { get }
   var languageMap: [String : [String]] { get }
   @available(tvOS 4.0, *)
   init(dominantScript script: String, languageMap map: [String : [String]])
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
   @available(tvOS 4.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 4.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }
-extension Orthography {
+extension NSOrthography {
   @available(tvOS 4.0, *)
   func languages(forScript script: String) -> [String]?
   @available(tvOS 4.0, *)
@@ -24,5 +24,5 @@ extension Orthography {
   @available(tvOS 4.0, *)
   var allLanguages: [String] { get }
 }
-extension Orthography {
+extension NSOrthography {
 }

@@ -1,6 +1,6 @@
 
 @available(OSX 10.11, *)
-class NEFilterProviderConfiguration : Object, SecureCoding, Copying {
+class NEFilterProviderConfiguration : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.11, *)
   var filterBrowsers: Bool
   @available(OSX 10.11, *)
@@ -14,15 +14,15 @@ class NEFilterProviderConfiguration : Object, SecureCoding, Copying {
   @available(OSX 10.11, *)
   var organization: String?
   @available(OSX 10.11, *)
-  @NSCopying var passwordReference: Data?
+  @NSCopying var passwordReference: NSData?
   @available(OSX 10.11, *)
-  @NSCopying var identityReference: Data?
+  @NSCopying var identityReference: NSData?
   init()
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

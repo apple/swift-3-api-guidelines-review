@@ -1,6 +1,6 @@
 
 @available(OSX 10.9, *)
-class MKOverlayRenderer : Object {
+class MKOverlayRenderer : NSObject {
   init(overlay: MKOverlay)
   var overlay: MKOverlay { get }
   func point(for mapPoint: MKMapPoint) -> CGPoint

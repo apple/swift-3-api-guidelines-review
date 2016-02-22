@@ -9,7 +9,7 @@ enum CMMotionActivityConfidence : Int {
 @available(watchOS 2.0, *)
 class CMMotionActivity : CMLogItem {
   var confidence: CMMotionActivityConfidence { get }
-  var startDate: Date { get }
+  var startDate: NSDate { get }
   var unknown: Bool { get }
   var stationary: Bool { get }
   var walking: Bool { get }
@@ -18,5 +18,5 @@ class CMMotionActivity : CMLogItem {
   @available(watchOS 2.0, *)
   var cycling: Bool { get }
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

@@ -1,7 +1,7 @@
 
 @available(tvOS 8.0, *)
 class AVAudioIONode : AVAudioNode {
-  var presentationLatency: TimeInterval { get }
+  var presentationLatency: NSTimeInterval { get }
   var audioUnit: AudioUnit { get }
   init()
 }

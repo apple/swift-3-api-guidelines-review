@@ -1,6 +1,6 @@
 
 @available(OSX 10.11, *)
-protocol MTLCommandEncoder : ObjectProtocol {
+protocol MTLCommandEncoder : NSObjectProtocol {
   var device: MTLDevice { get }
   var label: String? { get set }
   func endEncoding()

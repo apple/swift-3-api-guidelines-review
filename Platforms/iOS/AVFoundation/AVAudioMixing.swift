@@ -6,7 +6,7 @@ protocol AVAudioMixing : AVAudioStereoMixing, AVAudio3DMixing {
   var volume: Float { get set }
 }
 @available(iOS 8.0, *)
-protocol AVAudioStereoMixing : ObjectProtocol {
+protocol AVAudioStereoMixing : NSObjectProtocol {
   var pan: Float { get set }
 }
 @available(iOS 8.0, *)
@@ -19,7 +19,7 @@ enum AVAudio3DMixingRenderingAlgorithm : Int {
   case soundField
   case stereoPassThrough
 }
-protocol AVAudio3DMixing : ObjectProtocol {
+protocol AVAudio3DMixing : NSObjectProtocol {
   @available(iOS 8.0, *)
   var renderingAlgorithm: AVAudio3DMixingRenderingAlgorithm { get set }
   var rate: Float { get set }
@@ -29,7 +29,7 @@ protocol AVAudio3DMixing : ObjectProtocol {
   var position: AVAudio3DPoint { get set }
 }
 @available(iOS 9.0, *)
-class AVAudioMixingDestination : Object, AVAudioMixing {
+class AVAudioMixingDestination : NSObject, AVAudioMixing {
   var connectionPoint: AVAudioConnectionPoint { get }
   init()
   @available(iOS 9.0, *)

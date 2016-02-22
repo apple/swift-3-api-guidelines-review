@@ -1,5 +1,5 @@
 
-enum URLCredentialPersistence : UInt {
+enum NSURLCredentialPersistence : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case none
@@ -8,28 +8,28 @@ enum URLCredentialPersistence : UInt {
   @available(iOS 6.0, *)
   case synchronizable
 }
-class URLCredential : Object, SecureCoding, Copying {
-  var persistence: URLCredentialPersistence { get }
+class NSURLCredential : NSObject, NSSecureCoding, NSCopying {
+  var persistence: NSURLCredentialPersistence { get }
   init()
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
-extension URLCredential {
-  init(user: String, password: String, persistence: URLCredentialPersistence)
+extension NSURLCredential {
+  init(user: String, password: String, persistence: NSURLCredentialPersistence)
   var user: String? { get }
   var password: String? { get }
   var hasPassword: Bool { get }
 }
-extension URLCredential {
+extension NSURLCredential {
   @available(iOS 3.0, *)
-  init(identity: SecIdentity, certificates certArray: [AnyObject]?, persistence: URLCredentialPersistence)
+  init(identity: SecIdentity, certificates certArray: [AnyObject]?, persistence: NSURLCredentialPersistence)
   var identity: SecIdentity? { get }
   @available(iOS 3.0, *)
   var certificates: [AnyObject] { get }
 }
-extension URLCredential {
+extension NSURLCredential {
   @available(iOS 3.0, *)
   init(trust: SecTrust)
   @available(iOS 3.0, *)

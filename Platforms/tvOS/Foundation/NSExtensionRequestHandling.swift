@@ -1,5 +1,5 @@
 
-protocol ExtensionRequestHandling : ObjectProtocol {
+protocol NSExtensionRequestHandling : NSObjectProtocol {
   @available(tvOS 8.0, *)
-  func beginRequest(context: ExtensionContext)
+  func beginRequest(context: NSExtensionContext)
 }

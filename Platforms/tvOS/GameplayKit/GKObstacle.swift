@@ -1,6 +1,6 @@
 
 @available(tvOS 9.0, *)
-class GKObstacle : Object {
+class GKObstacle : NSObject {
   init()
 }
 @available(tvOS 9.0, *)

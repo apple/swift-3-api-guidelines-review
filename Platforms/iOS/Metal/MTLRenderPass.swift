@@ -24,7 +24,7 @@ struct MTLClearColor {
   init(red: Double, green: Double, blue: Double, alpha: Double)
 }
 @available(iOS 8.0, *)
-class MTLRenderPassAttachmentDescriptor : Object, Copying {
+class MTLRenderPassAttachmentDescriptor : NSObject, NSCopying {
   var texture: MTLTexture?
   var level: Int
   var slice: Int
@@ -37,7 +37,7 @@ class MTLRenderPassAttachmentDescriptor : Object, Copying {
   var storeAction: MTLStoreAction
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class MTLRenderPassColorAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {
@@ -65,18 +65,18 @@ class MTLRenderPassStencilAttachmentDescriptor : MTLRenderPassAttachmentDescript
   init()
 }
 @available(iOS 8.0, *)
-class MTLRenderPassColorAttachmentDescriptorArray : Object {
+class MTLRenderPassColorAttachmentDescriptorArray : NSObject {
   subscript(attachmentIndex: Int) -> MTLRenderPassColorAttachmentDescriptor!
   init()
 }
 @available(iOS 8.0, *)
-class MTLRenderPassDescriptor : Object, Copying {
+class MTLRenderPassDescriptor : NSObject, NSCopying {
   var colorAttachments: MTLRenderPassColorAttachmentDescriptorArray { get }
   @NSCopying var depthAttachment: MTLRenderPassDepthAttachmentDescriptor!
   @NSCopying var stencilAttachment: MTLRenderPassStencilAttachmentDescriptor!
   var visibilityResultBuffer: MTLBuffer?
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 func MTLClearColorMake(red: Double, _ green: Double, _ blue: Double, _ alpha: Double) -> MTLClearColor

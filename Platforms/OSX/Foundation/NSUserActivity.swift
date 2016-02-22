@@ -1,27 +1,27 @@
 
 @available(OSX 10.10, *)
-class UserActivity : Object {
+class NSUserActivity : NSObject {
   init(activityType: String)
   init()
   var activityType: String { get }
   var title: String?
-  var userInfo: [Object : AnyObject]?
-  func addUserInfoEntries(from otherDictionary: [Object : AnyObject])
+  var userInfo: [NSObject : AnyObject]?
+  func addUserInfoEntries(from otherDictionary: [NSObject : AnyObject])
   @available(OSX 10.11, *)
   var requiredUserInfoKeys: Set<String>
   var needsSave: Bool
-  @NSCopying var webpageURL: URL?
+  @NSCopying var webpageURL: NSURL?
   @available(OSX 10.11, *)
-  @NSCopying var expirationDate: Date
+  @NSCopying var expirationDate: NSDate
   @available(OSX 10.11, *)
   var keywords: Set<String>
   var supportsContinuationStreams: Bool
-  weak var delegate: @sil_weak UserActivityDelegate?
+  weak var delegate: @sil_weak NSUserActivityDelegate?
   func becomeCurrent()
   @available(OSX 10.11, *)
   func resignCurrent()
   func invalidate()
-  func getContinuationStreams(completionHandler completionHandler: (InputStream?, OutputStream?, Error?) -> Void)
+  func getContinuationStreams(completionHandler completionHandler: (NSInputStream?, NSOutputStream?, NSError?) -> Void)
   @available(OSX 10.11, *)
   var isEligibleForHandoff: Bool
   @available(OSX 10.11, *)
@@ -30,10 +30,10 @@ class UserActivity : Object {
   var isEligibleForPublicIndexing: Bool
 }
 @available(OSX 10.10, *)
-let userActivityTypeBrowsingWeb: String
+let NSUserActivityTypeBrowsingWeb: String
 @available(OSX 10.10, *)
-protocol UserActivityDelegate : ObjectProtocol {
-  optional func userActivityWillSave(userActivity: UserActivity)
-  optional func userActivityWasContinued(userActivity: UserActivity)
-  optional func userActivity(userActivity: UserActivity?, didReceive inputStream: InputStream, outputStream: OutputStream)
+protocol NSUserActivityDelegate : NSObjectProtocol {
+  optional func userActivityWillSave(userActivity: NSUserActivity)
+  optional func userActivityWasContinued(userActivity: NSUserActivity)
+  optional func userActivity(userActivity: NSUserActivity?, didReceive inputStream: NSInputStream, outputStream: NSOutputStream)
 }

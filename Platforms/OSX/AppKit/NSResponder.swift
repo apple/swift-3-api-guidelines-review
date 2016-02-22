@@ -1,7 +1,7 @@
 
-class NSResponder : Object, Coding {
+class NSResponder : NSObject, NSCoding {
   init()
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   unowned(unsafe) var next: @sil_unmanaged NSResponder?
   func tryToPerform(anAction: Selector, with anObject: AnyObject?) -> Bool
   func performKeyEquivalent(theEvent: NSEvent) -> Bool
@@ -66,7 +66,7 @@ class NSResponder : Object, Coding {
   func wantsForwardedScrollEvents(for axis: NSEventGestureAxis) -> Bool
   @available(OSX 10.7, *)
   func supplementalTarget(forAction action: Selector, sender: AnyObject?) -> AnyObject?
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }
 extension NSResponder {
   func insertText(insertString: AnyObject)
@@ -179,16 +179,16 @@ extension NSResponder {
   func quickLookPreviewItems(sender: AnyObject?)
 }
 extension NSResponder {
-  var undoManager: UndoManager? { get }
+  var undoManager: NSUndoManager? { get }
 }
 extension NSResponder {
   @available(OSX 10.7, *)
   func validateProposedFirstResponder(responder: NSResponder, for event: NSEvent?) -> Bool
 }
 extension NSResponder {
-  func presentError(error: Error, modalFor window: NSWindow, delegate: AnyObject?, didPresent didPresentSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func presentError(error: Error) -> Bool
-  func willPresentError(error: Error) -> Error
+  func presentError(error: NSError, modalFor window: NSWindow, delegate: AnyObject?, didPresent didPresentSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func presentError(error: NSError) -> Bool
+  func willPresentError(error: NSError) -> NSError
 }
 extension NSResponder {
   @available(OSX 10.7, *)

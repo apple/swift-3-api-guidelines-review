@@ -1,6 +1,6 @@
 
 @available(OSX 10.7, *)
-class SKPaymentQueue : Object {
+class SKPaymentQueue : NSObject {
   class func defaultQueue() -> SKPaymentQueue
   class func canMakePayments() -> Bool
   func add(payment: SKPayment)
@@ -16,13 +16,13 @@ class SKPaymentQueue : Object {
   func cancel(downloads: [SKDownload])
   init()
 }
-protocol SKPaymentTransactionObserver : ObjectProtocol {
+protocol SKPaymentTransactionObserver : NSObjectProtocol {
   @available(OSX 10.7, *)
   func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction])
   @available(OSX 10.7, *)
   optional func paymentQueue(queue: SKPaymentQueue, removedTransactions transactions: [SKPaymentTransaction])
   @available(OSX 10.7, *)
-  optional func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error)
+  optional func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: NSError)
   @available(OSX 10.7, *)
   optional func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue)
   @available(OSX 10.8, *)

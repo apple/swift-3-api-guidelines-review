@@ -1,6 +1,6 @@
 
 @available(watchOS 2.0, *)
-class CNContactProperty : Object, Copying, SecureCoding {
+class CNContactProperty : NSObject, NSCopying, NSSecureCoding {
   @NSCopying var contact: CNContact { get }
   var key: String { get }
   var value: AnyObject? { get }
@@ -8,10 +8,10 @@ class CNContactProperty : Object, Copying, SecureCoding {
   var label: String? { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

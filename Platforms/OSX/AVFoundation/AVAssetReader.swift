@@ -9,11 +9,11 @@ enum AVAssetReaderStatus : Int {
   case cancelled
 }
 @available(OSX 10.7, *)
-class AVAssetReader : Object {
+class AVAssetReader : NSObject {
   init(asset: AVAsset) throws
   var asset: AVAsset { get }
   var status: AVAssetReaderStatus { get }
-  var error: Error? { get }
+  var error: NSError? { get }
   var timeRange: CMTimeRange
   var outputs: [AVAssetReaderOutput] { get }
   func canAddOutput(output: AVAssetReaderOutput) -> Bool

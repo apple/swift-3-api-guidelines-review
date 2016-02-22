@@ -11,11 +11,11 @@ struct OSALanguageFeatures : OptionSetType {
   static var supportsDialects: OSALanguageFeatures { get }
   static var supportsEventHandling: OSALanguageFeatures { get }
 }
-class OSALanguage : Object {
+class OSALanguage : NSObject {
   class func availableLanguages() -> [OSALanguage]
   /*not inherited*/ init?(forName name: String)
   @available(OSX 10.6, *)
-  /*not inherited*/ init?(forScriptDataDescriptor descriptor: AppleEventDescriptor)
+  /*not inherited*/ init?(forScriptDataDescriptor descriptor: NSAppleEventDescriptor)
   class func defaultLanguage() -> OSALanguage?
   class func setDefaultLanguage(defaultLanguage: OSALanguage)
   init(component: Component)

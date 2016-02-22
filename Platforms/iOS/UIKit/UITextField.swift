@@ -16,10 +16,10 @@ enum UITextFieldViewMode : Int {
   case always
 }
 @available(iOS 2.0, *)
-class UITextField : UIControl, UITextInput, Coding {
+class UITextField : UIControl, UITextInput, NSCoding {
   var text: String?
   @available(iOS 6.0, *)
-  @NSCopying var attributedText: AttributedString?
+  @NSCopying var attributedText: NSAttributedString?
   var textColor: UIColor?
   var font: UIFont?
   var textAlignment: NSTextAlignment
@@ -28,7 +28,7 @@ class UITextField : UIControl, UITextInput, Coding {
   var defaultTextAttributes: [String : AnyObject]
   var placeholder: String?
   @available(iOS 6.0, *)
-  @NSCopying var attributedPlaceholder: AttributedString?
+  @NSCopying var attributedPlaceholder: NSAttributedString?
   var clearsOnBeginEditing: Bool
   var adjustsFontSizeToFitWidth: Bool
   var minimumFontSize: CGFloat
@@ -59,7 +59,7 @@ class UITextField : UIControl, UITextInput, Coding {
   @available(iOS 6.0, *)
   var clearsOnInsertion: Bool
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
   @available(iOS 3.2, *)
   func text(in range: UITextRange) -> String?
@@ -70,7 +70,7 @@ class UITextField : UIControl, UITextInput, Coding {
   @available(iOS 3.2, *)
   var markedTextRange: UITextRange? { get }
   @available(iOS 2.0, *)
-  var markedTextStyle: [Object : AnyObject]?
+  var markedTextStyle: [NSObject : AnyObject]?
   @available(iOS 2.0, *)
   func setMarkedText(markedText: String?, selectedRange: NSRange)
   @available(iOS 2.0, *)
@@ -86,7 +86,7 @@ class UITextField : UIControl, UITextInput, Coding {
   @available(iOS 3.2, *)
   func position(from position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func compare(position: UITextPosition, to other: UITextPosition) -> ComparisonResult
+  func compare(position: UITextPosition, to other: UITextPosition) -> NSComparisonResult
   @available(iOS 3.2, *)
   func offset(from from: UITextPosition, to toPosition: UITextPosition) -> Int
   @available(iOS 2.0, *)
@@ -169,7 +169,7 @@ class UITextField : UIControl, UITextInput, Coding {
 extension UIView {
   func endEditing(force: Bool) -> Bool
 }
-protocol UITextFieldDelegate : ObjectProtocol {
+protocol UITextFieldDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
   optional func textFieldShouldBeginEditing(textField: UITextField) -> Bool
   @available(iOS 2.0, *)

@@ -16,7 +16,7 @@ let WKWebsiteDataTypeWebSQLDatabases: String
 @available(OSX 10.11, *)
 let WKWebsiteDataTypeIndexedDBDatabases: String
 @available(OSX 10.11, *)
-class WKWebsiteDataRecord : Object {
+class WKWebsiteDataRecord : NSObject {
   var displayName: String { get }
   var dataTypes: Set<String> { get }
   init()

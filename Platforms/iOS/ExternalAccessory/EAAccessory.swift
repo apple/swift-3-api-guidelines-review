@@ -1,7 +1,7 @@
 
 var EAConnectionIDNone: Int { get }
 @available(iOS 3.0, *)
-class EAAccessory : Object {
+class EAAccessory : NSObject {
   @available(iOS 3.0, *)
   var isConnected: Bool { get }
   @available(iOS 3.0, *)
@@ -26,7 +26,7 @@ class EAAccessory : Object {
   unowned(unsafe) var delegate: @sil_unmanaged EAAccessoryDelegate?
   init()
 }
-protocol EAAccessoryDelegate : ObjectProtocol {
+protocol EAAccessoryDelegate : NSObjectProtocol {
   @available(iOS 3.0, *)
   optional func accessoryDidDisconnect(accessory: EAAccessory)
 }

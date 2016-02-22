@@ -1,8 +1,8 @@
 
 @available(iOS 8.0, *)
-class UIPrinter : Object {
-  /*not inherited*/ init(url: URL)
-  @NSCopying var url: URL { get }
+class UIPrinter : NSObject {
+  /*not inherited*/ init(url: NSURL)
+  @NSCopying var url: NSURL { get }
   var displayName: String { get }
   var displayLocation: String? { get }
   var supportedJobTypes: UIPrinterJobTypes { get }

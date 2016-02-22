@@ -11,9 +11,9 @@ enum SKDownloadState : Int {
   case cancelled
 }
 @available(iOS 6.0, *)
-var SKDownloadTimeRemainingUnknown: TimeInterval
+var SKDownloadTimeRemainingUnknown: NSTimeInterval
 @available(iOS 6.0, *)
-class SKDownload : Object {
+class SKDownload : NSObject {
   @available(iOS 6.0, *)
   var downloadState: SKDownloadState { get }
   @available(iOS 6.0, *)
@@ -21,15 +21,15 @@ class SKDownload : Object {
   @available(iOS 6.0, *)
   var contentIdentifier: String { get }
   @available(iOS 6.0, *)
-  var contentURL: URL? { get }
+  var contentURL: NSURL? { get }
   @available(iOS 6.0, *)
   var contentVersion: String { get }
   @available(iOS 6.0, *)
-  var error: Error? { get }
+  var error: NSError? { get }
   @available(iOS 6.0, *)
   var progress: Float { get }
   @available(iOS 6.0, *)
-  var timeRemaining: TimeInterval { get }
+  var timeRemaining: NSTimeInterval { get }
   @available(iOS 6.0, *)
   var transaction: SKPaymentTransaction { get }
   init()

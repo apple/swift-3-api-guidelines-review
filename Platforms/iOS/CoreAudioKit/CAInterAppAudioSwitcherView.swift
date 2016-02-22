@@ -5,6 +5,6 @@ class CAInterAppAudioSwitcherView : UIView {
   func setOutputAudioUnit(au: AudioUnit)
   func contentWidth() -> CGFloat
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }

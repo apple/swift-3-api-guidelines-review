@@ -1,8 +1,8 @@
 
-class CLKTextProvider : Object, Copying {
+class CLKTextProvider : NSObject, NSCopying {
   var tintColor: UIColor
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 class CLKSimpleTextProvider : CLKTextProvider {
   convenience init(text: String)
@@ -14,26 +14,26 @@ class CLKSimpleTextProvider : CLKTextProvider {
   init()
 }
 class CLKDateTextProvider : CLKTextProvider {
-  convenience init(date: Date, units calendarUnits: CalendarUnit)
-  convenience init(date: Date, units calendarUnits: CalendarUnit, timeZone: TimeZone?)
-  var date: Date
-  var calendarUnits: CalendarUnit
-  var timeZone: TimeZone?
+  convenience init(date: NSDate, units calendarUnits: NSCalendarUnit)
+  convenience init(date: NSDate, units calendarUnits: NSCalendarUnit, timeZone: NSTimeZone?)
+  var date: NSDate
+  var calendarUnits: NSCalendarUnit
+  var timeZone: NSTimeZone?
   init()
 }
 class CLKTimeTextProvider : CLKTextProvider {
-  convenience init(date: Date)
-  convenience init(date: Date, timeZone: TimeZone?)
-  var date: Date
-  var timeZone: TimeZone?
+  convenience init(date: NSDate)
+  convenience init(date: NSDate, timeZone: NSTimeZone?)
+  var date: NSDate
+  var timeZone: NSTimeZone?
   init()
 }
 class CLKTimeIntervalTextProvider : CLKTextProvider {
-  convenience init(start startDate: Date, end endDate: Date)
-  convenience init(start startDate: Date, end endDate: Date, timeZone: TimeZone?)
-  var startDate: Date
-  var endDate: Date
-  var timeZone: TimeZone?
+  convenience init(start startDate: NSDate, end endDate: NSDate)
+  convenience init(start startDate: NSDate, end endDate: NSDate, timeZone: NSTimeZone?)
+  var startDate: NSDate
+  var endDate: NSDate
+  var timeZone: NSTimeZone?
   init()
 }
 enum CLKRelativeDateStyle : Int {
@@ -44,9 +44,9 @@ enum CLKRelativeDateStyle : Int {
   case timer
 }
 class CLKRelativeDateTextProvider : CLKTextProvider {
-  convenience init(date: Date, style: CLKRelativeDateStyle, units calendarUnits: CalendarUnit)
-  var date: Date
+  convenience init(date: NSDate, style: CLKRelativeDateStyle, units calendarUnits: NSCalendarUnit)
+  var date: NSDate
   var relativeDateStyle: CLKRelativeDateStyle
-  var calendarUnits: CalendarUnit
+  var calendarUnits: NSCalendarUnit
   init()
 }

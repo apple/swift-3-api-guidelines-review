@@ -4,23 +4,23 @@ let kGLKModelErrorDomain: String
 @available(tvOS 9.0, *)
 let kGLKModelErrorKey: String
 @available(tvOS 9.0, *)
-class GLKMeshBufferAllocator : Object, MDLMeshBufferAllocator {
+class GLKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
   init()
   @available(tvOS 9.0, *)
   func newZone(capacity: Int) -> MDLMeshBufferZone
   @available(tvOS 9.0, *)
-  func newZoneForBuffers(withSize sizes: [Number], andType types: [Number]) -> MDLMeshBufferZone
+  func newZoneForBuffers(withSize sizes: [NSNumber], andType types: [NSNumber]) -> MDLMeshBufferZone
   @available(tvOS 9.0, *)
   func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(tvOS 9.0, *)
-  func newBuffer(with data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(with data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(tvOS 9.0, *)
   func newBuffer(from zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
   @available(tvOS 9.0, *)
-  func newBuffer(from zone: MDLMeshBufferZone?, data: Data, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBuffer(from zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 @available(tvOS 9.0, *)
-class GLKMeshBuffer : Object, MDLMeshBuffer {
+class GLKMeshBuffer : NSObject, MDLMeshBuffer {
   var length: Int { get }
   var allocator: GLKMeshBufferAllocator { get }
   var glBufferName: GLuint { get }
@@ -29,14 +29,14 @@ class GLKMeshBuffer : Object, MDLMeshBuffer {
   func zone() -> MDLMeshBufferZone?
   init()
   @available(tvOS 9.0, *)
-  func fill(data: Data, offset: Int)
+  func fill(data: NSData, offset: Int)
   @available(tvOS 9.0, *)
   func map() -> MDLMeshBufferMap
   @available(tvOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 9.0, *)
-class GLKSubmesh : Object {
+class GLKSubmesh : NSObject {
   var type: GLenum { get }
   var mode: GLenum { get }
   var elementCount: GLsizei { get }
@@ -45,7 +45,7 @@ class GLKSubmesh : Object {
   var name: String { get }
 }
 @available(tvOS 9.0, *)
-class GLKMesh : Object {
+class GLKMesh : NSObject {
   init(mesh: MDLMesh) throws
   class func newMeshes(from asset: MDLAsset, sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [GLKMesh]
   var vertexCount: Int { get }

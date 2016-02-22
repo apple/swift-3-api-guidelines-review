@@ -2,11 +2,11 @@
 @available(iOS 9.0, *)
 class NEPacketTunnelProvider : NETunnelProvider {
   @available(iOS 9.0, *)
-  func startTunnel(options options: [String : Object]? = [:], completionHandler: (Error?) -> Void)
+  func startTunnel(options options: [String : NSObject]? = [:], completionHandler: (NSError?) -> Void)
   @available(iOS 9.0, *)
   func stopTunnel(reason: NEProviderStopReason, completionHandler: () -> Void)
   @available(iOS 9.0, *)
-  func cancelTunnelWithError(error: Error?)
+  func cancelTunnelWithError(error: NSError?)
   @available(iOS 9.0, *)
   var packetFlow: NEPacketTunnelFlow { get }
   @available(iOS 9.0, *)

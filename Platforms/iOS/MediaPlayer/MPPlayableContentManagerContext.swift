@@ -1,6 +1,6 @@
 
 @available(iOS 8.4, *)
-class MPPlayableContentManagerContext : Object {
+class MPPlayableContentManagerContext : NSObject {
   var enforcedContentItemsCount: Int { get }
   var enforcedContentTreeDepth: Int { get }
   var contentLimitsEnforced: Bool { get }

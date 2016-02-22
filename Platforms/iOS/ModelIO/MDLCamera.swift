@@ -20,7 +20,7 @@ class MDLCamera : MDLObject {
   var apertureBladeCount: Int
   var maximumCircleOfConfusion: Float
   func bokehKernel(withSize size: vector_int2) -> MDLTexture
-  var shutterOpenInterval: TimeInterval
+  var shutterOpenInterval: NSTimeInterval
   var sensorVerticalAperture: Float
   var sensorAspect: Float
   var sensorEnlargement: vector_float2

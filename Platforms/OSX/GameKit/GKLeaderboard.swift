@@ -13,7 +13,7 @@ enum GKLeaderboardPlayerScope : Int {
   case friendsOnly
 }
 @available(OSX 10.8, *)
-class GKLeaderboard : Object {
+class GKLeaderboard : NSObject {
   var timeScope: GKLeaderboardTimeScope
   var playerScope: GKLeaderboardPlayerScope
   @available(OSX 10.10, *)
@@ -29,9 +29,9 @@ class GKLeaderboard : Object {
   init()
   @available(OSX 10.10, *)
   init(players: [GKPlayer])
-  func loadScores(completionHandler completionHandler: (([GKScore]?, Error?) -> Void)? = nil)
+  func loadScores(completionHandler completionHandler: (([GKScore]?, NSError?) -> Void)? = nil)
   @available(OSX 10.8, *)
-  class func loadLeaderboards(completionHandler completionHandler: (([GKLeaderboard]?, Error?) -> Void)? = nil)
+  class func loadLeaderboards(completionHandler completionHandler: (([GKLeaderboard]?, NSError?) -> Void)? = nil)
 }
 extension GKLeaderboard {
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use identifier instead")
@@ -39,9 +39,9 @@ extension GKLeaderboard {
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use initWithPlayers: instead")
   init?(playerIDs: [String]?)
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use setDefaultLeaderboardIdentifier:completionHandler: on GKLocalPlayer instead")
-  class func setDefaultLeaderboard(leaderboardIdentifier: String?, withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
+  class func setDefaultLeaderboard(leaderboardIdentifier: String?, withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
 }
 extension GKLeaderboard {
   @available(OSX 10.8, *)
-  func loadImage(completionHandler completionHandler: ((NSImage?, Error?) -> Void)? = nil)
+  func loadImage(completionHandler completionHandler: ((NSImage?, NSError?) -> Void)? = nil)
 }

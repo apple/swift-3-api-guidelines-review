@@ -24,13 +24,13 @@ class NSAttributeDescription : NSPropertyDescription {
   var attributeValueClassName: String?
   var defaultValue: AnyObject?
   @available(tvOS 3.0, *)
-  @NSCopying var versionHash: Data { get }
+  @NSCopying var versionHash: NSData { get }
   @available(tvOS 3.0, *)
   var valueTransformerName: String?
   @available(tvOS 5.0, *)
   var allowsExternalBinaryDataStorage: Bool
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 struct __attributeDescriptionFlags {
   var _hasMaxValueInExtraIvars: UInt32

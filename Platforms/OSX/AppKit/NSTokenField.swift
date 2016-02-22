@@ -3,12 +3,12 @@ class NSTokenField : NSTextField {
   func setDelegate(anObject: NSTokenFieldDelegate?)
   func delegate() -> NSTokenFieldDelegate?
   var tokenStyle: NSTokenStyle
-  var completionDelay: TimeInterval
-  class func defaultCompletionDelay() -> TimeInterval
-  @NSCopying var tokenizingCharacterSet: CharacterSet!
-  class func defaultTokenizingCharacterSet() -> CharacterSet
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  var completionDelay: NSTimeInterval
+  class func defaultCompletionDelay() -> NSTimeInterval
+  @NSCopying var tokenizingCharacterSet: NSCharacterSet!
+  class func defaultTokenizingCharacterSet() -> NSCharacterSet
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }
 protocol NSTokenFieldDelegate : NSTextFieldDelegate {

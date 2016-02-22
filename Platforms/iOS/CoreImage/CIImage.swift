@@ -1,18 +1,18 @@
 
 @available(iOS 5.0, *)
-class CIImage : Object, SecureCoding, Copying {
+class CIImage : NSObject, NSSecureCoding, NSCopying {
   class func empty() -> CIImage
   init(cgImage image: CGImage)
   init(cgImage image: CGImage, options: [String : AnyObject]? = [:])
-  init?(data: Data)
-  init?(data: Data, options: [String : AnyObject]? = [:])
-  init(bitmapData data: Data, bytesPerRow: Int, size: CGSize, format: CIFormat, colorSpace: CGColorSpace?)
+  init?(data: NSData)
+  init?(data: NSData, options: [String : AnyObject]? = [:])
+  init(bitmapData data: NSData, bytesPerRow: Int, size: CGSize, format: CIFormat, colorSpace: CGColorSpace?)
   @available(iOS 6.0, *)
   init(texture name: UInt32, size: CGSize, flipped: Bool, colorSpace: CGColorSpace?)
   @available(iOS 9.0, *)
   init(mtlTexture texture: MTLTexture, options: [String : AnyObject]? = [:])
-  init?(contentsOf url: URL)
-  init?(contentsOf url: URL, options: [String : AnyObject]? = [:])
+  init?(contentsOf url: NSURL)
+  init?(contentsOf url: NSURL, options: [String : AnyObject]? = [:])
   @available(iOS 9.0, *)
   init(cvImageBuffer imageBuffer: CVImageBuffer)
   @available(iOS 9.0, *)
@@ -38,7 +38,7 @@ class CIImage : Object, SecureCoding, Copying {
   @available(iOS 5.0, *)
   var properties: [String : AnyObject] { get }
   @available(iOS 9.0, *)
-  var url: URL? { get }
+  var url: NSURL? { get }
   @available(iOS 9.0, *)
   var colorSpace: CGColorSpace? { get }
   @available(iOS 6.0, *)
@@ -47,10 +47,10 @@ class CIImage : Object, SecureCoding, Copying {
   @available(iOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 5.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 5.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 typealias CIFormat = Int32
 @available(iOS 6.0, *)

@@ -1,6 +1,6 @@
 
 @available(OSX 10.8, *)
-class AVB17221Entity : Object {
+class AVB17221Entity : NSObject {
   var isLocalEntity: Bool
   var timeToLive: UInt8
   @available(OSX 10.9, *)

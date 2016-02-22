@@ -1,16 +1,16 @@
 
-class Coder : Object {
+class NSCoder : NSObject {
   func encodeValueOf(objCType type: UnsafePointer<Int8>, at addr: UnsafePointer<Void>)
-  func encodeDataObject(data: Data)
+  func encodeDataObject(data: NSData)
   func decodeValueOf(objCType type: UnsafePointer<Int8>, at data: UnsafeMutablePointer<Void>)
-  func decodeDataObject() -> Data?
+  func decodeDataObject() -> NSData?
   func version(forClassName className: String) -> Int
   init()
 }
 
-extension Coder {
+extension NSCoder {
   @warn_unused_result
-  func decodeObjectOfClass<DecodedObjectType : Coding where DecodedObjectType : NSObject>(cls: DecodedObjectType.Type, forKey key: String) -> DecodedObjectType?
+  func decodeObjectOfClass<DecodedObjectType : NSCoding where DecodedObjectType : NSObject>(cls: DecodedObjectType.Type, forKey key: String) -> DecodedObjectType?
   @warn_unused_result
   @nonobjc func decodeObjectOfClasses(classes: NSSet?, forKey key: String) -> AnyObject?
   @warn_unused_result
@@ -18,11 +18,11 @@ extension Coder {
   @warn_unused_result
   func decodeTopLevelObjectForKey(key: String) throws -> AnyObject?
   @warn_unused_result
-  func decodeTopLevelObjectOfClass<DecodedObjectType : Coding where DecodedObjectType : NSObject>(cls: DecodedObjectType.Type, forKey key: String) throws -> DecodedObjectType?
+  func decodeTopLevelObjectOfClass<DecodedObjectType : NSCoding where DecodedObjectType : NSObject>(cls: DecodedObjectType.Type, forKey key: String) throws -> DecodedObjectType?
   @warn_unused_result
   func decodeTopLevelObjectOfClasses(classes: NSSet?, forKey key: String) throws -> AnyObject?
 }
-extension Coder {
+extension NSCoder {
   func encode(object: AnyObject?)
   func encodeRootObject(rootObject: AnyObject)
   func encodeBycopyObject(anObject: AnyObject?)
@@ -60,11 +60,11 @@ extension Coder {
   @available(iOS 6.0, *)
   var requiresSecureCoding: Bool { get }
   @available(iOS 6.0, *)
-  func __decodeObjectOf(classes classes: Set<Object>?, forKey key: String) -> AnyObject?
+  func __decodeObjectOf(classes classes: Set<NSObject>?, forKey key: String) -> AnyObject?
   @available(iOS 6.0, *)
   func decodePropertyList(forKey key: String) -> AnyObject?
   @available(iOS 6.0, *)
-  var allowedClasses: Set<Object>? { get }
+  var allowedClasses: Set<NSObject>? { get }
   @available(iOS 9.0, *)
-  func failWithError(error: Error)
+  func failWithError(error: NSError)
 }

@@ -44,9 +44,9 @@ struct __MFlags {
 }
 typealias _MFlags = __MFlags
 class NSMatrix : NSControl, NSUserInterfaceValidations {
-  convenience init(frame frameRect: Rect)
-  init(frame frameRect: Rect, mode aMode: NSMatrixMode, prototype aCell: NSCell, numberOfRows rowsHigh: Int, numberOfColumns colsWide: Int)
-  init(frame frameRect: Rect, mode aMode: NSMatrixMode, cellClass factoryId: AnyClass?, numberOfRows rowsHigh: Int, numberOfColumns colsWide: Int)
+  convenience init(frame frameRect: NSRect)
+  init(frame frameRect: NSRect, mode aMode: NSMatrixMode, prototype aCell: NSCell, numberOfRows rowsHigh: Int, numberOfColumns colsWide: Int)
+  init(frame frameRect: NSRect, mode aMode: NSMatrixMode, cellClass factoryId: AnyClass?, numberOfRows rowsHigh: Int, numberOfColumns colsWide: Int)
   var cellClass: AnyClass
   @NSCopying var prototype: NSCell?
   func makeCell(atRow row: Int, column col: Int) -> NSCell
@@ -66,8 +66,8 @@ class NSMatrix : NSControl, NSUserInterfaceValidations {
   func selectCell(atRow row: Int, column col: Int)
   func selectAll(sender: AnyObject?)
   func selectCell(tag anInt: Int) -> Bool
-  var cellSize: Size
-  var intercellSpacing: Size
+  var cellSize: NSSize
+  var intercellSpacing: NSSize
   func setScrollable(flag: Bool)
   @NSCopying var backgroundColor: NSColor
   @NSCopying var cellBackgroundColor: NSColor?
@@ -78,9 +78,9 @@ class NSMatrix : NSControl, NSUserInterfaceValidations {
   var numberOfRows: Int { get }
   var numberOfColumns: Int { get }
   func cell(atRow row: Int, column col: Int) -> NSCell?
-  func cellFrame(atRow row: Int, column col: Int) -> Rect
+  func cellFrame(atRow row: Int, column col: Int) -> NSRect
   func getRow(row: UnsafeMutablePointer<Int>, column col: UnsafeMutablePointer<Int>, of aCell: NSCell) -> Bool
-  func getRow(row: UnsafeMutablePointer<Int>, column col: UnsafeMutablePointer<Int>, for aPoint: Point) -> Bool
+  func getRow(row: UnsafeMutablePointer<Int>, column col: UnsafeMutablePointer<Int>, for aPoint: NSPoint) -> Bool
   func renewRows(newRows: Int, columns newCols: Int)
   func putCell(newCell: NSCell, atRow row: Int, column col: Int)
   func addRow()
@@ -110,9 +110,9 @@ class NSMatrix : NSControl, NSUserInterfaceValidations {
   unowned(unsafe) var delegate: @sil_unmanaged NSMatrixDelegate?
   func textShouldBeginEditing(textObject: NSText) -> Bool
   func textShouldEndEditing(textObject: NSText) -> Bool
-  func textDidBeginEditing(notification: Notification)
-  func textDidEndEditing(notification: Notification)
-  func textDidChange(notification: Notification)
+  func textDidBeginEditing(notification: NSNotification)
+  func textDidEndEditing(notification: NSNotification)
+  func textDidChange(notification: NSNotification)
   func selectText(sender: AnyObject?)
   func selectText(atRow row: Int, column col: Int) -> NSCell?
   func acceptsFirstMouse(theEvent: NSEvent?) -> Bool
@@ -122,7 +122,7 @@ class NSMatrix : NSControl, NSUserInterfaceValidations {
   @available(OSX 10.8, *)
   var autorecalculatesCellSize: Bool
   func selectedCell() -> NSCell?
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   convenience init()
   func validate(anItem: NSValidatedUserInterfaceItem) -> Bool
 }

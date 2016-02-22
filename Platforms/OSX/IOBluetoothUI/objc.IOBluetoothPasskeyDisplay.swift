@@ -21,19 +21,19 @@ class IOBluetoothPasskeyDisplay : NSView {
   func advancePasskeyIndicator()
   func retreatPasskeyIndicator()
   func resetPasskeyIndicator()
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }
 class IOBluetoothAccessibilityIgnoredTextFieldCell : NSTextFieldCell {
   init(textCell aString: String)
   init(imageCell image: NSImage?)
   convenience init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 class IOBluetoothAccessibilityIgnoredImageCell : NSImageCell {
   init(textCell aString: String)
   init(imageCell image: NSImage?)
   convenience init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

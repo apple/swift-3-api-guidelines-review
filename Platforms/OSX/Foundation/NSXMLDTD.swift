@@ -1,20 +1,20 @@
 
-class XMLDTD : XMLNode {
+class NSXMLDTD : NSXMLNode {
   init()
-  convenience init(contentsOf url: URL, options mask: Int) throws
-  init(data: Data, options mask: Int) throws
+  convenience init(contentsOf url: NSURL, options mask: Int) throws
+  init(data: NSData, options mask: Int) throws
   var publicID: String?
   var systemID: String?
-  func insertChild(child: XMLNode, at index: Int)
-  func insertChildren(children: [XMLNode], at index: Int)
+  func insertChild(child: NSXMLNode, at index: Int)
+  func insertChildren(children: [NSXMLNode], at index: Int)
   func removeChild(at index: Int)
-  func setChildren(children: [XMLNode]?)
-  func addChild(child: XMLNode)
-  func replaceChild(at index: Int, with node: XMLNode)
-  func entityDeclaration(forName name: String) -> XMLDTDNode?
-  func notationDeclaration(forName name: String) -> XMLDTDNode?
-  func elementDeclaration(forName name: String) -> XMLDTDNode?
-  func attributeDeclaration(forName name: String, elementName: String) -> XMLDTDNode?
-  class func predefinedEntityDeclaration(forName name: String) -> XMLDTDNode?
-  convenience init(kind: XMLNodeKind)
+  func setChildren(children: [NSXMLNode]?)
+  func addChild(child: NSXMLNode)
+  func replaceChild(at index: Int, with node: NSXMLNode)
+  func entityDeclaration(forName name: String) -> NSXMLDTDNode?
+  func notationDeclaration(forName name: String) -> NSXMLDTDNode?
+  func elementDeclaration(forName name: String) -> NSXMLDTDNode?
+  func attributeDeclaration(forName name: String, elementName: String) -> NSXMLDTDNode?
+  class func predefinedEntityDeclaration(forName name: String) -> NSXMLDTDNode?
+  convenience init(kind: NSXMLNodeKind)
 }

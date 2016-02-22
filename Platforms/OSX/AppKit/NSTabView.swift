@@ -25,7 +25,7 @@ class NSTabView : NSView {
   var tabViewType: NSTabViewType
   var tabViewItems: [NSTabViewItem] { get }
   var allowsTruncatedLabels: Bool
-  var minimumSize: Size { get }
+  var minimumSize: NSSize { get }
   var drawsBackground: Bool
   var controlTint: NSControlTint
   var controlSize: NSControlSize
@@ -33,14 +33,14 @@ class NSTabView : NSView {
   func insert(tabViewItem: NSTabViewItem, at index: Int)
   func remove(tabViewItem: NSTabViewItem)
   unowned(unsafe) var delegate: @sil_unmanaged NSTabViewDelegate?
-  func tabViewItem(at point: Point) -> NSTabViewItem?
-  var contentRect: Rect { get }
+  func tabViewItem(at point: NSPoint) -> NSTabViewItem?
+  var contentRect: NSRect { get }
   var numberOfTabViewItems: Int { get }
   func indexOf(tabViewItem: NSTabViewItem) -> Int
   func tabViewItem(at index: Int) -> NSTabViewItem
   func indexOfTabViewItem(withIdentifier identifier: AnyObject) -> Int
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }
 struct __NSTabViewDelegateRespondTo {
@@ -67,7 +67,7 @@ struct __NSTabViewFlags {
   init()
   init(needsLayout: UInt32, controlTint: UInt32, controlSize: UInt32, wiringNibConnections: UInt32, wiringInteriorLastKeyView: UInt32, originalNextKeyViewChanged: UInt32, liveResizeSkippedResetToolTips: UInt32, subviewsAddedForTabs: UInt32, allowsPropertyChange: UInt32, ownedByTabViewController: UInt32, reserved: UInt32)
 }
-protocol NSTabViewDelegate : ObjectProtocol {
+protocol NSTabViewDelegate : NSObjectProtocol {
   optional func tabView(tabView: NSTabView, shouldSelect tabViewItem: NSTabViewItem?) -> Bool
   optional func tabView(tabView: NSTabView, willSelect tabViewItem: NSTabViewItem?)
   optional func tabView(tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?)

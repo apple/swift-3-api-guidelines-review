@@ -5,10 +5,10 @@ extension CSSearchableItemAttributeSet {
   var contentDescription: String?
   var identifier: String?
   var audiences: [String]?
-  var fileSize: Number?
-  var pageCount: Number?
-  var pageWidth: Number?
-  var pageHeight: Number?
+  var fileSize: NSNumber?
+  var pageCount: NSNumber?
+  var pageWidth: NSNumber?
+  var pageHeight: NSNumber?
   var securityMethod: String?
   var creator: String?
   var encodingApplications: [String]?

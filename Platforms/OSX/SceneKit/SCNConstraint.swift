@@ -1,16 +1,16 @@
 
 @available(OSX 10.9, *)
-class SCNConstraint : Object, Copying, SecureCoding, SCNAnimatable {
+class SCNConstraint : NSObject, NSCopying, NSSecureCoding, SCNAnimatable {
   @available(OSX 10.10, *)
   var influenceFactor: CGFloat
   init()
   @available(OSX 10.9, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.9, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.9, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.9, *)
   func add(animation: CAAnimation, forKey key: String?)
   @available(OSX 10.9, *)
@@ -36,7 +36,7 @@ class SCNLookAtConstraint : SCNConstraint {
   var target: SCNNode { get }
   var gimbalLockEnabled: Bool
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 struct SCNBillboardAxis : OptionSetType {
   init(rawValue: UInt)
@@ -50,13 +50,13 @@ struct SCNBillboardAxis : OptionSetType {
 class SCNBillboardConstraint : SCNConstraint {
   var freeAxes: SCNBillboardAxis
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.9, *)
 class SCNTransformConstraint : SCNConstraint {
   convenience init(inWorldSpace world: Bool, with block: (SCNNode, SCNMatrix4) -> SCNMatrix4)
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
 class SCNIKConstraint : SCNConstraint {
@@ -68,5 +68,5 @@ class SCNIKConstraint : SCNConstraint {
   func setMaxAllowedRotationAngle(angle: CGFloat, forJoint node: SCNNode)
   func maxAllowedRotationAngle(forJoint node: SCNNode) -> CGFloat
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

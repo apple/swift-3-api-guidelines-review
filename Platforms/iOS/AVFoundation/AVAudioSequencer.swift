@@ -16,32 +16,32 @@ struct _AVBeatRange {
 typealias AVBeatRange = _AVBeatRange
 func AVMakeBeatRange(startBeat: AVMusicTimeStamp, _ lengthInBeats: AVMusicTimeStamp) -> AVBeatRange
 @available(iOS 9.0, *)
-class AVAudioSequencer : Object {
+class AVAudioSequencer : NSObject {
   init()
   init(audioEngine engine: AVAudioEngine)
-  func load(from fileURL: URL, options: AVMusicSequenceLoadOptions = []) throws
-  func load(from data: Data, options: AVMusicSequenceLoadOptions = []) throws
-  func write(to fileURL: URL, smpteResolution resolution: Int, replaceExisting replace: Bool) throws
-  func data(withSMPTEResolution SMPTEResolution: Int, error outError: ErrorPointer) -> Data
-  func seconds(forBeats beats: AVMusicTimeStamp) -> TimeInterval
-  func beats(forSeconds seconds: TimeInterval) -> AVMusicTimeStamp
+  func load(from fileURL: NSURL, options: AVMusicSequenceLoadOptions = []) throws
+  func load(from data: NSData, options: AVMusicSequenceLoadOptions = []) throws
+  func write(to fileURL: NSURL, smpteResolution resolution: Int, replaceExisting replace: Bool) throws
+  func data(withSMPTEResolution SMPTEResolution: Int, error outError: NSErrorPointer) -> NSData
+  func seconds(forBeats beats: AVMusicTimeStamp) -> NSTimeInterval
+  func beats(forSeconds seconds: NSTimeInterval) -> AVMusicTimeStamp
   var tracks: [AVMusicTrack] { get }
   var tempoTrack: AVMusicTrack { get }
   var userInfo: [String : AnyObject] { get }
 }
 extension AVAudioSequencer {
-  var currentPositionInSeconds: TimeInterval
-  var currentPositionInBeats: TimeInterval
+  var currentPositionInSeconds: NSTimeInterval
+  var currentPositionInBeats: NSTimeInterval
   var isPlaying: Bool { get }
   var rate: Float
-  func hostTime(forBeats inBeats: AVMusicTimeStamp, error outError: ErrorPointer) -> UInt64
-  func beats(forHostTime inHostTime: UInt64, error outError: ErrorPointer) -> AVMusicTimeStamp
+  func hostTime(forBeats inBeats: AVMusicTimeStamp, error outError: NSErrorPointer) -> UInt64
+  func beats(forHostTime inHostTime: UInt64, error outError: NSErrorPointer) -> AVMusicTimeStamp
   func prepareToPlay()
   func start() throws
   func stop()
 }
 @available(iOS 9.0, *)
-class AVMusicTrack : Object {
+class AVMusicTrack : NSObject {
   var destinationAudioUnit: AVAudioUnit?
   var destinationMIDIEndpoint: MIDIEndpointRef
   var loopRange: AVBeatRange
@@ -51,7 +51,7 @@ class AVMusicTrack : Object {
   var isMuted: Bool
   var isSoloed: Bool
   var lengthInBeats: AVMusicTimeStamp
-  var lengthInSeconds: TimeInterval
+  var lengthInSeconds: NSTimeInterval
   var timeResolution: Int { get }
   init()
 }

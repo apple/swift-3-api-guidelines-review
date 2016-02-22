@@ -7,10 +7,10 @@ enum NCUpdateResult : UInt {
   case noData
   case failed
 }
-protocol NCWidgetProviding : ExtensionRequestHandling {
+protocol NCWidgetProviding : NSExtensionRequestHandling {
   @available(OSX 10.10, *)
   optional func widgetPerformUpdate(completionHandler completionHandler: ((NCUpdateResult) -> Void)!)
-  optional func widgetMarginInsets(forProposedMarginInsets defaultMarginInset: EdgeInsets) -> EdgeInsets
+  optional func widgetMarginInsets(forProposedMarginInsets defaultMarginInset: NSEdgeInsets) -> NSEdgeInsets
   optional var widgetAllowsEditing: Bool { get }
   optional func widgetDidBeginEditing()
   optional func widgetDidEndEditing()

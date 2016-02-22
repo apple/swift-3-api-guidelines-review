@@ -1,6 +1,6 @@
 
 @available(iOS 2.0, *)
-class MPVolumeView : UIView, Coding {
+class MPVolumeView : UIView, NSCoding {
   @available(iOS 4.2, *)
   var showsVolumeSlider: Bool
   @available(iOS 4.2, *)
@@ -34,7 +34,7 @@ class MPVolumeView : UIView, Coding {
   @available(iOS 6.0, *)
   func routeButtonRect(forBounds bounds: CGRect) -> CGRect
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
 @available(iOS 7.0, *)

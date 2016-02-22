@@ -34,7 +34,7 @@ class DOMHTMLInputElement : DOMHTMLElement {
   @available(OSX 10.5, *)
   var altDisplayString: String! { get }
   @available(OSX 10.5, *)
-  @NSCopying var absoluteImageURL: URL! { get }
+  @NSCopying var absoluteImageURL: NSURL! { get }
   func select()
   @available(OSX 10.5, *)
   func setSelectionRange(start: Int32, end: Int32)

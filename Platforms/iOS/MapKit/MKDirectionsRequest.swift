@@ -1,6 +1,6 @@
 
 @available(iOS 6.0, *)
-class MKDirectionsRequest : Object {
+class MKDirectionsRequest : NSObject {
   var source: MKMapItem?
   var destination: MKMapItem?
   init()
@@ -11,13 +11,13 @@ extension MKDirectionsRequest {
   @available(iOS 7.0, *)
   var requestsAlternateRoutes: Bool
   @available(iOS 7.0, *)
-  @NSCopying var departureDate: Date?
+  @NSCopying var departureDate: NSDate?
   @available(iOS 7.0, *)
-  @NSCopying var arrivalDate: Date?
+  @NSCopying var arrivalDate: NSDate?
 }
 extension MKDirectionsRequest {
   @available(iOS 6.0, *)
-  init(contentsOf url: URL)
+  init(contentsOf url: NSURL)
   @available(iOS 6.0, *)
-  class func isDirectionsRequest(url: URL) -> Bool
+  class func isDirectionsRequest(url: NSURL) -> Bool
 }

@@ -8,7 +8,7 @@ enum EABluetoothAccessoryPickerErrorCode : Int {
   case resultFailed
 }
 let EABluetoothAccessoryPickerErrorDomain: String
-typealias EABluetoothAccessoryPickerCompletion = (Error?) -> Void
+typealias EABluetoothAccessoryPickerCompletion = (NSError?) -> Void
 @available(iOS 3.0, *)
 let EAAccessoryDidConnectNotification: String
 @available(iOS 3.0, *)
@@ -18,11 +18,11 @@ let EAAccessoryKey: String
 @available(iOS 6.0, *)
 let EAAccessorySelectedKey: String
 @available(iOS 3.0, *)
-class EAAccessoryManager : Object {
+class EAAccessoryManager : NSObject {
   @available(iOS 3.0, *)
   class func shared() -> EAAccessoryManager
   @available(iOS 6.0, *)
-  func showBluetoothAccessoryPicker(nameFilter predicate: Predicate?, completion: EABluetoothAccessoryPickerCompletion? = nil)
+  func showBluetoothAccessoryPicker(nameFilter predicate: NSPredicate?, completion: EABluetoothAccessoryPickerCompletion? = nil)
   @available(iOS 3.0, *)
   func registerForLocalNotifications()
   @available(iOS 3.0, *)

@@ -1,9 +1,9 @@
 
 @available(iOS 7.0, *)
-class NSTextContainer : Object, Coding, NSTextLayoutOrientationProvider {
+class NSTextContainer : NSObject, NSCoding, NSTextLayoutOrientationProvider {
   @available(iOS 7.0, *)
   init(size: CGSize)
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   unowned(unsafe) var layoutManager: @sil_unmanaged NSLayoutManager?
   @available(iOS 9.0, *)
   func replaceLayoutManager(newLayoutManager: NSLayoutManager)
@@ -24,7 +24,7 @@ class NSTextContainer : Object, Coding, NSTextLayoutOrientationProvider {
   var heightTracksTextView: Bool
   convenience init()
   @available(iOS 7.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
   @available(iOS 7.0, *)
   var layoutOrientation: NSTextLayoutOrientation { get }
 }

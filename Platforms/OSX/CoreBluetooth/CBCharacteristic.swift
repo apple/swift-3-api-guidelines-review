@@ -16,11 +16,11 @@ struct CBCharacteristicProperties : OptionSetType {
   static var indicateEncryptionRequired: CBCharacteristicProperties { get }
 }
 @available(OSX 10.7, *)
-class CBCharacteristic : Object {
+class CBCharacteristic : NSObject {
   unowned(unsafe) var service: @sil_unmanaged CBService { get }
   var uuid: CBUUID { get }
   var properties: CBCharacteristicProperties { get }
-  var value: Data? { get }
+  var value: NSData? { get }
   var descriptors: [CBDescriptor]? { get }
   var isBroadcasted: Bool { get }
   var isNotifying: Bool { get }
@@ -42,8 +42,8 @@ class CBMutableCharacteristic : CBCharacteristic {
   var subscribedCentrals: [CBCentral]? { get }
   var uuid: CBUUID?
   var properties: CBCharacteristicProperties
-  var value: Data?
+  var value: NSData?
   var descriptors: [CBDescriptor]?
-  init(type UUID: CBUUID?, properties: CBCharacteristicProperties, value: Data?, permissions: CBAttributePermissions)
+  init(type UUID: CBUUID?, properties: CBCharacteristicProperties, value: NSData?, permissions: CBAttributePermissions)
   init()
 }

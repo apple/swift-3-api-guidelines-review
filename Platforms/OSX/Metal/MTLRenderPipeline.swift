@@ -50,7 +50,7 @@ enum MTLPrimitiveTopologyClass : UInt {
   case triangle
 }
 @available(OSX 10.11, *)
-class MTLRenderPipelineColorAttachmentDescriptor : Object, Copying {
+class MTLRenderPipelineColorAttachmentDescriptor : NSObject, NSCopying {
   var pixelFormat: MTLPixelFormat
   var isBlendingEnabled: Bool
   var sourceRGBBlendFactor: MTLBlendFactor
@@ -62,16 +62,16 @@ class MTLRenderPipelineColorAttachmentDescriptor : Object, Copying {
   var writeMask: MTLColorWriteMask
   init()
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
-class MTLRenderPipelineReflection : Object {
+class MTLRenderPipelineReflection : NSObject {
   var vertexArguments: [MTLArgument]? { get }
   var fragmentArguments: [MTLArgument]? { get }
   init()
 }
 @available(OSX 10.11, *)
-class MTLRenderPipelineDescriptor : Object, Copying {
+class MTLRenderPipelineDescriptor : NSObject, NSCopying {
   var label: String?
   var vertexFunction: MTLFunction?
   var fragmentFunction: MTLFunction?
@@ -88,15 +88,15 @@ class MTLRenderPipelineDescriptor : Object, Copying {
   func reset()
   init()
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
-protocol MTLRenderPipelineState : ObjectProtocol {
+protocol MTLRenderPipelineState : NSObjectProtocol {
   var label: String? { get }
   var device: MTLDevice { get }
 }
 @available(OSX 10.11, *)
-class MTLRenderPipelineColorAttachmentDescriptorArray : Object {
+class MTLRenderPipelineColorAttachmentDescriptorArray : NSObject {
   subscript(attachmentIndex: Int) -> MTLRenderPipelineColorAttachmentDescriptor!
   init()
 }

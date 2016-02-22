@@ -1,6 +1,6 @@
 
 @available(OSX 10.11, *)
-class MDLVertexAttributeData : Object {
+class MDLVertexAttributeData : NSObject {
   var map: MDLMeshBufferMap
   var dataStart: UnsafeMutablePointer<Void>
   var stride: Int
@@ -16,7 +16,7 @@ class MDLMesh : MDLObject {
   @NSCopying var vertexDescriptor: MDLVertexDescriptor
   var vertexCount: Int { get }
   var vertexBuffers: [MDLMeshBuffer] { get }
-  var submeshes: MutableArray { get }
+  var submeshes: NSMutableArray { get }
   init()
 }
 extension MDLMesh {

@@ -7,7 +7,7 @@ struct EAWiFiUnconfiguredAccessoryProperties : OptionSetType {
   static var propertySupportsHomeKit: EAWiFiUnconfiguredAccessoryProperties { get }
 }
 @available(iOS 8.0, *)
-class EAWiFiUnconfiguredAccessory : Object {
+class EAWiFiUnconfiguredAccessory : NSObject {
   var name: String { get }
   var manufacturer: String { get }
   var model: String { get }

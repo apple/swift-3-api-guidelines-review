@@ -1,7 +1,7 @@
 
 class NSObjectController : NSController {
   init(content: AnyObject?)
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   var content: AnyObject?
   var selection: AnyObject { get }
   var selectedObjects: [AnyObject] { get }
@@ -35,7 +35,7 @@ struct __objectControllerFlags {
 extension NSObjectController {
   var managedObjectContext: NSManagedObjectContext?
   var entityName: String?
-  var fetchPredicate: Predicate?
+  var fetchPredicate: NSPredicate?
   func fetch(fetchRequest: NSFetchRequest?, merge: Bool) throws
   func fetch(sender: AnyObject?)
   @available(OSX 10.5, *)

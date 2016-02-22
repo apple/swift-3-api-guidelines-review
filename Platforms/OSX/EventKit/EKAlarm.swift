@@ -1,10 +1,10 @@
 
 @available(OSX 10.8, *)
-class EKAlarm : EKObject, Copying {
-  /*not inherited*/ init(absoluteDate date: Date)
-  /*not inherited*/ init(relativeOffset offset: TimeInterval)
-  var relativeOffset: TimeInterval
-  @NSCopying var absoluteDate: Date?
+class EKAlarm : EKObject, NSCopying {
+  /*not inherited*/ init(absoluteDate date: NSDate)
+  /*not inherited*/ init(relativeOffset offset: NSTimeInterval)
+  var relativeOffset: NSTimeInterval
+  @NSCopying var absoluteDate: NSDate?
   @NSCopying var structuredLocation: EKStructuredLocation?
   var proximity: EKAlarmProximity
   @available(OSX 10.8, *)
@@ -15,5 +15,5 @@ class EKAlarm : EKObject, Copying {
   var soundName: String?
   init()
   @available(OSX 10.8, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

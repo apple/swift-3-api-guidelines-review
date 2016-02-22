@@ -1,20 +1,20 @@
 
-struct ByteCountFormatterUnits : OptionSetType {
+struct NSByteCountFormatterUnits : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var useDefault: ByteCountFormatterUnits { get }
-  static var useBytes: ByteCountFormatterUnits { get }
-  static var useKB: ByteCountFormatterUnits { get }
-  static var useMB: ByteCountFormatterUnits { get }
-  static var useGB: ByteCountFormatterUnits { get }
-  static var useTB: ByteCountFormatterUnits { get }
-  static var usePB: ByteCountFormatterUnits { get }
-  static var useEB: ByteCountFormatterUnits { get }
-  static var useZB: ByteCountFormatterUnits { get }
-  static var useYBOrHigher: ByteCountFormatterUnits { get }
-  static var useAll: ByteCountFormatterUnits { get }
+  static var useDefault: NSByteCountFormatterUnits { get }
+  static var useBytes: NSByteCountFormatterUnits { get }
+  static var useKB: NSByteCountFormatterUnits { get }
+  static var useMB: NSByteCountFormatterUnits { get }
+  static var useGB: NSByteCountFormatterUnits { get }
+  static var useTB: NSByteCountFormatterUnits { get }
+  static var usePB: NSByteCountFormatterUnits { get }
+  static var useEB: NSByteCountFormatterUnits { get }
+  static var useZB: NSByteCountFormatterUnits { get }
+  static var useYBOrHigher: NSByteCountFormatterUnits { get }
+  static var useAll: NSByteCountFormatterUnits { get }
 }
-enum ByteCountFormatterCountStyle : Int {
+enum NSByteCountFormatterCountStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   case file
@@ -23,11 +23,11 @@ enum ByteCountFormatterCountStyle : Int {
   case binary
 }
 @available(OSX 10.8, *)
-class ByteCountFormatter : Formatter {
-  class func string(fromByteCount byteCount: Int64, countStyle: ByteCountFormatterCountStyle) -> String
+class NSByteCountFormatter : NSFormatter {
+  class func string(fromByteCount byteCount: Int64, countStyle: NSByteCountFormatterCountStyle) -> String
   func string(fromByteCount byteCount: Int64) -> String
-  var allowedUnits: ByteCountFormatterUnits
-  var countStyle: ByteCountFormatterCountStyle
+  var allowedUnits: NSByteCountFormatterUnits
+  var countStyle: NSByteCountFormatterCountStyle
   var allowsNonnumericFormatting: Bool
   var includesUnit: Bool
   var includesCount: Bool
@@ -35,7 +35,7 @@ class ByteCountFormatter : Formatter {
   var isAdaptive: Bool
   var zeroPadsFractionDigits: Bool
   @available(OSX 10.10, *)
-  var formattingContext: FormattingContext
+  var formattingContext: NSFormattingContext
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

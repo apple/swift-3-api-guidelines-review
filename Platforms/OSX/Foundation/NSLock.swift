@@ -1,35 +1,35 @@
 
-protocol Locking {
+protocol NSLocking {
   func lock()
   func unlock()
 }
-class Lock : Object, Locking {
+class NSLock : NSObject, NSLocking {
   func tryLock() -> Bool
-  func lock(before limit: Date) -> Bool
+  func lock(before limit: NSDate) -> Bool
   @available(OSX 10.5, *)
   var name: String?
   init()
   func lock()
   func unlock()
 }
-class ConditionLock : Object, Locking {
+class NSConditionLock : NSObject, NSLocking {
   init(condition: Int)
   var condition: Int { get }
   func lock(whenCondition condition: Int)
   func tryLock() -> Bool
   func tryWhenCondition(condition: Int) -> Bool
   func unlock(condition condition: Int)
-  func lock(before limit: Date) -> Bool
-  func lock(whenCondition condition: Int, before limit: Date) -> Bool
+  func lock(before limit: NSDate) -> Bool
+  func lock(whenCondition condition: Int, before limit: NSDate) -> Bool
   @available(OSX 10.5, *)
   var name: String?
   convenience init()
   func lock()
   func unlock()
 }
-class RecursiveLock : Object, Locking {
+class NSRecursiveLock : NSObject, NSLocking {
   func tryLock() -> Bool
-  func lock(before limit: Date) -> Bool
+  func lock(before limit: NSDate) -> Bool
   @available(OSX 10.5, *)
   var name: String?
   init()
@@ -37,9 +37,9 @@ class RecursiveLock : Object, Locking {
   func unlock()
 }
 @available(OSX 10.5, *)
-class Condition : Object, Locking {
+class NSCondition : NSObject, NSLocking {
   func wait()
-  func wait(until limit: Date) -> Bool
+  func wait(until limit: NSDate) -> Bool
   func signal()
   func broadcast()
   @available(OSX 10.5, *)

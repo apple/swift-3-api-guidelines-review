@@ -1,17 +1,17 @@
 
 @available(OSX 10.4, *)
-class MetadataQuery : Object {
-  unowned(unsafe) var delegate: @sil_unmanaged MetadataQueryDelegate?
-  @NSCopying var predicate: Predicate?
-  var sortDescriptors: [SortDescriptor]
+class NSMetadataQuery : NSObject {
+  unowned(unsafe) var delegate: @sil_unmanaged NSMetadataQueryDelegate?
+  @NSCopying var predicate: NSPredicate?
+  var sortDescriptors: [NSSortDescriptor]
   var valueListAttributes: [String]
   var groupingAttributes: [String]?
-  var notificationBatchingInterval: TimeInterval
+  var notificationBatchingInterval: NSTimeInterval
   var searchScopes: [AnyObject]
   @available(OSX 10.9, *)
   var searchItems: [AnyObject]?
   @available(OSX 10.9, *)
-  var operationQueue: OperationQueue?
+  var operationQueue: NSOperationQueue?
   func start() -> Bool
   func stop()
   var isStarted: Bool { get }
@@ -24,73 +24,73 @@ class MetadataQuery : Object {
   @available(OSX 10.9, *)
   func enumerateResults(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.9, *)
-  func enumerateResults(opts: EnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateResults(opts: NSEnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   var results: [AnyObject] { get }
   func indexOf(result result: AnyObject) -> Int
-  var valueLists: [String : [MetadataQueryAttributeValueTuple]] { get }
-  var groupedResults: [MetadataQueryResultGroup] { get }
+  var valueLists: [String : [NSMetadataQueryAttributeValueTuple]] { get }
+  var groupedResults: [NSMetadataQueryResultGroup] { get }
   func valueOf(attribute attrName: String, forResultAt idx: Int) -> AnyObject?
   init()
 }
-protocol MetadataQueryDelegate : ObjectProtocol {
+protocol NSMetadataQueryDelegate : NSObjectProtocol {
   @available(OSX 10.4, *)
-  optional func metadataQuery(query: MetadataQuery, replacementObjectForResultObject result: MetadataItem) -> AnyObject
+  optional func metadataQuery(query: NSMetadataQuery, replacementObjectForResultObject result: NSMetadataItem) -> AnyObject
   @available(OSX 10.4, *)
-  optional func metadataQuery(query: MetadataQuery, replacementValueForAttribute attrName: String, value attrValue: AnyObject) -> AnyObject
+  optional func metadataQuery(query: NSMetadataQuery, replacementValueForAttribute attrName: String, value attrValue: AnyObject) -> AnyObject
 }
 @available(OSX 10.4, *)
-let metadataQueryDidStartGatheringNotification: String
+let NSMetadataQueryDidStartGatheringNotification: String
 @available(OSX 10.4, *)
-let metadataQueryGatheringProgressNotification: String
+let NSMetadataQueryGatheringProgressNotification: String
 @available(OSX 10.4, *)
-let metadataQueryDidFinishGatheringNotification: String
+let NSMetadataQueryDidFinishGatheringNotification: String
 @available(OSX 10.4, *)
-let metadataQueryDidUpdateNotification: String
+let NSMetadataQueryDidUpdateNotification: String
 @available(OSX 10.9, *)
-let metadataQueryUpdateAddedItemsKey: String
+let NSMetadataQueryUpdateAddedItemsKey: String
 @available(OSX 10.9, *)
-let metadataQueryUpdateChangedItemsKey: String
+let NSMetadataQueryUpdateChangedItemsKey: String
 @available(OSX 10.9, *)
-let metadataQueryUpdateRemovedItemsKey: String
+let NSMetadataQueryUpdateRemovedItemsKey: String
 @available(OSX 10.4, *)
-let metadataQueryResultContentRelevanceAttribute: String
+let NSMetadataQueryResultContentRelevanceAttribute: String
 @available(OSX 10.4, *)
-let metadataQueryUserHomeScope: String
+let NSMetadataQueryUserHomeScope: String
 @available(OSX 10.4, *)
-let metadataQueryLocalComputerScope: String
+let NSMetadataQueryLocalComputerScope: String
 @available(OSX 10.4, *)
-let metadataQueryNetworkScope: String
+let NSMetadataQueryNetworkScope: String
 @available(OSX 10.9, *)
-let metadataQueryIndexedLocalComputerScope: String
+let NSMetadataQueryIndexedLocalComputerScope: String
 @available(OSX 10.9, *)
-let metadataQueryIndexedNetworkScope: String
+let NSMetadataQueryIndexedNetworkScope: String
 @available(OSX 10.7, *)
-let metadataQueryUbiquitousDocumentsScope: String
+let NSMetadataQueryUbiquitousDocumentsScope: String
 @available(OSX 10.7, *)
-let metadataQueryUbiquitousDataScope: String
+let NSMetadataQueryUbiquitousDataScope: String
 @available(OSX 10.10, *)
-let metadataQueryAccessibleUbiquitousExternalDocumentsScope: String
+let NSMetadataQueryAccessibleUbiquitousExternalDocumentsScope: String
 @available(OSX 10.4, *)
-class MetadataItem : Object {
+class NSMetadataItem : NSObject {
   @available(OSX 10.9, *)
-  init?(url: URL)
+  init?(url: NSURL)
   func value(forAttribute key: String) -> AnyObject?
   func values(forAttributes keys: [String]) -> [String : AnyObject]?
   var attributes: [String] { get }
   convenience init()
 }
 @available(OSX 10.4, *)
-class MetadataQueryAttributeValueTuple : Object {
+class NSMetadataQueryAttributeValueTuple : NSObject {
   var attribute: String { get }
   var value: AnyObject? { get }
   var count: Int { get }
   init()
 }
 @available(OSX 10.4, *)
-class MetadataQueryResultGroup : Object {
+class NSMetadataQueryResultGroup : NSObject {
   var attribute: String { get }
   var value: AnyObject { get }
-  var subgroups: [MetadataQueryResultGroup]? { get }
+  var subgroups: [NSMetadataQueryResultGroup]? { get }
   var resultCount: Int { get }
   func result(at idx: Int) -> AnyObject
   var results: [AnyObject] { get }

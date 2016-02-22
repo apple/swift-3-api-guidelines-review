@@ -11,9 +11,9 @@ let NSPreferencePaneCancelUnselectNotification: String
 let NSPrefPaneHelpMenuInfoPListKey: String
 let NSPrefPaneHelpMenuTitleKey: String
 let NSPrefPaneHelpMenuAnchorKey: String
-class NSPreferencePane : Object {
-  init(bundle: Bundle)
-  var bundle: Bundle { get }
+class NSPreferencePane : NSObject {
+  init(bundle: NSBundle)
+  var bundle: NSBundle { get }
   func loadMainView() -> NSView
   func mainViewDidLoad()
   var mainNibName: String { get }

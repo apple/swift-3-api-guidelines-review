@@ -1,13 +1,13 @@
 
 @available(OSX 10.9, *)
-class MKDistanceFormatter : Formatter {
+class MKDistanceFormatter : NSFormatter {
   func string(fromDistance distance: CLLocationDistance) -> String
   func distance(from distance: String) -> CLLocationDistance
-  @NSCopying var locale: Locale!
+  @NSCopying var locale: NSLocale!
   var units: MKDistanceFormatterUnits
   var unitStyle: MKDistanceFormatterUnitStyle
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.9, *)
 enum MKDistanceFormatterUnits : UInt {

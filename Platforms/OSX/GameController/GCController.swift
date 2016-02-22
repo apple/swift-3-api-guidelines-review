@@ -11,7 +11,7 @@ enum GCControllerPlayerIndex : Int {
   case index4
 }
 @available(OSX 10.9, *)
-class GCController : Object {
+class GCController : NSObject {
   var controllerPausedHandler: ((GCController) -> Void)?
   @available(OSX 10.11, *)
   var handlerQueue: dispatch_queue_t

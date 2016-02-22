@@ -70,9 +70,9 @@ enum MPMovieSourceType : Int {
 }
 @available(iOS 2.0, *)
 @available(iOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
-class MPMoviePlayerController : Object, MPMediaPlayback {
-  init!(contentURL url: URL!)
-  @NSCopying var contentURL: URL!
+class MPMoviePlayerController : NSObject, MPMediaPlayback {
+  init!(contentURL url: NSURL!)
+  @NSCopying var contentURL: NSURL!
   var view: UIView! { get }
   var backgroundView: UIView! { get }
   var playbackState: MPMoviePlaybackState { get }
@@ -97,7 +97,7 @@ class MPMoviePlayerController : Object, MPMediaPlayback {
   @available(iOS 2.0, *)
   func stop()
   @available(iOS 2.0, *)
-  var currentPlaybackTime: TimeInterval
+  var currentPlaybackTime: NSTimeInterval
   @available(iOS 2.0, *)
   var currentPlaybackRate: Float
   @available(iOS 2.0, *)
@@ -113,15 +113,15 @@ extension MPMoviePlayerController {
   @available(iOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
   var movieSourceType: MPMovieSourceType
   @available(iOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
-  var duration: TimeInterval { get }
+  var duration: NSTimeInterval { get }
   @available(iOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
-  var playableDuration: TimeInterval { get }
+  var playableDuration: NSTimeInterval { get }
   @available(iOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
   var naturalSize: CGSize { get }
   @available(iOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
-  var initialPlaybackTime: TimeInterval
+  var initialPlaybackTime: NSTimeInterval
   @available(iOS, introduced=2.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
-  var endPlaybackTime: TimeInterval
+  var endPlaybackTime: NSTimeInterval
   @available(iOS, introduced=4.3, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
   var allowsAirPlay: Bool
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use AVPlayerViewController in AVKit.")
@@ -190,12 +190,12 @@ extension MPMoviePlayerController {
 }
 @available(iOS 4.0, *)
 @available(iOS, introduced=4.0, deprecated=9.0)
-class MPTimedMetadata : Object {
+class MPTimedMetadata : NSObject {
   var key: String! { get }
   var keyspace: String! { get }
   var value: AnyObject! { get }
-  var timestamp: TimeInterval { get }
-  var allMetadata: [Object : AnyObject]! { get }
+  var timestamp: NSTimeInterval { get }
+  var allMetadata: [NSObject : AnyObject]! { get }
   init()
 }
 @available(iOS, introduced=4.0, deprecated=9.0)
@@ -220,36 +220,36 @@ extension MPMoviePlayerController {
 }
 @available(iOS 4.3, *)
 @available(iOS, introduced=4.3, deprecated=9.0)
-class MPMovieAccessLog : Object, Copying {
-  var extendedLogData: Data! { get }
+class MPMovieAccessLog : NSObject, NSCopying {
+  var extendedLogData: NSData! { get }
   var extendedLogDataStringEncoding: UInt { get }
   var events: [AnyObject]! { get }
   init()
   @available(iOS 4.3, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 4.3, *)
 @available(iOS, introduced=4.3, deprecated=9.0)
-class MPMovieErrorLog : Object, Copying {
-  var extendedLogData: Data! { get }
+class MPMovieErrorLog : NSObject, NSCopying {
+  var extendedLogData: NSData! { get }
   var extendedLogDataStringEncoding: UInt { get }
   var events: [AnyObject]! { get }
   init()
   @available(iOS 4.3, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 4.3, *)
 @available(iOS, introduced=4.3, deprecated=9.0)
-class MPMovieAccessLogEvent : Object, Copying {
+class MPMovieAccessLogEvent : NSObject, NSCopying {
   var numberOfSegmentsDownloaded: Int { get }
-  var playbackStartDate: Date! { get }
+  var playbackStartDate: NSDate! { get }
   var uri: String! { get }
   var serverAddress: String! { get }
   var numberOfServerAddressChanges: Int { get }
   var playbackSessionID: String! { get }
-  var playbackStartOffset: TimeInterval { get }
-  var segmentsDownloadedDuration: TimeInterval { get }
-  var durationWatched: TimeInterval { get }
+  var playbackStartOffset: NSTimeInterval { get }
+  var segmentsDownloadedDuration: NSTimeInterval { get }
+  var durationWatched: NSTimeInterval { get }
   var numberOfStalls: Int { get }
   var numberOfBytesTransferred: Int64 { get }
   var observedBitrate: Double { get }
@@ -257,12 +257,12 @@ class MPMovieAccessLogEvent : Object, Copying {
   var numberOfDroppedVideoFrames: Int { get }
   init()
   @available(iOS 4.3, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 4.3, *)
 @available(iOS, introduced=4.3, deprecated=9.0)
-class MPMovieErrorLogEvent : Object, Copying {
-  var date: Date! { get }
+class MPMovieErrorLogEvent : NSObject, NSCopying {
+  var date: NSDate! { get }
   var uri: String! { get }
   var serverAddress: String! { get }
   var playbackSessionID: String! { get }
@@ -271,7 +271,7 @@ class MPMovieErrorLogEvent : Object, Copying {
   var errorComment: String! { get }
   init()
   @available(iOS 4.3, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 extension MPMoviePlayerController {
 }

@@ -10,17 +10,17 @@ enum NSEntityMappingType : UInt {
   case transformEntityMappingType
 }
 @available(watchOS 2.0, *)
-class NSEntityMapping : Object {
+class NSEntityMapping : NSObject {
   var name: String!
   var mappingType: NSEntityMappingType
   var sourceEntityName: String?
-  @NSCopying var sourceEntityVersionHash: Data?
+  @NSCopying var sourceEntityVersionHash: NSData?
   var destinationEntityName: String?
-  @NSCopying var destinationEntityVersionHash: Data?
+  @NSCopying var destinationEntityVersionHash: NSData?
   var attributeMappings: [NSPropertyMapping]?
   var relationshipMappings: [NSPropertyMapping]?
-  var sourceExpression: Expression?
-  var userInfo: [Object : AnyObject]?
+  var sourceExpression: NSExpression?
+  var userInfo: [NSObject : AnyObject]?
   var entityMigrationPolicyClassName: String?
   init()
 }

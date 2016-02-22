@@ -53,14 +53,14 @@ extension AUAudioUnit {
   func setRenderResourcesAllocated(flag: Bool)
 }
 extension AUAudioUnitBus {
-  var supportedChannelCounts: [Number]?
+  var supportedChannelCounts: [NSNumber]?
   var maximumChannelCount: AUAudioChannelCount
 }
 extension AUAudioUnitBusArray {
   func replaceBusses(busArray: [AUAudioUnitBus])
 }
 extension AUParameterTree {
-  class func createParameter(withIdentifier identifier: String, name: String, address: AUParameterAddress, min: AUValue, max: AUValue, unit: AudioUnitParameterUnit, unitName: String?, flags: AudioUnitParameterOptions = [], valueStrings: [String]?, dependentParameters: [Number]?) -> AUParameter
+  class func createParameter(withIdentifier identifier: String, name: String, address: AUParameterAddress, min: AUValue, max: AUValue, unit: AudioUnitParameterUnit, unitName: String?, flags: AudioUnitParameterOptions = [], valueStrings: [String]?, dependentParameters: [NSNumber]?) -> AUParameter
   class func createGroup(withIdentifier identifier: String, name: String, children: [AUParameterNode]) -> AUParameterGroup
   class func createGroupTemplate(children: [AUParameterNode]) -> AUParameterGroup
   class func createGroup(fromTemplate templateGroup: AUParameterGroup, identifier: String, name: String, addressOffset: AUParameterAddress) -> AUParameterGroup
@@ -83,7 +83,7 @@ class AUAudioUnitV2Bridge : AUAudioUnit {
   init(componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = []) throws
   convenience init(componentDescription: AudioComponentDescription) throws
 }
-protocol AUAudioUnitFactory : ExtensionRequestHandling {
+protocol AUAudioUnitFactory : NSExtensionRequestHandling {
   @available(iOS 9.0, *)
   func createAudioUnit(with desc: AudioComponentDescription) throws -> AUAudioUnit
 }

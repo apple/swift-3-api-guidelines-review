@@ -6,7 +6,7 @@ let AVCaptureDeviceWasDisconnectedNotification: String
 @available(iOS 5.0, *)
 let AVCaptureDeviceSubjectAreaDidChangeNotification: String
 @available(iOS 4.0, *)
-class AVCaptureDevice : Object {
+class AVCaptureDevice : NSObject {
   class func devices() -> [AnyObject]!
   class func devices(withMediaType mediaType: String!) -> [AnyObject]!
   class func defaultDevice(withMediaType mediaType: String!) -> AVCaptureDevice!
@@ -254,7 +254,7 @@ extension AVCaptureDevice {
   var isVideoHDREnabled: Bool
 }
 @available(iOS 7.0, *)
-class AVFrameRateRange : Object {
+class AVFrameRateRange : NSObject {
   var minFrameRate: Float64 { get }
   var maxFrameRate: Float64 { get }
   var maxFrameDuration: CMTime { get }
@@ -279,7 +279,7 @@ enum AVCaptureAutoFocusSystem : Int {
   case phaseDetection
 }
 @available(iOS 7.0, *)
-class AVCaptureDeviceFormat : Object {
+class AVCaptureDeviceFormat : NSObject {
   var mediaType: String! { get }
   var formatDescription: CMFormatDescription! { get }
   var videoSupportedFrameRateRanges: [AnyObject]! { get }

@@ -25,14 +25,14 @@ enum UIWebPaginationBreakingMode : Int {
   case column
 }
 @available(iOS 2.0, *)
-class UIWebView : UIView, Coding, UIScrollViewDelegate {
+class UIWebView : UIView, NSCoding, UIScrollViewDelegate {
   unowned(unsafe) var delegate: @sil_unmanaged UIWebViewDelegate?
   @available(iOS 5.0, *)
   var scrollView: UIScrollView { get }
-  func loadRequest(request: URLRequest)
-  func loadHTMLString(string: String, baseURL: URL?)
-  func load(data: Data, mimeType MIMEType: String, textEncodingName: String, baseURL: URL)
-  var request: URLRequest? { get }
+  func loadRequest(request: NSURLRequest)
+  func loadHTMLString(string: String, baseURL: NSURL?)
+  func load(data: NSData, mimeType MIMEType: String, textEncodingName: String, baseURL: NSURL)
+  var request: NSURLRequest? { get }
   func reload()
   func stopLoading()
   func goBack()
@@ -69,7 +69,7 @@ class UIWebView : UIView, Coding, UIScrollViewDelegate {
   @available(iOS 9.0, *)
   var allowsLinkPreview: Bool
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
   @available(iOS 2.0, *)
   func scrollViewDidScroll(scrollView: UIScrollView)
@@ -98,13 +98,13 @@ class UIWebView : UIView, Coding, UIScrollViewDelegate {
   @available(iOS 2.0, *)
   func scrollViewDidScroll(toTop scrollView: UIScrollView)
 }
-protocol UIWebViewDelegate : ObjectProtocol {
+protocol UIWebViewDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
-  optional func webView(webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool
+  optional func webView(webView: UIWebView, shouldStartLoadWith request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool
   @available(iOS 2.0, *)
   optional func webViewDidStartLoad(webView: UIWebView)
   @available(iOS 2.0, *)
   optional func webViewDidFinishLoad(webView: UIWebView)
   @available(iOS 2.0, *)
-  optional func webView(webView: UIWebView, didFailLoadWithError error: Error?)
+  optional func webView(webView: UIWebView, didFailLoadWithError error: NSError?)
 }

@@ -1,5 +1,5 @@
 
-class NSPageLayout : Object {
+class NSPageLayout : NSObject {
   @available(OSX 10.5, *)
   func addAccessoryController(accessoryController: NSViewController)
   @available(OSX 10.5, *)

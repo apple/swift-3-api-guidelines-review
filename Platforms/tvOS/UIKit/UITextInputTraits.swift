@@ -68,7 +68,7 @@ enum UIReturnKeyType : Int {
   @available(tvOS 9.0, *)
   case `continue`
 }
-protocol UITextInputTraits : ObjectProtocol {
+protocol UITextInputTraits : NSObjectProtocol {
   optional var autocapitalizationType: UITextAutocapitalizationType { get set }
   optional var autocorrectionType: UITextAutocorrectionType { get set }
   @available(tvOS 5.0, *)

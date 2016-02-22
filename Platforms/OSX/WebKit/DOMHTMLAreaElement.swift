@@ -22,5 +22,5 @@ class DOMHTMLAreaElement : DOMHTMLElement {
   @available(OSX 10.5, *)
   var search: String! { get }
   @available(OSX 10.5, *)
-  @NSCopying var absoluteLinkURL: URL! { get }
+  @NSCopying var absoluteLinkURL: NSURL! { get }
 }

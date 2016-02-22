@@ -1,6 +1,6 @@
 
 @available(OSX 10.11, *)
-class GKPath : Object {
+class GKPath : NSObject {
   var radius: Float
   var isCyclical: Bool
   var numPoints: Int { get }

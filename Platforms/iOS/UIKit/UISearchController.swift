@@ -1,5 +1,5 @@
 
-protocol UISearchControllerDelegate : ObjectProtocol {
+protocol UISearchControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
   optional func willPresent(searchController: UISearchController)
   @available(iOS 8.0, *)
@@ -11,7 +11,7 @@ protocol UISearchControllerDelegate : ObjectProtocol {
   @available(iOS 8.0, *)
   optional func present(searchController: UISearchController)
 }
-protocol UISearchResultsUpdating : ObjectProtocol {
+protocol UISearchResultsUpdating : NSObjectProtocol {
   @available(iOS 8.0, *)
   func updateSearchResults(for searchController: UISearchController)
 }
@@ -27,8 +27,8 @@ class UISearchController : UIViewController, UIViewControllerTransitioningDelega
   var hidesNavigationBarDuringPresentation: Bool
   var searchResultsController: UIViewController? { get }
   var searchBar: UISearchBar { get }
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
   @available(iOS 8.0, *)
   func animationController(forPresentedController presented: UIViewController, presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
@@ -41,7 +41,7 @@ class UISearchController : UIViewController, UIViewControllerTransitioningDelega
   @available(iOS 8.0, *)
   func presentationController(forPresentedViewController presented: UIViewController, presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController?
   @available(iOS 8.0, *)
-  func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval
+  func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
   @available(iOS 8.0, *)
   func animateTransition(transitionContext: UIViewControllerContextTransitioning)
   @available(iOS 8.0, *)

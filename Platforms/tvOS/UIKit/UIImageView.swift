@@ -13,7 +13,7 @@ class UIImageView : UIView {
   var animationImages: [UIImage]?
   @available(tvOS 3.0, *)
   var highlightedAnimationImages: [UIImage]?
-  var animationDuration: TimeInterval
+  var animationDuration: NSTimeInterval
   var animationRepeatCount: Int
   @available(tvOS 7.0, *)
   var tintColor: UIColor!
@@ -25,6 +25,6 @@ class UIImageView : UIView {
   @available(tvOS 9.0, *)
   var focusedFrameGuide: UILayoutGuide { get }
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }

@@ -1,8 +1,8 @@
 
 @available(tvOS 9.0, *)
-class SCNAudioSource : Object, Copying, SecureCoding {
+class SCNAudioSource : NSObject, NSCopying, NSSecureCoding {
   convenience init?(fileNamed name: String)
-  init?(url: URL)
+  init?(url: NSURL)
   convenience init?(named fileName: String)
   var isPositional: Bool
   var volume: Float
@@ -13,15 +13,15 @@ class SCNAudioSource : Object, Copying, SecureCoding {
   func load()
   convenience init()
   @available(tvOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 9.0, *)
-class SCNAudioPlayer : Object {
+class SCNAudioPlayer : NSObject {
   init(source: SCNAudioSource)
   var willStartPlayback: (() -> Void)?
   var didFinishPlayback: (() -> Void)?

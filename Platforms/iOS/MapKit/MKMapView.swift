@@ -8,7 +8,7 @@ enum MKUserTrackingMode : Int {
   case followWithHeading
 }
 @available(iOS 3.0, *)
-class MKMapView : UIView, Coding {
+class MKMapView : UIView, NSCoding {
   weak var delegate: @sil_weak MKMapViewDelegate?
   var mapType: MKMapType
   var region: MKCoordinateRegion
@@ -59,7 +59,7 @@ class MKMapView : UIView, Coding {
   func removeAnnotations(annotations: [MKAnnotation])
   var annotations: [MKAnnotation] { get }
   @available(iOS 4.2, *)
-  func annotations(in mapRect: MKMapRect) -> Set<Object>
+  func annotations(in mapRect: MKMapRect) -> Set<NSObject>
   func view(for annotation: MKAnnotation) -> MKAnnotationView?
   func dequeueReusableAnnotationView(identifier identifier: String) -> MKAnnotationView?
   func selectAnnotation(annotation: MKAnnotation, animated: Bool)
@@ -69,7 +69,7 @@ class MKMapView : UIView, Coding {
   @available(iOS 7.0, *)
   func showAnnotations(annotations: [MKAnnotation], animated: Bool)
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
 @available(iOS 7.0, *)
@@ -111,7 +111,7 @@ extension MKMapView {
   @available(iOS 4.0, *)
   func exchangeOverlay(at index1: Int, withOverlayAt index2: Int)
 }
-protocol MKMapViewDelegate : ObjectProtocol {
+protocol MKMapViewDelegate : NSObjectProtocol {
   @available(iOS 3.0, *)
   optional func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool)
   @available(iOS 3.0, *)
@@ -121,7 +121,7 @@ protocol MKMapViewDelegate : ObjectProtocol {
   @available(iOS 3.0, *)
   optional func mapViewDidFinishLoadingMap(mapView: MKMapView)
   @available(iOS 3.0, *)
-  optional func mapViewDidFailLoadingMap(mapView: MKMapView, withError error: Error)
+  optional func mapViewDidFailLoadingMap(mapView: MKMapView, withError error: NSError)
   @available(iOS 7.0, *)
   optional func mapViewWillStartRenderingMap(mapView: MKMapView)
   @available(iOS 7.0, *)
@@ -143,7 +143,7 @@ protocol MKMapViewDelegate : ObjectProtocol {
   @available(iOS 4.0, *)
   optional func mapView(mapView: MKMapView, didUpdate userLocation: MKUserLocation)
   @available(iOS 4.0, *)
-  optional func mapView(mapView: MKMapView, didFailToLocateUserWithError error: Error)
+  optional func mapView(mapView: MKMapView, didFailToLocateUserWithError error: NSError)
   @available(iOS 4.0, *)
   optional func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState)
   @available(iOS 5.0, *)

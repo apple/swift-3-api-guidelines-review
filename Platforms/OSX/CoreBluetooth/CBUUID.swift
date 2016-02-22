@@ -15,16 +15,16 @@ let CBUUIDReconnectionAddressString: String
 let CBUUIDPeripheralPreferredConnectionParametersString: String
 let CBUUIDServiceChangedString: String
 @available(OSX 10.7, *)
-class CBUUID : Object, Copying {
-  var data: Data { get }
+class CBUUID : NSObject, NSCopying {
+  var data: NSData { get }
   @available(OSX 10.10, *)
   var uuidString: String { get }
   /*not inherited*/ init(string theString: String)
-  /*not inherited*/ init(data theData: Data)
+  /*not inherited*/ init(data theData: NSData)
   /*not inherited*/ init(cfuuid theUUID: CFUUID)
   @available(OSX 10.9, *)
-  /*not inherited*/ init(nsuuid theUUID: UUID)
+  /*not inherited*/ init(nsuuid theUUID: NSUUID)
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

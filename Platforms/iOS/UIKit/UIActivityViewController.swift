@@ -1,6 +1,6 @@
 
 typealias UIActivityViewControllerCompletionHandler = (String?, Bool) -> Void
-typealias UIActivityViewControllerCompletionWithItemsHandler = (String?, Bool, [AnyObject]?, Error?) -> Void
+typealias UIActivityViewControllerCompletionWithItemsHandler = (String?, Bool, [AnyObject]?, NSError?) -> Void
 @available(iOS 6.0, *)
 class UIActivityViewController : UIViewController {
   init(activityItems: [AnyObject], applicationActivities: [UIActivity]?)

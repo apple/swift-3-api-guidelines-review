@@ -25,11 +25,11 @@ func CLLocationCoordinate2DIsValid(coord: CLLocationCoordinate2D) -> Bool
 @available(OSX 10.7, *)
 func CLLocationCoordinate2DMake(latitude: CLLocationDegrees, _ longitude: CLLocationDegrees) -> CLLocationCoordinate2D
 @available(OSX 10.6, *)
-class CLLocation : Object, Copying, SecureCoding {
+class CLLocation : NSObject, NSCopying, NSSecureCoding {
   init(latitude: CLLocationDegrees, longitude: CLLocationDegrees)
-  init(coordinate: CLLocationCoordinate2D, altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, timestamp: Date)
+  init(coordinate: CLLocationCoordinate2D, altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, timestamp: NSDate)
   @available(OSX 10.7, *)
-  init(coordinate: CLLocationCoordinate2D, altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, course: CLLocationDirection, speed: CLLocationSpeed, timestamp: Date)
+  init(coordinate: CLLocationCoordinate2D, altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, course: CLLocationDirection, speed: CLLocationSpeed, timestamp: NSDate)
   var coordinate: CLLocationCoordinate2D { get }
   var altitude: CLLocationDistance { get }
   var horizontalAccuracy: CLLocationAccuracy { get }
@@ -38,16 +38,16 @@ class CLLocation : Object, Copying, SecureCoding {
   var course: CLLocationDirection { get }
   @available(OSX 10.7, *)
   var speed: CLLocationSpeed { get }
-  @NSCopying var timestamp: Date { get }
+  @NSCopying var timestamp: NSDate { get }
   var description: String { get }
   @available(OSX 10.6, *)
   func distance(from location: CLLocation) -> CLLocationDistance
   init()
   @available(OSX 10.6, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.6, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.6, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

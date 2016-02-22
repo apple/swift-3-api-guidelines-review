@@ -1,20 +1,20 @@
 
 @available(OSX 10.10, *)
-class GKLeaderboardSet : Object, Coding, SecureCoding {
+class GKLeaderboardSet : NSObject, NSCoding, NSSecureCoding {
   var title: String { get }
   var groupIdentifier: String? { get }
   var identifier: String?
   @available(OSX 10.10, *)
-  class func loadLeaderboardSets(completionHandler completionHandler: (([GKLeaderboardSet]?, Error?) -> Void)? = nil)
+  class func loadLeaderboardSets(completionHandler completionHandler: (([GKLeaderboardSet]?, NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func loadLeaderboards(completionHandler completionHandler: (([GKLeaderboard]?, Error?) -> Void)? = nil)
+  func loadLeaderboards(completionHandler completionHandler: (([GKLeaderboard]?, NSError?) -> Void)? = nil)
   init()
   @available(OSX 10.10, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
 }
 extension GKLeaderboardSet {
-  func loadImage(completionHandler completionHandler: ((NSImage?, Error?) -> Void)? = nil)
+  func loadImage(completionHandler completionHandler: ((NSImage?, NSError?) -> Void)? = nil)
 }

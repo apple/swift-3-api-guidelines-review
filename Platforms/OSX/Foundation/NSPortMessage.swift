@@ -1,10 +1,10 @@
 
-class PortMessage : Object {
-  init(send sendPort: Port?, receive replyPort: Port?, components: [AnyObject]?)
+class NSPortMessage : NSObject {
+  init(send sendPort: NSPort?, receive replyPort: NSPort?, components: [AnyObject]?)
   var components: [AnyObject]? { get }
-  var receivePort: Port? { get }
-  var sendPort: Port? { get }
-  func send(before date: Date) -> Bool
+  var receivePort: NSPort? { get }
+  var sendPort: NSPort? { get }
+  func send(before date: NSDate) -> Bool
   var msgid: UInt32
   convenience init()
 }

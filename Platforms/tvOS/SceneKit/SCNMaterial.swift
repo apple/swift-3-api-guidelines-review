@@ -27,7 +27,7 @@ enum SCNBlendMode : Int {
   case replace
 }
 @available(tvOS 8.0, *)
-class SCNMaterial : Object, SCNAnimatable, SCNShadable, Copying, SecureCoding {
+class SCNMaterial : NSObject, SCNAnimatable, SCNShadable, NSCopying, NSSecureCoding {
   var name: String?
   var diffuse: SCNMaterialProperty { get }
   var ambient: SCNMaterialProperty { get }
@@ -84,10 +84,10 @@ class SCNMaterial : Object, SCNAnimatable, SCNShadable, Copying, SecureCoding {
   @available(tvOS 8.0, *)
   var shaderModifiers: [String : String]?
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

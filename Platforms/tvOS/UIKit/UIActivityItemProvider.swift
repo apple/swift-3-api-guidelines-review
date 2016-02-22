@@ -1,5 +1,5 @@
 
-protocol UIActivityItemSource : ObjectProtocol {
+protocol UIActivityItemSource : NSObjectProtocol {
   func activityViewControllerPlaceholderItem(activityViewController: UIActivityViewController) -> AnyObject
   func activityViewController(activityViewController: UIActivityViewController, itemForActivityType activityType: String) -> AnyObject?
   optional func activityViewController(activityViewController: UIActivityViewController, subjectForActivityType activityType: String?) -> String

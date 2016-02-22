@@ -1,6 +1,6 @@
 
 @available(iOS 8.0, *)
-class SCNCamera : Object, SCNAnimatable, SCNTechniqueSupport, Copying, SecureCoding {
+class SCNCamera : NSObject, SCNAnimatable, SCNTechniqueSupport, NSCopying, NSSecureCoding {
   var name: String?
   var xFov: Double
   var yFov: Double
@@ -46,10 +46,10 @@ class SCNCamera : Object, SCNAnimatable, SCNTechniqueSupport, Copying, SecureCod
   @available(iOS 8.0, *)
   @NSCopying var technique: SCNTechnique?
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

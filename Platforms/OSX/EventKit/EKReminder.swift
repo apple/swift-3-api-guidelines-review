@@ -2,10 +2,10 @@
 @available(OSX 10.8, *)
 class EKReminder : EKCalendarItem {
   /*not inherited*/ init(eventStore: EKEventStore)
-  @NSCopying var startDateComponents: DateComponents?
-  @NSCopying var dueDateComponents: DateComponents?
+  @NSCopying var startDateComponents: NSDateComponents?
+  @NSCopying var dueDateComponents: NSDateComponents?
   var isCompleted: Bool
-  @NSCopying var completionDate: Date?
+  @NSCopying var completionDate: NSDate?
   var priority: Int
   init()
 }

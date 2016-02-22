@@ -1,6 +1,6 @@
 
 @available(OSX 10.8, *)
-class ACAccount : Object {
+class ACAccount : NSObject {
   init!(accountType type: ACAccountType!)
   var identifier: String! { get }
   var accountType: ACAccountType!

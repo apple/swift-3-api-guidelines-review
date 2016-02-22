@@ -26,7 +26,7 @@ enum MTLSamplerAddressMode : UInt {
   case clampToZero
 }
 @available(OSX 10.11, *)
-class MTLSamplerDescriptor : Object, Copying {
+class MTLSamplerDescriptor : NSObject, NSCopying {
   var minFilter: MTLSamplerMinMagFilter
   var magFilter: MTLSamplerMinMagFilter
   var mipFilter: MTLSamplerMipFilter
@@ -42,10 +42,10 @@ class MTLSamplerDescriptor : Object, Copying {
   var label: String?
   init()
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
-protocol MTLSamplerState : ObjectProtocol {
+protocol MTLSamplerState : NSObjectProtocol {
   var label: String? { get }
   var device: MTLDevice { get }
 }

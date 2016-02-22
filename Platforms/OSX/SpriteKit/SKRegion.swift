@@ -1,6 +1,6 @@
 
 @available(OSX 10.10, *)
-class SKRegion : Object, Copying, Coding {
+class SKRegion : NSObject, NSCopying, NSCoding {
   var path: CGPath? { get }
   class func infinite() -> Self
   init(radius: Float)
@@ -13,8 +13,8 @@ class SKRegion : Object, Copying, Coding {
   func contains(point: CGPoint) -> Bool
   init()
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.10, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

@@ -27,11 +27,11 @@ class UINavigationController : UIViewController {
   weak var delegate: @sil_weak UINavigationControllerDelegate?
   @available(tvOS 8.0, *)
   func show(vc: UIViewController, sender: AnyObject?)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
-protocol UINavigationControllerDelegate : ObjectProtocol {
+protocol UINavigationControllerDelegate : NSObjectProtocol {
   @available(tvOS 2.0, *)
   optional func navigationController(navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool)
   @available(tvOS 2.0, *)

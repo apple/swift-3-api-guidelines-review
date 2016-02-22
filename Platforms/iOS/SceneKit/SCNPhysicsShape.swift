@@ -12,22 +12,22 @@ let SCNPhysicsShapeKeepAsCompoundKey: String
 @available(iOS 8.0, *)
 let SCNPhysicsShapeScaleKey: String
 @available(iOS 8.0, *)
-class SCNPhysicsShape : Object, Copying, SecureCoding {
+class SCNPhysicsShape : NSObject, NSCopying, NSSecureCoding {
   convenience init(geometry: SCNGeometry, options: [String : AnyObject]? = [:])
   convenience init(node: SCNNode, options: [String : AnyObject]? = [:])
-  convenience init(shapes: [SCNPhysicsShape], transforms: [Value]?)
+  convenience init(shapes: [SCNPhysicsShape], transforms: [NSValue]?)
   @available(iOS 9.0, *)
   var options: [String : AnyObject]? { get }
   @available(iOS 9.0, *)
   var sourceObject: AnyObject { get }
   @available(iOS 9.0, *)
-  var transforms: [Value]? { get }
+  var transforms: [NSValue]? { get }
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

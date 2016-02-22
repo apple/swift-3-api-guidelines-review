@@ -26,7 +26,7 @@ protocol NSPrintPanelAccessorizing {
   func localizedSummaryItems() -> [[String : String]]
   optional func keyPathsForValuesAffectingPreview() -> Set<String>
 }
-class NSPrintPanel : Object {
+class NSPrintPanel : NSObject {
   @available(OSX 10.5, *)
   func addAccessoryController(accessoryController: NSViewController)
   @available(OSX 10.5, *)

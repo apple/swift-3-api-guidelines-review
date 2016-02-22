@@ -1,13 +1,13 @@
 
 @available(watchOS 2.0, *)
-class MKMapItem : Object {
+class MKMapItem : NSObject {
   var placemark: MKPlacemark { get }
   var isCurrentLocation: Bool { get }
   var name: String?
   var phoneNumber: String?
-  var url: URL?
+  var url: NSURL?
   @available(watchOS 2.0, *)
-  @NSCopying var timeZone: TimeZone?
+  @NSCopying var timeZone: NSTimeZone?
   class func forCurrentLocation() -> MKMapItem
   init(placemark: MKPlacemark)
   func openInMaps(launchOptions launchOptions: [String : AnyObject]? = [:]) -> Bool

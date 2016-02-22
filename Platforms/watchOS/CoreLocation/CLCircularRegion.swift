@@ -8,5 +8,5 @@ class CLCircularRegion : CLRegion {
   @available(watchOS, introduced=2.0, deprecated=2.0)
   init(circularRegionWithCenter center: CLLocationCoordinate2D, radius: CLLocationDistance, identifier: String)
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

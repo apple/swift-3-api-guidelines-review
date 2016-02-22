@@ -1,5 +1,5 @@
 
-enum TestComparisonOperation : UInt {
+enum NSTestComparisonOperation : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case equalToComparison
@@ -11,24 +11,24 @@ enum TestComparisonOperation : UInt {
   case endsWithComparison
   case containsComparison
 }
-class ScriptWhoseTest : Object, Coding {
+class NSScriptWhoseTest : NSObject, NSCoding {
   func isTrue() -> Bool
   init()
-  init?(coder inCoder: Coder)
-  func encode(with aCoder: Coder)
+  init?(coder inCoder: NSCoder)
+  func encode(with aCoder: NSCoder)
 }
-class LogicalTest : ScriptWhoseTest {
-  init(andTestWith subTests: [SpecifierTest])
-  init(orTestWith subTests: [SpecifierTest])
-  init(notTestWith subTest: ScriptWhoseTest)
+class NSLogicalTest : NSScriptWhoseTest {
+  init(andTestWith subTests: [NSSpecifierTest])
+  init(orTestWith subTests: [NSSpecifierTest])
+  init(notTestWith subTest: NSScriptWhoseTest)
   convenience init()
-  init?(coder inCoder: Coder)
+  init?(coder inCoder: NSCoder)
 }
-class SpecifierTest : ScriptWhoseTest {
-  init?(coder inCoder: Coder)
-  init(objectSpecifier obj1: ScriptObjectSpecifier?, comparisonOperator compOp: TestComparisonOperation, test obj2: AnyObject?)
+class NSSpecifierTest : NSScriptWhoseTest {
+  init?(coder inCoder: NSCoder)
+  init(objectSpecifier obj1: NSScriptObjectSpecifier?, comparisonOperator compOp: NSTestComparisonOperation, test obj2: AnyObject?)
 }
-extension Object {
+extension NSObject {
   class func isEqual(to object: AnyObject?) -> Bool
   func isEqual(to object: AnyObject?) -> Bool
   class func isLessThanOrEqual(to object: AnyObject?) -> Bool
@@ -48,7 +48,7 @@ extension Object {
   class func isCaseInsensitiveLike(object: String) -> Bool
   func isCaseInsensitiveLike(object: String) -> Bool
 }
-extension Object {
+extension NSObject {
   class func scriptingIsEqual(to object: AnyObject) -> Bool
   func scriptingIsEqual(to object: AnyObject) -> Bool
   class func scriptingIsLessThanOrEqual(to object: AnyObject) -> Bool

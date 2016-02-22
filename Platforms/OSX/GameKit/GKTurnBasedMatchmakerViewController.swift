@@ -1,8 +1,8 @@
 
 @available(OSX 10.8, *)
 class GKTurnBasedMatchmakerViewController : NSViewController, GKViewController {
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder: Coder)
+  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder: NSCoder)
   convenience init()
 }
 extension GKTurnBasedMatchmakerViewController {
@@ -10,11 +10,11 @@ extension GKTurnBasedMatchmakerViewController {
   var showExistingMatches: Bool
   init(matchRequest request: GKMatchRequest)
 }
-protocol GKTurnBasedMatchmakerViewControllerDelegate : ObjectProtocol {
+protocol GKTurnBasedMatchmakerViewControllerDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
   func turnBasedMatchmakerViewControllerWasCancelled(viewController: GKTurnBasedMatchmakerViewController)
   @available(OSX 10.8, *)
-  func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController, didFailWithError error: Error)
+  func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController, didFailWithError error: NSError)
   @available(OSX, introduced=10.8, deprecated=10.11, message="use GKTurnBasedEventListener player:receivedTurnEventForMatch:didBecomeActive:")
   optional func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController, didFind match: GKTurnBasedMatch)
   @available(OSX, introduced=10.8, deprecated=10.11, message="use GKTurnBasedEventListener player:wantsToQuitMatch:")

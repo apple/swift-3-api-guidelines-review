@@ -1,12 +1,12 @@
 
 @available(OSX 10.7, *)
-class NSDraggingSession : Object {
+class NSDraggingSession : NSObject {
   var draggingFormation: NSDraggingFormation
   var animatesToStartingPositionsOnCancelOrFail: Bool
   var draggingLeaderIndex: Int
   var draggingPasteboard: NSPasteboard { get }
   var draggingSequenceNumber: Int { get }
-  var draggingLocation: Point { get }
+  var draggingLocation: NSPoint { get }
   func enumerateDraggingItems(enumOpts: NSDraggingItemEnumerationOptions = [], for view: NSView?, classes classArray: [AnyClass], searchOptions: [String : AnyObject] = [:], using block: (NSDraggingItem, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   init()
 }

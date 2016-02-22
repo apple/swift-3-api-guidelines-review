@@ -20,5 +20,5 @@ class DOMHTMLObjectElement : DOMHTMLElement {
   var width: String!
   var contentDocument: DOMDocument! { get }
   @available(OSX 10.5, *)
-  @NSCopying var absoluteImageURL: URL! { get }
+  @NSCopying var absoluteImageURL: NSURL! { get }
 }

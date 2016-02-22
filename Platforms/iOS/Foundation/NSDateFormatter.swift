@@ -1,29 +1,29 @@
 
-class DateFormatter : Formatter {
+class NSDateFormatter : NSFormatter {
   @available(iOS 8.0, *)
-  var formattingContext: FormattingContext
+  var formattingContext: NSFormattingContext
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, range rangep: UnsafeMutablePointer<NSRange>) throws
-  func string(from date: Date) -> String
-  func date(from string: String) -> Date?
+  func string(from date: NSDate) -> String
+  func date(from string: String) -> NSDate?
   @available(iOS 4.0, *)
-  class func localizedString(from date: Date, dateStyle dstyle: DateFormatterStyle, time tstyle: DateFormatterStyle) -> String
+  class func localizedString(from date: NSDate, dateStyle dstyle: NSDateFormatterStyle, time tstyle: NSDateFormatterStyle) -> String
   @available(iOS 4.0, *)
-  class func dateFormat(fromTemplate tmplate: String, options opts: Int, locale: Locale?) -> String?
-  class func defaultFormatterBehavior() -> DateFormatterBehavior
-  class func setDefaultFormatterBehavior(behavior: DateFormatterBehavior)
+  class func dateFormat(fromTemplate tmplate: String, options opts: Int, locale: NSLocale?) -> String?
+  class func defaultFormatterBehavior() -> NSDateFormatterBehavior
+  class func setDefaultFormatterBehavior(behavior: NSDateFormatterBehavior)
   @available(iOS 8.0, *)
   func setLocalizedDateFormatFromTemplate(dateFormatTemplate: String)
   var dateFormat: String!
-  var dateStyle: DateFormatterStyle
-  var timeStyle: DateFormatterStyle
-  @NSCopying var locale: Locale!
+  var dateStyle: NSDateFormatterStyle
+  var timeStyle: NSDateFormatterStyle
+  @NSCopying var locale: NSLocale!
   var generatesCalendarDates: Bool
-  var formatterBehavior: DateFormatterBehavior
-  @NSCopying var timeZone: TimeZone!
-  @NSCopying var calendar: Calendar!
+  var formatterBehavior: NSDateFormatterBehavior
+  @NSCopying var timeZone: NSTimeZone!
+  @NSCopying var calendar: NSCalendar!
   var isLenient: Bool
-  @NSCopying var twoDigitStartDate: Date?
-  @NSCopying var defaultDate: Date?
+  @NSCopying var twoDigitStartDate: NSDate?
+  @NSCopying var defaultDate: NSDate?
   var eraSymbols: [String]!
   var monthSymbols: [String]!
   var shortMonthSymbols: [String]!
@@ -58,13 +58,13 @@ class DateFormatter : Formatter {
   @available(iOS 2.0, *)
   var shortStandaloneQuarterSymbols: [String]!
   @available(iOS 2.0, *)
-  @NSCopying var gregorianStartDate: Date?
+  @NSCopying var gregorianStartDate: NSDate?
   @available(iOS 4.0, *)
   var doesRelativeDateFormatting: Bool
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
-enum DateFormatterStyle : UInt {
+enum NSDateFormatterStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case noStyle
@@ -73,7 +73,7 @@ enum DateFormatterStyle : UInt {
   case longStyle
   case fullStyle
 }
-enum DateFormatterBehavior : UInt {
+enum NSDateFormatterBehavior : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case behaviorDefault

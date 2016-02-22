@@ -11,9 +11,9 @@ enum SKPaymentTransactionState : Int {
   case deferred
 }
 @available(iOS 3.0, *)
-class SKPaymentTransaction : Object {
+class SKPaymentTransaction : NSObject {
   @available(iOS 3.0, *)
-  var error: Error? { get }
+  var error: NSError? { get }
   @available(iOS 3.0, *)
   var original: SKPaymentTransaction? { get }
   @available(iOS 3.0, *)
@@ -21,7 +21,7 @@ class SKPaymentTransaction : Object {
   @available(iOS 6.0, *)
   var downloads: [SKDownload] { get }
   @available(iOS 3.0, *)
-  var transactionDate: Date? { get }
+  var transactionDate: NSDate? { get }
   @available(iOS 3.0, *)
   var transactionIdentifier: String? { get }
   @available(iOS 3.0, *)

@@ -1,16 +1,16 @@
 
 @available(iOS 8.0, *)
-class NEVPNProtocol : Object, Copying, SecureCoding {
+class NEVPNProtocol : NSObject, NSCopying, NSSecureCoding {
   @available(iOS 8.0, *)
   var serverAddress: String?
   @available(iOS 8.0, *)
   var username: String?
   @available(iOS 8.0, *)
-  @NSCopying var passwordReference: Data?
+  @NSCopying var passwordReference: NSData?
   @available(iOS 9.0, *)
-  @NSCopying var identityReference: Data?
+  @NSCopying var identityReference: NSData?
   @available(iOS 8.0, *)
-  @NSCopying var identityData: Data?
+  @NSCopying var identityData: NSData?
   @available(iOS 8.0, *)
   var identityDataPassword: String?
   @available(iOS 8.0, *)
@@ -19,10 +19,10 @@ class NEVPNProtocol : Object, Copying, SecureCoding {
   @NSCopying var proxySettings: NEProxySettings?
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

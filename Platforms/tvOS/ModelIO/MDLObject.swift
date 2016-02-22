@@ -1,19 +1,19 @@
 
 @available(tvOS 9.0, *)
-class MDLObject : Object, MDLNamed {
+class MDLObject : NSObject, MDLNamed {
   func setComponent(component: MDLComponent, for protocol: Protocol)
   func componentConforming(to protocol: Protocol) -> MDLComponent?
   weak var parent: @sil_weak MDLObject?
   var transform: MDLTransformComponent?
   var children: MDLObjectContainerComponent
   func addChild(child: MDLObject)
-  func boundingBox(atTime time: TimeInterval) -> MDLAxisAlignedBoundingBox
+  func boundingBox(atTime time: NSTimeInterval) -> MDLAxisAlignedBoundingBox
   init()
   @available(tvOS 9.0, *)
   var name: String
 }
 @available(tvOS 9.0, *)
-class MDLObjectContainer : Object, MDLObjectContainerComponent {
+class MDLObjectContainer : NSObject, MDLObjectContainerComponent {
   init()
   @available(tvOS 9.0, *)
   func add(object: MDLObject)
@@ -22,5 +22,5 @@ class MDLObjectContainer : Object, MDLObjectContainerComponent {
   @available(tvOS 9.0, *)
   var objects: [MDLObject] { get }
   @available(tvOS 9.0, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

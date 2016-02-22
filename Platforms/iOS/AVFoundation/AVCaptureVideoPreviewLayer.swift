@@ -22,5 +22,5 @@ class AVCaptureVideoPreviewLayer : CALayer {
   func transformedMetadataObject(for metadataObject: AVMetadataObject!) -> AVMetadataObject!
   init()
   init(layer: AnyObject)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

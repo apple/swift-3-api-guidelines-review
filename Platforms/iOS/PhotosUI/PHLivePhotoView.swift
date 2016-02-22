@@ -24,10 +24,10 @@ class PHLivePhotoView : UIView {
   func startPlayback(playbackStyle: PHLivePhotoViewPlaybackStyle)
   func stopPlayback()
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
-protocol PHLivePhotoViewDelegate : ObjectProtocol {
+protocol PHLivePhotoViewDelegate : NSObjectProtocol {
   @available(iOS 9.1, *)
   optional func livePhotoView(livePhotoView: PHLivePhotoView, willBeginPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle)
   @available(iOS 9.1, *)

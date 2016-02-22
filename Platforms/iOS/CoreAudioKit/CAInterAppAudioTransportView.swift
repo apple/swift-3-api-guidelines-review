@@ -13,6 +13,6 @@ class CAInterAppAudioTransportView : UIView {
   var recordButtonColor: UIColor
   func setOutputAudioUnit(au: AudioUnit)
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }

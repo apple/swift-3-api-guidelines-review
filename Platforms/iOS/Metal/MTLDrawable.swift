@@ -1,6 +1,6 @@
 
 @available(iOS 8.0, *)
-protocol MTLDrawable : ObjectProtocol {
+protocol MTLDrawable : NSObjectProtocol {
   func present()
   func present(atTime presentationTime: CFTimeInterval)
 }

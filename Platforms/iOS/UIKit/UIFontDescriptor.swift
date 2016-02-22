@@ -27,9 +27,9 @@ struct UIFontDescriptorSymbolicTraits : OptionSetType {
 }
 typealias UIFontDescriptorClass = Int
 @available(iOS 7.0, *)
-class UIFontDescriptor : Object, Copying, SecureCoding {
+class UIFontDescriptor : NSObject, NSCopying, NSSecureCoding {
   convenience init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   var postscriptName: String { get }
   var pointSize: CGFloat { get }
   var matrix: CGAffineTransform { get }
@@ -48,11 +48,11 @@ class UIFontDescriptor : Object, Copying, SecureCoding {
   func withFace(newFace: String) -> UIFontDescriptor
   func withFamily(newFamily: String) -> UIFontDescriptor
   @available(iOS 7.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 7.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }
 @available(iOS 7.0, *)
 let UIFontDescriptorFamilyAttribute: String

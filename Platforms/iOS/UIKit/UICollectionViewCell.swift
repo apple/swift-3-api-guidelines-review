@@ -9,7 +9,7 @@ class UICollectionReusableView : UIView {
   @available(iOS 8.0, *)
   func preferredLayoutAttributesFitting(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
 @available(iOS 6.0, *)
@@ -20,6 +20,6 @@ class UICollectionViewCell : UICollectionReusableView {
   var backgroundView: UIView?
   var selectedBackgroundView: UIView?
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }

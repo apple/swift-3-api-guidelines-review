@@ -14,7 +14,7 @@ let CSMailboxArchive: String
 extension CSSearchableItemAttributeSet {
   var accountIdentifier: String?
   var accountHandles: [String]?
-  @NSCopying var htmlContentData: Data?
+  @NSCopying var htmlContentData: NSData?
   var textContent: String?
   var authors: [CSPerson]?
   var primaryRecipients: [CSPerson]?
@@ -31,5 +31,5 @@ extension CSSearchableItemAttributeSet {
   var phoneNumbers: [String]?
   var emailAddresses: [String]?
   var instantMessageAddresses: [String]?
-  var likelyJunk: Number
+  var likelyJunk: NSNumber
 }

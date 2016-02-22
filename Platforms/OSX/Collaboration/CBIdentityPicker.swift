@@ -1,6 +1,6 @@
 
 @available(OSX 10.5, *)
-class CBIdentityPicker : Object {
+class CBIdentityPicker : NSObject {
   var title: String?
   var allowsMultipleSelection: Bool
   func runModal() -> Int

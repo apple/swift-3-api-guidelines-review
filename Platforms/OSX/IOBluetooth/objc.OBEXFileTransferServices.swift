@@ -1,5 +1,5 @@
 
-class OBEXFileTransferServices : Object {
+class OBEXFileTransferServices : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged AnyObject!
   class func withOBEXSession(inOBEXSession: IOBluetoothOBEXSession!) -> Self!
   init!(obexSession inOBEXSession: IOBluetoothOBEXSession!)
@@ -17,12 +17,12 @@ class OBEXFileTransferServices : Object {
   func retrieveFolderListing() -> OBEXError
   func sendFile(inLocalPathAndName: String!) -> OBEXError
   func copyRemoteFile(inRemoteFileName: String!, toLocalPath inLocalPathAndName: String!) -> OBEXError
-  func send(inData: Data!, type inType: String!, name inName: String!) -> OBEXError
+  func send(inData: NSData!, type inType: String!, name inName: String!) -> OBEXError
   func getDefaultVCard(inLocalPathAndName: String!) -> OBEXError
   func abort() -> OBEXError
   init()
 }
-extension Object {
+extension NSObject {
   class func fileTransferServicesConnectionComplete(inServices: OBEXFileTransferServices!, error inError: OBEXError)
   func fileTransferServicesConnectionComplete(inServices: OBEXFileTransferServices!, error inError: OBEXError)
   class func fileTransferServicesDisconnectionComplete(inServices: OBEXFileTransferServices!, error inError: OBEXError)
@@ -39,12 +39,12 @@ extension Object {
   func fileTransferServicesRetrieveFolderListingComplete(inServices: OBEXFileTransferServices!, error inError: OBEXError, listing inListing: [AnyObject]!)
   class func fileTransferServicesFilePreparationComplete(inServices: OBEXFileTransferServices!, error inError: OBEXError)
   func fileTransferServicesFilePreparationComplete(inServices: OBEXFileTransferServices!, error inError: OBEXError)
-  class func fileTransferServicesSendFileProgress(inServices: OBEXFileTransferServices!, transferProgress inProgressDescription: [Object : AnyObject]!)
-  func fileTransferServicesSendFileProgress(inServices: OBEXFileTransferServices!, transferProgress inProgressDescription: [Object : AnyObject]!)
+  class func fileTransferServicesSendFileProgress(inServices: OBEXFileTransferServices!, transferProgress inProgressDescription: [NSObject : AnyObject]!)
+  func fileTransferServicesSendFileProgress(inServices: OBEXFileTransferServices!, transferProgress inProgressDescription: [NSObject : AnyObject]!)
   class func fileTransferServicesSendFileComplete(inServices: OBEXFileTransferServices!, error inError: OBEXError)
   func fileTransferServicesSendFileComplete(inServices: OBEXFileTransferServices!, error inError: OBEXError)
-  class func fileTransferServicesCopyRemoteFileProgress(inServices: OBEXFileTransferServices!, transferProgress inProgressDescription: [Object : AnyObject]!)
-  func fileTransferServicesCopyRemoteFileProgress(inServices: OBEXFileTransferServices!, transferProgress inProgressDescription: [Object : AnyObject]!)
+  class func fileTransferServicesCopyRemoteFileProgress(inServices: OBEXFileTransferServices!, transferProgress inProgressDescription: [NSObject : AnyObject]!)
+  func fileTransferServicesCopyRemoteFileProgress(inServices: OBEXFileTransferServices!, transferProgress inProgressDescription: [NSObject : AnyObject]!)
   class func fileTransferServicesCopyRemoteFileComplete(inServices: OBEXFileTransferServices!, error inError: OBEXError)
   func fileTransferServicesCopyRemoteFileComplete(inServices: OBEXFileTransferServices!, error inError: OBEXError)
 }

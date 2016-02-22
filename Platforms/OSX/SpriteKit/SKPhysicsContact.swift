@@ -1,5 +1,5 @@
 
-class SKPhysicsContact : Object {
+class SKPhysicsContact : NSObject {
   var bodyA: SKPhysicsBody { get }
   var bodyB: SKPhysicsBody { get }
   var contactPoint: CGPoint { get }

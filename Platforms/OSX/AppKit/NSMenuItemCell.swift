@@ -8,20 +8,20 @@ class NSMenuItemCell : NSButtonCell {
   var imageWidth: CGFloat { get }
   var titleWidth: CGFloat { get }
   var keyEquivalentWidth: CGFloat { get }
-  func stateImageRect(forBounds cellFrame: Rect) -> Rect
-  func titleRect(forBounds cellFrame: Rect) -> Rect
-  func keyEquivalentRect(forBounds cellFrame: Rect) -> Rect
-  func drawSeparatorItem(frame cellFrame: Rect, in controlView: NSView)
-  func drawStateImage(frame cellFrame: Rect, in controlView: NSView)
-  func drawImage(frame cellFrame: Rect, in controlView: NSView)
-  func drawTitle(frame cellFrame: Rect, in controlView: NSView)
-  func drawKeyEquivalent(frame cellFrame: Rect, in controlView: NSView)
-  func drawBorderAndBackground(frame cellFrame: Rect, in controlView: NSView)
+  func stateImageRect(forBounds cellFrame: NSRect) -> NSRect
+  func titleRect(forBounds cellFrame: NSRect) -> NSRect
+  func keyEquivalentRect(forBounds cellFrame: NSRect) -> NSRect
+  func drawSeparatorItem(frame cellFrame: NSRect, in controlView: NSView)
+  func drawStateImage(frame cellFrame: NSRect, in controlView: NSView)
+  func drawImage(frame cellFrame: NSRect, in controlView: NSView)
+  func drawTitle(frame cellFrame: NSRect, in controlView: NSView)
+  func drawKeyEquivalent(frame cellFrame: NSRect, in controlView: NSView)
+  func drawBorderAndBackground(frame cellFrame: NSRect, in controlView: NSView)
   var tag: Int
   init(textCell aString: String)
   init(imageCell image: NSImage?)
   convenience init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 struct __micFlags {
   var needsSizing: UInt32

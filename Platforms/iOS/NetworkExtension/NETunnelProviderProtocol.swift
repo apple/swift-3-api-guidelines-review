@@ -6,5 +6,5 @@ class NETunnelProviderProtocol : NEVPNProtocol {
   @available(iOS 9.0, *)
   var providerBundleIdentifier: String?
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

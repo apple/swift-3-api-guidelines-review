@@ -30,7 +30,7 @@ enum WKInterfaceSemanticContentAttribute : Int {
   case forceLeftToRight
   case forceRightToLeft
 }
-class WKInterfaceDevice : Object {
+class WKInterfaceDevice : NSObject {
   class func current() -> WKInterfaceDevice
   var screenBounds: CGRect { get }
   var screenScale: CGFloat { get }

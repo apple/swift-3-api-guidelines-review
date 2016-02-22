@@ -1,13 +1,13 @@
 
 @available(iOS 7.0, *)
-class UIMotionEffect : Object, Copying, Coding {
+class UIMotionEffect : NSObject, NSCopying, NSCoding {
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   func keyPathsAndRelativeValues(forViewerOffset viewerOffset: UIOffset) -> [String : AnyObject]?
   @available(iOS 7.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 7.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }
 enum UIInterpolatingMotionEffectType : Int {
   init?(rawValue: Int)
@@ -18,7 +18,7 @@ enum UIInterpolatingMotionEffectType : Int {
 @available(iOS 7.0, *)
 class UIInterpolatingMotionEffect : UIMotionEffect {
   init(keyPath: String, type: UIInterpolatingMotionEffectType)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   var keyPath: String { get }
   var type: UIInterpolatingMotionEffectType { get }
   var minimumRelativeValue: AnyObject?
@@ -29,5 +29,5 @@ class UIInterpolatingMotionEffect : UIMotionEffect {
 class UIMotionEffectGroup : UIMotionEffect {
   var motionEffects: [UIMotionEffect]?
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

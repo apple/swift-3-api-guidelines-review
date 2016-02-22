@@ -1,28 +1,28 @@
 
 @available(tvOS 9.0, *)
-class TVContentItem : Object, Copying, SecureCoding {
+class TVContentItem : NSObject, NSCopying, NSSecureCoding {
   @NSCopying var contentIdentifier: TVContentIdentifier { get }
-  @NSCopying var imageURL: URL?
+  @NSCopying var imageURL: NSURL?
   var imageShape: TVContentItemImageShape
   var title: String?
-  @NSCopying var lastAccessedDate: Date?
-  @NSCopying var expirationDate: Date?
-  @NSCopying var creationDate: Date?
-  @NSCopying var badgeCount: Number?
-  @NSCopying var duration: Number?
-  @NSCopying var currentPosition: Number?
-  @NSCopying var hasPlayedToEnd: Number?
-  @NSCopying var playURL: URL?
-  @NSCopying var displayURL: URL?
+  @NSCopying var lastAccessedDate: NSDate?
+  @NSCopying var expirationDate: NSDate?
+  @NSCopying var creationDate: NSDate?
+  @NSCopying var badgeCount: NSNumber?
+  @NSCopying var duration: NSNumber?
+  @NSCopying var currentPosition: NSNumber?
+  @NSCopying var hasPlayedToEnd: NSNumber?
+  @NSCopying var playURL: NSURL?
+  @NSCopying var displayURL: NSURL?
   var topShelfItems: [TVContentItem]?
   init?(contentIdentifier ident: TVContentIdentifier)
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   @available(tvOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }
 @available(tvOS 9.0, *)
 enum TVContentItemImageShape : Int {

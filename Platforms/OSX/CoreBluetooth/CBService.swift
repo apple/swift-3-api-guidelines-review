@@ -1,6 +1,6 @@
 
 @available(OSX 10.7, *)
-class CBService : Object {
+class CBService : NSObject {
   unowned(unsafe) var peripheral: @sil_unmanaged CBPeripheral { get }
   var uuid: CBUUID { get }
   var isPrimary: Bool { get }

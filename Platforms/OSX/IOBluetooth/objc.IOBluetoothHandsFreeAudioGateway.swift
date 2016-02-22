@@ -17,7 +17,7 @@ class IOBluetoothHandsFreeAudioGateway : IOBluetoothHandsFree {
 }
 protocol IOBluetoothHandsFreeAudioGatewayDelegate {
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFreeAudioGateway!, hangup: Number!)
+  optional func handsFree(device: IOBluetoothHandsFreeAudioGateway!, hangup: NSNumber!)
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFreeAudioGateway!, redial: Number!)
+  optional func handsFree(device: IOBluetoothHandsFreeAudioGateway!, redial: NSNumber!)
 }

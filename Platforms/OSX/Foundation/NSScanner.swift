@@ -1,15 +1,15 @@
 
-class Scanner : Object, Copying {
+class NSScanner : NSObject, NSCopying {
   var string: String { get }
   var scanLocation: Int
-  @NSCopying var charactersToBeSkipped: CharacterSet?
+  @NSCopying var charactersToBeSkipped: NSCharacterSet?
   var caseSensitive: Bool
   var locale: AnyObject?
   init(string: String)
   convenience init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
-extension Scanner {
+extension NSScanner {
   func scanInt(result: UnsafeMutablePointer<Int32>) -> Bool
   @available(OSX 10.5, *)
   func scanInteger(result: UnsafeMutablePointer<Int>) -> Bool
@@ -26,9 +26,9 @@ extension Scanner {
   @available(OSX 10.5, *)
   func scanHexDouble(result: UnsafeMutablePointer<Double>) -> Bool
   func scanString(string: String, into result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
-  func scanCharacters(from set: CharacterSet, into result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
+  func scanCharacters(from set: NSCharacterSet, into result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   func scanUp(to string: String, into result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
-  func scanUpToCharacters(from set: CharacterSet, into result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
+  func scanUpToCharacters(from set: NSCharacterSet, into result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   var isAtEnd: Bool { get }
   class func localizedScanner(with string: String) -> AnyObject
 }

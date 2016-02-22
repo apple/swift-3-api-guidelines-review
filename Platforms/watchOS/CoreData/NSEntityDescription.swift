@@ -1,6 +1,6 @@
 
 @available(watchOS 2.0, *)
-class NSEntityDescription : Object, Coding, Copying, FastEnumeration {
+class NSEntityDescription : NSObject, NSCoding, NSCopying, NSFastEnumeration {
   class func entity(forName entityName: String, in context: NSManagedObjectContext) -> NSEntityDescription?
   class func insertNewObjectForEntity(forName entityName: String, in context: NSManagedObjectContext) -> NSManagedObject
   unowned(unsafe) var managedObjectModel: @sil_unmanaged NSManagedObjectModel { get }
@@ -12,14 +12,14 @@ class NSEntityDescription : Object, Coding, Copying, FastEnumeration {
   unowned(unsafe) var superentity: @sil_unmanaged NSEntityDescription? { get }
   var propertiesByName: [String : NSPropertyDescription] { get }
   var properties: [NSPropertyDescription]
-  var userInfo: [Object : AnyObject]?
+  var userInfo: [NSObject : AnyObject]?
   var attributesByName: [String : NSAttributeDescription] { get }
   var relationshipsByName: [String : NSRelationshipDescription] { get }
   func relationships(withDestinationEntity entity: NSEntityDescription) -> [NSRelationshipDescription]
   @available(watchOS 2.0, *)
   func isKindOf(entity entity: NSEntityDescription) -> Bool
   @available(watchOS 2.0, *)
-  @NSCopying var versionHash: Data { get }
+  @NSCopying var versionHash: NSData { get }
   @available(watchOS 2.0, *)
   var versionHashModifier: String?
   @available(watchOS 2.0, *)
@@ -30,12 +30,12 @@ class NSEntityDescription : Object, Coding, Copying, FastEnumeration {
   var uniquenessConstraints: [[AnyObject]]
   init()
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 struct __entityDescriptionFlags {
   var _isAbstract: UInt32

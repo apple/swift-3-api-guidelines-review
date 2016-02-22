@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
-class PKPushPayload : Object {
+class PKPushPayload : NSObject {
   var type: String! { get }
-  var dictionaryPayload: [Object : AnyObject]! { get }
+  var dictionaryPayload: [NSObject : AnyObject]! { get }
   init()
 }

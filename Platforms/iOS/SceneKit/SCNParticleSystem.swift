@@ -113,7 +113,7 @@ enum SCNParticleEvent : Int {
   case collision
 }
 @available(iOS 8.0, *)
-class SCNParticlePropertyController : Object, SecureCoding, Copying {
+class SCNParticlePropertyController : NSObject, NSSecureCoding, NSCopying {
   convenience init(animation: CAAnimation)
   var animation: CAAnimation
   var inputMode: SCNParticleInputMode
@@ -125,13 +125,13 @@ class SCNParticlePropertyController : Object, SecureCoding, Copying {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
-class SCNParticleSystem : Object, Copying, SecureCoding, SCNAnimatable {
+class SCNParticleSystem : NSObject, NSCopying, NSSecureCoding, SCNAnimatable {
   convenience init?(named name: String, inDirectory directory: String?)
   var emissionDuration: CGFloat
   var emissionDurationVariation: CGFloat
@@ -200,12 +200,12 @@ class SCNParticleSystem : Object, Copying, SecureCoding, SCNAnimatable {
   func removeAllModifiers()
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 8.0, *)
   func add(animation: CAAnimation, forKey key: String?)
   @available(iOS 8.0, *)

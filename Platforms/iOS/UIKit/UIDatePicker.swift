@@ -8,18 +8,18 @@ enum UIDatePickerMode : Int {
   case countDownTimer
 }
 @available(iOS 2.0, *)
-class UIDatePicker : UIControl, Coding {
+class UIDatePicker : UIControl, NSCoding {
   var datePickerMode: UIDatePickerMode
-  var locale: Locale?
-  @NSCopying var calendar: Calendar!
-  var timeZone: TimeZone?
-  var date: Date
-  var minimumDate: Date?
-  var maximumDate: Date?
-  var countDownDuration: TimeInterval
+  var locale: NSLocale?
+  @NSCopying var calendar: NSCalendar!
+  var timeZone: NSTimeZone?
+  var date: NSDate
+  var minimumDate: NSDate?
+  var maximumDate: NSDate?
+  var countDownDuration: NSTimeInterval
   var minuteInterval: Int
-  func setDate(date: Date, animated: Bool)
+  func setDate(date: NSDate, animated: Bool)
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }

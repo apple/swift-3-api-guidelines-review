@@ -1,6 +1,6 @@
 
-let operationNotSupportedForKeyException: String
-extension Object {
+let NSOperationNotSupportedForKeyException: String
+extension NSObject {
   class func value(at index: Int, inPropertyWithKey key: String) -> AnyObject?
   func value(at index: Int, inPropertyWithKey key: String) -> AnyObject?
   class func value(withName name: String, inPropertyWithKey key: String) -> AnyObject?

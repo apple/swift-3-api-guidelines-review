@@ -1,12 +1,12 @@
 
 @available(iOS 9.0, *)
-class WCSessionFile : Object {
-  var fileURL: URL { get }
+class WCSessionFile : NSObject {
+  var fileURL: NSURL { get }
   var metadata: [String : AnyObject]? { get }
   init()
 }
 @available(iOS 9.0, *)
-class WCSessionFileTransfer : Object {
+class WCSessionFileTransfer : NSObject {
   var file: WCSessionFile { get }
   var isTransferring: Bool { get }
   func cancel()

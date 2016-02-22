@@ -56,7 +56,7 @@ let AVCaptureSessionPresetiFrame1280x720: String
 @available(iOS 7.0, *)
 let AVCaptureSessionPresetInputPriority: String
 @available(iOS 4.0, *)
-class AVCaptureSession : Object {
+class AVCaptureSession : NSObject {
   func canSetSessionPreset(preset: String!) -> Bool
   var sessionPreset: String!
   var inputs: [AnyObject]! { get }
@@ -93,7 +93,7 @@ class AVCaptureSession : Object {
   init()
 }
 @available(iOS 4.0, *)
-class AVCaptureConnection : Object {
+class AVCaptureConnection : NSObject {
   @available(iOS 8.0, *)
   init!(inputPorts ports: [AnyObject]!, output: AVCaptureOutput!)
   @available(iOS 8.0, *)
@@ -128,7 +128,7 @@ class AVCaptureConnection : Object {
   init()
 }
 @available(iOS 4.0, *)
-class AVCaptureAudioChannel : Object {
+class AVCaptureAudioChannel : NSObject {
   var averagePowerLevel: Float { get }
   var peakHoldLevel: Float { get }
   init()

@@ -35,16 +35,16 @@ enum WKTextInputMode : Int {
   case allowAnimatedEmoji
 }
 @available(iOS 8.2, *)
-class WKInterfaceController : Object {
+class WKInterfaceController : NSObject {
   init()
   func awake(context context: AnyObject?)
   var contentFrame: CGRect { get }
   func willActivate()
   func didDeactivate()
   func table(table: WKInterfaceTable, didSelectRowAt rowIndex: Int)
-  func handleAction(identifier identifier: String?, forRemoteNotification remoteNotification: [Object : AnyObject])
+  func handleAction(identifier identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject])
   func handleAction(identifier identifier: String?, for localNotification: UILocalNotification)
-  func handleUserActivity(userInfo: [Object : AnyObject]?)
+  func handleUserActivity(userInfo: [NSObject : AnyObject]?)
   func setTitle(title: String?)
   func push(name name: String, context: AnyObject?)
   func pop()
@@ -65,10 +65,10 @@ class WKInterfaceController : Object {
   func addMenuItem(withImageNamed imageName: String, title: String, action: Selector)
   func addMenuItem(itemIcon: WKMenuItemIcon, title: String, action: Selector)
   func clearAllMenuItems()
-  func updateUserActivity(type: String, userInfo: [Object : AnyObject]? = [:], webpageURL: URL?)
+  func updateUserActivity(type: String, userInfo: [NSObject : AnyObject]? = [:], webpageURL: NSURL?)
   func invalidateUserActivity()
   @available(iOS 8.2, *)
-  class func openParentApplication(userInfo: [Object : AnyObject], reply: (([Object : AnyObject], Error?) -> Void)? = nil) -> Bool
+  class func openParentApplication(userInfo: [NSObject : AnyObject], reply: (([NSObject : AnyObject], NSError?) -> Void)? = nil) -> Bool
 }
 
 @available(iOS 8.2, *)
@@ -79,6 +79,6 @@ extension WKInterfaceController {
 @available(iOS 8.2, *)
 class WKUserNotificationInterfaceController : WKInterfaceController {
   init()
-  func didReceiveRemoteNotification(remoteNotification: [Object : AnyObject], withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
+  func didReceiveRemoteNotification(remoteNotification: [NSObject : AnyObject], withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
   func didReceive(localNotification: UILocalNotification, withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
 }

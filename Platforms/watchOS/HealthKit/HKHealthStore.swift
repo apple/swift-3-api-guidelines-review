@@ -1,23 +1,23 @@
 
 @available(watchOS 2.0, *)
-class HKHealthStore : Object {
+class HKHealthStore : NSObject {
   class func isHealthDataAvailable() -> Bool
   func authorizationStatus(for type: HKObjectType) -> HKAuthorizationStatus
-  func requestAuthorization(toShare typesToShare: Set<HKSampleType>?, read typesToRead: Set<HKObjectType>?, completion: (Bool, Error?) -> Void)
+  func requestAuthorization(toShare typesToShare: Set<HKSampleType>?, read typesToRead: Set<HKObjectType>?, completion: (Bool, NSError?) -> Void)
   @available(watchOS 2.0, *)
-  func earliestPermittedSampleDate() -> Date
-  func save(object: HKObject, withCompletion completion: (Bool, Error?) -> Void)
-  func save(objects: [HKObject], withCompletion completion: (Bool, Error?) -> Void)
-  func delete(object: HKObject, withCompletion completion: (Bool, Error?) -> Void)
+  func earliestPermittedSampleDate() -> NSDate
+  func save(object: HKObject, withCompletion completion: (Bool, NSError?) -> Void)
+  func save(objects: [HKObject], withCompletion completion: (Bool, NSError?) -> Void)
+  func delete(object: HKObject, withCompletion completion: (Bool, NSError?) -> Void)
   @available(watchOS 2.0, *)
-  func delete(objects: [HKObject], withCompletion completion: (Bool, Error?) -> Void)
+  func delete(objects: [HKObject], withCompletion completion: (Bool, NSError?) -> Void)
   @available(watchOS 2.0, *)
-  func deleteObjects(of objectType: HKObjectType, predicate: Predicate, withCompletion completion: (Bool, Int, Error?) -> Void)
+  func deleteObjects(of objectType: HKObjectType, predicate: NSPredicate, withCompletion completion: (Bool, Int, NSError?) -> Void)
   func execute(query: HKQuery)
   func stop(query: HKQuery)
   @available(watchOS 2.0, *)
-  func splitTotalEnergy(totalEnergy: HKQuantity, start startDate: Date, end endDate: Date, resultsHandler: (HKQuantity?, HKQuantity?, Error?) -> Void)
-  func dateOfBirth() throws -> Date
+  func splitTotalEnergy(totalEnergy: HKQuantity, start startDate: NSDate, end endDate: NSDate, resultsHandler: (HKQuantity?, HKQuantity?, NSError?) -> Void)
+  func dateOfBirth() throws -> NSDate
   func biologicalSex() throws -> HKBiologicalSexObject
   func bloodType() throws -> HKBloodTypeObject
   @available(watchOS 2.0, *)
@@ -25,7 +25,7 @@ class HKHealthStore : Object {
   init()
 }
 extension HKHealthStore {
-  func add(samples: [HKSample], to workout: HKWorkout, completion: (Bool, Error?) -> Void)
+  func add(samples: [HKSample], to workout: HKWorkout, completion: (Bool, NSError?) -> Void)
   @available(watchOS 2.0, *)
   func start(workoutSession: HKWorkoutSession)
   @available(watchOS 2.0, *)
@@ -37,41 +37,41 @@ extension HKHealthStore {
 let HKUserPreferencesDidChangeNotification: String
 extension HKHealthStore {
   @available(watchOS 2.0, *)
-  func preferredUnits(for quantityTypes: Set<HKQuantityType>, completion: ([HKQuantityType : HKUnit], Error?) -> Void)
+  func preferredUnits(for quantityTypes: Set<HKQuantityType>, completion: ([HKQuantityType : HKUnit], NSError?) -> Void)
 }
 @available(watchOS 2.0, *)
-class HKBiologicalSexObject : Object, Copying, SecureCoding {
+class HKBiologicalSexObject : NSObject, NSCopying, NSSecureCoding {
   var biologicalSex: HKBiologicalSex { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
-class HKBloodTypeObject : Object, Copying, SecureCoding {
+class HKBloodTypeObject : NSObject, NSCopying, NSSecureCoding {
   var bloodType: HKBloodType { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
-class HKFitzpatrickSkinTypeObject : Object, Copying, SecureCoding {
+class HKFitzpatrickSkinTypeObject : NSObject, NSCopying, NSSecureCoding {
   var skinType: HKFitzpatrickSkinType { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

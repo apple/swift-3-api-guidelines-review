@@ -1,6 +1,6 @@
 
 @available(watchOS 2.0, *)
-class EKRecurrenceDayOfWeek : Object, Copying {
+class EKRecurrenceDayOfWeek : NSObject, NSCopying {
   convenience init(_ dayOfTheWeek: EKWeekday)
   convenience init(_ dayOfTheWeek: EKWeekday, weekNumber: Int)
   init(dayOfTheWeek: EKWeekday, weekNumber: Int)
@@ -8,5 +8,5 @@ class EKRecurrenceDayOfWeek : Object, Copying {
   var weekNumber: Int { get }
   init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

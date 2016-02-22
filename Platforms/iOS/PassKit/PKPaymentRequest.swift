@@ -39,12 +39,12 @@ enum PKPaymentSummaryItemType : UInt {
   case pending
 }
 @available(iOS 8.0, *)
-class PKPaymentSummaryItem : Object {
-  convenience init(label: String, amount: DecimalNumber)
+class PKPaymentSummaryItem : NSObject {
+  convenience init(label: String, amount: NSDecimalNumber)
   @available(iOS 9.0, *)
-  convenience init(label: String, amount: DecimalNumber, type: PKPaymentSummaryItemType)
+  convenience init(label: String, amount: NSDecimalNumber, type: PKPaymentSummaryItemType)
   var label: String
-  @NSCopying var amount: DecimalNumber
+  @NSCopying var amount: NSDecimalNumber
   @available(iOS 9.0, *)
   var type: PKPaymentSummaryItemType
   init()
@@ -53,13 +53,13 @@ class PKPaymentSummaryItem : Object {
 class PKShippingMethod : PKPaymentSummaryItem {
   var identifier: String?
   var detail: String?
-  convenience init(label: String, amount: DecimalNumber)
+  convenience init(label: String, amount: NSDecimalNumber)
   @available(iOS 9.0, *)
-  convenience init(label: String, amount: DecimalNumber, type: PKPaymentSummaryItemType)
+  convenience init(label: String, amount: NSDecimalNumber, type: PKPaymentSummaryItemType)
   init()
 }
 @available(iOS 8.0, *)
-class PKPaymentRequest : Object {
+class PKPaymentRequest : NSObject {
   var merchantIdentifier: String
   var countryCode: String
   var supportedNetworks: [String]
@@ -79,6 +79,6 @@ class PKPaymentRequest : Object {
   var shippingMethods: [PKShippingMethod]?
   @available(iOS 8.3, *)
   var shippingType: PKShippingType
-  @NSCopying var applicationData: Data?
+  @NSCopying var applicationData: NSData?
   init()
 }

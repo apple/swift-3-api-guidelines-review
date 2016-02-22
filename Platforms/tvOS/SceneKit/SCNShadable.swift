@@ -7,12 +7,12 @@ enum SCNBufferFrequency : Int {
   case perNode
   case perShadable
 }
-protocol SCNBufferStream : ObjectProtocol {
+protocol SCNBufferStream : NSObjectProtocol {
   func writeBytes(bytes: UnsafeMutablePointer<Void>, length: Int)
 }
 typealias SCNBufferBindingBlock = (SCNBufferStream, SCNNode, SCNShadable, SCNRenderer) -> Void
 typealias SCNBindingBlock = (UInt32, UInt32, SCNNode, SCNRenderer) -> Void
-protocol SCNShadable : ObjectProtocol {
+protocol SCNShadable : NSObjectProtocol {
   @available(tvOS 8.0, *)
   optional var program: SCNProgram? { get set }
   @available(tvOS 8.0, *)
@@ -24,7 +24,7 @@ protocol SCNShadable : ObjectProtocol {
 }
 let SCNProgramMappingChannelKey: String
 @available(tvOS 8.0, *)
-class SCNProgram : Object, Copying, SecureCoding {
+class SCNProgram : NSObject, NSCopying, NSSecureCoding {
   var vertexShader: String?
   var fragmentShader: String?
   @available(tvOS 9.0, *)
@@ -42,16 +42,16 @@ class SCNProgram : Object, Copying, SecureCoding {
   var library: MTLLibrary?
   init()
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
-protocol SCNProgramDelegate : ObjectProtocol {
+protocol SCNProgramDelegate : NSObjectProtocol {
   @available(tvOS 8.0, *)
-  optional func program(program: SCNProgram, handleError error: Error)
+  optional func program(program: SCNProgram, handleError error: NSError)
 }
 @available(tvOS 8.0, *)
 let SCNShaderModifierEntryPointGeometry: String

@@ -26,12 +26,12 @@ class NSBox : NSView {
   var boxType: NSBoxType
   var title: String
   var titleFont: NSFont
-  var borderRect: Rect { get }
-  var titleRect: Rect { get }
+  var borderRect: NSRect { get }
+  var titleRect: NSRect { get }
   var titleCell: AnyObject { get }
   func sizeToFit()
-  var contentViewMargins: Size
-  func setFrameFromContentFrame(contentFrame: Rect)
+  var contentViewMargins: NSSize
+  func setFrameFromContentFrame(contentFrame: NSRect)
   unowned(unsafe) var contentView: @sil_unmanaged NSView?
   @available(OSX 10.5, *)
   var isTransparent: Bool
@@ -43,8 +43,8 @@ class NSBox : NSView {
   @NSCopying var borderColor: NSColor
   @available(OSX 10.5, *)
   @NSCopying var fillColor: NSColor
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }
 struct __bFlags {

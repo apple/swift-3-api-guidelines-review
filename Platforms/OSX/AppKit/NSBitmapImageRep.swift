@@ -61,16 +61,16 @@ let NSImageProgressive: String
 let NSImageEXIFData: String
 @available(OSX 10.5, *)
 let NSImageFallbackBackgroundColor: String
-class NSBitmapImageRep : NSImageRep, SecureCoding {
-  init?(focusedViewRect rect: Rect)
+class NSBitmapImageRep : NSImageRep, NSSecureCoding {
+  init?(focusedViewRect rect: NSRect)
   init?(bitmapDataPlanes planes: UnsafeMutablePointer<UnsafeMutablePointer<UInt8>>, pixelsWide width: Int, pixelsHigh height: Int, bitsPerSample bps: Int, samplesPerPixel spp: Int, hasAlpha alpha: Bool, isPlanar: Bool, colorSpaceName: String, bytesPerRow rBytes: Int, bitsPerPixel pBits: Int)
   init?(bitmapDataPlanes planes: UnsafeMutablePointer<UnsafeMutablePointer<UInt8>>, pixelsWide width: Int, pixelsHigh height: Int, bitsPerSample bps: Int, samplesPerPixel spp: Int, hasAlpha alpha: Bool, isPlanar: Bool, colorSpaceName: String, bitmapFormat: NSBitmapFormat, bytesPerRow rBytes: Int, bitsPerPixel pBits: Int)
   @available(OSX 10.5, *)
   init(cgImage: CGImage)
   @available(OSX 10.5, *)
   init(ciImage: CIImage)
-  class func imageReps(with data: Data) -> [NSImageRep]
-  init?(data: Data)
+  class func imageReps(with data: NSData) -> [NSImageRep]
+  init?(data: NSData)
   var bitmapData: UnsafeMutablePointer<UInt8> { get }
   func getBitmapDataPlanes(data: UnsafeMutablePointer<UnsafeMutablePointer<UInt8>>)
   var isPlanar: Bool { get }
@@ -82,16 +82,16 @@ class NSBitmapImageRep : NSImageRep, SecureCoding {
   var bitmapFormat: NSBitmapFormat { get }
   func getCompression(compression: UnsafeMutablePointer<NSTIFFCompression>, factor: UnsafeMutablePointer<Float>)
   func setCompression(compression: NSTIFFCompression, factor: Float)
-  @NSCopying var tiffRepresentation: Data? { get }
-  func tiffRepresentation(using comp: NSTIFFCompression, factor: Float) -> Data?
-  class func tiffRepresentationOfImageReps(in array: [NSImageRep]) -> Data?
-  class func tiffRepresentationOfImageReps(in array: [NSImageRep], using comp: NSTIFFCompression, factor: Float) -> Data?
+  @NSCopying var tiffRepresentation: NSData? { get }
+  func tiffRepresentation(using comp: NSTIFFCompression, factor: Float) -> NSData?
+  class func tiffRepresentationOfImageReps(in array: [NSImageRep]) -> NSData?
+  class func tiffRepresentationOfImageReps(in array: [NSImageRep], using comp: NSTIFFCompression, factor: Float) -> NSData?
   class func getTIFFCompressionTypes(list: UnsafeMutablePointer<UnsafePointer<NSTIFFCompression>>, count numTypes: UnsafeMutablePointer<Int>)
   class func localizedName(forTIFFCompressionType compression: NSTIFFCompression) -> String?
   func canBeCompressed(using compression: NSTIFFCompression) -> Bool
   func colorize(byMappingGray midPoint: CGFloat, to midPointColor: NSColor?, blackMapping shadowColor: NSColor?, whiteMapping lightColor: NSColor?)
   init(forIncrementalLoad: ())
-  func incrementalLoad(from data: Data, complete: Bool) -> Int
+  func incrementalLoad(from data: NSData, complete: Bool) -> Int
   func setColor(color: NSColor, atX x: Int, y: Int)
   func colorAt(x x: Int, y: Int) -> NSColor?
   func getPixel(p: UnsafeMutablePointer<Int>, atX x: Int, y: Int)
@@ -105,7 +105,7 @@ class NSBitmapImageRep : NSImageRep, SecureCoding {
   @available(OSX 10.6, *)
   func retagging(with newSpace: NSColorSpace) -> NSBitmapImageRep?
   init()
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   class func supportsSecureCoding() -> Bool
 }
 struct __bitmapRepFlags {
@@ -126,8 +126,8 @@ struct __bitmapRepFlags {
   init(bitsPerPixel: UInt32, isPlanar: UInt32, explicitPlanes: UInt32, imageSourceIsIndexed: UInt32, dataLoaded: UInt32, colorModel: UInt32, tierTwoInfoIsLoaded: UInt32, respectO: UInt32, compressionFactor: UInt32, imageNumber: UInt32, bitmapFormat: UInt32, cgImageIsPrimary: UInt32, compression: UInt32)
 }
 extension NSBitmapImageRep {
-  class func representationOfImageReps(in imageReps: [NSImageRep], using storageType: NSBitmapImageFileType, properties: [String : AnyObject]) -> Data?
-  func representation(using storageType: NSBitmapImageFileType, properties: [String : AnyObject]) -> Data?
+  class func representationOfImageReps(in imageReps: [NSImageRep], using storageType: NSBitmapImageFileType, properties: [String : AnyObject]) -> NSData?
+  func representation(using storageType: NSBitmapImageFileType, properties: [String : AnyObject]) -> NSData?
   func setProperty(property: String, withValue value: AnyObject?)
   func value(forProperty property: String) -> AnyObject?
 }

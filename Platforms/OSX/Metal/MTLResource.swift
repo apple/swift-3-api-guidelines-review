@@ -42,7 +42,7 @@ struct MTLResourceOptions : OptionSetType {
   static var optionCPUCacheModeWriteCombined: MTLResourceOptions { get }
 }
 @available(OSX 10.11, *)
-protocol MTLResource : ObjectProtocol {
+protocol MTLResource : NSObjectProtocol {
   var label: String? { get set }
   var device: MTLDevice { get }
   var cpuCacheMode: MTLCPUCacheMode { get }

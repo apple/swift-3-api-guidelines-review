@@ -1,6 +1,6 @@
 
 @available(tvOS 8.0, *)
-class CKAsset : Object {
-  init(fileURL: URL)
-  @NSCopying var fileURL: URL { get }
+class CKAsset : NSObject {
+  init(fileURL: NSURL)
+  @NSCopying var fileURL: NSURL { get }
 }

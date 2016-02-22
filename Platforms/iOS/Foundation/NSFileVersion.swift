@@ -1,35 +1,35 @@
 
-struct FileVersionAddingOptions : OptionSetType {
+struct NSFileVersionAddingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var byMoving: FileVersionAddingOptions { get }
+  static var byMoving: NSFileVersionAddingOptions { get }
 }
-struct FileVersionReplacingOptions : OptionSetType {
+struct NSFileVersionReplacingOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var byMoving: FileVersionReplacingOptions { get }
+  static var byMoving: NSFileVersionReplacingOptions { get }
 }
 @available(iOS 5.0, *)
-class FileVersion : Object {
-  class func currentVersionOfItem(at url: URL) -> FileVersion?
-  class func otherVersionsOfItem(at url: URL) -> [FileVersion]?
-  class func unresolvedConflictVersionsOfItem(at url: URL) -> [FileVersion]?
+class NSFileVersion : NSObject {
+  class func currentVersionOfItem(at url: NSURL) -> NSFileVersion?
+  class func otherVersionsOfItem(at url: NSURL) -> [NSFileVersion]?
+  class func unresolvedConflictVersionsOfItem(at url: NSURL) -> [NSFileVersion]?
   @available(iOS 8.0, *)
-  class func getNonlocalVersionsOfItem(at url: URL, completionHandler: ([FileVersion]?, Error?) -> Void)
-  /*not inherited*/ init?(ofItemAt url: URL, forPersistentIdentifier persistentIdentifier: AnyObject)
-  @NSCopying var url: URL { get }
+  class func getNonlocalVersionsOfItem(at url: NSURL, completionHandler: ([NSFileVersion]?, NSError?) -> Void)
+  /*not inherited*/ init?(ofItemAt url: NSURL, forPersistentIdentifier persistentIdentifier: AnyObject)
+  @NSCopying var url: NSURL { get }
   var localizedName: String? { get }
   var localizedNameOfSavingComputer: String? { get }
-  @NSCopying var modificationDate: Date? { get }
-  var persistentIdentifier: Coding { get }
+  @NSCopying var modificationDate: NSDate? { get }
+  var persistentIdentifier: NSCoding { get }
   var isConflict: Bool { get }
   var isResolved: Bool
   @available(iOS 8.0, *)
   var hasLocalContents: Bool { get }
   @available(iOS 8.0, *)
   var hasThumbnail: Bool { get }
-  func replaceItem(at url: URL, options: FileVersionReplacingOptions = []) throws -> URL
+  func replaceItem(at url: NSURL, options: NSFileVersionReplacingOptions = []) throws -> NSURL
   func remove() throws
-  class func removeOtherVersionsOfItem(at url: URL) throws
+  class func removeOtherVersionsOfItem(at url: NSURL) throws
   init()
 }

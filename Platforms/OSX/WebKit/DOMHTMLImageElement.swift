@@ -28,5 +28,5 @@ class DOMHTMLImageElement : DOMHTMLElement {
   @available(OSX 10.5, *)
   var altDisplayString: String! { get }
   @available(OSX 10.5, *)
-  @NSCopying var absoluteImageURL: URL! { get }
+  @NSCopying var absoluteImageURL: NSURL! { get }
 }

@@ -1,10 +1,10 @@
 
-typealias CLGeocodeCompletionHandler = ([CLPlacemark]?, Error?) -> Void
+typealias CLGeocodeCompletionHandler = ([CLPlacemark]?, NSError?) -> Void
 @available(watchOS 2.0, *)
-class CLGeocoder : Object {
+class CLGeocoder : NSObject {
   var isGeocoding: Bool { get }
   func reverseGeocodeLocation(location: CLLocation, completionHandler: CLGeocodeCompletionHandler)
-  func geocodeAddressDictionary(addressDictionary: [Object : AnyObject], completionHandler: CLGeocodeCompletionHandler)
+  func geocodeAddressDictionary(addressDictionary: [NSObject : AnyObject], completionHandler: CLGeocodeCompletionHandler)
   func geocodeAddressString(addressString: String, completionHandler: CLGeocodeCompletionHandler)
   func geocodeAddressString(addressString: String, in region: CLRegion?, completionHandler: CLGeocodeCompletionHandler)
   func cancelGeocode()

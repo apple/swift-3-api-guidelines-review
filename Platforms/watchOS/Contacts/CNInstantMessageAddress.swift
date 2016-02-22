@@ -1,6 +1,6 @@
 
 @available(watchOS 2.0, *)
-class CNInstantMessageAddress : Object, Copying, SecureCoding {
+class CNInstantMessageAddress : NSObject, NSCopying, NSSecureCoding {
   var username: String { get }
   var service: String { get }
   init(username: String, service: String)
@@ -8,12 +8,12 @@ class CNInstantMessageAddress : Object, Copying, SecureCoding {
   class func localizedString(forService service: String) -> String
   init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
 let CNInstantMessageAddressUsernameKey: String

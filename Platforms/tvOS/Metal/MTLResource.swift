@@ -38,7 +38,7 @@ struct MTLResourceOptions : OptionSetType {
   static var optionCPUCacheModeWriteCombined: MTLResourceOptions { get }
 }
 @available(tvOS 8.0, *)
-protocol MTLResource : ObjectProtocol {
+protocol MTLResource : NSObjectProtocol {
   var label: String? { get set }
   var device: MTLDevice { get }
   var cpuCacheMode: MTLCPUCacheMode { get }

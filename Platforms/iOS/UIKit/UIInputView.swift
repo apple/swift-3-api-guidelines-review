@@ -12,7 +12,7 @@ class UIInputView : UIView {
   @available(iOS 9.0, *)
   var allowsSelfSizing: Bool
   init(frame: CGRect, inputViewStyle: UIInputViewStyle)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init(frame: CGRect)
   convenience init()
 }

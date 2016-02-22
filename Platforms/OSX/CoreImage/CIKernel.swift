@@ -1,7 +1,7 @@
 
 typealias CIKernelROICallback = (Int32, CGRect) -> CGRect
 @available(OSX 10.4, *)
-class CIKernel : Object {
+class CIKernel : NSObject {
   @available(OSX 10.4, *)
   class func kernels(with string: String) -> [CIKernel]?
   @available(OSX 10.10, *)

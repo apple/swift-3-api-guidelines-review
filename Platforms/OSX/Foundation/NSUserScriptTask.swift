@@ -1,34 +1,34 @@
 
 @available(OSX 10.8, *)
-class UserScriptTask : Object {
-  init(url: URL) throws
-  @NSCopying var scriptURL: URL { get }
-  func execute(completionHandler handler: UserScriptTaskCompletionHandler? = nil)
+class NSUserScriptTask : NSObject {
+  init(url: NSURL) throws
+  @NSCopying var scriptURL: NSURL { get }
+  func execute(completionHandler handler: NSUserScriptTaskCompletionHandler? = nil)
   convenience init()
 }
-typealias UserScriptTaskCompletionHandler = (Error?) -> Void
+typealias NSUserScriptTaskCompletionHandler = (NSError?) -> Void
 @available(OSX 10.8, *)
-class UserUnixTask : UserScriptTask {
-  var standardInput: FileHandle?
-  var standardOutput: FileHandle?
-  var standardError: FileHandle?
-  func execute(arguments arguments: [String]?, completionHandler handler: UserUnixTaskCompletionHandler? = nil)
-  init(url: URL) throws
+class NSUserUnixTask : NSUserScriptTask {
+  var standardInput: NSFileHandle?
+  var standardOutput: NSFileHandle?
+  var standardError: NSFileHandle?
+  func execute(arguments arguments: [String]?, completionHandler handler: NSUserUnixTaskCompletionHandler? = nil)
+  init(url: NSURL) throws
   convenience init()
 }
-typealias UserUnixTaskCompletionHandler = (Error?) -> Void
+typealias NSUserUnixTaskCompletionHandler = (NSError?) -> Void
 @available(OSX 10.8, *)
-class UserAppleScriptTask : UserScriptTask {
-  func execute(appleEvent event: AppleEventDescriptor?, completionHandler handler: UserAppleScriptTaskCompletionHandler? = nil)
-  init(url: URL) throws
+class NSUserAppleScriptTask : NSUserScriptTask {
+  func execute(appleEvent event: NSAppleEventDescriptor?, completionHandler handler: NSUserAppleScriptTaskCompletionHandler? = nil)
+  init(url: NSURL) throws
   convenience init()
 }
-typealias UserAppleScriptTaskCompletionHandler = (AppleEventDescriptor?, Error?) -> Void
+typealias NSUserAppleScriptTaskCompletionHandler = (NSAppleEventDescriptor?, NSError?) -> Void
 @available(OSX 10.8, *)
-class UserAutomatorTask : UserScriptTask {
+class NSUserAutomatorTask : NSUserScriptTask {
   var variables: [String : AnyObject]?
-  func execute(input input: SecureCoding?, completionHandler handler: UserAutomatorTaskCompletionHandler? = nil)
-  init(url: URL) throws
+  func execute(input input: NSSecureCoding?, completionHandler handler: NSUserAutomatorTaskCompletionHandler? = nil)
+  init(url: NSURL) throws
   convenience init()
 }
-typealias UserAutomatorTaskCompletionHandler = (AnyObject?, Error?) -> Void
+typealias NSUserAutomatorTaskCompletionHandler = (AnyObject?, NSError?) -> Void

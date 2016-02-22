@@ -12,8 +12,8 @@ class GKGameCenterViewController : UINavigationController {
   @available(tvOS 5.0, *)
   init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
   init(rootViewController: UIViewController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
 extension GKGameCenterViewController {
@@ -21,7 +21,7 @@ extension GKGameCenterViewController {
 }
 extension GKGameCenterViewController {
 }
-protocol GKGameCenterControllerDelegate : ObjectProtocol {
+protocol GKGameCenterControllerDelegate : NSObjectProtocol {
   @available(tvOS 6.0, *)
   func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController)
 }

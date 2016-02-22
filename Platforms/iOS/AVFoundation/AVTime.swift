@@ -1,5 +1,5 @@
 
-extension Value {
+extension NSValue {
   @available(iOS 4.0, *)
   /*not inherited*/ init(cmTime time: CMTime)
   @available(iOS 4.0, *)
@@ -13,7 +13,7 @@ extension Value {
   @available(iOS 4.0, *)
   var cmTimeMappingValue: CMTimeMapping { get }
 }
-extension Coder {
+extension NSCoder {
   @available(iOS 4.0, *)
   func encode(time: CMTime, forKey key: String)
   @available(iOS 4.0, *)

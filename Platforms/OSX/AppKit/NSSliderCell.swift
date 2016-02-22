@@ -20,18 +20,18 @@ class NSSliderCell : NSActionCell {
   var altIncrementValue: Double
   var sliderType: NSSliderType
   var vertical: Int { get }
-  var trackRect: Rect { get }
+  var trackRect: NSRect { get }
   var knobThickness: CGFloat { get }
-  func knobRectFlipped(flipped: Bool) -> Rect
-  func drawKnob(knobRect: Rect)
+  func knobRectFlipped(flipped: Bool) -> NSRect
+  func drawKnob(knobRect: NSRect)
   func drawKnob()
   @available(OSX 10.9, *)
-  func barRectFlipped(flipped: Bool) -> Rect
-  func drawBar(inside aRect: Rect, flipped: Bool)
+  func barRectFlipped(flipped: Bool) -> NSRect
+  func drawBar(inside aRect: NSRect, flipped: Bool)
   init(textCell aString: String)
   init(imageCell image: NSImage?)
   convenience init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 struct __sliderCellFlags {
   var weAreVertical: UInt32
@@ -55,8 +55,8 @@ extension NSSliderCell {
   var tickMarkPosition: NSTickMarkPosition
   var allowsTickMarkValuesOnly: Bool
   func tickMarkValue(at index: Int) -> Double
-  func rectOfTickMark(at index: Int) -> Rect
-  func indexOfTickMark(at point: Point) -> Int
+  func rectOfTickMark(at index: Int) -> NSRect
+  func indexOfTickMark(at point: NSPoint) -> Int
   func closestTickMarkValue(toValue value: Double) -> Double
   @available(OSX 10.9, *)
   func drawTickMarks()

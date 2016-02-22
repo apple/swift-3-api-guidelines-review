@@ -1,5 +1,5 @@
 
-class NSColorList : Object, SecureCoding {
+class NSColorList : NSObject, NSSecureCoding {
   class func availableColorLists() -> [NSColorList]
   /*not inherited*/ init?(named name: String)
   init(name: String)
@@ -15,8 +15,8 @@ class NSColorList : Object, SecureCoding {
   func removeFile()
   init()
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 struct _colorListFlags {
   var colorsLoaded: UInt32

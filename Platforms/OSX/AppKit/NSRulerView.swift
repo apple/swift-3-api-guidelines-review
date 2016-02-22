@@ -6,7 +6,7 @@ enum NSRulerOrientation : UInt {
   case verticalRuler
 }
 class NSRulerView : NSView {
-  class func registerUnit(name unitName: String, abbreviation: String, unitToPointsConversionFactor conversionFactor: CGFloat, stepUpCycle: [Number], stepDownCycle: [Number])
+  class func registerUnit(name unitName: String, abbreviation: String, unitToPointsConversionFactor conversionFactor: CGFloat, stepUpCycle: [NSNumber], stepDownCycle: [NSNumber])
   init(scrollView: NSScrollView?, orientation: NSRulerOrientation)
   unowned(unsafe) var scrollView: @sil_unmanaged NSScrollView?
   var orientation: NSRulerOrientation
@@ -25,11 +25,11 @@ class NSRulerView : NSView {
   var accessoryView: NSView?
   func moveRulerline(fromLocation oldLocation: CGFloat, toLocation newLocation: CGFloat)
   func invalidateHashMarks()
-  func drawHashMarksAndLabels(in rect: Rect)
-  func drawMarkers(in rect: Rect)
+  func drawHashMarksAndLabels(in rect: NSRect)
+  func drawMarkers(in rect: NSRect)
   var isFlipped: Bool { get }
-  convenience init(frame frameRect: Rect)
-  init?(coder: Coder)
+  convenience init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }
 extension NSView {
@@ -44,7 +44,7 @@ extension NSView {
   func rulerView(ruler: NSRulerView, handleMouseDown event: NSEvent)
   func rulerView(ruler: NSRulerView, willSetClientView newClient: NSView)
   @available(OSX 10.7, *)
-  func rulerView(ruler: NSRulerView, locationFor aPoint: Point) -> CGFloat
+  func rulerView(ruler: NSRulerView, locationFor aPoint: NSPoint) -> CGFloat
   @available(OSX 10.7, *)
-  func rulerView(ruler: NSRulerView, pointForLocation aPoint: CGFloat) -> Point
+  func rulerView(ruler: NSRulerView, pointForLocation aPoint: CGFloat) -> NSPoint
 }

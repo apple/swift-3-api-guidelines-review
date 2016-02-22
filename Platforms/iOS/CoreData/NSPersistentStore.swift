@@ -1,16 +1,16 @@
 
 @available(iOS 3.0, *)
-class NSPersistentStore : Object {
-  class func metadataForPersistentStore(with url: URL) throws -> [String : AnyObject]
-  class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreWith url: URL) throws
+class NSPersistentStore : NSObject {
+  class func metadataForPersistentStore(with url: NSURL) throws -> [String : AnyObject]
+  class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreWith url: NSURL) throws
   @available(iOS 3.0, *)
   class func migrationManagerClass() -> AnyClass
-  init(persistentStoreCoordinator root: NSPersistentStoreCoordinator?, configurationName name: String?, url: URL, options: [Object : AnyObject]? = [:])
+  init(persistentStoreCoordinator root: NSPersistentStoreCoordinator?, configurationName name: String?, url: NSURL, options: [NSObject : AnyObject]? = [:])
   func loadMetadata() throws
   weak var persistentStoreCoordinator: @sil_weak NSPersistentStoreCoordinator? { get }
   var configurationName: String { get }
-  var options: [Object : AnyObject]? { get }
-  var url: URL?
+  var options: [NSObject : AnyObject]? { get }
+  var url: NSURL?
   var identifier: String!
   var type: String { get }
   var isReadOnly: Bool

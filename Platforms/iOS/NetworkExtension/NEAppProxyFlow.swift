@@ -15,21 +15,21 @@ enum NEAppProxyFlowError : Int {
 @available(iOS 9.0, *)
 let NEAppProxyErrorDomain: String
 @available(iOS 9.0, *)
-class NEAppProxyFlow : Object {
+class NEAppProxyFlow : NSObject {
   @available(iOS 9.0, *)
-  func open(localEndpoint localEndpoint: NWHostEndpoint?, completionHandler: (Error?) -> Void)
+  func open(localEndpoint localEndpoint: NWHostEndpoint?, completionHandler: (NSError?) -> Void)
   @available(iOS 9.0, *)
-  func closeReadWithError(error: Error?)
+  func closeReadWithError(error: NSError?)
   @available(iOS 9.0, *)
-  func closeWriteWithError(error: Error?)
+  func closeWriteWithError(error: NSError?)
   @available(iOS 9.0, *)
   var metaData: NEFlowMetaData { get }
   init()
 }
 @available(iOS 9.0, *)
-class NEFlowMetaData : Object {
+class NEFlowMetaData : NSObject {
   @available(iOS 9.0, *)
-  var sourceAppUniqueIdentifier: Data { get }
+  var sourceAppUniqueIdentifier: NSData { get }
   @available(iOS 9.0, *)
   var sourceAppSigningIdentifier: String { get }
   init()

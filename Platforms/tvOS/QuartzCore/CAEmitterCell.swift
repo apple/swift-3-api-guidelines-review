@@ -1,5 +1,5 @@
 
-class CAEmitterCell : Object, Coding, CAMediaTiming {
+class CAEmitterCell : NSObject, NSCoding, CAMediaTiming {
   class func defaultValue(forKey key: String) -> AnyObject?
   func shouldArchiveValue(forKey key: String) -> Bool
   var name: String?
@@ -36,10 +36,10 @@ class CAEmitterCell : Object, Coding, CAMediaTiming {
   var magnificationFilter: String
   var minificationFilterBias: Float
   var emitterCells: [CAEmitterCell]?
-  var style: [Object : AnyObject]?
+  var style: [NSObject : AnyObject]?
   init()
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   var beginTime: CFTimeInterval
   var duration: CFTimeInterval
   var speed: Float

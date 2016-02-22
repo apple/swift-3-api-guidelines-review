@@ -1,18 +1,18 @@
 
 @available(OSX 10.4, *)
-class AMBundleAction : AMAction, Coding, Copying {
+class AMBundleAction : AMAction, NSCoding, NSCopying {
   func awakeFromBundle()
   var hasView: Bool { get }
   var view: NSView? { get }
-  var bundle: Bundle { get }
-  var parameters: MutableDictionary?
+  var bundle: NSBundle { get }
+  var parameters: NSMutableDictionary?
   init?(definition dict: [String : AnyObject], fromArchive archived: Bool)
   @available(OSX 10.5, *)
-  init(contentsOf fileURL: URL) throws
+  init(contentsOf fileURL: NSURL) throws
   init()
   @available(OSX 10.4, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.4, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

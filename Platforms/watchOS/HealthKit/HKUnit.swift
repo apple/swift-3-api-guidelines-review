@@ -1,22 +1,22 @@
 
 @available(watchOS 2.0, *)
-class HKUnit : Object, SecureCoding, Copying {
+class HKUnit : NSObject, NSSecureCoding, NSCopying {
   var unitString: String { get }
   convenience init(from string: String)
-  convenience init(from massFormatterUnit: MassFormatterUnit)
-  class func massFormatterUnit(from unit: HKUnit) -> MassFormatterUnit
-  convenience init(from lengthFormatterUnit: LengthFormatterUnit)
-  class func lengthFormatterUnit(from unit: HKUnit) -> LengthFormatterUnit
-  convenience init(from energyFormatterUnit: EnergyFormatterUnit)
-  class func energyFormatterUnit(from unit: HKUnit) -> EnergyFormatterUnit
+  convenience init(from massFormatterUnit: NSMassFormatterUnit)
+  class func massFormatterUnit(from unit: HKUnit) -> NSMassFormatterUnit
+  convenience init(from lengthFormatterUnit: NSLengthFormatterUnit)
+  class func lengthFormatterUnit(from unit: HKUnit) -> NSLengthFormatterUnit
+  convenience init(from energyFormatterUnit: NSEnergyFormatterUnit)
+  class func energyFormatterUnit(from unit: HKUnit) -> NSEnergyFormatterUnit
   func isNull() -> Bool
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(watchOS 2.0, *)
 enum HKMetricPrefix : Int {

@@ -1,7 +1,7 @@
 
-protocol UIAppearanceContainer : ObjectProtocol {
+protocol UIAppearanceContainer : NSObjectProtocol {
 }
-protocol UIAppearance : ObjectProtocol {
+protocol UIAppearance : NSObjectProtocol {
   static func appearance() -> Self
   @available(iOS 9.0, *)
   static func whenContained(inInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self

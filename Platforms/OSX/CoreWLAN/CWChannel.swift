@@ -1,6 +1,6 @@
 
 @available(OSX 10.7, *)
-class CWChannel : Object, Copying, SecureCoding {
+class CWChannel : NSObject, NSCopying, NSSecureCoding {
   @available(OSX 10.7, *)
   var channelNumber: Int { get }
   @available(OSX 10.7, *)
@@ -11,10 +11,10 @@ class CWChannel : Object, Copying, SecureCoding {
   func isEqual(to channel: CWChannel) -> Bool
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.7, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

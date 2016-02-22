@@ -1,8 +1,8 @@
 
 @available(tvOS 2.0, *)
-class UIBarItem : Object, Coding, UIAppearance {
+class UIBarItem : NSObject, NSCoding, UIAppearance {
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   var isEnabled: Bool
   var title: String?
   var image: UIImage?
@@ -13,7 +13,7 @@ class UIBarItem : Object, Coding, UIAppearance {
   @available(tvOS 5.0, *)
   func titleTextAttributes(for state: UIControlState) -> [String : AnyObject]?
   @available(tvOS 2.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
   @available(tvOS 2.0, *)
   class func appearance() -> Self
   @available(tvOS 9.0, *)

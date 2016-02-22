@@ -1,14 +1,14 @@
 
 @available(OSX 10.11, *)
 class NSCollectionViewGridLayout : NSCollectionViewLayout {
-  var margins: EdgeInsets
+  var margins: NSEdgeInsets
   var minimumInteritemSpacing: CGFloat
   var minimumLineSpacing: CGFloat
   var maximumNumberOfRows: Int
   var maximumNumberOfColumns: Int
-  var minimumItemSize: Size
-  var maximumItemSize: Size
+  var minimumItemSize: NSSize
+  var maximumItemSize: NSSize
   var backgroundColors: [NSColor]!
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

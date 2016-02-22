@@ -19,7 +19,7 @@ enum PKAutomaticPassPresentationSuppressionResult : UInt {
 }
 typealias PKSuppressionRequestToken = Int
 @available(iOS 6.0, *)
-class PKPassLibrary : Object {
+class PKPassLibrary : NSObject {
   @available(iOS 6.0, *)
   class func isPassLibraryAvailable() -> Bool
   @available(iOS 9.0, *)
@@ -48,9 +48,9 @@ class PKPassLibrary : Object {
   @available(iOS 9.0, *)
   func canAddPaymentPass(withPrimaryAccountIdentifier primaryAccountIdentifier: String) -> Bool
   @available(iOS 8.0, *)
-  func activate(paymentPass: PKPaymentPass, withActivationData activationData: Data, completion: ((Bool, Error) -> Void)? = nil)
+  func activate(paymentPass: PKPaymentPass, withActivationData activationData: NSData, completion: ((Bool, NSError) -> Void)? = nil)
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use activatePaymentPass:withActivationData:completion: instead")
-  func activate(paymentPass: PKPaymentPass, withActivationCode activationCode: String, completion: ((Bool, Error) -> Void)? = nil)
+  func activate(paymentPass: PKPaymentPass, withActivationCode activationCode: String, completion: ((Bool, NSError) -> Void)? = nil)
   init()
 }
 @available(iOS 6.0, *)

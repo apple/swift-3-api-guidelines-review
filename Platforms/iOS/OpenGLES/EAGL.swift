@@ -9,12 +9,12 @@ enum EAGLRenderingAPI : UInt {
   case openGLES3
 }
 func EAGLGetVersion(major: UnsafeMutablePointer<UInt32>, _ minor: UnsafeMutablePointer<UInt32>)
-class EAGLSharegroup : Object {
+class EAGLSharegroup : NSObject {
   @available(iOS 6.0, *)
   var debugLabel: String!
   init()
 }
-class EAGLContext : Object {
+class EAGLContext : NSObject {
   convenience init!(api: EAGLRenderingAPI)
   init!(api: EAGLRenderingAPI, sharegroup: EAGLSharegroup!)
   class func setCurrentContext(context: EAGLContext!) -> Bool

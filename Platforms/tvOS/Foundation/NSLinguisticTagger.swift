@@ -1,91 +1,91 @@
 
 @available(tvOS 5.0, *)
-let linguisticTagSchemeTokenType: String
+let NSLinguisticTagSchemeTokenType: String
 @available(tvOS 5.0, *)
-let linguisticTagSchemeLexicalClass: String
+let NSLinguisticTagSchemeLexicalClass: String
 @available(tvOS 5.0, *)
-let linguisticTagSchemeNameType: String
+let NSLinguisticTagSchemeNameType: String
 @available(tvOS 5.0, *)
-let linguisticTagSchemeNameTypeOrLexicalClass: String
+let NSLinguisticTagSchemeNameTypeOrLexicalClass: String
 @available(tvOS 5.0, *)
-let linguisticTagSchemeLemma: String
+let NSLinguisticTagSchemeLemma: String
 @available(tvOS 5.0, *)
-let linguisticTagSchemeLanguage: String
+let NSLinguisticTagSchemeLanguage: String
 @available(tvOS 5.0, *)
-let linguisticTagSchemeScript: String
+let NSLinguisticTagSchemeScript: String
 @available(tvOS 5.0, *)
-let linguisticTagWord: String
+let NSLinguisticTagWord: String
 @available(tvOS 5.0, *)
-let linguisticTagPunctuation: String
+let NSLinguisticTagPunctuation: String
 @available(tvOS 5.0, *)
-let linguisticTagWhitespace: String
+let NSLinguisticTagWhitespace: String
 @available(tvOS 5.0, *)
-let linguisticTagOther: String
+let NSLinguisticTagOther: String
 @available(tvOS 5.0, *)
-let linguisticTagNoun: String
+let NSLinguisticTagNoun: String
 @available(tvOS 5.0, *)
-let linguisticTagVerb: String
+let NSLinguisticTagVerb: String
 @available(tvOS 5.0, *)
-let linguisticTagAdjective: String
+let NSLinguisticTagAdjective: String
 @available(tvOS 5.0, *)
-let linguisticTagAdverb: String
+let NSLinguisticTagAdverb: String
 @available(tvOS 5.0, *)
-let linguisticTagPronoun: String
+let NSLinguisticTagPronoun: String
 @available(tvOS 5.0, *)
-let linguisticTagDeterminer: String
+let NSLinguisticTagDeterminer: String
 @available(tvOS 5.0, *)
-let linguisticTagParticle: String
+let NSLinguisticTagParticle: String
 @available(tvOS 5.0, *)
-let linguisticTagPreposition: String
+let NSLinguisticTagPreposition: String
 @available(tvOS 5.0, *)
-let linguisticTagNumber: String
+let NSLinguisticTagNumber: String
 @available(tvOS 5.0, *)
-let linguisticTagConjunction: String
+let NSLinguisticTagConjunction: String
 @available(tvOS 5.0, *)
-let linguisticTagInterjection: String
+let NSLinguisticTagInterjection: String
 @available(tvOS 5.0, *)
-let linguisticTagClassifier: String
+let NSLinguisticTagClassifier: String
 @available(tvOS 5.0, *)
-let linguisticTagIdiom: String
+let NSLinguisticTagIdiom: String
 @available(tvOS 5.0, *)
-let linguisticTagOtherWord: String
+let NSLinguisticTagOtherWord: String
 @available(tvOS 5.0, *)
-let linguisticTagSentenceTerminator: String
+let NSLinguisticTagSentenceTerminator: String
 @available(tvOS 5.0, *)
-let linguisticTagOpenQuote: String
+let NSLinguisticTagOpenQuote: String
 @available(tvOS 5.0, *)
-let linguisticTagCloseQuote: String
+let NSLinguisticTagCloseQuote: String
 @available(tvOS 5.0, *)
-let linguisticTagOpenParenthesis: String
+let NSLinguisticTagOpenParenthesis: String
 @available(tvOS 5.0, *)
-let linguisticTagCloseParenthesis: String
+let NSLinguisticTagCloseParenthesis: String
 @available(tvOS 5.0, *)
-let linguisticTagWordJoiner: String
+let NSLinguisticTagWordJoiner: String
 @available(tvOS 5.0, *)
-let linguisticTagDash: String
+let NSLinguisticTagDash: String
 @available(tvOS 5.0, *)
-let linguisticTagOtherPunctuation: String
+let NSLinguisticTagOtherPunctuation: String
 @available(tvOS 5.0, *)
-let linguisticTagParagraphBreak: String
+let NSLinguisticTagParagraphBreak: String
 @available(tvOS 5.0, *)
-let linguisticTagOtherWhitespace: String
+let NSLinguisticTagOtherWhitespace: String
 @available(tvOS 5.0, *)
-let linguisticTagPersonalName: String
+let NSLinguisticTagPersonalName: String
 @available(tvOS 5.0, *)
-let linguisticTagPlaceName: String
+let NSLinguisticTagPlaceName: String
 @available(tvOS 5.0, *)
-let linguisticTagOrganizationName: String
-struct LinguisticTaggerOptions : OptionSetType {
+let NSLinguisticTagOrganizationName: String
+struct NSLinguisticTaggerOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var omitWords: LinguisticTaggerOptions { get }
-  static var omitPunctuation: LinguisticTaggerOptions { get }
-  static var omitWhitespace: LinguisticTaggerOptions { get }
-  static var omitOther: LinguisticTaggerOptions { get }
-  static var joinNames: LinguisticTaggerOptions { get }
+  static var omitWords: NSLinguisticTaggerOptions { get }
+  static var omitPunctuation: NSLinguisticTaggerOptions { get }
+  static var omitWhitespace: NSLinguisticTaggerOptions { get }
+  static var omitOther: NSLinguisticTaggerOptions { get }
+  static var joinNames: NSLinguisticTaggerOptions { get }
 }
 @available(tvOS 5.0, *)
-class LinguisticTagger : Object {
+class NSLinguisticTagger : NSObject {
   @available(tvOS 5.0, *)
   init(tagSchemes: [String], options opts: Int)
   @available(tvOS 5.0, *)
@@ -95,26 +95,26 @@ class LinguisticTagger : Object {
   @available(tvOS 5.0, *)
   class func availableTagSchemes(forLanguage language: String) -> [String]
   @available(tvOS 5.0, *)
-  func setOrthography(orthography: Orthography?, range: NSRange)
+  func setOrthography(orthography: NSOrthography?, range: NSRange)
   @available(tvOS 5.0, *)
-  func orthography(at charIndex: Int, effectiveRange: RangePointer) -> Orthography?
+  func orthography(at charIndex: Int, effectiveRange: NSRangePointer) -> NSOrthography?
   @available(tvOS 5.0, *)
   func stringEdited(in newRange: NSRange, changeInLength delta: Int)
   @available(tvOS 5.0, *)
-  func enumerateTags(in range: NSRange, scheme tagScheme: String, options opts: LinguisticTaggerOptions = [], using block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateTags(in range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions = [], using block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 5.0, *)
   func sentenceRange(for range: NSRange) -> NSRange
   @available(tvOS 5.0, *)
-  func tag(at charIndex: Int, scheme tagScheme: String, tokenRange: RangePointer, sentenceRange: RangePointer) -> String?
+  func tag(at charIndex: Int, scheme tagScheme: String, tokenRange: NSRangePointer, sentenceRange: NSRangePointer) -> String?
   @available(tvOS 5.0, *)
-  func tags(in range: NSRange, scheme tagScheme: String, options opts: LinguisticTaggerOptions = [], tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
+  func tags(in range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions = [], tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
   @available(tvOS 5.0, *)
-  func possibleTags(at charIndex: Int, scheme tagScheme: String, tokenRange: RangePointer, sentenceRange: RangePointer, scores: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]?
+  func possibleTags(at charIndex: Int, scheme tagScheme: String, tokenRange: NSRangePointer, sentenceRange: NSRangePointer, scores: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]?
   convenience init()
 }
 extension NSString {
   @available(tvOS 5.0, *)
-  func linguisticTags(in range: NSRange, scheme tagScheme: String, options opts: LinguisticTaggerOptions = [], orthography: Orthography?, tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
+  func linguisticTags(in range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions = [], orthography: NSOrthography?, tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
   @available(tvOS 5.0, *)
-  func enumerateLinguisticTags(in range: NSRange, scheme tagScheme: String, options opts: LinguisticTaggerOptions = [], orthography: Orthography?, using block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateLinguisticTags(in range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions = [], orthography: NSOrthography?, using block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
 }

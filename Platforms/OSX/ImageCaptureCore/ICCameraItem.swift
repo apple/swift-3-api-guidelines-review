@@ -1,5 +1,5 @@
 
-class ICCameraItem : Object {
+class ICCameraItem : NSObject {
   var device: ICCameraDevice { get }
   var parentFolder: ICCameraFolder { get }
   var name: String { get }
@@ -8,12 +8,12 @@ class ICCameraItem : Object {
   var isLocked: Bool { get }
   var isRaw: Bool { get }
   var isInTemporaryStore: Bool { get }
-  var creationDate: Date { get }
-  var modificationDate: Date { get }
+  var creationDate: NSDate { get }
+  var modificationDate: NSDate { get }
   var thumbnailIfAvailable: CGImage? { get }
   var largeThumbnailIfAvailable: CGImage? { get }
   var metadataIfAvailable: [String : AnyObject]? { get }
-  var userData: MutableDictionary? { get }
+  var userData: NSMutableDictionary? { get }
   var ptpObjectHandle: UInt32 { get }
   var wasAddedAfterContentCatalogCompleted: Bool { get }
   init()

@@ -20,7 +20,7 @@ class UIToolbar : UIView, UIBarPositioning {
   @available(iOS 7.0, *)
   unowned(unsafe) var delegate: @sil_unmanaged UIToolbarDelegate?
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
   @available(iOS 7.0, *)
   var barPosition: UIBarPosition { get }

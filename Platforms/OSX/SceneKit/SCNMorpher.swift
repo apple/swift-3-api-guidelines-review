@@ -6,7 +6,7 @@ enum SCNMorpherCalculationMode : Int {
   case additive
 }
 @available(OSX 10.9, *)
-class SCNMorpher : Object, SCNAnimatable, SecureCoding {
+class SCNMorpher : NSObject, SCNAnimatable, NSSecureCoding {
   var targets: [SCNGeometry]
   func setWeight(weight: CGFloat, forTargetAt targetIndex: Int)
   func weightForTarget(at targetIndex: Int) -> CGFloat
@@ -33,6 +33,6 @@ class SCNMorpher : Object, SCNAnimatable, SecureCoding {
   @available(OSX 10.9, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.9, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

@@ -5,20 +5,20 @@ class UIVideoEditorController : UINavigationController {
   class func canEditVideo(atPath videoPath: String) -> Bool
   unowned(unsafe) var delegate: @sil_unmanaged protocol<UINavigationControllerDelegate, UIVideoEditorControllerDelegate>?
   var videoPath: String
-  var videoMaximumDuration: TimeInterval
+  var videoMaximumDuration: NSTimeInterval
   var videoQuality: UIImagePickerControllerQualityType
   @available(iOS 5.0, *)
   init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
   init(rootViewController: UIViewController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
-protocol UIVideoEditorControllerDelegate : ObjectProtocol {
+protocol UIVideoEditorControllerDelegate : NSObjectProtocol {
   @available(iOS 3.1, *)
   optional func videoEditorController(editor: UIVideoEditorController, didSaveEditedVideoToPath editedVideoPath: String)
   @available(iOS 3.1, *)
-  optional func videoEditorController(editor: UIVideoEditorController, didFailWithError error: Error)
+  optional func videoEditorController(editor: UIVideoEditorController, didFailWithError error: NSError)
   @available(iOS 3.1, *)
   optional func videoEditorControllerDidCancel(editor: UIVideoEditorController)
 }

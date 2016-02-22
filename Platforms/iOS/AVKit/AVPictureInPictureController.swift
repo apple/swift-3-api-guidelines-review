@@ -1,6 +1,6 @@
 
 @available(iOS 9.0, *)
-class AVPictureInPictureController : Object {
+class AVPictureInPictureController : NSObject {
   class func isPictureInPictureSupported() -> Bool
   class func pictureInPictureButtonStartImage(compatibleWith traitCollection: UITraitCollection?) -> UIImage
   class func pictureInPictureButtonStopImage(compatibleWith traitCollection: UITraitCollection?) -> UIImage
@@ -12,13 +12,13 @@ class AVPictureInPictureController : Object {
   var isPictureInPictureSuspended: Bool { get }
   convenience init()
 }
-protocol AVPictureInPictureControllerDelegate : ObjectProtocol {
+protocol AVPictureInPictureControllerDelegate : NSObjectProtocol {
   @available(iOS 9.0, *)
   optional func pictureInPictureControllerWillStartPicture(inPicture pictureInPictureController: AVPictureInPictureController)
   @available(iOS 9.0, *)
   optional func pictureInPictureControllerDidStartPicture(inPicture pictureInPictureController: AVPictureInPictureController)
   @available(iOS 9.0, *)
-  optional func picture(pictureInPictureController: AVPictureInPictureController, failedToStartPictureInPictureWithError error: Error)
+  optional func picture(pictureInPictureController: AVPictureInPictureController, failedToStartPictureInPictureWithError error: NSError)
   @available(iOS 9.0, *)
   optional func pictureInPictureControllerWillStopPicture(inPicture pictureInPictureController: AVPictureInPictureController)
   @available(iOS 9.0, *)

@@ -12,7 +12,7 @@ enum SCNShadowMode : Int {
   case modulated
 }
 @available(tvOS 8.0, *)
-class SCNLight : Object, SCNAnimatable, SCNTechniqueSupport, Copying, SecureCoding {
+class SCNLight : NSObject, SCNAnimatable, SCNTechniqueSupport, NSCopying, NSSecureCoding {
   var type: String
   var color: AnyObject
   var name: String?
@@ -69,10 +69,10 @@ class SCNLight : Object, SCNAnimatable, SCNTechniqueSupport, Copying, SecureCodi
   @available(tvOS 8.0, *)
   @NSCopying var technique: SCNTechnique?
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

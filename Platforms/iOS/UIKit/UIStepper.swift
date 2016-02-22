@@ -27,6 +27,6 @@ class UIStepper : UIControl {
   @available(iOS 6.0, *)
   func decrementImage(for state: UIControlState) -> UIImage?
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }

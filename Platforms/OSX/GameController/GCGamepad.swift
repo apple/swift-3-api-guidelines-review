@@ -1,6 +1,6 @@
 
 @available(OSX 10.9, *)
-class GCGamepad : Object {
+class GCGamepad : NSObject {
   weak var controller: @sil_weak GCController? { get }
   var valueChangedHandler: GCGamepadValueChangedHandler?
   func saveSnapshot() -> GCGamepadSnapshot

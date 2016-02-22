@@ -1,5 +1,5 @@
 
-enum StreamStatus : UInt {
+enum NSStreamStatus : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case notOpen
@@ -11,107 +11,107 @@ enum StreamStatus : UInt {
   case closed
   case error
 }
-struct StreamEvent : OptionSetType {
+struct NSStreamEvent : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var none: StreamEvent { get }
-  static var openCompleted: StreamEvent { get }
-  static var hasBytesAvailable: StreamEvent { get }
-  static var hasSpaceAvailable: StreamEvent { get }
-  static var errorOccurred: StreamEvent { get }
-  static var endEncountered: StreamEvent { get }
+  static var none: NSStreamEvent { get }
+  static var openCompleted: NSStreamEvent { get }
+  static var hasBytesAvailable: NSStreamEvent { get }
+  static var hasSpaceAvailable: NSStreamEvent { get }
+  static var errorOccurred: NSStreamEvent { get }
+  static var endEncountered: NSStreamEvent { get }
 }
-class Stream : Object {
+class NSStream : NSObject {
   func open()
   func close()
-  unowned(unsafe) var delegate: @sil_unmanaged StreamDelegate?
+  unowned(unsafe) var delegate: @sil_unmanaged NSStreamDelegate?
   func property(forKey key: String) -> AnyObject?
   func setProperty(property: AnyObject?, forKey key: String) -> Bool
-  func schedule(in aRunLoop: RunLoop, forMode mode: String)
-  func remove(from aRunLoop: RunLoop, forMode mode: String)
-  var streamStatus: StreamStatus { get }
-  @NSCopying var streamError: Error? { get }
+  func schedule(in aRunLoop: NSRunLoop, forMode mode: String)
+  func remove(from aRunLoop: NSRunLoop, forMode mode: String)
+  var streamStatus: NSStreamStatus { get }
+  @NSCopying var streamError: NSError? { get }
   init()
 }
-class InputStream : Stream {
+class NSInputStream : NSStream {
   func read(buffer: UnsafeMutablePointer<UInt8>, maxLength len: Int) -> Int
   func getBuffer(buffer: UnsafeMutablePointer<UnsafeMutablePointer<UInt8>>, length len: UnsafeMutablePointer<Int>) -> Bool
   var hasBytesAvailable: Bool { get }
-  init(data: Data)
+  init(data: NSData)
   @available(tvOS 4.0, *)
-  init?(url: URL)
+  init?(url: NSURL)
   convenience init()
 }
-class OutputStream : Stream {
+class NSOutputStream : NSStream {
   func write(buffer: UnsafePointer<UInt8>, maxLength len: Int) -> Int
   var hasSpaceAvailable: Bool { get }
   init(toMemory: ())
   init(toBuffer buffer: UnsafeMutablePointer<UInt8>, capacity: Int)
   @available(tvOS 4.0, *)
-  init?(url: URL, append shouldAppend: Bool)
+  init?(url: NSURL, append shouldAppend: Bool)
   convenience init()
 }
-extension Stream {
+extension NSStream {
   @available(tvOS 8.0, *)
-  class func getStreamsToHost(name hostname: String, port: Int, inputStream: AutoreleasingUnsafeMutablePointer<InputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<OutputStream?>)
+  class func getStreamsToHost(name hostname: String, port: Int, inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
 }
-extension Stream {
+extension NSStream {
   @available(tvOS 8.0, *)
-  class func getBoundStreams(bufferSize bufferSize: Int, inputStream: AutoreleasingUnsafeMutablePointer<InputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<OutputStream?>)
+  class func getBoundStreams(bufferSize bufferSize: Int, inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
 }
-extension InputStream {
+extension NSInputStream {
   convenience init?(fileAtPath path: String)
 }
-extension OutputStream {
+extension NSOutputStream {
   convenience init?(toFileAtPath path: String, append shouldAppend: Bool)
   class func toMemory() -> Self
 }
-protocol StreamDelegate : ObjectProtocol {
-  optional func stream(aStream: Stream, handle eventCode: StreamEvent)
+protocol NSStreamDelegate : NSObjectProtocol {
+  optional func stream(aStream: NSStream, handle eventCode: NSStreamEvent)
 }
 @available(tvOS 2.0, *)
-let streamSocketSecurityLevelKey: String
+let NSStreamSocketSecurityLevelKey: String
 @available(tvOS 2.0, *)
-let streamSocketSecurityLevelNone: String
+let NSStreamSocketSecurityLevelNone: String
 @available(tvOS 2.0, *)
-let streamSocketSecurityLevelSSLv2: String
+let NSStreamSocketSecurityLevelSSLv2: String
 @available(tvOS 2.0, *)
-let streamSocketSecurityLevelSSLv3: String
+let NSStreamSocketSecurityLevelSSLv3: String
 @available(tvOS 2.0, *)
-let streamSocketSecurityLevelTLSv1: String
+let NSStreamSocketSecurityLevelTLSv1: String
 @available(tvOS 2.0, *)
-let streamSocketSecurityLevelNegotiatedSSL: String
+let NSStreamSocketSecurityLevelNegotiatedSSL: String
 @available(tvOS 2.0, *)
-let streamSOCKSProxyConfigurationKey: String
+let NSStreamSOCKSProxyConfigurationKey: String
 @available(tvOS 2.0, *)
-let streamSOCKSProxyHostKey: String
+let NSStreamSOCKSProxyHostKey: String
 @available(tvOS 2.0, *)
-let streamSOCKSProxyPortKey: String
+let NSStreamSOCKSProxyPortKey: String
 @available(tvOS 2.0, *)
-let streamSOCKSProxyVersionKey: String
+let NSStreamSOCKSProxyVersionKey: String
 @available(tvOS 2.0, *)
-let streamSOCKSProxyUserKey: String
+let NSStreamSOCKSProxyUserKey: String
 @available(tvOS 2.0, *)
-let streamSOCKSProxyPasswordKey: String
+let NSStreamSOCKSProxyPasswordKey: String
 @available(tvOS 2.0, *)
-let streamSOCKSProxyVersion4: String
+let NSStreamSOCKSProxyVersion4: String
 @available(tvOS 2.0, *)
-let streamSOCKSProxyVersion5: String
+let NSStreamSOCKSProxyVersion5: String
 @available(tvOS 2.0, *)
-let streamDataWrittenToMemoryStreamKey: String
+let NSStreamDataWrittenToMemoryStreamKey: String
 @available(tvOS 2.0, *)
-let streamFileCurrentOffsetKey: String
+let NSStreamFileCurrentOffsetKey: String
 @available(tvOS 2.0, *)
-let streamSocketSSLErrorDomain: String
+let NSStreamSocketSSLErrorDomain: String
 @available(tvOS 2.0, *)
-let streamSOCKSErrorDomain: String
+let NSStreamSOCKSErrorDomain: String
 @available(tvOS 4.0, *)
-let streamNetworkServiceType: String
+let NSStreamNetworkServiceType: String
 @available(tvOS 4.0, *)
-let streamNetworkServiceTypeVoIP: String
+let NSStreamNetworkServiceTypeVoIP: String
 @available(tvOS 5.0, *)
-let streamNetworkServiceTypeVideo: String
+let NSStreamNetworkServiceTypeVideo: String
 @available(tvOS 5.0, *)
-let streamNetworkServiceTypeBackground: String
+let NSStreamNetworkServiceTypeBackground: String
 @available(tvOS 5.0, *)
-let streamNetworkServiceTypeVoice: String
+let NSStreamNetworkServiceTypeVoice: String

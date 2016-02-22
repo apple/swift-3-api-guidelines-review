@@ -22,7 +22,7 @@ enum SCNWrapMode : Int {
   case mirror
 }
 @available(iOS 8.0, *)
-class SCNMaterialProperty : Object, SCNAnimatable, SecureCoding {
+class SCNMaterialProperty : NSObject, SCNAnimatable, NSSecureCoding {
   @available(iOS 8.0, *)
   convenience init(contents: AnyObject)
   var contents: AnyObject?
@@ -60,6 +60,6 @@ class SCNMaterialProperty : Object, SCNAnimatable, SecureCoding {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

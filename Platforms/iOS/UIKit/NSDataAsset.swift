@@ -1,11 +1,11 @@
 
 @available(iOS 9.0, *)
-class NSDataAsset : Object, Copying {
+class NSDataAsset : NSObject, NSCopying {
   convenience init?(name: String)
-  init?(name: String, bundle: Bundle)
+  init?(name: String, bundle: NSBundle)
   var name: String { get }
-  @NSCopying var data: Data { get }
+  @NSCopying var data: NSData { get }
   var typeIdentifier: String { get }
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

@@ -1,13 +1,13 @@
 
 @available(OSX 10.10, *)
-class WKWindowFeatures : Object {
-  var menuBarVisibility: Number? { get }
-  var statusBarVisibility: Number? { get }
-  var toolbarsVisibility: Number? { get }
-  var allowsResizing: Number? { get }
-  var x: Number? { get }
-  var y: Number? { get }
-  var width: Number? { get }
-  var height: Number? { get }
+class WKWindowFeatures : NSObject {
+  var menuBarVisibility: NSNumber? { get }
+  var statusBarVisibility: NSNumber? { get }
+  var toolbarsVisibility: NSNumber? { get }
+  var allowsResizing: NSNumber? { get }
+  var x: NSNumber? { get }
+  var y: NSNumber? { get }
+  var width: NSNumber? { get }
+  var height: NSNumber? { get }
   init()
 }

@@ -1,5 +1,5 @@
 
-protocol PHContentEditingController : ObjectProtocol {
+protocol PHContentEditingController : NSObjectProtocol {
   @available(iOS 8.0, *)
   func canHandle(adjustmentData: PHAdjustmentData!) -> Bool
   @available(iOS 8.0, *)

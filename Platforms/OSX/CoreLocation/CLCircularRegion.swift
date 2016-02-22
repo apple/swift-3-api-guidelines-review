@@ -8,5 +8,5 @@ class CLCircularRegion : CLRegion {
   @available(OSX, introduced=10.7, deprecated=10.10)
   init(circularRegionWithCenter center: CLLocationCoordinate2D, radius: CLLocationDistance, identifier: String)
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

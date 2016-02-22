@@ -1,8 +1,8 @@
 
 @available(iOS 8.0, *)
-class PHContentEditingOutput : Object {
+class PHContentEditingOutput : NSObject {
   init(contentEditingInput: PHContentEditingInput)
   var adjustmentData: PHAdjustmentData?
-  @NSCopying var renderedContentURL: URL { get }
+  @NSCopying var renderedContentURL: NSURL { get }
   init()
 }

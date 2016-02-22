@@ -1,17 +1,17 @@
 
-let undefinedKeyException: String
-let averageKeyValueOperator: String
-let countKeyValueOperator: String
-let distinctUnionOfArraysKeyValueOperator: String
-let distinctUnionOfObjectsKeyValueOperator: String
-let distinctUnionOfSetsKeyValueOperator: String
-let maximumKeyValueOperator: String
-let minimumKeyValueOperator: String
-let sumKeyValueOperator: String
-let unionOfArraysKeyValueOperator: String
-let unionOfObjectsKeyValueOperator: String
-let unionOfSetsKeyValueOperator: String
-extension Object {
+let NSUndefinedKeyException: String
+let NSAverageKeyValueOperator: String
+let NSCountKeyValueOperator: String
+let NSDistinctUnionOfArraysKeyValueOperator: String
+let NSDistinctUnionOfObjectsKeyValueOperator: String
+let NSDistinctUnionOfSetsKeyValueOperator: String
+let NSMaximumKeyValueOperator: String
+let NSMinimumKeyValueOperator: String
+let NSSumKeyValueOperator: String
+let NSUnionOfArraysKeyValueOperator: String
+let NSUnionOfObjectsKeyValueOperator: String
+let NSUnionOfSetsKeyValueOperator: String
+extension NSObject {
   class func accessInstanceVariablesDirectly() -> Bool
   class func value(forKey key: String) -> AnyObject?
   func value(forKey key: String) -> AnyObject?
@@ -19,28 +19,28 @@ extension Object {
   func setValue(value: AnyObject?, forKey key: String)
   class func validateValue(ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey inKey: String) throws
   func validateValue(ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey inKey: String) throws
-  class func mutableArrayValue(forKey key: String) -> MutableArray
-  func mutableArrayValue(forKey key: String) -> MutableArray
+  class func mutableArrayValue(forKey key: String) -> NSMutableArray
+  func mutableArrayValue(forKey key: String) -> NSMutableArray
   @available(watchOS 2.0, *)
-  class func mutableOrderedSetValue(forKey key: String) -> MutableOrderedSet
+  class func mutableOrderedSetValue(forKey key: String) -> NSMutableOrderedSet
   @available(watchOS 2.0, *)
-  func mutableOrderedSetValue(forKey key: String) -> MutableOrderedSet
-  class func mutableSetValue(forKey key: String) -> MutableSet
-  func mutableSetValue(forKey key: String) -> MutableSet
+  func mutableOrderedSetValue(forKey key: String) -> NSMutableOrderedSet
+  class func mutableSetValue(forKey key: String) -> NSMutableSet
+  func mutableSetValue(forKey key: String) -> NSMutableSet
   class func value(forKeyPath keyPath: String) -> AnyObject?
   func value(forKeyPath keyPath: String) -> AnyObject?
   class func setValue(value: AnyObject?, forKeyPath keyPath: String)
   func setValue(value: AnyObject?, forKeyPath keyPath: String)
   class func validateValue(ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKeyPath inKeyPath: String) throws
   func validateValue(ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKeyPath inKeyPath: String) throws
-  class func mutableArrayValue(forKeyPath keyPath: String) -> MutableArray
-  func mutableArrayValue(forKeyPath keyPath: String) -> MutableArray
+  class func mutableArrayValue(forKeyPath keyPath: String) -> NSMutableArray
+  func mutableArrayValue(forKeyPath keyPath: String) -> NSMutableArray
   @available(watchOS 2.0, *)
-  class func mutableOrderedSetValue(forKeyPath keyPath: String) -> MutableOrderedSet
+  class func mutableOrderedSetValue(forKeyPath keyPath: String) -> NSMutableOrderedSet
   @available(watchOS 2.0, *)
-  func mutableOrderedSetValue(forKeyPath keyPath: String) -> MutableOrderedSet
-  class func mutableSetValue(forKeyPath keyPath: String) -> MutableSet
-  func mutableSetValue(forKeyPath keyPath: String) -> MutableSet
+  func mutableOrderedSetValue(forKeyPath keyPath: String) -> NSMutableOrderedSet
+  class func mutableSetValue(forKeyPath keyPath: String) -> NSMutableSet
+  func mutableSetValue(forKeyPath keyPath: String) -> NSMutableSet
   class func value(forUndefinedKey key: String) -> AnyObject?
   func value(forUndefinedKey key: String) -> AnyObject?
   class func setValue(value: AnyObject?, forUndefinedKey key: String)
@@ -59,10 +59,10 @@ extension NSArray {
 extension NSDictionary {
   func value(forKey key: String) -> AnyObject?
 }
-extension MutableDictionary {
+extension NSMutableDictionary {
   func setValue(value: AnyObject?, forKey key: String)
 }
-extension OrderedSet {
+extension NSOrderedSet {
   @available(watchOS 2.0, *)
   func value(forKey key: String) -> AnyObject
   @available(watchOS 2.0, *)

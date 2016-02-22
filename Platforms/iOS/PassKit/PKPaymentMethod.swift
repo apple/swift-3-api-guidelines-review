@@ -1,6 +1,6 @@
 
 @available(iOS 9.0, *)
-class PKPaymentMethod : Object {
+class PKPaymentMethod : NSObject {
   var displayName: String? { get }
   var network: String? { get }
   var type: PKPaymentMethodType { get }

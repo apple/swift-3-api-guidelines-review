@@ -10,12 +10,12 @@ enum NSPersistentStoreRequestType : UInt {
   case batchDeleteRequestType
 }
 @available(tvOS 5.0, *)
-class NSPersistentStoreRequest : Object, Copying {
+class NSPersistentStoreRequest : NSObject, NSCopying {
   var affectedStores: [NSPersistentStore]?
   var requestType: NSPersistentStoreRequestType { get }
   init()
   @available(tvOS 5.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 typealias NSPersistentStoreAsynchronousFetchResultCompletionBlock = (NSAsynchronousFetchResult) -> Void
 @available(tvOS 8.0, *)

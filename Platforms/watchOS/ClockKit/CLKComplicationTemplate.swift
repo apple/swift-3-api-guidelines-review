@@ -1,8 +1,8 @@
 
-class CLKComplicationTemplate : Object, Copying {
+class CLKComplicationTemplate : NSObject, NSCopying {
   @NSCopying var tintColor: UIColor?
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 class CLKComplicationTemplateModularSmallSimpleText : CLKComplicationTemplate {
   @NSCopying var textProvider: CLKTextProvider

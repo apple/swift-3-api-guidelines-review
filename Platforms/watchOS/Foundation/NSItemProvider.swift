@@ -1,34 +1,34 @@
 
-typealias ItemProviderCompletionHandler = (SecureCoding?, Error!) -> Void
-typealias ItemProviderLoadHandler = (ItemProviderCompletionHandler!, AnyClass!, [Object : AnyObject]!) -> Void
+typealias NSItemProviderCompletionHandler = (NSSecureCoding?, NSError!) -> Void
+typealias NSItemProviderLoadHandler = (NSItemProviderCompletionHandler!, AnyClass!, [NSObject : AnyObject]!) -> Void
 @available(watchOS 2.0, *)
-class ItemProvider : Object, Copying {
-  init(item: SecureCoding?, typeIdentifier: String?)
-  convenience init?(contentsOf fileURL: URL!)
-  func registerItem(forTypeIdentifier typeIdentifier: String, loadHandler: ItemProviderLoadHandler)
+class NSItemProvider : NSObject, NSCopying {
+  init(item: NSSecureCoding?, typeIdentifier: String?)
+  convenience init?(contentsOf fileURL: NSURL!)
+  func registerItem(forTypeIdentifier typeIdentifier: String, loadHandler: NSItemProviderLoadHandler)
   var registeredTypeIdentifiers: [AnyObject] { get }
   func hasItemConforming(toTypeIdentifier typeIdentifier: String) -> Bool
-  func loadItem(forTypeIdentifier typeIdentifier: String, options: [Object : AnyObject]? = [:], completionHandler: ItemProviderCompletionHandler? = nil)
+  func loadItem(forTypeIdentifier typeIdentifier: String, options: [NSObject : AnyObject]? = [:], completionHandler: NSItemProviderCompletionHandler? = nil)
   convenience init()
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(watchOS 2.0, *)
-let itemProviderPreferredImageSizeKey: String
-extension ItemProvider {
+let NSItemProviderPreferredImageSizeKey: String
+extension NSItemProvider {
   @available(watchOS 2.0, *)
-  var previewImageHandler: ItemProviderLoadHandler?
+  var previewImageHandler: NSItemProviderLoadHandler?
   @available(watchOS 2.0, *)
-  func loadPreviewImage(options options: [Object : AnyObject]! = [:], completionHandler: ItemProviderCompletionHandler!)
+  func loadPreviewImage(options options: [NSObject : AnyObject]! = [:], completionHandler: NSItemProviderCompletionHandler!)
 }
 @available(watchOS 2.0, *)
-let extensionJavaScriptPreprocessingResultsKey: String
+let NSExtensionJavaScriptPreprocessingResultsKey: String
 @available(watchOS 2.0, *)
-let extensionJavaScriptFinalizeArgumentKey: String
+let NSExtensionJavaScriptFinalizeArgumentKey: String
 @available(watchOS 2.0, *)
-let itemProviderErrorDomain: String
+let NSItemProviderErrorDomain: String
 @available(watchOS 2.0, *)
-enum ItemProviderErrorCode : Int {
+enum NSItemProviderErrorCode : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   case unknownError

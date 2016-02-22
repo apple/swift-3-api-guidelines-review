@@ -1,6 +1,6 @@
 
 @available(OSX 10.8, *)
-class AVB17221AECPMessage : Object, Copying {
+class AVB17221AECPMessage : NSObject, NSCopying {
   var messageType: AVB17221AECPMessageType
   var status: AVB17221AECPStatusCode
   @available(OSX 10.9, *)
@@ -11,7 +11,7 @@ class AVB17221AECPMessage : Object, Copying {
   @NSCopying var sourceMAC: AVBMACAddress
   init()
   @available(OSX 10.8, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.8, *)
 class AVB17221AECPAEMMessage : AVB17221AECPMessage {
@@ -19,7 +19,7 @@ class AVB17221AECPAEMMessage : AVB17221AECPMessage {
   var isUnsolicited: Bool
   @available(OSX 10.9, *)
   var isControllerRequest: Bool
-  @NSCopying var commandSpecificData: Data?
+  @NSCopying var commandSpecificData: NSData?
   class func command() -> AVB17221AECPAEMMessage
   class func response() -> AVB17221AECPAEMMessage
   init()
@@ -32,20 +32,20 @@ class AVB17221AECPAddressAccessMessage : AVB17221AECPMessage {
   init()
 }
 @available(OSX 10.8, *)
-class AVB17221AECPAddressAccessTLV : Object {
+class AVB17221AECPAddressAccessTLV : NSObject {
   var mode: AVB17221AECPAddressAccessTLVMode
   var address: UInt64
-  @NSCopying var memoryData: Data?
+  @NSCopying var memoryData: NSData?
   init()
 }
 @available(OSX 10.8, *)
 class AVB17221AECPAVCMessage : AVB17221AECPMessage {
-  @NSCopying var commandResponse: Data?
+  @NSCopying var commandResponse: NSData?
   init()
 }
 @available(OSX 10.8, *)
 class AVB17221AECPVendorMessage : AVB17221AECPMessage {
   var protocolID: UInt64
-  @NSCopying var protocolSpecificData: Data?
+  @NSCopying var protocolSpecificData: NSData?
   init()
 }

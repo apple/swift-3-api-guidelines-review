@@ -1,6 +1,6 @@
 
 @available(OSX 10.7, *)
-class AVAssetWriterInput : Object {
+class AVAssetWriterInput : NSObject {
   convenience init(mediaType: String, outputSettings: [String : AnyObject]?)
   @available(OSX 10.8, *)
   init(mediaType: String, outputSettings: [String : AnyObject]?, sourceFormatHint: CMFormatDescription?)
@@ -40,7 +40,7 @@ extension AVAssetWriterInput {
   @available(OSX 10.10, *)
   var preferredMediaChunkAlignment: Int
   @available(OSX 10.10, *)
-  @NSCopying var sampleReferenceBaseURL: URL?
+  @NSCopying var sampleReferenceBaseURL: NSURL?
 }
 extension AVAssetWriterInput {
   @available(OSX 10.9, *)
@@ -61,11 +61,11 @@ extension AVAssetWriterInput {
   func markCurrentPassAsFinished()
 }
 @available(OSX 10.10, *)
-class AVAssetWriterInputPassDescription : Object {
-  var sourceTimeRanges: [Value] { get }
+class AVAssetWriterInputPassDescription : NSObject {
+  var sourceTimeRanges: [NSValue] { get }
 }
 @available(OSX 10.7, *)
-class AVAssetWriterInputPixelBufferAdaptor : Object {
+class AVAssetWriterInputPixelBufferAdaptor : NSObject {
   init(assetWriterInput input: AVAssetWriterInput, sourcePixelBufferAttributes: [String : AnyObject]? = [:])
   var assetWriterInput: AVAssetWriterInput { get }
   var sourcePixelBufferAttributes: [String : AnyObject]? { get }
@@ -73,7 +73,7 @@ class AVAssetWriterInputPixelBufferAdaptor : Object {
   func append(pixelBuffer: CVPixelBuffer, withPresentationTime presentationTime: CMTime) -> Bool
 }
 @available(OSX 10.10, *)
-class AVAssetWriterInputMetadataAdaptor : Object {
+class AVAssetWriterInputMetadataAdaptor : NSObject {
   init(assetWriterInput input: AVAssetWriterInput)
   var assetWriterInput: AVAssetWriterInput { get }
   func append(timedMetadataGroup: AVTimedMetadataGroup) -> Bool

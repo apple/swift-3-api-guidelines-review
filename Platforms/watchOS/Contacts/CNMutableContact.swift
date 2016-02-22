@@ -16,7 +16,7 @@ class CNMutableContact : CNContact {
   var departmentName: String
   var jobTitle: String
   var note: String
-  @NSCopying var imageData: Data?
+  @NSCopying var imageData: NSData?
   var phoneNumbers: [CNLabeledValue]
   var emailAddresses: [CNLabeledValue]
   var postalAddresses: [CNLabeledValue]
@@ -24,9 +24,9 @@ class CNMutableContact : CNContact {
   var contactRelations: [CNLabeledValue]
   var socialProfiles: [CNLabeledValue]
   var instantMessageAddresses: [CNLabeledValue]
-  @NSCopying var birthday: DateComponents?
-  @NSCopying var nonGregorianBirthday: DateComponents?
+  @NSCopying var birthday: NSDateComponents?
+  @NSCopying var nonGregorianBirthday: NSDateComponents?
   var dates: [CNLabeledValue]
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

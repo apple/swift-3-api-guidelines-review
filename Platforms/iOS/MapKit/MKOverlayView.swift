@@ -2,7 +2,7 @@
 @available(iOS 4.0, *)
 class MKOverlayView : UIView {
   convenience init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
 @available(iOS 4.0, *)

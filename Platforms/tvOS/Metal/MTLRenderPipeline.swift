@@ -41,7 +41,7 @@ struct MTLColorWriteMask : OptionSetType {
   static var all: MTLColorWriteMask { get }
 }
 @available(tvOS 8.0, *)
-class MTLRenderPipelineColorAttachmentDescriptor : Object, Copying {
+class MTLRenderPipelineColorAttachmentDescriptor : NSObject, NSCopying {
   var pixelFormat: MTLPixelFormat
   var isBlendingEnabled: Bool
   var sourceRGBBlendFactor: MTLBlendFactor
@@ -53,16 +53,16 @@ class MTLRenderPipelineColorAttachmentDescriptor : Object, Copying {
   var writeMask: MTLColorWriteMask
   init()
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
-class MTLRenderPipelineReflection : Object {
+class MTLRenderPipelineReflection : NSObject {
   var vertexArguments: [MTLArgument]? { get }
   var fragmentArguments: [MTLArgument]? { get }
   init()
 }
 @available(tvOS 8.0, *)
-class MTLRenderPipelineDescriptor : Object, Copying {
+class MTLRenderPipelineDescriptor : NSObject, NSCopying {
   var label: String?
   var vertexFunction: MTLFunction?
   var fragmentFunction: MTLFunction?
@@ -77,15 +77,15 @@ class MTLRenderPipelineDescriptor : Object, Copying {
   func reset()
   init()
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
-protocol MTLRenderPipelineState : ObjectProtocol {
+protocol MTLRenderPipelineState : NSObjectProtocol {
   var label: String? { get }
   var device: MTLDevice { get }
 }
 @available(tvOS 8.0, *)
-class MTLRenderPipelineColorAttachmentDescriptorArray : Object {
+class MTLRenderPipelineColorAttachmentDescriptorArray : NSObject {
   subscript(attachmentIndex: Int) -> MTLRenderPipelineColorAttachmentDescriptor!
   init()
 }

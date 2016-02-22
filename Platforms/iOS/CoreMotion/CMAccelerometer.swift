@@ -10,5 +10,5 @@ struct CMAcceleration {
 class CMAccelerometerData : CMLogItem {
   var acceleration: CMAcceleration { get }
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

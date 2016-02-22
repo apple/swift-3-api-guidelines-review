@@ -13,7 +13,7 @@ enum MPMediaGrouping : Int {
   case podcastTitle
 }
 @available(iOS 3.0, *)
-class MPMediaQuery : Object, SecureCoding, Copying {
+class MPMediaQuery : NSObject, NSSecureCoding, NSCopying {
   init(filterPredicates: Set<MPMediaPredicate>?)
   var filterPredicates: Set<MPMediaPredicate>?
   func addFilterPredicate(predicate: MPMediaPredicate)
@@ -38,19 +38,19 @@ class MPMediaQuery : Object, SecureCoding, Copying {
   @available(iOS 3.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 3.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 3.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 3.0, *)
-class MPMediaPredicate : Object, SecureCoding {
+class MPMediaPredicate : NSObject, NSSecureCoding {
   init()
   @available(iOS 3.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 3.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 3.0, *)
 enum MPMediaPredicateComparison : Int {
@@ -67,7 +67,7 @@ class MPMediaPropertyPredicate : MPMediaPredicate {
   @NSCopying var value: AnyObject? { get }
   var comparisonType: MPMediaPredicateComparison { get }
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 extension MPMediaItem {
   @available(iOS 4.2, *)

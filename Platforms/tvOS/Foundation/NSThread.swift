@@ -1,20 +1,20 @@
 
-class Thread : Object {
-  class func current() -> Thread
+class NSThread : NSObject {
+  class func current() -> NSThread
   class func detachNewThreadSelector(selector: Selector, toTarget target: AnyObject, with argument: AnyObject?)
   class func isMultiThreaded() -> Bool
-  var threadDictionary: MutableDictionary { get }
-  class func sleep(until date: Date)
-  class func sleep(forTimeInterval ti: TimeInterval)
+  var threadDictionary: NSMutableDictionary { get }
+  class func sleep(until date: NSDate)
+  class func sleep(forTimeInterval ti: NSTimeInterval)
   class func exit()
   class func threadPriority() -> Double
   class func setThreadPriority(p: Double) -> Bool
   @available(tvOS 4.0, *)
   var threadPriority: Double
   @available(tvOS 8.0, *)
-  var qualityOfService: QualityOfService
+  var qualityOfService: NSQualityOfService
   @available(tvOS 2.0, *)
-  class func callStackReturnAddresses() -> [Number]
+  class func callStackReturnAddresses() -> [NSNumber]
   @available(tvOS 4.0, *)
   class func callStackSymbols() -> [String]
   @available(tvOS 2.0, *)
@@ -26,7 +26,7 @@ class Thread : Object {
   @available(tvOS 2.0, *)
   class func isMainThread() -> Bool
   @available(tvOS 2.0, *)
-  class func main() -> Thread
+  class func main() -> NSThread
   @available(tvOS 2.0, *)
   init()
   @available(tvOS 2.0, *)
@@ -44,22 +44,22 @@ class Thread : Object {
   @available(tvOS 2.0, *)
   func main()
 }
-let willBecomeMultiThreadedNotification: String
-let didBecomeSingleThreadedNotification: String
-let threadWillExitNotification: String
-extension Object {
+let NSWillBecomeMultiThreadedNotification: String
+let NSDidBecomeSingleThreadedNotification: String
+let NSThreadWillExitNotification: String
+extension NSObject {
   class func performSelector(onMainThread aSelector: Selector, with arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
   func performSelector(onMainThread aSelector: Selector, with arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
   class func performSelector(onMainThread aSelector: Selector, with arg: AnyObject?, waitUntilDone wait: Bool)
   func performSelector(onMainThread aSelector: Selector, with arg: AnyObject?, waitUntilDone wait: Bool)
   @available(tvOS 2.0, *)
-  class func perform(aSelector: Selector, on thr: Thread, with arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
+  class func perform(aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
   @available(tvOS 2.0, *)
-  func perform(aSelector: Selector, on thr: Thread, with arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
+  func perform(aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
   @available(tvOS 2.0, *)
-  class func perform(aSelector: Selector, on thr: Thread, with arg: AnyObject?, waitUntilDone wait: Bool)
+  class func perform(aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool)
   @available(tvOS 2.0, *)
-  func perform(aSelector: Selector, on thr: Thread, with arg: AnyObject?, waitUntilDone wait: Bool)
+  func perform(aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool)
   @available(tvOS 2.0, *)
   class func performSelector(inBackground aSelector: Selector, with arg: AnyObject?)
   @available(tvOS 2.0, *)

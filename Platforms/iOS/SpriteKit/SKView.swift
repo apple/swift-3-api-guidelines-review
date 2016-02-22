@@ -25,6 +25,6 @@ class SKView : UIView {
   func convert(point: CGPoint, to scene: SKScene) -> CGPoint
   func convert(point: CGPoint, from scene: SKScene) -> CGPoint
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }

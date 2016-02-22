@@ -10,8 +10,8 @@ enum TVImageType : Int {
 }
 @available(tvOS 9.0, *)
 class TVImageElement : TVViewElement {
-  var url: URL? { get }
-  var srcset: [String : URL]? { get }
+  var url: NSURL? { get }
+  var srcset: [String : NSURL]? { get }
   var imageType: TVImageType { get }
   init()
 }

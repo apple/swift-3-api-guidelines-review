@@ -1,5 +1,5 @@
 
 @available(OSX 10.10, *)
-class WKNavigation : Object {
+class WKNavigation : NSObject {
   init()
 }

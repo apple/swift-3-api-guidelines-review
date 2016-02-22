@@ -1,12 +1,12 @@
 
 @available(iOS 8.0, *)
-class PHChange : Object {
+class PHChange : NSObject {
   func changeDetails(for object: PHObject) -> PHObjectChangeDetails?
   func changeDetails(for object: PHFetchResult) -> PHFetchResultChangeDetails?
   init()
 }
 @available(iOS 8.0, *)
-class PHObjectChangeDetails : Object {
+class PHObjectChangeDetails : NSObject {
   var objectBeforeChanges: PHObject { get }
   var objectAfterChanges: PHObject? { get }
   var assetContentChanged: Bool { get }
@@ -14,15 +14,15 @@ class PHObjectChangeDetails : Object {
   init()
 }
 @available(iOS 8.0, *)
-class PHFetchResultChangeDetails : Object {
+class PHFetchResultChangeDetails : NSObject {
   var fetchResultBeforeChanges: PHFetchResult { get }
   var fetchResultAfterChanges: PHFetchResult { get }
   var hasIncrementalChanges: Bool { get }
-  var removedIndexes: IndexSet? { get }
+  var removedIndexes: NSIndexSet? { get }
   var removedObjects: [PHObject] { get }
-  var insertedIndexes: IndexSet? { get }
+  var insertedIndexes: NSIndexSet? { get }
   var insertedObjects: [PHObject] { get }
-  var changedIndexes: IndexSet? { get }
+  var changedIndexes: NSIndexSet? { get }
   var changedObjects: [PHObject] { get }
   func enumerateMoves(handler: (Int, Int) -> Void)
   var hasMoves: Bool { get }

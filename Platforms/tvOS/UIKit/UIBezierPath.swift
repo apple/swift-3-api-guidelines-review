@@ -9,7 +9,7 @@ struct UIRectCorner : OptionSetType {
   static var allCorners: UIRectCorner { get }
 }
 @available(tvOS 3.2, *)
-class UIBezierPath : Object, Copying, Coding {
+class UIBezierPath : NSObject, NSCopying, NSCoding {
   convenience init(rect: CGRect)
   convenience init(ovalIn rect: CGRect)
   convenience init(roundedRect rect: CGRect, cornerRadius: CGFloat)
@@ -17,7 +17,7 @@ class UIBezierPath : Object, Copying, Coding {
   convenience init(arcCenter center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
   convenience init(cgPath CGPath: CGPath)
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   var cgPath: CGPath
   func move(to point: CGPoint)
   func addLine(to point: CGPoint)
@@ -49,7 +49,7 @@ class UIBezierPath : Object, Copying, Coding {
   func stroke(blendMode: CGBlendMode, alpha: CGFloat)
   func addClip()
   @available(tvOS 3.2, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 3.2, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }

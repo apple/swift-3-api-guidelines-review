@@ -90,7 +90,7 @@ func MKCoordinateRegionForMapRect(rect: MKMapRect) -> MKCoordinateRegion
 func MKMapRectSpans180thMeridian(rect: MKMapRect) -> Bool
 @available(OSX 10.9, *)
 func MKMapRectRemainder(rect: MKMapRect) -> MKMapRect
-extension Value {
+extension NSValue {
   /*not inherited*/ init(mkCoordinate coordinate: CLLocationCoordinate2D)
   /*not inherited*/ init(mkCoordinateSpan span: MKCoordinateSpan)
   var mkCoordinateValue: CLLocationCoordinate2D { get }

@@ -6,11 +6,11 @@ var SKPaymentTransactionStateRestored: Int { get }
 var SKPaymentTransactionStateDeferred: Int { get }
 typealias SKPaymentTransactionState = Int
 @available(OSX 10.7, *)
-class SKPaymentTransaction : Object {
-  var error: Error? { get }
+class SKPaymentTransaction : NSObject {
+  var error: NSError? { get }
   var original: SKPaymentTransaction? { get }
   var payment: SKPayment { get }
-  var transactionDate: Date? { get }
+  var transactionDate: NSDate? { get }
   var transactionIdentifier: String? { get }
   var downloads: [AnyObject]? { get }
   var transactionState: SKPaymentTransactionState { get }

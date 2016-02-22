@@ -8,15 +8,15 @@ class NSDatePicker : NSControl {
   @NSCopying var textColor: NSColor
   var datePickerMode: NSDatePickerMode
   var datePickerElements: NSDatePickerElementFlags
-  @NSCopying var calendar: Calendar?
-  @NSCopying var locale: Locale?
-  @NSCopying var timeZone: TimeZone?
-  @NSCopying var dateValue: Date
-  var timeInterval: TimeInterval
-  @NSCopying var minDate: Date?
-  @NSCopying var maxDate: Date?
+  @NSCopying var calendar: NSCalendar?
+  @NSCopying var locale: NSLocale?
+  @NSCopying var timeZone: NSTimeZone?
+  @NSCopying var dateValue: NSDate
+  var timeInterval: NSTimeInterval
+  @NSCopying var minDate: NSDate?
+  @NSCopying var maxDate: NSDate?
   unowned(unsafe) var delegate: @sil_unmanaged NSDatePickerCellDelegate?
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }

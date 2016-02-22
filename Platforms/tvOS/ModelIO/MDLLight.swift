@@ -42,12 +42,12 @@ class MDLAreaLight : MDLPhysicallyPlausibleLight {
 }
 @available(tvOS 9.0, *)
 class MDLPhotometricLight : MDLPhysicallyPlausibleLight {
-  init?(iesProfile URL: URL)
+  init?(iesProfile URL: NSURL)
   func generateSphericalHarmonics(fromLight sphericalHarmonicsLevel: Int)
   func generateCubemap(fromLight textureSize: Int)
   var lightCubeMap: MDLTexture? { get }
   var sphericalHarmonicsLevel: Int { get }
-  @NSCopying var sphericalHarmonicsCoefficients: Data? { get }
+  @NSCopying var sphericalHarmonicsCoefficients: NSData? { get }
   init()
 }
 @available(tvOS 9.0, *)
@@ -57,7 +57,7 @@ class MDLLightProbe : MDLLight {
   var reflectiveTexture: MDLTexture? { get }
   var irradianceTexture: MDLTexture? { get }
   var sphericalHarmonicsLevel: Int { get }
-  @NSCopying var sphericalHarmonicsCoefficients: Data? { get }
+  @NSCopying var sphericalHarmonicsCoefficients: NSData? { get }
   init()
 }
 extension MDLLightProbe {

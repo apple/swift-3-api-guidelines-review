@@ -18,10 +18,10 @@ class AVSampleBufferDisplayLayer : CALayer {
   @available(OSX 10.10, *)
   var status: AVQueuedSampleBufferRenderingStatus { get }
   @available(OSX 10.10, *)
-  var error: Error? { get }
+  var error: NSError? { get }
   init()
   init(layer: AnyObject)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 extension AVSampleBufferDisplayLayer {
   func enqueue(sampleBuffer: CMSampleBuffer)

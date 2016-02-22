@@ -1,113 +1,113 @@
 
-var fileNoSuchFileError: Int { get }
-var fileLockingError: Int { get }
-var fileReadUnknownError: Int { get }
-var fileReadNoPermissionError: Int { get }
-var fileReadInvalidFileNameError: Int { get }
-var fileReadCorruptFileError: Int { get }
-var fileReadNoSuchFileError: Int { get }
-var fileReadInapplicableStringEncodingError: Int { get }
-var fileReadUnsupportedSchemeError: Int { get }
+var NSFileNoSuchFileError: Int { get }
+var NSFileLockingError: Int { get }
+var NSFileReadUnknownError: Int { get }
+var NSFileReadNoPermissionError: Int { get }
+var NSFileReadInvalidFileNameError: Int { get }
+var NSFileReadCorruptFileError: Int { get }
+var NSFileReadNoSuchFileError: Int { get }
+var NSFileReadInapplicableStringEncodingError: Int { get }
+var NSFileReadUnsupportedSchemeError: Int { get }
 @available(iOS 2.0, *)
-var fileReadTooLargeError: Int { get }
+var NSFileReadTooLargeError: Int { get }
 @available(iOS 2.0, *)
-var fileReadUnknownStringEncodingError: Int { get }
-var fileWriteUnknownError: Int { get }
-var fileWriteNoPermissionError: Int { get }
-var fileWriteInvalidFileNameError: Int { get }
+var NSFileReadUnknownStringEncodingError: Int { get }
+var NSFileWriteUnknownError: Int { get }
+var NSFileWriteNoPermissionError: Int { get }
+var NSFileWriteInvalidFileNameError: Int { get }
 @available(iOS 5.0, *)
-var fileWriteFileExistsError: Int { get }
-var fileWriteInapplicableStringEncodingError: Int { get }
-var fileWriteUnsupportedSchemeError: Int { get }
-var fileWriteOutOfSpaceError: Int { get }
+var NSFileWriteFileExistsError: Int { get }
+var NSFileWriteInapplicableStringEncodingError: Int { get }
+var NSFileWriteUnsupportedSchemeError: Int { get }
+var NSFileWriteOutOfSpaceError: Int { get }
 @available(iOS 4.0, *)
-var fileWriteVolumeReadOnlyError: Int { get }
-var keyValueValidationError: Int { get }
-var formattingError: Int { get }
-var userCancelledError: Int { get }
+var NSFileWriteVolumeReadOnlyError: Int { get }
+var NSKeyValueValidationError: Int { get }
+var NSFormattingError: Int { get }
+var NSUserCancelledError: Int { get }
 @available(iOS 6.0, *)
-var featureUnsupportedError: Int { get }
+var NSFeatureUnsupportedError: Int { get }
 @available(iOS 2.0, *)
-var executableNotLoadableError: Int { get }
+var NSExecutableNotLoadableError: Int { get }
 @available(iOS 2.0, *)
-var executableArchitectureMismatchError: Int { get }
+var NSExecutableArchitectureMismatchError: Int { get }
 @available(iOS 2.0, *)
-var executableRuntimeMismatchError: Int { get }
+var NSExecutableRuntimeMismatchError: Int { get }
 @available(iOS 2.0, *)
-var executableLoadError: Int { get }
+var NSExecutableLoadError: Int { get }
 @available(iOS 2.0, *)
-var executableLinkError: Int { get }
-var fileErrorMinimum: Int { get }
-var fileErrorMaximum: Int { get }
-var validationErrorMinimum: Int { get }
-var validationErrorMaximum: Int { get }
+var NSExecutableLinkError: Int { get }
+var NSFileErrorMinimum: Int { get }
+var NSFileErrorMaximum: Int { get }
+var NSValidationErrorMinimum: Int { get }
+var NSValidationErrorMaximum: Int { get }
 @available(iOS 2.0, *)
-var executableErrorMinimum: Int { get }
+var NSExecutableErrorMinimum: Int { get }
 @available(iOS 2.0, *)
-var executableErrorMaximum: Int { get }
-var formattingErrorMinimum: Int { get }
-var formattingErrorMaximum: Int { get }
+var NSExecutableErrorMaximum: Int { get }
+var NSFormattingErrorMinimum: Int { get }
+var NSFormattingErrorMaximum: Int { get }
 @available(iOS 4.0, *)
-var propertyListReadCorruptError: Int { get }
+var NSPropertyListReadCorruptError: Int { get }
 @available(iOS 4.0, *)
-var propertyListReadUnknownVersionError: Int { get }
+var NSPropertyListReadUnknownVersionError: Int { get }
 @available(iOS 4.0, *)
-var propertyListReadStreamError: Int { get }
+var NSPropertyListReadStreamError: Int { get }
 @available(iOS 4.0, *)
-var propertyListWriteStreamError: Int { get }
+var NSPropertyListWriteStreamError: Int { get }
 @available(iOS 8.0, *)
-var propertyListWriteInvalidError: Int { get }
+var NSPropertyListWriteInvalidError: Int { get }
 @available(iOS 4.0, *)
-var propertyListErrorMinimum: Int { get }
+var NSPropertyListErrorMinimum: Int { get }
 @available(iOS 4.0, *)
-var propertyListErrorMaximum: Int { get }
+var NSPropertyListErrorMaximum: Int { get }
 @available(iOS 6.0, *)
-var xpcConnectionInterrupted: Int { get }
+var NSXPCConnectionInterrupted: Int { get }
 @available(iOS 6.0, *)
-var xpcConnectionInvalid: Int { get }
+var NSXPCConnectionInvalid: Int { get }
 @available(iOS 6.0, *)
-var xpcConnectionReplyInvalid: Int { get }
+var NSXPCConnectionReplyInvalid: Int { get }
 @available(iOS 6.0, *)
-var xpcConnectionErrorMinimum: Int { get }
+var NSXPCConnectionErrorMinimum: Int { get }
 @available(iOS 6.0, *)
-var xpcConnectionErrorMaximum: Int { get }
+var NSXPCConnectionErrorMaximum: Int { get }
 @available(iOS 7.0, *)
-var ubiquitousFileUnavailableError: Int { get }
+var NSUbiquitousFileUnavailableError: Int { get }
 @available(iOS 7.0, *)
-var ubiquitousFileNotUploadedDueToQuotaError: Int { get }
+var NSUbiquitousFileNotUploadedDueToQuotaError: Int { get }
 @available(iOS 7.0, *)
-var ubiquitousFileUbiquityServerNotAvailable: Int { get }
+var NSUbiquitousFileUbiquityServerNotAvailable: Int { get }
 @available(iOS 7.0, *)
-var ubiquitousFileErrorMinimum: Int { get }
+var NSUbiquitousFileErrorMinimum: Int { get }
 @available(iOS 7.0, *)
-var ubiquitousFileErrorMaximum: Int { get }
+var NSUbiquitousFileErrorMaximum: Int { get }
 @available(iOS 8.0, *)
-var userActivityHandoffFailedError: Int { get }
+var NSUserActivityHandoffFailedError: Int { get }
 @available(iOS 8.0, *)
-var userActivityConnectionUnavailableError: Int { get }
+var NSUserActivityConnectionUnavailableError: Int { get }
 @available(iOS 8.0, *)
-var userActivityRemoteApplicationTimedOutError: Int { get }
+var NSUserActivityRemoteApplicationTimedOutError: Int { get }
 @available(iOS 8.0, *)
-var userActivityHandoffUserInfoTooLargeError: Int { get }
+var NSUserActivityHandoffUserInfoTooLargeError: Int { get }
 @available(iOS 8.0, *)
-var userActivityErrorMinimum: Int { get }
+var NSUserActivityErrorMinimum: Int { get }
 @available(iOS 8.0, *)
-var userActivityErrorMaximum: Int { get }
+var NSUserActivityErrorMaximum: Int { get }
 @available(iOS 9.0, *)
-var coderReadCorruptError: Int { get }
+var NSCoderReadCorruptError: Int { get }
 @available(iOS 9.0, *)
-var coderValueNotFoundError: Int { get }
+var NSCoderValueNotFoundError: Int { get }
 @available(iOS 9.0, *)
-var coderErrorMinimum: Int { get }
+var NSCoderErrorMinimum: Int { get }
 @available(iOS 9.0, *)
-var coderErrorMaximum: Int { get }
+var NSCoderErrorMaximum: Int { get }
 @available(iOS 9.0, *)
-var bundleErrorMinimum: Int { get }
+var NSBundleErrorMinimum: Int { get }
 @available(iOS 9.0, *)
-var bundleErrorMaximum: Int { get }
+var NSBundleErrorMaximum: Int { get }
 @available(iOS 9.0, *)
-var bundleOnDemandResourceOutOfSpaceError: Int { get }
+var NSBundleOnDemandResourceOutOfSpaceError: Int { get }
 @available(iOS 9.0, *)
-var bundleOnDemandResourceExceededMaximumSizeError: Int { get }
+var NSBundleOnDemandResourceExceededMaximumSizeError: Int { get }
 @available(iOS 9.0, *)
-var bundleOnDemandResourceInvalidTagError: Int { get }
+var NSBundleOnDemandResourceInvalidTagError: Int { get }

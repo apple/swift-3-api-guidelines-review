@@ -1,6 +1,6 @@
 
 @available(tvOS 4.0, *)
-class AVPlayerItemTrack : Object {
+class AVPlayerItemTrack : NSObject {
   var assetTrack: AVAssetTrack { get }
   var isEnabled: Bool
   @available(tvOS 7.0, *)

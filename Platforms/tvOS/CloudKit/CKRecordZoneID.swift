@@ -1,14 +1,14 @@
 
 @available(tvOS 8.0, *)
-class CKRecordZoneID : Object, SecureCoding, Copying {
+class CKRecordZoneID : NSObject, NSSecureCoding, NSCopying {
   init(zoneName: String, ownerName: String)
   var zoneName: String { get }
   var ownerName: String { get }
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

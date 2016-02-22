@@ -1,11 +1,11 @@
 
 @available(OSX 10.10, *)
-class CKServerChangeToken : Object, Copying, SecureCoding {
+class CKServerChangeToken : NSObject, NSCopying, NSSecureCoding {
   @available(OSX 10.10, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

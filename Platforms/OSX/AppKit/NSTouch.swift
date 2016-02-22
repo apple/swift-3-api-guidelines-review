@@ -12,14 +12,14 @@ struct NSTouchPhase : OptionSetType {
   static var any: NSTouchPhase { get }
 }
 @available(OSX 10.6, *)
-class NSTouch : Object, Copying {
-  var identity: protocol<Copying, ObjectProtocol> { get }
+class NSTouch : NSObject, NSCopying {
+  var identity: protocol<NSCopying, NSObjectProtocol> { get }
   var phase: NSTouchPhase { get }
-  var normalizedPosition: Point { get }
+  var normalizedPosition: NSPoint { get }
   var isResting: Bool { get }
   var device: AnyObject? { get }
-  var deviceSize: Size { get }
+  var deviceSize: NSSize { get }
   init()
   @available(OSX 10.6, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

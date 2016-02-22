@@ -18,7 +18,7 @@ class UIWindow : UIView {
   func convert(rect: CGRect, to window: UIWindow?) -> CGRect
   func convert(rect: CGRect, from window: UIWindow?) -> CGRect
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
 let UIWindowLevelNormal: UIWindowLevel

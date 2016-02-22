@@ -1,22 +1,22 @@
 
-class NSHelpManager : Object {
+class NSHelpManager : NSObject {
   class func shared() -> NSHelpManager
   class func setContextHelpModeActive(active: Bool)
   class func isContextHelpModeActive() -> Bool
-  func setContextHelp(attrString: AttributedString, for object: AnyObject)
+  func setContextHelp(attrString: NSAttributedString, for object: AnyObject)
   func removeContextHelp(for object: AnyObject)
-  func contextHelp(for object: AnyObject) -> AttributedString?
-  func showContextHelp(for object: AnyObject, locationHint pt: Point) -> Bool
+  func contextHelp(for object: AnyObject) -> NSAttributedString?
+  func showContextHelp(for object: AnyObject, locationHint pt: NSPoint) -> Bool
   func openHelpAnchor(anchor: String, inBook book: String?)
   func find(query: String, inBook book: String?)
   @available(OSX 10.6, *)
-  func registerBooks(in bundle: Bundle) -> Bool
+  func registerBooks(in bundle: NSBundle) -> Bool
   init()
 }
 let NSContextHelpModeDidActivateNotification: String
 let NSContextHelpModeDidDeactivateNotification: String
-extension Bundle {
-  func contextHelp(forKey key: String) -> AttributedString?
+extension NSBundle {
+  func contextHelp(forKey key: String) -> NSAttributedString?
 }
 extension NSApplication {
   func activateContextHelpMode(sender: AnyObject?)

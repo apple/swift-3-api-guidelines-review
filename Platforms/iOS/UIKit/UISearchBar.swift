@@ -19,7 +19,7 @@ enum UISearchBarStyle : UInt {
 class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   convenience init()
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   var barStyle: UIBarStyle
   weak var delegate: @sil_weak UISearchBarDelegate?
   var text: String?

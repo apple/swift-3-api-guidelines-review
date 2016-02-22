@@ -1,8 +1,8 @@
 
 @available(OSX 10.11, *)
-class CNContactFetchRequest : Object {
+class CNContactFetchRequest : NSObject {
   init(keysToFetch: [CNKeyDescriptor])
-  @NSCopying var predicate: Predicate?
+  @NSCopying var predicate: NSPredicate?
   var keysToFetch: [CNKeyDescriptor]
   var mutableObjects: Bool
   var unifyResults: Bool

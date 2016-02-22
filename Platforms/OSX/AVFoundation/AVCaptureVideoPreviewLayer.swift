@@ -12,5 +12,5 @@ class AVCaptureVideoPreviewLayer : CALayer {
   var videoGravity: String!
   init()
   init(layer: AnyObject)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

@@ -1,6 +1,6 @@
 
 @available(OSX 10.9, *)
-class ODMappings : Object {
+class ODMappings : NSObject {
   @available(OSX 10.9, *)
   var comment: String!
   @available(OSX 10.9, *)

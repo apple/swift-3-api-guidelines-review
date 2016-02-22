@@ -36,6 +36,6 @@ class UIStackView : UIView {
   var isBaselineRelativeArrangement: Bool
   var isLayoutMarginsRelativeArrangement: Bool
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }

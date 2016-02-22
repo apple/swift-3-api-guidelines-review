@@ -5,24 +5,24 @@ extension CSSearchableItemAttributeSet {
   var city: String?
   var stateOrProvince: String?
   var country: String?
-  var altitude: Number?
-  var latitude: Number?
-  var longitude: Number?
-  var speed: Number?
-  var timestamp: Date?
-  var imageDirection: Number?
+  var altitude: NSNumber?
+  var latitude: NSNumber?
+  var longitude: NSNumber?
+  var speed: NSNumber?
+  var timestamp: NSDate?
+  var imageDirection: NSNumber?
   var namedLocation: String?
-  var gpsTrack: Number?
+  var gpsTrack: NSNumber?
   var gpsStatus: String?
   var gpsMeasureMode: String?
-  var gpsdop: Number?
+  var gpsdop: NSNumber?
   var gpsMapDatum: String?
-  var gpsDestLatitude: Number?
-  var gpsDestLongitude: Number?
-  var gpsDestBearing: Number?
-  var gpsDestDistance: Number?
+  var gpsDestLatitude: NSNumber?
+  var gpsDestLongitude: NSNumber?
+  var gpsDestBearing: NSNumber?
+  var gpsDestDistance: NSNumber?
   var gpsProcessingMethod: String?
   var gpsAreaInformation: String?
-  var gpsDateStamp: Date?
-  var gpsDifferental: Number?
+  var gpsDateStamp: NSDate?
+  var gpsDifferental: NSNumber?
 }

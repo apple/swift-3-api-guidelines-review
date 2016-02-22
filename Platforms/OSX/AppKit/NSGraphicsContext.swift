@@ -13,7 +13,7 @@ enum NSImageInterpolation : UInt {
   case medium
   case high
 }
-class NSGraphicsContext : Object {
+class NSGraphicsContext : NSObject {
   /*not inherited*/ init?(attributes: [String : AnyObject] = [:])
   /*not inherited*/ init(window: NSWindow)
   /*not inherited*/ init?(bitmapImageRep bitmapRep: NSBitmapImageRep)
@@ -37,7 +37,7 @@ class NSGraphicsContext : Object {
 extension NSGraphicsContext {
   var shouldAntialias: Bool
   var imageInterpolation: NSImageInterpolation
-  var patternPhase: Point
+  var patternPhase: NSPoint
   var compositingOperation: NSCompositingOperation
   @available(OSX 10.5, *)
   var colorRenderingIntent: NSColorRenderingIntent

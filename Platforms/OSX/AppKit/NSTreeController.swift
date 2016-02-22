@@ -5,7 +5,7 @@ class NSTreeController : NSObjectController {
   var childrenKeyPath: String?
   var countKeyPath: String?
   var leafKeyPath: String?
-  var sortDescriptors: [SortDescriptor]
+  var sortDescriptors: [NSSortDescriptor]
   var content: AnyObject?
   func add(sender: AnyObject?)
   func remove(sender: AnyObject?)
@@ -15,27 +15,27 @@ class NSTreeController : NSObjectController {
   var canInsert: Bool { get }
   var canInsertChild: Bool { get }
   var canAddChild: Bool { get }
-  func insert(object: AnyObject?, atArrangedObjectIndexPath indexPath: IndexPath)
-  func insert(objects: [AnyObject], atArrangedObjectIndexPaths indexPaths: [IndexPath])
-  func removeObject(atArrangedObjectIndexPath indexPath: IndexPath)
-  func removeObjects(atArrangedObjectIndexPaths indexPaths: [IndexPath])
+  func insert(object: AnyObject?, atArrangedObjectIndexPath indexPath: NSIndexPath)
+  func insert(objects: [AnyObject], atArrangedObjectIndexPaths indexPaths: [NSIndexPath])
+  func removeObject(atArrangedObjectIndexPath indexPath: NSIndexPath)
+  func removeObjects(atArrangedObjectIndexPaths indexPaths: [NSIndexPath])
   var avoidsEmptySelection: Bool
   var preservesSelection: Bool
   var selectsInsertedObjects: Bool
   var alwaysUsesMultipleValuesMarker: Bool
   var selectedObjects: [AnyObject] { get }
-  func setSelectionIndexPaths(indexPaths: [IndexPath]) -> Bool
-  var selectionIndexPaths: [IndexPath] { get }
-  func setSelectionIndexPath(indexPath: IndexPath?) -> Bool
-  @NSCopying var selectionIndexPath: IndexPath? { get }
-  func addSelectionIndexPaths(indexPaths: [IndexPath]) -> Bool
-  func removeSelectionIndexPaths(indexPaths: [IndexPath]) -> Bool
+  func setSelectionIndexPaths(indexPaths: [NSIndexPath]) -> Bool
+  var selectionIndexPaths: [NSIndexPath] { get }
+  func setSelectionIndexPath(indexPath: NSIndexPath?) -> Bool
+  @NSCopying var selectionIndexPath: NSIndexPath? { get }
+  func addSelectionIndexPaths(indexPaths: [NSIndexPath]) -> Bool
+  func removeSelectionIndexPaths(indexPaths: [NSIndexPath]) -> Bool
   @available(OSX 10.5, *)
   var selectedNodes: [NSTreeNode] { get }
   @available(OSX 10.5, *)
-  func move(node: NSTreeNode, to indexPath: IndexPath)
+  func move(node: NSTreeNode, to indexPath: NSIndexPath)
   @available(OSX 10.5, *)
-  func move(nodes: [NSTreeNode], to startingIndexPath: IndexPath)
+  func move(nodes: [NSTreeNode], to startingIndexPath: NSIndexPath)
   @available(OSX 10.5, *)
   func childrenKeyPath(for node: NSTreeNode) -> String?
   @available(OSX 10.5, *)
@@ -43,7 +43,7 @@ class NSTreeController : NSObjectController {
   @available(OSX 10.5, *)
   func leafKeyPath(for node: NSTreeNode) -> String?
   init(content: AnyObject?)
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   convenience init()
 }
 struct __treeControllerFlags {

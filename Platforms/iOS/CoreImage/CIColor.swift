@@ -1,6 +1,6 @@
 
 @available(iOS 5.0, *)
-class CIColor : Object, SecureCoding, Copying {
+class CIColor : NSObject, NSSecureCoding, NSCopying {
   convenience init(red r: CGFloat, green g: CGFloat, blue b: CGFloat)
   convenience init(string representation: String)
   init(cgColor c: CGColor)
@@ -17,8 +17,8 @@ class CIColor : Object, SecureCoding, Copying {
   @available(iOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 5.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 5.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

@@ -1,6 +1,6 @@
 
 @available(tvOS 9.0, *)
-class GKRandomDistribution : Object, GKRandom {
+class GKRandomDistribution : NSObject, GKRandom {
   var lowestValue: Int { get }
   var highestValue: Int { get }
   var numberOfPossibleOutcomes: Int { get }

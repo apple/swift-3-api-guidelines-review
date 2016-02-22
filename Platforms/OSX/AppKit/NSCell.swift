@@ -136,7 +136,7 @@ struct __CFlags {
   init(state: UInt32, highlighted: UInt32, disabled: UInt32, editable: UInt32, type: NSCellType, vCentered: UInt32, hCentered: UInt32, bordered: UInt32, bezeled: UInt32, selectable: UInt32, scrollable: UInt32, continuous: UInt32, actOnMouseDown: UInt32, isLeaf: UInt32, invalidObjectValue: UInt32, invalidFont: UInt32, lineBreakMode: NSLineBreakMode, weakTargetHelperFlag: UInt32, allowsAppearanceEffects: UInt32, singleLineMode: UInt32, actOnMouseDragged: UInt32, isLoaded: UInt32, truncateLastLine: UInt32, dontActOnMouseUp: UInt32, isWhite: UInt32, useUserKeyEquivalent: UInt32, showsFirstResponder: UInt32, focusRingType: UInt32, wasSelectable: UInt32, hasInvalidObject: UInt32, allowsEditingTextAttributes: UInt32, importsGraphics: UInt32, alignment: NSTextAlignment, layoutDirectionRTL: UInt32, backgroundStyle: UInt32, cellReserved2: UInt32, refusesFirstResponder: UInt32, needsHighlightedText: UInt32, dontAllowsUndo: UInt32, currentlyEditing: UInt32, allowsMixedState: UInt32, inMixedState: UInt32, sendsActionOnEndEditing: UInt32, inSendAction: UInt32, menuWasSet: UInt32, controlTint: UInt32, controlSize: UInt32, branchImageDisabled: UInt32, drawingInRevealover: UInt32, needsHighlightedTextHint: UInt32)
 }
 typealias _CFlags = __CFlags
-class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAccessibilityElementProtocol, NSAccessibility {
+class NSCell : NSObject, NSCopying, NSCoding, NSUserInterfaceItemIdentification, NSAccessibilityElementProtocol, NSAccessibility {
   class func prefersTrackingUntilMouseUp() -> Bool
   init(textCell aString: String)
   init(imageCell image: NSImage?)
@@ -161,11 +161,11 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   var wraps: Bool
   var font: NSFont?
   var keyEquivalent: String { get }
-  var formatter: Formatter?
+  var formatter: NSFormatter?
   @NSCopying var objectValue: AnyObject?
   var hasValidObjectValue: Bool { get }
   var stringValue: String
-  func compare(otherCell: AnyObject) -> ComparisonResult
+  func compare(otherCell: AnyObject) -> NSComparisonResult
   var intValue: Int32
   var floatValue: Float
   var doubleValue: Double
@@ -180,29 +180,29 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   var representedObject: AnyObject?
   func cellAttribute(aParameter: NSCellAttribute) -> Int
   func setCellAttribute(aParameter: NSCellAttribute, to value: Int)
-  func imageRect(forBounds theRect: Rect) -> Rect
-  func titleRect(forBounds theRect: Rect) -> Rect
-  func drawingRect(forBounds theRect: Rect) -> Rect
-  var cellSize: Size { get }
-  func cellSize(forBounds aRect: Rect) -> Size
-  func highlightColor(frame cellFrame: Rect, in controlView: NSView) -> NSColor
-  func calcDrawInfo(aRect: Rect)
+  func imageRect(forBounds theRect: NSRect) -> NSRect
+  func titleRect(forBounds theRect: NSRect) -> NSRect
+  func drawingRect(forBounds theRect: NSRect) -> NSRect
+  var cellSize: NSSize { get }
+  func cellSize(forBounds aRect: NSRect) -> NSSize
+  func highlightColor(frame cellFrame: NSRect, in controlView: NSView) -> NSColor
+  func calcDrawInfo(aRect: NSRect)
   func setUpFieldEditorAttributes(textObj: NSText) -> NSText
-  func drawInterior(frame cellFrame: Rect, in controlView: NSView)
-  func draw(frame cellFrame: Rect, in controlView: NSView)
-  func highlight(flag: Bool, withFrame cellFrame: Rect, in controlView: NSView)
+  func drawInterior(frame cellFrame: NSRect, in controlView: NSView)
+  func draw(frame cellFrame: NSRect, in controlView: NSView)
+  func highlight(flag: Bool, withFrame cellFrame: NSRect, in controlView: NSView)
   var mouseDownFlags: Int { get }
   func getPeriodicDelay(delay: UnsafeMutablePointer<Float>, interval: UnsafeMutablePointer<Float>)
-  func startTracking(at startPoint: Point, in controlView: NSView) -> Bool
-  func continueTracking(lastPoint: Point, at currentPoint: Point, in controlView: NSView) -> Bool
-  func stopTracking(lastPoint: Point, at stopPoint: Point, in controlView: NSView, mouseIsUp flag: Bool)
-  func trackMouse(theEvent: NSEvent, in cellFrame: Rect, of controlView: NSView, untilMouseUp flag: Bool) -> Bool
-  func edit(frame aRect: Rect, in controlView: NSView, editor textObj: NSText, delegate anObject: AnyObject?, event theEvent: NSEvent)
-  func select(frame aRect: Rect, in controlView: NSView, editor textObj: NSText, delegate anObject: AnyObject?, start selStart: Int, length selLength: Int)
+  func startTracking(at startPoint: NSPoint, in controlView: NSView) -> Bool
+  func continueTracking(lastPoint: NSPoint, at currentPoint: NSPoint, in controlView: NSView) -> Bool
+  func stopTracking(lastPoint: NSPoint, at stopPoint: NSPoint, in controlView: NSView, mouseIsUp flag: Bool)
+  func trackMouse(theEvent: NSEvent, in cellFrame: NSRect, of controlView: NSView, untilMouseUp flag: Bool) -> Bool
+  func edit(frame aRect: NSRect, in controlView: NSView, editor textObj: NSText, delegate anObject: AnyObject?, event theEvent: NSEvent)
+  func select(frame aRect: NSRect, in controlView: NSView, editor textObj: NSText, delegate anObject: AnyObject?, start selStart: Int, length selLength: Int)
   func endEditing(textObj: NSText)
-  func resetCursorRect(cellFrame: Rect, in controlView: NSView)
+  func resetCursorRect(cellFrame: NSRect, in controlView: NSView)
   var menu: NSMenu?
-  func menu(for event: NSEvent, in cellFrame: Rect, of view: NSView) -> NSMenu?
+  func menu(for event: NSEvent, in cellFrame: NSRect, of view: NSView) -> NSMenu?
   class func defaultMenu() -> NSMenu?
   var sendsActionOnEndEditing: Bool
   var baseWritingDirection: NSWritingDirection
@@ -221,40 +221,40 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   @available(OSX 10.6, *)
   var usesSingleLineMode: Bool
   @available(OSX 10.7, *)
-  func draggingImageComponents(frame frame: Rect, in view: NSView) -> [NSDraggingImageComponent]
+  func draggingImageComponents(frame frame: NSRect, in view: NSView) -> [NSDraggingImageComponent]
   convenience init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   var identifier: String?
-  func accessibilityFrame() -> Rect
+  func accessibilityFrame() -> NSRect
   func accessibilityParent() -> AnyObject?
   func isAccessibilityFocused() -> Bool
   func accessibilityIdentifier() -> String
   @available(OSX 10.10, *)
-  func accessibilityLayoutPoint(forScreenPoint point: Point) -> Point
+  func accessibilityLayoutPoint(forScreenPoint point: NSPoint) -> NSPoint
   @available(OSX 10.10, *)
-  func accessibilityLayoutSize(forScreenSize size: Size) -> Size
+  func accessibilityLayoutSize(forScreenSize size: NSSize) -> NSSize
   @available(OSX 10.10, *)
-  func accessibilityScreenPoint(forLayoutPoint point: Point) -> Point
+  func accessibilityScreenPoint(forLayoutPoint point: NSPoint) -> NSPoint
   @available(OSX 10.10, *)
-  func accessibilityScreenSize(forLayoutSize size: Size) -> Size
+  func accessibilityScreenSize(forLayoutSize size: NSSize) -> NSSize
   @available(OSX 10.10, *)
   func accessibilityCell(forColumn column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
-  func accessibilityAttributedString(for range: NSRange) -> AttributedString?
+  func accessibilityAttributedString(for range: NSRange) -> NSAttributedString?
   @available(OSX 10.10, *)
   func accessibilityRange(forLine line: Int) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityString(for range: NSRange) -> String?
   @available(OSX 10.10, *)
-  func accessibilityRange(forPosition point: Point) -> NSRange
+  func accessibilityRange(forPosition point: NSPoint) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityFrame(for range: NSRange) -> Rect
+  func accessibilityFrame(for range: NSRange) -> NSRect
   @available(OSX 10.10, *)
-  func accessibilityRTF(for range: NSRange) -> Data?
+  func accessibilityRTF(for range: NSRange) -> NSData?
   @available(OSX 10.10, *)
   func accessibilityStyleRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
@@ -288,21 +288,21 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   @available(OSX 10.10, *)
   func setAccessibilityElement(accessibilityElement: Bool)
   @available(OSX 10.10, *)
-  func setAccessibilityFrame(accessibilityFrame: Rect)
+  func setAccessibilityFrame(accessibilityFrame: NSRect)
   @available(OSX 10.10, *)
   func setAccessibilityFocused(accessibilityFocused: Bool)
   @available(OSX 10.10, *)
-  func accessibilityActivationPoint() -> Point
+  func accessibilityActivationPoint() -> NSPoint
   @available(OSX 10.10, *)
-  func setAccessibilityActivationPoint(accessibilityActivationPoint: Point)
+  func setAccessibilityActivationPoint(accessibilityActivationPoint: NSPoint)
   @available(OSX 10.10, *)
   func accessibilityTopLevelUIElement() -> AnyObject?
   @available(OSX 10.10, *)
   func setAccessibilityTopLevelUIElement(accessibilityTopLevelUIElement: AnyObject?)
   @available(OSX 10.10, *)
-  func accessibilityURL() -> URL?
+  func accessibilityURL() -> NSURL?
   @available(OSX 10.10, *)
-  func setAccessibilityURL(accessibilityURL: URL?)
+  func setAccessibilityURL(accessibilityURL: NSURL?)
   @available(OSX 10.10, *)
   func accessibilityValue() -> AnyObject?
   @available(OSX 10.10, *)
@@ -572,9 +572,9 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   @available(OSX 10.10, *)
   func setAccessibilityVerticalScrollBar(accessibilityVerticalScrollBar: AnyObject?)
   @available(OSX 10.10, *)
-  func accessibilityAllowedValues() -> [Number]?
+  func accessibilityAllowedValues() -> [NSNumber]?
   @available(OSX 10.10, *)
-  func setAccessibilityAllowedValues(accessibilityAllowedValues: [Number]?)
+  func setAccessibilityAllowedValues(accessibilityAllowedValues: [NSNumber]?)
   @available(OSX 10.10, *)
   func accessibilityLabelUIElements() -> [AnyObject]?
   @available(OSX 10.10, *)
@@ -696,9 +696,9 @@ class NSCell : Object, Copying, Coding, NSUserInterfaceItemIdentification, NSAcc
   @available(OSX 10.10, *)
   func setAccessibilitySelectedTextRange(accessibilitySelectedTextRange: NSRange)
   @available(OSX 10.10, *)
-  func accessibilitySelectedTextRanges() -> [Value]?
+  func accessibilitySelectedTextRanges() -> [NSValue]?
   @available(OSX 10.10, *)
-  func setAccessibilitySelectedTextRanges(accessibilitySelectedTextRanges: [Value]?)
+  func setAccessibilitySelectedTextRanges(accessibilitySelectedTextRanges: [NSValue]?)
   @available(OSX 10.10, *)
   func accessibilityToolbarButton() -> AnyObject?
   @available(OSX 10.10, *)
@@ -756,13 +756,13 @@ extension NSCell {
   var focusRingType: NSFocusRingType
   class func defaultFocusRingType() -> NSFocusRingType
   @available(OSX 10.7, *)
-  func drawFocusRingMask(frame cellFrame: Rect, in controlView: NSView)
+  func drawFocusRingMask(frame cellFrame: NSRect, in controlView: NSView)
   @available(OSX 10.7, *)
-  func focusRingMaskBounds(forFrame cellFrame: Rect, in controlView: NSView) -> Rect
+  func focusRingMaskBounds(forFrame cellFrame: NSRect, in controlView: NSView) -> NSRect
   var wantsNotificationForMarkedText: Bool { get }
 }
 extension NSCell {
-  @NSCopying var attributedStringValue: AttributedString
+  @NSCopying var attributedStringValue: NSAttributedString
   var allowsEditingTextAttributes: Bool
   var importsGraphics: Bool
 }
@@ -783,13 +783,13 @@ struct NSCellHitResult : OptionSetType {
 }
 extension NSCell {
   @available(OSX 10.5, *)
-  func hitTest(for event: NSEvent, in cellFrame: Rect, of controlView: NSView) -> NSCellHitResult
+  func hitTest(for event: NSEvent, in cellFrame: NSRect, of controlView: NSView) -> NSCellHitResult
 }
 extension NSCell {
   @available(OSX 10.5, *)
-  func expansionFrame(frame cellFrame: Rect, in view: NSView) -> Rect
+  func expansionFrame(frame cellFrame: NSRect, in view: NSView) -> NSRect
   @available(OSX 10.5, *)
-  func draw(expansionFrame cellFrame: Rect, in view: NSView)
+  func draw(expansionFrame cellFrame: NSRect, in view: NSView)
 }
 @available(OSX 10.5, *)
 enum NSBackgroundStyle : Int {
@@ -809,9 +809,9 @@ extension NSCell {
 extension NSCell {
 }
 @available(OSX 10.5, *)
-func NSDrawThreePartImage(frame: Rect, _ startCap: NSImage?, _ centerFill: NSImage?, _ endCap: NSImage?, _ vertical: Bool, _ op: NSCompositingOperation, _ alphaFraction: CGFloat, _ flipped: Bool)
+func NSDrawThreePartImage(frame: NSRect, _ startCap: NSImage?, _ centerFill: NSImage?, _ endCap: NSImage?, _ vertical: Bool, _ op: NSCompositingOperation, _ alphaFraction: CGFloat, _ flipped: Bool)
 @available(OSX 10.5, *)
-func NSDrawNinePartImage(frame: Rect, _ topLeftCorner: NSImage, _ topEdgeFill: NSImage, _ topRightCorner: NSImage, _ leftEdgeFill: NSImage, _ centerFill: NSImage, _ rightEdgeFill: NSImage, _ bottomLeftCorner: NSImage, _ bottomEdgeFill: NSImage, _ bottomRightCorner: NSImage, _ op: NSCompositingOperation, _ alphaFraction: CGFloat, _ flipped: Bool)
+func NSDrawNinePartImage(frame: NSRect, _ topLeftCorner: NSImage, _ topEdgeFill: NSImage, _ topRightCorner: NSImage, _ leftEdgeFill: NSImage, _ centerFill: NSImage, _ rightEdgeFill: NSImage, _ bottomLeftCorner: NSImage, _ bottomEdgeFill: NSImage, _ bottomRightCorner: NSImage, _ op: NSCompositingOperation, _ alphaFraction: CGFloat, _ flipped: Bool)
 var NSAnyType: Int { get }
 var NSIntType: Int { get }
 var NSPositiveIntType: Int { get }

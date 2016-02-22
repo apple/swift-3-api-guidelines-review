@@ -9,8 +9,8 @@ enum SKSceneScaleMode : Int {
   case resizeFill
 }
 @available(iOS 8.0, *)
-protocol SKSceneDelegate : ObjectProtocol {
-  optional func update(currentTime: TimeInterval, for scene: SKScene)
+protocol SKSceneDelegate : NSObjectProtocol {
+  optional func update(currentTime: NSTimeInterval, for scene: SKScene)
   optional func didEvaluateActions(for scene: SKScene)
   optional func didSimulatePhysics(for scene: SKScene)
   optional func didApplyConstraints(for scene: SKScene)
@@ -32,7 +32,7 @@ class SKScene : SKEffectNode {
   func convertPoint(fromView point: CGPoint) -> CGPoint
   func convertPoint(toView point: CGPoint) -> CGPoint
   weak var view: @sil_weak SKView? { get }
-  func update(currentTime: TimeInterval)
+  func update(currentTime: NSTimeInterval)
   func didEvaluateActions()
   func didSimulatePhysics()
   @available(iOS 8.0, *)
@@ -43,6 +43,6 @@ class SKScene : SKEffectNode {
   func willMove(from view: SKView)
   func didChangeSize(oldSize: CGSize)
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init?(fileNamed filename: String)
 }

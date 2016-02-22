@@ -36,7 +36,7 @@ class NSStackView : NSView {
   unowned(unsafe) var delegate: @sil_unmanaged NSStackViewDelegate?
   var orientation: NSUserInterfaceLayoutOrientation
   var alignment: NSLayoutAttribute
-  var edgeInsets: EdgeInsets
+  var edgeInsets: NSEdgeInsets
   func add(aView: NSView, in gravity: NSStackViewGravity)
   func insert(aView: NSView, at index: Int, in gravity: NSStackViewGravity)
   func remove(aView: NSView)
@@ -57,8 +57,8 @@ class NSStackView : NSView {
   func setClippingResistancePriority(clippingResistancePriority: NSLayoutPriority, for orientation: NSLayoutConstraintOrientation)
   func huggingPriority(for orientation: NSLayoutConstraintOrientation) -> NSLayoutPriority
   func setHuggingPriority(huggingPriority: NSLayoutPriority, for orientation: NSLayoutConstraintOrientation)
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }
 extension NSStackView {
@@ -71,7 +71,7 @@ extension NSStackView {
   @available(OSX 10.11, *)
   func removeArrangedSubview(view: NSView)
 }
-protocol NSStackViewDelegate : ObjectProtocol {
+protocol NSStackViewDelegate : NSObjectProtocol {
   @available(OSX 10.9, *)
   optional func stackView(stackView: NSStackView, willDetach views: [NSView])
   @available(OSX 10.9, *)

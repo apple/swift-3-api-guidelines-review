@@ -55,39 +55,39 @@ enum MTLVertexStepFunction : UInt {
   case perInstance
 }
 @available(iOS 8.0, *)
-class MTLVertexBufferLayoutDescriptor : Object, Copying {
+class MTLVertexBufferLayoutDescriptor : NSObject, NSCopying {
   var stride: Int
   var stepFunction: MTLVertexStepFunction
   var stepRate: Int
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
-class MTLVertexBufferLayoutDescriptorArray : Object {
+class MTLVertexBufferLayoutDescriptorArray : NSObject {
   subscript(index: Int) -> MTLVertexBufferLayoutDescriptor!
   init()
 }
 @available(iOS 8.0, *)
-class MTLVertexAttributeDescriptor : Object, Copying {
+class MTLVertexAttributeDescriptor : NSObject, NSCopying {
   var format: MTLVertexFormat
   var offset: Int
   var bufferIndex: Int
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
-class MTLVertexAttributeDescriptorArray : Object {
+class MTLVertexAttributeDescriptorArray : NSObject {
   subscript(index: Int) -> MTLVertexAttributeDescriptor!
   init()
 }
 @available(iOS 8.0, *)
-class MTLVertexDescriptor : Object, Copying {
+class MTLVertexDescriptor : NSObject, NSCopying {
   var layouts: MTLVertexBufferLayoutDescriptorArray { get }
   var attributes: MTLVertexAttributeDescriptorArray { get }
   func reset()
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

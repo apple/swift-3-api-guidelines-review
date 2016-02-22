@@ -1,7 +1,7 @@
 
 typealias MPMediaEntityPersistentID = UInt64
 @available(iOS 4.2, *)
-class MPMediaEntity : Object, SecureCoding {
+class MPMediaEntity : NSObject, NSSecureCoding {
   class func canFilter(byProperty property: String) -> Bool
   @available(iOS 4.0, *)
   func enumerateValues(forProperties properties: Set<String>, using block: (String, AnyObject, UnsafeMutablePointer<ObjCBool>) -> Void)
@@ -14,8 +14,8 @@ class MPMediaEntity : Object, SecureCoding {
   @available(iOS 4.2, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 4.2, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 4.2, *)
 let MPMediaEntityPropertyPersistentID: String

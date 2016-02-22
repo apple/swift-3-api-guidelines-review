@@ -1,17 +1,17 @@
 
-class ScriptClassDescription : ClassDescription {
+class NSScriptClassDescription : NSClassDescription {
   /*not inherited*/ init?(for aClass: AnyClass)
-  init?(suiteName: String, className: String, dictionary classDeclaration: [Object : AnyObject]?)
+  init?(suiteName: String, className: String, dictionary classDeclaration: [NSObject : AnyObject]?)
   var suiteName: String? { get }
   var className: String? { get }
   var implementationClassName: String? { get }
-  var superclass: ScriptClassDescription? { get }
+  var superclass: NSScriptClassDescription? { get }
   var appleEventCode: FourCharCode { get }
   func matchesAppleEventCode(appleEventCode: FourCharCode) -> Bool
-  func supportsCommand(commandDescription: ScriptCommandDescription) -> Bool
-  func selector(forCommand commandDescription: ScriptCommandDescription) -> Selector
+  func supportsCommand(commandDescription: NSScriptCommandDescription) -> Bool
+  func selector(forCommand commandDescription: NSScriptCommandDescription) -> Selector
   func type(forKey key: String) -> String?
-  func forKey(key: String) -> ScriptClassDescription?
+  func forKey(key: String) -> NSScriptClassDescription?
   func appleEventCode(forKey key: String) -> FourCharCode
   func key(withAppleEventCode appleEventCode: FourCharCode) -> String?
   var defaultSubcontainerAttributeKey: String? { get }
@@ -26,9 +26,9 @@ class ScriptClassDescription : ClassDescription {
   func hasWritableProperty(forKey key: String) -> Bool
   convenience init()
 }
-extension ScriptClassDescription {
+extension NSScriptClassDescription {
 }
-extension Object {
+extension NSObject {
   var classCode: FourCharCode { get }
   var className: String { get }
   class func classCode() -> FourCharCode

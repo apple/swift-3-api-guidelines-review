@@ -70,31 +70,31 @@ enum HKWorkoutEventType : Int {
   case resume
 }
 @available(iOS 8.0, *)
-class HKWorkoutEvent : Object, SecureCoding {
+class HKWorkoutEvent : NSObject, NSSecureCoding {
   var type: HKWorkoutEventType { get }
-  @NSCopying var date: Date { get }
-  convenience init(type: HKWorkoutEventType, date: Date)
+  @NSCopying var date: NSDate { get }
+  convenience init(type: HKWorkoutEventType, date: NSDate)
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class HKWorkout : HKSample {
   var workoutActivityType: HKWorkoutActivityType { get }
   var workoutEvents: [HKWorkoutEvent]? { get }
-  var duration: TimeInterval { get }
+  var duration: NSTimeInterval { get }
   var totalEnergyBurned: HKQuantity? { get }
   var totalDistance: HKQuantity? { get }
-  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: Date, end endDate: Date)
-  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: Date, end endDate: Date, workoutEvents: [HKWorkoutEvent]?, totalEnergyBurned: HKQuantity?, totalDistance: HKQuantity?, metadata: [String : AnyObject]?)
+  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: NSDate, end endDate: NSDate)
+  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: NSDate, end endDate: NSDate, workoutEvents: [HKWorkoutEvent]?, totalEnergyBurned: HKQuantity?, totalDistance: HKQuantity?, metadata: [String : AnyObject]?)
   @available(iOS 9.0, *)
-  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: Date, end endDate: Date, workoutEvents: [HKWorkoutEvent]?, totalEnergyBurned: HKQuantity?, totalDistance: HKQuantity?, device: HKDevice?, metadata: [String : AnyObject]?)
-  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: Date, end endDate: Date, duration: TimeInterval, totalEnergyBurned: HKQuantity?, totalDistance: HKQuantity?, metadata: [String : AnyObject]?)
+  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: NSDate, end endDate: NSDate, workoutEvents: [HKWorkoutEvent]?, totalEnergyBurned: HKQuantity?, totalDistance: HKQuantity?, device: HKDevice?, metadata: [String : AnyObject]?)
+  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: NSDate, end endDate: NSDate, duration: NSTimeInterval, totalEnergyBurned: HKQuantity?, totalDistance: HKQuantity?, metadata: [String : AnyObject]?)
   @available(iOS 9.0, *)
-  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: Date, end endDate: Date, duration: TimeInterval, totalEnergyBurned: HKQuantity?, totalDistance: HKQuantity?, device: HKDevice?, metadata: [String : AnyObject]?)
-  init?(coder aDecoder: Coder)
+  convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: NSDate, end endDate: NSDate, duration: NSTimeInterval, totalEnergyBurned: HKQuantity?, totalDistance: HKQuantity?, device: HKDevice?, metadata: [String : AnyObject]?)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 let HKPredicateKeyPathWorkoutDuration: String

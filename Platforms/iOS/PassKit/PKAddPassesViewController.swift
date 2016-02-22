@@ -1,5 +1,5 @@
 
-protocol PKAddPassesViewControllerDelegate : ObjectProtocol {
+protocol PKAddPassesViewControllerDelegate : NSObjectProtocol {
   @available(iOS 6.0, *)
   optional func addPassesViewControllerDidFinish(controller: PKAddPassesViewController)
 }
@@ -11,7 +11,7 @@ class PKAddPassesViewController : UIViewController {
   @available(iOS 8.0, *)
   class func canAddPasses() -> Bool
   unowned(unsafe) var delegate: @sil_unmanaged PKAddPassesViewControllerDelegate?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }

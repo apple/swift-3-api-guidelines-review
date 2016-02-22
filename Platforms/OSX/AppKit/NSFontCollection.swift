@@ -7,10 +7,10 @@ struct NSFontCollectionVisibility : OptionSetType {
   static var computer: NSFontCollectionVisibility { get }
 }
 @available(OSX 10.7, *)
-class NSFontCollection : Object, Copying, MutableCopying, Coding {
+class NSFontCollection : NSObject, NSCopying, NSMutableCopying, NSCoding {
   /*not inherited*/ init(descriptors queryDescriptors: [NSFontDescriptor])
   class func withAllAvailableDescriptors() -> NSFontCollection
-  /*not inherited*/ init?(locale: Locale)
+  /*not inherited*/ init?(locale: NSLocale)
   class func show(collection: NSFontCollection, withName name: String, visibility: NSFontCollectionVisibility) throws
   class func hide(name name: String, visibility: NSFontCollectionVisibility) throws
   class func renameFontCollection(withName name: String, visibility: NSFontCollectionVisibility, toName name: String) throws
@@ -20,23 +20,23 @@ class NSFontCollection : Object, Copying, MutableCopying, Coding {
   var queryDescriptors: [NSFontDescriptor]? { get }
   var exclusionDescriptors: [NSFontDescriptor]? { get }
   var matchingDescriptors: [NSFontDescriptor]? { get }
-  func matchingDescriptors(options options: [String : Number]? = [:]) -> [NSFontDescriptor]?
+  func matchingDescriptors(options options: [String : NSNumber]? = [:]) -> [NSFontDescriptor]?
   func matchingDescriptors(forFamily family: String) -> [NSFontDescriptor]?
-  func matchingDescriptors(forFamily family: String, options: [String : Number]? = [:]) -> [NSFontDescriptor]?
+  func matchingDescriptors(forFamily family: String, options: [String : NSNumber]? = [:]) -> [NSFontDescriptor]?
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.7, *)
 class NSMutableFontCollection : NSFontCollection {
   /*not inherited*/ init(descriptors queryDescriptors: [NSFontDescriptor])
   class func withAllAvailableDescriptors() -> NSMutableFontCollection
-  /*not inherited*/ init(locale: Locale)
+  /*not inherited*/ init(locale: NSLocale)
   /*not inherited*/ init?(name: String)
   /*not inherited*/ init?(name: String, visibility: NSFontCollectionVisibility)
   var queryDescriptors: [NSFontDescriptor]?
@@ -44,7 +44,7 @@ class NSMutableFontCollection : NSFontCollection {
   func addQuery(for descriptors: [NSFontDescriptor])
   func removeQuery(for descriptors: [NSFontDescriptor])
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.7, *)
 let NSFontCollectionIncludeDisabledFontsOption: String

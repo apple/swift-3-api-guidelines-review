@@ -7,7 +7,7 @@ enum UIDynamicItemCollisionBoundsType : UInt {
   case ellipse
   case path
 }
-protocol UIDynamicItem : ObjectProtocol {
+protocol UIDynamicItem : NSObjectProtocol {
   var center: CGPoint { get set }
   var bounds: CGRect { get }
   var transform: CGAffineTransform { get set }
@@ -17,7 +17,7 @@ protocol UIDynamicItem : ObjectProtocol {
   optional var collisionBoundingPath: UIBezierPath { get }
 }
 @available(tvOS 9.0, *)
-class UIDynamicItemGroup : Object, UIDynamicItem {
+class UIDynamicItemGroup : NSObject, UIDynamicItem {
   init(items: [UIDynamicItem])
   var items: [UIDynamicItem] { get }
   init()
@@ -33,7 +33,7 @@ class UIDynamicItemGroup : Object, UIDynamicItem {
   var collisionBoundingPath: UIBezierPath { get }
 }
 @available(tvOS 7.0, *)
-class UIDynamicBehavior : Object {
+class UIDynamicBehavior : NSObject {
   func addChildBehavior(behavior: UIDynamicBehavior)
   func removeChildBehavior(behavior: UIDynamicBehavior)
   var childBehaviors: [UIDynamicBehavior] { get }

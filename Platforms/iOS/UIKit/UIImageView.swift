@@ -13,7 +13,7 @@ class UIImageView : UIView {
   var animationImages: [UIImage]?
   @available(iOS 3.0, *)
   var highlightedAnimationImages: [UIImage]?
-  var animationDuration: TimeInterval
+  var animationDuration: NSTimeInterval
   var animationRepeatCount: Int
   @available(iOS 7.0, *)
   var tintColor: UIColor!
@@ -21,6 +21,6 @@ class UIImageView : UIView {
   func stopAnimating()
   func isAnimating() -> Bool
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }

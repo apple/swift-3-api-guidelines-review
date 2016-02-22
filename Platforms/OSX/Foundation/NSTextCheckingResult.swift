@@ -1,53 +1,53 @@
 
-struct TextCheckingType : OptionSetType {
+struct NSTextCheckingType : OptionSetType {
   init(rawValue: UInt64)
   let rawValue: UInt64
-  static var orthography: TextCheckingType { get }
-  static var spelling: TextCheckingType { get }
-  static var grammar: TextCheckingType { get }
-  static var date: TextCheckingType { get }
-  static var address: TextCheckingType { get }
-  static var link: TextCheckingType { get }
-  static var quote: TextCheckingType { get }
-  static var dash: TextCheckingType { get }
-  static var replacement: TextCheckingType { get }
-  static var correction: TextCheckingType { get }
+  static var orthography: NSTextCheckingType { get }
+  static var spelling: NSTextCheckingType { get }
+  static var grammar: NSTextCheckingType { get }
+  static var date: NSTextCheckingType { get }
+  static var address: NSTextCheckingType { get }
+  static var link: NSTextCheckingType { get }
+  static var quote: NSTextCheckingType { get }
+  static var dash: NSTextCheckingType { get }
+  static var replacement: NSTextCheckingType { get }
+  static var correction: NSTextCheckingType { get }
   @available(OSX 10.7, *)
-  static var regularExpression: TextCheckingType { get }
+  static var regularExpression: NSTextCheckingType { get }
   @available(OSX 10.7, *)
-  static var phoneNumber: TextCheckingType { get }
+  static var phoneNumber: NSTextCheckingType { get }
   @available(OSX 10.7, *)
-  static var transitInformation: TextCheckingType { get }
+  static var transitInformation: NSTextCheckingType { get }
 }
-typealias TextCheckingTypes = UInt64
-var textCheckingAllSystemTypes: TextCheckingTypes { get }
-var textCheckingAllCustomTypes: TextCheckingTypes { get }
-var textCheckingAllTypes: TextCheckingTypes { get }
+typealias NSTextCheckingTypes = UInt64
+var NSTextCheckingAllSystemTypes: NSTextCheckingTypes { get }
+var NSTextCheckingAllCustomTypes: NSTextCheckingTypes { get }
+var NSTextCheckingAllTypes: NSTextCheckingTypes { get }
 @available(OSX 10.6, *)
-class TextCheckingResult : Object, Copying, Coding {
-  var resultType: TextCheckingType { get }
+class NSTextCheckingResult : NSObject, NSCopying, NSCoding {
+  var resultType: NSTextCheckingType { get }
   var range: NSRange { get }
   init()
   @available(OSX 10.6, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.6, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
-extension TextCheckingResult {
-  @NSCopying var orthography: Orthography? { get }
+extension NSTextCheckingResult {
+  @NSCopying var orthography: NSOrthography? { get }
   var grammarDetails: [String]? { get }
-  @NSCopying var date: Date? { get }
-  @NSCopying var timeZone: TimeZone? { get }
-  var duration: TimeInterval { get }
+  @NSCopying var date: NSDate? { get }
+  @NSCopying var timeZone: NSTimeZone? { get }
+  var duration: NSTimeInterval { get }
   @available(OSX 10.7, *)
   var components: [String : String]? { get }
-  @NSCopying var url: URL? { get }
+  @NSCopying var url: NSURL? { get }
   var replacementString: String? { get }
   @available(OSX 10.9, *)
   var alternativeStrings: [String]? { get }
   @available(OSX 10.7, *)
-  @NSCopying var regularExpression: RegularExpression? { get }
+  @NSCopying var regularExpression: NSRegularExpression? { get }
   @available(OSX 10.7, *)
   var phoneNumber: String? { get }
   var addressComponents: [String : String]? { get }
@@ -56,48 +56,48 @@ extension TextCheckingResult {
   @available(OSX 10.7, *)
   func range(at idx: Int) -> NSRange
   @available(OSX 10.7, *)
-  func adjustingRanges(withOffset offset: Int) -> TextCheckingResult
+  func adjustingRanges(withOffset offset: Int) -> NSTextCheckingResult
 }
 @available(OSX 10.6, *)
-let textCheckingNameKey: String
+let NSTextCheckingNameKey: String
 @available(OSX 10.6, *)
-let textCheckingJobTitleKey: String
+let NSTextCheckingJobTitleKey: String
 @available(OSX 10.6, *)
-let textCheckingOrganizationKey: String
+let NSTextCheckingOrganizationKey: String
 @available(OSX 10.6, *)
-let textCheckingStreetKey: String
+let NSTextCheckingStreetKey: String
 @available(OSX 10.6, *)
-let textCheckingCityKey: String
+let NSTextCheckingCityKey: String
 @available(OSX 10.6, *)
-let textCheckingStateKey: String
+let NSTextCheckingStateKey: String
 @available(OSX 10.6, *)
-let textCheckingZIPKey: String
+let NSTextCheckingZIPKey: String
 @available(OSX 10.6, *)
-let textCheckingCountryKey: String
+let NSTextCheckingCountryKey: String
 @available(OSX 10.6, *)
-let textCheckingPhoneKey: String
+let NSTextCheckingPhoneKey: String
 @available(OSX 10.7, *)
-let textCheckingAirlineKey: String
+let NSTextCheckingAirlineKey: String
 @available(OSX 10.7, *)
-let textCheckingFlightKey: String
-extension TextCheckingResult {
-  class func orthographyCheckingResult(with range: NSRange, orthography: Orthography) -> TextCheckingResult
-  class func spell(range: NSRange) -> TextCheckingResult
-  class func grammarCheckingResult(with range: NSRange, details: [String]) -> TextCheckingResult
-  class func dateCheckingResult(with range: NSRange, date: Date) -> TextCheckingResult
-  class func dateCheckingResult(with range: NSRange, date: Date, timeZone: TimeZone, duration: TimeInterval) -> TextCheckingResult
-  class func addressCheckingResult(with range: NSRange, components: [String : String]) -> TextCheckingResult
-  class func linkCheckingResult(with range: NSRange, url: URL) -> TextCheckingResult
-  class func quoteCheckingResult(with range: NSRange, replacementString: String) -> TextCheckingResult
-  class func dashCheckingResult(with range: NSRange, replacementString: String) -> TextCheckingResult
-  class func replacementCheckingResult(with range: NSRange, replacementString: String) -> TextCheckingResult
-  class func correctionCheckingResult(with range: NSRange, replacementString: String) -> TextCheckingResult
+let NSTextCheckingFlightKey: String
+extension NSTextCheckingResult {
+  class func orthographyCheckingResult(with range: NSRange, orthography: NSOrthography) -> NSTextCheckingResult
+  class func spell(range: NSRange) -> NSTextCheckingResult
+  class func grammarCheckingResult(with range: NSRange, details: [String]) -> NSTextCheckingResult
+  class func dateCheckingResult(with range: NSRange, date: NSDate) -> NSTextCheckingResult
+  class func dateCheckingResult(with range: NSRange, date: NSDate, timeZone: NSTimeZone, duration: NSTimeInterval) -> NSTextCheckingResult
+  class func addressCheckingResult(with range: NSRange, components: [String : String]) -> NSTextCheckingResult
+  class func linkCheckingResult(with range: NSRange, url: NSURL) -> NSTextCheckingResult
+  class func quoteCheckingResult(with range: NSRange, replacementString: String) -> NSTextCheckingResult
+  class func dashCheckingResult(with range: NSRange, replacementString: String) -> NSTextCheckingResult
+  class func replacementCheckingResult(with range: NSRange, replacementString: String) -> NSTextCheckingResult
+  class func correctionCheckingResult(with range: NSRange, replacementString: String) -> NSTextCheckingResult
   @available(OSX 10.9, *)
-  class func correctionCheckingResult(with range: NSRange, replacementString: String, alternativeStrings: [String]) -> TextCheckingResult
+  class func correctionCheckingResult(with range: NSRange, replacementString: String, alternativeStrings: [String]) -> NSTextCheckingResult
   @available(OSX 10.7, *)
-  class func regularExpressionCheckingResult(withRanges ranges: RangePointer, count: Int, regularExpression: RegularExpression) -> TextCheckingResult
+  class func regularExpressionCheckingResult(withRanges ranges: NSRangePointer, count: Int, regularExpression: NSRegularExpression) -> NSTextCheckingResult
   @available(OSX 10.7, *)
-  class func phoneNumber(range: NSRange, phoneNumber: String) -> TextCheckingResult
+  class func phoneNumber(range: NSRange, phoneNumber: String) -> NSTextCheckingResult
   @available(OSX 10.7, *)
-  class func transitInformationCheckingResult(with range: NSRange, components: [String : String]) -> TextCheckingResult
+  class func transitInformationCheckingResult(with range: NSRange, components: [String : String]) -> NSTextCheckingResult
 }

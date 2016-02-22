@@ -18,10 +18,10 @@ class WebView : NSView {
   class func canShowMIMEType(ashtml MIMEType: String!) -> Bool
   class func mimeTypesShownAsHTML() -> [AnyObject]!
   class func setMIMETypesShownAsHTML(MIMETypes: [AnyObject]!)
-  class func url(from pasteboard: NSPasteboard!) -> URL!
+  class func url(from pasteboard: NSPasteboard!) -> NSURL!
   class func urlTitle(from pasteboard: NSPasteboard!) -> String!
   class func registerURLScheme(asLocal scheme: String!)
-  init!(frame: Rect, frameName: String!, groupName: String!)
+  init!(frame: NSRect, frameName: String!, groupName: String!)
   func close()
   var shouldCloseWithWindow: Bool
   unowned(unsafe) var uiDelegate: @sil_unmanaged WebUIDelegate!
@@ -39,7 +39,7 @@ class WebView : NSView {
   var textSizeMultiplier: Float
   var applicationNameForUserAgent: String!
   var customUserAgent: String!
-  func userAgent(for URL: URL!) -> String!
+  func userAgent(for URL: NSURL!) -> String!
   var supportsTextEncoding: Bool { get }
   var customTextEncodingName: String!
   var mediaStyle: String!
@@ -53,12 +53,12 @@ class WebView : NSView {
   var groupName: String!
   var estimatedProgress: Double { get }
   var isLoading: Bool { get }
-  func element(at point: Point) -> [Object : AnyObject]!
+  func element(at point: NSPoint) -> [NSObject : AnyObject]!
   var pasteboardTypesForSelection: [AnyObject]! { get }
   func writeSelection(pasteboardTypes types: [AnyObject]!, to pasteboard: NSPasteboard!)
-  func pasteboardTypes(forElement element: [Object : AnyObject]!) -> [AnyObject]!
-  func writeElement(element: [Object : AnyObject]!, withPasteboardTypes types: [AnyObject]!, to pasteboard: NSPasteboard!)
-  func moveDragCaret(to point: Point)
+  func pasteboardTypes(forElement element: [NSObject : AnyObject]!) -> [AnyObject]!
+  func writeElement(element: [NSObject : AnyObject]!, withPasteboardTypes types: [AnyObject]!, to pasteboard: NSPasteboard!)
+  func moveDragCaret(to point: NSPoint)
   func removeDragCaret()
   var drawsBackground: Bool
   var shouldUpdateWhileOffscreen: Bool
@@ -66,8 +66,8 @@ class WebView : NSView {
   var mainFrameDocument: DOMDocument! { get }
   var mainFrameTitle: String! { get }
   var mainFrameIcon: NSImage! { get }
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }
 extension WebView : NSUserInterfaceValidations {
@@ -98,7 +98,7 @@ extension WebView {
   func computedStyle(for element: DOMElement!, pseudoElement: String!) -> DOMCSSStyleDeclaration!
 }
 extension WebView {
-  func editableDOMRange(for point: Point) -> DOMRange!
+  func editableDOMRange(for point: NSPoint) -> DOMRange!
   func setSelectedDOMRange(range: DOMRange!, affinity selectionAffinity: NSSelectionAffinity)
   var selectedDOMRange: DOMRange! { get }
   var selectionAffinity: NSSelectionAffinity { get }
@@ -108,7 +108,7 @@ extension WebView {
   var smartInsertDeleteEnabled: Bool
   var isContinuousSpellCheckingEnabled: Bool
   var spellCheckerDocumentTag: Int { get }
-  var undoManager: UndoManager! { get }
+  var undoManager: NSUndoManager! { get }
   var editingDelegate: AnyObject!
   func styleDeclaration(withText text: String!) -> DOMCSSStyleDeclaration!
 }

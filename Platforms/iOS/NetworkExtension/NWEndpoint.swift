@@ -1,5 +1,5 @@
 
 @available(iOS 9.0, *)
-class NWEndpoint : Object {
+class NWEndpoint : NSObject {
   init()
 }

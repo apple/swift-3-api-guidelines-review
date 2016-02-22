@@ -5,9 +5,9 @@ enum UIProgressViewStyle : Int {
   case `default`
 }
 @available(tvOS 2.0, *)
-class UIProgressView : UIView, Coding {
+class UIProgressView : UIView, NSCoding {
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init(progressViewStyle style: UIProgressViewStyle)
   var progressViewStyle: UIProgressViewStyle
   var progress: Float
@@ -22,6 +22,6 @@ class UIProgressView : UIView, Coding {
   @available(tvOS 5.0, *)
   func setProgress(progress: Float, animated: Bool)
   @available(tvOS 9.0, *)
-  var observedProgress: Progress?
+  var observedProgress: NSProgress?
   convenience init()
 }

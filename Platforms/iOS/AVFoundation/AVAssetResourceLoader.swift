@@ -1,11 +1,11 @@
 
 @available(iOS 6.0, *)
-class AVAssetResourceLoader : Object {
+class AVAssetResourceLoader : NSObject {
   func setDelegate(delegate: AVAssetResourceLoaderDelegate?, queue delegateQueue: dispatch_queue_t?)
   weak var delegate: @sil_weak AVAssetResourceLoaderDelegate? { get }
   var delegateQueue: dispatch_queue_t? { get }
 }
-protocol AVAssetResourceLoaderDelegate : ObjectProtocol {
+protocol AVAssetResourceLoaderDelegate : NSObjectProtocol {
   @available(iOS 6.0, *)
   optional func resourceLoader(resourceLoader: AVAssetResourceLoader, shouldWaitForLoadingOfRequestedResource loadingRequest: AVAssetResourceLoadingRequest) -> Bool
   @available(iOS 8.0, *)
@@ -13,13 +13,13 @@ protocol AVAssetResourceLoaderDelegate : ObjectProtocol {
   @available(iOS 7.0, *)
   optional func resourceLoader(resourceLoader: AVAssetResourceLoader, didCancel loadingRequest: AVAssetResourceLoadingRequest)
   @available(iOS 8.0, *)
-  optional func resourceLoader(resourceLoader: AVAssetResourceLoader, shouldWaitForResponseTo authenticationChallenge: URLAuthenticationChallenge) -> Bool
+  optional func resourceLoader(resourceLoader: AVAssetResourceLoader, shouldWaitForResponseTo authenticationChallenge: NSURLAuthenticationChallenge) -> Bool
   @available(iOS 8.0, *)
-  optional func resourceLoader(resourceLoader: AVAssetResourceLoader, didCancel authenticationChallenge: URLAuthenticationChallenge)
+  optional func resourceLoader(resourceLoader: AVAssetResourceLoader, didCancel authenticationChallenge: NSURLAuthenticationChallenge)
 }
 @available(iOS 6.0, *)
-class AVAssetResourceLoadingRequest : Object {
-  var request: URLRequest { get }
+class AVAssetResourceLoadingRequest : NSObject {
+  var request: NSURLRequest { get }
   var isFinished: Bool { get }
   @available(iOS 7.0, *)
   var isCancelled: Bool { get }
@@ -28,41 +28,41 @@ class AVAssetResourceLoadingRequest : Object {
   @available(iOS 7.0, *)
   var dataRequest: AVAssetResourceLoadingDataRequest? { get }
   @available(iOS 7.0, *)
-  @NSCopying var response: URLResponse?
+  @NSCopying var response: NSURLResponse?
   @available(iOS 7.0, *)
-  @NSCopying var redirect: URLRequest?
+  @NSCopying var redirect: NSURLRequest?
   @available(iOS 7.0, *)
   func finishLoading()
-  func finishLoadingWithError(error: Error?)
+  func finishLoadingWithError(error: NSError?)
 }
 @available(iOS 8.0, *)
 class AVAssetResourceRenewalRequest : AVAssetResourceLoadingRequest {
 }
 @available(iOS 7.0, *)
-class AVAssetResourceLoadingContentInformationRequest : Object {
+class AVAssetResourceLoadingContentInformationRequest : NSObject {
   var contentType: String?
   var contentLength: Int64
   var isByteRangeAccessSupported: Bool
   @available(iOS 8.0, *)
-  @NSCopying var renewalDate: Date?
+  @NSCopying var renewalDate: NSDate?
 }
 @available(iOS 7.0, *)
-class AVAssetResourceLoadingDataRequest : Object {
+class AVAssetResourceLoadingDataRequest : NSObject {
   var requestedOffset: Int64 { get }
   var requestedLength: Int { get }
   @available(iOS 9.0, *)
   var requestsAllDataToEndOfResource: Bool { get }
   var currentOffset: Int64 { get }
-  func respond(with data: Data)
+  func respond(with data: NSData)
 }
 extension AVAssetResourceLoader {
   @available(iOS 9.0, *)
   var preloadsEligibleContentKeys: Bool
 }
 extension AVAssetResourceLoadingRequest {
-  func streamingContentKeyRequestData(forApp appIdentifier: Data, contentIdentifier: Data, options: [String : AnyObject]? = [:]) throws -> Data
+  func streamingContentKeyRequestData(forApp appIdentifier: NSData, contentIdentifier: NSData, options: [String : AnyObject]? = [:]) throws -> NSData
   @available(iOS 9.0, *)
-  func persistentContentKey(fromKeyVendorResponse keyVendorResponse: Data, options: [String : AnyObject]? = [:], error outError: ErrorPointer) -> Data
+  func persistentContentKey(fromKeyVendorResponse keyVendorResponse: NSData, options: [String : AnyObject]? = [:], error outError: NSErrorPointer) -> NSData
 }
 @available(iOS 9.0, *)
 let AVAssetResourceLoadingRequestStreamingContentKeyRequestRequiresPersistentKey: String

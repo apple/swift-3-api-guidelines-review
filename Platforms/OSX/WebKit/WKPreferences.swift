@@ -1,6 +1,6 @@
 
 @available(OSX 10.10, *)
-class WKPreferences : Object {
+class WKPreferences : NSObject {
   var minimumFontSize: CGFloat
   var javaScriptEnabled: Bool
   var javaScriptCanOpenWindowsAutomatically: Bool

@@ -39,7 +39,7 @@ let AVCaptureSessionPresetiFrame960x540: String
 @available(OSX 10.9, *)
 let AVCaptureSessionPresetiFrame1280x720: String
 @available(OSX 10.7, *)
-class AVCaptureSession : Object {
+class AVCaptureSession : NSObject {
   func canSetSessionPreset(preset: String!) -> Bool
   var sessionPreset: String!
   var inputs: [AnyObject]! { get }
@@ -79,7 +79,7 @@ enum AVVideoFieldMode : Int {
   case deinterlace
 }
 @available(OSX 10.7, *)
-class AVCaptureConnection : Object {
+class AVCaptureConnection : NSObject {
   @available(OSX 10.7, *)
   init!(inputPorts ports: [AnyObject]!, output: AVCaptureOutput!)
   @available(OSX 10.7, *)
@@ -112,7 +112,7 @@ class AVCaptureConnection : Object {
   init()
 }
 @available(OSX 10.7, *)
-class AVCaptureAudioChannel : Object {
+class AVCaptureAudioChannel : NSObject {
   var averagePowerLevel: Float { get }
   var peakHoldLevel: Float { get }
   @available(OSX 10.7, *)

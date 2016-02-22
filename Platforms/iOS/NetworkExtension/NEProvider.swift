@@ -20,7 +20,7 @@ enum NEProviderStopReason : Int {
   case connectionFailed
 }
 @available(iOS 9.0, *)
-class NEProvider : Object {
+class NEProvider : NSObject {
   @available(iOS 9.0, *)
   func sleep(completionHandler completionHandler: () -> Void)
   @available(iOS 9.0, *)

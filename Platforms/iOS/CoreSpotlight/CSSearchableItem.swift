@@ -4,18 +4,18 @@ let CSSearchableItemActionType: String
 @available(iOS 9.0, *)
 let CSSearchableItemActivityIdentifier: String
 @available(iOS 9.0, *)
-class CSSearchableItem : Object, SecureCoding, Copying {
+class CSSearchableItem : NSObject, NSSecureCoding, NSCopying {
   init(uniqueIdentifier: String?, domainIdentifier: String?, attributeSet: CSSearchableItemAttributeSet)
   var uniqueIdentifier: String
   var domainIdentifier: String?
-  @NSCopying var expirationDate: Date!
+  @NSCopying var expirationDate: NSDate!
   var attributeSet: CSSearchableItemAttributeSet
   init()
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

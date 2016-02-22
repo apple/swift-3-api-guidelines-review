@@ -55,10 +55,10 @@ struct UITableViewCellStateMask : OptionSetType {
   static var showingDeleteConfirmationMask: UITableViewCellStateMask { get }
 }
 @available(iOS 2.0, *)
-class UITableViewCell : UIView, Coding, UIGestureRecognizerDelegate {
+class UITableViewCell : UIView, NSCoding, UIGestureRecognizerDelegate {
   @available(iOS 3.0, *)
   init(style: UITableViewCellStyle, reuseIdentifier: String?)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 3.0, *)
   var imageView: UIImageView? { get }
   @available(iOS 3.0, *)

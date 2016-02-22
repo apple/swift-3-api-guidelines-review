@@ -1,6 +1,6 @@
 
 @available(tvOS 8.0, *)
-enum DateIntervalFormatterStyle : UInt {
+enum NSDateIntervalFormatterStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case noStyle
@@ -10,14 +10,14 @@ enum DateIntervalFormatterStyle : UInt {
   case fullStyle
 }
 @available(tvOS 8.0, *)
-class DateIntervalFormatter : Formatter {
-  @NSCopying var locale: Locale!
-  @NSCopying var calendar: Calendar!
-  @NSCopying var timeZone: TimeZone!
+class NSDateIntervalFormatter : NSFormatter {
+  @NSCopying var locale: NSLocale!
+  @NSCopying var calendar: NSCalendar!
+  @NSCopying var timeZone: NSTimeZone!
   var dateTemplate: String!
-  var dateStyle: DateIntervalFormatterStyle
-  var timeStyle: DateIntervalFormatterStyle
-  func string(from fromDate: Date, to toDate: Date) -> String
+  var dateStyle: NSDateIntervalFormatterStyle
+  var timeStyle: NSDateIntervalFormatterStyle
+  func string(from fromDate: NSDate, to toDate: NSDate) -> String
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

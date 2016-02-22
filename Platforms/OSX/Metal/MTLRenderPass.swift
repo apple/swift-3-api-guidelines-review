@@ -24,7 +24,7 @@ struct MTLClearColor {
   init(red: Double, green: Double, blue: Double, alpha: Double)
 }
 @available(OSX 10.11, *)
-class MTLRenderPassAttachmentDescriptor : Object, Copying {
+class MTLRenderPassAttachmentDescriptor : NSObject, NSCopying {
   var texture: MTLTexture?
   var level: Int
   var slice: Int
@@ -37,7 +37,7 @@ class MTLRenderPassAttachmentDescriptor : Object, Copying {
   var storeAction: MTLStoreAction
   init()
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class MTLRenderPassColorAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {
@@ -55,12 +55,12 @@ class MTLRenderPassStencilAttachmentDescriptor : MTLRenderPassAttachmentDescript
   init()
 }
 @available(OSX 10.11, *)
-class MTLRenderPassColorAttachmentDescriptorArray : Object {
+class MTLRenderPassColorAttachmentDescriptorArray : NSObject {
   subscript(attachmentIndex: Int) -> MTLRenderPassColorAttachmentDescriptor!
   init()
 }
 @available(OSX 10.11, *)
-class MTLRenderPassDescriptor : Object, Copying {
+class MTLRenderPassDescriptor : NSObject, NSCopying {
   var colorAttachments: MTLRenderPassColorAttachmentDescriptorArray { get }
   @NSCopying var depthAttachment: MTLRenderPassDepthAttachmentDescriptor!
   @NSCopying var stencilAttachment: MTLRenderPassStencilAttachmentDescriptor!
@@ -69,6 +69,6 @@ class MTLRenderPassDescriptor : Object, Copying {
   var renderTargetArrayLength: Int
   init()
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 func MTLClearColorMake(red: Double, _ green: Double, _ blue: Double, _ alpha: Double) -> MTLClearColor

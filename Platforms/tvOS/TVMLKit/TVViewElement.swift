@@ -26,7 +26,7 @@ enum TVElementResettableProperty : Int {
   case autoHighlightIdentifier
 }
 @available(tvOS 9.0, *)
-class TVViewElement : Object, Copying {
+class TVViewElement : NSObject, NSCopying {
   var elementIdentifier: String { get }
   var elementName: String { get }
   weak var parent: @sil_weak TVViewElement? { get }
@@ -42,5 +42,5 @@ class TVViewElement : Object, Copying {
   func dispatchEvent(withName eventName: String, canBubble: Bool, cancellable isCancellable: Bool, extraInfo: [String : AnyObject]?, completion: ((Bool, Bool) -> Void)? = nil)
   init()
   @available(tvOS 9.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

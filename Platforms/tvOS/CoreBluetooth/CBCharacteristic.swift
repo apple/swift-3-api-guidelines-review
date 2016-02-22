@@ -19,7 +19,7 @@ struct CBCharacteristicProperties : OptionSetType {
 class CBCharacteristic : CBAttribute {
   unowned(unsafe) var service: @sil_unmanaged CBService { get }
   var properties: CBCharacteristicProperties { get }
-  var value: Data? { get }
+  var value: NSData? { get }
   var descriptors: [CBDescriptor]? { get }
   @available(tvOS, introduced=5.0, deprecated=8.0)
   var isBroadcasted: Bool { get }
@@ -40,6 +40,6 @@ class CBMutableCharacteristic : CBCharacteristic {
   @available(tvOS 7.0, *)
   var subscribedCentrals: [CBCentral]? { get }
   var properties: CBCharacteristicProperties
-  var value: Data?
+  var value: NSData?
   var descriptors: [CBDescriptor]?
 }

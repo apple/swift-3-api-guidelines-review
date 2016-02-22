@@ -1,13 +1,13 @@
 
 let GKGameModelMaxScore: Int
 let GKGameModelMinScore: Int
-protocol GKGameModelUpdate : ObjectProtocol {
+protocol GKGameModelUpdate : NSObjectProtocol {
   var value: Int { get set }
 }
-protocol GKGameModelPlayer : ObjectProtocol {
+protocol GKGameModelPlayer : NSObjectProtocol {
   var playerId: Int { get }
 }
-protocol GKGameModel : ObjectProtocol, Copying {
+protocol GKGameModel : NSObjectProtocol, NSCopying {
   var players: [GKGameModelPlayer]? { get }
   var activePlayer: GKGameModelPlayer? { get }
   func setGameModel(gameModel: GKGameModel)

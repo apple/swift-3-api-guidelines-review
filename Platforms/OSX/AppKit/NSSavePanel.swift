@@ -35,9 +35,9 @@ struct __SPFlags {
 }
 typealias _SPFlags = __SPFlags
 class NSSavePanel : NSPanel {
-  @NSCopying var url: URL? { get }
+  @NSCopying var url: NSURL? { get }
   @available(OSX 10.6, *)
-  @NSCopying var directoryURL: URL?
+  @NSCopying var directoryURL: NSURL?
   var allowedFileTypes: [String]?
   var allowsOtherFileTypes: Bool
   var accessoryView: NSView?
@@ -66,26 +66,26 @@ class NSSavePanel : NSPanel {
   @available(OSX 10.6, *)
   func begin(completionHandler handler: (Int) -> Void)
   func runModal() -> Int
-  init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
-  convenience init(contentRect: Rect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
+  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
   @available(OSX 10.10, *)
   convenience init(contentViewController: NSViewController)
   convenience init()
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   convenience init?(windowRef: UnsafeMutablePointer<Void>)
 }
-protocol NSOpenSavePanelDelegate : ObjectProtocol {
+protocol NSOpenSavePanelDelegate : NSObjectProtocol {
   @available(OSX 10.6, *)
-  optional func panel(sender: AnyObject, shouldEnable url: URL) -> Bool
+  optional func panel(sender: AnyObject, shouldEnable url: NSURL) -> Bool
   @available(OSX 10.6, *)
-  optional func panel(sender: AnyObject, validate url: URL) throws
+  optional func panel(sender: AnyObject, validate url: NSURL) throws
   @available(OSX 10.6, *)
-  optional func panel(sender: AnyObject, didChangeToDirectoryURL url: URL?)
+  optional func panel(sender: AnyObject, didChangeToDirectoryURL url: NSURL?)
   optional func panel(sender: AnyObject, userEnteredFilename filename: String, confirmed okFlag: Bool) -> String?
   optional func panel(sender: AnyObject, willExpand expanding: Bool)
   optional func panelSelectionDidChange(sender: AnyObject?)
 }
-extension Object {
+extension NSObject {
 }
 extension NSSavePanel {
 }

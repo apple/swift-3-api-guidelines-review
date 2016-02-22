@@ -1,6 +1,6 @@
 
 @available(iOS 2.0, *)
-class UILabel : UIView, Coding {
+class UILabel : UIView, NSCoding {
   var text: String?
   var font: UIFont!
   var textColor: UIColor!
@@ -9,7 +9,7 @@ class UILabel : UIView, Coding {
   var textAlignment: NSTextAlignment
   var lineBreakMode: NSLineBreakMode
   @available(iOS 6.0, *)
-  @NSCopying var attributedText: AttributedString?
+  @NSCopying var attributedText: NSAttributedString?
   var highlightedTextColor: UIColor?
   var isHighlighted: Bool
   var isUserInteractionEnabled: Bool
@@ -26,6 +26,6 @@ class UILabel : UIView, Coding {
   @available(iOS 6.0, *)
   var preferredMaxLayoutWidth: CGFloat
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }

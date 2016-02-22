@@ -1,6 +1,6 @@
 
 @available(iOS 7.1, *)
-class MPPlayableContentManager : Object {
+class MPPlayableContentManager : NSObject {
   weak var dataSource: @sil_weak MPPlayableContentDataSource?
   weak var delegate: @sil_weak MPPlayableContentDelegate?
   @available(iOS 8.4, *)

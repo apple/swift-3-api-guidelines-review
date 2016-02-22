@@ -1,18 +1,18 @@
 
 @available(watchOS 2.0, *)
-class NSPropertyDescription : Object, Coding, Copying {
+class NSPropertyDescription : NSObject, NSCoding, NSCopying {
   unowned(unsafe) var entity: @sil_unmanaged NSEntityDescription { get }
   var name: String
   var isOptional: Bool
   var isTransient: Bool
-  var validationPredicates: [Predicate] { get }
+  var validationPredicates: [NSPredicate] { get }
   var validationWarnings: [AnyObject] { get }
-  func setValidationPredicates(validationPredicates: [Predicate]?, withValidationWarnings validationWarnings: [String]?)
-  var userInfo: [Object : AnyObject]?
+  func setValidationPredicates(validationPredicates: [NSPredicate]?, withValidationWarnings validationWarnings: [String]?)
+  var userInfo: [NSObject : AnyObject]?
   @available(watchOS 2.0, *)
   var isIndexed: Bool
   @available(watchOS 2.0, *)
-  @NSCopying var versionHash: Data { get }
+  @NSCopying var versionHash: NSData { get }
   @available(watchOS 2.0, *)
   var versionHashModifier: String?
   @available(watchOS 2.0, *)
@@ -23,10 +23,10 @@ class NSPropertyDescription : Object, Coding, Copying {
   var renamingIdentifier: String?
   init()
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 struct __propertyDescriptionFlags {
   var _isReadOnly: UInt32

@@ -7,7 +7,7 @@ enum CKReferenceAction : UInt {
   case deleteSelf
 }
 @available(iOS 8.0, *)
-class CKReference : Object, SecureCoding, Copying {
+class CKReference : NSObject, NSSecureCoding, NSCopying {
   init(recordID: CKRecordID, action: CKReferenceAction)
   convenience init(record: CKRecord, action: CKReferenceAction)
   var referenceAction: CKReferenceAction { get }
@@ -15,8 +15,8 @@ class CKReference : Object, SecureCoding, Copying {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

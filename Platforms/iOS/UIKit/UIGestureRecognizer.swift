@@ -11,7 +11,7 @@ enum UIGestureRecognizerState : Int {
   static var recognized: UIGestureRecognizerState { get }
 }
 @available(iOS 3.2, *)
-class UIGestureRecognizer : Object {
+class UIGestureRecognizer : NSObject {
   init(target: AnyObject?, action: Selector)
   func addTarget(target: AnyObject, action: Selector)
   func removeTarget(target: AnyObject?, action: Selector)
@@ -22,16 +22,16 @@ class UIGestureRecognizer : Object {
   var delaysTouchesBegan: Bool
   var delaysTouchesEnded: Bool
   @available(iOS 9.0, *)
-  var allowedTouchTypes: [Number]
+  var allowedTouchTypes: [NSNumber]
   @available(iOS 9.0, *)
-  var allowedPressTypes: [Number]
+  var allowedPressTypes: [NSNumber]
   func require(toFail otherGestureRecognizer: UIGestureRecognizer)
   func location(in view: UIView?) -> CGPoint
   func numberOfTouches() -> Int
   func locationOf(touch touchIndex: Int, in view: UIView?) -> CGPoint
   convenience init()
 }
-protocol UIGestureRecognizerDelegate : ObjectProtocol {
+protocol UIGestureRecognizerDelegate : NSObjectProtocol {
   @available(iOS 3.2, *)
   optional func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool
   @available(iOS 3.2, *)

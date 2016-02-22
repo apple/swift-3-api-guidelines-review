@@ -6,14 +6,14 @@ enum CNPostalAddressFormatterStyle : Int {
   case mailingAddress
 }
 @available(iOS 9.0, *)
-class CNPostalAddressFormatter : Formatter {
+class CNPostalAddressFormatter : NSFormatter {
   class func string(from postalAddress: CNPostalAddress, style: CNPostalAddressFormatterStyle) -> String
-  class func attributedString(from postalAddress: CNPostalAddress, style: CNPostalAddressFormatterStyle, withDefaultAttributes attributes: [Object : AnyObject] = [:]) -> AttributedString
+  class func attributedString(from postalAddress: CNPostalAddress, style: CNPostalAddressFormatterStyle, withDefaultAttributes attributes: [NSObject : AnyObject] = [:]) -> NSAttributedString
   var style: CNPostalAddressFormatterStyle
   func string(from postalAddress: CNPostalAddress) -> String
-  func attributedString(from postalAddress: CNPostalAddress, withDefaultAttributes attributes: [Object : AnyObject] = [:]) -> AttributedString
+  func attributedString(from postalAddress: CNPostalAddress, withDefaultAttributes attributes: [NSObject : AnyObject] = [:]) -> NSAttributedString
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 let CNPostalAddressPropertyAttribute: String
 let CNPostalAddressLocalizedPropertyNameAttribute: String

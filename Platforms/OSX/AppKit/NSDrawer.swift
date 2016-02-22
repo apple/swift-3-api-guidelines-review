@@ -8,54 +8,54 @@ enum NSDrawerState : UInt {
   case closingState
 }
 class NSDrawer : NSResponder, NSAccessibilityElementProtocol, NSAccessibility {
-  init(contentSize: Size, preferredEdge edge: RectEdge)
+  init(contentSize: NSSize, preferredEdge edge: NSRectEdge)
   unowned(unsafe) var parentWindow: @sil_unmanaged NSWindow?
   var contentView: NSView?
-  var preferredEdge: RectEdge
+  var preferredEdge: NSRectEdge
   unowned(unsafe) var delegate: @sil_unmanaged NSDrawerDelegate?
   func open()
-  func open(on edge: RectEdge)
+  func open(on edge: NSRectEdge)
   func close()
   func open(sender: AnyObject?)
   func close(sender: AnyObject?)
   func toggle(sender: AnyObject?)
   var state: Int { get }
-  var edge: RectEdge { get }
-  var contentSize: Size
-  var minContentSize: Size
-  var maxContentSize: Size
+  var edge: NSRectEdge { get }
+  var contentSize: NSSize
+  var minContentSize: NSSize
+  var maxContentSize: NSSize
   var leadingOffset: CGFloat
   var trailingOffset: CGFloat
   init()
-  init?(coder: Coder)
-  func accessibilityFrame() -> Rect
+  init?(coder: NSCoder)
+  func accessibilityFrame() -> NSRect
   func accessibilityParent() -> AnyObject?
   func isAccessibilityFocused() -> Bool
   func accessibilityIdentifier() -> String
   @available(OSX 10.10, *)
-  func accessibilityLayoutPoint(forScreenPoint point: Point) -> Point
+  func accessibilityLayoutPoint(forScreenPoint point: NSPoint) -> NSPoint
   @available(OSX 10.10, *)
-  func accessibilityLayoutSize(forScreenSize size: Size) -> Size
+  func accessibilityLayoutSize(forScreenSize size: NSSize) -> NSSize
   @available(OSX 10.10, *)
-  func accessibilityScreenPoint(forLayoutPoint point: Point) -> Point
+  func accessibilityScreenPoint(forLayoutPoint point: NSPoint) -> NSPoint
   @available(OSX 10.10, *)
-  func accessibilityScreenSize(forLayoutSize size: Size) -> Size
+  func accessibilityScreenSize(forLayoutSize size: NSSize) -> NSSize
   @available(OSX 10.10, *)
   func accessibilityCell(forColumn column: Int, row: Int) -> AnyObject?
   @available(OSX 10.10, *)
-  func accessibilityAttributedString(for range: NSRange) -> AttributedString?
+  func accessibilityAttributedString(for range: NSRange) -> NSAttributedString?
   @available(OSX 10.10, *)
   func accessibilityRange(forLine line: Int) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityString(for range: NSRange) -> String?
   @available(OSX 10.10, *)
-  func accessibilityRange(forPosition point: Point) -> NSRange
+  func accessibilityRange(forPosition point: NSPoint) -> NSRange
   @available(OSX 10.10, *)
   func accessibilityRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityFrame(for range: NSRange) -> Rect
+  func accessibilityFrame(for range: NSRange) -> NSRect
   @available(OSX 10.10, *)
-  func accessibilityRTF(for range: NSRange) -> Data?
+  func accessibilityRTF(for range: NSRange) -> NSData?
   @available(OSX 10.10, *)
   func accessibilityStyleRange(for index: Int) -> NSRange
   @available(OSX 10.10, *)
@@ -89,21 +89,21 @@ class NSDrawer : NSResponder, NSAccessibilityElementProtocol, NSAccessibility {
   @available(OSX 10.10, *)
   func setAccessibilityElement(accessibilityElement: Bool)
   @available(OSX 10.10, *)
-  func setAccessibilityFrame(accessibilityFrame: Rect)
+  func setAccessibilityFrame(accessibilityFrame: NSRect)
   @available(OSX 10.10, *)
   func setAccessibilityFocused(accessibilityFocused: Bool)
   @available(OSX 10.10, *)
-  func accessibilityActivationPoint() -> Point
+  func accessibilityActivationPoint() -> NSPoint
   @available(OSX 10.10, *)
-  func setAccessibilityActivationPoint(accessibilityActivationPoint: Point)
+  func setAccessibilityActivationPoint(accessibilityActivationPoint: NSPoint)
   @available(OSX 10.10, *)
   func accessibilityTopLevelUIElement() -> AnyObject?
   @available(OSX 10.10, *)
   func setAccessibilityTopLevelUIElement(accessibilityTopLevelUIElement: AnyObject?)
   @available(OSX 10.10, *)
-  func accessibilityURL() -> URL?
+  func accessibilityURL() -> NSURL?
   @available(OSX 10.10, *)
-  func setAccessibilityURL(accessibilityURL: URL?)
+  func setAccessibilityURL(accessibilityURL: NSURL?)
   @available(OSX 10.10, *)
   func accessibilityValue() -> AnyObject?
   @available(OSX 10.10, *)
@@ -373,9 +373,9 @@ class NSDrawer : NSResponder, NSAccessibilityElementProtocol, NSAccessibility {
   @available(OSX 10.10, *)
   func setAccessibilityVerticalScrollBar(accessibilityVerticalScrollBar: AnyObject?)
   @available(OSX 10.10, *)
-  func accessibilityAllowedValues() -> [Number]?
+  func accessibilityAllowedValues() -> [NSNumber]?
   @available(OSX 10.10, *)
-  func setAccessibilityAllowedValues(accessibilityAllowedValues: [Number]?)
+  func setAccessibilityAllowedValues(accessibilityAllowedValues: [NSNumber]?)
   @available(OSX 10.10, *)
   func accessibilityLabelUIElements() -> [AnyObject]?
   @available(OSX 10.10, *)
@@ -497,9 +497,9 @@ class NSDrawer : NSResponder, NSAccessibilityElementProtocol, NSAccessibility {
   @available(OSX 10.10, *)
   func setAccessibilitySelectedTextRange(accessibilitySelectedTextRange: NSRange)
   @available(OSX 10.10, *)
-  func accessibilitySelectedTextRanges() -> [Value]?
+  func accessibilitySelectedTextRanges() -> [NSValue]?
   @available(OSX 10.10, *)
-  func setAccessibilitySelectedTextRanges(accessibilitySelectedTextRanges: [Value]?)
+  func setAccessibilitySelectedTextRanges(accessibilitySelectedTextRanges: [NSValue]?)
   @available(OSX 10.10, *)
   func accessibilityToolbarButton() -> AnyObject?
   @available(OSX 10.10, *)
@@ -552,14 +552,14 @@ class NSDrawer : NSResponder, NSAccessibilityElementProtocol, NSAccessibility {
 extension NSWindow {
   var drawers: [NSDrawer]? { get }
 }
-protocol NSDrawerDelegate : ObjectProtocol {
+protocol NSDrawerDelegate : NSObjectProtocol {
   optional func drawerShouldOpen(sender: NSDrawer) -> Bool
   optional func drawerShouldClose(sender: NSDrawer) -> Bool
-  optional func drawerWillResizeContents(sender: NSDrawer, to contentSize: Size) -> Size
-  optional func drawerWillOpen(notification: Notification)
-  optional func drawerDidOpen(notification: Notification)
-  optional func drawerWillClose(notification: Notification)
-  optional func drawerDidClose(notification: Notification)
+  optional func drawerWillResizeContents(sender: NSDrawer, to contentSize: NSSize) -> NSSize
+  optional func drawerWillOpen(notification: NSNotification)
+  optional func drawerDidOpen(notification: NSNotification)
+  optional func drawerWillClose(notification: NSNotification)
+  optional func drawerDidClose(notification: NSNotification)
 }
 let NSDrawerWillOpenNotification: String
 let NSDrawerDidOpenNotification: String

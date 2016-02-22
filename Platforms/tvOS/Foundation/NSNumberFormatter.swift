@@ -1,24 +1,24 @@
 
-enum NumberFormatterBehavior : UInt {
+enum NSNumberFormatterBehavior : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case behaviorDefault
   case behavior10_4
 }
-class NumberFormatter : Formatter {
+class NSNumberFormatter : NSFormatter {
   @available(tvOS 8.0, *)
-  var formattingContext: FormattingContext
+  var formattingContext: NSFormattingContext
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, range rangep: UnsafeMutablePointer<NSRange>) throws
-  func string(from number: Number) -> String?
-  func number(from string: String) -> Number?
+  func string(from number: NSNumber) -> String?
+  func number(from string: String) -> NSNumber?
   @available(tvOS 4.0, *)
-  class func localizedString(from num: Number, number nstyle: NumberFormatterStyle) -> String
-  class func defaultFormatterBehavior() -> NumberFormatterBehavior
-  class func setDefaultFormatterBehavior(behavior: NumberFormatterBehavior)
-  var numberStyle: NumberFormatterStyle
-  @NSCopying var locale: Locale!
+  class func localizedString(from num: NSNumber, number nstyle: NSNumberFormatterStyle) -> String
+  class func defaultFormatterBehavior() -> NSNumberFormatterBehavior
+  class func setDefaultFormatterBehavior(behavior: NSNumberFormatterBehavior)
+  var numberStyle: NSNumberFormatterStyle
+  @NSCopying var locale: NSLocale!
   var generatesDecimalNumbers: Bool
-  var formatterBehavior: NumberFormatterBehavior
+  var formatterBehavior: NSNumberFormatterBehavior
   var negativeFormat: String!
   var textAttributesForNegativeValues: [String : AnyObject]?
   var positiveFormat: String!
@@ -53,18 +53,18 @@ class NumberFormatter : Formatter {
   var exponentSymbol: String!
   var groupingSize: Int
   var secondaryGroupingSize: Int
-  @NSCopying var multiplier: Number?
+  @NSCopying var multiplier: NSNumber?
   var formatWidth: Int
   var paddingCharacter: String!
-  var paddingPosition: NumberFormatterPadPosition
-  var roundingMode: NumberFormatterRoundingMode
-  @NSCopying var roundingIncrement: Number!
+  var paddingPosition: NSNumberFormatterPadPosition
+  var roundingMode: NSNumberFormatterRoundingMode
+  @NSCopying var roundingIncrement: NSNumber!
   var minimumIntegerDigits: Int
   var maximumIntegerDigits: Int
   var minimumFractionDigits: Int
   var maximumFractionDigits: Int
-  @NSCopying var minimum: Number?
-  @NSCopying var maximum: Number?
+  @NSCopying var minimum: NSNumber?
+  @NSCopying var maximum: NSNumber?
   @available(tvOS 2.0, *)
   var currencyGroupingSeparator: String!
   @available(tvOS 2.0, *)
@@ -78,9 +78,9 @@ class NumberFormatter : Formatter {
   @available(tvOS 2.0, *)
   var isPartialStringValidationEnabled: Bool
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
-enum NumberFormatterStyle : UInt {
+enum NSNumberFormatterStyle : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case noStyle
@@ -98,7 +98,7 @@ enum NumberFormatterStyle : UInt {
   @available(tvOS 9.0, *)
   case currencyAccountingStyle
 }
-enum NumberFormatterPadPosition : UInt {
+enum NSNumberFormatterPadPosition : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case beforePrefix
@@ -106,7 +106,7 @@ enum NumberFormatterPadPosition : UInt {
   case beforeSuffix
   case afterSuffix
 }
-enum NumberFormatterRoundingMode : UInt {
+enum NSNumberFormatterRoundingMode : UInt {
   init?(rawValue: UInt)
   var rawValue: UInt { get }
   case roundCeiling

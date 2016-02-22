@@ -16,35 +16,35 @@ struct CKSubscriptionOptions : OptionSetType {
   static var firesOnce: CKSubscriptionOptions { get }
 }
 @available(tvOS 8.0, *)
-class CKSubscription : Object, SecureCoding, Copying {
-  init(coder aDecoder: Coder)
-  convenience init(recordType: String, predicate: Predicate, options subscriptionOptions: CKSubscriptionOptions = [])
-  init(recordType: String, predicate: Predicate, subscriptionID: String, options subscriptionOptions: CKSubscriptionOptions = [])
+class CKSubscription : NSObject, NSSecureCoding, NSCopying {
+  init(coder aDecoder: NSCoder)
+  convenience init(recordType: String, predicate: NSPredicate, options subscriptionOptions: CKSubscriptionOptions = [])
+  init(recordType: String, predicate: NSPredicate, subscriptionID: String, options subscriptionOptions: CKSubscriptionOptions = [])
   convenience init(zoneID: CKRecordZoneID, options subscriptionOptions: CKSubscriptionOptions = [])
   init(zoneID: CKRecordZoneID, subscriptionID: String, options subscriptionOptions: CKSubscriptionOptions = [])
   var subscriptionID: String { get }
   var subscriptionType: CKSubscriptionType { get }
   var recordType: String? { get }
-  @NSCopying var predicate: Predicate? { get }
+  @NSCopying var predicate: NSPredicate? { get }
   var subscriptionOptions: CKSubscriptionOptions { get }
   @NSCopying var notificationInfo: CKNotificationInfo?
   @NSCopying var zoneID: CKRecordZoneID?
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
-class CKNotificationInfo : Object, SecureCoding, Copying {
+class CKNotificationInfo : NSObject, NSSecureCoding, NSCopying {
   var desiredKeys: [String]?
   init()
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

@@ -15,12 +15,12 @@ enum NSHapticFeedbackPerformanceTime : UInt {
   case now
   case drawCompleted
 }
-protocol NSHapticFeedbackPerformer : ObjectProtocol {
+protocol NSHapticFeedbackPerformer : NSObjectProtocol {
   @available(OSX 10.11, *)
   func perform(pattern: NSHapticFeedbackPattern, performanceTime: NSHapticFeedbackPerformanceTime)
 }
 @available(OSX 10.11, *)
-class NSHapticFeedbackManager : Object {
+class NSHapticFeedbackManager : NSObject {
   class func defaultPerformer() -> NSHapticFeedbackPerformer
   init()
 }

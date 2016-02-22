@@ -12,7 +12,7 @@ enum UIButtonType : Int {
   static var roundedRect: UIButtonType { get }
 }
 @available(tvOS 2.0, *)
-class UIButton : UIControl, Coding {
+class UIButton : UIControl, NSCoding {
   convenience init(type buttonType: UIButtonType)
   var contentEdgeInsets: UIEdgeInsets
   var titleEdgeInsets: UIEdgeInsets
@@ -29,21 +29,21 @@ class UIButton : UIControl, Coding {
   func setImage(image: UIImage?, for state: UIControlState)
   func setBackgroundImage(image: UIImage?, for state: UIControlState)
   @available(tvOS 6.0, *)
-  func setAttributedTitle(title: AttributedString?, for state: UIControlState)
+  func setAttributedTitle(title: NSAttributedString?, for state: UIControlState)
   func title(for state: UIControlState) -> String?
   func titleColor(for state: UIControlState) -> UIColor?
   func titleShadowColor(for state: UIControlState) -> UIColor?
   func image(for state: UIControlState) -> UIImage?
   func backgroundImage(for state: UIControlState) -> UIImage?
   @available(tvOS 6.0, *)
-  func attributedTitle(for state: UIControlState) -> AttributedString?
+  func attributedTitle(for state: UIControlState) -> NSAttributedString?
   var currentTitle: String? { get }
   var currentTitleColor: UIColor { get }
   var currentTitleShadowColor: UIColor? { get }
   var currentImage: UIImage? { get }
   var currentBackgroundImage: UIImage? { get }
   @available(tvOS 6.0, *)
-  var currentAttributedTitle: AttributedString? { get }
+  var currentAttributedTitle: NSAttributedString? { get }
   @available(tvOS 3.0, *)
   var titleLabel: UILabel? { get }
   @available(tvOS 3.0, *)
@@ -53,7 +53,7 @@ class UIButton : UIControl, Coding {
   func titleRect(forContentRect contentRect: CGRect) -> CGRect
   func imageRect(forContentRect contentRect: CGRect) -> CGRect
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
 extension UIButton {

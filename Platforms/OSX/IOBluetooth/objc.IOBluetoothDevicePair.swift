@@ -1,5 +1,5 @@
 
-class IOBluetoothDevicePair : Object {
+class IOBluetoothDevicePair : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged AnyObject!
   convenience init!(device: IOBluetoothDevice!)
   func start() -> IOReturn
@@ -10,7 +10,7 @@ class IOBluetoothDevicePair : Object {
   func replyUserConfirmation(reply: Bool)
   init()
 }
-protocol IOBluetoothDevicePairDelegate : ObjectProtocol {
+protocol IOBluetoothDevicePairDelegate : NSObjectProtocol {
   optional func devicePairingStarted(sender: AnyObject!)
   optional func devicePairingConnecting(sender: AnyObject!)
   optional func devicePairingPINCodeRequest(sender: AnyObject!)

@@ -7,15 +7,15 @@ struct UICollisionBehaviorMode : OptionSetType {
   static var boundaries: UICollisionBehaviorMode { get }
   static var everything: UICollisionBehaviorMode { get }
 }
-protocol UICollisionBehaviorDelegate : ObjectProtocol {
+protocol UICollisionBehaviorDelegate : NSObjectProtocol {
   @available(iOS 7.0, *)
   optional func collisionBehavior(behavior: UICollisionBehavior, beganContactFor item1: UIDynamicItem, with item2: UIDynamicItem, at p: CGPoint)
   @available(iOS 7.0, *)
   optional func collisionBehavior(behavior: UICollisionBehavior, endedContactFor item1: UIDynamicItem, with item2: UIDynamicItem)
   @available(iOS 7.0, *)
-  optional func collisionBehavior(behavior: UICollisionBehavior, beganContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: Copying?, at p: CGPoint)
+  optional func collisionBehavior(behavior: UICollisionBehavior, beganContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, at p: CGPoint)
   @available(iOS 7.0, *)
-  optional func collisionBehavior(behavior: UICollisionBehavior, endedContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: Copying?)
+  optional func collisionBehavior(behavior: UICollisionBehavior, endedContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?)
 }
 @available(iOS 7.0, *)
 class UICollisionBehavior : UIDynamicBehavior {
@@ -26,11 +26,11 @@ class UICollisionBehavior : UIDynamicBehavior {
   var collisionMode: UICollisionBehaviorMode
   var translatesReferenceBoundsIntoBoundary: Bool
   func setTranslatesReferenceBoundsIntoBoundaryWith(insets: UIEdgeInsets)
-  func addBoundary(identifier identifier: Copying, for bezierPath: UIBezierPath)
-  func addBoundary(identifier identifier: Copying, from p1: CGPoint, to p2: CGPoint)
-  func boundary(withIdentifier identifier: Copying) -> UIBezierPath?
-  func removeBoundary(identifier identifier: Copying)
-  var boundaryIdentifiers: [Copying]? { get }
+  func addBoundary(identifier identifier: NSCopying, for bezierPath: UIBezierPath)
+  func addBoundary(identifier identifier: NSCopying, from p1: CGPoint, to p2: CGPoint)
+  func boundary(withIdentifier identifier: NSCopying) -> UIBezierPath?
+  func removeBoundary(identifier identifier: NSCopying)
+  var boundaryIdentifiers: [NSCopying]? { get }
   func removeAllBoundaries()
   weak var collisionDelegate: @sil_weak UICollisionBehaviorDelegate?
   convenience init()

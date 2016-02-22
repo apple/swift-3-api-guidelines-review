@@ -15,7 +15,7 @@ extension AVMovieTrack {
 @available(OSX 10.11, *)
 class AVMutableMovieTrack : AVMovieTrack {
   @NSCopying var mediaDataStorage: AVMediaDataStorage?
-  @NSCopying var sampleReferenceBaseURL: URL?
+  @NSCopying var sampleReferenceBaseURL: NSURL?
   var isEnabled: Bool
   var alternateGroupID: Int
   var isModified: Bool

@@ -14,21 +14,21 @@ enum MDLTextureChannelEncoding : Int {
   case float32
 }
 @available(tvOS 9.0, *)
-class MDLTexture : Object, MDLNamed {
+class MDLTexture : NSObject, MDLNamed {
   convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: Bundle?)
+  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
   convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: Bundle?)
+  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
   class func irradianceTextureCube(with texture: MDLTexture, name: String?, dimensions: vector_int2) -> Self
   class func irradianceTextureCube(with texture: MDLTexture, name: String?, dimensions: vector_int2, roughness: Float) -> Self
-  init(data pixelData: Data?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
-  func write(to URL: URL) -> Bool
-  func write(to nsurl: URL, type: CFString) -> Bool
+  init(data pixelData: NSData?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
+  func write(to URL: NSURL) -> Bool
+  func write(to nsurl: NSURL, type: CFString) -> Bool
   func imageFromTexture() -> Unmanaged<CGImage>?
-  func texelDataWithTopLeftOrigin() -> Data?
-  func texelDataWithBottomLeftOrigin() -> Data?
-  func texelDataWithTopLeftOrigin(atMipLevel level: Int, create: Bool) -> Data?
-  func texelDataWithBottomLeftOrigin(atMipLevel level: Int, create: Bool) -> Data?
+  func texelDataWithTopLeftOrigin() -> NSData?
+  func texelDataWithBottomLeftOrigin() -> NSData?
+  func texelDataWithTopLeftOrigin(atMipLevel level: Int, create: Bool) -> NSData?
+  func texelDataWithBottomLeftOrigin(atMipLevel level: Int, create: Bool) -> NSData?
   var dimensions: vector_int2 { get }
   var rowStride: Int { get }
   var channelCount: Int { get }
@@ -41,13 +41,13 @@ class MDLTexture : Object, MDLNamed {
 }
 @available(tvOS 9.0, *)
 class MDLURLTexture : MDLTexture {
-  init(url URL: URL, name: String?)
-  @NSCopying var url: URL
+  init(url URL: NSURL, name: String?)
+  @NSCopying var url: NSURL
   convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: Bundle?)
+  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
   convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: Bundle?)
-  init(data pixelData: Data?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
+  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
+  init(data pixelData: NSData?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
   convenience init()
 }
 @available(tvOS 9.0, *)
@@ -57,10 +57,10 @@ class MDLCheckerboardTexture : MDLTexture {
   var color1: CGColor?
   var color2: CGColor?
   convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: Bundle?)
+  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
   convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: Bundle?)
-  init(data pixelData: Data?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
+  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
+  init(data pixelData: NSData?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
   convenience init()
 }
 @available(tvOS 9.0, *)
@@ -80,10 +80,10 @@ class MDLSkyCubeTexture : MDLTexture {
   var saturation: Float
   var highDynamicRangeCompression: vector_float2
   convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: Bundle?)
+  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
   convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: Bundle?)
-  init(data pixelData: Data?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
+  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
+  init(data pixelData: NSData?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
   convenience init()
 }
 @available(tvOS 9.0, *)
@@ -91,10 +91,10 @@ class MDLColorSwatchTexture : MDLTexture {
   init(colorTemperatureGradientFrom colorTemperature1: Float, toColorTemperature colorTemperature2: Float, name: String?, textureDimensions: vector_int2)
   init(colorGradientFrom color1: CGColor, to color2: CGColor, name: String?, textureDimensions: vector_int2)
   convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: Bundle?)
+  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
   convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: Bundle?)
-  init(data pixelData: Data?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
+  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
+  init(data pixelData: NSData?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
   convenience init()
 }
 @available(tvOS 9.0, *)
@@ -102,19 +102,19 @@ class MDLNoiseTexture : MDLTexture {
   init(vectorNoiseWithSmoothness smoothness: Float, name: String?, textureDimensions: vector_int2, channelEncoding: MDLTextureChannelEncoding)
   init(scalarNoiseWithSmoothness smoothness: Float, name: String?, textureDimensions: vector_int2, channelCount: Int32, channelEncoding: MDLTextureChannelEncoding, grayscale: Bool)
   convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: Bundle?)
+  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
   convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: Bundle?)
-  init(data pixelData: Data?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
+  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
+  init(data pixelData: NSData?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
   convenience init()
 }
 @available(tvOS 9.0, *)
 class MDLNormalMapTexture : MDLTexture {
   init(byGeneratingNormalMapWith sourceTexture: MDLTexture, name: String?, smoothness: Float, contrast: Float)
   convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: Bundle?)
+  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
   convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: Bundle?)
-  init(data pixelData: Data?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
+  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
+  init(data pixelData: NSData?, topLeftOrigin: Bool, name: String?, dimensions: vector_int2, rowStride: Int, channelCount: Int, channelEncoding: MDLTextureChannelEncoding, isCube: Bool)
   convenience init()
 }

@@ -1,5 +1,5 @@
 
-protocol GKAgentDelegate : ObjectProtocol {
+protocol GKAgentDelegate : NSObjectProtocol {
   @available(tvOS 9.0, *)
   optional func agentWillUpdate(agent: GKAgent)
   @available(tvOS 9.0, *)
@@ -21,6 +21,6 @@ class GKAgent2D : GKAgent {
   var position: vector_float2
   var velocity: vector_float2 { get }
   var rotation: Float
-  func update(deltaTime seconds: TimeInterval)
+  func update(deltaTime seconds: NSTimeInterval)
   init()
 }

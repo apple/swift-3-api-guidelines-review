@@ -1,5 +1,5 @@
 
-class NSToolbarItem : Object, Copying, NSValidatedUserInterfaceItem {
+class NSToolbarItem : NSObject, NSCopying, NSValidatedUserInterfaceItem {
   init(itemIdentifier: String)
   var itemIdentifier: String { get }
   unowned(unsafe) var toolbar: @sil_unmanaged NSToolbar? { get }
@@ -13,14 +13,14 @@ class NSToolbarItem : Object, Copying, NSValidatedUserInterfaceItem {
   var isEnabled: Bool
   var image: NSImage?
   var view: NSView?
-  var minSize: Size
-  var maxSize: Size
+  var minSize: NSSize
+  var maxSize: NSSize
   var visibilityPriority: Int
   func validate()
   var autovalidates: Bool
   var allowsDuplicatesInToolbar: Bool { get }
   convenience init()
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 struct __tbiFlags {
   var viewRespondsToIsEnabled: UInt32
@@ -56,7 +56,7 @@ var NSToolbarItemVisibilityPriorityStandard: Int { get }
 var NSToolbarItemVisibilityPriorityLow: Int { get }
 var NSToolbarItemVisibilityPriorityHigh: Int { get }
 var NSToolbarItemVisibilityPriorityUser: Int { get }
-extension Object {
+extension NSObject {
   class func validate(theItem: NSToolbarItem) -> Bool
   func validate(theItem: NSToolbarItem) -> Bool
 }

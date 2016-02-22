@@ -1,12 +1,12 @@
 
 @available(OSX 10.8, *)
-class CLPlacemark : Object, Copying, SecureCoding {
+class CLPlacemark : NSObject, NSCopying, NSSecureCoding {
   init(placemark: CLPlacemark)
   @NSCopying var location: CLLocation? { get }
   @NSCopying var region: CLRegion? { get }
   @available(OSX 10.11, *)
-  @NSCopying var timeZone: TimeZone? { get }
-  var addressDictionary: [Object : AnyObject]? { get }
+  @NSCopying var timeZone: NSTimeZone? { get }
+  var addressDictionary: [NSObject : AnyObject]? { get }
   var name: String? { get }
   var thoroughfare: String? { get }
   var subThoroughfare: String? { get }
@@ -22,10 +22,10 @@ class CLPlacemark : Object, Copying, SecureCoding {
   var areasOfInterest: [String]? { get }
   init()
   @available(OSX 10.8, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

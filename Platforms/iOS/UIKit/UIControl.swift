@@ -68,12 +68,12 @@ class UIControl : UIView {
   func cancelTracking(event: UIEvent?)
   func addTarget(target: AnyObject?, action: Selector, for controlEvents: UIControlEvents)
   func removeTarget(target: AnyObject?, action: Selector, for controlEvents: UIControlEvents)
-  func allTargets() -> Set<Object>
+  func allTargets() -> Set<NSObject>
   func allControlEvents() -> UIControlEvents
   func actions(forTarget target: AnyObject?, forControlEvent controlEvent: UIControlEvents) -> [String]?
   func sendAction(action: Selector, to target: AnyObject?, for event: UIEvent?)
   func sendActions(for controlEvents: UIControlEvents)
   init(frame: CGRect)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }

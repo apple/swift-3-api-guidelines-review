@@ -11,9 +11,9 @@ enum NSColorSpaceModel : Int {
   case NSIndexedColorSpaceModel
   case NSPatternColorSpaceModel
 }
-class NSColorSpace : Object, SecureCoding {
-  init?(iccProfileData iccData: Data)
-  var iccProfileData: Data? { get }
+class NSColorSpace : NSObject, NSSecureCoding {
+  init?(iccProfileData iccData: NSData)
+  var iccProfileData: NSData? { get }
   init?(colorSyncProfile prof: UnsafeMutablePointer<Void>)
   var colorSyncProfile: UnsafeMutablePointer<Void> { get }
   @available(OSX 10.5, *)
@@ -39,6 +39,6 @@ class NSColorSpace : Object, SecureCoding {
   class func availableColorSpaces(with model: NSColorSpaceModel) -> [NSColorSpace]
   init()
   class func supportsSecureCoding() -> Bool
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

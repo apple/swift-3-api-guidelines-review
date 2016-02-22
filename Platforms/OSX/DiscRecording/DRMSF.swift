@@ -1,5 +1,5 @@
 
-class DRMSF : Number {
+class DRMSF : NSNumber {
   init!(frames: UInt32)
   init!(string: String!)
   func minutes() -> UInt32
@@ -11,7 +11,7 @@ class DRMSF : Number {
   func description() -> String!
   func description(withFormat format: String!) -> String!
   func isEqual(to otherDRMSF: DRMSF!) -> Bool
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   init(char value: Int8)
   init(unsignedChar value: UInt8)
   init(short value: Int16)

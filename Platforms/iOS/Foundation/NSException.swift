@@ -1,42 +1,42 @@
 
-let genericException: String
-let rangeException: String
-let invalidArgumentException: String
-let internalInconsistencyException: String
-let mallocException: String
-let objectInaccessibleException: String
-let objectNotAvailableException: String
-let destinationInvalidException: String
-let portTimeoutException: String
-let invalidSendPortException: String
-let invalidReceivePortException: String
-let portSendException: String
-let portReceiveException: String
-let oldStyleException: String
-class Exception : Object, Copying, Coding {
-  init(name aName: String, reason aReason: String?, userInfo aUserInfo: [Object : AnyObject]? = [:])
+let NSGenericException: String
+let NSRangeException: String
+let NSInvalidArgumentException: String
+let NSInternalInconsistencyException: String
+let NSMallocException: String
+let NSObjectInaccessibleException: String
+let NSObjectNotAvailableException: String
+let NSDestinationInvalidException: String
+let NSPortTimeoutException: String
+let NSInvalidSendPortException: String
+let NSInvalidReceivePortException: String
+let NSPortSendException: String
+let NSPortReceiveException: String
+let NSOldStyleException: String
+class NSException : NSObject, NSCopying, NSCoding {
+  init(name aName: String, reason aReason: String?, userInfo aUserInfo: [NSObject : AnyObject]? = [:])
   var name: String { get }
   var reason: String? { get }
-  var userInfo: [Object : AnyObject]? { get }
+  var userInfo: [NSObject : AnyObject]? { get }
   @available(iOS 2.0, *)
-  var callStackReturnAddresses: [Number] { get }
+  var callStackReturnAddresses: [NSNumber] { get }
   @available(iOS 4.0, *)
   var callStackSymbols: [String] { get }
   func raise()
   convenience init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
-extension Exception {
+extension NSException {
   class func raise(name: String, format: String, arguments argList: CVaListPointer)
 }
-typealias UncaughtExceptionHandler = (Exception) -> Void
-func getUncaughtExceptionHandler() -> (@convention(c) (Exception) -> Void)?
-func setUncaughtExceptionHandler(_: (@convention(c) (Exception) -> Void)?)
+typealias NSUncaughtExceptionHandler = (NSException) -> Void
+func NSGetUncaughtExceptionHandler() -> (@convention(c) (NSException) -> Void)?
+func NSSetUncaughtExceptionHandler(_: (@convention(c) (NSException) -> Void)?)
 @available(iOS 4.0, *)
-let assertionHandlerKey: String
-class AssertionHandler : Object {
-  class func current() -> AssertionHandler
+let NSAssertionHandlerKey: String
+class NSAssertionHandler : NSObject {
+  class func current() -> NSAssertionHandler
   init()
 }

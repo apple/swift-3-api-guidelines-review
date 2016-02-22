@@ -14,16 +14,16 @@ let WebActionElementKey: String
 let WebActionButtonKey: String
 let WebActionModifierFlagsKey: String
 let WebActionOriginalURLKey: String
-protocol WebPolicyDecisionListener : ObjectProtocol {
+protocol WebPolicyDecisionListener : NSObjectProtocol {
   func use()
   func download()
   func ignore()
 }
-protocol WebPolicyDelegate : ObjectProtocol {
+protocol WebPolicyDelegate : NSObjectProtocol {
   @available(OSX 10.0, *)
-  optional func webView(webView: WebView!, decidePolicyForNavigationAction actionInformation: [Object : AnyObject]!, request: URLRequest!, frame: WebFrame!, decisionListener listener: WebPolicyDecisionListener!)
+  optional func webView(webView: WebView!, decidePolicyForNavigationAction actionInformation: [NSObject : AnyObject]!, request: NSURLRequest!, frame: WebFrame!, decisionListener listener: WebPolicyDecisionListener!)
   @available(OSX 10.0, *)
-  optional func webView(webView: WebView!, decidePolicyForNewWindowAction actionInformation: [Object : AnyObject]!, request: URLRequest!, newFrameName frameName: String!, decisionListener listener: WebPolicyDecisionListener!)
-  optional func webView(webView: WebView!, decidePolicyForMIMEType type: String!, request: URLRequest!, frame: WebFrame!, decisionListener listener: WebPolicyDecisionListener!)
-  optional func webView(webView: WebView!, unableToImplementPolicyWithError error: Error!, frame: WebFrame!)
+  optional func webView(webView: WebView!, decidePolicyForNewWindowAction actionInformation: [NSObject : AnyObject]!, request: NSURLRequest!, newFrameName frameName: String!, decisionListener listener: WebPolicyDecisionListener!)
+  optional func webView(webView: WebView!, decidePolicyForMIMEType type: String!, request: NSURLRequest!, frame: WebFrame!, decisionListener listener: WebPolicyDecisionListener!)
+  optional func webView(webView: WebView!, unableToImplementPolicyWithError error: NSError!, frame: WebFrame!)
 }

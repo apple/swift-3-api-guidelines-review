@@ -1,5 +1,5 @@
 
-typealias AVB17221ACMPInterfaceCompletion = (Error?, AVB17221ACMPMessage) -> Void
+typealias AVB17221ACMPInterfaceCompletion = (NSError?, AVB17221ACMPMessage) -> Void
 protocol AVB17221ACMPClient {
   @available(OSX 10.8, *)
   func acmpDidReceiveCommand(message: AVB17221ACMPMessage, on anInterface: AVB17221ACMPInterface) -> Bool

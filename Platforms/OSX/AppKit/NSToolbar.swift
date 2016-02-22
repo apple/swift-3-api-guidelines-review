@@ -14,7 +14,7 @@ enum NSToolbarSizeMode : UInt {
   case regular
   case small
 }
-class NSToolbar : Object {
+class NSToolbar : NSObject {
   init(identifier: String)
   func insertItem(itemIdentifier itemIdentifier: String, at index: Int)
   func removeItem(at index: Int)
@@ -72,13 +72,13 @@ struct __tbFlags {
   init()
   init(allowsUserCustomization: UInt32, autosavesUsingIdentifier: UInt32, initialConfigurationDone: UInt32, doesNotAttachToMenuBar: UInt32, delegateDefaultItemIdentifiers: UInt32, delegateAllowedItemIdentifiers: UInt32, delegateItemWithItemIdentifier: UInt32, delegateNotificationsEnabled: UInt32, prefersToBeShown: UInt32, loadItemsImmediately: UInt32, currentItemsContainsPlaceholder: UInt32, customizationPanelIsRunning: UInt32, usesCustomSheetWidth: UInt32, clickAndDragPerformsCustomization: UInt32, showsNoContextMenu: UInt32, currentlyLoadingPlaceholders: UInt32, delegateItemWithItemIdentifier2: UInt32, inGlobalWindow: UInt32, hasOwnedFullscreenViewController: UInt32, usesServicesItems: UInt32, usingFSMetrics: UInt32, keyboardLoopNeedsUpdating: UInt32, showHideDuringConfigurationChangeDisabled: UInt32, displayMode: UInt32, sizeMode: UInt32, doNotShowBaselineSeparator: UInt32, hideWithoutResizingWindowHint: UInt32, autovalidatesItemsDisabled: UInt32, inAutovalidation: UInt32, loadedMetrics: UInt32)
 }
-protocol NSToolbarDelegate : ObjectProtocol {
+protocol NSToolbarDelegate : NSObjectProtocol {
   optional func toolbar(toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: String, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem?
   optional func toolbarDefaultItemIdentifiers(toolbar: NSToolbar) -> [String]
   optional func toolbarAllowedItemIdentifiers(toolbar: NSToolbar) -> [String]
   optional func toolbarSelectableItemIdentifiers(toolbar: NSToolbar) -> [String]
-  optional func toolbarWillAddItem(notification: Notification)
-  optional func toolbarDidRemoveItem(notification: Notification)
+  optional func toolbarWillAddItem(notification: NSNotification)
+  optional func toolbarDidRemoveItem(notification: NSNotification)
 }
 let NSToolbarWillAddItemNotification: String
 let NSToolbarDidRemoveItemNotification: String

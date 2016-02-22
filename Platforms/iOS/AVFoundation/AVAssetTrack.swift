@@ -1,12 +1,12 @@
 
 @available(iOS 4.0, *)
-class AVAssetTrack : Object, Copying, AVAsynchronousKeyValueLoading {
+class AVAssetTrack : NSObject, NSCopying, AVAsynchronousKeyValueLoading {
   weak var asset: @sil_weak AVAsset? { get }
   var trackID: CMPersistentTrackID { get }
   @available(iOS 4.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 4.0, *)
-  func statusOfValue(forKey key: String, error outError: ErrorPointer) -> AVKeyValueStatus
+  func statusOfValue(forKey key: String, error outError: NSErrorPointer) -> AVKeyValueStatus
   @available(iOS 4.0, *)
   func loadValuesAsynchronously(forKeys keys: [String], completionHandler handler: (() -> Void)? = nil)
 }

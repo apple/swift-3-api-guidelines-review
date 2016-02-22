@@ -2,21 +2,21 @@
 typealias CLHeadingComponentValue = Double
 let kCLHeadingFilterNone: CLLocationDegrees
 @available(OSX 10.7, *)
-class CLHeading : Object, Copying, SecureCoding {
+class CLHeading : NSObject, NSCopying, NSSecureCoding {
   var magneticHeading: CLLocationDirection { get }
   var trueHeading: CLLocationDirection { get }
   var headingAccuracy: CLLocationDirection { get }
   var x: CLHeadingComponentValue { get }
   var y: CLHeadingComponentValue { get }
   var z: CLHeadingComponentValue { get }
-  @NSCopying var timestamp: Date { get }
+  @NSCopying var timestamp: NSDate { get }
   var description: String { get }
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.7, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }

@@ -28,5 +28,5 @@ class DOMHTMLAnchorElement : DOMHTMLElement {
   @available(OSX 10.5, *)
   var text: String! { get }
   @available(OSX 10.5, *)
-  @NSCopying var absoluteLinkURL: URL! { get }
+  @NSCopying var absoluteLinkURL: NSURL! { get }
 }

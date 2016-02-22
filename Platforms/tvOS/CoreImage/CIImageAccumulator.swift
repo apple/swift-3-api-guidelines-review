@@ -1,6 +1,6 @@
 
 @available(tvOS 9.0, *)
-class CIImageAccumulator : Object {
+class CIImageAccumulator : NSObject {
   init(extent: CGRect, format: CIFormat)
   @available(tvOS 9.0, *)
   init(extent: CGRect, format: CIFormat, colorSpace: CGColorSpace)

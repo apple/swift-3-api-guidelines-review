@@ -5,11 +5,11 @@ class ABNewPersonViewController : UIViewController {
   var addressBook: ABAddressBook?
   var displayedPerson: ABRecord?
   var parentGroup: ABRecord?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
-protocol ABNewPersonViewControllerDelegate : ObjectProtocol {
+protocol ABNewPersonViewControllerDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
   func newPersonViewController(newPersonView: ABNewPersonViewController, didCompleteWithNewPerson person: ABRecord?)
 }

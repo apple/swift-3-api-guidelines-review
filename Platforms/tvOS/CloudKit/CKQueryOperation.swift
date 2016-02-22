@@ -1,13 +1,13 @@
 
 @available(tvOS 8.0, *)
-class CKQueryCursor : Object, Copying, SecureCoding {
+class CKQueryCursor : NSObject, NSCopying, NSSecureCoding {
   @available(tvOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 8.0, *)
 let CKQueryOperationMaximumResults: Int
@@ -22,5 +22,5 @@ class CKQueryOperation : CKDatabaseOperation {
   var resultsLimit: Int
   var desiredKeys: [String]?
   var recordFetchedBlock: ((CKRecord) -> Void)?
-  var queryCompletionBlock: ((CKQueryCursor?, Error?) -> Void)?
+  var queryCompletionBlock: ((CKQueryCursor?, NSError?) -> Void)?
 }

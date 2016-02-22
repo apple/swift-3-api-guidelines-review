@@ -1,6 +1,6 @@
 
 @available(iOS 8.0, *)
-class CKRecordID : Object, SecureCoding, Copying {
+class CKRecordID : NSObject, NSSecureCoding, NSCopying {
   convenience init(recordName: String)
   init(recordName: String, zoneID: CKRecordZoneID)
   var recordName: String { get }
@@ -8,8 +8,8 @@ class CKRecordID : Object, SecureCoding, Copying {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

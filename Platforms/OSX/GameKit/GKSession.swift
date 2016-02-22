@@ -1,6 +1,6 @@
 
 @available(OSX, introduced=10.8, deprecated=10.10, message="Use MCSession from the MultipeerConnectivity framework instead")
-class GKSession : Object {
+class GKSession : NSObject {
   @available(OSX, introduced=10.8, deprecated=10.10)
   init!(sessionID: String!, displayName name: String!, sessionMode mode: GKSessionMode)
   unowned(unsafe) var delegate: @sil_unmanaged GKSessionDelegate!
@@ -10,14 +10,14 @@ class GKSession : Object {
   var sessionMode: GKSessionMode { get }
   var peerID: String! { get }
   var isAvailable: Bool
-  var disconnectTimeout: TimeInterval
+  var disconnectTimeout: NSTimeInterval
   func displayName(forPeer peerID: String!) -> String!
   @available(OSX, introduced=10.8, deprecated=10.10)
-  func send(data: Data!, toPeers peers: [AnyObject]!, with mode: GKSendDataMode) throws
+  func send(data: NSData!, toPeers peers: [AnyObject]!, with mode: GKSendDataMode) throws
   @available(OSX, introduced=10.8, deprecated=10.10)
-  func sendData(toAllPeers data: Data!, with mode: GKSendDataMode) throws
+  func sendData(toAllPeers data: NSData!, with mode: GKSendDataMode) throws
   func setDataReceiveHandler(handler: AnyObject!, withContext context: UnsafeMutablePointer<Void>)
-  func connect(toPeer peerID: String!, withTimeout timeout: TimeInterval)
+  func connect(toPeer peerID: String!, withTimeout timeout: NSTimeInterval)
   func cancelConnect(toPeer peerID: String!)
   func acceptConnection(fromPeer peerID: String!) throws
   func denyConnection(fromPeer peerID: String!)

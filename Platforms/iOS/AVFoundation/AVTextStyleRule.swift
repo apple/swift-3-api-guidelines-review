@@ -1,6 +1,6 @@
 
 @available(iOS 6.0, *)
-class AVTextStyleRule : Object, Copying {
+class AVTextStyleRule : NSObject, NSCopying {
   class func propertyList(for textStyleRules: [AVTextStyleRule]) -> AnyObject
   class func textStyleRules(fromPropertyList plist: AnyObject) -> [AVTextStyleRule]?
   convenience init?(textMarkupAttributes: [String : AnyObject] = [:])
@@ -8,5 +8,5 @@ class AVTextStyleRule : Object, Copying {
   var textMarkupAttributes: [String : AnyObject] { get }
   var textSelector: String? { get }
   @available(iOS 6.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

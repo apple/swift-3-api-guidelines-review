@@ -8,7 +8,7 @@ enum PKAddPaymentPassError : Int {
   case systemCancelled
 }
 @available(iOS 9.0, *)
-class PKAddPaymentPassRequestConfiguration : Object {
+class PKAddPaymentPassRequestConfiguration : NSObject {
   init?(encryptionScheme: String)
   var encryptionScheme: String { get }
   var cardholderName: String?
@@ -19,25 +19,25 @@ class PKAddPaymentPassRequestConfiguration : Object {
   convenience init()
 }
 @available(iOS 9.0, *)
-class PKAddPaymentPassRequest : Object {
+class PKAddPaymentPassRequest : NSObject {
   init()
-  @NSCopying var encryptedPassData: Data?
-  @NSCopying var activationData: Data?
-  @NSCopying var ephemeralPublicKey: Data?
-  @NSCopying var wrappedKey: Data?
+  @NSCopying var encryptedPassData: NSData?
+  @NSCopying var activationData: NSData?
+  @NSCopying var ephemeralPublicKey: NSData?
+  @NSCopying var wrappedKey: NSData?
 }
-protocol PKAddPaymentPassViewControllerDelegate : ObjectProtocol {
+protocol PKAddPaymentPassViewControllerDelegate : NSObjectProtocol {
   @available(iOS 9.0, *)
-  func addPaymentPassViewController(controller: PKAddPaymentPassViewController, generateRequestWithCertificateChain certificates: [Data], nonce: Data, nonceSignature: Data, completionHandler handler: (PKAddPaymentPassRequest) -> Void)
+  func addPaymentPassViewController(controller: PKAddPaymentPassViewController, generateRequestWithCertificateChain certificates: [NSData], nonce: NSData, nonceSignature: NSData, completionHandler handler: (PKAddPaymentPassRequest) -> Void)
   @available(iOS 9.0, *)
-  func addPaymentPassViewController(controller: PKAddPaymentPassViewController, didFinishAdding pass: PKPaymentPass?, error: Error?)
+  func addPaymentPassViewController(controller: PKAddPaymentPassViewController, didFinishAdding pass: PKPaymentPass?, error: NSError?)
 }
 @available(iOS 9.0, *)
 class PKAddPaymentPassViewController : UIViewController {
   class func canAddPaymentPass() -> Bool
   init?(requestConfiguration configuration: PKAddPaymentPassRequestConfiguration, delegate: PKAddPaymentPassViewControllerDelegate?)
   weak var delegate: @sil_weak PKAddPaymentPassViewControllerDelegate?
-  convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }

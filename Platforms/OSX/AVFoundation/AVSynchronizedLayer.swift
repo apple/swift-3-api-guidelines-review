@@ -5,5 +5,5 @@ class AVSynchronizedLayer : CALayer {
   var playerItem: AVPlayerItem?
   init()
   init(layer: AnyObject)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

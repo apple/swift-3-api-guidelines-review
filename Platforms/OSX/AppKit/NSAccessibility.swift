@@ -1,5 +1,5 @@
 
-extension Object {
+extension NSObject {
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilityAttributeNames() -> [AnyObject]
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
@@ -40,8 +40,8 @@ extension Object {
   class func accessibilityIsIgnored() -> Bool
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use isAccessibilityElement instead")
   func accessibilityIsIgnored() -> Bool
-  class func accessibilityHitTest(point: Point) -> AnyObject?
-  func accessibilityHitTest(point: Point) -> AnyObject?
+  class func accessibilityHitTest(point: NSPoint) -> AnyObject?
+  func accessibilityHitTest(point: NSPoint) -> AnyObject?
   var accessibilityFocusedUIElement: AnyObject? { get }
   class func accessibilityIndexOf(child child: AnyObject) -> Int
   func accessibilityIndexOf(child child: AnyObject) -> Int
@@ -64,16 +64,16 @@ extension NSWorkspace {
 }
 @available(OSX 10.10, *)
 let NSWorkspaceAccessibilityDisplayOptionsDidChangeNotification: String
-extension Object {
+extension NSObject {
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilitySetOverrideValue(value: AnyObject?, forAttribute attribute: String) -> Bool
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilitySetOverrideValue(value: AnyObject?, forAttribute attribute: String) -> Bool
 }
 @available(OSX 10.10, *)
-func NSAccessibilityFrameInView(parentView: NSView, _ frame: Rect) -> Rect
+func NSAccessibilityFrameInView(parentView: NSView, _ frame: NSRect) -> NSRect
 @available(OSX 10.10, *)
-func NSAccessibilityPointInView(parentView: NSView, _ point: Point) -> Point
+func NSAccessibilityPointInView(parentView: NSView, _ point: NSPoint) -> NSPoint
 func NSAccessibilitySetMayContainProtectedContent(flag: Bool) -> Bool
 func NSAccessibilityRoleDescription(role: String, _ subrole: String?) -> String?
 func NSAccessibilityRoleDescriptionForUIElement(element: AnyObject) -> String?

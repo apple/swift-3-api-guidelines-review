@@ -10,8 +10,8 @@ class NSLevelIndicator : NSControl {
   var numberOfTickMarks: Int
   var numberOfMajorTickMarks: Int
   func tickMarkValue(at index: Int) -> Double
-  func rectOfTickMark(at index: Int) -> Rect
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  func rectOfTickMark(at index: Int) -> NSRect
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }

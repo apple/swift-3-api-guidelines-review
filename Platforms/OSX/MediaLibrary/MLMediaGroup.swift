@@ -1,5 +1,5 @@
 
-class MLMediaGroup : Object {
+class MLMediaGroup : NSObject {
   unowned(unsafe) var mediaLibrary: @sil_unmanaged MLMediaLibrary? { get }
   unowned(unsafe) var parent: @sil_unmanaged MLMediaGroup? { get }
   var mediaSourceIdentifier: String { get }
@@ -8,8 +8,8 @@ class MLMediaGroup : Object {
   var typeIdentifier: String { get }
   var attributes: [String : AnyObject] { get }
   var childGroups: [MLMediaGroup]? { get }
-  @NSCopying var url: URL? { get }
-  @NSCopying var modificationDate: Date? { get }
+  @NSCopying var url: NSURL? { get }
+  @NSCopying var modificationDate: NSDate? { get }
   var mediaObjects: [MLMediaObject]? { get }
   init()
 }

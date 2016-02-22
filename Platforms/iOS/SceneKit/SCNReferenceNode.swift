@@ -8,9 +8,9 @@ enum SCNReferenceLoadingPolicy : Int {
 }
 @available(iOS 9.0, *)
 class SCNReferenceNode : SCNNode {
-  init?(url referenceURL: URL)
-  init?(coder aDecoder: Coder)
-  @NSCopying var referenceURL: URL
+  init?(url referenceURL: NSURL)
+  init?(coder aDecoder: NSCoder)
+  @NSCopying var referenceURL: NSURL
   var loadingPolicy: SCNReferenceLoadingPolicy
   func load()
   func unload()

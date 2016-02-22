@@ -1,4 +1,4 @@
 
 @available(tvOS 8.0, *)
-protocol GKSavedGameListener : ObjectProtocol {
+protocol GKSavedGameListener : NSObjectProtocol {
 }

@@ -1,12 +1,12 @@
 
 @available(OSX 10.11, *)
-class NEIPv6Settings : Object, SecureCoding, Copying {
+class NEIPv6Settings : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.11, *)
-  init(addresses: [String], networkPrefixLengths: [Number])
+  init(addresses: [String], networkPrefixLengths: [NSNumber])
   @available(OSX 10.11, *)
   var addresses: [String] { get }
   @available(OSX 10.11, *)
-  var networkPrefixLengths: [Number] { get }
+  var networkPrefixLengths: [NSNumber] { get }
   @available(OSX 10.11, *)
   var includedRoutes: [NEIPv6Route]?
   @available(OSX 10.11, *)
@@ -15,19 +15,19 @@ class NEIPv6Settings : Object, SecureCoding, Copying {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
-class NEIPv6Route : Object, SecureCoding, Copying {
+class NEIPv6Route : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.11, *)
-  init(destinationAddress address: String, networkPrefixLength: Number)
+  init(destinationAddress address: String, networkPrefixLength: NSNumber)
   @available(OSX 10.11, *)
   var destinationAddress: String { get }
   @available(OSX 10.11, *)
-  var destinationNetworkPrefixLength: Number { get }
+  var destinationNetworkPrefixLength: NSNumber { get }
   @available(OSX 10.11, *)
   var gatewayAddress: String?
   @available(OSX 10.11, *)
@@ -36,8 +36,8 @@ class NEIPv6Route : Object, SecureCoding, Copying {
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.11, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

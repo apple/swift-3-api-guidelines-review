@@ -4,9 +4,9 @@ class SCNLayer : CAOpenGLLayer, SCNSceneRenderer, SCNTechniqueSupport {
   var scene: SCNScene?
   init()
   init(layer: AnyObject)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   @available(OSX 10.10, *)
-  var sceneTime: TimeInterval
+  var sceneTime: NSTimeInterval
   @available(OSX 10.8, *)
   unowned(unsafe) var delegate: @sil_unmanaged SCNSceneRendererDelegate?
   @available(OSX 10.8, *)
@@ -56,7 +56,7 @@ class SCNLayer : CAOpenGLLayer, SCNSceneRenderer, SCNTechniqueSupport {
   @available(OSX 10.11, *)
   var audioListener: SCNNode?
   @available(OSX, introduced=10.8, deprecated=10.10)
-  var currentTime: TimeInterval
+  var currentTime: NSTimeInterval
   @available(OSX 10.10, *)
   @NSCopying var technique: SCNTechnique?
 }

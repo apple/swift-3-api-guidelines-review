@@ -1,24 +1,24 @@
 
 @available(tvOS 2.2, *)
-class AVAudioPlayer : Object {
-  init(contentsOf url: URL) throws
-  init(data: Data) throws
+class AVAudioPlayer : NSObject {
+  init(contentsOf url: NSURL) throws
+  init(data: NSData) throws
   @available(tvOS 7.0, *)
-  init(contentsOf url: URL, fileTypeHint utiString: String?) throws
+  init(contentsOf url: NSURL, fileTypeHint utiString: String?) throws
   @available(tvOS 7.0, *)
-  init(data: Data, fileTypeHint utiString: String?) throws
+  init(data: NSData, fileTypeHint utiString: String?) throws
   func prepareToPlay() -> Bool
   func play() -> Bool
   @available(tvOS 4.0, *)
-  func play(atTime time: TimeInterval) -> Bool
+  func play(atTime time: NSTimeInterval) -> Bool
   func pause()
   func stop()
   var isPlaying: Bool { get }
   var numberOfChannels: Int { get }
-  var duration: TimeInterval { get }
+  var duration: NSTimeInterval { get }
   unowned(unsafe) var delegate: @sil_unmanaged AVAudioPlayerDelegate?
-  var url: URL? { get }
-  var data: Data? { get }
+  var url: NSURL? { get }
+  var data: NSData? { get }
   @available(tvOS 4.0, *)
   var pan: Float
   var volume: Float
@@ -26,9 +26,9 @@ class AVAudioPlayer : Object {
   var enableRate: Bool
   @available(tvOS 5.0, *)
   var rate: Float
-  var currentTime: TimeInterval
+  var currentTime: NSTimeInterval
   @available(tvOS 4.0, *)
-  var deviceCurrentTime: TimeInterval { get }
+  var deviceCurrentTime: NSTimeInterval { get }
   var numberOfLoops: Int
   @available(tvOS 4.0, *)
   var settings: [String : AnyObject] { get }
@@ -37,14 +37,14 @@ class AVAudioPlayer : Object {
   func peakPower(forChannel channelNumber: Int) -> Float
   func averagePower(forChannel channelNumber: Int) -> Float
   @available(tvOS 7.0, *)
-  var channelAssignments: [Number]?
+  var channelAssignments: [NSNumber]?
   init()
 }
-protocol AVAudioPlayerDelegate : ObjectProtocol {
+protocol AVAudioPlayerDelegate : NSObjectProtocol {
   @available(tvOS 2.2, *)
   optional func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool)
   @available(tvOS 2.2, *)
-  optional func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: Error?)
+  optional func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?)
   @available(tvOS, introduced=2.2, deprecated=8.0)
   optional func audioPlayerBeginInterruption(player: AVAudioPlayer)
   @available(tvOS, introduced=6.0, deprecated=8.0)

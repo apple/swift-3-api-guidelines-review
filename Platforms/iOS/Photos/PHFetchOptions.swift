@@ -1,8 +1,8 @@
 
 @available(iOS 8.0, *)
-class PHFetchOptions : Object, Copying {
-  var predicate: Predicate?
-  var sortDescriptors: [SortDescriptor]?
+class PHFetchOptions : NSObject, NSCopying {
+  var predicate: NSPredicate?
+  var sortDescriptors: [NSSortDescriptor]?
   var includeHiddenAssets: Bool
   var includeAllBurstAssets: Bool
   @available(iOS 9.0, *)
@@ -12,5 +12,5 @@ class PHFetchOptions : Object, Copying {
   var wantsIncrementalChangeDetails: Bool
   init()
   @available(iOS 8.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

@@ -172,10 +172,10 @@ enum NSPressureBehavior : Int {
   case primaryDeepClick
   case primaryDeepDrag
 }
-class NSEvent : Object, Copying, Coding {
+class NSEvent : NSObject, NSCopying, NSCoding {
   var type: NSEventType { get }
   var modifierFlags: NSEventModifierFlags { get }
-  var timestamp: TimeInterval { get }
+  var timestamp: NSTimeInterval { get }
   unowned(unsafe) var window: @sil_unmanaged NSWindow? { get }
   var windowNumber: Int { get }
   var context: NSGraphicsContext? { get }
@@ -183,7 +183,7 @@ class NSEvent : Object, Copying, Coding {
   var buttonNumber: Int { get }
   var eventNumber: Int { get }
   var pressure: Float { get }
-  var locationInWindow: Point { get }
+  var locationInWindow: NSPoint { get }
   var deltaX: CGFloat { get }
   var deltaY: CGFloat { get }
   var deltaZ: CGFloat { get }
@@ -228,7 +228,7 @@ class NSEvent : Object, Copying, Coding {
   var absoluteY: Int { get }
   var absoluteZ: Int { get }
   var buttonMask: NSEventButtonMask { get }
-  var tilt: Point { get }
+  var tilt: NSPoint { get }
   var tangentialPressure: Float { get }
   var vendorDefined: AnyObject { get }
   var vendorID: Int { get }
@@ -257,23 +257,23 @@ class NSEvent : Object, Copying, Coding {
   class func isSwipeTrackingFromScrollEventsEnabled() -> Bool
   @available(OSX 10.7, *)
   func trackSwipeEvent(options: NSEventSwipeTrackingOptions = [], dampenAmountThresholdMin minDampenThreshold: CGFloat, max maxDampenThreshold: CGFloat, usingHandler trackingHandler: (CGFloat, NSEventPhase, Bool, UnsafeMutablePointer<ObjCBool>) -> Void)
-  class func startPeriodicEvents(afterDelay delay: TimeInterval, withPeriod period: TimeInterval)
+  class func startPeriodicEvents(afterDelay delay: NSTimeInterval, withPeriod period: NSTimeInterval)
   class func stopPeriodicEvents()
-  class func mouseEvent(with type: NSEventType, location: Point, modifierFlags flags: NSEventModifierFlags, timestamp time: TimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, eventNumber eNum: Int, clickCount cNum: Int, pressure: Float) -> NSEvent?
-  class func keyEvent(with type: NSEventType, location: Point, modifierFlags flags: NSEventModifierFlags, timestamp time: TimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, characters keys: String, charactersIgnoringModifiers ukeys: String, isARepeat flag: Bool, keyCode code: UInt16) -> NSEvent?
-  class func enterExitEvent(type: NSEventType, location: Point, modifierFlags flags: NSEventModifierFlags, timestamp time: TimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, eventNumber eNum: Int, trackingNumber tNum: Int, userData data: UnsafeMutablePointer<Void>) -> NSEvent?
-  class func otherEvent(with type: NSEventType, location: Point, modifierFlags flags: NSEventModifierFlags, timestamp time: TimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, subtype: Int16, data1 d1: Int, data2 d2: Int) -> NSEvent?
-  class func mouseLocation() -> Point
+  class func mouseEvent(with type: NSEventType, location: NSPoint, modifierFlags flags: NSEventModifierFlags, timestamp time: NSTimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, eventNumber eNum: Int, clickCount cNum: Int, pressure: Float) -> NSEvent?
+  class func keyEvent(with type: NSEventType, location: NSPoint, modifierFlags flags: NSEventModifierFlags, timestamp time: NSTimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, characters keys: String, charactersIgnoringModifiers ukeys: String, isARepeat flag: Bool, keyCode code: UInt16) -> NSEvent?
+  class func enterExitEvent(type: NSEventType, location: NSPoint, modifierFlags flags: NSEventModifierFlags, timestamp time: NSTimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, eventNumber eNum: Int, trackingNumber tNum: Int, userData data: UnsafeMutablePointer<Void>) -> NSEvent?
+  class func otherEvent(with type: NSEventType, location: NSPoint, modifierFlags flags: NSEventModifierFlags, timestamp time: NSTimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, subtype: Int16, data1 d1: Int, data2 d2: Int) -> NSEvent?
+  class func mouseLocation() -> NSPoint
   @available(OSX 10.6, *)
   class func modifierFlags() -> NSEventModifierFlags
   @available(OSX 10.6, *)
   class func pressedMouseButtons() -> Int
   @available(OSX 10.6, *)
-  class func doubleClickInterval() -> TimeInterval
+  class func doubleClickInterval() -> NSTimeInterval
   @available(OSX 10.6, *)
-  class func keyRepeatDelay() -> TimeInterval
+  class func keyRepeatDelay() -> NSTimeInterval
   @available(OSX 10.6, *)
-  class func keyRepeatInterval() -> TimeInterval
+  class func keyRepeatInterval() -> NSTimeInterval
   @available(OSX 10.6, *)
   class func addGlobalMonitorForEvents(matching mask: NSEventMask, handler block: (NSEvent) -> Void) -> AnyObject?
   @available(OSX 10.6, *)
@@ -281,9 +281,9 @@ class NSEvent : Object, Copying, Coding {
   @available(OSX 10.6, *)
   class func removeMonitor(eventMonitor: AnyObject)
   init()
-  func copy(with zone: Zone = nil) -> AnyObject
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func copy(with zone: NSZone = nil) -> AnyObject
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 var NSUpArrowFunctionKey: Int { get }
 var NSDownArrowFunctionKey: Int { get }

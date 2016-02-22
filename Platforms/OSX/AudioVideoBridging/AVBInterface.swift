@@ -1,6 +1,6 @@
 
 @available(OSX 10.8, *)
-class AVBInterface : Object {
+class AVBInterface : NSObject {
   var interfaceName: String { get }
   var entityDiscovery: AVB17221EntityDiscovery? { get }
   var aecp: AVB17221AECPInterface? { get }

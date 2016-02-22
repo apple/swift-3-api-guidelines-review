@@ -1,14 +1,14 @@
 
 @available(tvOS 9.0, *)
-class UIBarButtonItemGroup : Object, Coding {
+class UIBarButtonItemGroup : NSObject, NSCoding {
   init(barButtonItems: [UIBarButtonItem], representativeItem: UIBarButtonItem?)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   var barButtonItems: [UIBarButtonItem]
   var representativeItem: UIBarButtonItem?
   var isDisplayingRepresentativeItem: Bool { get }
   convenience init()
   @available(tvOS 9.0, *)
-  func encode(with aCoder: Coder)
+  func encode(with aCoder: NSCoder)
 }
 extension UIBarButtonItem {
   @available(tvOS 9.0, *)

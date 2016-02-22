@@ -18,28 +18,28 @@ class NSCollectionViewFlowLayoutInvalidationContext : NSCollectionViewLayoutInva
 }
 protocol NSCollectionViewDelegateFlowLayout : NSCollectionViewDelegate {
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> Size
+  optional func collectionView(collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, sizeForItemAt indexPath: NSIndexPath) -> NSSize
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, insetForSectionAt section: Int) -> EdgeInsets
+  optional func collectionView(collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, insetForSectionAt section: Int) -> NSEdgeInsets
   @available(OSX 10.11, *)
   optional func collectionView(collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
   @available(OSX 10.11, *)
   optional func collectionView(collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> Size
+  optional func collectionView(collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize
   @available(OSX 10.11, *)
-  optional func collectionView(collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForFooterInSection section: Int) -> Size
+  optional func collectionView(collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForFooterInSection section: Int) -> NSSize
 }
 @available(OSX 10.11, *)
 class NSCollectionViewFlowLayout : NSCollectionViewLayout {
   var minimumLineSpacing: CGFloat
   var minimumInteritemSpacing: CGFloat
-  var itemSize: Size
-  var estimatedItemSize: Size
+  var itemSize: NSSize
+  var estimatedItemSize: NSSize
   var scrollDirection: NSCollectionViewScrollDirection
-  var headerReferenceSize: Size
-  var footerReferenceSize: Size
-  var sectionInset: EdgeInsets
+  var headerReferenceSize: NSSize
+  var footerReferenceSize: NSSize
+  var sectionInset: NSEdgeInsets
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

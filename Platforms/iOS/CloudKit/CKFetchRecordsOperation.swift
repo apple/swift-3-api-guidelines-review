@@ -7,6 +7,6 @@ class CKFetchRecordsOperation : CKDatabaseOperation {
   var recordIDs: [CKRecordID]?
   var desiredKeys: [String]?
   var perRecordProgressBlock: ((CKRecordID, Double) -> Void)?
-  var perRecordCompletionBlock: ((CKRecord?, CKRecordID?, Error?) -> Void)?
-  var fetchRecordsCompletionBlock: (([CKRecordID : CKRecord]?, Error?) -> Void)?
+  var perRecordCompletionBlock: ((CKRecord?, CKRecordID?, NSError?) -> Void)?
+  var fetchRecordsCompletionBlock: (([CKRecordID : CKRecord]?, NSError?) -> Void)?
 }

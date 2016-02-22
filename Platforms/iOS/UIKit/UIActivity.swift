@@ -37,7 +37,7 @@ enum UIActivityCategory : Int {
   case share
 }
 @available(iOS 6.0, *)
-class UIActivity : Object {
+class UIActivity : NSObject {
   @available(iOS 7.0, *)
   class func activityCategory() -> UIActivityCategory
   func activityType() -> String?

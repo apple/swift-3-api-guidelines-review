@@ -10,7 +10,7 @@ let AVOutputSettingsPreset1920x1080: String
 @available(tvOS 9.0, *)
 let AVOutputSettingsPreset3840x2160: String
 @available(tvOS 7.0, *)
-class AVOutputSettingsAssistant : Object {
+class AVOutputSettingsAssistant : NSObject {
   @available(tvOS 7.0, *)
   class func availableOutputSettingsPresets() -> [String]
   convenience init?(preset presetIdentifier: String)

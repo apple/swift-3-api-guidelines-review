@@ -4,7 +4,7 @@ let AVCaptureDeviceWasConnectedNotification: String
 @available(OSX 10.7, *)
 let AVCaptureDeviceWasDisconnectedNotification: String
 @available(OSX 10.7, *)
-class AVCaptureDevice : Object {
+class AVCaptureDevice : NSObject {
   class func devices() -> [AnyObject]!
   class func devices(withMediaType mediaType: String!) -> [AnyObject]!
   class func defaultDevice(withMediaType mediaType: String!) -> AVCaptureDevice!
@@ -151,7 +151,7 @@ extension AVCaptureDevice {
 extension AVCaptureDevice {
 }
 @available(OSX 10.7, *)
-class AVFrameRateRange : Object {
+class AVFrameRateRange : NSObject {
   var minFrameRate: Float64 { get }
   var maxFrameRate: Float64 { get }
   var maxFrameDuration: CMTime { get }
@@ -159,14 +159,14 @@ class AVFrameRateRange : Object {
   init()
 }
 @available(OSX 10.7, *)
-class AVCaptureDeviceFormat : Object {
+class AVCaptureDeviceFormat : NSObject {
   var mediaType: String! { get }
   var formatDescription: CMFormatDescription! { get }
   var videoSupportedFrameRateRanges: [AnyObject]! { get }
   init()
 }
 @available(OSX 10.7, *)
-class AVCaptureDeviceInputSource : Object {
+class AVCaptureDeviceInputSource : NSObject {
   var inputSourceID: String! { get }
   var localizedName: String! { get }
   init()

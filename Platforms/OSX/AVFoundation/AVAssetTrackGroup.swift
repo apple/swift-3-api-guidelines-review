@@ -1,8 +1,8 @@
 
 @available(OSX 10.9, *)
-class AVAssetTrackGroup : Object, Copying {
-  var trackIDs: [Number] { get }
+class AVAssetTrackGroup : NSObject, NSCopying {
+  var trackIDs: [NSNumber] { get }
   init()
   @available(OSX 10.9, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

@@ -1,11 +1,11 @@
 
 @available(tvOS 9.0, *)
 class SKReferenceNode : SKNode {
-  init(url: URL?)
+  init(url: NSURL?)
   init(fileNamed fileName: String?)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init(fileNamed fileName: String)
-  convenience init(url referenceURL: URL)
+  convenience init(url referenceURL: NSURL)
   func didLoad(node: SKNode?)
   func resolve()
   convenience init()

@@ -47,17 +47,17 @@ enum NSSpringLoadingHighlight : Int {
   case standard
   case emphasized
 }
-protocol NSDraggingInfo : ObjectProtocol {
+protocol NSDraggingInfo : NSObjectProtocol {
   func draggingDestinationWindow() -> NSWindow?
   func draggingSourceOperationMask() -> NSDragOperation
-  func draggingLocation() -> Point
-  func draggedImageLocation() -> Point
+  func draggingLocation() -> NSPoint
+  func draggedImageLocation() -> NSPoint
   func draggedImage() -> NSImage?
   func draggingPasteboard() -> NSPasteboard
   func draggingSource() -> AnyObject?
   func draggingSequenceNumber() -> Int
-  func slideDraggedImage(to screenPoint: Point)
-  func namesOfPromisedFilesDropped(atDestination dropDestination: URL) -> [String]?
+  func slideDraggedImage(to screenPoint: NSPoint)
+  func namesOfPromisedFilesDropped(atDestination dropDestination: NSURL) -> [String]?
   @available(OSX 10.7, *)
   var draggingFormation: NSDraggingFormation { get set }
   @available(OSX 10.7, *)
@@ -71,7 +71,7 @@ protocol NSDraggingInfo : ObjectProtocol {
   @available(OSX 10.11, *)
   func resetSpringLoading()
 }
-protocol NSDraggingDestination : ObjectProtocol {
+protocol NSDraggingDestination : NSObjectProtocol {
   optional func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation
   optional func draggingUpdated(sender: NSDraggingInfo) -> NSDragOperation
   optional func draggingExited(sender: NSDraggingInfo?)
@@ -83,15 +83,15 @@ protocol NSDraggingDestination : ObjectProtocol {
   @available(OSX 10.7, *)
   optional func updateDraggingItems(forDrag sender: NSDraggingInfo?)
 }
-protocol NSDraggingSource : ObjectProtocol {
+protocol NSDraggingSource : NSObjectProtocol {
   @available(OSX 10.7, *)
   func draggingSession(session: NSDraggingSession, sourceOperationMaskFor context: NSDraggingContext) -> NSDragOperation
   @available(OSX 10.7, *)
-  optional func draggingSession(session: NSDraggingSession, willBeginAt screenPoint: Point)
+  optional func draggingSession(session: NSDraggingSession, willBeginAt screenPoint: NSPoint)
   @available(OSX 10.7, *)
-  optional func draggingSession(session: NSDraggingSession, movedTo screenPoint: Point)
+  optional func draggingSession(session: NSDraggingSession, movedTo screenPoint: NSPoint)
   @available(OSX 10.7, *)
-  optional func draggingSession(session: NSDraggingSession, endedAt screenPoint: Point, operation: NSDragOperation)
+  optional func draggingSession(session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation)
   @available(OSX 10.7, *)
   optional func ignoreModifierKeys(for session: NSDraggingSession) -> Bool
 }
@@ -104,7 +104,7 @@ struct NSSpringLoadingOptions : OptionSetType {
   static var continuousActivation: NSSpringLoadingOptions { get }
   static var noHover: NSSpringLoadingOptions { get }
 }
-protocol NSSpringLoadingDestination : ObjectProtocol {
+protocol NSSpringLoadingDestination : NSObjectProtocol {
   @available(OSX 10.11, *)
   func springLoadingActivated(activated: Bool, draggingInfo: NSDraggingInfo)
   @available(OSX 10.11, *)
@@ -118,7 +118,7 @@ protocol NSSpringLoadingDestination : ObjectProtocol {
   @available(OSX 10.11, *)
   optional func draggingEnded(draggingInfo: NSDraggingInfo)
 }
-extension Object {
-  class func namesOfPromisedFilesDropped(atDestination dropDestination: URL) -> [String]?
-  func namesOfPromisedFilesDropped(atDestination dropDestination: URL) -> [String]?
+extension NSObject {
+  class func namesOfPromisedFilesDropped(atDestination dropDestination: NSURL) -> [String]?
+  func namesOfPromisedFilesDropped(atDestination dropDestination: NSURL) -> [String]?
 }

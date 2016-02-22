@@ -2,19 +2,19 @@
 @available(tvOS 7.0, *)
 let NSTabColumnTerminatorsAttributeName: String
 @available(tvOS 7.0, *)
-class NSTextTab : Object, Copying, Coding {
+class NSTextTab : NSObject, NSCopying, NSCoding {
   @available(tvOS 7.0, *)
-  class func columnTerminators(for aLocale: Locale?) -> CharacterSet
+  class func columnTerminators(for aLocale: NSLocale?) -> NSCharacterSet
   init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options: [String : AnyObject] = [:])
   var alignment: NSTextAlignment { get }
   var location: CGFloat { get }
   var options: [String : AnyObject] { get }
   convenience init()
   @available(tvOS 7.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 7.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 6.0, *)
 enum NSLineBreakMode : Int {
@@ -28,7 +28,7 @@ enum NSLineBreakMode : Int {
   case byTruncatingMiddle
 }
 @available(tvOS 6.0, *)
-class NSParagraphStyle : Object, Copying, MutableCopying, SecureCoding {
+class NSParagraphStyle : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   class func defaultParagraphStyle() -> NSParagraphStyle
   class func defaultWritingDirection(forLanguage languageName: String?) -> NSWritingDirection
   var lineSpacing: CGFloat { get }
@@ -52,14 +52,14 @@ class NSParagraphStyle : Object, Copying, MutableCopying, SecureCoding {
   var allowsDefaultTighteningForTruncation: Bool { get }
   init()
   @available(tvOS 6.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 6.0, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 6.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 6.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 6.0, *)
 class NSMutableParagraphStyle : NSParagraphStyle {
@@ -89,5 +89,5 @@ class NSMutableParagraphStyle : NSParagraphStyle {
   @available(tvOS 9.0, *)
   func setParagraphStyle(obj: NSParagraphStyle)
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

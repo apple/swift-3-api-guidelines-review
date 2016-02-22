@@ -1,6 +1,6 @@
 
 @available(OSX 10.4, *)
-class CIContext : Object {
+class CIContext : NSObject {
   @available(OSX 10.6, *)
   /*not inherited*/ init(cglContext cglctx: CGLContextObj, pixelFormat: CGLPixelFormatObj, colorSpace: CGColorSpace?, options: [String : AnyObject]? = [:])
   @available(OSX 10.4, *)

@@ -7,8 +7,8 @@ class NSImageView : NSControl, NSAccessibilityImage {
   var isEditable: Bool
   var animates: Bool
   var allowsCutCopyPaste: Bool
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
   func accessibilityLabel() -> String?
 }

@@ -5,5 +5,5 @@ class CKModifyRecordZonesOperation : CKDatabaseOperation {
   convenience init(recordZonesToSave: [CKRecordZone]?, recordZoneIDsToDelete: [CKRecordZoneID]?)
   var recordZonesToSave: [CKRecordZone]?
   var recordZoneIDsToDelete: [CKRecordZoneID]?
-  var modifyRecordZonesCompletionBlock: (([CKRecordZone]?, [CKRecordZoneID]?, Error?) -> Void)?
+  var modifyRecordZonesCompletionBlock: (([CKRecordZone]?, [CKRecordZoneID]?, NSError?) -> Void)?
 }

@@ -1,11 +1,11 @@
 
-protocol UIViewControllerTransitionCoordinatorContext : ObjectProtocol {
+protocol UIViewControllerTransitionCoordinatorContext : NSObjectProtocol {
   func isAnimated() -> Bool
   func presentationStyle() -> UIModalPresentationStyle
   func initiallyInteractive() -> Bool
   func isInteractive() -> Bool
   func isCancelled() -> Bool
-  func transitionDuration() -> TimeInterval
+  func transitionDuration() -> NSTimeInterval
   func percentComplete() -> CGFloat
   func completionVelocity() -> CGFloat
   func completionCurve() -> UIViewAnimationCurve

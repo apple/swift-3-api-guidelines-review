@@ -1,9 +1,9 @@
 
 extension CSSearchableItemAttributeSet {
-  var dueDate: Date?
-  var completionDate: Date?
-  var startDate: Date?
-  var endDate: Date?
-  var importantDates: [Date]?
-  @NSCopying var allDay: Number?
+  var dueDate: NSDate?
+  var completionDate: NSDate?
+  var startDate: NSDate?
+  var endDate: NSDate?
+  var importantDates: [NSDate]?
+  @NSCopying var allDay: NSNumber?
 }

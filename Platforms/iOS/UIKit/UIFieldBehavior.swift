@@ -22,5 +22,5 @@ class UIFieldBehavior : UIDynamicBehavior {
   class func springField() -> Self
   class func electricField() -> Self
   class func magneticField() -> Self
-  class func field(evaluationBlock block: (UIFieldBehavior, CGPoint, CGVector, CGFloat, CGFloat, TimeInterval) -> CGVector) -> Self
+  class func field(evaluationBlock block: (UIFieldBehavior, CGPoint, CGVector, CGFloat, CGFloat, NSTimeInterval) -> CGVector) -> Self
 }

@@ -1,6 +1,6 @@
 
 @available(iOS, introduced=3.2, deprecated=9.0, message="UIPopoverController is deprecated. Popovers are now implemented as UIViewController presentations. Use a modal presentation style of UIModalPresentationPopover and UIPopoverPresentationController.")
-class UIPopoverController : Object, UIAppearanceContainer {
+class UIPopoverController : NSObject, UIAppearanceContainer {
   init(contentViewController viewController: UIViewController)
   weak var delegate: @sil_weak UIPopoverControllerDelegate?
   var contentViewController: UIViewController
@@ -21,7 +21,7 @@ class UIPopoverController : Object, UIAppearanceContainer {
   var popoverBackgroundViewClass: AnyClass?
   init()
 }
-protocol UIPopoverControllerDelegate : ObjectProtocol {
+protocol UIPopoverControllerDelegate : NSObjectProtocol {
   @available(iOS, introduced=3.2, deprecated=9.0)
   optional func popoverControllerShouldDismissPopover(popoverController: UIPopoverController) -> Bool
   @available(iOS, introduced=3.2, deprecated=9.0)

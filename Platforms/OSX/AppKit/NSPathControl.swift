@@ -8,8 +8,8 @@ class NSPathControl : NSControl {
   @available(OSX 10.10, *)
   var placeholderString: String?
   @available(OSX 10.10, *)
-  @NSCopying var placeholderAttributedString: AttributedString?
-  @NSCopying var url: URL?
+  @NSCopying var placeholderAttributedString: NSAttributedString?
+  @NSCopying var url: NSURL?
   var doubleAction: Selector
   var pathStyle: NSPathStyle
   @available(OSX 10.10, *)
@@ -20,11 +20,11 @@ class NSPathControl : NSControl {
   weak var delegate: @sil_weak NSPathControlDelegate?
   func setDraggingSourceOperationMask(mask: NSDragOperation, forLocal isLocal: Bool)
   var menu: NSMenu?
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }
-protocol NSPathControlDelegate : ObjectProtocol {
+protocol NSPathControlDelegate : NSObjectProtocol {
   @available(OSX 10.10, *)
   optional func pathControl(pathControl: NSPathControl, shouldDrag pathItem: NSPathControlItem, with pasteboard: NSPasteboard) -> Bool
   @available(OSX 10.5, *)

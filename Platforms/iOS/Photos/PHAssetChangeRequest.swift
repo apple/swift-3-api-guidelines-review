@@ -1,13 +1,13 @@
 
 @available(iOS 8.0, *)
-class PHAssetChangeRequest : Object {
+class PHAssetChangeRequest : NSObject {
   class func creationRequestForAsset(from image: UIImage) -> Self
-  class func creationRequestForAssetFromImage(atFileURL fileURL: URL) -> Self?
-  class func creationRequestForAssetFromVideo(atFileURL fileURL: URL) -> Self?
+  class func creationRequestForAssetFromImage(atFileURL fileURL: NSURL) -> Self?
+  class func creationRequestForAssetFromVideo(atFileURL fileURL: NSURL) -> Self?
   var placeholderForCreatedAsset: PHObjectPlaceholder? { get }
-  class func deleteAssets(assets: FastEnumeration)
+  class func deleteAssets(assets: NSFastEnumeration)
   convenience init(for asset: PHAsset)
-  var creationDate: Date?
+  var creationDate: NSDate?
   var location: CLLocation?
   var isFavorite: Bool
   var isHidden: Bool
@@ -18,7 +18,7 @@ class PHAssetChangeRequest : Object {
 @available(iOS 8.0, *)
 typealias PHContentEditingInputRequestID = Int
 @available(iOS 8.0, *)
-class PHContentEditingInputRequestOptions : Object {
+class PHContentEditingInputRequestOptions : NSObject {
   var canHandleAdjustmentData: (PHAdjustmentData) -> Bool
   var isNetworkAccessAllowed: Bool
   var progressHandler: ((Double, UnsafeMutablePointer<ObjCBool>) -> Void)?
@@ -26,7 +26,7 @@ class PHContentEditingInputRequestOptions : Object {
 }
 extension PHAsset {
   @available(iOS 8.0, *)
-  func requestContentEditingInput(options: PHContentEditingInputRequestOptions?, completionHandler: (PHContentEditingInput?, [Object : AnyObject]) -> Void) -> PHContentEditingInputRequestID
+  func requestContentEditingInput(options: PHContentEditingInputRequestOptions?, completionHandler: (PHContentEditingInput?, [NSObject : AnyObject]) -> Void) -> PHContentEditingInputRequestID
   @available(iOS 8.0, *)
   func cancelContentEditingInputRequest(requestID: PHContentEditingInputRequestID)
 }

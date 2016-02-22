@@ -1,9 +1,9 @@
 
-class Proxy : ObjectProtocol {
+class NSProxy : NSObjectProtocol {
   class func alloc() -> Self
   class func `class`() -> AnyClass
-  class func forwardInvocation(invocation: Invocation)
-  func forwardInvocation(invocation: Invocation)
+  class func forwardInvocation(invocation: NSInvocation)
+  func forwardInvocation(invocation: NSInvocation)
   class func dealloc()
   func dealloc()
   class func finalize()

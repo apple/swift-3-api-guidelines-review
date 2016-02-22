@@ -1,6 +1,6 @@
 
 @available(tvOS 5.0, *)
-class CIContext : Object {
+class CIContext : NSObject {
   @available(tvOS 9.0, *)
   /*not inherited*/ init(cgContext cgctx: CGContext, options: [String : AnyObject]? = [:])
   @available(tvOS 5.0, *)

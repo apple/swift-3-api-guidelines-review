@@ -1,8 +1,8 @@
 
-extension MutableDictionary {
+extension NSMutableDictionary {
   convenience init!(obexHeadersData inHeadersData: UnsafePointer<Void>, headersDataSize inDataSize: Int)
-  convenience init!(obexHeadersData inHeadersData: Data!)
-  func getHeaderBytes() -> MutableData!
+  convenience init!(obexHeadersData inHeadersData: NSData!)
+  func getHeaderBytes() -> NSMutableData!
   func addTargetHeader(inHeaderData: UnsafePointer<Void>, length inHeaderDataLength: UInt32) -> OBEXError
   func addHTTPHeader(inHeaderData: UnsafePointer<Void>, length inHeaderDataLength: UInt32) -> OBEXError
   func addBodyHeader(inHeaderData: UnsafePointer<Void>, length inHeaderDataLength: UInt32, endOfBody isEndOfBody: Bool) -> OBEXError

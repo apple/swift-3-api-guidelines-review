@@ -65,7 +65,7 @@ let IOBluetoothPDUTimestamp: String
 let IOBluetoothPDUEncoding: String
 let IOBluetoothPDUUserData: String
 @available(OSX 10.7, *)
-class IOBluetoothHandsFree : Object {
+class IOBluetoothHandsFree : NSObject {
   @available(OSX 10.7, *)
   var supportedFeatures: UInt32
   @available(OSX 10.7, *)
@@ -110,15 +110,15 @@ class IOBluetoothHandsFree : Object {
   func isSCOConnected() -> Bool
   init()
 }
-protocol IOBluetoothHandsFreeDelegate : ObjectProtocol {
+protocol IOBluetoothHandsFreeDelegate : NSObjectProtocol {
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFree!, connected status: Number!)
+  optional func handsFree(device: IOBluetoothHandsFree!, connected status: NSNumber!)
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFree!, disconnected status: Number!)
+  optional func handsFree(device: IOBluetoothHandsFree!, disconnected status: NSNumber!)
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFree!, scoConnectionOpened status: Number!)
+  optional func handsFree(device: IOBluetoothHandsFree!, scoConnectionOpened status: NSNumber!)
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFree!, scoConnectionClosed status: Number!)
+  optional func handsFree(device: IOBluetoothHandsFree!, scoConnectionClosed status: NSNumber!)
 }
 extension IOBluetoothDevice {
   @available(OSX 10.7, *)

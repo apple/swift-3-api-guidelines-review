@@ -12,7 +12,7 @@ class SKProductsRequest : SKRequest {
   init()
 }
 @available(tvOS 3.0, *)
-class SKProductsResponse : Object {
+class SKProductsResponse : NSObject {
   @available(tvOS 3.0, *)
   var products: [SKProduct] { get }
   @available(tvOS 3.0, *)

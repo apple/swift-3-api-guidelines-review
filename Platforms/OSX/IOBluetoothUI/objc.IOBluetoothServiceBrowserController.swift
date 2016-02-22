@@ -20,7 +20,7 @@ class IOBluetoothServiceBrowserController : NSWindowController {
   func setPrompt(prompt: String!)
   func getPrompt() -> String!
   init(window: NSWindow?)
-  init?(coder: Coder)
+  init?(coder: NSCoder)
   convenience init(windowNibName: String)
   convenience init(windowNibName: String, owner: AnyObject)
   convenience init(windowNibPath: String, owner: AnyObject)

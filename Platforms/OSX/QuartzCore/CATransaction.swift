@@ -1,5 +1,5 @@
 
-class CATransaction : Object {
+class CATransaction : NSObject {
   class func begin()
   class func commit()
   class func flush()

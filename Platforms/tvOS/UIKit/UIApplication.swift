@@ -11,7 +11,7 @@ typealias UIBackgroundTaskIdentifier = Int
 @available(tvOS 4.0, *)
 let UIBackgroundTaskInvalid: UIBackgroundTaskIdentifier
 @available(tvOS 4.0, *)
-let UIMinimumKeepAliveTimeout: TimeInterval
+let UIMinimumKeepAliveTimeout: NSTimeInterval
 @available(tvOS 2.0, *)
 class UIApplication : UIResponder {
   class func shared() -> UIApplication
@@ -20,9 +20,9 @@ class UIApplication : UIResponder {
   func endIgnoringInteractionEvents()
   func isIgnoringInteractionEvents() -> Bool
   var isIdleTimerDisabled: Bool
-  func open(url: URL) -> Bool
+  func open(url: NSURL) -> Bool
   @available(tvOS 3.0, *)
-  func canOpen(url: URL) -> Bool
+  func canOpen(url: NSURL) -> Bool
   func send(event: UIEvent)
   var keyWindow: UIWindow? { get }
   var windows: [UIWindow] { get }
@@ -30,7 +30,7 @@ class UIApplication : UIResponder {
   @available(tvOS 4.0, *)
   var applicationState: UIApplicationState { get }
   @available(tvOS 4.0, *)
-  var backgroundTimeRemaining: TimeInterval { get }
+  var backgroundTimeRemaining: NSTimeInterval { get }
   @available(tvOS 4.0, *)
   func beginBackgroundTask(expirationHandler handler: (() -> Void)? = nil) -> UIBackgroundTaskIdentifier
   @available(tvOS 7.0, *)
@@ -77,19 +77,19 @@ extension UIApplication {
   @available(tvOS 7.0, *)
   class func registerObject(forStateRestoration object: UIStateRestoring, restorationIdentifier: String)
 }
-protocol UIApplicationDelegate : ObjectProtocol {
+protocol UIApplicationDelegate : NSObjectProtocol {
   @available(tvOS 2.0, *)
   optional func applicationDidFinishLaunching(application: UIApplication)
   @available(tvOS 6.0, *)
-  optional func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [Object : AnyObject]? = [:]) -> Bool
+  optional func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]? = [:]) -> Bool
   @available(tvOS 3.0, *)
-  optional func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [Object : AnyObject]? = [:]) -> Bool
+  optional func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]? = [:]) -> Bool
   @available(tvOS 2.0, *)
   optional func applicationDidBecomeActive(application: UIApplication)
   @available(tvOS 2.0, *)
   optional func applicationWillResignActive(application: UIApplication)
   @available(tvOS 9.0, *)
-  optional func application(app: UIApplication, open url: URL, options: [String : AnyObject] = [:]) -> Bool
+  optional func application(app: UIApplication, open url: NSURL, options: [String : AnyObject] = [:]) -> Bool
   @available(tvOS 2.0, *)
   optional func applicationDidReceiveMemoryWarning(application: UIApplication)
   @available(tvOS 2.0, *)
@@ -97,15 +97,15 @@ protocol UIApplicationDelegate : ObjectProtocol {
   @available(tvOS 2.0, *)
   optional func applicationSignificantTimeChange(application: UIApplication)
   @available(tvOS 3.0, *)
-  optional func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
+  optional func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
   @available(tvOS 3.0, *)
-  optional func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error)
+  optional func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError)
   @available(tvOS 3.0, *)
-  optional func application(application: UIApplication, didReceiveRemoteNotification userInfo: [Object : AnyObject])
+  optional func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
   @available(tvOS 7.0, *)
   optional func application(application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: () -> Void)
   @available(tvOS 8.2, *)
-  optional func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [Object : AnyObject]?, reply: ([Object : AnyObject]?) -> Void)
+  optional func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: ([NSObject : AnyObject]?) -> Void)
   @available(tvOS 9.0, *)
   optional func applicationShouldRequestHealthAuthorization(application: UIApplication)
   @available(tvOS 4.0, *)
@@ -121,23 +121,23 @@ protocol UIApplicationDelegate : ObjectProtocol {
   @available(tvOS 8.0, *)
   optional func application(application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: String) -> Bool
   @available(tvOS 6.0, *)
-  optional func application(application: UIApplication, viewControllerWithRestorationIdentifierPath identifierComponents: [AnyObject], coder: Coder) -> UIViewController?
+  optional func application(application: UIApplication, viewControllerWithRestorationIdentifierPath identifierComponents: [AnyObject], coder: NSCoder) -> UIViewController?
   @available(tvOS 6.0, *)
-  optional func application(application: UIApplication, shouldSaveApplicationState coder: Coder) -> Bool
+  optional func application(application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool
   @available(tvOS 6.0, *)
-  optional func application(application: UIApplication, shouldRestoreApplicationState coder: Coder) -> Bool
+  optional func application(application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool
   @available(tvOS 6.0, *)
-  optional func application(application: UIApplication, willEncodeRestorableStateWith coder: Coder)
+  optional func application(application: UIApplication, willEncodeRestorableStateWith coder: NSCoder)
   @available(tvOS 6.0, *)
-  optional func application(application: UIApplication, didDecodeRestorableStateWith coder: Coder)
+  optional func application(application: UIApplication, didDecodeRestorableStateWith coder: NSCoder)
   @available(tvOS 8.0, *)
   optional func application(application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool
   @available(tvOS 8.0, *)
-  optional func application(application: UIApplication, continue userActivity: UserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool
+  optional func application(application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool
   @available(tvOS 8.0, *)
-  optional func application(application: UIApplication, didFailToContinueUserActivityWithType userActivityType: String, error: Error)
+  optional func application(application: UIApplication, didFailToContinueUserActivityWithType userActivityType: String, error: NSError)
   @available(tvOS 8.0, *)
-  optional func application(application: UIApplication, didUpdate userActivity: UserActivity)
+  optional func application(application: UIApplication, didUpdate userActivity: NSUserActivity)
 }
 extension UIApplication {
 }

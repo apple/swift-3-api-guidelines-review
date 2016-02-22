@@ -1,14 +1,14 @@
 
 @available(OSX 10.9, *)
-class MKMapSnapshotOptions : Object, Copying {
+class MKMapSnapshotOptions : NSObject, NSCopying {
   @NSCopying var camera: MKMapCamera
   var mapRect: MKMapRect
   var region: MKCoordinateRegion
   var mapType: MKMapType
   var showsPointsOfInterest: Bool
   var showsBuildings: Bool
-  var size: Size
+  var size: NSSize
   init()
   @available(OSX 10.9, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

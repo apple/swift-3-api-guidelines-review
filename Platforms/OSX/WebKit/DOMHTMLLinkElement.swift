@@ -13,5 +13,5 @@ class DOMHTMLLinkElement : DOMHTMLElement {
   @available(OSX 10.4, *)
   var sheet: DOMStyleSheet! { get }
   @available(OSX 10.5, *)
-  @NSCopying var absoluteLinkURL: URL! { get }
+  @NSCopying var absoluteLinkURL: NSURL! { get }
 }

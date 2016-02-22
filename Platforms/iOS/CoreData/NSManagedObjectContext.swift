@@ -27,7 +27,7 @@ enum NSManagedObjectContextConcurrencyType : UInt {
   case mainQueueConcurrencyType
 }
 @available(iOS 3.0, *)
-class NSManagedObjectContext : Object, Coding, Locking {
+class NSManagedObjectContext : NSObject, NSCoding, NSLocking {
   @available(iOS, introduced=3.0, deprecated=9.0, message="Use -initWithConcurrencyType: instead")
   class func new() -> Self
   @available(iOS, introduced=3.0, deprecated=9.0, message="Use -initWithConcurrencyType: instead")
@@ -43,10 +43,10 @@ class NSManagedObjectContext : Object, Coding, Locking {
   var parent: NSManagedObjectContext?
   @available(iOS 8.0, *)
   var name: String?
-  var undoManager: UndoManager?
+  var undoManager: NSUndoManager?
   var hasChanges: Bool { get }
   @available(iOS 5.0, *)
-  var userInfo: MutableDictionary { get }
+  var userInfo: NSMutableDictionary { get }
   @available(iOS 5.0, *)
   var concurrencyType: NSManagedObjectContextConcurrencyType { get }
   func objectRegistered(for objectID: NSManagedObjectID) -> NSManagedObject?
@@ -55,7 +55,7 @@ class NSManagedObjectContext : Object, Coding, Locking {
   func existingObject(with objectID: NSManagedObjectID) throws -> NSManagedObject
   func execute(request: NSFetchRequest) throws -> [AnyObject]
   @available(iOS 3.0, *)
-  func count(for request: NSFetchRequest, error: ErrorPointer) -> Int
+  func count(for request: NSFetchRequest, error: NSErrorPointer) -> Int
   @available(iOS 8.0, *)
   func execute(request: NSPersistentStoreRequest) throws -> NSPersistentStoreResult
   func insert(object: NSManagedObject)
@@ -88,17 +88,17 @@ class NSManagedObjectContext : Object, Coding, Locking {
   var shouldDeleteInaccessibleFaults: Bool
   @available(iOS 9.0, *)
   func shouldHandleInaccessibleFault(fault: NSManagedObject, for oid: NSManagedObjectID, triggeredByProperty property: NSPropertyDescription?) -> Bool
-  var stalenessInterval: TimeInterval
+  var stalenessInterval: NSTimeInterval
   var mergePolicy: AnyObject
   @available(iOS 3.0, *)
   func obtainPermanentIDs(for objects: [NSManagedObject]) throws
   @available(iOS 3.0, *)
-  func mergeChanges(fromContextDidSave notification: Notification)
+  func mergeChanges(fromContextDidSave notification: NSNotification)
   @available(iOS 9.0, *)
-  class func mergeChanges(fromRemoteContextSave changeNotificationData: [Object : AnyObject], into contexts: [NSManagedObjectContext])
+  class func mergeChanges(fromRemoteContextSave changeNotificationData: [NSObject : AnyObject], into contexts: [NSManagedObjectContext])
   @available(iOS 3.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 struct _managedObjectContextFlags {
   var _registeredForCallback: UInt32

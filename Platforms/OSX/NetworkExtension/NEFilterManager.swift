@@ -13,15 +13,15 @@ let NEFilterErrorDomain: String
 @available(OSX 10.10, *)
 let NEFilterConfigurationDidChangeNotification: String
 @available(OSX 10.10, *)
-class NEFilterManager : Object {
+class NEFilterManager : NSObject {
   @available(OSX 10.10, *)
   class func shared() -> NEFilterManager
   @available(OSX 10.10, *)
-  func loadFromPreferences(completionHandler completionHandler: (Error?) -> Void)
+  func loadFromPreferences(completionHandler completionHandler: (NSError?) -> Void)
   @available(OSX 10.10, *)
-  func removeFromPreferences(completionHandler completionHandler: (Error?) -> Void)
+  func removeFromPreferences(completionHandler completionHandler: (NSError?) -> Void)
   @available(OSX 10.10, *)
-  func saveToPreferences(completionHandler completionHandler: (Error?) -> Void)
+  func saveToPreferences(completionHandler completionHandler: (NSError?) -> Void)
   @available(OSX 10.10, *)
   var localizedDescription: String?
   @available(OSX 10.11, *)

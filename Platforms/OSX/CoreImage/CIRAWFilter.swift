@@ -1,7 +1,7 @@
 
 extension CIFilter {
-  /*not inherited*/ init!(imageURL url: URL!, options: [Object : AnyObject]! = [:])
-  /*not inherited*/ init!(imageData data: Data!, options: [Object : AnyObject]! = [:])
+  /*not inherited*/ init!(imageURL url: NSURL!, options: [NSObject : AnyObject]! = [:])
+  /*not inherited*/ init!(imageData data: NSData!, options: [NSObject : AnyObject]! = [:])
 }
 @available(OSX 10.5, *)
 let kCIInputDecoderVersionKey: String

@@ -7,7 +7,7 @@ let kEAGLColorFormatRGB565: String
 let kEAGLColorFormatSRGBA8: String
 protocol EAGLDrawable {
   @available(iOS 2.0, *)
-  var drawableProperties: [Object : AnyObject]! { get set }
+  var drawableProperties: [NSObject : AnyObject]! { get set }
 }
 extension EAGLContext {
   func renderbufferStorage(target: Int, from drawable: EAGLDrawable!) -> Bool

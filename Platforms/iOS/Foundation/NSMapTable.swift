@@ -1,43 +1,43 @@
 
 var __FOUNDATION_NSMAPTABLE__: Int32 { get }
 @available(iOS 6.0, *)
-let mapTableStrongMemory: PointerFunctionsOptions
+let NSMapTableStrongMemory: NSPointerFunctionsOptions
 @available(iOS 6.0, *)
-let mapTableCopyIn: PointerFunctionsOptions
+let NSMapTableCopyIn: NSPointerFunctionsOptions
 @available(iOS 6.0, *)
-let mapTableObjectPointerPersonality: PointerFunctionsOptions
+let NSMapTableObjectPointerPersonality: NSPointerFunctionsOptions
 @available(iOS 6.0, *)
-let mapTableWeakMemory: PointerFunctionsOptions
-typealias MapTableOptions = Int
+let NSMapTableWeakMemory: NSPointerFunctionsOptions
+typealias NSMapTableOptions = Int
 @available(iOS 6.0, *)
-class MapTable : Object, Copying, Coding, FastEnumeration {
-  init(keyOptions: PointerFunctionsOptions = [], valueOptions: PointerFunctionsOptions = [], capacity initialCapacity: Int)
-  init(keyPointerFunctions keyFunctions: PointerFunctions, valuePointerFunctions valueFunctions: PointerFunctions, capacity initialCapacity: Int)
-  /*not inherited*/ init(keyOptions: PointerFunctionsOptions = [], valueOptions: PointerFunctionsOptions = [])
+class NSMapTable : NSObject, NSCopying, NSCoding, NSFastEnumeration {
+  init(keyOptions: NSPointerFunctionsOptions = [], valueOptions: NSPointerFunctionsOptions = [], capacity initialCapacity: Int)
+  init(keyPointerFunctions keyFunctions: NSPointerFunctions, valuePointerFunctions valueFunctions: NSPointerFunctions, capacity initialCapacity: Int)
+  /*not inherited*/ init(keyOptions: NSPointerFunctionsOptions = [], valueOptions: NSPointerFunctionsOptions = [])
   @available(iOS 6.0, *)
-  class func strongToStrongObjects() -> MapTable
+  class func strongToStrongObjects() -> NSMapTable
   @available(iOS 6.0, *)
-  class func weakToStrongObjects() -> MapTable
+  class func weakToStrongObjects() -> NSMapTable
   @available(iOS 6.0, *)
-  class func strongToWeakObjects() -> MapTable
+  class func strongToWeakObjects() -> NSMapTable
   @available(iOS 6.0, *)
-  class func weakToWeakObjects() -> MapTable
-  @NSCopying var keyPointerFunctions: PointerFunctions { get }
-  @NSCopying var valuePointerFunctions: PointerFunctions { get }
+  class func weakToWeakObjects() -> NSMapTable
+  @NSCopying var keyPointerFunctions: NSPointerFunctions { get }
+  @NSCopying var valuePointerFunctions: NSPointerFunctions { get }
   func object(for aKey: AnyObject?) -> AnyObject?
   func removeObject(for aKey: AnyObject?)
   func setObject(anObject: AnyObject?, for aKey: AnyObject?)
   var count: Int { get }
-  func keyEnumerator() -> Enumerator
-  func objectEnumerator() -> Enumerator?
+  func keyEnumerator() -> NSEnumerator
+  func objectEnumerator() -> NSEnumerator?
   func removeAllObjects()
-  func dictionaryRepresentation() -> [Object : AnyObject]
+  func dictionaryRepresentation() -> [NSObject : AnyObject]
   convenience init()
   @available(iOS 6.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 6.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(iOS 6.0, *)
-  func countByEnumerating(state: UnsafeMutablePointer<FastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

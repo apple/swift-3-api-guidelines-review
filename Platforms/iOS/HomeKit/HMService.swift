@@ -1,6 +1,6 @@
 
 @available(iOS 8.0, *)
-class HMService : Object {
+class HMService : NSObject {
   weak var accessory: @sil_weak HMAccessory? { get }
   var serviceType: String { get }
   @available(iOS 9.0, *)
@@ -9,10 +9,10 @@ class HMService : Object {
   var associatedServiceType: String? { get }
   var characteristics: [HMCharacteristic] { get }
   @available(iOS 9.0, *)
-  @NSCopying var uniqueIdentifier: UUID { get }
+  @NSCopying var uniqueIdentifier: NSUUID { get }
   @available(iOS 9.0, *)
   var isUserInteractive: Bool { get }
-  func updateName(name: String, completionHandler completion: (Error?) -> Void)
-  func updateAssociatedServiceType(serviceType: String?, completionHandler completion: (Error?) -> Void)
+  func updateName(name: String, completionHandler completion: (NSError?) -> Void)
+  func updateAssociatedServiceType(serviceType: String?, completionHandler completion: (NSError?) -> Void)
   init()
 }

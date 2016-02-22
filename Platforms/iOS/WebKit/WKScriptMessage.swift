@@ -1,6 +1,6 @@
 
 @available(iOS 8.0, *)
-class WKScriptMessage : Object {
+class WKScriptMessage : NSObject {
   @NSCopying var body: AnyObject { get }
   weak var webView: @sil_weak WKWebView? { get }
   @NSCopying var frameInfo: WKFrameInfo { get }

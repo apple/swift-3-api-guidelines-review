@@ -1,111 +1,111 @@
 
-var fileNoSuchFileError: Int { get }
-var fileLockingError: Int { get }
-var fileReadUnknownError: Int { get }
-var fileReadNoPermissionError: Int { get }
-var fileReadInvalidFileNameError: Int { get }
-var fileReadCorruptFileError: Int { get }
-var fileReadNoSuchFileError: Int { get }
-var fileReadInapplicableStringEncodingError: Int { get }
-var fileReadUnsupportedSchemeError: Int { get }
+var NSFileNoSuchFileError: Int { get }
+var NSFileLockingError: Int { get }
+var NSFileReadUnknownError: Int { get }
+var NSFileReadNoPermissionError: Int { get }
+var NSFileReadInvalidFileNameError: Int { get }
+var NSFileReadCorruptFileError: Int { get }
+var NSFileReadNoSuchFileError: Int { get }
+var NSFileReadInapplicableStringEncodingError: Int { get }
+var NSFileReadUnsupportedSchemeError: Int { get }
 @available(OSX 10.5, *)
-var fileReadTooLargeError: Int { get }
+var NSFileReadTooLargeError: Int { get }
 @available(OSX 10.5, *)
-var fileReadUnknownStringEncodingError: Int { get }
-var fileWriteUnknownError: Int { get }
-var fileWriteNoPermissionError: Int { get }
-var fileWriteInvalidFileNameError: Int { get }
+var NSFileReadUnknownStringEncodingError: Int { get }
+var NSFileWriteUnknownError: Int { get }
+var NSFileWriteNoPermissionError: Int { get }
+var NSFileWriteInvalidFileNameError: Int { get }
 @available(OSX 10.7, *)
-var fileWriteFileExistsError: Int { get }
-var fileWriteInapplicableStringEncodingError: Int { get }
-var fileWriteUnsupportedSchemeError: Int { get }
-var fileWriteOutOfSpaceError: Int { get }
+var NSFileWriteFileExistsError: Int { get }
+var NSFileWriteInapplicableStringEncodingError: Int { get }
+var NSFileWriteUnsupportedSchemeError: Int { get }
+var NSFileWriteOutOfSpaceError: Int { get }
 @available(OSX 10.6, *)
-var fileWriteVolumeReadOnlyError: Int { get }
+var NSFileWriteVolumeReadOnlyError: Int { get }
 @available(OSX 10.11, *)
-var fileManagerUnmountUnknownError: Int { get }
+var NSFileManagerUnmountUnknownError: Int { get }
 @available(OSX 10.11, *)
-var fileManagerUnmountBusyError: Int { get }
-var keyValueValidationError: Int { get }
-var formattingError: Int { get }
-var userCancelledError: Int { get }
+var NSFileManagerUnmountBusyError: Int { get }
+var NSKeyValueValidationError: Int { get }
+var NSFormattingError: Int { get }
+var NSUserCancelledError: Int { get }
 @available(OSX 10.8, *)
-var featureUnsupportedError: Int { get }
+var NSFeatureUnsupportedError: Int { get }
 @available(OSX 10.5, *)
-var executableNotLoadableError: Int { get }
+var NSExecutableNotLoadableError: Int { get }
 @available(OSX 10.5, *)
-var executableArchitectureMismatchError: Int { get }
+var NSExecutableArchitectureMismatchError: Int { get }
 @available(OSX 10.5, *)
-var executableRuntimeMismatchError: Int { get }
+var NSExecutableRuntimeMismatchError: Int { get }
 @available(OSX 10.5, *)
-var executableLoadError: Int { get }
+var NSExecutableLoadError: Int { get }
 @available(OSX 10.5, *)
-var executableLinkError: Int { get }
-var fileErrorMinimum: Int { get }
-var fileErrorMaximum: Int { get }
-var validationErrorMinimum: Int { get }
-var validationErrorMaximum: Int { get }
+var NSExecutableLinkError: Int { get }
+var NSFileErrorMinimum: Int { get }
+var NSFileErrorMaximum: Int { get }
+var NSValidationErrorMinimum: Int { get }
+var NSValidationErrorMaximum: Int { get }
 @available(OSX 10.5, *)
-var executableErrorMinimum: Int { get }
+var NSExecutableErrorMinimum: Int { get }
 @available(OSX 10.5, *)
-var executableErrorMaximum: Int { get }
-var formattingErrorMinimum: Int { get }
-var formattingErrorMaximum: Int { get }
+var NSExecutableErrorMaximum: Int { get }
+var NSFormattingErrorMinimum: Int { get }
+var NSFormattingErrorMaximum: Int { get }
 @available(OSX 10.6, *)
-var propertyListReadCorruptError: Int { get }
+var NSPropertyListReadCorruptError: Int { get }
 @available(OSX 10.6, *)
-var propertyListReadUnknownVersionError: Int { get }
+var NSPropertyListReadUnknownVersionError: Int { get }
 @available(OSX 10.6, *)
-var propertyListReadStreamError: Int { get }
+var NSPropertyListReadStreamError: Int { get }
 @available(OSX 10.6, *)
-var propertyListWriteStreamError: Int { get }
+var NSPropertyListWriteStreamError: Int { get }
 @available(OSX 10.10, *)
-var propertyListWriteInvalidError: Int { get }
+var NSPropertyListWriteInvalidError: Int { get }
 @available(OSX 10.6, *)
-var propertyListErrorMinimum: Int { get }
+var NSPropertyListErrorMinimum: Int { get }
 @available(OSX 10.6, *)
-var propertyListErrorMaximum: Int { get }
+var NSPropertyListErrorMaximum: Int { get }
 @available(OSX 10.8, *)
-var xpcConnectionInterrupted: Int { get }
+var NSXPCConnectionInterrupted: Int { get }
 @available(OSX 10.8, *)
-var xpcConnectionInvalid: Int { get }
+var NSXPCConnectionInvalid: Int { get }
 @available(OSX 10.8, *)
-var xpcConnectionReplyInvalid: Int { get }
+var NSXPCConnectionReplyInvalid: Int { get }
 @available(OSX 10.8, *)
-var xpcConnectionErrorMinimum: Int { get }
+var NSXPCConnectionErrorMinimum: Int { get }
 @available(OSX 10.8, *)
-var xpcConnectionErrorMaximum: Int { get }
+var NSXPCConnectionErrorMaximum: Int { get }
 @available(OSX 10.9, *)
-var ubiquitousFileUnavailableError: Int { get }
+var NSUbiquitousFileUnavailableError: Int { get }
 @available(OSX 10.9, *)
-var ubiquitousFileNotUploadedDueToQuotaError: Int { get }
+var NSUbiquitousFileNotUploadedDueToQuotaError: Int { get }
 @available(OSX 10.9, *)
-var ubiquitousFileUbiquityServerNotAvailable: Int { get }
+var NSUbiquitousFileUbiquityServerNotAvailable: Int { get }
 @available(OSX 10.9, *)
-var ubiquitousFileErrorMinimum: Int { get }
+var NSUbiquitousFileErrorMinimum: Int { get }
 @available(OSX 10.9, *)
-var ubiquitousFileErrorMaximum: Int { get }
+var NSUbiquitousFileErrorMaximum: Int { get }
 @available(OSX 10.10, *)
-var userActivityHandoffFailedError: Int { get }
+var NSUserActivityHandoffFailedError: Int { get }
 @available(OSX 10.10, *)
-var userActivityConnectionUnavailableError: Int { get }
+var NSUserActivityConnectionUnavailableError: Int { get }
 @available(OSX 10.10, *)
-var userActivityRemoteApplicationTimedOutError: Int { get }
+var NSUserActivityRemoteApplicationTimedOutError: Int { get }
 @available(OSX 10.10, *)
-var userActivityHandoffUserInfoTooLargeError: Int { get }
+var NSUserActivityHandoffUserInfoTooLargeError: Int { get }
 @available(OSX 10.10, *)
-var userActivityErrorMinimum: Int { get }
+var NSUserActivityErrorMinimum: Int { get }
 @available(OSX 10.10, *)
-var userActivityErrorMaximum: Int { get }
+var NSUserActivityErrorMaximum: Int { get }
 @available(OSX 10.11, *)
-var coderReadCorruptError: Int { get }
+var NSCoderReadCorruptError: Int { get }
 @available(OSX 10.11, *)
-var coderValueNotFoundError: Int { get }
+var NSCoderValueNotFoundError: Int { get }
 @available(OSX 10.11, *)
-var coderErrorMinimum: Int { get }
+var NSCoderErrorMinimum: Int { get }
 @available(OSX 10.11, *)
-var coderErrorMaximum: Int { get }
+var NSCoderErrorMaximum: Int { get }
 @available(OSX 10.11, *)
-var bundleErrorMinimum: Int { get }
+var NSBundleErrorMinimum: Int { get }
 @available(OSX 10.11, *)
-var bundleErrorMaximum: Int { get }
+var NSBundleErrorMaximum: Int { get }

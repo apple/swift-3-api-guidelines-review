@@ -1,9 +1,9 @@
 
-class Host : Object {
+class NSHost : NSObject {
   class func current() -> Self
   convenience init(name: String?)
   convenience init(address: String)
-  func isEqual(to aHost: Host) -> Bool
+  func isEqual(to aHost: NSHost) -> Bool
   var name: String? { get }
   var names: [String] { get }
   var address: String? { get }

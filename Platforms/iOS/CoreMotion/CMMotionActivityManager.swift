@@ -2,12 +2,12 @@
 @available(iOS 7.0, *)
 typealias CMMotionActivityHandler = (CMMotionActivity?) -> Void
 @available(iOS 7.0, *)
-typealias CMMotionActivityQueryHandler = ([CMMotionActivity]?, Error?) -> Void
+typealias CMMotionActivityQueryHandler = ([CMMotionActivity]?, NSError?) -> Void
 @available(iOS 7.0, *)
-class CMMotionActivityManager : Object {
+class CMMotionActivityManager : NSObject {
   class func isActivityAvailable() -> Bool
-  func queryActivityStarting(from start: Date, to end: Date, to queue: OperationQueue, withHandler handler: CMMotionActivityQueryHandler)
-  func startActivityUpdates(to queue: OperationQueue, withHandler handler: CMMotionActivityHandler)
+  func queryActivityStarting(from start: NSDate, to end: NSDate, to queue: NSOperationQueue, withHandler handler: CMMotionActivityQueryHandler)
+  func startActivityUpdates(to queue: NSOperationQueue, withHandler handler: CMMotionActivityHandler)
   func stopActivityUpdates()
   init()
 }

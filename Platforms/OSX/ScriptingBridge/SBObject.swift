@@ -1,15 +1,15 @@
 
 @available(OSX 10.5, *)
-class SBObject : Object, Coding {
+class SBObject : NSObject, NSCoding {
   init()
-  init(properties: [Object : AnyObject])
+  init(properties: [NSObject : AnyObject])
   init(data: AnyObject)
   func get() -> AnyObject?
   @available(OSX 10.6, *)
-  func lastError() -> Error?
+  func lastError() -> NSError?
   @available(OSX 10.5, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 extension SBObject {
   init(elementCode code: DescType, properties: [String : AnyObject]?, data: AnyObject?)

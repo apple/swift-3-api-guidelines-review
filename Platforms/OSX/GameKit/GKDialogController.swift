@@ -6,7 +6,7 @@ class GKDialogController : NSResponder {
   func present(viewController: NSViewController) -> Bool
   @IBAction func dismiss(sender: AnyObject)
   init()
-  init?(coder: Coder)
+  init?(coder: NSCoder)
 }
 extension GKDialogController {
   class func shared() -> GKDialogController

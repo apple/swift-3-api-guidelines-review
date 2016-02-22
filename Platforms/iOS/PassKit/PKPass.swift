@@ -8,23 +8,23 @@ enum PKPassType : UInt {
   case any
 }
 class PKPass : PKObject {
-  init(data: Data, error: ErrorPointer)
+  init(data: NSData, error: NSErrorPointer)
   @available(iOS 8.0, *)
   var passType: PKPassType { get }
   @available(iOS 8.0, *)
   unowned(unsafe) var paymentPass: @sil_unmanaged PKPaymentPass? { get }
   var serialNumber: String { get }
   var passTypeIdentifier: String { get }
-  @NSCopying var webServiceURL: URL? { get }
+  @NSCopying var webServiceURL: NSURL? { get }
   var authenticationToken: String? { get }
   @NSCopying var icon: UIImage { get }
   var localizedName: String { get }
   var localizedDescription: String { get }
   var organizationName: String { get }
-  @NSCopying var relevantDate: Date? { get }
+  @NSCopying var relevantDate: NSDate? { get }
   @available(iOS 7.0, *)
-  var userInfo: [Object : AnyObject]? { get }
-  @NSCopying var passURL: URL { get }
+  var userInfo: [NSObject : AnyObject]? { get }
+  @NSCopying var passURL: NSURL { get }
   @available(iOS 9.0, *)
   var isRemotePass: Bool { get }
   @available(iOS 9.0, *)

@@ -1,11 +1,11 @@
 
-class WebDownload : URLDownload {
+class WebDownload : NSURLDownload {
   @available(OSX, introduced=10.3, deprecated=10.11, message="Use NSURLSession downloadTask (see NSURLSession.h)")
-  init(request: URLRequest, delegate: URLDownloadDelegate?)
+  init(request: NSURLRequest, delegate: NSURLDownloadDelegate?)
   @available(OSX, introduced=10.3, deprecated=10.11, message="Use NSURLSession downloadTask (see NSURLSession.h)")
-  init(resumeData: Data, delegate: URLDownloadDelegate?, path: String)
+  init(resumeData: NSData, delegate: NSURLDownloadDelegate?, path: String)
   init()
 }
-protocol WebDownloadDelegate : URLDownloadDelegate {
+protocol WebDownloadDelegate : NSURLDownloadDelegate {
   optional func downloadWindow(forAuthenticationSheet download: WebDownload!) -> NSWindow!
 }

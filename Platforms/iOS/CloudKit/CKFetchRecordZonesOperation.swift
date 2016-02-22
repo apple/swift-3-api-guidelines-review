@@ -5,5 +5,5 @@ class CKFetchRecordZonesOperation : CKDatabaseOperation {
   init()
   convenience init(recordZoneIDs zoneIDs: [CKRecordZoneID])
   var recordZoneIDs: [CKRecordZoneID]?
-  var fetchRecordZonesCompletionBlock: (([CKRecordZoneID : CKRecordZone]?, Error?) -> Void)?
+  var fetchRecordZonesCompletionBlock: (([CKRecordZoneID : CKRecordZone]?, NSError?) -> Void)?
 }

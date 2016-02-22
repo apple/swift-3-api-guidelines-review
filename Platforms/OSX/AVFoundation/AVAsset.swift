@@ -1,16 +1,16 @@
 
 @available(OSX 10.7, *)
-class AVAsset : Object, Copying, AVAsynchronousKeyValueLoading {
-  convenience init(url URL: URL)
+class AVAsset : NSObject, NSCopying, AVAsynchronousKeyValueLoading {
+  convenience init(url URL: NSURL)
   var duration: CMTime { get }
   var preferredRate: Float { get }
   var preferredVolume: Float { get }
   var preferredTransform: CGAffineTransform { get }
   init()
   @available(OSX 10.7, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
-  func statusOfValue(forKey key: String, error outError: ErrorPointer) -> AVKeyValueStatus
+  func statusOfValue(forKey key: String, error outError: NSErrorPointer) -> AVKeyValueStatus
   @available(OSX 10.7, *)
   func loadValuesAsynchronously(forKeys keys: [String], completionHandler handler: (() -> Void)? = nil)
 }
@@ -52,9 +52,9 @@ extension AVAsset {
 }
 extension AVAsset {
   @available(OSX 10.7, *)
-  var availableChapterLocales: [Locale] { get }
+  var availableChapterLocales: [NSLocale] { get }
   @available(OSX 10.7, *)
-  func chapterMetadataGroups(withTitleLocale locale: Locale, containingItemsWithCommonKeys commonKeys: [String]?) -> [AVTimedMetadataGroup]
+  func chapterMetadataGroups(withTitleLocale locale: NSLocale, containingItemsWithCommonKeys commonKeys: [String]?) -> [AVTimedMetadataGroup]
   @available(OSX 10.8, *)
   func chapterMetadataGroups(bestMatchingPreferredLanguages preferredLanguages: [String]) -> [AVTimedMetadataGroup]
 }
@@ -100,9 +100,9 @@ class AVURLAsset : AVAsset {
   class func audiovisualMIMETypes() -> [String]
   @available(OSX 10.7, *)
   class func isPlayableExtendedMIMEType(extendedMIMEType: String) -> Bool
-  init(url URL: URL, options: [String : AnyObject]? = [:])
-  @NSCopying var url: URL { get }
-  convenience init(url URL: URL)
+  init(url URL: NSURL, options: [String : AnyObject]? = [:])
+  @NSCopying var url: NSURL { get }
+  convenience init(url URL: NSURL)
 }
 extension AVURLAsset {
   @available(OSX 10.9, *)
@@ -128,8 +128,8 @@ protocol AVFragmentMinding {
 @available(OSX 10.11, *)
 class AVFragmentedAsset : AVURLAsset, AVFragmentMinding {
   var tracks: [AVFragmentedAssetTrack] { get }
-  init(url URL: URL, options: [String : AnyObject]? = [:])
-  convenience init(url URL: URL)
+  init(url URL: NSURL, options: [String : AnyObject]? = [:])
+  convenience init(url URL: NSURL)
   @available(OSX 10.11, *)
   var isAssociatedWithFragmentMinder: Bool { get }
 }
@@ -139,9 +139,9 @@ extension AVFragmentedAsset {
   func tracks(withMediaCharacteristic mediaCharacteristic: String) -> [AVFragmentedAssetTrack]
 }
 @available(OSX 10.11, *)
-class AVFragmentedAssetMinder : Object {
-  convenience init(asset: AVAsset, mindingInterval: TimeInterval)
-  var mindingInterval: TimeInterval
+class AVFragmentedAssetMinder : NSObject {
+  convenience init(asset: AVAsset, mindingInterval: NSTimeInterval)
+  var mindingInterval: NSTimeInterval
   var assets: [AVAsset] { get }
   func addFragmentedAsset(asset: AVAsset)
   func removeFragmentedAsset(asset: AVAsset)

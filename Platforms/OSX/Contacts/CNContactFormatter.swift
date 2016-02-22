@@ -15,16 +15,16 @@ enum CNContactDisplayNameOrder : Int {
   case familyNameFirst
 }
 @available(OSX 10.11, *)
-class CNContactFormatter : Formatter {
+class CNContactFormatter : NSFormatter {
   class func descriptorForRequiredKeys(for style: CNContactFormatterStyle) -> CNKeyDescriptor
   class func string(from contact: CNContact, style: CNContactFormatterStyle) -> String?
-  class func attributedString(from contact: CNContact, style: CNContactFormatterStyle, defaultAttributes attributes: [Object : AnyObject]? = [:]) -> AttributedString?
+  class func attributedString(from contact: CNContact, style: CNContactFormatterStyle, defaultAttributes attributes: [NSObject : AnyObject]? = [:]) -> NSAttributedString?
   class func nameOrder(for contact: CNContact) -> CNContactDisplayNameOrder
   class func delimiter(for contact: CNContact) -> String
   var style: CNContactFormatterStyle
   func string(from contact: CNContact) -> String?
-  func attributedString(from contact: CNContact, defaultAttributes attributes: [Object : AnyObject]? = [:]) -> AttributedString?
+  func attributedString(from contact: CNContact, defaultAttributes attributes: [NSObject : AnyObject]? = [:]) -> NSAttributedString?
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 let CNContactPropertyAttribute: String

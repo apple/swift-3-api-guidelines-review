@@ -11,10 +11,10 @@ struct HKStatisticsOptions : OptionSetType {
   static var cumulativeSum: HKStatisticsOptions { get }
 }
 @available(watchOS 2.0, *)
-class HKStatistics : Object, SecureCoding, Copying {
+class HKStatistics : NSObject, NSSecureCoding, NSCopying {
   var quantityType: HKQuantityType { get }
-  var startDate: Date { get }
-  var endDate: Date { get }
+  var startDate: NSDate { get }
+  var endDate: NSDate { get }
   var sources: [HKSource]? { get }
   func averageQuantity(for source: HKSource) -> HKQuantity?
   func averageQuantity() -> HKQuantity?
@@ -27,8 +27,8 @@ class HKStatistics : Object, SecureCoding, Copying {
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   @available(watchOS 2.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

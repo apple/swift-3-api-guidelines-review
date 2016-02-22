@@ -1,6 +1,6 @@
 
 @available(iOS 7.0, *)
-class MKMapSnapshotOptions : Object, Copying {
+class MKMapSnapshotOptions : NSObject, NSCopying {
   @NSCopying var camera: MKMapCamera
   var mapRect: MKMapRect
   var region: MKCoordinateRegion
@@ -11,5 +11,5 @@ class MKMapSnapshotOptions : Object, Copying {
   var scale: CGFloat
   init()
   @available(iOS 7.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
 }

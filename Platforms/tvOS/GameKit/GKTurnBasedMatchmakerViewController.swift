@@ -4,8 +4,8 @@ class GKTurnBasedMatchmakerViewController : UINavigationController {
   @available(tvOS 5.0, *)
   init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
   init(rootViewController: UIViewController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  init?(coder aDecoder: Coder)
+  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+  init?(coder aDecoder: NSCoder)
   convenience init()
 }
 extension GKTurnBasedMatchmakerViewController {
@@ -13,9 +13,9 @@ extension GKTurnBasedMatchmakerViewController {
   var showExistingMatches: Bool
   init(matchRequest request: GKMatchRequest)
 }
-protocol GKTurnBasedMatchmakerViewControllerDelegate : ObjectProtocol {
+protocol GKTurnBasedMatchmakerViewControllerDelegate : NSObjectProtocol {
   @available(tvOS 5.0, *)
   func turnBasedMatchmakerViewControllerWasCancelled(viewController: GKTurnBasedMatchmakerViewController)
   @available(tvOS 5.0, *)
-  func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController, didFailWithError error: Error)
+  func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController, didFailWithError error: NSError)
 }

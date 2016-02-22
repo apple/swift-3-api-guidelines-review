@@ -1,16 +1,16 @@
 
-class WKInterfaceDevice : Object {
+class WKInterfaceDevice : NSObject {
   class func current() -> WKInterfaceDevice
   @available(iOS 8.2, *)
   func addCachedImage(image: UIImage, name: String) -> Bool
   @available(iOS 8.2, *)
-  func addCachedImage(imageData: Data, name: String) -> Bool
+  func addCachedImage(imageData: NSData, name: String) -> Bool
   @available(iOS 8.2, *)
   func removeCachedImage(name name: String)
   @available(iOS 8.2, *)
   func removeAllCachedImages()
   @available(iOS 8.2, *)
-  var cachedImages: [String : Number] { get }
+  var cachedImages: [String : NSNumber] { get }
   var screenBounds: CGRect { get }
   var screenScale: CGFloat { get }
   var preferredContentSizeCategory: String { get }

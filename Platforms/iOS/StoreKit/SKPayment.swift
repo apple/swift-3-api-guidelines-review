@@ -1,12 +1,12 @@
 
 @available(iOS 3.0, *)
-class SKPayment : Object, Copying, MutableCopying {
+class SKPayment : NSObject, NSCopying, NSMutableCopying {
   @available(iOS 3.0, *)
   convenience init(product: SKProduct)
   @available(iOS 3.0, *)
   var productIdentifier: String { get }
   @available(iOS 3.0, *)
-  @NSCopying var requestData: Data? { get }
+  @NSCopying var requestData: NSData? { get }
   @available(iOS 3.0, *)
   var quantity: Int { get }
   @available(iOS 7.0, *)
@@ -15,9 +15,9 @@ class SKPayment : Object, Copying, MutableCopying {
   var simulatesAskToBuyInSandbox: Bool { get }
   init()
   @available(iOS 3.0, *)
-  func copy(with zone: Zone = nil) -> AnyObject
+  func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 3.0, *)
-  func mutableCopy(with zone: Zone = nil) -> AnyObject
+  func mutableCopy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 3.0, *)
 class SKMutablePayment : SKPayment {
@@ -28,7 +28,7 @@ class SKMutablePayment : SKPayment {
   @available(iOS 3.0, *)
   var quantity: Int
   @available(iOS 3.0, *)
-  @NSCopying var requestData: Data?
+  @NSCopying var requestData: NSData?
   @available(iOS 8.3, *)
   var simulatesAskToBuyInSandbox: Bool
   @available(iOS 3.0, *)

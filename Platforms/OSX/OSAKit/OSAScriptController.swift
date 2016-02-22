@@ -18,5 +18,5 @@ class OSAScriptController : NSController {
   @IBAction func runScript(sender: AnyObject?)
   @IBAction func stopScript(sender: AnyObject?)
   init()
-  init?(coder: Coder)
+  init?(coder: NSCoder)
 }

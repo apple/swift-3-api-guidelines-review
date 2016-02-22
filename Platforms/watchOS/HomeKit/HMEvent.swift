@@ -1,6 +1,6 @@
 
 @available(watchOS 20000, *)
-class HMEvent : Object {
-  @NSCopying var uniqueIdentifier: UUID { get }
+class HMEvent : NSObject {
+  @NSCopying var uniqueIdentifier: NSUUID { get }
   init()
 }

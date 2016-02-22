@@ -7,7 +7,7 @@ enum EKSpan : Int {
 }
 typealias EKEventSearchCallback = (EKEvent, UnsafeMutablePointer<ObjCBool>) -> Void
 @available(iOS 4.0, *)
-class EKEventStore : Object {
+class EKEventStore : NSObject {
   @available(iOS 6.0, *)
   class func authorizationStatus(for entityType: EKEntityType) -> EKAuthorizationStatus
   @available(iOS 4.0, *)
@@ -43,23 +43,23 @@ class EKEventStore : Object {
   @available(iOS 5.0, *)
   func remove(event: EKEvent, span: EKSpan, commit: Bool) throws
   func event(withIdentifier identifier: String) -> EKEvent?
-  func events(matching predicate: Predicate) -> [EKEvent]
-  func enumerateEvents(matching predicate: Predicate, using block: EKEventSearchCallback)
-  func predicateForEvents(withStart startDate: Date, end endDate: Date, calendars: [EKCalendar]?) -> Predicate
+  func events(matching predicate: NSPredicate) -> [EKEvent]
+  func enumerateEvents(matching predicate: NSPredicate, using block: EKEventSearchCallback)
+  func predicateForEvents(withStart startDate: NSDate, end endDate: NSDate, calendars: [EKCalendar]?) -> NSPredicate
   @available(iOS 6.0, *)
   func save(reminder: EKReminder, commit: Bool) throws
   @available(iOS 6.0, *)
   func remove(reminder: EKReminder, commit: Bool) throws
   @available(iOS 6.0, *)
-  func fetchReminders(matching predicate: Predicate, completion: ([EKReminder]?) -> Void) -> AnyObject
+  func fetchReminders(matching predicate: NSPredicate, completion: ([EKReminder]?) -> Void) -> AnyObject
   @available(iOS 6.0, *)
   func cancelFetchRequest(fetchIdentifier: AnyObject)
   @available(iOS 6.0, *)
-  func predicateForReminders(in calendars: [EKCalendar]?) -> Predicate
+  func predicateForReminders(in calendars: [EKCalendar]?) -> NSPredicate
   @available(iOS 6.0, *)
-  func predicateForIncompleteReminders(withDueDateStarting startDate: Date?, ending endDate: Date?, calendars: [EKCalendar]?) -> Predicate
+  func predicateForIncompleteReminders(withDueDateStarting startDate: NSDate?, ending endDate: NSDate?, calendars: [EKCalendar]?) -> NSPredicate
   @available(iOS 6.0, *)
-  func predicateForCompletedReminders(withCompletionDateStarting startDate: Date?, ending endDate: Date?, calendars: [EKCalendar]?) -> Predicate
+  func predicateForCompletedReminders(withCompletionDateStarting startDate: NSDate?, ending endDate: NSDate?, calendars: [EKCalendar]?) -> NSPredicate
   @available(iOS 5.0, *)
   func commit() throws
   @available(iOS 5.0, *)
@@ -67,6 +67,6 @@ class EKEventStore : Object {
   @available(iOS 5.0, *)
   func refreshSourcesIfNecessary()
 }
-typealias EKEventStoreRequestAccessCompletionHandler = (Bool, Error?) -> Void
+typealias EKEventStoreRequestAccessCompletionHandler = (Bool, NSError?) -> Void
 @available(iOS 4.0, *)
 let EKEventStoreChangedNotification: String

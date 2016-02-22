@@ -7,20 +7,20 @@ enum LAPolicy : Int {
   case deviceOwnerAuthentication
 }
 @available(OSX 10.10, *)
-class LAContext : Object {
-  func canEvaluatePolicy(policy: LAPolicy, error: ErrorPointer) -> Bool
-  func evaluatePolicy(policy: LAPolicy, localizedReason: String, reply: (Bool, Error?) -> Void)
+class LAContext : NSObject {
+  func canEvaluatePolicy(policy: LAPolicy, error: NSErrorPointer) -> Bool
+  func evaluatePolicy(policy: LAPolicy, localizedReason: String, reply: (Bool, NSError?) -> Void)
   @available(OSX 10.11, *)
   func invalidate()
   @available(OSX 10.11, *)
-  func setCredential(credential: Data?, type: LACredentialType) -> Bool
+  func setCredential(credential: NSData?, type: LACredentialType) -> Bool
   @available(OSX 10.11, *)
   func isCredentialSet(type: LACredentialType) -> Bool
   @available(OSX 10.11, *)
-  func evaluateAccessControl(accessControl: SecAccessControl, operation: LAAccessControlOperation, localizedReason: String, reply: (Bool, Error?) -> Void)
+  func evaluateAccessControl(accessControl: SecAccessControl, operation: LAAccessControlOperation, localizedReason: String, reply: (Bool, NSError?) -> Void)
   var localizedFallbackTitle: String?
   @available(OSX 10.11, *)
-  var evaluatedPolicyDomainState: Data? { get }
+  var evaluatedPolicyDomainState: NSData? { get }
   init()
 }
 @available(OSX 10.11, *)

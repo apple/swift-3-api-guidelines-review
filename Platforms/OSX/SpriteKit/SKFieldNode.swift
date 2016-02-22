@@ -25,7 +25,7 @@ class SKFieldNode : SKNode {
   class func magneticField() -> SKFieldNode
   class func customField(evaluationBlock block: SKFieldForceEvaluator) -> SKFieldNode
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
   convenience init?(fileNamed filename: String)
 }
-typealias SKFieldForceEvaluator = (vector_float3, vector_float3, Float, Float, TimeInterval) -> vector_float3
+typealias SKFieldForceEvaluator = (vector_float3, vector_float3, Float, Float, NSTimeInterval) -> vector_float3

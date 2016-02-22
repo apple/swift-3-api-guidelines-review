@@ -4,9 +4,9 @@ class NSTableHeaderView : NSView {
   var draggedColumn: Int { get }
   var draggedDistance: CGFloat { get }
   var resizedColumn: Int { get }
-  func headerRectOf(column column: Int) -> Rect
-  func column(at point: Point) -> Int
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  func headerRectOf(column column: Int) -> NSRect
+  func column(at point: NSPoint) -> Int
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }

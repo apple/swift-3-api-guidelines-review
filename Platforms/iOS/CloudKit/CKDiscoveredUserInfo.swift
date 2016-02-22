@@ -1,6 +1,6 @@
 
 @available(iOS 8.0, *)
-class CKDiscoveredUserInfo : Object {
+class CKDiscoveredUserInfo : NSObject {
   @NSCopying var userRecordID: CKRecordID? { get }
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use -[[CKDiscoveredUserInfo displayContact] givenName]")
   var firstName: String? { get }

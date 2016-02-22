@@ -22,7 +22,7 @@ let ACFacebookAudienceOnlyMe: String
 @available(iOS 7.0, *)
 let ACTencentWeiboAppIdKey: String
 @available(iOS 5.0, *)
-class ACAccountType : Object {
+class ACAccountType : NSObject {
   var accountTypeDescription: String! { get }
   var identifier: String! { get }
   var accessGranted: Bool { get }

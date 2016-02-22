@@ -11,7 +11,7 @@ protocol IOBluetoothDeviceAsyncCallbacks {
   func connectionComplete(device: IOBluetoothDevice!, status: IOReturn)
   func sdpQueryComplete(device: IOBluetoothDevice!, status: IOReturn)
 }
-class IOBluetoothDevice : IOBluetoothObject, Coding, SecureCoding {
+class IOBluetoothDevice : IOBluetoothObject, NSCoding, NSSecureCoding {
   class func register(forConnectNotifications observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
   func register(forDisconnectNotification observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
   convenience init!(address: UnsafePointer<BluetoothDeviceAddress>)
@@ -27,14 +27,14 @@ class IOBluetoothDevice : IOBluetoothObject, Coding, SecureCoding {
   var deviceClassMinor: BluetoothDeviceClassMinor { get }
   var name: String! { get }
   var nameOrAddress: String! { get }
-  var lastNameUpdate: Date! { get }
+  var lastNameUpdate: NSDate! { get }
   func getAddress() -> UnsafePointer<BluetoothDeviceAddress>
   var addressString: String! { get }
   func getPageScanRepetitionMode() -> BluetoothPageScanRepetitionMode
   func getPageScanPeriodMode() -> BluetoothPageScanPeriodMode
   func getPageScanMode() -> BluetoothPageScanMode
   func getClockOffset() -> BluetoothClockOffset
-  func getLastInquiryUpdate() -> Date!
+  func getLastInquiryUpdate() -> NSDate!
   @available(OSX 10.7, *)
   func rssi() -> BluetoothHCIRSSIValue
   @available(OSX 10.7, *)
@@ -55,22 +55,22 @@ class IOBluetoothDevice : IOBluetoothObject, Coding, SecureCoding {
   @available(OSX 10.7, *)
   func performSDPQuery(target: AnyObject!, uuids uuidArray: [AnyObject]!) -> IOReturn
   var services: [AnyObject]! { get }
-  func getLastServicesUpdate() -> Date!
+  func getLastServicesUpdate() -> NSDate!
   func getServiceRecord(for sdpUUID: IOBluetoothSDPUUID!) -> IOBluetoothSDPServiceRecord!
   class func favoriteDevices() -> [AnyObject]!
   func isFavorite() -> Bool
   func addToFavorites() -> IOReturn
   func removeFromFavorites() -> IOReturn
   class func recentDevices(numDevices: UInt) -> [AnyObject]!
-  func recentAccessDate() -> Date!
+  func recentAccessDate() -> NSDate!
   class func pairedDevices() -> [AnyObject]!
   func isPaired() -> Bool
   func setSupervisionTimeout(timeout: UInt16) -> IOReturn
-  func openL2CAPChannelSync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [Object : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
-  func openL2CAPChannelAsync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [Object : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
-  func awakeAfter(coder: Coder!) -> AnyObject!
+  func openL2CAPChannelSync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [NSObject : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
+  func openL2CAPChannelAsync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [NSObject : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
+  func awakeAfter(coder: NSCoder!) -> AnyObject!
   init()
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
   class func supportsSecureCoding() -> Bool
 }

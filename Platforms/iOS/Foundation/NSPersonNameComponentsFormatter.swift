@@ -1,6 +1,6 @@
 
 @available(iOS 9.0, *)
-enum PersonNameComponentsFormatterStyle : Int {
+enum NSPersonNameComponentsFormatterStyle : Int {
   init?(rawValue: Int)
   var rawValue: Int { get }
   case `default`
@@ -10,35 +10,35 @@ enum PersonNameComponentsFormatterStyle : Int {
   case abbreviated
 }
 @available(iOS 9.0, *)
-struct PersonNameComponentsFormatterOptions : OptionSetType {
+struct NSPersonNameComponentsFormatterOptions : OptionSetType {
   init(rawValue: UInt)
   let rawValue: UInt
-  static var phonetic: PersonNameComponentsFormatterOptions { get }
+  static var phonetic: NSPersonNameComponentsFormatterOptions { get }
 }
 @available(iOS 9.0, *)
-class PersonNameComponentsFormatter : Formatter {
-  var style: PersonNameComponentsFormatterStyle
+class NSPersonNameComponentsFormatter : NSFormatter {
+  var style: NSPersonNameComponentsFormatterStyle
   var isPhonetic: Bool
-  class func localizedString(from components: PersonNameComponents, style nameFormatStyle: PersonNameComponentsFormatterStyle, options nameOptions: PersonNameComponentsFormatterOptions = []) -> String
-  func string(from components: PersonNameComponents) -> String
-  func annotatedString(from components: PersonNameComponents) -> AttributedString
+  class func localizedString(from components: NSPersonNameComponents, style nameFormatStyle: NSPersonNameComponentsFormatterStyle, options nameOptions: NSPersonNameComponentsFormatterOptions = []) -> String
+  func string(from components: NSPersonNameComponents) -> String
+  func annotatedString(from components: NSPersonNameComponents) -> NSAttributedString
   func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   init()
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 9.0, *)
-let personNameComponentKey: String
+let NSPersonNameComponentKey: String
 @available(iOS 9.0, *)
-let personNameComponentGivenName: String
+let NSPersonNameComponentGivenName: String
 @available(iOS 9.0, *)
-let personNameComponentFamilyName: String
+let NSPersonNameComponentFamilyName: String
 @available(iOS 9.0, *)
-let personNameComponentMiddleName: String
+let NSPersonNameComponentMiddleName: String
 @available(iOS 9.0, *)
-let personNameComponentPrefix: String
+let NSPersonNameComponentPrefix: String
 @available(iOS 9.0, *)
-let personNameComponentSuffix: String
+let NSPersonNameComponentSuffix: String
 @available(iOS 9.0, *)
-let personNameComponentNickname: String
+let NSPersonNameComponentNickname: String
 @available(iOS 9.0, *)
-let personNameComponentDelimiter: String
+let NSPersonNameComponentDelimiter: String

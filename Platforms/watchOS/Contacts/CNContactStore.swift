@@ -15,14 +15,14 @@ enum CNAuthorizationStatus : Int {
   case authorized
 }
 @available(watchOS 2.0, *)
-class CNContactStore : Object {
+class CNContactStore : NSObject {
   class func authorizationStatus(for entityType: CNEntityType) -> CNAuthorizationStatus
-  func requestAccess(for entityType: CNEntityType, completionHandler: (Bool, Error?) -> Void)
-  func unifiedContacts(matching predicate: Predicate, keysToFetch keys: [CNKeyDescriptor]) throws -> [CNContact]
+  func requestAccess(for entityType: CNEntityType, completionHandler: (Bool, NSError?) -> Void)
+  func unifiedContacts(matching predicate: NSPredicate, keysToFetch keys: [CNKeyDescriptor]) throws -> [CNContact]
   func unifiedContact(withIdentifier identifier: String, keysToFetch keys: [CNKeyDescriptor]) throws -> CNContact
   func enumerateContacts(fetchRequest: CNContactFetchRequest, usingBlock block: (CNContact, UnsafeMutablePointer<ObjCBool>) -> Void) throws
-  func groups(matching predicate: Predicate?) throws -> [CNGroup]
-  func containers(matching predicate: Predicate?) throws -> [CNContainer]
+  func groups(matching predicate: NSPredicate?) throws -> [CNGroup]
+  func containers(matching predicate: NSPredicate?) throws -> [CNContainer]
   func defaultContainerIdentifier() -> String
   init()
 }

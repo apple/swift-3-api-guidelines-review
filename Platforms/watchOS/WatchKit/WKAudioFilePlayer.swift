@@ -8,16 +8,16 @@ enum WKAudioFilePlayerStatus : Int {
   case failed
 }
 @available(watchOS 2.0, *)
-class WKAudioFilePlayer : Object {
+class WKAudioFilePlayer : NSObject {
   convenience init(playerItem item: WKAudioFilePlayerItem)
   func play()
   func pause()
   func replaceCurrentItem(item: WKAudioFilePlayerItem?)
   var currentItem: WKAudioFilePlayerItem? { get }
   var status: WKAudioFilePlayerStatus { get }
-  var error: Error? { get }
+  var error: NSError? { get }
   var rate: Float
-  var currentTime: TimeInterval { get }
+  var currentTime: NSTimeInterval { get }
 }
 @available(watchOS 2.0, *)
 class WKAudioFileQueuePlayer : WKAudioFilePlayer {

@@ -10,7 +10,7 @@ class CATextLayer : CALayer {
   var allowsFontSubpixelQuantization: Bool
   init()
   init(layer: AnyObject)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.5, *)
 let kCATruncationNone: String

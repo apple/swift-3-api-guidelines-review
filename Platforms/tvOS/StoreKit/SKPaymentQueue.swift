@@ -1,6 +1,6 @@
 
 @available(tvOS 3.0, *)
-class SKPaymentQueue : Object {
+class SKPaymentQueue : NSObject {
   @available(tvOS 3.0, *)
   class func defaultQueue() -> Self
   @available(tvOS 3.0, *)
@@ -29,13 +29,13 @@ class SKPaymentQueue : Object {
   var transactions: [SKPaymentTransaction] { get }
   init()
 }
-protocol SKPaymentTransactionObserver : ObjectProtocol {
+protocol SKPaymentTransactionObserver : NSObjectProtocol {
   @available(tvOS 3.0, *)
   func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction])
   @available(tvOS 3.0, *)
   optional func paymentQueue(queue: SKPaymentQueue, removedTransactions transactions: [SKPaymentTransaction])
   @available(tvOS 3.0, *)
-  optional func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error)
+  optional func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: NSError)
   @available(tvOS 3.0, *)
   optional func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue)
   @available(tvOS 6.0, *)

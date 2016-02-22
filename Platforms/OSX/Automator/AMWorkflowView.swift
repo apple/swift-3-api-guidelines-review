@@ -2,8 +2,8 @@
 class AMWorkflowView : NSView {
   var isEditable: Bool
   var workflowController: AMWorkflowController?
-  init(frame frameRect: Rect)
-  init?(coder: Coder)
+  init(frame frameRect: NSRect)
+  init?(coder: NSCoder)
   convenience init()
 }
 struct __AMWorkflowViewFlags {

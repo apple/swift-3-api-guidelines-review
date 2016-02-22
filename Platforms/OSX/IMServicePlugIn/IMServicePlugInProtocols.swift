@@ -1,15 +1,15 @@
 
-protocol IMServicePlugIn : ObjectProtocol {
+protocol IMServicePlugIn : NSObjectProtocol {
   init!(serviceApplication: IMServiceApplication!)
   @available(OSX 10.0, *)
-  func updateAccountSettings(accountSettings: [Object : AnyObject]!)
+  func updateAccountSettings(accountSettings: [NSObject : AnyObject]!)
   func login()
   func logout()
 }
-protocol IMServiceApplication : ObjectProtocol {
+protocol IMServiceApplication : NSObjectProtocol {
   func plugInDidLogIn()
-  func plugInDidLogOutWithError(error: Error!, reconnect: Bool)
+  func plugInDidLogOutWithError(error: NSError!, reconnect: Bool)
   func plugInDidFailToAuthenticate()
   @available(OSX 10.0, *)
-  func plug(inDidUpdateProperties changes: [Object : AnyObject]!, ofHandle handle: String!)
+  func plug(inDidUpdateProperties changes: [NSObject : AnyObject]!, ofHandle handle: String!)
 }

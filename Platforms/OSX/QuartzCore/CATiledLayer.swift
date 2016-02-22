@@ -6,5 +6,5 @@ class CATiledLayer : CALayer {
   var tileSize: CGSize
   init()
   init(layer: AnyObject)
-  init?(coder aDecoder: Coder)
+  init?(coder aDecoder: NSCoder)
 }

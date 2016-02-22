@@ -1,7 +1,7 @@
 
-protocol UIDocumentPickerDelegate : ObjectProtocol {
+protocol UIDocumentPickerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
-  func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAt url: URL)
+  func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAt url: NSURL)
   @available(iOS 8.0, *)
   optional func documentPickerWasCancelled(controller: UIDocumentPickerViewController)
 }
@@ -17,10 +17,10 @@ enum UIDocumentPickerMode : UInt {
 @available(iOS 8.0, *)
 class UIDocumentPickerViewController : UIViewController {
   init(documentTypes allowedUTIs: [String], in mode: UIDocumentPickerMode)
-  init?(coder aDecoder: Coder)
-  init(url: URL, in mode: UIDocumentPickerMode)
+  init?(coder aDecoder: NSCoder)
+  init(url: NSURL, in mode: UIDocumentPickerMode)
   weak var delegate: @sil_weak UIDocumentPickerDelegate?
   var documentPickerMode: UIDocumentPickerMode { get }
-  convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+  convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
   convenience init()
 }

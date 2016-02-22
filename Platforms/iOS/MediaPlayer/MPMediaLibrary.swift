@@ -1,15 +1,15 @@
 
 @available(iOS 3.0, *)
-class MPMediaLibrary : Object, SecureCoding {
+class MPMediaLibrary : NSObject, NSSecureCoding {
   class func defaultMediaLibrary() -> MPMediaLibrary
-  var lastModifiedDate: Date { get }
+  var lastModifiedDate: NSDate { get }
   func beginGeneratingLibraryChangeNotifications()
   func endGeneratingLibraryChangeNotifications()
   init()
   @available(iOS 3.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 3.0, *)
-  func encode(with aCoder: Coder)
-  init?(coder aDecoder: Coder)
+  func encode(with aCoder: NSCoder)
+  init?(coder aDecoder: NSCoder)
 }
 let MPMediaLibraryDidChangeNotification: String
