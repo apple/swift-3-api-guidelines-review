@@ -75,7 +75,7 @@ protocol NSStackViewDelegate : ObjectProtocol {
   @available(OSX 10.9, *)
   optional func stackView(stackView: NSStackView, willDetach views: [NSView])
   @available(OSX 10.9, *)
-  optional func stackView(stackView: NSStackView, didReattachViews views: [NSView])
+  optional func stackView(stackView: NSStackView, didReattach views: [NSView])
 }
 extension NSStackView {
   @available(OSX, introduced=10.9, deprecated=10.11, message="Set -distribution to NSStackViewDistributionEqualSpacing instead.")

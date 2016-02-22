@@ -87,9 +87,9 @@ class NSLayoutConstraint : Object {
   @available(tvOS 8.0, *)
   var isActive: Bool
   @available(tvOS 8.0, *)
-  class func activateConstraints(constraints: [NSLayoutConstraint])
+  class func activate(constraints: [NSLayoutConstraint])
   @available(tvOS 8.0, *)
-  class func deactivateConstraints(constraints: [NSLayoutConstraint])
+  class func deactivate(constraints: [NSLayoutConstraint])
   init()
 }
 extension NSLayoutConstraint {

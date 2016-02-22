@@ -17,7 +17,7 @@ let NSAllRomanInputSourcesLocaleIdentifier: String
 class NSTextView : NSText, NSUserInterfaceValidations, NSTextInputClient, NSTextLayoutOrientationProvider, NSDraggingSource, NSTextInput, NSAccessibilityNavigableStaticText {
   init(frame frameRect: Rect, textContainer container: NSTextContainer?)
   init?(coder: Coder)
-  convenience init(frame frameRect: Rect)
+  init(frame frameRect: Rect)
   unowned(unsafe) var textContainer: @sil_unmanaged NSTextContainer?
   func replaceTextContainer(newContainer: NSTextContainer)
   var textContainerInset: Size

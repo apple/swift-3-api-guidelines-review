@@ -72,7 +72,7 @@ protocol UserNotificationCenterDelegate : ObjectProtocol {
   @available(OSX 10.8, *)
   optional func userNotificationCenter(center: UserNotificationCenter, didDeliver notification: UserNotification)
   @available(OSX 10.8, *)
-  optional func userNotificationCenter(center: UserNotificationCenter, didActivateNotification notification: UserNotification)
+  optional func userNotificationCenter(center: UserNotificationCenter, didActivate notification: UserNotification)
   @available(OSX 10.8, *)
   optional func userNotificationCenter(center: UserNotificationCenter, shouldPresent notification: UserNotification) -> Bool
 }

@@ -4,7 +4,7 @@ class WCSession : Object {
   class func isSupported() -> Bool
   class func defaultSession() -> WCSession
   weak var delegate: @sil_weak WCSessionDelegate?
-  func activateSession()
+  func activate()
   var isReachable: Bool { get }
   @available(watchOS 2.0, *)
   var iOSDeviceNeedsUnlockAfterRebootForReachability: Bool { get }

@@ -28,6 +28,7 @@ class Error : Object, Copying, SecureCoding {
   class func setUserInfoValueProviderForDomain(errorDomain: String, provider: ((Error, String) -> AnyObject?)? = nil)
   @available(watchOS 2.0, *)
   class func userInfoValueProvider(forDomain errorDomain: String) -> ((Error, String) -> AnyObject?)?
+  convenience init()
   func copy(with zone: Zone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: Coder)

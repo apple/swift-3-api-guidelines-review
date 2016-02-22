@@ -4,7 +4,7 @@ class WCSession : Object {
   class func isSupported() -> Bool
   class func defaultSession() -> WCSession
   weak var delegate: @sil_weak WCSessionDelegate?
-  func activateSession()
+  func activate()
   var isPaired: Bool { get }
   var isWatchAppInstalled: Bool { get }
   var isComplicationEnabled: Bool { get }

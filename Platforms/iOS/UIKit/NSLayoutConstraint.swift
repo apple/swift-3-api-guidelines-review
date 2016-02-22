@@ -87,9 +87,9 @@ class NSLayoutConstraint : Object {
   @available(iOS 8.0, *)
   var isActive: Bool
   @available(iOS 8.0, *)
-  class func activateConstraints(constraints: [NSLayoutConstraint])
+  class func activate(constraints: [NSLayoutConstraint])
   @available(iOS 8.0, *)
-  class func deactivateConstraints(constraints: [NSLayoutConstraint])
+  class func deactivate(constraints: [NSLayoutConstraint])
   init()
 }
 extension NSLayoutConstraint {
