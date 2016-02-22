@@ -41,7 +41,7 @@ class UISegmentedControl : UIControl, Coding {
   @available(iOS 5.0, *)
   func dividerImage(forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 5.0, *)
-  func setTitleTextAttributes(attributes: [Object : AnyObject]? = [:], for state: UIControlState)
+  func setTitleTextAttributes(attributes: [Object : AnyObject]?, for state: UIControlState)
   @available(iOS 5.0, *)
   func titleTextAttributes(for state: UIControlState) -> [Object : AnyObject]?
   @available(iOS 5.0, *)

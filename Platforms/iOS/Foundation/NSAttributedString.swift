@@ -38,7 +38,7 @@ struct AttributedStringEnumerationOptions : OptionSetType {
 @available(iOS 3.2, *)
 class MutableAttributedString : AttributedString {
   func replaceCharacters(in range: NSRange, with str: String)
-  func setAttributes(attrs: [String : AnyObject]? = [:], range: NSRange)
+  func setAttributes(attrs: [String : AnyObject]?, range: NSRange)
   init()
   init?(coder aDecoder: Coder)
   init(string str: String)

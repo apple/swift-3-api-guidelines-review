@@ -10,7 +10,7 @@ class CIFilterGenerator : Object, SecureCoding, Copying, CIFilterConstructor {
   func exportKey(key: String, from targetObject: AnyObject, withName exportedKeyName: String?)
   func removeExportedKey(exportedKeyName: String)
   var exportedKeys: [Object : AnyObject] { get }
-  func setAttributes(attributes: [Object : AnyObject] = [:], forExportedKey key: String)
+  func setAttributes(attributes: [Object : AnyObject], forExportedKey key: String)
   var classAttributes: [Object : AnyObject]
   func filter() -> CIFilter
   func registerFilterName(name: String)

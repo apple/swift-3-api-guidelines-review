@@ -61,7 +61,7 @@ class NSFontManager : Object {
   unowned(unsafe) var delegate: @sil_unmanaged AnyObject?
   func sendAction() -> Bool
   func localizedName(forFamily family: String, face faceKey: String?) -> String
-  func setSelectedAttributes(attributes: [String : AnyObject] = [:], isMultiple flag: Bool)
+  func setSelectedAttributes(attributes: [String : AnyObject], isMultiple flag: Bool)
   func convertAttributes(attributes: [String : AnyObject] = [:]) -> [String : AnyObject]
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -[NSFontDescriptor matchingFontDescriptorsWithMandatoryKeys:] instead")
   func availableFontNames(matching descriptor: NSFontDescriptor) -> [AnyObject]?

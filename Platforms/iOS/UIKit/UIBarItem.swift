@@ -13,7 +13,7 @@ class UIBarItem : Object, Coding, UIAppearance {
   var landscapeImagePhoneInsets: UIEdgeInsets
   var tag: Int
   @available(iOS 5.0, *)
-  func setTitleTextAttributes(attributes: [String : AnyObject]? = [:], for state: UIControlState)
+  func setTitleTextAttributes(attributes: [String : AnyObject]?, for state: UIControlState)
   @available(iOS 5.0, *)
   func titleTextAttributes(for state: UIControlState) -> [String : AnyObject]?
   @available(iOS 2.0, *)

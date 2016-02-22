@@ -9,7 +9,7 @@ class UIBarItem : Object, Coding, UIAppearance {
   var imageInsets: UIEdgeInsets
   var tag: Int
   @available(tvOS 5.0, *)
-  func setTitleTextAttributes(attributes: [String : AnyObject]? = [:], for state: UIControlState)
+  func setTitleTextAttributes(attributes: [String : AnyObject]?, for state: UIControlState)
   @available(tvOS 5.0, *)
   func titleTextAttributes(for state: UIControlState) -> [String : AnyObject]?
   @available(tvOS 2.0, *)

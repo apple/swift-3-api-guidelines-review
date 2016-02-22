@@ -53,7 +53,7 @@ class FileManager : Object {
   @available(tvOS 2.0, *)
   unowned(unsafe) var delegate: @sil_unmanaged FileManagerDelegate?
   @available(tvOS 2.0, *)
-  func setAttributes(attributes: [String : AnyObject] = [:], ofItemAtPath path: String) throws
+  func setAttributes(attributes: [String : AnyObject], ofItemAtPath path: String) throws
   @available(tvOS 2.0, *)
   func createDirectory(atPath path: String, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]? = [:]) throws
   @available(tvOS 2.0, *)

@@ -64,7 +64,7 @@ class FileManager : Object {
   @available(OSX 10.5, *)
   unowned(unsafe) var delegate: @sil_unmanaged FileManagerDelegate?
   @available(OSX 10.5, *)
-  func setAttributes(attributes: [String : AnyObject] = [:], ofItemAtPath path: String) throws
+  func setAttributes(attributes: [String : AnyObject], ofItemAtPath path: String) throws
   @available(OSX 10.5, *)
   func createDirectory(atPath path: String, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]? = [:]) throws
   @available(OSX 10.5, *)
